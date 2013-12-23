@@ -2,8 +2,11 @@
 
 local bjs=require("wetgenes.bake.js")
 
-bjs.build{ arg={...},
+bjs.build{
+
+	arg={...},
 
 	name="ctrack",
 	
+	compiler="../bin/compiler.jar"	
 }
