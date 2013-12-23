@@ -1,10 +1,10 @@
 
-ctrack.setup_html=function(opts)
+ctrack.setup_html=function()
 {
 
 	ctrack.div={};
 
-	ctrack.div.master=$(opts.div);
+	ctrack.div.master=$(ctrack.args.master);
 	ctrack.div.main=$("<div class=\"ctrack_main\"></div>");
 	
 	ctrack.div.master.empty();
