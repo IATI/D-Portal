@@ -10,7 +10,7 @@ ctrack.setup_html=function()
 	ctrack.div.master.empty();
 	ctrack.div.master.append(ctrack.div.main);
 	
-	ctrack.div.main.html( ctrack.plate.chunk("chunk1",{test2:"OKOKOK"})  );
+	ctrack.div.main.html( ctrack.plate.chunk("chunk1",{test:"TESTING"})  );
 
 }
 
