@@ -8,6 +8,8 @@ Ctrack=function(args){
 	var ctrack={};
 	ctrack.args=args;
 	
+#include "src/ctrack.chunks.js"	
+#include "src/ctrack.plate.js"	
 #include "src/ctrack.html.js"	
 		
 	return ctrack;

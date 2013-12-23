@@ -17,12 +17,14 @@ local io=io
 local os=os
 
 
-function build(arg)
+local wstr=require("wetgenes.string")
+local wjson=require("wetgenes.json")
 
 local bake=require("wetgenes.bake")
-
 local pp=require("wetgenes.pp")
 local lfs=require("lfs")
+
+function build(arg)
 
 local no_art=false
 
@@ -269,8 +271,172 @@ end
 
 
 
+-----------------------------------------------------------------------------
+--
+-- take some text and break it into named chunks
+-- returns a lookup table of chunks and numerical list of these chunks in the order they where first defined
+-- body is the default chunk name
+--
+-- a chunk is a line that begins with #
+-- the part after the # and ending with whitespace is the chunk name
+-- all text following this line is part of that chunk
+-- the default section if none is give is "body", so any whitespace at the start of the file
+-- before the first # line will be assigned to this chunk
+-- data may follow this chunk name, if multiple chunks of the same name
+-- are defined they are simple merged into one
+-- and each #chunk line is combined into one chunk data
+--
+-- use option=value after the section name to provide options, so somthing like this
+--
+-- #name opt=val opt=val opt=val
+-- # opt=val
+-- here is some text
+-- # opt=val
+-- here is some more text
+-- ## special comment, this line is ignored
+-- ## comments are just a line that begins with two hashes
+--
+-- is a valid chunk, all of the opt=val will be assigned to the same chunk
+-- and all the other text will be joined as that chunks body
+--
+-- pass in chunks and you can merge multiple texts into one chunk
+--
+-----------------------------------------------------------------------------
+function text_to_chunks(text,chunks)
+
+local chunkend -- special end of chunk test
+
+	chunks=chunks or {}
+
+	local function manifest_chunk(line,oldchunk)
+		local opts=wstr.split_words( line:sub(2) ) -- skip # at start of line
+		local name=string.lower( opts[1] or "body" )
+		local chunk
+		local c2=line:sub(2,2)
+				
+		if c2:find("%s") then -- if first char after # is whitespace, then use the old chunk 
+			chunk=oldchunk
+		end
+		
+		if not chunk then
+			chunk=chunks[name] -- do we already have this chunk?
+		end
+		
+		if chunk then -- update an old chunk
+		
+			for i=1,#opts do local v=opts[i]
+				table.insert( chunk.opts , v ) -- add extra opts
+				local a,b=wstr.split_equal(v)
+				if a then chunk.opts[a]=b end
+			end
+			
+		else -- create a new chunk
+		
+			chunk={} -- make default chunk
+
+-- set some default options depending on the chunk name
+
+			if name:sub(1,4)=="body" then -- all chunks begining with "body" are waka format by default
+				opts.form="waka"
+			end
+
+			if name:sub(1,5)=="title" then -- all chunks begining with "title" are trimed by default
+				opts.trim="ends"
+			end
+
+			if name:sub(1,3)=="css" then -- all chunks begining with "css" append children by default
+				opts.append="on"
+			end
+		
+			if name:sub(1,3)=="lua" then -- all chunks begining with "lua" are lua code by default
+				opts.form="lua"
+			end
+			if name:sub(1,4)=="opts" then -- all chunks begining with "opts" are also lua code by default
+				opts.form="opts"
+			end
+			
+-- the actual options will overide the defaults
+
+			for i=1,#opts do local v=opts[i]
+				local a,b=wstr.split_equal(v)
+				if a then opts[a]=b end
+			end
+			
+			chunk.id=#chunks+1
+			chunk.name=name
+			chunk.opts=opts
+			chunk.lines={}
+			
+			chunks[chunk.id]=chunk		-- save chunk in chunks as numbered id
+			chunks[chunk.name]=chunk	-- and as name
+		end
+		
+		return chunk
+	end
+		
+	local lines=wstr.split_lines(text)
+	
+	local chunk
+	
+	for i=1,#lines do local v=lines[i] -- ipairs
+		
+		local c=v:sub(1,1) -- the first char is special
+		
+		if c=="#" then -- start of chunk
+		
+			if chunkend then -- waiting for special end everything is inserted
+			
+				if chunkend==v:sub(1,#chunkend) then -- got it
+					chunkend=nil
+				else
+					if not chunk then chunk=manifest_chunk("#body") end --sanity				
+					table.insert(chunk.lines , v)
+				end
+				
+			else
+
+				if "#[["==v:sub(1,3) then -- special open
+				
+					chunkend="#]]"..v:sub(4) -- any special hash we need to close
+				
+				elseif v:sub(2,2)~="#" then -- skip all comments
+
+					chunk=manifest_chunk(v,chunk)
+
+				end
+				
+			end
+			
+		else -- normal lime add to the current chunk
+		
+			if not chunk then chunk=manifest_chunk("#body") end --sanity
+			
+			table.insert(chunk.lines , v)
+		end
+	
+	end
+	
+	for i=1,#chunks do local v=chunks[i] -- perform some final actions on all chunks
+	
+		v.text=table.concat(v.lines) -- merge the split lines back together into one string
+		
+	end
+	
+	return chunks
+	
+end
 
 
+local s=bake.readfile("src/chunks/base.html")
+
+local chunks=text_to_chunks(s)
+
+local dats={}
+for i,v in ipairs(chunks) do
+	dats[v.name]=v.text
+end
+
+bake.writefile("src/ctrack.chunks.js","ctrack.chunks="..wjson.encode(dats)..";\n")
 
 build{
 
