@@ -1,23 +1,5 @@
 
 
-
-ctrack.iatidata={};
-ctrack.iatidata.totext=function(v)
-{
-	if     ( typeof v == "string") { return v; }
-	else if( typeof v == "object") { return ctrack.iatidata.totext( v.text ); } // text turns up in type? sometimes?
-	return "";
-}
-
-ctrack.iatidata.fill=function(vi,vo,ss)
-{
-	for(var i=0;i<ss.length;i++)
-	{
-		vo[ ss[i] ] = ctrack.iatidata.totext ( vi[ ss[i] ] );
-	}
-}
-
-
 ctrack.fetch=function(args)
 {
 	var api="/api/1/access/activity";//.json";	
@@ -27,22 +9,13 @@ ctrack.fetch=function(args)
 	
 	var callback=function(data){
 		
+		ctrack.div.main.html( ctrack.plate.chunk("preparing",{})  );
+
 		console.log(data);
 		
-		var a=data["iati-activities"];
-		var d=[];
-		for(var i=0;i<a.length;i++)
-		{
-			var v=a[i]["iati-activity"];
-			var t={};
-			
-			t.num=i;
-			ctrack.iatidata.fill(v,t,["description"]);
-
-			d.push(t);
-		}
-		
-		ctrack.div.main.html( ctrack.plate.chunk_array("dump_act",d)  );
+		var acts=ctrack.iati.clean_activities( data["iati-activities"] );
+console.log(acts);
+		ctrack.div.main.html( ctrack.plate.chunks("dump_act",acts)  );
 
 	};
 		

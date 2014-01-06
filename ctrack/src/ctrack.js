@@ -11,6 +11,7 @@ Ctrack=function(args){
 #include "src/ctrack.chunks.js"
 #include "src/ctrack.plate.js"
 #include "src/ctrack.html.js"
+#include "src/ctrack.iati.js"
 #include "src/ctrack.json.js"
 		
 	return ctrack;

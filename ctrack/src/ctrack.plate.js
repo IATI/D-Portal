@@ -41,9 +41,9 @@ ctrack.plate.chunk=function(str,dat)
 	return ctrack.plate.replace( ctrack.chunks[str] ,dat);
 }
 
-ctrack.plate.chunk_array=function(str,dat)
+ctrack.plate.chunks=function(str,dat)
 {
-	return ctrack.plate.replace_array( ctrack.chunks[str] ,dat);
+	return ctrack.plate.replaces( ctrack.chunks[str] ,dat);
 }
 
 ctrack.plate.replace=function(str,dat)
@@ -70,7 +70,7 @@ ctrack.plate.replace=function(str,dat)
 	return r.join("");
 }
 
-ctrack.plate.replace_array=function(str,arr)
+ctrack.plate.replaces=function(str,arr)
 {
 	var r=[];
 	for(var i=0;i<arr.length;i++)
