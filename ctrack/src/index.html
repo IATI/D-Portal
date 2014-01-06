@@ -44,12 +44,12 @@ head.ready(function(){
 	
 var setup=function(){	$(function(){
 	
-		var opts={master:$(".ctrack"),datastore:"http://127.0.0.1:5000/",art:"",cachebreak:"?v1"};
-		var ctrack=Ctrack(opts);
+		var args={master:$(".ctrack"),datastore:":5000/",country:"bd",art:"",cachebreak:"?v1"};
+		var ctrack=Ctrack(args);
 
 		ctrack.setup_html();
 
-	});};
+	}); };
 
 	setup();
 

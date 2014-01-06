@@ -446,3 +446,8 @@ build{
 	
 	...
 }
+
+bake.execute()
+
+
+

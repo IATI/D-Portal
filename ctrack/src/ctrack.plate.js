@@ -14,13 +14,13 @@ ctrack.plate.prepare=function(str)
 	var ar=[];
 	
 	ar.push(aa[0]);
-	for(i=1;i<aa.length;i++)
+	for(var i=1;i<aa.length;i++)
 	{
 		ar.push("{"); // this string is used to mark the following string as something to replace
 		var av=aa[i].split("}");
-		for(i=0;i<av.length;i++)
+		for(var j=0;j<av.length;j++)
 		{
-			ar.push(av[i]);
+			ar.push(av[j]);
 		}
 	}
 	ctrack.plate.preps[str]=ar;
@@ -29,7 +29,7 @@ ctrack.plate.prepare=function(str)
 
 ctrack.plate.lookup=function(str,dat)
 {
-	if( dat[str] )
+	if( dat[str]!=undefined )
 	{
 		return dat[str];
 	}
@@ -41,13 +41,18 @@ ctrack.plate.chunk=function(str,dat)
 	return ctrack.plate.replace( ctrack.chunks[str] ,dat);
 }
 
+ctrack.plate.chunk_array=function(str,dat)
+{
+	return ctrack.plate.replace_array( ctrack.chunks[str] ,dat);
+}
+
 ctrack.plate.replace=function(str,dat)
 {
 	var aa=ctrack.plate.prepare(str);
 	
 	var r=[];
 	
-	for(i=0;i<aa.length;i++)
+	for(var i=0;i<aa.length;i++)
 	{
 		var v=aa[i];
 		if( v=="{" ) // next string should be replaced
@@ -65,3 +70,14 @@ ctrack.plate.replace=function(str,dat)
 	return r.join("");
 }
 
+ctrack.plate.replace_array=function(str,arr)
+{
+	var r=[];
+	for(var i=0;i<arr.length;i++)
+	{
+		r.push( ctrack.plate.replace(str,arr[i]) );
+	}
+
+	return r.join("");
+
+}
