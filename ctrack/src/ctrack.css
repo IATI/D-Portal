@@ -13,7 +13,7 @@ i						{color:#000; font-style:italics;}
 .footer:hover			{color:#A59313;}
 
 table 					{font-size:20px; color:#000; border-collapse:collapse; }
-table td 				{border-bottom:1px solid #ccc; padding:20px 0;}
+table td 				{border-bottom:1px solid #ccc; padding:20px 0; display:table-cell; vertical-align:top;}
 table tr:nth-child(1) td:not(:nth-child(1)) {text-align:right;}
 table tr:not(:nth-child(1)) td:nth-child(3) {text-align:right;}
 table tr:nth-child(1) td {border-bottom:1px solid #444; padding:5px 0;}
