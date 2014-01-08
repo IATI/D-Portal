@@ -77,27 +77,27 @@ Country Tracker
 
 #ctactive
 <div style="padding-left:10px; font-size:32px; color:#A5BBC0;">Active Projects</div>
-<div style="font-size:128px; color:#444;">1648</div>
+<div style="font-size:128px; color:#444;">{active_projects}</div>
 
 
 
 
 #ctactivities
 <div style="padding-left:5px;font-size:20px; color:#A5BBC0;">Activities</div>
-<div style="font-size:56px; color:#444;">3259</div>
+<div style="font-size:56px; color:#444;">{total_projects}</div>
 
 
 
 
 #ctpublishers
 <div style="padding-left:5px;font-size:20px; color:#A5BBC0;">Publishers</div>
-<div style="font-size:56px; color:#444;">153</div>
+<div style="font-size:56px; color:#444;">128</div>
 
 
 
 
 #ctbox1table_data
-<tr><td>{num}.</td><td><div>{title}</div></td><td>{amount}</td></tr>
+<tr><td>{num}.</td><td><div>{title}</div></td><td>{date}</td></tr>
 
 #ctbox1table
 <table class="box1">
@@ -140,21 +140,26 @@ Country Tracker
 
 #ctend
 <div style="padding-left:10px; font-size:20px; color:#B19090;">Ended Projects</div>
-<div style="font-size:86px; color:#444;">1593</div>
+<div style="font-size:86px; color:#444;">{finished_projects}</div>
 
 
 
+
+#ctbox2table_data
+<tr><td>{num}.</td><td><div>{title}</div></td><td>{date}</td></tr>
 
 #ctbox2table
 <table class="box2">
 <tr><td colspan="2" style="font-size:12px; color:#666; line-height:1.6em;">ENDING SOON</td><td style="font-size:12px; color:#666; line-height:1.6em;">(&#163; GBP) BUDGET &#8743; &#8744;</td></tr>
+{ctbox2table_datas}
+</table>
+
+#old
 <tr><td>1.</td><td><div>Paribarvittik Jeboboichittra Gram (PJG) Project</div></td><td>334461</td></tr>
 <tr><td>2.</td><td><div>Flood Resistant Shelter for South-West region in Bangladesh (FRESH)</div></td><td>1612124</td></tr>
 <tr><td>3.</td><td><div>Empowering Women RMG Workers Project Bangladesh</div></td><td>313887</td></tr>
 <tr><td>4.</td><td><div>Flood Resistant Shelter for South-West region in Bangladesh (FRESH)</div></td><td>1612124</td></tr>
 <tr><td>5.</td><td><div>Empowering Women RMG Workers Project Bangladesh</div></td><td>334461</td></tr>
-</table>
-
 
 
 
@@ -176,20 +181,25 @@ Country Tracker
 
 #ctplan
 <div style="padding-left:10px; font-size:20px; color:#96B67C;">Planned Projects</div>
-<div style="font-size:86px; color:#444;">842</div>
+<div style="font-size:86px; color:#444;">{planned_projects}</div>
 
 
 
+#ctbox3table_data
+<tr><td>{num}.</td><td><div>{title}</div><div style="padding-top:10px;"><img src="art/logo1.png" alt="logo" width="215" height="49"/></div></td><td>{date}</td></tr>
 
 #ctbox3table
 <table class="box3">
 <tr><td colspan="2" style="font-size:12px; color:#666; line-height:1.6em;">LATEST</td><td style="font-size:12px; color:#666; line-height:1.6em;">START DATE</td></tr>
+{ctbox3table_datas}
+</table>
+
+#old
 <tr><td>1.</td><td><div>Paribarvittik Jeboboichittra Gram (PJG) Project</div><div style="padding-top:10px;"><img src="art/logo1.png" alt="logo" width="215" height="49"/></div></td><td>2014-01-17</td></tr>
 <tr><td>2.</td><td><div>Flood Resistant Shelter for South-West region in Bangladesh (FRESH)</div><div style="padding-top:10px;"><img src="art/logo2.png" alt="logo" width="215" height="49"/></div></td><td>2014-02-24</td></tr>
 <tr><td>3.</td><td><div>Empowering Women RMG Workers Project Bangladesh</div><div style="padding-top:10px;"><img src="art/logo3.png" alt="logo" width="215" height="49"/></div></td><td>2014-06-07</td></tr>
 <tr><td>4.</td><td><div>Flood Resistant Shelter for South-West region in Bangladesh (FRESH)</div><div style="padding-top:10px;"><img src="art/logo1.png" alt="logo" width="215" height="49"/></div></td><td>2014-11-13</td></tr>
 <tr><td>5.</td><td><div>Empowering Women RMG Workers Project Bangladesh</div><div style="padding-top:10px;"><img src="art/logo2.png" alt="logo" width="215" height="49"/></div></td><td>2015-03-12</td></tr>
-</table>
 
 
 
