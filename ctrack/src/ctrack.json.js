@@ -50,6 +50,8 @@ ctrack.fetch_endingsoon=function(args)
 
 			v.date=v["end-actual"] || v["end-planned"];
 
+			v.activity=v["iati-identifier"];
+
 			s.push( ctrack.plate.chunk("ctbox1table_data",v) );
 		}
 
@@ -95,6 +97,8 @@ ctrack.fetch_finished=function(args)
 			v.num=i+1;
 
 			v.date=v["end-actual"] || v["end-planned"];
+
+			v.activity=v["iati-identifier"];
 
 			s.push( ctrack.plate.chunk("ctbox2table_data",v) );
 		}
@@ -142,6 +146,8 @@ ctrack.fetch_planned=function(args)
 			v.num=i+1;
 
 			v.date=v["start-actual"] || v["start-planned"];
+			
+			v.activity=v["iati-identifier"];
 
 			s.push( ctrack.plate.chunk("ctbox3table_data",v) );
 		}
@@ -195,11 +201,11 @@ ctrack.fetch_stats=function(args)
 }
 
 
-ctrack.fetch_test=function(args)
+ctrack.fetch_activity=function(args)
 {
-	var api="/api/1/access/activity";//.json";	
+	var api="/api/1/access/activity.db.json";	
 	var dat={
-			"recipient-country":args.country || ctrack.args.country
+			"iati-identifier":args.activity
 		};
 	
 	var callback=function(data){

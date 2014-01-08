@@ -65,6 +65,7 @@ ctrack.setup_html=function()
 		chunk("ctbox2more");
 		chunk("ctbox3");
 		chunk("ctbox3table");
+		chunk("ctbox3more");
 		chunk("ctbox2more");
 		chunk("ctnearhead");
 		chunk("ctneartable");
@@ -90,11 +91,13 @@ ctrack.setup_html=function()
  
 	ctrack.div.main.html( ctrack.htmlall("bodytest") );
  
-	ctrack.fetch_endingsoon({limit:5});
-	ctrack.fetch_finished({limit:5});
-	ctrack.fetch_planned({limit:5});
-
-	ctrack.fetch_endingsoon({limit:5,country:"np",callback:function(data){
+	ctrack.fetch_near=function(args)
+	{
+		args=args || {};
+		
+		args.limit=args.limit || 5;
+		args.country=args.country || "np";		
+		args.callback=args.callback || function(data){
 			
 			console.log("fetch endingsoon NP ");
 			console.log(data);
@@ -106,7 +109,7 @@ ctrack.setup_html=function()
 				v.num=i+1;
 				v.date=v["end-actual"] || v["end-planned"];
 				v.country="Nepal"
-
+				v.activity=v["iati-identifier"];
 				s.push( ctrack.plate.chunk("ctneartable_data",v) );
 			}
 
@@ -114,8 +117,70 @@ ctrack.setup_html=function()
 
 			ctrack.div.main.html( ctrack.htmlall("bodytest") );
 
-		}});
+		};
+		
+		ctrack.fetch_endingsoon(args);
+	};
 
+	ctrack.fetch_endingsoon({limit:5});
+	ctrack.fetch_finished({limit:5});
+	ctrack.fetch_planned({limit:5});
+	ctrack.fetch_near({limit:5});
+
+		$( document ).on("click", "a", function(event){
+			var s=$(this).prop("href");
+			if(s)
+			{
+				s=s.split("#");
+				if(s[1])
+				{
+					s=s[1];
+
+					if(s=="about") // test
+					{
+						event.preventDefault();
+						ctrack.fetch_activity({activity:"44000-P119917"});
+					}
+
+					var aa=s.split("_");
+					console.log( s );
+					if(aa[0]=="ctrack") // ours
+					{
+						event.preventDefault();
+						if(aa[1]=="index")
+						{
+							ctrack.div.main.html( ctrack.htmlall("bodytest") );
+						}
+						else
+						if(aa[1]=="activity")
+						{
+							var s=$(this).attr("activity");
+							console.log(s);
+							ctrack.fetch_activity({activity:s});
+						}
+						else
+						if(aa[2]=="more")
+						{
+							switch(aa[1])
+							{
+								case "ending":
+									ctrack.fetch_endingsoon({limit:20});
+								break;
+								case "finished":
+									ctrack.fetch_finished({limit:20});
+								break;
+								case "starting":
+									ctrack.fetch_planned({limit:20});
+								break;
+								case "near":
+									ctrack.fetch_near({limit:20});
+								break;
+							}
+						}
+					}
+				}
+			}
+		});
 
 //this one takes a loooooooong time...
 //	ctrack.fetch_stats({});
