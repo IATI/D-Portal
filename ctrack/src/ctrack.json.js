@@ -23,10 +23,10 @@ ctrack.fetch_endingsoon=function(args)
 			"limit":args.limit || 5,
 			"end-date__sort":"asc",
 			"end-date__gt":today,
-			"recipient-country":ctrack.args.country
+			"recipient-country":args.country || ctrack.args.country
 		};
 	
-	var callback=function(data){
+	var callback=args.callback || function(data){
 		
 //		ctrack.div.main.html( ctrack.plate.chunk("preparing",{})  );
 
@@ -80,10 +80,10 @@ ctrack.fetch_finished=function(args)
 			"limit":args.limit || 5,
 			"end-date__sort":"desc",
 			"end-date__lt":today,
-			"recipient-country":ctrack.args.country
+			"recipient-country":args.country || ctrack.args.country
 		};
 	
-	var callback=function(data){
+	var callback=args.callback || function(data){
 
 		console.log("fetch finshed : "+today);
 		console.log(data);
@@ -127,10 +127,10 @@ ctrack.fetch_planned=function(args)
 			"limit":args.limit || 5,
 			"start-date__sort":"asc",
 			"start-date__gt":today,
-			"recipient-country":ctrack.args.country
+			"recipient-country":args.country || ctrack.args.country
 		};
 	
-	var callback=function(data){
+	var callback=args.callback || function(data){
 
 		console.log("fetch planned : "+today);
 		console.log(data);
@@ -171,27 +171,15 @@ ctrack.fetch_stats=function(args)
    	var api="/api/1/access/activity.stats.json";	
 	var dat={
 			"limit":10000,
-			"recipient-country":ctrack.args.country
+			"recipient-country":args.country || ctrack.args.country
 		};
 	
-	var callback=function(data){
+	var callback=args.callback || function(data){
 
-		console.log("fetch planned : "+today);
+		console.log("activity stats");
 		console.log(data);
 		
-		var s=[];
-		for(i=0;i<data["iati-activities"].length;i++)
-		{
-			var v=data["iati-activities"][i];
-			v.num=i+1;
-
-			v.date=v["start-actual"] || v["start-planned"];
-
-			s.push( ctrack.plate.chunk("ctbox3table_data",v) );
-		}
-
-		ctrack.htmlchunk("planned_projects",data["total-count"]);
-		ctrack.htmlchunk("ctbox3table_datas",s.join(""));
+		ctrack.htmlchunk("numof_publishers",data["counts"]["reporting_org_id"]);
 
 		ctrack.div.main.html( ctrack.htmlall("bodytest") );
 
@@ -211,7 +199,7 @@ ctrack.fetch_test=function(args)
 {
 	var api="/api/1/access/activity";//.json";	
 	var dat={
-			"recipient-country":ctrack.args.country
+			"recipient-country":args.country || ctrack.args.country
 		};
 	
 	var callback=function(data){

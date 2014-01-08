@@ -40,6 +40,12 @@ ctrack.setup_html=function()
 
 	ctrack.htmlchunk("ctbox3table_datas","<tr><td>Loading...</td></tr>");
 	ctrack.htmlchunk("planned_projects",0);
+	
+	ctrack.htmlchunk("ctneartable_datas","<tr><td>Loading...</td></tr>");
+
+	ctrack.htmlchunk("numof_publishers",0);
+	
+	ctrack.htmlchunk("today",ctrack.get_today());
 
 	ctrack.htmlall=function(n)
 	{
@@ -87,6 +93,32 @@ ctrack.setup_html=function()
 	ctrack.fetch_endingsoon({limit:5});
 	ctrack.fetch_finished({limit:5});
 	ctrack.fetch_planned({limit:5});
+
+	ctrack.fetch_endingsoon({limit:5,country:"np",callback:function(data){
+			
+			console.log("fetch endingsoon NP ");
+			console.log(data);
+			
+			var s=[];
+			for(i=0;i<data["iati-activities"].length;i++)
+			{
+				var v=data["iati-activities"][i];
+				v.num=i+1;
+				v.date=v["end-actual"] || v["end-planned"];
+				v.country="Nepal"
+
+				s.push( ctrack.plate.chunk("ctneartable_data",v) );
+			}
+
+			ctrack.htmlchunk("ctneartable_datas",s.join(""));
+
+			ctrack.div.main.html( ctrack.htmlall("bodytest") );
+
+		}});
+
+
+//this one takes a loooooooong time...
+//	ctrack.fetch_stats({});
 
 }
 

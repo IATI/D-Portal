@@ -34,6 +34,12 @@ var setup=function(){	$(function(){
 
 		ctrack.setup_html();
 
+//enable slow stats mode
+		if(window.location.hash=="#stats")
+		{
+			ctrack.fetch_stats();
+		}
+		
 	}); };
 
 	setup();
