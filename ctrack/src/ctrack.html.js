@@ -18,10 +18,19 @@ ctrack.setup_html=function()
 //	ctrack.fetch({});
 
 	var d={};
-	
-	var chunk=function(n){
-		d[n]=ctrack.plate.chunk(n,d);
+	var chunk=function(n,s){
+		if(s)
+		{
+			d[n]=s;
+		}
+		else
+		{
+			d[n]=ctrack.plate.chunk(n,d);
+		}
+		return d[n]
 	}
+	ctrack.htmldata=d;
+	ctrack.htmlchunk=chunk;
 	
 	chunk("ctend");
 	chunk("ctplan");
@@ -56,7 +65,7 @@ ctrack.setup_html=function()
  
 	ctrack.div.main.html( d.bodytest );
  
-
+	ctrack.fetch_endingsoon({limit:5});
 
 }
 
