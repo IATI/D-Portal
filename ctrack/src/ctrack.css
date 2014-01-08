@@ -19,19 +19,20 @@ table tr:not(:nth-child(1)) td:nth-child(3) {text-align:right;}
 table tr:nth-child(1) td {border-bottom:1px solid #444; padding:5px 0;}
 
 table.box1				{width:960px; margin:0 auto; margin-top:5px;}
-table.box1 div			{padding-left:5px; max-width:760px;}
+table.box1 div			{padding-left:5px; width:760px; max-width:760px;}
 table.box1 tr:nth-child(1) td:not(:nth-child(1)) {text-align:right;}
 
 table.box2				{width:440px; margin:0 auto; margin-top:5px; font-size:14px; color:#000;}
-table.box2 div			{padding-left:5px; max-width:250px;}
+table.box2 div			{padding-left:5px; width:250px; max-width:250px;}
 table.box2 tr:nth-child(1) td:not(:nth-child(1)) {text-align:right;}
 
 table.box3				{width:440px; margin:0 auto; margin-top:5px; font-size:14px; color:#000;}
-table.box3 div			{padding-left:5px; max-width:340px;}
+table.box3 div			{padding-left:5px; width:340px; max-width:340px;}
 
-table.near				{width:880px; margin:0 auto; margin-top:5px;}
+table.near				{width:880px; margin:0 auto; margin-top:5px; color:#6B6F70;}
 table.near td			{border-bottom:1px solid #ccc; padding:15px 0;}
-table.near div			{max-width:420px;}
-table.near tr:nth-child(1) td:not(:nth-child(1)) {text-align:right;}
-table.near tr:not(:nth-child(1)) td:nth-child(3) {text-align:right;}
+table.near div			{width:500px; max-width:500px; padding-left:5px;}
+table.near tr:nth-child(1) td	{border-bottom: 3px solid #CDE2E7;}
+table.near tr:nth-child(1) td:nth-child(2) {text-align:left;}
+table.near tr:not(:nth-child(1)) td:nth-child(3) {text-align:left;}
 table.near tr:not(:nth-child(1)) td:nth-child(4) {text-align:right;}
