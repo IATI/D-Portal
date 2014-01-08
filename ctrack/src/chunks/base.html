@@ -16,10 +16,13 @@ This is some more data
 <b>Please wait, preparing page...</b>
 
 #dump_act
+<a href="#ctrack_index">BACK</a>
 <table>
 <tr><td>id:</td><td>{id}</td></tr>
 <tr><td>title:</td><td>{title}</td></tr>
 <tr><td>status:</td><td>{status} ({status-code})</td></tr>
+<tr><td>start-date:</td><td>{start-date}</td></tr>
+<tr><td>end-date:</td><td>{end-date}</td></tr>
 <tr><td>description:</td><td>{description}</td></tr>
 </table>
 <br/>
@@ -96,7 +99,7 @@ Country Tracker
 
 
 #ctbox1table_data
-<tr><td>{num}.</td><td><div>{title}</div></td><td>{date}</td></tr>
+<tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{activity}">{title}</a></div></td><td>{date}</td></tr>
 
 #ctbox1table
 <table class="box1">
@@ -115,7 +118,7 @@ Country Tracker
 
 #ctbox1more
 <div style="width:960px; margin:0 auto;">
-<a href="#ctrack_near_more" class="boxmore">LOAD MORE</a>
+<a href="#ctrack_ending_more" class="boxmore">LOAD MORE</a>
 </div>
 
 
@@ -123,7 +126,7 @@ Country Tracker
 
 #ctboxes
 <div style="width:960px; margin:0 auto;">
-<div style="display:inline-block; vertical-align:top; margin-right:60px;">{ctbox2}{ctbox2table}{ctbox2more}</div><div style="display:inline-block; vertical-align:top;">{ctbox3}{ctbox3table}{ctbox2more}</div>
+<div style="display:inline-block; vertical-align:top; margin-right:60px;">{ctbox2}{ctbox2table}{ctbox2more}</div><div style="display:inline-block; vertical-align:top;">{ctbox3}{ctbox3table}{ctbox3more}</div>
 </div>
 
 
@@ -145,7 +148,7 @@ Country Tracker
 
 
 #ctbox2table_data
-<tr><td>{num}.</td><td><div>{title}</div></td><td>{date}</td></tr>
+<tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{activity}">{title}</a></div></td><td>{date}</td></tr>
 
 #ctbox2table
 <table class="box2">
@@ -164,9 +167,13 @@ Country Tracker
 
 #ctbox2more
 <div style="width:438px; margin:0 auto;">
-<a href="#" class="boxmore">LOAD MORE</a>
+<a href="#ctrack_finished_more" class="boxmore">LOAD MORE</a>
 </div>
 
+#ctbox3more
+<div style="width:438px; margin:0 auto;">
+<a href="#ctrack_starting_more" class="boxmore">LOAD MORE</a>
+</div>
 
 
 
@@ -185,7 +192,7 @@ Country Tracker
 
 
 #ctbox3table_data
-<tr><td>{num}.</td><td><div>{title}</div><div style="padding-top:10px;"><img src="art/logo1.png" alt="logo" width="215" height="49"/></div></td><td>{date}</td></tr>
+<tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{activity}">{title}</a></div><div style="padding-top:10px;"><img src="art/logo1.png" alt="logo" width="215" height="49"/></div></td><td>{date}</td></tr>
 
 #ctbox3table
 <table class="box3">
@@ -220,7 +227,7 @@ Country Tracker
 
 
 #ctneartable_data
-<tr><td>{num}.</td><td><div>{title}</div></td><td>{country}</td><td>{date}</td></tr>
+<tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{activity}">{title}</a></div></td><td>{country}</td><td>{date}</td></tr>
 
 #ctneartable
 <table class="near">
