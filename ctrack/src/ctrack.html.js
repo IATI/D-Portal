@@ -43,6 +43,7 @@ ctrack.setup_html=function()
 	
 	ctrack.htmlchunk("numof_publishers",0);
 	
+	ctrack.htmlchunk("today",ctrack.get_today());
 
 	ctrack.htmlall=function(n)
 	{
