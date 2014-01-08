@@ -20,7 +20,9 @@ table tr:nth-child(1) td {border-bottom:1px solid #444; padding:5px 0;}
 
 table.box1				{width:960px; margin:0 auto; margin-top:5px;}
 table.box1 div			{padding-left:5px; width:760px; max-width:760px;}
-table.box1 tr:nth-child(1) td:not(:nth-child(1)) {text-align:right;}
+table.box1 tr:nth-child(1) td 		{text-align:left;}
+table.box1 tr:not(:nth-child(1)) td {text-align:left;}
+
 
 table.box2				{width:440px; margin:0 auto; margin-top:5px; font-size:14px; color:#000;}
 table.box2 div			{padding-left:5px; width:250px; max-width:250px;}
