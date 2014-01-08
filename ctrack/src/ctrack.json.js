@@ -176,22 +176,10 @@ ctrack.fetch_stats=function(args)
 	
 	var callback=function(data){
 
-		console.log("fetch planned : "+today);
+		console.log("activity stats");
 		console.log(data);
 		
-		var s=[];
-		for(i=0;i<data["iati-activities"].length;i++)
-		{
-			var v=data["iati-activities"][i];
-			v.num=i+1;
-
-			v.date=v["start-actual"] || v["start-planned"];
-
-			s.push( ctrack.plate.chunk("ctbox3table_data",v) );
-		}
-
-		ctrack.htmlchunk("planned_projects",data["total-count"]);
-		ctrack.htmlchunk("ctbox3table_datas",s.join(""));
+		ctrack.htmlchunk("numof_publishers",data["counts"]["reporting_org_id"]);
 
 		ctrack.div.main.html( ctrack.htmlall("bodytest") );
 

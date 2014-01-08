@@ -40,6 +40,9 @@ ctrack.setup_html=function()
 
 	ctrack.htmlchunk("ctbox3table_datas","<tr><td>Loading...</td></tr>");
 	ctrack.htmlchunk("planned_projects",0);
+	
+	ctrack.htmlchunk("numof_publishers",0);
+	
 
 	ctrack.htmlall=function(n)
 	{
@@ -87,6 +90,9 @@ ctrack.setup_html=function()
 	ctrack.fetch_endingsoon({limit:5});
 	ctrack.fetch_finished({limit:5});
 	ctrack.fetch_planned({limit:5});
+
+//this one takes a loooooooong time...
+//	ctrack.fetch_stats({});
 
 }
 
