@@ -44,8 +44,8 @@ ctrack.iati.clean_activity=function(dirtyact)
 	act["status-code"]=Number( dirtyact["activity-status"] && dirtyact["activity-status"].code || -1 ) ;
 	act["status"]= ctrack.iati.lookup_status( act["status-code"] );
 
-	act["start-date"]=dirtyact["start-actual"] || dirtyact["start-planed"];
-	act["end-date"]=dirtyact["end-actual"] || dirtyact["end-planed"];
+	act["start-date"]=dirtyact["start-actual"] || dirtyact["start-planned"];
+	act["end-date"]=dirtyact["end-actual"] || dirtyact["end-planned"];
 	
 	act.id=dirtyact["iati-identifier"];
 

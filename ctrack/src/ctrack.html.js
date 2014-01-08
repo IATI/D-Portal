@@ -136,12 +136,13 @@ ctrack.setup_html=function()
 				{
 					s=s[1];
 
+/*
 					if(s=="about") // test
 					{
 						event.preventDefault();
 						ctrack.fetch_activity({activity:"44000-P119917"});
 					}
-
+*/
 					var aa=s.split("_");
 					console.log( s );
 					if(aa[0]=="ctrack") // ours
