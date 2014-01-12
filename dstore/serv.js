@@ -17,6 +17,23 @@ if(nconf.get("cmd"))
 		var xmlfile=nconf.get("xmlfile");
 		console.log("Importing xmlfile : "+xmlfile);
 		
+		var fs = require('fs');
+		
+		fs.readFile(xmlfile, 'utf8', function (err,data) {
+			console.log("filesize: "+data.length);
+			var aa=data.split("<iati-activity"); // find start of activities (crude but effective)
+			var acts=[];
+			for(i=1;i<aa.length;i++)
+			{
+				var v=aa[i];
+				var v=v.split("</iati-activity>")[0]; // trim the end
+				acts.push("<iati-activity"+v+"</iati-activity>"); // rebuild
+			}
+			console.log("activities: "+acts.length);
+			console.log(acts[0]);
+		});
+
+		
 	}
 }
 
