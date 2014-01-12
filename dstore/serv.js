@@ -1,7 +1,25 @@
 
-var express = require('express');
+var nconf = require('nconf');
 var express = require('express');
 var app = express();
+
+nconf.argv().env().file({ file: '	' });
+nconf.set("database_file","db/main.sqlite");
+
+if(nconf.get("cmd"))
+{
+	var cmd=nconf.get("cmd");
+	console.log("cmd found : "+cmd);
+	if( cmd=="import" )
+	{
+		console.log("Attempting Import");
+		
+		var xmlfile=nconf.get("xmlfile");
+		console.log("Importing xmlfile : "+xmlfile);
+		
+	}
+}
+
 
 app.use(express.logger());
 
