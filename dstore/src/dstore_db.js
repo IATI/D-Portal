@@ -11,12 +11,15 @@ var nconf = require('nconf');
 var sqlite3 = require('sqlite3').verbose();
 var xml2js = require('xml2js');
 
+var exs=require('./exs');
+
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // data table descriptions
 dstore_db.tables={
 	xmlacts:[
-		{ name:"aid",				TEXT:true , PRIMARY:true },	// this is the iati Activity iati-IDentifier and used everywhere
+		{ name:"aid",				TEXT:true , PRIMARY:true },	// this is the iati Activity : iati-IDentifier and is used everywhere
 		{ name:"xml",				TEXT:true },
 		{ name:"json",				TEXT:true }
 	],
@@ -26,11 +29,6 @@ dstore_db.tables={
 		{ name:"description",		TEXT:true }
 	]
 };
-
-dstore_db.exchange=[
-	{ year:2014,
-	},
-];
 
 var http_getbody=function(url,cb)
 {
@@ -70,7 +68,7 @@ dstore_db.hack_exs = function(){
 					var year=parseInt(l[0]);
 					var val=Number(l[1]);
 					
-					years[year]=years[year] || {}
+					years[year]=years[year] || {};
 					years[year][v]=val;
 				}
 			});
@@ -78,18 +76,18 @@ dstore_db.hack_exs = function(){
 	});
 
 	var p=[];
-	p.push("year")
+	p.push("year");
 	exs.map(function(v){
-		p.push("\t")
-		p.push(v)
+		p.push("\t");
+		p.push(v);
 	});
-	p.push("\n")
+	p.push("\n");
 	
 	for(y in years)
 	{
 		p.push(""+y);
 		exs.map(function(v){
-			p.push("\t")
+			p.push("\t");
 			if(years[y][v] && years[y][v]>0)
 			{
 				p.push(""+years[y][v]);
