@@ -208,6 +208,7 @@ var xml_get_isodate=function(it)
 	return null;
 };
 
+
 var xml_get_value=function(it)
 {
 	var t=it;
@@ -218,6 +219,42 @@ var xml_get_value=function(it)
 		}
 	}
 	return null;
+}
+
+var xml_get_value_year=function(it)
+{
+	var t=it;
+	if(t){
+		if(t[0]){t=t[0];}
+		if(t["$"]){t=t["$"];}
+		if(t["value-date"]){
+			return parseInt(t["value-date"]); // parseint will get the first number and ignore the -
+		}
+	}
+	return null;
+}
+
+var xml_get_value_currency=function(it)
+{
+	var t=it;
+	if(t){
+		if(t[0]){t=t[0];}
+		if(t["$"]){t=t["$"];}
+		if(t["currency"]){
+			return t["currency"];
+		}
+	}
+	return null;
+}
+
+var xml_get_usd=function(it,default_currency)
+{
+	var y=xml_get_value_year(it) || 2010; // pick a default year?
+	if(y<1990) { y=1990; } // deal with bad year formats
+	
+	var x=xml_get_value_currency(it) || default_currency || "USD";
+	var v=xml_get_value(it);
+	return exs.exchange_year(y,x,v);
 }
 
 var xml_get_text=function(it)
@@ -253,14 +290,16 @@ dstore_db.hack_acts = function(){
 		values[n][ v ]=(values[n][ v ] || 0 ) +1;
 	}
 	
-	var do_budget=function(it)
+	var do_budget=function(it,act)
 	{
 		counts.budget++;
 		
+		var default_currency=act["$"]["default-currency"];
+
 		var t={};
 		t["start"]=xml_get_isodate(it["period-start"]);
 		t["end"]=xml_get_isodate(it["period-end"]);
-		t["usd"]=xml_get_value(it["value"]);
+		t["usd"]=xml_get_usd(it["value"],default_currency);
 
 //		console.dir(it);
 //		console.dir(t);
@@ -270,20 +309,39 @@ dstore_db.hack_acts = function(){
 		
 //		for(var i=0;i<99999999999999999999;i++);
 	};
-	var do_transaction=function(it)
+	var do_transaction=function(it,act)
 	{
 		counts.transaction++;
 
+		var default_currency=act["$"]["default-currency"];
+
 		var t={};
 		t["description"]=xml_get_text(it["description"]);
-		t["usd"]=xml_get_value(it["value"]);
+		t["usd"]=xml_get_usd(it["value"],default_currency);
 		t["code"]=xml_get_code(it["transaction-type"]);
 
 		add_value("tdesc",t["description"]);
 		add_value("tcode",t["code"]);
 
-		totals.transaction+=t.usd;
-
+//		if(t.usd)
+//		{
+			totals.transaction+=t.usd;
+//		}
+/*
+ * 		else
+		{
+			var y=xml_get_value_year(it["value"]) || 2010; // pick a default year?
+	if(y<1990) { y=1990; }
+			var x=xml_get_value_currency(it["value"]) || default_currency || "USD";
+			var v=xml_get_value(it["value"]);
+			var usd=exs.exchange_year(y,x,v);
+			ls([y,x,v,usd]);
+			ls(default_currency);
+			ls(t);
+			ls(it);
+		}
+*/
+		
 //		ls(t);
 //		ls(it);
 
@@ -301,18 +359,18 @@ dstore_db.hack_acts = function(){
 			
 //			console.log(act["reporting-org"]);
 			var org=act["reporting-org"][0]["_"];
+			var default_currency=act["$"]["default-currency"];
 
 			add_value("org",org);
-			
-//			console.log(org)
+			add_value("default_currency",default_currency);
 			
 			if(act.transaction)
 			{
-				for(var i=0;i<act.transaction.length;i++) { do_transaction(act.transaction[i]); }
+				for(var i=0;i<act.transaction.length;i++) { do_transaction(act.transaction[i],act); }
 			}
 			if(act.budget)
 			{
-				for(var i=0;i<act.budget.length;i++) { do_budget(act.budget[i]); }
+				for(var i=0;i<act.budget.length;i++) { do_budget(act.budget[i],act); }
 			}
 			
 //			for(var i=0;i<99999999999999999999;i++);

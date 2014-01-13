@@ -26,7 +26,7 @@ if(nconf.get("cmd"))
 	else
 	if( cmd=="hack" )
 	{
-		wait.launchFiber( require("./src/dstore_db").hack_acts() );
+		wait.launchFiber( require("./src/dstore_db").hack_acts );
 		return;
 	}
 	else

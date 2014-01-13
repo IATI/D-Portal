@@ -11,7 +11,8 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var years=[];
 
-exs.load=function()
+// import the CSV, just call once on intialization
+exs.load_csv=function()
 {
 	var csv=fs.readFileSync( __dirname + '/exs.csv', "utf8");
 	var lines=csv.split("\n");
@@ -43,27 +44,30 @@ exs.load=function()
 //	console.log(years);
 }
 
-// exchange at the given years rate
+// exchange at the given years rate into usd
 exs.exchange_year=function(year,ex,val)
 {
+	val=val || 1; // default of 1
+	ex=ex.toUpperCase();
 	var last;
-	val=val || 1;
+	var ret;
 	years.map(function(v){
+		if(ret) { return; }
 		if(v[ex]) // currency is available
 		{
-			if(v.year>=year) // aim for the right year or a future year
+			if(v.year<=year) // aim for the right year or a future year
 			{
-				return v[ex]*val;
+				ret=v;
 			}
-			last=v;
+			last=v; // remember
 		}
 	});
-	if(last) // but pick a previous year as a last resort
+	ret=ret || last; // but try a previous year as a last resort
+	if(ret)
 	{
-		return last[ex]*val;
+		return val/last[ex];
 	}
-	
 }
 
 // load the exchange rates from a csv
-exs.load();
+exs.load_csv();
