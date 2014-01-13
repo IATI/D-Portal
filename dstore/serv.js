@@ -1,4 +1,5 @@
 
+var wait=require('wait.for');
 var nconf = require('nconf');
 var express = require('express');
 var app = express();
@@ -14,6 +15,24 @@ if(nconf.get("cmd"))
 	if( cmd=="create" )
 	{
 		require("./src/dstore_db").create_tables();
+		return;
+	}
+	else
+	if( cmd=="check" )
+	{
+		require("./src/dstore_db").check_tables();
+		return;
+	}
+	else
+	if( cmd=="hack" )
+	{
+		wait.launchFiber( require("./src/dstore_db").hack_acts() );
+		return;
+	}
+	else
+	if( cmd=="exs" )
+	{
+		wait.launchFiber( require("./src/dstore_db").hack_exs );
 		return;
 	}
 	else
