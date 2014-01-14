@@ -197,6 +197,22 @@ dstore_db.fill_acts = function(acts){
 	db.close();
 };
 
+// convert isodate string to a number (days since 1970-01-01)
+// can convert to unix time by multiplying by number of seconds in a day (60*60*24)
+var isodate_to_number=function(s)
+{
+	if(s)
+	{
+		var aa=s.split("-");
+		var year=parseInt(aa[0]||0)||0;
+		var month=parseInt(aa[1]||0)||0;
+		var day=parseInt(aa[2]||0)||0;
+		var num=Date.UTC(year,month,day)/(1000*60*60*24);
+		
+		return num;
+	}
+}
+
 var xml_get_isodate=function(it)
 {
 	var t=it;
@@ -215,7 +231,7 @@ var xml_get_value=function(it)
 	if(t){
 		if(t[0]){t=t[0];}
 		if(t["_"]){
-			return parseInt(t["_"]);
+			return Number(t["_"]);
 		}
 	}
 	return null;
@@ -279,10 +295,27 @@ var xml_get_code=function(it)
 	return null;
 }
 
+var xml_get_aid=function(it)
+{
+	var t=it;
+	if(t){
+		if(t["iati-activity"]){t=t["iati-activity"];}
+		if(t["iati-identifier"]){t=t["iati-identifier"];}
+		if(t[0]){t=t[0]; return t;}
+	}
+	return null;
+}
+
 dstore_db.hack_acts = function(){
 	
-	var counts={budget:0,transaction:0};
-	var totals={budget:0,transaction:0};
+	var tabs={
+			acts:[],
+			trans:[],
+			budgets:[] // or planned disbursements?
+		};
+	
+	var counts={budget:0,transaction:0,planned:0};
+	var totals={budget:0,transaction:0,planned:0};
 	var values={};
 	
 	var add_value=function(n,v){
@@ -290,6 +323,27 @@ dstore_db.hack_acts = function(){
 		values[n][ v ]=(values[n][ v ] || 0 ) +1;
 	}
 	
+	var do_planned=function(it,act)
+	{
+		counts.planned++;
+		
+		var default_currency=act["$"]["default-currency"];
+
+		var t={};
+		t["aid"]=xml_get_aid(act);
+		t["org"]=act["reporting-org"][0]["_"];
+		t["start"]=isodate_to_number( xml_get_isodate(it["period-start"]) );
+		t["end"]=isodate_to_number( xml_get_isodate(it["period-end"]) );
+		t["usd"]=xml_get_usd(it["value"],default_currency);
+
+		tabs.budgets.push(t);
+
+//		ls(t);
+//		ls(it);
+
+		totals.planned+=t.usd;
+	};
+
 	var do_budget=function(it,act)
 	{
 		counts.budget++;
@@ -297,18 +351,18 @@ dstore_db.hack_acts = function(){
 		var default_currency=act["$"]["default-currency"];
 
 		var t={};
-		t["start"]=xml_get_isodate(it["period-start"]);
-		t["end"]=xml_get_isodate(it["period-end"]);
+		t["aid"]=xml_get_aid(act);
+		t["org"]=act["reporting-org"][0]["_"];
+		t["start"]=isodate_to_number( xml_get_isodate(it["period-start"]) );
+		t["end"]=isodate_to_number( xml_get_isodate(it["period-end"]) );
 		t["usd"]=xml_get_usd(it["value"],default_currency);
 
-//		console.dir(it);
-//		console.dir(t);
-
+		tabs.budgets.push(t);
+		
 		totals.budget+=t.usd;
 		
-		
-//		for(var i=0;i<99999999999999999999;i++);
 	};
+
 	var do_transaction=function(it,act)
 	{
 		counts.transaction++;
@@ -316,9 +370,14 @@ dstore_db.hack_acts = function(){
 		var default_currency=act["$"]["default-currency"];
 
 		var t={};
+		t["aid"]=xml_get_aid(act);
+		t["org"]=act["reporting-org"][0]["_"];
 		t["description"]=xml_get_text(it["description"]);
 		t["usd"]=xml_get_usd(it["value"],default_currency);
 		t["code"]=xml_get_code(it["transaction-type"]);
+		t["date"]=isodate_to_number( xml_get_isodate(it["transaction-date"]) );
+
+		tabs.trans.push(t);
 
 		add_value("tdesc",t["description"]);
 		add_value("tcode",t["code"]);
@@ -353,6 +412,9 @@ dstore_db.hack_acts = function(){
 		db.each("SELECT json FROM xmlacts", function(err, row)
 		{
 			var act=JSON.parse(row.json)["iati-activity"];
+
+			tabs.acts.push(act);
+			
 			process.stdout.write(".");
 			
 //			console.log(util.inspect(act,{depth:null}));
@@ -372,6 +434,12 @@ dstore_db.hack_acts = function(){
 			{
 				for(var i=0;i<act.budget.length;i++) { do_budget(act.budget[i],act); }
 			}
+			else
+			if(act["planned-disbursement"])
+			{
+				for(var i=0;i<act["planned-disbursement"].length;i++) { do_planned(act["planned-disbursement"][i],act); }
+			}
+
 			
 //			for(var i=0;i<99999999999999999999;i++);
 
@@ -381,9 +449,124 @@ dstore_db.hack_acts = function(){
 			console.dir(counts);
 			console.log("totals");
 			console.dir(totals);
-			console.log("values");
-			console.dir(values);
+//			console.log("values");
+//			console.dir(values);
+
+			for(var n in tabs)
+			{
+				console.log(n+" : "+tabs[n].length);
+			}
+
+// sum transactions in a period
+
+			var sum_trans=function(more,less)
+			{
+				var r={};
+				for(var n in tabs.trans)
+				{
+					var v=tabs.trans[n];
+					if( (v.date) && (v.date>more) && (v.date<less) && ( (v.code=="D") || (v.code=="E") ) )
+					{
+						if(r[v.org]===undefined)
+						{
+							r[v.org]={count:0,usd:0};
+						}
+						r[v.org].count++;
+						r[v.org].usd+=v.usd;
+					}
+				}
+				return r;
+			}
 			
+			var sum_budgets=function(more,less)
+			{
+				var range=less-more;
+				var r={};
+				for(var n in tabs.budgets)
+				{
+					var v=tabs.budgets[n];
+					if( (v.end) && (v.end>more) && (v.end<less) ) // check end date
+					{
+						if( (v.end-v.start)<range ) // long timespan budgets are ignored
+						{
+							if(r[v.org]===undefined)
+							{
+								r[v.org]={count:0,usd:0};
+							}
+							r[v.org].count++;
+							r[v.org].usd+=v.usd;
+						}
+					}
+				}
+				return r;
+			}
+
+			var byorg={}
+			var years=[2008,2009,2010,2011,2012,2013,2014,2015,2016,2018];
+			years.map(function(year){
+
+				var ts=sum_trans(   isodate_to_number(year+"-04-00") , isodate_to_number((year+1)+"-04-01") );
+				var bs=sum_budgets( isodate_to_number(year+"-04-00") , isodate_to_number((year+1)+"-04-01") );
+				
+				ls(year);
+				ls(ts);
+				ls(bs);
+				
+				for(var org in ts)
+				{
+					var v=ts[org];
+					if( byorg[org]===undefined ) { byorg[org]={}; }
+					var o=byorg[org];
+					
+					o[ year+" #Trans"]=v.count;
+					o[ year+" Trans"]=Math.round(v.usd);
+				}
+
+				for(var org in bs)
+				{
+					var v=bs[org];
+					if( byorg[org]===undefined ) { byorg[org]={}; }
+					var o=byorg[org];
+					
+					o[ year+" #Budget"]=v.count;
+					o[ year+" Budget"]=Math.round(v.usd);
+				}
+				
+			});
+			
+//			ls(byorg);
+
+			var out=[];
+
+			out.push("org")
+			years.map(function(year){
+//				out.push("\t"+year+" #Trans");
+				out.push("\t"+year+" Trans");
+//				out.push("\t"+year+" #Budget");
+				out.push("\t"+year+" Budget");
+			});
+			out.push("\n");
+			
+			for(var org in byorg )
+			{
+				out.push(org);
+				var v=byorg[org];
+				years.map(function(year){
+					var t;
+//					out.push("\t");
+//					t=v[year+" #Trans"]; if(t) { out.push(t); }
+					out.push("\t");
+					t=v[year+" Trans"]; if(t) { out.push(t); }
+					out.push("\t");
+//					t=v[year+" #Budget"]; if(t) { out.push(t); }
+//					out.push("\t");
+					t=v[year+" Budget"]; if(t) { out.push(t); }
+				});
+				out.push("\n");
+			}
+
+			console.log(out.join(""));
+
 /*
 			console.log("org\tfrequencey")
 			for(var n in values.org)
