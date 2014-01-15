@@ -1,4 +1,6 @@
-Replace the iati-datastore with a nodejs + sqlite version for use in country tracker queries.
+DStore will replace the iati-datastore with a nodejs + sqlite version for use in country tracker queries.
+
+
 
 Assuming you are on a Debian derivative.
 
