@@ -4,14 +4,18 @@ var dstore_db=exports;
 if(typeof dstore_db  === "undefined") { dstore_db ={}; }
 required["dstore_db"]=dstore_db;
 
-var wait=require('wait.for');
+var refry=require('./refry');
+var exs=require('./exs');
+var iati_xml=require('./iati_xml');
+
 var util=require('util');
+
+var wait=require('wait.for');
 var http=require('http');
 var nconf = require('nconf');
 var sqlite3 = require('sqlite3').verbose();
-var xml2js = require('xml2js');
+//var xml2js = require('xml2js');
 
-var exs=require('./exs');
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
@@ -157,27 +161,15 @@ dstore_db.fill_acts = function(acts){
 
 		var stmt = db.prepare("INSERT INTO xmlacts VALUES (?,?,?)");
 
-		var rawacts=[];
 		for(var i=0;i<acts.length;i++)
 		{
-			var v=acts[i];
-			var xml;
-			var json;
-			xml2js.parseString(v, function (err, result) {
-				xml=result;
-				json=JSON.stringify(xml);
-			});
-
-			rawacts.push(xml);
-			
-			var id=xml["iati-activity"]["iati-identifier"][0]
-
-//			console.dir(xml);
+			var xml=acts[i];
+			json=refry.xml(xml);
+			var id=refry.tagval(json,"iati-identifier");
 
 			process.stdout.write(".");
 
-			stmt.run(id,v,json);
-
+			stmt.run(id,xml,JSON.stringify(json[0]));
 		}
 		process.stdout.write("\n");
 		
@@ -192,119 +184,9 @@ dstore_db.fill_acts = function(acts){
 			process.stdout.write("\n");
 		});
 
-		return rawacts;
 	});
 	db.close();
 };
-
-// convert isodate string to a number (days since 1970-01-01)
-// can convert to unix time by multiplying by number of seconds in a day (60*60*24)
-var isodate_to_number=function(s)
-{
-	if(s)
-	{
-		var aa=s.split("-");
-		var year=parseInt(aa[0]||0)||0;
-		var month=parseInt(aa[1]||0)||0;
-		var day=parseInt(aa[2]||0)||0;
-		var num=Date.UTC(year,month,day)/(1000*60*60*24);
-		
-		return num;
-	}
-}
-
-var xml_get_isodate=function(it)
-{
-	var t=it;
-	if(t){
-		if(t[0]){t=t[0];}
-		if(t["$"]){t=t["$"];}
-		if(t["iso-date"]){t=t["iso-date"]; return t;}
-	}
-	return null;
-};
-
-
-var xml_get_value=function(it)
-{
-	var t=it;
-	if(t){
-		if(t[0]){t=t[0];}
-		if(t["_"]){
-			return Number(t["_"]);
-		}
-	}
-	return null;
-}
-
-var xml_get_value_year=function(it)
-{
-	var t=it;
-	if(t){
-		if(t[0]){t=t[0];}
-		if(t["$"]){t=t["$"];}
-		if(t["value-date"]){
-			return parseInt(t["value-date"]); // parseint will get the first number and ignore the -
-		}
-	}
-	return null;
-}
-
-var xml_get_value_currency=function(it)
-{
-	var t=it;
-	if(t){
-		if(t[0]){t=t[0];}
-		if(t["$"]){t=t["$"];}
-		if(t["currency"]){
-			return t["currency"];
-		}
-	}
-	return null;
-}
-
-var xml_get_usd=function(it,default_currency)
-{
-	var y=xml_get_value_year(it) || 2010; // pick a default year?
-	if(y<1990) { y=1990; } // deal with bad year formats
-	
-	var x=xml_get_value_currency(it) || default_currency || "USD";
-	var v=xml_get_value(it);
-	return exs.exchange_year(y,x,v);
-}
-
-var xml_get_text=function(it)
-{
-	var t=it;
-	if(t){
-		if(t[0]){t=t[0];}
-		if(t["_"]){t=t["_"];}
-		return t;
-	}
-	return null;
-}
-
-var xml_get_code=function(it)
-{
-	var t=it;
-	if(t){
-		if(t[0]){t=t[0];}
-		if(t["$"]){t=t["$"];}
-		if(t["code"]){t=t["code"]; return t;}
-	}
-	return null;
-}
-
-var xml_get_aid=function(it)
-{
-	var t=it;
-	if(t){
-		if(t["iati-activity"]){t=t["iati-activity"];}
-		if(t["iati-identifier"]){t=t["iati-identifier"];}
-		if(t[0]){t=t[0]; return t;}
-	}
-	return null;
-}
 
 dstore_db.hack_acts = function(){
 	
@@ -327,14 +209,14 @@ dstore_db.hack_acts = function(){
 	{
 		counts.planned++;
 		
-		var default_currency=act["$"]["default-currency"];
+		var default_currency=act["default-currency"];
 
 		var t={};
-		t["aid"]=xml_get_aid(act);
-		t["org"]=act["reporting-org"][0]["_"];
-		t["start"]=isodate_to_number( xml_get_isodate(it["period-start"]) );
-		t["end"]=isodate_to_number( xml_get_isodate(it["period-end"]) );
-		t["usd"]=xml_get_usd(it["value"],default_currency);
+		t["aid"]=refry.tagval(act,"iati-identifier");
+		t["org"]=refry.tagval(act,"reporting-org");
+		t["start"]=iati_xml.get_isodate_number(it,"period-start");
+		t["end"]=iati_xml.get_isodate_number(it,"period-end");
+		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
 
 		tabs.budgets.push(t);
 
@@ -348,14 +230,14 @@ dstore_db.hack_acts = function(){
 	{
 		counts.budget++;
 		
-		var default_currency=act["$"]["default-currency"];
+		var default_currency=act["default-currency"];
 
 		var t={};
-		t["aid"]=xml_get_aid(act);
-		t["org"]=act["reporting-org"][0]["_"];
-		t["start"]=isodate_to_number( xml_get_isodate(it["period-start"]) );
-		t["end"]=isodate_to_number( xml_get_isodate(it["period-end"]) );
-		t["usd"]=xml_get_usd(it["value"],default_currency);
+		t["aid"]=refry.tagval(act,"iati-identifier");
+		t["org"]=refry.tagval(act,"reporting-org");
+		t["start"]=iati_xml.get_isodate_number(it,"period-start");
+		t["end"]=iati_xml.get_isodate_number(it,"period-end");
+		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
 
 		tabs.budgets.push(t);
 		
@@ -367,51 +249,29 @@ dstore_db.hack_acts = function(){
 	{
 		counts.transaction++;
 
-		var default_currency=act["$"]["default-currency"];
-
 		var t={};
-		t["aid"]=xml_get_aid(act);
-		t["org"]=act["reporting-org"][0]["_"];
-		t["description"]=xml_get_text(it["description"]);
-		t["usd"]=xml_get_usd(it["value"],default_currency);
-		t["code"]=xml_get_code(it["transaction-type"]);
-		t["date"]=isodate_to_number( xml_get_isodate(it["transaction-date"]) );
+
+		t["aid"]=refry.tagval(act,"iati-identifier");
+		t["org"]=refry.tagval(act,"reporting-org");
+		
+		t["description"]=refry.tagval(it,"description");
+		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
+		t["code"]=iati_xml.get_code(it,"transaction-type");
+		t["date"]=iati_xml.get_isodate_number(it,"transaction-date");
 
 		tabs.trans.push(t);
 
 		add_value("tdesc",t["description"]);
 		add_value("tcode",t["code"]);
 
-//		if(t.usd)
-//		{
-			totals.transaction+=t.usd;
-//		}
-/*
- * 		else
-		{
-			var y=xml_get_value_year(it["value"]) || 2010; // pick a default year?
-	if(y<1990) { y=1990; }
-			var x=xml_get_value_currency(it["value"]) || default_currency || "USD";
-			var v=xml_get_value(it["value"]);
-			var usd=exs.exchange_year(y,x,v);
-			ls([y,x,v,usd]);
-			ls(default_currency);
-			ls(t);
-			ls(it);
-		}
-*/
-		
-//		ls(t);
-//		ls(it);
-
-//		for(var i=0;i<99999999999999999999;i++);
+		totals.transaction+=t.usd;
 	};
 
 	var db = dstore_db.open();
 	db.serialize(function() {
 		db.each("SELECT json FROM xmlacts", function(err, row)
 		{
-			var act=JSON.parse(row.json)["iati-activity"];
+			var act=JSON.parse(row.json);
 
 			tabs.acts.push(act);
 			
@@ -420,12 +280,23 @@ dstore_db.hack_acts = function(){
 //			console.log(util.inspect(act,{depth:null}));
 			
 //			console.log(act["reporting-org"]);
-			var org=act["reporting-org"][0]["_"];
-			var default_currency=act["$"]["default-currency"];
+			var org=refry.tagval(act,"reporting-org");
+			var default_currency=act["default-currency"];
 
 			add_value("org",org);
 			add_value("default_currency",default_currency);
 			
+			refry.tags(act,"transaction",function(it){do_transaction(it,act)});
+			
+			if( refry.tag(act,"planned-disbursement") ) // do we have planned or budget?
+			{
+				refry.tags(act,"budget",function(it){do_planned(it,act)});
+			}
+			else
+			{
+				refry.tags(act,"budget",function(it){do_budget(it,act)});
+			}
+/*
 			if(act.transaction)
 			{
 				for(var i=0;i<act.transaction.length;i++) { do_transaction(act.transaction[i],act); }
@@ -439,7 +310,7 @@ dstore_db.hack_acts = function(){
 			{
 				for(var i=0;i<act["planned-disbursement"].length;i++) { do_planned(act["planned-disbursement"][i],act); }
 			}
-
+*/
 			
 //			for(var i=0;i<99999999999999999999;i++);
 
@@ -502,11 +373,11 @@ dstore_db.hack_acts = function(){
 			}
 
 			var byorg={}
-			var years=[2008,2009,2010,2011,2012,2013,2014,2015,2016,2018];
+			var years=[2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018];
 			years.map(function(year){
 
-				var ts=sum_trans(   isodate_to_number(year+"-04-00") , isodate_to_number((year+1)+"-04-01") );
-				var bs=sum_budgets( isodate_to_number(year+"-04-00") , isodate_to_number((year+1)+"-04-01") );
+				var ts=sum_trans(   iati_xml.isodate_to_number(year+"-04-00") , iati_xml.isodate_to_number((year+1)+"-04-01") );
+				var bs=sum_budgets( iati_xml.isodate_to_number(year+"-04-00") , iati_xml.isodate_to_number((year+1)+"-04-01") );
 				
 				ls(year);
 				ls(ts);

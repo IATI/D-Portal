@@ -61,7 +61,6 @@ if(nconf.get("cmd"))
 			require("./src/dstore_db").fill_acts(acts);
 
 		});
-		
 		return;		
 	}
 }
