@@ -1,12 +1,16 @@
 
 var wait=require('wait.for');
 var nconf = require('nconf');
+var fs = require('fs');
 var express = require('express');
 var app = express();
 
 nconf.argv().file({ file: 'config.json' });
 nconf.set("port",1337);
 nconf.set("database","db/dstore.sqlite");
+
+// make sure we have a db dir
+fs.mkdir("db",function(e){});
 
 if(nconf.get("cmd"))
 {
