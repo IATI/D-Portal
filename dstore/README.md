@@ -1,5 +1,5 @@
-DStore will replace the iati-datastore with a nodejs + sqlite version for use in country tracker queries.
-
+DStore subsidizes the iati-datastore with an optimized nodejs + 
+sqlite version for use in real time country tracker queries.
 
 
 Assuming you are on a Debian derivative.
@@ -7,22 +7,38 @@ Assuming you are on a Debian derivative.
 ./getapts
 npm install
 
-will get you nodejs and install the require modules.
+will get you nodejs and install the require modules. Any problems 
+encountered at this stage are probably due to an old version of 
+nodejs being installed via apt-get. If you have problems or are not 
+on debian then try building the latest stable version of node rather 
+than using apt-get, v0.10.24 is current and tested as of the now.
 
-Then the following commands can be run.
+Success?
+
+Then the following commands can now be run.
+
+NB: There seems to be some confusiuon over the use of node or nodejs 
+due to package name clashes. So try nodejs if node is not found.
 
 
-nodejs serv.js
+node serv.js
 
-will run the server
+Runs the main server, possible options which can be set on the 
+commandline or in the config.json file are.
+
+--port=1337
+--database=db/dstore.sqlite
 
 
-nodejs serv.js --cmd create
+node serv.js --cmd init
 
-will clear the database
+Clears the database and creates the default tables ready to be 
+filled, alternatively you could just delete the dstore.sqlite file 
+for a full reset.
 
 
-nodejs serv.js --cmd import --xmlfile "tmp/bd.xml"
+node serv.js --cmd import --xmlfile "tmp/bd.xml"
 
-will populate the database from the provided xml file
+Populate the database from just the provided xml file, good for 
+simple tests.
 

@@ -24,13 +24,40 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 dstore_db.tables={
 	xmlacts:[
 		{ name:"aid",				TEXT:true , PRIMARY:true },	// this is the iati Activity : iati-IDentifier and is used everywhere
-		{ name:"xml",				TEXT:true },
-		{ name:"json",				TEXT:true }
+		{ name:"raw_xml",			TEXT:true },
+		{ name:"raw_json",			TEXT:true }
+		{ name:"day_start",			INTEGER:true },
+		{ name:"day_end",			INTEGER:true },
+		{ name:"day_length",		INTEGER:true },
 	],
 	acts:[
-		{ name:"aid",				TEXT:true , PRIMARY:true },
-		{ name:"title",				TEXT:true },
-		{ name:"description",		TEXT:true }
+		{ name:"aid",					TEXT:true , PRIMARY:true },
+		{ name:"raw_json",				TEXT:true },
+		{ name:"json",					TEXT:true },
+		{ name:"title",					TEXT:true },
+		{ name:"description",			TEXT:true },
+		{ name:"reporting_org",			TEXT:true },
+		{ name:"reporting_org_id",		TEXT:true }
+	],
+	transactions:[
+		{ name:"aid",					TEXT:true },
+		{ name:"raw_json",				TEXT:true },
+		{ name:"json",					TEXT:true },
+		{ name:"day",					INTEGER:true },
+		{ name:"currency",				TEXT:true },
+		{ name:"value",					REAL:true },
+		{ name:"usd",					REAL:true }
+	],
+	budgets:[
+		{ name:"aid",					TEXT:true },
+		{ name:"raw_json",				TEXT:true },
+		{ name:"json",					TEXT:true },
+		{ name:"day_start",				INTEGER:true },
+		{ name:"day_end",				INTEGER:true },
+		{ name:"day_length",			INTEGER:true },
+		{ name:"currency",				TEXT:true },
+		{ name:"value",					REAL:true },
+		{ name:"usd",					REAL:true }
 	]
 };
 
@@ -465,16 +492,63 @@ dstore_db.create_tables = function(){
 // simple data dump table containing just the raw xml of each activity.
 // this is filled on import and then used as a source
 
-		db.run("DROP TABLE If EXISTS xmlacts;");
-		db.run("CREATE TABLE xmlacts (aid TEXT PRIMARY KEY,xml TEXT,json TEXT);");
+//		db.run("DROP TABLE If EXISTS xmlacts;");
+//		db.run("CREATE TABLE xmlacts (aid TEXT PRIMARY KEY,xml TEXT,json TEXT);");
+//		console.log("Created database "+nconf.get("database"));
+
+
+		for(var name in dstore_db.tables)
+		{
+			var tab=dstore_db.tables[name];
+			var s=dstore_db.getsql_create_table(db,name,tab);
+
+			console.log(s);
+
+			db.run("DROP TABLE IF EXISTS "+name+";");
+			db.run(s);
+		}
 
 		console.log("Created database "+nconf.get("database"));
-
+		
 	});
 	
 	db.close();
 }
 
+dstore_db.getsql_create_table=function(db,name,tab)
+{
+	var s=[];
+	
+	s.push("CREATE TABLE "+name+" ( ");
+	
+	for(var i=0; i<tab.length;i++)
+	{
+		var col=tab[i];
+
+		s.push(" "+col.name+" ");
+		
+		if(col.INTEGER)		{ s.push(" INTEGER "); }
+		else
+		if(col.REAL) 		{ s.push(" REAL "); }
+		else
+		if(col.TEXT) 		{ s.push(" TEXT "); }
+		else
+		if(col.BLOB) 		{ s.push(" BLOB "); }
+
+		if(col.PRIMARY) 	{ s.push(" PRIMARY KEY "); }
+		else
+		if(col.UNIQUE) 		{ s.push(" UNIQUE "); }
+		
+		if(i<tab.length-1)
+		{
+		s.push(" , ");
+		}
+	}
+	
+	s.push(" ); ");
+
+	return s.join("");
+}
 
 dstore_db.check_tables = function(){
 
@@ -482,153 +556,12 @@ dstore_db.check_tables = function(){
 
 	db.serialize(function() {
 	
-		db.all("SELECT * FROM sqlite_master WHERE name=?;","xmlacts", function(err, rows)
+		db.all("SELECT * FROM sqlite_master;", function(err, rows)
 		{
-			console.dir(rows);
+			ls(rows);
 		});
 
 	});
 
 	db.close();
 }
-
-/*
- *  need this sort of thing in js to handle table creation?
- * 
-
--- get info about a table, this can only work if WE created the table
-function get_info(db,kind)
-
-	kind=fixkind(kind)
-
---[[
-	local d=rows(db,"PRAGMA table_info('"..name.."')");
-	print(wstr.serialize(d))
-]]
-
-	local d=rows(db,"select sql from sqlite_master where name = '"..kind.."';")
-	
-	if not d[1] then return end -- no table of the given kind exists
-	
--- grab the bit in brackets
-	local _,_,s=string.find(d[1].sql,"%((.*)%)")
---print(s)
--- and split it by commas
-	local a=wstr.split(s,",")
-	
-	tab={}
-	
-	local flags={"NOT","NULL","INTEGER","REAL","TEXT","BLOB","PRIMARY","FOREIGN","KEY","COLLATE","BINARY","NOCASE","RTRIM","UNIQUE","CHECK","DEFAULT"}
-	for i,v in ipairs(flags) do flags[v]=0 end -- set as this next word
-	flags.DEFAULT=1 -- set as the next word
-	
-	for i,v in ipairs(a) do
-		local c=wstr.split_words(v)
---		print(wstr.serialize(c))
-		local d={}
-		for i,v in ipairs(c) do d[v]=flags[v] and c[i+flags[v]] end -- set flags only if we recognise them
-		local cmd=false
-		for i,v in ipairs(flags) do if c[1]:sub(1,#v)==v then cmd=v end end
-		if cmd then
-			d.cmd=c[1] -- set the command
-		else -- a named column
-			d.name=c[1] -- set the name
-			if d.name:sub(1,1)=="'" then d.name=d.name:sub(2,-2) end -- strip quotes
-		end
-
-		tab[i]=d
-	end
-	
---	print(wstr.serialize(tab))
-	return tab
-end
-
--- create or update a table, this can only update if *we* created the table using this function
--- info is the same as when returned from info function
--- the two arecompared and the table updated with any missing columns
--- so you may not get a a table in the exact order specified or it may have extra cruft etc
---
--- in general it should be safe to add columns to the end of the info and call this again
--- so we can modify existing tabs
-function set_info(db,kind,info)
-
-	kind=fixkind(kind)
-
---print(wstr.dump(info))
-
-	old=get_info(db,kind)
-
--- build the sql string we need to run	
-	local t={}
-	local p=function(...) for i,v in ipairs{...} do t[#t+1]=tostring(v) end end
-
--- add a column
-	local function pdef(t)
-		if t.name then
-			p("'"..t.name.."'")
-			if t.INTEGER then
-				p(" INTEGER")
-			elseif t.REAL then
-				p(" REAL")
-			elseif t.TEXT then
-				p(" TEXT")
-			elseif t.BLOB then
-				p(" BLOB")
-			end
-			if t.PRIMARY then
-				p(" PRIMARY KEY")
-			elseif t.UNIQUE then
-				p(" UNIQUE")
-			end
-			if t.DEFAULT then
-				p(" DEFAULT ",t.DEFAULT) --- Only numbers? ...dont want defaults anyhow...
-			end
-		end
-	end
-	
---check if is already added
-	local function in_table(tab,name)
-		for i,v in ipairs(tab) do
-			if v.name==name then return true end
-		end
-	end
-	
-	if not old then -- create new
-	
-		p("CREATE TABLE "..kind.."( ")
-		for i,v in ipairs(info) do
-			if i>1 then p(" , ") end
-			pdef(v)
-		end
-		p(" );")
-	
-	else -- adjust
-	
-		local ch -- if set then we need to add these columns
-		for i,v in ipairs(info) do
-			if not in_table(old,v.name) then
-				ch=ch or {}
-				ch[#ch+1]=v
-			end
-		end
-
-		if ch then
-print("ORIGINAL TABLE:"..wstr.dump(old))
-print("ALTER TABLE:"..wstr.dump(ch))
-			for i,v in ipairs(ch) do
-				p("ALTER TABLE "..kind.." ADD COLUMN ")
-				pdef(v)
-				p(" ;")
-			end
-		end
-	end
-	
-	if t[1] then -- something to do
---		print(table.concat(t))
-		exec(db,table.concat(t))
-	end
-	
-end
-
-*/
-

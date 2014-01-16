@@ -12,7 +12,7 @@ if(nconf.get("cmd"))
 {
 	var cmd=nconf.get("cmd");
 	console.log("cmd found : "+cmd);
-	if( cmd=="create" )
+	if( cmd=="init" )
 	{
 		require("./src/dstore_db").create_tables();
 		return;
