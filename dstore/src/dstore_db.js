@@ -25,7 +25,7 @@ dstore_db.tables={
 	xmlacts:[
 		{ name:"aid",				TEXT:true , PRIMARY:true },	// this is the iati Activity : iati-IDentifier and is used everywhere
 		{ name:"raw_xml",			TEXT:true },
-		{ name:"raw_json",			TEXT:true }
+		{ name:"raw_json",			TEXT:true },
 		{ name:"day_start",			INTEGER:true },
 		{ name:"day_end",			INTEGER:true },
 		{ name:"day_length",		INTEGER:true },
