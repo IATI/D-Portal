@@ -22,18 +22,14 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // data table descriptions
 dstore_db.tables={
-	xmlacts:[
-		{ name:"aid",				TEXT:true , PRIMARY:true },	// this is the iati Activity : iati-IDentifier and is used everywhere
-		{ name:"raw_xml",			TEXT:true },
-		{ name:"raw_json",			TEXT:true },
-		{ name:"day_start",			INTEGER:true },
-		{ name:"day_end",			INTEGER:true },
-		{ name:"day_length",		INTEGER:true },
-	],
 	acts:[
 		{ name:"aid",					TEXT:true , PRIMARY:true },
+		{ name:"raw_xml",				TEXT:true },
 		{ name:"raw_json",				TEXT:true },
 		{ name:"json",					TEXT:true },
+		{ name:"day_start",				INTEGER:true },
+		{ name:"day_end",				INTEGER:true },
+		{ name:"day_length",			INTEGER:true },
 		{ name:"title",					TEXT:true },
 		{ name:"description",			TEXT:true },
 		{ name:"reporting_org",			TEXT:true },
@@ -186,7 +182,7 @@ dstore_db.fill_acts = function(acts){
 	var db = dstore_db.open();	
 	db.serialize(function() {
 
-		var stmt = db.prepare("INSERT INTO xmlacts VALUES (?,?,?)");
+		var stmt = db.prepare("INSERT INTO acts (aid,raw_xml,raw_json) VALUES (?,?,?)");
 
 		for(var i=0;i<acts.length;i++)
 		{
@@ -204,7 +200,7 @@ dstore_db.fill_acts = function(acts){
 		stmt.finalize();
 		
 		console.log("checking data");
-		db.each("SELECT id,xml FROM xmlacts", function(err, row)
+		db.each("SELECT aid,raw_xml FROM acts", function(err, row)
 		{
 			process.stdout.write(".");
 		},function(err, count){
@@ -296,16 +292,15 @@ dstore_db.hack_acts = function(){
 
 	var db = dstore_db.open();
 	db.serialize(function() {
-		db.each("SELECT json FROM xmlacts", function(err, row)
+		db.each("SELECT raw_json FROM acts", function(err, row)
 		{
-			var act=JSON.parse(row.json);
+			var act=JSON.parse(row.raw_json);
 
 			tabs.acts.push(act);
 			
 			process.stdout.write(".");
 			
 //			console.log(util.inspect(act,{depth:null}));
-			
 //			console.log(act["reporting-org"]);
 			var org=refry.tagval(act,"reporting-org");
 			var default_currency=act["default-currency"];
