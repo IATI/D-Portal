@@ -30,9 +30,11 @@ iati_xml.isodate_to_number=function(s)
 
 iati_xml.get_isodate=function(it,name)
 {
-	var t=refry.tag(it,name);
+	var t=it;
+	if(name) t=refry.tag(t,name);
 	if(t){
 		if(t["iso-date"]){t=t["iso-date"]; return t;}
+		if(t[1] && t[1][0]) return t[1][0]; // failed to provide an isodate, use the value?
 	}
 	return null;
 };
@@ -56,7 +58,8 @@ iati_xml.get_value=function(it,name)
 
 iati_xml.get_value_year=function(it,name)
 {
-	var t=refry.tag(it,name);
+	var t=it;
+	if(name) t=refry.tag(t,name);
 	if(t){
 		if(t["value-date"]){
 			return parseInt(t["value-date"]); // parseint will get the first number and ignore the -
@@ -67,7 +70,8 @@ iati_xml.get_value_year=function(it,name)
 
 iati_xml.get_value_currency=function(it,name)
 {
-	var t=refry.tag(it,name);
+	var t=it;
+	if(name) t=refry.tag(t,name);
 	if(t){
 		if(t["currency"]){
 			return t["currency"];
@@ -88,7 +92,8 @@ iati_xml.get_usd=function(it,name,default_currency)
 
 iati_xml.get_code=function(it,name)
 {
-	var t=refry.tag(it,name);
+	var t=it;
+	if(name) t=refry.tag(t,name);
 	if(t){
 		if(t["code"]){t=t["code"]; return t;}
 	}

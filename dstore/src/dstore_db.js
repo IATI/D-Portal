@@ -8,13 +8,12 @@ var refry=require('./refry');
 var exs=require('./exs');
 var iati_xml=require('./iati_xml');
 
-var util=require('util');
-
 var wait=require('wait.for');
+
+var util=require('util');
 var http=require('http');
 var nconf = require('nconf');
 var sqlite3 = require('sqlite3').verbose();
-//var xml2js = require('xml2js');
 
 
 
@@ -22,7 +21,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // data table descriptions
 dstore_db.tables={
-	acts:[
+	activities:[
 		{ name:"aid",					TEXT:true , PRIMARY:true },
 		{ name:"raw_xml",				TEXT:true },
 		{ name:"raw_json",				TEXT:true },
@@ -33,7 +32,7 @@ dstore_db.tables={
 		{ name:"title",					TEXT:true },
 		{ name:"description",			TEXT:true },
 		{ name:"reporting_org",			TEXT:true },
-		{ name:"reporting_org_id",		TEXT:true }
+		{ name:"reporting_org_ref",		TEXT:true }
 	],
 	transactions:[
 		{ name:"aid",					TEXT:true },
@@ -143,46 +142,12 @@ dstore_db.open = function(){
 };
 
 
-dstore_db.test = function(req,res){
-
-	var db = new sqlite3.Database(':memory:');
-
-	db.serialize(function() {
-		db.run("CREATE TABLE lorem (info TEXT)");
-
-		var stmt = db.prepare("INSERT INTO lorem VALUES (?)");
-		for (var i = 0; i < 10; i++)
-		{
-			stmt.run("Ipsum " + i);
-		}
-		stmt.finalize();
-
-		var s=""
-		db.each("SELECT rowid AS id, info FROM lorem", function(err, row)
-		{
-			
-			console.log(row.id + ": " + row.info);
-			s=s+row.id + ": " + row.info+"\n";
-			
-		},function(err, count){
-			
-			res.end(s);
-			
-		});
-	});
-
-	db.close();
-
-};
-
-
-
 dstore_db.fill_acts = function(acts){
 
 	var db = dstore_db.open();	
 	db.serialize(function() {
 
-		var stmt = db.prepare("INSERT INTO acts (aid,raw_xml,raw_json) VALUES (?,?,?)");
+		var stmt = db.prepare("INSERT INTO activities (aid,raw_xml,raw_json) VALUES (?,?,?)");
 
 		for(var i=0;i<acts.length;i++)
 		{
@@ -200,7 +165,7 @@ dstore_db.fill_acts = function(acts){
 		stmt.finalize();
 		
 		console.log("checking data");
-		db.each("SELECT aid,raw_xml FROM acts", function(err, row)
+		db.each("SELECT aid,raw_xml FROM activities", function(err, row)
 		{
 			process.stdout.write(".");
 		},function(err, count){
@@ -210,6 +175,65 @@ dstore_db.fill_acts = function(acts){
 	});
 	db.close();
 };
+
+// pull every activity from the table and update *all* connected tables using its raw json data
+
+dstore_db.refresh_acts = function(){
+		
+	var db = dstore_db.open();
+	db.serialize();
+
+	db.each("SELECT aid,raw_xml,raw_json FROM activities", function(err, row){
+
+		var stmt = db.prepare(dstore_db.tables_update_sql.activities+" WHERE aid=$aid ");
+				
+		var act=JSON.parse(row.raw_json);
+		var t={};
+		
+		t.aid=row.aid;
+		process.stdout.write(".");
+//		console.log(t.aid);
+
+		t.title=refry.tagval(act,"title");
+		t.description=refry.tagval(act,"description");				
+		t.reporting_org=refry.tagval(act,"reporting-org");				
+		t.reporting_org_ref=refry.tag(act,"reporting-org").ref;
+
+		t.day_start=null;
+		t.day_end=null;
+		refry.tags(act,"activity-date",function(it){
+			if( it.type=="start-planned" ) 	{ t.day_start=iati_xml.get_isodate_number(it); }
+			else
+			if( it.type=="end-planned" )	{ t.day_end=iati_xml.get_isodate_number(it); }
+		});
+		refry.tags(act,"activity-date",function(it){
+			if( it.type=="start-actual" ) 	{ t.day_start=iati_xml.get_isodate_number(it); }
+			else
+			if( it.type=="end-actual" )		{ t.day_end=iati_xml.get_isodate_number(it); }
+		});
+
+		t.day_length=t.day_end-t.day_start;
+
+		t.default_currency=act["default-currency"];
+		
+		var $t={}; for(var n in dstore_db.tables_active.activities) { $t["$"+n]=t[n]; } // prepare to insert using named values
+		$t.$json=JSON.stringify(t);
+		$t.$raw_xml=row.raw_xml;
+		$t.$raw_json=row.raw_json;
+		
+		stmt.run($t);
+		stmt.finalize();
+	});
+
+	db.run(";", function(err, row){
+		db.close();
+		process.stdout.write("\nFIN\n");
+	});
+
+};
+
+
+
 
 dstore_db.hack_acts = function(){
 	
@@ -281,7 +305,7 @@ dstore_db.hack_acts = function(){
 		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
 		t["code"]=iati_xml.get_code(it,"transaction-type");
 		t["date"]=iati_xml.get_isodate_number(it,"transaction-date");
-
+		
 		tabs.trans.push(t);
 
 		add_value("tdesc",t["description"]);
@@ -292,7 +316,7 @@ dstore_db.hack_acts = function(){
 
 	var db = dstore_db.open();
 	db.serialize(function() {
-		db.each("SELECT raw_json FROM acts", function(err, row)
+		db.each("SELECT raw_json FROM activities", function(err, row)
 		{
 			var act=JSON.parse(row.raw_json);
 
@@ -510,6 +534,51 @@ dstore_db.create_tables = function(){
 	db.close();
 }
 
+
+dstore_db.getsql_prepare_insert = function(name,row){
+
+	var s=[];
+
+	s.push("INSERT INTO "+name+" ( ");
+	
+	var need_comma=false;
+	for(var n in row)
+	{
+		if(need_comma) { s.push(" , "); }
+		s.push(" "+n+" ");
+		need_comma=true
+	}
+
+	s.push(" ) VALUES ( ");
+
+	var need_comma=false;
+	for(var n in row)
+	{
+		if(need_comma) { s.push(" , "); }
+		s.push(" $"+n+" ");
+		need_comma=true
+	}
+
+	s.push(" ); ");
+
+	return s.join("");
+}
+
+dstore_db.getsql_prepare_update = function(name,row){
+
+	var s=[];
+	s.push("UPDATE "+name+" SET ");
+	var need_comma=false;
+	for(var n in row)
+	{
+		if(need_comma) { s.push(" , "); }
+		s.push(" "+n+"=$"+n+" ");
+		need_comma=true
+	}
+	s.push(" ");
+	return s.join("");
+}
+
 dstore_db.getsql_create_table=function(db,name,tab)
 {
 	var s=[];
@@ -560,3 +629,26 @@ dstore_db.check_tables = function(){
 
 	db.close();
 }
+
+
+// prepare some sql code cache
+dstore_db.cache_prepare = function(){
+
+	dstore_db.tables_insert_sql={};
+	dstore_db.tables_update_sql={};
+	dstore_db.tables_active={};
+	for(var name in dstore_db.tables)
+	{
+		var t={};
+		for(var i=0; i<dstore_db.tables[name].length; i++ )
+		{
+			var v=dstore_db.tables[name][i];
+			t[v.name]=true;
+		}
+		dstore_db.tables_active[name]=t;
+		dstore_db.tables_insert_sql[name]=dstore_db.getsql_prepare_insert(name,t);
+		dstore_db.tables_update_sql[name]   =dstore_db.getsql_prepare_update(name,t);
+	}
+}
+dstore_db.cache_prepare();
+

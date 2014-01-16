@@ -40,6 +40,12 @@ if(nconf.get("cmd"))
 		return;
 	}
 	else
+	if( cmd=="refresh" )
+	{
+		require("./src/dstore_db").refresh_acts();
+		return;
+	}
+	else
 	if( cmd=="import" )
 	{
 		console.log("Attempting Import");
