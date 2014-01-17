@@ -47,7 +47,7 @@ exs.load_csv=function()
 // exchange at the given years rate into usd
 exs.exchange_year=function(year,ex,val)
 {
-	val=val || 1; // default of 1
+	if("number"!=typeof val) { val=1; } // default of 1
 	ex=ex.toUpperCase();
 	var last;
 	var ret;
@@ -65,7 +65,7 @@ exs.exchange_year=function(year,ex,val)
 	ret=ret || last; // but try a previous year as a last resort
 	if(ret)
 	{
-		return val/last[ex];
+		return Math.floor(100*val/last[ex])/100;
 	}
 }
 

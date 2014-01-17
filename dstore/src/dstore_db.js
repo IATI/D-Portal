@@ -38,15 +38,22 @@ dstore_db.tables={
 		{ name:"aid",					TEXT:true },
 		{ name:"raw_json",				TEXT:true },
 		{ name:"json",					TEXT:true },
+		{ name:"ref",					TEXT:true },
+		{ name:"description",			TEXT:true },
 		{ name:"day",					INTEGER:true },
 		{ name:"currency",				TEXT:true },
 		{ name:"value",					REAL:true },
-		{ name:"usd",					REAL:true }
+		{ name:"usd",					REAL:true },
+		{ name:"code",					TEXT:true },
+		{ name:"flow_code",				TEXT:true },
+		{ name:"finance_code",			TEXT:true },
+		{ name:"aid_code",				TEXT:true }
 	],
 	budgets:[
 		{ name:"aid",					TEXT:true },
 		{ name:"raw_json",				TEXT:true },
 		{ name:"json",					TEXT:true },
+		{ name:"type",					TEXT:true },
 		{ name:"day_start",				INTEGER:true },
 		{ name:"day_end",				INTEGER:true },
 		{ name:"day_length",			INTEGER:true },
@@ -145,35 +152,38 @@ dstore_db.open = function(){
 dstore_db.fill_acts = function(acts){
 
 	var db = dstore_db.open();	
-	db.serialize(function() {
+	db.serialize();
 
-		var stmt = db.prepare("INSERT INTO activities (aid,raw_xml,raw_json) VALUES (?,?,?)");
+	var stmt = db.prepare("INSERT INTO activities (aid,raw_xml,raw_json) VALUES (?,?,?)");
 
-		for(var i=0;i<acts.length;i++)
-		{
-			var xml=acts[i];
-			json=refry.xml(xml);
-			var id=refry.tagval(json,"iati-identifier");
+	for(var i=0;i<acts.length;i++)
+	{
+		var xml=acts[i];
+		json=refry.xml(xml);
+		var id=refry.tagval(json,"iati-identifier");
 
-			process.stdout.write(".");
+		process.stdout.write(".");
 
-			stmt.run(id,xml,JSON.stringify(json[0]));
-		}
+		stmt.run(id,xml,JSON.stringify(json[0]));
+	}
+	process.stdout.write("\n");
+	
+	console.log("Finalize data");
+	stmt.finalize();
+	
+	console.log("checking data");
+	db.each("SELECT aid,raw_xml FROM activities", function(err, row)
+	{
+		process.stdout.write(".");
+	},function(err, count){
 		process.stdout.write("\n");
-		
-		console.log("Finalize data");
-		stmt.finalize();
-		
-		console.log("checking data");
-		db.each("SELECT aid,raw_xml FROM activities", function(err, row)
-		{
-			process.stdout.write(".");
-		},function(err, count){
-			process.stdout.write("\n");
-		});
-
 	});
-	db.close();
+
+	db.run(";", function(err, row){
+		db.close();
+		process.stdout.write("\nFIN\n");
+	});
+
 };
 
 // pull every activity from the table and update *all* connected tables using its raw json data
@@ -183,10 +193,60 @@ dstore_db.refresh_acts = function(){
 	var db = dstore_db.open();
 	db.serialize();
 
+	var do_transaction=function(it,act)
+	{
+		var t={};
+
+		t["aid"]=refry.tagval(act,"iati-identifier");
+		t["ref"]=it["ref"];
+		t["description"]=refry.tagval(it,"description");
+		t["day"]=iati_xml.get_isodate_number(it,"transaction-date");
+
+		t["code"]=iati_xml.get_code(it,"transaction-type");
+		t["flow_code"]=iati_xml.get_code(it,"flow-type");
+		t["finance_code"]=iati_xml.get_code(it,"finance-type");
+		t["aid_code"]=iati_xml.get_code(it,"aid-type");
+		
+		t["currency"]=iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
+		t["value"]=iati_xml.get_value(it,"value");
+		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
+
+		var $t={}; for(var n in dstore_db.tables_active.transactions) { $t["$"+n]=t[n]; } // prepare to insert using named values
+		$t.$json=JSON.stringify(t); // everything above is stored in the json string
+		$t.$raw_json=JSON.stringify(it);
+		
+		var stmt = db.prepare(dstore_db.tables_insert_sql.transactions);
+		stmt.run($t);
+		stmt.finalize();
+	};
+
+	var do_budget=function(it,act)
+	{
+		var t={};
+		
+		t["aid"]=refry.tagval(act,"iati-identifier");
+
+		t["type"]=it["type"];
+
+		t["day_start"]=iati_xml.get_isodate_number(it,"period-start");
+		t["day_end"]=iati_xml.get_isodate_number(it,"period-end");
+		t["day_length"]=t["day_end"]-t["day_start"];
+		
+		t["currency"]=iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
+		t["value"]=iati_xml.get_value(it,"value");
+		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
+
+		var $t={}; for(var n in dstore_db.tables_active.budgets) { $t["$"+n]=t[n]; } // prepare to insert using named values
+		$t.$json=JSON.stringify(t); // everything above is stored in the json string
+		$t.$raw_json=JSON.stringify(it);
+		
+		var stmt = db.prepare(dstore_db.tables_insert_sql.budgets);
+		stmt.run($t);
+		stmt.finalize();
+	};
+	
 	db.each("SELECT aid,raw_xml,raw_json FROM activities", function(err, row){
 
-		var stmt = db.prepare(dstore_db.tables_update_sql.activities+" WHERE aid=$aid ");
-				
 		var act=JSON.parse(row.raw_json);
 		var t={};
 		
@@ -217,17 +277,25 @@ dstore_db.refresh_acts = function(){
 		t.default_currency=act["default-currency"];
 		
 		var $t={}; for(var n in dstore_db.tables_active.activities) { $t["$"+n]=t[n]; } // prepare to insert using named values
-		$t.$json=JSON.stringify(t);
+		$t.$json=JSON.stringify(t); // everything above is stored in the json string
 		$t.$raw_xml=row.raw_xml;
 		$t.$raw_json=row.raw_json;
 		
-		stmt.run($t);
-		stmt.finalize();
+		var sa = db.prepare(dstore_db.tables_update_sql.activities+" WHERE aid=$aid ");
+		sa.run($t);
+		sa.finalize();
+		
+		db.run("DELETE FROM transactions WHERE aid=?",t.aid); // remove all the old ones, then add new
+		refry.tags(act,"transaction",function(it){do_transaction(it,act)});
+
+		db.run("DELETE FROM budgets WHERE aid=?",t.aid); // remove all the old ones, then add new
+		refry.tags(act,"budget",function(it){do_budget(it,act)});
+
 	});
 
 	db.run(";", function(err, row){
 		db.close();
-		process.stdout.write("\nFIN\n");
+		process.stdout.write("\FIN\n");
 	});
 
 };
@@ -510,11 +578,6 @@ dstore_db.create_tables = function(){
 	
 // simple data dump table containing just the raw xml of each activity.
 // this is filled on import and then used as a source
-
-//		db.run("DROP TABLE If EXISTS xmlacts;");
-//		db.run("CREATE TABLE xmlacts (aid TEXT PRIMARY KEY,xml TEXT,json TEXT);");
-//		console.log("Created database "+nconf.get("database"));
-
 
 		for(var name in dstore_db.tables)
 		{

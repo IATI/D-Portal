@@ -51,6 +51,7 @@ iati_xml.get_value=function(it,name)
 {
 	var t=refry.tagval(it,name);
 	if(t){
+		t=t.split(",").join(""); // should we remove commas?
 		return Number(t);
 	}
 	return null;
@@ -87,7 +88,7 @@ iati_xml.get_usd=function(it,name,default_currency)
 	
 	var x=iati_xml.get_value_currency(it,name) || default_currency || "USD";
 	var v=iati_xml.get_value(it,name);
-	return exs.exchange_year(y,x,v);
+	if("number"==typeof v) { return exs.exchange_year(y,x,v); }
 }
 
 iati_xml.get_code=function(it,name)
