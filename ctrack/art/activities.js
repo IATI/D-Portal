@@ -331,11 +331,15 @@ for(var a=0;a<its.length;a++)
 var sortlist=[
 	"iati-identifier",
 	"activity-date",
+	"recipient-country",
+	"sector",
 	"title",
 	"activity-status",
 	"description",
 	"budget",
 	"transaction",
+	"participating-org",
+	"contact-info",
 	0
 ];
 var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
