@@ -25,6 +25,20 @@ var list=document.getElementsByTagName("period-end"); for (var i = 0; i < list.l
 
 }
 
+var activity_status_lookup={
+"1":	"Pipeline/identification",
+"2":	"Implementation",
+"3":	"Completion",
+"4":	"Post-completion",
+"5":	"Cancelled"
+};
+var list=document.getElementsByTagName("activity-status"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
+
+	var t=it.getAttribute("code");
+	it.innerHTML=activity_status_lookup[t] || it.innerHTML ;
+
+}
+
 var transaction_type_lookup={
 "C":	"Commitment",
 "D":	"Disbursement",
@@ -59,7 +73,7 @@ var list=document.getElementsByTagName("recipient-country"); for (var i = 0; i <
 	}
 }
 
-// sort each transaction using this list of tag names as basic prefered order
+// sort each transaction using this list of tag names as prefered order
 
 var sortlist=[
 	"transaction-date",
@@ -103,7 +117,7 @@ for(var a=0;a<its.length;a++)
 	}
 }
 
-// sort each activity using this list of tag names as basic prefered order
+// sort each activity using this list of tag names as prefered order
 
 var sortlist=[
 	"iati-identifier",
