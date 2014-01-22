@@ -1,0 +1,44 @@
+body,html {background:none, #fff; color:#444; font-family:sans-serif;}
+
+iati-activity * {display:block;}
+iati-activity {display:block; width:960px; margin:0 auto; margin-bottom:320px; position:relative;}
+iati-activity:after {content:"END OF ACTIVITY"; font-size:14px; color:#999; display:block; width:960px; margin:0 auto; border-bottom: 3px solid #D8D8D8; border-top: 3px solid #D8D8D8; padding:20px 0; text-align:center; margin-top:200px;}
+
+reporting-org {display:none;}
+recipient-region {display:none;}
+description:nth-of-type(1) {font-size:18px; display:block; width:920px; padding:20px; background-color:aliceblue;}
+description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
+iati-identifier {display:block; width:920px; text-align:right; padding:20px; font-size:24px;}
+iati-identifier:before {content:"IATI IDENTIFIER"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
+title {font-size:42px; width:914px; padding:20px; border:3px solid #D8D8D8; margin:0 auto; margin-bottom:40px;}
+title:before {content:"PROJECT TITLE"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
+activity-date {font-size:48px; padding:20px 0; display:inline-block; vertical-align:top; width:390px;}
+activity-date:before {content:"END DATE"; font-size:14px; color:#999; width:240px; display:block; margin-bottom:10px;}
+sector {text-transform:uppercase; font-size:16px; width:560px; text-align:right; display:inline-block; vertical-align:top; padding-top:30px;}
+sector:before {content:"SECTOR"; font-size:14px; color:#999; width:560px; text-align:right; display:block; padding-bottom:5px;}
+recipient-country {text-transform:uppercase; font-size:54px; width:960px; text-align:right; line-height:0.5;}
+recipient-country:before {content:"What's going on?"; font-size:14px; color:#8E9092; width:960px; display:block; padding-bottom:10px; text-align:right; margin-bottom:10px;}
+recipient-country:after {content:"Recipient Country"; font-size:12px; color:#A1A5A9; width:960px; display:block; padding-top:10px; text-align:right; margin-top:10px;}
+participating-org {position:absolute; vertical-align:top; bottom:140px; max-width:320px;}
+participating-org:nth-of-type(1) {font-size:18px; left:0px;}
+participating-org:nth-of-type(1):before {content:"WHO'S INVOLVED?"; font-size:14px; color:#8E9092; width:960px; display:block; padding-bottom:10px; margin-bottom:10px;}
+transaction {width:960px; border-bottom:1px solid #ccc; padding:20px 0; margin:40px 0;}
+transaction:nth-of-type(1) {margin-top:60px;}
+transaction:nth-of-type(1) transaction-date:before {content:"DATE"; font-size:14px; color:#999; width:240px; display:block; padding-bottom:10px; border-bottom: 3px solid #D8D8D8; margin-bottom:15px;}
+transaction:nth-of-type(1) transaction-type:before {content:"TYPE"; font-size:14px; color:#999; width:240px; display:block; padding-bottom:10px; border-bottom: 3px solid #D8D8D8; margin-bottom:15px;}
+transaction:nth-of-type(1) value:before {content:"VALUE"; font-size:14px; color:#999; width:240px; display:block; padding-bottom:10px; border-bottom: 3px solid #D8D8D8; margin-bottom:15px;}
+transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#999; width:260px; display:block; padding-bottom:10px; padding-right:20px; border-bottom:3px solid #D8D8D8; margin-bottom:15px;}
+transaction:nth-of-type(2) transaction-date:before {content:"DATE"; font-size:14px; color:#999; width:240px; display:block; padding-bottom:10px; border-bottom: 3px solid #D8D8D8; margin-bottom:15px;}
+transaction:nth-of-type(2) transaction-type:before {content:"TYPE"; font-size:14px; color:#999; width:240px; display:block; padding-bottom:10px; border-bottom: 3px solid #D8D8D8; margin-bottom:15px;}
+transaction:nth-of-type(2) value:before {content:"VALUE"; font-size:14px; color:#999; width:240px; display:block; padding-bottom:10px; border-bottom: 3px solid #D8D8D8; margin-bottom:15px;}
+transaction:nth-of-type(2) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#999; width:260px; display:block; padding-bottom:10px; padding-right:20px; border-bottom:3px solid #D8D8D8; margin-bottom:15px;}
+transaction-date {display:table-cell; font-size:22px; width:200px; max-width:200px;}
+transaction-type {display:table-cell; font-size:22px; width:240px; max-width:240px;}
+value {display:table-cell; font-size:22px; width:240px; max-width:240px;}
+transaction description:nth-of-type(1) {display:table-cell; font-size:22px; padding:0px; background-color:transparent; width:260px; padding-right:20px; max-width:260px;}
+activity-date:nth-of-type(2) {font-size:48px; padding:20px 0;}
+activity-date:nth-of-type(2):before {content:"START DATE"; font-size:14px; color:#999; width:240px; display:block; margin-bottom:10px;}
+participating-org:nth-of-type(2) {font-size:18px; left:360px;}
+activity-status {font-size:20px; background-color:gold; width:960px; text-align:center; padding:40px 0; margin:0 auto; margin:40px 0; max-height:150px;}
+activity-status:before {content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:ilnine-block; padding-right:10px;}
+participating-org:nth-of-type(3) {font-size:18px; right:0px; text-align:right;}
