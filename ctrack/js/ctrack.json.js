@@ -8,8 +8,7 @@ ctrack.get_today=function()
     var day = ("0" + now.getDate()).slice(-2);
     var month = ("0" + (now.getMonth() + 1)).slice(-2);
     var today = now.getFullYear() + "-" + (month) + "-" + (day);
-//    return today;
-    return "2013-01-01"
+    return today;
 }
 
 ctrack.fetch_endingsoon=function(args)
