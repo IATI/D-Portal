@@ -2,13 +2,63 @@
 console.log("Prepare xml");
 
 
-var sortweight={
-	"activity-date"			:10,
-	"title"					:20,
-	"activity-status"		:30,
-	"description"			:40,
-	0						:50
-};
+// Adjust some tags using js
+
+var list=document.getElementsByTagName("activity-date"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
+
+	it.innerHTML=it.getAttribute("iso-date");
+
+}
+var list=document.getElementsByTagName("transaction-date"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
+
+	it.innerHTML=it.getAttribute("iso-date");
+
+}
+var list=document.getElementsByTagName("period-start"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
+
+	it.innerHTML=it.getAttribute("iso-date");
+
+}
+var list=document.getElementsByTagName("period-end"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
+
+	it.innerHTML=it.getAttribute("iso-date");
+
+}
+
+var transaction_type_lookup={
+"C":	"Commitment",
+"D":	"Disbursement",
+"E":	"Expenditure",
+"IF":	"Incoming Funds",
+"IR":	"Interest Repayment",
+"LR":	"Loan Repayment",
+"R":	"Reimbursement",
+"QP":	"Purchase of Equity",
+"QS":	"Sale of Equity",
+"CG":	"Credit Guarantee"
+}
+
+var list=document.getElementsByTagName("transaction-type"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
+
+	var t=it.getAttribute("code");
+	it.innerHTML=transaction_type_lookup[t] || it.innerHTML ;
+
+}
+
+// sort each activity using this list of tag names as basic prefered order
+
+var sortlist=[
+	"iati-identifier",
+	"activity-date",
+	"title",
+	"activity-status",
+	"description",
+	"budget",
+	"transaction",
+	0
+];
+var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+
 var acts=document.getElementsByTagName("iati-activity");
 for(var a=0;a<acts.length;a++)
 {
@@ -19,14 +69,6 @@ for(var a=0;a<acts.length;a++)
 	for (var i =0 ; i<items.length; i++) {
 			itemsArr.push(items.item(i));
 	}
-	
-	itemsArr.forEach(function(it)
-	{
-		if(it.tagName=="activity-date")
-		{
-			it.innerHTML=it.getAttribute("iso-date");
-		}
-	});
 
 	itemsArr.sort(function(a, b) {
 		var ret=0;
@@ -64,3 +106,4 @@ for(var a=0;a<acts.length;a++)
 	}
 
 }
+
