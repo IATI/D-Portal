@@ -63,6 +63,6 @@ var jsfiles=[
 
 
 console.log("Creating js/ctrack.min.js")
-exec("node_modules/uglify-js/bin/uglifyjs "+jsfiles.join(" ")+" --wrap ctrack -c -m -o js/ctrack.min.js --source-map-url ctrack.min.map --source-map-root js/ --source-map js/ctrack.min.map ");
+exec("node_modules/uglify-js/bin/uglifyjs "+jsfiles.join(" ")+" --wrap ctrack -c -m -o js/ctrack.min.js -p relative --source-map js/ctrack.min.map ");
 
 console.log("All done.")
