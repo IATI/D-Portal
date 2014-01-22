@@ -25,6 +25,22 @@ var list=document.getElementsByTagName("period-end"); for (var i = 0; i < list.l
 
 }
 
+
+var activity_status_lookup={
+"1":	"Pipeline/identification",
+"2":	"Implementation",
+"3":	"Completion",
+"4":	"Post-completion",
+"5":	"Cancelled"
+};
+var list=document.getElementsByTagName("activity-status"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
+
+	var t=it.getAttribute("code");
+	if(it.firstChild) { it.removeChild( it.firstChild ); }
+	it.appendChild( document.createTextNode( activity_status_lookup[t] ) );
+}
+
+
 var sector_lookup={
 11110:"Education policy and administrative management",
 11120:"Education facilities and training",
@@ -227,18 +243,7 @@ var list=document.getElementsByTagName("sector"); for (var i = 0; i < list.lengt
 	it.innerHTML=sector_lookup[t] || it.innerHTML ;
 }
 
-var activity_status_lookup={
-"1":	"Pipeline/identification",
-"2":	"Implementation",
-"3":	"Completion",
-"4":	"Post-completion",
-"5":	"Cancelled"
-};
-var list=document.getElementsByTagName("activity-status"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
 
-	var t=it.getAttribute("code");
-	it.innerHTML=activity_status_lookup[t] || it.innerHTML ;
-}
 
 var transaction_type_lookup={
 "C":	"Commitment",
@@ -379,5 +384,4 @@ for(var a=0;a<acts.length;a++)
 	}
 
 }
-
 
