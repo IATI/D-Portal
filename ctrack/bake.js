@@ -62,10 +62,7 @@ var jsfiles=[
 "js/ctrack.json.js"];
 
 
-console.log("Creating js/ctrack.max.js")
-exec("node_modules/uglify-js/bin/uglifyjs "+jsfiles.join(" ")+" --wrap ctrack -b -o js/ctrack.max.js");
-
 console.log("Creating js/ctrack.min.js")
-exec("node_modules/uglify-js/bin/uglifyjs "+jsfiles.join(" ")+" --wrap ctrack -c -m -o js/ctrack.min.js");
+exec("node_modules/uglify-js/bin/uglifyjs "+jsfiles.join(" ")+" --wrap ctrack -c -m -o js/ctrack.min.js --source-map-url ctrack.min.map --source-map-root js/ --source-map js/ctrack.min.map ");
 
 console.log("All done.")
