@@ -23,31 +23,23 @@ Here is some SEO bait for you to read Mr crawler.
 head.js(
 "jslib/jquery.js",
 "jslib/jquery.ba-bbq.min.js",
-"js/ctrack.max.js");
-
-head.ready(function(){
-	
-var setup=function(){	$(function(){
+"js/ctrack.max.js",function(){
 	
 		var args={
 			master:$(".ctrack"),
-			datastore:"http://wet.hopto.org:5000/",
+			datastore:"http://dev.ctrack.iatistandard.org:5000/",
 			country:"bd",
 			art:"",
 			cachebreak:"?v1"
 		};
 		ctrack.setup_html(args);
 
-//enable slow stats mode
+//enable slow slow slow stats mode ?
+
 		if(window.location.hash=="#stats")
 		{
 			ctrack.fetch_stats();
 		}
-		
-	}); };
-
-	setup();
-
 });
 
 </script>
