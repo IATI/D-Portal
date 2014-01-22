@@ -37,7 +37,7 @@ var list=document.getElementsByTagName("activity-status"); for (var i = 0; i < l
 
 	var t=it.getAttribute("code");
 	if(it.firstChild) { it.removeChild( it.firstChild ); }
-	it.appendChild( document.createTextNode( activity_status_lookup[t] ) );
+	it.appendChild( document.createTextNode( activity_status_lookup[t] || "N/A" ) );
 }
 
 
@@ -240,7 +240,8 @@ var sector_lookup={
 var list=document.getElementsByTagName("sector"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
 
 	var t=it.getAttribute("code");
-	it.innerHTML=sector_lookup[t] || it.innerHTML ;
+	if(it.firstChild) { it.removeChild( it.firstChild ); }
+	it.appendChild( document.createTextNode( sector_lookup[t] || "N/A" ) );
 }
 
 
@@ -261,7 +262,8 @@ var transaction_type_lookup={
 var list=document.getElementsByTagName("transaction-type"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
 
 	var t=it.getAttribute("code");
-	it.innerHTML=transaction_type_lookup[t] || it.innerHTML ;
+	if(it.firstChild) { it.removeChild( it.firstChild ); }
+	it.appendChild( document.createTextNode( transaction_type_lookup[t] || "N/A" ) );
 
 }
 
@@ -275,7 +277,8 @@ var list=document.getElementsByTagName("recipient-country"); for (var i = 0; i <
 	if(t)
 	{
 		t=t.toUpperCase();
-		it.innerHTML=country_codes[t] || it.innerHTML ;
+		if(it.firstChild) { it.removeChild( it.firstChild ); }
+		it.appendChild( document.createTextNode( country_codes[t] ) );
 	}
 }
 
