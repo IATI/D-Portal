@@ -21,18 +21,22 @@ Here is some SEO bait for you to read Mr crawler.
 <script type="text/javascript">
 
 head.js(
-"jslib/jquery.js",
-"jslib/jquery.ba-bbq.min.js",
-"ctrack.js");
+"../jslib/jquery.js",
+"../jslib/jquery.ba-bbq.min.js",
+"../src/ctrack.max.js");
 
 head.ready(function(){
 	
 var setup=function(){	$(function(){
 	
-		var args={master:$(".ctrack"),datastore:"http://wet.hopto.org:5000/",country:"bd",art:"",cachebreak:"?v1"};
-		var ctrack=Ctrack(args);
-
-		ctrack.setup_html();
+		var args={
+			master:$(".ctrack"),
+			datastore:"http://wet.hopto.org:5000/",
+			country:"bd",
+			art:"",
+			cachebreak:"?v1"
+		};
+		ctrack.setup_html(args);
 
 //enable slow stats mode
 		if(window.location.hash=="#stats")

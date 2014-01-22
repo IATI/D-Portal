@@ -197,19 +197,19 @@ dstore_db.refresh_acts = function(){
 	{
 		var t={};
 
-		t["aid"]=refry.tagval(act,"iati-identifier");
-		t["ref"]=it["ref"];
-		t["description"]=refry.tagval(it,"description");
-		t["day"]=iati_xml.get_isodate_number(it,"transaction-date");
+		t["aid"]=				refry.tagval(act,"iati-identifier");
+		t["ref"]=				it["ref"];
+		t["description"]=		refry.tagval(it,"description");
+		t["day"]=				iati_xml.get_isodate_number(it,"transaction-date");
 
-		t["code"]=iati_xml.get_code(it,"transaction-type");
-		t["flow_code"]=iati_xml.get_code(it,"flow-type");
-		t["finance_code"]=iati_xml.get_code(it,"finance-type");
-		t["aid_code"]=iati_xml.get_code(it,"aid-type");
+		t["code"]=				iati_xml.get_code(it,"transaction-type");
+		t["flow_code"]=			iati_xml.get_code(it,"flow-type");
+		t["finance_code"]=		iati_xml.get_code(it,"finance-type");
+		t["aid_code"]=			iati_xml.get_code(it,"aid-type");
 		
-		t["currency"]=iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
-		t["value"]=iati_xml.get_value(it,"value");
-		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
+		t["currency"]=			iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
+		t["value"]=				iati_xml.get_value(it,"value");
+		t["usd"]=				iati_xml.get_usd(it,"value",act["default-currency"]);
 
 		var $t={}; for(var n in dstore_db.tables_active.transactions) { $t["$"+n]=t[n]; } // prepare to insert using named values
 		$t.$json=JSON.stringify(t); // everything above is stored in the json string
@@ -228,13 +228,13 @@ dstore_db.refresh_acts = function(){
 
 		t["type"]=it["type"];
 
-		t["day_start"]=iati_xml.get_isodate_number(it,"period-start");
-		t["day_end"]=iati_xml.get_isodate_number(it,"period-end");
-		t["day_length"]=t["day_end"]-t["day_start"];
+		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
+		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
+		t["day_length"]=			t["day_end"]-t["day_start"];
 		
-		t["currency"]=iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
-		t["value"]=iati_xml.get_value(it,"value");
-		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
+		t["currency"]=				iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
+		t["value"]=					iati_xml.get_value(it,"value");
+		t["usd"]=					iati_xml.get_usd(it,"value",act["default-currency"]);
 
 		var $t={}; for(var n in dstore_db.tables_active.budgets) { $t["$"+n]=t[n]; } // prepare to insert using named values
 		$t.$json=JSON.stringify(t); // everything above is stored in the json string
@@ -694,7 +694,7 @@ dstore_db.check_tables = function(){
 }
 
 
-// prepare some sql code cache
+// prepare some sql code
 dstore_db.cache_prepare = function(){
 
 	dstore_db.tables_insert_sql={};

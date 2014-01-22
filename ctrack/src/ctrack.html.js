@@ -1,7 +1,9 @@
 
+var ctrack=ctrack || exports;
 
-ctrack.setup_html=function()
+ctrack.setup_html=function(args)
 {
+	ctrack.args=args;
 
 	ctrack.div={};
 

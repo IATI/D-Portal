@@ -1,6 +1,6 @@
 
 
-http://wet.hopto.org:5000/api/1/access/activity.db.json?limit=5&recipient-country=BD&end-date__sort=asc&end-date__gt=2014-01-01
+var ctrack=ctrack || exports;
 
 ctrack.get_today=function()
 {

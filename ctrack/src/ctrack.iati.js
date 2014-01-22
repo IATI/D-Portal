@@ -1,6 +1,9 @@
 
 // data cleanup
 
+
+var ctrack=ctrack || exports;
+
 ctrack.iati={};
 ctrack.iati.totext=function(v)
 {

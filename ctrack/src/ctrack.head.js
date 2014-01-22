@@ -1,4 +1,4 @@
-/*
+
 // one global function
 Ctrack=function(args){
 
@@ -16,4 +16,3 @@ Ctrack=function(args){
 		
 	return ctrack;
 };
-*/

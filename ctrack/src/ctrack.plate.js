@@ -1,4 +1,7 @@
 
+
+var ctrack=ctrack || exports;
+
 ctrack.plate={};
 
 ctrack.plate.preps={};
