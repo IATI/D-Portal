@@ -59,6 +59,50 @@ var list=document.getElementsByTagName("recipient-country"); for (var i = 0; i <
 	}
 }
 
+// sort each transaction using this list of tag names as basic prefered order
+
+var sortlist=[
+	"transaction-date",
+	"transaction-type",
+	"description",
+	"provider-org",
+	"receiver-org",
+	"value",
+	0
+];
+var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+var its=document.getElementsByTagName("transaction");
+for(var a=0;a<its.length;a++)
+{
+	var list = its.item(a);	
+	var items = list.children;
+	var itemsArr = [];
+	for (var i =0 ; i<items.length; i++) {
+			itemsArr.push(items.item(i));
+	}
+
+	itemsArr.sort(function(a, b) {
+		var ret=0;
+		var aw=sortweight[a.tagName] || sortweight[0];
+		var bw=sortweight[b.tagName] || sortweight[0];	
+		if(ret===0)
+		{
+			if(aw > bw ) { ret= 1; }
+			if(aw < bw ) { ret=-1; }
+		}
+		if(ret===0)
+		{
+			if(a.tagName > b.tagName ) { ret= 1; }
+			if(a.tagName < b.tagName ) { ret=-1; }
+		}
+		return ret;
+	});
+
+	for(var i = 0; i < itemsArr.length; ++i) {
+		list.appendChild(itemsArr[i]);
+	}
+}
+
 // sort each activity using this list of tag names as basic prefered order
 
 var sortlist=[
@@ -120,4 +164,5 @@ for(var a=0;a<acts.length;a++)
 	}
 
 }
+
 
