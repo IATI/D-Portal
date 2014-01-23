@@ -4,6 +4,24 @@ console.log("Prepare xml");
 
 // Adjust some tags using js
 
+var make_link=function(it,url)
+{
+	it.setAttribute( "onclick" , "window.location = '"+url+"';" );
+	it.setAttribute( "style" , "cursor:pointer;" );
+
+	var s=document.createElement("span");
+	s.appendChild( document.createTextNode( url ) );
+	it.appendChild( s );
+
+};
+
+var list=document.getElementsByTagName("document-link"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
+
+	make_link(it,it.getAttribute("url"));
+
+}
+
+
 var list=document.getElementsByTagName("activity-date"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
 
 	it.innerHTML=it.getAttribute("iso-date");
@@ -242,6 +260,12 @@ var list=document.getElementsByTagName("sector"); for (var i = 0; i < list.lengt
 	var t=it.getAttribute("code");
 	if(it.firstChild) { it.removeChild( it.firstChild ); }
 	it.appendChild( document.createTextNode( sector_lookup[t] || t ) );
+
+	var t=it.getAttribute("percentage");
+	var s=document.createElement("span");
+	s.appendChild( document.createTextNode( t+"%" ) );
+	it.appendChild( s );
+
 }
 
 
@@ -263,7 +287,7 @@ var list=document.getElementsByTagName("transaction-type"); for (var i = 0; i < 
 
 	var t=it.getAttribute("code");
 	if(it.firstChild) { it.removeChild( it.firstChild ); }
-	it.appendChild( document.createTextNode( transaction_type_lookup[t] || "N/A" ) );
+	it.appendChild( document.createTextNode( transaction_type_lookup[t] || t ) );
 
 }
 
@@ -278,7 +302,7 @@ var list=document.getElementsByTagName("recipient-country"); for (var i = 0; i <
 	{
 		t=t.toUpperCase();
 		if(it.firstChild) { it.removeChild( it.firstChild ); }
-		it.appendChild( document.createTextNode( country_codes[t] ) );
+		it.appendChild( document.createTextNode( country_codes[t] || t ) );
 	}
 }
 
@@ -374,16 +398,27 @@ for(var a=0;a<acts.length;a++)
 			if(a.tagName < b.tagName ) { ret=-1; }
 		}
 		
-		if(ret===0)
+		if( (ret===0) && (a.tagName=="activity-date") )
 		{
-			if(a.tagName=="activity-date")
-			{
-				var at=a.getAttribute("type");
-				var bt=b.getAttribute("type");
-				if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
-			}
+			var at=a.getAttribute("type");
+			var bt=b.getAttribute("type");
+			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
 		}
 		
+		if( (ret===0) && (a.tagName=="sector") )
+		{
+			var at=a.getAttribute("vocabulary");
+			var bt=b.getAttribute("vocabulary");
+			if(at>bt) { ret=1; } else if(at<bt) { ret=-1; }
+		}
+
+		if( (ret===0) && (a.tagName=="sector") )
+		{
+			var at=Number(a.getAttribute("percentage"));
+			var bt=Number(b.getAttribute("percentage"));
+			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
+		}
+
 		return ret;
 	});
 
