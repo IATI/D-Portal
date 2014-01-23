@@ -5,6 +5,12 @@ console.log("Prepare xml");
 // Adjust some tags using js
 
 
+var list=document.getElementsByTagName("value"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
+
+	it.appendChild( document.createTextNode( " ("+it.getAttribute("currency")+")" ) );
+}
+
+
 var list=document.getElementsByTagName("transaction"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
 
 	var needed=["transaction-data","transaction-type","description","provider-org","receiver-org","value"];
