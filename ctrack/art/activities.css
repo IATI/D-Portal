@@ -33,7 +33,7 @@ sector[vocabulary="DAC"]:before {content:"SECTOR"; font-size:14px; color:#999; w
 title:nth-of-type(1) {display:block; font-size:42px; width:880px; padding:40px; border-top:3px solid #D8D8D8; margin:0 auto; background-color:#fff;}
 title:nth-of-type(1):before {content:"PROJECT TITLE"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 
-activity-website {display:block; width:880px; padding:20px 40px; border-bottom:3px solid #D8D8D8; font-size:18px; border-top:0; color:#666; background-color:#fff;}
+activity-website {display:block; width:880px; padding:20px 40px; font-size:18px; border:0; color:#666; background-color:#fff;}
 activity-website * {display:block; padding:5px 0;}
 activity-website:before {content:"FOR MORE INFORMATION, VISIT "; font-size:14px; color:#999; display:inline-block; margin-bottom:10px; padding-right:20px;}
 
