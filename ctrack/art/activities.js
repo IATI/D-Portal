@@ -1,3 +1,4 @@
+//http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=960x300&cht=p&chd=t:43,18,18,8,7,6&chds=a&chdl=Road+transport|Agricultural+water+resources|Agricultural+land+resources|Water+transport|Economic+and+development+policy/planning|15112
 	
 console.log("Prepare xml");
 
