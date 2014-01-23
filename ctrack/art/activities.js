@@ -241,7 +241,7 @@ var list=document.getElementsByTagName("sector"); for (var i = 0; i < list.lengt
 
 	var t=it.getAttribute("code");
 	if(it.firstChild) { it.removeChild( it.firstChild ); }
-	it.appendChild( document.createTextNode( sector_lookup[t] || "N/A" ) );
+	it.appendChild( document.createTextNode( sector_lookup[t] || t ) );
 }
 
 
