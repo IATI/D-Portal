@@ -41,7 +41,7 @@ activity-website:hover {color:#FF7A00;}
 activity-status {display:block; font-size:20px; background-color:rgb(255, 130, 71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px;}
 activity-status:before {content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:inline-block; padding-right:10px;}
 
-description {font-size:16px; text-align:left; line-height:1.5em; display:block; width:880px; padding:40px; padding-bottom:0; background-color:#DFECF6;}
+description {font-size:16px; text-align:justify; line-height:1.5em; display:block; width:880px; padding:40px; padding-bottom:0; background-color:#DFECF6;}
 description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 description[type="1"]:before {content:"GENERAL"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 description[type="2"]:before {content:"OBJECTIVES"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
