@@ -43,7 +43,7 @@ var list=document.getElementsByTagName("activity-website"); for (var i = 0; i < 
 	make_link(it,it.firstChild.data);
 }
 var list=document.getElementsByTagName("iati-identifier"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-	make_link(it,"/"+it.firstChild.data);
+	make_link(it,"http://dev.ctrack.iatistandard.org:5000/api/1/access/activity.xml?iati-identifier="+it.firstChild.data);
 }
 
 
@@ -80,7 +80,7 @@ var list=document.getElementsByTagName("activity-status"); for (var i = 0; i < l
 
 	var t=it.getAttribute("code");
 	if(it.firstChild) { it.removeChild( it.firstChild ); }
-	it.appendChild( document.createTextNode( activity_status_lookup[t] || "N/A" ) );
+	it.appendChild( document.createTextNode( activity_status_lookup[t] || t ) );
 }
 
 

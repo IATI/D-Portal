@@ -4,12 +4,12 @@
 <xsl:template match="*">
 	<html>
 		<head>
-			<link rel="stylesheet" type="text/css" href="../art/activities.css" />
+			<link rel="stylesheet" type="text/css" href="/static/ctrack/art/activities.css" />
 		</head>
 		<body>
 			<xsl:copy-of select="/*"/>
 		</body>
-		<script src="../art/activities.js" />
+		<script src="/static/ctrack/art/activities.js" />
 	</html>
 </xsl:template>
 </xsl:stylesheet>
