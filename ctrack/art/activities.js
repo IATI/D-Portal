@@ -4,6 +4,21 @@ console.log("Prepare xml");
 
 // Adjust some tags using js
 
+
+var list=document.getElementsByTagName("transaction"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
+
+	var needed=["transaction-data","transaction-type","description","provider-org","receiver-org","value"];
+	
+	needed.forEach(function(n){
+		if( it.getElementsByTagName(n).length==0 )
+		{
+			it.appendChild( document.createElement(n) );
+		}
+	});
+}
+
+
+
 var make_link=function(it,url)
 {
 	it.setAttribute( "onclick" , "window.location = '"+url+"';" );
