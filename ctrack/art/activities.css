@@ -13,7 +13,7 @@ query {display:none;}
 
 iati-identifier {display:block; vertical-align:top; width:920px; text-align:right; font-size:32px; padding:20px 40px 20px 0px; position:relative; background-color:#fff; margin-top:40px; color:#FF7A00;}
 iati-identifier:before {content:"IATI IDENTIFIER"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
-iati-identifier:after {content:"CLICK TO VIEW SINGLE ACTIVITY"; font-size:12px; color:#999; display:block; margin-top:10px;}
+iati-identifier:hover {color:#FFAB5E;}
 
 activity-date[type="start-planned"] {display:none;}
 activity-date[type="end-planned"] {display:none;}
@@ -36,12 +36,17 @@ title:nth-of-type(1):before {content:"PROJECT TITLE"; font-size:14px; color:#999
 activity-website {display:block; width:880px; padding:20px 40px; font-size:18px; border:0; color:#666; background-color:#fff;}
 activity-website * {display:block; padding:5px 0;}
 activity-website:before {content:"FOR MORE INFORMATION, VISIT "; font-size:14px; color:#999; display:inline-block; margin-bottom:10px; padding-right:20px;}
+activity-website:hover {color:#FF7A00;}
 
 activity-status {display:block; font-size:20px; background-color:rgb(255, 130, 71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px;}
 activity-status:before {content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:inline-block; padding-right:10px;}
 
-description:nth-of-type(1) {font-size:16px; text-align:justify; line-height:1.5em; display:block; width:880px; padding:40px; background-color:#DFECF6;}
+description {font-size:16px; text-align:left; line-height:1.5em; display:block; width:880px; padding:40px; padding-bottom:0; background-color:#DFECF6;}
 description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
+description[type="1"]:before {content:"GENERAL"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
+description[type="2"]:before {content:"OBJECTIVES"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
+description[type="3"]:before {content:"TARGET GROUPS"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
+description:last-of-type {padding-bottom:40px;}
 
 budget {display:block; width:960px; border-top:1px solid #ccc; padding:20px 0; border-bottom:0; background-color:#fff;}
 budget:last-of-type {border-bottom:0px solid #ccc;}
@@ -78,6 +83,10 @@ participating-org {display:block; width:880px; padding:10px 40px; font-size:18px
 participating-org:nth-of-type(1) {padding-top:60px;}
 participating-org:nth-of-type(1):before {content:"Participating Organisations"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:20px; border-bottom:3px solid #D8D8D8;}
 participating-org:last-of-type {padding-bottom:60px;}
+participating-org[role="Funding"]:after {content:"FUNDING ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="Implementing"]:after {content:"IMPLEMENTING ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="Extending"]:after {content:"EXTENDING ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="Accountable"]:after {content:"ACCOUNTABLE ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
 
 contact-info {display:block; width:880px; padding:10px 40px; font-size:18px; background-color:#fff;}
 contact-info * {display:block; padding:5px 0;}
@@ -89,5 +98,6 @@ document-link span {font-size:16px; display:block; color:#999; padding-bottom:30
 document-link title:nth-of-type(n+1):before {display:none;}
 document-link title:nth-of-type(n+1) {border:0; margin:0; padding:0; font-size:18px;}
 document-link:nth-of-type(1):before {content:"Related Documents"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:20px; border-bottom:3px solid #D8D8D8;}
-document-link title:nth-of-type(n+1):after {content:"CLICK TO OPEN LINK IN SAME WINDOW"; font-size:12px; display:inline-block; padding-left:20px; color:#aaa;}
+document-link title:nth-of-type(n+1):after {content:"READ DOCUMENT"; font-size:12px; display:inline-block; padding-left:20px; color:#aaa;}
 document-link:last-of-type {padding-bottom:60px;}
+document-link title:hover {color:#FF7A00;}
