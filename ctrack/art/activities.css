@@ -11,26 +11,26 @@ recipient-region {display:none;}
 ok {display:none;}
 query {display:none;}
 
-iati-identifier {display:block; vertical-align:top; width:920px; text-align:right; font-size:26px; padding:20px 20px 40px 20px; position:relative; background-color:#D8D8D8; margin-top:40px;}
+iati-identifier {display:block; vertical-align:top; width:920px; text-align:right; font-size:26px; padding:40px 40px 40px 0px; position:relative; background-color:#D8D8D8; margin-top:40px;}
 iati-identifier:before {content:"IATI IDENTIFIER"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 
 activity-date[type="start-planned"] {display:none;}
 activity-date[type="end-planned"] {display:none;}
-activity-date {font-size:18px; display:inline-block; vertical-align:top; width:280px; padding:20px; position:absolute; top:0; left:0;}
+activity-date {font-size:18px; display:inline-block; vertical-align:top; width:280px; padding:40px 0 20px 40px; position:absolute; top:0; left:0;}
 activity-date:before {content:"START DATE"; font-size:14px; color:#999; width:280px; display:block; margin-bottom:10px;}
-activity-date:nth-of-type(2) {left:320px;}
-activity-date:nth-of-type(2):before {content:"END DATE"; font-size:14px; color:#999; width:280px; display:block; margin-bottom:10px;}
+activity-date[type="end-actual"] {left:320px;}
+activity-date[type="end-actual"]:before {content:"END DATE"; font-size:14px; color:#999; width:280px; display:block; margin-bottom:10px;}
 
-recipient-country {display:block; text-transform:uppercase; font-size:54px; width:920px; color:#fff; background-color:#666; padding:20px;}
+recipient-country {display:block; text-transform:uppercase; font-size:54px; width:880px; color:#fff; background-color:#666; padding:20px 40px;}
 recipient-country:nth-of-type(1):before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#fff; display:block; margin-bottom:10px;}
 
 sector {text-transform:uppercase; font-size:16px; width:280px; display:inline-block; vertical-align:top; padding:30px 20px 0 20px;}
 sector:before {content:"SECTOR"; font-size:14px; color:#999; width:280px; display:block; padding-bottom:5px;}
 
-title:nth-of-type(1) {display:block; font-size:42px; width:914px; padding:40px 20px 20px 20px; border:3px solid #D8D8D8; margin:0 auto; margin-top:40px; border-bottom:0;}
+title:nth-of-type(1) {display:block; font-size:42px; width:874px; padding:40px; border:3px solid #D8D8D8; margin:0 auto; margin-top:40px; border-bottom:0;}
 title:nth-of-type(1):before {content:"PROJECT TITLE"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 
-activity-website {display:block; width:914px; padding:20px; border:3px solid #D8D8D8; font-size:18px; border-top:0; color:#666;}
+activity-website {display:block; width:874px; padding:20px 40px; border:3px solid #D8D8D8; font-size:18px; border-top:0; color:#666;}
 activity-website * {display:block; padding:5px 0;}
 activity-website:before {content:"FOR MORE INFORMATION, VISIT "; font-size:14px; color:#999; display:inline-block; margin-bottom:10px; padding-right:20px;}
 
@@ -85,5 +85,6 @@ document-link span {font-size:16px; display:block; color:#999; margin-bottom:30p
 document-link title:nth-of-type(n+1):before {display:none;}
 document-link title:nth-of-type(n+1) {border:0; margin:0; padding:10px 0 5px 0; font-size:18px;}
 document-link:nth-of-type(1) {margin-top:60px; padding-top:0;}
-document-link:nth-of-type(1):before {content:"Related Documents"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:40px; border-bottom:3px solid #ccc;}
+document-link:nth-of-type(1):before {content:"Related Documents"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:20px; border-bottom:3px solid #ccc;}
+document-link title:nth-of-type(n+1):after {content:"CLICK TO OPEN LINK"; font-size:12px; display:inline-block; padding-left:20px; color:#aaa;}
 
