@@ -14,6 +14,8 @@ query {display:none;}
 iati-identifier {display:block; vertical-align:top; width:920px; text-align:right; font-size:26px; padding:20px 20px 40px 20px; position:relative; background-color:#D8D8D8; margin-top:40px;}
 iati-identifier:before {content:"IATI IDENTIFIER"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 
+activity-date[type="start-planned"] {display:none;}
+activity-date[type="end-planned"] {display:none;}
 activity-date {font-size:18px; display:inline-block; vertical-align:top; width:280px; padding:20px; position:absolute; top:0; left:0;}
 activity-date:before {content:"START DATE"; font-size:14px; color:#999; width:280px; display:block; margin-bottom:10px;}
 activity-date:nth-of-type(2) {left:320px;}
@@ -70,5 +72,11 @@ participating-org:nth-of-type(1) {margin-top:60px; padding-top:0;}
 participating-org:nth-of-type(1):before {content:"Participating Organisations"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:40px; border-bottom:3px solid #ccc;}
 
 contact-info {display:block; width:920px; padding:10px 20px; font-size:18px;}
+contact-info * {display:block; padding:5px 0;}
 contact-info:nth-of-type(1) {margin-top:60px; padding-top:0;}
 contact-info:nth-of-type(1):before {content:"CONTACT INFO"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
+
+activity-website {display:block; width:920px; padding:10px 20px; font-size:18px;}
+activity-website * {display:block; padding:5px 0;}
+document-link {display:block; width:920px; padding:10px 20px; font-size:18px;}
+document-link title {display:block; padding:5px 0;}
