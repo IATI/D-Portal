@@ -21,16 +21,16 @@ activity-date:before {content:"START DATE"; font-size:14px; color:#999; width:28
 activity-date[type="end-actual"] {left:320px;}
 activity-date[type="end-actual"]:before {content:"END DATE"; font-size:14px; color:#999; width:280px; display:block; margin-bottom:10px;}
 
-recipient-country {display:block; text-transform:uppercase; font-size:54px; width:920px; color:#fff; background-color:#666; padding:20px;}
+recipient-country {display:block; text-transform:uppercase; font-size:54px; width:880px; color:#fff; background-color:#666; padding:20px 40px;}
 recipient-country:nth-of-type(1):before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#fff; display:block; margin-bottom:10px;}
 
 sector {text-transform:uppercase; font-size:16px; width:280px; display:inline-block; vertical-align:top; padding:30px 20px 0 20px;}
 sector:before {content:"SECTOR"; font-size:14px; color:#999; width:280px; display:block; padding-bottom:5px;}
 
-title:nth-of-type(1) {display:block; font-size:42px; width:914px; padding:40px 20px 20px 20px; border:3px solid #D8D8D8; margin:0 auto; margin-top:40px; border-bottom:0;}
+title:nth-of-type(1) {display:block; font-size:42px; width:874px; padding:40px; border:3px solid #D8D8D8; margin:0 auto; margin-top:40px; border-bottom:0;}
 title:nth-of-type(1):before {content:"PROJECT TITLE"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 
-activity-website {display:block; width:914px; padding:20px; border:3px solid #D8D8D8; font-size:18px; border-top:0; color:#666;}
+activity-website {display:block; width:874px; padding:20px 40px; border:3px solid #D8D8D8; font-size:18px; border-top:0; color:#666;}
 activity-website * {display:block; padding:5px 0;}
 activity-website:before {content:"FOR MORE INFORMATION, VISIT "; font-size:14px; color:#999; display:inline-block; margin-bottom:10px; padding-right:20px;}
 
