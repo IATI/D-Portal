@@ -9,8 +9,8 @@
 		</head>
 		<body>
 			<xsl:copy-of select="/*"/>
-			<script src="../art/activities.js" />
 		</body>
+		<script src="../art/activities.js" />
 	</html>
 </xsl:template>
 </xsl:stylesheet>
