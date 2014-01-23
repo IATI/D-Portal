@@ -454,6 +454,7 @@ for(var a=0;a<acts.length;a++)
 	}
 
 
+/*
 	var secs=list.getElementsByTagName("sector");
 	console.log(secs.length);
 	if(secs.length>0)
@@ -463,7 +464,7 @@ for(var a=0;a<acts.length;a++)
 		im.setAttribute("src","http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=960x300&cht=p&chd=t:43,18,18,8,7,6&chds=a&chdl=Road+transport|Agricultural+water+resources|Agricultural+land+resources|Water+transport|Economic+and+development+policy/planning|15112");
 		secs.item(0).parentNode.insertBefore( im , secs.item(0) );
 	}
-
+*/
 	
 }
 
