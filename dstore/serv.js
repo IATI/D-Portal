@@ -18,31 +18,31 @@ if(nconf.get("cmd"))
 	console.log("cmd found : "+cmd);
 	if( cmd=="init" )
 	{
-		require("./src/dstore_db").create_tables();
+		require("./js/dstore_db").create_tables();
 		return;
 	}
 	else
 	if( cmd=="check" )
 	{
-		require("./src/dstore_db").check_tables();
+		require("./js/dstore_db").check_tables();
 		return;
 	}
 	else
 	if( cmd=="hack" )
 	{
-		wait.launchFiber( require("./src/dstore_db").hack_acts );
+		wait.launchFiber( require("./js/dstore_db").hack_acts );
 		return;
 	}
 	else
 	if( cmd=="exs" )
 	{
-		wait.launchFiber( require("./src/dstore_db").hack_exs );
+		wait.launchFiber( require("./js/dstore_db").hack_exs );
 		return;
 	}
 	else
 	if( cmd=="refresh" )
 	{
-		require("./src/dstore_db").refresh_acts();
+		require("./js/dstore_db").refresh_acts();
 		return;
 	}
 	else
@@ -68,7 +68,7 @@ if(nconf.get("cmd"))
 			console.log("activities: "+acts.length);
 //			console.log(acts[0]);
 
-			require("./src/dstore_db").fill_acts(acts);
+			require("./js/dstore_db").fill_acts(acts);
 
 		});
 		return;		
@@ -81,14 +81,14 @@ app.use(express.logger());
 //app.use("/");
 
 app.use("/test",function (req, res) {
-	var t=require("./src/test")
+	var t=require("./js/test")
 	var html=required["test"].html(req,res);
 	res.writeHead(200, {'Content-Type': html.mime});
 	res.end(html.headbody);
 });
 
 app.use("/dstore_db",function (req, res) {
-	require("./src/dstore_db").test(req,res);
+	require("./js/dstore_db").test(req,res);
 });
 
 
