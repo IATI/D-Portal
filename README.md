@@ -6,11 +6,15 @@ easily hosted by anyone, anywhere and that will tell an interesting
 story using IATI data
 
 
-ctrack contains client side javascript and css for displaying 
+Directory Structure
+===================
+
+/ctrack contains client side javascript and css for displaying 
 information direct from the datastore in browser. See the readme in 
 that directory for more information.
 
-dstore contains server side javascript for xml manipulation and 
+/dstore contains server side javascript for xml manipulation and 
 parsing of iati data.  See the readme in that directory for more 
 information.
 
+/bin containts helper scripts.
