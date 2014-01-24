@@ -72,7 +72,7 @@ iati_codes.fetch = function(){
 	var j=refry.xml(x);
 	var o={};
 	j[0][1].forEach(function(v){
-		var name=(v[1][0][1]);
+		var name=(v[1][0][1][0]);
 		var a2=(v[1][1][1]);
 		o[a2]=name;
 	});
