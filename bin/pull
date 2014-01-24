@@ -2,5 +2,6 @@
 # Pull from origin
 
 cd `dirname $0`
+cd ..
 git pull  -u origin master
 

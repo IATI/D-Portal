@@ -2,5 +2,6 @@
 # Add everything that has changed and commit it
 
 cd `dirname $0`
+cd ..
 git add . --all
 git commit -a -m.

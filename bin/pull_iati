@@ -2,6 +2,7 @@
 # Pull from iati
 
 cd `dirname $0`
+cd ..
 git pull  -u iati master
 
 
