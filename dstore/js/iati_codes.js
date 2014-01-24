@@ -54,6 +54,8 @@ iati_codes.fetch = function(){
 	
 	files.forEach(function(opts){
 	
+		console.log("Fetching IATI "+opts.name)
+
 		var js=wait.for(http_getbody,opts.url);
 		var j=JSON.parse(js);
 		var o={};
@@ -63,6 +65,21 @@ iati_codes.fetch = function(){
 		codes[opts.name]=o;
 
 	});
+	
+	console.log("Fetching country_codes")
+	
+	var x=wait.for(http_getbody,"http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements_xml.htm");
+	var j=refry.xml(x);
+	var o={};
+	j[0][1].forEach(function(v){
+		var name=(v[1][0][1]);
+		var a2=(v[1][1][1]);
+		o[a2]=name;
+	});
+	codes["country"]=o;
+	
+
+	console.log("Writing json/iati_codes_to_name.json")
 	
 	fs.writeFileSync("json/iati_codes_to_name.json",JSON.stringify(codes));
 
