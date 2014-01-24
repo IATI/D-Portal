@@ -40,6 +40,12 @@ if(nconf.get("cmd"))
 		return;
 	}
 	else
+	if( cmd=="fetch" )
+	{
+		wait.launchFiber( require("./js/iati_codes").fetch );
+		return;
+	}
+	else
 	if( cmd=="refresh" )
 	{
 		require("./js/dstore_db").refresh_acts();
