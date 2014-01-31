@@ -5,11 +5,12 @@
 	<html>
 		<head>
 			<link rel="stylesheet" type="text/css" href="../art/activities.css" />
+			<script src="../jslib/jquery.js" />
+			<script src="../art/activities.js" />
 		</head>
 		<body>
 			<xsl:copy-of select="/*"/>
 		</body>
-		<script src="../art/activities.js" />
 	</html>
 </xsl:template>
 </xsl:stylesheet>

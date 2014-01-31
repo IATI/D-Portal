@@ -1,3 +1,5 @@
+
+$(function(){
 	
 console.log("Prepare xml");
 
@@ -5,133 +7,96 @@ var codes_lookup={"sector":{"11110":"Education policy and administrative managem
 
 // Adjust some tags using js
 
-
-var list=document.getElementsByTagName("value"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-
-	it.appendChild( document.createTextNode( " ("+it.getAttribute("currency")+")" ) );
-}
-
-
-var list=document.getElementsByTagName("transaction"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-
-	var needed=["transaction-date","transaction-type","description","provider-org","receiver-org","value"];
-	
-	needed.forEach(function(n){
-		if( it.getElementsByTagName(n).length==0 )
-		{
-			it.appendChild( document.createElement(n) );
-		}
-	});
-}
-
-
-
 var make_link=function(it,url)
 {
-	it.setAttribute( "onclick" , "window.location = '"+url+"';" );
-	it.setAttribute( "style" , "cursor:pointer;" );
-
-//	var s=document.createElement("span");
-//	s.appendChild( document.createTextNode( url ) );
-//	it.appendChild( s );
-
-};
-
-var list=document.getElementsByTagName("document-link"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-	make_link(it,it.getAttribute("url"));
-}
-var list=document.getElementsByTagName("activity-website"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-	make_link(it,it.firstChild.data);
-}
-var list=document.getElementsByTagName("iati-identifier"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-	make_link(it,"http://dev.ctrack.iatistandard.org:5000/api/1/access/activity.xml?iati-identifier="+it.firstChild.data);
-}
-
-var list=document.getElementsByTagName("activity-date"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-
-	it.innerHTML=it.getAttribute("iso-date");
-
-}
-var list=document.getElementsByTagName("transaction-date"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-
-	it.innerHTML=it.getAttribute("iso-date");
-
-}
-var list=document.getElementsByTagName("period-start"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-
-	it.innerHTML=it.getAttribute("iso-date");
-
-}
-var list=document.getElementsByTagName("period-end"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-
-	it.innerHTML=it.getAttribute("iso-date");
-
-}
-
-
-var list=document.getElementsByTagName("activity-status"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-
-	var t=it.getAttribute("code");
-	if(it.firstChild) { it.removeChild( it.firstChild ); }
-	it.appendChild( document.createTextNode( codes_lookup.activity_status[t] || t ) );
-}
-
-var list=document.getElementsByTagName("sector"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-
-	var t=it.getAttribute("code");
-	if(it.firstChild) { it.removeChild( it.firstChild ); }
-	it.appendChild( document.createTextNode( codes_lookup.sector[t] || t ) );
-
-	var t=it.getAttribute("percentage");
-	var s=document.createElement("span");
-	s.appendChild( document.createTextNode( t+"%" ) );
-	it.appendChild( s );
-
-}
-
-var list=document.getElementsByTagName("transaction-type"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-
-	var t=it.getAttribute("code");
-	t=t.toUpperCase();
-	if(it.firstChild) { it.removeChild( it.firstChild ); }
-	it.appendChild( document.createTextNode( codes_lookup.transaction_type[t] || t ) );
-
-}
-
-var list=document.getElementsByTagName("recipient-country"); for (var i = 0; i < list.length; ++i) { var it = list.item(i);
-
-	var t=it.getAttribute("code");
-	if(t)
+	if(url)
 	{
-		t=t.toUpperCase();
-		if(it.firstChild) { it.removeChild( it.firstChild ); }
-		it.appendChild( document.createTextNode( codes_lookup.country[t] || t ) );
+		it.wrap("<a href=\""+url+"\" target=\"_blank\" ></a>");
 	}
 }
 
-// sort each transaction using this list of tag names as prefered order
+$("value").each(function(i){var it=$(this);
+	var c=it.attr("currency");
+	if(!c) { c=it.parents("iati-activity").attr("default-currency"); } // use default?
+	if(c)
+	{
+		c=c.toUpperCase();
+		it.html( it.html()+"<span>"+c+"</span>" );
+	}
+});
 
-var sortlist=[
-	"transaction-date",
-	"transaction-type",
-	"description",
-	"provider-org",
-	"receiver-org",
-	"value",
-	0
-];
-var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
-var its=document.getElementsByTagName("transaction");
-for(var a=0;a<its.length;a++)
-{
-	var list = its.item(a);	
-	var items = list.children;
-	var itemsArr = [];
-	for (var i =0 ; i<items.length; i++) {
-			itemsArr.push(items.item(i));
+$("transaction").each(function(i){var it=$(this);
+	var needed=["transaction-date","transaction-type","description","provider-org","receiver-org","value"];
+	needed.forEach(function(n){
+		if( it.children(n).length==0 )
+		{
+			it.append("<"+n+" />"); // just add a blank tag
+		}
+	});
+
+});
+
+$("activity-date,transaction-date,period-start,period-end").each(function(i){var it=$(this);
+	it.html( it.attr("iso-date") );
+});
+
+$("activity-status").each(function(i){var it=$(this);
+	var tc=it.attr("code");
+	tc=codes_lookup.activity_status[tc] || tc;
+	if(tc)
+	{
+		it.html(tc);
+	}
+});
+
+$("sector").each(function(i){var it=$(this);
+
+	var tp=it.attr("percentage") || 100;
+	var tc=it.attr("code");
+	tc=codes_lookup.sector[tc] || tc;	
+	if(tc)
+	{
+		it.html("<span>"+tc+"</span><span>"+tp+"</span>");
 	}
 
-	itemsArr.sort(function(a, b) {
+});
+
+$("transaction-type").each(function(i){var it=$(this);
+
+	var tc=it.attr("code").toUpperCase();
+	tc=codes_lookup.transaction_type[tc] || tc;
+	if(tc)
+	{
+		it.html(tc);
+	}
+
+});
+
+$("recipient-country").each(function(i){var it=$(this);
+
+	var tc=it.attr("code").toUpperCase();
+	tc=codes_lookup.country[tc] || tc;
+	if(tc)
+	{
+		it.html(tc);
+	}
+
+});
+
+$("transaction").each(function(i){var it=$(this);
+	
+	var sortlist=[
+		"transaction-date",
+		"transaction-type",
+		"description",
+		"provider-org",
+		"receiver-org",
+		"value",
+		0];
+	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+
+	var aa=it.children();	
+	aa.sort(function(a,b){
 		var ret=0;
 		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
 		var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];	
@@ -147,47 +112,38 @@ for(var a=0;a<its.length;a++)
 		}
 		return ret;
 	});
+	it.append(aa);
 
-	for(var i = 0; i < itemsArr.length; ++i) {
-		list.appendChild(itemsArr[i]);
-	}
-}
+});
 
-// sort each activity using this list of tag names as prefered order
-
-var sortlist=[
-	"iati-identifier",
-	"activity-date",
-	"recipient-country",
-	"sector",
-	"title",
-	"activity-website",
-	"activity-status",
-	"description",
-	"budget",
-	"transaction",
-	"participating-org",
-	"contact-info",
-	0
-];
-var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
-
-var acts=document.getElementsByTagName("iati-activity");
-for(var a=0;a<acts.length;a++)
-{
-	var list = acts.item(a);
+$("iati-activity").each(function(i){var it=$(this);
 	
-	var items = list.children;
-	var itemsArr = [];
-	for (var i =0 ; i<items.length; i++) {
-			itemsArr.push(items.item(i));
-	}
+	var sortlist=[
+		"transaction-date",
+		"iati-identifier",
+		"activity-date",
+		"recipient-country",
+		"sector",
+		"title",
+		"activity-website",
+		"activity-status",
+		"description",
+		"budget",
+		"transaction",
+		"participating-org",
+		"contact-info",
+	0];
+	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
 
-	itemsArr.sort(function(a, b) {
+	var aa=it.children();	
+	aa.sort(function(a,b){
 		var ret=0;
 		
-		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
-		var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];
+		var aname=a.tagName.toLowerCase();
+		var bname=b.tagName.toLowerCase();
+		
+		var aw=sortweight[aname] || sortweight[0];
+		var bw=sortweight[bname] || sortweight[0];
 
 		if(ret===0)
 		{
@@ -197,25 +153,25 @@ for(var a=0;a<acts.length;a++)
 
 		if(ret===0)
 		{
-			if(a.tagName.toLowerCase() > b.tagName.toLowerCase() ) { ret= 1; }
-			if(a.tagName.toLowerCase() < b.tagName.toLowerCase() ) { ret=-1; }
+			if(aname > bname ) { ret= 1; }
+			if(aname < bname ) { ret=-1; }
 		}
 		
-		if( (ret===0) && (a.tagName.toLowerCase()=="activity-date") )
+		if( (ret===0) && (aname=="activity-date") )
 		{
 			var at=a.getAttribute("type");
 			var bt=b.getAttribute("type");
 			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
 		}
 		
-		if( (ret===0) && (a.tagName.toLowerCase()=="sector") )
+		if( (ret===0) && (aname=="sector") )
 		{
 			var at=a.getAttribute("vocabulary");
 			var bt=b.getAttribute("vocabulary");
 			if(at>bt) { ret=1; } else if(at<bt) { ret=-1; }
 		}
 
-		if( (ret===0) && (a.tagName.toLowerCase()=="sector") )
+		if( (ret===0) && (aname=="sector") )
 		{
 			var at=Number(a.getAttribute("percentage"));
 			var bt=Number(b.getAttribute("percentage"));
@@ -224,11 +180,22 @@ for(var a=0;a<acts.length;a++)
 
 		return ret;
 	});
+	it.append(aa);
 
-	for(var i = 0; i < itemsArr.length; ++i) {
-		var v=itemsArr[i];
-		list.appendChild(v);
-	}
+});
+
+
+$("document-link").each(function(i){var it=$(this);
+	make_link(it,it.attr("url"));
+});
+
+$("activity-website").each(function(i){var it=$(this);
+	make_link(it,it.html());
+});
+
+$("iati-identifier").each(function(i){var it=$(this);
+	make_link(it,"http://dev.ctrack.iatistandard.org:5000/api/1/access/activity.xml?iati-identifier="+it.html());
+});
 
 
 /*
@@ -242,6 +209,5 @@ for(var a=0;a<acts.length;a++)
 		secs.item(0).parentNode.insertBefore( im , secs.item(0) );
 	}
 */
-	
-}
 
+});
