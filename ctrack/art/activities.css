@@ -102,11 +102,13 @@ contact-info * {display:block; padding:5px 0;}
 contact-info:nth-of-type(1):before {content:"CONTACT INFO"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 contact-info:last-of-type {padding-bottom:40px;}
 
-a.document-link {display:block; width:880px; padding:10px 40px; background-color:#fff;}
-a.document-link span {font-size:16px; display:block; color:#999; padding-bottom:30px;}
-a.document-link title:nth-of-type(n+1):before {display:none;}
-a.document-link title:nth-of-type(n+1) {border:0; margin:0; padding:0; font-size:18px;}
-a.document-link:nth-of-type(1):before {content:"Related Documents"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:20px; border-bottom:3px solid #D8D8D8;}
-a.document-link title:nth-of-type(n+1):after {content:"READ DOCUMENT"; font-size:12px; display:inline-block; padding-left:20px; color:#aaa;}
-a.document-link:last-of-type {padding-bottom:60px;}
-a.document-link title:hover {color:#FF7A00;}
+a.a_document-link {display:block; width:880px; padding:10px 40px; background-color:#fff;}
+document-link {display:block;}
+document-link span {font-size:16px; display:block; color:#999; padding-bottom:30px;}
+document-link title:nth-of-type(n+1):before {display:none;}
+document-link title:nth-of-type(n+1) {border:0; margin:0; padding:0; font-size:18px;}
+.a_document-link:before {content:"Related Documents"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:20px; border-bottom:3px solid #D8D8D8;}
+
+document-link title:nth-of-type(n+1):after {content:"READ DOCUMENT"; font-size:12px; display:inline-block; padding-left:20px; color:#aaa;}
+document-link:last-of-type {padding-bottom:60px;}
+document-link title:hover {color:#FF7A00;}
