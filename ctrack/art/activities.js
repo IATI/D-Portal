@@ -123,10 +123,10 @@ $("iati-activity").each(function(i){var it=$(this);
 		"iati-identifier",
 		"activity-date",
 		"recipient-country",
-		"sector",
 		"title",
 		"activity-website",
 		"activity-status",
+		"sector",
 		"description",
 		"budget",
 		"transaction",
@@ -214,10 +214,10 @@ $("iati-activity").each(function(i){var it=$(this);
 			an.push(name);
 		});
 		
-		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=960x300&cht=p&chds=a";
+		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=880x275&cht=p&chds=a";
 		url=url+"&chd=t:"+av.join(",")+"&chdl="+an.join("|")
 
-		aa.first().before("<img src=\""+url+"\" style=\"width:960px;height:300px\" class=\"sector_pie\" />");
+		aa.first().before("<img src=\""+url+"\" style=\"width:880px;height:275px\" class=\"sector_pie\" />");
 	}
 });
 

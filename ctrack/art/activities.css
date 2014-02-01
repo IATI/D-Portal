@@ -1,24 +1,22 @@
+* {color:#444; font-family:sans-serif; word-wrap:break-word;}
 body,html {background:none, #D8D8D8; color:#444; font-family:sans-serif;}
 a {text-decoration:none;}
 
-* {color:#444; font-family:sans-serif; word-wrap:break-word;}
-
+reporting-org {display:none;}
+recipient-region {display:none;}
+ok {display:none;}
+query {display:none;}
 iati-activity * {display:none;}
 iati-activity {display:block; width:960px; margin:0 auto; margin-bottom:320px; position:relative; background-color:#EBEBEB;}
 iati-activity:after {content:"END OF ACTIVITY"; font-size:14px; color:#999; display:block; width:960px; margin:0 auto; border-top: 3px solid #D8D8D8; padding:20px 0; text-align:center;}
 
 
 /* hacks to display injected elements */
-iati-activity span {display:block; font-size:12px; color:#666;}
+iati-activity span {display:block;}
 iati-activity a {display:block;}
 iati-activity img {display:block;}
 /* hacks to display injected elements */
 
-
-reporting-org {display:none;}
-recipient-region {display:none;}
-ok {display:none;}
-query {display:none;}
 
 iati-identifier {display:block; vertical-align:top; width:920px; text-align:right; font-size:32px; padding:20px 40px 20px 0px; position:relative; background-color:#fff; margin-top:40px; color:#FF7A00;}
 iati-identifier:before {content:"IATI IDENTIFIER"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
@@ -36,8 +34,12 @@ recipient-country {display:block; text-transform:uppercase; font-size:54px; widt
 recipient-country:nth-of-type(1):before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#fff; display:block; margin-bottom:10px;}
 
 sector * {display:none;}
-sector[vocabulary="DAC"] {font-size:16px; width:240px; display:inline-block; vertical-align:top; padding:30px 40px 0 40px; margin-bottom:40px;}
+sector[vocabulary="DAC"] {font-size:16px; width:240px; display:inline-block; vertical-align:top; padding:30px 40px; max-height:80px; min-height:80px;}
+sector:nth-child(even) {background-color:#E4E2E2;}
 sector[vocabulary="DAC"]:before {content:"SECTOR"; font-size:14px; color:#999; width:240px; display:block; padding-bottom:5px;}
+sector span:nth-of-type(2) {padding-top:5px; color:#999;}
+sector span:nth-of-type(2):after {content:"% allocated"; display:inline-block;}
+img.sector_pie {padding:40px; background-color:#fff;}
 
 title:nth-of-type(1) {display:block; font-size:42px; width:880px; padding:40px; border-top:3px solid #D8D8D8; margin:0 auto; background-color:#fff;}
 title:nth-of-type(1):before {content:"PROJECT TITLE"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
@@ -47,6 +49,11 @@ activity-website * {display:block; padding:5px 0;}
 activity-website:before {content:"FOR MORE INFORMATION, VISIT "; font-size:14px; color:#999; display:inline-block; margin-bottom:10px; padding-right:20px;}
 activity-website:hover {color:#FF7A00;}
 
+activity-status[code="1"] {background-color:rgb(71, 181, 255);}
+activity-status[code="2"] {background-color:rgb(204, 141, 230)}
+activity-status[code="3"] {background-color:rgb(71, 255, 78);}
+activity-status[code="4"] {background-color:rgb(255, 130, 71);}
+activity-status[code="5"] {background-color:rgb(255, 71, 71);}
 activity-status {display:block; font-size:20px; background-color:rgb(255, 130, 71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px;}
 activity-status:before {content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:inline-block; padding-right:10px;}
 
@@ -87,6 +94,7 @@ transaction description:nth-of-type(1) {display:table-cell; font-size:16px; padd
 provider-org {display:table-cell; font-size:16px; width:150px; max-width:150px; padding-right:20px;}
 receiver-org {display:table-cell; font-size:16px; width:150px; max-width:150px; padding-right:20px;}
 value {display:table-cell; font-size:16px; width:100px; max-width:100px; padding-right:40px;}
+value span {font-size:12px; color:#666;}
 
 participating-org {display:block; width:880px; padding:10px 40px; font-size:18px; background-color:#fff;}
 participating-org:nth-of-type(1) {padding-top:60px;}
@@ -102,11 +110,19 @@ contact-info * {display:block; padding:5px 0;}
 contact-info:nth-of-type(1):before {content:"CONTACT INFO"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 contact-info:last-of-type {padding-bottom:40px;}
 
-document-link {display:block; width:880px; padding:10px 40px; background-color:#fff;}
+a.a_document-link {display:block; width:880px; padding:10px 40px; background-color:#fff;}
+document-link {display:block;}
 document-link span {font-size:16px; display:block; color:#999; padding-bottom:30px;}
 document-link title:nth-of-type(n+1):before {display:none;}
 document-link title:nth-of-type(n+1) {border:0; margin:0; padding:0; font-size:18px;}
-document-link:nth-of-type(1):before {content:"Related Documents"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:20px; border-bottom:3px solid #D8D8D8;}
+
+a.a_document-link:before {content:"Related Documents"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:20px; border-bottom:3px solid #D8D8D8;}
+/* 
+ * Select all but the first a.a_document-link child of iati-activity,
+ * and remove the content from the previous rule.
+ */
+iati-activity  > a.a_document-link ~ a.a_document-link:before {content:""; padding:0; margin:0; border:0;}
+
 document-link title:nth-of-type(n+1):after {content:"READ DOCUMENT"; font-size:12px; display:inline-block; padding-left:20px; color:#aaa;}
-document-link:last-of-type {padding-bottom:60px;}
+a.a_document-link:last-of-type {padding-bottom:60px;}
 document-link title:hover {color:#FF7A00;}
