@@ -7,12 +7,9 @@ var codes_lookup={"sector":{"11110":"Education policy and administrative managem
 
 // Adjust some tags using js
 
-var make_link=function(it,url)
+var make_link=function(it,url,cc)
 {
-	if(url)
-	{
-		it.wrap("<a href=\""+url+"\" target=\"_blank\" ></a>");
-	}
+	it.wrap("<a href=\""+url+"\" class=\""+cc+"\" target=\"_blank\" ></a>");
 }
 
 $("value").each(function(i){var it=$(this);
@@ -186,15 +183,15 @@ $("iati-activity").each(function(i){var it=$(this);
 
 
 $("document-link").each(function(i){var it=$(this);
-	make_link(it,it.attr("url"));
+	make_link(it,it.attr("url"),"a_"+this.tagName.toLowerCase());
 });
 
 $("activity-website").each(function(i){var it=$(this);
-	make_link(it,it.html());
+	make_link(it,it.html(),"a_"+this.tagName.toLowerCase());
 });
 
 $("iati-identifier").each(function(i){var it=$(this);
-	make_link(it,"http://dev.ctrack.iatistandard.org:5000/api/1/access/activity.xml?iati-identifier="+it.html());
+	make_link(it,"http://dev.ctrack.iatistandard.org:5000/api/1/access/activity.xml?iati-identifier="+it.html(),"a_"+this.tagName.toLowerCase());
 });
 
 
