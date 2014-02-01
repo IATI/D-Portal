@@ -5,11 +5,12 @@
 	<html>
 		<head>
 			<link rel="stylesheet" type="text/css" href="/static/ctrack/art/activities.css" />
+			<script src="/static/ctrack/jslib/jquery.js" />
+			<script src="/static/ctrack/art/activities.js" />
 		</head>
 		<body>
 			<xsl:copy-of select="/*"/>
 		</body>
-		<script src="/static/ctrack/art/activities.js" />
 	</html>
 </xsl:template>
 </xsl:stylesheet>
