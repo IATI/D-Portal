@@ -200,8 +200,7 @@ $("iati-activity").each(function(i){var it=$(this);
 	var aa=it.children("sector[vocabulary=\"DAC\"]");
 	if(aa.length>0)
 	{
-		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=960x300&cht=p&chd=t:43,18,18,8,7,6&chds=a&chdl=Road+transport|Agricultural+water+resources|Agricultural+land+resources|Water+transport|Economic+and+development+policy/planning|15112";
-		
+	
 		var av=[];
 		var an=[];
 		aa.each(function(i,v){
@@ -211,22 +210,12 @@ $("iati-activity").each(function(i){var it=$(this);
 			an.push(name);
 		});
 		
-		url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=960x300&cht=p&chds=a";
+		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=960x300&cht=p&chds=a";
 		url=url+"&chd=t:"+av.join(",")+"&chdl="+an.join("|")
 
-		aa.first().before("<img src=\""+url+"\" style=\"width:960px;height:300px\"/>");
+		aa.first().before("<img src=\""+url+"\" style=\"width:960px;height:300px\" class=\"sector_pie\" />");
 	}
 });
-/*
-	var secs=list.getElementsByTagName("sector");
-	console.log(secs.length);
-	if(secs.length>0)
-	{
-		var im=document.createElement("img");
-		im.setAttribute("class","sector");
-		im.setAttribute("src","http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=960x300&cht=p&chd=t:43,18,18,8,7,6&chds=a&chdl=Road+transport|Agricultural+water+resources|Agricultural+land+resources|Water+transport|Economic+and+development+policy/planning|15112");
-		secs.item(0).parentNode.insertBefore( im , secs.item(0) );
-	}
-*/
+
 
 });
