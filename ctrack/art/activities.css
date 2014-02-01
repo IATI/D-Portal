@@ -12,7 +12,7 @@ iati-activity:after {content:"END OF ACTIVITY"; font-size:14px; color:#999; disp
 
 
 /* hacks to display injected elements */
-iati-activity span {display:block; font-size:12px; color:#666;}
+iati-activity span {display:block;}
 iati-activity a {display:block;}
 iati-activity img {display:block;}
 /* hacks to display injected elements */
@@ -34,8 +34,12 @@ recipient-country {display:block; text-transform:uppercase; font-size:54px; widt
 recipient-country:nth-of-type(1):before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#fff; display:block; margin-bottom:10px;}
 
 sector * {display:none;}
-sector[vocabulary="DAC"] {font-size:16px; width:240px; display:inline-block; vertical-align:top; padding:30px 40px 0 40px; margin-bottom:40px;}
+sector[vocabulary="DAC"] {font-size:16px; width:240px; display:inline-block; vertical-align:top; padding:30px 40px; max-height:80px; min-height:80px;}
+sector:nth-child(even) {background-color:#E4E2E2;}
 sector[vocabulary="DAC"]:before {content:"SECTOR"; font-size:14px; color:#999; width:240px; display:block; padding-bottom:5px;}
+sector span:nth-of-type(2) {padding-top:5px; color:#999;}
+sector span:nth-of-type(2):after {content:"% allocated"; display:inline-block;}
+img.sector_pie {width:960px; height:300px; padding:20px 40px; background-color:#fff;}
 
 title:nth-of-type(1) {display:block; font-size:42px; width:880px; padding:40px; border-top:3px solid #D8D8D8; margin:0 auto; background-color:#fff;}
 title:nth-of-type(1):before {content:"PROJECT TITLE"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
@@ -90,6 +94,7 @@ transaction description:nth-of-type(1) {display:table-cell; font-size:16px; padd
 provider-org {display:table-cell; font-size:16px; width:150px; max-width:150px; padding-right:20px;}
 receiver-org {display:table-cell; font-size:16px; width:150px; max-width:150px; padding-right:20px;}
 value {display:table-cell; font-size:16px; width:100px; max-width:100px; padding-right:40px;}
+value span {font-size:12px; color:#666;}
 
 participating-org {display:block; width:880px; padding:10px 40px; font-size:18px; background-color:#fff;}
 participating-org:nth-of-type(1) {padding-top:60px;}
