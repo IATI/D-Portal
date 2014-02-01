@@ -4,14 +4,15 @@ sqlite version for use in real time country tracker queries.
 
 Assuming you are on a Debian derivative.
 
-./getapts
+../bin/getapts
 npm install
 
-will get you nodejs and install the require modules. Any problems 
-encountered at this stage are probably due to an old version of 
-nodejs being installed via apt-get. If you have problems or are not 
-on debian then try building the latest stable version of node rather 
-than using apt-get, v0.10.24 is current and tested as of the now.
+will get you nodejs from a new ppa and install the require modules. 
+Any problems encountered at this stage are probably due to an old 
+version of nodejs being installed via apt-get. If you have problems 
+or are not on debian then try building the latest stable version of 
+node rather than using apt-get, v0.10.24 is current and tested as of 
+the now.
 
 Success?
 

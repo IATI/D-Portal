@@ -11,12 +11,11 @@ that bake.js requires.
 Installing Node
 ===============
 
-sudo apt-get install nodejs-legacy
+../bin/getapts
 
-Will work on debian systems, however the version may be old and any 
-problems you encounter with node are probably solved by update to a 
-recent version which is best done by an install from source. I 
-recomend v0.10.24 which is current and tested with this code.
+Will work on debian systems, by adding a newer PPA for node and then 
+installing from there. You may prefer to install from source rather 
+than add random PPAs. See the nodejs site for how to do this.
 
 
 Building
