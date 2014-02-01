@@ -39,7 +39,7 @@ sector:nth-child(even) {background-color:#E4E2E2;}
 sector[vocabulary="DAC"]:before {content:"SECTOR"; font-size:14px; color:#999; width:240px; display:block; padding-bottom:5px;}
 sector span:nth-of-type(2) {padding-top:5px; color:#999;}
 sector span:nth-of-type(2):after {content:"% allocated"; display:inline-block;}
-img.sector_pie {width:960px; height:300px; padding:20px 40px; background-color:#fff;}
+img.sector_pie {padding:40px; background-color:#fff;}
 
 title:nth-of-type(1) {display:block; font-size:42px; width:880px; padding:40px; border-top:3px solid #D8D8D8; margin:0 auto; background-color:#fff;}
 title:nth-of-type(1):before {content:"PROJECT TITLE"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
