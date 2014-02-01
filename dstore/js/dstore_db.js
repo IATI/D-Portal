@@ -7,6 +7,7 @@ required["dstore_db"]=dstore_db;
 var refry=require('./refry');
 var exs=require('./exs');
 var iati_xml=require('./iati_xml');
+var dstore_sqlite=require('./dstore_sqlite');
 
 var wait=require('wait.for');
 
@@ -79,73 +80,10 @@ var http_getbody=function(url,cb)
 	});
 
 };
-dstore_db.hack_exs = function(){
-	
-	var exs=["AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHF","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EEK","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XCD","XOF","XPF","YER","ZAR","ZMK","ZWL"];
-
-	var years={
-	}
-	
-	exs.map(function(v){
-		ls(v);
-		var csv=wait.for(http_getbody,"http://www.oanda.com/currency/average?amount=1&start_month=1&start_year=1990&end_month=1&end_year=2014&base=USD&avg_type=Year&Submit=1&exchange="+v+"&interbank=0&format=CSV");
-		if(csv){csv=csv.split("<pre>")[2];}
-		if(csv){csv=csv.split("</PRE>")[0];} // hacks to grab the csv part of the page...
-		if(csv)
-		{
-			csv.split("\n").map(function(line){
-				var l=line.split(",");
-				if(l[1])
-				{
-					if(l[0][0]=="*"){ l[0]=l[0].split("*")[1]; } // remove leading * (marks incomplete data)
-					var year=parseInt(l[0]);
-					var val=Number(l[1]);
-					
-					years[year]=years[year] || {};
-					years[year][v]=val;
-				}
-			});
-		}
-	});
-
-	var p=[];
-	p.push("year");
-	exs.map(function(v){
-		p.push("\t");
-		p.push(v);
-	});
-	p.push("\n");
-	
-	for(y in years)
-	{
-		p.push(""+y);
-		exs.map(function(v){
-			p.push("\t");
-			if(years[y][v] && years[y][v]>0)
-			{
-				p.push(""+years[y][v]);
-			}
-		});
-		p.push("\n");
-	}
-	console.log(p.join(""));
-//	ls(years);
-// http://www.oanda.com/currency/average?amount=1&start_month=1&start_year=1990&end_month=1&end_year=2014&base=USD&avg_type=Year&Submit=1&exchange=GBP&interbank=0&format=CSV
-
-}
 
 
 dstore_db.open = function(){
-	var db = new sqlite3.Database( nconf.get("database") );
-	
-// speed up data writes.
-	db.serialize(function() {
-		db.run('PRAGMA synchronous = 0 ;');
-		db.run('PRAGMA encoding = "UTF-8" ;');
-		db.run('PRAGMA journal_mode=WAL;');
-	});
-	
-	return db;
+	return dstore_sqlite.open();
 };
 
 
@@ -286,9 +224,9 @@ dstore_db.refresh_acts = function(){
 		sa.finalize();
 		
 		db.run("DELETE FROM transactions WHERE aid=?",t.aid); // remove all the old ones, then add new
-		refry.tags(act,"transaction",function(it){do_transaction(it,act)});
-
 		db.run("DELETE FROM budgets WHERE aid=?",t.aid); // remove all the old ones, then add new
+
+		refry.tags(act,"transaction",function(it){do_transaction(it,act)});
 		refry.tags(act,"budget",function(it){do_budget(it,act)});
 
 	});
@@ -571,147 +509,16 @@ dstore_db.hack_acts = function(){
 
 
 dstore_db.create_tables = function(){
-
-	var db = dstore_db.open();
-
-	db.serialize(function() {
-	
-// simple data dump table containing just the raw xml of each activity.
-// this is filled on import and then used as a source
-
-		for(var name in dstore_db.tables)
-		{
-			var tab=dstore_db.tables[name];
-			var s=dstore_db.getsql_create_table(db,name,tab);
-
-			console.log(s);
-
-			db.run("DROP TABLE IF EXISTS "+name+";");
-			db.run(s);
-		}
-
-		console.log("Created database "+nconf.get("database"));
-		
-	});
-	
-	db.close();
-}
-
-
-dstore_db.getsql_prepare_insert = function(name,row){
-
-	var s=[];
-
-	s.push("INSERT INTO "+name+" ( ");
-	
-	var need_comma=false;
-	for(var n in row)
-	{
-		if(need_comma) { s.push(" , "); }
-		s.push(" "+n+" ");
-		need_comma=true
-	}
-
-	s.push(" ) VALUES ( ");
-
-	var need_comma=false;
-	for(var n in row)
-	{
-		if(need_comma) { s.push(" , "); }
-		s.push(" $"+n+" ");
-		need_comma=true
-	}
-
-	s.push(" ); ");
-
-	return s.join("");
-}
-
-dstore_db.getsql_prepare_update = function(name,row){
-
-	var s=[];
-	s.push("UPDATE "+name+" SET ");
-	var need_comma=false;
-	for(var n in row)
-	{
-		if(need_comma) { s.push(" , "); }
-		s.push(" "+n+"=$"+n+" ");
-		need_comma=true
-	}
-	s.push(" ");
-	return s.join("");
-}
-
-dstore_db.getsql_create_table=function(db,name,tab)
-{
-	var s=[];
-	
-	s.push("CREATE TABLE "+name+" ( ");
-	
-	for(var i=0; i<tab.length;i++)
-	{
-		var col=tab[i];
-
-		s.push(" "+col.name+" ");
-		
-		if(col.INTEGER)		{ s.push(" INTEGER "); }
-		else
-		if(col.REAL) 		{ s.push(" REAL "); }
-		else
-		if(col.TEXT) 		{ s.push(" TEXT "); }
-		else
-		if(col.BLOB) 		{ s.push(" BLOB "); }
-
-		if(col.PRIMARY) 	{ s.push(" PRIMARY KEY "); }
-		else
-		if(col.UNIQUE) 		{ s.push(" UNIQUE "); }
-		
-		if(i<tab.length-1)
-		{
-		s.push(" , ");
-		}
-	}
-	
-	s.push(" ); ");
-
-	return s.join("");
+	return dstore_sqlite.create_tables();
 }
 
 dstore_db.check_tables = function(){
-
-	var db = dstore_db.open();
-
-	db.serialize(function() {
-	
-		db.all("SELECT * FROM sqlite_master;", function(err, rows)
-		{
-			ls(rows);
-		});
-
-	});
-
-	db.close();
+	return dstore_sqlite.check_tables();
 }
-
 
 // prepare some sql code
 dstore_db.cache_prepare = function(){
-
-	dstore_db.tables_insert_sql={};
-	dstore_db.tables_update_sql={};
-	dstore_db.tables_active={};
-	for(var name in dstore_db.tables)
-	{
-		var t={};
-		for(var i=0; i<dstore_db.tables[name].length; i++ )
-		{
-			var v=dstore_db.tables[name][i];
-			t[v.name]=true;
-		}
-		dstore_db.tables_active[name]=t;
-		dstore_db.tables_insert_sql[name]=dstore_db.getsql_prepare_insert(name,t);
-		dstore_db.tables_update_sql[name]   =dstore_db.getsql_prepare_update(name,t);
-	}
+	return dstore_sqlite.cache_prepare(dstore_db.tables);
 }
 dstore_db.cache_prepare();
 
