@@ -13,9 +13,19 @@ Installing Node
 
 ../bin/getapts
 
-Will work on debian systems, by adding a newer PPA for node and then 
+Will work on ubuntu systems, by adding a newer PPA for node and then 
 installing from there. You may prefer to install from source rather 
 than add random PPAs. See the nodejs site for how to do this.
+
+
+Installing Node Modules
+=======================
+
+./install_node_modules
+
+Will then install modules needed for bake.js (to create the client 
+side app) and serv.js (to run a simple server to serv the app), 
+these are build dependencies not runtime dependencies.
 
 
 Building
