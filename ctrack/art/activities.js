@@ -134,8 +134,10 @@ $("iati-activity").each(function(i){var it=$(this);
 		"budget",
 		"transaction",
 		"participating-org",
-		"related-activity",
 		"contact-info",
+		"document-link",
+		"related-activity",
+		"reporting-org",
 	0];
 	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
 
