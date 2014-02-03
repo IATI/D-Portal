@@ -131,7 +131,7 @@ document-link title:hover {color:#FFAB5E;}
 
 a.a_related-activity {display:block; width:880px; padding:40px 40px 0 40px; background-color:#fff; font-size:18px;}
 a.a_related-activity:before {content:"This activity is a"; display:inline-block; padding-right:5px; color:#444; font-size:18px;}
-related-activity {display:inline-block; color:#FF7A00;}
+related-activity {display:inline; color:#FF7A00;}
 related-activity:before {display:inline-block; font-weight:bold; padding-right:5px; color:#444; font-size:18px;}
 related-activity[type="1"]:before {content:"Child of ";}
 related-activity[type="2"]:before {content:"Parent of ";}
@@ -141,6 +141,4 @@ related-activity:hover {color:#FFAB5E;}
 
 reporting-org {display:block; width:880px; padding:10px 40px 60px 40px; background-color:#fff; font-size:18px; font-weight:bold;}
 reporting-org:before {content:"This activity is reported by"; display:inline-block; padding-right:5px; color:#444; font-size:18px; font-weight:normal;}
-reporting-org:after {content:"."; display:inline-block; color:#444; font-size:18px; font-weight:normal;}
-
 
