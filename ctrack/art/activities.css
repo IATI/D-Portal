@@ -129,7 +129,8 @@ a.a_document-link:last-of-type {padding-bottom:60px;}
 document-link title {color:#FF7A00;}
 document-link title:hover {color:#FFAB5E;}
 
-a.a_related-activity {display:block; width:880px; padding:40px 40px 0 40px; background-color:#fff; font-size:18px;}
+a.a_related-activity {display:block; width:880px; padding:60px 40px 0 40px; background-color:#fff; font-size:18px;}
+iati-activity  > a.a_related-activity ~ a.a_related-activity {padding-top:10px;}
 a.a_related-activity:before {content:"This activity is a"; display:inline-block; padding-right:5px; color:#444; font-size:18px;}
 related-activity {display:inline; color:#FF7A00;}
 related-activity:before {display:inline-block; font-weight:bold; padding-right:5px; color:#444; font-size:18px;}
@@ -139,6 +140,6 @@ related-activity[type="3"]:before {content:"Sibling of ";}
 related-activity[type="4"]:before {content:"Multifunded ";}
 related-activity:hover {color:#FFAB5E;}
 
-reporting-org {display:block; width:880px; padding:10px 40px 60px 40px; background-color:#fff; font-size:18px; font-weight:bold;}
+reporting-org {display:block; width:880px; padding:40px 40px 60px 40px; background-color:#fff; font-size:18px; font-weight:bold;}
 reporting-org:before {content:"This activity is reported by"; display:inline-block; padding-right:5px; color:#444; font-size:18px; font-weight:normal;}
 
