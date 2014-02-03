@@ -56,6 +56,9 @@ $("sector").each(function(i){var it=$(this);
 
 	var tp=it.attr("percentage") || 100;
 	var tc=it.attr("code");
+
+	if(!it.attr("vocabulary")) { it.attr("vocabulary","DAC"); }
+
 	tc=codes_lookup.sector[tc] || tc;	
 	if(tc)
 	{
