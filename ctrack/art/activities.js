@@ -199,6 +199,13 @@ $("iati-activity").each(function(i){var it=$(this);
 			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
 		}
 
+		if( (ret===0) && (aname=="related-activity") )
+		{
+			var at=$(a).attr("type");
+			var bt=$(b).attr("type");
+			if(at>bt) { ret=1; } else if(at<bt) { ret=-1; }
+		}
+
 		return ret;
 	});
 	it.append(aa);
