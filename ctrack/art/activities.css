@@ -140,7 +140,7 @@ related-activity[type="4"]:before {content:"Multifunded ";}
 related-activity:hover {color:#FFAB5E;}
 
 reporting-org {display:block; width:880px; padding:10px 40px 60px 40px; background-color:#fff; font-size:18px; font-weight:bold;}
-reporting-org:before {content:"This activity is reported by"; display:inline-block; padding-right:5px; color:#444; font-size:18px;}
-reporting-org:after {content:"."; display:inline-block; color:#444; font-size:18px;}
+reporting-org:before {content:"This activity is reported by"; display:inline-block; padding-right:5px; color:#444; font-size:18px; font-weight:normal;}
+reporting-org:after {content:"."; display:inline-block; color:#444; font-size:18px; font-weight:normal;}
 
 
