@@ -82,9 +82,17 @@ if(nconf.get("cmd"))
 }
 
 
+
+
+
 app.use(express.logger());
+app.use(express.json());
 
 //app.use("/");
+
+app.use("/q",function (req, res) {
+	require("./js/query").serv(req,res);
+});
 
 app.use("/test",function (req, res) {
 	var t=require("./js/test")

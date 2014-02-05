@@ -23,42 +23,54 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 // data table descriptions
 dstore_db.tables={
 	activities:[
-		{ name:"aid",					TEXT:true , PRIMARY:true },
+		{ name:"aid",					NOCASE:true , PRIMARY:true },
 		{ name:"raw_xml",				TEXT:true },
 		{ name:"raw_json",				TEXT:true },
 		{ name:"json",					TEXT:true },
 		{ name:"day_start",				INTEGER:true },
 		{ name:"day_end",				INTEGER:true },
 		{ name:"day_length",			INTEGER:true },
-		{ name:"title",					TEXT:true },
-		{ name:"description",			TEXT:true },
-		{ name:"reporting_org",			TEXT:true },
-		{ name:"reporting_org_ref",		TEXT:true }
+		{ name:"title",					NOCASE:true },
+		{ name:"description",			NOCASE:true },
+		{ name:"reporting_org",			NOCASE:true },
+		{ name:"reporting_org_ref",		NOCASE:true }
 	],
 	transactions:[
-		{ name:"aid",					TEXT:true },
+		{ name:"aid",					NOCASE:true },
 		{ name:"raw_json",				TEXT:true },
 		{ name:"json",					TEXT:true },
-		{ name:"ref",					TEXT:true },
-		{ name:"description",			TEXT:true },
+		{ name:"ref",					NOCASE:true },
+		{ name:"description",			NOCASE:true },
 		{ name:"day",					INTEGER:true },
-		{ name:"currency",				TEXT:true },
+		{ name:"currency",				NOCASE:true },
 		{ name:"value",					REAL:true },
 		{ name:"usd",					REAL:true },
-		{ name:"code",					TEXT:true },
-		{ name:"flow_code",				TEXT:true },
-		{ name:"finance_code",			TEXT:true },
-		{ name:"aid_code",				TEXT:true }
+		{ name:"code",					NOCASE:true },
+		{ name:"flow_code",				NOCASE:true },
+		{ name:"finance_code",			NOCASE:true },
+		{ name:"aid_code",				NOCASE:true }
 	],
 	budgets:[
-		{ name:"aid",					TEXT:true },
+		{ name:"aid",					NOCASE:true },
 		{ name:"raw_json",				TEXT:true },
 		{ name:"json",					TEXT:true },
-		{ name:"type",					TEXT:true },
+		{ name:"type",					NOCASE:true },
 		{ name:"day_start",				INTEGER:true },
 		{ name:"day_end",				INTEGER:true },
 		{ name:"day_length",			INTEGER:true },
-		{ name:"currency",				TEXT:true },
+		{ name:"currency",				NOCASE:true },
+		{ name:"value",					REAL:true },
+		{ name:"usd",					REAL:true }
+	],
+	planned_disbursements:[
+		{ name:"aid",					NOCASE:true },
+		{ name:"raw_json",				TEXT:true },
+		{ name:"json",					TEXT:true },
+		{ name:"type",					NOCASE:true },
+		{ name:"day_start",				INTEGER:true },
+		{ name:"day_end",				INTEGER:true },
+		{ name:"day_length",			INTEGER:true },
+		{ name:"currency",				NOCASE:true },
 		{ name:"value",					REAL:true },
 		{ name:"usd",					REAL:true }
 	]
@@ -92,7 +104,7 @@ dstore_db.fill_acts = function(acts){
 	var db = dstore_db.open();	
 	db.serialize();
 
-	var stmt = db.prepare("INSERT INTO activities (aid,raw_xml,raw_json) VALUES (?,?,?)");
+	var stmt = db.prepare("REPLACE INTO activities (aid,raw_xml,raw_json) VALUES (?,?,?)");
 
 	for(var i=0;i<acts.length;i++)
 	{
@@ -124,73 +136,24 @@ dstore_db.fill_acts = function(acts){
 
 };
 
-// pull every activity from the table and update *all* connected tables using its raw json data
+// pull every activity from the table and update *all* connected tables using its raw xml data
 
 dstore_db.refresh_acts = function(){
+	
+	var bubble_act={
+		"reporting_org":true,
+		"reporting_org_ref":true,
+		"aid":true
+	};
 		
 	var db = dstore_db.open();
 	db.serialize();
-
-	var do_transaction=function(it,act)
-	{
-		var t={};
-
-		t["aid"]=				refry.tagval(act,"iati-identifier");
-		t["ref"]=				it["ref"];
-		t["description"]=		refry.tagval(it,"description");
-		t["day"]=				iati_xml.get_isodate_number(it,"transaction-date");
-
-		t["code"]=				iati_xml.get_code(it,"transaction-type");
-		t["flow_code"]=			iati_xml.get_code(it,"flow-type");
-		t["finance_code"]=		iati_xml.get_code(it,"finance-type");
-		t["aid_code"]=			iati_xml.get_code(it,"aid-type");
-		
-		t["currency"]=			iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
-		t["value"]=				iati_xml.get_value(it,"value");
-		t["usd"]=				iati_xml.get_usd(it,"value",act["default-currency"]);
-
-		var $t={}; for(var n in dstore_db.tables_active.transactions) { $t["$"+n]=t[n]; } // prepare to insert using named values
-		$t.$json=JSON.stringify(t); // everything above is stored in the json string
-		$t.$raw_json=JSON.stringify(it);
-		
-		var stmt = db.prepare(dstore_db.tables_insert_sql.transactions);
-		stmt.run($t);
-		stmt.finalize();
-	};
-
-	var do_budget=function(it,act)
-	{
-		var t={};
-		
-		t["aid"]=refry.tagval(act,"iati-identifier");
-
-		t["type"]=it["type"];
-
-		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
-		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
-		t["day_length"]=			t["day_end"]-t["day_start"];
-		
-		t["currency"]=				iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
-		t["value"]=					iati_xml.get_value(it,"value");
-		t["usd"]=					iati_xml.get_usd(it,"value",act["default-currency"]);
-
-		var $t={}; for(var n in dstore_db.tables_active.budgets) { $t["$"+n]=t[n]; } // prepare to insert using named values
-		$t.$json=JSON.stringify(t); // everything above is stored in the json string
-		$t.$raw_json=JSON.stringify(it);
-		
-		var stmt = db.prepare(dstore_db.tables_insert_sql.budgets);
-		stmt.run($t);
-		stmt.finalize();
-	};
 	
-	db.each("SELECT aid,raw_xml,raw_json FROM activities", function(err, row){
-
-		var act=JSON.parse(row.raw_json);
+	var refresh_activity=function(act,row)
+	{
 		var t={};
 		
 		t.aid=row.aid;
-		process.stdout.write(".");
-//		console.log(t.aid);
 
 		t.title=refry.tagval(act,"title");
 		t.description=refry.tagval(act,"description");				
@@ -214,20 +177,93 @@ dstore_db.refresh_acts = function(){
 
 		t.default_currency=act["default-currency"];
 		
-		var $t={}; for(var n in dstore_db.tables_active.activities) { $t["$"+n]=t[n]; } // prepare to insert using named values
-		$t.$json=JSON.stringify(t); // everything above is stored in the json string
-		$t.$raw_xml=row.raw_xml;
-		$t.$raw_json=row.raw_json;
+		t.raw_xml=row.raw_xml;
+		t.raw_json=row.raw_json;
 		
-		var sa = db.prepare(dstore_db.tables_update_sql.activities+" WHERE aid=$aid ");
-		sa.run($t);
-		sa.finalize();
+		dstore_sqlite.replace(db,"activities",t);
 		
-		db.run("DELETE FROM transactions WHERE aid=?",t.aid); // remove all the old ones, then add new
-		db.run("DELETE FROM budgets WHERE aid=?",t.aid); // remove all the old ones, then add new
+		return t;
+	};
 
-		refry.tags(act,"transaction",function(it){do_transaction(it,act)});
-		refry.tags(act,"budget",function(it){do_budget(it,act)});
+	var refresh_transaction=function(it,act,act_json)
+	{
+		var t={};
+		for(var n in bubble_act){ t[n]=act_json[n]; } // copy some stuff
+
+		t["ref"]=				it["ref"];
+		t["description"]=		refry.tagval(it,"description");
+		t["day"]=				iati_xml.get_isodate_number(it,"transaction-date");
+
+		t["code"]=				iati_xml.get_code(it,"transaction-type");
+		t["flow_code"]=			iati_xml.get_code(it,"flow-type");
+		t["finance_code"]=		iati_xml.get_code(it,"finance-type");
+		t["aid_code"]=			iati_xml.get_code(it,"aid-type");
+		
+		t["currency"]=			iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
+		t["value"]=				iati_xml.get_value(it,"value");
+		t["usd"]=				iati_xml.get_usd(it,"value",act["default-currency"]);
+
+		t.raw_json=JSON.stringify(it);
+		
+		dstore_sqlite.replace(db,"transactions",t);
+
+	};
+
+	var refresh_budget=function(it,act,act_json)
+	{
+		var t={};
+		for(var n in bubble_act){ t[n]=act_json[n]; } // copy some stuff
+		
+		t["type"]=it["type"];
+
+		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
+		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
+		t["day_length"]=			t["day_end"]-t["day_start"];
+		
+		t["currency"]=				iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
+		t["value"]=					iati_xml.get_value(it,"value");
+		t["usd"]=					iati_xml.get_usd(it,"value",act["default-currency"]);
+
+		t.raw_json=JSON.stringify(it);
+		
+		dstore_sqlite.replace(db,"budgets",t);
+
+	};
+
+	var refresh_planned_disbursement=function(it,act,act_json)
+	{
+		var t={};
+		for(var n in bubble_act){ t[n]=act_json[n]; } // copy some stuff
+		
+		t["type"]=it["type"];
+
+		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
+		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
+		t["day_length"]=			t["day_end"]-t["day_start"];
+		
+		t["currency"]=				iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
+		t["value"]=					iati_xml.get_value(it,"value");
+		t["usd"]=					iati_xml.get_usd(it,"value",act["default-currency"]);
+
+		t.raw_json=JSON.stringify(it);
+		
+		dstore_sqlite.replace(db,"planned_disbursements",t);
+
+	};
+	
+	db.each("SELECT aid,raw_xml,raw_json FROM activities", function(err, row){
+
+		process.stdout.write(".");
+
+		var act=JSON.parse(row.raw_json);
+		var act_json=refresh_activity(act,row);
+		
+		db.run("DELETE FROM transactions WHERE aid=?",act_json.aid); // remove all the old ones, then add new
+		db.run("DELETE FROM budgets WHERE aid=?",act_json.aid); // remove all the old ones, then add new
+
+		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,act_json)});
+		refry.tags(act,"budget",function(it){refresh_budget(it,act,act_json)});
+		refry.tags(act,"planned-disbursement",function(it){refresh_planned_disbursement(it,act,act_json)});
 
 	});
 
@@ -240,7 +276,7 @@ dstore_db.refresh_acts = function(){
 
 
 
-
+/*
 dstore_db.hack_acts = function(){
 	
 	var tabs={
@@ -348,6 +384,7 @@ dstore_db.hack_acts = function(){
 			{
 				refry.tags(act,"budget",function(it){do_budget(it,act)});
 			}
+*/
 /*
 			if(act.transaction)
 			{
@@ -363,7 +400,7 @@ dstore_db.hack_acts = function(){
 				for(var i=0;i<act["planned-disbursement"].length;i++) { do_planned(act["planned-disbursement"][i],act); }
 			}
 */
-			
+/*			
 //			for(var i=0;i<99999999999999999999;i++);
 
 		},function(err, count){
@@ -490,14 +527,14 @@ dstore_db.hack_acts = function(){
 
 			console.log(out.join(""));
 
-/*
+
 			console.log("org\tfrequencey")
 			for(var n in values.org)
 			{
 				var v=values.org[n];
 				console.log(n+"\t"+v)
 			}
-*/
+
 		});
 
 	});
@@ -505,7 +542,7 @@ dstore_db.hack_acts = function(){
 
 
 };
-
+*/
 
 
 dstore_db.create_tables = function(){

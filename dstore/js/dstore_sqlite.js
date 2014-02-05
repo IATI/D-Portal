@@ -62,11 +62,34 @@ dstore_sqlite.create_tables = function(){
 }
 
 
-dstore_sqlite.getsql_prepare_insert = function(name,row){
+dstore_sqlite.replace = function(db,name,it){
+
+	var json={};
+
+	for(var n in it) { if( n.slice(0,4)!="raw_") {
+		json[n]=it[n]; } }
+	
+	var $t={}; for(var n in dstore_sqlite.tables_active[name]) { $t["$"+n]=it[n]; } // prepare to insert using named values
+	
+	$t.$json=JSON.stringify(json); // everything not named raw_* also lives in the json string
+
+	for(var n in it) { if( n.slice(0,4)=="raw_") {
+		$t["$"+n]=it[n]; }}
+		
+//	ls($t);
+	
+	var sa = db.prepare(dstore_sqlite.tables_replace_sql[name]);
+	sa.run($t);
+	
+	sa.finalize(); // seems faster to finalize now rather than let it hang?
+		
+};
+		
+dstore_sqlite.getsql_prepare_replace = function(name,row){
 
 	var s=[];
 
-	s.push("INSERT INTO "+name+" ( ");
+	s.push("REPLACE INTO "+name+" ( ");
 	
 	var need_comma=false;
 	for(var n in row)
@@ -118,17 +141,19 @@ dstore_sqlite.getsql_create_table=function(db,name,tab)
 
 		s.push(" "+col.name+" ");
 		
-		if(col.INTEGER)		{ s.push(" INTEGER "); }
+		if(col.INTEGER)				{ s.push(" INTEGER "); }
 		else
-		if(col.REAL) 		{ s.push(" REAL "); }
+		if(col.REAL) 				{ s.push(" REAL "); }
 		else
-		if(col.TEXT) 		{ s.push(" TEXT "); }
+		if(col.BLOB) 				{ s.push(" BLOB "); }
 		else
-		if(col.BLOB) 		{ s.push(" BLOB "); }
+		if(col.TEXT || col.NOCASE)	{ s.push(" TEXT "); }
 
-		if(col.PRIMARY) 	{ s.push(" PRIMARY KEY "); }
+		if(col.PRIMARY) 			{ s.push(" PRIMARY KEY "); }
 		else
-		if(col.UNIQUE) 		{ s.push(" UNIQUE "); }
+		if(col.UNIQUE) 				{ s.push(" UNIQUE "); }
+		
+		if(col.NOCASE)		 		{ s.push(" COLLATE NOCASE "); }
 		
 		if(i<tab.length-1)
 		{
@@ -163,7 +188,7 @@ dstore_sqlite.cache_prepare = function(tables){
 	
 	dstore_sqlite.tables=tables;
 
-	dstore_sqlite.tables_insert_sql={};
+	dstore_sqlite.tables_replace_sql={};
 	dstore_sqlite.tables_update_sql={};
 	dstore_sqlite.tables_active={};
 	for(var name in dstore_sqlite.tables)
@@ -175,8 +200,8 @@ dstore_sqlite.cache_prepare = function(tables){
 			t[v.name]=true;
 		}
 		dstore_sqlite.tables_active[name]=t;
-		dstore_sqlite.tables_insert_sql[name]=dstore_sqlite.getsql_prepare_insert(name,t);
-		dstore_sqlite.tables_update_sql[name]=dstore_sqlite.getsql_prepare_update(name,t);
+		dstore_sqlite.tables_replace_sql[name]=dstore_sqlite.getsql_prepare_replace(name,t);
+		dstore_sqlite.tables_update_sql[name] =dstore_sqlite.getsql_prepare_update(name,t);
 	}
 }
 
