@@ -42,7 +42,7 @@ dstore_db.tables={
 		{ name:"title",						NOCASE:true },
 		{ name:"description",				NOCASE:true },
 		{ name:"reporting_org",				NOCASE:true },
-		{ name:"reporting_org_ref",			NOCASE:true }.
+		{ name:"reporting_org_ref",			NOCASE:true },
 		{ name:"recipient_country_code",	NOCASE:true }	// may be more than one of these, pick biggest percentage here
 	],
 	transactions:[
