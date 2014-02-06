@@ -20,62 +20,75 @@ var sqlite3 = require('sqlite3').verbose();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+// values copied from the activities into other tables for quik lookup (no need to join tables)
+dstore_db.bubble_act={
+		"recipient_country_code":true,
+		"reporting_org":true,
+		"reporting_org_ref":true,
+		"aid":true
+	};
+	
+	
 // data table descriptions
 dstore_db.tables={
 	activities:[
-		{ name:"aid",					NOCASE:true , PRIMARY:true },
-		{ name:"raw_xml",				TEXT:true },
-		{ name:"raw_json",				TEXT:true },
-		{ name:"json",					TEXT:true },
-		{ name:"day_start",				INTEGER:true },
-		{ name:"day_end",				INTEGER:true },
-		{ name:"day_length",			INTEGER:true },
-		{ name:"title",					NOCASE:true },
-		{ name:"description",			NOCASE:true },
-		{ name:"reporting_org",			NOCASE:true },
-		{ name:"reporting_org_ref",		NOCASE:true }
+		{ name:"aid",						NOCASE:true , PRIMARY:true },
+		{ name:"raw_xml",					TEXT:true },
+		{ name:"raw_json",					TEXT:true },
+		{ name:"json",						TEXT:true },
+		{ name:"day_start",					INTEGER:true },
+		{ name:"day_end",					INTEGER:true },
+		{ name:"day_length",				INTEGER:true },
+		{ name:"title",						NOCASE:true },
+		{ name:"description",				NOCASE:true },
+		{ name:"reporting_org",				NOCASE:true },
+		{ name:"reporting_org_ref",			NOCASE:true }.
+		{ name:"recipient_country_code",	NOCASE:true }	// may be more than one of these, pick biggest percentage here
 	],
 	transactions:[
-		{ name:"aid",					NOCASE:true },
-		{ name:"raw_json",				TEXT:true },
-		{ name:"json",					TEXT:true },
-		{ name:"ref",					NOCASE:true },
-		{ name:"description",			NOCASE:true },
-		{ name:"day",					INTEGER:true },
-		{ name:"currency",				NOCASE:true },
-		{ name:"value",					REAL:true },
-		{ name:"usd",					REAL:true },
-		{ name:"code",					NOCASE:true },
-		{ name:"flow_code",				NOCASE:true },
-		{ name:"finance_code",			NOCASE:true },
-		{ name:"aid_code",				NOCASE:true }
+		{ name:"aid",						NOCASE:true },
+		{ name:"raw_json",					TEXT:true },
+		{ name:"json",						TEXT:true },
+		{ name:"ref",						NOCASE:true },
+		{ name:"description",				NOCASE:true },
+		{ name:"day",						INTEGER:true },
+		{ name:"currency",					NOCASE:true },
+		{ name:"value",						REAL:true },
+		{ name:"usd",						REAL:true },
+		{ name:"code",						NOCASE:true },
+		{ name:"flow_code",					NOCASE:true },
+		{ name:"finance_code",				NOCASE:true },
+		{ name:"aid_code",					NOCASE:true },
+		{ name:"recipient_country_code",	NOCASE:true } // import creates multiple entries if this was <100
 	],
 	budgets:[
-		{ name:"aid",					NOCASE:true },
-		{ name:"raw_json",				TEXT:true },
-		{ name:"json",					TEXT:true },
-		{ name:"type",					NOCASE:true },
-		{ name:"day_start",				INTEGER:true },
-		{ name:"day_end",				INTEGER:true },
-		{ name:"day_length",			INTEGER:true },
-		{ name:"currency",				NOCASE:true },
-		{ name:"value",					REAL:true },
-		{ name:"usd",					REAL:true }
+		{ name:"aid",						NOCASE:true },
+		{ name:"raw_json",					TEXT:true },
+		{ name:"json",						TEXT:true },
+		{ name:"type",						NOCASE:true },
+		{ name:"day_start",					INTEGER:true },
+		{ name:"day_end",					INTEGER:true },
+		{ name:"day_length",				INTEGER:true },
+		{ name:"currency",					NOCASE:true },
+		{ name:"value",						REAL:true },
+		{ name:"usd",						REAL:true },
+		{ name:"recipient_country_code",	NOCASE:true } // import creates multiple entries if this was <100
 	],
 	planned_disbursements:[
-		{ name:"aid",					NOCASE:true },
-		{ name:"raw_json",				TEXT:true },
-		{ name:"json",					TEXT:true },
-		{ name:"type",					NOCASE:true },
-		{ name:"day_start",				INTEGER:true },
-		{ name:"day_end",				INTEGER:true },
-		{ name:"day_length",			INTEGER:true },
-		{ name:"currency",				NOCASE:true },
-		{ name:"value",					REAL:true },
-		{ name:"usd",					REAL:true }
+		{ name:"aid",						NOCASE:true },
+		{ name:"raw_json",					TEXT:true },
+		{ name:"json",						TEXT:true },
+		{ name:"type",						NOCASE:true },
+		{ name:"day_start",					INTEGER:true },
+		{ name:"day_end",					INTEGER:true },
+		{ name:"day_length",				INTEGER:true },
+		{ name:"currency",					NOCASE:true },
+		{ name:"value",						REAL:true },
+		{ name:"usd",						REAL:true },
+		{ name:"recipient_country_code",	NOCASE:true } // import creates multiple entries if this was <100
 	]
 };
-
+	
 var http_getbody=function(url,cb)
 {
 	http.get(url, function(res) {
@@ -140,11 +153,7 @@ dstore_db.fill_acts = function(acts){
 
 dstore_db.refresh_acts = function(){
 	
-	var bubble_act={
-		"reporting_org":true,
-		"reporting_org_ref":true,
-		"aid":true
-	};
+
 		
 	var db = dstore_db.open();
 	db.serialize();
@@ -159,6 +168,7 @@ dstore_db.refresh_acts = function(){
 		t.description=refry.tagval(act,"description");				
 		t.reporting_org=refry.tagval(act,"reporting-org");				
 		t.reporting_org_ref=refry.tag(act,"reporting-org").ref;
+		t.recipient_country_code=refry.tag(act,"recipient-country").code;
 
 		t.day_start=null;
 		t.day_end=null;
@@ -188,7 +198,7 @@ dstore_db.refresh_acts = function(){
 	var refresh_transaction=function(it,act,act_json)
 	{
 		var t={};
-		for(var n in bubble_act){ t[n]=act_json[n]; } // copy some stuff
+		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
 
 		t["ref"]=				it["ref"];
 		t["description"]=		refry.tagval(it,"description");
@@ -212,7 +222,7 @@ dstore_db.refresh_acts = function(){
 	var refresh_budget=function(it,act,act_json)
 	{
 		var t={};
-		for(var n in bubble_act){ t[n]=act_json[n]; } // copy some stuff
+		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
 		
 		t["type"]=it["type"];
 
@@ -233,7 +243,7 @@ dstore_db.refresh_acts = function(){
 	var refresh_planned_disbursement=function(it,act,act_json)
 	{
 		var t={};
-		for(var n in bubble_act){ t[n]=act_json[n]; } // copy some stuff
+		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
 		
 		t["type"]=it["type"];
 

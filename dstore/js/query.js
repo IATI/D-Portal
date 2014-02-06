@@ -52,7 +52,7 @@ query.get_q = function(req){
 		for(var n in f) // single depth copy only
 		{
 			var v=f[n];
-			if(unesc){ v=unesc(v); } // use unescape function?
+			if(unesc){ v=unesc(v); ls([v,unesc(v)]); } // use unescape function?
 			if(q[n]===undefined) // only set if not exists, so call cp in order of priority from high to low
 			{
 				q[n]=v;
@@ -61,7 +61,7 @@ query.get_q = function(req){
 	};
 
 // start with normal query
-	cp(req.query,unescape);
+	cp(req.query);
 
 // possibly containing an encoded json string?
 	if(q.json) // expand json values for ?json=jsondata (also remove the this unexpanded value)
@@ -393,11 +393,56 @@ query.stats=function(req,res){
 
 query.getsql_select=function(q,qv){
 	var ss=[];
-	
-	ss.push(" * ");
 
-	if(ss[0]) { return " SELECT "+ss.join(""); }
-	return "";
+	var ns={};
+	for(var name in dstore_sqlite.tables )
+	{
+		for(var n in dstore_sqlite.tables_active[name])
+		{
+			ns[n]=true;
+		}
+	}
+
+	var done_list=false;
+	if(q.select)
+	{
+		var qq;
+		qq=q.select.split(",");
+		for(var i=0;i<qq.length;i++)
+		{
+			var v=qq[i];
+			if(ns[v]) // valid member names only
+			{
+				ns[v]=undefined; // only allow once
+				ss.push(v);
+				done_list=true;
+			}
+		}
+	}
+	
+	if(done_list) // already dealt with above
+	{
+	}
+	else
+	if(q.select=="stats")
+	{
+		ss.push(" COUNT(*) ");
+		for(n in dstore_sqlite.tables_active[q.from])
+		{
+			ss.push(" MAX("+n+") ");
+			ss.push(" MIN("+n+") ");
+			ss.push(" AVG("+n+") ");
+			ss.push(" TOTAL("+n+") ");
+			ss.push(" COUNT("+n+") ");
+			ss.push(" COUNT(DISTINCT "+n+") ");
+		}
+	}
+	else
+	{
+		ss.push(" * ");
+	}
+	
+	return " SELECT "+ss.join(" , ");
 };
 
 query.getsql_from=function(q,qv){
@@ -509,8 +554,11 @@ query.getsql_limit=function(q,qv){
 		}
 	}
 	
-	ss.push(" LIMIT "+limit+" ");
-
+	if(limit>=0)
+	{
+		ss.push(" LIMIT "+limit+" ");
+	}
+	
 	if( q.page )
 	{
 		var n=query.mustbenumber(q.page);
