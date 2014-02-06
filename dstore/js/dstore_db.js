@@ -43,7 +43,7 @@ dstore_db.tables={
 		{ name:"description",				NOCASE:true },
 		{ name:"reporting_org",				NOCASE:true },
 		{ name:"reporting_org_ref",			NOCASE:true },
-		{ name:"recipient_country_code",	NOCASE:true }	// may be more than one of these, pick biggest percentage here
+		{ name:"recipient_country_codes",	NOCASE:true }	// multiple codes seperated by /
 	],
 	transactions:[
 		{ name:"aid",						NOCASE:true },
@@ -168,7 +168,10 @@ dstore_db.refresh_acts = function(){
 		t.description=refry.tagval(act,"description");				
 		t.reporting_org=refry.tagval(act,"reporting-org");				
 		t.reporting_org_ref=refry.tag(act,"reporting-org").ref;
-		t.recipient_country_code=refry.tag(act,"recipient-country").code;
+		
+		var country=[];
+		refry.tags(act,"recipient-country",function(it){country.push(it.code))});
+		if(country[0]) { t.recipient_country_codes="/"+country.join("/")+"/"; }
 
 		t.day_start=null;
 		t.day_end=null;
