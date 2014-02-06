@@ -20,7 +20,7 @@ iati_xml.isodate_to_number=function(s)
 	{
 		var aa=s.split("-");
 		var year=parseInt(aa[0]||0)||0;
-		var month=parseInt(aa[1]||0)||0;
+		var month=(parseInt(aa[1]||1)||1)-1;
 		var day=parseInt(aa[2]||0)||0;
 		var num=Date.UTC(year,month,day)/(1000*60*60*24);
 		

@@ -22,7 +22,10 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // values copied from the activities into other tables for quik lookup (no need to join tables)
 dstore_db.bubble_act={
-		"recipient_country_code":true,
+		"recipient_country_codes":true,
+		"recipient_country_percents":true,
+		"sector_codes":true,
+		"sector_percents":true,
 		"reporting_org":true,
 		"reporting_org_ref":true,
 		"aid":true
@@ -32,60 +35,72 @@ dstore_db.bubble_act={
 // data table descriptions
 dstore_db.tables={
 	activities:[
-		{ name:"aid",						NOCASE:true , PRIMARY:true },
-		{ name:"raw_xml",					TEXT:true },
-		{ name:"raw_json",					TEXT:true },
-		{ name:"json",						TEXT:true },
-		{ name:"day_start",					INTEGER:true },
-		{ name:"day_end",					INTEGER:true },
-		{ name:"day_length",				INTEGER:true },
-		{ name:"title",						NOCASE:true },
-		{ name:"description",				NOCASE:true },
-		{ name:"reporting_org",				NOCASE:true },
-		{ name:"reporting_org_ref",			NOCASE:true },
-		{ name:"recipient_country_codes",	NOCASE:true }	// multiple codes seperated by /
+		{ name:"aid",							NOCASE:true , PRIMARY:true },
+		{ name:"raw_xml",						TEXT:true },
+		{ name:"raw_json",						TEXT:true },
+		{ name:"json",							TEXT:true },
+		{ name:"day_start",						INTEGER:true },	
+		{ name:"day_end",						INTEGER:true },
+		{ name:"day_length",					INTEGER:true },
+		{ name:"title",							NOCASE:true },
+		{ name:"description",					NOCASE:true },
+		{ name:"reporting_org",					NOCASE:true },
+		{ name:"reporting_org_ref",				NOCASE:true },
+		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
+		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
+		{ name:"sector_codes",					NOCASE:true },	// seperated by /
+		{ name:"sector_percents",				NOCASE:true }	// seperated by /
 	],
 	transactions:[
-		{ name:"aid",						NOCASE:true },
-		{ name:"raw_json",					TEXT:true },
-		{ name:"json",						TEXT:true },
-		{ name:"ref",						NOCASE:true },
-		{ name:"description",				NOCASE:true },
-		{ name:"day",						INTEGER:true },
-		{ name:"currency",					NOCASE:true },
-		{ name:"value",						REAL:true },
-		{ name:"usd",						REAL:true },
-		{ name:"code",						NOCASE:true },
-		{ name:"flow_code",					NOCASE:true },
-		{ name:"finance_code",				NOCASE:true },
-		{ name:"aid_code",					NOCASE:true },
-		{ name:"recipient_country_code",	NOCASE:true } // import creates multiple entries if this was <100
+		{ name:"aid",							NOCASE:true },
+		{ name:"raw_json",						TEXT:true },
+		{ name:"json",							TEXT:true },
+		{ name:"ref",							NOCASE:true },
+		{ name:"description",					NOCASE:true },
+		{ name:"day",							INTEGER:true },
+		{ name:"currency",						NOCASE:true },
+		{ name:"value",							REAL:true },
+		{ name:"usd",							REAL:true },
+		{ name:"code",							NOCASE:true },
+		{ name:"flow_code",						NOCASE:true },
+		{ name:"finance_code",					NOCASE:true },
+		{ name:"aid_code",						NOCASE:true },
+		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
+		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
+		{ name:"sector_codes",					NOCASE:true },	// seperated by /
+		{ name:"sector_percents",				NOCASE:true }	// seperated by /
 	],
 	budgets:[
-		{ name:"aid",						NOCASE:true },
-		{ name:"raw_json",					TEXT:true },
-		{ name:"json",						TEXT:true },
-		{ name:"type",						NOCASE:true },
-		{ name:"day_start",					INTEGER:true },
-		{ name:"day_end",					INTEGER:true },
-		{ name:"day_length",				INTEGER:true },
-		{ name:"currency",					NOCASE:true },
-		{ name:"value",						REAL:true },
-		{ name:"usd",						REAL:true },
-		{ name:"recipient_country_code",	NOCASE:true } // import creates multiple entries if this was <100
+		{ name:"aid",							NOCASE:true },
+		{ name:"raw_json",						TEXT:true },
+		{ name:"json",							TEXT:true },
+		{ name:"type",							NOCASE:true },
+		{ name:"day_start",						INTEGER:true },
+		{ name:"day_end",						INTEGER:true },
+		{ name:"day_length",					INTEGER:true },
+		{ name:"currency",						NOCASE:true },
+		{ name:"value",							REAL:true },
+		{ name:"usd",							REAL:true },
+		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
+		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
+		{ name:"sector_codes",					NOCASE:true },	// seperated by /
+		{ name:"sector_percents",				NOCASE:true }	// seperated by /
 	],
 	planned_disbursements:[
-		{ name:"aid",						NOCASE:true },
-		{ name:"raw_json",					TEXT:true },
-		{ name:"json",						TEXT:true },
-		{ name:"type",						NOCASE:true },
-		{ name:"day_start",					INTEGER:true },
-		{ name:"day_end",					INTEGER:true },
-		{ name:"day_length",				INTEGER:true },
-		{ name:"currency",					NOCASE:true },
-		{ name:"value",						REAL:true },
-		{ name:"usd",						REAL:true },
-		{ name:"recipient_country_code",	NOCASE:true } // import creates multiple entries if this was <100
+		{ name:"aid",							NOCASE:true },
+		{ name:"raw_json",						TEXT:true },
+		{ name:"json",							TEXT:true },
+		{ name:"type",							NOCASE:true },
+		{ name:"day_start",						INTEGER:true },
+		{ name:"day_end",						INTEGER:true },
+		{ name:"day_length",					INTEGER:true },
+		{ name:"currency",						NOCASE:true },
+		{ name:"value",							REAL:true },
+		{ name:"usd",							REAL:true },
+		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
+		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
+		{ name:"sector_codes",					NOCASE:true },	// seperated by /
+		{ name:"sector_percents",				NOCASE:true }	// seperated by /
 	]
 };
 	
@@ -170,8 +185,20 @@ dstore_db.refresh_acts = function(){
 		t.reporting_org_ref=refry.tag(act,"reporting-org").ref;
 		
 		var country=[];
-		refry.tags(act,"recipient-country",function(it){country.push(it.code))});
-		if(country[0]) { t.recipient_country_codes="/"+country.join("/")+"/"; }
+		var percents=[];
+		refry.tags(act,"recipient-country",function(it){ country.push(it.code); percents.push(it.percents); });
+		if(country[0]) {
+			t.recipient_country_codes="/"+country.join("/")+"/";
+			t.recipient_country_percents="/"+percents.join("/")+"/";
+		}
+
+		var sectors=[];
+		var percents=[];
+		refry.tags(act,"sector",function(it){ sectors.push(it.code); percents.push(it.percents); });
+		if(sectors[0]) {
+			t.sector_codes="/"+sectors.join("/")+"/";
+			t.sector_percents="/"+percents.join("/")+"/";
+		}
 
 		t.day_start=null;
 		t.day_end=null;

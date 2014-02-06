@@ -64,10 +64,10 @@ query.get_q = function(req){
 	cp(req.query);
 
 // possibly containing an encoded json string?
-	if(q.json) // expand json values for ?json=jsondata (also remove the this unexpanded value)
+	if(q._json) // expand json values for ?json=jsondata (also remove the this unexpanded value)
 	{
-		console.log(q.json);
-		var t=JSON.parse(q.json);
+//		console.log(q._json);
+		var t=JSON.parse(q._json);
 		q.json=undefined;
 		cp(t);
 	}
@@ -472,62 +472,65 @@ query.getsql_where=function(q,qv){
 			ns[n]=true;
 		}
 	}
+	
+	var qemap={ // possible comparisons
+		"_lt":"<",
+		"_gt":">",
+		"_lteq":"<=",
+		"_gteq":">=",
+		"_eq":"=",
+		"_glob":"GLOB",
+		"_like":"LIKE",
+		"":"="
+	};
 
 	for(var n in ns)
 	{
-		var v=q[n];
-		var t=typeof v;
-		if(t=="string")
+		for( var qe in qemap )
 		{
-			var sa=v.split("|");
-			if(sa[1]) // there was an "|"
+			var v=q[n+qe];
+			var eq=qemap[qe];
+			if( v !== undefined ) // got a value
 			{
-				v=sa;
-				t="object"; // do below
-			}
-			else
-			{
-				var s1=v.slice(0,1);
-				if(s1=="*")
+				var t=typeof v;
+				if(t=="string")
 				{
-					v=v.slice(1);
-					ss.push( " "+n+" LIKE $"+n+" " ); qv["$"+n]=query.maybenumber(v);
+					var sa=v.split("|");
+					var sb=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(v);
+					if( v.length==10 && sb.length==4 ) // date string, convert to number
+					{
+						v=iati_xml.isodate_to_number(v);
+						ss.push( " "+n+" "+eq+" $"+n+" " ); qv["$"+n]=query.maybenumber(v);
+					}
+					else
+					if(sa[1]) // there was an "|"
+					{
+						v=sa;
+						t="object"; // do object below
+					}
+					else
+					{
+						ss.push( " "+n+" "+eq+" $"+n+" " ); qv["$"+n]=query.maybenumber(v);
+					}
 				}
 				else
-				if(s1=="<")
+				if(t=="number")
 				{
-					v=v.slice(1);
-					ss.push( " "+n+"<$"+n+" " ); qv["$"+n]=query.maybenumber(v);
+					ss.push( " "+n+" "+eq+" $"+n+" " ); qv["$"+n]=v;
 				}
-				else
-				if(s1==">")
+				
+				if(t=="object") // array, string above may also have been split into array
 				{
-					v=v.slice(1);
-					ss.push( " "+n+">$"+n+" " ); qv["$"+n]=query.maybenumber(v);
-				}
-				else
-				{
-					ss.push( " "+n+"=$"+n+" " ); qv["$"+n]=query.maybenumber(v);
+					var so=[];
+					for(var i=0;i<v.length;i++)
+					{
+						so.push( " $"+n+"_"+i+" " )
+						qv["$"+n+"_"+i]=query.maybenumber(v[i]);
+					}
+					ss.push( " "+n+" IN ("+so.join(",")+") " );
 				}
 			}
 		}
-		else
-		if(t=="number")
-		{
-			ss.push( " "+n+"=$"+n+" " ); qv["$"+n]=v;
-		}
-		
-		if(t=="object")
-		{
-			var so=[];
-			for(var i=0;i<v.length;i++)
-			{
-				so.push( " $"+n+"_"+i+" " )
-				qv["$"+n+"_"+i]=query.maybenumber(v[i]);
-			}
-			ss.push( " "+n+" IN ("+so.join(",")+") " );
-		}
-		
 	}
 	
 	if(ss[0]) { return " WHERE "+ss.join(" AND "); }
