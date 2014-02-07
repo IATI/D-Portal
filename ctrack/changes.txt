@@ -1,3 +1,7 @@
+Switched to using the dstore cache as the main data source for the 
+client side code. You can see all of these hitting the server at /q? 
+followed by params that are mapped directly to sql code.
+
 Activity View (2014-02-03 shi)
 ==============================
 Added graphs for sectors with allocated percentages
