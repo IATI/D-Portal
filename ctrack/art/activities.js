@@ -109,7 +109,7 @@ $("budget").each(function(i){var it=$(this);
 		0];
 	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
 
-	var aa=it.children();	
+	var aa=it.children();
 	aa.sort(function(a,b){
 		var ret=0;
 		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];

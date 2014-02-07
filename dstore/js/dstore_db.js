@@ -39,6 +39,7 @@ dstore_db.tables={
 		{ name:"raw_xml",						TEXT:true },
 		{ name:"raw_json",						TEXT:true },
 		{ name:"json",							TEXT:true },
+		{ name:"status_code",					INTEGER:true },	
 		{ name:"day_start",						INTEGER:true },	
 		{ name:"day_end",						INTEGER:true },
 		{ name:"day_length",					INTEGER:true },
@@ -65,6 +66,8 @@ dstore_db.tables={
 		{ name:"flow_code",						NOCASE:true },
 		{ name:"finance_code",					NOCASE:true },
 		{ name:"aid_code",						NOCASE:true },
+		{ name:"reporting_org",					NOCASE:true },
+		{ name:"reporting_org_ref",				NOCASE:true },
 		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
 		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
 		{ name:"sector_codes",					NOCASE:true },	// seperated by /
@@ -81,6 +84,8 @@ dstore_db.tables={
 		{ name:"currency",						NOCASE:true },
 		{ name:"value",							REAL:true },
 		{ name:"usd",							REAL:true },
+		{ name:"reporting_org",					NOCASE:true },
+		{ name:"reporting_org_ref",				NOCASE:true },
 		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
 		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
 		{ name:"sector_codes",					NOCASE:true },	// seperated by /
@@ -97,6 +102,8 @@ dstore_db.tables={
 		{ name:"currency",						NOCASE:true },
 		{ name:"value",							REAL:true },
 		{ name:"usd",							REAL:true },
+		{ name:"reporting_org",					NOCASE:true },
+		{ name:"reporting_org_ref",				NOCASE:true },
 		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
 		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
 		{ name:"sector_codes",					NOCASE:true },	// seperated by /
@@ -183,10 +190,12 @@ dstore_db.refresh_acts = function(){
 		t.description=refry.tagval(act,"description");				
 		t.reporting_org=refry.tagval(act,"reporting-org");				
 		t.reporting_org_ref=refry.tag(act,"reporting-org").ref;
+		t.status_code=-1;
+		var tmp=refry.tag(act,"activity-status");	if(tmp) { t.status_code=tmp.code; }
 		
 		var country=[];
 		var percents=[];
-		refry.tags(act,"recipient-country",function(it){ country.push(it.code); percents.push(it.percents); });
+		refry.tags(act,"recipient-country",function(it){ country.push(it.code); percents.push(it.percentage); });
 		if(country[0]) {
 			t.recipient_country_codes="/"+country.join("/")+"/";
 			t.recipient_country_percents="/"+percents.join("/")+"/";
@@ -194,7 +203,7 @@ dstore_db.refresh_acts = function(){
 
 		var sectors=[];
 		var percents=[];
-		refry.tags(act,"sector",function(it){ sectors.push(it.code); percents.push(it.percents); });
+		refry.tags(act,"sector",function(it){ sectors.push(it.code); percents.push(it.percentage); });
 		if(sectors[0]) {
 			t.sector_codes="/"+sectors.join("/")+"/";
 			t.sector_percents="/"+percents.join("/")+"/";

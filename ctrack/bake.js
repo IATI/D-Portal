@@ -47,9 +47,11 @@ console.log("Parsed chunks/base.html into js/ctrack.chunks.js")
 
 
 var exec=function(s,f){
-//	console.log(s);
+	console.log(s);
 	child_process.exec(s, function(error, stdout, stderr) {
 		sys.puts(stdout);
+//		sys.puts(stderr);
+		if(error){throw new Error(error);}
 		if(f) { f(null,stdout); }
 		});
 };
@@ -62,7 +64,7 @@ var jsfiles=[
 "js/ctrack.json.js"];
 
 
-console.log("Creating js/ctrack.min.js")
+console.log("Creating js/ctrack.js")
 exec("node_modules/uglify-js/bin/uglifyjs "+jsfiles.join(" ")+" --wrap ctrack -c -m -o js/ctrack.js -p relative --source-map js/ctrack.map ");
 
 console.log("All done.")

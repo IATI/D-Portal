@@ -94,20 +94,8 @@ app.use("/q",function (req, res) {
 	require("./js/query").serv(req,res);
 });
 
-app.use("/test",function (req, res) {
-	var t=require("./js/test")
-	var html=required["test"].html(req,res);
-	res.writeHead(200, {'Content-Type': html.mime});
-	res.end(html.headbody);
-});
-
-app.use("/dstore_db",function (req, res) {
-	require("./js/dstore_db").test(req,res);
-});
-
-
 app.use(express.compress());
-app.use(express.static(__dirname));
+app.use(express.static(__dirname+"/../ctrack"));
 
 console.log("Starting dstore server at http://localhost:"+nconf.get("port")+"/");
 

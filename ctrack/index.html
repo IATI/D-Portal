@@ -27,19 +27,13 @@ head.js(
 	
 		var args={
 			master:$(".ctrack"),
-			datastore:"http://dev.ctrack.iatistandard.org:5000/",
+			datastore:"",
 			country:"bd",
 			art:"",
 			cachebreak:"?v1"
 		};
 		ctrack.setup_html(args);
 
-//enable slow slow slow stats mode ?
-
-		if(window.location.hash=="#stats")
-		{
-			ctrack.fetch_stats();
-		}
 });
 
 </script>

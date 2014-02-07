@@ -11,18 +11,28 @@ ctrack.get_today=function()
     return today;
 }
 
+ctrack.get_nday=function(n)
+{
+	var now = new Date(n*1000*60*60*24);
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var nday = now.getFullYear() + "-" + (month) + "-" + (day);
+    return nday;
+}
+
 ctrack.fetch_endingsoon=function(args)
 {
 	args=args || {};
 	
 	var today=ctrack.get_today();
     
-   	var api="/api/1/access/activity.db.json";	
 	var dat={
+			"from":"activities",
 			"limit":args.limit || 5,
-			"end-date__sort":"asc",
-			"end-date__gt":today,
-			"recipient-country":args.country || ctrack.args.country
+			"orderby":"day_end",
+			"status_code":"2",
+			"day_end_gt":today,
+			"recipient_country_codes_like":"%/"+(args.country || ctrack.args.country)+"/%"
 		};
 	
 	var callback=args.callback || function(data){
@@ -33,9 +43,9 @@ ctrack.fetch_endingsoon=function(args)
 		console.log(data);
 		
 		var s=[];
-		for(i=0;i<data["iati-activities"].length;i++)
+		for(i=0;i<data.rows.length;i++)
 		{
-			var v=data["iati-activities"][i];
+			var v=data.rows[i];
 			v.num=i+1;
 			
 /*
@@ -47,14 +57,14 @@ ctrack.fetch_endingsoon=function(args)
 			v.amount=tot;
 */
 
-			v.date=v["end-actual"] || v["end-planned"];
+			v.date=ctrack.get_nday(v.day_end);
 
-			v.activity=v["iati-identifier"];
+			v.activity=v.aid;
 
 			s.push( ctrack.plate.chunk("ctbox1table_data",v) );
 		}
 
-		ctrack.htmlchunk("active_projects",data["total-count"]);
+//		ctrack.htmlchunk("active_projects",data["total-count"]);
 		ctrack.htmlchunk("ctbox1table_datas",s.join(""));
 
 		ctrack.div.main.html( ctrack.htmlall("bodytest") );
@@ -63,7 +73,7 @@ ctrack.fetch_endingsoon=function(args)
 		
 	$.ajax({
 	  dataType: "json",
-	  url: ctrack.args.datastore + api + "?callback=?",
+	  url: ctrack.args.datastore + "/q?callback=?",
 	  data: dat,
 	  success: callback
 	});
@@ -76,12 +86,13 @@ ctrack.fetch_finished=function(args)
 	
 	var today=ctrack.get_today();
     
-   	var api="/api/1/access/activity.db.json";	
 	var dat={
+			"from":"activities",
 			"limit":args.limit || 5,
-			"end-date__sort":"desc",
-			"end-date__lt":today,
-			"recipient-country":args.country || ctrack.args.country
+			"orderby":"day_end-",
+			"status_code":"3|4",
+			"day_end_lt":today,
+			"recipient_country_codes_like":"%/"+(args.country || ctrack.args.country)+"/%"
 		};
 	
 	var callback=args.callback || function(data){
@@ -90,19 +101,19 @@ ctrack.fetch_finished=function(args)
 		console.log(data);
 		
 		var s=[];
-		for(i=0;i<data["iati-activities"].length;i++)
+		for(i=0;i<data.rows.length;i++)
 		{
-			var v=data["iati-activities"][i];
+			var v=data.rows[i];
 			v.num=i+1;
 
-			v.date=v["end-actual"] || v["end-planned"];
+			v.date=ctrack.get_nday(v.day_end);
 
-			v.activity=v["iati-identifier"];
+			v.activity=v.aid;
 
 			s.push( ctrack.plate.chunk("ctbox2table_data",v) );
 		}
 
-		ctrack.htmlchunk("finished_projects",data["total-count"]);
+//		ctrack.htmlchunk("finished_projects",data["total-count"]);
 		ctrack.htmlchunk("ctbox2table_datas",s.join(""));
 
 		ctrack.div.main.html( ctrack.htmlall("bodytest") );
@@ -111,7 +122,7 @@ ctrack.fetch_finished=function(args)
 		
 	$.ajax({
 	  dataType: "json",
-	  url: ctrack.args.datastore + api + "?callback=?",
+	  url: ctrack.args.datastore + "/q?callback=?",
 	  data: dat,
 	  success: callback
 	});
@@ -125,12 +136,13 @@ ctrack.fetch_planned=function(args)
 	
 	var today=ctrack.get_today();
     
-   	var api="/api/1/access/activity.db.json";	
 	var dat={
+			"from":"activities",
 			"limit":args.limit || 5,
-			"start-date__sort":"asc",
-			"start-date__gt":today,
-			"recipient-country":args.country || ctrack.args.country
+			"orderby":"day_start",
+			"status_code":1,
+			"day_start_gt":today,
+			"recipient_country_codes_like":"%/"+(args.country || ctrack.args.country)+"/%"
 		};
 	
 	var callback=args.callback || function(data){
@@ -139,19 +151,19 @@ ctrack.fetch_planned=function(args)
 		console.log(data);
 		
 		var s=[];
-		for(i=0;i<data["iati-activities"].length;i++)
+		for(i=0;i<data.rows.length;i++)
 		{
-			var v=data["iati-activities"][i];
+			var v=data.rows[i];
 			v.num=i+1;
 
-			v.date=v["start-actual"] || v["start-planned"];
+			v.date=ctrack.get_nday(v.day_start);
 			
-			v.activity=v["iati-identifier"];
+			v.activity=v.aid;
 
 			s.push( ctrack.plate.chunk("ctbox3table_data",v) );
 		}
 
-		ctrack.htmlchunk("planned_projects",data["total-count"]);
+//		ctrack.htmlchunk("planned_projects",data["total-count"]);
 		ctrack.htmlchunk("ctbox3table_datas",s.join(""));
 
 		ctrack.div.main.html( ctrack.htmlall("bodytest") );
@@ -160,7 +172,7 @@ ctrack.fetch_planned=function(args)
 		
 	$.ajax({
 	  dataType: "json",
-	  url: ctrack.args.datastore + api + "?callback=?",
+	  url: ctrack.args.datastore + "/q?callback=?",
 	  data: dat,
 	  success: callback
 	});
@@ -173,35 +185,84 @@ ctrack.fetch_stats=function(args)
 	
 	var today=ctrack.get_today();
     
-   	var api="/api/1/access/activity.stats.json";	
-	var dat={
-			"limit":10000,
-			"recipient-country":args.country || ctrack.args.country
+	var f1=function(){
+		var dat={
+				"from":"activities",
+				"select":"stats",
+				"recipient_country_codes_like":"%/"+(args.country || ctrack.args.country)+"/%"
+			};
+		
+		var callback=args.callback || function(data){
+
+			console.log("activity stats1");
+			console.log(data);
+			
+			ctrack.htmlchunk("total_projects",data.rows[0]["COUNT(*)"]);
+			ctrack.htmlchunk("numof_publishers",data.rows[0]["COUNT(DISTINCT reporting_org)"]);
+
+			ctrack.div.main.html( ctrack.htmlall("bodytest") );
+
 		};
-	
-	var callback=args.callback || function(data){
-
-		console.log("activity stats");
-		console.log(data);
-		
-		ctrack.htmlchunk("numof_publishers",data["counts"]["reporting_org_id"]);
-
-		ctrack.div.main.html( ctrack.htmlall("bodytest") );
-
+			
+		$.ajax({
+		  dataType: "json",
+		  url: ctrack.args.datastore + "/q?callback=?",
+		  data: dat,
+		  success: callback
+		});
 	};
+
+	f1();
+
+	var f2=function(){
+		var dat={
+				"from":"activities",
+				"select":"stats",
+				"groupby":"status_code",
+				"recipient_country_codes_like":"%/"+(args.country || ctrack.args.country)+"/%"
+			};
 		
-	$.ajax({
-	  dataType: "json",
-	  url: ctrack.args.datastore + api + "?callback=?",
-	  data: dat,
-	  success: callback
-	});
+		var callback=args.callback || function(data){
+
+			console.log("activity stats2");
+			console.log(data);
+				
+			var counts={};
+			for(i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				
+				var code=v["MAX(status_code)"];
+				var count=v["COUNT(*)"];
+				
+				counts[code]=count;
+			}
+			
+			ctrack.htmlchunk("active_projects",counts[2]||0);
+			ctrack.htmlchunk("finished_projects",(counts[3]||0)+(counts[4]||0));
+			ctrack.htmlchunk("planned_projects",counts[1]||0);
+
+//			ctrack.div.main.html( ctrack.htmlall("bodytest") );
+
+		};
+			
+		$.ajax({
+		  dataType: "json",
+		  url: ctrack.args.datastore + "/q?callback=?",
+		  data: dat,
+		  success: callback
+		});
+	};
+	
+	f2();
 
 }
 
 
 ctrack.fetch_activity=function(args)
 {
+	return;
+
 	var api="/api/1/access/activity.db.json";	
 	var dat={
 			"iati-identifier":args.activity
@@ -215,6 +276,7 @@ ctrack.fetch_activity=function(args)
 		
 		var acts=ctrack.iati.clean_activities( data["iati-activities"] );
 console.log(acts);
+
 		ctrack.div.main.html( ctrack.plate.chunks("dump_act",acts)  );
 
 	};
