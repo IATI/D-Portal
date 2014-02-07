@@ -660,7 +660,45 @@ query.do_select=function(q,res){
 	});
 
 	db.run(";", function(err, row){
-		res.jsonp(r);
+		if(q.form=="xml")
+		{
+			res.set('Content-Type', 'text/xml');
+
+			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n'+
+						'<?xml-stylesheet type="text/xsl" href="/art/activities.xsl"?>\n'+
+						'<result>\n'+
+						'	<iati-activities>\n');
+						
+			res.end(	'	</iati-activities>\n'+
+						'</result>\n');
+    
+    		}
+		else
+		if(q.form=="rawxml")
+		{
+			res.set('Content-Type', 'text/xml');
+
+			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n'+
+						'<?xml-stylesheet type="text/xsl" href="/art/activities.xsl"?>\n'+
+						'<result>\n'+
+						'	<iati-activities>\n');
+
+			for(var i=0;i<r.rows.length;i++)
+			{
+				var v=r.rows[i];
+				if(v && v.raw_xml)
+				{
+					res.write(	v.raw_xml );
+				}
+			}
+    
+			res.end(	'	</iati-activities>\n'+
+						'</result>\n');
+		}
+		else
+		{
+			res.jsonp(r);
+		}
 		db.close();
 	});
 

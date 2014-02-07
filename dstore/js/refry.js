@@ -63,6 +63,24 @@ refry.xml=function(data)
 	return json;
 }
 
+// turn json back into xml
+refry.json=function(json)
+{
+	var ss=[];
+
+	if(!json){ return; }
+	var f; f=function(it)
+	{
+		if(typeof it == "object")
+		{
+			if(it[0]==name) { cb(it); } // call parent first, then children
+			if(it[1]) { it[1].map(f); }
+		}
+	};
+	if(json.map) { json.map(f); }
+	else { f(json); }
+}
+
 // return the first tag of the given name that we find (walking down the tree) or null
 refry.tag=function(json,name)
 {
