@@ -39,6 +39,17 @@ $("transaction").each(function(i){var it=$(this);
 
 });
 
+$("budget").each(function(i){var it=$(this);
+	var needed=["period-start","period-end","value"];
+	needed.forEach(function(n){
+		if( it.children(n).length==0 )
+		{
+			it.append("<"+n+" />"); // just add a blank tag
+		}
+	});
+
+});
+
 $("activity-date,transaction-date,period-start,period-end").each(function(i){var it=$(this);
 	it.html( it.attr("iso-date") );
 });

@@ -142,7 +142,7 @@ query.test = function(q,res){
 };
 
 query.stats=function(req,res){
-	
+		
 	var tabs={
 			acts:[],
 			trans:[],
@@ -394,6 +394,12 @@ query.stats=function(req,res){
 query.getsql_select=function(q,qv){
 	var ss=[];
 
+	var stats_skip={	// ignore these columns
+		"raw_xml":true,
+		"raw_json":true,
+		"json":true
+		};
+
 	var ns=q[0];
 
 	var done_list=false;
@@ -421,12 +427,15 @@ query.getsql_select=function(q,qv){
 		ss.push(" COUNT(*) ");
 		for(n in dstore_sqlite.tables_active[q.from])
 		{
-			ss.push(" MAX("+n+") ");
-			ss.push(" MIN("+n+") ");
-			ss.push(" AVG("+n+") ");
-			ss.push(" TOTAL("+n+") ");
-			ss.push(" COUNT("+n+") ");
-			ss.push(" COUNT(DISTINCT "+n+") ");
+			if(!stats_skip[n])
+			{
+				ss.push(" MAX("+n+") ");
+				ss.push(" MIN("+n+") ");
+				ss.push(" AVG("+n+") ");
+				ss.push(" TOTAL("+n+") ");
+				ss.push(" COUNT("+n+") ");
+				ss.push(" COUNT(DISTINCT "+n+") ");
+			}
 		}
 	}
 	else
