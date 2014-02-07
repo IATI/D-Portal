@@ -64,21 +64,42 @@ refry.xml=function(data)
 }
 
 // turn json back into xml
-refry.json=function(json)
+refry.json=function(data)
 {
+	if("string"==typeof data)
+	{
+		data=JSON.parse(data);
+	}
+	
 	var ss=[];
 
-	if(!json){ return; }
+	if(!data){ return; }
 	var f; f=function(it)
 	{
-		if(typeof it == "object")
+		if("string" == typeof it)
 		{
-			if(it[0]==name) { cb(it); } // call parent first, then children
+			ss.push(it);
+		}
+		else
+		if("object" == typeof it)
+		{
+			ss.push("<"+it[0]);
+			for(var n in it)
+			{
+				if(n!=0 && n!=1)
+				{
+					ss.push(" "+n+"="+"\""+it[n]+"\"");
+				}
+			}
+			ss.push(" >\n");
 			if(it[1]) { it[1].map(f); }
+			ss.push("</"+it[0]+">\n");
 		}
 	};
-	if(json.map) { json.map(f); }
-	else { f(json); }
+	if(data.map) { data.map(f); }
+	else { f(data); }
+	
+	return ss.join("");
 }
 
 // return the first tag of the given name that we find (walking down the tree) or null

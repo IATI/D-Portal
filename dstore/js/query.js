@@ -669,10 +669,19 @@ query.do_select=function(q,res){
 						'<result>\n'+
 						'	<iati-activities>\n');
 						
+			for(var i=0;i<r.rows.length;i++)
+			{
+				var v=r.rows[i];
+				if(v && v.raw_json)
+				{
+					res.write(	refry.json(v.raw_json) );
+				}
+			}
+
 			res.end(	'	</iati-activities>\n'+
 						'</result>\n');
     
-    		}
+   		}
 		else
 		if(q.form=="rawxml")
 		{

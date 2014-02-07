@@ -54,6 +54,14 @@ $("activity-date,transaction-date,period-start,period-end").each(function(i){var
 	it.html( it.attr("iso-date") );
 });
 
+$("related-activity").each(function(i){var it=$(this);
+	if( it.html().length<4 )
+	{
+		it.html(it.attr("ref"));
+	}
+});
+
+
 $("activity-status").each(function(i){var it=$(this);
 	var tc=it.attr("code");
 	tc=codes_lookup.activity_status[tc] || tc;
