@@ -394,14 +394,7 @@ query.stats=function(req,res){
 query.getsql_select=function(q,qv){
 	var ss=[];
 
-	var ns={};
-	for(var name in dstore_sqlite.tables )
-	{
-		for(var n in dstore_sqlite.tables_active[name])
-		{
-			ns[n]=true;
-		}
-	}
+	var ns=q[0];
 
 	var done_list=false;
 	if(q.select)
@@ -413,7 +406,6 @@ query.getsql_select=function(q,qv){
 			var v=qq[i];
 			if(ns[v]) // valid member names only
 			{
-				ns[v]=undefined; // only allow once
 				ss.push(v);
 				done_list=true;
 			}
@@ -463,15 +455,7 @@ query.getsql_from=function(q,qv){
 query.getsql_where=function(q,qv){
 	var ss=[];
 	
-
-	var ns={};
-	for(var name in dstore_sqlite.tables )
-	{
-		for(var n in dstore_sqlite.tables_active[name])
-		{
-			ns[n]=true;
-		}
-	}
+	var ns=q[0];
 	
 	var qemap={ // possible comparisons
 		"_lt":"<",
@@ -500,7 +484,7 @@ query.getsql_where=function(q,qv){
 					if( v.length==10 && sb.length==4 ) // date string, convert to number
 					{
 						v=iati_xml.isodate_to_number(v);
-						ss.push( " "+n+" "+eq+" $"+n+" " ); qv["$"+n]=query.maybenumber(v);
+						ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v);
 					}
 					else
 					if(sa[1]) // there was an "|"
@@ -510,13 +494,13 @@ query.getsql_where=function(q,qv){
 					}
 					else
 					{
-						ss.push( " "+n+" "+eq+" $"+n+" " ); qv["$"+n]=query.maybenumber(v);
+						ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v);
 					}
 				}
 				else
 				if(t=="number")
 				{
-					ss.push( " "+n+" "+eq+" $"+n+" " ); qv["$"+n]=v;
+					ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=v;
 				}
 				
 				if(t=="object") // array, string above may also have been split into array
@@ -540,7 +524,52 @@ query.getsql_where=function(q,qv){
 query.getsql_group_by=function(q,qv){
 	var ss=[];
 
-	if(ss[0]) { return " GROUP BY "+ss.join(""); }
+	var ns=q[0];
+
+	if(q.groupby)
+	{
+		var qq;
+		qq=q.groupby.split(",");
+		for(var i=0;i<qq.length;i++)
+		{
+			var v=qq[i];
+			if(ns[v]) // valid member names only
+			{
+				ss.push(v);
+			}
+		}
+	}
+	
+	if(ss[0]) { return " GROUP BY "+ss.join(" , "); }
+	return "";
+};
+
+query.getsql_order_by=function(q,qv){
+	var ss=[];
+
+	var ns=q[0];
+
+	if(q.orderby)
+	{
+		var qq;
+		qq=q.orderby.split(",");
+		for(var i=0;i<qq.length;i++)
+		{
+			var xtra="";
+			var v=qq[i];
+			if( v.slice(-1)=="-")
+			{
+				xtra=" DESC";
+				v=v.slice(0,-1);
+			}
+			if(ns[v]) // valid member names only
+			{
+				ss.push(v+xtra);
+			}
+		}
+	}
+
+	if(ss[0]) { return " ORDER BY "+ss.join(" , "); }
 	return "";
 };
 
@@ -584,7 +613,23 @@ query.getsql_limit=function(q,qv){
 	return "";
 };
 
+query.getsql_build_column_names=function(q,qv){
+
+	var ns={};
+	for(var name in dstore_sqlite.tables )
+	{
+		for(var n in dstore_sqlite.tables_active[name])
+		{
+			ns[n]=true;
+		}
+	}
+	q[0]=ns; // special array of valid column names
+
+};
+
 query.do_select=function(q,res){
+
+	query.getsql_build_column_names(q);
 
 	var r={rows:[],count:0};
 	var qv={};	
@@ -593,6 +638,7 @@ query.do_select=function(q,res){
 				query.getsql_from(q,qv) + 
 				query.getsql_where(q,qv) + 
 				query.getsql_group_by(q,qv) + 
+				query.getsql_order_by(q,qv) + 
 				query.getsql_limit(q,qv);
 
 	var db = dstore_db.open();
@@ -612,63 +658,9 @@ query.do_select=function(q,res){
 
 };
 
-/*
- * query.stats2=function(req,res){
-
-	var db = dstore_db.open();
-	db.serialize();
-	
-	var r={rows:[]};
-	var op={};
-	var year=2012;
-	op.$day_start=iati_xml.isodate_to_number(year+"-04-00") ;
-	op.$day_end=  iati_xml.isodate_to_number((year+1)+"-04-01");
-	op.$code1="E";
-	op.$code2="D";
-	db.each("SELECT SUM(usd) FROM transactions WHERE day > $day_start AND day < $day_end AND ( code=$code1 OR code=$code2 ) ", op , function(err, row)
-	{
-//		var t=JSON.parse(row.json);
-
-		r.rows.push(row);
-
-	});
-
-	db.run(";", function(err, row){
-		res.jsonp(r);
-		db.close();
-	});
-	
-};
-*/
-
 // handle the /q url space
 query.serv = function(req,res){
-	
 	var q=query.get_q(req);
-	
-//	res.writeHead(200, {'Content-Type': "application/json"});
-//	query.test(q,res);
-
-
-//	query.stats(q,res);
-	query.do_select(q,res);
-
-/*	
-	var r={};
-	r.mime='text/html';
-	r.head='<script src="jslib/head.min.js"></script>';
-	r.body=JSON.stringify(q);
-	r.headbody=
-	'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n'+
-	'"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n'+
-	'<html xmlns="http://www.w3.org/1999/xhtml">\n'+
-	'<head>'+r.head+'</head>\n'+
-	'<body>'+r.body+'</body>\n'+
-	'</html>\n';
-
-	res.writeHead(200, {'Content-Type': r.mime});
-	res.end(r.headbody);
-*/
-
+	return query.do_select(q,res);
 };
 
