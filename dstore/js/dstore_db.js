@@ -310,7 +310,7 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 		t.description=refry.tagval(act,"description");				
 		t.reporting_org=refry.tagval(act,"reporting-org");				
 		t.reporting_org_ref=refry.tagattr(act,"reporting-org","ref");
-		t.status_code=refry.tagattr(act,"activity-status","code") || -1;
+		t.status_code=refry.tagattr(act,"activity-status","code");
 		
 		var country=[];
 		var percents=[];

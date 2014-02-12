@@ -137,9 +137,9 @@ refry.tagval=function(json,name)
 refry.tagattr=function(json,name,attr)
 {
 	var t=refry.tag(json,name); // find
-	if( t && t[1] && t[1].attr ) // check
+	if( t && t[1] && t[1][attr] ) // check
 	{
-		return t[1].attr;
+		return t[1][attr];
 	}
 }
 
