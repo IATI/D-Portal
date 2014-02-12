@@ -52,6 +52,20 @@ dstore_sqlite.create_tables = function(){
 
 			db.run("DROP TABLE IF EXISTS "+name+";");
 			db.run(s);
+
+// add indexs
+
+			for(var i=0; i<tab.length;i++)
+			{
+				var col=tab[i];
+				
+				if( col.INDEX )
+				{
+					console.log(s);
+					s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
+					db.run(s);
+				}
+			}
 		}
 
 		console.log("Created database "+nconf.get("database"));

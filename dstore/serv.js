@@ -3,7 +3,11 @@ var wait=require('wait.for');
 var nconf = require('nconf');
 var fs = require('fs');
 var express = require('express');
+var util=require('util');
 var app = express();
+
+var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
+
 
 nconf.argv().file({ file: 'config.json' });
 nconf.set("port",1337);
@@ -61,22 +65,27 @@ if(nconf.get("cmd"))
 		
 		var fs = require('fs');
 		
-		fs.readFile(xmlfile, 'utf8', function (err,data) {
-			console.log("filesize: "+data.length);
-			var aa=data.split("<iati-activity"); // find start of activities (crude but effective)
-			var acts=[];
-			for(var i=1;i<aa.length;i++)
-			{
-				var v=aa[i];
-				var v=v.split("</iati-activity>")[0]; // trim the end
-				acts.push("<iati-activity"+v+"</iati-activity>"); // rebuild
-			}
-			console.log("activities: "+acts.length);
+		var data=fs.readFileSync(xmlfile,"UCS-2"); // try 16bit first?
+		var aa=data.split(/<iati-activity/gi);
+		if(aa.length==1) // nothing found so try utf8
+		{
+			data=fs.readFileSync(xmlfile,"utf8");
+			aa=data.split(/<iati-activity/gi);
+		}
+		
+//ls(aa);			
+		var acts=[];
+		for(var i=1;i<aa.length;i++)
+		{
+			var v=aa[i];
+			var v=v.split(/<\/iati-activity>/gi)[0]; // trim the end
+			acts.push("<iati-activity"+v+"</iati-activity>"); // rebuild
+		}
+		console.log("activities: "+acts.length);
 //			console.log(acts[0]);
 
-			require("./js/dstore_db").fill_acts(acts);
+		require("./js/dstore_db").fill_acts(acts);
 
-		});
 		return;		
 	}
 }

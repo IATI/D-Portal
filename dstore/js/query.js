@@ -449,10 +449,13 @@ query.getsql_select=function(q,qv){
 query.getsql_from=function(q,qv){
 	var ss=[];
 
+	var f=q.from;
+	q.from="";
 	for(var name in dstore_sqlite.tables )
 	{
-		if(q.from==name)
+		if(f==name)
 		{
+			q.from=f;
 			ss.push(name);
 		}
 	}
@@ -465,6 +468,8 @@ query.getsql_where=function(q,qv){
 	var ss=[];
 	
 	var ns=q[0];
+	
+	var joins={};
 	
 	var qemap={ // possible comparisons
 		"_lt":"<",
@@ -486,6 +491,9 @@ query.getsql_where=function(q,qv){
 			var eq=qemap[qe];
 			if( v !== undefined ) // got a value
 			{
+				if(n=="recipient_country_code") { joins["recipient_country"]=true; }
+				if(n=="recipient_sector_code") { joins["recipient_sector"]=true; }
+				
 				var t=typeof v;
 				if(t=="string")
 				{
@@ -527,8 +535,17 @@ query.getsql_where=function(q,qv){
 		}
 	}
 	
-	if(ss[0]) { return " WHERE "+ss.join(" AND "); }
-	return "";
+	var ret="";
+	if(ss[0]) { ret=" WHERE "+ss.join(" AND "); }
+	
+	ss=[];
+	for(var n in joins)
+	{
+		ss.push(" JOIN "+n+" ON aid="+n+"_aid " );
+	}
+	if(ss[0]) { ret=ss.join(" ")+ret; }
+	
+	return ret;
 };
 
 query.getsql_group_by=function(q,qv){
@@ -633,6 +650,10 @@ query.getsql_build_column_names=function(q,qv){
 			ns[n]=dstore_sqlite.tables_active[name][n];
 		}
 	}
+	
+//	ns.recipient_country_code="index";
+//	ns.recipient_sector_code="index";
+
 	q[0]=ns; // special array of valid column names
 
 };

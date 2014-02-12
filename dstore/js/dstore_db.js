@@ -35,76 +35,84 @@ dstore_db.bubble_act={
 	
 // data table descriptions
 dstore_db.tables={
+	recipient_country:[
+		{ name:"recipient_country_aid",			NOCASE:true , INDEX:true },
+		{ name:"recipient_country_code",		NOCASE:true , INDEX:true }
+	],
+	recipient_sector:[
+		{ name:"recipient_sector_aid",			NOCASE:true , INDEX:true },
+		{ name:"recipient_sector_code",			INTEGER:true , INDEX:true }
+	],
 	activities:[
 		{ name:"aid",							NOCASE:true , PRIMARY:true },
 		{ name:"raw_xml",						TEXT:true },
 		{ name:"raw_json",						TEXT:true },
 		{ name:"json",							TEXT:true },
-		{ name:"status_code",					INTEGER:true },	
-		{ name:"day_start",						INTEGER:true },	
-		{ name:"day_end",						INTEGER:true },
-		{ name:"day_length",					INTEGER:true },
+		{ name:"status_code",					INTEGER:true , INDEX:true },	
+		{ name:"day_start",						INTEGER:true , INDEX:true },	
+		{ name:"day_end",						INTEGER:true , INDEX:true },
+		{ name:"day_length",					INTEGER:true , INDEX:true },
 		{ name:"title",							NOCASE:true },
 		{ name:"description",					NOCASE:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true },
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
 		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
 		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
 		{ name:"sector_codes",					NOCASE:true },	// seperated by /
 		{ name:"sector_percents",				NOCASE:true }	// seperated by /
 	],
 	transactions:[
-		{ name:"aid",							NOCASE:true },
+		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"raw_json",						TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"ref",							NOCASE:true },
 		{ name:"description",					NOCASE:true },
-		{ name:"day",							INTEGER:true },
+		{ name:"day",							INTEGER:true , INDEX:true },
 		{ name:"currency",						NOCASE:true },
 		{ name:"value",							REAL:true },
 		{ name:"usd",							REAL:true },
-		{ name:"code",							NOCASE:true },
-		{ name:"flow_code",						NOCASE:true },
-		{ name:"finance_code",					NOCASE:true },
-		{ name:"aid_code",						NOCASE:true },
+		{ name:"code",							NOCASE:true , INDEX:true },
+		{ name:"flow_code",						NOCASE:true , INDEX:true },
+		{ name:"finance_code",					NOCASE:true , INDEX:true },
+		{ name:"aid_code",						NOCASE:true , INDEX:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true },
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
 		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
 		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
 		{ name:"sector_codes",					NOCASE:true },	// seperated by /
 		{ name:"sector_percents",				NOCASE:true }	// seperated by /
 	],
 	budgets:[
-		{ name:"aid",							NOCASE:true },
+		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"raw_json",						TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"type",							NOCASE:true },
-		{ name:"day_start",						INTEGER:true },
-		{ name:"day_end",						INTEGER:true },
-		{ name:"day_length",					INTEGER:true },
+		{ name:"day_start",						INTEGER:true , INDEX:true },
+		{ name:"day_end",						INTEGER:true , INDEX:true },
+		{ name:"day_length",					INTEGER:true , INDEX:true },
 		{ name:"currency",						NOCASE:true },
 		{ name:"value",							REAL:true },
 		{ name:"usd",							REAL:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true },
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
 		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
 		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
 		{ name:"sector_codes",					NOCASE:true },	// seperated by /
 		{ name:"sector_percents",				NOCASE:true }	// seperated by /
 	],
 	planned_disbursements:[
-		{ name:"aid",							NOCASE:true },
+		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"raw_json",						TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"type",							NOCASE:true },
-		{ name:"day_start",						INTEGER:true },
-		{ name:"day_end",						INTEGER:true },
-		{ name:"day_length",					INTEGER:true },
+		{ name:"day_start",						INTEGER:true , INDEX:true },
+		{ name:"day_end",						INTEGER:true , INDEX:true },
+		{ name:"day_length",					INTEGER:true , INDEX:true },
 		{ name:"currency",						NOCASE:true },
 		{ name:"value",							REAL:true },
 		{ name:"usd",							REAL:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true },
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
 		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
 		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
 		{ name:"sector_codes",					NOCASE:true },	// seperated by /
@@ -160,12 +168,9 @@ dstore_db.fill_acts = function(acts){
 	console.log("Finalize data");
 //	stmt.finalize();
 	
-	console.log("checking data");
-	db.each("SELECT aid,raw_xml FROM activities", function(err, row)
+	db.each("SELECT COUNT(*) FROM activities", function(err, row)
 	{
-		process.stdout.write(".");
-	},function(err, count){
-		process.stdout.write("\n");
+		process.stdout.write("Number of acts = "+row["COUNT(*)"]+"\n");
 	});
 
 	db.run(";", function(err, row){
@@ -240,10 +245,16 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 		
 		var country=[];
 		var percents=[];
-		refry.tags(act,"recipient-country",function(it){ country.push(it.code); percents.push(it.percentage); });
+		refry.tags(act,"recipient-country",function(it){ country.push( (it.code || "").toUpperCase() ); percents.push(it.percentage); });
 		if(country[0]) {
 			t.recipient_country_codes="/"+country.join("/")+"/";
 			t.recipient_country_percents="/"+percents.join("/")+"/";
+			country.forEach(function(it)
+			{
+				var sa = db.prepare(dstore_sqlite.tables_replace_sql["recipient_country"]);
+				sa.run({"$recipient_country_aid":t.aid,"$recipient_country_code":it});				
+				sa.finalize();
+			});
 		}
 
 		var sectors=[];
@@ -252,6 +263,12 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 		if(sectors[0]) {
 			t.sector_codes="/"+sectors.join("/")+"/";
 			t.sector_percents="/"+percents.join("/")+"/";
+			sectors.forEach(function(it)
+			{
+				var sa = db.prepare(dstore_sqlite.tables_replace_sql["recipient_sector"]);
+				sa.run({"$recipient_sector_aid":t.aid,"$recipient_sector_code":it});				
+				sa.finalize();
+			});
 		}
 
 		t.day_start=null;
@@ -272,7 +289,7 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 		t.default_currency=act["default-currency"];
 		
 		t.raw_xml=raw_xml;
-		t.raw_json=act;
+		t.raw_json=JSON.stringify(act);
 		
 //		dstore_sqlite.replace(db,"activities",t);
 		replace("activities",t);
@@ -351,8 +368,10 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 
 
 	db.run("DELETE FROM transactions WHERE aid=?",aid); // remove all the old ones, then add new
-	db.run("DELETE FROM budgets WHERE aid=?",aid); // remove all the old ones, then add new
-	db.run("DELETE FROM planned_disbursements WHERE aid=?",aid); // remove all the old ones, then add new
+	db.run("DELETE FROM budgets WHERE aid=?",aid); 
+	db.run("DELETE FROM planned_disbursements WHERE aid=?",aid);
+	db.run("DELETE FROM recipient_country_codes WHERE aid=?",aid);
+	db.run("DELETE FROM recipient_sector_codes WHERE aid=?",aid);
 
 	var act_json=refresh_activity(raw_xml);
 	var act=act_json.raw_json;
