@@ -19,7 +19,7 @@ fs.mkdir("db",function(e){});
 if(nconf.get("cmd"))
 {
 	var cmd=nconf.get("cmd");
-	console.log("cmd found : "+cmd);
+//	console.log("cmd found : "+cmd);
 	if( cmd=="init" )
 	{
 		require("./js/dstore_db").create_tables();
@@ -58,10 +58,9 @@ if(nconf.get("cmd"))
 	else
 	if( cmd=="import" )
 	{
-		console.log("Attempting Import");
+//		console.log("Attempting Import");
 		
 		var xmlfile=nconf.get("xmlfile");
-		console.log("Importing xmlfile : "+xmlfile);
 		
 		var fs = require('fs');
 		
@@ -81,7 +80,11 @@ if(nconf.get("cmd"))
 			var v=v.split(/<\/iati-activity>/gi)[0]; // trim the end
 			acts.push("<iati-activity"+v+"</iati-activity>"); // rebuild
 		}
-		console.log("activities: "+acts.length);
+
+
+		console.log("\t\tImporting xmlfile : ("+acts.length+") "+xmlfile);
+
+//		console.log("activities: "+acts.length);
 //			console.log(acts[0]);
 
 		require("./js/dstore_db").fill_acts(acts);

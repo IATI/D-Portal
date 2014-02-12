@@ -12,7 +12,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
 //
-// Refry an XML string into json via htmlparser.
+// Refry an XML string into json ( JML ) via htmlparser.
 // Returns a json dumpable object.
 // Each object is either a literal string or an object comprised of an
 // entities supplied attributes plus two special attributes
@@ -137,9 +137,9 @@ refry.tagval=function(json,name)
 refry.tagattr=function(json,name,attr)
 {
 	var t=refry.tag(json,name); // find
-	if( t && t[1] && t[1][attr] ) // check
+	if( t && t[attr] ) // check
 	{
-		return t[1][attr];
+		return t[attr];
 	}
 }
 

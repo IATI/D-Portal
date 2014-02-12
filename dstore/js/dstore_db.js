@@ -33,8 +33,8 @@ dstore_db.bubble_act={
 dstore_db.tables={
 	activities:[
 		{ name:"aid",							NOCASE:true , PRIMARY:true },
-		{ name:"raw_xml",						TEXT:true },
-		{ name:"raw_json",						TEXT:true },
+		{ name:"xml",						TEXT:true },
+		{ name:"jml",						TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"status_code",					INTEGER:true , INDEX:true },	
 		{ name:"day_start",						INTEGER:true , INDEX:true },	
@@ -47,7 +47,7 @@ dstore_db.tables={
 	],
 	transactions:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"raw_json",						TEXT:true },
+		{ name:"jml",						TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"ref",							NOCASE:true },
 		{ name:"description",					NOCASE:true },
@@ -64,7 +64,7 @@ dstore_db.tables={
 	],
 	budgets:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"raw_json",						TEXT:true },
+		{ name:"jml",						TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"type",							NOCASE:true },
 		{ name:"day_start",						INTEGER:true , INDEX:true },
@@ -78,7 +78,7 @@ dstore_db.tables={
 	],
 	planned_disbursements:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"raw_json",						TEXT:true },
+		{ name:"jml",						TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"type",							NOCASE:true },
 		{ name:"day_start",						INTEGER:true , INDEX:true },
@@ -129,7 +129,15 @@ dstore_db.fill_acts = function(acts){
 	var db = dstore_db.open();	
 	db.serialize();
 
-//	var stmt = db.prepare("REPLACE INTO activities (aid,raw_xml,raw_json) VALUES (?,?,?)");
+	var before=0;
+	var after=0;
+	
+	db.each("SELECT COUNT(*) FROM activities", function(err, row)
+	{
+		before=row["COUNT(*)"];
+	});
+
+//	var stmt = db.prepare("REPLACE INTO activities (aid,xml,jml) VALUES (?,?,?)");
 
 	for(var i=0;i<acts.length;i++)
 	{
@@ -151,17 +159,17 @@ dstore_db.fill_acts = function(acts){
 	}
 	process.stdout.write("\n");
 	
-	console.log("Finalize data");
+//	console.log("Finalize data");
 //	stmt.finalize();
 	
 	db.each("SELECT COUNT(*) FROM activities", function(err, row)
 	{
-		process.stdout.write("Number of acts = "+row["COUNT(*)"]+"\n");
+		after=row["COUNT(*)"];
 	});
 
 	db.run(";", function(err, row){
 		db.close();
-		process.stdout.write("\nFIN\n");
+		process.stdout.write(after+" ( "+(after-before)+" ) \n");
 	});
 
 };
@@ -173,10 +181,10 @@ dstore_db.refresh_acts = function(){
 	var db = dstore_db.open();
 	db.serialize();
 
-	db.each("SELECT aid,raw_xml FROM activities", function(err, row){
+	db.each("SELECT aid,xml FROM activities", function(err, row){
 
 		process.stdout.write(".");
-		dstore_db.refresh_act(db,row.aid,row.raw_xml);
+		dstore_db.refresh_act(db,row.aid,row.xml);
 	});
 
 
@@ -187,7 +195,7 @@ dstore_db.refresh_acts = function(){
 
 };
 
-dstore_db.refresh_act = function(db,aid,raw_xml){
+dstore_db.refresh_act = function(db,aid,xml){
 
 /*	
 	var preps={};
@@ -233,7 +241,7 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 		t["value"]=				iati_xml.get_value(it,"value");
 		t["usd"]=				iati_xml.get_usd(it,"value");
 
-		t.raw_json=JSON.stringify(it);
+		t.jml=JSON.stringify(it);
 		
 //		dstore_sqlite.replace(db,"transactions",t);
 		replace("transactions",t);
@@ -257,7 +265,7 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 		t["value"]=					iati_xml.get_value(it,"value");
 		t["usd"]=					iati_xml.get_usd(it,"value");
 
-		t.raw_json=JSON.stringify(it);
+		t.jml=JSON.stringify(it);
 		
 //		dstore_sqlite.replace(db,"budgets",t);
 		replace("budgets",t);
@@ -281,18 +289,18 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 		t["value"]=					iati_xml.get_value(it,"value");
 		t["usd"]=					iati_xml.get_usd(it,"value");
 
-		t.raw_json=JSON.stringify(it);
+		t.jml=JSON.stringify(it);
 		
 //		dstore_sqlite.replace(db,"planned_disbursements",t);
 		replace("planned_disbursements",t);
 
 	};
 
-	var refresh_activity=function(raw_xml)
+	var refresh_activity=function(xml)
 	{
 //		process.stdout.write("a");
 		
-		var act=refry.xml(raw_xml); // raw xml convert to json
+		var act=refry.xml(xml); // raw xml convert to jml
 		act=refry.tag(act,"iati-activity"); // and get the main tag
 		
 		iati_cook.activity(act); // cook the raw json(xml) ( most cleanup logic has been moved here )
@@ -357,8 +365,8 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 
 		t.default_currency=act["default-currency"];
 		
-		t.raw_xml=raw_xml;
-		t.raw_json=JSON.stringify(act);
+		t.xml=xml;
+		t.jml=JSON.stringify(act);
 		
 //		dstore_sqlite.replace(db,"activities",t);
 		replace("activities",t);
@@ -377,7 +385,7 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 	db.run("DELETE FROM recipient_sector WHERE recipient_sector_aid=?",aid);
 
 	// then add new
-	var act_json=refresh_activity(raw_xml);
+	var act_json=refresh_activity(xml);
 	
 };
 
@@ -465,9 +473,9 @@ dstore_db.hack_acts = function(){
 
 	var db = dstore_db.open();
 	db.serialize(function() {
-		db.each("SELECT raw_json FROM activities", function(err, row)
+		db.each("SELECT jml FROM activities", function(err, row)
 		{
-			var act=JSON.parse(row.raw_json);
+			var act=JSON.parse(row.jml);
 
 			tabs.acts.push(act);
 			

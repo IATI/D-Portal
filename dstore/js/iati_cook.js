@@ -26,37 +26,88 @@ iati_cook.activity=function(act)
 {
 	var activity_date={};
 	refry.tags(act,"activity-date",function(it){
-		activity_date[it.type]=it
+		activity_date[it.type]=it;
+		var d=iati_xml.get_isodate(it,"activity-date"); // sometimes iso-date is missing, use content if a valid format?
+		if( d && d.length==10 )
+		{
+			it["iso-date"]=d;
+		}
+		else
+		{
+			delete it["iso-date"];
+		}
 	});
+//ls(activity_date);
 	
 // if we have any actifity dates, then force a start-actual to something
-	if( ! activity_date["start-actual"] )
+	if( ! activity_date["start-actual"] || !activity_date["start-actual"]["iso-date"])
 	{
 		var d;
-		if( activity_date["end-planned"]    ) { d=activity_date["end-planned"]["iso-date"]; }
-		if( activity_date["end-actual"]     ) { d=activity_date["end-actual"]["iso-date"]; }
-		if( activity_date["start-planned"]  ) { d=activity_date["start-planned"]["iso-date"]; }
+		var t;
+		t=activity_date["end-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
+		t=activity_date["end-actual"]; 		if( t && t["iso-date"] ) { d=t["iso-date"]; }
+		t=activity_date["start-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
 		if(d)
 		{
-			act[1].push({0:"activity-date","type":"start-actual","iso-date":d});
+			if(activity_date["start-actual"])
+			{
+				activity_date["start-actual"]["iso-date"]=d;
+			}
+			else
+			{
+				act[1].push({0:"activity-date","type":"start-actual","iso-date":d});
+			}
+//			ls("INSERT start-actual");
+//			ls(act[1]);
 		}
 	}
 
 // if we have any activity dates, then force an end-actual to something
-	if( ! activity_date["end-actual"] )
+	if( ! activity_date["end-actual"] || !activity_date["end-actual"]["iso-date"] )
 	{
 		var d;
-		if( activity_date["start-planned"]		) { d=activity_date["start-planned"]["iso-date"]; }
-		if( activity_date["start-actual"]		) { d=activity_date["start-actual"]["iso-date"]; }
-		if( activity_date["end-planned"]		) { d=activity_date["end-planned"]["iso-date"]; }
+		var t;
+		t=activity_date["start-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
+		t=activity_date["start-actual"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
+		t=activity_date["end-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
 		if(d)
 		{
-			act[1].push({0:"activity-date","type":"end-actual","iso-date":d});
+			if(activity_date["end-actual"])
+			{
+				activity_date["end-actual"]["iso-date"]=d;
+			}
+			else
+			{
+				act[1].push({0:"activity-date","type":"end-actual","iso-date":d});
+			}
+//			ls("INSERT end-actual");
 		}
 	}
 // from now on we can ignore start-planned and end-planned and just use start-actual end-actual
 // if you care about this then go back to the original XML data...
 
+/*
+
+	var activity_date={};
+	refry.tags(act,"activity-date",function(it){
+		activity_date[it.type]=it
+	});
+	if( activity_date["start-actual"] && activity_date["end-actual"] )
+	{
+		if( activity_date["start-actual"]["iso-date"] && activity_date["end-actual"]["iso-date"] )
+		{
+		}
+		else
+		{
+			ls(activity_date);
+		}
+	}
+	else
+	{
+		ls(activity_date);
+	}
+
+*/
 
 // force a currency attr on all values
 	refry.tags(act,"value",function(it){
