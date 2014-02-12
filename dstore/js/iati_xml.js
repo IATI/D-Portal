@@ -103,5 +103,7 @@ iati_xml.get_code=function(it,name)
 
 iati_xml.get_aid=function(it)
 {
-	return refry.tagval(it,"iati-identifier");
+	var id=refry.tagval(it,"iati-identifier");
+	if(id) { id=id.trim(); }
+	return id;
 }

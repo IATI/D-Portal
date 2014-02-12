@@ -23,10 +23,6 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // values copied from the activities into other tables for quik lookup (no need to join tables)
 dstore_db.bubble_act={
-		"recipient_country_codes":true,
-		"recipient_country_percents":true,
-		"sector_codes":true,
-		"sector_percents":true,
 		"reporting_org":true,
 		"reporting_org_ref":true,
 		"aid":true
@@ -35,14 +31,6 @@ dstore_db.bubble_act={
 	
 // data table descriptions
 dstore_db.tables={
-	recipient_country:[
-		{ name:"recipient_country_aid",			NOCASE:true , INDEX:true },
-		{ name:"recipient_country_code",		NOCASE:true , INDEX:true }
-	],
-	recipient_sector:[
-		{ name:"recipient_sector_aid",			NOCASE:true , INDEX:true },
-		{ name:"recipient_sector_code",			INTEGER:true , INDEX:true }
-	],
 	activities:[
 		{ name:"aid",							NOCASE:true , PRIMARY:true },
 		{ name:"raw_xml",						TEXT:true },
@@ -55,11 +43,7 @@ dstore_db.tables={
 		{ name:"title",							NOCASE:true },
 		{ name:"description",					NOCASE:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
-		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
-		{ name:"sector_codes",					NOCASE:true },	// seperated by /
-		{ name:"sector_percents",				NOCASE:true }	// seperated by /
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true }
 	],
 	transactions:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -76,11 +60,7 @@ dstore_db.tables={
 		{ name:"finance_code",					NOCASE:true , INDEX:true },
 		{ name:"aid_code",						NOCASE:true , INDEX:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
-		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
-		{ name:"sector_codes",					NOCASE:true },	// seperated by /
-		{ name:"sector_percents",				NOCASE:true }	// seperated by /
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true }
 	],
 	budgets:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -94,11 +74,7 @@ dstore_db.tables={
 		{ name:"value",							REAL:true },
 		{ name:"usd",							REAL:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
-		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
-		{ name:"sector_codes",					NOCASE:true },	// seperated by /
-		{ name:"sector_percents",				NOCASE:true }	// seperated by /
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true }
 	],
 	planned_disbursements:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -112,11 +88,16 @@ dstore_db.tables={
 		{ name:"value",							REAL:true },
 		{ name:"usd",							REAL:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"recipient_country_codes",		NOCASE:true },	// seperated by /
-		{ name:"recipient_country_percents",	NOCASE:true },	// seperated by /
-		{ name:"sector_codes",					NOCASE:true },	// seperated by /
-		{ name:"sector_percents",				NOCASE:true }	// seperated by /
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true }
+	],
+// These are intended just to be joined to the above.
+	recipient_country:[
+		{ name:"recipient_country_aid",			NOCASE:true , INDEX:true },
+		{ name:"recipient_country_code",		NOCASE:true , INDEX:true }
+	],
+	recipient_sector:[
+		{ name:"recipient_sector_aid",			NOCASE:true , INDEX:true },
+		{ name:"recipient_sector_code",			INTEGER:true , INDEX:true }
 	]
 };
 	
@@ -154,12 +135,17 @@ dstore_db.fill_acts = function(acts){
 	{
 		var xml=acts[i];
 		json=refry.xml(xml);
-		var aid=refry.tagval(json,"iati-identifier");
-
-		process.stdout.write(".");
-
-
-		dstore_db.refresh_act(db,aid,xml);
+		var aid=iati_xml.get_aid(json);
+		
+		if(aid)
+		{
+			process.stdout.write(".");
+			dstore_db.refresh_act(db,aid,xml);
+		}
+		else
+		{
+			process.stdout.write(" "); // missing aid
+		}
 		
 //		stmt.run(aid,xml,JSON.stringify(json[0]));
 	}
@@ -225,8 +211,86 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 */
 	}
 	
+
+
+	var refresh_transaction=function(it,act,act_json)
+	{
+//		process.stdout.write("t");
+
+		var t={};
+		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
+
+		t["ref"]=				it["ref"];
+		t["description"]=		refry.tagval(it,"description");
+		t["day"]=				iati_xml.get_isodate_number(it,"transaction-date");
+
+		t["code"]=				iati_xml.get_code(it,"transaction-type");
+		t["flow_code"]=			iati_xml.get_code(it,"flow-type");
+		t["finance_code"]=		iati_xml.get_code(it,"finance-type");
+		t["aid_code"]=			iati_xml.get_code(it,"aid-type");
+		
+		t["currency"]=			iati_xml.get_value_currency(it,"value");
+		t["value"]=				iati_xml.get_value(it,"value");
+		t["usd"]=				iati_xml.get_usd(it,"value");
+
+		t.raw_json=JSON.stringify(it);
+		
+//		dstore_sqlite.replace(db,"transactions",t);
+		replace("transactions",t);
+
+	};
+
+	var refresh_budget=function(it,act,act_json)
+	{
+//		process.stdout.write("b");
+		
+		var t={};
+		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
+		
+		t["type"]=it["type"];
+
+		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
+		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
+		t["day_length"]=			t["day_end"]-t["day_start"];
+		
+		t["currency"]=				iati_xml.get_value_currency(it,"value");
+		t["value"]=					iati_xml.get_value(it,"value");
+		t["usd"]=					iati_xml.get_usd(it,"value");
+
+		t.raw_json=JSON.stringify(it);
+		
+//		dstore_sqlite.replace(db,"budgets",t);
+		replace("budgets",t);
+
+	};
+
+	var refresh_planned_disbursement=function(it,act,act_json)
+	{
+//		process.stdout.write("p");
+		
+		var t={};		
+		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
+		
+		t["type"]=it["type"];
+
+		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
+		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
+		t["day_length"]=			t["day_end"]-t["day_start"];
+		
+		t["currency"]=				iati_xml.get_value_currency(it,"value");
+		t["value"]=					iati_xml.get_value(it,"value");
+		t["usd"]=					iati_xml.get_usd(it,"value");
+
+		t.raw_json=JSON.stringify(it);
+		
+//		dstore_sqlite.replace(db,"planned_disbursements",t);
+		replace("planned_disbursements",t);
+
+	};
+
 	var refresh_activity=function(raw_xml)
 	{
+//		process.stdout.write("a");
 		
 		var act=refry.xml(raw_xml); // raw xml convert to json
 		act=refry.tag(act,"iati-activity"); // and get the main tag
@@ -235,7 +299,12 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 		
 		var t={};
 		
-		t.aid=refry.tagval(act,"iati-identifier");
+		t.aid=iati_xml.get_aid(act);
+		if(!t.aid) // do not save when there is no ID
+		{
+			process.stdout.write("-");
+			return;
+		}
 
 		t.title=refry.tagval(act,"title");
 		t.description=refry.tagval(act,"description");				
@@ -294,91 +363,21 @@ dstore_db.refresh_act = function(db,aid,raw_xml){
 //		dstore_sqlite.replace(db,"activities",t);
 		replace("activities",t);
 		
+		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
+		refry.tags(act,"budget",function(it){refresh_budget(it,act,t);});
+		refry.tags(act,"planned-disbursement",function(it){refresh_planned_disbursement(it,act,t);});
+
 		return t;
 	};
-
-	var refresh_transaction=function(it,act,act_json)
-	{
-		var t={};
-		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
-
-		t["ref"]=				it["ref"];
-		t["description"]=		refry.tagval(it,"description");
-		t["day"]=				iati_xml.get_isodate_number(it,"transaction-date");
-
-		t["code"]=				iati_xml.get_code(it,"transaction-type");
-		t["flow_code"]=			iati_xml.get_code(it,"flow-type");
-		t["finance_code"]=		iati_xml.get_code(it,"finance-type");
-		t["aid_code"]=			iati_xml.get_code(it,"aid-type");
-		
-		t["currency"]=			iati_xml.get_value_currency(it,"value");
-		t["value"]=				iati_xml.get_value(it,"value");
-		t["usd"]=				iati_xml.get_usd(it,"value");
-
-		t.raw_json=JSON.stringify(it);
-		
-//		dstore_sqlite.replace(db,"transactions",t);
-		replace("transactions",t);
-
-	};
-
-	var refresh_budget=function(it,act,act_json)
-	{
-		var t={};
-		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
-		
-		t["type"]=it["type"];
-
-		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
-		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
-		t["day_length"]=			t["day_end"]-t["day_start"];
-		
-		t["currency"]=				iati_xml.get_value_currency(it,"value");
-		t["value"]=					iati_xml.get_value(it,"value");
-		t["usd"]=					iati_xml.get_usd(it,"value");
-
-		t.raw_json=JSON.stringify(it);
-		
-//		dstore_sqlite.replace(db,"budgets",t);
-		replace("budgets",t);
-
-	};
-
-	var refresh_planned_disbursement=function(it,act,act_json)
-	{
-		var t={};
-		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
-		
-		t["type"]=it["type"];
-
-		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
-		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
-		t["day_length"]=			t["day_end"]-t["day_start"];
-		
-		t["currency"]=				iati_xml.get_value_currency(it,"value");
-		t["value"]=					iati_xml.get_value(it,"value");
-		t["usd"]=					iati_xml.get_usd(it,"value");
-
-		t.raw_json=JSON.stringify(it);
-		
-//		dstore_sqlite.replace(db,"planned_disbursements",t);
-		replace("planned_disbursements",t);
-
-	};
-
-
-	db.run("DELETE FROM transactions WHERE aid=?",aid); // remove all the old ones, then add new
+	
+	db.run("DELETE FROM transactions WHERE aid=?",aid); // remove all the old references
 	db.run("DELETE FROM budgets WHERE aid=?",aid); 
 	db.run("DELETE FROM planned_disbursements WHERE aid=?",aid);
-	db.run("DELETE FROM recipient_country_codes WHERE aid=?",aid);
-	db.run("DELETE FROM recipient_sector_codes WHERE aid=?",aid);
+	db.run("DELETE FROM recipient_country WHERE recipient_country_aid=?",aid);
+	db.run("DELETE FROM recipient_sector WHERE recipient_sector_aid=?",aid);
 
+	// then add new
 	var act_json=refresh_activity(raw_xml);
-	var act=act_json.raw_json;
-
-	refry.tags(act,"transaction",function(it){refresh_transaction(it,act,act_json)});
-	refry.tags(act,"budget",function(it){refresh_budget(it,act,act_json)});
-	refry.tags(act,"planned-disbursement",function(it){refresh_planned_disbursement(it,act,act_json)});
 	
 };
 

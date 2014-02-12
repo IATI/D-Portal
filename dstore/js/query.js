@@ -48,6 +48,9 @@ query.maybenumber=function(v)
 //
 query.get_q = function(req){
 	var q={};
+	
+	q.start_time=Date.now();
+	
 	var cp=function(f,unesc){
 		for(var n in f) // single depth copy only
 		{
@@ -728,6 +731,7 @@ query.do_select=function(q,res){
 		}
 		else
 		{
+			r.time=(Date.now()-q.start_time)/1000;
 			res.jsonp(r);
 		}
 		db.close();
