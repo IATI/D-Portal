@@ -180,6 +180,34 @@ dstore_sqlite.getsql_create_table=function(db,name,tab)
 		s.push(" , ");
 		}
 	}
+
+// multiple primary keys?
+/*
+	var primary_done=false;
+	for(var i=0; i<tab.length;i++)
+	{
+		var col=tab[i];
+		
+		if(col.PRIMARY)
+		{
+			if(!primary_done)
+			{
+				primary_done=true;
+				s.push(" , PRIMARY KEY ( ");
+			}
+			else
+			{
+				s.push(" , ");
+			}
+			
+			s.push(" "+col.name+" ");
+		}
+	}
+	if(primary_done)
+	{
+		s.push(" ) ");
+	}
+*/
 	
 	s.push(" ); ");
 

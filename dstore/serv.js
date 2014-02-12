@@ -4,6 +4,7 @@ var nconf = require('nconf');
 var fs = require('fs');
 var express = require('express');
 var util=require('util');
+var path=require('path');
 var app = express();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
@@ -61,6 +62,7 @@ if(nconf.get("cmd"))
 //		console.log("Attempting Import");
 		
 		var xmlfile=nconf.get("xmlfile");
+		var xmlfilename=path.basename(xmlfile,".xml");
 		
 		var fs = require('fs');
 		
@@ -78,16 +80,17 @@ if(nconf.get("cmd"))
 		{
 			var v=aa[i];
 			var v=v.split(/<\/iati-activity>/gi)[0]; // trim the end
-			acts.push("<iati-activity"+v+"</iati-activity>"); // rebuild
+			acts.push("<iati-activity slug=\""+xmlfilename+"\""+v+"</iati-activity>"); // rebuild and add import filename
 		}
 
 
-		console.log("\t\tImporting xmlfile : ("+acts.length+") "+xmlfile);
+		console.log("\t\tImporting xmlfile : ("+acts.length+") "+xmlfilename);
 
 //		console.log("activities: "+acts.length);
 //			console.log(acts[0]);
 
-		require("./js/dstore_db").fill_acts(acts);
+
+		require("./js/dstore_db").fill_acts(acts,xmlfilename);
 
 		return;		
 	}

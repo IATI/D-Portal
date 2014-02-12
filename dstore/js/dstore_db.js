@@ -33,8 +33,9 @@ dstore_db.bubble_act={
 dstore_db.tables={
 	activities:[
 		{ name:"aid",							NOCASE:true , PRIMARY:true },
-		{ name:"xml",						TEXT:true },
-		{ name:"jml",						TEXT:true },
+		{ name:"slug",							NOCASE:true , INDEX:true },
+		{ name:"xml",							TEXT:true },
+		{ name:"jml",							TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"status_code",					INTEGER:true , INDEX:true },	
 		{ name:"day_start",						INTEGER:true , INDEX:true },	
@@ -98,6 +99,10 @@ dstore_db.tables={
 	recipient_sector:[
 		{ name:"recipient_sector_aid",			NOCASE:true , INDEX:true },
 		{ name:"recipient_sector_code",			INTEGER:true , INDEX:true }
+	],
+	slugs:[
+		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"slug",							NOCASE:true , INDEX:true }
 	]
 };
 	
@@ -124,10 +129,12 @@ dstore_db.open = function(){
 };
 
 
-dstore_db.fill_acts = function(acts){
+dstore_db.fill_acts = function(acts,slug){
 
 	var db = dstore_db.open();	
 	db.serialize();
+
+	db.run("DELETE FROM slugs WHERE slug=?",slug); // remove all the old slugs
 
 	var before=0;
 	var after=0;
@@ -147,12 +154,12 @@ dstore_db.fill_acts = function(acts){
 		
 		if(aid)
 		{
-			process.stdout.write(".");
+			process.stdout.write("+");
 			dstore_db.refresh_act(db,aid,xml);
 		}
 		else
 		{
-			process.stdout.write(" "); // missing aid
+			process.stdout.write("-"); // missing aid
 		}
 		
 //		stmt.run(aid,xml,JSON.stringify(json[0]));
@@ -313,12 +320,14 @@ dstore_db.refresh_act = function(db,aid,xml){
 			process.stdout.write("-");
 			return;
 		}
+		t.slug=refry.tagattr(act,"iati-activity","slug"); // this value is hacked in when the acts are split
 
 		t.title=refry.tagval(act,"title");
 		t.description=refry.tagval(act,"description");				
 		t.reporting_org=refry.tagval(act,"reporting-org");				
 		t.reporting_org_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=refry.tagattr(act,"activity-status","code");
+
 		
 		var country=[];
 		var percents=[];
@@ -370,6 +379,10 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 //		dstore_sqlite.replace(db,"activities",t);
 		replace("activities",t);
+		
+		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slugs"]);
+		sa.run({"$aid":t.aid,"$slug":t.slug});		
+		sa.finalize();
 		
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
 		refry.tags(act,"budget",function(it){refresh_budget(it,act,t);});
