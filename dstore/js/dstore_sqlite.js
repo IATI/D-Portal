@@ -62,8 +62,7 @@ dstore_sqlite.create_tables = function(){
 }
 
 
-dstore_sqlite.replace = function(db,name,it){
-
+dstore_sqlite.replace_vars = function(db,name,it){
 	var json={};
 
 	for(var n in it) { if( n.slice(0,4)!="raw_") {
@@ -75,6 +74,13 @@ dstore_sqlite.replace = function(db,name,it){
 
 	for(var n in it) { if( n.slice(0,4)=="raw_") {
 		$t["$"+n]=it[n]; }}
+
+	return $t;
+}
+
+dstore_sqlite.replace = function(db,name,it){
+	
+	var $t=dstore_sqlite.replace_vars(db,name,it);
 		
 //	ls($t);
 	
@@ -197,7 +203,18 @@ dstore_sqlite.cache_prepare = function(tables){
 		for(var i=0; i<dstore_sqlite.tables[name].length; i++ )
 		{
 			var v=dstore_sqlite.tables[name][i];
-			t[v.name]=true;
+			
+			var ty="null";
+			
+			if(v.TEXT) { ty="char"; }
+			else
+			if(v.NOCASE) { ty="char"; }
+			else
+			if(v.INTEGER) { ty="int"; }
+			else
+			if(v.REAL) { ty="float"; }
+			
+			t[v.name]=ty;
 		}
 		dstore_sqlite.tables_active[name]=t;
 		dstore_sqlite.tables_replace_sql[name]=dstore_sqlite.getsql_prepare_replace(name,t);

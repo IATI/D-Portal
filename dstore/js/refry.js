@@ -92,11 +92,11 @@ refry.json=function(data)
 				}
 			}
 			ss.push(" >\n");
-			if(it[1]) { it[1].map(f); }
+			if(it[1]) { it[1].forEach(f); }
 			ss.push("</"+it[0]+">\n");
 		}
 	};
-	if(data.map) { data.map(f); }
+	if(data.forEach) { data.forEach(f); }
 	else { f(data); }
 	
 	return ss.join("");
@@ -114,11 +114,11 @@ refry.tag=function(json,name)
 			if(typeof it == "object")
 			{
 				if(it[0]==name) { ret=it } // only call once
-				if(it[1]) { it[1].map(f); }
+				if(it[1]) { it[1].forEach(f); }
 			}
 		}
 	};
-	if(json.map) { json.map(f); }
+	if(json.forEach) { json.forEach(f); }
 	else { f(json); }
 	
 	return ret;
@@ -133,6 +133,16 @@ refry.tagval=function(json,name)
 	}
 }
 
+// return the attr string of the first tag we find of the given name
+refry.tagattr=function(json,name,attr)
+{
+	var t=refry.tag(json,name); // find
+	if( t && t[1] && t[1].attr ) // check
+	{
+		return t[1].attr;
+	}
+}
+
 // callback for all tags of the given name, walking down the tree
 refry.tags=function(json,name,cb)
 {
@@ -142,9 +152,9 @@ refry.tags=function(json,name,cb)
 		if(typeof it == "object")
 		{
 			if(it[0]==name) { cb(it); } // call parent first, then children
-			if(it[1]) { it[1].map(f); }
+			if(it[1]) { it[1].forEach(f); }
 		}
 	};
-	if(json.map) { json.map(f); }
+	if(json.forEach) { json.forEach(f); }
 	else { f(json); }
 }

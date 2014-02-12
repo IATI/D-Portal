@@ -7,6 +7,7 @@ required["dstore_db"]=dstore_db;
 var refry=require('./refry');
 var exs=require('./exs');
 var iati_xml=require('./iati_xml');
+var iati_cook=require('./iati_cook');
 var dstore_sqlite=require('./dstore_sqlite');
 
 var wait=require('wait.for');
@@ -139,22 +140,25 @@ dstore_db.fill_acts = function(acts){
 	var db = dstore_db.open();	
 	db.serialize();
 
-	var stmt = db.prepare("REPLACE INTO activities (aid,raw_xml,raw_json) VALUES (?,?,?)");
+//	var stmt = db.prepare("REPLACE INTO activities (aid,raw_xml,raw_json) VALUES (?,?,?)");
 
 	for(var i=0;i<acts.length;i++)
 	{
 		var xml=acts[i];
 		json=refry.xml(xml);
-		var id=refry.tagval(json,"iati-identifier");
+		var aid=refry.tagval(json,"iati-identifier");
 
 		process.stdout.write(".");
 
-		stmt.run(id,xml,JSON.stringify(json[0]));
+
+		dstore_db.refresh_act(db,aid,xml);
+		
+//		stmt.run(aid,xml,JSON.stringify(json[0]));
 	}
 	process.stdout.write("\n");
 	
 	console.log("Finalize data");
-	stmt.finalize();
+//	stmt.finalize();
 	
 	console.log("checking data");
 	db.each("SELECT aid,raw_xml FROM activities", function(err, row)
@@ -174,24 +178,65 @@ dstore_db.fill_acts = function(acts){
 // pull every activity from the table and update *all* connected tables using its raw xml data
 
 dstore_db.refresh_acts = function(){
-	
-
 		
 	var db = dstore_db.open();
 	db.serialize();
-	
-	var refresh_activity=function(act,row)
+
+	db.each("SELECT aid,raw_xml FROM activities", function(err, row){
+
+		process.stdout.write(".");
+		dstore_db.refresh_act(db,row.aid,row.raw_xml);
+	});
+
+
+	db.run(";", function(err, row){
+		db.close();
+		process.stdout.write("FIN\n");
+	});
+
+};
+
+dstore_db.refresh_act = function(db,aid,raw_xml){
+
+/*	
+	var preps={};
+	var prep=function(name)
 	{
+		if(!preps[name])
+		{
+			preps[name]=db.prepare(dstore_sqlite.tables_replace_sql[name]);
+		}
+		return preps[name];
+	}
+*/	
+
+	var replace=function(name,it)
+	{
+		dstore_sqlite.replace(db,name,it);
+/*		
+		var $t=dstore_sqlite.replace_vars(db,name,it);
+		var sa = prep(name);
+		sa.run($t);
+*/
+	}
+	
+	var refresh_activity=function(raw_xml)
+	{
+		
+		var act=refry.xml(raw_xml); // raw xml convert to json
+		act=refry.tag(act,"iati-activity"); // and get the main tag
+		
+		iati_cook.activity(act); // cook the raw json(xml) ( most cleanup logic has been moved here )
+		
 		var t={};
 		
-		t.aid=row.aid;
+		t.aid=refry.tagval(act,"iati-identifier");
 
 		t.title=refry.tagval(act,"title");
 		t.description=refry.tagval(act,"description");				
 		t.reporting_org=refry.tagval(act,"reporting-org");				
-		t.reporting_org_ref=refry.tag(act,"reporting-org").ref;
-		t.status_code=-1;
-		var tmp=refry.tag(act,"activity-status");	if(tmp) { t.status_code=tmp.code; }
+		t.reporting_org_ref=refry.tagattr(act,"reporting-org","ref");
+		t.status_code=refry.tagattr(act,"activity-status","code") || -1;
 		
 		var country=[];
 		var percents=[];
@@ -226,10 +271,11 @@ dstore_db.refresh_acts = function(){
 
 		t.default_currency=act["default-currency"];
 		
-		t.raw_xml=row.raw_xml;
-		t.raw_json=row.raw_json;
+		t.raw_xml=raw_xml;
+		t.raw_json=act;
 		
-		dstore_sqlite.replace(db,"activities",t);
+//		dstore_sqlite.replace(db,"activities",t);
+		replace("activities",t);
 		
 		return t;
 	};
@@ -248,13 +294,14 @@ dstore_db.refresh_acts = function(){
 		t["finance_code"]=		iati_xml.get_code(it,"finance-type");
 		t["aid_code"]=			iati_xml.get_code(it,"aid-type");
 		
-		t["currency"]=			iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
+		t["currency"]=			iati_xml.get_value_currency(it,"value");
 		t["value"]=				iati_xml.get_value(it,"value");
-		t["usd"]=				iati_xml.get_usd(it,"value",act["default-currency"]);
+		t["usd"]=				iati_xml.get_usd(it,"value");
 
 		t.raw_json=JSON.stringify(it);
 		
-		dstore_sqlite.replace(db,"transactions",t);
+//		dstore_sqlite.replace(db,"transactions",t);
+		replace("transactions",t);
 
 	};
 
@@ -269,13 +316,14 @@ dstore_db.refresh_acts = function(){
 		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
 		t["day_length"]=			t["day_end"]-t["day_start"];
 		
-		t["currency"]=				iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
+		t["currency"]=				iati_xml.get_value_currency(it,"value");
 		t["value"]=					iati_xml.get_value(it,"value");
-		t["usd"]=					iati_xml.get_usd(it,"value",act["default-currency"]);
+		t["usd"]=					iati_xml.get_usd(it,"value");
 
 		t.raw_json=JSON.stringify(it);
 		
-		dstore_sqlite.replace(db,"budgets",t);
+//		dstore_sqlite.replace(db,"budgets",t);
+		replace("budgets",t);
 
 	};
 
@@ -290,37 +338,29 @@ dstore_db.refresh_acts = function(){
 		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
 		t["day_length"]=			t["day_end"]-t["day_start"];
 		
-		t["currency"]=				iati_xml.get_value_currency(it,"value") || act["default-currency"] || "USD";
+		t["currency"]=				iati_xml.get_value_currency(it,"value");
 		t["value"]=					iati_xml.get_value(it,"value");
-		t["usd"]=					iati_xml.get_usd(it,"value",act["default-currency"]);
+		t["usd"]=					iati_xml.get_usd(it,"value");
 
 		t.raw_json=JSON.stringify(it);
 		
-		dstore_sqlite.replace(db,"planned_disbursements",t);
+//		dstore_sqlite.replace(db,"planned_disbursements",t);
+		replace("planned_disbursements",t);
 
 	};
+
+
+	db.run("DELETE FROM transactions WHERE aid=?",aid); // remove all the old ones, then add new
+	db.run("DELETE FROM budgets WHERE aid=?",aid); // remove all the old ones, then add new
+	db.run("DELETE FROM planned_disbursements WHERE aid=?",aid); // remove all the old ones, then add new
+
+	var act_json=refresh_activity(raw_xml);
+	var act=act_json.raw_json;
+
+	refry.tags(act,"transaction",function(it){refresh_transaction(it,act,act_json)});
+	refry.tags(act,"budget",function(it){refresh_budget(it,act,act_json)});
+	refry.tags(act,"planned-disbursement",function(it){refresh_planned_disbursement(it,act,act_json)});
 	
-	db.each("SELECT aid,raw_xml,raw_json FROM activities", function(err, row){
-
-		process.stdout.write(".");
-
-		var act=JSON.parse(row.raw_json);
-		var act_json=refresh_activity(act,row);
-		
-		db.run("DELETE FROM transactions WHERE aid=?",act_json.aid); // remove all the old ones, then add new
-		db.run("DELETE FROM budgets WHERE aid=?",act_json.aid); // remove all the old ones, then add new
-
-		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,act_json)});
-		refry.tags(act,"budget",function(it){refresh_budget(it,act,act_json)});
-		refry.tags(act,"planned-disbursement",function(it){refresh_planned_disbursement(it,act,act_json)});
-
-	});
-
-	db.run(";", function(err, row){
-		db.close();
-		process.stdout.write("\FIN\n");
-	});
-
 };
 
 

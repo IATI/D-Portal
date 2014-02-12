@@ -481,6 +481,7 @@ query.getsql_where=function(q,qv){
 	{
 		for( var qe in qemap )
 		{
+			var ty=ns[n];
 			var v=q[n+qe];
 			var eq=qemap[qe];
 			if( v !== undefined ) // got a value
@@ -490,7 +491,7 @@ query.getsql_where=function(q,qv){
 				{
 					var sa=v.split("|");
 					var sb=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(v);
-					if( v.length==10 && sb.length==4 ) // date string, convert to number
+					if( v.length==10 && sb.length==4 && ty=="int") // date string, convert to number if dest is an int
 					{
 						v=iati_xml.isodate_to_number(v);
 						ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v);
@@ -629,7 +630,7 @@ query.getsql_build_column_names=function(q,qv){
 	{
 		for(var n in dstore_sqlite.tables_active[name])
 		{
-			ns[n]=true;
+			ns[n]=dstore_sqlite.tables_active[name][n];
 		}
 	}
 	q[0]=ns; // special array of valid column names
