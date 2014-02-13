@@ -719,9 +719,9 @@ query.do_select=function(q,res){
 			for(var i=0;i<r.rows.length;i++)
 			{
 				var v=r.rows[i];
-				if(v && v.raw_json)
+				if(v && v.jml)
 				{
-					res.write(	refry.json(v.raw_json) );
+					res.write(	refry.json(v.jml) );
 				}
 			}
 
@@ -742,9 +742,9 @@ query.do_select=function(q,res){
 			for(var i=0;i<r.rows.length;i++)
 			{
 				var v=r.rows[i];
-				if(v && v.raw_xml)
+				if(v && v.xml)
 				{
-					res.write(	v.raw_xml );
+					res.write(	v.xml );
 				}
 			}
     
