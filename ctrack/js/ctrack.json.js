@@ -27,12 +27,12 @@ ctrack.fetch_endingsoon=function(args)
 	var today=ctrack.get_today();
     
 	var dat={
-			"from":"activities",
+			"from":"activities,recipient_country",
 			"limit":args.limit || 5,
 			"orderby":"day_end",
 			"status_code":"2",
 			"day_end_gt":today,
-			"recipient_country_codes_like":"%/"+(args.country || ctrack.args.country)+"/%"
+			"recipient_country_code":(args.country || ctrack.args.country)
 		};
 	
 	var callback=args.callback || function(data){
@@ -87,12 +87,12 @@ ctrack.fetch_finished=function(args)
 	var today=ctrack.get_today();
     
 	var dat={
-			"from":"activities",
+			"from":"activities,recipient_country",
 			"limit":args.limit || 5,
 			"orderby":"day_end-",
 			"status_code":"3|4",
 			"day_end_lt":today,
-			"recipient_country_codes_like":"%/"+(args.country || ctrack.args.country)+"/%"
+			"recipient_country_code":(args.country || ctrack.args.country)
 		};
 	
 	var callback=args.callback || function(data){
@@ -137,12 +137,12 @@ ctrack.fetch_planned=function(args)
 	var today=ctrack.get_today();
     
 	var dat={
-			"from":"activities",
+			"from":"activities,recipient_country",
 			"limit":args.limit || 5,
 			"orderby":"day_start",
 			"status_code":1,
 			"day_start_gt":today,
-			"recipient_country_codes_like":"%/"+(args.country || ctrack.args.country)+"/%"
+			"recipient_country_code":(args.country || ctrack.args.country)
 		};
 	
 	var callback=args.callback || function(data){
@@ -187,9 +187,9 @@ ctrack.fetch_stats=function(args)
     
 	var f1=function(){
 		var dat={
-				"from":"activities",
+				"from":"activities,recipient_country",
 				"select":"stats",
-				"recipient_country_codes_like":"%/"+(args.country || ctrack.args.country)+"/%"
+				"recipient_country_code":(args.country || ctrack.args.country)
 			};
 		
 		var callback=args.callback || function(data){
@@ -216,10 +216,10 @@ ctrack.fetch_stats=function(args)
 
 	var f2=function(){
 		var dat={
-				"from":"activities",
+				"from":"activities,recipient_country",
 				"select":"stats",
 				"groupby":"status_code",
-				"recipient_country_codes_like":"%/"+(args.country || ctrack.args.country)+"/%"
+				"recipient_country_code":(args.country || ctrack.args.country)
 			};
 		
 		var callback=args.callback || function(data){
