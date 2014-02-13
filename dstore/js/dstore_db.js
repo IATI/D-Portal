@@ -92,14 +92,18 @@ dstore_db.tables={
 		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true }
 	],
 // These are intended just to be joined to the above.
+// use &from=activities,recipient_country,recipient_sector& to request a join via aid
 	recipient_country:[
 		{ name:"recipient_country_aid",			NOCASE:true , INDEX:true },
-		{ name:"recipient_country_code",		NOCASE:true , INDEX:true }
+		{ name:"recipient_country_code",		NOCASE:true , INDEX:true },
+		{ name:"recipient_country_percent",		REAL:true , INDEX:true }
 	],
 	recipient_sector:[
 		{ name:"recipient_sector_aid",			NOCASE:true , INDEX:true },
-		{ name:"recipient_sector_code",			INTEGER:true , INDEX:true }
+		{ name:"recipient_sector_code",			INTEGER:true , INDEX:true },
+		{ name:"recipient_sector_percent",		REAL:true , INDEX:true }
 	],
+// track what was imported...
 	slugs:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"slug",							NOCASE:true , INDEX:true }
@@ -154,20 +158,17 @@ dstore_db.fill_acts = function(acts,slug){
 		
 		if(aid)
 		{
-			process.stdout.write("+");
-			dstore_db.refresh_act(db,aid,xml);
+			process.stdout.write("+"); // some thing we will import (but may overwrite other acts)
 		}
 		else
 		{
-			process.stdout.write("-"); // missing aid
+			process.stdout.write("-"); // missing aid, so it wont import
 		}
+
+		dstore_db.refresh_act(db,aid,xml);
 		
-//		stmt.run(aid,xml,JSON.stringify(json[0]));
 	}
 	process.stdout.write("\n");
-	
-//	console.log("Finalize data");
-//	stmt.finalize();
 	
 	db.each("SELECT COUNT(*) FROM activities", function(err, row)
 	{
@@ -314,13 +315,17 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 		var t={};
 		
+		t.slug=refry.tagattr(act,"iati-activity","slug"); // this value is hacked in when the acts are split
 		t.aid=iati_xml.get_aid(act);
+
+		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slugs"]);
+		sa.run({"$aid":t.aid,"$slug":t.slug});		
+		sa.finalize();
+
 		if(!t.aid) // do not save when there is no ID
 		{
-			process.stdout.write("-");
 			return;
 		}
-		t.slug=refry.tagattr(act,"iati-activity","slug"); // this value is hacked in when the acts are split
 
 		t.title=refry.tagval(act,"title");
 		t.description=refry.tagval(act,"description");				
@@ -328,33 +333,56 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.reporting_org_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=refry.tagattr(act,"activity-status","code");
 
+
+// fix percents to add upto 100
+		var fixpercents=function(aa)
+		{
+			var total=0;
+			
+			for(var i=0;i<aa.length;i++)
+			{
+				aa[i]=parseFloat(aa[i]) || 1;
+				total+=aa[i];
+			}
+
+			for(var i=0;i<aa.length;i++)
+			{
+				aa[i]=100*aa[i]/total;
+			}			
+		};
 		
 		var country=[];
 		var percents=[];
 		refry.tags(act,"recipient-country",function(it){ country.push( (it.code || "").toUpperCase() ); percents.push(it.percentage); });
+		fixpercents(percents);
 		if(country[0]) {
 			t.recipient_country_codes="/"+country.join("/")+"/";
 			t.recipient_country_percents="/"+percents.join("/")+"/";
-			country.forEach(function(it)
+			for( var i=0; i<country.length ; i++ )
 			{
+				var cc=country[i];
+				var pc=percents[i];
 				var sa = db.prepare(dstore_sqlite.tables_replace_sql["recipient_country"]);
-				sa.run({"$recipient_country_aid":t.aid,"$recipient_country_code":it});				
+				sa.run({"$recipient_country_aid":t.aid,"$recipient_country_code":cc,"$recipient_country_percent":pc});				
 				sa.finalize();
-			});
+			}
 		}
 
 		var sectors=[];
 		var percents=[];
-		refry.tags(act,"sector",function(it){ sectors.push(it.code); percents.push(it.percentage); });
+		refry.tags(act,"sector",function(it){ if(it.vocabulary=="DAC") { sectors.push(it.code); percents.push(it.percentage); } });
+		fixpercents(percents);
 		if(sectors[0]) {
 			t.sector_codes="/"+sectors.join("/")+"/";
 			t.sector_percents="/"+percents.join("/")+"/";
-			sectors.forEach(function(it)
+			for( var i=0; i<sectors.length ; i++ )
 			{
+				var sc=sectors[i];
+				var pc=percents[i];
 				var sa = db.prepare(dstore_sqlite.tables_replace_sql["recipient_sector"]);
-				sa.run({"$recipient_sector_aid":t.aid,"$recipient_sector_code":it});				
+				sa.run({"$recipient_sector_aid":t.aid,"$recipient_sector_code":sc,"$recipient_sector_percent":pc});				
 				sa.finalize();
-			});
+			}
 		}
 
 		t.day_start=null;
@@ -379,11 +407,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 //		dstore_sqlite.replace(db,"activities",t);
 		replace("activities",t);
-		
-		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slugs"]);
-		sa.run({"$aid":t.aid,"$slug":t.slug});		
-		sa.finalize();
-		
+				
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
 		refry.tags(act,"budget",function(it){refresh_budget(it,act,t);});
 		refry.tags(act,"planned-disbursement",function(it){refresh_planned_disbursement(it,act,t);});

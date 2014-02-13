@@ -398,8 +398,8 @@ query.getsql_select=function(q,qv){
 	var ss=[];
 
 	var stats_skip={	// ignore these columns
-		"raw_xml":true,
-		"raw_json":true,
+		"xml":true,
+		"jml":true,
 		"json":true
 		};
 
@@ -428,16 +428,21 @@ query.getsql_select=function(q,qv){
 	if(q.select=="stats")
 	{
 		ss.push(" COUNT(*) ");
-		for(n in dstore_sqlite.tables_active[q.from])
+		var aa=q.from.split(",");
+		for(i=0;i<aa.length;i++)
 		{
-			if(!stats_skip[n])
+			var f=aa[i];
+			for(n in dstore_sqlite.tables_active[f])
 			{
-				ss.push(" MAX("+n+") ");
-				ss.push(" MIN("+n+") ");
-				ss.push(" AVG("+n+") ");
-				ss.push(" TOTAL("+n+") ");
-				ss.push(" COUNT("+n+") ");
-				ss.push(" COUNT(DISTINCT "+n+") ");
+				if(!stats_skip[n])
+				{
+					ss.push(" MAX("+n+") ");
+					ss.push(" MIN("+n+") ");
+					ss.push(" AVG("+n+") ");
+					ss.push(" TOTAL("+n+") ");
+					ss.push(" COUNT("+n+") ");
+					ss.push(" COUNT(DISTINCT "+n+") ");
+				}
 			}
 		}
 	}
@@ -452,18 +457,35 @@ query.getsql_select=function(q,qv){
 query.getsql_from=function(q,qv){
 	var ss=[];
 
-	var f=q.from;
-	q.from="";
-	for(var name in dstore_sqlite.tables )
-	{
-		if(f==name)
+	var f=q.from || "";
+	f=f.split(",");
+
+// filter by real tables
+	f=f.map(function(it){
+		var r="";
+		for(var name in dstore_sqlite.tables )
 		{
-			q.from=f;
-			ss.push(name);
+			if(it==name){ r=name; }
+		}
+		return r;
+	});
+	
+	if(f[0]=="") { f[0]="activities"; } // default to activities table
+		
+	q.from=f[0]; // store the first table name back in the q for later use
+	
+	ss.push( " FROM "+f[0]+" " )
+
+	for( var i=1; i<f.length ; i++)
+	{
+		var n=f[i];
+		if(n!="")
+		{
+			ss.push(" JOIN "+n+" ON aid="+n+"_aid " );
 		}
 	}
 
-	if(ss[0]) { return " FROM "+ss.join("")+" "; }
+	if(ss[0]) { return ss.join(""); }
 	return "";
 };
 
@@ -494,8 +516,8 @@ query.getsql_where=function(q,qv){
 			var eq=qemap[qe];
 			if( v !== undefined ) // got a value
 			{
-				if(n=="recipient_country_code") { joins["recipient_country"]=true; }
-				if(n=="recipient_sector_code") { joins["recipient_sector"]=true; }
+//				if(n=="recipient_country_code") { joins["recipient_country"]=true; }
+//				if(n=="recipient_sector_code") { joins["recipient_sector"]=true; }
 				
 				var t=typeof v;
 				if(t=="string")
@@ -541,12 +563,12 @@ query.getsql_where=function(q,qv){
 	var ret="";
 	if(ss[0]) { ret=" WHERE "+ss.join(" AND "); }
 	
-	ss=[];
-	for(var n in joins)
-	{
-		ss.push(" JOIN "+n+" ON aid="+n+"_aid " );
-	}
-	if(ss[0]) { ret=ss.join(" ")+ret; }
+//	ss=[];
+//	for(var n in joins)
+//	{
+//		ss.push(" JOIN "+n+" ON aid="+n+"_aid " );
+//	}
+//	if(ss[0]) { ret=ss.join(" ")+ret; }
 	
 	return ret;
 };

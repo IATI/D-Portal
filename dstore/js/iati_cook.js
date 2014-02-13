@@ -114,6 +114,11 @@ iati_cook.activity=function(act)
 		it.currency = ( it.currency || act["default-currency"] || "USD" ).toUpperCase() ;
 	});
 
+// force a vocabulary DAC attr on all sectors with no vocab
+	refry.tags(act,"sector",function(it){
+		it.vocabulary = ( it.vocabulary || "DAC" ).toUpperCase() ;
+	});
+
 //
 
 
