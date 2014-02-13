@@ -6,6 +6,8 @@ required["iati_cook"]=iati_cook;
 
 var util=require('util');
 
+var iati_codes_to_name=require('../json/iati_codes_to_name');
+
 var iati_xml=require('./iati_xml');
 var refry=require('./refry');
 var exs=require('./exs');
@@ -28,9 +30,9 @@ iati_cook.activity=function(act)
 	refry.tags(act,"activity-date",function(it){
 		activity_date[it.type]=it;
 		var d=iati_xml.get_isodate(it,"activity-date"); // sometimes iso-date is missing, use content if a valid format?
-		if( d && d.length==10 )
+		if( d && d.trim().length==10 )
 		{
-			it["iso-date"]=d;
+			it["iso-date"]=d.trim();
 		}
 		else
 		{
@@ -44,8 +46,8 @@ iati_cook.activity=function(act)
 	{
 		var d;
 		var t;
-		t=activity_date["end-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
-		t=activity_date["end-actual"]; 		if( t && t["iso-date"] ) { d=t["iso-date"]; }
+//		t=activity_date["end-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
+//		t=activity_date["end-actual"]; 		if( t && t["iso-date"] ) { d=t["iso-date"]; }
 		t=activity_date["start-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
 		if(d)
 		{
@@ -67,8 +69,8 @@ iati_cook.activity=function(act)
 	{
 		var d;
 		var t;
-		t=activity_date["start-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
-		t=activity_date["start-actual"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
+//		t=activity_date["start-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
+//		t=activity_date["start-actual"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
 		t=activity_date["end-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
 		if(d)
 		{
@@ -83,6 +85,53 @@ iati_cook.activity=function(act)
 //			ls("INSERT end-actual");
 		}
 	}
+
+// check the start/end date against today to see if project is planned,active or finished
+// then force code into the activity status which is often wrong...
+	var activity_date={};
+	refry.tags(act,"activity-date",function(it){
+		activity_date[it.type]=it
+	});
+	
+	var status_code;
+
+	var date_start=activity_date["start-actual"] && activity_date["start-actual"]["iso-date"];
+	var date_end=activity_date["end-actual"] && activity_date["end-actual"]["iso-date"];
+
+	var today=Math.floor( Date.now() / ( 24*60*60*1000 ) );
+	if(date_start)
+	{
+		var day=iati_xml.isodate_to_number(date_start);
+		if( day > today )
+		{
+			status_code=1;
+		}
+		else
+		{
+			if(date_end)
+			{
+				var day=iati_xml.isodate_to_number(date_end);
+				if( day <= today )
+				{
+					status_code=2;
+				}
+				else
+				{
+					status_code=3;
+				}
+			}
+		}
+	}
+
+	refry.tags(act,"activity-status",function(it){
+		if( status_code && (it.code!=5) ) // if not canceled
+		{
+			it.code=status_code // then replace code with what we worked out above
+			it[1]=[ iati_codes_to_name.activity_status[it.code] ];
+		}
+	});
+
+
 // from now on we can ignore start-planned and end-planned and just use start-actual end-actual
 // if you care about this then go back to the original XML data...
 
@@ -114,10 +163,12 @@ iati_cook.activity=function(act)
 		it.currency = ( it.currency || act["default-currency"] || "USD" ).toUpperCase() ;
 	});
 
-// force a vocabulary DAC attr on all sectors with no vocab
+// force a vocabulary of DAC on all sectors with no vocabulary
 	refry.tags(act,"sector",function(it){
 		it.vocabulary = ( it.vocabulary || "DAC" ).toUpperCase() ;
 	});
+
+
 
 //
 
