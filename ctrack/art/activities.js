@@ -285,14 +285,14 @@ $("activity-website").each(function(i){var it=$(this);
 });
 
 $("iati-identifier").each(function(i){var it=$(this);
-	wrap_link(it,"http://dev.ctrack.iatistandard.org:5000/api/1/access/activity.xml?iati-identifier="+it.html(),"a_"+this.tagName.toLowerCase());
+	wrap_link(it,"http://dev.ctrack.iatistandard.org:1337/q?form=xml&aid="+it.html(),"a_"+this.tagName.toLowerCase());
 });
 
 $("provider-org[provider-activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("receiver-activity-id");
 	if(id)
 	{
-		wrapInner_link(it,"http://dev.ctrack.iatistandard.org:5000/api/1/access/activity.xml?iati-identifier="+id,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,"http://dev.ctrack.iatistandard.org:1337/q?form=xml&aid="+id,"a_"+this.tagName.toLowerCase());
 	}
 });
 
@@ -300,7 +300,7 @@ $("receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("receiver-activity-id");
 	if(id)
 	{
-		wrapInner_link(it,"http://dev.ctrack.iatistandard.org:5000/api/1/access/activity.xml?iati-identifier="+id,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,"http://dev.ctrack.iatistandard.org:1337/q?form=xml&aid="+id,"a_"+this.tagName.toLowerCase());
 	}
 });
 
@@ -308,7 +308,7 @@ $("related-activity").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	if(id)
 	{
-		wrap_link(it,"http://dev.ctrack.iatistandard.org:5000/api/1/access/activity.xml?iati-identifier="+id,"a_"+this.tagName.toLowerCase());
+		wrap_link(it,"http://dev.ctrack.iatistandard.org:1337/q?form=xml&aid="+id,"a_"+this.tagName.toLowerCase());
 	}
 });
 
