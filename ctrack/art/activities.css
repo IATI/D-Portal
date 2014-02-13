@@ -56,7 +56,7 @@ activity-status[code="5"] {background-color:rgb(255, 71, 71);}
 activity-status {display:block; font-size:20px; background-color:rgb(255, 130, 71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px;}
 activity-status:before {content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:inline-block; padding-right:10px;}
 
-description {font-size:16px; text-align:justify; line-height:1.5em; display:block; width:880px; padding:40px; padding-bottom:0; background-color:#DFECF6;}
+description {font-size:16px; word-spacing:0.05em; line-height:1.35em; display:block; width:880px; padding:40px; padding-bottom:0; background-color:#DFECF6;}
 description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 description[type="1"]:before {content:"GENERAL"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
 description[type="2"]:before {content:"OBJECTIVES"; font-size:14px; color:#999; display:block; margin-bottom:10px;}
@@ -101,10 +101,10 @@ participating-org {display:block; width:880px; padding:10px 40px; font-size:18px
 participating-org:nth-of-type(1) {padding-top:60px;}
 participating-org:nth-of-type(1):before {content:"Participating Organisations"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:20px; border-bottom:3px solid #D8D8D8;}
 participating-org:last-of-type {padding-bottom:60px;}
-participating-org[role="Funding"]:after {content:"FUNDING ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="Implementing"]:after {content:"IMPLEMENTING ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="Extending"]:after {content:"EXTENDING ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="Accountable"]:after {content:"ACCOUNTABLE ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="funding"]:after {content:"FUNDING ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="implementing"]:after {content:"IMPLEMENTING ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="extending"]:after {content:"EXTENDING ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="accountable"]:after {content:"ACCOUNTABLE ROLE"; font-size:14px; color:#999; display:inline-block; padding:0; padding-left:10px;}
 
 contact-info {display:block; width:880px; padding:10px 40px; font-size:18px; background-color:#fff;}
 contact-info * {display:block; padding:5px 0;}
