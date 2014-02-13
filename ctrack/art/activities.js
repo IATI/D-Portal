@@ -28,6 +28,15 @@ $("value").each(function(i){var it=$(this);
 	}
 });
 
+$("participating-org").each(function(i){var it=$(this);
+	var c=it.attr("role");
+	if(c)
+	{
+		c=c.toLowerCase();
+		it.attr("role",c)
+	}
+});
+
 $("transaction").each(function(i){var it=$(this);
 	var needed=["transaction-date","transaction-type","description","provider-org","receiver-org","value"];
 	needed.forEach(function(n){
