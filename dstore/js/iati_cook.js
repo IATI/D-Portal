@@ -104,27 +104,27 @@ iati_cook.activity=function(act)
 		var day=iati_xml.isodate_to_number(date_start);
 		if( day > today )
 		{
-			status_code=1;
+			status_code=1; // not started yet
 		}
 		else
 		{
 			if(date_end)
 			{
 				var day=iati_xml.isodate_to_number(date_end);
-				if( day <= today )
+				if( day >= today )
 				{
-					status_code=2;
+					status_code=2; // started but not finished
 				}
 				else
 				{
-					status_code=3;
+					status_code=3; // finished
 				}
 			}
 		}
 	}
 
 	refry.tags(act,"activity-status",function(it){
-		if( status_code && (it.code!=5) ) // if not canceled
+		if( status_code && (it.code!=5) ) // if not canceled or missing
 		{
 			it.code=status_code // then replace code with what we worked out above
 			it[1]=[ iati_codes_to_name.activity_status[it.code] ];
