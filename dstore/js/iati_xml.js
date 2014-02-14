@@ -18,13 +18,20 @@ iati_xml.isodate_to_number=function(s)
 {
 	if(s)
 	{
-		var aa=s.split("-");
-		var year=parseInt(aa[0]||0)||0;
-		var month=(parseInt(aa[1]||1)||1)-1;
-		var day=parseInt(aa[2]||0)||0;
-		var num=Date.UTC(year,month,day)/(1000*60*60*24);
+		s=s.trim();
+		var sb=/([0-9]{4})-([0-9]{2})-([0-9]{2})/.exec(s);
+		if( sb && sb.length==4 ) // valid date string
+		{
+			var year=parseInt(sb[1]);
+			var month=parseInt(sb[2])-1;
+			var day=parseInt(sb[3]);
+			var r=Date.UTC(year,month,day)/(1000*60*60*24);
+			
+			return r;
+		}
+//		ls({faildate:s})
 		
-		return num;
+		return null;
 	}
 }
 

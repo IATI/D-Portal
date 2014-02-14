@@ -31,7 +31,8 @@ ctrack.fetch_endingsoon=function(args)
 			"limit":args.limit || 5,
 			"orderby":"day_end",
 			"status_code":"2",
-			"day_end_gt":today,
+//			"day_end_gt":today,
+			"day_end_gt":0, // ignore missing end dates
 			"recipient_country_code":(args.country || ctrack.args.country)
 		};
 	
@@ -91,7 +92,7 @@ ctrack.fetch_finished=function(args)
 			"limit":args.limit || 5,
 			"orderby":"day_end-",
 			"status_code":"3|4",
-			"day_end_lt":today,
+//			"day_end_lt":today,
 			"recipient_country_code":(args.country || ctrack.args.country)
 		};
 	
@@ -141,7 +142,7 @@ ctrack.fetch_planned=function(args)
 			"limit":args.limit || 5,
 			"orderby":"day_start",
 			"status_code":1,
-			"day_start_gt":today,
+//			"day_start_gt":today,
 			"recipient_country_code":(args.country || ctrack.args.country)
 		};
 	

@@ -30,7 +30,7 @@ iati_cook.activity=function(act)
 	refry.tags(act,"activity-date",function(it){
 		activity_date[it.type]=it;
 		var d=iati_xml.get_isodate(it,"activity-date"); // sometimes iso-date is missing, use content if a valid format?
-		if( d && d.trim().length==10 )
+		if( d && (null!==iati_xml.isodate_to_number(d)) )
 		{
 			it["iso-date"]=d.trim();
 		}
@@ -108,14 +108,11 @@ iati_cook.activity=function(act)
 		}
 		else
 		{
+			status_code=2; // active
 			if(date_end)
 			{
 				var day=iati_xml.isodate_to_number(date_end);
-				if( day >= today )
-				{
-					status_code=2; // started but not finished
-				}
-				else
+				if( day < today )
 				{
 					status_code=3; // finished
 				}
