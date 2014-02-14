@@ -1,7 +1,7 @@
 cd `dirname $0`
 
 if [ ! -f cache/datastore_bd.xml ]; then
-  wget http://iati-datastore.herokuapp.com/api/1/access/activity.xml?recipient-country=bd&limit=250000 -o cache/datastore_bd.xml
+  wget --ignore-length -O cache/datastore_bd.xml http://iati-datastore.herokuapp.com/api/1/access/activity.xml?recipient-country=bd\&limit=250000
 fi
 
 node serv.js --cmd init
