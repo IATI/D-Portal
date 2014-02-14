@@ -119,6 +119,17 @@ iati_cook.activity=function(act)
 			}
 		}
 	}
+	else // no startdate just check end date
+	{
+			if(date_end)
+			{
+				var day=iati_xml.isodate_to_number(date_end);
+				if( day < today )
+				{
+					status_code=3; // finished
+				}
+			}
+	}
 
 	refry.tags(act,"activity-status",function(it){
 		if( status_code && (it.code!=5) ) // if not canceled or missing
