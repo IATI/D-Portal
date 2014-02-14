@@ -1,0 +1,9 @@
+cd `dirname $0`
+
+if [ ! -f cache/datastore_bd.xml ]; then
+  wget http://iati-datastore.herokuapp.com/api/1/access/activity.xml?recipient-country=bd&limit=250000 -o cache/datastore_bd.xml
+fi
+
+node serv.js --cmd init
+node serv.js --cmd import --xmlfile "cache/datastore_bd.xml"
+#node serv.js --cmd refresh
