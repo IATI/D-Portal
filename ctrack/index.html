@@ -3,7 +3,8 @@
 	<head> 
 <title>Country Tracker Modules</title>
 <style>
-	body,html	{width:100%; height:100%; margin:0; padding:0; font-family:sans-serif;}
+	body,html	{width:100%; height:100%; margin:0; padding:0; font-family:sans-serif; word-wrap:break-word;}
+	html 		{background:url('/art/bgback1.jpg') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
 	a			{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
 	a:focus		{color:#444; text-decoration: none;}
 	a:link  	{color:#444; text-decoration: none;}
@@ -19,11 +20,12 @@
 	a.top.ct:hover	{border-top:5px solid rgba(30,144,255,1)}
 	a.top.sav:hover	{border-top:5px solid rgba(255,165,0,1)}
 	a.top.hub:hover	{border-top:5px solid rgba(255,255,255,1)}
+	span.qdef	{display:inline-block; vertical-align:top; color:#FFBD44; font-size:16px; font-family:monospace;}
 </style>
 	</head> 
 <body>
 
-<div style="width:100%; background-color:rgba(42,42,42,0.8); position:fixed;top:0px;left:0px;">
+<div style="width:100%; background-color:rgba(42,42,42,0.8); position:fixed;">
 	<div style="width:960px; margin:0 auto;">
 		<div style="display:inline-block; vertical-align:top; width:560px; max-width:560px;">
 			<a href="#" class="top home">hello</a>
@@ -35,7 +37,7 @@
 
 <div style="width:100%; background-color:#2573CD; padding:140px 0 50px 0;">
 	<div style="width:960px; margin:0 auto;">
-		<div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;"><img src="art/ctlogo.400.png" alt="Country Tracker logo" width="400" height="400"/></div><div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;">
+		<div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;"><img src="/art/ctlogo.400.png" alt="Country Tracker logo" width="400" height="400"/></div><div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;">
 			<div style="color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;">
 				<p>Country Tracker aims to be a simple user interface to search and browse all IATI data relating to a specific country that can be easily hosted by <span style="font-weight:bold;">anyone</span>, <span style="font-weight:bold; font-style:italic;">anywhere</span>.</p>
 				<p style="font-size:18px; line-height:1.4em; padding-top:10px; color:#E8F6FF;">The final Country Tracker product will be available as a set of HTML, Javascript, and CSS files.</p>
@@ -45,7 +47,7 @@
 	</div>
 </div>
 
-<div style="width:100%; background: url('art/bgback1.jpg') no-repeat bottom fixed rgba(1,1,1,0.9); padding:50px 0 80px 0;">
+<div style="width:100%; background-color:rgba(1,1,1,0.6); padding:50px 0 80px 0;">
 	<div style="width:960px; margin:0 auto;">
 		<div style="font-size:18px; color:#fff; padding:60px 0 10px 0; margin-bottom:40px;">
 			<span style="font-weight:bold; font-size:38px;">examples:</span>
@@ -54,21 +56,21 @@
 		<div style="display:inline-block; vertical-align:top; width:320px; max-width:320px;">
 			<a href="#" class="eg" style="display:block; padding:40px 20px;" title="What's going on in Bangladesh?">
 				<div style="width:280px; max-width:280px; height:200px; max-height:200px; overflow:hidden;">
-					<img src="art/bgflag.280.png" alt="Bangladesh flag"/>
+					<img src="/art/bgflag.280.png" alt="Bangladesh flag"/>
 				</div>
 				<div style="font-size:30px; text-align:center; color:#fff;">BANGLADESH</div>
 			</a>
 		</div><div style="display:inline-block; vertical-align:top; width:320px; max-width:320px;">
 			<a href="#" class="eg" style="display:block; padding:40px 20px;" title="What's going on in Honduras?">
 				<div style="width:280px; max-width:280px; height:200px; max-height:200px; overflow:hidden;">
-					<img src="art/honflag.280.png" alt="Honduras flag"/>
+					<img src="/art/honflag.280.png" alt="Honduras flag"/>
 				</div>
 				<div style="font-size:30px; text-align:center; color:#fff;">HONDURAS</div>
 			</a>
 		</div><div style="display:inline-block; vertical-align:top; width:320px; max-width:320px;">
 			<a href="#" class="eg" style="display:block; padding:40px 20px;" title="What's going on in Uganda?">
 				<div style="width:280px; max-width:280px; height:200px; max-height:200px; overflow:hidden;">
-					<img src="art/ugaflag.280.png" alt="Uganda flag"/>
+					<img src="/art/ugaflag.280.png" alt="Uganda flag"/>
 				</div>
 				<div style="font-size:30px; text-align:center; color:#fff;">UGANDA</div>
 			</a>
@@ -78,7 +80,7 @@
 <a name="sav"></a>
 <div style="width:100%; background-color:#FFA500; padding:140px 0 50px 0;">
 	<div style="width:960px; margin:0 auto;">
-		<div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;"><img src="art/savilogo.400.png" alt="SAVi logo" width="400" height="400"/></div><div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;">
+		<div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;"><img src="/art/savilogo.400.png" alt="SAVi logo" width="400" height="400"/></div><div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;">
 			<div style="color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;">
 				<p>SAVi is a simple activity viewer for IATI XML that you can view in real time, online, in your favourite browser.</p>
 				<p style="font-size:18px; line-height:1.4em; padding-top:10px; color:#FFF0D4;">SAVi uses CSS and javascript to display otherwise complex-looking XML into a format that is easier to read and digest.</p>
@@ -92,21 +94,27 @@
 		<div style="width:470px; max-width:470px; border-right:10px solid #FFA500; height:100px; max-height:100px;"></div>
 		<div style="display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;"></div><div style="display:inline-block; vertical-align:top; width:230px; max-width:230px; border-left:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;"></div><div style="display:inline-block; vertical-align:top; width:230px; max-width:230px; border-right:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;"></div><div style="display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;"></div>
 		<div style="display:inline-block; vertical-align:top; width:400px; max-width:400px; padding:40px;">
-			<img src="art/dslogo.400.png" alt="DSTORE logo" width="400" height="100"/>
+			<img src="/art/dslogo.400.png" alt="DSTORE logo" width="400" height="100"/>
 			<div style="font-size:18px; line-height:1.4em; padding:20px; color:#FFC761;">DStore subsidizes the iati-datastore with an optimized nodejs + sqlite version for use in real time country tracker queries.</div>
 		</div><div style="display:inline-block; vertical-align:top; width:400px; max-width:400px; padding:40px;">
-			<img src="art/qlogo.400.png" alt="Q logo" width="400" height="100"/>
+			<img src="/art/qlogo.400.png" alt="Q logo" width="400" height="100"/>
 			<div style="font-size:18px; line-height:1.4em; padding:20px; color:#FFC761;">Q allows you to query information you need via simple but complex filters.</div>
 		</div>
 	</div>
 </div>
 
-<div style="width:100%; background-color:#4F3200; padding:120px 0 60px 0;">
+<div style="width:100%; background-color:#4F3200; padding:100px 0 50px 0;">
 	<div style="width:960px; margin:0 auto;">
-		<div style="color:#FFA500; font-size:28px; margin-bottom:40px;">Here are some <span style="color:#FFB428;">Q</span>uery examples:</div>
-		<a href="http://dev.ctrack.iatistandard.org/q?form=xml&from=activities&limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg" style="display:block; padding:10px 30px; background-color:#201500; margin-bottom:30px; color:#fff; font-size:18px; font-family:monospace;">http://dev.ctrack.iatistandard.org/q?form=xml&from=activities&limit=10&orderby=day_start&day_start_gt=1950-01-01</a>
-		<a href="http://dev.ctrack.iatistandard.org/q?form=xml&groupby=reporting_org" class="qeg" style="display:block; padding:10px 30px; background-color:#201500; margin-bottom:30px; color:#fff; font-size:18px; font-family:monospace;">http://dev.ctrack.iatistandard.org/q?form=xml&groupby=reporting_org</a>
-		<a href="http://dev.ctrack.iatistandard.org/q?select=stats" class="qeg" style="display:block; padding:10px 30px; background-color:#201500; margin-bottom:30px; color:#fff; font-size:18px; font-family:monospace;">http://dev.ctrack.iatistandard.org/q?select=stats</a>
+		<div style="color:#FFA500; font-size:28px; margin-bottom:60px;">Here are some <span style="color:#FFB428;">Q</span>uery examples:</div>
+		<a href="http://dev.ctrack.iatistandard.org/q.xml?from=activities&limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg" style="display:block; padding:10px 30px; background-color:#201500; margin-bottom:20px; color:#fff; font-size:18px; font-family:monospace;">http://dev.ctrack.iatistandard.org/q.xml?from=activities&amp;limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
+		<div style="color:#B17300; font-size:16px; line-height:1.2em;">Returns XML which is automatically formatted into HTML, source remains pure XML</div>
+		<div style="color:#FFA500; font-size:18px; line-height:1.3em; padding:20px 0; margin-bottom:30px;">This query displays the activities <span class="qdef">from=activities</span> limiting the amount to 10 <span class="qdef">limit=10</span> sorted by starting day <span class="qdef">orderby=day_start</span> and from 1950 onwards <span class="qdef">day_start_gt=1950-01-01</span>.</div>
+		<a href="http://dev.ctrack.iatistandard.org/q?groupby=reporting_org&select=stats" class="qeg" style="display:block; padding:10px 30px; background-color:#201500; margin-bottom:20px; color:#fff; font-size:18px; font-family:monospace;">http://dev.ctrack.iatistandard.org/q?groupby=reporting_org&amp;select=stats</a>
+		<div style="color:#B17300; font-size:16px; line-height:1.2em;">Returns JSON (JSON is default) data about activites (activites are default) where 100 rows from the database is the default limit</div>
+		<div style="color:#FFA500; font-size:18px; line-height:1.3em; padding:20px 0; margin-bottom:30px;">This query displays data statistics <span class="qdef">select=stats</span> about activites for each reporting organisation <span class="qdef">groupby=reporting_org</span>.</div>
+		<a href="http://dev.ctrack.iatistandard.org/q.csv?from=transactions&orderby=day&limit=1000" class="qeg" style="display:block; padding:10px 30px; background-color:#201500; margin-bottom:20px; color:#fff; font-size:18px; font-family:monospace;">http://dev.ctrack.iatistandard.org/q.csv?from=transactions&amp;orderby=day&amp;limit=1000</a>
+		<div style="color:#B17300; font-size:16px; line-height:1.2em;">Returns CSV file (named q.csv by default)</div>
+		<div style="color:#FFA500; font-size:18px; line-height:1.3em; padding:20px 0; margin-bottom:30px;">This query allows you to download the CSV <span class="qdef">q.csv</span> of 1000 <span class="qdef">limit=1000</span> transaction data <span class="qdef">from=transactions</span> sorted by date <span class="qdef">orderby=day</span>.</div>
 	</div>
 </div>
 <a name="git"></a>
@@ -118,7 +126,7 @@
 				Country Tracker is currently being developed and designed so things are constantly changing. We look forward to receiving your bug reports and issues.
 			</div>
 		</div><div style="display:inline-block; vertical-align:top; width:200px; max-width:200px;">
-			<a href="https://github.com/IATI/IATI-Country-Tracker"><img src="art/Octocat.png" alt="Octocat for Github logo" width="200" height="166"/></a>
+			<a href="https://github.com/IATI/IATI-Country-Tracker"><img src="/art/Octocat.png" alt="Octocat for Github logo" width="200" height="166"/></a>
 		</div>
 	</div>
 </div>
