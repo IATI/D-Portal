@@ -1,5 +1,10 @@
 
-$(function(){
+var iati_activity_clean_and_sort = function(args){
+
+args=args || {};	
+var inside=args.inside || "";
+var prelink=args.link || "http://dev.ctrack.iatistandard.org/q?form=xml&aid=";
+var postlink=args.link_post || "";
 
 var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
         return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -18,7 +23,7 @@ var wrapInner_link=function(it,url,cc)
 	it.wrapInner("<a href=\""+url+"\" class=\""+cc+"\" target=\"_blank\" ></a>");
 }
 
-$("value").each(function(i){var it=$(this);
+$(inside+"value").each(function(i){var it=$(this);
 	var c=it.attr("currency");
 	if(!c) { c=it.parents("iati-activity").attr("default-currency"); } // use default?
 	if(c)
@@ -28,7 +33,7 @@ $("value").each(function(i){var it=$(this);
 	}
 });
 
-$("participating-org").each(function(i){var it=$(this);
+$(inside+"participating-org").each(function(i){var it=$(this);
 	var c=it.attr("role");
 	if(c)
 	{
@@ -37,7 +42,7 @@ $("participating-org").each(function(i){var it=$(this);
 	}
 });
 
-$("transaction").each(function(i){var it=$(this);
+$(inside+"transaction").each(function(i){var it=$(this);
 	var needed=["transaction-date","transaction-type","description","provider-org","receiver-org","value"];
 	needed.forEach(function(n){
 		if( it.children(n).length==0 )
@@ -48,7 +53,7 @@ $("transaction").each(function(i){var it=$(this);
 
 });
 
-$("budget").each(function(i){var it=$(this);
+$(inside+"budget").each(function(i){var it=$(this);
 	var needed=["period-start","period-end","value"];
 	needed.forEach(function(n){
 		if( it.children(n).length==0 )
@@ -59,11 +64,11 @@ $("budget").each(function(i){var it=$(this);
 
 });
 
-$("activity-date,transaction-date,period-start,period-end").each(function(i){var it=$(this);
+$(inside+"activity-date,transaction-date,period-start,period-end").each(function(i){var it=$(this);
 	it.html( it.attr("iso-date") );
 });
 
-$("related-activity").each(function(i){var it=$(this);
+$(inside+"related-activity").each(function(i){var it=$(this);
 	if( it.html().length<4 )
 	{
 		it.html(it.attr("ref"));
@@ -71,7 +76,7 @@ $("related-activity").each(function(i){var it=$(this);
 });
 
 
-$("activity-status").each(function(i){var it=$(this);
+$(inside+"activity-status").each(function(i){var it=$(this);
 	var tc=it.attr("code");
 	tc=codes_lookup.activity_status[tc] || tc;
 	if(tc)
@@ -80,7 +85,7 @@ $("activity-status").each(function(i){var it=$(this);
 	}
 });
 
-$("sector").each(function(i){var it=$(this);
+$(inside+"sector").each(function(i){var it=$(this);
 
 	var tp=it.attr("percentage") || 100;
 	var tc=it.attr("code");
@@ -95,7 +100,7 @@ $("sector").each(function(i){var it=$(this);
 
 });
 
-$("transaction-type").each(function(i){var it=$(this);
+$(inside+"transaction-type").each(function(i){var it=$(this);
 
 	var tc=it.attr("code").toUpperCase();
 	tc=codes_lookup.transaction_type[tc] || tc;
@@ -106,7 +111,7 @@ $("transaction-type").each(function(i){var it=$(this);
 
 });
 
-$("recipient-country").each(function(i){var it=$(this);
+$(inside+"recipient-country").each(function(i){var it=$(this);
 
 	var tc=it.attr("code").toUpperCase();
 	tc=codes_lookup.country[tc] || tc;
@@ -117,7 +122,7 @@ $("recipient-country").each(function(i){var it=$(this);
 
 });
 
-$("budget").each(function(i){var it=$(this);
+$(inside+"budget").each(function(i){var it=$(this);
 	
 	var sortlist=[
 		"period-start",
@@ -147,7 +152,7 @@ $("budget").each(function(i){var it=$(this);
 
 });
 
-$("transaction").each(function(i){var it=$(this);
+$(inside+"transaction").each(function(i){var it=$(this);
 	
 	var sortlist=[
 		"transaction-date",
@@ -180,7 +185,7 @@ $("transaction").each(function(i){var it=$(this);
 
 });
 
-$("iati-activity").each(function(i){var it=$(this);
+$(inside+"iati-activity").each(function(i){var it=$(this);
 	
 	var sortlist=[
 		"transaction-date",
@@ -276,43 +281,43 @@ $("iati-activity").each(function(i){var it=$(this);
 });
 
 
-$("document-link").each(function(i){var it=$(this);
+$(inside+"document-link").each(function(i){var it=$(this);
 	wrap_link(it,it.attr("url"),"a_"+this.tagName.toLowerCase());
 });
 
-$("activity-website").each(function(i){var it=$(this);
+$(inside+"activity-website").each(function(i){var it=$(this);
 	wrap_link(it,it.html(),"a_"+this.tagName.toLowerCase());
 });
 
-$("iati-identifier").each(function(i){var it=$(this);
-	wrap_link(it,"http://dev.ctrack.iatistandard.org:1337/q?form=xml&aid="+it.html(),"a_"+this.tagName.toLowerCase());
+$(inside+"iati-identifier").each(function(i){var it=$(this);
+	wrap_link(it,prelink+it.html()+postlink,"a_"+this.tagName.toLowerCase());
 });
 
-$("provider-org[provider-activity-id]").each(function(i){var it=$(this);
+$(inside+"provider-org[provider-activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("receiver-activity-id");
 	if(id)
 	{
-		wrapInner_link(it,"http://dev.ctrack.iatistandard.org:1337/q?form=xml&aid="+id,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	}
 });
 
-$("receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
+$(inside+"receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("receiver-activity-id");
 	if(id)
 	{
-		wrapInner_link(it,"http://dev.ctrack.iatistandard.org:1337/q?form=xml&aid="+id,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	}
 });
 
-$("related-activity").each(function(i){var it=$(this);
+$(inside+"related-activity").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	if(id)
 	{
-		wrap_link(it,"http://dev.ctrack.iatistandard.org:1337/q?form=xml&aid="+id,"a_"+this.tagName.toLowerCase());
+		wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	}
 });
 
-$("iati-activity").each(function(i){var it=$(this);
+$(inside+"iati-activity").each(function(i){var it=$(this);
 
 	var aa=it.children("sector[vocabulary=\"DAC\"]");
 	if(aa.length>0)
@@ -335,4 +340,7 @@ $("iati-activity").each(function(i){var it=$(this);
 });
 
 
-});
+};
+
+// auto run when loaded
+$(iati_activity_clean_and_sort);

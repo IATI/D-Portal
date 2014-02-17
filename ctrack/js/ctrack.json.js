@@ -27,13 +27,13 @@ ctrack.fetch_endingsoon=function(args)
 	var today=ctrack.get_today();
     
 	var dat={
-			"from":"activities,recipient_country",
+			"from":"activities,country",
 			"limit":args.limit || 5,
 			"orderby":"day_end",
 			"status_code":"2",
 //			"day_end_gt":today,
 			"day_end_gt":0, // ignore missing end dates
-			"recipient_country_code":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country)
 		};
 	
 	var callback=args.callback || function(data){
@@ -88,12 +88,12 @@ ctrack.fetch_finished=function(args)
 	var today=ctrack.get_today();
     
 	var dat={
-			"from":"activities,recipient_country",
+			"from":"activities,country",
 			"limit":args.limit || 5,
 			"orderby":"day_end-",
 			"status_code":"3|4",
 //			"day_end_lt":today,
-			"recipient_country_code":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country)
 		};
 	
 	var callback=args.callback || function(data){
@@ -138,12 +138,12 @@ ctrack.fetch_planned=function(args)
 	var today=ctrack.get_today();
     
 	var dat={
-			"from":"activities,recipient_country",
+			"from":"activities,country",
 			"limit":args.limit || 5,
 			"orderby":"day_start",
 			"status_code":1,
 //			"day_start_gt":today,
-			"recipient_country_code":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country)
 		};
 	
 	var callback=args.callback || function(data){
@@ -188,9 +188,9 @@ ctrack.fetch_stats=function(args)
     
 	var f1=function(){
 		var dat={
-				"from":"activities,recipient_country",
+				"from":"activities,country",
 				"select":"stats",
-				"recipient_country_code":(args.country || ctrack.args.country)
+				"country_code":(args.country || ctrack.args.country)
 			};
 		
 		var callback=args.callback || function(data){
@@ -217,10 +217,10 @@ ctrack.fetch_stats=function(args)
 
 	var f2=function(){
 		var dat={
-				"from":"activities,recipient_country",
+				"from":"activities,country",
 				"select":"stats",
 				"groupby":"status_code",
-				"recipient_country_code":(args.country || ctrack.args.country)
+				"country_code":(args.country || ctrack.args.country)
 			};
 		
 		var callback=args.callback || function(data){
@@ -262,11 +262,10 @@ ctrack.fetch_stats=function(args)
 
 ctrack.fetch_activity=function(args)
 {
-	return;
 
-	var api="/api/1/access/activity.db.json";	
 	var dat={
-			"iati-identifier":args.activity
+			"aid":args.activity
+//			"select":"jml"
 		};
 	
 	var callback=function(data){
@@ -275,16 +274,18 @@ ctrack.fetch_activity=function(args)
 
 		console.log(data);
 		
-		var acts=ctrack.iati.clean_activities( data["iati-activities"] );
-console.log(acts);
+//		var acts=ctrack.iati.clean_activities( data["rows"] );
+//console.log(acts);
 
-		ctrack.div.main.html( ctrack.plate.chunks("dump_act",acts)  );
+		ctrack.div.main.html( ctrack.plate.chunk("dump_act_xml",data["rows"][0]) );
+		
+		iati_activity_clean_and_sort();
 
 	};
 		
 	$.ajax({
 	  dataType: "json",
-	  url: ctrack.args.datastore + api + "?callback=?",
+	  url: ctrack.args.datastore + "/q?callback=?",
 	  data: dat,
 	  success: callback
 	});

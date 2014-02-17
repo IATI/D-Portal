@@ -63,6 +63,10 @@ query.get_q = function(req){
 		}
 	};
 
+// use file extension as form
+	var aa=req.url.split(".");
+	if(aa[1]) { q.form=aa[1].split("?")[0]; }
+
 // start with normal query
 	cp(req.query);
 
@@ -405,6 +409,43 @@ query.getsql_select=function(q,qv){
 
 	var ns=q[0];
 
+// extra special calculations
+	var pcts={"country":true,"sector":true,"location":true};
+	var percents=function(ret,name,agg){
+		var mults=[];
+		var aa=q.from.split(",");
+		for(var i=0;i<aa.length;i++)
+		{
+			if( pcts[ aa[i] ] ) // validate
+			{
+				mults.push(aa[i]);
+			}
+		}
+		var s=" "+agg+"( "+name+" ";
+		mults.forEach(function(n){
+			s=s+" * ("+n+"_percent/100)"
+		});
+		s=s+" ) AS "+ret+" ";
+		ss.push(s);
+	}
+	var calc={
+		"sum_of_percent_of_usd":function(){
+			percents("sum_of_percent_of_usd","usd","SUM");
+		},
+		"sum_of_percent_of_value":function(){
+			percents("sum_of_percent_of_value","value","SUM");
+		},
+		"percent_of_usd":function(){
+			percents("percent_of_usd","usd","");
+		},
+		"percent_of_value":function(){
+			percents("percent_of_value","value","");
+		},
+		"count":function(){
+			ss.push(" COUNT(*) AS count");
+		}
+	};
+
 	var done_list=false;
 	if(q.select)
 	{
@@ -413,6 +454,12 @@ query.getsql_select=function(q,qv){
 		for(var i=0;i<qq.length;i++)
 		{
 			var v=qq[i];
+			if( calc[v] )
+			{
+				calc[v](); // special
+				done_list=true;
+			}
+			else
 			if(ns[v]) // valid member names only
 			{
 				ss.push(v);
@@ -501,6 +548,7 @@ query.getsql_where=function(q,qv){
 		"_gt":">",
 		"_lteq":"<=",
 		"_gteq":">=",
+		"_nteq":"!=",
 		"_eq":"=",
 		"_glob":"GLOB",
 		"_like":"LIKE",
@@ -516,9 +564,6 @@ query.getsql_where=function(q,qv){
 			var eq=qemap[qe];
 			if( v !== undefined ) // got a value
 			{
-//				if(n=="recipient_country_code") { joins["recipient_country"]=true; }
-//				if(n=="recipient_sector_code") { joins["recipient_sector"]=true; }
-				
 				var t=typeof v;
 				if(t=="string")
 				{
@@ -562,13 +607,6 @@ query.getsql_where=function(q,qv){
 	
 	var ret="";
 	if(ss[0]) { ret=" WHERE "+ss.join(" AND "); }
-	
-//	ss=[];
-//	for(var n in joins)
-//	{
-//		ss.push(" JOIN "+n+" ON aid="+n+"_aid " );
-//	}
-//	if(ss[0]) { ret=ss.join(" ")+ret; }
 	
 	return ret;
 };
@@ -675,9 +713,6 @@ query.getsql_build_column_names=function(q,qv){
 			ns[n]=dstore_sqlite.tables_active[name][n];
 		}
 	}
-	
-//	ns.recipient_country_code="index";
-//	ns.recipient_sector_code="index";
 
 	q[0]=ns; // special array of valid column names
 
@@ -750,6 +785,37 @@ query.do_select=function(q,res){
     
 			res.end(	'	</iati-activities>\n'+
 						'</result>\n');
+		}
+		else
+		if(q.form=="csv")
+		{
+			res.set('Content-Type', 'text/csv');
+
+			var head=[];
+			if(r.rows[0])
+			{
+				for(n in r.rows[0]) { head.push(n); }
+				head.sort();
+				res.write(	head.join(",")+"\n" );
+				for(var i=0;i<r.rows.length;i++)
+				{
+					var v=r.rows[i];
+					var t=[];
+					head.forEach(function(n){
+						var s=""+v[n];
+						if("string" == typeof s) // may need to escape
+						{
+							if(s.split(",")[1] || s.split("\n")[1] ) // need to escape
+							{
+								s="\""+s.split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string
+							}
+						}
+						t.push( s );
+					});
+					res.write(	t.join(",")+"\n" );
+				}
+				res.end("");
+			}
 		}
 		else
 		{
