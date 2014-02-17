@@ -524,7 +524,7 @@ query.getsql_where=function(q,qv){
 				{
 					var sa=v.split("|");
 					var sb=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(v);
-					if( v.length==10 && sb.length==4 && ty=="int") // date string, convert to number if dest is an int
+					if( v.length==10 && sb && sb.length==4 && ty=="int") // date string, convert to number if dest is an int
 					{
 						v=iati_xml.isodate_to_number(v);
 						ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v);
