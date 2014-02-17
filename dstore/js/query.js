@@ -84,6 +84,10 @@ query.get_q = function(req){
 	{
 		cp(req.body);
 	}
+	
+// defaults	
+	q.from=q.from || "activities"
+	
 
 // we now have a json style chunk of data that consists of many possible inputs
 	return q;
@@ -504,7 +508,6 @@ query.getsql_select=function(q,qv){
 query.getsql_from=function(q,qv){
 	var ss=[];
 
-	q.from=q.from || "activities"
 	var f=q.from;
 	f=f.split(",");
 
