@@ -92,16 +92,28 @@ dstore_db.tables={
 		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true }
 	],
 // These are intended just to be joined to the above.
-// use &from=activities,recipient_country,recipient_sector& to request a join via aid
-	recipient_country:[
-		{ name:"recipient_country_aid",			NOCASE:true , INDEX:true },
-		{ name:"recipient_country_code",		NOCASE:true , INDEX:true },
-		{ name:"recipient_country_percent",		REAL:true , INDEX:true }
+// use &from=activities,country,sector,location& to request a join via aid ( this *may* return duplicate activities )
+	country:[
+		{ name:"country_aid",					NOCASE:true , INDEX:true },
+		{ name:"country_code",					NOCASE:true , INDEX:true },
+		{ name:"country_percent",				REAL:true , INDEX:true }
 	],
-	recipient_sector:[
-		{ name:"recipient_sector_aid",			NOCASE:true , INDEX:true },
-		{ name:"recipient_sector_code",			INTEGER:true , INDEX:true },
-		{ name:"recipient_sector_percent",		REAL:true , INDEX:true }
+	sector:[
+		{ name:"sector_aid",					NOCASE:true , INDEX:true },
+		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group
+		{ name:"sector_code",					INTEGER:true , INDEX:true },
+		{ name:"sector_percent",				REAL:true , INDEX:true }
+	],
+	location:[
+		{ name:"location_aid",					NOCASE:true , INDEX:true },
+		{ name:"location_code",					NOCASE:true , INDEX:true },
+		{ name:"location_gazetteer_ref",		NOCASE:true , INDEX:true },
+		{ name:"location_gazetteer",			NOCASE:true , INDEX:true },
+		{ name:"location_name",					NOCASE:true , INDEX:true },
+		{ name:"location_longitude",			REAL:true , INDEX:true },
+		{ name:"location_latitude",				REAL:true , INDEX:true },
+		{ name:"location_precision",			INTEGER:true , INDEX:true },
+		{ name:"location_percent",				REAL:true , INDEX:true }
 	],
 // track what was imported...
 	slugs:[
@@ -315,7 +327,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 		var t={};
 		
-		t.slug=refry.tagattr(act,"iati-activity","slug"); // this value is hacked in when the acts are split
+		t.slug=refry.tagattr(act,"iati-activity","dstore_slug"); // this value is hacked in when the acts are split
 		t.aid=iati_xml.get_aid(act);
 
 		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slugs"]);
@@ -356,14 +368,12 @@ dstore_db.refresh_act = function(db,aid,xml){
 		refry.tags(act,"recipient-country",function(it){ country.push( (it.code || "").toUpperCase() ); percents.push(it.percentage); });
 		fixpercents(percents);
 		if(country[0]) {
-			t.recipient_country_codes="/"+country.join("/")+"/";
-			t.recipient_country_percents="/"+percents.join("/")+"/";
 			for( var i=0; i<country.length ; i++ )
 			{
 				var cc=country[i];
 				var pc=percents[i];
-				var sa = db.prepare(dstore_sqlite.tables_replace_sql["recipient_country"]);
-				sa.run({"$recipient_country_aid":t.aid,"$recipient_country_code":cc,"$recipient_country_percent":pc});				
+				var sa = db.prepare(dstore_sqlite.tables_replace_sql["country"]);
+				sa.run({"$country_aid":t.aid,"$country_code":cc,"$country_percent":pc});				
 				sa.finalize();
 			}
 		}
@@ -373,14 +383,50 @@ dstore_db.refresh_act = function(db,aid,xml){
 		refry.tags(act,"sector",function(it){ if(it.vocabulary=="DAC") { sectors.push(it.code); percents.push(it.percentage); } });
 		fixpercents(percents);
 		if(sectors[0]) {
-			t.sector_codes="/"+sectors.join("/")+"/";
-			t.sector_percents="/"+percents.join("/")+"/";
 			for( var i=0; i<sectors.length ; i++ )
 			{
 				var sc=sectors[i];
 				var pc=percents[i];
-				var sa = db.prepare(dstore_sqlite.tables_replace_sql["recipient_sector"]);
-				sa.run({"$recipient_sector_aid":t.aid,"$recipient_sector_code":sc,"$recipient_sector_percent":pc});				
+				var group="none";
+				var sa = db.prepare(dstore_sqlite.tables_replace_sql["sector"]);
+				sa.run({"$sector_aid":t.aid,"$sector_group":group,"$sector_code":sc,"$sector_percent":pc});				
+				sa.finalize();
+			}
+		}
+
+		var locations=[];
+		var percents=[];
+		refry.tags(act,"location",function(it){ locations.push(it); percents.push(it.percentage); });
+		fixpercents(percents);
+		if(sectors[0]) {
+			for( var i=0; i<locations.length ; i++ )
+			{
+				var it=locations[i];
+				var pc=percents[i];
+				var longitude;
+				var latitude;
+				var precision;
+				var name=refry.tagval_trim(it,"name");
+				var code=refry.tagattr(it,"location-type","code");
+				var gazref=refry.tagattr(it,"gazetteer-entry","gazetteer-ref");
+				var gaz=refry.tagval_trim(it,"gazetteer-entry");
+				var co=refry.tag(it,"coordinates");
+				if(co)
+				{
+					longitude=co.longitude;
+					latitude=co.latitude;
+					precision=co.precision;
+				}
+				var sa = db.prepare(dstore_sqlite.tables_replace_sql["location"]);
+				sa.run({"$location_aid":t.aid,
+					"$location_code":code,
+					"$location_gazetteer_ref":gazref,
+					"$location_gazetteer":gaz,
+					"$location_name":name,
+					"$location_longitude":longitude,
+					"$location_latitude":latitude,
+					"$location_precision":precision,
+					"$location_percent":pc});
 				sa.finalize();
 			}
 		}
@@ -415,11 +461,13 @@ dstore_db.refresh_act = function(db,aid,xml){
 		return t;
 	};
 	
-	db.run("DELETE FROM transactions WHERE aid=?",aid); // remove all the old references
+
+	// remove all the old references to this aid before adding new
+ 	db.run("DELETE FROM transactions WHERE aid=?",aid);
 	db.run("DELETE FROM budgets WHERE aid=?",aid); 
 	db.run("DELETE FROM planned_disbursements WHERE aid=?",aid);
-	db.run("DELETE FROM recipient_country WHERE recipient_country_aid=?",aid);
-	db.run("DELETE FROM recipient_sector WHERE recipient_sector_aid=?",aid);
+	db.run("DELETE FROM country WHERE country_aid=?",aid);
+	db.run("DELETE FROM sector WHERE sector_aid=?",aid);
 
 	// then add new
 	var act_json=refresh_activity(xml);

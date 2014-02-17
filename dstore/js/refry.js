@@ -133,6 +133,16 @@ refry.tagval=function(json,name)
 	}
 }
 
+// as above but trimed
+refry.tagval_trim=function(json,name)
+{
+	var t=refry.tag(json,name); // find
+	if( t && t[1] && t[1][0] && ( "string" == typeof t[1][0] ) ) // check
+	{
+		return t[1][0].trim();
+	}
+}
+
 // return the attr string of the first tag we find of the given name
 refry.tagattr=function(json,name,attr)
 {
