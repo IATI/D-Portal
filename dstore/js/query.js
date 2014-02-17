@@ -84,6 +84,10 @@ query.get_q = function(req){
 	{
 		cp(req.body);
 	}
+	
+// defaults	
+	q.from=q.from || "activities"
+	
 
 // we now have a json style chunk of data that consists of many possible inputs
 	return q;
@@ -504,7 +508,7 @@ query.getsql_select=function(q,qv){
 query.getsql_from=function(q,qv){
 	var ss=[];
 
-	var f=q.from || "";
+	var f=q.from;
 	f=f.split(",");
 
 // filter by real tables
@@ -516,10 +520,8 @@ query.getsql_from=function(q,qv){
 		}
 		return r;
 	});
-	
-	if(f[0]=="") { f[0]="activities"; } // default to activities table
-		
-	q.from=f[0]; // store the first table name back in the q for later use
+			
+//	q.from=f[0]; // store the first table name back in the q for later use
 	
 	ss.push( " FROM "+f[0]+" " )
 
