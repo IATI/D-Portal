@@ -504,7 +504,8 @@ query.getsql_select=function(q,qv){
 query.getsql_from=function(q,qv){
 	var ss=[];
 
-	var f=q.from || "";
+	q.from=q.from || "activities"
+	var f=q.from;
 	f=f.split(",");
 
 // filter by real tables
@@ -516,10 +517,8 @@ query.getsql_from=function(q,qv){
 		}
 		return r;
 	});
-	
-	if(f[0]=="") { f[0]="activities"; } // default to activities table
-		
-	q.from=f[0]; // store the first table name back in the q for later use
+			
+//	q.from=f[0]; // store the first table name back in the q for later use
 	
 	ss.push( " FROM "+f[0]+" " )
 
