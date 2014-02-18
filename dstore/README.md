@@ -4,6 +4,7 @@ sqlite version for use in real time country tracker queries.
 Assuming you are on a Debian derivative.
 
 ../bin/getapts
+
 npm install
 
 will get you nodejs from a new ppa and install the require modules. 
@@ -27,6 +28,7 @@ Runs the main server, possible options which can be set on the
 commandline or in the config.json file are.
 
 --port=1337
+
 --database=db/dstore.sqlite
 
 
@@ -57,6 +59,7 @@ sending variables to it and returns data in the following formats
 based on the URL.
 
 /q.json
+
 /q
 
 Returns JSON or JSONP (JSONP is flagged by callback arg) data
