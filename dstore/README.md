@@ -23,15 +23,17 @@ due to package name clashes. So try nodejs if node is not found.
 
 	node serv.js
 
-Runs the main server, possible options which can be set on the 
-commandline or in the config.json file are.
+Runs the main server.
 
- --port=1337
 
- --database=db/dstore.sqlite
+	node serv.js --port=1337 --database=db/dstore.sqlite
+
+Runs the server with some options that could also have been set in 
+the config.json file.
 
 
 	node serv.js --cmd init
+
 
 Clears the database and creates the default tables ready to be 
 filled, alternatively you could just delete the dstore.sqlite file 
