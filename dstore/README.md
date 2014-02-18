@@ -4,8 +4,10 @@ sqlite version for use in real time country tracker queries.
 Assuming you are on a Debian derivative.
 
 ../bin/getapts
+--------------
 
 npm install
+-----------
 
 will get you nodejs from a new ppa and install the require modules. 
 Any problems encountered at this stage are probably due to an old 
@@ -23,6 +25,7 @@ due to package name clashes. So try nodejs if node is not found.
 
 
 node serv.js
+------------
 
 Runs the main server, possible options which can be set on the 
 commandline or in the config.json file are.
@@ -33,6 +36,7 @@ commandline or in the config.json file are.
 
 
 node serv.js --cmd init
+-----------------------
 
 Clears the database and creates the default tables ready to be 
 filled, alternatively you could just delete the dstore.sqlite file 
@@ -40,6 +44,7 @@ for a full reset.
 
 
 node serv.js --cmd import --xmlfile "tmp/bd.xml"
+------------------------------------------------
 
 Populate the database from just the provided xml file, good for 
 simple tests.
@@ -59,12 +64,14 @@ sending variables to it and returns data in the following formats
 based on the URL.
 
 /q.json
-
+-------
 /q
+--
 
 Returns JSON or JSONP (JSONP is flagged by callback arg) data
 
 /q.xml
+------
 
 Returns cooked XML, this also automagically themes and displays 
 itself when viewed in a browser but the result is still valid XML. 
@@ -74,12 +81,14 @@ up, force some elements to exist and provide explicit defaults to aid
 with parsing.
 
 /q.raw.xml
+----------
 
 Returns the xml data as you would find it when downloading direct 
 from the publisher. ( A "dstore_slug" attribute may have been added 
 to iati-activity which records where the activity was imported from.
 
 /q.csv
+------
 
 Returns a CSV style file where the first row is column labels. Data 
 is UTF8 and seperated by , with rows terminated by \n. Some strings 
@@ -93,6 +102,7 @@ The SELECT part of an SQL statement.
 ====================================
 
 /q?select=aid
+-------------
 
 Which columns seperated by , that you wish to select from the table, 
 if not provided then is defaults to * which means everything. The 
@@ -102,12 +112,14 @@ Some special values are (without the day_length restraint it would
 be rather slow as it considers every activitiy in the database)
 
 /q?select=stats&day_length=365
+------------------------------
 
 stats can only be used on its own and causes an automatic build of  
 MAX() MIN() AVG() TOTAL() COUNT() COUNT(DISTINCT) agregate functions 
 for each column. Try it to see what it returns.
 
 /q?select=aid,count&day_length=365
+----------------------------------
 
 count may be mixed with other column names and returns the COUNT(*) 
 be aware that this triggers the collapsing of all rows so probably 
@@ -117,12 +129,13 @@ All the possible column names for each table can be found by
 querying a table and looking at the returned json.
 
 /q?from=activities&limit=1
-
+--------------------------
 
 The FROM part of an SQL statement.
 ==================================
 
 /q?from=activities
+------------------
 
 Choose which table to query from ( activities , transactions , 
 budgets , country , sector , location , slugs ). If not provided 
