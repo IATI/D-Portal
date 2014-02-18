@@ -53,6 +53,14 @@ iati_xml.get_isodate_number=function(it,name)
 	}
 	return null;
 }
+iati_xml.get_isodate_year=function(it,name)
+{
+	var t=iati_xml.get_isodate(it,name); // parseint will get the first number and ignore the -
+	if(t){
+		return parseInt(t);
+	}
+	return null;
+}
 
 iati_xml.get_value=function(it,name)
 {
