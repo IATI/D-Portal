@@ -54,8 +54,7 @@ JSON or JSONP.
 
 The main API is exposed on the /q base url with various ways of 
 sending variables to it and returns data in the following formats 
-based on the URL. CSV uses this as the filename so will probably 
-download as "q.csv" depending on browser.
+based on the URL.
 
 /q.json
 /q
@@ -68,14 +67,14 @@ Returns cooked XML, this also automagically themes and displays
 itself when viewed in a browser but the result is still valid XML. 
 Its called cooked because its not the exact same XML that you would 
 get from the publisher, instead attempts have been made to clean it 
-up force some elements to exist and provide explicit defaults to aid 
+up, force some elements to exist and provide explicit defaults to aid 
 with parsing.
 
 /q.raw.xml
 
 Returns the xml data as you would find it when downloading direct 
-from the publisher. ( A "dstore_slug" sttribute may have been added 
-to <iati-activity> which records where the activity was imported from.
+from the publisher. ( A "dstore_slug" attribute may have been added 
+to iati-activity which records where the activity was imported from.
 
 /q.csv
 
@@ -83,7 +82,7 @@ Returns a CSV style file where the first row is column labels. Data
 is UTF8 and seperated by , with rows terminated by \n. Some strings 
 may be wrapped in " if they include embeded newlines. These strings 
 will escape " using double " eg """" would be a string containing 
-one singe ". This is "standard" CSV data or as standard as CSV files 
+one single ". This is "standard" CSV data or as standard as CSV files 
 get.
 
 
@@ -92,7 +91,7 @@ The SELECT part of an SQL statement.
 
 /q?select=aid
 
-Which fields, seperated by , that you wish to select from the table, 
+Which columns seperated by , that you wish to select from the table, 
 if not provided then is defaults to * which means everything. The 
 valid values here depend on which tables you are querying.
 
@@ -101,9 +100,9 @@ be rather slow as it considers every activitiy in the database)
 
 /q?select=stats&day_length=365
 
-stats on its own causes an automatic build of  MAX() MIN() AVG() 
-TOTAL() COUNT() COUNT(DISTINCT) agregate functions for each column. 
-Try it to see what it returns.
+stats can only be used on its own and causes an automatic build of  
+MAX() MIN() AVG() TOTAL() COUNT() COUNT(DISTINCT) agregate functions 
+for each column. Try it to see what it returns.
 
 /q?select=aid,count&day_length=365
 
