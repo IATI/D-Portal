@@ -137,6 +137,7 @@ joind to one or more of the sub tables ( country , sector , location
 for instance
 
 /q?from=activities,country,sector,location
+------------------------------------------
 
 Because of the way joins work each activity may be returned multiple 
 times, once for every unique combination of sub tables so only join 
