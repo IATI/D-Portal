@@ -65,21 +65,8 @@ dstore_db.tables={
 	],
 	budgets:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"jml",						TEXT:true },
-		{ name:"json",							TEXT:true },
-		{ name:"type",							NOCASE:true },
-		{ name:"day_start",						INTEGER:true , INDEX:true },
-		{ name:"day_end",						INTEGER:true , INDEX:true },
-		{ name:"day_length",					INTEGER:true , INDEX:true },
-		{ name:"currency",						NOCASE:true },
-		{ name:"value",							REAL:true },
-		{ name:"usd",							REAL:true },
-		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true }
-	],
-	planned_disbursements:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"jml",						TEXT:true },
+		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement)
+		{ name:"jml",							TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"type",							NOCASE:true },
 		{ name:"day_start",						INTEGER:true , INDEX:true },
@@ -217,6 +204,10 @@ dstore_db.refresh_acts = function(){
 
 dstore_db.refresh_act = function(db,aid,xml){
 
+// choose to remember planned-transactions or budgets for each year depending on which we fine in the xml
+// flag each year when present
+	var got_budget={};
+
 /*	
 	var preps={};
 	var prep=function(name)
@@ -275,6 +266,15 @@ dstore_db.refresh_act = function(db,aid,xml){
 		var t={};
 		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
 		
+		if(it[0]=="planned-disbursement") // flag to share table with planned-disbursement (they seem very similar)
+		{
+			t.budget="plan";
+		}
+		else
+		{
+			t.budget="budget";
+		}
+		
 		t["type"]=it["type"];
 
 		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
@@ -289,30 +289,9 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 //		dstore_sqlite.replace(db,"budgets",t);
 		replace("budgets",t);
-
-	};
-
-	var refresh_planned_disbursement=function(it,act,act_json)
-	{
-//		process.stdout.write("p");
 		
-		var t={};		
-		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
-		
-		t["type"]=it["type"];
-
-		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
-		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
-		t["day_length"]=			t["day_end"]-t["day_start"];
-		
-		t["currency"]=				iati_xml.get_value_currency(it,"value");
-		t["value"]=					iati_xml.get_value(it,"value");
-		t["usd"]=					iati_xml.get_usd(it,"value");
-
-		t.jml=JSON.stringify(it);
-		
-//		dstore_sqlite.replace(db,"planned_disbursements",t);
-		replace("planned_disbursements",t);
+		var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
+		got_budget[ y ]=true;
 
 	};
 
@@ -453,10 +432,21 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 //		dstore_sqlite.replace(db,"activities",t);
 		replace("activities",t);
-				
+		
+		got_budget={};
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
-		refry.tags(act,"budget",function(it){refresh_budget(it,act,t);});
-		refry.tags(act,"planned-disbursement",function(it){refresh_planned_disbursement(it,act,t);});
+		refry.tags(act,"planned-disbursement",function(it){refresh_budget(it,act,t);});
+		refry.tags(act,"budget",function(it){
+			var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
+			if( (!y) || (!got_budget[y]) ) // if not already filled in by planned
+			{
+				refresh_budget(it,act,t);
+			}
+			else
+			{
+//				ls({"skipyear":y});
+			}
+		});
 
 		return t;
 	};
@@ -465,13 +455,12 @@ dstore_db.refresh_act = function(db,aid,xml){
 	// remove all the old references to this aid before adding new
  	db.run("DELETE FROM transactions WHERE aid=?",aid);
 	db.run("DELETE FROM budgets WHERE aid=?",aid); 
-	db.run("DELETE FROM planned_disbursements WHERE aid=?",aid);
 	db.run("DELETE FROM country WHERE country_aid=?",aid);
 	db.run("DELETE FROM sector WHERE sector_aid=?",aid);
 
 	// then add new
 	var act_json=refresh_activity(xml);
-	
+
 };
 
 

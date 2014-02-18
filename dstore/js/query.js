@@ -554,6 +554,8 @@ query.getsql_where=function(q,qv){
 		"_eq":"=",
 		"_glob":"GLOB",
 		"_like":"LIKE",
+		"_null":"NULL",
+		"_not_null":"NOT NULL",
 		"":"="
 	};
 
@@ -566,42 +568,48 @@ query.getsql_where=function(q,qv){
 			var eq=qemap[qe];
 			if( v !== undefined ) // got a value
 			{
-				var t=typeof v;
-				if(t=="string")
-				{
-					var sa=v.split("|");
-					var sb=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(v);
-					if( v.length==10 && sb && sb.length==4 && ty=="int") // date string, convert to number if dest is an int
-					{
-						v=iati_xml.isodate_to_number(v);
-						ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v);
-					}
-					else
-					if(sa[1]) // there was an "|"
-					{
-						v=sa;
-						t="object"; // do object below
-					}
-					else
-					{
-						ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v);
-					}
-				}
+				if( eq=="NOT NULL") { ss.push( " "+n+" IS NOT NULL " ); }
 				else
-				if(t=="number")
+				if( eq=="NULL") { ss.push( " "+n+" IS NULL " ); }
+				else
 				{
-					ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=v;
-				}
-				
-				if(t=="object") // array, string above may also have been split into array
-				{
-					var so=[];
-					for(var i=0;i<v.length;i++)
+					var t=typeof v;
+					if(t=="string")
 					{
-						so.push( " $"+n+"_"+i+" " )
-						qv["$"+n+"_"+i]=query.maybenumber(v[i]);
+						var sa=v.split("|");
+						var sb=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(v);
+						if( v.length==10 && sb && sb.length==4 && ty=="int") // date string, convert to number if dest is an int
+						{
+							v=iati_xml.isodate_to_number(v);
+							ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v);
+						}
+						else
+						if(sa[1]) // there was an "|"
+						{
+							v=sa;
+							t="object"; // do object below
+						}
+						else
+						{
+							ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v);
+						}
 					}
-					ss.push( " "+n+" IN ("+so.join(",")+") " );
+					else
+					if(t=="number")
+					{
+						ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=v;
+					}
+					
+					if(t=="object") // array, string above may also have been split into array
+					{
+						var so=[];
+						for(var i=0;i<v.length;i++)
+						{
+							so.push( " $"+n+"_"+i+" " )
+							qv["$"+n+"_"+i]=query.maybenumber(v[i]);
+						}
+						ss.push( " "+n+" IN ("+so.join(",")+") " );
+					}
 				}
 			}
 		}
@@ -767,7 +775,7 @@ query.do_select=function(q,res){
     
    		}
 		else
-		if(q.form=="rawxml")
+		if(q.form=="raw.xml")
 		{
 			res.set('Content-Type', 'text/xml');
 
