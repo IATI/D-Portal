@@ -16,7 +16,7 @@ This is some more data
 <b>Please wait, preparing page...</b>
 
 #title
-Country Tracker
+IATI Country Tracker
 
 
 #view_act
@@ -24,6 +24,7 @@ Country Tracker
 <div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
 {xml}
 </div>
+{footer}
 
 #view_main
 <style>{css}</style>
@@ -39,23 +40,37 @@ Country Tracker
 {ctfind}
 </div>
 
-</div>
 
 #view_where
 <style>{css}</style>
-{ctnav}
-{table_where}
+{ctnavxml}
+<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
+	<div class="defcon">
+		{table_where}
+	</div>
+</div>
+{footer}
+
+#table_where
+<table class="where">
+{table_where_row_head}
+{table_where_rows}
+</table>
+
+#table_where_rows
+{table_where_row}
 
 #table_where_row_head
 <tr>
-<td> - CRS - </td>
-<td> - Donor - </td>
-<td> - 2012 transactions - </td>
-<td> - 2013 transactions - </td>
-<td> - 2014 transactions - </td>
-<td> - 2014 budget - </td>
-<td> - 2015 budget - </td>
+<td>CRS</td>
+<td>Donor</td>
+<td>2012 transactions</td>
+<td>2013 transactions</td>
+<td>2014 transactions</td>
+<td>2014 budget</td>
+<td>2015 budget</td>
 </tr>
+
 #table_where_row
 <tr>
 <td>{crs}</td>
@@ -65,14 +80,8 @@ Country Tracker
 <td>{t2014}</td>
 <td>{b2014}</td>
 <td>{b2015}</td></tr>
-#table_where_rows
-{table_where_row}
-#table_where
-<table>
-<br/><br/><br/><br/><br/><br/>
-{table_where_row_head}
-{table_where_rows}
-</table>
+
+
 
 
 #ctnav
@@ -146,7 +155,7 @@ BANGLADESH
 <tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{aid}">{title}</a></div></td><td>{date}</td></tr>
 
 #ctbox1table
-<table class="box1">
+<table class="def box1">
 <tr><td colspan="2" style="font-size:12px; color:#666; line-height:2.0em;">ENDING SOON</td><td style="font-size:12px; color:#666; line-height:2.0em;">END DATE</td></tr>
 {ctbox1table_datas}
 </table>
@@ -195,7 +204,7 @@ BANGLADESH
 <tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{activity}">{title}</a></div></td><td>{date}</td></tr>
 
 #ctbox2table
-<table class="box2">
+<table class="def box2">
 <tr><td colspan="2" style="font-size:12px; color:#666;">ENDING SOON</td><td style="font-size:12px; color:#666;">END DATE</td></tr>
 {ctbox2table_datas}
 </table>
@@ -239,7 +248,7 @@ BANGLADESH
 <tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{activity}">{title}</a></div><div style="padding-top:10px;"><img src="/art/logo1.png" alt="logo" width="215" height="49"/></div></td><td>{date}</td></tr>
 
 #ctbox3table
-<table class="box3">
+<table class="def box3">
 <tr><td colspan="2" style="font-size:12px; color:#666;">STARTING SOON</td><td style="font-size:12px; color:#666;">START DATE</td></tr>
 {ctbox3table_datas}
 </table>
@@ -274,7 +283,7 @@ BANGLADESH
 <tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{activity}">{title}</a></div></td><td>{country}</td><td>{date}</td></tr>
 
 #ctneartable
-<table class="near">
+<table class="def near">
 <tr><td colspan="2" style=" font-size:12px; color:#999; line-height:2.3em;">ACTIVE PROJECTS ENDING SOON</td><td style="font-size:12px; color:#999; line-height:2.3em;">LOCATION &#8743; &#8744;</td><td style="font-size:12px; color:#999; line-height:2.3em;">END DATE</td></tr>
 {ctneartable_datas}
 </table>
@@ -338,6 +347,16 @@ overflow:auto; background-color:rgb(255, 255, 255);">HTML embed code will be pla
 </div>
 
 
+#footer
+<div class="footwrap">
+	<div class="footcon">
+		<a href="http://www.aidtransparency.net/" target="_blank" title="International Aid Transparency Initiative (IATI)" class="copyright">© 2014 International Aid Transparency Initiative (IATI)</span>
+	</div>
+</div>
+
+
 
 #css
-html	{background:url('{background_image}') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
+html				{background:url('{background_image}') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
+table.where			{width:960px; border-collapse:collapse;}
+table.where td		{padding:10px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
