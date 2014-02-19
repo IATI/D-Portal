@@ -25,6 +25,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 dstore_db.bubble_act={
 		"reporting_org":true,
 		"reporting_org_ref":true,
+		"funder":true,
 		"aid":true
 	};
 	
@@ -44,7 +45,8 @@ dstore_db.tables={
 		{ name:"title",							NOCASE:true },
 		{ name:"description",					NOCASE:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true }
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
+		{ name:"funder",						NOCASE:true }
 	],
 	transactions:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -61,7 +63,8 @@ dstore_db.tables={
 		{ name:"finance_code",					NOCASE:true , INDEX:true },
 		{ name:"aid_code",						NOCASE:true , INDEX:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true }
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
+		{ name:"funder",						NOCASE:true }
 	],
 	budgets:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -76,7 +79,8 @@ dstore_db.tables={
 		{ name:"value",							REAL:true },
 		{ name:"usd",							REAL:true },
 		{ name:"reporting_org",					NOCASE:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true }
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
+		{ name:"funder",						NOCASE:true }
 	],
 // These are intended just to be joined to the above.
 // use &from=activities,country,sector,location& to request a join via aid ( this *may* return duplicate activities )
@@ -323,6 +327,68 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.reporting_org=refry.tagval(act,"reporting-org");				
 		t.reporting_org_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=refry.tagattr(act,"activity-status","code");
+
+		var funder;
+		
+		if(!funder) { funder=refry.tagattr(act,{0:"participating-org",role:"funding"},"ref"); }
+		if(!funder) { funder=refry.tagattr(act,{0:"participating-org",role:"extending"},"ref"); }
+		if(!funder) { funder=refry.tagattr(act,{0:"reporting-org"},"ref"); }
+		
+		if( funder[2]=="-" )
+		{
+			t.funder=funder.slice(0,2).toUpperCase();
+		}
+
+/*
+
+Hope this pseudocode makes sense...
+I will build all lookup lists
+
+funder-code = ""
+funder-name = ""
+iso-codes = "AO,GB,etc"
+iso-names = "Angola,United Kingdom,etc"
+funder-exception-codes = "XM,XY,XX"
+funder-exception-names = "Multilaterals,Other international organisations,Unknown"
+
+Org-Id = participating-org/@role="funding"/@ref
+If org-id else org-id = participating-org/@role="extending"/@ref
+If org-id else org-id = reporting-org/@ref
+
+exception-ids = "NL-KVK-12345,41002,etc"
+exception-funders = "GB,XM,etc"
+DAC-channel-ids = "41000,41002,etc"
+DAC-channel-funder-codes = "XM,XY,etc"
+
+If org-id exists in exception-ids then 
+funder-code = exception-funders
+End else
+If org-id[3,1] = "-" and Alpha(org-id[1,2]) then
+funder-code = org-id[1,2]
+End else
+If Len(org-id) = 5 and Num(org-id) then
+If org-id exists in DAC-channel-ids then
+funder-code = DAC-channel-funder-codes
+End else
+funder-code = "XX" 
+End
+End
+End
+End
+
+If funder-code[1,1] = "X" then
+Locate funder-code in funder-exception-codes then
+funder-name = funder-exception-names
+End 
+End else
+Locate funder-code in iso-codes then
+funder-name = iso-names
+End
+End
+
+*/
+
+
 
 
 // fix percents to add upto 100

@@ -113,7 +113,29 @@ refry.tag=function(json,name)
 		{
 			if(typeof it == "object")
 			{
-				if(it[0]==name) { ret=it } // only call once
+				if("string" == typeof name)
+				{
+					if(it[0]==name) {
+						ret=it
+					}
+				}
+				else // check attrs
+				{
+					var found=true;
+					for( var a in name)
+					{
+						var v=name[a];
+						if( it[a] != v ) // all attributes must match ([0]==tagname)
+						{
+							found=false;
+							break;
+						}
+					}
+					if(found)
+					{
+						ret=it
+					}
+				}
 				if(it[1]) { it[1].forEach(f); }
 			}
 		}
