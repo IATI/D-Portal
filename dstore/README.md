@@ -6,7 +6,8 @@ Assuming you are on a Debian derivative.
 	../bin/getapts
 	npm install
 
-will get you nodejs from a new ppa and install the required modules. 
+will get you nodejs from a new PPA and install the required modules.
+
 Any problems encountered at this stage are probably due to an old 
 version of nodejs being installed via apt-get. If you have problems 
 or are not on debian, try building the latest stable version of 
@@ -101,7 +102,8 @@ from the table. If column names are not provided, this defaults to
 an asterisk (*) which means everything. The valid values here depend
 on which tables you are querying.
 
-Some special values are.
+
+Some special values are
 
 	/q?select=stats&day_length=365
 
@@ -112,11 +114,15 @@ rather slow as it would consider every activitiy in the database)
 
 Try it to see what it returns.
 
+
+
 	/q?select=aid,count&day_length=365
 
 count may be mixed with other column names and returns the COUNT(*)
 Be aware that this triggers the collapsing of all rows so it should
 probably be included with a groupby.
+
+
 
 	/q?from=transactions,country&select=aid,day,percent_of_usd&day_gteq=2013-01-01&day_lt=2014-01-01
 	/q?from=transactions,country&select=aid,day,percent_of_value&day_gteq=2013-01-01&day_lt=2014-01-01
@@ -124,8 +130,12 @@ probably be included with a groupby.
 percent_of_usd or percent_of_value can be used to automatically take 
 a proportion of money based on the percentage assigned to it in the 
 joined table. So if you join to a country that has been given 50% of 
-an activitiy, it will return half the values. This works with 
-multiple joins allowing you to drill down to the appropriate numbers.
+an activitiy, it will return half the values.
+
+This works with multiple joins allowing you to drill down to the
+appropriate numbers.
+
+
 
 	/q?from=transactions,country&select=aid,count,day,sum_of_percent_of_usd&day_gteq=2013-01-01&day_lt=2014-01-01
 	/q?from=transactions,country&select=aid,count,day,sum_of_percent_of_value&day_gteq=2013-01-01&day_lt=2014-01-01
@@ -135,12 +145,16 @@ of the percent_of calculation. So the above queries will add up all
 the transactions found in 2013. It should be limited to certain 
 transaction types and grouped by country to be useful information.
 
+
+
 All the possible column names for each table can be found by 
 querying a table and looking at the returned JSON.
 
 	/q?from=activities&limit=1
 	/q?from=transactions&limit=1
 	/q?from=budgets&limit=1
+
+
 
 
 The FROM part of an SQL statement.
@@ -172,6 +186,8 @@ was imported from which file. Unless you are interested in
 development, it is not something you will need to select.
 
 
+
+
 The WHERE part of an SQL statement.
 ===================================
 
@@ -179,14 +195,20 @@ This is built from multiple parts of the query. At its most basic,
 you can request that a column matches a simple value by just 
 including the name of that column and the value that must match.
 
+
+
 	/q?from=activities&aid=US-1-2010015530
 	
 Will pick a single activity of the given aid (IATI Activity ID)
+
+
 
 	/q?from=activities&aid=US-1-2010015530|GB-1-114209-101
 
 Multiple values can be seperated by | and either will match, so the 
 above will pull out the two activities of the given ids.
+
+
 
 	/q?from=transactions&day=2012-01-01
 	
@@ -200,9 +222,13 @@ As well as picking exact matches, a number of modifiers can be added
 to the name to perform simple searches or less than or more than 
 comparisons.
 
+
+
 Here are all the possible postfixes and the SQL they map to.
 You will find examples of these postfixes scattered throughout 
 the example queries.
+
+
 
 	/q?from=transactions&day_lt=2012-01-01
 
@@ -210,11 +236,15 @@ the example queries.
 	
 Less than.
 
+
+
 	/q?from=transactions&day_gt=2012-01-01
 
 	_gt			>
 	
 Greater than.
+
+
 
 	/q?from=transactions&day_lteq=2012-01-01
 
@@ -222,11 +252,15 @@ Greater than.
 	
 Less than or equal.
 
+
+
 	/q?from=transactions&day_gteq=2012-01-01
 
 	_gteq		>=
 	
 Greater than or equal.
+
+
 
 	/q?from=transactions&day_nteq=2012-01-01
 
@@ -234,11 +268,15 @@ Greater than or equal.
 
 Not equal to.
 
+
+
 	/q?from=transactions&day_eq=2012-01-01
 
 	_eq			=
 	
 Equal to. This is the same as not having a postfix.
+
+
 
 	/q?from=transactions&description_glob=*Quarter*
 
@@ -246,6 +284,8 @@ Equal to. This is the same as not having a postfix.
 
 A wildcard match where * and ? can be used for multiple or single 
 characters.
+
+
 
 	/q?from=transactions&description_like=%25CRS%25
 
@@ -256,6 +296,8 @@ characters. Unlike _glob, this also ignores case (uppercase or
 lowercase if you stick to the english alphabet).
 The % probably needs to be escaped to %25 in the url as above.
 
+
+
 	/q?from=transactions&description_null
 	
 	_null		IS NULL
@@ -263,11 +305,15 @@ The % probably needs to be escaped to %25 in the url as above.
 Sometimes the value is missing and this makes it possible to find
 those missing values.
 
+
+
 	/q?from=transactions&description_not_null
 
 	_not_null	IS NOT NULL
 
 You can use this query to ignore missing values in your search.
+
+
 
 
 The GROUP BY part of an SQL statement.
@@ -277,13 +323,17 @@ The GROUP BY part of an SQL statement.
 
 When counting or adding up values, it is often neccesary to group by 
 columns with the same values. The above example groups transactions by
-their description and counts the occurance of each. 
+their description and counts the occurance of each.
+
+
 
 	/q?select=count,currency,code&from=transactions&groupby=currency,code
 
 Multiple column names seperated by a comma (,) can be used in a group by.
 The above counts the frequency of transactions currency and code 
 combinations.
+
+
 
 The ORDER BY part of an SQL statement.
 ======================================
@@ -292,9 +342,13 @@ The ORDER BY part of an SQL statement.
 	
 Sort by ids ascending, so from low to high. This is the default.
 
+
+
 	/q?orderby=aid-
 	
 Sort by ids descending, so from high to low.
+
+
 
 	/q?orderby=day_start,day_end
 
