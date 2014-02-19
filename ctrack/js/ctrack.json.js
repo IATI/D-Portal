@@ -20,6 +20,16 @@ ctrack.get_nday=function(n)
     return nday;
 }
 
+ctrack.fetch=function(dat,callback)
+{
+	$.ajax({
+	  dataType: "json",
+	  url: ctrack.args.datastore + "/q?callback=?",
+	  data: dat,
+	  success: callback
+	});
+}
+
 ctrack.fetch_endingsoon=function(args)
 {
 	args=args || {};
@@ -71,14 +81,8 @@ ctrack.fetch_endingsoon=function(args)
 		ctrack.div.main.html( ctrack.htmlall("bodytest") );
 
 	};
-		
-	$.ajax({
-	  dataType: "json",
-	  url: ctrack.args.datastore + "/q?callback=?",
-	  data: dat,
-	  success: callback
-	});
-
+	
+	ctrack.fetch(dat,callback);
 }
 
 ctrack.fetch_finished=function(args)
@@ -120,14 +124,8 @@ ctrack.fetch_finished=function(args)
 		ctrack.div.main.html( ctrack.htmlall("bodytest") );
 
 	};
-		
-	$.ajax({
-	  dataType: "json",
-	  url: ctrack.args.datastore + "/q?callback=?",
-	  data: dat,
-	  success: callback
-	});
 
+	ctrack.fetch(dat,callback);
 }
 
 
@@ -170,14 +168,8 @@ ctrack.fetch_planned=function(args)
 		ctrack.div.main.html( ctrack.htmlall("bodytest") );
 
 	};
-		
-	$.ajax({
-	  dataType: "json",
-	  url: ctrack.args.datastore + "/q?callback=?",
-	  data: dat,
-	  success: callback
-	});
-
+	
+	ctrack.fetch(dat,callback);
 }
 
 ctrack.fetch_stats=function(args)
@@ -204,13 +196,8 @@ ctrack.fetch_stats=function(args)
 			ctrack.div.main.html( ctrack.htmlall("bodytest") );
 
 		};
-			
-		$.ajax({
-		  dataType: "json",
-		  url: ctrack.args.datastore + "/q?callback=?",
-		  data: dat,
-		  success: callback
-		});
+	
+		ctrack.fetch(dat,callback);
 	};
 
 	f1();
@@ -246,13 +233,8 @@ ctrack.fetch_stats=function(args)
 //			ctrack.div.main.html( ctrack.htmlall("bodytest") );
 
 		};
-			
-		$.ajax({
-		  dataType: "json",
-		  url: ctrack.args.datastore + "/q?callback=?",
-		  data: dat,
-		  success: callback
-		});
+	
+		ctrack.fetch(dat,callback);
 	};
 	
 	f2();
@@ -268,7 +250,7 @@ ctrack.fetch_activity=function(args)
 //			"select":"jml"
 		};
 	
-	var callback=function(data){
+	var callback=args.callback || function(data){
 		
 		ctrack.div.main.html( ctrack.plate.chunk("preparing",{})  );
 
@@ -283,12 +265,7 @@ ctrack.fetch_activity=function(args)
 
 	};
 		
-	$.ajax({
-	  dataType: "json",
-	  url: ctrack.args.datastore + "/q?callback=?",
-	  data: dat,
-	  success: callback
-	});
+	ctrack.fetch(dat,callback);
 
 }
 

@@ -1,3 +1,6 @@
+DSTORE
+======
+
 DStore subsidizes the iati-datastore with an optimized nodejs + 
 SQLite version for use in real time Country Tracker queries.
 
@@ -93,7 +96,7 @@ get.
 
 
 The SELECT part of an SQL statement.
-====================================
+------------------------------------
 
 	/q?select=aid,title,description
 
@@ -158,7 +161,7 @@ querying a table and looking at the returned JSON.
 
 
 The FROM part of an SQL statement.
-==================================
+----------------------------------
 
 	/q?from=activities
 
@@ -189,7 +192,7 @@ development, it is not something you will need to select.
 
 
 The WHERE part of an SQL statement.
-===================================
+-----------------------------------
 
 This is built from multiple parts of the query. At its most basic, 
 you can request that a column matches a simple value by just 
@@ -315,9 +318,8 @@ You can use this query to ignore missing values in your search.
 
 
 
-
 The GROUP BY part of an SQL statement.
-======================================
+--------------------------------------
 
 	/q?select=count,description&from=transactions&groupby=description
 
@@ -326,17 +328,16 @@ columns with the same values. The above example groups transactions by
 their description and counts the occurance of each.
 
 
-
 	/q?select=count,currency,code&from=transactions&groupby=currency,code
 
-Multiple column names seperated by a comma (,) can be used in a group by.
-The above counts the frequency of transactions currency and code 
-combinations.
+Multiple column names seperated by a comma (,) can be used in a 
+group by. The above counts the frequency of transactions currency 
+and code combinations.
 
 
 
 The ORDER BY part of an SQL statement.
-======================================
+--------------------------------------
 
 	/q?orderby=aid
 	
