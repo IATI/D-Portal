@@ -29,10 +29,13 @@ head.js(
 	
 		var args={
 			master:$(".ctrack"),
-			datastore:"",
+			dstore:"",
 			country:"ug",
-			art:"",
-			cachebreak:"?v1"
+			chunks:{
+				"country_name":"Uganda",
+				"country_flag":"/art/bgflag.png"
+			}
+
 		};
 		ctrack.setup_html(args);
 
