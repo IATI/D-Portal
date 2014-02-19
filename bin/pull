@@ -4,7 +4,7 @@
 cd `dirname $0`
 cd ..
 
-# these are generated so prevent conflicts by reverting them
+# these are generated so prevent conflicts by reverting them on pull
 
 git checkout ctrack/js/ctrack.js
 git checkout ctrack/js/ctrack.chunks.js

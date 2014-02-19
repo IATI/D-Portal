@@ -80,7 +80,7 @@ ctrack.fetch_endingsoon=function(args)
 //		ctrack.htmlchunk("active_projects",data["total-count"]);
 		ctrack.htmlchunk("ctbox1table_datas",s.join(""));
 
-		ctrack.div.main.html( ctrack.htmlall("bodytest") );
+		ctrack.update_hash({"view":"main"});
 
 	};
 	
@@ -123,7 +123,7 @@ ctrack.fetch_finished=function(args)
 //		ctrack.htmlchunk("finished_projects",data["total-count"]);
 		ctrack.htmlchunk("ctbox2table_datas",s.join(""));
 
-		ctrack.div.main.html( ctrack.htmlall("bodytest") );
+		ctrack.update_hash({"view":"main"});
 
 	};
 
@@ -167,7 +167,7 @@ ctrack.fetch_planned=function(args)
 //		ctrack.htmlchunk("planned_projects",data["total-count"]);
 		ctrack.htmlchunk("ctbox3table_datas",s.join(""));
 
-		ctrack.div.main.html( ctrack.htmlall("bodytest") );
+		ctrack.update_hash({"view":"main"});
 
 	};
 	
@@ -195,7 +195,7 @@ ctrack.fetch_stats=function(args)
 			ctrack.htmlchunk("total_projects",data.rows[0]["COUNT(*)"]);
 			ctrack.htmlchunk("numof_publishers",data.rows[0]["COUNT(DISTINCT reporting_org)"]);
 
-			ctrack.div.main.html( ctrack.htmlall("bodytest") );
+			ctrack.update_hash({"view":"main"});
 
 		};
 	
@@ -232,7 +232,7 @@ ctrack.fetch_stats=function(args)
 			ctrack.htmlchunk("finished_projects",(counts[3]||0)+(counts[4]||0));
 			ctrack.htmlchunk("planned_projects",counts[1]||0);
 
-//			ctrack.div.main.html( ctrack.htmlall("bodytest") );
+			ctrack.update_hash({"view":"main"});
 
 		};
 	
@@ -248,8 +248,8 @@ ctrack.fetch_activity=function(args)
 {
 
 	var dat={
-			"aid":args.activity
-//			"select":"jml"
+			"aid":args.activity,
+			"select":"xml"
 		};
 	
 	var callback=args.callback || function(data){
@@ -261,10 +261,11 @@ ctrack.fetch_activity=function(args)
 //		var acts=ctrack.iati.clean_activities( data["rows"] );
 //console.log(acts);
 
-		ctrack.div.main.html( ctrack.plate.chunk("dump_act_xml",data["rows"][0]) );
-		
-		iati_activity_clean_and_sort();
+//		ctrack.div.main.html( ctrack.plate.chunk("dump_act_xml",data["rows"][0]) );
 
+		ctrack.htmlchunk("xml",data["rows"][0].xml);
+		ctrack.update_hash({"view":"act"});
+		
 	};
 		
 	ctrack.fetch(dat,callback);
@@ -306,7 +307,7 @@ ctrack.fetch_near=function(args)
 
 		ctrack.htmlchunk("ctneartable_datas",s.join(""));
 
-		ctrack.div.main.html( ctrack.htmlall("bodytest") );
+		ctrack.update_hash({"view":"main"});
 
 	};
 	
