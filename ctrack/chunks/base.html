@@ -16,9 +16,8 @@ This is some more data
 <b>Please wait, preparing page...</b>
 
 #dump_act_xml
-
-<a href="#ctrack_index">BACK</a>
-<div>
+{ctnav}
+<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
 {xml}
 </div>
 
@@ -55,10 +54,12 @@ Country Tracker
 </div>
 
 #ctnav
-<div style="width:100%; background-color:#96CBFF; border-bottom:11px solid #BDD9FC; height:90px; position:fixed;">
-<div style="width:960px; margin:0 auto; color:#fff; font-size:32px; padding-top:30px;">
-<div style="display:inline-block; vertical-align:top; width:760px; height:30px;"><a href="#"><img src="/art/ctlogo.png" alt="Country Tracker logo" width="350" height="30"/></a></div><div style="width:200px; display:inline-block; text-align:right;"><a href="#about" class="navabout">About</a></div>
-</div>
+<div style="width:100%; background-color:#96CBFF; border-bottom:11px solid #BDD9FC; height:90px; position:fixed; z-index:1;">
+	<div style="width:960px; margin:0 auto; color:#fff; font-size:32px; padding-top:30px;">
+		<div style="display:inline-block; vertical-align:top; width:760px; height:30px;">
+			<a href="#ctrack_index"><img src="/art/ctlogo.png" alt="Country Tracker logo" width="350" height="30"/></a>
+		</div><div style="width:200px; display:inline-block; text-align:right;"><a href="#about" class="navabout">About</a></div>
+	</div>
 </div>
 
 
@@ -308,4 +309,4 @@ overflow:auto; background-color:rgb(255, 255, 255);">HTML embed code will be pla
 
 
 #css
-html	{background:url('{background_image}');}
+html	{background:url('{background_image}') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
