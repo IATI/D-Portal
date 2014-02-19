@@ -27,15 +27,19 @@ ctrack.plate.prepare=function(str)
 	for(var i=1;i<aa.length;i++)
 	{
 		var av=aa[i].split("}");
-		if(av.length==2)
+		if(av.length>=2)
 		{
 			ar.push("{"); // this string is used to mark the following string as something to replace
 			ar.push(av[0]);
 			ar.push(av[1]);
+			for(var j=2;j<av.length;j++)
+			{
+				ar.push(av[2]+"}"); // missing close so just leave it as it is
+			}
 		}
 		else
 		{
-			ar.push(aa[i]); // missing close so just leave it as it is
+			ar.push("{"+aa[i]); // missing close so just leave it as it is
 		}
 	}
 	return ar;
