@@ -37,7 +37,7 @@
 	.ctinfo		{font-size:18px; line-height:1.4em; color:#E8F6FF;}
 	.ctinfo.top	{padding-top:10px;}
 	
-	.cteg		{width:100%; background-color:rgba(1,1,1,0.6); padding:50px 0 80px 0;}
+	.cteg		{width:100%; background-color:rgba(1,1,1,0.6); padding:50px 0 100px 0;}
 	.ctegwrap	{font-size:18px; color:#fff; padding:60px 0 10px 0; margin-bottom:40px;}
 	.cteghead	{font-weight:bold; font-size:38px;}
 	.ctegcol	{display:inline-block; vertical-align:top; width:320px; max-width:320px;}
@@ -59,7 +59,9 @@
 	.dqcon		{display:inline-block; vertical-align:top; width:400px; max-width:400px; padding:40px;}
 	.dqinfo		{font-size:18px; line-height:1.4em; padding:20px; color:#FFC761;}
 	
-	.qwrap		{width:100%; background-color:#4F3200; padding:100px 0 50px 0;}
+	#ct-tri		{width:0; height:0; border-top:30px solid #724900; border-left:30px solid transparent; border-right:30px solid transparent; margin-bottom:80px;}
+
+	.qwrap		{width:100%; background-color:#4F3200; padding:0px 0 50px 0;}
 	.qhead		{color:#FFA500; font-size:28px; margin-bottom:60px;}
 	.qtip		{color:#FFB428;}
 	.qabt		{color:#B17300; font-size:16px; line-height:1.2em;}
@@ -68,13 +70,14 @@
 	a.qeg		{display:block; padding:10px 30px; background-color:#201500; margin-bottom:20px; color:#fff; font-size:18px; font-family:monospace;}
 	a.qeg:hover	{background-color:#0E0900;}
 	
-	.gitwrap	{width:100%; background-color:#fff; padding:80px 0 50px 0;}
+	.gitwrap	{width:100%; background-color:#fff; padding:80px 0 60px 0;}
 	.gitcon		{display:inline-block; vertical-align:top; width:760px; max-width:760px;}
 	.gitinfo	{padding:20px 100px 0 0; font-size:18px; line-height:1.3em;}
 	.octocat	{display:inline-block; vertical-align:top; width:200px; max-width:200px;}
 	a.git		{display:block; font-size:38px;}
 	a.git:hover	{color:#1E90FF;}
-
+	
+	.iati		{padding-top:20px;}
 </style>
 	</head> 
 <body>
@@ -161,6 +164,7 @@
 
 <div class="qwrap">
 	<div class="defcon">
+		<div class="halfcon"></div><div class="halfcon"><div id="ct-tri"></div></div>
 		<div class="qhead">Here are some <span class="qtip">Q</span>uery examples:</div>
 		<a href="http://dev.ctrack.iatistandard.org/q.xml?from=activities&limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://dev.ctrack.iatistandard.org/q.xml?from=activities&amp;limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
 		<div class="qabt">Returns XML which is automatically formatted into HTML, source remains pure XML</div>
@@ -179,10 +183,13 @@
 		<div class="gitcon">
 			<a href="https://github.com/IATI/IATI-Country-Tracker" class="git">Fork us on <span class="bold">Github</span>!</a>
 			<div class="gitinfo">
-				Country Tracker is currently being developed and designed so things are constantly changing. We look forward to receiving your bug reports and issues.
+				Country Tracker is currently being developed and designed so things are constantly changing. Send us your suggestions, bug reports and issues.
+			</div>
+			<div class="iati">
+				<a href="http://www.aidtransparency.net/" target="_blank" title="International Aid Transparency Initiative (IATI)"><img src="/art/iati-logo.png" alt="IATI logo" width="154" height="40"/></a>
 			</div>
 		</div><div class="octocat">
-			<a href="https://github.com/IATI/IATI-Country-Tracker"><img src="/art/Octocat.png" alt="Octocat for Github logo" width="200" height="166"/></a>
+			<a href="https://github.com/IATI/IATI-Country-Tracker" title="IATI Country Tracker on Github"><img src="/art/Octocat.png" alt="Octocat for Github logo" width="200" height="166"/></a>
 		</div>
 	</div>
 </div>
