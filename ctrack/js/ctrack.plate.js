@@ -20,6 +20,8 @@ ctrack.plate.prepare_cache=function(str)
 	
 ctrack.plate.prepare=function(str)
 {
+	if(!str) { return undefined; }
+
 	var aa=str.split("{");
 	var ar=[];
 	
@@ -80,6 +82,8 @@ ctrack.plate.chunks=function(str,dat)
 ctrack.plate.replace=function(str,dat)
 {
 	var aa=ctrack.plate.prepare(str);
+	
+	if(!aa) { return str; }
 	
 	var r=[];
 	

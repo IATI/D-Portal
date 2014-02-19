@@ -25,7 +25,7 @@ Country Tracker
 {xml}
 </div>
 
-#view_main form=raw
+#view_main
 <style>{css}</style>
 {ctnav}
 <div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
@@ -40,6 +40,40 @@ Country Tracker
 </div>
 
 </div>
+
+#view_where
+<style>{css}</style>
+{ctnav}
+{table_where}
+
+#table_where_row_head
+<tr>
+<td> - CRS - </td>
+<td> - Donor - </td>
+<td> - 2012 transactions - </td>
+<td> - 2013 transactions - </td>
+<td> - 2014 transactions - </td>
+<td> - 2014 budget - </td>
+<td> - 2015 budget - </td>
+</tr>
+#table_where_row
+<tr>
+<td>{crs}</td>
+<td>{donor}</td>
+<td>{t2012}</td>
+<td>{t2013}</td>
+<td>{t2014}</td>
+<td>{b2014}</td>
+<td>{b2015}</td></tr>
+#table_where_rows
+{table_where_row}
+#table_where
+<table>
+<br/><br/><br/><br/><br/><br/>
+{table_where_row_head}
+{table_where_rows}
+</table>
+
 
 #ctnav
 <div style="width:100%; background-color:#96CBFF; border-bottom:11px solid #BDD9FC; height:90px; position:fixed; z-index:1;">

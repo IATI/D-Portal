@@ -111,6 +111,8 @@ ctrack.setup_html=function(args)
 				$('html, body').animate({ scrollTop:0 }, 'slow', function(){
 					$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
 				})
+				
+				ctrack.prepare_view(l.view);
    			}
 
 		}
@@ -119,11 +121,22 @@ ctrack.setup_html=function(args)
 	ctrack.check_hash();
 	ctrack.display_hash();
  
-	ctrack.fetch_endingsoon({limit:5});
-	ctrack.fetch_finished({limit:5});
-	ctrack.fetch_planned({limit:5});
-	ctrack.fetch_near({limit:5});
-	ctrack.fetch_stats({});
+	ctrack.main_view_done=false;
+	ctrack.prepare_view=function(name)
+	{
+		if(name=="main")
+		{
+			if(!ctrack.main_view_done)
+			{
+				ctrack.main_view_done=true;			
+				ctrack.fetch_endingsoon({limit:5});
+				ctrack.fetch_finished({limit:5});
+				ctrack.fetch_planned({limit:5});
+				ctrack.fetch_near({limit:5});
+				ctrack.fetch_stats({});
+			}
+		}
+	}
 
 		$( document ).on("click", "a", function(event){
 			var s=$(this).prop("href");
