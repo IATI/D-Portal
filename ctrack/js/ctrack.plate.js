@@ -34,7 +34,7 @@ ctrack.plate.prepare=function(str)
 			ar.push(av[1]);
 			for(var j=2;j<av.length;j++)
 			{
-				ar.push(av[2]+"}"); // missing close so just leave it as it is
+				ar.push("}"+av[2]); // missing close so just leave it as it is
 			}
 		}
 		else
