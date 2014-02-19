@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <html> 
-	<head> 
+	<head>
+<meta charset="UTF-8">
 <title>Country Tracker Modules</title>
 <script src="/jslib/jquery.js"></script>
 <style>
@@ -13,122 +14,173 @@
 	a:hover		{color:#444; text-decoration: none;}
 	a:active	{color:#444; text-decoration: none;}
 	i			{font-style:italics;}
-	a.eg:hover	{background-color:#000;}
-	a.qeg:hover	{background-color:#4F3200;}
-	a.git:hover	{color:#1E90FF;}
+	.defcon		{width:960px; margin:0 auto;}
+	.halfcon	{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
+	.mainwrap	{width:100%; background:url('/art/bgback1.jpg') no-repeat center fixed; background-size:cover;}
+	.bold		{font-weight:bold;}
+	.bold.ob	{font-style:italic;}
+	
+	.navi		{width:100%; background-color:rgba(42,42,42,0.8); position:fixed;}
+	.hiwrap		{display:inline-block; vertical-align:top; width:560px; max-width:560px;}
+	.linkwrap	{display:inline-block; vertical-align:top; width:400px; max-width:400px;}
+	.link		{display:inline-block; vertical-align:top;}
+	.link.pad	{padding-right:30px;}
 	a.top		{display:block; color:#fff; font-size:18px; vertical-align:top; padding:30px 0; height:35px; max-height:35px; border-top:5px solid rgba(0,0,0,0)}
 	a.top.home	{display:inline-block; font-style:italic;}
 	a.top.ct:hover	{border-top:5px solid rgba(30,144,255,1)}
 	a.top.sav:hover	{border-top:5px solid rgba(255,165,0,1)}
 	a.top.hub:hover	{border-top:5px solid rgba(255,255,255,1)}
+	
+	.ctwrap		{width:100%; background-color:#2573CD; padding:140px 0 50px 0;}
+	.cthead		{color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;}
+	.ctinfo		{font-size:18px; line-height:1.4em; color:#E8F6FF;}
+	.ctinfo.top	{padding-top:10px;}
+	
+	.cteg		{width:100%; background-color:rgba(1,1,1,0.6); padding:50px 0 80px 0;}
+	.ctegwrap	{font-size:18px; color:#fff; padding:60px 0 10px 0; margin-bottom:40px;}
+	.cteghead	{font-weight:bold; font-size:38px;}
+	.ctegcol	{display:inline-block; vertical-align:top; width:320px; max-width:320px;}
+	.ctegflag	{width:280px; max-width:280px; height:200px; max-height:200px; overflow:hidden;}
+	.ctegname	{font-size:30px; text-align:center; color:#fff;}
+	a.eg		{display:block; padding:40px 20px;}
+	a.eg:hover	{background-color:#000;}
+	
+	.savwrap	{width:100%; background-color:#FFA500; padding:140px 0 50px 0;}
+	.savhead	{color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;}
+	.savinfo	{font-size:18px; line-height:1.4em; padding-top:10px; color:#FFF0D4;}
+	
+	.dqwrap		{width:100%; background-color:#724900; padding:0 0 50px 0;}
+	.l0			{width:470px; max-width:470px; border-right:10px solid #FFA500; height:100px; max-height:100px;}
+	.l1			{display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;}
+	.l2			{display:inline-block; vertical-align:top; width:230px; max-width:230px; border-left:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;}
+	.l3			{display:inline-block; vertical-align:top; width:230px; max-width:230px; border-right:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;}
+	.l4			{display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;}
+	.dqcon		{display:inline-block; vertical-align:top; width:400px; max-width:400px; padding:40px;}
+	.dqinfo		{font-size:18px; line-height:1.4em; padding:20px; color:#FFC761;}
+	
+	.qwrap		{width:100%; background-color:#4F3200; padding:100px 0 50px 0;}
+	.qhead		{color:#FFA500; font-size:28px; margin-bottom:60px;}
+	.qtip		{color:#FFB428;}
+	.qabt		{color:#B17300; font-size:16px; line-height:1.2em;}
+	.qinfo		{color:#FFA500; font-size:18px; line-height:1.3em; padding:20px 0; margin-bottom:30px;}
 	span.qdef	{display:inline-block; vertical-align:top; color:#FFBD44; font-size:16px; font-family:monospace;}
+	a.qeg		{display:block; padding:10px 30px; background-color:#201500; margin-bottom:20px; color:#fff; font-size:18px; font-family:monospace;}
+	a.qeg:hover	{background-color:#4F3200;}
+	
+	.gitwrap	{width:100%; background-color:#fff; padding:80px 0 50px 0;}
+	.gitcon		{display:inline-block; vertical-align:top; width:760px; max-width:760px;}
+	.gitinfo	{padding:20px 100px 0 0; font-size:18px; line-height:1.3em;}
+	.octocat	{display:inline-block; vertical-align:top; width:200px; max-width:200px;}
+	a.git		{display:block; font-size:38px;}
+	a.git:hover	{color:#1E90FF;}
+
 </style>
 	</head> 
 <body>
 
-<div style="width:100%; background:url('/art/bgback1.jpg') no-repeat center fixed; background-size:cover;">
+<div class="mainwrap">
 	
-<div style="width:100%; background-color:rgba(42,42,42,0.8); position:fixed;">
-	<div style="width:960px; margin:0 auto;">
-		<div style="display:inline-block; vertical-align:top; width:560px; max-width:560px;">
+<div class="navi">
+	<div class="defcon">
+		<div class="hiwrap">
 			<a href="#" class="top home">hello</a>
-		</div><div style="display:inline-block; vertical-align:top; width:400px; max-width:400px;">
-			<div style="display:inline-block; vertical-align:top; padding-right:30px;"><a href="#" class="top ct">COUNTRYTRACKER</a></div><div style="display:inline-block; vertical-align:top; padding-right:30px;"><a href="#sav" class="top sav">SAVi</a></div><div style="display:inline-block; vertical-align:top;"><a href="#git" class="top hub">GITHUB</a></div>
+		</div><div class="linkwrap">
+			<div class="link pad"><a href="#" class="top ct">COUNTRYTRACKER</a></div><div class="link pad"><a href="#sav" class="top sav">SAVi</a></div><div class="link"><a href="#git" class="top hub">GITHUB</a></div>
 		</div>
 	</div>
 </div>
 
-<div style="width:100%; background-color:#2573CD; padding:140px 0 50px 0;">
-	<div style="width:960px; margin:0 auto;">
-		<div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;"><img src="/art/ctlogo.400.png" alt="Country Tracker logo" width="400" height="400"/></div><div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;">
-			<div style="color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;">
-				<p>Country Tracker aims to be a simple user interface to search and browse all IATI data relating to a specific country that can be easily hosted by <span style="font-weight:bold;">anyone</span>, <span style="font-weight:bold; font-style:italic;">anywhere</span>.</p>
-				<p style="font-size:18px; line-height:1.4em; padding-top:10px; color:#E8F6FF;">The final Country Tracker product will be available as a set of HTML, Javascript, and CSS files.</p>
-				<p style="font-size:18px; line-height:1.4em; color:#E8F6FF;">Since HTML/CSS/Javascript are the technologies of the web, and are widely used and understood, we believe this is a good option for easy adoption by others, for easy deployment, and for easy re-configuration/customisation.</p>
+<div class="ctwrap">
+	<div class="defcon">
+		<div class="halfcon"><img src="/art/ctlogo.400.png" alt="Country Tracker logo" width="400" height="400"/></div><div class="halfcon">
+			<div class="cthead">
+				<p>Country Tracker aims to be a simple user interface to search and browse all IATI data relating to a specific country that can be easily hosted by <span class="bold">anyone</span>, <span class="bold ob">anywhere</span>.</p>
+				<p class="ctinfo top">The final Country Tracker product will be available as a set of HTML, Javascript, and CSS files.</p>
+				<p class="ctinfo">Since HTML/CSS/Javascript are the technologies of the web, and are widely used and understood, we believe this is a good option for easy adoption by others, for easy deployment, and for easy re-configuration/customisation.</p>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div style="width:100%; background-color:rgba(1,1,1,0.6); padding:50px 0 80px 0;">
-	<div style="width:960px; margin:0 auto;">
-		<div style="font-size:18px; color:#fff; padding:60px 0 10px 0; margin-bottom:40px;">
-			<span style="font-weight:bold; font-size:38px;">examples:</span>
+<div class="cteg">
+	<div class="defcon">
+		<div class="ctegwrap">
+			<span class="cteghead">examples:</span>
 			<p>We've selected 3 countries as examples of how Country Tracker displays IATI data in the browser. Please click to view.</p>
 		</div>
-		<div style="display:inline-block; vertical-align:top; width:320px; max-width:320px;">
-			<a href="/html/bangladesh" class="eg" style="display:block; padding:40px 20px;" title="What's going on in Bangladesh?">
-				<div style="width:280px; max-width:280px; height:200px; max-height:200px; overflow:hidden;">
+		<div class="ctegcol">
+			<a href="/html/bangladesh" class="eg" title="What's going on in Bangladesh?">
+				<div class="ctegflag">
 					<img src="/art/bgflag.280.png" alt="Bangladesh flag"/>
 				</div>
-				<div style="font-size:30px; text-align:center; color:#fff;">BANGLADESH</div>
+				<div class="ctegname">BANGLADESH</div>
 			</a>
-		</div><div style="display:inline-block; vertical-align:top; width:320px; max-width:320px;">
-			<a href="/html/honduras" class="eg" style="display:block; padding:40px 20px;" title="What's going on in Honduras?">
-				<div style="width:280px; max-width:280px; height:200px; max-height:200px; overflow:hidden;">
+		</div><div class="ctegcol">
+			<a href="/html/honduras" class="eg" title="What's going on in Honduras?">
+				<div class="ctegflag">
 					<img src="/art/honflag.280.png" alt="Honduras flag"/>
 				</div>
-				<div style="font-size:30px; text-align:center; color:#fff;">HONDURAS</div>
+				<div class="ctegname">HONDURAS</div>
 			</a>
-		</div><div style="display:inline-block; vertical-align:top; width:320px; max-width:320px;">
-			<a href="/html/uganda" class="eg" style="display:block; padding:40px 20px;" title="What's going on in Uganda?">
-				<div style="width:280px; max-width:280px; height:200px; max-height:200px; overflow:hidden;">
+		</div><div class="ctegcol">
+			<a href="/html/uganda" class="eg" title="What's going on in Uganda?">
+				<div class="ctegflag">
 					<img src="/art/ugaflag.280.png" alt="Uganda flag"/>
 				</div>
-				<div style="font-size:30px; text-align:center; color:#fff;">UGANDA</div>
+				<div class="ctegname">UGANDA</div>
 			</a>
 		</div>
 	</div>
 </div>
-<a name="sav"></a>
-<div style="width:100%; background-color:#FFA500; padding:140px 0 50px 0;">
-	<div style="width:960px; margin:0 auto;">
-		<div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;"><img src="/art/savilogo.400.png" alt="SAVi logo" width="400" height="400"/></div><div style="display:inline-block; vertical-align:top; width:460px; max-width:460px;">
-			<div style="color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;">
+<span id="sav"></span>
+<div class="savwrap">
+	<div class="defcon">
+		<div class="halfcon"><img src="/art/savilogo.400.png" alt="SAVi logo" width="400" height="400"/></div><div class="halfcon">
+			<div class="savhead">
 				<p>SAVi is a simple activity viewer for IATI XML that you can view in real time, online, in your favourite browser.</p>
-				<p style="font-size:18px; line-height:1.4em; padding-top:10px; color:#FFF0D4;">SAVi uses CSS and javascript to display otherwise complex-looking XML into a format that is easier to read and digest.</p>
+				<p class="savinfo">SAVi uses CSS and javascript to display otherwise complex-looking XML into a format that is easier to read and digest.</p>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div style="width:100%; background-color:#724900; padding:0 0 50px 0;">
-	<div style="width:960px; margin:0 auto;">
-		<div style="width:470px; max-width:470px; border-right:10px solid #FFA500; height:100px; max-height:100px;"></div>
-		<div style="display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;"></div><div style="display:inline-block; vertical-align:top; width:230px; max-width:230px; border-left:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;"></div><div style="display:inline-block; vertical-align:top; width:230px; max-width:230px; border-right:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;"></div><div style="display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;"></div>
-		<div style="display:inline-block; vertical-align:top; width:400px; max-width:400px; padding:40px;">
+<div class="dqwrap">
+	<div class="defcon">
+		<div class="l0"></div>
+		<div class="l1"></div><div class="l2"></div><div class="l3"></div><div class="l4"></div>
+		<div class="dqcon">
 			<img src="/art/dslogo.400.png" alt="DSTORE logo" width="400" height="100"/>
-			<div style="font-size:18px; line-height:1.4em; padding:20px; color:#FFC761;">DStore subsidizes the iati-datastore with an optimized nodejs + sqlite version for use in real time country tracker queries.</div>
-		</div><div style="display:inline-block; vertical-align:top; width:400px; max-width:400px; padding:40px;">
+			<div class="dqinfo">dstore subsidizes the IATI Datastore with an optimized nodejs + SQLite version for use in real time Country Tracker queries.</div>
+		</div><div class="dqcon">
 			<img src="/art/qlogo.400.png" alt="Q logo" width="400" height="100"/>
-			<div style="font-size:18px; line-height:1.4em; padding:20px; color:#FFC761;">Q allows you to query information you need via simple but complex filters.</div>
+			<div class="dqinfo">Q allows you to query information you need via simple but complex filters.</div>
 		</div>
 	</div>
 </div>
 
-<div style="width:100%; background-color:#4F3200; padding:100px 0 50px 0;">
-	<div style="width:960px; margin:0 auto;">
-		<div style="color:#FFA500; font-size:28px; margin-bottom:60px;">Here are some <span style="color:#FFB428;">Q</span>uery examples:</div>
-		<a href="http://dev.ctrack.iatistandard.org/q.xml?from=activities&limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg" style="display:block; padding:10px 30px; background-color:#201500; margin-bottom:20px; color:#fff; font-size:18px; font-family:monospace;">http://dev.ctrack.iatistandard.org/q.xml?from=activities&amp;limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
-		<div style="color:#B17300; font-size:16px; line-height:1.2em;">Returns XML which is automatically formatted into HTML, source remains pure XML</div>
-		<div style="color:#FFA500; font-size:18px; line-height:1.3em; padding:20px 0; margin-bottom:30px;">This query displays the activities <span class="qdef">from=activities</span> limiting the amount to 10 <span class="qdef">limit=10</span> sorted by starting day <span class="qdef">orderby=day_start</span> and from 1950 onwards <span class="qdef">day_start_gt=1950-01-01</span>.</div>
-		<a href="http://dev.ctrack.iatistandard.org/q?groupby=reporting_org&select=stats" class="qeg" style="display:block; padding:10px 30px; background-color:#201500; margin-bottom:20px; color:#fff; font-size:18px; font-family:monospace;">http://dev.ctrack.iatistandard.org/q?groupby=reporting_org&amp;select=stats</a>
-		<div style="color:#B17300; font-size:16px; line-height:1.2em;">Returns JSON (JSON is default) data about activites (activites are default) where 100 rows from the database is the default limit</div>
-		<div style="color:#FFA500; font-size:18px; line-height:1.3em; padding:20px 0; margin-bottom:30px;">This query displays data statistics <span class="qdef">select=stats</span> about activites for each reporting organisation <span class="qdef">groupby=reporting_org</span>.</div>
-		<a href="http://dev.ctrack.iatistandard.org/q.csv?from=transactions&orderby=day&limit=1000" class="qeg" style="display:block; padding:10px 30px; background-color:#201500; margin-bottom:20px; color:#fff; font-size:18px; font-family:monospace;">http://dev.ctrack.iatistandard.org/q.csv?from=transactions&amp;orderby=day&amp;limit=1000</a>
-		<div style="color:#B17300; font-size:16px; line-height:1.2em;">Returns CSV file (named q.csv by default)</div>
-		<div style="color:#FFA500; font-size:18px; line-height:1.3em; padding:20px 0; margin-bottom:30px;">This query allows you to download the CSV <span class="qdef">q.csv</span> of 1000 <span class="qdef">limit=1000</span> transaction data <span class="qdef">from=transactions</span> sorted by date <span class="qdef">orderby=day</span>.</div>
+<div class="qwrap">
+	<div class="defcon">
+		<div class="qhead">Here are some <span class="qtip">Q</span>uery examples:</div>
+		<a href="http://dev.ctrack.iatistandard.org/q.xml?from=activities&limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://dev.ctrack.iatistandard.org/q.xml?from=activities&amp;limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
+		<div class="qabt">Returns XML which is automatically formatted into HTML, source remains pure XML</div>
+		<div class="qinfo">This query displays the activities <span class="qdef">from=activities</span> limiting the amount to 10 <span class="qdef">limit=10</span> sorted by starting day <span class="qdef">orderby=day_start</span> and from 1950 onwards <span class="qdef">day_start_gt=1950-01-01</span>.</div>
+		<a href="http://dev.ctrack.iatistandard.org/q?groupby=reporting_org&select=stats" class="qeg">http://dev.ctrack.iatistandard.org/q?groupby=reporting_org&amp;select=stats</a>
+		<div class="qabt">Returns JSON (JSON is default) data about activites (activites are default) where 100 rows from the database is the default limit</div>
+		<div class="qinfo">This query displays data statistics <span class="qdef">select=stats</span> about activites for each reporting organisation <span class="qdef">groupby=reporting_org</span>.</div>
+		<a href="http://dev.ctrack.iatistandard.org/q.csv?from=transactions&orderby=day&limit=1000" class="qeg">http://dev.ctrack.iatistandard.org/q.csv?from=transactions&amp;orderby=day&amp;limit=1000</a>
+		<div class="qabt">Returns CSV file (named q.csv by default)</div>
+		<div class="qinfo">This query allows you to download the CSV <span class="qdef">q.csv</span> of 1000 <span class="qdef">limit=1000</span> transaction data <span class="qdef">from=transactions</span> sorted by date <span class="qdef">orderby=day</span>.</div>
 	</div>
 </div>
-<a name="git"></a>
-<div style="width:100%; background-color:#fff; padding:80px 0 50px 0;">
-	<div style="width:960px; margin:0 auto;">
-		<div style="display:inline-block; vertical-align:top; width:760px; max-width:760px;">
-			<a href="https://github.com/IATI/IATI-Country-Tracker" class="git" style="display:block; font-size:38px;">Fork us on <span style="font-weight:bold;">Github</span>!</a>
-			<div style="padding:20px 100px 0 0; font-size:18px; line-height:1.3em;">
+<span id="git"></span>
+<div class="gitwrap">
+	<div class="defcon">
+		<div class="gitcon">
+			<a href="https://github.com/IATI/IATI-Country-Tracker" class="git">Fork us on <span class="bold">Github</span>!</a>
+			<div class="gitinfo">
 				Country Tracker is currently being developed and designed so things are constantly changing. We look forward to receiving your bug reports and issues.
 			</div>
-		</div><div style="display:inline-block; vertical-align:top; width:200px; max-width:200px;">
+		</div><div class="octocat">
 			<a href="https://github.com/IATI/IATI-Country-Tracker"><img src="/art/Octocat.png" alt="Octocat for Github logo" width="200" height="166"/></a>
 		</div>
 	</div>
