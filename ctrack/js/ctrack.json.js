@@ -313,3 +313,57 @@ ctrack.fetch_near=function(args)
 	
 	ctrack.fetch(dat,callback);
 };
+
+ctrack.where_data=[];
+ctrack.fetch_where=function(args)
+{
+	args=args || {};
+
+	ctrack.where_data=[];
+	
+	var fadd=function(i,d)
+	{
+		var it=ctrack.where_data[i];
+		if(!it) { it={}; ctrack.where_data[i]=it; }
+		
+		for(var n in d)
+		{
+			it[n]=d[n];
+		}
+	}
+
+	var dat={
+			"from":"transactions,country",
+			"limit":args.limit || 100,
+			"funder_not_null":"",
+			"groupby":"funder",
+			"orderby":"funder",
+			"country_code":(args.country || ctrack.args.country)
+		};
+
+	var callback=args.callback || function(data){
+		
+		console.log("fetch where ");
+		console.log(data);
+		
+		for(i=0;i<data.rows.length;i++)
+		{
+			var v=data.rows[i];
+			var d={};
+			d.crs=i+1;
+			d.donor=v.funder;
+			fadd(i,d);
+		}
+
+		var s=[];
+		ctrack.where_data.forEach(function(v){
+			s.push( ctrack.plate.chunk("table_where_row",v) );
+		});
+		ctrack.htmlchunk("table_where_rows",s.join(""));
+
+		ctrack.update_hash({"view":"where"});
+
+	};
+	
+	ctrack.fetch(dat,callback);
+};

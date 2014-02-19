@@ -70,6 +70,29 @@ ctrack.setup_html=function(args)
 
 
 	
+	ctrack.view_done={};
+	ctrack.prepare_view=function(name)
+	{
+		if( !ctrack.view_done[name] )
+		{
+			ctrack.view_done[name]=true;			
+			if( name=="main" )
+			{
+				ctrack.fetch_endingsoon({limit:5});
+				ctrack.fetch_finished({limit:5});
+				ctrack.fetch_planned({limit:5});
+				ctrack.fetch_near({limit:5});
+				ctrack.fetch_stats({});
+			}
+			else
+			if( name=="where" )
+			{
+				ctrack.fetch_where();
+			}
+		}
+	}
+
+
 	ctrack.hash={"view":"main"};
 	ctrack.update_hash=function(h)
 	{
@@ -121,22 +144,6 @@ ctrack.setup_html=function(args)
 	ctrack.check_hash();
 	ctrack.display_hash();
  
-	ctrack.main_view_done=false;
-	ctrack.prepare_view=function(name)
-	{
-		if(name=="main")
-		{
-			if(!ctrack.main_view_done)
-			{
-				ctrack.main_view_done=true;			
-				ctrack.fetch_endingsoon({limit:5});
-				ctrack.fetch_finished({limit:5});
-				ctrack.fetch_planned({limit:5});
-				ctrack.fetch_near({limit:5});
-				ctrack.fetch_stats({});
-			}
-		}
-	}
 
 		$( document ).on("click", "a", function(event){
 			var s=$(this).prop("href");
