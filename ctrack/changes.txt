@@ -1,7 +1,18 @@
+Country Tracker (2014-02-19 shi)
+==============================
+Modular themeing begins (flag/country/background image)
+Added example backgrounds (cc0)
+Linked SAVi for individual activity links
+Added navigation bar to SAVi for consistency
+Added link back to modules
+Added IATI footer
+
+
 Country Tracker (2014-02-18 shi)
 ==============================
 Added new landing page
 Phase 1 branding for modules
+Activity View is now SAVi (module)
 Links to 3 country examples (BD, UG, HN)
 Background image license CC0 Public Domain
 Included Query examples for live testing
@@ -11,6 +22,7 @@ Added more extensive examples in dstore documentation
 Switched to using the dstore cache as the main data source for the 
 client side code. You can see all of these hitting the server at /q? 
 followed by params that are mapped directly to sql code.
+
 
 Activity View (2014-02-03 shi)
 ==============================
