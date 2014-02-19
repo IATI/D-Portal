@@ -58,6 +58,7 @@ var exec=function(s,f){
 };
 
 var jsfiles=[
+"../dstore/js/codes.js",
 "js/ctrack.chunks.js",
 "js/ctrack.plate.js",
 "js/ctrack.html.js",

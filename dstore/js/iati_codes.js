@@ -39,7 +39,8 @@ var http_getbody=function(url,cb)
 iati_codes.fetch = function(){
 
 	var codes={};
-	
+
+
 	var files=[
 			{
 				url:"http://dev.iatistandard.org/_static/codelists/json/en/Sector.json",
@@ -68,22 +69,47 @@ iati_codes.fetch = function(){
 		codes[opts.name]=o;
 
 	});
+
 	
 	console.log("Fetching country_codes")
-	
-	var x=wait.for(http_getbody,"http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements_xml.htm");
+
+// it turns out wikipedia is the best source, since the iso website has decided to hide its most precious data behind a paywall
+// so now we will scrape wikipedia
+
+	var x=wait.for(http_getbody,"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2");
 	var j=refry.xml(x);
 	var o={};
-	j[0][1].forEach(function(v){
-		var name=(v[1][0][1][0]);
-		var a2=(v[1][1][1]);
-		o[a2]=name;
+	
+	refry.tags(j,{0:"table",class:"wikitable"},function(it){
+		refry.tags(it,"td",function(it){
+			var name=it.title;
+			var code=refry.tagval_trim(it,"tt");
+			if( name && code )
+			{
+				if(name!="unassigned" && name!="user-assigned")
+				{
+					var aa=name.split(":");
+					if(aa[1])
+					{
+						o[code]=aa[1].trim();
+					}
+					else
+					{
+						o[code]=name;
+					}
+				}
+			}
+		});
 	});
+	
+//	ls(o);
+	
 	codes["country"]=o;
 	
 
 	console.log("Writing json/iati_codes_to_name.json")
 	
+	fs.writeFileSync("js/codes.js","exports.codes="+JSON.stringify(codes)+";\n");
 	fs.writeFileSync("json/iati_codes_to_name.json",JSON.stringify(codes));
 
 }

@@ -186,7 +186,29 @@ refry.tags=function(json,name,cb)
 	{
 		if(typeof it == "object")
 		{
-			if(it[0]==name) { cb(it); } // call parent first, then children
+			if("string" == typeof name)
+			{
+				if(it[0]==name) {
+					cb(it);
+				}
+			}
+			else // check attrs
+			{
+				var found=true;
+				for( var a in name)
+				{
+					var v=name[a];
+					if( it[a] != v ) // all attributes must match ([0]==tagname)
+					{
+						found=false;
+						break;
+					}
+				}
+				if(found)
+				{
+					cb(it);
+				}
+			}
 			if(it[1]) { it[1].forEach(f); }
 		}
 	};

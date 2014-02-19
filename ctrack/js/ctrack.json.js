@@ -275,11 +275,22 @@ ctrack.fetch_near=function(args)
 {
 	args=args || {};
 	
-	args.limit=args.limit || 5;
-	args.country="bd";//args.country || "np";		
-	args.callback=args.callback || function(data){
+//	args.limit=args.limit || 5;
+//	args.country="bd";//args.country || "np";		
+
+	var dat={
+			"from":"activities,country",
+			"limit":args.limit || 5,
+			"orderby":"day_end",
+			"status_code":"2",
+//			"day_end_gt":today,
+			"day_end_gt":0, // ignore missing end dates
+			"country_code_nteq":(args.country || ctrack.args.country)
+		};
+
+	var callback=args.callback || function(data){
 		
-		console.log("fetch endingsoon NP ");
+		console.log("fetch endingsoon ");
 		console.log(data);
 		
 		var s=[];
@@ -288,7 +299,7 @@ ctrack.fetch_near=function(args)
 			var v=data.rows[i];
 			v.num=i+1;
 			v.date=ctrack.get_nday(v.day_end);
-			v.country="Nepal"
+			v.country=ctrack.codes.country[v.country_code];
 			v.activity=v.aid;
 			s.push( ctrack.plate.chunk("ctneartable_data",v) );
 		}
@@ -299,5 +310,5 @@ ctrack.fetch_near=function(args)
 
 	};
 	
-	ctrack.fetch_endingsoon(args);
+	ctrack.fetch(dat,callback);
 };

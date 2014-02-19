@@ -3,5 +3,15 @@
 
 cd `dirname $0`
 cd ..
+
+# these are generated so prevent conflicts by reverting them
+
+git checkout ctrack/js/ctrack.js
+git checkout ctrack/js/ctrack.chunks.js
+git checkout ctrack/js/ctrack.map
+
+git checkout dstore/js/codes.js
+git checkout dstore/json/iati_codes_to_name.json
+
 git pull  -u origin master
 
