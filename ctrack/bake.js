@@ -1,9 +1,10 @@
+// Copyright (c) 2014 International Aid Transparency Initiative (IATI)
+// Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
+
 var sys = require('sys')
 var child_process = require('child_process');
 var lazy = require("lazy");
 var fs = require("fs");
-
-
 
 
 var text = fs.readFileSync("chunks/base.html",'utf8');
