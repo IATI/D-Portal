@@ -233,20 +233,21 @@ Not equal too.
 	
 Equal too, this is the same as not having a postfix.
 
-	/q?from=transactions&day_glob=2012-01-??
+	/q?from=transactions&description_glob=*Quarter*
 
 	_glob		GLOB
 
 A wildcard match where * and ? can be used for multiple or single 
 characters.
 
-	/q?from=transactions&day_like=2012-01-__
+	/q?from=transactions&description_like=%25CRS%25
 
 	_like		LIKE
 
 A wildcard match where % and _ can be used for multiple or single 
 characters. Unlike _glob this also ignores case (if you stick to the 
-english alphabet)
+english alphabet) The % probably needs to be escaped to %25 in the 
+url as above.
 
 	/q?from=transactions&description_null
 	
