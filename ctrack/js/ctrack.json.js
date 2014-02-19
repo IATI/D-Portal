@@ -271,3 +271,33 @@ ctrack.fetch_activity=function(args)
 
 }
 
+ctrack.fetch_near=function(args)
+{
+	args=args || {};
+	
+	args.limit=args.limit || 5;
+	args.country="bd";//args.country || "np";		
+	args.callback=args.callback || function(data){
+		
+		console.log("fetch endingsoon NP ");
+		console.log(data);
+		
+		var s=[];
+		for(i=0;i<data.rows.length;i++)
+		{
+			var v=data.rows[i];
+			v.num=i+1;
+			v.date=ctrack.get_nday(v.day_end);
+			v.country="Nepal"
+			v.activity=v.aid;
+			s.push( ctrack.plate.chunk("ctneartable_data",v) );
+		}
+
+		ctrack.htmlchunk("ctneartable_datas",s.join(""));
+
+		ctrack.div.main.html( ctrack.htmlall("bodytest") );
+
+	};
+	
+	ctrack.fetch_endingsoon(args);
+};

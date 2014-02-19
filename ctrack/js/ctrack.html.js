@@ -29,7 +29,7 @@ ctrack.setup_html=function(args)
 		}
 		else
 		{
-			d[n]=ctrack.plate.chunk(n,d);
+			d[n]=ctrack.plate.recurse_chunk(n,d);
 		}
 		return d[n]
 	}
@@ -54,7 +54,7 @@ ctrack.setup_html=function(args)
 
 	ctrack.htmlall=function(n)
 	{
-
+/*
 		chunk("ctend");
 		chunk("ctplan");
 		chunk("ctabout");
@@ -87,6 +87,8 @@ ctrack.setup_html=function(args)
 		chunk("ctfind");
 //		chunk("bodytest");
 		
+		chunk("css");
+*/
 		if(n)
 		{
 			return chunk(n);
@@ -95,37 +97,6 @@ ctrack.setup_html=function(args)
  
 	ctrack.div.main.html( ctrack.htmlall("bodytest") );
  
-	ctrack.fetch_near=function(args)
-	{
-		args=args || {};
-		
-		args.limit=args.limit || 5;
-		args.country="bd";//args.country || "np";		
-		args.callback=args.callback || function(data){
-			
-			console.log("fetch endingsoon NP ");
-			console.log(data);
-			
-			var s=[];
-			for(i=0;i<data.rows.length;i++)
-			{
-				var v=data.rows[i];
-				v.num=i+1;
-				v.date=ctrack.get_nday(v.day_end);
-				v.country="Nepal"
-				v.activity=v.aid;
-				s.push( ctrack.plate.chunk("ctneartable_data",v) );
-			}
-
-			ctrack.htmlchunk("ctneartable_datas",s.join(""));
-
-			ctrack.div.main.html( ctrack.htmlall("bodytest") );
-
-		};
-		
-		ctrack.fetch_endingsoon(args);
-	};
-
 	ctrack.fetch_endingsoon({limit:5});
 	ctrack.fetch_finished({limit:5});
 	ctrack.fetch_planned({limit:5});
