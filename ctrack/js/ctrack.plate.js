@@ -41,9 +41,13 @@ ctrack.plate.lookup=function(str,dat)
 	{
 		return dat[str];
 	}
+	if( ctrack.args.chunks[str]!=undefined ) // then check args chunks (data used in all lookups)
+	{
+		return ctrack.args.chunks[str];
+	}
 	if( ctrack.chunks[str]!=undefined ) // then check global chunks as well (data used in all lookups)
 	{
-		return dat[str];
+		return ctrack.chunks[str];
 	}
 	return "{"+str+"}"; // put the squiglys back
 }
