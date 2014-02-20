@@ -44,7 +44,7 @@ IATI Country Tracker
 #view_donors
 <style>{css}</style>
 {ctnavxml}
-<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
+<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:160px;">
 	<div class="defcon">
 		{table_donors}
 	</div>
@@ -63,29 +63,29 @@ IATI Country Tracker
 #table_donors_row_head
 <tr>
 <td></td>
-<td></td>
-<td colspan="3">Transactions</td>
-<td colspan="2">Budget</td>
+<td style="border-right:1px solid #ccc;"></td>
+<td colspan="3" style="text-align:center; border-right:1px solid #ccc; border-top:1px solid #ccc;">Transactions</td>
+<td colspan="2" style="text-align:center; border-right:1px solid #ccc; border-top:1px solid #ccc;">Budget</td>
 </tr>
 <tr>
-<td>CRS</td>
-<td>Donor</td>
-<td>2012</td>
-<td>2013</td>
-<td>2014</td>
-<td>2014</td>
-<td>2015</td>
+<td style="border-right:1px solid #ccc;">CRS</td>
+<td style="border-right:1px solid #ccc;">Donor</td>
+<td style="text-align:right;">2012</td>
+<td style="text-align:right;">2013</td>
+<td style="text-align:right; border-right:1px solid #ccc;">2014</td>
+<td style="text-align:right;">2014</td>
+<td style="text-align:right;">2015</td>
 </tr>
 
 #table_donors_row
 <tr>
 <td>{crs}</td>
 <td>{donor}</td>
-<td>{t2012}</td>
-<td>{t2013}</td>
-<td>{t2014}</td>
-<td>{b2014}</td>
-<td>{b2015}</td></tr>
+<td style="text-align:right;">{t2012}</td>
+<td style="text-align:right;">{t2013}</td>
+<td style="text-align:right;">{t2014}</td>
+<td style="text-align:right;">{b2014}</td>
+<td style="text-align:right;">{b2015}</td></tr>
 
 
 
@@ -364,5 +364,5 @@ overflow:auto; background-color:rgb(255, 255, 255);">HTML embed code will be pla
 
 #css
 html				{background:url('{background_image}') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
-table.donors			{width:960px; border-collapse:collapse;}
+table.donors		{width:960px; border-collapse:collapse;}
 table.donors td		{padding:10px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
