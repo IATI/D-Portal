@@ -7,7 +7,7 @@ cd ..
 # these are generated so prevent conflicts by ignoreing them in this script
 # add them manually after build if you want to update them
 
-ygit checkout ctrack/js/ctrack.js
+git checkout ctrack/js/ctrack.js
 git checkout ctrack/js/ctrack.chunks.js
 git checkout ctrack/js/ctrack.map
 
