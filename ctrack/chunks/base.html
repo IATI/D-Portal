@@ -44,7 +44,7 @@ IATI Country Tracker
 #view_donors
 <style>{css}</style>
 {ctnavxml}
-<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:160px;">
+<div style="width:1040px; margin:0 auto; background-color:#fff; padding:160px 0 230px 0;">
 	<div class="defcon">
 		{table_donors}
 	</div>
@@ -62,30 +62,30 @@ IATI Country Tracker
 
 #table_donors_row_head
 <tr>
-<td></td>
-<td style="border-right:1px solid #ccc;"></td>
-<td colspan="3" style="text-align:center; border-right:1px solid #ccc; border-top:1px solid #ccc;">Transactions</td>
-<td colspan="2" style="text-align:center; border-right:1px solid #ccc; border-top:1px solid #ccc;">Budget</td>
+<td style="border:0;"></td>
+<td style="border:0;"></td>
+<td colspan="3" style="border:0; color:#999; text-align:center; padding:20px 0;">TRANSACTIONS</td>
+<td colspan="2" style="border:0; color:#999; text-align:center; padding:20px 0;">BUDGET</td>
 </tr>
 <tr>
-<td style="border-right:1px solid #ccc;">CRS</td>
-<td style="border-right:1px solid #ccc;">Donor</td>
-<td style="text-align:right;">2012</td>
-<td style="text-align:right;">2013</td>
-<td style="text-align:right; border-right:1px solid #ccc;">2014</td>
-<td style="text-align:right;">2014</td>
-<td style="text-align:right;">2015</td>
+<td style="color:#999;">CRS</td>
+<td style="color:#999;">DONOR</td>
+<td style="text-align:right; color:#fff; background-color:#DEDEDE;">2012</td>
+<td style="text-align:right; color:#fff; background-color:#D6D6D6;">2013</td>
+<td style="text-align:right; color:#fff; background-color:#CECECE;">2014</td>
+<td style="text-align:right; color:#fff; background-color:#DEDEDE;">2014</td>
+<td style="text-align:right; color:#fff; background-color:#D6D6D6;">2015</td>
 </tr>
 
 #table_donors_row
 <tr>
-<td>{crs}</td>
-<td>{donor}</td>
-<td style="text-align:right;">{t2012}</td>
-<td style="text-align:right;">{t2013}</td>
-<td style="text-align:right;">{t2014}</td>
-<td style="text-align:right;">{b2014}</td>
-<td style="text-align:right;">{b2015}</td></tr>
+<td style="border-bottom:1px solid #ccc;">{crs}</td>
+<td style="border-bottom:1px solid #ccc;">{donor}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2012}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2013}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2014}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right;">{b2014}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right;">{b2015}</td></tr>
 
 
 #view_sectors
@@ -435,7 +435,7 @@ overflow:auto; background-color:rgb(255, 255, 255);">HTML embed code will be pla
 #footer
 <div class="footwrap">
 	<div class="footcon">
-		<a href="http://www.aidtransparency.net/" target="_blank" title="International Aid Transparency Initiative (IATI)" class="copyright">© 2014 International Aid Transparency Initiative (IATI)</span>
+		<a href="http://www.aidtransparency.net/" target="_blank" title="International Aid Transparency Initiative (IATI)" class="copyright">© 2014 International Aid Transparency Initiative (IATI)</a>
 	</div>
 </div>
 
@@ -444,10 +444,10 @@ overflow:auto; background-color:rgb(255, 255, 255);">HTML embed code will be pla
 #css
 html				{background:url('{background_image}') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
 table.donors		{width:960px; border-collapse:collapse;}
-table.donors td		{padding:10px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
+table.donors td		{padding:20px; vertical-align:top; border-bottom: 3px solid #D8D8D8;}
 
-table.sectors			{width:960px; border-collapse:collapse;}
-table.sectors td		{padding:10px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
+table.sectors		{width:960px; border-collapse:collapse;}
+table.sectors td	{padding:15px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
 
-table.districts			{width:960px; border-collapse:collapse;}
-table.districts td		{padding:10px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
+table.districts		{width:960px; border-collapse:collapse;}
+table.districts td	{padding:15px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
