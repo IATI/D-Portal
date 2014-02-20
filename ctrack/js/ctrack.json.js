@@ -317,14 +317,35 @@ ctrack.fetch_near=function(args)
 ctrack.where_data=[];
 ctrack.fetch_where=function(args)
 {
+	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+
 	args=args || {};
 
-	ctrack.where_data=[];
+	ctrack.where_data={};
 	
-	var fadd=function(i,d)
+	var display=function()
 	{
-		var it=ctrack.where_data[i];
-		if(!it) { it={}; ctrack.where_data[i]=it; }
+		var s=[];
+		var a=[];
+		for(var n in ctrack.where_data) { a.push( ctrack.where_data[n] ); }
+		a.sort(function(a,b){return (b.order-a.order)});
+		a.forEach(function(v){
+			if(!v.t2012){v.t2012="";}
+			if(!v.t2013){v.t2013="";}
+			if(!v.t2014){v.t2014="";}
+			if(!v.b2014){v.b2014="";}
+			if(!v.b2015){v.b2015="";}
+			s.push( ctrack.plate.chunk("table_where_row",v) );
+		});
+		ctrack.htmlchunk("table_where_rows",s.join(""));
+		ctrack.update_hash({"view":"where"});
+	};
+	
+	var fadd=function(d)
+	{
+		var it=ctrack.where_data[d.funder];
+		if(!it) { it={}; ctrack.where_data[d.funder]=it; }
 		
 		for(var n in d)
 		{
@@ -332,38 +353,73 @@ ctrack.fetch_where=function(args)
 		}
 	}
 
-	var dat={
-			"from":"transactions,country",
-			"limit":args.limit || 100,
-			"funder_not_null":"",
-			"groupby":"funder",
-			"orderby":"funder",
-			"country_code":(args.country || ctrack.args.country)
+	var years=[2012,2013,2014];
+	years.forEach(function(year)
+	{
+		var dat={
+				"from":"transactions,country",
+				"limit":args.limit || 100,
+				"select":"funder,sum_of_percent_of_usd",
+				"funder_not_null":"",
+				"groupby":"funder",
+				"orderby":"funder",
+				"day_gteq":year+"-01-01","day_lt":(parseInt(year)+1)+"-01-01",
+				"country_code":(args.country || ctrack.args.country)
+			};
+		var callback=function(data){
+			console.log("fetch transactions where "+year);
+			console.log(data);
+			
+			for(var i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				var d={};
+				d.funder=v.funder;
+				d["t"+year]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+				if(year==2012)
+				{
+					d.crs=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+					d.order=v.sum_of_percent_of_usd;
+				}
+				fadd(d);
+			}
+			console.log(ctrack.where_data);
+			
+			display();
 		};
-
-	var callback=args.callback || function(data){
-		
-		console.log("fetch where ");
-		console.log(data);
-		
-		for(i=0;i<data.rows.length;i++)
-		{
-			var v=data.rows[i];
-			var d={};
-			d.crs=i+1;
-			d.donor=v.funder;
-			fadd(i,d);
-		}
-
-		var s=[];
-		ctrack.where_data.forEach(function(v){
-			s.push( ctrack.plate.chunk("table_where_row",v) );
-		});
-		ctrack.htmlchunk("table_where_rows",s.join(""));
-
-		ctrack.update_hash({"view":"where"});
-
-	};
+		ctrack.fetch(dat,callback);
+	});
 	
-	ctrack.fetch(dat,callback);
+	var years=[2014,2015];
+	years.forEach(function(year)
+	{
+		var dat={
+				"from":"budgets,country",
+				"limit":args.limit || 100,
+				"select":"funder,sum_of_percent_of_usd",
+				"funder_not_null":"",
+				"groupby":"funder",
+				"orderby":"funder",
+				"day_start_gteq":year+"-01-01","day_start_lt":(parseInt(year)+1)+"-01-01","day_length_lt":370,
+				"country_code":(args.country || ctrack.args.country)
+			};
+		var callback=function(data){
+			
+			console.log("fetch budget where "+year);			
+			console.log(data);
+			
+			for(var i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				var d={};
+				d.funder=v.funder;
+				d["b"+year]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+				fadd(d);
+			}
+			console.log(ctrack.where_data);
+			
+			display();
+		};
+		ctrack.fetch(dat,callback);
+	});
 };

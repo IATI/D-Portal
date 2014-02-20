@@ -55,6 +55,7 @@ ctrack.setup_html=function(args)
 	ctrack.hash={};
 	ctrack.hash_split=function(q,v)
 	{
+		if(q[0]=="#") { q=q.substring(1);}
 		v=v || ctrack.hash;
 		var aa=q.split("&");
 		aa.forEach(function(it){
@@ -117,7 +118,7 @@ ctrack.setup_html=function(args)
 	ctrack.last_view="";
 	ctrack.check_hash=function()
 	{
-		var h=$.param.fragment();
+		var h=document.location.hash;
 		if(h!=ctrack.last_hash)
 		{
 			ctrack.last_hash=h;
