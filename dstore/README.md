@@ -354,3 +354,15 @@ Sort by ids descending, so from high to low.
 	/q?orderby=day_start,day_end
 
 Multiple column names can also be given seperated by a comma (,)
+
+
+
+	/q?select=aid,sector_percent,usd,percent_of_usd,sector_type&from=transactions,sector&orderby=2,4-
+
+Result columns to sort by may also be selected using integers. Eg 1 
+will sort by the first result, 2 by the second. In this case it 
+would sort by sector_percent and then percent_of_usd both 
+descending. This is very useful when using functional select options 
+such as the percent_of_* used above.
+
+

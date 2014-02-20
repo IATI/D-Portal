@@ -404,6 +404,7 @@ End
 			for(var i=0;i<aa.length;i++)
 			{
 				aa[i]=parseFloat(aa[i]) || 1;
+				if(aa[i]<1) { aa[i]=-aa[i]; } // fix negative percents?
 				total+=aa[i];
 			}
 

@@ -669,6 +669,14 @@ query.getsql_order_by=function(q,qv){
 			{
 				ss.push(v+xtra);
 			}
+			else
+			{
+				var n=parseInt(v); // or allow numerical indexes into results row
+				if((n>0)&&(n<100)&&(n==n))
+				{
+					ss.push(n+xtra);
+				}
+			}
 		}
 	}
 
