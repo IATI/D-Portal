@@ -314,7 +314,6 @@ ctrack.fetch_near=function(args)
 	ctrack.fetch(dat,callback);
 };
 
-ctrack.donors_data=[];
 ctrack.fetch_donors=function(args)
 {
 	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
@@ -363,7 +362,6 @@ ctrack.fetch_donors=function(args)
 				"select":"funder,sum_of_percent_of_usd",
 				"funder_not_null":"",
 				"groupby":"funder",
-				"orderby":"funder",
 				"code":"D|E",
 				"day_gteq":year+"-01-01","day_lt":(parseInt(year)+1)+"-01-01",
 				"country_code":(args.country || ctrack.args.country)
@@ -401,7 +399,6 @@ ctrack.fetch_donors=function(args)
 				"select":"funder,sum_of_percent_of_usd",
 				"funder_not_null":"",
 				"groupby":"funder",
-				"orderby":"funder",
 				"day_end_gteq":year+"-01-01","day_end_lt":(parseInt(year)+1)+"-01-01","day_length_lt":370,
 				"country_code":(args.country || ctrack.args.country)
 			};
@@ -419,6 +416,224 @@ ctrack.fetch_donors=function(args)
 				fadd(d);
 			}
 			console.log(ctrack.donors_data);
+			
+			display();
+		};
+		ctrack.fetch(dat,callback);
+	});
+};
+
+
+
+ctrack.fetch_sectors=function(args)
+{
+	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+
+	args=args || {};
+
+	ctrack.sectors_data={};
+	
+	var display=function()
+	{
+		var s=[];
+		var a=[];
+		for(var n in ctrack.sectors_data) { a.push( ctrack.sectors_data[n] ); }
+		a.sort(function(a,b){return (b.order-a.order)});
+		a.forEach(function(v){
+			if(!v.t2012){v.t2012="0";}
+			if(!v.t2013){v.t2013="0";}
+			if(!v.t2014){v.t2014="0";}
+			if(!v.b2014){v.b2014="0";}
+			if(!v.b2015){v.b2015="0";}
+			v.sector=ctrack.codes.country[v.group] || v.group;
+			s.push( ctrack.plate.chunk("table_sectors_row",v) );
+		});
+		ctrack.htmlchunk("table_sectors_rows",s.join(""));
+		ctrack.update_hash({"view":"sectors"});
+	};
+	
+	var fadd=function(d)
+	{
+		var it=ctrack.sectors_data[d.group];
+		if(!it) { it={}; ctrack.sectors_data[d.group]=it; }
+		
+		for(var n in d)
+		{
+			it[n]=d[n];
+		}
+	}
+
+	var years=[2012,2013,2014];
+	years.forEach(function(year)
+	{
+		var dat={
+				"from":"transactions,country,sector",
+				"limit":args.limit || 100,
+				"select":"sector_group,sum_of_percent_of_usd",
+				"groupby":"sector_group",
+				"code":"D|E",
+				"day_gteq":year+"-01-01","day_lt":(parseInt(year)+1)+"-01-01",
+				"country_code":(args.country || ctrack.args.country)
+			};
+		var callback=function(data){
+			console.log("fetch transactions sectors "+year);
+			console.log(data);
+			
+			for(var i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				var d={};
+				d.group=v.sector_group;
+				d["t"+year]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+				if(year==2012)
+				{
+					d.crs=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+					d.order=v.sum_of_percent_of_usd;
+				}
+				fadd(d);
+			}
+			console.log(ctrack.sectors_data);
+			
+			display();
+		};
+		ctrack.fetch(dat,callback);
+	});
+	
+	var years=[2014,2015];
+	years.forEach(function(year)
+	{
+		var dat={
+				"from":"budgets,country,sector",
+				"limit":args.limit || 100,
+				"select":"sector_group,sum_of_percent_of_usd",
+				"groupby":"sector_group",
+				"day_end_gteq":year+"-01-01","day_end_lt":(parseInt(year)+1)+"-01-01","day_length_lt":370,
+				"country_code":(args.country || ctrack.args.country)
+			};
+		var callback=function(data){
+			
+			console.log("fetch budget sectors "+year);			
+			console.log(data);
+			
+			for(var i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				var d={};
+				d.group=v.sector_group;
+				d["b"+year]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+				fadd(d);
+			}
+			console.log(ctrack.sectors_data);
+			
+			display();
+		};
+		ctrack.fetch(dat,callback);
+	});
+};
+
+
+
+
+ctrack.fetch_districts=function(args)
+{
+	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+
+	args=args || {};
+
+	ctrack.districts_data={};
+	
+	var display=function()
+	{
+		var s=[];
+		var a=[];
+		for(var n in ctrack.districts_data) { a.push( ctrack.districts_data[n] ); }
+		a.sort(function(a,b){return (b.order-a.order)});
+		a.forEach(function(v){
+			if(!v.t2012){v.t2012="0";}
+			if(!v.t2013){v.t2013="0";}
+			if(!v.t2014){v.t2014="0";}
+			if(!v.b2014){v.b2014="0";}
+			if(!v.b2015){v.b2015="0";}
+			s.push( ctrack.plate.chunk("table_districts_row",v) );
+		});
+		ctrack.htmlchunk("table_districts_rows",s.join(""));
+		ctrack.update_hash({"view":"districts"});
+	};
+	
+	var fadd=function(d)
+	{
+		var it=ctrack.districts_data[d.location];
+		if(!it) { it={}; ctrack.districts_data[d.location]=it; }
+		
+		for(var n in d)
+		{
+			it[n]=d[n];
+		}
+	}
+
+	var years=[2012,2013,2014];
+	years.forEach(function(year)
+	{
+		var dat={
+				"from":"transactions,country,location",
+				"limit":args.limit || 100,
+				"select":"location_name,sum_of_percent_of_usd",
+				"groupby":"location_name",
+				"code":"D|E",
+				"day_gteq":year+"-01-01","day_lt":(parseInt(year)+1)+"-01-01",
+				"country_code":(args.country || ctrack.args.country)
+			};
+		var callback=function(data){
+			console.log("fetch transactions districts "+year);
+			console.log(data);
+			
+			for(var i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				var d={};
+				d.location=v.location_name;
+				d["t"+year]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+				if(year==2012)
+				{
+					d.crs=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+					d.order=v.sum_of_percent_of_usd;
+				}
+				fadd(d);
+			}
+			console.log(ctrack.districts_data);
+			
+			display();
+		};
+		ctrack.fetch(dat,callback);
+	});
+	
+	var years=[2014,2015];
+	years.forEach(function(year)
+	{
+		var dat={
+				"from":"budgets,country,location",
+				"limit":args.limit || 100,
+				"select":"location_name,sum_of_percent_of_usd",
+				"groupby":"location_name",
+				"day_end_gteq":year+"-01-01","day_end_lt":(parseInt(year)+1)+"-01-01","day_length_lt":370,
+				"country_code":(args.country || ctrack.args.country)
+			};
+		var callback=function(data){
+			
+			console.log("fetch budget districts "+year);			
+			console.log(data);
+			
+			for(var i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				var d={};
+				d.location=v.location_name;
+				d["b"+year]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+				fadd(d);
+			}
+			console.log(ctrack.districts_data);
 			
 			display();
 		};
