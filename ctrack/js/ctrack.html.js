@@ -86,9 +86,9 @@ ctrack.setup_html=function(args)
 				ctrack.fetch_stats({});
 			}
 			else
-			if( name=="where" )
+			if( name=="donors" )
 			{
-				ctrack.fetch_where();
+				ctrack.fetch_donors();
 			}
 		}
 	}
