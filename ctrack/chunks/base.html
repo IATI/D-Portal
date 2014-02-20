@@ -88,6 +88,85 @@ IATI Country Tracker
 <td style="text-align:right;">{b2015}</td></tr>
 
 
+#view_sectors
+<style>{css}</style>
+{ctnavxml}
+<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
+	<div class="defcon">
+		{table_sectors}
+	</div>
+</div>
+{footer}
+
+#table_sectors
+<table class="sectors">
+{table_sectors_row_head}
+{table_sectors_rows}
+</table>
+
+#table_sectors_rows
+{table_sectors_row}
+
+#table_sectors_row_head
+<tr>
+<td>CRS</td>
+<td>Sector</td>
+<td>2012 transactions</td>
+<td>2013 transactions</td>
+<td>2014 transactions</td>
+<td>2014 budget</td>
+<td>2015 budget</td>
+</tr>
+
+#table_sectors_row
+<tr>
+<td>{crs}</td>
+<td>{sector}</td>
+<td>{t2012}</td>
+<td>{t2013}</td>
+<td>{t2014}</td>
+<td>{b2014}</td>
+<td>{b2015}</td></tr>
+
+
+
+#view_districts
+<style>{css}</style>
+{ctnavxml}
+<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
+	<div class="defcon">
+		{table_districts}
+	</div>
+</div>
+{footer}
+
+#table_districts
+<table class="districts">
+{table_districts_row_head}
+{table_districts_rows}
+</table>
+
+#table_districts_rows
+{table_districts_row}
+
+#table_districts_row_head
+<tr>
+<td>District</td>
+<td>2012 transactions</td>
+<td>2013 transactions</td>
+<td>2014 transactions</td>
+<td>2014 budget</td>
+<td>2015 budget</td>
+</tr>
+
+#table_districts_row
+<tr>
+<td>{location}</td>
+<td>{t2012}</td>
+<td>{t2013}</td>
+<td>{t2014}</td>
+<td>{b2014}</td>
+<td>{b2015}</td></tr>
 
 
 #ctnav
@@ -366,3 +445,9 @@ overflow:auto; background-color:rgb(255, 255, 255);">HTML embed code will be pla
 html				{background:url('{background_image}') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
 table.donors		{width:960px; border-collapse:collapse;}
 table.donors td		{padding:10px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
+
+table.sectors			{width:960px; border-collapse:collapse;}
+table.sectors td		{padding:10px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
+
+table.districts			{width:960px; border-collapse:collapse;}
+table.districts td		{padding:10px 20px; vertical-align:top; border-bottom:1px solid #ccc;}

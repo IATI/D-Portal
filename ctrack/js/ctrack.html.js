@@ -90,6 +90,16 @@ ctrack.setup_html=function(args)
 			{
 				ctrack.fetch_donors();
 			}
+			else
+			if( name=="sectors" )
+			{
+				ctrack.fetch_sectors();
+			}
+			else
+			if( name=="districts" )
+			{
+				ctrack.fetch_districts();
+			}
 		}
 	}
 
