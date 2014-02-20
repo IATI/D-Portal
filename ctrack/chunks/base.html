@@ -46,10 +46,14 @@ IATI Country Tracker
 {ctnavxml}
 <div style="width:1040px; margin:0 auto; background-color:#fff; padding:160px 0 230px 0;">
 	<div class="defcon">
+		{donors_head}
 		{table_donors}
 	</div>
 </div>
 {footer}
+
+#donors_head
+<div style="width:960px; margin:0 auto; font-size:38px; color:#8E9092; padding-bottom:40px;">Where does the money come from?</div>
 
 #table_donors
 <table class="donors">
@@ -68,35 +72,40 @@ IATI Country Tracker
 <td colspan="2" style="border:0; color:#999; text-align:center; padding:20px 0;">BUDGET</td>
 </tr>
 <tr>
-<td style="color:#999;">CRS</td>
-<td style="color:#999;">DONOR</td>
-<td style="text-align:right; color:#fff; background-color:#DEDEDE;">2012</td>
-<td style="text-align:right; color:#fff; background-color:#D6D6D6;">2013</td>
-<td style="text-align:right; color:#fff; background-color:#CECECE;">2014</td>
-<td style="text-align:right; color:#fff; background-color:#DEDEDE;">2014</td>
-<td style="text-align:right; color:#fff; background-color:#D6D6D6;">2015</td>
+<td style="color:#888; background-color:#D6D6D6;">CRS 2012</td>
+<td style="color:#888;">DONOR</td>
+<td style="text-align:right; color:#888; background-color:#DEDEDE;">2012</td>
+<td style="text-align:right; color:#888; background-color:#D6D6D6;">2013</td>
+<td style="text-align:right; color:#888; background-color:#CECECE;">2014</td>
+<td style="text-align:right; color:#888; background-color:#DEDEDE;">2014</td>
+<td style="text-align:right; color:#888; background-color:#D6D6D6;">2015</td>
 </tr>
 
 #table_donors_row
 <tr>
-<td style="border-bottom:1px solid #ccc;">{crs}</td>
+<td style="border-bottom:1px solid #ccc; background-color:#E8F7FE;">{crs}</td>
 <td style="border-bottom:1px solid #ccc;">{donor}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2012}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{t2012}</td>
 <td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2013}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2014}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right;">{b2014}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right;">{b2015}</td></tr>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#E8F4FF;">{t2014}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{b2014}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{b2015}</td>
+</tr>
 
 
 #view_sectors
 <style>{css}</style>
 {ctnavxml}
-<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
+<div style="width:1040px; margin:0 auto; background-color:#fff; padding:160px 0 230px 0;">
 	<div class="defcon">
+		{sectors_head}
 		{table_sectors}
 	</div>
 </div>
 {footer}
+
+#sectors_head
+<div style="width:960px; margin:0 auto; font-size:38px; color:#8E9092; padding-bottom:40px;">Where does the money go to (Sectors)?</div>
 
 #table_sectors
 <table class="sectors">
@@ -109,36 +118,47 @@ IATI Country Tracker
 
 #table_sectors_row_head
 <tr>
-<td>CRS</td>
-<td>Sector</td>
-<td>2012 transactions</td>
-<td>2013 transactions</td>
-<td>2014 transactions</td>
-<td>2014 budget</td>
-<td>2015 budget</td>
+<td style="border:0;"></td>
+<td style="border:0;"></td>
+<td colspan="3" style="border:0; color:#999; text-align:center; padding:20px 0;">TRANSACTIONS</td>
+<td colspan="2" style="border:0; color:#999; text-align:center; padding:20px 0;">BUDGET</td>
+</tr>
+<tr>
+<td style="color:#888; background-color:#D6D6D6;">CRS 2012</td>
+<td style="color:#888;">SECTOR</td>
+<td style="text-align:right; color:#888; background-color:#DEDEDE;">2012</td>
+<td style="text-align:right; color:#888; background-color:#D6D6D6;">2013</td>
+<td style="text-align:right; color:#888; background-color:#CECECE;">2014</td>
+<td style="text-align:right; color:#888; background-color:#DEDEDE;">2014</td>
+<td style="text-align:right; color:#888; background-color:#D6D6D6;">2015</td>
 </tr>
 
 #table_sectors_row
 <tr>
-<td>{crs}</td>
-<td>{sector}</td>
-<td>{t2012}</td>
-<td>{t2013}</td>
-<td>{t2014}</td>
-<td>{b2014}</td>
-<td>{b2015}</td></tr>
+<td style="border-bottom:1px solid #ccc; background-color:#E8F7FE;">{crs}</td>
+<td style="border-bottom:1px solid #ccc;">{sector}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{t2012}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2013}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#E8F4FF;">{t2014}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{b2014}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{b2015}</td>
+</tr>
 
 
 
 #view_districts
 <style>{css}</style>
 {ctnavxml}
-<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
+<div style="width:1040px; margin:0 auto; background-color:#fff; padding:160px 0 230px 0;">
 	<div class="defcon">
+		{districts_head}
 		{table_districts}
 	</div>
 </div>
 {footer}
+
+#districts_head
+<div style="width:960px; margin:0 auto; font-size:38px; color:#8E9092; padding-bottom:40px;">Where does the money go to (Geography)?</div>
 
 #table_districts
 <table class="districts">
@@ -151,22 +171,28 @@ IATI Country Tracker
 
 #table_districts_row_head
 <tr>
-<td>District</td>
-<td>2012 transactions</td>
-<td>2013 transactions</td>
-<td>2014 transactions</td>
-<td>2014 budget</td>
-<td>2015 budget</td>
+<td style="border:0;"></td>
+<td colspan="3" style="border:0; color:#999; text-align:center; padding:20px 0;">TRANSACTIONS</td>
+<td colspan="2" style="border:0; color:#999; text-align:center; padding:20px 0;">BUDGET</td>
+</tr>
+<tr>
+<td style="color:#888;">DISTRICT</td>
+<td style="text-align:right; color:#888; background-color:#DEDEDE;">2012</td>
+<td style="text-align:right; color:#888; background-color:#D6D6D6;">2013</td>
+<td style="text-align:right; color:#888; background-color:#CECECE;">2014</td>
+<td style="text-align:right; color:#888; background-color:#DEDEDE;">2014</td>
+<td style="text-align:right; color:#888; background-color:#D6D6D6;">2015</td>
 </tr>
 
 #table_districts_row
 <tr>
-<td>{location}</td>
-<td>{t2012}</td>
-<td>{t2013}</td>
-<td>{t2014}</td>
-<td>{b2014}</td>
-<td>{b2015}</td></tr>
+<td style="border-bottom:1px solid #ccc;">{location}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{t2012}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2013}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#E8F4FF;">{t2014}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{b2014}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{b2015}</td>
+</tr>
 
 
 #ctnav
@@ -182,7 +208,7 @@ IATI Country Tracker
 <div style="width:100%; background-color:#96CBFF; border-bottom:11px solid #BDD9FC; height:90px; position:fixed; z-index:1;">
 	<div style="width:960px; margin:0 auto; color:#fff; font-size:32px; padding-top:30px;">
 		<div style="display:inline-block; vertical-align:top; width:760px; height:30px;">
-			<a href="#ctrack_index"><img src="/art/ctlogo.png" alt="Country Tracker logo" width="350" height="30"/></a>
+			<a href="/"><img src="/art/ctlogo.png" alt="Country Tracker logo" width="350" height="30"/></a>
 		</div><div style="width:200px; display:inline-block; text-align:right;"><a href="#ctrack_index" class="navabout">Back</a></div>
 	</div>
 </div>
@@ -444,10 +470,10 @@ overflow:auto; background-color:rgb(255, 255, 255);">HTML embed code will be pla
 #css
 html				{background:url('{background_image}') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
 table.donors		{width:960px; border-collapse:collapse;}
-table.donors td		{padding:20px; vertical-align:top; border-bottom: 3px solid #D8D8D8;}
+table.donors td		{padding:20px; vertical-align:top; border-bottom:3px solid #D8D8D8;}
 
 table.sectors		{width:960px; border-collapse:collapse;}
-table.sectors td	{padding:15px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
+table.sectors td	{padding:20px; vertical-align:top; border-bottom:3px solid #D8D8D8;}
 
 table.districts		{width:960px; border-collapse:collapse;}
-table.districts td	{padding:15px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
+table.districts td	{padding:20px; vertical-align:top; border-bottom:3px solid #D8D8D8;}
