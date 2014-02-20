@@ -69,7 +69,7 @@ ctrack.fetch_endingsoon=function(args)
 			}
 			v.amount=tot;
 */
-
+			v.title=v.title || v.aid;
 			v.date=ctrack.get_nday(v.day_end);
 
 			v.activity=v.aid;
@@ -113,6 +113,7 @@ ctrack.fetch_finished=function(args)
 			var v=data.rows[i];
 			v.num=i+1;
 
+			v.title=v.title || v.aid;
 			v.date=ctrack.get_nday(v.day_end);
 
 			v.activity=v.aid;
@@ -157,6 +158,7 @@ ctrack.fetch_planned=function(args)
 			var v=data.rows[i];
 			v.num=i+1;
 
+			v.title=v.title || v.aid;
 			v.date=ctrack.get_nday(v.day_start);
 			
 			v.activity=v.aid;
@@ -581,6 +583,7 @@ ctrack.fetch_districts=function(args)
 				"limit":args.limit || 100,
 				"select":"location_name,sum_of_percent_of_usd",
 				"groupby":"location_name",
+				"location_code":"adm2",
 				"code":"D|E",
 				"day_gteq":year+"-01-01","day_lt":(parseInt(year)+1)+"-01-01",
 				"country_code":(args.country || ctrack.args.country)
@@ -617,6 +620,7 @@ ctrack.fetch_districts=function(args)
 				"limit":args.limit || 100,
 				"select":"location_name,sum_of_percent_of_usd",
 				"groupby":"location_name",
+				"location_code":"adm2",
 				"day_end_gteq":year+"-01-01","day_end_lt":(parseInt(year)+1)+"-01-01","day_length_lt":370,
 				"country_code":(args.country || ctrack.args.country)
 			};
