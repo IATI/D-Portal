@@ -331,11 +331,12 @@ ctrack.fetch_where=function(args)
 		for(var n in ctrack.where_data) { a.push( ctrack.where_data[n] ); }
 		a.sort(function(a,b){return (b.order-a.order)});
 		a.forEach(function(v){
-			if(!v.t2012){v.t2012="";}
-			if(!v.t2013){v.t2013="";}
-			if(!v.t2014){v.t2014="";}
-			if(!v.b2014){v.b2014="";}
-			if(!v.b2015){v.b2015="";}
+			if(!v.t2012){v.t2012="0";}
+			if(!v.t2013){v.t2013="0";}
+			if(!v.t2014){v.t2014="0";}
+			if(!v.b2014){v.b2014="0";}
+			if(!v.b2015){v.b2015="0";}
+			v.donor=ctrack.codes.country[v.funder] || v.funder;
 			s.push( ctrack.plate.chunk("table_where_row",v) );
 		});
 		ctrack.htmlchunk("table_where_rows",s.join(""));
