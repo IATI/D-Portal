@@ -10,6 +10,7 @@ required["iati_codes"]=iati_codes;
 var util=require('util');
 var wait=require('wait.for');
 var http=require('http');
+var https=require('https');
 var fs = require('fs');
 
 var refry=require('./refry');
@@ -36,11 +37,30 @@ var http_getbody=function(url,cb)
 
 };
 
+var https_getbody=function(url,cb)
+{
+	https.get(url, function(res) {
+		res.setEncoding('utf8');
+		var s="";
+		res.on('data', function (chunk) {
+			s=s+chunk;
+		});
+		res.on('end', function() {
+			cb(null,s);
+		});
+	}).on('error', function(e) {
+		cb(e,null);
+	});
+
+};
+
 iati_codes.fetch = function(){
 
 	var codes={};
 
-
+if(true)
+{
+	
 	var files=[
 			{
 				url:"http://dev.iatistandard.org/_static/codelists/json/en/Sector.json",
@@ -105,7 +125,33 @@ iati_codes.fetch = function(){
 //	ls(o);
 	
 	codes["country"]=o;
+
+}
+
+
+	console.log("Fetching sector groups csv")
+
+	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=0&output=csv");
+	var lines=x.split("\n");
+	lines=lines.map(function(l){return l.split(",")});
+
+	var o={};
+
+	for(var i=1;i<lines.length;i++)
+	{
+		var v=lines[i];
+		var num=parseInt(v[0]);
+		var str=v[1];
+		if(num && str)
+		{
+			o[num]=str;
+		}
+	}
 	
+//	ls(o);
+		
+	codes["sector_group"]=o;
+
 
 	console.log("Writing json/iati_codes_to_name.json")
 	

@@ -13,6 +13,8 @@ var iati_xml=require('./iati_xml');
 var iati_cook=require('./iati_cook');
 var dstore_sqlite=require('./dstore_sqlite');
 
+var codes=require('./codes').codes;
+
 var wait=require('wait.for');
 
 var util=require('util');
@@ -435,7 +437,7 @@ End
 			{
 				var sc=sectors[i];
 				var pc=percents[i];
-				var group="none";
+				var group=codes.sector_group[sc.slice(0,3)];
 				var sa = db.prepare(dstore_sqlite.tables_replace_sql["sector"]);
 				sa.run({"$sector_aid":t.aid,"$sector_group":group,"$sector_code":sc,"$sector_percent":pc});				
 				sa.finalize();
