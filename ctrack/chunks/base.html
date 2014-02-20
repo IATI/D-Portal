@@ -41,26 +41,26 @@ IATI Country Tracker
 </div>
 
 
-#view_where
+#view_donors
 <style>{css}</style>
 {ctnavxml}
 <div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
 	<div class="defcon">
-		{table_where}
+		{table_donors}
 	</div>
 </div>
 {footer}
 
-#table_where
-<table class="where">
-{table_where_row_head}
-{table_where_rows}
+#table_donors
+<table class="donors">
+{table_donors_row_head}
+{table_donors_rows}
 </table>
 
-#table_where_rows
-{table_where_row}
+#table_donors_rows
+{table_donors_row}
 
-#table_where_row_head
+#table_donors_row_head
 <tr>
 <td></td>
 <td></td>
@@ -77,7 +77,7 @@ IATI Country Tracker
 <td>2015</td>
 </tr>
 
-#table_where_row
+#table_donors_row
 <tr>
 <td>{crs}</td>
 <td>{donor}</td>
@@ -364,5 +364,5 @@ overflow:auto; background-color:rgb(255, 255, 255);">HTML embed code will be pla
 
 #css
 html				{background:url('{background_image}') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
-table.where			{width:960px; border-collapse:collapse;}
-table.where td		{padding:10px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
+table.donors			{width:960px; border-collapse:collapse;}
+table.donors td		{padding:10px 20px; vertical-align:top; border-bottom:1px solid #ccc;}
