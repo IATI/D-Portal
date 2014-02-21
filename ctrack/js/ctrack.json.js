@@ -302,7 +302,7 @@ ctrack.fetch_near=function(args)
 			var v=data.rows[i];
 			v.num=i+1;
 			v.date=ctrack.get_nday(v.day_end);
-			v.country=ctrack.iati_codes.country[v.country_code];
+			v.country=ctrack.iati_codes.codes.country[v.country_code];
 			v.activity=v.aid;
 			s.push( ctrack.plate.chunk("ctneartable_data",v) );
 		}
@@ -337,7 +337,7 @@ ctrack.fetch_donors=function(args)
 			if(!v.t2014){v.t2014="0";}
 			if(!v.b2014){v.b2014="0";}
 			if(!v.b2015){v.b2015="0";}
-			v.donor=ctrack.iati_codes.crs_funder[v.funder] || v.funder;
+			v.donor=ctrack.iati_codes.codes.crs_funder[v.funder] || v.funder;
 			s.push( ctrack.plate.chunk("table_donors_row",v) );
 		});
 		ctrack.htmlchunk("table_donors_rows",s.join(""));

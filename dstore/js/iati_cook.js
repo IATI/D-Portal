@@ -9,7 +9,7 @@ required["iati_cook"]=iati_cook;
 
 var util=require('util');
 
-var iati_codes_to_name=require('../json/iati_codes_to_name');
+var codes=require('../json/iati_codes');
 
 var iati_xml=require('./iati_xml');
 var refry=require('./refry');
@@ -138,7 +138,7 @@ iati_cook.activity=function(act)
 		if( status_code && (it.code!=5) ) // if not canceled or missing
 		{
 			it.code=status_code // then replace code with what we worked out above
-			it[1]=[ iati_codes_to_name.activity_status[it.code] ];
+			it[1]=[ codes.activity_status[it.code] ];
 		}
 	});
 

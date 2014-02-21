@@ -13,7 +13,7 @@ var iati_xml=require('./iati_xml');
 var iati_cook=require('./iati_cook');
 var dstore_sqlite=require('./dstore_sqlite');
 
-var codes=require('./codes').codes;
+var codes=require('../json/iati_codes').codes;
 
 var wait=require('wait.for');
 
