@@ -330,14 +330,21 @@ ctrack.fetch_donors=function(args)
 		var s=[];
 		var a=[];
 		for(var n in ctrack.donors_data) { a.push( ctrack.donors_data[n] ); }
-		a.sort(function(a,b){return (b.order-a.order)});
+		a.sort(function(a,b){
+			if(b.order==a.order)
+			{
+				return ( (b.t2012||0) - (a.t2012||0) );
+			}
+			return ( (b.order||0)-(a.order||0) );
+		});
 		a.forEach(function(v){
+			if(!v.crs){v.crs="0";}
 			if(!v.t2012){v.t2012="0";}
 			if(!v.t2013){v.t2013="0";}
 			if(!v.t2014){v.t2014="0";}
 			if(!v.b2014){v.b2014="0";}
 			if(!v.b2015){v.b2015="0";}
-			v.donor=ctrack.codes.crs_funder[v.funder] || v.funder;
+			v.donor=ctrack.codes.crs_funders[v.funder] || ctrack.codes.country[v.funder] || v.funder;
 			s.push( ctrack.plate.chunk("table_donors_row",v) );
 		});
 		ctrack.htmlchunk("table_donors_rows",s.join(""));
@@ -351,8 +358,22 @@ ctrack.fetch_donors=function(args)
 		
 		for(var n in d)
 		{
-			it[n]=d[n];
+			if(d[n])
+			{
+				it[n]=d[n];
+			}
 		}
+	}
+
+// insert crs data if we have it
+	var crs=ctrack.crs[ (args.country || ctrack.args.country).toUpperCase() ];
+	for(var n in crs)
+	{
+		var d={};
+		d.funder=n;
+		d.crs=commafy(""+Math.floor(crs[n]));
+		d.order=crs[n];
+		fadd(d);
 	}
 
 	var years=[2012,2013,2014];
@@ -378,11 +399,6 @@ ctrack.fetch_donors=function(args)
 				var d={};
 				d.funder=v.funder;
 				d["t"+year]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
-				if(year==2012)
-				{
-					d.crs=commafy(""+Math.floor(v.sum_of_percent_of_usd));
-					d.order=v.sum_of_percent_of_usd;
-				}
 				fadd(d);
 			}
 			console.log(ctrack.donors_data);

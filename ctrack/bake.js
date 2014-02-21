@@ -59,6 +59,7 @@ var exec=function(s,f){
 
 var jsfiles=[
 "../dstore/json/iati_codes.js",
+"../dstore/json/crs_2012.js",
 "js/ctrack.chunks.js",
 "js/ctrack.plate.js",
 "js/ctrack.html.js",
