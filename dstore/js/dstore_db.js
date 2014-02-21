@@ -49,43 +49,43 @@ dstore_db.tables={
 		{ name:"day_length",					INTEGER:true , INDEX:true },
 		{ name:"title",							NOCASE:true },
 		{ name:"description",					NOCASE:true },
-		{ name:"reporting_org",					NOCASE:true },
+		{ name:"reporting_org",					NOCASE:true , INDEX:true },
 		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"funder",						NOCASE:true }
+		{ name:"funder",						NOCASE:true , INDEX:true }
 	],
 	transactions:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"jml",						TEXT:true },
 		{ name:"json",							TEXT:true },
-		{ name:"ref",							NOCASE:true },
-		{ name:"description",					NOCASE:true },
+		{ name:"ref",							NOCASE:true , INDEX:true },
+		{ name:"description",					NOCASE:true , INDEX:true },
 		{ name:"day",							INTEGER:true , INDEX:true },
-		{ name:"currency",						NOCASE:true },
-		{ name:"value",							REAL:true },
-		{ name:"usd",							REAL:true },
+		{ name:"currency",						NOCASE:true , INDEX:true },
+		{ name:"value",							REAL:true , INDEX:true },
+		{ name:"usd",							REAL:true , INDEX:true },
 		{ name:"code",							NOCASE:true , INDEX:true },
 		{ name:"flow_code",						NOCASE:true , INDEX:true },
 		{ name:"finance_code",					NOCASE:true , INDEX:true },
 		{ name:"aid_code",						NOCASE:true , INDEX:true },
-		{ name:"reporting_org",					NOCASE:true },
+		{ name:"reporting_org",					NOCASE:true , INDEX:true },
 		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"funder",						NOCASE:true }
+		{ name:"funder",						NOCASE:true , INDEX:true }
 	],
 	budgets:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement)
 		{ name:"jml",							TEXT:true },
 		{ name:"json",							TEXT:true },
-		{ name:"type",							NOCASE:true },
+		{ name:"type",							NOCASE:true , INDEX:true },
 		{ name:"day_start",						INTEGER:true , INDEX:true },
 		{ name:"day_end",						INTEGER:true , INDEX:true },
 		{ name:"day_length",					INTEGER:true , INDEX:true },
-		{ name:"currency",						NOCASE:true },
-		{ name:"value",							REAL:true },
-		{ name:"usd",							REAL:true },
-		{ name:"reporting_org",					NOCASE:true },
+		{ name:"currency",						NOCASE:true , INDEX:true },
+		{ name:"value",							REAL:true , INDEX:true },
+		{ name:"usd",							REAL:true , INDEX:true },
+		{ name:"reporting_org",					NOCASE:true , INDEX:true },
 		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"funder",						NOCASE:true }
+		{ name:"funder",						NOCASE:true , INDEX:true }
 	],
 // These are intended just to be joined to the above.
 // use &from=activities,country,sector,location& to request a join via aid ( this *may* return duplicate activities )

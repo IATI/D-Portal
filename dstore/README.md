@@ -47,8 +47,17 @@ for a full reset.
 
 	node serv.js --cmd import --xmlfile "tmp/bd.xml"
 
-Populate the database from just the provided xml file, good for 
-simple tests.
+Populate the database from just the named xml file which is good 
+for simple tests.
+
+
+	../bin/import_bd_ug_hn
+
+This is a small script that clears the database and then downloads 
+and imports data for Bangladesh, Uganda and Honduras. It's probably 
+best to have a look at this script and see what it does rather than 
+just run it blindly.
+
 
 
 Q
