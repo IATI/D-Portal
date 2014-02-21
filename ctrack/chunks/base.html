@@ -24,7 +24,6 @@ IATI Country Tracker
 <div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
 {xml}
 </div>
-{footer}
 
 #view_main
 <style>{css}</style>
@@ -50,7 +49,6 @@ IATI Country Tracker
 		{table_donors}
 	</div>
 </div>
-{footer}
 
 #donors_head
 <div style="width:960px; margin:0 auto; font-size:38px; color:#8E9092; padding-bottom:40px;">Where does the money come from?</div>
@@ -102,7 +100,6 @@ IATI Country Tracker
 		{table_sectors}
 	</div>
 </div>
-{footer}
 
 #sectors_head
 <div style="width:960px; margin:0 auto; font-size:38px; color:#8E9092; padding-bottom:40px;">Where does the money go to (Sectors)?</div>
@@ -155,7 +152,6 @@ IATI Country Tracker
 		{table_districts}
 	</div>
 </div>
-{footer}
 
 #districts_head
 <div style="width:960px; margin:0 auto; font-size:38px; color:#8E9092; padding-bottom:40px;">Where does the money go to (Geography)?</div>
@@ -462,17 +458,11 @@ overflow:auto; background-color:rgb(255, 255, 255);">HTML embed code will be pla
 </div>
 
 
-#footer
-<div class="footwrap">
-	<div class="footcon">
-		<a href="http://www.aidtransparency.net/" target="_blank" title="International Aid Transparency Initiative (IATI)" class="copyright">© 2014 International Aid Transparency Initiative (IATI)</a>
-	</div>
-</div>
-
-
 
 #css
-html				{background:url('{background_image}') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
+html				{background:url('{background_image}') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y:scroll;}
+iati-activity		{margin:0 auto;}
+
 table.donors		{width:960px; border-collapse:collapse;}
 table.donors td		{padding:20px; vertical-align:top; border-bottom:3px solid #D8D8D8;}
 

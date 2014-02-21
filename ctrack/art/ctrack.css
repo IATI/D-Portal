@@ -1,25 +1,29 @@
-.ctrack, .ctrack_main	{width:100%; margin:0 auto;}
-.ctrack_main			{height:100%; background-color: rgba(255,255,255,0.4);}
-body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:'Helvetica Neue', Arial, sans-serif;}
-html 					{background:url('backgroundimage.jpg') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y: scroll;}
+body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:sans-serif; word-wrap:break-word;}
+html 					{background:url('backgroundimage.jpg') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y:scroll;}
+
 a						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
+a, img					{border:0; outline:none;}
 a:focus					{color:#444; text-decoration: none;}
 a:link  				{color:#444; text-decoration: none;}
 a:visited				{color:#444; text-decoration: none;}
 a:hover					{color:#444; text-decoration: none;}
 a:active				{color:#444; text-decoration: none;}
 i						{color:#444; font-style:italics;}
-.defcon		{width:960px; margin:0 auto;}
-.halfcon	{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
-.bold		{font-weight:bold;}
-.bold.ob	{font-style:italic;}
+.defcon					{width:960px; margin:0 auto;}
+.halfcon				{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
+
+.ctrack					{width:100%; min-height:100%; height:auto !important; height:100%; margin:0px 0px -38px 0px;}
+.ctrack_main			{width:100%; min-width:1040px; padding:0px 0px 38px 0px; background-color: rgba(255,255,255,0.4);}
+
+.bold					{font-weight:bold;}
+.bold.ob				{font-style:italic;}
 
 .footer					{width:100%; margin:0 auto; background-color:#FFF083; color:#C5B541; margin-top:40px; padding:20px 0;}
 .footer:hover			{color:#A59313;}
 
-.footwrap	{width:100%; background-color:#303030;}
-.footcon	{width:960px; margin:0 auto; padding:10px 0;}
-a.copyright	{font-size:13px; line-height:13px; font-weight:bold; text-transform:uppercase; color:#fff;}
+.footwrap				{width:100%; min-width:1040px; height:38px; background-color:#303030;}
+.footcon				{width:960px; margin:0 auto; padding:10px 0;}
+a.copyright				{font-size:13px; line-height:13px; font-weight:bold; text-transform:uppercase; color:#fff;}
 
 a.navabout				{font-size:24px; color:#fff;}
 a.navabout:hover		{border-bottom:2px solid #fff;}
@@ -65,3 +69,5 @@ table.def.near tr:nth-child(1) td					{border-bottom: 3px solid #CDE2E7; color:#
 table.def.near tr:nth-child(1) td:nth-child(2) 		{text-align:left;}
 table.def.near tr:not(:nth-child(1)) td:nth-child(3){text-align:left;}
 table.def.near tr:not(:nth-child(1)) td:nth-child(4){text-align:right;}
+
+iati-activity		{margin:0 auto;}

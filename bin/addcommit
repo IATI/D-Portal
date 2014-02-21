@@ -4,12 +4,5 @@
 cd `dirname $0`
 cd ..
 
-# these are generated so prevent conflicts by ignoreing them in this script
-# add and commit them manually if you want to update the versions
-
-git checkout ctrack/js/ctrack.js
-git checkout ctrack/js/ctrack.chunks.js
-git checkout ctrack/js/ctrack.map
-
 git add . --all
 git commit -a -m.
