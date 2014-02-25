@@ -15,7 +15,7 @@
     "express": "^3.4.8"
   },
   "scripts": {
-    "build": "node_modules/browserify/bin/cmd.js js/ctrack.js -d -o jslib/ctrack.js",
+    "build": "node_modules/browserify/bin/cmd.js js/ctrack.js -d -o jslib/ctrack.js && node_modules/uglify-js/bin/uglifyjs jslib/ctrack.js -o jslib/ctrack.min.js",
     "watch": "node_modules/watchify/bin/cmd.js js/ctrack.js -d -o jslib/ctrack.js -v",
     "bake": "node js/bake.js",
     "serv": "node js/serv.js"
