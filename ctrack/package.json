@@ -17,7 +17,7 @@
   "scripts": {
     "build": "node_modules/browserify/bin/cmd.js js/ctrack.js -d -o jslib/ctrack.js",
     "watch": "node_modules/watchify/bin/cmd.js js/ctrack.js -d -o jslib/ctrack.js -v",
-    "bake": "node bake.js",
-    "serv": "node serv.js"
+    "bake": "node js/bake.js",
+    "serv": "node js/serv.js"
   }
 }

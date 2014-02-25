@@ -6,7 +6,7 @@ var fs = require("fs");
 var plate=require("./plate.js");
 
 
-fs.writeFileSync("json/chunks.js",JSON.stringify(
+fs.writeFileSync("json/chunks.json",JSON.stringify(
 		plate.fill_chunks(
 			fs.readFileSync("chunks/base.html",'utf8')
 		)
@@ -14,7 +14,7 @@ fs.writeFileSync("json/chunks.js",JSON.stringify(
 );
 
 
-console.log("Parsed chunks/base.html into js/ctrack.chunks.js");
+console.log("Parsed chunks/base.html into json/chunks.json");
 
 
 /*
