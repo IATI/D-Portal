@@ -5,6 +5,7 @@ var fs = require("fs");
 
 var plate=require("./plate.js");
 
+try { fs.mkdirSync("json"); } catch(e){}
 
 fs.writeFileSync("json/chunks.json",JSON.stringify(
 		plate.fill_chunks(
