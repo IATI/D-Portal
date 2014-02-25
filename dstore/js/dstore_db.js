@@ -346,7 +346,6 @@ dstore_db.refresh_act = function(db,aid,xml){
 			if( funder[2]=="-" )
 			{
 				t.funder=funder.slice(0,2).toUpperCase();
-				if(t.funder=="GB") { t.funder="UK"; } // hacky fix
 			}
 		
 // use codes if we have one

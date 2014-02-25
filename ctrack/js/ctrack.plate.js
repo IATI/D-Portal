@@ -5,6 +5,19 @@ var ctrack=ctrack || exports;
 
 ctrack.plate={};
 
+// break a string into chunks ( can be merged and overried other chunks )
+ctrack.plate.chunk=function(str)
+{
+	if( ctrack.plate.preps[str] )
+	{
+		return ctrack.plate.preps[str];
+	}
+	var ar=ctrack.plate.prepare(str);
+	ctrack.plate.preps[str]=ar;
+	return ar;
+}
+
+
 // is caching worthwhile?
 ctrack.plate.preps={};
 ctrack.plate.prepare_cache=function(str)

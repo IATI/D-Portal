@@ -58,6 +58,7 @@ var exec=function(s,f){
 };
 
 var jsfiles=[
+"js/require.js",
 "../dstore/json/iati_codes.js",
 "../dstore/json/crs_2012.js",
 "js/ctrack.chunks.js",
