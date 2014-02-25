@@ -14,5 +14,10 @@
     "nconf": "^0.6.9",
     "express": "^3.4.8",
     "lazy": "^1.0.11"
+  },
+  "scripts": {
+    "build": "node_modules/browserify/bin/cmd.js js/ctrack.index.js -d --s ctrack > js/ctrack.js",
+    "watch": "node_modules/watchify/bin/cmd.js js/ctrack.index.js -d --s ctrack -o dist/ctrack.js -v",
+    "bake": "node bake.js"
   }
 }
