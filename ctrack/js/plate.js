@@ -1,37 +1,76 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var ctrack=ctrack || exports;
+var plate=exports;
 
-ctrack.plate={};
+var ctrack=require("./ctrack.js")
+
+
+plate.chunks=[];
 
 // break a string into chunks ( can be merged and overried other chunks )
-ctrack.plate.chunk=function(str)
+plate.fill_chunks=function(str,chunks)
 {
-	if( ctrack.plate.preps[str] )
+	var chunks=chunks || {};
+
+	var chunk;
+	str.split("\n").forEach(function(l){
+			if(l[0]=="#")
+			{
+				if(l[1]!="#")
+				{
+					var name=l.substring(1).replace(/\s+/g, " ").split(" ")[0];
+					if(name)
+					{
+						chunk=chunks[name];
+						if(!chunk) // create
+						{
+							chunk=[];
+							chunks[name]=chunk;				
+						}
+						else
+						if( "string" == typeof chunk ) // upgrade from string
+						{
+							chunk=[];
+							chunk[0]=chunks[name];
+							chunks[name]=chunk;
+						}
+					}
+				}
+			}
+			else
+			if(chunk)
+			{
+				chunk.push(l);
+			}
+		});
+
+	for( n in chunks )
 	{
-		return ctrack.plate.preps[str];
+		if( "object" == typeof chunks[n] ) // join arrays
+		{
+			chunks[n]=chunks[n].join("\n");
+		}
 	}
-	var ar=ctrack.plate.prepare(str);
-	ctrack.plate.preps[str]=ar;
-	return ar;
+
+	return chunks;
 }
 
 
 // is caching worthwhile?
-ctrack.plate.preps={};
-ctrack.plate.prepare_cache=function(str)
+plate.preps={};
+plate.prepare_cache=function(str)
 {
-	if( ctrack.plate.preps[str] )
+	if( plate.preps[str] )
 	{
-		return ctrack.plate.preps[str];
+		return plate.preps[str];
 	}
-	var ar=ctrack.plate.prepare(str);
-	ctrack.plate.preps[str]=ar;
+	var ar=plate.prepare(str);
+	plate.preps[str]=ar;
 	return ar;
 }
 	
-ctrack.plate.prepare=function(str)
+plate.prepare=function(str)
 {
 	if(!str) { return undefined; }
 
@@ -60,7 +99,7 @@ ctrack.plate.prepare=function(str)
 	return ar;
 }
 
-ctrack.plate.lookup=function(str,dat)
+plate.lookup=function(str,dat)
 {
 	if( dat[str]!=undefined ) // check the local data first (data only used in this lookup)
 	{
@@ -77,24 +116,24 @@ ctrack.plate.lookup=function(str,dat)
 	return "{"+str+"}"; // put the squiglys back
 }
 
-ctrack.plate.chunk=function(str,dat)
+plate.chunk=function(str,dat)
 {
-	return ctrack.plate.replace( ctrack.chunks[str] ,dat);
+	return plate.replace( ctrack.chunks[str] ,dat);
 }
 
-ctrack.plate.recurse_chunk=function(str,dat)
+plate.recurse_chunk=function(str,dat)
 {
-	return ctrack.plate.recurse_replace( ctrack.chunks[str] ,dat);
+	return plate.recurse_replace( ctrack.chunks[str] ,dat);
 }
 
-ctrack.plate.chunks=function(str,dat)
+plate.chunks=function(str,dat)
 {
-	return ctrack.plate.replaces( ctrack.chunks[str] ,dat);
+	return plate.replaces( ctrack.chunks[str] ,dat);
 }
 
-ctrack.plate.replace=function(str,dat)
+plate.replace=function(str,dat)
 {
-	var aa=ctrack.plate.prepare(str);
+	var aa=plate.prepare(str);
 	
 	if(!aa) { return str; }
 	
@@ -107,7 +146,7 @@ ctrack.plate.replace=function(str,dat)
 		{
 			i++;
 			v=aa[i];
-			r.push( ctrack.plate.lookup( v,dat ) );
+			r.push( plate.lookup( v,dat ) );
 		}
 		else
 		{
@@ -119,14 +158,14 @@ ctrack.plate.replace=function(str,dat)
 }
 
 // repeat untill all things that can expand, have expanded
-ctrack.plate.recurse_replace=function(str,arr)
+plate.recurse_replace=function(str,arr)
 {
 	var check="";
 	var sanity=0;
 	while( str != check) //nothing changed on the last iteration so we are done
 	{
 		check=str;
-		str=ctrack.plate.replace(str,arr);
+		str=plate.replace(str,arr);
 		sanity++;
 		if(sanity>100) { break; }
 	}
@@ -135,12 +174,12 @@ ctrack.plate.recurse_replace=function(str,arr)
 }
 
 // perform replace on an array of strings?
-ctrack.plate.replaces=function(str,arr)
+plate.replaces=function(str,arr)
 {
 	var r=[];
 	for(var i=0;i<arr.length;i++)
 	{
-		r.push( ctrack.plate.replace(str,arr[i]) );
+		r.push( plate.replace(str,arr[i]) );
 	}
 
 	return r.join("");
