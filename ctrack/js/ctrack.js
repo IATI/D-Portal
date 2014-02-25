@@ -1,13 +1,13 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var html=exports;
+var ctrack=exports;
 
-var ctrack=require("./ctrack.js")
+var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetch=require("./fetch.js")
 
-ctrack.setup_html=function(args)
+ctrack.setup=function(args)
 {
 	ctrack.args=args;
 
@@ -19,9 +19,9 @@ ctrack.setup_html=function(args)
 	ctrack.div.master.empty();
 	ctrack.div.master.append(ctrack.div.main);
 	
-//	ctrack.div.main.html( ctrack.plate.chunk("chunk1",{test:"TESTING"})  );
+//	ctrack.div.main.html( plate.chunk("chunk1",{test:"TESTING"})  );
 
-	ctrack.div.main.html( ctrack.plate.chunk("loading",{})  );
+	ctrack.div.main.html( plate.chunk("loading",{})  );
 	
 //	ctrack.fetch({});
 
@@ -33,7 +33,7 @@ ctrack.setup_html=function(args)
 		}
 		else
 		{
-			d[n]=ctrack.plate.recurse_chunk(n,d);
+			d[n]=plate.recurse_chunk(n,d);
 		}
 		return d[n]
 	}
@@ -83,26 +83,26 @@ ctrack.setup_html=function(args)
 			ctrack.view_done[name]=true;			
 			if( name=="main" )
 			{
-				ctrack.fetch_endingsoon({limit:5});
-				ctrack.fetch_finished({limit:5});
-				ctrack.fetch_planned({limit:5});
-				ctrack.fetch_near({limit:5});
-				ctrack.fetch_stats({});
+				fetch.endingsoon({limit:5});
+				fetch.finished({limit:5});
+				fetch.planned({limit:5});
+				fetch.near({limit:5});
+				fetch.stats({});
 			}
 			else
 			if( name=="donors" )
 			{
-				ctrack.fetch_donors();
+				fetch.donors();
 			}
 			else
 			if( name=="sectors" )
 			{
-				ctrack.fetch_sectors();
+				fetch.sectors();
 			}
 			else
 			if( name=="districts" )
 			{
-				ctrack.fetch_districts();
+				fetch.districts();
 			}
 		}
 	}
@@ -190,7 +190,7 @@ ctrack.setup_html=function(args)
 						{
 							var s=$(this).attr("activity");
 							console.log(s);
-							ctrack.fetch_activity({activity:s});
+							fetch.activity({activity:s});
 						}
 						else
 						if(aa[2]=="more")
@@ -198,16 +198,16 @@ ctrack.setup_html=function(args)
 							switch(aa[1])
 							{
 								case "ending":
-									ctrack.fetch_endingsoon({limit:20});
+									fetch.endingsoon({limit:20});
 								break;
 								case "finished":
-									ctrack.fetch_finished({limit:20});
+									fetch.finished({limit:20});
 								break;
 								case "starting":
-									ctrack.fetch_planned({limit:20});
+									fetch.planned({limit:20});
 								break;
 								case "near":
-									ctrack.fetch_near({limit:20});
+									fetch.near({limit:20});
 								break;
 							}
 						}

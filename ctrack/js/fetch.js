@@ -5,12 +5,17 @@
 var fetch=exports;
 
 var ctrack=require("./ctrack.js")
-var html=require("./html.js")
+var plate=require("./plate.js")
 var iati=require("./iati.js")
 
+var iati_codes=require("../../dstore/json/iati_codes.json")
+var crs_year=require("../../dstore/json/crs_2012.json")
+
+//var fetch=require("./fetch.js")
 
 
-ctrack.get_today=function()
+
+fetch.get_today=function()
 {
 	var now = new Date();
     var day = ("0" + now.getDate()).slice(-2);
@@ -19,7 +24,7 @@ ctrack.get_today=function()
     return today;
 }
 
-ctrack.get_nday=function(n)
+fetch.get_nday=function(n)
 {
 	var now = new Date(n*1000*60*60*24);
     var day = ("0" + now.getDate()).slice(-2);
@@ -28,7 +33,7 @@ ctrack.get_nday=function(n)
     return nday;
 }
 
-ctrack.fetch=function(dat,callback)
+fetch.ajax=function(dat,callback)
 {
 	$.ajax({
 	  dataType: "json",
@@ -38,11 +43,11 @@ ctrack.fetch=function(dat,callback)
 	});
 }
 
-ctrack.fetch_endingsoon=function(args)
+fetch.endingsoon=function(args)
 {
 	args=args || {};
 	
-	var today=ctrack.get_today();
+	var today=fetch.get_today();
     
 	var dat={
 			"from":"activities,country",
@@ -56,8 +61,6 @@ ctrack.fetch_endingsoon=function(args)
 	
 	var callback=args.callback || function(data){
 		
-//		ctrack.div.main.html( ctrack.plate.chunk("preparing",{})  );
-
 		console.log("fetch endingsoon : "+today);
 		console.log(data);
 		
@@ -90,14 +93,14 @@ ctrack.fetch_endingsoon=function(args)
 
 	};
 	
-	ctrack.fetch(dat,callback);
+	fetch.ajax(dat,callback);
 }
 
-ctrack.fetch_finished=function(args)
+fetch.finished=function(args)
 {
 	args=args || {};
 	
-	var today=ctrack.get_today();
+	var today=fetch.get_today();
     
 	var dat={
 			"from":"activities,country",
@@ -120,11 +123,11 @@ ctrack.fetch_finished=function(args)
 			v.num=i+1;
 
 			v.title=v.title || v.aid;
-			v.date=ctrack.get_nday(v.day_end);
+			v.date=fetch.get_nday(v.day_end);
 
 			v.activity=v.aid;
 
-			s.push( ctrack.plate.chunk("ctbox2table_data",v) );
+			s.push( plate.chunk("ctbox2table_data",v) );
 		}
 
 //		ctrack.htmlchunk("finished_projects",data["total-count"]);
@@ -134,15 +137,15 @@ ctrack.fetch_finished=function(args)
 
 	};
 
-	ctrack.fetch(dat,callback);
+	fetch.ajax(dat,callback);
 }
 
 
-ctrack.fetch_planned=function(args)
+fetch.planned=function(args)
 {
 	args=args || {};
 	
-	var today=ctrack.get_today();
+	var today=fetch.get_today();
     
 	var dat={
 			"from":"activities,country",
@@ -165,11 +168,11 @@ ctrack.fetch_planned=function(args)
 			v.num=i+1;
 
 			v.title=v.title || v.aid;
-			v.date=ctrack.get_nday(v.day_start);
+			v.date=fetch.get_nday(v.day_start);
 			
 			v.activity=v.aid;
 
-			s.push( ctrack.plate.chunk("ctbox3table_data",v) );
+			s.push( plate.chunk("ctbox3table_data",v) );
 		}
 
 //		ctrack.htmlchunk("planned_projects",data["total-count"]);
@@ -179,14 +182,14 @@ ctrack.fetch_planned=function(args)
 
 	};
 	
-	ctrack.fetch(dat,callback);
+	fetch.ajax(dat,callback);
 }
 
-ctrack.fetch_stats=function(args)
+fetch.stats=function(args)
 {
 	args=args || {};
 	
-	var today=ctrack.get_today();
+	var today=fetch.get_today();
     
 	var f1=function(){
 		var dat={
@@ -207,7 +210,7 @@ ctrack.fetch_stats=function(args)
 
 		};
 	
-		ctrack.fetch(dat,callback);
+		fetch.ajax(dat,callback);
 	};
 
 	f1();
@@ -244,7 +247,7 @@ ctrack.fetch_stats=function(args)
 
 		};
 	
-		ctrack.fetch(dat,callback);
+		fetch.ajax(dat,callback);
 	};
 	
 	f2();
@@ -252,7 +255,7 @@ ctrack.fetch_stats=function(args)
 }
 
 
-ctrack.fetch_activity=function(args)
+fetch.activity=function(args)
 {
 
 	var dat={
@@ -276,11 +279,11 @@ ctrack.fetch_activity=function(args)
 		
 	};
 		
-	ctrack.fetch(dat,callback);
+	fetch.ajax(dat,callback);
 
 }
 
-ctrack.fetch_near=function(args)
+fetch.near=function(args)
 {
 	args=args || {};
 	
@@ -307,10 +310,10 @@ ctrack.fetch_near=function(args)
 		{
 			var v=data.rows[i];
 			v.num=i+1;
-			v.date=ctrack.get_nday(v.day_end);
-			v.country=ctrack.codes.country[v.country_code];
+			v.date=fetch.get_nday(v.day_end);
+			v.country=iati_codes.country[v.country_code];
 			v.activity=v.aid;
-			s.push( ctrack.plate.chunk("ctneartable_data",v) );
+			s.push( plate.chunk("ctneartable_data",v) );
 		}
 
 		ctrack.htmlchunk("ctneartable_datas",s.join(""));
@@ -319,10 +322,10 @@ ctrack.fetch_near=function(args)
 
 	};
 	
-	ctrack.fetch(dat,callback);
+	fetch.ajax(dat,callback);
 };
 
-ctrack.fetch_donors=function(args)
+fetch.donors=function(args)
 {
 	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -350,8 +353,8 @@ ctrack.fetch_donors=function(args)
 			if(!v.t2014){v.t2014="0";}
 			if(!v.b2014){v.b2014="0";}
 			if(!v.b2015){v.b2015="0";}
-			v.donor=ctrack.codes.crs_funders[v.funder] || ctrack.codes.country[v.funder] || v.funder;
-			s.push( ctrack.plate.chunk("table_donors_row",v) );
+			v.donor=iati_codes.crs_funders[v.funder] || iati_codes.country[v.funder] || v.funder;
+			s.push( plate.chunk("table_donors_row",v) );
 		});
 		ctrack.htmlchunk("table_donors_rows",s.join(""));
 		ctrack.update_hash({"view":"donors"});
@@ -372,7 +375,7 @@ ctrack.fetch_donors=function(args)
 	}
 
 // insert crs data if we have it
-	var crs=ctrack.crs[ (args.country || ctrack.args.country).toUpperCase() ];
+	var crs=crs_year[ (args.country || ctrack.args.country).toUpperCase() ];
 	for(var n in crs)
 	{
 		var d={};
@@ -411,7 +414,7 @@ ctrack.fetch_donors=function(args)
 			
 			display();
 		};
-		ctrack.fetch(dat,callback);
+		fetch.ajax(dat,callback);
 	});
 	
 	var years=[2014,2015];
@@ -443,13 +446,13 @@ ctrack.fetch_donors=function(args)
 			
 			display();
 		};
-		ctrack.fetch(dat,callback);
+		fetch.ajax(dat,callback);
 	});
 };
 
 
 
-ctrack.fetch_sectors=function(args)
+fetch.sectors=function(args)
 {
 	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -521,7 +524,7 @@ ctrack.fetch_sectors=function(args)
 			
 			display();
 		};
-		ctrack.fetch(dat,callback);
+		fetch.ajax(dat,callback);
 	});
 	
 	var years=[2014,2015];
@@ -552,14 +555,14 @@ ctrack.fetch_sectors=function(args)
 			
 			display();
 		};
-		ctrack.fetch(dat,callback);
+		fetch.ajax(dat,callback);
 	});
 };
 
 
 
 
-ctrack.fetch_districts=function(args)
+fetch.districts=function(args)
 {
 	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -580,7 +583,7 @@ ctrack.fetch_districts=function(args)
 			if(!v.t2014){v.t2014="0";}
 			if(!v.b2014){v.b2014="0";}
 			if(!v.b2015){v.b2015="0";}
-			s.push( ctrack.plate.chunk("table_districts_row",v) );
+			s.push( plate.chunk("table_districts_row",v) );
 		});
 		ctrack.htmlchunk("table_districts_rows",s.join(""));
 		ctrack.update_hash({"view":"districts"});
@@ -631,7 +634,7 @@ ctrack.fetch_districts=function(args)
 			
 			display();
 		};
-		ctrack.fetch(dat,callback);
+		fetch.ajax(dat,callback);
 	});
 	
 	var years=[2014,2015];
@@ -663,6 +666,6 @@ ctrack.fetch_districts=function(args)
 			
 			display();
 		};
-		ctrack.fetch(dat,callback);
+		fetch.ajax(dat,callback);
 	});
 };
