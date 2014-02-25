@@ -3,7 +3,6 @@
 
 var sys = require('sys')
 var child_process = require('child_process');
-var lazy = require("lazy");
 var fs = require("fs");
 
 
