@@ -244,9 +244,8 @@ if(true)
 	codes["crs_countries"]=o;
 	
 		
-	console.log("Writing json/iati_codes_to_name.json")
-	
-	fs.writeFileSync("json/iati_codes.js","exports.codes="+JSON.stringify(codes)+";\n");
+	console.log("Writing json/iati_codes.json")	
+//	fs.writeFileSync("json/iati_codes.js","exports.codes="+JSON.stringify(codes)+";\n");
 	fs.writeFileSync("json/iati_codes.json",JSON.stringify(codes));
 
 
@@ -295,7 +294,8 @@ if(true)
 	
 //	ls(o);
 
-	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
+	console.log("Writing json/crs_2012.json")
+//	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
 	fs.writeFileSync("json/crs_2012.json",JSON.stringify(o));
 
 //	codes["local_currency"]=o;
