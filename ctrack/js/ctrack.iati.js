@@ -3,8 +3,12 @@
 
 // data cleanup
 
+var iati=exports;
 
-var ctrack=ctrack || exports;
+var ctrack=require("./ctrack.js")
+var html=require("./html.js")
+var fetch=require("./fetch.js")
+
 
 ctrack.iati={};
 ctrack.iati.totext=function(v)

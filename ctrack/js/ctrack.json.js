@@ -2,7 +2,13 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var ctrack=ctrack || exports;
+var fetch=exports;
+
+var ctrack=require("./ctrack.js")
+var html=require("./html.js")
+var iati=require("./iati.js")
+
+
 
 ctrack.get_today=function()
 {
