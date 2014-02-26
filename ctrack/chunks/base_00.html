@@ -25,6 +25,20 @@ IATI Country Tracker
 {xml}
 </div>
 
+#view_main
+<style>{css}</style>
+{ctnav}
+<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
+{cthead}
+{ctbox1}
+{ctbox1table}
+{ctbox1more}
+{ctboxes}
+{ctnear}
+{ctfooter}
+{ctfind}
+</div>
+
 
 #view_donors
 <style>{css}</style>
@@ -177,56 +191,13 @@ IATI Country Tracker
 </tr>
 
 
-#view_main
-<style>{css}</style>
-{ctnav}
-<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
-{cthead}
-{ctbox1}
-{ctbox1table}
-{ctbox1more}
-{ctboxes}
-{ctnear}
-{ctfooter}
-{ctfind}
-</div>
-
-#view_newmain
-<style>{css}</style>
-{navi}
-<div style="width:1040px; margin:0 auto; background-color:#fff; padding-top:110px;">
-{country}
-{stats}
-{money}
-{districts}
-{active}
-{ctbox1more}
-{ended}
-{ctbox1more}
-{ctnear}
-{ctfooter}
-{ctfind}
-</div>
-
-
-#navi
+#ctnav
 <div style="width:100%; background-color:#96CBFF; border-bottom:11px solid #BDD9FC; height:90px; position:fixed; z-index:1;">
 	<div style="width:960px; margin:0 auto; color:#fff; font-size:32px; padding-top:30px;">
 		<div style="display:inline-block; vertical-align:top; width:660px; height:30px;">
 			<a href="/"><img src="/art/ctlogo.png" alt="Country Tracker logo" width="350" height="30"/></a>
 		</div><div style="width:300px; display:inline-block; text-align:right;">
-			<div style="font-size:16px; color:#fff;">Data is accurate as of {today}</div>
-			</div>
-	</div>
-</div>
-
-#ctnav
-<div style="width:100%; background-color:#96CBFF; border-bottom:11px solid #BDD9FC; height:90px; position:fixed; z-index:1;">
-	<div style="width:960px; margin:0 auto; color:#fff; font-size:32px; padding-top:30px;">
-		<div style="display:inline-block; vertical-align:top; width:560px; height:30px;">
-			<a href="/"><img src="/art/ctlogo.png" alt="Country Tracker logo" width="350" height="30"/></a>
-		</div><div style="width:400px; display:inline-block; text-align:right;">
-			<a href="#view=newmain" class="navabout" style="display:inline-block; margin-right:20px;">View2</a><a href="#view=donors" class="navabout" style="display:inline-block; margin-right:20px;">Donors</a><a href="#view=sectors" class="navabout" style="display:inline-block; margin-right:20px;">Sectors</a><a href="#view=districts" class="navabout">Districts</a>
+			<a href="#view=donors" class="navabout" style="display:inline-block; margin-right:20px;">Donors</a><a href="#view=sectors" class="navabout" style="display:inline-block; margin-right:20px;">Sectors</a><a href="#view=districts" class="navabout">Districts</a>
 			</div>
 	</div>
 </div>
@@ -242,19 +213,12 @@ IATI Country Tracker
 	</div>
 </div>
 
+
 #divtop
 <div style="width:1040px; margin:0 auto; background-color:#fff;">
 #divbot
 </div>
 
-#country
-<div style="width:960px; margin:0 auto; color:#444; padding:40px 0;">
-	<div style="display:inline-block; vertical-align:top; width:150px; height:90px;">
-		<img src="{country_flag}" alt="{country_name} flag" width="150" height="90"/>
-	</div><div style="display:inline-block; vertical-align:top; width:790px; max-width:790px; padding-left:20px;">
-			<div style="font-size:46px; line-height:1.1em; text-transform:uppercase;">{country_name}</div>
-		</div>
-</div>
 
 #cthead
 <div style="width:960px; margin:0 auto; color:#444; padding-top:40px;">
@@ -268,143 +232,28 @@ IATI Country Tracker
 #country_name
 BANGLADESH
 
-#stats
-<div style="width:960px; margin:0 auto; padding:20px 0;">
-	<div style="">
-		<table style="width:960px; max-width:960px; border-collapse:collapse; border:3px solid #D8D8D8;">
-		<tr>
-			<td rowspan="2" colspan="2" style="padding:20px 40px; border-right:3px solid #D8D8D8;">
-				<div style="font-size:32px; color:#A5BBC0;">Active Projects</div>
-				<div style="font-size:128px;">{active_projects}</div>
-			</td>
-			<td style="padding:20px 40px; border-bottom:3px solid #D8D8D8; border-right:3px solid #D8D8D8;">
-				<div style="font-size:20px; color:#A5BBC0;">Ending soon <span style="font-size:14px; color:#888;">&lt; 1 month</span></div>
-				<div style="font-size:64px;">{finished_projects}</div>
-			</td>
-			<td style="padding:0 40px; border-bottom:3px solid #D8D8D8;">
-				<div style="font-size:20px; color:#A5BBC0;">Total projects</div>
-				<div style="font-size:64px;">{total_projects}</div>
-			</td>
-		</tr>
-		<tr>
-			<td style="padding:20px 40px; border-right:3px solid #D8D8D8;">
-				<div style="font-size:20px; color:#A5BBC0;">Starting soon <span style="font-size:14px; color:#888;">&lt; 1 month</span></div>
-				<div style="font-size:64px;">{planned_projects}</div>
-			</td>
-			<td style="padding:0 40px;">
-				<div style="font-size:20px; color:#A5BBC0;">IATI Publishers</div>
-				<div style="font-size:64px;">{numof_publishers}</div>
-			</td>
-		</tr>
-		</table>
-	</div>
-</div>
-
-
-#money
-<div style="width:100%; background-color:#fff; margin:0 auto; padding:20px 0;">
-	<div style="width:960px; margin:0 auto;">
-	<a href="#view=donors" title="View all Donors" style="width:430px; display:inline-block; vertical-align:top; padding:30px 30px 30px 20px; text-align:center;">
-		<div style="font-size:26px; color:#FFA500; padding-bottom:20px; border-bottom:3px solid #D8D8D8;">Where does the money come from?</div>
-		<div style="padding:10px 0; font-size:20px; color:#BFBFBF;">Top 5 Donors</div>
-		<table style="width:430px; font-size:20px;">
-		<tr>
-			<td>EU Institutions</td>
-		</tr>
-		<tr>
-			<td>United Kingdom</td>
-		</tr>
-		<tr>
-			<td>Netherlands</td>
-		</tr>
-		<tr>
-			<td>Sweden</td>
-		</tr>
-		<tr>
-			<td>United States</td>
-		</tr>
-		</table>
-	</a><a href="#view=sectors" title="View all Sectors" style="width:430px; display:inline-block; vertical-align:top; padding:30px 20px 30px 30px; text-align:center;">
-		<div style="font-size:26px; color:#FFA500; padding-bottom:20px; border-bottom:3px solid #D8D8D8;">Where does the money go to?</div>
-		<div style="padding:10px 0; font-size:20px; color:#BFBFBF;">Top 5 Sectors</div>
-		<table style="width:430px; font-size:20px;">
-		<tr>
-			<td>Infrastructure</td>
-		</tr>
-		<tr>
-			<td>Other social services</td>
-		</tr>
-		<tr>
-			<td>Health</td>
-		</tr>
-		<tr>
-			<td>Other</td>
-		</tr>
-		<tr>
-			<td>Governance and security</td>
-		</tr>
-		</table>
-	</a>
-	</div>
-</div>
-
-
-#districts
-<div style="width:100%; background-color:#DFECF6; margin:0 auto; padding:20px 0;">
-	<div style="width:960px; margin:0 auto;">
-		<a href="#view=districts" title="View all Districts" style="width:900px; display:block; vertical-align:top; padding:30px; text-align:center;">
-		<div style="font-size:32px; color:#65AAED;">Where does the money go to?</div>
-		<div style="padding:10px 0; color:#5C5C5C;">Top 5 Districts</div>
-		<table style="width:900px; font-size:20px;">
-		<tr>
-			<td>El Porvenir</td>
-		</tr>
-		<tr>
-			<td>Olanchito</td>
-		</tr>
-		<tr>
-			<td>Villanueva</td>
-		</tr>
-		<tr>
-			<td>Tocoa</td>
-		</tr>
-		<tr>
-			<td>Santa Rosa de Copan</td>
-		</tr>
-		</table>
-		</a>
-	</div>
-</div>
-
-
-#active
-<div style="width:960px; margin:0 auto; padding-top:40px;">
-	<table class="def box1">
-	<tr><td colspan="3" style="font-size:32px; padding:10px 0; border:0;">Active projects ending soon</td></tr>
-	{ctbox1table_datas}
-	</table>
-</div>
-
-#ended
-<div style="width:960px; margin:0 auto; padding-top:40px;">
-	<table class="def box1">
-	<tr><td colspan="3" style="font-size:32px; padding:10px 0; border:0;">Recently ended projects</td></tr>
-	{ctbox2table_datas}
-	</table>
-</div>
 
 #ctbox1
 <div style="width:954px; margin:0 auto; color:#444; margin-top:40px; border:3px solid #D8D8D8;">
 <div style="width:634px; padding:30px; display:inline-block; vertical-align:top; border-right:3px solid #D8D8D8; max-height:240px;">{ctactive}</div><div style="display:inline-block; vertical-align:top; width:257px; max-height:240px;"><div style="padding:20px 10px 10px 30px; border-bottom:3px solid #D8D8D8; height:50%;">{ctactivities}</div><div style="padding:20px 10px 10px 30px; height:50%;">{ctpublishers}</div></div>
 </div>
 
+
+
+
 #ctactive
 <div style="padding-left:10px; font-size:32px; color:#A5BBC0;">Active Projects</div>
 <div style="font-size:128px; color:#444;">{active_projects}</div>
 
+
+
+
 #ctactivities
-<div style="padding-left:5px; font-size:20px; color:#A5BBC0;">Total Projects</div>
+<div style="padding-left:5px;font-size:20px; color:#A5BBC0;">Total Projects</div>
 <div style="font-size:56px; color:#444;">{total_projects}</div>
+
+
+
 
 #ctpublishers
 <div style="padding-left:5px;font-size:20px; color:#A5BBC0;">Publishers</div>
