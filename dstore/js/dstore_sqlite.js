@@ -64,9 +64,9 @@ dstore_sqlite.create_tables = function(){
 				
 				if( col.INDEX )
 				{
-					console.log(s);
-					s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
-					db.run(s);
+//					s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
+//					console.log(s);
+//					db.run(s);
 				}
 			}
 		}

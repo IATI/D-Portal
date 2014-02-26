@@ -9,7 +9,7 @@ required["iati_cook"]=iati_cook;
 
 var util=require('util');
 
-var codes=require('../json/iati_codes').codes;
+var codes=require('../json/iati_codes');
 
 var iati_xml=require('./iati_xml');
 var refry=require('./refry');

@@ -79,7 +79,7 @@ fetch.endingsoon=function(args)
 			v.amount=tot;
 */
 			v.title=v.title || v.aid;
-			v.date=ctrack.get_nday(v.day_end);
+			v.date=fetch.get_nday(v.day_end);
 
 			v.activity=v.aid;
 
@@ -243,7 +243,7 @@ fetch.stats=function(args)
 			ctrack.chunk("finished_projects",(counts[3]||0)+(counts[4]||0));
 			ctrack.chunk("planned_projects",counts[1]||0);
 
-//console.log(ctrack.chunks);
+console.log(ctrack.chunks);
 			
 
 			ctrack.update_hash({"view":"main"});
