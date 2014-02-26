@@ -11,17 +11,21 @@ ctrack.setup=function(args)
 {
 	ctrack.args=args;
 
-	ctrack.htmldata={};
-	plate.push_namespace(ctrack.htmldata);
+	ctrack.chunks={};
+	plate.push_namespace(ctrack.chunks);
+	if(args.chunks)
+	{
+		plate.push_namespace(args.chunks);
+	}
 	plate.push_namespace(require("../json/chunks.json"));
 
 // set or get a chunk in the ctrack namespace
-	ctrack.htmlchunk=function(n,s){
-		if("undefined" != typeof s)
+	ctrack.chunk=function(n,s){
+		if( s !== undefined )
 		{
-			ctrack.htmldata[n]=s;
+			ctrack.chunks[n]=s;
 		}
-		return ctrack.htmldata[n];
+		return ctrack.chunks[n];
 	}
 
 	ctrack.div={};
@@ -40,21 +44,21 @@ ctrack.setup=function(args)
 
 
 	
-	ctrack.htmlchunk("ctbox1table_datas","<tr><td>Loading...</td></tr>");
-	ctrack.htmlchunk("active_projects",0);
+	ctrack.chunk("ctbox1table_datas","<tr><td>Loading...</td></tr>");
+	ctrack.chunk("active_projects",0);
 
-	ctrack.htmlchunk("ctbox2table_datas","<tr><td>Loading...</td></tr>");
-	ctrack.htmlchunk("finished_projects",0);
+	ctrack.chunk("ctbox2table_datas","<tr><td>Loading...</td></tr>");
+	ctrack.chunk("finished_projects",0);
 
-	ctrack.htmlchunk("ctbox3table_datas","<tr><td>Loading...</td></tr>");
-	ctrack.htmlchunk("planned_projects",0);
+	ctrack.chunk("ctbox3table_datas","<tr><td>Loading...</td></tr>");
+	ctrack.chunk("planned_projects",0);
 	
-	ctrack.htmlchunk("ctneartable_datas","<tr><td>Loading...</td></tr>");
+	ctrack.chunk("ctneartable_datas","<tr><td>Loading...</td></tr>");
 
-	ctrack.htmlchunk("numof_publishers",0);
-	ctrack.htmlchunk("total_projects",0);
+	ctrack.chunk("numof_publishers",0);
+	ctrack.chunk("total_projects",0);
 	
-	ctrack.htmlchunk("today",fetch.get_today());
+	ctrack.chunk("today",fetch.get_today());
  
 	ctrack.hash={};
 	ctrack.hash_split=function(q,v)

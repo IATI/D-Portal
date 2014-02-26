@@ -83,11 +83,11 @@ fetch.endingsoon=function(args)
 
 			v.activity=v.aid;
 
-			s.push( ctrack.plate.chunk("ctbox1table_data",v) );
+			s.push( plate.replace("{ctbox1table_data}",v) );
 		}
 
-//		ctrack.htmlchunk("active_projects",data["total-count"]);
-		ctrack.htmlchunk("ctbox1table_datas",s.join(""));
+//		ctrack.chunk("active_projects",data["total-count"]);
+		ctrack.chunk("ctbox1table_datas",s.join(""));
 
 		ctrack.update_hash({"view":"main"});
 
@@ -127,11 +127,11 @@ fetch.finished=function(args)
 
 			v.activity=v.aid;
 
-			s.push( plate.chunk("ctbox2table_data",v) );
+			s.push( plate.replace("{ctbox2table_data}",v) );
 		}
 
-//		ctrack.htmlchunk("finished_projects",data["total-count"]);
-		ctrack.htmlchunk("ctbox2table_datas",s.join(""));
+//		ctrack.chunk("finished_projects",data["total-count"]);
+		ctrack.chunk("ctbox2table_datas",s.join(""));
 
 		ctrack.update_hash({"view":"main"});
 
@@ -172,11 +172,11 @@ fetch.planned=function(args)
 			
 			v.activity=v.aid;
 
-			s.push( plate.chunk("ctbox3table_data",v) );
+			s.push( plate.replace("{ctbox3table_data}",v) );
 		}
 
-//		ctrack.htmlchunk("planned_projects",data["total-count"]);
-		ctrack.htmlchunk("ctbox3table_datas",s.join(""));
+//		ctrack.chunk("planned_projects",data["total-count"]);
+		ctrack.chunk("ctbox3table_datas",s.join(""));
 
 		ctrack.update_hash({"view":"main"});
 
@@ -203,8 +203,8 @@ fetch.stats=function(args)
 			console.log("activity stats1");
 			console.log(data);
 			
-			ctrack.htmlchunk("total_projects",data.rows[0]["COUNT(*)"]);
-			ctrack.htmlchunk("numof_publishers",data.rows[0]["COUNT(DISTINCT reporting_org)"]);
+			ctrack.chunk("total_projects",data.rows[0]["COUNT(*)"]);
+			ctrack.chunk("numof_publishers",data.rows[0]["COUNT(DISTINCT reporting_org)"]);
 
 			ctrack.update_hash({"view":"main"});
 
@@ -239,9 +239,12 @@ fetch.stats=function(args)
 				counts[code]=count;
 			}
 			
-			ctrack.htmlchunk("active_projects",counts[2]||0);
-			ctrack.htmlchunk("finished_projects",(counts[3]||0)+(counts[4]||0));
-			ctrack.htmlchunk("planned_projects",counts[1]||0);
+			ctrack.chunk("active_projects",counts[2]||0);
+			ctrack.chunk("finished_projects",(counts[3]||0)+(counts[4]||0));
+			ctrack.chunk("planned_projects",counts[1]||0);
+
+//console.log(ctrack.chunks);
+			
 
 			ctrack.update_hash({"view":"main"});
 
@@ -265,7 +268,7 @@ fetch.activity=function(args)
 	
 	var callback=args.callback || function(data){
 		
-		ctrack.div.main.html( ctrack.plate.chunk("preparing",{})  );
+		ctrack.div.main.html( plate.replace("{preparing}")  );
 
 		console.log(data);
 		
@@ -274,7 +277,7 @@ fetch.activity=function(args)
 
 //		ctrack.div.main.html( ctrack.plate.chunk("dump_act_xml",data["rows"][0]) );
 
-		ctrack.htmlchunk("xml",data["rows"][0].xml);
+		ctrack.chunk("xml",data["rows"][0].xml);
 		ctrack.update_hash({"view":"act"});
 		
 	};
@@ -313,10 +316,10 @@ fetch.near=function(args)
 			v.date=fetch.get_nday(v.day_end);
 			v.country=iati_codes.country[v.country_code];
 			v.activity=v.aid;
-			s.push( plate.chunk("ctneartable_data",v) );
+			s.push( plate.replace("{ctneartable_data}",v) );
 		}
 
-		ctrack.htmlchunk("ctneartable_datas",s.join(""));
+		ctrack.chunk("ctneartable_datas",s.join(""));
 
 		ctrack.update_hash({"view":"main"});
 
@@ -354,9 +357,9 @@ fetch.donors=function(args)
 			if(!v.b2014){v.b2014="0";}
 			if(!v.b2015){v.b2015="0";}
 			v.donor=iati_codes.crs_funders[v.funder] || iati_codes.country[v.funder] || v.funder;
-			s.push( plate.chunk("table_donors_row",v) );
+			s.push( plate.replace("{table_donors_row}",v) );
 		});
-		ctrack.htmlchunk("table_donors_rows",s.join(""));
+		ctrack.chunk("table_donors_rows",s.join(""));
 		ctrack.update_hash({"view":"donors"});
 	};
 	
@@ -474,9 +477,9 @@ fetch.sectors=function(args)
 			if(!v.b2014){v.b2014="0";}
 			if(!v.b2015){v.b2015="0";}
 			v.sector=v.group;
-			s.push( ctrack.plate.chunk("table_sectors_row",v) );
+			s.push( plate.replace("{table_sectors_row}",v) );
 		});
-		ctrack.htmlchunk("table_sectors_rows",s.join(""));
+		ctrack.chunk("table_sectors_rows",s.join(""));
 		ctrack.update_hash({"view":"sectors"});
 	};
 	
@@ -583,9 +586,9 @@ fetch.districts=function(args)
 			if(!v.t2014){v.t2014="0";}
 			if(!v.b2014){v.b2014="0";}
 			if(!v.b2015){v.b2015="0";}
-			s.push( plate.chunk("table_districts_row",v) );
+			s.push( plate.replace("{table_districts_row}",v) );
 		});
-		ctrack.htmlchunk("table_districts_rows",s.join(""));
+		ctrack.chunk("table_districts_rows",s.join(""));
 		ctrack.update_hash({"view":"districts"});
 	};
 	

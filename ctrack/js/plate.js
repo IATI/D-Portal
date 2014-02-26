@@ -102,16 +102,16 @@ plate.push_namespace=function(dat)
 plate.lookup=function(str,dat)
 {
 	var r;
-	if(dat) { r=plate.lookup_in_dat(str,dat); if(r) { return r; } } // check dat first
+	if(dat) { r=plate.lookup_single(str,dat); if(r!==undefined) { return r; } } // check dat first
 	for(var i=0;i<plate.namespaces.length;i++)
 	{
-		r=plate.lookup_single(str,plate.namespaces[i]); if(r) { return r; } // then look in all namespaces
+		r=plate.lookup_single(str,plate.namespaces[i]); if(r!==undefined) { return r; } // then look in all namespaces
 	}
 }
 // lookup only in dat
 plate.lookup_single=function(str,dat)
 {
-	if( dat[str]!=undefined ) // simple check
+	if( dat[str] !== undefined ) // simple check
 	{
 		return dat[str];
 	}
@@ -134,7 +134,15 @@ plate.replace_once=function(str,dat)
 		{
 			i++;
 			v=aa[i];
-			r.push( plate.lookup( v,dat ) || ("{"+v+"}") );
+			var d=plate.lookup( v,dat );
+			if( d == undefined )
+			{
+				r.push( "{"+v+"}" );
+			}
+			else
+			{
+				r.push( d );
+			}
 		}
 		else
 		{
