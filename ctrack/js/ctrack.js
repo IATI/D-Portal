@@ -11,6 +11,19 @@ ctrack.setup=function(args)
 {
 	ctrack.args=args;
 
+	ctrack.htmldata={};
+	plate.push_namespace(ctrack.htmldata);
+	plate.push_namespace(require("../json/chunks.json"));
+
+// set or get a chunk in the ctrack namespace
+	ctrack.htmlchunk=function(n,s){
+		if("undefined" != typeof s)
+		{
+			ctrack.htmldata[n]=s;
+		}
+		return ctrack.htmldata[n];
+	}
+
 	ctrack.div={};
 
 	ctrack.div.master=$(ctrack.args.master);
@@ -21,24 +34,11 @@ ctrack.setup=function(args)
 	
 //	ctrack.div.main.html( plate.chunk("chunk1",{test:"TESTING"})  );
 
-	ctrack.div.main.html( plate.chunk("loading",{})  );
+	ctrack.div.main.html( plate.replace("{loading}")  );
 	
 //	ctrack.fetch({});
 
-	var d={};
-	var chunk=function(n,s){
-		if(s!=undefined)
-		{
-			d[n]=s;
-		}
-		else
-		{
-			d[n]=plate.recurse_chunk(n,d);
-		}
-		return d[n]
-	}
-	ctrack.htmldata=d;
-	ctrack.htmlchunk=chunk;
+
 	
 	ctrack.htmlchunk("ctbox1table_datas","<tr><td>Loading...</td></tr>");
 	ctrack.htmlchunk("active_projects",0);
@@ -54,7 +54,7 @@ ctrack.setup=function(args)
 	ctrack.htmlchunk("numof_publishers",0);
 	ctrack.htmlchunk("total_projects",0);
 	
-	ctrack.htmlchunk("today",ctrack.get_today());
+	ctrack.htmlchunk("today",fetch.get_today());
  
 	ctrack.hash={};
 	ctrack.hash_split=function(q,v)
@@ -137,7 +137,7 @@ ctrack.setup=function(args)
 		{
 			ctrack.last_hash=h;
 			var l=ctrack.hash_split(h);
-			ctrack.div.main.html( ctrack.htmlchunk( "view_"+l.view ) );
+			ctrack.div.main.html( plate.replace( "{view_"+l.view+"}" ) );
 			iati_activity_clean_and_sort();
 			
 			if(ctrack.last_view!=l.view) // scroll up when changing views
@@ -160,62 +160,53 @@ ctrack.setup=function(args)
 	ctrack.display_hash();
  
 
-		$( document ).on("click", "a", function(event){
-			var s=$(this).prop("href");
-			if(s)
+	$( document ).on("click", "a", function(event){
+		var s=$(this).prop("href");
+		if(s)
+		{
+			s=s.split("#");
+			if(s[1])
 			{
-				s=s.split("#");
-				if(s[1])
+				s=s[1];
+				var aa=s.split("_");
+				console.log( s );
+				if(aa[0]=="ctrack") // ours
 				{
-					s=s[1];
-
-/*
-					if(s=="about") // test
+					event.preventDefault();
+					if(aa[1]=="index")
 					{
-						event.preventDefault();
-						ctrack.fetch_activity({activity:"44000-P119917"});
+						ctrack.update_hash({"view":"main"});
 					}
-*/
-					var aa=s.split("_");
-					console.log( s );
-					if(aa[0]=="ctrack") // ours
+					else
+					if(aa[1]=="activity")
 					{
-						event.preventDefault();
-						if(aa[1]=="index")
+						var s=$(this).attr("activity");
+						console.log(s);
+						fetch.activity({activity:s});
+					}
+					else
+					if(aa[2]=="more")
+					{
+						switch(aa[1])
 						{
-							ctrack.update_hash({"view":"main"});
-						}
-						else
-						if(aa[1]=="activity")
-						{
-							var s=$(this).attr("activity");
-							console.log(s);
-							fetch.activity({activity:s});
-						}
-						else
-						if(aa[2]=="more")
-						{
-							switch(aa[1])
-							{
-								case "ending":
-									fetch.endingsoon({limit:20});
-								break;
-								case "finished":
-									fetch.finished({limit:20});
-								break;
-								case "starting":
-									fetch.planned({limit:20});
-								break;
-								case "near":
-									fetch.near({limit:20});
-								break;
-							}
+							case "ending":
+								fetch.endingsoon({limit:20});
+							break;
+							case "finished":
+								fetch.finished({limit:20});
+							break;
+							case "starting":
+								fetch.planned({limit:20});
+							break;
+							case "near":
+								fetch.near({limit:20});
+							break;
 						}
 					}
 				}
 			}
-		});
-
+		}
+	});
 
 }
 

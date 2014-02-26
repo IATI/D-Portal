@@ -58,20 +58,7 @@ plate.fill_chunks=function(str,chunks)
 	return chunks;
 }
 
-
-// is caching worthwhile?
-plate.preps={};
-plate.prepare_cache=function(str)
-{
-	if( plate.preps[str] )
-	{
-		return plate.preps[str];
-	}
-	var ar=plate.prepare(str);
-	plate.preps[str]=ar;
-	return ar;
-}
-	
+// break a string on {data} ready to replace
 plate.prepare=function(str)
 {
 	if(!str) { return undefined; }
@@ -88,52 +75,51 @@ plate.prepare=function(str)
 			ar.push("{"); // this string is used to mark the following string as something to replace
 			ar.push(av[0]);
 			ar.push(av[1]);
-			for(var j=2;j<av.length;j++)
+			for(var j=2;j<av.length;j++) // multipl close tags?
 			{
-				ar.push("}"+av[2]); // missing close so just leave it as it is
+				ar.push("}"+av[2]); // then missing open so just leave it as it was
 			}
 		}
 		else
 		{
-			ar.push("{"+aa[i]); // missing close so just leave it as it is
+			ar.push("{"+aa[i]); // missing close so just leave it as it was
 		}
 	}
 	return ar;
 }
 
+
+
+plate.namespaces=[]; // array of public namespaces to lookup in
+
+// add this dat into the namespaces that we also check when filling in chunks
+plate.push_namespace=function(dat)
+{
+	plate.namespaces.push(dat);
+}
+
+// lookup a str in dat or namespace
 plate.lookup=function(str,dat)
 {
-	if( dat[str]!=undefined ) // check the local data first (data only used in this lookup)
+	var r;
+	if(dat) { r=plate.lookup_in_dat(str,dat); if(r) { return r; } } // check dat first
+	for(var i=0;i<plate.namespaces.length;i++)
+	{
+		r=plate.lookup_single(str,plate.namespaces[i]); if(r) { return r; } // then look in all namespaces
+	}
+}
+// lookup only in dat
+plate.lookup_single=function(str,dat)
+{
+	if( dat[str]!=undefined ) // simple check
 	{
 		return dat[str];
 	}
-	if( ctrack.args.chunks[str]!=undefined ) // then check args chunks (data used in all lookups)
-	{
-		return ctrack.args.chunks[str];
-	}
-	if( ctrack.chunks[str]!=undefined ) // then check global chunks as well (data used in all lookups)
-	{
-		return ctrack.chunks[str];
-	}
-	return "{"+str+"}"; // put the squiglys back
+	//todo add sub array . notation split and lookup
 }
 
-plate.chunk=function(str,dat)
-{
-	return plate.replace( ctrack.chunks[str] ,dat);
-}
-
-plate.recurse_chunk=function(str,dat)
-{
-	return plate.recurse_replace( ctrack.chunks[str] ,dat);
-}
-
-plate.chunks=function(str,dat)
-{
-	return plate.replaces( ctrack.chunks[str] ,dat);
-}
-
-plate.replace=function(str,dat)
+// replace once only, using dat and any added namespaces
+plate.replace_once=function(str,dat)
 {
 	var aa=plate.prepare(str);
 	
@@ -148,7 +134,7 @@ plate.replace=function(str,dat)
 		{
 			i++;
 			v=aa[i];
-			r.push( plate.lookup( v,dat ) );
+			r.push( plate.lookup( v,dat ) || ("{"+v+"}") );
 		}
 		else
 		{
@@ -159,32 +145,19 @@ plate.replace=function(str,dat)
 	return r.join("");
 }
 
-// repeat untill all things that can expand, have expanded
-plate.recurse_replace=function(str,arr)
+// repeatedly replace untill all things that can expand, have expanded, or we ran out of sanity
+plate.replace=function(str,arr)
 {
 	var check="";
-	var sanity=0;
+	var sanity=100;
 	while( str != check) //nothing changed on the last iteration so we are done
 	{
 		check=str;
-		str=plate.replace(str,arr);
-		sanity++;
-		if(sanity>100) { break; }
+		str=plate.replace_once(str,arr);
+		if(--sanity<0) { break; }
 	}
 	
 	return str;
 }
 
-// perform replace on an array of strings?
-plate.replaces=function(str,arr)
-{
-	var r=[];
-	for(var i=0;i<arr.length;i++)
-	{
-		r.push( plate.replace(str,arr[i]) );
-	}
-
-	return r.join("");
-
-}
 
