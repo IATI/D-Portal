@@ -1,11 +1,7 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-//create a nodejs or clientjs module
-if(typeof required === "undefined") { required={}; }
 var iati_codes=exports;
-if(typeof iati_codes  === "undefined") { iati_codes ={}; }
-required["iati_codes"]=iati_codes;
 
 var csv=require('csv');
 var util=require('util');

@@ -1,11 +1,7 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-//create a nodejs or clientjs module
-var exports=exports;
-if(typeof required === "undefined") { required={}; }
-if(typeof exports  === "undefined") { exports ={}; }
-required["test"]=exports;
+var test=exports;
 
 exports.html = function(req,res){
 	r={};
