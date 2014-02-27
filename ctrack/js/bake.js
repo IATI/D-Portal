@@ -9,13 +9,13 @@ try { fs.mkdirSync("json"); } catch(e){}
 
 fs.writeFileSync("json/chunks.json",JSON.stringify(
 		plate.fill_chunks(
-			fs.readFileSync("chunks/base.html",'utf8')
+			fs.readFileSync("text/base.html",'utf8')
 		)
 	)
 );
 
 
-console.log("Parsed chunks/base.html into json/chunks.json");
+console.log("Parsed text/base.html into json/chunks.json");
 
 
 /*
