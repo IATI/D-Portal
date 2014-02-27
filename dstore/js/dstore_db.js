@@ -170,6 +170,14 @@ dstore_db.fill_acts = function(acts,slug){
 		}
 
 		dstore_db.refresh_act(db,aid,xml);
+
+// block and wait here
+
+		wait.for(function(cb){
+			db.run("PRAGMA page_count", function(err, row){
+				cb(err);
+			});
+		});
 		
 	}
 	process.stdout.write("\n");
@@ -179,7 +187,7 @@ dstore_db.fill_acts = function(acts,slug){
 		after=row["COUNT(*)"];
 	});
 
-	db.run(";", function(err, row){
+	db.run("PRAGMA page_count", function(err, row){
 		db.close();
 		process.stdout.write(after+" ( "+(after-before)+" ) \n");
 	});
@@ -193,14 +201,14 @@ dstore_db.refresh_acts = function(){
 	var db = dstore_db.open();
 	db.serialize();
 
+//	db.run("BEGIN;");
 	db.each("SELECT aid,xml FROM activities", function(err, row){
 
 		process.stdout.write(".");
 		dstore_db.refresh_act(db,row.aid,row.xml);
 	});
-
-
-	db.run(";", function(err, row){
+//	db.run("COMIT;");
+	db.run("PRAGMA page_count", function(err, row){
 		db.close();
 		process.stdout.write("FIN\n");
 	});

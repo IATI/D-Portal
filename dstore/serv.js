@@ -92,7 +92,9 @@ if(nconf.get("cmd"))
 //			console.log(acts[0]);
 
 
-		require("./js/dstore_db").fill_acts(acts,xmlfilename);
+		wait.launchFiber(function(){
+			require("./js/dstore_db").fill_acts(acts,xmlfilename);
+		});
 
 		return;		
 	}

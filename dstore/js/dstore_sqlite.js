@@ -96,12 +96,15 @@ dstore_sqlite.replace = function(db,name,it){
 	var $t=dstore_sqlite.replace_vars(db,name,it);
 		
 //	ls($t);
-	
+
+//db.run( dstore_sqlite.getsql_prepare_replace(name,dstore_sqlite.tables_active[name]) , $t );
+
+
 	var sa = db.prepare(dstore_sqlite.tables_replace_sql[name]);
-	sa.run($t);
-	
+	sa.run($t);	
 	sa.finalize(); // seems faster to finalize now rather than let it hang?
-		
+
+	
 };
 		
 dstore_sqlite.getsql_prepare_replace = function(name,row){
