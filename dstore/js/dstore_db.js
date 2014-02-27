@@ -139,35 +139,41 @@ dstore_db.open = function(){
 
 dstore_db.fill_acts = function(acts,slug){
 
+	var before_time=Date.now();
+	var after_time=Date.now();
+	var before=0;
+	var after=0;
+
 	var db = dstore_db.open();	
 	db.serialize();
 
 	db.run("DELETE FROM slugs WHERE slug=?",slug); // remove all the old slugs
 
-	var before=0;
-	var after=0;
 	
 	db.each("SELECT COUNT(*) FROM activities", function(err, row)
 	{
 		before=row["COUNT(*)"];
 	});
 
+
 //	var stmt = db.prepare("REPLACE INTO activities (aid,xml,jml) VALUES (?,?,?)");
+
+	var progchar=["0","1","2","3","4","5","6","7","8","9"];
+
+	wait.for(function(cb){
+		db.run("BEGIN TRANSACTION",cb);
+	});
 
 	for(var i=0;i<acts.length;i++)
 	{
 		var xml=acts[i];
 		json=refry.xml(xml);
 		var aid=iati_xml.get_aid(json);
-		
-		if(aid)
-		{
-			process.stdout.write("+"); // some thing we will import (but may overwrite other acts)
-		}
-		else
-		{
-			process.stdout.write("-"); // missing aid, so it wont import
-		}
+
+
+		var p=Math.floor(progchar.length*(i/acts.length));
+		if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
+		process.stdout.write(progchar[p]);
 
 		dstore_db.refresh_act(db,aid,xml);
 
@@ -177,9 +183,11 @@ dstore_db.fill_acts = function(acts,slug){
 			db.run("PRAGMA page_count", function(err, row){
 				cb(err);
 			});
-		});
-		
+		});		
 	}
+	wait.for(function(cb){
+		db.run("COMMIT TRANSACTION",cb);
+	});
 	process.stdout.write("\n");
 	
 	db.each("SELECT COUNT(*) FROM activities", function(err, row)
@@ -187,9 +195,13 @@ dstore_db.fill_acts = function(acts,slug){
 		after=row["COUNT(*)"];
 	});
 
+
 	db.run("PRAGMA page_count", function(err, row){
 		db.close();
-		process.stdout.write(after+" ( "+(after-before)+" ) \n");
+		
+		after_time=Date.now();
+		
+		process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
 	});
 
 };
