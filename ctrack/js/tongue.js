@@ -74,7 +74,7 @@ tongue.import=function(filename)
 	{
 		var lines=wait.for( function(cb){ csv().from.string( fs.readFileSync(filename,'utf8') ).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node!
 
-		ls(lines);
+//		ls(lines);
 
 		var eng=plate.fill_chunks( fs.readFileSync("text/eng.txt",'utf8') );
 		var fra=plate.fill_chunks( fs.readFileSync("text/fra.txt",'utf8') );
@@ -82,8 +82,8 @@ tongue.import=function(filename)
 		var head={};
 		for(var i=0;i<lines[0].length;i++)
 		{
-			var v=lines[i];
-			head[ lines[i].trim() ]=v;
+			var v=lines[0][i];
+			head[ v.trim() ]=i;
 		}
 
 		for(var i=1;i<lines.length;i++)
@@ -100,7 +100,7 @@ tongue.import=function(filename)
 				}
 				if(t_fra&&t_fra.length>0)
 				{
-					eng[id]=t_fra;
+					fra[id]=t_fra;
 				}
 			}
 		}
