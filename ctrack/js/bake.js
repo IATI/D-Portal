@@ -7,45 +7,19 @@ var plate=require("./plate.js");
 
 try { fs.mkdirSync("json"); } catch(e){}
 
-fs.writeFileSync("json/chunks.json",JSON.stringify(
-		plate.fill_chunks(
-			fs.readFileSync("text/base.html",'utf8')
+var chunks={
+	"text/eng.txt" : "json/eng.json",
+	"text/fra.txt" : "json/fra.json",
+	"text/base.html" : "json/chunks.json"
+	}
+for( var n in chunks )
+{
+	var v=chunks[n];
+	fs.writeFileSync(v,JSON.stringify(
+			plate.fill_chunks(
+				fs.readFileSync(n,'utf8')
+			)
 		)
-	)
-);
-
-
-console.log("Parsed text/base.html into json/chunks.json");
-
-
-/*
-var sys = require('sys')
-var child_process = require('child_process');
-
-var exec=function(s,f){
-	console.log(s);
-	child_process.exec(s, function(error, stdout, stderr) {
-		sys.puts(stdout);
-//		sys.puts(stderr);
-		if(error){throw new Error(error);}
-		if(f) { f(null,stdout); }
-		});
-};
-
-var jsfiles=[
-"js/require.js",
-"../dstore/json/iati_codes.js",
-"../dstore/json/crs_2012.js",
-"js/ctrack.chunks.js",
-"js/ctrack.plate.js",
-"js/ctrack.html.js",
-"js/ctrack.iati.js",
-"js/ctrack.json.js"];
-
-
-console.log("Creating js/ctrack.js")
-exec("node_modules/uglify-js/bin/uglifyjs "+jsfiles.join(" ")+" --wrap ctrack -c -m -o js/ctrack.js -p relative --source-map js/ctrack.map ");
-
-console.log("All done.")
-
-*/
+	);
+	console.log("Parsed "+n+" into "+v);
+}

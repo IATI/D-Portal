@@ -11,16 +11,12 @@ var wait=require('wait.for');
 
 var util=require('util');
 var http=require('http');
-var nconf = require('nconf');
 var sqlite3 = require('sqlite3').verbose();
-
-// we also plan an indexdb alternative...
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-
 dstore_sqlite.open = function(){
-	var db = new sqlite3.Database( nconf.get("database") );
+	var db = new sqlite3.Database( global.argv.database );
 	
 // speed up data writes.
 	db.serialize(function() {
@@ -67,7 +63,7 @@ dstore_sqlite.create_tables = function(){
 			}
 		}
 
-		console.log("Created database "+nconf.get("database"));
+		console.log("Created database "+argv.database);
 		
 	});
 	
