@@ -1,12 +1,3 @@
-#chunk1
-
-This is some {test} data! 
-
-#chunk2
-
-This is some more data
-{chunk1}
-
 #loading
 
 <b>Please wait, requesting data from iati-datastore...</b>
@@ -206,6 +197,46 @@ IATI Country Tracker
 {ctnear}
 {ctfooter}
 {ctfind}
+</div>
+
+#view_view3
+<style>.ctrack_main{background-color:rgba(19, 32, 53, 0.7);}{css}</style>
+{chunkcountry}
+{chunkmoney}
+{stats}
+{active}
+{ctbox1more}
+{ended}
+{ctbox1more}
+{ctnear}
+{ctfooter}
+{ctfind}
+
+#chunkcountry
+<div style="width:960px; margin:0 auto; color:#fff; font-size:32px; padding-top:80px;">
+	<div style="">
+		<a href="/"><img src="/art/ctlogo.25.png" alt="Country Tracker logo" width="232" height="20"/></a>
+	</div>
+	<table style="width:960px; margin:0 auto; padding:20px 0;">
+		<tr>
+			<td style="width:800px; max-width:800px; padding-right:10px; font-size:64px; line-height:1.1em; color:#fff;">Congo, the Democratic Republic of {country_name}</td>
+			<td><img src="{country_flag}" alt="{country_name} flag" width="150" height="90"/></td>
+		</tr>
+	</table>
+	<div style="width:960px; padding-top:15px; border-top:10px solid #fff;">
+		<div style="font-size:16px; color:#ccc;">Data is sourced from CRS and accurate as of {today}</div>
+	</div>
+</div>
+
+#chunkmoney
+<div style="width:960px; margin:0 auto; font-size:32px; padding-top:40px;">
+	<div style="width:380px; display:inline-block; vertical-align:top;">
+		<div style="width:300px; background-color:#71D300; padding:20px 40px; text-align:center; color:#fff;">" Where does the money come from? "</div>
+	</div><div style="width:200px; display:inline-block; vertical-align:top;">
+	
+	</div><div style="width:380px; display:inline-block; vertical-align:top;">
+		<div style="width:300px; background-color:#71D300; padding:20px 40px; text-align:center; color:#fff;">" Where does the money go to? "</div>
+	</div>
 </div>
 
 
