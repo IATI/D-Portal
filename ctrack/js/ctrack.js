@@ -9,14 +9,34 @@ var fetch=require("./fetch.js")
 
 ctrack.setup=function(args)
 {
+	args.tongue=args.tongue || "eng"; // english
+
 	ctrack.args=args;
 
+	ctrack.q={};
+	window.location.search.substring(1).split("&").forEach(function(n){
+		var aa=n.split("=");
+		ctrack.q[aa[0]]=aa[1];
+	});
+
+	if( ctrack.q.tongue ) // choose a new tongue
+	{
+		args.tongue=ctrack.q.tongue;
+	}
+	
 	ctrack.chunks={};
 	plate.push_namespace(ctrack.chunks);
 	if(args.chunks)
 	{
 		plate.push_namespace(args.chunks);
 	}
+
+	var tongues={
+		"fra":require("../json/fra.json")
+	};
+	var tongue=tongues[ args.tongue ];
+	if(tongue){plate.push_namespace(tongue);}
+	plate.push_namespace(require("../json/eng.json")); // english fallback
 	plate.push_namespace(require("../json/chunks.json"));
 
 // set or get a chunk in the ctrack namespace

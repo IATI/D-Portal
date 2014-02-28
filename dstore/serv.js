@@ -2,7 +2,6 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 var wait=require('wait.for');
-var nconf = require('nconf');
 var fs = require('fs');
 var express = require('express');
 var util=require('util');
@@ -11,59 +10,60 @@ var app = express();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+// global.argv
+var argv=require('yargs').argv; global.argv=argv;
 
-nconf.argv().file({ file: 'config.json' });
-nconf.set("port",1337);
-nconf.set("database","db/dstore.sqlite");
+argv.port=argv.port||1337;
+argv.database=argv.database||"../dstore/db/dstore.sqlite";
+
 
 // make sure we have a db dir
 fs.mkdir("db",function(e){});
 
-if(nconf.get("cmd"))
+if(argv.cmd)
 {
-	var cmd=nconf.get("cmd");
 //	console.log("cmd found : "+cmd);
-	if( cmd=="init" )
+	if( argv.cmd=="init" )
 	{
 		require("./js/dstore_db").create_tables();
 		return;
 	}
 	else
-	if( cmd=="check" )
+	if( argv.cmd=="check" )
 	{
 		require("./js/dstore_db").check_tables();
 		return;
 	}
 	else
-	if( cmd=="hack" )
+	if( argv.cmd=="hack" )
 	{
 		wait.launchFiber( require("./js/dstore_db").hack_acts );
 		return;
 	}
 	else
-	if( cmd=="exs" )
+	if( argv.cmd=="exs" )
 	{
 		wait.launchFiber( require("./js/dstore_db").hack_exs );
 		return;
 	}
 	else
-	if( cmd=="fetch" )
+	if( argv.cmd=="fetch" )
 	{
 		wait.launchFiber( require("./js/iati_codes").fetch );
 		return;
 	}
 	else
-	if( cmd=="refresh" )
+	if( argv.cmd=="refresh" )
 	{
 		require("./js/dstore_db").refresh_acts();
 		return;
 	}
 	else
-	if( cmd=="import" )
+	if( argv.cmd=="import" )
 	{
 //		console.log("Attempting Import");
 		
-		var xmlfile=nconf.get("xmlfile");
+		var xmlfile=argv.xmlfile;
 		var xmlfilename=path.basename(xmlfile,".xml");
 		
 		var fs = require('fs');
@@ -116,6 +116,6 @@ app.use("/q",function (req, res) {
 app.use(express.compress());
 app.use(express.static(__dirname+"/../ctrack"));
 
-console.log("Starting dstore server at http://localhost:"+nconf.get("port")+"/");
+console.log("Starting dstore server at http://localhost:"+argv.port+"/");
 
-app.listen(nconf.get("port"));
+app.listen(argv.port);
