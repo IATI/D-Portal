@@ -3,7 +3,6 @@
 
 var cmd=exports;
 
-var wait=require('wait.for');
 var fs = require('fs');
 var express = require('express');
 var util=require('util');

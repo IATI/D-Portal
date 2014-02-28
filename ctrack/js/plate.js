@@ -58,6 +58,25 @@ plate.fill_chunks=function(str,chunks)
 	return chunks;
 }
 
+// turn all chunks back into a string
+plate.out_chunks=function(chunks)
+{
+	var r=[];
+	
+	for(var n in chunks)
+	{
+		var v=chunks[n];
+		r.push("#"+n+"\n");
+		r.push(v);
+		if(v.slice(-1)!="\n") // may need to add a \n at the end
+		{
+			r.push("\n");
+		}
+	}
+
+	return r.join("");
+}
+
 // break a string on {data} ready to replace
 plate.prepare=function(str)
 {
