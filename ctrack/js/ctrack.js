@@ -51,14 +51,8 @@ ctrack.setup=function(args)
 	ctrack.div={};
 
 	ctrack.div.master=$(ctrack.args.master);
-	ctrack.div.main=$("<div class=\"ctrack_main\"></div>");
-	
 	ctrack.div.master.empty();
-	ctrack.div.master.append(ctrack.div.main);
-	
-//	ctrack.div.main.html( plate.chunk("chunk1",{test:"TESTING"})  );
-
-	ctrack.div.main.html( plate.replace("{loading}")  );
+	ctrack.div.master.html( plate.replace("{loading}")  );
 	
 //	ctrack.fetch({});
 
@@ -161,7 +155,7 @@ ctrack.setup=function(args)
 		{
 			ctrack.last_hash=h;
 			var l=ctrack.hash_split(h);
-			ctrack.div.main.html( plate.replace( "{view_"+l.view+"}" ) );
+			ctrack.div.master.html( plate.replace( "{view_"+l.view+"}" ) );
 			iati_activity_clean_and_sort();
 			
 			if(ctrack.last_view!=l.view) // scroll up when changing views

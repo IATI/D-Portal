@@ -268,14 +268,12 @@ fetch.activity=function(args)
 	
 	var callback=args.callback || function(data){
 		
-		ctrack.div.main.html( plate.replace("{preparing}")  );
+		ctrack.div.master.html( plate.replace("{preparing}")  );
 
 		console.log(data);
 		
 //		var acts=ctrack.iati.clean_activities( data["rows"] );
 //console.log(acts);
-
-//		ctrack.div.main.html( ctrack.plate.chunk("dump_act_xml",data["rows"][0]) );
 
 		ctrack.chunk("xml",data["rows"][0].xml);
 		ctrack.update_hash({"view":"act"});
