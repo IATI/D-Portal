@@ -3,6 +3,7 @@
 
 var tongue=exports;
 
+var wait=require('wait.for');
 var util=require('util');
 var csv=require('csv');
 var fs = require('fs');
@@ -69,6 +70,44 @@ tongue.export=function(filename)
 // replace chunks in lang.txt files with chunks stored in a csv file
 tongue.import=function(filename)
 {
+	wait.launchFiber(function()
+	{
+		var lines=wait.for( function(cb){ csv().from.string( fs.readFileSync(filename,'utf8') ).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node!
 
+//		ls(lines);
+
+		var eng=plate.fill_chunks( fs.readFileSync("text/eng.txt",'utf8') );
+		var fra=plate.fill_chunks( fs.readFileSync("text/fra.txt",'utf8') );
+
+		var head={};
+		for(var i=0;i<lines[0].length;i++)
+		{
+			var v=lines[0][i];
+			head[ v.trim() ]=i;
+		}
+
+		for(var i=1;i<lines.length;i++)
+		{
+			var v=lines[i];
+			var id=v[ head.id ];
+			var t_eng=v[ head.eng ];
+			var t_fra=v[ head.fra ];
+			if(id)
+			{
+				if(t_eng&&t_eng.length>0)
+				{
+					eng[id]=t_eng;
+				}
+				if(t_fra&&t_fra.length>0)
+				{
+					fra[id]=t_fra;
+				}
+			}
+		}
+
+		fs.writeFileSync("text/eng.txt",plate.out_chunks(eng));
+		fs.writeFileSync("text/fra.txt",plate.out_chunks(fra));
+
+	});
 }
 
