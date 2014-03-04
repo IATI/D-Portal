@@ -35,6 +35,9 @@ fetch.get_nday=function(n)
 
 fetch.ajax=function(dat,callback)
 {
+// we may queue a bunch of requests, this makes us wait for the last one before updating the view
+	ctrack.display_wait+=1;
+	
 	$.ajax({
 	  dataType: "json",
 	  url: ctrack.args.dstore + "/q?callback=?",

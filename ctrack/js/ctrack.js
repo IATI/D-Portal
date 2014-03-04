@@ -127,7 +127,23 @@ ctrack.setup=function(args)
 
 
 	ctrack.hash={"view":"main"};
+	ctrack.display_wait=0;
 	ctrack.update_hash=function(h)
+	{
+		for(var n in h)
+		{
+			ctrack.hash[n]=h[n];
+		}
+
+		ctrack.display_wait--;
+
+		if(ctrack.display_wait<=0)
+		{
+			ctrack.display_wait=0;
+			ctrack.change_hash(h);
+		}
+	}
+	ctrack.change_hash=function(h)
 	{
 		for(var n in h)
 		{
