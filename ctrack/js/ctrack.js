@@ -99,7 +99,7 @@ ctrack.setup=function(args)
 		if( !ctrack.view_done[name] )
 		{
 			ctrack.view_done[name]=true;			
-			if( name=="main" )
+			if( name.indexOf("main") == 0 )
 			{
 				fetch.endingsoon({limit:5});
 				fetch.finished({limit:5});
@@ -108,17 +108,17 @@ ctrack.setup=function(args)
 				fetch.stats({});
 			}
 			else
-			if( name=="donors" )
+			if( name.indexOf("donors") == 0 )
 			{
 				fetch.donors();
 			}
 			else
-			if( name=="sectors" )
+			if( name.indexOf("sectors") == 0 )
 			{
 				fetch.sectors();
 			}
 			else
-			if( name=="districts" )
+			if( name.indexOf("districts") == 0 )
 			{
 				fetch.districts();
 			}

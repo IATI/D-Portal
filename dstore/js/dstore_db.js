@@ -51,7 +51,7 @@ dstore_db.tables={
 	],
 	transactions:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"jml",						TEXT:true },
+		{ name:"jml",							TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"ref",							NOCASE:true , INDEX:true },
 		{ name:"description",					NOCASE:true , INDEX:true },
@@ -72,10 +72,11 @@ dstore_db.tables={
 		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement)
 		{ name:"jml",							TEXT:true },
 		{ name:"json",							TEXT:true },
-		{ name:"type",							NOCASE:true , INDEX:true },
+		{ name:"priority",						INTEGER:true , INDEX:true }, // set to 1 if it has priority, 0 if it should be ignored
+		{ name:"type",							NOCASE:true , INDEX:true },	// planed disburtions have priority over budgets
 		{ name:"day_start",						INTEGER:true , INDEX:true },
 		{ name:"day_end",						INTEGER:true , INDEX:true },
-		{ name:"day_length",					INTEGER:true , INDEX:true },
+		{ name:"day_length",					INTEGER:true , INDEX:true }, // budgets longer than a year will have 0 priority
 		{ name:"currency",						NOCASE:true , INDEX:true },
 		{ name:"value",							REAL:true , INDEX:true },
 		{ name:"usd",							REAL:true , INDEX:true },
@@ -229,7 +230,7 @@ dstore_db.refresh_acts = function(){
 
 dstore_db.refresh_act = function(db,aid,xml){
 
-// choose to remember planned-transactions or budgets for each year depending on which we fine in the xml
+// choose to prioritise planned-transactions or budgets for each year depending on which we fine in the xml
 // flag each year when present
 	var got_budget={};
 
@@ -284,12 +285,14 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 	};
 
-	var refresh_budget=function(it,act,act_json)
+	var refresh_budget=function(it,act,act_json,priority)
 	{
 //		process.stdout.write("b");
 		
 		var t={};
 		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
+
+		t.priority=priority;
 		
 		if(it[0]=="planned-disbursement") // flag to share table with planned-disbursement (they seem very similar)
 		{
@@ -305,6 +308,11 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
 		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
 		t["day_length"]=			t["day_end"]-t["day_start"];
+
+		if( t["day_length"] > 370 ) // allow a few days over a year
+		{
+			t.priority=0; // remove priority
+		}
 		
 		t["currency"]=				iati_xml.get_value_currency(it,"value");
 		t["value"]=					iati_xml.get_value(it,"value");
@@ -530,15 +538,16 @@ End
 		
 		got_budget={};
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
-		refry.tags(act,"planned-disbursement",function(it){refresh_budget(it,act,t);});
+		refry.tags(act,"planned-disbursement",function(it){refresh_budget(it,act,t,1);});
 		refry.tags(act,"budget",function(it){
 			var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
 			if( (!y) || (!got_budget[y]) ) // if not already filled in by planned
 			{
-				refresh_budget(it,act,t);
+				refresh_budget(it,act,t,1);
 			}
 			else
 			{
+				refresh_budget(it,act,t,0);
 //				ls({"skipyear":y});
 			}
 		});
