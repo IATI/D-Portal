@@ -135,6 +135,11 @@ ctrack.setup=function(args)
 			{
 				fetch.donor_budgets();
 			}
+			else
+			if( name.indexOf("donor_activities") == 0 )
+			{
+				fetch.donor_activities();
+			}
 		}
 	}
 

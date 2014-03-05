@@ -33,6 +33,16 @@ $(inside+"value").each(function(i){var it=$(this);
 	}
 });
 
+$(inside+"iati-activity").each(function(i){var it=$(this);
+	var needed=["title"];
+	needed.forEach(function(n){
+		if( it.children(n).length==0 )
+		{
+			it.append("<"+n+" />"); // just add a blank tag
+		}
+	});
+});
+
 $(inside+"participating-org").each(function(i){var it=$(this);
 	var c=it.attr("role");
 	if(c)
@@ -50,7 +60,6 @@ $(inside+"transaction").each(function(i){var it=$(this);
 			it.append("<"+n+" />"); // just add a blank tag
 		}
 	});
-
 });
 
 $(inside+"budget").each(function(i){var it=$(this);
