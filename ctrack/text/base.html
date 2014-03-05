@@ -27,44 +27,64 @@ IATI Country Tracker
 #view_donor_transactions
 {view_head}
 <style>{css}</style>
-{chunkhead}
+{chunkback}
 {chunkcountrymin}
 {donors_head}
 <div style="width:960px; margin:0 auto; padding:40px 20px;">
-	<div style="width:960px; padding-bottom:15px; font-size:42px; line-height:1.1em; color:#fff; border-bottom:10px solid #fff;">
-		<img src="/art/active_icon.png" alt="{active_icon_text}" width="40" height="40"/>{list_active_text}
-	</div>
+	<table class="title">
+		<tr>
+			<td><img src="/art/activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
+			<td>{view_donor_transactions_text}</td>
+		</tr>
+	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
-		<table class="list">
+		<table class="activity">
 			{donor_transactions_datas}
 		</table>
+	</div>
+	<div style="width:960px; margin:0 auto; text-align:center;">
+		<a href="#view=donors" class="list_more_link">{list_donor_back_text}</a>
 	</div>
 </div>
 {view_tail}
 
 #donor_transactions_data
-<tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{aid}">{title}</a></div></td><td>{amount}</td></tr>
+<tr>
+	<td>{num}.</td>
+	<td title="{donor_transactions_title_tip_text}"><div><a href="#ctrack_activity" activity="{aid}">{title}</a></div></td>
+	<td title="{donor_transactions_amount_tip_text}">{amount}</td>
+</tr>
 
 #view_donor_budgets
 {view_head}
 <style>{css}</style>
-{chunkhead}
+{chunkback}
 {chunkcountrymin}
 {donors_head}
 <div style="width:960px; margin:0 auto; padding:40px 20px;">
-	<div style="width:960px; padding-bottom:15px; font-size:42px; line-height:1.1em; color:#fff; border-bottom:10px solid #fff;">
-		<img src="/art/active_icon.png" alt="{active_icon_text}" width="40" height="40"/>{list_active_text}
-	</div>
+	<table class="title">
+		<tr>
+			<td><img src="/art/activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
+			<td>{view_donor_budgets_text}</td>
+		</tr>
+	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
-		<table class="list">
+		<table class="activity">
 			{donor_budgets_datas}
 		</table>
+	</div>
+	<div style="width:960px; margin:0 auto; text-align:center;">
+		<a href="#view=donors" class="list_more_link">{list_donor_back_text}</a>
 	</div>
 </div>
 {view_tail}
 
 #donor_budgets_data
-<tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{activity}">{title}</a></div></td><td>{amount}</td></tr>
+<tr>
+	<td>{num}.</td>
+	<td><div><a href="#ctrack_activity" activity="{activity}">{title}</a></div></td>
+	<td>{amount}</td>
+</tr>
 
 
 #donors_head
@@ -114,11 +134,11 @@ IATI Country Tracker
 <tr>
 <td title="{table_donor_tip_crs_text}">{crs}</td>
 <td title="{table_donor_tip_donor_text}">{donor}</td>
-<td title="{table_donor_tip_t2012_text}"><a href="#view=donor_transactions">{t2012}</a></td>
-<td title="{table_donor_tip_t2013_text}"><a href="#view=donor_transactions">{t2013}</a></td>
-<td title="{table_donor_tip_t2014_text}"><a href="#view=donor_transactions">{t2014}</a></td>
-<td title="{table_donor_tip_b2014_text}"><a href="#view=donor_budgets">{b2014}</a></td>
-<td title="{table_donor_tip_b2015_text}"><a href="#view=donor_budgets">{b2015}</a></td>
+<td title="{table_donor_tip_t2012_text}"><a href="#view=donor_transactions" class="block">{t2012}</a></td>
+<td title="{table_donor_tip_t2013_text}"><a href="#view=donor_transactions" class="block">{t2013}</a></td>
+<td title="{table_donor_tip_t2014_text}"><a href="#view=donor_transactions" class="block">{t2014}</a></td>
+<td title="{table_donor_tip_b2014_text}"><a href="#view=donor_budgets" class="block">{b2014}</a></td>
+<td title="{table_donor_tip_b2015_text}"><a href="#view=donor_budgets" class="block">{b2015}</a></td>
 </tr>
 
 
@@ -475,9 +495,12 @@ BANGLADESH
 
 #chunkactive
 <div style="width:960px; margin:0 auto; padding:40px 20px;">
-	<div style="width:960px; padding-bottom:15px; font-size:42px; line-height:1.1em; color:#fff; border-bottom:10px solid #fff;">
-		<img src="/art/active_icon.png" alt="{active_icon_text}" width="40" height="40"/>{list_active_text}
-	</div>
+	<table class="title">
+		<tr>
+			<td><img src="/art/active_icon.png" alt="{active_icon_text}" width="40" height="40"/></td>
+			<td>{list_active_text}</td>
+		</tr>
+	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
 		<table class="list">
 			{ctbox1table_datas}
@@ -490,9 +513,12 @@ BANGLADESH
 
 #chunkended
 <div style="width:960px; margin:0 auto; padding:40px 20px;">
-	<div style="width:960px; padding-bottom:15px; font-size:42px; line-height:1.1em; color:#fff; border-bottom:10px solid #fff;">
-		<img src="/art/ended_icon.png" alt="{ended_icon_text}" width="40" height="40"/>{list_ended_text}
-	</div>
+	<table class="title">
+		<tr>
+			<td><img src="/art/ended_icon.png" alt="{ended_icon_text}" width="40" height="40"/></td>
+			<td>{list_ended_text}</td>
+		</tr>
+	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
 		<table class="list">
 			{ctbox2table_datas}
