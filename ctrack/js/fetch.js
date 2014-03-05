@@ -329,6 +329,96 @@ fetch.near=function(args)
 	fetch.ajax(dat,callback);
 };
 
+fetch.donor_transactions=function(args)
+{
+	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+
+	args=args || {};
+
+	var year=2012;
+	var funder="gb";
+
+	var dat={
+			"from":"transactions,country",
+			"limit":args.limit || 1000,
+			"select":"sum_of_percent_of_usd,aid,funder",
+			"funder_not_null":"",
+			"funder":funder,
+			"groupby":"aid",
+			"orderby":"1-",
+			"code":"D|E",
+			"day_gteq":year+"-01-01","day_lt":(parseInt(year)+1)+"-01-01",
+			"country_code":(args.country || ctrack.args.country)
+		};
+	var callback=function(data){
+		console.log("fetch donor_transactions "+year);
+		console.log(data);
+
+		var s=[];
+		for(var i=0;i<data.rows.length;i++)
+		{
+			var v=data.rows[i];
+			var d={};
+			d.num=i+1;
+			d.funder=v.funder;
+			d.aid=v.aid;
+			d.title=v.aid;
+			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+
+			s.push( plate.replace("{donor_transactions_data}",d) );
+		}
+		ctrack.chunk("donor_transactions_datas",s.join(""));
+		ctrack.update_hash({"view":"donor_budgets"});
+	};
+	fetch.ajax(dat,callback);
+}
+
+fetch.donor_budgets=function(args)
+{
+	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+
+	args=args || {};
+
+	var year=2012;
+	var funder="gb";
+
+	var dat={
+			"from":"budgets,country",
+			"limit":args.limit || 1000,
+			"select":"sum_of_percent_of_usd,aid,funder",
+			"funder_not_null":"",
+			"funder":funder,
+			"groupby":"aid",
+			"orderby":"1-",
+			"priority":1, // has passed some validation checks serverside
+			"day_end_gteq":year+"-01-01","day_end_lt":(parseInt(year)+1)+"-01-01",
+			"country_code":(args.country || ctrack.args.country)
+		};
+	var callback=function(data){
+		console.log("fetch donor_budgets "+year);
+		console.log(data);
+
+		var s=[];
+		for(var i=0;i<data.rows.length;i++)
+		{
+			var v=data.rows[i];
+			var d={};
+			d.num=i+1;
+			d.funder=v.funder;
+			d.aid=v.aid;
+			d.title=v.aid;
+			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+
+			s.push( plate.replace("{donor_budgets_data}",d) );
+		}
+		ctrack.chunk("donor_budgets_datas",s.join(""));
+		ctrack.update_hash({"view":"donor_budgets"});
+	};
+	fetch.ajax(dat,callback);
+}
+
 fetch.donors=function(args)
 {
 	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {

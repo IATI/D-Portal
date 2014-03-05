@@ -1,10 +1,7 @@
 #loading
 
-<b>Please wait, requesting data from iati-datastore...</b>
+<b>Please wait, fetching data...</b>
 
-#preparing
-
-<b>Please wait, preparing page...</b>
 
 #title
 IATI Country Tracker
@@ -25,6 +22,44 @@ IATI Country Tracker
 {donors_head}
 {table_donors}
 {view_tail}
+
+
+#view_donor_transactions
+{view_head}
+<style>{css}</style>
+{chunkhead}
+{chunkcountrymin}
+{donors_head}
+<div style="width:960px; margin:0 auto; padding:40px 20px;">
+	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
+		<table class="list">
+			{donor_transactions_datas}
+		</table>
+	</div>
+</div>
+{view_tail}
+
+#donor_transactions_data
+<tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{aid}">{title}</a></div></td><td>{amount}</td></tr>
+
+#view_donor_budgets
+{view_head}
+<style>{css}</style>
+{chunkhead}
+{chunkcountrymin}
+{donors_head}
+<div style="width:960px; margin:0 auto; padding:40px 20px;">
+	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
+		<table class="list">
+			{donor_budgets_datas}
+		</table>
+	</div>
+</div>
+{view_tail}
+
+#donor_budgets_data
+<tr><td>{num}.</td><td><div><a href="#ctrack_activity" activity="{activity}">{title}</a></div></td><td>{amount}</td></tr>
+
 
 #donors_head
 <div style="width:830px; margin:0 auto; padding:40px 0;">
@@ -70,11 +105,11 @@ IATI Country Tracker
 <tr>
 <td style="border-bottom:1px solid #ccc; background-color:#E8F7FE;">{crs}</td>
 <td style="border-bottom:1px solid #ccc;">{donor}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{t2012}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2013}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#E8F4FF;">{t2014}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{b2014}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{b2015}</td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;"><a href="#view=donor_transactions">{t2012}</a></td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;"><a href="#view=donor_transactions">{t2013}</a></td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#E8F4FF;"><a href="#view=donor_transactions">{t2014}</a></td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;"><a href="#view=donor_budgets">{b2014}</a></td>
+<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;"><a href="#view=donor_budgets">{b2015}</a></td>
 </tr>
 
 

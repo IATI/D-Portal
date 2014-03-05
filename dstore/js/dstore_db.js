@@ -27,6 +27,7 @@ dstore_db.bubble_act={
 		"reporting_org":true,
 		"reporting_org_ref":true,
 		"funder":true,
+		"title":true,
 		"aid":true
 	};
 	
@@ -65,7 +66,8 @@ dstore_db.tables={
 		{ name:"aid_code",						NOCASE:true , INDEX:true },
 		{ name:"reporting_org",					NOCASE:true , INDEX:true },
 		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"funder",						NOCASE:true , INDEX:true }
+		{ name:"funder",						NOCASE:true , INDEX:true },
+		{ name:"title",							NOCASE:true }
 	],
 	budgets:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -82,7 +84,8 @@ dstore_db.tables={
 		{ name:"usd",							REAL:true , INDEX:true },
 		{ name:"reporting_org",					NOCASE:true , INDEX:true },
 		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"funder",						NOCASE:true , INDEX:true }
+		{ name:"funder",						NOCASE:true , INDEX:true },
+		{ name:"title",							NOCASE:true }
 	],
 // These are intended just to be joined to the above.
 // use &from=activities,country,sector,location& to request a join via aid ( this *may* return duplicate activities )
