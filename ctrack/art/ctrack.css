@@ -62,12 +62,30 @@ table.money tr:nth-child(2) td:nth-child(4)	{background-color:rgba(17, 46, 105, 
 table.money tr:nth-child(2) td:nth-child(5)	{background-color:rgba(17, 46, 105, 0.9);}
 table.money tr:nth-child(2) td:nth-child(6)	{background-color:rgba(17, 46, 105, 0.7);}
 table.money tr:nth-child(2) td:nth-child(7)	{background-color:rgba(17, 46, 105, 0.9);}
+table.money tr:nth-child(n+3) td:nth-child(n+3):hover	{background-color:rgba(17, 46, 105, 1);}
 table.money a			{display:inline-block; padding-bottom:5px; width:100%; border-bottom:0px dotted #0D3057; color:#95B0CF;}
 table.money a:focus		{color:#95B0CF; text-decoration: none;}
 table.money a:link  	{color:#95B0CF; text-decoration: none;}
 table.money a:visited	{color:#95B0CF; text-decoration: none;}
 table.money a:hover		{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration:none;}
 table.money a:active	{color:#95B0CF; text-decoration: none;}
+
+table.activity			{width:100%; border-collapse:collapse;}
+table.activity td		{color:#B8C8CD; font-size:20px; line-height:1.45em; word-spacing:0.7px; padding:10px 20px; vertical-align:top;}
+table.activity td:nth-child(1)	{padding:10px 0;}
+table.activity td:nth-child(3)	{text-align:right; padding-right:0; min-width:140px;}
+table.activity a		{display:inline-block; padding-bottom:5px; width:100%; border-bottom:0px dotted #0D3057; color:#95B0CF;}
+table.activity a:focus	{color:#95B0CF; text-decoration: none;}
+table.activity a:link  	{color:#95B0CF; text-decoration: none;}
+table.activity a:visited{color:#95B0CF; text-decoration: none;}
+table.activity a:hover	{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration: none;}
+table.activity a:active	{color:#95B0CF; text-decoration: none;}
+
+table.title				{width:960px; padding-bottom:15px; border-bottom:10px solid #fff;}
+table.title td			{font-size:32px; line-height:1.1em; color:#fff; padding-right:20px;}
+table.title td:nth-child(1)	{padding-right:10px; width:40px;}
+
+a.block					{display:block;}
 
 a.back span				{display:inline-block; vertical-align:top; padding-left:10px; font-size:14px; color:#ccc;}
 a.back span:hover		{color:#fff; text-decoration:none;}
@@ -77,6 +95,9 @@ a.list_view_link:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
 
 a.list_more_link		{padding:10px 20px; background-color:#3B9CFB; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:160px; margin:0 auto;}
 a.list_more_link:hover	{background-color:#0081FF;}
+
+
+
 
 
 

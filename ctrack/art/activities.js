@@ -197,22 +197,21 @@ $(inside+"transaction").each(function(i){var it=$(this);
 $(inside+"iati-activity").each(function(i){var it=$(this);
 	
 	var sortlist=[
-		"transaction-date",
-		"iati-identifier",
-		"activity-date",
-		"recipient-country",
 		"title",
-		"activity-website",
-		"activity-status",
-		"sector",
+		"iati-identifier",
+		"recipient-country",
+		"activity-date",
+		"participating-org",
+		"reporting-org",
 		"description",
+		"sector",
 		"budget",
 		"transaction",
-		"participating-org",
 		"contact-info",
+		"activity-website",
+		"activity-status",
 		"document-link",
 		"related-activity",
-		"reporting-org",
 	0];
 	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
 
