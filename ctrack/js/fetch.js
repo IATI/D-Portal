@@ -369,7 +369,7 @@ fetch.donor_transactions=function(args)
 			s.push( plate.replace("{donor_transactions_data}",d) );
 		}
 		ctrack.chunk("donor_transactions_datas",s.join(""));
-		ctrack.update_hash({"view":"donor_budgets"});
+		ctrack.update_hash({"view":"donor_transactions"});
 	};
 	fetch.ajax(dat,callback);
 }
