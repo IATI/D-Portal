@@ -58,16 +58,19 @@ ctrack.setup=function(args)
 
 
 	
-	ctrack.chunk("ctbox1table_datas","<tr><td>Loading...</td></tr>");
+	ctrack.chunk("ctbox1table_datas","{loading}");
 	ctrack.chunk("active_projects",0);
 
-	ctrack.chunk("ctbox2table_datas","<tr><td>Loading...</td></tr>");
+	ctrack.chunk("ctbox2table_datas","{loading}");
 	ctrack.chunk("finished_projects",0);
 
-	ctrack.chunk("ctbox3table_datas","<tr><td>Loading...</td></tr>");
+	ctrack.chunk("ctbox3table_datas","{loading}");
 	ctrack.chunk("planned_projects",0);
 	
-	ctrack.chunk("ctneartable_datas","<tr><td>Loading...</td></tr>");
+	ctrack.chunk("ctneartable_datas","{loading}");
+
+	ctrack.chunk("donor_transactions_datas","{loading}");
+	ctrack.chunk("donor_budgets_datas","{loading}");
 
 	ctrack.chunk("numof_publishers",0);
 	ctrack.chunk("total_projects",0);
@@ -121,6 +124,16 @@ ctrack.setup=function(args)
 			if( name.indexOf("districts") == 0 )
 			{
 				fetch.districts();
+			}
+			else
+			if( name.indexOf("donor_transactions") == 0 )
+			{
+				fetch.donor_transactions();
+			}
+			else
+			if( name.indexOf("donor_budgets") == 0 )
+			{
+				fetch.donor_budgets();
 			}
 		}
 	}
