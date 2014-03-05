@@ -1,5 +1,4 @@
-body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:sans-serif; word-wrap:break-word;}
-html 					{background:url('backgroundimage.jpg') no-repeat bottom fixed; background-size:cover; overflow:hidden; overflow-y:scroll;}
+body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
 
 a						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
 a, img					{border:0; outline:none;}
@@ -12,8 +11,10 @@ i						{color:#444; font-style:italics;}
 .defcon					{width:960px; margin:0 auto;}
 .halfcon				{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
 
-.ctrack					{width:100%; min-height:100%; height:auto !important; height:100%; margin:0px 0px -38px 0px;}
-.ctrack_main			{width:100%; min-width:1040px; padding:0px 0px 38px 0px; background-color: rgba(255,255,255,0.4);}
+.ctrack					{width:100%; min-height:100%; height:auto !important; height:100%; margin:0px 0px -40px 0px;}
+.ctrack_main			{width:100%; min-width:1040px; padding:0px 0px 40px 0px; background-color: rgba(255,255,255,0.4);}
+#imgwrap 				{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
+.wrapper				{width:100%; padding:0px 0px 40px 0px; background-color:rgba(46, 41, 6, 0.6);}
 
 .bold					{font-weight:bold;}
 .bold.ob				{font-style:italic;}
@@ -21,7 +22,7 @@ i						{color:#444; font-style:italics;}
 .footer					{width:100%; margin:0 auto; background-color:#FFF083; color:#C5B541; margin-top:40px; padding:20px 0;}
 .footer:hover			{color:#A59313;}
 
-.footwrap				{width:100%; min-width:1040px; height:38px; background-color:#303030;}
+.footwrap				{width:100%; min-width:1040px; height:40px; background-color:rgba(0,0,0,0.8);}
 .footcon				{width:960px; margin:0 auto; padding:10px 0;}
 a.copyright				{font-size:13px; line-height:13px; font-weight:bold; text-transform:uppercase; color:#fff;}
 
@@ -33,6 +34,16 @@ a.boxmore:hover			{background-color:#bbb;}
 
 a.nearmore				{display:block; width:100px; padding:10px; background-color:#CADDE0; border:1px solid #CEDFE2; border-top:0; text-align:center; font-size:12px; color:#fff; border-radius:0 0 8px 8px;}
 a.nearmore:hover		{background-color:#B6D5EE;}
+
+table.list				{width:100%; border-collapse:collapse;}
+table.list td			{color:#B8C8CD; font-size:20px; line-height:1.45em; word-spacing:0.7px; padding:20px 20px 20px 0; vertical-align:top;}
+table.list td:nth-child(3)	{text-align:right; padding-right:0; min-width:140px;}
+table.list a			{display:inline-block; padding-bottom:5px; width:100%; border-bottom:0px dotted #0D3057; color:#95B0CF;}
+table.list a:focus		{color:#95B0CF; text-decoration: none;}
+table.list a:link  		{color:#95B0CF; text-decoration: none;}
+table.list a:visited	{color:#95B0CF; text-decoration: none;}
+table.list a:hover		{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration: none;}
+table.list a:active		{color:#95B0CF; text-decoration: none;}
 
 table.def.near a:focus		{color:#6B6F70; text-decoration: none;}
 table.def.near a:link  		{color:#6B6F70; text-decoration: none;}
