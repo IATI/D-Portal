@@ -24,7 +24,7 @@ i						{color:#444; font-style:italics;}
 
 .footwrap				{width:100%; min-width:1040px; height:40px; background-color:rgba(0,0,0,0.8);}
 .footcon				{width:960px; margin:0 auto; padding:10px 0;}
-a.copyright				{font-size:13px; line-height:13px; font-weight:bold; text-transform:uppercase; color:#fff;}
+a.copyright				{font-size:14px; line-height:13px; color:#fff;}
 
 a.navabout				{font-size:24px; color:#fff;}
 a.navabout:hover		{border-bottom:2px solid #fff;}
@@ -44,6 +44,42 @@ table.list a:link  		{color:#95B0CF; text-decoration: none;}
 table.list a:visited	{color:#95B0CF; text-decoration: none;}
 table.list a:hover		{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration: none;}
 table.list a:active		{color:#95B0CF; text-decoration: none;}
+
+table.money				{width:100%; border-collapse:collapse;}
+table.money td			{text-align:right; color:#B8C8CD; font-size:16px; line-height:1.45em; word-spacing:0.7px; padding:20px; vertical-align:top; border-bottom:1px solid #1E90FF;}
+table.money td:nth-child(1)	{text-align:left; background-color:rgba(17, 46, 105, 0.4);}
+table.money td:nth-child(2)	{text-align:left;}
+table.money td:nth-child(3)	{background-color:rgba(17, 46, 105, 0.2);}
+table.money td:nth-child(4)	{background-color:rgba(17, 46, 105, 0.4);}
+table.money td:nth-child(5)	{background-color:rgba(17, 46, 105, 0.6);}
+table.money td:nth-child(6)	{background-color:rgba(17, 46, 105, 0.4);}
+table.money td:nth-child(7)	{background-color:rgba(17, 46, 105, 0.6);}
+table.money tr:nth-child(1) td {color:#fff; font-weight:700; text-align:center; background-color:transparent;}
+table.money tr:nth-child(2) td {color:#fff; font-weight:500;}
+table.money tr:nth-child(2) td:nth-child(1) {background-color:rgba(17, 46, 105, 0.8);}
+table.money tr:nth-child(2) td:nth-child(3)	{background-color:rgba(17, 46, 105, 0.6);}
+table.money tr:nth-child(2) td:nth-child(4)	{background-color:rgba(17, 46, 105, 0.8);}
+table.money tr:nth-child(2) td:nth-child(5)	{background-color:rgba(17, 46, 105, 0.9);}
+table.money tr:nth-child(2) td:nth-child(6)	{background-color:rgba(17, 46, 105, 0.7);}
+table.money tr:nth-child(2) td:nth-child(7)	{background-color:rgba(17, 46, 105, 0.9);}
+table.money a			{display:inline-block; padding-bottom:5px; width:100%; border-bottom:0px dotted #0D3057; color:#95B0CF;}
+table.money a:focus		{color:#95B0CF; text-decoration: none;}
+table.money a:link  	{color:#95B0CF; text-decoration: none;}
+table.money a:visited	{color:#95B0CF; text-decoration: none;}
+table.money a:hover		{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration:none;}
+table.money a:active	{color:#95B0CF; text-decoration: none;}
+
+a.back span				{display:inline-block; vertical-align:top; padding-left:10px; font-size:14px; color:#ccc;}
+a.back span:hover		{color:#fff; text-decoration:none;}
+
+a.list_view_link		{display:block; width:380px; background-color:rgba(0,14,32,0.7); color:#ccc; font-size:20px; text-align:center; padding:20px 0; border-radius:0 0 8px 8px;}
+a.list_view_link:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
+
+a.list_more_link		{padding:10px 20px; background-color:#3B9CFB; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:160px; margin:0 auto;}
+a.list_more_link:hover	{background-color:#0081FF;}
+
+
+
 
 table.def.near a:focus		{color:#6B6F70; text-decoration: none;}
 table.def.near a:link  		{color:#6B6F70; text-decoration: none;}

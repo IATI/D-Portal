@@ -13,34 +13,37 @@ IATI Country Tracker
 #view_act
 {view_head}
 <style>{css}</style>
-{chunkhead}
+{chunkback}
 {xml}
 {view_tail}
 
 #view_donors
 {view_head}
 <style>{css}</style>
-{chunkhead}
+{chunkback}
 {chunkcountrymin}
 {donors_head}
 {table_donors}
 {view_tail}
 
 #donors_head
-<div style="width:830px; margin:0 auto; padding:40px 0;">
-	<div style="width:300px;display:inline-block; vertical-align:top;">
-			
+<div style="width:820px; margin:0 auto; padding:50px 0 30px 0;">
+	<div style="width:330px; display:inline-block; vertical-align:bottom;">
+		<img src="/art/moneytitle_icon.png" alt="{moneytitle_icon_text}" width="330" height="150"/>	
 	</div><div style="display:inline-block; vertical-align:top;">
 			<div style="height:30px;"></div>
 			<div style="width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;"></div>
-	</div><div style="width:400px; display:inline-block; vertical-align:top; background-color:#008FFF; padding:20px 40px; text-align:center; color:#fff; font-size:34px;">
-		{title_donor_text}
+	</div><div style="width:440px; display:inline-block; vertical-align:top;">
+			<div style="width:360px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#fff; font-size:42px;">
+				{title_donor_text}
+			</div>
+			<div style="width:440px; padding-top:20px; color:#fff; font-size:18px; text-align:center;">{declare_title_donor_text}</div>
 	</div>
 </div>
 
 #table_donors
 <div style="width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
-<table class="donors">
+<table class="money">
 {table_donors_row_head}
 {table_donors_rows}
 </table>
@@ -51,80 +54,95 @@ IATI Country Tracker
 
 #table_donors_row_head
 <tr>
-<td style="border:0;"></td>
-<td style="border:0;"></td>
-<td colspan="3" style="border:0; color:#999; text-align:center; padding:20px 0;">TRANSACTIONS</td>
-<td colspan="2" style="border:0; color:#999; text-align:center; padding:20px 0;">BUDGET</td>
+<td></td>
+<td></td>
+<td colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</td>
+<td colspan="2" title="{table_donor_tip_title_budget_text}">{table_donor_title_budget_text}</td>
 </tr>
 <tr>
-<td style="color:#888; background-color:#D6D6D6;">CRS 2012</td>
-<td style="color:#888;">DONOR</td>
-<td style="text-align:right; color:#888; background-color:#DEDEDE;">2012</td>
-<td style="text-align:right; color:#888; background-color:#D6D6D6;">2013</td>
-<td style="text-align:right; color:#888; background-color:#CECECE;">2014</td>
-<td style="text-align:right; color:#888; background-color:#DEDEDE;">2014</td>
-<td style="text-align:right; color:#888; background-color:#D6D6D6;">2015</td>
+<td title="{table_donor_tip_title_crs_text}">CRS 2012</td>
+<td title="{table_donor_tip_title_donor_text}">{table_donor_title_donor_text}</td>
+<td title="{table_donor_tip_title_t2012_text}">2012</td>
+<td title="{table_donor_tip_title_t2013_text}">2013</td>
+<td title="{table_donor_tip_title_t2014_text}">2014</td>
+<td title="{table_donor_tip_title_b2014_text}">2014</td>
+<td title="{table_donor_tip_title_b2015_text}">2015</td>
 </tr>
 
 #table_donors_row
 <tr>
-<td style="border-bottom:1px solid #ccc; background-color:#E8F7FE;">{crs}</td>
-<td style="border-bottom:1px solid #ccc;">{donor}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{t2012}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2013}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#E8F4FF;">{t2014}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{b2014}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{b2015}</td>
+<td title="{table_donor_tip_crs_text}">{crs}</td>
+<td title="{table_donor_tip_donor_text}">{donor}</td>
+<td title="{table_donor_tip_t2012_text}">{t2012}</td>
+<td title="{table_donor_tip_t2013_text}">{t2013}</td>
+<td title="{table_donor_tip_t2014_text}">{t2014}</td>
+<td title="{table_donor_tip_b2014_text}">{b2014}</td>
+<td title="{table_donor_tip_b2015_text}">{b2015}</td>
 </tr>
 
 
 #view_sectors
 {view_head}
 <style>{css}</style>
-{chunkhead}
+{chunkback}
+{chunkcountrymin}
 {sectors_head}
 {table_sectors}
 {view_tail}
 
 
 #sectors_head
-<div style="width:960px; margin:0 auto; font-size:38px; color:#8E9092; padding-bottom:40px;">Where does the money go to (Sectors)?</div>
+<div style="width:820px; margin:0 auto; padding:50px 0 30px 0;">
+	<div style="width:330px; display:inline-block; vertical-align:bottom;">
+		<img src="/art/moneytitle_icon.png" alt="{moneytitle_icon_text}" width="330" height="180"/>
+	</div><div style="display:inline-block; vertical-align:top;">
+			<div style="height:30px;"></div>
+			<div style="width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #00C475; border-bottom:20px solid transparent;"></div>
+	</div><div style="width:440px; display:inline-block; vertical-align:top;">
+			<div style="width:360px; background-color:#00C475; padding:20px 40px; text-align:center; color:#fff; font-size:42px;">
+				{title_sector_text}
+			</div>
+			<div style="width:440px; padding-top:20px; color:#fff; font-size:18px; text-align:center;">{declare_title_sector_text}</div>
+	</div>
+</div>
 
 #table_sectors
-<table class="sectors">
+<div style="width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
+<table class="money">
 {table_sectors_row_head}
 {table_sectors_rows}
 </table>
+</div>
 
 #table_sectors_rows
 {table_sectors_row}
 
 #table_sectors_row_head
 <tr>
-<td style="border:0;"></td>
-<td style="border:0;"></td>
-<td colspan="3" style="border:0; color:#999; text-align:center; padding:20px 0;">TRANSACTIONS</td>
-<td colspan="2" style="border:0; color:#999; text-align:center; padding:20px 0;">BUDGET</td>
+<td></td>
+<td></td>
+<td colspan="3" title="{table_sector_tip_title_transaction_text}">{table_sector_title_transaction_text}</td>
+<td colspan="2" title="{table_sector_tip_title_budget_text}">{table_sector_title_budget_text}</td>
 </tr>
 <tr>
-<td style="color:#888; background-color:#D6D6D6;">CRS 2012</td>
-<td style="color:#888;">SECTOR</td>
-<td style="text-align:right; color:#888; background-color:#DEDEDE;">2012</td>
-<td style="text-align:right; color:#888; background-color:#D6D6D6;">2013</td>
-<td style="text-align:right; color:#888; background-color:#CECECE;">2014</td>
-<td style="text-align:right; color:#888; background-color:#DEDEDE;">2014</td>
-<td style="text-align:right; color:#888; background-color:#D6D6D6;">2015</td>
+<td title="{table_sector_tip_title_crs_text}">CRS 2012</td>
+<td title="{table_sector_tip_title_sector_text}">{table_sector_title_sector_text}</td>
+<td title="{table_sector_tip_title_t2012_text}">2012</td>
+<td title="{table_sector_tip_title_t2013_text}">2013</td>
+<td title="{table_sector_tip_title_t2014_text}">2014</td>
+<td title="{table_sector_tip_title_b2014_text}">2014</td>
+<td title="{table_sector_tip_title_b2015_text}">2015</td>
 </tr>
 
 #table_sectors_row
 <tr>
-<td style="border-bottom:1px solid #ccc; background-color:#E8F7FE;">{crs}</td>
-<td style="border-bottom:1px solid #ccc;">{sector}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{t2012}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{t2013}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#E8F4FF;">{t2014}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#F1F8FF;">{b2014}</td>
-<td style="border-bottom:1px solid #ccc; text-align:right; background-color:#ECF6FF;">{b2015}</td>
+<td title="{table_sector_tip_crs_text}">{crs}</td>
+<td title="{table_sector_tip_sector_text}">{sector}</td>
+<td title="{table_sector_tip_t2012_text}">{t2012}</td>
+<td title="{table_sector_tip_t2013_text}">{t2013}</td>
+<td title="{table_sector_tip_t2014_text}">{t2014}</td>
+<td title="{table_sector_tip_b2014_text}">{b2014}</td>
+<td title="{table_sector_tip_b2015_text}">{b2015}</td>
 </tr>
 
 
@@ -205,11 +223,25 @@ BANGLADESH
 #chunkhead
 <div style="width:960px; margin:0 auto; padding-top:80px;">
 	<div style="width:860px; display:inline-block; vertical-align:top;">
-		<a href="/"><img src="/art/ctlogo.25.png" alt="Country Tracker logo" width="232" height="20"/></a>
+		<a href="/" title="{mainback_text}"><img src="/art/ctlogo.25.png" alt="Country Tracker logo" width="232" height="21"/></a>
 	</div><div style="width:100px; display:inline-block; vertical-align:top; color:#fff; font-size:14px; text-align:right;">
-		<a href="?tongue=eng#view=view3" style="color:#fff; font-size:14px;" title="View this in English(UK)">ENG</a>
+		<a href="?tongue=eng" style="color:#fff; font-size:14px;" title="View this in English(UK)">ENG</a>
 		 / 
-		<a href="?tongue=fra#view=view3" style="color:#fff; font-size:14px;" title="View this in French">FRA</a>
+		<a href="?tongue=fra" style="color:#fff; font-size:14px;" title="View this in French">FRA</a>
+	</div>
+</div>
+
+#chunkback
+<div style="width:960px; margin:0 auto; padding-top:80px;">
+	<div style="width:860px; display:inline-block; vertical-align:top;">
+		<a href="#view=main" title="{back_text}" class="back">
+			<img src="/art/ctlogo.25.png" alt="Country Tracker logo" width="232" height="21"/>
+			<span>&gt; BACK</span>
+		</a>
+	</div><div style="width:100px; display:inline-block; vertical-align:top; color:#fff; font-size:14px; text-align:right;">
+		<a href="?tongue=eng" style="color:#fff; font-size:14px;" title="View this in English(UK)">ENG</a>
+		 / 
+		<a href="?tongue=fra" style="color:#fff; font-size:14px;" title="View this in French">FRA</a>
 	</div>
 </div>
 
@@ -217,8 +249,8 @@ BANGLADESH
 <div style="width:960px; margin:0 auto; padding:0;">
 	<table style="width:960px; margin:0 auto; padding:20px 0 10px 0;">
 		<tr>
-			<td style="width:800px; max-width:800px; padding-right:10px; font-size:32px; line-height:1.1em; color:#fff;">{country_name}</td>
-			<td style="width:150px; font-size:26px; color:#fff; text-align:right;">(lon, lat)</td>
+			<td style="width:860px; max-width:860px; padding-right:20px; font-size:32px; line-height:1.1em; color:#fff;">{country_name}</td>
+			<td><img src="{country_flag}" alt="{country_name} flag" width="80" height="40"/></td>
 		</tr>
 	</table>
 	<div style="width:960px; padding-top:10px; border-top:10px solid #fff;">
@@ -292,7 +324,7 @@ BANGLADESH
 				</td>
 			</tr>
 		</table>
-		<a href="#view=donors" style="display:block; width:380px; background-color:rgba(0,14,32,0.7); color:#ccc; font-size:20px; text-align:center; padding:20px 0; border-radius:0 0 8px 8px;">
+		<a href="#view=donors" class="list_view_link">
 			{link_donor_text}
 		</a>
 	</div><div style="width:380px; display:inline-block; vertical-align:top; padding-left:60px;">
@@ -346,7 +378,7 @@ BANGLADESH
 				</td>
 			</tr>
 		</table>
-		<a href="#view=donors" style="display:block; width:380px; background-color:rgba(0,14,32,0.7); color:#ccc; font-size:20px; text-align:center; padding:20px 0; border-radius:0 0 8px 8px;">
+		<a href="#view=sectors" class="list_view_link">
 			{link_sector_text}
 		</a>
 	</div>
@@ -403,7 +435,7 @@ BANGLADESH
 #chunkactive
 <div style="width:960px; margin:0 auto; padding:40px 20px;">
 	<div style="width:960px; padding-bottom:15px; font-size:42px; line-height:1.1em; color:#fff; border-bottom:10px solid #fff;">
-		{list_active_text}
+		<img src="/art/active_icon.png" alt="{active_icon_text}" width="40" height="40"/>{list_active_text}
 	</div>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
 		<table class="list">
@@ -411,14 +443,14 @@ BANGLADESH
 		</table>
 	</div>
 	<div style="width:960px; margin:0 auto; text-align:center;">
-		<a href="#ctrack_ending_more" style="padding:10px 20px; background-color:#1E90FF; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:160px; margin:0 auto;">{list_more_text}</a>
+		<a href="#ctrack_ending_more" class="list_more_link">{list_more_text}</a>
 	</div>
 </div>
 
 #chunkended
 <div style="width:960px; margin:0 auto; padding:40px 20px;">
 	<div style="width:960px; padding-bottom:15px; font-size:42px; line-height:1.1em; color:#fff; border-bottom:10px solid #fff;">
-		{list_ended_text}
+		<img src="/art/ended_icon.png" alt="{ended_icon_text}" width="40" height="40"/>{list_ended_text}
 	</div>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
 		<table class="list">
@@ -426,7 +458,7 @@ BANGLADESH
 		</table>
 	</div>
 	<div style="width:960px; margin:0 auto; text-align:center;">
-		<a href="#ctrack_finished_more" style="padding:10px 20px; background-color:#1E90FF; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:160px; margin:0 auto;">{list_more_text}</a>
+		<a href="#ctrack_finished_more" class="list_more_link">{list_more_text}</a>
 	</div>
 </div>
 
@@ -443,11 +475,11 @@ BANGLADESH
 #css
 iati-activity		{margin:0 auto;}
 
-table.donors		{width:960px; border-collapse:collapse;}
+table.donors		{width:100%; border-collapse:collapse;}
 table.donors td		{padding:20px; vertical-align:top; border-bottom:3px solid #D8D8D8;}
 
-table.sectors		{width:960px; border-collapse:collapse;}
+table.sectors		{width:100%; border-collapse:collapse;}
 table.sectors td	{padding:20px; vertical-align:top; border-bottom:3px solid #D8D8D8;}
 
-table.districts		{width:960px; border-collapse:collapse;}
+table.districts		{width:100%; border-collapse:collapse;}
 table.districts td	{padding:20px; vertical-align:top; border-bottom:3px solid #D8D8D8;}
