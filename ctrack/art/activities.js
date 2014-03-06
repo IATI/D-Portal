@@ -33,6 +33,35 @@ $(inside+"value").each(function(i){var it=$(this);
 	}
 });
 
+$(inside+"iati-activity").each(function(i){var it=$(this);
+	var needed=["title","recipient-country","participating-org","reporting-org","description","activity-status"];
+	needed.forEach(function(n){
+		if( it.children(n).length==0 )
+		{
+			it.append("<"+n+" />"); // just add a blank tag
+		}
+	});
+
+	var ad=it.children("activity-date");
+	var got_start=false;
+	var got_end=false;
+	ad.each(function(i,a){
+		var t=$(a).attr("type");
+		if(t=="start-actual")
+		{
+			got_start=true;
+		}
+		if(t=="end-actual")
+		{
+			got_end=true;
+		}
+	});
+
+	if(!got_start){ it.append("<activity-date type=\"start-actual\" />"); }
+	if(!got_end)  { it.append("<activity-date type=\"end-actual\" />"); }
+	
+});
+
 $(inside+"participating-org").each(function(i){var it=$(this);
 	var c=it.attr("role");
 	if(c)
@@ -50,7 +79,6 @@ $(inside+"transaction").each(function(i){var it=$(this);
 			it.append("<"+n+" />"); // just add a blank tag
 		}
 	});
-
 });
 
 $(inside+"budget").each(function(i){var it=$(this);
