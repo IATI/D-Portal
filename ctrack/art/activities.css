@@ -23,8 +23,9 @@ iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; d
 iati-identifier:hover	{color:#FFAB5E;}
 a.a_iati-identifier		{width:960px; margin:0 auto;}
 
-recipient-country		{display:table-cell; font-size:48px; width:600px; color:#fff; padding:30px 20px 30px 40px; vertical-align:top; background-color:rgba(17, 46, 105, 0.9);}
+recipient-country {display:table-cell; font-size:48px; width:600px; color:#fff; padding:30px 20px 30px 40px; vertical-align:top; background-color:rgba(17, 46, 105, 0.9);}
 recipient-country:nth-of-type(1):before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#fff; display:block; margin-bottom:5px;}
+recipient-country:not(nth-of-type(1))	{display:none;}
 
 activity-date[type="start-planned"]	{display:none;}
 activity-date[type="end-planned"]	{display:none;}
@@ -104,16 +105,16 @@ activity-status[code="5"]	{background-color:rgb(255, 71, 71);}
 activity-status				{display:block; font-size:20px; background-color:rgb(255, 130, 71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px;}
 activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:inline-block; padding-right:10px;}
 
-budget					{display:block; width:960px; border-top:1px solid #1E90FF; padding:20px 0; border-bottom:0;}
-budget:last-of-type		{border-bottom:0px solid #1E90FF;}
-budget:nth-of-type(1)	{margin-top:0px; padding-top:0;}
+budget	{display:block; width:960px; border-top:1px solid #1E90FF; padding:20px 0; border-bottom:0;}
+budget:last-of-type	  {border-bottom:0px solid #1E90FF;}
+budget:nth-of-type(1) {margin-top:0px; padding-top:0;}
 budget:nth-of-type(1):before {content:"Budget"; font-size:26px; color:#fff; background-color:rgba(17, 46, 105, 0.9); display:block; padding:20px 40px; margin-bottom:25px;}
-budget:nth-of-type(1) period-start:before	{content:"START DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-budget:nth-of-type(1) period-end:before		{content:"END DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-budget:nth-of-type(1) value:before			{content:"VALUE"; font-size:14px; color:#fff; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-period-start	{display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px; padding-left:40px;}
-period-end		{display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px;}
-budget value	{display:table-cell; color:#fff; font-size:16px; width:300px; max-width:300px; padding-right:40px;}
+budget:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+budget:nth-of-type(1) period-end:before	  {content:"END DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+budget:nth-of-type(1) value:before		  {content:"VALUE"; font-size:14px; color:#fff; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+period-start {display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px; padding-left:40px;}
+period-end	 {display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px;}
+budget value {display:table-cell; color:#fff; font-size:16px; width:300px; max-width:300px; padding-right:40px;}
 
 a.a_document-link	{display:block; width:880px; padding:10px 40px;}
 document-link		{display:block;}
