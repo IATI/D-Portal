@@ -129,17 +129,17 @@ ctrack.setup=function(args)
 
 		if( name.indexOf("donor_transactions") == 0 )
 		{
-			fetch.donor_transactions();
+			fetch.donor_transactions({year:ctrack.hash.year,funder:ctrack.hash.funder});
 		}
 		else
 		if( name.indexOf("donor_budgets") == 0 )
 		{
-			fetch.donor_budgets();
+			fetch.donor_budgets({year:ctrack.hash.year,funder:ctrack.hash.funder});
 		}
 		else
 		if( name.indexOf("donor_activities") == 0 )
 		{
-			fetch.donor_activities();
+			fetch.donor_activities({funder:ctrack.hash.funder});
 		}
 		else
 		if( name.indexOf("act") == 0 )
@@ -209,6 +209,7 @@ ctrack.setup=function(args)
 				ctrack.prepare_view(l.view);
    			}
 
+			iati_activity_clean_and_sort();
 		}
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );

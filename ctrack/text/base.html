@@ -24,6 +24,35 @@ IATI Country Tracker
 {table_donors}
 {view_tail}
 
+#view_donor_activities
+{view_head}
+<style>{css}</style>
+{chunkback}
+{chunkcountrymin}
+{donors_head}
+<div style="width:960px; margin:0 auto; padding:40px 20px;">
+	<table class="title">
+		<tr>
+			<td><img src="/art/activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
+			<td>{view_donor_transactions_text}</td>
+		</tr>
+	</table>
+	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
+		<table class="activity">
+			{donor_activities_datas}
+		</table>
+	</div>
+	<div style="width:960px; margin:0 auto; text-align:center;">
+		<a href="#view=donors" class="list_more_link">{list_donor_back_text}</a>
+	</div>
+</div>
+{view_tail}
+
+#donor_activities_data
+<tr>
+	<td>{num}.</td>
+	<td title="{donor_transactions_title_tip_text}"><div><a href="#view=act&aid={aid}">{title}</a></div></td>
+</tr>
 
 #view_donor_transactions
 {view_head}
@@ -83,7 +112,7 @@ IATI Country Tracker
 #donor_budgets_data
 <tr>
 	<td>{num}.</td>
-	<td><div><a href="#view=act&aid={activity}">{title}</a></div></td>
+	<td><div><a href="#view=act&aid={aid}">{title}</a></div></td>
 	<td>{amount}</td>
 </tr>
 
@@ -134,12 +163,12 @@ IATI Country Tracker
 #table_donors_row
 <tr>
 <td title="{table_donor_tip_crs_text}">{crs}</td>
-<td title="{table_donor_tip_donor_text}">{donor}</td>
-<td title="{table_donor_tip_t2012_text}"><a href="#view=donor_transactions" class="block">{t2012}</a></td>
-<td title="{table_donor_tip_t2013_text}"><a href="#view=donor_transactions" class="block">{t2013}</a></td>
-<td title="{table_donor_tip_t2014_text}"><a href="#view=donor_transactions" class="block">{t2014}</a></td>
-<td title="{table_donor_tip_b2014_text}"><a href="#view=donor_budgets" class="block">{b2014}</a></td>
-<td title="{table_donor_tip_b2015_text}"><a href="#view=donor_budgets" class="block">{b2015}</a></td>
+<td title="{table_donor_tip_donor_text}"><a href="#view=donor_activities&funder={funder}" class="block">{donor}</a></td>
+<td title="{table_donor_tip_t2012_text}"><a href="#view=donor_transactions&year=2012&funder={funder}" class="block">{t2012}</a></td>
+<td title="{table_donor_tip_t2013_text}"><a href="#view=donor_transactions&year=2013&funder={funder}" class="block">{t2013}</a></td>
+<td title="{table_donor_tip_t2014_text}"><a href="#view=donor_transactions&year=2014&funder={funder}" class="block">{t2014}</a></td>
+<td title="{table_donor_tip_b2014_text}"><a href="#view=donor_budgets&year=2014&funder={funder}" class="block">{b2014}</a></td>
+<td title="{table_donor_tip_b2015_text}"><a href="#view=donor_budgets&year=2015&funder={funder}" class="block">{b2015}</a></td>
 </tr>
 
 
