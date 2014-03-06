@@ -102,7 +102,7 @@ ctrack.setup=function(args)
 		if( !ctrack.view_done[name] )
 		{
 			ctrack.view_done[name]=true;			
-			if( name.indexOf("main") == 0 )
+			if( name.indexOf("main") == 0 ) // only fetch the main once?
 			{
 				fetch.endingsoon({limit:5});
 				fetch.finished({limit:5});
@@ -125,16 +125,26 @@ ctrack.setup=function(args)
 			{
 				fetch.districts();
 			}
-			else
-			if( name.indexOf("donor_transactions") == 0 )
-			{
-				fetch.donor_transactions();
-			}
-			else
-			if( name.indexOf("donor_budgets") == 0 )
-			{
-				fetch.donor_budgets();
-			}
+		}
+
+		if( name.indexOf("donor_transactions") == 0 )
+		{
+			fetch.donor_transactions({year:ctrack.hash.year,funder:ctrack.hash.funder});
+		}
+		else
+		if( name.indexOf("donor_budgets") == 0 )
+		{
+			fetch.donor_budgets({year:ctrack.hash.year,funder:ctrack.hash.funder});
+		}
+		else
+		if( name.indexOf("donor_activities") == 0 )
+		{
+			fetch.donor_activities({funder:ctrack.hash.funder});
+		}
+		else
+		if( name.indexOf("act") == 0 )
+		{
+			fetch.activity({activity:ctrack.hash.aid});
 		}
 	}
 
@@ -185,7 +195,6 @@ ctrack.setup=function(args)
 			ctrack.last_hash=h;
 			var l=ctrack.hash_split(h);
 			ctrack.div.master.html( plate.replace( "{view_"+l.view+"}" ) );
-			iati_activity_clean_and_sort();
 			
 			if(ctrack.last_view!=l.view) // scroll up when changing views
 			{
@@ -200,6 +209,7 @@ ctrack.setup=function(args)
 				ctrack.prepare_view(l.view);
    			}
 
+			iati_activity_clean_and_sort();
 		}
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );
@@ -223,13 +233,6 @@ ctrack.setup=function(args)
 					if(aa[1]=="index")
 					{
 						ctrack.update_hash({"view":"main"});
-					}
-					else
-					if(aa[1]=="activity")
-					{
-						var s=$(this).attr("activity");
-						console.log(s);
-						fetch.activity({activity:s});
 					}
 					else
 					if(aa[2]=="more")

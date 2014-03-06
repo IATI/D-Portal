@@ -33,6 +33,35 @@ $(inside+"value").each(function(i){var it=$(this);
 	}
 });
 
+$(inside+"iati-activity").each(function(i){var it=$(this);
+	var needed=["title","recipient-country","participating-org","reporting-org","description","activity-status"];
+	needed.forEach(function(n){
+		if( it.children(n).length==0 )
+		{
+			it.append("<"+n+" />"); // just add a blank tag
+		}
+	});
+
+	var ad=it.children("activity-date");
+	var got_start=false;
+	var got_end=false;
+	ad.each(function(i,a){
+		var t=$(a).attr("type");
+		if(t=="start-actual")
+		{
+			got_start=true;
+		}
+		if(t=="end-actual")
+		{
+			got_end=true;
+		}
+	});
+
+	if(!got_start){ it.append("<activity-date type=\"start-actual\" />"); }
+	if(!got_end)  { it.append("<activity-date type=\"end-actual\" />"); }
+	
+});
+
 $(inside+"participating-org").each(function(i){var it=$(this);
 	var c=it.attr("role");
 	if(c)
@@ -50,7 +79,6 @@ $(inside+"transaction").each(function(i){var it=$(this);
 			it.append("<"+n+" />"); // just add a blank tag
 		}
 	});
-
 });
 
 $(inside+"budget").each(function(i){var it=$(this);
@@ -102,22 +130,29 @@ $(inside+"sector").each(function(i){var it=$(this);
 
 $(inside+"transaction-type").each(function(i){var it=$(this);
 
-	var tc=it.attr("code").toUpperCase();
-	tc=codes_lookup.transaction_type[tc] || tc;
+	var tc=it.attr("code");
 	if(tc)
 	{
-		it.html(tc);
+		tc=tc.toUpperCase();
+		tc=codes_lookup.transaction_type[tc] || tc;
+		if(tc)
+		{
+			it.html(tc);
+		}
 	}
-
 });
 
 $(inside+"recipient-country").each(function(i){var it=$(this);
 
-	var tc=it.attr("code").toUpperCase();
-	tc=codes_lookup.country[tc] || tc;
+	var tc=it.attr("code")
 	if(tc)
 	{
-		it.html(tc);
+		tc=tc.toUpperCase();
+		tc=codes_lookup.country[tc] || tc;
+		if(tc)
+		{
+			it.html(tc);
+		}
 	}
 
 });
@@ -188,22 +223,21 @@ $(inside+"transaction").each(function(i){var it=$(this);
 $(inside+"iati-activity").each(function(i){var it=$(this);
 	
 	var sortlist=[
-		"transaction-date",
-		"iati-identifier",
-		"activity-date",
-		"recipient-country",
 		"title",
-		"activity-website",
-		"activity-status",
-		"sector",
+		"iati-identifier",
+		"recipient-country",
+		"activity-date",
+		"participating-org",
+		"reporting-org",
 		"description",
+		"sector",
 		"budget",
 		"transaction",
-		"participating-org",
 		"contact-info",
+		"activity-website",
+		"activity-status",
 		"document-link",
 		"related-activity",
-		"reporting-org",
 	0];
 	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
 
