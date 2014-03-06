@@ -1,12 +1,13 @@
 * 			{color:#444; font-family:sans-serif; word-wrap:break-word;}
-body,html	{background:none, #D8D8D8; color:#444; font-family:sans-serif;}
+body,html	{background:url('ctile.400.png') bottom center; background-color:#121A31; color:#444; font-family:sans-serif;}
 a 			{text-decoration:none; color:#FF7A00;}
 a:hover 	{color:#FFAB5E;}
 
-ok {display:none;}
-query {display:none;}
-iati-activity * {display:none;}
-iati-activity {display:block; width:960px; margin:0 auto; margin-bottom:320px; background-color:rgba(0,14,32,0.7);}
+ok			{display:none;}
+query		{display:none;}
+iati-activity *	{display:none;}
+iati-activity	{display:block; width:960px; margin:0 auto; margin-bottom:320px; background-color:rgba(0,14,32,0.7);}
+iati-activity:after {content:"Data is sourced from IATI for Country Tracker. If you find anything out of place, please contact the Country Tracker team."; font-size:14px; color:#ccc; display:block; padding:15px 0; text-align:center;}
 
 /* hacks to display injected elements */
 iati-activity span	{display:block;}
@@ -25,121 +26,121 @@ a.a_iati-identifier		{width:960px; margin:0 auto;}
 recipient-country		{display:table-cell; font-size:48px; width:600px; color:#fff; padding:30px 20px 30px 40px; vertical-align:top; background-color:rgba(17, 46, 105, 0.9);}
 recipient-country:nth-of-type(1):before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#fff; display:block; margin-bottom:5px;}
 
-activity-date {font-size:20px; display:table-cell; vertical-align: top; width:140px; padding:30px 0 30px 10px; color:#fff; background-color:rgba(17, 46, 105, 0.9);}
-activity-date[type="start-planned"] {display:none;}
-activity-date[type="end-planned"] {display:none;}
-activity-date[type="start-actual"]:before {content:"START DATE"; font-size:14px; color:#ccc; width:200px; display:block; margin-bottom:5px;}
-activity-date[type="end-actual"]:before {content:"END DATE"; font-size:14px; color:#ccc; width:200px; display:block; margin-bottom:5px;}
+activity-date[type="start-planned"]	{display:none;}
+activity-date[type="end-planned"]	{display:none;}
+activity-date[type="start-actual"]	{font-size:20px; display:table-cell; vertical-align: top; width:140px; padding:30px 0 30px 10px; color:#fff; background-color:rgba(17, 46, 105, 0.9);}
+activity-date[type="end-actual"]	{font-size:20px; display:table-cell; vertical-align: top; width:140px; padding:30px 0 30px 10px; color:#fff; background-color:rgba(17, 46, 105, 0.9);}
+activity-date[type="start-actual"]:before	{content:"START DATE"; font-size:14px; color:#ccc; width:200px; display:block; margin-bottom:5px;}
+activity-date[type="end-actual"]:before		{content:"END DATE"; font-size:14px; color:#ccc; width:200px; display:block; margin-bottom:5px;}
 
 participating-org {display:block; width:880px; padding:10px 40px; font-size:18px; color:#fff; background-color:rgba(17, 46, 105, 0.4);}
-participating-org:nth-of-type(1) {padding-top:40px;}
+participating-org:nth-of-type(1)		{padding-top:40px;}
 participating-org:nth-of-type(1):before {content:"Who's involved?"; font-size:34px; color:#fff; display:block; padding:0; padding-bottom:10px; margin-bottom:20px; border-bottom:5px solid #fff;}
-participating-org[role="funding"]:after {content:"FUNDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="implementing"]:after {content:"IMPLEMENTING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="extending"]:after {content:"EXTENDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="accountable"]:after {content:"ACCOUNTABLE ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="funding"]:after			{content:"FUNDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="extending"]:after		{content:"EXTENDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="accountable"]:after		{content:"ACCOUNTABLE ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
 
 reporting-org {display:block; width:880px; padding:20px 40px 40px 40px; font-size:18px; font-weight:bold; color:#fff; background-color:rgba(17, 46, 105, 0.4);}
 reporting-org:before {content:"This activity is reported by"; display:inline-block; padding-right:5px; color:#ccc; font-size:18px; font-weight:normal;}
-reporting-org:nth-of-type(1) {padding-top:40px;}
-reporting-org:last-of-type {padding-bottom:40px;}
+reporting-org:nth-of-type(1)	{padding-top:40px;}
+reporting-org:last-of-type		{padding-bottom:40px;}
 
 description {font-size:16px; word-spacing:0.05em; line-height:1.45em; display:block; width:880px; padding:40px; padding-bottom:0; color:#fff;}
 description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
-description[type="1"]:before {content:"GENERAL"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
-description[type="2"]:before {content:"OBJECTIVES"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
-description[type="3"]:before {content:"TARGET GROUPS"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
-description:last-of-type {padding-bottom:40px;}
+description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
+description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
+description[type="3"]:before	{content:"TARGET GROUPS"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
+description:last-of-type		{padding-bottom:40px;}
 
-sector * {display:none;}
-sector[vocabulary="DAC"] {font-size:16px; color:#fff; width:240px; display:inline-block; vertical-align:top; padding:30px 40px; max-height:80px; min-height:80px;}
-sector:nth-child(even) {background-color:rgba(0,14,32,0.7);}
-sector[vocabulary="DAC"]:before {content:"SECTOR"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
-sector span					{color:#fff;}
-sector span:nth-of-type(2)	{padding-top:5px; color:#ccc;}
-sector span:nth-of-type(2):after {content:"% allocated"; display:inline-block;}
-img.sector_pie {padding:40px; background-color:#fff;}
+sector *						{display:none;}
+sector[vocabulary="DAC"]		{font-size:16px; color:#fff; width:240px; display:inline-block; vertical-align:top; padding:30px 40px; max-height:80px; min-height:80px;}
+sector:nth-child(even)			{background-color:rgba(0,14,32,0.7);}
+sector[vocabulary="DAC"]:before	{content:"SECTOR"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
+sector span						{color:#fff;}
+sector span:nth-of-type(2)		{padding-top:5px; color:#ccc;}
+sector span:nth-of-type(2):after{content:"% allocated"; display:inline-block;}
+img.sector_pie					{padding:40px; background-color:#fff;}
 
-transaction {display:block; width:960px; border-top:1px solid #1E90FF; padding:20px 0; border-bottom:0;}
-transaction a {color:#FF7A00;}
-transaction a:hover {color:#FFAB5E;}
-transaction:last-of-type {border-bottom:0px solid #1E90FF;}
-transaction:nth-of-type(1) {margin-top:0px; padding-top:0; border:0;}
-transaction:nth-of-type(1):before {content:"Transaction"; font-size:26px; color:#fff; background-color:rgba(17, 46, 105, 0.9); display:block; padding:20px 40px; margin-bottom:25px;}
+transaction						{display:block; width:960px; border-top:1px solid #1E90FF; padding:20px 0; border-bottom:0;}
+transaction a					{color:#FF7A00;}
+transaction a:hover				{color:#FFAB5E;}
+transaction:last-of-type		{border-bottom:0px solid #1E90FF;}
+transaction:nth-of-type(1)		{margin-top:0px; padding-top:0; border:0;}
+transaction:nth-of-type(1):before	{content:"Transaction"; font-size:26px; color:#fff; background-color:rgba(17, 46, 105, 0.9); display:block; padding:20px 40px; margin-bottom:25px;}
 
-transaction:nth-of-type(1) transaction-date:before {content:"DATE"; font-size:14px; color:#fff; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-transaction:nth-of-type(1) transaction-type:before {content:"TYPE"; font-size:14px; color:#fff; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-transaction:nth-of-type(1) provider-org:before {content:"PROVIDER"; font-size:14px; color:#fff; width:170px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-transaction:nth-of-type(1) receiver-org:before {content:"RECEIVER"; font-size:14px; color:#fff; width:170px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-transaction:nth-of-type(1) value:before {content:"VALUE"; font-size:14px; color:#fff; width:100px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-transaction description:nth-of-type(n+1):before {display:none;}
+transaction:nth-of-type(1) transaction-date:before	{content:"DATE"; font-size:14px; color:#fff; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14px; color:#fff; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#fff; width:170px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#fff; width:170px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#fff; width:100px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+transaction description:nth-of-type(n+1):before		{display:none;}
 transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#fff; width:200px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
 
-transaction-date {display:table-cell; color:#fff; font-size:16px; width:100px; max-width:100px; padding-left:40px; padding-right:20px;}
-transaction-type {display:table-cell; color:#fff; font-size:16px; width:100px; max-width:100px; padding-right:20px;}
-transaction description:nth-of-type(1) {display:table-cell; color:#fff; font-size:16px; padding:0px; background-color:transparent; width:180px; max-width:180px; line-height:inherit; padding-right:20px; text-align:left;}
-provider-org {display:table-cell; color:#fff; font-size:16px; width:150px; max-width:150px; padding-right:20px;}
-receiver-org {display:table-cell; color:#fff; font-size:16px; width:150px; max-width:150px; padding-right:20px;}
-value {display:table-cell; color:#fff; text-align:right; font-size:16px; width:100px; max-width:100px; padding-right:40px;}
-value span {font-size:12px; color:#ccc;}
+transaction-date	{display:table-cell; color:#fff; font-size:16px; width:100px; max-width:100px; padding-left:40px; padding-right:20px;}
+transaction-type	{display:table-cell; color:#fff; font-size:16px; width:100px; max-width:100px; padding-right:20px;}
+transaction description:nth-of-type(1) {display:table-cell; color:#fff; font-size:16px; padding:0px; background-color:transparent; width:170px; max-width:170px; line-height:inherit; padding-right:30px; text-align:left;}
+provider-org	{display:table-cell; color:#fff; font-size:16px; width:150px; max-width:150px; padding-right:20px;}
+receiver-org	{display:table-cell; color:#fff; font-size:16px; width:150px; max-width:150px; padding-right:20px;}
+value			{display:table-cell; color:#fff; text-align:right; font-size:16px; width:100px; max-width:100px; padding-right:40px;}
+value span		{font-size:12px; color:#ccc;}
 
-contact-info {display:block; width:880px; padding:10px 40px; font-size:18px;}
-contact-info * {display:block; padding:5px 0; color:#fff;}
-contact-info:nth-of-type(1):before {content:"CONTACT INFO"; font-size:14px; color:#ccc; display:block; margin-bottom:10px;}
-contact-info:nth-of-type(1) {padding-top:40px;}
-contact-info:last-of-type {padding-bottom:40px;}
+contact-info	{display:block; width:880px; padding:10px 40px; font-size:18px;}
+contact-info *	{display:block; padding:5px 0; color:#fff;}
+contact-info:nth-of-type(1):before	{content:"CONTACT INFO"; font-size:14px; color:#ccc; display:block; margin-bottom:10px;}
+contact-info:nth-of-type(1)			{padding-top:40px;}
+contact-info:last-of-type			{padding-bottom:40px;}
 
-activity-website {display:block; width:880px; margin:0 auto; text-align:center; padding:20px 40px; font-size:18px; border:0; color:#FF9E45; background-color: rgba(0,14,32,0.7);}
-activity-website * {display:block; padding:5px 0;}
+activity-website		{display:block; width:880px; margin:0 auto; text-align:center; padding:20px 40px; font-size:18px; border:0; color:#FF9E45; background-color: rgba(0,14,32,0.7);}
+activity-website *		{display:block; padding:5px 0;}
 activity-website:before {content:"FOR MORE INFORMATION, VISIT "; font-size:14px; color:#ccc; display:inline-block; padding-right:10px;}
 activity-website:hover	{color:#FF7A00;}
 
-activity-status[code="1"] {background-color:rgb(71, 181, 255);}
-activity-status[code="2"] {background-color:rgb(204, 141, 230)}
-activity-status[code="3"] {background-color:rgb(71, 255, 78);}
-activity-status[code="4"] {background-color:rgb(255, 130, 71);}
-activity-status[code="5"] {background-color:rgb(255, 71, 71);}
-activity-status {display:block; font-size:20px; background-color:rgb(255, 130, 71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px;}
-activity-status:before {content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:inline-block; padding-right:10px;}
+activity-status[code="1"]	{background-color:rgb(71, 181, 255);}
+activity-status[code="2"]	{background-color:rgb(204, 141, 230)}
+activity-status[code="3"]	{background-color:rgb(71, 255, 78);}
+activity-status[code="4"]	{background-color:rgb(255, 130, 71);}
+activity-status[code="5"]	{background-color:rgb(255, 71, 71);}
+activity-status				{display:block; font-size:20px; background-color:rgb(255, 130, 71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px;}
+activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:inline-block; padding-right:10px;}
 
-budget {display:block; width:960px; border-top:1px solid #1E90FF; padding:20px 0; border-bottom:0;}
-budget:last-of-type {border-bottom:0px solid #1E90FF;}
-budget:nth-of-type(1) {margin-top:0px; padding-top:0;}
+budget					{display:block; width:960px; border-top:1px solid #1E90FF; padding:20px 0; border-bottom:0;}
+budget:last-of-type		{border-bottom:0px solid #1E90FF;}
+budget:nth-of-type(1)	{margin-top:0px; padding-top:0;}
 budget:nth-of-type(1):before {content:"Budget"; font-size:26px; color:#fff; background-color:rgba(17, 46, 105, 0.9); display:block; padding:20px 40px; margin-bottom:25px;}
-budget:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-budget:nth-of-type(1) period-end:before {content:"END DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-budget:nth-of-type(1) value:before {content:"VALUE"; font-size:14px; color:#fff; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-period-start {display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px; padding-left:40px;}
-period-end {display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px;}
-budget value {display:table-cell; color:#fff; font-size:16px; width:300px; max-width:300px; padding-right:40px;}
+budget:nth-of-type(1) period-start:before	{content:"START DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+budget:nth-of-type(1) period-end:before		{content:"END DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+budget:nth-of-type(1) value:before			{content:"VALUE"; font-size:14px; color:#fff; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+period-start	{display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px; padding-left:40px;}
+period-end		{display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px;}
+budget value	{display:table-cell; color:#fff; font-size:16px; width:300px; max-width:300px; padding-right:40px;}
 
-a.a_document-link {display:block; width:880px; padding:10px 40px;}
-document-link {display:block;}
-document-link span {font-size:16px; display:block; color:#ccc; padding-bottom:30px;}
-document-link title:nth-of-type(n+1):before {display:none;}
-document-link title:nth-of-type(n+1) {border:0; margin:0; padding:0; font-size:18px;}
+a.a_document-link	{display:block; width:880px; padding:10px 40px;}
+document-link		{display:block;}
+document-link span	{font-size:16px; display:block; color:#ccc; padding-bottom:30px;}
+document-link title:nth-of-type(n+1):before	{display:none;}
+document-link title:nth-of-type(n+1)		{border:0; margin:0; padding:0; font-size:18px;}
 
-a.a_document-link:before {content:"Related Documents"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
-/* 
- * Select all but the first a.a_document-link child of iati-activity,
- * and remove the content from the previous rule.
- */
-iati-activity  > a.a_document-link ~ a.a_document-link:before {content:""; padding:0; margin:0; border:0;}
+a.a_document-link:before	{content:"Related Documents"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
+/* Select all but the first a.a_document-link child of iati-activity, and remove the content from the previous rule. */
+iati-activity  > a.a_document-link ~ a.a_document-link:before	{content:""; padding:0; margin:0; border:0;}
 
-document-link title:nth-of-type(n+1):after {content:"READ DOCUMENT"; font-size:12px; display:inline-block; padding-left:20px; color:#ccc;}
-a.a_document-link:last-of-type {padding-bottom:60px;}
-document-link title {color:#FF7A00;}
-document-link title:hover {color:#FFAB5E;}
+document-link title:nth-of-type(n+1):after	{content:"READ DOCUMENT"; font-size:12px; display:inline-block; padding-left:20px; color:#ccc;}
+a.a_document-link:last-of-type	{padding-bottom:40px;}
+document-link title				{color:#FF7A00;}
+document-link title:hover		{color:#FFAB5E;}
 
-a.a_related-activity {display:block; width:880px; padding:60px 40px 0 40px; font-size:18px;}
-iati-activity  > a.a_related-activity ~ a.a_related-activity {padding-top:10px;}
-a.a_related-activity:before {content:"This activity is a"; display:inline-block; padding-right:5px; color:#ccc; font-size:18px;}
-related-activity {display:inline; color:#FF7A00;}
-related-activity:before {display:inline-block; font-weight:bold; padding-right:5px; color:#ccc; font-size:18px;}
-related-activity[type="1"]:before {content:"Child of ";}
-related-activity[type="2"]:before {content:"Parent of ";}
-related-activity[type="3"]:before {content:"Sibling of ";}
-related-activity[type="4"]:before {content:"Multifunded ";}
-related-activity:hover {color:#FFAB5E;}
+a.a_related-activity:before	{content:"Family Tree"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
+/* Select all but the first a.a_related-activity child of iati-activity, and remove the content from the previous rule. */
+iati-activity  > a.a_related-activity ~ a.a_related-activity:before	{content:""; padding:0; margin:0; border:0;}
 
-
+a.a_related-activity	{display:block; width:880px; padding:20px 40px 0 40px; font-size:18px;}
+a.a_related-activity:last-of-type								{padding-bottom:40px;}
+iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
+related-activity		{display:inline; color:#FF7A00;}
+related-activity:hover	{color:#FFAB5E;}
+related-activity:before	{display:inline-block; padding-right:5px; color:#ccc; font-size:18px;}
+related-activity[type="1"]:before	{content:"Child of ";}
+related-activity[type="2"]:before	{content:"Parent of ";}
+related-activity[type="3"]:before	{content:"Sibling of ";}
+related-activity[type="4"]:before	{content:"Multifunded ";}

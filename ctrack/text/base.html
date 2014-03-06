@@ -9,7 +9,7 @@ IATI Country Tracker
 
 #view_act
 {view_head}
-<style>{css}</style>
+<style>.wrapper{padding-bottom:40px;} {css}</style>
 {chunkback}
 {chunkcountrysavi}
 {xml}
@@ -22,6 +22,7 @@ IATI Country Tracker
 {chunkcountrymin}
 {donors_head}
 {table_donors}
+{chunkdi}
 {view_tail}
 
 #view_donor_activities
@@ -30,7 +31,7 @@ IATI Country Tracker
 {chunkback}
 {chunkcountrymin}
 {donors_head}
-<div style="width:960px; margin:0 auto; padding:40px 20px;">
+<div style="width:960px; margin:0 auto; padding:40px 20px; margin-bottom:40px;">
 	<table class="title">
 		<tr>
 			<td><img src="/art/activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
@@ -46,6 +47,7 @@ IATI Country Tracker
 		<a href="#view=donors" class="list_more_link">{list_donor_back_text}</a>
 	</div>
 </div>
+{chunkdi}
 {view_tail}
 
 #donor_activities_data
@@ -60,7 +62,7 @@ IATI Country Tracker
 {chunkback}
 {chunkcountrymin}
 {donors_head}
-<div style="width:960px; margin:0 auto; padding:40px 20px;">
+<div style="width:960px; margin:0 auto; padding:40px 20px; margin-bottom:40px;">
 	<table class="title">
 		<tr>
 			<td><img src="/art/activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
@@ -76,6 +78,7 @@ IATI Country Tracker
 		<a href="#view=donors" class="list_more_link">{list_donor_back_text}</a>
 	</div>
 </div>
+{chunkdi}
 {view_tail}
 
 #donor_transactions_data
@@ -91,7 +94,7 @@ IATI Country Tracker
 {chunkback}
 {chunkcountrymin}
 {donors_head}
-<div style="width:960px; margin:0 auto; padding:40px 20px;">
+<div style="width:960px; margin:0 auto; padding:40px 20px; margin-bottom:40px;">
 	<table class="title">
 		<tr>
 			<td><img src="/art/activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
@@ -107,6 +110,7 @@ IATI Country Tracker
 		<a href="#view=donors" class="list_more_link">{list_donor_back_text}</a>
 	</div>
 </div>
+{chunkdi}
 {view_tail}
 
 #donor_budgets_data
@@ -133,7 +137,7 @@ IATI Country Tracker
 </div>
 
 #table_donors
-<div style="width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
+<div style="width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;">
 <table class="money">
 {table_donors_row_head}
 {table_donors_rows}
@@ -179,6 +183,7 @@ IATI Country Tracker
 {chunkcountrymin}
 {sectors_head}
 {table_sectors}
+{chunkdi}
 {view_tail}
 
 
@@ -198,7 +203,7 @@ IATI Country Tracker
 </div>
 
 #table_sectors
-<div style="width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
+<div style="width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;">
 <table class="money">
 {table_sectors_row_head}
 {table_sectors_rows}
@@ -244,6 +249,7 @@ IATI Country Tracker
 {chunkhead}
 {districts_head}
 {table_districts}
+{chunkdi}
 {view_tail}
 
 #districts_head
@@ -292,7 +298,7 @@ BANGLADESH
 
 #view_main
 {view_head}
-<style>.wrapper{padding:0;}{css}</style>
+<style>{css}</style>
 {chunkhead}
 {chunkcountry}
 {chunkmoney}
