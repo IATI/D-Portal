@@ -15,6 +15,10 @@ var sqlite3 = require('sqlite3').verbose();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+dstore_sqlite.close = function(db){
+//	db.close();
+};
+
 dstore_sqlite.open = function(){
 	var db = new sqlite3.cached.Database( global.argv.database );
 	
@@ -67,7 +71,7 @@ dstore_sqlite.create_tables = function(){
 		
 	});
 	
-	db.close();
+	dstore_sqlite.close(db);
 }
 
 
@@ -225,7 +229,7 @@ dstore_sqlite.check_tables = function(){
 
 	});
 
-	db.close();
+	dstore_sqlite.close(db);
 }
 
 

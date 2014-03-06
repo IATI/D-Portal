@@ -146,7 +146,7 @@ query.test = function(q,res){
 		});
 		
 	});
-	db.close();
+	dstore_sqlite.close(db);
 
 
 };
@@ -396,7 +396,7 @@ query.stats=function(req,res){
 	});
 
 	db.run(";", function(err, row){
-		db.close();
+		dstore_sqlite.close(db);
 	});
 
 };
@@ -851,7 +851,7 @@ query.do_select=function(q,res){
 			r.time=(Date.now()-q.start_time)/1000;
 			res.jsonp(r);
 		}
-		db.close();
+		dstore_sqlite.close(db);
 	});
 
 

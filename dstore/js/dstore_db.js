@@ -200,7 +200,7 @@ dstore_db.fill_acts = function(acts,slug){
 
 
 	db.run("PRAGMA page_count", function(err, row){
-		db.close();
+		dstore_sqlite.close(db);
 		
 		after_time=Date.now();
 		
@@ -224,7 +224,7 @@ dstore_db.refresh_acts = function(){
 	});
 //	db.run("COMIT;");
 	db.run("PRAGMA page_count", function(err, row){
-		db.close();
+		dstore_sqlite.close(db);
 		process.stdout.write("FIN\n");
 	});
 
@@ -834,7 +834,7 @@ dstore_db.hack_acts = function(){
 		});
 
 	});
-	db.close();
+	dstore_sqlite.close(db);
 
 
 };
