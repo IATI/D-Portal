@@ -345,8 +345,8 @@ fetch.donor_transactions=function(args)
 
 	args=args || {};
 
-	var year=2012;
-	var funder="gb";
+	var year=args.year || 2012;
+	var funder=args.funder || "gb";
 
 	var dat={
 			"from":"transactions,country",
@@ -390,8 +390,8 @@ fetch.donor_budgets=function(args)
 
 	args=args || {};
 
-	var year=2012;
-	var funder="gb";
+	var year=args.year || 2012;
+	var funder=args.funder || "gb";
 
 	var dat={
 			"from":"budgets,country",
@@ -435,8 +435,7 @@ fetch.donor_activities=function(args)
 
 	args=args || {};
 
-	var year=2012;
-	var funder="gb";
+	var funder=args.funder || "gb";
 
 	var dat={
 			"from":"activities,country",
@@ -449,7 +448,7 @@ fetch.donor_activities=function(args)
 			"country_code":(args.country || ctrack.args.country)
 		};
 	var callback=function(data){
-		console.log("fetched donor_activities "+year);
+		console.log("fetched donor_activities ");
 		console.log(data);
 
 		var s=[];

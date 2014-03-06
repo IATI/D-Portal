@@ -129,17 +129,17 @@ ctrack.setup=function(args)
 
 		if( name.indexOf("donor_transactions") == 0 )
 		{
-			fetch.donor_transactions();
+			fetch.donor_transactions({year:ctrack.hash.year,funder:ctrack.hash.funder});
 		}
 		else
 		if( name.indexOf("donor_budgets") == 0 )
 		{
-			fetch.donor_budgets();
+			fetch.donor_budgets({year:ctrack.hash.year,funder:ctrack.hash.funder});
 		}
 		else
 		if( name.indexOf("donor_activities") == 0 )
 		{
-			fetch.donor_activities();
+			fetch.donor_activities({funder:ctrack.hash.funder});
 		}
 		else
 		if( name.indexOf("act") == 0 )
