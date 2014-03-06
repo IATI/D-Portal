@@ -292,7 +292,7 @@ BANGLADESH
 
 #view_main
 {view_head}
-<style>{css}</style>
+<style>.wrapper{padding:0;}{css}</style>
 {chunkhead}
 {chunkcountry}
 {chunkmoney}
@@ -301,6 +301,7 @@ BANGLADESH
 {chunkactive}
 {chunkended}
 {chunkabout}
+{chunkdi}
 {view_tail}
 
 #view_head
@@ -578,9 +579,15 @@ BANGLADESH
 		Country Tracker aims to be a simple user interface to search and browse all IATI data relating to a specific country that can be easily hosted by <span class="bold" style="color:#fff;">anyone</span>, <span class="bold" style="color:#fff;">anywhere</span>.
 	</div><div style="width:290px; display:inline-block; vertical-align:top; text-align:right;">
 		<a href="http://iatistandard.org/" target="_blank" style="width:270; margin:0 auto; padding:0 30px;"><img src="/art/iati-logo.269.png" alt="IATI logo" width="269" height="70"></a>
-	<div>
+	</div>
 </div>
 
+#chunkdi
+<div style="width:100%; margin:0 auto;">
+	<a href="mailto:trackerqueries@iatistandard.org" class="datainvest">
+		DATA INVESTIGATORS, WE NEED YOU! If you find anything out of place, contact us.
+	</a>
+</div>
 
 #ctbox1table_data
 <tr><td>{num}.</td><td><div><a href="#view=act&aid={aid}">{title}</a></div></td><td>{date}</td></tr>
