@@ -263,6 +263,7 @@ console.log(ctrack.chunks);
 
 fetch.activity=function(args)
 {
+console.log(args);
 
 	var dat={
 			"aid":args.activity,
@@ -278,8 +279,16 @@ fetch.activity=function(args)
 //		var acts=ctrack.iati.clean_activities( data["rows"] );
 //console.log(acts);
 
-		ctrack.chunk("xml",data["rows"][0].xml);
+		if(data["rows"][0])
+		{
+			ctrack.chunk("xml",data["rows"][0].xml);
+		}
+		else
+		{
+			ctrack.chunk("xml","{missing_data}");
+		}
 		ctrack.update_hash({"view":"act"});
+		iati_activity_clean_and_sort();
 		
 	};
 		
