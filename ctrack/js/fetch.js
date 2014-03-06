@@ -443,6 +443,7 @@ fetch.donor_activities=function(args)
 			"select":"title,aid,funder",
 			"funder_not_null":"",
 			"funder":funder,
+			"status_code":"2",
 			"groupby":"aid",
 			"orderby":"day_end-",
 			"country_code":(args.country || ctrack.args.country)
