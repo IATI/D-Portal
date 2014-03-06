@@ -130,13 +130,16 @@ $(inside+"sector").each(function(i){var it=$(this);
 
 $(inside+"transaction-type").each(function(i){var it=$(this);
 
-	var tc=it.attr("code").toUpperCase();
-	tc=codes_lookup.transaction_type[tc] || tc;
+	var tc=it.attr("code");
 	if(tc)
 	{
-		it.html(tc);
+		tc=tc.toUpperCase();
+		tc=codes_lookup.transaction_type[tc] || tc;
+		if(tc)
+		{
+			it.html(tc);
+		}
 	}
-
 });
 
 $(inside+"recipient-country").each(function(i){var it=$(this);
