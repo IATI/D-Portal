@@ -11,6 +11,7 @@ IATI Country Tracker
 {view_head}
 <style>{css}</style>
 {chunkback}
+{chunkcountrysavi}
 {xml}
 {view_tail}
 
@@ -308,6 +309,19 @@ BANGLADESH
 
 #chunkcountrymin
 <div style="width:960px; margin:0 auto; padding:0;">
+	<table style="width:960px; margin:0 auto; padding:20px 0 10px 0;">
+		<tr>
+			<td style="width:860px; max-width:860px; padding-right:20px; font-size:32px; line-height:1.1em; color:#fff;">{country_name}</td>
+			<td><img src="{country_flag}" alt="{country_name} flag" width="80" height="40"/></td>
+		</tr>
+	</table>
+	<div style="width:960px; padding-top:10px; border-top:10px solid #fff;">
+		<div style="font-size:16px; color:#ccc;">{declare_main_text}</div>
+	</div>
+</div>
+
+#chunkcountrysavi
+<div style="width:960px; margin:0 auto; padding-bottom:40px;">
 	<table style="width:960px; margin:0 auto; padding:20px 0 10px 0;">
 		<tr>
 			<td style="width:860px; max-width:860px; padding-right:20px; font-size:32px; line-height:1.1em; color:#fff;">{country_name}</td>
