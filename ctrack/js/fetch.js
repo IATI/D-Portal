@@ -309,7 +309,7 @@ fetch.near=function(args)
 			"status_code":"2",
 //			"day_end_gt":today,
 			"day_end_gt":0, // ignore missing end dates
-			"country_code_nteq":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country)
 		};
 
 	var callback=args.callback || function(data){
