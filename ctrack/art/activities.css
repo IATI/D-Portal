@@ -103,7 +103,7 @@ activity-status {display:block; font-size:20px; background-color:rgb(255, 130, 7
 activity-status:before {content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:inline-block; padding-right:10px;}
 
 budget {display:block; width:960px; border-top:1px solid #1E90FF; padding:20px 0; border-bottom:0;}
-budget:last-of-type {border-bottom:0px solid #ccc;}
+budget:last-of-type {border-bottom:0px solid #1E90FF;}
 budget:nth-of-type(1) {margin-top:0px; padding-top:0;}
 budget:nth-of-type(1):before {content:"Budget"; font-size:26px; color:#fff; background-color:rgba(17, 46, 105, 0.9); display:block; padding:20px 40px; margin-bottom:25px;}
 budget:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}

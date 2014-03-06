@@ -65,7 +65,7 @@ table.money tr:nth-child(2) td:nth-child(4)	{background-color:rgba(17, 46, 105, 
 table.money tr:nth-child(2) td:nth-child(5)	{background-color:rgba(17, 46, 105, 0.9);}
 table.money tr:nth-child(2) td:nth-child(6)	{background-color:rgba(17, 46, 105, 0.7);}
 table.money tr:nth-child(2) td:nth-child(7)	{background-color:rgba(17, 46, 105, 0.9);}
-table.money tr:nth-child(n+3) td:nth-child(n+3):hover	{background-color:rgba(17, 46, 105, 1);}
+table.money tr:nth-child(n+3) td:nth-child(n+2):hover	{background-color:rgba(17, 46, 105, 1);}
 table.money a			{display:inline-block; padding-bottom:5px; width:100%; border-bottom:0px dotted #0D3057; color:#A8C5E5;}
 table.money a:focus		{color:#A8C5E5; text-decoration: none;}
 table.money a:link  	{color:#A8C5E5; text-decoration: none;}
