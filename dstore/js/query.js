@@ -444,6 +444,12 @@ query.getsql_select=function(q,qv){
 		"percent_of_value":function(){
 			percents("percent_of_value","value","");
 		},
+		"round1_longitude":function(){
+			ss.push(" ROUND(location_longitude,1) AS round1_longitude");
+		},
+		"round1_latitude":function(){
+			ss.push(" ROUND(location_latitude,1) AS round1_latitude");
+		},
 		"count":function(){
 			ss.push(" COUNT(*) AS count");
 		}
@@ -632,9 +638,15 @@ query.getsql_group_by=function(q,qv){
 		for(var i=0;i<qq.length;i++)
 		{
 			var v=qq[i];
+			var n=parseInt(v);
 			if(ns[v]) // valid member names only
 			{
 				ss.push(v);
+			}
+			else
+			if("number" == typeof n) // or number
+			{
+				ss.push(n+"");
 			}
 		}
 	}
