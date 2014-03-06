@@ -24,7 +24,10 @@ i						{color:#444; font-style:italics;}
 
 .footwrap				{width:100%; min-width:1040px; height:40px; background-color:rgba(0,0,0,0.8);}
 .footcon				{width:960px; margin:0 auto; padding:10px 0;}
-a.copyright				{font-size:14px; line-height:13px; color:#fff;}
+a.copyright				{width:480px; display:inline-block; vertical-align:top; font-size:13px; line-height:1.5em; color:#A3A3A3;}
+a.copyright:hover		{color:#fff;}
+a.github				{width:480px; display:inline-block; vertical-align:top; text-align:right; font-size:13px; line-height:1.5em; color:#A3A3A3;}
+a.github:hover			{color:#fff;}
 
 a.navabout				{font-size:24px; color:#fff;}
 a.navabout:hover		{border-bottom:2px solid #fff;}
@@ -86,6 +89,9 @@ table.title td			{font-size:32px; line-height:1.1em; color:#fff; padding-right:2
 table.title td:nth-child(1)	{padding-right:10px; width:40px;}
 
 a.block					{display:block;}
+
+a.tongue				{color:#ccc; font-size:14px;}
+a.tongue:hover			{color:#fff;}
 
 a.back span				{display:inline-block; vertical-align:top; padding-left:10px; font-size:14px; color:#ccc;}
 a.back span:hover		{color:#fff; text-decoration:none;}

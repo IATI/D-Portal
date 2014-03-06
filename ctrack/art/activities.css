@@ -89,11 +89,10 @@ contact-info:nth-of-type(1):before {content:"CONTACT INFO"; font-size:14px; colo
 contact-info:nth-of-type(1) {padding-top:40px;}
 contact-info:last-of-type {padding-bottom:40px;}
 
-
-activity-website {display:block; width:880px; padding:20px 40px; font-size:18px; border:0; color:#666; background-color:#fff;}
+activity-website {display:block; width:880px; margin:0 auto; text-align:center; padding:20px 40px; font-size:18px; border:0; color:#FF9E45; background-color: rgba(0,14,32,0.7);}
 activity-website * {display:block; padding:5px 0;}
-activity-website:before {content:"FOR MORE INFORMATION, VISIT "; font-size:14px; color:#999; display:inline-block; margin-bottom:10px; padding-right:20px;}
-activity-website:hover {color:#FF7A00;}
+activity-website:before {content:"FOR MORE INFORMATION, VISIT "; font-size:14px; color:#ccc; display:inline-block; padding-right:10px;}
+activity-website:hover	{color:#FF7A00;}
 
 activity-status[code="1"] {background-color:rgb(71, 181, 255);}
 activity-status[code="2"] {background-color:rgb(204, 141, 230)}
@@ -103,40 +102,40 @@ activity-status[code="5"] {background-color:rgb(255, 71, 71);}
 activity-status {display:block; font-size:20px; background-color:rgb(255, 130, 71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px;}
 activity-status:before {content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:inline-block; padding-right:10px;}
 
-budget {display:block; width:960px; border-top:1px solid #ccc; padding:20px 0; border-bottom:0; background-color:#fff;}
+budget {display:block; width:960px; border-top:1px solid #1E90FF; padding:20px 0; border-bottom:0;}
 budget:last-of-type {border-bottom:0px solid #ccc;}
 budget:nth-of-type(1) {margin-top:0px; padding-top:0;}
-budget:nth-of-type(1):before {content:"Budget"; font-size:26px; color:#fff; background-color:#666; display:block; padding:20px 40px; margin-bottom:25px;}
-budget:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#999; width:290px; display:block; padding-bottom:10px; border-bottom:3px solid #D8D8D8; margin-bottom:15px;}
-budget:nth-of-type(1) period-end:before {content:"END DATE"; font-size:14px; color:#999; width:290px; display:block; padding-bottom:10px; border-bottom:3px solid #D8D8D8; margin-bottom:15px;}
-budget:nth-of-type(1) value:before {content:"VALUE"; font-size:14px; color:#999; width:300px; display:block; padding-bottom:10px; border-bottom:3px solid #D8D8D8; margin-bottom:15px;}
-period-start {display:table-cell; font-size:16px; width:290px; max-width:290px; padding-left:40px;}
-period-end {display:table-cell; font-size:16px; width:290px; max-width:290px;}
-budget value {display:table-cell; font-size:16px; width:300px; max-width:300px; padding-right:40px;}
+budget:nth-of-type(1):before {content:"Budget"; font-size:26px; color:#fff; background-color:rgba(17, 46, 105, 0.9); display:block; padding:20px 40px; margin-bottom:25px;}
+budget:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+budget:nth-of-type(1) period-end:before {content:"END DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+budget:nth-of-type(1) value:before {content:"VALUE"; font-size:14px; color:#fff; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+period-start {display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px; padding-left:40px;}
+period-end {display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px;}
+budget value {display:table-cell; color:#fff; font-size:16px; width:300px; max-width:300px; padding-right:40px;}
 
-a.a_document-link {display:block; width:880px; padding:10px 40px; background-color:#fff;}
+a.a_document-link {display:block; width:880px; padding:10px 40px;}
 document-link {display:block;}
-document-link span {font-size:16px; display:block; color:#999; padding-bottom:30px;}
+document-link span {font-size:16px; display:block; color:#ccc; padding-bottom:30px;}
 document-link title:nth-of-type(n+1):before {display:none;}
 document-link title:nth-of-type(n+1) {border:0; margin:0; padding:0; font-size:18px;}
 
-a.a_document-link:before {content:"Related Documents"; font-size:34px; color:#444; display:block; padding:0; padding-bottom:20px; margin-bottom:20px; border-bottom:3px solid #D8D8D8;}
+a.a_document-link:before {content:"Related Documents"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
 /* 
  * Select all but the first a.a_document-link child of iati-activity,
  * and remove the content from the previous rule.
  */
 iati-activity  > a.a_document-link ~ a.a_document-link:before {content:""; padding:0; margin:0; border:0;}
 
-document-link title:nth-of-type(n+1):after {content:"READ DOCUMENT"; font-size:12px; display:inline-block; padding-left:20px; color:#aaa;}
+document-link title:nth-of-type(n+1):after {content:"READ DOCUMENT"; font-size:12px; display:inline-block; padding-left:20px; color:#ccc;}
 a.a_document-link:last-of-type {padding-bottom:60px;}
 document-link title {color:#FF7A00;}
 document-link title:hover {color:#FFAB5E;}
 
-a.a_related-activity {display:block; width:880px; padding:60px 40px 0 40px; background-color:#fff; font-size:18px;}
+a.a_related-activity {display:block; width:880px; padding:60px 40px 0 40px; font-size:18px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity {padding-top:10px;}
-a.a_related-activity:before {content:"This activity is a"; display:inline-block; padding-right:5px; color:#444; font-size:18px;}
+a.a_related-activity:before {content:"This activity is a"; display:inline-block; padding-right:5px; color:#ccc; font-size:18px;}
 related-activity {display:inline; color:#FF7A00;}
-related-activity:before {display:inline-block; font-weight:bold; padding-right:5px; color:#444; font-size:18px;}
+related-activity:before {display:inline-block; font-weight:bold; padding-right:5px; color:#ccc; font-size:18px;}
 related-activity[type="1"]:before {content:"Child of ";}
 related-activity[type="2"]:before {content:"Parent of ";}
 related-activity[type="3"]:before {content:"Sibling of ";}
