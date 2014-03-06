@@ -209,6 +209,7 @@ ctrack.setup=function(args)
 				ctrack.prepare_view(l.view);
    			}
 
+			iati_activity_clean_and_sort();
 		}
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );

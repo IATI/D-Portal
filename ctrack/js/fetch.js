@@ -288,7 +288,6 @@ console.log(args);
 			ctrack.chunk("xml","{missing_data}");
 		}
 		ctrack.update_hash({"view":"act"});
-		iati_activity_clean_and_sort();
 		
 	};
 		
