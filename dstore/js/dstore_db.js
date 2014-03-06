@@ -15,7 +15,6 @@ var wait=require('wait.for');
 
 var util=require('util');
 var http=require('http');
-var nconf = require('nconf');
 var sqlite3 = require('sqlite3').verbose();
 
 
