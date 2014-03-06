@@ -471,7 +471,8 @@ End
 			{
 				var sc=sectors[i];
 				var pc=percents[i];
-				var group=codes.sector_group[sc.slice(0,3)];
+				var group;
+				if(sc){ group=codes.sector_group[sc.slice(0,3)]; }
 				var sa = db.prepare(dstore_sqlite.tables_replace_sql["sector"]);
 				sa.run({"$sector_aid":t.aid,"$sector_group":group,"$sector_code":sc,"$sector_percent":pc});				
 				sa.finalize();
