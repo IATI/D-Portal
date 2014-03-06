@@ -8,7 +8,7 @@ mkdir cache
 for code in "${codes[@]}"
 do
   if [ ! -f cache/datastore_${code}.xml ]; then
-    wget --ignore-length -O cache/datastore_${code}.xml http://77.92.77.148/api/1/access/activity.xml?recipient-country=${code}\&limit=250000\&stream=true
+    wget --ignore-length -O cache/datastore_${code}.xml http://77.92.77.148/api/1/access/activity.xml?recipient-country=${code}\&limit=250000\&stream=true || exit 1
   fi
 done
 
@@ -16,5 +16,5 @@ node serv.js --cmd init
 
 for code in "${codes[@]}"
 do
-  node serv.js --cmd import --xmlfile "cache/datastore_${code}.xml"
+  node serv.js --cmd import --xmlfile "cache/datastore_${code}.xml" || exit 1
 done
