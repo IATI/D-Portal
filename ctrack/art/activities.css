@@ -23,8 +23,9 @@ iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; d
 iati-identifier:hover	{color:#FFAB5E;}
 a.a_iati-identifier		{width:960px; margin:0 auto;}
 
-recipient-country		{display:table-cell; font-size:48px; width:600px; color:#fff; padding:30px 20px 30px 40px; vertical-align:top; background-color:rgba(17, 46, 105, 0.9);}
+recipient-country 		{display:table-cell; font-size:48px; width:600px; color:#fff; padding:30px 20px 30px 40px; vertical-align:top; background-color:rgba(17, 46, 105, 0.9);}
 recipient-country:nth-of-type(1):before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#fff; display:block; margin-bottom:5px;}
+recipient-country:not(:nth-of-type(1))	{display:none; font-size:20px;}
 
 activity-date[type="start-planned"]	{display:none;}
 activity-date[type="end-planned"]	{display:none;}
@@ -66,16 +67,16 @@ transaction						{display:block; width:960px; border-top:1px solid #1E90FF; padd
 transaction a					{color:#FF7A00;}
 transaction a:hover				{color:#FFAB5E;}
 transaction:last-of-type		{border-bottom:0px solid #1E90FF;}
-transaction:nth-of-type(1)		{margin-top:0px; padding-top:0; border:0;}
+transaction:nth-of-type(1)		{margin-top:0px; padding-top:0;}
 transaction:nth-of-type(1):before	{content:"Transaction"; font-size:26px; color:#fff; background-color:rgba(17, 46, 105, 0.9); display:block; padding:20px 40px; margin-bottom:25px;}
 
-transaction:nth-of-type(1) transaction-date:before	{content:"DATE"; font-size:14px; color:#fff; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14px; color:#fff; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#fff; width:170px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#fff; width:170px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#fff; width:100px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+transaction:nth-of-type(1) transaction-date:before	{content:"DATE"; font-size:14px; color:#fff; width:120px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px;}
+transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14px; color:#fff; width:120px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px;}
+transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#fff; width:170px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px;}
+transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#fff; width:170px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px;}
+transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#fff; width:100px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px;}
 transaction description:nth-of-type(n+1):before		{display:none;}
-transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#fff; width:200px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
+transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#fff; width:200px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px;}
 
 transaction-date	{display:table-cell; color:#fff; font-size:16px; width:100px; max-width:100px; padding-left:40px; padding-right:20px;}
 transaction-type	{display:table-cell; color:#fff; font-size:16px; width:100px; max-width:100px; padding-right:20px;}
@@ -104,31 +105,30 @@ activity-status[code="5"]	{background-color:rgb(255, 71, 71);}
 activity-status				{display:block; font-size:20px; background-color:rgb(255, 130, 71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px;}
 activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#fff; font-weight:bold; display:inline-block; padding-right:10px;}
 
-budget					{display:block; width:960px; border-top:1px solid #1E90FF; padding:20px 0; border-bottom:0;}
-budget:last-of-type		{border-bottom:0px solid #1E90FF;}
-budget:nth-of-type(1)	{margin-top:0px; padding-top:0;}
+budget	{display:block; width:960px; border-top:1px solid #1E90FF; padding:20px 0; border-bottom:0;}
+budget:last-of-type	  {border-bottom:0px solid #1E90FF;}
+budget:nth-of-type(1) {margin-top:0px; padding-top:0;}
 budget:nth-of-type(1):before {content:"Budget"; font-size:26px; color:#fff; background-color:rgba(17, 46, 105, 0.9); display:block; padding:20px 40px; margin-bottom:25px;}
-budget:nth-of-type(1) period-start:before	{content:"START DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-budget:nth-of-type(1) period-end:before		{content:"END DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-budget:nth-of-type(1) value:before			{content:"VALUE"; font-size:14px; color:#fff; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #1E90FF; margin-bottom:15px;}
-period-start	{display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px; padding-left:40px;}
-period-end		{display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px;}
-budget value	{display:table-cell; color:#fff; font-size:16px; width:300px; max-width:300px; padding-right:40px;}
+budget:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px;}
+budget:nth-of-type(1) period-end:before	  {content:"END DATE"; font-size:14px; color:#fff; width:290px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px;}
+budget:nth-of-type(1) value:before		  {content:"VALUE"; font-size:14px; color:#fff; width:300px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px;}
+period-start {display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px; padding-left:40px;}
+period-end	 {display:table-cell; color:#fff; font-size:16px; width:290px; max-width:290px;}
+budget value {display:table-cell; color:#fff; font-size:16px; width:300px; max-width:300px; padding-right:40px;}
 
 a.a_document-link	{display:block; width:880px; padding:10px 40px;}
 document-link		{display:block;}
 document-link span	{font-size:16px; display:block; color:#ccc; padding-bottom:30px;}
 document-link title:nth-of-type(n+1):before	{display:none;}
-document-link title:nth-of-type(n+1)		{border:0; margin:0; padding:0; font-size:18px;}
+document-link title:nth-of-type(n+1)		{border:0; margin:0; padding:0; width:800px; font-size:18px; display:list-item; list-style-type:circle; list-style-position:outside; line-height:1.15em;}
 
 a.a_document-link:before	{content:"Related Documents"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
 /* Select all but the first a.a_document-link child of iati-activity, and remove the content from the previous rule. */
 iati-activity  > a.a_document-link ~ a.a_document-link:before	{content:""; padding:0; margin:0; border:0;}
 
-document-link title:nth-of-type(n+1):after	{content:"READ DOCUMENT"; font-size:12px; display:inline-block; padding-left:20px; color:#ccc;}
 a.a_document-link:last-of-type	{padding-bottom:40px;}
-document-link title				{color:#FF7A00;}
-document-link title:hover		{color:#FFAB5E;}
+a.a_document-link document-link title		{color:#fff;}
+a.a_document-link document-link title:hover	{color:#FFAB5E;}
 
 a.a_related-activity:before	{content:"Family Tree"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
 /* Select all but the first a.a_related-activity child of iati-activity, and remove the content from the previous rule. */
