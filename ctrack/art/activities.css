@@ -23,7 +23,7 @@ iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; d
 iati-identifier:hover	{color:#FFAB5E;}
 a.a_iati-identifier		{width:960px; margin:0 auto;}
 
-recipient-country {display:table-cell; font-size:48px; width:600px; color:#fff; padding:30px 20px 30px 40px; vertical-align:top; background-color:rgba(17, 46, 105, 0.9);}
+recipient-country 		{display:table-cell; font-size:48px; width:600px; color:#fff; padding:30px 20px 30px 40px; vertical-align:top; background-color:rgba(17, 46, 105, 0.9);}
 recipient-country:nth-of-type(1):before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#fff; display:block; margin-bottom:5px;}
 recipient-country:nth-of-type(2):before {content:"OTHER RECIPIENT COUNTRIES"; font-size:14px; color:#fff; display:block; margin-bottom:5px;}
 recipient-country:not(:nth-of-type(1))	{display:table-cell; font-size:20px;}
