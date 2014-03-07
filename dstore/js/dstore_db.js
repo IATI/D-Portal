@@ -377,57 +377,6 @@ dstore_db.refresh_act = function(db,aid,xml){
 // use codes if we have one
 			t.funder= codes["iati_funders"][funder] || t.funder;
 		}
-/*
-
-Hope this pseudocode makes sense...
-I will build all lookup lists
-
-funder-code = ""
-funder-name = ""
-iso-codes = "AO,GB,etc"
-iso-names = "Angola,United Kingdom,etc"
-funder-exception-codes = "XM,XY,XX"
-funder-exception-names = "Multilaterals,Other international organisations,Unknown"
-
-Org-Id = participating-org/@role="funding"/@ref
-If org-id else org-id = participating-org/@role="extending"/@ref
-If org-id else org-id = reporting-org/@ref
-
-exception-ids = "NL-KVK-12345,41002,etc"
-exception-funders = "GB,XM,etc"
-DAC-channel-ids = "41000,41002,etc"
-DAC-channel-funder-codes = "XM,XY,etc"
-
-If org-id exists in exception-ids then 
-funder-code = exception-funders
-End else
-If org-id[3,1] = "-" and Alpha(org-id[1,2]) then
-funder-code = org-id[1,2]
-End else
-If Len(org-id) = 5 and Num(org-id) then
-If org-id exists in DAC-channel-ids then
-funder-code = DAC-channel-funder-codes
-End else
-funder-code = "XX" 
-End
-End
-End
-End
-
-If funder-code[1,1] = "X" then
-Locate funder-code in funder-exception-codes then
-funder-name = funder-exception-names
-End 
-End else
-Locate funder-code in iso-codes then
-funder-name = iso-names
-End
-End
-
-*/
-
-
-
 
 // fix percents to add upto 100
 		var fixpercents=function(aa)

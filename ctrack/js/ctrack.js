@@ -6,6 +6,10 @@ var ctrack=exports;
 var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetch=require("./fetch.js")
+var savi=require("./savi.js")
+
+// export savi
+ctrack.savi_fixup=savi.fixup;
 
 ctrack.setup=function(args)
 {
@@ -266,10 +270,12 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				})
 				
 				ctrack.prepare_view(l.view);
+console.log("new view");
    			}
 		}
 // these need to be hooks
-		iati_activity_clean_and_sort();
+console.log("fixing view with js");
+		savi.fixup();
 		display_ctrack_map();
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );

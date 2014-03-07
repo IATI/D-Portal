@@ -263,7 +263,6 @@ console.log(ctrack.chunks);
 
 fetch.activity=function(args)
 {
-console.log(args);
 
 	var dat={
 			"aid":args.activity,
@@ -287,6 +286,7 @@ console.log(args);
 		{
 			ctrack.chunk("xml","{missing_data}");
 		}
+		console.log("showing activity");
 		ctrack.update_hash({"view":"act"});
 		
 	};
