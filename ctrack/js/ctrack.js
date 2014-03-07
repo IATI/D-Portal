@@ -267,10 +267,10 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				
 				ctrack.prepare_view(l.view);
    			}
-// these need to be hooks
-			iati_activity_clean_and_sort();
-			display_ctrack_map();
 		}
+// these need to be hooks
+		iati_activity_clean_and_sort();
+		display_ctrack_map();
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );
 	ctrack.check_hash();
