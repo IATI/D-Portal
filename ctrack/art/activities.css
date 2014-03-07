@@ -126,10 +126,9 @@ a.a_document-link:before	{content:"Related Documents"; font-size:34px; color:#ff
 /* Select all but the first a.a_document-link child of iati-activity, and remove the content from the previous rule. */
 iati-activity  > a.a_document-link ~ a.a_document-link:before	{content:""; padding:0; margin:0; border:0;}
 
-document-link title:nth-of-type(n+1):after	{content:"READ DOCUMENT"; font-size:12px; display:none; vertical-align:top; width:140px; max-width:140px; padding-left:40px; color:#ccc;}
 a.a_document-link:last-of-type	{padding-bottom:40px;}
-document-link title				{color:#FF7A00;}
-document-link title:hover		{color:#FFAB5E;}
+a.a_document-link document-link title		{color:#fff;}
+a.a_document-link document-link title:hover	{color:#FFAB5E;}
 
 a.a_related-activity:before	{content:"Family Tree"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
 /* Select all but the first a.a_related-activity child of iati-activity, and remove the content from the previous rule. */
