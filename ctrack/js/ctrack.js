@@ -6,6 +6,10 @@ var ctrack=exports;
 var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetch=require("./fetch.js")
+var savi=require("./savi.js")
+
+// export savi
+ctrack.savi_fixup=savi.fixup;
 
 ctrack.setup=function(args)
 {
@@ -48,6 +52,67 @@ ctrack.setup=function(args)
 		return ctrack.chunks[n];
 	}
 
+
+	ctrack.map={};
+	ctrack.map.lat=15;
+	ctrack.map.lng=-86.30;
+	ctrack.map.zoom=7;
+	ctrack.map.heat=undefined;
+	
+//display map 
+display_ctrack_map2=function(){
+	ctrack.map.api_ready=true;
+	display_ctrack_map();
+}
+display_ctrack_map=function(){
+		if(ctrack.map.api_ready)
+		{
+			if($("#map").length>0)
+			{
+				console.log("map loaded");
+				var mapOptions = {
+				  center: new google.maps.LatLng(ctrack.map.lat, ctrack.map.lng),
+				  zoom: ctrack.map.zoom,
+				  scrollwheel: false
+				};
+				var map = new google.maps.Map(document.getElementById("map"),
+					mapOptions);
+					
+				if(ctrack.map.heat)
+				{
+
+					var heatmapData = [];
+
+					for(var i=0;i<ctrack.map.heat.length;i++)
+					{
+						var v=ctrack.map.heat[i];
+						heatmapData.push({
+							location : new google.maps.LatLng(v.lat,v.lng) ,	weight : v.wgt || 1
+						});
+					}
+
+
+					var heatmap = new google.maps.visualization.HeatmapLayer({
+					  data: heatmapData
+					});
+					heatmap.setMap(map);
+
+					var fixradius=function()
+					{
+							var s=Math.pow(2,map.getZoom())/4;
+							if(s<4){s=4;}
+							heatmap.setOptions({radius:s});
+					}
+					 google.maps.event.addListener(map, 'zoom_changed', fixradius);
+					 fixradius();
+  				}
+			}
+		}
+};
+// always load map api
+head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&sensor=false&callback=display_ctrack_map2");
+
+
 	ctrack.div={};
 
 	ctrack.div.master=$(ctrack.args.master);
@@ -56,8 +121,6 @@ ctrack.setup=function(args)
 	
 //	ctrack.fetch({});
 
-
-	
 	ctrack.chunk("ctbox1table_datas","{loading}");
 	ctrack.chunk("active_projects",0);
 
@@ -107,7 +170,7 @@ ctrack.setup=function(args)
 				fetch.endingsoon({limit:5});
 				fetch.finished({limit:5});
 				fetch.planned({limit:5});
-				fetch.near({limit:5});
+				fetch.heatmap({limit:300});
 				fetch.stats({});
 			}
 			else
@@ -207,15 +270,19 @@ ctrack.setup=function(args)
 				})
 				
 				ctrack.prepare_view(l.view);
+console.log("new view");
    			}
-
-			iati_activity_clean_and_sort();
 		}
+// these need to be hooks
+console.log("fixing view with js");
+		savi.fixup();
+		display_ctrack_map();
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );
 	ctrack.check_hash();
 	ctrack.display_hash();
- 
+
+
 
 	$( document ).on("click", "a", function(event){
 		var s=$(this).prop("href");

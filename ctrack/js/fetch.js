@@ -263,7 +263,6 @@ console.log(ctrack.chunks);
 
 fetch.activity=function(args)
 {
-console.log(args);
 
 	var dat={
 			"aid":args.activity,
@@ -287,6 +286,7 @@ console.log(args);
 		{
 			ctrack.chunk("xml","{missing_data}");
 		}
+		console.log("showing activity");
 		ctrack.update_hash({"view":"act"});
 		
 	};
@@ -295,7 +295,7 @@ console.log(args);
 
 }
 
-fetch.near=function(args)
+fetch.heatmap=function(args)
 {
 	args=args || {};
 	
@@ -303,32 +303,40 @@ fetch.near=function(args)
 //	args.country="bd";//args.country || "np";		
 
 	var dat={
-			"from":"activities,country",
+			"select":"count,round1_longitude,round1_latitude",
+			"from":"activities,country,location",
 			"limit":args.limit || 5,
-			"orderby":"day_end",
-			"status_code":"2",
-//			"day_end_gt":today,
-			"day_end_gt":0, // ignore missing end dates
+			"orderby":"1-",
+			"groupby":"2,3",
 			"country_code":(args.country || ctrack.args.country)
 		};
 
 	var callback=args.callback || function(data){
 		
-		console.log("fetch endingsoon ");
+		console.log("fetch heatmap ");
 		console.log(data);
 		
-		var s=[];
+		ctrack.map.heat=undefined;
+		var donemain=false;
 		for(i=0;i<data.rows.length;i++)
 		{
 			var v=data.rows[i];
-			v.num=i+1;
-			v.date=fetch.get_nday(v.day_end);
-			v.country=iati_codes.country[v.country_code];
-			v.activity=v.aid;
-			s.push( plate.replace("{ctneartable_data}",v) );
+			if( ("number"== typeof v.round1_longitude) && ("number"== typeof v.round1_latitude) )
+			{
+				if(!donemain)
+				{
+					ctrack.map.heat=[];
+					donemain=true;
+					ctrack.map.lat=v.round1_latitude;
+					ctrack.map.lng=v.round1_longitude;
+				}
+				ctrack.map.heat.push({
+					lat:v.round1_latitude,
+					lng:v.round1_longitude,
+					wgt:v.count
+				});
+			}
 		}
-
-		ctrack.chunk("ctneartable_datas",s.join(""));
 
 		ctrack.update_hash({"view":"main"});
 

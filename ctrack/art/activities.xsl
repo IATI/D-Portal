@@ -6,7 +6,12 @@
 		<head>
 			<link rel="stylesheet" type="text/css" href="../art/activities.css" />
 			<script src="../jslib/jquery.js" />
-			<script src="../art/activities.js" />
+			<script src="../jslib/ctrack.js" />
+			<script>
+				$(function(){
+					require("ctrack").savi_fixup();
+				})
+			</script>
 		</head>
 		<body>
 			<xsl:copy-of select="/*"/>
