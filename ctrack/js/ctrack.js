@@ -16,6 +16,41 @@ ctrack.setup=function(args)
 	args.tongue=args.tongue || "eng"; // english
 
 	ctrack.args=args;
+	
+	ctrack.crumbs=[];
+	ctrack.setcrumb=function(idx)
+	{
+console.log("bfore"+ctrack.crumbs.length);
+		var it={};
+		ctrack.crumbs=ctrack.crumbs.slice(0,idx);
+		ctrack.crumbs[idx]=it;
+		it.hash=ctrack.last_hash;
+		it.view=ctrack.last_view;
+		
+		for(var i=0;i<idx-1;i++)
+		{
+		}
+		
+console.log("after"+ctrack.crumbs.length);
+	};
+	ctrack.show_crumbs=function()
+	{
+		for(var i=0;i<ctrack.crumbs.length;i++)
+		{
+			var v=ctrack.crumbs[i];
+			if(v)
+			{
+				ctrack.chunk("crumb"+i+"_hash",v.hash);
+				ctrack.chunk("crumb"+i+"_view",v.view);
+			}
+			else
+			{
+				ctrack.chunk("crumb"+i+"_hash","#view=main");
+				ctrack.chunk("crumb"+i+"_view","main");
+			}
+		}
+		ctrack.chunk("crumbs","{crumbs"+ctrack.crumbs.length+"}");
+	}
 
 	ctrack.q={};
 	window.location.search.substring(1).split("&").forEach(function(n){
@@ -165,52 +200,72 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 	ctrack.view_done={};
 	ctrack.prepare_view=function(name)
 	{
-		if( !ctrack.view_done[name] )
+		if( name.indexOf("main") == 0 ) // only fetch the main once?
 		{
-			ctrack.view_done[name]=true;			
-			if( name.indexOf("main") == 0 ) // only fetch the main once?
+			if( !ctrack.view_done[name] )
 			{
+				ctrack.view_done[name]=true;			
 				fetch.endingsoon({limit:5});
 				fetch.finished({limit:5});
 				fetch.planned({limit:5});
 				fetch.heatmap({limit:300});
 				fetch.stats({});
 			}
-			else
-			if( name.indexOf("donors") == 0 )
+			ctrack.setcrumb(0);
+		}
+		else
+		if( name.indexOf("donors") == 0 )
+		{
+			if( !ctrack.view_done[name] )
 			{
+				ctrack.view_done[name]=true;			
 				fetch.donors();
 			}
-			else
-			if( name.indexOf("sectors") == 0 )
+			ctrack.setcrumb(1);
+		}
+		else
+		if( name.indexOf("sectors") == 0 )
+		{
+			if( !ctrack.view_done[name] )
 			{
+				ctrack.view_done[name]=true;			
 				fetch.sectors();
 			}
-			else
-			if( name.indexOf("districts") == 0 )
+			ctrack.setcrumb(1);
+		}
+		else
+		if( name.indexOf("districts") == 0 )
+		{
+			if( !ctrack.view_done[name] )
 			{
+				ctrack.view_done[name]=true;			
 				fetch.districts();
 			}
+			ctrack.setcrumb(1);
 		}
-
+		else
 		if( name.indexOf("donor_transactions") == 0 )
 		{
 			fetch.donor_transactions({year:ctrack.hash.year,funder:ctrack.hash.funder});
+			ctrack.setcrumb(2);
 		}
 		else
 		if( name.indexOf("donor_budgets") == 0 )
 		{
 			fetch.donor_budgets({year:ctrack.hash.year,funder:ctrack.hash.funder});
+			ctrack.setcrumb(2);
 		}
 		else
 		if( name.indexOf("donor_activities") == 0 )
 		{
 			fetch.donor_activities({funder:ctrack.hash.funder});
+			ctrack.setcrumb(2);
 		}
 		else
 		if( name.indexOf("act") == 0 )
 		{
 			fetch.activity({activity:ctrack.hash.aid});
+			ctrack.setcrumb(3);
 		}
 	}
 
@@ -260,7 +315,6 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 		{
 			ctrack.last_hash=h;
 			var l=ctrack.hash_split(h);
-			ctrack.div.master.html( plate.replace( "{view_"+l.view+"}" ) );
 			
 			if(ctrack.last_view!=l.view) // scroll up when changing views
 			{
@@ -275,6 +329,9 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				ctrack.prepare_view(l.view);
 console.log("new view");
    			}
+
+			ctrack.show_crumbs();
+			ctrack.div.master.html( plate.replace( "{view_"+l.view+"}" ) );
 		}
 // these need to be hooks
 console.log("fixing view with js");
