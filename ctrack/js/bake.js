@@ -10,6 +10,7 @@ try { fs.mkdirSync("json"); } catch(e){}
 var chunks={
 	"text/eng.txt" : "json/eng.json",
 	"text/fra.txt" : "json/fra.json",
+	"text/spa.txt" : "json/spa.json",
 	"text/base.html" : "json/chunks.json"
 	}
 for( var n in chunks )
