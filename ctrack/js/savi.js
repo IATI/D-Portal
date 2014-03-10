@@ -370,7 +370,7 @@ $(inside+"iati-activity").each(function(i){var it=$(this);
 			var name=$(this).children("span").first().html();
 			var value=$(this).attr("percentage") || "100";
 			av.push(value);
-			an.push(name+" %"+value);
+			an.push(name+" ("+value+"%)");
 		});
 		
 		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=880x275&cht=p&chds=a";
