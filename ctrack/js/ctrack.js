@@ -268,7 +268,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
 					$('html, body').stop();
 				});
-				$('html, body').animate({ scrollTop:120 }, 'slow', function(){
+				$('html, body').animate({ scrollTop:0 }, 'slow', function(){
 					$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
 				})
 				
