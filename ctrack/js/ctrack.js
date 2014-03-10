@@ -54,9 +54,9 @@ ctrack.setup=function(args)
 
 
 	ctrack.map={};
-	ctrack.map.lat=15;
-	ctrack.map.lng=-86.30;
-	ctrack.map.zoom=7;
+	ctrack.map.lat=0;
+	ctrack.map.lng=0;
+	ctrack.map.zoom=4;
 	ctrack.map.heat=undefined;
 	
 //display map 

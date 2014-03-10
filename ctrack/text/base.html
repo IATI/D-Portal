@@ -383,6 +383,16 @@ BANGLADESH
 	</div>
 </div>
 
+#chunkmoney_row
+<tr>
+	<td style="width:190px; padding:5px 10px 5px 0;">{name}</td>
+	<td style="width:100px;" title="{usd} USD">
+		<div style="width:100px; height:10px; background-color:#000000;">
+			<div style="width:{pct}px; height:10px; background-color:#1E90FF;"></div>
+		</div>
+	</td>
+</tr>
+#chunkmoney_rows
 #chunkmoney
 <div style="width:880px; margin:0 auto; font-size:32px; padding:60px 0;">
 	<div style="width:380px; display:inline-block; vertical-align:top; padding-right:60px;">
@@ -395,6 +405,7 @@ BANGLADESH
 		</div>
 		<div style="text-align:center; color:#ccc; font-size:14px; padding-bottom:20px;">{subtitle_donor_text}</div>
 		<table style="width:380px; min-height:300px; background-color:#fff; padding:20px 40px; font-size:20px;">
+{chunkmoney_rows}
 			<tr>
 				<td style="width:190px; padding:5px 10px 5px 0;">EU Institutions</td>
 				<td style="width:100px;" title="1,000,000 USD">
