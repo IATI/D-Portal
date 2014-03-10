@@ -20,18 +20,11 @@ ctrack.setup=function(args)
 	ctrack.crumbs=[];
 	ctrack.setcrumb=function(idx)
 	{
-console.log("bfore"+ctrack.crumbs.length);
 		var it={};
 		ctrack.crumbs=ctrack.crumbs.slice(0,idx);
 		ctrack.crumbs[idx]=it;
 		it.hash=ctrack.last_hash;
 		it.view=ctrack.last_view;
-		
-		for(var i=0;i<idx-1;i++)
-		{
-		}
-		
-console.log("after"+ctrack.crumbs.length);
 	};
 	ctrack.show_crumbs=function()
 	{

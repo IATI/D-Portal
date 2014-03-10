@@ -794,7 +794,7 @@ query.do_select=function(q,res){
     
    		}
 		else
-		if(q.form=="raw.xml")
+		if(q.form=="rawxml")
 		{
 			res.set('Content-Type', 'text/xml');
 

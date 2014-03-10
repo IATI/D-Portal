@@ -11,6 +11,9 @@ var iati=require("./iati.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
 var crs_year=require("../../dstore/json/crs_2012.json")
 
+
+var refry=require("../../dstore/js/refry.js")
+
 //var fetch=require("./fetch.js")
 
 
@@ -266,7 +269,7 @@ fetch.activity=function(args)
 
 	var dat={
 			"aid":args.activity,
-			"select":"xml"
+			"select":"jml"
 		};
 	
 	var callback=args.callback || function(data){
@@ -280,7 +283,7 @@ fetch.activity=function(args)
 
 		if(data["rows"][0])
 		{
-			ctrack.chunk("xml",data["rows"][0].xml);
+			ctrack.chunk("xml", refry.json( data["rows"][0].jml ) );
 		}
 		else
 		{
