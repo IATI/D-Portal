@@ -36,7 +36,7 @@ ctrack.setup=function(args)
 	}
 
 	var tongues={
-		"fra":require("../json/fra.json")
+		"fra":require("../json/fra.json"),
 		"spa":require("../json/spa.json")
 	};
 	var tongue=tongues[ args.tongue ];
