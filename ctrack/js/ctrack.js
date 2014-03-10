@@ -37,6 +37,7 @@ ctrack.setup=function(args)
 
 	var tongues={
 		"fra":require("../json/fra.json")
+		"spa":require("../json/spa.json")
 	};
 	var tongue=tongues[ args.tongue ];
 	if(tongue){plate.push_namespace(tongue);}
@@ -56,7 +57,7 @@ ctrack.setup=function(args)
 	ctrack.map={};
 	ctrack.map.lat=0;
 	ctrack.map.lng=0;
-	ctrack.map.zoom=4;
+	ctrack.map.zoom=6;
 	ctrack.map.heat=undefined;
 	
 //display map 
@@ -69,17 +70,19 @@ display_ctrack_map=function(){
 		{
 			if($("#map").length>0)
 			{
-				console.log("map loaded");
-				var mapOptions = {
-				  center: new google.maps.LatLng(ctrack.map.lat, ctrack.map.lng),
-				  zoom: ctrack.map.zoom,
-				  scrollwheel: false
-				};
-				var map = new google.maps.Map(document.getElementById("map"),
-					mapOptions);
-					
 				if(ctrack.map.heat)
 				{
+
+					console.log("map loaded");
+					var mapOptions = {
+					  center: new google.maps.LatLng(ctrack.map.lat, ctrack.map.lng),
+					  zoom: ctrack.map.zoom,
+					  scrollwheel: false
+					};
+					var map = new google.maps.Map(document.getElementById("map"),
+						mapOptions);
+					
+
 
 					var heatmapData = [];
 
@@ -265,7 +268,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
 					$('html, body').stop();
 				});
-				$('html, body').animate({ scrollTop:0 }, 'slow', function(){
+				$('html, body').animate({ scrollTop:120 }, 'slow', function(){
 					$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
 				})
 				
