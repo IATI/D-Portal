@@ -242,7 +242,7 @@ if(true)
 		
 	console.log("Writing json/iati_codes.json")	
 //	fs.writeFileSync("json/iati_codes.js","exports.codes="+JSON.stringify(codes)+";\n");
-	fs.writeFileSync("json/iati_codes.json",JSON.stringify(codes));
+	fs.writeFileSync("json/iati_codes.json",JSON.stringify(codes,null,'\t'));
 
 
 
@@ -292,7 +292,7 @@ if(true)
 
 	console.log("Writing json/crs_2012.json")
 //	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
-	fs.writeFileSync("json/crs_2012.json",JSON.stringify(o));
+	fs.writeFileSync("json/crs_2012.json",JSON.stringify(o,null,'\t'));
 
 //	codes["local_currency"]=o;
 
