@@ -106,9 +106,16 @@ Activity
 	<td>{num}.</td>
 	<td style="padding-right:30px;" title="{donor_activities_title_tip_text}">
 		<div><a href="#view=act&aid={aid}">{title}</a></div>
-		<div style="color:#9C8876; font-size:16px; line-height:1.0em;">{view_donor_activites_reporting_text}</div>
+		<div style="color:#9C8876; font-size:14px; line-height:1.0em;">{view_donor_activites_reporting_text}</div>
 	</td>
-	<td title="{donor_activities_percentage_tip_text}">{pct}% of {commitment}</td>
+	<td title="{donor_activities_percentage_tip_text}">
+		<div style="color:#B8C8CD;">{commitment}</div>
+		<div style="min-width:100px; padding:10px 0 0 40px;">
+			<div style="width:100px; height:10px; background-color:#000000;">
+				<div style="width:{pct}px; height:10px; background-color:#1E90FF;"></div>
+			</div>
+		</div>
+	</td>
 </tr>
 
 #view_donor_transactions
