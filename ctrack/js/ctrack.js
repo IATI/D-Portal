@@ -203,6 +203,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				fetch.planned({limit:5});
 				fetch.heatmap({limit:300});
 				fetch.stats({});
+				fetch.donors_top({limit:5});
 			}
 			ctrack.setcrumb(0);
 		}
@@ -323,13 +324,16 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 console.log("new view");
    			}
 
+console.log("displaying view");
+
 			ctrack.show_crumbs();
 			ctrack.div.master.html( plate.replace( "{view_"+l.view+"}" ) );
-		}
+
 // these need to be hooks
 console.log("fixing view with js");
-		savi.fixup();
-		display_ctrack_map();
+			savi.fixup();
+			display_ctrack_map();
+		}
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );
 	ctrack.check_hash();

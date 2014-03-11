@@ -480,6 +480,43 @@ fetch.donor_activities=function(args)
 	fetch.ajax(dat,callback);
 }
 
+fetch.donors_top=function(args)
+{
+	args=args || {};
+	var limit=args.limit || 5;
+
+	var list=[];
+// insert crs data if we have it
+	var crs=crs_year[ (args.country || ctrack.args.country).toUpperCase() ];
+	for(var n in crs)
+	{
+		var d={};
+		d.funder=n;
+		d.usd=crs[n];
+		list.push(d);
+	}
+	list.sort(function(a,b){
+		return ( (b.usd||0)-(a.usd||0) );
+	});
+	
+	var top=list[0].usd;
+	var s=[];
+	for( var i=0; i<limit ; i++ )
+	{
+		var v=list[i];
+		if(v)
+		{
+			v.pct=Math.floor(100*v.usd/top)
+			v.donor=iati_codes.crs_funders[v.funder] || iati_codes.country[v.funder] || v.funder;
+			s.push( plate.replace("{chunkmoney_row}",v) );
+		}
+	}
+
+	ctrack.chunk("chunkmoney_rows",s.join(""));
+	ctrack.update_hash({"view":"main"});
+
+}
+
 fetch.donors=function(args)
 {
 	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
