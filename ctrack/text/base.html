@@ -83,10 +83,6 @@ Activity
 			<td>{view_donor_activities_text}</td>
 		</tr>
 		<tr>
-			<td></td>
-			<td style="font-size:16px; padding-top:10px;">{view_donor_activites_reporting_text}</td>
-		</tr>
-		<tr>
 			<td colspan="2">
 				<div class="declare title table"><img src="/art/alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_activities_declare_text}</div>
 			</td>
@@ -108,7 +104,10 @@ Activity
 #donor_activities_data
 <tr>
 	<td>{num}.</td>
-	<td style="padding-right:30px;" title="{donor_activities_title_tip_text}"><div><a href="#view=act&aid={aid}">{title}</a></div></td>
+	<td style="padding-right:30px;" title="{donor_activities_title_tip_text}">
+		<div><a href="#view=act&aid={aid}">{title}</a></div>
+		<div style="color:#9C8876; font-size:16px; line-height:1.0em;">{view_donor_activites_reporting_text}</div>
+	</td>
 	<td title="{donor_activities_percentage_tip_text}">{pct}% of {commitment}</td>
 </tr>
 
@@ -254,17 +253,17 @@ Activity
 
 
 #sectors_head
-<div style="width:820px; margin:0 auto; padding:30px 0;">
+<div style="width:820px; margin:0 auto; padding:40px 0;">
 	<div style="width:330px; display:inline-block; vertical-align:bottom;">
 		<img src="/art/moneytitle_icon.png" alt="{moneytitle_icon_text}" width="330" height="180"/>
 	</div><div style="display:inline-block; vertical-align:top;">
 			<div style="height:30px;"></div>
 			<div style="width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #00C475; border-bottom:20px solid transparent;"></div>
 	</div><div style="width:440px; display:inline-block; vertical-align:top;">
-			<div style="width:360px; background-color:#00C475; padding:20px 40px; text-align:center; color:#fff; font-size:42px;">
+			<div style="width:400px; background-color:#00C475; padding:20px 40px; text-align:center; color:#fff; font-size:42px;">
 				{title_sector_text}
 			</div>
-			<div style="width:440px; padding-top:20px; color:#fff; font-size:18px; text-align:center;">{declare_title_sector_text}</div>
+			<div style="width:480px; padding-top:20px; color:#ccc; font-size:14px; text-align:center;">{declare_title_sector_text}</div>
 	</div>
 </div>
 
