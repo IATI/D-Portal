@@ -476,7 +476,7 @@ fetch.donor_activities=function(args)
 	var dat={
 			"from":"activities,country",
 			"limit":args.limit || -1,
-			"select":"title,aid,funder,commitment,spend",
+			"select":"title,aid,funder,commitment,spend,reporting_org",
 			"funder_not_null":"",
 			"funder":funder,
 			"status_code":"2",
@@ -498,6 +498,7 @@ fetch.donor_activities=function(args)
 			d.aid=v.aid;
 			d.title=v.title || v.aid;
 
+			d.reporting_org=v.reporting_org;
 			d.commitment=commafy(""+Math.floor(v.commitment));
 			d.spend=commafy(""+Math.floor(v.spend));
 			d.pct=0;
