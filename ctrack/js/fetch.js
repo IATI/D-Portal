@@ -389,6 +389,12 @@ fetch.donor_transactions=function(args)
 
 			s.push( plate.replace("{donor_transactions_data}",d) );
 		}
+		
+		ctrack.chunk("alerts","");
+		if( iati_codes.crs_no_iati[funder] )
+		{
+			ctrack.chunk("alerts","{alert_no_iati}");
+		}
 
 		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
 		ctrack.chunk("year",year);
@@ -440,6 +446,12 @@ fetch.donor_budgets=function(args)
 			total+=v.sum_of_percent_of_usd;
 
 			s.push( plate.replace("{donor_budgets_data}",d) );
+		}
+
+		ctrack.chunk("alerts","");
+		if( iati_codes.crs_no_iati[funder] )
+		{
+			ctrack.chunk("alerts","{alert_no_iati}");
 		}
 
 		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
@@ -495,6 +507,12 @@ fetch.donor_activities=function(args)
 			}
 
 			s.push( plate.replace("{donor_activities_data}",d) );
+		}
+
+		ctrack.chunk("alerts","");
+		if( iati_codes.crs_no_iati[funder] )
+		{
+			ctrack.chunk("alerts","{alert_no_iati}");
 		}
 
 		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
