@@ -17,9 +17,13 @@ ctrack.setup=function(args)
 
 	ctrack.args=args;
 	
-	ctrack.crumbs=[];
+	ctrack.crumbs=[{hash:"#view=main",view:"main"}];
 	ctrack.setcrumb=function(idx)
 	{
+// try not to leave holes in the crumbs list, so align to left
+console.log("crum "+idx+" - "+ctrack.crumbs.length)
+		if(idx > ctrack.crumbs.length ) { idx=ctrack.crumbs.length; }
+		
 		var it={};
 		ctrack.crumbs=ctrack.crumbs.slice(0,idx);
 		ctrack.crumbs[idx]=it;
