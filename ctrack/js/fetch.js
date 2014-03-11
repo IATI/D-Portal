@@ -464,7 +464,7 @@ fetch.donor_activities=function(args)
 	var dat={
 			"from":"activities,country",
 			"limit":args.limit || -1,
-			"select":"title,aid,funder",
+			"select":"title,aid,funder,commitment,spend",
 			"funder_not_null":"",
 			"funder":funder,
 			"status_code":"2",
@@ -485,6 +485,14 @@ fetch.donor_activities=function(args)
 			d.funder=v.funder;
 			d.aid=v.aid;
 			d.title=v.title;
+
+			d.commitment=commafy(""+Math.floor(v.commitment));
+			d.spend=commafy(""+Math.floor(v.spend));
+			d.pct=0;
+			if(v.commitment && (v.commitment!=0) )
+			{
+				d.pct=Math.floor(100*v.spend/v.commitment)
+			}
 
 			s.push( plate.replace("{donor_activities_data}",d) );
 		}
