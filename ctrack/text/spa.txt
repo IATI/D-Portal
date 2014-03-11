@@ -28,6 +28,9 @@ Proyectos terminados el icono
 #activity_icon_text
 Icono de Actividad
 
+#alert_icon_text
+Icon declaración
+
 #mainback_text
 Elija un ejemplo diferente
 
@@ -100,11 +103,17 @@ Número total de Organizaciones informadora
 #declare_stats_text
 Los datos que se muestran más arriba ha sido proporcionada por la IATI y es exacta a partir de {today}
 
-#list_active_text
-Proyectos activos que terminan pronto
+#list_active_text 
+Proyectos activos que terminan pronto 
 
-#list_ended_text
-Proyectos recientemente terminados
+#list_active_declare_text 
+Ordenado por proyectos que terminan lo más pronto posible en la parte superior 
+
+#list_ended_text 
+Proyectos recientemente terminados 
+
+#list_ended_declare_text 
+Ordenado por los más recientes proyectos terminados en la parte superior
 
 #list_more_text
 Cargue más
@@ -135,6 +144,9 @@ Importe de la transacción en USD
 
 #view_donor_budgets_text
 Presupuesto total para {donor} en {year}
+
+#view_donor_budgets_declare_text
+El presupuesto se calcula sumando todos los presupuestos que se encuentra a menos de 370 días de largo y termina en {year}. Esta tabla te muestra todas las actividades que se enumeran los presupuestos para {year} ordenados por el mayor en la parte superior. Zeros en tablas sugiere que las discrepancias en el cálculo debido a datos insuficientes y significa problemas de calidad de datos.
 
 #table_donor_title_transaction_text
 GASTAR IATI (USD)
@@ -249,3 +261,15 @@ Suma de los presupuestos del sector en USD para el 2014
 
 #table_sector_tip_b2015_text
 Suma de los presupuestos del sector en USD para 2015
+
+#table_active_title_tip_text 
+Título del proyecto de la actividad 
+
+#table_active_date_tip_text 
+Fecha final 
+
+#table_ended_title_tip_text 
+Título del proyecto de la actividad 
+
+#table_ended_date_tip_text 
+Fecha terminado

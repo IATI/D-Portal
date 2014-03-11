@@ -28,6 +28,9 @@ Projets terminés icône
 #activity_icon_text 
 Activité icône
 
+#alert_icon_text
+Déclaration icône
+
 #mainback_text 
 Choisissez un autre exemple
 
@@ -100,11 +103,17 @@ Nombre total des organisations d'information impliqués
 #declare_stats_text
 Données affichées ci-dessus ont été fournies par IATI et sont exacts à {today}
 
-#list_active_text
-Projets en cours se terminant bientôt
+#list_active_text 
+Projets en cours se terminant bientôt 
 
-#list_ended_text
-Projets terminés récemment
+#list_active_declare_text 
+Présentation par les projets se terminant le plus vite en haut 
+
+#list_ended_text 
+Projets terminés récemment 
+
+#list_ended_declare_text 
+Trier par les plus récents projets terminés au sommet
 
 #list_more_text
 Chargez plus
@@ -135,6 +144,9 @@ Montant de la transaction en USD
 
 #view_donor_budgets_text 
 Budget total pour {donor} en {year}
+
+#view_donor_budgets_declare_text
+Budget est calculé en additionnant tous les budgets qui est inférieure à 370 jours de long et se termine en {year}. Ce tableau vous indique toutes les activités qui ont énuméré les budgets pour {year} triés par le plus grand en haut. Zéros dans les tableaux suggèrent des anomalies dans ce calcul en raison de l'insuffisance des données et signifie des problèmes de qualité de données.
 
 #table_donor_title_transaction_text 
 PASSER de IATI (USD)
@@ -249,3 +261,15 @@ Somme des budgets sectoriels en USD pour 2014
 
 #table_sector_tip_b2015_text
 Somme des budgets sectoriels en USD pour 2015
+
+#table_active_title_tip_text 
+Titre du projet d'activité 
+
+#table_active_date_tip_text 
+Date de fin 
+
+#table_ended_title_tip_text 
+Titre du projet d'activité 
+
+#table_ended_date_tip_text 
+Date de fin

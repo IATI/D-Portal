@@ -55,7 +55,7 @@ Activity
 {chunkhead}
 {chunkcountrymin}
 <div style="width:960px; margin:0 auto; padding:20px 0;">
-	<div style="color:#fff; font-size:16px; line-height:1.35em; padding:10px 20px; background-color:#000;">{xml_declare_text}</div>
+	<div style="color:#fff; font-size:16px; line-height:1.35em; padding:10px 20px; background-color:#000;"><img src="/art/alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {xml_declare_text}</div>
 </div>
 {xml}
 {view_tail}
@@ -76,15 +76,17 @@ Activity
 {chunkhead}
 {chunkcountrymin}
 {donors_head}
-<div style="width:960px; margin:0 auto; padding:40px 20px; margin-bottom:40px;">
+<div style="width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;">
 	<table class="title">
 		<tr>
 			<td><img src="/art/activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
 			<td>{view_donor_activities_text}</td>
 		</tr>
 		<tr>
-			<td></td>
-			<td style="font-size:16px; line-height:1.35em; color:#CACBCB;">{view_donor_activities_declare_text}</td>
+			<td colspan="2">
+				<div class="declare title table">
+					<img src="/art/alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_activities_declare_text}</div>
+			</td>
 		</tr>
 	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
@@ -113,7 +115,7 @@ Activity
 {chunkhead}
 {chunkcountrymin}
 {donors_head}
-<div style="width:960px; margin:0 auto; padding:40px 20px; margin-bottom:40px;">
+<div style="width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;">
 	<table class="title">
 		<tr>
 			<td><img src="/art/activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
@@ -121,8 +123,7 @@ Activity
 			<td style="text-align:right;">= {total} (USD)</td>
 		</tr>
 		<tr>
-			<td></td>
-			<td colspan="2" style="font-size:16px; line-height:1.35em; color:#CACBCB;">{view_donor_transactions_declare_text}</td>
+			<td colspan="3"><div class="declare title table"><img src="/art/alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_transactions_declare_text}</div></td>
 		</tr>
 	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
@@ -151,12 +152,15 @@ Activity
 {chunkhead}
 {chunkcountrymin}
 {donors_head}
-<div style="width:960px; margin:0 auto; padding:40px 20px; margin-bottom:40px;">
+<div style="width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;">
 	<table class="title">
 		<tr>
 			<td><img src="/art/activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
 			<td>{view_donor_budgets_text}</td>
 			<td style="text-align:right;">= {total} (USD)</td>
+		</tr>
+		<tr>
+			<td colspan="3"><div class="declare title table"><img src="/art/alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_transactions_declare_text}</div></td>
 		</tr>
 	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
@@ -181,17 +185,17 @@ Activity
 
 
 #donors_head
-<div style="width:820px; margin:0 auto; padding-top:30px;">
+<div style="width:860px; margin:0 auto; padding:40px 0;">
 	<div style="width:330px; display:inline-block; vertical-align:bottom;">
-		<img src="/art/moneytitle_icon.png" alt="{moneytitle_icon_text}" width="330" height="150"/>	
+		<img src="/art/moneytitle_icon.png" alt="{moneytitle_icon_text}" width="330" height="180"/>	
 	</div><div style="display:inline-block; vertical-align:top;">
 			<div style="height:30px;"></div>
 			<div style="width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;"></div>
-	</div><div style="width:440px; display:inline-block; vertical-align:top;">
-			<div style="width:360px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#fff; font-size:42px;">
+	</div><div style="width:480px; display:inline-block; vertical-align:top;">
+			<div style="width:400px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#fff; font-size:42px;">
 				{title_donor_text}
 			</div>
-			<div style="width:440px; padding-top:20px; color:#fff; font-size:18px; text-align:center;">{declare_title_donor_text}</div>
+			<div style="width:480px; padding-top:10px; color:#ccc; font-size:14px; text-align:center;">{declare_title_donor_text}</div>
 	</div>
 </div>
 
@@ -247,7 +251,7 @@ Activity
 
 
 #sectors_head
-<div style="width:820px; margin:0 auto; padding-top:30px;">
+<div style="width:820px; margin:0 auto; padding:30px 0;">
 	<div style="width:330px; display:inline-block; vertical-align:bottom;">
 		<img src="/art/moneytitle_icon.png" alt="{moneytitle_icon_text}" width="330" height="180"/>
 	</div><div style="display:inline-block; vertical-align:top;">
@@ -389,21 +393,8 @@ BANGLADESH
 </div>
 
 #chunkcountrymin
-<div style="width:960px; margin:0 auto; padding:0;">
+<div style="width:960px; margin:0 auto; padding-top:10px;">
 	<table style="width:960px; margin:0 auto; padding:10px 0;">
-		<tr>
-			<td style="width:860px; max-width:860px; padding-right:20px; font-size:32px; line-height:1.1em; color:#fff;">{country_name}</td>
-			<td><img src="{country_flag}" alt="{country_name} flag" width="80" height="40"/></td>
-		</tr>
-	</table>
-	<div style="width:960px; padding-top:5px; border-top:10px solid #fff;">
-		<div style="font-size:14px; color:#ccc;">{declare_main_text}</div>
-	</div>
-</div>
-
-#chunkcountrysavi
-<div style="width:960px; margin:0 auto; padding:0;">
-	<table style="width:960px; margin:0 auto; padding:20px 0 10px 0;">
 		<tr>
 			<td style="width:860px; max-width:860px; padding-right:20px; font-size:32px; line-height:1.1em; color:#fff;">{country_name}</td>
 			<td><img src="{country_flag}" alt="{country_name} flag" width="80" height="40"/></td>
@@ -422,8 +413,8 @@ BANGLADESH
 			<td><img src="{country_flag}" alt="{country_name} flag" width="150" height="90"/></td>
 		</tr>
 	</table>
-	<div style="width:960px; padding-top:15px; border-top:10px solid #fff;">
-		<div style="font-size:16px; color:#ccc;">{declare_main_text}</div>
+	<div style="width:960px; padding-top:5px; border-top:10px solid #fff;">
+		<div style="font-size:14px; color:#ccc;">{declare_main_text}</div>
 	</div>
 </div>
 
@@ -436,8 +427,10 @@ BANGLADESH
 		</div>
 	</td>
 </tr>
+
 #chunkmoney_rows
 {chunkmoney_row}
+
 #chunkmoney
 <div style="width:880px; margin:0 auto; font-size:32px; padding:60px 0;">
 	<div style="width:380px; display:inline-block; vertical-align:top; padding-right:60px;">
@@ -552,10 +545,11 @@ BANGLADESH
 
 #chunkactive
 <div style="width:960px; margin:0 auto; padding:40px 20px;">
-	<table class="title">
+	<table class="title list">
 		<tr>
 			<td><img src="/art/active_icon.png" alt="{active_icon_text}" width="40" height="40"/></td>
 			<td>{list_active_text}</td>
+			<td><div class="declare title list">{list_active_declare_text}</div></td>
 		</tr>
 	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
@@ -570,10 +564,11 @@ BANGLADESH
 
 #chunkended
 <div style="width:960px; margin:0 auto; padding:40px 20px;">
-	<table class="title">
+	<table class="title list">
 		<tr>
 			<td><img src="/art/ended_icon.png" alt="{ended_icon_text}" width="40" height="40"/></td>
 			<td>{list_ended_text}</td>
+			<td><div class="declare title list">{list_ended_declare_text}</div></td>
 		</tr>
 	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
@@ -603,10 +598,18 @@ BANGLADESH
 </div>
 
 #ctbox1table_data
-<tr><td>{num}.</td><td><div><a href="#view=act&aid={aid}">{title}</a></div></td><td>{date}</td></tr>
+<tr>
+	<td>{num}.</td>
+	<td><div><a href="#view=act&aid={aid}" title="{table_active_title_tip_text}">{title}</a></div></td>
+	<td title="{table_active_date_tip_text}">{date}</td>
+</tr>
 
 #ctbox2table_data
-<tr><td>{num}.</td><td><div><a href="#view=act&aid={activity}">{title}</a></div></td><td>{date}</td></tr>
+<tr>
+	<td>{num}.</td>
+	<td><div><a href="#view=act&aid={activity}" title="{table_ended_title_tip_text}">{title}</a></div></td>
+	<td title="{table_ended_date_tip_text}">{date}</td>
+</tr>
 
 
 

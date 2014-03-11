@@ -51,6 +51,8 @@ a.boxmore:hover			{background-color:#bbb;}
 a.nearmore				{display:block; width:100px; padding:10px; background-color:#CADDE0; border:1px solid #CEDFE2; border-top:0; text-align:center; font-size:12px; color:#fff; border-radius:0 0 8px 8px;}
 a.nearmore:hover		{background-color:#B6D5EE;}
 
+table					{border-spacing:0;}
+
 table.list				{width:100%; border-collapse:collapse;}
 table.list td			{color:#B8C8CD; font-size:20px; line-height:1.45em; word-spacing:0.7px; padding:20px 20px 20px 0; vertical-align:top;}
 table.list td:nth-child(3)	{text-align:right; padding-right:0; min-width:140px;}
@@ -97,9 +99,13 @@ table.activity a:visited{color:#95B0CF; text-decoration: none;}
 table.activity a:hover	{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration: none;}
 table.activity a:active	{color:#95B0CF; text-decoration: none;}
 
-table.title				{width:960px; padding-bottom:15px; border-bottom:10px solid #fff;}
-table.title td			{font-size:32px; line-height:1.1em; color:#fff; padding-right:20px;}
-table.title td:nth-child(1)	{padding-right:10px; width:40px;}
+table.title				{width:100%; border-collapse:collapse; padding-bottom:15px; border-bottom:10px solid #fff;}
+table.title.list		{border-collapse:seperate;}
+table.title td			{font-size:32px; line-height:1.1em; color:#fff; vertical-align:bottom;}
+table.title tr:nth-child(1) td:nth-child(1)	{padding-right:10px; width:40px;}
+table.title tr:nth-child(2) td	{padding:0;}
+.declare.title.list		{vertical-align:bottom; text-align:right; padding:0; font-size:14px; line-height:1.35em; color:#CACBCB;}
+.declare.title.table 	{margin-top:10px; font-size:14px; line-height:1.35em; color:#CACBCB; padding:10px 20px; background-color:#000;}
 
 a.block					{display:block;}
 

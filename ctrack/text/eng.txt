@@ -28,6 +28,9 @@ Ended projects icon
 #activity_icon_text
 Activity icon
 
+#alert_icon_text
+Declaration icon
+
 #mainback_text
 Choose a different example
 
@@ -103,8 +106,14 @@ Data displayed above has been provided by IATI and is accurate as of {today}
 #list_active_text
 Active projects ending soon
 
+#list_active_declare_text
+Sorted by projects ending the soonest at the top
+
 #list_ended_text
 Recently ended projects
+
+#list_ended_declare_text
+Sorted by the most recent ended projects at the top
 
 #list_more_text
 Load more
@@ -116,13 +125,13 @@ Back to Donor list
 Total Spend by {donor} in {year}
 
 #view_donor_transactions_declare_text
-Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported by {donor} for {country_name} and the activity with the highest spend at the top.
+Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported by {donor} for {country_name} and sorted by the activity with the highest spend at the top.
 
 #view_donor_activities_text
 Active activities for {donor} & current spend (USD)
 
 #view_donor_activities_declare_text
-Spend is calculated by adding disbursements and expenditures. This table shows you the percentage of total commitments spent on each activity so far. Zeros in tables suggests discrepancies in that calculation due to insufficient data and signifies data quality issues.
+Spend is calculated by adding disbursements and expenditures. This table shows you the percentage of total commitments spent on each activity so far and sorted by the biggest at the top. Zeros in tables suggests discrepancies in that calculation due to insufficient data and signifies data quality issues.
 
 #donor_transactions_title_tip_text
 Project title of activity
@@ -135,6 +144,9 @@ Transaction amount in USD
 
 #view_donor_budgets_text
 Total Budget for {donor} in {year}
+
+#view_donor_budgets_declare_text
+Budget is calculated by adding up every budget that is less than 370 days long and ends in {year}. This table shows you all activities that have listed budgets for {year} sorted by the biggest at the top. Zeros in tables suggests discrepancies in that calculation due to insufficient data and signifies data quality issues.
 
 #table_donor_title_transaction_text
 IATI SPEND (USD)
@@ -249,3 +261,15 @@ Sum of sector budgets in USD for 2014
 
 #table_sector_tip_b2015_text
 Sum of sector budgets in USD for 2015
+
+#table_active_title_tip_text
+Project title of activity
+
+#table_active_date_tip_text
+Date ending
+
+#table_ended_title_tip_text
+Project title of activity
+
+#table_ended_date_tip_text
+Date ended
