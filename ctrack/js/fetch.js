@@ -488,6 +488,9 @@ fetch.donor_activities=function(args)
 
 			s.push( plate.replace("{donor_activities_data}",d) );
 		}
+
+		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
+
 		ctrack.chunk("donor_activities_datas",s.join(""));
 		ctrack.update_hash({"view":"donor_activities"});
 	};
