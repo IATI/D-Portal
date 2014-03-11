@@ -13,6 +13,9 @@ En comparant les secteurs de IATI avec les données du secteur de la Non IATI (C
 #moneytitle_icon_text 
 Le public veut savoir où est l'argent!
 
+#alert_no_iati_text 
+Cette donateurs ne publie pas de IATI.
+
 #active_icon_text 
 Projets actifs icône 
 
@@ -109,11 +112,20 @@ Retour à la liste des Donateurs
 #view_donor_transactions_text 
 Dépenses totales pour {donor} en {year}
 
-#view_donor_activities_text
-Activités actives pour {donor} et dépenses actuelles (décaissements et les dépenses d'engagements en USD)
+#view_donor_transactions_declare_text 
+Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique toutes les activités déclarées par {donor} pour {country_name} et l'activité avec la plus grande dépense en haut. 
+
+#view_donor_activities_text 
+Activités actives pour {donor} et dépenses actuelles (USD) 
+
+#view_donor_activities_declare_text 
+Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le pourcentage du total des engagements consacré à chaque activité à ce jour. Zéros dans les tableaux suggèrent des anomalies dans ce calcul en raison de l'insuffisance des données et signifie des problèmes de qualité de données. 
 
 #donor_transactions_title_tip_text 
-Identifiant de IATI activité signalée 
+Titre du projet d'activité
+
+#donor_transactions_percentage_title_tip_text
+Pourcentage du total des engagements passés
 
 #donor_transactions_amount_tip_text 
 Montant de la transaction en USD 

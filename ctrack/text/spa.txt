@@ -13,6 +13,9 @@ Comparando con los datos de los sectores de la IATI sector No IATI (CRS y Otros)
 #moneytitle_icon_text
 El público quiere saber dónde está el dinero !
 
+#alert_no_iati_text 
+Esta Donantes no publica a IATI.
+
 #active_icon_text
 Proyectos activos icono
 
@@ -109,11 +112,20 @@ Volver a la lista de los donantes
 #view_donor_transactions_text
 Gasto total para {donor} en {year}
 
-#view_donor_activities_text
-Actividades activo de {donor} y el gasto corriente (desembolsos y gastos de los compromisos en USD)
+#view_donor_transactions_declare_text 
+Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por los {donor} para {country_name} y la actividad con el mayor gasto en la parte superior. 
 
-#donor_transactions_title_tip_text
-IATI Identificador de la actividad informó
+#view_donor_activities_text 
+Actividades activo de {donor} y el gasto corriente (USD) 
+
+#view_donor_activities_declare_text 
+Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra el porcentaje de los compromisos totales dedicado a cada actividad hasta el momento. Zeros en tablas sugiere que las discrepancias en el cálculo debido a datos insuficientes y significa problemas de calidad de datos. 
+
+#donor_transactions_title_tip_text 
+Título del proyecto de la actividad
+
+#donor_transactions_percentage_title_tip_text
+Porcentaje del total de compromisos pasados
 
 #donor_transactions_amount_tip_text
 Importe de la transacción en USD
