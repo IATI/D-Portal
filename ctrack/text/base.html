@@ -41,6 +41,13 @@ Sector List
 #crumbname_act
 Activity
 
+#alerts
+{alert_no_iati}
+
+#alert_no_iati
+<tr>
+	<td colspan="3" style="text-align:center; font-size:30px; color:#fff;">{alert_no_iati_text}</td>
+</tr>
 
 #view_act
 {view_head}
@@ -87,6 +94,9 @@ Activity
 
 #donor_activities_data
 <tr>
+	<td colspan="3" style="text-align:center; font-size:30px; color:#fff;">{alerts}</td>
+</tr>
+<tr>
 	<td>{num}.</td>
 	<td style="padding-right:30px;" title="{donor_transactions_title_tip_text}"><div><a href="#view=act&aid={aid}">{title}</a></div></td>
 	<td style="text-align:right; font-size:16px;">{pct}% of {commitment}</td>
@@ -120,6 +130,9 @@ Activity
 
 #donor_transactions_data
 <tr>
+	<td colspan="3" style="text-align:center; font-size:30px; color:#fff;">{alerts}</td>
+</tr>
+<tr>
 	<td>{num}.</td>
 	<td title="{donor_transactions_title_tip_text}"><div><a href="#view=act&aid={aid}">{title}</a></div></td>
 	<td title="{donor_transactions_amount_tip_text}">{amount}</td>
@@ -141,6 +154,7 @@ Activity
 	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
 		<table class="activity">
+			{alerts}
 			{donor_budgets_datas}
 		</table>
 	</div>
