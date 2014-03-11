@@ -83,9 +83,12 @@ Activity
 			<td>{view_donor_activities_text}</td>
 		</tr>
 		<tr>
+			<td></td>
+			<td style="font-size:16px; padding-top:10px;">{view_donor_activites_reporting_text}</td>
+		</tr>
+		<tr>
 			<td colspan="2">
-				<div class="declare title table">
-					<img src="/art/alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_activities_declare_text}</div>
+				<div class="declare title table"><img src="/art/alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_activities_declare_text}</div>
 			</td>
 		</tr>
 	</table>
@@ -105,9 +108,8 @@ Activity
 #donor_activities_data
 <tr>
 	<td>{num}.</td>
-	<td style="padding-right:30px;" title="{donor_transactions_title_tip_text}"><div><a href="#view=act&aid={aid}">{title}</a></div></td>
-	<td>{reporting_org}</td>
-	<td style="text-align:right; font-size:16px;" title="{donor_transactions_percentage_title_tip_text}">{pct}% of {commitment}</td>
+	<td style="padding-right:30px;" title="{donor_activities_title_tip_text}"><div><a href="#view=act&aid={aid}">{title}</a></div></td>
+	<td title="{donor_activities_percentage_tip_text}">{pct}% of {commitment}</td>
 </tr>
 
 #view_donor_transactions
