@@ -588,6 +588,16 @@ fetch.donors=function(args)
 			if(!v.t2014){v.t2014="0";}
 			if(!v.b2014){v.b2014="0";}
 			if(!v.b2015){v.b2015="0";}
+
+			if( iati_codes.crs_no_iati[v.funder] )
+			{
+				v.t2012="-";
+				v.t2013="-";
+				v.t2014="-";
+				v.b2014="-";
+				v.b2015="-";
+			}
+
 			v.donor=iati_codes.crs_funders[v.funder] || iati_codes.country[v.funder] || v.funder;
 			s.push( plate.replace("{table_donors_row}",v) );
 		});
