@@ -383,7 +383,7 @@ fetch.donor_transactions=function(args)
 			d.num=i+1;
 			d.funder=v.funder;
 			d.aid=v.aid;
-			d.title=v.title;
+			d.title=v.title || v.aid;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_usd));
 			total+=v.sum_of_percent_of_usd;
 
@@ -435,7 +435,7 @@ fetch.donor_budgets=function(args)
 			d.num=i+1;
 			d.funder=v.funder;
 			d.aid=v.aid;
-			d.title=v.title;
+			d.title=v.title || v.aid;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_usd));
 			total+=v.sum_of_percent_of_usd;
 
@@ -484,7 +484,7 @@ fetch.donor_activities=function(args)
 			d.num=i+1;
 			d.funder=v.funder;
 			d.aid=v.aid;
-			d.title=v.title;
+			d.title=v.title || v.aid;
 
 			d.commitment=commafy(""+Math.floor(v.commitment));
 			d.spend=commafy(""+Math.floor(v.spend));
