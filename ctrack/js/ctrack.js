@@ -175,7 +175,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 	ctrack.hash_split=function(q,v)
 	{
 		if(q[0]=="#") { q=q.substring(1);}
-		v=v || ctrack.hash;
+		v=v;
 		var aa=q.split("&");
 		aa.forEach(function(it){
 			var bb=it.split("=");
@@ -266,26 +266,24 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 
 	ctrack.hash={"view":"main"};
 	ctrack.display_wait=0;
-	ctrack.update_hash=function(h)
+	ctrack.display=function()
 	{
-		for(var n in h)
-		{
-			ctrack.hash[n]=h[n];
-		}
-
 		ctrack.display_wait--;
-
 		if(ctrack.display_wait<=0)
 		{
 			ctrack.display_wait=0;
-			ctrack.change_hash(h);
+			ctrack.change_hash();
 		}
 	}
 	ctrack.change_hash=function(h)
 	{
-		for(var n in h)
+		if(h)
 		{
-			ctrack.hash[n]=h[n];
+			ctrack.hash={};
+			for(var n in h)
+			{
+				ctrack.hash[n]=h[n];
+			}
 		}
 		ctrack.last_hash="";
 		ctrack.display_hash();
@@ -308,7 +306,8 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 		if(h!=ctrack.last_hash)
 		{
 			ctrack.last_hash=h;
-			var l=ctrack.hash_split(h);
+			var l={};
+			ctrack.hash=ctrack.hash_split(h,l);
 			
 			if(ctrack.last_view!=l.view) // scroll up when changing views
 			{
