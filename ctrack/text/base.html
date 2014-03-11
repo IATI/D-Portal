@@ -46,7 +46,7 @@ Activity
 
 #alert_no_iati
 <tr>
-	<td colspan="3" style="text-align:center; font-size:30px; color:#fff;">{alert_no_iati_text}</td>
+	<td colspan="3" style="text-align:center; font-size:30px;">{alert_no_iati_text}</td>
 </tr>
 
 #view_act
@@ -79,9 +79,14 @@ Activity
 			<td><img src="/art/activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
 			<td>{view_donor_activities_text}</td>
 		</tr>
+		<tr>
+			<td></td>
+			<td style="font-size:16px; line-height:1.35em; color:#CACBCB;">{view_donor_activities_declare_text}</td>
+		</tr>
 	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
 		<table class="activity">
+			{alerts}
 			{donor_activities_datas}
 		</table>
 	</div>
@@ -93,9 +98,6 @@ Activity
 {view_tail}
 
 #donor_activities_data
-<tr>
-	<td colspan="3" style="text-align:center; font-size:30px; color:#fff;">{alerts}</td>
-</tr>
 <tr>
 	<td>{num}.</td>
 	<td style="padding-right:30px;" title="{donor_transactions_title_tip_text}"><div><a href="#view=act&aid={aid}">{title}</a></div></td>
@@ -115,9 +117,14 @@ Activity
 			<td>{view_donor_transactions_text}</td>
 			<td style="text-align:right;">= {total} (USD)</td>
 		</tr>
+		<tr>
+			<td></td>
+			<td colspan="2" style="font-size:16px; line-height:1.35em; color:#CACBCB;">{view_donor_transactions_declare_text}</td>
+		</tr>
 	</table>
 	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
 		<table class="activity">
+			{alerts}
 			{donor_transactions_datas}
 		</table>
 	</div>
@@ -129,9 +136,6 @@ Activity
 {view_tail}
 
 #donor_transactions_data
-<tr>
-	<td colspan="3" style="text-align:center; font-size:30px; color:#fff;">{alerts}</td>
-</tr>
 <tr>
 	<td>{num}.</td>
 	<td title="{donor_transactions_title_tip_text}"><div><a href="#view=act&aid={aid}">{title}</a></div></td>
