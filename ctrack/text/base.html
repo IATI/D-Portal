@@ -3,22 +3,43 @@
 <b>Please wait, fetching data...</b>
 
 #crumbs1
-<a href="{crumb0_hash}">{crumbname_{crumb0_view}}</a>
+{crumbname_{crumb0_view}}
+
 #crumbs2
-<a href="{crumb0_hash}">{crumbname_{crumb0_view}}</a>
-<a href="{crumb1_hash}">{crumbname_{crumb1_view}}</a>
+<a href="{crumb0_hash}" class="crumb">{crumbname_{crumb0_view}}</a> >
+<span>{crumbname_{crumb1_view}}</span>
+
 #crumbs3
-<a href="{crumb0_hash}">{crumbname_{crumb0_view}}</a>
-<a href="{crumb1_hash}">{crumbname_{crumb1_view}}</a>
-<a href="{crumb2_hash}">{crumbname_{crumb2_view}}</a>
+<a href="{crumb0_hash}" class="crumb">{crumbname_{crumb0_view}}</a> >
+<a href="{crumb1_hash}" class="crumb">{crumbname_{crumb1_view}}</a> >
+<span>{crumbname_{crumb2_view}}</span>
+
 #crumbs4
-<a href="{crumb0_hash}">{crumbname_{crumb0_view}}</a>
-<a href="{crumb1_hash}">{crumbname_{crumb1_view}}</a>
-<a href="{crumb2_hash}">{crumbname_{crumb2_view}}</a>
-<a href="{crumb3_hash}">{crumbname_{crumb3_view}}</a>
+<a href="{crumb0_hash}" class="crumb">{crumbname_{crumb0_view}}</a> >
+<a href="{crumb1_hash}" class="crumb">{crumbname_{crumb1_view}}</a> >
+<a href="{crumb2_hash}" class="crumb">{crumbname_{crumb2_view}}</a> >
+<span>{crumbname_{crumb3_view}}</span>
+
+#crumbname_main
+Home
+
+#crumbname_donors
+Donors List
+
+#crumbname_donor_transactions
+Donor Transactions
+
+#crumbname_donor_activities
+Donor Activities
+
+#crumbname_sectors
+Sectors
+
+#crumbname_act
+Activity
 
 #title
-IATI Country Tracker
+IATI Country Tracker: {country_name}
 
 
 #view_act
@@ -327,7 +348,6 @@ BANGLADESH
 #view_head
 <div class="ctrack_main">
 <div id="imgwrap"></div>
-{crumbs}
 <div class="wrapper">
 	
 #view_tail
@@ -341,11 +361,12 @@ BANGLADESH
 	</div><div style="width:200px; display:inline-block; vertical-align:top; color:#fff; font-size:14px; text-align:right;">
 		<a href="?tongue=eng" class="tongue" title="View this in English(UK)">ENG</a> / <a href="?tongue=fra" class="tongue" title="View this in French">FRA</a> / <a href="?tongue=spa" class="tongue" title="View this in Spanish">SPA</a>
 	</div>
+	<div class="crumbwrap">{crumbs}</div>
 </div>
 
 #chunkcountrymin
 <div style="width:960px; margin:0 auto; padding:0;">
-	<table style="width:960px; margin:0 auto; padding:20px 0 10px 0;">
+	<table style="width:960px; margin:0 auto; padding:10px 0;">
 		<tr>
 			<td style="width:860px; max-width:860px; padding-right:20px; font-size:32px; line-height:1.1em; color:#fff;">{country_name}</td>
 			<td><img src="{country_flag}" alt="{country_name} flag" width="80" height="40"/></td>

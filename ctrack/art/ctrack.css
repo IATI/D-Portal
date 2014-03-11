@@ -22,6 +22,12 @@ i						{color:#444; font-style:italics;}
 .footer					{width:100%; margin:0 auto; background-color:#FFF083; color:#C5B541; margin-top:40px; padding:20px 0;}
 .footer:hover			{color:#A59313;}
 
+a.crumb					{display:inline-block; vertical-align:top; padding:0 10px; font-size:13px; color:#7BBCFF; line-height:1.1em;}
+a.crumb:hover			{color:#fff;}
+a.crumb:nth-of-type(1)	{padding-left:5px;}
+.crumbwrap				{width:960px; margin:0 auto; padding-top:10px; font-size:13px; color:#CACBCB; line-height:1.1em;}
+.crumbwrap span			{display:inline-block; vertical-align:top; padding:0 10px; font-size:13px; color:#fff; line-height:1.1em;}
+
 .footwrap				{width:100%; min-width:1040px; height:40px; background-color:rgba(0,0,0,0.8);}
 .footcon				{width:960px; margin:0 auto; padding:10px 0;}
 .team					{width:480px; display:inline-block; vertical-align:top;}
