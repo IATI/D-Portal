@@ -374,6 +374,7 @@ fetch.donor_transactions=function(args)
 		console.log("fetch donor_transactions "+year);
 		console.log(data);
 
+		var total=0;
 		var s=[];
 		for(var i=0;i<data.rows.length;i++)
 		{
@@ -384,9 +385,15 @@ fetch.donor_transactions=function(args)
 			d.aid=v.aid;
 			d.title=v.title;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+			total+=v.sum_of_percent_of_usd;
 
 			s.push( plate.replace("{donor_transactions_data}",d) );
 		}
+
+		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
+		ctrack.chunk("year",year);
+		ctrack.chunk("total",total);
+
 		ctrack.chunk("donor_transactions_datas",s.join(""));
 		ctrack.update_hash({"view":"donor_transactions"});
 	};
@@ -419,6 +426,7 @@ fetch.donor_budgets=function(args)
 		console.log("fetch donor_budgets "+year);
 		console.log(data);
 
+		var total=0;
 		var s=[];
 		for(var i=0;i<data.rows.length;i++)
 		{
@@ -429,9 +437,15 @@ fetch.donor_budgets=function(args)
 			d.aid=v.aid;
 			d.title=v.title;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+			total+=v.sum_of_percent_of_usd;
 
 			s.push( plate.replace("{donor_budgets_data}",d) );
 		}
+
+		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
+		ctrack.chunk("year",year);
+		ctrack.chunk("total",total);
+
 		ctrack.chunk("donor_budgets_datas",s.join(""));
 		ctrack.update_hash({"view":"donor_budgets"});
 	};
