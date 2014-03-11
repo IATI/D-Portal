@@ -481,7 +481,7 @@ fetch.donor_activities=function(args)
 			"funder":funder,
 			"status_code":"2",
 			"groupby":"aid",
-			"orderby":"day_end-",
+			"orderby":"commitment-",
 			"country_code":(args.country || ctrack.args.country)
 		};
 	var callback=function(data){
@@ -505,6 +505,8 @@ fetch.donor_activities=function(args)
 			if(v.commitment && (v.commitment!=0) )
 			{
 				d.pct=Math.floor(100*v.spend/v.commitment)
+				if(d.pct<0){d.pct=0;}
+				if(d.pct>100){d.pct=100;}
 			}
 
 			s.push( plate.replace("{donor_activities_data}",d) );
