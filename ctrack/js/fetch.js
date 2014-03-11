@@ -392,7 +392,7 @@ fetch.donor_transactions=function(args)
 
 		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
 		ctrack.chunk("year",year);
-		ctrack.chunk("total",total);
+		ctrack.chunk("total",commafy(""+Math.floor(total)));
 
 		ctrack.chunk("donor_transactions_datas",s.join(""));
 		ctrack.update_hash({"view":"donor_transactions"});
@@ -444,7 +444,7 @@ fetch.donor_budgets=function(args)
 
 		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
 		ctrack.chunk("year",year);
-		ctrack.chunk("total",total);
+		ctrack.chunk("total",commafy(""+Math.floor(total)));
 
 		ctrack.chunk("donor_budgets_datas",s.join(""));
 		ctrack.update_hash({"view":"donor_budgets"});
