@@ -47,7 +47,9 @@ dstore_db.tables={
 		{ name:"description",					NOCASE:true },
 		{ name:"reporting_org",					NOCASE:true , INDEX:true },
 		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"funder",						NOCASE:true , INDEX:true }
+		{ name:"funder",						NOCASE:true , INDEX:true },
+		{ name:"commitment",					REAL:true , INDEX:true }, // USD (C)
+		{ name:"spend",							REAL:true , INDEX:true } // USD (D+E)
 	],
 	transactions:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -358,6 +360,23 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.reporting_org=refry.tagval(act,"reporting-org");				
 		t.reporting_org_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=refry.tagattr(act,"activity-status","code");
+		
+		t.commitment=0;
+		t.spend=0;
+		refry.tags(act,"transaction",function(it){
+			var code=iati_xml.get_code(it,"transaction-type");
+			code=code && (code.toUpperCase());
+			if(code=="C")
+			{
+				var usd=iati_xml.get_usd(it,"value");
+				t.commitment+=usd;
+			}
+			if( (code=="D") || (code=="E") )
+			{
+				var usd=iati_xml.get_usd(it,"value");
+				t.spend+=usd;
+			}
+		});
 
 		var funder;
 		
