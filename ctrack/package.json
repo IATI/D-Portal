@@ -20,6 +20,7 @@
     "build": "node_modules/browserify/bin/cmd.js -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js && node_modules/uglify-js/bin/uglifyjs jslib/ctrack.js -o jslib/ctrack.min.js",
     "watch": "node_modules/watchify/bin/cmd.js -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js -v",
     "bake": "node js/bake.js & npm run build",
-    "serv": "npm run bake & npm run build & node js/serv.js"
+    "serv": "npm run bake & npm run build & node js/serv.js",
+    "fetch": "node ../dstore/serv.js --cmd fetch"
   }
 }

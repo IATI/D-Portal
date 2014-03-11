@@ -203,20 +203,27 @@ if(true)
 	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=4&output=csv");
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
+	var d={};
 	var o={};
 	for(var i=1;i<lines.length;i++)
 	{
 		var v=lines[i];
 		var a=(v[1]);
 		var b=v[0];
+		var c=v[2];
 		if(a && a.length>0 && b && b.length>0 )
 		{
 			o[a.trim()]=b.trim();
+		}
+		if(a && a.length>0 && c && c.length>0 )
+		{
+			d[a.trim()]=true;
 		}
 	}
 	
 //	ls(o);
 	codes["crs_funders"]=o;
+	codes["crs_no_iati"]=d;
 
 
 	console.log("Fetching CRS countries csv")
@@ -242,7 +249,7 @@ if(true)
 		
 	console.log("Writing json/iati_codes.json")	
 //	fs.writeFileSync("json/iati_codes.js","exports.codes="+JSON.stringify(codes)+";\n");
-	fs.writeFileSync("json/iati_codes.json",JSON.stringify(codes,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/iati_codes.json",JSON.stringify(codes,null,'\t'));
 
 
 
@@ -292,7 +299,7 @@ if(true)
 
 	console.log("Writing json/crs_2012.json")
 //	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
-	fs.writeFileSync("json/crs_2012.json",JSON.stringify(o,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/crs_2012.json",JSON.stringify(o,null,'\t'));
 
 //	codes["local_currency"]=o;
 
