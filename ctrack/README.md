@@ -17,6 +17,8 @@ Will work on ubuntu systems, by adding a newer PPA for node and then
 installing from there. You may prefer to install from source rather 
 than add random PPAs. See the nodejs site for how to do this.
 
+Alternatively node can be donwnloaded from http://nodejs.org/download/
+
 
 Installing Node Modules
 =======================
