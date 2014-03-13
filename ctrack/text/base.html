@@ -109,10 +109,12 @@ Activity
 		<div style="color:#9C8876; font-size:14px; line-height:1.0em;">{view_donor_activites_reporting_text}</div>
 	</td>
 	<td title="{donor_activities_percentage_tip_text}">
-		<div style="color:#B8C8CD;">{commitment}</div>
-		<div style="min-width:100px; padding:10px 0 0 40px;">
-			<div style="width:100px; height:10px; background-color:#000000;">
-				<div style="width:{pct}px; height:10px; background-color:#1E90FF;"></div>
+		<div style="position:relative;">
+			<div style="color:#B8C8CD;">{commitment}</div>
+			<div style="min-width:100px; max-width:100px; padding-top:10px; position:absolute; right:0;">
+				<div style="width:100px; height:10px; background-color:#000000;">
+					<div style="width:{pct}px; height:10px; background-color:#1E90FF;"></div>
+				</div>
 			</div>
 		</div>
 	</td>
@@ -567,7 +569,7 @@ BANGLADESH
 		</table>
 	</div>
 	<div style="width:960px; margin:0 auto; text-align:center;">
-		<a href="#ctrack_ending_more" class="list_more_link">{list_more_text}</a>
+		<a href="#ctrack_ending_more" class="list_more_link">{list_more_active_text}</a>
 	</div>
 </div>
 
@@ -586,7 +588,7 @@ BANGLADESH
 		</table>
 	</div>
 	<div style="width:960px; margin:0 auto; text-align:center;">
-		<a href="#ctrack_finished_more" class="list_more_link">{list_more_text}</a>
+		<a href="#ctrack_finished_more" class="list_more_link">{list_more_ended_text}</a>
 	</div>
 </div>
 
@@ -620,17 +622,3 @@ BANGLADESH
 	<td title="{table_ended_date_tip_text}">{date}</td>
 </tr>
 
-
-
-
-#css
-iati-activity		{margin:0 auto;}
-
-table.donors		{width:100%; border-collapse:collapse;}
-table.donors td		{padding:20px; vertical-align:top; border-bottom:3px solid #D8D8D8;}
-
-table.sectors		{width:100%; border-collapse:collapse;}
-table.sectors td	{padding:20px; vertical-align:top; border-bottom:3px solid #D8D8D8;}
-
-table.districts		{width:100%; border-collapse:collapse;}
-table.districts td	{padding:20px; vertical-align:top; border-bottom:3px solid #D8D8D8;}
