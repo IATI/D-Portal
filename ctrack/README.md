@@ -44,18 +44,20 @@ these are build dependencies not runtime dependencies.
 Building
 ========
 
-	./bake
+	./build
 
-Will use node to create minified/mangled js files and other 
-generated files used in the client. 
+Will generate json files from raw data, eg it imports the language 
+and other template files into the ./json directory. Then it creates 
+the final minified/mangled js files in ./jslib that will be used by 
+the browser.
 
 	./fetch
 
 Will get the latest codelists and external CRS data that is built 
 into ctrack. The downloaded data will be found in ../dstore/json 
-which is checked into git so unless major changes have been made to 
-this data without any updates to this project then you will not need 
-to run this.
+which is checked into git so unless major changes have been made 
+without any updates to this project then you will not need to run 
+this.
 
 Tools
 ========
@@ -86,7 +88,7 @@ http://localhost:1337/q BEWARE if you have not imported any data into
 dstore then this server will be empty.
 
 Either import some data (see the dstore readme) or use the public 
-dstore q api located at http://d-portal/q instead with the following 
+dstore q api located at http://d-portal.org/q instead with the following 
 command.
 
-	./serv q=http://d-portal/q
+	./serv -q http://d-portal.org/q

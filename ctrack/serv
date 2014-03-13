@@ -1,2 +1,3 @@
 cd `dirname $0`
-npm run serv
+npm run build
+node js/serv $*
