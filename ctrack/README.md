@@ -4,8 +4,8 @@ iati-datastore.
 Installing
 ==========
 
-Install node and run the script install_node_modules to install some modules 
-that bake.js requires.
+Install node and run the script install_deps to install node modules 
+that this project requires to build. These are build dependencies. Neither node or any modues are needed to run this project as it runs in a webpage, node is just needed to build the source here into the code that will run on a webpage.
 
 
 Installing Node
