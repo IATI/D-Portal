@@ -17,8 +17,8 @@
     "csv": "^0.3.7"
   },
   "scripts": {
-    "build": "node js/bake.js && node_modules/browserify/bin/cmd.js -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js && node_modules/uglify-js/bin/uglifyjs jslib/ctrack.js -o jslib/ctrack.min.js",
-    "watch": "node_modules/watchify/bin/cmd.js -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js -v",
+    "build": "node js/bake.js && node node_modules/browserify/bin/cmd.js -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js && node node_modules/uglify-js/bin/uglifyjs jslib/ctrack.js -o jslib/ctrack.min.js",
+    "watch": "node node_modules/watchify/bin/cmd.js -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js -v",
     "fetch": "node ../dstore/serv.js --cmd fetch"
   }
 }
