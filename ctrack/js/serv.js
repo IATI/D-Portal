@@ -26,7 +26,7 @@ app.use( function(req, res, next) {
 
 
 
-ls(argv);
+//ls(argv);
 
 if(argv.q)
 {
