@@ -13,7 +13,10 @@ ctrack.savi_fixup=savi.fixup;
 
 ctrack.setup=function(args)
 {
-	args.tongue=args.tongue || "eng"; // english
+	args=args || {};
+	args.tongue	=args.tongue 	|| 	"eng"; 		// english
+	args.art	=args.art 		|| 	"/art/"; 	// local art
+	args.q		=args.q 		|| 	"/q"; 		// local q api
 
 	ctrack.args=args;
 	
@@ -21,7 +24,6 @@ ctrack.setup=function(args)
 	ctrack.setcrumb=function(idx)
 	{
 // try not to leave holes in the crumbs list, so align to left
-console.log("crum "+idx+" - "+ctrack.crumbs.length)
 		if(idx > ctrack.crumbs.length ) { idx=ctrack.crumbs.length; }
 		
 		var it={};
@@ -84,7 +86,9 @@ console.log("crum "+idx+" - "+ctrack.crumbs.length)
 		}
 		return ctrack.chunks[n];
 	}
-
+// set global defaults
+	ctrack.chunk("art",args.art);
+	
 
 	ctrack.map={};
 	ctrack.map.lat=0;
@@ -324,16 +328,16 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				})
 				
 				ctrack.prepare_view(l.view);
-console.log("new view");
+//console.log("new view");
    			}
 
-console.log("displaying view");
+//console.log("displaying view");
 
 			ctrack.show_crumbs();
 			ctrack.div.master.html( plate.replace( "{view_"+l.view+"}" ) );
 
 // these need to be hooks
-console.log("fixing view with js");
+//console.log("fixing view with js");
 			savi.fixup();
 			display_ctrack_map();
 		}
