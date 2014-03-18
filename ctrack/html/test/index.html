@@ -1,15 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"> 
+<!DOCTYPE HTML>
+<html> 
 	<head>
-		<title>Country Tracker</title> 
-
+		<title>Country Tracker</title>
 		<script src="http://d-portal.org/jslib/ctrack_loader.js"></script>
-		<script type="text/javascript">
+		<script>
 			ctrack_loader({
-				master:".ctrack",
-				country:"bd",
-				chunks:{
+				master:".ctrack", // insert into this div which you will find in the body below
+				country:"bd", // country code
+				chunks:{ // these are replaced into the generated html and you can overide any display chunk here
 					"country_name":"Bangladesh",
 					"country_flag":"bdflag.png",
 					"background_image":"backgroundimage.jpg"
@@ -18,6 +16,8 @@
 		</script>
 	</head> 
 	<body>
-		<div class="ctrack"></div>
+		<div class="ctrack">
+			Anything in here will be shown while ctrack loads and replaced with ctrack content afterwards.
+		</div>
 	</body>
 </html>
