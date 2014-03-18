@@ -56,7 +56,7 @@ table					{border-spacing:0;}
 /* Headers
    ============================================= */
 table.title				{width:100%; border-collapse:collapse; padding-bottom:15px; border-bottom:10px solid #fff;}
-table.title.list		{border-collapse:separate;} /* Active / Ended projects need spacing */
+table.title.space		{border-collapse:separate;} /* Active / Ended projects need spacing */
 table.title td			{font-size:32px; line-height:1.1em; color:#fff; vertical-align:bottom;}
 table.title tr:nth-child(1) td:nth-child(1)	{padding-right:10px; width:40px;}
 table.title tr:nth-child(2) td	{padding:0;}
@@ -67,7 +67,7 @@ table.title tr:nth-child(2) td	{padding:0;}
    ============================================= */
 table.list				{width:100%; border-collapse:collapse;}
 table.list td			{color:#B8C8CD; font-size:20px; line-height:1.45em; word-spacing:0.7px; padding:20px 20px 20px 0; vertical-align:top;}
-table.list td:nth-child(3)	{text-align:right; padding-right:0; min-width:100px;}
+table.list td:nth-child(3)	{text-align:right; padding-right:0; min-width:160px;}
 table.list a			{display:inline-block; padding-bottom:5px; width:100%; color:#A8C5E5;}
 table.list a:focus		{color:#A8C5E5; text-decoration: none;}
 table.list a:link  		{color:#A8C5E5; text-decoration: none;}
