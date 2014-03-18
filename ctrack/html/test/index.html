@@ -5,13 +5,24 @@
 		<script src="http://d-portal.org/jslib/ctrack_loader.js"></script>
 		<script>
 			ctrack_loader({
-				master:".ctrack", // insert into this div which you will find in the body below
-				country:"bd", // country code
-				chunks:{ // these are replaced into the generated html and you can overide any display chunk here
+
+// where to load js/css/etc files from, defaults to http://d-portal.org/ 
+// set to / if you are running a ctrack server
+//				root:"/",
+
+// display in this div which you will find in the body below
+				master:".ctrack",
+
+// displayed data will be limited to this country code
+				country:"bd",
+
+// these are replaced into the generated html and you can overide *any* display chunk here
+				chunks:{
 					"country_name":"Bangladesh",
 					"country_flag":"bdflag.png",
 					"background_image":"backgroundimage.jpg"
 				}
+
 			});		
 		</script>
 	</head> 
