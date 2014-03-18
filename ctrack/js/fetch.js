@@ -43,7 +43,7 @@ fetch.ajax=function(dat,callback)
 	
 	$.ajax({
 	  dataType: "json",
-	  url: ctrack.args.dstore + "/q?callback=?",
+	  url: ctrack.args.q + "?callback=?",
 	  data: dat,
 	  success: callback
 	});
