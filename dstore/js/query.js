@@ -763,6 +763,21 @@ query.do_select=function(q,res){
 
 	var db = dstore_db.open();
 	db.serialize();
+	
+if(true)
+{
+	db.all( "EXPLAIN QUERY PLAN "+r.query,qv,
+		function(err,rows)
+		{
+			r.sqlite_explain_detail=[];
+			rows.forEach(function(it){
+				r.sqlite_explain_detail.push(it.detail);
+			});
+//			ls({q:r.query,qv:qv,rows:rows});
+		}
+	);
+}
+	
 
 	db.each(r.query,qv, function(err, row)
 	{

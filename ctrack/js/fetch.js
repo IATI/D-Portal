@@ -13,6 +13,7 @@ var crs_year=require("../../dstore/json/crs_2012.json")
 
 
 var refry=require("../../dstore/js/refry.js")
+//var iati_xml=require("../../dstore/js/iati_xml.js")
 
 //var fetch=require("./fetch.js")
 
@@ -260,6 +261,64 @@ console.log(ctrack.chunks);
 	};
 	
 	f2();
+
+
+	
+	var f3=function(){
+		var today=fetch.get_today();
+//		var tonum=iati_xml.isodate_to_number(today);
+		var tonum=(new Date()).getTime()/(1000*60*60*24);
+
+		
+		var dat={
+				"from":"activities,country",
+				"limit":-1,
+				"day_end_gteq":today,
+				"day_end_lt":tonum+32,
+				"country_code":(args.country || ctrack.args.country)
+			};
+		
+		var callback=args.callback || function(data){
+			
+			console.log("fetch endingsoon : "+today);
+			console.log(data);		
+			ctrack.chunk("ending_soon",data.rows.length);
+
+			ctrack.display();
+
+		};
+
+		fetch.ajax(dat,callback);
+	}
+	f3();
+
+	var f4=function(){
+		var today=fetch.get_today();
+//		var tonum=iati_xml.isodate_to_number(today);
+		var tonum=(new Date()).getTime()/(1000*60*60*24);
+
+		
+		var dat={
+				"from":"activities,country",
+				"limit":-1,
+				"day_start_gteq":today,
+				"day_start_lt":tonum+32,
+				"country_code":(args.country || ctrack.args.country)
+			};
+		
+		var callback=args.callback || function(data){
+			
+			console.log("fetch startingsoon : "+today);
+			console.log(data);		
+			ctrack.chunk("starting_soon",data.rows.length);
+
+			ctrack.display();
+
+		};
+
+		fetch.ajax(dat,callback);
+	}
+	f4();
 
 }
 
@@ -544,7 +603,8 @@ fetch.donors_top=function(args)
 	list.sort(function(a,b){
 		return ( (b.usd||0)-(a.usd||0) );
 	});
-	
+
+//	var total=0; list.forEach(function(it){total+=it.usd;});
 	var top=list[0].usd;
 	var s=[];
 	for( var i=0; i<limit ; i++ )
