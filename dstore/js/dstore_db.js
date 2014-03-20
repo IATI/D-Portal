@@ -21,7 +21,7 @@ var sqlite3 = require('sqlite3').verbose();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-// values copied from the activities into other tables for quik lookup (no need to join tables)
+// values copied from the main activity into sub tables for quik lookup (no need to join tables)
 dstore_db.bubble_act={
 		"reporting_org":true,
 		"reporting_org_ref":true,
@@ -33,7 +33,7 @@ dstore_db.bubble_act={
 	
 // data table descriptions
 dstore_db.tables={
-	activities:[
+	activity:[
 		{ name:"aid",							NOCASE:true , PRIMARY:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
 //		{ name:"xml",							TEXT:true },
@@ -51,7 +51,7 @@ dstore_db.tables={
 		{ name:"commitment",					REAL:true , INDEX:true }, // USD (C)
 		{ name:"spend",							REAL:true , INDEX:true } // USD (D+E)
 	],
-	transactions:[
+	transaction:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"jml",							TEXT:true },
 		{ name:"json",							TEXT:true },
@@ -70,7 +70,7 @@ dstore_db.tables={
 		{ name:"funder",						NOCASE:true , INDEX:true },
 		{ name:"title",							NOCASE:true }
 	],
-	budgets:[
+	budget:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement)
 		{ name:"jml",							TEXT:true },
@@ -89,7 +89,7 @@ dstore_db.tables={
 		{ name:"title",							NOCASE:true }
 	],
 // These are intended just to be joined to the above.
-// use &from=activities,country,sector,location& to request a join via aid ( this *may* return duplicate activities )
+// use &from=activity,country,sector,location& to request a join via aid ( this *may* return duplicate activities )
 	country:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"country_code",					NOCASE:true , INDEX:true },
@@ -155,13 +155,13 @@ dstore_db.fill_acts = function(acts,slug){
 	db.run("DELETE FROM slugs WHERE slug=?",slug); // remove all the old slugs
 
 	
-	db.each("SELECT COUNT(*) FROM activities", function(err, row)
+	db.each("SELECT COUNT(*) FROM activity", function(err, row)
 	{
 		before=row["COUNT(*)"];
 	});
 
 
-//	var stmt = db.prepare("REPLACE INTO activities (aid,xml,jml) VALUES (?,?,?)");
+//	var stmt = db.prepare("REPLACE INTO activity (aid,xml,jml) VALUES (?,?,?)");
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
@@ -195,7 +195,7 @@ dstore_db.fill_acts = function(acts,slug){
 	});
 	process.stdout.write("\n");
 	
-	db.each("SELECT COUNT(*) FROM activities", function(err, row)
+	db.each("SELECT COUNT(*) FROM activity", function(err, row)
 	{
 		after=row["COUNT(*)"];
 	});
@@ -227,7 +227,7 @@ dstore_db.analyze = function(){
 
 dstore_db.refresh_act = function(db,aid,xml){
 
-// choose to prioritise planned-transactions or budgets for each year depending on which we fine in the xml
+// choose to prioritise planned-transaction or budgets for each year depending on which we fine in the xml
 // flag each year when present
 	var got_budget={};
 
@@ -277,8 +277,8 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 		t.jml=JSON.stringify(it);
 		
-//		dstore_sqlite.replace(db,"transactions",t);
-		replace("transactions",t);
+//		dstore_sqlite.replace(db,"transaction",t);
+		replace("transaction",t);
 
 	};
 
@@ -318,7 +318,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.jml=JSON.stringify(it);
 		
 //		dstore_sqlite.replace(db,"budgets",t);
-		replace("budgets",t);
+		replace("budget",t);
 		
 		var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
 		got_budget[ y ]=true;
@@ -497,8 +497,8 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.xml=xml;
 		t.jml=JSON.stringify(act);
 		
-//		dstore_sqlite.replace(db,"activities",t);
-		replace("activities",t);
+//		dstore_sqlite.replace(db,"activity",t);
+		replace("activity",t);
 		
 		got_budget={};
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
@@ -521,8 +521,8 @@ dstore_db.refresh_act = function(db,aid,xml){
 	
 
 	// remove all the old references to this aid before adding new
- 	db.run("DELETE FROM transactions WHERE aid=?",aid);
-	db.run("DELETE FROM budgets WHERE aid=?",aid); 
+ 	db.run("DELETE FROM transaction WHERE aid=?",aid);
+	db.run("DELETE FROM budget WHERE aid=?",aid); 
 	db.run("DELETE FROM country WHERE aid=?",aid);
 	db.run("DELETE FROM sector WHERE aid=?",aid);
 
