@@ -1,4 +1,4 @@
-/* CSS for IATI Country Tracker 2014 \o/
+/* CSS for IATI D-PORTAL 2014 ^o^
    ============================================= */
 body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
 
@@ -19,81 +19,131 @@ i						{font-style:italics;}
 
 /* Main wrappers for content & fixed background img
    ============================================= */
-.ctrack					{width:100%; min-height:100%; height:auto !important; height:100%; margin:0px 0px -40px 0px;}
-.ctrack_main			{width:100%; min-width:1040px; padding:0px 0px 40px 0px; background-color: rgba(255,255,255,0.4);}
-#imgwrap 				{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
-.wrapper				{width:100%; background-color:rgba(46, 41, 6, 0.6);}
+.portal					{width:100%; min-height:100%; height:auto !important; height:100%; margin:0px 0px -40px 0px;} /* Needed for sticky footer */
+.main_wrap				{width:100%; min-width:1040px; padding:0px 0px 40px 0px; background-color: rgba(255,255,255,0.4);}
+#background_image_wrap 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
+.overlay				{width:100%; height:100%; background-color:rgba(46, 41, 6, 0.6);} /* Overlay colour for background image */
 
 /* Breadcrumbs
    ============================================= */
 a.crumb					{display:inline-block; vertical-align:top; padding:0 10px; font-size:13px; color:#7BBCFF; line-height:1.1em;}
 a.crumb:hover			{color:#fff;}
 a.crumb:nth-of-type(1)	{padding-left:5px;}
-.crumbwrap				{width:960px; margin:0 auto; padding-top:10px; font-size:13px; color:#CACBCB; line-height:1.1em;}
-.crumbwrap span			{display:inline-block; vertical-align:top; padding:0 10px; font-size:13px; color:#fff; line-height:1.1em;}
+.crumb_wrap				{width:960px; margin:0 auto; padding-top:10px; font-size:13px; color:#CACBCB; line-height:1.1em;}
+.crumb_wrap span		{display:inline-block; vertical-align:top; padding:0 10px; font-size:13px; color:#fff; line-height:1.1em;}
 
 /* Languages links (top right)
    ============================================= */
 a.tongue				{display:inline-block; vertical-align:top; width:50px; text-align:center; color:#ccc; font-size:14px;}
 a.tongue:hover			{color:#fff;}
 
-
 /* Header styles
    ============================================= */
 .default				{width:960px; margin:0 auto; padding:0;}
 .default.head			{padding-top:20px;}
 .default.min			{padding-top:10px;}
-.logowrap				{width:760px; display:inline-block; vertical-align:top;}
-.tonguewrap				{width:200px; display:inline-block; vertical-align:top; color:#fff; font-size:14px; text-align:right;}
+.logo_wrap				{width:760px; display:inline-block; vertical-align:top;}
+.tongue_wrap			{width:200px; display:inline-block; vertical-align:top; color:#fff; font-size:14px; text-align:right;}
 .declare.head			{width:960px; padding-top:5px; border-top:10px solid #fff; font-size:14px; color:#ccc;}
 
 /* Money Module styles
    ============================================= */
-.moneywrap				{width:880px; margin:0 auto; font-size:32px; padding:60px 0;}
-.moneymodwrap			{width:380px; display:inline-block; vertical-align:top;}
-.moneymodwrap.donor		{padding-right:60px;}
-.moneymodwrap.sector	{padding-left:60px;}
-.moneytitle				{width:300px; padding:20px 40px; text-align:center; color:#fff;}
-.moneytitle.donor		{background-color:#008FFF;}
-.moneytitle.sector		{background-color:#00C475;}
-.moneysubtitle			{text-align:center; color:#ccc; font-size:14px; padding-bottom:20px;}
-.peakspace				{width:160px; display:inline-block; vertical-align:top;}
-.peakwrap				{width:140px; display:inline-block; vertical-align:top;}
+.money_wrap				{width:880px; margin:0 auto; font-size:32px; padding:60px 0;}
+.money_mod_wrap			{width:380px; display:inline-block; vertical-align:top;}
+.money_mod_wrap.donor	{padding-right:60px;}
+.money_mod_wrap.sector	{padding-left:60px;}
+.money_title			{width:300px; padding:20px 40px; text-align:center; color:#fff;}
+.money_title.donor		{background-color:#008FFF;}
+.money_title.sector		{background-color:#00C475;}
+.money_subtitle			{text-align:center; color:#ccc; font-size:14px; padding-bottom:20px;}
+.peak_space				{width:160px; display:inline-block; vertical-align:top;}
+.peak_wrap				{width:140px; display:inline-block; vertical-align:top;}
 .peak					{width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;}
 .peak.donor				{border-top:20px solid #008FFF;}
 .peak.sector			{border-top:20px solid #00C475;}
-.barchartwrap			{width:100px; height:10px; background-color:#000000;}
-.bar.donor				{height:10px; background-color:#1E90FF;} /* Check #chunkmoney_row for more styling of bar */
-.bar.sector				{height:10px; background-color:#00C475;} /* Check #chunkmoney_row for more styling of bar */
+.barchart_wrap			{width:100px; height:10px; background-color:#000000;}
+.barchart.donor			{height:10px; background-color:#1E90FF;} /* Check #chunkmoney_row for more styling of bar */
+.barchart.sector		{height:10px; background-color:#00C475;} /* Check #chunkmoney_row for more styling of bar */
+a.view_all_money		{display:block; width:380px; background-color:rgba(0,14,32,0.7); color:#ccc; font-size:20px; text-align:center; padding:20px 0; border-radius:0 0 8px 8px; text-align:center;}
+a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
 
 /* Map styles
    ============================================= */
-.mapwrap				{width:100%; min-height:300px; margin:0 auto; background-color:rgba(0,0,0,0.8);}
+.map_wrap				{width:100%; min-height:300px; margin:0 auto; background-color:rgba(0,0,0,0.8);}
  #map					{width:100%; height:400px;}
 
 /* Stats (key figures) styles
    ============================================= */
-.statswrap				{width:990px; margin:0 auto; padding:40px 0;}
-.statstitle				{font-size:24px; color:#ccc; padding-bottom:10px;}
-.statstitle span		{font-size:18px; color:#B8C8CD; white-space:nowrap;}
-.statsnum				{font-size:128px; color:#2E98FF;}
-.statsnum.small			{font-size:64px;}
+.stats_wrap				{width:990px; margin:0 auto; padding:40px 0;}
+.stats_title			{font-size:24px; color:#ccc; padding-bottom:10px;}
+.stats_title span		{font-size:18px; color:#B8C8CD; white-space:nowrap;}
+.stats_num				{font-size:128px; color:#2E98FF;}
+.stats_num.small		{font-size:64px;}
 .declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#ccc; font-size:16px;}
 
 /* Active / Ended projects styles
    ============================================= */
-.endedwrap				{width:960px; margin:0 auto; padding:40px 20px;}
-.activewrap				{width:960px; margin:0 auto; padding:40px 20px;}
-.tablewrap				{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
-.listmorewrap			{width:960px; margin:0 auto; text-align:center;}
+.ended_wrap				{width:960px; margin:0 auto; padding:40px 20px;}
+.active_wrap			{width:960px; margin:0 auto; padding:40px 20px;}
+.table_wrap				{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
+.view_all_projects_wrap	{width:960px; margin:0 auto; text-align:center;}
+a.view_all_projects			{padding:10px 20px; background-color:#3B9CFB; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
+a.view_all_projects:hover	{background-color:#0081FF;}
 
-/* Buttons for sections (view all / load more)
+
+/* For url #view=donors & all #view=donor_*
    ============================================= */
-a.list_view_link		{display:block; width:380px; background-color:rgba(0,14,32,0.7); color:#ccc; font-size:20px; text-align:center; padding:20px 0; border-radius:0 0 8px 8px;}
-a.list_view_link:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
+.donors_head_wrap			{width:860px; margin:0 auto; padding:40px 0;}
+.donors_icon_wrap			{width:330px; display:inline-block; vertical-align:bottom;}
+.donors_peak_wrap			{display:inline-block; vertical-align:top;}
+.donors_peak_space			{height:30px;}
+.donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;}
+.donors_head_title_wrap		{width:480px; display:inline-block; vertical-align:top;}
+.donors_head_title			{width:400px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#fff; font-size:42px;}
+.donors_head_declare		{width:480px; padding-top:10px; color:#ccc; font-size:14px; text-align:center;}
+.table_donors_wrap			{width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;}
 
-a.list_more_link		{padding:10px 20px; background-color:#3B9CFB; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto;}
-a.list_more_link:hover	{background-color:#0081FF;}
+/* For url #view=donor_activities
+   ============================================= */
+.donor_activities_wrap			{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
+.donor_activities				{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
+.donor_activities_spend_wrap	{position:relative;}
+.donor_activities_spend			{color:#B8C8CD;}
+.donor_activities_barchart_wrap	{min-width:100px; max-width:100px; padding-top:10px; position:absolute; right:0;}
+.donor_activities_percent_max	{width:100px; height:10px; background-color:#000000;}
+.donor_activities_percent		{height:10px; background-color:#1E90FF;}
+.back_to_donor_list_wrap		{width:960px; margin:0 auto; text-align:center;}
+a.back_to_donor_list			{padding:10px 20px; background-color:#3B9CFB; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
+a.back_to_donor_list:hover		{background-color:#0081FF;}
+
+/* For url #view=donor_transactions
+   ============================================= */
+.donor_transactions_wrap	{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
+.donor_transactions			{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
+
+/* For url #view=donor_budgets
+   ============================================= */
+.donor_budgets_wrap			{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
+.donor_budgets				{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
+
+
+/* For url #view=sectors & all #view=sector_*
+   ============================================= */
+.sectors_head_wrap			{width:860px; margin:0 auto; padding:40px 0;}
+.sectors_icon_wrap			{width:330px; display:inline-block; vertical-align:bottom;}
+.sectors_peak_wrap			{display:inline-block; vertical-align:top;}
+.sectors_peak_space			{height:30px;}
+.sectors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #00C475; border-bottom:20px solid transparent;}
+.sectors_head_title_wrap	{width:480px; display:inline-block; vertical-align:top;}
+.sectors_head_title			{width:400px; background-color:#00C475; padding:20px 40px; text-align:center; color:#fff; font-size:42px;}
+.sectors_head_declare		{width:480px; padding-top:10px; color:#ccc; font-size:14px; text-align:center;}
+.table_sectors_wrap			{width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;}
+
+
+/* For url #view=act
+   ============================================= */
+.act_wrap				{width:960px; margin:0 auto; padding:20px 0;}
+.act_alert_wrap			{color:#fff; font-size:16px; line-height:1.35em; padding:10px 20px; background-color:#000;}
 
 
 /* Tables
@@ -109,9 +159,9 @@ table.country td:nth-child(1)		{width:800px; max-width:800px; padding-right:10px
 
 /* Table for Money Modules
    ============================================= */
-table.moneymod			{width:380px; min-height:300px; background-color:#fff; padding:20px 40px; font-size:20px;}
-table.moneymod td:nth-child(1)	{width:190px; padding:5px 10px 5px 0;}
-table.moneymod td:nth-child(2)	{width:100px;}
+table.money_mod			{width:380px; min-height:300px; background-color:#fff; padding:20px 40px; font-size:20px;}
+table.money_mod td:nth-child(1)	{width:190px; padding:5px 10px 5px 0;}
+table.money_mod td:nth-child(2)	{width:100px;}
 
 /* Table titles
    ============================================= */
@@ -120,6 +170,7 @@ table.title.space		{border-collapse:separate;} /* Active / Ended projects need s
 table.title td			{font-size:32px; line-height:1.1em; color:#fff; vertical-align:bottom;}
 table.title tr:nth-child(1) td:nth-child(1)	{padding-right:10px; width:40px;}
 table.title tr:nth-child(2) td	{padding:0;}
+table.title td.total_spend		{text-align:right;}
 .declare.title.list		{vertical-align:bottom; text-align:right; padding:0; font-size:14px; line-height:1.1em; color:#fff;}
 .declare.title.table 	{margin-top:10px; font-size:14px; line-height:1.35em; color:#CACBCB; padding:10px 20px; background-color:#000;}
 
@@ -133,12 +184,13 @@ table.stats td			{background-color:rgba(0,14,32,0.7); padding:40px;}
 table.list				{width:100%; border-collapse:collapse;}
 table.list td			{color:#B8C8CD; font-size:20px; line-height:1.45em; word-spacing:0.7px; padding:20px 20px 20px 0; vertical-align:top;}
 table.list td:nth-child(3)	{text-align:right; padding-right:0; min-width:160px;}
-table.list a			{display:inline-block; padding-bottom:5px; width:100%; color:#A8C5E5;}
-table.list a:focus		{color:#A8C5E5; text-decoration: none;}
-table.list a:link  		{color:#A8C5E5; text-decoration: none;}
-table.list a:visited	{color:#A8C5E5; text-decoration: none;}
-table.list a:hover		{color:#fff; text-decoration: none;}
-table.list a:active		{color:#A8C5E5; text-decoration: none;}
+table.list td:nth-child(2)	{padding:0;}
+table.list a			{display:inline-block; padding:20px; width:100%; color:#A8C5E5;}
+table.list a:focus		{color:#A8C5E5; text-decoration:none;}
+table.list a:link  		{color:#A8C5E5; text-decoration:none;}
+table.list a:visited	{color:#A8C5E5; text-decoration:none;}
+table.list a:hover		{color:#fff; text-decoration:none; background-color:rgba(0,0,0,0.4);}
+table.list a:active		{color:#A8C5E5; text-decoration:none;}
 
 /* Table for Money list (Donors / Sectors)
    ============================================= */
@@ -161,9 +213,9 @@ table.money tr:nth-child(2) td:nth-child(6)	{background-color:rgba(17, 46, 105, 
 table.money tr:nth-child(2) td:nth-child(7)	{background-color:rgba(17, 46, 105, 0.9);}
 table.money tr:nth-child(n+3) td:nth-child(n+2):hover	{background-color:rgba(17, 46, 105, 1);}
 table.money a			{display:inline-block; padding-bottom:5px; width:100%; border-bottom:0px dotted #0D3057; color:#A8C5E5;}
-table.money a:focus		{color:#A8C5E5; text-decoration: none;}
-table.money a:link  	{color:#A8C5E5; text-decoration: none;}
-table.money a:visited	{color:#A8C5E5; text-decoration: none;}
+table.money a:focus		{color:#A8C5E5; text-decoration:none;}
+table.money a:link  	{color:#A8C5E5; text-decoration:none;}
+table.money a:visited	{color:#A8C5E5; text-decoration:none;}
 table.money a:hover		{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration:none;}
 table.money a:active	{color:#A8C5E5; text-decoration: none;}
 
@@ -172,35 +224,38 @@ table.money a:active	{color:#A8C5E5; text-decoration: none;}
 table.activity			{width:100%; border-collapse:collapse;}
 table.activity td		{color:#B8C8CD; font-size:20px; line-height:1.45em; word-spacing:0.7px; padding:10px 20px; vertical-align:top;}
 table.activity td:nth-child(1)	{padding:10px 0;}
+table.activity td:nth-child(2)	{padding:0 30px 0 0;}
 table.activity td:nth-child(3)	{text-align:right; padding-right:0; min-width:140px; font-size:16px;}
-table.activity a		{display:inline-block; padding-bottom:5px; width:100%; border-bottom:0px dotted #0D3057; color:#95B0CF;}
-table.activity a:focus	{color:#95B0CF; text-decoration: none;}
-table.activity a:link  	{color:#95B0CF; text-decoration: none;}
-table.activity a:visited{color:#95B0CF; text-decoration: none;}
-table.activity a:hover	{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration: none;}
-table.activity a:active	{color:#95B0CF; text-decoration: none;}
+table.activity td.alert_no_iati	{text-align:center; font-size:30px;}
+table.activity td span	{display:block; padding-top:5px; color:#9C8876; font-size:14px; line-height:1.0em;}
+table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#95B0CF;}
+table.activity a:focus	{color:#95B0CF; text-decoration:none;}
+table.activity a:link  	{color:#95B0CF; text-decoration:none;}
+table.activity a:visited{color:#95B0CF; text-decoration:none;}
+table.activity a:hover	{color:#fff; text-decoration:none; background-color:rgba(0,0,0,0.4);}
+table.activity a:active	{color:#95B0CF; text-decoration:none;}
 
 
 /* About
    ============================================= */
-.aboutwrap				{width:920px; margin:0 auto; padding:40px 20px;}
-.abouttxt				{width:570px; padding-right:60px; display:inline-block; vertical-align:top; line-height:1.35em; word-spacing:0.05em; font-size:18px; color:#fff;}
-.abouttxt span			{color:#fff;}
-.iatilogo				{width:290px; display:inline-block; vertical-align:top; text-align:right;}
-a.iatilink				{display:block; width:270px; margin:0 auto; padding:0 30px;}
+.about_wrap				{width:920px; margin:0 auto; padding:40px 20px;}
+.about_txt				{width:570px; padding-right:60px; display:inline-block; vertical-align:top; line-height:1.35em; word-spacing:0.05em; font-size:18px; color:#fff;}
+.about_txt span			{color:#fff;}
+.iati_logo				{width:290px; display:inline-block; vertical-align:top; text-align:right;}
+a.iati_link				{display:block; width:270px; margin:0 auto; padding:0 30px;}
 
 
 /* Data Investigators alert
    ============================================= */
-.datawrap				{width:100%; margin:0 auto;}
-a.datainvest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:14px; color:#D6D2A1; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
-a.datainvest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
+.data_wrap				{width:100%; margin:0 auto;}
+a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:14px; color:#D6D2A1; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
+a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 
 
 /* Footer
    ============================================= */
-.footwrap				{width:100%; min-width:1040px; height:40px; background-color:rgba(0,0,0,0.8);}
-.footcon				{width:960px; margin:0 auto; padding:10px 0;}
+.footer_wrap			{width:100%; min-width:1040px; height:40px; background-color:rgba(0,0,0,0.8);}
+.footer					{width:960px; margin:0 auto; padding:10px 0;}
 .team					{width:320px; display:inline-block; vertical-align:top;}
 .team a					{font-size:13px; line-height:1.5em; color:#A3A3A3;}
 .team a:focus			{color:#A3A3A3;}
