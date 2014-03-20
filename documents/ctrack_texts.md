@@ -87,6 +87,6 @@ https://help.github.com/ which may help you or confuse you further.
 ===================
 
 Change the tongue to "non" to view references for where these
-translations are on the web page.
+translations are on the web page. These also apply to hover states.
 
 eg. http://d-portal.org/html/uganda/?tongue=non#view=main
