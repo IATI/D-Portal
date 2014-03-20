@@ -23,4 +23,4 @@ that directory for more information.
 parsing of iati data.  See the readme in that directory for more 
 information.
 
-/bin containts helper scripts.
+/bin contains helper scripts.
