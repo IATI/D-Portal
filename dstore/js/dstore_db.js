@@ -211,7 +211,19 @@ dstore_db.fill_acts = function(acts,slug){
 
 // call after major data changes to help sqlite optimise queries
 
+dstore_db.vacuum = function(){
+
+	process.stdout.write("VACUUM start\n");
+	var db = dstore_db.open();
+	db.run("VACUUM", function(err, row){
+		dstore_sqlite.close(db);
+		process.stdout.write("VACUUM done\n");
+	});
+
+}
+
 dstore_db.analyze = function(){
+
 
 	process.stdout.write("ANALYZE start\n");
 	var db = dstore_db.open();
@@ -531,6 +543,14 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 dstore_db.create_tables = function(){
 	return dstore_sqlite.create_tables();
+}
+
+dstore_db.create_indexes = function(){
+	return dstore_sqlite.create_indexes();
+}
+
+dstore_db.delete_indexes = function(){
+	return dstore_sqlite.delete_indexes();
 }
 
 dstore_db.check_tables = function(){

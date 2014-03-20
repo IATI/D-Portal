@@ -25,7 +25,31 @@ if(argv.cmd)
 //	console.log("cmd found : "+cmd);
 	if( argv.cmd=="init" )
 	{
-		require("./js/dstore_db").create_tables();
+		require("./js/dstore_db").create_tables(); // 
+		return;
+	}
+	else
+	if( argv.cmd=="analyze" )
+	{
+		require("./js/dstore_db").analyze();
+		return;
+	}
+	else
+	if( argv.cmd=="vacuum" )
+	{
+		require("./js/dstore_db").vacuum();
+		return;
+	}
+	else
+	if( argv.cmd=="index" )
+	{
+		require("./js/dstore_db").create_indexes(); // add indexes to previously inserted data
+		return;
+	}
+	else
+	if( argv.cmd=="unindex" )
+	{
+		require("./js/dstore_db").delete_indexes(); // add indexes to previously inserted data
 		return;
 	}
 	else
@@ -44,12 +68,6 @@ if(argv.cmd)
 	if( argv.cmd=="fetch" )
 	{
 		wait.launchFiber( require("./js/iati_codes").fetch );
-		return;
-	}
-	else
-	if( argv.cmd=="analyze" )
-	{
-		require("./js/dstore_db").analyze();
 		return;
 	}
 	else
