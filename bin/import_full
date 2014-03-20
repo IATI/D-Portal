@@ -8,7 +8,7 @@ mkdir cache
 for code in "${codes[@]}"
 do
   if [ ! -f cache/datastore_${code}.xml ]; then
-    wget --ignore-length -O cache/datastore_${code}.xml http://77.92.77.148/api/1/access/activity.xml?recipient-country=${code}\&limit=250000\&stream=true || exit 1
+    wget --ignore-length -O cache/datastore_${code}.xml http://datastore.iatistandard.org/api/1/access/activity.xml?recipient-country=${code}\&stream=True || exit 1
   fi
 done
 
@@ -18,3 +18,5 @@ for code in "${codes[@]}"
 do
   node serv.js --cmd import --xmlfile "cache/datastore_${code}.xml" || exit 1
 done
+
+node serv.js --cmd analyze

@@ -3,10 +3,9 @@ cd ../dstore
 
 mkdir cache
 if [ ! -f cache/datastore_bd.xml ]; then
-#  wget --ignore-length -O cache/datastore_bd.xml http://iati-datastore.herokuapp.com/api/1/access/activity.xml?recipient-country=bd\&limit=250000
-   wget --ignore-length -O cache/datastore_bd.xml http://77.92.77.148/api/1/access/activity.xml?recipient-country=bd\&limit=250000
+   wget --ignore-length -O cache/datastore_bd.xml http://datastore.iatistandard.org/api/1/access/activity.xml?recipient-country=bd\&stream=True
 fi
 
 node serv.js --cmd init
 node serv.js --cmd import --xmlfile "cache/datastore_bd.xml"
-#node serv.js --cmd refresh
+node serv.js --cmd analyze

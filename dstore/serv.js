@@ -35,12 +35,6 @@ if(argv.cmd)
 		return;
 	}
 	else
-	if( argv.cmd=="hack" )
-	{
-		wait.launchFiber( require("./js/dstore_db").hack_acts );
-		return;
-	}
-	else
 	if( argv.cmd=="exs" )
 	{
 		wait.launchFiber( require("./js/dstore_db").hack_exs );
@@ -53,9 +47,9 @@ if(argv.cmd)
 		return;
 	}
 	else
-	if( argv.cmd=="refresh" )
+	if( argv.cmd=="analyze" )
 	{
-		require("./js/dstore_db").refresh_acts();
+		require("./js/dstore_db").analyze();
 		return;
 	}
 	else
