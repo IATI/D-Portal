@@ -1,4 +1,3 @@
-
 How to modify and test the texts in ctrack
 ==========================================
  
@@ -82,3 +81,12 @@ complicated mess and it is very easy for new users to break things.
 
 Other reading would be githubs how to git, help center 
 https://help.github.com/ which may help you or confuse you further.
+
+
+4. Debug Mode
+===================
+
+Change the tongue to "non" to view references for where these
+translations are on the web page.
+
+eg. http://d-portal.org/html/uganda/?tongue=non#view=main
