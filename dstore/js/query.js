@@ -85,7 +85,7 @@ query.get_q = function(req){
 	}
 	
 // defaults	
-	q.from=q.from || "activities"
+	q.from=q.from || "act"
 	
 
 // we now have a json style chunk of data that consists of many possible inputs
@@ -111,7 +111,7 @@ query.test = function(q,res){
 			t[v]=( t[v] || 0 ) + 1;
 		};
 		
-		db.each("SELECT raw_json FROM activities", function(err, row)
+		db.each("SELECT raw_json FROM act", function(err, row)
 		{
 			var act=JSON.parse(row.raw_json);
 			
@@ -234,7 +234,7 @@ query.stats=function(req,res){
 	var db = dstore_db.open();
 	db.serialize();
 
-	db.each("SELECT raw_json FROM activities", function(err, row)
+	db.each("SELECT raw_json FROM act", function(err, row)
 	{
 		var act=JSON.parse(row.raw_json);
 
@@ -504,8 +504,7 @@ query.getsql_select=function(q,qv){
 	}
 	else
 	{
-		ss.push(" * ");
-/*
+//		ss.push(" * ");
 		var aa=q.from.split(",");
 		for(i=0;i<aa.length;i++)
 		{
@@ -518,7 +517,6 @@ query.getsql_select=function(q,qv){
 				}
 			}
 		}
-*/
 	}
 	
 	return " SELECT "+ss.join(" , ");
