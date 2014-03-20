@@ -33,7 +33,7 @@ dstore_db.bubble_act={
 	
 // data table descriptions
 dstore_db.tables={
-	activity:[
+	act:[
 		{ name:"aid",							NOCASE:true , PRIMARY:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
 //		{ name:"xml",							TEXT:true },
@@ -51,7 +51,7 @@ dstore_db.tables={
 		{ name:"commitment",					REAL:true , INDEX:true }, // USD (C)
 		{ name:"spend",							REAL:true , INDEX:true } // USD (D+E)
 	],
-	transaction:[
+	trans:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"jml",							TEXT:true },
 		{ name:"json",							TEXT:true },
@@ -88,8 +88,6 @@ dstore_db.tables={
 		{ name:"funder",						NOCASE:true , INDEX:true },
 		{ name:"title",							NOCASE:true }
 	],
-// These are intended just to be joined to the above.
-// use &from=activity,country,sector,location& to request a join via aid ( this *may* return duplicate activities )
 	country:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"country_code",					NOCASE:true , INDEX:true },
@@ -113,7 +111,7 @@ dstore_db.tables={
 		{ name:"location_percent",				REAL:true , INDEX:true }
 	],
 // track what was imported...
-	slugs:[
+	slug:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"slug",							NOCASE:true , INDEX:true }
 	]
@@ -152,16 +150,16 @@ dstore_db.fill_acts = function(acts,slug){
 	var db = dstore_db.open();	
 	db.serialize();
 
-	db.run("DELETE FROM slugs WHERE slug=?",slug); // remove all the old slugs
+	db.run("DELETE FROM slug WHERE slug=?",slug); // remove all the old slugs
 
 	
-	db.each("SELECT COUNT(*) FROM activity", function(err, row)
+	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
 		before=row["COUNT(*)"];
 	});
 
 
-//	var stmt = db.prepare("REPLACE INTO activity (aid,xml,jml) VALUES (?,?,?)");
+//	var stmt = db.prepare("REPLACE INTO act (aid,xml,jml) VALUES (?,?,?)");
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
@@ -195,7 +193,7 @@ dstore_db.fill_acts = function(acts,slug){
 	});
 	process.stdout.write("\n");
 	
-	db.each("SELECT COUNT(*) FROM activity", function(err, row)
+	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
 		after=row["COUNT(*)"];
 	});
@@ -278,7 +276,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.jml=JSON.stringify(it);
 		
 //		dstore_sqlite.replace(db,"transaction",t);
-		replace("transaction",t);
+		replace("trans",t);
 
 	};
 
@@ -339,7 +337,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.slug=refry.tagattr(act,"iati-activity","dstore:slug"); // this value is hacked in when the acts are split
 		t.aid=iati_xml.get_aid(act);
 
-		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slugs"]);
+		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slug"]);
 		sa.run({"$aid":t.aid,"$slug":t.slug});		
 		sa.finalize();
 
@@ -494,11 +492,11 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 		t.default_currency=act["default-currency"];
 		
-		t.xml=xml;
+//		t.xml=xml;
 		t.jml=JSON.stringify(act);
 		
 //		dstore_sqlite.replace(db,"activity",t);
-		replace("activity",t);
+		replace("act",t);
 		
 		got_budget={};
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
@@ -521,7 +519,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 	
 
 	// remove all the old references to this aid before adding new
- 	db.run("DELETE FROM transaction WHERE aid=?",aid);
+ 	db.run("DELETE FROM trans WHERE aid=?",aid);
 	db.run("DELETE FROM budget WHERE aid=?",aid); 
 	db.run("DELETE FROM country WHERE aid=?",aid);
 	db.run("DELETE FROM sector WHERE aid=?",aid);

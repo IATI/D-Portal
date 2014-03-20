@@ -76,7 +76,7 @@ if(argv.cmd)
 		{
 			var v=aa[i];
 			var v=v.split(/<\/iati-activity>/gi)[0]; // trim the end
-			acts.push("<iati-activity dstore_slug=\""+xmlfilename+"\" dstore_idx=\""+i+"\" "+v+"</iati-activity>"); // rebuild and add import filename
+			acts.push("<iati-activity dstore:slug=\""+xmlfilename+"\" dstore:idx=\""+i+"\" "+v+"</iati-activity>"); // rebuild and add import filename
 		}
 
 

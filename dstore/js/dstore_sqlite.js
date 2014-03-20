@@ -3,15 +3,15 @@
 
 var dstore_sqlite=exports;
 
-var refry=require('./refry');
-var exs=require('./exs');
-var iati_xml=require('./iati_xml');
+var refry=require("./refry");
+var exs=require("./exs");
+var iati_xml=require("./iati_xml");
 
-var wait=require('wait.for');
+var wait=require("wait.for");
 
-var util=require('util');
-var http=require('http');
-var sqlite3 = require('sqlite3').verbose();
+var util=require("util");
+var http=require("http");
+var sqlite3 = require("sqlite3").verbose();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -25,9 +25,9 @@ dstore_sqlite.open = function(){
 	
 // speed up data writes.
 	db.serialize(function() {
-		db.run('PRAGMA synchronous = 0 ;');
-		db.run('PRAGMA encoding = "UTF-8" ;');
-		db.run('PRAGMA journal_mode=WAL;');
+		db.run("PRAGMA synchronous = 0 ;");
+		db.run("PRAGMA encoding = \"UTF-8\" ;");
+		db.run("PRAGMA journal_mode=WAL;");
 	});
 	
 	return db;
@@ -101,7 +101,8 @@ dstore_sqlite.replace = function(db,name,it){
 //db.run( dstore_sqlite.getsql_prepare_replace(name,dstore_sqlite.tables_active[name]) , $t );
 
 
-	var sa = db.prepare(dstore_sqlite.tables_replace_sql[name]);
+	var s=dstore_sqlite.tables_replace_sql[name];
+	var sa = db.prepare(s);
 	sa.run($t);	
 	sa.finalize(); // seems faster to finalize now rather than let it hang?
 

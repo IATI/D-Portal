@@ -57,7 +57,7 @@ fetch.endingsoon=function(args)
 	var today=fetch.get_today();
     
 	var dat={
-			"from":"activity,country",
+			"from":"act,country",
 			"limit":args.limit || 5,
 			"orderby":"day_end",
 			"status_code":"2",
@@ -110,7 +110,7 @@ fetch.finished=function(args)
 	var today=fetch.get_today();
     
 	var dat={
-			"from":"activity,country",
+			"from":"act,country",
 			"limit":args.limit || 5,
 			"orderby":"day_end-",
 			"status_code":"3|4",
@@ -155,7 +155,7 @@ fetch.planned=function(args)
 	var today=fetch.get_today();
     
 	var dat={
-			"from":"activity,country",
+			"from":"act,country",
 			"limit":args.limit || 5,
 			"orderby":"day_start",
 			"status_code":1,
@@ -200,7 +200,7 @@ fetch.stats=function(args)
     
 	var f1=function(){
 		var dat={
-				"from":"activity,country",
+				"from":"act,country",
 				"select":"stats",
 				"country_code":(args.country || ctrack.args.country)
 			};
@@ -224,7 +224,7 @@ fetch.stats=function(args)
 
 	var f2=function(){
 		var dat={
-				"from":"activity,country",
+				"from":"act,country",
 				"select":"stats",
 				"groupby":"status_code",
 				"country_code":(args.country || ctrack.args.country)
@@ -271,7 +271,7 @@ console.log(ctrack.chunks);
 
 		
 		var dat={
-				"from":"activity,country",
+				"from":"act,country",
 				"limit":-1,
 				"day_end_gteq":today,
 				"day_end_lt":tonum+32,
@@ -299,7 +299,7 @@ console.log(ctrack.chunks);
 
 		
 		var dat={
-				"from":"activity,country",
+				"from":"act,country",
 				"limit":-1,
 				"day_start_gteq":today,
 				"day_start_lt":tonum+32,
@@ -366,7 +366,7 @@ fetch.heatmap=function(args)
 
 	var dat={
 			"select":"count,round1_longitude,round1_latitude",
-			"from":"activity,country,location",
+			"from":"act,country,location",
 			"limit":args.limit || 5,
 			"orderby":"1-",
 			"groupby":"2,3",
@@ -418,7 +418,7 @@ fetch.donor_transactions=function(args)
 	var funder=args.funder || "gb";
 
 	var dat={
-			"from":"transaction,country",
+			"from":"trans,country",
 			"limit":args.limit || -1,
 			"select":"sum_of_percent_of_usd,aid,funder,title",
 			"funder_not_null":"",
@@ -533,7 +533,7 @@ fetch.donor_activities=function(args)
 	var funder=args.funder || "gb";
 
 	var dat={
-			"from":"activity,country",
+			"from":"act,country",
 			"limit":args.limit || -1,
 			"select":"title,aid,funder,commitment,spend,reporting_org",
 			"funder_not_null":"",
@@ -697,7 +697,7 @@ fetch.donors=function(args)
 	years.forEach(function(year)
 	{
 		var dat={
-				"from":"transaction,country",
+				"from":"trans,country",
 				"limit":args.limit || 100,
 				"select":"funder,sum_of_percent_of_usd",
 				"funder_not_null":"",
@@ -804,7 +804,7 @@ fetch.sectors=function(args)
 	years.forEach(function(year)
 	{
 		var dat={
-				"from":"transaction,country,sector",
+				"from":"trans,country,sector",
 				"limit":args.limit || 100,
 				"select":"sector_group,sum_of_percent_of_usd",
 				"groupby":"sector_group",
@@ -914,7 +914,7 @@ fetch.districts=function(args)
 	years.forEach(function(year)
 	{
 		var dat={
-				"from":"transaction,country,location",
+				"from":"trans,country,location",
 				"limit":args.limit || 100,
 				"select":"location_name,sum_of_percent_of_usd",
 				"groupby":"location_name",
