@@ -1,4 +1,4 @@
-IATI-D-Portal
+D-Portal
 ====================
 
 This is a project to build a re-usable piece of code that can be 
