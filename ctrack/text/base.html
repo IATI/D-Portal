@@ -393,6 +393,7 @@ BANGLADESH
 {main_about}
 {main_datainvestigators}
 {view_tail}
+{view_foot}
 
 #beige
 <div class="beigealert">
@@ -400,18 +401,33 @@ BANGLADESH
 </div>
 
 #view_head
-<div class="main_wrap">
-<div id="background_image_wrap"></div>
-<div class="overlay">
+<div class="portal">
+	<div class="main_wrap">
+		<div id="background_image_wrap"></div>
+		<div class="overlay">
 	
 #view_tail
+		</div>
+	</div>
 </div>
+
+#view_foot
+<div class="footer_wrap">
+	<div class="footer">
+		<div class="team"><a href="http://www.aidtransparency.net/" title="International Aid Transparency Initiative (IATI)">
+			{footer_team_text}</a>
+		</div><div class="team top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+			{footer_top_text}</a>
+		</div><div class="team git"><a href="https://github.com/IATI/D-Portal">
+			{footer_github_text}</a>
+		</div>
+	</div>
 </div>
 
 #main_head
 <div class="default head">
 	<div class="logo_wrap">
-		<a href="/#examples" title="{mainback_text}"><img src="{art}dp_logo.20.png" alt="{dportal_logo_text}" width="232" height="21"/></a>
+		<a href="#view=main" title="{mainback_text}"><img src="{art}dp_logo.20.png" alt="{dportal_logo_text}" width="232" height="21"/></a>
 	</div><div class="tongue_wrap">
 		<a href="?tongue=eng" class="tongue" title="{tongue_eng_text}">ENG</a> / <a href="?tongue=fra" class="tongue" title="{tongue_fra_text}">FRA</a> / <a href="?tongue=spa" class="tongue" title="{tongue_spa_text}">SPA</a>
 	</div>
