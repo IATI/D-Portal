@@ -2,7 +2,7 @@
 <html> 
 	<head>
 <meta charset="UTF-8">
-<title>IATI Country Tracker Modules</title>
+<title>Development Portal Modules</title>
 <script src="/jslib/jquery.js"></script>
 <style>
 	body,html	{width:100%; height:100%; margin:0; padding:0; font-family:sans-serif; word-wrap:break-word; background-color:#303030;}
@@ -23,8 +23,8 @@
 	.bold.ob	{font-style:italic;}
 	
 	.navi		{width:100%; background-color:rgba(42,42,42,0.8); position:fixed; z-index:9999;}
-	.hiwrap		{display:inline-block; vertical-align:top; width:560px; max-width:560px;}
-	.linkwrap	{display:inline-block; vertical-align:top; width:400px; max-width:400px;}
+	.hiwrap		{display:inline-block; vertical-align:top; width:710px; max-width:710px;}
+	.linkwrap	{display:inline-block; vertical-align:top; width:250px; max-width:250px;}
 	.link		{display:inline-block; vertical-align:top;}
 	.link.pad	{padding-right:30px;}
 	a.top		{display:block; color:#fff; font-size:18px; vertical-align:top; padding:30px 0; height:35px; max-height:35px; border-top:5px solid rgba(0,0,0,0)}
@@ -104,7 +104,7 @@
 		<div class="hiwrap">
 			<a href="#" class="top home">hello</a>
 		</div><div class="linkwrap">
-			<div class="link pad"><a href="#" class="top ct">COUNTRYTRACKER</a></div><div class="link pad"><a href="#sav" class="top sav">SAVi</a></div><div class="link"><a href="#git" class="top hub">GITHUB</a></div>
+			<div class="link pad"><a href="#" class="top ct">D-Portal</a></div><div class="link pad"><a href="#sav" class="top sav">SAVi</a></div><div class="link"><a href="#git" class="top hub">GITHUB</a></div>
 		</div>
 	</div>
 </div>
@@ -113,10 +113,10 @@
 	
 <div class="ctwrap">
 	<div class="defcon">
-		<div class="halfcon"><img src="/art/ctlogo.400.png" alt="Country Tracker logo" width="400" height="400"/></div><div class="halfcon">
+		<div class="halfcon"><img src="/art/dp_logo.400.png" alt="D-Portal logo" width="400" height="400"/></div><div class="halfcon">
 			<div class="cthead">
-				<p>Country Tracker aims to be a simple user interface to search and browse all IATI data relating to a specific country that can be easily hosted by <span class="bold">anyone</span>, <span class="bold ob">anywhere</span>.</p>
-				<p class="ctinfo top">The final Country Tracker product will be available as a set of HTML, Javascript, and CSS files.</p>
+				<p>D-Portal aims to be a simple user interface to search and browse all IATI data relating to a specific country that can be easily hosted by <span class="bold">anyone</span>, <span class="bold ob">anywhere</span>.</p>
+				<p class="ctinfo top">The final product will be available as a set of HTML, Javascript, and CSS files.</p>
 				<p class="ctinfo">Since HTML/CSS/Javascript are the technologies of the web, and are widely used and understood, we believe this is a good option for easy adoption by others, for easy deployment, and for easy re-configuration/customisation.</p>
 			</div>
 		</div>
@@ -127,7 +127,7 @@
 	<div class="defcon">
 		<div class="ctegwrap">
 			<span class="cteghead">examples:</span>
-			<p>We've selected 3 countries as examples of how Country Tracker displays IATI data in the browser. Please click to view.</p>
+			<p>We've selected 3 countries as examples of how D-Portal displays IATI data in the browser. Please click to view.</p>
 		</div>
 		<div class="ctegcol">
 			<a href="/html/bangladesh" class="eg" title="What's going on in Bangladesh?">
@@ -180,7 +180,7 @@
 		<div class="l1"></div><div class="l2"></div><div class="l3"></div><div class="l4"></div>
 		<div class="dqcon">
 			<img src="/art/dslogo.400.png" alt="DSTORE logo" width="400" height="100"/>
-			<div class="dqinfo">dstore subsidizes the IATI Datastore with an optimized nodejs + SQLite version for use in real time Country Tracker queries.</div>
+			<div class="dqinfo">dstore subsidizes the IATI Datastore with an optimized nodejs + SQLite version for use in real time queries.</div>
 		</div><div class="dqcon">
 			<img src="/art/qlogo.400.png" alt="Q logo" width="400" height="100"/>
 			<div class="dqinfo">Q allows you to query information you need via simple but complex filters.</div>
@@ -192,13 +192,13 @@
 	<div class="defcon">
 		<div class="halfcon"></div><div class="halfcon"><div id="ct-tri"></div></div>
 		<div class="qhead">Here are some <span class="qtip">Q</span>uery examples:</div>
-		<a href="http://dev.ctrack.iatistandard.org/q.xml?from=activities&limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://dev.ctrack.iatistandard.org/q.xml?from=activities&amp;limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
+		<a href="http://d-portal.org/q.xml?from=activities&limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.xml?from=activities&amp;limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
 		<div class="qabt">Returns XML which is automatically formatted into HTML, source remains pure XML</div>
 		<div class="qinfo">This query displays the activities <span class="qdef">from=activities</span> limiting the amount to 10 <span class="qdef">limit=10</span> sorted by starting day <span class="qdef">orderby=day_start</span> and from 1950 onwards <span class="qdef">day_start_gt=1950-01-01</span>.</div>
-		<a href="http://dev.ctrack.iatistandard.org/q?groupby=reporting_org&select=stats" class="qeg">http://dev.ctrack.iatistandard.org/q?groupby=reporting_org&amp;select=stats</a>
+		<a href="http://d-portal.org/q?groupby=reporting_org&select=stats" class="qeg">http://d-portal.org/q?groupby=reporting_org&amp;select=stats</a>
 		<div class="qabt">Returns JSON (JSON is default) data about activites (activites are default) where 100 rows from the database is the default limit</div>
 		<div class="qinfo">This query displays data statistics <span class="qdef">select=stats</span> about activites for each reporting organisation <span class="qdef">groupby=reporting_org</span>.</div>
-		<a href="http://dev.ctrack.iatistandard.org/q.csv?from=transactions&orderby=day&limit=1000" class="qeg">http://dev.ctrack.iatistandard.org/q.csv?from=transactions&amp;orderby=day&amp;limit=1000</a>
+		<a href="http://d-portal.org/q.csv?from=transactions&orderby=day&limit=1000" class="qeg">http://d-portal.org/q.csv?from=transactions&amp;orderby=day&amp;limit=1000</a>
 		<div class="qabt">Returns CSV file (named q.csv by default)</div>
 		<div class="qinfo">This query allows you to download the CSV <span class="qdef">q.csv</span> of 1000 <span class="qdef">limit=1000</span> transaction data <span class="qdef">from=transactions</span> sorted by date <span class="qdef">orderby=day</span>.</div>
 	</div>
@@ -209,7 +209,7 @@
 		<div class="gitcon">
 			<a href="https://github.com/IATI/IATI-Country-Tracker" class="git">Fork us on <span class="bold">Github</span>!</a>
 			<div class="gitinfo">
-				Country Tracker is currently being developed and designed so things are constantly changing. Send us your suggestions, bug reports and issues.
+				D(evelopment)-Portal is currently being developed and designed so things are constantly changing. Send us your suggestions, bug reports and issues.
 			</div>
 		</div><div class="octocat">
 			<a href="https://github.com/IATI/IATI-Country-Tracker" title="IATI Country Tracker on Github"><img src="/art/Octocat.png" alt="Octocat for Github logo" width="200" height="166"/></a>
@@ -224,7 +224,7 @@
 <div class="footwrap">
 	<div class="footcon">
 		<div class="team"><a href="http://www.aidtransparency.net/" title="International Aid Transparency Initiative (IATI)">
-			A project by the Country Tracker team :}</a>
+			A project by the Development Portal team :}</a>
 		</div><div class="mit">
 			License: The MIT License (MIT) 2014
 		</div>

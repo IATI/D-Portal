@@ -46,16 +46,16 @@ Activity
 
 #alert_no_iati
 <tr>
-	<td colspan="3" style="text-align:center; font-size:30px;" title="{alert_no_iati_text}">{alert_no_iati_text}</td>
+	<td colspan="3" class="alert_no_iati" title="{alert_no_iati_text}">{alert_no_iati_text}</td>
 </tr>
 
 #view_act
 {view_head}
-<style>.wrapper{padding-bottom:40px;} {css}</style>
-{chunkhead}
-{chunkcountrymin}
-<div style="width:960px; margin:0 auto; padding:20px 0;">
-	<div style="color:#fff; font-size:16px; line-height:1.35em; padding:10px 20px; background-color:#000;"><img src="{art}alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {xml_declare_text}</div>
+<style>{css}</style>
+{main_head}
+{main_countrymin}
+<div class="act_wrap">
+	<div class="act_alert_wrap"><img src="{art}alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {xml_declare_text}</div>
 </div>
 {xml}
 {view_tail}
@@ -63,20 +63,20 @@ Activity
 #view_donors
 {view_head}
 <style>{css}</style>
-{chunkhead}
-{chunkcountrymin}
+{main_head}
+{main_countrymin}
 {donors_head}
 {table_donors}
-{chunkdi}
+{main_datainvestigators}
 {view_tail}
 
 #view_donor_activities
 {view_head}
 <style>{css}</style>
-{chunkhead}
-{chunkcountrymin}
+{main_head}
+{main_countrymin}
 {donors_head}
-<div style="width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;">
+<div class="donor_activities_wrap">
 	<table class="title">
 		<tr>
 			<td><img src="{art}activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
@@ -88,32 +88,34 @@ Activity
 			</td>
 		</tr>
 	</table>
-	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
+	<div class="donor_activities">
 		<table class="activity">
 			{alerts}
 			{donor_activities_datas}
 		</table>
 	</div>
-	<div style="width:960px; margin:0 auto; text-align:center;">
-		<a href="#view=donors" class="list_more_link">{list_donor_back_text}</a>
+	<div class="back_to_donor_list">
+		<a href="#view=donors" class="back_to_donor_list">{list_donor_back_text}</a>
 	</div>
 </div>
-{chunkdi}
+{main_datainvestigators}
 {view_tail}
 
 #donor_activities_data
 <tr>
 	<td>{num}.</td>
-	<td style="padding-right:30px;" title="{donor_activities_title_tip_text}">
-		<div><a href="#view=act&aid={aid}">{title}</a></div>
-		<div style="color:#9C8876; font-size:14px; line-height:1.0em;">{view_donor_activites_reporting_text}</div>
+	<td title="{donor_activities_title_tip_text}">
+		<a href="#view=act&aid={aid}">
+			{title}
+			<span>{view_donor_activites_reporting_text}</span>
+		</a>
 	</td>
 	<td title="{donor_activities_percentage_tip_text}">
-		<div style="position:relative;">
-			<div style="color:#B8C8CD;">{commitment}</div>
-			<div style="min-width:100px; max-width:100px; padding-top:10px; position:absolute; right:0;">
-				<div style="width:100px; height:10px; background-color:#000000;">
-					<div style="width:{pct}px; height:10px; background-color:#1E90FF;"></div>
+		<div class="donor_activities_spend_wrap">
+			<div class="donor_activities_spend">{commitment}</div>
+			<div class="donor_activities_barchart_wrap">
+				<div class="donor_activities_percent_max">
+					<div style="width:{pct}px;" class="donor_activities_percent"></div>
 				</div>
 			</div>
 		</div>
@@ -123,31 +125,31 @@ Activity
 #view_donor_transactions
 {view_head}
 <style>{css}</style>
-{chunkhead}
-{chunkcountrymin}
+{main_head}
+{main_countrymin}
 {donors_head}
-<div style="width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;">
+<div class="donor_transactions_wrap">
 	<table class="title">
 		<tr>
 			<td><img src="{art}activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
 			<td>{view_donor_transactions_text}</td>
-			<td style="text-align:right;">= {total} (USD)</td>
+			<td class="total_spend">= {total} (USD)</td>
 		</tr>
 		<tr>
 			<td colspan="3"><div class="declare title table"><img src="{art}alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_transactions_declare_text}</div></td>
 		</tr>
 	</table>
-	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
+	<div class="donor_transactions">
 		<table class="activity">
 			{alerts}
 			{donor_transactions_datas}
 		</table>
 	</div>
-	<div style="width:960px; margin:0 auto; text-align:center;">
-		<a href="#view=donors" class="list_more_link">{list_donor_back_text}</a>
+	<div class="back_to_donor_list">
+		<a href="#view=donors" class="back_to_donor_list">{list_donor_back_text}</a>
 	</div>
 </div>
-{chunkdi}
+{main_datainvestigators}
 {view_tail}
 
 #donor_transactions_data
@@ -160,31 +162,31 @@ Activity
 #view_donor_budgets
 {view_head}
 <style>{css}</style>
-{chunkhead}
-{chunkcountrymin}
+{main_head}
+{main_countrymin}
 {donors_head}
-<div style="width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;">
+<div class="donor_budgets_wrap">
 	<table class="title">
 		<tr>
 			<td><img src="{art}activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
 			<td>{view_donor_budgets_text}</td>
-			<td style="text-align:right;">= {total} (USD)</td>
+			<td class="total_spend">= {total} (USD)</td>
 		</tr>
 		<tr>
 			<td colspan="3"><div class="declare title table"><img src="{art}alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_transactions_declare_text}</div></td>
 		</tr>
 	</table>
-	<div style="background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;">
+	<div class="donor_budgets">
 		<table class="activity">
 			{alerts}
 			{donor_budgets_datas}
 		</table>
 	</div>
-	<div style="width:960px; margin:0 auto; text-align:center;">
-		<a href="#view=donors" class="list_more_link">{list_donor_back_text}</a>
+	<div class="back_to_donor_list">
+		<a href="#view=donors" class="back_to_donor_list">{list_donor_back_text}</a>
 	</div>
 </div>
-{chunkdi}
+{main_datainvestigators}
 {view_tail}
 
 #donor_budgets_data
@@ -196,22 +198,22 @@ Activity
 
 
 #donors_head
-<div style="width:860px; margin:0 auto; padding:40px 0;">
-	<div style="width:330px; display:inline-block; vertical-align:bottom;">
-		<img src="{art}moneytitle_icon.png" alt="{moneytitle_icon_text}" width="330" height="180"/>	
-	</div><div style="display:inline-block; vertical-align:top;">
-			<div style="height:30px;"></div>
-			<div style="width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;"></div>
-	</div><div style="width:480px; display:inline-block; vertical-align:top;">
-			<div style="width:400px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#fff; font-size:42px;">
+<div class="donors_head_wrap">
+	<div class="donors_icon_wrap">
+		<img src="{art}money_title_icon.png" alt="{money_title_icon_text}" width="330" height="180"/>	
+	</div><div class="donors_peak_wrap">
+			<div class="donors_peak_space"></div>
+			<div class="donors_peak"></div>
+	</div><div class="donors_head_title_wrap">
+			<div class="donors_head_title">
 				{title_donor_text}
 			</div>
-			<div style="width:480px; padding-top:10px; color:#ccc; font-size:14px; text-align:center;">{declare_title_donor_text}</div>
+			<div class="donors_head_declare">{declare_title_donor_text}</div>
 	</div>
 </div>
 
 #table_donors
-<div style="width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;">
+<div class="table_donors_wrap">
 <table class="money">
 {table_donors_row_head}
 {table_donors_rows}
@@ -253,31 +255,31 @@ Activity
 #view_sectors
 {view_head}
 <style>{css}</style>
-{chunkhead}
-{chunkcountrymin}
+{main_head}
+{main_countrymin}
 {sectors_head}
 {table_sectors}
-{chunkdi}
+{main_datainvestigators}
 {view_tail}
 
 
 #sectors_head
-<div style="width:820px; margin:0 auto; padding:40px 0;">
-	<div style="width:330px; display:inline-block; vertical-align:bottom;">
-		<img src="{art}moneytitle_icon.png" alt="{moneytitle_icon_text}" width="330" height="180"/>
-	</div><div style="display:inline-block; vertical-align:top;">
-			<div style="height:30px;"></div>
-			<div style="width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #00C475; border-bottom:20px solid transparent;"></div>
-	</div><div style="width:440px; display:inline-block; vertical-align:top;">
-			<div style="width:400px; background-color:#00C475; padding:20px 40px; text-align:center; color:#fff; font-size:42px;">
+<div class="sectors_head_wrap">
+	<div class="sectors_icon_wrap">
+		<img src="{art}money_title_icon.png" alt="{money_title_icon_text}" width="330" height="180"/>
+	</div><div class="sectors_peak_wrap">
+			<div class="sectors_peak_space"></div>
+			<div class="sectors_peak"></div>
+	</div><div class="sectors_head_title_wrap">
+			<div class="sectors_head_title">
 				{title_sector_text}
 			</div>
-			<div style="width:480px; padding-top:20px; color:#ccc; font-size:14px; text-align:center;">{declare_title_sector_text}</div>
+			<div class="sectors_head_declare">{declare_title_sector_text}</div>
 	</div>
 </div>
 
 #table_sectors
-<div style="width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;">
+<div class="table_sectors_wrap">
 <table class="money">
 {table_sectors_row_head}
 {table_sectors_rows}
@@ -320,10 +322,10 @@ Activity
 #view_districts
 {view_head}
 <style>{css}</style>
-{chunkhead}
+{main_head}
 {districts_head}
 {table_districts}
-{chunkdi}
+{main_datainvestigators}
 {view_tail}
 
 #districts_head
@@ -373,183 +375,181 @@ BANGLADESH
 #view_main
 {view_head}
 <style>{css}</style>
-{chunkhead}
-{chunkcountry}
-{chunkmoney}
-{chunkmap}
-{chunkstats}
-{chunkactive}
-{chunkended}
-{chunkabout}
-{chunkdi}
+{main_head}
+{main_country}
+{main_money}
+{main_map}
+{main_stats}
+{main_active}
+{main_ended}
+{main_about}
+{main_datainvestigators}
 {view_tail}
 
 #view_head
-<div class="ctrack_main">
-<div id="imgwrap"></div>
-<div class="wrapper">
+<div class="main_wrap">
+<div id="background_image_wrap"></div>
+<div class="overlay">
 	
 #view_tail
 </div>
 </div>
 
-#chunkhead
+#main_head
 <div class="default head">
-	<div class="logowrap">
-		<a href="/#examples" title="{mainback_text}"><img src="{art}ctlogo.25.png" alt="Country Tracker logo" width="232" height="21"/></a>
-	</div><div class="tonguewrap">
-		<a href="?tongue=eng" class="tongue" title="View this in English(UK)">ENG</a> / <a href="?tongue=fra" class="tongue" title="View this in French">FRA</a> / <a href="?tongue=spa" class="tongue" title="View this in Spanish">SPA</a>
+	<div class="logo_wrap">
+		<a href="/#examples" title="{mainback_text}"><img src="{art}dp_logo.20.png" alt="{dportal_logo_text}" width="232" height="21"/></a>
+	</div><div class="tongue_wrap">
+		<a href="?tongue=eng" class="tongue" title="{tongue_eng_text}">ENG</a> / <a href="?tongue=fra" class="tongue" title="{tongue_fra_text}">FRA</a> / <a href="?tongue=spa" class="tongue" title="{tongue_spa_text}">SPA</a>
 	</div>
-	<div class="crumbwrap">{crumbs}</div>
+	<div class="crumb_wrap">{crumbs}</div>
 </div>
 
-#chunkcountrymin
+#main_countrymin
 <div class="default min">
 	<table class="country min">
 		<tr>
 			<td>{country_name}</td>
-			<td><img src="{country_flag}" alt="{country_name} flag" width="75"/></td>
+			<td><img src="{country_flag}" alt="{country_name} {flag_text}" width="75"/></td>
 		</tr>
 	</table>
 	<div class="declare head">{declare_main_text}</div>
 </div>
 	
-#chunkcountry
+#main_country
 <div class="default">
 	<table class="country">
 		<tr>
 			<td>{country_name}</td>
-			<td><img src="{country_flag}" alt="{country_name} flag" width="150" height="90"/></td>
+			<td><img src="{country_flag}" alt="{country_name} {flag_text}" width="150" height="90"/></td>
 		</tr>
 	</table>
 	<div class="declare head">{declare_main_text}</div>
 </div>
 
-#chunkmoney_row
+#main_money_row
 <tr>
 	<td>{donor}</td>
 	<td title="{usd} USD">
-		<div class="barchartwrap">
-			<div class="bar donor" style="width:{pct}px;"></div>
+		<div class="barchart_wrap">
+			<div class="barchart donor" style="width:{pct}px;"></div>
 		</div>
 	</td>
 </tr>
 
-#chunkmoney_rows
-{chunkmoney_row}
+#main_money_rows
+{main_money_row}
 
-#chunkmoney
-<div class="moneywrap">
-	<div class="moneymodwrap donor">
-		<div class="moneytitle donor">
+#main_money
+<div class="money_wrap">
+	<div class="money_mod_wrap donor">
+		<div class="money_title donor">
 			{title_donor_text}
 		</div>
-		<div class="peakspace"></div>
-		<div class="peakwrap">
+		<div class="peak_space"></div>
+		<div class="peak_wrap">
 			<div class="peak donor"></div>
 		</div>
-		<div class="moneysubtitle">{subtitle_donor_text}</div>
-		<table class="moneymod">
-{chunkmoney_rows}
-		</table>
-		<a href="#view=donors" class="list_view_link">
+		<div class="money_subtitle">{subtitle_donor_text}</div>
+		<table class="money_mod">{main_money_rows}</table>
+		<a href="#view=donors" class="view_all_money">
 			{link_donor_text}
 		</a>
-	</div><div class="moneymodwrap sector">
-		<div class="moneytitle sector">
+	</div><div class="money_mod_wrap sector">
+		<div class="money_title sector">
 			{title_sector_text}
 		</div>
-		<div class="peakspace"></div>
-		<div class="peakwrap">
+		<div class="peak_space"></div>
+		<div class="peak_wrap">
 			<div class="peak sector"></div>
 		</div>
-		<div class="moneysubtitle">{subtitle_sector_text}</div>
-		<table class="moneymod">
+		<div class="money_subtitle">{subtitle_sector_text}</div>
+		<table class="money_mod">
 			<tr>
 				<td>Infrastructure</td>
 				<td title="1,000,000 USD">
-					<div class="barchartwrap">
-						<div class="bar sector" style="width:100px;"></div>
+					<div class="barchart_wrap">
+						<div class="barchart sector" style="width:100px;"></div>
 					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>Other social services</td>
 				<td title="700,000 USD">
-					<div class="barchartwrap">
-						<div class="bar sector" style="width:70px;"></div>
+					<div class="barchart_wrap">
+						<div class="barchart sector" style="width:70px;"></div>
 					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>Health</td>
 				<td title="300,000 USD">
-					<div class="barchartwrap">
-						<div class="bar sector" style="width:30px;"></div>
+					<div class="barchart_wrap">
+						<div class="barchart sector" style="width:30px;"></div>
 					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>Other</td>
 				<td title="200,000 USD">
-					<div class="barchartwrap">
-						<div class="bar sector" style="width:20px;"></div>
+					<div class="barchart_wrap">
+						<div class="barchart sector" style="width:20px;"></div>
 					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>Governance and security</td>
 				<td title="100,000 USD">
-					<div class="barchartwrap">
-						<div class="bar sector" style="width:10px;"></div>
+					<div class="barchart_wrap">
+						<div class="barchart sector" style="width:10px;"></div>
 					</div>
 				</td>
 			</tr>
 		</table>
-		<a href="#view=sectors" class="list_view_link">
+		<a href="#view=sectors" class="view_all_money">
 			{link_sector_text}
 		</a>
 	</div>
 </div>
 
-#chunkmap
-<div class="mapwrap">
+#main_map
+<div class="map_wrap">
 	<div id="map"></div>
 </div>
 
-#chunkstats
-<div class="statswrap">
+#main_stats
+<div class="stats_wrap">
 	<table class="stats">
 		<tr>
 			<td rowspan="2" colspan="2" title="{stats_active_tip_text}">
-				<div class="statstitle">{stats_active_text}</div>
-				<div class="statsnum">{active_projects}</div>
+				<div class="stats_title">{stats_active_text}</div>
+				<div class="stats_num">{active_projects}</div>
 			</td>
 			<td title="{stats_ending_tip_text}">
-				<div class="statstitle">{stats_ending_text} <span>&lt; {stats_ending_period_text}</span></div>
-				<div class="statsnum small">{ending_soon}</div>
+				<div class="stats_title">{stats_ending_text} <span>&lt; {stats_ending_period_text}</span></div>
+				<div class="stats_num small">{ending_soon}</div>
 			</td>
 			<td title="{stats_total_tip_text}">
-				<div class="statstitle">{stats_total_text}</div>
-				<div class="statsnum small">{total_projects}</div>
+				<div class="stats_title">{stats_total_text}</div>
+				<div class="stats_num small">{total_projects}</div>
 			</td>
 		</tr>
 		<tr>
 			<td title="{stats_starting_tip_text}">
-				<div class="statstitle">{stats_starting_text} <span>&lt; {stats_starting_period_text}</span></div>
-				<div class="statsnum small">{starting_soon}</div>
+				<div class="stats_title">{stats_starting_text} <span>&lt; {stats_starting_period_text}</span></div>
+				<div class="stats_num small">{starting_soon}</div>
 			</td>
 			<td title="{stats_publisher_tip_text}">
-				<div class="statstitle">{stats_publisher_text}</div>
-				<div class="statsnum small">{numof_publishers}</div>
+				<div class="stats_title">{stats_publisher_text}</div>
+				<div class="stats_num small">{numof_publishers}</div>
 			</td>
 		</tr>
 	</table>
 	<div class="declare stats">{declare_stats_text}</div>
 </div>
 
-#chunkactive
-<div class="activewrap">
+#main_active
+<div class="active_wrap">
 	<table class="title space">
 		<tr>
 			<td><img src="{art}active_icon.png" alt="{active_icon_text}" width="40" height="40"/></td>
@@ -557,18 +557,18 @@ BANGLADESH
 			<td><div class="declare title list">{list_active_declare_text}</div></td>
 		</tr>
 	</table>
-	<div class="tablewrap">
+	<div class="table_wrap">
 		<table class="list">
-			{ctbox1table_datas}
+			{table_active_datas}
 		</table>
 	</div>
-	<div class="listmorewrap">
-		<a href="#ctrack_ending_more" class="list_more_link">{list_more_active_text}</a>
+	<div class="view_all_projects_wrap">
+		<a href="#ctrack_ending_more" class="view_all_projects">{list_more_active_text}</a>
 	</div>
 </div>
 
-#chunkended
-<div class="endedwrap">
+#main_ended
+<div class="ended_wrap">
 	<table class="title space">
 		<tr>
 			<td><img src="{art}ended_icon.png" alt="{ended_icon_text}" width="40" height="40"/></td>
@@ -576,40 +576,41 @@ BANGLADESH
 			<td><div class="declare title list">{list_ended_declare_text}</div></td>
 		</tr>
 	</table>
-	<div class="tablewrap">
+	<div class="table_wrap">
 		<table class="list">
-			{ctbox2table_datas}
+			{table_ended_datas}
 		</table>
 	</div>
-	<div class="listmorewrap">
-		<a href="#ctrack_finished_more" class="list_more_link">{list_more_ended_text}</a>
+	<div class="view_all_projects_wrap">
+		<a href="#ctrack_finished_more" class="view_all_projects">{list_more_ended_text}</a>
 	</div>
 </div>
 
-#chunkabout
-<div class="aboutwrap">
-	<div class="abouttxt">
+#main_about
+<div class="about_wrap">
+	<div class="about_txt">
 		{about_text} <span class="bold">{about_anyone_text}</span>, <span class="bold">{about_anywhere_text}</span>.
-	</div><div class="iatilogo">
-		<a href="http://iatistandard.org/" target="_blank" class="iatilink"><img src="{art}iati-logo.269.png" alt="IATI logo" width="269" height="70"></a>
+	</div><div class="iati_logo">
+		<a href="http://iatistandard.org/" target="_blank" class="iati_link"><img src="{art}iati_logo.269.png" alt="{iati_logo_text}" width="269" height="70"></a>
 	</div>
 </div>
 
-#chunkdi
-<div class="datawrap">
-	<a href="mailto:trackerqueries@iatistandard.org" class="datainvest">
+#main_datainvestigators
+<div class="data_wrap">
+	<a href="mailto:trackerqueries@iatistandard.org" class="data_invest">
 		{data_investigate_text}
 	</a>
 </div>
 
-#ctbox1table_data
+
+#table_active_data
 <tr>
 	<td>{num}.</td>
 	<td><div><a href="#view=act&aid={aid}" title="{table_active_title_tip_text}">{title}</a></div></td>
 	<td title="{table_active_date_tip_text}">{date}</td>
 </tr>
 
-#ctbox2table_data
+#table_ended_data
 <tr>
 	<td>{num}.</td>
 	<td><div><a href="#view=act&aid={activity}" title="{table_ended_title_tip_text}">{title}</a></div></td>

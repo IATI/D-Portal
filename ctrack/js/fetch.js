@@ -90,11 +90,11 @@ fetch.endingsoon=function(args)
 
 			v.activity=v.aid;
 
-			s.push( plate.replace("{ctbox1table_data}",v) );
+			s.push( plate.replace("{table_active_data}",v) );
 		}
 
 //		ctrack.chunk("active_projects",data["total-count"]);
-		ctrack.chunk("ctbox1table_datas",s.join(""));
+		ctrack.chunk("table_active_datas",s.join(""));
 
 		ctrack.display();
 
@@ -134,11 +134,11 @@ fetch.finished=function(args)
 
 			v.activity=v.aid;
 
-			s.push( plate.replace("{ctbox2table_data}",v) );
+			s.push( plate.replace("{table_ended_data}",v) );
 		}
 
 //		ctrack.chunk("finished_projects",data["total-count"]);
-		ctrack.chunk("ctbox2table_datas",s.join(""));
+		ctrack.chunk("table_ended_datas",s.join(""));
 
 		ctrack.display();
 
@@ -615,11 +615,11 @@ fetch.donors_top=function(args)
 		{
 			v.pct=Math.floor(100*v.usd/top)
 			v.donor=iati_codes.crs_funders[v.funder] || iati_codes.country[v.funder] || v.funder;
-			s.push( plate.replace("{chunkmoney_row}",v) );
+			s.push( plate.replace("{main_money_row}",v) );
 		}
 	}
 
-	ctrack.chunk("chunkmoney_rows",s.join(""));
+	ctrack.chunk("main_money_rows",s.join(""));
 		ctrack.display();
 
 }
