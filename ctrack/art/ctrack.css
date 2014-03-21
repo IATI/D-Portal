@@ -1,10 +1,11 @@
-/* CSS for IATI D-PORTAL 2014 ^o^
-   ============================================= */
+/*	CSS for IATI D-PORTAL 2014 ^o^
+	If you're reading this in GIThub, it's Tabs-4
+	============================================= */
 body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
 
 
-/* Links & fonts
-   ============================================= */
+/*	Links & fonts
+	============================================= */
 a						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
 a, img					{border:0; outline:none;}
 a:focus					{color:#FFAB5E; text-decoration: none;}
@@ -17,28 +18,28 @@ i						{font-style:italics;}
 .bold.ob				{font-style:italic;}
 
 
-/* Main wrappers for content & fixed background img
-   ============================================= */
+/*	Main wrappers for content & fixed background img
+	============================================= */
 .portal					{width:100%; min-height:100%; height:auto !important; height:100%; margin:0px 0px -40px 0px;} /* Needed for sticky footer */
 .main_wrap				{width:100%; min-width:1040px; padding:0px 0px 40px 0px; background-color: rgba(255,255,255,0.4);}
 #background_image_wrap 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
 .overlay				{width:100%; height:100%; background-color:rgba(46, 41, 6, 0.6);} /* Overlay colour for background image */
 
-/* Breadcrumbs
-   ============================================= */
+/*	Breadcrumbs
+	============================================= */
 a.crumb					{display:inline-block; vertical-align:top; padding:0 10px; font-size:13px; color:#7BBCFF; line-height:1.1em;}
 a.crumb:hover			{color:#fff;}
 a.crumb:nth-of-type(1)	{padding-left:5px;}
 .crumb_wrap				{width:960px; margin:0 auto; padding-top:10px; font-size:13px; color:#CACBCB; line-height:1.1em;}
 .crumb_wrap span		{display:inline-block; vertical-align:top; padding:0 10px; font-size:13px; color:#fff; line-height:1.1em;}
 
-/* Languages links (top right)
-   ============================================= */
+/*	Languages links (top right)
+	============================================= */
 a.tongue				{display:inline-block; vertical-align:top; width:50px; text-align:center; color:#ccc; font-size:14px;}
 a.tongue:hover			{color:#fff;}
 
-/* Header styles
-   ============================================= */
+/*	Header styles
+	============================================= */
 .default				{width:960px; margin:0 auto; padding:0;}
 .default.head			{padding-top:20px;}
 .default.min			{padding-top:10px;}
@@ -46,8 +47,8 @@ a.tongue:hover			{color:#fff;}
 .tongue_wrap			{width:200px; display:inline-block; vertical-align:top; color:#fff; font-size:14px; text-align:right;}
 .declare.head			{width:960px; padding-top:5px; border-top:10px solid #fff; font-size:14px; color:#ccc;}
 
-/* Money Module styles
-   ============================================= */
+/*	Money Module styles
+	============================================= */
 .money_wrap				{width:880px; margin:0 auto; font-size:32px; padding:60px 0;}
 .money_mod_wrap			{width:380px; display:inline-block; vertical-align:top;}
 .money_mod_wrap.donor	{padding-right:60px;}
@@ -67,13 +68,13 @@ a.tongue:hover			{color:#fff;}
 a.view_all_money		{display:block; width:380px; background-color:rgba(0,14,32,0.7); color:#ccc; font-size:20px; text-align:center; padding:20px 0; border-radius:0 0 8px 8px; text-align:center;}
 a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
 
-/* Map styles
-   ============================================= */
+/*	Map styles
+	============================================= */
 .map_wrap				{width:100%; min-height:300px; margin:0 auto; background-color:rgba(0,0,0,0.8);}
  #map					{width:100%; height:400px;}
 
-/* Stats (key figures) styles
-   ============================================= */
+/*	Stats (key figures) styles
+	============================================= */
 .stats_wrap				{width:990px; margin:0 auto; padding:40px 0;}
 .stats_title			{font-size:24px; color:#ccc; padding-bottom:10px;}
 .stats_title span		{font-size:18px; color:#B8C8CD; white-space:nowrap;}
@@ -81,8 +82,8 @@ a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
 .stats_num.small		{font-size:64px;}
 .declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#ccc; font-size:16px;}
 
-/* Active / Ended projects styles
-   ============================================= */
+/*	Active / Ended projects styles
+	============================================= */
 .ended_wrap				{width:960px; margin:0 auto; padding:40px 20px;}
 .active_wrap			{width:960px; margin:0 auto; padding:40px 20px;}
 .table_wrap				{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
@@ -91,8 +92,8 @@ a.view_all_projects			{padding:10px 20px; background-color:#3B9CFB; font-size:20
 a.view_all_projects:hover	{background-color:#0081FF;}
 
 
-/* For url #view=donors & all #view=donor_*
-   ============================================= */
+/*	For url #view=donors & all #view=donor_*
+	============================================= */
 .donors_head_wrap			{width:860px; margin:0 auto; padding:40px 0;}
 .donors_icon_wrap			{width:330px; display:inline-block; vertical-align:bottom;}
 .donors_peak_wrap			{display:inline-block; vertical-align:top;}
@@ -103,8 +104,8 @@ a.view_all_projects:hover	{background-color:#0081FF;}
 .donors_head_declare		{width:480px; padding-top:10px; color:#ccc; font-size:14px; text-align:center;}
 .table_donors_wrap			{width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;}
 
-/* For url #view=donor_activities
-   ============================================= */
+/*	For url #view=donor_activities
+	============================================= */
 .donor_activities_wrap			{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
 .donor_activities				{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
 .donor_activities_spend_wrap	{position:relative;}
@@ -116,19 +117,19 @@ a.view_all_projects:hover	{background-color:#0081FF;}
 a.back_to_donor_list			{padding:10px 20px; background-color:#3B9CFB; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
 a.back_to_donor_list:hover		{background-color:#0081FF;}
 
-/* For url #view=donor_transactions
-   ============================================= */
+/*	For url #view=donor_transactions
+	============================================= */
 .donor_transactions_wrap	{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
 .donor_transactions			{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
 
-/* For url #view=donor_budgets
-   ============================================= */
+/*	For url #view=donor_budgets
+	============================================= */
 .donor_budgets_wrap			{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
 .donor_budgets				{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
 
 
-/* For url #view=sectors & all #view=sector_*
-   ============================================= */
+/*	For url #view=sectors & all #view=sector_*
+	============================================= */
 .sectors_head_wrap			{width:860px; margin:0 auto; padding:40px 0;}
 .sectors_icon_wrap			{width:330px; display:inline-block; vertical-align:bottom;}
 .sectors_peak_wrap			{display:inline-block; vertical-align:top;}
@@ -140,31 +141,31 @@ a.back_to_donor_list:hover		{background-color:#0081FF;}
 .table_sectors_wrap			{width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;}
 
 
-/* For url #view=act
-   ============================================= */
+/*	For url #view=act
+	============================================= */
 .act_wrap				{width:960px; margin:0 auto; padding:20px 0;}
 .act_alert_wrap			{color:#fff; font-size:16px; line-height:1.35em; padding:10px 20px; background-color:#000;}
 
 
-/* Tables
-   ============================================= */
+/*	Tables
+	============================================= */
 table					{border-spacing:0;}
 
-/* Header table
-   ============================================= */
+/*	Header table
+	============================================= */
 table.country.min		{width:960px; margin:0 auto; padding:10px 0;}
 table.country.min td:nth-child(1)	{width:860px; max-width:860px; padding-right:20px; font-size:32px; line-height:1.1em; color:#fff;}
 table.country			{width:960px; margin:0 auto; padding:20px 0;}
 table.country td:nth-child(1)		{width:800px; max-width:800px; padding-right:10px; font-size:64px; line-height:1.1em; color:#fff;}
 
-/* Table for Money Modules
-   ============================================= */
+/*	Table for Money Modules
+	============================================= */
 table.money_mod			{width:380px; min-height:300px; background-color:#fff; padding:20px 40px; font-size:20px;}
 table.money_mod td:nth-child(1)	{width:190px; padding:5px 10px 5px 0;}
 table.money_mod td:nth-child(2)	{width:100px;}
 
-/* Table titles
-   ============================================= */
+/*	Table titles
+	============================================= */
 table.title				{width:100%; border-collapse:collapse; padding-bottom:15px; border-bottom:10px solid #fff;}
 table.title.space		{border-collapse:separate;} /* Active / Ended projects need spacing */
 table.title td			{font-size:32px; line-height:1.1em; color:#fff; vertical-align:bottom;}
@@ -174,13 +175,13 @@ table.title td.total_spend		{text-align:right;}
 .declare.title.list		{vertical-align:bottom; text-align:right; padding:0; font-size:14px; line-height:1.1em; color:#fff;}
 .declare.title.table 	{margin-top:10px; font-size:14px; line-height:1.35em; color:#CACBCB; padding:10px 20px; background-color:#000;}
 
-/* Table for Stats (key figures)
-   ============================================= */
+/*	Table for Stats (key figures)
+	============================================= */
 table.stats				{width:990px; max-width:960px; border-collapse:separate; border-spacing:15px; border-left:0; border-right:0;}
 table.stats td			{background-color:rgba(0,14,32,0.7); padding:40px;}
 
-/* Table for Active / Ended projects
-   ============================================= */
+/*	Table for Active / Ended projects
+	============================================= */
 table.list				{width:100%; border-collapse:collapse;}
 table.list td			{color:#B8C8CD; font-size:20px; line-height:1.45em; word-spacing:0.7px; padding:20px 20px 20px 0; vertical-align:top;}
 table.list td:nth-child(3)	{text-align:right; padding-right:0; min-width:160px;}
@@ -192,8 +193,8 @@ table.list a:visited	{color:#A8C5E5; text-decoration:none;}
 table.list a:hover		{color:#fff; text-decoration:none; background-color:rgba(0,0,0,0.4);}
 table.list a:active		{color:#A8C5E5; text-decoration:none;}
 
-/* Table for Money list (Donors / Sectors)
-   ============================================= */
+/*	Table for Money list (Donors / Sectors)
+	============================================= */
 table.money				{width:100%; border-collapse:collapse;}
 table.money td			{text-align:right; color:#B8C8CD; font-size:16px; line-height:1.45em; word-spacing:0.7px; padding:20px; vertical-align:top; border-bottom:1px solid #1E90FF;}
 table.money td:nth-child(1)	{text-align:left; background-color:rgba(17, 46, 105, 0.4);}
@@ -219,8 +220,8 @@ table.money a:visited	{color:#A8C5E5; text-decoration:none;}
 table.money a:hover		{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration:none;}
 table.money a:active	{color:#A8C5E5; text-decoration: none;}
 
-/* Table for Activities list (Donors / Sectors)
-   ============================================= */
+/*	Table for Activities list (Donors / Sectors)
+	============================================= */
 table.activity			{width:100%; border-collapse:collapse;}
 table.activity td		{color:#B8C8CD; font-size:20px; line-height:1.45em; word-spacing:0.7px; padding:10px 20px; vertical-align:top;}
 table.activity td:nth-child(1)	{padding:10px 0;}
@@ -236,8 +237,8 @@ table.activity a:hover	{color:#fff; text-decoration:none; background-color:rgba(
 table.activity a:active	{color:#95B0CF; text-decoration:none;}
 
 
-/* About
-   ============================================= */
+/*	About
+	============================================= */
 .about_wrap				{width:920px; margin:0 auto; padding:40px 20px;}
 .about_txt				{width:570px; padding-right:60px; display:inline-block; vertical-align:top; line-height:1.35em; word-spacing:0.05em; font-size:18px; color:#fff;}
 .about_txt span			{color:#fff;}
@@ -245,15 +246,15 @@ table.activity a:active	{color:#95B0CF; text-decoration:none;}
 a.iati_link				{display:block; width:270px; margin:0 auto; padding:0 30px;}
 
 
-/* Data Investigators alert
-   ============================================= */
+/*	Data Investigators alert
+	============================================= */
 .data_wrap				{width:100%; margin:0 auto;}
 a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:14px; color:#D6D2A1; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
 a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 
 
-/* Footer
-   ============================================= */
+/*	Footer
+	============================================= */
 .footer_wrap			{width:100%; min-width:1040px; height:40px; background-color:rgba(0,0,0,0.8);}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
 .team					{width:320px; display:inline-block; vertical-align:top;}
