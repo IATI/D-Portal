@@ -1,0 +1,75 @@
+/*	CSS for D-PORTAL 2014 ^o^
+	If you're reading this in github, 
+	please change to Tabs-4 as github is broken.
+	============================================= */
+body,html 				{background:none; color:#fff; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
+
+
+/*	Links & fonts
+	============================================= */
+a						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
+a, img					{border:0; outline:none;}
+a:focus					{color:#FFAB5E; text-decoration: none;}
+a:link  				{color:#FFAB5E; text-decoration: none;}
+a:visited				{color:#FFAB5E; text-decoration: none;}
+a:hover					{color:#FF7A00; text-decoration: none;}
+a:active				{color:#FFAB5E; text-decoration: none;}
+i						{font-style:italics;}
+.bold					{font-weight:bold;}
+.bold.ob				{font-style:italic;}
+
+
+/*	Main wrappers for content & fixed background img
+	============================================= */
+.portal					{width:100%; min-height:100%; height:auto !important; height:100%; margin:0px 0px -40px 0px;} /* Needed for sticky footer */
+.main_wrap				{width:100%; min-width:1040px; padding:0px 0px 40px 0px; background-color: rgba(255,255,255,0.4);}
+#background_image_wrap 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/mexico_background_image.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
+.overlay				{width:100%; height:100%; background-color:rgba(46, 41, 6, 0.6);} /* Overlay colour for background image */
+
+
+/*	Languages links (top right)
+	============================================= */
+a.tongue				{display:inline-block; vertical-align:top; width:50px; text-align:center; color:#ccc; font-size:14px;}
+a.tongue:hover			{color:#fff;}
+
+/*	Header styles
+	============================================= */
+.default				{width:960px; margin:0 auto; padding:0;}
+.default.center			{text-align:center;}
+
+table.countries			{width:100%; border-collapse:collapse; border-spacing:0;}
+table.countries td		{font-size:1em; line-height:1.25em; word-spacing:0.7px; padding:10px; max-width:172px; vertical-align:top;}
+table.countries td:hover	{background-color:#2573CD;}
+table.countries a			{display:block; width:100%; color:#fff; text-align:left;}
+table.countries a:focus		{color:#fff; text-decoration:none;}
+table.countries a:link  	{color:#fff; text-decoration:none;}
+table.countries a:visited	{color:#fff; text-decoration:none;}
+table.countries a:hover		{color:#fff; text-decoration:none;}
+table.countries a:active	{color:#fff; text-decoration:none;}
+
+.dropdown_wrap			{position:relative; width:200px; padding:10px; margin:0 auto; background:#9bc7de; color:#fff; outline:none; cursor:pointer; font-weight:bold;}
+.dropdown_wrap:after	{content:""; width:0; height:0; position:absolute; right:16px; top:50%; margin-top:-6px; border-width:6px 0 6px 6px; border-style:solid; border-color:transparent #fff;}
+ul.dropdown				{}
+a.country_codes			{width:100%; height:100%; color:#fff; font-size:1em; line-height:1.25em; display:block; vertical-align:top; text-align:left;}
+a.country_codes:hover	{background-color:#2573CD;}
+
+/*	Data Investigators alert
+	============================================= */
+.data_wrap				{width:100%; margin:0 auto;}
+a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:14px; color:#D6D2A1; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
+a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
+
+
+/*	Footer
+	============================================= */
+.footer_wrap			{width:100%; min-width:1040px; height:40px; background-color:rgba(0,0,0,0.8);}
+.footer					{width:960px; margin:0 auto; padding:10px 0;}
+.team					{width:320px; display:inline-block; vertical-align:top;}
+.team a					{font-size:13px; line-height:1.5em; color:#A3A3A3;}
+.team a:focus			{color:#A3A3A3;}
+.team a:link  			{color:#A3A3A3;}
+.team a:visited			{color:#A3A3A3;}
+.team a:hover			{color:#fff;}
+.team a:active			{color:#A3A3A3;}
+.team.git				{text-align:right;}
+.team.top				{text-align:center;}
