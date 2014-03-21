@@ -1,0 +1,336 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+<meta charset="UTF-8">
+<title>Development Portal</title>
+<script src="/jslib/jquery.js"></script>
+<link  href="index.css" rel="stylesheet" type="text/css" >
+	</head> 
+<body>
+<div class="portal">
+	<div class="main_wrap">
+	<div id="background_image_wrap"></div>
+		<div class="overlay">
+			<div class="default center">
+				<img src="/art/dp_logo.400.png" width="400" height="400" alt="D-Portal logo"/>
+				<div style="width:100%; margin:0 auto; text-align:center; color:#fff; font-size:1.8em; line-height:1.35em;">
+					Helping you to understand IATI data.
+				</div>
+				<div class="dropdown_wrap-1" tabindex="1">
+					<div>Choose a country</div>
+					<ul class="dropdown">
+					<li><a class="country_code" href="AC">Ascension Island</a></li>
+					<li><a class="country_code" href="AD">Andorra</a></li>
+					<li><a class="country_code" href="AE">United Arab Emirates</a></li>
+					<li><a class="country_code" href="AF">Afghanistan</a></li>
+					<li><a class="country_code" href="AG">Antigua and Barbuda</a></li>
+					<li><a class="country_code" href="AI">Anguilla</a></li>
+					<li><a class="country_code" href="AL">Albania</a></li>
+					<li><a class="country_code" href="AM">Armenia</a></li>
+					<li><a class="country_code" href="AN">Netherlands Antilles</a></li>
+					<li><a class="country_code" href="AO">Angola</a></li>
+					<li><a class="country_code" href="AP">African Regional Industrial Property Organization</a></li>
+					<li><a class="country_code" href="AQ">Antarctica</a></li>
+					<li><a class="country_code" href="AR">Argentina</a></li>
+					<li><a class="country_code" href="AS">American Samoa</a></li>
+					<li><a class="country_code" href="AT">Austria</a></li>
+					<li><a class="country_code" href="AU">Australia</a></li>
+					<li><a class="country_code" href="AW">Aruba</a></li>
+					<li><a class="country_code" href="AX">Åland Islands</a></li>
+					<li><a class="country_code" href="AZ">Azerbaijan</a></li>
+					<li><a class="country_code" href="BA">Bosnia and Herzegovina</a></li>
+					<li><a class="country_code" href="BB">Barbados</a></li>
+					<li><a class="country_code" href="BD">Bangladesh</a></li>
+					<li><a class="country_code" href="BE">Belgium</a></li>
+					<li><a class="country_code" href="BF">Burkina Faso</a></li>
+					<li><a class="country_code" href="BG">Bulgaria</a></li>
+					<li><a class="country_code" href="BH">Bahrain</a></li>
+					<li><a class="country_code" href="BI">Burundi</a></li>
+					<li><a class="country_code" href="BJ">Benin</a></li>
+					<li><a class="country_code" href="BL">Saint Barthélemy</a></li>
+					<li><a class="country_code" href="BM">Bermuda</a></li>
+					<li><a class="country_code" href="BN">Brunei Darussalem</a></li>
+					<li><a class="country_code" href="BO">Bolivia, Plurinational State of</a></li>
+					<li><a class="country_code" href="BQ">Bonaire, Saint Eustatius and Saba</a></li>
+					<li><a class="country_code" href="BR">Brazil</a></li>
+					<li><a class="country_code" href="BS">Bahamas</a></li>
+					<li><a class="country_code" href="BT">Bhutan</a></li>
+					<li><a class="country_code" href="BU">Burma</a></li>
+					<li><a class="country_code" href="BV">Bouvet Island</a></li>
+					<li><a class="country_code" href="BW">Botswana</a></li>
+					<li><a class="country_code" href="BX">Benelux Trademarks and Design Offices</a></li>
+					<li><a class="country_code" href="BY">Belarus</a></li>
+					<li><a class="country_code" href="BZ">Belize</a></li>
+					<li><a class="country_code" href="CA">Canada</a></li>
+					<li><a class="country_code" href="CC">Cocos (Keeling) Islands</a></li>
+					<li><a class="country_code" href="CD">Congo, the Democratic Republic of the</a></li>
+					<li><a class="country_code" href="CF">Central African Republic</a></li>
+					<li><a class="country_code" href="CG">Congo</a></li>
+					<li><a class="country_code" href="CH">Switzerland</a></li>
+					<li><a class="country_code" href="CI">Côte d'Ivoire</a></li>
+					<li><a class="country_code" href="CK">Cook Islands</a></li>
+					<li><a class="country_code" href="CL">Chile</a></li>
+					<li><a class="country_code" href="CM">Cameroon</a></li>
+					<li><a class="country_code" href="CN">China</a></li>
+					<li><a class="country_code" href="CO">Colombia</a></li>
+					<li><a class="country_code" href="CP">Clipperton Island</a></li>
+					<li><a class="country_code" href="CR">Costa Rica</a></li>
+					<li><a class="country_code" href="CS">Serbia and Montenegro</a></li>
+					<li><a class="country_code" href="CU">Cuba</a></li>
+					<li><a class="country_code" href="CV">Cape Verde</a></li>
+					<li><a class="country_code" href="CW">Curaçao</a></li>
+					<li><a class="country_code" href="CX">Christmas Island</a></li>
+					<li><a class="country_code" href="CY">Cyprus</a></li>
+					<li><a class="country_code" href="CZ">Czech Republic</a></li>
+					<li><a class="country_code" href="DE">Germany</a></li>
+					<li><a class="country_code" href="DG">Diego Garcia</a></li>
+					<li><a class="country_code" href="DJ">Djibouti</a></li>
+					<li><a class="country_code" href="DK">Denmark</a></li>
+					<li><a class="country_code" href="DM">Dominica</a></li>
+					<li><a class="country_code" href="DO">Dominican Republic</a></li>
+					<li><a class="country_code" href="DY">Benin</a></li>
+					<li><a class="country_code" href="DZ">Algeria</a></li>
+					<li><a class="country_code" href="EA">Ceuta, Melilla</a></li>
+					<li><a class="country_code" href="EC">Ecuador</a></li>
+					<li><a class="country_code" href="EE">Estonia</a></li>
+					<li><a class="country_code" href="EF">Union of Countries under the European Community Patent Convention</a></li>
+					<li><a class="country_code" href="EG">Egypt</a></li>
+					<li><a class="country_code" href="EH">Western Sahara</a></li>
+					<li><a class="country_code" href="EM">European Trademark Office</a></li>
+					<li><a class="country_code" href="EP">European Patent Organization</a></li>
+					<li><a class="country_code" href="ER">Eritrea</a></li>
+					<li><a class="country_code" href="ES">Spain</a></li>
+					<li><a class="country_code" href="ET">Ethiopia</a></li>
+					<li><a class="country_code" href="EU">European Union</a></li>
+					<li><a class="country_code" href="EV">Eurasian Patent Organization</a></li>
+					<li><a class="country_code" href="EW">Estonia</a></li>
+					<li><a class="country_code" href="FI">Finland</a></li>
+					<li><a class="country_code" href="FJ">Fiji</a></li>
+					<li><a class="country_code" href="FK">Falkland Islands (Malvinas)</a></li>
+					<li><a class="country_code" href="FL">Liechtenstein</a></li>
+					<li><a class="country_code" href="FM">Micronesia, Federated States of</a></li>
+					<li><a class="country_code" href="FO">Faroe Islands</a></li>
+					<li><a class="country_code" href="FR">France</a></li>
+					<li><a class="country_code" href="FX">France, Metropolitan</a></li>
+					<li><a class="country_code" href="GA">Gabon</a></li>
+					<li><a class="country_code" href="GB">United Kingdom</a></li>
+					<li><a class="country_code" href="GC">Patent Office of the Cooperation Council for the Arab States of the Gulf (GCC)</a></li>
+					<li><a class="country_code" href="GD">Grenada</a></li>
+					<li><a class="country_code" href="GE">Georgia</a></li>
+					<li><a class="country_code" href="GF">French Guiana</a></li>
+					<li><a class="country_code" href="GG">Guernsey</a></li>
+					<li><a class="country_code" href="GH">Ghana</a></li>
+					<li><a class="country_code" href="GI">Gibraltar</a></li>
+					<li><a class="country_code" href="GL">Greenland</a></li>
+					<li><a class="country_code" href="GM">Gambia</a></li>
+					<li><a class="country_code" href="GN">Guinea</a></li>
+					<li><a class="country_code" href="GP">Guadeloupe</a></li>
+					<li><a class="country_code" href="GQ">Equatorial Guinea</a></li>
+					<li><a class="country_code" href="GR">Greece</a></li>
+					<li><a class="country_code" href="GS">South Georgia and the South Sandwich Islands</a></li>
+					<li><a class="country_code" href="GT">Guatemala</a></li>
+					<li><a class="country_code" href="GU">Guam</a></li>
+					<li><a class="country_code" href="GW">Guinea-Bissau</a></li>
+					<li><a class="country_code" href="GY">Guyana</a></li>
+					<li><a class="country_code" href="HK">Hong Kong</a></li>
+					<li><a class="country_code" href="HM">Heard Island and McDonald Islands</a></li>
+					<li><a class="country_code" href="HN">Honduras</a></li>
+					<li><a class="country_code" href="HR">Croatia</a></li>
+					<li><a class="country_code" href="HT">Haiti</a></li>
+					<li><a class="country_code" href="HU">Hungary</a></li>
+					<li><a class="country_code" href="IB">International Bureau of WIPO</a></li>
+					<li><a class="country_code" href="IC">Canary Islands</a></li>
+					<li><a class="country_code" href="ID">Indonesia</a></li>
+					<li><a class="country_code" href="IE">Ireland</a></li>
+					<li><a class="country_code" href="IL">Israel</a></li>
+					<li><a class="country_code" href="IM">Isle of Man</a></li>
+					<li><a class="country_code" href="IN">India</a></li>
+					<li><a class="country_code" href="IO">British Indian Ocean Territory</a></li>
+					<li><a class="country_code" href="IQ">Iraq</a></li>
+					<li><a class="country_code" href="IR">Iran, Islamic Republic of</a></li>
+					<li><a class="country_code" href="IS">Iceland</a></li>
+					<li><a class="country_code" href="IT">Italy</a></li>
+					<li><a class="country_code" href="JA">Jamaica</a></li>
+					<li><a class="country_code" href="JE">Jersey</a></li>
+					<li><a class="country_code" href="JM">Jamaica</a></li>
+					<li><a class="country_code" href="JO">Jordan</a></li>
+					<li><a class="country_code" href="JP">Japan</a></li>
+					<li><a class="country_code" href="KE">Kenya</a></li>
+					<li><a class="country_code" href="KG">Kyrgyzstan</a></li>
+					<li><a class="country_code" href="KH">Cambodia</a></li>
+					<li><a class="country_code" href="KI">Kiribati</a></li>
+					<li><a class="country_code" href="KM">Comoros</a></li>
+					<li><a class="country_code" href="KN">Saint Kitts and Nevis</a></li>
+					<li><a class="country_code" href="KP">Korea, Democratic People's Republic of</a></li>
+					<li><a class="country_code" href="KR">Korea, Republic of</a></li>
+					<li><a class="country_code" href="KW">Kuwait</a></li>
+					<li><a class="country_code" href="KY">Cayman Islands</a></li>
+					<li><a class="country_code" href="KZ">Kazakhstan</a></li>
+					<li><a class="country_code" href="LA">Lao People's Democratic Republic</a></li>
+					<li><a class="country_code" href="LB">Lebanon</a></li>
+					<li><a class="country_code" href="LC">Saint Lucia</a></li>
+					<li><a class="country_code" href="LF">Libya Fezzan</a></li>
+					<li><a class="country_code" href="LI">Liechtenstein</a></li>
+					<li><a class="country_code" href="LK">Sri Lanka</a></li>
+					<li><a class="country_code" href="LR">Liberia</a></li>
+					<li><a class="country_code" href="LS">Lesotho</a></li>
+					<li><a class="country_code" href="LT">Lithuania</a></li>
+					<li><a class="country_code" href="LU">Luxembourg</a></li>
+					<li><a class="country_code" href="LV">Latvia</a></li>
+					<li><a class="country_code" href="LY">Libya</a></li>
+					<li><a class="country_code" href="MA">Morocco</a></li>
+					<li><a class="country_code" href="MC">Monaco</a></li>
+					<li><a class="country_code" href="MD">Moldova, Republic of</a></li>
+					<li><a class="country_code" href="ME">Montenegro</a></li>
+					<li><a class="country_code" href="MF">Saint Martin (French part)</a></li>
+					<li><a class="country_code" href="MG">Madagascar</a></li>
+					<li><a class="country_code" href="MH">Marshall Islands</a></li>
+					<li><a class="country_code" href="MK">Macedonia, the former Yugoslav Republic of</a></li>
+					<li><a class="country_code" href="ML">Mali</a></li>
+					<li><a class="country_code" href="MM">Myanmar</a></li>
+					<li><a class="country_code" href="MN">Mongolia</a></li>
+					<li><a class="country_code" href="MO">Macao</a></li>
+					<li><a class="country_code" href="MP">Northern Mariana Islands</a></li>
+					<li><a class="country_code" href="MQ">Martinique</a></li>
+					<li><a class="country_code" href="MR">Mauritania</a></li>
+					<li><a class="country_code" href="MS">Montserrat</a></li>
+					<li><a class="country_code" href="MT">Malta</a></li>
+					<li><a class="country_code" href="MU">Mauritius</a></li>
+					<li><a class="country_code" href="MV">Maldives</a></li>
+					<li><a class="country_code" href="MW">Malawi</a></li>
+					<li><a class="country_code" href="MX">Mexico</a></li>
+					<li><a class="country_code" href="MY">Malaysia</a></li>
+					<li><a class="country_code" href="MZ">Mozambique</a></li>
+					<li><a class="country_code" href="NA">Namibia</a></li>
+					<li><a class="country_code" href="NC">New Caledonia</a></li>
+					<li><a class="country_code" href="NE">Niger</a></li>
+					<li><a class="country_code" href="NF">Norfolk Island</a></li>
+					<li><a class="country_code" href="NG">Nigeria</a></li>
+					<li><a class="country_code" href="NI">Nicaragua</a></li>
+					<li><a class="country_code" href="NL">Netherlands</a></li>
+					<li><a class="country_code" href="NO">Norway</a></li>
+					<li><a class="country_code" href="NP">Nepal</a></li>
+					<li><a class="country_code" href="NR">Nauru</a></li>
+					<li><a class="country_code" href="NT">Neutral Zone</a></li>
+					<li><a class="country_code" href="NU">Niue</a></li>
+					<li><a class="country_code" href="NZ">New Zealand</a></li>
+					<li><a class="country_code" href="OA">African Intellectual Property Organization</a></li>
+					<li><a class="country_code" href="OM">Oman</a></li>
+					<li><a class="country_code" href="PA">Panama</a></li>
+					<li><a class="country_code" href="PE">Peru</a></li>
+					<li><a class="country_code" href="PF">French Polynesia</a></li>
+					<li><a class="country_code" href="PG">Papua New Guinea</a></li>
+					<li><a class="country_code" href="PH">Philippines</a></li>
+					<li><a class="country_code" href="PI">Philippines</a></li>
+					<li><a class="country_code" href="PK">Pakistan</a></li>
+					<li><a class="country_code" href="PL">Poland</a></li>
+					<li><a class="country_code" href="PM">Saint Pierre and Miquelon</a></li>
+					<li><a class="country_code" href="PN">Pitcairn</a></li>
+					<li><a class="country_code" href="PR">Puerto Rico</a></li>
+					<li><a class="country_code" href="PS">Palestine, State of</a></li>
+					<li><a class="country_code" href="PT">Portugal</a></li>
+					<li><a class="country_code" href="PW">Palau</a></li>
+					<li><a class="country_code" href="PY">Paraguay</a></li>
+					<li><a class="country_code" href="QA">Qatar</a></li>
+					<li><a class="country_code" href="RA">Argentina</a></li>
+					<li><a class="country_code" href="RB">Bolivia; Botswana</a></li>
+					<li><a class="country_code" href="RC">China</a></li>
+					<li><a class="country_code" href="RE">Réunion</a></li>
+					<li><a class="country_code" href="RH">Haiti</a></li>
+					<li><a class="country_code" href="RI">Indonesia</a></li>
+					<li><a class="country_code" href="RL">Lebanon</a></li>
+					<li><a class="country_code" href="RM">Madagascar</a></li>
+					<li><a class="country_code" href="RN">Niger</a></li>
+					<li><a class="country_code" href="RO">Romania</a></li>
+					<li><a class="country_code" href="RP">Philippines</a></li>
+					<li><a class="country_code" href="RS">Serbia</a></li>
+					<li><a class="country_code" href="RU">Russian Federation</a></li>
+					<li><a class="country_code" href="RW">Rwanda</a></li>
+					<li><a class="country_code" href="SA">Saudi Arabia</a></li>
+					<li><a class="country_code" href="SB">Solomon Islands</a></li>
+					<li><a class="country_code" href="SC">Seychelles</a></li>
+					<li><a class="country_code" href="SD">Sudan</a></li>
+					<li><a class="country_code" href="SE">Sweden</a></li>
+					<li><a class="country_code" href="SF">Finland</a></li>
+					<li><a class="country_code" href="SG">Singapore</a></li>
+					<li><a class="country_code" href="SH">Saint Helena, Ascension and Tristan da Cunha</a></li>
+					<li><a class="country_code" href="SI">Slovenia</a></li>
+					<li><a class="country_code" href="SJ">Svalbard and Jan Mayen</a></li>
+					<li><a class="country_code" href="SK">Slovakia</a></li>
+					<li><a class="country_code" href="SL">Sierra Leone</a></li>
+					<li><a class="country_code" href="SM">San Marino</a></li>
+					<li><a class="country_code" href="SN">Senegal</a></li>
+					<li><a class="country_code" href="SO">Somalia</a></li>
+					<li><a class="country_code" href="SR">Suriname</a></li>
+					<li><a class="country_code" href="SS">South Sudan</a></li>
+					<li><a class="country_code" href="ST">Sao Tome and Principe</a></li>
+					<li><a class="country_code" href="SU">USSR</a></li>
+					<li><a class="country_code" href="SV">El Salvador</a></li>
+					<li><a class="country_code" href="SX">Sint Maarten (Dutch part)</a></li>
+					<li><a class="country_code" href="SY">Syrian Arab Republic</a></li>
+					<li><a class="country_code" href="SZ">Swaziland</a></li>
+					<li><a class="country_code" href="TA">Tristan da Cunha</a></li>
+					<li><a class="country_code" href="TC">Turks and Caicos Islands</a></li>
+					<li><a class="country_code" href="TD">Chad</a></li>
+					<li><a class="country_code" href="TF">French Southern Territories</a></li>
+					<li><a class="country_code" href="TG">Togo</a></li>
+					<li><a class="country_code" href="TH">Thailand</a></li>
+					<li><a class="country_code" href="TJ">Tajikistan</a></li>
+					<li><a class="country_code" href="TK">Tokelau</a></li>
+					<li><a class="country_code" href="TL">Timor-Leste</a></li>
+					<li><a class="country_code" href="TM">Turkmenistan</a></li>
+					<li><a class="country_code" href="TN">Tunisia</a></li>
+					<li><a class="country_code" href="TO">Tonga</a></li>
+					<li><a class="country_code" href="TP">East Timor</a></li>
+					<li><a class="country_code" href="TR">Turkey</a></li>
+					<li><a class="country_code" href="TT">Trinidad and Tobago</a></li>
+					<li><a class="country_code" href="TV">Tuvalu</a></li>
+					<li><a class="country_code" href="TW">Taiwan, Province of China</a></li>
+					<li><a class="country_code" href="TZ">Tanzania, United Republic of</a></li>
+					<li><a class="country_code" href="UA">Ukraine</a></li>
+					<li><a class="country_code" href="UG">Uganda</a></li>
+					<li><a class="country_code" href="UK">United Kingdom</a></li>
+					<li><a class="country_code" href="UM">United States Minor Outlying Islands</a></li>
+					<li><a class="country_code" href="US">United States</a></li>
+					<li><a class="country_code" href="UY">Uruguay</a></li>
+					<li><a class="country_code" href="UZ">Uzbekistan</a></li>
+					<li><a class="country_code" href="VA">Holy See (Vatican City State)</a></li>
+					<li><a class="country_code" href="VC">Saint Vincent and the Grenadines</a></li>
+					<li><a class="country_code" href="VE">Venezuela, Bolivarian Republic of</a></li>
+					<li><a class="country_code" href="VG">Virgin Islands, British</a></li>
+					<li><a class="country_code" href="VI">Virgin Islands, U.S.</a></li>
+					<li><a class="country_code" href="VN">Viet Nam</a></li>
+					<li><a class="country_code" href="VU">Vanuatu</a></li>
+					<li><a class="country_code" href="WF">Wallis and Futuna</a></li>
+					<li><a class="country_code" href="WG">Grenada</a></li>
+					<li><a class="country_code" href="WL">Saint Lucia</a></li>
+					<li><a class="country_code" href="WO">World Intellectual Property Organization</a></li>
+					<li><a class="country_code" href="WS">Samoa</a></li>
+					<li><a class="country_code" href="WV">Saint Vincent</a></li>
+					<li><a class="country_code" href="YE">Yemen</a></li>
+					<li><a class="country_code" href="YT">Mayotte</a></li>
+					<li><a class="country_code" href="YU">Yugoslavia</a></li>
+					<li><a class="country_code" href="YV">Venezuela</a></li>
+					<li><a class="country_code" href="ZA">South Africa</a></li>
+					<li><a class="country_code" href="ZM">Zambia</a></li>
+					<li><a class="country_code" href="ZR">Zaire</a></li>
+					<li><a class="country_code" href="ZW">Zimbabwe</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer_wrap">
+	<div class="footer">
+		<div class="team"><a href="http://www.aidtransparency.net/" title="International Aid Transparency Initiative (IATI)">
+			A project by the Development Portal team :}</a>
+		</div><div class="team top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+			Back to Top</a>
+		</div><div class="team git"><a href="https://github.com/IATI/IATI-Country-Tracker">
+			Fork us on Github!</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

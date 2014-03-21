@@ -52,6 +52,7 @@ Activity
 #view_act
 {view_head}
 <style>{css}</style>
+{beige}
 {main_head}
 {main_countrymin}
 <div class="act_wrap">
@@ -63,6 +64,7 @@ Activity
 #view_donors
 {view_head}
 <style>{css}</style>
+{beige}
 {main_head}
 {main_countrymin}
 {donors_head}
@@ -73,6 +75,7 @@ Activity
 #view_donor_activities
 {view_head}
 <style>{css}</style>
+{beige}
 {main_head}
 {main_countrymin}
 {donors_head}
@@ -125,6 +128,7 @@ Activity
 #view_donor_transactions
 {view_head}
 <style>{css}</style>
+{beige}
 {main_head}
 {main_countrymin}
 {donors_head}
@@ -162,6 +166,7 @@ Activity
 #view_donor_budgets
 {view_head}
 <style>{css}</style>
+{beige}
 {main_head}
 {main_countrymin}
 {donors_head}
@@ -255,6 +260,7 @@ Activity
 #view_sectors
 {view_head}
 <style>{css}</style>
+{beige}
 {main_head}
 {main_countrymin}
 {sectors_head}
@@ -322,6 +328,7 @@ Activity
 #view_districts
 {view_head}
 <style>{css}</style>
+{beige}
 {main_head}
 {districts_head}
 {table_districts}
@@ -375,6 +382,7 @@ BANGLADESH
 #view_main
 {view_head}
 <style>{css}</style>
+{beige}
 {main_head}
 {main_country}
 {main_money}
@@ -385,20 +393,41 @@ BANGLADESH
 {main_about}
 {main_datainvestigators}
 {view_tail}
+{view_foot}
+
+#beige
+<div class="beigealert">
+	<img src="/art/alert_icon.png" alt="Declaration icon" width="15" height="15"> D-Portal is still in very early development &amp; scheduled for Alpha release mid-April. Thank you for your patience! Please provide any feedback <a href="/html/feedback.html" class="beige">here</a>.
+</div>
 
 #view_head
-<div class="main_wrap">
-<div id="background_image_wrap"></div>
-<div class="overlay">
+<div class="portal">
+	<div class="main_wrap">
+		<div id="background_image_wrap"></div>
+		<div class="overlay">
 	
 #view_tail
+		</div>
+	</div>
 </div>
+
+#view_foot
+<div class="footer_wrap">
+	<div class="footer">
+		<div class="team"><a href="http://www.aidtransparency.net/" title="International Aid Transparency Initiative (IATI)">
+			{footer_team_text}</a>
+		</div><div class="team top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+			{footer_top_text}</a>
+		</div><div class="team git"><a href="https://github.com/IATI/D-Portal">
+			{footer_github_text}</a>
+		</div>
+	</div>
 </div>
 
 #main_head
 <div class="default head">
 	<div class="logo_wrap">
-		<a href="/#examples" title="{mainback_text}"><img src="{art}dp_logo.20.png" alt="{dportal_logo_text}" width="232" height="21"/></a>
+		<a href="#view=main" title="{mainback_text}"><img src="{art}dp_logo.20.png" alt="{dportal_logo_text}" width="232" height="21"/></a>
 	</div><div class="tongue_wrap">
 		<a href="?tongue=eng" class="tongue" title="{tongue_eng_text}">ENG</a> / <a href="?tongue=fra" class="tongue" title="{tongue_fra_text}">FRA</a> / <a href="?tongue=spa" class="tongue" title="{tongue_spa_text}">SPA</a>
 	</div>
