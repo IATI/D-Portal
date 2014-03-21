@@ -3,10 +3,6 @@
 
 var plate=exports;
 
-var ctrack=require("./ctrack.js")
-//var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetch=require("./fetch.js")
 
 plate.chunks=[];
 
@@ -14,16 +10,47 @@ plate.chunks=[];
 plate.fill_chunks=function(str,chunks)
 {
 	var chunks=chunks || {};
+	chunks.__flags__=chunks._flags || {}; // special flags chunk chunk, if we have any
 
 	var chunk;
+	var flags; // associated with this chunk
 	str.split("\n").forEach(function(l){
 			if(l[0]=="#")
 			{
-				if(l[1]!="#")
+				if(l[1]="#") // double hash escape?
 				{
-					var name=l.substring(1).replace(/\s+/g, " ").split(" ")[0];
+					if(chunk)
+					{
+						chunk.push(l.slice(1)); // double ## escape, only keep one #
+					}
+				}
+				else
+				{
+					var words=l.substring(1).replace(/\s+/g, " ").split(" "); // allow any type of whitespace
+					var name=words[0];
 					if(name)
 					{
+						if(words[1] && (words[1]!="")) // have some flags
+						{
+							flags=chunks.__flags__[name];
+							if(!flags) // create
+							{
+								flags={};
+								chunks.__flags__[name]=flags;
+								for(var i=1;i<words.length;i++)
+								{
+									var aa=words[i].split("="); // flags must be -> flag=value 
+									if(aa[0]&&aa[1])
+									{
+										flags[aa[0]]=aa[1]; // add flags
+									}
+								}
+							}
+						}
+						else
+						{
+							flags={}; // no flags
+						}
 						chunk=chunks[name];
 						if(!chunk) // create
 						{
@@ -46,13 +73,27 @@ plate.fill_chunks=function(str,chunks)
 				chunk.push(l);
 			}
 		});
-
+		
+	// turn back into strings from arrays
 	for( n in chunks )
 	{
 		if( "object" == typeof chunks[n] ) // join arrays
 		{
 			chunks[n]=chunks[n].join("\n");
 		}
+	}
+
+	// apply flags to the formatting
+	for( n in chunks.__flags__ )
+	{
+		var v=chunks[n];
+		var f=chunks.__flags__[n];
+		
+		if(f.trim) // trim=ends
+		{
+			chunks[n]=v.trim(); // remove whitespace from start/end
+		}
+
 	}
 
 	return chunks;
@@ -65,12 +106,34 @@ plate.out_chunks=function(chunks)
 	
 	for(var n in chunks)
 	{
-		var v=chunks[n];
-		r.push("#"+n+"\n");
-		r.push(v);
-		if(v.slice(-1)!="\n") // may need to add a \n at the end
+		if(n=="__flags__") // special flags chunk name
 		{
-			r.push("\n");
+		}
+		else
+		{
+			var v=chunks[n];
+			var f=chunks.__flags__;
+			if(f){f=f[n];}
+			r.push("#"+n);
+			if(f) // and we need to include flags
+			{
+				for(var fn in f)
+				{
+					if(fn && f[fn])
+					{
+						r.push(" "+fn+"="+"f[fn]);
+					}
+				}
+			}
+			else
+			{
+				r.push("\n");
+			}
+			str.split("\n").forEach(function(l){
+				if(l[0]=="#") { r.push("#"); } // add double escape back in
+				r.push(l);
+				r.push("\n");
+			});
 		}
 	}
 
