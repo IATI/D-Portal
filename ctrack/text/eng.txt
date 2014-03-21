@@ -2,22 +2,22 @@
 The main data is sourced from IATI unless stated otherwise and accurate as of {today}
 
 #xml_declare_text
-Missing values suggests insufficient data and signifies data quality issues. Click on the IATI Identifier link below to view the XML on its own. You can also see the unstyled XML by viewing the source of that webpage (Ctrl+U or Cmd+U).
+Missing values suggest insufficient data and signify data quality issues. Click on the IATI Identifier link below to view the XML on its own. You can also see the unstyled XML by viewing the source of that webpage (Ctrl+U or Cmd+U).
 
 #title_donor_text
 Where does the money come from?
 
 #declare_title_donor_text
-Comparing IATI donors with Non-IATI (CRS and Others) donor data
+Comparing IATI donors with non-IATI (CRS and other) donor data
 
 #declare_title_sector_text
-Comparing IATI sectors with Non-IATI (CRS and Others) sector data
+Comparing IATI sectors with non-IATI (CRS and Other) sector data
 
 #money_title_icon_text
 The public wants to know where the money is!
 
 #alert_no_iati_text
-This Donor does not publish to IATI.
+This Donor does not publish to IATI yet.
 
 #active_icon_text
 Active projects icon
@@ -38,7 +38,7 @@ Choose a different example
 Back to Development Portal
 
 #about_text
-Development Portal aims to be a simple user interface to search and browse all IATI data relating to a specific country that can be easily hosted by
+Development Portal is a simple user interface for searching and browsing all IATI data relating to a specific country that can be easily hosted by
 
 #about_anyone_text
 anyone
@@ -50,16 +50,16 @@ anywhere
 DATA INVESTIGATORS, WE NEED YOU! If you find anything out of place, please contact us.
 
 #subtitle_donor_text
-Top 5 Donors based on Non-IATI (CRS and Others) 2012
+Top 5 Donors based on non-IATI (CRS and Other) 2012
 
 #link_donor_text
 View all Donors
 
 #title_sector_text
-Where does the money go to?
+Where does the money go?
 
 #subtitle_sector_text
-Top 5 Sectors based on Non-IATI (CRS and Others) 2012
+Top 5 Sectors based on non-IATI (CRS and Other) 2012
 
 #link_sector_text
 View all Sectors
@@ -83,22 +83,22 @@ Starting soon
 1 month
 
 #stats_publisher_text
-IATI Publishers
+IATI publishers
 
 #stats_active_tip_text
 Total number of active projects
 
 #stats_ending_tip_text
-Total number of projects ending soon within this month by {today}
+Total number of projects ending within one month
 
 #stats_total_tip_text
 Total number of projects calculated for {country_name}
 
 #stats_starting_tip_text
-Total number of projects starting soon within this month by {today}
+Total number of projects starting within one month
 
 #stats_publisher_tip_text
-Total number of Reporting Organisations involved
+Total number of reporting organisations involved
 
 #declare_stats_text
 Data displayed above has been provided by IATI and is accurate as of {today}
@@ -107,13 +107,13 @@ Data displayed above has been provided by IATI and is accurate as of {today}
 Active projects ending soon
 
 #list_active_declare_text
-Sorted by projects ending the soonest at the top
+Sorted by projects ending soonest at the top
 
 #list_ended_text
 Recently ended projects
 
 #list_ended_declare_text
-Sorted by the most recent ended projects at the top
+Sorted by most recent ended projects at the top
 
 #list_more_active_text
 Load more active projects
@@ -125,7 +125,7 @@ Load more ended projects
 Back to Donor list
 
 #view_donor_transactions_text
-Total Spend by {donor} in {year}
+Total spend by {donor} in {year}
 
 #view_donor_transactions_declare_text
 Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported by {donor} for {country_name} and sorted by the activity with the highest spend at the top.
@@ -137,25 +137,25 @@ Active projects for {donor} and current spend (USD)
 Reported by {reporting_org}
 
 #view_donor_activities_declare_text
-Spend is calculated by adding disbursements and expenditures. This table shows you total commitments for each activity and the percentage spent so far, sorted by the biggest at the top. Zeros in tables suggests discrepancies in that calculation due to insufficient data and signifies data quality issues.
+Spend is calculated by adding disbursements and expenditures. This table shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Zeros in tables suggests discrepancies in that calculation due to insufficient data and signify data quality issues.
 
 #donor_activities_title_tip_text
-Project title of activity
+Project title
 
 #donor_activities_percentage_tip_text
 Percentage of total commitments spent
 
 #donor_transactions_title_tip_text
-Project title of activity
+Project title
 
 #donor_transactions_amount_tip_text
 Transaction amount in USD
 
 #view_donor_budgets_text
-Total Budget for {donor} in {year}
+Total budget for {donor} in {year}
 
 #view_donor_budgets_declare_text
-Budget is calculated by adding up every budget that is less than 370 days long and ends in {year}. This table shows you all activities that have listed budgets for {year} sorted by the biggest at the top. Zeros in tables suggests discrepancies in that calculation due to insufficient data and signifies data quality issues.
+Budget is calculated by adding up every budget that is less than 370 days long and ends in {year}. This table shows you all activities that have listed budgets for {year} sorted by biggest at the top. Zeros in tables suggest discrepancies in that calculation due to insufficient data and signify data quality issues.
 
 #table_donor_title_transaction_text
 IATI SPEND (USD)
@@ -164,19 +164,19 @@ IATI SPEND (USD)
 IATI BUDGET (USD)
 
 #table_donor_title_donor_text
-IATI DONOR
+DONOR
 
 #table_donor_tip_title_transaction_text
-IATI Transactions
+IATI transactions
 
 #table_donor_tip_title_budget_text
-IATI Budgets
+IATI budgets
 
 #table_donor_tip_title_crs_text
 Data is sourced from CRS 2012
 
 #table_donor_tip_title_donor_text
-Non-IATI (CRS and Others) donors, multiple IATI donors may be mapped to ONE Non-IATI (CRS and Others) donor
+Non-IATI (CRS and Other) donors, multiple IATI donors may be mapped to ONE non-IATI (CRS and Other) donor
 
 #table_donor_tip_title_t2012_text
 Sum of donor transactions in USD for 2012
@@ -194,10 +194,10 @@ Sum of donor budgets in USD for 2014
 Sum of donor budgets in USD for 2015
 
 #table_donor_tip_crs_text
-Sum of transactions for this Donor according to Non-IATI (CRS and Others) in 2012
+Sum of transactions for this donor according to non-IATI (CRS and Other) in 2012
 
 #table_donor_tip_donor_text
-A Non-IATI (CRS and Others) donor, multiple IATI donors may be mapped to ONE Non-IATI (CRS and Others) donor
+A non-IATI (CRS and Other) donor, multiple IATI donors may be mapped to ONE non-IATI (CRS and Other) donor
 
 #table_donor_tip_t2012_text
 Sum of donor transactions in USD for 2012
@@ -224,19 +224,19 @@ IATI BUDGET (USD)
 IATI SECTOR
 
 #table_sector_tip_title_transaction_text
-IATI Transactions
+IATI transactions
 
 #table_sector_tip_title_budget_text
-IATI Budgets
+IATI budgets
 
 #table_sector_tip_title_crs_text
-Data is sourced from Non-IATI (CRS and Others) 2012
+Data is sourced from non-IATI (CRS and Other) 2012
 
 #table_sector_tip_title_donor_text
-Non-IATI (CRS and Others) sectors, multiple IATI sectors may be mapped to ONE Non-IATI (CRS and Others) sector
+Non-IATI (CRS and Other) sectors, multiple IATI sectors may be mapped to ONE non-IATI (CRS and Other) sector
 
 #table_sector_tip_title_t2012_text
-Sum of donor transactions in USD for 2012
+Sum of sector transactions in USD for 2012
 
 #table_sector_tip_title_t2013_text
 Sum of sector transactions in USD for 2013
@@ -251,10 +251,10 @@ Sum of sector budgets in USD for 2014
 Sum of sector budgets in USD for 2015
 
 #table_sector_tip_crs_text
-Sum of transactions for this Sector according to Non-IATI (CRS and Others) in 2012
+Sum of transactions for this ssctor according to non-IATI (CRS and Other) in 2012
 
 #table_sector_tip_donor_text
-A Non-IATI (CRS and Others) sector, multiple IATI sectors may be mapped to ONE Non-IATI (CRS and Others) sector
+A non-IATI (CRS and Other) sector, multiple IATI sectors may be mapped to ONE non-IATI (CRS and Other) sector
 
 #table_sector_tip_t2012_text
 Sum of sector transactions in USD for 2012
@@ -272,13 +272,13 @@ Sum of sector budgets in USD for 2014
 Sum of sector budgets in USD for 2015
 
 #table_active_title_tip_text
-Project title of activity
+Project title
 
 #table_active_date_tip_text
 Date ending
 
 #table_ended_title_tip_text
-Project title of activity
+Project title
 
 #table_ended_date_tip_text
 Date ended
