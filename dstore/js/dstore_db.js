@@ -21,7 +21,7 @@ var sqlite3 = require('sqlite3').verbose();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-// values copied from the activities into other tables for quik lookup (no need to join tables)
+// values copied from the main activity into sub tables for quik lookup (no need to join tables)
 dstore_db.bubble_act={
 		"reporting_org":true,
 		"reporting_org_ref":true,
@@ -33,10 +33,10 @@ dstore_db.bubble_act={
 	
 // data table descriptions
 dstore_db.tables={
-	activities:[
+	act:[
 		{ name:"aid",							NOCASE:true , PRIMARY:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
-		{ name:"xml",							TEXT:true },
+//		{ name:"xml",							TEXT:true },
 		{ name:"jml",							TEXT:true },
 		{ name:"json",							TEXT:true },
 		{ name:"status_code",					INTEGER:true , INDEX:true },	
@@ -51,7 +51,7 @@ dstore_db.tables={
 		{ name:"commitment",					REAL:true , INDEX:true }, // USD (C)
 		{ name:"spend",							REAL:true , INDEX:true } // USD (D+E)
 	],
-	transactions:[
+	trans:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"jml",							TEXT:true },
 		{ name:"json",							TEXT:true },
@@ -70,7 +70,7 @@ dstore_db.tables={
 		{ name:"funder",						NOCASE:true , INDEX:true },
 		{ name:"title",							NOCASE:true }
 	],
-	budgets:[
+	budget:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement)
 		{ name:"jml",							TEXT:true },
@@ -88,21 +88,19 @@ dstore_db.tables={
 		{ name:"funder",						NOCASE:true , INDEX:true },
 		{ name:"title",							NOCASE:true }
 	],
-// These are intended just to be joined to the above.
-// use &from=activities,country,sector,location& to request a join via aid ( this *may* return duplicate activities )
 	country:[
-		{ name:"country_aid",					NOCASE:true , INDEX:true },
+		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"country_code",					NOCASE:true , INDEX:true },
 		{ name:"country_percent",				REAL:true , INDEX:true }
 	],
 	sector:[
-		{ name:"sector_aid",					NOCASE:true , INDEX:true },
+		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group
 		{ name:"sector_code",					INTEGER:true , INDEX:true },
 		{ name:"sector_percent",				REAL:true , INDEX:true }
 	],
 	location:[
-		{ name:"location_aid",					NOCASE:true , INDEX:true },
+		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"location_code",					NOCASE:true , INDEX:true },
 		{ name:"location_gazetteer_ref",		NOCASE:true , INDEX:true },
 		{ name:"location_gazetteer",			NOCASE:true , INDEX:true },
@@ -113,7 +111,7 @@ dstore_db.tables={
 		{ name:"location_percent",				REAL:true , INDEX:true }
 	],
 // track what was imported...
-	slugs:[
+	slug:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"slug",							NOCASE:true , INDEX:true }
 	]
@@ -152,16 +150,16 @@ dstore_db.fill_acts = function(acts,slug){
 	var db = dstore_db.open();	
 	db.serialize();
 
-	db.run("DELETE FROM slugs WHERE slug=?",slug); // remove all the old slugs
+	db.run("DELETE FROM slug WHERE slug=?",slug); // remove all the old slugs
 
 	
-	db.each("SELECT COUNT(*) FROM activities", function(err, row)
+	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
 		before=row["COUNT(*)"];
 	});
 
 
-//	var stmt = db.prepare("REPLACE INTO activities (aid,xml,jml) VALUES (?,?,?)");
+//	var stmt = db.prepare("REPLACE INTO act (aid,xml,jml) VALUES (?,?,?)");
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
@@ -195,7 +193,7 @@ dstore_db.fill_acts = function(acts,slug){
 	});
 	process.stdout.write("\n");
 	
-	db.each("SELECT COUNT(*) FROM activities", function(err, row)
+	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
 		after=row["COUNT(*)"];
 	});
@@ -211,30 +209,35 @@ dstore_db.fill_acts = function(acts,slug){
 
 };
 
-// pull every activity from the table and update *all* connected tables using its raw xml data
+// call after major data changes to help sqlite optimise queries
 
-dstore_db.refresh_acts = function(){
-		
+dstore_db.vacuum = function(){
+
+	process.stdout.write("VACUUM start\n");
 	var db = dstore_db.open();
-	db.serialize();
-
-//	db.run("BEGIN;");
-	db.each("SELECT aid,xml FROM activities", function(err, row){
-
-		process.stdout.write(".");
-		dstore_db.refresh_act(db,row.aid,row.xml);
-	});
-//	db.run("COMIT;");
-	db.run("PRAGMA page_count", function(err, row){
+	db.run("VACUUM", function(err, row){
 		dstore_sqlite.close(db);
-		process.stdout.write("FIN\n");
+		process.stdout.write("VACUUM done\n");
 	});
 
-};
+}
+
+dstore_db.analyze = function(){
+
+
+	process.stdout.write("ANALYZE start\n");
+	var db = dstore_db.open();
+	db.run("ANALYZE", function(err, row){
+		dstore_sqlite.close(db);
+		process.stdout.write("ANALYSE done\n");
+	});
+}
+
+// pull every activity from the table and update *all* connected tables using its raw xml data
 
 dstore_db.refresh_act = function(db,aid,xml){
 
-// choose to prioritise planned-transactions or budgets for each year depending on which we fine in the xml
+// choose to prioritise planned-transaction or budgets for each year depending on which we fine in the xml
 // flag each year when present
 	var got_budget={};
 
@@ -284,8 +287,8 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 		t.jml=JSON.stringify(it);
 		
-//		dstore_sqlite.replace(db,"transactions",t);
-		replace("transactions",t);
+//		dstore_sqlite.replace(db,"transaction",t);
+		replace("trans",t);
 
 	};
 
@@ -325,7 +328,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.jml=JSON.stringify(it);
 		
 //		dstore_sqlite.replace(db,"budgets",t);
-		replace("budgets",t);
+		replace("budget",t);
 		
 		var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
 		got_budget[ y ]=true;
@@ -343,10 +346,10 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 		var t={};
 		
-		t.slug=refry.tagattr(act,"iati-activity","dstore_slug"); // this value is hacked in when the acts are split
+		t.slug=refry.tagattr(act,"iati-activity","dstore:slug"); // this value is hacked in when the acts are split
 		t.aid=iati_xml.get_aid(act);
 
-		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slugs"]);
+		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slug"]);
 		sa.run({"$aid":t.aid,"$slug":t.slug});		
 		sa.finalize();
 
@@ -425,7 +428,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 				var cc=country[i];
 				var pc=percents[i];
 				var sa = db.prepare(dstore_sqlite.tables_replace_sql["country"]);
-				sa.run({"$country_aid":t.aid,"$country_code":cc,"$country_percent":pc});				
+				sa.run({"$aid":t.aid,"$country_code":cc,"$country_percent":pc});				
 				sa.finalize();
 			}
 		}
@@ -442,7 +445,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 				var group;
 				if(sc){ group=codes.sector_group[sc.slice(0,3)]; }
 				var sa = db.prepare(dstore_sqlite.tables_replace_sql["sector"]);
-				sa.run({"$sector_aid":t.aid,"$sector_group":group,"$sector_code":sc,"$sector_percent":pc});				
+				sa.run({"$aid":t.aid,"$sector_group":group,"$sector_code":sc,"$sector_percent":pc});				
 				sa.finalize();
 			}
 		}
@@ -471,7 +474,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 					precision=co.precision;
 				}
 				var sa = db.prepare(dstore_sqlite.tables_replace_sql["location"]);
-				sa.run({"$location_aid":t.aid,
+				sa.run({"$aid":t.aid,
 					"$location_code":code,
 					"$location_gazetteer_ref":gazref,
 					"$location_gazetteer":gaz,
@@ -501,11 +504,11 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 		t.default_currency=act["default-currency"];
 		
-		t.xml=xml;
+//		t.xml=xml;
 		t.jml=JSON.stringify(act);
 		
-//		dstore_sqlite.replace(db,"activities",t);
-		replace("activities",t);
+//		dstore_sqlite.replace(db,"activity",t);
+		replace("act",t);
 		
 		got_budget={};
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
@@ -528,289 +531,26 @@ dstore_db.refresh_act = function(db,aid,xml){
 	
 
 	// remove all the old references to this aid before adding new
- 	db.run("DELETE FROM transactions WHERE aid=?",aid);
-	db.run("DELETE FROM budgets WHERE aid=?",aid); 
-	db.run("DELETE FROM country WHERE country_aid=?",aid);
-	db.run("DELETE FROM sector WHERE sector_aid=?",aid);
+ 	db.run("DELETE FROM trans WHERE aid=?",aid);
+	db.run("DELETE FROM budget WHERE aid=?",aid); 
+	db.run("DELETE FROM country WHERE aid=?",aid);
+	db.run("DELETE FROM sector WHERE aid=?",aid);
 
 	// then add new
 	var act_json=refresh_activity(xml);
 
 };
 
-
-
-/*
-dstore_db.hack_acts = function(){
-	
-	var tabs={
-			acts:[],
-			trans:[],
-			budgets:[] // or planned disbursements?
-		};
-	
-	var counts={budget:0,transaction:0,planned:0};
-	var totals={budget:0,transaction:0,planned:0};
-	var values={};
-	
-	var add_value=function(n,v){
-		if(values[n]===undefined) { values[n]={}; }
-		values[n][ v ]=(values[n][ v ] || 0 ) +1;
-	}
-	
-	var do_planned=function(it,act)
-	{
-		counts.planned++;
-		
-		var default_currency=act["default-currency"];
-
-		var t={};
-		t["aid"]=refry.tagval(act,"iati-identifier");
-		t["org"]=refry.tagval(act,"reporting-org");
-		t["start"]=iati_xml.get_isodate_number(it,"period-start");
-		t["end"]=iati_xml.get_isodate_number(it,"period-end");
-		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
-
-		tabs.budgets.push(t);
-
-//		ls(t);
-//		ls(it);
-
-		totals.planned+=t.usd;
-	};
-
-	var do_budget=function(it,act)
-	{
-		counts.budget++;
-		
-		var default_currency=act["default-currency"];
-
-		var t={};
-		t["aid"]=refry.tagval(act,"iati-identifier");
-		t["org"]=refry.tagval(act,"reporting-org");
-		t["start"]=iati_xml.get_isodate_number(it,"period-start");
-		t["end"]=iati_xml.get_isodate_number(it,"period-end");
-		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
-
-		tabs.budgets.push(t);
-		
-		totals.budget+=t.usd;
-		
-	};
-
-	var do_transaction=function(it,act)
-	{
-		counts.transaction++;
-
-		var t={};
-
-		t["aid"]=refry.tagval(act,"iati-identifier");
-		t["org"]=refry.tagval(act,"reporting-org");
-		
-		t["description"]=refry.tagval(it,"description");
-		t["usd"]=iati_xml.get_usd(it,"value",act["default-currency"]);
-		t["code"]=iati_xml.get_code(it,"transaction-type");
-		t["date"]=iati_xml.get_isodate_number(it,"transaction-date");
-		
-		tabs.trans.push(t);
-
-		add_value("tdesc",t["description"]);
-		add_value("tcode",t["code"]);
-
-		totals.transaction+=t.usd;
-	};
-
-	var db = dstore_db.open();
-	db.serialize(function() {
-		db.each("SELECT jml FROM activities", function(err, row)
-		{
-			var act=JSON.parse(row.jml);
-
-			tabs.acts.push(act);
-			
-			process.stdout.write(".");
-			
-//			console.log(util.inspect(act,{depth:null}));
-//			console.log(act["reporting-org"]);
-			var org=refry.tagval(act,"reporting-org");
-			var default_currency=act["default-currency"];
-
-			add_value("org",org);
-			add_value("default_currency",default_currency);
-			
-			refry.tags(act,"transaction",function(it){do_transaction(it,act)});
-			
-			if( refry.tag(act,"planned-disbursement") ) // do we have planned or budget?
-			{
-				refry.tags(act,"budget",function(it){do_planned(it,act)});
-			}
-			else
-			{
-				refry.tags(act,"budget",function(it){do_budget(it,act)});
-			}
-*/
-/*
-			if(act.transaction)
-			{
-				for(var i=0;i<act.transaction.length;i++) { do_transaction(act.transaction[i],act); }
-			}
-			if(act.budget)
-			{
-				for(var i=0;i<act.budget.length;i++) { do_budget(act.budget[i],act); }
-			}
-			else
-			if(act["planned-disbursement"])
-			{
-				for(var i=0;i<act["planned-disbursement"].length;i++) { do_planned(act["planned-disbursement"][i],act); }
-			}
-*/
-/*			
-//			for(var i=0;i<99999999999999999999;i++);
-
-		},function(err, count){
-			process.stdout.write("\n");
-			console.log("counts");
-			console.dir(counts);
-			console.log("totals");
-			console.dir(totals);
-//			console.log("values");
-//			console.dir(values);
-
-			for(var n in tabs)
-			{
-				console.log(n+" : "+tabs[n].length);
-			}
-
-// sum transactions in a period
-
-			var sum_trans=function(more,less)
-			{
-				var r={};
-				for(var n in tabs.trans)
-				{
-					var v=tabs.trans[n];
-					if( (v.date) && (v.date>more) && (v.date<less) && ( (v.code=="D") || (v.code=="E") ) )
-					{
-						if(r[v.org]===undefined)
-						{
-							r[v.org]={count:0,usd:0};
-						}
-						r[v.org].count++;
-						r[v.org].usd+=v.usd;
-					}
-				}
-				return r;
-			}
-			
-			var sum_budgets=function(more,less)
-			{
-				var range=less-more;
-				var r={};
-				for(var n in tabs.budgets)
-				{
-					var v=tabs.budgets[n];
-					if( (v.end) && (v.end>more) && (v.end<less) ) // check end date
-					{
-						if( (v.end-v.start)<range ) // long timespan budgets are ignored
-						{
-							if(r[v.org]===undefined)
-							{
-								r[v.org]={count:0,usd:0};
-							}
-							r[v.org].count++;
-							r[v.org].usd+=v.usd;
-						}
-					}
-				}
-				return r;
-			}
-
-			var byorg={}
-			var years=[2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018];
-			years.map(function(year){
-
-				var ts=sum_trans(   iati_xml.isodate_to_number(year+"-04-00") , iati_xml.isodate_to_number((year+1)+"-04-01") );
-				var bs=sum_budgets( iati_xml.isodate_to_number(year+"-04-00") , iati_xml.isodate_to_number((year+1)+"-04-01") );
-				
-				ls(year);
-				ls(ts);
-				ls(bs);
-				
-				for(var org in ts)
-				{
-					var v=ts[org];
-					if( byorg[org]===undefined ) { byorg[org]={}; }
-					var o=byorg[org];
-					
-					o[ year+" #Trans"]=v.count;
-					o[ year+" Trans"]=Math.round(v.usd);
-				}
-
-				for(var org in bs)
-				{
-					var v=bs[org];
-					if( byorg[org]===undefined ) { byorg[org]={}; }
-					var o=byorg[org];
-					
-					o[ year+" #Budget"]=v.count;
-					o[ year+" Budget"]=Math.round(v.usd);
-				}
-				
-			});
-			
-//			ls(byorg);
-
-			var out=[];
-
-			out.push("org")
-			years.map(function(year){
-//				out.push("\t"+year+" #Trans");
-				out.push("\t"+year+" Trans");
-//				out.push("\t"+year+" #Budget");
-				out.push("\t"+year+" Budget");
-			});
-			out.push("\n");
-			
-			for(var org in byorg )
-			{
-				out.push(org);
-				var v=byorg[org];
-				years.map(function(year){
-					var t;
-//					out.push("\t");
-//					t=v[year+" #Trans"]; if(t) { out.push(t); }
-					out.push("\t");
-					t=v[year+" Trans"]; if(t) { out.push(t); }
-					out.push("\t");
-//					t=v[year+" #Budget"]; if(t) { out.push(t); }
-//					out.push("\t");
-					t=v[year+" Budget"]; if(t) { out.push(t); }
-				});
-				out.push("\n");
-			}
-
-			console.log(out.join(""));
-
-
-			console.log("org\tfrequencey")
-			for(var n in values.org)
-			{
-				var v=values.org[n];
-				console.log(n+"\t"+v)
-			}
-
-		});
-
-	});
-	dstore_sqlite.close(db);
-
-
-};
-*/
-
-
 dstore_db.create_tables = function(){
 	return dstore_sqlite.create_tables();
+}
+
+dstore_db.create_indexes = function(){
+	return dstore_sqlite.create_indexes();
+}
+
+dstore_db.delete_indexes = function(){
+	return dstore_sqlite.delete_indexes();
 }
 
 dstore_db.check_tables = function(){

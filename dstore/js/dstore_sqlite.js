@@ -3,15 +3,15 @@
 
 var dstore_sqlite=exports;
 
-var refry=require('./refry');
-var exs=require('./exs');
-var iati_xml=require('./iati_xml');
+var refry=require("./refry");
+var exs=require("./exs");
+var iati_xml=require("./iati_xml");
 
-var wait=require('wait.for');
+var wait=require("wait.for");
 
-var util=require('util');
-var http=require('http');
-var sqlite3 = require('sqlite3').verbose();
+var util=require("util");
+var http=require("http");
+var sqlite3 = require("sqlite3").verbose();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -25,9 +25,10 @@ dstore_sqlite.open = function(){
 	
 // speed up data writes.
 	db.serialize(function() {
-		db.run('PRAGMA synchronous = 0 ;');
-		db.run('PRAGMA encoding = "UTF-8" ;');
-		db.run('PRAGMA journal_mode=WAL;');
+		db.run("PRAGMA synchronous = 0 ;");
+		db.run("PRAGMA encoding = \"UTF-8\" ;");
+		db.run("PRAGMA journal_mode=WAL;");
+		db.run("PRAGMA mmap_size=268435456;");
 	});
 	
 	return db;
@@ -53,7 +54,7 @@ dstore_sqlite.create_tables = function(){
 			db.run("DROP TABLE IF EXISTS "+name+";");
 			db.run(s);
 
-// add indexs
+// indexs
 
 			for(var i=0; i<tab.length;i++)
 			{
@@ -73,8 +74,81 @@ dstore_sqlite.create_tables = function(){
 	});
 	
 	dstore_sqlite.close(db);
+
 }
 
+
+dstore_sqlite.create_indexes = function(){
+
+	var db = dstore_sqlite.open();
+
+	db.serialize(function() {
+	
+// simple data dump table containing just the raw xml of each activity.
+// this is filled on import and then used as a source
+
+		for(var name in dstore_sqlite.tables)
+		{
+			var tab=dstore_sqlite.tables[name];
+			var s;
+
+// add indexs
+
+			for(var i=0; i<tab.length;i++)
+			{
+				var col=tab[i];
+				
+				if( col.INDEX )
+				{
+					s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
+					console.log(s);
+					db.run(s);
+				}
+			}
+		}
+
+		console.log("Created indexes "+argv.database);
+		
+	});
+	
+	dstore_sqlite.close(db);
+}
+
+dstore_sqlite.delete_indexes = function(){
+
+	var db = dstore_sqlite.open();
+
+	db.serialize(function() {
+	
+// simple data dump table containing just the raw xml of each activity.
+// this is filled on import and then used as a source
+
+		for(var name in dstore_sqlite.tables)
+		{
+			var tab=dstore_sqlite.tables[name];
+			var s;
+
+// delete indexs
+
+			for(var i=0; i<tab.length;i++)
+			{
+				var col=tab[i];
+				
+				if( col.INDEX )
+				{
+					s=(" DROP INDEX IF EXISTS "+name+"_index_"+col.name+" ;");
+					console.log(s);
+					db.run(s);
+				}
+			}
+		}
+
+		console.log("Deleted indexes "+argv.database);
+		
+	});
+	
+	dstore_sqlite.close(db);
+}
 
 dstore_sqlite.replace_vars = function(db,name,it){
 	var json={};
@@ -101,7 +175,8 @@ dstore_sqlite.replace = function(db,name,it){
 //db.run( dstore_sqlite.getsql_prepare_replace(name,dstore_sqlite.tables_active[name]) , $t );
 
 
-	var sa = db.prepare(dstore_sqlite.tables_replace_sql[name]);
+	var s=dstore_sqlite.tables_replace_sql[name];
+	var sa = db.prepare(s);
 	sa.run($t);	
 	sa.finalize(); // seems faster to finalize now rather than let it hang?
 

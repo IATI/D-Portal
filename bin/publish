@@ -1,7 +1,6 @@
 
 # Publish to dev server from github.
 
-ssh ctrack@dev.ctrack.iatistandard.org "iati-js/bin/pull -f"
-ssh ctrack@dev.ctrack.iatistandard.org "iati-js/ctrack/build"
-
+ssh ctrack@d-portal.org "iati-js/bin/pull -f"
+ssh ctrack@d-portal.org "iati-js/ctrack/build"
 

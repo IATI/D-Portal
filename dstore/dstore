@@ -1,2 +1,3 @@
 cd `dirname $0`
-npm run fetch
+node js/cmd $*
+

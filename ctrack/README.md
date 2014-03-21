@@ -34,7 +34,7 @@ PPAs. See the nodejs site for how to do this.
 Installing Node Modules
 =======================
 
-	./install_deps
+	../install_deps
 
 Will then install modules needed for bake.js (to create the client 
 side app) and serv.js (to run a simple server to serv the app), 
@@ -51,7 +51,7 @@ and other template files into the ./json directory. Then it creates
 the final minified/mangled js files in ./jslib that will be used by 
 the browser.
 
-	./fetch
+	../fetch
 
 Will get the latest codelists and external CRS data that is built 
 into ctrack. The downloaded data will be found in ../dstore/json 
@@ -79,7 +79,7 @@ spreadsheet.
 Running
 =======
 
-	./serv
+	../serv
 	
 Will start a node based webserver and publish this *entire* 
 directory as static files available at http://localhost:1337/ This 
@@ -91,4 +91,4 @@ Either import some data (see the dstore readme) or use the public
 dstore q api located at http://d-portal.org/q instead with the following 
 command.
 
-	./serv -q http://d-portal.org/q
+	../serv -q http://d-portal.org/q

@@ -1,3 +1,4 @@
 cd `dirname $0`
+cd ctrack
 npm run build
 node js/serv $*
