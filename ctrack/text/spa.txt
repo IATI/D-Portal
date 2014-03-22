@@ -1,7 +1,7 @@
 #declare_main_text
 Los principales datos se obtienen de la IATI menos que se indique lo contrario y exacta en {today}
 
-#xml_declare_text
+#declare_xml_text
 Los valores perdidos sugiere datos suficientes y significa problemas de calidad de datos. Haga clic en el enlace de la IATI identificador siguiente para ver el XML por sí sola. También puede ver el XML sin estilo por ver la fuente de esa página web (Ctrl+U o Cmd+U).
 
 #title_donor_text
@@ -13,26 +13,35 @@ Comparando con los datos de los donantes IATI donante No IATI (CRS y Otros)
 #declare_title_sector_text
 Comparando con los datos de los sectores de la IATI sector No IATI (CRS y Otros)
 
-#money_title_icon_text
+#money_title_icon_alt_text
 El público quiere saber dónde está el dinero !
 
 #alert_no_iati_text 
 Esta Donantes no publica a IATI.
 
-#active_icon_text
+#alert_no_iati_tip_text
+Esta Donantes no publica a IATI.
+
+#active_icon_alt_text
 Proyectos activos icono
 
-#ended_icon_text
+#ended_icon_alt_text
 Proyectos terminados el icono
 
-#activity_icon_text
+#activity_icon_alt_text
 Icono de Actividad
 
-#alert_icon_text
+#alert_icon_alt_text
 Icon declaración
 
-#mainback_text
-Elija un ejemplo diferente
+#beige_alert_text 
+D-Portal está todavía en desarrollo muy temprano y programado para Alpha liberación a mediados de abril. Gracias por su paciencia! Por favor proporcione cualquier información 
+
+#beige_alert_here_text 
+aquí
+
+#mainback_tip_text
+Volver a la Portal de Desarrollo
 
 #back_text
 Volver a la Portal de Desarrollo
@@ -137,7 +146,7 @@ Actividades proyectos de {donor} y el gasto corriente (USD)
 Reportado por {reporting_org}
 
 #view_donor_activities_declare_text 
-Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compromisos totales para cada actividad y el porcentaje pasó hasta ahora, ordenado por el mayor en la parte superior. Zeros en tablas sugiere que las discrepancias en el cálculo debido a datos insuficientes y significa problemas de calidad de datos. 
+Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compromisos totales para cada actividad y el porcentaje pasó hasta ahora, ordenados por mayor en la parte superior. Barras negras significan los problemas de calidad de datos donde los datos publicados falte compromiso y / o información de la transacción.
 
 #donor_activities_title_tip_text 
 Título del proyecto de la actividad
@@ -283,22 +292,22 @@ Título del proyecto de la actividad
 #table_ended_date_tip_text 
 Fecha terminado
 
-#iati_logo_text
+#iati_logo_alt_text
 logo IATI
 
-#dportal_logo_text
+#dportal_logo_alt_text
 logo Portal de Desarrollo
 
-#tongue_eng_text 
+#tongue_eng_tip_text 
 Ver esto en Inglés(UK) 
 
-#tongue_fra_text 
+#tongue_fra_tip_text 
 Ver esto en Francés 
 
-#tongue_spa_text 
+#tongue_spa_tip_text 
 Ver esto en Español
 
-#flag_text 
+#flag_alt_text 
 bandera
 
 #map_info_text 
@@ -312,3 +321,6 @@ Volver al principio
 
 #footer_github_text 
 Nosotros tenedor en Github!
+
+#footer_team_tip_text
+Iniciativa Internacional para la Transparencia de la Ayuda (IATI)

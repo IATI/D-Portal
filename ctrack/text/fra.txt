@@ -1,7 +1,7 @@
 #declare_main_text
 Les principales données proviennent de IATI, sauf indication contraire et précise que des {today}
 
-#xml_declare_text
+#declare_xml_text
 Les valeurs manquantes suggère pas de données suffisantes et signifie des problèmes de qualité de données. Cliquez sur le lien ci-dessous IATI Identifier pour afficher le code XML sur son propre. Vous pouvez également voir l'XML sans style en affichant la source de cette page (Ctrl+U ou Cmd+U).
 
 #title_donor_text
@@ -13,26 +13,35 @@ En comparant les bailleurs de fonds de IATI avec les données des donateurs Non 
 #declare_title_sector_text 
 En comparant les secteurs de IATI avec les données du secteur de la Non IATI (CRS et autres)
 
-#money_title_icon_text 
+#money_title_icon_alt_text 
 Le public veut savoir où est l'argent!
 
 #alert_no_iati_text 
 Cette donateurs ne publie pas de IATI.
 
-#active_icon_text 
+#alert_no_iati_tip_text
+Cette donateurs ne publie pas de IATI.
+
+#active_icon_alt_text 
 Projets actifs icône 
 
-#ended_icon_text 
+#ended_icon_alt_text 
 Projets terminés icône
 
-#activity_icon_text 
+#activity_icon_alt_text 
 Activité icône
 
-#alert_icon_text
+#alert_icon_alt_text
 Déclaration icône
 
-#mainback_text 
-Choisissez un autre exemple
+#beige_alert_text 
+D-Portal est encore en développement très tôt et prévue pour Alpha version mi-Avril. Merci de votre patience! S'il vous plaît fournir des informations 
+
+#beige_alert_here_text 
+ici
+
+#mainback_tip_text 
+Retour à Portail de Développement
 
 #back_text 
 Retour à Portail de Développement
@@ -137,7 +146,7 @@ Activités projets pour {donor} et dépenses actuelles (USD)
 Rapporté par {reporting_org}
 
 #view_donor_activities_declare_text 
-Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici, classés par le plus grand en haut. Zéros dans les tableaux suggèrent des anomalies dans ce calcul en raison de l'insuffisance des données et signifie des problèmes de qualité de données. 
+Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici, classés par le plus grand en haut. Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction.
 
 #donor_activities_title_tip_text 
 Titre du projet d'activité
@@ -283,22 +292,22 @@ Titre du projet d'activité
 #table_ended_date_tip_text 
 Date de fin
 
-#iati_logo_text
+#iati_logo_alt_text
 IATI logo
 
-#dportal_logo_text
+#dportal_logo_alt_text
 Portail de Développement logo
 
-#tongue_eng_text 
+#tongue_eng_tip_text 
 Voir ce en Anglais(UK) 
 
-#tongue_fra_text 
+#tongue_fra_tip_text 
 Voir ce en Français 
 
-#tongue_spa_text 
+#tongue_spa_tip_text 
 Voir ce en Espagnol
 
-#flag_text 
+#flag_alt_text 
 drapeau
 
 #map_info_text 
@@ -312,3 +321,6 @@ Haut de page
 
 #footer_github_text 
 Fork nous sur Github!
+
+#footer_team_tip_text
+Initiative internationale pour la transparence de l'aide (IATI)

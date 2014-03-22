@@ -1,7 +1,7 @@
 #declare_main_text
 The main data is sourced from IATI unless stated otherwise and accurate as of {today}
 
-#xml_declare_text
+#declare_xml_text
 Missing values suggest insufficient data and signify data quality issues. Click on the IATI Identifier link below to view the XML on its own. You can also see the unstyled XML by viewing the source of that webpage (Ctrl+U or Cmd+U).
 
 #title_donor_text
@@ -13,26 +13,35 @@ Comparing IATI donors with non-IATI (CRS and other) donor data
 #declare_title_sector_text
 Comparing IATI sectors with non-IATI (CRS and Other) sector data
 
-#money_title_icon_text
+#money_title_icon_alt_text
 The public wants to know where the money is!
 
 #alert_no_iati_text
 This Donor does not publish to IATI yet.
 
-#active_icon_text
+#alert_no_iati_tip_text
+This Donor does not publish to IATI yet.
+
+#active_icon_alt_text
 Active projects icon
 
-#ended_icon_text
+#ended_icon_alt_text
 Ended projects icon
 
-#activity_icon_text
+#activity_icon_alt_text
 Activity icon
 
-#alert_icon_text
+#alert_icon_alt_text
 Declaration icon
 
-#mainback_text
-Choose a different example
+#beige_alert_text
+D-Portal is still in very early development and scheduled for Alpha release mid-April. Thank you for your patience! Please provide any feedback
+
+#beige_alert_here_text
+here
+
+#mainback_tip_text
+Back to Development Portal
 
 #back_text
 Back to Development Portal
@@ -137,7 +146,7 @@ Active projects for {donor} and current spend (USD)
 Reported by {reporting_org}
 
 #view_donor_activities_declare_text
-Spend is calculated by adding disbursements and expenditures. This table shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Zeros in tables suggests discrepancies in that calculation due to insufficient data and signify data quality issues.
+Spend is calculated by adding disbursements and expenditures. This table shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Black bars signify data quality issues where published data is missing commitment and/or transaction information.
 
 #donor_activities_title_tip_text
 Project title
@@ -283,22 +292,22 @@ Project title
 #table_ended_date_tip_text
 Date ended
 
-#iati_logo_text
+#iati_logo_alt_text
 IATI logo
 
-#dportal_logo_text
+#dportal_logo_alt_text
 Development Portal logo
 
-#tongue_eng_text
+#tongue_eng_tip_text
 View this in English(UK)
 
-#tongue_fra_text
+#tongue_fra_tip_text
 View this in French
 
-#tongue_spa_text
+#tongue_spa_tip_text
 View this in Spanish
 
-#flag_text
+#flag_alt_text
 flag
 
 #map_info_text
@@ -312,3 +321,6 @@ Back to Top
 
 #footer_github_text
 Fork us on Github!
+
+#footer_team_tip_text
+International Aid Transparency Initiative (IATI)

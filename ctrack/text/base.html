@@ -46,7 +46,7 @@ Activity
 
 #alert_no_iati
 <tr>
-	<td colspan="3" class="alert_no_iati" title="{alert_no_iati_text}">{alert_no_iati_text}</td>
+	<td colspan="3" class="alert_no_iati" title="{alert_no_iati_tip_text}">{alert_no_iati_text}</td>
 </tr>
 
 #view_act
@@ -56,7 +56,7 @@ Activity
 {main_head}
 {main_countrymin}
 <div class="act_wrap">
-	<div class="act_alert_wrap"><img src="{art}alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {xml_declare_text}</div>
+	<div class="act_alert_wrap"><img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {declare_xml_text}</div>
 </div>
 {xml}
 {view_tail}
@@ -82,12 +82,12 @@ Activity
 <div class="donor_activities_wrap">
 	<table class="title">
 		<tr>
-			<td><img src="{art}activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
+			<td><img src="{art}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
 			<td>{view_donor_activities_text}</td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<div class="declare title table"><img src="{art}alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_activities_declare_text}</div>
+				<div class="declare title table"><img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {view_donor_activities_declare_text}</div>
 			</td>
 		</tr>
 	</table>
@@ -135,12 +135,12 @@ Activity
 <div class="donor_transactions_wrap">
 	<table class="title">
 		<tr>
-			<td><img src="{art}activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
+			<td><img src="{art}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
 			<td>{view_donor_transactions_text}</td>
 			<td class="total_spend">= {total} (USD)</td>
 		</tr>
 		<tr>
-			<td colspan="3"><div class="declare title table"><img src="{art}alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_transactions_declare_text}</div></td>
+			<td colspan="3"><div class="declare title table"><img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {view_donor_transactions_declare_text}</div></td>
 		</tr>
 	</table>
 	<div class="donor_transactions">
@@ -173,12 +173,12 @@ Activity
 <div class="donor_budgets_wrap">
 	<table class="title">
 		<tr>
-			<td><img src="{art}activity_icon.png" alt="{activity_icon_text}" width="40" height="40"/></td>
+			<td><img src="{art}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
 			<td>{view_donor_budgets_text}</td>
 			<td class="total_spend">= {total} (USD)</td>
 		</tr>
 		<tr>
-			<td colspan="3"><div class="declare title table"><img src="{art}alert_icon.png" alt="{alert_icon_text}" width="15" height="15"/> {view_donor_transactions_declare_text}</div></td>
+			<td colspan="3"><div class="declare title table"><img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {view_donor_transactions_declare_text}</div></td>
 		</tr>
 	</table>
 	<div class="donor_budgets">
@@ -205,7 +205,7 @@ Activity
 #donors_head
 <div class="donors_head_wrap">
 	<div class="donors_icon_wrap">
-		<img src="{art}money_title_icon.png" alt="{money_title_icon_text}" width="330" height="180"/>	
+		<img src="{art}money_title_icon.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>	
 	</div><div class="donors_peak_wrap">
 			<div class="donors_peak_space"></div>
 			<div class="donors_peak"></div>
@@ -272,7 +272,7 @@ Activity
 #sectors_head
 <div class="sectors_head_wrap">
 	<div class="sectors_icon_wrap">
-		<img src="{art}money_title_icon.png" alt="{money_title_icon_text}" width="330" height="180"/>
+		<img src="{art}money_title_icon.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>
 	</div><div class="sectors_peak_wrap">
 			<div class="sectors_peak_space"></div>
 			<div class="sectors_peak"></div>
@@ -396,7 +396,7 @@ BANGLADESH
 
 #beige
 <div class="beigealert">
-	<img src="/art/alert_icon.png" alt="Declaration icon" width="15" height="15"> D-Portal is still in very early development &amp; scheduled for Alpha release mid-April. Thank you for your patience! Please provide any feedback <a href="/html/feedback.html" class="beige" target="_blank">here</a>.
+	<img src="/art/alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"> {beige_alert_text} <a href="/html/feedback.html" class="beige" target="_blank">{beige_alert_here_text}</a>.
 </div>
 
 #view_head
@@ -411,7 +411,7 @@ BANGLADESH
 </div>
 <div class="footer_wrap">
 	<div class="footer">
-		<div class="team"><a href="http://www.aidtransparency.net/" title="International Aid Transparency Initiative (IATI)">
+		<div class="team"><a href="http://www.aidtransparency.net/" title="{footer_team_tip_text}">
 			{footer_team_text}</a>
 		</div><div class="team top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
 			{footer_top_text}</a>
@@ -424,9 +424,9 @@ BANGLADESH
 #main_head
 <div class="default head">
 	<div class="logo_wrap">
-		<a href="#view=main" title="{mainback_text}"><img src="{art}dp_logo.20.png" alt="{dportal_logo_text}" width="232" height="21"/></a>
+		<a href="#view=main" title="{mainback_tip_text}"><img src="{art}dp_logo.20.png" alt="{dportal_logo_alt_text}" width="232" height="21"/></a>
 	</div><div class="tongue_wrap">
-		<a href="?tongue=eng" class="tongue" title="{tongue_eng_text}">ENG</a> / <a href="?tongue=fra" class="tongue" title="{tongue_fra_text}">FRA</a> / <a href="?tongue=spa" class="tongue" title="{tongue_spa_text}">SPA</a>
+		<a href="?tongue=eng" class="tongue" title="{tongue_eng_tip_text}">ENG</a> / <a href="?tongue=fra" class="tongue" title="{tongue_fra_tip_text}">FRA</a> / <a href="?tongue=spa" class="tongue" title="{tongue_spa_tip_text}">SPA</a>
 	</div>
 	<div class="crumb_wrap">{crumbs}</div>
 </div>
@@ -436,7 +436,7 @@ BANGLADESH
 	<table class="country min">
 		<tr>
 			<td>{country_name}</td>
-			<td><img src="{country_flag}" alt="{country_name} {flag_text}" width="75"/></td>
+			<td><img src="{country_flag}" alt="{country_name} {flag_alt_text}" width="75"/></td>
 		</tr>
 	</table>
 	<div class="declare head">{declare_main_text}</div>
@@ -447,7 +447,7 @@ BANGLADESH
 	<table class="country">
 		<tr>
 			<td>{country_name}</td>
-			<td><img src="{country_flag}" alt="{country_name} {flag_text}" width="150" height="90"/></td>
+			<td><img src="{country_flag}" alt="{country_name} {flag_alt_text}" width="150" height="90"/></td>
 		</tr>
 	</table>
 	<div class="declare head">{declare_main_text}</div>
@@ -591,7 +591,7 @@ BANGLADESH
 <div class="active_wrap">
 	<table class="title space">
 		<tr>
-			<td><img src="{art}active_icon.png" alt="{active_icon_text}" width="40" height="40"/></td>
+			<td><img src="{art}active_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
 			<td>{list_active_text}</td>
 			<td><div class="declare title list">{list_active_declare_text}</div></td>
 		</tr>
@@ -610,7 +610,7 @@ BANGLADESH
 <div class="ended_wrap">
 	<table class="title space">
 		<tr>
-			<td><img src="{art}ended_icon.png" alt="{ended_icon_text}" width="40" height="40"/></td>
+			<td><img src="{art}ended_icon.png" alt="{ended_icon_alt_text}" width="40" height="40"/></td>
 			<td>{list_ended_text}</td>
 			<td><div class="declare title list">{list_ended_declare_text}</div></td>
 		</tr>
@@ -630,7 +630,7 @@ BANGLADESH
 	<div class="about_txt">
 		{about_text} <span class="bold">{about_anyone_text}</span>, <span class="bold">{about_anywhere_text}</span>.
 	</div><div class="iati_logo">
-		<a href="http://iatistandard.org/" target="_blank" class="iati_link"><img src="{art}iati_logo.269.png" alt="{iati_logo_text}" width="269" height="70"></a>
+		<a href="http://iatistandard.org/" target="_blank" class="iati_link"><img src="{art}iati_logo.269.png" alt="{iati_logo_alt_text}" width="269" height="70"></a>
 	</div>
 </div>
 
