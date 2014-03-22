@@ -3,6 +3,10 @@
 
 var plate=exports;
 
+var util=require('util');
+
+var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
+
 
 plate.chunks=[];
 
@@ -10,14 +14,14 @@ plate.chunks=[];
 plate.fill_chunks=function(str,chunks)
 {
 	var chunks=chunks || {};
-	chunks.__flags__=chunks._flags || {}; // special flags chunk chunk, if we have any
+	chunks.__flags__=chunks.__flags__ || {}; // special flags chunk chunk, if we have any
 
 	var chunk;
 	var flags; // associated with this chunk
 	str.split("\n").forEach(function(l){
 			if(l[0]=="#")
 			{
-				if(l[1]="#") // double hash escape?
+				if(l[1]=="#") // double hash escape?
 				{
 					if(chunk)
 					{
@@ -77,9 +81,15 @@ plate.fill_chunks=function(str,chunks)
 	// turn back into strings from arrays
 	for( n in chunks )
 	{
-		if( "object" == typeof chunks[n] ) // join arrays
+		if(n=="__flags__") // special flags chunk name
 		{
-			chunks[n]=chunks[n].join("\n");
+		}
+		else
+		{
+			if( "object" == typeof chunks[n] ) // join arrays of lines
+			{
+				chunks[n]=chunks[n].join("\n");
+			}
 		}
 	}
 
@@ -121,7 +131,7 @@ plate.out_chunks=function(chunks)
 				{
 					if(fn && f[fn])
 					{
-						r.push(" "+fn+"="+"f[fn]);
+						r.push(" "+fn+"="+f[fn]);
 					}
 				}
 			}
@@ -157,9 +167,9 @@ plate.prepare=function(str)
 			ar.push("{"); // this string is used to mark the following string as something to replace
 			ar.push(av[0]);
 			ar.push(av[1]);
-			for(var j=2;j<av.length;j++) // multipl close tags?
+			for(var j=2;j<av.length;j++) // multiple close tags?
 			{
-				ar.push("}"+av[2]); // then missing open so just leave it as it was
+				ar.push("}"+av[j]); // then missing open so just leave it as it was
 			}
 		}
 		else

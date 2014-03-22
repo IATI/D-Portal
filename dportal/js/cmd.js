@@ -20,7 +20,7 @@ cmd.run=function(argv)
 	// help text
 	console.log(
 		"\n"+
-		"dportal build \n"+
+		">	dportal build \n"+
 		"Build all output into serv.\n"+
 		"\n"+
 		"\n"+

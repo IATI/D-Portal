@@ -35,10 +35,10 @@ cmd.run=function(argv)
 	// help text
 	console.log(
 		"\n"+
-		"ctrack import tongue tmp/tongue.csv \n"+
+		">	ctrack import tongue tmp/tongue.csv \n"+
 		"Import language table from a csv file.\n"+
 		"\n"+
-		"ctrack export tongue tmp/tongue.csv \n"+
+		">	ctrack export tongue tmp/tongue.csv \n"+
 		"Export language table into a csv file.\n"+
 		"\n"+
 		"\n"+
