@@ -25,6 +25,7 @@ i						{font-style:italics;}
 .main_wrap				{width:100%; min-width:1040px; padding:0px 0px 40px 0px; background-color: rgba(255,255,255,0.4);}
 #background_image_wrap 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
 .overlay				{width:100%; height:100%; background-color:rgba(46, 41, 6, 0.6);} /* Overlay colour for background image */
+iati-activity			{margin-bottom:40px;} /* Fixes too-large bottom margin during only this instance */
 
 /*	Breadcrumbs
 	============================================= */
