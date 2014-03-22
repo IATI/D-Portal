@@ -45,8 +45,6 @@ a.tongue:hover			{color:#fff;}
 .default				{width:960px; margin:0 auto; padding:0;}
 .default.head			{padding-top:20px;}
 .default.min			{padding-top:10px;}
-.logo_wrap				{width:760px; display:inline-block; vertical-align:top;}
-.tongue_wrap			{width:200px; display:inline-block; vertical-align:top; color:#fff; font-size:14px; text-align:right;}
 .declare.head			{width:960px; padding-top:5px; border-top:10px solid #fff; font-size:14px; color:#ccc;}
 
 /*	Money Module styles
@@ -155,7 +153,12 @@ a.back_to_donor_list:hover		{background-color:#0081FF;}
 	============================================= */
 table					{border-spacing:0;}
 
-/*	Header table
+/*	Table for Header logo and Translations
+	============================================= */
+table.head				{width:100%; margin:0 auto;}
+table.head td:nth-child(2)			{color:#fff; text-align:right; vertical-align:top; font-size:14px;}
+
+/*	Table for Country Name and Flag
 	============================================= */
 table.country.min		{width:960px; margin:0 auto; padding:10px 0;}
 table.country.min td:nth-child(1)	{width:860px; max-width:860px; padding-right:20px; font-size:32px; line-height:1.1em; color:#fff;}
@@ -168,7 +171,7 @@ table.money_mod			{width:380px; min-height:300px; background-color:#fff; padding
 table.money_mod td:nth-child(1)	{width:190px; padding:5px 10px 5px 0;}
 table.money_mod td:nth-child(2)	{width:100px;}
 
-/*	Table titles
+/*	Table Titles
 	============================================= */
 table.title				{width:100%; border-collapse:collapse; padding-bottom:15px; border-bottom:10px solid #fff;}
 table.title.space		{border-collapse:separate;} /* Active / Ended projects need spacing */
