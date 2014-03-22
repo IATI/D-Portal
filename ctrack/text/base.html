@@ -541,7 +541,7 @@ BANGLADESH
 #main_map
 <div class="map_wrap">
 	<div class="map_info">
-		This is a heat map of all activities for {country_name} that have been provided with precise locations.
+		{map_info_text}
 	</div>
 	<div id="map"></div>
 </div>
@@ -551,26 +551,36 @@ BANGLADESH
 	<table class="stats">
 		<tr>
 			<td rowspan="2" colspan="2" title="{stats_active_tip_text}">
-				<div class="stats_title">{stats_active_text}</div>
-				<div class="stats_num">{active_projects}</div>
+				<a href="#" class="stats_link">
+					<span class="stats_title">{stats_active_text}</span>
+					<span class="stats_num">{active_projects}</span>
+				</a>
 			</td>
 			<td title="{stats_ending_tip_text}">
-				<div class="stats_title">{stats_ending_text} <span>&lt; {stats_ending_period_text}</span></div>
-				<div class="stats_num small">{ending_soon}</div>
+				<a href="#" class="stats_link">
+					<span class="stats_title">{stats_ending_text} <span class="stats_title small">&lt; {stats_ending_period_text}</span></span>
+					<span class="stats_num small">{ending_soon}</span>
+				</a>
 			</td>
 			<td title="{stats_total_tip_text}">
-				<div class="stats_title">{stats_total_text}</div>
-				<div class="stats_num small">{total_projects}</div>
+				<a href="#" class="stats_link">
+					<span class="stats_title">{stats_total_text}</span>
+					<span class="stats_num small">{total_projects}</span>
+				</a>
 			</td>
 		</tr>
 		<tr>
 			<td title="{stats_starting_tip_text}">
-				<div class="stats_title">{stats_starting_text} <span>&lt; {stats_starting_period_text}</span></div>
-				<div class="stats_num small">{starting_soon}</div>
+				<a href="#" class="stats_link">
+					<span class="stats_title">{stats_starting_text} <span class="stats_title small">&lt; {stats_starting_period_text}</span></span>
+					<span class="stats_num small">{starting_soon}</span>
+				</a>
 			</td>
 			<td title="{stats_publisher_tip_text}">
-				<div class="stats_title">{stats_publisher_text}</div>
-				<div class="stats_num small">{numof_publishers}</div>
+				<a href="#" class="stats_link">
+					<span class="stats_title">{stats_publisher_text}</span>
+					<span class="stats_num small">{numof_publishers}</span>
+				</a>
 			</td>
 		</tr>
 	</table>
