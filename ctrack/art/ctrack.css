@@ -83,7 +83,7 @@ a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
 span.stats_title		{display:block; font-size:24px; color:#ccc; padding-bottom:10px;}
 span.stats_num			{display:block; font-size:128px; color:#2E98FF;}
 span.stats_num.small	{display:block; font-size:64px;}
-.declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#ccc; font-size:16px;}
+.declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#ccc; font-size:14px;}
 a.stats_link			{display:block; padding:30px 40px; height:100%;}
 
 /*	Active / Ended projects styles
@@ -190,7 +190,7 @@ table.stats td:hover	{background-color:rgba(0,14,32,0.9);}
 /*	Table for Active / Ended projects
 	============================================= */
 table.list				{width:100%; border-collapse:collapse;}
-table.list td			{color:#B8C8CD; font-size:20px; line-height:1.35em; word-spacing:0.7px; padding:20px 20px 20px 0; vertical-align:top;}
+table.list td			{color:#fff; font-size:20px; line-height:1.35em; word-spacing:0.7px; padding:20px 20px 20px 0; vertical-align:top;}
 table.list td:nth-child(3)	{text-align:right; padding-right:0; min-width:160px;}
 table.list td:nth-child(2)	{padding:0;}
 table.list a			{display:inline-block; padding:20px; width:100%; color:#A8C5E5;}
@@ -273,7 +273,7 @@ a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 .team a:visited			{color:#818181;}
 .team a:hover			{color:#fff;}
 .team a:active			{color:#818181;}
-.team.git				{text-align:right;}
+.team.about				{text-align:right;}
 .team.top				{text-align:center;}
 
 
