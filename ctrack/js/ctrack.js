@@ -10,6 +10,8 @@ var savi=require("./savi.js")
 
 var views=require("./views.js");
 
+var iati_codes=require("../../dstore/json/iati_codes.json")
+
 // export savi
 ctrack.savi_fixup=savi.fixup;
 
@@ -58,6 +60,14 @@ ctrack.setup=function(args)
 		var aa=n.split("=");
 		ctrack.q[aa[0]]=aa[1];
 	});
+// tempory country force hack
+	if( ctrack.q.country )
+	{
+		args.country=ctrack.q.country;
+		args.chunks["country_name"]=iati_codes.country[args.country.toUpperCase()];
+		args.chunks["country_flag"]="{art}flag/"+args.country+".png";
+		args.chunks["background_image"]="{art}back/"+args.country+".jpg";
+	}
 
 	if( ctrack.q.tongue ) // choose a new tongue
 	{
@@ -176,6 +186,13 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 	
 	ctrack.chunk("today",fetch.get_today());
 	ctrack.chunk("hash","");
+	
+	var s="?";
+	if(ctrack.q.country)
+	{
+		s=s+"country="+ctrack.q.country;
+	}
+	ctrack.chunk("mark",s);
  
 	ctrack.hash={};
 	ctrack.hash_split=function(q,v)
