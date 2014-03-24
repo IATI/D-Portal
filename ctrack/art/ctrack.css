@@ -284,3 +284,13 @@ a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 .beigealert				{width:100%; margin:0 auto; background-color:#D80051; color:#fff; font-size:1em; line-height:1.25em; text-align:center; padding:10px 0;}
 a.beige					{font-weight:bold; color:#FFFF00;}
 a.beige:hover			{color:#fff;}
+
+
+/*	Spinner / loading animation
+	============================================= */
+.spinner {height:20px; width:20px; margin:0px auto; -webkit-animation:spin .6s infinite linear; -moz-animation:spin .6s infinite linear; -o-animation:spin .6s infinite linear; animation:spin .6s infinite linear; border-left:6px solid rgba(0,182,239,.15); border-right:6px solid rgba(0,182,239,.15); border-bottom:6px solid rgba(0,182,239,.15); border-top:6px solid rgba(0,182,239,.8); border-radius:100%;}
+
+@-webkit-keyframes spin {from {-webkit-transform:rotate(0deg);} to {-webkit-transform: rotate(359deg);}}
+@-moz-keyframes spin {from {-moz-transform: rotate(0deg);} to {-moz-transform: rotate(359deg);}}
+@-o-keyframes spin {from {-o-transform: rotate(0deg);} to {-o-transform: rotate(359deg);}}
+@keyframes spin {from {transform: rotate(0deg);} to {transform: rotate(359deg);}}
