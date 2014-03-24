@@ -9,15 +9,19 @@
 <body>
 <div class="portal">
 	<div class="main_wrap">
-	<div id="background_image_wrap"></div>
+		<div id="background_image"></div>
 		<div class="overlay">
+			<div class="beigealert">
+				<img src="/art/alert_icon.png" alt="Declaration icon" width="15" height="15"> D-Portal is still in very early development &amp; scheduled for Alpha release mid-April. Thank you for your patience! Please provide any feedback <a href="/html/feedback.html" class="beige" target="_blank">here</a>.
+			</div>
 			<div class="default center">
 				<img src="/art/dp_logo.index.png" width="400" height="350" alt="D-Portal logo"/>
-				<div style="width:100%; margin:0 auto; text-align:center; color:#fff; font-size:1.8em; line-height:1.35em;">
+				<div style="width:100%; margin:0 auto; margin-top:20px; padding:10px 0; border-top:1px solid #fff; border-bottom:1px solid #fff; text-align:center; color:#fff; font-size:1.4em; line-height:1.35em;">
 					Helping you understand IATI data.
 				</div>
 				<div class="dropdown_wrap">
-				<div class="dropdown_title">Choose a country</div><ul class="dropdown">
+				<div class="dropdown_title">Pick a country</div><div class="dropdown_list_wrap">
+				<ul class="dropdown_list">
 					<li><a class="country_code" href="AC">Ascension Island</a></li>
 					<li><a class="country_code" href="AD">Andorra</a></li>
 					<li><a class="country_code" href="AE">United Arab Emirates</a></li>
@@ -39,7 +43,7 @@
 					<li><a class="country_code" href="AZ">Azerbaijan</a></li>
 					<li><a class="country_code" href="BA">Bosnia and Herzegovina</a></li>
 					<li><a class="country_code" href="BB">Barbados</a></li>
-					<li><a class="country_code" href="BD">Bangladesh</a></li>
+					<li class="show"><a class="country_code" href="/html/bangladesh/" title="BD">Bangladesh</a></li>
 					<li><a class="country_code" href="BE">Belgium</a></li>
 					<li><a class="country_code" href="BF">Burkina Faso</a></li>
 					<li><a class="country_code" href="BG">Bulgaria</a></li>
@@ -133,7 +137,7 @@
 					<li><a class="country_code" href="GY">Guyana</a></li>
 					<li><a class="country_code" href="HK">Hong Kong</a></li>
 					<li><a class="country_code" href="HM">Heard Island and McDonald Islands</a></li>
-					<li><a class="country_code" href="HN">Honduras</a></li>
+					<li class="show"><a class="country_code" href="/html/honduras/" title="HN">Honduras</a></li>
 					<li><a class="country_code" href="HR">Croatia</a></li>
 					<li><a class="country_code" href="HT">Haiti</a></li>
 					<li><a class="country_code" href="HU">Hungary</a></li>
@@ -287,7 +291,7 @@
 					<li><a class="country_code" href="TW">Taiwan, Province of China</a></li>
 					<li><a class="country_code" href="TZ">Tanzania, United Republic of</a></li>
 					<li><a class="country_code" href="UA">Ukraine</a></li>
-					<li><a class="country_code" href="UG">Uganda</a></li>
+					<li class="show"><a class="country_code" href="/html/uganda/" title="UG">Uganda</a></li>
 					<li><a class="country_code" href="UK">United Kingdom</a></li>
 					<li><a class="country_code" href="UM">United States Minor Outlying Islands</a></li>
 					<li><a class="country_code" href="US">United States</a></li>
@@ -315,20 +319,20 @@
 					<li><a class="country_code" href="ZR">Zaire</a></li>
 					<li><a class="country_code" href="ZW">Zimbabwe</a></li>
 					</ul>
-				</div>
+				</div></div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="footer_wrap">
+	<div class="footer_wrap">
 	<div class="footer">
 		<div class="team"><a href="http://www.aidtransparency.net/" title="International Aid Transparency Initiative (IATI)">
-			A project by the Development Portal team :}</a>
+			A 2014 project by the Development Portal team</a>
 		</div><div class="team top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
-			Back to Top</a>
+			Top of page</a>
 		</div><div class="team git"><a href="https://github.com/IATI/IATI-Country-Tracker">
 			Fork us on Github!</a>
 		</div>
+	</div>
 	</div>
 </div>
 </body>
