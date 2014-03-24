@@ -164,7 +164,6 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 	ctrack.div.master.html( plate.replace("{loading}")  );
 	
 //	ctrack.fetch({});
-
 /*
 	ctrack.chunk("active_projects","{spinner}");
 	ctrack.chunk("ended_projects","{spinner}");
@@ -176,6 +175,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 */
 	
 	ctrack.chunk("today",fetch.get_today());
+	ctrack.chunk("hash","");
  
 	ctrack.hash={};
 	ctrack.hash_split=function(q,v)
@@ -335,6 +335,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 		var h=document.location.hash;
 		if(h!=ctrack.last_hash)
 		{
+			ctrack.chunk("hash",h);
 			ctrack.last_hash=h;
 			var l={};
 			ctrack.hash=ctrack.hash_split(h,l);
