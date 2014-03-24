@@ -251,27 +251,28 @@ table.activity a:active	{color:#95B0CF; text-decoration:none;}
 .about_txt				{width:570px; padding-right:60px; display:inline-block; vertical-align:top; line-height:1.35em; word-spacing:0.05em; font-size:18px; color:#fff;}
 .about_txt span			{color:#fff;}
 .iati_logo				{width:290px; display:inline-block; vertical-align:top; text-align:right;}
-a.iati_link				{display:block; width:270px; margin:0 auto; padding:0 30px;}
+a.iati_link				{display:block; width:270px; margin:0 auto; padding:10px; background-color:rgba(255, 255, 255, 0.85); border-radius:6px;}
+a.iati_link:hover		{background-color:rgba(255, 255, 255, 1);}
 
 
 /*	Data Investigators alert
 	============================================= */
 .data_wrap				{width:100%; margin:0 auto;}
-a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:14px; color:#D6D2A1; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
+a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:14px; color:#C7A1D6; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
 a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 
 
 /*	Footer
 	============================================= */
-.footer_wrap			{display:table-footer-group; height:1px; background-color:rgba(0,0,0,0.8);}
+.footer_wrap			{display:table-footer-group; height:1px; background-color:rgba(19, 20, 20, 0.95);}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
 .team					{width:320px; display:inline-block; vertical-align:top;}
-.team a					{font-size:13px; line-height:1.5em; color:#A3A3A3;}
-.team a:focus			{color:#A3A3A3;}
-.team a:link  			{color:#A3A3A3;}
-.team a:visited			{color:#A3A3A3;}
+.team a					{font-size:13px; line-height:1.5em; color:#818181;}
+.team a:focus			{color:#818181;}
+.team a:link  			{color:#818181;}
+.team a:visited			{color:#818181;}
 .team a:hover			{color:#fff;}
-.team a:active			{color:#A3A3A3;}
+.team a:active			{color:#818181;}
 .team.git				{text-align:right;}
 .team.top				{text-align:center;}
 
