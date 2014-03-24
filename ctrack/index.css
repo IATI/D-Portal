@@ -57,15 +57,15 @@ a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 	============================================= */
 .footer_wrap			{display:table-footer-group; height:1px; background-color:rgba(19, 20, 20, 0.95);}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
-.team					{width:320px; display:inline-block; vertical-align:top;}
-.team a					{font-size:13px; line-height:1.5em; color:#818181;}
-.team a:focus			{color:#818181;}
-.team a:link  			{color:#818181;}
-.team a:visited			{color:#818181;}
-.team a:hover			{color:#fff;}
-.team a:active			{color:#818181;}
-.team.about				{text-align:right;}
-.team.top				{text-align:center;}
+.footer_link			{width:320px; display:inline-block; vertical-align:top;}
+.footer_link a			{font-size:13px; line-height:1.5em; color:#818181;}
+.footer_link a:focus	{color:#818181;}
+.footer_link a:link  	{color:#818181;}
+.footer_link a:visited	{color:#818181;}
+.footer_link a:hover	{color:#fff;}
+.footer_link a:active	{color:#818181;}
+.footer_link.about		{text-align:right;}
+.footer_link.top		{text-align:center;}
 
 /*	Beige Alert
 	============================================= */
