@@ -8,6 +8,7 @@ var iati=require("./iati.js")
 var fetch=require("./fetch.js")
 var savi=require("./savi.js")
 
+
 // export savi
 ctrack.savi_fixup=savi.fixup;
 
@@ -163,22 +164,15 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 	
 //	ctrack.fetch({});
 
-	ctrack.chunk("ctbox1table_datas","{loading}");
-	ctrack.chunk("active_projects",0);
-
-	ctrack.chunk("ctbox2table_datas","{loading}");
-	ctrack.chunk("finished_projects",0);
-
-	ctrack.chunk("ctbox3table_datas","{loading}");
-	ctrack.chunk("planned_projects",0);
-	
-	ctrack.chunk("ctneartable_datas","{loading}");
-
-	ctrack.chunk("donor_transactions_datas","{loading}");
-	ctrack.chunk("donor_budgets_datas","{loading}");
-
-	ctrack.chunk("numof_publishers",0);
-	ctrack.chunk("total_projects",0);
+/*
+	ctrack.chunk("active_projects","{spinner}");
+	ctrack.chunk("ended_projects","{spinner}");
+	ctrack.chunk("planned_projects","{spinner}");
+	ctrack.chunk("donor_transactions_datas","{spinner}");
+	ctrack.chunk("donor_budgets_datas","{spinner}");
+	ctrack.chunk("numof_publishers","{spinner}");
+	ctrack.chunk("total_projects","{spinner}");
+*/
 	
 	ctrack.chunk("today",fetch.get_today());
  
@@ -204,8 +198,16 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 	ctrack.view_done={};
 	ctrack.prepare_view=function(name)
 	{
+	if(name)
+	{
+var view_ended=require("./view_ended.js");
+var view_planned=require("./view_planned.js");
+var view_active=require("./view_active.js");
+var view_stats=require("./view_stats.js");
+
 		if( name.indexOf("main") == 0 ) // only fetch the main once?
 		{
+			ctrack.setcrumb(0);
 			if( !ctrack.view_done[name] )
 			{
 				ctrack.view_done[name]=true;			
@@ -213,11 +215,22 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				fetch.finished({limit:5});
 				fetch.planned({limit:5});
 				fetch.heatmap({limit:300});
-				fetch.stats({});
+//				fetch.stats({});
 				fetch.donors_top({limit:5});
+
+				
+				view_planned.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+				view_active.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+				view_ended.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+				view_stats.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+
+				ctrack.change_hash();
+
+				view_planned.numof_ajax();
+				view_active.numof_ajax();
+				view_ended.numof_ajax();
+				view_stats.numof_ajax();
 			}
-			ctrack.setcrumb(0);
-			ctrack.change_hash();
 		}
 		else
 		if( name.indexOf("donors") == 0 )
@@ -280,6 +293,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 			ctrack.setcrumb(3);
 			ctrack.change_hash();
 		}
+	}
 	}
 
 
