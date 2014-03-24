@@ -217,6 +217,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				fetch.donors_top({limit:5});
 			}
 			ctrack.setcrumb(0);
+			ctrack.change_hash();
 		}
 		else
 		if( name.indexOf("donors") == 0 )
@@ -227,6 +228,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				fetch.donors();
 			}
 			ctrack.setcrumb(1);
+			ctrack.change_hash();
 		}
 		else
 		if( name.indexOf("sectors") == 0 )
@@ -237,6 +239,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				fetch.sectors();
 			}
 			ctrack.setcrumb(1);
+			ctrack.change_hash();
 		}
 		else
 		if( name.indexOf("districts") == 0 )
@@ -247,30 +250,35 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 				fetch.districts();
 			}
 			ctrack.setcrumb(1);
+			ctrack.change_hash();
 		}
 		else
 		if( name.indexOf("donor_transactions") == 0 )
 		{
 			fetch.donor_transactions({year:ctrack.hash.year,funder:ctrack.hash.funder});
 			ctrack.setcrumb(2);
+			ctrack.change_hash();
 		}
 		else
 		if( name.indexOf("donor_budgets") == 0 )
 		{
 			fetch.donor_budgets({year:ctrack.hash.year,funder:ctrack.hash.funder});
 			ctrack.setcrumb(2);
+			ctrack.change_hash();
 		}
 		else
 		if( name.indexOf("donor_activities") == 0 )
 		{
 			fetch.donor_activities({funder:ctrack.hash.funder});
 			ctrack.setcrumb(2);
+			ctrack.change_hash();
 		}
 		else
 		if( name.indexOf("act") == 0 )
 		{
 			fetch.activity({activity:ctrack.hash.aid});
 			ctrack.setcrumb(3);
+			ctrack.change_hash();
 		}
 	}
 
@@ -346,10 +354,6 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 		}
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );
-	ctrack.check_hash();
-	ctrack.display_hash();
-
-
 
 	$( document ).on("click", "a", function(event){
 		var s=$(this).prop("href");
@@ -391,6 +395,12 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 			}
 		}
 	});
+
+// wait for images to load before performing any data requests
+		$(window).load(function() {
+			ctrack.check_hash();
+			ctrack.display_hash(); // this will display view=main or whatever page is requsted
+		});
 
 }
 

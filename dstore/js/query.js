@@ -410,6 +410,7 @@ query.getsql_select=function(q,qv){
 		"json":true
 		};
 
+
 	var ns=q[0];
 
 // extra special calculations
@@ -504,16 +505,23 @@ query.getsql_select=function(q,qv){
 	}
 	else
 	{
-//		ss.push(" * ");
-		var aa=q.from.split(",");
-		for(i=0;i<aa.length;i++)
+		if(q.form=="xml") // just need to jml to spit out xml
 		{
-			var f=aa[i];
-			for(n in dstore_sqlite.tables_active[f])
+			ss.push(" jml ");
+		}
+		else
+		{
+//		ss.push(" * ");
+			var aa=q.from.split(",");
+			for(i=0;i<aa.length;i++)
 			{
-				if(!stats_skip[n])
+				var f=aa[i];
+				for(n in dstore_sqlite.tables_active[f])
 				{
-					ss.push(" "+n+" ");
+					if(!stats_skip[n])
+					{
+						ss.push(" "+n+" ");
+					}
 				}
 			}
 		}
@@ -830,6 +838,7 @@ if(true)
     
    		}
 		else
+/*
 		if(q.form=="rawxml")
 		{
 			res.set('Content-Type', 'text/xml');
@@ -852,6 +861,7 @@ if(true)
 						'</result>\n');
 		}
 		else
+*/
 		if(q.form=="csv")
 		{
 			res.set('Content-Type', 'text/csv');
