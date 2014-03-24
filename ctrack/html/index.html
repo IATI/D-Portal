@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html> 
+	<head>
+		<title>Development Portal</title>
+		<script src="/jslib/ctrack_loader.js"></script>
+		<script>
+			ctrack_loader({
+
+// where to load js/css/etc files from, defaults to http://d-portal.org/ 
+// set to / if you are running a ctrack server
+				root:"/",
+
+// display in this div which you will find in the body below
+				master:".portal",
+
+// displayed data will be limited to this country code
+//				country:"bd",
+
+// these are replaced into the generated html and you can overide *any* display chunk here
+				chunks:{
+//					"country_name":"Bangladesh",
+//					"country_flag":"bdflag.png",
+//					"background_image":"backgroundimage.jpg"
+				}
+
+			});		
+		</script>
+	</head> 
+	<body>
+		<div class="portal">
+			Anything in here will be shown while ctrack loads and be replaced with ctrack content afterwards.
+		</div>
+	</body>
+</html>
