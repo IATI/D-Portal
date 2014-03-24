@@ -100,6 +100,7 @@ fetch.endingsoon=function(args)
 
 	};
 	
+	ctrack.chunk("table_active_datas","{spinner}");
 	fetch.ajax(dat,callback);
 }
 
@@ -144,6 +145,7 @@ fetch.finished=function(args)
 
 	};
 
+	ctrack.chunk("table_ended_datas","{spinner}");
 	fetch.ajax(dat,callback);
 }
 
@@ -189,6 +191,7 @@ fetch.planned=function(args)
 
 	};
 	
+	ctrack.chunk("ctbox3table_datas","{spinner}");
 	fetch.ajax(dat,callback);
 }
 
@@ -257,6 +260,9 @@ console.log(ctrack.chunks);
 
 		};
 	
+		ctrack.chunk("active_projects","{spinner}");
+		ctrack.chunk("finished_projects","{spinner}");
+		ctrack.chunk("planned_projects","{spinner}");
 		fetch.ajax(dat,callback);
 	};
 	
@@ -288,6 +294,7 @@ console.log(ctrack.chunks);
 
 		};
 
+		ctrack.chunk("ending_soon","{spinner}");
 		fetch.ajax(dat,callback);
 	}
 	f3();
@@ -316,6 +323,7 @@ console.log(ctrack.chunks);
 
 		};
 
+		ctrack.chunk("starting_soon","{spinner}");
 		fetch.ajax(dat,callback);
 	}
 	f4();
@@ -354,6 +362,7 @@ fetch.activity=function(args)
 		
 	};
 		
+	ctrack.chunk("xml","{spinner}");
 	fetch.ajax(dat,callback);
 
 }
@@ -463,6 +472,7 @@ fetch.donor_transactions=function(args)
 		ctrack.chunk("donor_transactions_datas",s.join(""));
 		ctrack.display();
 	};
+	ctrack.chunk("donor_transactions_datas","{spinner}");
 	fetch.ajax(dat,callback);
 }
 
@@ -521,6 +531,7 @@ fetch.donor_budgets=function(args)
 		ctrack.chunk("donor_budgets_datas",s.join(""));
 		ctrack.display();
 	};
+	ctrack.chunk("donor_budgets_datas","{spinner}");
 	fetch.ajax(dat,callback);
 }
 
@@ -583,6 +594,7 @@ fetch.donor_activities=function(args)
 		ctrack.chunk("donor_activities_datas",s.join(""));
 		ctrack.display();
 	};
+	ctrack.chunk("donor_activities_datas","{spinner}");
 	fetch.ajax(dat,callback);
 }
 
@@ -620,7 +632,7 @@ fetch.donors_top=function(args)
 	}
 
 	ctrack.chunk("main_money_rows",s.join(""));
-		ctrack.display();
+	ctrack.display();
 
 }
 
@@ -668,6 +680,7 @@ fetch.donors=function(args)
 		ctrack.chunk("table_donors_rows",s.join(""));
 		ctrack.display();
 	};
+	ctrack.chunk("table_donors_rows","{spinner}");
 	
 	var fadd=function(d)
 	{
@@ -789,6 +802,7 @@ fetch.sectors=function(args)
 		ctrack.chunk("table_sectors_rows",s.join(""));
 		ctrack.display();
 	};
+	ctrack.chunk("table_sectors_rows","{spinner}");
 	
 	var fadd=function(d)
 	{
@@ -899,6 +913,7 @@ fetch.districts=function(args)
 		ctrack.chunk("table_districts_rows",s.join(""));
 		ctrack.display();
 	};
+	ctrack.chunk("table_districts_rows","{spinner}");
 	
 	var fadd=function(d)
 	{
