@@ -197,6 +197,8 @@ fetch.planned=function(args)
 
 fetch.stats=function(args)
 {
+return;
+
 	args=args || {};
 	
 	var today=fetch.get_today();
