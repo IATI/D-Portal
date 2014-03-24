@@ -620,7 +620,7 @@ fetch.donors_top=function(args)
 	});
 
 //	var total=0; list.forEach(function(it){total+=it.usd;});
-	var top=list[0].usd;
+	var top=list[0] && list[0].usd || 0;
 	var s=[];
 	for( var i=0; i<limit ; i++ )
 	{
