@@ -3,6 +3,7 @@
 
 
 var view_ended=exports;
+exports.name="ended";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
