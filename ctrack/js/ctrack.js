@@ -63,7 +63,7 @@ ctrack.setup=function(args)
 // tempory country force hack
 	if( ctrack.q.country )
 	{
-		args.country=ctrack.q.country;
+		args.country=ctrack.q.country.toLowerCase();
 		args.chunks["country_name"]=iati_codes.country[args.country.toUpperCase()];
 		args.chunks["country_flag"]="{art}flag/"+args.country+".png";
 		args.chunks["background_image"]="{art}back/"+args.country+".jpg";
