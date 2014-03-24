@@ -396,7 +396,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 		}
 	});
 
-// wait for images to load before performing any data requests
+// wait for images to load before performing any data requests?
 		$(window).load(function() {
 			ctrack.check_hash();
 			ctrack.display_hash(); // this will display view=main or whatever page is requsted
