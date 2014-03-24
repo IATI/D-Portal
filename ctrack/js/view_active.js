@@ -3,12 +3,12 @@
 
 
 var view_active=exports;
+exports.name="active";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetch=require("./fetch.js")
-
 
 // the chunk names this view will fill with new data
 view_active.chunks=[
