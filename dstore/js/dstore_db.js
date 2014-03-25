@@ -23,38 +23,37 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // values copied from the main activity into sub tables for quik lookup (no need to join tables)
 dstore_db.bubble_act={
-		"reporting_org":true,
-		"reporting_org_ref":true,
-		"funder":true,
-		"title":true,
+//		"reporting_org":true,
+//		"reporting_org_ref":true,
+//		"funder":true,
+//		"title":true,
 		"aid":true
 	};
 	
 	
 // data table descriptions
 dstore_db.tables={
+	jml:[
+		{ name:"aid",							NOCASE:true , PRIMARY:true },
+		{ name:"jml",							TEXT:true }, // moved to reduce the main act table size
+	],
 	act:[
 		{ name:"aid",							NOCASE:true , PRIMARY:true },
+		{ name:"reporting_org",					NOCASE:true , INDEX:true },
+		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
+		{ name:"funder",						NOCASE:true , INDEX:true },
+		{ name:"title",							NOCASE:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
-//		{ name:"xml",							TEXT:true },
-		{ name:"jml",							TEXT:true },
-		{ name:"json",							TEXT:true },
 		{ name:"status_code",					INTEGER:true , INDEX:true },	
 		{ name:"day_start",						INTEGER:true , INDEX:true },	
 		{ name:"day_end",						INTEGER:true , INDEX:true },
 		{ name:"day_length",					INTEGER:true , INDEX:true },
-		{ name:"title",							NOCASE:true },
 		{ name:"description",					NOCASE:true },
-		{ name:"reporting_org",					NOCASE:true , INDEX:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"funder",						NOCASE:true , INDEX:true },
 		{ name:"commitment",					REAL:true , INDEX:true }, // USD (C)
-		{ name:"spend",							REAL:true , INDEX:true } // USD (D+E)
+		{ name:"spend",							REAL:true , INDEX:true },  // USD (D+E)
 	],
 	trans:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"jml",							TEXT:true },
-		{ name:"json",							TEXT:true },
 		{ name:"ref",							NOCASE:true , INDEX:true },
 		{ name:"description",					NOCASE:true , INDEX:true },
 		{ name:"day",							INTEGER:true , INDEX:true },
@@ -65,16 +64,10 @@ dstore_db.tables={
 		{ name:"flow_code",						NOCASE:true , INDEX:true },
 		{ name:"finance_code",					NOCASE:true , INDEX:true },
 		{ name:"aid_code",						NOCASE:true , INDEX:true },
-		{ name:"reporting_org",					NOCASE:true , INDEX:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"funder",						NOCASE:true , INDEX:true },
-		{ name:"title",							NOCASE:true }
 	],
 	budget:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement)
-		{ name:"jml",							TEXT:true },
-		{ name:"json",							TEXT:true },
 		{ name:"priority",						INTEGER:true , INDEX:true }, // set to 1 if it has priority, 0 if it should be ignored
 		{ name:"type",							NOCASE:true , INDEX:true },	// planed disburtions have priority over budgets
 		{ name:"day_start",						INTEGER:true , INDEX:true },
@@ -83,21 +76,17 @@ dstore_db.tables={
 		{ name:"currency",						NOCASE:true , INDEX:true },
 		{ name:"value",							REAL:true , INDEX:true },
 		{ name:"usd",							REAL:true , INDEX:true },
-		{ name:"reporting_org",					NOCASE:true , INDEX:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"funder",						NOCASE:true , INDEX:true },
-		{ name:"title",							NOCASE:true }
 	],
 	country:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"country_code",					NOCASE:true , INDEX:true },
-		{ name:"country_percent",				REAL:true , INDEX:true }
+		{ name:"country_percent",				REAL:true , INDEX:true },
 	],
 	sector:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group
 		{ name:"sector_code",					INTEGER:true , INDEX:true },
-		{ name:"sector_percent",				REAL:true , INDEX:true }
+		{ name:"sector_percent",				REAL:true , INDEX:true },
 	],
 	location:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -108,12 +97,12 @@ dstore_db.tables={
 		{ name:"location_longitude",			REAL:true , INDEX:true },
 		{ name:"location_latitude",				REAL:true , INDEX:true },
 		{ name:"location_precision",			INTEGER:true , INDEX:true },
-		{ name:"location_percent",				REAL:true , INDEX:true }
+		{ name:"location_percent",				REAL:true , INDEX:true },
 	],
 // track what was imported...
 	slug:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"slug",							NOCASE:true , INDEX:true }
+		{ name:"slug",							NOCASE:true , INDEX:true },
 	]
 };
 	
@@ -509,6 +498,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 //		dstore_sqlite.replace(db,"activity",t);
 		replace("act",t);
+		replace("jml",t);
 		
 		got_budget={};
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
