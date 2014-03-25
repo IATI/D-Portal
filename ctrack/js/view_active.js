@@ -23,13 +23,14 @@ view_active.datas_ajax=function(args)
 {
 	args=args || {};
 	
-//	var today=fetch.get_today();
+	var today=fetch.get_today();
     
 	var dat={
 			"from":"act,country",
 			"limit":args.limit || 5,
 			"orderby":"day_end-",
-			"status_code":"2",
+			"day_end_gt":today,
+			"day_start_lt":today,
 			"country_code":(args.country || ctrack.args.country)
 		};
 	fetch.ajax(dat,args.callback || function(data)
@@ -61,10 +62,13 @@ view_active.numof_ajax=function(args)
 {
 	args=args || {};
     
+	var today=fetch.get_today();
+
 	var dat={
 			"select":"count",
 			"from":"act,country",
-			"status_code":"2",
+			"day_end_gt":today,
+			"day_start_lt":today,
 			"country_code":(args.country || ctrack.args.country)
 		};
 	fetch.ajax(dat,args.callback || function(data)

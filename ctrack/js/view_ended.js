@@ -24,13 +24,13 @@ view_ended.datas_ajax=function(args)
 {
 	args=args || {};
 	
-//	var today=fetch.get_today();
+	var today=fetch.get_today();
     
 	var dat={
 			"from":"act,country",
 			"limit":args.limit || 5,
 			"orderby":"day_end-",
-			"status_code":"3|4",
+			"day_end_lt":today,
 			"country_code":(args.country || ctrack.args.country)
 		};
 	fetch.ajax(dat,args.callback || function(data)
@@ -62,10 +62,12 @@ view_ended.numof_ajax=function(args)
 {
 	args=args || {};
     
+	var today=fetch.get_today();
+
 	var dat={
 			"select":"count",
 			"from":"act,country",
-			"status_code":"3|4",
+			"day_end_lt":today,
 			"country_code":(args.country || ctrack.args.country)
 		};
 	fetch.ajax(dat,args.callback || function(data)
