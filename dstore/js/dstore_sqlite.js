@@ -153,15 +153,15 @@ dstore_sqlite.delete_indexes = function(){
 dstore_sqlite.replace_vars = function(db,name,it){
 	var json={};
 
-	for(var n in it) { if( n!="xml" && n!="jml" && n!="json" ) { // skip these special long strings
-		json[n]=it[n]; } }
+//	for(var n in it) { if( n!="xml" && n!="jml" && n!="json" ) { // skip these special long strings
+//		json[n]=it[n]; } }
 	
 	var $t={}; for(var n in dstore_sqlite.tables_active[name]) { $t["$"+n]=it[n]; } // prepare to insert using named values
 	
-	$t.$json=JSON.stringify(json); // everything apart from xml/jml also lives in this json string
+//	$t.$json=JSON.stringify(json); // everything apart from xml/jml also lives in this json string
 
-	for(var n in it) { if( n.slice(0,4)=="raw_") {
-		$t["$"+n]=it[n]; }}
+//	for(var n in it) { if( n.slice(0,4)=="raw_") {
+//		$t["$"+n]=it[n]; }}
 
 	return $t;
 }

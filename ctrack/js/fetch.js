@@ -339,7 +339,7 @@ fetch.activity=function(args)
 	var dat={
 			"aid":args.activity,
 			"select":"jml",
-			"from":"act"
+			"from":"act,jml"
 		};
 	
 	var callback=args.callback || function(data){

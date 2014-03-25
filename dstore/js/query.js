@@ -70,13 +70,13 @@ query.get_q = function(req){
 	cp(req.query);
 
 // possibly containing an encoded json string?
-	if(q._json) // expand json values for ?json=jsondata (also remove the this unexpanded value)
-	{
+//	if(q._json) // expand json values for ?json=jsondata (also remove the this unexpanded value)
+//	{
 //		console.log(q._json);
-		var t=JSON.parse(q._json);
-		q.json=undefined;
-		cp(t);
-	}
+//		var t=JSON.parse(q._json);
+//		q.json=undefined;
+//		cp(t);
+//	}
 
 // finally the body may contain json so add that as well
 	if(req.body)
@@ -84,8 +84,18 @@ query.get_q = function(req){
 		cp(req.body);
 	}
 	
-// defaults	
-	q.from=q.from || "act"
+// defaults
+	if(!q.from)
+	{
+		if(q.form=="xml")
+		{
+			q.from="act,jml"; // need a jml join to spit out xml (jml is jsoned xml)
+		}
+		else
+		{
+			q.from="act"; // dont bother with jml
+		}
+	}
 	
 
 // we now have a json style chunk of data that consists of many possible inputs
@@ -95,11 +105,11 @@ query.get_q = function(req){
 query.getsql_select=function(q,qv){
 	var ss=[];
 
-	var stats_skip={	// ignore these columns
-		"xml":true,
-		"jml":true,
-		"json":true
-		};
+//	var stats_skip={	// ignore these columns
+//		"xml":true,
+//		"jml":true,
+//		"json":true
+//		};
 
 
 	var ns=q[0];
@@ -182,21 +192,21 @@ query.getsql_select=function(q,qv){
 			var f=aa[i];
 			for(n in dstore_sqlite.tables_active[f])
 			{
-				if(!stats_skip[n])
-				{
+//				if(!stats_skip[n])
+//				{
 					ss.push(" MAX("+n+") ");
 					ss.push(" MIN("+n+") ");
 					ss.push(" AVG("+n+") ");
 					ss.push(" TOTAL("+n+") ");
 					ss.push(" COUNT("+n+") ");
 					ss.push(" COUNT(DISTINCT "+n+") ");
-				}
+//				}
 			}
 		}
 	}
 	else
 	{
-		if(q.form=="xml") // just need to jml to spit out xml
+		if(q.form=="xml") // just need jml to spit out xml
 		{
 			ss.push(" jml ");
 		}
@@ -209,10 +219,10 @@ query.getsql_select=function(q,qv){
 				var f=aa[i];
 				for(n in dstore_sqlite.tables_active[f])
 				{
-					if(!stats_skip[n])
-					{
+//					if(!stats_skip[n])
+//					{
 						ss.push(" "+n+" ");
-					}
+//					}
 				}
 			}
 		}
