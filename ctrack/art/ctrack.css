@@ -161,8 +161,11 @@ table.head td:nth-child(2)			{color:#fff; text-align:right; vertical-align:top; 
 	============================================= */
 table.country			{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial;}
 table.country td:nth-child(1)		{width:800px; max-width:800px; padding-right:10px; font-size:64px; line-height:1.1em; color:#fff;}
+table.country td:nth-child(2)		{text-align:right;}
+table.country td:nth-child(2) img	{max-height:90px;}
 table.country.min		{padding:10px 0;}
 table.country.min td:nth-child(1)	{width:860px; max-width:860px; padding-right:20px; font-size:32px; line-height:1.1em; color:#fff;}
+table.country.min td:nth-child(2) img	{max-height:50px;}
 
 /*	Table for Money Modules
 	============================================= */
