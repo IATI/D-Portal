@@ -27,7 +27,7 @@ view_districts.chunks=[
 //
 view_districts.view=function(args)
 {
-	view_districts.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	view_districts.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 	ctrack.setcrumb(1);
 	ctrack.change_hash();
 	view_districts.ajax(args);

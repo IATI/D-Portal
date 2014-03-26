@@ -27,7 +27,7 @@ view_donor_budgets.chunks=[
 //
 view_donor_budgets.view=function()
 {
-	view_donor_budgets.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	view_donor_budgets.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 	ctrack.setcrumb(2);
 	ctrack.change_hash();
 	view_donor_budgets.ajax({year:ctrack.hash.year,funder:ctrack.hash.funder});

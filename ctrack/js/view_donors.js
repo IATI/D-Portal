@@ -27,7 +27,7 @@ view_donors.chunks=[
 //
 view_donors.view=function(args)
 {
-	view_donors.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	view_donors.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 	ctrack.setcrumb(1);
 	ctrack.change_hash();
 	view_donors.ajax(args);

@@ -27,7 +27,7 @@ view_sectors.chunks=[
 //
 view_sectors.view=function(args)
 {
-	view_sectors.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	view_sectors.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 	ctrack.setcrumb(1);
 	ctrack.change_hash();
 	view_sectors.ajax(args);
