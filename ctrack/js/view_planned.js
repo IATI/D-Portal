@@ -18,9 +18,9 @@ view_planned.chunks=[
 ];
 
 //
-// Perform ajax call to get table data
+// Perform ajax call to get data
 //
-view_planned.datas_ajax=function(args)
+view_planned.ajax=function(args)
 {
 	args=args || {};
 	
@@ -33,50 +33,38 @@ view_planned.datas_ajax=function(args)
 			"day_start_gt":today,
 			"country_code":(args.country || ctrack.args.country)
 		};
+
+	if(args.output=="count") // just count please
+	{
+		dat.select="count";
+		delete dat.limit;
+		delete dat.orderby;
+	}
+
 	fetch.ajax(dat,args.callback || function(data)
 	{		
-		var s=[];
-		for(i=0;i<data.rows.length;i++)
+		if(args.output=="count")
 		{
-			var v=data.rows[i];
-			v.num=i+1;
-
-			v.title=v.title || v.aid;
-			v.date=fetch.get_nday(v.day_end);
-
-			v.activity=v.aid;
-
-			s.push( plate.replace("{planned_projects_data}",v) );
+			ctrack.chunk(args.chunk || "planned_projects",data.rows[0]["count"]);
 		}
+		else
+		{
+			var s=[];
+			for(i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				v.num=i+1;
 
-		ctrack.chunk("planned_projects_datas",s.join(""));
+				v.title=v.title || v.aid;
+				v.date=fetch.get_nday(v.day_end);
 
-		ctrack.display(); // every fetch.ajax must call display once
-	});
-}
+				v.activity=v.aid;
 
-//
-// Perform ajax call to get numof data
-//
-view_planned.numof_ajax=function(args)
-{
-	args=args || {};
-    	
-	var today=fetch.get_today();
-	
-	var dat={
-			"select":"count",
-			"from":"act,country",
-			"day_start_gt":today,
-			"country_code":(args.country || ctrack.args.country)
-		};
-	fetch.ajax(dat,args.callback || function(data)
-	{
-		console.log("view_planned.numof_callback");
-		console.log(data);
-			
-		ctrack.chunk("planned_projects",data.rows[0]["count"]);
-		
+				s.push( plate.replace(args.plate || "{planned_projects_data}",v) );
+			}
+
+			ctrack.chunk(args.chunk || "planned_projects_datas",s.join(""));
+		}
 		ctrack.display(); // every fetch.ajax must call display once
 	});
 }

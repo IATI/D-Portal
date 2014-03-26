@@ -54,28 +54,28 @@ dstore_db.tables={
 	],
 	trans:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"ref",							NOCASE:true , INDEX:true },
-		{ name:"description",					NOCASE:true , INDEX:true },
-		{ name:"day",							INTEGER:true , INDEX:true },
-		{ name:"currency",						NOCASE:true , INDEX:true },
-		{ name:"value",							REAL:true , INDEX:true },
-		{ name:"usd",							REAL:true , INDEX:true },
-		{ name:"code",							NOCASE:true , INDEX:true },
-		{ name:"flow_code",						NOCASE:true , INDEX:true },
-		{ name:"finance_code",					NOCASE:true , INDEX:true },
-		{ name:"aid_code",						NOCASE:true , INDEX:true },
+		{ name:"trans_ref",						NOCASE:true , INDEX:true },
+		{ name:"trans_description",				NOCASE:true , INDEX:true },
+		{ name:"trans_day",						INTEGER:true , INDEX:true },
+		{ name:"trans_currency",				NOCASE:true , INDEX:true },
+		{ name:"trans_value",					REAL:true , INDEX:true },
+		{ name:"trans_usd",						REAL:true , INDEX:true },
+		{ name:"trans_code",					NOCASE:true , INDEX:true },
+		{ name:"trans_flow_code",				NOCASE:true , INDEX:true },
+		{ name:"trans_finance_code",			NOCASE:true , INDEX:true },
+		{ name:"trans_aid_code",				NOCASE:true , INDEX:true },
 	],
 	budget:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement)
-		{ name:"priority",						INTEGER:true , INDEX:true }, // set to 1 if it has priority, 0 if it should be ignored
-		{ name:"type",							NOCASE:true , INDEX:true },	// planed disburtions have priority over budgets
-		{ name:"day_start",						INTEGER:true , INDEX:true },
-		{ name:"day_end",						INTEGER:true , INDEX:true },
-		{ name:"day_length",					INTEGER:true , INDEX:true }, // budgets longer than a year will have 0 priority
-		{ name:"currency",						NOCASE:true , INDEX:true },
-		{ name:"value",							REAL:true , INDEX:true },
-		{ name:"usd",							REAL:true , INDEX:true },
+		{ name:"budget_priority",				INTEGER:true , INDEX:true }, // set to 1 if it has priority, 0 if it should be ignored
+		{ name:"budget_type",					NOCASE:true , INDEX:true },	// planed disburtions have priority over budgets
+		{ name:"budget_day_start",				INTEGER:true , INDEX:true },
+		{ name:"budget_day_end",				INTEGER:true , INDEX:true },
+		{ name:"budget_day_length",				INTEGER:true , INDEX:true }, // budgets longer than a year will have 0 priority
+		{ name:"budget_currency",				NOCASE:true , INDEX:true },
+		{ name:"budget_value",					REAL:true , INDEX:true },
+		{ name:"budget_usd",					REAL:true , INDEX:true },
 	],
 	country:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -261,18 +261,18 @@ dstore_db.refresh_act = function(db,aid,xml){
 		var t={};
 		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
 
-		t["ref"]=				it["ref"];
-		t["description"]=		refry.tagval(it,"description");
-		t["day"]=				iati_xml.get_isodate_number(it,"transaction-date");
+		t["trans_ref"]=				it["ref"];
+		t["trans_description"]=		refry.tagval(it,"description");
+		t["trans_day"]=				iati_xml.get_isodate_number(it,"transaction-date");
 
-		t["code"]=				iati_xml.get_code(it,"transaction-type");
-		t["flow_code"]=			iati_xml.get_code(it,"flow-type");
-		t["finance_code"]=		iati_xml.get_code(it,"finance-type");
-		t["aid_code"]=			iati_xml.get_code(it,"aid-type");
+		t["trans_code"]=			iati_xml.get_code(it,"transaction-type");
+		t["trans_flow_code"]=		iati_xml.get_code(it,"flow-type");
+		t["trans_finance_code"]=	iati_xml.get_code(it,"finance-type");
+		t["trans_aid_code"]=		iati_xml.get_code(it,"aid-type");
 		
-		t["currency"]=			iati_xml.get_value_currency(it,"value");
-		t["value"]=				iati_xml.get_value(it,"value");
-		t["usd"]=				iati_xml.get_usd(it,"value");
+		t["trans_currency"]=		iati_xml.get_value_currency(it,"value");
+		t["trans_value"]=			iati_xml.get_value(it,"value");
+		t["trans_usd"]=				iati_xml.get_usd(it,"value");
 
 		t.jml=JSON.stringify(it);
 		
@@ -288,7 +288,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		var t={};
 		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
 
-		t.priority=priority;
+		t.budget_priority=priority;
 		
 		if(it[0]=="planned-disbursement") // flag to share table with planned-disbursement (they seem very similar)
 		{
@@ -299,20 +299,20 @@ dstore_db.refresh_act = function(db,aid,xml){
 			t.budget="budget";
 		}
 		
-		t["type"]=it["type"];
+		t["budget_type"]=it["type"];
 
-		t["day_start"]=				iati_xml.get_isodate_number(it,"period-start");
-		t["day_end"]=				iati_xml.get_isodate_number(it,"period-end");
-		t["day_length"]=			t["day_end"]-t["day_start"];
+		t["budget_day_start"]=				iati_xml.get_isodate_number(it,"period-start");
+		t["budget_day_end"]=				iati_xml.get_isodate_number(it,"period-end");
+		t["budget_day_length"]=			t["day_end"]-t["day_start"];
 
-		if( t["day_length"] > 370 ) // allow a few days over a year
+		if( t["budget_day_length"] > 370 ) // allow a few days over a year
 		{
-			t.priority=0; // remove priority
+			t.budget_priority=0; // remove priority
 		}
 		
-		t["currency"]=				iati_xml.get_value_currency(it,"value");
-		t["value"]=					iati_xml.get_value(it,"value");
-		t["usd"]=					iati_xml.get_usd(it,"value");
+		t["budget_currency"]=				iati_xml.get_value_currency(it,"value");
+		t["budget_value"]=					iati_xml.get_value(it,"value");
+		t["budget_usd"]=					iati_xml.get_usd(it,"value");
 
 		t.jml=JSON.stringify(it);
 		

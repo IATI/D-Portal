@@ -15,5 +15,11 @@ views.ended=require("./view_ended.js");
 views.planned=require("./view_planned.js");
 views.active=require("./view_active.js");
 views.stats=require("./view_stats.js");
+views.heatmap=require("./view_heatmap.js");
 
 views.main=require("./view_main.js");
+views.donors=require("./view_donors.js");
+views.donors_top=require("./view_donors_top.js");
+views.donor_transactions=require("./view_donor_transactions.js");
+views.donor_budgets=require("./view_donor_budgets.js");
+views.act=require("./view_act.js");
