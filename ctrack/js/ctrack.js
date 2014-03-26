@@ -212,87 +212,19 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 	}
 
 
-	
 	ctrack.view_done={};
-	ctrack.prepare_view=function(name)
+	ctrack.show_view=function(name)
 	{
-	if(name)
-	{
-
-		if( name.indexOf("main") == 0 ) // only fetch the main once?
+		if(name)
 		{
-//			ctrack.setcrumb(0);
-//			if( !ctrack.view_done[name] )
-//			{
-//				ctrack.view_done[name]=true;
-				views.main.view();
-//			}
-		}
-		else
-		if( name.indexOf("donors") == 0 )
-		{
-//			if( !ctrack.view_done[name] )
-//			{
-//				ctrack.view_done[name]=true;			
-//				fetch.donors();
-//			}
-//			ctrack.setcrumb(1);
-//			ctrack.change_hash();
-			views.donors.view();
-		}
-		else
-		if( name.indexOf("sectors") == 0 )
-		{
-			if( !ctrack.view_done[name] )
+			name=name.toLowerCase();
+			var v=views[name];
+			if(v && v.view)
 			{
-				ctrack.view_done[name]=true;			
-				fetch.sectors();
+				v.view();
 			}
-			ctrack.setcrumb(1);
-			ctrack.change_hash();
-		}
-		else
-		if( name.indexOf("districts") == 0 )
-		{
-			if( !ctrack.view_done[name] )
-			{
-				ctrack.view_done[name]=true;			
-				fetch.districts();
-			}
-			ctrack.setcrumb(1);
-			ctrack.change_hash();
-		}
-		else
-		if( name.indexOf("donor_transactions") == 0 )
-		{
-//			fetch.donor_transactions({year:ctrack.hash.year,funder:ctrack.hash.funder});
-//			ctrack.setcrumb(2);
-//			ctrack.change_hash();
-			views.donor_transactions.view();
-		}
-		else
-		if( name.indexOf("donor_budgets") == 0 )
-		{
-//			fetch.donor_budgets({year:ctrack.hash.year,funder:ctrack.hash.funder});
-//			ctrack.setcrumb(2);
-//			ctrack.change_hash();
-			views.donor_budgets.view();
-		}
-		else
-		if( name.indexOf("donor_activities") == 0 )
-		{
-			fetch.donor_activities({funder:ctrack.hash.funder});
-			ctrack.setcrumb(2);
-			ctrack.change_hash();
-		}
-		else
-		if( name.indexOf("act") == 0 )
-		{
-			views.act.view();
 		}
 	}
-	}
-
 
 	ctrack.hash={"view":"main"};
 	ctrack.display_wait=0;
@@ -350,7 +282,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 					$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
 				})
 				
-				ctrack.prepare_view(l.view);
+				ctrack.show_view(l.view);
 //console.log("new view");
    			}
 

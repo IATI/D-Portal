@@ -29,6 +29,7 @@ dstore_sqlite.open = function(){
 		db.run("PRAGMA encoding = \"UTF-8\" ;");
 		db.run("PRAGMA journal_mode=WAL;");
 		db.run("PRAGMA mmap_size=268435456;");
+		db.run("PRAGMA temp_store=2;");
 	});
 	
 	return db;
