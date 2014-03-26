@@ -7,7 +7,7 @@ ok			{display:none;}
 query		{display:none;}
 iati-activity *	{display:none;}
 iati-activity	{display:block; width:960px; margin:0 auto; margin-bottom:320px; background-color:rgba(0,14,32,0.7);}
-iati-activity:after {content:"Data is sourced from IATI for Country Tracker. If you find anything out of place, please contact the Country Tracker team."; font-size:14px; color:#ccc; display:block; padding:15px 0; text-align:center;}
+iati-activity:after {content:"Data is sourced from IATI for D-Portal. If you find anything out of place, please contact the development team."; font-size:14px; color:#ccc; display:block; padding:15px 0; text-align:center;}
 
 /* hacks to display injected elements */
 iati-activity span	{display:block;}
