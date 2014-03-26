@@ -24,13 +24,13 @@ view_main.chunks=[
 view_main.view=function(args)
 {
 
-	views.main.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	views.main.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 
 	views.planned.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.active.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.ended.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.stats.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-	views.donors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	views.donors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 
 
 	ctrack.setcrumb(0);

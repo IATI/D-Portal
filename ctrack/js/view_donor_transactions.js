@@ -27,7 +27,7 @@ view_donor_transactions.chunks=[
 //
 view_donor_transactions.view=function()
 {
-	view_donor_transactions.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	view_donor_transactions.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 	ctrack.setcrumb(2);
 	ctrack.change_hash();
 	view_donor_transactions.ajax({year:ctrack.hash.year,funder:ctrack.hash.funder});
