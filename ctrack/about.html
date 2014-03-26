@@ -175,15 +175,15 @@
 	<div class="defcon">
 		<div class="halfcon"></div><div class="halfcon"><div id="ct-tri"></div></div>
 		<div class="qhead">Here are some <span class="qtip">Q</span>uery examples:</div>
-		<a href="http://d-portal.org/q.xml?from=activities&limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.xml?from=activities&amp;limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
+		<a href="http://d-portal.org/q.xml?limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.xml?limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
 		<div class="qabt">Returns XML which is automatically formatted into HTML, source remains pure XML</div>
-		<div class="qinfo">This query displays the activities <span class="qdef">from=activities</span> limiting the amount to 10 <span class="qdef">limit=10</span> sorted by starting day <span class="qdef">orderby=day_start</span> and from 1950 onwards <span class="qdef">day_start_gt=1950-01-01</span>.</div>
-		<a href="http://d-portal.org/q?groupby=reporting_org&select=stats" class="qeg">http://d-portal.org/q?groupby=reporting_org&amp;select=stats</a>
+		<div class="qinfo">This query displays activities limiting the amount to 10 <span class="qdef">limit=10</span> sorted by starting day <span class="qdef">orderby=day_start</span> and from 1950 onwards <span class="qdef">day_start_gt=1950-01-01</span>.</div>
+		<a href="http://d-portal.org/q?from=act,country&groupby=reporting_org&select=stats&country_code=BD" class="qeg">http://d-portal.org/q?from=act,country&amp;groupby=reporting_org&amp;select=stats&amp;country_code=BD</a>
 		<div class="qabt">Returns JSON (JSON is default) data about activites (activites are default) where 100 rows from the database is the default limit</div>
-		<div class="qinfo">This query displays data statistics <span class="qdef">select=stats</span> about activites for each reporting organisation <span class="qdef">groupby=reporting_org</span>.</div>
-		<a href="http://d-portal.org/q.csv?from=transactions&orderby=day&limit=1000" class="qeg">http://d-portal.org/q.csv?from=transactions&amp;orderby=day&amp;limit=1000</a>
+		<div class="qinfo">This query displays data statistics <span class="qdef">select=stats</span> about activites for each reporting organisation <span class="qdef">groupby=reporting_org</span> for Bangladesh <span class="qdef">country_code=BD</span>.</div>
+		<a href="http://d-portal.org/q.csv?from=trans&orderby=trans_day&limit=1000" class="qeg">http://d-portal.org/q.csv?from=trans&amp;orderby=trans_day&amp;limit=1000</a>
 		<div class="qabt">Returns CSV file (named q.csv by default)</div>
-		<div class="qinfo">This query allows you to download the CSV <span class="qdef">q.csv</span> of 1000 <span class="qdef">limit=1000</span> transaction data <span class="qdef">from=transactions</span> sorted by date <span class="qdef">orderby=day</span>.</div>
+		<div class="qinfo">This query allows you to download the CSV <span class="qdef">q.csv</span> of 1000 <span class="qdef">limit=1000</span> transaction data <span class="qdef">from=trans</span> sorted by date <span class="qdef">orderby=trans_day</span>.</div>
 	</div>
 </div>
 <span id="git"></span>
