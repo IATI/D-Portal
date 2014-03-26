@@ -25,10 +25,11 @@ i						{font-style:italics;}
 /*	Main wrappers for content & fixed background img
 	============================================= */
 .portal					{-moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; display:table; width:100%; height:100%;}
-.main_wrap				{width:100%; min-width:1040px; padding:0px; background-color: rgba(255,255,255,0.4);}
+.main_wrap				{width:100%; min-width:1040px; padding:0px; display:table-cell; background-color: rgba(255,255,255,0.4); position:relative;}
 #background_image	 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
 .overlay				{width:100%; height:100%; background-color:rgba(46, 41, 6, 0.6);}	/* Overlay colour for background image */
 iati-activity			{margin-bottom:40px;}	/* Fixes too-large bottom margin during only this instance */
+
 
 /*	Breadcrumbs
 	============================================= */
@@ -251,7 +252,7 @@ table.activity a:active	{color:#95B0CF; text-decoration:none;}
 
 /*	About
 	============================================= */
-.about_wrap				{width:960px; margin:0 auto; padding:40px 0px;}
+.about_wrap				{width:960px; margin:0 auto; padding:40px 0px; margin-bottom:40px;}
 .about_txt				{width:570px; padding-right:60px; display:inline-block; vertical-align:top; line-height:1.35em; word-spacing:0.05em; font-size:18px; color:#fff;}
 .about_txt span			{color:#fff;}
 .iati_logo				{width:290px; display:inline-block; vertical-align:top; text-align:right; padding-left:40px;}
@@ -261,7 +262,7 @@ a.iati_link:hover		{background-color:rgba(255, 255, 255, 1);}
 
 /*	Data Investigators alert
 	============================================= */
-.data_wrap				{width:100%; margin:0 auto;}
+.data_wrap				{position:absolute; bottom:0; width:100%; margin:0 auto;}
 a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:14px; color:#C7A1D6; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
 a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 

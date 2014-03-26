@@ -40,12 +40,22 @@ a.tongue:hover			{color:#fff;}
 /*	Country Code List style
 	============================================= */
 .dropdown_wrap			{width:920px; padding:20px; margin:0 auto; margin-top:10px;}
-.dropdown_title			{display:inline-block; padding:20px; vertical-align:top; color:#fff; font-weight:bold; font-size:1.2em; background-color:rgba(0, 40, 100, 0.7); border-radius:8px 0 0 8px;}
+.dropdown_title			{display:inline-block; padding:20px; vertical-align:top; color:#fff; font-weight:bold; font-size:1.2em; background-color:rgba(0,40,100,0.7); border-radius:8px 0 0 8px; height:20px; max-height:20px; padding-right:0; width:200px; max-width:200px;}
 .dropdown_list_wrap		{display:inline-block; vertical-align:top; width:420px;}
+.dropdown_peak			{display:inline-block; width:0; height:0; border-top:30px solid transparent; border-right:0; border-left:30px solid rgba(0,40,100,0.7); border-bottom:30px solid transparent;}
 ul.dropdown_list		{list-style:none; padding:0; margin:0 auto; width:100%;}
 ul.dropdown_list li.no	{display:none;}
 a.country_code			{width:100%; height:100%; color:#fff; font-size:1.4em; line-height:1.15em; display:block; padding:5px 20px; vertical-align:top; text-align:left;}
 a.country_code:hover	{background-color:rgba(37, 115, 205, 0.7);}
+
+
+/*	Read info style
+	============================================= */
+.description			{width:960px; margin:0 auto; padding:40px 0; text-align:left;}
+.description span.title	{display:block; color:#fff; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-top:1px solid #fff; border-bottom:1px solid #fff;}
+.description p			{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em;}
+a.read					{display:block; color:#C27E00; font-size:1.2em;}
+a.read:hover			{color:#FFB700;}
 
 /*	Data Investigators alert
 	============================================= */
