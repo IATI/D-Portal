@@ -29,6 +29,7 @@ i						{font-style:italics;}
 #background_image	 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
 .overlay				{width:100%; height:100%; background-color:rgba(46, 41, 6, 0.6);}	/* Overlay colour for background image */
 iati-activity			{margin-bottom:40px;}	/* Fixes too-large bottom margin during only this instance */
+iati-activity:after 	{content:"";}	/* Takes away content since footer is included on site */
 
 
 /*	Breadcrumbs
@@ -96,6 +97,16 @@ a.stats_link			{display:block; padding:30px 40px; height:100%;}
 .view_all_projects_wrap	{width:960px; margin:0 auto; text-align:center;}
 a.view_all_projects			{padding:10px 20px; background-color:#3B9CFB; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
 a.view_all_projects:hover	{background-color:#0081FF;}
+
+
+/*	Data Description styles
+	============================================= */
+.description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(19,20,20,0), rgba(19,20,20,0.7)); background:-prefix-linear-gradient(to bottom, rgba(19,20,20,0), rgba(19,20,20,0.7));}
+.description			{width:960px; margin:0 auto; padding:40px 0; text-align:left; margin-bottom:40px;}
+.description span.title	{display:block; color:#fff; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-top:1px solid #fff; border-bottom:1px solid #fff;}
+.description p			{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em;}
+a.read					{display:block; width:200px; color:#C27E00; font-size:1.2em;}
+a.read:hover			{color:#FFB700;}
 
 
 /*	For url #view=donors & all #view=donor_*
