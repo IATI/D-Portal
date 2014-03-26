@@ -221,41 +221,24 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 
 		if( name.indexOf("main") == 0 ) // only fetch the main once?
 		{
-			ctrack.setcrumb(0);
-			if( !ctrack.view_done[name] )
-			{
-				ctrack.view_done[name]=true;
-					
-				fetch.endingsoon({limit:5});
-				fetch.finished({limit:5});
-				fetch.planned({limit:5});
-				fetch.donors_top({limit:5});
-
-				fetch.heatmap({limit:300});
-				
-				views.planned.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-				views.active.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-				views.ended.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-				views.stats.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-
-				ctrack.change_hash();
-
-				views.planned.numof_ajax();
-				views.active.numof_ajax();
-				views.ended.numof_ajax();
-				views.stats.numof_ajax();
-			}
+//			ctrack.setcrumb(0);
+//			if( !ctrack.view_done[name] )
+//			{
+//				ctrack.view_done[name]=true;
+				views.main.view();
+//			}
 		}
 		else
 		if( name.indexOf("donors") == 0 )
 		{
-			if( !ctrack.view_done[name] )
-			{
-				ctrack.view_done[name]=true;			
-				fetch.donors();
-			}
-			ctrack.setcrumb(1);
-			ctrack.change_hash();
+//			if( !ctrack.view_done[name] )
+//			{
+//				ctrack.view_done[name]=true;			
+//				fetch.donors();
+//			}
+//			ctrack.setcrumb(1);
+//			ctrack.change_hash();
+			views.donors.view();
 		}
 		else
 		if( name.indexOf("sectors") == 0 )
@@ -282,16 +265,18 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 		else
 		if( name.indexOf("donor_transactions") == 0 )
 		{
-			fetch.donor_transactions({year:ctrack.hash.year,funder:ctrack.hash.funder});
-			ctrack.setcrumb(2);
-			ctrack.change_hash();
+//			fetch.donor_transactions({year:ctrack.hash.year,funder:ctrack.hash.funder});
+//			ctrack.setcrumb(2);
+//			ctrack.change_hash();
+			views.donor_transactions.view();
 		}
 		else
 		if( name.indexOf("donor_budgets") == 0 )
 		{
-			fetch.donor_budgets({year:ctrack.hash.year,funder:ctrack.hash.funder});
-			ctrack.setcrumb(2);
-			ctrack.change_hash();
+//			fetch.donor_budgets({year:ctrack.hash.year,funder:ctrack.hash.funder});
+//			ctrack.setcrumb(2);
+//			ctrack.change_hash();
+			views.donor_budgets.view();
 		}
 		else
 		if( name.indexOf("donor_activities") == 0 )
@@ -303,9 +288,7 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 		else
 		if( name.indexOf("act") == 0 )
 		{
-			fetch.activity({activity:ctrack.hash.aid});
-			ctrack.setcrumb(3);
-			ctrack.change_hash();
+			views.act.view();
 		}
 	}
 	}
@@ -407,16 +390,16 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 						switch(aa[1])
 						{
 							case "ending":
-								fetch.endingsoon({limit:20});
+//								fetch.endingsoon({limit:20});
 							break;
 							case "finished":
-								fetch.finished({limit:20});
+//								fetch.finished({limit:20});
 							break;
 							case "starting":
-								fetch.planned({limit:20});
+//								fetch.planned({limit:20});
 							break;
 							case "near":
-								fetch.near({limit:20});
+//								fetch.near({limit:20});
 							break;
 						}
 					}

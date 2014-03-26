@@ -18,9 +18,9 @@ view_ended.chunks=[
 ];
 
 //
-// Perform ajax call to get table data
+// Perform ajax call to get data
 //
-view_ended.datas_ajax=function(args)
+view_ended.ajax=function(args)
 {
 	args=args || {};
 	
@@ -29,54 +29,42 @@ view_ended.datas_ajax=function(args)
 	var dat={
 			"from":"act,country",
 			"limit":args.limit || 5,
-			"orderby":"day_end-",
+			"orderby":args.orderby || "day_end-",
 			"day_end_lt":today,
 			"country_code":(args.country || ctrack.args.country)
 		};
-	fetch.ajax(dat,args.callback || function(data)
-	{		
-		var s=[];
-		for(i=0;i<data.rows.length;i++)
-		{
-			var v=data.rows[i];
-			v.num=i+1;
 
-			v.title=v.title || v.aid;
-			v.date=fetch.get_nday(v.day_end);
+	if(args.output=="count") // just count please
+	{
+		dat.select="count";
+		delete dat.limit;
+		delete dat.orderby;
+	}
 
-			v.activity=v.aid;
-
-			s.push( plate.replace("{ended_projects_data}",v) );
-		}
-
-		ctrack.chunk("ended_projects_datas",s.join(""));
-
-		ctrack.display(); // every fetch.ajax must call display once
-	});
-}
-
-//
-// Perform ajax call to get numof data
-//
-view_ended.numof_ajax=function(args)
-{
-	args=args || {};
-    
-	var today=fetch.get_today();
-
-	var dat={
-			"select":"count",
-			"from":"act,country",
-			"day_end_lt":today,
-			"country_code":(args.country || ctrack.args.country)
-		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log("view_ended.numof_callback");
-		console.log(data);
-			
-		ctrack.chunk("ended_projects",data.rows[0]["count"]);
-		
+		if(args.output=="count")
+		{
+			ctrack.chunk(args.chunk || "ended_projects",data.rows[0]["count"]);
+		}
+		else
+		{
+			var s=[];
+			for(i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				v.num=i+1;
+
+				v.title=v.title || v.aid;
+				v.date=fetch.get_nday(v.day_end);
+
+				v.activity=v.aid;
+
+				s.push( plate.replace(args.plate || "{ended_projects_data}",v) );
+			}
+
+			ctrack.chunk(args.chunk || "ended_projects_datas",s.join(""));
+		}
 		ctrack.display(); // every fetch.ajax must call display once
 	});
 }

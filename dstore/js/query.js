@@ -134,17 +134,29 @@ query.getsql_select=function(q,qv){
 		ss.push(s);
 	}
 	var calc={
-		"sum_of_percent_of_usd":function(){
-			percents("sum_of_percent_of_usd","usd","SUM");
+		"sum_of_percent_of_trans_usd":function(){
+			percents("sum_of_percent_of_trans_usd","trans_usd","SUM");
 		},
-		"sum_of_percent_of_value":function(){
-			percents("sum_of_percent_of_value","value","SUM");
+		"sum_of_percent_of_trans_value":function(){
+			percents("sum_of_percent_of_trans_value","trans_value","SUM");
 		},
-		"percent_of_usd":function(){
-			percents("percent_of_usd","usd","");
+		"percent_of_trans_usd":function(){
+			percents("percent_of_trans_usd","trans_usd","");
 		},
-		"percent_of_value":function(){
-			percents("percent_of_value","value","");
+		"percent_of_trans_value":function(){
+			percents("percent_of_trans_value","trans_value","");
+		},
+		"sum_of_percent_of_budget_usd":function(){
+			percents("sum_of_percent_of_budget_usd","budget_usd","SUM");
+		},
+		"sum_of_percent_of_budget_value":function(){
+			percents("sum_of_percent_of_budget_value","budget_value","SUM");
+		},
+		"percent_of_budget_usd":function(){
+			percents("percent_of_budget_usd","budget_usd","");
+		},
+		"percent_of_budget_value":function(){
+			percents("percent_of_budget_value","budget_value","");
 		},
 		"round1_longitude":function(){
 			ss.push(" ROUND(location_longitude,1) AS round1_longitude");

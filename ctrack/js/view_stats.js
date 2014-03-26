@@ -20,7 +20,7 @@ view_stats.chunks=[
 //
 // Perform ajax call to get numof data
 //
-view_stats.numof_ajax=function(args)
+view_stats.ajax=function(args)
 {
 	args=args || {};
     
@@ -29,10 +29,11 @@ view_stats.numof_ajax=function(args)
 			"from":"act,country",
 			"country_code":(args.country || ctrack.args.country)
 		};
+		
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log("view_stats.numof_callback");
-		console.log(data);
+//		console.log("view_stats.numof_callback");
+//		console.log(data);
 			
 		ctrack.chunk("total_projects",data.rows[0]["COUNT(*)"]);
 		ctrack.chunk("numof_publishers",data.rows[0]["COUNT(DISTINCT reporting_org)"]);
