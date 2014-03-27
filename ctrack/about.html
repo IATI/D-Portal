@@ -106,13 +106,13 @@
 	
 <div class="navi">
 	<div class="beigealert">
-		<img src="/art/alert_icon.png" alt="Declaration icon" width="15" height="15"> D-Portal is still in very early development &amp; scheduled for Alpha release mid-April. Thank you for your patience! Please provide any feedback <a href="/html/feedback.html" class="beige" target="_blank">here</a>.
+		<img src="/art/alert_icon.png" alt="Declaration icon" width="15" height="15"> d-portal.org is still in very early development &amp; scheduled for Alpha release mid-April. Thank you for your patience! Please provide any feedback <a href="/html/feedback.html" class="beige" target="_blank">here</a>.
 	</div>
 	<div class="defcon">
 		<div class="hiwrap">
 			<a href="/" class="top home">Back</a>
 		</div><div class="linkwrap">
-			<div class="link pad"><a href="#" class="top ct">D-Portal</a></div><div class="link pad"><a href="#sav" class="top sav">SAVi</a></div><div class="link"><a href="#git" class="top hub">GITHUB</a></div>
+			<div class="link pad"><a href="#" class="top ct">Top</a></div><div class="link pad"><a href="#sav" class="top sav">SAVi</a></div><div class="link"><a href="#git" class="top hub">GITHUB</a></div>
 		</div>
 	</div>
 </div>
@@ -121,9 +121,9 @@
 	
 <div class="ctwrap">
 	<div class="defcon">
-		<div class="halfcon"><img src="/art/dp_logo.400.png" alt="D-Portal logo" width="400" height="400"/></div><div class="halfcon">
+		<div class="halfcon"><img src="/art/dp_logo.400.png" alt="d-portal.org logo" width="400" height="400"/></div><div class="halfcon">
 			<div class="cthead">
-				<p>D-Portal aims to be a simple user interface to search and browse all IATI data relating to a specific country.</p>
+				<p>d-portal.org aims to be a simple user interface to search and browse all IATI data relating to a specific country.</p>
 				<p class="ctinfo top">The final product will be available as a set of HTML, Javascript, and CSS files.</p>
 				<p class="ctinfo">Since HTML/CSS/Javascript are the technologies of the web, and are widely used and understood, we believe this is a good option for easy adoption by others, for easy deployment, and for easy re-configuration/customisation.</p>
 			</div>
@@ -135,12 +135,12 @@
 	<div class="defcon">
 		<div class="ctegwrap">
 			<span class="cteghead">What is it?</span>
-			<p><span class="bold">D-Portal</span> is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.</p>
+			<p><span class="bold">d-portal.org</span> is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.</p>
 			<p>In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the OECD DAC Creditor Reporting System. Future development will include, inter alia, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.</p>
 			<p>In its first iteration the platform poses two questions: where do resources come from, and where do they go (by sector and location)? Recent , current and future data is presented and compared across data sources.</p>
 			<p>In order to answer these questions from a country perspective it is insufficient merely to display available data: it is equally important to plot the gaps in the information. Coping with poor quality or missing data is an essential part of the information interface.
-			<p><span class="bold">D-Portal</span> is an open source platform. While it provides a generic deployment for any country it has been developed with the specific intention of being customised in-country to meet local needs. A prototype local application for Nepal is currently being developed in parallel to the core engine.</p>
-			<p><span class="bold">D-Portal</span> has been jointly funded by IATI and Development Initiatives (DI). IATI is keen to promote the access to IATI-formatted data at country level. DI is committed to improving access to information by implementing joined-up data solutions.</p>
+			<p><span class="bold">d-portal.org</span> is an open source platform. While it provides a generic deployment for any country it has been developed with the specific intention of being customised in-country to meet local needs. A prototype local application for Nepal is currently being developed in parallel to the core engine.</p>
+			<p><span class="bold">d-portal.org</span> has been jointly funded by IATI and Development Initiatives (DI). IATI is keen to promote the access to IATI-formatted data at country level. DI is committed to improving access to information by implementing joined-up data solutions.</p>
 		</div>
 		
 	</div>
@@ -175,15 +175,15 @@
 	<div class="defcon">
 		<div class="halfcon"></div><div class="halfcon"><div id="ct-tri"></div></div>
 		<div class="qhead">Here are some <span class="qtip">Q</span>uery examples:</div>
-		<a href="http://d-portal.org/q.xml?from=activities&limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.xml?from=activities&amp;limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
+		<a href="http://d-portal.org/q.xml?limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.xml?limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
 		<div class="qabt">Returns XML which is automatically formatted into HTML, source remains pure XML</div>
-		<div class="qinfo">This query displays the activities <span class="qdef">from=activities</span> limiting the amount to 10 <span class="qdef">limit=10</span> sorted by starting day <span class="qdef">orderby=day_start</span> and from 1950 onwards <span class="qdef">day_start_gt=1950-01-01</span>.</div>
-		<a href="http://d-portal.org/q?groupby=reporting_org&select=stats" class="qeg">http://d-portal.org/q?groupby=reporting_org&amp;select=stats</a>
+		<div class="qinfo">This query displays activities limiting the amount to 10 <span class="qdef">limit=10</span> sorted by starting day <span class="qdef">orderby=day_start</span> and from 1950 onwards <span class="qdef">day_start_gt=1950-01-01</span>.</div>
+		<a href="http://d-portal.org/q?from=act,country&groupby=reporting_org&select=stats&country_code=BD" class="qeg">http://d-portal.org/q?from=act,country&amp;groupby=reporting_org&amp;select=stats&amp;country_code=BD</a>
 		<div class="qabt">Returns JSON (JSON is default) data about activites (activites are default) where 100 rows from the database is the default limit</div>
-		<div class="qinfo">This query displays data statistics <span class="qdef">select=stats</span> about activites for each reporting organisation <span class="qdef">groupby=reporting_org</span>.</div>
-		<a href="http://d-portal.org/q.csv?from=transactions&orderby=day&limit=1000" class="qeg">http://d-portal.org/q.csv?from=transactions&amp;orderby=day&amp;limit=1000</a>
+		<div class="qinfo">This query displays data statistics <span class="qdef">select=stats</span> about activites for each reporting organisation <span class="qdef">groupby=reporting_org</span> for Bangladesh <span class="qdef">country_code=BD</span>.</div>
+		<a href="http://d-portal.org/q.csv?from=trans&orderby=trans_day&limit=1000" class="qeg">http://d-portal.org/q.csv?from=trans&amp;orderby=trans_day&amp;limit=1000</a>
 		<div class="qabt">Returns CSV file (named q.csv by default)</div>
-		<div class="qinfo">This query allows you to download the CSV <span class="qdef">q.csv</span> of 1000 <span class="qdef">limit=1000</span> transaction data <span class="qdef">from=transactions</span> sorted by date <span class="qdef">orderby=day</span>.</div>
+		<div class="qinfo">This query allows you to download the CSV <span class="qdef">q.csv</span> of 1000 <span class="qdef">limit=1000</span> transaction data <span class="qdef">from=trans</span> sorted by date <span class="qdef">orderby=trans_day</span>.</div>
 	</div>
 </div>
 <span id="git"></span>
@@ -192,7 +192,7 @@
 		<div class="gitcon">
 			<a href="https://github.com/IATI/D-Portal" class="git">Fork us on <span class="bold">Github</span>!</a>
 			<div class="gitinfo">
-				D(evelopment)-Portal is currently being developed and designed so things are constantly changing. Send us your suggestions, bug reports and issues.
+				d-portal.org is currently being developed and designed so things are constantly changing. Send us your suggestions, bug reports and issues.
 			</div>
 		</div><div class="octocat">
 			<a href="https://github.com/IATI/D-Portal" title="D-Portal on Github"><img src="/art/Octocat.png" alt="Octocat for Github logo" width="200" height="166"/></a>
