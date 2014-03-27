@@ -83,13 +83,10 @@ ctrack.setup=function(args)
 
 	if( args.tongue!="non" ) // use non as a debuging mode
 	{
-		var tongues={
-			"fra":require("../json/fra.json"),
-			"spa":require("../json/spa.json")
-		};
+		var tongues=require("../json/tongues.js"); // load all tongues
 		var tongue=tongues[ args.tongue ];
 		if(tongue){plate.push_namespace(tongue);}
-		plate.push_namespace(require("../json/eng.json")); // english fallback
+		plate.push_namespace(require("../json/eng.json")); // english fallback for any missing chunks
 	}
 	plate.push_namespace(require("../json/chunks.json"));
 
