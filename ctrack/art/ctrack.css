@@ -56,7 +56,7 @@ a.tongue:hover			{color:#fff;}
 /*	Money Module styles
 	============================================= */
 .money_wrap				{width:880px; margin:0 auto; font-size:32px; padding:60px 0;}
-.money_mod_wrap			{width:380px; display:inline-block; vertical-align:top;}
+.money_mod_wrap			{width:380px; display:inline-block; vertical-align:top; padding:0; margin:0; max-width:380px; overflow:hidden;}
 .money_mod_wrap.donor	{padding-right:60px;}
 .money_mod_wrap.sector	{padding-left:60px;}
 .money_title			{width:300px; padding:20px 40px; text-align:center; color:#fff;}
