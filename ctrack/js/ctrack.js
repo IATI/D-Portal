@@ -60,7 +60,7 @@ ctrack.setup=function(args)
 		var aa=n.split("=");
 		ctrack.q[aa[0]]=aa[1];
 	});
-// tempory country force hack
+// temporary country force hack
 	if( ctrack.q.country )
 	{
 		args.country=ctrack.q.country.toLowerCase();
@@ -81,7 +81,7 @@ ctrack.setup=function(args)
 		plate.push_namespace(args.chunks);
 	}
 
-	if( args.tongue!="non" ) // use non as a debuging mode
+	if( args.tongue!="non" ) // use non as a debugging mode
 	{
 		var tongues=require("../json/tongues.js"); // load all tongues
 		var tongue=tongues[ args.tongue ];
@@ -100,70 +100,6 @@ ctrack.setup=function(args)
 	}
 // set global defaults
 	ctrack.chunk("art",args.art);
-	
-
-	ctrack.map={};
-	ctrack.map.lat=0;
-	ctrack.map.lng=0;
-	ctrack.map.zoom=6;
-	ctrack.map.heat=undefined;
-	
-//display map 
-display_ctrack_map2=function(){
-	ctrack.map.api_ready=true;
-	display_ctrack_map();
-}
-display_ctrack_map=function(){
-		if(ctrack.map.api_ready)
-		{
-			if($("#map").length>0)
-			{
-				if(ctrack.map.heat)
-				{
-
-					console.log("map loaded");
-					var mapOptions = {
-					  center: new google.maps.LatLng(ctrack.map.lat, ctrack.map.lng),
-					  zoom: ctrack.map.zoom,
-					  scrollwheel: false
-					};
-					var map = new google.maps.Map(document.getElementById("map"),
-						mapOptions);
-					
-
-
-					var heatmapData = [];
-
-					for(var i=0;i<ctrack.map.heat.length;i++)
-					{
-						var v=ctrack.map.heat[i];
-						heatmapData.push({
-							location : new google.maps.LatLng(v.lat,v.lng) ,	weight : v.wgt || 1
-						});
-					}
-
-
-					var heatmap = new google.maps.visualization.HeatmapLayer({
-					  data: heatmapData
-					});
-					heatmap.setMap(map);
-
-					var fixradius=function()
-					{
-							var s=Math.pow(2,map.getZoom())/4;
-							if(s<4){s=4;}
-							if(s>256){s=256;}
-							heatmap.setOptions({radius:s});
-					}
-					 google.maps.event.addListener(map, 'zoom_changed', fixradius);
-					 fixradius();
-  				}
-			}
-		}
-};
-// always load map api
-head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&sensor=false&callback=display_ctrack_map2");
-
 
 	ctrack.div={};
 
@@ -171,16 +107,6 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 	ctrack.div.master.empty();
 	ctrack.div.master.html( plate.replace("{loading}")  );
 	
-//	ctrack.fetch({});
-/*
-	ctrack.chunk("active_projects","{spinner}");
-	ctrack.chunk("ended_projects","{spinner}");
-	ctrack.chunk("planned_projects","{spinner}");
-	ctrack.chunk("donor_transactions_datas","{spinner}");
-	ctrack.chunk("donor_budgets_datas","{spinner}");
-	ctrack.chunk("numof_publishers","{spinner}");
-	ctrack.chunk("total_projects","{spinner}");
-*/
 	
 	ctrack.chunk("today",fetch.get_today());
 	ctrack.chunk("hash","");
@@ -297,52 +223,11 @@ head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4d
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );
 
-	$( document ).on("click", "a", function(event){
-		var s=$(this).prop("href");
-		if(s)
-		{
-			s=s.split("#");
-			if(s[1])
-			{
-				s=s[1];
-				var aa=s.split("_");
-				console.log( s );
-				if(aa[0]=="ctrack") // ours
-				{
-					event.preventDefault();
-					if(aa[1]=="index")
-					{
-						ctrack.update_hash({"view":"main"});
-					}
-					else
-					if(aa[2]=="more")
-					{
-						switch(aa[1])
-						{
-							case "ending":
-//								fetch.endingsoon({limit:20});
-							break;
-							case "finished":
-//								fetch.finished({limit:20});
-							break;
-							case "starting":
-//								fetch.planned({limit:20});
-							break;
-							case "near":
-//								fetch.near({limit:20});
-							break;
-						}
-					}
-				}
-			}
-		}
-	});
-
 // wait for images to load before performing any data requests?
-		$(window).load(function() {
-			ctrack.check_hash();
-			ctrack.display_hash(); // this will display view=main or whatever page is requsted
-		});
+	$(window).load(function() {
+		ctrack.check_hash();
+		ctrack.display_hash(); // this will display view=main or whatever page is requsted
+	});
 
 }
 
