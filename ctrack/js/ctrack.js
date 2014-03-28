@@ -152,6 +152,7 @@ display_ctrack_map=function(){
 					{
 							var s=Math.pow(2,map.getZoom())/4;
 							if(s<4){s=4;}
+							if(s>256){s=256;}
 							heatmap.setOptions({radius:s});
 					}
 					 google.maps.event.addListener(map, 'zoom_changed', fixradius);

@@ -64,7 +64,7 @@ steps on this page.
 This only needs to be run once, it will download and install the 
 node modules that ctrack depends upon.
 
-	./install_deps
+	../install_deps
 	
 This will chug away for a little while downloading code.
 
@@ -76,7 +76,7 @@ This is only going to run ctrack module, the extra opton tells it to
 visit d-portal to fetch the data so you do not need to install or 
 update the dstore data just to test ctrack.
 
-	./serv -q http://d-portal.org/
+	../serv -q http://d-portal.org/
 
 If all goes well then ctrack should be available, from your machine 
 in your browser at the following url
