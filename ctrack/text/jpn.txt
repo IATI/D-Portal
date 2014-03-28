@@ -1,6 +1,3 @@
-#declare_main_text
-そうでなければ{today}のように記述がない限り、メインのデータはIATIから供給され
-
 #declare_xml_text
 欠損値は不十分なデータを提示し、データ品質の問題を意味する。独自にXMLを表示するには、以下のIATI Identifierリンクをクリックしてください。また、そのWebページの（Ctrl + UまたはCmdを+ U ）のソースを表示するスタイルなしのXMLを見ることができます。
 
@@ -76,20 +73,14 @@ d-portal.org は、リソース·フローを追跡し、国ベースの情報�
 #data_investigate_text
 データの研究者が、私たちはあなたを必要！あなたは場違い何を見つけた場合、開発チームにご連絡ください。
 
-#subtitle_donor_text
-非IATI（CRSおよびその他）2012に基づいて上位5ドナー
-
 #link_donor_text
-すべてのドナーを見る
+すべてを表示
 
 #title_sector_text
 どこのお金が行くのですか？
 
-#subtitle_sector_text
-非IATI（CRSおよびその他）2012に基づいて上位5部門
-
 #link_sector_text
-すべてのセクターを表示
+すべてを表示
 
 #stats_active_text
 アクティブなプロジェクト
@@ -128,13 +119,13 @@ IATI出版
 まもなく終了アクティブなプロジェクト
 
 #list_active_declare_text
-一番上に最も早くに終わるプロジェクトの並び順
+最新の最初の 
 
 #list_ended_text
-最近終わったプロジェクト
+最近終わったプロジェクト 
 
 #list_ended_declare_text
-一番上にある最新の終わったプロジェクトの並び順
+下行
 
 #list_more_active_text
 よりアクティブなプロジェクトを読み込む
@@ -319,10 +310,13 @@ IATIロゴ
 #tongue_spa_tip_text
 スペイン語でこれを表示
 
-＃tongue_jpn_tip_text 
+#tongue_jpn_tip_text 
 日本語でこれを表示 
 
-＃tongue_hin_tip_text 
+#tongue_cmn_tip_text 
+中国でこれを見る（簡体）
+
+#tongue_hin_tip_text 
 ヒンディー語でこれを表示する
 
 #flag_alt_text

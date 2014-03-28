@@ -55,7 +55,7 @@ a.tongue:hover			{color:#fff;}
 
 /*	Money Module styles
 	============================================= */
-.money_wrap				{width:880px; margin:0 auto; font-size:32px; padding:60px 0;}
+.money_wrap				{width:880px; margin:0 auto; font-size:32px; padding:40px 0 60px 0;}
 .money_mod_wrap			{width:380px; display:inline-block; vertical-align:top; padding:0; margin:0; max-width:380px; overflow:hidden;}
 .money_mod_wrap.donor	{padding-right:60px;}
 .money_mod_wrap.sector	{padding-left:60px;}
@@ -195,7 +195,7 @@ table.title td			{font-size:32px; line-height:1.1em; color:#fff; vertical-align:
 table.title tr:nth-child(1) td:nth-child(1)	{padding-right:10px; width:40px;}
 table.title tr:nth-child(2) td	{padding:0;}
 table.title td.total_spend		{text-align:right;}
-.declare.title.list		{vertical-align:bottom; text-align:right; padding:0; font-size:14px; line-height:1.1em; color:#fff;}
+.declare.title.list		{vertical-align:bottom; text-align:right; padding:0; font-size:14px; line-height:1.1em; color:#fff; padding-right:20px;}
 .declare.title.table 	{margin-top:10px; font-size:14px; line-height:1.35em; color:#CACBCB; padding:10px 20px; background-color:#000;}
 
 /*	Table for Stats (key figures)
@@ -222,13 +222,22 @@ table.list a:active		{color:#A8C5E5; text-decoration:none;}
 table.money				{width:100%; border-collapse:collapse;}
 table.money td			{text-align:right; color:#B8C8CD; font-size:16px; line-height:1.45em; word-spacing:0.7px; padding:20px; vertical-align:top; border-bottom:1px solid #1E90FF;}
 table.money td:nth-child(1)	{text-align:left; background-color:rgba(74, 82, 54, 0.4);}
+table.money tr:nth-child(1) td:nth-child(1)		{text-align:left;}
+table.money tr:nth-child(1) td:nth-child(2)		{text-align:left;}
 table.money td:nth-child(2)	{text-align:left;}
 table.money td:nth-child(3)	{background-color:rgba(17, 46, 105, 0.2);}
+table.money tr:nth-child(n+2) td:nth-child(1)	{border-left:1px solid rgba(74, 87, 43, 1); border-right:1px solid rgba(74, 87, 43, 1);}
+table.money tr:nth-child(n+2) td:nth-child(3)	{border-left:1px solid rgba(0, 50, 151, 1);}
+table.money tr:nth-child(n+2) td:nth-child(5)	{border-right:1px solid rgba(0, 50, 151, 1);}
+table.money tr:nth-child(n+2) td:nth-child(7)	{border-right:1px solid rgba(7, 117, 122, 1);}
 table.money td:nth-child(4)	{background-color:rgba(17, 46, 105, 0.4);}
 table.money td:nth-child(5)	{background-color:rgba(17, 46, 105, 0.6);}
 table.money td:nth-child(6)	{background-color:rgba(17, 101, 105, 0.4);}
 table.money td:nth-child(7)	{background-color:rgba(17, 101, 105, 0.6);}
 table.money tr:nth-child(1) td {color:#fff; font-weight:700; text-align:center; background-color:transparent;}
+table.money tr:nth-child(1) td:nth-child(1)	{background-color:rgba(74, 82, 54, 0.7); border:1px solid rgba(74, 87, 43, 1); border-bottom:1px solid #1E90FF;}
+table.money tr:nth-child(1) td:nth-child(3)	{background-color:rgba(17, 46, 105, 0.6); border:1px solid rgba(0, 50, 151, 1); border-bottom:1px solid #1E90FF;}
+table.money tr:nth-child(1) td:nth-child(4)	{background-color:rgba(17, 101, 105, 0.6); border:1px solid rgba(7, 117, 122, 1); border-bottom:1px solid #1E90FF;}
 table.money tr:nth-child(2) td {color:#fff; font-weight:500;}
 table.money tr:nth-child(2) td:nth-child(1) {background-color:rgba(74, 82, 54, 0.9);}
 table.money tr:nth-child(2) td:nth-child(3)	{background-color:rgba(17, 46, 105, 0.6);}
@@ -298,7 +307,8 @@ a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 
 /*	Beige Alert
 	============================================= */
-.beigealert				{width:100%; margin:0 auto; background-color:#D80051; color:#fff; font-size:1em; line-height:1.25em; text-align:center; padding:10px 0;}
+.beigealert_wrap		{width:100%; margin:0 auto; background-color:#D80051;}
+.beigealert				{width:1240px; margin:0 auto; color:#fff; font-size:1em; line-height:1.25em; text-align:center; padding:10px 0;}
 a.beige					{font-weight:bold; color:#FFFF00;}
 a.beige:hover			{color:#fff;}
 
