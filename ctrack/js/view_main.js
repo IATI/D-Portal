@@ -36,6 +36,7 @@ view_main.view=function(args)
 	views.ended.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.stats.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.donors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
+	views.sectors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 
 
 	ctrack.setcrumb(0);
@@ -48,9 +49,9 @@ view_main.view=function(args)
 	
 	views.active.ajax({limit:5,plate:"{table_active_data}",chunk:"table_active_datas"});
 	views.ended.ajax({limit:5,plate:"{table_ended_data}",chunk:"table_ended_datas"});
-	
-// do fake ajax calls here
+
 	views.donors_top.ajax();
+	views.sectors_top.ajax();	
 
 	views.heatmap.ajax({limit:200});
 }

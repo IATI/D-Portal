@@ -20,7 +20,6 @@ var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $
 // the chunk names this view will fill with new data
 view_donors_top.chunks=[
 	"main_money_rows",
-	"main_sector_rows",
 ];
 
 

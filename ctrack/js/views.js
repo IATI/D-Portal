@@ -25,6 +25,7 @@ views.donor_transactions=require("./view_donor_transactions.js");
 views.donor_budgets=require("./view_donor_budgets.js");
 views.donor_activities=require("./view_donor_activities.js");
 
+views.sectors_top=require("./view_sectors_top.js");
 views.sectors=require("./view_sectors.js");
 
 views.districts=require("./view_districts.js");
