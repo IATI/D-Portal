@@ -46,7 +46,8 @@ the config.json file.
 
 Clears the database and creates the default tables ready to be 
 filled. Alternatively, you could just delete the dstore.sqlite file 
-for a full reset.
+for a full reset. The best thing to do is delete the .sqlite file 
+and then run init.
 
 
 	node js/cmd.js import "tmp/bd.xml"
@@ -55,21 +56,31 @@ Populate the database from just the named xml file which is good
 for simple tests.
 
 
-	../bin/import_bd_ug_hn
+	../bin/dstore_reset
 
-This is a small script that clears the database and then downloads 
-and imports data for Bangladesh, Uganda and Honduras. It's probably 
-best to have a look at this script and see what it does rather than 
-just run it blindly. This script caches downloads so rm the cache 
-directory to update the data.
+Will delete and reset the current database, IE create the table 
+structures but it will be empty.
 
 
-	../bin/import_full
+	../bin/dstore_reset
+	../bin/dstore_import_bd_ug_hn
+
+This clears the database and then downloads and imports data for 
+Bangladesh, Uganda and Honduras. It's probably best to have a look 
+at the scripta and see what it does rather than just run it blindly. 
+This script caches downloads in cache so rm the cache directory to 
+update the data.
+
+
+	../bin/dstore_reset
+	../bin/dstore_clearcache
+	../bin/dstore_import_full
 
 This is another script that imports all IATI data from the datastore 
 and will chug away downloading and processing for a couple of hours. 
 Otherwise it does the same as the one above.
 
+	
 
 It is recommended that you only import data you wish to use and be 
 aware that these are just test scripts and will wipe whatever data 
