@@ -21,14 +21,14 @@ create a directory in your home directory containing the project.
 
 	cd ~
 	sudo apt-get install git
-	git clone https://github.com/IATI/IATI-Country-Tracker
-	cd IATI-Country-Tracker/ctrack
+	git clone https://github.com/IATI/D-Portal
+	cd D-Portal/ctrack
 	../bin/getapts
 
 In the future you may return to this directory with just the 
 following command.
 
-	cd ~/IATI-Country-Tracker/ctrack
+	cd ~/D-Portal/ctrack
 
 
 1. Installing git and node on Windows
@@ -49,13 +49,13 @@ to type the commands on this page into.
 
 Finally we need to grab the code with the following command
 
-	git clone https://github.com/IATI/IATI-Country-Tracker
+	git clone https://github.com/IATI/D-Portal
 
 and then move into the ctrack directory, make sure you have moved 
 into this directory before you try and perform any of the other 
 steps on this page.
 
-	cd IATI-Country-Tracker/ctrack
+	cd D-Portal/ctrack
 
 
 2. Prepare the required node modules.
