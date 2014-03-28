@@ -205,12 +205,14 @@ if(true)
 
 	var d={};
 	var o={};
+	var funder_names={};
 	for(var i=1;i<lines.length;i++)
 	{
 		var v=lines[i];
 		var a=(v[1]);
 		var b=v[0];
 		var c=v[2];
+		var display_name=v[3];
 		if(a && a.length>0 && b && b.length>0 )
 		{
 			o[a.trim()]=b.trim();
@@ -219,9 +221,14 @@ if(true)
 		{
 			d[a.trim()]=true;
 		}
+		if(a && a.length>0 && display_name && display_name.length>0 )
+		{
+			funder_names[a.trim()]=display_name;
+		}
 	}
 	
 //	ls(o);
+	codes["funder_names"]=funder_names;
 	codes["crs_funders"]=o;
 	codes["crs_no_iati"]=d;
 

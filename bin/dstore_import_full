@@ -12,9 +12,6 @@ do
   fi
 done
 
-#lets not kill old data just add new?
-#node js/cmd init
-
 for code in "${codes[@]}"
 do
   node js/cmd import "cache/datastore_${code}.xml" || exit 1
