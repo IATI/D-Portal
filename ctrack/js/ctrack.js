@@ -215,10 +215,17 @@ ctrack.setup=function(args)
 			ctrack.show_crumbs();
 			ctrack.div.master.html( plate.replace( "{view_"+l.view+"}" ) );
 
-// these need to be hooks
-//console.log("fixing view with js");
-			savi.fixup();
-			display_ctrack_map();
+// these are now view hooks
+			var name=l.view;
+			if(name)
+			{
+				name=name.toLowerCase();
+				var v=views[name];
+				if(v && v.fixup)
+				{
+					v.fixup();
+				}
+			}
 		}
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );

@@ -18,6 +18,11 @@ view_main.chunks=[
 	"table_ended_datas",
 ];
 
+// called on view display to fix html in place
+view_main.fixup=function()
+{
+	views.heatmap.fixup();
+}
 //
 // Perform ajax call to get numof data
 //

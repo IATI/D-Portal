@@ -9,6 +9,7 @@ var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetch=require("./fetch.js")
+var savi=require("./savi.js")
 
 var refry=require("../../dstore/js/refry.js")
 
@@ -16,6 +17,12 @@ var refry=require("../../dstore/js/refry.js")
 view_act.chunks=[
 	"act",
 ];
+
+// called on view display to fix html in place
+view_act.fixup=function()
+{
+	savi.fixup();
+}
 
 //
 // display the view
