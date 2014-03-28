@@ -46,7 +46,8 @@ the config.json file.
 
 Clears the database and creates the default tables ready to be 
 filled. Alternatively, you could just delete the dstore.sqlite file 
-for a full reset.
+for a full reset. The best thing to do is delete the .sqlite file 
+and then run init.
 
 
 	node js/cmd.js import "tmp/bd.xml"
@@ -55,27 +56,46 @@ Populate the database from just the named xml file which is good
 for simple tests.
 
 
-	../bin/import_bd_ug_hn
+	../bin/dstore_reset
 
-This is a small script that clears the database and then downloads 
-and imports data for Bangladesh, Uganda and Honduras. It's probably 
-best to have a look at this script and see what it does rather than 
-just run it blindly. This script caches downloads so rm the cache 
-directory to update the data.
+Will delete and reset the current database, IE create the table 
+structures but it will be empty.
 
 
-	../bin/import_full
+	../bin/dstore_reset
+	../bin/dstore_import_bd_ug_hn
+
+This clears the database and then downloads and imports data for 
+Bangladesh, Uganda and Honduras. It's probably best to have a look 
+at the scripta and see what it does rather than just run it blindly. 
+This script caches downloads in cache so rm the cache directory to 
+update the data.
+
+
+	../bin/dstore_clearcache
+
+Use the clearcache script to clear the download cach so you get 
+fresher data the next time you import. Otherwise the above scripts 
+will reuse their last download.
+
+
+	../bin/dstore_reset
+	../bin/dstore_clearcache
+	../bin/dstore_import_full
 
 This is another script that imports all IATI data from the datastore 
 and will chug away downloading and processing for a couple of hours. 
-Otherwise it does the same as the one above.
+Using up around 3gig of disk space (currently, this number will go 
+up). This uses a download cache so if you skip the clearcache line 
+then it will reimport your last import. If you skip the reset line 
+then you will refresh a currently active database, this is safe to 
+do while dstore is currently running and servng data.
 
+	
 
 It is recommended that you only import data you wish to use and be 
-aware that these are just test scripts and will wipe whatever data 
-is currently in the database before importing.
-
-They will be replaced with a new import system shortly...
+aware that these are just example/test scripts. That will be 
+replaced with a slightly better import system in the future.
 
 
 

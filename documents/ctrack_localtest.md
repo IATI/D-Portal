@@ -21,14 +21,14 @@ create a directory in your home directory containing the project.
 
 	cd ~
 	sudo apt-get install git
-	git clone https://github.com/IATI/IATI-Country-Tracker
-	cd IATI-Country-Tracker/ctrack
+	git clone https://github.com/IATI/D-Portal
+	cd D-Portal/ctrack
 	../bin/getapts
 
 In the future you may return to this directory with just the 
 following command.
 
-	cd ~/IATI-Country-Tracker/ctrack
+	cd ~/D-Portal/ctrack
 
 
 1. Installing git and node on Windows
@@ -49,13 +49,13 @@ to type the commands on this page into.
 
 Finally we need to grab the code with the following command
 
-	git clone https://github.com/IATI/IATI-Country-Tracker
+	git clone https://github.com/IATI/D-Portal
 
 and then move into the ctrack directory, make sure you have moved 
 into this directory before you try and perform any of the other 
 steps on this page.
 
-	cd IATI-Country-Tracker/ctrack
+	cd D-Portal/ctrack
 
 
 2. Prepare the required node modules.
@@ -64,7 +64,7 @@ steps on this page.
 This only needs to be run once, it will download and install the 
 node modules that ctrack depends upon.
 
-	./install_deps
+	../install_deps
 	
 This will chug away for a little while downloading code.
 
@@ -76,7 +76,7 @@ This is only going to run ctrack module, the extra opton tells it to
 visit d-portal to fetch the data so you do not need to install or 
 update the dstore data just to test ctrack.
 
-	./serv -q http://d-portal.org/
+	../serv -q http://d-portal.org/
 
 If all goes well then ctrack should be available, from your machine 
 in your browser at the following url

@@ -13,7 +13,7 @@ cmd.run=function(argv)
 {
 	if( argv._[0]=="build" )
 	{
-		console.log("build");
+		cmd.build();
 	}
 
 
@@ -27,9 +27,15 @@ cmd.run=function(argv)
 	"");
 }
 
+cmd.build=function()
+{
+
+}
+
 // if global.argv is set then we are inside another command so do nothing
 if(!global.argv)
 {
 	var argv = require('yargs').argv; global.argv=argv;
 	cmd.run(argv);
 }
+
