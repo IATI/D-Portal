@@ -102,6 +102,7 @@ ctrack.setup=function(args)
 	}
 // set global defaults
 	ctrack.chunk("art",args.art);
+	ctrack.chunk("tongue",args.tongue);
 
 	ctrack.div={};
 
@@ -249,7 +250,6 @@ ctrack.setup=function(args)
 		}
 		ctrack.check_hash();
 		ctrack.display_hash(); // this will display view=main or whatever page is requsted
-//		ganal.setup();
 	});
 
 }

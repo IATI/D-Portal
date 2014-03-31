@@ -33,13 +33,7 @@ ganal.view=function()
 		ganal.setup();
 	}
 
-	var location = window.location.protocol +
-		'//' + window.location.hostname +
-		window.location.pathname +
-		window.location.search +
-		document.location.hash ;
-
-	window.ga('send', 'pageview', location);
+	window.ga('send', 'pageview', window.location.pathname + window.location.search + document.location.hash );
 }
 
 

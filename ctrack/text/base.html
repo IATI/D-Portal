@@ -509,13 +509,13 @@ BANGLADESH
 			</td>
 			<td>
 				<form action="">
-				<select name="tongue" class="tongue">
-					<option value="{mark}&tongue=eng{hash}" class="tongue" title="{tongue_eng_tip_text}">English</option> 
-					<option value="{mark}&tongue=fra{hash}" class="tongue" title="{tongue_fra_tip_text}">French</option> 
-					<option value="{mark}&tongue=spa{hash}" class="tongue" title="{tongue_spa_tip_text}">Spanish</option>
-					<option value="{mark}&tongue=jpn{hash}" class="tongue" title="{tongue_jpn_tip_text}">Japanese</option>
-					<option value="{mark}&tongue=cmn{hash}" class="tongue" title="{tongue_cmn_tip_text}">Chinese (Simplified)</option>
-					<option value="{mark}&tongue=hin{hash}" class="tongue" title="{tongue_hin_tip_text}">Hindi</option>
+				<select id="tongue_select" name="tongue" class="tongue">
+					<option value="eng" class="tongue" title="{tongue_eng_tip_text}">English</option> 
+					<option value="fra" class="tongue" title="{tongue_fra_tip_text}">French</option> 
+					<option value="spa" class="tongue" title="{tongue_spa_tip_text}">Spanish</option>
+					<option value="jpn" class="tongue" title="{tongue_jpn_tip_text}">Japanese</option>
+					<option value="cmn" class="tongue" title="{tongue_cmn_tip_text}">Chinese (Simplified)</option>
+					<option value="hin" class="tongue" title="{tongue_hin_tip_text}">Hindi</option>
 				</select>
 				</form>
 			</td>
@@ -523,6 +523,23 @@ BANGLADESH
 	</table>
 	<div class="crumb_wrap">{crumbs}</div>
 </div>
+
+<script>
+	$(function(){
+		$('#tongue_select').children().each(function(i,it){
+			if("{tongue}"==$(it).val())
+			{
+				$(it).attr("selected",1)
+			}
+		});
+		$('#tongue_select').bind('change', function ()
+		{
+			var url = "{mark}&tongue="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+</script>
 
 #main_countrymin
 <div class="default min">
