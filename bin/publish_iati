@@ -1,0 +1,6 @@
+
+# Publish to live server from github.
+
+ssh ctrack@d-portal.org "D-Portal/bin/pull -f"
+ssh ctrack@d-portal.org "D-Portal/ctrack/build"
+
