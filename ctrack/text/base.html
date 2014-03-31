@@ -78,6 +78,7 @@
 {main_head}
 {main_countrymin}
 {donors_head}
+{table_declare}
 {table_donors}
 {donors_data_description}
 {main_datainvestigators}
@@ -260,19 +261,22 @@
 			<div class="donors_peak_space"></div>
 			<div class="donors_peak"></div>
 	</div><div class="donors_head_title_wrap">
-			<div class="donors_head_title">
-				{title_donor_text}
-			</div>
+			<div class="donors_head_title">{title_donor_text}</div>
 			<div class="donors_head_declare">{declare_title_donor_text}</div>
-	</div>
+		</div>
+</div>
+
+#table_declare
+<div class="default declare">
+	{table_declare_text}
 </div>
 
 #table_donors
 <div class="table_donors_wrap">
-<table class="money">
-{table_donors_row_head}
-{table_donors_rows}
-</table>
+	<table class="money">
+	{table_donors_row_head}
+	{table_donors_rows}
+	</table>
 </div>
 
 #table_donors_rows
@@ -280,30 +284,30 @@
 
 #table_donors_row_head
 <tr>
-<td>CRS</td>
-<td>{table_donor_title_donor_text}</td>
-<td colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</td>
-<td colspan="2" title="{table_donor_tip_title_budget_text}">{table_donor_title_budget_text}</td>
+	<td>CRS</td>
+	<td>{table_donor_title_donor_text}</td>
+	<td colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</td>
+	<td colspan="2" title="{table_donor_tip_title_budget_text}">{table_donor_title_budget_text}</td>
 </tr>
 <tr>
-<td title="{table_donor_tip_title_crs_text}">2012</td>
-<td title="{table_donor_tip_title_donor_text}">2012</td>
-<td title="{table_donor_tip_title_t2012_text}">2012</td>
-<td title="{table_donor_tip_title_t2013_text}">2013</td>
-<td title="{table_donor_tip_title_t2014_text}">2014</td>
-<td title="{table_donor_tip_title_b2014_text}">2014</td>
-<td title="{table_donor_tip_title_b2015_text}">2015</td>
+	<td title="{table_donor_tip_title_crs_text}">2012</td>
+	<td title="{table_donor_tip_title_donor_text}">2012</td>
+	<td title="{table_donor_tip_title_t2012_text}">2012</td>
+	<td title="{table_donor_tip_title_t2013_text}">2013</td>
+	<td title="{table_donor_tip_title_t2014_text}">2014</td>
+	<td title="{table_donor_tip_title_b2014_text}">2014</td>
+	<td title="{table_donor_tip_title_b2015_text}">2015</td>
 </tr>
 
 #table_donors_row
 <tr>
-<td title="{table_donor_tip_crs_text}">{crs}</td>
-<td title="{table_donor_tip_donor_text}"><a href="#view=donor_activities&funder={funder}" class="block">{donor}</a></td>
-<td title="{table_donor_tip_t2012_text}"><a href="#view=donor_transactions&year=2012&funder={funder}" class="block">{t2012}</a></td>
-<td title="{table_donor_tip_t2013_text}"><a href="#view=donor_transactions&year=2013&funder={funder}" class="block">{t2013}</a></td>
-<td title="{table_donor_tip_t2014_text}"><a href="#view=donor_transactions&year=2014&funder={funder}" class="block">{t2014}</a></td>
-<td title="{table_donor_tip_b2014_text}"><a href="#view=donor_budgets&year=2014&funder={funder}" class="block">{b2014}</a></td>
-<td title="{table_donor_tip_b2015_text}"><a href="#view=donor_budgets&year=2015&funder={funder}" class="block">{b2015}</a></td>
+	<td title="{table_donor_tip_crs_text}">{crs}</td>
+	<td title="{table_donor_tip_donor_text}"><a href="#view=donor_activities&funder={funder}" class="block">{donor}</a></td>
+	<td title="{table_donor_tip_t2012_text}"><a href="#view=donor_transactions&year=2012&funder={funder}" class="block">{t2012}</a></td>
+	<td title="{table_donor_tip_t2013_text}"><a href="#view=donor_transactions&year=2013&funder={funder}" class="block">{t2013}</a></td>
+	<td title="{table_donor_tip_t2014_text}"><a href="#view=donor_transactions&year=2014&funder={funder}" class="block">{t2014}</a></td>
+	<td title="{table_donor_tip_b2014_text}"><a href="#view=donor_budgets&year=2014&funder={funder}" class="block">{b2014}</a></td>
+	<td title="{table_donor_tip_b2015_text}"><a href="#view=donor_budgets&year=2015&funder={funder}" class="block">{b2015}</a></td>
 </tr>
 
 
@@ -336,19 +340,17 @@
 			<div class="sectors_peak_space"></div>
 			<div class="sectors_peak"></div>
 	</div><div class="sectors_head_title_wrap">
-			<div class="sectors_head_title">
-				{title_sector_text}
-			</div>
+			<div class="sectors_head_title">{title_sector_text}</div>
 			<div class="sectors_head_declare">{declare_title_sector_text}</div>
-	</div>
+		</div>
 </div>
 
 #table_sectors
 <div class="table_sectors_wrap">
-<table class="money">
-{table_sectors_row_head}
-{table_sectors_rows}
-</table>
+	<table class="money">
+	{table_sectors_row_head}
+	{table_sectors_rows}
+	</table>
 </div>
 
 #table_sectors_rows
@@ -356,30 +358,30 @@
 
 #table_sectors_row_head
 <tr>
-<td>CRS</td>
-<td>{table_sector_title_sector_text}</td>
-<td colspan="3" title="{table_sector_tip_title_transaction_text}">{table_sector_title_transaction_text}</td>
-<td colspan="2" title="{table_sector_tip_title_budget_text}">{table_sector_title_budget_text}</td>
+	<td>CRS</td>
+	<td>{table_sector_title_sector_text}</td>
+	<td colspan="3" title="{table_sector_tip_title_transaction_text}">{table_sector_title_transaction_text}</td>
+	<td colspan="2" title="{table_sector_tip_title_budget_text}">{table_sector_title_budget_text}</td>
 </tr>
 <tr>
-<td title="{table_sector_tip_title_crs_text}">2012</td>
-<td title="{table_sector_tip_title_sector_text}">2012</td>
-<td title="{table_sector_tip_title_t2012_text}">2012</td>
-<td title="{table_sector_tip_title_t2013_text}">2013</td>
-<td title="{table_sector_tip_title_t2014_text}">2014</td>
-<td title="{table_sector_tip_title_b2014_text}">2014</td>
-<td title="{table_sector_tip_title_b2015_text}">2015</td>
+	<td title="{table_sector_tip_title_crs_text}">2012</td>
+	<td title="{table_sector_tip_title_sector_text}">2012</td>
+	<td title="{table_sector_tip_title_t2012_text}">2012</td>
+	<td title="{table_sector_tip_title_t2013_text}">2013</td>
+	<td title="{table_sector_tip_title_t2014_text}">2014</td>
+	<td title="{table_sector_tip_title_b2014_text}">2014</td>
+	<td title="{table_sector_tip_title_b2015_text}">2015</td>
 </tr>
 
 #table_sectors_row
 <tr>
-<td title="{table_sector_tip_crs_text}">{crs}</td>
-<td title="{table_sector_tip_sector_text}">{sector}</td>
-<td title="{table_sector_tip_t2012_text}">{t2012}</td>
-<td title="{table_sector_tip_t2013_text}">{t2013}</td>
-<td title="{table_sector_tip_t2014_text}">{t2014}</td>
-<td title="{table_sector_tip_b2014_text}">{b2014}</td>
-<td title="{table_sector_tip_b2015_text}">{b2015}</td>
+	<td title="{table_sector_tip_crs_text}">{crs}</td>
+	<td title="{table_sector_tip_sector_text}">{sector}</td>
+	<td title="{table_sector_tip_t2012_text}">{t2012}</td>
+	<td title="{table_sector_tip_t2013_text}">{t2013}</td>
+	<td title="{table_sector_tip_t2014_text}">{t2014}</td>
+	<td title="{table_sector_tip_b2014_text}">{b2014}</td>
+	<td title="{table_sector_tip_b2015_text}">{b2015}</td>
 </tr>
 
 
@@ -418,27 +420,27 @@
 
 #table_districts_row_head
 <tr>
-<td></td>
-<td colspan="3">TRANSACTIONS</td>
-<td colspan="2">BUDGET</td>
+	<td></td>
+	<td colspan="3">TRANSACTIONS</td>
+	<td colspan="2">BUDGET</td>
 </tr>
 <tr>
-<td>DISTRICT</td>
-<td>2012</td>
-<td>2013</td>
-<td>2014</td>
-<td>2014</td>
-<td>2015</td>
+	<td>DISTRICT</td>
+	<td>2012</td>
+	<td>2013</td>
+	<td>2014</td>
+	<td>2014</td>
+	<td>2015</td>
 </tr>
 
 #table_districts_row
 <tr>
-<td>{location}</td>
-<td>{t2012}</td>
-<td>{t2013}</td>
-<td>{t2014}</td>
-<td>{b2014}</td>
-<td>{b2015}</td>
+	<td>{location}</td>
+	<td>{t2012}</td>
+	<td>{t2013}</td>
+	<td>{t2014}</td>
+	<td>{b2014}</td>
+	<td>{b2015}</td>
 </tr>
 
 
