@@ -508,12 +508,16 @@ BANGLADESH
 				<a href="/" title="{mainback_tip_text}"><img src="{art}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
 			</td>
 			<td>
-				<a href="{mark}&tongue=eng{hash}" class="tongue" title="{tongue_eng_tip_text}">ENG</a> / 
-				<a href="{mark}&tongue=fra{hash}" class="tongue" title="{tongue_fra_tip_text}">FRA</a> / 
-				<a href="{mark}&tongue=spa{hash}" class="tongue" title="{tongue_spa_tip_text}">SPA</a> /
-				<a href="{mark}&tongue=jpn{hash}" class="tongue" title="{tongue_jpn_tip_text}">JPN</a> /
-				<a href="{mark}&tongue=cmn{hash}" class="tongue" title="{tongue_cmn_tip_text}">CMN</a> /
-				<a href="{mark}&tongue=hin{hash}" class="tongue" title="{tongue_hin_tip_text}">HIN</a> 
+				<form action="">
+				<select name="tongue" class="tongue">
+					<option value="{mark}&tongue=eng{hash}" class="tongue" title="{tongue_eng_tip_text}">English</option> 
+					<option value="{mark}&tongue=fra{hash}" class="tongue" title="{tongue_fra_tip_text}">French</option> 
+					<option value="{mark}&tongue=spa{hash}" class="tongue" title="{tongue_spa_tip_text}">Spanish</option>
+					<option value="{mark}&tongue=jpn{hash}" class="tongue" title="{tongue_jpn_tip_text}">Japanese</option>
+					<option value="{mark}&tongue=cmn{hash}" class="tongue" title="{tongue_cmn_tip_text}">Chinese (Simplified)</option>
+					<option value="{mark}&tongue=hin{hash}" class="tongue" title="{tongue_hin_tip_text}">Hindi</option>
+				</select>
+				</form>
 			</td>
 		</tr>
 	</table>
