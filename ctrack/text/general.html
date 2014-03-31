@@ -1,0 +1,172 @@
+#loading
+{spinner}
+
+#crumbs1
+{crumbname_{crumb0_view}}
+
+#crumbs2
+<a href="{crumb0_hash}" class="crumb">{crumbname_{crumb0_view}}</a> >
+<span>{crumbname_{crumb1_view}}</span>
+
+#crumbs3
+<a href="{crumb0_hash}" class="crumb">{crumbname_{crumb0_view}}</a> >
+<a href="{crumb1_hash}" class="crumb">{crumbname_{crumb1_view}}</a> >
+<span>{crumbname_{crumb2_view}}</span>
+
+#crumbs4
+<a href="{crumb0_hash}" class="crumb">{crumbname_{crumb0_view}}</a> >
+<a href="{crumb1_hash}" class="crumb">{crumbname_{crumb1_view}}</a> >
+<a href="{crumb2_hash}" class="crumb">{crumbname_{crumb2_view}}</a> >
+<span>{crumbname_{crumb3_view}}</span>
+
+#crumbname_main
+{crumbname_main_text}
+
+#crumbname_donors
+{crumbname_donors_text}
+
+#crumbname_donor_budgets
+{crumbname_donor_budgets_text}
+	
+#crumbname_donor_transactions
+{crumbname_donor_transactions_text}
+
+#crumbname_donor_activities
+{crumbname_donor_activities_text}
+
+#crumbname_sectors
+{crumbname_sectors_text}
+
+#crumbname_act
+{crumbname_act_text}
+
+#spinner
+<div class="spinner"></div>
+
+#spinner_in_table_row
+<tr><td colspan="100">{spinner}</td></tr>
+
+#beige
+<div class="beigealert_wrap">
+	<div class="beigealert"><img src="/art/alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"> {beige_alert_text} <a href="/html/feedback.html" class="beige" target="_blank">{beige_alert_here_text}</a>.</div>
+</div>
+
+#view_head
+<div class="portal">
+	<div class="main_wrap">
+		<div id="background_image"></div>
+		<div class="overlay">
+	
+#view_tail
+		</div>
+	</div>
+	<div class="footer_wrap">
+	<div class="footer">
+		<div class="footer_link"><a href="/">
+			{footer_pick_text}</a>
+		</div><div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+			{footer_top_text}</a>
+		</div><div class="footer_link about"><a href="/about.html">
+			{footer_about_text}</a>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+#main_about
+<div class="about_wrap">
+	<div class="about_txt">
+		{about_text}
+		<a class="read">{about_read_more_text}</a>
+	</div><div class="iati_logo">
+		<a href="http://iatistandard.org/" target="_blank" class="iati_link"><img src="{art}iati_logo.269.png" alt="{iati_logo_alt_text}" width="269" height="70"></a>
+	</div>
+</div>
+
+#main_datainvestigators
+<div class="data_wrap">
+	<a href="mailto:trackerqueries@iatistandard.org" class="data_invest">
+		{data_investigate_text}
+	</a>
+</div>
+
+
+#main_head
+<div class="default head">
+	<table class="head">
+		<tr>
+			<td>
+				<a href="/" title="{mainback_tip_text}"><img src="{art}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
+			</td>
+			<td>
+				<form action="">
+				<select id="tongue_select" name="tongue" class="tongue">
+					<option value="eng" class="tongue" title="{tongue_eng_tip_text}">English</option> 
+					<option value="fra" class="tongue" title="{tongue_fra_tip_text}">French</option> 
+					<option value="spa" class="tongue" title="{tongue_spa_tip_text}">Spanish</option>
+					<option value="jpn" class="tongue" title="{tongue_jpn_tip_text}">Japanese</option>
+					<option value="cmn" class="tongue" title="{tongue_cmn_tip_text}">Chinese (Simplified)</option>
+					<option value="hin" class="tongue" title="{tongue_hin_tip_text}">Hindi</option>
+				</select>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<div class="crumb_wrap">{crumbs}</div>
+</div>
+
+<script>
+	$(function(){
+		$('#tongue_select').children().each(function(i,it){
+			if("{tongue}"==$(it).val())
+			{
+				$(it).attr("selected",1)
+			}
+		});
+		$('#tongue_select').bind('change', function ()
+		{
+			var url = "{mark}&tongue="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+</script>
+
+#main_countrymin
+<div class="default min">
+	<table class="country min">
+		<tr>
+			<td>{country_name}</td>
+			<td><img src="{country_flag}" alt="{country_name} {flag_alt_text}"/></td>
+		</tr>
+	</table>
+	<div class="declare head"></div>
+</div>
+	
+#main_country
+<div class="default">
+	<table class="country">
+		<tr>
+			<td>{country_name}</td>
+			<td><img src="{country_flag}" alt="{country_name} {flag_alt_text}"/></td>
+		</tr>
+	</table>
+	<div class="declare head"></div>
+</div>
+
+#alerts
+{alert_no_iati}
+
+#alert_no_iati
+<tr>
+	<td colspan="3" class="alert_no_iati" title="{alert_no_iati_tip_text}">{alert_no_iati_text}</td>
+</tr>
+
+#table_declare
+<div class="default declare">
+	{table_declare_text}
+</div>
+
+#css
+ #background_image	{background-image:url('{background_image}');} /* Needed for displaying background images per different country */

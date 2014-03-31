@@ -2,7 +2,9 @@
 	If you're reading this in github, 
 	please change to Tabs-4 as github is broken.
 	============================================= */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:top;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}a,img{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outline:0;} /* Resets */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:top;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}	/* Resets */
+
+a,img{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outline:0;}	/* Accessibility toggle */
 
 body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
 html					{background-color:#000;}
@@ -34,16 +36,14 @@ iati-activity:after 	{content:"";}	/* Takes away content since footer is include
 
 /*	Breadcrumbs
 	============================================= */
-a.crumb					{display:inline-block; vertical-align:top; padding:0 10px; font-size:13px; color:#7BBCFF; line-height:1.1em;}
+a.crumb					{display:inline-block; vertical-align:top; padding:0 10px; font-size:0.8em; color:#7BBCFF; line-height:1.1em;}
 a.crumb:hover			{color:#fff;}
 a.crumb:nth-of-type(1)	{padding-left:0px;}
-.crumb_wrap				{width:960px; margin:0 auto; padding-top:10px; font-size:13px; color:#CACBCB; line-height:1.1em;}
-.crumb_wrap span		{display:inline-block; vertical-align:top; padding:0 10px; font-size:13px; color:#fff; line-height:1.1em;}
+.crumb_wrap				{width:960px; margin:0 auto; padding-top:10px; font-size:0.8em; color:#CACBCB; line-height:1.1em;}
+.crumb_wrap span		{display:inline-block; vertical-align:top; padding:0 10px; font-size:0.8em; color:#fff; line-height:1.1em;}
 
 /*	Languages links (top right)
 	============================================= */
-a.tongue				{display:inline-block; vertical-align:top; width:50px; text-align:center; color:#ccc; font-size:14px;}
-a.tongue:hover			{color:#fff;}
 select.tongue			{font-size:0.9em;}
 
 /*	Header styles
@@ -52,18 +52,17 @@ select.tongue			{font-size:0.9em;}
 .default.head			{padding-top:20px;}
 .default.min			{padding-top:10px;}
 .default.declare		{padding:10px 0; font-size:0.9em; color:#ccc;}
-.declare.head			{padding-top:5px; border-top:10px solid #fff; font-size:14px; color:#ccc;}
+.declare.head			{padding-top:5px; border-top:10px solid #fff; font-size:0.9em; color:#ccc;}
 
 /*	Money Module styles
 	============================================= */
-.money_wrap				{width:880px; margin:0 auto; font-size:32px; padding:40px 0 60px 0;}
+.money_wrap				{width:880px; margin:0 auto; font-size:2.0em; padding:40px 0 60px 0;}
 .money_mod_wrap			{width:380px; display:inline-block; vertical-align:top; padding:0; margin:0; max-width:380px; overflow:hidden;}
 .money_mod_wrap.donor	{padding-right:60px;}
 .money_mod_wrap.sector	{padding-left:60px;}
 .money_title			{width:300px; padding:20px 40px; text-align:center; color:#fff;}
 .money_title.donor		{background-color:#008FFF;}
 .money_title.sector		{background-color:#00C475;}
-.money_subtitle			{text-align:center; color:#ccc; font-size:14px; padding-bottom:20px;}
 .peak_space				{width:160px; display:inline-block; vertical-align:top;}
 .peak_wrap				{width:140px; display:inline-block; vertical-align:top;}
 .peak					{width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;}	/* Triangles */
@@ -72,23 +71,23 @@ select.tongue			{font-size:0.9em;}
 .barchart_wrap			{width:100px; height:10px; background-color:#000000;}
 .barchart.donor			{height:10px; background-color:#1E90FF;}	/* Check #chunkmoney_row for more styling of bar */
 .barchart.sector		{height:10px; background-color:#00C475;}	/* Check #chunkmoney_row for more styling of bar */
-a.view_all_money		{display:block; width:380px; background-color:rgba(0,14,32,0.7); color:#ccc; font-size:20px; text-align:center; padding:20px 0; border-radius:0 0 8px 8px; text-align:center;}
+a.view_all_money		{display:block; width:380px; background-color:rgba(0,14,32,0.7); color:#ccc; font-size:0.6em; text-align:center; padding:20px 0; border-radius:0 0 8px 8px; text-align:center;}
 a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
 
 /*	Map styles
 	============================================= */
 .map_wrap				{width:100%; min-height:300px; margin:0 auto; background-color:rgba(0,0,0,0.8); position:relative;}
-.map_info				{width:800px; margin:0 auto; top:0; left:-100px; right:-100px; padding:10px 40px; font-size:18px; color:#fff; line-height:1.35em; position:absolute; background-color:rgba(52, 174, 255, 0.9); border-radius:0 0 8px 8px; z-index:1; text-align:center;}
+.map_info				{width:800px; margin:0 auto; top:0; left:-100px; right:-100px; padding:10px 40px; font-size:1.1em; color:#fff; line-height:1.35em; position:absolute; background-color:rgba(52, 174, 255, 0.9); border-radius:0 0 8px 8px; z-index:1; text-align:center;}
 .map_no_info			{color:#fff; font-size:1.2em; line-height:1.35em; text-align:center; position:absolute; top:50%; left:20%; right:20%;}
  #map					{width:100%; height:400px;}
 
 /*	Stats (key figures) styles
 	============================================= */
 .stats_wrap				{width:990px; margin:0 auto; padding:40px 0;}
-span.stats_title		{display:block; font-size:24px; color:#ccc; padding-bottom:10px;}
-span.stats_num			{display:block; font-size:128px; color:#2E98FF;}
-span.stats_num.small	{display:block; font-size:64px;}
-.declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#ccc; font-size:14px;}
+span.stats_title		{display:block; font-size:1.5em; color:#ccc; padding-bottom:10px;}
+span.stats_num			{display:block; font-size:8.0em; color:#2E98FF;}
+span.stats_num.small	{display:block; font-size:4.0em;}
+.declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#ccc; font-size:0.9em;}
 a.stats_link			{display:block; padding:30px 40px; height:100%;}
 
 /*	Active / Ended projects styles
@@ -97,7 +96,7 @@ a.stats_link			{display:block; padding:30px 40px; height:100%;}
 .active_wrap			{width:960px; margin:0 auto; padding:40px 20px;}
 .table_wrap				{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
 .view_all_projects_wrap	{width:960px; margin:0 auto; text-align:center;}
-a.view_all_projects			{padding:10px 20px; background-color:#3B9CFB; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
+a.view_all_projects			{padding:10px 20px; background-color:#3B9CFB; font-size:1.25em; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
 a.view_all_projects:hover	{background-color:#0081FF;}
 
 
@@ -119,8 +118,8 @@ a.read:hover			{color:#FFB700;}
 .donors_peak_space			{height:30px;}
 .donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;}	/* Triangles */
 .donors_head_title_wrap		{width:480px; display:inline-block; vertical-align:top;}
-.donors_head_title			{width:400px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#fff; font-size:42px;}
-.donors_head_declare		{width:480px; padding-top:10px; color:#ccc; font-size:14px; text-align:center;}
+.donors_head_title			{width:400px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
+.donors_head_declare		{width:480px; padding-top:10px; color:#ccc; font-size:0.9em; text-align:center;}
 .table_donors_wrap			{width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;}
 
 /*	For url #view=donor_activities
@@ -133,7 +132,7 @@ a.read:hover			{color:#FFB700;}
 .donor_activities_percent_max	{width:100px; height:10px; background-color:#000000; border:1px solid #494B4E;}
 .donor_activities_percent		{height:10px; background-color:#1E90FF;}
 .back_to_donor_list_wrap		{width:960px; margin:0 auto; text-align:center;}
-a.back_to_donor_list			{padding:10px 20px; background-color:#3B9CFB; font-size:20px; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
+a.back_to_donor_list			{padding:10px 20px; background-color:#3B9CFB; font-size:1.25em; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
 a.back_to_donor_list:hover		{background-color:#0081FF;}
 
 /*	For url #view=donor_transactions
@@ -155,35 +154,35 @@ a.back_to_donor_list:hover		{background-color:#0081FF;}
 .sectors_peak_space			{height:30px;}
 .sectors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #00C475; border-bottom:20px solid transparent;}	/* Triangles */
 .sectors_head_title_wrap	{width:480px; display:inline-block; vertical-align:top;}
-.sectors_head_title			{width:400px; background-color:#00C475; padding:20px 40px; text-align:center; color:#fff; font-size:42px;}
-.sectors_head_declare		{width:480px; padding-top:10px; color:#ccc; font-size:14px; text-align:center;}
+.sectors_head_title			{width:400px; background-color:#00C475; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
+.sectors_head_declare		{width:480px; padding-top:10px; color:#ccc; font-size:0.9em; text-align:center;}
 .table_sectors_wrap			{width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;}
 
 
 /*	For url #view=act
 	============================================= */
 .act_wrap				{width:960px; margin:0 auto; padding:20px 0;}
-.act_alert_wrap			{color:#fff; font-size:16px; line-height:1.35em; padding:10px 20px; background-color:#000;}
+.act_alert_wrap			{color:#fff; font-size:0.9em; line-height:1.35em; padding:10px 20px; background-color:#000;}
 
 
 /*	Table for Header logo and Translations
 	============================================= */
 table.head				{width:100%; margin:0 auto; border-collapse:initial;}
-table.head td:nth-child(2)			{color:#fff; text-align:right; vertical-align:top; font-size:14px;}
+table.head td:nth-child(2)			{color:#fff; text-align:right; vertical-align:top; font-size:0.9em;}
 
 /*	Table for Country Name and Flag
 	============================================= */
 table.country			{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial;}
-table.country td:nth-child(1)		{width:800px; max-width:800px; padding-right:10px; font-size:64px; line-height:1.1em; color:#fff;}
+table.country td:nth-child(1)		{width:800px; max-width:800px; padding-right:10px; font-size:4.0em; line-height:1.1em; color:#fff;}
 table.country td:nth-child(2)		{text-align:right;}
 table.country td:nth-child(2) img	{max-height:90px;}
 table.country.min		{padding:10px 0;}
-table.country.min td:nth-child(1)	{width:860px; max-width:860px; padding-right:20px; font-size:32px; line-height:1.1em; color:#fff;}
+table.country.min td:nth-child(1)	{width:860px; max-width:860px; padding-right:20px; font-size:2.0em; line-height:1.1em; color:#fff;}
 table.country.min td:nth-child(2) img	{max-height:50px;}
 
 /*	Table for Money Modules
 	============================================= */
-table.money_mod			{width:380px; min-height:300px; background-color:#fff; font-size:20px; border-collapse:initial; border-spacing:30px;}
+table.money_mod			{width:380px; min-height:300px; background-color:#fff; font-size:0.6em; border-collapse:initial; border-spacing:30px;}
 table.money_mod td:nth-child(1)	{width:190px; max-width:190px;}
 table.money_mod td:nth-child(2)	{width:100px; max-width:100px;}
 
@@ -192,12 +191,12 @@ table.money_mod td:nth-child(2)	{width:100px; max-width:100px;}
 table.title				{width:100%; border-collapse:collapse; padding-bottom:15px; border-bottom:10px solid #fff;}
 table.title.space		{border-collapse:separate;} /* Active / Ended projects need spacing */
 table.title.space td:nth-child(3)	{padding-left:10px; width:200px;}
-table.title td			{font-size:32px; line-height:1.1em; color:#fff; vertical-align:bottom;}
+table.title td			{font-size:1.8em; line-height:1.15em; color:#fff; vertical-align:bottom;}
 table.title tr:nth-child(1) td:nth-child(1)	{padding-right:10px; width:40px;}
 table.title tr:nth-child(2) td	{padding:0;}
 table.title td.total_spend		{text-align:right;}
-.declare.title.list		{vertical-align:bottom; text-align:right; padding:0; font-size:14px; line-height:1.1em; color:#fff; padding-right:20px;}
-.declare.title.table 	{margin-top:10px; font-size:14px; line-height:1.35em; color:#CACBCB; padding:10px 20px; background-color:#000;}
+.declare.title.list		{vertical-align:bottom; text-align:right; padding:0; font-size:0.5em; line-height:1.1em; color:#fff; padding-right:20px;}
+.declare.title.table 	{margin-top:10px; font-size:0.5em; line-height:1.35em; color:#CACBCB; padding:10px 20px; background-color:#000;}
 
 /*	Table for Stats (key figures)
 	============================================= */
@@ -208,7 +207,7 @@ table.stats td:hover	{background-color:rgba(0,14,32,0.9);}
 /*	Table for Active / Ended projects
 	============================================= */
 table.list				{width:100%; border-collapse:collapse;}
-table.list td			{color:#fff; font-size:20px; line-height:1.35em; word-spacing:0.7px; padding:20px 0; vertical-align:top; border-bottom:1px solid #333642;}
+table.list td			{color:#fff; font-size:1.25em; line-height:1.35em; word-spacing:0.7px; padding:20px 0; vertical-align:top; border-bottom:1px solid #333642;}
 table.list td:nth-child(3)	{text-align:right; padding-right:0; min-width:160px;}
 table.list td:nth-child(2)	{padding:0;}
 table.list a			{display:inline-block; padding:20px; width:100%; color:#A8C5E5;}
@@ -221,7 +220,7 @@ table.list a:active		{color:#A8C5E5; text-decoration:none;}
 /*	Table for Money list (Donors / Sectors)
 	============================================= */
 table.money				{width:100%; border-collapse:collapse;}
-table.money td			{text-align:right; color:#B8C8CD; font-size:16px; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #1E90FF;}
+table.money td			{text-align:right; color:#B8C8CD; font-size:1.0em; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #1E90FF;}
 table.money td:nth-child(1)	{text-align:left; background-color:rgba(74, 82, 54, 0.4);}
 table.money tr:nth-child(1) td					{padding:20px;}
 table.money tr:nth-child(2) td					{padding:20px;}
@@ -261,12 +260,12 @@ table.money a:active	{color:#A8C5E5; text-decoration: none;}
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
 table.activity			{width:100%; border-collapse:collapse;}
-table.activity td		{color:#B8C8CD; font-size:20px; line-height:1.35em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642;}
+table.activity td		{color:#B8C8CD; font-size:1.25em; line-height:1.35em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642;}
 table.activity td:nth-child(1)	{padding:10px 0;}
 table.activity td:nth-child(2)	{padding:0 30px 0 0;}
-table.activity td:nth-child(3)	{text-align:right; padding-right:0; min-width:140px; font-size:16px;}
-table.activity td.alert_no_iati	{text-align:center; font-size:30px;}
-table.activity td span	{display:block; padding-top:5px; color:#9C8876; font-size:14px; line-height:1.0em;}
+table.activity td:nth-child(3)	{text-align:right; padding-right:0; min-width:140px; font-size:1.0em;}
+table.activity td.alert_no_iati	{text-align:center; font-size:2.0em;}
+table.activity td span	{display:block; padding-top:5px; color:#9C8876; font-size:0.7em; line-height:1.0em;}
 table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#95B0CF;}
 table.activity a:focus	{color:#95B0CF; text-decoration:none;}
 table.activity a:link  	{color:#95B0CF; text-decoration:none;}
@@ -278,19 +277,19 @@ table.activity a:active	{color:#95B0CF; text-decoration:none;}
 /*	About
 	============================================= */
 .about_wrap				{width:960px; margin:0 auto; padding:40px 0px; margin-bottom:40px;}
-.about_txt				{width:570px; padding-right:60px; display:inline-block; vertical-align:top; line-height:1.35em; word-spacing:0.05em; font-size:18px; color:#fff;}
+.about_txt				{width:570px; padding-right:60px; display:inline-block; vertical-align:top; line-height:1.35em; word-spacing:0.05em; font-size:1.2em; color:#fff;}
 .about_txt span			{color:#fff;}
 .iati_logo				{width:290px; display:inline-block; vertical-align:top; text-align:right; padding-left:40px;}
 a.iati_link				{display:block; width:270px; margin:0 auto; padding:10px; background-color:rgba(255, 255, 255, 0.85); border-radius:6px;}
 a.iati_link:hover		{background-color:rgba(255, 255, 255, 1);}
-a.read					{display:inline-block; color:#A2CDDD; font-size:1em;}
+a.read					{display:inline-block; color:#A2CDDD; font-size:1.0em;}
 a.read:hover			{color:#CEE3EB;}
 
 
 /*	Data Investigators alert
 	============================================= */
 .data_wrap				{position:absolute; bottom:0; width:100%; margin:0 auto;}
-a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:14px; color:#C7A1D6; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
+a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:0.9em; color:#C7A1D6; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
 a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 
 
@@ -299,7 +298,7 @@ a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 .footer_wrap			{display:table-footer-group; height:1px; background-color:rgba(19, 20, 20, 0.95);}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
 .footer_link			{width:320px; display:inline-block; vertical-align:top;}
-.footer_link a			{font-size:13px; line-height:1.5em; color:#818181;}
+.footer_link a			{font-size:0.8em; line-height:1.5em; color:#818181;}
 .footer_link a:focus	{color:#818181;}
 .footer_link a:link  	{color:#818181;}
 .footer_link a:visited	{color:#818181;}
@@ -312,7 +311,7 @@ a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 /*	Beige Alert
 	============================================= */
 .beigealert_wrap		{width:100%; margin:0 auto; background-color:#D80051;}
-.beigealert				{width:1240px; margin:0 auto; color:#fff; font-size:1em; line-height:1.25em; text-align:center; padding:10px 0;}
+.beigealert				{width:1240px; margin:0 auto; color:#fff; font-size:1.0em; line-height:1.25em; text-align:center; padding:10px 0;}
 a.beige					{font-weight:bold; color:#FFFF00;}
 a.beige:hover			{color:#fff;}
 

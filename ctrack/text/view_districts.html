@@ -1,0 +1,56 @@
+#view_districts
+{view_head}
+<style>{css}</style>
+{beige}
+{main_head}
+{districts_head}
+{table_districts}
+{districts_data_description}
+{main_datainvestigators}
+{view_tail}
+
+#districts_data_description
+<div class="description_wrap">
+	<div class="description">
+		<span class="title">{districts_data_description_title_text}</span>
+		<p>{districts_data_description_text}</p>
+		<a class="read">{read_more_text}</a>
+	</div>
+</div>
+
+#districts_head
+<div>Where does the money go to (Geography)?</div>
+
+#table_districts
+<table class="districts">
+{table_districts_row_head}
+{table_districts_rows}
+</table>
+
+#table_districts_rows
+{table_districts_row}
+
+#table_districts_row_head
+<tr>
+	<td></td>
+	<td colspan="3">TRANSACTIONS</td>
+	<td colspan="2">BUDGET</td>
+</tr>
+<tr>
+	<td>DISTRICT</td>
+	<td>2012</td>
+	<td>2013</td>
+	<td>2014</td>
+	<td>2014</td>
+	<td>2015</td>
+</tr>
+
+#table_districts_row
+<tr>
+	<td>{location}</td>
+	<td>{t2012}</td>
+	<td>{t2013}</td>
+	<td>{t2014}</td>
+	<td>{b2014}</td>
+	<td>{b2015}</td>
+</tr>

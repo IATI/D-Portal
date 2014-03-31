@@ -1,0 +1,72 @@
+#view_sectors
+{view_head}
+<style>{css}</style>
+{beige}
+{main_head}
+{main_countrymin}
+{sectors_head}
+{table_sectors}
+{sectors_data_description}
+{main_datainvestigators}
+{view_tail}
+
+#sectors_data_description
+<div class="description_wrap">
+	<div class="description">
+		<span class="title">{sectors_data_description_title_text}</span>
+		<p>{sectors_data_description_text}</p>
+		<a class="read">{read_more_text}</a>
+	</div>
+</div>
+
+#sectors_head
+<div class="sectors_head_wrap">
+	<div class="sectors_icon_wrap">
+		<img src="{art}money_title_icon.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>
+	</div><div class="sectors_peak_wrap">
+			<div class="sectors_peak_space"></div>
+			<div class="sectors_peak"></div>
+	</div><div class="sectors_head_title_wrap">
+			<div class="sectors_head_title">{title_sector_text}</div>
+			<div class="sectors_head_declare">{declare_title_sector_text}</div>
+		</div>
+</div>
+
+#table_sectors
+<div class="table_sectors_wrap">
+	<table class="money">
+	{table_sectors_row_head}
+	{table_sectors_rows}
+	</table>
+</div>
+
+#table_sectors_rows
+{table_sectors_row}
+
+#table_sectors_row_head
+<tr>
+	<td>CRS</td>
+	<td>{table_sector_title_sector_text}</td>
+	<td colspan="3" title="{table_sector_tip_title_transaction_text}">{table_sector_title_transaction_text}</td>
+	<td colspan="2" title="{table_sector_tip_title_budget_text}">{table_sector_title_budget_text}</td>
+</tr>
+<tr>
+	<td title="{table_sector_tip_title_crs_text}">2012</td>
+	<td title="{table_sector_tip_title_sector_text}">2012</td>
+	<td title="{table_sector_tip_title_t2012_text}">2012</td>
+	<td title="{table_sector_tip_title_t2013_text}">2013</td>
+	<td title="{table_sector_tip_title_t2014_text}">2014</td>
+	<td title="{table_sector_tip_title_b2014_text}">2014</td>
+	<td title="{table_sector_tip_title_b2015_text}">2015</td>
+</tr>
+
+#table_sectors_row
+<tr>
+	<td title="{table_sector_tip_crs_text}">{crs}</td>
+	<td title="{table_sector_tip_sector_text}">{sector}</td>
+	<td title="{table_sector_tip_t2012_text}">{t2012}</td>
+	<td title="{table_sector_tip_t2013_text}">{t2013}</td>
+	<td title="{table_sector_tip_t2014_text}">{t2014}</td>
+	<td title="{table_sector_tip_b2014_text}">{b2014}</td>
+	<td title="{table_sector_tip_b2015_text}">{b2015}</td>
+</tr>
