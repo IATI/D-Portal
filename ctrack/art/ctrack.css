@@ -51,7 +51,8 @@ select.tongue			{font-size:0.9em;}
 .default				{width:960px; margin:0 auto; padding:0;}
 .default.head			{padding-top:20px;}
 .default.min			{padding-top:10px;}
-.declare.head			{width:960px; padding-top:5px; border-top:10px solid #fff; font-size:14px; color:#ccc;}
+.default.declare		{padding:10px 0; font-size:0.9em; color:#ccc;}
+.declare.head			{padding-top:5px; border-top:10px solid #fff; font-size:14px; color:#ccc;}
 
 /*	Money Module styles
 	============================================= */
@@ -220,8 +221,11 @@ table.list a:active		{color:#A8C5E5; text-decoration:none;}
 /*	Table for Money list (Donors / Sectors)
 	============================================= */
 table.money				{width:100%; border-collapse:collapse;}
-table.money td			{text-align:right; color:#B8C8CD; font-size:16px; line-height:1.45em; word-spacing:0.7px; padding:20px; vertical-align:top; border-bottom:1px solid #1E90FF;}
+table.money td			{text-align:right; color:#B8C8CD; font-size:16px; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #1E90FF;}
 table.money td:nth-child(1)	{text-align:left; background-color:rgba(74, 82, 54, 0.4);}
+table.money tr:nth-child(1) td					{padding:20px;}
+table.money tr:nth-child(2) td					{padding:20px;}
+table.money td:nth-child(1)						{padding:20px;}
 table.money tr:nth-child(1) td:nth-child(1)		{text-align:left;}
 table.money tr:nth-child(1) td:nth-child(2)		{text-align:left;}
 table.money td:nth-child(2)	{text-align:left;}
@@ -247,7 +251,7 @@ table.money tr:nth-child(2) td:nth-child(6)	{background-color:rgba(17, 101, 105,
 table.money tr:nth-child(2) td:nth-child(7)	{background-color:rgba(17, 101, 105, 0.9);}
 table.money tr:nth-child(n+3) td:nth-child(n+2):hover	{background-color:rgba(17, 46, 105, 1);}
 table.money tr:nth-child(n+3) td:nth-child(n+6):hover	{background-color:rgba(17, 101, 105, 1);}
-table.money a			{display:inline-block; padding-bottom:5px; width:100%; border-bottom:0px dotted #0D3057; color:#A8C5E5;}
+table.money a			{display:block; padding:20px; border-bottom:0px dotted #0D3057; color:#A8C5E5;}
 table.money a:focus		{color:#A8C5E5; text-decoration:none;}
 table.money a:link  	{color:#A8C5E5; text-decoration:none;}
 table.money a:visited	{color:#A8C5E5; text-decoration:none;}
