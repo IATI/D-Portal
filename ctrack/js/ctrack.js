@@ -10,6 +10,8 @@ var savi=require("./savi.js")
 
 var views=require("./views.js");
 
+var ganal=require("./ganal.js");
+
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
 // export savi
@@ -147,6 +149,7 @@ ctrack.setup=function(args)
 			{
 				v.view();
 			}
+			ganal.view(); // record view action
 		}
 	}
 
@@ -232,8 +235,21 @@ ctrack.setup=function(args)
 
 // wait for images to load before performing any data requests?
 	$(window).load(function() {
+		for(var n in views)
+		{
+			var v=views[n];
+			if(typeof v == "object")
+			{
+				if(v.setup)
+				{
+//					console.log("setup "+n);
+					v.setup(); // perform initalization of all views
+				}
+			}
+		}
 		ctrack.check_hash();
 		ctrack.display_hash(); // this will display view=main or whatever page is requsted
+//		ganal.setup();
 	});
 
 }
