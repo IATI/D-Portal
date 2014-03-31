@@ -1,0 +1,6 @@
+
+# Publish to live server from github.
+
+ssh ctrack@37.123.118.236 "cd D-Portal ; git pull -f"
+ssh ctrack@37.123.118.236 "D-Portal/ctrack/build"
+
