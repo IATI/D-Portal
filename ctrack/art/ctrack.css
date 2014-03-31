@@ -85,8 +85,10 @@ a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
 	============================================= */
 .stats_wrap				{width:990px; margin:0 auto; padding:40px 0;}
 span.stats_title		{display:block; font-size:1.5em; color:#ccc; padding-bottom:10px;}
+span.stats_title.view	{font-size:0.6em; color:#fff;}
 span.stats_num			{display:block; font-size:8.0em; color:#2E98FF;}
 span.stats_num.small	{display:block; font-size:4.0em;}
+span.stats_num.view		{font-size:2.9em; color:#fff; line-height:0.8em;}
 .declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#ccc; font-size:0.9em;}
 a.stats_link			{display:block; padding:30px 40px; height:100%;}
 
@@ -116,9 +118,12 @@ a.read:hover			{color:#FFB700;}
 .donors_icon_wrap			{width:330px; display:inline-block; vertical-align:bottom;}
 .donors_peak_wrap			{display:inline-block; vertical-align:top;}
 .donors_peak_space			{height:30px;}
+.donors_peak_space.view		{height:60px;}
 .donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;}	/* Triangles */
+.donors_peak.view			{border-right:30px solid #0070DD;}
 .donors_head_title_wrap		{width:480px; display:inline-block; vertical-align:top;}
 .donors_head_title			{width:400px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
+.donors_head_title.view		{background-color:#0070DD;}
 .donors_head_declare		{width:480px; padding-top:10px; color:#ccc; font-size:0.9em; text-align:center;}
 .table_donors_wrap			{width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;}
 
@@ -188,7 +193,7 @@ table.money_mod td:nth-child(2)	{width:100px; max-width:100px;}
 
 /*	Table Titles
 	============================================= */
-table.title				{width:100%; border-collapse:collapse; padding-bottom:15px; border-bottom:10px solid #fff;}
+table.title				{width:100%; border-collapse:separate; padding-bottom:15px; border-bottom:10px solid #fff;}
 table.title.space		{border-collapse:separate;} /* Active / Ended projects need spacing */
 table.title.space td:nth-child(3)	{padding-left:10px; width:200px;}
 table.title td			{font-size:1.8em; line-height:1.15em; color:#fff; vertical-align:bottom;}
@@ -208,6 +213,7 @@ table.stats td:hover	{background-color:rgba(0,14,32,0.9);}
 	============================================= */
 table.list				{width:100%; border-collapse:collapse;}
 table.list td			{color:#fff; font-size:1.25em; line-height:1.35em; word-spacing:0.7px; padding:20px 0; vertical-align:top; border-bottom:1px solid #333642;}
+table.list td span		{display:block; padding-top:5px; color:#9C8876; font-size:0.7em; line-height:1.0em;}
 table.list td:nth-child(3)	{text-align:right; padding-right:0; min-width:160px;}
 table.list td:nth-child(2)	{padding:0;}
 table.list a			{display:inline-block; padding:20px; width:100%; color:#A8C5E5;}

@@ -1,6 +1,3 @@
-#declare_xml_text
-Les valeurs manquantes suggère pas de données suffisantes et signifie des problèmes de qualité de données. Cliquez sur le lien ci-dessous IATI Identifier pour afficher le code XML sur son propre. Vous pouvez également voir l'XML sans style en affichant la source de cette page (Ctrl+U ou Cmd+U).
-
 #title_donor_text
 D'où vient l'argent?
 
@@ -66,6 +63,21 @@ Liste de Secteur
 
 #crumbname_act_text 
 Activité
+
+#crumbname_active_text 
+Projets Actifs 
+
+#crumbname_ended_text 
+Projets Terminés 
+
+#crumbname_planned_text 
+Projets Prévus 
+
+#crumbname_publishers_text 
+éditeurs 
+
+#crumbname_total_text 
+Nombre total de Projets
 
 #about_text 
 d-portal.org est une plate-forme d'information sur le pays qui permet de suivre les flux de ressources. Il vise à fournir des ministères de tutelle, les parlementaires et la société civile des informations qui peuvent aider à la planification et au suivi des activités de développement.
@@ -136,29 +148,26 @@ Projets terminés récemment
 #list_ended_declare_text 
 Descendant
 
-#list_more_active_text 
-Chargez projets les plus actifs 
+#view_all_active_text 
+Voir tous 
 
-#list_more_ended_text 
-Chargez projets terminés plus
+#view_all_ended_text 
+Voir tous
+
+#view_all_donors_text
+Voir tous
 
 #list_donor_back_text
-Retour à la liste des Donateurs
+Retour à la liste des donateurs
 
 #view_donor_transactions_text 
 Dépenses totales pour {donor} en {year}
-
-#view_donor_transactions_declare_text 
-Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique toutes les activités déclarées par {donor} pour {country_name} et l'activité avec la plus grande dépense en haut. 
 
 #view_donor_activities_text 
 Activités projets pour {donor} et dépenses actuelles (USD) 
 
 #view_donor_activites_reporting_text
 Rapporté par {reporting_org}
-
-#view_donor_activities_declare_text 
-Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici, classés par le plus grand en haut. Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction.
 
 #donor_activities_title_tip_text 
 Titre du projet d'activité
@@ -174,9 +183,6 @@ Montant de la transaction en USD
 
 #view_donor_budgets_text 
 Budget total pour {donor} en {year}
-
-#view_donor_budgets_declare_text
-Budget est calculé en additionnant tous les budgets qui est inférieure à 370 jours de long et se termine en {year}. Ce tableau vous indique toutes les activités qui ont énuméré les budgets pour {year} triés par le plus grand en haut. Zéros dans les tableaux suggèrent des anomalies dans ce calcul en raison de l'insuffisance des données et signifie des problèmes de qualité de données.
 
 #table_donor_title_transaction_text 
 PASSER de IATI (USD)
@@ -350,48 +356,93 @@ Lire la suite
 Comment les données sont -elle calculée?
 
 #xml_data_description_text
-C'est ainsi que les données sont calculées pour l'argent va {country_name} .
+Les valeurs manquantes suggère pas de données suffisantes et signifie des problèmes de qualité de données. Cliquez sur le lien ci-dessous IATI Identifier pour afficher le code XML sur son propre. Vous pouvez également voir l'XML sans style en affichant la source de cette page (Ctrl+U ou Cmd+U).
 
 #donors_data_description_title_text
 Comment les données sont -elle calculée?
 
 #donors_data_description_text
-d-portal.org est une plate-forme d'information sur le pays qui permet de suivre les flux de ressources . Il vise à fournir des ministères de tutelle , les parlementaires et la société civile des informations qui peuvent aider à la planification et au suivi des activités de développement.
-Dans sa première itération , il contient des données actuelles publiées par l'Initiative internationale pour la transparence de l'aide ( IITA ), ainsi que les plus récentes (2012 ) données publiées par le Système de notification des pays créanciers du CAD de l'OCDE . Développement futur comprendra , entre autres , les données de l'aide des systèmes d'information de gestion , les budgets nationaux et une série d'indicateurs socio- économiques comparables.
+d-portal.org est une plate-forme d'information sur le pays qui permet de suivre les flux de ressources. Il vise à fournir des ministères de tutelle , les parlementaires et la société civile des informations qui peuvent aider à la planification et au suivi des activités de développement.
+Dans sa première itération , il contient des données actuelles publiées par l'Initiative internationale pour la transparence de l'aide (IATI), ainsi que les plus récentes (2012) données publiées par le Système de notification des pays créanciers du CAD de l'OCDE. Développement futur comprendra , entre autres , les données de l'aide des systèmes d'information de gestion , les budgets nationaux et une série d'indicateurs socio- économiques comparables.
 
 #donors_activities_data_description_title_text
 Comment les données sont -elle calculée?
 
 #donors_activities_data_description_text
-C'est ainsi que les données sont calculées pour l'argent va à des activités .
+Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici , classés par le plus grand en haut. Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction.
 
 #donors_transactions_data_description_title_text
 Comment les données sont -elle calculée?
 
 #donors_transactions_data_description_text
-C'est ainsi que les données sont calculées pour l'argent va à des transactions .
+Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique toutes les activités déclarées par les {donor} pour {country_name} et triés par l'activité avec la plus grande dépense en haut.
 
 #donors_budgets_data_description_title_text
 Comment les données sont -elle calculée?
 
 #donors_budgets_data_description_text
-C'est ainsi que les données sont calculées pour l'argent va budgets .
+Budget est calculé en additionnant tous les budgets qui est inférieure à 370 jours de long et se termine par {year}. Ce tableau vous indique toutes les activités qui ont énuméré les budgets pour {year} triés par le plus grand en haut. Zéros dans les tableaux indiquent les écarts dans ce calcul en raison de données insuffisantes et signifient les problèmes de qualité de données.
 
 #sectors_data_description_title_text
 Comment les données sont -elle calculée?
 
 #sectors_data_description_text
-C'est ainsi que les données sont calculées pour l'argent va à des secteurs .
+C'est ainsi que les données sont calculées pour l'argent va à des secteurs.
 
 #districts_data_description_title_text
 Comment les données sont -elle calculée?
 
 #districts_data_description_text
-C'est ainsi que les données sont calculées pour l'argent va aux districts .
+C'est ainsi que les données sont calculées pour l'argent va aux districts.
 
 #main_data_description_title_text
 Comment les données sont -elle calculée?
 
 #main_data_description_text
-d-portal.org est une plate-forme d'information sur le pays qui permet de suivre les flux de ressources . Il vise à fournir des ministères de tutelle , les parlementaires et la société civile des informations qui peuvent aider à la planification et au suivi des activités de développement.
-Dans sa première itération , il contient des données actuelles publiées par l'Initiative internationale pour la transparence de l'aide ( IITA ), ainsi que les plus récentes (2012 ) données publiées par le Système de notification des pays créanciers du CAD de l'OCDE . Développement futur comprendra , entre autres , les données de l'aide des systèmes d'information de gestion , les budgets nationaux et une série d'indicateurs socio- économiques comparables.
+d-portal.org est une plate-forme d'information sur le pays qui permet de suivre les flux de ressources. Il vise à fournir des ministères de tutelle , les parlementaires et la société civile des informations qui peuvent aider à la planification et au suivi des activités de développement.
+Dans sa première itération , il contient des données actuelles publiées par l'Initiative internationale pour la transparence de l'aide (IATI), ainsi que les plus récentes (2012) données publiées par le Système de notification des pays créanciers du CAD de l'OCDE. Développement futur comprendra , entre autres , les données de l'aide des systèmes d'information de gestion , les budgets nationaux et une série d'indicateurs socio- économiques comparables.
+
+#view_active_text
+Tous les projets en cours pour {country_name}
+
+#view_ended_text
+Tous les projets terminés pour {country_name}
+
+#view_planned_text
+Tous les projets prévus pour {country_name}
+
+#view_publishers_text
+Tous les éditeurs de {country_name}
+
+#view_total_text
+Nombre de projets présentés pour {country_name}
+
+#active_data_description_title_text
+Comment les données sont -elle calculée?
+
+#active_data_description_text
+C'est ainsi que les données sont calculées pour tous les projets actifs .
+
+#ended_data_description_title_text
+Comment les données sont -elle calculée?
+
+#ended_data_description_text
+C'est ainsi que les données sont calculées pour tous les projets indéterminée .
+
+#planned_data_description_title_text
+Comment les données sont -elle calculée?
+
+#planned_data_description_text
+C'est ainsi que les données sont calculées pour tous les projets prévus .
+
+#total_data_description_title_text
+Comment les données sont -elle calculée?
+
+#total_data_description_text
+C'est ainsi que les données sont calculées pour des projets globaux .
+
+#publishers_data_description_title_text
+Comment les données sont -elle calculée?
+
+#publishers_data_description_text
+C'est ainsi que les données sont calculées pour tous les éditeurs .

@@ -68,3 +68,17 @@ view_ended.ajax=function(args)
 		ctrack.display(); // every fetch.ajax must call display once
 	});
 }
+//
+// Perform ajax call to get numof data
+//
+view_ended.view=function(args)
+{
+	view_ended.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+
+	ctrack.setcrumb(1);
+	ctrack.change_hash();
+
+	view_ended.ajax({output:"count"});
+	
+	view_ended.ajax({limit:-1});
+}

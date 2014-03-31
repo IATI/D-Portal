@@ -139,19 +139,19 @@ BANGLADESH
 	<table class="stats">
 		<tr>
 			<td rowspan="2" colspan="2" title="{stats_active_tip_text}">
-				<a href="#" class="stats_link">
+				<a href="#view=active" class="stats_link">
 					<span class="stats_title">{stats_active_text}</span>
 					<span class="stats_num">{active_projects}</span>
 				</a>
 			</td>
 			<td title="{stats_ended_tip_text}">
-				<a href="#" class="stats_link">
+				<a href="#view=ended" class="stats_link">
 					<span class="stats_title">{stats_ended_text}</span>
 					<span class="stats_num small">{ended_projects}</span>
 				</a>
 			</td>
 			<td title="{stats_total_tip_text}">
-				<a href="#" class="stats_link">
+				<a href="#view=total" class="stats_link">
 					<span class="stats_title">{stats_total_text}</span>
 					<span class="stats_num small">{total_projects}</span>
 				</a>
@@ -159,13 +159,13 @@ BANGLADESH
 		</tr>
 		<tr>
 			<td title="{stats_planned_tip_text}">
-				<a href="#" class="stats_link">
+				<a href="#view=planned" class="stats_link">
 					<span class="stats_title">{stats_planned_text}</span>
 					<span class="stats_num small">{planned_projects}</span>
 				</a>
 			</td>
 			<td title="{stats_publisher_tip_text}">
-				<a href="#" class="stats_link">
+				<a href="#view=publishers" class="stats_link">
 					<span class="stats_title">{stats_publisher_text}</span>
 					<span class="stats_num small">{numof_publishers}</span>
 				</a>
@@ -190,7 +190,7 @@ BANGLADESH
 		</table>
 	</div>
 	<div class="view_all_projects_wrap">
-		<a href="#ctrack_ending_more" class="view_all_projects">{list_more_active_text}</a>
+		<a href="#view=active" class="view_all_projects">{view_all_active_text}</a>
 	</div>
 </div>
 
@@ -209,7 +209,7 @@ BANGLADESH
 		</table>
 	</div>
 	<div class="view_all_projects_wrap">
-		<a href="#ctrack_finished_more" class="view_all_projects">{list_more_ended_text}</a>
+		<a href="#view=ended" class="view_all_projects">{view_all_ended_text}</a>
 	</div>
 </div>
 
@@ -217,13 +217,23 @@ BANGLADESH
 #table_active_data
 <tr>
 	<td>{num}.</td>
-	<td><div><a href="#view=act&aid={aid}" title="{table_active_title_tip_text}">{title}</a></div></td>
+	<td>
+		<a href="#view=act&aid={aid}" title="{table_active_title_tip_text}">
+			{title}
+			<span>{view_donor_activites_reporting_text}</span>
+		</a>
+	</td>
 	<td title="{table_active_date_tip_text}">{date}</td>
 </tr>
 
 #table_ended_data
 <tr>
 	<td>{num}.</td>
-	<td><div><a href="#view=act&aid={activity}" title="{table_ended_title_tip_text}">{title}</a></div></td>
+	<td>
+		<a href="#view=act&aid={activity}" title="{table_ended_title_tip_text}">
+			{title}
+			<span>{view_donor_activites_reporting_text}</span>
+		</a>
+	</td>
 	<td title="{table_ended_date_tip_text}">{date}</td>
 </tr>

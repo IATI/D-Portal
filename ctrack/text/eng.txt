@@ -67,6 +67,21 @@ Sector List
 #crumbname_act_text
 Activity
 
+#crumbname_active_text
+Active Projects
+
+#crumbname_ended_text
+Ended Projects
+
+#crumbname_planned_text
+Planned Projects
+
+#crumbname_publishers_text
+Publishers
+
+#crumbname_total_text
+Total Projects
+
 #about_text
 d-portal.org is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
 
@@ -130,11 +145,14 @@ Recently ended projects
 #list_ended_declare_text
 Descending
 
-#list_more_active_text
-Load more active projects
+#view_all_active_text
+View all
 
-#list_more_ended_text
-Load more ended projects
+#view_all_ended_text
+View all
+
+#view_all_donors_text
+View all
 
 #list_donor_back_text
 Back to Donor list
@@ -142,17 +160,11 @@ Back to Donor list
 #view_donor_transactions_text
 Total spend by {donor} in {year}
 
-#view_donor_transactions_declare_text
-Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported by {donor} for {country_name} and sorted by the activity with the highest spend at the top.
-
 #view_donor_activities_text
 Active projects for {donor} and current spend (USD)
 
 #view_donor_activites_reporting_text
 Reported by {reporting_org}
-
-#view_donor_activities_declare_text
-Spend is calculated by adding disbursements and expenditures. This table shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Black bars signify data quality issues where published data is missing commitment and/or transaction information.
 
 #donor_activities_title_tip_text
 Project title
@@ -168,9 +180,6 @@ Transaction amount in USD
 
 #view_donor_budgets_text
 Total budget for {donor} in {year}
-
-#view_donor_budgets_declare_text
-Budget is calculated by adding up every budget that is less than 370 days long and ends in {year}. This table shows you all activities that have listed budgets for {year} sorted by biggest at the top. Zeros in tables suggest discrepancies in that calculation due to insufficient data and signify data quality issues.
 
 #table_donor_title_transaction_text
 IATI SPEND (USD)
@@ -347,7 +356,7 @@ Read more
 How is the data calculated?
 
 #xml_data_description_text
-This is how the data is calculated for money going to {country_name}.
+Missing values suggest insufficient data and signify data quality issues. Click on the IATI Identifier link below to view the XML on its own. You can also see the unstyled XML by viewing the source of that webpage (Ctrl+U or Cmd+U).
 
 #donors_data_description_title_text
 How is the data calculated?
@@ -356,23 +365,32 @@ How is the data calculated?
 d-portal.org is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
 In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the OECD DAC Creditor Reporting System. Future development will include, inter alia, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
 
+#view_donor_transactions_declare_text
+Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported by {donor} for {country_name} and sorted by the activity with the highest spend at the top.
+
+#view_donor_activities_declare_text
+Spend is calculated by adding disbursements and expenditures. This table shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Black bars signify data quality issues where published data is missing commitment and/or transaction information.
+
+#view_donor_budgets_declare_text
+Budget is calculated by adding up every budget that is less than 370 days long and ends in {year}. This table shows you all activities that have listed budgets for {year} sorted by biggest at the top. Zeros in tables suggest discrepancies in that calculation due to insufficient data and signify data quality issues.
+
 #donors_activities_data_description_title_text
 How is the data calculated?
 
 #donors_activities_data_description_text
-This is how the data is calculated for money going to activities.
+Spend is calculated by adding disbursements and expenditures. This table shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Black bars signify data quality issues where published data is missing commitment and/or transaction information.
 
 #donors_transactions_data_description_title_text
 How is the data calculated?
 
 #donors_transactions_data_description_text
-This is how the data is calculated for money going to transactions.
+Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported by {donor} for {country_name} and sorted by the activity with the highest spend at the top.
 
 #donors_budgets_data_description_title_text
 How is the data calculated?
 
 #donors_budgets_data_description_text
-This is how the data is calculated for money going to budgets.
+Budget is calculated by adding up every budget that is less than 370 days long and ends in {year}. This table shows you all activities that have listed budgets for {year} sorted by biggest at the top. Zeros in tables suggest discrepancies in that calculation due to insufficient data and signify data quality issues.
 
 #sectors_data_description_title_text
 How is the data calculated?
@@ -392,3 +410,48 @@ How is the data calculated?
 #main_data_description_text
 d-portal.org is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
 In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the OECD DAC Creditor Reporting System. Future development will include, inter alia, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
+
+#view_active_text
+All active projects for {country_name}
+
+#view_ended_text
+All ended projects for {country_name}
+
+#view_planned_text
+All planned projects for {country_name}
+
+#view_publishers_text
+All publishers for {country_name}
+
+#view_total_text
+Total reported projects for {country_name}
+
+#active_data_description_title_text
+How is the data calculated?
+
+#active_data_description_text
+This is how the data is calculated for all active projects.
+
+#ended_data_description_title_text
+How is the data calculated?
+
+#ended_data_description_text
+This is how the data is calculated for all ended projects.
+
+#planned_data_description_title_text
+How is the data calculated?
+
+#planned_data_description_text
+This is how the data is calculated for all planned projects.
+
+#total_data_description_title_text
+How is the data calculated?
+
+#total_data_description_text
+This is how the data is calculated for total projects.
+
+#publishers_data_description_title_text
+How is the data calculated?
+
+#publishers_data_description_text
+This is how the data is calculated for all publishers.

@@ -46,7 +46,7 @@ view_donor_transactions.ajax=function(args)
 	var dat={
 			"from":"act,trans,country",
 			"limit":args.limit || -1,
-			"select":"sum_of_percent_of_trans_usd,aid,funder,title",
+			"select":"sum_of_percent_of_trans_usd,aid,funder,title,reporting_org",
 //			"funder_not_null":"",
 			"funder":funder,
 			"groupby":"aid",
@@ -69,6 +69,7 @@ view_donor_transactions.ajax=function(args)
 			d.funder=v.funder;
 			d.aid=v.aid;
 			d.title=v.title || v.aid;
+			d.reporting_org=v.reporting_org;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd));
 			total+=v.sum_of_percent_of_trans_usd;
 

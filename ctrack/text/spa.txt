@@ -1,6 +1,3 @@
-#declare_xml_text
-Los valores perdidos sugiere datos suficientes y significa problemas de calidad de datos. Haga clic en el enlace de la IATI identificador siguiente para ver el XML por sí sola. También puede ver el XML sin estilo por ver la fuente de esa página web (Ctrl+U o Cmd+U).
-
 #title_donor_text
 ¿De dónde viene el dinero?
 
@@ -66,6 +63,21 @@ Lista Sector
 
 #crumbname_act_text 
 Actividad
+
+#crumbname_active_text 
+Proyectos Activos 
+
+#crumbname_ended_text 
+Proyectos Finalizados 
+
+#crumbname_planned_text 
+Proyectos Planificados 
+
+#crumbname_publishers_text 
+Editores 
+
+#crumbname_total_text 
+Total de Proyectos
 
 #about_text
 d-portal.org es una plataforma de información basada en los países que registra los flujos de recursos. Está dirigido a ofrecer a los ministerios de línea, los parlamentarios y la sociedad civil una información que le puede ayudar con la planificación y el seguimiento de las actividades de desarrollo.
@@ -136,11 +148,14 @@ Proyectos recientemente terminados
 #list_ended_declare_text 
 Descendiente
 
-#list_more_active_text 
-Cargue proyectos más activos 
+#view_all_active_text 
+Ver todo
 
-#list_more_ended_text 
-Cargue más proyectos finalizados
+#view_all_ended_text 
+Ver todo
+
+#view_all_donors_text
+Ver todo
 
 #list_donor_back_text
 Volver a la lista de los donantes
@@ -148,17 +163,11 @@ Volver a la lista de los donantes
 #view_donor_transactions_text
 Gasto total para {donor} en {year}
 
-#view_donor_transactions_declare_text 
-Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por los {donor} para {country_name} y la actividad con el mayor gasto en la parte superior. 
-
 #view_donor_activities_text 
 Actividades proyectos de {donor} y el gasto corriente (USD) 
 
 #view_donor_activites_reporting_text
 Reportado por {reporting_org}
-
-#view_donor_activities_declare_text 
-Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compromisos totales para cada actividad y el porcentaje pasó hasta ahora, ordenados por mayor en la parte superior. Barras negras significan los problemas de calidad de datos donde los datos publicados falte compromiso y / o información de la transacción.
 
 #donor_activities_title_tip_text 
 Título del proyecto de la actividad
@@ -174,9 +183,6 @@ Importe de la transacción en USD
 
 #view_donor_budgets_text
 Presupuesto total para {donor} en {year}
-
-#view_donor_budgets_declare_text
-El presupuesto se calcula sumando todos los presupuestos que se encuentra a menos de 370 días de largo y termina en {year}. Esta tabla te muestra todas las actividades que se enumeran los presupuestos para {year} ordenados por el mayor en la parte superior. Zeros en tablas sugiere que las discrepancias en el cálculo debido a datos insuficientes y significa problemas de calidad de datos.
 
 #table_donor_title_transaction_text
 GASTAR IATI (USD)
@@ -350,7 +356,7 @@ Leer más
 ¿Cómo se calcula la información?
 
 #xml_data_description_text
-Así es como se calcula los datos de dinero que va a {country_name} .
+Los valores perdidos sugiere datos suficientes y significa problemas de calidad de datos. Haga clic en el enlace de la IATI identificador siguiente para ver el XML por sí sola. También puede ver el XML sin estilo por ver la fuente de esa página web (Ctrl+U o Cmd+U).
 
 #donors_data_description_title_text
 ¿Cómo se calcula la información?
@@ -363,19 +369,19 @@ En su primera versión que contiene los datos actuales publicados a través de l
 ¿Cómo se calcula la información?
 
 #donors_activities_data_description_text
-Así es como se calcula los datos de dinero que va a las actividades .
+Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compromisos totales para cada actividad y el porcentaje pasó hasta ahora, ordenados por mayor en la parte superior . Barras negras significan los problemas de calidad de datos donde los datos publicados falte compromiso y / o información de la transacción .
 
 #donors_transactions_data_description_title_text
 ¿Cómo se calcula la información?
 
 #donors_transactions_data_description_text
-Así es como se calcula los datos de dinero que va a las transacciones.
+Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por {donor} para {country_name} y ordenados por la actividad con el mayor gasto en la parte superior .
 
 #donors_budgets_data_description_title_text
 ¿Cómo se calcula la información?
 
 #donors_budgets_data_description_text
-Así es como se calcula los datos de dinero que va a los bolsillos.
+El presupuesto se calcula sumando todos los presupuestos que se encuentra a menos de 370 días de largo y termina en {year} . Esta tabla te muestra todas las actividades que se enumeran los presupuestos para {year} ordenados por mayor en la parte superior . Zeros en tablas sugieren discrepancias en este cálculo debido a datos insuficientes y significan los problemas de calidad de datos.
 
 #sectors_data_description_title_text
 ¿Cómo se calcula la información?
@@ -395,3 +401,48 @@ Así es como se calcula los datos de dinero que va a los distritos .
 #main_data_description_text
 d-portal.org es una plataforma de información basada en los países que registra los flujos de recursos . Está dirigido a ofrecer a los ministerios de línea , los parlamentarios y la sociedad civil una información que le puede ayudar con la planificación y el seguimiento de las actividades de desarrollo .
 En su primera versión que contiene los datos actuales publicados a través de la Iniciativa Internacional de Transparencia de la Ayuda ( IATI ), así como los datos más recientes ( 2012 ) publicados por el Sistema de Notificación de los Países Acreedores del CAD . El desarrollo futuro incluirá , entre otras cosas , los datos de emergencia información , Sistemas de Gestión de los presupuestos nacionales y una serie de indicadores socioeconómicos comparables.
+
+#view_active_text
+Todos los proyectos activos para {country_name}
+
+#view_ended_text
+Todos los proyectos terminados para {country_name}
+
+#view_planned_text
+Todos los proyectos previstos para {country_name}
+
+#view_publishers_text
+Todos los editores por {country_name}
+
+#view_total_text
+Total de proyectos presentados para {country_name}
+
+#active_data_description_title_text
+¿Cómo se calcula la información?
+
+#active_data_description_text
+Así es como se calcula los datos de todos los proyectos activos.
+
+#ended_data_description_title_text
+¿Cómo se calcula la información?
+
+#ended_data_description_text
+Así es como se calcula los datos de todos los proyectos indefinidos .
+
+#planned_data_description_title_text
+¿Cómo se calcula la información?
+
+#planned_data_description_text
+Así es como se calcula los datos de todos los proyectos previstos.
+
+#total_data_description_title_text
+¿Cómo se calcula la información?
+
+#total_data_description_text
+Así es como se calcula los datos de los proyectos totales.
+
+#publishers_data_description_title_text
+¿Cómo se calcula la información?
+
+#publishers_data_description_text
+Así es como se calcula los datos de todos los editores.
