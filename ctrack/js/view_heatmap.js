@@ -12,13 +12,26 @@ var fetch=require("./fetch.js")
 
 var refry=require("../../dstore/js/refry.js")
 
+view_heatmap.setup=function()
+{
 // global vars
-ctrack.map={};
-ctrack.map.lat=0;
-ctrack.map.lng=0;
-ctrack.map.zoom=6;
-ctrack.map.heat=undefined;
-ctrack.map.api_ready=false;
+	ctrack.map={};
+	ctrack.map.lat=0;
+	ctrack.map.lng=0;
+	ctrack.map.zoom=6;
+	ctrack.map.heat=undefined;
+	ctrack.map.api_ready=false;
+		
+//display map 
+	display_ctrack_map=function(){
+		ctrack.map.api_ready=true;
+		view_heatmap.fixup();
+	}
+
+// always load map api
+	head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&sensor=false&callback=display_ctrack_map");
+
+}
 
 
 // the chunk names this view will fill with new data
@@ -124,14 +137,4 @@ view_heatmap.ajax=function(args)
 		ctrack.display(); // every fetch.ajax must call display once
 	});
 }
-	
-//display map 
-display_ctrack_map=function(){
-	ctrack.map.api_ready=true;
-	view_heatmap.fixup();
-}
-
-// always load map api
-head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&sensor=false&callback=display_ctrack_map");
-
 
