@@ -1,6 +1,3 @@
-#declare_main_text
-Los principales datos se obtienen de la IATI a menos que se indique lo contrario a partir del {today}
-
 #declare_xml_text
 Los valores perdidos sugiere datos suficientes y significa problemas de calidad de datos. Haga clic en el enlace de la IATI identificador siguiente para ver el XML por sí sola. También puede ver el XML sin estilo por ver la fuente de esa página web (Ctrl+U o Cmd+U).
 
@@ -76,20 +73,14 @@ Leer más
 #data_investigate_text
 INVESTIGADORES DE DATOS, QUE NECESITAN! Si encuentra algo fuera de lugar, por favor, póngase en contacto con el equipo de desarrollo.
 
-#subtitle_donor_text
-Top 5 donantes basados ​​en No IATI (CRS y Otros) 2012
-
 #link_donor_text
-Ver todos los donantes
+Ver todo
 
 #title_sector_text
 ¿Dónde va el dinero a?
 
-#subtitle_sector_text
-5 mayores sectores basados ​​en No IATI (CRS y Otros) 2012
-
 #link_sector_text
-Ver todos los sectores
+Ver todo
 
 #stats_active_text 
 Proyectos Activos 
@@ -128,19 +119,19 @@ Los datos que se muestran más arriba ha sido proporcionada por IATI como de {to
 Número total de Organizaciones informadora
 
 #declare_stats_text
-Los datos que se muestran más arriba ha sido proporcionada por la IATI y es exacta a partir de {today}
+Más recientes
 
 #list_active_text 
-Proyectos activos que terminan pronto 
+Proyectos recientemente terminados
 
-#list_active_declare_text 
-Ordenado por proyectos que terminan lo más pronto posible en la parte superior 
+#list_active_declare_text
+Más recientes 
 
 #list_ended_text 
 Proyectos recientemente terminados 
 
 #list_ended_declare_text 
-Ordenado por los más recientes proyectos terminados en la parte superior
+Descendiente
 
 #list_more_active_text 
 Cargue proyectos más activos 
@@ -248,7 +239,7 @@ TRANSACCIONES IATI (USD)
 PRESUPUESTO IATI (USD)
 
 #table_sector_title_sector_text
-SECTOR IATI
+SECTOR
 
 #table_sector_tip_title_transaction_text
 Transacciones IATI
@@ -327,6 +318,9 @@ Ver esto en Español
 
 #tongue_jpn_tip_text 
 Ver esta en japonés 
+
+#tongue_cmn_tip_text 
+Ver esta en chino (Simplificado)
 
 #tongue_hin_tip_text 
 Ver esto en Hindi

@@ -1,6 +1,3 @@
-#declare_main_text
-The main data is sourced from IATI unless stated otherwise as of {today}
-
 #declare_xml_text
 Missing values suggest insufficient data and signify data quality issues. Click on the IATI Identifier link below to view the XML on its own. You can also see the unstyled XML by viewing the source of that webpage (Ctrl+U or Cmd+U).
 
@@ -76,20 +73,14 @@ Read more
 #data_investigate_text
 DATA INVESTIGATORS, WE NEED YOU! If you find anything out of place, please contact the development team.
 
-#subtitle_donor_text
-Top 5 Donors based on non-IATI (CRS and Other) 2012
-
 #link_donor_text
-View all Donors
+View all
 
 #title_sector_text
 Where does the money go?
 
-#subtitle_sector_text
-Top 5 Sectors based on non-IATI (CRS and Other) 2012
-
 #link_sector_text
-View all Sectors
+View all
 
 #stats_active_text
 Active Projects
@@ -128,13 +119,13 @@ Data displayed above has been provided by IATI as of {today}
 Active projects ending soon
 
 #list_active_declare_text
-Sorted by projects ending soonest at the top
+Most recent first
 
 #list_ended_text
 Recently ended projects
 
 #list_ended_declare_text
-Sorted by most recent ended projects at the top
+Descending
 
 #list_more_active_text
 Load more active projects
@@ -242,7 +233,7 @@ IATI TRANSACTIONS (USD)
 IATI BUDGET (USD)
 
 #table_sector_title_sector_text
-IATI SECTOR
+SECTOR
 
 #table_sector_tip_title_transaction_text
 IATI transactions
@@ -321,6 +312,9 @@ View this in Spanish
 
 #tongue_jpn_tip_text
 View this in Japanese
+
+#tongue_cmn_tip_text
+View this in Chinese (Simplified)
 
 #tongue_hin_tip_text
 View this in Hindi

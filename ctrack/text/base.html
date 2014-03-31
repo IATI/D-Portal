@@ -280,14 +280,14 @@
 
 #table_donors_row_head
 <tr>
-<td></td>
-<td></td>
+<td>CRS</td>
+<td>{table_donor_title_donor_text}</td>
 <td colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</td>
 <td colspan="2" title="{table_donor_tip_title_budget_text}">{table_donor_title_budget_text}</td>
 </tr>
 <tr>
-<td title="{table_donor_tip_title_crs_text}">CRS 2012</td>
-<td title="{table_donor_tip_title_donor_text}">{table_donor_title_donor_text}</td>
+<td title="{table_donor_tip_title_crs_text}">2012</td>
+<td title="{table_donor_tip_title_donor_text}">2012</td>
 <td title="{table_donor_tip_title_t2012_text}">2012</td>
 <td title="{table_donor_tip_title_t2013_text}">2013</td>
 <td title="{table_donor_tip_title_t2014_text}">2014</td>
@@ -356,14 +356,14 @@
 
 #table_sectors_row_head
 <tr>
-<td></td>
-<td></td>
+<td>CRS</td>
+<td>{table_sector_title_sector_text}</td>
 <td colspan="3" title="{table_sector_tip_title_transaction_text}">{table_sector_title_transaction_text}</td>
 <td colspan="2" title="{table_sector_tip_title_budget_text}">{table_sector_title_budget_text}</td>
 </tr>
 <tr>
-<td title="{table_sector_tip_title_crs_text}">CRS 2012</td>
-<td title="{table_sector_tip_title_sector_text}">{table_sector_title_sector_text}</td>
+<td title="{table_sector_tip_title_crs_text}">2012</td>
+<td title="{table_sector_tip_title_sector_text}">2012</td>
 <td title="{table_sector_tip_title_t2012_text}">2012</td>
 <td title="{table_sector_tip_title_t2013_text}">2013</td>
 <td title="{table_sector_tip_title_t2014_text}">2014</td>
@@ -464,8 +464,8 @@ BANGLADESH
 {view_tail}
 
 #beige
-<div class="beigealert">
-	<img src="/art/alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"> {beige_alert_text} <a href="/html/feedback.html" class="beige" target="_blank">{beige_alert_here_text}</a>.
+<div class="beigealert_wrap">
+	<div class="beigealert"><img src="/art/alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"> {beige_alert_text} <a href="/html/feedback.html" class="beige" target="_blank">{beige_alert_here_text}</a>.</div>
 </div>
 
 #view_head
@@ -508,11 +508,16 @@ BANGLADESH
 				<a href="/" title="{mainback_tip_text}"><img src="{art}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
 			</td>
 			<td>
-				<a href="{mark}&tongue=eng{hash}" class="tongue" title="{tongue_eng_tip_text}">ENG</a> / 
-				<a href="{mark}&tongue=fra{hash}" class="tongue" title="{tongue_fra_tip_text}">FRA</a> / 
-				<a href="{mark}&tongue=spa{hash}" class="tongue" title="{tongue_spa_tip_text}">SPA</a> /
-				<a href="{mark}&tongue=jpn{hash}" class="tongue" title="{tongue_jpn_tip_text}">JPN</a> /
-				<a href="{mark}&tongue=hin{hash}" class="tongue" title="{tongue_hin_tip_text}">HIN</a> 
+				<form action="">
+				<select name="tongue" class="tongue">
+					<option value="{mark}&tongue=eng{hash}" class="tongue" title="{tongue_eng_tip_text}">English</option> 
+					<option value="{mark}&tongue=fra{hash}" class="tongue" title="{tongue_fra_tip_text}">French</option> 
+					<option value="{mark}&tongue=spa{hash}" class="tongue" title="{tongue_spa_tip_text}">Spanish</option>
+					<option value="{mark}&tongue=jpn{hash}" class="tongue" title="{tongue_jpn_tip_text}">Japanese</option>
+					<option value="{mark}&tongue=cmn{hash}" class="tongue" title="{tongue_cmn_tip_text}">Chinese (Simplified)</option>
+					<option value="{mark}&tongue=hin{hash}" class="tongue" title="{tongue_hin_tip_text}">Hindi</option>
+				</select>
+				</form>
 			</td>
 		</tr>
 	</table>
@@ -527,7 +532,7 @@ BANGLADESH
 			<td><img src="{country_flag}" alt="{country_name} {flag_alt_text}"/></td>
 		</tr>
 	</table>
-	<div class="declare head">{declare_main_text}</div>
+	<div class="declare head"></div>
 </div>
 	
 #main_country
@@ -538,7 +543,7 @@ BANGLADESH
 			<td><img src="{country_flag}" alt="{country_name} {flag_alt_text}"/></td>
 		</tr>
 	</table>
-	<div class="declare head">{declare_main_text}</div>
+	<div class="declare head"></div>
 </div>
 
 #main_money_row
@@ -564,7 +569,7 @@ BANGLADESH
 		<div class="peak_wrap">
 			<div class="peak donor"></div>
 		</div>
-		<div class="money_subtitle">{subtitle_donor_text}</div>
+<!--		<div class="money_subtitle">{subtitle_donor_text}</div>-->
 		<table class="money_mod">{main_money_rows}</table>
 		<a href="#view=donors" class="view_all_money">
 			{link_donor_text}
@@ -577,7 +582,7 @@ BANGLADESH
 		<div class="peak_wrap">
 			<div class="peak sector"></div>
 		</div>
-		<div class="money_subtitle">{subtitle_sector_text}</div>
+<!--		<div class="money_subtitle">{subtitle_sector_text}</div>-->
 		<table class="money_mod">{main_sector_rows}
 <!--
 			<tr>
