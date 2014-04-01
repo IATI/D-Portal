@@ -8,55 +8,43 @@
 <link  href="index.css" rel="stylesheet" type="text/css" >
 	</head> 
 <body>
-	<canvas id="myChart" width="400" height="400"></canvas>
-	<script>
-		//Get context with jQuery - using jQuery's .get() method.
-		var ctx = $("#myChart").get(0).getContext("2d");
-		//This will get the first returned node in the jQuery collection.
-		var data = [
-			{
-				value: 30,
-				color:"#F38630"
-			},
-			{
-				value : 50,
-				color : "#E0E4CC"
-			},
-			{
-				value : 100,
-				color : "#69D2E7"
-			}			
-		]
-		var options = {
-			//Boolean - Whether we should show a stroke on each segment
-			segmentShowStroke : true,
-			
-			//String - The colour of each segment stroke
-			segmentStrokeColor : "#fff",
-			
-			//Number - The width of each segment stroke
-			segmentStrokeWidth : 2,
-			
-			//Boolean - Whether we should animate the chart	
-			animation : true,
-			
-			//Number - Amount of animation steps
-			animationSteps : 100,
-			
-			//String - Animation easing effect
-			animationEasing : "easeOutBounce",
-			
-			//Boolean - Whether we animate the rotation of the Pie
-			animateRotate : true,
-
-			//Boolean - Whether we animate scaling the Pie from the centre
-			animateScale : false,
-			
-			//Function - Will fire on animation completion.
-			onAnimationComplete : null
+	#test_chart
+<div id="myChart" style="width:300x;height:400px; background-color:#fff;"></div>
+<div style="width:300x;height:130px; background-color:#fff;"></div>
+<script>
+	Flotr.draw(
+		$("#myChart").get(0),
+		require("ctrack").get_chart_data("data_chart_donors"),
+	{
+    HtmlText: true,
+    colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
+	fontColor: '#444', 
+//	fontSize: 10,
+	resolution: 1,
+    shadowSize: 0,   
+    grid : {
+      verticalLines : false,
+      horizontalLines : false,
+      outlineWidth: 0,
+    },
+    xaxis : { showLabels : false },
+    yaxis : { showLabels : false },
+    pie : {
+      show : true, 
+      explode : 0,
+		labelFormatter:function(tot,val){
+			return Math.floor(100*val/tot)+"%";
 		}
-		var myNewChart = new Chart(ctx).Pie(data,options);
-		
-	</script>
+    },
+    mouse : { track : true,
+		trackFormatter:function(obj){
+			var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+			return commafy(Math.floor(obj.y)+"")+" usd";
+		}
+	 },
+    legend : {show:true,position:"sc",margin:-120},
+  });
+</script>
 </body>
 </html>
