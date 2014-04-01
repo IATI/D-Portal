@@ -38,111 +38,9 @@ BANGLADESH
 	</td>
 </tr>
 
-#test_chart_slice
-{
-	value: {pct},
-	color:"#F38630"
-},
-
-#test_chart_slices
-{test_chart_slice}
-
-#test_chart
-<div id="myChart1" style="width:300x;height:300px; background-color:#fff;"></div>
-<div id="myChart2" style="width:300x;height:180px; background-color:#fff;"></div>
-<script>
-	Flotr.draw(
-		$("#myChart1").get(0),
-		require("ctrack").get_chart_data("data_chart_donors"),
-	{
-    HtmlText: false,
-    colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
-	fontColor: '#666', 
-	fontSize: 15,
-	resolution: 1,
-    shadowSize: 0,   
-	grid : {
-		  verticalLines : false,
-		  horizontalLines : false,
-		  outlineWidth: 0,
-		},
-    xaxis : { showLabels : false },
-    yaxis : { showLabels : false },
-        pie : {
-      show : true, 
-      explode : 0,
-		labelFormatter:function(tot,val){
-			return Math.floor(100*val/tot)+"%";
-		}
-    },
-    mouse : { track : true,
-				position: 'nc',
-				lineColor: '#fff',
-				margin: 2,
-				fillColor: '#ccc', 
-		trackFormatter:function(obj){
-			var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
-			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
-			return commafy(Math.floor(obj.y)+"")+" USD";
-		}
-	 },
-    legend : {show:false},
-  });
-
-
-	Flotr.draw(
-		$("#myChart2").get(0),
-		require("ctrack").get_chart_data("data_chart_donors"),
-	{
-    HtmlText: false,
-    colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
-	fontColor: '#666',
-	fontSize: 10, 
-	resolution: 1,
-    shadowSize: 0, 
-	grid : {
-		  verticalLines : false,
-		  horizontalLines : false,
-		  outlineWidth: 0,
-		},
-    xaxis : { showLabels : false },
-    yaxis : { showLabels : false },
-    legend : {show:true},
-  });
-
-</script>
-
 #main_money_rows
 {main_money_row}
 
-#main_money0
-<div class="money_wrap">
-	<div class="money_mod_wrap donor">
-		<div class="money_title donor">
-			{title_donor_text}
-		</div>
-		<div class="peak_space"></div>
-		<div class="peak_wrap">
-			<div class="peak donor"></div>
-		</div>
-		{test_chart}
-		<a href="#view=donors" class="view_all_money">
-			{link_donor_text}
-		</a>
-	</div><div class="money_mod_wrap sector">
-		<div class="money_title sector">
-			{title_sector_text}
-		</div>
-		<div class="peak_space"></div>
-		<div class="peak_wrap">
-			<div class="peak sector"></div>
-		</div>
-		<table class="money_mod">{main_sector_rows}</table>
-		<a href="#view=sectors" class="view_all_money">
-			{link_sector_text}
-		</a>
-	</div>
-</div>
 
 #main_money
 <div class="money_wrap">
@@ -155,9 +53,7 @@ BANGLADESH
 			<div class="peak donor"></div>
 		</div>
 <!--		<div class="money_subtitle">{subtitle_donor_text}</div>-->
-<!--		<table class="money_mod">{main_money_rows}</table>
--->
-		{test_chart}
+		<table class="money_mod">{main_money_rows}</table>
 		<a href="#view=donors" class="view_all_money">
 			{link_donor_text}
 		</a>

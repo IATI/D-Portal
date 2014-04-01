@@ -45,45 +45,20 @@ view_donors_top.ajax=function(args)
 		return ( (b.usd||0)-(a.usd||0) );
 	});
 
-	var total=0; list.forEach(function(it){total+=it.usd;});
-	var shown=0;
-//	var top=list[0] && list[0].usd || 0;
+//	var total=0; list.forEach(function(it){total+=it.usd;});
+	var top=list[0] && list[0].usd || 0;
 	var s=[];
-	var dd=[];
-	for( var i=0; i<limit-1 ; i++ )
+	for( var i=0; i<limit ; i++ )
 	{
 		var v=list[i];
 		if(v)
 		{
-//			v.pct=Math.floor(100*v.usd/top)
-//			v.donor=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
-//			s.push( plate.replace("{main_money_row}",v) );
-			shown+=v.usd;
-			var d={};
-			d.data=[[0,v.usd]];
-			d.label=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
-			dd.push(d);
+			v.pct=Math.floor(100*v.usd/top)
+			v.donor=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
+			s.push( plate.replace("{main_money_row}",v) );
 		}
 	}
-	var d={};
-	d.data=[[0,total-shown]];
-	d.label="other";
-	dd.push(d);
-/*
-var trackFormatter=function(obj){
-	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
-	return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
-	return commafy(obj.y)+" usd";
-}
-var labelFormatter=function(obj){
-	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
-	return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
-	return obj.label+" "+commafy(obj.y)+" usd";
-}
-*/
-	
-	ctrack.chunk("data_chart_donors",dd);
 
-//	ctrack.chunk("main_money_rows",s.join(""));
+	ctrack.chunk("main_money_rows",s.join(""));
 	ctrack.display();
 }
