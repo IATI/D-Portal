@@ -68,6 +68,7 @@ view_test.ajax=function(args)
 			d.num=v.usd;
 			d.str_num=commafy(d.num)+" usd";
 			d.str_lab=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
+			d.str=d.str_lab+"<br/>"+d.str_num;
 			dd.push(d);
 		}
 	}
@@ -75,6 +76,7 @@ view_test.ajax=function(args)
 	d.num=total-shown;
 	d.str_num=commafy(d.num)+" usd";
 	d.str_lab="other";
+	d.str=d.str_lab+"<br/>"+d.str_num;
 	dd.push(d);
 		
 	ctrack.chunk("data_chart_donors",dd);
@@ -88,16 +90,44 @@ ctrack.draw_chart=function(sel,data,options){
 	var opt={
 		width:400,
 		height:400,
+		center_x:200,
+		center_y:200,
 		radius:140,
 		hole:70,
 		caption_maxwidth:100,
 	}
-	for(var n in options)
-	{
-		opt[n]=options[n];
+	for(var n in options) { opt[n]=options[n]; }
+	
+	var getdat=function(name,idx){
+		var v=data[idx]; // check data first
+		if("object"==typeof v)
+		{
+			r=v[name];
+		}
+		if(r===undefined)
+		{
+			if(name="num") // allow single numerical data array
+			{
+				if("number"==typeof v)
+				{
+					r=v;
+				}
+			}
+		}
+		if(r===undefined) // allow opts to add labels/colors/etc
+		{
+			var vv=opt[name];
+			if("object"==typeof vv)
+			{
+				r=vv[idx%vv.length]; // extra values, with simple wraping
+			}
+		}
+
+		return r;
 	}
 
 	var div={};
+	opt.div=div;
 	div.master=$(sel);
 	div.canvas=$("<canvas width='"+opt.width+"' height='"+opt.height+"'></canvas>");
 	div.over=$("<div></div>");
@@ -115,28 +145,22 @@ ctrack.draw_chart=function(sel,data,options){
 	div.master.css({"position":"relative"});
 	div.canvas.css({"position":"absolute","top":0,"left":0});
 	div.over.css({"position":"absolute","top":0,"left":0});
-	
-	
+		
 	var ctx = div.canvas[0].getContext('2d');
-//	ctx.canvas.width=opt.width;
-//	ctx.canvas.heght=opt.height;
-
 
 	div.over.html("This is a caption.")
 
-//	var data=[0.1,0.2,0.3,0.4];
-
 	var	ang=-(Math.PI/2);
 	
-	var max=0; for (var i=0; i<data.length; i++){ max+=data[i].num; }
+	var max=0; for (var i=0; i<data.length; i++){ max+=getdat("num",i); }
 	
 	for (var i=0; i<data.length; i++){
 
-		var seg = ( (data[i].num/max) * (Math.PI*2) );
+		var seg = ( (getdat("num",i)/max) * (Math.PI*2) );
 
 		ctx.beginPath();
-		ctx.arc(opt.width*0.5,opt.height*0.5,opt.radius,ang,ang + seg,false);
-		ctx.arc(opt.width*0.5,opt.height*0.5,opt.hole,ang + seg,ang,true);
+		ctx.arc(opt.center_x,opt.center_y,opt.radius,ang	,ang+seg,false);
+		ctx.arc(opt.center_x,opt.center_y,opt.hole	,ang+seg,ang	,true);
 		ctx.closePath();
 
 		ctx.fillStyle = "#44c";
@@ -149,5 +173,6 @@ ctrack.draw_chart=function(sel,data,options){
 		ang += seg;
 	}	
 
+	return opt;
 }
 

@@ -81,7 +81,7 @@ view_stats.ajax=function(args)
 			"select":"stats",
 			"from":"act,country,location",
 			"limit":-1,
-//			"country_percent":100, // *only* this country
+			"country_percent":100, // *only* this country
 			"location_longitude_not_null":1, // must have a location
 			"location_latitude_not_null":1, // must have a location
 			"country_code":(args.country || ctrack.args.country)
