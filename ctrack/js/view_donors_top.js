@@ -45,33 +45,33 @@ view_donors_top.ajax=function(args)
 		return ( (b.usd||0)-(a.usd||0) );
 	});
 
-//	var total=0; list.forEach(function(it){total+=it.usd;});
-	var top=list[0] && list[0].usd || 0;
+	var total=0; list.forEach(function(it){total+=it.usd;});
+	var shown=0;
+//	var top=list[0] && list[0].usd || 0;
 	var s=[];
+	var dd=[];
 	for( var i=0; i<limit ; i++ )
 	{
 		var v=list[i];
 		if(v)
 		{
-			v.pct=Math.floor(100*v.usd/top)
-			v.donor=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
-			s.push( plate.replace("{main_money_row}",v) );
+//			v.pct=Math.floor(100*v.usd/top)
+//			v.donor=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
+//			s.push( plate.replace("{main_money_row}",v) );
+			shown+=v.usd;
+			var d={};
+			d.data=[[0,v.usd]];
+			d.label=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
+			dd.push(d);
 		}
 	}
-	var
-    d1 = [[0, 4]],
-    d2 = [[0, 3]],
-    d3 = [[0, 1.03]],
-    d4 = [[0, 3.5]];
-    var d=[
-    { data : d1, label : 'Comedy' },
-    { data : d2, label : 'Action' },
-    { data : d3, label : 'Romance'},
-    { data : d4, label : 'Drama' }
-	];
+	var d={};
+	d.data=[[0,total-shown]];
+	d.label="other";
+	dd.push(d);
 	
-	ctrack.chunk("data_chart_donors",d);
+	ctrack.chunk("data_chart_donors",dd);
 
-	ctrack.chunk("main_money_rows",s.join(""));
+//	ctrack.chunk("main_money_rows",s.join(""));
 	ctrack.display();
 }
