@@ -38,8 +38,88 @@ BANGLADESH
 	</td>
 </tr>
 
+#test_chart_slice
+{
+	value: {pct},
+	color:"#F38630"
+},
+
+#test_chart_slices
+{test_chart_slice}
+
+#test_chart
+<script src="/js/Chart.js"></script>
+<canvas id="myChart" width="300" height="300"></canvas>
+<script>
+	//Get context with jQuery - using jQuery's .get() method.
+	var ctx = $("#myChart").get(0).getContext("2d");
+	//This will get the first returned node in the jQuery collection.
+	var data = [
+		{test_chart_slices}			
+	]
+	var options = {
+		//Boolean - Whether we should show a stroke on each segment
+		segmentShowStroke : true,
+		
+		//String - The colour of each segment stroke
+		segmentStrokeColor : "#fff",
+		
+		//Number - The width of each segment stroke
+		segmentStrokeWidth : 2,
+		
+		//Boolean - Whether we should animate the chart	
+		animation : true,
+		
+		//Number - Amount of animation steps
+		animationSteps : 100,
+		
+		//String - Animation easing effect
+		animationEasing : "easeOutBounce",
+		
+		//Boolean - Whether we animate the rotation of the Pie
+		animateRotate : true,
+
+		//Boolean - Whether we animate scaling the Pie from the centre
+		animateScale : false,
+		
+		//Function - Will fire on animation completion.
+		onAnimationComplete : null
+	}
+	var myNewChart = new Chart(ctx).Pie(data,options);
+	
+</script>
+
 #main_money_rows
 {main_money_row}
+
+#main_money0
+<div class="money_wrap">
+	<div class="money_mod_wrap donor">
+		<div class="money_title donor">
+			{title_donor_text}
+		</div>
+		<div class="peak_space"></div>
+		<div class="peak_wrap">
+			<div class="peak donor"></div>
+		</div>
+		{test_chart}
+		<a href="#view=donors" class="view_all_money">
+			{link_donor_text}
+		</a>
+	</div><div class="money_mod_wrap sector">
+		<div class="money_title sector">
+			{title_sector_text}
+		</div>
+		<div class="peak_space"></div>
+		<div class="peak_wrap">
+			<div class="peak sector"></div>
+		</div>
+		<table class="money_mod">{main_sector_rows}</table>
+		<a href="#view=sectors" class="view_all_money">
+			{link_sector_text}
+		</a>
+	</div>
+</div>
 
 #main_money
 <div class="money_wrap">
@@ -94,7 +174,7 @@ ONLY {percent_of_activities_with_location}% OF ACTIVTIES HAVE PROVIDED EXACT LOC
 
 #main_stats
 <div class="stats_wrap">
-	<table class="title">
+	<table class="title key">
 		<tr>
 			<td><img src="{art}publisher_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
 			<td>{stats_title_text}</td>
@@ -141,7 +221,7 @@ ONLY {percent_of_activities_with_location}% OF ACTIVTIES HAVE PROVIDED EXACT LOC
 
 #main_active
 <div class="active_wrap">
-	<table class="title space">
+	<table class="title">
 		<tr>
 			<td><img src="{art}active_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
 			<td>{list_active_text}</td>
@@ -160,7 +240,7 @@ ONLY {percent_of_activities_with_location}% OF ACTIVTIES HAVE PROVIDED EXACT LOC
 
 #main_ended
 <div class="ended_wrap">
-	<table class="title space">
+	<table class="title">
 		<tr>
 			<td><img src="{art}ended_icon.png" alt="{ended_icon_alt_text}" width="40" height="40"/></td>
 			<td>{list_ended_text}</td>
