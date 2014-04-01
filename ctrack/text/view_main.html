@@ -48,27 +48,25 @@ BANGLADESH
 {test_chart_slice}
 
 #test_chart
-<div style="width:300x;height:130px; background-color:#fff;"></div>
-<div id="myChart" style="width:300x;height:300px; background-color:#fff;"></div>
+<div id="myChart1" style="width:300x;height:300px; background-color:#fff;"></div>
+<div id="myChart2" style="width:300x;height:180px; background-color:#fff;"></div>
 <script>
 	Flotr.draw(
-		$("#myChart").get(0),
+		$("#myChart1").get(0),
 		require("ctrack").get_chart_data("data_chart_donors"),
 	{
     HtmlText: true,
     colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
 	fontColor: '#444', 
-//	fontSize: 10,
 	resolution: 1,
     shadowSize: 0,   
-    grid : {
+grid : {
       verticalLines : false,
-      horizontalLines : false,
-      outlineWidth: 0,
+      horizontalLines : false
     },
     xaxis : { showLabels : false },
     yaxis : { showLabels : false },
-    pie : {
+        pie : {
       show : true, 
       explode : 0,
 		labelFormatter:function(tot,val){
@@ -82,8 +80,33 @@ BANGLADESH
 			return commafy(Math.floor(obj.y)+"")+" usd";
 		}
 	 },
-    legend : {show:true,position:"nc",margin:-120},
+    legend : {show:false},
   });
+
+
+	Flotr.draw(
+		$("#myChart2").get(0),
+		require("ctrack").get_chart_data("data_chart_donors"),
+	{
+    HtmlText: true,
+    colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
+	fontColor: '#444', 
+	resolution: 1,
+    shadowSize: 0, 
+grid : {
+      verticalLines : false,
+      horizontalLines : false
+    },
+    xaxis : { showLabels : false },
+    yaxis : { showLabels : false },
+        legend : {show:true},
+    pie : {
+      show : true,
+      sizeRatio:0, //hide
+      labelFormatter:function(){return"";}
+   }
+  });
+
 </script>
 
 #main_money_rows
