@@ -54,7 +54,7 @@ view_donors_top.ajax=function(args)
 		if(v)
 		{
 			v.pct=Math.floor(100*v.usd/top)
-			v.donor=iati_codes.crs_funders[v.funder] || iati_codes.country[v.funder] || v.funder;
+			v.donor=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
 			s.push( plate.replace("{main_money_row}",v) );
 		}
 	}

@@ -82,7 +82,7 @@ view_donor_transactions.ajax=function(args)
 			ctrack.chunk("alerts","{alert_no_iati}");
 		}
 
-		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
+		ctrack.chunk("donor",iati_codes.funder_names[funder] || iati_codes.country[funder] || funder );
 		ctrack.chunk("year",year);
 		ctrack.chunk("total",commafy(""+Math.floor(total)));
 
