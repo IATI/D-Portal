@@ -12,12 +12,12 @@ html					{background-color:#000;}
 	============================================= */
 a						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
 a, img					{border:0; outline:none;}
-a:focus					{color:#FFAB5E; text-decoration: none;}
-a:link  				{color:#FFAB5E; text-decoration: none;}
-a:visited				{color:#FFAB5E; text-decoration: none;}
-a:hover					{color:#FF7A00; text-decoration: none;}
-a:active				{color:#FFAB5E; text-decoration: none;}
-i						{font-style:italics;}
+a:focus					{color:#53B4ED; text-decoration: none;}
+a:link  				{color:#53B4ED; text-decoration: none;}
+a:visited				{color:#53B4ED; text-decoration: none;}
+a:hover					{color:#BBEFFF; text-decoration: none;}
+a:active				{color:#53B4ED; text-decoration: none;}
+i						{font-style:italic;}
 .bold					{font-weight:bold;}
 .bold.ob				{font-style:italic;}
 
@@ -37,25 +37,37 @@ i						{font-style:italics;}
 a.tongue				{display:inline-block; vertical-align:top; width:50px; text-align:center; color:#ccc; font-size:0.8em;}
 a.tongue:hover			{color:#fff;}
 
+
+/*	Buttons and header styles
+	============================================= */
+.tag					{width:100%; margin:0 auto; padding:10px 0; border-top:1px solid #fff; border-bottom:1px solid #fff; text-align:center; color:#fff; font-size:1.4em; line-height:1.35em;}
+a.path					{display:block; padding:40px 20px; border-radius:8px; background-color:rgba(0,14,32,0.7); text-align:center; margin:0 auto;}
+a.path:hover			{background-color:rgba(0,14,32,0.9);}
+
+a.iati_link				{display:block; margin:0 auto; padding:10px; background-color:rgba(255, 255, 255, 0); border-radius:6px;}
+a.iati_link:hover		{background-color:rgba(255, 255, 255, 0);}
+
+
 /*	Country Code List style
 	============================================= */
-.country_menu_wrap			{width:920px; padding:20px; margin:0 auto; margin-top:10px;}
-.country_menu_title			{display:inline-block; padding:20px; vertical-align:top; color:#fff; font-weight:bold; font-size:1.2em; background-color:rgba(0,40,100,0.7); border-radius:8px 0 0 8px; height:20px; max-height:20px; padding-right:0; width:200px; max-width:200px;}
-.country_menu_list_wrap		{display:inline-block; vertical-align:top; width:420px;}
-.country_menu_peak			{display:inline-block; width:0; height:0; border-top:30px solid transparent; border-right:0; border-left:30px solid rgba(0,40,100,0.7); border-bottom:30px solid transparent;}
+.country_menu_wrap			{width:960px; margin:0 auto; margin-top:10px;}
+.country_menu_title_wrap	{width:460px; display:inline-block; vertical-align:top; text-align:left;}
+.country_menu_title_wrap p	{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em; text-align:left;}
+.country_menu_title			{padding:20px 0; color:#fff; font-size:1.4em; height:20px; max-height:20px; width:460px; max-width:460px; border-top:1px solid #fff; border-bottom:1px solid #fff;}
+.country_menu_list_wrap		{display:inline-block; vertical-align:top; width:460px; padding-left:40px;}
 ul.country_menu_list		{list-style:none; padding:0; margin:0 auto; width:100%;}
 ul.country_menu_list li.no	{display:none;}
-a.country_code			{width:100%; height:100%; color:#fff; font-size:1.4em; line-height:1.15em; display:block; padding:5px 20px; vertical-align:top; text-align:left;}
-a.country_code:hover	{background-color:rgba(37, 115, 205, 0.7);}
+a.country_code				{width:100%; height:100%; color:#fff; font-size:1.4em; line-height:1.15em; display:block; padding:5px 20px; vertical-align:top; text-align:left;}
+a.country_code:hover		{background-color:rgba(37, 115, 205, 0.7);}
 
 
 /*	Data Description styles
 	============================================= */
-.description			{width:960px; margin:0 auto; padding:40px 0; text-align:left;}
-.description span.title	{display:block; color:#fff; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-top:1px solid #fff; border-bottom:1px solid #fff;}
+.description			{width:960px; margin:0 auto; padding-bottom:40px; text-align:left;}
+.description span.title	{display:block; color:#fff; line-height:1.35em; font-size:1.4em; padding:10px 0; border-top:1px solid #fff; border-bottom:1px solid #fff;}
 .description p			{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em;}
-a.read					{display:block; color:#C27E00; font-size:1.2em;}
-a.read:hover			{color:#FFB700;}
+a.read					{display:block; color:#53B4ED; font-size:1.2em;}
+a.read:hover			{color:#BBEFFF;}
 
 /*	Data Investigators alert
 	============================================= */
