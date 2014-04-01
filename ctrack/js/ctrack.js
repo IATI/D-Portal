@@ -17,6 +17,11 @@ var iati_codes=require("../../dstore/json/iati_codes.json")
 // export savi
 ctrack.savi_fixup=savi.fixup;
 
+ctrack.get_chart_data=function(name)
+{
+		return ctrack.chunk(name) || [];
+};
+
 ctrack.setup=function(args)
 {
 	args=args || {};

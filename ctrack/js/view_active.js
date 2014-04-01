@@ -10,6 +10,8 @@ var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetch=require("./fetch.js")
 
+var view_stats=require("./view_stats.js")
+
 // the chunk names this view will fill with new data
 view_active.chunks=[
 	"active_projects_datas",
@@ -46,6 +48,7 @@ view_active.ajax=function(args)
 		if(args.output=="count")
 		{
 			ctrack.chunk(args.chunk || "active_projects",data.rows[0]["count"]);
+			view_stats.calc();
 		}
 		else
 		{

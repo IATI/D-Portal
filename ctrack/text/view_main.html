@@ -48,45 +48,30 @@ BANGLADESH
 {test_chart_slice}
 
 #test_chart
-<script src="/js/Chart.js"></script>
 <canvas id="myChart" width="300" height="300"></canvas>
 <script>
-	//Get context with jQuery - using jQuery's .get() method.
-	var ctx = $("#myChart").get(0).getContext("2d");
-	//This will get the first returned node in the jQuery collection.
-	var data = [
-		{test_chart_slices}			
-	]
-	var options = {
+	var myNewChart = new Chart($("#myChart").get(0).getContext("2d")).Pie(require("ctrack").get_chart_data(
+		"data_chart_donors"),
+	{
 		//Boolean - Whether we should show a stroke on each segment
-		segmentShowStroke : true,
-		
+		segmentShowStroke : true,		
 		//String - The colour of each segment stroke
 		segmentStrokeColor : "#fff",
-		
 		//Number - The width of each segment stroke
 		segmentStrokeWidth : 2,
-		
 		//Boolean - Whether we should animate the chart	
 		animation : true,
-		
 		//Number - Amount of animation steps
 		animationSteps : 100,
-		
 		//String - Animation easing effect
 		animationEasing : "easeOutBounce",
-		
 		//Boolean - Whether we animate the rotation of the Pie
 		animateRotate : true,
-
 		//Boolean - Whether we animate scaling the Pie from the centre
 		animateScale : false,
-		
 		//Function - Will fire on animation completion.
 		onAnimationComplete : null
-	}
-	var myNewChart = new Chart(ctx).Pie(data,options);
-	
+	});
 </script>
 
 #main_money_rows
@@ -132,7 +117,9 @@ BANGLADESH
 			<div class="peak donor"></div>
 		</div>
 <!--		<div class="money_subtitle">{subtitle_donor_text}</div>-->
-		<table class="money_mod">{main_money_rows}</table>
+<!--		<table class="money_mod">{main_money_rows}</table>
+-->
+		{test_chart}
 		<a href="#view=donors" class="view_all_money">
 			{link_donor_text}
 		</a>
