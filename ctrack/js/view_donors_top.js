@@ -58,6 +58,29 @@ view_donors_top.ajax=function(args)
 			s.push( plate.replace("{main_money_row}",v) );
 		}
 	}
+	var d=[
+{
+	value: 50,
+	color:"#F38630"
+},
+{
+	value: 30,
+	color:"#F38600"
+},
+{
+	value: 10,
+	color:"#F30030"
+},
+{
+	value: 5,
+	color:"#008630"
+},
+{
+	value: 5,
+	color:"#F30000"
+},
+	];
+	ctrack.chunk("data_chart_donors",d);
 
 	ctrack.chunk("main_money_rows",s.join(""));
 	ctrack.display();
