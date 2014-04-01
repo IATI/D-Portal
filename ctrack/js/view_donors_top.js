@@ -69,6 +69,18 @@ view_donors_top.ajax=function(args)
 	d.data=[[0,total-shown]];
 	d.label="other";
 	dd.push(d);
+/*
+var trackFormatter=function(obj){
+	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+	return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+	return commafy(obj.y)+" usd";
+}
+var labelFormatter=function(obj){
+	var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+	return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+	return obj.label+" "+commafy(obj.y)+" usd";
+}
+*/
 	
 	ctrack.chunk("data_chart_donors",dd);
 

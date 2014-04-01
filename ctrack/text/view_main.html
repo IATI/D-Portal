@@ -48,16 +48,17 @@ BANGLADESH
 {test_chart_slice}
 
 #test_chart
-<div id="myChart" style="width:300x;height:400px; background-color:#fff;"></div>
+<div style="width:300x;height:130px; background-color:#fff;"></div>
+<div id="myChart" style="width:300x;height:300px; background-color:#fff;"></div>
 <script>
 	Flotr.draw(
 		$("#myChart").get(0),
 		require("ctrack").get_chart_data("data_chart_donors"),
 	{
-    HtmlText: false,
+    HtmlText: true,
     colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
 	fontColor: '#444', 
-	fontSize: 10,
+//	fontSize: 10,
 	resolution: 1,
     shadowSize: 0,   
     grid : {
@@ -69,10 +70,19 @@ BANGLADESH
     yaxis : { showLabels : false },
     pie : {
       show : true, 
-      explode : 0
+      explode : 0,
+		labelFormatter:function(tot,val){
+			return Math.floor(100*val/tot)+"%";
+		}
     },
-    mouse : { track : false },
-    legend : {show:false},
+    mouse : { track : true,
+		trackFormatter:function(obj){
+			var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+			return commafy(Math.floor(obj.y)+"")+" usd";
+		}
+	 },
+    legend : {show:true,position:"nc",margin:-120},
   });
 </script>
 
