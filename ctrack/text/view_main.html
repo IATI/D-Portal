@@ -48,21 +48,22 @@ BANGLADESH
 {test_chart_slice}
 
 #test_chart
-<div id="myChart" style="width:300x;height:300px; background-color:#fff;"></div>
+<div id="myChart" style="width:300x;height:400px; background-color:#fff;"></div>
 <script>
 	Flotr.draw(
 		$("#myChart").get(0),
 		require("ctrack").get_chart_data("data_chart_donors"),
 	{
-    HtmlText: true,
+    HtmlText: false,
     colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
-      fontColor: '#444',   
-      fontSize: 1.5,          
-      resolution: 1,
+	fontColor: '#444', 
+	fontSize: 10,
+	resolution: 1,
     shadowSize: 0,   
     grid : {
       verticalLines : false,
-      horizontalLines : false
+      horizontalLines : false,
+      outlineWidth: 0,
     },
     xaxis : { showLabels : false },
     yaxis : { showLabels : false },
@@ -71,10 +72,7 @@ BANGLADESH
       explode : 0
     },
     mouse : { track : false },
-    legend : {
-      position : 'se',
-      backgroundColor : '#fff', 
-    }
+    legend : {show:false},
   });
 </script>
 
