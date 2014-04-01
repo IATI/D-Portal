@@ -203,3 +203,20 @@ csscolor.parseCSSColor=function(css_str) {
   return null;
 }
 
+// convert back to css with optional simple color scale
+csscolor.rgba_to_str=function(r,s)
+{
+	var t=[r[0],r[1],r[2],r[3]];
+	if(s)
+	{
+		t[0]*=s[0];
+		t[1]*=s[1];
+		t[2]*=s[2];
+		t[3]*=s[3];
+	}
+	return "rgba("+	csscolor.clamp_css_byte(t[0])+","+
+					csscolor.clamp_css_byte(t[1])+","+
+					csscolor.clamp_css_byte(t[2])+","+
+					csscolor.clamp_css_float(t[3])+")";
+}
+

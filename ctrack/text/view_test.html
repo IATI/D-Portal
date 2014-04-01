@@ -8,12 +8,28 @@
 
 #view_test_graph
 <div id="view_test_graph" style="background-color:#fff">
-	This is a test
 </div>
 
 <script>
 	var ctrack=require("ctrack");
 	var data=ctrack.get_chart_data("data_chart_donors");
-	var opts={};
+	var opts={
+		width:400,
+		height:400,
+		center_x:200,
+		center_y:200,
+		radius:140,
+		hole:70,
+		caption_css:{"width":160,"padding":"8px","borderStyle":"solid","borderWidth":4},
+		color:["#0f0","#8f0","#4f0","#0f4","#0f8","#4f4"],
+		tints:{
+			fill:[1,1,1,1],
+//			stroke:[0.5,0.5,0.5,1],
+			text:[0,0,0,1],
+			back:[1,1,1,1],
+			border:[0.5,0.5,0.5,1],
+		},
+		layout:"five",
+	}
 	ctrack.draw_chart("#view_test_graph",data,opts);
 </script>

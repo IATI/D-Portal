@@ -66,7 +66,7 @@ view_test.ajax=function(args)
 			shown+=v.usd;
 			var d={};
 			d.num=v.usd;
-			d.str_num=commafy(d.num)+" usd";
+			d.str_num=commafy(d.num)+" USD";
 			d.str_lab=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
 			d.str=d.str_lab+"<br/>"+d.str_num;
 			dd.push(d);
@@ -75,7 +75,7 @@ view_test.ajax=function(args)
 	var d={};
 	d.num=total-shown;
 	d.str_num=commafy(d.num)+" usd";
-	d.str_lab="other";
+	d.str_lab="Others";
 	d.str=d.str_lab+"<br/>"+d.str_num;
 	dd.push(d);
 		
@@ -94,7 +94,16 @@ ctrack.draw_chart=function(sel,data,options){
 		center_y:200,
 		radius:140,
 		hole:70,
-		caption_maxwidth:100,
+		caption_css:{"width":160,"padding":"8px","borderStyle":"solid","borderWidth":4},
+		color:["#0f0","#8f0","#4f0","#0f4","#0f8","#4f4"],
+		tints:{
+			fill:[1,1,1,1],
+//			stroke:[0.5,0.5,0.5,1],
+			text:[0,0,0,1],
+			back:[1,1,1,1],
+			border:[0.5,0.5,0.5,1],
+		},
+		layout:"five",
 	}
 	for(var n in options) { opt[n]=options[n]; }
 	
@@ -106,7 +115,7 @@ ctrack.draw_chart=function(sel,data,options){
 		}
 		if(r===undefined)
 		{
-			if(name="num") // allow single numerical data array
+			if(name=="num") // allow single numerical data array
 			{
 				if("number"==typeof v)
 				{
@@ -148,30 +157,131 @@ ctrack.draw_chart=function(sel,data,options){
 		
 	var ctx = div.canvas[0].getContext('2d');
 
-	div.over.html("This is a caption.")
-
 	var	ang=-(Math.PI/2);
 	
 	var max=0; for (var i=0; i<data.length; i++){ max+=getdat("num",i); }
-	
+
+	opt.seg_rad=[];
 	for (var i=0; i<data.length; i++){
 
 		var seg = ( (getdat("num",i)/max) * (Math.PI*2) );
+
+		opt.seg_rad[i]=ang+(seg/2);
 
 		ctx.beginPath();
 		ctx.arc(opt.center_x,opt.center_y,opt.radius,ang	,ang+seg,false);
 		ctx.arc(opt.center_x,opt.center_y,opt.hole	,ang+seg,ang	,true);
 		ctx.closePath();
 
-		ctx.fillStyle = "#44c";
-		ctx.fill();
+		var cc=csscolor.parseCSSColor( getdat("color",i) );
 
-		ctx.lineWidth = 4;
-		ctx.strokeStyle = "#008";
-		ctx.stroke();
+		if(opt.tints.fill)
+		{
+			ctx.fillStyle = csscolor.rgba_to_str(cc,opt.tints.fill);
+			ctx.fill();
+		}
 
+		if(opt.tints.stroke)
+		{
+			ctx.lineWidth = 4;
+			ctx.strokeStyle = csscolor.rgba_to_str(cc,opt.tints.stroke);
+			ctx.stroke();
+		}
 		ang += seg;
 	}	
+
+	div.over.empty();
+
+	var c=opt.hole+((opt.radius-opt.hole)/2)
+	for (var i=0; i<data.length; i++){
+		var rad=opt.seg_rad[i];
+		var cc=csscolor.parseCSSColor( getdat("color",i) );
+		
+		d=$("<div></div>").html(getdat("str",i))
+		d.css("color",csscolor.rgba_to_str(cc,opt.tints.text));
+		d.css("background-color",csscolor.rgba_to_str(cc,opt.tints.back));
+		d.css("border-color",csscolor.rgba_to_str(cc,opt.tints.border));
+		d.css(opt.caption_css);
+		div.over.append(d);
+		
+		if(opt.layout=="five")
+		{
+			var w=d.outerWidth(true);
+			var h=d.outerHeight(true);
+			var hax=4;
+			var px,py;
+			var line;
+			var linefix=function()
+			{
+				var dx=Math.cos(rad)*c;
+				var dy=Math.sin(rad)*c;
+				line[0]+=dx;
+				line[1]+=dy;
+			}
+
+			if(i==1)
+			{
+				px=opt.width-w-hax; py=hax;
+				line=[opt.width/2,opt.height/2,px+(w/2),py+(h/2)]
+				linefix();
+				d.css("position","absolute");
+				d.css("left",px);
+				d.css("top",py);
+			}
+			else
+			if(i==2)
+			{
+				px=opt.width-w-hax; py=opt.height-h-hax;
+				line=[opt.width/2,opt.height/2,px+(w/2),py+(h/2)]
+				linefix();
+				d.css("position","absolute");
+				d.css("left",px);
+				d.css("top",py);
+			}
+			else
+			if(i==3)
+			{
+				px=hax; py=opt.height-h-hax;
+				line=[opt.width/2,opt.height/2,px+(w/2),py+(h/2)]
+				linefix();
+				d.css("position","absolute");
+				d.css("left",px);
+				d.css("top",py);
+			}
+			else
+			if(i==4)
+			{
+				px=hax; py=hax;
+				line=[opt.width/2,opt.height/2,px+(w/2),py+(h/2)]
+				linefix();
+				d.css("position","absolute");
+				d.css("left",px);
+				d.css("top",py);
+			}
+			else
+			if(i==0)
+			{
+				px=(opt.width-w)/2; py=(opt.height-h)/2;
+				line=[opt.width/2,opt.height/2,px+(w/2),py+(h/2)]
+				linefix();
+				d.css("position","absolute");
+				d.css("left",px);
+				d.css("top",py);
+			}
+			if(line)
+			{
+				ctx.beginPath();
+				ctx.moveTo(line[0],line[1]);
+				ctx.lineTo(line[2],line[3]);
+				ctx.closePath();
+				
+				ctx.lineWidth = 4;
+				ctx.strokeStyle = csscolor.rgba_to_str(cc,opt.tints.fill);
+				ctx.stroke();				
+			}
+		}
+
+	}
 
 	return opt;
 }
