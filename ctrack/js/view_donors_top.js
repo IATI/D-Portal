@@ -58,28 +58,18 @@ view_donors_top.ajax=function(args)
 			s.push( plate.replace("{main_money_row}",v) );
 		}
 	}
-	var d=[
-{
-	value: 50,
-	color:"#F38630"
-},
-{
-	value: 30,
-	color:"#F38600"
-},
-{
-	value: 10,
-	color:"#F30030"
-},
-{
-	value: 5,
-	color:"#008630"
-},
-{
-	value: 5,
-	color:"#F30000"
-},
+	var
+    d1 = [[0, 4]],
+    d2 = [[0, 3]],
+    d3 = [[0, 1.03]],
+    d4 = [[0, 3.5]];
+    var d=[
+    { data : d1, label : 'Comedy' },
+    { data : d2, label : 'Action' },
+    { data : d3, label : 'Romance'},
+    { data : d4, label : 'Drama' }
 	];
+	
 	ctrack.chunk("data_chart_donors",d);
 
 	ctrack.chunk("main_money_rows",s.join(""));

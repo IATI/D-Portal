@@ -47,7 +47,7 @@ view_stats.calc=function()
 		ctrack.chunk("missing_projects",0);
 	}
 	
-	console.log(pm);
+//	console.log(pm);
 }
 
 //
