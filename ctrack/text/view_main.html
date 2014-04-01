@@ -55,15 +55,17 @@ BANGLADESH
 		$("#myChart1").get(0),
 		require("ctrack").get_chart_data("data_chart_donors"),
 	{
-    HtmlText: true,
+    HtmlText: false,
     colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
 	fontColor: '#444', 
+	fontSize: 10,
 	resolution: 1,
     shadowSize: 0,   
-grid : {
-      verticalLines : false,
-      horizontalLines : false
-    },
+	grid : {
+		  verticalLines : false,
+		  horizontalLines : false,
+		  outlineWidth: 0,
+		},
     xaxis : { showLabels : false },
     yaxis : { showLabels : false },
         pie : {
@@ -88,15 +90,17 @@ grid : {
 		$("#myChart2").get(0),
 		require("ctrack").get_chart_data("data_chart_donors"),
 	{
-    HtmlText: true,
+    HtmlText: false,
     colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
-	fontColor: '#444', 
+	fontColor: '#444',
+	fontSize: 10, 
 	resolution: 1,
     shadowSize: 0, 
-grid : {
-      verticalLines : false,
-      horizontalLines : false
-    },
+	grid : {
+		  verticalLines : false,
+		  horizontalLines : false,
+		  outlineWidth: 0,
+		},
     xaxis : { showLabels : false },
     yaxis : { showLabels : false },
         legend : {show:true},
