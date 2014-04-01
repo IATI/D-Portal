@@ -48,30 +48,29 @@ BANGLADESH
 {test_chart_slice}
 
 #test_chart
-<canvas id="myChart" width="300" height="300"></canvas>
+<div id="myChart" style="width:300x;height:300px;"></div>
 <script>
-	var myNewChart = new Chart($("#myChart").get(0).getContext("2d")).Pie(require("ctrack").get_chart_data(
-		"data_chart_donors"),
+	Flotr.draw(
+		$("#myChart").get(0),
+		require("ctrack").get_chart_data("data_chart_donors"),
 	{
-		//Boolean - Whether we should show a stroke on each segment
-		segmentShowStroke : true,		
-		//String - The colour of each segment stroke
-		segmentStrokeColor : "#fff",
-		//Number - The width of each segment stroke
-		segmentStrokeWidth : 2,
-		//Boolean - Whether we should animate the chart	
-		animation : true,
-		//Number - Amount of animation steps
-		animationSteps : 100,
-		//String - Animation easing effect
-		animationEasing : "easeOutBounce",
-		//Boolean - Whether we animate the rotation of the Pie
-		animateRotate : true,
-		//Boolean - Whether we animate scaling the Pie from the centre
-		animateScale : false,
-		//Function - Will fire on animation completion.
-		onAnimationComplete : null
-	});
+    HtmlText : false,
+    grid : {
+      verticalLines : false,
+      horizontalLines : false
+    },
+    xaxis : { showLabels : false },
+    yaxis : { showLabels : false },
+    pie : {
+      show : true, 
+      explode : 6
+    },
+    mouse : { track : true },
+    legend : {
+      position : 'sw',
+      backgroundColor : '#D2E8FF'
+    }
+  });
 </script>
 
 #main_money_rows
