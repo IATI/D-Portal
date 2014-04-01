@@ -31,3 +31,6 @@ views.sectors=require("./view_sectors.js");
 views.districts=require("./view_districts.js");
 
 views.act=require("./view_act.js");
+
+views.test=require("./view_test.js");
+

@@ -1,0 +1,19 @@
+#view_test
+{view_head}
+<style>{css}</style>
+{beige}
+{view_test_graph}
+{view_tail}
+
+
+#view_test_graph
+<div id="view_test_graph" style="background-color:#fff">
+	This is a test
+</div>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_donors");
+	var opts={};
+	ctrack.draw_chart("#view_test_graph",data,opts);
+</script>

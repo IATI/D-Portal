@@ -19,7 +19,6 @@ ctrack_loader=function(args){
 		root+"art/activities.css",
 		root+"art/ctrack.css",
 		root+"jslib/jquery.js",
-		root+"jslib/flotr2.min.js",
 		root+"jslib/ctrack.js",
 	function(){
 		
