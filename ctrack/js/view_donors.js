@@ -67,7 +67,7 @@ view_donors.ajax=function(args)
 				v.b2015="-";
 			}
 
-			v.donor=iati_codes.crs_funders[v.funder] || iati_codes.country[v.funder] || v.funder;
+			v.donor=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
 			s.push( plate.replace(args.plate || "{table_donors_row}",v) );
 		});
 		ctrack.chunk(args.chunk || "table_donors_rows",s.join(""));

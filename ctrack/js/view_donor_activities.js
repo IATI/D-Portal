@@ -84,7 +84,7 @@ view_donor_activities.ajax=function(args)
 			ctrack.chunk("alerts","{alert_no_iati}");
 		}
 
-		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
+		ctrack.chunk("donor",iati_codes.funder_names[funder] || iati_codes.country[funder] || funder );
 
 		ctrack.chunk("donor_activities_datas",s.join(""));
 		ctrack.display();
