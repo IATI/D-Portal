@@ -48,10 +48,6 @@ view_donors.ajax=function(args)
 		var a=[];
 		for(var n in ctrack.donors_data) { a.push( ctrack.donors_data[n] ); }
 		a.sort(function(a,b){
-			if(b.order==a.order)
-			{
-				return ( (b.t2012||0) - (a.t2012||0) );
-			}
 			return ( (b.order||0)-(a.order||0) );
 		});
 		a.forEach(function(v){
@@ -124,8 +120,13 @@ view_donors.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
+				var num=v.sum_of_percent_of_trans_usd;
 				d.funder=v.funder;
-				d["t"+year]=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd));
+				d["t"+year]=commafy(""+Math.floor(num));
+				if(year==2012)
+				{
+					if( num > (d.order||0) ) { d.order=num; } // use 2012 transaction value for sort if bigger
+				}
 				fadd(d);
 			}
 //			console.log(ctrack.donors_data);
