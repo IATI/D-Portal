@@ -194,9 +194,9 @@ table.money_mod td:nth-child(2)	{width:100px; max-width:100px;}
 /*	Table Titles
 	============================================= */
 table.title				{width:100%; border-collapse:separate; padding-bottom:15px; border-bottom:10px solid #fff;}
-table.title.space		{border-collapse:separate;} /* Active / Ended projects need spacing */
-table.title.space td:nth-child(3)	{padding-left:10px; width:200px;}
+table.title.key			{width:960px; margin:0 auto;}	/* Fix width for Key Figures */
 table.title td			{font-size:1.8em; line-height:1.15em; color:#fff; vertical-align:bottom;}
+table.title td:nth-child(3)	{padding-left:10px; width:200px;}
 table.title tr:nth-child(1) td:nth-child(1)	{padding-right:10px; width:40px;}
 table.title tr:nth-child(2) td	{padding:0;}
 table.title td.total_spend		{text-align:right;}
