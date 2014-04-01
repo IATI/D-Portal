@@ -50,7 +50,7 @@ view_donors_top.ajax=function(args)
 //	var top=list[0] && list[0].usd || 0;
 	var s=[];
 	var dd=[];
-	for( var i=0; i<limit ; i++ )
+	for( var i=0; i<limit-1 ; i++ )
 	{
 		var v=list[i];
 		if(v)
