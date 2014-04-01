@@ -48,13 +48,18 @@ BANGLADESH
 {test_chart_slice}
 
 #test_chart
-<div id="myChart" style="width:300x;height:300px;"></div>
+<div id="myChart" style="width:300x;height:300px; background-color:#fff;"></div>
 <script>
 	Flotr.draw(
 		$("#myChart").get(0),
 		require("ctrack").get_chart_data("data_chart_donors"),
 	{
-    HtmlText : false,
+    HtmlText: true,
+    colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
+      fontColor: '#444',   
+      fontSize: 1.5,          
+      resolution: 1,
+    shadowSize: 0,   
     grid : {
       verticalLines : false,
       horizontalLines : false
@@ -63,12 +68,12 @@ BANGLADESH
     yaxis : { showLabels : false },
     pie : {
       show : true, 
-      explode : 6
+      explode : 0
     },
-    mouse : { track : true },
+    mouse : { track : false },
     legend : {
-      position : 'sw',
-      backgroundColor : '#D2E8FF'
+      position : 'se',
+      backgroundColor : '#fff', 
     }
   });
 </script>
@@ -153,7 +158,8 @@ BANGLADESH
 	<div class="map_no_info">{map_no_info_text}</div>
 	<div id="map"></div>
 	<div class="map_info">{map_info_text}</div>
-	<div class="map_percent"><img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/>
+	<div class="map_percent">
+		<img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/>
 		<span>{percent_of_activities_with_location}%</span> {map_percent_text}
 	</div>
 </div>
