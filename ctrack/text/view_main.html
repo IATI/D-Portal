@@ -58,7 +58,7 @@ BANGLADESH
     HtmlText: false,
     colors: ['#0A7FFF', '#0AFFBA', '#003BB8', '#00C948', '#99C900'], 
 	fontColor: '#666', 
-	fontSize: 13,
+	fontSize: 15,
 	resolution: 1,
     shadowSize: 0,   
 	grid : {
@@ -76,10 +76,14 @@ BANGLADESH
 		}
     },
     mouse : { track : true,
+				position: 'nc',
+				lineColor: '#fff',
+				margin: 2,
+				fillColor: '#ccc', 
 		trackFormatter:function(obj){
 			var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
-			return commafy(Math.floor(obj.y)+"")+" usd";
+			return commafy(Math.floor(obj.y)+"")+" USD";
 		}
 	 },
     legend : {show:false},
@@ -103,7 +107,7 @@ BANGLADESH
 		},
     xaxis : { showLabels : false },
     yaxis : { showLabels : false },
-        legend : {show:true},
+    legend : {show:true},
   });
 
 </script>
