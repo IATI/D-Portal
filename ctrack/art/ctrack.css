@@ -4,7 +4,7 @@
 	============================================= */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:top;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}	/* Resets */
 
-a,img{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outline:0;}	/* Accessibility toggle */
+a,img{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outline:0; background-color:#ffbf47;}	/* Accessibility toggle */
 
 body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
 html					{background-color:#000;}
@@ -14,11 +14,11 @@ html					{background-color:#000;}
 	============================================= */
 a						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
 td						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
-a:focus					{color:#FFAB5E; text-decoration: none;}
-a:link  				{color:#FFAB5E; text-decoration: none;}
-a:visited				{color:#FFAB5E; text-decoration: none;}
-a:hover					{color:#FF7A00; text-decoration: none;}
-a:active				{color:#FFAB5E; text-decoration: none;}
+a:focus					{color:#FFAB5E; text-decoration:none;}
+a:link  				{color:#FFAB5E; text-decoration:none;}
+a:visited				{color:#FFAB5E; text-decoration:none;}
+a:hover					{color:#FF7A00; text-decoration:none;}
+a:active				{color:#FFAB5E; text-decoration:none;}
 i						{font-style:italic;}
 .bold					{font-weight:bold;}
 .bold.ob				{font-style:italic;}
@@ -37,6 +37,7 @@ iati-activity:after 	{content:"";}	/* Takes away content since footer is include
 /*	Breadcrumbs
 	============================================= */
 a.crumb					{display:inline-block; vertical-align:top; padding:0 10px; font-size:0.9em; color:#7BBCFF; line-height:1.1em;}
+a.crumb:focus			{background-color:#ffbf47;}
 a.crumb:hover			{color:#fff;}
 a.crumb:nth-of-type(1)	{padding-left:0px;}
 .crumb_wrap				{width:960px; margin:0 auto; padding-top:10px; font-size:0.9em; color:#CACBCB; line-height:1.1em;}
@@ -72,6 +73,7 @@ select.tongue			{font-size:0.9em;}
 .barchart.donor			{height:10px; background-color:#1E90FF;}	/* Check #chunkmoney_row for more styling of bar */
 .barchart.sector		{height:10px; background-color:#00C475;}	/* Check #chunkmoney_row for more styling of bar */
 a.view_all_money		{display:block; width:380px; background-color:rgba(0,14,32,0.7); color:#ccc; font-size:0.6em; text-align:center; padding:20px 0; border-radius:0 0 8px 8px; text-align:center;}
+a.view_all_money:focus	{background-color:#ffbf47;}
 a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
 
 /*	Map styles
@@ -101,6 +103,7 @@ a.stats_link			{display:block; padding:30px 40px; height:100%;}
 .table_wrap				{background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px;}
 .view_all_projects_wrap	{width:960px; margin:0 auto; text-align:center;}
 a.view_all_projects			{padding:10px 20px; background-color:#3B9CFB; font-size:1.25em; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
+a.view_all_projects:focus	{background-color:#ffbf47;}
 a.view_all_projects:hover	{background-color:#0081FF;}
 
 
@@ -110,8 +113,9 @@ a.view_all_projects:hover	{background-color:#0081FF;}
 .description			{width:960px; margin:0 auto; padding:40px 0; text-align:left; margin-bottom:40px;}
 .description span.title	{display:block; color:#fff; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-top:1px solid #fff; border-bottom:1px solid #fff;}
 .description p			{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em;}
-a.read					{display:block; width:200px; color:#C27E00; font-size:1.2em;}
-a.read:hover			{color:#FFB700;}
+a.read					{display:inline-block; color:#A2CDDD; font-size:1.0em;}
+a.read:focus			{background-color:#ffbf47;}
+a.read:hover			{color:#CEE3EB;}
 
 
 /*	For url #view=donors & all #view=donor_*
@@ -140,6 +144,7 @@ a.read:hover			{color:#FFB700;}
 .donor_activities_percent		{height:10px; background-color:#1E90FF;}
 .back_to_donor_list_wrap		{width:960px; margin:0 auto; text-align:center;}
 a.back_to_donor_list			{padding:10px 20px; background-color:#3B9CFB; font-size:1.25em; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
+a.back_to_donor_list:focus		{background-color:#ffbf47;}
 a.back_to_donor_list:hover		{background-color:#0081FF;}
 
 /*	For url #view=donor_transactions
@@ -219,7 +224,7 @@ table.list td span		{display:block; padding-top:5px; color:#9C8876; font-size:0.
 table.list td:nth-child(3)	{text-align:right; padding-right:0; min-width:160px;}
 table.list td:nth-child(2)	{padding:0;}
 table.list a			{display:inline-block; padding:20px; width:100%; color:#A8C5E5;}
-table.list a:focus		{color:#A8C5E5; text-decoration:none;}
+table.list a:focus		{color:#A8C5E5; text-decoration:none; background-color:#ffbf47;}
 table.list a:link  		{color:#A8C5E5; text-decoration:none;}
 table.list a:visited	{color:#A8C5E5; text-decoration:none;}
 table.list a:hover		{color:#fff; text-decoration:none; background-color:rgba(0,0,0,0.4);}
@@ -259,7 +264,7 @@ table.money tr:nth-child(2) td:nth-child(7)	{background-color:rgba(17, 101, 105,
 table.money tr:nth-child(n+3) td:nth-child(n+2):hover	{background-color:rgba(17, 46, 105, 1);}
 table.money tr:nth-child(n+3) td:nth-child(n+6):hover	{background-color:rgba(17, 101, 105, 1);}
 table.money a			{display:block; padding:20px; border-bottom:0px dotted #0D3057; color:#A8C5E5;}
-table.money a:focus		{color:#A8C5E5; text-decoration:none;}
+table.money a:focus		{color:#A8C5E5; text-decoration:none; background-color:#ffbf47;}
 table.money a:link  	{color:#A8C5E5; text-decoration:none;}
 table.money a:visited	{color:#A8C5E5; text-decoration:none;}
 table.money a:hover		{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration:none;}
@@ -275,29 +280,18 @@ table.activity td:nth-child(3)	{text-align:right; padding-right:0; min-width:140
 table.activity td.alert_no_iati	{text-align:center; font-size:2.0em;}
 table.activity td span	{display:block; padding-top:5px; color:#9C8876; font-size:0.7em; line-height:1.0em;}
 table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#95B0CF;}
-table.activity a:focus	{color:#95B0CF; text-decoration:none;}
+table.activity a:focus	{color:#95B0CF; text-decoration:none; background-color:#ffbf47;}
 table.activity a:link  	{color:#95B0CF; text-decoration:none;}
 table.activity a:visited{color:#95B0CF; text-decoration:none;}
 table.activity a:hover	{color:#fff; text-decoration:none; background-color:rgba(0,0,0,0.4);}
 table.activity a:active	{color:#95B0CF; text-decoration:none;}
 
 
-/*	About
-	============================================= */
-.about_wrap				{width:960px; margin:0 auto; padding:40px 0px; margin-bottom:40px;}
-.about_txt				{width:570px; padding-right:60px; display:inline-block; vertical-align:top; line-height:1.35em; word-spacing:0.05em; font-size:1.2em; color:#fff;}
-.about_txt span			{color:#fff;}
-.iati_logo				{width:290px; display:inline-block; vertical-align:top; text-align:right; padding-left:40px;}
-a.iati_link				{display:block; width:270px; margin:0 auto; padding:10px; background-color:rgba(255, 255, 255, 0.85); border-radius:6px;}
-a.iati_link:hover		{background-color:rgba(255, 255, 255, 1);}
-a.read					{display:inline-block; color:#A2CDDD; font-size:1.0em;}
-a.read:hover			{color:#CEE3EB;}
-
-
 /*	Data Investigators alert
 	============================================= */
 .data_wrap				{position:absolute; bottom:0; width:100%; margin:0 auto;}
 a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:0.9em; color:#C7A1D6; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
+a.data_invest:focus		{background-color:#ffbf47;}
 a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 
 
@@ -307,13 +301,14 @@ a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
 .footer_link			{width:320px; display:inline-block; vertical-align:top;}
 .footer_link a			{font-size:0.8em; line-height:1.5em; color:#818181;}
-.footer_link a:focus	{color:#818181;}
+.footer_link a:focus	{color:#fff; background-color:#ffbf47;}
 .footer_link a:link  	{color:#818181;}
 .footer_link a:visited	{color:#818181;}
 .footer_link a:hover	{color:#fff;}
 .footer_link a:active	{color:#818181;}
 .footer_link.about		{text-align:right;}
 .footer_link.top		{text-align:center;}
+.footer_link.top a:focus{color:#fff; background-color:#ffbf47;}
 
 
 /*	Beige Alert
