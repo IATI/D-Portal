@@ -74,7 +74,7 @@ view_test.ajax=function(args)
 	}
 	var d={};
 	d.num=total-shown;
-	d.str_num=commafy(d.num)+" usd";
+	d.str_num=commafy(d.num)+" USD";
 	d.str_lab="Others";
 	d.str=d.str_lab+"<br/>"+d.str_num;
 	dd.push(d);
