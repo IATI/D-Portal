@@ -28,6 +28,29 @@ app.use( function(req, res, next) {
 
 //ls(argv);
 
+// possibly redirect any d-portal subdomain
+app.use(function(req,res,next)
+{
+	var dom=req.headers.host.toLowerCase();
+	var port=dom.split(":")[1];
+	dom=dom.split(":")[0]; // remove port
+	if( ( (dom!="d-portal.org") || port ) && (dom.slice(-12)=="d-portal.org") ) // only mess with d-portal.org subdomains or ports
+	{
+		var loc='http://d-portal.org'+req.url; // cannocal name
+		if(dom=="dev.d-portal.org") // goto dev server
+		{
+			loc='http://dev.ctrack.iatistandard.org'+req.url;
+		}
+		res.writeHead(301, {'Location':loc, 'Expires': (new Date).toGMTString()});
+		res.end();
+	}
+	else
+	{
+		next();
+	}
+});
+
+
 if(argv.q)
 {
 	app.use("/q",function (req, res) {
