@@ -11,6 +11,8 @@ var ctrack=require("./ctrack.js")
 chart.draw=function(sel,data,options){
 
 	var opt={
+		style:"donut",
+		layout:"left",
 		width:600,
 		height:400,
 		center_x:200,
@@ -21,16 +23,15 @@ chart.draw=function(sel,data,options){
 		caption_css:{"width":160,"padding":"8px","borderStyle":"solid","borderWidth":4},
 		caption_edge:4,
 		stroke_width:4,
-		line_width:4,
+		line_width:1,
 		tints:{
 			fill:[1,1,1,1],
-			line:[1,1,1,1],
-//			stroke:[0.5,0.5,0.5,1],
+			line:[0,0,0,0.5],
+			stroke:[0.5,0.5,0.5,1],
 			text:[0,0,0,1],
 			back:[1,1,1,1],
 			border:[0.5,0.5,0.5,1],
 		},
-		layout:"right",
 	}
 	for(var n in options) { opt[n]=options[n]; }
 	
@@ -150,6 +151,14 @@ chart.draw=function(sel,data,options){
 			if(i==0) { px=(opt.width-w)/2;	py=(opt.height-h)/2;	lx=px+(w/2);	ly=py+(h/2); }
 		}
 		else
+		if(opt.layout=="left")
+		{
+			px=hax;
+			py=ppy+hax; ppy+=h;
+			lx=px+w;
+			ly=py+(h/2);
+		}
+		else
 		if(opt.layout=="right")
 		{
 			px=opt.width-w-hax;
@@ -164,7 +173,7 @@ chart.draw=function(sel,data,options){
 
 	var fix;
 	
-	if(opt.layout=="right")
+	if( (opt.layout=="left") || (opt.layout=="right") )
 	{
 		fix=[0, (opt.height-(ppy+opt.caption_edge))/2 ]; // center
 	}
