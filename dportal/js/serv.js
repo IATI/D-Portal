@@ -23,7 +23,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-app.use(express.static(__dirname+"/../serv"));
+app.use(express.static(__dirname+"/../static"));
 
 console.log("Starting static server at http://localhost:"+argv.port+"/");
 

@@ -23,7 +23,7 @@ cmd.run=function(argv)
 	console.log(
 		"\n"+
 		">	dportal build \n"+
-		"Build all output into serv.\n"+
+		"Build all output into static.\n"+
 		"\n"+
 		"\n"+
 	"");
@@ -48,10 +48,10 @@ deleteFolderRecursive = function(path) {
     }
 };
 
-	deleteFolderRecursive("serv");
+	deleteFolderRecursive("static");
 
 
-	try { fs.mkdirSync("serv"); } catch(e){}
+	try { fs.mkdirSync("static"); } catch(e){}
 
 	var tongues=[];
 	var chunks={}
@@ -89,7 +89,7 @@ deleteFolderRecursive = function(path) {
 	
 	var find_pages=function(dir)
 	{
-		try { fs.mkdirSync("serv/"+dir); } catch(e){}
+		try { fs.mkdirSync("static/"+dir); } catch(e){}
 
 		var dirs=dir.split("/");
 		var ff=fs.readdirSync("html/"+dir);
@@ -126,7 +126,7 @@ deleteFolderRecursive = function(path) {
 						outname=outname.slice(0,-5);
 					}
 				}
-				fs.writeFileSync("serv/"+dir+outname,plate.replace("{html}",get_page_chunk(dir+name)));
+				fs.writeFileSync("static/"+dir+outname,plate.replace("{html}",get_page_chunk(dir+name)));
 			}
 		}
 		
@@ -147,8 +147,8 @@ deleteFolderRecursive = function(path) {
 
 // create some symlinks to other datas
 
-	try { fs.symlinkSync("../../ctrack/art", "serv/art" ); } catch(e){}
-	try { fs.symlinkSync("../../ctrack/jslib", "serv/jslib" ); } catch(e){}
+	try { fs.symlinkSync("../../ctrack/art", "static/art" ); } catch(e){}
+	try { fs.symlinkSync("../../ctrack/jslib", "static/jslib" ); } catch(e){}
 
 }
 
