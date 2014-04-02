@@ -7,27 +7,29 @@
 
 
 #view_test_graph
-<div id="view_test_graph" style="background-color:#fff; font-size:0.8em; line-height:1.25em; text-align:center;"></div>
+<div id="view_test_graph" style="background-color:#fff; font-size:1.0em; line-height:1.3em; color:#444;"></div>
 
 <script>
 	var ctrack=require("ctrack");
 	var data=ctrack.get_chart_data("data_chart_donors");
 	var opts={
 		layout:"right",
-		width:380,
+		width:640,
 		height:300,
-		center_x:190,
+		center_x:150,
 		center_y:150,
-		radius:100,
+		radius:130,
 		hole:40,
-		caption_css:{"width":120,"padding":"5px","borderStyle":"solid","borderWidth":0, "color":"#444", "background-color":"#fff",},
-		color:["#0081FF","#50FF50","#3FA8FF","#98FF98","#FFB731","#FFDE4B"],
+		caption_css:{"width":250,"padding":"7px 20px","borderStyle":"solid","borderWidth":1, "color":"#666", "background-color":"#fff",},
+		color:["#0081FF","#34FF34","#FF2AAD","#3FC1FF","#FFAA0A","#8300FF"],
+		caption_edge:15,
+		stroke_width:2,
+		line_width:3,
 		tints:{
 			fill:[1,1,1,1],
-//			stroke:[0.5,0.5,0.5,1],
-//			text:[0,0,0,0.8],
-//			back:[255,255,255,1],
-			border:[0.5,0.5,0.5,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
 		},
 	}
 	ctrack.draw_chart("#view_test_graph",data,opts);
