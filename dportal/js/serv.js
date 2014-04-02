@@ -6,7 +6,7 @@ var app = express();
 
 var argv=require('yargs').argv; global.argv=argv;
 
-argv.port=argv.port||1337;
+argv.port=argv.port||1408;
 
 express.static.mime.define({'text/plain': ['']});
 
