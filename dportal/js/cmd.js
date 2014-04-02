@@ -7,13 +7,15 @@ var fs = require('fs');
 var util=require('util');
 var path=require('path');
 
+var plate=require("../../ctrack/js/plate.js");
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 cmd.run=function(argv)
 {
 	if( argv._[0]=="build" )
 	{
-		cmd.build();
+		return cmd.build();
 	}
 
 
@@ -29,6 +31,118 @@ cmd.run=function(argv)
 
 cmd.build=function()
 {
+
+deleteFolderRecursive = function(path) {
+    var files = [];
+    if( fs.existsSync(path) ) {
+        files = fs.readdirSync(path);
+        files.forEach(function(file,index){
+            var curPath = path + "/" + file;
+            if(fs.lstatSync(curPath).isDirectory()) { // recurse
+                deleteFolderRecursive(curPath);
+            } else { // delete file
+                fs.unlinkSync(curPath);
+            }
+        });
+        fs.rmdirSync(path);
+    }
+};
+
+	deleteFolderRecursive("serv");
+
+
+	try { fs.mkdirSync("serv"); } catch(e){}
+
+	var tongues=[];
+	var chunks={}
+
+	var dirname="text";
+	var ff=fs.readdirSync(dirname);
+	for(var i=0;i<ff.length;i++)
+	{
+		var v=ff[i];
+		if( v.length==7 && ( v.slice(-4)==".txt") ) // xxx.txt tongue files
+		{
+			var t=v.slice(0,3);
+			tongues[t]=tongues[t] || {};
+			plate.fill_chunks( fs.readFileSync(dirname+"/"+t+".txt",'utf8'),tongues[t]);
+			console.log("Adding "+t+" tongue");
+		}
+		else // normal chunks
+		{
+			console.log("Reading "+"/"+v);
+			plate.fill_chunks(fs.readFileSync(dirname+"/"+v,'utf8'),chunks);
+		}
+	}
+	var pages={};
+	var get_page_chunk=function(fname)
+	{
+		if(pages[fname]) { return pages[fname]; }
+		var s
+		try { s=fs.readFileSync("html/"+fname,'utf8'); } catch(e){}
+		if(s)
+		{
+			pages[fname]=plate.fill_chunks(s);
+		}
+		return pages[fname];
+	}
+	
+	var find_pages=function(dir)
+	{
+		try { fs.mkdirSync("serv/"+dir); } catch(e){}
+
+		var dirs=dir.split("/");
+		var ff=fs.readdirSync("html/"+dir);
+
+		plate.reset_namespace();
+		plate.push_namespace(chunks);
+		
+		plate.push_namespace( get_page_chunk("index.html") );
+		for(var i=0;i<dirs.length;i++)
+		{
+			var dd=[];
+			for(var j=0;j<=i;j++) { dd.push(dirs[j]); }
+			var ds=dd.join("/");
+			if(ds!="") // skip ""
+			{
+				plate.push_namespace( get_page_chunk(dd+"/index.html") );
+				plate.push_namespace( get_page_chunk(dd+".html") );
+			}
+		}
+
+		if(tongues.eng) { plate.push_namespace(tongues.eng); }
+
+		
+		for(var i=0;i<ff.length;i++) //parse
+		{
+			var name=ff[i];
+			if( ! fs.lstatSync("html/"+dir+name).isDirectory() )
+			{
+				console.log("parse "+dir+name);
+				
+				fs.writeFileSync("serv/"+dir+name,plate.replace("{html}",get_page_chunk(dir+name)));
+			}
+		}
+		
+		for(var i=0;i<ff.length;i++) // recurse
+		{
+			var name=ff[i];
+			
+			if( fs.lstatSync("html/"+dir+name).isDirectory() )
+			{		
+				console.log("scan  "+dir+name);
+				find_pages(dir+name+"/");
+			}
+		}
+
+	}
+
+	find_pages("")
+
+// create some symlinks to other datas
+
+	try { fs.symlinkSync("../../ctrack/art", "serv/art" ); } catch(e){}
+	try { fs.symlinkSync("../../ctrack/jslib", "serv/jslib" ); } catch(e){}
 
 }
 
