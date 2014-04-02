@@ -14,11 +14,12 @@ var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
 var crs_year=require("../../dstore/json/crs_2012.json")
 
-var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
 // the chunk names this view will fill with new data
 view_donors_top.chunks=[
+	"main_money_rows",
 ];
 
 
@@ -44,35 +45,20 @@ view_donors_top.ajax=function(args)
 		return ( (b.usd||0)-(a.usd||0) );
 	});
 
-	var total=0; list.forEach(function(it){total+=it.usd;});
-	var shown=0;
+//	var total=0; list.forEach(function(it){total+=it.usd;});
 	var top=list[0] && list[0].usd || 0;
-	var dd=[];
+	var s=[];
 	for( var i=0; i<limit ; i++ )
 	{
 		var v=list[i];
-		
-		if((i==limit-1)&&(i<(list.length-1))) // last one combines everything else
-		{
-			v={};
-			v.usd=total-shown;
-			v.funder="Others...";
-		}
-		
 		if(v)
 		{
-			shown+=v.usd;
-			var d={};
-			d.num=v.usd;
-			d.pct=Math.floor(100*v.usd/total);
-			d.str_num=commafy(d.num)+" USD";
-			d.str_lab=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
-			d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
-			dd.push(d);
+			v.pct=Math.floor(100*v.usd/top)
+			v.donor=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
+			s.push( plate.replace("{main_money_row}",v) );
 		}
 	}
-		
-	ctrack.chunk("data_chart_donors",dd);
 
+	ctrack.chunk("main_money_rows",s.join(""));
 	ctrack.display();
 }
