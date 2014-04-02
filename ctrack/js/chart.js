@@ -12,7 +12,7 @@ chart.draw=function(sel,data,options){
 
 	var opt={
 		style:"donut",
-		layout:"left",
+		layout:"right",
 		width:600,
 		height:400,
 		center_x:200,
