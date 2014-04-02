@@ -203,16 +203,34 @@ csscolor.parseCSSColor=function(css_str) {
   return null;
 }
 
-// convert back to css with optional simple color scale
+// convert back to css with optional simple color scale, ( 0=black 1=normal 2=white )
 csscolor.rgba_to_str=function(r,s)
 {
 	var t=[r[0],r[1],r[2],r[3]];
 	if(s)
 	{
-		t[0]*=s[0];
-		t[1]*=s[1];
-		t[2]*=s[2];
-		t[3]*=s[3];
+		for(var i=0;i<4;i++)
+		{
+			var d=s[i];
+			if(d>=0)
+			{
+				if(d<=1)
+				{
+					t[i]*=d;
+				}
+				if(d<=2)
+				{
+					if(i==3)
+					{
+						t[i]= 1-((1-t[i])*(2-d));
+					}
+					else
+					{
+						t[i]= 255-((255-t[i])*(2-d));
+					}
+				}
+			}
+		}
 	}
 	return "rgba("+	csscolor.clamp_css_byte(t[0])+","+
 					csscolor.clamp_css_byte(t[1])+","+
