@@ -106,7 +106,6 @@ deleteFolderRecursive = function(path) {
 			if(ds!="") // skip ""
 			{
 				plate.push_namespace( get_page_chunk(dd+"/index.html") );
-				plate.push_namespace( get_page_chunk(dd+".html") );
 			}
 		}
 
@@ -119,8 +118,15 @@ deleteFolderRecursive = function(path) {
 			if( ! fs.lstatSync("html/"+dir+name).isDirectory() )
 			{
 				console.log("parse "+dir+name);
-				
-				fs.writeFileSync("serv/"+dir+name,plate.replace("{html}",get_page_chunk(dir+name)));
+				var outname=name;
+				if(outname!="index.html") // special
+				{
+					if(outname.slice(-5)==".html")
+					{
+						outname=outname.slice(0,-5);
+					}
+				}
+				fs.writeFileSync("serv/"+dir+outname,plate.replace("{html}",get_page_chunk(dir+name)));
 			}
 		}
 		
