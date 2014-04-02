@@ -12,11 +12,11 @@ html					{background-color:#000;}
 	============================================= */
 a						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
 a, img					{border:0; outline:none;}
-a:focus					{color:#53B4ED; text-decoration: none;}
-a:link  				{color:#53B4ED; text-decoration: none;}
-a:visited				{color:#53B4ED; text-decoration: none;}
-a:hover					{color:#BBEFFF; text-decoration: none;}
-a:active				{color:#53B4ED; text-decoration: none;}
+a:focus					{color:#53B4ED; text-decoration:none; background-color:#ffbf47;}
+a:link  				{color:#53B4ED; text-decoration:none;}
+a:visited				{color:#53B4ED; text-decoration:none;}
+a:hover					{color:#BBEFFF; text-decoration:none;}
+a:active				{color:#53B4ED; text-decoration:none;}
 i						{font-style:italic;}
 .bold					{font-weight:bold;}
 .bold.ob				{font-style:italic;}
