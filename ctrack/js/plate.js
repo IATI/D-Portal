@@ -184,10 +184,19 @@ plate.prepare=function(str)
 
 plate.namespaces=[]; // array of public namespaces to lookup in
 
+// clear namespace
+plate.reset_namespace=function()
+{
+	plate.namespaces=[];
+}
+
 // add this dat into the namespaces that we also check when filling in chunks
 plate.push_namespace=function(dat)
 {
-	plate.namespaces.push(dat);
+	if(dat)
+	{
+		plate.namespaces.push(dat);
+	}
 }
 
 // lookup a str in dat or namespace
