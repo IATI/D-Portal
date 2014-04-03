@@ -10,27 +10,27 @@ var ctrack=require("./ctrack.js")
 
 chart.draw=function(sel,data,options){
 
-	var opt={
-		style:"donut",
-		layout:"right",
-		width:600,
-		height:400,
-		center_x:200,
-		center_y:200,
-		radius:140,
-		hole:70,
-		color:["#0f0","#8f0","#4f0","#0f4","#0f8","#4f4"],
-		caption_css:{"width":160,"padding":"8px","borderStyle":"solid","borderWidth":4},
-		caption_edge:4,
-		stroke_width:4,
-		line_width:1,
-		tints:{
-			fill:[1,1,1,1],
-			line:[0,0,0,0.5],
-			stroke:[0.5,0.5,0.5,1],
-			text:[0,0,0,1],
-			back:[1,1,1,1],
-			border:[0.5,0.5,0.5,1],
+	var opt={			//	All stylings are in pixels
+		style:"donut", 	//	Style of chart - there is only donut flavour for now
+		layout:"right",	//	Caption placement - left, right, five
+		width:600,		//	Width of entire chart div
+		height:400,		//	Height of entire chart div
+		center_x:200,	//	Center of chart in div from the left
+		center_y:200,	//	Center of chart in div from the top
+		radius:140,		//	Size of chart
+		hole:70,		//	Size of hole in chart - how big is your donut?
+		color:["#0f0","#8f0","#4f0","#0f4","#0f8","#4f4"],	//	Add as many colours as you want for pie slices
+		caption_css:{"width":160,"padding":"8px","borderStyle":"solid","borderWidth":4},	//	Styling for the caption div
+		caption_edge:4,	//	Margin of caption div from the edge of entire chart div depending on layout (left/right)
+		stroke_width:4,	//	Thickness of chart border
+		line_width:1,	//	Thickness of lines from caption to chart
+		tints:{						//	Changing the numbers below apart from [1,1,1,1] gives experimental effects
+			fill:[1,1,1,1],			//	Background color of chart - [1,1,1,1] gets you slice colors
+			line:[0,0,0,0.5],		//	Color of line from caption to chart - [1,1,1,1] gets you slice colors
+			stroke:[0.5,0.5,0.5,1],	//	Border color of chart - [2,2,2,2] gets you #fff border
+			text:[0,0,0,1],			//	Color of caption fonts
+			back:[1,1,1,1],			//	Background color of caption div
+			border:[0.5,0.5,0.5,1],	//	Border color of caption div
 		},
 	}
 	for(var n in options) { opt[n]=options[n]; }
