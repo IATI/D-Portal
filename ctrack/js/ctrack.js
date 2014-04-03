@@ -244,7 +244,6 @@ ctrack.setup=function(args)
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );
 
 // wait for images to load before performing any data requests?
-	$(window).load(function() {
 		for(var n in views)
 		{
 			var v=views[n];
@@ -259,7 +258,6 @@ ctrack.setup=function(args)
 		}
 		ctrack.check_hash();
 		ctrack.display_hash(); // this will display view=main or whatever page is requsted
-	});
 
 }
 
