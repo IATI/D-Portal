@@ -10,6 +10,7 @@ BANGLADESH
 {beige}
 {main_head}
 {main_country}
+{about_data_links}
 {donor_graph}
 {sector_graph}
 {main_map}
@@ -19,6 +20,15 @@ BANGLADESH
 {main_data_description}
 {main_datainvestigators}
 {view_tail}
+
+#about_data_links
+<div class="default about">
+	<a onclick="$('html, body').animate({scrollTop: $('.description').offset().top}, 300);return false;" class="about_data">
+		<img src="{art}info_icon.png" alt="{info_icon_alt_text}" width="15" height="15"/> {about_this_data_text}
+	</a><a href="#view=data_quality" class="about_data quality">
+		<img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {about_data_quality_text}
+	</a>
+</div>
 
 #main_data_description
 <div class="description_wrap">
@@ -99,7 +109,7 @@ BANGLADESH
 <div class="stats_wrap">
 	<table class="title key">
 		<tr>
-			<td><img src="{art}publisher_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
+			<td class="icon"><img src="{art}publisher_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
 			<td>{stats_title_text}</td>
 		</tr>
 	</table>
@@ -148,7 +158,7 @@ BANGLADESH
 		<tr>
 			<td class="icon"><img src="{art}active_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
 			<td>{list_active_text}</td>
-			<td class="sort"><div class="declare title list">{list_active_declare_text}</div></td>
+			<td class="sort">{list_active_declare_text}</td>
 		</tr>
 	</table>
 	<div class="table_wrap">
@@ -167,7 +177,7 @@ BANGLADESH
 		<tr>
 			<td class="icon"><img src="{art}ended_icon.png" alt="{ended_icon_alt_text}" width="40" height="40"/></td>
 			<td>{list_ended_text}</td>
-			<td class="sort"><div class="declare title list">{list_ended_declare_text}</div></td>
+			<td class="sort">{list_ended_declare_text}</td>
 		</tr>
 	</table>
 	<div class="table_wrap">
@@ -206,7 +216,7 @@ BANGLADESH
 </tr>
 
 #donor_graph
-<div class="default head">
+<div class="default">
 <a href="#view=donors" class="ask donor">{title_donor_text}</a>
 <div class="peak_wrap"><div class="peak donor"></div></div>
 <div id="donor_graph"></div>

@@ -8,7 +8,7 @@
 <div class="donor_budgets_wrap">
 	<table class="title">
 		<tr>
-			<td><img src="{art}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
+			<td class="icon"><img src="{art}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
 			<td>{view_publishers_text}</td>
 		</tr>
 	</table>
@@ -58,6 +58,12 @@
 				<span class="stats_title view">{stats_publisher_text}</span>
 				<span class="stats_num view">{numof_publishers}</span>
 			</div>
-			<div class="donors_head_declare">{declare_title_donor_text}</div>
+			<div class="donors_head_declare">
+				<a onclick="$('html, body').animate({scrollTop: $('.description').offset().top}, 300);return false;" class="about_data">
+					<img src="{art}info_icon.png" alt="{info_icon_alt_text}" width="15" height="15"/> {about_this_data_text}
+				</a><a href="#view=data_quality" class="about_data quality">
+					<img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {about_data_quality_text}
+				</a>
+			</div>
 		</div>
 </div>

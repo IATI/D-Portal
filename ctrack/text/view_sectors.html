@@ -29,7 +29,14 @@
 			<div class="sectors_peak"></div>
 	</div><div class="sectors_head_title_wrap">
 			<div class="sectors_head_title">{title_sector_text}</div>
-			<div class="sectors_head_declare">{declare_title_sector_text}</div>
+			<div class="sectors_head_declare">
+				<a onclick="$('html, body').animate({scrollTop: $('.description').offset().top}, 300);return false;" class="about_data">
+					<img src="{art}info_icon.png" alt="{info_icon_alt_text}" width="15" height="15"/> {about_this_data_text}
+				</a><a href="#view=data_quality" class="about_data quality">
+					<img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {about_data_quality_text}
+				</a>
+				<!--{declare_title_sector_text}-->
+			</div>
 		</div>
 </div>
 
@@ -45,29 +52,29 @@
 {table_sectors_row}
 
 #table_sectors_row_head
-<tr>
-	<td>CRS</td>
-	<td>{table_sector_title_sector_text}</td>
-	<td colspan="3" title="{table_sector_tip_title_transaction_text}">{table_sector_title_transaction_text}</td>
-	<td colspan="2" title="{table_sector_tip_title_budget_text}">{table_sector_title_budget_text}</td>
+<tr class="row1">
+	<td class="col1">CRS</td>
+	<td class="col2">{table_sector_title_sector_text}</td>
+	<td class="col3" colspan="3" title="{table_sector_tip_title_transaction_text}">{table_sector_title_transaction_text}</td>
+	<td class="col4" colspan="2" title="{table_sector_tip_title_budget_text}">{table_sector_title_budget_text}</td>
 </tr>
-<tr>
-	<td title="{table_sector_tip_title_crs_text}">2012</td>
-	<td title="{table_sector_tip_title_sector_text}">2012</td>
-	<td title="{table_sector_tip_title_t2012_text}">2012</td>
-	<td title="{table_sector_tip_title_t2013_text}">2013</td>
-	<td title="{table_sector_tip_title_t2014_text}">2014</td>
-	<td title="{table_sector_tip_title_b2014_text}">2014</td>
-	<td title="{table_sector_tip_title_b2015_text}">2015</td>
+<tr class="row2">
+	<td class="col1" title="{table_sector_tip_title_crs_text}">2012</td>
+	<td class="col2" title="{table_sector_tip_title_sector_text}">2012</td>
+	<td class="col3" title="{table_sector_tip_title_t2012_text}">2012</td>
+	<td class="col4" title="{table_sector_tip_title_t2013_text}">2013</td>
+	<td class="col5" title="{table_sector_tip_title_t2014_text}">2014</td>
+	<td class="col6" title="{table_sector_tip_title_b2014_text}">2014</td>
+	<td class="col7" title="{table_sector_tip_title_b2015_text}">2015</td>
 </tr>
 
 #table_sectors_row
-<tr>
-	<td title="{table_sector_tip_crs_text}">{crs}</td>
-	<td title="{table_sector_tip_sector_text}"><a href="#view=sector_activities&funder={funder}" class="block">{sector}</a></td>
-	<td title="{table_sector_tip_t2012_text}"><a href="#view=sector_transactions&year=2012&funder={funder}" class="block">{t2012}</a></td>
-	<td title="{table_sector_tip_t2013_text}"><a href="#view=sector_transactions&year=2013&funder={funder}" class="block">{t2013}</a></td>
-	<td title="{table_sector_tip_t2014_text}"><a href="#view=sector_transactions&year=2014&funder={funder}" class="block">{t2014}</a></td>
-	<td title="{table_sector_tip_b2014_text}"><a href="#view=sector_budgets&year=2014&funder={funder}" class="block">{b2014}</a></td>
-	<td title="{table_sector_tip_b2015_text}"><a href="#view=sector_budgets&year=2015&funder={funder}" class="block">{b2015}</a></td>
+<tr class="rows">
+	<td class="col1" title="{table_sector_tip_crs_text}">{crs}</td>
+	<td class="col2" title="{table_sector_tip_sector_text}"><a href="#view=sector_activities&funder={funder}" class="block">{sector}</a></td>
+	<td class="col3" title="{table_sector_tip_t2012_text}"><a href="#view=sector_transactions&year=2012&funder={funder}" class="block">{t2012}</a></td>
+	<td class="col4" title="{table_sector_tip_t2013_text}"><a href="#view=sector_transactions&year=2013&funder={funder}" class="block">{t2013}</a></td>
+	<td class="col5" title="{table_sector_tip_t2014_text}"><a href="#view=sector_transactions&year=2014&funder={funder}" class="block">{t2014}</a></td>
+	<td class="col6" title="{table_sector_tip_b2014_text}"><a href="#view=sector_budgets&year=2014&funder={funder}" class="block">{b2014}</a></td>
+	<td class="col7" title="{table_sector_tip_b2015_text}"><a href="#view=sector_budgets&year=2015&funder={funder}" class="block">{b2015}</a></td>
 </tr>
