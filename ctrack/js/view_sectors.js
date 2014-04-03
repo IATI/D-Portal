@@ -12,7 +12,7 @@ var fetch=require("./fetch.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
-var crs_year=require("../../dstore/json/crs_2012.json")
+var crs_year_sectors=require("../../dstore/json/crs_2012_sectors.json")
 
 var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -47,7 +47,11 @@ view_sectors.ajax=function(args)
 		var s=[];
 		var a=[];
 		for(var n in ctrack.sectors_data) { a.push( ctrack.sectors_data[n] ); }
-		a.sort(function(a,b){return (b.order-a.order)});
+		a.sort(function(a,b){
+			var an=a.crs_num || a.num_t2012;
+			var bn=b.crs_num || b.num_t2012;
+			return (bn-an);
+		});
 		a.forEach(function(v){
 			if(!v.t2012){v.t2012="0";}
 			if(!v.t2013){v.t2013="0";}
@@ -64,14 +68,29 @@ view_sectors.ajax=function(args)
 	var fadd=function(d)
 	{
 		var it=ctrack.sectors_data[d.group];
-		if(!it) { it={}; ctrack.sectors_data[d.group]=it; }
-		
+		if(!it) { it={}; ctrack.sectors_data[d.group]=it; }		
 		for(var n in d)
 		{
 			it[n]=d[n];
 		}
 	}
-
+// insert crs data if we have it
+	var crs=crs_year_sectors[ (args.country || ctrack.args.country).toUpperCase() ];
+	if(crs)
+	{
+		for(var n in crs)
+		{
+			if(n!="Grand Total")
+			{
+				var d={};
+				d.group=n;
+				d.crs=commafy(""+Math.floor(crs[n]));
+				d.crs_num=crs[n];
+				fadd(d);
+			}
+		}
+	}
+	
 	var years=[2012,2013,2014];
 	years.forEach(function(year)
 	{
@@ -94,11 +113,7 @@ view_sectors.ajax=function(args)
 				var d={};
 				d.group=v.sector_group;
 				d["t"+year]=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd));
-				if(year==2012)
-				{
-					d.crs="...";commafy(""+Math.floor(v.sum_of_percent_of_trans_usd));
-					d.order=v.sum_of_percent_of_trans_usd;
-				}
+				d["num_t"+year]=Math.floor(v.sum_of_percent_of_trans_usd);
 				fadd(d);
 			}
 			console.log(ctrack.sectors_data);
