@@ -118,15 +118,14 @@ deleteFolderRecursive = function(path) {
 			if( ! fs.lstatSync("html/"+dir+name).isDirectory() )
 			{
 				console.log("parse "+dir+name);
+				var html=plate.replace("{html}",get_page_chunk(dir+name));
 				var outname=name;
-				if(outname!="index.html") // special
+				if(outname.slice(-5)==".html") // duplicate with and without.html
 				{
-					if(outname.slice(-5)==".html")
-					{
-						outname=outname.slice(0,-5);
-					}
+					outname=outname.slice(0,-5);
+					fs.writeFileSync("static/"+dir+outname,html);
 				}
-				fs.writeFileSync("static/"+dir+outname,plate.replace("{html}",get_page_chunk(dir+name)));
+				fs.writeFileSync("static/"+dir+name,html);
 			}
 		}
 		
