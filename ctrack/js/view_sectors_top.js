@@ -51,6 +51,10 @@ view_sectors_top.ajax=function(args)
 			{
 				total+=it.sum_of_percent_of_trans_usd;
 			}
+			else
+			{
+				total-=it.sum_of_percent_of_trans_usd;
+			}
 		});
 		var shown=0;
 		var dd=[];
@@ -72,11 +76,11 @@ view_sectors_top.ajax=function(args)
 				
 				if(v)
 				{
-					shown+=v.usd;
 					var d={};
 					d.num=v.usd;
-					if(d.num<=0) { d.pct=0; }
-					else { d.pct=Math.floor(100*v.usd/total); }
+					if(d.num<0) { d.num=-d.num; }
+					shown+=d.num;
+					d.pct=Math.floor(100*v.usd/total);
 					d.str_num=commafy(d.num)+" USD";
 					d.str_lab=v.sector_group;
 					d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
