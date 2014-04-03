@@ -14,12 +14,11 @@ var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
 var crs_year=require("../../dstore/json/crs_2012.json")
 
-var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
 // the chunk names this view will fill with new data
 view_sectors_top.chunks=[
-	"main_sector_rows",
 ];
 
 
@@ -34,7 +33,7 @@ view_sectors_top.ajax=function(args)
 	var year=2012;
 	var dat={
 			"from":"trans,country,sector",
-			"limit":args.limit || 5,
+			"limit":-1,
 			"select":"sector_group,sum_of_percent_of_trans_usd",
 			"groupby":"1",
 			"orderby":"2-",
@@ -47,6 +46,46 @@ view_sectors_top.ajax=function(args)
 //		console.log("fetch transactions sectors "+year);
 //		console.log(data);
 
+		var total=0; data.rows.forEach(function(it){
+			if(it.sum_of_percent_of_trans_usd>0)
+			{
+				total+=it.sum_of_percent_of_trans_usd;
+			}
+		});
+		var shown=0;
+		var dd=[];
+		for( var i=0; i<limit ; i++ )
+		{
+			var v=data.rows[i];			
+			if(v)
+			{
+				if((i==limit-1)&&(i<(data.rows.length-1))) // last one combines everything else
+				{
+					v={};
+					v.usd=Math.floor(total-shown);
+					v.sector_group="Others...";
+				}
+				else
+				{
+					v.usd=Math.floor(v.sum_of_percent_of_trans_usd);
+				}
+				
+				if(v)
+				{
+					shown+=v.usd;
+					var d={};
+					d.num=v.usd;
+					if(d.num<=0) { d.pct=0; }
+					else { d.pct=Math.floor(100*v.usd/total); }
+					d.str_num=commafy(d.num)+" USD";
+					d.str_lab=v.sector_group;
+					d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
+					dd.push(d);
+				}
+			}
+		}
+
+/*
 		var s=[];
 		var t;
 		for(var i=0;i<data.rows.length;i++)
@@ -60,6 +99,10 @@ view_sectors_top.ajax=function(args)
 		}
 		
 		ctrack.chunk("main_sector_rows",s.join(""));
+*/
+
+		ctrack.chunk("data_chart_sectors",dd);
+		
 		ctrack.display();
 	};
 	fetch.ajax(dat,callback);
