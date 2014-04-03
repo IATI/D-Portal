@@ -154,7 +154,7 @@ chart.draw=function(sel,data,options){
 		if(opt.layout=="left")
 		{
 			px=hax;
-			py=ppy+hax; ppy+=h;
+			py=ppy; ppy+=h;
 			lx=px+w;
 			ly=py+(h/2);
 		}
@@ -162,7 +162,7 @@ chart.draw=function(sel,data,options){
 		if(opt.layout=="right")
 		{
 			px=opt.width-w-hax;
-			py=ppy+hax; ppy+=h;
+			py=ppy; ppy+=h;
 			lx=px;
 			ly=py+(h/2);
 		}
@@ -175,7 +175,7 @@ chart.draw=function(sel,data,options){
 	
 	if( (opt.layout=="left") || (opt.layout=="right") )
 	{
-		fix=[0, (opt.height-(ppy+opt.caption_edge))/2 ]; // center
+		fix=[0, (opt.height-ppy)/2 ]; // center
 	}
 
 	if(fix)
