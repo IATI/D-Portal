@@ -80,8 +80,8 @@ view_sectors_top.ajax=function(args)
 					d.num=v.usd;
 					if(d.num<0) { d.num=-d.num; }
 					shown+=d.num;
-					d.pct=Math.floor(100*v.usd/total);
-					d.str_num=commafy(d.num)+" USD";
+					d.pct=Math.floor(100*v.num/total);
+					d.str_num=commafy(v.usd)+" USD";
 					d.str_lab=v.sector_group;
 					d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
 					dd.push(d);
