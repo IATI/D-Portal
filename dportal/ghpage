@@ -1,23 +1,23 @@
 cd `dirname $0`
-echo "pushing the static pages into the gh_pages branch"
+echo "pushing the static pages into the gh_pages branch, not sure how well this will work"
 
-git clone --no-checkout --branch gh-pages -- ../ static || echo "run rm -rf static if you want to reset the static output"
+rm -rf static
+
+git clone --no-checkout --branch gh-pages -- ../ static
 
 npm run build
 
 # make real data
 
-rm static/jslib
+rm static/jslib -rf
 cp -r ../ctrack/jslib static/
 
-rm static/art
+rm static/art -rf
 cp -r ../ctrack/art static/
 
 cd static
 git add . --all
 git commit -a -m "$*"
 git push
-cd ..
 
-#rm -rf static
-#npm run build
+rm -rf static
