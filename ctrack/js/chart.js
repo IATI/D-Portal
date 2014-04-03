@@ -86,7 +86,11 @@ chart.draw=function(sel,data,options){
 		
 	var ctx = div.canvas[0].getContext('2d');
 
-	var	ang=-(Math.PI/2);
+	var	ang=-(Math.PI*1/2);
+	if(opt.clockwise<0)
+	{
+		ang=(Math.PI*3/2);
+	}
 	
 	var max=0; for (var i=0; i<data.length; i++){ max+=getdat("num",i); }
 
