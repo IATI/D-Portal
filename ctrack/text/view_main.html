@@ -206,13 +206,11 @@ BANGLADESH
 </tr>
 
 #donor_graph
-<div class="default graph">
-<a href="#view=donors" style="display:block; width:880px; margin:0 auto; padding:20px 40px; color:#fff; font-size:1.8em; text-align:center; background-color:#008FFF;">
-	Where does the money come from?
-</a>
-<div class="peak_wrap" style="width:960px;"><div class="peak donor" style="margin:0 auto;"></div></div>
-<div id="donor_graph" style="background-color:#fff; font-size:1.0em; line-height:1.3em; color:#444; margin-top:10px;"></div>
-<a href="#view=donors" class="view_all_money" style="margin:0 auto; padding:15px 0; font-size:1.1em; width:960px;">View all</a>
+<div class="default head">
+<a href="#view=donors" class="ask donor">Where does the money come from?</a>
+<div class="peak_wrap"><div class="peak donor"></div></div>
+<div id="donor_graph"></div>
+<a href="#view=donors" class="view_all_money" style="">View all</a>
 
 <script>
 	var ctrack=require("ctrack");
@@ -222,7 +220,7 @@ BANGLADESH
 		width:960,
 		height:300,
 		center_x:250,
-		center_y:150,
+		center_y:140,
 		radius:135,
 		hole:40,
 		caption_css:{"width":250,"padding":"7px 20px","borderStyle":"solid","borderWidth":1, "color":"#666", "background-color":"#fff",},
@@ -243,27 +241,25 @@ BANGLADESH
 
 #sector_graph
 <div class="default graph">
-<a href="#view=sectors" style="display:block; width:560px; margin:0 auto; padding:20px 40px; color:#fff; font-size:1.8em; text-align:center; background-color:#00C475;">
-	Where does the money go?
-</a>
-<div class="peak_wrap" style="width:960px;"><div class="peak sector" style="margin:0 auto;"></div></div>
-<div id="sector_graph" style="background-color:#fff; font-size:1.0em; line-height:1.3em; color:#444; margin-top:10px; padding-bottom:10px;"></div>
-<a href="#view=sectors" class="view_all_money" style="padding:15px 0; font-size:1.1em; width:640px;">View all</a>
+<a href="#view=sectors" class="ask sector">Where does the money go?</a>
+<div class="peak_wrap"><div class="peak sector"></div></div>
+<div id="sector_graph"></div>
+<a href="#view=sectors" class="view_all_money">View all</a>
 
 <script>
 	var ctrack=require("ctrack");
 	var data=ctrack.get_chart_data("data_chart_donors");
 	var opts={
 		layout:"left",
-		width:640,
+		width:960,
 		height:300,
-		center_x:450,
-		center_y:150,
+		center_x:750,
+		center_y:140,
 		radius:135,
 		hole:40,
 		caption_css:{"width":250,"padding":"7px 20px","borderStyle":"solid","borderWidth":1, "color":"#666", "background-color":"#fff",},
 		color:["#79F5C3","#0EFF9E","#00C475","#318F69","#476B5C"],
-		caption_edge:10,
+		caption_edge:100,
 		stroke_width:2,
 		line_width:3,
 		tints:{

@@ -53,11 +53,30 @@ select.tongue			{font-size:0.9em;}
 .default.head			{padding-top:20px;}
 .default.min			{padding-top:10px;}
 .default.declare		{padding:10px 0; font-size:0.9em; color:#ccc;}
-.default.graph			{padding:20px 0;}
+.default.graph			{padding:40px 0;}
 .declare.head			{padding-top:5px; border-top:10px solid #fff; font-size:0.9em; color:#ccc;}
 
-/*	Money Module styles
+
+/*	Graph styles
 	============================================= */
+a.ask					{display:block; width:880px; margin:0 auto; padding:20px 40px; color:#fff; font-size:1.8em; text-align:center;}
+a.ask.donor				{background-color:#008FFF;}
+a.ask.donor:focus		{background-color:#ffbf47;}
+a.ask.donor:hover		{background-color:#33A4FC;}
+a.ask.sector			{background-color:#00C475;}
+a.ask.sector:focus		{background-color:#ffbf47;}
+a.ask.sector:hover		{background-color:#14EE96;}
+.peak_wrap				{width:960px; background-color:#fff;}
+.peak					{margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;}	/* Triangles */
+.peak.donor				{border-top:20px solid #008FFF;}
+.peak.sector			{border-top:20px solid #00C475;}
+a.view_all_money		{display:block; width:960px; background-color:rgba(0,14,32,0.7); color:#ccc; border-radius:0 0 8px 8px; text-align:center; margin:0 auto; padding:15px 0; font-size:1.1em;}
+a.view_all_money:focus	{background-color:#ffbf47;}
+a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
+#donor_graph, #sector_graph	{background-color:#fff; font-size:1.0em; line-height:1.3em; color:#444;}
+
+/*	Money Module styles (old)
+	============================================= 
 .money_wrap				{width:880px; margin:0 auto; font-size:2.0em; padding:40px 0 60px 0;}
 .money_mod_wrap			{width:380px; display:inline-block; vertical-align:top; padding:0; margin:0; max-width:380px; overflow:hidden;}
 .money_mod_wrap.donor	{padding-right:60px;}
@@ -67,15 +86,15 @@ select.tongue			{font-size:0.9em;}
 .money_title.sector		{background-color:#00C475;}
 .peak_space				{width:160px; display:inline-block; vertical-align:top;}
 .peak_wrap				{width:140px; display:inline-block; vertical-align:top;}
-.peak					{width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;}	/* Triangles */
+.peak					{width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;}	/* Triangles 
 .peak.donor				{border-top:20px solid #008FFF;}
 .peak.sector			{border-top:20px solid #00C475;}
 .barchart_wrap			{width:100px; height:10px; background-color:#000000;}
-.barchart.donor			{height:10px; background-color:#1E90FF;}	/* Check #chunkmoney_row for more styling of bar */
-.barchart.sector		{height:10px; background-color:#00C475;}	/* Check #chunkmoney_row for more styling of bar */
+.barchart.donor			{height:10px; background-color:#1E90FF;}	/* Check #chunkmoney_row for more styling of bar 
+.barchart.sector		{height:10px; background-color:#00C475;}	/* Check #chunkmoney_row for more styling of bar 
 a.view_all_money		{display:block; width:380px; background-color:rgba(0,14,32,0.7); color:#ccc; font-size:0.6em; text-align:center; padding:20px 0; border-radius:0 0 8px 8px; text-align:center;}
 a.view_all_money:focus	{background-color:#ffbf47;}
-a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
+a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}*/
 
 /*	Map styles
 	============================================= */
