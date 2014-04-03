@@ -56,7 +56,7 @@ view_donors_top.ajax=function(args)
 		{
 			v={};
 			v.usd=total-shown;
-			v.funder="Others...";
+			v.funder=(1+list.length-limit)+" More";
 		}
 		
 		if(v)
