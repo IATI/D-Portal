@@ -311,6 +311,50 @@ if(true)
 //	codes["local_currency"]=o;
 
 
+//
+
+	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=11&output=csv");
+	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
+
+	var o={};
+
+	var head=[];
+	for(var i=0;i<lines[0].length;i++)
+	{
+		var v=lines[0][i];
+		head[i]=v.trim();
+	}
+//	ls(head);
+	
+	for(var i=1;i<lines.length;i++)
+	{
+		var v=lines[i];
+		var a=rev_crs_countries[ v[0].trim() ];
+		if(a)
+		{
+			var t={};
+			o[a]=t;
+			for(var j=0;j<v.length;j++)
+			{
+				var h=head[j];
+				if(h)
+				{
+					var n=Number(v[j]);
+					if(n)
+					{
+						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
+					}
+				}
+			}
+		}
+	}
+	
+//	ls(o);
+
+	console.log("Writing json/crs_2012.json")
+//	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
+	fs.writeFileSync(__dirname+"/../json/crs_2012_sectors.json",JSON.stringify(o,null,'\t'));
+
 
 }
 
