@@ -86,12 +86,7 @@ chart.draw=function(sel,data,options){
 		
 	var ctx = div.canvas[0].getContext('2d');
 
-	var	ang=-(Math.PI*1/2);
-	if(opt.clockwise<0)
-	{
-		ang=(Math.PI*3/2);
-	}
-	
+	var	ang=-(Math.PI*1/2);	
 	var max=0; for (var i=0; i<data.length; i++){ max+=getdat("num",i); }
 
 	opt.seg_rad=[];
@@ -102,8 +97,8 @@ chart.draw=function(sel,data,options){
 		opt.seg_rad[i]=ang+(seg/2);
 
 		ctx.beginPath();
-		ctx.arc(opt.center_x,opt.center_y,opt.radius,ang	,ang+seg,false);
-		ctx.arc(opt.center_x,opt.center_y,opt.hole	,ang+seg,ang	,true);
+		ctx.arc(opt.center_x,opt.center_y,opt.radius,ang	,ang+seg, opt.clockwise<0 /*false*/);
+		ctx.arc(opt.center_x,opt.center_y,opt.hole	,ang+seg,ang	, opt.clockwise>0 /*true*/);
 		ctx.closePath();
 
 		var cc=csscolor.parseCSSColor( getdat("color",i) );
