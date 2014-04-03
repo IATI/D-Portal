@@ -94,6 +94,5 @@ view_sectors_top.ajax=function(args)
 	
 	ctrack.display();
 
-	fetch.ajax(dat,callback);
 
 }
