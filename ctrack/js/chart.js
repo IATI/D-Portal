@@ -13,6 +13,7 @@ chart.draw=function(sel,data,options){
 	var opt={			//	All stylings are in pixels
 		style:"donut", 	//	Style of chart - there is only donut flavour for now
 		layout:"right",	//	Caption placement - left, right, five
+		clockwise:1,    // if -1 then fill piechart in reverse
 		width:600,		//	Width of entire chart div
 		height:400,		//	Height of entire chart div
 		center_x:200,	//	Center of chart in div from the left
@@ -92,7 +93,7 @@ chart.draw=function(sel,data,options){
 	opt.seg_rad=[];
 	for (var i=0; i<data.length; i++){
 
-		var seg = ( (getdat("num",i)/max) * (Math.PI*2) );
+		var seg = ( (getdat("num",i)/max) * (Math.PI*2) ) * opt.clockwise ;
 
 		opt.seg_rad[i]=ang+(seg/2);
 
