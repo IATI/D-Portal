@@ -64,6 +64,9 @@ plate.fill_chunks=function(str,chunks)
 						else
 						if( "string" == typeof chunk ) // upgrade from string
 						{
+							
+console.log("Warning chunk "+name+" used more than once.")
+
 							chunk=[];
 							chunk[0]=chunks[name];
 							chunks[name]=chunk;
