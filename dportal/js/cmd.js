@@ -48,7 +48,7 @@ deleteFolderRecursive = function(path) {
     }
 };
 
-	deleteFolderRecursive("static");
+//	deleteFolderRecursive("static");
 
 
 	try { fs.mkdirSync("static"); } catch(e){}
