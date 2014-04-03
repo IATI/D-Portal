@@ -13,6 +13,7 @@ chart.draw=function(sel,data,options){
 	var opt={			//	All stylings are in pixels
 		style:"donut", 	//	Style of chart - there is only donut flavour for now
 		layout:"right",	//	Caption placement - left, right, five
+		clockwise:1,    // if -1 then fill piechart in reverse
 		width:600,		//	Width of entire chart div
 		height:400,		//	Height of entire chart div
 		center_x:200,	//	Center of chart in div from the left
@@ -85,20 +86,19 @@ chart.draw=function(sel,data,options){
 		
 	var ctx = div.canvas[0].getContext('2d');
 
-	var	ang=-(Math.PI/2);
-	
+	var	ang=-(Math.PI*1/2);	
 	var max=0; for (var i=0; i<data.length; i++){ max+=getdat("num",i); }
 
 	opt.seg_rad=[];
 	for (var i=0; i<data.length; i++){
 
-		var seg = ( (getdat("num",i)/max) * (Math.PI*2) );
+		var seg = ( (getdat("num",i)/max) * (Math.PI*2) ) * opt.clockwise ;
 
 		opt.seg_rad[i]=ang+(seg/2);
 
 		ctx.beginPath();
-		ctx.arc(opt.center_x,opt.center_y,opt.radius,ang	,ang+seg,false);
-		ctx.arc(opt.center_x,opt.center_y,opt.hole	,ang+seg,ang	,true);
+		ctx.arc(opt.center_x,opt.center_y,opt.radius,ang	,ang+seg, opt.clockwise<0 /*false*/);
+		ctx.arc(opt.center_x,opt.center_y,opt.hole	,ang+seg,ang	, opt.clockwise>0 /*true*/);
 		ctx.closePath();
 
 		var cc=csscolor.parseCSSColor( getdat("color",i) );
