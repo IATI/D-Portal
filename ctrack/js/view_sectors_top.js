@@ -63,7 +63,7 @@ view_sectors_top.ajax=function(args)
 				{
 					v={};
 					v.usd=Math.floor(total-shown);
-					v.sector_group="Others...";
+					v.sector_group=(1+data.rows.length-limit)+" More";
 				}
 				else
 				{
