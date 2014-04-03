@@ -19,7 +19,7 @@ chart.draw=function(sel,data,options){
 		center_y:200,	//	Center of chart in div from the top
 		radius:140,		//	Size of chart
 		hole:70,		//	Size of hole in chart - how big is your donut?
-		color:["#0f0","#8f0","#4f0","#0f4","#0f8","#4f4"],	//	Add as many colours as you want for pie slices
+		color:["#0f0","#8f0","#4f0","#0f4","#0f8","#4f4"],	//	Add as many colours as you want for pie slices (5 max for now)
 		caption_css:{"width":160,"padding":"8px","borderStyle":"solid","borderWidth":4},	//	Styling for the caption div
 		caption_edge:4,	//	Margin of caption div from the edge of entire chart div depending on layout (left/right)
 		stroke_width:4,	//	Thickness of chart border
