@@ -34,3 +34,7 @@ views.act=require("./view_act.js");
 
 views.test=require("./view_test.js");
 
+views.data_quality=require("./view_data_quality.js");
+views.total=require("./view_total.js");
+views.publishers=require("./view_publishers.js");
+
