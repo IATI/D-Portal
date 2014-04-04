@@ -123,6 +123,7 @@ iati_codes.fetch = function(){
 	codes["country"]=o;
 
 
+// sector groups -> https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=9&output=csv
 
 // IATI sectors ->   https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=0&output=csv
 // IATI funders ->   https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=2&output=csv
@@ -131,6 +132,28 @@ iati_codes.fetch = function(){
 // CRS 2012 ->       https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=3&output=csv
 // local currency ->       https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=8&output=csv
 
+
+	console.log("Fetching IATI sector IDS csv")
+
+	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=9&output=csv");
+	var lines=x.split("\n");
+	lines=lines.map(function(l){return l.split(",")});
+
+	var o={};
+
+	for(var i=1;i<lines.length;i++)
+	{
+		var v=lines[i];
+		var d=(v[0]);
+		var str=v[1];
+		if(d && str)
+		{
+			o[d.trim()]=str.trim();
+		}
+	}
+	codes["sector_ids"]=o;
+	
+	
 	console.log("Fetching IATI sector groups csv")
 
 	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=0&output=csv");
