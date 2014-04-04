@@ -70,6 +70,15 @@ Donantes Actividades
 #crumbname_sectors_text 
 Lista Sector 
 
+#crumbname_sector_budgets_text 
+Presupuestos del Sector 
+
+#crumbname_sector_transactions_text 
+Transacciones del Sector 
+
+#crumbname_sector_activities_text 
+Actividades del Sector
+
 #crumbname_act_text 
 Actividad
 
@@ -160,13 +169,7 @@ Proyectos recientemente terminados
 #list_ended_declare_text 
 Descendiente
 
-#view_all_active_text 
-Ver todo
-
-#view_all_ended_text 
-Ver todo
-
-#view_all_donors_text
+#view_all
 Ver todo
 
 #list_donor_back_text
@@ -178,23 +181,26 @@ Gasto total para {donor} en {year}
 #view_donor_activities_text 
 Actividades proyectos de {donor} y el gasto corriente (USD) 
 
-#view_donor_activites_reporting_text
+#view_sector_transactions_text 
+Inversión total para {sector} en {year} 
+
+#view_sector_activities_text 
+Proyectos activos en {sector} y gasto corriente (USD) 
+
+#reported_by_text
 Reportado por {reporting_org}
 
-#donor_activities_title_tip_text 
+#project_title_tip_text 
 Título del proyecto de la actividad
 
 #donor_activities_percentage_tip_text 
 Porcentaje del total de compromisos pasados
 
-#donor_transactions_title_tip_text 
-Título del proyecto de la actividad
-
-#donor_transactions_amount_tip_text
-Importe de la transacción en USD
-
 #view_donor_budgets_text
 Presupuesto total para {donor} en {year}
+
+#view_sector_budgets_text 
+Presupuesto total para {sector} en {year}
 
 #table_donor_title_transaction_text
 GASTAR IATI (USD)
@@ -310,14 +316,8 @@ Suma de los presupuestos del sector en USD para el 2014
 #table_sector_tip_b2015_text
 Suma de los presupuestos del sector en USD para 2015
 
-#table_active_title_tip_text 
-Título del proyecto de la actividad 
-
 #table_active_date_tip_text 
 Fecha final 
-
-#table_ended_title_tip_text 
-Título del proyecto de la actividad 
 
 #table_ended_date_tip_text 
 Fecha terminado
@@ -383,22 +383,22 @@ Los valores perdidos sugiere datos suficientes y significa problemas de calidad 
 d-portal.org es una plataforma de información basada en los países que registra los flujos de recursos . Está dirigido a ofrecer a los ministerios de línea , los parlamentarios y la sociedad civil una información que le puede ayudar con la planificación y el seguimiento de las actividades de desarrollo .
 En su primera versión que contiene los datos actuales publicados a través de la Iniciativa Internacional de Transparencia de la Ayuda ( IATI ), así como los datos más recientes ( 2012 ) publicados por el Sistema de Notificación de los Países Acreedores del CAD . El desarrollo futuro incluirá , entre otras cosas , los datos de emergencia información , Sistemas de Gestión de los presupuestos nacionales y una serie de indicadores socioeconómicos comparables.
 
-#donors_activities_data_description_title_text
+#donor_activities_data_description_title_text
 ¿Cómo se calcula la información?
 
-#donors_activities_data_description_text
+#donor_activities_data_description_text
 Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compromisos totales para cada actividad y el porcentaje pasó hasta ahora, ordenados por mayor en la parte superior . Barras negras significan los problemas de calidad de datos donde los datos publicados falte compromiso y / o información de la transacción .
 
-#donors_transactions_data_description_title_text
+#donor_transactions_data_description_title_text
 ¿Cómo se calcula la información?
 
-#donors_transactions_data_description_text
+#donor_transactions_data_description_text
 Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por {donor} para {country_name} y ordenados por la actividad con el mayor gasto en la parte superior .
 
-#donors_budgets_data_description_title_text
+#donor_budgets_data_description_title_text
 ¿Cómo se calcula la información?
 
-#donors_budgets_data_description_text
+#donor_budgets_data_description_text
 El presupuesto se calcula sumando todos los presupuestos que se encuentra a menos de 370 días de largo y termina en {year} . Esta tabla te muestra todas las actividades que se enumeran los presupuestos para {year} ordenados por mayor en la parte superior . Zeros en tablas sugieren discrepancias en este cálculo debido a datos insuficientes y significan los problemas de calidad de datos.
 
 #sectors_data_description_title_text
@@ -406,6 +406,24 @@ El presupuesto se calcula sumando todos los presupuestos que se encuentra a meno
 
 #sectors_data_description_text
 Así es como se calcula los datos de dinero que va a los sectores.
+
+#sector_activities_data_description_title_text
+¿Cómo se calcula la información?
+
+#sector_activities_data_description_text
+Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compromisos totales para cada actividad y el porcentaje pasó hasta ahora, ordenados por mayor en la parte superior . Barras negras significan los problemas de calidad de datos donde los datos publicados falte compromiso y / o información de la transacción .
+
+#sector_transactions_data_description_title_text
+¿Cómo se calcula la información?
+
+#sector_transactions_data_description_text
+Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por {donor} para {country_name} y ordenados por la actividad con el mayor gasto en la parte superior .
+
+#sector_budgets_data_description_title_text
+¿Cómo se calcula la información?
+
+#sector_budgets_data_description_text
+El presupuesto se calcula sumando todos los presupuestos que se encuentra a menos de 370 días de largo y termina en {year} . Esta tabla te muestra todas las actividades que se enumeran los presupuestos para {year} ordenados por mayor en la parte superior . Zeros en tablas sugieren discrepancias en este cálculo debido a datos insuficientes y significan los problemas de calidad de datos.
 
 #districts_data_description_title_text
 ¿Cómo se calcula la información?

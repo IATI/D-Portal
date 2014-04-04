@@ -73,6 +73,15 @@ Source Activities
 #crumbname_sectors_text
 Sector List
 
+#crumbname_sector_budgets_text
+Sector Budgets
+	
+#crumbname_sector_transactions_text
+Sector Transactions
+
+#crumbname_sector_activities_text
+Sector Activities
+
 #crumbname_act_text
 Activity
 
@@ -160,13 +169,7 @@ Recently ended projects
 #list_ended_declare_text
 Descending
 
-#view_all_active_text
-View all
-
-#view_all_ended_text
-View all
-
-#view_all_donors_text
+#view_all_text
 View all
 
 #list_donor_back_text
@@ -178,23 +181,26 @@ Total spend by {donor} in {year}
 #view_donor_activities_text
 Active projects for {donor} and current spend (USD)
 
-#view_donor_activites_reporting_text
+#view_sector_transactions_text
+Total spend for {sector} in {year}
+
+#view_sector_activities_text
+Active projects in {sector} and current spend (USD)
+
+#reported_by_text
 Reported by {reporting_org}
 
-#donor_activities_title_tip_text
+#project_title_tip_text
 Project title
 
 #donor_activities_percentage_tip_text
 Percentage of total commitments spent
 
-#donor_transactions_title_tip_text
-Project title
-
-#donor_transactions_amount_tip_text
-Transaction amount in USD
-
 #view_donor_budgets_text
 Total budget for {donor} in {year}
+
+#view_sector_budgets_text
+Total budget for {sector} in {year}
 
 #table_donor_title_transaction_text
 IATI SPEND (USD)
@@ -310,14 +316,8 @@ Sum of sector budgets in USD for 2014
 #table_sector_tip_b2015_text
 Sum of sector budgets in USD for 2015
 
-#table_active_title_tip_text
-Project title
-
 #table_active_date_tip_text
 Date ending
-
-#table_ended_title_tip_text
-Project title
 
 #table_ended_date_tip_text
 Date ended
@@ -383,31 +383,22 @@ How is the data calculated?
 d-portal.org is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
 In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the OECD DAC Creditor Reporting System. Future development will include, inter alia, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
 
-#view_donor_transactions_declare_text
-Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported by {donor} for {country_name} and sorted by the activity with the highest spend at the top.
+#donor_activities_data_description_title_text
+How is the data calculated?
 
-#view_donor_activities_declare_text
+#donor_activities_data_description_text
 Spend is calculated by adding disbursements and expenditures. This table shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Black bars signify data quality issues where published data is missing commitment and/or transaction information.
 
-#view_donor_budgets_declare_text
-Budget is calculated by adding up every budget that is less than 370 days long and ends in {year}. This table shows you all activities that have listed budgets for {year} sorted by biggest at the top. Zeros in tables suggest discrepancies in that calculation due to insufficient data and signify data quality issues.
-
-#donors_activities_data_description_title_text
+#donor_transactions_data_description_title_text
 How is the data calculated?
 
-#donors_activities_data_description_text
-Spend is calculated by adding disbursements and expenditures. This table shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Black bars signify data quality issues where published data is missing commitment and/or transaction information.
-
-#donors_transactions_data_description_title_text
-How is the data calculated?
-
-#donors_transactions_data_description_text
+#donor_transactions_data_description_text
 Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported by {donor} for {country_name} and sorted by the activity with the highest spend at the top.
 
-#donors_budgets_data_description_title_text
+#donor_budgets_data_description_title_text
 How is the data calculated?
 
-#donors_budgets_data_description_text
+#donor_budgets_data_description_text
 Budget is calculated by adding up every budget that is less than 370 days long and ends in {year}. This table shows you all activities that have listed budgets for {year} sorted by biggest at the top. Zeros in tables suggest discrepancies in that calculation due to insufficient data and signify data quality issues.
 
 #sectors_data_description_title_text
@@ -415,6 +406,24 @@ How is the data calculated?
 
 #sectors_data_description_text
 This is how the data is calculated for money going to sectors.
+
+#sector_activities_data_description_title_text
+How is the data calculated?
+
+#sector_activities_data_description_text
+Spend is calculated by adding disbursements and expenditures. This table shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Black bars signify data quality issues where published data is missing commitment and/or transaction information.
+
+#sector_transactions_data_description_title_text
+How is the data calculated?
+
+#sector_transactions_data_description_text
+Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported by {donor} for {country_name} and sorted by the activity with the highest spend at the top.
+
+#sector_budgets_data_description_title_text
+How is the data calculated?
+
+#sector_budgets_data_description_text
+Budget is calculated by adding up every budget that is less than 370 days long and ends in {year}. This table shows you all activities that have listed budgets for {year} sorted by biggest at the top. Zeros in tables suggest discrepancies in that calculation due to insufficient data and signify data quality issues.
 
 #districts_data_description_title_text
 How is the data calculated?

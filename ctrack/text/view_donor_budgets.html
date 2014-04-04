@@ -34,8 +34,8 @@
 #donor_budgets_data_description
 <div class="description_wrap">
 	<div class="description">
-		<span class="title">{donors_budgets_data_description_title_text}</span>
-		<p>{donors_budgets_data_description_text}</p>
+		<span class="title">{donor_budgets_data_description_title_text}</span>
+		<p>{donor_budgets_data_description_text}</p>
 		<a class="read">{read_more_text}</a>
 	</div>
 </div>
@@ -43,10 +43,10 @@
 #donor_budgets_data
 <tr>
 	<td class="num">{num}.</td>
-	<td class="title">
+	<td class="title" title="{project_title_tip_text}">
 		<a href="#view=act&aid={aid}">
 			{title}
-			<span>{view_donor_activites_reporting_text}</span>
+			<span>{reported_by_text}</span>
 		</a>
 	</td>
 	<td class="value">{amount}</td>

@@ -70,6 +70,15 @@ d-portal.org还处于非常早期的开发中，预计Alpha版本四月中旬。
 #crumbname_sectors_text
 部门列表
 
+#crumbname_sector_budgets_text 
+部门预算 
+
+#crumbname_sector_transactions_text 
+交易部门 
+
+#crumbname_sector_activities_text 
+部门活动
+
 #crumbname_act_text
 活动
 
@@ -157,13 +166,7 @@ IATI代理
 #list_ended_declare_text
 降
 
-#view_all_active_text
-查看全部
-
-#view_all_ended_text
-查看全部
-
-#view_all_donors_text
+#view_all
 查看全部
 
 #list_donor_back_text
@@ -175,23 +178,26 @@ IATI代理
 #view_donor_activities_text
 活跃​​项目{donor}和电流支出（美元）
 
-#view_donor_activites_reporting_text
+#view_sector_transactions_text 
+在{year}总支出为{sector} 
+
+#view_sector_activities_text 
+在{sector}和电流支出（美元）活动项目 
+
+#reported_by_text
 由{reporting_org}报道
 
-#donor_activities_title_tip_text
+#project_title_tip_text
 项目名称
 
 #donor_activities_percentage_tip_text
 花总承担的百分比
 
-#donor_transactions_title_tip_text
-项目名称
-
-#donor_transactions_amount_tip_text
-以美元交易金额
-
 #view_donor_budgets_text 
 在{year}总预算为{donor} 
+
+#view_sector_budgets_text 
+在{year}总预算为{sector}
 
 #table_donor_title_transaction_text
 IATI花费（美元）
@@ -307,14 +313,8 @@ IATI预算
 #table_sector_tip_b2015_text
 总和的部门预算，以美元为2015年
 
-#table_active_title_tip_text
-项目名称
-
 #table_active_date_tip_text
 结束日期
-
-#table_ended_title_tip_text
-项目名称
 
 #table_ended_date_tip_text
 结束日期
@@ -380,22 +380,22 @@ IATI标志
 d-portal.org是跟踪资源流动的国家为基础的信息平台。它的目的是提供部委，国会议员和民间社会提供信息，可以帮助规划和监督发展活动。
 在其第一次迭代它包含通过国际援助透明度倡议 (IATI) 以及由经合组织发展援助委员会债权人报告系统公布的最新（2012年）公布的数据当前数据。未来的发展将包括，除其他外，援助信息管理系统，国家预算数据以及一系列类似的社会经济指标。
 
-#donors_activities_data_description_title_text
+#donor_activities_data_description_title_text
 数据是如何计算出来的？
 
-#donors_activities_data_description_text
+#donor_activities_data_description_text
 支出是通过增加支出和支出计算。此表显示您承担总额为每项活动和花费的百分比，到目前为止，排序最上方。黑条表示，其中公布的数据丢失的承诺和/或交易信息的数据质量问题。
 
-#donors_transactions_data_description_title_text
+#donor_transactions_data_description_title_text
 数据是如何计算出来的？
 
-#donors_transactions_data_description_text
+#donor_transactions_data_description_text
 支出是通过增加支出和支出计算。此表显示了您为{country_name}报告{donor}和排序活动在顶部最高消费的所有活动。
 
-#donors_budgets_data_description_title_text
+#donor_budgets_data_description_title_text
 数据是如何计算出来的？
 
-#donors_budgets_data_description_text
+#donor_budgets_data_description_text
 财政预算案通过将每隔预算少370多天之久，在{year}结束计算。此表显示您已上市的预算{year}排序最上方的所有活动。在表零表明该计算的差异，由于数据不足，意味着数据质量问题。
 
 #sectors_data_description_title_text
@@ -403,6 +403,24 @@ d-portal.org是跟踪资源流动的国家为基础的信息平台。它的目�
 
 #sectors_data_description_text
 这是数据是如何计算出来的钱去部门。
+
+#sector_activities_data_description_title_text
+数据是如何计算出来的？
+
+#sector_activities_data_description_text
+支出是通过增加支出和支出计算。此表显示您承担总额为每项活动和花费的百分比，到目前为止，排序最上方。黑条表示，其中公布的数据丢失的承诺和/或交易信息的数据质量问题。
+
+#sector_transactions_data_description_title_text
+数据是如何计算出来的？
+
+#sector_transactions_data_description_text
+支出是通过增加支出和支出计算。此表显示了您为{country_name}报告{donor}和排序活动在顶部最高消费的所有活动。
+
+#sector_budgets_data_description_title_text
+数据是如何计算出来的？
+
+#sector_budgets_data_description_text
+财政预算案通过将每隔预算少370多天之久，在{year}结束计算。此表显示您已上市的预算{year}排序最上方的所有活动。在表零表明该计算的差异，由于数据不足，意味着数据质量问题。
 
 #districts_data_description_title_text
 数据是如何计算出来的？
