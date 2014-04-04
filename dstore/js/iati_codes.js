@@ -54,10 +54,38 @@ var https_getbody=function(url,cb)
 iati_codes.fetch = function(){
 
 	var codes={};
+	var publishers={};
 
 if(true)
 {
+	codes.publisher_ids={};
+
+	var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/group");
+	var j=JSON.parse(js);
+	j.forEach(function(v){
+		console.log(v);
+		var jjs=wait.for(http_getbody,"http://iatiregistry.org/api/rest/group/"+v);
+		var jj=JSON.parse(jjs);
+		publishers[v]=jj
+		
+		var ids=jj.extras.publisher_iati_id.split("|");
+		for(var i=0;i<ids.length;i++)
+		{
+			var id=ids[i].trim();
+			if(id!="")
+			{
+				codes.publisher_ids[ id ]=v;
+			}
+		}
+	});
 	
+//	ls(publishers);
+
+	console.log("Writing json/publishers.json")
+	fs.writeFileSync(__dirname+"/../json/publishers.json",JSON.stringify(publishers,null,'\t'));
+
+//	return;
+}	
 	var files=[
 			{
 				url:"http://dev.iatistandard.org/_static/codelists/json/en/Sector.json",
@@ -196,7 +224,6 @@ if(true)
 //	ls(o);
 	codes["local_currency"]=o;
 
-}
 	
 	console.log("Fetching CRS funders csv")
 

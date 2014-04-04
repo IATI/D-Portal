@@ -24,7 +24,13 @@ dstore_sqlite.open = function(){
 	var db = new sqlite3.Database( global.argv.database );
 	
 	db.configure("busyTimeout",1000); // wait upto 1 sec on locks
-	
+		
+	return db;
+};
+
+// set prefered pragmas
+dstore_sqlite.pragmas = function(db){
+{
 // speed up data writes.
 	db.serialize(function() {
 		db.run("PRAGMA synchronous = 0 ;");
@@ -33,16 +39,15 @@ dstore_sqlite.open = function(){
 		db.run("PRAGMA mmap_size=268435456;");
 		db.run("PRAGMA temp_store=2;");
 	});
-	
-	return db;
-};
-
+}
 
 dstore_sqlite.create_tables = function(){
 
 	var db = dstore_sqlite.open();
 
 	db.serialize(function() {
+
+		dstore_sqlite.pragmas(db);
 	
 // simple data dump table containing just the raw xml of each activity.
 // this is filled on import and then used as a source
