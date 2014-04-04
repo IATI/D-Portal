@@ -54,10 +54,9 @@ var https_getbody=function(url,cb)
 iati_codes.fetch = function(){
 
 	var codes={};
+	var publishers={};
+	var packages={};
 
-if(true)
-{
-	
 	var files=[
 			{
 				url:"http://dev.iatistandard.org/_static/codelists/json/en/Sector.json",
@@ -124,6 +123,7 @@ if(true)
 	codes["country"]=o;
 
 
+// sector groups -> https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=9&output=csv
 
 // IATI sectors ->   https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=0&output=csv
 // IATI funders ->   https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=2&output=csv
@@ -132,6 +132,28 @@ if(true)
 // CRS 2012 ->       https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=3&output=csv
 // local currency ->       https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=8&output=csv
 
+
+	console.log("Fetching IATI sector IDS csv")
+
+	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=9&output=csv");
+	var lines=x.split("\n");
+	lines=lines.map(function(l){return l.split(",")});
+
+	var o={};
+
+	for(var i=1;i<lines.length;i++)
+	{
+		var v=lines[i];
+		var d=(v[0]);
+		var str=v[1];
+		if(d && str)
+		{
+			o[d.trim()]=str.trim();
+		}
+	}
+	codes["sector_ids"]=o;
+	
+	
 	console.log("Fetching IATI sector groups csv")
 
 	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=0&output=csv");
@@ -196,7 +218,6 @@ if(true)
 //	ls(o);
 	codes["local_currency"]=o;
 
-}
 	
 	console.log("Fetching CRS funders csv")
 
@@ -355,6 +376,67 @@ if(true)
 //	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
 	fs.writeFileSync(__dirname+"/../json/crs_2012_sectors.json",JSON.stringify(o,null,'\t'));
 
+
+console.log("************************ This next bit takes a loooooong time, feel free to just give up and ctrl C it, I wont judge ypu and all the important stuff is done...");
+if(true)
+{
+	codes.publisher_ids={};
+
+	var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/group");
+	var j=JSON.parse(js);
+	j.forEach(function(v){
+		console.log("Fetching publisher info for "+v);
+		var jjs=wait.for(http_getbody,"http://iatiregistry.org/api/rest/group/"+v);
+		var jj=JSON.parse(jjs);
+		publishers[v]=jj
+		
+		var ids=jj.extras.publisher_iati_id.split("|");
+		for(var i=0;i<ids.length;i++)
+		{
+			var id=ids[i].trim();
+			if(id!="")
+			{
+				codes.publisher_ids[ id ]=v;
+			}
+		}
+	});
+	
+//	ls(publishers);
+
+	console.log("Writing json/publishers.json")
+	fs.writeFileSync(__dirname+"/../json/publishers.json",JSON.stringify(publishers,null,'\t'));
+
+//
+// use the following query
+//
+// http://iatiregistry.org/api/search/dataset?fl=name,download_url,metadata_modified,groups,id,data_updated&offset=0&limit=99999
+// actually that does not work
+// try
+// http://iatiregistry.org/api/search/dataset?fl=name,res_url&offset=0&limit=99999
+//
+
+// get download urls of each xml file ?
+/*
+	for(var pname in publishers)
+	{
+		var p=publishers[pname];
+		for(var i=0;i<p.packages.length;i++)
+		{
+			var name=p.packages[i];
+			console.log("Fetching package info for "+name);
+			var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/dataset/"+name);
+			var j=JSON.parse(js);
+			packages[name]=j.download_url; // the only useful value...
+		}
+	}
+
+// list of urls if we want to do our own scan...
+	console.log("Writing json/packages.json")
+	fs.writeFileSync(__dirname+"/../json/packages.json",JSON.stringify(packages,null,'\t'));
+
+//	return;
+*/
+}	
 
 }
 
