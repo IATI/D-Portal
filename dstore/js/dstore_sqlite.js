@@ -23,6 +23,8 @@ dstore_sqlite.open = function(){
 //	var db = new sqlite3.cached.Database( global.argv.database );
 	var db = new sqlite3.Database( global.argv.database );
 	
+	db.configure("busyTimeout",1000); // wait upto 1 sec on locks
+	
 // speed up data writes.
 	db.serialize(function() {
 		db.run("PRAGMA synchronous = 0 ;");
