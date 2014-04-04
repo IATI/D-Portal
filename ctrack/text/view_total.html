@@ -1,9 +1,13 @@
+#crumbname_total
+{crumbname_total_text}
+
 #view_total
 {view_head}
 <style>{css}</style>
 {beige}
 {main_head}
 {main_countrymin}
+{about_data_links}
 {total_head}
 <div class="donor_budgets_wrap">
 	<table class="title">
@@ -36,14 +40,14 @@
 
 #total_projects_data
 <tr>
-	<td>{num}.</td>
-	<td>
+	<td class="num">{num}.</td>
+	<td class="title">
 		<a href="#view=act&aid={aid}" title="{table_active_title_tip_text}">
 			{title}
 			<span>{view_donor_activites_reporting_text}</span>
 		</a>
 	</td>
-	<td title="{table_active_date_tip_text}">{date}</td>
+	<td class="value" title="{table_active_date_tip_text}">{date}</td>
 </tr>
 
 #total_head
@@ -57,13 +61,6 @@
 			<div class="donors_head_title view" style="">
 				<span class="stats_title view">{stats_total_text}</span>
 				<span class="stats_num view">{total_projects}</span>
-			</div>
-			<div class="donors_head_declare">
-				<a onclick="$('html, body').animate({scrollTop: $('.description').offset().top}, 300);return false;" class="about_data">
-					<img src="{art}info_icon.png" alt="{info_icon_alt_text}" width="15" height="15"/> {about_this_data_text}
-				</a><a href="#view=data_quality" class="about_data quality">
-					<img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {about_data_quality_text}
-				</a>
 			</div>
 		</div>
 </div>
