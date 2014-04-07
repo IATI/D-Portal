@@ -42,6 +42,7 @@ view_sectors.ajax=function(args)
 
 	ctrack.sectors_data={};
 	
+	var rev_sector_names={}; for(var n in iati_codes.sector_names) { rev_sector_names[ iati_codes.sector_names[n] ]=n; }
 	var display=function()
 	{
 		var s=[];
@@ -59,7 +60,7 @@ view_sectors.ajax=function(args)
 			if(!v.t2014){v.t2014="0";}
 			if(!v.b2014){v.b2014="0";}
 			if(!v.b2015){v.b2015="0";}
-			v.sector=v.group;
+			v.sector=iati_codes.sector_names[v.group];
 			s.push( plate.replace("{table_sectors_row}",v) );
 		});
 		ctrack.chunk("table_sectors_rows",s.join(""));
@@ -84,7 +85,7 @@ view_sectors.ajax=function(args)
 			if(n!="Grand Total")
 			{
 				var d={};
-				d.group=n;
+				d.group=rev_sector_names[n];
 				d.crs=commafy(""+Math.floor(crs[n]));
 				d.crs_num=crs[n];
 				fadd(d);
