@@ -93,10 +93,10 @@ a.view_all_money:hover	{background-color:#000; color:#fff;}
 	============================================= */
 .stats_wrap				{width:990px; margin:0 auto; padding:40px 0;}
 span.stats_title		{display:block; font-size:1.5em; color:#000; padding-bottom:10px;}
-span.stats_title.view	{font-size:0.6em; color:#000;}
+span.stats_title.view	{font-size:0.6em; color:#fff;}
 span.stats_num			{display:block; font-size:8.0em; color:#000;}
 span.stats_num.small	{display:block; font-size:4.0em;}
-span.stats_num.view		{font-size:2.9em; color:#000; line-height:0.8em;}
+span.stats_num.view		{font-size:2.9em; color:#fff; line-height:0.8em;}
 .declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#000; font-size:0.9em;}
 a.stats_link			{display:block; padding:30px 40px; height:100%;}
 
@@ -134,13 +134,13 @@ a.read:hover			{color:#000;}
 .donors_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
 .donors_head_title.view		{background-color:#000;}
 .donors_head_declare		{width:480px; padding-top:10px; color:#000; font-size:0.9em; text-align:center;}
-.table_donors_wrap			{width:918px; margin:0 auto; background-color:#fff; padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px; border:1px solid #000; border-top:0;}
+.table_donors_wrap			{width:920px; margin:0 auto; background-color:#fff; padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px; border:1px solid #000;}
 
 
 /*	For url #view=donor_activities
 	============================================= */
 .donor_activities_wrap			{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
-.donor_activities				{background-color:#fff; padding:0 20px 20px 20px; border-radius:0 0 8px 8px;}
+.donor_activities				{background-color:#fff; padding:0 20px 20px 20px; border-radius:0 0 8px 8px; border:1px solid #000; border-top:0;}
 .donor_activities_spend_wrap	{position:relative;}
 .donor_activities_spend			{color:#000;}
 .donor_activities_barchart_wrap	{min-width:100px; max-width:100px; padding-top:10px; position:absolute; right:0;}
@@ -154,13 +154,13 @@ a.back_to_donor_list:hover		{background-color:#000; color:#fff;}
 /*	For url #view=donor_transactions
 	============================================= */
 .donor_transactions_wrap	{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
-.donor_transactions			{background-color:rgba(0,14,32,0.7); padding:0 20px 20px 20px; border-radius:0 0 8px 8px;}
+.donor_transactions			{background-color:#fff; padding:0 20px 20px 20px; border-radius:0 0 8px 8px; border:1px solid #000; border-top:0;}
 
 
 /*	For url #view=donor_budgets
 	============================================= */
 .donor_budgets_wrap			{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
-.donor_budgets				{background-color:rgba(0,14,32,0.7); padding:0 20px 20px 20px; border-radius:0 0 8px 8px;}
+.donor_budgets				{background-color:#fff; padding:0 20px 20px 20px; border-radius:0 0 8px 8px; border:1px solid #000; border-top:0;}
 
 
 /*	For url #view=sectors & all #view=sector_*
@@ -169,11 +169,11 @@ a.back_to_donor_list:hover		{background-color:#000; color:#fff;}
 .sectors_icon_wrap			{width:330px; display:inline-block; vertical-align:bottom;}
 .sectors_peak_wrap			{display:inline-block; vertical-align:top;}
 .sectors_peak_space			{height:30px;}
-.sectors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #00C475; border-bottom:20px solid transparent;}	/* Triangles */
+.sectors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}	/* Triangles */
 .sectors_head_title_wrap	{width:480px; display:inline-block; vertical-align:top;}
-.sectors_head_title			{width:400px; background-color:#00C475; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
-.sectors_head_declare		{width:480px; padding-top:10px; color:#ccc; font-size:0.9em; text-align:center;}
-.table_sectors_wrap			{width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;}
+.sectors_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
+.sectors_head_declare		{width:480px; padding-top:10px; color:#000; font-size:0.9em; text-align:center;}
+.table_sectors_wrap			{width:920px; margin:0 auto; background-color:#fff; padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px; border:1px solid #000;}
 
 
 /*	For url #view=act
@@ -186,7 +186,7 @@ a.back_to_donor_list:hover		{background-color:#000; color:#fff;}
 	============================================= */
 .data_quality_wrap		{width:880px; padding:40px; background-color:#fff; margin-bottom:40px;}
 .data_quality_wrap p	{padding:15px 0; font-size:1.0em; color:#000; line-height:1.2em; word-spacing:0.07em;}
-.data_quality_title		{width:100%; margin:0 auto; padding:10px 0; border-top:1px solid #444; border-bottom:1px solid #444; color:#000; font-size:1.4em; line-height:1.35em;}
+.data_quality_title		{width:100%; margin:0 auto; padding:10px 0; border-top:1px solid #000; border-bottom:1px solid #000; color:#000; font-size:1.4em; line-height:1.35em;}
 
 
 /*	Table for Header logo and Translations
@@ -253,11 +253,11 @@ table.money td.col7			{background-color:#EDEDED;}
 
 table.money tr.row1 td		{background-color:transparent; color:#fff; font-weight:700; text-align:center; padding:20px;}
 table.money tr.row1 td.col1	{background-color:#000; text-align:left; border:1px solid #666; border-bottom:1px solid #666;}
-table.money tr.row1 td.col2	{text-align:left;}
+table.money tr.row1 td.col2	{color:#000; text-align:left;}
 table.money tr.row1 td.col3	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
 table.money tr.row1 td.col4	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
 
-table.money tr.row2 td		{color:#444; font-weight:500; padding:20px;}
+table.money tr.row2 td		{color:#000; font-weight:500; padding:20px;}
 table.money tr.row2 td.col1 {background-color:#C8C8C8; border-left:1px solid #666; border-right:1px solid #666;}
 table.money tr.row2 td.col3	{background-color:#D2D2D2; border-left:1px solid #666;}
 table.money tr.row2 td.col4	{background-color:#DADADA;}
@@ -271,8 +271,8 @@ table.money tr.rows td.col5	{border-right:1px solid #666;}
 table.money tr.rows td.col7	{border-right:1px solid #666;}
 
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
-table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:#CCC;}
-table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:#CCC;}
+table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:#AAA;}
+table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:#AAA;}
 
 table.money a				{display:block; padding:20px; border-bottom:0px dotted #0D3057; color:#A8C5E5;}
 table.money a:focus			{color:#000; text-decoration:none;}
@@ -285,18 +285,18 @@ table.money a:active		{color:#000; text-decoration: none;}
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
 table.activity			{width:100%; border-collapse:collapse;}
-table.activity td		{color:#B8C8CD; font-size:1.25em; line-height:1.35em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642;}
+table.activity td		{color:#000; font-size:1.25em; line-height:1.35em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642;}
 table.activity td.num	{padding:10px 0;}
 table.activity td.title	{padding:0 30px 0 0;}
 table.activity td.value	{text-align:right; padding-right:0; min-width:140px; font-size:1.0em;}
 table.activity td.alert_no_iati	{text-align:center; font-size:2.0em;}
-table.activity td span	{display:block; padding-top:5px; color:#9C8876; font-size:0.7em; line-height:1.0em;}
-table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#95B0CF;}
-table.activity a:focus	{color:#95B0CF; text-decoration:none;}
-table.activity a:link  	{color:#95B0CF; text-decoration:none;}
-table.activity a:visited{color:#95B0CF; text-decoration:none;}
-table.activity a:hover	{color:#fff; text-decoration:none; background-color:rgba(0,0,0,0.4);}
-table.activity a:active	{color:#95B0CF; text-decoration:none;}
+table.activity td span	{display:block; padding-top:5px; color:#000; font-size:0.7em; line-height:1.0em;}
+table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#000;}
+table.activity a:focus	{color:#000; text-decoration:none;}
+table.activity a:link  	{color:#000; text-decoration:none;}
+table.activity a:visited{color:#000; text-decoration:none;}
+table.activity a:hover	{color:#000; text-decoration:none; background-color:#e9e9e9;}
+table.activity a:active	{color:#000; text-decoration:none;}
 
 
 /*	Data Investigators alert
