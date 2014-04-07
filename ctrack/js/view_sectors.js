@@ -100,6 +100,7 @@ view_sectors.ajax=function(args)
 				"from":"trans,country,sector",
 				"limit":args.limit || 100,
 				"select":"sector_group,sum_of_percent_of_trans_usd",
+				"sector_group_not_null":1,
 				"groupby":"sector_group",
 				"trans_code":"D|E",
 				"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
@@ -132,6 +133,7 @@ view_sectors.ajax=function(args)
 				"from":"budget,country,sector",
 				"limit":args.limit || 100,
 				"select":"sector_group,sum_of_percent_of_budget_usd",
+				"sector_group_not_null":1,
 				"groupby":"sector_group",
 				"budget_priority":1, // has passed some validation checks serverside
 				"budget_day_end_gteq":year+"-01-01","budget_day_end_lt":(parseInt(year)+1)+"-01-01",
