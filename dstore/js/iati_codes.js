@@ -377,10 +377,11 @@ iati_codes.fetch = function(){
 	fs.writeFileSync(__dirname+"/../json/crs_2012_sectors.json",JSON.stringify(o,null,'\t'));
 
 
-console.log("************************ This next bit takes a loooooong time, feel free to just give up and ctrl C it, I wont judge ypu and all the important stuff is done...");
+console.log("************************ This next bit takes a loooooong time to get every publisher id from iati...");
 if(true)
 {
-	codes.publisher_ids={};
+//	codes.publisher_ids={};
+	codes.publisher_names={};
 
 	var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/group");
 	var j=JSON.parse(js);
@@ -396,12 +397,17 @@ if(true)
 			var id=ids[i].trim();
 			if(id!="")
 			{
-				codes.publisher_ids[ id ]=v;
+//				codes.publisher_ids[ id ]=v;
+				codes.publisher_names[ id ]=jj.title;
 			}
 		}
 	});
 	
 //	ls(publishers);
+
+	console.log("Writing json/iati_codes.json")	
+//	fs.writeFileSync("json/iati_codes.js","exports.codes="+JSON.stringify(codes)+";\n");
+	fs.writeFileSync(__dirname+"/../json/iati_codes.json",JSON.stringify(codes,null,'\t'));
 
 	console.log("Writing json/publishers.json")
 	fs.writeFileSync(__dirname+"/../json/publishers.json",JSON.stringify(publishers,null,'\t'));
