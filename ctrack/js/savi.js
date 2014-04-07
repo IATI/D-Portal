@@ -393,7 +393,8 @@ $(inside+"related-activity").each(function(i){var it=$(this);
 
 $(inside+"iati-activity").each(function(i){var it=$(this);
 
-	var aa=it.children("sector[vocabulary=\"DAC\"]");
+	var base=it.children(".span_sector");
+	var aa=base.children("sector[vocabulary=\"DAC\"]");
 	if(aa.length>0)
 	{
 	
@@ -409,7 +410,7 @@ $(inside+"iati-activity").each(function(i){var it=$(this);
 		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=880x275&cht=p&chds=a";
 		url=url+"&chd=t:"+av.join(",")+"&chdl="+an.join("|")
 
-		aa.first().before("<img src=\""+url+"\" style=\"width:880px;height:275px\" class=\"sector_pie\" />");
+		base.before("<img src=\""+url+"\" style=\"width:880px;height:275px\" class=\"sector_pie\" />");
 	}
 });
 
