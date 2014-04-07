@@ -49,6 +49,13 @@ view_budgets.ajax=function(args)
 			"budget_priority":1, // has passed some validation checks serverside
 			"country_code":(args.country || ctrack.args.country)
 		};
+	if(args.q)
+	{
+		for(var n in args.q) // override with special qs
+		{
+			dat[n]=args[n];
+		}
+	}
 	fetch.ajax(dat,function(data){
 
 		var s=[];
@@ -63,9 +70,9 @@ view_budgets.ajax=function(args)
 			d.reporting_org=v.reporting_org;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
 
-			s.push( plate.replace("{budgets_data}",d) );
+			s.push( plate.replace(args.plate || "{budgets_data}",d) );
 		}
-		ctrack.chunk("budgets_datas",s.join(""));
+		ctrack.chunk(args.chunk || "budgets_datas",s.join(""));
 		if(args.callback){args.callback(data);}
 		ctrack.display();
 	});
