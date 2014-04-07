@@ -2,8 +2,8 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_transactions=exports;
-exports.name="transactions";
+var view_list_transactions=exports;
+exports.name="list_transactions";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
@@ -18,25 +18,25 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
 // the chunk names this view will fill with new data
-view_transactions.chunks=[
-	"transactions_datas",
+view_list_transactions.chunks=[
+	"list_transactions_datas",
 ];
 
 //
 // display the view
 //
-view_transactions.view=function()
+view_list_transactions.view=function()
 {
-	view_transactions.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
+	view_list_transactions.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 	ctrack.setcrumb(2);
 	ctrack.change_hash();
-	view_transactions.ajax({q:ctrack.hash});
+	view_list_transactions.ajax({q:ctrack.hash});
 };
 
 //
 // Perform ajax call to get data
 //
-view_transactions.ajax=function(args)
+view_list_transactions.ajax=function(args)
 {
 	args=args || {};
 
@@ -73,9 +73,9 @@ view_transactions.ajax=function(args)
 			d.reporting_org=v.reporting_org;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd));
 
-			s.push( plate.replace(args.plate || "{transactions_data}",d) );
+			s.push( plate.replace(args.plate || "{list_transactions_data}",d) );
 		}
-		ctrack.chunk(args.chunk || "transactions_datas",s.join(""));
+		ctrack.chunk(args.chunk || "list_transactions_datas",s.join(""));
 		if(args.callback){args.callback(data);}
 		ctrack.display();
 	});

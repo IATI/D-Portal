@@ -2,8 +2,8 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_activities=exports;
-exports.name="activities";
+var view_list_activities=exports;
+exports.name="list_activities";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
@@ -18,25 +18,25 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
 // the chunk names this view will fill with new data
-view_activities.chunks=[
-	"activities_datas",
+view_list_activities.chunks=[
+	"list_activities_datas",
 ];
 
 //
 // display the view
 //
-view_activities.view=function()
+view_list_activities.view=function()
 {
-	view_activities.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
+	view_list_activities.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 	ctrack.setcrumb(2);
 	ctrack.change_hash();
-	view_activities.ajax({q:ctrack.hash});
+	view_list_activities.ajax({q:ctrack.hash});
 };
 
 //
 // Perform ajax call to get data
 //
-view_activities.ajax=function(args)
+view_list_activities.ajax=function(args)
 {
 	args=args || {};
 
@@ -77,9 +77,9 @@ view_activities.ajax=function(args)
 				if(d.pct>100){d.pct=100;}
 			}
 
-			s.push( plate.replace(args.plate || "{activities_data}",d) );
+			s.push( plate.replace(args.plate || "{list_activities_data}",d) );
 		}
-		ctrack.chunk(args.chunk || "activities_datas",s.join(""));
+		ctrack.chunk(args.chunk || "list_activities_datas",s.join(""));
 		if(args.callback){args.callback(data);}
 		ctrack.display();
 	});

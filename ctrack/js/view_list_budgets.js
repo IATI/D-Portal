@@ -2,8 +2,8 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_budgets=exports;
-exports.name="budgets";
+var view_list_budgets=exports;
+exports.name="list_budgets";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
@@ -18,25 +18,25 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
 // the chunk names this view will fill with new data
-view_budgets.chunks=[
-	"budgets_datas",
+view_list_budgets.chunks=[
+	"list_budgets_datas",
 ];
 
 //
 // display the view
 //
-view_budgets.view=function()
+view_list_budgets.view=function()
 {
-	view_budgets.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
+	view_list_budgets.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
 	ctrack.setcrumb(2);
 	ctrack.change_hash();
-	view_budgets.ajax({year:ctrack.hash.year,funder:ctrack.hash.funder});
+	view_list_budgets.ajax({year:ctrack.hash.year,funder:ctrack.hash.funder});
 };
 
 //
 // Perform ajax call to get data
 //
-view_budgets.ajax=function(args)
+view_list_budgets.ajax=function(args)
 {
 	args=args || {};
 
@@ -70,9 +70,9 @@ view_budgets.ajax=function(args)
 			d.reporting_org=v.reporting_org;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
 
-			s.push( plate.replace(args.plate || "{budgets_data}",d) );
+			s.push( plate.replace(args.plate || "{list_budgets_data}",d) );
 		}
-		ctrack.chunk(args.chunk || "budgets_datas",s.join(""));
+		ctrack.chunk(args.chunk || "list_budgets_datas",s.join(""));
 		if(args.callback){args.callback(data);}
 		ctrack.display();
 	});

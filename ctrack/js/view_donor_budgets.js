@@ -62,5 +62,5 @@ view_donor_budgets.view=function()
 		ctrack.chunk("total",commafy(""+Math.floor(total)));
 	};
 	
-	views.budgets.ajax(args);
+	views.list_budgets.ajax(args);
 };

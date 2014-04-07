@@ -64,5 +64,5 @@ view_donor_transactions.view=function()
 		ctrack.chunk("total",commafy(""+Math.floor(total)));
 	};
 	
-	views.transactions.ajax(args);
+	views.list_transactions.ajax(args);
 };

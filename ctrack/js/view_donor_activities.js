@@ -47,5 +47,5 @@ view_donor_activities.view=function()
 		
 	};
 	
-	views.activities.ajax(args);
+	views.list_activities.ajax(args);
 };
