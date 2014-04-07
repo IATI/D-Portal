@@ -28,8 +28,6 @@ view_heatmap.setup=function()
 		view_heatmap.fixup();
 	}
 
-// always load map api
-	head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&sensor=false&callback=display_ctrack_map");
 
 }
 
@@ -39,9 +37,16 @@ view_heatmap.chunks=[
 ];
 
 
+view_heatmap.loaded=false;
+
 // called on view display to fix html in place
 view_heatmap.fixup=function()
 {
+	if(!view_heatmap.loaded)
+	{
+		view_heatmap.loaded=true;
+		head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&sensor=false&callback=display_ctrack_map");
+	}
 	if(ctrack.map.api_ready)
 	{
 		if($("#map").length>0)

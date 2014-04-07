@@ -41,8 +41,6 @@ views.data_quality=require("./view_data_quality.js");
 views.total=require("./view_total.js");
 views.publishers=require("./view_publishers.js");
 
-
-
-views.activities=require("./view_activities.js");
-views.transactions=require("./view_transactions.js");
-views.budgets=require("./view_budgets.js");
+views.list_activities=require("./view_list_activities.js");
+views.list_transactions=require("./view_list_transactions.js");
+views.list_budgets=require("./view_list_budgets.js");
