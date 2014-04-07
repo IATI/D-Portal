@@ -44,6 +44,7 @@ view_activities.ajax=function(args)
 			"from":"act,country",
 			"limit":args.limit || -1,
 			"select":"title,aid,funder,commitment,spend,reporting_org",
+			"orderby":"4-",
 			"country_code":(args.country || ctrack.args.country)
 		};
 	if(args.q)
@@ -79,7 +80,7 @@ view_activities.ajax=function(args)
 			s.push( plate.replace(args.plate || "{activities_data}",d) );
 		}
 		ctrack.chunk(args.chunk || "activities_datas",s.join(""));
-		if(args.callback){args.callback();}
+		if(args.callback){args.callback(data);}
 		ctrack.display();
 	});
 }
