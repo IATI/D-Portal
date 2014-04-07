@@ -150,6 +150,7 @@ $(inside+"transaction-type").each(function(i){var it=$(this);
 
 $(inside+"recipient-country").each(function(i){var it=$(this);
 
+	var tp=it.attr("percentage") || 100;
 	var tc=it.attr("code")
 	if(tc)
 	{
@@ -157,7 +158,7 @@ $(inside+"recipient-country").each(function(i){var it=$(this);
 		tc=iati_codes.country[tc] || tc;
 		if(tc)
 		{
-			it.html(tc);
+			it.html("<span>"+tc+"</span><span>"+tp+"</span>");
 		}
 	}
 
@@ -245,7 +246,7 @@ sorted++;
 		"activity-status",
 		"document-link",
 		"related-activity",
-	0];
+	];
 	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
 
 	var aa=it.children();	
@@ -268,6 +269,13 @@ sorted++;
 		{
 			if(aname > bname ) { ret= 1; }
 			if(aname < bname ) { ret=-1; }
+		}
+		
+		if( (ret===0) && (aname=="recipient-country") )
+		{
+			var at=Number(a.getAttribute("percentage"));
+			var bt=Number(b.getAttribute("percentage"));
+			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
 		}
 		
 		if( (ret===0) && (aname=="activity-date") )
@@ -325,6 +333,10 @@ sorted++;
 		return ret;
 	});
 	it.append(aa);
+
+	for(var i=0; i<sortlist.length; i++) { var v=sortlist[i];
+		it.children( v ).wrapAll( "<span class='"+v+"' />");
+	}
 
 });
 //console.log("sorted "+sorted+" acts");
