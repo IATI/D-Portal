@@ -14,10 +14,13 @@ ctrack_loader=function(args){
 	var root=args.root 	|| "http://d-portal.org/";
 	args.art=args.art 	|| root+"art/";
 	args.q	=args.q 	|| root+"q";
+	
+	args.css=args.css || [
+			root+"art/activities.css",
+			root+"art/ctrack.css"
+		];
 
 	head.load(
-		root+"art/activities.css",
-		root+"art/ctrack.css",
 		root+"jslib/jquery.js",
 		root+"jslib/ctrack.js",
 	function(){

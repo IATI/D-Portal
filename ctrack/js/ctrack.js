@@ -32,7 +32,9 @@ ctrack.setup=function(args)
 	args.tongue	=args.tongue 	|| 	"eng"; 		// english
 	args.art	=args.art 		|| 	"/art/"; 	// local art
 	args.q		=args.q 		|| 	"/q"; 		// local q api
-
+	
+	if(args.css) { head.load(args.css); }
+	
 	ctrack.args=args;
 	
 	ctrack.crumbs=[{hash:"#view=main",view:"main"}];
