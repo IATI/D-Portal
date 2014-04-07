@@ -117,7 +117,7 @@
 					<span class="stats_title">{stats_active_text}</span>
 					<span class="stats_num">{active_projects}</span>
 				</a>
-				<a href="#view=active" class="stats_link">Missing Projects: {missing_projects}</a>
+				<a href="#view=active" class="stats_link missing">{stats_missing_text} <span>{missing_projects}</span></a>
 			</td>
 			<td title="{stats_ended_tip_text}">
 				<a href="#view=ended" class="stats_link">
@@ -225,7 +225,7 @@
 	var data=ctrack.get_chart_data("data_chart_donors");
 	var opts={
 		layout:"right",
-		width:958,
+		width:960,
 		height:300,
 		center_x:250,
 		center_y:140,
@@ -260,7 +260,7 @@
 	var opts={
 		layout:"left",
 		clockwise:-1,
-		width:958,
+		width:960,
 		height:300,
 		center_x:750,
 		center_y:140,
