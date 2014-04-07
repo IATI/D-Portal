@@ -51,7 +51,7 @@ view_list_activities.ajax=function(args)
 	{
 		for(var n in args.q) // override with special qs
 		{
-			dat[n]=args[n];
+			dat[n]=args.q[n];
 		}
 	}
 	

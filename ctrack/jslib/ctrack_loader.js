@@ -16,8 +16,8 @@ ctrack_loader=function(args){
 	args.q	=args.q 	|| root+"q";
 	
 	args.css=args.css || [
-			root+"art/activities.css",
-			root+"art/ctrack.css"
+			args.art+"activities.css",
+			args.art+"ctrack.css"
 		];
 
 	head.load(
