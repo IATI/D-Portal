@@ -32,7 +32,7 @@ view_donor_activities.view=function()
 	args.chunk="donor_activities_datas";
 	
 	args.q={
-		funder:funder,
+		"funder":funder,
 	};
 	
 	args.callback=function(data){

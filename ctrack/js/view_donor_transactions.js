@@ -38,21 +38,14 @@ view_donor_transactions.view=function()
 	args.chunk="donor_transactions_datas";
 	
 	args.q={
-		year:year,
-		funder:funder,
+		"year":year,
+		"funder":funder,
 	};
 	args.q["trans_day_gteq"]=year+"-01-01";
 	args.q["trans_day_lt"]=(parseInt(year)+1)+"-01-01";
 				
 	args.callback=function(data){
-
-		var total=0;
-		for(var i=0;i<data.rows.length;i++)
-		{
-			var v=data.rows[i];
-			total+=v.sum_of_percent_of_trans_usd;
-		}
-							
+						
 		ctrack.chunk("alerts","");
 		if( iati_codes.crs_no_iati[funder] )
 		{
@@ -61,7 +54,6 @@ view_donor_transactions.view=function()
 
 		ctrack.chunk("donor",iati_codes.funder_names[funder] || iati_codes.country[funder] || funder );
 		ctrack.chunk("year",year);
-		ctrack.chunk("total",commafy(""+Math.floor(total)));
 	};
 	
 	views.list_transactions.ajax(args);

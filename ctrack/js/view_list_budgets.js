@@ -59,6 +59,7 @@ view_list_budgets.ajax=function(args)
 	fetch.ajax(dat,function(data){
 
 		var s=[];
+		var total=0;
 		for(var i=0;i<data.rows.length;i++)
 		{
 			var v=data.rows[i];
@@ -68,11 +69,13 @@ view_list_budgets.ajax=function(args)
 			d.aid=v.aid;
 			d.title=v.title || v.aid;
 			d.reporting_org=v.reporting_org;
+			total+=v.sum_of_percent_of_budget_usd;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
 
 			s.push( plate.replace(args.plate || "{list_budgets_data}",d) );
 		}
 		ctrack.chunk(args.chunk || "list_budgets_datas",s.join(""));
+		ctrack.chunk("total",commafy(""+Math.floor(total)));
 		if(args.callback){args.callback(data);}
 		ctrack.display();
 	});

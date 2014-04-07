@@ -62,6 +62,7 @@ view_list_transactions.ajax=function(args)
 //		console.log(data);
 
 		var s=[];
+		var total=0;
 		for(var i=0;i<data.rows.length;i++)
 		{
 			var v=data.rows[i];
@@ -71,6 +72,7 @@ view_list_transactions.ajax=function(args)
 			d.aid=v.aid;
 			d.title=v.title || v.aid;
 			d.reporting_org=v.reporting_org;
+			total+=v.sum_of_percent_of_trans_usd;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd));
 
 			s.push( plate.replace(args.plate || "{list_transactions_data}",d) );
