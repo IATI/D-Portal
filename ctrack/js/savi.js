@@ -330,7 +330,17 @@ sorted++;
 			var bt=$(b).attr("type");
 			if(at>bt) { ret=1; } else if(at<bt) { ret=-1; }
 		}
-
+		
+		if( (ret===0) && (aname==bname) )
+		{
+			var at=$(a).attr("xml:lang");
+			var bt=$(b).attr("xml:lang");
+			if(at&&bt)
+			{
+				if(at>bt) { ret=1; } else if(at<bt) { ret=-1; }
+			}
+		}
+		
 		return ret;
 	});
 	it.append(aa);
