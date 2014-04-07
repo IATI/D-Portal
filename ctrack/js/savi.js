@@ -130,7 +130,7 @@ $(inside+"sector").each(function(i){var it=$(this);
 	tc=iati_codes.sector[tc] || tc;	
 	if(tc)
 	{
-		it.html("<span>"+tc+"</span><span>"+tp+"</span>");
+		it.html("<span>"+tc+"</span><span>"+tp+"%</span>");
 	}
 
 });
@@ -159,7 +159,7 @@ $(inside+"recipient-country").each(function(i){var it=$(this);
 		tc=iati_codes.country[tc] || tc;
 		if(tc)
 		{
-			it.html("<span>"+tc+"</span><span>"+tp+"</span>");
+			it.html("<span>"+tc+"</span><span>"+tp+"%</span>");
 		}
 	}
 
@@ -234,8 +234,8 @@ sorted++;
 	var sortlist=[
 		"title",
 		"iati-identifier",
-		"recipient-country",
 		"activity-date",
+		"recipient-country",
 		"participating-org",
 		"reporting-org",
 		"description",
@@ -247,6 +247,7 @@ sorted++;
 		"activity-status",
 		"document-link",
 		"related-activity",
+	0
 	];
 	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
 
@@ -345,7 +346,7 @@ sorted++;
 	});
 	it.append(aa);
 
-	for(var i=0; i<sortlist.length; i++) { var v=sortlist[i];
+	for(var i=0; i<sortlist.length-1; i++) { var v=sortlist[i];
 		it.children( v ).wrapAll( "<span class='span_"+v+"' />");
 	}
 
