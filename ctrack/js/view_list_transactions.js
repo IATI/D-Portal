@@ -78,6 +78,7 @@ view_list_transactions.ajax=function(args)
 			s.push( plate.replace(args.plate || "{list_transactions_data}",d) );
 		}
 		ctrack.chunk(args.chunk || "list_transactions_datas",s.join(""));
+		ctrack.chunk("total",commafy(""+Math.floor(total)));
 		if(args.callback){args.callback(data);}
 		ctrack.display();
 	});

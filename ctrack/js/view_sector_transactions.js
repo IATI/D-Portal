@@ -32,7 +32,7 @@ view_sector_transactions.view=function()
 	ctrack.change_hash();
 
 	var year=ctrack.hash.year || 2012;
-	var sector=ctrack.hash.sector || "111";
+	var sector=ctrack.hash.sector_group || "111";
 	
 	var args={};
 	
@@ -49,7 +49,7 @@ view_sector_transactions.view=function()
 				
 	args.callback=function(data){
 
-		ctrack.chunk("sector",sector );
+		ctrack.chunk("sector",iati_codes.sector_names[sector] );
 		ctrack.chunk("year",year);
 	};
 	

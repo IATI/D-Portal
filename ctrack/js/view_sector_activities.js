@@ -26,7 +26,7 @@ view_sector_activities.view=function()
 	ctrack.setcrumb(2);
 	ctrack.change_hash();
 	
-	var sector=ctrack.hash.sector || "111";
+	var sector=ctrack.hash.sector_group || "111";
 	
 	var args={};
 	
@@ -40,7 +40,7 @@ view_sector_activities.view=function()
 	
 	args.callback=function(data){
 		
-		ctrack.chunk("sector",sector );
+		ctrack.chunk("sector",iati_codes.sector_names[sector] );
 		
 	};
 	
