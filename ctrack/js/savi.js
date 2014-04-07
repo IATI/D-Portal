@@ -234,8 +234,8 @@ sorted++;
 	var sortlist=[
 		"title",
 		"iati-identifier",
-		"activity-date",
 		"recipient-country",
+		"activity-date",
 		"participating-org",
 		"reporting-org",
 		"description",
