@@ -335,7 +335,7 @@ sorted++;
 	it.append(aa);
 
 	for(var i=0; i<sortlist.length; i++) { var v=sortlist[i];
-		it.children( v ).wrapAll( "<span class='"+v+"' />");
+		it.children( v ).wrapAll( "<span class='span_"+v+"' />");
 	}
 
 });
