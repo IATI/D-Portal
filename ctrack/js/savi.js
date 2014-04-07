@@ -11,7 +11,8 @@ savi.fixup = function(args){
 
 args=args || {};	
 var inside=args.inside || "";
-var prelink=args.link || "http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier=";
+//var prelink=args.link || "http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier=";
+var prelink=args.link || "http://d-portal.org/q.xml?aid=";
 var postlink=args.link_post || "";
 
 var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
@@ -350,7 +351,9 @@ $(inside+"activity-website").each(function(i){var it=$(this);
 });
 
 $(inside+"iati-identifier").each(function(i){var it=$(this);
-	wrap_link(it,prelink+it.html()+postlink,"a_"+this.tagName.toLowerCase());
+	var id=it.html();
+	wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
+	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+"' href='http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier="+id+"'>xml</a>"));
 });
 
 $(inside+"provider-org[provider-activity-id]").each(function(i){var it=$(this);
