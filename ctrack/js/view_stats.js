@@ -16,6 +16,7 @@ view_stats.chunks=[
 	"total_projects",
 	"missing_projects",
 	"numof_publishers",
+	"percent_of_activities_with_location",
 ];
 
 view_stats.calc=function()

@@ -21,7 +21,7 @@ view_act.chunks=[
 // called on view display to fix html in place
 view_act.fixup=function()
 {
-	savi.fixup();
+	savi.fixup({link:"http://d-portal.org/q.xml?aid="});
 }
 
 //

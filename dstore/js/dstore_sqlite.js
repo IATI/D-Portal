@@ -29,7 +29,7 @@ dstore_sqlite.open = function(){
 };
 
 // set prefered pragmas
-dstore_sqlite.pragmas = function(db){
+dstore_sqlite.pragmas = function(db)
 {
 // speed up data writes.
 	db.serialize(function() {

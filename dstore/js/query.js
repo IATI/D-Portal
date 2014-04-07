@@ -87,14 +87,11 @@ query.get_q = function(req){
 // defaults
 	if(!q.from)
 	{
-		if(q.form=="xml")
-		{
-			q.from="act,jml"; // need a jml join to spit out xml (jml is jsoned xml)
-		}
-		else
-		{
-			q.from="act"; // dont bother with jml
-		}
+		q.from="act"; // default act
+	}
+	if(q.form=="xml") // xml view so we...
+	{
+		q.from+=",jml"; // ...need a jml join to spit out xml (jml is jsoned xml)
 	}
 	
 
@@ -532,9 +529,12 @@ if(true)
 		{
 			res.set('Content-Type', 'text/xml');
 
+			var xsl='<?xml-stylesheet type="text/xsl" href="/art/activities.xsl"?>\n';
+			if(q.xsl=="!") { xsl=""; } // disable pretty view
+			
 			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n'+
-						'<?xml-stylesheet type="text/xsl" href="/art/activities.xsl"?>\n'+
-						'<result>\n'+
+						xsl+
+						'<result xmlns:dstore="http://d-portal.org/dstore">\n'+
 						'	<iati-activities>\n');
 						
 			for(var i=0;i<r.rows.length;i++)

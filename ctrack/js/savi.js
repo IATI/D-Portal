@@ -11,7 +11,7 @@ savi.fixup = function(args){
 
 args=args || {};	
 var inside=args.inside || "";
-var prelink=args.link || "http://dev.ctrack.iatistandard.org/q.xml?aid=";
+var prelink=args.link || "http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier=";
 var postlink=args.link_post || "";
 
 var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
