@@ -1,46 +1,46 @@
-#crumbname_donor_transactions
-{crumbname_donor_transactions_text}
+#crumbname_sector_budgets
+{crumbname_sector_budgets_text}
 
-#view_donor_transactions
+#view_sector_budgets
 {view_head}
 <style>{css}</style>
 {beige}
 {main_head}
 {main_countrymin}
 {about_data_links}
-{donors_head}
-<div class="donor_transactions_wrap">
+{sectors_head}
+<div class="donor_budgets_wrap">
 	<table class="title">
 		<tr>
 			<td class="icon"><img src="{art}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
-			<td>{view_donor_transactions_text}</td>
+			<td>{view_sector_budgets_text}</td>
 			<td class="total_spend">= {total} (USD)</td>
 		</tr>
 	</table>
-	<div class="donor_transactions">
+	<div class="donor_budgets">
 		<table class="activity">
 			{alerts}
-			{donor_transactions_datas}
+			{sector_budgets_datas}
 		</table>
 	</div>
-	<div class="back_to_donor_list">
-		<a href="#view=donors" class="back_to_donor_list">{list_donor_back_text}</a>
+	<div class="back_to_sector_list">
+		<a href="#view=sectors" class="back_to_donor_list">{view_all_text}</a>
 	</div>
 </div>
-{donor_transactions_data_description}
+{sector_budgets_data_description}
 {main_datainvestigators}
 {view_tail}
 
-#donor_transactions_data_description
+#sector_budgets_data_description
 <div class="description_wrap">
 	<div class="description">
-		<span class="title">{donor_transactions_data_description_title_text}</span>
-		<p>{donor_transactions_data_description_text}</p>
+		<span class="title">{sector_budgets_data_description_title_text}</span>
+		<p>{sector_budgets_data_description_text}</p>
 		<a class="read">{read_more_text}</a>
 	</div>
 </div>
 
-#donor_transactions_data
+#sector_budgets_data
 <tr>
 	<td class="num">{num}.</td>
 	<td class="title" title="{project_title_tip_text}">

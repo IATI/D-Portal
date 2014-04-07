@@ -5,9 +5,6 @@ This is a project to build a re-usable piece of code that can be
 easily hosted by anyone, anywhere and that will tell an interesting 
 story using IATI data.
 
-As it stands, you can view the development version at
-http://dev.d-portal.org/
-
 The live version lives at
 http://d-portal.org/
 

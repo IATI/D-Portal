@@ -70,6 +70,15 @@ Activités des Donneurs
 #crumbname_sectors_text 
 Liste de Secteur 
 
+#crumbname_sector_budgets_text 
+Budgets sectoriels 
+
+#crumbname_sector_transactions_text 
+Transactions du secteur 
+
+#crumbname_sector_activities_text 
+Activités sectorielles
+
 #crumbname_act_text 
 Activité
 
@@ -160,13 +169,7 @@ Projets terminés récemment
 #list_ended_declare_text 
 Descendant
 
-#view_all_active_text 
-Voir tous 
-
-#view_all_ended_text 
-Voir tous
-
-#view_all_donors_text
+#view_all
 Voir tous
 
 #list_donor_back_text
@@ -178,23 +181,26 @@ Dépenses totales pour {donor} en {year}
 #view_donor_activities_text 
 Activités projets pour {donor} et dépenses actuelles (USD) 
 
-#view_donor_activites_reporting_text
+#view_sector_transactions_text 
+Les dépenses totales pour {sector} en {year} 
+
+#view_sector_activities_text 
+Projets en cours dans {sector} et dépenses actuelles (USD) 
+
+#reported_by_text
 Rapporté par {reporting_org}
 
-#donor_activities_title_tip_text 
+#project_title_tip_text 
 Titre du projet d'activité
 
 #donor_activities_percentage_tip_text 
 Pourcentage du total des engagements passés
 
-#donor_transactions_title_tip_text 
-Titre du projet d'activité
-
-#donor_transactions_amount_tip_text 
-Montant de la transaction en USD 
-
 #view_donor_budgets_text 
 Budget total pour {donor} en {year}
+
+#view_sector_budgets_text 
+Le budget total pour {sector} en {year}
 
 #table_donor_title_transaction_text 
 PASSER de IATI (USD)
@@ -310,14 +316,8 @@ Somme des budgets sectoriels en USD pour 2014
 #table_sector_tip_b2015_text
 Somme des budgets sectoriels en USD pour 2015
 
-#table_active_title_tip_text 
-Titre du projet d'activité 
-
 #table_active_date_tip_text 
 Date de fin 
-
-#table_ended_title_tip_text 
-Titre du projet d'activité 
 
 #table_ended_date_tip_text 
 Date de fin
@@ -383,22 +383,22 @@ Comment les données sont -elle calculée?
 d-portal.org est une plate-forme d'information sur le pays qui permet de suivre les flux de ressources. Il vise à fournir des ministères de tutelle , les parlementaires et la société civile des informations qui peuvent aider à la planification et au suivi des activités de développement.
 Dans sa première itération , il contient des données actuelles publiées par l'Initiative internationale pour la transparence de l'aide (IATI), ainsi que les plus récentes (2012) données publiées par le Système de notification des pays créanciers du CAD de l'OCDE. Développement futur comprendra , entre autres , les données de l'aide des systèmes d'information de gestion , les budgets nationaux et une série d'indicateurs socio- économiques comparables.
 
-#donors_activities_data_description_title_text
+#donor_activities_data_description_title_text
 Comment les données sont -elle calculée?
 
-#donors_activities_data_description_text
+#donor_activities_data_description_text
 Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici , classés par le plus grand en haut. Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction.
 
-#donors_transactions_data_description_title_text
+#donor_transactions_data_description_title_text
 Comment les données sont -elle calculée?
 
-#donors_transactions_data_description_text
+#donor_transactions_data_description_text
 Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique toutes les activités déclarées par les {donor} pour {country_name} et triés par l'activité avec la plus grande dépense en haut.
 
-#donors_budgets_data_description_title_text
+#donor_budgets_data_description_title_text
 Comment les données sont -elle calculée?
 
-#donors_budgets_data_description_text
+#donor_budgets_data_description_text
 Budget est calculé en additionnant tous les budgets qui est inférieure à 370 jours de long et se termine par {year}. Ce tableau vous indique toutes les activités qui ont énuméré les budgets pour {year} triés par le plus grand en haut. Zéros dans les tableaux indiquent les écarts dans ce calcul en raison de données insuffisantes et signifient les problèmes de qualité de données.
 
 #sectors_data_description_title_text
@@ -406,6 +406,24 @@ Comment les données sont -elle calculée?
 
 #sectors_data_description_text
 C'est ainsi que les données sont calculées pour l'argent va à des secteurs.
+
+#sector_activities_data_description_title_text
+Comment les données sont -elle calculée?
+
+#sector_activities_data_description_text
+Dépenses est calculée en ajoutant les décaissements et les dépenses . Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici , classés par le plus grand en haut . Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction .
+
+#sector_transactions_data_description_title_text
+Comment les données sont -elle calculée?
+
+#sector_transactions_data_description_text
+Dépenses est calculée en ajoutant les décaissements et les dépenses . Ce tableau vous indique toutes les activités déclarées par les {donor} pour {country_name} et triés par l'activité avec la plus grande dépense en haut .
+
+#sector_budgets_data_description_title_text
+Comment les données sont -elle calculée?
+
+#sector_budgets_data_description_text
+Budget est calculé en additionnant tous les budgets qui est inférieure à 370 jours de long et se termine par {year}. Ce tableau vous indique toutes les activités qui ont énuméré les budgets pour {year} triés par le plus grand en haut . Zéros dans les tableaux indiquent les écarts dans ce calcul en raison de données insuffisantes et signifient les problèmes de qualité de données .
 
 #districts_data_description_title_text
 Comment les données sont -elle calculée?
