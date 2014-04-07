@@ -27,10 +27,10 @@ a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#cc
 span.span_activity-date				{display:block; vertical-align:top; width:960px; background-color:rgba(3, 50, 146, 0.9);}
 activity-date[type="start-planned"]	{display:none;}
 activity-date[type="end-planned"]	{display:none;}
-activity-date[type="start-actual"]	{font-size:20px; display:table-cell; vertical-align: top; padding:30px; color:#fff; width:480px; text-align:right;}
-activity-date[type="end-actual"]	{font-size:20px; display:table-cell; vertical-align: top; padding:30px; color:#fff; width:480px;}
-activity-date[type="start-actual"]:before	{content:"START DATE"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
-activity-date[type="end-actual"]:before		{content:"END DATE"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
+activity-date[type="start-actual"]	{font-size:1.0em; display:table-cell; vertical-align: top; padding:10px 40px; color:#fff; width:480px;}
+activity-date[type="end-actual"]	{font-size:1.0em; display:table-cell; vertical-align: top; padding:10px 40px; color:#fff; width:480px; text-align:right;}
+activity-date[type="start-actual"]:before	{content:"START DATE"; font-size:14px; color:#ccc; display:inline-block; padding-right:10px;}
+activity-date[type="end-actual"]:before		{content:"END DATE"; font-size:14px; color:#ccc; display:inline-block; padding-right:10px;}
 
 span.span_recipient-country	{display:block; vertical-align:top; width:960px; background-color:rgba(17, 46, 105, 0.9);}
 recipient-country 			{display:block; vertical-align:top; padding:20px 40px;}
@@ -120,30 +120,25 @@ period-start {display:table-cell; color:#fff; font-size:1.0em; width:290px; max-
 period-end	 {display:table-cell; color:#fff; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em;}
 budget value {display:table-cell; color:#fff; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em;}
 
-a.a_document-link	{display:block; width:880px; padding:10px 40px;}
-document-link		{display:block;}
-document-link span	{font-size:1.0em; display:block; color:#ccc; padding-bottom:30px;}
-document-link title:nth-of-type(n+1):before	{display:none;}
-document-link title:nth-of-type(n+1)		{border:0; margin:0; padding:0; width:800px; font-size:18px; display:list-item; list-style-type:circle; list-style-position:outside; line-height:1.15em;}
-
-a.a_document-link:before	{content:"Related Documents"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
-/* Select all but the first a.a_document-link child of iati-activity, and remove the content from the previous rule. */
-iati-activity  > a.a_document-link ~ a.a_document-link:before	{content:""; padding:0; margin:0; border:0;}
-
+span.span_document-link			{width:880px; padding:0 40px; margin:0 auto;}
+span.span_document-link:before	{content:"Related Documents"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
+a.a_document-link				{display:list-item; width:880px; padding:10px 0; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#ccc;}
 a.a_document-link:last-of-type	{padding-bottom:40px;}
-a.a_document-link document-link title		{color:#fff;}
+a.a_document-link document-link title		{color:#fff; padding:0;}
 a.a_document-link document-link title:hover	{color:#FFAB5E;}
+document-link		{display:block;}
+document-link span	{font-size:1.0em; display:block; color:#ccc;}
+document-link title:nth-of-type(n+1):before	{display:none;}
+document-link title:nth-of-type(n+1)		{font-size:18px;}
 
-a.a_related-activity:before	{content:"Family Tree"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
-/* Select all but the first a.a_related-activity child of iati-activity, and remove the content from the previous rule. */
-iati-activity  > a.a_related-activity ~ a.a_related-activity:before	{content:""; padding:0; margin:0; border:0;}
-
-a.a_related-activity	{display:block; width:880px; padding:20px 40px 0 40px; font-size:1.0em; line-height:1.25em;}
+span.span_related-activity			{width:880px; padding:0 40px; margin:0 auto;}
+span.span_related-activity:before	{content:"Family Tree"; font-size:34px; color:#fff; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #fff;}
+a.a_related-activity	{display:list-item; width:875px; padding:10px 0 0 5px; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#ccc;}
 a.a_related-activity:last-of-type								{padding-bottom:40px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
 related-activity		{display:inline; color:#FF7A00;}
 related-activity:hover	{color:#FFAB5E;}
-related-activity:before	{display:inline-block; padding-right:5px; color:#ccc; font-size:1.0em; line-height:1.25em;}
+related-activity:before	{display:inline-block; padding-right:5px; color:#fff; font-size:1.0em; line-height:1.25em;}
 related-activity[type="1"]:before	{content:"Child of ";}
 related-activity[type="2"]:before	{content:"Parent of ";}
 related-activity[type="3"]:before	{content:"Sibling of ";}
