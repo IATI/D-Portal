@@ -56,26 +56,40 @@ view_list_budgets.ajax=function(args)
 			dat[n]=args.q[n];
 		}
 	}
+	if(args.output=="count") // just count please
+	{
+		dat.select="count";
+		delete dat.limit;
+		delete dat.orderby;
+		delete dat.groupby;
+	}
 	fetch.ajax(dat,function(data){
-
-		var s=[];
-		var total=0;
-		for(var i=0;i<data.rows.length;i++)
+		if(args.output=="count")
 		{
-			var v=data.rows[i];
-			var d={};
-			d.num=i+1;
-			d.funder=v.funder;
-			d.aid=v.aid;
-			d.title=v.title || v.aid;
-			d.reporting_org=v.reporting_org;
-			total+=v.sum_of_percent_of_budget_usd;
-			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
-
-			s.push( plate.replace(args.plate || "{list_budgets_data}",d) );
+			ctrack.chunk(args.chunk || "list_budgets_count",data.rows[0]["count"]);
+			view_stats.calc();
 		}
-		ctrack.chunk(args.chunk || "list_budgets_datas",s.join(""));
-		ctrack.chunk("total",commafy(""+Math.floor(total)));
+		else
+		{
+			var s=[];
+			var total=0;
+			for(var i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				var d={};
+				d.num=i+1;
+				d.funder=v.funder;
+				d.aid=v.aid;
+				d.title=v.title || v.aid;
+				d.reporting_org=v.reporting_org;
+				total+=v.sum_of_percent_of_budget_usd;
+				d.amount=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
+
+				s.push( plate.replace(args.plate || "{list_budgets_data}",d) );
+			}
+			ctrack.chunk(args.chunk || "list_budgets_datas",s.join(""));
+			ctrack.chunk("total",commafy(""+Math.floor(total)));
+		}
 		if(args.callback){args.callback(data);}
 		ctrack.display();
 	});

@@ -54,33 +54,47 @@ view_list_activities.ajax=function(args)
 			dat[n]=args.q[n];
 		}
 	}
-	
+	if(args.output=="count") // just count please
+	{
+		dat.select="count";
+		delete dat.limit;
+		delete dat.orderby;
+		delete dat.groupby;
+	}
+		
 	fetch.ajax(dat,function(data){
-		var s=[];
-		for(var i=0;i<data.rows.length;i++)
+		if(args.output=="count")
 		{
-			var v=data.rows[i];
-			var d={};
-			d.num=i+1;
-			d.funder=v.funder || "N/A";
-			d.aid=v.aid || "N/A";
-			d.title=v.title || v.aid || "N/A";
-
-			d.reporting_org=v.reporting_org || "N/A";
-			d.commitment=commafy(""+Math.floor(v.commitment||0));
-			d.spend=commafy(""+Math.floor(v.spend||0));
-			d.pct=0;
-			if( v.commitment && (v.commitment!=0) )
-			{
-				d.pct=Math.floor(100*v.spend/v.commitment);
-				if(d.pct<0){d.pct=0;}
-				if(d.pct>100){d.pct=100;}
-			}
-
-			s.push( plate.replace(args.plate || "{list_activities_data}",d) );
+			ctrack.chunk(args.chunk || "list_activities_count",data.rows[0]["count"]);
+			view_stats.calc();
 		}
-		ctrack.chunk(args.chunk || "list_activities_datas",s.join(""));
+		else
+		{
+			var s=[];
+			for(var i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				var d={};
+				d.num=i+1;
+				d.funder=v.funder || "N/A";
+				d.aid=v.aid || "N/A";
+				d.title=v.title || v.aid || "N/A";
 
+				d.reporting_org=v.reporting_org || "N/A";
+				d.commitment=commafy(""+Math.floor(v.commitment||0));
+				d.spend=commafy(""+Math.floor(v.spend||0));
+				d.pct=0;
+				if( v.commitment && (v.commitment!=0) )
+				{
+					d.pct=Math.floor(100*v.spend/v.commitment);
+					if(d.pct<0){d.pct=0;}
+					if(d.pct>100){d.pct=100;}
+				}
+
+				s.push( plate.replace(args.plate || "{list_activities_data}",d) );
+			}
+			ctrack.chunk(args.chunk || "list_activities_datas",s.join(""));
+		}
 		if(args.callback){args.callback(data);}
 		ctrack.display();
 	});

@@ -101,13 +101,13 @@ view_sectors.ajax=function(args)
 				"limit":args.limit || 100,
 				"select":"sector_group,sum_of_percent_of_trans_usd",
 				"groupby":"sector_group",
-				"code":"D|E",
+				"trans_code":"D|E",
 				"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
 				"country_code":(args.country || ctrack.args.country)
 			};
 		var callback=function(data){
-			console.log("fetch transactions sectors "+year);
-			console.log(data);
+//			console.log("fetch transactions sectors "+year);
+//			console.log(data);
 			
 			for(var i=0;i<data.rows.length;i++)
 			{
@@ -118,7 +118,7 @@ view_sectors.ajax=function(args)
 				d["num_t"+year]=Math.floor(v.sum_of_percent_of_trans_usd);
 				fadd(d);
 			}
-			console.log(ctrack.sectors_data);
+//			console.log(ctrack.sectors_data);
 			
 			display();
 		};
@@ -133,14 +133,14 @@ view_sectors.ajax=function(args)
 				"limit":args.limit || 100,
 				"select":"sector_group,sum_of_percent_of_budget_usd",
 				"groupby":"sector_group",
-				"priority":1, // has passed some validation checks serverside
+				"budget_priority":1, // has passed some validation checks serverside
 				"budget_day_end_gteq":year+"-01-01","budget_day_end_lt":(parseInt(year)+1)+"-01-01",
 				"country_code":(args.country || ctrack.args.country)
 			};
 		var callback=function(data){
 			
-			console.log("fetch budget sectors "+year);			
-			console.log(data);
+//			console.log("fetch budget sectors "+year);			
+//			console.log(data);
 			
 			for(var i=0;i<data.rows.length;i++)
 			{
@@ -150,7 +150,7 @@ view_sectors.ajax=function(args)
 				d["b"+year]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
 				fadd(d);
 			}
-			console.log(ctrack.sectors_data);
+//			console.log(ctrack.sectors_data);
 			
 			display();
 		};
