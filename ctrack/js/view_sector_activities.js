@@ -26,7 +26,7 @@ view_sector_activities.view=function()
 	ctrack.setcrumb(2);
 	ctrack.change_hash();
 	
-	var sector=ctrack.hash.sector || "A";
+	var sector=ctrack.hash.sector || "111";
 	
 	var args={};
 	

@@ -32,7 +32,7 @@ view_sector_transactions.view=function()
 	ctrack.change_hash();
 
 	var year=ctrack.hash.year || 2012;
-	var sector=ctrack.hash.sector || "A";
+	var sector=ctrack.hash.sector || "111";
 	
 	var args={};
 	

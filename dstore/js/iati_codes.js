@@ -151,9 +151,12 @@ iati_codes.fetch = function(){
 			o[d.trim()]=str.trim();
 		}
 	}
-	codes["sector_ids"]=o;
+	codes["sector_names"]=o;
 	
-	
+	var rev_sector_names={};
+	for( var n in codes["sector_names"]   ) { rev_sector_names[   codes["sector_names"  ][n] ]=n }
+
+
 	console.log("Fetching IATI sector groups csv")
 
 	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=0&output=csv");
@@ -169,7 +172,7 @@ iati_codes.fetch = function(){
 		var str=v[1];
 		if(num && str)
 		{
-			o[num]=str;
+			o[num]=rev_sector_names[str];
 		}
 	}
 	
