@@ -84,6 +84,7 @@ view_list_budgets.ajax=function(args)
 				d.reporting_org=v.reporting_org;
 				total+=v.sum_of_percent_of_budget_usd;
 				d.amount=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
+				d.currency="USD";
 
 				s.push( plate.replace(args.plate || "{list_budgets_data}",d) );
 			}
