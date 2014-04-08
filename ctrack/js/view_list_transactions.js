@@ -88,6 +88,7 @@ view_list_transactions.ajax=function(args)
 				d.reporting_org=v.reporting_org;
 				total+=v.sum_of_percent_of_trans_usd;
 				d.amount=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd));
+				d.currency="USD";
 
 				s.push( plate.replace(args.plate || "{list_transactions_data}",d) );
 			}

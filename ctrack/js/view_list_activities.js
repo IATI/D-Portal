@@ -87,6 +87,7 @@ view_list_activities.ajax=function(args)
 				d.reporting_org=v.reporting_org || "N/A";
 				d.commitment=commafy(""+Math.floor(v.commitment||0));
 				d.spend=commafy(""+Math.floor(v.spend||0));
+				d.currency="USD";
 				d.pct=0;
 				if( v.commitment && (v.commitment!=0) )
 				{
