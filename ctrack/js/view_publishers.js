@@ -23,6 +23,6 @@ view_publishers.chunks=[
 view_publishers.view=function(args)
 {
 
-	ctrack.setcrumb(1);
+	ctrack.setcrumb(2);
 	ctrack.change_hash();
 }
