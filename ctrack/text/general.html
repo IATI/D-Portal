@@ -94,9 +94,9 @@
 		<tr>
 			<td class="options">
 				<form action="">
-				<select id="tongue_select" name="tongue" class="theme">
-					<option value="fra" class="theme" title="{theme_original_tip_text}">{theme_original_text}</option> 
-					<option value="eng" class="theme" title="{theme_high_visibility_tip_text}">{theme_high_visibility_text}</option> 
+				<select id="flava_select" name="flava" class="theme">
+					<option value="original" class="theme" title="{theme_original_tip_text}">{theme_original_text}</option> 
+					<option value="high" class="theme" title="{theme_high_visibility_tip_text}">{theme_high_visibility_text}</option> 
 				</select>
 				</form>
 			</td>
@@ -115,7 +115,21 @@
 		});
 		$('#tongue_select').bind('change', function ()
 		{
-			var url = "{mark}&tongue="+$(this).val()+"{hash}";
+			var url = "{mark_no_tongue}&tongue="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+	$(function(){
+		$('#flava_select').children().each(function(i,it){
+			if("{flava_name}"==$(it).val())
+			{
+				$(it).attr("selected",1)
+			}
+		});
+		$('#flava_select').bind('change', function ()
+		{
+			var url = "{mark_no_flava}&flava="+$(this).val()+"{hash}";
 			window.location = url; // redirect
 			return false;
 		});

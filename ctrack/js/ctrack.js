@@ -28,11 +28,25 @@ ctrack.get_chart_data=function(name)
 
 ctrack.setup=function(args)
 {
+	ctrack.q={};
+	window.location.search.substring(1).split("&").forEach(function(n){
+		var aa=n.split("=");
+		ctrack.q[aa[0]]=aa[1];
+	});
+	
 	args=args || {};
 	args.tongue	=args.tongue 	|| 	"eng"; 		// english
 	args.art	=args.art 		|| 	"/art/"; 	// local art
 	args.q		=args.q 		|| 	"/q"; 		// local q api
 	
+	args.flavas=args.flavas || ["original","high"];
+	args.flava=args.flava || ctrack.q.flava || "original";
+
+	args.css=args.css || [
+			args.art+args.flava+"/activities.css",
+			args.art+args.flava+"/ctrack.css"
+		];
+
 	if(args.css) { head.load(args.css); }
 	
 	ctrack.args=args;
@@ -68,11 +82,7 @@ ctrack.setup=function(args)
 		ctrack.chunk("crumbs","{crumbs"+ctrack.crumbs.length+"}");
 	}
 
-	ctrack.q={};
-	window.location.search.substring(1).split("&").forEach(function(n){
-		var aa=n.split("=");
-		ctrack.q[aa[0]]=aa[1];
-	});
+
 // temporary country force hack
 	if( ctrack.q.country )
 	{
@@ -113,6 +123,8 @@ ctrack.setup=function(args)
 	}
 // set global defaults
 	ctrack.chunk("art",args.art);
+	ctrack.chunk("flava",args.art+args.flava+"/");
+	ctrack.chunk("flava_name",args.flava);
 	ctrack.chunk("tongue",args.tongue);
 
 	ctrack.div={};
@@ -125,12 +137,22 @@ ctrack.setup=function(args)
 	ctrack.chunk("today",fetch.get_today());
 	ctrack.chunk("hash","");
 	
-	var s="?";
-	if(ctrack.q.country)
-	{
-		s=s+"country="+ctrack.q.country;
-	}
-	ctrack.chunk("mark",s);
+// build ? strings for url changes
+
+	var aa={}
+	if(args.flava!="original") { aa["flava"]=args.flava; }
+	if(args.tongue!="eng") { aa["tongue"]=args.tongue; }
+	if(ctrack.q.country) { aa["country"]=ctrack.q.country; }
+
+	var bb=[]; for(var n in aa) { bb.push(n+"="+aa[n]); }
+	ctrack.chunk("mark","?"+bb.join("&"));
+
+	var bb=[]; for(var n in aa) { if(n!="tongue") { bb.push(n+"="+aa[n]); } }
+	ctrack.chunk("mark_no_tongue","?"+bb.join("&"));
+
+	var bb=[]; for(var n in aa) { if(n!="flava") { bb.push(n+"="+aa[n]); } }
+	ctrack.chunk("mark_no_flava","?"+bb.join("&"));
+
  
 	ctrack.hash={};
 	ctrack.hash_split=function(q,v)

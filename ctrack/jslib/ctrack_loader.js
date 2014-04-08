@@ -15,11 +15,6 @@ ctrack_loader=function(args){
 	args.art=args.art 	|| root+"art/";
 	args.q	=args.q 	|| root+"q";
 	
-	args.css=args.css || [
-			args.art+"activities.css",
-			args.art+"ctrack.css"
-		];
-
 	head.load(
 		root+"jslib/jquery.js",
 		root+"jslib/ctrack.js",
