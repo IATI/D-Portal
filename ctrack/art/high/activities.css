@@ -193,7 +193,7 @@ a.a_related-activity:last-of-type								{padding-bottom:40px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
 related-activity		{display:inline; color:#000;}
 related-activity:hover	{color:#000;}
-related-activity:before	{display:inline-block; padding-right:5px; color:#fff; font-size:1.0em; line-height:1.25em;}
+related-activity:before	{display:inline-block; padding-right:5px; color:#000; font-size:1.0em; line-height:1.25em;}
 related-activity[type="1"]:before	{content:"Child of ";}
 related-activity[type="2"]:before	{content:"Parent of ";}
 related-activity[type="3"]:before	{content:"Sibling of ";}
