@@ -1,3 +1,5 @@
+/*	High Visibility CSS for SAVi d-portal.org 2014
+	============================================= */
 * 					{color:#000; font-family:sans-serif; word-wrap:break-word;}
 body,html			{background-color:#fff; color:#000; font-family:sans-serif;}
 a 					{text-decoration:none; color:#000;}
@@ -9,41 +11,58 @@ iati-activity *		{display:none;}
 iati-activity		{display:block; width:958px; margin:0 auto; margin-bottom:320px; background-color:#fff; border:1px solid #000;}
 iati-activity:after {content:"Data is sourced from IATI for D-Portal. If you find anything out of place, please contact the development team."; font-size:14px; color:#000; display:block; padding:15px 0; text-align:center;}
 
-/* hacks to display injected elements */
+
+/*	Hacks to display injected elements
+	============================================= */
 iati-activity span	{display:block;}
 iati-activity a 	{display:block;}
 iati-activity a:hover {text-decoration:underline;}
 iati-activity img	{display:block;}
 
+
+/*	Project title
+	============================================= */
 title		 		{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#000;}
 title:before 		{content:"PROJECT TITLE"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 
+
+/*	IATI Identifier
+	============================================= */
 iati-identifier 		{display:block; background-color:#000; width:878px; text-align:center; font-size:1.0em; padding:15px 40px; color:#fff; margin:0 auto;}
-iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#fff; display:inline-block; padding-right:5px;}
+iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#fff; display:inline-block; vertical-align:bottom; padding-right:5px;}
 iati-identifier:hover	{color:#fff;}
 iati-identifier a:focus		{color:#fff;}
 iati-identifier a:link  	{color:#fff;}
 iati-identifier a:visited	{color:#fff;}
 iati-identifier a:hover		{color:#fff;}
 iati-identifier a:active	{color:#fff;}
-a.a_iati-identifier		{width:960px; margin:0 auto;}
-a.a_xml_iati-identifier	{display:inline-block; padding-left:20px; color:#fff;}
-a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#fff; display:inline-block; padding-right:10px;}
+a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:bottom;}
+a.a_xml_iati-identifier	{display:inline-block; vertical-align:bottom; padding-left:20px; color:#fff;}
+a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#fff; display:inline-block; vertical-align:bottom; padding-right:10px;}
 
-span.span_activity-date				{display:block; vertical-align:top; width:958px; background-color:#000;}
-activity-date[type="start-planned"]	{display:none;}
-activity-date[type="end-planned"]	{display:none;}
-activity-date[type="start-actual"]	{font-size:1.0em; display:table-cell; vertical-align: top; padding:10px 40px; color:#fff; width:480px;}
-activity-date[type="end-actual"]	{font-size:1.0em; display:table-cell; vertical-align: top; padding:10px 40px; color:#fff; width:480px; text-align:right;}
-activity-date[type="start-actual"]:before	{content:"START DATE"; font-size:14px; color:#fff; display:inline-block; padding-right:10px;}
-activity-date[type="end-actual"]:before		{content:"END DATE"; font-size:14px; color:#fff; display:inline-block; padding-right:10px;}
 
+/*	Recipient countries
+	============================================= */
 span.span_recipient-country	{display:block; vertical-align:top; width:960px;}
 recipient-country 			{display:block; vertical-align:top; padding:20px 40px;}
 span.span_recipient-country:before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#000; padding:30px 0 0 40px; display:block;}
 recipient-country span		{font-size:48px; color:#000;}
 recipient-country span:nth-of-type(2)	{font-size:20px; color:#000;}
 
+
+/*	Start and End dates
+	============================================= */
+span.span_activity-date				{display:block; vertical-align:bottom; width:958px; background-color:#000;}
+activity-date[type="start-planned"]	{display:none;}
+activity-date[type="end-planned"]	{display:none;}
+activity-date[type="start-actual"]	{font-size:1.0em; display:table-cell; vertical-align:bottom; padding:10px 40px; color:#fff; width:480px;}
+activity-date[type="end-actual"]	{font-size:1.0em; display:table-cell; vertical-align:bottom; padding:10px 40px; color:#fff; width:480px; text-align:right;}
+activity-date[type="start-actual"]:before	{content:"START DATE"; font-size:14px; color:#fff; display:inline-block; vertical-align:bottom; padding-right:10px;}
+activity-date[type="end-actual"]:before		{content:"END DATE"; font-size:14px; color:#fff; display:inline-block; vertical-align:bottom; padding-right:10px;}
+
+
+/*	Who's invloved?
+	============================================= */
 participating-org {display:block; width:880px; padding:10px 40px; font-size:18px; color:#000;}
 participating-org:nth-of-type(1)		{padding-top:40px;}
 participating-org:nth-of-type(1):before {content:"Who's involved?"; font-size:34px; color:#000; display:block; padding:0; padding-bottom:10px; margin-bottom:20px; border-bottom:5px solid #000;}
@@ -52,11 +71,17 @@ participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-
 participating-org[role="extending"]:after		{content:"EXTENDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="accountable"]:after		{content:"ACCOUNTABLE ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
 
+
+/*	Reported by
+	============================================= */
 reporting-org {display:block; width:880px; padding:20px 40px 40px 40px; font-size:18px; font-weight:bold; color:#000;}
 reporting-org:before {content:"This activity is reported by"; display:inline-block; padding-right:5px; color:#000; font-size:18px; font-weight:normal;}
 reporting-org:nth-of-type(1)	{padding-top:40px;}
 reporting-org:last-of-type		{padding-bottom:40px;}
 
+
+/*	Description of project
+	============================================= */
 description {font-size:1.0em; word-spacing:0.05em; line-height:1.45em; display:block; width:880px; padding:40px; padding-bottom:0; color:#000;}
 description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
@@ -64,6 +89,9 @@ description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#000; 
 description[type="3"]:before	{content:"TARGET GROUPS"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 description:last-of-type		{padding-bottom:40px;}
 
+
+/*	Sectors (also turned into graph: sector_pie)
+	============================================= */
 sector *						{display:none;}
 sector[vocabulary="DAC"]		{font-size:1.0em; color:#000; width:240px; display:inline-block; vertical-align:top; padding:30px 40px; max-height:80px; min-height:80px;}
 sector:nth-child(even)			{background-color:#e9e9e9;}
@@ -73,6 +101,23 @@ sector span:nth-of-type(2)		{padding-top:5px; color:#000;}
 sector span:nth-of-type(2):after{content:"allocated"; padding-left:5px; display:inline-block;}
 img.sector_pie					{padding:40px 20px;}
 
+
+/*	Budget table
+	============================================= */
+budget	{display:block; width:958px; border-top:1px solid #000; padding:20px 0; border-bottom:0;}
+budget:last-of-type	  {border-bottom:0px solid #000;}
+budget:nth-of-type(1) {margin-top:0px; padding-top:0;}
+budget:nth-of-type(1):before {content:"Budget"; font-size:26px; color:#fff; background-color:#000; display:block; padding:20px 40px; margin-bottom:25px;}
+budget:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#000; width:290px; display:block; padding-bottom:10px; border-bottom:2px solid #000; margin-bottom:15px; line-height:1.35em;}
+budget:nth-of-type(1) period-end:before	  {content:"END DATE"; font-size:14px; color:#000; width:290px; display:block; padding-bottom:10px; border-bottom:2px solid #000; margin-bottom:15px; line-height:1.35em;}
+budget:nth-of-type(1) value:before		  {content:"VALUE"; font-size:14px; color:#000; width:300px; display:block; padding-bottom:10px; border-bottom:2px solid #000; margin-bottom:15px; line-height:1.35em;}
+period-start {display:table-cell; color:#000; font-size:1.0em; width:290px; max-width:290px; padding-left:40px; line-height:1.35em;}
+period-end	 {display:table-cell; color:#000; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em;}
+budget value {display:table-cell; color:#000; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em;}
+
+
+/*	Transaction table
+	============================================= */
 transaction						{display:block; width:958px; border-top:1px solid #000; padding:20px 0; border-bottom:0;}
 transaction a					{color:#000;}
 transaction a:hover				{color:#000;}
@@ -96,17 +141,26 @@ receiver-org	{display:table-cell; color:#000; font-size:1.0em; width:130px; max-
 value			{display:table-cell; color:#000; text-align:right; font-size:1.0em; width:100px; max-width:100px; padding-right:40px; line-height:1.35em;}
 value span		{font-size:12px; color:#000;}
 
+
+/*	Contact info for Publisher
+	============================================= */
 contact-info	{display:block; width:880px; padding:10px 40px; font-size:18px;}
 contact-info *	{display:block; padding:5px 0; color:#000;}
 contact-info:nth-of-type(1):before	{content:"CONTACT INFO"; font-size:14px; color:#000; display:block; margin-bottom:10px;}
 contact-info:nth-of-type(1)			{padding-top:40px;}
 contact-info:last-of-type			{padding-bottom:40px;}
 
+
+/*	Website or external links
+	============================================= */
 activity-website		{display:block; width:878px; margin:0 auto; text-align:center; padding:20px 40px; font-size:18px; border:0; color:#fff; background-color:#000;}
 activity-website *		{display:block; padding:5px 0;}
 activity-website:before {content:"FOR MORE INFORMATION, VISIT "; font-size:14px; color:#fff; display:inline-block; padding-right:10px;}
 activity-website:hover	{color:#fff;}
 
+
+/*	Activity Status
+	============================================= */
 activity-status[code="1"]	{background-color:#e9e9e9;}
 activity-status[code="2"]	{background-color:#e9e9e9;}
 activity-status[code="3"]	{background-color:#e9e9e9;}
@@ -115,17 +169,9 @@ activity-status[code="5"]	{background-color:#e9e9e9;}
 activity-status				{display:block; font-size:20px; background-color:#e9e9e9; width:958px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px; color:#000;}
 activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#000; font-weight:bold; display:inline-block; padding-right:10px;}
 
-budget	{display:block; width:958px; border-top:1px solid #000; padding:20px 0; border-bottom:0;}
-budget:last-of-type	  {border-bottom:0px solid #000;}
-budget:nth-of-type(1) {margin-top:0px; padding-top:0;}
-budget:nth-of-type(1):before {content:"Budget"; font-size:26px; color:#fff; background-color:#000; display:block; padding:20px 40px; margin-bottom:25px;}
-budget:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#000; width:290px; display:block; padding-bottom:10px; border-bottom:2px solid #000; margin-bottom:15px; line-height:1.35em;}
-budget:nth-of-type(1) period-end:before	  {content:"END DATE"; font-size:14px; color:#000; width:290px; display:block; padding-bottom:10px; border-bottom:2px solid #000; margin-bottom:15px; line-height:1.35em;}
-budget:nth-of-type(1) value:before		  {content:"VALUE"; font-size:14px; color:#000; width:300px; display:block; padding-bottom:10px; border-bottom:2px solid #000; margin-bottom:15px; line-height:1.35em;}
-period-start {display:table-cell; color:#000; font-size:1.0em; width:290px; max-width:290px; padding-left:40px; line-height:1.35em;}
-period-end	 {display:table-cell; color:#000; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em;}
-budget value {display:table-cell; color:#000; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em;}
 
+/*	Related documents list
+	============================================= */
 span.span_document-link			{width:880px; padding:0 40px; margin:0 auto;}
 span.span_document-link:before	{content:"Related Documents"; font-size:34px; color:#000; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #000;}
 a.a_document-link				{display:list-item; width:880px; padding:10px 0; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#000;}
@@ -137,6 +183,9 @@ document-link span	{font-size:1.0em; display:block; color:#000;}
 document-link title:nth-of-type(n+1):before	{display:none;}
 document-link title:nth-of-type(n+1)		{font-size:18px;}
 
+
+/*	Family Tree list
+	============================================= */
 span.span_related-activity			{width:880px; padding:0 40px; margin:0 auto;}
 span.span_related-activity:before	{content:"Family Tree"; font-size:34px; color:#000; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #000;}
 a.a_related-activity	{display:list-item; width:875px; padding:10px 0 0 5px; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#000;}
