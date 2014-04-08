@@ -104,10 +104,10 @@ a.stats_link			{display:block; padding:30px 40px; height:100%;}
 
 /*	Active / Ended projects styles
 	============================================= */
-.ended_wrap				{width:960px; margin:0 auto; padding:40px 20px;}
-.active_wrap			{width:960px; margin:0 auto; padding:40px 20px;}
-.table_wrap				{background-color:#fff; padding:0 20px 20px 20px; border-radius:0 0 8px 8px; border:1px solid #000; border-top:0;}
-.view_all_projects_wrap	{width:960px; margin:0 auto; text-align:center;}
+.ended_wrap					{width:960px; margin:0 auto; padding:40px 20px;}
+.active_wrap				{width:960px; margin:0 auto; padding:40px 20px;}
+.table_wrap					{background-color:#fff; padding:0 20px 20px 20px; border-radius:0 0 8px 8px; border:1px solid #000; border-top:0;}
+.view_all_projects_wrap		{width:960px; margin:0 auto; text-align:center;}
 a.view_all_projects			{padding:10px 20px; background-color:#fff; font-size:1.25em; color:#000; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center; border:1px solid #000; border-top:0;}
 a.view_all_projects:hover	{background-color:#000; color:#fff;}
 
@@ -120,6 +120,24 @@ a.view_all_projects:hover	{background-color:#000; color:#fff;}
 .description p			{padding:15px 0; font-size:1.2em; color:#000; line-height:1.2em; word-spacing:0.07em;}
 a.read					{display:inline-block; color:#000; font-size:1.0em;}
 a.read:hover			{color:#000;}
+
+
+/*	Generic list view
+	============================================= */
+.head_wrap					{width:860px; margin:0 auto; padding:20px 0;}	
+.icon_wrap					{width:330px; display:inline-block; vertical-align:bottom;}
+.list_peak_wrap				{display:inline-block; vertical-align:top;}
+.list_peak_space			{height:60px;}
+.list_peak					{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}
+.list_head_wrap				{width:480px; display:inline-block; vertical-align:top;}
+.list_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
+.list_stats_title			{font-size:0.6em; color:#fff;}
+.list_stats_num				{font-size:2.9em; color:#fff; line-height:0.8em;}
+.list_table_title_wrap		{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
+.list_table_wrap			{background-color:#fff; padding:0 20px 20px 20px; border-radius:0 0 8px 8px; border:1px solid #000; border-top:0;}
+.button_wrap				{width:960px; margin:0 auto; text-align:center;}
+a.button					{padding:10px 20px; background-color:#fff; font-size:1.25em; color:#000; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center; border:1px solid #000; border-top:0;}
+a.button:hover				{background-color:#000; color:#fff;}
 
 
 /*	For url #view=donors & all #view=donor_*
@@ -292,6 +310,7 @@ table.activity tr:last-child td	{border:0;}
 table.activity td.num	{padding:10px 0;}
 table.activity td.title	{padding:0 30px 0 0;}
 table.activity td.value	{text-align:right; padding-right:0; min-width:140px; font-size:1.0em;}
+table.activity td.count	{text-align:right; padding-right:0; min-width:140px; font-size:1.7em; line-height:1.0em;}
 table.activity td.alert_no_iati	{text-align:center; font-size:2.0em; padding:20px 0 0 0;}
 table.activity td span	{display:block; padding-top:5px; color:#000; font-size:0.7em; line-height:1.0em;}
 table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#000;}

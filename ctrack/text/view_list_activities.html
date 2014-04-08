@@ -8,21 +8,21 @@
 {main_head}
 {main_countrymin}
 {about_data_links}
-{donors_head}
-<div class="list_activities_wrap">
+{list_activities_head}
+<div class="list_table_title_wrap">
 	<table class="title">
 		<tr>
 			<td class="icon"><img src="{art}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
 			<td>{view_list_activities_text}</td>
 		</tr>
 	</table>
-	<div class="list_activities">
+	<div class="list_table_wrap">
 		<table class="activity">
 			{list_activities_datas}
 		</table>
 	</div>
-	<div class="back_to_list_list">
-		<a href="#view=donors" class="back_to_list_list">{view_all_text}</a>
+	<div class="button_wrap">
+		<a href="#view=main" class="button">{back_text}</a>
 	</div>
 </div>
 {list_activities_data_description}
@@ -47,14 +47,20 @@
 			<span>{reported_by_text}</span>
 		</a>
 	</td>
-	<td class="value" title="{list_activities_percentage_tip_text}">
-		<div class="list_activities_spend_wrap">
-			<div class="list_activities_spend">{commitment}</div>
-			<div class="list_activities_barchart_wrap">
-				<div class="list_activities_percent_max">
-					<div style="width:{pct}px;" class="list_activities_percent"></div>
-				</div>
+	<td class="value">{commitment}</td>
+</tr>
+
+#list_activities_head
+<div class="head_wrap">
+	<div class="icon_wrap">
+		<img src="{art}total_icon_big.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>	
+	</div><div class="list_peak_wrap">
+			<div class="list_peak_space"></div>
+			<div class="list_peak"></div>
+	</div><div class="list_head_wrap">
+			<div class="list_head_title">
+				<span class="list_stats_title">{stats_total_text}</span>
+				<span class="list_stats_num">{total_projects}</span>
 			</div>
 		</div>
-	</td>
-</tr>
+</div>
