@@ -27,7 +27,8 @@ view_planned.ajax=function(args)
 	args.q=args.q || {};
 	args.q.day_start_gt = today;
 	args.q.day_length_not_null = 1;
-	
+	args.q.orderby:"day_start",
+
 	if(args.output=="count") // just count please
 	{
 		args.chunk = args.chunk || "planned_projects";
