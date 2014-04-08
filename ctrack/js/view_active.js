@@ -6,11 +6,8 @@ var view_active=exports;
 exports.name="active";
 
 var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
+var views=require("./views.js")
 var fetch=require("./fetch.js")
-
-var view_stats=require("./view_stats.js")
 
 // the chunk names this view will fill with new data
 view_active.chunks=[
@@ -22,54 +19,26 @@ view_active.chunks=[
 // Perform ajax call to get data
 //
 view_active.ajax=function(args)
-{
+{	
+	var today=fetch.get_today();
+	
 	args=args || {};
 	
-	var today=fetch.get_today();
-    
-	var dat={
-			"from":"act,country",
-			"limit":args.limit || 5,
-			"orderby":args.orderby || "day_end",
-			"day_end_gt":today,
-			"day_start_lt":today,
-			"country_code":(args.country || ctrack.args.country)
-		};
-		
+	args.q=args.q || {};
+	args.q.day_end_gt = today;
+	args.q.day_start_lt = today;
+	
 	if(args.output=="count") // just count please
 	{
-		dat.select="count";
-		delete dat.limit;
-		delete dat.orderby;
+		args.chunk = args.chunk || "active_projects";
+	}
+	else
+	{
+		args.plate = args.plate || "{active_projects_data}";
+		args.chunk = args.chunk || "active_projects_datas";
 	}
 	
-	fetch.ajax(dat,args.callback || function(data)
-	{		
-		if(args.output=="count")
-		{
-			ctrack.chunk(args.chunk || "active_projects",data.rows[0]["count"]);
-			view_stats.calc();
-		}
-		else
-		{
-			var s=[];
-			for(i=0;i<data.rows.length;i++)
-			{
-				var v=data.rows[i];
-				v.num=i+1;
-
-				v.title=v.title || v.aid;
-				v.date=fetch.get_nday(v.day_end);
-
-				v.activity=v.aid;
-
-				s.push( plate.replace(args.plate || "{active_projects_data}",v) );
-			}
-
-			ctrack.chunk(args.chunk || "active_projects_datas",s.join(""));
-		}
-		ctrack.display(); // every fetch.ajax must call display once
-	});
+	views.list_activities.ajax(args);
 }
 //
 // Perform ajax call to get numof data
@@ -82,7 +51,6 @@ view_active.view=function(args)
 	ctrack.change_hash();
 
 	view_active.ajax({output:"count"});
-	
 	view_active.ajax({limit:-1});
 }
 
