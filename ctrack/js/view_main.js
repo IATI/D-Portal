@@ -45,6 +45,7 @@ view_main.view=function(args)
 	views.planned.ajax({output:"count"});
 	views.active.ajax({output:"count"});
 	views.ended.ajax({output:"count"});
+	views.missing.ajax({output:"count"});
 	views.stats.ajax();
 	
 	views.active.ajax({limit:5,plate:"{table_active_data}",chunk:"table_active_datas"});

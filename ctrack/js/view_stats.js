@@ -32,6 +32,8 @@ view_stats.calc=function()
 		var pct=Math.ceil(100*num/tot);
 		ctrack.chunk("percent_of_activities_with_location",pct);
 	}
+
+/*
 	
 	var pt=parseInt(ctrack.chunk("total_projects"))||0;
 	var pa=parseInt(ctrack.chunk("active_projects"))||0;
@@ -47,7 +49,8 @@ view_stats.calc=function()
 	{
 		ctrack.chunk("missing_projects",0);
 	}
-	
+*/
+
 //	console.log(pm);
 }
 

@@ -25,7 +25,7 @@ view_missing.ajax=function(args)
 	args=args || {};
 	
 	args.q=args.q || {};
-	args.q.day_length_null = 0; // bad data
+	args.q.day_length_null = 1; // bad data
 	
 	if(args.output=="count") // just count please
 	{
