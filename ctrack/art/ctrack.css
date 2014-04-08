@@ -127,6 +127,24 @@ a.read					{display:inline-block; color:#A2CDDD; font-size:1.0em;}
 a.read:hover			{color:#CEE3EB;}
 
 
+/*	Generic list view
+	============================================= */
+.head_wrap					{width:860px; margin:0 auto; padding:20px 0;}	
+.icon_wrap					{width:330px; display:inline-block; vertical-align:bottom;}
+.list_peak_wrap				{display:inline-block; vertical-align:top;}
+.list_peak_space			{height:60px;}
+.list_peak					{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #0070DD; border-bottom:20px solid transparent;}
+.list_head_wrap				{width:480px; display:inline-block; vertical-align:top;}
+.list_head_title			{width:400px; background-color:#0070DD; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
+.list_stats_title			{display:block; font-size:0.6em; color:#fff; padding-bottom:10px;}
+.list_stats_num				{display:block; font-size:2.9em; color:#fff; line-height:0.8em;}
+.list_table_title_wrap		{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
+.list_table_wrap			{background-color:rgba(0,14,32,0.7); padding:0 20px 20px 20px; border-radius:0 0 8px 8px;}
+.button_wrap				{width:960px; margin:0 auto; text-align:center;}
+a.button					{padding:10px 20px; background-color:#3B9CFB; font-size:1.25em; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
+a.button:hover				{background-color:#0081FF;}
+
+	
 /*	For url #view=donors & all #view=donor_*
 	============================================= */
 .donors_head_wrap			{width:860px; margin:0 auto; padding:20px 0;}
@@ -139,7 +157,6 @@ a.read:hover			{color:#CEE3EB;}
 .donors_head_title_wrap		{width:480px; display:inline-block; vertical-align:top;}
 .donors_head_title			{width:400px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
 .donors_head_title.view		{background-color:#0070DD;}
-.donors_head_declare		{width:480px; padding-top:10px; color:#ccc; font-size:0.9em; text-align:center;}
 .table_donors_wrap			{width:920px; margin:0 auto; background-color:rgba(0,14,32,0.7); padding:20px; border-radius:0 0 8px 8px; margin-bottom:40px;}
 
 
@@ -297,6 +314,7 @@ table.activity tr:last-child td	{border:0;}
 table.activity td.num	{padding:10px 0;}
 table.activity td.title	{padding:0 30px 0 0;}
 table.activity td.value	{text-align:right; padding-right:0; min-width:140px; font-size:1.0em;}
+table.activity td.count	{text-align:right; padding-right:0; min-width:140px; font-size:1.7em; line-height:1.0em;}
 table.activity td.alert_no_iati	{text-align:center; font-size:2.0em; padding:20px 0 0 0;}
 table.activity td span	{display:block; padding-top:5px; color:#9C8876; font-size:0.7em; line-height:1.0em;}
 table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#95B0CF;}
