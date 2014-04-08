@@ -4,7 +4,7 @@
 <xsl:template match="*">
 	<html>
 		<head>
-			<link rel="stylesheet" type="text/css" href="../art/activities.css" />
+			<link rel="stylesheet" type="text/css" href="/art/original/activities.css" />
 			<script src="../jslib/jquery.js" />
 			<script src="../jslib/ctrack.js" />
 			<script>
