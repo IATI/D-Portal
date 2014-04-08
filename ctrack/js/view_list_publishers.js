@@ -28,7 +28,7 @@ view_list_publishers.chunks=[
 view_list_publishers.view=function()
 {
 	view_list_publishers.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
-	ctrack.setcrumb(2);
+	ctrack.setcrumb(1);
 	ctrack.change_hash();
 	view_list_publishers.ajax({q:ctrack.hash});
 };
