@@ -85,6 +85,7 @@ view_list_publishers.ajax=function(args)
 				s.push( plate.replace(args.plate || "{list_publishers_data}",d) );
 			}
 			ctrack.chunk(args.chunk || "list_publishers_datas",s.join(""));
+			ctrack.chunk("numof_publishers" , data.rows.length );
 		}
 		if(args.callback){args.callback(data);}
 		ctrack.display();

@@ -45,3 +45,6 @@ views.list_activities=require("./view_list_activities.js");
 views.list_transactions=require("./view_list_transactions.js");
 views.list_budgets=require("./view_list_budgets.js");
 views.list_publishers=require("./view_list_publishers.js");
+
+views.list_activities_missing=require("./view_list_activities_missing.js");
+

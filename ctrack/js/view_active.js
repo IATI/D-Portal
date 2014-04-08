@@ -27,6 +27,7 @@ view_active.ajax=function(args)
 	args.q=args.q || {};
 	args.q.day_end_gt = today;
 	args.q.day_start_lt = today;
+	args.q.day_length_not_null = 1;
 	
 	if(args.output=="count") // just count please
 	{

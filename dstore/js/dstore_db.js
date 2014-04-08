@@ -303,9 +303,19 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 		t["budget_day_start"]=				iati_xml.get_isodate_number(it,"period-start");
 		t["budget_day_end"]=				iati_xml.get_isodate_number(it,"period-end");
-		t["budget_day_length"]=			t["day_end"]-t["day_start"];
 
-		if( t["budget_day_length"] > 370 ) // allow a few days over a year
+
+		t["budget_day_length"]=null;
+		if(t["budget_day_end"] && t["budget_day_start"] ) // length may be null for bad data
+		{
+			t["budget_day_length"]=			t["day_end"]-t["day_start"];
+			if( t["budget_day_length"] < 0 )
+			{
+				t["budget_day_length"]=null; // ends before it starts
+			}
+		}
+		
+		if( (!t["budget_day_length"]) || (t["budget_day_length"] > 370) ) // allow a few days over a year
 		{
 			t.budget_priority=0; // remove priority
 		}
@@ -489,8 +499,17 @@ dstore_db.refresh_act = function(db,aid,xml){
 			if( it.type=="end-actual" )		{ t.day_end=iati_xml.get_isodate_number(it); }
 		});
 
-		t.day_length=t.day_end-t.day_start;
-
+		t.day_length=null;
+		if(t["day_end"] && t["day_start"] ) // length may be null for bad data
+		{
+			t["day_length"]=			t["day_end"]-t["day_start"];
+			if( t["day_length"] < 0 )
+			{
+				t["day_length"]=null; // ends before it starts
+			}
+		}
+		
+		
 		t.default_currency=act["default-currency"];
 		
 //		t.xml=xml;

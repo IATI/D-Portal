@@ -9,6 +9,7 @@ var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetch=require("./fetch.js")
+var views=require("./views.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
@@ -43,7 +44,7 @@ view_list_activities.ajax=function(args)
 	var dat={
 			"from":"act,country",
 			"limit":args.limit || -1,
-			"select":"title,aid,funder,commitment,spend,reporting_org",
+			"select":"title,aid,funder,commitment,spend,reporting_org,day_start,day_end",
 			"orderby":"4-",
 			"country_code":(args.country || ctrack.args.country)
 		};
@@ -66,7 +67,7 @@ view_list_activities.ajax=function(args)
 		if(args.output=="count")
 		{
 			ctrack.chunk(args.chunk || "list_activities_count",data.rows[0]["count"]);
-			view_stats.calc();
+			views.stats.calc();
 		}
 		else
 		{
@@ -79,6 +80,9 @@ view_list_activities.ajax=function(args)
 				d.funder=v.funder || "N/A";
 				d.aid=v.aid || "N/A";
 				d.title=v.title || v.aid || "N/A";
+				
+				d.date_start=fetch.get_nday(v.day_start) || "N/A";
+				d.date_end=fetch.get_nday(v.day_end) || "N/A";
 
 				d.reporting_org=v.reporting_org || "N/A";
 				d.commitment=commafy(""+Math.floor(v.commitment||0));
