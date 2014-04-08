@@ -100,6 +100,8 @@ span.stats_num.small	{display:block; font-size:4.0em;}
 span.stats_num.view		{font-size:2.9em; color:#fff; line-height:0.8em;}
 .declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#000; font-size:0.9em;}
 a.stats_link			{display:block; padding:30px 40px; height:100%;}
+a.stats_link.missing:hover	{text-decoration:underline;}
+a.stats_link.missing span	{color:#000;}
 
 
 /*	Active / Ended projects styles

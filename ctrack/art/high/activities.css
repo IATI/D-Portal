@@ -28,7 +28,7 @@ title:before 		{content:"PROJECT TITLE"; font-size:14px; color:#000; display:blo
 
 /*	IATI Identifier
 	============================================= */
-iati-identifier 		{display:block; background-color:#000; width:878px; text-align:center; font-size:1.0em; padding:15px 40px; color:#fff; margin:0 auto;}
+iati-identifier 		{display:block; background-color:#000; text-align:center; font-size:1.0em; padding:15px 40px; color:#fff; margin:0 auto;}
 iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#fff; display:inline-block; vertical-align:bottom; padding-right:5px;}
 iati-identifier:hover	{color:#fff;}
 iati-identifier a:focus		{color:#fff;}
@@ -36,7 +36,7 @@ iati-identifier a:link  	{color:#fff;}
 iati-identifier a:visited	{color:#fff;}
 iati-identifier a:hover		{color:#fff;}
 iati-identifier a:active	{color:#fff;}
-a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:bottom;}
+a.a_iati-identifier		{width:958px; margin:0 auto; vertical-align:bottom;}
 a.a_xml_iati-identifier	{display:inline-block; vertical-align:bottom; padding-left:20px; color:#fff;}
 a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#fff; display:inline-block; vertical-align:bottom; padding-right:10px;}
 
@@ -80,14 +80,14 @@ reporting-org:nth-of-type(1)	{padding-top:40px;}
 reporting-org:last-of-type		{padding-bottom:40px;}
 
 
-/*	Description of project
+/*	Description of project (shared with Transaction)
 	============================================= */
-description {font-size:1.0em; word-spacing:0.05em; line-height:1.45em; display:block; width:880px; padding:40px; padding-bottom:0; color:#000;}
+description {font-size:1.0em; word-spacing:0.05em; line-height:1.45em; display:block; width:880px; padding:40px; padding-bottom:0; color:#000; border-top:1px solid #000;}
 description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 description[type="3"]:before	{content:"TARGET GROUPS"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
-description:last-of-type		{padding-bottom:40px;}
+description:last-of-type		{padding-bottom:40px; border-bottom:1px solid #000;}
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -135,7 +135,7 @@ transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTI
 
 transaction-date	{display:table-cell; color:#000; font-size:1.0em; width:100px; max-width:100px; padding-left:40px; padding-right:10px; line-height:1.35em;}
 transaction-type	{display:table-cell; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:20px; line-height:1.35em;}
-transaction description:nth-of-type(1) {display:table-cell; color:#000; font-size:1.0em; padding:0px; background-color:transparent; width:220px; max-width:220px; padding-right:20px; text-align:left; line-height:1.35em;}
+transaction description:nth-of-type(1) {display:table-cell; color:#000; font-size:1.0em; padding:0px; background-color:transparent; width:220px; max-width:220px; padding-right:20px; text-align:left; line-height:1.35em; border:0;}
 provider-org	{display:table-cell; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:20px; line-height:1.35em;}
 receiver-org	{display:table-cell; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:0px; line-height:1.35em;}
 value			{display:table-cell; color:#000; text-align:right; font-size:1.0em; width:100px; max-width:100px; padding-right:40px; line-height:1.35em;}

@@ -91,6 +91,9 @@ Projets Prévus
 #crumbname_list_activities_text 
 Nombre total de Projets
 
+#crumbname_missing_text 
+Projets manquantes
+
 #crumbname_data_quality_text 
 À propos de la qualité des données
 
@@ -192,6 +195,12 @@ Rapporté par {reporting}
 
 #project_title_tip_text 
 Titre du projet d'activité
+
+#date_start_tip_text 
+Date de début 
+
+#date_end_tip_text 
+Date de fin
 
 #donor_activities_percentage_tip_text 
 Pourcentage du total des engagements passés
@@ -447,19 +456,19 @@ C'est ainsi que les données sont calculées pour l'argent va à des secteurs.
 Comment les données sont -elle calculée?
 
 #sector_activities_data_description_text
-Dépenses est calculée en ajoutant les décaissements et les dépenses . Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici , classés par le plus grand en haut . Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction .
+Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici , classés par le plus grand en haut. Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction.
 
 #sector_transactions_data_description_title_text
 Comment les données sont -elle calculée?
 
 #sector_transactions_data_description_text
-Dépenses est calculée en ajoutant les décaissements et les dépenses . Ce tableau vous indique toutes les activités déclarées par les {sector} pour {country_name} et triés par l'activité avec la plus grande dépense en haut .
+Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique toutes les activités déclarées par les {sector} pour {country_name} et triés par l'activité avec la plus grande dépense en haut.
 
 #sector_budgets_data_description_title_text
 Comment les données sont -elle calculée?
 
 #sector_budgets_data_description_text
-Budget est calculé en additionnant tous les budgets qui est inférieure à 370 jours de long et se termine par {year}. Ce tableau vous indique toutes les activités qui ont énuméré les budgets pour {year} triés par le plus grand en haut . Zéros dans les tableaux indiquent les écarts dans ce calcul en raison de données insuffisantes et signifient les problèmes de qualité de données .
+Budget est calculé en additionnant tous les budgets qui est inférieure à 370 jours de long et se termine par {year}. Ce tableau vous indique toutes les activités qui ont énuméré les budgets pour {year} triés par le plus grand en haut. Zéros dans les tableaux indiquent les écarts dans ce calcul en raison de données insuffisantes et signifient les problèmes de qualité de données.
 
 #districts_data_description_title_text
 Comment les données sont -elle calculée?
@@ -489,35 +498,44 @@ Tous les éditeurs de {country_name}
 #view_list_activities_text
 Nombre de projets présentés pour {country_name}
 
+#view_missing_text 
+Projets avec la date invalide gammes de {country_name}
+
 #active_data_description_title_text
 Comment les données sont -elle calculée?
 
 #active_data_description_text
-C'est ainsi que les données sont calculées pour tous les projets actifs .
+C'est ainsi que les données sont calculées pour tous les projets actifs.
 
 #ended_data_description_title_text
 Comment les données sont -elle calculée?
 
 #ended_data_description_text
-C'est ainsi que les données sont calculées pour tous les projets indéterminée .
+C'est ainsi que les données sont calculées pour tous les projets indéterminée.
 
 #planned_data_description_title_text
 Comment les données sont -elle calculée?
 
 #planned_data_description_text
-C'est ainsi que les données sont calculées pour tous les projets prévus .
+C'est ainsi que les données sont calculées pour tous les projets prévus.
 
 #list_activities_data_description_title_text
 Comment les données sont -elle calculée?
 
 #list_activities_data_description_text
-C'est ainsi que les données sont calculées pour des projets globaux .
+C'est ainsi que les données sont calculées pour des projets globaux.
 
 #list_publishers_data_description_title_text
 Comment les données sont -elle calculée?
 
 #list_publishers_data_description_text
-C'est ainsi que les données sont calculées pour tous les éditeurs .
+C'est ainsi que les données sont calculées pour tous les éditeurs.
+
+#missing_data_description_title_text 
+Comment les données sont-elle calculée? 
+
+#missing_data_description_text 
+C'est ainsi que les données sont calculées pour les projets qui manquent.
 
 #data_title_text
 Pourquoi les questions de la qualité des données
