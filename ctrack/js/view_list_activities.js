@@ -81,8 +81,10 @@ view_list_activities.ajax=function(args)
 				d.aid=v.aid || "N/A";
 				d.title=v.title || v.aid || "N/A";
 				
-				d.date_start=fetch.get_nday(v.day_start) || "N/A";
-				d.date_end=fetch.get_nday(v.day_end) || "N/A";
+				d.date_start="N/A"
+				d.date_end="N/A"
+				if(v.day_start!==null) { d.date_start=fetch.get_nday(v.day_start); }
+				if(v.day_end  !==null) { d.date_end  =fetch.get_nday(v.day_end  ); }
 
 				d.reporting_org=v.reporting_org || "N/A";
 				d.commitment=commafy(""+Math.floor(v.commitment||0));
