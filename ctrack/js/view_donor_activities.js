@@ -43,7 +43,7 @@ view_donor_activities.view=function()
 			ctrack.chunk("alerts","{alert_no_iati}");
 		}
 		
-		ctrack.chunk("donor",iati_codes.funder_names[funder] || iati_codes.publisher_names[funder] || iati_codes.country[funder] || v.funder );
+		ctrack.chunk("donor",iati_codes.funder_names[funder] || iati_codes.publisher_names[funder] || iati_codes.country[funder] || funder );
 		
 	};
 	

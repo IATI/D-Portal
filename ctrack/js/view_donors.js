@@ -67,7 +67,7 @@ view_donors.ajax=function(args)
 				v.b2015="-";
 			}
 
-			v.donor=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
+			v.donor=iati_codes.funder_names[v.funder] || iati_codes.publisher_names[v.funder] || iati_codes.country[v.funder] || v.funder;
 			s.push( plate.replace(args.plate || "{table_donors_row}",v) );
 		});
 		ctrack.chunk(args.chunk || "table_donors_rows",s.join(""));
@@ -105,9 +105,9 @@ view_donors.ajax=function(args)
 		var dat={
 				"from":"act,trans,country",
 				"limit":args.limit || 100,
-				"select":"funder,sum_of_percent_of_trans_usd",
-				"funder_not_null":"",
-				"groupby":"funder",
+				"select":"funder_ref,sum_of_percent_of_trans_usd",
+				"funder_ref_not_null":"",
+				"groupby":"funder_ref",
 				"trans_code":"D|E",
 				"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
 				"country_code":(args.country || ctrack.args.country)
@@ -121,7 +121,7 @@ view_donors.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				var num=v.sum_of_percent_of_trans_usd;
-				d.funder=v.funder;
+				d.funder=v.funder_ref;
 				d["t"+year]=commafy(""+Math.floor(num));
 				if(year==2012)
 				{
@@ -141,10 +141,10 @@ view_donors.ajax=function(args)
 		var dat={
 				"from":"act,budget,country",
 				"limit":args.limit || 100,
-				"select":"funder,sum_of_percent_of_budget_usd",
+				"select":"funder_ref,sum_of_percent_of_budget_usd",
 				"priority":1, // has passed some validation checks serverside
-				"funder_not_null":"",
-				"groupby":"funder",
+				"funder_ref_not_null":"",
+				"groupby":"funder_ref",
 				"budget_day_end_gteq":year+"-01-01","budget_day_end_lt":(parseInt(year)+1)+"-01-01",
 				"country_code":(args.country || ctrack.args.country)
 			};
@@ -157,7 +157,7 @@ view_donors.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				d.funder=v.funder;
+				d.funder=v.funder_ref;
 				d["b"+year]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
 				fadd(d);
 			}
