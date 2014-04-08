@@ -43,7 +43,7 @@ view_list_transactions.ajax=function(args)
 	var dat={
 			"from":"act,trans,country",
 			"limit":args.limit || -1,
-			"select":"sum_of_percent_of_trans_usd,aid,funder,title,reporting_org",
+			"select":"sum_of_percent_of_trans_usd,aid,funder_ref,title,reporting",
 			"groupby":"aid",
 			"orderby":"1-",
 			"trans_code":"D|E",
@@ -82,10 +82,10 @@ view_list_transactions.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.num=i+1;
-				d.funder=v.funder;
+				d.funder_ref=v.funder_ref;
 				d.aid=v.aid;
 				d.title=v.title || v.aid;
-				d.reporting_org=v.reporting_org;
+				d.reporting=v.reporting;
 				total+=v.sum_of_percent_of_trans_usd;
 				d.amount=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd));
 				d.currency="USD";

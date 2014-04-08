@@ -72,8 +72,11 @@ view_stats.ajax=function(args)
 //		console.log("view_stats.numof_callback");
 //		console.log(data);
 			
-		ctrack.chunk("total_projects",data.rows[0]["COUNT(*)"]);
-		ctrack.chunk("numof_publishers",data.rows[0]["COUNT(DISTINCT reporting_org)"]);
+		if(data.rows[0])
+		{
+			ctrack.chunk("total_projects",data.rows[0]["COUNT(*)"]);
+			ctrack.chunk("numof_publishers",data.rows[0]["COUNT(DISTINCT reporting_ref)"]);
+		}
 		
 		view_stats.calc();
 		
@@ -95,8 +98,10 @@ view_stats.ajax=function(args)
 //		console.log("total_activities_with_location");
 //		console.log(data);
 			
-		ctrack.chunk("total_activities_with_location",data.rows[0]["COUNT(DISTINCT aid)"]);
-		
+		if(data.rows[0])
+		{
+			ctrack.chunk("total_activities_with_location",data.rows[0]["COUNT(DISTINCT aid)"]);
+		}
 		view_stats.calc();
 
 		ctrack.display(); // every fetch.ajax must call display once
