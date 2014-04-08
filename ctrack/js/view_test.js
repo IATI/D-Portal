@@ -76,7 +76,7 @@ view_test.ajax=function(args)
 			d.num=v.usd;
 			d.pct=Math.floor(100*v.usd/total);
 			d.str_num=commafy(d.num)+" USD";
-			d.str_lab=iati_codes.funder_names[v.funder] || iati_codes.country[v.funder] || v.funder;
+			d.str_lab=iati_codes.funder_names[v.funder_ref] || iati_codes.publisher_names[v.funder_ref] || iati_codes.country[v.funder_ref] || v.funder_ref;
 			d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
 			dd.push(d);
 		}

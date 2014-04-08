@@ -23,10 +23,6 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // values copied from the main activity into sub tables for quik lookup (no need to join tables)
 dstore_db.bubble_act={
-//		"reporting_org":true,
-//		"reporting_org_ref":true,
-//		"funder":true,
-//		"title":true,
 		"aid":true
 	};
 	
@@ -39,9 +35,9 @@ dstore_db.tables={
 	],
 	act:[
 		{ name:"aid",							NOCASE:true , PRIMARY:true },
-		{ name:"reporting_org",					NOCASE:true , INDEX:true },
-		{ name:"reporting_org_ref",				NOCASE:true , INDEX:true },
-		{ name:"funder",						NOCASE:true , INDEX:true },
+		{ name:"reporting",						NOCASE:true , INDEX:true },
+		{ name:"reporting_ref",					NOCASE:true , INDEX:true },
+		{ name:"funder_ref",					NOCASE:true , INDEX:true },
 		{ name:"title",							NOCASE:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
 		{ name:"status_code",					INTEGER:true , INDEX:true },	
@@ -68,8 +64,8 @@ dstore_db.tables={
 	budget:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
 		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement)
-		{ name:"budget_priority",				INTEGER:true , INDEX:true }, // set to 1 if it has priority, 0 if it should be ignored
-		{ name:"budget_type",					NOCASE:true , INDEX:true },	// planed disburtions have priority over budgets
+		{ name:"budget_priority",				INTEGER:true , INDEX:true }, // set to 0 if it should be ignored(bad data)
+		{ name:"budget_type",					NOCASE:true , INDEX:true },	// planed disburtions have priority
 		{ name:"budget_day_start",				INTEGER:true , INDEX:true },
 		{ name:"budget_day_end",				INTEGER:true , INDEX:true },
 		{ name:"budget_day_length",				INTEGER:true , INDEX:true }, // budgets longer than a year will have 0 priority
@@ -359,8 +355,8 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 		t.title=refry.tagval(act,"title");
 		t.description=refry.tagval(act,"description");				
-		t.reporting_org=refry.tagval(act,"reporting-org");				
-		t.reporting_org_ref=refry.tagattr(act,"reporting-org","ref");
+		t.reporting=refry.tagval(act,"reporting-org");				
+		t.reporting_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=refry.tagattr(act,"activity-status","code");
 		
 		t.commitment=0;
@@ -383,21 +379,19 @@ dstore_db.refresh_act = function(db,aid,xml){
 		var funder;
 		
 		if(!funder) { funder=refry.tagattr(act,{0:"participating-org",role:"funding"},"ref"); }
+		if(funder){ funder=funder.trim(); if(!codes.funder_names[funder]) {funder=null;} } //validate code
+		
 		if(!funder) { funder=refry.tagattr(act,{0:"participating-org",role:"extending"},"ref"); }
+		if(funder){ funder=funder.trim(); if(!codes.funder_names[funder]) {funder=null;} } //validate code
+		
 		if(!funder) { funder=refry.tagattr(act,{0:"reporting-org"},"ref"); }
-
-// take a guess
 		if(funder)
 		{
-			funder=funder.trim().toUpperCase();
-			if( funder[2]=="-" )
-			{
-				t.funder=funder.slice(0,2).toUpperCase();
-			}
-		
-// use codes if we have one
-			t.funder= codes["iati_funders"][funder] || t.funder;
+			funder=funder.trim();
+			funder=codes["iati_funders"][funder] || funder; // special group and or rename
 		}
+		t.funder_ref=funder; // remember funder id
+
 
 // fix percents to add upto 100
 		var fixpercents=function(aa)

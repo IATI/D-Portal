@@ -39,7 +39,7 @@ view_donor_transactions.view=function()
 	
 	args.q={
 		"year":year,
-		"funder":funder,
+		"funder_ref":funder,
 	};
 	args.q["trans_day_gteq"]=year+"-01-01";
 	args.q["trans_day_lt"]=(parseInt(year)+1)+"-01-01";
@@ -52,7 +52,7 @@ view_donor_transactions.view=function()
 			ctrack.chunk("alerts","{alert_no_iati}");
 		}
 
-		ctrack.chunk("donor",iati_codes.funder_names[funder] || iati_codes.country[funder] || funder );
+		ctrack.chunk("donor",iati_codes.funder_names[funder] || iati_codes.publisher_names[funder] || iati_codes.country[funder] || funder );
 		ctrack.chunk("year",year);
 	};
 	

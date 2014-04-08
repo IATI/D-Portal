@@ -44,7 +44,7 @@ view_list_activities.ajax=function(args)
 	var dat={
 			"from":"act,country",
 			"limit":args.limit || -1,
-			"select":"title,aid,funder,commitment,spend,reporting_org,day_start,day_end",
+			"select":"title,aid,funder_ref,commitment,spend,reporting,day_start,day_end",
 			"orderby":"4-",
 			"country_code":(args.country || ctrack.args.country)
 		};
@@ -86,7 +86,7 @@ view_list_activities.ajax=function(args)
 				if(v.day_start!==null) { d.date_start=fetch.get_nday(v.day_start); }
 				if(v.day_end  !==null) { d.date_end  =fetch.get_nday(v.day_end  ); }
 
-				d.reporting_org=v.reporting_org || "N/A";
+				d.reporting=v.reporting || "N/A";
 				d.commitment=commafy(""+Math.floor(v.commitment||0));
 				d.spend=commafy(""+Math.floor(v.spend||0));
 				d.currency="USD";

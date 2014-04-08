@@ -43,8 +43,8 @@ view_list_publishers.ajax=function(args)
 	var dat={
 			"from":"act,country",
 			"limit":args.limit || -1,
-			"select":"count,reporting_org_ref,reporting_org",
-			"groupby":"reporting_org_ref",
+			"select":"count,reporting_ref,reporting",
+			"groupby":"reporting_ref",
 			"orderby":"1-",
 			"country_code":(args.country || ctrack.args.country)
 		};
@@ -78,8 +78,8 @@ view_list_publishers.ajax=function(args)
 				var d={};
 				d.num=i+1;
 
-				d.reporting_org_ref=v.reporting_org_ref || "N/A";
-				d.reporting_org=v.reporting_org || "N/A";
+				d.reporting_ref=v.reporting_ref || "N/A";
+				d.reporting=v.reporting || "N/A";
 				d.count=commafy(""+Math.floor(v.count||0));
 
 				s.push( plate.replace(args.plate || "{list_publishers_data}",d) );
