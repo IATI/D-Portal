@@ -2,15 +2,15 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_list_activities_missing=exports;
-exports.name="view_list_activities_missing";
+var view_missing=exports;
+exports.name="view_missing";
 
 var ctrack=require("./ctrack.js")
 var views=require("./views.js")
 var fetch=require("./fetch.js")
 
 // the chunk names this view will fill with new data
-view_list_activities_missing.chunks=[
+view_missing.chunks=[
 	"missing_projects_datas",
 	"missing_projects",
 ];
@@ -18,7 +18,7 @@ view_list_activities_missing.chunks=[
 //
 // Perform ajax call to get data
 //
-view_list_activities_missing.ajax=function(args)
+view_missing.ajax=function(args)
 {	
 	var today=fetch.get_today();
 	
@@ -42,14 +42,14 @@ view_list_activities_missing.ajax=function(args)
 //
 // Perform ajax call to get numof data
 //
-view_list_activities_missing.view=function(args)
+view_missing.view=function(args)
 {
-	view_list_activities_missing.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	view_missing.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 
 	ctrack.setcrumb(1);
 	ctrack.change_hash();
 
-	view_list_activities_missing.ajax({output:"count"});
-	view_list_activities_missing.ajax({limit:-1});
+	view_missing.ajax({output:"count"});
+	view_missing.ajax({limit:-1});
 }
 

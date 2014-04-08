@@ -11,9 +11,12 @@ var fetch=require("./fetch.js")
 
 // include all view code
 
+
+views.missing=require("./view_missing.js");
 views.ended=require("./view_ended.js");
 views.planned=require("./view_planned.js");
 views.active=require("./view_active.js");
+
 views.stats=require("./view_stats.js");
 views.heatmap=require("./view_heatmap.js");
 
@@ -46,5 +49,4 @@ views.list_transactions=require("./view_list_transactions.js");
 views.list_budgets=require("./view_list_budgets.js");
 views.list_publishers=require("./view_list_publishers.js");
 
-views.list_activities_missing=require("./view_list_activities_missing.js");
 
