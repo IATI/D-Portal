@@ -101,6 +101,7 @@ view_list_activities.ajax=function(args)
 				s.push( plate.replace(args.plate || "{list_activities_data}",d) );
 			}
 			ctrack.chunk(args.chunk || "list_activities_datas",s.join(""));
+			ctrack.chunk("total_projects",data.rows.length);
 		}
 		if(args.callback){args.callback(data);}
 		ctrack.display();
