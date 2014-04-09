@@ -17,7 +17,7 @@ ctrack_loader=function(args){
 	
 	head.load(
 		root+"jslib/jquery.js",
-		root+"jslib/ctrack.js",
+		root+"jslib/ctrack.min.js",
 	function(){
 		
 		args.master=$(args.master);

@@ -3,13 +3,15 @@
 
 var exs=exports;
 
+var csv=require('csv');
 var util=require('util');
+var wait=require('wait.for');
 var fs = require('fs');
+var http=require('http');
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var years=[];
-
 
 // import the CSV, just call once on intialization
 exs.load_csv=function()
@@ -91,28 +93,51 @@ exs.create_csv = function(){
 
 	};
 
-	var xes={"ALGERIAN DINAR":"DZD","Australian dollar":"AUD","Austrian schilling":"ATS","Bahrain dinar":"BHD","Belgian franc":"BEF","Brazilian real":"BRL","Canadian dollar":"CAD","Chilean peso":"CLP","Chinese yuan":"CNY","Colombian peso":"COP","Danish krone":"DKK","deutsche mark":"DEM","euro":"EUR","Finnish markka":"FIM","French franc":"FRF","Greek drachma":"GRD","Icelandic krona":"ISK","Indian rupee":"INR","Indonesian rupiah":"IDR","Iranian rial":"IRR","Irish pound":"IEP","Italian lira":"ITL","Japanese yen":"JPY","Korean won":"KRW","KROON":"EEK","Kuwaiti dinar":"KWD","Libyan dinar":"LYD","Luxembourg franc":"LUF","Malaysian ringgit":"MYR","Maltese lira":"MTL","Mexican peso":"MXN","Nepalese rupee":"NPR","Netherlands guilder":"NLG","New Zealand dollar":"NZD","Norwegian krone":"NOK","NUEVO SOL":"PEN","Pakistani rupee":"PKR","PESO URUGUAYO":"UYU","PHILIPPINE PESO":"PHP","Polish zloty":"PLN","Portuguese escudo":"PTE","Qatar riyal":"QAR","rial Omani":"OMR","Saudi Arabian riyal":"SAR","Singapore dollar":"SGD","South African rand":"ZAR","Spanish peseta":"ESP","Sri Lanka rupee":"LKR","Swedish krona":"SEK","Swiss franc":"CHF","Thai baht":"THB","Trinidad and Tobago dollar":"TTD","TUNISIAN DINAR":"TND","U.A.E. dirham":"AED","U.K. pound sterling":"GBP","U.S. dollar":"USD","Venezuelan bolivar":"VEB","Bolivar Fuerte":"VEF"};
-	var exs={};
-	for(var n in xes) { exs[ n.toLowerCase() ]=xes[n]; } //fix case
+	var xes={"ALGERIAN DINAR":"DZD","Australian dollar":"AUD","Austrian schilling":"ATS","Bahrain dinar":"BHD","Belgian franc":"BEF","Brazilian real":"BRL","Canadian dollar":"CAD","Chilean peso":"CLP","Chinese yuan":"CNY","Colombian peso":"COP","Danish krone":"DKK","deutsche mark":"DEM","euro":"EUR","Finnish markka":"FIM","French franc":"FRF","Greek drachma":"GRD","Icelandic krona":"ISK","Indian rupee":"INR","Indonesian rupiah":"IDR","Iranian rial":"IRR","Irish pound":"IEP","Italian lira":"ITL","Japanese yen":"JPY","Korean won":"KRW","KROON":"EEK","Kuwaiti dinar":"KWD","Libyan dinar":"LYD","Luxembourg franc":"LUF","Malaysian ringgit":"MYR","Maltese lira":"MTL","Mexican peso":"MXN","Nepalese rupee":"NPR","Netherlands guilder":"NLG","New Zealand dollar":"NZD","Norwegian krone":"NOK","NUEVO SOL":"PEN","Pakistani rupee":"PKR","PESO URUGUAYO":"UYU","PHILIPPINE PESO":"PHP","Polish zloty":"PLN","Portuguese escudo":"PTE","Qatar riyal":"QAR","rial Omani":"OMR","Saudi Arabian riyal":"SAR","Singapore dollar":"SGD","South African rand":"ZAR","Spanish peseta":"ESP","Sri Lanka rupee":"LKR","Swedish krona":"SEK","Swiss franc":"CHF","Thai baht":"THB","Trinidad and Tobago dollar":"TTD","TUNISIAN DINAR":"TND","U.A.E. dirham":"AED","U.K. pound sterling":"GBP","U.S. dollar":"USD","Venezuelan bolivar":"VEB","Bolivar Fuerte":"VEF","Botswana Pula":"BWP","Brunei Dollar":"BND","Czech Koruna":"CZK","Hungarian Forint":"HUF","Israeli New Sheqel":"ILS","Kazakhstani Tenge":"KZT","Mauritian Rupee":"MUR","Russian Ruble":"RUB"};
+
+	var xes_low={};
+	for(var n in xes) { xes_low[ n.toLowerCase() ]=xes[n]; } //fix case
 	
 
 	var years={
 	}
 	
-	exs.map(function(v){
-		ls(v);
-		var csv=wait.for(http_getbody,"http://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate=2014-01-31&reportType=SDRCV&tsvflag=Y");
-		if(csv)
+	for(var year=1995;year<=2014;year++ )
+	{		
+		for(var month=1;month<=12;month++ )
 		{
-			csv.split("\n").map(function(line){
-				var l=line.split("\t");
-				if(l[1])
+			var csv_file=wait.for(http_getbody,"http://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate="+year+"-"+month+"-01&reportType=SDRCV&tsvflag=Y");
+			var csv_lines=wait.for( function(cb){ csv().from.string(csv_file,{delimiter: '\t'}).to.array( function(d){ cb(null,d); } ); } );
+		
+			var active=false;
+			csv_lines.forEach(function(line){
+				if(line[0]=="Currency")
 				{
-					console.log(l[0]);
+					active=true;
 				}
+				else
+				if(active)
+				{
+					var cid=xes_low[ line[0].toLowerCase() ];
+					if( cid )
+					{
+//						ls( cid + " : " + line[0] );
+					}
+					else
+					{
+						active=false;
+						ls("UNKNOWN CURRENCY "+line[0]);
+					}
+				}		
 			});
 		}
-	});
+	}
+
+	for(var cid in xes)
+	{
+		var cname=xes[cid];
+//		ls(csv_lines);
+	}
 
 }
 

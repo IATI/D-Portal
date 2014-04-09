@@ -61,7 +61,7 @@ if( argv._[0]=="check" )
 else
 if( argv._[0]=="exs" )
 {
-	wait.launchFiber( require("./dstore_db").hack_exs );
+	wait.launchFiber( require("./exs").create_csv );
 	return;
 }
 else
