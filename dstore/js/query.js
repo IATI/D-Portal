@@ -155,11 +155,11 @@ query.getsql_select=function(q,qv){
 		"percent_of_budget_value":function(){
 			percents("percent_of_budget_value","budget_value","");
 		},
-		"round1_longitude":function(){
-			ss.push(" ROUND(location_longitude,1) AS round1_longitude");
+		"round1_location_longitude":function(){
+			ss.push(" ROUND(location_longitude,1) AS round1_location_longitude");
 		},
-		"round1_latitude":function(){
-			ss.push(" ROUND(location_latitude,1) AS round1_latitude");
+		"round1_location_latitude":function(){
+			ss.push(" ROUND(location_latitude,1) AS round1_location_latitude");
 		},
 		"count":function(){
 			ss.push(" COUNT(*) AS count");
