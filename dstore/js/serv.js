@@ -31,7 +31,7 @@ app.use("/q",function (req, res) {
 });
 
 app.use(express.compress());
-app.use(express.static(__dirname+"/../ctrack"));
+app.use(express.static(__dirname+"/../../dportal/static"));
 
 console.log("Starting dstore server at http://localhost:"+argv.port+"/");
 

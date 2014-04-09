@@ -119,13 +119,14 @@ deleteFolderRecursive = function(path) {
 			{
 				console.log("parse "+dir+name);
 				var html=plate.replace("{html}",get_page_chunk(dir+name));
-				var outname=name;
-				if(outname.slice(-5)==".html") // duplicate with and without.html
-				{
-					outname=outname.slice(0,-5);
-					fs.writeFileSync("static/"+dir+outname,html);
-				}
 				fs.writeFileSync("static/"+dir+name,html);
+
+//				var outname=name;
+//				if(outname.slice(-5)==".html") // duplicate with and without.html
+//				{
+//					outname=outname.slice(0,-5);
+//					fs.writeFileSync("static/"+dir+outname,html);
+//				}
 			}
 		}
 		
