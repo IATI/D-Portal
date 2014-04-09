@@ -10,7 +10,7 @@ var fs = require('fs');
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-var years=require('../json/usd_years.json');
+var years=require('../json/usd_year.json');
 
 // exchange at the given years rate into usd
 exs.exchange_year=function(year,ex,val)
@@ -27,7 +27,7 @@ exs.exchange_year=function(year,ex,val)
 			var test=Math.abs(y-year);
 			if(test<best)
 			{
-				ret=val/ys[ex];
+				ret=val/v[ex];
 				best=test;
 			}
 		}

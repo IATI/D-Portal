@@ -103,7 +103,7 @@ view_heatmap.ajax=function(args)
 	args=args || {};
     
 	var dat={
-			"select":"count,round1_longitude,round1_latitude",
+			"select":"count,round1_location_longitude,round1_location_latitude",
 			"from":"act,country,location",
 			"limit":args.limit || 5,
 			"orderby":"1-",
@@ -122,18 +122,18 @@ view_heatmap.ajax=function(args)
 		for(i=0;i<data.rows.length;i++)
 		{
 			var v=data.rows[i];
-			if( ("number"== typeof v.round1_longitude) && ("number"== typeof v.round1_latitude) )
+			if( ("number"== typeof v.round1_location_longitude) && ("number"== typeof v.round1_location_latitude) )
 			{
 				if(!donemain)
 				{
 					ctrack.map.heat=[];
 					donemain=true;
-					ctrack.map.lat=v.round1_latitude;
-					ctrack.map.lng=v.round1_longitude;
+					ctrack.map.lat=v.round1_location_latitude;
+					ctrack.map.lng=v.round1_location_longitude;
 				}
 				ctrack.map.heat.push({
-					lat:v.round1_latitude,
-					lng:v.round1_longitude,
+					lat:v.round1_location_latitude,
+					lng:v.round1_location_longitude,
 					wgt:v.count
 				});
 			}
