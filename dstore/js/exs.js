@@ -7,7 +7,6 @@ var csv=require('csv');
 var util=require('util');
 var wait=require('wait.for');
 var fs = require('fs');
-var http=require('http');
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -75,6 +74,9 @@ exs.exchange_year=function(year,ex,val)
 
 
 exs.create_csv = function(){
+	
+	var http=require('http');
+	var https=require('https');
 
 	var http_getbody=function(url,cb)
 	{
@@ -92,22 +94,112 @@ exs.create_csv = function(){
 		});
 
 	};
+	
+	var https_getbody=function(url,cb)
+	{
+		https.get(url, function(res) {
+			res.setEncoding('utf8');
+			var s="";
+			res.on('data', function (chunk) {
+				s=s+chunk;
+			});
+			res.on('end', function() {
+				cb(null,s);
+			});
+		}).on('error', function(e) {
+			cb(e,null);
+		});
 
-	var xes={"ALGERIAN DINAR":"DZD","Australian dollar":"AUD","Austrian schilling":"ATS","Bahrain dinar":"BHD","Belgian franc":"BEF","Brazilian real":"BRL","Canadian dollar":"CAD","Chilean peso":"CLP","Chinese yuan":"CNY","Colombian peso":"COP","Danish krone":"DKK","deutsche mark":"DEM","euro":"EUR","Finnish markka":"FIM","French franc":"FRF","Greek drachma":"GRD","Icelandic krona":"ISK","Indian rupee":"INR","Indonesian rupiah":"IDR","Iranian rial":"IRR","Irish pound":"IEP","Italian lira":"ITL","Japanese yen":"JPY","Korean won":"KRW","KROON":"EEK","Kuwaiti dinar":"KWD","Libyan dinar":"LYD","Luxembourg franc":"LUF","Malaysian ringgit":"MYR","Maltese lira":"MTL","Mexican peso":"MXN","Nepalese rupee":"NPR","Netherlands guilder":"NLG","New Zealand dollar":"NZD","Norwegian krone":"NOK","NUEVO SOL":"PEN","Pakistani rupee":"PKR","PESO URUGUAYO":"UYU","PHILIPPINE PESO":"PHP","Polish zloty":"PLN","Portuguese escudo":"PTE","Qatar riyal":"QAR","rial Omani":"OMR","Saudi Arabian riyal":"SAR","Singapore dollar":"SGD","South African rand":"ZAR","Spanish peseta":"ESP","Sri Lanka rupee":"LKR","Swedish krona":"SEK","Swiss franc":"CHF","Thai baht":"THB","Trinidad and Tobago dollar":"TTD","TUNISIAN DINAR":"TND","U.A.E. dirham":"AED","U.K. pound sterling":"GBP","U.S. dollar":"USD","Venezuelan bolivar":"VEB","Bolivar Fuerte":"VEF","Botswana Pula":"BWP","Brunei Dollar":"BND","Czech Koruna":"CZK","Hungarian Forint":"HUF","Israeli New Sheqel":"ILS","Kazakhstani Tenge":"KZT","Mauritian Rupee":"MUR","Russian Ruble":"RUB"};
+	};
+	
+// grab currated csv to use for missing values
+
+	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=13&output=csv");
+	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
+
+	var head={};
+	for(var i=1;i<lines[0].length;i++)
+	{
+		head[i]=lines[0][i];
+	}
+
+	var csv_ys={};
+	for(var i=1;i<lines.length;i++)
+	{
+		var line=lines[i];
+		var year=line[0];
+		var csv_y={};
+		csv_ys[year]=csv_y;
+
+		
+		for(j=1;j<line.length;j++)
+		{
+			if( line[j] && (line[j]!="") )
+			{
+				csv_y[ head[j] ]=parseFloat(line[j]);
+			}
+		}
+	}
+//	fs.writeFileSync(__dirname+"/../json/csv_year.json",JSON.stringify(csv_ys,null,'\t'));
+	
+	
+	var xes={
+		"ALGERIAN DINAR":"DZD",			"Australian dollar":"AUD",
+		"Austrian schilling":"ATS",		"Bahrain dinar":"BHD",
+		"Belgian franc":"BEF",			"Brazilian real":"BRL",
+		"Canadian dollar":"CAD",		"Chilean peso":"CLP",
+		"Chinese yuan":"CNY",			"Colombian peso":"COP",
+		"Danish krone":"DKK",			"deutsche mark":"DEM",
+		"euro":"EUR",					"Finnish markka":"FIM",
+		"French franc":"FRF",			"Greek drachma":"GRD",
+		"Icelandic krona":"ISK",		"Indian rupee":"INR",
+		"Indonesian rupiah":"IDR",		"Iranian rial":"IRR",
+		"Irish pound":"IEP",			"Italian lira":"ITL",
+		"Japanese yen":"JPY",			"Korean won":"KRW",
+		"KROON":"EEK",					"Kuwaiti dinar":"KWD",
+		"Libyan dinar":"LYD",			"Luxembourg franc":"LUF",
+		"Malaysian ringgit":"MYR",		"Maltese lira":"MTL",
+		"Mexican peso":"MXN",			"Nepalese rupee":"NPR",
+		"Netherlands guilder":"NLG",	"New Zealand dollar":"NZD",
+		"Norwegian krone":"NOK",		"NUEVO SOL":"PEN",
+		"Pakistani rupee":"PKR",		"PESO URUGUAYO":"UYU",
+		"PHILIPPINE PESO":"PHP",		"Polish zloty":"PLN",
+		"Portuguese escudo":"PTE",		"Qatar riyal":"QAR",
+		"rial Omani":"OMR",				"Saudi Arabian riyal":"SAR",
+		"Singapore dollar":"SGD",		"South African rand":"ZAR",
+		"Spanish peseta":"ESP",			"Sri Lanka rupee":"LKR",
+		"Swedish krona":"SEK",			"Swiss franc":"CHF",
+		"Thai baht":"THB",				"Trinidad and Tobago dollar":"TTD",
+		"TUNISIAN DINAR":"TND",			"U.A.E. dirham":"AED",
+		"U.K. pound sterling":"GBP",	"U.S. dollar":"USD",
+		"Venezuelan bolivar":"VEB",		"Bolivar Fuerte":"VEF",
+		"Botswana Pula":"BWP",			"Brunei Dollar":"BND",
+		"Czech Koruna":"CZK",			"Hungarian Forint":"HUF",
+		"Israeli New Sheqel":"ILS",		"Kazakhstani Tenge":"KZT",
+		"Mauritian Rupee":"MUR",		"Russian Ruble":"RUB"
+	};
 
 	var xes_low={};
 	for(var n in xes) { xes_low[ n.toLowerCase() ]=xes[n]; } //fix case
 	
 
-	var years={
-	}
+	var dump_ys={};
+	var dump_ms={};
 	
-	for(var year=1995;year<=2014;year++ )
-	{		
+	var this_year=(new Date()).getYear()+1900; // get this year
+
+	for(var year=1995;year<=this_year;year++ )
+	{
+		var dump_y={};
+		dump_ys[year]=dump_y;
 		for(var month=1;month<=12;month++ )
 		{
+			var month0="0"+month; if(month0.length>2) { month0=month; }
+			var dump_m={}
+			dump_ms[year+"-"+month0]=dump_m;
+			
 			var csv_file=wait.for(http_getbody,"http://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate="+year+"-"+month+"-01&reportType=SDRCV&tsvflag=Y");
-			var csv_lines=wait.for( function(cb){ csv().from.string(csv_file,{delimiter: '\t'}).to.array( function(d){ cb(null,d); } ); } );
+			var csv_lines=wait.for( function(cb){ csv().from.string(csv_file,{delimiter:'\t'}).to.array( function(d){ cb(null,d); } ); } );
 		
 			var active=false;
 			csv_lines.forEach(function(line){
@@ -121,7 +213,20 @@ exs.create_csv = function(){
 					var cid=xes_low[ line[0].toLowerCase() ];
 					if( cid )
 					{
-//						ls( cid + " : " + line[0] );
+						var dm=dump_m[cid] || {count:0,total:0}; dump_m[cid]=dm;
+						var dy=dump_y[cid] || {count:0,total:0}; dump_y[cid]=dy;
+						
+						for(i=1;i<line.length;i++)
+						{
+							var pf=parseFloat(line[i]);
+							if( line[i] && ( pf > 0 ) )
+							{
+								dm.total+=pf;
+								dm.count++;
+								dy.total+=pf;
+								dy.count++;
+							}
+						}
 					}
 					else
 					{
@@ -130,90 +235,62 @@ exs.create_csv = function(){
 					}
 				}		
 			});
-		}
-	}
-
-	for(var cid in xes)
-	{
-		var cname=xes[cid];
-//		ls(csv_lines);
-	}
-
-}
-
-
-exs.hack_exs = function(){
-	
-	var http_getbody=function(url,cb)
-	{
-		http.get(url, function(res) {
-			res.setEncoding('utf8');
-			var s="";
-			res.on('data', function (chunk) {
-				s=s+chunk;
-			});
-			res.on('end', function() {
-				cb(null,s);
-			});
-		}).on('error', function(e) {
-			cb(e,null);
-		});
-
-	};
-
-	var exs=["AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHF","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EEK","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XCD","XOF","XPF","YER","ZAR","ZMK","ZWL"];
-
-	var years={
-	};
-	
-	exs.map(function(v){
-		ls(v);
-		var csv=wait.for(http_getbody,"http://www.oanda.com/currency/average?amount=1&start_month=1&start_year=1990&end_month=1&end_year=2014&base=USD&avg_type=Year&Submit=1&exchange="+v+"&interbank=0&format=CSV");
-		if(csv){csv=csv.split("<pre>")[2];}
-		if(csv){csv=csv.split("</PRE>")[0];} // hacks to grab the csv part of the page...
-		if(csv)
-		{
-			csv.split("\n").map(function(line){
-				var l=line.split(",");
-				if(l[1])
-				{
-					if(l[0][0]=="*"){ l[0]=l[0].split("*")[1]; } // remove leading * (marks incomplete data)
-					var year=parseInt(l[0]);
-					var val=Number(l[1]);
-					
-					years[year]=years[year] || {};
-					years[year][v]=val;
-				}
-			});
-		}
-	});
-
-	var p=[];
-	p.push("year");
-	exs.map(function(v){
-		p.push("\t");
-		p.push(v);
-	});
-	p.push("\n");
-	
-	for(y in years)
-	{
-		p.push(""+y);
-		exs.map(function(v){
-			p.push("\t");
-			if(years[y][v] && years[y][v]>0)
+			
+			for(var n in dump_m )
 			{
-				p.push(""+years[y][v]);
+				var d=dump_m[n];
+				if(d.count>0)
+				{
+					dump_m[n] = d.total/d.count;
+					dump_m["XDR"]=1;
+				}
+				else
+				{
+					delete dump_m[n];
+				}
 			}
-		});
-		p.push("\n");
+		}
+		for(var n in dump_y )
+		{
+			var d=dump_y[n];
+			if(d.count>0)
+			{
+				dump_y[n] = d.total/d.count;
+				dump_y["XDR"]=1;
+			}
+			else
+			{
+				delete dump_y[n];
+			}
+		}
 	}
-	console.log(p.join(""));
-//	ls(years);
-// http://www.oanda.com/currency/average?amount=1&start_month=1&start_year=1990&end_month=1&end_year=2014&base=USD&avg_type=Year&Submit=1&exchange=GBP&interbank=0&format=CSV
+
+// dump monthly averages
+	fs.writeFileSync(__dirname+"/../json/xdr_year.json",JSON.stringify(dump_ys,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/xdr_month.json",JSON.stringify(dump_ms,null,'\t'));
+
+
+// start with csv_ys and replace with our imf values
+
+	for(var year in dump_ys)
+	{
+		var v=dump_ys[year];
+		csv_ys[year]=csv_ys[year] || {}
+		
+		for(var x in v)
+		{
+			if( v[x] && (v[x]>0) && v.USD && (v.USD>0) )
+			{
+				csv_ys[year][x]=v.USD/v[x]; // make realtive to usd
+			}
+		}
+
+	}
+
+	fs.writeFileSync(__dirname+"/../json/usd_year.json",JSON.stringify(csv_ys,null,'\t'));
+
 
 }
-
 
 // load the exchange rates from a csv
 exs.load_csv();
