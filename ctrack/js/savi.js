@@ -15,7 +15,7 @@ var inside=args.inside || "";
 var prelink=args.link || "http://d-portal.org/q.xml?aid=";
 var postlink=args.link_post || "";
 
-var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
         return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
 // Adjust some tags using js
