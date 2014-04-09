@@ -31,7 +31,7 @@ app.use( function(req, res, next) {
 // possibly redirect any d-portal subdomain
 app.use(function(req,res,next)
 {
-	var dom=req.headers.host.toLowerCase();
+	var dom=(req.headers.host||"").toLowerCase();
 	var port=dom.split(":")[1];
 	dom=dom.split(":")[0]; // remove port
 	if( ( (dom!="d-portal.org") || port ) && (dom.slice(-12)=="d-portal.org") ) // only mess with d-portal.org subdomains or ports
