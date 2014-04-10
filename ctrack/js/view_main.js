@@ -54,5 +54,5 @@ view_main.view=function(args)
 	views.donors_top.ajax();
 	views.sectors_top.ajax();	
 
-	views.map.ajax_pins({limit:200});
+	views.map.ajax_heat({limit:200});
 }
