@@ -268,7 +268,7 @@ table.list a:active		{color:#A8C5E5; text-decoration:none;}
 	============================================= */
 table.money					{width:100%; border-collapse:collapse; table-layout:fixed;}
 table.money td				{text-align:right; color:#B8C8CD; font-size:1.0em; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #1E90FF;}
-table.money td.col1			{text-align:left; background-color:rgba(74, 82, 54, 0.4); padding:20px;}
+table.money td.col1			{text-align:left; background-color:rgba(74, 82, 54, 0.4); padding:15px;}
 table.money td.col2			{text-align:left;}
 table.money td.col3			{background-color:rgba(17, 46, 105, 0.2);}
 table.money td.col4			{background-color:rgba(17, 46, 105, 0.4);}
@@ -276,11 +276,11 @@ table.money td.col5			{background-color:rgba(17, 46, 105, 0.6);}
 table.money td.col6			{background-color:rgba(17, 101, 105, 0.4);}
 table.money td.col7			{background-color:rgba(17, 101, 105, 0.6);}
 
-table.money tr.row1 td		{background-color:transparent; color:#fff; font-weight:700; text-align:center; padding:20px;}
-table.money tr.row1 td.col1	{background-color:rgba(74, 82, 54, 0.7); text-align:left; border:1px solid rgba(74, 87, 43, 1); border-bottom:1px solid #1E90FF;}
-table.money tr.row1 td.col2	{text-align:left;}
-table.money tr.row1 td.col3	{background-color:rgba(17, 46, 105, 0.6); border:1px solid rgba(0, 50, 151, 1); border-bottom:1px solid #1E90FF;}
-table.money tr.row1 td.col4	{background-color:rgba(17, 101, 105, 0.6); border:1px solid rgba(7, 117, 122, 1); border-bottom:1px solid #1E90FF;}
+table.money tr.row1 th		{background-color:transparent; color:#fff; font-weight:700; text-align:center; padding:20px;}
+table.money tr.row1 th.col1	{background-color:rgba(74, 82, 54, 0.9); text-align:left; border:1px solid rgba(74, 87, 43, 1); border-bottom:1px solid #1E90FF;}
+table.money tr.row1 th.col2	{text-align:left; width:17%; border-bottom:1px solid #1E90FF;}
+table.money tr.row1 th.col3	{background-color:rgba(17, 46, 105, 0.9); border:1px solid rgba(0, 50, 151, 1); border-bottom:1px solid #1E90FF;}
+table.money tr.row1 th.col4	{background-color:rgba(17, 101, 105, 0.9); border:1px solid rgba(7, 117, 122, 1); border-bottom:1px solid #1E90FF;}
 
 table.money tr.row2 td		{color:#fff; font-weight:500; padding:20px;}
 table.money tr.row2 td.col1 {background-color:rgba(74, 82, 54, 0.9); border-left:1px solid rgba(74, 87, 43, 1); border-right:1px solid rgba(74, 87, 43, 1);}
@@ -299,7 +299,7 @@ table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover,
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(17, 46, 105, 1);}
 table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(17, 101, 105, 1);}
 
-table.money a				{display:block; padding:20px; color:#A8C5E5;}
+table.money a				{display:block; padding:15px; color:#A8C5E5;}
 table.money a:focus			{color:#A8C5E5; text-decoration:none;}
 table.money a:link  		{color:#A8C5E5; text-decoration:none;}
 table.money a:visited		{color:#A8C5E5; text-decoration:none;}
