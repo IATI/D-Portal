@@ -556,7 +556,7 @@ if(true)
 			var head=[];
 			if(r.rows[0])
 			{
-				for(n in r.rows[0]) { head.push(n); }
+				for(var n in r.rows[0]) { head.push(n); }
 				head.sort();
 				res.write(	head.join(",")+"\n" );
 				for(var i=0;i<r.rows.length;i++)
@@ -590,7 +590,7 @@ if(true)
 			{
 				var head=[];
 				var ta=[];
-				for(n in r.rows[0]) { head.push(n); }
+				for(var n in r.rows[0]) { head.push(n); }
 				head.sort(); // result order will be fixed
 				ta[0]=head;
 				for(var i=0;i<r.rows.length;i++)
