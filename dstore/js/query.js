@@ -534,8 +534,7 @@ if(true)
 			
 			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n'+
 						xsl+
-						'<result xmlns:dstore="http://d-portal.org/dstore">\n'+
-						'	<iati-activities>\n');
+						'<iati-activities xmlns:dstore="http://d-portal.org/dstore">\n');
 						
 			for(var i=0;i<r.rows.length;i++)
 			{
@@ -546,35 +545,10 @@ if(true)
 				}
 			}
 
-			res.end(	'	</iati-activities>\n'+
-						'</result>\n');
+			res.end(	'</iati-activities>\n');
     
    		}
 		else
-/*
-		if(q.form=="rawxml")
-		{
-			res.set('Content-Type', 'text/xml');
-
-			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n'+
-						'<?xml-stylesheet type="text/xsl" href="/art/activities.xsl"?>\n'+
-						'<result>\n'+
-						'	<iati-activities>\n');
-
-			for(var i=0;i<r.rows.length;i++)
-			{
-				var v=r.rows[i];
-				if(v && v.xml)
-				{
-					res.write(	v.xml );
-				}
-			}
-    
-			res.end(	'	</iati-activities>\n'+
-						'</result>\n');
-		}
-		else
-*/
 		if(q.form=="csv")
 		{
 			res.set('Content-Type', 'text/csv');
@@ -602,6 +576,36 @@ if(true)
 					});
 					res.write(	t.join(",")+"\n" );
 				}
+				res.end("");
+			}
+			else
+			{
+				res.end("");
+			}
+		}
+		else
+		if(q.form=="jcsv") // a jsoned csv (much smaller for large table data)
+		{
+			if(r.rows[0])
+			{
+				var head=[];
+				var ta=[];
+				for(n in r.rows[0]) { head.push(n); }
+				head.sort(); // result order will be fixed
+				ta[0]=head;
+				for(var i=0;i<r.rows.length;i++)
+				{
+					var v=r.rows[i];
+					var t=[];
+					ta[i+1]=t;
+					head.forEach(function(n){
+						t.push( v[n] || null );
+					});
+				}
+				res.jsonp(ta);
+			}
+			else
+			{
 				res.end("");
 			}
 		}
