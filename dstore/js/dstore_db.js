@@ -134,7 +134,11 @@ dstore_db.fill_acts = function(acts,slug){
 
 	var db = dstore_db.open();	
 	db.serialize();
-
+	
+	wait.for(function(cb){
+		db.run("BEGIN TRANSACTION",cb);
+	});
+	
 	db.run("DELETE FROM slug WHERE slug=?",slug); // remove all the old slugs
 
 	
@@ -147,10 +151,6 @@ dstore_db.fill_acts = function(acts,slug){
 //	var stmt = db.prepare("REPLACE INTO act (aid,xml,jml) VALUES (?,?,?)");
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
-
-	wait.for(function(cb){
-		db.run("BEGIN TRANSACTION",cb);
-	});
 
 	for(var i=0;i<acts.length;i++)
 	{
