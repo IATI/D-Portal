@@ -46,7 +46,9 @@ view_map.fixup=function()
 	if(!view_map.loaded)
 	{
 		view_map.loaded=true;
-		head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&sensor=false&callback=display_ctrack_map");
+		head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&sensor=false&callback=display_ctrack_map",
+		ctrack.args.jslib+"markerclusterer.js"
+);
 	}
 	if(ctrack.map.api_ready)
 	{
@@ -70,6 +72,7 @@ view_map.fixup=function()
 				var pinsmap_data;
 				var pinsmap;
 				var markers=[];
+				var markerCluster;
 
 				if( ctrack.map.pins )
 				{
@@ -77,7 +80,7 @@ view_map.fixup=function()
 						// To add the marker to the map, use the 'map' property
 						var marker = new google.maps.Marker({
 							position: new google.maps.LatLng(v.lat,v.lng),
-							map: map,
+//							map: map,
 							title:v.title,
 						});
 						markers.push(marker);
@@ -85,6 +88,7 @@ view_map.fixup=function()
 							window.location.hash="#view=act&aid="+v.aid;
 						});
 					});
+					markerCluster = new MarkerClusterer(map, markers);
 				}
 				else
 				if( ctrack.map.heat )
@@ -132,6 +136,7 @@ view_map.view=function()
 {
 	ctrack.setcrumb(1);
 	ctrack.change_hash();
+	ctrack.map.heat=undefined;
 	view_map.ajax_pins({limit:-1});
 }
 

@@ -54,5 +54,6 @@ view_main.view=function(args)
 	views.donors_top.ajax();
 	views.sectors_top.ajax();	
 
+	ctrack.map.pins=undefined;
 	views.map.ajax_heat({limit:200});
 }
