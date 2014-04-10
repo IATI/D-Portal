@@ -130,6 +130,8 @@ view_map.fixup=function()
 
 view_map.view=function()
 {
+	ctrack.setcrumb(1);
+	ctrack.change_hash();
 	view_map.ajax_pins({limit:-1});
 }
 
