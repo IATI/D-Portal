@@ -21,7 +21,7 @@ view_main.chunks=[
 // called on view display to fix html in place
 view_main.fixup=function()
 {
-	views.heatmap.fixup();
+	views.map.fixup();
 }
 //
 // Perform ajax call to get numof data
@@ -54,5 +54,5 @@ view_main.view=function(args)
 	views.donors_top.ajax();
 	views.sectors_top.ajax();	
 
-	views.heatmap.ajax({limit:200});
+	views.map.ajax_pins({limit:200});
 }

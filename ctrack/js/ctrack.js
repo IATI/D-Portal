@@ -268,20 +268,20 @@ ctrack.setup=function(args)
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );
 
 // wait for images to load before performing any data requests?
-		for(var n in views)
+	for(var n in views)
+	{
+		var v=views[n];
+		if(typeof v == "object")
 		{
-			var v=views[n];
-			if(typeof v == "object")
+			if(v.setup)
 			{
-				if(v.setup)
-				{
-//					console.log("setup "+n);
-					v.setup(); // perform initalization of all views
-				}
+//				console.log("setup "+n);
+				v.setup(); // perform initalization of all views
 			}
 		}
-		ctrack.check_hash();
-		ctrack.display_hash(); // this will display view=main or whatever page is requsted
+	}
+	ctrack.check_hash();
+	ctrack.display_hash(); // this will display view=main or whatever page is requsted
 
 }
 

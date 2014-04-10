@@ -18,7 +18,7 @@ views.planned=require("./view_planned.js");
 views.active=require("./view_active.js");
 
 views.stats=require("./view_stats.js");
-views.heatmap=require("./view_heatmap.js");
+views.map=require("./view_map.js");
 
 views.main=require("./view_main.js");
 
