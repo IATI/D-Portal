@@ -12,8 +12,10 @@
 ctrack_loader=function(args){
 	
 	var root=args.root 	|| "http://d-portal.org/";
-	args.art=args.art 	|| root+"art/";
-	args.q	=args.q 	|| root+"q";
+
+	args.jslib=args.jslib 	|| root+"jslib/";
+	args.art=args.art 		|| root+"art/";
+	args.q	=args.q 		|| root+"q";
 	
 	head.load(
 		root+"jslib/jquery.js",

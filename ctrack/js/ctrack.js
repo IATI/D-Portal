@@ -35,6 +35,7 @@ ctrack.setup=function(args)
 	});
 	
 	args=args || {};
+	args.jslib	=args.jslib 	|| "http://d-portal.org/jslib/"; // load stuff from here
 	args.tongue	=args.tongue 	|| 	"eng"; 		// english
 	args.art	=args.art 		|| 	"/art/"; 	// local art
 	args.q		=args.q 		|| 	"/q"; 		// local q api
