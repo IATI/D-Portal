@@ -8,6 +8,7 @@ a,img{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outl
 
 body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
 html					{background-color:#000;}
+table					{table-layout:fixed;}
 
 
 /*	Links & fonts
@@ -299,11 +300,11 @@ table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover,
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(17, 46, 105, 1);}
 table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(17, 101, 105, 1);}
 
-table.money a				{display:block; padding:20px; border-bottom:0px dotted #0D3057; color:#A8C5E5;}
+table.money a				{display:block; padding:20px; color:#A8C5E5;}
 table.money a:focus			{color:#A8C5E5; text-decoration:none;}
 table.money a:link  		{color:#A8C5E5; text-decoration:none;}
 table.money a:visited		{color:#A8C5E5; text-decoration:none;}
-table.money a:hover			{color:#fff; border-bottom:0px dotted #B8C8CD; text-decoration:none;}
+table.money a:hover			{color:#fff; text-decoration:none;}
 table.money a:active		{color:#A8C5E5; text-decoration: none;}
 
 
