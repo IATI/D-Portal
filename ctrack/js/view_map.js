@@ -177,7 +177,12 @@ view_map.ajax=function(args)
 
 view_map.ajax_heat=function(args)
 {
-	if(ctrack.map.heat) { ctrack.display(); return; } // only fetch once
+	if(ctrack.map.heat)
+	{
+		ctrack.display_wait+=1;
+		ctrack.display();
+		return;
+	} // only fetch once
 
 	args=args || {};
     
@@ -224,7 +229,13 @@ view_map.ajax_heat=function(args)
 
 view_map.ajax_pins=function(args)
 {
-	if(ctrack.map.pins) { ctrack.display(); return; } // only fetch once
+//	console.log("fetch map pins...");
+	if(ctrack.map.pins)
+	{
+		ctrack.display_wait+=1;
+		ctrack.display();
+		return;
+	} // only fetch once
 	
 	args=args || {};
     

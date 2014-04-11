@@ -606,7 +606,7 @@ if(true)
 			}
 			else
 			{
-				res.end("");
+				res.jsonp([]); // nothing to see, but still trigger callback
 			}
 		}
 		else
