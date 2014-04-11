@@ -3,7 +3,7 @@
 
 
 var view_map=exports;
-exports.name="stats";
+exports.name="map";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
@@ -29,7 +29,7 @@ view_map.setup=function()
 		view_map.fixup();
 	}
 
-
+	view_map.fixup_location=undefined;
 }
 
 
@@ -39,6 +39,14 @@ view_map.chunks=[
 
 
 view_map.loaded=false;
+
+view_map.show=function(change_of_view)
+{
+	if(change_of_view) // first time only
+	{
+		ctrack.div.master.html( plate.replace( "{view_"+view_map.name+"}" ) );
+	}
+}
 
 // called on view display to fix html in place
 view_map.fixup=function()
@@ -52,15 +60,23 @@ view_map.fixup=function()
 	}
 	if(ctrack.map.api_ready)
 	{
-		if($("#map").length>0)
+//		console.log("map think");
+		if( ($("#map").length>0) && (!$("#map").attr("done")) ) // only fixup the map once
 		{
+//			console.log("map fix");
+
+				
 			if( ctrack.map.heat || ctrack.map.pins ) // got some data
 			{
+			$("#map").attr("done",1)
 
 //				console.log("map loaded");
+
+//console.log(ctrack.hash);
+
 				var mapOptions = {
-				  center: new google.maps.LatLng(ctrack.map.lat, ctrack.map.lng),
-				  zoom: ctrack.map.zoom,
+				  center: new google.maps.LatLng(parseFloat(ctrack.hash.lat) || ctrack.map.lat, parseFloat(ctrack.hash.lng) || ctrack.map.lng),
+				  zoom: parseFloat(ctrack.hash.zoom) || ctrack.map.zoom,
 				  scrollwheel: false
 				};
 				var map = new google.maps.Map(document.getElementById("map"),
@@ -127,6 +143,43 @@ view_map.fixup=function()
 				}
 				google.maps.event.addListener(map, 'zoom_changed', fixradius);
 				fixradius();
+
+				var idle=function()
+				{
+					if(window.location.hash && window.location.hash.slice(0,9)=="#view=map")
+					{
+						var zoom=map.getZoom();
+						var latlng=map.getCenter();
+// need to fix display logic before this can work...
+						window.location.hash="#view=map"+"&lat="+latlng.lat()+"&lng="+latlng.lng()+"&zoom="+zoom;
+					}
+				}
+				google.maps.event.addListener(map, 'idle', idle);
+				
+				view_map.fixup_location=function()
+				{
+					var old_zoom=map.getZoom();
+					var old_latlng=map.getCenter();
+					var moveit=false;
+					var zoom=parseFloat(ctrack.hash.zoom);
+					if(zoom && zoom!=old_zoom) { moveit=true; }
+					var lat=parseFloat(ctrack.hash.lat);
+					if(lat && lat!=old_latlng.lat()) { moveit=true; }
+					var lng=parseFloat(ctrack.hash.lng);
+					if(lng && lng!=old_latlng.lng()) { moveit=true; }
+					if(moveit)
+					{
+						map.setCenter( new google.maps.LatLng(parseFloat(ctrack.hash.lat) || ctrack.map.lat, parseFloat(ctrack.hash.lng) || ctrack.map.lng) );
+						map.setZoom( parseFloat(ctrack.hash.zoom) || ctrack.map.zoom );
+					}
+				}
+			}
+		}
+		else
+		{
+			if(view_map.fixup_location)
+			{
+				view_map.fixup_location();
 			}
 		}
 	}
@@ -152,7 +205,12 @@ view_map.ajax=function(args)
 
 view_map.ajax_heat=function(args)
 {
-	if(ctrack.map.heat) { ctrack.display(); return; } // only fetch once
+	if(ctrack.map.heat)
+	{
+		ctrack.display_wait+=1;
+		ctrack.display();
+		return;
+	} // only fetch once
 
 	args=args || {};
     
@@ -199,7 +257,13 @@ view_map.ajax_heat=function(args)
 
 view_map.ajax_pins=function(args)
 {
-	if(ctrack.map.pins) { ctrack.display(); return; } // only fetch once
+//	console.log("fetch map pins...");
+	if(ctrack.map.pins)
+	{
+		ctrack.display_wait+=1;
+		ctrack.display();
+		return;
+	} // only fetch once
 	
 	args=args || {};
     

@@ -192,6 +192,7 @@ ctrack.setup=function(args)
 	ctrack.display_wait=0;
 	ctrack.display=function()
 	{
+//console.log(ctrack.display_wait);
 		ctrack.display_wait--;
 		if(ctrack.display_wait<=0)
 		{
@@ -234,8 +235,10 @@ ctrack.setup=function(args)
 			var l={};
 			ctrack.hash=ctrack.hash_split(h,l);
 			
+			var change_of_view=false;
 			if(ctrack.last_view!=l.view) // scroll up when changing views
 			{
+				change_of_view=true;
 				ctrack.last_view=l.view;
 				$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
 					$('html, body').stop();
@@ -251,7 +254,6 @@ ctrack.setup=function(args)
 //console.log("displaying view");
 
 			ctrack.show_crumbs();
-			ctrack.div.master.html( plate.replace( "{view_"+l.view+"}" ) );
 
 // these are now view hooks
 			var name=l.view;
@@ -259,6 +261,14 @@ ctrack.setup=function(args)
 			{
 				name=name.toLowerCase();
 				var v=views[name];
+				if(v && v.show)
+				{
+					v.show(change_of_view); // special fill
+				}
+				else // default fill
+				{
+					ctrack.div.master.html( plate.replace( "{view_"+l.view+"}" ) );
+				}
 				if(v && v.fixup)
 				{
 					v.fixup();

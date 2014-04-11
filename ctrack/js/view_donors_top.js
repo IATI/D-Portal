@@ -74,5 +74,6 @@ view_donors_top.ajax=function(args)
 		
 	ctrack.chunk("data_chart_donors",dd);
 
+	ctrack.display_wait+=1;
 	ctrack.display();
 }

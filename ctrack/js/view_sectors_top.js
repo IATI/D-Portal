@@ -92,6 +92,7 @@ view_sectors_top.ajax=function(args)
 
 	ctrack.chunk("data_chart_sectors",dd);
 	
+	ctrack.display_wait+=1;
 	ctrack.display();
 
 
