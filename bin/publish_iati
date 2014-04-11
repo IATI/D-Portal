@@ -1,6 +1,11 @@
 
 # Publish to live server from github.
 
+cd `dirname $0`
+cd ..
+
+bin/push_iati
+
 ssh ctrack@37.123.118.236 "cd D-Portal ; git pull -f"
 ssh ctrack@37.123.118.236 "D-Portal/ctrack/build"
 

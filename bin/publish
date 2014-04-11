@@ -1,5 +1,9 @@
-
 # Publish to dev server from github.
+
+cd `dirname $0`
+cd..
+
+bin/push
 
 ssh ctrack@dev.ctrack.iatistandard.org "iati-js/bin/pull -f"
 ssh ctrack@dev.ctrack.iatistandard.org "iati-js/ctrack/build"
