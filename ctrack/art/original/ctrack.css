@@ -127,7 +127,7 @@ a.view_all_projects:hover	{background-color:#0081FF;}
 
 /*	Data Description styles
 	============================================= */
-.description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,0,0,1) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,0,0,1) 100%); padding-bottom:40px;}
+.description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,0,0,1) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,1) 100%); padding-bottom:40px;}
 .description			{width:960px; margin:0 auto; padding:40px 0; text-align:left; margin-bottom:40px;}
 .description span.title	{display:block; color:#fff; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-top:1px solid #fff; border-bottom:1px solid #fff;}
 .description p			{padding:15px 0; font-size:1.0em; color:#fff; line-height:1.4em;}
@@ -327,6 +327,12 @@ table.activity a:link  	{color:#95B0CF; text-decoration:none;}
 table.activity a:visited{color:#95B0CF; text-decoration:none;}
 table.activity a:hover	{color:#fff; text-decoration:none; background-color:rgba(0,0,0,0.4);}
 table.activity a:active	{color:#95B0CF; text-decoration:none;}
+
+
+/*	Table for data descriptions (Donors / Sectors)
+	============================================= */
+table.data				{width:100%; border-collapse:collapse;}
+table.data td			{color:#fff; font-size:1.0em; line-height:1.4em; padding:10px 20px; vertical-align:top; border:1px solid #9E9E9E;}
 
 
 /*	Data Investigators alert

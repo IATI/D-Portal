@@ -428,63 +428,124 @@ Los valores perdidos sugieren datos insuficientes y significan los problemas de 
 ¿Cómo se calcula la información?
 
 #donors_data_description_text
-d-portal.org es una plataforma de información basada en los países que registra los flujos de recursos . Está dirigido a ofrecer a los ministerios de línea , los parlamentarios y la sociedad civil una información que le puede ayudar con la planificación y el seguimiento de las actividades de desarrollo .
-En su primera versión que contiene los datos actuales publicados a través de la Iniciativa Internacional de Transparencia de la Ayuda ( IATI ), así como los datos más recientes ( 2012 ) publicados por el Sistema de Notificación de los Países Acreedores del CAD . El desarrollo futuro incluirá , entre otras cosas , los datos de emergencia información , Sistemas de Gestión de los presupuestos nacionales y una serie de indicadores socioeconómicos comparables.
+Esta tabla muestra los flujos de recursos externos que se utiliza en el desarrollo: pasado, presente y futuro Todas las células deben contener datos y el hecho de que muchos de ellos no es un problema con la calidad de los datos disponibles. Las columnas muestran los siguientes datos:
+
+#donors_data_title1_text
+CRS
+
+#donors_data_info1_text
+Todos los miembros de la OCDE y un número de otros países e instituciones informan anualmente a la <span class="bold italic"> acreedores de la OCDE Reporting System </span> en Ayuda Oficial al Desarrollo y otros flujos oficiales Estos datos se publican de forma retrospectiva : en de diciembre de cada año, el CRS se actualiza con los datos del año anterior (lo que es entre 12 y 23 meses de retraso) Si bien los datos que mira hacia atrás no es particularmente útil para la planificación del desarrollo - es un punto de muy útil y relativamente exacta referencia. Es particularmente útil para incluir marcadores de posición para los países y las instituciones que en la actualidad no informan a la IATI. los datos proporcionados en esta columna es el total de los desembolsos anuales (gastar) para el país. Los valores están expresados ​​en dólares corrientes.
+
+#donors_data_title2_text
+DONANTE
+
+#donors_data_info2_text
+La agencia (que puede ser un donante o una organización de ejecución) datos de informes a la IATI y / o CRS. Al hacer clic en esta celda le llevará a una lista de todas las actividades comunicadas a la IATI por esta agencia. La lista está ordenada por el valor de 2012 los desembolsos (la figura más grande informó sea por CRS o IATI)
+
+#donors_data_title3_text
+IATI PASAR
+
+#donors_data_info3_text
+Tres columnas contienen el total de desembolsos y gastos reportados a la IATI para los actuales y los anteriores dos años. La primera columna se efectuará siempre por el mismo año que los datos más recientes de CRS , lo que permite la comparación entre los dos sistemas. Al hacer clic en cualquier celda le llevará a aquellos proyectos que componen el valor de la celda (por orden de su contribución a ese valor) las células que contienen. "-" indican que la organización no ha publicado todavía en células IATI contienen "0" son una indicación de aviso de mala calidad a la IATI.
+
+#donors_data_title4_text
+IATI PRESUPUESTO
+
+#donors_data_info4_text
+Total de presupuestos de la actividad para este y el próximo año reportados a IATI Al hacer clic en cualquier celda le llevará a los proyectos que componen el valor de la celda (por orden de su contribución a ese valor) Las células que contienen. "-" Indique que la organización no ha publicado aún la IATI. las células que contienen "0 " son una indicación de la mala calidad de informes a la IATI.
 
 #donor_activities_data_description_title_text
 ¿Cómo se calcula la información?
 
 #donor_activities_data_description_text
-Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compromisos totales para cada actividad y el porcentaje pasó hasta ahora, ordenados por mayor en la parte superior . Barras negras significan los problemas de calidad de datos donde los datos publicados falte compromiso y / o información de la transacción .
+Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compromisos totales para cada actividad y el porcentaje pasó hasta ahora, ordenados por mayor en la parte superior. Barras negras significan los problemas de calidad de datos donde los datos publicados falte compromiso y / o información de la transacción.
 
 #donor_transactions_data_description_title_text
 ¿Cómo se calcula la información?
 
 #donor_transactions_data_description_text
-Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por {donor} para {country_name} y ordenados por la actividad con el mayor gasto en la parte superior .
+Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por {donor} para {country_name} y ordenados por la actividad con el mayor gasto en la parte superior.
 
 #donor_budgets_data_description_title_text
 ¿Cómo se calcula la información?
 
 #donor_budgets_data_description_text
-El presupuesto se calcula sumando todos los presupuestos que se encuentra a menos de 370 días de largo y termina en {year} . Esta tabla te muestra todas las actividades que se enumeran los presupuestos para {year} ordenados por mayor en la parte superior . Zeros en tablas sugieren discrepancias en este cálculo debido a datos insuficientes y significan los problemas de calidad de datos.
+El presupuesto se calcula sumando todos los presupuestos que se encuentra a menos de 370 días de largo y termina en {year}. Esta tabla te muestra todas las actividades que se enumeran los presupuestos para {year} ordenados por mayor en la parte superior. Zeros en tablas sugieren discrepancias en este cálculo debido a datos insuficientes y significan los problemas de calidad de datos.
 
 #sectors_data_description_title_text
 ¿Cómo se calcula la información?
 
 #sectors_data_description_text
-Así es como se calcula los datos de dinero que va a los sectores.
+Esta tabla muestra los sectores a los que se están canalizando los flujos de recursos externos para el desarrollo:. Pasado, presente y futuro En la mayoría de los casos el valor de CRS será mucho más alto que la IATI, ya que hay una serie de grandes donantes que todavía no informan a la IATI ., y un número de editores IATI cuyos datos son de mala calidad las columnas muestran los siguientes datos:
+
+#sectors_data_title1_text
+CRS
+
+#sectors_data_info1_text
+Todos los miembros de la OCDE y un número de otros países e instituciones informan anualmente a la <span class="bold italic"> acreedores de la OCDE Reporting System </span> en Ayuda Oficial al Desarrollo y otros flujos oficiales Estos datos se publican de forma retrospectiva : en de diciembre de cada año, el CRS se actualiza con los datos del año anterior (lo que es entre 12 y 23 meses de retraso) Si bien los datos que mira hacia atrás no es particularmente útil para la planificación del desarrollo - es un punto de muy útil y relativamente exacta referencia. Es particularmente útil para incluir marcadores de posición para los países y las instituciones que en la actualidad no informan a la IATI. los datos proporcionados en esta columna es el total de los desembolsos anuales (gastar) para el país. Los valores están expresados ​​en dólares corrientes.
+
+#sectors_data_title2_text
+DONANTE
+
+#sectors_data_info2_text
+La agencia (que puede ser un donante o una organización de ejecución) datos de informes a la IATI y / o CRS. Al hacer clic en esta celda le llevará a una lista de todas las actividades comunicadas a la IATI por esta agencia. La lista está ordenada por el valor de 2012 los desembolsos (la figura más grande informó sea por CRS o IATI)
+
+#sectors_data_title3_text
+IATI PASAR
+
+#sectors_data_info3_text
+Tres columnas contienen el total de desembolsos y gastos reportados a la IATI para los actuales y los anteriores dos años. La primera columna se efectuará siempre por el mismo año que los datos más recientes de CRS , lo que permite la comparación entre los dos sistemas. Al hacer clic en cualquier celda le llevará a aquellos proyectos que componen el valor de la celda (por orden de su contribución a ese valor) las células que contienen. "-" indican que la organización no ha publicado todavía en células IATI contienen "0" son una indicación de aviso de mala calidad a la IATI.
+
+#sectors_data_title4_text
+IATI PRESUPUESTO
+
+#sectors_data_info4_text
+Total de presupuestos de la actividad para este y el próximo año reportados a IATI Al hacer clic en cualquier celda le llevará a los proyectos que componen el valor de la celda (por orden de su contribución a ese valor) Las células que contienen. "-" Indique que la organización no ha publicado aún la IATI. las células que contienen "0 " son una indicación de la mala calidad de informes a la IATI.
 
 #sector_activities_data_description_title_text
 ¿Cómo se calcula la información?
 
 #sector_activities_data_description_text
-Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compromisos totales para cada actividad y el porcentaje pasó hasta ahora, ordenados por mayor en la parte superior . Barras negras significan los problemas de calidad de datos donde los datos publicados falte compromiso y / o información de la transacción .
+Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compromisos totales para cada actividad y el porcentaje pasó hasta ahora, ordenados por mayor en la parte superior. Barras negras significan los problemas de calidad de datos donde los datos publicados falte compromiso y / o información de la transacción.
 
 #sector_transactions_data_description_title_text
 ¿Cómo se calcula la información?
 
 #sector_transactions_data_description_text
-Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por {sector} para {country_name} y ordenados por la actividad con el mayor gasto en la parte superior .
+Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por {sector} para {country_name} y ordenados por la actividad con el mayor gasto en la parte superior.
 
 #sector_budgets_data_description_title_text
 ¿Cómo se calcula la información?
 
 #sector_budgets_data_description_text
-El presupuesto se calcula sumando todos los presupuestos que se encuentra a menos de 370 días de largo y termina en {year} . Esta tabla te muestra todas las actividades que se enumeran los presupuestos para {year} ordenados por mayor en la parte superior . Zeros en tablas sugieren discrepancias en este cálculo debido a datos insuficientes y significan los problemas de calidad de datos.
+El presupuesto se calcula sumando todos los presupuestos que se encuentra a menos de 370 días de largo y termina en {year}. Esta tabla te muestra todas las actividades que se enumeran los presupuestos para {year} ordenados por mayor en la parte superior. Zeros en tablas sugieren discrepancias en este cálculo debido a datos insuficientes y significan los problemas de calidad de datos.
 
 #districts_data_description_title_text
 ¿Cómo se calcula la información?
 
 #districts_data_description_text
-Así es como se calcula los datos de dinero que va a los distritos .
+Así es como se calcula los datos de dinero que va a los distritos.
 
 #main_data_description_title_text
 ¿Cómo se calcula la información?
 
-#main_data_description_text
-d-portal.org es una plataforma de información basada en los países que registra los flujos de recursos . Está dirigido a ofrecer a los ministerios de línea , los parlamentarios y la sociedad civil una información que le puede ayudar con la planificación y el seguimiento de las actividades de desarrollo .
-En su primera versión que contiene los datos actuales publicados a través de la Iniciativa Internacional de Transparencia de la Ayuda ( IATI ), así como los datos más recientes ( 2012 ) publicados por el Sistema de Notificación de los Países Acreedores del CAD . El desarrollo futuro incluirá , entre otras cosas , los datos de emergencia información , Sistemas de Gestión de los presupuestos nacionales y una serie de indicadores socioeconómicos comparables.
+#main_data_paragraph1_text
+d-portal.org es una plataforma de información basada en los países que registra los flujos de recursos. Está dirigido a ofrecer a los ministerios de línea, los parlamentarios y la sociedad civil una información que le puede ayudar con la planificación y el seguimiento de las actividades de desarrollo. En su primera versión que contiene los datos actuales publicados a través de la Iniciativa Internacional de Transparencia de la Ayuda (IATI), así como las más recientes (2012) los datos agregados publicados por el Sistema de Notificación de los Países Acreedores del CAD. El desarrollo futuro incluirá, entre otros, los datos de emergencia información, Sistemas de Gestión de los presupuestos nacionales y una serie de indicadores socioeconómicos comparables.
+
+#main_data_paragraph2_text
+Las fuentes de datos en esta página son : <span class="italic">(Todos los enlaces se abren en una ventana nueva)</span>
+
+#main_data_paragraph3_text
+¿De dónde viene el dinero? - Los datos agregados por Development_Initiatives' (DI) Las inversiones para poner fin a Informe sobre la pobreza (<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank">http://devinit.org/report/investments-to-end-poverty/</a>) derivado del Sistema de Notificación de los Países Acreedores (CRS) de datos.
+
+#main_data_paragraph4_text
+¿Dónde va el dinero? (Sectores) - datos agregados por Development_Initiatives' (DI) Las inversiones para el Informe de Fin de la Pobreza (<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank">http://devinit.org/report/investments-to-end-poverty/</a>) derivado de los datos de la OCDE CRS. Clasificaciones sectoriales son agrupaciones de DI de códigos de propósito de CRS.
+
+#main_data_paragraph5_text
+Mapa de calor - Un recuento de las actividades de la IATI que contienen coordenadas específicas en sus datos de localización. NB. que muy pocas actividades IATI actualmente contienen estos datos.
+
+#main_data_paragraph6_text
+El resto de los datos de la página proviene de la IATI. Normalmente, esto habrá sido actualizado en las últimas 24 horas.
 
 #view_active_text
 Todos los proyectos activos para {country_name}
@@ -514,7 +575,7 @@ Así es como se calcula los datos de todos los proyectos activos.
 ¿Cómo se calcula la información?
 
 #ended_data_description_text
-Así es como se calcula los datos de todos los proyectos indefinidos .
+Así es como se calcula los datos de todos los proyectos indefinidos.
 
 #planned_data_description_title_text
 ¿Cómo se calcula la información?
@@ -550,25 +611,19 @@ Sólo las actividades que proporcionan lugares se muestran en el mapa. Las activ
 ¿Por qué es importante la calidad de datos
 
 #data_paragraph1_text
-Morbilidad triplete cápita Pellentesque y Senectus netus y famas malesuada ac egestas turpis . Vestibulum quam tortor , ultricies feugiat vitae eget , tempor sit amet , ante. Donec sit amet quam libero tenía egestas sempre . Ultricies Aenean millas vitae. Mauris eleifend leo placerat .
+La mayoría de los datos disponibles en la actualidad en d-portal viene de los editores de la IATI : más de 240 organizaciones que se han comprometido a publicar sus actividades de desarrollo en formato IATI-XML. Estos datos se publican en sus propios sitios web e indexado en el Registro de la IATI. En las noches de la IATI encuestas todos los datos indexados en el registro y guarda la última versión de cada actividad publicada en un almacén de datos central. Así, el almacén de datos no es una base de datos curada, sino una recopilación de todos los datos de la IATI hasta anoche.
 
 #data_paragraph2_text
-Estos son los viajes de la nave estelar Enterprise. Que continúa su misión de exploración de mundos desconocidos , al descubrimiento de nuevas vidas y nuevas civilizaciones , hasta alcanzar lugares donde nadie ha podido llegar. Tenemos que neutralizar la señal de búsqueda . Cada unidad tiene un control total del medio ambiente , la gravedad, la temperatura, la atmósfera, la luz, en un campo de protección. Los sensores muestran lecturas de energía en su área. Tuvimos una explosión cámara forzada en la bobina de resonador. La intensidad de campo se ha incrementado en 3.000 por ciento.
+El estándar IATI es flexible en sus normas de información para permitir que el mayor número de organizaciones diferentes con diferentes capacidades para publicar sus datos en este formato común. La filosofía es que las organizaciones comiencen a publicar lo que pueden y mejorar la calidad de sus datos en el tiempo. Esto significa que siempre habrá datos de diversa calidad disponible a través de la IATI.
 
 #data_paragraph3_text
-Indica una distorsión en las áreas sincrónicas triólicas emanan ondas . El cerebelo , la corteza cerebral, el tronco cerebral , el sistema nervioso entero ha - ha agotado de energía electroquímica . Cualquier dispositivo como que producirían altos niveles de ondas triólicas . Estas paredes han sufrido algún tipo de polarización molecular selectiva. No he determinado si nuestra energía phaser puede generar un campo constante. Podríamos modificar los fotones con discriminadores de fase .
+Una vez dicho esto IATI se creó para satisfacer las necesidades de los países en desarrollo, que han pedido constantemente para obtener información oportuna, integral y con visión de futuro que se puede utilizar en la planificación y el seguimiento del desarrollo. <a href="http://www.aidtransparency.net/wp-content/uploads/2013/01/Paper-4a-Country-Survey-of-AIMS.pdf" target="_blank" title="Los enlaces a un archivo PDF en una nueva ventana">Una encuesta reciente</a> realizado por IATI reforzaron estas demandas. Por lo tanto, la IATI de pedir es que los editores actualicen sus datos, al menos, trimestral; que los datos más recientes no es más de tres meses de la fecha; y que los presupuestos de la actividad a futuro se proporcionan por lo menos un año de antelación.
 
 #data_paragraph4_text
-Deflector a la máxima potencia . Descarga de energía en seis segundos . Núcleo del reactor fracaso refrigerante primario Warp. Fluctuar frecuencias de resonancia de phaser . La resistencia es inútil . Recomendamos ajustamos armónicos escudo de la banda superior EM cuando el procedimiento . Estos parecen ser una especie de propulsión mecánica de guía de onda ' em All que permiten trabajar en conjunto como Realizan funciones nave. Incrementar la modulación deflector para la banda de frecuencia superior.
+d-portal muestra lo mejor práctica de una serie de importantes socios en el desarrollo. Muchos editores de la IATI, sin embargo, son actualmente <span class="underline">no</span> reuniendo lo que los países en desarrollo han indicado claramente son sus requisitos mínimos. Esto simplemente no es lo suficientemente bueno.
 
 #data_paragraph5_text
-Exceder límite cámara de reacción térmica. Hemos iniciado la calibración de alimentación . Campos de fuerza - han - sido, establecida en todos los ascensores de turbo y crawlways . Ordenador , ejecute un diagnóstico de los sistemas de warp -drive de dos niveles . Contención positiva antimateria . El motor warp Dentro de los parámetros normales. Leí una característica estela de iones de una cápsula de escape carguero. La Revisión de bomba : tenía un detonador molecular decadencia. Detección Algunas fluctuaciones inusuales en las frecuencias subespaciales .
+Cuando empezamos a desarrollar <span class="bold italic">d-portal</span> pensamos que nuestra tarea era mostrar los datos de la IATI. Pronto nos dimos cuenta de que desde el punto de vista de este país era de poca utilidad : es igual de importante para mostrar dónde faltan datos como para mostrar donde está presente. En varias mesas verá las células que contienen "0": estos indican zonas donde los editores IATI no proporcionan ningún dato. También podrá ver las células que contienen " - ": estos indican las organizaciones que aún no están publicando datos para la IATI.
 
 #data_paragraph6_text
-Buque no identificado viajando a warp sub velocidad, el rumbo 235.7 . Las fluctuaciones en las lecturas de energía de él , capitán . Todos los transportistas de fuera . Una extraña puesta a punto , pero yo diría que el generador de gravitones se despolariza . Las coloraciones oscuras de las raspaduras son las sobras de caucho natural, una especie de lenguado no conductor utilizado por investigadores que experimentan con la electricidad. Las moléculas deben haber sido en parte - de- escalonado por el haz anyon .
-
-#data_paragraph7_text
-Ahora , ¿cuáles son las posibilidades de la velocidad warp ? El sistema nervioso del comandante Riker ha - sido invadido por un microorganismo desconocido. Los organismos se funden en el nervio , en el entrelazamiento nivel molecular. Es por eso que los biofiltros del transportista no pudieron extraerlo. Las ondas de vértice muestran un complejo K correspondiente a un estado REM . La sección de ingeniería de crítica. La destrucción es inminente. Sus vestidos Contienen ultritium , muy explosivo , prácticamente indetectable por su barco .
-
-#data_paragraph8_text
-La resistencia es inútil .
+Esperamos que nuestra presentación de los datos - y las lagunas - ofrece un panorama útil del paisaje datos. Donde hay agujeros críticos en los datos que les animo a participar con sus asociados en el desarrollo para exigir que mejoran la calidad de los datos que componen actualmente disponibles.
