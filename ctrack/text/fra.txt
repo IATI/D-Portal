@@ -425,20 +425,43 @@ Lire la suite
 Comment les données sont -elle calculée?
 
 #xml_data_description_text
-Les valeurs manquantes suggèrent les données sont insuffisantes et signifient les problèmes de qualité de données. Cliquez sur le lien ci-dessous IITA Identifier pour afficher le code XML sur son propre. Vous pouvez également voir l'XML sans style en cliquant sur ​​le lien XML.
+Les valeurs manquantes suggèrent les données sont insuffisantes et signifient les problèmes de qualité de données. Cliquez sur le lien ci-dessous IATI Identifier pour afficher le code XML sur son propre. Vous pouvez également voir l'XML sans style en cliquant sur ​​le lien XML.
 
 #donors_data_description_title_text
 Comment les données sont -elle calculée?
 
 #donors_data_description_text
-d-portal.org est une plate-forme d'information sur le pays qui permet de suivre les flux de ressources. Il vise à fournir des ministères de tutelle , les parlementaires et la société civile des informations qui peuvent aider à la planification et au suivi des activités de développement.
-Dans sa première itération , il contient des données actuelles publiées par l'Initiative internationale pour la transparence de l'aide (IATI), ainsi que les plus récentes (2012) données publiées par le Système de notification des pays créanciers du CAD de l'OCDE. Développement futur comprendra , entre autres , les données de l'aide des systèmes d'information de gestion , les budgets nationaux et une série d'indicateurs socio- économiques comparables.
+Ce tableau montre ressource externe flux utilisé dans le développement : passées, présentes et futures Toutes les cellules doivent contenir des données et le fait que beaucoup ne pas ya un problème avec la qualité des données disponibles. Les colonnes affichent les données suivantes :
+
+#donors_data_title1_text
+CRS
+
+#donors_data_info1_text
+Tous les membres du OECD et un certain nombre d' autres pays et institutions rendent compte annuellement à la <span class="bold italic">OECD Système de notification des pays créanciers </span> sur l'aide publique au développement et d'autres flux officiels. En Décembre chaque année, le CRS est mis à jour avec les données de l'année précédente (si c'est entre 12 et 23 mois sur la date) Bien que les données passéiste n'est pas particulièrement utile pour la planification du développement - c'est un point de référence très utile et relativement précise. il est particulièrement utile pour inclure des espaces réservés pour les pays et les institutions qui ne relèvent pas actuellement de l'IATI. les données fournies dans cette colonne est le total des versements annuels (de dépenses) pour le pays. les valeurs sont en dollars courants des États-Unis.
+
+#donors_data_title2_text
+DONATEURS
+
+#donors_data_info2_text
+L'agence (qui peut être un donateur ou un organisme d'exécution) des données de déclaration à l'IATI et / ou CRS. Cliquez sur cette cellule vous amène à une liste de toutes les activités mentionnées à l'IATI par cette agence. Cette liste est ordonnée par la valeur de 2012 débours (le plus grand chiffre rapporté soit par CRS ou IATI)
+
+#donors_data_title3_text
+IATI PASSER
+
+#donors_data_info3_text
+Trois colonnes contiennent le total des décaissements et les dépenses déclarées à l'IATI pour les deux années actuelles et précédentes. La première colonne sera toujours pour la même année que les plus récentes données du SNPC, permettant des comparaisons entre les deux systèmes. Cliquez sur n'importe quelle cellule vous amène à ces projets qui constituent la valeur dans la cellule (dans l'ordre de leur contribution à cette valeur) cellules contenant "-" indiquent que l'organisation n'a pas encore publié de cellules de l'IATI contenant "0" sont une indication des rapports de mauvaise qualité à l'IATI.
+
+#donors_data_title4_text
+BUDGET IATI
+
+#donors_data_info4_text
+Total des budgets au niveau de l'activité de cette décision et l'année prochaine signalés à l'IATI cliquez sur n'importe quelle cellule vous amène à ces projets qui constituent la valeur dans la cellule (dans l'ordre de leur contribution à cette valeur) cellules contenant "-" Indiquez que l'organisation n'a pas encore publié à l'IATI. Cellules contenant "0 " sont une indication de mauvaise qualité des rapports à l'IATI.
 
 #donor_activities_data_description_title_text
 Comment les données sont -elle calculée?
 
 #donor_activities_data_description_text
-Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici , classés par le plus grand en haut. Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction.
+Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici, classés par le plus grand en haut. Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction.
 
 #donor_transactions_data_description_title_text
 Comment les données sont -elle calculée?
@@ -456,13 +479,37 @@ Budget est calculé en additionnant tous les budgets qui est inférieure à 370 
 Comment les données sont -elle calculée?
 
 #sectors_data_description_text
-C'est ainsi que les données sont calculées pour l'argent va à des secteurs.
+Ce tableau indique les secteurs où les flux de ressources de développement externes sont canalisés. Passé, présent et futur Dans la plupart des cas, la valeur CRS sera beaucoup plus élevé que l'IATI comme il ya un certain nombre de grands donateurs qui ne déclarent pas toujours à l'IATI , et un certain nombre d'éditeurs de l'IATI dont les données sont de mauvaise qualité les colonnes affichent les données suivantes.:
+
+#sectors_data_title1_text
+CRS
+
+#sectors_data_info1_text
+Tous les membres du OECD et un certain nombre d' autres pays et institutions rendent compte annuellement à la <span class="bold italic">OECD Système de notification des pays créanciers </span> sur l'aide publique au développement et d'autres flux officiels. En Décembre chaque année, le CRS est mis à jour avec les données de l'année précédente (si c'est entre 12 et 23 mois sur la date) Bien que les données passéiste n'est pas particulièrement utile pour la planification du développement - c'est un point de référence très utile et relativement précise. Les données fournies dans cette colonne est le total des versements annuels (passer) déclarés par tous les journalistes OECD CRS pour chaque secteur. Les valeurs sont en dollars courants des États-Unis.
+
+#sectors_data_title2_text
+SECTEURS
+
+#sectors_data_info2_text
+Les secteurs énumérés ici sont des regroupements de codes-objet du SNPC de l'OECD. Il n'y a 197 CRS codes de but. DI a cartographié tous les codes de but contre ces secteurs. Cette liste est ordonnée par la valeur de 2012 débours (le plus grand chiffre rapporté soit par CRS ou de l'IATI )
+
+#sectors_data_title3_text
+IATI PASSER
+
+#sectors_data_info3_text
+Trois colonnes contiennent le total des décaissements et les dépenses déclarées à l'IATI pour les deux années actuelles et précédentes. La première colonne sera toujours pour la même année que les plus récentes données du SNPC, permettant des comparaisons entre les deux systèmes.
+
+#sectors_data_title4_text
+BUDGET IATI
+
+#sectors_data_info4_text
+Total des budgets au niveau de l'activité pour l'année prochaine et ce signalées à l'IATI. Cliquez sur n'importe quelle cellule vous amène à ces projets qui constituent la valeur dans la cellule (dans l'ordre de leur contribution à cette valeur).
 
 #sector_activities_data_description_title_text
 Comment les données sont -elle calculée?
 
 #sector_activities_data_description_text
-Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici , classés par le plus grand en haut. Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction.
+Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique le total des engagements pour chaque activité et le pourcentage dépensé jusqu'ici, classés par le plus grand en haut. Des barres noires signifient les problèmes de qualité de données où les données publiées est manquant engagement et / ou des informations de transaction.
 
 #sector_transactions_data_description_title_text
 Comment les données sont -elle calculée?
@@ -485,9 +532,23 @@ C'est ainsi que les données sont calculées pour l'argent va aux districts.
 #main_data_description_title_text
 Comment les données sont -elle calculée?
 
-#main_data_description_text
-d-portal.org est une plate-forme d'information sur le pays qui permet de suivre les flux de ressources. Il vise à fournir des ministères de tutelle , les parlementaires et la société civile des informations qui peuvent aider à la planification et au suivi des activités de développement.
-Dans sa première itération , il contient des données actuelles publiées par l'Initiative internationale pour la transparence de l'aide (IATI), ainsi que les plus récentes (2012) données publiées par le Système de notification des pays créanciers du CAD de l'OCDE. Développement futur comprendra , entre autres , les données de l'aide des systèmes d'information de gestion , les budgets nationaux et une série d'indicateurs socio- économiques comparables.
+#main_data_paragraph1_text
+d-portal.org est une plate-forme d'information sur le pays qui permet de suivre les flux de ressources. Il vise à fournir des ministères de tutelle, les parlementaires et la société civile des informations qui peuvent aider à la planification et au suivi des activités de développement. Dans sa première itération, il contient des données actuelles publiées par l'Initiative internationale pour la transparence de l'aide (IATI), ainsi que les plus récentes (2012) données globales publiées par le créancier CAD de l'OCDE Système de notification. Développement futur comprendra, entre autres, les données de l'aide des systèmes d'information de gestion, les budgets nationaux et une série d'indicateurs socio- économiques comparables.
+
+#main_data_paragraph2_text
+Les sources de données sur cette page sont : <span class="italic"> (Tous les liens s'ouvrent dans une nouvelle fenêtre) </span>
+
+#main_data_paragraph3_text
+D'où vient l' argent? - Les données agrégées par Development_Initiatives' (DI) Placements à Rapport de fin de la pauvreté (<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank">http://devinit.org/report/investments-to-end-poverty/</a>) dérivé du système de notification des pays créanciers (SNPC) de données.
+
+#main_data_paragraph4_text
+Où va l'argent ? (Secteurs) - Les données agrégées par DI's investissements visant à éliminer la pauvreté Rapport (<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank">http://devinit.org/report/investments-to-end-poverty/</a>) provenant des données du SNPC de l'OCDE. Classifications du secteur sont des regroupements de DI codes -objet du SNPC.
+
+#main_data_paragraph5_text
+Heatmap - Un nombre d'activités de l'IATI qui contiennent des coordonnées spécifiques dans leurs données de localisation. NB. que très peu d'activités de l'IATI contiennent actuellement ces données.
+
+#main_data_paragraph6_text
+Le reste des données sur la page provient de l'IATI. Typiquement, cela aura été mis à jour dans les dernières 24 heures.
 
 #view_active_text
 Tous les projets en cours pour {country_name}
@@ -553,25 +614,19 @@ Seules les activités qui fournissent des endroits sont affichés sur la carte. 
 Pourquoi les questions de la qualité des données
 
 #data_paragraph1_text
-Battre habitent la vieillesse et la maladie triste, fractionnés, et de conseiller la faim et la session d'examen. Cuisinière à gaz que possible, le système immunitaire de la vie, c'est juste qu'il a besoin, c'est probablement le temps de commencer. Malheureusement, la rareté du football beaucoup de libre toujours. Rappelez-vous juste que c'est juste ma vie. Inscrire une équipe.
+La plupart des données disponibles actuellement dans d-portal vient des éditeurs de l'IATI : plus de 240 organisations qui se sont engagées à publier leurs activités de développement en format IATI-XML. Ces données sont publiées sur leurs propres sites Web et indexé sur le registre de l'IATI. Sur une base quotidienne sondages IATI toutes les données indexées sur le registre et enregistre la dernière version de chaque activité publié dans une banque de données centrale. Le magasin de données n'est donc pas une base de données organisée, mais une compilation de toutes les données de l'IATI comme de la nuit dernière.
 
 #data_paragraph2_text
-Ce sont les voyages du Starship Enterprise. Sa mission continue, d'explorer de nouveaux mondes étranges, de chercher une nouvelle vie et de nouvelles civilisations, aller hardiment là où personne n'est allé avant. Nous devons neutraliser le signal de ralliement. Chaque unité dispose d'un contrôle total de l'environnement, la gravité, la température, l'atmosphère, la lumière, dans un champ de protection. Capteurs montrent les mesures d'énergie dans votre région. Nous avons eu une explosion de la chambre forcé dans la bobine de résonateur. L'intensité du champ a augmenté de 3000 pour cent.
+Le standard de l'IATI est flexible dans ses règles de déclaration pour permettre que de nombreuses organisations différentes avec une capacité variant de publier leurs données dans ce format commun. La philosophie est pour les organisations de commencer à publier ce qu'ils peuvent et améliorer la qualité de leurs données dans le temps. Cela signifie qu'il y aura toujours des données de qualité variable disponible par l'IATI.
 
 #data_paragraph3_text
-Il indique une distorsion synchronique dans les domaines émanant ondes triolets. Le cervelet, le cortex cérébral, le tronc cérébral, l'ensemble du système nerveux a été appauvri en énergie électrochimique. Tout dispositif comme ce serait produire des niveaux élevés de vagues triolets. Ces murs ont subi une sorte de polarisation moléculaire sélective. Je n'ai pas déterminé si notre énergie de phaser peut générer un champ stable. Nous pourrions modifier les photons avec discriminateurs de phase.
+Cela dit que l'IATI a été créé pour répondre aux besoins des pays en développement, qui ont toujours demandé des informations en temps opportun, complet et prospective qui peuvent être utilisés dans la planification et le suivi du développement. <a href="http://www.aidtransparency.net/wp-content/uploads/2013/01/Paper-4a-Country-Survey-of-AIMS.pdf" target="_blank" title="Liens vers un fichier PDF dans une nouvelle fenêtre">Un récent sondage</a> menée par l'IATI renforcé ces exigences. IATI de poser est donc que les éditeurs mettent à jour leurs données au moins trimestriellement ; que les dernières données n'est pas plus de trois mois de retard ; et que les budgets au niveau de l'activité prospectives sont fournies pour au moins un an à l'avance.
 
 #data_paragraph4_text
-Puissance de déflecteur au maximum. Décharge d'énergie en six secondes. Chaîne cœur du réacteur panne de refroidissement primaire. Fluctuer fréquences de résonance de phaser. La résistance est futile. Recommandons nous ajustons harmoniques de bouclier à la bande EM supérieure lorsque poursuivre. Ceux-ci semblent être une sorte de conduits puissance-guide d'onde qui leur permettent de travailler collectivement elles accomplissent des fonctions de navire. Augmenter déflecteur modulation à bande de fréquence supérieure.
+d-portal présente le meilleur de la pratique d'un certain nombre des principaux partenaires de développement. De nombreux éditeurs de l'IATI, cependant, sont actuellement <span class="underline">pas</span> réunion ce pays en développement ont clairement indiqué sont leurs exigences minimales. Ce n'est tout simplement pas assez bon.
 
 #data_paragraph5_text
-Dépassement de la limite thermique de la chambre de réaction. Nous avons commencé l'étalonnage d'alimentation. Les champs de force ont été établis sur toutes les remontées mécaniques turbo et crawlways. Ordinateur, exécutez un niveau deux de diagnostic sur les systèmes de chaîne motrices. Antimatière confinement positif. Warp Drive dans les paramètres normaux. J'ai lu une caractéristique de la piste d'ions d'un module cargo d'échappement. La bombe avait un détonateur moléculaire désintégration. Détecter des fluctuations inhabituelles dans les fréquences de sous-espaces.
+Lorsque nous avons commencé à développer <span class="bold italic">d-portal</span> nous pensions que notre tâche était de présenter les données de l'IATI. Nous nous sommes vite rendu compte que d'un point de vue sur la campagne ce fut de peu d'utilité : il est tout aussi important de montrer les données manquantes pour montrer où il est présent. Dans différents tableaux, vous verrez les cellules contenant "0" : ceux-ci indiquent les zones où les éditeurs de l'IATI ne parviennent pas à fournir des données. Vous verrez aussi les cellules contenant " - " : ceux-ci indiquent les organisations qui ne sont pas encore à publier des données de l'IATI.
 
 #data_paragraph6_text
-Navire non identifié se déplaçant à la vitesse de chaîne sous, portant 235,7. Les fluctuations dans les lectures de l'énergie de lui, le capitaine. Tous les transporteurs hors. Un étrange set-up, mais je dirais que le générateur de graviton est dépolarisée. Les colorations sombres des éraflures sont les restes de caoutchouc naturel, un type de sole non-conducteur utilisé par les chercheurs expérimentent l'électricité. Les molécules doivent avoir été partiellement dé-étapes par le faisceau d'anyon.
-
-#data_paragraph7_text
-Maintenant, quelles sont les possibilités d'entraînement de chaîne? Système nerveux Cmdt Riker a été envahi par un micro-organisme inconnu. Les organismes fusionnent au nerf, entrelacement au niveau moléculaire. C'est pourquoi les biofiltres du transporteur ne pouvait pas extraire. Les vagues de vertex montrent un complexe K correspondant à un état de REM. Critique. Du section de génie La destruction est imminente. Leurs robes contiennent ultritium, très explosif, pratiquement indétectable par votre transporteur.
-
-#data_paragraph8_text
-La résistance est futile.
+Nous espérons que notre présentation des données - et les lacunes - fournit un aperçu utile du paysage de données. Où il ya des trous dans les données critiques, nous vous encourageons à vous engager avec vos partenaires de développement d'exiger qu'ils améliorent la qualité des données qu'ils font actuellement disponible.

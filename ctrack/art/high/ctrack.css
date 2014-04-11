@@ -327,6 +327,12 @@ table.activity a:hover	{color:#000; text-decoration:none; background-color:#e9e9
 table.activity a:active	{color:#000; text-decoration:none;}
 
 
+/*	Table for data descriptions (Donors / Sectors)
+	============================================= */
+table.data				{width:100%; border-collapse:collapse;}
+table.data td			{color:#000; font-size:1.0em; line-height:1.4em; padding:10px 20px; vertical-align:top; border:1px solid #9E9E9E;}
+
+
 /*	Data Investigators alert
 	============================================= */
 .data_wrap				{position:absolute; bottom:0; width:100%; margin:0 auto;}
