@@ -192,6 +192,7 @@ ctrack.setup=function(args)
 	ctrack.display_wait=0;
 	ctrack.display=function()
 	{
+console.log(ctrack.display_wait);
 		ctrack.display_wait--;
 		if(ctrack.display_wait<=0)
 		{
