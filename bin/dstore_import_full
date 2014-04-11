@@ -8,7 +8,7 @@ mkdir cache
 for code in "${codes[@]}"
 do
   if [ ! -f cache/datastore_${code}.xml ]; then
-    wget --ignore-length -O cache/datastore_${code}.xml http://datastore.iatistandard.org/api/1/access/activity.xml?recipient-country=${code}\&stream=True || rm -f file && exit 1
+    wget --ignore-length -O cache/datastore_${code}.xml http://datastore.iatistandard.org/api/1/access/activity.xml?recipient-country=${code}\&stream=True || rm -f file
   fi
 done
 
