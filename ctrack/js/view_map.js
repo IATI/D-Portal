@@ -127,6 +127,17 @@ view_map.fixup=function()
 				}
 				google.maps.event.addListener(map, 'zoom_changed', fixradius);
 				fixradius();
+
+				var idle=function()
+				{
+					if(window.location.hash=="#view=map")
+					{
+						var zoom=map.getZoom();
+						var latlng=map.getCenter();
+						window.location.hash="#view=map"+"&lat="+latlng.lat+"&lng="+latlng.lng+"&zoom="+zoom;
+					}
+				}
+				google.maps.event.addListener(map, 'idle', idle);
 			}
 		}
 	}
