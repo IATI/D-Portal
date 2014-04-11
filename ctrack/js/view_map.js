@@ -88,7 +88,7 @@ view_map.fixup=function()
 							window.location.hash="#view=act&aid="+v.aid;
 						});
 					});
-					markerCluster = new MarkerClusterer(map, markers);
+					markerCluster = new MarkerClusterer(map, markers,{maxZoom:12});
 				}
 				else
 				if( ctrack.map.heat )
