@@ -192,7 +192,7 @@ ctrack.setup=function(args)
 	ctrack.display_wait=0;
 	ctrack.display=function()
 	{
-console.log(ctrack.display_wait);
+//console.log(ctrack.display_wait);
 		ctrack.display_wait--;
 		if(ctrack.display_wait<=0)
 		{
@@ -257,7 +257,6 @@ console.log(ctrack.display_wait);
 
 // these are now view hooks
 			var name=l.view;
-			var fixup;
 			if(name)
 			{
 				name=name.toLowerCase();
@@ -272,10 +271,9 @@ console.log(ctrack.display_wait);
 				}
 				if(v && v.fixup)
 				{
-					fixup=v.fixup;
+					v.fixup();
 				}
 			}
-			if(fixup) fixup();
 		}
 	};
 	$(window).bind( 'hashchange', function(e) { ctrack.check_hash(); } );
