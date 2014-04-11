@@ -361,10 +361,10 @@ View this in Chinese (Simplified)
 #tongue_hin_tip_text
 View this in Hindi
 
-#theme_high_visibility_tip_text
+#flava_high_visibility_tip_text
 View the site in High Visibility
 
-#theme_original_tip_text
+#flava_original_tip_text
 View the site in Original flava
 
 #tongue_eng_text
@@ -385,11 +385,11 @@ Chinese (Simplified)
 #tongue_hin_text
 हिंदी 
 
-#theme_high_visibility_text
-High Visibility Mode
+#flava_high_visibility_text
+High Visibility
 
-#theme_original_text
-Original Theme
+#flava_original_text
+Original
 
 #flag_alt_text
 flag
@@ -482,9 +482,23 @@ This is how the data is calculated for money going to districts.
 #main_data_description_title_text
 How is the data calculated?
 
-#main_data_description_text
-d-portal.org is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
-In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the OECD DAC Creditor Reporting System. Future development will include, amongst others, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
+#main_data_paragraph1_text
+d-portal.org is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities. In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) aggregate data published by the OECD DAC Creditor Reporting System. Future development will include, amongst others, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
+
+#main_data_paragraph2_text
+The data sources on this page are: <span class="italic">(All links open in a new window)</span>
+
+#main_data_paragraph3_text
+Where does the money come from? - Aggregate data by Development Initiatives' (DI) Investments to End Poverty Report (<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank">http://devinit.org/report/investments-to-end-poverty/</a>) derived from the OECD Creditor Reporting System (CRS) data.
+
+#main_data_paragraph4_text
+Where does the money go? (Sectors) - Aggregate data by DI's Investments to End Poverty Report (<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank">http://devinit.org/report/investments-to-end-poverty/</a>) derived from the OECD CRS data. Sector classifications are DI groupings of CRS purpose codes.
+
+#main_data_paragraph5_text
+Heatmap - A count of IATI activities that contain specific coordinates in their location data. NB. that very few IATI activities currently contain this data.
+
+#main_data_paragraph6_text
+The rest of the data on the page comes from IATI. Typically this will have been updated within the last 24 hours.
 
 #view_active_text
 All active projects for {country_name}
@@ -550,25 +564,19 @@ Only activities that provide locations are displayed on the map. Activities are 
 Why data quality matters
 
 #data_paragraph1_text
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+Most of the data currently available in d-portal comes from IATI publishers: over 240 organisations who have committed to publish their development activities in IATI-XML format. This data is published on their own websites and indexed on IATI's Registry. On a nightly basis IATI polls all data indexed on the registry and saves the latest version of each published activity in a central Data Store. The data store is thus not a curated database, but a compilation of all IATI data as of last night.
 
 #data_paragraph2_text
-These are the voyages of the Starship Enterprise. Its continuing mission, to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before. We need to neutralize the homing signal. Each unit has total environmental control, gravity, temperature, atmosphere, light, in a protective field. Sensors show energy readings in your area. We had a forced chamber explosion in the resonator coil. Field strength has increased by 3,000 percent.
+The IATI standard is flexible in its reporting rules to allow as many different organisations with varying capacity to publish their data in this common format. The philosophy is for organisations to start publishing what they can and improve the quality of their data over time. This means that there will always be data of varying quality available through IATI.
 
 #data_paragraph3_text
-It indicates a synchronic distortion in the areas emanating triolic waves. The cerebellum, the cerebral cortex, the brain stem,  the entire nervous system has been depleted of electrochemical energy. Any device like that would produce high levels of triolic waves. These walls have undergone some kind of selective molecular polarization. I haven't determined if our phaser energy can generate a stable field. We could alter the photons with phase discriminators.
+Having said that IATI was established to meet the needs of developing countries, who have consistently asked for timely, comprehensive and forward-looking information that can be used in the planning and monitoring of development. A <a href="http://www.aidtransparency.net/wp-content/uploads/2013/01/Paper-4a-Country-Survey-of-AIMS.pdf" target="_blank" title="Links to a PDF in new window">recent survey</a> conducted by IATI reinforced these demands. IATI's minimum requirements therefore are that publishers update their data at least quarterly; that the latest data is not more than three months out of date; and that forward-looking activity-level budgets are provided for at least one year in advance.
 
 #data_paragraph4_text
-Deflector power at maximum. Energy discharge in six seconds. Warp reactor core primary coolant failure. Fluctuate phaser resonance frequencies. Resistance is futile. Recommend we adjust shield harmonics to the upper EM band when proceeding. These appear to be some kind of power-wave-guide conduits which allow them to work collectively as they perform ship functions. Increase deflector modulation to upper frequency band.
+Most IATI publishers are currently <span class="underline">not</span> meeting these minimum requirements. This just isn't good enough.
 
 #data_paragraph5_text
-Exceeding reaction chamber thermal limit. We have begun power-supply calibration. Force fields have been established on all turbo lifts and crawlways. Computer, run a level-two diagnostic on warp-drive systems. Antimatter containment positive. Warp drive within normal parameters. I read an ion trail characteristic of a freighter escape pod. The bomb had a molecular-decay detonator. Detecting some unusual fluctuations in subspace frequencies.
+When we started to develop <span class="bold italic">d-portal</span> we thought our task was to showcase IATI data. We soon realised that from a country point of view this was of little use: it is just as important to show where data is missing as to show where it is present. In various tables you will see cells containing "0" : these indicate areas where IATI publishers are failing to provide any data. You will also see cells containing "-": these indicate organisations who are not yet publishing data to IATI.
 
 #data_paragraph6_text
-Unidentified vessel travelling at sub warp speed, bearing 235.7. Fluctuations in energy readings from it, Captain. All transporters off. A strange set-up, but I'd say the graviton generator is depolarized. The dark colourings of the scrapes are the leavings of natural rubber, a type of non-conductive sole used by researchers experimenting with electricity. The molecules must have been partly de-phased by the anyon beam.
-
-#data_paragraph7_text
-Now what are the possibilities of warp drive? Cmdr Riker's nervous system has been invaded by an unknown microorganism. The organisms fuse to the nerve, intertwining at the molecular level. That's why the transporter's biofilters couldn't extract it. The vertex waves show a K-complex corresponding to an REM state. The engineering section's critical. Destruction is imminent. Their robes contain ultritium, highly explosive, virtually undetectable by your transporter.
-
-#data_paragraph8_text
-Resistance is futile.
+We hope that our presentation of the data - and the gaps - provides a useful overview of the data landscape. Where there are critical holes in the data we would encourage you to engage with your development partners to demand that they improve the quality of data that they currently make available.
