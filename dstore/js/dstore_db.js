@@ -173,11 +173,10 @@ dstore_db.fill_acts = function(acts,slug){
 			});
 		});		
 	}
-	wait.for(function(cb){
-		db.run("COMMIT TRANSACTION",cb);
-	});
+
+	wait.for(function(cb){ db.run("COMMIT TRANSACTION",cb); });
 	process.stdout.write("\n");
-	
+
 	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
 		after=row["COUNT(*)"];

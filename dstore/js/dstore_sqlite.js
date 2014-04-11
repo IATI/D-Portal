@@ -23,7 +23,9 @@ dstore_sqlite.open = function(){
 //	var db = new sqlite3.cached.Database( global.argv.database );
 	var db = new sqlite3.Database( global.argv.database );
 	
-	db.configure("busyTimeout",1000); // wait upto 1 sec on locks
+	db.configure("busyTimeout",100000); // wait upto 100 sec on busy locks
+	
+//	dstore_sqlite.pragmas(db);
 		
 	return db;
 };
