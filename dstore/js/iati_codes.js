@@ -119,6 +119,8 @@ iati_codes.fetch = function(){
 	});
 	
 //	ls(o);
+
+	o["XK"]="Kosovo" // yeah this is much better than having it in a list *rolls*eyes*
 	
 	codes["country"]=o;
 
