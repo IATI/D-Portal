@@ -304,7 +304,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t["budget_day_length"]=null;
 		if(t["budget_day_end"] && t["budget_day_start"] ) // length may be null for bad data
 		{
-			t["budget_day_length"]=			t["day_end"]-t["day_start"];
+			t["budget_day_length"]=			t["budget_day_end"]-t["budget_day_start"];
 			if( t["budget_day_length"] < 0 )
 			{
 				t["budget_day_length"]=null; // ends before it starts
