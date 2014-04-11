@@ -3,7 +3,7 @@
 
 
 var view_map=exports;
-exports.name="stats";
+exports.name="map";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
@@ -40,6 +40,14 @@ view_map.chunks=[
 
 view_map.loaded=false;
 
+view_map._show=function(change_of_view)
+{
+	if(change_of_view) // first time only
+	{
+		ctrack.div.master.html( plate.replace( "{view_"+view_map.name+"}" ) );
+	}
+}
+
 // called on view display to fix html in place
 view_map.fixup=function()
 {
@@ -52,8 +60,13 @@ view_map.fixup=function()
 	}
 	if(ctrack.map.api_ready)
 	{
-		if($("#map").length>0)
+//		console.log("map think");
+		if( ($("#map").length>0) && (!$("#map").attr("done")) ) // only fixup the map once
 		{
+//			console.log("map fix");
+
+//			$("#map").attr("done",1)
+				
 			if( ctrack.map.heat || ctrack.map.pins ) // got some data
 			{
 
@@ -130,11 +143,12 @@ view_map.fixup=function()
 
 				var idle=function()
 				{
-					if(window.location.hash=="#view=map")
+					if(window.location.hash && window.location.hash.slice(0,9)=="#view=map")
 					{
 						var zoom=map.getZoom();
 						var latlng=map.getCenter();
-						window.location.hash="#view=map"+"&lat="+latlng.lat+"&lng="+latlng.lng+"&zoom="+zoom;
+// need to fix display logic before this can work...
+//						window.location.hash="#view=map"+"&lat="+latlng.lat()+"&lng="+latlng.lng()+"&zoom="+zoom;
 					}
 				}
 				google.maps.event.addListener(map, 'idle', idle);
