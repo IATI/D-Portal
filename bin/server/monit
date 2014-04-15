@@ -1,0 +1,6 @@
+#!monit
+check process pagecake with pidfile /home/ctrack/D-Portal/production/ctrack.pid
+ start program = "/etc/init.d/pagecake start"
+ stop program  = "/etc/init.d/pagecake stop"
+ if failed port 80 protocol http request "/" status = 302 with timeout 30 seconds
+ then restart
