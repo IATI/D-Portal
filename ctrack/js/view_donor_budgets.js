@@ -37,7 +37,7 @@ view_donor_budgets.view=function()
 	
 	args.q={
 		"year":year,
-		"funder":funder,
+		"funder_ref":funder,
 	};
 	args.q["budget_day_end_gteq"]=year+"-01-01";
 	args.q["budget_day_end_lt"]=(parseInt(year)+1)+"-01-01";

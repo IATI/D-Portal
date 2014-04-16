@@ -142,7 +142,7 @@ view_donors.ajax=function(args)
 				"from":"act,budget,country",
 				"limit":args.limit || 100,
 				"select":"funder_ref,sum_of_percent_of_budget_usd",
-				"priority":1, // has passed some validation checks serverside
+				"budget_priority":1, // has passed some validation checks serverside
 				"funder_ref_not_null":"",
 				"groupby":"funder_ref",
 				"budget_day_end_gteq":year+"-01-01","budget_day_end_lt":(parseInt(year)+1)+"-01-01",
