@@ -56,6 +56,7 @@ deleteFolderRecursive = function(path) {
 
 	var tongues=[];
 	var chunks={};
+	var blogs={};
 	var chunkopts={};
 	
 	chunkopts.root="/";  //
@@ -94,7 +95,7 @@ deleteFolderRecursive = function(path) {
 		return pages[fname];
 	}
 	
-	var find_pages=function(dir)
+	var find_pages=function(dir,blog)
 	{
 		var dirs=dir.split("/");
 		var ff=fs.readdirSync("html/"+dir);
@@ -139,7 +140,14 @@ deleteFolderRecursive = function(path) {
 				if( ! fs.lstatSync("html/"+dir+name).isDirectory() )
 				{
 					console.log("parse "+tonguedir+dir+name);
-					var html=plate.replace("{html}",get_page_chunk(dir+name));
+					var page=get_page_chunk(dir+name);
+					page._filename=name;
+					page._fullfilename=dir+name;
+					if(blog)
+					{
+						blogs[ dir+name ]=page;
+					}
+					var html=plate.replace("{html}",page);
 					fs.writeFileSync("static/"+tonguedir+dir+name,html);
 				}
 			}
@@ -172,6 +180,26 @@ deleteFolderRecursive = function(path) {
 
 	}
 
+	find_pages("blog/",true)
+	
+	var bloglist=[];
+	for(var n in blogs)
+	{
+		bloglist.push(blogs[n]);
+	}
+	bloglist.sort(function(a,b){return a._fullfilename>b._fullfilename?1:-1;});
+	
+	var b5=[];
+	for(var i=0;i<5;i++)
+	{
+		if(bloglist[i])
+		{
+			b5.push(bloglist[i].chunk)
+		}
+	}
+	chunkopts["bloglist"]=bloglist;
+	chunkopts["bloglist_5"]=b5;
+	
 	find_pages("")
 
 // create some symlinks to other datas
