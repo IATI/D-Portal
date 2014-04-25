@@ -24,6 +24,7 @@ cmd.run=function(argv)
 		"\n"+
 		">	dportal build \n"+
 		"Build all output into static.\n"+
+		"Use --root=/dirname/ to set a diferent rootdir than / eg for github pages."+
 		"\n"+
 		"\n"+
 	"");
@@ -54,7 +55,13 @@ deleteFolderRecursive = function(path) {
 	try { fs.mkdirSync("static"); } catch(e){}
 
 	var tongues=[];
-	var chunks={}
+	var chunks={};
+	var chunkopts={};
+	
+	chunkopts.root="/";  //
+
+	if( argv.root ) { chunkopts.root=argv.root; }
+
 
 	var dirname="text";
 	var ff=fs.readdirSync(dirname);
@@ -89,12 +96,11 @@ deleteFolderRecursive = function(path) {
 	
 	var find_pages=function(dir)
 	{
-		try { fs.mkdirSync("static/"+dir); } catch(e){}
-
 		var dirs=dir.split("/");
 		var ff=fs.readdirSync("html/"+dir);
 
 		plate.reset_namespace();
+		plate.push_namespace(chunkopts);
 		plate.push_namespace(chunks);
 		
 		plate.push_namespace( get_page_chunk("index.html") );
@@ -109,24 +115,47 @@ deleteFolderRecursive = function(path) {
 			}
 		}
 
-		if(tongues.eng) { plate.push_namespace(tongues.eng); }
 
-		
-		for(var i=0;i<ff.length;i++) //parse
+		var dodir=function(tongue)
 		{
-			var name=ff[i];
-			if( ! fs.lstatSync("html/"+dir+name).isDirectory() )
-			{
-				console.log("parse "+dir+name);
-				var html=plate.replace("{html}",get_page_chunk(dir+name));
-				fs.writeFileSync("static/"+dir+name,html);
+			var tonguedir=tongue;
 
-//				var outname=name;
-//				if(outname.slice(-5)==".html") // duplicate with and without.html
-//				{
-//					outname=outname.slice(0,-5);
-//					fs.writeFileSync("static/"+dir+outname,html);
-//				}
+			if(tongue=="eng")
+			{
+				tonguedir="";
+			}
+			else
+			{
+				tonguedir=tongue+"/";
+			}
+
+			chunkopts.tongue=tongue;
+			chunkopts.tonguedir=chunkopts.root+tonguedir;
+			
+			try { fs.mkdirSync("static/"+tonguedir+dir); } catch(e){}
+			for(var i=0;i<ff.length;i++) //parse
+			{
+				var name=ff[i];
+				if( ! fs.lstatSync("html/"+dir+name).isDirectory() )
+				{
+					console.log("parse "+tonguedir+dir+name);
+					var html=plate.replace("{html}",get_page_chunk(dir+name));
+					fs.writeFileSync("static/"+tonguedir+dir+name,html);
+				}
+			}
+		}
+
+		if(tongues.eng) { plate.push_namespace(tongues.eng); }
+		dodir("eng");
+		if(tongues.eng) { plate.pop_namespace(); }
+		
+		for(var n in tongues)
+		{
+			if(n!="eng") // english is special default dealt with above
+			{
+				plate.push_namespace(tongues[n]);
+				dodir(n);
+				plate.pop_namespace();
 			}
 		}
 		

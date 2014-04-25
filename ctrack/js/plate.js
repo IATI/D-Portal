@@ -202,6 +202,12 @@ plate.push_namespace=function(dat)
 	}
 }
 
+// remove last namespace from top of stack
+plate.pop_namespace=function()
+{
+	return plate.namespaces.pop();
+}
+
 // lookup a str in dat or namespace
 plate.lookup=function(str,dat)
 {

@@ -1,3 +1,3 @@
 cd `dirname $0`
-npm run build
+node js/cmd build $*
 
