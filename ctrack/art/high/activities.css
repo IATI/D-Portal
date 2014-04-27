@@ -93,7 +93,7 @@ description:last-of-type		{padding-bottom:40px; border-bottom:1px solid #000; bo
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
 sector *						{display:none;}
-sector[vocabulary="DAC"]		{font-size:1.0em; color:#000; width:240px; display:inline-block; vertical-align:top; padding:30px 40px; max-height:80px; min-height:80px;}
+sector[vocabulary="DAC"]		{font-size:1.0em; color:#000; width:239px; display:inline-block; vertical-align:top; padding:30px 40px; max-height:80px; min-height:80px;}
 sector:nth-child(even)			{background-color:#e9e9e9;}
 sector[vocabulary="DAC"]:before	{content:"SECTOR"; font-size:14px; color:#000; width:240px; display:block; padding-bottom:5px;}
 sector span						{color:#000;}
