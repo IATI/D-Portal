@@ -10,3 +10,13 @@
 		</div>
 	</body>
 </html>
+
+#blog_title trim=ends
+All blog posts.
+
+#blog_body
+{bloglist:bplate}
+#bplate
+<div>
+<a href="{tongueroot}{it._fullfilename}"><span>{it._date}</span> : <span>{it.blog_title}</span></a>
+</div>
