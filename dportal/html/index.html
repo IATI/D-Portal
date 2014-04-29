@@ -3,7 +3,7 @@
 <html> 
 	<head>
 <meta charset="UTF-8">
-<title>d-portal.org - Development Portal</title>
+<title>{welcome_text}</title>
 <script src="/jslib/jquery.js"></script>
 <link  href="/art/index.css" rel="stylesheet" type="text/css" >
 	</head> 
@@ -12,45 +12,42 @@
 	<div class="main_wrap">
 		<div id="background_image"></div>
 		<div class="overlay">
-			<div class="beigealert">
-				<img src="/art/alert_icon.png" alt="Declaration icon" width="15" height="15"> d-portal.org is still in very early development &amp; scheduled for Alpha release mid-April. Thank you for your patience! Please provide any feedback <a href="/html/feedback.html" class="beige" target="_blank">here</a>.
-			</div>
 			<div class="default center">
 				<img src="/art/dp_logo.index.png" width="600" height="250" alt="D-Portal logo"/>
 				<div class="tag">
-					Helping you understand development data.
+					{tagline_text}
 				</div>
 				<div class="default" style="padding:40px 0;">
 					<div class="third">
 						<a class="path no">
-							<span style="display:block; color:#53AEFF; font-size:2.3em;">Publisher</span>
-							<span style="display:block; color:#fff; font-size:1.1em; padding-top:20px;">Get this for your website. <i>(soon!)</i></span>
+							<span style="display:block; color:#53AEFF; font-size:2.3em;">{publisher_button_text}</span>
+							<span style="display:block; color:#fff; font-size:1.1em; padding-top:20px;">{publisher_info_text} <i>{soon_text}</i></span>
 						</a>
 					</div><div class="third">
 						<a href="#explore" class="path">
-							<span style="display:block; color:#2CE268; font-size:2.3em;">Explorer</span>
-							<span style="display:block; color:#fff; font-size:1.1em; padding-top:20px;">Explore IATI data of a country.</span>
+							<span style="display:block; color:#2CE268; font-size:2.3em;">{explorer_button_text}</span>
+							<span style="display:block; color:#fff; font-size:1.1em; padding-top:20px;">{explorer_info_text}</span>
 						</a>
 					</div><div class="third">
-						<a href="https://github.com/IATI/D-Portal" class="path">
-							<span style="display:block; color:#FF860E; font-size:2.3em;">Developer</span>
-							<span style="display:block; color:#fff; font-size:1.1em; padding-top:20px;">We're on Github.</span>
+						<a href="https://github.com/IATI/D-Portal" target="_blank" class="path">
+							<span style="display:block; color:#FF860E; font-size:2.3em;">{developer_button_text}</span>
+							<span style="display:block; color:#fff; font-size:1.1em; padding-top:20px;">{developer_info_text}</span>
 						</a>
 					</div>
 				</div>
 				<div class="description">
-					<span class="title">What is it?</span>
-					<p><span class="bold">d-portal.org</span> is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.</p>
-					<p>In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the OECD DAC Creditor Reporting System. Future development will include, inter alia, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.</p>
-					<a href="/about.html" class="read">Read more</a>
+					<span class="title">{index_title_text}</span>
+					<p><span class="bold">d-portal.org</span> {index_paragraph1_text}</p>
+
+					<p>{index_paragraph2_text}</p>
+					<a href="/about.html" class="read">{read_more_text}</a>
 				</div>
 				<div class="country_menu_wrap">
 					<span id="explore"></span>
 				<div class="country_menu_title_wrap">
-					<div class="country_menu_title">
-						Explore a country
-					</div>
-					<p>Pick a country to the right. <br/><br/>Only countries with published data to IATI are available for exploration. If you would like your country listed here, find an organisation to get in touch with <a href="http://www.aidtransparency.net/">IATI</a>.</p>
+					<div class="country_menu_title">{explore_title_text}</div>
+					<p>{explore_paragraph1_text}</p>
+					<p>{explore_paragraph2_text} <a href="http://www.aidtransparency.net/">IATI</a>.</p>
 					
 					<a href="http://www.aidtransparency.net/" class="iati_link">
 						<img src="/art/iati_logo.269.png" alt="IATI logo" width="269" height="70"/>
@@ -58,77 +55,75 @@
 				</div><div class="country_menu_list_wrap">
 				<ul class="country_menu_list">					
 					<li><a class="country_code" href="/ctrack.html?country=AF">Afghanistan</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=AG">Antigua and Barbuda</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=AI">Anguilla</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=AL">Albania</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=DZ">Algeria</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=AM">Armenia</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=DZ">Algeria</a></li>					
 					<li><a class="country_code" href="/ctrack.html?country=AO">Angola</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=AI">Anguilla</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=AG">Antigua and Barbuda</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=AR">Argentina</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=AM">Armenia</a></li>										
 					<li><a class="country_code" href="/ctrack.html?country=AZ">Azerbaijan</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=BD">Bangladesh</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=BJ">Benin</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=BT">Bhutan</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=BO">Bolivia, Plurinational State of</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=BA">Bosnia and Herzegovina</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=BD">Bangladesh</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=BW">Botswana</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=BR">Brazil</a></li>					
 					<li><a class="country_code" href="/ctrack.html?country=BF">Burkina Faso</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=BI">Burundi</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=BJ">Benin</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=BO">Bolivia, Plurinational State of</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=BR">Brazil</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=BT">Bhutan</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=BW">Botswana</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=BY">Belarus</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=BZ">Belize</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=CD">Congo, the Democratic Republic of the</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=CF">Central African Republic</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=CG">Congo</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=CI">Côte d'Ivoire</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=CK">Cook Islands</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=CL">Chile</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=TD">Chad</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=KH">Cambodia</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=CM">Cameroon</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=CV">Cape Verde</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=CF">Central African Republic</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=TD">Chad</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=CL">Chile</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=CN">China</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=CO">Colombia</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=KM">Comoros</a></li>										
+					<li><a class="country_code" href="/ctrack.html?country=CD">Congo, the Democratic Republic of the</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=CG">Congo</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=CK">Cook Islands</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=CR">Costa Rica</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=CU">Cuba</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=CV">Cape Verde</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=KH">Cambodia</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=KM">Comoros</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=CI">Côte d'Ivoire</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=CU">Cuba</a></li>										
 					<li><a class="country_code" href="/ctrack.html?country=DJ">Djibouti</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=DM">Dominica</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=DO">Dominican Republic</a></li>					
 					<li><a class="country_code" href="/ctrack.html?country=EC">Ecuador</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=SV">El Salvador</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=EG">Egypt</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=SV">El Salvador</a></li>				
 					<li><a class="country_code" href="/ctrack.html?country=GQ">Equatorial Guinea</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=ER">Eritrea</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=ET">Ethiopia</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=FJ">Fiji</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=GA">Gabon</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=GD">Grenada</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=GE">Georgia</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=GH">Ghana</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=GM">Gambia</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=GN">Guinea</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=GE">Georgia</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=GH">Ghana</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=GD">Grenada</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=GT">Guatemala</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=GN">Guinea</a></li>										
 					<li><a class="country_code" href="/ctrack.html?country=GW">Guinea-Bissau</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=GY">Guyana</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=HN">Honduras</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=HT">Haiti</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=ID">Indonesia</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=IN">India</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=IQ">Iraq</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=ID">Indonesia</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=IR">Iran, Islamic Republic of</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=IQ">Iraq</a></li>					
 					<li><a class="country_code" href="/ctrack.html?country=JM">Jamaica</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=JO">Jordan</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=KZ">Kazakhstan</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=KE">Kenya</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=KG">Kyrgyzstan</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=KE">Kenya</a></li>					
 					<li><a class="country_code" href="/ctrack.html?country=KI">Kiribati</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=XK">Kosovo</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=KP">Korea, Democratic People's Republic of</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=XK">Kosovo</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=KG">Kyrgyzstan</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=LA">Lao People's Democratic Republic</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=LB">Lebanon</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=LR">Liberia</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=LS">Lesotho</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=LR">Liberia</a></li>					
 					<li><a class="country_code" href="/ctrack.html?country=LY">Libya</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=MK">Macedonia, the former Yugoslav Republic of</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=MG">Madagascar</a></li>
@@ -155,52 +150,52 @@
 					<li><a class="country_code" href="/ctrack.html?country=NE">Niger</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=NG">Nigeria</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=NU">Niue</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=PA">Panama</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=PE">Peru</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=PG">Papua New Guinea</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=PH">Philippines</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=PK">Pakistan</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=PS">Palestine, State of</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=PW">Palau</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=PS">Palestine, State of</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=PA">Panama</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=PG">Papua New Guinea</a></li>										
 					<li><a class="country_code" href="/ctrack.html?country=PY">Paraguay</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=PE">Peru</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=PH">Philippines</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=RW">Rwanda</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=RS">Serbia</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=SB">Solomon Islands</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=SC">Seychelles</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=SD">Sudan</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=LC">Saint Lucia</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=KN">Saint Kitts and Nevis</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=LK">Sri Lanka</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=SH">Saint Helena, Ascension and Tristan da Cunha</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=LC">Saint Lucia</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=KN">Saint Kitts and Nevis</a></li>										
 					<li><a class="country_code" href="/ctrack.html?country=VC">Saint Vincent and the Grenadines</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=WS">Samoa</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=ST">Sao Tome and Principe</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=ZA">South Africa</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=SL">Sierra Leone</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=SN">Senegal</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=RS">Serbia</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=SC">Seychelles</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=SB">Solomon Islands</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=SO">Somalia</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=SR">Suriname</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=SS">South Sudan</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=ST">Sao Tome and Principe</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=LK">Sri Lanka</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=SD">Sudan</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=SR">Suriname</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=SY">Syrian Arab Republic</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=SZ">Swaziland</a></li>				
-					<li><a class="country_code" href="/ctrack.html?country=TG">Togo</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=TH">Thailand</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=TJ">Tajikistan</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=TK">Tokelau</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=TL">Timor-Leste</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=TM">Turkmenistan</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=TN">Tunisia</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=TO">Tonga</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=TR">Turkey</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=TV">Tuvalu</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=SZ">Swaziland</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=TJ">Tajikistan</a></li>				
 					<li><a class="country_code" href="/ctrack.html?country=TZ">Tanzania, United Republic of</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=UA">Ukraine</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=TH">Thailand</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=TL">Timor-Leste</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=TG">Togo</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=TK">Tokelau</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=TO">Tonga</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=TN">Tunisia</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=TR">Turkey</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=TM">Turkmenistan</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=TV">Tuvalu</a></li>										
 					<li><a class="country_code" href="/ctrack.html?country=UG">Uganda</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=UA">Ukraine</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=UY">Uruguay</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=UZ">Uzbekistan</a></li>					
+					<li><a class="country_code" href="/ctrack.html?country=UZ">Uzbekistan</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=VU">Vanuatu</a></li>				
 					<li><a class="country_code" href="/ctrack.html?country=VE">Venezuela, Bolivarian Republic of</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=VN">Viet Nam</a></li>
-					<li><a class="country_code" href="/ctrack.html?country=VU">Vanuatu</a></li>
+					<li><a class="country_code" href="/ctrack.html?country=VN">Viet Nam</a></li>				
 					<li><a class="country_code" href="/ctrack.html?country=WF">Wallis and Futuna</a></li>
 					<li><a class="country_code" href="/ctrack.html?country=YE">Yemen</a></li>					
 					<li><a class="country_code" href="/ctrack.html?country=ZM">Zambia</a></li>
@@ -212,12 +207,12 @@
 	</div>
 	<div class="footer_wrap">
 	<div class="footer">
-		<div class="footer_link"><a href="http://www.aidtransparency.net/" title="International Aid Transparency Initiative (IATI)">
-			A 2014 project by the Development Portal team</a>
+		<div class="footer_link"><a href="http://www.aidtransparency.net/" title="{footer1_tip_text}">
+			{footer1_text}</a>
 		</div><div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
-			Top of page</a>
+			{footer2_text}</a>
 		</div><div class="footer_link about"><a href="/about.html">
-			About d-portal.org</a>
+			{footer3_text}</a>
 		</div>
 	</div>
 	</div>

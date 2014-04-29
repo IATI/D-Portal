@@ -1,0 +1,206 @@
+#welcome_text
+Welcome to d-portal.org
+
+#alert1_text
+d-portal.org is still in very early development, scheduled for Alpha release mid-April. Thank you for your patience! Please provide any feedback
+
+#alert2_text
+here
+
+#top_text
+Top
+
+#tagline_text
+Helping you understand development data.
+
+#publisher_button_text
+Publisher
+
+#publisher_info_text
+Get this for your website.
+
+#soon_text
+(soon!)
+
+#explorer_button_text
+Explorer
+
+#explorer_info_text
+Explore IATI data of a country.
+
+#developer_button_text
+Developer
+
+#developer_info_text
+We're on Github.
+
+#index_title_text
+What is it?
+
+#index_paragraph1_text
+is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
+
+#index_paragraph2_text
+In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) aggregated data published by the OECD DAC Creditor Reporting System. Future development will include, inter alia, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
+
+#read_more_text
+Read more
+
+#explore_title_text
+Explore a country
+
+#explore_paragraph1_text
+Pick a country to the right.
+
+#explore_paragraph2_text
+Only countries with published data to IATI are available for exploration. If you would like your country listed here, find an organisation to get in touch with
+
+#footer1_text
+A 2014 project by the Development Portal team
+
+#footer1_tip_text
+International Aid Transparency Initiative (IATI)
+
+#footer2_text
+Top of page
+
+#footer3_text
+About d-portal.org
+
+#footer4_text
+Back to d-portal.org
+
+#footer5_text
+License: The MIT License (MIT) 2014
+
+#feedback_title_text
+d-portal.org Feedback
+
+#feedback_paragraph1_text
+Hello, all and thank you for taking part as beta testers for D-Portal. We welcome any and all feedback, suggestions and concerns you may have about the website so please feel free to post them as comments below. Overall, we want to focus on legibility and user experience, especially in terms of understanding the data that is being presented.
+
+#feedback_paragraph2_text
+Thank you very much for taking the time to do this! We hope to create something useful and easily deployable, an interesting talking point but most importantly, promote better data quality from reporting organisations.
+
+#feedback_paragraph3_text
+- shi
+
+#about_title_text
+d-portal.org Modules
+
+#about_back_text
+Back to main page
+
+#about_paragraph1_text
+d-portal.org aims to be a simple user interface to search and browse all IATI data relating to a specific country.
+
+#about_paragraph2_text
+The final product will be available as a set of HTML, Javascript, and CSS files.
+
+#about_paragraph3_text
+Since HTML/CSS/Javascript are the technologies of the web, and are widely used and understood, we believe this is a good option for easy adoption by others, for easy deployment, and for easy re-configuration/customisation.
+
+#about_paragraph_title_text
+What is it?
+
+#about_paragraph4_text
+is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
+
+#about_paragraph5_text
+In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the 
+
+#about_paragraph6_text
+. Future development will include, inter alia, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
+
+#about_paragraph7_text
+In its first iteration the platform poses two questions: where do resources come from, and where do they go (by sector and location)? Recent, current and future data is presented and compared across data sources.
+
+#about_paragraph8_text
+In order to answer these questions from a country perspective it is insufficient merely to display available data: it is equally important to plot the gaps in the information. Coping with poor quality or missing data is an essential part of the information interface.
+
+#about_paragraph9_text
+is an open source platform. While it provides a generic deployment for any country it has been developed with the specific intention of being customised in-country to meet local needs. A prototype local application for Nepal is currently being developed in parallel with the core engine.
+
+#about_paragraph10_text
+has been jointly funded by
+
+#about_paragraph11_text
+and 
+
+#about_paragraph12_text
+. IATI is keen to promote the access to IATI-formatted data at country level. DI is committed to improving access to information by implementing joined-up data solutions.
+
+#savi_paragraph1_text
+SAVi is a simple activity viewer for IATI XML that you can view in real time, online, in your favourite browser.
+
+#savi_paragraph2_text
+SAVi uses CSS and javascript to display otherwise complex-looking XML into a format that is easier to read and digest.
+
+#dstore_paragraph_text
+dstore subsidizes the IATI Datastore with an optimized nodejs + SQLite version for use in real time queries.
+
+#q_paragraph_text
+Q allows you to query information you need via simple but complex filters.
+
+#q_example_title_text
+Here are some Query examples:
+
+#q_example1_text
+Returns XML which is automatically formatted into HTML, source remains pure XML
+
+#q_example1_info1_text
+This query displays activities limiting the amount to 10
+
+#q_example1_info2_text
+sorted by starting day
+
+#q_example1_info3_text
+and from 1950 onwards
+
+#q_example2_text
+Returns XML which is automatically formatted into HTML, source remains pure XML
+
+#q_example2_info1_text
+This query displays all activities within Bangladesh (country code is BD)
+
+#q_example2_info2_text
+that have sectors reported in the data
+
+#q_example2_info3_text
+Ultimately, this query allows you to look at all the activities that have graphs in them.
+
+#q_example3_text
+Returns JSON (JSON is default) data about activites (activites are default) where 100 rows from the database is the default limit
+
+#q_example3_info1_text
+This query displays data statistics
+
+#q_example3_info2_text
+about activites for each reporting organisation
+
+#q_example3_info3_text
+for Bangladesh
+
+#q_example4_text
+Returns CSV file (named q.csv by default)
+
+#q_example4_info1_text
+This query allows you to download the CSV
+
+#q_example4_info2_text
+of 1000
+
+#q_example4_info3_text
+transaction data
+
+#q_example4_info4_text
+sorted by date
+
+#github_tip_text
+Visit d-portal.org on Github
+
+#github_info1_text
+Fork us on
+
+#github_info2_text
+d-portal.org is currently being developed and designed so things are constantly changing. Send us your suggestions, bug reports and issues.

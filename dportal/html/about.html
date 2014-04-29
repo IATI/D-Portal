@@ -3,117 +3,23 @@
 <html> 
 	<head>
 <meta charset="UTF-8">
-<title>Development Portal Modules</title>
+<title>{about_title_text}</title>
 <script src="/jslib/jquery.js"></script>
-<style>
-	body,html	{width:100%; height:100%; margin:0; padding:0; font-family:sans-serif; word-wrap:break-word; background-color:#303030;}
-	html		{overflow:hidden; overflow-y:scroll;}
-	a			{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
-	a, img		{border:0; outline:none;}
-	a:focus		{color:#444; text-decoration: none;}
-	a:link  	{color:#444; text-decoration: none;}
-	a:visited	{color:#444; text-decoration: none;}
-	a:hover		{color:#444; text-decoration: none;}
-	a:active	{color:#444; text-decoration: none;}
-	i			{font-style:italics;}
-	.defcon		{width:960px; margin:0 auto;}
-	.halfcon	{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
-	.mainwrap	{width:100%; background:url('/art/backgroundimage.jpg') no-repeat center fixed; background-size:cover; min-height:100%; height:auto !important; height:100%; margin:0px 0px -38px 0px;}
-	.conwrap	{width:100%; min-width:960px; padding:0px 0px 38px 0px;}
-	.bold		{font-weight:bold;}
-	.bold.ob	{font-style:italic;}
-	
-	.navi		{width:100%; background-color:rgba(42,42,42,0.8); position:fixed; z-index:100;}
-	.hiwrap		{display:inline-block; vertical-align:top; width:710px; max-width:710px;}
-	.linkwrap	{display:inline-block; vertical-align:top; width:250px; max-width:250px;}
-	.link		{display:inline-block; vertical-align:top;}
-	.link.pad	{padding-right:30px;}
-	a.top		{display:block; color:#fff; font-size:18px; vertical-align:top; padding:30px 0; height:35px; max-height:35px; border-top:5px solid rgba(0,0,0,0);}
-	a.top.home	{display:inline-block; font-style:italic;}
-	a.top.home:hover{border-top:5px solid rgba(140,246,255,1);}
-	a.top.ct:hover	{border-top:5px solid rgba(30,144,255,1);}
-	a.top.sav:hover	{border-top:5px solid rgba(255,165,0,1);}
-	a.top.hub:hover	{border-top:5px solid rgba(255,255,255,1);}
-	
-	.ctwrap		{width:100%; background-color:#2573CD; padding:140px 0 50px 0;}
-	.cthead		{color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;}
-	.ctinfo		{font-size:18px; line-height:1.4em; color:#E8F6FF;}
-	.ctinfo.top	{padding-top:10px;}
-	
-	.cteg		{width:100%; background-color:rgba(37,32,14,0.8); padding:50px 0 100px 0;}
-	.ctegwrap	{font-size:1.4em; color:#fff; line-height:1.4em; word-spacing:0.07em; padding:60px 0 10px 0; margin-bottom:40px;}
-	.ctegwrap p	{padding:10px 0;}
-	.cteghead	{font-weight:bold; font-size:38px;}
-	.ctegcol	{display:inline-block; vertical-align:top; width:320px; max-width:320px;}
-	.ctegflag	{width:280px; max-width:280px; height:200px; max-height:200px; overflow:hidden; position:relative;}
-	.ctegflag img {position:absolute; margin:auto; left:-100%; right:-100%;}
-	.ctegname	{font-size:30px; text-align:center; color:#fff;}
-	a.eg		{display:block; padding:40px 20px;}
-	a.eg:hover	{background-color:#000;}
-	
-	a.money		{display:block; padding:10px 20px; margin-top:10px; color:#fff; text-align:center;}
-	a.money:hover	{background-color:#000;}
-	
-	.savwrap	{width:100%; background-color:#FFA500; padding:140px 0 50px 0;}
-	.savhead	{color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;}
-	.savinfo	{font-size:18px; line-height:1.4em; padding-top:10px; color:#FFF0D4;}
-	
-	.dqwrap		{width:100%; background-color:#724900; padding:0 0 50px 0;}
-	.l0			{width:470px; max-width:470px; border-right:10px solid #FFA500; height:100px; max-height:100px;}
-	.l1			{display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;}
-	.l2			{display:inline-block; vertical-align:top; width:230px; max-width:230px; border-left:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;}
-	.l3			{display:inline-block; vertical-align:top; width:230px; max-width:230px; border-right:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;}
-	.l4			{display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;}
-	.dqcon		{display:inline-block; vertical-align:top; width:400px; max-width:400px; padding:40px;}
-	.dqinfo		{font-size:18px; line-height:1.4em; padding:20px; color:#FFC761;}
-	
-	#ct-tri		{width:0; height:0; border-top:30px solid #724900; border-left:30px solid transparent; border-right:30px solid transparent; margin-bottom:80px;}
-
-	.qwrap		{width:100%; background-color:#4F3200; padding:0px 0 50px 0;}
-	.qhead		{color:#FFA500; font-size:28px; margin-bottom:60px;}
-	.qtip		{color:#FFB428;}
-	.qabt		{color:#B17300; font-size:16px; line-height:1.2em;}
-	.qinfo		{color:#FFA500; font-size:18px; line-height:1.3em; padding:20px 0; margin-bottom:30px;}
-	span.qdef	{display:inline-block; vertical-align:top; color:#FFBD44; font-size:16px; font-family:monospace;}
-	a.qeg		{display:block; padding:10px 30px; background-color:#201500; margin-bottom:20px; color:#fff; font-size:18px; font-family:monospace;}
-	a.qeg:hover	{background-color:#0E0900;}
-	
-	.gitwrap	{width:100%; background-color:#fff; padding:80px 0 60px 0;}
-	.gitcon		{display:inline-block; vertical-align:top; width:760px; max-width:760px;}
-	.gitinfo	{padding:20px 100px 0 0; font-size:18px; line-height:1.3em;}
-	.octocat	{display:inline-block; vertical-align:top; width:200px; max-width:200px;}
-	a.git		{display:block; font-size:38px;}
-	a.git:hover	{color:#1E90FF;}
-		
-	.footwrap	{width:100%; min-width:960px; height:38px; background-color:#303030;}
-	.footcon	{width:960px; margin:0 auto; padding:10px 0;}
-	.team		{width:480px; display:inline-block; vertical-align:top;}
-	.team a			{font-size:13px; line-height:13px; color:#A3A3A3;}
-	.team a:focus	{color:#A3A3A3;}
-	.team a:link  	{color:#A3A3A3;}
-	.team a:visited	{color:#A3A3A3;}
-	.team a:hover	{color:#fff;}
-	.team a:active	{color:#A3A3A3;}
-	.mit		{width:480px; display:inline-block; vertical-align:top; font-size:13px; line-height:13px; color:#fff; text-align:right;}
-	.beigealert				{width:100%; margin:0 auto; background-color:#D80051; color:#fff; font-size:1em; line-height:1.25em; text-align:center; padding:10px 0;}
-	a.beige					{font-weight:bold; color:#FFFF00;}
-	a.beige:hover			{color:#fff;}
-
-</style>
+<link  href="about.css" rel="stylesheet" type="text/css" >
 	</head> 
 <body>
 
 <div class="mainwrap">
 	
 <div class="navi">
-	<div class="beigealert">
-		<img src="/art/alert_icon.png" alt="Declaration icon" width="15" height="15"> d-portal.org is still in very early development &amp; scheduled for Alpha release mid-April. Thank you for your patience! Please provide any feedback <a href="/html/feedback.html" class="beige" target="_blank">here</a>.
-	</div>
+<!--	<div class="beigealert">
+		<img src="/art/alert_icon.png" alt="Declaration icon" width="15" height="15"> {alert1_text} <a href="/html/feedback.html" class="beige" target="_blank">{alert2_text}</a>.
+	</div>	-->
 	<div class="defcon">
 		<div class="hiwrap">
-			<a href="/" class="top home">Back to main page</a>
+			<a href="/" class="top home">{about_back_text}</a>
 		</div><div class="linkwrap">
-			<div class="link pad"><a href="#" class="top ct">Top</a></div><div class="link pad"><a href="#sav" class="top sav">SAVi</a></div><div class="link"><a href="#git" class="top hub">GITHUB</a></div>
+			<div class="link pad"><a href="#" class="top ct">{top_text}</a></div><div class="link pad"><a href="#sav" class="top sav">SAVi</a></div><div class="link"><a href="#git" class="top hub">GITHUB</a></div>
 		</div>
 	</div>
 </div>
@@ -124,9 +30,9 @@
 	<div class="defcon">
 		<div class="halfcon"><img src="/art/dp_logo.400.png" alt="d-portal.org logo" width="400" height="400"/></div><div class="halfcon">
 			<div class="cthead">
-				<p>d-portal.org aims to be a simple user interface to search and browse all IATI data relating to a specific country.</p>
-				<p class="ctinfo top">The final product will be available as a set of HTML, Javascript, and CSS files.</p>
-				<p class="ctinfo">Since HTML/CSS/Javascript are the technologies of the web, and are widely used and understood, we believe this is a good option for easy adoption by others, for easy deployment, and for easy re-configuration/customisation.</p>
+				<p>{about_paragraph1_text}</p>
+				<p class="ctinfo top">{about_paragraph2_text}</p>
+				<p class="ctinfo">{about_paragraph3_text}</p>
 			</div>
 		</div>
 	</div>
@@ -135,13 +41,13 @@
 <div class="cteg">
 	<div class="defcon">
 		<div class="ctegwrap">
-			<span class="cteghead">What is it?</span>
-			<p><span class="bold">d-portal.org</span> is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.</p>
-			<p>In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the OECD DAC Creditor Reporting System. Future development will include, inter alia, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.</p>
-			<p>In its first iteration the platform poses two questions: where do resources come from, and where do they go (by sector and location)? Recent , current and future data is presented and compared across data sources.</p>
-			<p>In order to answer these questions from a country perspective it is insufficient merely to display available data: it is equally important to plot the gaps in the information. Coping with poor quality or missing data is an essential part of the information interface.
-			<p><span class="bold">d-portal.org</span> is an open source platform. While it provides a generic deployment for any country it has been developed with the specific intention of being customised in-country to meet local needs. A prototype local application for Nepal is currently being developed in parallel to the core engine.</p>
-			<p><span class="bold">d-portal.org</span> has been jointly funded by IATI and Development Initiatives (DI). IATI is keen to promote the access to IATI-formatted data at country level. DI is committed to improving access to information by implementing joined-up data solutions.</p>
+			<span class="cteghead">{about_paragraph_title_text}</span>
+			<p><span class="bold">d-portal.org</span> {about_paragraph4_text}</p>
+			<p>{about_paragraph5_text} <a href="http://www.oecd.org/dac/stats/crsguide.htm" target="_blank" class="co">OECD DAC Creditor Reporting System</a> {about_paragraph6_text}</p>
+			<p>{about_paragraph7_text}</p>
+			<p>{about_paragraph8_text}</p>
+			<p><span class="bold">d-portal.org</span> {about_paragraph9_text}</p>
+			<p><span class="bold">d-portal.org</span> {about_paragraph10_text} <a href="http://www.aidtransparency.net/" target="_blank" class="co">IATI</a> {about_paragraph11_text} <a href="http://devinit.org/" target="_blank" class="co">Development Initiatives (DI)</a> {about_paragraph12_text}</p>
 		</div>
 		
 	</div>
@@ -151,8 +57,8 @@
 	<div class="defcon">
 		<div class="halfcon"><img src="/art/savilogo.400.png" alt="SAVi logo" width="400" height="400"/></div><div class="halfcon">
 			<div class="savhead">
-				<p>SAVi is a simple activity viewer for IATI XML that you can view in real time, online, in your favourite browser.</p>
-				<p class="savinfo">SAVi uses CSS and javascript to display otherwise complex-looking XML into a format that is easier to read and digest.</p>
+				<p>{savi_paragraph1_text}</p>
+				<p class="savinfo">{savi_paragraph2_text}</p>
 			</div>
 		</div>
 	</div>
@@ -164,10 +70,10 @@
 		<div class="l1"></div><div class="l2"></div><div class="l3"></div><div class="l4"></div>
 		<div class="dqcon">
 			<img src="/art/dslogo.400.png" alt="DSTORE logo" width="400" height="100"/>
-			<div class="dqinfo">dstore subsidizes the IATI Datastore with an optimized nodejs + SQLite version for use in real time queries.</div>
+			<div class="dqinfo">{dstore_paragraph_text}</div>
 		</div><div class="dqcon">
 			<img src="/art/qlogo.400.png" alt="Q logo" width="400" height="100"/>
-			<div class="dqinfo">Q allows you to query information you need via simple but complex filters.</div>
+			<div class="dqinfo">{q_paragraph_text}</div>
 		</div>
 	</div>
 </div>
@@ -175,33 +81,34 @@
 <div class="qwrap">
 	<div class="defcon">
 		<div class="halfcon"></div><div class="halfcon"><div id="ct-tri"></div></div>
-		<div class="qhead">Here are some <span class="qtip">Q</span>uery examples:</div>
+		<div class="qhead">{q_example_title_text}</div>
 		<a href="http://d-portal.org/q.xml?limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.xml?limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
-		<div class="qabt">Returns XML which is automatically formatted into HTML, source remains pure XML</div>
-		<div class="qinfo">This query displays activities limiting the amount to 10 <span class="qdef">limit=10</span> sorted by starting day <span class="qdef">orderby=day_start</span> and from 1950 onwards <span class="qdef">day_start_gt=1950-01-01</span>.</div>
+		<div class="qabt">{q_example1_text}</div>
+		<div class="qinfo">{q_example1_info1_text} <span class="qdef">limit=10</span> {q_example1_info2_text} <span class="qdef">orderby=day_start</span> {q_example1_info3_text} <span class="qdef">day_start_gt=1950-01-01</span>.</div>
 		
 		<a href="http://dev.ctrack.iatistandard.org/q.xml?from=jml,act,sector,country&country=bd&sector_percent_not_null" class="qeg">http://dev.ctrack.iatistandard.org/q.xml?from=jml,act,sector,country&amp;country=bd&amp;sector_percent_not_null</a>
-		<div class="qabt">Returns XML which is automatically formatted into HTML, source remains pure XML</div>
-		<div class="qinfo">This query displays all activities within Bangladesh (country code is BD) <span class="qdef">country=bd</span> that have sectors reported in the data <span class="qdef">sector_percent_not_null</span>. Ultimately, this query allows you to look at all the activities that have graphs in them.</div>
+		<div class="qabt">{q_example2_text}</div>
+		<div class="qinfo">{q_example2_info1_text} <span class="qdef">country=bd</span> {q_example2_info2_text} <span class="qdef">sector_percent_not_null</span>. {q_example2_info3_text}</div>
 		
 		<a href="http://d-portal.org/q?from=act,country&groupby=reporting_org&select=stats&country_code=BD" class="qeg">http://d-portal.org/q?from=act,country&amp;groupby=reporting_org&amp;select=stats&amp;country_code=BD</a>
-		<div class="qabt">Returns JSON (JSON is default) data about activites (activites are default) where 100 rows from the database is the default limit</div>
-		<div class="qinfo">This query displays data statistics <span class="qdef">select=stats</span> about activites for each reporting organisation <span class="qdef">groupby=reporting_org</span> for Bangladesh <span class="qdef">country_code=BD</span>.</div>
+		<div class="qabt">{q_example3_text}</div>
+		<div class="qinfo">{q_example3_info1_text} <span class="qdef">select=stats</span> {q_example3_info2_text} <span class="qdef">groupby=reporting_org</span> {q_example3_info3_text} <span class="qdef">country_code=BD</span>.</div>
+		
 		<a href="http://d-portal.org/q.csv?from=trans&orderby=trans_day&limit=1000" class="qeg">http://d-portal.org/q.csv?from=trans&amp;orderby=trans_day&amp;limit=1000</a>
-		<div class="qabt">Returns CSV file (named q.csv by default)</div>
-		<div class="qinfo">This query allows you to download the CSV <span class="qdef">q.csv</span> of 1000 <span class="qdef">limit=1000</span> transaction data <span class="qdef">from=trans</span> sorted by date <span class="qdef">orderby=trans_day</span>.</div>
+		<div class="qabt">{q_example4_text}</div>
+		<div class="qinfo">{q_example4_info1_text} <span class="qdef">q.csv</span> {q_example4_info2_text} <span class="qdef">limit=1000</span> {q_example4_info3_text} <span class="qdef">from=trans</span> {q_example4_info4_text} <span class="qdef">orderby=trans_day</span>.</div>
 	</div>
 </div>
 <span id="git"></span>
 <div class="gitwrap">
 	<div class="defcon">
 		<div class="gitcon">
-			<a href="https://github.com/IATI/D-Portal" class="git">Fork us on <span class="bold">Github</span>!</a>
+			<a href="https://github.com/IATI/D-Portal" target="_blank" class="git">{github_info1_text} <span class="bold">Github</span>!</a>
 			<div class="gitinfo">
-				d-portal.org is currently being developed and designed so things are constantly changing. Send us your suggestions, bug reports and issues.
+				{github_info2_text}
 			</div>
 		</div><div class="octocat">
-			<a href="https://github.com/IATI/D-Portal" title="D-Portal on Github"><img src="/art/Octocat.png" alt="Octocat for Github logo" width="200" height="166"/></a>
+			<a href="https://github.com/IATI/D-Portal" target="_blank" title="{github_tip_text}"><img src="/art/Octocat.png" alt="Octocat for Github logo" width="200" height="166"/></a>
 		</div>
 	</div>
 </div>
@@ -212,10 +119,10 @@
 
 <div class="footwrap">
 	<div class="footcon">
-		<div class="team"><a href="http://www.aidtransparency.net/" title="International Aid Transparency Initiative (IATI)">
-			A project by the Development Portal team :}</a>
+		<div class="team"><a href="http://www.aidtransparency.net/" target="_blank" title="{footer1_tip_text}">
+			{footer1_text}</a>
 		</div><div class="mit">
-			License: The MIT License (MIT) 2014
+			{footer5_text}
 		</div>
 	</div>
 </div>
