@@ -161,6 +161,7 @@ deleteFolderRecursive = function(path) {
 		{
 			if(n!="eng") // english is special default dealt with above
 			{
+				try { fs.mkdirSync("static/"+n); } catch(e){}
 				plate.push_namespace(tongues[n]);
 				dodir(n);
 				plate.pop_namespace();
@@ -172,7 +173,7 @@ deleteFolderRecursive = function(path) {
 			var name=ff[i];
 			
 			if( fs.lstatSync("html/"+dir+name).isDirectory() )
-			{		
+			{
 				console.log("scan  "+dir+name);
 				find_pages(dir+name+"/");
 			}
