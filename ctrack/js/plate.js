@@ -105,14 +105,20 @@ console.log("Warning chunk "+name+" used more than once.")
 	// apply flags to the formatting
 	for( n in chunks.__flags__ )
 	{
-		var v=chunks[n];
 		var f=chunks.__flags__[n];
 		
 		if(f.trim) // trim=ends
 		{
-			chunks[n]=v.trim(); // remove whitespace from start/end
+			chunks[n]=chunks[n].trim(); // remove whitespace from start/end
 		}
-
+		
+		if(f.form) // special format
+		{
+			if(f.form=="json")
+			{
+				chunks[n]=JSON.parse(chunks[n]);
+			}
+		}
 	}
 
 	return chunks;

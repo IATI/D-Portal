@@ -15,3 +15,45 @@
 #html_tail
 	</body>
 </html>
+
+#tongue_select_options form=json
+
+[
+	{
+		"tip":"English",
+		"text":"English",
+		"code":"eng"
+	},
+	{
+		"tip":"French",
+		"text":"French",
+		"code":"fra"
+	}
+]
+
+#tongue_select_option
+	<option value="{it.code}" title="{it.tip}">{it.text}</option> 
+#tongue_select
+<form action="">
+<select id="tongue_select" name="tongue">
+	{tongue_select_options:tongue_select_option}
+</select>
+</form>
+
+<script>
+	$(function(){
+		$('#tongue_select').children().each(function(i,it){
+			if("{tongue}"==$(it).val())
+			{
+				$(it).attr("selected",1)
+			}
+		});
+		$('#tongue_select').bind('change', function ()
+		{
+			var t="{root}"+$(this).val()+"/";if(t=="/eng/"){t="{root}";}
+			var url = t;
+			window.location = url; // redirect
+			return false;
+		});
+	});
+</script>
