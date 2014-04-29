@@ -13,15 +13,21 @@ plate.chunks=[];
 // break a string into chunks ( can be merged and overried other chunks )
 plate.fill_chunks=function(str,chunks)
 {
+	var hashchar="#";
 	var chunks=chunks || {};
 	chunks.__flags__=chunks.__flags__ || {}; // special flags chunk chunk, if we have any
 
 	var chunk;
 	var flags; // associated with this chunk
 	str.split("\n").forEach(function(l){
-			if(l[0]=="#")
+			if(l[0]==hashchar)
 			{
-				if(l[1]=="#") // double hash escape?
+				if(l[1]=="=") // change escape char
+				{
+					hashchar=l[2]; // use this escape char from now on
+				}
+				else
+				if(l[1]==hashchar) // double hash escape?
 				{
 					if(chunk)
 					{
