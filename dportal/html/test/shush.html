@@ -1,14 +1,14 @@
-#html_body
+#html
 
 ROOT={root}
 TONGUE={tongue}
 
 
-{bloglist_5:bplate}
+{bloglist_last5:bplate}
 
 #bplate
 <div>
-<span>{idx} BLOG {it.blog_title}</span>
+<span>{idx} BLOG {it._date} {it._name} {it.blog_title}</span>
 <div>
 {it.blog_body}
 </div>

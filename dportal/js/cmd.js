@@ -97,13 +97,14 @@ deleteFolderRecursive = function(path) {
 	
 	var find_pages=function(dir,blog)
 	{
-		var dirs=dir.split("/");
+		var dirs=dir.split("/"); while( dirs[dirs.length-1]=="" ) { dirs.pop(); }
 		var ff=fs.readdirSync("html/"+dir);
 
 		plate.reset_namespace();
 		plate.push_namespace(chunkopts);
 		plate.push_namespace(chunks);
 		
+//		console.log("namespace /");
 		plate.push_namespace( get_page_chunk("index.html") );
 		for(var i=0;i<dirs.length;i++)
 		{
@@ -112,6 +113,7 @@ deleteFolderRecursive = function(path) {
 			var ds=dd.join("/");
 			if(ds!="") // skip ""
 			{
+//				console.log("namespace /"+dd);
 				plate.push_namespace( get_page_chunk(dd+"/index.html") );
 			}
 		}
@@ -131,7 +133,7 @@ deleteFolderRecursive = function(path) {
 			}
 
 			chunkopts.tongue=tongue;
-			chunkopts.tonguedir=chunkopts.root+tonguedir;
+			chunkopts.tongueroot=chunkopts.root+tonguedir;
 			
 			try { fs.mkdirSync("static/"+tonguedir+dir); } catch(e){}
 			for(var i=0;i<ff.length;i++) //parse
@@ -139,16 +141,28 @@ deleteFolderRecursive = function(path) {
 				var name=ff[i];
 				if( ! fs.lstatSync("html/"+dir+name).isDirectory() )
 				{
-					console.log("parse "+tonguedir+dir+name);
-					var page=get_page_chunk(dir+name);
-					page._filename=name;
-					page._fullfilename=dir+name;
-					if(blog)
+					var blogdate=false;
+					var namedash = name.split('-');
+					if(namedash[0]&&namedash[1]&&namedash[2]&&namedash[3]) // looks like a date?
 					{
-						blogs[ dir+name ]=page;
+						blogdate=Date(namedash[0], namedash[1]-1, namedash[2]);
 					}
-					var html=plate.replace("{html}",page);
-					fs.writeFileSync("static/"+tonguedir+dir+name,html);
+					if( (!blog) || (blog && blogdate) ) // in blogmode, only parse files with a date at the start
+					{
+						console.log("parseing "+tonguedir+dir+name+(blog?" as blogpost":""));
+						var page=get_page_chunk(dir+name);
+						page._extension=filename.split('.').pop();;
+						page._filename=name;
+						page._fullfilename=dir+name;
+						if(blog)
+						{
+							page._date=namedash[0]+"-"+namedash[1]+"-"+namedash[2];
+							page._name="";for(var pi=3;pi<namedash.length;pi++) { page._name+=" "+namedash[pi]; }
+							blogs[ dir+name ]=page;
+						}
+						var html=plate.replace("{"+page._extension+"}",page);
+						fs.writeFileSync("static/"+tonguedir+dir+name,html);
+					}
 				}
 			}
 		}
@@ -157,14 +171,17 @@ deleteFolderRecursive = function(path) {
 		dodir("eng");
 		if(tongues.eng) { plate.pop_namespace(); }
 		
-		for(var n in tongues)
+		if(!blog) // not on blog scan
 		{
-			if(n!="eng") // english is special default dealt with above
+			for(var n in tongues)
 			{
-				try { fs.mkdirSync("static/"+n); } catch(e){}
-				plate.push_namespace(tongues[n]);
-				dodir(n);
-				plate.pop_namespace();
+				if(n!="eng") // english is special default dealt with above
+				{
+					try { fs.mkdirSync("static/"+n); } catch(e){}
+					plate.push_namespace(tongues[n]);
+					dodir(n);
+					plate.pop_namespace();
+				}
 			}
 		}
 		
@@ -174,14 +191,14 @@ deleteFolderRecursive = function(path) {
 			
 			if( fs.lstatSync("html/"+dir+name).isDirectory() )
 			{
-				console.log("scan  "+dir+name);
-				find_pages(dir+name+"/");
+//				console.log("scan  "+dir+name);
+				find_pages(dir+name+"/",blog);
 			}
 		}
 
 	}
 
-	find_pages("blog/",true)
+	find_pages("",true); // find blogs first, blogs begin with a 2000-12-31-title.html style 
 	
 	var bloglist=[];
 	for(var n in blogs)
@@ -191,15 +208,16 @@ deleteFolderRecursive = function(path) {
 	bloglist.sort(function(a,b){return a._fullfilename>b._fullfilename?1:-1;});
 	
 	var b5=[];
-	for(var i=0;i<5;i++)
+	for(var i=bloglist.length-1; (i>=0) && (i>=(bloglist.length-5)) ;i--)
 	{
 		if(bloglist[i])
 		{
 			b5.push(bloglist[i])
 		}
 	}
+
 	chunkopts["bloglist"]=bloglist;
-	chunkopts["bloglist_5"]=b5;
+	chunkopts["bloglist_last5"]=b5;
 	
 	find_pages("")
 
