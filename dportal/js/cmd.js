@@ -194,7 +194,7 @@ deleteFolderRecursive = function(path) {
 	{
 		if(bloglist[i])
 		{
-			b5.push(bloglist[i].chunk)
+			b5.push(bloglist[i])
 		}
 	}
 	chunkopts["bloglist"]=bloglist;

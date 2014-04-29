@@ -226,6 +226,16 @@ plate.lookup_single=function(str,dat)
 		return dat[str];
 	}
 	//todo add sub array . notation split and lookup
+	var i=str.indexOf('.');
+	if(i>=0)
+	{
+		var a1=str.substring(0,i);
+		if("object" == typeof dat[a1] ) // try a sub lookup 
+		{
+			var a2=str.substring(i+1);
+			return plate.lookup_single(a2,dat[a1])
+		}
+	}
 }
 
 // replace once only, using dat and any added namespaces
@@ -244,14 +254,43 @@ plate.replace_once=function(str,dat)
 		{
 			i++;
 			v=aa[i];
-			var d=plate.lookup( v,dat );
-			if( d == undefined )
+			var v2 = v.split(":");
+			if( v2[1] ) // have a : split, need both data and plate
 			{
-				r.push( "{"+v+"}" );
+				var d=plate.lookup( v2[0],dat );
+				var p=plate.lookup( v2[1],dat );
+				if( ("object" == typeof d) && ("string" == typeof p) )
+				{
+					var dp=[];
+					if(d.length) // apply plate to all objects in array
+					{
+						for(var ii=0;ii<d.length;ii++)
+						{
+							dp.push( plate.replace_once(p,{it:d[ii],idx:ii+1}) );
+						}
+					}
+					else // just apply plate to this object
+					{
+						dp.push( plate.replace_once(p,{it:d,idx:1}) );
+					}
+					r.push( dp.join("") ); // join and push
+				}
+				else // fail lookup
+				{
+					r.push( "{"+v+"}" );
+				}
 			}
 			else
 			{
-				r.push( d );
+				var d=plate.lookup( v,dat );
+				if( d == undefined )
+				{
+					r.push( "{"+v+"}" );
+				}
+				else // fail lookup
+				{
+					r.push( d );
+				}
 			}
 		}
 		else
