@@ -151,6 +151,7 @@ deleteFolderRecursive = function(path) {
 					{
 						console.log("parseing "+tonguedir+dir+name+(blog?" as blogpost":""));
 						var page=get_page_chunk(dir+name);
+						page._extension=filename.split('.').pop();;
 						page._filename=name;
 						page._fullfilename=dir+name;
 						if(blog)
@@ -159,7 +160,7 @@ deleteFolderRecursive = function(path) {
 							page._name="";for(var pi=3;pi<namedash.length;pi++) { page._name+=" "+namedash[pi]; }
 							blogs[ dir+name ]=page;
 						}
-						var html=plate.replace("{html}",page);
+						var html=plate.replace("{"+page._extension+"}",page);
 						fs.writeFileSync("static/"+tonguedir+dir+name,html);
 					}
 				}
