@@ -213,8 +213,8 @@ plate.lookup=function(str,dat)
 {
 	var r;
 	if(dat) { r=plate.lookup_single(str,dat); if(r!==undefined) { return r; } } // check dat first
-	for(var i=0;i<plate.namespaces.length;i++)
-	{
+	for(var i=plate.namespaces.length-1;i>=0;i--) // last added has priority
+	{ 
 		r=plate.lookup_single(str,plate.namespaces[i]); if(r!==undefined) { return r; } // then look in all namespaces
 	}
 }
