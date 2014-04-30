@@ -162,6 +162,7 @@ deleteFolderRecursive = function(path) {
 						}
 						else
 						{
+							page.it=page;
 							var html=plate.replace("{"+page._extension+"}",page);
 							fs.writeFileSync("static/"+tonguedir+dir+name,html);
 						}

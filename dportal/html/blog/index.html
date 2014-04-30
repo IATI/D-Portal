@@ -11,22 +11,20 @@
 	{beige}
 	{main_head}
 	{main_title}
-	<div class="default blog">
-		{blog_body}
-	</div>
+	{blog_wrap}
 	{view_tail}
 </body>
 </html>
 
-#blog_title trim=ends
-News
-
 #blog_body
-{bloglist:bplate}
+<script>
+	window.location.replace("{tongue_root}news/posts.html");
+</script>
 
-#bplate
-<div>
+#blog_wrap
+<div class="default blog">
 	<a href="{tongue_root}{it._fullfilename}"><span>{it._date}</span> : <span>{it.blog_title}</span></a>
+	{it.blog_body}	
 </div>
 
 
