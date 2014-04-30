@@ -1,9 +1,8 @@
 #beige
 
-
 #beige0
 <div class="beigealert_wrap">
-	<div class="beigealert"><img src="{flava}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"> {beige_alert_text} <a href="/html/feedback.html" class="beige" target="_blank">{beige_alert_here_text}</a>.</div>
+	<div class="beigealert"><img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"> {beige_alert_text} <a href="/html/feedback.html" class="beige" target="_blank">{beige_alert_here_text}</a>.</div>
 </div>
 
 #view_head
@@ -29,63 +28,29 @@
 </div>
 
 
-#main_datainvestigators
-<div class="data_wrap">
-	<a href="mailto:queries@d-portal.org" class="data_invest">
-		{data_investigate_text}
-	</a>
-</div>
-
-
 #main_head
 <div class="default head">
 	<table class="head">
 		<tr>
 			<td rowspan="2">
-				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
+				<a href="/" title="{mainback_tip_text}"><img src="{root}art/original/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
 			</td>
-			<td class="options">
-				<form action="">
-				<select id="tongue_select" name="tongue">
-					<option value="eng" title="{tongue_eng_tip_text}">{tongue_eng_text}</option> 
-					<option value="fra" title="{tongue_fra_tip_text}">{tongue_fra_text}</option> 
-					<option value="spa" title="{tongue_spa_tip_text}">{tongue_spa_text}</option>
-					<option value="jpn" title="{tongue_jpn_tip_text}">{tongue_jpn_text}</option>
-					<option value="cmn" title="{tongue_cmn_tip_text}">{tongue_cmn_text}</option>
-					<option value="hin" title="{tongue_hin_tip_text}">{tongue_hin_text}</option>
-				</select>
-				</form>
-			</td>
+			<td class="options">{tongue_select}</td>
 		</tr>
 		<tr>
 			<td class="options">
 				<form action="">
 				<select id="flava_select" name="flava">
-					<option value="original" title="{theme_original_tip_text}">{flava_original_text}</option> 
-					<option value="high" title="{theme_high_visibility_tip_text}">{flava_high_visibility_text}</option> 
+					<option value="original">{flava_original_text}</option> 
+					<option value="high">{flava_high_visibility_text}</option> 
 				</select>
 				</form>
 			</td>
 		</tr>
 	</table>
-	<div class="crumb_wrap">{crumbs}</div>
 </div>
 
 <script>
-	$(function(){
-		$('#tongue_select').children().each(function(i,it){
-			if("{tongue}"==$(it).val())
-			{
-				$(it).attr("selected",1)
-			}
-		});
-		$('#tongue_select').bind('change', function ()
-		{
-			var url = "{mark_no_tongue}&tongue="+$(this).val()+"{hash}";
-			window.location = url; // redirect
-			return false;
-		});
-	});
 	$(function(){
 		$('#flava_select').children().each(function(i,it){
 			if("{flava_name}"==$(it).val())
@@ -107,12 +72,10 @@
 <div class="default">
 	<table class="country">
 		<tr>
-			<td class="name">{country_name}</td>
+			<td class="name">{blog_title}</td>
 		</tr>
 	</table>
 	<div class="declare head"></div>
 </div>
 
 
-#css
- #background_image	{background-image:url('{background_image}');} /* Needed for displaying background images per different country */
