@@ -15,9 +15,10 @@ plate.fill_chunks=function(str,chunks)
 {
 	var hashchar="#";
 	var chunks=chunks || {};
-	chunks.__flags__=chunks.__flags__ || {}; // special flags chunk chunk, if we have any
+	chunks.__flags__=chunks.__flags__ || {}; // special flags chunk chunk, if we have any flags
 
-	var chunk;
+	var name="";
+	var chunk=[];
 	var flags; // associated with this chunk
 	str.split("\n").forEach(function(l){
 			if(l[0]==hashchar)
@@ -29,15 +30,16 @@ plate.fill_chunks=function(str,chunks)
 				else
 				if(l[1]==hashchar) // double hash escape?
 				{
-					if(chunk)
-					{
-						chunk.push(l.slice(1)); // double ## escape, only keep one #
-					}
+					chunk.push(l.slice(1)); // double ## escape, only keep one #
 				}
 				else
 				{
+					if(name)
+					{					
+						chunks[name]=chunk.join("\n");
+					}
 					var words=l.substring(1).replace(/\s+/g, " ").split(" "); // allow any type of whitespace
-					var name=words[0];
+					name=words[0];
 					if(name)
 					{
 						if(words[1] && (words[1]!="")) // have some flags
@@ -62,44 +64,27 @@ plate.fill_chunks=function(str,chunks)
 							flags={}; // no flags
 						}
 						chunk=chunks[name];
-						if(!chunk) // create
+						if(chunk==undefined) // create
 						{
 							chunk=[];
-							chunks[name]=chunk;				
+							chunks[name]="";
 						}
-						else
-						if( "string" == typeof chunk ) // upgrade from string
+						else // concat mutliple chunks
 						{
-							
-console.log("Warning chunk "+name+" used more than once.")
-
-							chunk=[];
-							chunk[0]=chunks[name];
-							chunks[name]=chunk;
+							console.log("warning chunk name is used twice, "+name);
+							chunk=[ chunks[name] ];
 						}
 					}
 				}
 			}
 			else
-			if(chunk)
 			{
 				chunk.push(l);
 			}
 		});
-		
-	// turn back into strings from arrays
-	for( n in chunks )
-	{
-		if(n=="__flags__") // special flags chunk name
-		{
-		}
-		else
-		{
-			if( "object" == typeof chunks[n] ) // join arrays of lines
-			{
-				chunks[n]=chunks[n].join("\n");
-			}
-		}
+	if(name && chunk)
+	{					
+		chunks[name]=chunk.join("\n");
 	}
 
 	// apply flags to the formatting
@@ -116,7 +101,12 @@ console.log("Warning chunk "+name+" used more than once.")
 		{
 			if(f.form=="json")
 			{
-				chunks[n]=JSON.parse(chunks[n]);
+				if( "string" == typeof (chunks[n]) )
+				{
+					console.log("parsing json chunk "+n);
+					console.log(chunks[n]);
+					chunks[n]=JSON.parse(chunks[n]);
+				}
 			}
 		}
 	}
@@ -155,7 +145,7 @@ plate.out_chunks=function(chunks)
 				r.push("\n");
 			}
 			str.split("\n").forEach(function(l){
-				if(l[0]=="#") { r.push("#"); } // add double escape back in
+				if(l[0]=="#") { r.push("#"); } // use double escape
 				r.push(l);
 				r.push("\n");
 			});
