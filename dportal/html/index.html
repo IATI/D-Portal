@@ -4,8 +4,8 @@
 	<head>
 <meta charset="UTF-8">
 <title>{welcome_text}</title>
-<script src="/jslib/jquery.js"></script>
-<link  href="/art/index.css" rel="stylesheet" type="text/css" >
+<script src="{root}jslib/jquery.js"></script>
+<link  href="{root}art/index.css" rel="stylesheet" type="text/css" >
 	</head> 
 <body>
 <div class="portal">
@@ -13,7 +13,7 @@
 		<div id="background_image"></div>
 		<div class="overlay">
 			<div class="default center">
-				<img src="/art/dp_logo.index.png" width="600" height="250" alt="D-Portal logo"/>
+				<img src="{root}art/dp_logo.index.png" width="600" height="250" alt="D-Portal logo"/>
 				<div style="text-align:right; width:960px; padding-bottom:10px;">{tongue_select}</div>
 				<div class="tag">{tagline_text}</div>
 				<div class="default" style="padding:40px 0;">
@@ -47,7 +47,7 @@
 					<p>{explore_paragraph1_text}</p>
 					<p>{explore_paragraph2_text} <a href="http://www.aidtransparency.net/">IATI</a>.</p>					
 					<a href="http://www.aidtransparency.net/" class="iati_link">
-						<img src="/art/iati_logo.269.png" alt="IATI logo" width="269" height="70"/>
+						<img src="{root}art/iati_logo.269.png" alt="IATI logo" width="269" height="70"/>
 					</a>
 				</div><div class="country_menu_list_wrap">
 				<ul class="country_menu_list">
@@ -63,7 +63,7 @@
 			{footer1_text}</a>
 		</div><div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
 			{footer2_text}</a>
-		</div><div class="footer_link about"><a href="/about.html">
+		</div><div class="footer_link about"><a href="{tongue_root}about.html">
 			{footer3_text}</a>
 		</div>
 	</div>
@@ -72,4 +72,4 @@
 </body>
 </html>
 #country_select
-<li><a class="country_code" href="/ctrack.html?country={it.id}&tongue={tongue}">{it.name}</a></li>
+<li><a class="country_code" href="{root}ctrack.html?country={it.id}&tongue={tongue}">{it.name}</a></li>
