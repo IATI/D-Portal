@@ -1,30 +1,3 @@
-#loading
-{spinner}
-
-#crumbs1
-{crumbname_{crumb0_view}}
-
-#crumbs2
-<a href="{crumb0_hash}" class="crumb first">{crumbname_{crumb0_view}}</a> >
-<span>{crumbname_{crumb1_view}}</span>
-
-#crumbs3
-<a href="{crumb0_hash}" class="crumb first">{crumbname_{crumb0_view}}</a> >
-<a href="{crumb1_hash}" class="crumb">{crumbname_{crumb1_view}}</a> >
-<span>{crumbname_{crumb2_view}}</span>
-
-#crumbs4
-<a href="{crumb0_hash}" class="crumb first">{crumbname_{crumb0_view}}</a> >
-<a href="{crumb1_hash}" class="crumb">{crumbname_{crumb1_view}}</a> >
-<a href="{crumb2_hash}" class="crumb">{crumbname_{crumb2_view}}</a> >
-<span>{crumbname_{crumb3_view}}</span>
-
-#spinner
-<div class="spinner"></div>
-
-#spinner_in_table_row
-<tr><td colspan="100">{spinner}</td></tr>
-
 #beige
 
 
@@ -129,40 +102,17 @@
 	});
 </script>
 
-#main_countrymin
-<div class="default min">
-	<table class="country min">
-		<tr>
-			<td class="name">{country_name}</td>
-			<td class="flag"><img src="{country_flag}" alt="{country_name} {flag_alt_text}"/></td>
-		</tr>
-	</table>
-	<div class="declare head"></div>
-</div>
-	
-#main_country
+
+#main_title
 <div class="default">
 	<table class="country">
 		<tr>
 			<td class="name">{country_name}</td>
-			<td class="flag"><img src="{country_flag}" alt="{country_name} {flag_alt_text}"/></td>
 		</tr>
 	</table>
 	<div class="declare head"></div>
 </div>
 
-#alerts
-{alert_no_iati}
-
-#alert_no_iati
-<tr>
-	<td colspan="3" class="alert_no_iati" title="{alert_no_iati_tip_text}">{alert_no_iati_text}</td>
-</tr>
-
-#table_declare
-<div class="default declare">
-	{table_declare_text}
-</div>
 
 #css
  #background_image	{background-image:url('{background_image}');} /* Needed for displaying background images per different country */
