@@ -133,7 +133,7 @@ deleteFolderRecursive = function(path) {
 			}
 
 			chunkopts.tongue=tongue;
-			chunkopts.tongueroot=chunkopts.root+tonguedir;
+			chunkopts.tongue_root=chunkopts.root+tonguedir;
 			
 			try { fs.mkdirSync("static/"+tonguedir+dir); } catch(e){}
 			for(var i=0;i<ff.length;i++) //parse
