@@ -1,20 +1,26 @@
 #html
 <html>
-	<head>
-		<title>>All blog posts.</title>
-	</head>
-	<body>
-		{view_head}
-	<style>{css}</style>
+<head>
+	<meta charset="UTF-8">
+	<title>Development Portal News</title>
+	<script src="{root}jslib/jquery.js"></script>
+	<link  href="{root}art/original/ctrack.css" rel="stylesheet" type="text/css" >
+</head>
+<body>
+	{view_head}
 	{beige}
 	{main_head}
-	{main_title}
-	
-		<h1>All blog posts.</h1>
-		<div>
-			{bloglist:blog_wrap}
-		</div>
-	{main_datainvestigators}
+	{main_title}	
+	<div>
+		{bloglist:blog_wrap}
+	</div>
 	{view_tail}
-	</body>
+</body>
 </html>
+
+
+#main_title
+<div class="default">
+	<table class="country"><tr><td class="name">Development Portal News</td></tr>s</table>
+	<div class="declare head"></div>
+</div>

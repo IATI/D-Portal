@@ -64,8 +64,16 @@ a.about_data.quality	{border-left:1px solid #b4b4b4; text-align:right; padding-r
 .default.graph			{padding:40px 0;}
 .default.about			{padding:10px 0; text-align:right;}
 .default.data			{padding:20px 0 40px 0;}
-.default.blog			{padding:20px 0; color:#fff; font-size:1.0em; line-height:1.4em;}
+.default.blog			{padding:40px 0; color:#fff; font-size:1.0em; line-height:1.4em; border-bottom:1px solid #ccc;}
+.default.blog:last-of-type	{border:0;}
+.default.blog.post		{padding-top:20px; border:0;}
 .declare.head			{padding-top:5px; border-top:10px solid #fff; font-size:0.9em; color:#ccc;}
+
+
+/*	Blog styles
+	============================================= */
+a.blog_title		{display:block; font-size:2.0em; line-height:1.2em; color:#A8D2F8;}
+a.blog_title:hover	{color:#C0E1FF;}
 
 
 /*	Graph styles

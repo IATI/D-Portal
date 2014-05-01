@@ -11,7 +11,7 @@
 	{beige}
 	{main_head}
 	{main_title}
-	{blog_wrap}
+	{blog_post_wrap}
 	{view_tail}
 </body>
 </html>
@@ -25,10 +25,18 @@
 
 #blog_wrap
 <div class="default blog">
-	<a href="{tongue_root}{it._fullfilename}"><span>{it._date}</span> : <span>{it.blog_title}</span></a>
-	{it.blog_body}	
+	<a href="{tongue_root}{it._fullfilename}" class="blog_title">{it.blog_title}</a>
+	<div style="font-size:0.9em; line-height:1.2em; color:#ccc; padding:10px 0;">Posted on {it._date}</div>
+	<div>{it.blog_body}</div>
+</div>
+
+#blog_post_wrap
+<div class="default blog post">
+	<div style="font-size:0.9em; line-height:1.2em; color:#ccc; padding-bottom:20px;">Posted on {it._date}</div>
+	<div>{it.blog_body}</div>
 </div>
 
 
 #css
  #background_image	{background-image:url('{root}art/mexico_background_image.jpg');} /* Needed for displaying background images per different country */
+
