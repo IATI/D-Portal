@@ -16,6 +16,11 @@
 </body>
 </html>
 
+#main_title
+<div class="default">
+	<div class="blog_head">{blog_head_text}</div>
+</div>
+
 #blog_body
 <script>
 // fake blog body for this page if viewed alone
@@ -27,16 +32,17 @@
 <!--	All blog posts on a single page	-->
 <div class="blog_wrap">
 	<a href="{tongue_root}{it._fullfilename}" class="blog_title">{it.blog_title}</a>
-	<div class="blog_date">Posted on {it._date}</div>
+	<div class="blog_date">{posted_on_text} {it._date}</div>
 	<div class="blog_body">{it.blog_body}</div>
 </div>
 
 #blog_post_wrap
 <!--	Single blog post on its own page	-->
-<div class="default blog post">
-	<div class="blog_date">Posted on {it._date}</div>
+<div class="blog_wrap">
+	<div class="blog_title">{it.blog_title}</div>
+	<div class="blog_date">{posted_on_text} {it._date}</div>
 	<div class="blog_body">{it.blog_body}</div>
-	<a href="/news">Back to News page</a>
+	<a href="/news">{back_news_text}</a>
 	
 	<div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -51,6 +57,6 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <a href="http://disqus.com" class="dsq-brlink">{disqus_text} <span class="logo-disqus">Disqus</span></a>
     
 </div>
