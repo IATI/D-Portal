@@ -4,7 +4,18 @@
 var plate=exports;
 
 var util=require('util');
-var markdown=require('markdown').markdown;
+var marked=require('marked');
+
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: true,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false
+});
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -112,7 +123,7 @@ plate.fill_chunks=function(str,chunks)
 			else
 			if(f.form=="markdown")
 			{
-				chunks[n]=markdown.toHTML(chunks[n]);
+				chunks[n]=marked(chunks[n]);
 			}
 		}
 	}
