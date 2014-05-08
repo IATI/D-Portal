@@ -226,6 +226,28 @@ deleteFolderRecursive = function(path) {
 	
 	find_pages("")
 
+// copy raw files into static
+
+	var copyraw=function(dir)
+	{
+		var ff=fs.readdirSync("raw/"+dir);
+		for(var i=0;i<ff.length;i++) // recurse
+		{
+			var name=ff[i];
+			
+			if( fs.lstatSync("raw/"+dir+name).isDirectory() )
+			{
+				copyraw(dir+name+"/");
+			}
+			else
+			{
+				console.log("rawfile "+dir+name);
+				fs.writeFileSync("static/"+dir+name, fs.readFileSync("raw/"+dir+name));
+			}
+		}
+	}
+	copyraw("");
+
 // create some symlinks to other datas
 
 	try { fs.symlinkSync("../../ctrack/art", "static/art" ); } catch(e){}
