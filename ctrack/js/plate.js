@@ -10,12 +10,24 @@ marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
   tables: true,
-  breaks: true,
+  breaks: false,
   pedantic: false,
   sanitize: false,
   smartLists: true,
   smartypants: false
 });
+var nl_to_br=function(t) // lets break markdown
+{
+	return t.replace(/[\n]+/g,function(found)
+		{
+			if(found.length>=3) // 3 newlines in a row inserts two <br/> codes,
+			{
+				return "\n"+(new Array(found.length)).join("<br/>\n")+"\n";
+			}
+			return found;
+		}
+	);
+}
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -123,7 +135,8 @@ plate.fill_chunks=function(str,chunks)
 			else
 			if(f.form=="markdown")
 			{
-				chunks[n]=marked(chunks[n]);
+				
+				chunks[n]=marked(nl_to_br(chunks[n]));
 			}
 		}
 	}
@@ -132,6 +145,7 @@ plate.fill_chunks=function(str,chunks)
 }
 
 // turn all chunks back into a string
+// this is broken :)
 plate.out_chunks=function(chunks)
 {
 	var r=[];
