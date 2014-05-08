@@ -209,10 +209,11 @@ deleteFolderRecursive = function(path) {
 	{
 		bloglist.push(blogs[n]);
 	}
-	bloglist.sort(function(a,b){return a._fullfilename>b._fullfilename?1:-1;});
+	bloglist.sort(function(a,b){return a._fullfilename<b._fullfilename?1:-1;});
 	
 	var b5=[];
-	for(var i=bloglist.length-1; (i>=0) && (i>=(bloglist.length-5)) ;i--)
+//	for(var i=bloglist.length-1; (i>=0) && (i>=(bloglist.length-5)) ;i--)
+	for(var i=0;i<5;i++)
 	{
 		if(bloglist[i])
 		{

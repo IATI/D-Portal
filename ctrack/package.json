@@ -6,7 +6,9 @@
     "type": "git",
     "url": "https://github.com/IATI/D-Portal.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "markdown": "^0.5.0"
+  },
   "devDependencies": {
     "watchify": "^0.6.1",
     "uglify-js": "^2.4.12",

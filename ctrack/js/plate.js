@@ -4,6 +4,7 @@
 var plate=exports;
 
 var util=require('util');
+var markdown=require('markdown').markdown;
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -107,6 +108,11 @@ plate.fill_chunks=function(str,chunks)
 					console.log(chunks[n]);
 					chunks[n]=JSON.parse(chunks[n]);
 				}
+			}
+			else
+			if(f.form=="markdown")
+			{
+				chunks[n]=markdown.toHTML(chunks[n]);
 			}
 		}
 	}
