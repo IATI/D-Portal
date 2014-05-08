@@ -75,7 +75,7 @@
 		$('#tongue_select').bind('change', function ()
 		{
 			var t="{root}"+$(this).val()+"/";if(t=="/eng/"){t="{root}";}
-			var url = t;
+			var url = t+"{_fullfilename}";
 			window.location = url; // redirect
 			return false;
 		});
