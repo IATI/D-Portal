@@ -7,6 +7,7 @@ bin/push
 
 ssh ctrack@dev.ctrack.iatistandard.org "D-Portal/bin/pull -f"
 ssh ctrack@dev.ctrack.iatistandard.org "D-Portal/ctrack/build"
+ssh ctrack@dev.ctrack.iatistandard.org "D-Portal/dportal/build"
 ssh root@dev.ctrack.iatistandard.org "/etc/init.d/dportal stop"
 ssh root@dev.ctrack.iatistandard.org "/etc/init.d/dportal start"
 
