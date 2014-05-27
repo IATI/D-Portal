@@ -5,5 +5,5 @@ set alert krissd@gmail.com
 check process dportal with pidfile /home/ctrack/D-Portal/dportal/production/dportal.pid
  start program = "/etc/init.d/dportal start"
  stop program  = "/etc/init.d/dportal stop"
- if failed port 1408 protocol http request "/" status = 200 with timeout 30 seconds
+ if failed port 1408 protocol http request "/" with timeout 30 seconds
  then restart
