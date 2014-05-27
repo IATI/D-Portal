@@ -127,8 +127,8 @@ plate.fill_chunks=function(str,chunks)
 			{
 				if( "string" == typeof (chunks[n]) )
 				{
-					console.log("parsing json chunk "+n);
-					console.log(chunks[n]);
+//					console.log("parsing json chunk "+n);
+//					console.log(chunks[n]);
 					chunks[n]=JSON.parse(chunks[n]);
 				}
 			}
