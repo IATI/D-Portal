@@ -5,6 +5,6 @@ cd ..
 
 bin/push
 
-ssh ctrack@dev.ctrack.iatistandard.org "iati-js/bin/pull -f"
-ssh ctrack@dev.ctrack.iatistandard.org "iati-js/ctrack/build"
+ssh ctrack@dev.ctrack.iatistandard.org "D-Portal/bin/pull -f"
+ssh ctrack@dev.ctrack.iatistandard.org "D-Portal/ctrack/build"
 
