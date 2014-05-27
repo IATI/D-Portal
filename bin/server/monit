@@ -12,5 +12,5 @@ set alert krissd@gmail.com
 check process dportal with pidfile /home/ctrack/D-Portal/dportal/production/dportal.pid
  start program = "/usr/bin/sudo /etc/init.d/dportal start"
  stop program  = "/usr/bin/sudo /etc/init.d/dportal stop"
- if failed url http://localhost:1408/badurl with timeout 30 seconds
+ if failed url http://localhost:1408/ with timeout 30 seconds
  then restart
