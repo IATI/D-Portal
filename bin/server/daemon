@@ -2,7 +2,6 @@
 
 NODE_APP='js/serv.js'
 APP_DIR='/home/ctrack/D-Portal/dportal'
-PORT=1337
 
 NODE_ENV="production"
 PID_FILE=$APP_DIR/$NODE_ENV/dportal.pid
@@ -30,11 +29,10 @@ start_app (){
     if [ -f $PID_FILE ]
     then
         echo "$PID_FILE exists, process is already running or crashed"
-        exit 1
     else
         echo "Starting node app..."
         cd $APP_DIR
-        PORT=$PORT NODE_ENV=$NODE_ENV NODE_CONFIG_DIR=$CONFIG_DIR $NODE_EXEC $APP_DIR/$NODE_APP  1>$LOG_FILE 2>&1 &
+        NODE_ENV=$NODE_ENV NODE_CONFIG_DIR=$CONFIG_DIR $NODE_EXEC $APP_DIR/$NODE_APP  1>$LOG_FILE 2>&1 &
         echo $! > $PID_FILE;
     fi
 }
@@ -43,7 +41,6 @@ stop_app (){
     if [ ! -f $PID_FILE ]
     then
         echo "$PID_FILE does not exist, process is not running"
-        exit 1
     else
         echo "Stopping $APP_DIR/$NODE_APP ..."
         echo "Killing `cat $PID_FILE`"
@@ -76,7 +73,6 @@ case "$1" in
                 echo "Node app stopped but pid file exists"
             else
                 echo "Node app running with pid $PID"
-
             fi
         else
             echo "Node app stopped"

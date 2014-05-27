@@ -1,7 +1,12 @@
 #!monit
 
+# mail will probably end up in spam so look there
+
 set mailserver localhost
 set alert krissd@gmail.com
+
+
+# make sure web is running
 
 check process dportal with pidfile /home/ctrack/D-Portal/dportal/production/dportal.pid
  start program = "/etc/init.d/dportal start"
