@@ -25,6 +25,10 @@ app.use(function(req, res, next) {
 
 app.use(express.static(__dirname+"/../static"));
 
+app.use("/q",function (req, res) {
+	require("../../dstore/js/query").serv(req,res);
+});
+
 console.log("Starting static server at http://localhost:"+argv.port+"/");
 
 app.listen(argv.port);
