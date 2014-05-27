@@ -51,33 +51,40 @@ stop_app (){
     fi
 }
 
+status_app (){
+	if [ -f $PID_FILE ]
+	then
+		PID=`cat $PID_FILE`
+		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
+		then
+			echo "Node app stopped but pid file exists"
+		else
+			echo "Node app running with pid $PID"
+		fi
+	else
+		echo "Node app stopped"
+	fi
+}
+
 case "$1" in
     start)
         start_app
+		status_app
     ;;
 
     stop)
         stop_app
+		status_app
     ;;
 
     restart)
         stop_app
         start_app
+		status_app
     ;;
 
     status)
-        if [ -f $PID_FILE ]
-        then
-            PID=`cat $PID_FILE`
-            if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
-            then
-                echo "Node app stopped but pid file exists"
-            else
-                echo "Node app running with pid $PID"
-            fi
-        else
-            echo "Node app stopped"
-        fi
+		status_app
     ;;
 
     *)
