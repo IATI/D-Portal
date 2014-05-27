@@ -1,5 +1,6 @@
 #!monit
 
+set mailserver localhost
 set alert krissd@gmail.com
 
 check process dportal with pidfile /home/ctrack/D-Portal/dportal/production/dportal.pid
