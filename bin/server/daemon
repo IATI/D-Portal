@@ -1,12 +1,12 @@
 #!/bin/sh
 
-NODE_APP='dstore/js/serv.js'
+NODE_APP='dportal/js/serv.js'
 APP_DIR='/home/ctrack/D-Portal'
 PORT=1337
 
 NODE_ENV="production"
-PID_FILE=$APP_DIR/$NODE_ENV/ctrack.pid
-LOG_FILE=$APP_DIR/$NODE_ENV/ctrack.log
+PID_FILE=$APP_DIR/$NODE_ENV/dportal.pid
+LOG_FILE=$APP_DIR/$NODE_ENV/dportal.log
 CONFIG_DIR=$APP_DIR/$NODE_ENV
 NODE_EXEC=`which node`
 
