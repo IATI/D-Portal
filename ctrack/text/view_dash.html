@@ -1,0 +1,103 @@
+#crumbname_dash
+{crumbname_dash_text}
+
+#view_dash
+{dash_wrap}
+{dash_navi}
+<style>{css}</style>
+{dash_body}
+{view_tail}
+
+#dash_navi
+<div style="margin:0 auto; width:960px; padding:20px 0; border-bottom:5px solid #222; margin-bottom:20px;">
+	<div style="display:inline-block; width:50%;">
+		<span style="display:inline-block; padding-right:5px; font-size:1.8em;">Dash</span><img src="/art/dash_logo.png" alt="Dash logo" width="32" height="16">
+	</div><div style="display:inline-block; width:50%; vertical-align:bottom;">
+		<a href="http://d-portal.org/" style="display:block; font-size:1.0em; text-align:right; color:#000;">Back to d-portal.org</a>
+	</div>
+</div>
+
+#dash_body
+<div class="default data">
+	<div style="display:inline-block; width:620px;">
+		<div style="font-size:2em; margin-bottom:20px;">Publishers currently on IATI</div>
+		<table class="pub">
+			<tr>
+				<th>Ids</th>
+				<th>Activities reported</th>
+			</tr>
+			<tr>
+				<td>Example 1</td>
+				<td>2267</td>
+			</tr>
+			<tr>
+				<td>Example A</td>
+				<td>51</td>
+			</tr>
+			<tr>
+				<td>Example 12</td>
+				<td>99762</td>
+			</tr>
+			<tr>
+				<td>Example 1b</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>Example 4</td>
+				<td>67</td>
+			</tr>
+			<tr>
+				<td>Example 67</td>
+				<td>826</td>
+			</tr>
+			<tr>
+				<td>Example 20</td>
+				<td>146</td>
+			</tr>
+			<tr>
+				<td>Example 06</td>
+				<td>77</td>
+			</tr>
+		</table>
+	</div><div style="display:inline-block; width:340px;">
+		<div style="font-size:1.4em; margin-bottom:20px;">Snapshots</div>
+		<div style="margin:0 auto; width:298px; border:1px solid #444; padding:20px; margin-bottom:30px;">
+			<table class="snap">
+				<tr>
+					<td>Total Publishers</td>
+					<td>241</td>
+				</tr>
+				<tr>
+					<td>Total Activities</td>
+					<td>35578</td>
+				</tr>
+				<tr>
+					<td>Total Countries</td>
+					<td>25</td>
+				</tr>
+			</table>
+		</div>
+		<div style="font-size:1.4em; margin-bottom:10px;">Info</div>
+		<div style="font-size:1.0em; line-height:1.4em; margin-bottom:20px;">A quick overview of the data populating the Development Portal.</div>
+		<div style="font-size:0.9em; margin-bottom:10px;">Updated every Sunday GMT +0.</div> 
+		<div style="font-size:0.9em;">Last updated on {it.date}</div>
+	</div>
+</div>
+
+
+#dash_wrap
+<div class="portal">
+	<div class="main_wrap">
+		<div class="overlay">
+
+
+#css
+html			{background-color:#fff;}
+.overlay		{background-color:#fff;}
+
+table.pub		{width:500px; max-width:500px;}
+table.pub th	{font-weight:bold; text-align:left; padding:15px 0;}
+table.pub td	{padding:15px 30px 15px 0; border-bottom:1px solid #ccc;}
+
+table.snap		{width:298px; max-width:298px;}
+table.snap td	{padding:15px 30px 15px 0;}
