@@ -1,6 +1,16 @@
 #!monit
-check process pagecake with pidfile /home/ctrack/D-Portal/production/ctrack.pid
- start program = "/etc/init.d/pagecake start"
- stop program  = "/etc/init.d/pagecake stop"
- if failed port 80 protocol http request "/" status = 302 with timeout 30 seconds
+
+# mail will probably end up in spam so look there
+
+set mailserver localhost
+set alert krissd@gmail.com
+
+
+# make sure web is running
+# monit seems to not start junk as root? so use sudo
+
+check process dportal with pidfile /home/ctrack/D-Portal/dportal/production/dportal.pid
+ start program = "/usr/bin/sudo /etc/init.d/dportal start"
+ stop program  = "/usr/bin/sudo /etc/init.d/dportal stop"
+ if failed url http://localhost:1408/ with timeout 30 seconds
  then restart

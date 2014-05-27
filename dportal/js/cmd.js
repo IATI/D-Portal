@@ -49,7 +49,7 @@ deleteFolderRecursive = function(path) {
     }
 };
 
-//	deleteFolderRecursive("static");
+	deleteFolderRecursive("static");
 
 
 	try { fs.mkdirSync("static"); } catch(e){}
@@ -228,30 +228,31 @@ deleteFolderRecursive = function(path) {
 
 // copy raw files into static
 
-	var copyraw=function(dir)
+	var copyraw=function(root,dir)
 	{
-		var ff=fs.readdirSync("raw/"+dir);
+		try { fs.mkdirSync("static/"+dir); } catch(e){}
+
+		var ff=fs.readdirSync(root+dir);
 		for(var i=0;i<ff.length;i++) // recurse
 		{
 			var name=ff[i];
 			
-			if( fs.lstatSync("raw/"+dir+name).isDirectory() )
+			if( fs.lstatSync(root+dir+name).isDirectory() )
 			{
-				copyraw(dir+name+"/");
+				copyraw(root,dir+name+"/");
 			}
 			else
 			{
-				console.log("rawfile "+dir+name);
-				fs.writeFileSync("static/"+dir+name, fs.readFileSync("raw/"+dir+name));
+				console.log("rawfile "+root+dir+name);
+				fs.writeFileSync("static/"+dir+name, fs.readFileSync(root+dir+name));
 			}
 		}
 	}
-	copyraw("");
 
-// create some symlinks to other datas
-
-	try { fs.symlinkSync("../../ctrack/art", "static/art" ); } catch(e){}
-	try { fs.symlinkSync("../../ctrack/jslib", "static/jslib" ); } catch(e){}
+	copyraw("../ctrack/","art/");
+	copyraw("../ctrack/","jslib/");
+	copyraw("./raw/","");
+	copyraw("./","art/");
 
 }
 

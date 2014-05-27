@@ -7,6 +7,7 @@ var app = express();
 var argv=require('yargs').argv; global.argv=argv;
 
 argv.port=argv.port||1408;
+argv.database=argv.database||"../dstore/db/dstore.sqlite";
 
 express.static.mime.define({'text/plain': ['']});
 
@@ -24,6 +25,10 @@ app.use(function(req, res, next) {
 });
 
 app.use(express.static(__dirname+"/../static"));
+
+app.use("/q",function (req, res) {
+	require("../../dstore/js/query").serv(req,res);
+});
 
 console.log("Starting static server at http://localhost:"+argv.port+"/");
 
