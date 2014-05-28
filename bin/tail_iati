@@ -1,0 +1,6 @@
+# view active log
+
+cd `dirname $0`
+cd ..
+
+ssh ctrack@d-portal.org "tail -f D-Portal/dportal/production/dportal.log"

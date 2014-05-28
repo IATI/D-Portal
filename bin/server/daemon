@@ -1,54 +1,58 @@
 #!/bin/sh
 
-NODE_APP='js/serv.js'
-APP_DIR='/home/ctrack/D-Portal/dportal'
+NODE_EXEC="/usr/local/bin/node"
 
 NODE_ENV="production"
-PID_FILE=$APP_DIR/$NODE_ENV/dportal.pid
-LOG_FILE=$APP_DIR/$NODE_ENV/dportal.log
-CONFIG_DIR=$APP_DIR/$NODE_ENV
-NODE_EXEC=`which node`
+NODE_NAME="dportal"
+NODE_APP="js/serv.js"
+APP_DIR="/home/ctrack/D-Portal/$NODE_NAME"
 
-###############
+APP_TEST_URL="http://localhost:1408/"
+APP_TEST_CODE="200"
 
-# REDHAT chkconfig header
+CRONLOG_EMAILS="krissd@gmail.com,notshi@gmail.com"
 
-# chkconfig: - 58 74
-# description: this is the script for starting a node app on boot.
-### BEGIN INIT INFO
-# Provides: node
-# Required-Start:    $network $remote_fs $local_fs
-# Required-Stop:     $network $remote_fs $local_fs
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: start and stop node
-# Description: Node process for app
-### END INIT INFO
+
+PID_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.pid
+LOG_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.log
+CRONLOG_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.cron.log
+
+
+
+
 
 start_app (){
-    if [ -f $PID_FILE ]
-    then
-        echo "$PID_FILE exists, process is already running or crashed"
-    else
-        echo "Starting node app..."
-        cd $APP_DIR
-#        NODE_ENV=$NODE_ENV NODE_CONFIG_DIR=$CONFIG_DIR
-        $NODE_EXEC $APP_DIR/$NODE_APP  1>$LOG_FILE 2>&1 &
-        echo $! > $PID_FILE;
-    fi
+	if [ -f $PID_FILE ]
+	then
+		PID=`cat $PID_FILE`
+		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
+		then
+			echo "$PID_FILE exists, but process is not running (probably crashed)"
+			rm -f $PID_FILE;
+		else
+			echo "$PID_FILE exists, and process is already running."
+			return
+ 		fi
+	fi
+	echo "Starting node app $NODE_NAME..."
+	cd $APP_DIR
+	$NODE_EXEC ./$NODE_APP  1>$LOG_FILE 2>&1 &
+	echo $! > $PID_FILE;
+	sleep 1
 }
 
 stop_app (){
-    if [ ! -f $PID_FILE ]
-    then
-        echo "$PID_FILE does not exist, process is not running"
-    else
-        echo "Stopping $APP_DIR/$NODE_APP ..."
-        echo "Killing `cat $PID_FILE`"
-        kill `cat $PID_FILE`;
-        rm -f $PID_FILE;
-        echo "Node stopped"
-    fi
+	if [ ! -f $PID_FILE ]
+	then
+		echo "$PID_FILE does not exist, process is not running"
+	else
+		echo "Stopping $APP_DIR/$NODE_APP ..."
+		echo "Killing `cat $PID_FILE`"
+		kill `cat $PID_FILE`;
+		rm -f $PID_FILE;
+		echo "Node stopped"
+	fi
+	sleep 1
 }
 
 status_app (){
@@ -57,38 +61,93 @@ status_app (){
 		PID=`cat $PID_FILE`
 		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
 		then
-			echo "Node app stopped but pid file exists"
+			echo "Node app $NODE_NAME probably crashed"
 		else
-			echo "Node app running with pid $PID"
+			echo "Node app $NODE_NAME is running with pid $PID"
 		fi
 	else
-		echo "Node app stopped"
+		echo "Node app $NODE_NAME is stopped"
+	fi
+}
+
+check_app (){
+	if [ -f $PID_FILE ]
+	then
+		PID=`cat $PID_FILE`
+		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
+		then
+			echo "Node app $NODE_NAME probably crashed"
+			echo "*** last 100 lines of $NODE_NAME log ***"
+			tail -n100 $LOG_FILE
+			echo "*** last 100 lines of $NODE_NAME log ***"
+			stop_app
+			start_app
+			status_app
+			exit 10
+		else
+			echo "Node app $NODE_NAME is running with pid $PID"
+			if [ "`curl -s -o /dev/null -w "%{http_code}" $APP_TEST_URL`" = "$APP_TEST_CODE" ]
+			then
+				echo "Node app $NODE_NAME is responding OK at $APP_TEST_URL"
+				exit 0
+			else
+				echo "Node app $NODE_NAME is not responding at $APP_TEST_URL"
+				echo "*** last 100 lines of $NODE_NAME log ***"
+				tail -n100 $LOG_FILE
+				echo "*** last 100 lines of $NODE_NAME log ***"
+				stop_app
+				start_app
+				status_app
+				exit 20
+			fi
+		fi
+	else
+		echo "Node app $NODE_NAME is stopped"
+		echo "*** last 100 lines of $NODE_NAME log ***"
+		tail -n100 $LOG_FILE
+		echo "*** last 100 lines of $NODE_NAME log ***"
+		start_app
+		status_app
+		exit 10
 	fi
 }
 
 case "$1" in
-    start)
-        start_app
+	start)
+		start_app
 		status_app
-    ;;
+	;;
 
-    stop)
-        stop_app
+	stop)
+		stop_app
 		status_app
-    ;;
+	;;
 
-    restart)
-        stop_app
-        start_app
+	restart)
+		stop_app
+		start_app
 		status_app
-    ;;
+	;;
 
-    status)
+	status)
 		status_app
-    ;;
+	;;
 
-    *)
-        echo "Usage: $0 {start|stop|restart|status}"
-        exit 1
-    ;;
+	check)
+		check_app
+	;;
+
+	cron)
+		$0 check 1>$CRONLOG_FILE 2>&1
+		if [ $? -ne 0 ]
+		then
+			mail -s"$NODE_NAME on `hostname`" $CRONLOG_EMAILS <$CRONLOG_FILE
+		fi
+		cat $CRONLOG_FILE
+	;;
+
+	*)
+		echo "Usage: $0 {start|stop|restart|status|check|cron}"
+		exit 1
+	;;
 esac
