@@ -3,4 +3,4 @@
 cd `dirname $0`
 cd ..
 
-ssh ctrack@dev.ctrack.iatistandard.org "tail -f D-Portal/dportal/production/dportal.log"
+ssh ctrack@d-portal.org "tail -f D-Portal/dportal/production/dportal.log"
