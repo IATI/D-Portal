@@ -28,7 +28,7 @@ i						{font-style:italic;}
 .main_wrap				{width:100%; min-width:1040px; padding:0px; display:table-cell; background-color: rgba(255,255,255,0.4);}
 #background_image	 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/mexico_background_image.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
 .overlay				{width:100%; height:100%; background-color:rgba(46, 41, 6, 0.6);}	/* Overlay colour for background image */
-.default				{width:960px; margin:0 auto; padding:0;}
+.default				{width:960px; margin:0 auto; padding:0; position:relative;}
 .default.center			{text-align:center;}
 .third					{display:inline-block; vertical-align:top; width:300px; padding-right:20px;}
 .tongue_wrap			{text-align:right; width:960px; padding-bottom:10px;}
@@ -42,9 +42,9 @@ a.path:hover			{background-color:rgba(0,14,32,0.9);}
 a.path.no				{background-color:rgba(0,14,32,0.4);}
 a.path.no:hover			{background-color:rgba(0,14,32,0.4); cursor:default;}
 .path_title				{display:block; font-size:2.3em;}
-.path_title.publisher	{color:#53AEFF;}
-.path_title.explorer	{color:#2CE268;}
-.path_title.developer	{color:#FF860E;}
+.path_title.install		{color:#53AEFF;}
+.path_title.explore		{color:#2CE268;}
+.path_title.develop		{color:#FF860E;}
 .path_txt				{display:block; color:#fff; font-size:1.1em; padding-top:20px;}
 
 /*	Country Code List style

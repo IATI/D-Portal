@@ -1,122 +1,83 @@
 #html
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>{about_title_text}</title>
-	<script src="{root}jslib/jquery.js"></script>
-	<link  href="{root}art/original/ctrack.css" rel="stylesheet" type="text/css" >
-	<link  href="about.css" rel="stylesheet" type="text/css" >
-</head>
+<!DOCTYPE html> 
+<html> 
+	<head>
+<meta charset="UTF-8">
+<title>{about_title_text}</title>
+<script src="{root}jslib/jquery.js"></script>
+<link  href="aboutold.css" rel="stylesheet" type="text/css" >
+	</head> 
 <body>
-	{view_head}
-	{beige}
-	{main_head}
-	{about_dportal}
-	{more_dportal}
-	{about_savi}
-	{about_dq}
-	{queries}
-	{quick_install}
-	{about_github}
-	{view_tail}
-</body>
-</html>
 
-#main_head
+<div class="mainwrap">
+	
 <div class="navi">
-	<table class="head">
-		<tr>
-			<td class="logo">
-				<a href="/" title="{mainback_tip_text}">
-					<img src="{root}art/original/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>
-				</a>
-			</td>
-			<td class="dplinks"><a href="#sav" class="top savi">SAVi</a></td>
-			<td class="dplinks"><a href="#install" class="top install">Install</a></td>
-			<td class="dplinks"><a href="#git" class="top hub">Github</a></td>
-			<td class="options">{tongue_select}</td>
-		</tr>
-	</table>
-</div>
-
-#about_dportal
-<div class="about_wrap">
-	<div class="default">
-		<div class="mid_wrap"><img src="{root}art/dp_logo.400.png" alt="d-portal.org logo" width="400" height="400"/></div><div class="mid_wrap">
-			<div class="about_head">
-				<h1>{about_paragraph_title_text}</h1>
-				<p>{about_paragraph1_text}</p>
-				<p class="about_info">{about_paragraph2_text}</p>
-			</div>
+	<div class="defcon">
+		<div class="hiwrap">
+			<a href="{tongue_root}" class="top home">{about_back_text}</a>
+		</div><div class="linkwrap">
+			<div class="link pad"><a href="#" class="top ct">{top_text}</a></div><div class="link pad"><a href="#sav" class="top sav">SAVi</a></div><div class="link"><a href="#git" class="top hub">GITHUB</a></div>
 		</div>
 	</div>
 </div>
 
-#more_dportal
+<div class="conwrap">
+	
+<div class="ctwrap">
+	<div class="defcon">
+		<div class="halfcon"><img src="{root}art/dp_logo.400.png" alt="d-portal.org logo" width="400" height="400"/></div><div class="halfcon">
+			<div class="cthead">
+				<span class="cteghead">{about_paragraph_title_text}</span>
+				<p>{about_paragraph1_text}</p>
+				<p class="ctinfo">{about_paragraph2_text}</p>
+			</div>
+		</div>
+	</div>
+</div>
 <span id="more"></span>
-<div class="about_wrap more">
-	<div class="default">
-		<div class="about_wrap moretxt">
+<div class="cteg">
+	<div class="defcon">
+		<div class="ctegwrap">
 			<p>{about_paragraph3_text}</p>
 			<p>{about_paragraph4_text}</p>
 			<p><span class="bold">d-portal.org</span> {about_paragraph6_text}</p>
 			<p>{about_paragraph7_text}</p>
-			<p><h1>{about_paragraph8_text}</h1></p>
+			<p><span class="cteghead">{about_paragraph8_text}</span></p>
 			<p>{about_paragraph9_text}</p>
 			<p>{about_paragraph10_text}</p>
-		</div>	
+		</div>
+		
 	</div>
 </div>
-
-#about_savi
 <span id="sav"></span>
-<div class="about_wrap sav">
-	<div class="default">
-		<div class="mid_wrap"><img src="{root}art/savilogo.400.png" alt="SAVi logo" width="400" height="400"/></div><div class="mid_wrap">
-			<div class="sav_head">
+<div class="savwrap">
+	<div class="defcon">
+		<div class="halfcon"><img src="{root}art/savilogo.400.png" alt="SAVi logo" width="400" height="400"/></div><div class="halfcon">
+			<div class="savhead">
 				<p>{savi_paragraph1_text}</p>
-				<p class="sav_info">{savi_paragraph2_text}</p>
+				<p class="savinfo">{savi_paragraph2_text}</p>
 			</div>
 		</div>
 	</div>
 </div>
 
-#about_dq
-<div class="about_wrap dq">
-	<div class="default">
+<div class="dqwrap">
+	<div class="defcon">
 		<div class="l0"></div>
 		<div class="l1"></div><div class="l2"></div><div class="l3"></div><div class="l4"></div>
-		<div class="dq_wrap">
+		<div class="dqcon">
 			<img src="{root}art/dslogo.400.png" alt="DSTORE logo" width="400" height="100"/>
-			<div class="dq_info">{dstore_paragraph_text}</div>
-		</div><div class="dq_wrap">
+			<div class="dqinfo">{dstore_paragraph_text}</div>
+		</div><div class="dqcon">
 			<img src="{root}art/qlogo.400.png" alt="Q logo" width="400" height="100"/>
-			<div class="dq_info">{q_paragraph_text}</div>
+			<div class="dqinfo">{q_paragraph_text}</div>
 		</div>
 	</div>
 </div>
 
-#quick_install
-<span id="install"></span>
-<div class="about_wrap install">
-	<div class="default">
-		<div class="about_wrap moretxt">
-			<p><h1>{install_title_text}</h1></p>
-			<p>{install_paragraph1_text}</p>
-			<p>{install_paragraph2_text}<a href="http://s3.yipl.com.np/" target="_blank" class="country_portal">Nepal</a></p>
-	<!--		<p><h1>How to deploy</h1></p>	-->
-			<p>{install_paragraph3_text}</p>
-			<p>{install_paragraph4_text}</p		
-	<!--		<p>Contracting</p>	-->
-	<!--		<p>Set-up time</p>	-->
-		</div>
-	</div>
-</div>
-
-#queries
-<div class="about_wrap q">
-	<div class="default">
-		<div class="mid_wrap"></div><div class="mid_wrap"><div id="arrow"></div></div>
+<div class="qwrap">
+	<div class="defcon">
+		<div class="halfcon"></div><div class="halfcon"><div id="ct-tri"></div></div>
 		<div class="qhead">{q_example_title_text}</div>
 		<a href="http://d-portal.org/q.xml?limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.xml?limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
 		<div class="qabt">{q_example1_text}</div>
@@ -135,11 +96,9 @@
 		<div class="qinfo">{q_example4_info1_text} <span class="qdef">q.csv</span> {q_example4_info2_text} <span class="qdef">limit=1000</span> {q_example4_info3_text} <span class="qdef">from=trans</span> {q_example4_info4_text} <span class="qdef">orderby=trans_day</span>.</div>
 	</div>
 </div>
-
-#about_github
 <span id="git"></span>
-<div class="about_wrap git">
-	<div class="default">
+<div class="gitwrap">
+	<div class="defcon">
 		<div class="gitcon">
 			<a href="https://github.com/IATI/D-Portal" target="_blank" class="git">{github_info1_text} <span class="bold">Github</span>!</a>
 			<div class="gitinfo">
@@ -151,18 +110,19 @@
 	</div>
 </div>
 
-#view_tail
-		</div>
-	</div>
-	<div class="footer_wrap">
-	<div class="footer">
-		<div class="footer_link"><a href="/">
-			{footer_pick_text}</a>
-		</div><div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
-			{footer_top_text}</a>
-		</div><div class="footer_link mit">
+</div>
+
+</div>
+
+<div class="footwrap">
+	<div class="footcon">
+		<div class="team"><a href="mailto:queries@d-portal.org" target="_blank" title="{footer1_tip_text}">
+			{footer1_text}</a>
+		</div><div class="mit">
 			{footer5_text}
 		</div>
 	</div>
-	</div>
 </div>
+
+</body>
+</html>
