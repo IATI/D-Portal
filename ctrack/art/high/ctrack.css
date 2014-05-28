@@ -20,8 +20,8 @@ a:link  				{color:#000; text-decoration:none;}
 a:visited				{color:#000; text-decoration:none;}
 a:hover					{color:#000; text-decoration:none;}
 a:active				{color:#000; text-decoration:none;}
-.italic					{font-style:italic; color:inherit;}
-.bold					{font-weight:bold; color:inherit;}
+em, .italic				{font-style:italic; color:inherit;}
+strong, .bold			{font-weight:bold; color:inherit;}
 .underline				{text-decoration:underline; color:inherit;}
 
 
@@ -65,12 +65,11 @@ a.about_data.quality	{border-left:1px solid #000; text-align:right; padding-righ
 .default.graph			{padding:40px 0;}
 .default.about			{padding:10px 0; text-align:right;}
 .default.data			{padding:20px 0 40px 0;}
-.declare.head			{padding-top:5px; border-top:10px solid #000; font-size:0.9em; color:#000;}
 
 
 /*	Blog styles
 	============================================= */
-.blog_head			{width:820px; margin:0 auto; color:#000; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #000;}
+.blog_head			{width:960px; margin:0 auto; color:#000; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #000;}
 a.blog_head			{display:block; width:820px; margin:0 auto; color:#000; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #000;}
 .blog_wrap			{padding:40px 60px; color:#000; font-size:1.0em; line-height:1.4em; border-bottom:1px solid #000; margin:auto; margin-top:40px; margin-bottom:40px;}
 .blog_date			{font-size:0.9em; line-height:1.2em; color:#000;}
@@ -240,7 +239,7 @@ table.head td.options		{color:#fff; text-align:right; vertical-align:top; font-s
 
 /*	Table for Country Name and Flag
 	============================================= */
-table.country				{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial;}
+table.country				{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial; border-bottom:10px solid #000;}
 table.country td.name		{width:800px; max-width:800px; padding-right:10px; font-size:4.0em; line-height:1.1em; color:#000;}
 table.country td.flag		{text-align:right;}
 table.country td.flag img	{max-height:90px;}

@@ -13,25 +13,25 @@ d-portal.org还处于非常早期的开发，定于四月中旬Alpha版本。感
 #tagline_text
 帮助您了解开发数据。
 
-#publisher_button_text
+#install_button_text
 发行人
 
-#publisher_info_text
+#install_info_text
 获取此为您的网站。
 
 #soon_text
-（Soon!)
+（不久!)
 
-#explorer_button_text
+#explore_button_text
 探索
 
-#explorer_info_text
+#explore_info_text
 探索一个国家的IATI数据。
 
-#developer_button_text
+#develop_button_text
 开发人员
 
-#developer_info_text
+#develop_info_text
 我们是在Github上。
 
 #index_title_text
@@ -68,7 +68,7 @@ d-portal.org还处于非常早期的开发，定于四月中旬Alpha版本。感
 关于d-portal.org
 
 #footer4_text
-返回D - portal.org
+返回D -portal.org
 
 #footer5_text
 许可：麻省理工学院许可证(MIT)于2014年
@@ -83,52 +83,43 @@ d-portal.org反馈
 非常感谢您抽出宝贵的时间来做到这一点！我们希望创造一些有用的东西，轻松地部署，一个有趣的谈论的焦点瞄准最重要的是促进从报告发布机构更高质量的数据。
 
 #feedback_paragraph3_text
-- shi
+-shi
 
 #about_title_text
-d-portal.org模块
-
-#about_back_text
-回到主页
-
-#about_paragraph1_text
-d-portal.org的目标是成为一个单一的用户界面来搜索和浏览与特定国家的所有IATI数据。
-
-#about_paragraph2_text
-最终产品将作为一组使用HTML，JavaScript ，以及CSS文件。
-
-#about_paragraph3_text
-由于HTML / CSS / JavaScript的是网络的技术，被广泛使用和理解，我们相信这是一个很好的选择，容易采纳别人，易于部署，易于为re-configuration/customisation 。
+关于d-portal.org
 
 #about_paragraph_title_text
 这是什么？
 
+#about_paragraph1_text
+d-portal.org是跟踪资源流动的国家为基础的信息平台。
+
+#about_paragraph2_text
+它的目的是提供部委，国会议员和民间社会提供信息，可以帮助规划和监督发展活动。
+
+#about_paragraph3_text
+在其第一次迭代它包含通过国际援助透明度倡议（IATI），以及由的 <a href="http://www.oecd.org/dac/stats/crsguide.htm" target="_blank" class="co">OECD DAC Creditor Reporting System</a>。
+
 #about_paragraph4_text
-是跟踪资源流动的国家为基础的信息平台。它的目的是提供部委，国会议员和民间社会提供信息，可以协助发展活动的调度和监控。
+当前平台提出了两个问题：哪里的资源从哪里来，到哪去了（按部门和地点）？近期，当前和未来的数据呈现和跨数据源进行比较。
 
 #about_paragraph5_text
-在第一次迭代ICTS它包含通过国际援助透明度倡议(IATI)，以及由公布的最新（2012年）公布的数据当前数据
+为了从一个国家的角度回答这些问题，这是不够的仅仅是为了显示可用的数据：绘制空白的信息也同样重要。质量差或丢失的数据是应对信息界面的重要组成部分。
 
 #about_paragraph6_text
-。将未来的发展包括，除其他外，援助信息管理系统，国家预算数据及可比的社会经济指标范围。
+是一个开源的平台。
 
 #about_paragraph7_text
-在第一次迭代平台，信息通信技术带来了两个问题：哪里的资源从哪里来，往哪里去（按部门和地点） ？近期，当前和未来的数据呈现和跨数据源相比。
+虽然它目前提供了一个通用的部署对于任何国家，它已经开发出被定制在国内，以满足当地需求的具体意图。有关如何，你可以针对某一特定国家创建一个定制的版本，请参阅我们的安装页面<i>（即将提供）</i>的进一步信息。
 
 #about_paragraph8_text
-为了从一个国家的角度回答问题，争它可用来显示数据仅仅不足：同样显著的是它绘制在信息空白。质量差或丢失数据的应对是信息接口的主要部分。
+资金
 
 #about_paragraph9_text
-是一个开源的平台。虽然它提供了一个通用的部署对任何国家有过气政客开发与作为国内具体定制，以满足当地需求的意图。本地应用程序的原型尼泊尔目前正在与核心引擎的并行开发。
+d-portal.org从2013年12月跑到全球伙伴关系会议在墨西哥2014年4月的最初的发展是由 <a href="http://www.aidtransparency.net/" target="_blank" class="co">IATI</a> 和 <a href="http://devinit.org/" target="_blank" class="co">Development Initiatives (DI)</a>。
 
 #about_paragraph10_text
-有过气政客通过联合资助
-
-#about_paragraph11_text
-和
-
-#about_paragraph12_text
-。 IATI热衷于促进获得在国家层面IATI格式的数据。 DI致力于通过实施参与式数据解决方案，提高获取信息。
+DI被开发和准备的现阶段资金至2014年八月底如果您有兴趣的d门户网站的持续发展的资金部分，请联系的<a href="mailto:queries@d-portal.org" target="_blank" class="co">queries@d-portal.org</a>
 
 #savi_paragraph1_text
 SAVI是一个单一的活动观众对XML IATI ，你可以实时查看，在线，在你喜欢的浏览器。
@@ -196,6 +187,21 @@ CSV文件的回报（默认名称为q.csv）
 #q_example4_info4_text
 按日期排序
 
+#install_title_text 
+如何安装d-portal 
+
+#install_paragraph1_text 
+在d-portal项目的心脏是公司的宗旨，任何人在任何地方可以采取后面的d门户开放的源代码，部署它自己并创建一个自定义的D-门户他们感兴趣的任何国家。这可能包括从增加援助信息管理系统，国家预算和一系列类似的社会经济指标的任何其他数据。 
+
+#install_paragraph2_text 
+目前已经有专门的国家特有的d-portals如下的例子： 
+
+#install_paragraph3_text 
+最终产品将作为一组HTML，的Javascript和CSS文件。 
+
+#install_paragraph4_text 
+由于HTML / CSS/ JavaScript的是网络的技术，被广泛使用和理解，我们相信这是一个很好的选择，容易采纳别人，易于部署和易于重新配置/定制 
+
 #github_tip_text
 访问Github上的d-portal.org
 
@@ -203,7 +209,7 @@ CSV文件的回报（默认名称为q.csv）
 叉我们
 
 #github_info2_text
-d-portal.org目前正在开发和设计，这样的事情是不断变化的。向我们发送您的建议， bug报告和问题。
+d-portal.org目前正在开发和设计这样的事情是不断变化的。向我们发送您的建议，bug报告和议题或接触<a href="mailto:queries@d-portal.org" target="_blank" class="git small"> queries@d-portal.org</a>
 
 #footer_pick_text 
 选择其他国家 

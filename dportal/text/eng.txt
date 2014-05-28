@@ -13,25 +13,25 @@ Top
 #tagline_text
 Helping you understand development data.
 
-#publisher_button_text
-Publisher
+#install_button_text
+Install
 
-#publisher_info_text
+#install_info_text
 Get this for your website.
 
 #soon_text
 (soon!)
 
-#explorer_button_text
-Explorer
+#explore_button_text
+Explore
 
-#explorer_info_text
+#explore_info_text
 Explore IATI data of a country.
 
-#developer_button_text
-Developer
+#develop_button_text
+Develop
 
-#developer_info_text
+#develop_info_text
 We're on Github.
 
 #index_title_text
@@ -41,10 +41,13 @@ What is it?
 is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
 
 #index_paragraph2_text
-In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) aggregated data published by the OECD DAC Creditor Reporting System. Future development will include, inter alia, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
+In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) aggregated data published by the OECD DAC Creditor Reporting System.
+
+#news_page_text
+Information on current development (News)
 
 #read_more_text
-Read more
+Read more about d-portal
 
 #explore_title_text
 Explore a country
@@ -53,7 +56,7 @@ Explore a country
 Pick a country to the right.
 
 #explore_paragraph2_text
-Only countries with published data to IATI are available for exploration. If you would like your country listed here, find an organisation to get in touch with
+Only countries with published data to IATI are available for exploration. 
 
 #footer1_text
 A 2014 project by the Development Portal team
@@ -86,49 +89,40 @@ Thank you very much for taking the time to do this! We hope to create something 
 - shi
 
 #about_title_text
-d-portal.org Modules
-
-#about_back_text
-Back to main page
-
-#about_paragraph1_text
-d-portal.org aims to be a simple user interface to search and browse all IATI data relating to a specific country.
-
-#about_paragraph2_text
-The final product will be available as a set of HTML, Javascript, and CSS files.
-
-#about_paragraph3_text
-Since HTML/CSS/Javascript are the technologies of the web, and are widely used and understood, we believe this is a good option for easy adoption by others, for easy deployment, and for easy re-configuration/customisation.
+About d-portal.org
 
 #about_paragraph_title_text
 What is it?
 
+#about_paragraph1_text
+d-portal.org is a country-based information platform that tracks resource flows.
+
+#about_paragraph2_text
+It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
+
+#about_paragraph3_text
+In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the <a href="http://www.oecd.org/dac/stats/crsguide.htm" target="_blank" class="co">OECD DAC Creditor Reporting System</a>. 
+
 #about_paragraph4_text
-is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
+The current platform poses two questions: where do resources come from, and where do they go (by sector and location)? Recent, current and future data is presented and compared across data sources. 
 
 #about_paragraph5_text
-In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the 
+In order to answer these questions from a country perspective it is insufficient merely to display available data: it is equally important to plot the gaps in the information. Coping with poor quality or missing data is an essential part of the information interface. 
 
 #about_paragraph6_text
-. Future development will include, inter alia, data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
+is an open source platform.
 
 #about_paragraph7_text
-In its first iteration the platform poses two questions: where do resources come from, and where do they go (by sector and location)? Recent, current and future data is presented and compared across data sources.
+While it currently provides a generic deployment for any country it has been developed with the specific intention of being customised in-country to meet local needs. For further information on how you could create a customised version for a specific country, see <a href="#install">How to Install</a>.
 
 #about_paragraph8_text
-In order to answer these questions from a country perspective it is insufficient merely to display available data: it is equally important to plot the gaps in the information. Coping with poor quality or missing data is an essential part of the information interface.
+Funding
 
 #about_paragraph9_text
-is an open source platform. While it provides a generic deployment for any country it has been developed with the specific intention of being customised in-country to meet local needs. A prototype local application for Nepal is currently being developed in parallel with the core engine.
+The initial development of d-portal.org which ran from Dec 2013 to the Global Partnership meeting in Mexico in April 2014 was funded by <a href="http://www.aidtransparency.net/" target="_blank" class="co">IATI</a> and <a href="http://devinit.org/" target="_blank" class="co">Development Initiatives (DI)</a>.
 
 #about_paragraph10_text
-has been jointly funded by
-
-#about_paragraph11_text
-and 
-
-#about_paragraph12_text
-. IATI is keen to promote the access to IATI-formatted data at country level. DI is committed to improving access to information by implementing joined-up data solutions.
+DI is funding the current stage of development and preparation to the end of August 2014. If you are interested in funding part of the ongoing development of d-portal please contact <a href="mailto:queries@d-portal.org" target="_blank" class="co">queries@d-portal.org</a>
 
 #savi_paragraph1_text
 SAVi is a simple activity viewer for IATI XML that you can view in real time, online, in your favourite browser.
@@ -196,6 +190,21 @@ transaction data
 #q_example4_info4_text
 sorted by date
 
+#install_title_text
+How to install d-portal
+
+#install_paragraph1_text
+At the heart of the d-portal project is the aim that anyone anywhere could take the open source code behind d-portal, deploy it for themselves and create a customised d-portal for any country that interests them.  This could include adding any other data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
+
+#install_paragraph2_text
+There are already examples of customised country-specific d-portals as follows:
+
+#install_paragraph3_text
+The final product will be available as a set of HTML, Javascript, and CSS files.
+
+#install_paragraph4_text
+Since HTML/CSS/Javascript are the technologies of the web, and are widely used and understood, we believe this is a good option for easy adoption by others, for easy deployment, and for easy re-configuration/customisation.
+
 #github_tip_text
 Visit d-portal.org on Github
 
@@ -203,7 +212,7 @@ Visit d-portal.org on Github
 Fork us on
 
 #github_info2_text
-d-portal.org is currently being developed and designed so things are constantly changing. Send us your suggestions, bug reports and issues.
+d-portal.org is currently being developed and designed so things are constantly changing. Send us your suggestions, bug reports and issues or contact <a href="mailto:queries@d-portal.org" target="_blank" class="git small">queries@d-portal.org</a>
 
 #footer_pick_text
 Pick another country
@@ -234,6 +243,12 @@ Posted on
 
 #back_news_text
 Back to News page
+
+#news_link1_text
+Interested in funding d-portal?
+
+#news_link2_text
+How to create a country d-portal
 
 #disqus_text
 comments powered by

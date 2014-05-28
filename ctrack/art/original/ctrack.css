@@ -19,8 +19,8 @@ a:link  				{color:#FFAB5E; text-decoration:none;}
 a:visited				{color:#FFAB5E; text-decoration:none;}
 a:hover					{color:#FF7A00; text-decoration:none;}
 a:active				{color:#FFAB5E; text-decoration:none;}
-em, .italic				{font-style:italic; color:inherit;}
-.bold					{font-weight:bold; color:inherit;}
+em, i, .italic			{font-style:italic; color:inherit;}
+strong, b, .bold		{font-weight:bold; color:inherit;}
 .underline				{text-decoration:underline; color:inherit;}
 
 
@@ -64,12 +64,11 @@ a.about_data.quality	{border-left:1px solid #b4b4b4; text-align:right; padding-r
 .default.graph			{padding:40px 0;}
 .default.about			{padding:10px 0; text-align:right;}
 .default.data			{padding:20px 0 40px 0;}
-.declare.head			{padding-top:5px; border-top:10px solid #fff; font-size:0.9em; color:#ccc;}
 
 
 /*	Blog styles
 	============================================= */
-.blog_head			{width:820px; margin:0 auto; color:#fff; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #fff;}
+.blog_head			{width:960px; margin:0 auto; color:#fff; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #fff;}
 a.blog_head			{display:block; width:820px; margin:0 auto; color:#fff; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #fff;}
 .blog_wrap			{padding:40px 60px; color:#fff; font-size:1.0em; line-height:1.4em; border-bottom:1px solid #fff; background-color:rgba(0, 0, 0, 0.58); width:700px; margin:auto; margin-top:40px; margin-bottom:40px;}
 .blog_date			{font-size:0.9em; line-height:1.2em; color:#ccc;}
@@ -139,7 +138,7 @@ a.stats_link.missing span	{color:#2E98FF;}
 .active_wrap			{width:960px; margin:0 auto; padding:40px 20px;}
 .table_wrap				{background-color:rgba(0,14,32,0.7); padding:0 20px 20px 20px; border-radius:0 0 8px 8px;}
 .view_all_projects_wrap	{width:960px; margin:0 auto; text-align:center;}
-a.view_all_projects			{padding:10px 20px; background-color:#3B9CFB; font-size:1.25em; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
+a.view_all_projects		{padding:10px 20px; background-color:#3B9CFB; font-size:1.25em; color:#fff; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
 a.view_all_projects:hover	{background-color:#0081FF;}
 
 
@@ -242,7 +241,7 @@ table.head td.options		{color:#fff; text-align:right; vertical-align:top; font-s
 
 /*	Table for Country Name and Flag
 	============================================= */
-table.country				{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial;}
+table.country				{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial; border-bottom:10px solid #fff;}
 table.country td.name		{width:800px; max-width:800px; padding-right:10px; font-size:4.0em; line-height:1.1em; color:#fff;}
 table.country td.flag		{text-align:right;}
 table.country td.flag img	{max-height:90px;}

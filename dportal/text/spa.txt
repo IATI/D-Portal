@@ -13,25 +13,25 @@ Superior
 #tagline_text
 Ayudar a comprender los datos de desarrollo.
 
-#publisher_button_text
+#install_button_text
 Editor
 
-#publisher_info_text
+#install_info_text
 Consiga esto para su sitio web.
 
 #soon_text
 (¡Muy pronto!)
 
-#explorer_button_text
+#explore_button_text
 Explorar
 
-#explorer_info_text
+#explore_info_text
 Explora los datos IATI de un país.
 
-#developer_button_text
+#develop_button_text
 Revelador
 
-#developer_info_text
+#develop_info_text
 Estamos en Github.
 
 #index_title_text
@@ -86,49 +86,40 @@ Muchas gracias por tomarse el tiempo para hacer esto ! Esperamos crear algo úti
 - shi
 
 #about_title_text
-Módulos d-portal.org
-
-#about_back_text
-Volver a la página principal
-
-#about_paragraph1_text
-d-portal.org pretende ser una única interfaz de usuario para buscar y explorar todos los datos de la IATI, relativa a un país específico.
-
-#about_paragraph2_text
-El producto final estará disponible como un conjunto de HTML, Javascript, y CSS.
-
-#about_paragraph3_text
-Desde HTML / CSS / Javascript son las tecnologías de la web, y se utilizan ampliamente y comprendidos, creemos que esta es una buena opción para una fácil adopción por parte de los demás, para el despliegue fácil, y fácil para re-configuration/customisation.
+Acerca de d- portal.org
 
 #about_paragraph_title_text
 ¿Qué es?
 
+#about_paragraph1_text
+d-portal.org es una plataforma de información basada en los países que registra los flujos de recursos .
+
+#about_paragraph2_text
+Está dirigido a ofrecer a los ministerios de línea , los parlamentarios y la sociedad civil una información que le puede ayudar con la planificación y el seguimiento de las actividades de desarrollo .
+
+#about_paragraph3_text
+En su primera versión que contiene los datos actuales publicados a través de la Iniciativa Internacional de Transparencia de la Ayuda ( IATI ), así como los datos más recientes (2012) publicados por el <a href="http://www.oecd.org/dac/stats/crsguide.htm" target="_blank" class="co">OECD DAC Creditor Reporting System</a>.
+
 #about_paragraph4_text
-es una plataforma de información basada en los países que registra los flujos de recursos. Está dirigido a proporcionar los ministerios competentes, los parlamentarios y la sociedad civil una información que puede ayudar con la programación y seguimiento de las actividades de desarrollo.
+La plataforma actual plantea dos preguntas: ¿de dónde vienen los recursos de , y ¿a dónde van (por sector y lugar) ? Datos recientes , actuales y futuros se presenta y comparado a través de las fuentes de datos .
 
 #about_paragraph5_text
-Las TIC en la primera iteración contiene datos actuales publicados a través de la Iniciativa Internacional de Transparencia de la Ayuda (IATI), así como los datos más recientes (2012) publicados por el
+Con el fin de responder a estas preguntas desde una perspectiva nacional es insuficiente simplemente para mostrar los datos disponibles: es igualmente importante para trazar las lagunas en la información. Hacer frente a la mala calidad o los datos que faltan es una parte esencial de la interfaz de información.
 
 #about_paragraph6_text
-. ¿Será el desarrollo futuro incluyen, entre otros, los datos de emergencia información, Sistemas de Gestión de los presupuestos nacionales y una serie de indicadores socioeconómicos comparables.
+es una plataforma de código abierto.
 
 #about_paragraph7_text
-Las TIC en la primera plataforma de iteración plantea dos preguntas : ¿de dónde vienen los recursos de, y ¿A dónde van (por sector y lugar) ? Datos recientes, actuales y futuros se presenta y se compararon a través de fuentes de datos.
+A pesar de que actualmente proporciona una implementación genérica para cualquier país que ha sido desarrollado con la intención específica de ser modificado para requisitos particulares en el país para satisfacer las necesidades locales . Para más información sobre cómo se puede crear una versión personalizada para un país específico , vea nuestra página Instalar <i> (que pronto estará disponible ) </i> .
 
 #about_paragraph8_text
-Con el fin de responder a los problemas de contención desde una perspectiva nacional no es más que suficientes datos disponibles para mostrar: Igualmente significativo es que para trazar las lagunas en la información. Hacer frente a la mala calidad o los datos que faltan es una parte esencial de la interfaz de información.
+Financiamiento
 
 #about_paragraph9_text
-es una plataforma de código abierto. Aunque proporciona una implementación genérica para cualquier país que tiene terminado el juego desarrollado con la intención de ser específico Personalizado en el país para satisfacer las necesidades locales. Un prototipo de aplicación local para Nepal se están desarrollando en paralelo con el motor principal.
+El desarrollo inicial de d- portal.org que duró desde diciembre de 2013 hasta la reunión de la Alianza Global en México en abril de 2014 fue financiada por <a href="http://www.aidtransparency.net/" target="_blank" class="co">IATI</a> y <a href="http://devinit.org/" target="_blank" class="co">Development Initiatives (DI)</a>.
 
 #about_paragraph10_text
-viejas glorias de financiación conjunta por
-
-#about_paragraph11_text
-y
-
-#about_paragraph12_text
-. IATI está muy interesada en promover el acceso a los datos con formato IATI a nivel de país. DI se compromete a mejorar el acceso a la información mediante la implementación de soluciones de datos acumulados en marcha.
+DI está financiando la fase actual del desarrollo y la preparación hasta el final de agosto 2014 Si usted está interesado en la financiación de parte de la elaboración en curso de d- portal , por favor póngase en contacto con <a href="mailto:queries@d-portal.org" target="_blank" class="co">queries@d-portal.org</a>
 
 #savi_paragraph1_text
 SAVI es un único visor de actividad para la IATI XML que se pueden ver en tiempo real, en línea, en tu navegador favorito.
@@ -196,6 +187,21 @@ datos de la transacción
 #q_example4_info4_text
 ordenados por fecha
 
+#install_title_text 
+Cómo instalar el d-portal 
+
+#install_paragraph1_text 
+En el corazón del proyecto d-portal es el objetivo que cualquier persona en cualquier lugar puede tomar el código fuente abierta detrás de d-portal, desplegar por sí mismos y crear un d-portal personalizado para cualquier país que les interesa. Esto podría incluir la adición de cualquier otro dato de emergencia información, Sistemas de Gestión de los presupuestos nacionales y una serie de indicadores socioeconómicos comparables. 
+
+#install_paragraph2_text 
+Ya hay ejemplos de medida d-portals específica del país de la siguiente manera: 
+
+#install_paragraph3_text 
+El producto final estará disponible como un conjunto de HTML, Javascript, y CSS. 
+
+#install_paragraph4_text 
+Desde HTML / CSS / Javascript son las tecnologías de la web, y es ampliamente utilizado y comprendido, creemos que esta es una buena opción para una fácil adopción por parte de los demás, para una fácil implementación, y para facilitar re-configuración/personalización .
+
 #github_tip_text
 Visite d-portal.org en Github
 
@@ -203,7 +209,7 @@ Visite d-portal.org en Github
 Tenedor nosotros
 
 #github_info2_text
-d-portal.org se está desarrollando actualmente y diseñado para que las cosas están cambiando constantemente. Envíanos tus sugerencias, informes y problemas de bichos.
+d-portal.org está siendo desarrollado y diseñado para que las cosas están cambiando constantemente en la actualidad. Envíanos tus sugerencias, informes de errores y problemas o contacto <a href="mailto:queries@d-portal.org" target="_blank" class="git small"> queries@d-portal.org </a>
 
 #footer_pick_text 
 Elige otro país 
