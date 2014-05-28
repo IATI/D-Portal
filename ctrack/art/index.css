@@ -17,8 +17,9 @@ a:link  				{color:#53B4ED; text-decoration:none;}
 a:visited				{color:#53B4ED; text-decoration:none;}
 a:hover					{color:#BBEFFF; text-decoration:none;}
 a:active				{color:#53B4ED; text-decoration:none;}
-i						{font-style:italic;}
-.bold					{font-weight:bold;}
+em, i, .italic			{font-style:italic; color:inherit;}
+strong, b, .bold		{font-weight:bold; color:inherit;}
+.underline				{text-decoration:underline; color:inherit;}
 .bold.ob				{font-style:italic;}
 
 
