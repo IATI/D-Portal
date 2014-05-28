@@ -37,6 +37,7 @@ start_app (){
 	cd $APP_DIR
 	$NODE_EXEC ./$NODE_APP  1>$LOG_FILE 2>&1 &
 	echo $! > $PID_FILE;
+	sleep 1
 }
 
 stop_app (){
@@ -50,6 +51,7 @@ stop_app (){
 		rm -f $PID_FILE;
 		echo "Node stopped"
 	fi
+	sleep 1
 }
 
 status_app (){
