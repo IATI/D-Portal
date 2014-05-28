@@ -16,7 +16,7 @@ LOG_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.log
 CRONLOG_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.cron.log
 
 
-NODE_EXEC=`which node`
+NODE_EXEC=/usr/local/bin/node
 
 
 
