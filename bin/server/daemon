@@ -18,19 +18,7 @@ CRONLOG_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.cron.log
 
 NODE_EXEC=`which node`
 
-###############
-# REDHAT chkconfig header
-# chkconfig: - 58 74
-# description: this is the script for starting a node app on boot and keeping it running via cron.
-### BEGIN INIT INFO
-# Provides: node app
-# Required-Start:    $network $remote_fs $local_fs
-# Required-Stop:     $network $remote_fs $local_fs
-# Default-Start:     1 2 3 4 5
-# Default-Stop:      0 6
-# Short-Description: start and stop node app
-# Description: start and stop node app
-### END INIT INFO
+
 
 start_app (){
 	if [ -f $PID_FILE ]
