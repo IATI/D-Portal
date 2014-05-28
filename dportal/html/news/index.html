@@ -5,6 +5,7 @@
 	<title>{blog_title}</title>
 	<script src="{root}jslib/jquery.js"></script>
 	<link  href="{root}art/original/ctrack.css" rel="stylesheet" type="text/css" >
+	<link  href="{root}about.css" rel="stylesheet" type="text/css" >
 </head>
 <body>
 	{view_head}
@@ -15,6 +16,24 @@
 	{view_tail}
 </body>
 </html>
+
+#main_head
+<div class="navi">
+	<table class="head">
+		<tr>
+			<td class="logo">
+				<a href="{tongue_root}" title="{mainback_tip_text}">
+					<img src="{root}art/original/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>
+				</a>
+			</td>
+			<td class="dplinks"><a href="{tongue_root}about.html#sav" class="top savi">SAVi</a></td>
+			<td class="dplinks"><a href="{tongue_root}about.html#install" class="top install">Install</a></td>
+			<td class="dplinks"><a href="{tongue_root}about.html#git" class="top hub">Github</a></td>
+			<td class="dplinks"><a href="{tongue_root}news" class="top news">News</a></td>
+			<td class="options">{tongue_select}</td>
+		</tr>
+	</table>
+</div>
 
 #main_title
 <div class="default">
