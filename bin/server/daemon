@@ -4,13 +4,17 @@ NODE_ENV="production"
 NODE_NAME="dportal"
 NODE_APP="js/serv.js"
 APP_DIR="/home/ctrack/D-Portal/$NODE_NAME"
-APP_URL="http://localhost:1408/"
+
+APP_TEST_URL="http://localhost:1408/"
+APP_TEST_CODE=200
+
+CRONLOG_EMAILS="krissd@gmail.com,notshi@gmail.com"
+
 
 PID_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.pid
 LOG_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.log
 CRONLOG_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.cron.log
 
-CRONLOG_EMAILS="krissd@gmail.com,notshi@gmail.com"
 
 NODE_EXEC=`which node`
 
@@ -90,7 +94,7 @@ check_app (){
 			exit 10
 		else
 			echo "Node app $NODE_NAME running with pid $PID"
-			if [ "`curl -s -o /dev/null -w "%{http_code}" $APP_URL`" = "200" ]
+			if [ "`curl -s -o /dev/null -w "%{http_code}" $APP_TEST_URL`" = "$APP_TEST_CODE" ]
 			then
 				echo "Node app $NODE_NAME responding OK"
 				exit 0
@@ -139,7 +143,7 @@ case "$1" in
 		$0 check >$CRONLOG_FILE
 		if [[ $? -ne 0 ]]
 		then
-			mail -s"$NODE_NAME on $HOSTNAME restarting" $CRONLOG_EMAILS <$CRONLOG_FILE
+			mail -s"$NODE_NAME on $HOSTNAME cronlog" $CRONLOG_EMAILS <$CRONLOG_FILE
 		fi
 	;;
 
