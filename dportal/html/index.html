@@ -14,23 +14,23 @@
 		<div class="overlay">
 			<div class="default center">
 				<img src="{root}art/dp_logo.index.png" width="600" height="250" alt="D-Portal logo"/>
-				<div style="text-align:right; width:960px; padding-bottom:10px;">{tongue_select}</div>
+				<div class="tongue_wrap">{tongue_select}</div>
 				<div class="tag">{tagline_text}</div>
 				<div class="default" style="padding:40px 0;">
 					<div class="third">
 						<a class="path no">
-							<span style="display:block; color:#53AEFF; font-size:2.3em;">{publisher_button_text}</span>
-							<span style="display:block; color:#fff; font-size:1.1em; padding-top:20px;">{publisher_info_text} <i>{soon_text}</i></span>
+							<span class="path_title publisher">{publisher_button_text}</span>
+							<span class="path_txt">{publisher_info_text} <i>{soon_text}</i></span>
 						</a>
 					</div><div class="third">
 						<a href="#explore" class="path">
-							<span style="display:block; color:#2CE268; font-size:2.3em;">{explorer_button_text}</span>
-							<span style="display:block; color:#fff; font-size:1.1em; padding-top:20px;">{explorer_info_text}</span>
+							<span class="path_title explorer">{explorer_button_text}</span>
+							<span class="path_txt">{explorer_info_text}</span>
 						</a>
 					</div><div class="third">
 						<a href="https://github.com/IATI/D-Portal" target="_blank" class="path">
-							<span style="display:block; color:#FF860E; font-size:2.3em;">{developer_button_text}</span>
-							<span style="display:block; color:#fff; font-size:1.1em; padding-top:20px;">{developer_info_text}</span>
+							<span class="path_title developer">{developer_button_text}</span>
+							<span class="path_txt">{developer_info_text}</span>
 						</a>
 					</div>
 				</div>
@@ -38,17 +38,15 @@
 					<span class="title">{index_title_text}</span>
 					<p><span class="bold">d-portal.org</span> {index_paragraph1_text}</p>
 					<p>{index_paragraph2_text}</p>
-					<a href="{tongue_root}about.html" class="read">{read_more_text}</a>
+					<a href="{tongue_root}news" class="read">&gt; {news_page_text}</a>
+					<a href="{tongue_root}about.html" class="read">&gt; {read_more_text}</a>
 				</div>
 				<div class="country_menu_wrap">
 					<span id="explore"></span>
 				<div class="country_menu_title_wrap">
 					<div class="country_menu_title">{explore_title_text}</div>
 					<p>{explore_paragraph1_text}</p>
-					<p>{explore_paragraph2_text} <a href="http://www.aidtransparency.net/">IATI</a>.</p>					
-					<a href="http://www.aidtransparency.net/" class="iati_link">
-						<img src="{root}art/iati_logo.269.png" alt="IATI logo" width="269" height="70"/>
-					</a>
+					<p>{explore_paragraph2_text}</p>
 				</div><div class="country_menu_list_wrap">
 				<ul class="country_menu_list">{countries:country_select}</ul>
 				</div></div>

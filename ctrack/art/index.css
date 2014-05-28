@@ -31,6 +31,7 @@ i						{font-style:italic;}
 .default				{width:960px; margin:0 auto; padding:0;}
 .default.center			{text-align:center;}
 .third					{display:inline-block; vertical-align:top; width:300px; padding-right:20px;}
+.tongue_wrap			{text-align:right; width:960px; padding-bottom:10px;}
 
 
 /*	Buttons and header styles
@@ -40,9 +41,11 @@ a.path					{display:block; padding:40px 20px; border-radius:8px; background-colo
 a.path:hover			{background-color:rgba(0,14,32,0.9);}
 a.path.no				{background-color:rgba(0,14,32,0.4);}
 a.path.no:hover			{background-color:rgba(0,14,32,0.4); cursor:default;}
-a.iati_link				{display:block; margin:0 auto; padding:10px; background-color:rgba(255, 255, 255, 0); border-radius:6px;}
-a.iati_link:hover		{background-color:rgba(255, 255, 255, 0);}
-
+.path_title				{display:block; font-size:2.3em;}
+.path_title.publisher	{color:#53AEFF;}
+.path_title.explorer	{color:#2CE268;}
+.path_title.developer	{color:#FF860E;}
+.path_txt				{display:block; color:#fff; font-size:1.1em; padding-top:20px;}
 
 /*	Country Code List style
 	============================================= */
@@ -57,19 +60,14 @@ a.country_code				{width:100%; height:100%; color:#fff; font-size:1.4em; line-he
 a.country_code:hover		{background-color:rgba(37, 115, 205, 0.7);}
 
 
-/*	Data Description styles
+/*	Text and Description styles
 	============================================= */
 .description			{width:960px; margin:0 auto; padding-bottom:40px; text-align:left;}
 .description span.title	{display:block; color:#fff; line-height:1.35em; font-size:1.4em; padding:10px 0; border-top:1px solid #fff; border-bottom:1px solid #fff;}
 .description p			{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em;}
-a.read					{display:block; color:#53B4ED; font-size:1.2em;}
+a.read					{display:block; color:#53B4ED; font-size:1.2em; padding:10px 0;}
 a.read:hover			{color:#BBEFFF;}
 
-/*	Data Investigators alert
-	============================================= */
-.data_wrap				{width:100%; margin:0 auto;}
-a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:0.9em; color:#D6D2A1; text-align:center; background-color:rgba(194, 0, 255, 0.4);}
-a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
 
 /*	Footer
 	============================================= */
