@@ -13,17 +13,18 @@ a.top		{display:block; color:#fff; font-size:18px; vertical-align:top; padding-t
 a.top.install:hover	{border-top:5px solid #3A9971;}
 a.top.savi:hover	{border-top:5px solid rgba(255,165,0,1);}
 a.top.hub:hover		{border-top:5px solid rgba(255,255,255,1);}
+a.top.news:hover	{border-top:5px solid #3A4899;}
 
 
 /*	Wrappers
 	============================================= */
 
-.mid_wrap	{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
+.mid_wrap			{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
 .about_wrap			{width:100%; background-color:#2573CD; padding:140px 0 50px 0;}
 .about_wrap.more	{background-color:rgba(10, 14, 20, 0.91); padding:50px 0 100px 0;}
 .about_wrap.moretxt	{font-size:1.2em; color:#fff; line-height:1.2em; margin-bottom:40px; background:none;}
 .about_wrap.sav		{background-color:#FFA500;}
-.about_wrap.install	{background-color:#3A9971; padding:40px 0;}
+.about_wrap.install	{background-color:#3A9971; padding:0 0 40px 0;}
 .about_wrap.dq		{background-color:#724900; padding:0 0 50px 0;}
 .about_wrap.q		{background-color:#4F3200; padding:0 0 50px 0;}
 .about_wrap.git		{background-color:#fff; padding:80px 0 60px 0;}
