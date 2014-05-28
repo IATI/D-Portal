@@ -1,12 +1,14 @@
 #!/bin/sh
 
+NODE_EXEC="/usr/local/bin/node"
+
 NODE_ENV="production"
 NODE_NAME="dportal"
 NODE_APP="js/serv.js"
 APP_DIR="/home/ctrack/D-Portal/$NODE_NAME"
 
-APP_TEST_URL="http://localhost:1408/"
-APP_TEST_CODE=200
+APP_TEST_URL="http://localhost:1408/badurl"
+APP_TEST_CODE="200"
 
 CRONLOG_EMAILS="krissd@gmail.com,notshi@gmail.com"
 
@@ -16,7 +18,6 @@ LOG_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.log
 CRONLOG_FILE=$APP_DIR/$NODE_ENV/$NODE_NAME.cron.log
 
 
-NODE_EXEC=/usr/local/bin/node
 
 
 
@@ -26,7 +27,7 @@ start_app (){
 		PID=`cat $PID_FILE`
 		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
 		then
-			echo "$PID_FILE exists, but process is not running"
+			echo "$PID_FILE exists, but process is not running (probably crashed)"
 			rm -f $PID_FILE;
 		else
 			echo "$PID_FILE exists, and process is already running."
@@ -60,7 +61,7 @@ status_app (){
 		PID=`cat $PID_FILE`
 		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
 		then
-			echo "Node app $NODE_NAME is stopped but pid file exists"
+			echo "Node app $NODE_NAME probably crashed"
 		else
 			echo "Node app $NODE_NAME is running with pid $PID"
 		fi
@@ -75,7 +76,7 @@ check_app (){
 		PID=`cat $PID_FILE`
 		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
 		then
-			echo "Node app $NODE_NAME is stopped but pid file exists"
+			echo "Node app $NODE_NAME probably crashed"
 			echo "*** last 100 lines of $NODE_NAME log ***"
 			tail -n100 $LOG_FILE
 			echo "*** last 100 lines of $NODE_NAME log ***"
