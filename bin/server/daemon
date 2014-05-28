@@ -72,12 +72,12 @@ status_app (){
 		PID=`cat $PID_FILE`
 		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
 		then
-			echo "Node app $NODE_NAME stopped but pid file exists"
+			echo "Node app $NODE_NAME is stopped but pid file exists"
 		else
-			echo "Node app $NODE_NAME running with pid $PID"
+			echo "Node app $NODE_NAME is running with pid $PID"
 		fi
 	else
-		echo "Node app $NODE_NAME stopped"
+		echo "Node app $NODE_NAME is stopped"
 	fi
 }
 
@@ -87,19 +87,19 @@ check_app (){
 		PID=`cat $PID_FILE`
 		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
 		then
-			echo "Node app $NODE_NAME stopped but pid file exists"
+			echo "Node app $NODE_NAME is stopped but pid file exists"
 			stop_app
 			start_app
 			status_app
 			exit 10
 		else
-			echo "Node app $NODE_NAME running with pid $PID"
+			echo "Node app $NODE_NAME is running with pid $PID"
 			if [ "`curl -s -o /dev/null -w "%{http_code}" $APP_TEST_URL`" = "$APP_TEST_CODE" ]
 			then
-				echo "Node app $NODE_NAME responding OK at $APP_TEST_URL"
+				echo "Node app $NODE_NAME is responding OK at $APP_TEST_URL"
 				exit 0
 			else
-				echo "Node app $NODE_NAME not responding"
+				echo "Node app $NODE_NAME is not responding"
 				stop_app
 				start_app
 				status_app
@@ -107,7 +107,7 @@ check_app (){
 			fi
 		fi
 	else
-		echo "Node app $NODE_NAME stopped"
+		echo "Node app $NODE_NAME is stopped"
 		start_app
 		status_app
 		exit 10
