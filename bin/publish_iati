@@ -6,6 +6,8 @@ cd ..
 
 bin/push_iati
 
-ssh ctrack@37.123.118.236 "cd D-Portal ; git pull -f"
-ssh ctrack@37.123.118.236 "D-Portal/ctrack/build"
-
+ssh ctrack@d-portal.org "cd D-Portal ; git pull -f"
+ssh ctrack@d-portal.org "D-Portal/ctrack/build"
+ssh ctrack@d-portal.org "D-Portal/d-portal/build"
+ssh root@d-portal.org "/etc/init.d/dportal stop"
+ssh root@d-portal.org "/etc/init.d/dportal start"
