@@ -91,7 +91,7 @@ check_app (){
 				echo "Node app $NODE_NAME is responding OK at $APP_TEST_URL"
 				exit 0
 			else
-				echo "Node app $NODE_NAME is not responding"
+				echo "Node app $NODE_NAME is not responding at $APP_TEST_URL"
 				echo "*** last 100 lines of $NODE_NAME log ***"
 				tail -n100 $LOG_FILE
 				echo "*** last 100 lines of $NODE_NAME log ***"
