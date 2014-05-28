@@ -126,7 +126,7 @@ case "$1" in
 	;;
 
 	cron)
-		$0 check >$CRONLOG_FILE
+		$0 check 1>$CRONLOG_FILE 2>&1
 		if [ $? -ne 0 ]
 		then
 			mail -s"$NODE_NAME on $HOSTNAME cronlog" $CRONLOG_EMAILS <$CRONLOG_FILE
