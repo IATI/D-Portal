@@ -130,7 +130,7 @@ case "$1" in
 		if [ $? -ne 0 ]
 		then
 			echo "*** last 100 lines of the app log follows ***" >>$CRONLOG_FILE
-			tail $LOG_FILE -n100 >>$CRONLOG_FILE
+			tail -n100 $LOG_FILE >>$CRONLOG_FILE
 			mail -s"$NODE_NAME on $HOSTNAME cronlog" $CRONLOG_EMAILS <$CRONLOG_FILE
 		fi
 		cat $CRONLOG_FILE
