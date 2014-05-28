@@ -26,11 +26,11 @@ start_app (){
 		PID=`cat $PID_FILE`
 		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
 		then
-			echo "$PID_FILE exists, and process is already running."
-			return
-		else
 			echo "$PID_FILE exists, but process is not running"
 			rm -f $PID_FILE;
+		else
+			echo "$PID_FILE exists, and process is already running."
+			return
  		fi
 	fi
 	echo "Starting node app $NODE_NAME..."
