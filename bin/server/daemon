@@ -96,7 +96,7 @@ check_app (){
 			echo "Node app $NODE_NAME running with pid $PID"
 			if [ "`curl -s -o /dev/null -w "%{http_code}" $APP_TEST_URL`" = "$APP_TEST_CODE" ]
 			then
-				echo "Node app $NODE_NAME responding OK"
+				echo "Node app $NODE_NAME responding OK at $APP_TEST_URL"
 				exit 0
 			else
 				echo "Node app $NODE_NAME not responding"
@@ -145,6 +145,7 @@ case "$1" in
 		then
 			mail -s"$NODE_NAME on $HOSTNAME cronlog" $CRONLOG_EMAILS <$CRONLOG_FILE
 		fi
+		cat $CRONLOG_FILE
 	;;
 
 	*)
