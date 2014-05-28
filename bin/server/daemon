@@ -73,12 +73,6 @@ check_app (){
 		PID=`cat $PID_FILE`
 		if [ -z "`ps ef -A | awk '{print $1}' | grep "^$PID$"`" ]
 		then
-			echo "Node app $NODE_NAME is stopped but pid file exists"
-			stop_app
-			start_app
-			status_app
-			exit 10
-		else
 			echo "Node app $NODE_NAME is running with pid $PID"
 			if [ "`curl -s -o /dev/null -w "%{http_code}" $APP_TEST_URL`" = "$APP_TEST_CODE" ]
 			then
@@ -91,6 +85,12 @@ check_app (){
 				status_app
 				exit 20
 			fi
+		else
+			echo "Node app $NODE_NAME is stopped but pid file exists"
+			stop_app
+			start_app
+			status_app
+			exit 10
 		fi
 	else
 		echo "Node app $NODE_NAME is stopped"
@@ -129,6 +129,8 @@ case "$1" in
 		$0 check 1>$CRONLOG_FILE 2>&1
 		if [ $? -ne 0 ]
 		then
+			echo "*** last 100 lines of the app log follows ***" >>$CRONLOG_FILE
+			tail $LOG_FILE -n100 >>$CRONLOG_FILE
 			mail -s"$NODE_NAME on $HOSTNAME cronlog" $CRONLOG_EMAILS <$CRONLOG_FILE
 		fi
 		cat $CRONLOG_FILE
