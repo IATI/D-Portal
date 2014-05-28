@@ -141,7 +141,7 @@ case "$1" in
 		$0 check 1>$CRONLOG_FILE 2>&1
 		if [ $? -ne 0 ]
 		then
-			mail -s"$NODE_NAME on 'hostname' cronlog" $CRONLOG_EMAILS <$CRONLOG_FILE
+			mail -s"$NODE_NAME on `hostname` cronlog" $CRONLOG_EMAILS <$CRONLOG_FILE
 		fi
 		cat $CRONLOG_FILE
 	;;
