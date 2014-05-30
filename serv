@@ -1,4 +1,6 @@
 cd `dirname $0`
 cd ctrack
 npm run build
+cd ../dportal
+npm run build
 node js/serv $*
