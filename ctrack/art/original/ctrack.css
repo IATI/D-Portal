@@ -69,11 +69,11 @@ a.about_data.quality	{border-left:1px solid #b4b4b4; text-align:right; padding-r
 /*	Blog styles
 	============================================= */
 .blog_head			{width:960px; margin:0 auto; color:#fff; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #fff;}
-a.blog_head			{display:block; width:820px; margin:0 auto; color:#fff; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #fff;}
+a.blog_head			{display:block; width:960px; margin:0 auto; color:#fff; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #fff;}
 .blog_wrap			{padding:40px 60px; color:#fff; font-size:1.0em; line-height:1.4em; border-bottom:1px solid #fff; background-color:rgba(0, 0, 0, 0.58); width:700px; margin:auto; margin-top:40px; margin-bottom:40px;}
 .blog_date			{font-size:0.9em; line-height:1.2em; color:#ccc;}
 .blog_body			{padding:20px 0;}
-.blog_body p		{margin:1em 0;}
+.blog_body p		{margin:1em 0; padding:0; color:inherit;}
 .blog_body ul		{list-style:inherit; list-style-position:inside;}
 .blog_body a		{color:#A8D2F8; text-decoration:underline;}
 .blog_body a:hover	{color:#D8EDFF;}

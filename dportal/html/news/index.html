@@ -5,6 +5,8 @@
 	<title>{blog_title}</title>
 	<script src="{root}jslib/jquery.js"></script>
 	<link  href="{root}art/original/ctrack.css" rel="stylesheet" type="text/css" >
+	<link  href="{root}about.css" rel="stylesheet" type="text/css" >
+	<style>{css}</style>
 </head>
 <body>
 	{view_head}
@@ -15,6 +17,24 @@
 	{view_tail}
 </body>
 </html>
+
+#main_head
+<div class="navi">
+	<table class="head">
+		<tr>
+			<td class="logo">
+				<a href="{tongue_root}" title="{mainback_tip_text}">
+					<img src="{root}art/original/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>
+				</a>
+			</td>
+			<td class="dplinks"><a href="{tongue_root}about.html#sav" class="top savi">SAVi</a></td>
+			<td class="dplinks"><a href="{tongue_root}about.html#install" class="top install">{install_link_text}</a></td>
+			<td class="dplinks"><a href="{tongue_root}about.html#git" class="top hub">Github</a></td>
+			<td class="dplinks"><a href="{tongue_root}news/posts.html" class="top news">{news_link_text}</a></td>
+			<td class="options">{tongue_select}</td>
+		</tr>
+	</table>
+</div>
 
 #main_title
 <div class="default">
@@ -61,3 +81,6 @@
     <a href="http://disqus.com" class="dsq-brlink">{disqus_text} <span class="logo-disqus">Disqus</span></a>
     
 </div>
+
+#css
+.navi	{position:relative;}
