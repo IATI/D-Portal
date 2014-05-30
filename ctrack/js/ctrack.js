@@ -99,20 +99,20 @@ ctrack.setup=function(args)
 	}
 	
 	ctrack.chunks={};
-	plate.push_namespace(ctrack.chunks);
-	if(args.chunks)
-	{
-		plate.push_namespace(args.chunks);
-	}
-
 	if( args.tongue!="non" ) // use non as a debugging mode
 	{
+		plate.push_namespace(require("../json/eng.json")); // english fallback for any missing chunks
+
 		var tongues=require("../json/tongues.js"); // load all tongues
 		var tongue=tongues[ args.tongue ];
-		if(tongue){plate.push_namespace(tongue);}
-		plate.push_namespace(require("../json/eng.json")); // english fallback for any missing chunks
+		if(tongue){plate.push_namespace(tongue);} // translation requested
 	}
-	plate.push_namespace(require("../json/chunks.json"));
+	plate.push_namespace(require("../json/chunks.json")); //the main chunks
+	if(args.chunks)
+	{
+		plate.push_namespace(args.chunks); // override on load
+	}
+	plate.push_namespace(ctrack.chunks); // the data we create at runtime
 
 // set or get a chunk in the ctrack namespace
 	ctrack.chunk=function(n,s){
