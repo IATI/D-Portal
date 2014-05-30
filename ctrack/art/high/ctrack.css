@@ -144,10 +144,11 @@ a.view_all_projects:hover	{background-color:#000; color:#fff;}
 .description_wrap		{width:100%; margin:0 auto; padding-bottom:40px;}
 .description			{width:960px; margin:0 auto; padding:40px 0; text-align:left; margin-bottom:40px;}
 .description span.title	{display:block; color:#000; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-top:1px solid #000; border-bottom:1px solid #000;}
+.description span.title.sub	{font-size:1.0em; border:0; margin:0; padding-bottom:10px; font-weight:bold;}
 .description p			{padding:15px 0; font-size:1.2em; color:#000; line-height:1.2em; word-spacing:0.07em;}
 .description a			{color:#000; text-decoration:underline;}
 .description a:hover	{color:#000;}
-a.read					{display:inline-block; color:#000; font-size:1.0em;}
+a.read					{display:inline-block; color:#000; font-size:1.1em;}
 a.read:hover			{color:#000;}
 
 
@@ -347,7 +348,7 @@ table.activity a:active	{color:#000; text-decoration:none;}
 
 /*	Table for data descriptions (Donors / Sectors)
 	============================================= */
-table.data				{width:100%; border-collapse:collapse;}
+table.data				{width:880px; border-collapse:collapse;}
 table.data td			{color:#000; font-size:1.0em; line-height:1.4em; padding:10px 20px; vertical-align:top; border:1px solid #9E9E9E;}
 
 
