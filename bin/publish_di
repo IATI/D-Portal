@@ -4,7 +4,7 @@
 cd `dirname $0`
 cd ..
 
-bin/push_di
+bin/push
 
 ssh ctrack@d-portal.org "cd D-Portal ; git pull -f"
 ssh ctrack@d-portal.org "D-Portal/ctrack/build"
