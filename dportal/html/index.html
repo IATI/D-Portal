@@ -34,22 +34,26 @@
 						</a>
 					</div>
 				</div>
-				<div class="description">
-					<span class="title">{index_title_text}</span>
-					<p><span class="bold">d-portal.org</span> {index_paragraph1_text}</p>
-					<p>{index_paragraph2_text}</p>
-					<a href="{tongue_root}news/posts.html" class="read">&gt; {news_page_text}</a>
-					<a href="{tongue_root}about.html" class="read">&gt; {read_more_text}</a>
+				<div class="description_wrap">
+					<div class="description">
+						<span class="title">{index_title_text}</span>
+						<p><span class="bold">d-portal.org</span> {index_paragraph1_text}</p>
+						<p>{index_paragraph2_text}</p>
+					</div><div class="description">
+						<span class="title">{links_title_text}</span>
+						<a href="{tongue_root}news/posts.html" class="read">&gt; {news_page_text}</a>
+						<a href="{tongue_root}about.html" class="read">&gt; {read_more_text}</a>
+						<span class="title">{explore_title_text}</span>
+						<p>{explore_paragraph1_text}</p>
+						<p>{explore_paragraph2_text}</p>
+					</div>
 				</div>
 				<div class="country_menu_wrap">
 					<span id="explore"></span>
-				<div class="country_menu_title_wrap">
-					<div class="country_menu_title">{explore_title_text}</div>
-					<p>{explore_paragraph1_text}</p>
-					<p>{explore_paragraph2_text}</p>
-				</div><div class="country_menu_list_wrap">
-				<ul class="country_menu_list">{countries:country_select}</ul>
-				</div></div>
+					<div class="country_menu_list_wrap">
+						<ul class="country_menu_list">{countries:country_select}</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -69,4 +73,14 @@
 </html>
 
 #country_select
-<li><a class="country_code" href="{root}ctrack.html?country={it.id}&tongue={tongue}">{it.name}</a></li>
+<li>
+	<a class="country_code" href="{root}ctrack.html?country={it.id}&tongue={tongue}">
+		<span class="select_wrap">
+			<img src="{root}art/flag/{it.cc}.png" alt="{it.name} {flag_alt_text}"/>
+		</span><span class="select_wrap countryid">
+			{it.id}
+		</span><span class="select_wrap countryname">
+			{it.name}
+		</span>
+	</a>
+</li>

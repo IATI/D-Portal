@@ -1,6 +1,7 @@
 #css
 #=^
 #background_image	 {width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
+.overlay			{width:100%; height:100%; background-color:rgba(19, 16, 1, 0.6);}	/* Overlay colour for background image */
 
 /*	Navigation
 	============================================= */
@@ -34,7 +35,8 @@ a.top.news:hover	{border-top:5px solid #495BBE;}
 	============================================= */
 
 h1				{font-weight:bold; font-size:38px; display:block; padding-top:30px;}
-p	{color:#fff; padding:15px 0;}
+p				{color:#fff; padding:15px 0;}
+.mid_wrap p		{color:#fff; padding:30px 0 5px;}
 .about_head		{color:#fff; line-height:1.25em; font-size:22px; padding:30px 0 0px 40px;}
 .about_info		{font-size:18px; line-height:1.4em; color:#E8F6FF; padding-top:10px;}
 .sav_head		{color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;}
