@@ -54,7 +54,7 @@ query.get_q = function(req){
 		for(var n in f) // single depth copy only
 		{
 			var v=f[n];
-			if(unesc){ v=unesc(v); ls([v,unesc(v)]); } // use unescape function?
+			if(unesc){ v=unesc(v); } // use unescape function?
 			if(q[n]===undefined) // only set if not exists, so call cp in order of priority from high to low
 			{
 				q[n]=v;
