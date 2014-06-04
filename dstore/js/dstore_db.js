@@ -125,7 +125,7 @@ dstore_db.open = function(){
 };
 
 
-dstore_db.fill_acts = function(acts,slug){
+dstore_db.fill_acts = function(acts,slug,main_cb){
 
 	var before_time=Date.now();
 	var after_time=Date.now();
@@ -139,6 +139,7 @@ dstore_db.fill_acts = function(acts,slug){
 		db.run("BEGIN TRANSACTION",cb);
 	});
 	
+	db.run("DELETE FROM act WHERE slug=?",slug); // remove all the old acts
 	db.run("DELETE FROM slug WHERE slug=?",slug); // remove all the old slugs
 
 	
@@ -189,6 +190,8 @@ dstore_db.fill_acts = function(acts,slug){
 		after_time=Date.now();
 		
 		process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
+		
+		if(main_cb){ main_cb(); }
 	});
 
 };
