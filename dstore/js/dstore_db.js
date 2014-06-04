@@ -139,15 +139,13 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 		db.run("BEGIN TRANSACTION",cb);
 	});
 	
-	db.run("DELETE FROM act WHERE slug=?",slug); // remove all the old acts
-	db.run("DELETE FROM slug WHERE slug=?",slug); // remove all the old slugs
-
-	
 	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
 		before=row["COUNT(*)"];
 	});
 
+	db.run("DELETE FROM act WHERE slug=?",slug); // remove all the old acts
+	db.run("DELETE FROM slug WHERE slug=?",slug); // remove all the old slugs
 
 //	var stmt = db.prepare("REPLACE INTO act (aid,xml,jml) VALUES (?,?,?)");
 
