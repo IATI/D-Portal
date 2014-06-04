@@ -102,7 +102,7 @@ var codes=["ad","ae","af","ag","ai","al","am","an","ao","aq","ar","as","at","au"
 
 	var url="http://datastore.iatistandard.org/api/1/access/activity.xml?&stream=True&recipient-country=";
 //	var url="http://datastore.iatistandard.org/api/1/access/activity.xml?&limit=1&recipient-country=";
-//	var url="http://datastore.iatistandard.org/api/1/access/activity.xml?&limit=1&recipient-country=";
+//	var url="http://datastore.iatistandard.org/api/1/access/activity.xml?&limit1=1&recipient-country=";
 
 	for(var i=0;i<codes.length;i++)
 	{
@@ -114,7 +114,9 @@ var codes=["ad","ae","af","ag","ai","al","am","an","ao","aq","ar","as","at","au"
 		while(!x && count<10)
 		{
 			count++;
-			x=wait.for(http_getbody,url+v);
+			try{
+				x=wait.for(http_getbody,url+v);
+			}catch(e){}
 			if(x)
 			{
 				fs.writeFileSync(fname,x);
