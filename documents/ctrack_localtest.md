@@ -21,7 +21,7 @@ create a directory in your home directory containing the project.
 
 	cd ~
 	sudo apt-get install git
-	git clone https://github.com/IATI/D-Portal
+	git clone https://github.com/devinit/D-Portal
 	cd D-Portal/ctrack
 	../bin/getapts
 
@@ -49,7 +49,7 @@ to type the commands on this page into.
 
 Finally we need to grab the code with the following command
 
-	git clone https://github.com/IATI/D-Portal
+	git clone https://github.com/devinit/D-Portal
 
 and then move into the ctrack directory, make sure you have moved 
 into this directory before you try and perform any of the other 

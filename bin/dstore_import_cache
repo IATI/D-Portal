@@ -1,0 +1,13 @@
+cd `dirname $0`
+cd ../dstore
+
+mkdir cache
+
+for xmlfile in cache/*.xml
+do
+echo $xmlfile
+  node js/cmd import "$xmlfile" || exit 1
+done
+
+#make it smarter
+node js/cmd analyze

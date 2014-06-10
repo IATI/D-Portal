@@ -1,0 +1,13 @@
+cd `dirname $0`
+cd ..
+
+date
+
+#dstore/dstore cache empty
+
+dstore/dstore cache datastore
+
+bin/dstore_import_cache
+
+date
+

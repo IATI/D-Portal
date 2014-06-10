@@ -70,8 +70,8 @@ tongue.export=function(filename)
 // replace chunks in lang.txt files with chunks stored in a csv file
 tongue.import=function(filename)
 {
-	wait.launchFiber(function()
-	{
+//	wait.launchFiber(function()
+//	{
 		var lines=wait.for( function(cb){ csv().from.string( fs.readFileSync(filename,'utf8') ).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node!
 
 //		ls(lines);
@@ -108,6 +108,6 @@ tongue.import=function(filename)
 		fs.writeFileSync("text/eng.txt",plate.out_chunks(eng));
 		fs.writeFileSync("text/fra.txt",plate.out_chunks(fra));
 
-	});
+//	});
 }
 

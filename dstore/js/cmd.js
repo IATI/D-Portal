@@ -18,95 +18,72 @@ var argv=require('yargs').argv; global.argv=argv;
 
 argv.port=argv.port||1337;
 argv.database=argv.database||"../dstore/db/dstore.sqlite";
+argv.cache=argv.cache||"../dstore/cache";
 
 
-// make sure we have a db dir
-fs.mkdir("db",function(e){});
-//ls(argv)
-if( argv._[0]=="init" )
-{
-	require("./dstore_db").create_tables(); // 
-	return;
-}
-else
-if( argv._[0]=="analyze" )
-{
-	require("./dstore_db").analyze();
-	return;
-}
-else
-if( argv._[0]=="vacuum" )
-{
-	require("./dstore_db").vacuum();
-	return;
-}
-else
-if( argv._[0]=="index" )
-{
-	require("./dstore_db").create_indexes(); // add indexes to previously inserted data
-	return;
-}
-else
-if( argv._[0]=="unindex" )
-{
-	require("./dstore_db").delete_indexes(); // add indexes to previously inserted data
-	return;
-}
-else
-if( argv._[0]=="check" )
-{
-	require("./dstore_db").check_tables();
-	return;
-}
-else
-if( argv._[0]=="exs" )
-{
-	wait.launchFiber( require("./exs").create_csv );
-	return;
-}
-else
-if( argv._[0]=="fetch" )
-{
-	wait.launchFiber( require("./iati_codes").fetch );
-	return;
-}
-else
-if( argv._[0]=="import" )
-{
-//		console.log("Attempting Import");
-	
-	var xmlfile=argv._[1];
-	var xmlfilename=path.basename(xmlfile,".xml");
-	
-	var fs = require('fs');
-	
-	var data=fs.readFileSync(xmlfile,"UCS-2"); // try 16bit first?
-	var aa=data.split(/<iati-activity/gi);
-	if(aa.length==1) // nothing found so try utf8
+wait.launchFiber(function(){
+
+	// make sure we have a db dir
+	fs.mkdir("db",function(e){});
+	//ls(argv)
+	if( argv._[0]=="init" )
 	{
-		data=fs.readFileSync(xmlfile,"utf8");
-		aa=data.split(/<iati-activity/gi);
+		require("./dstore_db").create_tables();
+		return;
 	}
-	
-//ls(aa);			
-	var acts=[];
-	for(var i=1;i<aa.length;i++)
+	else
+	if( argv._[0]=="analyze" )
 	{
-		var v=aa[i];
-		var v=v.split(/<\/iati-activity>/gi)[0]; // trim the end
-		acts.push("<iati-activity dstore:slug=\""+xmlfilename+"\" dstore:idx=\""+i+"\" "+v+"</iati-activity>"); // rebuild and add import filename
+		require("./dstore_db").analyze();
+		return;
+	}
+	else
+	if( argv._[0]=="vacuum" )
+	{
+		require("./dstore_db").vacuum();
+		return;
+	}
+	else
+	if( argv._[0]=="index" )
+	{
+		require("./dstore_db").create_indexes(); // add indexes to previously inserted data
+		return;
+	}
+	else
+	if( argv._[0]=="unindex" )
+	{
+		require("./dstore_db").delete_indexes(); // add indexes to previously inserted data
+		return;
+	}
+	else
+	if( argv._[0]=="check" )
+	{
+		require("./dstore_db").check_tables();
+		return;
+	}
+	else
+	if( argv._[0]=="cache" )
+	{
+		require("./dstore_cache").cmd(argv);
+		return;
+	}
+	else
+	if( argv._[0]=="exs" )
+	{
+		require("./exs").create_csv();
+		return;
+	}
+	else
+	if( argv._[0]=="fetch" )
+	{
+		require("./iati_codes").fetch();
+		return;
+	}
+	else
+	if( argv._[0]=="import" )
+	{
+		require("./dstore_cache").import_xmlfile( argv._[1] );
+		return;		
 	}
 
-
-	console.log("\t\tImporting xmlfile : ("+acts.length+") "+xmlfilename);
-
-//		console.log("activities: "+acts.length);
-//			console.log(acts[0]);
-
-
-	wait.launchFiber(function(){
-		require("./dstore_db").fill_acts(acts,xmlfilename);
-	});
-
-	return;		
-}
+});

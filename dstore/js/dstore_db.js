@@ -125,7 +125,8 @@ dstore_db.open = function(){
 };
 
 
-dstore_db.fill_acts = function(acts,slug){
+
+dstore_db.fill_acts = function(acts,slug,main_cb){
 
 	var before_time=Date.now();
 	var after_time=Date.now();
@@ -139,25 +140,36 @@ dstore_db.fill_acts = function(acts,slug){
 		db.run("BEGIN TRANSACTION",cb);
 	});
 	
-	db.run("DELETE FROM slug WHERE slug=?",slug); // remove all the old slugs
-
-	
 	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
 		before=row["COUNT(*)"];
 	});
 
+// work out what ids need to be deleted, start with a list of all the old ids
+	var oldacts=[];
+	db.each("SELECT aid FROM act WHERE slug=?",slug, function(err, row)
+	{
+		oldacts.push(row["aid"]);
+	});
+
+	wait.for(function(cb){ db.run("PRAGMA page_count", function(err, row){ cb(err); }); });
+		
+		
+//	db.run("DELETE FROM act WHERE slug=?",slug); // remove all the old acts
+//	db.run("DELETE FROM slug WHERE slug=?",slug); // remove all the old slugs
 
 //	var stmt = db.prepare("REPLACE INTO act (aid,xml,jml) VALUES (?,?,?)");
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
+	var newacts=[];
 	for(var i=0;i<acts.length;i++)
 	{
 		var xml=acts[i];
 		json=refry.xml(xml);
 		var aid=iati_xml.get_aid(json);
-
+		
+		newacts.push(aid);
 
 		var p=Math.floor(progchar.length*(i/acts.length));
 		if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
@@ -177,6 +189,40 @@ dstore_db.fill_acts = function(acts,slug){
 	wait.for(function(cb){ db.run("COMMIT TRANSACTION",cb); });
 	process.stdout.write("\n");
 
+// remove the acts that have not been updated above
+
+	var delacts=[];
+	for(var a in oldacts)
+	{
+		var aid=oldacts[a];
+		for(var b in newacts)
+		{
+			if(newacts[b]==aid){aid=null;} // replaced
+		}
+		if(aid)
+		{
+			delacts.push(aid); // this one is to be removed
+		}
+	}
+	if( delacts.length>0 )
+	{
+		console.log("DELETE "+delacts.length+" acts.");
+		var dc=[];
+		for(var a in delacts)
+		{
+			dc.push("?");
+		}
+		dc=dc.join(",");
+		db.run("DELETE FROM act     WHERE aid IN ("+dc+")",delacts);
+		db.run("DELETE FROM jml     WHERE aid IN ("+dc+")",delacts);
+		db.run("DELETE FROM trans   WHERE aid IN ("+dc+")",delacts);
+		db.run("DELETE FROM budget  WHERE aid IN ("+dc+")",delacts);
+		db.run("DELETE FROM country WHERE aid IN ("+dc+")",delacts);
+		db.run("DELETE FROM sector  WHERE aid IN ("+dc+")",delacts);
+		db.run("DELETE FROM slug    WHERE aid IN ("+dc+")",delacts);
+	}	
+	
+
 	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
 		after=row["COUNT(*)"];
@@ -189,6 +235,8 @@ dstore_db.fill_acts = function(acts,slug){
 		after_time=Date.now();
 		
 		process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
+		
+		if(main_cb){ main_cb(); }
 	});
 
 };
@@ -337,20 +385,50 @@ dstore_db.refresh_act = function(db,aid,xml){
 		act=refry.tag(act,"iati-activity"); // and get the main tag
 		
 		iati_cook.activity(act); // cook the raw json(xml) ( most cleanup logic has been moved here )
-		
+	
 		var t={};
 		
 		t.slug=refry.tagattr(act,"iati-activity","dstore:slug"); // this value is hacked in when the acts are split
 		t.aid=iati_xml.get_aid(act);
 
-		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slug"]);
-		sa.run({"$aid":t.aid,"$slug":t.slug});		
-		sa.finalize();
-
 		if(!t.aid) // do not save when there is no ID
 		{
 			return;
 		}
+		
+// check for changes and possible short circuit the update here if it is exactly the same (faster updates)
+		var jml=JSON.stringify(act);
+		db.each("SELECT jml FROM jml WHERE aid=?",t.aid, function(err, row)
+		{
+			if(err) { console.log(r.query+"\n"+err); }
+			else
+			{
+				if(jml==row.jml) // exact match to last update, nothing to change
+				{
+					jml=null;
+				}
+			}
+		});
+		
+		// block here till the above is completes
+		wait.for(function(cb){ db.run("PRAGMA page_count", function(err, row){ cb(err); }); });
+		
+		if(!jml)
+		{
+//			process.stdout.write("!");
+			 return false; // do not bother doing an update
+		}
+		
+		// remove all the old references to this aid before adding new
+		db.run("DELETE FROM act     WHERE aid=?",aid);
+		db.run("DELETE FROM jml     WHERE aid=?",aid);
+		db.run("DELETE FROM trans   WHERE aid=?",aid);
+		db.run("DELETE FROM budget  WHERE aid=?",aid); 
+		db.run("DELETE FROM country WHERE aid=?",aid);
+		db.run("DELETE FROM sector  WHERE aid=?",aid);
+		db.run("DELETE FROM slug    WHERE aid=?",aid);
+
+
 
 		t.title=refry.tagval(act,"title");
 		t.description=refry.tagval(act,"description");				
@@ -506,7 +584,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.default_currency=act["default-currency"];
 		
 //		t.xml=xml;
-		t.jml=JSON.stringify(act);
+		t.jml=jml;
 		
 //		dstore_sqlite.replace(db,"activity",t);
 		replace("act",t);
@@ -527,17 +605,16 @@ dstore_db.refresh_act = function(db,aid,xml){
 //				ls({"skipyear":y});
 			}
 		});
+		
+//update slug
 
+		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slug"]);
+		sa.run({"$aid":t.aid,"$slug":t.slug});		
+		sa.finalize();
+		
 		return t;
 	};
 	
-
-	// remove all the old references to this aid before adding new
- 	db.run("DELETE FROM trans WHERE aid=?",aid);
-	db.run("DELETE FROM budget WHERE aid=?",aid); 
-	db.run("DELETE FROM country WHERE aid=?",aid);
-	db.run("DELETE FROM sector WHERE aid=?",aid);
-
 	// then add new
 	var act_json=refresh_activity(xml);
 
