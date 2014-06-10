@@ -153,12 +153,6 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 	});
 
 	wait.for(function(cb){ db.run("PRAGMA page_count", function(err, row){ cb(err); }); });
-		
-		
-//	db.run("DELETE FROM act WHERE slug=?",slug); // remove all the old acts
-//	db.run("DELETE FROM slug WHERE slug=?",slug); // remove all the old slugs
-
-//	var stmt = db.prepare("REPLACE INTO act (aid,xml,jml) VALUES (?,?,?)");
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
@@ -166,24 +160,27 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 	for(var i=0;i<acts.length;i++)
 	{
 		var xml=acts[i];
+
 		json=refry.xml(xml);
 		var aid=iati_xml.get_aid(json);
-		
-		newacts.push(aid);
+		if(aid)
+		{
+			newacts.push(aid);			
 
-		var p=Math.floor(progchar.length*(i/acts.length));
-		if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
-		process.stdout.write(progchar[p]);
+			var p=Math.floor(progchar.length*(i/acts.length));
+			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
+			process.stdout.write(progchar[p]);
 
-		dstore_db.refresh_act(db,aid,xml);
+			dstore_db.refresh_act(db,aid,xml);
 
-// block and wait here
+	// block and wait here
 
-		wait.for(function(cb){
-			db.run("PRAGMA page_count", function(err, row){
-				cb(err);
+			wait.for(function(cb){
+				db.run("PRAGMA page_count", function(err, row){
+					cb(err);
+				});
 			});
-		});		
+		}
 	}
 
 	wait.for(function(cb){ db.run("COMMIT TRANSACTION",cb); });
@@ -397,6 +394,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		}
 		
 // check for changes and possible short circuit the update here if it is exactly the same (faster updates)
+
 		var jml=JSON.stringify(act);
 		db.each("SELECT jml FROM jml WHERE aid=?",t.aid, function(err, row)
 		{
@@ -415,7 +413,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 		if(!jml)
 		{
-//			process.stdout.write("!");
+			process.stdout.write(".");
 			 return false; // do not bother doing an update
 		}
 		
@@ -584,7 +582,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.default_currency=act["default-currency"];
 		
 //		t.xml=xml;
-		t.jml=jml;
+		t.jml=JSON.stringify(act);
 		
 //		dstore_sqlite.replace(db,"activity",t);
 		replace("act",t);
