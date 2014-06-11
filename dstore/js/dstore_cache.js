@@ -24,14 +24,18 @@ var http_getbody=function(url,cb)
 		else
 		{
 			res.setEncoding('utf8');
-			var s="";
+			var s=[];
 			res.on('data', function (chunk) {
 				process.stdout.write(".");
-				s=s+chunk;
+				s=s.push(chunk);
 			});
 			res.on('end', function() {
 				process.stdout.write(".\n");
-				cb(null,s);
+				cb(null,s.join(""));
+			});
+			res.on('error', function(e) {
+				process.stdout.write("!\n");
+				cb(e,null);
 			});
 		}
 	}).on('error', function(e) {
