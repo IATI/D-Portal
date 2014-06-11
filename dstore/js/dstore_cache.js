@@ -15,7 +15,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var http_getbody=function(url,cb)
 {
-	http.get(url, function(res) {
+	var r=http.get(url, function(res) {
 		if(res.statusCode!=200)
 		{
 			process.stdout.write("!\n");
@@ -38,7 +38,12 @@ var http_getbody=function(url,cb)
 				cb(e,null);
 			});
 		}
-	}).on('error', function(e) {
+	})
+	r.on('error', function(e) {
+		process.stdout.write("!\n");
+		cb(e,null);
+	});
+	r.setTimeout( 10000, function( ) {
 		process.stdout.write("!\n");
 		cb(e,null);
 	});
