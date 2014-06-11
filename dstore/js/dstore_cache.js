@@ -180,24 +180,43 @@ dstore_cache.empty = function(argv){
 
 dstore_cache.iati = function(argv){
 
-	var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/package");
+//	var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/package");
+
+var start=0;
+var done=false;
+while(!done)
+{	
+	var js=wait.for(http_getbody,"http://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
+
 	var j=JSON.parse(js);
-	for(var i=0;i<j.length;i++)
+	var rs=j.result.results;
+	done=true;
+	for(var i=0;i<rs.length;i++)
 	{
-		var v=j[i];
-		console.log((i+1)+"/"+j.length+":Fetching package info for "+v);
-		var fname="cache/"+v+".xml";
-		try{
-			var jjs=wait.for(http_getbody,"http://iatiregistry.org/api/rest/package/"+v);
-			var jj=JSON.parse(jjs);
-			console.log("downloading "+v+" from "+jj["download_url"])
-			var b=wait.for(http_getbody,jj["download_url"]);
-			fs.writeFileSync(fname,b);
-		}catch(e){
-			console.log("Something went wrong, using last downloaded version of "+v);
-			console.log(e);
+		var v=rs[i];
+		if(v.type=="dataset")
+		{
+			done=false;
+			if( v.resources[1] )
+			{
+				console.log(v.resources); // problem?
+			}
+			var slug=v.name;
+			var url=v.resources[0].url;
+			var fname="cache/"+slug+".xml";
+			try{
+				console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
+				var b=wait.for(http_getbody,url);
+				fs.writeFileSync(fname,b);
+			}catch(e){
+				console.log("Something went wrong, using last downloaded version of "+v);
+				console.log(e);
+			}
 		}
 	}
 	
+	start+=1000;
+}
+
 }
 
