@@ -27,7 +27,7 @@ var http_getbody=function(url,cb)
 			var s=[];
 			res.on('data', function (chunk) {
 				process.stdout.write(".");
-				s=s.push(chunk);
+				s.push(chunk);
 			});
 			res.on('end', function() {
 				process.stdout.write(".\n");
