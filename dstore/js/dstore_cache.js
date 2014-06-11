@@ -33,7 +33,7 @@ var http_getbody=function(url,cb)
 				process.stdout.write(".\n");
 				cb(null,s.join(""));
 			});
-			res.on('error', function(e) {
+			res.on('close', function(e) {
 				process.stdout.write("!\n");
 				cb(e,null);
 			});
