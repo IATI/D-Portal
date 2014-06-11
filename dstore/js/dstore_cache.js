@@ -178,3 +178,26 @@ dstore_cache.empty = function(argv){
 }
 
 
+dstore_cache.iati = function(argv){
+
+	var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/package");
+	var j=JSON.parse(js);
+	for(var i=0;i<j.length;i++)
+	{
+		var v=j[i];
+		console.log((i+1)+"/"+j.length+":Fetching package info for "+v);
+		var fname="cache/"+v+".xml";
+		try{
+			var jjs=wait.for(http_getbody,"http://iatiregistry.org/api/rest/package/"+v);
+			var jj=JSON.parse(jjs);
+			console.log("downloading "+v+" from "+jj["download_url"])
+			var b=wait.for(http_getbody,jj["download_url"]);
+			fs.writeFileSync(fname,b);
+		}catch(e){
+			console.log("Something went wrong, using last downloaded version of "+v);
+			console.log(e);
+		}
+	}
+	
+}
+
