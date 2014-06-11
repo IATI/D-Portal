@@ -16,6 +16,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 var http_getbody=function(url,cb)
 {
 	var r=http.get(url, function(res) {
+		process.stdout.write(".");
 		if(res.statusCode!=200)
 		{
 			process.stdout.write("!\n");
