@@ -45,7 +45,7 @@ var http_getbody=function(url,cb)
 	});
 	r.setTimeout( 10000, function( ) {
 		process.stdout.write("!\n");
-		cb(e,null);
+		cb("timeout",null);
 	});
 
 };
