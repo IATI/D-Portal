@@ -18,6 +18,7 @@ var http_getbody=function(url,cb)
 	http.get(url, function(res) {
 		if(res.statusCode!=200)
 		{
+			process.stdout.write("!\n");
 			cb(res.statusCode,null);
 		}
 		else
@@ -25,13 +26,16 @@ var http_getbody=function(url,cb)
 			res.setEncoding('utf8');
 			var s="";
 			res.on('data', function (chunk) {
+				process.stdout.write(".");
 				s=s+chunk;
 			});
 			res.on('end', function() {
+				process.stdout.write(".\n");
 				cb(null,s);
 			});
 		}
 	}).on('error', function(e) {
+		process.stdout.write("!\n");
 		cb(e,null);
 	});
 
