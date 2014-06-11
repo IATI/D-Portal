@@ -17,7 +17,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 var http_getbody=function(url,cb)
 {
 
-	request({uri:url,timeout:10000,encoding:'utf8'}, function (error, response, body) {
+	request({uri:url,timeout:20000,encoding:'utf8'}, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 		cb(null,body);
 	  }
@@ -163,7 +163,7 @@ var codes=["ad","ae","af","ag","ai","al","am","an","ao","aq","ar","as","at","au"
 	
 }
 
-dstore_cache.empty = function(argv){
+dstore_cache.empty = function(argv,keep){
 
 	var ff=fs.readdirSync(global.argv.cache);
 	for(var i=0;i<ff.length;i++)
@@ -171,8 +171,12 @@ dstore_cache.empty = function(argv){
 		var v=global.argv.cache+"/"+ff[i];
 		if( v.slice(-4)==".xml")
 		{
-			console.log("Emptying xml file "+v);
-			fs.writeFileSync(v,"");
+			var slug=ff[i].slice(0,-4);
+			if( (!keep) || (!keep[slug]) )
+			{
+				console.log("Emptying xml file for "+slug+" : "+v);
+				fs.writeFileSync(v,"");
+			}
 		}
 	}
 }
@@ -182,42 +186,71 @@ dstore_cache.iati = function(argv){
 
 //	var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/package");
 
-var start=0;
-var done=false;
-while(!done)
-{	
-	var js=wait.for(http_getbody,"http://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
+	var slugs={};
+	var failed_slugs={};
 
-	var j=JSON.parse(js);
-	var rs=j.result.results;
-	done=true;
-	for(var i=0;i<rs.length;i++)
-	{
-		var v=rs[i];
-		if(v.type=="dataset")
+	var start=0;
+	var done=false;
+	while(!done)
+	{	
+		var js=wait.for(http_getbody,"http://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
+
+		var j=JSON.parse(js);
+		var rs=j.result.results;
+		done=true;
+		for(var i=0;i<rs.length;i++)
 		{
-			done=false;
-			if( v.resources[1] )
+			var v=rs[i];
+			if(v.type=="dataset")
 			{
-				console.log(v.resources); // problem?
-			}
-			var slug=v.name;
-			var url=v.resources[0].url;
-			var fname="cache/"+slug+".xml";
-			try{
-				console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
-				var b=wait.for(http_getbody,url);
-				fs.writeFileSync(fname,b);
-				console.log("written\t"+b.length+" bytes to "+fname);
-			}catch(e){
-				console.log("Something went wrong, using last downloaded version of "+v);
-				console.log(e);
+				done=false;
+				if( v.resources[1] )
+				{
+					console.log(v.resources); // problem?
+				}
+				var slug=v.name;
+				var url=v.resources[0].url;
+				var fname="cache/"+slug+".xml";
+				
+				slugs[slug]=url;
+				
+				try{
+					console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
+//					var b=wait.for(http_getbody,url);
+//					fs.writeFileSync(fname,b);
+//					console.log("written\t"+b.length+" bytes to "+fname);
+				}catch(e){
+					failed_slugs[slug]=e;
+					console.log("Something went wrong, using last downloaded version of "+slug);
+					console.log(e);
+				}
 			}
 		}
+		
+		start+=1000;
 	}
-	
-	start+=1000;
-}
+
+	console.log("");
+	console.log("EMPTYING OLD CACHE");
+	console.log("");
+
+	dstore_cache.empty({},slugs);
+
+
+	var failed_header=true;
+	for(var n in failed_slugs)
+	{
+		if(failed_header)
+		{
+			console.log("********************************");
+			console.log("THE FOLLOWING FAILED TO DOWNLOAD");
+			console.log("********************************");
+			failed_header=false;
+		}
+		
+		console.log(n+" : "+slugs[n]);
+	}
+	console.log("");
 
 }
 
