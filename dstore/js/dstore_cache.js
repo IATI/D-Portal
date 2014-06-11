@@ -10,11 +10,25 @@ var fs = require('fs');
 var util=require("util");
 var path=require('path');
 var http=require("http");
-
+var request = require('request');
+	
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var http_getbody=function(url,cb)
 {
+
+	request({uri:url,timeout:10000,encoding:'utf8'}, function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+		cb(null,body);
+	  }
+	  else
+	  {
+		cb( error || response.statusCode , null );
+	  }
+	})
+/*
+	
+	
 	var r=http.get(url, function(res) {
 		process.stdout.write(".");
 		if(res.statusCode!=200)
@@ -46,8 +60,10 @@ var http_getbody=function(url,cb)
 	});
 	r.setTimeout( 10000, function( ) {
 		process.stdout.write("!\n");
+		r.abort();
 		cb("timeout",null);
 	});
+*/
 
 };
 
