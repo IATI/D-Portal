@@ -184,7 +184,6 @@ dstore_cache.empty = function(argv,keep){
 
 dstore_cache.iati = function(argv){
 
-//	var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/package");
 
 	var slugs={};
 	var failed_slugs={};
@@ -216,9 +215,9 @@ dstore_cache.iati = function(argv){
 				
 				try{
 					console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
-//					var b=wait.for(http_getbody,url);
-//					fs.writeFileSync(fname,b);
-//					console.log("written\t"+b.length+" bytes to "+fname);
+					var b=wait.for(http_getbody,url);
+					fs.writeFileSync(fname,b);
+					console.log("written\t"+b.length+" bytes to "+fname);
 				}catch(e){
 					failed_slugs[slug]=e;
 					console.log("Something went wrong, using last downloaded version of "+slug);
