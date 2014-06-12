@@ -1,2 +1,11 @@
 cd `dirname $0`
-npm run build
+
+echo "bake"
+node js/bake.js
+
+echo "browserify"
+node node_modules/browserify/bin/cmd.js -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js
+
+echo "uglify"
+node node_modules/uglify-js/bin/uglifyjs jslib/ctrack.js -o jslib/ctrack.min.js
+
