@@ -14,9 +14,14 @@ var request = require('request');
 	
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+
+var http_gethead=function(url,cb)
+{
+	request.head(url,cb);
+}
+
 var http_getbody=function(url,cb)
 {
-
 	request({uri:url,timeout:20000,encoding:'utf8'}, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 		cb(null,body);
@@ -26,45 +31,6 @@ var http_getbody=function(url,cb)
 		cb( error || response.statusCode , null );
 	  }
 	})
-/*
-	
-	
-	var r=http.get(url, function(res) {
-		process.stdout.write(".");
-		if(res.statusCode!=200)
-		{
-			process.stdout.write("!\n");
-			cb(res.statusCode,null);
-		}
-		else
-		{
-			res.setEncoding('utf8');
-			var s=[];
-			res.on('data', function (chunk) {
-				process.stdout.write(".");
-				s.push(chunk);
-			});
-			res.on('end', function() {
-				process.stdout.write(".\n");
-				cb(null,s.join(""));
-			});
-			res.on('close', function(e) {
-				process.stdout.write("!\n");
-				cb(e,null);
-			});
-		}
-	})
-	r.on('error', function(e) {
-		process.stdout.write("!\n");
-		cb(e,null);
-	});
-	r.setTimeout( 10000, function( ) {
-		process.stdout.write("!\n");
-		r.abort();
-		cb("timeout",null);
-	});
-*/
-
 };
 
 // handle a cache download/import cmd line request
@@ -86,11 +52,17 @@ dstore_cache.cmd = function(argv){
 	{
 		dstore_cache.empty(argv);
 	}
+	else
+	if( argv._[1]=="newold" )
+	{
+		dstore_cache.newold(argv);
+	}
 	else // help
 	{
 		console.log("dstore cache datastore -- download all xml from the datastore")
 		console.log("dstore cache iati      -- download all xml direct from iati publishers")
 		console.log("dstore cache empty     -- empty every xml in the cache (so next import will clear all)")
+		console.log("dstore cache newold    -- update cache/new and cache/old with the current state")
 	}
 
 };
@@ -127,6 +99,8 @@ dstore_cache.import_xmlfile = function(xmlfile){
 
 dstore_cache.datastore = function(argv){
 
+	try { fs.mkdirSync(global.argv.cache); } catch(e){}
+
 var codes=["ad","ae","af","ag","ai","al","am","an","ao","aq","ar","as","at","au","aw","ax","az","ba","bb","bd","be","bf","bg","bh","bi","bj","bl","bm","bn","bo","bq","br","bs","bt","bv","bw","by","bz","ca","cc","cd","cf","cg","ch","ci","ck","cl","cm","cn","co","cr","cu","cv","cw","cx","cy","cz","de","dj","dk","dm","do","dz","ec","ee","eg","eh","er","es","et","fi","fj","fk","fm","fo","fr","ga","gb","gd","ge","gf","gg","gh","gi","gl","gm","gn","gp","gq","gr","gs","gt","gu","gw","gy","hk","hm","hn","hr","ht","hu","id","ie","il","im","in","io","iq","ir","is","it","je","jm","jo","jp","ke","kg","kh","ki","km","kn","kp","kr","kw","ky","kz","la","lb","lc","li","lk","lr","ls","lt","lu","lv","ly","ma","mc","md","me","mf","mg","mh","mk","ml","mm","mn","mo","mp","mq","mr","ms","mt","mu","mv","mw","mx","my","mz","na","nc","ne","nf","ng","ni","nl","no","np","nr","nu","nz","om","pa","pe","pf","pg","ph","pk","pl","pm","pn","pr","ps","pt","pw","py","qa","re","ro","rs","ru","rw","sa","sb","sc","sd","se","sg","sh","si","sj","sk","sl","sm","sn","so","sr","ss","st","sv","sx","sy","sz","tc","td","tf","tg","th","tj","tk","tl","tm","tn","to","tr","tt","tv","tw","tz","ua","ug","um","us","uy","uz","va","vc","ve","vg","vi","vn","vu","wf","ws","ye","yt","za","zm","zw"];
 
 
@@ -137,7 +111,7 @@ var codes=["ad","ae","af","ag","ai","al","am","an","ao","aq","ar","as","at","au"
 	for(var i=0;i<codes.length;i++)
 	{
 		var v=codes[i];
-		var fname="cache/datastore_"+v+".xml";
+		var fname=global.argv.cache+"/datastore_"+v+".xml";
 		console.log("fetching\t"+url+v);
 		var count=0;
 		var x=null;
@@ -165,6 +139,8 @@ var codes=["ad","ae","af","ag","ai","al","am","an","ao","aq","ar","as","at","au"
 
 dstore_cache.empty = function(argv,keep){
 
+	try { fs.mkdirSync(global.argv.cache); } catch(e){}
+
 	var ff=fs.readdirSync(global.argv.cache);
 	for(var i=0;i<ff.length;i++)
 	{
@@ -184,6 +160,7 @@ dstore_cache.empty = function(argv,keep){
 
 dstore_cache.iati = function(argv){
 
+	try { fs.mkdirSync(global.argv.cache); } catch(e){}
 
 	var slugs={};
 	var failed_slugs={};
@@ -209,15 +186,41 @@ dstore_cache.iati = function(argv){
 				}
 				var slug=v.name;
 				var url=v.resources[0].url;
-				var fname="cache/"+slug+".xml";
+				var fname=global.argv.cache+"/"+slug+".xml";
+				var fname_old=global.argv.cache+"/old/"+slug+".xml";
 				
 				slugs[slug]=url;
 				
 				try{
 					console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
-					var b=wait.for(http_getbody,url);
-					fs.writeFileSync(fname,b);
-					console.log("written\t"+b.length+" bytes to "+fname);
+					var download=true;
+					try{
+						var h=wait.for(http_gethead,url);
+						var f; try{ f=fs.statSync(fname); }catch(e){}
+//						console.log(h.headers);
+//						console.log(f);
+						if( h && h.headers["last-modified"] && f && f.mtime )
+						{
+							var hm=Date.parse( h.headers["last-modified"] );
+							var fm=Date.parse( f.mtime );
+							if(hm<=fm) // we already have a newer file
+							{
+								download=false;
+							}
+						}
+					}catch(e){}
+
+					if(download)
+					{
+						var b=wait.for(http_getbody,url);
+						fs.writeFileSync(fname,b);
+						console.log("written\t"+b.length+" bytes to "+fname);
+					}
+					else
+					{
+						console.log("...");
+					}
+				
 				}catch(e){
 					failed_slugs[slug]=e;
 					console.log("Something went wrong, using last downloaded version of "+slug);
@@ -253,3 +256,47 @@ dstore_cache.iati = function(argv){
 
 }
 
+//
+// look in the cache and cache/old directory and copy the new (changed) files into cache/new
+// while keeping a last changed copy in cache/old
+//
+// as long as you do this followed by an import of all the files in cach/new then the database can be
+// kept in sync without a full import.
+//
+dstore_cache.newold = function(argv){
+	
+	var deleteFolderRecursive = function(path) {
+		var files = [];
+		if( fs.existsSync(path) ) {
+			files = fs.readdirSync(path);
+			files.forEach(function(file,index){
+				var curPath = path + "/" + file;
+				if(fs.lstatSync(curPath).isDirectory()) { // recurse
+					deleteFolderRecursive(curPath);
+				} else { // delete file
+					fs.unlinkSync(curPath);
+				}
+			});
+			fs.rmdirSync(path);
+		}
+	};
+
+	deleteFolderRecursive(global.argv.cache+"/new");
+
+	try { fs.mkdirSync(global.argv.cache); } catch(e){}
+	try { fs.mkdirSync(global.argv.cache+"/new"); } catch(e){}
+	try { fs.mkdirSync(global.argv.cache+"/old"); } catch(e){}
+
+	var ff=fs.readdirSync(global.argv.cache);
+	for(var i=0;i<ff.length;i++)
+	{
+		var v=global.argv.cache+"/"+ff[i];
+		if( v.slice(-4)==".xml")
+		{
+			var slug=ff[i].slice(0,-4);
+
+
+		}
+	}
+	
+}

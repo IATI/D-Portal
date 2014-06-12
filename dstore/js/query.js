@@ -43,7 +43,7 @@ query.maybenumber=function(v)
 // Next is the special json values in a standard query string which contains json data
 // so a ?json={"a":1} style string
 //
-// Finally you may perform a post request with json in the body.
+//--REMOVED--- Finally you may perform a post request with json in the body.
 //
 query.get_q = function(req){
 	var q={};
