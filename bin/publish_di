@@ -4,9 +4,9 @@
 cd `dirname $0`
 cd ..
 
-bin/push
+bin/push_di
 
-ssh ctrack@d-portal.org "cd D-Portal ; git pull -f"
+ssh ctrack@d-portal.org "cd D-Portal ; git pull -f -u"
 ssh ctrack@d-portal.org "D-Portal/ctrack/build"
 ssh ctrack@d-portal.org "D-Portal/dportal/build"
 ssh root@d-portal.org "/etc/init.d/dportal stop"
