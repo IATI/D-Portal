@@ -1,0 +1,5 @@
+cd `dirname $0`
+cd ..
+
+bin/cron | mail krissd@gmail.com,notshi@gmail.com -s "d-portal update"
+

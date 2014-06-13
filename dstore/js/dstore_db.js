@@ -204,19 +204,16 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 	if( delacts.length>0 )
 	{
 		console.log("DELETE "+delacts.length+" acts.");
-		var dc=[];
 		for(var a in delacts)
 		{
-			dc.push("?");
+			db.run("DELETE FROM act     WHERE aid=?",a);
+			db.run("DELETE FROM jml     WHERE aid=?",a);
+			db.run("DELETE FROM trans   WHERE aid=?",a);
+			db.run("DELETE FROM budget  WHERE aid=?",a);
+			db.run("DELETE FROM country WHERE aid=?",a);
+			db.run("DELETE FROM sector  WHERE aid=?",a);
+			db.run("DELETE FROM slug    WHERE aid=?",a);
 		}
-		dc=dc.join(",");
-		db.run("DELETE FROM act     WHERE aid IN ("+dc+")",delacts);
-		db.run("DELETE FROM jml     WHERE aid IN ("+dc+")",delacts);
-		db.run("DELETE FROM trans   WHERE aid IN ("+dc+")",delacts);
-		db.run("DELETE FROM budget  WHERE aid IN ("+dc+")",delacts);
-		db.run("DELETE FROM country WHERE aid IN ("+dc+")",delacts);
-		db.run("DELETE FROM sector  WHERE aid IN ("+dc+")",delacts);
-		db.run("DELETE FROM slug    WHERE aid IN ("+dc+")",delacts);
 	}	
 	
 
