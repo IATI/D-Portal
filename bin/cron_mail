@@ -1,5 +1,6 @@
 cd `dirname $0`
 cd ..
 
-bin/cron | mail krissd@gmail.com,notshi@gmail.com -s "d-portal update"
+bin/cron | tee dportal/production/cron.log
 
+cat dportal/production/cron.log | mail krissd@gmail.com,notshi@gmail.com -s "d-portal update `date`"
