@@ -11,6 +11,7 @@ var fetch=require("./fetch.js")
 
 // include all view code
 
+views.dash=require("./view_dash.js");
 
 views.missing=require("./view_missing.js");
 views.ended=require("./view_ended.js");
