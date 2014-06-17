@@ -9,7 +9,7 @@
 {main_countrymin}
 {about_data_links}
 {donors_head}
-<div class="donor_transactions_wrap">
+<div class="title_wrap">
 	<table class="title">
 		<tr>
 			<td class="icon"><img src="{flava}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
@@ -17,14 +17,15 @@
 			<td class="total_spend">= {total} (USD)</td>
 		</tr>
 	</table>
-	<div class="donor_transactions">
+	<div class="table_wrap">
 		<table class="activity">
 			{alerts}
+			{table_header_amount}
 			{donor_transactions_datas}
 		</table>
 	</div>
-	<div class="back_to_donor_list">
-		<a href="#view=donors" class="back_to_donor_list">{list_donor_back_text}</a>
+	<div class="center_wrap">
+		<a href="#view=donors" class="button">{list_donor_back_text}</a>
 	</div>
 </div>
 {donor_transactions_data_description}
