@@ -1,0 +1,19 @@
+cd `dirname $0`
+cd ../dstore
+
+for xmlfile in cache/new/*.xml
+do
+	if [ "$xmlfile" != "cache/new/*.xml" ]
+	then
+		echo $xmlfile
+		node js/cmd import "$xmlfile" || exit 1
+	fi
+done
+
+#make it smarter
+date
+node js/cmd vacuum
+date
+node js/cmd analyze
+date
+

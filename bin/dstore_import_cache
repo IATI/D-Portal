@@ -1,8 +1,6 @@
 cd `dirname $0`
 cd ../dstore
 
-mkdir cache
-
 for xmlfile in cache/*.xml
 do
 echo $xmlfile
@@ -10,4 +8,9 @@ echo $xmlfile
 done
 
 #make it smarter
+date
+node js/cmd vacuum
+date
 node js/cmd analyze
+date
+
