@@ -142,7 +142,7 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 	
 	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
-		before=row["COUNT(*)"];
+		before=row && row["COUNT(*)"] || 0;
 	});
 
 // delete everything related to this slug
