@@ -148,14 +148,17 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 // delete everything related to this slug
 	db.each("SELECT aid FROM act WHERE slug=?",slug, function(err, row)
 	{
-		var a=row["aid"];
-		db.run("DELETE FROM act     WHERE aid=?",a);
-		db.run("DELETE FROM jml     WHERE aid=?",a);
-		db.run("DELETE FROM trans   WHERE aid=?",a);
-		db.run("DELETE FROM budget  WHERE aid=?",a);
-		db.run("DELETE FROM country WHERE aid=?",a);
-		db.run("DELETE FROM sector  WHERE aid=?",a);
-		db.run("DELETE FROM slug    WHERE aid=?",a);
+		if(row)
+		{
+			var a=row["aid"];
+			db.run("DELETE FROM act     WHERE aid=?",a);
+			db.run("DELETE FROM jml     WHERE aid=?",a);
+			db.run("DELETE FROM trans   WHERE aid=?",a);
+			db.run("DELETE FROM budget  WHERE aid=?",a);
+			db.run("DELETE FROM country WHERE aid=?",a);
+			db.run("DELETE FROM sector  WHERE aid=?",a);
+			db.run("DELETE FROM slug    WHERE aid=?",a);
+		}
 	});
 
 	wait.for(function(cb){ db.run("PRAGMA page_count", function(err, row){ cb(err); }); });
