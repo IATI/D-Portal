@@ -61,7 +61,7 @@
 			{title_donor_text}
 		</div>
 		<div class="peak_space"></div>
-		<div class="peak_wrap">
+		<div class="main_peak_wrap">
 			<div class="peak donor"></div>
 		</div>
 		<table class="money_mod">{main_money_rows}</table>
@@ -73,7 +73,7 @@
 			{title_sector_text}
 		</div>
 		<div class="peak_space"></div>
-		<div class="peak_wrap">
+		<div class="main_peak_wrap">
 			<div class="peak sector"></div>
 		</div>
 		<table class="money_mod">{main_sector_rows}</table>
@@ -154,7 +154,7 @@
 </div>
 
 #main_active
-<div class="active_wrap">
+<div class="main_title_wrap">
 	<table class="title">
 		<tr>
 			<td class="icon"><img src="{flava}active_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
@@ -167,13 +167,13 @@
 			{table_active_datas}
 		</table>
 	</div>
-	<div class="view_all_projects_wrap">
-		<a href="#view=active" class="view_all_projects">{view_all_text}</a>
+	<div class="center_wrap">
+		<a href="#view=active" class="button">{view_all_text}</a>
 	</div>
 </div>
 
 #main_ended
-<div class="ended_wrap">
+<div class="main_title_wrap">
 	<table class="title">
 		<tr>
 			<td class="icon"><img src="{flava}ended_icon.png" alt="{ended_icon_alt_text}" width="40" height="40"/></td>
@@ -186,8 +186,8 @@
 			{table_ended_datas}
 		</table>
 	</div>
-	<div class="view_all_projects_wrap">
-		<a href="#view=ended" class="view_all_projects">{view_all_text}</a>
+	<div class="center_wrap">
+		<a href="#view=ended" class="button">{view_all_text}</a>
 	</div>
 </div>
 
@@ -216,10 +216,39 @@
 	<td class="date" title="{table_ended_date_tip_text}">{date_end}</td>
 </tr>
 
+#table_header
+<tr>
+    <th class="titles"></th>
+    <th class="titles">{project_title_tip_text}</th>
+    <th class="titles">{table_active_date_tip_text}</th>
+</tr>
+
+#table_header_list
+<tr>
+    <th class="titles"></th>
+    <th class="titles">{project_title_tip_text}</th>
+    <th class="titles">{stats_total_text}</th>
+</tr>
+
+#table_header_amount
+<tr>
+    <th class="titles"></th>
+    <th class="titles">{project_title_tip_text}</th>
+    <th class="titles">{amount_text}</th>
+</tr>
+
+#table_header_missing
+<tr>
+    <th class="titles"></th>
+    <th class="titles">{project_title_tip_text}</th>
+    <th class="titles">{date_start_tip_text}</th>
+    <th class="titles">{date_end_tip_text}</th>
+</tr>
+
 #donor_graph
 <div class="default">
 <a href="#view=donors" class="ask donor">{title_donor_text}</a>
-<div class="peak_wrap"><div class="peak donor"></div></div>
+<div class="main_peak_wrap"><div class="peak donor"></div></div>
 <div id="donor_graph"></div>
 <a href="#view=donors" class="view_all_money">{link_donor_text}</a>
 
@@ -253,7 +282,7 @@
 #sector_graph
 <div class="default graph">
 <a href="#view=sectors" class="ask sector">{title_sector_text}</a>
-<div class="peak_wrap"><div class="peak sector"></div></div>
+<div class="main_peak_wrap"><div class="peak sector"></div></div>
 <div id="sector_graph"></div>
 <a href="#view=sectors" class="view_all_money">{link_sector_text}</a>
 
