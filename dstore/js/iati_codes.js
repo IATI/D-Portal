@@ -59,15 +59,15 @@ iati_codes.fetch = function(){
 
 	var files=[
 			{
-				url:"http://dev.iatistandard.org/_static/codelists/json/en/Sector.json",
+				url:"http://iatistandard.org/codelists/downloads/clv2/json/en/Sector.json",
 				name:"sector",
 			},
 			{
-				url:"http://dev.iatistandard.org/_static/codelists/json/en/TransactionType.json",
+				url:"http://iatistandard.org/codelists/downloads/clv2/json/en/TransactionType.json",
 				name:"transaction_type",
 			},
 			{
-				url:"http://dev.iatistandard.org/_static/codelists/json/en/ActivityStatus.json",
+				url:"http://iatistandard.org/codelists/downloads/clv2/json/en/ActivityStatus.json",
 				name:"activity_status",
 			}
 		];
