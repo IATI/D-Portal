@@ -9,35 +9,40 @@
 {view_tail}
 
 #dash_navi
-<div style="margin:0 auto; width:960px; padding:20px 0; border-bottom:5px solid #222; margin-bottom:20px;">
-	<div style="display:inline-block; width:50%; vertical-align:bottom;">
-		<span style="display:inline-block; padding-right:5px; font-size:1.8em;">Dash</span><img src="/art/dash_logo.png" style="vertical-align:bottom;" alt="Dash logo" width="25" height="25">
-	</div><div style="display:inline-block; width:50%; vertical-align:bottom;">
-		<a href="http://d-portal.org/" style="display:block; font-size:1.0em; text-align:right; color:#000;">Back to d-portal.org</a>
+<div class="head_wrap">
+	<div class="head_block">
+		<span class="head_title">Dash</span><img src="/art/dash_logo.png" alt="Dash logo" width="25" height="25">
+	</div><div class="head_block">
+		<a href="http://d-portal.org/" class="back_link">Back to d-portal.org</a>
 	</div>
 </div>
 
 
 #dash_list_reporting_datas
 #dash_list_reporting_data
-			<tr>
-				<td>{reporting}<br/>{reporting_ref}</td>
-				<td>{count}<br/>{countries}</td>
-			</tr>
+<tr>
+	<td>{reporting}</td>
+	<td>{reporting_ref}</td>
+	<td>{count}</td>
+	<td>{countries}</td>
+</tr>
+
 #dash_body
 <div class="default data">
-	<div style="display:inline-block; width:620px;">
-		<div style="font-size:2em; margin-bottom:20px;">Publishers currently on IATI</div>
+	<div class="left_block">
+		<div class="title">Publishers currently on IATI</div>
 		<table class="pub">
 			<tr>
-				<th>Ids</th>
-				<th>Activities reported</th>
+				<th>Publisher Name</th>
+				<th>Publisher ID</th>
+				<th>Activities</th>
+				<th>Countries</th>
 			</tr>
 			{dash_list_reporting_datas}
 		</table>
-	</div><div style="display:inline-block; width:340px;">
-		<div style="font-size:1.4em; margin-bottom:20px;">Snapshots</div>
-		<div style="margin:0 auto; width:298px; border:1px solid #444; padding:20px; margin-bottom:30px;">
+	</div><div class="right_block">
+		<div class="title_snap">Snapshots</div>
+		<div class="table_snap_wrap">
 			<table class="snap">
 				<tr>
 					<td>Total Publishers</td>
@@ -53,10 +58,10 @@
 				</tr>
 			</table>
 		</div>
-		<div style="font-size:1.4em; margin-bottom:10px;">Info</div>
-		<div style="font-size:1.0em; line-height:1.4em; margin-bottom:20px;">A quick overview of the data populating the Development Portal.</div>
-		<div style="font-size:0.9em; margin-bottom:10px;">Updated every Day at midnight GMT +0.</div> 
-		<div style="font-size:0.9em;">Last updated on {dash_updated_date}</div>
+		<div class="title_info">Info</div>
+		<div class="subtitle_info">A quick overview of the data populating the Development Portal.</div>
+		<p>Updated every Sunday GMT +0.</p> 
+		<p>Last updated on {it.date}</p>
 	</div>
 </div>
 
@@ -71,9 +76,26 @@
 html			{background-color:#fff;}
 .overlay		{background-color:#fff;}
 
-table.pub		{width:500px; max-width:500px;}
-table.pub th	{font-weight:bold; text-align:left; padding:15px 0;}
-table.pub td	{padding:15px 30px 15px 0; border-bottom:1px solid #ccc;}
+table.pub		{width:600px; max-width:600px; text-align:right; font-size:0.9em; line-height:1.4em;}
+table.pub th	{font-weight:bold; padding:15px 30px 15px 0;}
+table.pub td	{padding:15px 35px 15px 0; border-bottom:1px solid #ccc;}
+table.pub td:first-child, table.pub th:first-child 	{text-align:left;}
+table.pub th:last-child 	{padding-right:0;}
+table.pub td:last-child		{padding-right:5px;}
+table.pub tr:last-child	td	{border-bottom:0;}
 
-table.snap		{width:298px; max-width:298px;}
+table.snap		{width:238px; max-width:238px; font-size:0.9em;}
 table.snap td	{padding:15px 30px 15px 0;}
+
+.head_wrap		{margin:0 auto; width:960px; padding:20px 0; border-bottom:5px solid #222; margin-bottom:20px;}
+.head_block		{display:inline-block; width:50%; vertical-align:bottom;}
+.head_title		{display:inline-block; padding-right:5px; font-size:1.8em;}
+a.back_link		{display:block; font-size:1.0em; text-align:right; color:#000;}
+.left_block		{display:inline-block; width:660px;}
+.right_block	{display:inline-block; width:280px;}
+.title			{font-size:2em; margin-bottom:20px;}
+.title_snap		{font-size:1.4em; margin-bottom:20px;}
+.table_snap_wrap	{margin:0 auto; width:238px; border:1px solid #444; padding:20px; margin-bottom:30px;}
+.title_info		{font-size:1.4em; margin-bottom:10px;}
+.subtitle_info	{font-size:0.9em; line-height:1.4em; margin-bottom:20px;}
+p				{font-size:0.9em; margin-bottom:10px;}
