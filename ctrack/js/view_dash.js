@@ -84,12 +84,13 @@ view_dash.ajax1=function(args)
 
 		ctrack.display(); // every fetch.ajax must call display once
 
-		view_dash.ajax2();
+		view_dash.ajax2(args);
 	});
 }
 
 view_dash.ajax2=function(args)
 {
+	args=args || {};
 	var dat={
 			"country_code":(args.country),
 			"select":"stats",
@@ -115,12 +116,13 @@ view_dash.ajax2=function(args)
 
 		ctrack.display(); // every fetch.ajax must call display once
 		
-		view_dash.ajax3();
+		view_dash.ajax3(args);
 	});
 }
 
 view_dash.ajax3=function(args)
 {
+	args=args || {};
 	var dat={
 			"country_code":(args.country),
 			"select":"stats",
