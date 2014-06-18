@@ -8,6 +8,12 @@
 {dash_quality_body}
 {view_tail}
 
+#dash_list_slug_datas
+#dash_list_slug_data
+<tr>
+	<td><a href="http://iatiregistry.org/dataset/{slug}">{slug}</a></td>
+	<td>{count}</td>
+</tr>
 
 #dash_quality_body
 <div class="default data">
@@ -23,6 +29,14 @@
 			transactions : {dash_quality_trans_count}
 			countries    : {dash_quality_country_count}
 		</pre>
+
+		<table class="pub">
+			<tr>
+				<th>Slug</th>
+				<th>Activities</th>
+			</tr>
+			{dash_list_slug_datas}
+		</table>
 
 	</div>
 </div>
