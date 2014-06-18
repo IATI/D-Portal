@@ -59,7 +59,7 @@ view_dash.ajax2=function(args)
 	var dat={
 			"country_code":(args.country),
 			"select":"stats",
-			"from":"act,country",
+			"from":"act",//,country",
 			"groupby":"reporting_ref",
 			"orderby":"1-",
 			"limit":-1
