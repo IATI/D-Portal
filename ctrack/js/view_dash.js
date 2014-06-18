@@ -58,7 +58,7 @@ view_dash.ajax2=function(args)
 	args=args || {};
 	var dat={
 			"country_code":(args.country),
-			"select":"stats",
+			"select":"count,reporting_ref",
 			"from":"act",//,country",
 			"groupby":"reporting_ref",
 			"orderby":"1-",
@@ -76,16 +76,16 @@ view_dash.ajax2=function(args)
 			var v=data.rows[i];
 			var d={};
 			d.num=i+1;
-			d.count=v["COUNT(DISTINCT aid)"];
-			d.reporting_ref=v["MAX(reporting_ref)"] || "N/A";
-			d.reporting=iati_codes.publisher_names[d.reporting_ref] || iati_codes.country[d.reporting_ref] || v["MAX(reporting)"] || "N/A";
-
-			d.countries=v["COUNT(DISTINCT country_code)"]; //number of countries reported for
+			d.count=v.count;
+			d.reporting_ref=v.reporting_ref|| "N/A";
+			d.reporting=iati_codes.publisher_names[d.reporting_ref] || iati_codes.country[d.reporting_ref] || "N/A";
 
 			total+=d.count;
 			s.push( plate.replace(args.plate || "{dash_list_reporting_data}",d) );
 		}
 		ctrack.chunk(args.chunk || "dash_list_reporting_datas",s.join(""));
+		
+		ctrack.chunk("dash_total_publishers",commafy(""+Math.floor(data.rows.length)));
 			
 		view_dash.calc();
 
@@ -100,7 +100,7 @@ view_dash.ajax1=function(args)
 	args=args || {};
 	var dat={
 			"country_code":(args.country),
-			"select":"stats",
+			"select":"count",
 			"from":"act",
 			"limit":-1
 		};
@@ -112,11 +112,9 @@ view_dash.ajax1=function(args)
 		if(data.rows.length==1)
 		{
 			var v=data.rows[0];
-			var count_act=v["COUNT(DISTINCT aid)"];
+			var count_act=v.count;
 			ctrack.chunk("dash_total_activities",commafy(""+Math.floor(count_act)));
 
-			var count_pub=v["COUNT(DISTINCT reporting_ref)"];
-			ctrack.chunk("dash_total_publishers",commafy(""+Math.floor(count_pub)));
 		}
 		
 		view_dash.calc();
@@ -132,8 +130,9 @@ view_dash.ajax3=function(args)
 	args=args || {};
 	var dat={
 			"country_code":(args.country),
-			"select":"stats",
+			"select":"count",
 			"from":"country",
+			"groupby":"country_code",
 			"limit":-1
 		};
 	fetch.ajax(dat,args.callback || function(data)
@@ -141,12 +140,7 @@ view_dash.ajax3=function(args)
 		console.log("view_dash.ajax");
 		console.log(data);
 		
-		if(data.rows.length==1)
-		{
-			var v=data.rows[0];
-			var count=v["COUNT(DISTINCT country_code)"];
-			ctrack.chunk("dash_total_countries",commafy(""+Math.floor(count)));
-		}
+		ctrack.chunk("dash_total_countries",commafy(""+Math.floor(data.rows.length)));
 		
 		view_dash.calc();
 
