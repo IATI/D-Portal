@@ -1,10 +1,13 @@
 cd `dirname $0`
 cd ../dstore
 
-for xmlfile in cache/*.xml
+for xmlfile in cache/new/*.xml
 do
-echo $xmlfile
-  node js/cmd import "$xmlfile" || exit 1
+	if [ "$xmlfile" != "cache/new/*.xml" ]
+	then
+		echo $xmlfile
+		node js/cmd import "$xmlfile" || exit 1
+	fi
 done
 
 #make it smarter
@@ -16,3 +19,4 @@ ls db/ -l
 node js/cmd analyze
 date
 ls db/ -l
+

@@ -290,13 +290,55 @@ dstore_cache.newold = function(argv){
 	var ff=fs.readdirSync(global.argv.cache);
 	for(var i=0;i<ff.length;i++)
 	{
-		var v=global.argv.cache+"/"+ff[i];
+		var v=ff[i];
 		if( v.slice(-4)==".xml")
 		{
 			var slug=ff[i].slice(0,-4);
 
+			var bse_fname=global.argv.cache+"/"+v;
+			var new_fname=global.argv.cache+"/new/"+v;
+			var old_fname=global.argv.cache+"/old/"+v;
+			
+			
+			var bdat;
+			var odat;
+			var thesame=false;
+			try{
+				bdat=fs.readFileSync( bse_fname );
+				odat=fs.readFileSync( old_fname );
+				if( bdat.length == odat.length)	
+				{
+					thesame=true;
+					for(var bi=0; bi<bdat.length; bi++)
+					{
+						if( bdat[bi] != odat[bi] ) // compare full buffer
+						{
+							thesame=false;
+							break;
+						}
+					}
+				}
+			}catch(e){}
+			
+			if(!thesame)
+			{
+// copy to new
+				fs.writeFileSync( new_fname , bdat );
+				console.log("NEW "+slug);
+			}
+			else
+			{
+// do not copy to new
+				console.log("OLD "+slug);
+			}
 
+// copy to old
+			fs.writeFileSync( old_fname , bdat );
 		}
+		
+// we never delete files, only replace with empty versions, so this is all we have to do.
+// if we delete from the cache then also delete from old
+// new is rebuilt every time this script is run
 	}
 	
 }

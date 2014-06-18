@@ -142,21 +142,29 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 	
 	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
-		before=row["COUNT(*)"];
+		before=row && row["COUNT(*)"] || 0;
 	});
 
-// work out what ids need to be deleted, start with a list of all the old ids
-	var oldacts=[];
+// delete everything related to this slug
 	db.each("SELECT aid FROM act WHERE slug=?",slug, function(err, row)
 	{
-		oldacts.push(row["aid"]);
+		if(row)
+		{
+			var a=row["aid"];
+			db.run("DELETE FROM act     WHERE aid=?",a);
+			db.run("DELETE FROM jml     WHERE aid=?",a);
+			db.run("DELETE FROM trans   WHERE aid=?",a);
+			db.run("DELETE FROM budget  WHERE aid=?",a);
+			db.run("DELETE FROM country WHERE aid=?",a);
+			db.run("DELETE FROM sector  WHERE aid=?",a);
+			db.run("DELETE FROM slug    WHERE aid=?",a);
+		}
 	});
 
 	wait.for(function(cb){ db.run("PRAGMA page_count", function(err, row){ cb(err); }); });
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
-	var newacts=[];
 	for(var i=0;i<acts.length;i++)
 	{
 		var xml=acts[i];
@@ -165,8 +173,6 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 		var aid=iati_xml.get_aid(json);
 		if(aid)
 		{
-			newacts.push(aid);			
-
 			var p=Math.floor(progchar.length*(i/acts.length));
 			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
 			process.stdout.write(progchar[p]);
@@ -185,37 +191,6 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 
 	wait.for(function(cb){ db.run("COMMIT TRANSACTION",cb); });
 	process.stdout.write("\n");
-
-// remove the acts that have not been updated above
-
-	var delacts=[];
-	for(var a in oldacts)
-	{
-		var aid=oldacts[a];
-		for(var b in newacts)
-		{
-			if(newacts[b]==aid){aid=null;} // replaced
-		}
-		if(aid)
-		{
-			delacts.push(aid); // this one is to be removed
-		}
-	}
-	if( delacts.length>0 )
-	{
-		console.log("DELETE "+delacts.length+" acts.");
-		for(var a in delacts)
-		{
-			db.run("DELETE FROM act     WHERE aid=?",a);
-			db.run("DELETE FROM jml     WHERE aid=?",a);
-			db.run("DELETE FROM trans   WHERE aid=?",a);
-			db.run("DELETE FROM budget  WHERE aid=?",a);
-			db.run("DELETE FROM country WHERE aid=?",a);
-			db.run("DELETE FROM sector  WHERE aid=?",a);
-			db.run("DELETE FROM slug    WHERE aid=?",a);
-		}
-	}	
-	
 
 	db.each("SELECT COUNT(*) FROM act", function(err, row)
 	{
@@ -389,41 +364,6 @@ dstore_db.refresh_act = function(db,aid,xml){
 		{
 			return;
 		}
-		
-// check for changes and possible short circuit the update here if it is exactly the same (faster updates)
-
-		var jml=JSON.stringify(act);
-		db.each("SELECT jml FROM jml WHERE aid=?",t.aid, function(err, row)
-		{
-			if(err) { console.log(r.query+"\n"+err); }
-			else
-			{
-				if(jml==row.jml) // exact match to last update, nothing to change
-				{
-					jml=null;
-				}
-			}
-		});
-		
-		// block here till the above is completes
-		wait.for(function(cb){ db.run("PRAGMA page_count", function(err, row){ cb(err); }); });
-		
-		if(!jml)
-		{
-			process.stdout.write(".");
-			 return false; // do not bother doing an update
-		}
-		
-		// remove all the old references to this aid before adding new
-		db.run("DELETE FROM act     WHERE aid=?",aid);
-		db.run("DELETE FROM jml     WHERE aid=?",aid);
-		db.run("DELETE FROM trans   WHERE aid=?",aid);
-		db.run("DELETE FROM budget  WHERE aid=?",aid); 
-		db.run("DELETE FROM country WHERE aid=?",aid);
-		db.run("DELETE FROM sector  WHERE aid=?",aid);
-		db.run("DELETE FROM slug    WHERE aid=?",aid);
-
-
 
 		t.title=refry.tagval(act,"title");
 		t.description=refry.tagval(act,"description");				
@@ -585,18 +525,18 @@ dstore_db.refresh_act = function(db,aid,xml){
 		replace("act",t);
 		replace("jml",t);
 		
-		got_budget={};
+		got_budget={}; // reset
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
-		refry.tags(act,"planned-disbursement",function(it){refresh_budget(it,act,t,1);});
-		refry.tags(act,"budget",function(it){
+		refry.tags(act,"budget",function(it){refresh_budget(it,act,t,1);});
+		refry.tags(act,"planned-disbursement",function(it){
 			var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
-			if( (!y) || (!got_budget[y]) ) // if not already filled in by planned
+			if( (!y) || (!got_budget[y]) ) // if not already filled in (budget is missing or has bad data)
 			{
-				refresh_budget(it,act,t,1);
+				refresh_budget(it,act,t,1); // then try and use this planned-disbursement instead
 			}
 			else
 			{
-				refresh_budget(it,act,t,0);
+				refresh_budget(it,act,t,0); // else this is marked as data to ignore (priority of 0)
 //				ls({"skipyear":y});
 			}
 		});
@@ -611,7 +551,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 	};
 	
 	// then add new
-	var act_json=refresh_activity(xml);
+	refresh_activity(xml);
 
 };
 

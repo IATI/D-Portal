@@ -3,11 +3,11 @@ cd ..
 
 date
 
-#dstore/dstore cache empty
-
 dstore/dstore cache iati
 
-bin/dstore_import_cache
+dstore/dstore cache newold
+
+bin/dstore_import_cache_new
 
 date
 
