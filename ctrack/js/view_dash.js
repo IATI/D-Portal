@@ -24,12 +24,16 @@ view_dash.chunks=[
 
 view_dash.view=function()
 {
-	view_dash.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-	["dash_list_reporting_datas"].forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
+	if( ! ctrack.chunk("dash_total_countries") )
+	{
+		view_dash.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+		["dash_list_reporting_datas"].forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
+
+		view_dash.ajax({});
+	}
 
 	ctrack.setcrumb(1);
 	ctrack.change_hash();
-	view_dash.ajax({});
 }
 
 view_dash.calc=function()
@@ -43,6 +47,9 @@ view_dash.calc=function()
 //
 view_dash.ajax=function(args)
 {
+	args=args || {};
+	args.country=ctrack.hash.country;
+	
 	view_dash.ajax1(args); // chain
 }
 
@@ -52,7 +59,7 @@ view_dash.ajax2=function(args)
 	var dat={
 			"country_code":(args.country),
 			"select":"stats",
-			"from":"act,country",
+			"from":"act",//,country",
 			"groupby":"reporting_ref",
 			"orderby":"1-",
 			"limit":-1
