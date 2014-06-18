@@ -58,7 +58,7 @@ view_dash.ajax2=function(args)
 	args=args || {};
 	var dat={
 			"country_code":(args.country),
-			"select":"count,reporting_ref",
+			"select":"count,reporting_ref,reporting",
 			"from":"act",//,country",
 			"groupby":"reporting_ref",
 			"orderby":"1-",
@@ -78,7 +78,7 @@ view_dash.ajax2=function(args)
 			d.num=i+1;
 			d.count=v.count;
 			d.reporting_ref=v.reporting_ref|| "N/A";
-			d.reporting=iati_codes.publisher_names[d.reporting_ref] || iati_codes.country[d.reporting_ref] || "N/A";
+			d.reporting=iati_codes.publisher_names[d.reporting_ref] || iati_codes.country[d.reporting_ref] || v.reporting;
 
 			total+=d.count;
 			s.push( plate.replace(args.plate || "{dash_list_reporting_data}",d) );
