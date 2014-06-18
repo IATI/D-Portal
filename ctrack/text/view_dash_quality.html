@@ -9,23 +9,21 @@
 {view_tail}
 
 
-#dash_list_quality_datas
-#dash_list_quality_data
-			<tr>
-				<td>{reporting}<br/>{reporting_ref}</td>
-				<td>{count}<br/>{countries}</td>
-			</tr>
 #dash_quality_body
 <div class="default data">
 	<div style="display:inline-block; width:620px;">
 		<div style="font-size:2em; margin-bottom:20px;">test data</div>
-		<table class="pub">
-			<tr>
-				<th>Ids</th>
-				<th>Activities reported</th>
-			</tr>
-			{dash_list_reporting_datas}
-		</table>
+
+		<a href="#view=dash">BACK</a>
+		<pre>
+			publisher    : {dash_quality_pub_name}
+			publisherid  : {dash_quality_pub}
+			activities   : {dash_quality_act_count}
+			budgets      : {dash_quality_budget_count}
+			transactions : {dash_quality_trans_count}
+			countries    : {dash_quality_country_count}
+		</pre>
+
 	</div>
 </div>
 
