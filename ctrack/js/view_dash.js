@@ -43,6 +43,11 @@ view_dash.calc=function()
 //
 view_dash.ajax=function(args)
 {
+	view_dash.ajax1(args); // chain
+}
+
+view_dash.ajax1=function(args)
+{
 	args=args || {};
 	var dat={
 			"country_code":(args.country),
@@ -78,8 +83,13 @@ view_dash.ajax=function(args)
 		view_dash.calc();
 
 		ctrack.display(); // every fetch.ajax must call display once
+
+		view_dash.ajax2();
 	});
-	
+}
+
+view_dash.ajax2=function(args)
+{
 	var dat={
 			"country_code":(args.country),
 			"select":"stats",
@@ -104,9 +114,13 @@ view_dash.ajax=function(args)
 		view_dash.calc();
 
 		ctrack.display(); // every fetch.ajax must call display once
+		
+		view_dash.ajax3();
 	});
+}
 
-
+view_dash.ajax3=function(args)
+{
 	var dat={
 			"country_code":(args.country),
 			"select":"stats",
