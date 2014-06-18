@@ -88,7 +88,7 @@ view_dash_quality.ajax2=function(args)
 	var dat={
 			"country_code":(args.country),
 			"reporting_ref":(args.pub),
-			"select":"stats",
+			"select":"count",
 			"from":"budget,act",
 			"limit":-1
 		};
@@ -100,7 +100,7 @@ view_dash_quality.ajax2=function(args)
 		if(data.rows.length==1)
 		{
 			var v=data.rows[0];
-			var count=v["COUNT(*)"];
+			var count=v.count;
 			ctrack.chunk("dash_quality_budget_count",commafy(Math.floor(count)));
 		}
 		
@@ -117,7 +117,7 @@ view_dash_quality.ajax3=function(args)
 	var dat={
 			"country_code":(args.country),
 			"reporting_ref":(args.pub),
-			"select":"stats",
+			"select":"count",
 			"from":"trans,act",
 			"limit":-1
 		};
@@ -129,7 +129,7 @@ view_dash_quality.ajax3=function(args)
 		if(data.rows.length==1)
 		{
 			var v=data.rows[0];
-			var count=v["COUNT(*)"];
+			var count=v.count;
 			ctrack.chunk("dash_quality_trans_count",commafy(Math.floor(count)));
 		}
 		
@@ -146,8 +146,9 @@ view_dash_quality.ajax4=function(args)
 	var dat={
 			"country_code":(args.country),
 			"reporting_ref":(args.pub),
-			"select":"stats",
+			"select":"count",
 			"from":"country,act",
+			"groupby":"country_code",
 			"limit":-1
 		};
 	fetch.ajax(dat,args.callback || function(data)
@@ -155,12 +156,7 @@ view_dash_quality.ajax4=function(args)
 		console.log("view_dash_quality.ajax4");
 		console.log(data);
 			
-		if(data.rows.length==1)
-		{
-			var v=data.rows[0];
-			var count=v["COUNT(DISTINCT country_code)"];
-			ctrack.chunk("dash_quality_country_count",commafy(Math.floor(count)));
-		}
+		ctrack.chunk("dash_quality_country_count",commafy(Math.floor(data.rows.length)));
 		
 		view_dash_quality.calc();
 		ctrack.display(); // every fetch.ajax must call display once
