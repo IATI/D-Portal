@@ -48,7 +48,7 @@ view_dash_quality.ajax=function(args)
 	args.country=ctrack.hash.country;
 	
 	ctrack.chunk("dash_quality_pub",args.pub);
-	ctrack.chunk("dash_quality_pub_name",iati_codes.publisher_names[args.pub]);	
+	ctrack.chunk("dash_quality_pub_name",iati_codes.publisher_names[args.pub] || "N/A");	
 	
 	view_dash_quality.ajax1(args); // chain
 }
