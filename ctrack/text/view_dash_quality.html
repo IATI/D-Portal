@@ -65,7 +65,7 @@
 		</table>
 		<table class="pub dataset">
 			<tr>
-				<th>IATI Datasets <span class="note">Links open external sites in new window.</span></th>
+				<th>IATI Datasets <span class="note">Each dataset contains a number of activities. Links open external sites in new window.</span></th>
 				<th>Activities</th>
 			</tr>
 			{dash_list_slug_datas}
@@ -96,6 +96,10 @@
 </div>
 
 #css
+a.back_link.dash			{margin-right:20px; text-align:right; margin-top:40px;}
+.note						{font-style:italic; font-weight:initial;}
+.note.div					{font-size:0.65em; padding-top:5px; line-height:1.2em;}
+
 table.quality		{width:960px; border-collapse:separate; border-spacing:20px; margin:0 auto;}
 table.quality td	{padding:20px; text-align:center; font-size:1.4em; border:1px solid #ccc;}
 table.quality td div:first-of-type	{font-size:3.6em; padding-bottom:20px;}
@@ -124,7 +128,4 @@ table.pub.dataset td		{padding:5px 0;}
 table.pub.dataset td.set	{padding:0;}
 table.pub.dataset td.set a	{display:block; padding:5px 0;}
 table.pub.dataset th		{padding:5px 0; border-bottom:1px solid #ccc;}
-
-a.back_link.dash			{margin-right:20px; text-align:right; margin-top:40px;}
-.note						{font-style:italic; font-weight:initial;}
-.note.div					{font-size:0.65em; padding-top:5px; line-height:1.2em;}
+table.pub.dataset th span.note	{display:inline-block; padding-left:10px; font-size:0.9em;}
