@@ -76,7 +76,7 @@ view_dash.ajax2=function(args)
 			var v=data.rows[i];
 			var d={};
 			d.num=i+1;
-			d.count=v.count;
+			d.count=commafy(v.count);
 			d.reporting_ref=v.reporting_ref|| "N/A";
 			d.reporting=iati_codes.publisher_names[d.reporting_ref] || iati_codes.country[d.reporting_ref] || v.reporting;
 
