@@ -625,7 +625,7 @@ if(true)
 query.serv = function(req,res){
 	var q=query.get_q(req);
 
-// special log info
+// special log info requests
 	if(q.from=="cronlog_time")
 	{
 		fs.stat('../dportal/production/cron.log', function (err, data) {

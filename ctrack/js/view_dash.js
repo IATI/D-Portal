@@ -39,8 +39,6 @@ view_dash.view=function()
 
 view_dash.calc=function()
 {
-	var s=(new Date).toUTCString();	
-	ctrack.chunk("dash_updated_date",s);
 }
 
 //
@@ -51,8 +49,19 @@ view_dash.ajax=function(args)
 	args=args || {};
 	args.country=ctrack.hash.country;
 	
+	view_dash.ajax_cronlog(); // basic info
+	
 	view_dash.ajax1(args); // chain
 }
+
+view_dash.ajax_cronlog=function()
+{
+	fetch.ajax({"from":"cronlog_time"},function(data)
+	{
+		ctrack.chunk("dash_last_updated",data.time || "N/A");
+		ctrack.display(); // every fetch.ajax must call display once
+	});
+};
 
 view_dash.ajax2=function(args)
 {
