@@ -54,14 +54,14 @@
 				</td>
 			</tr>
 		</table>
-		<table class="pub">
+		<table class="pub dataset">
 			<tr>
 				<th>IATI Datasets</th>
 				<th>Activities</th>
 			</tr>
 			{dash_list_slug_datas}
 		</table>
-		<a href="#view=dash">Back</a>
+		<a href="#view=dash" class="back_link dash">Back</a>
 	</div>
 </div>
 
@@ -76,3 +76,7 @@ table.name			{width:920px; margin:0 auto;}
 table.name td		{vertical-align:middle; padding-bottom:20px;}
 table.name td:first-child	{font-size:1.2em; width:20%;}
 table.name td:last-child	{font-size:2.2em;}
+
+table.pub.dataset	{width:920px; max-width:920px; margin:0 auto; margin-bottom:60px;}
+
+a.back_link.dash	{margin-left:20px; text-align:left;}
