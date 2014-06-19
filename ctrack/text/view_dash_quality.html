@@ -20,27 +20,67 @@
 
 #dash_quality_body
 <div class="default data">
-	<div style="display:inline-block; width:620px;">
-		<div style="font-size:2em; margin-bottom:20px;">test data</div>
-
-		<a href="#view=dash">BACK</a>
-		<pre>
-			publisher    : {dash_quality_pub_name}
-			publisherid  : {dash_quality_pub}
-			activities   : {dash_quality_act_count}
-			budgets      : {dash_quality_budget_count}
-			transactions : {dash_quality_trans_count}
-			countries    : {dash_quality_country_count}
-		</pre>
-
-		<table class="pub">
+	<div style="margin:0 auto; width:100%;">
+		<table class="name">
 			<tr>
-				<th>Slug</th>
+				<td>Publisher Name:</td>
+				<td>{dash_quality_pub_name}</td>
+			</tr>
+			<tr>
+				<td>Publisher ID:</td>
+				<td>{dash_quality_pub}</td>
+			</tr>
+		</table>
+		<table class="quality">
+			<tr>
+				<td>
+					<div>{dash_quality_act_count}</div>
+					<div>Activities</div>
+					<div>Total number of activities reported by this publisher.</div>
+				</td>
+				<td>
+					<div>{dash_quality_budget_count}</div>
+					<div>Budgets</div>
+					<div>Total number of budgets across all activities.</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>{dash_quality_trans_count}</div>
+					<div>Transactions</div>
+					<div>Total number of transactions across all activities.</div>
+				</td>
+				<td>
+					<div>{dash_quality_country_count}</div>
+					<div>Countries</div>
+					<div>Total number of countries reported by this publisher.</div>
+				</td>
+			</tr>
+		</table>
+		<table class="pub dataset">
+			<tr>
+				<th>IATI Datasets</th>
 				<th>Activities</th>
 			</tr>
 			{dash_list_slug_datas}
 		</table>
-
+		<a href="#view=dash" class="back_link dash">Back to publisher list</a>
 	</div>
 </div>
 
+#css
+table.quality		{width:960px; border-collapse:separate; border-spacing:20px; margin:0 auto;}
+table.quality td	{padding:20px; text-align:center; font-size:1.4em; border:1px solid #ccc;}
+table.quality td div:first-of-type	{font-size:3.6em; padding-bottom:20px;}
+table.quality td div:nth-of-type(2)	{font-size:1.0em;}
+table.quality td div:last-of-type	{font-size:0.65em; line-height:1.2em; color:#444; padding-top:10px; vertical-align:bottom;}
+
+table.name			{width:920px; margin:0 auto;}
+table.name td		{vertical-align:middle; padding-bottom:20px;}
+table.name td:first-child	{font-size:1.2em; width:20%;}
+table.name td:last-child	{font-size:2.2em;}
+
+table.pub.dataset	{width:920px; max-width:920px; margin:0 auto; margin-bottom:60px;}
+table.pub.dataset th	{border-bottom:1px solid #ccc;}
+
+a.back_link.dash	{margin-right:20px; text-align:right;}
