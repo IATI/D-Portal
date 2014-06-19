@@ -21,9 +21,9 @@
 #dash_listall_country_datas
 #dash_listall_country_data
 <tr>
-	<td title="Country Name">{country_code}</td>
+	<td title="Country Code">{country_code}</td>
 	<td title="Number of activities reported">{count}</td>
-<tr>
+</tr>
 
 #dash_list_reporting_datas
 #dash_list_reporting_data
@@ -63,18 +63,18 @@
 				</tr>
 			</table>
 		</div>
-		<div class="table_snap_wrap">
-			<table class="snap">
+		<div class="title_info">Info</div>
+		<div class="subtitle_info">Dash is an overview of the data populating d-portal.org</div>
+		<p>Updated everyday GMT +0.</p> 
+		<p>Last updated on {it.date}</p>
+		<div class="table_snap_wrap countries">
+			<table class="snap countries">
 				<tr>
-					<td colspan="2">Countries reported to</td>
+					<th colspan="2">Countries reported on</th>
 				</tr>
 				{dash_listall_country_datas}
 			</table>
-		</div>
-		<div class="title_info">Info</div>
-		<div class="subtitle_info">An overview of the data populating d-portal.org</div>
-		<p>Updated every Sunday GMT +0.</p> 
-		<p>Last updated on {it.date}</p>
+		</div>	
 	</div>
 </div>
 
@@ -99,6 +99,9 @@ table.pub tr:last-child	td	{border-bottom:0;}
 
 table.snap		{width:238px; max-width:238px; font-size:0.9em;}
 table.snap td	{padding:15px 30px 15px 0;}
+table.snap.countries th	{padding:5px 30px 20px 0; text-align:left;}
+table.snap.countries td	{padding:10px 30px 10px 0; border-bottom:1px solid #ccc;}
+table.snap.countries td:last-child	{padding-right:5px; text-align:right;}
 
 .head_wrap		{margin:0 auto; width:960px; padding:20px 0; border-bottom:5px solid #222; margin-bottom:20px;}
 .head_block		{display:inline-block; width:50%; vertical-align:bottom;}
@@ -109,6 +112,7 @@ a.back_link		{display:block; font-size:1.0em; text-align:right; color:#000;}
 .title			{font-size:2em; margin-bottom:20px;}
 .title_snap		{font-size:1.4em; margin-bottom:20px;}
 .table_snap_wrap	{margin:0 auto; width:238px; border:1px solid #444; padding:20px; margin-bottom:30px;}
+.table_snap_wrap.countries	{margin-top:40px;}
 .title_info		{font-size:1.4em; margin-bottom:10px;}
 .subtitle_info	{font-size:0.9em; line-height:1.4em; margin-bottom:20px;}
 p				{font-size:0.9em; margin-bottom:10px;}
