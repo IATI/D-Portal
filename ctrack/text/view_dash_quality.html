@@ -8,6 +8,12 @@
 {dash_quality_body}
 {view_tail}
 
+#dash_list_slug_datas
+#dash_list_slug_data
+<tr>
+	<td><a href="http://iatiregistry.org/dataset/{slug}">{slug}</a></td>
+	<td>{count}</td>
+</tr>
 
 #dash_quality_body
 <div class="default data">
@@ -40,8 +46,14 @@
 				</td>
 			</tr>
 		</table>
+		<table class="pub">
+			<tr>
+				<th>Slug</th>
+				<th>Activities</th>
+			</tr>
+			{dash_list_slug_datas}
+		</table>
 		<a href="#view=dash">Back</a>
-	</div>
 </div>
 
 #css

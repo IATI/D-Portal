@@ -161,6 +161,46 @@ view_dash_quality.ajax4=function(args)
 		view_dash_quality.calc();
 		ctrack.display(); // every fetch.ajax must call display once
 
+		view_dash_quality.ajax5(args);
+	});
+}
+
+view_dash_quality.ajax5=function(args)
+{
+	args=args || {};
+	var dat={
+			"country_code":(args.country),
+			"reporting_ref":(args.pub),
+			"select":"count,slug",
+			"from":"act",
+			"groupby":"slug",
+			"orderby":"1-",
+			"limit":-1
+		};
+	fetch.ajax(dat,args.callback || function(data)
+	{
+		console.log("view_dash_quality.ajax5");
+		console.log(data);
+			
+		var s=[];
+		var total=0;
+		for(var i=0;i<data.rows.length;i++)
+		{
+			var v=data.rows[i];
+			var d={};
+			d.num=i+1;
+			d.count=v.count;
+			d.slug=v.slug;
+
+			total+=d.count;
+			s.push( plate.replace(args.plate || "{dash_list_slug_data}",d) );
+		}
+		ctrack.chunk(args.chunk || "dash_list_slug_datas",s.join(""));
+		
+		
+		view_dash_quality.calc();
+		ctrack.display(); // every fetch.ajax must call display once
+
 //		view_dash_quality.ajax4(args);
 	});
 }
