@@ -13,6 +13,7 @@ var fetch=require("./fetch.js")
 
 views.dash=require("./view_dash.js");
 views.dash_quality=require("./view_dash_quality.js");
+views.dash_cronlog=require("./view_dash_cronlog.js");
 
 views.missing=require("./view_missing.js");
 views.ended=require("./view_ended.js");
