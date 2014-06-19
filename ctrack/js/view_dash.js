@@ -20,6 +20,7 @@ view_dash.chunks=[
 	"dash_total_countries",
 	"dash_total_activities",
 	"dash_total_publishers",
+	"dash_listall_country_datas",
 ];
 
 view_dash.view=function()
@@ -139,6 +140,23 @@ view_dash.ajax3=function(args)
 	{
 		console.log("view_dash.ajax");
 		console.log(data);
+		
+		var s=[];
+		var total=0;
+		for(var i=0;i<data.rows.length;i++)
+		{
+			var v=data.rows[i];
+			var d={};
+			d.num=i+1;
+			d.count=v.count;
+			d.country_code=v.country_code;
+
+			total+=d.count;
+			s.push( plate.replace(args.plate || "{dash_listall_country_data}",d) );
+		}
+		ctrack.chunk(args.chunk || "dash_listall_country_datas",s.join(""));
+
+		ctrack.chunk("dash_quality_country_total",commafy(total));
 		
 		ctrack.chunk("dash_total_countries",commafy(""+Math.floor(data.rows.length)));
 		
