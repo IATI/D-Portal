@@ -131,9 +131,10 @@ view_dash.ajax3=function(args)
 	args=args || {};
 	var dat={
 			"country_code":(args.country),
-			"select":"count",
+			"select":"count,country_code",
 			"from":"country",
 			"groupby":"country_code",
+			"orderby":"1-",
 			"limit":-1
 		};
 	fetch.ajax(dat,args.callback || function(data)
