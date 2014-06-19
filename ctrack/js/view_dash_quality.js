@@ -21,6 +21,7 @@ view_dash_quality.chunks=[
 	"dash_quality_budget_count",
 	"dash_quality_trans_count",
 	"dash_quality_country_count",
+	"dash_list_slug_datas",
 ];
 
 view_dash_quality.view=function()
