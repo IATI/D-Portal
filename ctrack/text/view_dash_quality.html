@@ -11,7 +11,9 @@
 #dash_list_country_datas
 #dash_list_country_data
 <tr>
-	<td title="Country Code">{country_code}</td>
+	<td title="Country Code" class="cc">
+		<a href="http://www.d-portal.org/q.xml?from=act,country&country_code={country_code}&publisher_ref={dash_quality_pub}" target="_blank">{country_code}</a>
+	</td>
 	<td title="Number of activities reported">{count}</td>
 </tr>
 
@@ -43,9 +45,9 @@
 					<div>Total number of activities reported by this publisher.</div>
 				</td>
 				<td>
-					<div>{dash_quality_budget_count}</div>
-					<div>Budgets</div>
-					<div>Total number of budgets across all activities.</div>
+					<div><a href="#country_list">{dash_quality_country_count}</a></div>
+					<div>Countries</div>
+					<div>Total number of countries reported by this publisher.</div>
 				</td>
 			</tr>
 			<tr>
@@ -55,15 +57,15 @@
 					<div>Total number of transactions across all activities.</div>
 				</td>
 				<td>
-					<div><a href="#country_list">{dash_quality_country_count}</a></div>
-					<div>Countries</div>
-					<div>Total number of countries reported by this publisher.</div>
+					<div>{dash_quality_budget_count}</div>
+					<div>Budgets</div>
+					<div>Total number of budgets across all activities.</div>
 				</td>
 			</tr>
 		</table>
 		<table class="pub dataset">
 			<tr>
-				<th>IATI Datasets <span class="note">(links open external sites in new window)</span></th>
+				<th>IATI Datasets <span class="note">Links open external sites in new window.</span></th>
 				<th>Activities</th>
 			</tr>
 			{dash_list_slug_datas}
@@ -74,7 +76,10 @@
 				<td>
 					<table class="country_data">
 						<tr>
-							<td><div class="country_title">Total number of countries reported on:</div></td>
+							<td>
+								<div class="country_title">Total number of recipient countries:</div>
+								<div class="note div">Click to view all acitivities reported per country for this publisher. Links open external sites in new window.</div>
+							</td>
 							<td><div class="country_title">{dash_quality_country_count}</div></td>
 						</tr>
 						<tr>
@@ -97,15 +102,17 @@ table.quality td div:first-of-type	{font-size:3.6em; padding-bottom:20px;}
 table.quality td div:nth-of-type(2)	{font-size:1.0em;}
 table.quality td div:last-of-type	{font-size:0.65em; line-height:1.2em; color:#444; padding-top:10px; vertical-align:bottom;}
 
-table.country_data th		{text-align:left; font-weight:bold; font-size:0.65em; padding-bottom:10px; border-bottom:1px solid #ccc;}
+table.country_data th		{text-align:left; font-weight:bold; font-size:0.65em; padding:30px 0 10px 0; border-bottom:1px solid #ccc;}
 table.country_data th:last-child	{text-align:right;}
 table.country_data			{width:100%; border-collapse:collapse; border-spacing:20px; margin:0 auto;}
 table.country_data tr:first-child td, table.country_data td		{border:0; text-align:left;}
 table.country_data td		{font-size:0.9em; padding:10px 30px 10px 0; border-bottom:1px solid #ccc;}
 table.country_data td:last-child		{text-align:right; padding-right:5px;}
-table.country_data td div.country_title	{font-size:1.8em; padding:0 0 20px 0;}
+table.country_data td div.country_title	{font-size:1.8em; padding:10px 0 0 0;}
 table.country_data td:last-child div.country_title	{text-align:right;}
 table.country_data tr:last-child td		{border-bottom:0;}
+table.country_data td.cc		{padding:0;}
+table.country_data td.cc a		{display:block; padding:10px 30px 10px 0;}
 
 table.name					{width:920px; margin:0 auto;}
 table.name td				{vertical-align:middle; padding-bottom:20px;}
