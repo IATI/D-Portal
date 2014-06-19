@@ -11,19 +11,41 @@
 
 #dash_quality_body
 <div class="default data">
-	<div style="display:inline-block; width:620px;">
-		<div style="font-size:2em; margin-bottom:20px;">test data</div>
-
-		<a href="#view=dash">BACK</a>
-		<pre>
-			publisher    : {dash_quality_pub_name}
-			publisherid  : {dash_quality_pub}
-			activities   : {dash_quality_act_count}
-			budgets      : {dash_quality_budget_count}
-			transactions : {dash_quality_trans_count}
-			countries    : {dash_quality_country_count}
-		</pre>
-
+	<div style="margin:0 auto; width:100%;">
+		<div style="margin:0 auto; width:920px; font-size:2em; padding-bottom:10px;">{dash_quality_pub_name}</div>
+		<div style="margin:0 auto; width:920px; font-size:1.4em; margin-bottom:20px;">Publisher ID: {dash_quality_pub}</div>
+		<table class="quality">
+			<tr>
+				<td>
+					<div>{dash_quality_act_count}</div>
+					<div>Activities</div>
+					<div>Total number of activities reported by this publisher.</div>
+				</td>
+				<td>
+					<div>{dash_quality_budget_count}</div>
+					<div>Budgets</div>
+					<div>Total number of budgets across all activities.</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>{dash_quality_trans_count}</div>
+					<div>Transactions</div>
+					<div>Total number of transactions across all activities.</div>
+				</td>
+				<td>
+					<div>{dash_quality_country_count}</div>
+					<div>Countries</div>
+					<div>Total number of countries reported by this publisher.</div>
+				</td>
+			</tr>
+		</table>
+		<a href="#view=dash">Back</a>
 	</div>
 </div>
 
+#css
+table.quality		{width:960px; border-collapse:separate; border-spacing:20px; margin:0 auto;}
+table.quality td	{padding:20px; text-align:center; font-size:1.4em; border:1px solid #ccc;}
+table.quality td div:first-of-type	{font-size:2.6em; padding-bottom:20px;}
+table.quality td div:last-of-type	{font-size:0.65em; line-height:1.2em; color:#444; padding-top:10px; vertical-align:bottom;}
