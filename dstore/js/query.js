@@ -4,6 +4,7 @@
 var query=exports;
 
 var util=require('util');
+var fs=require('fs');
 
 var refry=require('./refry');
 var exs=require('./exs');
@@ -623,6 +624,36 @@ if(true)
 // handle the /q url space
 query.serv = function(req,res){
 	var q=query.get_q(req);
+
+// special log info
+	if(q.from=="cronlog_time")
+	{
+		fs.stat('../dstore/production/cron.log', function (err, data) {
+				var ret={};
+				if(err) { ret.err=err; }
+				else
+				{
+					ret.time = data.mtime;
+				}
+				res.jsonp(ret);
+		});
+		return;
+	}
+	else
+	if(q.from=="cronlog")
+	{
+		fs.readFile('../dstore/production/cron.log', function (err, data) {
+				var ret={};
+				if(err) { ret.err=err; }
+				else
+				{
+					ret.log = data;
+				}
+				res.jsonp(ret);
+		});
+		return;
+	}
+	
 	return query.do_select(q,res);
 };
 
