@@ -20,7 +20,7 @@
 #dash_list_slug_datas
 #dash_list_slug_data
 <tr>
-	<td title="Unique Dataset ID"><a href="http://iatiregistry.org/dataset/{slug}" target="_blank">{slug}</a></td>
+	<td title="Unique Dataset ID" class="set"><a href="http://iatiregistry.org/dataset/{slug}" target="_blank">{slug}</a></td>
 	<td title="Number of activities within this dataset">{count}</td>
 </tr>
 
@@ -120,7 +120,10 @@ table.name td:first-child	{font-size:1.2em; width:20%;}
 table.name td:last-child	{font-size:2.2em;}
 
 table.pub.dataset			{width:920px; max-width:920px; margin:0 auto; margin-bottom:40px; margin-top:40px;}
-table.pub.dataset th		{border-bottom:1px solid #ccc;}
+table.pub.dataset td		{padding:5px 0;}
+table.pub.dataset td.set	{padding:0;}
+table.pub.dataset td.set a	{display:block; padding:5px 0;}
+table.pub.dataset th		{padding:5px 0; border-bottom:1px solid #ccc;}
 
 a.back_link.dash			{margin-right:20px; text-align:right; margin-top:40px;}
 .note						{font-style:italic; font-weight:initial;}
