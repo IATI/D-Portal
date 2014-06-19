@@ -21,6 +21,8 @@ view_dash_quality.chunks=[
 	"dash_quality_budget_count",
 	"dash_quality_trans_count",
 	"dash_quality_country_count",
+	"dash_list_country_datas",
+	"dash_list_slug_datas",
 ];
 
 view_dash_quality.view=function()
@@ -146,17 +148,35 @@ view_dash_quality.ajax4=function(args)
 	var dat={
 			"country_code":(args.country),
 			"reporting_ref":(args.pub),
-			"select":"count",
+			"select":"count,country_code",
 			"from":"country,act",
 			"groupby":"country_code",
+			"orderby":"1-",
 			"limit":-1
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
 		console.log("view_dash_quality.ajax4");
 		console.log(data);
-			
-		ctrack.chunk("dash_quality_country_count",commafy(Math.floor(data.rows.length)));
+
+		var s=[];
+		var total=0;
+		for(var i=0;i<data.rows.length;i++)
+		{
+			var v=data.rows[i];
+			var d={};
+			d.num=i+1;
+			d.count=v.count;
+			d.country_code=v.country_code;
+
+			total+=d.count;
+			s.push( plate.replace(args.plate || "{dash_list_country_data}",d) );
+		}
+		ctrack.chunk(args.chunk || "dash_list_country_datas",s.join(""));
+
+
+		ctrack.chunk("dash_quality_country_total",commafy(total));
+		ctrack.chunk("dash_quality_country_count",commafy(data.rows.length));
 		
 		view_dash_quality.calc();
 		ctrack.display(); // every fetch.ajax must call display once
