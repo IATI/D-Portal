@@ -642,7 +642,7 @@ query.serv = function(req,res){
 	else
 	if(q.from=="cronlog")
 	{
-		fs.readFile('../dportal/production/cron.log', function (err, data) {
+		fs.readFile('../dportal/production/cron.log',"utf8", function (err, data) {
 				var ret={};
 				if(err) { ret.err=err; }
 				else
