@@ -625,10 +625,10 @@ if(true)
 query.serv = function(req,res){
 	var q=query.get_q(req);
 
-// special log info
+// special log info requests
 	if(q.from=="cronlog_time")
 	{
-		fs.stat('../dstore/production/cron.log', function (err, data) {
+		fs.stat('../dportal/production/cron.log', function (err, data) {
 				var ret={};
 				if(err) { ret.err=err; }
 				else
@@ -642,7 +642,7 @@ query.serv = function(req,res){
 	else
 	if(q.from=="cronlog")
 	{
-		fs.readFile('../dstore/production/cron.log', function (err, data) {
+		fs.readFile('../dportal/production/cron.log',"utf8", function (err, data) {
 				var ret={};
 				if(err) { ret.err=err; }
 				else
