@@ -73,7 +73,14 @@
 			<tr>
 				<td>
 					<table class="country_data">
-						<tr><td><div class="country_title">Countries reported on</div></td></tr>
+						<tr>
+							<td><div class="country_title">Total number of countries reported on:</div></td>
+							<td><div class="country_title">{dash_quality_country_count}</div></td>
+						</tr>
+						<tr>
+							<th>Country Code</th>
+							<th>Activities</th>
+						</tr>
 						{dash_list_country_datas}
 					</table>
 				</td>
@@ -90,11 +97,14 @@ table.quality td div:first-of-type	{font-size:3.6em; padding-bottom:20px;}
 table.quality td div:nth-of-type(2)	{font-size:1.0em;}
 table.quality td div:last-of-type	{font-size:0.65em; line-height:1.2em; color:#444; padding-top:10px; vertical-align:bottom;}
 
+table.country_data th		{text-align:left; font-weight:bold; font-size:0.65em; padding-bottom:10px; border-bottom:1px solid #ccc;}
+table.country_data th:last-child	{text-align:right;}
 table.country_data			{width:100%; border-collapse:collapse; border-spacing:20px; margin:0 auto;}
 table.country_data tr:first-child td, table.country_data td		{border:0; text-align:left;}
 table.country_data td		{font-size:0.9em; padding:10px 30px 10px 0; border-bottom:1px solid #ccc;}
 table.country_data td:last-child		{text-align:right; padding-right:5px;}
-table.country_data td div.country_title	{font-size:1.8em; padding-bottom:20px;}
+table.country_data td div.country_title	{font-size:1.8em; padding:0 0 20px 0;}
+table.country_data td:last-child div.country_title	{text-align:right;}
 table.country_data tr:last-child td		{border-bottom:0;}
 
 table.name					{width:920px; margin:0 auto;}
