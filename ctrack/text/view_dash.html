@@ -21,7 +21,9 @@
 #dash_listall_country_datas
 #dash_listall_country_data
 <tr>
-	<td title="Country Code">{country_code}</td>
+	<td title="Country Code" class="cc">
+		<a href="http://www.d-portal.org/q.xml?from=act,country&country_code={country_code}" target="_blank">{country_code}</a>
+	</td>
 	<td title="Number of activities reported">{count}</td>
 </tr>
 
@@ -29,7 +31,7 @@
 #dash_list_reporting_data
 <tr>
 	<td title="Publisher Name">{reporting}</td>
-	<td title="Publisher ID"><a href="#view=dash_quality&pub={reporting_ref}">{reporting_ref}</a></td>
+	<td title="Publisher ID" class="ref"><a href="#view=dash_quality&pub={reporting_ref}">{reporting_ref}</a></td>
 	<td title="Activities">{count}</td>
 </tr>
 
@@ -70,7 +72,7 @@
 		<div class="table_snap_wrap countries">
 			<table class="snap countries">
 				<tr>
-					<th colspan="2">Countries reported on</th>
+					<th colspan="2">Countries reported on <div class="note div">(links open external sites in new window)</div></th>
 				</tr>
 				{dash_listall_country_datas}
 			</table>
@@ -88,6 +90,12 @@
 #css_dash
 html			{background-color:#fff;}
 .overlay		{background-color:#fff;}
+a:focus			{color:#FF5F00; text-decoration:none;}
+a:link  		{color:#FF5F00; text-decoration:none;}
+a:visited		{color:#FF5F00; text-decoration:none;}
+a:hover			{color:#FF3B00; text-decoration:none;}
+a:active		{color:#FF5F00; text-decoration:none;}
+table td, table th	{cursor:auto;}
 
 table.pub		{width:600px; max-width:600px; text-align:right; font-size:0.9em; line-height:1.4em;}
 table.pub th	{font-weight:bold; padding:15px 30px 15px 0;}
@@ -96,13 +104,17 @@ table.pub td:first-child, table.pub th:first-child 	{text-align:left;}
 table.pub th:last-child 	{padding-right:0;}
 table.pub td:last-child		{padding-right:5px;}
 table.pub tr:last-child	td	{border-bottom:0;}
+table.pub td.ref	{padding:0;}
+table.pub td.ref a	{display:block; padding:15px 35px 15px 0;}
 
 table.snap		{width:238px; max-width:238px; font-size:0.9em;}
 table.snap td	{padding:15px 30px 15px 0;}
 table.snap.countries	{table-layout:fixed;}
-table.snap.countries th	{padding:5px 30px 20px 0; text-align:left;}
-table.snap.countries td	{padding:10px 30px 10px 0; border-bottom:1px solid #ccc;}
-table.snap.countries td:last-child	{padding-right:5px; text-align:right;}
+table.snap.countries th	{font-size:1.4em; padding:5px 30px 20px 0; text-align:left;}
+table.snap.countries td	{padding:10px 5px 10px 0; border-bottom:1px solid #ccc;}
+table.snap.countries td.cc a		{display:block; padding-right:30px;}
+table.snap.countries td:last-child	{text-align:right;}
+table.snap.countries tr:last-child	td	{border-bottom:0;}
 
 .head_wrap		{margin:0 auto; width:960px; padding:20px 0; border-bottom:5px solid #222; margin-bottom:20px;}
 .head_block		{display:inline-block; width:50%; vertical-align:bottom;}
