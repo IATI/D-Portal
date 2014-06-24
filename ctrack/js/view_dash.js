@@ -161,6 +161,7 @@ view_dash.ajax3=function(args)
 			d.count=v.count;
 			d.country_code=v.country_code;
 			d.country_name=iati_codes.country[d.country_code] || "N/A";
+			d.country_valid=iati_codes.country[d.country_code] && "valid" || "bad";
 
 			total+=d.count;
 			s.push( plate.replace(args.plate || "{dash_listall_country_data}",d) );

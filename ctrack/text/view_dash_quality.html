@@ -11,7 +11,7 @@
 #dash_list_country_datas
 #dash_list_country_data
 <tr>
-	<td title="Country Code" class="cc">
+	<td title="Country Code" class="cc country_{country_valid}">
 		<a href="http://www.d-portal.org/q.xml?from=act,country&country_code={country_code}&reporting_ref={dash_quality_pub}" target="_blank">{country_code}</a>
 	</td>
 	<td title="Number of activities reported">{count}</td>
@@ -117,6 +117,9 @@ table.country_data td:last-child div.country_title	{text-align:right;}
 table.country_data tr:last-child td		{border-bottom:0;}
 table.country_data td.cc		{padding:0;}
 table.country_data td.cc a		{display:block; padding:10px 30px 10px 0;}
+
+table.country_data td.country_valid a { color:#0f0; }
+table.country_data td.country_bad   a { color:#f00; }
 
 table.name					{width:920px; margin:0 auto;}
 table.name td				{vertical-align:middle; padding-bottom:20px;}

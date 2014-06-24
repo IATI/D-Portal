@@ -422,7 +422,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 		var country=[];
 		var percents=[];
-		refry.tags(act,"recipient-country",function(it){ country.push( (it.code || "").toUpperCase() ); percents.push(it.percentage); });
+		refry.tags(act,"recipient-country",function(it){ country.push( (it.code || "").trim().toUpperCase() ); percents.push(it.percentage); });
 		fixpercents(percents);
 		if(country[0]) {
 			for( var i=0; i<country.length ; i++ )

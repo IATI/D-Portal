@@ -21,7 +21,7 @@
 #dash_listall_country_datas
 #dash_listall_country_data
 <tr>
-	<td title="Country Code" class="cc">
+	<td title="Country Code" class="cc country_{country_valid}">
 		<a href="http://www.d-portal.org/q.xml?from=act,country&country_code={country_code}" target="_blank">{country_code}</a>
 	</td>
 	<td title="Number of activities reported">{count}</td>
@@ -116,6 +116,9 @@ table.snap.countries td	{padding:10px 5px 10px 0; border-bottom:1px solid #ccc;}
 table.snap.countries td.cc a		{display:block; padding-right:30px;}
 table.snap.countries td:last-child	{text-align:right;}
 table.snap.countries tr:last-child	td	{border-bottom:0;}
+
+table.snap.countries td.country_valid a { color:#0f0; }
+table.snap.countries td.country_bad   a { color:#f00; }
 
 .head_wrap		{margin:0 auto; width:960px; padding:20px 0; border-bottom:5px solid #222; margin-bottom:20px;}
 .head_block		{display:inline-block; width:50%; vertical-align:bottom;}
