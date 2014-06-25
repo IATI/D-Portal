@@ -49,7 +49,7 @@
 		</table>
 	</div><div class="right_block">
 		<div class="title_snap">Snapshots</div>
-		<div class="table_snap_wrap">
+		<div class="snap_wrap">
 			<table class="snap">
 				<tr>
 					<td>Total Publishers</td>
@@ -69,11 +69,11 @@
 		<div class="subtitle_info">Dash is an overview of the data populating d-portal.org</div>
 		<p>Updates everyday GMT +0.</p> 
 		<p>Last updated <a href="#view=dash_cronlog">{dash_last_updated}</a></p>
-		<div class="table_snap_wrap countries">
+		<div class="snap_wrap countries">
+			<div class="snap_title" title="{dash_country_total_bad_pct}%">Reporting {dash_country_total_bad} invalid recipients.</div>
 			<table class="snap countries">
 				<tr>
-					<th colspan="2">Recepient countries <div class="note div">Click to view all activities reported per country. Links open external sites in new window.</div></th>
-					<div title="{dash_country_total_bad_pct}%">Reporting {dash_country_total_bad} invalid recipients.</div>
+					<th colspan="2">Recipient countries <div class="note div">Click to view all activities reported per country. Links open external sites in new window.</div></th>
 				</tr>
 				{dash_listall_country_datas}
 			</table>
@@ -94,7 +94,7 @@ html			{background-color:#fff;}
 a:focus			{color:#FF5F00; text-decoration:none;}
 a:link  		{color:#FF5F00; text-decoration:none;}
 a:visited		{color:#FF5F00; text-decoration:none;}
-a:hover			{color:#FF3B00; text-decoration:none;}
+a:hover			{color:#FF5F00; text-decoration:underline;}
 a:active		{color:#FF5F00; text-decoration:none;}
 .maxwrap		{margin:0 auto; width:100%;}
 table td, table th	{cursor:auto;}
@@ -109,17 +109,18 @@ table.pub tr:last-child	td	{border-bottom:0;}
 table.pub td.ref	{padding:0;}
 table.pub td.ref a	{display:block; padding:15px 35px 15px 0;}
 
-table.snap		{width:238px; max-width:238px; font-size:0.9em;}
+table.snap		{width:238px; max-width:238px; padding:0 20px; margin:0 auto; font-size:0.9em;}
 table.snap td	{padding:15px 30px 15px 0;}
 table.snap.countries	{table-layout:fixed;}
 table.snap.countries th	{font-size:1.4em; padding:5px 30px 20px 0; text-align:left;}
 table.snap.countries td	{padding:10px 5px 10px 0; border-bottom:1px solid #ccc;}
-table.snap.countries td.cc a		{display:block; padding-right:30px;}
+table.snap.countries td.cc			{padding:0;}
+table.snap.countries td.cc a		{display:block; padding:10px 30px 10px 0;}
 table.snap.countries td:last-child	{text-align:right;}
 table.snap.countries tr:last-child	td	{border-bottom:0;}
 
-table.snap.countries td.country_bad a { color:#f00; }
-table.snap.countries td.country_bad   { color:#f00; }
+table.snap.countries td.country_bad a {color:#444;}
+table.snap.countries td.country_bad   {color:#444; background-color:#eee;}
 
 .head_wrap		{margin:0 auto; width:960px; padding:20px 0; border-bottom:5px solid #222; margin-bottom:20px;}
 .head_block		{display:inline-block; width:50%; vertical-align:bottom;}
@@ -129,8 +130,9 @@ a.back_link		{display:block; font-size:1.0em; text-align:right; color:#000;}
 .right_block	{display:inline-block; width:280px;}
 .title			{font-size:2em; margin-bottom:20px;}
 .title_snap		{font-size:1.4em; margin-bottom:20px;}
-.table_snap_wrap	{margin:0 auto; width:238px; border:1px solid #444; padding:20px; margin-bottom:30px;}
-.table_snap_wrap.countries	{margin-top:40px;}
+.snap_wrap		{margin:0 auto; width:238px; border:1px solid #444; padding:20px; margin-bottom:30px;}
+.snap_wrap.countries	{margin-top:40px; width:278px; padding:20px 0;}
+.snap_title		{padding:10px 20px; font-size:0.9em; line-height:1.2em;}
 .title_info		{font-size:1.4em; margin-bottom:10px;}
 .subtitle_info	{font-size:0.9em; line-height:1.4em; margin-bottom:20px;}
 p				{font-size:0.9em; margin-bottom:10px;}
