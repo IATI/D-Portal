@@ -9,5 +9,10 @@ dstore/dstore cache newold
 
 bin/dstore_import_cache_new
 
+#we do not need this copy any more and vacuum uses a lot of space
+rm -rf dstore/cache/new
+bin/dstore_vacuum
+
+
 date
 

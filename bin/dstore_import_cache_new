@@ -9,14 +9,3 @@ do
 		node js/cmd import "$xmlfile" || exit 1
 	fi
 done
-
-#make it smarter
-date
-ls db/ -l
-node js/cmd vacuum
-date
-ls db/ -l
-node js/cmd analyze
-date
-ls db/ -l
-
