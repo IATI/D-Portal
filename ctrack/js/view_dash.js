@@ -162,7 +162,7 @@ view_dash.ajax3=function(args)
 			d.count=v.count;
 			d.country_code=v.country_code;
 			d.country_name=iati_codes.country[d.country_code] || "N/A";
-			d.country_valid=iati_codes.country[d.country_code] && "valid" || "bad";
+			d.country_valid=iati_codes.country[d.country_code] && "valid" || "invalid";
 
 			if(!iati_codes.country[d.country_code]) { bad+=d.count; }
 			total+=d.count;
@@ -171,8 +171,8 @@ view_dash.ajax3=function(args)
 		ctrack.chunk(args.chunk || "dash_listall_country_datas",s.join(""));
 		
 		ctrack.chunk("dash_country_total",commafy(total));
-		ctrack.chunk("dash_country_total_bad",commafy(bad));
-		ctrack.chunk("dash_country_total_bad_pct",Math.ceil(100*bad/total));
+		ctrack.chunk("dash_country_total_invalid",commafy(bad));
+		ctrack.chunk("dash_country_total_invalid_pct",Math.ceil(100*bad/total));
 		
 		ctrack.chunk("dash_total_countries",commafy(""+Math.floor(data.rows.length)));
 		
