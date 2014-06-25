@@ -170,9 +170,9 @@ view_dash.ajax3=function(args)
 		}
 		ctrack.chunk(args.chunk || "dash_listall_country_datas",s.join(""));
 		
-		ctrack.chunk("dash_quality_country_total",commafy(total));
-		ctrack.chunk("dash_quality_country_total_bad",commafy(bad));
-		ctrack.chunk("dash_quality_country_total_bad_pct",Math.ceil(100*bad/total));
+		ctrack.chunk("dash_country_total",commafy(total));
+		ctrack.chunk("dash_country_total_bad",commafy(bad));
+		ctrack.chunk("dash_country_total_bad_pct",Math.ceil(100*bad/total));
 		
 		ctrack.chunk("dash_total_countries",commafy(""+Math.floor(data.rows.length)));
 		
