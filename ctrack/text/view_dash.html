@@ -70,7 +70,7 @@
 		<p>Updates everyday GMT +0.</p> 
 		<p>Last updated <a href="#view=dash_cronlog">{dash_last_updated}</a></p>
 		<div class="snap_wrap countries">
-			<div class="snap_title" title="{dash_country_total_bad_pct}%">Reporting {dash_country_total_bad} invalid recipients.</div>
+			<div class="snap_title" title="{dash_country_total_invalid_pct}%">Reporting {dash_country_total_invalid} invalid recipients.</div>
 			<table class="snap countries">
 				<tr>
 					<th colspan="2">Recipient countries <div class="note div">Click to view all activities reported per country. Links open external sites in new window.</div></th>
@@ -119,8 +119,8 @@ table.snap.countries td.cc a		{display:block; padding:10px 30px 10px 0;}
 table.snap.countries td:last-child	{text-align:right;}
 table.snap.countries tr:last-child	td	{border-bottom:0;}
 
-table.snap.countries td.country_bad a {color:#444;}
-table.snap.countries td.country_bad   {color:#444; background-color:#eee;}
+table.snap.countries td.country_invalid a {color:#444;}
+table.snap.countries td.country_invalid   {color:#444; background-color:#eee;}
 
 .head_wrap		{margin:0 auto; width:960px; padding:20px 0; border-bottom:5px solid #222; margin-bottom:20px;}
 .head_block		{display:inline-block; width:50%; vertical-align:bottom;}
