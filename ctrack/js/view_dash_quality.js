@@ -161,6 +161,7 @@ view_dash_quality.ajax4=function(args)
 
 		var s=[];
 		var total=0;
+		var bad=0;
 		for(var i=0;i<data.rows.length;i++)
 		{
 			var v=data.rows[i];
@@ -171,6 +172,7 @@ view_dash_quality.ajax4=function(args)
 			d.country_name=iati_codes.country[d.country_code] || "N/A";
 			d.country_valid=iati_codes.country[d.country_code] && "valid" || "bad";
 
+			if(!iati_codes.country[d.country_code]) { bad+=d.count; }
 			total+=d.count;
 			s.push( plate.replace(args.plate || "{dash_list_country_data}",d) );
 		}
@@ -178,6 +180,8 @@ view_dash_quality.ajax4=function(args)
 
 
 		ctrack.chunk("dash_quality_country_total",commafy(total));
+		ctrack.chunk("dash_quality_country_total_bad",commafy(bad));
+		ctrack.chunk("dash_quality_country_total_bad_pct",Math.ceil(100*bad/total));
 		ctrack.chunk("dash_quality_country_count",commafy(data.rows.length));
 		
 		view_dash_quality.calc();
