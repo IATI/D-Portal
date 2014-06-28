@@ -180,51 +180,64 @@ dstore_cache.iati = function(argv){
 			if(v.type=="dataset")
 			{
 				done=false;
-				if( v.resources[1] )
+				if( v.resources[1] || !(v.resources[0] && v.resources[0].url ) )
 				{
-					console.log(v.resources); // problem?
+					console.log(v.resources); // problems with the data?
 				}
-				var slug=v.name;
-				var url=v.resources[0].url;
-				var fname=global.argv.cache+"/"+slug+".xml";
-				var fname_old=global.argv.cache+"/old/"+slug+".xml";
-				
-				slugs[slug]=url;
-				
-				try{
-					console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
-					var download=true;
+				if(v.resources[0] && v.resources[0].url )
+				{
+					var slug=v.name;
+					var url=v.resources[0].url;
+					var fname=global.argv.cache+"/"+slug+".xml";
+					var fname_old=global.argv.cache+"/old/"+slug+".xml";
+					
+					slugs[slug]=url;
+					
 					try{
-						var h=wait.for(http_gethead,url);
-						var f; try{ f=fs.statSync(fname); }catch(e){}
-//						console.log(h.headers);
-//						console.log(f);
-						if( h && h.headers["last-modified"] && f && f.mtime )
-						{
-							var hm=Date.parse( h.headers["last-modified"] );
-							var fm=Date.parse( f.mtime );
-							if(hm<=fm) // we already have a newer file
+						console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
+						var download=true;
+						try{
+							var h=wait.for(http_gethead,url);
+							var f; try{ f=fs.statSync(fname); }catch(e){}
+	//						console.log(h.headers);
+	//						console.log(f);
+							if( h && h.headers["last-modified"] && f && f.mtime )
 							{
-								download=false;
+								var hm=Date.parse( h.headers["last-modified"] );
+								var fm=Date.parse( f.mtime );
+								if(hm<=fm) // we already have a newer file
+								{
+									download=false;
+								}
 							}
-						}
-					}catch(e){}
+							if( h && h.headers["content-length"] )
+							{
+								var size=parseInt(h.headers["content-length"] ) ;
+								if( size > 1024*1024*256 ) // huge file, skip it
+								{
+									console.log("ERROR! File is too big > 256meg so skipping download...");
+									download=false;
+								}
+							}
+							
+						}catch(e){}
 
-					if(download)
-					{
-						var b=wait.for(http_getbody,url);
-						fs.writeFileSync(fname,b);
-						console.log("written\t"+b.length+" bytes to "+fname);
+						if(download)
+						{
+							var b=wait.for(http_getbody,url);
+							fs.writeFileSync(fname,b);
+							console.log("written\t"+b.length+" bytes to "+fname);
+						}
+						else
+						{
+							console.log("...");
+						}
+					
+					}catch(e){
+						failed_slugs[slug]=e;
+						console.log("Something went wrong, using last downloaded version of "+slug);
+						console.log(e);
 					}
-					else
-					{
-						console.log("...");
-					}
-				
-				}catch(e){
-					failed_slugs[slug]=e;
-					console.log("Something went wrong, using last downloaded version of "+slug);
-					console.log(e);
 				}
 			}
 		}
