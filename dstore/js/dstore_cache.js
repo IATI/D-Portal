@@ -215,6 +215,7 @@ dstore_cache.iati = function(argv){
 								var size=parseInt(h.headers["content-length"] ) ;
 								if( size > 1024*1024*256 ) // huge file, skip it
 								{
+									failed_slugs[slug]="ERROR! File is too big > 256meg so skipping download...";
 									console.log("ERROR! File is too big > 256meg so skipping download...");
 									download=false;
 								}
