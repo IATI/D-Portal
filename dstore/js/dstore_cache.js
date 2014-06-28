@@ -210,6 +210,16 @@ dstore_cache.iati = function(argv){
 									download=false;
 								}
 							}
+							if( h && h.headers["content-length"] )
+							{
+								var size=parseInt(h.headers["content-length"] ) ;
+								if( size > 1024*1024*256 ) // huge file, skip it
+								{
+									console.log("ERROR! File is too big > 256meg so skipping download...");
+									download=false;
+								}
+							}
+							
 						}catch(e){}
 
 						if(download)
