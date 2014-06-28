@@ -11,7 +11,7 @@
 #dash_list_country_datas
 #dash_list_country_data
 <tr>
-	<td title="{country_valid} Country Code" class="cc country_{country_valid}">
+	<td title="{country_valid} country code" class="cc country_{country_valid}">
 		<a href="http://www.d-portal.org/q.xml?from=act,country&country_code={country_code}&reporting_ref={dash_quality_pub}" target="_blank">{country_code}</a>
 	</td>
 	<td title="Number of activities reported" class="country_{country_valid}">{count}</td>
@@ -29,7 +29,7 @@
 	<div class="maxwrap">
 		<table class="name">
 			<tr>
-				<td>Publisher Name:</td>
+				<td>Publisher Name: <span>Converted from ID</span></td>
 				<td>{dash_quality_pub_name}</td>
 			</tr>
 			<tr>
@@ -48,6 +48,16 @@
 					<div><a href="#country_list">{dash_quality_country_count}</a></div>
 					<div>Countries</div>
 					<div>Total number of recipient countries reported by this publisher.</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>{dash_quality_country_total_invalid}</div>
+					<div>Invalid Recipients</div>
+					<div>Total number of invalid recipient countries across all activities.</div>
+				</td>
+				<td>
+					
 				</td>
 			</tr>
 			<tr>
@@ -78,8 +88,8 @@
 						<tr>
 							<td>
 								<div class="country_title">Total number of recipient countries:</div>
-								<div class="note div">Click to view all acitivities reported per country for this publisher. Links open external sites in new window.</div>
-					<div title="{dash_quality_country_total_invalid_pct}%">Reporting {dash_quality_country_total_invalid} invalid recipients.</div>
+								<div class="country_subtitle" title="{dash_quality_country_total_invalid_pct}%">Reporting {dash_quality_country_total_invalid} invalid recipients.</div>
+								<div class="note div">Click to view all acitivities reported per country for this publisher. Links open new window.</div>
 							</td>
 							<td><div class="country_title">{dash_quality_country_count}</div></td>
 						</tr>
@@ -100,6 +110,7 @@
 a.back_link.dash			{margin-right:20px; margin-top:40px; text-align:right;}
 .note						{font-style:italic; font-weight:initial;}
 .note.div					{font-size:0.65em; line-height:1.2em; padding-top:5px;}
+.country_subtitle			{font-size:1.4em; margin-top:10px; margin-bottom:10px;}
 
 table.quality		{border-collapse:separate; border-spacing:20px; margin:0 auto; width:960px;}
 table.quality td	{border:1px solid #ccc; font-size:1.4em; padding:20px; text-align:center;}
@@ -119,11 +130,12 @@ table.country_data tr:last-child td		{border-bottom:0;}
 table.country_data td.cc				{padding:0;}
 table.country_data td.cc a				{display:block; padding:10px 30px 10px 0;}
 
-table.country_data td.country_invalid a { color:#f00; }
-table.country_data td.country_invalid   { color:#f00; }
+table.country_data td.country_invalid a {color:#444;}
+table.country_data td.country_invalid   {color:#444; background-color:#eee;}
 
 table.name					{margin:0 auto; width:920px;}
 table.name td				{padding-bottom:20px; vertical-align:middle;}
+table.name tr:first-child td:first-child span	{display:block; font-size:0.7em; padding-top:5px; font-style:italic;}
 table.name td:first-child	{font-size:1.2em; width:20%;}
 table.name td:last-child	{font-size:2.2em;}
 
