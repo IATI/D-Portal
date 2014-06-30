@@ -1,15 +1,6 @@
-# Publish to dev server from github.
+# Publish to dev and live
 
-#cd `dirname $0`
-#cd ..
-#
-#bin/push
-#
-#ssh ctrack@dev.ctrack.iatistandard.org "D-Portal/bin/pull -f"
-#ssh ctrack@dev.ctrack.iatistandard.org "D-Portal/ctrack/build"
-#ssh ctrack@dev.ctrack.iatistandard.org "D-Portal/dportal/build"
-#ssh root@dev.ctrack.iatistandard.org "/etc/init.d/dportal stop"
-#ssh root@dev.ctrack.iatistandard.org "/etc/init.d/dportal start"
+cd `dirname $0`
 
-
-echo "No dev server anymore..."
+./publish_dev
+./publish_di
