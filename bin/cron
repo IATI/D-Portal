@@ -3,14 +3,48 @@ cd ..
 
 date
 
+#
+# if any of these steps fail the only safe thing to do is a full import
+# just wipe the entire cache directory and run again
+#
+
+#
+# Remove all temporary files and take a copy of the current state
+#
+rm -rf dstore/cache/new
+rm -rf dstore/cache/old
+mkdir dstore/cache/old
+cp dstore/cache/*.xml dstore/cache/old
+
+#
+# download new files (files may be the same)
+#
 dstore/dstore cache iati
 
+#
+# find the actually changed files
+#
 dstore/dstore cache newold
 
+#
+# remove the backup
+#
+rm -rf dstore/cache/old
+
+#
+# import new files
+#
 bin/dstore_import_cache_new
 
-#we do not need this copy any more and vacuum uses a lot of space
+#
+# remove the files we just imported
+#
 rm -rf dstore/cache/new
+
+
+#
+# speed up the database
+#
 bin/dstore_vacuum
 
 
