@@ -146,7 +146,7 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 	});
 
 // delete everything related to this slug
-	db.each("SELECT aid FROM act WHERE slug=?",slug, function(err, row)
+	db.each("SELECT aid FROM slug WHERE slug=?",slug, function(err, row)
 	{
 		var a=row["aid"];
 		db.run("DELETE FROM act     WHERE aid=?",a);
@@ -361,6 +361,16 @@ dstore_db.refresh_act = function(db,aid,xml){
 		{
 			return;
 		}
+
+// make really really sure old junk is deleted
+		db.run("DELETE FROM act     WHERE aid=?",t.aid);
+		db.run("DELETE FROM jml     WHERE aid=?",t.aid);
+		db.run("DELETE FROM trans   WHERE aid=?",t.aid);
+		db.run("DELETE FROM budget  WHERE aid=?",t.aid);
+		db.run("DELETE FROM country WHERE aid=?",t.aid);
+		db.run("DELETE FROM sector  WHERE aid=?",t.aid);
+		db.run("DELETE FROM slug    WHERE aid=?",t.aid);
+
 
 		t.title=refry.tagval(act,"title");
 		t.description=refry.tagval(act,"description");				
