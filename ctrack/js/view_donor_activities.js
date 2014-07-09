@@ -33,6 +33,7 @@ view_donor_activities.view=function()
 	
 	args.q={
 		"funder_ref":funder,
+		"groupby":"aid",
 	};
 	
 	args.callback=function(data){

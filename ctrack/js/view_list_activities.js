@@ -46,6 +46,7 @@ view_list_activities.ajax=function(args)
 			"limit":args.limit || -1,
 			"select":"title,aid,funder_ref,commitment,spend,reporting,day_start,day_end",
 			"orderby":"4-",
+			"groupby":"aid",
 			"country_code":(args.country || ctrack.args.country)
 		};
 	if(args.q)
