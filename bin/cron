@@ -1,6 +1,11 @@
 cd `dirname $0`
 cd ..
 
+# get new json
+./fetch
+bin/addcommit auto json fetch
+bin/push
+
 date
 
 #
