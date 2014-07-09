@@ -1,55 +1,63 @@
 cd `dirname $0`
 cd ..
 
-# get new json data
+date
+
+echo
+echo get new json data
+echo
+bin/pull
 ./fetch
 bin/addcommit auto json fetch
+bin/pull
 bin/push
 
 date
 
-#
-# if any of these steps fail the only safe thing to do is a full import
-# just wipe the entire cache directory and run again
-#
 
-#
-# Remove all temporary files and take a copy of the current state
-#
+echo
+echo if any of these steps fail the only safe thing to do is a full import
+echo just wipe the entire cache directory and run again
+echo
+
+echo
+echo Remove all temporary files and take a copy of the current state
+echo
+
 rm -rf dstore/cache/new
 rm -rf dstore/cache/old
 mkdir dstore/cache/old
 cp dstore/cache/*.xml dstore/cache/old
 
-#
-# download new files (files may be the same)
-#
+echo
+echo download new files (files may be the same)
+echo
 dstore/dstore cache iati
 
-#
-# find the actually changed files
-#
+echo
+echo find the actually changed files
+echo
 dstore/dstore cache newold
 
-#
-# remove the backup
-#
+echo
+echo remove the backup
+echo
 rm -rf dstore/cache/old
 
-#
-# import new files
-#
+echo
+echo import new files
+echo
 bin/dstore_import_cache_new
 
-#
-# remove the files we just imported
-#
+echo
+echo remove the files we just imported
+echo
 rm -rf dstore/cache/new
 
 
-#
-# speed up the database
-#
+echo
+echo speed up the database
+echo
 bin/dstore_vacuum
 
 
