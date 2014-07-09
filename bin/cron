@@ -8,7 +8,7 @@ echo get new json data
 echo
 bin/pull_di
 ./fetch
-bin/addcommit auto json fetch
+bin/addcommit auto json fetch in nightly cron
 bin/pull_di
 bin/push_di
 
