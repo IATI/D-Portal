@@ -1,7 +1,7 @@
 cd `dirname $0`
 cd ..
 
-# get new json
+# get new json data
 ./fetch
 bin/addcommit auto json fetch
 bin/push
