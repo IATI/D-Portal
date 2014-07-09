@@ -6,11 +6,11 @@ date
 echo
 echo get new json data
 echo
-bin/pull
+bin/pull_di
 ./fetch
 bin/addcommit auto json fetch
-bin/pull
-bin/push
+bin/pull_di
+bin/push_di
 
 date
 
