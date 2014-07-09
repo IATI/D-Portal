@@ -362,6 +362,14 @@ dstore_db.refresh_act = function(db,aid,xml){
 			return;
 		}
 
+// report if this id is from another file and being replaced, possibly from this file even
+// I think we should complain a lot about this during import
+		db.each("SELECT * FROM slug WHERE aid=?",t.aid, function(err, row)
+		{
+			console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
+		});
+
+
 // make really really sure old junk is deleted
 		db.run("DELETE FROM act     WHERE aid=?",t.aid);
 		db.run("DELETE FROM jml     WHERE aid=?",t.aid);
