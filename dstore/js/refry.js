@@ -7,6 +7,10 @@ var util=require('util');
 
 var htmlparser=require('htmlparser');
 
+var entities = require("entities");
+
+
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
@@ -150,7 +154,7 @@ refry.tagval=function(json,name)
 	var t=refry.tag(json,name); // find
 	if( t && t[1] && t[1][0] && ( "string" == typeof t[1][0] ) ) // check
 	{
-		return t[1][0];
+		return entities.decodeXML(t[1][0]);
 	}
 }
 
@@ -160,7 +164,7 @@ refry.tagval_trim=function(json,name)
 	var t=refry.tag(json,name); // find
 	if( t && t[1] && t[1][0] && ( "string" == typeof t[1][0] ) ) // check
 	{
-		return t[1][0].trim();
+		return entities.decodeXML(t[1][0].trim());
 	}
 }
 
@@ -242,6 +246,6 @@ refry.tagval_en=function(json,name)
 	var t=ret;
 	if( t && t[1] && t[1][0] && ( "string" == typeof t[1][0] ) ) // check
 	{
-		return t[1][0];
+		return entities.decodeXML(t[1][0]);
 	}
 }
