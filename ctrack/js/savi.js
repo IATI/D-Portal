@@ -362,7 +362,7 @@ $(inside+"activity-website").each(function(i){var it=$(this);
 });
 
 $(inside+"iati-identifier").each(function(i){var it=$(this);
-	var id=encodeURIComponent(it.html());
+	var id=encodeURIComponent(it.html().trim());
 	wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+"' href='http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier="+id+"'>xml</a>"));
 });
