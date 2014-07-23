@@ -362,9 +362,14 @@ $(inside+"activity-website").each(function(i){var it=$(this);
 });
 
 $(inside+"iati-identifier").each(function(i){var it=$(this);
+	var slug=it.parent().parent().attr("dstore:slug"); // do we know where this came from?
 	var id=encodeURIComponent(it.text().trim());
 	wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+"' href='http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier="+id+"'>xml</a>"));
+	if(slug)
+	{
+		it.append($("<a class='a_slug' href='http://iatiregistry.org/dataset/"+slug+"'>dataset</a>"));
+	}
 });
 
 $(inside+"provider-org[provider-activity-id]").each(function(i){var it=$(this);
