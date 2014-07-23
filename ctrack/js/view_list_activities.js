@@ -79,7 +79,7 @@ view_list_activities.ajax=function(args)
 				var d={};
 				d.num=i+1;
 				d.funder=v.funder || "N/A";
-				d.aid=v.aid || "N/A";
+				d.aid=encodeURIComponent(v.aid || "N/A");
 				d.title=v.title || v.aid || "N/A";
 				
 				d.date_start="N/A"

@@ -166,7 +166,7 @@ ctrack.setup=function(args)
 //console.log(bb);
 			if( ( "string" == typeof bb[0] ) && ( "string" == typeof bb[1] ) )
 			{
-				v[ bb[0] ] = bb[1] ;
+				v[ bb[0] ] = decodeURIComponent(bb[1]) ;
 			}
 		});
 		return v;
@@ -219,7 +219,7 @@ ctrack.setup=function(args)
 		var a=[];
 		for(var n in ctrack.hash)
 		{
-			a.push(n+"="+ctrack.hash[n]);
+			a.push(n+"="+encodeURIComponent(ctrack.hash[n]));
 		}
 		document.location.hash=a.join("&");
 	}
