@@ -1,0 +1,277 @@
+body,html 				{color:#444;}
+html					{background-color:#000;}
+
+
+/*	Links & fonts
+	============================================= */
+a:focus					{color:#FFAB5E;}
+a:link  				{color:#FFAB5E;}
+a:visited				{color:#FFAB5E;}
+a:hover					{color:#FF7A00;}
+a:active				{color:#FFAB5E;}
+
+
+/*	Main wrappers for content & fixed background img
+	============================================= */
+.main_wrap				{background-color:rgba(255,255,255,0.4);}
+.overlay				{background-color:rgba(46, 41, 6, 0.6);}
+
+
+/*	Breadcrumbs
+	============================================= */
+a.crumb					{color:#7BBCFF;}
+a.crumb:hover			{color:#fff;}
+.crumb_wrap				{color:#CACBCB;}
+.crumb_wrap span		{color:#fff;}
+
+
+/*	About data links
+	============================================= */
+a.about_data			{color:#ccc;}
+a.about_data:hover		{color:#fff;}
+a.about_data.quality	{border-left:1px solid #b4b4b4;}
+
+
+/*	Header styles
+	============================================= */
+.default.declare		{color:#ccc;}
+
+
+/*	Blog styles
+	============================================= */
+.blog_head			{color:#fff; border-bottom:10px solid #fff;}
+a.blog_head			{color:#fff; border-bottom:10px solid #fff;}
+.blog_wrap			{color:#fff; border-bottom:1px solid #fff; background-color:rgba(255,255,255,0.1);}
+.blog_date			{color:#ccc;}
+.blog_body a		{color:#A8D2F8;}
+.blog_body a:hover	{color:#D8EDFF;}
+.blog_title			{color:#A8D2F8;}
+a.blog_title		{color:#A8D2F8;}
+a.blog_title:hover	{color:#D8EDFF;}
+a.back_news			{color:#FFAB5E;}
+a.back_news:hover	{color:#FF7A00;}
+
+
+/*	Graph styles
+	============================================= */
+#donor_graph, #sector_graph	{background-color:#fff; color:#444; border:1px solid #FFF;}
+a.ask					{color:#fff;}
+a.ask.donor				{background-color:#008FFF;}
+a.ask.donor:hover		{background-color:#33A4FC;}
+a.ask.sector			{background-color:#00C475;}
+a.ask.sector:hover		{background-color:#14EE96;}
+.main_peak_wrap			{background-color:#fff;}
+.peak.donor				{border-top:20px solid #008FFF;}
+.peak.sector			{border-top:20px solid #00C475;}
+a.view_all_money		{background-color:rgba(0,14,32,0.7); color:#ccc;}
+a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#fff;}
+
+
+/*	Map styles (front page)
+	============================================= */
+.map_wrap				{background-color:rgba(0,0,0,0.8);}
+.map_info				{color:#fff; background-color:rgba(52, 174, 255, 0.9);}
+.map_no_info			{color:#fff;}
+.map_percent			{color:#fff; background-color:rgba(0, 15, 34, 0.99);}
+.map_percent span		{color:#fff;}
+
+
+/*	For url #view=map
+	============================================= */
+.map_no_info.view		{color:#fff;}
+
+
+/*	Stats (key figures) styles
+	============================================= */
+span.stats_title		{color:#ccc;}
+span.stats_title.view	{color:#fff;}
+span.stats_num			{color:#2E98FF;}
+span.stats_num.view		{color:#fff;}
+.declare.stats			{color:#ccc;}
+a.stats_link			{color:#ccc;}
+a.stats_link.missing	{border-top:3px solid rgba(255, 255, 255, 0.2);}
+a.stats_link.missing:hover	{color:#2E98FF;}
+a.stats_link.missing span	{color:#2E98FF;}
+
+
+/*	Active / Ended projects styles
+	============================================= */
+.table_wrap				{background-color:rgba(0,14,32,0.7);}
+
+
+/*	Data Description styles
+	============================================= */
+.description_wrap		{background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,0,0,1) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,1) 100%);}
+.description			{background-color:rgba(255, 255, 255, 0.1);}
+.description span.title	{color:#fff; border-top:1px solid #fff; border-bottom:1px solid #fff;}
+.description p			{color:#fff;}
+.description a			{color:#A2CDDD;}
+.description a:hover	{color:#CEE3EB;}
+a.read					{color:#B1E1F2;}
+a.read:hover			{color:#DCF6FF;}
+
+
+/*	Generic styles
+	============================================= */
+.list_peak					{border-right:30px solid #0070DD;}
+.list_head_title			{background-color:#0070DD; color:#fff;}
+.list_stats_title			{color:#fff;}
+.list_stats_num				{color:#fff;}
+a.button					{background-color:#3B9CFB; color:#fff;}
+a.button:hover				{background-color:#0081FF;}
+
+	
+/*	For url #view=donors & all #view=donor_*
+	============================================= */
+.donors_peak				{border-right:30px solid #008FFF;}
+.donors_peak.view			{border-right:30px solid #0070DD;}
+.donors_head_title			{background-color:#008FFF; color:#fff;}
+.donors_head_title.view		{background-color:#0070DD;}
+
+
+/*	For url #view=donor_activities
+	============================================= */
+.donor_activities_spend			{color:#B8C8CD;}
+.donor_activities_percent_max	{background-color:#000000; border:1px solid #494B4E;}
+.donor_activities_percent		{background-color:#1E90FF;}
+
+
+/*	For url #view=sectors & all #view=sector_*
+	============================================= */
+.sectors_peak				{border-right:30px solid #00C475;}
+.sectors_head_title			{background-color:#00C475; color:#fff;}
+
+
+/*	For url #view=act
+	============================================= */
+.act_alert_wrap				{color:#fff; background-color:#000;}
+
+
+/*	Table header styles
+	============================================= */
+th.titles					{color:#646E8F; border-bottom:1px solid #333642;}
+
+
+/*	Table for Header logo and Translations
+	============================================= */
+table.head td.options		{color:#fff;}
+
+
+/*	Table for Country Name and Flag
+	============================================= */
+table.country				{border-bottom:10px solid #fff;}
+table.country td.name		{color:#fff;}
+table.country.min td.name	{color:#fff;}
+
+
+/*	Table Titles
+	============================================= */
+table.title				{border-bottom:10px solid #fff;}
+table.title td			{color:#fff;}
+table.title td.sort		{color:#ccc;}
+
+
+/*	Table for Stats (key figures)
+	============================================= */
+table.stats td			{background-color:rgba(0,14,32,0.7);}
+table.stats td:hover	{background-color:rgba(0,14,32,0.9);}
+
+
+/*	Table for Active / Ended projects
+	============================================= */
+table.list td			{color:#fff; border-bottom:1px solid #333642;}
+table.list td span		{color:#9C8876;}
+table.list a			{color:#A8C5E5;}
+table.list a:focus		{color:#A8C5E5;}
+table.list a:link  		{color:#A8C5E5;}
+table.list a:visited	{color:#A8C5E5;}
+table.list a:hover		{color:#fff; background-color:rgba(0,0,0,0.4);}
+table.list a:active		{color:#A8C5E5;}
+
+
+/*	Table for Money list (Donors / Sectors)
+	============================================= */
+table.money td				{color:#B8C8CD; border-bottom:1px solid #1E90FF;}
+table.money td.col1			{background-color:rgba(74, 82, 54, 0.4);}
+table.money td.col3			{background-color:rgba(17, 46, 105, 0.2);}
+table.money td.col4			{background-color:rgba(17, 46, 105, 0.4);}
+table.money td.col5			{background-color:rgba(17, 46, 105, 0.6);}
+table.money td.col6			{background-color:rgba(17, 101, 105, 0.4);}
+table.money td.col7			{background-color:rgba(17, 101, 105, 0.6);}
+
+table.money tr.row1 th		{color:#fff;}
+table.money tr.row1 th.col1	{background-color:rgba(74, 82, 54, 0.9); border:1px solid rgba(74, 87, 43, 1); border-bottom:1px solid #1E90FF;}
+table.money tr.row1 th.col2	{border-bottom:1px solid #1E90FF;}
+table.money tr.row1 th.col3	{background-color:rgba(17, 46, 105, 0.9); border:1px solid rgba(0, 50, 151, 1); border-bottom:1px solid #1E90FF;}
+table.money tr.row1 th.col4	{background-color:rgba(17, 101, 105, 0.9); border:1px solid rgba(7, 117, 122, 1); border-bottom:1px solid #1E90FF;}
+
+table.money tr.row2 td		{color:#fff;}
+table.money tr.row2 td.col1 {background-color:rgba(74, 82, 54, 0.9); border-left:1px solid rgba(74, 87, 43, 1); border-right:1px solid rgba(74, 87, 43, 1);}
+table.money tr.row2 td.col3	{background-color:rgba(17, 46, 105, 0.6); border-left:1px solid rgba(0, 50, 151, 1);}
+table.money tr.row2 td.col4	{background-color:rgba(17, 46, 105, 0.8);}
+table.money tr.row2 td.col5	{background-color:rgba(17, 46, 105, 0.9); border-right:1px solid rgba(0, 50, 151, 1);}
+table.money tr.row2 td.col6	{background-color:rgba(17, 101, 105, 0.7);}
+table.money tr.row2 td.col7	{background-color:rgba(17, 101, 105, 0.9); border-right:1px solid rgba(7, 117, 122, 1);}
+
+table.money tr.rows td.col1	{border-left:1px solid rgba(74, 87, 43, 1); border-right:1px solid rgba(74, 87, 43, 1);}
+table.money tr.rows td.col3	{border-left:1px solid rgba(0, 50, 151, 1);}
+table.money tr.rows td.col5	{border-right:1px solid rgba(0, 50, 151, 1);}
+table.money tr.rows td.col7	{border-right:1px solid rgba(7, 117, 122, 1);}
+
+table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
+table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(17, 46, 105, 1);}
+table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(17, 101, 105, 1);}
+
+table.money a				{color:#A8C5E5;}
+table.money a:focus			{color:#A8C5E5;}
+table.money a:link  		{color:#A8C5E5;}
+table.money a:visited		{color:#A8C5E5;}
+table.money a:hover			{color:#fff;}
+table.money a:active		{color:#A8C5E5;}
+
+
+/*	Table for Activities list (Donors / Sectors)
+	============================================= */
+table.activity td		{color:#B8C8CD; border-bottom:1px solid #333642;}
+table.activity td span	{color:#9C8876;}
+table.activity a		{color:#95B0CF;}
+table.activity a:focus	{color:#95B0CF;}
+table.activity a:link  	{color:#95B0CF;}
+table.activity a:visited{color:#95B0CF;}
+table.activity a:hover	{color:#fff; background-color:rgba(0,0,0,0.4);}
+table.activity a:active	{color:#95B0CF;}
+
+
+/*	Table for data descriptions footer (Donors / Sectors)
+	============================================= */
+table.data td			{color:#fff; border:1px solid #9E9E9E;}
+
+
+/*	Data Investigators alert
+	============================================= */
+a.data_invest			{color:#C7A1D6; background-color:rgba(194, 0, 255, 0.4);}
+a.data_invest:hover		{color:#fff; background-color:rgba(194, 0, 255, 0.8);}
+
+
+/*	Footer
+	============================================= */
+.footer_wrap			{background-color:rgba(0, 0, 0, 0.95);}
+.footer_link a			{color:#818181;}
+.footer_link a:focus	{color:#fff;}
+.footer_link a:link  	{color:#5A5A5A;}
+.footer_link a:visited	{color:#5A5A5A;}
+.footer_link a:hover	{color:#fff;}
+.footer_link a:active	{color:#5A5A5A;}
+
+
+/*	Beige Alert
+	============================================= */
+.beigealert_wrap		{background-color:#D80051;}
+.beigealert				{color:#fff;}
+a.beige					{color:#FFFF00;}
+a.beige:hover			{color:#fff;}
+
+
+/*	Spinner / loading animation
+	============================================= */
+.spinner {border-left:6px solid rgba(0,182,239,.15); border-right:6px solid rgba(0,182,239,.15); border-bottom:6px solid rgba(0,182,239,.15); border-top:6px solid rgba(0,182,239,.8);}
