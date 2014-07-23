@@ -271,7 +271,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
 
 		t["trans_ref"]=				it["ref"];
-		t["trans_description"]=		refry.tagval(it,"description");
+		t["trans_description"]=		refry.tagval_en(it,"description");
 		t["trans_day"]=				iati_xml.get_isodate_number(it,"transaction-date");
 
 		t["trans_code"]=			iati_xml.get_code(it,"transaction-type");
@@ -362,6 +362,14 @@ dstore_db.refresh_act = function(db,aid,xml){
 			return;
 		}
 
+// report if this id is from another file and being replaced, possibly from this file even
+// I think we should complain a lot about this during import
+		db.each("SELECT * FROM slug WHERE aid=?",t.aid, function(err, row)
+		{
+			console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
+		});
+
+
 // make really really sure old junk is deleted
 		db.run("DELETE FROM act     WHERE aid=?",t.aid);
 		db.run("DELETE FROM jml     WHERE aid=?",t.aid);
@@ -372,8 +380,8 @@ dstore_db.refresh_act = function(db,aid,xml){
 		db.run("DELETE FROM slug    WHERE aid=?",t.aid);
 
 
-		t.title=refry.tagval(act,"title");
-		t.description=refry.tagval(act,"description");				
+		t.title=refry.tagval_en(act,"title");
+		t.description=refry.tagval_en(act,"description");				
 		t.reporting=refry.tagval(act,"reporting-org");				
 		t.reporting_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=refry.tagattr(act,"activity-status","code");
