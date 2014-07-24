@@ -54,7 +54,7 @@ view_sectors.ajax=function(args)
 			return (bn-an);
 		});
 		a.forEach(function(v){
-			if(!v.crs){v.crs="0";}
+			if(!v.crs){v.crs="-";}
 			if(!v.t2012){v.t2012="0";}
 			if(!v.t2013){v.t2013="0";}
 			if(!v.t2014){v.t2014="0";}
