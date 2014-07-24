@@ -58,6 +58,11 @@ refry.xml=function(data)
 			{
 				var e=kids.push(v.data); // push a string
 			}
+			else
+			if(v.type=="directive")
+			{
+				var e=kids.push("<"+v.data+">"); // push a string wrapped in cdata
+			}
 		}
 	}
 	
