@@ -43,7 +43,7 @@ view_list_budgets.ajax=function(args)
 	var dat={
 			"from":"act,budget,country",
 			"limit":args.limit || -1,
-			"select":"sum_of_percent_of_budget_usd,aid,funder_ref,title,reporting",
+			"select":"sum_of_percent_of_budget_usd,aid,funder_ref,title,reporting,reporting_ref",
 			"groupby":"aid",
 			"orderby":"1-",
 			"budget_priority":1, // has passed some validation checks serverside
@@ -81,7 +81,7 @@ view_list_budgets.ajax=function(args)
 				d.funder_ref=v.funder_ref;
 				d.aid=encodeURIComponent(v.aid);
 				d.title=v.title || v.aid;
-				d.reporting=v.reporting;
+				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref;
 				total+=v.sum_of_percent_of_budget_usd;
 				d.amount=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
 				d.currency="USD";

@@ -79,7 +79,7 @@ view_list_publishers.ajax=function(args)
 				d.num=i+1;
 
 				d.reporting_ref=v.reporting_ref || "N/A";
-				d.reporting=v.reporting || "N/A";
+				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
 				d.count=commafy(""+Math.floor(v.count||0));
 
 				s.push( plate.replace(args.plate || "{list_publishers_data}",d) );
