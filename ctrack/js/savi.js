@@ -111,6 +111,15 @@ $(inside+"related-activity").each(function(i){var it=$(this);
 });
 
 
+$(inside+"reporting-org").each(function(i){var it=$(this);
+	var t=it.attr("ref");
+	t=iati_codes.publisher_names[t];
+	if(t)
+	{
+		it.html(t);
+	}
+});
+
 $(inside+"activity-status").each(function(i){var it=$(this);
 	var tc=it.attr("code");
 	tc=iati_codes.activity_status[tc] || tc;
