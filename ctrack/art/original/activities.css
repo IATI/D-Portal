@@ -28,11 +28,13 @@ title:before 		{content:"PROJECT TITLE"; font-size:14px; color:#ccc; display:blo
 /*	IATI Identifier
 	============================================= */
 iati-identifier 		{display:block; background-color: rgba(0,14,32,0.7); width:880px; text-align:center; font-size:1.0em; padding:15px 40px; color:#FF7A00; margin:0 auto;}
-iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; display:inline-block; vertical-align:bottom; padding-right:5px;}
+iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:5px;}
 iati-identifier:hover	{color:#FFAB5E;}
-a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:bottom;}
-a.a_xml_iati-identifier	{display:inline-block; vertical-align:bottom; padding-left:20px;}
-a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:bottom; padding-right:10px;}
+a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:baseline;}
+a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; padding-left:20px;}
+a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_slug				{display:inline-block; vertical-align:baseline; padding-left:20px;}
+a.a_slug:before			{content:"IATI REGISTRY"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
 
 
 /*	Recipient countries
@@ -46,13 +48,13 @@ recipient-country span:nth-of-type(2)	{font-size:20px; color:#fff; padding-top:1
 
 /*	Start and End dates
 	============================================= */
-span.span_activity-date				{display:block; vertical-align:bottom; width:960px; background-color:rgba(3, 50, 146, 0.9);}
+span.span_activity-date				{display:block; vertical-align:baseline; width:960px; background-color:rgba(3, 50, 146, 0.9);}
 activity-date[type="start-planned"]	{display:none;}
 activity-date[type="end-planned"]	{display:none;}
-activity-date[type="start-actual"]	{font-size:1.0em; display:table-cell; vertical-align:bottom; padding:10px 40px; color:#fff; width:480px;}
-activity-date[type="end-actual"]	{font-size:1.0em; display:table-cell; vertical-align:bottom; padding:10px 40px; color:#fff; width:480px; text-align:right;}
-activity-date[type="start-actual"]:before{content:"START DATE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:bottom; padding-right:10px;}
-activity-date[type="end-actual"]:before	{content:"END DATE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:bottom; padding-right:10px;}
+activity-date[type="start-actual"]	{font-size:1.0em; display:table-cell; vertical-align:baseline; padding:10px 40px; color:#fff; width:480px;}
+activity-date[type="end-actual"]	{font-size:1.0em; display:table-cell; vertical-align:baseline; padding:10px 40px; color:#fff; width:480px; text-align:right;}
+activity-date[type="start-actual"]:before{content:"START DATE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+activity-date[type="end-actual"]:before	{content:"END DATE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
 
 
 /*	Who's invloved?
