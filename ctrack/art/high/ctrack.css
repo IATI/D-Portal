@@ -273,7 +273,7 @@ table.money tr.row1 th.col3	{background-color:#000; border:1px solid #666; borde
 table.money tr.row1 th.col4	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
 
 table.money tr.row2 td		{color:#000; font-weight:500; padding:20px;}
-table.money tr.row2 td.col1 {background-color:#C8C8C8; border-left:1px solid #666; border-right:1px solid #666; cursor:default;}
+table.money tr.row2 td.col1 {background-color:#C8C8C8; border-left:1px solid #666; border-right:1px solid #666;}
 table.money tr.row2 td.col3	{background-color:#D2D2D2; border-left:1px solid #666;}
 table.money tr.row2 td.col4	{background-color:#DADADA;}
 table.money tr.row2 td.col5	{background-color:#DEDEDE; border-right:1px solid #666;}
@@ -285,6 +285,7 @@ table.money tr.rows td.col3	{border-left:1px solid #666;}
 table.money tr.rows td.col5	{border-right:1px solid #666;}
 table.money tr.rows td.col7	{border-right:1px solid #666;}
 
+table.money tr.row2 td.col1:hover	{cursor:default;}
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:#AAA;}
 table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:#AAA;}
