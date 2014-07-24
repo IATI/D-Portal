@@ -25,8 +25,8 @@ ctrack_loader=function(args){
 		
 		args.master=$(args.master);
 
-		var ctrack=require("ctrack");
-		ctrack.setup(args);
+		window.ctrack=require("ctrack");
+		window.ctrack.setup(args);
 
 	});
 

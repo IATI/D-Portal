@@ -42,14 +42,54 @@ view_donors.ajax=function(args)
 
 	ctrack.donors_data={};
 	
-	var display=function()
+	ctrack.sortby="order"; // reset sortby
+	var display=function(sortby)
 	{
 		var s=[];
 		var a=[];
 		for(var n in ctrack.donors_data) { a.push( ctrack.donors_data[n] ); }
-		a.sort(function(a,b){
-			return ( (b.order||0)-(a.order||0) );
-		});
+		if(!sortby)
+		{
+			var p=function(s)
+			{
+				s=s || "";
+				s=s.replace(/[,]/g,"");
+				return parseInt(s);
+			}
+			switch(ctrack.sortby)
+			{
+				default:
+				case "order":
+					sortby=function(a,b){ return ( (b.order||0)-(a.order||0) ); };
+				break;
+				case "crs":
+					sortby=function(a,b){ return ( (p(b.crs)||0)-(p(a.crs)||0) ); };
+				break;
+				case "donor":
+					sortby=function(a,b){
+						if(a.donor<b.donor) { return -1; }
+						if(a.donor>b.donor) { return 1; }
+						return 0;
+					 };
+				break;
+				case "t2012":
+					sortby=function(a,b){ return ( (p(b.t2012)||0)-(p(a.t2012)||0) ); };
+				break;
+				case "t2013":
+					sortby=function(a,b){ return ( (p(b.t2013)||0)-(p(a.t2013)||0) ); };
+				break;
+				case "t2014":
+					sortby=function(a,b){ return ( (p(b.t2014)||0)-(p(a.t2014)||0) ); };
+				break;
+				case "b2014":
+					sortby=function(a,b){ return ( (p(b.b2014)||0)-(p(a.b2014)||0) ); };
+				break;
+				case "b2015":
+					sortby=function(a,b){ return ( (p(b.b2015)||0)-(p(a.b2015)||0) ); };
+				break;
+			}
+		}
+		a.sort(sortby);
 		a.forEach(function(v){
 			if(!v.crs){v.crs="-";}
 			if(!v.t2012){v.t2012="0";}
@@ -73,6 +113,7 @@ view_donors.ajax=function(args)
 		ctrack.chunk(args.chunk || "table_donors_rows",s.join(""));
 		ctrack.display();
 	};
+	view_donors.display=display;
 	
 	var fadd=function(d)
 	{
