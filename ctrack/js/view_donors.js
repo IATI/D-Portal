@@ -42,20 +42,73 @@ view_donors.ajax=function(args)
 
 	ctrack.donors_data={};
 	
+function csvWriter(del, enc) {
+	this.del = del || ','; // CSV Delimiter
+	this.enc = enc || '"'; // CSV Enclosure
+	
+	// Convert Object to CSV column
+	this.escapeCol = function (col) {
+		if(isNaN(col)) {
+			// is not boolean or numeric
+			if (!col) {
+				// is null or undefined
+				col = '';
+			} else {
+				// is string or object
+				col = String(col);
+				if (col.length > 0) {
+					// use regex to test for del, enc, \r or \n
+					// if(new RegExp( '[' + this.del + this.enc + '\r\n]' ).test(col)) {
+					
+					// escape inline enclosure
+					col = col.split( this.enc ).join( this.enc + this.enc );
+				
+					// wrap with enclosure
+					col = this.enc + col + this.enc;
+				}
+			}
+		}
+		return col;
+	};
+	
+	// Convert an Array of columns into an escaped CSV row
+	this.arrayToRow = function (arr) {
+		var arr2 = arr.slice(0);
+		
+		var i, ii = arr2.length;
+		for(i = 0; i < ii; i++) {
+			arr2[i] = this.escapeCol(arr2[i]);
+		}
+		return arr2.join(this.del);
+	};
+	
+	// Convert a two-dimensional Array into an escaped multi-row CSV 
+	this.arrayToCSV = function (arr) {
+		var arr2 = arr.slice(0);
+		
+		var i, ii = arr2.length;
+		for(i = 0; i < ii; i++) {
+			arr2[i] = this.arrayToRow(arr2[i]);
+		}
+		return arr2.join("\r\n");
+	};
+}
+var csvw=new csvWriter();
+
 	ctrack.sortby="order"; // reset sortby
 	var display=function(sortby)
 	{
+		var p=function(s)
+		{
+			s=s || "";
+			s=s.replace(/[,]/g,"");
+			return parseInt(s);
+		}
 		var s=[];
 		var a=[];
 		for(var n in ctrack.donors_data) { a.push( ctrack.donors_data[n] ); }
 		if(!sortby)
 		{
-			var p=function(s)
-			{
-				s=s || "";
-				s=s.replace(/[,]/g,"");
-				return parseInt(s);
-			}
 			switch(ctrack.sortby)
 			{
 				default:
@@ -111,7 +164,16 @@ view_donors.ajax=function(args)
 			s.push( plate.replace(args.plate || "{table_donors_row}",v) );
 		});
 		ctrack.chunk(args.chunk || "table_donors_rows",s.join(""));
+
+		var cc=[];
+		cc[0]=["crs","funder","t2012","t2013","t2014","b2014","b2015"];
+		a.forEach(function(v){
+			cc[cc.length]=[p(v.crs),v.funder,p(v.t2012),p(v.t2013),p(v.t2014),p(v.b2014),p(v.b2015)];
+		});
+		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
+ 
 		ctrack.display();
+
 	};
 	view_donors.display=display;
 	
