@@ -61,7 +61,11 @@ refry.xml=function(data)
 			else
 			if(v.type=="directive")
 			{
-				var e=kids.push("<"+v.data+">"); // push a string wrapped in cdata
+				if( v.data.slice(0,8) == "![CDATA[" )
+				{
+					var s=v.data.slice(8,-2);
+					var e=kids.push(entities.encodeXML(s)); // push a string that used to be cdata so needs escaping
+				}
 			}
 		}
 	}

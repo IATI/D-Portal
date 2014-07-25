@@ -100,11 +100,11 @@ view_donors.ajax=function(args)
 
 			if( iati_codes.crs_no_iati[v.funder] )
 			{
-				v.t2012="-";
-				v.t2013="-";
-				v.t2014="-";
-				v.b2014="-";
-				v.b2015="-";
+				if(v.t2012=="0") { v.t2012="-"; }
+				if(v.t2013=="0") { v.t2013="-"; }
+				if(v.t2014=="0") { v.t2014="-"; }
+				if(v.b2014=="0") { v.b2014="-"; }
+				if(v.b2015=="0") { v.b2015="-"; }
 			}
 
 			v.donor=iati_codes.funder_names[v.funder] || iati_codes.publisher_names[v.funder] || iati_codes.country[v.funder] || v.funder;
