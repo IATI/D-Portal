@@ -317,7 +317,7 @@ table.activity td.count	{text-align:right; padding:10px 0 10px 40px; font-size:1
 table.activity td.date	{text-align:right; padding-right:0; white-space:nowrap; font-size:1.0em;}
 table.activity td.alert_no_iati	{text-align:center; font-size:2.0em; padding:20px 0 0 0; cursor:default;}
 table.activity td span	{display:block; padding:2px 0 3px 0; color:#9C8876; font-size:0.7em; line-height:1.0em;}
-table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#95B0CF;}
+table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#95B0CF; box-sizing:border-box;}
 table.activity a:focus	{color:#95B0CF; text-decoration:none;}
 table.activity a:link  	{color:#95B0CF; text-decoration:none;}
 table.activity a:visited{color:#95B0CF; text-decoration:none;}
