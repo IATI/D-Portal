@@ -13,6 +13,12 @@
 #alert_no_iati_tip_text
 このドナーはまだIATIに公開されません。
 
+#alert_quality_text
+"0"を含む細胞はIATIへの報告低品質の指標である。
+
+#alert_quality_tip_text
+"0"を含む細胞はIATIへの報告低品質の指標である。
+
 #active_icon_alt_text
 アクティブなプロジェクトのアイコン
 
@@ -172,6 +178,9 @@ IATIパブリッシャ
 #list_donor_back_text
 バックドナーリストに
 
+#list_sector_back_text
+バックセクタリストへ
+
 #view_donor_transactions_text
 {year}内の {donor}の による総支出
 
@@ -217,6 +226,9 @@ IATIバジェット (USD)
 #table_donor_title_donor_text
 供血
 
+#table_donor_subtitle_donor_text
+ソートするこの行をクリック
+
 #table_donor_tip_title_transaction_text
 IATI取引
 
@@ -224,25 +236,25 @@ IATI取引
 IATI予算
 
 #table_donor_tip_title_crs_text
-データは、 CRS 2012から供給されている
+この列をソートするためにクリック
 
 #table_donor_tip_title_donor_text
-資金源 
+この列をソートするためにクリック 
 
 #table_donor_tip_title_t2012_text 
-2012年の米中のドナーの取引の合計 
+この列をソートするためにクリック
 
 #table_donor_tip_title_t2013_text 
-2013米ドルでのドナーの取引の合計 
+この列をソートするためにクリック
 
 #table_donor_tip_title_t2014_text 
-2014のための米中のドナーの取引の合計 
+この列をソートするためにクリック
 
 #table_donor_tip_title_b2014_text 
-2014のための米中のドナーの予算の合計 
+この列をソートするためにクリック
 
 #table_donor_tip_title_b2015_text 
-2015年の米中のドナーの予算の合計 
+この列をソートするためにクリック
 
 #table_donor_tip_crs_text 
 2012年にドナーの年間総支出
@@ -254,19 +266,19 @@ IATI予算
 ソース活動を探索するクリック
 
 #table_donor_tip_t2012_text 
-2012年の米中のドナーの取引の合計 
+2012のソース活動を探索するクリック 
 
 #table_donor_tip_t2013_text 
-2013米ドルでのドナーの取引の合計 
+2013のソース活動を探索するクリック 
 
 #table_donor_tip_t2014_text 
-2014のための米中のドナーの取引の合計 
+2014ののソース活動を探索するクリック 
 
 #table_donor_tip_b2014_text 
-2014のための米中のドナーの予算の合計 
+2014のソース活動を探索するクリック 
 
 #table_donor_tip_b2015_text 
-2015年の米中のドナーの予算の合計
+2015のソース活動を探索するクリック
 
 #table_sector_title_transaction_text
 IATI取引 (USD) 
@@ -284,46 +296,43 @@ IATI取引
 IATI予算
 
 #table_sector_tip_title_crs_text
-データは、 2012yearには非IATI （ CRSおよびその他）から供給されている
+この列をソートするためにクリック
 
-#table_sector_tip_title_donor_text
-探索するクリック
+#table_sector_tip_title_sector_text
+この列をソートするためにクリック
 
 #table_sector_tip_title_t2012_text
-2012yearの米中のセクターの取引の合計
+この列をソートするためにクリック
 
 #table_sector_tip_title_t2013_text
-2013米ドルでのセクターの取引の合計
+この列をソートするためにクリック
 
 #table_sector_tip_title_t2014_text
-2014用の米でのセクターの取引の合計
+この列をソートするためにクリック
 
 #table_sector_tip_title_b2014_text
-2014のため、米ドルのセクター予算の合計
+この列をソートするためにクリック
 
 #table_sector_tip_title_b2015_text
-2015yearの米中のセクターの予算の合計
+この列をソートするためにクリック
 
 #table_sector_tip_crs_text
-2012yearに非IATI （ CRSおよびその他）によると、このssctorのトランザクションの合計
-
-#table_sector_tip_donor_text
-探索するクリック
+各セクタのすべてのOECDのCRS記者によって報告された年間総支出
 
 #table_sector_tip_t2012_text
-2012yearの米中のセクターの取引の合計
+2012のソース活動を探索するクリック
 
 #table_sector_tip_t2013_text
-2013米ドルでのセクターの取引の合計
+2013のソース活動を探索するクリック
 
 #table_sector_tip_t2014_text
-2014用の米でのセクターの取引の合計
+2014のソース活動を探索するクリック
 
 #table_sector_tip_b2014_text
-2014のため、米ドルのセクター予算の合計
+2014のソース活動を探索するクリック
 
 #table_sector_tip_b2015_text
-2015yearの米中のセクターの予算の合計
+2015のソース活動を探索するクリック
 
 #table_active_date_tip_text
 日付エンディング
