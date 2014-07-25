@@ -5,6 +5,8 @@
 var view_donors=exports;
 exports.name="stats";
 
+var csvw=require("./csvw.js")
+
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
@@ -41,59 +43,6 @@ view_donors.ajax=function(args)
 	args=args || {};
 
 	ctrack.donors_data={};
-	
-function csvWriter(del, enc) {
-	this.del = del || ','; // CSV Delimiter
-	this.enc = enc || '"'; // CSV Enclosure
-	
-	// Convert Object to CSV column
-	this.escapeCol = function (col) {
-		if(isNaN(col)) {
-			// is not boolean or numeric
-			if (!col) {
-				// is null or undefined
-				col = '';
-			} else {
-				// is string or object
-				col = String(col);
-				if (col.length > 0) {
-					// use regex to test for del, enc, \r or \n
-					// if(new RegExp( '[' + this.del + this.enc + '\r\n]' ).test(col)) {
-					
-					// escape inline enclosure
-					col = col.split( this.enc ).join( this.enc + this.enc );
-				
-					// wrap with enclosure
-					col = this.enc + col + this.enc;
-				}
-			}
-		}
-		return col;
-	};
-	
-	// Convert an Array of columns into an escaped CSV row
-	this.arrayToRow = function (arr) {
-		var arr2 = arr.slice(0);
-		
-		var i, ii = arr2.length;
-		for(i = 0; i < ii; i++) {
-			arr2[i] = this.escapeCol(arr2[i]);
-		}
-		return arr2.join(this.del);
-	};
-	
-	// Convert a two-dimensional Array into an escaped multi-row CSV 
-	this.arrayToCSV = function (arr) {
-		var arr2 = arr.slice(0);
-		
-		var i, ii = arr2.length;
-		for(i = 0; i < ii; i++) {
-			arr2[i] = this.arrayToRow(arr2[i]);
-		}
-		return arr2.join("\r\n");
-	};
-}
-var csvw=new csvWriter();
 
 	ctrack.sortby="order"; // reset sortby
 	var display=function(sortby)

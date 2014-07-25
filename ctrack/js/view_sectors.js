@@ -5,6 +5,8 @@
 var view_sectors=exports;
 exports.name="stats";
 
+var csvw=require("./csvw.js")
+
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
@@ -106,6 +108,14 @@ view_sectors.ajax=function(args)
 			s.push( plate.replace("{table_sectors_row}",v) );
 		});
 		ctrack.chunk("table_sectors_rows",s.join(""));
+
+		var cc=[];
+		cc[0]=["crs","sector","t2012","t2013","t2014","b2014","b2015"];
+		a.forEach(function(v){
+			cc[cc.length]=[p(v.crs),v.group,p(v.t2012),p(v.t2013),p(v.t2014),p(v.b2014),p(v.b2015)];
+		});
+		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
+
 		ctrack.display();
 	};
 	view_sectors.display=display;
