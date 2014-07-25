@@ -15,7 +15,6 @@ var ganal=require("./ganal.js");
 
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
-
 // exports
 ctrack.savi_fixup=savi.fixup;
 ctrack.draw_chart=chart.draw;
@@ -25,6 +24,19 @@ ctrack.get_chart_data=function(name)
 		return ctrack.chunk(name) || [];
 };
 
+ctrack.sortby="order";
+ctrack.dosort=function(s)
+{
+	ctrack.sortby=s;
+	if(ctrack.last_view)
+	{
+		var v=views[ctrack.last_view.toLowerCase()]
+		if(v && v.display)
+		{
+			v.display();
+		}
+	}
+};
 
 ctrack.setup=function(args)
 {

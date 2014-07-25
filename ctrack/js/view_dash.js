@@ -88,7 +88,7 @@ view_dash.ajax2=function(args)
 			d.num=i+1;
 			d.count=commafy(v.count);
 			d.reporting_ref=v.reporting_ref|| "N/A";
-			d.reporting=iati_codes.publisher_names[d.reporting_ref] || iati_codes.country[d.reporting_ref] || v.reporting;
+			d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
 
 			total+=d.count;
 			s.push( plate.replace(args.plate || "{dash_list_reporting_data}",d) );

@@ -42,17 +42,59 @@ view_sectors.ajax=function(args)
 
 	ctrack.sectors_data={};
 	
+	ctrack.sortby="order"; // reset sortby
 	var rev_sector_names={}; for(var n in iati_codes.sector_names) { rev_sector_names[ iati_codes.sector_names[n] ]=n; }
-	var display=function()
+	var display=function(sortby)
 	{
 		var s=[];
 		var a=[];
 		for(var n in ctrack.sectors_data) { a.push( ctrack.sectors_data[n] ); }
-		a.sort(function(a,b){
-			var an=a.crs_num || a.num_t2012;
-			var bn=b.crs_num || b.num_t2012;
-			return (bn-an);
-		});
+		if(!sortby)
+		{
+			var p=function(s)
+			{
+				s=s || "";
+				s=s.replace(/[,]/g,"");
+				return parseInt(s);
+			}
+			switch(ctrack.sortby)
+			{
+				default:
+				case "order":
+					sortby=function(a,b){
+						var an=a.crs_num || a.num_t2012;
+						var bn=b.crs_num || b.num_t2012;
+						return (bn-an);
+					};
+				break;
+				case "crs":
+					sortby=function(a,b){ return ( (p(b.crs)||0)-(p(a.crs)||0) ); };
+				break;
+				case "sector":
+					sortby=function(a,b){
+						if(a.sector<b.sector) { return -1; }
+						if(a.sector>b.sector) { return 1; }
+						return 0;
+					 };
+				break;
+				case "t2012":
+					sortby=function(a,b){ return ( (p(b.t2012)||0)-(p(a.t2012)||0) ); };
+				break;
+				case "t2013":
+					sortby=function(a,b){ return ( (p(b.t2013)||0)-(p(a.t2013)||0) ); };
+				break;
+				case "t2014":
+					sortby=function(a,b){ return ( (p(b.t2014)||0)-(p(a.t2014)||0) ); };
+				break;
+				case "b2014":
+					sortby=function(a,b){ return ( (p(b.b2014)||0)-(p(a.b2014)||0) ); };
+				break;
+				case "b2015":
+					sortby=function(a,b){ return ( (p(b.b2015)||0)-(p(a.b2015)||0) ); };
+				break;
+			}
+		}
+		a.sort(sortby);
 		a.forEach(function(v){
 			if(!v.crs){v.crs="-";}
 			if(!v.t2012){v.t2012="0";}
@@ -66,6 +108,7 @@ view_sectors.ajax=function(args)
 		ctrack.chunk("table_sectors_rows",s.join(""));
 		ctrack.display();
 	};
+	view_sectors.display=display;
 	
 	var fadd=function(d)
 	{
