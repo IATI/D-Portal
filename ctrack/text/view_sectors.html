@@ -71,14 +71,14 @@
 
 #table_sectors_row_head
 <tr class="row1">
-	<th class="col1">CRS</th>
-	<th class="col2">{table_sector_title_sector_text}</th>
+	<th class="col1" title="{table_sector_tip_title_data_text}">{table_sector_title_data_text}</th>
+	<th class="col2" title="{table_sector_tip_title_sector_text}">{table_sector_title_sector_text}</th>
 	<th class="col3" colspan="3" title="{table_sector_tip_title_transaction_text}">{table_sector_title_transaction_text}</th>
 	<th class="col4" colspan="2" title="{table_sector_tip_title_budget_text}">{table_sector_title_budget_text}</th>
 </tr>
 <tr class="row2">
-	<td class="col1" title="{table_sector_tip_title_crs_text}"    onclick="ctrack.dosort('crs');"    >2012</td>
-	<td class="col2" title="{table_sector_tip_title_sector_text}" onclick="ctrack.dosort('sector');" >{table_donor_subtitle_donor_text}</td>
+	<td class="col1" title="{table_sector_tip_subtitle_data_text}"    onclick="ctrack.dosort('crs');"    >2012</td>
+	<td class="col2" title="{table_sector_tip_subtitle_sector_text}" onclick="ctrack.dosort('sector');" >{table_donor_subtitle_donor_text}</td>
 	<td class="col3" title="{table_sector_tip_title_t2012_text}"  onclick="ctrack.dosort('t2012');"  >2012</td>
 	<td class="col4" title="{table_sector_tip_title_t2013_text}"  onclick="ctrack.dosort('t2013');"  >2013</td>
 	<td class="col5" title="{table_sector_tip_title_t2014_text}"  onclick="ctrack.dosort('t2014');"  >2014</td>
@@ -88,7 +88,7 @@
 
 #table_sectors_row
 <tr class="rows">
-	<td class="col1" title="{table_sector_tip_crs_text}">{crs}</td>
+	<td class="col1" title="{table_sector_tip_data_text}">{crs}</td>
 	<td class="col2" title="{table_sector_tip_sector_text}"><a href="#view=sector_activities&sector_group={group}" class="block">{sector}</a></td>
 	<td class="col3" title="{table_sector_tip_t2012_text}"><a href="#view=sector_transactions&year=2012&sector_group={group}" class="block">{t2012}</a></td>
 	<td class="col4" title="{table_sector_tip_t2013_text}"><a href="#view=sector_transactions&year=2013&sector_group={group}" class="block">{t2013}</a></td>
