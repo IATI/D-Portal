@@ -48,52 +48,87 @@ view_sectors.ajax=function(args)
 	var rev_sector_names={}; for(var n in iati_codes.sector_names) { rev_sector_names[ iati_codes.sector_names[n] ]=n; }
 	var display=function(sortby)
 	{
+		var p=function(s)
+		{
+			s=s || "";
+			s=s.replace(/[,]/g,"");
+			return parseInt(s);
+		}
 		var s=[];
 		var a=[];
 		for(var n in ctrack.sectors_data) { a.push( ctrack.sectors_data[n] ); }
 		if(!sortby)
 		{
-			var p=function(s)
-			{
-				s=s || "";
-				s=s.replace(/[,]/g,"");
-				return parseInt(s);
-			}
 			switch(ctrack.sortby)
 			{
 				default:
 				case "order":
-					sortby=function(a,b){
-						var an=a.crs_num || a.num_t2012;
-						var bn=b.crs_num || b.num_t2012;
-						return (bn-an);
-					};
+				case "-order":
+						sortby=function(a,b){ return ( (b.order||0)-(a.order||0) ); };
 				break;
 				case "crs":
+				case "-crs":
 					sortby=function(a,b){ return ( (p(b.crs)||0)-(p(a.crs)||0) ); };
 				break;
+				case "donor":
+				case "-donor":
+					sortby=function(a,b){
+						if(a.donor<b.donor) { return -1; }
+						if(a.donor>b.donor) { return 1; }
+						return 0;
+					 };
+				break;
 				case "sector":
+				case "-sector":
 					sortby=function(a,b){
 						if(a.sector<b.sector) { return -1; }
 						if(a.sector>b.sector) { return 1; }
 						return 0;
 					 };
 				break;
+				case "trans":
+				case "-trans":
+					sortby=function(a,b){
+						var t;
+						var ta=(p(a.t2012)||0); t=(p(a.t2013)||0); if(t>ta){ta=t}; t=(p(a.t2014)||0); if(t>ta){ta=t}
+						var tb=(p(b.t2012)||0); t=(p(b.t2013)||0); if(t>tb){tb=t}; t=(p(b.t2014)||0); if(t>tb){tb=t}
+						return tb-ta;
+					};
+				break
 				case "t2012":
+				case "-t2012":
 					sortby=function(a,b){ return ( (p(b.t2012)||0)-(p(a.t2012)||0) ); };
 				break;
 				case "t2013":
+				case "-t2013":
 					sortby=function(a,b){ return ( (p(b.t2013)||0)-(p(a.t2013)||0) ); };
 				break;
 				case "t2014":
+				case "-t2014":
 					sortby=function(a,b){ return ( (p(b.t2014)||0)-(p(a.t2014)||0) ); };
 				break;
+				case "budget":
+				case "-budget":
+					sortby=function(a,b){
+						var t;
+						var ta=(p(a.b2014)||0); t=(p(a.t2015)||0); if(t>ta){ta=t};
+						var tb=(p(b.b2014)||0); t=(p(b.t2015)||0); if(t>tb){tb=t};
+						return tb-ta;
+					};
+				break
 				case "b2014":
+				case "-b2014":
 					sortby=function(a,b){ return ( (p(b.b2014)||0)-(p(a.b2014)||0) ); };
 				break;
 				case "b2015":
+				case "-b2015":
 					sortby=function(a,b){ return ( (p(b.b2015)||0)-(p(a.b2015)||0) ); };
 				break;
+			}
+			if(ctrack.sortby[0]=="-") // reverse order
+			{
+				var f=sortby;
+				sortby=function(a,b){ return -f(a,b); }
 			}
 		}
 		a.sort(sortby);

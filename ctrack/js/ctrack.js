@@ -27,6 +27,7 @@ ctrack.get_chart_data=function(name)
 ctrack.sortby="order";
 ctrack.dosort=function(s)
 {
+	if(ctrack.sortby==s) { s="-"+s; } // reverse on second click
 	ctrack.sortby=s;
 	if(ctrack.last_view)
 	{
