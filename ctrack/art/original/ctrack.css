@@ -284,6 +284,9 @@ table.money tr.row2 td.col4	{background-color:rgba(17, 46, 105, 0.8);}
 table.money tr.row2 td.col5	{background-color:rgba(17, 46, 105, 0.9); border-right:1px solid rgba(0, 50, 151, 1);}
 table.money tr.row2 td.col6	{background-color:rgba(17, 101, 105, 0.7);}
 table.money tr.row2 td.col7	{background-color:rgba(17, 101, 105, 0.9); border-right:1px solid rgba(7, 117, 122, 1);}
+table.money tr.row2 td.col3, table.money tr.row2 td.col4,
+table.money tr.row2 td.col5, table.money tr.row2 td.col6,
+table.money tr.row2 td.col7	{padding:20px 10px 20px 15px;}
 
 table.money tr.rows td.col1	{border-left:1px solid rgba(74, 87, 43, 1); border-right:1px solid rgba(74, 87, 43, 1);}
 table.money tr.rows td.col3	{border-left:1px solid rgba(0, 50, 151, 1);}
@@ -296,7 +299,7 @@ table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover,
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(17, 46, 105, 1);}
 table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(17, 101, 105, 1);}
 
-table.money a				{display:block; padding:15px; color:#A8C5E5;}
+table.money a				{display:block; padding:15px 10px 15px 15px; color:#A8C5E5;}
 table.money a:focus			{color:#A8C5E5; text-decoration:none;}
 table.money a:link  		{color:#A8C5E5; text-decoration:none;}
 table.money a:visited		{color:#A8C5E5; text-decoration:none;}
