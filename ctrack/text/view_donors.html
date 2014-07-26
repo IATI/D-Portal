@@ -71,10 +71,10 @@
 
 #table_donors_row_head
 <tr class="row1">
-	<th class="col1" title="{table_donor_tip_title_data_text}">{table_donor_title_data_text}</th>
-	<th class="col2" title="{table_donor_tip_title_donor_text}">{table_donor_title_donor_text}</th>
-	<th class="col3" colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</th>
-	<th class="col4" colspan="2" title="{table_donor_tip_title_budget_text}">{table_donor_title_budget_text}</th>
+	<th class="col1" onclick="ctrack.dosort('crs');" title="{table_donor_tip_title_data_text}">{table_donor_title_data_text}</th>
+	<th class="col2" onclick="ctrack.dosort('donor');" title="{table_donor_tip_title_donor_text}">{table_donor_title_donor_text}</th>
+	<th class="col3" onclick="ctrack.dosort('trans');" colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</th>
+	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_donor_tip_title_budget_text}">{table_donor_title_budget_text}</th>
 </tr>
 <tr class="row2">
 	<td class="col1" title="{table_donor_tip_subtitle_data_text}"   onclick="ctrack.dosort('crs');"   >2012</td>
