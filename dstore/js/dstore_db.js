@@ -149,13 +149,14 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 	db.each("SELECT aid FROM slug WHERE slug=?",slug, function(err, row)
 	{
 		var a=row["aid"];
-		db.run("DELETE FROM act     WHERE aid=?",a);
-		db.run("DELETE FROM jml     WHERE aid=?",a);
-		db.run("DELETE FROM trans   WHERE aid=?",a);
-		db.run("DELETE FROM budget  WHERE aid=?",a);
-		db.run("DELETE FROM country WHERE aid=?",a);
-		db.run("DELETE FROM sector  WHERE aid=?",a);
-		db.run("DELETE FROM slug    WHERE aid=?",a);
+		db.run("DELETE FROM act       WHERE aid=?",a);
+		db.run("DELETE FROM jml       WHERE aid=?",a);
+		db.run("DELETE FROM trans     WHERE aid=?",a);
+		db.run("DELETE FROM budget    WHERE aid=?",a);
+		db.run("DELETE FROM country   WHERE aid=?",a);
+		db.run("DELETE FROM sector    WHERE aid=?",a);
+		db.run("DELETE FROM location  WHERE aid=?",a);
+		db.run("DELETE FROM slug      WHERE aid=?",a);
 	});
 
 	wait.for(function(cb){ db.run("PRAGMA page_count", function(err, row){ cb(err); }); });
@@ -371,13 +372,14 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 
 // make really really sure old junk is deleted
-		db.run("DELETE FROM act     WHERE aid=?",t.aid);
-		db.run("DELETE FROM jml     WHERE aid=?",t.aid);
-		db.run("DELETE FROM trans   WHERE aid=?",t.aid);
-		db.run("DELETE FROM budget  WHERE aid=?",t.aid);
-		db.run("DELETE FROM country WHERE aid=?",t.aid);
-		db.run("DELETE FROM sector  WHERE aid=?",t.aid);
-		db.run("DELETE FROM slug    WHERE aid=?",t.aid);
+		db.run("DELETE FROM act       WHERE aid=?",t.aid);
+		db.run("DELETE FROM jml       WHERE aid=?",t.aid);
+		db.run("DELETE FROM trans     WHERE aid=?",t.aid);
+		db.run("DELETE FROM budget    WHERE aid=?",t.aid);
+		db.run("DELETE FROM country   WHERE aid=?",t.aid);
+		db.run("DELETE FROM sector    WHERE aid=?",t.aid);
+		db.run("DELETE FROM location  WHERE aid=?",a);
+		db.run("DELETE FROM slug      WHERE aid=?",t.aid);
 
 
 		t.title=refry.tagval_en(act,"title");
