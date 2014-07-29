@@ -378,7 +378,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		db.run("DELETE FROM budget    WHERE aid=?",t.aid);
 		db.run("DELETE FROM country   WHERE aid=?",t.aid);
 		db.run("DELETE FROM sector    WHERE aid=?",t.aid);
-		db.run("DELETE FROM location  WHERE aid=?",a);
+		db.run("DELETE FROM location  WHERE aid=?",t.aid);
 		db.run("DELETE FROM slug      WHERE aid=?",t.aid);
 
 
