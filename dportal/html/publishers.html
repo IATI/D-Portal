@@ -34,7 +34,7 @@
 				<div class="country_menu_wrap">
 					<span id="explore"></span>
 					<div class="country_menu_list_wrap">
-						<ul class="country_menu_list">{countries:country_select}</ul>
+						<ul class="country_menu_list">{publishers:publisher_select}</ul>
 					</div>
 				</div>
 			</div>
@@ -55,11 +55,10 @@
 </body>
 </html>
 
-#country_select
+#publisher_select
 <li>
-	<a class="country_code" href="{root}ctrack.html?country={it.id}&tongue={tongue}">
+	<a class="country_code" href="{root}ctrack.html?publisher={it.id}&tongue={tongue}">
 		<span class="select_wrap">
-			<img src="{root}art/flag/{it.cc}.png" alt="{it.name} {flag_alt_text}"/>
 		</span><span class="select_wrap countryid">
 			{it.id}
 		</span><span class="select_wrap countryname">
