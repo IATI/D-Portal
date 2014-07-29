@@ -17,24 +17,23 @@
 				<div class="tongue_wrap">{tongue_select}</div>
 				<div class="tag">{publishers_tagline_text}</div>
 				
-				<div class="description_wrap">
+				<div class="description_wrap publisher">
 					<div class="description">
-						<span class="title">{index_title_text}</span>
-						<p><span class="bold">d-portal.org</span> {index_paragraph1_text}</p>
-						<p>{index_paragraph2_text}</p>
+						<span class="title">{publisher_title_text}</span>
+						<p>{publisher_paragraph1_text}</p>
 					</div><div class="description">
 						<span class="title">{links_title_text}</span>
 						<a href="{tongue_root}news/posts.html" class="read">&gt; {news_page_text}</a>
 						<a href="{tongue_root}about.html" class="read">&gt; {read_more_text}</a>
-						<span class="title">{explore_title_text}</span>
-						<p>{explore_paragraph1_text}</p>
-						<p>{explore_paragraph2_text}</p>
 					</div>
 				</div>
 				<div class="country_menu_wrap">
 					<span id="explore"></span>
-					<div class="country_menu_list_wrap">
-						<ul class="country_menu_list">{publishers:publisher_select}</ul>
+					<div class="publisher_menu_list_wrap">
+						<ul class="country_menu_list">
+							{publisher_head}
+							{publishers:publisher_select}
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -55,14 +54,24 @@
 </body>
 </html>
 
+#publisher_head
+<li>
+	<div class="publisher_list">
+		<span class="select_wrap publishername">
+			Publisher Name
+		</span><span class="select_wrap publisherid">
+			Publisher ID
+		</span>
+	</div>
+</li>
+
 #publisher_select
 <li>
-	<a class="country_code" href="{root}ctrack.html?publisher={it.id}&tongue={tongue}">
-		<span class="select_wrap">
-		</span><span class="select_wrap countryid">
-			{it.id}
-		</span><span class="select_wrap countryname">
+	<a class="country_code publishers" href="{root}ctrack.html?publisher={it.id}&tongue={tongue}">
+		<span class="select_wrap publishername">
 			{it.name}
+		</span><span class="select_wrap publisherid">
+			{it.id}
 		</span>
 	</a>
 </li>
