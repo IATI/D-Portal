@@ -22,7 +22,7 @@ var http_gethead=function(url,cb)
 
 var http_getbody=function(url,cb)
 {
-	request({uri:url,timeout:20000,encoding:'utf8'}, function (error, response, body) {
+	request({uri:url,timeout:20000/*,encoding:'utf8'*/}, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 		cb(null,body);
 	  }
@@ -70,15 +70,18 @@ dstore_cache.cmd = function(argv){
 
 dstore_cache.import_xmlfile = function(xmlfile){
 
-	var xmlfilename=path.basename(xmlfile,".xml");
-	
-	var data=fs.readFileSync(xmlfile,"UCS-2"); // try 16bit first?
-	var aa=data.split(/<iati-activity/gi);
-	if(aa.length==1) // nothing found so try utf8
-	{
-		data=fs.readFileSync(xmlfile,"utf8");
-		aa=data.split(/<iati-activity/gi);
+var charset="unknown";
+var	bufferToString=function(buffer) {
+		var jschardet = require("jschardet")
+		var iconv = require("iconv-lite")
+		charset = jschardet.detect(buffer).encoding.toLowerCase();
+		return iconv.decode(buffer,charset);
 	}
+
+
+	var xmlfilename=path.basename(xmlfile,".xml");
+	var data=bufferToString( fs.readFileSync(xmlfile) ); // guess file format
+	var aa=data.split(/<iati-activity/gi);
 	
 	var acts=[];
 	for(var i=1;i<aa.length;i++)
@@ -89,7 +92,7 @@ dstore_cache.import_xmlfile = function(xmlfile){
 	}
 
 
-	console.log("\t\tImporting xmlfile : ("+acts.length+") \t"+xmlfilename);
+	console.log("\t\tImporting xmlfile <"+charset+">: ("+acts.length+") \t"+xmlfilename);
 //	wait.for(function(cb){
 		require("./dstore_db").fill_acts(acts,xmlfilename);
 //		} );
@@ -171,7 +174,7 @@ dstore_cache.iati = function(argv){
 	{	
 		var js=wait.for(http_getbody,"http://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
 
-		var j=JSON.parse(js);
+		var j=JSON.parse(js.toString('utf8'));
 		var rs=j.result.results;
 		done=true;
 		for(var i=0;i<rs.length;i++)
