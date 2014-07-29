@@ -14,11 +14,10 @@ For example:
 We will need to include the template so it shows up in the post.
 
 	#blog_title trim=ends
-	
 	Add the title of the post under this.
 
+
 	#blog_body form=markdown
-	
 	Add the post itself under this.
 
 The easiest way to make sure the title and body of the post is picked up is to copy and paste an old post and write over it.
