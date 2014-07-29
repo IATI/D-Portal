@@ -3,4 +3,4 @@ cd ..
 
 bin/cron | tee dportal/production/cron.log
 
-cat dportal/production/cron.log | mail krissd@gmail.com,notshi@gmail.com,d-portal-list@googlegroups.com -s "d-portal update `date`"
+( echo "Subject: d-portal update `date`"  ; uuencode dportal/production/cron.log dportal-cronlog.txt ) | sendmail krissd@gmail.com,notshi@gmail.com,d-portal-list@googlegroups.com
