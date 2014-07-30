@@ -614,8 +614,15 @@ if(true)
 		else
 		{
 			r.time=(Date.now()-q.start_time)/1000;
-			if(q.callback)	{ res.jsonp(r); } // seems to get headers wrong when no callback
-			else			{ res.json(r);  }
+			if(q.callback)
+			{
+				res.jsonp(r); // seems to get headers wrong when no callback
+			}
+			else
+			{
+				res.set('Content-Type', 'application/json');
+				res.json(r);
+			}
 		}
 		dstore_sqlite.close(db);
 	});
