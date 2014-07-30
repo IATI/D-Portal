@@ -131,6 +131,7 @@ query.getsql_select=function(q,qv){
 		s=s+" ) AS "+ret+" ";
 		ss.push(s);
 	}
+//these calculations need to be turned into generic prefix functions.
 	var calc={
 		"sum_of_percent_of_trans_usd":function(){
 			percents("sum_of_percent_of_trans_usd","trans_usd","SUM");
@@ -585,7 +586,7 @@ if(true)
 			}
 		}
 		else
-		if(q.form=="jcsv") // a jsoned csv (much smaller for large table data)
+		if(q.form=="jcsv") // a jsoned csv (much smaller than json for large table data)
 		{
 			if(r.rows[0])
 			{
@@ -613,7 +614,8 @@ if(true)
 		else
 		{
 			r.time=(Date.now()-q.start_time)/1000;
-			res.jsonp(r);
+			if(q.callback)	{ res.jsonp(r); } // seems to get headers wrong when no callback
+			else			{ res.json(r);  }
 		}
 		dstore_sqlite.close(db);
 	});
