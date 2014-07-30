@@ -1,6 +1,6 @@
 cd `dirname $0`
 cd ..
 
-bin/cron | tee dportal/production/cron.log
+bin/cron 2>&1 | tee dportal/production/cron.log
 
 ( echo "Subject: d-portal update `date`"  ; uuencode dportal/production/cron.log dportal-cronlog.txt ) | sendmail krissd@gmail.com,notshi@gmail.com,d-portal-list@googlegroups.com
