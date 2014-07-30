@@ -526,6 +526,18 @@ if(true)
 		}
 	});
 
+	var send_json=function(r)
+	{
+		if(q.callback)
+		{
+			res.jsonp(r); // seems to only get headers right with a callback
+		}
+		else
+		{
+			res.set('Content-Type', 'application/json');
+			res.json(r);
+		}
+	};
 	db.run(";", function(err, row){
 		if(q.form=="xml")
 		{
@@ -604,25 +616,17 @@ if(true)
 						t.push( v[n] || null );
 					});
 				}
-				res.jsonp(ta);
+				send_json(ta);
 			}
 			else
 			{
-				res.jsonp([]); // nothing to see, but still trigger callback
+				send_json([]); // nothing to see, but still trigger callback
 			}
 		}
 		else
 		{
 			r.time=(Date.now()-q.start_time)/1000;
-			if(q.callback)
-			{
-				res.jsonp(r); // seems to get headers wrong when no callback
-			}
-			else
-			{
-				res.set('Content-Type', 'application/json');
-				res.json(r);
-			}
+			send_json(r);
 		}
 		dstore_sqlite.close(db);
 	});
