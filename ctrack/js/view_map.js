@@ -245,6 +245,9 @@ view_map.ajax_heat=function(args)
 //		console.log("fetch map heat");
 //		console.log(data);
 		
+		var alat=0;
+		var alng=0;
+		var acnt=0;
 		ctrack.map.heat=undefined;
 		for(var i=0;i<data.rows.length;i++)
 		{
@@ -256,17 +259,22 @@ view_map.ajax_heat=function(args)
 				if(!ctrack.map.heat)
 				{
 					ctrack.map.heat=[];
-					ctrack.map.lat=lat; // use first (most popular)
-					ctrack.map.lng=lng;
 				}
 				ctrack.map.heat.push({
 					lat:lat,
 					lng:lng,
 					wgt:v.count
 				});
+				alat+=lat;
+				alng+=lng;
+				acnt++;
 			}
 		}
-
+		if(acnt>0)
+		{
+			ctrack.map.lat=alat/acnt; // use average
+			ctrack.map.lng=alng/acnt;
+		}
 		ctrack.display(); // every fetch.ajax must call display once
 	});
 }
