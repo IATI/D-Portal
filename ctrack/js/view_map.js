@@ -19,6 +19,7 @@ view_map.setup=function()
 	ctrack.map.lat=0;
 	ctrack.map.lng=0;
 	ctrack.map.zoom=6;
+	ctrack.map.radius=1/4;
 	ctrack.map.heat=undefined;
 	ctrack.map.pins=undefined;
 	ctrack.map.api_ready=false;
@@ -26,6 +27,7 @@ view_map.setup=function()
 	if( !ctrack.args.country ) // zoom out if no country
 	{
 		ctrack.map.zoom=3;
+		ctrack.map.radius=1;
 	}
 		
 //display map 
@@ -133,7 +135,7 @@ view_map.fixup=function()
 				}
 				var fixradius=function()
 				{
-						var s=Math.pow(2,map.getZoom())/4;
+						var s=Math.pow(2,map.getZoom())*ctrack.map.radius;
 						if(s<4){s=4;}
 						if(s>256){s=0;}
 
@@ -233,6 +235,11 @@ view_map.ajax_heat=function(args)
 		};
 	if(!dat.country_code) { dat.country_percent=undefined; }
 	
+	if(args.round==0) // group more locations togethere (less precise)
+	{
+		dat.select="count,round0_location_longitude,round0_location_latitude";
+	}
+	
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("fetch map heat");
@@ -242,17 +249,19 @@ view_map.ajax_heat=function(args)
 		for(var i=0;i<data.rows.length;i++)
 		{
 			var v=data.rows[i];
-			if( ("number"== typeof v.round1_location_longitude) && ("number"== typeof v.round1_location_latitude) )
+			var lat=v.round1_location_latitude  || v.round0_location_latitude;
+			var lng=v.round1_location_longitude || v.round0_location_longitude;
+			if( ("number"== typeof lng) && ("number"== typeof lat) )
 			{
 				if(!ctrack.map.heat)
 				{
 					ctrack.map.heat=[];
-					ctrack.map.lat=v.round1_location_latitude; // use first (most popular)
-					ctrack.map.lng=v.round1_location_longitude;
+					ctrack.map.lat=lat; // use first (most popular)
+					ctrack.map.lng=lng;
 				}
 				ctrack.map.heat.push({
-					lat:v.round1_location_latitude,
-					lng:v.round1_location_longitude,
+					lat:lat,
+					lng:lng,
 					wgt:v.count
 				});
 			}

@@ -157,6 +157,12 @@ query.getsql_select=function(q,qv){
 		"percent_of_budget_value":function(){
 			percents("percent_of_budget_value","budget_value","");
 		},
+		"round0_location_longitude":function(){
+			ss.push(" ROUND(location_longitude,0) AS round0_location_longitude");
+		},
+		"round0_location_latitude":function(){
+			ss.push(" ROUND(location_latitude,0) AS round0_location_latitude");
+		},
 		"round1_location_longitude":function(){
 			ss.push(" ROUND(location_longitude,1) AS round1_location_longitude");
 		},

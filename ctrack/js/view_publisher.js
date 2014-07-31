@@ -54,6 +54,6 @@ view_publisher.view=function(args)
 //	views.sectors_top.ajax();	
 
 	ctrack.map.pins=undefined;
-	views.map.ajax_heat({limit:1000});
+	views.map.ajax_heat({limit:1000,round:0});
 	
 }
