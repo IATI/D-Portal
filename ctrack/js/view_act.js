@@ -32,7 +32,13 @@ view_act.view=function(args)
 	view_act.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	ctrack.setcrumb(3);
 	ctrack.change_hash();
-	view_act.ajax({aid:ctrack.hash.aid,lat:ctrack.hash.lat,lng:ctrack.hash.lng});
+	view_act.ajax({
+		aid:ctrack.hash.aid,
+		lat:ctrack.hash.lat,
+		lng:ctrack.hash.lng,
+		country:ctrack.hash.country,
+		publisher:ctrack.hash.publisher,
+	});
 };
 
 //
@@ -44,11 +50,13 @@ view_act.ajax=function(args)
     
 	var dat={
 			"select":"jml",
-			"from":"act,location,jml",
+			"from":"act,country,location,jml",
 			"groupby":"aid",
 			"aid":args.aid,
 			"location_latitude":args.lat,
 			"location_longitude":args.lng,
+			"country_code":args.country,
+			"reporting_ref":args.publisher,
 		};
 		
 	fetch.ajax(dat,args.callback || function(data)
