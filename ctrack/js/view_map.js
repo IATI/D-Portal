@@ -27,7 +27,7 @@ view_map.setup=function()
 	if( !ctrack.args.country ) // zoom out if no country
 	{
 		ctrack.map.zoom=3;
-		ctrack.map.radius=1;
+		ctrack.map.radius=2;
 	}
 		
 //display map 
