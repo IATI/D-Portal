@@ -163,6 +163,9 @@ query.getsql_select=function(q,qv){
 		"round1_location_latitude":function(){
 			ss.push(" ROUND(location_latitude,1) AS round1_location_latitude");
 		},
+		"count_aid":function(){
+			ss.push(" COUNT(DISTINCT aid) AS count_aid");
+		},
 		"count":function(){
 			ss.push(" COUNT(*) AS count");
 		}

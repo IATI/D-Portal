@@ -24,6 +24,7 @@ views.stats=require("./view_stats.js");
 views.map=require("./view_map.js");
 
 views.main=require("./view_main.js");
+views.publisher=require("./view_publisher.js");
 
 views.donors_top=require("./view_donors_top.js");
 views.donors=require("./view_donors.js");

@@ -196,7 +196,7 @@ exs.create_csv = function(){
 					else
 					{
 						active=false;
-						ls("UNKNOWN CURRENCY "+line[0]);
+//						ls("UNKNOWN CURRENCY "+line[0]);
 					}
 				}		
 			});

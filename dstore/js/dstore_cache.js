@@ -72,10 +72,11 @@ dstore_cache.import_xmlfile = function(xmlfile){
 
 var charset="unknown";
 var	bufferToString=function(buffer) {
+		if(!buffer) { return ""; }
 		var jschardet = require("jschardet")
 		var iconv = require("iconv-lite")
-		charset = jschardet.detect(buffer).encoding.toLowerCase();
-		return iconv.decode(buffer,charset);
+		charset = jschardet.detect(buffer).encoding || "utf-8";
+		return iconv.decode(buffer,charset.toLowerCase());
 	}
 
 

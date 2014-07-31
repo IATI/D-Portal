@@ -201,7 +201,8 @@ view_donors.ajax=function(args)
 				"groupby":"funder_ref",
 				"trans_code":"D|E",
 				"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
-				"country_code":(args.country || ctrack.args.country)
+				"country_code":(args.country || ctrack.args.country),
+				"reporting_ref":(args.publisher || ctrack.args.publisher),
 			};
 		fetch.ajax(dat,function(data){
 //			console.log("fetch transactions donors "+year);
@@ -237,7 +238,8 @@ view_donors.ajax=function(args)
 				"funder_ref_not_null":"",
 				"groupby":"funder_ref",
 				"budget_day_end_gteq":year+"-01-01","budget_day_end_lt":(parseInt(year)+1)+"-01-01",
-				"country_code":(args.country || ctrack.args.country)
+				"country_code":(args.country || ctrack.args.country),
+				"reporting_ref":(args.publisher || ctrack.args.publisher),
 			};
 		fetch.ajax(dat,function(data){
 			

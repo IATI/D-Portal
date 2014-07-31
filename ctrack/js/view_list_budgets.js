@@ -47,7 +47,8 @@ view_list_budgets.ajax=function(args)
 			"groupby":"aid",
 			"orderby":"1-",
 			"budget_priority":1, // has passed some validation checks serverside
-			"country_code":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country),
+			"reporting_ref":(args.publisher || ctrack.args.publisher),
 		};
 	if(args.q)
 	{

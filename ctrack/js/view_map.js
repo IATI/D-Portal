@@ -223,9 +223,11 @@ view_map.ajax_heat=function(args)
 			"orderby":"1-",
 			"groupby":"2,3",
 			"country_percent":100, // *only* this country
-			"country_code":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country),
+			"reporting_ref":(args.publisher || ctrack.args.publisher),
 		};
-		
+	if(!dat.country_code) { dat.country_percent=undefined; }
+	
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("fetch map heat");
@@ -277,7 +279,8 @@ view_map.ajax_pins=function(args)
 			"orderby":"1-",
 			"groupby":"2,3",
 			"country_percent":100, // *only* this country
-			"country_code":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country),
+			"reporting_ref":(args.publisher || ctrack.args.publisher),
 		};
 		
 	fetch.ajax(dat,args.callback || function(data)
