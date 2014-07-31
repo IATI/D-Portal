@@ -108,7 +108,8 @@ view_map.fixup=function()
 						});
 						markers.push(marker);
 						google.maps.event.addListener(marker, "click", function (e) {
-							window.location.hash="#view=act&aid="+v.aid;
+//							window.location.hash="#view=act&aid="+v.aid;
+							window.location.hash="#view=act&lat="+v.lat+"&lng="+v.lng;
 						});
 					});
 					markerCluster = new MarkerClusterer(map, markers,{maxZoom:12});
