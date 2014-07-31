@@ -25,8 +25,8 @@ view_active.ajax=function(args)
 	args=args || {};
 	
 	args.q=args.q || {};
-	args.q.day_end_gt = today;
-	args.q.day_start_lt = today;
+	args.q.day_end_gteq = today;
+	args.q.day_start_lteq = today;
 	args.q.day_length_not_null = 1;
 	args.q.orderby="day_end";
 	
