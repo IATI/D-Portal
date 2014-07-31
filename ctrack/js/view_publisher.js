@@ -17,6 +17,11 @@ view_publisher.chunks=[
 	
 ];
 
+// called on view display to fix html in place
+view_publisher.fixup=function()
+{
+	views.map.fixup();
+}
 //
 // Perform ajax call to get numof data
 //
@@ -45,8 +50,8 @@ view_publisher.view=function(args)
 	views.active.ajax({limit:5,plate:"{table_active_data}",chunk:"table_active_datas"});
 	views.ended.ajax({limit:5,plate:"{table_ended_data}",chunk:"table_ended_datas"});
 
-	views.donors_top.ajax();
-	views.sectors_top.ajax();	
+//	views.donors_top.ajax();
+//	views.sectors_top.ajax();	
 
 	ctrack.map.pins=undefined;
 	views.map.ajax_heat({limit:200});

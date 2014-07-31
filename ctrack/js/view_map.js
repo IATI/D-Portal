@@ -22,6 +22,11 @@ view_map.setup=function()
 	ctrack.map.heat=undefined;
 	ctrack.map.pins=undefined;
 	ctrack.map.api_ready=false;
+	
+	if( !ctrack.args.country ) // zoom out if no country
+	{
+		ctrack.map.zoom=3;
+	}
 		
 //display map 
 	display_ctrack_map=function(){
