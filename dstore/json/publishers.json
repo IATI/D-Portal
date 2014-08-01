@@ -1102,7 +1102,7 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "f3e39d230cf4255cd971db42e0ab8d96",
-				"number_of_edits": 19,
+				"number_of_edits": 21,
 				"number_administered_packages": 2,
 				"display_name": "Gareth Price",
 				"fullname": "Gareth Price",
@@ -2670,6 +2670,64 @@
 		"tags": [],
 		"name": "bracuk"
 	},
+	"brdt": {
+		"users": [
+			{
+				"openid": null,
+				"about": null,
+				"capacity": "admin",
+				"name": "bioclimate_org",
+				"created": "2014-07-29T13:14:02.107277",
+				"sysadmin": false,
+				"activity_streams_email_notifications": false,
+				"email_hash": "8f2042df6967481603b800805e1f60ef",
+				"number_of_edits": 2,
+				"number_administered_packages": 0,
+				"display_name": "Willie McGhee",
+				"fullname": "Willie McGhee",
+				"id": "e26712a2-a135-4b95-8e25-93eab4beb7f4"
+			}
+		],
+		"display_name": "Bioclimate Research and Development",
+		"description": "",
+		"title": "Bioclimate Research and Development",
+		"package_count": 0,
+		"created": "2014-07-29T13:26:49.570766",
+		"approval_status": "approved",
+		"is_organization": true,
+		"state": "active",
+		"extras": {
+			"publisher_iati_id": "brdt",
+			"publisher_segmentation": "",
+			"publisher_implementation_schedule": "",
+			"publisher_organization_type": "21",
+			"publisher_frequency": "",
+			"publisher_frequency_select": "not_specified",
+			"publisher_units": "",
+			"publisher_thresholds": "",
+			"publisher_ui": "",
+			"publisher_contact": "Bioclimate Research and Development,\r\n18b Liberton Brae,Tower Mains Studios,\r\nEdinburgh, EH16 6AE\r\n\r\nTel: 0044(0)1316643700\r\nemail: info@brdt.org",
+			"publisher_agencies": "UK DFID\r\n\r\n25%",
+			"publisher_field_exclusions": "",
+			"publisher_description": "Natural resource management, livelihoods, activity based incentives",
+			"publisher_record_exclusions": "",
+			"publisher_timeliness": "",
+			"license_id": "notspecified",
+			"publisher_country": "GB",
+			"publisher_refs": "",
+			"publisher_constraints": "",
+			"publisher_source_type": "primary_source",
+			"publisher_data_quality": ""
+		},
+		"image_url": "",
+		"groups": [],
+		"revision_id": "4589ec00-5ec0-4908-94c2-f38608335b40",
+		"packages": [],
+		"type": "organization",
+		"id": "fe6d670f-f704-4aa8-9d37-25af3efefa58",
+		"tags": [],
+		"name": "brdt"
+	},
 	"britishcouncil": {
 		"users": [
 			{
@@ -3963,7 +4021,7 @@
 		"packages": [
 			"concernuk-et",
 			"concernuk-org",
-			"concernuk-pk",
+			"concernuk-pk1",
 			"concernuk-tz"
 		],
 		"type": "organization",
@@ -7680,7 +7738,7 @@
 		"tags": [],
 		"name": "gavi"
 	},
-	"gb-cc-220949": {
+	"gb-chc-220949": {
 		"users": [
 			{
 				"openid": "",
@@ -7691,7 +7749,7 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "8ee4542bc561c82adf162d88167926a7",
-				"number_of_edits": 38,
+				"number_of_edits": 51,
 				"number_administered_packages": 6,
 				"display_name": "Pedro Almeida",
 				"fullname": "Pedro Almeida",
@@ -7707,15 +7765,17 @@
 		"is_organization": true,
 		"state": "active",
 		"extras": {
-			"publisher_iati_id": "GB-CC-220949",
+			"publisher_iati_id": "GB-CHC-220949",
 			"publisher_segmentation": "British Red Cross will publish XML data on IATI's registry segmented by country for all in-country grants. The XML data  for the PPA will be published as a non-country file. ",
-			"publisher_ui": "Data will be accessible for end users through an existing interface in our website (interactive project map under the 'Where we work' page in British Red Cross' website - http://www.redcross.org.uk/). ",
+			"publisher_implementation_schedule": "",
 			"publisher_organization_type": "21",
 			"publisher_frequency": "Annually",
-			"publisher_thresholds": "There are no thresholds on the value of activities. ",
+			"publisher_frequency_select": "not_specified",
 			"publisher_units": "For the purpose of the IATI, British Red Cross defines as \"activity\" a project or programme that has been fully and bilaterally funded  by DFID, for which details will be published on a designated section in our website and on the IATI registry in XML format.",
-			"publisher_contact": "Pedro Almeida,\r\nInstitutional Grants Coordinator,\r\nInternational Division,\r\nPerformance and Accountability Department,\r\n\r\nT:020 7877 7457,\r\nE: palmeida@redcross.org.uk,\r\n\r\nBritish Red Cross,\r\n44 Moorfields,\r\nLondon  EC2Y 9AL\r\nT:02078777952\r\nwww.redcross.org.uk \r\n\r\n\r\n",
-			"publisher_agencies": "British Red Cross activities published in line with the IATI  include our bilateral strategic funding (e.g. PPA) with DFID and all bilateral in-country DFID grants that began in 2011. For the year of 2011 this type of income from DFID represented 7% of our total International Division's income. Additionally, Information about other aspects of our work, both in the UK and overseas, is published and updated regularly on our website directly. We aim to include basic details about all of our overseas programmes, including the scope of the programme, the need it is meeting and where possible case studies of the people we are helping. For more information please visit: http://www.redcross.org.uk/",
+			"publisher_thresholds": "There are no thresholds on the value of activities. ",
+			"publisher_ui": "Data will be accessible for end users through an existing interface in our website (interactive project map under the 'Where we work' page in British Red Cross' website - http://www.redcross.org.uk/). ",
+			"publisher_contact": "Pedro Almeida,\r\nInstitutional Funding Officer\r\nInternational Division,\r\nPerformance and Accountability Department,\r\n\r\nT:020 7877 7457,\r\nE: palmeida@redcross.org.uk,\r\n\r\nBritish Red Cross,\r\n44 Moorfields,\r\nLondon  EC2Y 9AL\r\nT:02078777952\r\nwww.redcross.org.uk \r\n\r\n\r\n",
+			"publisher_agencies": "British Red Cross activities published in line with the IATI  include our bilateral strategic funding (e.g. PPA) with DFID and all bilateral in-country DFID grants that began in 2011. Additionally, Information about other aspects of our work, both in the UK and overseas, is published and updated regularly on our website directly. We aim to include basic details about all of our overseas programmes, including the scope of the programme, the need it is meeting and where possible case studies of the people we are helping. For more information please visit: http://www.redcross.org.uk/",
 			"publisher_field_exclusions": "Please see British Red Cross IATI  Implementation Schedule for more information. ",
 			"publisher_description": "British Red Cross is part of the world’s largest humanitarian organisation, the International Red Cross and Red Crescent Movement, which is comprised of 188 National Societies, the International Committee of the Red Cross (ICRC) and the International Federation of the Red Cross and Red Crescent Societies (IFRC). Our mission is to mobilise the power of humanity so that individuals and communities have the capacity to prepare for, deal with and recover from crisis. The Fundamental Principles of the International Red Cross and Red Crescent Movement - Humanity, Impartiality, Neutrality, Independence, Voluntary Service, Unity and Universality – underpin our work. Additionally, British Red Cross has a special legal status and role amongst humanitarian agencies, which includes working as a humanitarian auxiliary  to the UK government. \r\n\r\n \r\n",
 			"publisher_record_exclusions": "British Red Cross does not commit to publishing project information on DFID funding to British Red Cross where funding is passed to the IFRC. British Red Cross will exclude documents that include information about personnel (e.g. MoUs) or confidentiality agreements automatically. Project expenditure will only be published to the extent that it is available in final documents (e.g. final narrative report or evaluation) rather than incrementally. British Red Cross reserves the right to exclude documents that we have agreed to publish should we conclude that publication would present a credible risk to the organisations or individuals involved, or where partners have reasonable objections, in particular where it might affect the ICRC's established working methods, including confidentiality.",
@@ -7724,11 +7784,12 @@
 			"publisher_country": "",
 			"publisher_refs": "Please see British Red Cross IATI  Implementation Schedule for more information. ",
 			"publisher_constraints": "Please see British Red Cross IATI  Implementation Schedule for more information. ",
+			"publisher_source_type": "primary_source",
 			"publisher_data_quality": "British Red Cross will only publish information that has been verified."
 		},
 		"image_url": "http://www.aidstream.org/uploads/image/BRC_stacked.jpg",
 		"groups": [],
-		"revision_id": "49cea5a1-a8f3-4739-b8c3-43d5eb257e55",
+		"revision_id": "6398935b-fca6-4930-bc7c-1cf7a9076960",
 		"packages": [
 			"gb-cc-220949-ai",
 			"gb-cc-220949-gb",
@@ -7740,7 +7801,7 @@
 		"type": "organization",
 		"id": "0792d7da-9a2c-493c-b0ad-b31f1da38341",
 		"tags": [],
-		"name": "gb-cc-220949"
+		"name": "gb-chc-220949"
 	},
 	"gecfundmanagerpwc": {
 		"users": [
@@ -7969,7 +8030,7 @@
 		"groups": [],
 		"revision_id": "b2b254d7-9c82-4796-8bec-796a096910c9",
 		"packages": [
-			"globalintegrity-org"
+			"globalintegrity-activity"
 		],
 		"type": "organization",
 		"id": "598854f1-0ad3-4f6a-aa47-e023aad6c515",
@@ -9576,7 +9637,7 @@
 		"groups": [],
 		"revision_id": "f604ff8f-4c90-4c88-b976-8a8ab7ba7503",
 		"packages": [
-			"international-alert-org"
+			"international-alert-activity"
 		],
 		"type": "organization",
 		"id": "c3f34286-ac9b-495f-b74b-02addd697f45",
@@ -11946,8 +12007,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "47de9a0a85985c46881900eb85dab428",
-				"number_of_edits": 4,
-				"number_administered_packages": 1,
+				"number_of_edits": 5,
+				"number_administered_packages": 2,
 				"display_name": "Denny John",
 				"fullname": "Denny John",
 				"id": "9d40c08f-147d-46f1-8ff2-87dde25852a8"
@@ -12002,8 +12063,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "47de9a0a85985c46881900eb85dab428",
-				"number_of_edits": 4,
-				"number_administered_packages": 1,
+				"number_of_edits": 5,
+				"number_administered_packages": 2,
 				"display_name": "Denny John",
 				"fullname": "Denny John",
 				"id": "9d40c08f-147d-46f1-8ff2-87dde25852a8"
@@ -12012,7 +12073,7 @@
 		"display_name": "Micro Insurance Academy",
 		"description": "",
 		"title": "Micro Insurance Academy",
-		"package_count": 1,
+		"package_count": 2,
 		"created": "2014-06-19T10:11:34.882162",
 		"approval_status": "approved",
 		"is_organization": true,
@@ -12044,6 +12105,7 @@
 		"groups": [],
 		"revision_id": "84139a9e-00a4-426f-8cb6-6574019e83d0",
 		"packages": [
+			"mia_india-activities",
 			"mia_india-org"
 		],
 		"type": "organization",
@@ -12717,7 +12779,7 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "803afb3af527fce08d7f9a0f10cd6348",
-				"number_of_edits": 6,
+				"number_of_edits": 9,
 				"number_administered_packages": 2,
 				"display_name": "Gillian Wilson",
 				"fullname": "Gillian Wilson",
@@ -12735,11 +12797,13 @@
 		"extras": {
 			"publisher_iati_id": "GB-SC-035314",
 			"publisher_segmentation": "We do not work in different countries or fund projects abroad. ",
-			"publisher_ui": "",
+			"publisher_implementation_schedule": "",
 			"publisher_organization_type": "23",
 			"publisher_frequency": "Quarterly",
-			"publisher_thresholds": "",
+			"publisher_frequency_select": "quarterly",
 			"publisher_units": "Programmes",
+			"publisher_thresholds": "",
+			"publisher_ui": "",
 			"publisher_contact": "NIDOS\r\nThornhouse\r\n5 Rose Street\r\nEdinburgh \r\nEH2 2PR",
 			"publisher_agencies": "Our IATI data covers our own activities and projects. ",
 			"publisher_field_exclusions": "",
@@ -13133,7 +13197,7 @@
 		"groups": [],
 		"revision_id": "2776a423-3c35-4af6-a0c9-2f86be2301d7",
 		"packages": [
-			"onl-org"
+			"onl-activity"
 		],
 		"type": "organization",
 		"id": "de458cb7-2bbb-4ea3-bd8a-f0d89fc09f53",
@@ -14001,8 +14065,8 @@
 		"groups": [],
 		"revision_id": "85ff8561-b717-4afc-9f64-47a0e7f59859",
 		"packages": [
-			"plan_uk-activities",
-			"plan_uk-org210613",
+			"plan_uk-act210613",
+			"plan_uk-activity",
 			"plan_uk-org_20140626"
 		],
 		"type": "organization",
@@ -15391,8 +15455,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "16d5a1668ac981b136b2629c53a9d7fc",
-				"number_of_edits": 683,
-				"number_administered_packages": 45,
+				"number_of_edits": 668,
+				"number_administered_packages": 43,
 				"display_name": "Save the Children UK",
 				"fullname": "Save the Children UK",
 				"id": "f40249b7-09e7-4e20-8015-5fa7d42bf91f"
@@ -16201,7 +16265,7 @@
 		"display_name": "Samaritan's Purse UK",
 		"description": "",
 		"title": "Samaritan's Purse UK",
-		"package_count": 2,
+		"package_count": 3,
 		"created": "2012-06-29T14:16:04.617340",
 		"approval_status": "approved",
 		"is_organization": true,
@@ -16232,7 +16296,8 @@
 		"revision_id": "34f98e84-b1da-4181-9242-2fa5976adf2b",
 		"packages": [
 			"spuk-activities",
-			"spuk-org"
+			"spuk-org",
+			"spuk-ug"
 		],
 		"type": "organization",
 		"id": "df93a319-9e96-4379-9ef8-52659af17423",
@@ -16430,8 +16495,8 @@
 				"sysadmin": true,
 				"activity_streams_email_notifications": false,
 				"email_hash": "a415e94dacbbd28e1014227f8bdedead",
-				"number_of_edits": 4472,
-				"number_administered_packages": 539,
+				"number_of_edits": 4470,
+				"number_administered_packages": 538,
 				"display_name": "Steven Flower",
 				"fullname": "Steven Flower",
 				"id": "bb22bdb2-6839-4392-9874-3a06de82f318"
@@ -18773,7 +18838,7 @@
 		"display_name": "United States",
 		"description": "",
 		"title": "United States",
-		"package_count": 243,
+		"package_count": 242,
 		"created": "2012-12-20T15:47:43.544226",
 		"approval_status": "approved",
 		"is_organization": true,
@@ -19028,7 +19093,6 @@
 			"unitedstates-ua",
 			"unitedstates-ug",
 			"unitedstates-us",
-			"unitedstates-us_department_of_defense_world_wide",
 			"unitedstates-us_department_of_the_treasury__office_of_techni",
 			"unitedstates-usadf",
 			"unitedstates-usda",
@@ -19081,13 +19145,15 @@
 		"is_organization": true,
 		"state": "active",
 		"extras": {
-			"publisher_iati_id": "",
+			"publisher_iati_id": "41127",
 			"publisher_segmentation": "Both country and region.",
-			"publisher_ui": "Eventually data will be accessible through a new interface. ",
+			"publisher_implementation_schedule": "",
 			"publisher_organization_type": "40",
 			"publisher_frequency": "Monthly",
-			"publisher_thresholds": "N/A",
+			"publisher_frequency_select": "not_specified",
 			"publisher_units": "US$",
+			"publisher_thresholds": "N/A",
+			"publisher_ui": "Eventually data will be accessible through a new interface. ",
 			"publisher_contact": "oct@un.org\r\n",
 			"publisher_agencies": "UNOCHA",
 			"publisher_field_exclusions": "N/A",
@@ -19501,8 +19567,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "c749eb0ff5ba238b6e2fb229486ca8a6",
-				"number_of_edits": 37,
-				"number_administered_packages": 13,
+				"number_of_edits": 35,
+				"number_administered_packages": 12,
 				"display_name": "Cristián Mansilla Aguilera",
 				"fullname": "Cristián Mansilla Aguilera",
 				"id": "7db1c622-f9ad-4411-a9ee-276a42b015cf"
