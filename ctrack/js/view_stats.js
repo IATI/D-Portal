@@ -64,7 +64,8 @@ view_stats.ajax=function(args)
 	var dat={
 			"select":"stats",
 			"from":"act,country",
-			"country_code":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country),
+			"reporting_ref":(args.publisher || ctrack.args.publisher),
 		};
 		
 	fetch.ajax(dat,args.callback || function(data)
@@ -74,7 +75,7 @@ view_stats.ajax=function(args)
 			
 		if(data.rows[0])
 		{
-			ctrack.chunk("total_projects",data.rows[0]["COUNT(*)"]);
+			ctrack.chunk("total_projects",data.rows[0]["COUNT(DISTINCT aid)"]);
 			ctrack.chunk("numof_publishers",data.rows[0]["COUNT(DISTINCT reporting_ref)"]);
 		}
 		
@@ -91,7 +92,8 @@ view_stats.ajax=function(args)
 			"country_percent":100, // *only* this country
 			"location_longitude_not_null":1, // must have a location
 			"location_latitude_not_null":1, // must have a location
-			"country_code":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country),
+			"reporting_ref":(args.publisher || ctrack.args.publisher),
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{

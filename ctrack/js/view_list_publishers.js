@@ -46,7 +46,8 @@ view_list_publishers.ajax=function(args)
 			"select":"count,reporting_ref,reporting",
 			"groupby":"reporting_ref",
 			"orderby":"1-",
-			"country_code":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country),
+			"reporting_ref":(args.publisher || ctrack.args.publisher),
 		};
 	if(args.q)
 	{

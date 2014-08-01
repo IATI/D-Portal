@@ -47,7 +47,8 @@ view_list_activities.ajax=function(args)
 			"select":"title,aid,funder_ref,commitment,spend,reporting,reporting_ref,day_start,day_end",
 			"orderby":"4-",
 			"groupby":"aid",
-			"country_code":(args.country || ctrack.args.country)
+			"country_code":(args.country || ctrack.args.country),
+			"reporting_ref":(args.publisher || ctrack.args.publisher),
 		};
 	if(args.q)
 	{
@@ -58,7 +59,7 @@ view_list_activities.ajax=function(args)
 	}
 	if(args.output=="count") // just count please
 	{
-		dat.select="count";
+		dat.select="count_aid";
 		delete dat.limit;
 		delete dat.orderby;
 		delete dat.groupby;
@@ -67,7 +68,7 @@ view_list_activities.ajax=function(args)
 	fetch.ajax(dat,function(data){
 		if(args.output=="count")
 		{
-			ctrack.chunk(args.chunk || "list_activities_count",data.rows[0]["count"]);
+			ctrack.chunk(args.chunk || "list_activities_count",data.rows[0]["count_aid"]);
 			views.stats.calc();
 		}
 		else

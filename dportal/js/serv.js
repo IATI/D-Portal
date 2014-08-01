@@ -16,7 +16,7 @@ app.use(express.logger());
 app.use(function(req, res, next) {
 	var aa=req.path.split("/");
 	var ab=aa[aa.length-1].split(".")
-	console.log(aa[aa.length-1]);
+//	console.log(aa[aa.length-1]);
 	if(ab.length==1) // no extension
 	{
 		res.contentType('text/html'); // set to html

@@ -65,7 +65,14 @@ ctrack.setup=function(args)
 	
 	ctrack.args=args;
 	
-	ctrack.crumbs=[{hash:"#view=main",view:"main"}];
+	if(args.publisher)
+	{
+		ctrack.crumbs=[{hash:"#view=publisher",view:"publisher"}];
+	}
+	else
+	{
+		ctrack.crumbs=[{hash:"#view=main",view:"main"}];
+	}
 	ctrack.setcrumb=function(idx)
 	{
 // try not to leave holes in the crumbs list, so align to left
@@ -89,8 +96,16 @@ ctrack.setup=function(args)
 			}
 			else
 			{
-				ctrack.chunk("crumb"+i+"_hash","#view=main");
-				ctrack.chunk("crumb"+i+"_view","main");
+				if(args.publisher)
+				{
+					ctrack.chunk("crumb"+i+"_hash","#view=publisher");
+					ctrack.chunk("crumb"+i+"_view","publisher");
+				}
+				else
+				{
+					ctrack.chunk("crumb"+i+"_hash","#view=main");
+					ctrack.chunk("crumb"+i+"_view","main");
+				}
 			}
 		}
 		ctrack.chunk("crumbs","{crumbs"+ctrack.crumbs.length+"}");
@@ -110,6 +125,11 @@ ctrack.setup=function(args)
 	if( ctrack.q.tongue ) // choose a new tongue
 	{
 		args.tongue=ctrack.q.tongue;
+	}
+
+	if( ctrack.q.publisher )
+	{
+		args.publisher=ctrack.q.publisher; // case is important?
 	}
 	
 	ctrack.chunks={};
@@ -202,7 +222,14 @@ ctrack.setup=function(args)
 		}
 	}
 
-	ctrack.hash={"view":"main"};
+	if(args.publisher)
+	{
+		ctrack.hash={"view":"publisher"};
+	}
+	else
+	{
+		ctrack.hash={"view":"main"};
+	}
 	ctrack.display_wait=0;
 	ctrack.display=function()
 	{

@@ -32,7 +32,7 @@ view_donors_top.ajax=function(args)
 
 	var list=[];
 // insert crs data if we have it
-	var crs=crs_year[ (args.country || ctrack.args.country).toUpperCase() ];
+	var crs=crs_year[ (args.country || ctrack.args.country || "xx" ).toUpperCase() ];
 	for(var n in crs)
 	{
 		var d={};
