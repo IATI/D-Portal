@@ -260,7 +260,7 @@ table.list a:active		{color:#000; text-decoration:none;}
 	============================================= */
 table.money					{width:100%; border-collapse:collapse; table-layout:fixed;}
 table.money td				{text-align:right; color:#000; font-size:1.0em; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #666;}
-table.money td.col1			{text-align:left; background-color:#C8C8C8; padding:15px 5px 15px 15px;}
+table.money td.col1			{text-align:left; background-color:#C8C8C8; padding:15px 10px;}
 table.money td.col2			{text-align:left;}
 table.money td.col3			{background-color:#D2D2D2;}
 table.money td.col4			{background-color:#DADADA;}
@@ -268,23 +268,21 @@ table.money td.col5			{background-color:#DEDEDE;}
 table.money td.col6			{background-color:#E5E5E5;}
 table.money td.col7			{background-color:#EDEDED;}
 
-table.money tr.row1 th		{background-color:transparent; color:#fff; font-weight:700; text-align:center; padding:20px;}
+table.money tr.row1 th		{background-color:transparent; color:#fff; font-weight:700; text-align:center; padding:20px 10px;}
 table.money tr.row1 th:hover{cursor:pointer;}
 table.money tr.row1 th.col1	{background-color:#000; text-align:left; border:1px solid #666; border-bottom:1px solid #666;}
 table.money tr.row1 th.col2	{color:#000; text-align:left; width:17%; border-bottom:1px solid #666;}
 table.money tr.row1 th.col3	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
 table.money tr.row1 th.col4	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
 
-table.money tr.row2 td		{color:#000; font-weight:500; padding:20px;}
+table.money tr.row2 td		{color:#000; font-weight:500; padding:20px 10px;}
 table.money tr.row2 td.col1 {background-color:#C8C8C8; border-left:1px solid #666; border-right:1px solid #666;}
 table.money tr.row2 td.col3	{background-color:#D2D2D2; border-left:1px solid #666;}
 table.money tr.row2 td.col4	{background-color:#DADADA;}
 table.money tr.row2 td.col5	{background-color:#DEDEDE; border-right:1px solid #666;}
 table.money tr.row2 td.col6	{background-color:#E5E5E5;}
 table.money tr.row2 td.col7	{background-color:#EDEDED; border-right:1px solid #666;}
-table.money tr.row2 td.col3, table.money tr.row2 td.col4,
-table.money tr.row2 td.col5, table.money tr.row2 td.col6,
-table.money tr.row2 td.col7	{padding:20px 10px 20px 15px;}
+table.money tr.row2 td.col2	{padding:20px 15px;}
 
 table.money tr.rows td.col1	{border-left:1px solid #666; border-right:1px solid #666;}
 table.money tr.rows td.col3	{border-left:1px solid #666;}
