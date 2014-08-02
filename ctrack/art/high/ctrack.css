@@ -271,7 +271,7 @@ table.money td.col7			{background-color:#EDEDED;}
 table.money tr.row1 th		{background-color:transparent; color:#fff; font-weight:700; text-align:center; padding:20px 10px;}
 table.money tr.row1 th:hover{cursor:pointer;}
 table.money tr.row1 th.col1	{background-color:#000; text-align:left; border:1px solid #666; border-bottom:1px solid #666;}
-table.money tr.row1 th.col2	{color:#000; text-align:left; width:15%; border-bottom:1px solid #666;}
+table.money tr.row1 th.col2	{color:#000; text-align:left; border-bottom:1px solid #666;}
 table.money tr.row1 th.col3	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
 table.money tr.row1 th.col4	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
 
@@ -283,7 +283,6 @@ table.money tr.row2 td.col5	{background-color:#DEDEDE; border-right:1px solid #6
 table.money tr.row2 td.col6	{background-color:#E5E5E5;}
 table.money tr.row2 td.col7	{background-color:#EDEDED; border-right:1px solid #666;}
 table.money tr.row2 td.col2	{padding:20px 15px;}
-table.money tr.row2 td.col2 a	{padding:15px;}
 
 table.money tr.rows td.col1	{border-left:1px solid #666; border-right:1px solid #666;}
 table.money tr.rows td.col3	{border-left:1px solid #666;}
@@ -302,6 +301,7 @@ table.money a:link  		{color:#000; text-decoration:none;}
 table.money a:visited		{color:#000; text-decoration:none;}
 table.money a:hover			{color:#000; border-bottom:0px dotted #B8C8CD; text-decoration:none;}
 table.money a:active		{color:#000; text-decoration: none;}
+table.money td.col2 a		{padding:15px 10px 15px 15px;}
 
 
 /*	Table for Activities list (Donors / Sectors)
