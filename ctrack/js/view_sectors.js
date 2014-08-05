@@ -22,6 +22,7 @@ var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $
 // the chunk names this view will fill with new data
 view_sectors.chunks=[
 	"table_sectors_rows",
+	"table_sectors",
 ];
 
 //
@@ -29,7 +30,7 @@ view_sectors.chunks=[
 //
 view_sectors.view=function(args)
 {
-	view_sectors.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
+	view_sectors.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	ctrack.setcrumb(1);
 	ctrack.change_hash();
 	view_sectors.ajax(args);
@@ -143,6 +144,7 @@ view_sectors.ajax=function(args)
 			s.push( plate.replace("{table_sectors_row}",v) );
 		});
 		ctrack.chunk("table_sectors_rows",s.join(""));
+		ctrack.chunk_clear("table_sectors");
 
 		var cc=[];
 		cc[0]=["crs","sector","t2012","t2013","t2014","b2014","b2015"];

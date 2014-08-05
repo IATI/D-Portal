@@ -155,7 +155,10 @@ ctrack.setup=function(args)
 			ctrack.chunks[n]=s;
 		}
 		return ctrack.chunks[n];
-	}
+	};
+	ctrack.chunk_clear=function(n){
+			ctrack.chunks[n]=undefined;
+	};
 // set global defaults
 	ctrack.chunk("art",args.art);
 	ctrack.chunk("flava",args.art+args.flava+"/");

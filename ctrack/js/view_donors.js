@@ -22,6 +22,7 @@ var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $
 // the chunk names this view will fill with new data
 view_donors.chunks=[
 	"table_donors_rows",
+	"table_donors",
 ];
 
 //
@@ -29,7 +30,7 @@ view_donors.chunks=[
 //
 view_donors.view=function(args)
 {
-	view_donors.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
+	view_donors.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	ctrack.setcrumb(1);
 	ctrack.change_hash();
 	view_donors.ajax(args);
@@ -152,6 +153,8 @@ view_donors.ajax=function(args)
 			s.push( plate.replace(args.plate || "{table_donors_row}",v) );
 		});
 		ctrack.chunk(args.chunk || "table_donors_rows",s.join(""));
+
+		ctrack.chunk_clear("table_donors");
 
 		var cc=[];
 		cc[0]=["crs","funder","t2012","t2013","t2014","b2014","b2015"];

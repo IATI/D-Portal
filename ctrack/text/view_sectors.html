@@ -90,9 +90,9 @@
 <tr class="rows">
 	<td class="col1" title="{table_sector_tip_data_text}">{crs}</td>
 	<td class="col2" title="{table_sector_tip_sector_text}"><a href="#view=sector_activities&sector_group={group}" class="block">{sector}</a></td>
-	<td class="col3" title="{table_sector_tip_t2012_text}"><a href="#view=sector_transactions&year=2012&sector_group={group}" class="block">{t2012}</a></td>
-	<td class="col4" title="{table_sector_tip_t2013_text}"><a href="#view=sector_transactions&year=2013&sector_group={group}" class="block">{t2013}</a></td>
-	<td class="col5" title="{table_sector_tip_t2014_text}"><a href="#view=sector_transactions&year=2014&sector_group={group}" class="block">{t2014}</a></td>
-	<td class="col6" title="{table_sector_tip_b2014_text}"><a href="#view=sector_budgets&year=2014&sector_group={group}" class="block">{b2014}</a></td>
-	<td class="col7" title="{table_sector_tip_b2015_text}"><a href="#view=sector_budgets&year=2015&sector_group={group}" class="block">{b2015}</a></td>
+	<td class="col3" title="{table_sector_tip_t2012_text}"><a onclick="switch($(this).html()){ case '0': return false; case '-' : return false; }" href="#view=sector_transactions&year=2012&sector_group={group}" class="block">{t2012}</a></td>
+	<td class="col4" title="{table_sector_tip_t2013_text}"><a onclick="switch($(this).html()){ case '0': return false; case '-' : return false; }" href="#view=sector_transactions&year=2013&sector_group={group}" class="block">{t2013}</a></td>
+	<td class="col5" title="{table_sector_tip_t2014_text}"><a onclick="switch($(this).html()){ case '0': return false; case '-' : return false; }" href="#view=sector_transactions&year=2014&sector_group={group}" class="block">{t2014}</a></td>
+	<td class="col6" title="{table_sector_tip_b2014_text}"><a onclick="switch($(this).html()){ case '0': return false; case '-' : return false; }" href="#view=sector_budgets&year=2014&sector_group={group}" class="block">{b2014}</a></td>
+	<td class="col7" title="{table_sector_tip_b2015_text}"><a onclick="switch($(this).html()){ case '0': return false; case '-' : return false; }" href="#view=sector_budgets&year=2015&sector_group={group}" class="block">{b2015}</a></td>
 </tr>
