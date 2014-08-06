@@ -121,6 +121,11 @@ ctrack.setup=function(args)
 		args.chunks["country_flag"]="{art}flag/"+args.country+".png";
 		args.chunks["background_image"]="{art}back/"+args.country+".jpg";
 	}
+	else
+	{
+		args.chunks["main_countrymin"]="";
+		args.chunks["main_country"]="";
+	}
 
 	if( ctrack.q.tongue ) // choose a new tongue
 	{
@@ -131,7 +136,12 @@ ctrack.setup=function(args)
 	{
 		args.publisher=ctrack.q.publisher; // case is important?
 		args.chunks["publisher_code"]=args.publisher;
-		args.chunks["publisher_name"]=iati_codes.publisher_names[args.publisher] || "N/A";
+		args.chunks["publisher_name"]=iati_codes.publisher_names[args.publisher] || args.publisher;
+	}
+	else
+	{
+		args.chunks["main_pubmin"]="";
+		args.chunks["main_publisher"]="";
 	}
 	
 	ctrack.chunks={};
