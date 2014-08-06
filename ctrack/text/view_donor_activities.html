@@ -41,10 +41,10 @@
 </div>
 
 #donor_activities_data
-<tr>
+<tr onclick="window.location.hash='#view=act&aid={aid}';">
 	<td class="num">{num}.</td>
 	<td class="title" title="{project_title_tip_text}">
-		<a onclick="window.location.hash='#view=act&aid={aid}';">
+		<a href="#view=act&aid={aid}">
 			{title}
 			<span>{reported_by_text}</span>
 		</a>
