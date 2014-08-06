@@ -129,6 +129,10 @@
 	});
 </script>
 
+#main_min
+{main_countrymin}
+{main_pubmin}
+
 #main_countrymin
 <div class="default min">
 	<table class="country min">
@@ -138,13 +142,35 @@
 		</tr>
 	</table>
 </div>
+
+#main_pubmin
+<div class="default min">
+	<table class="country min">
+		<tr>
+			<td class="name publisher">{publisher_name}</td>
+		</tr>
+	</table>
+</div>
 	
+#main_max
+{main_country}
+{main_publisher}
+
 #main_country
 <div class="default">
 	<table class="country">
 		<tr>
 			<td class="name">{country_name}</td>
 			<td class="flag"><img src="{country_flag}" alt="{country_name} {flag_alt_text}"/></td>
+		</tr>
+	</table>
+</div>
+
+#main_publisher
+<div class="default">
+	<table class="country">
+		<tr>
+			<td class="name publisher">{publisher_name}</td>
 		</tr>
 	</table>
 </div>
