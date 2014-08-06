@@ -312,6 +312,7 @@ table.money td.col2 a		{padding:15px 10px 15px 15px;}
 	============================================= */
 table.activity			{width:100%; border-collapse:collapse;}
 table.activity td		{color:#B8C8CD; font-size:1.25em; line-height:1.35em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642;}
+table.activity th:hover	{cursor:default;}
 table.activity tr:last-child td	{border:0;}
 table.activity td.num	{padding:10px 0; font-size:1.0em;}
 table.activity td.title	{padding:0 30px 0 0;}
