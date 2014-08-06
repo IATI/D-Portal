@@ -123,11 +123,15 @@ span.stats_title.view	{font-size:0.6em; color:#fff;}
 span.stats_num			{display:block; font-size:8.0em; color:#000;}
 span.stats_num.small	{display:block; font-size:4.0em;}
 span.stats_num.view		{font-size:2.9em; color:#fff; line-height:0.8em;}
-.declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#000; font-size:0.9em;}
-a.stats_link			{display:block; padding:30px 40px; height:100%;}
-a.stats_link.missing	{border-top:1px solid #000;}
-a.stats_link.missing:hover	{text-decoration:underline;}
+.declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#000; font-size:0.9em; text-align:right;}
+
+a.stats_link			{display:block; padding:30px 40px; height:100%; border-radius:6px; border:1px solid #000; margin:15px 5px 5px 10px;}
+a.stats_link.active		{margin-left:0; padding:40px;}
+a.stats_link.total, a.stats_link.publishers		{margin-right: 0;}
+a.stats_link.planned, a.stats_link.publishers	{margin-top: 10px;}
+a.stats_link.missing		{border-top:1px solid #000; margin-left:0;}
 a.stats_link.missing span	{color:#000;}
+a.stats_link:hover			{background-color:#e9e9e9;}
 
 
 /*	Active / Ended projects styles
@@ -233,11 +237,11 @@ table.title td.about	{padding-left:10px; width:350px;}
 table.title td.icon		{padding-right:10px; width:40px;}
 table.title td.total_spend	{padding-left:10px; width:300px; text-align:right;}
 
+
 /*	Table for Stats (key figures)
 	============================================= */
-table.stats				{width:990px; max-width:960px; margin:0 auto; border-collapse:separate; border-spacing:15px; border-left:0; border-right:0;}
-table.stats td			{background-color:#fff; padding:0px; border-radius:6px; vertical-align:middle; border:1px solid #000;}
-table.stats td:hover	{background-color:#e9e9e9;}
+table.stats				{width:990px; max-width:960px; margin:0 auto; border-collapse:separate; border-left:0; border-right:0; margin-bottom: 20px;}
+table.stats td			{background-color:#fff; padding:0px; vertical-align:top;}
 
 
 /*	Table for Active / Ended projects
@@ -259,14 +263,14 @@ table.list a:active		{color:#000; text-decoration:none;}
 /*	Table for Money list (Donors / Sectors)
 	============================================= */
 table.money					{width:100%; border-collapse:collapse; table-layout:fixed;}
-table.money td				{text-align:right; color:#000; font-size:1.0em; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #666;}
-table.money td.col1			{text-align:left; background-color:#C8C8C8; padding:15px 10px;}
+table.money td				{text-align:right; color:#000; font-size:1.0em; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #666; padding:15px 10px;}
+table.money td.col1			{text-align:left; background-color:#F1F1F1;}
 table.money td.col2			{text-align:left;}
-table.money td.col3			{background-color:#D2D2D2;}
-table.money td.col4			{background-color:#DADADA;}
-table.money td.col5			{background-color:#DEDEDE;}
-table.money td.col6			{background-color:#E5E5E5;}
-table.money td.col7			{background-color:#EDEDED;}
+table.money td.col3			{background-color:#F1F1F1;}
+table.money td.col4			{background-color:#F8F8F8;}
+table.money td.col5			{background-color:#FDFDFD;}
+table.money td.col6			{background-color:#F8F8F8;}
+table.money td.col7			{background-color:#FDFDFD;}
 
 table.money tr.row1 th		{background-color:transparent; color:#fff; font-weight:700; text-align:center; padding:20px 10px;}
 table.money tr.row1 th:hover{cursor:pointer;}
@@ -292,22 +296,23 @@ table.money tr.rows td.col7	{border-right:1px solid #666;}
 table.money td.col1:hover	{cursor:default;}
 table.money tr.row2 td.col1:hover	{cursor:pointer;}
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
-table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:#AAA;}
-table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:#AAA;}
+table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover,
+table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:#E2E2E2; cursor:pointer;}
 
-table.money a				{display:block; padding:15px 10px; border-bottom:0px dotted #0D3057; color:#A8C5E5;}
+table.money a				{display:block; color:#A8C5E5;}
 table.money a:focus			{color:#000; text-decoration:none;}
 table.money a:link  		{color:#000; text-decoration:none;}
 table.money a:visited		{color:#000; text-decoration:none;}
-table.money a:hover			{color:#000; border-bottom:0px dotted #B8C8CD; text-decoration:none;}
+table.money a:hover			{color:#000; text-decoration:none;}
 table.money a:active		{color:#000; text-decoration: none;}
-table.money td.col2 a		{padding:15px 10px 15px 15px;}
 
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
 table.activity			{width:100%; border-collapse:collapse;}
 table.activity td		{color:#000; font-size:1.25em; line-height:1.35em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642;}
+table.activity td:hover	{cursor:pointer;}
+table.activity th:hover	{cursor:default;}
 table.activity tr:last-child td	{border:0;}
 table.activity td.num	{padding:10px 0; font-size:1.0em;}
 table.activity td.title	{padding:0 30px 0 0;}

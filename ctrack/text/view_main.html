@@ -116,7 +116,7 @@
 	<table class="stats">
 		<tr>
 			<td rowspan="2" colspan="2" title="{stats_active_tip_text}">
-				<a href="#view=active" class="stats_link">
+				<a href="#view=active" class="stats_link active">
 					<span class="stats_title">{stats_active_text}</span>
 					<span class="stats_num">{active_projects}</span>
 				</a>
@@ -129,7 +129,7 @@
 				</a>
 			</td>
 			<td title="{stats_total_tip_text}">
-				<a href="#view=list_activities" class="stats_link">
+				<a href="#view=list_activities" class="stats_link total">
 					<span class="stats_title">{stats_total_text}</span>
 					<span class="stats_num small">{total_projects}</span>
 				</a>
@@ -137,13 +137,13 @@
 		</tr>
 		<tr>
 			<td title="{stats_planned_tip_text}">
-				<a href="#view=planned" class="stats_link">
+				<a href="#view=planned" class="stats_link planned">
 					<span class="stats_title">{stats_planned_text}</span>
 					<span class="stats_num small">{planned_projects}</span>
 				</a>
 			</td>
 			<td title="{stats_publisher_tip_text}">
-				<a href="#view=list_publishers" class="stats_link">
+				<a href="#view=list_publishers" class="stats_link publishers">
 					<span class="stats_title">{stats_publisher_text}</span>
 					<span class="stats_num small">{numof_publishers}</span>
 				</a>
@@ -193,7 +193,7 @@
 
 
 #table_active_data
-<tr>
+<tr onclick="window.location.hash='#view=act&aid={aid}';">
 	<td>{num}.</td>
 	<td class="title">
 		<a href="#view=act&aid={aid}" title="{project_title_tip_text}">
@@ -205,7 +205,7 @@
 </tr>
 
 #table_ended_data
-<tr>
+<tr onclick="window.location.hash='#view=act&aid={aid}';">
 	<td>{num}.</td>
 	<td class="title">
 		<a href="#view=act&aid={aid}" title="{project_title_tip_text}">
