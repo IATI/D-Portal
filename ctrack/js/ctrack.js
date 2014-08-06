@@ -130,6 +130,8 @@ ctrack.setup=function(args)
 	if( ctrack.q.publisher )
 	{
 		args.publisher=ctrack.q.publisher; // case is important?
+		args.chunks["publisher_code"]=args.publisher;
+		args.chunks["publisher_name"]=iati_codes.publisher_names[args.publisher] || "N/A";
 	}
 	
 	ctrack.chunks={};
