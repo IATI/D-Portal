@@ -50,7 +50,7 @@ view_act.ajax=function(args)
     
 	var dat={
 			"select":"jml",
-			"from":"act,country,location,jml",
+			"from":"act,jml",
 			"groupby":"aid",
 			"aid":args.aid,
 			"location_latitude":args.lat,
@@ -58,7 +58,8 @@ view_act.ajax=function(args)
 			"country_code":args.country,
 			"reporting_ref":args.publisher,
 		};
-		
+	if(args.country) { dat.from+=",country"; }
+	if(args.lat && args.lng) { dat.from+=",location"; }
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_act.numof_callback");
