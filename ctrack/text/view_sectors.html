@@ -71,28 +71,28 @@
 
 #table_sectors_row_head
 <tr class="row1">
-	<th class="col1" onclick="ctrack.dosort('crs');" title="{table_sector_tip_title_data_text}">{table_sector_title_data_text}</th>
-	<th class="col2" onclick="ctrack.dosort('sector');" title="{table_sector_tip_title_sector_text}">{table_sector_title_sector_text}</th>
-	<th class="col3" onclick="ctrack.dosort('trans');" colspan="3" title="{table_sector_tip_title_transaction_text}">{table_sector_title_transaction_text}</th>
-	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_sector_tip_title_budget_text}">{table_sector_title_budget_text}</th>
+	<th class="col1" onclick="ctrack.dosort('crs');" 				title="{table_sector_tip_title_data_text}"		 >{table_sector_title_data_text}</th>
+	<th class="col2" onclick="ctrack.dosort('sector');" 			title="{table_sector_tip_title_sector_text}"	 >{table_sector_title_sector_text}</th>
+	<th class="col3" onclick="ctrack.dosort('trans');" 	colspan="3" title="{table_sector_tip_title_transaction_text}">{table_sector_title_transaction_text}</th>
+	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_sector_tip_title_budget_text}"	 >{table_sector_title_budget_text}</th>
 </tr>
 <tr class="row2">
-	<td class="col1" title="{table_sector_tip_subtitle_data_text}"    onclick="ctrack.dosort('crs');"    >2012</td>
-	<td class="col2" title="{table_sector_tip_subtitle_sector_text}" onclick="ctrack.dosort('sector');" >{table_donor_subtitle_donor_text}</td>
-	<td class="col3" title="{table_sector_tip_title_t2012_text}"  onclick="ctrack.dosort('t2012');"  >2012</td>
-	<td class="col4" title="{table_sector_tip_title_t2013_text}"  onclick="ctrack.dosort('t2013');"  >2013</td>
-	<td class="col5" title="{table_sector_tip_title_t2014_text}"  onclick="ctrack.dosort('t2014');"  >2014</td>
-	<td class="col6" title="{table_sector_tip_title_b2014_text}"  onclick="ctrack.dosort('b2014');"  >2014</td>
-	<td class="col7" title="{table_sector_tip_title_b2015_text}"  onclick="ctrack.dosort('b2015');"  >2015</td>
+	<td class="col1" title="{table_sector_tip_subtitle_data_text}"		onclick="ctrack.dosort('crs');" 	>2012</td>
+	<td class="col2" title="{table_sector_tip_subtitle_sector_text}"	onclick="ctrack.dosort('sector');"	>{table_donor_subtitle_donor_text}</td>
+	<td class="col3" title="{table_sector_tip_title_t2012_text}"  		onclick="ctrack.dosort('t2012');" 	>2012</td>
+	<td class="col4" title="{table_sector_tip_title_t2013_text}"  		onclick="ctrack.dosort('t2013');" 	>2013</td>
+	<td class="col5" title="{table_sector_tip_title_t2014_text}" 		onclick="ctrack.dosort('t2014');" 	>2014</td>
+	<td class="col6" title="{table_sector_tip_title_b2014_text}"  		onclick="ctrack.dosort('b2014');"  	>2014</td>
+	<td class="col7" title="{table_sector_tip_title_b2015_text}"  		onclick="ctrack.dosort('b2015');"	>2015</td>
 </tr>
 
 #table_sectors_row
 <tr class="rows">
 	<td class="col1" title="{table_sector_tip_data_text}">{crs}</td>
-	<td class="col2" title="{table_sector_tip_sector_text}"><a href="#view=sector_activities&sector_group={group}" class="block">{sector}</a></td>
-	<td class="col3" title="{table_sector_tip_t2012_text}"><a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; }" href="#view=sector_transactions&year=2012&sector_group={group}" class="block">{t2012}</a></td>
-	<td class="col4" title="{table_sector_tip_t2013_text}"><a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; }" href="#view=sector_transactions&year=2013&sector_group={group}" class="block">{t2013}</a></td>
-	<td class="col5" title="{table_sector_tip_t2014_text}"><a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; }" href="#view=sector_transactions&year=2014&sector_group={group}" class="block">{t2014}</a></td>
-	<td class="col6" title="{table_sector_tip_b2014_text}"><a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; }" href="#view=sector_budgets&year=2014&sector_group={group}" class="block">{b2014}</a></td>
-	<td class="col7" title="{table_sector_tip_b2015_text}"><a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; }" href="#view=sector_budgets&year=2015&sector_group={group}" class="block">{b2015}</a></td>
+	<td class="col2" title="{table_sector_tip_sector_text}"onclick="window.location.hash='#view=sector_activities&sector_group={group}';" 	 class="block">{sector}</td>
+	<td class="col3" title="{table_sector_tip_t2012_text}" onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=sector_transactions&year=2012&sector_group={group}';" class="block">{t2012}</td>
+	<td class="col4" title="{table_sector_tip_t2013_text}" onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=sector_transactions&year=2013&sector_group={group}';" class="block">{t2013}</td>
+	<td class="col5" title="{table_sector_tip_t2014_text}" onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=sector_transactions&year=2014&sector_group={group}';" class="block">{t2014}</td>
+	<td class="col6" title="{table_sector_tip_b2014_text}" onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=sector_budgets&year=2014&sector_group={group}';"	  class="block">{b2014}</td>
+	<td class="col7" title="{table_sector_tip_b2015_text}" onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=sector_budgets&year=2015&sector_group={group}';" 	  class="block">{b2015}</td>
 </tr>
