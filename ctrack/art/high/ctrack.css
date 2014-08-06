@@ -259,8 +259,8 @@ table.list a:active		{color:#000; text-decoration:none;}
 /*	Table for Money list (Donors / Sectors)
 	============================================= */
 table.money					{width:100%; border-collapse:collapse; table-layout:fixed;}
-table.money td				{text-align:right; color:#000; font-size:1.0em; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #666;}
-table.money td.col1			{text-align:left; background-color:#C8C8C8; padding:15px 10px;}
+table.money td				{text-align:right; color:#000; font-size:1.0em; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #666; padding:15px 10px;}
+table.money td.col1			{text-align:left; background-color:#C8C8C8;}
 table.money td.col2			{text-align:left;}
 table.money td.col3			{background-color:#D2D2D2;}
 table.money td.col4			{background-color:#DADADA;}
@@ -320,7 +320,7 @@ table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#0
 table.activity a:focus	{color:#000; text-decoration:none;}
 table.activity a:link  	{color:#000; text-decoration:none;}
 table.activity a:visited{color:#000; text-decoration:none;}
-table.activity a:hover	{color:#000; text-decoration:none; background-color:#e9e9e9;}
+table.activity tr:hover, table.activity a:hover	{color:#000; text-decoration:none; background-color:#e9e9e9;}
 table.activity a:active	{color:#000; text-decoration:none;}
 
 
