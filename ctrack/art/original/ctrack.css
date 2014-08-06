@@ -126,21 +126,15 @@ span.stats_title.view	{font-size:0.6em; color:#fff;}
 span.stats_num			{display:block; font-size:8.0em; color:#2E98FF;}
 span.stats_num.small	{display:block; font-size:4.0em;}
 span.stats_num.view		{font-size:2.9em; color:#fff; line-height:0.8em;}
-.declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#ccc; font-size:0.9em;}
+.declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#ccc; font-size:0.9em; text-align:right;}
 
-
-a.stats_link			{display:block; padding:30px 40px; height:100%; color:#ccc; border-radius: 6px;
-background-color:rgba(0,14,32,0.7);
-margin: 15px 5px 5px 10px;}
-a.stats_link.active		{margin-left: 0;
-padding: 40px;}
+a.stats_link			{display:block; padding:30px 40px; height:100%; color:#ccc; border-radius:6px; background-color:rgba(0,14,32,0.7); margin:15px 5px 5px 10px;}
+a.stats_link.active		{margin-left:0; padding:40px;}
 a.stats_link.total, a.stats_link.publishers		{margin-right: 0;}
 a.stats_link.planned, a.stats_link.publishers	{margin-top: 10px;}
-a.stats_link.missing	{/*border-top:3px solid rgba(255, 255, 255, 0.2);*/ margin-left: 0;}
-/*a.stats_link.missing:hover	{color:#2E98FF;}*/
+a.stats_link.missing		{margin-left: 0;}
 a.stats_link.missing span	{color:#2E98FF;}
-
-a.stats_link:hover	{background-color:rgba(0,14,32,0.9);}
+a.stats_link:hover			{background-color:rgba(0,14,32,0.9);}
 
 
 /*	Active / Ended projects styles
@@ -248,9 +242,8 @@ table.title td.total_spend	{padding-left:10px; width:300px; text-align:right;}
 
 /*	Table for Stats (key figures)
 	============================================= */
-table.stats				{width:990px; max-width:960px; margin:0 auto; border-collapse:separate; /*border-spacing:15px;*/ border-left:0; border-right:0; margin-bottom: 20px;}
-table.stats td			{/*background-color:rgba(0,14,32,0.7);*/ padding:0px; /*border-radius:6px; vertical-align:middle;*/ vertical-align:top;}
-/*table.stats td:hover	{background-color:rgba(0,14,32,0.9);}*/
+table.stats				{width:990px; max-width:960px; margin:0 auto; border-collapse:separate; border-left:0; border-right:0; margin-bottom:20px;}
+table.stats td			{padding:0px; vertical-align:top;}
 
 
 /*	Table for Active / Ended projects
