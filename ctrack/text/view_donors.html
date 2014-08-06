@@ -90,7 +90,7 @@
 <tr class="rows">
 	<td class="col1" title="{table_donor_tip_data_text}">{crs}</td>
 	<td class="col2" title="{table_donor_tip_donor_text}" onclick="window.location.hash='#view=donor_activities&funder={funder}';" class="block">{donor}</td>
-	<td class="col3" title="{table_donor_tip_t2012_text}"><a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2012&funder={funder}';" class="block">{t2012}</a></td>
+	<td class="col3" title="{table_donor_tip_t2012_text}" onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2012&funder={funder}';" class="block">{t2012}</td>
 	<td class="col4" title="{table_donor_tip_t2013_text}"><a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; }" href="#view=donor_transactions&year=2013&funder={funder}" class="block">{t2013}</a></td>
 	<td class="col5" title="{table_donor_tip_t2014_text}"><a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; }" href="#view=donor_transactions&year=2014&funder={funder}" class="block">{t2014}</a></td>
 	<td class="col6" title="{table_donor_tip_b2014_text}"><a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; }" href="#view=donor_budgets&year=2014&funder={funder}" class="block">{b2014}</a></td>
