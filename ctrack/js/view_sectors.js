@@ -50,12 +50,6 @@ view_sectors.ajax=function(args)
 	var rev_sector_names={}; for(var n in iati_codes.sector_names) { rev_sector_names[ iati_codes.sector_names[n] ]=n; }
 	var display=function(sortby)
 	{
-		var p=function(s)
-		{
-			s=s || "";
-			s=s.replace(/[,]/g,"");
-			return parseInt(s);
-		}
 		var s=[];
 		var a=[];
 		for(var n in ctrack.sectors_data) { a.push( ctrack.sectors_data[n] ); }

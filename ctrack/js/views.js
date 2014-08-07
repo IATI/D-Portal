@@ -54,6 +54,8 @@ views.list_budgets=require("./view_list_budgets.js");
 views.list_publishers=require("./view_list_publishers.js");
 
 views.publisher_countries=require("./view_publisher_countries.js");
+views.publisher_countries_top=require("./view_publisher_countries_top.js");
+
 views.publisher_sectors=require("./view_publisher_sectors.js");
 
 

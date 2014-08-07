@@ -49,12 +49,6 @@ view_donors.ajax=function(args)
 	ctrack.sortby="order"; // reset sortby
 	var display=function(sortby)
 	{
-		var p=function(s)
-		{
-			s=s || "";
-			s=s.replace(/[,]/g,"");
-			return parseInt(s);
-		}
 		var s=[];
 		var a=[];
 		for(var n in ctrack.donors_data) { a.push( ctrack.donors_data[n] ); }

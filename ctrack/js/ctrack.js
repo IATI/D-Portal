@@ -127,6 +127,7 @@ ctrack.setup=function(args)
 		args.chunks["main_country"]="";
 		args.chunks["main_country_head"]="";
 		args.chunks["country_name"]="";
+		args.chunks["country_map"]="";
 		args.chunks["back_country"]="";
 	}
 
@@ -147,6 +148,7 @@ ctrack.setup=function(args)
 		args.chunks["main_publisher"]="";
 		args.chunks["main_publisher_head"]="";
 		args.chunks["publisher_name"]="";
+		args.chunks["publisher_map"]="";
 		args.chunks["back_publisher"]="";
 	}
 	

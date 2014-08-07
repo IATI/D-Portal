@@ -16,6 +16,13 @@ var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $
 
 tables.sortby=function()
 {
+	var p=function(s)
+	{
+		s=s || "";
+		s=s.replace(/[,]/g,"");
+		return parseInt(s);
+	}
+
 	var sortby;
 	switch(ctrack.sortby)
 	{
