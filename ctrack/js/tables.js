@@ -36,6 +36,14 @@ tables.sortby=function()
 				return 0;
 			 };
 		break;
+		case "country":
+		case "-country":
+			sortby=function(a,b){
+				if(a.country_name<b.country_name) { return -1; }
+				if(a.country_name>b.country_name) { return 1; }
+				return 0;
+			 };
+		break;
 		case "sector":
 		case "-sector":
 			sortby=function(a,b){

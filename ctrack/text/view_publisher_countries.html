@@ -1,0 +1,101 @@
+#crumbname_publisher_countries
+{crumbname_publisher_countries_text}
+
+#view_publisher_countries
+{view_head}
+<style>{css}</style>
+{beige}
+{main_head}
+{main_min}
+{about_data_links}
+{publisher_countries_head}
+{table_declare}
+{table_publisher_countries}
+{publisher_countries_data_description}
+{main_datainvestigators}
+{view_tail}
+
+#publisher_countries_data_description
+<div class="description_wrap">
+	<div class="description">
+		<span class="title">{publisher_countries_data_description_title_text}</span>
+		<p>{publisher_countries_data_description_text}</p>
+		<div class="default data">
+			<table class="data">
+				<tr>
+					<td>{publisher_countries_data_title1_text}</td>
+					<td>{publisher_countries_data_info1_text}</td>
+				</tr>
+				<tr>
+					<td>{publisher_countries_data_title2_text}</td>
+					<td>{publisher_countries_data_info2_text}</td>
+				</tr>
+				<tr>
+					<td>{publisher_countries_data_title3_text}</td>
+					<td>{publisher_countries_data_info3_text}</td>
+				</tr>
+				<tr>
+					<td>{publisher_countries_data_title4_text}</td>
+					<td>{publisher_countries_data_info4_text}</td>
+				</tr>
+			</table>
+		</div>
+		<a href="#view=data_quality" class="read">{about_data_quality_text}</a>
+	</div>
+</div>
+
+#publisher_countries_head
+<div class="head_wrap">
+	<div class="icon_wrap">
+		<img src="{flava}money_title_icon.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>	
+	</div><div class="peak_wrap">
+			<div class="peak_space"></div>
+			<div class="publisher_countries_peak"></div>
+	</div><div class="head_title_wrap">
+			<div class="publisher_countries_head_title">{title_donor_text}</div>
+		</div>
+</div>
+
+#csv_data
+#table_publisher_countries
+<div class="table_wrap view">
+	<table class="money">
+	{table_publisher_countries_row_head}
+	{table_publisher_countries_rows}
+	</table>
+	<a download="dportal_publisher_countries.csv" href="{csv_data}" class="csv_download">{download_csv_text}</a>
+</div>
+
+#table_publisher_countries_rows
+{table_publisher_countries_row}
+
+#table_publisher_countries_row_head
+<tr class="row1">
+	<th class="col2" onclick="ctrack.dosort('country');" 				title="{table_publisher_country_tip_title_country_text}"		>{table_publsher_country_title_country_text}</th>
+	<th class="col3" onclick="ctrack.dosort('trans');"  colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</th>
+	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_donor_tip_title_budget_text}"		>{table_donor_title_budget_text}</th>
+</tr>
+<tr class="row2">
+	<td class="col2" title="{table_publisher_country_tip_subtitle_country_text}"  onclick="ctrack.dosort('country');" 	>{table_publisher_country_subtitle_country_text}</td>
+	<td class="col3" title="{table_donor_tip_title_t2012_text}" 	onclick="ctrack.dosort('t2012');" 	>2012</td>
+	<td class="col4" title="{table_donor_tip_title_t2013_text}" 	onclick="ctrack.dosort('t2013');" 	>2013</td>
+	<td class="col5" title="{table_donor_tip_title_t2014_text}" 	onclick="ctrack.dosort('t2014');" 	>2014</td>
+	<td class="col6" title="{table_donor_tip_title_b2014_text}" 	onclick="ctrack.dosort('b2014');" 	>2014</td>
+	<td class="col7" title="{table_donor_tip_title_b2015_text}" 	onclick="ctrack.dosort('b2015');" 	>2015</td>
+</tr>
+
+#table_publisher_countries_row
+<tr class="rows">
+	<td class="col2" title="{table_publisher_countries_tip_country_text}" onclick="window.location.hash='#view=donor_activities&country={country_code}';">
+		<a href="#view=donor_activities&country={country_code}">{country_name}</a></td>
+	<td class="col3" title="{table_donor_tip_t2012_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2012&country={country_code}';">
+		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_transactions&year=2012&country={country_code}">{t2012}</a></td>
+	<td class="col4" title="{table_donor_tip_t2013_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2013&country={country_code}';">
+		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_transactions&year=2013&country={country_code}">{t2013}</a></td>
+	<td class="col5" title="{table_donor_tip_t2014_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2014&country={country_code}';">
+		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_transactions&year=2014&country={country_code}">{t2014}</a></td>
+	<td class="col6" title="{table_donor_tip_b2014_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_budgets&year=2014&country={country_code}';">
+		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_budgets&year=2014&country={country_code}">{b2014}</a></td>
+	<td class="col7" title="{table_donor_tip_b2015_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_budgets&year=2015&country={country_code}';">
+		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_budgets&year=2015&country={country_code}">{b2015}</a></td>
+</tr>
