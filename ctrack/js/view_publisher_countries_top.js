@@ -53,8 +53,8 @@ view_publisher_countries_top.ajax=function(args)
 			var v=data.rows[i];
 			var d={};
 			var num=v.sum_of_percent_of_trans_usd;
-			d.country_code=v.country_code;
-			d.country_name=iati_codes.country[v.country_code] || v.country_code;
+			d.country_code=v.country_code || "N/A";
+			d.country_name=iati_codes.country[v.country_code] || v.country_code || "N/A";
 			d.usd=Math.floor(num);
 			list.push(d)
 		}
@@ -85,7 +85,7 @@ view_publisher_countries_top.ajax=function(args)
 				d.num=v.usd;
 				d.pct=Math.floor(100*v.usd/total);
 				d.str_num=commafy(d.num)+" USD";
-				d.str_lab=d.str_lab || v.country_name;
+				d.str_lab=v.str_lab || v.country_name;
 				d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
 				dd.push(d);
 			}
