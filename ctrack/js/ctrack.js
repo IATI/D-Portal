@@ -127,6 +127,7 @@ ctrack.setup=function(args)
 		args.chunks["main_country"]="";
 		args.chunks["main_country_head"]="";
 		args.chunks["country_name"]="";
+		args.chunks["back_country"]="";
 	}
 
 	if( ctrack.q.tongue ) // choose a new tongue
@@ -146,6 +147,7 @@ ctrack.setup=function(args)
 		args.chunks["main_publisher"]="";
 		args.chunks["main_publisher_head"]="";
 		args.chunks["publisher_name"]="";
+		args.chunks["back_publisher"]="";
 	}
 	
 	ctrack.chunks={};
