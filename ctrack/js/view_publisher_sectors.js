@@ -75,6 +75,12 @@ view_publisher_sectors.ajax=function(args)
 
 		ctrack.chunk_clear("table_publisher_sectors");
 
+	var p=function(s)
+	{
+		s=s || "";
+		s=s.replace(/[,]/g,"");
+		return parseInt(s);
+	}
 		var cc=[];
 		cc[0]=["sector","t2012","t2013","t2014","b2014","b2015"];
 		a.forEach(function(v){

@@ -71,7 +71,13 @@ view_sectors.ajax=function(args)
 		ctrack.chunk("table_sectors_rows",s.join(""));
 		ctrack.chunk_clear("table_sectors");
 
-		var cc=[];
+	var p=function(s)
+	{
+		s=s || "";
+		s=s.replace(/[,]/g,"");
+		return parseInt(s);
+	}
+			var cc=[];
 		cc[0]=["crs","sector","t2012","t2013","t2014","b2014","b2015"];
 		a.forEach(function(v){
 			cc[cc.length]=[p(v.crs),v.group,p(v.t2012),p(v.t2013),p(v.t2014),p(v.b2014),p(v.b2015)];
