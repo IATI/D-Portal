@@ -86,7 +86,8 @@ a.back_news:hover	{color:#FF7A00;}
 
 /*	Graph styles
 	============================================= */
-#donor_graph, #sector_graph	{background-color:#fff; font-size:1.0em; line-height:1.3em; color:#444; border:1px solid #FFF;}
+#donor_graph, #sector_graph, #publisher_countries_graph,
+#publisher_sectors_graph{background-color:#fff; font-size:1.0em; line-height:1.3em; color:#444; border:1px solid #FFF;}
 a.ask					{display:block; width:880px; margin:0 auto; padding:20px 40px; color:#fff; font-size:1.8em; text-align:center;}
 a.ask.donor				{background-color:#008FFF;}
 a.ask.donor:hover		{background-color:#33A4FC;}
