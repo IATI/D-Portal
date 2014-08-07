@@ -1,5 +1,5 @@
 #crumbname_publisher_sectors
-{crumbname_publisher_sectors_text}
+{crumbname_sectors_text}
 
 #view_publisher_sectors
 {view_head}
@@ -47,19 +47,19 @@
 #publisher_sectors_head
 <div class="head_wrap">
 	<div class="icon_wrap">
-		<img src="{flava}money_title_icon.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>	
+		<img src="{flava}money_title_icon.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>
 	</div><div class="peak_wrap">
 			<div class="peak_space"></div>
-			<div class="publisher_sectors_peak"></div>
+			<div class="sectors_peak"></div>
 	</div><div class="head_title_wrap">
-			<div class="publisher_sectors_head_title">{title_donor_text}</div>
+			<div class="sectors_head_title">{title_sector_text}</div>
 		</div>
 </div>
 
 #csv_data
 #table_publisher_sectors
 <div class="table_wrap view">
-	<table class="money">
+	<table class="money publishers">
 	{table_publisher_sectors_row_head}
 	{table_publisher_sectors_rows}
 	</table>
@@ -71,12 +71,12 @@
 
 #table_publisher_sectors_row_head
 <tr class="row1">
-	<th class="col2" onclick="ctrack.dosort('sector');" 				title="{table_publisher_sector_tip_title_sector_text}"		>{table_publsher_sector_title_sector_text}</th>
-	<th class="col3" onclick="ctrack.dosort('trans');"  colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</th>
-	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_donor_tip_title_budget_text}"		>{table_donor_title_budget_text}</th>
+	<th class="col2" onclick="ctrack.dosort('sector');" 			title="{table_sector_tip_title_data_text}"		>{table_sector_title_sector_text}</th>
+	<th class="col3" onclick="ctrack.dosort('trans');"  colspan="3" title="{table_donor_tip_title_transaction_text}">{table_sector_title_transaction_text}</th>
+	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_donor_tip_title_budget_text}"		>{table_sector_title_budget_text}</th>
 </tr>
 <tr class="row2">
-	<td class="col2" title="{table_publisher_sector_tip_subtitle_sector_text}"  onclick="ctrack.dosort('sector');" 	>{table_publisher_sector_subtitle_sector_text}</td>
+	<td class="col2" title="{table_sector_tip_subtitle_sector_text}"onclick="ctrack.dosort('sector');" 	>{table_donor_subtitle_donor_text}</td>
 	<td class="col3" title="{table_donor_tip_title_t2012_text}" 	onclick="ctrack.dosort('t2012');" 	>2012</td>
 	<td class="col4" title="{table_donor_tip_title_t2013_text}" 	onclick="ctrack.dosort('t2013');" 	>2013</td>
 	<td class="col5" title="{table_donor_tip_title_t2014_text}" 	onclick="ctrack.dosort('t2014');" 	>2014</td>
@@ -86,16 +86,16 @@
 
 #table_publisher_sectors_row
 <tr class="rows">
-	<td class="col2" title="{table_publisher_sectors_tip_sector_text}" onclick="window.location.hash='#view=donor_activities&sector={sector_code}';">
+	<td class="col2" title="{table_publisher_explore_tip_text}" onclick="window.location.hash='#view=donor_activities&sector={sector_code}';">
 		<a href="#view=donor_activities&sector={sector_code}">{sector_name}</a></td>
-	<td class="col3" title="{table_donor_tip_t2012_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2012&sector={sector_code}';">
+	<td class="col3" title="{table_sector_tip_t2012_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2012&sector={sector_code}';">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_transactions&year=2012&sector={sector_code}">{t2012}</a></td>
-	<td class="col4" title="{table_donor_tip_t2013_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2013&sector={sector_code}';">
+	<td class="col4" title="{table_sector_tip_t2013_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2013&sector={sector_code}';">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_transactions&year=2013&sector={sector_code}">{t2013}</a></td>
-	<td class="col5" title="{table_donor_tip_t2014_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2014&sector={sector_code}';">
+	<td class="col5" title="{table_sector_tip_t2014_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2014&sector={sector_code}';">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_transactions&year=2014&sector={sector_code}">{t2014}</a></td>
-	<td class="col6" title="{table_donor_tip_b2014_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_budgets&year=2014&sector={sector_code}';">
+	<td class="col6" title="{table_sector_tip_b2014_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_budgets&year=2014&sector={sector_code}';">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_budgets&year=2014&sector={sector_code}">{b2014}</a></td>
-	<td class="col7" title="{table_donor_tip_b2015_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_budgets&year=2015&sector={sector_code}';">
+	<td class="col7" title="{table_sector_tip_b2015_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_budgets&year=2015&sector={sector_code}';">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_budgets&year=2015&sector={sector_code}">{b2015}</a></td>
 </tr>

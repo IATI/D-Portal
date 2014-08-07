@@ -50,16 +50,16 @@
 		<img src="{flava}money_title_icon.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>	
 	</div><div class="peak_wrap">
 			<div class="peak_space"></div>
-			<div class="publisher_countries_peak"></div>
+			<div class="donors_peak"></div>
 	</div><div class="head_title_wrap">
-			<div class="publisher_countries_head_title">{title_donor_text}</div>
+			<div class="donors_head_title">{title_donor_text}</div>
 		</div>
 </div>
 
 #csv_data
 #table_publisher_countries
 <div class="table_wrap view">
-	<table class="money">
+	<table class="money publishers">
 	{table_publisher_countries_row_head}
 	{table_publisher_countries_rows}
 	</table>
@@ -71,12 +71,12 @@
 
 #table_publisher_countries_row_head
 <tr class="row1">
-	<th class="col2" onclick="ctrack.dosort('country');" 				title="{table_publisher_country_tip_title_country_text}"		>{table_publsher_country_title_country_text}</th>
+	<th class="col2" onclick="ctrack.dosort('country');" 			title="{table_publisher_country_tip_title_text}">{table_publisher_country_title_text}</th>
 	<th class="col3" onclick="ctrack.dosort('trans');"  colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</th>
 	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_donor_tip_title_budget_text}"		>{table_donor_title_budget_text}</th>
 </tr>
 <tr class="row2">
-	<td class="col2" title="{table_publisher_country_tip_subtitle_country_text}"  onclick="ctrack.dosort('country');" 	>{table_publisher_country_subtitle_country_text}</td>
+	<td class="col2" title="{table_donor_tip_subtitle_donor_text}"  onclick="ctrack.dosort('country');" >{table_donor_subtitle_donor_text}</td>
 	<td class="col3" title="{table_donor_tip_title_t2012_text}" 	onclick="ctrack.dosort('t2012');" 	>2012</td>
 	<td class="col4" title="{table_donor_tip_title_t2013_text}" 	onclick="ctrack.dosort('t2013');" 	>2013</td>
 	<td class="col5" title="{table_donor_tip_title_t2014_text}" 	onclick="ctrack.dosort('t2014');" 	>2014</td>
@@ -86,16 +86,16 @@
 
 #table_publisher_countries_row
 <tr class="rows">
-	<td class="col2" title="{table_publisher_countries_tip_country_text}" onclick="window.location.hash='#view=donor_activities&country={country_code}';">
+	<td class="col2" title="{table_publisher_explore_tip_text}" onclick="window.location.hash='#view=donor_activities&country={country_code}';">
 		<a href="#view=donor_activities&country={country_code}">{country_name}</a></td>
-	<td class="col3" title="{table_donor_tip_t2012_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2012&country={country_code}';">
+	<td class="col3" title="{table_publisher_tip_t2012_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2012&country={country_code}';">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_transactions&year=2012&country={country_code}">{t2012}</a></td>
-	<td class="col4" title="{table_donor_tip_t2013_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2013&country={country_code}';">
+	<td class="col4" title="{table_publisher_tip_t2013_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2013&country={country_code}';">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_transactions&year=2013&country={country_code}">{t2013}</a></td>
-	<td class="col5" title="{table_donor_tip_t2014_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2014&country={country_code}';">
+	<td class="col5" title="{table_publisher_tip_t2014_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_transactions&year=2014&country={country_code}';">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_transactions&year=2014&country={country_code}">{t2014}</a></td>
-	<td class="col6" title="{table_donor_tip_b2014_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_budgets&year=2014&country={country_code}';">
+	<td class="col6" title="{table_publisher_tip_b2014_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_budgets&year=2014&country={country_code}';">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_budgets&year=2014&country={country_code}">{b2014}</a></td>
-	<td class="col7" title="{table_donor_tip_b2015_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_budgets&year=2015&country={country_code}';">
+	<td class="col7" title="{table_publisher_tip_b2015_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } window.location.hash='#view=donor_budgets&year=2015&country={country_code}';">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=donor_budgets&year=2015&country={country_code}">{b2015}</a></td>
 </tr>

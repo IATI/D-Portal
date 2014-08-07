@@ -306,6 +306,9 @@ table.money a:visited		{color:#000; text-decoration:none;}
 table.money a:hover			{color:#000; text-decoration:none;}
 table.money a:active		{color:#000; text-decoration: none;}
 
+table.money.publishers th.col2,
+table.money.publishers td.col2	{border-left:1px solid #000;}
+table.money.publishers th.col2	{border-top:1px solid #000;}
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
