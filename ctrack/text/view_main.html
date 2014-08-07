@@ -132,20 +132,20 @@
 	<table class="stats">
 		<tr>
 			<td rowspan="2" colspan="2" title="{stats_active_tip_text}">
-				<a href="#view=active" class="stats_link active">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link active">
 					<span class="stats_title">{stats_active_text}</span>
 					<span class="stats_num">{active_projects}</span>
 				</a>
-				<a href="#view=missing" class="stats_link missing" title="{stats_missing_tip_text}">{stats_missing_text} <span>{missing_projects}</span></a>
+				<a onclick="switch($(this).children('span').first().html()){ case '0': return false; };" href="#view=missing" class="stats_link missing" title="{stats_missing_tip_text}">{stats_missing_text} <span>{missing_projects}</span></a>
 			</td>
 			<td title="{stats_ended_tip_text}">
-				<a href="#view=ended" class="stats_link">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=ended" class="stats_link">
 					<span class="stats_title">{stats_ended_text}</span>
 					<span class="stats_num small">{ended_projects}</span>
 				</a>
 			</td>
 			<td title="{stats_total_tip_text}">
-				<a href="#view=list_activities" class="stats_link total">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities" class="stats_link total">
 					<span class="stats_title">{stats_total_text}</span>
 					<span class="stats_num small">{total_projects}</span>
 				</a>
@@ -153,13 +153,13 @@
 		</tr>
 		<tr>
 			<td title="{stats_planned_tip_text}">
-				<a href="#view=planned" class="stats_link planned">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=planned" class="stats_link planned">
 					<span class="stats_title">{stats_planned_text}</span>
 					<span class="stats_num small">{planned_projects}</span>
 				</a>
 			</td>
 			<td title="{stats_publisher_tip_text}">
-				<a href="#view=list_publishers" class="stats_link publishers">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_publishers" class="stats_link publishers">
 					<span class="stats_title">{stats_publisher_text}</span>
 					<span class="stats_num small">{numof_publishers}</span>
 				</a>
