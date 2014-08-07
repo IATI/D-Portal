@@ -2,7 +2,7 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_publisher_countries_top=exports;
+var view_publisher_sectors_top=exports;
 exports.name="stats";
 
 var ctrack=require("./ctrack.js")
@@ -18,15 +18,15 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
 // the chunk names this view will fill with new data
-view_publisher_countries_top.chunks=[
-	"data_chart_publisher_countries",
+view_publisher_sectors_top.chunks=[
+	"data_chart_publisher_sectors",
 ];
 
 
 //
 // Perform fake ajax call to get data 
 //
-view_publisher_countries_top.ajax=function(args)
+view_publisher_sectors_top.ajax=function(args)
 {
 	args=args || {};
 	var limit=args.limit || 5;
@@ -35,10 +35,10 @@ view_publisher_countries_top.ajax=function(args)
 
 	var year=2012;
 	var dat={
-			"from":"act,trans,country",
+			"from":"act,trans,sector",
 			"limit":-1,
-			"select":"country_code,sum_of_percent_of_trans_usd",
-			"groupby":"country_code",
+			"select":"sector_code,sum_of_percent_of_trans_usd",
+			"groupby":"sector_code",
 			"trans_code":"D|E",
 			"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
 //				"country_code":(args.country || ctrack.args.country),
@@ -53,8 +53,8 @@ view_publisher_countries_top.ajax=function(args)
 			var v=data.rows[i];
 			var d={};
 			var num=v.sum_of_percent_of_trans_usd;
-			d.country_code=v.country_code;
-			d.country_name=iati_codes.country[v.country_code] || v.country_code;
+			d.sector_code=v.sector_code;
+			d.sector_name=iati_codes.sector[v.sector_code] || v.sector_code;
 			d.usd=Math.floor(num);
 			list.push(d)
 		}
@@ -85,13 +85,13 @@ view_publisher_countries_top.ajax=function(args)
 				d.num=v.usd;
 				d.pct=Math.floor(100*v.usd/total);
 				d.str_num=commafy(d.num)+" USD";
-				d.str_lab=d.str_lab || v.country_name;
+				d.str_lab=d.str_lab || v.sector_name;
 				d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
 				dd.push(d);
 			}
 		}
 			
-		ctrack.chunk("data_chart_publisher_countries",dd);
+		ctrack.chunk("data_chart_publisher_sectors",dd);
 
 		ctrack.display();
 	});

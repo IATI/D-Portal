@@ -57,5 +57,6 @@ views.publisher_countries=require("./view_publisher_countries.js");
 views.publisher_countries_top=require("./view_publisher_countries_top.js");
 
 views.publisher_sectors=require("./view_publisher_sectors.js");
+views.publisher_sectors_top=require("./view_publisher_sectors_top.js");
 
 
