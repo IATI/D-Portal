@@ -75,7 +75,13 @@ view_publisher_countries.ajax=function(args)
 
 		ctrack.chunk_clear("table_publisher_countries");
 
-		var cc=[];
+		var p=function(s)
+		{
+			s=s || "";
+			s=s.replace(/[,]/g,"");
+			return parseInt(s);
+		}
+			var cc=[];
 		cc[0]=["country","t2012","t2013","t2014","b2014","b2015"];
 		a.forEach(function(v){
 			cc[cc.length]=[v.country_code,p(v.t2012),p(v.t2013),p(v.t2014),p(v.b2014),p(v.b2015)];
