@@ -44,7 +44,7 @@ ctrack.setup=function(args)
 	ctrack.q={};
 	window.location.search.substring(1).split("&").forEach(function(n){
 		var aa=n.split("=");
-		ctrack.q[aa[0]]=aa[1];
+		ctrack.q[aa[0]]=decodeURIComponent(aa[1]);
 	});
 	
 	args=args || {};
@@ -65,53 +65,6 @@ ctrack.setup=function(args)
 	
 	ctrack.args=args;
 	
-	if(args.publisher)
-	{
-		ctrack.crumbs=[{hash:"#view=publisher",view:"publisher"}];
-	}
-	else
-	{
-		ctrack.crumbs=[{hash:"#view=main",view:"main"}];
-	}
-	ctrack.setcrumb=function(idx)
-	{
-// try not to leave holes in the crumbs list, so align to left
-		if(idx > ctrack.crumbs.length ) { idx=ctrack.crumbs.length; }
-		
-		var it={};
-		ctrack.crumbs=ctrack.crumbs.slice(0,idx);
-		ctrack.crumbs[idx]=it;
-		it.hash=ctrack.last_hash;
-		it.view=ctrack.last_view;
-	};
-	ctrack.show_crumbs=function()
-	{
-		for(var i=0;i<ctrack.crumbs.length;i++)
-		{
-			var v=ctrack.crumbs[i];
-			if(v)
-			{
-				ctrack.chunk("crumb"+i+"_hash",v.hash);
-				ctrack.chunk("crumb"+i+"_view",v.view);
-			}
-			else
-			{
-				if(args.publisher)
-				{
-					ctrack.chunk("crumb"+i+"_hash","#view=publisher");
-					ctrack.chunk("crumb"+i+"_view","publisher");
-				}
-				else
-				{
-					ctrack.chunk("crumb"+i+"_hash","#view=main");
-					ctrack.chunk("crumb"+i+"_view","main");
-				}
-			}
-		}
-		ctrack.chunk("crumbs","{crumbs"+ctrack.crumbs.length+"}");
-	}
-
-
 // temporary country force hack
 	if( ctrack.q.country )
 	{
@@ -152,6 +105,53 @@ ctrack.setup=function(args)
 		args.chunks["back_publisher"]="";
 	}
 	
+	if(args.publisher)
+	{
+		ctrack.crumbs=[{hash:"#view=publisher",view:"publisher"}];
+	}
+	else
+	{
+		ctrack.crumbs=[{hash:"#view=main",view:"main"}];
+	}
+	
+	ctrack.setcrumb=function(idx)
+	{
+// try not to leave holes in the crumbs list, so align to left
+		if(idx > ctrack.crumbs.length ) { idx=ctrack.crumbs.length; }
+		
+		var it={};
+		ctrack.crumbs=ctrack.crumbs.slice(0,idx);
+		ctrack.crumbs[idx]=it;
+		it.hash=ctrack.last_hash;
+		it.view=ctrack.last_view;
+	};
+	ctrack.show_crumbs=function()
+	{
+		for(var i=0;i<ctrack.crumbs.length;i++)
+		{
+			var v=ctrack.crumbs[i];
+			if(v)
+			{
+				ctrack.chunk("crumb"+i+"_hash",v.hash);
+				ctrack.chunk("crumb"+i+"_view",v.view);
+			}
+			else
+			{
+				if(args.publisher)
+				{
+					ctrack.chunk("crumb"+i+"_hash","#view=publisher");
+					ctrack.chunk("crumb"+i+"_view","publisher");
+				}
+				else
+				{
+					ctrack.chunk("crumb"+i+"_hash","#view=main");
+					ctrack.chunk("crumb"+i+"_view","main");
+				}
+			}
+		}
+		ctrack.chunk("crumbs","{crumbs"+ctrack.crumbs.length+"}");
+	}
+
 	ctrack.chunks={};
 	if( args.tongue!="non" ) // use non as a debugging mode
 	{
