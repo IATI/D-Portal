@@ -21,6 +21,7 @@ view_dash_quality.chunks=[
 	"dash_quality_budget_count",
 	"dash_quality_trans_count",
 	"dash_quality_country_count",
+	"dash_quality_dataset_count",
 	"dash_list_country_datas",
 	"dash_list_slug_datas",
 ];
@@ -222,7 +223,8 @@ view_dash_quality.ajax5=function(args)
 			s.push( plate.replace(args.plate || "{dash_list_slug_data}",d) );
 		}
 		ctrack.chunk(args.chunk || "dash_list_slug_datas",s.join(""));
-		
+
+		ctrack.chunk( "dash_quality_dataset_count",data.rows.length);
 		
 		view_dash_quality.calc();
 		ctrack.display(); // every fetch.ajax must call display once
