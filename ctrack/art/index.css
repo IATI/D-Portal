@@ -44,6 +44,7 @@ a.path					{display:block; padding:40px 20px; border-radius:8px; background-colo
 a.path:hover			{background-color:rgba(0,14,32,0.9);}
 a.path.no				{background-color:rgba(0,14,32,0.4);}
 a.path.no:hover			{background-color:rgba(0,14,32,0.4); cursor:default;}
+a.path.publisher		{padding:20px; margin-top:10px; color:#fff; font-size:1.2em;}
 .path_title				{display:block; font-size:2.3em;}
 .path_title.install		{color:#53AEFF;}
 .path_title.explore		{color:#2CE268;}
@@ -78,8 +79,8 @@ a.country_code:hover		{background-color:rgba(37, 115, 205, 0.7);}
 .description				{display:inline-block; vertical-align:top; width:410px; margin-right:60px;}
 .description:last-of-type	{margin-right:0;}
 .description span.title		{display:block; color:#fff; line-height:1.35em; font-size:1.4em; padding:10px 0; width:100%; border-top:1px solid #fff; border-bottom:1px solid #fff;}
-.description a:last-of-type	{padding-bottom:20px;}
-.description a:first-of-type{padding-top:20px;}
+.description a:last-of-type	{margin-bottom:20px;}
+.description a:first-of-type{margin-top:10px;}
 .description p				{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em;}
 a.read						{display:block; color:#A8D2F8; font-size:1.2em; padding:10px 0;}
 a.read:hover				{color:#D8EDFF;}
