@@ -74,11 +74,11 @@ view_list_activities.ajax=function(args)
 		else
 		{
 			var s=[];
-			args.chunks["table_header_amount"]=undefined;
+			ctrack.args.chunks["table_header_amount"]=undefined;
 			if((data.rows.length==0)&&(args.zerodata))
 			{
 				s.push( plate.replace(args.zerodata,{}) );
-				args.chunks["table_header_amount"]="";
+				ctrack.args.chunks["table_header_amount"]="";
 			}
 			for(var i=0;i<data.rows.length;i++)
 			{
