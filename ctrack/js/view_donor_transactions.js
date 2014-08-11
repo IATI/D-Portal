@@ -50,7 +50,7 @@ view_donor_transactions.view=function()
 		ctrack.chunk("alerts","");
 		if( iati_codes.crs_no_iati[funder] )
 		{
-			ctrack.chunk("alerts","{alert_no_iati}");
+			args.zerodata="{alert_no_iati}";
 		}
 
 		ctrack.chunk("donor",iati_codes.funder_names[funder] || iati_codes.publisher_names[funder] || iati_codes.country[funder] || funder );
