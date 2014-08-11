@@ -23,13 +23,14 @@ a.top.dash:hover	{border-top:5px solid #EE8E26;}
 
 .mid_wrap			{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
 .about_wrap			{width:100%; background-color:#2573CD; padding:140px 0 50px 0;}
-.about_wrap.more	{background-color:rgba(10, 14, 20, 0.91); padding:50px 0 100px 0;}
-.about_wrap.moretxt	{font-size:1.2em; color:#fff; line-height:1.2em; margin-bottom:40px; background:none;}
+.about_wrap.more	{background-color:rgba(10, 14, 20, 0.35); padding:0 0 100px 0;}
+.about_wrap.moretxt	{font-size:1.1em; color:#fff; line-height:1.55em; margin-bottom:40px; background:none;}
 .about_wrap.sav		{background-color:#FFA500;}
 .about_wrap.install	{background-color:#2573CD; padding:0 0 40px 0;}
 .about_wrap.dash	{background-color:#EE8E26; padding:0 0 40px 0;}
 .about_wrap.dq		{background-color:#724900; padding:0 0 50px 0;}
-.about_wrap.q		{background-color:#4F3200; padding:0 0 50px 0;}
+.about_wrap.q		{background-color:#4F3200; padding:0 0 40px 0;}
+.about_wrap.sources	{background-color:#201500; padding:0 0 50px 0;}
 .about_wrap.git		{background-color:#fff; padding:80px 0 60px 0;}
 
 
@@ -41,6 +42,7 @@ p				{color:#fff; padding:15px 0;}
 .mid_wrap p		{color:#fff; padding:30px 0 5px;}
 .about_head		{color:#fff; line-height:1.25em; font-size:22px; padding:30px 0 0px 40px;}
 .about_info		{font-size:18px; line-height:1.4em; color:#E8F6FF; padding-top:10px;}
+.sources_head	{color:#fff; font-size:28px; padding-top:80px; margin-bottom:40px;}
 .sav_head		{color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;}
 .sav_info		{font-size:18px; line-height:1.4em; padding-top:10px; color:#FFF0D4;}
 .dq_info		{font-size:18px; line-height:1.4em; padding:20px; color:#FFC761;}
@@ -49,7 +51,10 @@ a.co			{text-decoration:underline; color:#D3F9FF;}
 a.co:hover		{color:#fff;}
 a.country_portal{color:#52FFEA;}
 a.country_portal:hover	{text-decoration:underline;}
-a.dash_link		{color:#FFFF81; text-decoration:underline;}
+a.dash_link		{color:#4D2B00;}
+a.dash_link:hover{text-decoration:underline;}
+a.how			{display:inline-block; padding:5px 10px; background-color:#FFAB5E; color:rgba(10, 14, 20, 1); border-radius:6px; font-size:0.8em; font-weight:bold;}
+a.how:hover		{background-color:#FF7A00;}
 
 
 /*	About dstore and q
@@ -61,7 +66,8 @@ a.dash_link		{color:#FFFF81; text-decoration:underline;}
 .l3			{display:inline-block; vertical-align:top; width:230px; max-width:230px; border-right:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;}
 .l4			{display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;}
 .dq_wrap	{display:inline-block; vertical-align:top; width:400px; max-width:400px; padding:40px;}
-#arrow		{width:0; height:0; border-top:30px solid #724900; border-left:30px solid transparent; border-right:30px solid transparent; margin-bottom:80px;}
+.arrow		{width:0; height:0; border-top:30px solid #724900; border-left:30px solid transparent; border-right:30px solid transparent; margin-bottom:80px;}
+.arrow.more	{margin:0; border-top:30px solid #2573CD;}
 
 
 /*	q examples
@@ -73,6 +79,21 @@ a.dash_link		{color:#FFFF81; text-decoration:underline;}
 span.qdef	{display:inline-block; vertical-align:top; color:#FFBD44; font-size:16px; font-family:monospace;}
 a.qeg		{display:block; padding:10px 30px; background-color:#201500; margin-bottom:20px; color:#fff; font-size:18px; font-family:monospace;}
 a.qeg:hover	{background-color:#0E0900;}
+
+
+/*	Attribution and link to data sources
+	============================================= */
+	
+table.sources			{width:960px; margin:0 auto; color:#fff; table-layout:fixed;}
+table.sources th		{text-align:left; font-weight:bold; padding:20px 20px 20px 0;}
+table.sources th.col1	{width:25%;}
+table.sources th.col2	{width:40%;}
+table.sources th.col3	{width:35%;}
+table.sources td		{padding:10px 20px 10px 0; line-height:1.45em; border-bottom:1px solid #505050; vertical-align:baseline;}
+table.sources td:hover	{cursor:default;}
+table.sources td:first-child	{color:#D0DEF0;}
+table.sources td a		{color:#5E96DD;}
+table.sources td a:hover{color:#7CB6FF; text-decoration:underline;}
 
 
 /*	Github

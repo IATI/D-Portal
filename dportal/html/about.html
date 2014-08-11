@@ -17,6 +17,7 @@
 	{about_savi}
 	{about_dq}
 	{queries}
+	{sources}
 	{quick_install}
 	{about_dash}
 	{about_github}
@@ -60,6 +61,7 @@
 <span id="more"></span>
 <div class="about_wrap more">
 	<div class="default">
+		<div class="mid_wrap"></div><div class="mid_wrap"><div class="arrow more"></div></div>
 		<div class="about_wrap moretxt">
 			<p>{about_paragraph3_text}</p>
 			<p>{about_paragraph4_text}</p>
@@ -122,7 +124,7 @@
 <div class="about_wrap dash">
 	<div class="default">
 		<div class="about_wrap moretxt">
-			<p><h1>Dash: Publishers statistics for d-portal.org</h1></p>
+			<p><h1>Dash: {dash_title_text} d-portal.org</h1></p>
 			<p>{dash_paragraph1_text}</p>
 			<p>{dash_paragraph2_text}</p>
 			<p>{dash_paragraph3_text}</p>
@@ -134,7 +136,7 @@
 #queries
 <div class="about_wrap q">
 	<div class="default">
-		<div class="mid_wrap"></div><div class="mid_wrap"><div id="arrow"></div></div>
+		<div class="mid_wrap"></div><div class="mid_wrap"><div class="arrow"></div></div>
 		<div class="qhead">{q_example_title_text}</div>
 		<a href="http://d-portal.org/q.xml?limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.xml?limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
 		<div class="qabt">{q_example1_text}</div>
@@ -151,6 +153,65 @@
 		<a href="http://d-portal.org/q.csv?from=trans&orderby=trans_day&limit=1000" class="qeg">http://d-portal.org/q.csv?from=trans&amp;orderby=trans_day&amp;limit=1000</a>
 		<div class="qabt">{q_example4_text}</div>
 		<div class="qinfo">{q_example4_info1_text} <span class="qdef">q.csv</span> {q_example4_info2_text} <span class="qdef">limit=1000</span> {q_example4_info3_text} <span class="qdef">from=trans</span> {q_example4_info4_text} <span class="qdef">orderby=trans_day</span>.</div>
+	</div>
+</div>
+
+#sources
+<div class="about_wrap more">
+	<div class="default">
+		<div class="sources_head">{sources_title_text}</div>
+		<table class="sources">
+			<tr>
+				<th class="col1">{sources_header1_text}</th>
+				<th class="col2">{sources_header2_text}</th>
+				<th class="col3">{sources_header3_text}</th>
+			</tr>
+			<tr>
+				<td>{sources_data1_text}</td>
+				<td>International Monetary Fund</td>
+				<td><a href="http://www.imf.org/external/np/fin/data/rms_five.aspx">http://www.imf.org/external/np/fin/data/rms_five.aspx</a></td>
+			</tr>
+			<tr>
+				<td>CRS</td>
+				<td>Creditor Reporting System</td>
+				<td><a href="http://stats.oecd.org/Index.aspx?datasetcode=CRS1">http://stats.oecd.org/Index.aspx?datasetcode=CRS1</a></td>
+			</tr>
+			<tr>
+				<td>IATI</td>
+				<td>IATI Data Registry</td>
+				<td><a href="http://iatiregistry.org/">http://iatiregistry.org/</a></td>
+			</tr>
+			<tr>
+				<td>IATI</td>
+				<td>IATI Standard</td>
+				<td><a href="http://iatiregistry.org/">http://iatiregistry.org/</a></td>
+			</tr>
+			<tr>
+				<td>{sources_data2_text}</td>
+				<td>{sources_data6_text}</td>
+				<td><a href="http://en.wikipedia.org/">http://en.wikipedia.org/</a></td>
+			</tr>
+			<tr>
+				<td>{sources_data3_text}</td>
+				<td>{sources_data6_text}</td>
+				<td><a href="http://en.wikipedia.org/">http://en.wikipedia.org/</a></td>
+			</tr>
+			<tr>
+				<td>{sources_data4_text}</td>
+				<td>ISO3166 Alpha-2</td>
+				<td><a href="http://en.wikipedia.org/wiki/ISO_3166-2">http://en.wikipedia.org/wiki/ISO_3166-2</a></td>
+			</tr>
+			<tr>
+				<td>{sources_data5_text}</td>
+				<td>ISO3166 Alpha-2</td>
+				<td><a href="http://en.wikipedia.org/wiki/ISO_3166-2">http://en.wikipedia.org/wiki/ISO_3166-2</a></td>
+			</tr>
+			<tr>
+				<td>ctrack data</td>
+				<td>{sources_data7_text}</td>
+				<td><a href="https://docs.google.com/spreadsheet/ccc?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&usp=sharing">https://docs.google.com/spreadsheet/ccc?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&amp;usp=sharing</a></td>
+			</tr>
+		</table>
 	</div>
 </div>
 
