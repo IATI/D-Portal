@@ -31,6 +31,7 @@ view_donor_budgets.view=function()
 	var funder=ctrack.hash.funder || "gb";
 	
 	var args={};
+	args.zerodata="{alert_no_data1}";
 	
 	args.plate="{donor_budgets_data}";
 	args.chunk="donor_budgets_datas";
