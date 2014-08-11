@@ -35,6 +35,7 @@ view_sector_transactions.view=function()
 	var sector=ctrack.hash.sector_group || "111";
 	
 	var args={};
+	args.zerodata="{alert_no_data3}";
 	
 	args.plate="{sector_transactions_data}";
 	args.chunk="sector_transactions_datas";
