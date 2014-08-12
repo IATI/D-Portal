@@ -9,7 +9,7 @@
 {main_min}
 {about_data_links}
 {donors_head}
-<div class="list_budgets_wrap">
+<div class="title_wrap">
 	<table class="title">
 		<tr>
 			<td class="icon"><img src="{flava}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
@@ -17,14 +17,14 @@
 			<td class="total_spend">= {total} (USD)</td>
 		</tr>
 	</table>
-	<div class="list_budgets">
+	<div class="table_wrap">
 		<table class="activity">
 			{table_header}
 			{list_budgets_datas}
 		</table>
 	</div>
-	<div class="back_to_list_list">
-		<a href="#view=donors" class="back_to_list_list">{list_list_back_text}</a>
+	<div class="center_wrap">
+		<a href="#view=publisher_countries" class="button">{list_country_back_text}</a>
 	</div>
 </div>
 {list_budgets_data_description}
@@ -34,14 +34,14 @@
 #list_budgets_data_description
 <div class="description_wrap">
 	<div class="description">
-		<span class="title">{list_budgets_data_description_title_text}</span>
-		<p>{list_budgets_data_description_text}</p>
+		<span class="title">{donor_budgets_data_description_title_text}</span>
+		<p>{donor_budgets_data_description_text}</p>
 		<a href="#view=data_quality" class="read">{read_more_text}</a>
 	</div>
 </div>
 
 #list_budgets_data
-<tr>
+<tr onclick="window.location.hash='#view=act&aid={aid}';">
 	<td class="num">{num}.</td>
 	<td class="title" title="{project_title_tip_text}">
 		<a href="#view=act&aid={aid}">
