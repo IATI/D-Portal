@@ -41,7 +41,7 @@ view_list_publishers.ajax=function(args)
 	args=args || {};
 
 	var dat={
-			"from":"act,country",
+			"from":"act",
 			"limit":args.limit || -1,
 			"select":"count,reporting_ref,reporting",
 			"groupby":"reporting_ref",
@@ -49,13 +49,11 @@ view_list_publishers.ajax=function(args)
 			"country_code":(args.country || ctrack.args.country),
 			"reporting_ref":(args.publisher || ctrack.args.publisher),
 		};
-	if(args.q)
-	{
-		for(var n in args.q) // override with special qs
-		{
-			dat[n]=args.q[n];
-		}
-	}
+	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
+	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
+	if(dat.sector_code) { dat.from+=",sector"; }
+	if(dat.country_code) { dat.from+=",country"; }
+	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 	if(args.output=="count") // just count please
 	{
 		dat.select="count";

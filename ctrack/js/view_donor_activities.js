@@ -24,7 +24,7 @@ view_donor_activities.view=function()
 	ctrack.setcrumb(2);
 	ctrack.change_hash();
 	
-	var funder=ctrack.hash.funder || "gb";
+	var funder=ctrack.hash.funder;
 	
 	var args={};
 	args.zerodata="{alert_no_data1}";

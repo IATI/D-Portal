@@ -41,7 +41,7 @@ view_list_transactions.ajax=function(args)
 	args=args || {};
 
 	var dat={
-			"from":"act,trans,country",
+			"from":"act,trans",
 			"limit":args.limit || -1,
 			"select":"sum_of_percent_of_trans_usd,aid,funder_ref,title,reporting,reporting_ref",
 			"groupby":"aid",
@@ -50,12 +50,15 @@ view_list_transactions.ajax=function(args)
 			"country_code":(args.country || ctrack.args.country),
 			"reporting_ref":(args.publisher || ctrack.args.publisher),
 		};
-	if(args.q)
+	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
+	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
+	if(dat.sector_code) { dat.from+=",sector"; }
+	if(dat.country_code) { dat.from+=",country"; }
+	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
+	if(dat.year)
 	{
-		for(var n in args.q) // override with special qs
-		{
-			dat[n]=args.q[n];
-		}
+		dat["trans_day_gteq"]=(parseInt(dat.year)+0)+"-01-01";
+		dat["trans_day_lt"]=(parseInt(dat.year)+1)+"-01-01";
 	}
 	if(args.output=="count") // just count please
 	{
