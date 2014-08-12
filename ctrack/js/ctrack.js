@@ -198,9 +198,10 @@ ctrack.setup=function(args)
 // build ? strings for url changes
 
 	var aa={}
-	if(args.flava!="original") { aa["flava"]=args.flava; }
-	if(args.tongue!="eng") { aa["tongue"]=args.tongue; }
-	if(ctrack.q.country) { aa["country"]=ctrack.q.country; }
+	if(args.flava!="original") { aa["flava"]    =args.flava;         }
+	if(args.tongue!="eng")     { aa["tongue"]   =args.tongue;        }
+	if(ctrack.q.publisher)     { aa["publisher"]=ctrack.q.publisher; }
+	if(ctrack.q.country)       { aa["country"]  =ctrack.q.country;   }
 
 	var bb=[]; for(var n in aa) { bb.push(n+"="+aa[n]); }
 	ctrack.chunk("mark","?"+bb.join("&"));
