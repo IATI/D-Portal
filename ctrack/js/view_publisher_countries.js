@@ -73,6 +73,7 @@ view_publisher_countries.ajax=function(args)
 		});
 		ctrack.chunk(args.chunk || "table_publisher_countries_rows",s.join(""));
 
+		ctrack.chunk("countries_count",a.length);
 		ctrack.chunk_clear("table_publisher_countries");
 
 		var p=function(s)
