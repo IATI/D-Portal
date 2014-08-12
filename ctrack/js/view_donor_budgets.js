@@ -28,7 +28,7 @@ view_donor_budgets.view=function()
 	ctrack.change_hash();
 	
 	var year=ctrack.hash.year || 2012;
-	var funder=ctrack.hash.funder || "gb";
+	var funder=ctrack.hash.funder;
 	
 	var args={};
 	args.zerodata="{alert_no_data1}";

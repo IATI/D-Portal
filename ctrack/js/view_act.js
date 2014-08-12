@@ -58,8 +58,8 @@ view_act.ajax=function(args)
 			"country_code":args.country,
 			"reporting_ref":args.publisher,
 		};
-	if(args.country) { dat.from+=",country"; }
-	if(args.lat && args.lng) { dat.from+=",location"; }
+	if(dat.country_code) { dat.from+=",country"; }
+	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_act.numof_callback");
