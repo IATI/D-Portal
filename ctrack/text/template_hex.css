@@ -258,3 +258,156 @@ a.data_invest:hover		{color:#FFF; background-color:#COF;}
 .footer_link a:visited	{color:#999;}
 .footer_link a:hover	{color:#FFF;}
 .footer_link a:active	{color:#999;}
+
+
+/*	SAVi CSS
+	============================================= */
+iati-activity			{background-color:#002;}
+iati-activity:after 	{color:#CCC;}
+
+
+/*	Project title
+	============================================= */
+title		 			{color:#FFF;}
+title:before 			{color:#CCC;}
+
+
+/*	IATI Identifier
+	============================================= */
+iati-identifier 				{background-color: #002; color:#F70;}
+iati-identifier:before			{color:#CCC;}
+iati-identifier:hover			{color:#FA5;}
+a.a_xml_iati-identifier:before	{color:#CCC;}
+a.a_slug:before					{color:#CCC;}
+
+
+/*	Recipient countries
+	============================================= */
+span.span_recipient-country				{background-color:#126;}
+span.span_recipient-country:before 		{color:#FFF;}
+recipient-country span					{color:#FFF;}
+recipient-country span:nth-of-type(2)	{color:#FFF;}
+
+
+/*	Start and End dates
+	============================================= */
+span.span_activity-date						{background-color:#039;}
+activity-date[type="start-actual"]			{color:#FFF;}
+activity-date[type="end-actual"]			{color:#FFF;}
+activity-date[type="start-actual"]:before	{color:#CCC;}
+activity-date[type="end-actual"]:before		{color:#CCC;}
+
+
+/*	Who's invloved?
+	============================================= */
+participating-org 								{color:#FFF; background-color:#126;}
+participating-org:nth-of-type(1):before 		{color:#FFF; border-bottom:5px solid #FFF;}
+participating-org[role="funding"]:after			{color:#CCC;}
+participating-org[role="implementing"]:after	{color:#CCC;}
+participating-org[role="extending"]:after		{color:#CCC;}
+participating-org[role="accountable"]:after		{color:#CCC;}
+
+
+/*	Reported by
+	============================================= */
+reporting-org 					{color:#FFF;}
+reporting-org:before 			{color:#CCC;}
+
+
+/*	Description of project (shared with Transaction table)
+	============================================= */
+description 						{color:#FFF;}
+description:nth-of-type(1):before	{color:#CCC;}
+description[type="1"]:before		{color:#CCC;}
+description[type="2"]:before		{color:#CCC;}
+description[type="3"]:before		{color:#CCC;}
+
+
+/*	Sectors (also turned into graph: sector_pie)
+	============================================= */
+sector[vocabulary="DAC"]		{color:#FFF;}
+sector:nth-child(even)			{background-color:#002;}
+sector[vocabulary="DAC"]:before	{color:#CCC;}
+sector span						{color:#FFF;}
+sector span:nth-of-type(2)		{color:#CCC;}
+img.sector_pie					{background-color:#FFF;}
+
+
+/*	Budget table
+	============================================= */
+budget					{border-top:1px solid #19F;}
+budget:last-of-type	 	{border-bottom:0px solid #19F;}
+budget:nth-of-type(1):before				{color:#FFF; background-color:#126;}
+budget:nth-of-type(1) period-start:before 	{color:#FFF; border-bottom:2px solid #126;}
+budget:nth-of-type(1) period-end:before	  	{color:#FFF; border-bottom:2px solid #126;}
+budget:nth-of-type(1) value:before		  	{color:#FFF; border-bottom:2px solid #126;}
+period-start 			{color:#FFF;}
+period-end	 			{color:#FFF;}
+budget value 			{color:#FFF;}
+
+
+/*	Transaction table
+	============================================= */
+transaction							{border-top:1px solid #19F;}
+transaction a						{color:#F70;}
+transaction a:hover					{color:#FA5;}
+transaction:last-of-type			{border-bottom:0px solid #19F;}
+transaction:nth-of-type(1):before	{color:#FFF; background-color:#126;}
+
+transaction:nth-of-type(1) transaction-date:before	{color:#FFF; border-bottom:2px solid #126;}
+transaction:nth-of-type(1) transaction-type:before	{color:#FFF; border-bottom:2px solid #126;}
+transaction:nth-of-type(1) provider-org:before		{color:#FFF; border-bottom:2px solid #126;}
+transaction:nth-of-type(1) receiver-org:before		{color:#FFF; border-bottom:2px solid #126;}
+transaction:nth-of-type(1) value:before				{color:#FFF; border-bottom:2px solid #126;}
+transaction:nth-of-type(1) description:nth-of-type(1):before {color:#FFF; border-bottom:2px solid #126;}
+
+transaction-date	{color:#FFF;}
+transaction-type	{color:#FFF;}
+transaction description:nth-of-type(1) {color:#FFF;}
+provider-org		{color:#FFF;}
+receiver-org		{color:#FFF;}
+value				{color:#FFF;}
+value span			{color:#CCC;}
+
+
+/*	Contact info for Publisher
+	============================================= */
+contact-info *						{color:#FFF;}
+contact-info:nth-of-type(1):before	{color:#CCC;}
+
+
+/*	Website or external links
+	============================================= */
+activity-website		{color:#F94; background-color:#002;}
+activity-website:before {color:#CCC;}
+activity-website:hover	{color:#F70;}
+
+
+/*	Activity Status
+	============================================= */
+activity-status[code="1"]	{background-color:#4BF;}
+activity-status[code="2"]	{background-color:#C8E;}
+activity-status[code="3"]	{background-color:#4F4;}
+activity-status[code="4"]	{background-color:#F84;}
+activity-status[code="5"]	{background-color:#F44;}
+activity-status				{background-color:#F84;}
+activity-status:before		{color:#FFF;}
+
+
+/*	Related documents list
+	============================================= */
+span.span_document-link:before				{color:#FFF; border-bottom:3px solid #FFF;}
+a.a_document-link							{color:#CCC;}
+a.a_document-link document-link title		{color:#FFF;}
+a.a_document-link document-link title:hover	{color:#FA5;}
+document-link span							{color:#CCC;}
+
+
+/*	Family Tree list
+	============================================= */
+span.span_related-activity:before	{color:#FFF; border-bottom:3px solid #FFF;}
+span.span_related-activity			{color:#FFF;}
+a.a_related-activity				{color:#FFF;}
+related-activity					{color:#FA5;}
+related-activity:hover				{color:#F70;}
+related-activity:before				{color:#FFF;}

@@ -258,3 +258,156 @@ a.data_invest:hover		{color:#FFF; background-color:rgba(194, 0, 255, 0.8);}
 .footer_link a:visited	{color:#999;}
 .footer_link a:hover	{color:#FFF;}
 .footer_link a:active	{color:#999;}
+
+
+/*	SAVi CSS
+	============================================= */
+iati-activity			{background-color:rgba(0,14,32,0.7);}
+iati-activity:after 	{color:#CCC;}
+
+
+/*	Project title
+	============================================= */
+title		 			{color:#FFF;}
+title:before 			{color:#CCC;}
+
+
+/*	IATI Identifier
+	============================================= */
+iati-identifier 				{background-color: rgba(0,14,32,0.7); color:#FF7A00;}
+iati-identifier:before			{color:#CCC;}
+iati-identifier:hover			{color:#FFAB5E;}
+a.a_xml_iati-identifier:before	{color:#CCC;}
+a.a_slug:before					{color:#CCC;}
+
+
+/*	Recipient countries
+	============================================= */
+span.span_recipient-country				{background-color:rgba(17, 46, 105, 0.9);}
+span.span_recipient-country:before 		{color:#FFF;}
+recipient-country span					{color:#FFF;}
+recipient-country span:nth-of-type(2)	{color:#FFF;}
+
+
+/*	Start and End dates
+	============================================= */
+span.span_activity-date						{background-color:rgba(3, 50, 146, 0.9);}
+activity-date[type="start-actual"]			{color:#FFF;}
+activity-date[type="end-actual"]			{color:#FFF;}
+activity-date[type="start-actual"]:before	{color:#CCC;}
+activity-date[type="end-actual"]:before		{color:#CCC;}
+
+
+/*	Who's invloved?
+	============================================= */
+participating-org 								{color:#FFF; background-color:rgba(17, 46, 105, 0.4);}
+participating-org:nth-of-type(1):before 		{color:#FFF; border-bottom:5px solid #FFF;}
+participating-org[role="funding"]:after			{color:#CCC;}
+participating-org[role="implementing"]:after	{color:#CCC;}
+participating-org[role="extending"]:after		{color:#CCC;}
+participating-org[role="accountable"]:after		{color:#CCC;}
+
+
+/*	Reported by
+	============================================= */
+reporting-org 					{color:#FFF;}
+reporting-org:before 			{color:#CCC;}
+
+
+/*	Description of project (shared with Transaction table)
+	============================================= */
+description 						{color:#FFF;}
+description:nth-of-type(1):before	{color:#CCC;}
+description[type="1"]:before		{color:#CCC;}
+description[type="2"]:before		{color:#CCC;}
+description[type="3"]:before		{color:#CCC;}
+
+
+/*	Sectors (also turned into graph: sector_pie)
+	============================================= */
+sector[vocabulary="DAC"]		{color:#FFF;}
+sector:nth-child(even)			{background-color:rgba(0,14,32,0.7);}
+sector[vocabulary="DAC"]:before	{color:#CCC;}
+sector span						{color:#FFF;}
+sector span:nth-of-type(2)		{color:#CCC;}
+img.sector_pie					{background-color:#fff;}
+
+
+/*	Budget table
+	============================================= */
+budget					{border-top:1px solid #1E90FF;}
+budget:last-of-type	 	{border-bottom:0px solid #1E90FF;}
+budget:nth-of-type(1):before				{color:#FFF; background-color:rgba(17, 46, 105, 0.9);}
+budget:nth-of-type(1) period-start:before 	{color:#FFF; border-bottom:2px solid rgba(17, 46, 105, 0.9);}
+budget:nth-of-type(1) period-end:before	  	{color:#FFF; border-bottom:2px solid rgba(17, 46, 105, 0.9);}
+budget:nth-of-type(1) value:before		  	{color:#FFF; border-bottom:2px solid rgba(17, 46, 105, 0.9);}
+period-start 			{color:#FFF;}
+period-end	 			{color:#FFF;}
+budget value 			{color:#FFF;}
+
+
+/*	Transaction table
+	============================================= */
+transaction							{border-top:1px solid #1E90FF;}
+transaction a						{color:#FF7A00;}
+transaction a:hover					{color:#FFAB5E;}
+transaction:last-of-type			{border-bottom:0px solid #1E90FF;}
+transaction:nth-of-type(1):before	{color:#FFF; background-color:rgba(17, 46, 105, 0.9);}
+
+transaction:nth-of-type(1) transaction-date:before	{color:#FFF; border-bottom:2px solid rgba(17, 46, 105, 0.9);}
+transaction:nth-of-type(1) transaction-type:before	{color:#FFF; border-bottom:2px solid rgba(17, 46, 105, 0.9);}
+transaction:nth-of-type(1) provider-org:before		{color:#FFF; border-bottom:2px solid rgba(17, 46, 105, 0.9);}
+transaction:nth-of-type(1) receiver-org:before		{color:#FFF; border-bottom:2px solid rgba(17, 46, 105, 0.9);}
+transaction:nth-of-type(1) value:before				{color:#FFF; border-bottom:2px solid rgba(17, 46, 105, 0.9);}
+transaction:nth-of-type(1) description:nth-of-type(1):before {color:#FFF; border-bottom:2px solid rgba(17, 46, 105, 0.9);}
+
+transaction-date	{color:#FFF;}
+transaction-type	{color:#FFF;}
+transaction description:nth-of-type(1) {color:#FFF;}
+provider-org		{color:#FFF;}
+receiver-org		{color:#FFF;}
+value				{color:#FFF;}
+value span			{color:#CCC;}
+
+
+/*	Contact info for Publisher
+	============================================= */
+contact-info *						{color:#FFF;}
+contact-info:nth-of-type(1):before	{color:#CCC;}
+
+
+/*	Website or external links
+	============================================= */
+activity-website		{color:#FF9E45; background-color: rgba(0,14,32,0.7);}
+activity-website:before {color:#CCC;}
+activity-website:hover	{color:#FF7A00;}
+
+
+/*	Activity Status
+	============================================= */
+activity-status[code="1"]	{background-color:rgb(71, 181, 255);}
+activity-status[code="2"]	{background-color:rgb(204, 141, 230);}
+activity-status[code="3"]	{background-color:rgb(71, 255, 78);}
+activity-status[code="4"]	{background-color:rgb(255, 130, 71);}
+activity-status[code="5"]	{background-color:rgb(255, 71, 71);}
+activity-status				{background-color:rgb(255, 130, 71);}
+activity-status:before		{color:#FFF;}
+
+
+/*	Related documents list
+	============================================= */
+span.span_document-link:before				{color:#FFF; border-bottom:3px solid #FFF;}
+a.a_document-link							{color:#CCC;}
+a.a_document-link document-link title		{color:#FFF;}
+a.a_document-link document-link title:hover	{color:#FFAB5E;}
+document-link span							{color:#CCC;}
+
+
+/*	Family Tree list
+	============================================= */
+span.span_related-activity:before	{color:#FFF; border-bottom:3px solid #fff;}
+span.span_related-activity			{color:#FFF;}
+a.a_related-activity				{color:#FFF;}
+related-activity					{color:#FFAB5E;}
+related-activity:hover				{color:#FF7A00;}
+related-activity:before				{color:#FFF;}
