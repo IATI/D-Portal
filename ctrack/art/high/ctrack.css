@@ -6,7 +6,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 a,img{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outline:0;}
 
-body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
+body,html 				{background:none; color:#000; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
 html					{background-color:#000;}
 
 
@@ -27,9 +27,9 @@ strong, .bold			{font-weight:bold; color:inherit;}
 /*	Main wrappers for content & fixed background img
 	============================================= */
 .portal					{-moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; display:table; width:100%; height:100%;}
-.main_wrap				{width:100%; min-width:1040px; padding:0px; display:table-cell; background-color:#fff;}
+.main_wrap				{width:100%; min-width:1040px; padding:0px; display:table-cell; background-color:#FFF;}
 #background_image	 	{display:none;}
-.overlay				{width:100%; height:100%; background-color:#fff; position:relative;}	/* Overlay colour for background image */
+.overlay				{width:100%; height:100%; background-color:#FFF; position:relative;}	/* Overlay colour for background image */
 iati-activity			{margin-bottom:40px;}	/* Fixes too-large bottom margin during only this instance */
 iati-activity:after 	{content:"";}	/* Takes away content since footer is included on site */
 .center_wrap			{width:960px; margin:0 auto; text-align:center;}
@@ -76,8 +76,8 @@ a.blog_head			{display:block; width:820px; margin:0 auto; color:#000; line-heigh
 .blog_body			{padding:20px 0;}
 .blog_body p		{margin:1em 0; padding:0; color:inherit;}
 .blog_body ul		{list-style:inherit; list-style-position:inside;}
-.blog_body a		{color:#000; text-decoration:underline;}
-.blog_body a:hover	{color:#000;}
+.blog_body a		{color:#000;}
+.blog_body a:hover	{color:#000; text-decoration:underline;}
 .blog_title			{font-size:2.2em; line-height:1.2em; color:#000; padding-bottom:20px;}
 a.blog_title		{display:block; font-size:2.2em; line-height:1.2em; color:#000; padding-bottom:20px;}
 a.blog_title:hover	{color:#000;}
@@ -88,21 +88,21 @@ a.back_news:hover	{color:#000;}
 /*	Graph styles
 	============================================= */
 #donor_graph, #sector_graph, #publisher_countries_graph,
-#publisher_sectors_graph{background-color:#fff; font-size:1.0em; line-height:1.3em; color:#000; border:1px solid #000; border-top:0;}
-a.ask					{background-color:#000; display:block; width:880px; margin:0 auto; padding:20px 40px; color:#fff; font-size:1.8em; text-align:center;}
-a.ask:hover				{background-color:#000; color:#fff;}
-.main_peak_wrap			{width:958px; background-color:#fff; border:1px solid #000; border-top:0; border-bottom:0;}
+#publisher_sectors_graph{background-color:#FFF; font-size:1.0em; line-height:1.3em; color:#000; border:1px solid #000; border-top:0;}
+a.ask					{background-color:#000; display:block; width:880px; margin:0 auto; padding:20px 40px; color:#FFF; font-size:1.8em; text-align:center;}
+a.ask:hover				{background-color:#000; color:#FFF;}
+.main_peak_wrap			{width:958px; background-color:#FFF; border:1px solid #000; border-top:0; border-bottom:0;}
 .peak					{margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; border-top:20px solid #000;}	/* Triangles */
-a.view_all_money		{display:block; width:958px; background-color:#fff; color:#000; border-radius:0 0 8px 8px; text-align:center; margin:0 auto; padding:15px 0; font-size:1.1em; border:1px solid #000; border-top:0;}
-a.view_all_money:hover	{background-color:#000; color:#fff;}
+a.view_all_money		{display:block; width:958px; background-color:#FFF; color:#000; border-radius:0 0 8px 8px; text-align:center; margin:0 auto; padding:15px 0; font-size:1.1em; border:1px solid #000; border-top:0;}
+a.view_all_money:hover	{background-color:#000; color:#FFF;}
 
 
 /*	Map styles
 	============================================= */
 .map_wrap				{width:100%; min-height:300px; max-height:400px; margin:0 auto; background-color:#000; position:relative;}
-.map_info				{width:800px; margin:0 auto; top:0; left:-100px; right:-100px; padding:10px 40px; font-size:1.1em; color:#fff; line-height:1.35em; position:absolute; background-color:#000; border-radius:0 0 8px 8px; text-align:center;}
-.map_no_info			{color:#fff; font-size:1.2em; line-height:1.35em; text-align:center; position:absolute; top:50%; left:20%; right:20%;}
-.map_percent			{width:140px; margin:0 auto; bottom:30px; left:-80px; right:-778px; padding:10px 20px; font-size:0.95em; color:#000; line-height:1.15em; position:absolute; background-color:#fff; border-radius:8px; z-index:1; text-align:left; border:1px solid #000;}
+.map_info				{width:800px; margin:0 auto; top:0; left:-100px; right:-100px; padding:10px 40px; font-size:1.1em; color:#FFF; line-height:1.35em; position:absolute; background-color:#000; border-radius:0 0 8px 8px; text-align:center;}
+.map_no_info			{color:#FFF; font-size:1.2em; line-height:1.35em; text-align:center; position:absolute; top:50%; left:20%; right:20%;}
+.map_percent			{width:140px; margin:0 auto; bottom:30px; left:-80px; right:-778px; padding:10px 20px; font-size:0.95em; color:#000; line-height:1.15em; position:absolute; background-color:#FFF; border-radius:8px; z-index:1; text-align:left; border:1px solid #000;}
 .map_percent span		{display:inline-block; vertical-align:bottom; font-size:1.0em; line-height:1.0em; color:#000; font-weight:bold; padding:0 3px 0 7px;}
 .map_percent a			{color:#000; font-weight:bold;}
 .map_percent a:hover	{text-decoration:underline;}
@@ -112,7 +112,7 @@ a.view_all_money:hover	{background-color:#000; color:#fff;}
 /*	For url #view=map
 	============================================= */
 .map_wrap.view			{width:960px; min-height:600px; max-height:600px;}
-.map_no_info.view		{color:#fff; font-size:1.2em; line-height:1.35em; text-align:center; position:absolute; top:50%; left:20%; right:20%;}
+.map_no_info.view		{color:#FFF; font-size:1.2em; line-height:1.35em; text-align:center; position:absolute; top:50%; left:20%; right:20%;}
 #map.map_view			{width:100%; height:600px;}
 
 
@@ -120,26 +120,27 @@ a.view_all_money:hover	{background-color:#000; color:#fff;}
 	============================================= */
 .stats_wrap				{width:100%; margin:0 auto; padding:40px 0;}
 span.stats_title		{display:block; font-size:1.5em; color:#000; padding-bottom:10px;}
-span.stats_title.view	{font-size:0.6em; color:#fff;}
+span.stats_title.view	{font-size:0.6em; color:#FFF;}
 span.stats_num			{display:block; font-size:8.0em; color:#000;}
 span.stats_num.small	{display:block; font-size:4.0em;}
-span.stats_num.view		{font-size:2.9em; color:#fff; line-height:0.8em;}
+span.stats_num.view		{font-size:2.9em; color:#FFF; line-height:0.8em;}
 .declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#000; font-size:0.9em; text-align:right;}
 
 a.stats_link			{display:block; padding:30px 40px; height:100%; border-radius:6px; border:1px solid #000; margin:15px 5px 5px 10px;}
 a.stats_link.active		{margin-left:0; padding:40px;}
-a.stats_link.total, a.stats_link.publishers		{margin-right: 0;}
-a.stats_link.planned, a.stats_link.publishers	{margin-top: 10px;}
-a.stats_link.missing		{border-top:1px solid #000; margin-left:0;}
-a.stats_link.missing span	{color:#000;}
+a.stats_link.total, a.stats_link.publishers		{margin-right:0;}
+a.stats_link.planned, a.stats_link.publishers	{margin-top:10px;}
 a.stats_link:hover			{background-color:#e9e9e9;}
+a.stats_link.missing		{margin-left:0;}
+a.stats_link.missing span	{color:#000;}
+
 
 
 /*	Active / Ended projects styles
 	============================================= */
 .main_title_wrap			{width:960px; margin:0 auto; padding:40px 20px;}
 .title_wrap					{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
-.table_wrap					{background-color:#fff; padding:0 20px 20px 20px; border-radius:0 0 8px 8px; border:1px solid #000; border-top:0;}
+.table_wrap					{background-color:#FFF; padding:0 20px 20px 20px; border-radius:0 0 8px 8px; border:1px solid #000; border-top:0;}
 .table_wrap.view			{width:920px; margin:0 auto; padding:20px; margin-bottom:40px; border:1px solid #000;}
 
 
@@ -150,10 +151,10 @@ a.stats_link:hover			{background-color:#e9e9e9;}
 .description span.title	{display:block; color:#000; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-top:1px solid #000; border-bottom:1px solid #000;}
 .description span.title.sub	{font-size:1.0em; border:0; margin:0; padding-bottom:10px; font-weight:bold;}
 .description p			{padding:15px 0; font-size:1.2em; color:#000; line-height:1.2em; word-spacing:0.07em;}
-.description a			{color:#000; text-decoration:underline;}
-.description a:hover	{color:#000;}
+.description a			{color:#000;}
+.description a:hover	{color:#000; text-decoration:underline;}
 a.read					{display:inline-block; color:#000; font-size:1.1em;}
-a.read:hover			{color:#000;}
+a.read:hover			{color:#000; text-decoration:underline;}
 
 
 /*	Generic styles
@@ -165,20 +166,20 @@ a.read:hover			{color:#000;}
 .list_peak_space			{height:60px;}
 .list_peak					{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}
 .head_title_wrap			{width:480px; display:inline-block; vertical-align:top;}
-.list_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
-.list_stats_title			{display:block; font-size:0.6em; color:#fff; padding-bottom:10px;}
-.list_stats_num				{display:block; font-size:2.9em; color:#fff; line-height:0.8em;}
-a.button					{padding:10px 20px; background-color:#fff; font-size:1.25em; color:#000; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center; border:1px solid #000; border-top:0;}
-a.button:hover				{background-color:#000; color:#fff;}
-a.csv_download				{display:block; margin-top:20px; padding:10px 20px; background-color:#000; text-align:center; color:#fff;}
-a.csv_download:hover		{background-color:#000; color:#fff;}
+.list_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#FFF; font-size:2.3em;}
+.list_stats_title			{display:block; font-size:0.6em; color:#FFF; padding-bottom:10px;}
+.list_stats_num				{display:block; font-size:2.9em; color:#FFF; line-height:0.8em;}
+a.button					{padding:10px 20px; background-color:#FFF; font-size:1.25em; color:#000; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center; border:1px solid #000; border-top:0;}
+a.button:hover				{background-color:#000; color:#FFF;}
+a.csv_download				{display:block; margin-top:20px; padding:10px 20px; background-color:#000; text-align:center; color:#FFF;}
+a.csv_download:hover		{background-color:#000; color:#FFF;}
 
 
 /*	For url #view=donors & all #view=donor_*
 	============================================= */
 .donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}	/* Triangles */
 .donors_peak.view			{border-right:30px solid #000;}
-.donors_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
+.donors_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#FFF; font-size:2.3em;}
 .donors_head_title.view		{background-color:#000;}
 
 
@@ -195,13 +196,12 @@ a.csv_download:hover		{background-color:#000; color:#fff;}
 /*	For url #view=sectors & all #view=sector_*
 	============================================= */
 .sectors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}	/* Triangles */
-.sectors_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#fff; font-size:2.3em;}
+.sectors_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#FFF; font-size:2.3em;}
 
 
 /*	For url #view=act
 	============================================= */
 .act_wrap					{width:960px; margin:0 auto; padding:20px 0;}
-.act_alert_wrap				{color:#fff; font-size:0.9em; line-height:1.35em; padding:10px 20px; background-color:#000;}
 
 
 /*	Table header styles
@@ -213,7 +213,7 @@ th.titles:nth-child(3), th.titles:last-child	{padding:10px; text-align:right; fo
 /*	Table for Header logo and Translations
 	============================================= */
 table.head					{width:100%; margin:0 auto; border-collapse:initial;}
-table.head td.options		{color:#fff; text-align:right; vertical-align:top; font-size:0.9em;}
+table.head td.options		{color:#FFF; text-align:right; vertical-align:top; font-size:0.9em;}
 
 
 /*	Table for Country Name and Flag
@@ -242,7 +242,7 @@ table.title td.total_spend	{padding-left:10px; width:300px; text-align:right;}
 /*	Table for Stats (key figures)
 	============================================= */
 table.stats				{width:990px; max-width:960px; margin:0 auto; border-collapse:separate; border-left:0; border-right:0; margin-bottom: 20px;}
-table.stats td			{background-color:#fff; padding:0px; vertical-align:top;}
+table.stats td			{background-color:#FFF; padding:0px; vertical-align:top;}
 
 
 /*	Table for Active / Ended projects
@@ -273,7 +273,7 @@ table.money td.col5			{background-color:#FDFDFD;}
 table.money td.col6			{background-color:#F8F8F8;}
 table.money td.col7			{background-color:#FDFDFD;}
 
-table.money tr.row1 th		{background-color:transparent; color:#fff; font-weight:700; text-align:center; padding:20px 10px;}
+table.money tr.row1 th		{background-color:transparent; color:#FFF; font-weight:700; text-align:center; padding:20px 10px;}
 table.money tr.row1 th:hover{cursor:pointer;}
 table.money tr.row1 th.col1	{background-color:#000; text-align:left; border:1px solid #666; border-bottom:1px solid #666;}
 table.money tr.row1 th.col2	{color:#000; text-align:left; border-bottom:1px solid #666;}
@@ -300,7 +300,7 @@ table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover,
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover,
 table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:#E2E2E2; cursor:pointer;}
 
-table.money a				{display:block; color:#A8C5E5;}
+table.money a				{display:block; color:#000;}
 table.money a:focus			{color:#000; text-decoration:none;}
 table.money a:link  		{color:#000; text-decoration:none;}
 table.money a:visited		{color:#000; text-decoration:none;}
@@ -325,30 +325,30 @@ table.activity td.count	{text-align:right; padding-right:0; min-width:140px; fon
 table.activity td.date	{text-align:right; padding-right:0; min-width:140px; font-size:1.0em;}
 table.activity td.alert_no_iati	{text-align:center; font-size:2.0em; padding:20px 0 0 0; cursor:default;}
 table.activity td span	{display:block; padding:2px 0 3px 0; color:#000; font-size:0.7em; line-height:1.0em;}
-table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#000; box-sizing:border-box;}
+table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#000; line-height:1.0em; box-sizing:border-box;}
 table.activity a:focus	{color:#000; text-decoration:none;}
 table.activity a:link  	{color:#000; text-decoration:none;}
 table.activity a:visited{color:#000; text-decoration:none;}
-table.activity a:hover	{color:#000; text-decoration:none; background-color:#e9e9e9;}
+table.activity a:hover	{color:#000; text-decoration:none; background-color:#E9E9E9;}
 table.activity a:active	{color:#000; text-decoration:none;}
 
 
 /*	Table for data descriptions footer (Donors / Sectors)
 	============================================= */
 table.data				{width:960px; border-collapse:collapse;}
-table.data td			{color:#000; font-size:1.0em; line-height:1.4em; padding:10px 20px; vertical-align:top; border:1px solid #9E9E9E; cursor:default;}
+table.data td			{color:#000; font-size:1.0em; line-height:1.4em; padding:10px 20px; vertical-align:top; border:1px solid #000; cursor:default;}
 
 
 /*	Data Investigators alert
 	============================================= */
 .data_wrap				{position:absolute; bottom:0; width:100%; margin:0 auto;}
-a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:0.9em; color:#fff; text-align:center; background-color:#000;}
-a.data_invest:hover		{color:#fff; background-color:#000; text-decoration:underline;}
+a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:0.9em; color:#FFF; text-align:center; background-color:#000;}
+a.data_invest:hover		{color:#FFF; background-color:#000; text-decoration:underline;}
 
 
 /*	Footer
 	============================================= */
-.footer_wrap			{display:table-footer-group; height:1px; background-color:#fff;}
+.footer_wrap			{display:table-footer-group; height:1px; background-color:#FFF;}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
 .footer_link			{width:320px; display:inline-block; vertical-align:top;}
 .footer_link a			{font-size:0.8em; line-height:1.5em; color:#000;}
@@ -369,9 +369,9 @@ a.data_invest:hover		{color:#fff; background-color:#000; text-decoration:underli
 /*	Beige Alert
 	============================================= */
 .beigealert_wrap		{width:100%; margin:0 auto; background-color:#000;}
-.beigealert				{width:100%; margin:0 auto; color:#fff; font-size:1.0em; line-height:1.25em; text-align:center; padding:10px 0;}
-a.beige					{text-decoration:underline; color:#EBEBEB;}
-a.beige:hover			{color:#fff;}
+.beigealert				{width:100%; margin:0 auto; color:#FFF; font-size:1.0em; line-height:1.25em; text-align:center; padding:10px 0;}
+a.beige					{text-decoration:underline; color:#FFF;}
+a.beige:hover			{color:#FFF;}
 
 
 /*	Spinner / loading animation
