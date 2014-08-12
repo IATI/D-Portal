@@ -92,6 +92,7 @@ view_publisher_sectors_top.ajax=function(args)
 		}
 			
 		ctrack.chunk("data_chart_publisher_sectors",dd);
+		ctrack.chunk("sectors_count",list.length);
 
 		ctrack.display();
 	});

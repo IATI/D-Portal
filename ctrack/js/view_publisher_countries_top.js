@@ -92,6 +92,7 @@ view_publisher_countries_top.ajax=function(args)
 		}
 			
 		ctrack.chunk("data_chart_publisher_countries",dd);
+		ctrack.chunk("countries_count",list.length);
 
 		ctrack.display();
 	});
