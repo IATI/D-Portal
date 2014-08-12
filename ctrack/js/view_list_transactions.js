@@ -78,9 +78,11 @@ view_list_transactions.ajax=function(args)
 		{
 			var s=[];
 			var total=0;
+			ctrack.args.chunks["table_header_amount"]=undefined;
 			if((data.rows.length==0)&&(args.zerodata))
 			{
 				s.push( plate.replace(args.zerodata,{}) );
+				ctrack.args.chunks["table_header_amount"]="";
 			}
 			for(var i=0;i<data.rows.length;i++)
 			{
