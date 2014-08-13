@@ -94,6 +94,15 @@ ctrack.setup=function(args)
 		args.publisher=ctrack.q.publisher; // case is important?
 		args.chunks["publisher_code"]=args.publisher;
 		args.chunks["publisher_name"]=iati_codes.publisher_names[args.publisher] || args.publisher;
+
+		var nn=0;
+		var cc="";
+		var ii=0;
+		for(i=0;i<args.chunks["publisher_name"].length;i++){ nn+=args.chunks["publisher_name"].charCodeAt(i); }
+		for(cc in iati_codes.country) { ii++; }
+		nn=nn%ii;
+		for(cc in iati_codes.country) { nn-=1; if(nn=0) { break; } }
+		args.chunks["background_image"]="{art}back/"+cc.toLowerCase()+".jpg";
 	}
 	else
 	{
