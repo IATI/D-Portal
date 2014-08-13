@@ -28,8 +28,9 @@ query.mustbenumber=function(v)
 	return undefined;
 }
 
-query.maybenumber=function(v)
+query.maybenumber=function(v,ty)
 {
+	if(ty=="char") { return ""+v; } // force string
 	return query.mustbenumber(v) || v;
 }
 
@@ -327,7 +328,7 @@ query.getsql_where=function(q,qv){
 						if( v.length==10 && sb && sb.length==4 && ty=="int") // date string, convert to number if dest is an int
 						{
 							v=iati_xml.isodate_to_number(v);
-							ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v);
+							ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v,ty);
 						}
 						else
 						if(sa[1]) // there was an "|"
@@ -337,7 +338,7 @@ query.getsql_where=function(q,qv){
 						}
 						else
 						{
-							ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v);
+							ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v,ty);
 						}
 					}
 					else
@@ -352,7 +353,7 @@ query.getsql_where=function(q,qv){
 						for(var i=0;i<v.length;i++)
 						{
 							so.push( " $"+n+"_"+i+" " )
-							qv["$"+n+"_"+i]=query.maybenumber(v[i]);
+							qv["$"+n+"_"+i]=query.maybenumber(v[i],ty);
 						}
 						ss.push( " "+n+" IN ("+so.join(",")+") " );
 					}
