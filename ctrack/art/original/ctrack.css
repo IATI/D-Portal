@@ -32,6 +32,7 @@ strong, b, .bold		{font-weight:bold; color:inherit;}
 iati-activity			{margin-bottom:40px;}	/* Fixes too-large bottom margin during only this instance */
 iati-activity:after 	{content:"";}	/* Takes away content since footer is included on site */
 .center_wrap			{width:960px; margin:0 auto; text-align:center;}
+.missing_data_wrap		{padding:40px; background-color:rgba(0,14,32,0.7); font-size:2em; color:#fff; line-height:1.4em;}
 
 
 /*	Breadcrumbs
