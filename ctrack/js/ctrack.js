@@ -99,9 +99,9 @@ ctrack.setup=function(args)
 		var cc="";
 		var ii=0;
 		for(i=0;i<args.chunks["publisher_name"].length;i++){ nn+=args.chunks["publisher_name"].charCodeAt(i); }
-		for(cc in iati_codes.country) { ii++; }
+		for(cc in iati_codes.crs_countries) { if(cc.length==2) { ii++; } }
 		nn=nn%ii;
-		for(cc in iati_codes.country) { nn-=1; if(nn=0) { break; } }
+		for(cc in iati_codes.crs_countries) { if(cc.length==2) { nn-=1; if(nn==0) { break; } } }
 		args.chunks["background_image"]="{art}back/"+cc.toLowerCase()+".jpg";
 	}
 	else
