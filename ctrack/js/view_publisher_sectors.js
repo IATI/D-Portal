@@ -73,6 +73,7 @@ view_publisher_sectors.ajax=function(args)
 		});
 		ctrack.chunk(args.chunk || "table_publisher_sectors_rows",s.join(""));
 
+		ctrack.chunk("sectors_count",a.length);
 		ctrack.chunk_clear("table_publisher_sectors");
 
 	var p=function(s)
