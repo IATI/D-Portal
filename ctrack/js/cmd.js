@@ -62,6 +62,9 @@ cmd.run=function(argv)
 		">	ctrack export tongue tmp/tongue.csv \n"+
 		"Export language table into a csv file.\n"+
 		"\n"+
+		">	ctrack tint red 255 0 0 \n"+
+		"Create art/rgba/red.css with a 255,0,0 rgb tint using art/rgba/original.css as the template.\n"+
+		"\n"+
 		"\n"+
 	"");
 }
