@@ -55,13 +55,19 @@ ctrack.setup=function(args)
 	
 	args.flavas=args.flavas || ["original","high"];
 	args.flava=args.flava || ctrack.q.flava || "original";
-	args.rgba=args.rgba || ctrack.q.rgba || "original";
+	args.rgba=args.rgba || ctrack.q.rgba ;
 
-	args.css=args.css || [
-			args.art+args.flava+"/activities.css",
-			args.art+args.flava+"/ctrack.css",
-			args.art+"rgba/"+args.rgba+".css"
+	if(!args.css) // can totally override with args
+	{
+		args.css=[
+				args.art+args.flava+"/activities.css",
+				args.art+args.flava+"/ctrack.css"
 		];
+		if(args.rgba) // only if given
+		{
+				args.css[args.css.length]=args.art+"rgba/"+args.rgba+".css";
+		}
+	}
 
 	if(args.css) { head.load(args.css); }
 	
