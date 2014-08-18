@@ -31,7 +31,28 @@ cmd.run=function(argv)
 			return require("./tongue.js").export(filename);
 		}
 	}
+	else
+	if( argv._[0]=="tint" )
+	{
+		var name=argv._[1];
+		var r=argv._[2];
+		var g=argv._[3];
+		var b=argv._[4];
+		
+		console.log("creating rgba file",name,r,g,b);
+		
+		var txt=fs.readFileSync("art/rgba/original.css",'utf8');
+		
+		txt = txt.replace(/rgba\((.+?)\)/g, function(match, contents, offset, s){
+			var aa=contents.split(",");
+			var c=(parseInt(aa[0]) + parseInt(aa[1]) + parseInt(aa[2]) ) / (255*3);
+			return "rgba("+Math.floor(r*c)+","+Math.floor(g*c)+","+Math.floor(b*c)+","+aa[3]+")";
+		});
 
+		fs.writeFileSync("art/rgba/"+name+".css",txt,'utf8');
+		
+		return;
+	}
 	// help text
 	console.log(
 		"\n"+
