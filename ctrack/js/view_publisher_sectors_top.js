@@ -20,6 +20,7 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 // the chunk names this view will fill with new data
 view_publisher_sectors_top.chunks=[
 	"data_chart_publisher_sectors",
+	"sectors_count",
 ];
 
 

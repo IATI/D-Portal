@@ -23,6 +23,7 @@ var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $
 view_publisher_sectors.chunks=[
 	"table_publisher_sectors_rows",
 	"table_publisher_sectors",
+	"sectors_count",
 ];
 
 //
