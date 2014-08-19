@@ -41,7 +41,7 @@ view_sector_budgets.view=function()
 	args.q={
 		"year":year,
 		"sector_group":sector,
-		"from":"act,country,sector,budget",
+//		"from":"act,country,sector,budget",
 	};
 	args.q["budget_day_end_gteq"]=year+"-01-01";
 	args.q["budget_day_end_lt"]=(parseInt(year)+1)+"-01-01";
