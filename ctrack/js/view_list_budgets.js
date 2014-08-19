@@ -53,7 +53,7 @@ view_list_budgets.ajax=function(args)
 	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
 	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
 	for(var n in args.q) { dat[n]=args.q[n]; }
-	if(dat.sector_code) { dat.from+=",sector"; }
+	if(dat.sector_code||dat.sector_group) { dat.from+=",sector"; }
 	if(dat.country_code) { dat.from+=",country"; }
 	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 	if(dat.year)

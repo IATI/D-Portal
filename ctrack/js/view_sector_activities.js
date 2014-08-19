@@ -35,8 +35,8 @@ view_sector_activities.view=function()
 	args.chunk="sector_activities_datas";
 	
 	args.q={
-		"sector_group":sector,
-		"from":"act,country,sector",
+//		"sector_group":sector,
+//		"from":"act,country,sector",
 		"groupby":"aid",
 	};
 	
