@@ -38,6 +38,7 @@ chart.draw=function(sel,data,options){
 	
 	var getdat=function(name,idx){
 		var v=data[idx]; // check data first
+		var r;
 		if("object"==typeof v)
 		{
 			r=v[name];

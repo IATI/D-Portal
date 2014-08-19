@@ -29,14 +29,14 @@ view_main.fixup=function()
 view_main.view=function(args)
 {
 
-	views.main.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
+	views.main.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 
 	views.planned.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.active.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.ended.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.stats.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-	views.donors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
-	views.sectors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner_in_table_row}");});
+	views.donors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	views.sectors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 
 
 	ctrack.setcrumb(0);
