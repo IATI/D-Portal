@@ -19,8 +19,8 @@ a:active				{color:rgba(170,170,170,1);}
 
 /*	Breadcrumbs
 	============================================= */
-a.crumb					{color:rgba(204,204,204,1);}
-a.crumb:hover			{color:rgba(255,255,255,1);}
+a.crumb					{color:rgba(163,116,34,1);}
+a.crumb:hover			{color:rgba(255,174,34,1);}
 .crumb_wrap				{color:rgba(204,204,204,1);}
 .crumb_wrap span		{color:rgba(255,255,255,1);}
 
@@ -35,6 +35,7 @@ a.about_data.quality	{border-left:1px solid rgba(187,187,187,1);}
 /*	Header styles
 	============================================= */
 .default.declare	{color:rgba(204,204,204,1);}
+.default.head		{padding:20px; background-color:rgba(15,15,15,0.7); border-radius:0 0 4px 4px;}
 
 
 /*	Blog styles
@@ -73,6 +74,8 @@ a.view_all_money:hover	{background-color:rgba(15,15,15,0.9); color:rgba(255,255,
 .map_info				{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 .map_no_info			{color:rgba(255,255,255,1);}
 .map_percent			{color:rgba(255,255,255,1); background-color:rgba(15,15,15,0.9);}
+.map_percent a			{color:rgba(206,131,0,1);}
+.map_percent a:hover	{color:rgba(255,163,0,1);}
 .map_percent span		{color:rgba(255,255,255,1);}
 
 
@@ -134,18 +137,18 @@ a.csv_download:hover		{background-color:rgba(255,163,0,0.6); color:rgba(255,255,
 	============================================= */
 .donor_activities_spend			{color:rgba(198,198,198,1);}
 .donor_activities_percent_max	{background-color:rgba(0,0,0,1)000; border:1px solid rgba(56,56,56,1);}
-.donor_activities_percent		{background-color:rgba(130,130,130,1);}
+.donor_activities_percent		{background-color:rgba(206,131,0,1);}
 
 
 /*	For url #view=sectors & all #view=sector_*
 	============================================= */
-.sectors_peak				{border-right:30px solid rgba(107,107,107,1);}
-.sectors_head_title			{background-color:rgba(107,107,107,1); color:rgba(255,255,255,1);}
+.sectors_peak				{border-right:30px solid rgba(206,131,0,1);}
+.sectors_head_title			{background-color:rgba(206,131,0,1); color:rgba(255,255,255,1);}
 
 
 /*	Table header styles
 	============================================= */
-th.titles					{color:rgba(113,113,113,1); border-bottom:1px solid rgba(56,56,56,1);}
+th.titles					{color:rgba(163,116,34,1); border-bottom:1px solid rgba(56,56,56,1);}
 
 
 /*	Table for Header logo and Translations
@@ -155,14 +158,14 @@ table.head td.options		{color:rgba(255,255,255,1);}
 
 /*	Table for Country Name and Flag
 	============================================= */
-table.country				{border-bottom:10px solid rgba(255,255,255,1);}
+table.country				{border-bottom:2px solid rgba(165,99,0,1);}
 table.country td.name		{color:rgba(255,255,255,1);}
 table.country.min td.name	{color:rgba(255,255,255,1);}
 
 
 /*	Table Titles
 	============================================= */
-table.title				{border-bottom:10px solid rgba(255,255,255,1);}
+table.title				{border-bottom:2px solid rgba(165,99,0,1);}
 table.title td			{color:rgba(255,255,255,1);}
 table.title td.sort		{color:rgba(204,204,204,1);}
 
@@ -171,12 +174,12 @@ table.title td.sort		{color:rgba(204,204,204,1);}
 	============================================= */
 table.list td			{color:rgba(198,198,198,1); border-bottom:1px solid rgba(56,56,56,1);}
 table.list td span		{color:rgba(153,153,153,1);}
-table.list a			{color:rgba(204,204,204,1);}
+table.list a			{color:rgba(218,218,218,1);}
 table.list a:focus		{color:rgba(255,255,255,1);}
-table.list a:link  		{color:rgba(204,204,204,1);}
-table.list a:visited	{color:rgba(204,204,204,1);}
-table.list a:hover		{color:rgba(255,255,255,1); background-color:rgba(0,0,0,0.4);}
-table.list a:active		{color:rgba(204,204,204,1);}
+table.list a:link  		{color:rgba(218,218,218,1);}
+table.list a:visited	{color:rgba(218,218,218,1);}
+table.list a:hover		{color:rgba(255,174,34,1); background-color:rgba(0,0,0,0.4);}
+table.list a:active		{color:rgba(218,218,218,1);}
 
 
 /*	Table for Money list (Donors / Sectors)
@@ -209,8 +212,8 @@ table.money tr.rows td.col5	{border-right:1px solid rgba(67,67,67,1);}
 table.money tr.rows td.col7	{border-right:1px solid rgba(82,82,82,1);}
 
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
-table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(56,56,56,1);}
-table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(74,74,74,1);}
+table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(206,131,0,0.6);}
+table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(206,131,0,0.6);}
 
 table.money a				{color:rgba(204,204,204,1);}
 table.money a:focus			{color:rgba(204,204,204,1);}
@@ -228,12 +231,12 @@ table.money.publishers th.col2	{border-top:1px solid rgba(67,67,67,1);}
 	============================================= */
 table.activity td		{color:rgba(198,198,198,1); border-bottom:1px solid rgba(56,56,56,1);}
 table.activity td span	{color:rgba(153,153,153,1);}
-table.activity a		{color:rgba(204,204,204,1);}
+table.activity a		{color:rgba(218,218,218,1);}
 table.activity a:focus	{color:rgba(255,255,255,1);}
-table.activity a:link  	{color:rgba(204,204,204,1);}
-table.activity a:visited{color:rgba(204,204,204,1);}
-table.activity a:hover	{color:rgba(255,255,255,1); background-color:rgba(0,0,0,0.4);}
-table.activity a:active	{color:rgba(204,204,204,1);}
+table.activity a:link  	{color:rgba(218,218,218,1);}
+table.activity a:visited{color:rgba(218,218,218,1);}
+table.activity a:hover	{color:rgba(255,174,34,1); background-color:rgba(0,0,0,0.4);}
+table.activity a:active	{color:rgba(218,218,218,1);}
 
 
 /*	Table for data descriptions footer (Donors / Sectors)
@@ -277,10 +280,14 @@ title:before 			{color:rgba(204,204,204,1);}
 
 /*	IATI Identifier
 	============================================= */
-iati-identifier 				{background-color: rgba(15,15,15,0.7); color:rgba(125,125,125,1);}
+iati-identifier 				{background-color: rgba(15,15,15,0.7); color:rgba(206,131,0,1);}
 iati-identifier:before			{color:rgba(204,204,204,1);}
-iati-identifier:hover			{color:rgba(173,173,173,1);}
+iati-identifier:hover			{color:rgba(255,163,0,1);}
+a.a_xml_iati-identifier			{color:rgba(206,131,0,1);}
+a.a_xml_iati-identifier:hover	{color:rgba(255,163,0,1);}
 a.a_xml_iati-identifier:before	{color:rgba(204,204,204,1);}
+a.a_slug						{color:rgba(206,131,0,1);}
+a.a_slug:hover					{color:rgba(255,163,0,1);}
 a.a_slug:before					{color:rgba(204,204,204,1);}
 
 
