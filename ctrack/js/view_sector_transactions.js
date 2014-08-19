@@ -42,7 +42,7 @@ view_sector_transactions.view=function()
 	
 	args.q={
 		"year":year,
-		"sector_group":sector,
+//		"sector_group":sector,
 //		"from":"act,country,sector,trans",
 	};
 	args.q["trans_day_gteq"]=year+"-01-01";
