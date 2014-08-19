@@ -59,4 +59,4 @@ views.publisher_countries_top=require("./view_publisher_countries_top.js");
 views.publisher_sectors=require("./view_publisher_sectors.js");
 views.publisher_sectors_top=require("./view_publisher_sectors_top.js");
 
-
+views.frame=require("./view_frame.js");
