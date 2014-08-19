@@ -16,7 +16,7 @@ iati-activity:after {content:"Data is sourced from IATI for D-Portal. If you fin
 	============================================= */
 iati-activity span	{display:block;}
 iati-activity a 	{display:block;}
-iati-activity img	{display:block;}
+iati-activity img	{display:block; -webkit-filter:brightness(100%); filter:brightness(100%);}
 
 
 /*	Project title
