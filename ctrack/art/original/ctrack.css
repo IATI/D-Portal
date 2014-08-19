@@ -6,6 +6,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 a,img{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outline:0;}
 
+img						{-webkit-filter:brightness(200%); filter:brightness(200%);}
+
 body,html 				{background:none; color:#FFF; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
 html					{background-color:#000;}
 
@@ -110,6 +112,7 @@ a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#FFF;}
 .map_percent span		{display:inline-block; vertical-align:bottom; font-size:1.0em; line-height:1.0em; color:#FFF; font-weight:bold; padding:0 3px 0 7px;}
 .map_percent a			{font-weight:bold;}
 #map					{width:100%; height:400px;}
+.map_wrap img			{-webkit-filter:brightness(100%); filter:brightness(100%);}
 
 
 /*	For url #view=map
@@ -208,6 +211,7 @@ a.csv_download:hover		{background-color:rgba(115, 182, 255, 0.49); color:#FFF;}
 /*	Table header styles
 	============================================= */
 th.titles					{color:#646E8F; text-align:left; padding:10px 20px; border-bottom:1px solid #333642;}
+th.titles:nth-child(1)		{padding:10px 0;}
 th.titles:nth-child(3), th.titles:last-child	{padding:10px; text-align:right; font-size:0.8em;}
 
 
@@ -215,6 +219,7 @@ th.titles:nth-child(3), th.titles:last-child	{padding:10px; text-align:right; fo
 	============================================= */
 table.head					{width:100%; margin:0 auto; border-collapse:initial;}
 table.head td.options		{color:#FFF; text-align:right; vertical-align:top; font-size:0.9em;}
+table.head img				{-webkit-filter:brightness(100%); filter:brightness(100%);}
 
 
 /*	Table for Country Name and Flag
@@ -228,6 +233,8 @@ table.country.min			{padding:10px 0;}
 table.country.min td.name	{width:860px; max-width:860px; padding-right:20px; font-size:2.0em; line-height:1.1em; color:#FFF;}
 table.country.min td.flag img	{max-height:50px;}
 table.country td:hover		{cursor:default;}
+table.country img			{-webkit-filter:brightness(100%); filter:brightness(100%);}
+
 
 
 /*	Table Titles
