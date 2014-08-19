@@ -253,13 +253,22 @@ ctrack.setup=function(args)
 	{
 		if(name)
 		{
-			name=name.toLowerCase();
-			var v=views[name];
-			if(v && v.view)
+			if(ctrack.popout)
 			{
-				v.view();
+console.log(name);
+				window.open("http://d-portal.org/");
 			}
-			ganal.view(); // record view action
+			else
+			{
+console.log(name);
+				name=name.toLowerCase();
+				var v=views[name];
+				if(v && v.view)
+				{
+					v.view();
+				}
+				ganal.view(); // record view action
+			}
 		}
 	}
 
