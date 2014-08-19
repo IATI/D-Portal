@@ -118,8 +118,8 @@ a.read:hover			{color:rgba(255,255,255,1);}
 .list_stats_num				{color:rgba(255,255,255,1);}
 a.button					{background-color:rgba(206,131,0,1); color:rgba(255,255,255,1);}
 a.button:hover				{background-color:rgba(255,163,0,1);}
-a.csv_download				{background-color:rgba(192,192,192,0.24); color:rgba(204,204,204,1);}
-a.csv_download:hover		{background-color:rgba(184,184,184,0.49); color:rgba(255,255,255,1);}
+a.csv_download				{background-color:rgba(206,131,0,0.6); color:rgba(204,204,204,1);}
+a.csv_download:hover		{background-color:rgba(255,163,0,0.6); color:rgba(255,255,255,1);}
 
 	
 /*	For url #view=donors & all #view=donor_*
@@ -219,6 +219,10 @@ table.money a:visited		{color:rgba(204,204,204,1);}
 table.money a:hover			{color:rgba(255,255,255,1);}
 table.money a:active		{color:rgba(204,204,204,1);}
 
+table.money.publishers th.col2,
+table.money.publishers td.col2	{border-left:1px solid rgba(67,67,67,1);}
+table.money.publishers th.col2	{border-top:1px solid rgba(67,67,67,1);}
+
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
@@ -244,8 +248,8 @@ table.data td			{color:rgba(255,255,255,1); border:1px solid rgba(204,204,204,1)
 
 /*	Data Investigators alert
 	============================================= */
-a.data_invest			{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
-a.data_invest:hover		{color:rgba(255,255,255,1); background-color:rgba(255,163,0,1);}
+a.data_invest			{color:rgba(255,255,255,1); background-color:rgba(206,131,0,0.6);}
+a.data_invest:hover		{color:rgba(255,255,255,1); background-color:rgba(255,163,0,0.6);}
 
 
 /*	Footer

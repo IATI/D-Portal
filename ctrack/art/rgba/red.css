@@ -145,7 +145,7 @@ a.csv_download:hover		{background-color:rgba(184,0,0,0.49); color:rgba(255,0,0,1
 
 /*	Table header styles
 	============================================= */
-th.titles					{color:#668; border-bottom:1px solid rgba(56,0,0,1);}
+th.titles					{color:rgba(113,0,0,1); border-bottom:1px solid rgba(56,0,0,1);}
 
 
 /*	Table for Header logo and Translations
@@ -218,6 +218,10 @@ table.money a:link  		{color:rgba(204,0,0,1);}
 table.money a:visited		{color:rgba(204,0,0,1);}
 table.money a:hover			{color:rgba(255,0,0,1);}
 table.money a:active		{color:rgba(204,0,0,1);}
+
+table.money.publishers th.col2,
+table.money.publishers td.col2	{border-left:1px solid rgba(67,0,0,1);}
+table.money.publishers th.col2	{border-top:1px solid rgba(67,0,0,1);}
 
 
 /*	Table for Activities list (Donors / Sectors)

@@ -1,0 +1,416 @@
+body,html 				{color:rgba(0,0,0,1);}
+html					{background-color:rgba(0,0,0,1);}
+
+
+/*	Links & fonts
+	============================================= */
+a:focus					{color:rgba(0,0,0,1);}
+a:link  				{color:rgba(0,0,0,1);}
+a:visited				{color:rgba(0,0,0,1);}
+a:hover					{color:rgba(0,0,0,1);}
+a:active				{color:rgba(0,0,0,1);}
+
+
+/*	Main wrappers for content & fixed background img
+	============================================= */
+.main_wrap				{background-color:rgba(0,0,0,0.4);}
+.overlay				{background-color:rgba(0,0,0,0.6);}
+
+
+/*	Breadcrumbs
+	============================================= */
+a.crumb					{color:rgba(0,0,0,1);}
+a.crumb:hover			{color:rgba(0,0,0,1);}
+.crumb_wrap				{color:rgba(0,0,0,1);}
+.crumb_wrap span		{color:rgba(0,0,0,1);}
+
+
+/*	About data links
+	============================================= */
+a.about_data			{color:rgba(0,0,0,1);}
+a.about_data:hover		{color:rgba(0,0,0,1);}
+a.about_data.quality	{border-left:1px solid rgba(0,0,0,1);}
+
+
+/*	Header styles
+	============================================= */
+.default.declare	{color:rgba(0,0,0,1);}
+
+
+/*	Blog styles
+	============================================= */
+.blog_head			{color:rgba(0,0,0,1); border-bottom:10px solid rgba(0,0,0,1);}
+a.blog_head			{color:rgba(0,0,0,1); border-bottom:10px solid rgba(0,0,0,1);}
+.blog_wrap			{color:rgba(0,0,0,1); border-bottom:1px solid rgba(0,0,0,1); background-color:rgba(0,0,0,0.1);}
+.blog_date			{color:rgba(0,0,0,1);}
+.blog_body a		{color:rgba(0,0,0,1);}
+.blog_body a:hover	{color:rgba(0,0,0,1);}
+.blog_title			{color:rgba(0,0,0,1);}
+a.blog_title		{color:rgba(0,0,0,1);}
+a.blog_title:hover	{color:rgba(0,0,0,1);}
+a.back_news			{color:rgba(0,0,0,1);}
+a.back_news:hover	{color:rgba(0,0,0,1);}
+
+
+/*	Graph styles
+	============================================= */
+#donor_graph, #sector_graph	{background-color:rgba(0,0,0,1); color:rgba(0,0,0,1); border:1px solid rgba(0,0,0,1);}
+a.ask					{color:rgba(0,0,0,1);}
+a.ask.donor				{background-color:rgba(0,0,0,1);}
+a.ask.donor:hover		{background-color:rgba(0,0,0,1);}
+a.ask.sector			{background-color:rgba(0,0,0,1);}
+a.ask.sector:hover		{background-color:rgba(0,0,0,1);}
+.main_peak_wrap			{background-color:rgba(0,0,0,1);}
+.peak.donor				{border-top:20px solid rgba(0,0,0,1);}
+.peak.sector			{border-top:20px solid rgba(0,0,0,1);}
+a.view_all_money		{background-color:rgba(0,0,0,0.7); color:rgba(0,0,0,1);}
+a.view_all_money:hover	{background-color:rgba(0,0,0,0.9); color:rgba(0,0,0,1);}
+
+
+/*	Map styles (front page)
+	============================================= */
+.map_wrap				{background-color:rgba(0,0,0,0.8);}
+.map_info				{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.9);}
+.map_no_info			{color:rgba(0,0,0,1);}
+.map_percent			{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.9);}
+.map_percent span		{color:rgba(0,0,0,1);}
+
+
+/*	For url #view=map
+	============================================= */
+.map_no_info.view		{color:rgba(0,0,0,1);}
+
+
+/*	Stats (key figures) styles
+	============================================= */
+span.stats_title		{color:rgba(0,0,0,1);}
+span.stats_title.view	{color:rgba(0,0,0,1);}
+span.stats_num			{color:rgba(0,0,0,1);}
+span.stats_num.view		{color:rgba(0,0,0,1);}
+.declare.stats			{color:rgba(0,0,0,1);}
+a.stats_link			{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.7);}
+a.stats_link:hover		{background-color:rgba(0,0,0,0.9);}
+a.stats_link.missing span	{color:rgba(0,0,0,1);}
+
+
+/*	Active / Ended projects styles
+	============================================= */
+.table_wrap				{background-color:rgba(0,0,0,0.7);}
+
+
+/*	Data Description styles
+	============================================= */
+.description_wrap		{background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,0,0,1) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,1) 100%);}
+.description			{background-color:rgba(0,0,0,0.1);}
+.description span.title	{color:rgba(0,0,0,1); border-top:1px solid rgba(0,0,0,1); border-bottom:1px solid rgba(0,0,0,1);}
+.description p			{color:rgba(0,0,0,1);}
+.description a			{color:rgba(0,0,0,1);}
+.description a:hover	{color:rgba(0,0,0,1);}
+a.read					{color:rgba(0,0,0,1);}
+a.read:hover			{color:rgba(0,0,0,1);}
+
+
+/*	Generic styles
+	============================================= */
+.list_peak					{border-right:30px solid rgba(0,0,0,1);}
+.list_head_title			{background-color:rgba(0,0,0,1); color:rgba(0,0,0,1);}
+.list_stats_title			{color:rgba(0,0,0,1);}
+.list_stats_num				{color:rgba(0,0,0,1);}
+a.button					{background-color:rgba(0,0,0,1); color:rgba(0,0,0,1);}
+a.button:hover				{background-color:rgba(0,0,0,1);}
+a.csv_download				{background-color:rgba(0,0,0,0.24); color:rgba(0,0,0,1);}
+a.csv_download:hover		{background-color:rgba(0,0,0,0.49); color:rgba(0,0,0,1);}
+
+	
+/*	For url #view=donors & all #view=donor_*
+	============================================= */
+.donors_peak				{border-right:30px solid rgba(0,0,0,1);}
+.donors_peak.view			{border-right:30px solid rgba(0,0,0,1);}
+.donors_head_title			{background-color:rgba(0,0,0,1); color:rgba(0,0,0,1);}
+.donors_head_title.view		{background-color:rgba(0,0,0,1);}
+
+
+/*	For url #view=donor_activities
+	============================================= */
+.donor_activities_spend			{color:rgba(0,0,0,1);}
+.donor_activities_percent_max	{background-color:rgba(0,0,0,1)000; border:1px solid rgba(0,0,0,1);}
+.donor_activities_percent		{background-color:rgba(0,0,0,1);}
+
+
+/*	For url #view=sectors & all #view=sector_*
+	============================================= */
+.sectors_peak				{border-right:30px solid rgba(0,0,0,1);}
+.sectors_head_title			{background-color:rgba(0,0,0,1); color:rgba(0,0,0,1);}
+
+
+/*	Table header styles
+	============================================= */
+th.titles					{color:rgba(0,0,0,1); border-bottom:1px solid rgba(0,0,0,1);}
+
+
+/*	Table for Header logo and Translations
+	============================================= */
+table.head td.options		{color:rgba(0,0,0,1);}
+
+
+/*	Table for Country Name and Flag
+	============================================= */
+table.country				{border-bottom:10px solid rgba(0,0,0,1);}
+table.country td.name		{color:rgba(0,0,0,1);}
+table.country.min td.name	{color:rgba(0,0,0,1);}
+
+
+/*	Table Titles
+	============================================= */
+table.title				{border-bottom:10px solid rgba(0,0,0,1);}
+table.title td			{color:rgba(0,0,0,1);}
+table.title td.sort		{color:rgba(0,0,0,1);}
+
+
+/*	Table for Active / Ended projects
+	============================================= */
+table.list td			{color:rgba(0,0,0,1); border-bottom:1px solid rgba(0,0,0,1);}
+table.list td span		{color:rgba(0,0,0,1);}
+table.list a			{color:rgba(0,0,0,1);}
+table.list a:focus		{color:rgba(0,0,0,1);}
+table.list a:link  		{color:rgba(0,0,0,1);}
+table.list a:visited	{color:rgba(0,0,0,1);}
+table.list a:hover		{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.4);}
+table.list a:active		{color:rgba(0,0,0,1);}
+
+
+/*	Table for Money list (Donors / Sectors)
+	============================================= */
+table.money td				{color:rgba(0,0,0,1); border-bottom:1px solid rgba(0,0,0,1);}
+table.money td.col1			{background-color:rgba(0,0,0,0.4);}
+table.money td.col3			{background-color:rgba(0,0,0,0.2);}
+table.money td.col4			{background-color:rgba(0,0,0,0.4);}
+table.money td.col5			{background-color:rgba(0,0,0,0.6);}
+table.money td.col6			{background-color:rgba(0,0,0,0.4);}
+table.money td.col7			{background-color:rgba(0,0,0,0.6);}
+
+table.money tr.row1 th		{color:rgba(0,0,0,1);}
+table.money tr.row1 th.col1	{background-color:rgba(0,0,0,0.9); border:1px solid rgba(0,0,0,1); border-bottom:1px solid rgba(0,0,0,1);}
+table.money tr.row1 th.col2	{border-bottom:1px solid rgba(0,0,0,1);}
+table.money tr.row1 th.col3	{background-color:rgba(0,0,0,0.9); border:1px solid rgba(0,0,0,1); border-bottom:1px solid rgba(0,0,0,1);}
+table.money tr.row1 th.col4	{background-color:rgba(0,0,0,0.9); border:1px solid rgba(0,0,0,1); border-bottom:1px solid rgba(0,0,0,1);}
+
+table.money tr.row2 td		{color:rgba(0,0,0,1);}
+table.money tr.row2 td.col1 {background-color:rgba(0,0,0,0.9); border-left:1px solid rgba(0,0,0,1); border-right:1px solid rgba(0,0,0, 1);}
+table.money tr.row2 td.col3	{background-color:rgba(0,0,0,0.6); border-left:1px solid rgba(0,0,0,1);}
+table.money tr.row2 td.col4	{background-color:rgba(0,0,0,0.8);}
+table.money tr.row2 td.col5	{background-color:rgba(0,0,0,0.9); border-right:1px solid rgba(0,0,0,1);}
+table.money tr.row2 td.col6	{background-color:rgba(0,0,0,0.7);}
+table.money tr.row2 td.col7	{background-color:rgba(0,0,0,0.9); border-right:1px solid rgba(0,0,0,1);}
+
+table.money tr.rows td.col1	{border-left:1px solid rgba(0,0,0,1); border-right:1px solid rgba(0,0,0,1);}
+table.money tr.rows td.col3	{border-left:1px solid rgba(0,0,0,1);}
+table.money tr.rows td.col5	{border-right:1px solid rgba(0,0,0,1);}
+table.money tr.rows td.col7	{border-right:1px solid rgba(0,0,0,1);}
+
+table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
+table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(0,0,0,1);}
+table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(0,0,0,1);}
+
+table.money a				{color:rgba(0,0,0,1);}
+table.money a:focus			{color:rgba(0,0,0,1);}
+table.money a:link  		{color:rgba(0,0,0,1);}
+table.money a:visited		{color:rgba(0,0,0,1);}
+table.money a:hover			{color:rgba(0,0,0,1);}
+table.money a:active		{color:rgba(0,0,0,1);}
+
+table.money.publishers th.col2,
+table.money.publishers td.col2	{border-left:1px solid rgba(0,0,0,1);}
+table.money.publishers th.col2	{border-top:1px solid rgba(0,0,0,1);}
+
+
+/*	Table for Activities list (Donors / Sectors)
+	============================================= */
+table.activity td		{color:rgba(0,0,0,1); border-bottom:1px solid rgba(0,0,0,1);}
+table.activity td span	{color:rgba(0,0,0,1);}
+table.activity a		{color:rgba(0,0,0,1);}
+table.activity a:focus	{color:rgba(0,0,0,1);}
+table.activity a:link  	{color:rgba(0,0,0,1);}
+table.activity a:visited{color:rgba(0,0,0,1);}
+table.activity a:hover	{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.4);}
+table.activity a:active	{color:rgba(0,0,0,1);}
+
+
+/*	Table for data descriptions footer (Donors / Sectors)
+	============================================= */
+table.data td			{color:rgba(0,0,0,1); border:1px solid rgba(0,0,0,1);}
+
+
+/*	Missing data
+	============================================= */
+.missing_data_wrap		{background-color:rgba(0,0,0,0.7); color:rgba(0,0,0,1);}
+
+
+/*	Data Investigators alert
+	============================================= */
+a.data_invest			{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.4);}
+a.data_invest:hover		{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.8);}
+
+
+/*	Footer
+	============================================= */
+.footer_wrap			{background-color:rgba(0,0,0,0.95);}
+.footer_link a			{color:rgba(0,0,0,1);}
+.footer_link a:focus	{color:rgba(0,0,0,1);}
+.footer_link a:link  	{color:rgba(0,0,0,1);}
+.footer_link a:visited	{color:rgba(0,0,0,1);}
+.footer_link a:hover	{color:rgba(0,0,0,1);}
+.footer_link a:active	{color:rgba(0,0,0,1);}
+
+
+/*	SAVi CSS
+	============================================= */
+iati-activity			{background-color:rgba(0,0,0,0.7);}
+iati-activity:after 	{color:rgba(0,0,0,1);}
+
+
+/*	Project title
+	============================================= */
+title		 			{color:rgba(0,0,0,1);}
+title:before 			{color:rgba(0,0,0,1);}
+
+
+/*	IATI Identifier
+	============================================= */
+iati-identifier 				{background-color: rgba(0,0,0,0.7); color:rgba(0,0,0,1);}
+iati-identifier:before			{color:rgba(0,0,0,1);}
+iati-identifier:hover			{color:rgba(0,0,0,1);}
+a.a_xml_iati-identifier:before	{color:rgba(0,0,0,1);}
+a.a_slug:before					{color:rgba(0,0,0,1);}
+
+
+/*	Recipient countries
+	============================================= */
+span.span_recipient-country				{background-color:rgba(0,0,0,0.9);}
+span.span_recipient-country:before 		{color:rgba(0,0,0,1);}
+recipient-country span					{color:rgba(0,0,0,1);}
+recipient-country span:nth-of-type(2)	{color:rgba(0,0,0,1);}
+
+
+/*	Start and End dates
+	============================================= */
+span.span_activity-date						{background-color:rgba(0,0,0,0.9);}
+activity-date[type="start-actual"]			{color:rgba(0,0,0,1);}
+activity-date[type="end-actual"]			{color:rgba(0,0,0,1);}
+activity-date[type="start-actual"]:before	{color:rgba(0,0,0,1);}
+activity-date[type="end-actual"]:before		{color:rgba(0,0,0,1);}
+
+
+/*	Who's invloved?
+	============================================= */
+participating-org 								{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.4);}
+participating-org:nth-of-type(1):before 		{color:rgba(0,0,0,1); border-bottom:5px solid rgba(0,0,0,1);}
+participating-org[role="funding"]:after			{color:rgba(0,0,0,1);}
+participating-org[role="implementing"]:after	{color:rgba(0,0,0,1);}
+participating-org[role="extending"]:after		{color:rgba(0,0,0,1);}
+participating-org[role="accountable"]:after		{color:rgba(0,0,0,1);}
+
+
+/*	Reported by
+	============================================= */
+reporting-org 					{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.4)}
+reporting-org:before 			{color:rgba(0,0,0,1);}
+
+
+/*	Description of project (shared with Transaction table)
+	============================================= */
+description 						{color:rgba(0,0,0,1);}
+description:nth-of-type(1):before	{color:rgba(0,0,0,1);}
+description[type="1"]:before		{color:rgba(0,0,0,1);}
+description[type="2"]:before		{color:rgba(0,0,0,1);}
+description[type="3"]:before		{color:rgba(0,0,0,1);}
+
+
+/*	Sectors (also turned into graph: sector_pie)
+	============================================= */
+sector[vocabulary="DAC"]		{color:rgba(0,0,0,1);}
+sector:nth-child(even)			{background-color:rgba(0,0,0,0.7);}
+sector[vocabulary="DAC"]:before	{color:rgba(0,0,0,1);}
+sector span						{color:rgba(0,0,0,1);}
+sector span:nth-of-type(2)		{color:rgba(0,0,0,1);}
+img.sector_pie					{background-color:rgba(0,0,0,1);}
+
+
+/*	Budget table
+	============================================= */
+budget					{border-top:1px solid rgba(0,0,0,1);}
+budget:last-of-type	 	{border-bottom:0px solid rgba(0,0,0,1);}
+budget:nth-of-type(1):before				{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.9);}
+budget:nth-of-type(1) period-start:before 	{color:rgba(0,0,0,1); border-bottom:2px solid rgba(0,0,0,0.9);}
+budget:nth-of-type(1) period-end:before	  	{color:rgba(0,0,0,1); border-bottom:2px solid rgba(0,0,0,0.9);}
+budget:nth-of-type(1) value:before		  	{color:rgba(0,0,0,1); border-bottom:2px solid rgba(0,0,0,0.9);}
+period-start 			{color:rgba(0,0,0,1);}
+period-end	 			{color:rgba(0,0,0,1);}
+budget value 			{color:rgba(0,0,0,1);}
+
+
+/*	Transaction table
+	============================================= */
+transaction							{border-top:1px solid rgba(0,0,0,1);}
+transaction a						{color:rgba(0,0,0,1);}
+transaction a:hover					{color:rgba(0,0,0,1);}
+transaction:last-of-type			{border-bottom:0px solid rgba(0,0,0,1);}
+transaction:nth-of-type(1):before	{color:rgba(0,0,0,1); background-color:rgba(0,0,0, 0.9);}
+
+transaction:nth-of-type(1) transaction-date:before	{color:rgba(0,0,0,1); border-bottom:2px solid rgba(0,0,0, 0.9);}
+transaction:nth-of-type(1) transaction-type:before	{color:rgba(0,0,0,1); border-bottom:2px solid rgba(0,0,0, 0.9);}
+transaction:nth-of-type(1) provider-org:before		{color:rgba(0,0,0,1); border-bottom:2px solid rgba(0,0,0, 0.9);}
+transaction:nth-of-type(1) receiver-org:before		{color:rgba(0,0,0,1); border-bottom:2px solid rgba(0,0,0, 0.9);}
+transaction:nth-of-type(1) value:before				{color:rgba(0,0,0,1); border-bottom:2px solid rgba(0,0,0, 0.9);}
+transaction:nth-of-type(1) description:nth-of-type(1):before {color:rgba(0,0,0,1); border-bottom:2px solid rgba(0,0,0, 0.9);}
+
+transaction-date	{color:rgba(0,0,0,1);}
+transaction-type	{color:rgba(0,0,0,1);}
+transaction description:nth-of-type(1) {color:rgba(0,0,0,1);}
+provider-org		{color:rgba(0,0,0,1);}
+receiver-org		{color:rgba(0,0,0,1);}
+value				{color:rgba(0,0,0,1);}
+value span			{color:rgba(0,0,0,1);}
+
+
+/*	Contact info for Publisher
+	============================================= */
+contact-info *						{color:rgba(0,0,0,1);}
+contact-info:nth-of-type(1):before	{color:rgba(0,0,0,1);}
+
+
+/*	Website or external links
+	============================================= */
+activity-website		{color:rgba(0,0,0,1); background-color: rgba(0,0,0,0.7);}
+activity-website:before {color:rgba(0,0,0,1);}
+activity-website:hover	{color:rgba(0,0,0,1);}
+
+
+/*	Activity Status
+	============================================= */
+activity-status[code="1"]	{background-color:rgba(0,0,0,1);}
+activity-status[code="2"]	{background-color:rgba(0,0,0,1);}
+activity-status[code="3"]	{background-color:rgba(0,0,0,1);}
+activity-status[code="4"]	{background-color:rgba(0,0,0,1);}
+activity-status[code="5"]	{background-color:rgba(0,0,0,1);}
+activity-status				{background-color:rgba(0,0,0,1); color:rgba(0,0,0,1);}
+activity-status:before		{color:rgba(0,0,0,1);}
+
+
+/*	Related documents list
+	============================================= */
+span.span_document-link:before				{color:rgba(0,0,0,1); border-bottom:3px solid rgba(0,0,0,1);}
+a.a_document-link							{color:rgba(0,0,0,1);}
+a.a_document-link document-link title		{color:rgba(0,0,0,1);}
+a.a_document-link document-link title:hover	{color:rgba(0,0,0,1);}
+document-link span							{color:rgba(0,0,0,1);}
+
+
+/*	Family Tree list
+	============================================= */
+span.span_related-activity:before	{color:rgba(0,0,0,1); border-bottom:3px solid rgba(0,0,0,1);}
+span.span_related-activity			{color:rgba(0,0,0,1);}
+a.a_related-activity				{color:rgba(0,0,0,1);}
+related-activity					{color:rgba(0,0,0,1);}
+related-activity:hover				{color:rgba(0,0,0,1);}
+related-activity:before				{color:rgba(0,0,0,1);}

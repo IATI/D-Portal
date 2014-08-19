@@ -219,6 +219,10 @@ table.money a:visited		{color:rgba(170,204,238,1);}
 table.money a:hover			{color:rgba(255,255,255,1);}
 table.money a:active		{color:rgba(170,204,238,1);}
 
+table.money.publishers th.col2,
+table.money.publishers td.col2	{border-left:1px solid rgba(0,50,151,1);}
+table.money.publishers th.col2	{border-top:1px solid rgba(0,50,151,1);}
+
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
