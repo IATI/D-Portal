@@ -111,6 +111,8 @@ view_generator.fixup=function()
 
 		if($countries) { $countries.change(change); }
 
+		change();
+
 	});
 }
 //
