@@ -19,8 +19,17 @@ view_frame.chunks=[
 // called on view display to fix html in place
 view_frame.fixup=function()
 {
+	var name=ctrack.hash.frame;
+	if(name)
+	{
+		name=name.toLowerCase();
+		var v=views[name];
+		if(v && v.fixup)
+		{
+			v.fixup();
+		}
+	}
 	$("a").attr("target","_blank");
-//	views.map.fixup();
 }
 //
 // Perform ajax call to get numof data
@@ -30,7 +39,42 @@ view_frame.view=function(args)
 	ctrack.setcrumb(0);
 	ctrack.change_hash();
 
-	views.sectors_top.ajax();
+	var name=ctrack.hash.frame;
+	if(name)
+	{
+		name=name.toLowerCase();
+		var v=views[name];
+		if(v)
+		{
+			if(v.ajax)
+			{
+				v.ajax();
+			}
+//			ctrack.chunk("frame","{frame_"+name+"}");
+		}
+	}
+
+//	view_frame.show();
 	
-	ctrack.popout=true; // any clicks should open in a new window
+	ctrack.popout="frame"; // any clicks should open in a new window
+}
+
+view_frame.show=function(args)
+{
+	var name=ctrack.hash.frame;
+	if(name)
+	{
+		name=name.toLowerCase();
+		var v=views[name];
+		if(v)
+		{
+			if(v.show)
+			{
+				v.show();
+			}
+			ctrack.chunk("frame","{frame_"+name+"}");
+		}
+	}
+	
+	ctrack.div.master.html( plate.replace( "{view_frame}" ) );
 }
