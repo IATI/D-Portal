@@ -360,6 +360,7 @@ budget value 			{color:rgba(255,255,255,1);}
 	============================================= */
 transaction							{border-top:1px solid rgba(143,143,143,1);}
 transaction a						{color:rgba(255,163,0,1);}
+a.a_receiver-org					{color:rgba(255,163,0,1);}
 transaction a:hover					{color:rgba(255,183,0,1);}
 transaction:last-of-type			{border-bottom:0px solid rgba(143,143,143,1);}
 transaction:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
