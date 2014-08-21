@@ -14,7 +14,7 @@ Each SAVi XML should download as the actual project title; ie. "*ActivityGB1.xml
 Display rules
 ==========================================
 
-The objective of creating SAVi was so that xml files reads easier for casual users who would otherwise be overwhelmed by raw xml.
+The objective of creating SAVi was so that xml files read easier for casual users who would otherwise be overwhelmed by raw xml.
 
 For this to work, data included in the xml has been curated so that only the most useful fields are displayed. Of course, what is most useful remains subjective so this will depend on user feedback. As such, due to the loose schema of what data can be included in an IATI xml and until we get more feedback from regular use, we have chosen the most common fields we have encountered to display in SAVi.
 
