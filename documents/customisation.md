@@ -40,7 +40,6 @@ You can also create a new base easily by typing this in command line. You will n
 
 ```
 ctrack tint red 255 0 0 
-
 ```
 
 Create art/rgba/red.css with a 255,0,0 rgb tint using art/rgba/original.css as the template.
