@@ -102,6 +102,7 @@ Fields that are not displayed but may be included in the future (incomplete due 
 - participating-org type
 - reporting-org type
 - collaboration-type
+- sector vocabulary not DAC
 - default-aid-type
 - default-tied-status
 - recipient-region
