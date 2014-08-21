@@ -16,3 +16,12 @@ More views are still being added.
 | Publisher      | Choose a Publisher's data to display |
 
 
+Click on **Fix Size** to resize the widget appropriately.
+
+Once you have created your widget, copy and paste the <iframe> code into the portion of your Wordpress blog post or website to embed it.
+
+You can also edit the iframe to include other options like scrollbars, different widths, different heights etc.
+
+
+
+
