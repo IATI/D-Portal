@@ -7,7 +7,7 @@ We refer to this system as **tongue** and it can be accessed on the website via 
 
 Currently, all the translations are provided by Google Translate so will need an actual translator to make sure they are accurate. This is more a proof-of-concept.
 
-Translations are found in the text directory.
+Translations are found in the text directory under ctrack.
 
 
 ###Tongue
