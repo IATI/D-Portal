@@ -41,17 +41,19 @@ You can also create a new base easily by typing this in command line. You will n
 ```
 ctrack tint red 255 0 0 
 
-Create art/rgba/red.css with a 255,0,0 rgb tint using art/rgba/original.css as the template.
-
 ```
+
+Create art/rgba/red.css with a 255,0,0 rgb tint using art/rgba/original.css as the template.
 
 In this case, **red** is the filename for the new colourtheme. Running this command again will overwrite the current file. Additionally, any new class properties will override the original CSS so you can do small visual edits as well as large edits.
 
 
-Graphs
+Chart.js
 ==========================================
 
-We have created a simple javascript graph to display the top sectors, donors and countries.
+We have created a simple javascript graph (**chart.js**) to display the top sectors, donors and countries.
+
+You can find the source here - https://github.com/devinit/D-Portal/blob/master/ctrack/js/chart.js
 
 There are several options for customisation that have been kept simple but these can be expanded to more complex options if needed.
 
@@ -80,4 +82,14 @@ There are several options for customisation that have been kept simple but these
 | back      | Background color of caption div |
 | border      | Border color of caption div |
 
+
+
+Image charts
+==========================================
+
+https://developers.google.com/chart/image/docs/making_charts
+
+We currently use Google's image charts to display SAVi sectors as pie charts due to its really simple and straightforward options. Although this is now deprecated, there is no limit to the number of calls per day you can make to the Google Chart API.
+
+We will replace this if no longer supported with chart.js
 
