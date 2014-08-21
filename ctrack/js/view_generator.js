@@ -49,7 +49,13 @@ view_generator.fixup=function()
 	};
 	genes.map={
 	};
-	
+// thems
+	var skins={}
+	skins.original={flava:"original"};
+	skins.high={flava:"high"};
+	skins.grey={flava:"original",rgba:"grey"};
+	skins.mustard={flava:"original",rgba:"mustard"};
+	skins.inspire={flava:"original",rgba:"inspire"};
 	for(var n in genes) // defaults
 	{
 		var v=genes[n];
@@ -59,7 +65,8 @@ view_generator.fixup=function()
 	}
 
 	var $genes=$("<select></select>").appendTo($form);
-		$("<option value></option>").appendTo($genes);
+	$genes.before("<span>VIEW</span>").after("<br/>");
+	$("<option value></option>").appendTo($genes);
 	for(var n in genes) // defaults
 	{
 		var v=genes[n];
@@ -78,16 +85,37 @@ view_generator.fixup=function()
 		$bot.empty();
 		$opts.empty();
 
+		var $skins;
 		var $countries;
+		var $publishers;
 
 		if(gene)
 		{
+			$skins=$("<select></select>").appendTo($opts);
+			$skins.before("<span>SKIN</span>").after("<br/>");
+			$("<option value></option>").appendTo($skins);
+			for(var n in skins) // defaults
+			{
+				var v=skins[n];
+				var $o=$("<option value='"+n+"'>"+n+"</option>").appendTo($skins);
+			}
+
 			$countries=$("<select></select>").appendTo($opts);
+			$countries.before("<span>COUNTRY</span>").after("<br/>");
 			$("<option value></option>").appendTo($countries);
 			for(var n in iati_codes.country) // defaults
 			{
 				var v=iati_codes.country[n];
 				var $o=$("<option value='"+n+"'>"+v+"</option>").appendTo($countries);
+			}
+
+			$publishers=$("<select></select>").appendTo($opts);
+			$publishers.before("<span>PUBLISHER</span>").after("<br/>");
+			$("<option value></option>").appendTo($publishers);
+			for(var n in iati_codes.publisher_names) // defaults
+			{
+				var v=iati_codes.publisher_names[n];
+				var $o=$("<option value='"+n+"'>"+v+"</option>").appendTo($publishers);
 			}
 		}
 
@@ -95,21 +123,76 @@ view_generator.fixup=function()
 			$bot.empty();
 			var q="?";
 			var hash="#view=frame&frame="+gene.name;
-			var style="width:"+gene.width+"px;"+"height:"+gene.height+"px;overflow:hidden;";
 			
+			var width=gene.width;
+			var height=gene.height;
+			
+			var style="width:"+width+"px;"+"height:"+0+"px;overflow:hidden;";
+			
+			var skin=$skins && $skins.val();
+			if(skin && skin!="")
+			{
+				var v=skins[skin];
+				if(v)
+				{
+					if(v.flava)
+					{
+						q=q+"flava="+v.flava+"&"
+					}
+					if(v.rgba)
+					{
+						q=q+"rgba="+v.rgba+"&"
+					}
+				}
+			}
+
 			var country=$countries && $countries.val();
 			if(country && country!="")
 			{
 				q=q+"country="+country+"&"
 			}
+
+			var publisher=$publishers && $publishers.val();
+			if(publisher && publisher!="")
+			{
+				q=q+"publisher="+publisher+"&"
+			}
 			
-			var frame="<iframe scrolling=\"no\" src=\"http://d-portal.org/ctrack.html"+q+hash+"\" style=\""+style+"\"></iframe>";
+			var url=""+window.location;
+			url=url.split("#")[0];
+			url=url.split("?")[0];
+			var frame="<iframe scrolling=\"no\" src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
+			
 			var $frame=$(frame);
-			$("<textarea style='display:block;width:960px;height:100px;'>"+frame+"</textarea>").appendTo($bot);
+			var $ta=$("<textarea style='display:block;width:960px;height:100px;'></textarea>").appendTo($bot);
+			var $aa=$("<a>FIX SIZE</a>").appendTo($bot);
 			$frame.appendTo($bot);
+
+			$ta.val( $("<p>").append($frame.clone()).html() );
+			$ta.bind('input propertychange',function(){
+				$frame.remove();
+				$frame=$( $ta.val() );
+				$frame.appendTo($bot);
+			});
+
+			var newheight=function(){
+				height=$($frame[0].contentWindow.document).height();
+				console.log(height);
+				$frame[0].style.height =	height + 'px';
+				$ta.val( $("<p>").append($frame.clone()).html() );
+			};
+				
+			$frame.load(function(){
+				newheight();
+			});
+			
+			$aa.click(newheight);
+
 		};
 
-		if($countries) { $countries.change(change); }
+		if($skins     ) {      $skins.change(change); }
+		if($countries ) {  $countries.change(change); }
+		if($publishers) { $publishers.change(change); }
 
 		change();
 
