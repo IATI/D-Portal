@@ -206,9 +206,9 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 
 /*	Table header styles
 	============================================= */
-th.titles					{color:#000; text-align:left; padding:10px 20px; border-bottom:1px solid #000;}
+th.titles					{color:#000; text-align:left; padding:10px 0 10px 20px; border-bottom:1px solid #000;}
 th.titles:nth-child(1), th.titles:nth-child(3),
-th.titles:last-child		{padding:10px 0; text-align:right; font-size:0.8em;}
+th.titles:last-child		{padding:10px 0; text-align:right; font-size:0.8em; min-width:100px;}
 
 
 /*	Table for Header logo and Translations
@@ -328,7 +328,7 @@ table.activity td.date	{text-align:right; padding-right:0; white-space:nowrap; f
 table.activity td.alert_no_iati	{text-align:center; font-size:2.0em; padding:20px 0 0 0; cursor:default;}
 table.activity td span	{display:block; padding:2px 0 3px 0; color:#000; font-size:0.7em; line-height:1.25em;}
 table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#000; line-height:1.0em; box-sizing:border-box;}
-table.activity a.percent{padding:10px 20px 20px 20px;}
+table.activity a.percent{padding:10px 0px 20px 20px;}
 table.activity a:focus	{color:#000; text-decoration:none;}
 table.activity a:link  	{color:#000; text-decoration:none;}
 table.activity a:visited{color:#000; text-decoration:none;}
