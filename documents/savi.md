@@ -7,7 +7,7 @@ SAVi is xml that has been hacked to not look like xml and is slightly massaged f
 
 This means SAVi is still an xml file that you can still download if you right click and "Save as..."
 
-Each SAVi XML should download as the actual project title; ie. "ActivityGB1.xml".
+Each SAVi XML should download as the actual project title; ie. "*ActivityGB1.xml*".
 
 
 
@@ -24,47 +24,50 @@ All fields are provided with titles to show context of data.
 For any lookups, we refer to IATI Registry or the ctrack spreadsheet data (https://docs.google.com/spreadsheet/ccc?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&usp=sharing).
 
 
-reporting-org
+###reporting-org
 - Displayed as ref lookup from IATI Registry or ctrack spreadsheet data.
 
-participating-org
+
+###participating-org
 - Displayed as ref lookup next to role lookup from IATI Registry or ctrack spreadsheet data.
 
-recipient-country
+
+###recipient-country
 - If available, displayed as code lookup from IATI Registry or ctrack spreadsheet data.
 - If available, percentages are included per country. Otherwise, percentages are divided equally to add up to 100%.
 
-activity-date
+
+###activity-date
 - start-actual and end-actual have priority over start-planned and end-planned.
 - If available, iso-date is displayed over input.
 
-activity-status
+###activity-status
 - If available, displayed as code lookup from IATI Registry or ctrack spreadsheet data.
 
-iati-identifier
+###iati-identifier
 - Displayed as an actual link next to IATI xml link and IATI Registry link.
 
-title
+###title
 - Project title is displayed prominently at the top of every SAVi.
 
-description
+###description
 - All type is displayed.
 
-activity-website
+###activity-website
 - If available, displayed as a link.
 
-contact-info
+###contact-info
 - All information provided is displayed; ie. organisation, person-name, email, telephone, mailing-address.
 - Email is not displayed as a link.
 
-sector
+###sector
 - Only DAC vocabulary is displayed.
 - If available, percentages are included per sector. Otherwise, percentages are divided equally to add up to 100%.
 - Percentages are displayed as both a pie chart and a table.
 - Pie chart can be downloaded as a PNG image.
 - Sector names are overwritten by code lookup from IATI Registry or ctrack spreadsheet data.
 
-transaction
+###transaction
 - All fields displayed as a table.
 - value is displayed with currency.
 - transaction-type follows code.
@@ -74,16 +77,16 @@ transaction
 - If available, provider-org and receiver-org ref is converted to d-portal activity links that open in a new window.
 - If available, description is displayed.
 
-budget
+###budget
 - All fields displayed as a table.
 - If available, iso-date is displayed over user input for period-start and period-end.
 - value is displayed with currency.
 
-document-link
+###document-link
 - If available, title is converted to actual links that open in a new window.
 - Links are displayed as a list.
 
-related-activity
+###related-activity
 - ref is converted to d-portal activity links that open in a new window.
 - Links are displayed next to type.
 - Links are displayed as a list.
