@@ -5,7 +5,7 @@ There are various ways and sections where customisation is possible.
 
 
 
-Flava and colourtheme
+Skins - Flava and Colourtheme
 ==========================================
 
 We have flava and colourtheme to fully customise d-portal to look as unique or as similar to your current website and branding.
