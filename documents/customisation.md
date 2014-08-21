@@ -57,24 +57,27 @@ There are several options for customisation that have been kept simple but these
 
 **All stylings are in pixels.**
 
-style : Style of chart - there is only donut flavour for now
-layout : Caption placement - left, right, five
-width : Width of entire chart div
-height : Height of entire chart div
-center_x : Center of chart in div from the left
-center_y : Center of chart in div from the top
-radius : Size of chart
-hole : Size of hole in chart - how big is your donut?
-color : Add as many colours as you want for pie slices (5 max for now)
-caption_css : Styling for the caption div (Information fields)
-caption_edge : Margin of caption div from the edge of entire chart div depending on layout (left/right)
-stroke_width : Thickness of chart border
-line_width:1 : Thickness of lines from caption to chart
+| Options  | Meaning  |
+| :------------ |:---------------|
+| style      | Style of chart - there is only donut flavour for now |
+| layout      | Caption placement - left, right, five |
+| width      | Width of entire chart div |
+| height      | Height of entire chart div |
+| center_x      | Center of chart in div from the left |
+| center_y      | Center of chart in div from the top |
+| radius      | Size of chart |
+| hole      | Size of hole in chart - how big is your donut? |
+| color      | Add as many colours as you want for pie slices (5 max for now) |
+| caption_css      | Styling for the caption div (Information fields) |
+| caption_edge      | Margin of caption div from the edge of entire chart div depending on layout (left/right) |
+| stroke_width      | Thickness of chart border |
+| line_width      | Thickness of lines from caption to chart |
+| tints      | Changing the numbers below apart from [1,1,1,1] gives experimental effects |
+| fill      | Background color of chart - [1,1,1,1] gets you slice colors |
+| line      | Color of line from caption to chart - [1,1,1,1] gets you slice colors |
+| stroke      | Border color of chart - [2,2,2,2] gets you #FFF (white) border |
+| text      | Color of caption fonts |
+| back      | Background color of caption div |
+| border      | Border color of caption div |
 
-tints : Changing the numbers below apart from [1,1,1,1] gives experimental effects
-fill : Background color of chart - [1,1,1,1] gets you slice colors
-line : Color of line from caption to chart - [1,1,1,1] gets you slice colors
-stroke : Border color of chart - [2,2,2,2] gets you #FFF (white) border
-text : Color of caption fonts
-back : Background color of caption div
-border : Border color of caption div
+
