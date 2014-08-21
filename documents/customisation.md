@@ -17,8 +17,8 @@ For more advanced users, this is a complete customisation option where you can s
 
 There are currently 2 flavas available; Original and High Visibility.
 
-***Original*** is the intended design for d-portal.
-***High Visibility*** is a printer-friendly mode and a high contrast design for functional access.
+**Original** is the intended design for d-portal.
+**High Visibility** is a printer-friendly mode and a high contrast design for functional access.
 
 Flavas are kept in separated individual folders under the art directory so can you create as many flavas as possible.
 
@@ -27,7 +27,7 @@ You can access different flavas from the dropdown menu from the main website.
 
 ###Colourtheme
 
-For simple colour themeing, you can edit or create CSS files in the ***rgba folder***.
+For simple colour themeing, you can edit or create CSS files in the **rgba folder**.
 
 The original CSS file acts as the base for your new colourthemes and has been simplified to only include sections that can be recoloured.
 
@@ -45,7 +45,7 @@ Create art/rgba/red.css with a 255,0,0 rgb tint using art/rgba/original.css as t
 
 ```
 
-In this case, ***red*** is the filename for the new colourtheme. Running this command again will overwrite the current file. Additionally, any new class properties will override the original CSS so you can do small visual edits as well as large edits.
+In this case, **red** is the filename for the new colourtheme. Running this command again will overwrite the current file. Additionally, any new class properties will override the original CSS so you can do small visual edits as well as large edits.
 
 
 Graphs
@@ -55,7 +55,7 @@ We have created a simple javascript graph to display the top sectors, donors and
 
 There are several options for customisation that have been kept simple but these can be expanded to more complex options if needed.
 
-***All stylings are in pixels.***
+**All stylings are in pixels.**
 
 style : Style of chart - there is only donut flavour for now
 layout : Caption placement - left, right, five
