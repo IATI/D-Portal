@@ -208,7 +208,8 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 	============================================= */
 th.titles					{color:#000; text-align:left; padding:10px 0 10px 20px; border-bottom:1px solid #000;}
 th.titles:nth-child(1), th.titles:nth-child(3),
-th.titles:last-child		{padding:10px 0; text-align:right; font-size:0.8em; min-width:100px;}
+th.titles:last-child		{padding:10px 0; text-align:right; font-size:0.8em;}
+th.titles:last-child		{min-width:100px;}
 
 
 /*	Table for Header logo and Translations
