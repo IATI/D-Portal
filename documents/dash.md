@@ -21,7 +21,7 @@ Dash is currently accessible at http://d-portal.org/ctrack.html?#view=dash.
 
 Dash updates everyday GMT +0 with new data fetched from the IATI Datastore and does a full import every week.
 
-Dash is best used with other dashboards to see the gaps.
+Dash is best used with other dashboards to see the gaps; ie. http://dashboard.iatistandard.org/
 
 Dash is a new feature and is still being developed.
 
