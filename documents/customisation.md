@@ -29,6 +29,8 @@ You can access different flavas from the dropdown menu from the main website.
 
 For simple colour themeing, you can edit or create CSS files in the **rgba folder**.
 
+There are currently 3 colourthemes available; mustard, inspire and grey.
+
 The original CSS file acts as the base for your new colourthemes and has been simplified to only include sections that can be recoloured.
 
 Edit this CSS with your preferred colours accordingly and rename the file as your new colourtheme.
