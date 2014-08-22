@@ -12,6 +12,20 @@ easily hosted by anyone, anywhere and that will tell an interesting
 story using IATI data.
 
 
+Features
+===================
+
+- New [Publisher Edition](http://d-portal.org/publishers.html) now available.
+- Updates everyday GMT +0 with new data from the IATI Datastore.
+- [SAVi](https://github.com/devinit/D-Portal/blob/master/documents/savi.md) xml simplifies IATI xml to aid legibility for casual users.
+- [Localization](https://github.com/devinit/D-Portal/blob/master/documents/ctrack_texts.md) ready.
+- [Themeing](https://github.com/devinit/D-Portal/blob/master/documents/customisation.md) options for customised versions of d-portal.
+- [Chart.js](https://github.com/devinit/D-Portal/blob/master/documents/customisation.md#chartjs) for fully customisable graphs.
+- [Widget](https://github.com/devinit/D-Portal/blob/master/documents/ctrack_generator.md) system to easily embed sections of d-portal in blog posts.
+- [Dash](https://github.com/devinit/D-Portal/blob/master/documents/dash.md) system explores the *gaps* and highlights data quality.
+- Open source with [The MIT License](http://opensource.org/licenses/MIT).
+
+
 Directory Structure
 ===================
 
