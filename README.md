@@ -11,12 +11,6 @@ One of its aims is to build a re-usable piece of code that can be
 easily hosted by anyone, anywhere and that will tell an interesting 
 story using IATI data.
 
-d-portal.org is currently being developed and designed so things are constantly changing.
-
-If you would like to keep up to date with discussions on d-portal, join the [mailing list](https://groups.google.com/forum/#!forum/d-portal-list).
-
-We also post daily logs of the nightly import of new IATI data being published to d-portal.org [here](https://groups.google.com/forum/#!forum/d-portal-logs).
-
 
 Directory Structure
 ===================
@@ -36,4 +30,14 @@ example site you will find deployed at http://d-portal.org/
 /bin contains helper scripts.
 
 /documents contains documentation
+
+
+Updates
+===================
+
+d-portal.org is currently being developed and designed so things are constantly changing.
+
+If you would like to keep up to date with discussions on d-portal, join the [mailing list](https://groups.google.com/forum/#!forum/d-portal-list).
+
+We also post daily logs of the nightly import of new IATI data being published to d-portal.org [here](https://groups.google.com/forum/#!forum/d-portal-logs).
 
