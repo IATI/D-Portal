@@ -35,7 +35,7 @@ For any lookups, we refer to IATI Registry or the ctrack spreadsheet data (https
 ###recipient-country
 - If available, displayed as code lookup from IATI Registry or ctrack spreadsheet data.
 - If available, percentages are included per country. Otherwise, percentages are divided equally to add up to 100%.
-
+- Displayed as a list with highest percentage at the top.
 
 ###activity-date
 - start-actual and end-actual have priority over start-planned and end-planned.
