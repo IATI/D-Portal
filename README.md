@@ -4,12 +4,12 @@ d-portal.org is a country-based information platform that tracks
 resource flows. It is aimed at providing line ministries,
 parliamentarians and civil society with information that can assist
 with the planning and monitoring of development activities.
- 
+
+The live version lives at http://d-portal.org/
+
 One of its aims is to build a re-usable piece of code that can be 
 easily hosted by anyone, anywhere and that will tell an interesting 
 story using IATI data.
- 
-The live version lives at http://d-portal.org/
 
 d-portal.org is currently being developed and designed so things are constantly changing.
 
