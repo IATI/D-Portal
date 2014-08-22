@@ -63,8 +63,8 @@ For any lookups, we refer to IATI Registry or the ctrack spreadsheet data (https
 ###sector
 - Only DAC vocabulary is displayed.
 - If available, percentages are included per sector. Otherwise, percentages are divided equally to add up to 100%.
-- Percentages are displayed as both a pie chart and a table.
-- Pie chart can be downloaded as a PNG image.
+- Percentages are displayed as a pie chart that can be downloaded as a PNG image.
+- Percentages are also displayed as a table with highest percentage at the top.
 - Sector names are overwritten by code lookup from IATI Registry or ctrack spreadsheet data.
 
 ###transaction
