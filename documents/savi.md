@@ -23,6 +23,8 @@ All fields are provided with titles to show context of data.
 
 For any lookups, we refer to IATI Registry or the ctrack spreadsheet data (https://docs.google.com/spreadsheet/ccc?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&usp=sharing).
 
+Rules are applied when codelists are available in the xml.
+
 
 ###reporting-org
 - Displayed as ref lookup from IATI Registry or ctrack spreadsheet data.
@@ -33,16 +35,16 @@ For any lookups, we refer to IATI Registry or the ctrack spreadsheet data (https
 
 
 ###recipient-country
-- If available, displayed as code lookup from IATI Registry or ctrack spreadsheet data.
-- If available, percentages are included per country. Otherwise, percentages are divided equally to add up to 100%.
-
+- Displayed as code lookup from IATI Registry or ctrack spreadsheet data.
+- Percentages are included per country. Otherwise, percentages are divided equally to add up to 100%.
+- Displayed as a list with highest percentage at the top.
 
 ###activity-date
 - start-actual and end-actual have priority over start-planned and end-planned.
-- If available, iso-date is displayed over input.
+- iso-date is displayed over user input.
 
 ###activity-status
-- If available, displayed as code lookup from IATI Registry or ctrack spreadsheet data.
+- Displayed as code lookup from IATI Registry or ctrack spreadsheet data.
 
 ###iati-identifier
 - Displayed as an actual link next to IATI xml link and IATI Registry link.
@@ -54,7 +56,7 @@ For any lookups, we refer to IATI Registry or the ctrack spreadsheet data (https
 - All type is displayed.
 
 ###activity-website
-- If available, displayed as a link.
+- Displayed as a link that opens in a new window.
 
 ###contact-info
 - All information provided is displayed; ie. organisation, person-name, email, telephone, mailing-address.
@@ -62,9 +64,9 @@ For any lookups, we refer to IATI Registry or the ctrack spreadsheet data (https
 
 ###sector
 - Only DAC vocabulary is displayed.
-- If available, percentages are included per sector. Otherwise, percentages are divided equally to add up to 100%.
-- Percentages are displayed as both a pie chart and a table.
-- Pie chart can be downloaded as a PNG image.
+- Percentages are included per sector. Otherwise, percentages are divided equally to add up to 100%.
+- Percentages are displayed as a pie chart that can be downloaded as a PNG image.
+- Percentages are also displayed as a table with highest percentage at the top.
 - Sector names are overwritten by code lookup from IATI Registry or ctrack spreadsheet data.
 
 ###transaction
@@ -72,18 +74,18 @@ For any lookups, we refer to IATI Registry or the ctrack spreadsheet data (https
 - value is displayed with currency.
 - transaction-type follows code.
 - iso-date is displayed over user input.
-- If available, provider-org follows ref over user input.
-- If available, receiver-org follows ref over user input.
-- If available, provider-org and receiver-org ref is converted to d-portal activity links that open in a new window.
-- If available, description is displayed.
+- provider-org follows ref over user input.
+- receiver-org follows ref over user input.
+- provider-org and receiver-org ref is converted to d-portal activity links that open in a new window.
+- description is displayed as user input.
 
 ###budget
 - All fields displayed as a table.
-- If available, iso-date is displayed over user input for period-start and period-end.
+- iso-date is displayed over user input for period-start and period-end.
 - value is displayed with currency.
 
 ###document-link
-- If available, title is converted to actual links that open in a new window.
+- title is converted to actual links that open in a new window.
 - Links are displayed as a list.
 
 ###related-activity
