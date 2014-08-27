@@ -39,6 +39,8 @@ var genes={};
 	};
 	genes.map={
 	};
+	genes.stats={
+	};
 	for(var n in genes) // set defaults
 	{
 		var v=genes[n];
@@ -59,227 +61,81 @@ var skins={}
 // called on view display to fix html in place (run "onload" javascript here)
 view_generator.fixup=function()
 {
-/*
-	$("#generator").empty();
-	
-	var $top=$("<div></div>").appendTo("#generator");
-	var $bot=$("<div></div>").appendTo("#generator");
-	
-	var $form=$("<form></form>").appendTo($top);
-*/
-
-
-/*
-	var $genes=$("<select></select>").appendTo($form);
-	$genes.before("<span>VIEW</span>").after("<br/>");
-	$("<option value></option>").appendTo($genes);
-	for(var n in genes) // defaults
-	{
-		var v=genes[n];
-		var $o=$("<option value='"+n+"'>"+n+"</option>").appendTo($genes);
-	}
-
-	var $opts=$("<div></div>").appendTo($form);
-
-	$genes.change(function(e){
-
-		var name=""+$genes.val();
+	var change=function(e){
+		var name=""+$("#generator_view").val();
 		var gene=genes[name];
 		
-//		$opts.html(""+$genes.val());
+		if(!gene) { return; }
+	
+		var q="?";
+		var hash="#view=frame&frame="+gene.name;
 		
-		$bot.empty();
-		$opts.empty();
-
-		var $skins;
-		var $countries;
-		var $publishers;
-
-		if(gene)
+		var width=gene.width;
+		var height=gene.height;
+		
+		var style="width:"+width+"px;"+"height:"+0+"px;overflow:hidden;";
+		
+		var skin=$("#generator_skin").val();
+		if(skin && skin!="")
 		{
-			$skins=$("<select></select>").appendTo($opts);
-			$skins.before("<span>SKIN</span>").after("<br/>");
-			$("<option value></option>").appendTo($skins);
-			for(var n in skins) // defaults
+			var v=skins[skin];
+			if(v)
 			{
-				var v=skins[n];
-				var $o=$("<option value='"+n+"'>"+n+"</option>").appendTo($skins);
-			}
-
-			$countries=$("<select></select>").appendTo($opts);
-			$countries.before("<span>COUNTRY</span>").after("<br/>");
-			$("<option value></option>").appendTo($countries);
-			for(var n in iati_codes.country) // defaults
-			{
-				var v=iati_codes.country[n];
-				var $o=$("<option value='"+n+"'>"+v+"</option>").appendTo($countries);
-			}
-
-			$publishers=$("<select></select>").appendTo($opts);
-			$publishers.before("<span>PUBLISHER</span>").after("<br/>");
-			$("<option value></option>").appendTo($publishers);
-			for(var n in iati_codes.publisher_names) // defaults
-			{
-				var v=iati_codes.publisher_names[n];
-				var $o=$("<option value='"+n+"'>"+v+"</option>").appendTo($publishers);
+				if(v.flava)
+				{
+					q=q+"flava="+v.flava+"&"
+				}
+				if(v.rgba)
+				{
+					q=q+"rgba="+v.rgba+"&"
+				}
 			}
 		}
 
-		var change=function(e){
-			$bot.empty();
-			var q="?";
-			var hash="#view=frame&frame="+gene.name;
-			
-			var width=gene.width;
-			var height=gene.height;
-			
-			var style="width:"+width+"px;"+"height:"+0+"px;overflow:hidden;";
-			
-			var skin=$skins && $skins.val();
-			if(skin && skin!="")
-			{
-				var v=skins[skin];
-				if(v)
-				{
-					if(v.flava)
-					{
-						q=q+"flava="+v.flava+"&"
-					}
-					if(v.rgba)
-					{
-						q=q+"rgba="+v.rgba+"&"
-					}
-				}
-			}
+		var country=$("#generator_country").val();
+		if(country && country!="")
+		{
+			q=q+"country="+country+"&"
+		}
 
-			var country=$countries && $countries.val();
-			if(country && country!="")
-			{
-				q=q+"country="+country+"&"
-			}
-
-			var publisher=$publishers && $publishers.val();
-			if(publisher && publisher!="")
-			{
-				q=q+"publisher="+publisher+"&"
-			}
-			
-			var url=""+window.location;
-			url=url.split("#")[0];
-			url=url.split("?")[0];
-			var frame="<iframe scrolling=\"no\" src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
-			
-			var $frame=$(frame);
-			var $ta=$("<textarea style='display:block;width:960px;height:100px;'></textarea>").appendTo($bot);
-			var $aa=$("<a>FIX SIZE</a>").appendTo($bot);
-			$frame.appendTo($bot);
-
-			$ta.val( $("<p>").append($frame.clone()).html() );
-			$ta.bind('input propertychange',function(){
-				$frame.remove();
-				$frame=$( $ta.val() );
-				$frame.appendTo($bot);
-			});
-
-			var newheight=function(){
-				height=$($frame[0].contentWindow.document).height();
-				console.log(height);
-				$frame[0].style.height =	height + 'px';
-				$ta.val( $("<p>").append($frame.clone()).html() );
-			};
-				
-			$frame.load(function(){
-				newheight();
-			});
-			
-			$aa.click(newheight);
-
-		};
-
-		if($skins     ) {      $skins.change(change); }
-		if($countries ) {  $countries.change(change); }
-		if($publishers) { $publishers.change(change); }
-*/
-
-
-		var change=function(e){
-			var name=""+$("#generator_view").val();
-			var gene=genes[name];
-			
-			if(!gene) { return; }
+		var publisher=$("#generator_publisher").val();
+		if(publisher && publisher!="")
+		{
+			q=q+"publisher="+publisher+"&"
+		}
 		
-			var q="?";
-			var hash="#view=frame&frame="+gene.name;
-			
-			var width=gene.width;
-			var height=gene.height;
-			
-			var style="width:"+width+"px;"+"height:"+0+"px;overflow:hidden;";
-			
-			var skin=$("#generator_skin").val();
-			if(skin && skin!="")
-			{
-				var v=skins[skin];
-				if(v)
-				{
-					if(v.flava)
-					{
-						q=q+"flava="+v.flava+"&"
-					}
-					if(v.rgba)
-					{
-						q=q+"rgba="+v.rgba+"&"
-					}
-				}
-			}
+		var url=""+window.location;
+		url=url.split("#")[0];
+		url=url.split("?")[0];
 
-			var country=$("#generator_country").val();
-			if(country && country!="")
-			{
-				q=q+"country="+country+"&"
-			}
-
-			var publisher=$("#generator_publisher").val();
-			if(publisher && publisher!="")
-			{
-				q=q+"publisher="+publisher+"&"
-			}
-			
-			var url=""+window.location;
-			url=url.split("#")[0];
-			url=url.split("?")[0];
-
-			var frame="<iframe scrolling=\"no\" src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
-			$("#generator_textarea").val( $("<p>").append($(frame)).html() ); // escape for textarea
-			var frame_change=function(){
-				$("#frame").empty().append( $( $("#generator_textarea").val() ) );
-			};
-			frame_change();
-			$("#generator_textarea").bind('input propertychange',frame_change);
-
-			var frame_height=function(){
-				height=$($("#frame iframe")[0].contentWindow.document).height();
-				console.log(height);
-				$("#frame iframe")[0].style.height=height+'px';
-				$("#generator_textarea").val( $("<p>").append($("#frame iframe").clone()).html() );
-			};
-				
-			$("#frame iframe").load(function(){
-				frame_height();
-			});
-
-			$("#frame_fix_size").click(frame_height);
-
+		var frame="<iframe scrolling=\"no\" src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
+		$("#generator_textarea").val( $("<p>").append($(frame)).html() ); // escape for textarea
+		var frame_change=function(){
+			$("#frame").empty().append( $( $("#generator_textarea").val() ) );
 		};
+		frame_change();
+		$("#generator_textarea").bind('input propertychange',frame_change);
 
-		change();
-		$("#generator_view").change(change);
-		$("#generator_skin").change(change);
-		$("#generator_country").change(change);
-		$("#generator_publisher").change(change);
-		
-//	});
+		var frame_height=function(){
+			height=$($("#frame iframe")[0].contentWindow.document).height();
+			console.log(height);
+			$("#frame iframe")[0].style.height=height+'px';
+			$("#generator_textarea").val( $("<p>").append($("#frame iframe").clone()).html() );
+		};
+			
+		$("#frame iframe").load(function(){
+			frame_height();
+		});
 
+		$("#frame_fix_size").click(frame_height);
+
+	};
+
+	change();
+	$("#generator_view").change(change);
+	$("#generator_skin").change(change);
+	$("#generator_country").change(change);
+	$("#generator_publisher").change(change);
 }
 //
 // Perform ajax call to get numof data

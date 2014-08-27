@@ -10,6 +10,7 @@ var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetch=require("./fetch.js")
 
+var views=require("./views.js")
 
 // the chunk names this view will fill with new data
 view_stats.chunks=[
@@ -108,5 +109,10 @@ view_stats.ajax=function(args)
 
 		ctrack.display(); // every fetch.ajax must call display once
 	});
+	
+	views.planned.ajax({output:"count"});
+	views.active.ajax({output:"count"});
+	views.ended.ajax({output:"count"});
+	views.missing.ajax({output:"count"});
 	
 }

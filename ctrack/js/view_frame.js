@@ -14,6 +14,7 @@ var views=require("./views.js")
 
 // the chunk names this view will fill with new data
 view_frame.chunks=[
+	"frame",
 ];
 
 // called on view display to fix html in place
@@ -61,6 +62,8 @@ view_frame.view=function(args)
 
 view_frame.show=function(args)
 {
+	view_frame.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	
 	var name=ctrack.hash.frame;
 	if(name)
 	{
