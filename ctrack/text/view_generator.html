@@ -4,7 +4,7 @@
 {beige}
 {main_head}
 {main_min}
-{about_data_links}
+{instructions}
 {generator}
 {main_datainvestigators}
 {view_tail}
@@ -45,11 +45,58 @@
 </select>
 </div>
 
-<textarea id="generator_textarea" style='display:block;width:960px;height:100px;'></textarea>
+<div class="instruct_info">Copy &amp; paste the code below into your blog post to embed this section.</div>
+<textarea id="generator_textarea"></textarea>
 
 </form>
 </div>
 <a id="frame_fix_size">FIX SIZE</a>
-<div id="frame" class="frame">
+<div id="frame" class="frame"></div>
+
+#instructions
+<div class="instruct_wrap">
+	<div class="instruct_head">Create a widget with the d-portal Generator.</div>
 </div>
-<div style="height:100px"></div>
+<div class="instruct_col_wrap">
+	<div class="default"><div class="mid_wrap"></div><div class="mid_wrap"><div class="arrow"></div></div></div>
+	<div class="default">
+		<div class="instruct_col">
+			<div class="instruct_num">1</div>
+			<div class="instruct_text">Choose a View</div>
+			<div class="instruct_sub">These are sections of d-portal you can embed in your website.</div>
+		</div><div class="instruct_col">
+			<div class="instruct_num">2</div>
+			<div class="instruct_text">Pick a Skin</div>
+			<div class="instruct_sub">We have a few colour schemes available.</div>
+		</div><div class="instruct_col">
+			<div class="instruct_num">3</div>
+			<div class="instruct_text">Populate with data</div>
+			<div class="instruct_sub">Choose a Country's data or a Publisher's data to display.</div>
+		</div>
+	</div>
+	<div class="instruct_fix">Click on <span>FIX SIZE</span> to resize the widget appropriately.</div>
+</div>
+
+#css
+.overlay			{background-color:#444;}
+textarea			{display:block; width:954px; height:100px; margin-top:5px;}
+form div			{padding:5px 0;}
+form div span		{display:inline-block; min-width:100px; text-align:right; vertical-align:bottom;}
+select				{border-radius:2px;}
+ #frame				{margin:0 auto; width:960px; padding:20px 20px 0 20px; border-radius:8px; margin-bottom:200px;}
+a#frame_fix_size	{display:block; margin:0 auto; width:960px; border-radius:4px; padding:10px 0; text-align:center; background-color:#2573CD; color:#fff; margin-top:10px; margin-bottom:10px;}
+a#frame_fix_size:hover	{background-color:#2F84E5;}
+.generator			{padding-top:40px;}
+.default			{width:960px; margin:0 auto; padding:0;}
+.mid_wrap			{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
+.arrow				{width:0; height:0; border-top:30px solid #2573CD; border-left:30px solid transparent; border-right:30px solid transparent;}
+.instruct_wrap		{margin:0 auto; width:100%; padding:40px 0; background-color:#2573CD;}
+.instruct_head		{text-align:center; color:#fff; font-size:2em;}
+.instruct_info		{color:#fff; margin-top:15px;}
+.instruct_col_wrap	{width:100%; background-color:#222;}
+.instruct_col		{display:inline-block; vertical-align:top; width:240px; padding:40px;}
+.instruct_num		{text-align:center; color:#eee; font-size:6em; margin-bottom:10px;}
+.instruct_text		{text-align:center; color:#4CA0FF; font-size:1.4em;}
+.instruct_sub		{text-align:center; color:#ccc; font-size:1.0em; line-height:1.2em; margin-top:10px;}
+.instruct_fix		{background-color:#333; color:#ccc; padding:15px 0; text-align:center;}
+.instruct_fix span	{color:#4CA0FF; font-weight:bold;}
