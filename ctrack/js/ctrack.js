@@ -114,6 +114,7 @@ ctrack.setup=function(args)
 		args.chunks["background_image"]="{art}back/"+cc.toLowerCase()+".jpg";
 
 		args.chunks["main_country_head"]="";
+		args.chunks["main_countrymin"]="";
 	}
 	else
 	{
