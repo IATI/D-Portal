@@ -21,6 +21,7 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 // the chunk names this view will fill with new data
 view_list_activities.chunks=[
 	"list_activities_datas",
+	"list_activities_count",
 ];
 
 //
@@ -40,6 +41,7 @@ view_list_activities.view=function()
 view_list_activities.ajax=function(args)
 {
 	args=args || {};
+	args.zerodata=args.zerodata||"{alert_no_data1}";
 
 	var dat={
 			"from":"act",
@@ -79,6 +81,7 @@ view_list_activities.ajax=function(args)
 				s.push( plate.replace(args.zerodata,{}) );
 				ctrack.args.chunks["table_header_amount"]="";
 			}
+			ctrack.chunk("list_activities_count",data.rows.length);
 			for(var i=0;i<data.rows.length;i++)
 			{
 				var v=data.rows[i];

@@ -8,7 +8,7 @@
 {main_head}
 {main_min}
 {about_data_links}
-{list_head}
+{list_budgets_head}
 <div class="title_wrap">
 	<table class="title">
 		<tr>
@@ -51,3 +51,18 @@
 	</td>
 	<td class="value">{amount}<span>{currency}</span></td>
 </tr>
+
+#list_budgets_head
+<div class="head_wrap">
+	<div class="icon_wrap">
+		<img src="{flava}total_icon_big.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>	
+	</div><div class="peak_wrap">
+			<div class="list_peak_space"></div>
+			<div class="list_peak"></div>
+	</div><div class="head_title_wrap">
+			<div class="list_head_title">
+				<span class="list_stats_title">{stats_total_text}</span>
+				<span class="list_stats_num">{list_budgets_count}</span>
+			</div>
+		</div>
+</div>

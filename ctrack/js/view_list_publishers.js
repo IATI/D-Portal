@@ -20,6 +20,7 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 // the chunk names this view will fill with new data
 view_list_publishers.chunks=[
 	"list_publishers_datas",
+	"list_publishers_count",
 ];
 
 //
@@ -39,6 +40,7 @@ view_list_publishers.view=function()
 view_list_publishers.ajax=function(args)
 {
 	args=args || {};
+	args.zerodata=args.zerodata||"{alert_no_data1}";
 
 	var dat={
 			"from":"act",
@@ -78,6 +80,7 @@ view_list_publishers.ajax=function(args)
 				s.push( plate.replace(args.zerodata,{}) );
 				ctrack.args.chunks["table_header_amount"]="";
 			}
+			ctrack.chunk("list_publishers_count",data.rows.length);
 			for(var i=0;i<data.rows.length;i++)
 			{
 				var v=data.rows[i];
