@@ -356,7 +356,7 @@ ctrack.setup=function(args)
 				{
 					v.fixup();
 				}
-				$("select.chosen").chosen();
+				$("select.chosen").chosen({allow_single_deselect:true});
 			}
 		}
 	};

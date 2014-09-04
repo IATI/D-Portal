@@ -162,11 +162,14 @@ view_generator.view=function(args)
 	ctrack.chunk("generator_options_skin",a.join(""));
 
 	var a=[];
-	for(var n in iati_codes.country) // defaults
+	for(var n in iati_codes.crs_countries) // just recipient countries (use CRS list)
 	{
 		var v=iati_codes.country[n];
-		var s="<option value='"+n+"'>"+v+"</option>";
-		a.push(s);
+		if(v)
+		{
+			var s="<option value='"+n+"'>"+v+"</option>";
+			a.push(s);
+		}
 	}
 	ctrack.chunk("generator_options_country",a.join(""));
 	
