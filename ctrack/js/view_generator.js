@@ -68,7 +68,7 @@ var skins={}
 	skins.mustard={flava:"original",rgba:"mustard"};
 	skins.inspire={flava:"original",rgba:"inspire"};
 
-var sizes=[320,400,450,500,640,960];
+var sizes=[320,400,450,500,640,750,960];
 
 
 // called on view display to fix html in place (run "onload" javascript here)
