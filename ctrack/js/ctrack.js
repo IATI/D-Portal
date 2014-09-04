@@ -113,8 +113,9 @@ ctrack.setup=function(args)
 		for(cc in iati_codes.crs_countries) { if(cc.length==2) { nn-=1; if(nn==0) { break; } } }
 		args.chunks["background_image"]="{art}back/"+cc.toLowerCase()+".jpg";
 
-		args.chunks["main_country_head"]="";
 		args.chunks["main_countrymin"]="";
+		args.chunks["main_country"]="";
+		args.chunks["main_country_head"]="";
 	}
 	else
 	{
