@@ -164,6 +164,13 @@ view_generator.fixup=function()
 //
 view_generator.view=function(args)
 {
+	var ss=function(a,b)
+	{
+		var aa=(a.split(">")[1]).split("<")[0];
+		var bb=(b.split(">")[1]).split("<")[0];
+		return ((aa > bb) - (bb > aa));
+	};
+	
 	var a=[];
 	for(var n in genes) // defaults
 	{
@@ -171,6 +178,7 @@ view_generator.view=function(args)
 		var s="<option value='"+n+"'>"+v.name+"</option>";
 		a.push(s);
 	}
+	a.sort(ss);
 	ctrack.chunk("generator_options_view",a.join(""));
 
 	
@@ -181,6 +189,7 @@ view_generator.view=function(args)
 		var s="<option value='"+n+"'>"+n+"</option>";
 		a.push(s);
 	}
+	a.sort(ss);
 	ctrack.chunk("generator_options_skin",a.join(""));
 
 	var a=[];
@@ -193,6 +202,7 @@ view_generator.view=function(args)
 			a.push(s);
 		}
 	}
+	a.sort(ss);
 	ctrack.chunk("generator_options_country",a.join(""));
 	
 	var a=[];
@@ -202,6 +212,7 @@ view_generator.view=function(args)
 		var s="<option value='"+n+"'>"+v+"</option>";
 		a.push(s);
 	}
+	a.sort(ss);
 	ctrack.chunk("generator_options_publisher",a.join(""));
 
 	var a=[];
@@ -211,6 +222,7 @@ view_generator.view=function(args)
 		var s="<option value='"+v+"'>"+v+" pixels wide</option>";
 		a.push(s);
 	}
+	a.sort(ss);
 	ctrack.chunk("generator_options_size",a.join(""));
 
 }
