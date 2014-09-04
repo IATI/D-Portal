@@ -16,6 +16,9 @@ var views=require("./views.js")
 view_stats.chunks=[
 	"total_projects",
 	"missing_projects",
+	"active_projects",
+	"ended_projects",
+	"planned_projects",
 	"numof_publishers",
 	"percent_of_activities_with_location",
 ];

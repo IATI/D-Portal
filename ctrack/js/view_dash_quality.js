@@ -68,8 +68,8 @@ view_dash_quality.ajax1=function(args)
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log("view_dash_quality.ajax1");
-		console.log(data);
+//		console.log("view_dash_quality.ajax1");
+//		console.log(data);
 			
 		if(data.rows.length==1)
 		{
@@ -97,8 +97,8 @@ view_dash_quality.ajax2=function(args)
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log("view_dash_quality.ajax2");
-		console.log(data);
+//		console.log("view_dash_quality.ajax2");
+//		console.log(data);
 			
 		if(data.rows.length==1)
 		{
@@ -126,8 +126,8 @@ view_dash_quality.ajax3=function(args)
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log("view_dash_quality.ajax3");
-		console.log(data);
+//		console.log("view_dash_quality.ajax3");
+//		console.log(data);
 			
 		if(data.rows.length==1)
 		{
@@ -157,8 +157,8 @@ view_dash_quality.ajax4=function(args)
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log("view_dash_quality.ajax4");
-		console.log(data);
+//		console.log("view_dash_quality.ajax4");
+//		console.log(data);
 
 		var s=[];
 		var total=0;
@@ -206,8 +206,8 @@ view_dash_quality.ajax5=function(args)
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log("view_dash_quality.ajax5");
-		console.log(data);
+//		console.log("view_dash_quality.ajax5");
+//		console.log(data);
 			
 		var s=[];
 		var total=0;

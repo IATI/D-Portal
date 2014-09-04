@@ -19,31 +19,43 @@ var iati_codes=require("../../dstore/json/iati_codes.json")
 view_generator.chunks=[
 ];
 
+
 // build data of what iframe widgets we can publish
 var genes={};
 	genes.sectors={
+		name:"All Sectors"
 	};
 	genes.sectors_top={
+		name:"Top Sectors"
 	};
 	genes.donors={
+		name:"All Donors"
 	};
 	genes.donors_top={
+		name:"Top Donors"
 	};
 	genes.publisher_sectors={
+		name:"Publishers sectors (table)"
 	};
 	genes.publisher_sectors_top={
+		name:"Publishers sectors (graph)"
 	};
 	genes.publisher_countries={
+		name:"Publisher countries (table)"
 	};
 	genes.publisher_countries_top={
+		name:"Publisher countries (graph)"
 	};
 	genes.map={
+		name:"Map"
 	};
 	genes.stats={
+		name:"Overview"
 	};
 	for(var n in genes) // set defaults
 	{
 		var v=genes[n];
+		v.id=n;
 		v.name=v.name || n;
 		v.width=v.width || 960;
 		v.height=v.height || 480;
@@ -56,6 +68,7 @@ var skins={}
 	skins.mustard={flava:"original",rgba:"mustard"};
 	skins.inspire={flava:"original",rgba:"inspire"};
 
+var sizes=[320,400,450,500,640,960];
 
 
 // called on view display to fix html in place (run "onload" javascript here)
@@ -68,13 +81,11 @@ view_generator.fixup=function()
 		if(!gene) { return; }
 	
 		var q="?";
-		var hash="#view=frame&frame="+gene.name;
+		var hash="#view=frame&frame="+gene.id;
 		
 		var width=gene.width;
 		var height=gene.height;
-		
-		var style="width:"+width+"px;"+"height:"+0+"px;overflow:hidden;";
-		
+				
 		var skin=$("#generator_skin").val();
 		if(skin && skin!="")
 		{
@@ -104,6 +115,16 @@ view_generator.fixup=function()
 			q=q+"publisher="+publisher+"&"
 		}
 		
+		var size=$("#generator_size").val();
+		if(size && size!="")
+		{
+			hash=hash+"&size="+size;
+			width=size;
+		}
+		
+		var style="width:"+width+"px;"+"height:"+0+"px;overflow:hidden;";
+
+
 		var url=""+window.location;
 		url=url.split("#")[0];
 		url=url.split("?")[0];
@@ -118,7 +139,7 @@ view_generator.fixup=function()
 
 		var frame_height=function(){
 			height=$($("#frame iframe")[0].contentWindow.document).height();
-			console.log(height);
+//			console.log(height);
 			$("#frame iframe")[0].style.height=height+'px';
 			$("#generator_textarea").val( $("<p>").append($("#frame iframe").clone()).html() );
 		};
@@ -136,6 +157,7 @@ view_generator.fixup=function()
 	$("#generator_skin").change(change);
 	$("#generator_country").change(change);
 	$("#generator_publisher").change(change);
+	$("#generator_size").change(change);
 }
 //
 // Perform ajax call to get numof data
@@ -146,7 +168,7 @@ view_generator.view=function(args)
 	for(var n in genes) // defaults
 	{
 		var v=genes[n];
-		var s="<option value='"+n+"'>"+n+"</option>";
+		var s="<option value='"+n+"'>"+v.name+"</option>";
 		a.push(s);
 	}
 	ctrack.chunk("generator_options_view",a.join(""));
@@ -181,5 +203,14 @@ view_generator.view=function(args)
 		a.push(s);
 	}
 	ctrack.chunk("generator_options_publisher",a.join(""));
+
+	var a=[];
+	for(var n in sizes) // defaults
+	{
+		var v=sizes[n];
+		var s="<option value='"+v+"'>"+v+" pixels wide</option>";
+		a.push(s);
+	}
+	ctrack.chunk("generator_options_size",a.join(""));
 
 }

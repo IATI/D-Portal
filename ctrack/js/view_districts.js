@@ -89,8 +89,8 @@ view_districts.ajax=function(args)
 				"reporting_ref":(args.publisher || ctrack.args.publisher),
 			};
 		var callback=function(data){
-			console.log("fetch transactions districts "+year);
-			console.log(data);
+//			console.log("fetch transactions districts "+year);
+//			console.log(data);
 			
 			for(var i=0;i<data.rows.length;i++)
 			{
@@ -105,7 +105,7 @@ view_districts.ajax=function(args)
 				}
 				fadd(d);
 			}
-			console.log(ctrack.districts_data);
+//			console.log(ctrack.districts_data);
 			
 			display();
 		};
@@ -128,8 +128,8 @@ view_districts.ajax=function(args)
 			};
 		var callback=function(data){
 			
-			console.log("fetch budget districts "+year);			
-			console.log(data);
+//			console.log("fetch budget districts "+year);			
+//			console.log(data);
 			
 			for(var i=0;i<data.rows.length;i++)
 			{
@@ -139,7 +139,7 @@ view_districts.ajax=function(args)
 				d["b"+year]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
 				fadd(d);
 			}
-			console.log(ctrack.districts_data);
+//			console.log(ctrack.districts_data);
 			
 			display();
 		};

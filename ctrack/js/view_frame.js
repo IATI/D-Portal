@@ -30,7 +30,10 @@ view_frame.fixup=function()
 			v.fixup();
 		}
 	}
+	var scale=(ctrack.hash.size || 960)/960;
 	$("a").attr("target","_blank");
+	$(".frame").css("transform-origin","0 0");
+	$(".frame").css("transform","scale("+scale+","+scale+")");
 }
 //
 // Perform ajax call to get numof data
@@ -84,4 +87,6 @@ view_frame.show=function(args)
 	}
 	
 	ctrack.div.master.html( plate.replace( "{view_frame}" ) );
+	
+	view_frame.fixup();
 }
