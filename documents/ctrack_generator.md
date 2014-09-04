@@ -3,6 +3,8 @@ How to create a widget
 
 By using iframes, the Generator allows you to embed sections of d-portal in any html-enabled publishing platform; ie. Wordpress blog post, Tumblr post, a website etc.
 
+Please note that Wordpress does not allow iframes unless it is self-hosted so this may not work if you have a free Wordpress site. (Read more - http://en.support.wordpress.com/code/)
+
 Visit http://d-portal.org/ctrack.html#view=generator to get started.
 
 More views are still being added.
