@@ -121,15 +121,19 @@ view_generator.fixup=function()
 			hash=hash+"&size="+size;
 			width=size;
 		}
+		else
+		{
+			hash=hash+"&size="+width;
+		}
 		
-		var style="width:"+width+"px;"+"height:"+0+"px;overflow:hidden;";
+		var style="width:"+width+"px;"+"height:"+0+"px;";
 
 
 		var url=""+window.location;
 		url=url.split("#")[0];
 		url=url.split("?")[0];
 
-		var frame="<iframe scrolling=\"no\" src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
+		var frame="<iframe src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
 		$("#generator_textarea").val( $("<p>").append($(frame)).html() ); // escape for textarea
 		var frame_change=function(){
 			$("#frame").empty().append( $( $("#generator_textarea").val() ) );
