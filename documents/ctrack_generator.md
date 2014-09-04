@@ -12,14 +12,15 @@ More views are still being added.
 
 | Options  | Meaning  |
 | :------------ |:---------------|
-| View      | Sections of d-portal you can embed |
-| Skin      | Flavas and Colourthemes available |
-| Country      | Choose a Country's data to display |
-| Publisher      | Choose a Publisher's data to display |
+| VIEW      | Sections of d-portal you can embed |
+| SKIN      | Flavas and Colourthemes available |
+| RECIPIENT      | Choose a Recipient's data to display |
+| PUBLISHER      | Choose a Publisher's data to display |
+| SIZE      | Choose a blog-friendly size |
 
 
 
-Make sure to pick a Publisher if you choose a Publisher-specific view or a Country for a Country-specific view.
+Make sure to pick a Publisher if you choose a Publisher-specific view or a Recipient for a Recipient-specific view.
 
 Click on **Fix Size** to resize the widget appropriately.
 
