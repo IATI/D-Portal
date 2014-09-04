@@ -14,18 +14,10 @@
 <form>
 
 <div>
-<span class="opt">VIEW</span>
-<select id="generator_view" class="chosen">
+<span class="opt">PUBLISHER</span>
+<select id="generator_publisher" class="chosen">
 	<option value></option>
-	{generator_options_view}
-</select>
-</div>
-
-<div>
-<span class="opt">SKIN</span>
-<select id="generator_skin" class="chosen">
-	<option value></option>
-	{generator_options_skin}
+	{generator_options_publisher}
 </select>
 </div>
 
@@ -38,10 +30,18 @@
 </div>
 
 <div>
-<span class="opt">PUBLISHER</span>
-<select id="generator_publisher" class="chosen">
+<span class="opt">VIEW</span>
+<select id="generator_view" class="chosen">
 	<option value></option>
-	{generator_options_publisher}
+	{generator_options_view}
+</select>
+</div>
+
+<div>
+<span class="opt">SKIN</span>
+<select id="generator_skin" class="chosen">
+	<option value></option>
+	{generator_options_skin}
 </select>
 </div>
 
@@ -60,6 +60,7 @@
 </div>
 <a id="frame_fix_size">FIX SIZE</a>
 <div id="frame" class="frame"></div>
+{reminder}
 
 #instructions
 <div class="instruct_wrap">
@@ -70,19 +71,28 @@
 	<div class="default">
 		<div class="instruct_col">
 			<div class="instruct_num">1</div>
+			<div class="instruct_text">Pick your data</div>
+			<div class="instruct_sub">Choose a Publisher's data or a Country's data to display.</div>			
+		</div><div class="instruct_col">
+			<div class="instruct_num">2</div>
 			<div class="instruct_text">Choose a View</div>
 			<div class="instruct_sub">These are sections of d-portal you can embed in your website.</div>
 		</div><div class="instruct_col">
-			<div class="instruct_num">2</div>
+			<div class="instruct_num">3</div>
 			<div class="instruct_text">Pick a Skin</div>
 			<div class="instruct_sub">We have a few colour schemes available.</div>
-		</div><div class="instruct_col">
-			<div class="instruct_num">3</div>
-			<div class="instruct_text">Populate with data</div>
-			<div class="instruct_sub">Choose a Country's data or a Publisher's data to display.</div>
 		</div>
 	</div>
 	<div class="instruct_fix">Click on <span>FIX SIZE</span> to resize the widget appropriately.</div>
+</div>
+
+#reminder
+<div class="reminder_wrap">
+	<p>Empty tables are due to no data found.</p>
+	<p>Picking both PUBLISHER and COUNTRY data at the same time will also limit the data populating the table.</p>
+	<p>Views with publisher options work best with PUBLISHER data.</p>
+	<p>Always click on FIX SIZE to adjust the height or width of the widget.</p>
+	<p>The SIZE option allows you to choose a variety of blog-friendly sized widgets.</p>
 </div>
 
 #css
@@ -90,7 +100,7 @@ textarea			{display:block; width:954px; height:100px; margin-top:5px;}
 form div			{padding:5px 0;}
 form div span.opt	{display:inline-block; min-width:100px; color:#fff; text-align:right; vertical-align:middle; margin-right:10px;}
 select				{border-radius:2px;}
- #frame				{margin:0 auto; width:960px; padding:20px 20px 0 20px; border-radius:8px; margin-bottom:200px;}
+ #frame				{margin:0 auto; width:960px; padding:20px 20px 0 20px; border-radius:8px;}
 a#frame_fix_size	{display:block; margin:0 auto; width:960px; border-radius:4px; padding:10px 0; text-align:center; background-color:#2573CD; color:#fff; margin-top:10px; margin-bottom:10px;}
 a#frame_fix_size:hover	{background-color:#2F84E5;}
 .generator			{width:960px; margin:0 auto; padding:0; padding-top:40px;}
@@ -107,4 +117,6 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .instruct_sub		{text-align:center; color:#ccc; font-size:1.0em; line-height:1.2em; margin-top:10px;}
 .instruct_fix		{background-color:#333; color:#ccc; padding:15px 0; text-align:center;}
 .instruct_fix span	{color:#4CA0FF; font-weight:bold;}
-.chosen-container	{min-width:250px;}
+.chosen-container	{min-width:250px; max-width:500px;}
+.reminder_wrap		{margin:0 auto; margin-top:60px; background-color:#222; width:880px; padding:20px 40px; color:#ccc; font-size:0.9em; line-height:1.2em; margin-bottom:200px;}
+.reminder_wrap p	{padding-top:15px; color:#ccc;}
