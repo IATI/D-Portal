@@ -61,7 +61,8 @@ ctrack.setup=function(args)
 	{
 		args.css=[
 				args.art+args.flava+"/activities.css",
-				args.art+args.flava+"/ctrack.css"
+				args.art+args.flava+"/ctrack.css",
+				args.art+"chosen.min.css"
 		];
 		if(args.rgba) // only if given
 		{
@@ -355,6 +356,7 @@ ctrack.setup=function(args)
 				{
 					v.fixup();
 				}
+				$("select.chosen").chosen();
 			}
 		}
 	};

@@ -47,6 +47,10 @@ view_frame.view=function(args)
 		var v=views[name];
 		if(v)
 		{
+			if(v.chunks)
+			{
+				v.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+			}
 			if(v.ajax)
 			{
 				v.ajax();
@@ -62,7 +66,7 @@ view_frame.view=function(args)
 
 view_frame.show=function(args)
 {
-	view_frame.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+//	view_frame.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	
 	var name=ctrack.hash.frame;
 	if(name)
