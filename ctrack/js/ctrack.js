@@ -19,10 +19,18 @@ var iati_codes=require("../../dstore/json/iati_codes.json")
 ctrack.savi_fixup=savi.fixup;
 ctrack.draw_chart=chart.draw;
 
-ctrack.goto=function(str)
+ctrack.url=function(url)
 {
-	window.location.hash=str;
-	return false;
+	if(ctrack.popout=="frame")
+	{
+//		console.log("popout "+url);
+		window.open(url);
+	}
+	else
+	{
+		window.location.hash=url;
+		return false;
+	}
 };
 
 
