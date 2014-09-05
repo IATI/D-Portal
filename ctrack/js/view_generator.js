@@ -68,7 +68,7 @@ var skins={}
 	skins.mustard={flava:"original",rgba:"mustard"};
 	skins.inspire={flava:"original",rgba:"inspire"};
 
-var sizes=[320,400,450,500,640,750,960];
+var sizes=[320,400,450,500,550,640,750,960];
 
 
 // called on view display to fix html in place (run "onload" javascript here)
@@ -133,7 +133,7 @@ view_generator.fixup=function()
 		url=url.split("#")[0];
 		url=url.split("?")[0];
 
-		var frame="<iframe src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
+		var frame="<iframe frameborder='0' src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
 		$("#generator_textarea").val( $("<p>").append($(frame)).html() ); // escape for textarea
 		var frame_change=function(){
 			$("#frame").empty().append( $( $("#generator_textarea").val() ) );
