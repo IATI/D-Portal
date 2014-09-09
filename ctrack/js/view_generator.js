@@ -180,6 +180,8 @@ view_generator.view=function(args)
 	{
 		var aa=(a.split(">")[1]).split("<")[0];
 		var bb=(b.split(">")[1]).split("<")[0];
+		aa=aa.toLowerCase().replace("the ", "");
+		bb=bb.toLowerCase().replace("the ", "");
 		return ((aa > bb) - (bb > aa));
 	};
 	
