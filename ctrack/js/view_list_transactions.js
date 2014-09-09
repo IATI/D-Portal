@@ -49,8 +49,8 @@ view_list_transactions.ajax=function(args)
 			"groupby":"aid",
 			"orderby":"1-",
 			"trans_code":"D|E",
-			"country_code":(args.country || ctrack.args.country),
-			"reporting_ref":(args.publisher || ctrack.args.publisher),
+			"country_code":(args.country || ctrack.args.country_select),
+			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};
 	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
 	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }

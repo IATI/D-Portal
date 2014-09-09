@@ -92,9 +92,12 @@ ctrack.setup=function(args)
 // temporary country force hack
 	if( ctrack.q.country )
 	{
-		args.country=ctrack.q.country.toLowerCase();
-		args.chunks["country_code"]=args.country.toUpperCase();
-		args.chunks["country_name"]=iati_codes.country[args.country.toUpperCase()];
+		var cc=ctrack.q.country.toLowerCase().split(","); // allow list
+		if(cc.length==1) { ctrack.q.country.toLowerCase().split("|"); }
+		args.country=cc[0].toLowerCase();
+		args.country_select=cc.join("|");
+		args.chunks["country_code"]=cc[0].toUpperCase();
+		args.chunks["country_name"]=iati_codes.country[ args.country.toUpperCase() ];
 		args.chunks["country_flag"]="{art}flag/"+args.country+".png";
 		args.chunks["background_image"]="{art}back/"+args.country+".jpg";
 	}
@@ -115,7 +118,10 @@ ctrack.setup=function(args)
 
 	if( ctrack.q.publisher )
 	{
-		args.publisher=ctrack.q.publisher; // case is important?
+		var cc=ctrack.q.publisher.split(","); // allow list
+		if(cc.length==1) { ctrack.q.publisher.split("|"); }
+		args.publisher=cc[0]; // case is important?
+		args.publisher_select=cc.join("|");
 		args.chunks["publisher_code"]=args.publisher;
 		args.chunks["publisher_name"]=iati_codes.publisher_names[args.publisher] || args.publisher;
 

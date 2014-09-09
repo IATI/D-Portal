@@ -85,8 +85,8 @@ view_districts.ajax=function(args)
 				"location_code":"adm2",
 				"code":"D|E",
 				"day_gteq":year+"-01-01","day_lt":(parseInt(year)+1)+"-01-01",
-				"country_code":(args.country || ctrack.args.country),
-				"reporting_ref":(args.publisher || ctrack.args.publisher),
+				"country_code":(args.country || ctrack.args.country_select),
+				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
 		var callback=function(data){
 //			console.log("fetch transactions districts "+year);
@@ -123,8 +123,8 @@ view_districts.ajax=function(args)
 				"priority":1, // has passed some validation checks serverside
 				"location_code":"adm2",
 				"day_end_gteq":year+"-01-01","day_end_lt":(parseInt(year)+1)+"-01-01",
-				"country_code":(args.country || ctrack.args.country),
-				"reporting_ref":(args.publisher || ctrack.args.publisher),
+				"country_code":(args.country || ctrack.args.country_select),
+				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
 		var callback=function(data){
 			

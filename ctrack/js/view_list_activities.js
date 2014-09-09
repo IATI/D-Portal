@@ -49,8 +49,8 @@ view_list_activities.ajax=function(args)
 			"select":"title,aid,funder_ref,commitment,spend,reporting,reporting_ref,day_start,day_end",
 			"orderby":"4-",
 			"groupby":"aid",
-			"country_code":(args.country || ctrack.args.country),
-			"reporting_ref":(args.publisher || ctrack.args.publisher),
+			"country_code":(args.country || ctrack.args.country_select),
+			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};
 	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
 	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }

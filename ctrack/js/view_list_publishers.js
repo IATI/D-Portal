@@ -48,8 +48,8 @@ view_list_publishers.ajax=function(args)
 			"select":"count,reporting_ref,reporting",
 			"groupby":"reporting_ref",
 			"orderby":"1-",
-			"country_code":(args.country || ctrack.args.country),
-			"reporting_ref":(args.publisher || ctrack.args.publisher),
+			"country_code":(args.country || ctrack.args.country_select),
+			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};
 	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
 	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }

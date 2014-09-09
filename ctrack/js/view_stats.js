@@ -68,8 +68,8 @@ view_stats.ajax=function(args)
 	var dat={
 			"select":"stats",
 			"from":"act,country",
-			"country_code":(args.country || ctrack.args.country),
-			"reporting_ref":(args.publisher || ctrack.args.publisher),
+			"country_code":(args.country || ctrack.args.country_select),
+			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};
 		
 	fetch.ajax(dat,args.callback || function(data)
@@ -96,8 +96,8 @@ view_stats.ajax=function(args)
 			"country_percent":100, // *only* this country
 			"location_longitude_not_null":1, // must have a location
 			"location_latitude_not_null":1, // must have a location
-			"country_code":(args.country || ctrack.args.country),
-			"reporting_ref":(args.publisher || ctrack.args.publisher),
+			"country_code":(args.country || ctrack.args.country_select),
+			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{

@@ -23,27 +23,35 @@ view_generator.chunks=[
 // build data of what iframe widgets we can publish
 var genes={};
 	genes.sectors={
+		country:true,
 		name:"All Sectors"
 	};
 	genes.sectors_top={
+		country:true,
 		name:"Top Sectors"
 	};
 	genes.donors={
+		country:true,
 		name:"All Donors"
 	};
 	genes.donors_top={
+		country:true,
 		name:"Top Donors"
 	};
 	genes.publisher_sectors={
+		publisher:true,
 		name:"Publishers sectors (table)"
 	};
 	genes.publisher_sectors_top={
+		publisher:true,
 		name:"Publishers sectors (graph)"
 	};
 	genes.publisher_countries={
+		publisher:true,
 		name:"Publisher countries (table)"
 	};
 	genes.publisher_countries_top={
+		publisher:true,
 		name:"Publisher countries (graph)"
 	};
 	genes.map={

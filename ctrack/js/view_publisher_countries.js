@@ -120,8 +120,8 @@ view_publisher_countries.ajax=function(args)
 				"groupby":"country_code",
 				"trans_code":"D|E",
 				"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
-//				"country_code":(args.country || ctrack.args.country),
-				"reporting_ref":(args.publisher || ctrack.args.publisher),
+//				"country_code":(args.country || ctrack.args.country_select),
+				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
 		fetch.ajax(dat,function(data){
 //			console.log("fetch transactions donors "+year);
@@ -157,8 +157,8 @@ view_publisher_countries.ajax=function(args)
 				"budget_priority":1, // has passed some validation checks serverside
 				"groupby":"country_code",
 				"budget_day_end_gteq":year+"-01-01","budget_day_end_lt":(parseInt(year)+1)+"-01-01",
-//				"country_code":(args.country || ctrack.args.country),
-				"reporting_ref":(args.publisher || ctrack.args.publisher),
+//				"country_code":(args.country || ctrack.args.country_select),
+				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
 		fetch.ajax(dat,function(data){
 			
