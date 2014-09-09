@@ -308,7 +308,7 @@ view_map.ajax_pins=function(args)
 			"select":"count,location_longitude,location_latitude,aid,title",
 			"from":"act,country,location",
 			"form":"jcsv",
-			"limit":args.limit || 5,
+			"limit":args.limit || -1,
 			"location_longitude_not_null":1,
 			"location_latitude_not_null":1,
 			"orderby":"1-",
