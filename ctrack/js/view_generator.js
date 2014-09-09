@@ -181,7 +181,8 @@ view_generator.fixup=function()
 
 		var frame="<iframe frameborder='0' src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
 		$("#generator_textarea").val( $("<p>").append($(frame)).html() ); // escape for textarea
-
+		last_height=-1;
+		
 		frame_change();
 	};
 
