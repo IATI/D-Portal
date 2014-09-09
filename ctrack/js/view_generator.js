@@ -24,19 +24,19 @@ view_generator.chunks=[
 var genes={};
 	genes.sectors={
 		crs:true,
-		name:"CRS Sectors all (table) for a single country"
+		name:"CRS Sectors all (table) for a single recipient"
 	};
 	genes.sectors_top={
 		crs:true,
-		name:"CRS Sectors top (graph) for a single country"
+		name:"CRS Sectors top (graph) for a single recipient"
 	};
 	genes.donors={
 		crs:true,
-		name:"CRS Donors all (table) for a single country"
+		name:"CRS Donors all (table) for a single recipient"
 	};
 	genes.donors_top={
 		crs:true,
-		name:"CRS Donors top (graph) for a single country"
+		name:"CRS Donors top (graph) for a single recipient"
 	};
 	genes.publisher_sectors={
 		name:"Sectors all (table)"
@@ -45,10 +45,10 @@ var genes={};
 		name:"Sectors top (graph)"
 	};
 	genes.publisher_countries={
-		name:"Countries all (table)"
+		name:"Recipients all (table)"
 	};
 	genes.publisher_countries_top={
-		name:"Countries top (graph)"
+		name:"Recipients top (graph)"
 	};
 	genes.map={
 		name:"Map (only shows precise locations of activities)"
