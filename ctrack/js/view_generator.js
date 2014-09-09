@@ -24,19 +24,19 @@ view_generator.chunks=[
 var genes={};
 	genes.sectors={
 		crs:true,
-		name:"CRS Sectors all (table) for a single country"
+		name:"CRS Sectors all (table) for a single recipient"
 	};
 	genes.sectors_top={
 		crs:true,
-		name:"CRS Sectors top (graph) for a single country"
+		name:"CRS Sectors top (graph) for a single recipient"
 	};
 	genes.donors={
 		crs:true,
-		name:"CRS Donors all (table) for a single country"
+		name:"CRS Donors all (table) for a single recipient"
 	};
 	genes.donors_top={
 		crs:true,
-		name:"CRS Donors top (graph) for a single country"
+		name:"CRS Donors top (graph) for a single recipient"
 	};
 	genes.publisher_sectors={
 		name:"Sectors all (table)"
@@ -45,10 +45,10 @@ var genes={};
 		name:"Sectors top (graph)"
 	};
 	genes.publisher_countries={
-		name:"Countries all (table)"
+		name:"Recipients all (table)"
 	};
 	genes.publisher_countries_top={
-		name:"Countries top (graph)"
+		name:"Recipients top (graph)"
 	};
 	genes.map={
 		name:"Map (only shows precise locations of activities)"
@@ -75,9 +75,36 @@ var skins={}
 var sizes=[320,400,450,500,550,640,750,960];
 
 
+view_generator.crs_ok=false;
 // called on view display to fix html in place (run "onload" javascript here)
 view_generator.fixup=function()
 {
+	var last_height=-1;
+	var frame_height=function(){
+		if($("#frame iframe").length>0)
+		{
+			height=$($("#frame iframe")[0].contentWindow.document).height();
+			if(height!=last_height)
+			{
+				last_height=height;
+				$("#frame iframe")[0].style.height=height+'px';
+				$("#generator_textarea").val( $("<p>").append($("#frame iframe").clone()).html() );
+			}
+		}
+	};
+		
+	var frame_change=function(){
+		if( view_generator.crs_ok )
+		{
+			$("#frame").empty().append( $( $("#generator_textarea").val() ) );
+		}
+		else
+		{
+			$("#frame").empty().append( plate.replace("{generator_crs_error}") );
+		}
+	};
+	$("#generator_textarea").bind('input propertychange',frame_change);
+
 	var change=function(e){
 		var name=""+$("#generator_view").val();
 		var gene=genes[name];
@@ -111,7 +138,7 @@ view_generator.fixup=function()
 		var country=$("#generator_country").val();
 		if(country && country!="")
 		{
-			if(country.split(",").length==1)
+			if(country.length==1)
 			{
 				crs_ok=true;
 			}
@@ -136,6 +163,15 @@ view_generator.fixup=function()
 			hash=hash+"&size="+width;
 		}
 		
+		if(crs_ok || (!gene.crs) )
+		{
+			view_generator.crs_ok=true;
+		}
+		else
+		{
+			view_generator.crs_ok=false;
+		}
+		
 		var style="width:"+width+"px;"+"height:"+0+"px;";
 
 
@@ -145,61 +181,34 @@ view_generator.fixup=function()
 
 		var frame="<iframe frameborder='0' src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
 		$("#generator_textarea").val( $("<p>").append($(frame)).html() ); // escape for textarea
+		last_height=-1;
 		
-		var frame_change=function(){
-			if( crs_ok || (!gene.crs) )
-			{
-				$("#frame").empty().append( $( $("#generator_textarea").val() ) );
-			}
-			else
-			{
-				$("#frame").empty().append( plate.replace("{generator_crs_error}") );
-			}
-		};
 		frame_change();
-		$("#generator_textarea").bind('input propertychange',frame_change);
-
-		var last_height=-1;
-		var frame_height=function(){
-			height=$($("#frame iframe")[0].contentWindow.document).height();
-//			console.log(height);
-			if(height!=last_height)
-			{
-				last_height=height;
-				$("#frame iframe")[0].style.height=height+'px';
-				$("#generator_textarea").val( $("<p>").append($("#frame iframe").clone()).html() );
-			}
-		};
-			
-		$("#frame iframe").load(function(){
-			frame_height();
-		});
-
-		$("#frame_fix_size").click(frame_height);
-		
-		if(!view_generator.interval)
-		{
-			view_generator.interval=window.setInterval(function(){
-				if( $("#generator_textarea").length==1 ) // make sure we are still visible
-				{
-					frame_height();
-				}
-				else
-				{
-					window.clearInterval(view_generator.interval);
-					view_generator.interval=undefined;
-				}
-			}, 1000);
-		}
-
 	};
 
 	change();
+	
 	$("#generator_view").change(change);
 	$("#generator_skin").change(change);
 	$("#generator_country").change(change);
 	$("#generator_publisher").change(change);
 	$("#generator_size").change(change);
+
+	if(!view_generator.interval)
+	{
+		view_generator.interval=window.setInterval(function(){
+			if( $("#generator_textarea").length==1 ) // make sure we are still visible
+			{
+				frame_height();
+			}
+			else
+			{
+				window.clearInterval(view_generator.interval);
+				view_generator.interval=undefined;
+			}
+		}, 1000);
+	}
+
 }
 //
 // Perform ajax call to get numof data
