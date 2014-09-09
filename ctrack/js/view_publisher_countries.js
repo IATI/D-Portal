@@ -120,7 +120,7 @@ view_publisher_countries.ajax=function(args)
 				"groupby":"country_code",
 				"trans_code":"D|E",
 				"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
-//				"country_code":(args.country || ctrack.args.country_select),
+				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
 		fetch.ajax(dat,function(data){
