@@ -1,6 +1,6 @@
 #view_generator
 {view_head}
-<style>.main_wrap{height:100%;}.overlay{background-color:#444;}{css}</style>
+<style>.main_wrap{height:100%;}.overlay{background-color:#444;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}{css}</style>
 {beige}
 {main_head}
 {main_min}
@@ -39,6 +39,54 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 	<option value></option>
 	{generator_options_view}
 </select>
+</div>
+
+<div>
+<span class="opt">VIEW</span>
+<div class="view_wrap">
+	<div class="view_links">
+		<a href="" class="view">
+			<img src="art/generator/overview.png" width="260"/>
+			<span>Overview (statistics)</span>
+		</a><a href="" class="view mid">
+			<img src="art/generator/crsdonortop.png" width="260"/>
+			<span>CRS Donors top (graph) for a single recipient</span>
+		</a><a href="" class="view">
+			<img src="art/generator/countriesall.png" width="260"/>
+			<span>CRS Donors all (table) for a single recipient</span>
+		</a>
+	</div>
+	<div class="view_links">
+		<a href="" class="view">
+			<img src="art/generator/crssectortop.png" width="260"/>
+			<span>CRS Sectors top (graph) for a single recipient</span>
+		</a><a href="" class="view mid">
+			<img src="art/generator/countriesall.png" width="260"/>
+			<span>CRS Sectors all (table) for a single recipient</span>
+		</a><a href="" class="view">
+			<img src="art/generator/crsdonortop.png" width="260"/>
+			<span>All Recipients (graph)</span>
+		</a>
+	</div>
+	<div class="view_links">
+		<a href="" class="view">
+			<img src="art/generator/countriesall.png" width="260"/>
+			<span>All Recipients (table)</span>
+		</a><a href="" class="view mid">
+			<img src="art/generator/crssectortop.png" width="260"/>
+			<span>All Sectors (graph)</span>
+		</a><a href="" class="view">
+			<img src="art/generator/countriesall.png" width="260"/>
+			<span>All Sectors (table)</span>
+		</a>
+	</div>
+	<div class="view_links">
+		<a href="" class="view">
+			<img src="art/generator/map.png" width="260"/>
+			<span>Map (only shows precise locations of activities)</span>
+		</a>
+	</div>
+</div>
 </div>
 
 <div>
@@ -122,3 +170,8 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .chosen-container	{min-width:250px; max-width:500px;}
 .reminder_wrap		{margin:0 auto; margin-top:60px; background-color:#222; width:880px; padding:20px 40px 30px 40px; color:#ccc; font-size:0.9em; line-height:1.2em; margin-bottom:200px;}
 .reminder_wrap p	{padding-top:15px; color:#ccc;}
+.view_wrap			{display:inline-block; vertical-align:top; width:840px;}
+.view_links			{margin-bottom:20px;}
+a.view				{display:inline-block; vertical-align:top; width:260px;}
+a.view.mid			{margin:0 20px;}
+a.view span			{display:block; margin-top:5px; color:#ccc; font-size:0.8em;}
