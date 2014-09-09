@@ -24,41 +24,41 @@ view_generator.chunks=[
 var genes={};
 	genes.sectors={
 		country:true,
-		name:"All Sectors"
+		name:"CRS Sectors all (table) for a single country"
 	};
 	genes.sectors_top={
 		country:true,
-		name:"Top Sectors"
+		name:"CRS Sectors top (graph) for a single country"
 	};
 	genes.donors={
 		country:true,
-		name:"All Donors"
+		name:"CRS Donors all (table) for a single country"
 	};
 	genes.donors_top={
 		country:true,
-		name:"Top Donors"
+		name:"CRS Donors top (graph) for a single country"
 	};
 	genes.publisher_sectors={
 		publisher:true,
-		name:"Publishers sectors (table)"
+		name:"Sectors all (table)"
 	};
 	genes.publisher_sectors_top={
 		publisher:true,
-		name:"Publishers sectors (graph)"
+		name:"Sectors top (graph)"
 	};
 	genes.publisher_countries={
 		publisher:true,
-		name:"Publisher countries (table)"
+		name:"Countries all (table)"
 	};
 	genes.publisher_countries_top={
 		publisher:true,
-		name:"Publisher countries (graph)"
+		name:"Countries top (graph)"
 	};
 	genes.map={
-		name:"Map"
+		name:"Map (only shows precise locations of activities)"
 	};
 	genes.stats={
-		name:"Overview"
+		name:"Overview (statistics)"
 	};
 	for(var n in genes) // set defaults
 	{
