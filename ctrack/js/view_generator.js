@@ -23,35 +23,31 @@ view_generator.chunks=[
 // build data of what iframe widgets we can publish
 var genes={};
 	genes.sectors={
-		country:true,
+		crs:true,
 		name:"CRS Sectors all (table) for a single country"
 	};
 	genes.sectors_top={
-		country:true,
+		crs:true,
 		name:"CRS Sectors top (graph) for a single country"
 	};
 	genes.donors={
-		country:true,
+		crs:true,
 		name:"CRS Donors all (table) for a single country"
 	};
 	genes.donors_top={
-		country:true,
+		crs:true,
 		name:"CRS Donors top (graph) for a single country"
 	};
 	genes.publisher_sectors={
-		publisher:true,
 		name:"Sectors all (table)"
 	};
 	genes.publisher_sectors_top={
-		publisher:true,
 		name:"Sectors top (graph)"
 	};
 	genes.publisher_countries={
-		publisher:true,
 		name:"Countries all (table)"
 	};
 	genes.publisher_countries_top={
-		publisher:true,
 		name:"Countries top (graph)"
 	};
 	genes.map={
@@ -85,6 +81,7 @@ view_generator.fixup=function()
 	var change=function(e){
 		var name=""+$("#generator_view").val();
 		var gene=genes[name];
+		var crs_ok=false;
 		
 		if(!gene) { return; }
 	
@@ -114,12 +111,17 @@ view_generator.fixup=function()
 		var country=$("#generator_country").val();
 		if(country && country!="")
 		{
+			if(country.split(",").length==1)
+			{
+				crs_ok=true;
+			}
 			q=q+"country="+country+"&"
 		}
 
 		var publisher=$("#generator_publisher").val();
 		if(publisher && publisher!="")
 		{
+			crs_ok=false;
 			q=q+"publisher="+publisher+"&"
 		}
 		
@@ -143,17 +145,30 @@ view_generator.fixup=function()
 
 		var frame="<iframe frameborder='0' src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
 		$("#generator_textarea").val( $("<p>").append($(frame)).html() ); // escape for textarea
+		
 		var frame_change=function(){
-			$("#frame").empty().append( $( $("#generator_textarea").val() ) );
+			if( crs_ok || (!gene.crs) )
+			{
+				$("#frame").empty().append( $( $("#generator_textarea").val() ) );
+			}
+			else
+			{
+				$("#frame").empty().append( plate.replace("{generator_crs_error}") );
+			}
 		};
 		frame_change();
 		$("#generator_textarea").bind('input propertychange',frame_change);
 
+		var last_height=-1;
 		var frame_height=function(){
 			height=$($("#frame iframe")[0].contentWindow.document).height();
 //			console.log(height);
-			$("#frame iframe")[0].style.height=height+'px';
-			$("#generator_textarea").val( $("<p>").append($("#frame iframe").clone()).html() );
+			if(height!=last_height)
+			{
+				last_height=height;
+				$("#frame iframe")[0].style.height=height+'px';
+				$("#generator_textarea").val( $("<p>").append($("#frame iframe").clone()).html() );
+			}
 		};
 			
 		$("#frame iframe").load(function(){
@@ -161,6 +176,21 @@ view_generator.fixup=function()
 		});
 
 		$("#frame_fix_size").click(frame_height);
+		
+		if(!view_generator.interval)
+		{
+			view_generator.interval=window.setInterval(function(){
+				if( $("#generator_textarea").length==1 ) // make sure we are still visible
+				{
+					frame_height();
+				}
+				else
+				{
+					window.clearInterval(view_generator.interval);
+					view_generator.interval=undefined;
+				}
+			}, 1000);
+		}
 
 	};
 
