@@ -11,7 +11,7 @@
 
 #generator_crs_error
 <div class="reminder_wrap">
-Please select <b>ONE</b> recipient and <b>NO</b> publisher.
+Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content here.
 </div>
 #generator
 <div id="generator" class="generator">
@@ -42,28 +42,29 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 </div>
 
 <div class="view_wrap">
+	<div class="view_info">Example views</div>
 	<div class="view_links">
 		<a href="" class="view" onclick="$('#generator_view').val('stats').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/overview.png" width="260"/>
 			<span>Overview (statistics)</span>
 		</a><a href="" class="view mid" onclick="$('#generator_view').val('donors_top').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/crsdonortop.png" width="260"/>
-			<span>CRS Donors top (graph) for a single recipient</span>
+			<span>Top Donors for a single recipient (graph)</span>
 		</a><a href="" class="view" onclick="$('#generator_view').val('donors').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/countriesall.png" width="260"/>
-			<span>CRS Donors all (table) for a single recipient</span>
+			<span>All Donors for a single recipient (table)</span>
 		</a>
 	</div>
 	<div class="view_links">
 		<a href="" class="view" onclick="$('#generator_view').val('sectors_top').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/crssectortop.png" width="260"/>
-			<span>CRS Sectors top (graph) for a single recipient</span>
+			<span>Top Sectors for a single recipient (graph)</span>
 		</a><a href="" class="view mid" onclick="$('#generator_view').val('sectors').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/countriesall.png" width="260"/>
-			<span>CRS Sectors all (table) for a single recipient</span>
+			<span>All Sectors for a single recipient (table)</span>
 		</a><a href="" class="view" onclick="$('#generator_view').val('publisher_countries_top').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/crsdonortop.png" width="260"/>
-			<span>All Recipients (graph)</span>
+			<span>Top Recipients (graph)</span>
 		</a>
 	</div>
 	<div class="view_links">
@@ -72,7 +73,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 			<span>All Recipients (table)</span>
 		</a><a href="" class="view mid" onclick="$('#generator_view').val('publisher_sectors_top').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/crssectortop.png" width="260"/>
-			<span>All Sectors (graph)</span>
+			<span>Top Sectors (graph)</span>
 		</a><a href="" class="view" onclick="$('#generator_view').val('publisher_sectors').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/countriesall.png" width="260"/>
 			<span>All Sectors (table)</span>
@@ -102,7 +103,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 </select>
 </div>
 
-<div class="instruct_info">Copy &amp; paste the code below into your blog post to embed this section.</div>
+<div class="instruct_info">Copy &amp; paste the code below into your webpage/blog post to embed the content you have generated.</div>
 <textarea id="generator_textarea"></textarea>
 
 </form>
@@ -120,7 +121,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 		<div class="instruct_col">
 			<div class="instruct_num">1</div>
 			<div class="instruct_text">Pick your data</div>
-			<div class="instruct_sub">Choose a Publisher's or a Recipient's data to display.</div>			
+			<div class="instruct_sub">Choose Publisher(s) and/or Recipient(s) data to display.</div>			
 		</div><div class="instruct_col">
 			<div class="instruct_num">2</div>
 			<div class="instruct_text">Choose a View</div>
@@ -135,11 +136,12 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 
 #reminder
 <div class="reminder_wrap">
-	<p>Empty tables are due to no data found.</p>
-	<p>Picking both PUBLISHER and RECIPIENT data at the same time will also limit the data populating the table.</p>
-	<p>Views with publisher options work best with PUBLISHER data.</p>
-	<p>The SIZE option allows you to choose a variety of blog-friendly sized widgets.</p>
-	<p>You can compare multiple datasets by choosing multiple RECIPIENT and/or PUBLISHER.</p>
+	<p>You can compare multiple datasets by choosing multiple RECIPIENTS and/or PUBLISHERS.</p>
+	<p>Picking both PUBLISHER and RECIPIENT data at the same time will limit the data in your generated content.</p>
+	<p>The SIZE option allows you to generate a variety of blog-friendly sized content.</p>
+	<p>Empty tables are due to no data found.
+
+	<a href="mailto:queries@d-portal.org" class="mail">For all questions, suggestions and feedback please contact queries@d-portal.org</a>
 </div>
 
 #css
@@ -167,8 +169,11 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .chosen-container	{min-width:250px; max-width:500px;}
 .reminder_wrap		{margin:0 auto; margin-top:60px; background-color:#222; width:880px; padding:20px 40px 30px 40px; color:#ccc; font-size:0.9em; line-height:1.2em; margin-bottom:200px;}
 .reminder_wrap p	{padding-top:15px; color:#ccc;}
-.view_wrap			{display:inline-block; vertical-align:top; width:840px; margin-top:20px; margin-left:110px;}
+.view_info			{padding-bottom:10px; color:#fff; font-size:0.9em; border-bottom:3px solid #666; margin-bottom:10px;}
+.view_wrap			{display:inline-block; vertical-align:top; width:840px; margin-left:110px;}
 .view_links			{margin-bottom:20px;}
 a.view				{display:inline-block; vertical-align:top; width:260px;}
-a.view.mid			{margin:0 20px;}
+a.view.mid			{margin:0 30px;}
 a.view span			{display:block; margin-top:5px; color:#ccc; font-size:0.8em;}
+a.mail				{display:block; margin-top:15px; color:#4CA0FF; padding:5px 0;}
+a.mail:hover		{color:#74B5FF;}
