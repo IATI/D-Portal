@@ -231,7 +231,7 @@ view_generator.view=function(args)
 		var s="<option value='"+n+"'>"+v.name+"</option>";
 		a.push(s);
 	}
-	a.sort(ss);
+//	a.sort(ss);
 	ctrack.chunk("generator_options_view",a.join(""));
 
 	
