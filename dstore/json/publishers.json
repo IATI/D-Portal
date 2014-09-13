@@ -4064,8 +4064,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "6de26b73d1894c200fcb6e80cf1f72b6",
-				"number_of_edits": 12,
-				"number_administered_packages": 1,
+				"number_of_edits": 19,
+				"number_administered_packages": 2,
 				"display_name": "Samira Yussuf",
 				"fullname": "Samira Yussuf",
 				"id": "ca4333f5-b519-4362-9d08-6548a3432c4b"
@@ -4074,38 +4074,39 @@
 		"display_name": "CODA International",
 		"description": "",
 		"title": "CODA International",
-		"package_count": 1,
+		"package_count": 2,
 		"created": "2014-08-11T09:14:39.993641",
 		"approval_status": "approved",
 		"is_organization": true,
 		"state": "active",
 		"extras": {
-			"publisher_iati_id": "coda-org",
-			"publisher_segmentation": "per project",
+			"publisher_iati_id": "GB-CHC-1000717",
+			"publisher_segmentation": "",
 			"publisher_implementation_schedule": "",
 			"publisher_organization_type": "21",
 			"publisher_frequency": "Not specified",
-			"publisher_frequency_select": "annually",
+			"publisher_frequency_select": "quarterly",
 			"publisher_units": "Project",
-			"publisher_thresholds": "n/a",
+			"publisher_thresholds": "",
 			"publisher_ui": "Under consideration",
-			"publisher_contact": "Samira Yussuf",
-			"publisher_agencies": "100% - covering a DFID Project implemented in partnership with TALC-Zambia",
+			"publisher_contact": "Susie Steven\r\nssteven@coda-international.org.uk",
+			"publisher_agencies": "100% - covering a DFID Project implemented in partnership with Treatment Advocacy & Literacy Campaign (TALC) -Zambia",
 			"publisher_field_exclusions": "All fields are either in use or under consideration",
 			"publisher_description": "We are a UK-based international development organisation working to reduce poverty and injustice in Latin America, Africa and the Middle East.\r\nWe believe that social justice is not achieved when structures are imposed from outside, but when local communities provide initiatives for themselves.\r\n",
 			"publisher_record_exclusions": "We don't exclude any activities for the project in question",
-			"publisher_timeliness": "within 3 months",
-			"license_id": "odc-pddl",
+			"publisher_timeliness": "Quarter plus 4 weeks",
+			"license_id": "cc-by",
 			"publisher_country": "GB",
 			"publisher_refs": "n/a",
 			"publisher_constraints": "None",
 			"publisher_source_type": "primary_source",
-			"publisher_data_quality": "Externally examined at UK level on annual basis. Audited at country level on Annual basis. During the year data is provided quarterly by the Project Finance Worker and verified by the Finance Manager."
+			"publisher_data_quality": "Externally examined at UK level on an annual basis. Audited at country level on an Annual basis. During the year data is provided quarterly by the Project Finance Worker and verified by the Finance Manager."
 		},
-		"image_url": "http://coda-international.org.uk/",
+		"image_url": "http://www.coda-international.org.uk/templates/rt_versatility4_j15/images/blank.gif",
 		"groups": [],
-		"revision_id": "f284e049-aac1-4e51-948e-bbd80e41dbd2",
+		"revision_id": "8d60905d-c1ae-4bc6-84e7-dbf9a8cc2f14",
 		"packages": [
+			"coda-activities",
 			"coda-org"
 		],
 		"type": "organization",
@@ -4186,8 +4187,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "191bdf65a631410a4b32d5ff395a202b",
-				"number_of_edits": 0,
-				"number_administered_packages": 0,
+				"number_of_edits": 3,
+				"number_administered_packages": 1,
 				"display_name": "Claire Parfondry",
 				"fullname": "Claire Parfondry",
 				"id": "7e6a4c28-d9f5-4b50-9ae9-f2c77daa66ca"
@@ -4196,7 +4197,7 @@
 		"display_name": "Concern Worldwide UK",
 		"description": "",
 		"title": "Concern Worldwide UK",
-		"package_count": 4,
+		"package_count": 5,
 		"created": "2012-05-21T15:34:50.904131",
 		"approval_status": "approved",
 		"is_organization": true,
@@ -4228,6 +4229,7 @@
 		"packages": [
 			"concernuk-et",
 			"concernuk-org",
+			"concernuk-pk",
 			"concernuk-pk1",
 			"concernuk-tz"
 		],
@@ -12611,6 +12613,66 @@
 		"tags": [],
 		"name": "mic-uk"
 	},
+	"mifumi_uk": {
+		"users": [
+			{
+				"openid": null,
+				"about": null,
+				"capacity": "admin",
+				"name": "mifumi_uk",
+				"created": "2014-09-12T10:50:18.996424",
+				"sysadmin": false,
+				"activity_streams_email_notifications": false,
+				"email_hash": "0a63f08904cfb46308743b4d7ffc9c7e",
+				"number_of_edits": 6,
+				"number_administered_packages": 1,
+				"display_name": "Fran M",
+				"fullname": "Fran M",
+				"id": "0b857fa4-747b-4dfd-aa5d-f8833a817a51"
+			}
+		],
+		"display_name": "Mifumi UK",
+		"description": "",
+		"title": "Mifumi UK",
+		"package_count": 1,
+		"created": "2014-09-12T10:56:22.217955",
+		"approval_status": "approved",
+		"is_organization": true,
+		"state": "active",
+		"extras": {
+			"publisher_iati_id": "GB-CHC-1038785",
+			"publisher_segmentation": "N/A",
+			"publisher_implementation_schedule": "",
+			"publisher_organization_type": "21",
+			"publisher_frequency": "",
+			"publisher_frequency_select": "quarterly",
+			"publisher_units": "Project",
+			"publisher_thresholds": "",
+			"publisher_ui": "",
+			"publisher_contact": "Brunswick Court, Bunswick Square, Bristol BS2 8PE",
+			"publisher_agencies": "DFID - funding\r\nMifumi  UK - accountable\r\nCOT - Implementer",
+			"publisher_field_exclusions": "",
+			"publisher_description": "",
+			"publisher_record_exclusions": "",
+			"publisher_timeliness": "Quarter  + 2 weeks",
+			"license_id": "cc-by",
+			"publisher_country": "",
+			"publisher_refs": "",
+			"publisher_constraints": "",
+			"publisher_source_type": "primary_source",
+			"publisher_data_quality": ""
+		},
+		"image_url": "",
+		"groups": [],
+		"revision_id": "1bc7a199-e413-49c8-a485-46ad064891bf",
+		"packages": [
+			"mifumi_uk-org"
+		],
+		"type": "organization",
+		"id": "9f72b03e-35b1-47f8-b20d-faef14b1636f",
+		"tags": [],
+		"name": "mifumi_uk"
+	},
 	"minbuza_nl": {
 		"users": [
 			{
@@ -13711,6 +13773,66 @@
 		"tags": [],
 		"name": "onl"
 	},
+	"open_university": {
+		"users": [
+			{
+				"openid": null,
+				"about": null,
+				"capacity": "admin",
+				"name": "open_university",
+				"created": "2014-09-12T08:42:58.634406",
+				"sysadmin": false,
+				"activity_streams_email_notifications": false,
+				"email_hash": "046787b11fbbf79587fb68fe439a6378",
+				"number_of_edits": 7,
+				"number_administered_packages": 1,
+				"display_name": "Heidi McCafferty",
+				"fullname": "Heidi McCafferty",
+				"id": "cc8660c1-7e32-44f9-9f4e-5fa507d78718"
+			}
+		],
+		"display_name": "The Open University",
+		"description": "",
+		"title": "The Open University",
+		"package_count": 1,
+		"created": "2014-09-12T10:50:11.043978",
+		"approval_status": "approved",
+		"is_organization": true,
+		"state": "active",
+		"extras": {
+			"publisher_iati_id": "GB-CHC-000391",
+			"publisher_segmentation": "",
+			"publisher_implementation_schedule": "",
+			"publisher_organization_type": "80",
+			"publisher_frequency": "",
+			"publisher_frequency_select": "quarterly",
+			"publisher_units": "1 activity = 1 project",
+			"publisher_thresholds": "",
+			"publisher_ui": "",
+			"publisher_contact": "International Development Office\r\nDevelopment Officer, Heidi McCafferty\r\nheidi.mccafferty@open.ac.uk\r\n01908 653543",
+			"publisher_agencies": "",
+			"publisher_field_exclusions": "",
+			"publisher_description": "The Open University promotes educational opportunity and social justice by providing high-quality university education to all who wish to realise their ambitions and fulfil their potential, both within the UK and internationally.\r\n\r\nThrough academic research, pedagogic innovation and collaborative partnership we seek to be a world leader in the design, content and delivery of supported open learning.",
+			"publisher_record_exclusions": "",
+			"publisher_timeliness": "28 days from the end of quarter",
+			"license_id": "cc-zero",
+			"publisher_country": "GB",
+			"publisher_refs": "",
+			"publisher_constraints": "",
+			"publisher_source_type": "primary_source",
+			"publisher_data_quality": ""
+		},
+		"image_url": "http://www.open.ac.uk/oudigital/headerandfooter/assets/img/ou-logo.png",
+		"groups": [],
+		"revision_id": "61822899-0ad0-4734-95b3-c2b7ab6ab578",
+		"packages": [
+			"open_university-org"
+		],
+		"type": "organization",
+		"id": "cc5a2e39-ec5e-4e92-b115-a8b2856c0572",
+		"tags": [],
+		"name": "open_university"
+	},
 	"openforchange": {
 		"users": [
 			{
@@ -14521,6 +14643,66 @@
 		"id": "d81b9ff7-da05-4c64-a9b1-a787ad237312",
 		"tags": [],
 		"name": "phase_worldwide"
+	},
+	"phe": {
+		"users": [
+			{
+				"openid": null,
+				"about": null,
+				"capacity": "admin",
+				"name": "toral",
+				"created": "2014-09-09T15:04:36.090224",
+				"sysadmin": false,
+				"activity_streams_email_notifications": false,
+				"email_hash": "38afcc8c844b52a57beb6427e47ad81e",
+				"number_of_edits": 7,
+				"number_administered_packages": 1,
+				"display_name": "Toral Shah",
+				"fullname": "Toral Shah",
+				"id": "9f66cabd-1059-4a8e-bb03-71d424c190f3"
+			}
+		],
+		"display_name": "Project Harar",
+		"description": "",
+		"title": "Project Harar",
+		"package_count": 1,
+		"created": "2014-09-12T10:50:18.961104",
+		"approval_status": "approved",
+		"is_organization": true,
+		"state": "active",
+		"extras": {
+			"publisher_iati_id": "GB-CHC-1094272",
+			"publisher_segmentation": "",
+			"publisher_implementation_schedule": "",
+			"publisher_organization_type": "21",
+			"publisher_frequency": "Every 6 months",
+			"publisher_frequency_select": "quarterly",
+			"publisher_units": "1 activity = 1 project",
+			"publisher_thresholds": "",
+			"publisher_ui": "Not at present.",
+			"publisher_contact": "Project Harar\r\n4a Park End\r\nLondon NW3 2SE\r\nUK\r\nTel: +44 (0) 20 7794 4856\r\nEmail: smile@projectharar.org\r\nwww.projectharar.org",
+			"publisher_agencies": "Project Harar UK and in Ethiopia. The IATI data covers our DFID funded project in the Somali region of Ethiopia.",
+			"publisher_field_exclusions": "",
+			"publisher_description": "Project Harar is a charity dedicated to helping impoverished Ethiopians with a variety of facial conditions, including cleft lip and palate, burns, tumours and diseases such as the flesh-eating noma, to access free surgery. Over 13 years, Project Harar has helped nearly 3,500 rural Ethiopians.",
+			"publisher_record_exclusions": "",
+			"publisher_timeliness": "Within 4 weeks after the end of each quarter",
+			"license_id": "cc-by",
+			"publisher_country": "GB",
+			"publisher_refs": "",
+			"publisher_constraints": "",
+			"publisher_source_type": "primary_source",
+			"publisher_data_quality": "Project Harar's annual accounts are subject to independent examination."
+		},
+		"image_url": "http://www.projectharar.org/templates/default/images/logo.png?v=1402661263",
+		"groups": [],
+		"revision_id": "64202ef9-37da-48f7-b7b2-9d0e21bbbc05",
+		"packages": [
+			"phe-org"
+		],
+		"type": "organization",
+		"id": "10223270-b40c-464f-9b24-82958add670e",
+		"tags": [],
+		"name": "phe"
 	},
 	"plan_ireland": {
 		"users": [
@@ -21080,6 +21262,67 @@
 		"id": "142709fb-c0dd-4023-92d6-eee769ea3137",
 		"tags": [],
 		"name": "wateraid"
+	},
+	"wccuk": {
+		"users": [
+			{
+				"openid": null,
+				"about": null,
+				"capacity": "admin",
+				"name": "worldchildcancer",
+				"created": "2014-09-08T11:23:16.099043",
+				"sysadmin": false,
+				"activity_streams_email_notifications": false,
+				"email_hash": "859e80b5e23ddd9096f1da48231778e2",
+				"number_of_edits": 7,
+				"number_administered_packages": 2,
+				"display_name": "World Child Cancer",
+				"fullname": "World Child Cancer",
+				"id": "607cfec6-60ca-4862-85f2-4ba16c5980e3"
+			}
+		],
+		"display_name": "World Child Cancer UK",
+		"description": "",
+		"title": "World Child Cancer UK",
+		"package_count": 2,
+		"created": "2014-09-12T10:50:07.580300",
+		"approval_status": "approved",
+		"is_organization": true,
+		"state": "active",
+		"extras": {
+			"publisher_iati_id": "GB-CHC-1084729",
+			"publisher_segmentation": "N/A",
+			"publisher_implementation_schedule": "",
+			"publisher_organization_type": "21",
+			"publisher_frequency": "",
+			"publisher_frequency_select": "quarterly",
+			"publisher_units": "One activity equals one project.",
+			"publisher_thresholds": "N/A",
+			"publisher_ui": "",
+			"publisher_contact": "liz.burns@worldchildcancer.org",
+			"publisher_agencies": "DFID plus other donors. 100% of total development flows for the GPAF project.",
+			"publisher_field_exclusions": "",
+			"publisher_description": "World Child Cancer UK is the project's accountable organisation. It is responsible for receiving and dispersing funds to the organisations named in the project agreement. ",
+			"publisher_record_exclusions": "World Child Cancer UK will refrain from publishing personal or institutional medical information.",
+			"publisher_timeliness": "One quarter plus one month.",
+			"license_id": "cc-by",
+			"publisher_country": "GB",
+			"publisher_refs": "N/A",
+			"publisher_constraints": "",
+			"publisher_source_type": "primary_source",
+			"publisher_data_quality": ""
+		},
+		"image_url": "http://static.wixstatic.com/media/3200fe_f5cc806c2b934ecc9c7698f7d7565156.jpg_srz_p_174_129_75_22_0.50_1.20_0.00_jpg_srz",
+		"groups": [],
+		"revision_id": "9d44359c-058e-477d-9388-7c6763177882",
+		"packages": [
+			"wccuk-activities",
+			"wccuk-org"
+		],
+		"type": "organization",
+		"id": "fbf9e79e-8193-4760-8f17-f13a93db0f9c",
+		"tags": [],
+		"name": "wccuk"
 	},
 	"wcf": {
 		"users": [
