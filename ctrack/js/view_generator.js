@@ -22,40 +22,42 @@ view_generator.chunks=[
 
 // build data of what iframe widgets we can publish
 var genes={};
+	genes.publisher_countries={
+		name:"Recipients (table)"
+	};
+	genes.publisher_countries_top={
+		name:"Top Recipients (graph)"
+	};
+	genes.publisher_sectors={
+		name:"Sectors (table)"
+	};
+	genes.publisher_sectors_top={
+		name:"Top Sectors (graph)"
+	};
+	genes.map={
+		name:"Map (only shows precise locations of activities)"
+	};
 	genes.stats={
 		name:"Overview (statistics)"
+	};
+	genes.donors={
+		crs:true,
+		name:"Donors for a single recipient (table)"
 	};
 	genes.donors_top={
 		crs:true,
 		name:"Top Donors for a single recipient (graph)"
 	};
-	genes.donors={
+	genes.sectors={
 		crs:true,
-		name:"All Donors for a single recipient (table)"
+		name:"Sectors for a single recipient (table)"
 	};
 	genes.sectors_top={
 		crs:true,
 		name:"Top Sectors for a single recipient (graph)"
 	};
-	genes.sectors={
-		crs:true,
-		name:"All Sectors for a single recipient (table)"
-	};
-	genes.publisher_countries_top={
-		name:"Top Recipients (graph)"
-	};
-	genes.publisher_countries={
-		name:"All Recipients (table)"
-	};
-	genes.publisher_sectors_top={
-		name:"Top Sectors (graph)"
-	};
-	genes.publisher_sectors={
-		name:"All Sectors (table)"
-	};
-	genes.map={
-		name:"Map (only shows precise locations of activities)"
-	};
+	
+	
 	for(var n in genes) // set defaults
 	{
 		var v=genes[n];
