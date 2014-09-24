@@ -9,11 +9,19 @@ var iati_codes=require("../../dstore/json/iati_codes.json")
 
 savi.fixup = function(args){
 
+
 args=args || {};	
 var inside=args.inside || "";
 //var prelink=args.link || "http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier=";
 var prelink=args.link || "http://d-portal.org/q.xml?aid=";
 var postlink=args.link_post || "";
+
+
+var acts=$(inside+"iati-activity").not(".savidone"); // ignore activities that have already been done
+acts.addClass("savidone"); // mark as done so we ignore if we get called again
+
+//console.log("save fixup "+inside+"iati-activity"+" "+acts.length);
+
 
 var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
         return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -30,7 +38,7 @@ var wrapInner_link=function(it,url,cc)
 	it.wrapInner("<a href=\""+url+"\" class=\""+cc+"\" target=\"_blank\" ></a>");
 }
 
-$(inside+"value").each(function(i){var it=$(this);
+acts.find("value").each(function(i){var it=$(this);
 	var c=it.attr("currency");
 	if(!c) { c=it.parents("iati-activity").attr("default-currency"); } // use default?
 	if(c)
@@ -40,7 +48,7 @@ $(inside+"value").each(function(i){var it=$(this);
 	}
 });
 
-$(inside+"iati-activity").each(function(i){var it=$(this);
+acts.each(function(i){var it=$(this);
 	var needed=["title","recipient-country","participating-org","reporting-org","description","activity-status"];
 	needed.forEach(function(n){
 		if( it.children(n).length==0 )
@@ -69,7 +77,7 @@ $(inside+"iati-activity").each(function(i){var it=$(this);
 	
 });
 
-$(inside+"participating-org").each(function(i){var it=$(this);
+acts.find("participating-org").each(function(i){var it=$(this);
 	var c=it.attr("role");
 	if(c)
 	{
@@ -78,7 +86,7 @@ $(inside+"participating-org").each(function(i){var it=$(this);
 	}
 });
 
-$(inside+"transaction").each(function(i){var it=$(this);
+acts.find("transaction").each(function(i){var it=$(this);
 	var needed=["transaction-date","transaction-type","description","provider-org","receiver-org","value"];
 	needed.forEach(function(n){
 		if( it.children(n).length==0 )
@@ -88,7 +96,7 @@ $(inside+"transaction").each(function(i){var it=$(this);
 	});
 });
 
-$(inside+"budget").each(function(i){var it=$(this);
+acts.find("budget").each(function(i){var it=$(this);
 	var needed=["period-start","period-end","value"];
 	needed.forEach(function(n){
 		if( it.children(n).length==0 )
@@ -99,11 +107,11 @@ $(inside+"budget").each(function(i){var it=$(this);
 
 });
 
-$(inside+"activity-date,transaction-date,period-start,period-end").each(function(i){var it=$(this);
+acts.find("activity-date,transaction-date,period-start,period-end").each(function(i){var it=$(this);
 	it.html( it.attr("iso-date") );
 });
 
-$(inside+"related-activity").each(function(i){var it=$(this);
+acts.find("related-activity").each(function(i){var it=$(this);
 	if( it.html().length<4 )
 	{
 		it.html(it.attr("ref"));
@@ -111,7 +119,7 @@ $(inside+"related-activity").each(function(i){var it=$(this);
 });
 
 
-$(inside+"reporting-org").each(function(i){var it=$(this);
+acts.find("reporting-org").each(function(i){var it=$(this);
 	var t=it.attr("ref");
 	t=iati_codes.publisher_names[t];
 	if(t)
@@ -120,7 +128,7 @@ $(inside+"reporting-org").each(function(i){var it=$(this);
 	}
 });
 
-$(inside+"activity-status").each(function(i){var it=$(this);
+acts.find("activity-status").each(function(i){var it=$(this);
 	var tc=it.attr("code");
 	tc=iati_codes.activity_status[tc] || tc;
 	if(tc)
@@ -129,7 +137,7 @@ $(inside+"activity-status").each(function(i){var it=$(this);
 	}
 });
 
-$(inside+"sector").each(function(i){var it=$(this);
+acts.find("sector").each(function(i){var it=$(this);
 
 	var tp=it.attr("percentage") || 100;
 	var tc=it.attr("code");
@@ -144,7 +152,7 @@ $(inside+"sector").each(function(i){var it=$(this);
 
 });
 
-$(inside+"transaction-type").each(function(i){var it=$(this);
+acts.find("transaction-type").each(function(i){var it=$(this);
 
 	var tc=it.attr("code");
 	if(tc)
@@ -158,7 +166,7 @@ $(inside+"transaction-type").each(function(i){var it=$(this);
 	}
 });
 
-$(inside+"recipient-country").each(function(i){var it=$(this);
+acts.find("recipient-country").each(function(i){var it=$(this);
 
 	var tp=it.attr("percentage") || 100;
 	var tc=it.attr("code")
@@ -174,7 +182,7 @@ $(inside+"recipient-country").each(function(i){var it=$(this);
 
 });
 
-$(inside+"budget").each(function(i){var it=$(this);
+acts.find("budget").each(function(i){var it=$(this);
 	
 	var sortlist=[
 		"period-start",
@@ -204,7 +212,7 @@ $(inside+"budget").each(function(i){var it=$(this);
 
 });
 
-$(inside+"transaction").each(function(i){var it=$(this);
+acts.find("transaction").each(function(i){var it=$(this);
 	
 	var sortlist=[
 		"transaction-date",
@@ -238,7 +246,7 @@ $(inside+"transaction").each(function(i){var it=$(this);
 });
 
 var sorted=0;
-$(inside+"iati-activity").each(function(i){var it=$(this);
+acts.each(function(i){var it=$(this);
 sorted++;
 	var sortlist=[
 		"title",
@@ -362,15 +370,15 @@ sorted++;
 });
 //console.log("sorted "+sorted+" acts");
 
-$(inside+"document-link").each(function(i){var it=$(this);
+acts.find("document-link").each(function(i){var it=$(this);
 	wrap_link(it,it.attr("url"),"a_"+this.tagName.toLowerCase());
 });
 
-$(inside+"activity-website").each(function(i){var it=$(this);
+acts.find("activity-website").each(function(i){var it=$(this);
 	wrap_link(it,it.html(),"a_"+this.tagName.toLowerCase());
 });
 
-$(inside+"iati-identifier").each(function(i){var it=$(this);
+acts.find("iati-identifier").each(function(i){var it=$(this);
 	var slug=it.parent().parent().attr("dstore:slug"); // do we know where this came from?
 	var id=encodeURIComponent(it.text().trim());
 	wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
@@ -381,7 +389,7 @@ $(inside+"iati-identifier").each(function(i){var it=$(this);
 	}
 });
 
-$(inside+"provider-org[provider-activity-id]").each(function(i){var it=$(this);
+acts.find("provider-org[provider-activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("receiver-activity-id");
 	if(id)
 	{
@@ -389,7 +397,7 @@ $(inside+"provider-org[provider-activity-id]").each(function(i){var it=$(this);
 	}
 });
 
-$(inside+"receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
+acts.find("receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("receiver-activity-id");
 	if(id)
 	{
@@ -397,7 +405,7 @@ $(inside+"receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
 	}
 });
 
-$(inside+"related-activity").each(function(i){var it=$(this);
+acts.find("related-activity").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	if(id)
 	{
@@ -405,7 +413,7 @@ $(inside+"related-activity").each(function(i){var it=$(this);
 	}
 });
 
-$(inside+"iati-activity").each(function(i){var it=$(this);
+acts.each(function(i){var it=$(this);
 
 	var base=it.children(".span_sector");
 	var aa=base.children("sector[vocabulary=\"DAC\"]");
