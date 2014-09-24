@@ -22,39 +22,39 @@ view_generator.chunks=[
 
 // build data of what iframe widgets we can publish
 var genes={};
-	genes.sectors={
-		crs:true,
-		name:"CRS Sectors all (table) for a single recipient"
-	};
-	genes.sectors_top={
-		crs:true,
-		name:"CRS Sectors top (graph) for a single recipient"
-	};
-	genes.donors={
-		crs:true,
-		name:"CRS Donors all (table) for a single recipient"
-	};
-	genes.donors_top={
-		crs:true,
-		name:"CRS Donors top (graph) for a single recipient"
-	};
-	genes.publisher_sectors={
-		name:"Sectors all (table)"
-	};
-	genes.publisher_sectors_top={
-		name:"Sectors top (graph)"
-	};
 	genes.publisher_countries={
-		name:"Recipients all (table)"
+		name:"Recipients (table)"
 	};
 	genes.publisher_countries_top={
-		name:"Recipients top (graph)"
+		name:"Top Recipients (graph)"
+	};
+	genes.publisher_sectors={
+		name:"Sectors (table)"
+	};
+	genes.publisher_sectors_top={
+		name:"Top Sectors (graph)"
 	};
 	genes.map={
 		name:"Map (only shows precise locations of activities)"
 	};
 	genes.stats={
 		name:"Overview (statistics)"
+	};
+	genes.donors={
+		crs:true,
+		name:"Donors for a single recipient (table)"
+	};
+	genes.donors_top={
+		crs:true,
+		name:"Top Donors for a single recipient (graph)"
+	};
+	genes.sectors={
+		crs:true,
+		name:"Sectors for a single recipient (table)"
+	};
+	genes.sectors_top={
+		crs:true,
+		name:"Top Sectors for a single recipient (graph)"
 	};
 	genes.act={
 		limit:1,
@@ -241,7 +241,7 @@ view_generator.view=function(args)
 		var s="<option value='"+n+"'>"+v.name+"</option>";
 		a.push(s);
 	}
-	a.sort(ss);
+//	a.sort(ss);
 	ctrack.chunk("generator_options_view",a.join(""));
 
 	

@@ -10,8 +10,8 @@
 {view_tail}
 
 #generator_crs_error
-<div class="reminder_wrap">
-Please select <b>ONE</b> recipient and <b>NO</b> publisher.
+<div class="reminder_wrap top">
+Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content here <p>- or choose a different View.</p>
 </div>
 #generator
 <div id="generator" class="generator">
@@ -42,46 +42,55 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 </div>
 
 <div class="view_wrap">
+	<div class="view_info">Example views</div>
 	<div class="view_links">
-		<a href="" class="view" onclick="$('#generator_view').val('stats').trigger('chosen:updated').trigger('change');return false;" >
+		<a href="" class="view" onclick="$('#generator_view').val('publisher_countries').trigger('chosen:updated').trigger('change');return false;" >
+			<img src="art/generator/countriesall.png" width="260"/>
+			<span class="imgtxt">Recipients (table)</span>
+			<span class="overtxt">Publisher data only</span>
+		</a><a href="" class="view mid" onclick="$('#generator_view').val('publisher_countries_top').trigger('chosen:updated').trigger('change');return false;" >
+			<img src="art/generator/crsdonortop.png" width="260"/>
+			<span class="imgtxt">Top Recipients (graph)</span>
+			<span class="overtxt">Publisher data only</span>
+		</a><a href="" class="view" onclick="$('#generator_view').val('publisher_sectors').trigger('chosen:updated').trigger('change');return false;" >
+			<img src="art/generator/countriesall.png" width="260"/>
+			<span class="imgtxt">Sectors (table)</span>
+			<span class="overtxt">Publisher data only</span>
+		</a>	
+	</div>	
+	<div class="view_links">
+		<a href="" class="view" onclick="$('#generator_view').val('publisher_sectors_top').trigger('chosen:updated').trigger('change');return false;" >
+			<img src="art/generator/crssectortop.png" width="260"/>
+			<span class="imgtxt">Top Sectors (graph)</span>
+			<span class="overtxt">Publisher data only</span>
+		</a><a href="" class="view mid" onclick="$('#generator_view').val('map').trigger('chosen:updated').trigger('change');return false;" >
+			<img src="art/generator/map.png" width="260"/>
+			<span class="imgtxt">Map (only shows precise locations of activities)</span>
+		</a><a href="" class="view" onclick="$('#generator_view').val('stats').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/overview.png" width="260"/>
-			<span>Overview (statistics)</span>
+			<span class="imgtxt">Overview (statistics)</span>
+		</a>
+	</div>
+	<div class="view_links">
+		<a href="" class="view" onclick="$('#generator_view').val('donors').trigger('chosen:updated').trigger('change');return false;" >
+			<img src="art/generator/countriesall.png" width="260"/>
+			<span class="imgtxt">Donors for a single recipient (table)</span>
+			<span class="overtxt">Recipient data only</span>
 		</a><a href="" class="view mid" onclick="$('#generator_view').val('donors_top').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/crsdonortop.png" width="260"/>
-			<span>CRS Donors top (graph) for a single recipient</span>
-		</a><a href="" class="view" onclick="$('#generator_view').val('donors').trigger('chosen:updated').trigger('change');return false;" >
+			<span class="imgtxt">Top Donors for a single recipient (graph)</span>
+			<span class="overtxt">Recipient data only</span>
+		</a><a href="" class="view" onclick="$('#generator_view').val('sectors').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/countriesall.png" width="260"/>
-			<span>CRS Donors all (table) for a single recipient</span>
+			<span class="imgtxt">Sectors for a single recipient (table)</span>
+			<span class="overtxt">Recipient data only</span>
 		</a>
 	</div>
 	<div class="view_links">
 		<a href="" class="view" onclick="$('#generator_view').val('sectors_top').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/crssectortop.png" width="260"/>
-			<span>CRS Sectors top (graph) for a single recipient</span>
-		</a><a href="" class="view mid" onclick="$('#generator_view').val('sectors').trigger('chosen:updated').trigger('change');return false;" >
-			<img src="art/generator/countriesall.png" width="260"/>
-			<span>CRS Sectors all (table) for a single recipient</span>
-		</a><a href="" class="view" onclick="$('#generator_view').val('publisher_countries_top').trigger('chosen:updated').trigger('change');return false;" >
-			<img src="art/generator/crsdonortop.png" width="260"/>
-			<span>All Recipients (graph)</span>
-		</a>
-	</div>
-	<div class="view_links">
-		<a href="" class="view" onclick="$('#generator_view').val('publisher_countries').trigger('chosen:updated').trigger('change');return false;" >
-			<img src="art/generator/countriesall.png" width="260"/>
-			<span>All Recipients (table)</span>
-		</a><a href="" class="view mid" onclick="$('#generator_view').val('publisher_sectors_top').trigger('chosen:updated').trigger('change');return false;" >
-			<img src="art/generator/crssectortop.png" width="260"/>
-			<span>All Sectors (graph)</span>
-		</a><a href="" class="view" onclick="$('#generator_view').val('publisher_sectors').trigger('chosen:updated').trigger('change');return false;" >
-			<img src="art/generator/countriesall.png" width="260"/>
-			<span>All Sectors (table)</span>
-		</a>
-	</div>
-	<div class="view_links">
-		<a href="" class="view" onclick="$('#generator_view').val('map').trigger('chosen:updated').trigger('change');return false;" >
-			<img src="art/generator/map.png" width="260"/>
-			<span>Map (only shows precise locations of activities)</span>
+			<span class="imgtxt">Top Sectors for a single recipient (graph)</span>
+			<span class="overtxt">Recipient data only</span>
 		</a>
 	</div>
 </div>
@@ -102,7 +111,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 </select>
 </div>
 
-<div class="instruct_info">Copy &amp; paste the code below into your blog post to embed this section.</div>
+<div class="instruct_info">Copy &amp; paste the code below into your webpage/blog post to embed the content you have generated.</div>
 <textarea id="generator_textarea"></textarea>
 
 </form>
@@ -112,7 +121,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 
 #instructions
 <div class="instruct_wrap">
-	<div class="instruct_head">Create a widget with the d-portal Generator.</div>
+	<div class="instruct_head">Create IATI content with the d-portal Generator.</div>
 </div>
 <div class="instruct_col_wrap">
 	<div class="default"><div class="mid_wrap"></div><div class="mid_wrap"><div class="arrow"></div></div></div>
@@ -120,7 +129,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 		<div class="instruct_col">
 			<div class="instruct_num">1</div>
 			<div class="instruct_text">Pick your data</div>
-			<div class="instruct_sub">Choose a Publisher's or a Recipient's data to display.</div>			
+			<div class="instruct_sub">Choose Publisher(s) and/or Recipient(s) data to display.</div>			
 		</div><div class="instruct_col">
 			<div class="instruct_num">2</div>
 			<div class="instruct_text">Choose a View</div>
@@ -135,19 +144,23 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher.
 
 #reminder
 <div class="reminder_wrap">
-	<p>Empty tables are due to no data found.</p>
-	<p>Picking both PUBLISHER and RECIPIENT data at the same time will also limit the data populating the table.</p>
-	<p>Views with publisher options work best with PUBLISHER data.</p>
-	<p>Always click on FIX SIZE to adjust the height or width of the widget to remove scrollbars.</p>
-	<p>The SIZE option allows you to choose a variety of blog-friendly sized widgets.</p>
+	<p>You can compare multiple datasets by choosing multiple RECIPIENTS and/or PUBLISHERS.</p>
+	<p>Picking both PUBLISHER and RECIPIENT data at the same time will limit the data in your generated content.</p>
+	<p>The SIZE option allows you to generate a variety of blog-friendly sized content.</p>
+	<p>Empty tables are due to no data found.
+
+	<a href="mailto:queries@d-portal.org" class="mail">For all questions, suggestions and feedback please contact queries@d-portal.org</a>
 </div>
+
+#footer_pick_text
+Back to Development Portal
 
 #css
 textarea			{display:block; width:954px; height:100px; margin-top:5px;}
 form div			{padding:5px 0;}
 form div span.opt	{display:inline-block; min-width:100px; color:#fff; text-align:right; vertical-align:middle; margin-right:10px;}
 select				{border-radius:2px;}
- #frame				{margin:0 auto; width:960px; padding:20px 20px 0 20px; border-radius:8px;}
+ #frame				{margin:0 auto; width:960px; padding:20px 20px 0 20px; text-align:center;}
 a#frame_fix_size	{display:block; margin:0 auto; width:960px; border-radius:4px; padding:10px 0; text-align:center; background-color:#2573CD; color:#fff; margin-top:10px; margin-bottom:10px;}
 a#frame_fix_size:hover	{background-color:#2F84E5;}
 .generator			{width:960px; margin:0 auto; padding:0; padding-top:40px;}
@@ -166,9 +179,17 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .instruct_fix span	{color:#4CA0FF; font-weight:bold;}
 .chosen-container	{min-width:250px; max-width:500px;}
 .reminder_wrap		{margin:0 auto; margin-top:60px; background-color:#222; width:880px; padding:20px 40px 30px 40px; color:#ccc; font-size:0.9em; line-height:1.2em; margin-bottom:200px;}
+.reminder_wrap.top	{background-color:#2573CD; font-size:1.4em; color:#fff; padding:30px 40px; margin-bottom:0;}
 .reminder_wrap p	{padding-top:15px; color:#ccc;}
-.view_wrap			{display:inline-block; vertical-align:top; width:840px; margin-top:20px; margin-left:110px;}
+.reminder_wrap.top p{color:#fff;}
+.view_info			{padding-bottom:10px; color:#fff; font-size:0.9em; border-bottom:3px solid #666; margin-bottom:10px;}
+.view_wrap			{display:inline-block; vertical-align:top; width:840px; margin-left:110px;}
 .view_links			{margin-bottom:20px;}
-a.view				{display:inline-block; vertical-align:top; width:260px;}
-a.view.mid			{margin:0 20px;}
-a.view span			{display:block; margin-top:5px; color:#ccc; font-size:0.8em;}
+a.view				{display:inline-block; vertical-align:top; width:260px; position:relative;}
+a.view.mid			{margin:0 30px;}
+a.view span.imgtxt	{display:block; margin-top:5px; color:#ccc; font-size:0.8em;}
+a.mail				{display:block; margin-top:15px; color:#4CA0FF; padding:5px 0;}
+a.mail:hover		{color:#74B5FF;}
+
+span.overtxt		{display:none;}
+a.view:hover span.overtxt	{display:block; position:absolute; top:0; left:0; width:260px; height:119px; background-color:rgba(0,0,0,0.6); color:#fff; text-align:center; line-height:6em;}
