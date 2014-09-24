@@ -42,7 +42,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 </div>
 
 <div class="view_wrap">
-	<div class="view_info">Example views</div>
+	<div class="view_info"><span>Example views</span><span class="see">Pick one to update the preview of your widget below. <i><b>Scroll down to view it.</b></i></span></div>
 	<div class="view_links">
 		<a href="" class="view" onclick="$('#generator_view').val('publisher_countries').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/countriesall.png" width="260"/>
@@ -111,7 +111,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 </select>
 </div>
 
-<div class="instruct_info">Copy &amp; paste the code below into your webpage/blog post to embed the content you have generated.</div>
+<div class="instruct_info">Copy &amp; paste the code below into your webpage / blog post to embed the content you have generated.</div>
 <textarea id="generator_textarea"></textarea>
 
 </form>
@@ -121,7 +121,11 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 
 #instructions
 <div class="instruct_wrap">
-	<div class="instruct_head">Create IATI content with the d-portal Generator.</div>
+	<div class="default">
+		<a href="http://d-portal.org/" title="Back to d-portal" class="logo">
+			<img src="/art/original/dp_logo.60.png" alt="d-portal logo" width="150" height="60">
+		</a><div class="instruct_head"> Create IATI content with the d-portal Generator</div>
+	</div>
 </div>
 <div class="instruct_col_wrap">
 	<div class="default"><div class="mid_wrap"></div><div class="mid_wrap"><div class="arrow"></div></div></div>
@@ -129,7 +133,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 		<div class="instruct_col">
 			<div class="instruct_num">1</div>
 			<div class="instruct_text">Pick your data</div>
-			<div class="instruct_sub">Choose Publisher(s) and/or Recipient(s) data to display.</div>			
+			<div class="instruct_sub">Choose <b>Publisher</b>(s) and/or <b>Recipient</b>(s) data to display.</div>			
 		</div><div class="instruct_col">
 			<div class="instruct_num">2</div>
 			<div class="instruct_text">Choose a View</div>
@@ -148,12 +152,13 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 	<p>Picking both PUBLISHER and RECIPIENT data at the same time will limit the data in your generated content.</p>
 	<p>The SIZE option allows you to generate a variety of blog-friendly sized content.</p>
 	<p>Empty tables are due to no data found.
+	<p><b>Data populating the tables can be quite large. Please wait until the spinner disappears for your widget to appear.</b></p>
 
 	<a href="mailto:queries@d-portal.org" class="mail">For all questions, suggestions and feedback please contact queries@d-portal.org</a>
 </div>
 
 #footer_pick_text
-Back to Development Portal
+Back to d-portal
 
 #css
 textarea			{display:block; width:954px; height:100px; margin-top:5px;}
@@ -167,11 +172,11 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .default			{width:960px; margin:0 auto; padding:0;}
 .mid_wrap			{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
 .arrow				{width:0; height:0; border-top:30px solid #2573CD; border-left:30px solid transparent; border-right:30px solid transparent;}
-.instruct_wrap		{margin:0 auto; width:100%; padding:40px 0; background-color:#2573CD;}
-.instruct_head		{text-align:center; color:#fff; font-size:2em;}
+.instruct_wrap		{margin:0 auto; width:100%; padding:20px 0 40px 0; background-color:#2573CD;}
+.instruct_head		{display:inline-block; vertical-align:bottom; width:810px; text-align:right; color:#fff; font-size:2em;}
 .instruct_info		{color:#fff; margin-top:15px;}
 .instruct_col_wrap	{width:100%; background-color:#222;}
-.instruct_col		{display:inline-block; vertical-align:top; width:240px; padding:40px 40px 80px 40px;}
+.instruct_col		{display:inline-block; vertical-align:top; width:240px; padding:40px 40px 60px 40px;}
 .instruct_num		{text-align:center; color:#eee; font-size:6em; margin-bottom:10px;}
 .instruct_text		{text-align:center; color:#4CA0FF; font-size:1.4em;}
 .instruct_sub		{text-align:center; color:#ccc; font-size:1.0em; line-height:1.2em; margin-top:10px;}
@@ -183,6 +188,8 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .reminder_wrap p	{padding-top:15px; color:#ccc;}
 .reminder_wrap.top p{color:#fff;}
 .view_info			{padding-bottom:10px; color:#fff; font-size:0.9em; border-bottom:3px solid #666; margin-bottom:10px;}
+.view_info span		{display:inline-block; vertical-align:top; width:100px; color:#ccc;}
+.view_info span.see	{width:740px; text-align:right; color:#fff;}
 .view_wrap			{display:inline-block; vertical-align:top; width:840px; margin-left:110px;}
 .view_links			{margin-bottom:20px;}
 a.view				{display:inline-block; vertical-align:top; width:260px; position:relative;}
@@ -190,6 +197,7 @@ a.view.mid			{margin:0 30px;}
 a.view span.imgtxt	{display:block; margin-top:5px; color:#ccc; font-size:0.8em;}
 a.mail				{display:block; margin-top:15px; color:#4CA0FF; padding:5px 0;}
 a.mail:hover		{color:#74B5FF;}
+a.logo				{display:inline-block; vertical-align:bottom; width:150px;}
 
 span.overtxt		{display:none;}
 a.view:hover span.overtxt	{display:block; position:absolute; top:0; left:0; width:260px; height:119px; background-color:rgba(0,0,0,0.6); color:#fff; text-align:center; line-height:6em;}
