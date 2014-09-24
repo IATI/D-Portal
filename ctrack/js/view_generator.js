@@ -57,7 +57,8 @@ var genes={};
 		name:"Overview (statistics)"
 	};
 	genes.act={
-		name:"Activities displayed using SAVI"
+		limit:1,
+		name:"Activity displayed using SAVI"
 	};
 
 	for(var n in genes) // set defaults
@@ -165,6 +166,11 @@ view_generator.fixup=function()
 		else
 		{
 			hash=hash+"&size="+width;
+		}
+		
+		if(gene.limit)
+		{
+			hash=hash+"&limit="+1;
 		}
 		
 		if(crs_ok || (!gene.crs) )
