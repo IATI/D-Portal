@@ -3,7 +3,7 @@
 
 
 var view_frame=exports;
-exports.name="frame";
+exports.name="view_frame";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
@@ -27,6 +27,8 @@ view_frame.fixup=function()
 		var v=views[name];
 		if(v && v.fixup)
 		{
+console.log("fixup")
+console.log(v)
 			v.fixup();
 		}
 	}

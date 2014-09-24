@@ -3,7 +3,7 @@
 
 
 var view_map=exports;
-exports.name="map";
+exports.name="view_map";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

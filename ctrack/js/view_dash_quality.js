@@ -3,7 +3,7 @@
 
 
 var view_dash_quality=exports;
-exports.name="dash";
+exports.name="view_dash_quality";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

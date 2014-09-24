@@ -3,7 +3,7 @@
 
 
 var view_planned=exports;
-exports.name="planned";
+exports.name="view_planned";
 
 var ctrack=require("./ctrack.js")
 var views=require("./views.js")

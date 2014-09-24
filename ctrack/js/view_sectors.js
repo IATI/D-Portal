@@ -3,7 +3,7 @@
 
 
 var view_sectors=exports;
-exports.name="stats";
+exports.name="view_sectors";
 
 var csvw=require("./csvw.js")
 

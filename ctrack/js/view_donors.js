@@ -3,7 +3,7 @@
 
 
 var view_donors=exports;
-exports.name="stats";
+exports.name="view_donors";
 
 var csvw=require("./csvw.js")
 

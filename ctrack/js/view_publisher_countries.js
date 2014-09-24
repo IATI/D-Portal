@@ -3,7 +3,7 @@
 
 
 var view_publisher_countries=exports;
-exports.name="publisher_countries";
+exports.name="view_publisher_countries";
 
 var csvw=require("./csvw.js")
 

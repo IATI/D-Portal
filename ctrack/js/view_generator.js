@@ -3,7 +3,7 @@
 
 
 var view_generator=exports;
-exports.name="generator";
+exports.name="view_generator";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
@@ -56,6 +56,10 @@ var genes={};
 	genes.stats={
 		name:"Overview (statistics)"
 	};
+	genes.act={
+		name:"Activities displayed using SAVI"
+	};
+
 	for(var n in genes) // set defaults
 	{
 		var v=genes[n];

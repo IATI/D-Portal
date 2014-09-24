@@ -3,7 +3,7 @@
 
 
 var view_dash_cronlog=exports;
-exports.name="dash";
+exports.name="view_dash_cronlog";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

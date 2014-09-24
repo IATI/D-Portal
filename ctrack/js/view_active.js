@@ -3,7 +3,7 @@
 
 
 var view_active=exports;
-exports.name="active";
+exports.name="view_active";
 
 var ctrack=require("./ctrack.js")
 var views=require("./views.js")
