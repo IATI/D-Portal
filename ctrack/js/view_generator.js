@@ -68,11 +68,11 @@ var genes={};
 	}
 // themes
 var skins={}
-	skins.original={flava:"original"};
-	skins.high={flava:"high"};
-	skins.grey={flava:"original",rgba:"grey"};
-	skins.mustard={flava:"original",rgba:"mustard"};
-	skins.inspire={flava:"original",rgba:"inspire"};
+	skins.Original={flava:"original"};
+	skins.High={flava:"high"};
+	skins.Grey={flava:"original",rgba:"grey"};
+	skins.Mustard={flava:"original",rgba:"mustard"};
+	skins.Inspire={flava:"original",rgba:"inspire"};
 
 var sizes=[320,400,450,500,550,640,750,960];
 
