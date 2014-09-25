@@ -60,6 +60,10 @@ var genes={};
 		limit:true,aid:true,
 		name:"Activities displayed using SAVi"
 	};
+	genes.list_activities={
+		limit:true,
+		name:"Activities displayed in a list"
+	};
 
 	for(var n in genes) // set defaults
 	{
