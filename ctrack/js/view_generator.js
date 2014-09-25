@@ -57,8 +57,8 @@ var genes={};
 		name:"Top Sectors for a single recipient (graph)"
 	};
 	genes.act={
-		limit:1,
-		name:"Activity displayed using SAVI"
+		limit:true,aid:true,
+		name:"Activities displayed using SAVI"
 	};
 
 	for(var n in genes) // set defaults
@@ -170,9 +170,27 @@ view_generator.fixup=function()
 		
 		if(gene.limit)
 		{
-			hash=hash+"&limit="+1;
+			$("#generator_limit_div").show();
+			hash=hash+"&limit="+$("#generator_limit").val();
 		}
-		
+		else
+		{
+			$("#generator_limit_div").hide();
+		}
+
+		if(gene.aid)
+		{
+			$("#generator_aid_div").show();
+			if($("#generator_aid").val() != "")
+			{
+				hash=hash+"&aid="+$("#generator_aid").val();
+			}
+		}
+		else
+		{
+			$("#generator_aid_div").hide();
+		}
+				
 		if(crs_ok || (!gene.crs) )
 		{
 			view_generator.crs_ok=true;
@@ -203,6 +221,8 @@ view_generator.fixup=function()
 	$("#generator_country").change(change);
 	$("#generator_publisher").change(change);
 	$("#generator_size").change(change);
+	$("#generator_aid").change(change);
+	$("#generator_limit").change(change);
 
 	if(!view_generator.interval)
 	{
