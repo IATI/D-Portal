@@ -62,7 +62,7 @@ var genes={};
 	};
 	genes.list_activities={
 		limit:true,
-		name:"Activities displayed in a list"
+		name:"List of activities"
 	};
 
 	for(var n in genes) // set defaults
