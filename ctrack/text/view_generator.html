@@ -39,16 +39,19 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 	<option value></option>
 	{generator_options_view}
 </select>
+<a class="toggle" onclick="$('.view_wrap').toggle();">Show / Hide example views.</a>
 </div>
 
 <div id="generator_aid_div" style="display:none;" >
 <span class="opt">IATI-ID</span>
 <input type="text" id="generator_aid" class="chosen" value="" />
+<span class="txt">Enter an IATI Identifier to display a single activity <b>OR</b></span>
 </div>
 
 <div id="generator_limit_div" style="display:none;" >
 <span class="opt">LIMIT</span>
 <input type="text" id="generator_limit" class="chosen" value="1" />
+<span class="txt">Enter the maximum number of activities to show.</span>
 </div>
 
 <div class="view_wrap">
@@ -163,6 +166,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 	<p>The SIZE option allows you to generate a variety of blog-friendly sized content.</p>
 	<p>Empty tables are due to no data found.
 	<p><b>Data populating the tables can be quite large. Please wait until the spinner disappears for your widget to appear.</b></p>
+	<p>All data is <b>LIVE</b> data and will change if these records are updated.</p>
 
 	<a href="mailto:queries@d-portal.org" class="mail">For all questions, suggestions and feedback please contact queries@d-portal.org</a>
 </div>
@@ -200,7 +204,7 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .view_info			{padding-bottom:10px; color:#fff; font-size:0.9em; border-bottom:3px solid #666; margin-bottom:10px;}
 .view_info span		{display:inline-block; vertical-align:top; width:100px; color:#ccc;}
 .view_info span.see	{width:740px; text-align:right; color:#fff;}
-.view_wrap			{display:inline-block; vertical-align:top; width:840px; margin-left:110px;}
+.view_wrap			{display:none; vertical-align:top; width:840px; margin-left:110px;}
 .view_links			{margin-bottom:20px;}
 a.view				{display:inline-block; vertical-align:top; width:260px; position:relative;}
 a.view.mid			{margin:0 30px;}
@@ -208,6 +212,9 @@ a.view span.imgtxt	{display:block; margin-top:5px; color:#ccc; font-size:0.8em;}
 a.mail				{display:block; margin-top:15px; color:#4CA0FF; padding:5px 0;}
 a.mail:hover		{color:#74B5FF;}
 a.logo				{display:inline-block; vertical-align:bottom; width:150px;}
+a.toggle			{display:inline-block; vertical-align:middle; margin-left:20px; font-size:0.9em; color:#4CA0FF;}
+a.toggle:hover		{color:#74B5FF;}
+ #generator_aid_div span.txt, #generator_limit_div span.txt	{display:inline-block; vertical-align:middle; font-size:0.9em; color:#ccc;}
 
 span.overtxt		{display:none;}
 a.view:hover span.overtxt	{display:block; position:absolute; top:0; left:0; width:260px; height:119px; background-color:rgba(0,0,0,0.6); color:#fff; text-align:center; line-height:6em;}
