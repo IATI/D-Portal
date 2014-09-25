@@ -105,10 +105,8 @@ ctrack.setup=function(args)
 	{
 		args.chunks["main_countrymin"]="";
 		args.chunks["main_country"]="";
-		args.chunks["main_country_head"]="";
 		args.chunks["main_country_map"]="";
 		args.chunks["country_name"]="";
-		args.chunks["back_country"]="";
 	}
 
 	if( ctrack.q.tongue ) // choose a new tongue
@@ -137,6 +135,7 @@ ctrack.setup=function(args)
 		args.chunks["main_countrymin"]="";
 		args.chunks["main_country"]="";
 		args.chunks["main_country_head"]="";
+		args.chunks["back_country"]="";
 	}
 	else
 	{
