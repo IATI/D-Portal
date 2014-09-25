@@ -3,7 +3,7 @@
 
 
 var view_act=exports;
-exports.name="stats";
+exports.name="view_act";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
@@ -55,11 +55,20 @@ view_act.ajax=function(args)
 			"aid":args.aid,
 			"location_latitude":args.lat,
 			"location_longitude":args.lng,
-			"country_code":args.country,
-			"reporting_ref":args.publisher,
+			"country_code":(args.country || ctrack.args.country_select),
+			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};
+	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
+	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
+	for(var n in args.q) { dat[n]=args.q[n]; }
 	if(dat.country_code) { dat.from+=",country"; }
 	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
+	if(dat.aid){
+		delete dat.location_latitude;
+		delete dat.location_longitude;
+		delete dat.country_code;
+		delete dat.reporting_ref;
+	}
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_act.numof_callback");

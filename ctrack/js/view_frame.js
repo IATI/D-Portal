@@ -3,7 +3,7 @@
 
 
 var view_frame=exports;
-exports.name="frame";
+exports.name="view_frame";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

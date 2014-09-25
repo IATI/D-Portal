@@ -3,7 +3,7 @@
 
 
 var view_data_quality=exports;
-exports.name="data_quality";
+exports.name="view_data_quality";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

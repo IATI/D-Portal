@@ -3,7 +3,7 @@
 
 
 var view_list_activities=exports;
-exports.name="list_activities";
+exports.name="view_list_activities";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

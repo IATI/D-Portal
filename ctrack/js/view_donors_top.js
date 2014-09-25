@@ -3,7 +3,7 @@
 
 
 var view_donors_top=exports;
-exports.name="stats";
+exports.name="view_donors_top";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

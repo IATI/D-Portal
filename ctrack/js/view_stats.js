@@ -3,7 +3,7 @@
 
 
 var view_stats=exports;
-exports.name="stats";
+exports.name="view_stats";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

@@ -3,7 +3,7 @@
 
 
 var view_sector_transactions=exports;
-exports.name="sector_transactions";
+exports.name="view_sector_transactions";
 
 var ctrack=require("./ctrack.js")
 var views=require("./views.js")

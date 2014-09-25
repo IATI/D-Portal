@@ -3,7 +3,7 @@
 
 
 var view_publisher_sectors=exports;
-exports.name="publisher_sectors";
+exports.name="view_publisher_sectors";
 
 var csvw=require("./csvw.js")
 

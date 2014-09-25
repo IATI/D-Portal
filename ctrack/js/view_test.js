@@ -3,7 +3,7 @@
 
 
 var view_test=exports;
-exports.name="stats";
+exports.name="view_test";
 
 var csscolor=require("./csscolor.js")
 

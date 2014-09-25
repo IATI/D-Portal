@@ -3,7 +3,7 @@
 
 
 var view_list_transactions=exports;
-exports.name="list_transactions";
+exports.name="view_list_transactions";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

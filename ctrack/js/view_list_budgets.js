@@ -3,7 +3,7 @@
 
 
 var view_list_budgets=exports;
-exports.name="list_budgets";
+exports.name="view_list_budgets";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

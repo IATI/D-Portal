@@ -3,7 +3,7 @@
 
 
 var view_districts=exports;
-exports.name="stats";
+exports.name="view_districts";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

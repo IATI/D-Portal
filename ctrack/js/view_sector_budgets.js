@@ -3,7 +3,7 @@
 
 
 var view_sector_budgets=exports;
-exports.name="sector_budgets";
+exports.name="view_sector_budgets";
 
 var ctrack=require("./ctrack.js")
 var views=require("./views.js")

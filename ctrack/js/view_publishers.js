@@ -3,7 +3,7 @@
 
 
 var view_publishers=exports;
-exports.name="publishers";
+exports.name="view_publishers";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")

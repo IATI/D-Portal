@@ -3,7 +3,7 @@
 
 
 var view_donor_budgets=exports;
-exports.name="donor_budgets";
+exports.name="view_donor_budgets";
 
 var ctrack=require("./ctrack.js")
 var views=require("./views.js")
