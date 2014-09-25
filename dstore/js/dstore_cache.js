@@ -75,7 +75,7 @@ var	bufferToString=function(buffer) {
 		if(!buffer) { return ""; }
 		var jschardet = require("jschardet")
 		var iconv = require("iconv-lite")
-		charset = jschardet.detect(buffer).encoding || "utf-8";
+		charset = jschardet.detect(buffer.slice(0,1024)).encoding || "utf-8";
 		return iconv.decode(buffer,charset.toLowerCase());
 	}
 
