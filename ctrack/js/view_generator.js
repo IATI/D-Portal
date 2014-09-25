@@ -58,7 +58,7 @@ var genes={};
 	};
 	genes.act={
 		limit:true,aid:true,
-		name:"Activities displayed using SAVI"
+		name:"Activities displayed using SAVi"
 	};
 
 	for(var n in genes) // set defaults
