@@ -1,13 +1,11 @@
 #view_generator
 {view_head}
 <style>.main_wrap{height:100%;}.overlay{background-color:#444;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}{css}</style>
-{beige}
-{main_head}
-{main_min}
 {instructions}
 {generator}
 {main_datainvestigators}
 {view_tail}
+
 
 #generator_crs_error
 <div class="reminder_wrap top">
@@ -51,7 +49,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 <div id="generator_limit_div" style="display:none;" >
 <span class="opt">LIMIT</span>
 <input type="text" id="generator_limit" class="chosen" value="1" />
-<span class="txt">Enter the maximum number of activities to show.</span>
+<span class="txt">Enter the maximum number of activities to show. <i>Press ENTER to update your widget below.</i></span>
 </div>
 
 <div class="view_wrap">
@@ -107,6 +105,9 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 		</a><a href="" class="view mid savi" onclick="$('#generator_view').val('act').trigger('chosen:updated').trigger('change');return false;" >
 			<img src="art/generator/savi.png" width="85"/>
 			<span class="imgtxt">Activities displayed using SAVi</span>
+		</a><a href="" class="view" onclick="$('#generator_view').val('list_activities').trigger('chosen:updated').trigger('change');return false;" >
+			<img src="art/generator/activities.png" width="260"/>
+			<span class="imgtxt">List of activities</span>
 		</a>
 	</div>
 </div>
