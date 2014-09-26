@@ -75,8 +75,10 @@ var	bufferToString=function(buffer) {
 		if(!buffer) { return ""; }
 		var jschardet = require("jschardet")
 		var iconv = require("iconv-lite")
-		charset = jschardet.detect(buffer.slice(0,1024)).encoding || "utf-8";
-		return iconv.decode(buffer,charset.toLowerCase());
+		charset = (jschardet.detect(buffer.slice(0,1024)).encoding || "utf-8"); // this may wrongly select ascii
+		charset = charset.toLowerCase();
+		if(charset=="ascii") { charset="utf-8"; } // so force utf-8 over ascii
+		return iconv.decode(buffer,charset);
 	}
 
 
