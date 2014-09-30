@@ -160,6 +160,17 @@ view_dash_quality.ajax4=function(args)
 //		console.log("view_dash_quality.ajax4");
 //		console.log(data);
 
+// push bad data to the top
+		data.rows.sort(function(a,b){
+			var av=(iati_codes.country[a.country_code]) && 1 || 0;
+			var bv=(iati_codes.country[b.country_code]) && 1 || 0;
+			if(av!=bv) { return av-bv; }
+			if(a.count!=b.count) { return b.count-a.count; }
+			if(a.country_code<b.country_code){ return -1; }
+			if(a.country_code>b.country_code){ return  1; }
+			return 0;
+		});
+
 		var s=[];
 		var total=0;
 		var bad=0;
