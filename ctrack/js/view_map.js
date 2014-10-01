@@ -51,7 +51,7 @@ view_map.show=function(change_of_view)
 {
 	if(change_of_view) // first time only
 	{
-		ctrack.div.master.html( plate.replace( "{view_"+view_map.name+"}" ) );
+		ctrack.div.master.html( plate.replace( "{view_map}" ) );
 	}
 }
 

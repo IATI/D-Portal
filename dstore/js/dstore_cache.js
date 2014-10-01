@@ -75,7 +75,11 @@ var	bufferToString=function(buffer) {
 		if(!buffer) { return ""; }
 		var jschardet = require("jschardet")
 		var iconv = require("iconv-lite")
-		charset = (jschardet.detect(buffer.slice(0,1024)).encoding || "utf-8"); // this may wrongly select ascii
+
+		// the following is very resource hungry, hence the slice to stop us running out of memory
+		// however the slice may make it guess wrong, so I'm bumping the slice size up a lot to try and make it better.
+		charset = (jschardet.detect(buffer.slice(0,1024*1024)).encoding || "utf-8"); // this may wrongly select ascii 
+
 		charset = charset.toLowerCase();
 		if(charset=="ascii") { charset="utf-8"; } // so force utf-8 over ascii
 		return iconv.decode(buffer,charset);
