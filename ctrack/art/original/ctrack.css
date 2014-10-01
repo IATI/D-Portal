@@ -15,7 +15,7 @@ html					{background-color:#000;}
 /*	Links & fonts
 	============================================= */
 td, a					{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
-a:focus					{color:#FFAB5E; text-decoration:none;}
+a:focus					{color:#FFF !important; text-decoration:underline !important;}
 a:link  				{color:#FFAB5E; text-decoration:none;}
 a:visited				{color:#FFAB5E; text-decoration:none;}
 a:hover					{color:#FF7A00; text-decoration:none;}
