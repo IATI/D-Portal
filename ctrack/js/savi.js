@@ -98,6 +98,7 @@ acts.find("transaction").each(function(i){var it=$(this);
 	var tvalue=it.children("value");
 	if( !tdate.attr("iso-date") && tvalue.attr("value-date") ) // use value date if iso-date is missing
 	{
+//		console.log("fixing "+tvalue.attr("value-date"))
 		tdate.attr("iso-date",tvalue.attr("value-date"));
 	}
 	
