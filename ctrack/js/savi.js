@@ -94,6 +94,14 @@ acts.find("transaction").each(function(i){var it=$(this);
 			it.append("<"+n+" />"); // just add a blank tag
 		}
 	});
+	var tdate=it.children("transaction-date");
+	var tvalue=it.children("value");
+	if( !tdate.attr("iso-date") && tvalue.attr("value-date") ) // use value date if iso-date is missing
+	{
+//		console.log("fixing "+tvalue.attr("value-date"))
+		tdate.attr("iso-date",tvalue.attr("value-date"));
+	}
+	
 });
 
 acts.find("budget").each(function(i){var it=$(this);

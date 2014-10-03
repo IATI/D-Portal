@@ -187,9 +187,31 @@ iati_cook.activity=function(act)
 
 iati_cook.transaction=function(act,it)
 {
+// the following fixes the transaction-date to use value-date if transaction-date is missing
+	var isodate;
+	refry.tags(it,"transaction-date",function(it){
+		isodate=it["iso-date"];
+	});
+	if(!isodate) // there is no transaction-date
+	{
+		refry.tags(it,"value",function(it){
+			isodate=it["value-date"]
+		});
+		if(isodate) // we found a value date we can use
+		{
+			refry.tags(it,"transaction-date",function(it){ // first try to update a pre existing transaction date
+				it["iso-date"]=isodate;
+				isodate=false;
+			});
+			if(isodate) // update failed
+			{
+				it[1].push({0:"transaction-date","iso-date":isodate}); // so insert a transaction date using this value
+			}
+		}
+	}
 }
 
-// this function also cooks planned_transactions as they seem to be the same
+// this function also cooks planned-disbursement as they seem to be the same
 iati_cook.budget=function(act,it)
 {
 }
