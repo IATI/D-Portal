@@ -44,7 +44,6 @@
 						<span class="title">{links_title_text}</span>
 						<a href="{tongue_root}news/posts.html" class="read">&gt; {news_page_text}</a>
 						<a href="{tongue_root}about.html" class="read">&gt; {read_more_text}</a>
-						<a href="{tongue_root}publishers.html" class="path publisher">{publisher_portal_text}</a>
 						<span class="title">{explore_title_text}</span>
 						<p><b>{explore_paragraph1_text}</b>{explore_paragraph2_text}</p>
 					</div>
@@ -52,7 +51,11 @@
 				<div class="country_menu_wrap">
 					<span id="explore"></span>
 					<div class="country_menu_list_wrap">
-						<ul class="country_menu_list">{countries:country_select}</ul>
+						<div style="display:inline-block; vertical-align:top; width:460px; padding-right:19px; border-right:1px solid #A0988B;">
+							<ul class="country_menu_list">{countries:country_select}</ul>
+						</div><div style="display:inline-block; vertical-align:top; padding-left:20px; width:460px;">
+							<ul class="country_menu_list">{publishers:publisher_select}</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -82,6 +85,28 @@
 			{it.id}
 		</span><span class="select_wrap countryname">
 			{it.name}
+		</span>
+	</a>
+</li>
+
+#publisher_head
+<li>
+	<div class="publisher_list">
+		<span class="select_wrap publishername">
+			Publisher Name
+		</span><span class="select_wrap publisherid">
+			Publisher ID
+		</span>
+	</div>
+</li>
+
+#publisher_select
+<li>
+	<a class="country_code" href="{root}ctrack.html?publisher={it.id}&tongue={tongue}">
+		<span class="select_wrap publishername">
+			{it.name}
+		</span><span class="select_wrap publisherid">
+			{it.id}
 		</span>
 	</a>
 </li>
