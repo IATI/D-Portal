@@ -21,7 +21,7 @@ Features
  optimized nodejs + SQLite database for use in real time queries.
 - [Q](https://github.com/devinit/D-Portal/blob/master/documents/dstore_q.md) allows queries via simple but complex filters.
 - [SAVi](https://github.com/devinit/D-Portal/blob/master/documents/savi.md) xml simplifies IATI xml to aid legibility for casual users.
-- [Localization](https://github.com/devinit/D-Portal/blob/master/documents/ctrack_texts.md) ready.
+- [Localization](https://github.com/devinit/D-Portal/blob/master/documents/translations.md) ready.
 - [Themeing](https://github.com/devinit/D-Portal/blob/master/documents/customisation.md) options for customised versions of d-portal.
 - [Chart.js](https://github.com/devinit/D-Portal/blob/master/documents/customisation.md#chartjs) for fully customisable graphs.
 - [Widget](https://github.com/devinit/D-Portal/blob/master/documents/ctrack_generator.md) system to easily embed sections of d-portal in blog posts.
