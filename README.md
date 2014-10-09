@@ -24,8 +24,8 @@ Features
 - [Localization](https://github.com/devinit/D-Portal/blob/master/documents/translations.md) ready means adding translations of different languages a breeze.
 - [Themeing](https://github.com/devinit/D-Portal/blob/master/documents/customisation.md) options for customised versions of d-portal.
 - [Chart.js](https://github.com/devinit/D-Portal/blob/master/documents/customisation.md#chartjs) for fully customisable graphs.
-- [Generator](https://github.com/devinit/D-Portal/blob/master/documents/ctrack_generator.md) allows easy embedding of IATI content and d-portal sections in blog posts and websites.
-- [Dash](https://github.com/devinit/D-Portal/blob/master/documents/dash.md) system explores the *gaps* and highlights quality of data being published and displayed on d-portal.org
+- [Generator](https://github.com/devinit/D-Portal/blob/master/documents/ctrack_generator.md) allows easy embedding of IATI content in blog posts and websites.
+- [Dash](https://github.com/devinit/D-Portal/blob/master/documents/dash.md) explores the *gaps*, highlights quality of data being published and displayed on d-portal.org
 - Easily create [news posts](https://github.com/devinit/D-Portal/blob/master/documents/dstore_blog.md) using Markdown.
 - Open source with [The MIT License](http://opensource.org/licenses/MIT).
 
