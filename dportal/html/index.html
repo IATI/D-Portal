@@ -53,8 +53,7 @@
 				</div>
 				<div class="country_menu_wrap">
 					<span id="explore"></span>
-<div id="country_dropmenu" style="display:inline-block;"></div>
-<div id="publisher_dropmenu" style="display:inline-block;"></div>
+					<div id="country_dropmenu"></div><div id="publisher_dropmenu"></div>
 					<div class="country_menu_list_wrap">
 						<div class="menu_list_wrap left">
 							<ul class="country_menu_list">{countries:country_select}</ul>
@@ -92,17 +91,6 @@
 			{it.name}
 		</span>
 	</a>
-</li>
-
-#publisher_head
-<li>
-	<div class="publisher_list">
-		<span class="select_wrap publishername">
-			Publisher Name
-		</span><span class="select_wrap publisherid">
-			Publisher ID
-		</span>
-	</div>
 </li>
 
 #publisher_select
@@ -158,7 +146,7 @@
 				$("#publisher_dropmenu").html(aa.join(""));
 				
 				$("#publisher_dropmenu select").change(change);
-				$("#publisher_dropmenu select").chosen({"placeholder_text_single":"Select a publisher"});
+				$("#publisher_dropmenu select").chosen({"placeholder_text_single":"{publisher_dropmenu_text}"});
 			}
 			if(countries)
 			{
@@ -177,7 +165,7 @@
 				$("#country_dropmenu").html(aa.join(""));
 
 				$("#country_dropmenu select").change(change);
-				$("#country_dropmenu select").chosen({"placeholder_text_single":"Select a recipient country"});
+				$("#country_dropmenu select").chosen({"placeholder_text_single":"{country_dropmenu_text}"});
 			}
 		};
 
