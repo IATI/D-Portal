@@ -15,7 +15,7 @@ story using IATI data.
 Features
 ===================
 
-- New [Publisher Edition](http://d-portal.org/publishers.html) now available.
+- Explore IATI data for both countries and publishers.
 - Updates everyday GMT +0 with new data from the IATI Datastore.
 - [DStore](https://github.com/devinit/D-Portal/tree/master/dstore) is an
  optimized nodejs + SQLite database for use in real time queries.
