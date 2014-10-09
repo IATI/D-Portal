@@ -150,6 +150,7 @@
 				{
 					var v=reportings.rows[i];
 					var d=v.reporting_ref;
+					if( (!v.reporting) || (v.reporting=="null") ) { v.reporting=v.reporting_ref; }
 					var t=v.reporting+" ("+v.count+") ";
 					var s="<option value='"+d+"'>"+t+"</option>";
 					aa.push(s);
