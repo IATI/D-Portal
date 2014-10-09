@@ -26,4 +26,6 @@ Edit the url to **tongue=non** to be in debug mode; eg. http://d-portal.org/ctra
 You should now be able to see the chunk names where the translation will be applied to.
 
 
-Read more about **How to modify and test the texts in ctrack** - https://github.com/devinit/D-Portal/blob/master/documents/ctrack_texts.md
+###How to modify and test the texts in ctrack
+
+https://github.com/devinit/D-Portal/blob/master/documents/ctrack_texts.md
