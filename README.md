@@ -21,12 +21,12 @@ Features
  optimized nodejs + SQLite database for use in real time queries.
 - [Q](https://github.com/devinit/D-Portal/blob/master/documents/dstore_q.md) allows queries via simple but complex filters.
 - [SAVi](https://github.com/devinit/D-Portal/blob/master/documents/savi.md) xml simplifies IATI xml to aid legibility for casual users.
-- [Localization](https://github.com/devinit/D-Portal/blob/master/documents/translations.md) ready.
+- [Localization](https://github.com/devinit/D-Portal/blob/master/documents/translations.md) ready means adding translations of different languages a breeze.
 - [Themeing](https://github.com/devinit/D-Portal/blob/master/documents/customisation.md) options for customised versions of d-portal.
 - [Chart.js](https://github.com/devinit/D-Portal/blob/master/documents/customisation.md#chartjs) for fully customisable graphs.
-- [Widget](https://github.com/devinit/D-Portal/blob/master/documents/ctrack_generator.md) system to easily embed sections of d-portal in blog posts.
-- [Dash](https://github.com/devinit/D-Portal/blob/master/documents/dash.md) system explores the *gaps* and highlights data quality.
-- Easily create [news posts](https://github.com/devinit/D-Portal/blob/master/documents/dstore_blog.md).
+- [Generator](https://github.com/devinit/D-Portal/blob/master/documents/ctrack_generator.md) allows easy embedding of IATI content in blog posts and websites.
+- [Dash](https://github.com/devinit/D-Portal/blob/master/documents/dash.md) explores the *gaps*, highlights quality of data being published and displayed on d-portal.org
+- Easily create [news posts](https://github.com/devinit/D-Portal/blob/master/documents/dstore_blog.md) using Markdown.
 - Open source with [The MIT License](http://opensource.org/licenses/MIT).
 
 
