@@ -77,7 +77,7 @@ a.country_code:hover		{background-color:rgba(37, 115, 205, 0.7);}
 	============================================= */
 #country_dropmenu, #publisher_dropmenu					{display:inline-block; vertical-align:top; width:460px; margin-bottom:20px; margin-right:20px;}
 #publisher_dropmenu										{margin-right:0; margin-left:20px;}
-#country_dropmenu select, #publisher_dropmenu select	{min-width:460px;}
+#country_dropmenu select, #publisher_dropmenu select	{min-width:460px; max-width:460px;}
 .chosen-container-single .chosen-single span			{color:#444;}
 .chosen-container .chosen-results li					{text-align:left;}
 
