@@ -5,8 +5,11 @@
 <meta charset="UTF-8">
 <title>{welcome_text}</title>
 <script src="{root}jslib/jquery.js"></script>
+<script src="{root}jslib/chosen.jquery.min.js"></script>
+<link  href="{root}art/chosen.min.css" rel="stylesheet" type="text/css" >
 <link  href="{root}art/index.css" rel="stylesheet" type="text/css" >
 {ganal}
+{jsmenu}
 	</head> 
 <body>
 <div class="portal">
@@ -50,6 +53,8 @@
 				</div>
 				<div class="country_menu_wrap">
 					<span id="explore"></span>
+<div id="country_dropmenu" style="display:inline-block;"></div>
+<div id="publisher_dropmenu" style="display:inline-block;"></div>
 					<div class="country_menu_list_wrap">
 						<div style="display:inline-block; vertical-align:top; width:460px; padding-right:19px; border-right:1px solid #A0988B;">
 							<ul class="country_menu_list">{countries:country_select}</ul>
@@ -110,3 +115,115 @@
 		</span>
 	</a>
 </li>
+
+#js_country_lookup
+"{it.cc}":"{it.name}",
+#jsmenu
+<script>
+	
+	(function(){
+		var lookup={ {countries:js_country_lookup} };
+		var reportings;
+		var countries;
+		var change=function(){
+
+			var name=""+$("#publisher_dropmenu select").val();
+			if(name && (name!=""))
+			{
+				window.location.href="{root}ctrack.html?publisher="+name+"&tongue={tongue}"
+			}
+
+			var name=""+$("#country_dropmenu select").val();
+			if(name && (name!=""))
+			{
+				window.location.href="{root}ctrack.html?country="+name+"&tongue={tongue}"
+			}
+
+		};
+		var refresh=function(){
+			if(reportings)
+			{
+				var aa=[];
+				aa.push("<select>");
+				aa.push("<option value=''></option>");
+				for(var i=0;i<reportings.rows.length;i++)
+				{
+					var v=reportings.rows[i];
+					var d=v.reporting_ref;
+					var t=v.reporting+" ("+v.count+") ";
+					var s="<option value='"+d+"'>"+t+"</option>";
+					aa.push(s);
+				}
+				aa.push("</select>");
+				$("#publisher_dropmenu").html(aa.join(""));
+				
+				$("#publisher_dropmenu select").change(change);
+				$("#publisher_dropmenu select").chosen({"placeholder_text_single":"Select a publisher"});
+			}
+			if(countries)
+			{
+				var aa=[];
+				aa.push("<select>");
+				aa.push("<option value=''></option>");
+				for(var i=0;i<countries.rows.length;i++)
+				{
+					var v=countries.rows[i];
+					var d=v.country_code;
+					var t=(lookup[v.country_code.toLowerCase()] || v.country_code )+" ("+v.count+") ";
+					var s="<option value='"+d+"'>"+t+"</option>";
+					aa.push(s);
+				}
+				aa.push("</select>");
+				$("#country_dropmenu").html(aa.join(""));
+
+				$("#country_dropmenu select").change(change);
+				$("#country_dropmenu select").chosen({"placeholder_text_single":"Select a recipient country"});
+			}
+		};
+
+		(function(){
+			var callback=function(dd)
+			{
+//				console.log("reporting");
+//				console.log(dd);
+				reportings=dd;
+				refresh();
+			};
+			var dd={};
+			dd.groupby="reporting_ref";
+			dd.orderby="1-";
+			dd.select="count,reporting_ref,reporting";
+			dd.limit=-1;
+			$.ajax({
+			  dataType: "json",
+			  url: "/q?callback=?",
+			  data: dd,
+			  success: callback
+			});
+		})();
+
+		(function(){
+			var callback=function(dd)
+			{
+//				console.log("country");
+//				console.log(dd);
+				countries=dd;
+				refresh();
+			};
+			var dd={};
+			dd.groupby="country_code";
+			dd.orderby="1-";
+			dd.select="count,country_code";
+			dd.from="act,country";
+			dd.limit=-1;
+			$.ajax({
+			  dataType: "json",
+			  url: "/q?callback=?",
+			  data: dd,
+			  success: callback
+			});
+		})();
+		
+	})();
+
+</script>
