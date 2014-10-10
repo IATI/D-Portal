@@ -990,7 +990,7 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "0605e1e3f607574a87edce6342ed5102",
-				"number_of_edits": 5,
+				"number_of_edits": 6,
 				"number_administered_packages": 1,
 				"display_name": "Menno de Vries",
 				"fullname": "Menno de Vries",
@@ -5555,7 +5555,7 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "ef0bb15e5cb56c62b043f7215602150b",
-				"number_of_edits": 35,
+				"number_of_edits": 37,
 				"number_administered_packages": 2,
 				"display_name": "Matt Bartlett",
 				"fullname": "Matt Bartlett",
@@ -9163,7 +9163,7 @@
 		"users": [
 			{
 				"openid": null,
-				"about": null,
+				"about": "",
 				"capacity": "admin",
 				"name": "carwyn",
 				"created": "2014-10-06T13:37:19.536177",
@@ -10204,8 +10204,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "70d58fbe8e30210a20e561b5d6775e78",
-				"number_of_edits": 7,
-				"number_administered_packages": 3,
+				"number_of_edits": 12,
+				"number_administered_packages": 4,
 				"display_name": "Matt O'Reilly",
 				"fullname": "Matt O'Reilly",
 				"id": "2eeb0b46-eec3-464e-b6c9-15d01b629f54"
@@ -10246,8 +10246,8 @@
 		"groups": [],
 		"revision_id": "7d0b45a2-7e85-428b-be7d-9097cb187085",
 		"packages": [
+			"indtrust-activities",
 			"indtrust-activityfile_oct2010_mar2014",
-			"indtrust-activityfilemarch2014present",
 			"indtrust-org"
 		],
 		"type": "organization",
@@ -15922,6 +15922,64 @@
 		"id": "5e1725e6-a7c1-45be-bf1f-68d42f542595",
 		"tags": [],
 		"name": "rc"
+	},
+	"redeenkind": {
+		"users": [
+			{
+				"openid": null,
+				"about": null,
+				"capacity": "admin",
+				"name": "red-een-kind",
+				"created": "2014-05-26T15:29:27.618275",
+				"sysadmin": false,
+				"activity_streams_email_notifications": false,
+				"email_hash": "49624a45d1e2cf6f3ba2892b56a4189f",
+				"number_of_edits": 3,
+				"number_administered_packages": 0,
+				"display_name": "Peter Veenstra",
+				"fullname": "Peter Veenstra",
+				"id": "49bf0126-9ee2-4337-8162-d36dd13c2602"
+			}
+		],
+		"display_name": "Stichting Red een Kind",
+		"description": "",
+		"title": "Stichting Red een Kind",
+		"package_count": 0,
+		"created": "2014-10-09T10:24:33.427457",
+		"approval_status": "approved",
+		"is_organization": true,
+		"state": "active",
+		"extras": {
+			"publisher_iati_id": "NL-KVK-41022454",
+			"publisher_segmentation": "IATI data will initially be published per country",
+			"publisher_implementation_schedule": "",
+			"publisher_organization_type": "21",
+			"publisher_frequency": "n/a",
+			"publisher_frequency_select": "quarterly",
+			"publisher_units": "Units of aid are reported at hierarchy level 2 (or ‘child’ level) and  include projects or sub-projects. ",
+			"publisher_thresholds": "n/a",
+			"publisher_ui": "n/a",
+			"publisher_contact": "Stichting Red een Kind\r\nPostbus 40169\r\n8004 DD Zwolle\r\nNederland\r\nemail: info@redeenkind.nl \r\ntel: +31-38-4604648",
+			"publisher_agencies": "Red een Kind is still in implementing phase of IATI and is now working on a pilot to publish data related to a UKAid funded program (Girls Education Challenge). Subsequently in 2015 Red een Kind has the intention to cover all projects for publishing",
+			"publisher_field_exclusions": "n/a",
+			"publisher_description": "Based on experiences and lessons learned we have compiled a strategy to arrive at an integral child and community directed approach - Child Centered Community Development. \r\nEvery child counts because each child was created by God in His image. That is our deeply rooted conviction. We approach the child as a valuable human being, with spiritual, mental, emotional, cognitive, social, physical and economic aspects. Attention for the community in which children grow up is essential to do justice to all of these aspects. We encourage communities to participate and contribute to the content of our programs.\r\nOut of principle Red een Kind chooses to work with local partner organisations that have their roots in the area. In our view local organisation are the key to good relationships with the local community. We devote much time and attention to equipping and coaching our partners in order to bring about effective change. Our strategy is set out in a ‘Theory of Change’.",
+			"publisher_record_exclusions": "n/a",
+			"publisher_timeliness": "For the pilot project we expect to publish data within 2 months after closing of the quarter",
+			"license_id": "notspecified",
+			"publisher_country": "NL",
+			"publisher_refs": "n/a",
+			"publisher_constraints": "n/a",
+			"publisher_source_type": "primary_source",
+			"publisher_data_quality": "As published information for the DFID -Girls Education Challenge project will be part of our donor reporting we prefer to first to internal quality verification of the data quality before publishing in registry. Preferably internal verification should take place already upon first time of  publishing for reporting on quarterly figures ending February 2015"
+		},
+		"image_url": "http://www.redeenkind.nl/img/logo.png",
+		"groups": [],
+		"revision_id": "22694acc-7f2f-4ddd-b598-3d6f3bf3bdd3",
+		"packages": [],
+		"type": "organization",
+		"id": "5460509b-193b-46ac-97a1-54f450584453",
+		"tags": [],
+		"name": "redeenkind"
 	},
 	"rem": {
 		"users": [
@@ -21788,8 +21846,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "4986aac2be8072abfca3f72692da656f",
-				"number_of_edits": 4,
-				"number_administered_packages": 0,
+				"number_of_edits": 5,
+				"number_administered_packages": 1,
 				"display_name": "War Child UK",
 				"fullname": "War Child UK",
 				"id": "eaeb683a-21d7-4b13-a702-d9013beb7ea4"
@@ -21798,7 +21856,7 @@
 		"display_name": "War Child UK",
 		"description": "",
 		"title": "War Child UK",
-		"package_count": 0,
+		"package_count": 1,
 		"created": "2013-05-09T17:10:13.327008",
 		"approval_status": "approved",
 		"is_organization": true,
@@ -21827,7 +21885,9 @@
 		"image_url": null,
 		"groups": [],
 		"revision_id": "0eafa546-51fb-411f-b89b-ec9af85ee084",
-		"packages": [],
+		"packages": [
+			"wcuk-activities"
+		],
 		"type": "organization",
 		"id": "e81548bb-38f6-49a5-bcb5-2effa348e542",
 		"tags": [],
