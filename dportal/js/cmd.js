@@ -7,6 +7,8 @@ var fs = require('fs');
 var util=require('util');
 var path=require('path');
 
+var json_iati_codes=require("../../dstore/json/iati_codes.json");
+
 var plate=require("../../ctrack/js/plate.js");
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
@@ -223,6 +225,22 @@ deleteFolderRecursive = function(path) {
 
 	chunkopts["bloglist"]=bloglist;
 	chunkopts["bloglist_last5"]=b5;
+
+// auto update the publisher chunk
+	var pubs=[];
+	for(var id in json_iati_codes["publisher_names"])
+	{
+		var name=json_iati_codes["publisher_names"][id];
+		var d={name:name,id:id};
+		pubs.push(d);
+	}
+	pubs.sort(function(a, b) {
+		var ta = a.name.toUpperCase();
+		var tb = b.name.toUpperCase();
+		return (ta < tb) ? -1 : (ta > tb) ? 1 : 0 ;
+	});
+	chunkopts["publishers"]=pubs;
+
 	
 	find_pages("")
 
