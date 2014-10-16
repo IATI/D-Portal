@@ -123,6 +123,7 @@ view_publisher_sectors.ajax=function(args)
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
+		if(dat.country_code) { dat.from+=",country"; }
 		fetch.ajax(dat,function(data){
 //			console.log("fetch transactions donors "+year);
 //			console.log(data);
@@ -160,6 +161,7 @@ view_publisher_sectors.ajax=function(args)
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
+		if(dat.country_code) { dat.from+=",country"; }
 		fetch.ajax(dat,function(data){
 			
 //			console.log("fetch budget donors "+year);			
