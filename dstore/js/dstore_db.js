@@ -476,7 +476,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		var percents=[];
 		refry.tags(act,"location",function(it){ locations.push(it); percents.push(it.percentage); });
 		fixpercents(percents);
-		if(sectors[0]) {
+		if(locations[0]) {
 			for( var i=0; i<locations.length ; i++ )
 			{
 				var it=locations[i];
