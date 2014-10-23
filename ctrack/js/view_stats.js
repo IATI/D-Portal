@@ -67,10 +67,11 @@ view_stats.ajax=function(args)
     
 	var dat={
 			"select":"stats",
-			"from":"act,country",
+			"from":"act",
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};
+	if(dat.country_code) { dat.from+=",country"; }
 		
 	fetch.ajax(dat,args.callback || function(data)
 	{
