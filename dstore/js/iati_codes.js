@@ -387,6 +387,7 @@ if(true)
 {
 //	codes.publisher_ids={};
 	codes.publisher_names={};
+	codes.publisher_secondary={};
 
 	var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/group");
 	var j=JSON.parse(js);
@@ -396,14 +397,21 @@ if(true)
 		var jj=JSON.parse(jjs);
 		publishers[v]=jj
 		
-		var ids=jj.extras.publisher_iati_id.split("|");
-		for(var i=0;i<ids.length;i++)
-		{
-			var id=ids[i].trim();
-			if(id!="")
+		if(jj.extras)
+		{			
+			var ids=jj.extras.publisher_iati_id.split("|");
+			for(var i=0;i<ids.length;i++)
 			{
-//				codes.publisher_ids[ id ]=v;
-				codes.publisher_names[ id ]=jj.title;
+				var id=ids[i].trim();
+				if(id!="")
+				{
+					codes.publisher_names[ id ]=jj.title;
+					if(jj.extras.publisher_source_type=="secondary_source")
+					{
+						codes.publisher_secondary[id]=jj.title;
+console.log("secondary "+id);				
+					}
+				}
 			}
 		}
 	});
