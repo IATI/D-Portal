@@ -128,6 +128,7 @@ view_sectors.ajax=function(args)
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
+		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		var callback=function(data){
 //			console.log("fetch transactions sectors "+year);
 //			console.log(data);
@@ -162,6 +163,7 @@ view_sectors.ajax=function(args)
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
+		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		var callback=function(data){
 			
 //			console.log("fetch budget sectors "+year);			

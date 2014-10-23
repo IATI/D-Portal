@@ -47,6 +47,9 @@ dstore_db.tables={
 		{ name:"description",					NOCASE:true },
 		{ name:"commitment",					REAL:true , INDEX:true }, // USD (C)
 		{ name:"spend",							REAL:true , INDEX:true },  // USD (D+E)
+		{ name:"flags",							INTEGER:true , INDEX:true },
+// FLAGS set to 0 if good otherwise
+// 1 == secondary publisher so transactions/budgets should be ignored to avoid double accounting
 	],
 	trans:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -387,7 +390,10 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.reporting=refry.tagval(act,"reporting-org");				
 		t.reporting_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=refry.tagattr(act,"activity-status","code");
-		
+
+		t.flags=0;
+		if( codes.publisher_secondary[t.reporting_ref] ) { t.flags=1; } // flag as secondary publisher (probably best to ignore)
+
 		t.commitment=0;
 		t.spend=0;
 		refry.tags(act,"transaction",function(it){

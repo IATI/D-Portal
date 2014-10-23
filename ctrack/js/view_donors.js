@@ -138,6 +138,7 @@ view_donors.ajax=function(args)
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
+		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		fetch.ajax(dat,function(data){
 //			console.log("fetch transactions donors "+year);
 //			console.log(data);
@@ -175,6 +176,7 @@ view_donors.ajax=function(args)
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
+		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		fetch.ajax(dat,function(data){
 			
 //			console.log("fetch budget donors "+year);			
