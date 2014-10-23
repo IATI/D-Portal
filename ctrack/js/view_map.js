@@ -236,17 +236,16 @@ view_map.ajax_heat=function(args)
     
 	var dat={
 			"select":"count,round1_location_longitude,round1_location_latitude",
-			"from":"act,country,location",
+			"from":"act,location",
 			"limit":args.limit || 5,
 			"location_longitude_not_null":1,
 			"location_latitude_not_null":1,
 			"orderby":"1-",
 			"groupby":"2,3",
-			"country_percent":100, // *only* this country
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};
-	if(!dat.country_code) { dat.country_percent=undefined; }
+	if(dat.country_code) { dat.from+=",country"; dat.country_percent=100; }
 	
 	if(args.round==0) // group more locations togethere (less precise)
 	{
@@ -306,18 +305,17 @@ view_map.ajax_pins=function(args)
     
 	var dat={
 			"select":"count,location_longitude,location_latitude,aid,title",
-			"from":"act,country,location",
+			"from":"act,location",
 			"form":"jcsv",
 			"limit":args.limit || -1,
 			"location_longitude_not_null":1,
 			"location_latitude_not_null":1,
 			"orderby":"1-",
 			"groupby":"2,3",
-			"country_percent":100, // *only* this country
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};
-	if(!dat.country_code) { dat.country_percent=undefined; }
+	if(dat.country_code) { dat.from+=",country"; dat.country_percent=100; }
 		
 	fetch.ajax(dat,args.callback || function(data)
 	{
