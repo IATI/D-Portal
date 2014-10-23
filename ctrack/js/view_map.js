@@ -317,6 +317,7 @@ view_map.ajax_pins=function(args)
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};
+	if(!dat.country_code) { dat.country_percent=undefined; }
 		
 	fetch.ajax(dat,args.callback || function(data)
 	{
