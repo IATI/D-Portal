@@ -34,14 +34,14 @@ Features
 Directory Structure
 ===================
 
-[/ctrack](https://github.com/devinit/D-Portal/tree/master/ctrack) contains client side javascript and css for displaying 
-information direct from the datastore in browser. See the readme in 
-that directory for more information. This is needed to build and 
-deploy a customized d-portal browser tool.
-
 [/dstore](https://github.com/devinit/D-Portal/tree/master/dstore) contains server side javascript for xml manipulation and 
 parsing of iati data.  See the readme in that directory for more 
 information. This is needed to run the Q queries on your own host.
+
+[/ctrack](https://github.com/devinit/D-Portal/tree/master/ctrack) contains client side javascript and css for displaying 
+information direct from the datastore in browser. See the README in 
+that directory for more information. This is needed to build and 
+deploy a customized d-portal browser tool.
 
 [/dportal](https://github.com/devinit/D-Portal/tree/master/dportal) contains javascript that builds the static information and 
 example site you will find deployed at http://d-portal.org/ 
