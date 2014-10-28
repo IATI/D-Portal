@@ -277,9 +277,12 @@ view_map.ajax_heat=function(args)
 					lng:lng,
 					wgt:v.count
 				});
-				alat+=lat;
-				alng+=lng;
-				acnt++;
+				if( (lat<=90) && (lat>=-90) && (lng<=180) && (lng>=-180) ) // check for valid values
+				{
+					alat+=lat;
+					alng+=lng;
+					acnt++;
+				}
 			}
 		}
 		if(acnt>0)
@@ -345,9 +348,12 @@ view_map.ajax_pins=function(args)
 						aid:v.aid,
 						title:v.title
 					});
-					lat+=v.location_latitude;
-					lng+=v.location_longitude;
-					count++;
+					if( (v.location_latitude<=90) && (v.location_latitude>=-90) && (v.location_longitude<=180) && (v.location_longitude>=-180) ) // check for valid values
+					{
+						lat+=v.location_latitude;
+						lng+=v.location_longitude;
+						count++;
+					}
 				}
 			}
 			if(count>0)
