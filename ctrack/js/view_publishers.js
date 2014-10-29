@@ -21,6 +21,7 @@ var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $
 
 // the chunk names this view will fill with new data
 view_publishers.chunks=[
+	"table_publishers_count",
 	"table_publishers_rows",
 	"table_publishers",
 ];
@@ -67,6 +68,7 @@ view_publishers.ajax=function(args)
 			s.push( plate.replace(args.plate || "{table_publishers_row}",v) );
 		});
 		ctrack.chunk(args.chunk || "table_publishers_rows",s.join(""));
+		ctrack.chunk("table_publishers_count",a.length);
 
 		ctrack.chunk_clear("table_publishers");
 
