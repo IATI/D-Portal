@@ -114,7 +114,7 @@ view_donors.ajax=function(args)
 	}
 
 // insert crs data if we have it
-	var crs=crs_year[ (args.country || ctrack.args.country).toUpperCase() ];
+	var crs=crs_year[ (args.country || ctrack.args.country || "" ).toUpperCase() ];
 	for(var n in crs)
 	{
 		var d={};
@@ -129,7 +129,7 @@ view_donors.ajax=function(args)
 	{
 		var dat={
 				"from":"act,trans,country",
-				"limit":args.limit || 100,
+				"limit":args.limit || -1,
 				"select":"funder_ref,sum_of_percent_of_trans_usd",
 				"funder_ref_not_null":"",
 				"groupby":"funder_ref",
@@ -167,7 +167,7 @@ view_donors.ajax=function(args)
 	{
 		var dat={
 				"from":"act,budget,country",
-				"limit":args.limit || 100,
+				"limit":args.limit || -1,
 				"select":"funder_ref,sum_of_percent_of_budget_usd",
 				"budget_priority":1, // has passed some validation checks serverside
 				"funder_ref_not_null":"",

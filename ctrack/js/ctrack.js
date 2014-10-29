@@ -28,7 +28,24 @@ ctrack.url=function(url)
 	}
 	else
 	{
-		window.location.hash=url;
+		window.location.href=url;
+/*
+		if(url[0]=="#")
+		{
+			window.location.hash=url;
+		}
+		else
+		if(url[0]=="?")
+		{
+//			var t=url.split("#")[1];
+//			window.location.hash=t || "";
+			window.location.search=url;
+		}
+		else
+		{
+			window.location=url;
+		}
+*/
 		return false;
 	}
 };
