@@ -130,6 +130,9 @@ d-portal.org は非常に初期のまだ開発中で、アルファリリース�
 #crumbname_publisher_countries_text
 国リスト
 
+#crumbname_publishers_text 
+出版社一覧
+
 #crumbname_list_transactions_text 
 取引 
 
@@ -283,26 +286,8 @@ OECD Creditor Reporting System
 #table_donor_tip_title_donor_text
 資金源
 
-#table_donor_tip_subtitle_data_text
-この列をソートするためにクリック
-
-#table_donor_tip_subtitle_donor_text
-この列をソートするためにクリック 
-
-#table_donor_tip_title_t2012_text 
-この列をソートするためにクリック
-
-#table_donor_tip_title_t2013_text 
-この列をソートするためにクリック
-
-#table_donor_tip_title_t2014_text 
-この列をソートするためにクリック
-
-#table_donor_tip_title_b2014_text 
-この列をソートするためにクリック
-
-#table_donor_tip_title_b2015_text 
-この列をソートするためにクリック
+#table_sort_text
+この列をソートする]をクリック
 
 #table_donor_tip_data_text 
 2012年にドナーの年間総支出
@@ -351,27 +336,6 @@ OECD Creditor Reporting System
 
 #table_sector_tip_title_sector_text
 OECDのCRSの目的コードのグループ化
-
-#table_sector_tip_subtitle_data_text
-この列をソートするためにクリック
-
-#table_sector_tip_subtitle_sector_text
-この列をソートするためにクリック
-
-#table_sector_tip_title_t2012_text
-この列をソートするためにクリック
-
-#table_sector_tip_title_t2013_text
-この列をソートするためにクリック
-
-#table_sector_tip_title_t2014_text
-この列をソートするためにクリック
-
-#table_sector_tip_title_b2014_text
-この列をソートするためにクリック
-
-#table_sector_tip_title_b2015_text
-この列をソートするためにクリック
 
 #table_sector_tip_data_text
 各セクタのすべてのOECDのCRS記者によって報告された年間総支出
@@ -714,6 +678,9 @@ d-portalは、主要な開発パートナーの数のベストプラクティス
 #download_csv_text
 CSVとして表をダウンロード
 
+#table_publisher_title_publisher_text
+出版社
+
 #table_publisher_country_title_text
 カントリー
 
@@ -794,3 +761,30 @@ IATI予算
 
 #missing_data_text 
 この活動は存在しないか、見つかりません。
+
+#publishers_data_description_title_text 
+データはどのように計算されますか？ 
+
+#publishers_data_description_text 
+この表はIATIに報告パブリッシャーを示している。列には、次のデータを表示します。 
+
+#publishers_data_title1_text 
+出版社 
+
+#publishers_data_info1_text 
+ここに記載されている出版社はIATIにデータを報告しているものである。 
+
+#publishers_data_title2_text 
+IATI支出 
+
+#publishers_data_info2_text 
+3つの列は、現在および過去2年間のためIATIに報告総支出と支出が含まれています。最初の列には、常に2つのシステム間での比較を可能にする、最新のCRSのデータと同じ年のためになります。 
+
+#publishers_data_title3_text 
+IATI予算 
+
+#publishers_data_info3_text 
+この来年の総活動レベルの予算はIATIに報告。任意のセルをクリックすると、（その値への寄与の順に記載）セルの値を構成するこれらのプロジェクトに行くことができます。
+
+#title_publisher_text 
+お金は {publishers_count} IATI出版社から来ている。

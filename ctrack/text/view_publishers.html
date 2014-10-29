@@ -34,10 +34,6 @@
 					<td>{publishers_data_title3_text}</td>
 					<td>{publishers_data_info3_text}</td>
 				</tr>
-				<tr>
-					<td>{publishers_data_title4_text}</td>
-					<td>{publishers_data_info4_text}</td>
-				</tr>
 			</table>
 		</div>
 		<a href="#view=data_quality" class="read">{about_data_quality_text}</a>
@@ -52,14 +48,14 @@
 			<div class="peak_space"></div>
 			<div class="publishers_peak"></div>
 	</div><div class="head_title_wrap">
-			<div class="publishers_head_title">{title_publisher_text}</div>
+			<div class="donors_head_title">{title_publisher_text}</div>
 		</div>
 </div>
 
 #csv_data
 #table_publishers
 <div class="table_wrap view">
-	<table class="money">
+	<table class="money publishers">
 	{table_publishers_row_head}
 	{table_publishers_rows}
 	</table>
@@ -72,30 +68,25 @@
 #table_publishers_row_head
 <tr class="row1">
 	<th class="col2" onclick="ctrack.dosort('publisher');" 				title="{table_publisher_tip_title_publisher_text}"		>{table_publisher_title_publisher_text}</th>
-	<th class="col3" onclick="ctrack.dosort('trans');"  colspan="3" title="{table_publisher_tip_title_transaction_text}">{table_publisher_title_transaction_text}</th>
-	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_publisher_tip_title_budget_text}"		>{table_publisher_title_budget_text}</th>
+	<th class="col3" onclick="ctrack.dosort('trans');"  colspan="3" title="{table_publisher_tip_title_transaction_text}">{table_donor_title_transaction_text}</th>
+	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_publisher_tip_title_budget_text}"			>{table_donor_title_budget_text}</th>
 </tr>
 <tr class="row2">
-	<td class="col2" title="{table_publisher_tip_subtitle_publisher_text}"  onclick="ctrack.dosort('publisher');" 	>{table_publisher_subtitle_publisher_text}</td>
-	<td class="col3" title="{table_publisher_tip_title_t2012_text}" 	onclick="ctrack.dosort('t2012');" 	>2012</td>
-	<td class="col4" title="{table_publisher_tip_title_t2013_text}" 	onclick="ctrack.dosort('t2013');" 	>2013</td>
-	<td class="col5" title="{table_publisher_tip_title_t2014_text}" 	onclick="ctrack.dosort('t2014');" 	>2014</td>
-	<td class="col6" title="{table_publisher_tip_title_b2014_text}" 	onclick="ctrack.dosort('b2014');" 	>2014</td>
-	<td class="col7" title="{table_publisher_tip_title_b2015_text}" 	onclick="ctrack.dosort('b2015');" 	>2015</td>
+	<td class="col2" title="{table_sort_text}"  onclick="ctrack.dosort('publisher');" 	>{table_donor_subtitle_donor_text}</td>
+	<td class="col3" title="{table_sort_text}" 	onclick="ctrack.dosort('t2012');" 	>2012</td>
+	<td class="col4" title="{table_sort_text}" 	onclick="ctrack.dosort('t2013');" 	>2013</td>
+	<td class="col5" title="{table_sort_text}" 	onclick="ctrack.dosort('t2014');" 	>2014</td>
+	<td class="col6" title="{table_sort_text}" 	onclick="ctrack.dosort('b2014');" 	>2014</td>
+	<td class="col7" title="{table_sort_text}" 	onclick="ctrack.dosort('b2015');" 	>2015</td>
 </tr>
 
 #table_publishers_row
-<tr class="rows">
-	<td class="col2" title="{table_publisher_tip_publisher_text}" onclick="return ctrack.url('?publisher={reporting_ref}#view=publisher');">
+<tr class="rows" onclick="return ctrack.url('?publisher={reporting_ref}#view=publisher');">
+	<td class="col2" title="{table_publisher_tip_publisher_text}">
 		<a href="?publisher={reporting_ref}#view=publisher">{publisher}</a></td>
-	<td class="col3" title="{table_publisher_tip_t2012_text}" onclick="return ctrack.url('?publisher={reporting_ref}#view=publisher');">
-		<a href="?publisher={reporting_ref}#view=publisher">{t2012}</a></td>
-	<td class="col4" title="{table_publisher_tip_t2013_text}" onclick="return ctrack.url('?publisher={reporting_ref}#view=publisher');">
-		<a href="?publisher={reporting_ref}#view=publisher">{t2013}</a></td>
-	<td class="col5" title="{table_publisher_tip_t2014_text}" onclick="return ctrack.url('?publisher={reporting_ref}#view=publisher');">
-		<a href="?publisher={reporting_ref}#view=publisher">{t2014}</a></td>
-	<td class="col6" title="{table_publisher_tip_b2014_text}" onclick="return ctrack.url('?publisher={reporting_ref}#view=publisher');">
-		<a href="?publisher={reporting_ref}#view=publisher">{b2014}</a></td>
-	<td class="col7" title="{table_publisher_tip_b2015_text}" onclick="return ctrack.url('?publisher={reporting_ref}#view=publisher');">
-		<a href="?publisher={reporting_ref}#view=publisher">{b2015}</a></td>
+	<td class="col3" title="{table_publisher_tip_t2012_text}">{t2012}</td>
+	<td class="col4" title="{table_publisher_tip_t2013_text}">{t2013}</td>
+	<td class="col5" title="{table_publisher_tip_t2014_text}">{t2014}</td>
+	<td class="col6" title="{table_publisher_tip_b2014_text}">{b2014}</td>
+	<td class="col7" title="{table_publisher_tip_b2015_text}">{b2015}</td>
 </tr>

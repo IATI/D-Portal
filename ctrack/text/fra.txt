@@ -130,6 +130,9 @@ Activité de la carte
 #crumbname_publisher_countries_text
 Liste des Pays
 
+#crumbname_publishers_text 
+Liste des éditeurs
+
 #crumbname_list_transactions_text 
 transactions 
 
@@ -283,26 +286,8 @@ OECD Creditor Reporting System
 #table_donor_tip_title_donor_text
 Source des fonds
 
-#table_donor_tip_subtitle_data_text
-Cliquez pour trier cette colonne
-
-#table_donor_tip_subtitle_donor_text
-Cliquez pour trier cette colonne
-
-#table_donor_tip_title_t2012_text
-Cliquez pour trier cette colonne
-
-#table_donor_tip_title_t2013_text
-Cliquez pour trier cette colonne
-
-#table_donor_tip_title_t2014_text
-Cliquez pour trier cette colonne
-
-#table_donor_tip_title_b2014_text
-Cliquez pour trier cette colonne
-
-#table_donor_tip_title_b2015_text
-Cliquez pour trier cette colonne
+#table_sort_text
+Cliquez sur pour trier cette colonne
 
 #table_donor_tip_data_text
 Montant total des dépenses annuelles pour le donateur en 2012
@@ -351,27 +336,6 @@ OECD Creditor Reporting System
 
 #table_sector_tip_title_sector_text
 Des groupes de codes-objet du CRS de l'OECD
-
-#table_sector_tip_subtitle_data_text
-Cliquez pour trier cette colonne
-
-#table_sector_tip_subtitle_sector_text
-Cliquez pour trier cette colonne
-
-#table_sector_tip_title_t2012_text
-Cliquez pour trier cette colonne
-
-#table_sector_tip_title_t2013_text
-Cliquez pour trier cette colonne
-
-#table_sector_tip_title_t2014_text
-Cliquez pour trier cette colonne
-
-#table_sector_tip_title_b2014_text
-Cliquez pour trier cette colonne
-
-#table_sector_tip_title_b2015_text
-Cliquez pour trier cette colonne
 
 #table_sector_tip_data_text
 Montant total des dépenses annuelles déclarées par tous les journalistes CRS OECD pour chaque secteur
@@ -714,6 +678,9 @@ Nous espérons que notre présentation des données - et les lacunes - fournit u
 #download_csv_text
 Télécharger le tableau au format CSV
 
+#table_publisher_title_publisher_text
+ÉDITEUR
+
 #table_publisher_country_title_text
 PAYS
 
@@ -794,3 +761,30 @@ Total des budgets au niveau de l'activité pour l'année prochaine et ce signal�
 
 #missing_data_text 
 Cette activité est manquant ou ne peut pas être trouvé.
+
+#publishers_data_description_title_text 
+Comment les données sont-elle calculée? 
+
+#publishers_data_description_text 
+Ce tableau montre les éditeurs qui relèvent de l'IATI. Les colonnes affichent les données suivantes: 
+
+#publishers_data_title1_text 
+ÉDITEUR 
+
+#publishers_data_info1_text 
+Les éditeurs mentionnés ici sont ceux qui ont communiqué leurs données à l'IATI. 
+
+#publishers_data_title2_text 
+l'IATI DÉPENSES 
+
+#publishers_data_info2_text 
+Trois colonnes contiennent le total des décaissements et les dépenses déclarées à l'IATI pour les deux années actuelles et précédentes. La première colonne sera toujours pour la même année que la plus récente des données CRS​​, permettant des comparaisons entre les deux systèmes. 
+
+#publishers_data_title3_text 
+BUDGET l'IATI 
+
+#publishers_data_info3_text 
+Total des budgets au niveau de l'activité pour cette année et la prochaine signalés à l'IATI. En cliquant sur ​​une cellule vous amène à ces projets qui constituent la valeur dans la cellule (dans l'ordre de leur contribution à cette valeur).
+
+#title_publisher_text 
+L'argent provient de {publishers_count} l'IATI éditeurs.

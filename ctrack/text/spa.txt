@@ -130,6 +130,9 @@ Mapa de Actividad
 #crumbname_publisher_countries_text
 Lista País
 
+#crumbname_publishers_text 
+Lista Editorial
+
 #crumbname_list_transactions_text 
 Transacciones 
 
@@ -283,26 +286,8 @@ OECD Creditor Reporting System
 #table_donor_tip_title_donor_text
 Origen de los fondos
 
-#table_donor_tip_subtitle_data_text
-Haga clic aquí para ordenar esta columna
-
-#table_donor_tip_subtitle_donor_text
-Haga clic aquí para ordenar esta columna
-
-#table_donor_tip_title_t2012_text
-Haga clic aquí para ordenar esta columna
-
-#table_donor_tip_title_t2013_text
-Haga clic aquí para ordenar esta columna
-
-#table_donor_tip_title_t2014_text
-Haga clic aquí para ordenar esta columna
-
-#table_donor_tip_title_b2014_text
-Haga clic aquí para ordenar esta columna
-
-#table_donor_tip_title_b2015_text
-Haga clic aquí para ordenar esta columna
+#table_sort_text
+Haga clic para ordenar esta columna
 
 #table_donor_tip_data_text
 Gasto total anual reportada por todos los reporteros de la OECD CRS para el donante
@@ -351,27 +336,6 @@ OECD Creditor Reporting System
 
 #table_sector_tip_title_sector_text
 Las agrupaciones de códigos de propósito de la OECD CRS
-
-#table_sector_tip_subtitle_data_text
-Haga clic aquí para ordenar esta columna
-
-#table_sector_tip_subtitle_sector_text
-Haga clic aquí para ordenar esta columna
-
-#table_sector_tip_title_t2012_text
-Haga clic aquí para ordenar esta columna
-
-#table_sector_tip_title_t2013_text
-Haga clic aquí para ordenar esta columna
-
-#table_sector_tip_title_t2014_text
-Haga clic aquí para ordenar esta columna
-
-#table_sector_tip_title_b2014_text
-Haga clic aquí para ordenar esta columna
-
-#table_sector_tip_title_b2015_text
-Haga clic aquí para ordenar esta columna
 
 #table_sector_tip_data_text
 Gasto total anual reportada por todos los reporteros de la OECD CRS para cada sector
@@ -711,6 +675,9 @@ Esperamos que nuestra presentación de los datos - y las lagunas - ofrece un pan
 #download_csv_text
 Descargar tabla en formato CSV
 
+#table_publisher_title_publisher_text
+EDITOR
+
 #table_publisher_country_title_text
 PAÍS
 
@@ -791,3 +758,30 @@ Total de presupuestos de la actividad para este y el próximo año reportados a 
 
 #missing_data_text 
 Esta actividad no se encuentra o no se encuentra.
+
+#publishers_data_description_title_text 
+¿Cómo se calcula la información? 
+
+#publishers_data_description_text 
+Esta tabla muestra los editores que reportan a la IATI. Las columnas muestran los siguientes datos: 
+
+#publishers_data_title1_text 
+EDITOR 
+
+#publishers_data_info1_text 
+Los editores que figuran aquí son los que han reportado sus datos a la IATI. 
+
+#publishers_data_title2_text 
+IATI GASTO 
+
+#publishers_data_info2_text 
+Tres columnas contienen el total de desembolsos y gastos reportados a la IATI para los actuales y los anteriores dos años. La primera columna siempre será para el mismo año que la más reciente de datos CRS​​, lo que permite la comparación entre los dos sistemas. 
+
+#publishers_data_title3_text 
+IATI PRESUPUESTO 
+
+#publishers_data_info3_text 
+Total de los presupuestos de la actividad de este y el próximo año informaron a la IATI. Al hacer clic en cualquier celda le llevará a los proyectos que conforman el valor de la celda (enumerados en orden de su contribución a ese valor).
+
+#title_publisher_text 
+El dinero proviene de {publishers_count} IATI Editores.

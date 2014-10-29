@@ -130,6 +130,9 @@ Activity map
 #crumbname_publisher_countries_text
 Country List
 
+#crumbname_publishers_text
+Publisher List
+
 #crumbname_list_transactions_text
 Transactions
 
@@ -283,25 +286,7 @@ OECD Creditor Reporting System
 #table_donor_tip_title_donor_text
 Source of funds
 
-#table_donor_tip_subtitle_data_text
-Click to sort this column
-
-#table_donor_tip_subtitle_donor_text
-Click to sort this column
-
-#table_donor_tip_title_t2012_text
-Click to sort this column
-
-#table_donor_tip_title_t2013_text
-Click to sort this column
-
-#table_donor_tip_title_t2014_text
-Click to sort this column
-
-#table_donor_tip_title_b2014_text
-Click to sort this column
-
-#table_donor_tip_title_b2015_text
+#table_sort_text
 Click to sort this column
 
 #table_donor_tip_data_text
@@ -351,27 +336,6 @@ OECD Creditor Reporting System
 
 #table_sector_tip_title_sector_text
 Groupings of OECD CRS purpose codes
-
-#table_sector_tip_subtitle_data_text
-Click to sort this column
-
-#table_sector_tip_subtitle_sector_text
-Click to sort this column
-
-#table_sector_tip_title_t2012_text
-Click to sort this column
-
-#table_sector_tip_title_t2013_text
-Click to sort this column
-
-#table_sector_tip_title_t2014_text
-Click to sort this column
-
-#table_sector_tip_title_b2014_text
-Click to sort this column
-
-#table_sector_tip_title_b2015_text
-Click to sort this column
 
 #table_sector_tip_data_text
 Annual total spend reported by all OECD CRS reporters for each sector
@@ -714,6 +678,9 @@ We hope that our presentation of the data - and the gaps - provides a useful ove
 #download_csv_text
 Download Table as CSV
 
+#table_publisher_title_publisher_text
+PUBLISHER
+
 #table_publisher_country_title_text
 COUNTRY
 
@@ -794,3 +761,30 @@ Total activity-level budgets for this and next year reported to IATI. Clicking o
 
 #missing_data_text
 This activity is missing or cannot be found.
+
+#publishers_data_description_title_text
+How is the data calculated?
+
+#publishers_data_description_text
+This table shows publishers that report to IATI. The columns display the following data:
+
+#publishers_data_title1_text
+PUBLISHER
+
+#publishers_data_info1_text
+The Publishers listed here are those that have reported their data to IATI.
+
+#publishers_data_title2_text
+IATI SPEND
+
+#publishers_data_info2_text
+Three columns contain total disbursements and expenditure reported to IATI for the current and previous two years. The first column will always be for the same year as the most recent CRS data, enabling comparisons between the two systems. 
+
+#publishers_data_title3_text
+IATI BUDGET
+
+#publishers_data_info3_text
+Total activity-level budgets for this and next year reported to IATI. Clicking on any cell will take you to those projects that make up the value in the cell (listed in order of their contribution to that value). 
+
+#title_publisher_text
+The money comes from {count} IATI Publishers.

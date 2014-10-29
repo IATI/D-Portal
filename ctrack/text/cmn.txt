@@ -130,6 +130,9 @@ d-portal.org还处于非常早期的开发中，预计Alpha版本四月中旬。
 #crumbname_publisher_countries_text
 国家列表
 
+#crumbname_publishers_text 
+出版分类
+
 #crumbname_list_transactions_text 
 交易 
 
@@ -283,26 +286,8 @@ OECD Creditor Reporting System
 #table_donor_tip_title_donor_text
 资金来源
 
-#table_donor_tip_subtitle_data_text
-点击该列排序
-
-#table_donor_tip_subtitle_donor_text
-点击该列排序
-
-#table_donor_tip_title_t2012_text
-点击该列排序
-
-#table_donor_tip_title_t2013_text
-点击该列排序
-
-#table_donor_tip_title_t2014_text
-点击该列排序
-
-#table_donor_tip_title_b2014_text
-点击该列排序
-
-#table_donor_tip_title_b2015_text
-点击该列排序
+#table_sort_text
+单击该列排序
 
 #table_donor_tip_data_text
 在2012年全年总支出为捐赠者
@@ -351,27 +336,6 @@ OECD Creditor Reporting System
 
 #table_sector_tip_title_sector_text
 经合组织CRS目的代码分组
-
-#table_sector_tip_subtitle_data_text
-点击该列排序
-
-#table_sector_tip_subtitle_sector_text
-点击该列排序
-
-#table_sector_tip_title_t2012_text
-点击该列排序
-
-#table_sector_tip_title_t2013_text
-点击该列排序
-
-#table_sector_tip_title_t2014_text
-点击该列排序
-
-#table_sector_tip_title_b2014_text
-点击该列排序
-
-#table_sector_tip_title_b2015_text
-点击该列排序
 
 #table_sector_tip_data_text
 报告的所有组织OECD CRS记者，每个部门每年的总支出
@@ -714,6 +678,9 @@ d-portal展示了一些主要的发展伙伴的最佳实践。许多IATI出版�
 #download_csv_text
 下载表格为CSV
 
+#table_publisher_title_publisher_text
+出版者
+
 #table_publisher_country_title_text
 国家
 
@@ -794,3 +761,30 @@ IATI 预算
 
 #missing_data_text 
 这项活动是丢失或无法找到。
+
+#publishers_data_description_title_text 
+数据是如何计算出来的？ 
+
+#publishers_data_description_text 
+下表显示了出版商以IATI报告。列显示如下数据： 
+
+#publishers_data_title1_text 
+出版者 
+
+#publishers_data_info1_text 
+这里列出的出版商是那些报告数据IATI。 
+
+#publishers_data_title2_text 
+IATI花 
+
+#publishers_data_info2_text 
+三列包含的总支出和支出报告给IATI当前和前两年。第一列永远是同年作为最近的CRS数据，从而使这两个系统之间的比较。 
+
+#publishers_data_title3_text 
+IATI预算 
+
+#publishers_data_info3_text 
+总活性级预算，这和明年上报IATI。点击任何单元格会带你到那些弥补小区（为了他们的价值贡献的上市）的价值的项目。
+
+#title_publisher_text 
+这些钱来自{publishers_count} IATI出版商。
