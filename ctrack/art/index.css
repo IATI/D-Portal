@@ -63,12 +63,13 @@ ul.country_menu_list li.no	{display:none;}
 ul.country_menu_list li img	{max-height:20px;}
 ul.country_menu_list li		{border-bottom:1px solid #A0988B;}
 ul.country_menu_list li:last-of-type	{border:0;}
+ul.country_menu_list li.top	{border:0; margin-bottom:10px;}
 span.select_wrap			{display:inline-block; vertical-align:top; width:50px;}
 span.select_wrap.countryid	{color:#CFC6B4;}
 span.select_wrap.publisherid{padding:0 10px; color:#FFF; text-align:right; width:120px; font-size:0.8em;}	
 span.select_wrap.countryname{width:330px; padding:0 10px; text-align:left;}
 span.select_wrap.publishername		{width:300px; padding:0 10px; text-align:left;}
-span.select_wrap.full		{width:100%; padding:0 10px; text-align:left;}
+span.select_wrap.full		{width:100%; padding:0; text-align:center; font-size:1.6em;}
 .publisher_list				{width:100%; height:100%; color:#fff; font-size:1.2em; line-height:1.15em; display:block; padding:20px 0; font-weight:bold;}
 a.country_code				{width:100%; height:100%; color:#fff; font-size:1.2em; line-height:1.15em; display:block; padding:20px 0; vertical-align:top; text-align:center;}
 a.country_code:hover		{background-color:rgba(37, 115, 205, 0.7);}
