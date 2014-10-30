@@ -330,14 +330,14 @@ sorted++;
 		{
 			var at=$(a).children("period-start").first().attr("iso-date");
 			var bt=$(b).children("period-start").first().attr("iso-date");
-			if(at>bt) { ret=1; } else if(at<bt) { ret=-1; }
+			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
 		}
 
 		if( (ret===0) && (aname=="transaction") )
 		{
 			var at=$(a).children("transaction-date").first().attr("iso-date");
 			var bt=$(b).children("transaction-date").first().attr("iso-date");
-			if(at>bt) { ret=1; } else if(at<bt) { ret=-1; }
+			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
 		}
 
 		if( (ret===0) && (aname=="transaction") )
