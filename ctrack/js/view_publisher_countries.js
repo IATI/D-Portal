@@ -115,7 +115,7 @@ view_publisher_countries.ajax=function(args)
 	{
 		var dat={
 				"from":"act,trans,country",
-				"limit":args.limit || 100,
+				"limit":args.limit || -1,
 				"select":"country_code,sum_of_percent_of_trans_usd",
 				"groupby":"country_code",
 				"trans_code":"D|E",
@@ -153,7 +153,7 @@ view_publisher_countries.ajax=function(args)
 	{
 		var dat={
 				"from":"act,budget,country",
-				"limit":args.limit || 100,
+				"limit":args.limit || -1,
 				"select":"country_code,sum_of_percent_of_budget_usd",
 				"budget_priority":1, // has passed some validation checks serverside
 				"groupby":"country_code",
