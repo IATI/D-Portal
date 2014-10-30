@@ -212,7 +212,7 @@ transaction data
 sorted by date
 
 #install_title_text
-How to install d-portal <i>(coming soon)</i>
+How to install d-portal
 
 #install_paragraph1_text
 At the heart of the d-portal project is the aim that anyone anywhere could take the open source code behind d-portal, deploy it for themselves and create a customised d-portal for any country that interests them.  This could include adding any other data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
@@ -221,10 +221,10 @@ At the heart of the d-portal project is the aim that anyone anywhere could take 
 There are already examples of customised country-specific d-portals like 
 
 #install_paragraph3_text
-The final product will be available as a set of HTML, Javascript, and CSS files.
+d-portal is made up of the dstore backend and ctrack interface. To install d-portal, you need to set up a server.
 
 #install_paragraph4_text
-Since HTML, CSS, Javascript are the technologies of the web, and are widely used and understood, we believe this is a good option for easy adoption by others, for easy deployment, and for easy re-configuration and customisation.
+Visit <a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md" class="country_portal">Github</a> for instructions to install a d-portal server.
 
 #install_title2_text
 How to create a d-portal widget
