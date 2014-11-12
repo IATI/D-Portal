@@ -22,18 +22,18 @@ create a directory in your home directory containing the project.
 	cd ~
 	sudo apt-get install git
 	git clone https://github.com/devinit/D-Portal
-	cd D-Portal/ctrack
-	../bin/getapts
+	cd D-Portal
+	bin/getapts
 
 In the future you may return to this directory with just the 
 following command.
 
-	cd ~/D-Portal/ctrack
+	cd ~/D-Portal
 
 
 The other steps below begin with a CD command as a reminder of where 
 you are expected to run them from. If you are already in the right 
-directory them they may be skipped and should not be run twice.
+directory then the CD may be skipped and should not be run twice.
 
 
 1. Installing git and node on Windows
@@ -56,15 +56,13 @@ Finally we need to grab the code with the following command
 
 	git clone https://github.com/devinit/D-Portal
 
-and then move into the ctrack directory, make sure you have moved 
-into this directory before you try and perform any of the other 
-steps on this page.
+and then move into the D-Portal directory
 
-	cd D-Portal/ctrack
+	cd D-Portal
 
 The other steps below begin with a CD command as a reminder of where 
 you are expected to run them from. If you are already in the right 
-directory them they may be skipped and should not be run twice.
+directory then the CD may be skipped and should not be run twice.
 
 
 2. Prepare the required node modules.
@@ -141,6 +139,6 @@ this many times and all the data will be merged.
 	./serv
 
 This runs the server using the local database, so it will only show 
-data that has been imported. it may be stopped and restarted as 
-described in step 3
+data that has been imported. it may be accessed, stopped and restarted as 
+described in step 3.
 
