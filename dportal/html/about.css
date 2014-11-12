@@ -3,6 +3,8 @@
 #background_image	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
 .overlay			{width:100%; height:100%; background-color:rgba(19, 16, 1, 0.6);}	/* Overlay colour for background image */
 a					{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
+img					{-webkit-filter:brightness(100%); filter:brightness(100%);}
+
 
 /*	Navigation
 	============================================= */
@@ -12,11 +14,11 @@ table.head td.logo, table.head td.options	{padding-top:20px}
 table.head td.dplinks	{text-align:center;}
 .navi				{width:100%; background-color:rgba(42,42,42,0.8); padding-bottom:30px; position:fixed; z-index:100;}
 a.top				{display:block; color:#fff; font-size:18px; vertical-align:top; padding-top: 45px; border-top:5px solid rgba(0,0,0,0);}
-a.top.install:hover	{border-top:5px solid #3A9971;}
+a.top.install:hover	{border-top:5px solid #2573CD;}
 a.top.savi:hover	{border-top:5px solid rgba(255,165,0,1);}
 a.top.hub:hover		{border-top:5px solid rgba(255,255,255,1);}
 a.top.news:hover	{border-top:5px solid #495BBE;}
-a.top.dash:hover	{border-top:5px solid #EE8E26;}
+a.top.dash:hover	{border-top:5px solid #2DA620;}
 
 
 /*	Wrappers
@@ -28,7 +30,7 @@ a.top.dash:hover	{border-top:5px solid #EE8E26;}
 .about_wrap.moretxt	{font-size:1.1em; color:#fff; line-height:1.55em; margin-bottom:40px; background:none;}
 .about_wrap.sav		{background-color:#FFA500;}
 .about_wrap.install	{background-color:#2573CD; padding:0 0 40px 0;}
-.about_wrap.dash	{background-color:#EE8E26; padding:0 0 40px 0;}
+.about_wrap.dash	{background-color:#2DA620; padding:0 0 40px 0;}
 .about_wrap.dq		{background-color:#724900; padding:0 0 50px 0;}
 .about_wrap.q		{background-color:#4F3200; padding:0 0 40px 0;}
 .about_wrap.sources	{background-color:#201500; padding:0 0 50px 0;}
@@ -52,7 +54,7 @@ a.co			{color:#5E96DD;}
 a.co:hover		{color:#D3F9FF; text-decoration:underline;}
 a.country_portal{color:#031B35;}
 a.country_portal:hover	{text-decoration:underline;}
-a.dash_link		{color:#4D2B00;}
+a.dash_link		{color:#000;}
 a.dash_link:hover{text-decoration:underline;}
 a.how			{display:inline-block; padding:5px 10px; background-color:#2573CD; color:rgba(10, 14, 20, 1); border-radius:6px; font-size:0.8em; font-weight:bold; margin-right:5px;}
 a.how:hover		{background-color:#3794FF;}

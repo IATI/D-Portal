@@ -1,5 +1,5 @@
 
-How to Install and Setup a test ctrack server
+How to Install and Setup a test server
 =============================================
 
 First you need to install git and node this is a different problem 
