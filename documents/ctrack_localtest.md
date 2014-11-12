@@ -31,6 +31,11 @@ following command.
 	cd ~/D-Portal/ctrack
 
 
+The other steps below begin with a CD command as a reminder of where 
+you are expected to run them from. If you are already in the right 
+directory them they may be skipped and should not be run twice.
+
+
 1. Installing git and node on Windows
 =====================================
 
@@ -57,6 +62,10 @@ steps on this page.
 
 	cd D-Portal/ctrack
 
+The other steps below begin with a CD command as a reminder of where 
+you are expected to run them from. If you are already in the right 
+directory them they may be skipped and should not be run twice.
+
 
 2. Prepare the required node modules.
 =====================================
@@ -64,7 +73,8 @@ steps on this page.
 This only needs to be run once, it will download and install the 
 node modules that ctrack depends upon.
 
-	../install_deps
+	cd D-Portal
+	./install_deps
 	
 This will chug away for a little while downloading code.
 
@@ -76,7 +86,8 @@ This is only going to run ctrack module, the extra opton tells it to
 visit d-portal to fetch the data so you do not need to install or 
 update the dstore data just to test ctrack.
 
-	../serv -q http://d-portal.org/
+	cd D-Portal
+	./serv -q http://d-portal.org/
 
 If all goes well then ctrack should be available, from your machine 
 in your browser at the following url
@@ -105,4 +116,31 @@ your operating system. CD into the ctrack directory, again step 1
 above include help on how to do this.
 
 Now you can repeat steps 3 and 4 to run the server again.
+
+
+6. Testing local data
+=====================
+
+We can also import xml activities into a local database to view and 
+test using the following commands.
+
+	cd D-Portal/dstore
+	./dstore init
+
+Creates or resets the local database, this must be run once before 
+importing data and should be run before importing new data if you want 
+to make sure that only the new data is included.
+
+	cd D-Portal/dstore
+	./dstore import activity_data.xml
+
+Import the file "activity_data.xml" into the local database. You may do 
+this many times and all the data will be merged.
+
+	cd D-Portal
+	./serv
+
+This runs the server using the local database, so it will only show 
+data that has been imported. it may be stopped and restarted as 
+described in step 3
 
