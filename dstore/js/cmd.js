@@ -52,7 +52,7 @@ wait.launchFiber(function(){
 	else
 	if( argv._[0]=="unindex" )
 	{
-		require("./dstore_db").delete_indexes(); // add indexes to previously inserted data
+		require("./dstore_db").delete_indexes(); // remoce indexes from previously inserted data
 		return;
 	}
 	else
@@ -85,5 +85,17 @@ wait.launchFiber(function(){
 		require("./dstore_cache").import_xmlfile( argv._[1] );
 		return;		
 	}
+
+	// help text
+	console.log(
+		"\n"+
+		">	dstore init \n"+
+		"Reset or create database (remove all data).\n"+
+		"\n"+
+		">	dstore import data.xml \n"+
+		"Import data from an iati xml file.\n"+
+		"\n"+
+		"\n"+
+	"");
 
 });
