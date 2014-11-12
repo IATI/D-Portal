@@ -104,6 +104,9 @@ ctrack.setup=function(args)
 
 	if(args.css) { head.load(args.css); }
 	
+	ctrack.year=2013;
+	if(args.year) { ctrack.year=args.year; } // default base year for graphs tables etc
+
 	ctrack.args=args;
 	
 // temporary country force hack

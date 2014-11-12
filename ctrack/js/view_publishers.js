@@ -44,6 +44,8 @@ view_publishers.ajax=function(args)
 {
 	args=args || {};
 
+	var year=args.year || ctrack.year;
+
 	ctrack.publishers_data={};
 
 	ctrack.sortby="order"; // reset sortby
@@ -58,11 +60,11 @@ view_publishers.ajax=function(args)
 		}
 		a.sort(sortby);
 		a.forEach(function(v){
-			if(!v.t2012){v.t2012="0";}
-			if(!v.t2013){v.t2013="0";}
-			if(!v.t2014){v.t2014="0";}
-			if(!v.b2014){v.b2014="0";}
-			if(!v.b2015){v.b2015="0";}
+			if(!v.t1){v.t1="0";}
+			if(!v.t2){v.t2="0";}
+			if(!v.t3){v.t3="0";}
+			if(!v.b1){v.b1="0";}
+			if(!v.b2){v.b2="0";}
 
 			v.publisher=iati_codes.publisher_names[v.reporting_ref] || iati_codes.country[v.reporting_ref] || v.reporting_ref;
 			s.push( plate.replace(args.plate || "{table_publishers_row}",v) );
@@ -79,9 +81,9 @@ view_publishers.ajax=function(args)
 		return parseInt(s);
 	}
 		var cc=[];
-		cc[0]=["publisher","t2012","t2013","t2014","b2014","b2015"];
+		cc[0]=["publisher","t"+(year-1),"t"+(year),"t"+(year+1),"b"+(year+1),"b"+(year+2)];
 		a.forEach(function(v){
-			cc[cc.length]=[v.reporting_ref,p(v.t2012),p(v.t2013),p(v.t2014),p(v.b2014),p(v.b2015)];
+			cc[cc.length]=[v.reporting_ref,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2)];
 		});
 		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
  
@@ -104,8 +106,8 @@ view_publishers.ajax=function(args)
 		}
 	}
 
-	var years=[2012,2013,2014];
-	years.forEach(function(year)
+	var years=[year-1,year,year+1];
+	years.forEach(function(y)
 	{
 		var dat={
 				"from":"act,trans,country",
@@ -113,7 +115,7 @@ view_publishers.ajax=function(args)
 				"select":"reporting_ref,sum_of_percent_of_trans_usd",
 				"groupby":"reporting_ref",
 				"trans_code":"D|E",
-				"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
+				"trans_day_gteq":y+"-01-01","trans_day_lt":(parseInt(y)+1)+"-01-01",
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
@@ -128,10 +130,10 @@ view_publishers.ajax=function(args)
 				var d={};
 				var num=v.sum_of_percent_of_trans_usd;
 				d.reporting_ref=v.reporting_ref;
-				d["t"+year]=commafy(""+Math.floor(num));
-				if(year==2012)
+				d["t"+(2+y-year)]=commafy(""+Math.floor(num));
+				if(y==year)
 				{
-					if( num > (d.order||0) ) { d.order=num; } // use 2012 transaction value for sort if bigger
+					if( num > (d.order||0) ) { d.order=num; } // use ctrack.year transaction value for sort if bigger
 				}
 				fadd(d);
 			}
@@ -141,8 +143,8 @@ view_publishers.ajax=function(args)
 		});
 	});
 	
-	var years=[2014,2015];
-	years.forEach(function(year)
+	var years=[year+1,year+2];
+	years.forEach(function(y)
 	{
 		var dat={
 				"from":"act,budget,country",
@@ -150,7 +152,7 @@ view_publishers.ajax=function(args)
 				"select":"reporting_ref,sum_of_percent_of_budget_usd",
 				"budget_priority":1, // has passed some validation checks serverside
 				"groupby":"reporting_ref",
-				"budget_day_end_gteq":year+"-01-01","budget_day_end_lt":(parseInt(year)+1)+"-01-01",
+				"budget_day_end_gteq":y+"-01-01","budget_day_end_lt":(parseInt(y)+1)+"-01-01",
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
@@ -165,7 +167,7 @@ view_publishers.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.reporting_ref=v.reporting_ref;
-				d["b"+year]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
 				fadd(d);
 			}
 //			console.log(ctrack.publishers_data);

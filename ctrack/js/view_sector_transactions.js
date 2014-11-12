@@ -31,7 +31,7 @@ view_sector_transactions.view=function()
 	ctrack.setcrumb(2);
 	ctrack.change_hash();
 
-	var year=ctrack.hash.year || 2012;
+	var year=ctrack.hash.year || ctrack.year;
 	var sector=ctrack.hash.sector_group || "111";
 	
 	var args={};

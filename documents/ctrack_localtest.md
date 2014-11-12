@@ -140,5 +140,5 @@ this many times and all the data will be merged.
 
 This runs the server using the local database, so it will only show 
 data that has been imported. it may be accessed, stopped and restarted as 
-described in step 3.
+described in step 3/4.
 

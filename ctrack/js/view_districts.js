@@ -42,6 +42,8 @@ view_districts.ajax=function(args)
 			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
 	args=args || {};
+	
+	var year=args.year || ctrack.year;
 
 	ctrack.districts_data={};
 	
@@ -52,11 +54,11 @@ view_districts.ajax=function(args)
 		for(var n in ctrack.districts_data) { a.push( ctrack.districts_data[n] ); }
 		a.sort(function(a,b){return (b.order-a.order)});
 		a.forEach(function(v){
-			if(!v.t2012){v.t2012="0";}
-			if(!v.t2013){v.t2013="0";}
-			if(!v.t2014){v.t2014="0";}
-			if(!v.b2014){v.b2014="0";}
-			if(!v.b2015){v.b2015="0";}
+			if(!v.t1){v.t1="0";}
+			if(!v.t2){v.t2="0";}
+			if(!v.t3){v.t3="0";}
+			if(!v.b1){v.b1="0";}
+			if(!v.b2){v.b2="0";}
 			s.push( plate.replace("{table_districts_row}",v) );
 		});
 		ctrack.chunk("table_districts_rows",s.join(""));
@@ -74,17 +76,17 @@ view_districts.ajax=function(args)
 		}
 	}
 
-	var years=[2012,2013,2014];
-	years.forEach(function(year)
+	var years=[year-1,year,year+1];
+	years.forEach(function(y)
 	{
 		var dat={
 				"from":"trans,country,location",
-				"limit":args.limit || 100,
+				"limit":args.limit || -1,
 				"select":"location_name,sum_of_percent_of_usd",
 				"groupby":"location_name",
 				"location_code":"adm2",
 				"code":"D|E",
-				"day_gteq":year+"-01-01","day_lt":(parseInt(year)+1)+"-01-01",
+				"day_gteq":y+"-01-01","day_lt":(parseInt(y)+1)+"-01-01",
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
@@ -98,8 +100,8 @@ view_districts.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.location=v.location_name;
-				d["t"+year]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
-				if(year==2012)
+				d["t"+(2+year-y)]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+				if(y==year)
 				{
 					d.crs=commafy(""+Math.floor(v.sum_of_percent_of_usd));
 					d.order=v.sum_of_percent_of_usd;
@@ -113,8 +115,8 @@ view_districts.ajax=function(args)
 		fetch.ajax(dat,callback);
 	});
 	
-	var years=[2014,2015];
-	years.forEach(function(year)
+	var years=[year+1,year+2];
+	years.forEach(function(y)
 	{
 		var dat={
 				"from":"budget,country,location",
@@ -123,7 +125,7 @@ view_districts.ajax=function(args)
 				"groupby":"location_name",
 				"priority":1, // has passed some validation checks serverside
 				"location_code":"adm2",
-				"day_end_gteq":year+"-01-01","day_end_lt":(parseInt(year)+1)+"-01-01",
+				"day_end_gteq":y+"-01-01","day_end_lt":(parseInt(y)+1)+"-01-01",
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
@@ -138,7 +140,7 @@ view_districts.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.location=v.location_name;
-				d["b"+year]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
 				fadd(d);
 			}
 //			console.log(ctrack.districts_data);

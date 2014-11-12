@@ -34,7 +34,7 @@ view_publisher_sectors_top.ajax=function(args)
 
 	var list=[];
 
-	var year=2012;
+	var year=ctrack.year;
 	var dat={
 			"from":"act,trans,sector",
 			"limit":-1,
