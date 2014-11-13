@@ -49,6 +49,21 @@ is a country-based information platform that tracks resource flows. It is aimed 
 #index_paragraph2_text
 In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) aggregated data published by the OECD DAC Creditor Reporting System.
 
+#index_title2_text
+Where is the data from?
+
+#index_paragraph3_text
+Data in the dropdown menu is built from the <a href="https://github.com/devinit/D-Portal/tree/master/dstore">database</a> which updates everyday GMT +0 with new data fetched from the IATI Registry.
+
+#index_paragraph4_text
+We list Countries that are reported by publishers using <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>. For attribution and link to data sources, <a href="about.html#sources">go here</a>.
+
+#index_paragraph5_text
+The list of Publishers with their IATI PUblisher ID comes straight from the IATI Registry database.
+
+#index_paragraph6_text
+The dropdown list of Publishers comes from published XML activities reported by these publishers.
+
 #news_page_text
 Information on current development (News)
 
@@ -77,7 +92,7 @@ Explore countries and publishers
 Pick a country or publisher below to explore their data.
 
 #explore_paragraph2_text
-You can also pick multiple countries or publishers from the selector. Only countries and publishers with published data to IATI are available for exploration. 
+Only countries and publishers with published data to IATI are available for exploration. 
 
 #footer1_text
 A 2014 project by the d-portal team
