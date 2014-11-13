@@ -66,9 +66,9 @@
 
 #table_publisher_countries_row_head
 <tr class="row1">
-	<th class="col2" onclick="ctrack.dosort('country');" 			title="{table_publisher_country_tip_title_text}">{table_publisher_country_title_text}</th>
-	<th class="col3" onclick="ctrack.dosort('trans');"  colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text} <a href="#view=publisher_countries&year={year1}" onclick="return ctrack.url('#view=publisher_countries&year={year1}');" title="Previous Year" class="year prev">&lt;</a></th>
-	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_donor_tip_title_budget_text}"		>{table_donor_title_budget_text} <a href="#view=publisher_countries&year={year3}" onclick="return ctrack.url('#view=publisher_countries&year={year3}');" title="Next Year" class="year next">&gt;</a></th>
+	<th class="col2" onclick="ctrack.dosort('country');" title="{table_publisher_country_tip_title_text}">{table_publisher_country_title_text}</th>
+	<th class="col3" colspan="3" title="{table_donor_tip_title_transaction_text}"><span onclick="ctrack.dosort('trans');">{table_donor_title_transaction_text}</span> <a href="#view=publisher_countries&year={year1}" onclick="return ctrack.url('#view=publisher_countries&year={year1}');" title="Previous Year" class="year prev">&lt;</a></th>
+	<th class="col4" colspan="2" title="{table_donor_tip_title_budget_text}"><span onclick="ctrack.dosort('budget');">{table_donor_title_budget_text}</span> <a href="#view=publisher_countries&year={year3}" onclick="return ctrack.url('#view=publisher_countries&year={year3}');" title="Next Year" class="year next">&gt;</a></th>
 </tr>
 <tr class="row2">
 	<td class="col2" title="{table_sort_text}"  onclick="ctrack.dosort('country');" >{table_donor_subtitle_donor_text}</td>
