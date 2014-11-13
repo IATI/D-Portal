@@ -29,7 +29,7 @@ view_sector_budgets.view=function()
 	ctrack.setcrumb(2);
 	ctrack.change_hash();
 	
-	var year=ctrack.hash.year || ctrack.year;
+	var year=ctrack.hash.year || parseInt(ctrack.hash.year) || ctrack.year;
 	ctrack.year_chunks(year);
 
 	var sector=ctrack.hash.sector_group || "111";

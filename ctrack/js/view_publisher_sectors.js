@@ -44,7 +44,7 @@ view_publisher_sectors.ajax=function(args)
 {
 	args=args || {};
 
-	var year=args.year || ctrack.year;
+	var year=args.year || parseInt(ctrack.hash.year) || ctrack.year;
 	ctrack.year_chunks(year);
 
 	ctrack.publisher_sectors_data={};

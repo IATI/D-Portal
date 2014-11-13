@@ -34,7 +34,7 @@ view_publisher_sectors_top.ajax=function(args)
 
 	var list=[];
 
-	var year=args.year || ctrack.year;
+	var year=args.year  || parseInt(ctrack.hash.year) || ctrack.year;
 	ctrack.year_chunks(year);
 
 	var dat={
