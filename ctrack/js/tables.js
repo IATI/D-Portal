@@ -63,39 +63,39 @@ tables.sortby=function()
 		case "-trans":
 			sortby=function(a,b){
 				var t;
-				var ta=(p(a.t2012)||0); t=(p(a.t2013)||0); if(t>ta){ta=t}; t=(p(a.t2014)||0); if(t>ta){ta=t}
-				var tb=(p(b.t2012)||0); t=(p(b.t2013)||0); if(t>tb){tb=t}; t=(p(b.t2014)||0); if(t>tb){tb=t}
+				var ta=(p(a.t1)||0); t=(p(a.t2)||0); if(t>ta){ta=t}; t=(p(a.t3)||0); if(t>ta){ta=t}
+				var tb=(p(b.t1)||0); t=(p(b.t2)||0); if(t>tb){tb=t}; t=(p(b.t3)||0); if(t>tb){tb=t}
 				return tb-ta;
 			};
 		break
-		case "t2012":
-		case "-t2012":
-			sortby=function(a,b){ return ( (p(b.t2012)||0)-(p(a.t2012)||0) ); };
+		case "t1":
+		case "-t1":
+			sortby=function(a,b){ return ( (p(b.t1)||0)-(p(a.t1)||0) ); };
 		break;
-		case "t2013":
-		case "-t2013":
-			sortby=function(a,b){ return ( (p(b.t2013)||0)-(p(a.t2013)||0) ); };
+		case "t2":
+		case "-t2":
+			sortby=function(a,b){ return ( (p(b.t2)||0)-(p(a.t2)||0) ); };
 		break;
-		case "t2014":
-		case "-t2014":
-			sortby=function(a,b){ return ( (p(b.t2014)||0)-(p(a.t2014)||0) ); };
+		case "t3":
+		case "-t3":
+			sortby=function(a,b){ return ( (p(b.t3)||0)-(p(a.t3)||0) ); };
 		break;
 		case "budget":
 		case "-budget":
 			sortby=function(a,b){
 				var t;
-				var ta=(p(a.b2014)||0); t=(p(a.t2015)||0); if(t>ta){ta=t};
-				var tb=(p(b.b2014)||0); t=(p(b.t2015)||0); if(t>tb){tb=t};
+				var ta=(p(a.b1)||0); t=(p(a.t2)||0); if(t>ta){ta=t};
+				var tb=(p(b.b1)||0); t=(p(b.t2)||0); if(t>tb){tb=t};
 				return tb-ta;
 			};
 		break
-		case "b2014":
-		case "-b2014":
-			sortby=function(a,b){ return ( (p(b.b2014)||0)-(p(a.b2014)||0) ); };
+		case "b1":
+		case "-b1":
+			sortby=function(a,b){ return ( (p(b.b1)||0)-(p(a.b1)||0) ); };
 		break;
-		case "b2015":
-		case "-b2015":
-			sortby=function(a,b){ return ( (p(b.b2015)||0)-(p(a.b2015)||0) ); };
+		case "b2":
+		case "-b2":
+			sortby=function(a,b){ return ( (p(b.b2)||0)-(p(a.b2)||0) ); };
 		break;
 	}
 	if(ctrack.sortby[0]=="-") // reverse order

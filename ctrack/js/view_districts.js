@@ -44,6 +44,7 @@ view_districts.ajax=function(args)
 	args=args || {};
 	
 	var year=args.year || ctrack.year;
+	ctrack.year_chunks(year);
 
 	ctrack.districts_data={};
 	

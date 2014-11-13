@@ -105,6 +105,12 @@ ctrack.setup=function(args)
 	if(args.css) { head.load(args.css); }
 	
 	ctrack.year=2013;
+	ctrack.year_chunks=function(y){
+		ctrack.chunk("year1",y-1);
+		ctrack.chunk("year2",y  );
+		ctrack.chunk("year3",y+1);
+		ctrack.chunk("year4",y+2);
+	};
 	if(args.year) { ctrack.year=args.year; } // default base year for graphs tables etc
 
 	ctrack.args=args;

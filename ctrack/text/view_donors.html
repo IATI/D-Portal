@@ -79,11 +79,11 @@
 <tr class="row2">
 	<td class="col1" title="{table_sort_text}"  onclick="ctrack.dosort('crs');" 	>2012</td>
 	<td class="col2" title="{table_sort_text}"  onclick="ctrack.dosort('donor');" 	>{table_donor_subtitle_donor_text}</td>
-	<td class="col3" title="{table_sort_text}" 	onclick="ctrack.dosort('t2012');" 	>2012</td>
-	<td class="col4" title="{table_sort_text}" 	onclick="ctrack.dosort('t2013');" 	>2013</td>
-	<td class="col5" title="{table_sort_text}" 	onclick="ctrack.dosort('t2014');" 	>2014</td>
-	<td class="col6" title="{table_sort_text}" 	onclick="ctrack.dosort('b2014');" 	>2014</td>
-	<td class="col7" title="{table_sort_text}" 	onclick="ctrack.dosort('b2015');" 	>2015</td>
+	<td class="col3" title="{table_sort_text}" 	onclick="ctrack.dosort('t1');" 	>{year1}</td>
+	<td class="col4" title="{table_sort_text}" 	onclick="ctrack.dosort('t2');" 	>{year2}</td>
+	<td class="col5" title="{table_sort_text}" 	onclick="ctrack.dosort('t3');" 	>{year3}</td>
+	<td class="col6" title="{table_sort_text}" 	onclick="ctrack.dosort('b1');" 	>{year3}</td>
+	<td class="col7" title="{table_sort_text}" 	onclick="ctrack.dosort('b2');" 	>{year4}</td>
 </tr>
 
 #table_donors_row
@@ -91,14 +91,14 @@
 	<td class="col1" title="{table_donor_tip_data_text}">{crs}</td>
 	<td class="col2" title="{table_donor_tip_donor_text}" onclick="return ctrack.url('#view=donor_activities&funder={funder}');">
 		<a href="#view=donor_activities&funder={funder}">{donor}</a></td>
-	<td class="col3" title="{table_donor_tip_t2012_text}" onclick="return ctrack.url('#view=donor_transactions&year=2012&funder={funder}');">
-		<a href="#view=donor_transactions&year=2012&funder={funder}">{t2012}</a></td>
-	<td class="col4" title="{table_donor_tip_t2013_text}" onclick="return ctrack.url('#view=donor_transactions&year=2013&funder={funder}');">
-		<a href="#view=donor_transactions&year=2013&funder={funder}">{t2013}</a></td>
-	<td class="col5" title="{table_donor_tip_t2014_text}" onclick="return ctrack.url('#view=donor_transactions&year=2014&funder={funder}');">
-		<a href="#view=donor_transactions&year=2014&funder={funder}">{t2014}</a></td>
-	<td class="col6" title="{table_donor_tip_b2014_text}" onclick="return ctrack.url('#view=donor_budgets&year=2014&funder={funder}');">
-		<a href="#view=donor_budgets&year=2014&funder={funder}">{b2014}</a></td>
-	<td class="col7" title="{table_donor_tip_b2015_text}" onclick="return ctrack.url('#view=donor_budgets&year=2015&funder={funder}');">
-		<a href="#view=donor_budgets&year=2015&funder={funder}">{b2015}</a></td>
+	<td class="col3" title="{table_donor_tip_t1_text}" onclick="return ctrack.url('#view=donor_transactions&year={year1}&funder={funder}');">
+		<a href="#view=donor_transactions&year={year1}&funder={funder}">{t1}</a></td>
+	<td class="col4" title="{table_donor_tip_t2_text}" onclick="return ctrack.url('#view=donor_transactions&year={year2}&funder={funder}');">
+		<a href="#view=donor_transactions&year={year2}&funder={funder}">{t2}</a></td>
+	<td class="col5" title="{table_donor_tip_t3_text}" onclick="return ctrack.url('#view=donor_transactions&year={year3}&funder={funder}');">
+		<a href="#view=donor_transactions&year={year3}&funder={funder}">{t3}</a></td>
+	<td class="col6" title="{table_donor_tip_b1_text}" onclick="return ctrack.url('#view=donor_budgets&year={year3}&funder={funder}');">
+		<a href="#view=donor_budgets&year={year3}&funder={funder}">{b1}</a></td>
+	<td class="col7" title="{table_donor_tip_b2_text}" onclick="return ctrack.url('#view=donor_budgets&year={year4}&funder={funder}');">
+		<a href="#view=donor_budgets&year={year4}&funder={funder}">{b2}</a></td>
 </tr>
