@@ -34,7 +34,7 @@ view_publisher_countries_top.ajax=function(args)
 
 	var list=[];
 
-	var year=ctrack.year;
+	var year=args.year || ctrack.year;
 	ctrack.year_chunks(year);
 
 	var dat={
@@ -43,7 +43,7 @@ view_publisher_countries_top.ajax=function(args)
 			"select":"country_code,sum_of_percent_of_trans_usd",
 			"groupby":"country_code",
 			"trans_code":"D|E",
-//			"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
+			"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};

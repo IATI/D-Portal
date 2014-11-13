@@ -106,6 +106,7 @@ ctrack.setup=function(args)
 	
 	ctrack.year=2013;
 	ctrack.year_chunks=function(y){
+		ctrack.chunk("year" ,y  );
 		ctrack.chunk("year1",y-1);
 		ctrack.chunk("year2",y  );
 		ctrack.chunk("year3",y+1);
