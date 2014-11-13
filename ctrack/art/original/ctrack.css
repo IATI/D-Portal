@@ -288,7 +288,7 @@ table.money td.col5			{background-color:rgba(17, 46, 105, 0.6);}
 table.money td.col6			{background-color:rgba(17, 101, 105, 0.4);}
 table.money td.col7			{background-color:rgba(17, 101, 105, 0.6);}
 
-table.money tr.row1 th		{background-color:transparent; color:#FFF; font-weight:700; text-align:center; padding:20px 10px;}
+table.money tr.row1 th		{background-color:transparent; color:#FFF; font-weight:700; text-align:center; padding:20px 10px; position:relative;}
 table.money tr.row1 th:hover{cursor:pointer;}
 table.money tr.row1 th.col1	{background-color:rgba(74, 82, 54, 0.9); text-align:left; border:1px solid rgba(74, 87, 43, 1); border-bottom:1px solid #1E90FF;}
 table.money tr.row1 th.col2	{text-align:left; border-bottom:1px solid #1E90FF; padding:20px 15px;}
@@ -322,6 +322,9 @@ table.money a:visited		{color:#A8C5E5; text-decoration:none;}
 table.money td:hover,
 table.money a:hover			{color:#FFF; text-decoration:none;}
 table.money a:active		{color:#A8C5E5; text-decoration: none;}
+table.money a.year			{position:absolute; background-color:#3371B8; padding:20px 10px; top:0;}
+table.money a.year.prev		{left:0;}
+table.money a.year.next		{right:0;}
 
 table.money.publishers th.col2,
 table.money.publishers td.col2	{border-left:1px solid rgba(0, 50, 151, 1);}

@@ -279,7 +279,7 @@ table.money td.col5			{background-color:#FDFDFD;}
 table.money td.col6			{background-color:#F8F8F8;}
 table.money td.col7			{background-color:#FDFDFD;}
 
-table.money tr.row1 th		{background-color:transparent; color:#FFF; font-weight:700; text-align:center; padding:20px 10px;}
+table.money tr.row1 th		{background-color:transparent; color:#FFF; font-weight:700; text-align:center; padding:20px 10px; position:relative;}
 table.money tr.row1 th:hover{cursor:pointer;}
 table.money tr.row1 th.col1	{background-color:#000; text-align:left; border:1px solid #666; border-bottom:1px solid #666;}
 table.money tr.row1 th.col2	{color:#000; text-align:left; border-bottom:1px solid #666;}
@@ -312,6 +312,9 @@ table.money a:link  		{color:#000; text-decoration:none;}
 table.money a:visited		{color:#000; text-decoration:none;}
 table.money a:hover			{color:#000; text-decoration:none;}
 table.money a:active		{color:#000; text-decoration: none;}
+table.money a.year			{position:absolute; background-color:#3371B8; padding:20px 10px; top:0;}
+table.money a.year.prev		{left:0;}
+table.money a.year.next		{right:0;}
 
 table.money.publishers th.col2,
 table.money.publishers td.col2	{border-left:1px solid #000;}
