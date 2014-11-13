@@ -19,7 +19,7 @@ Dash is not country specific so you will be able to view all of the publisher st
 
 Dash is currently accessible at http://d-portal.org/ctrack.html?#view=dash.
 
-Dash updates everyday GMT +0 with new data fetched from the IATI Datastore.
+Dash updates everyday GMT +0 with new data fetched from the IATI Registry.
 
 Dash will soon do a full import every week on Sunday GMT +0.
 
