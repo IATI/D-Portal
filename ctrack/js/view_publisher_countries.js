@@ -37,6 +37,16 @@ view_publisher_countries.view=function(args)
 	view_publisher_countries.ajax(args);
 };
 
+view_publisher_countries.show=function()
+{
+	var year=parseInt(ctrack.hash.year) || ctrack.year;
+	if(year!=view_publisher_countries.year) // new year update?
+	{
+		view_publisher_countries.ajax()
+	}
+	ctrack.div.master.html( plate.replace( "{view_publisher_countries}" ) );
+};
+
 //
 // Perform ajax call to get data
 //
@@ -46,6 +56,7 @@ view_publisher_countries.ajax=function(args)
 
 	var year=args.year || parseInt(ctrack.hash.year) || ctrack.year;
 	ctrack.year_chunks(year);
+	view_publisher_countries.year=year;
 
 	ctrack.publisher_countries_data={};
 

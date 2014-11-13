@@ -37,6 +37,16 @@ view_donors.view=function(args)
 	view_donors.ajax(args);
 };
 
+view_donors.show=function()
+{
+	var year=parseInt(ctrack.hash.year) || ctrack.year;
+	if(year!=view_donors.year) // new year update?
+	{
+		view_donors.ajax()
+	}
+	ctrack.div.master.html( plate.replace( "{view_donors}" ) );
+};
+
 //
 // Perform ajax call to get data
 //
@@ -45,7 +55,8 @@ view_donors.ajax=function(args)
 	args=args || {};
 
 	var year=args.year || parseInt(ctrack.hash.year) || ctrack.year;
-	ctrack.year_chunks(year);
+	ctrack.year_chunks(year);	
+	view_donors.year=year;
 
 	ctrack.donors_data={};
 

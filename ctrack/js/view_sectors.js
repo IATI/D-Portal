@@ -37,6 +37,16 @@ view_sectors.view=function(args)
 	view_sectors.ajax(args);
 };
 
+view_sectors.show=function()
+{
+	var year=parseInt(ctrack.hash.year) || ctrack.year;
+	if(year!=view_sectors.year) // new year update?
+	{
+		view_sectors.ajax()
+	}
+	ctrack.div.master.html( plate.replace( "{view_sectors}" ) );
+};
+
 //
 // Perform ajax call to get data
 //
@@ -46,6 +56,7 @@ view_sectors.ajax=function(args)
 
 	var year=args.year || parseInt(ctrack.hash.year) || ctrack.year;
 	ctrack.year_chunks(year);
+	view_sectors.year=year;
 
 	ctrack.sectors_data={};
 	

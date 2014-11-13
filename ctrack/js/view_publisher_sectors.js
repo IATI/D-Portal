@@ -37,6 +37,16 @@ view_publisher_sectors.view=function(args)
 	view_publisher_sectors.ajax(args);
 };
 
+view_publisher_sectors.show=function()
+{
+	var year=parseInt(ctrack.hash.year) || ctrack.year;
+	if(year!=view_publisher_sectors.year) // new year update?
+	{
+		view_publisher_sectors.ajax()
+	}
+	ctrack.div.master.html( plate.replace( "{view_publisher_sectors}" ) );
+};
+
 //
 // Perform ajax call to get data
 //
@@ -46,6 +56,7 @@ view_publisher_sectors.ajax=function(args)
 
 	var year=args.year || parseInt(ctrack.hash.year) || ctrack.year;
 	ctrack.year_chunks(year);
+	view_publisher_sectors.year=year;
 
 	ctrack.publisher_sectors_data={};
 
