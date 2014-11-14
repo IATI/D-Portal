@@ -132,7 +132,7 @@ view_sectors.ajax=function(args)
 	years.forEach(function(y)
 	{
 		var dat={
-				"from":"trans,country,sector",
+				"from":"act,trans,country,sector",
 				"limit":args.limit || -1,
 				"select":"sector_group,sum_of_percent_of_trans_usd",
 				"sector_group_not_null":1,
@@ -153,7 +153,7 @@ view_sectors.ajax=function(args)
 				var d={};
 				d.group=v.sector_group;
 				d["t"+(2+y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd));
-				d["num_t"+(2+y-year)]=Math.floor(v.sum_of_percent_of_trans_usd);
+//				d["num_t"+(2+y-year)]=Math.floor(v.sum_of_percent_of_trans_usd);
 				fadd(d);
 			}
 //			console.log(ctrack.sectors_data);
@@ -167,7 +167,7 @@ view_sectors.ajax=function(args)
 	years.forEach(function(y)
 	{
 		var dat={
-				"from":"budget,country,sector",
+				"from":"act,budget,country,sector",
 				"limit":args.limit || -1,
 				"select":"sector_group,sum_of_percent_of_budget_usd",
 				"sector_group_not_null":1,
