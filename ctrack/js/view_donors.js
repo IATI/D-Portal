@@ -60,7 +60,7 @@ view_donors.ajax=function(args)
 
 	ctrack.donors_data={};
 
-	ctrack.sortby="order"; // reset sortby
+	ctrack.sortby="t2"; // reset sortby
 	var display=function(sortby)
 	{
 		var s=[];

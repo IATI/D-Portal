@@ -60,7 +60,7 @@ view_sectors.ajax=function(args)
 
 	ctrack.sectors_data={};
 	
-	ctrack.sortby="order"; // reset sortby
+	ctrack.sortby="t2"; // reset sortby
 	var rev_sector_names={}; for(var n in iati_codes.sector_names) { rev_sector_names[ iati_codes.sector_names[n] ]=n; }
 	var display=function(sortby)
 	{

@@ -22,58 +22,76 @@ view_donors_top.chunks=[
 ];
 
 
-//
-// Perform fake ajax call to get data 
-//
 view_donors_top.ajax=function(args)
 {
 	args=args || {};
 	var limit=args.limit || 5;
 
-	var list=[];
-// insert crs data if we have it
-	var crs=crs_year[ (args.country || ctrack.args.country || "xx" ).toUpperCase() ];
-	for(var n in crs)
-	{
-		var d={};
-		d.funder=n;
-		d.usd=crs[n];
-		list.push(d);
-	}
-	list.sort(function(a,b){
-		return ( (b.usd||0)-(a.usd||0) );
-	});
+	var year=args.year || parseInt(ctrack.hash.year) || ctrack.year;
+	ctrack.year_chunks(year);
 
-	var total=0; list.forEach(function(it){total+=it.usd;});
-	var shown=0;
-	var top=list[0] && list[0].usd || 0;
-	var dd=[];
-	for( var i=0; i<limit ; i++ )
-	{
-		var v=list[i];
+
+	var dat={
+			"from":"act,trans,country",
+			"limit":-1,
+			"select":"funder_ref,sum_of_percent_of_trans_usd",
+			"funder_ref_not_null":"",
+			"groupby":"funder_ref",
+			"trans_code":"D|E",
+			"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
+			"country_code":(args.country || ctrack.args.country_select),
+			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+		};
+	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
+	fetch.ajax(dat,function(data){
+//			console.log("fetch transactions donors "+year);
+//			console.log(data);
 		
-		if((i==limit-1)&&(i<(list.length-1))) // last one combines everything else
+		var list=[];
+
+		for(var i=0;i<data.rows.length;i++)
 		{
-			v={};
-			v.usd=total-shown;
-			v.funder=(1+list.length-limit)+" More";
-		}
-		
-		if(v)
-		{
-			shown+=v.usd;
+			var v=data.rows[i];
 			var d={};
-			d.num=v.usd;
-			d.pct=Math.floor(100*v.usd/total);
-			d.str_num=commafy(d.num)+" USD";
-			d.str_lab=iati_codes.funder_names[v.funder] || iati_codes.publisher_names[v.funder] || iati_codes.country[v.funder] || v.funder;
-			d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
-			dd.push(d);
+			d.funder=v.funder_ref;
+			d.usd=Math.floor(v.sum_of_percent_of_trans_usd);
+			list.push(d);
 		}
-	}
-		
-	ctrack.chunk("data_chart_donors",dd);
 
-	ctrack.display_wait+=1;
-	ctrack.display();
+		list.sort(function(a,b){
+			return ( (b.usd||0)-(a.usd||0) );
+		});
+		
+		var total=0; list.forEach(function(it){total+=it.usd;});
+		var shown=0;
+		var top=list[0] && list[0].usd || 0;
+		var dd=[];
+		for( var i=0; i<limit ; i++ )
+		{
+			var v=list[i];
+			
+			if((i==limit-1)&&(i<(list.length-1))) // last one combines everything else
+			{
+				v={};
+				v.usd=total-shown;
+				v.funder=(1+list.length-limit)+" More";
+			}
+			
+			if(v)
+			{
+				shown+=v.usd;
+				var d={};
+				d.num=v.usd;
+				d.pct=Math.floor(100*v.usd/total);
+				d.str_num=commafy(d.num)+" USD";
+				d.str_lab=iati_codes.funder_names[v.funder] || iati_codes.publisher_names[v.funder] || iati_codes.country[v.funder] || v.funder;
+				d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
+				dd.push(d);
+			}
+		}
+		
+		ctrack.chunk("data_chart_donors",dd);
+		ctrack.display();
+
+	});
 }

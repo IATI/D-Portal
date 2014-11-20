@@ -29,71 +29,84 @@ view_sectors_top.ajax=function(args)
 {
 	args=args || {};
 	var limit=args.limit || 5;
+	var year=args.year || parseInt(ctrack.hash.year) || ctrack.year;
+	ctrack.year_chunks(year);
 
 	var list=[];
-// insert crs data if we have it
-	var crs=crs_year_sectors[ (args.country || ctrack.args.country || "xx" ).toUpperCase() ];
-	for(var n in crs)
-	{
-		if(n!="Grand Total")
+
+	var dat={
+			"from":"act,trans,country,sector",
+			"limit":-1,
+			"select":"sector_group,sum_of_percent_of_trans_usd",
+			"sector_group_not_null":1,
+			"groupby":"sector_group",
+			"trans_code":"D|E",
+			"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
+			"country_code":(args.country || ctrack.args.country_select),
+			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+		};
+	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
+	var callback=function(data){
+		
+		for(var i=0;i<data.rows.length;i++)
 		{
+			var v=data.rows[i];
 			var d={};
-			d.sector_group=n;
-			d.usd=crs[n];
+			d.sector_group=iati_codes.sector_names[ v.sector_group ];
+			d.usd=Math.floor(v.sum_of_percent_of_trans_usd);
 			list.push(d);
 		}
-	}
-	list.sort(function(a,b){
-		return ( (b.usd||0)-(a.usd||0) );
-	});
+		list.sort(function(a,b){
+			return ( (b.usd||0)-(a.usd||0) );
+		});
 
-	var total=0; list.forEach(function(it){
-		if(it.usd>0)
-		{
-			total+=it.usd;
-		}
-		else
-		{
-			total-=it.usd;
-		}
-	});
-	var shown=0;
-	var dd=[];
-	for( var i=0; i<limit ; i++ )
-	{
-		var v=list[i];			
-		if(v)
-		{
-			if((i==limit-1)&&(i<(list.length-1))) // last one combines everything else
+		var total=0; list.forEach(function(it){
+			if(it.usd>0)
 			{
-				v={};
-				v.usd=Math.floor(total-shown);
-				v.sector_group=(1+list.length-limit)+" More";
+				total+=it.usd;
 			}
 			else
 			{
-				v.usd=Math.floor(v.usd);
+				total-=it.usd;
 			}
-			
+		});
+		var shown=0;
+		var dd=[];
+		for( var i=0; i<limit ; i++ )
+		{
+			var v=list[i];			
 			if(v)
 			{
-				var d={};
-				d.num=v.usd;
-				if(d.num<0) { d.num=-d.num; }
-				shown+=d.num;
-				d.pct=Math.floor(100*d.num/total);
-				d.str_num=commafy(v.usd)+" USD";
-				d.str_lab=v.sector_group;
-				d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
-				dd.push(d);
+				if((i==limit-1)&&(i<(list.length-1))) // last one combines everything else
+				{
+					v={};
+					v.usd=Math.floor(total-shown);
+					v.sector_group=(1+list.length-limit)+" More";
+				}
+				else
+				{
+					v.usd=Math.floor(v.usd);
+				}
+				
+				if(v)
+				{
+					var d={};
+					d.num=v.usd;
+					if(d.num<0) { d.num=-d.num; }
+					shown+=d.num;
+					d.pct=Math.floor(100*d.num/total);
+					d.str_num=commafy(v.usd)+" USD";
+					d.str_lab=v.sector_group;
+					d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
+					dd.push(d);
+				}
 			}
 		}
-	}
 
-	ctrack.chunk("data_chart_sectors",dd);
-	
-	ctrack.display_wait+=1;
-	ctrack.display();
+		ctrack.chunk("data_chart_sectors",dd);	
+		ctrack.display();
 
+	};
+	fetch.ajax(dat,callback);
 
 }
