@@ -66,9 +66,12 @@
 
 #table_publishers_row_head
 <tr class="row1">
-	<th class="col2" onclick="ctrack.dosort('publisher');" 			title="{table_publisher_tip_title_text}"		>{table_publisher_title_publisher_text}</th>
-	<th class="col3" onclick="ctrack.dosort('trans');"  colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</th>
-	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_donor_tip_title_budget_text}"		>{table_donor_title_budget_text}</th>
+	<th class="col2" onclick="ctrack.dosort('publisher');" 			title="{table_publisher_tip_title_text}"		>
+		{table_publisher_title_publisher_text}</th>
+	<th class="col3" onclick="ctrack.dosort('trans');"  colspan="3" title="{table_donor_tip_title_transaction_text}">
+		<span>{table_donor_title_transaction_text}</span></th>
+	<th class="col4" onclick="ctrack.dosort('budget');" colspan="2" title="{table_donor_tip_title_budget_text}"		>
+		<span>{table_donor_title_budget_text}</span></th>
 </tr>
 <tr class="row2">
 	<td class="col2" title="{table_sort_text}"  onclick="ctrack.dosort('publisher');" 	>{table_donor_subtitle_donor_text}</td>

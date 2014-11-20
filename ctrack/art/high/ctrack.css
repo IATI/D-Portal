@@ -281,9 +281,9 @@ table.money td.col7			{background-color:#FDFDFD;}
 
 table.money tr.row1 th		{background-color:transparent; color:#FFF; font-weight:700; text-align:center; padding:0px; position:relative;}
 table.money tr.row1 th:hover{cursor:pointer;}
-table.money tr.row1 th span	{color:#000; display:block; padding:20px 10px;}
-table.money tr.row1 th.col1	{background-color:#000; text-align:left; border:1px solid #666; border-bottom:1px solid #666;}
-table.money tr.row1 th.col2	{color:#000; text-align:left; border-bottom:1px solid #666;}
+table.money tr.row1 th span	{color:#FFF; display:block; padding:20px 10px;}
+table.money tr.row1 th.col1	{background-color:#000; text-align:left; border:1px solid #666; border-bottom:1px solid #666; padding:20px 10px;}
+table.money tr.row1 th.col2	{color:#000; text-align:left; border-bottom:1px solid #666; padding:20px 15px; border-top:1px solid #666;}
 table.money tr.row1 th.col3	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
 table.money tr.row1 th.col4	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
 
@@ -313,7 +313,7 @@ table.money a:link  		{color:#000; text-decoration:none;}
 table.money a:visited		{color:#000; text-decoration:none;}
 table.money a:hover			{color:#000; text-decoration:none;}
 table.money a:active		{color:#000; text-decoration: none;}
-table.money a.year			{position:absolute; background-color:#3371B8; padding:20px 10px; top:0;}
+table.money a.year			{position:absolute; background-color:#666; padding:20px 10px; top:0;}
 table.money a.year.prev		{left:0;}
 table.money a.year.next		{right:0;}
 
