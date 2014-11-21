@@ -5,7 +5,7 @@ Welcome to d-portal.org
 Welcome to d-portal.org : Publisher Edition
 
 #alert1_text
-d-portal.org is still in very early development, scheduled for Alpha release mid-April. Thank you for your patience! Please provide any feedback
+d-portal.org is still in beta. Thank you for your patience! Please provide any feedback
 
 #alert2_text
 here
@@ -23,7 +23,7 @@ Publisher Edition
 Generator
 
 #install_info_text
-Create widgets for your website.
+Create content for your website.
 
 #soon_text
 (soon!)
@@ -44,25 +44,25 @@ We're on Github.
 What is it?
 
 #index_paragraph1_text
-is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
+is a country-based information platform that tracks resource flows. It is aimed at providing line ministries, parliamentarians and civil society in developing countries with information that can assist with the planning and monitoring of development activities.
 
 #index_paragraph2_text
-In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) aggregated data published by the OECD DAC Creditor Reporting System.
+In its first iteration d-portal contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) aggregated data published to the OECD DAC Creditor Reporting System.
 
 #index_title2_text
 Where is the data from?
 
 #index_paragraph3_text
-Data in the dropdown menu is built from the <a href="https://github.com/devinit/D-Portal/tree/master/dstore">database</a> which updates everyday GMT +0 with new data fetched from the IATI Registry.
+Data in the dropdown menu is built from the <a href="https://github.com/devinit/D-Portal/tree/master/dstore">database</a> which updates everyday at GMT +0 with new data fetched from the IATI Registry.
 
 #index_paragraph4_text
-We list Countries that are reported by publishers using <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>. For attribution and link to data sources, <a href="about.html#sources">go here</a>.
+We list countries that are reported by publishers using <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>. For attribution and link to data sources, <a href="about.html#sources">go here</a>.
 
 #index_paragraph5_text
-The list of Publishers with their IATI PUblisher ID comes straight from the IATI Registry database.
+The list of publishers with their IATI publisher ID comes straight from the IATI Registry database.
 
 #index_paragraph6_text
-The dropdown list of Publishers comes from published XML activities reported by these publishers.
+The dropdown list of publishers comes from published XML activities reported by these publishers.
 
 #news_page_text
 Information on current development (News)
@@ -92,7 +92,7 @@ Explore countries and publishers
 Pick a country or publisher below to explore their data.
 
 #explore_paragraph2_text
-Only countries and publishers with published data to IATI are available for exploration. 
+Only countries and publishers with data published to IATI are available for exploration. 
 
 #footer1_text
 A 2014 project by the d-portal team
@@ -119,7 +119,7 @@ d-portal.org Feedback
 Hello, all and thank you for taking part as beta testers for d-portal.org. We welcome any and all feedback, suggestions and concerns you may have about the website so please feel free to post them as comments below. Overall, we want to focus on legibility and user experience, especially in terms of understanding the data that is being presented.
 
 #feedback_paragraph2_text
-Thank you very much for taking the time to do this! We hope to create something useful and easily deployable, an interesting talking point but most importantly, promote better data quality from reporting organisations.
+Thank you very much for taking the time to do this! We hope to create something useful and easily deployable, an interesting talking point but most importantly, promote use by those who need the information, and better data quality from reporting organisations.
 
 #feedback_paragraph3_text
 - shi
@@ -134,7 +134,7 @@ What is it?
 d-portal.org is a country-based information platform that tracks resource flows.
 
 #about_paragraph2_text
-It is aimed at providing line ministries, parliamentarians and civil society with information that can assist with the planning and monitoring of development activities.
+It is aimed at providing line ministries, parliamentarians and civil society in developing countries with information that can assist with the planning and monitoring of development activities.
 
 #about_paragraph3_text
 In its first iteration it contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent (2012) data published by the <a href="http://www.oecd.org/dac/stats/crsguide.htm" target="_blank" class="co">OECD DAC Creditor Reporting System</a>. 
@@ -143,7 +143,7 @@ In its first iteration it contains current data published through the Internatio
 The current platform poses two questions: where do resources come from, and where do they go (by sector and location)? Recent, current and future data is presented and compared across data sources. 
 
 #about_paragraph5_text
-In order to answer these questions from a country perspective it is insufficient merely to display available data: it is equally important to plot the gaps in the information. Coping with poor quality or missing data is an essential part of the information interface. 
+In order to answer these questions from a country perspective it is insufficient merely to display available data: it is equally important to show the gaps in the information. Coping with poor quality or missing data is an essential part of the information interface. 
 
 #about_paragraph6_text
 is an open source platform.
@@ -158,16 +158,16 @@ Funding
 The initial development of d-portal.org which ran from Dec 2013 to the Global Partnership meeting in Mexico in April 2014 was funded by <a href="http://www.aidtransparency.net/" target="_blank" class="co">IATI</a> and <a href="http://devinit.org/" target="_blank" class="co">Development Initiatives (DI)</a>.
 
 #about_paragraph10_text
-DI is funding the current stage of development and preparation to the end of August 2014. If you are interested in funding part of the ongoing development of d-portal please contact <a href="mailto:queries@d-portal.org" target="_blank" class="co">queries@d-portal.org</a>
+DI is funding limited current development. If you are interested in funding part of the ongoing development of d-portal, or specific pieces of future development, please contact <a href="mailto:queries@d-portal.org" target="_blank" class="co">queries@d-portal.org</a>
 
 #savi_paragraph1_text
 SAVi is a simple activity viewer for IATI XML that you can view in real time, online, in your favourite browser.
 
 #savi_paragraph2_text
-SAVi uses CSS and javascript to display otherwise complex-looking XML into a format that is easier to read and digest.
+SAVi uses CSS and javascript to display otherwise complex-looking XML in a format that is easier to read and digest.
 
 #dstore_paragraph_text
-dstore subsidizes the IATI Datastore with an optimized nodejs + SQLite version for use in real time queries.
+dstore subsidises the IATI Datastore with an optimized nodejs + SQLite version for use in real time queries.
 
 #q_paragraph_text
 Q allows you to query information you need via simple but complex filters.
@@ -242,13 +242,13 @@ d-portal is made up of the dstore backend and ctrack interface. To install d-por
 Visit <a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md" class="country_portal">Github</a> for instructions to install a d-portal server.
 
 #install_title2_text
-How to create a d-portal widget
+How to generate and re-use d-portal content
 
 #install_paragraph5_text
 By using iframes, the d-portal Generator allows you to embed sections of d-portal in any html-enabled publishing platform; ie. Wordpress blog post, Tumblr post, a website etc.
 
 #install_paragraph6_text
-Visit <a href="http://d-portal.org/ctrack.html#view=generator" class="country_portal">http://d-portal.org/ctrack.html#view=generator</a> to create a d-portal widget.
+Visit <a href="http://d-portal.org/ctrack.html#view=generator" class="country_portal">http://d-portal.org/ctrack.html#view=generator</a> to generate your chosen d-portal content.
 
 #github_tip_text
 Visit d-portal.org on Github
