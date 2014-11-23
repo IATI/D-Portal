@@ -16,6 +16,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 <div id="generator" class="generator">
 <form>
 
+<div class="instruct_side">1</div><div class="instruct_more">
 <div>
 <span class="opt">PUBLISHER</span>
 <select multiple id="generator_publisher" class="chosen">
@@ -31,7 +32,10 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 	{generator_options_country}
 </select>
 </div>
+</div>
 
+<div class="instruct_chunk"></div>
+<div class="instruct_side">2</div><div class="instruct_more">
 <div>
 <span class="opt">VIEW</span>
 <select id="generator_view" class="chosen">
@@ -112,9 +116,15 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 		</a>
 	</div>
 </div>
+</div>
 
+<div class="instruct_chunk"></div>
+<div class="instruct_down">See the content you have generated below (this will update automatically when you have selected from the above dropdowns).</div>
+
+<div class="instruct_chunk"></div>
+<div class="instruct_side">3</div><div class="instruct_more a">
 <div>
-<span class="opt">SKIN</span>
+<span class="opt">STYLE</span>
 <select id="generator_skin" class="chosen">
 	<option value></option>
 	{generator_options_skin}
@@ -128,9 +138,13 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 	{generator_options_size}
 </select>
 </div>
+</div><div class="instruct_more b">These are optional.</div>
 
+<div class="instruct_chunk"></div>
+<div class="instruct_side">4</div><div class="instruct_more">
 <div class="instruct_info">Copy &amp; paste the code below into your webpage / blog post to embed the content you have generated.</div>
 <textarea id="generator_textarea"></textarea>
+</div>
 
 </form>
 </div>
@@ -148,24 +162,29 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 <div class="instruct_col_wrap">
 	<div class="default"><div class="mid_wrap"></div><div class="mid_wrap"><div class="arrow"></div></div></div>
 	<div class="default">
-		<div class="instruct_col">
+		<div class="instruct_col first">
 			<div class="instruct_num">1</div>
 			<div class="instruct_text">Pick your data</div>
 			<div class="instruct_sub">Choose <b>Publisher</b>(s) and/or <b>Recipient</b>(s) data to display.</div>			
 		</div><div class="instruct_col">
 			<div class="instruct_num">2</div>
 			<div class="instruct_text">Choose a View</div>
-			<div class="instruct_sub">Sections of d-portal you can embed in your website.</div>
+			<div class="instruct_sub">Select a way to display the data (list, table, map etc).</div>
 		</div><div class="instruct_col">
 			<div class="instruct_num">3</div>
-			<div class="instruct_text">Pick a Skin</div>
-			<div class="instruct_sub">We have a few colour schemes available.</div>
+			<div class="instruct_text">Pick a style &amp; size (optional)</div>
+			<div class="instruct_sub">Choose from the styles and width sizes available.</div>
+		</div><div class="instruct_col last">
+			<div class="instruct_num">4</div>
+			<div class="instruct_text">See/Use your content</div>
+			<div class="instruct_sub">Copy the generated code and use on your website/blog.</div>
 		</div>
 	</div>
 </div>
 
 #reminder
 <div class="reminder_wrap">
+	<div class="tips_head">Tips:</div>
 	<p>You can compare multiple datasets by choosing multiple RECIPIENTS and/or PUBLISHERS.</p>
 	<p>Picking both PUBLISHER and RECIPIENT data at the same time will limit the data in your generated content.</p>
 	<p>The SIZE option allows you to generate a variety of blog-friendly sized content.</p>
@@ -180,7 +199,7 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 Back to d-portal
 
 #css
-textarea			{display:block; width:954px; height:100px; margin-top:5px;}
+textarea			{display:block; width:884px; height:100px; margin-top:5px;}
 form div			{padding:5px 0;}
 form div span.opt	{display:inline-block; min-width:100px; color:#fff; text-align:right; vertical-align:middle; margin-right:10px;}
 select				{border-radius:2px;}
@@ -194,8 +213,11 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .instruct_wrap		{margin:0 auto; width:100%; padding:20px 0 40px 0; background-color:#2573CD;}
 .instruct_head		{display:inline-block; vertical-align:bottom; width:810px; text-align:right; color:#fff; font-size:2em;}
 .instruct_info		{color:#fff; margin-top:15px;}
+.instruct_down		{margin-left:70px; padding:20px 0; color:#ccc; font-size:0.97em;}
 .instruct_col_wrap	{width:100%; background-color:#222;}
-.instruct_col		{display:inline-block; vertical-align:top; width:240px; padding:40px 40px 60px 40px;}
+.instruct_col		{display:inline-block; vertical-align:top; width:210px; padding:40px 30px 60px 30px;}
+.instruct_col.first	{padding-left:0; padding-right:0;}
+.instruct_col.last	{padding-left:0; padding-right:0;}
 .instruct_num		{text-align:center; color:#eee; font-size:6em; margin-bottom:10px;}
 .instruct_text		{text-align:center; color:#4CA0FF; font-size:1.4em;}
 .instruct_sub		{text-align:center; color:#ccc; font-size:1.0em; line-height:1.2em; margin-top:10px;}
@@ -204,7 +226,8 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .chosen-container	{min-width:250px; max-width:500px;}
 .reminder_wrap		{margin:0 auto; margin-top:60px; background-color:#222; width:880px; padding:20px 40px 30px 40px; color:#ccc; font-size:0.9em; line-height:1.2em; margin-bottom:200px;}
 .reminder_wrap.top	{background-color:#2573CD; font-size:1.4em; color:#fff; padding:30px 40px; margin-bottom:0;}
-.reminder_wrap p	{padding-top:15px; color:#ccc;}
+.reminder_wrap p	{padding-top:15px; color:#ccc; display:list-item; list-style-position:inside;}
+.tips_head			{border-bottom:1px solid #666; padding:15px 0 10px 0; font-size:1.2em; color:#aaa; display:block;}
 .reminder_wrap.top p{color:#fff;}
 .view_info			{padding-bottom:10px; color:#fff; font-size:0.9em; border-bottom:3px solid #666; margin-bottom:10px;}
 .view_info span		{display:inline-block; vertical-align:top; width:100px; color:#ccc;}
@@ -224,3 +247,9 @@ a.toggle:hover		{color:#74B5FF;}
 
 span.overtxt		{display:none;}
 a.view:hover span.overtxt	{display:block; position:absolute; top:0; left:0; width:260px; height:119px; background-color:rgba(0,0,0,0.6); color:#fff; text-align:center; line-height:6em;}
+
+.instruct_side		{display:inline-block; vertical-align:middle; margin-right:40px; width:30px; font-size:3em; color:#4CA0FF;}
+.instruct_more		{display:inline-block; vertical-align:middle; width:890px;}
+.instruct_more.a	{width:500px;}
+.instruct_more.b	{width:290px; font-size:0.9em; color:#4CA0FF;}
+.instruct_chunk		{width:960px; margin:0 auto; padding-top:10px; border-top:1px solid #535661; margin-top:10px;}
