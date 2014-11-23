@@ -17,7 +17,8 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 <form>
 
 <div class="instruct_side">1</div><div class="instruct_more">
-<div>
+<div class="instruct_rel">
+	<span class="drop_arrow"></span>
 <span class="opt">PUBLISHER</span>
 <select multiple id="generator_publisher" class="chosen">
 	<option value></option>
@@ -25,7 +26,8 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 </select>
 </div>
 
-<div>
+<div class="instruct_rel">
+	<span class="drop_arrow b"></span>
 <span class="opt">RECIPIENT</span>
 <select multiple id="generator_country" class="chosen">
 	<option value></option>
@@ -213,7 +215,7 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .instruct_wrap		{margin:0 auto; width:100%; padding:20px 0 40px 0; background-color:#2573CD;}
 .instruct_head		{display:inline-block; vertical-align:bottom; width:810px; text-align:right; color:#fff; font-size:2em;}
 .instruct_info		{color:#fff; margin-top:15px;}
-.instruct_down		{margin-left:70px; padding:20px 0; color:#ccc; font-size:0.97em;}
+.instruct_down		{margin-left:70px; padding:20px 0; color:#ccc; font-size:0.97em; line-height:1.35em;}
 .instruct_col_wrap	{width:100%; background-color:#222;}
 .instruct_col		{display:inline-block; vertical-align:top; width:210px; padding:40px 30px 60px 30px;}
 .instruct_col.first	{padding-left:0; padding-right:0;}
@@ -253,3 +255,7 @@ a.view:hover span.overtxt	{display:block; position:absolute; top:0; left:0; widt
 .instruct_more.a	{width:500px;}
 .instruct_more.b	{width:290px; font-size:0.9em; color:#4CA0FF;}
 .instruct_chunk		{width:960px; margin:0 auto; padding-top:10px; border-top:1px solid #535661; margin-top:10px;}
+
+.instruct_rel		{position:relative;}
+span.drop_arrow		{display:block; width:20px; height:100%; background:url(/art/chosen-sprite.png) no-repeat 0 2px; text-align:right; position:absolute; left:595px; top:15px; z-index:999; pointer-events:none;}
+span.drop_arrow.b	{left:393px;}
