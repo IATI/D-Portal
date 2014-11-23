@@ -22,6 +22,10 @@ view_generator.chunks=[
 
 // build data of what iframe widgets we can publish
 var genes={};
+	genes.list_activities={
+		limit:true,
+		name:"List of activities"
+	};
 	genes.publisher_countries={
 		name:"Recipients (table)"
 	};
@@ -60,10 +64,7 @@ var genes={};
 		limit:true,aid:true,
 		name:"Activities displayed using SAVi"
 	};
-	genes.list_activities={
-		limit:true,
-		name:"List of activities"
-	};
+	
 
 	for(var n in genes) // set defaults
 	{
