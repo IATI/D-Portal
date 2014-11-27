@@ -97,7 +97,16 @@ view_generator.fixup=function()
 			if(height!=last_height)
 			{
 				last_height=height;
-				$("#frame iframe")[0].style.height=height+'px';
+				if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
+				{
+					var hax=($("#generator_size").val()||960)/960;
+					$("#frame iframe")[0].style.height=(Math.ceil(height*hax)+1)+'px';
+					last_height=$($("#frame iframe")[0].contentWindow.document).height();
+				}
+				else
+				{
+					$("#frame iframe")[0].style.height=height+'px';
+				}
 				$("#generator_textarea").val( $("<p>").append($("#frame iframe").clone()).html() );
 			}
 		}
