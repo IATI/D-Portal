@@ -81,8 +81,8 @@
 
 #table_publisher_countries_row
 <tr class="rows">
-	<td class="col2" title="{table_publisher_explore_tip_text}" onclick="return ctrack.url('#view=list_activities&country_code={country_code}');">
-		<a href="#view=list_activities&country_code={country_code}">{country_name}</a></td>
+	<td class="col2" title="{table_publisher_explore_tip_text}" onclick="return ctrack.url('#view=list_transactions&country_code={country_code}');">
+		<a href="#view=list_transactions&country_code={country_code}">{country_name}</a></td>
 	<td class="col3" title="{table_publisher_tip_t1_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } return ctrack.url('#view=list_transactions&year={year1}&country_code={country_code}');">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=list_transactions&year={year1}&country_code={country_code}">{t1}</a></td>
 	<td class="col4" title="{table_publisher_tip_t2_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } return ctrack.url('#view=list_transactions&year={year2}&country_code={country_code}');">
