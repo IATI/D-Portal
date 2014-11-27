@@ -32,8 +32,16 @@ view_frame.fixup=function()
 	}
 	var scale=(ctrack.hash.size || 960)/960;
 	$("a").attr("target","_blank");
-	$(".frame").css("transform-origin","0 0");
-	$(".frame").css("transform","scale("+scale+","+scale+")");
+	if(ctrack.hash.frame=="map")
+	{
+		$(".map_wrap").css("width","100%");
+		$(".map_wrap").css("height","100%");
+	}
+	else
+	{
+		$(".frame").css("transform-origin","0 0");
+		$(".frame").css("transform","scale("+scale+","+scale+")");
+	}
 //	$(".frame").css("zoom",scale);
 }
 //

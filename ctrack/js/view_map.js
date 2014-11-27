@@ -111,16 +111,16 @@ view_map.fixup=function()
 //							window.location.hash="#view=act&aid="+v.aid;
 							if( ctrack.args.country )
 							{
-								window.location.hash="#view=act&country="+ctrack.args.country_select+"&lat="+v.lat+"&lng="+v.lng;
+								ctrack.url("#view=act&country="+ctrack.args.country_select+"&lat="+v.lat+"&lng="+v.lng);
 							}
 							else
 							if( ctrack.args.publisher_select )
 							{
-								window.location.hash="#view=act&publisher="+ctrack.args.publisher_select+"&lat="+v.lat+"&lng="+v.lng;
+								ctrack.url("#view=act&publisher="+ctrack.args.publisher_select+"&lat="+v.lat+"&lng="+v.lng);
 							}
 							else
 							{
-								window.location.hash="#view=act&lat="+v.lat+"&lng="+v.lng;
+								ctrack.url("#view=act&lat="+v.lat+"&lng="+v.lng);
 							}
 						});
 					});
