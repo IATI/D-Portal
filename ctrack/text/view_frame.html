@@ -12,12 +12,14 @@
 
 #replace
 <script>
-	var oldBGColor = $('.table_wrap').css('backgroundColor');
-	if (oldBGColor)
-	{
-		var newBGColor = oldBGColor.replace(/(rgba)\(([0-9]+),\s+([0-9]+),\s+([0-9]+),\s+([0-9\.]+)\)/, 'rgb($2,$3,$4)');
-		$('.table_wrap').css({backgroundColor: newBGColor});
-	}
+	$(function(){
+		var oldBGColor = $('.table_wrap').css('backgroundColor');
+		if (oldBGColor)
+		{
+			var newBGColor = oldBGColor.replace(/(rgba)\(([0-9]+),\s+([0-9]+),\s+([0-9]+),\s+([0-9\.]+)\)/, 'rgb($2,$3,$4)');
+			$('.table_wrap').css({backgroundColor: newBGColor});
+		}
+	});
 </script>
 
 #frame_sectors
