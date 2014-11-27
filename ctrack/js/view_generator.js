@@ -221,7 +221,7 @@ view_generator.fixup=function()
 		url=url.split("#")[0];
 		url=url.split("?")[0];
 
-		var frame="<iframe frameborder='0' src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
+		var frame="<iframe scrolling='no' frameborder='0' src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
 		$("#generator_textarea").val( $("<p>").append($(frame)).html() ); // escape for textarea
 		last_height=-1;
 		

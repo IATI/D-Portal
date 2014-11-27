@@ -34,6 +34,7 @@ view_frame.fixup=function()
 	$("a").attr("target","_blank");
 	$(".frame").css("transform-origin","0 0");
 	$(".frame").css("transform","scale("+scale+","+scale+")");
+//	$(".frame").css("zoom",scale);
 }
 //
 // Perform ajax call to get numof data
