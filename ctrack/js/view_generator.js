@@ -24,6 +24,7 @@ view_generator.chunks=[
 var genes={};
 	genes.list_activities={
 		limit:true,
+		maxheight:true,
 		name:"List of activities"
 	};
 	genes.publisher_countries={
@@ -62,6 +63,7 @@ var genes={};
 	};
 	genes.act={
 		limit:true,aid:true,
+		maxheight:true,
 		name:"Activities displayed using SAVi"
 	};
 	
@@ -171,15 +173,39 @@ view_generator.fixup=function()
 			q=q+"publisher="+publisher+"&"
 		}
 		
+		var scolling="";
+		var maxheight="";
+		var	size_fix=0;
+		if(gene.maxheight)
+		{
+			$("#generator_maxheight_div").show();
+			var v=$("#generator_maxheight").val();
+			if(v=="")
+			{
+				scolling="scrolling='no'";
+			}
+			else
+			{
+				scolling="scrolling='yes'";
+				maxheight="max-height:"+v+"px;";
+				size_fix=24;
+			}
+		}
+		else
+		{
+			$("#generator_maxheight_div").hide();
+			scolling="scrolling='no'";
+		}
+
 		var size=$("#generator_size").val();
 		if(size && size!="")
 		{
-			hash=hash+"&size="+size;
+			hash=hash+"&size="+(size-size_fix);
 			width=size;
 		}
 		else
 		{
-			hash=hash+"&size="+width;
+			hash=hash+"&size="+(width-size_fix);
 		}
 		
 		if(gene.limit)
@@ -214,14 +240,14 @@ view_generator.fixup=function()
 			view_generator.crs_ok=false;
 		}
 		
-		var style="width:"+width+"px;"+"height:"+0+"px;";
+		var style="width:"+width+"px;"+"height:"+0+"px;"+maxheight;
 
 
 		var url=""+window.location;
 		url=url.split("#")[0];
 		url=url.split("?")[0];
 
-		var frame="<iframe scrolling='no' frameborder='0' src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
+		var frame="<iframe "+scolling+" frameborder='0' src=\""+url+q+hash+"\" style=\""+style+"\"></iframe>";
 		$("#generator_textarea").val( $("<p>").append($(frame)).html() ); // escape for textarea
 		last_height=-1;
 		
@@ -237,6 +263,7 @@ view_generator.fixup=function()
 	$("#generator_size").change(change);
 	$("#generator_aid").change(change);
 	$("#generator_limit").change(change);
+	$("#generator_maxheight").change(change);
 
 	if(!view_generator.interval)
 	{
