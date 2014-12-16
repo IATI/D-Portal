@@ -25,7 +25,7 @@ var genes={};
 	genes.list_activities={
 		limit:true,
 		maxheight:true,
-		name:"List of activities"
+		name:"List of activities (highest to lowest)"
 	};
 	genes.publisher_countries={
 		name:"Recipients (table)"
