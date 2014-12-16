@@ -1,9 +1,14 @@
 #css
 #=^
 #background_image	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
-.overlay			{width:100%; height:100%; background-color:rgba(19, 16, 1, 0.6);}	/* Overlay colour for background image */
+.overlay			{width:100%; height:100%; background-color:rgba(19, 16, 1, 0.8);}	/* Overlay colour for background image */
 a					{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
 img					{-webkit-filter:brightness(100%); filter:brightness(100%);}
+
+/*	Blog posts images
+	============================================= */
+	
+img					{max-width:750px; height:inherit;}
 
 
 /*	Navigation
@@ -41,6 +46,9 @@ a.top.dash:hover	{border-top:5px solid #2DA620;}
 	============================================= */
 
 h1				{font-weight:bold; font-size:38px; display:block; padding-top:30px;}
+h2				{font-weight:bold; font-size:30px; display:block; padding-top:30px;}
+h3				{font-weight:bold; font-size:24px; display:block; padding-top:30px;}
+h4				{font-style:italic; font-size:16px; display:block; padding-top:30px; padding-bottom:10px; border-bottom:1px solid #fff; margin-bottom:20px;}
 p				{color:#fff; padding:15px 0;}
 .mid_wrap p		{color:#fff; padding:30px 0 5px;}
 .about_head		{color:#fff; line-height:1.25em; font-size:22px; padding:30px 0 0px 40px;}
@@ -58,6 +66,7 @@ a.dash_link		{color:#000;}
 a.dash_link:hover{text-decoration:underline;}
 a.how			{display:inline-block; padding:5px 10px; background-color:#2573CD; color:rgba(10, 14, 20, 1); border-radius:6px; font-size:0.8em; font-weight:bold; margin-right:5px;}
 a.how:hover		{background-color:#3794FF;}
+a.news_link		{display:list-item; list-style-type:decimal; font-style:italic; list-style-position:inside; font-style:italic;}
 
 
 /*	About dstore and q
