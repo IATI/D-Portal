@@ -188,7 +188,7 @@ view_generator.fixup=function()
 			{
 				scolling="scrolling='yes'";
 				maxheight="max-height:"+v+"px;";
-				size_fix=24;
+				size_fix=20;
 			}
 		}
 		else
