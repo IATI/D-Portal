@@ -13,7 +13,14 @@ var views=require("./views.js");
 
 var ganal=require("./ganal.js");
 
-var iati_codes=require("../../dstore/json/iati_codes.json")
+var iati_codes=require("../../dstore/json/iati_codes.json");
+
+var xdr_year=require("../../dstore/json/xdr_year.json");
+ctrack.xdr=xdr_year[2012];
+for(var year=2012;year<2100;year++)
+{
+	if(xdr_year[year]) { ctrack.xdr=xdr_year[year]; } else { break; }
+}
 
 // exports
 ctrack.savi_fixup=savi.fixup;
@@ -23,29 +30,11 @@ ctrack.url=function(url)
 {
 	if(ctrack.popout=="frame")
 	{
-//		console.log("popout "+url);
 		window.open(url);
 	}
 	else
 	{
 		window.location.href=url;
-/*
-		if(url[0]=="#")
-		{
-			window.location.hash=url;
-		}
-		else
-		if(url[0]=="?")
-		{
-//			var t=url.split("#")[1];
-//			window.location.hash=t || "";
-			window.location.search=url;
-		}
-		else
-		{
-			window.location=url;
-		}
-*/
 		return false;
 	}
 };
@@ -115,6 +104,20 @@ ctrack.setup=function(args)
 	if(args.year) { ctrack.year=args.year; } // default base year for graphs tables etc
 
 	ctrack.args=args;
+
+
+	args.chunks["USD"]="USD";
+	ctrack.xdr_hack=1; 
+	if( ctrack.q.usd )
+	{
+		var usd=ctrack.q.usd.toUpperCase();
+		if(ctrack.xdr[usd])
+		{
+			args.chunks["USD"]=usd;
+			ctrack.xdr_hack=ctrack.xdr[usd] / ctrack.xdr["USD"]; // conversion from usd to ...
+		}
+	}
+
 	
 // temporary country force hack
 	if( ctrack.q.country )
