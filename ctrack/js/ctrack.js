@@ -93,7 +93,8 @@ ctrack.setup=function(args)
 
 	if(args.css) { head.load(args.css); }
 	
-	ctrack.year=2013;
+	ctrack.year=2014;
+
 	ctrack.year_chunks=function(y){
 		ctrack.chunk("year" ,y  );
 		ctrack.chunk("year1",y-1);
@@ -252,6 +253,7 @@ ctrack.setup=function(args)
 			ctrack.chunks[n]=undefined;
 	};
 // set global defaults
+	ctrack.chunk("yearcrs" ,2013  ); // the crs data is for this year
 	ctrack.chunk("art",args.art);
 	ctrack.chunk("flava",args.art+args.flava+"/");
 	ctrack.chunk("flava_name",args.flava);

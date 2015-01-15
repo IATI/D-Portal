@@ -15,7 +15,7 @@ var tables=require("./tables.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
-var crs_year_sectors=require("../../dstore/json/crs_2012_sectors.json")
+var crs_year_sectors=require("../../dstore/json/crs_2013_sectors.json")
 
 var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -115,16 +115,28 @@ view_sectors.ajax=function(args)
 	var crs=crs_year_sectors[ (args.country || ctrack.args.country).toUpperCase() ];
 	if(crs)
 	{
+console.log(crs);
+		var crsg={};
 		for(var n in crs)
 		{
 			if(n!="Grand Total")
 			{
-				var d={};
-				d.group=rev_sector_names[n];
-				d.crs=commafy(""+Math.floor(crs[n]));
-				d.crs_num=crs[n];
-				fadd(d);
+				var group=n.substring(0, 3); // now we have numbers, just take the first 3 digits
+				group=iati_codes.sector_group[group] || group; // but we need to group them some more
+				if(!iati_codes.sector_names[group]){ group="930"; } // use other if we do not know the group
+				if(!crsg[group]){crsg[group]=0;}
+				crsg[group]+=crs[n];
 			}
+		}
+
+		for(var n in crsg)
+		{
+			var d={};
+			d.group=n;
+			d.crs=commafy(""+Math.floor(crsg[n]));
+			d.crs_num=crsg[n];
+			fadd(d);
+console.log(d);
 		}
 	}
 	
