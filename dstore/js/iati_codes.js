@@ -53,7 +53,7 @@ var https_getbody=function(url,cb)
 
 iati_codes.fetch = function(){
 
-	var codes={};
+	var codes=require('../json/iati_codes'); // merge with old
 	var publishers={};
 	var packages={};
 
@@ -64,7 +64,7 @@ iati_codes.fetch = function(){
 			},
 			{
 				url:"http://iatistandard.org/104/codelists/downloads/clv2/json/en/TransactionType.json",
-				name:"transaction_type",
+				name:"old_transaction_type",
 			},
 			{
 				url:"http://iatistandard.org/201/codelists/downloads/clv2/json/en/TransactionType.json",
@@ -89,6 +89,39 @@ iati_codes.fetch = function(){
 		codes[opts.name]=o;
 
 	});
+
+// merge old/new transaction types and build map
+
+	var n;
+	var o={};
+	for(n in codes["old_transaction_type"])
+	{
+		o[ n ]=codes["old_transaction_type"][n];
+	}
+	for(n in codes["new_transaction_type"])
+	{
+		o[ n ]=codes["new_transaction_type"][n];
+	}
+	codes["transaction_type"]=o;
+
+// conversion from new code to old (we keep using old codes internally)
+	var n;
+	var t={};
+	for(n in codes["old_transaction_type"])
+	{
+		t[ codes["old_transaction_type"][n] ]=n;
+	}
+	var o={};
+	for(n in codes["old_transaction_type"])
+	{
+		o[ n ]=n;
+	}
+	for(n in codes["new_transaction_type"])
+	{
+		o[ n ]=t[ codes["new_transaction_type"][n] ] || n;
+	}
+
+	codes["transaction_type_map"]=o; // map new codes to old codes and leave old codes as they are
 
 	
 	console.log("Fetching country_codes")

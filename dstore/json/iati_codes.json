@@ -208,6 +208,16 @@
 		"99820": "Promotion of development awareness"
 	},
 	"transaction_type": {
+		"1": "Incoming Funds",
+		"2": "Commitment",
+		"3": "Disbursement",
+		"4": "Expenditure",
+		"5": "Interest Repayment",
+		"6": "Loan Repayment",
+		"7": "Reimbursement",
+		"8": "Purchase of Equity",
+		"9": "Sale of Equity",
+		"10": "Credit Guarantee",
 		"C": "Commitment",
 		"D": "Disbursement",
 		"E": "Expenditure",
@@ -1926,5 +1936,39 @@
 		"GB-CHC-1114944": "iPartner India",
 		"IM-CR-017899B": "Manx Times",
 		"41127-FTS": "OCHA Financial Tracking Service"
+	},
+	"old_transaction_type": {
+		"C": "Commitment",
+		"D": "Disbursement",
+		"E": "Expenditure",
+		"IF": "Incoming Funds",
+		"IR": "Interest Repayment",
+		"LR": "Loan Repayment",
+		"R": "Reimbursement",
+		"QP": "Purchase of Equity",
+		"QS": "Sale of Equity",
+		"CG": "Credit Guarantee"
+	},
+	"transaction_type_map": {
+		"1": "IF",
+		"2": "C",
+		"3": "D",
+		"4": "E",
+		"5": "IR",
+		"6": "LR",
+		"7": "R",
+		"8": "QP",
+		"9": "QS",
+		"10": "CG",
+		"C": "C",
+		"D": "D",
+		"E": "E",
+		"IF": "IF",
+		"IR": "IR",
+		"LR": "LR",
+		"R": "R",
+		"QP": "QP",
+		"QS": "QS",
+		"CG": "CG"
 	}
 }
