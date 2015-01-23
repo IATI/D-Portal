@@ -275,7 +275,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
 
 		t["trans_ref"]=				it["ref"];
-		t["trans_description"]=		refry.tagval_en(it,"description");
+		t["trans_description"]=		refry.tagval_narrative(it,"description");
 		t["trans_day"]=				iati_xml.get_isodate_number(it,"transaction-date");
 
 		t["trans_code"]=			iati_xml.get_code(it,"transaction-type");
@@ -286,6 +286,9 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t["trans_currency"]=		iati_xml.get_value_currency(it,"value");
 		t["trans_value"]=			iati_xml.get_value(it,"value");
 		t["trans_usd"]=				iati_xml.get_usd(it,"value");
+
+// map new 201 codes to old		
+		t["trans_code"]= codes.transaction_type_map[ t["trans_code"] ] || t["trans_code"];
 
 		t.jml=JSON.stringify(it);
 		
@@ -385,8 +388,8 @@ dstore_db.refresh_act = function(db,aid,xml){
 		db.run("DELETE FROM slug      WHERE aid=?",t.aid);
 
 
-		t.title=refry.tagval_en(act,"title");
-		t.description=refry.tagval_en(act,"description");				
+		t.title=refry.tagval_narrative(act,"title");
+		t.description=refry.tagval_narrative(act,"description");				
 		t.reporting=refry.tagval(act,"reporting-org");				
 		t.reporting_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=refry.tagattr(act,"activity-status","code");
@@ -490,10 +493,10 @@ dstore_db.refresh_act = function(db,aid,xml){
 				var longitude;
 				var latitude;
 				var precision;
-				var name=refry.tagval_trim(it,"name");
+				var name=refry.tagval_narrative(it,"name");
 				var code=refry.tagattr(it,"location-type","code");
 				var gazref=refry.tagattr(it,"gazetteer-entry","gazetteer-ref");
-				var gaz=refry.tagval_trim(it,"gazetteer-entry");
+				var gaz=refry.tagval_narrative(it,"gazetteer-entry");
 				var co=refry.tag(it,"coordinates");
 				if(co)
 				{
@@ -501,6 +504,20 @@ dstore_db.refresh_act = function(db,aid,xml){
 					latitude=co.latitude;
 					precision=co.precision;
 				}
+				var point=refry.tag(it,"point");
+				var exact=refry.tag(it,"exactness");
+				if(point && exact) // new style point/pos
+				{
+					var pos=refry.tagval_trim(point,"pos");
+					if(pos)
+					{
+						var aa=pos.match(/\S+/g);
+						precision=exact.code;
+						longitude=parseFloat(aa[0]);
+						latitude=parseFloat(aa[1]);
+					}
+				}
+
 				var sa = db.prepare(dstore_sqlite.tables_replace_sql["location"]);
 				sa.run({"$aid":t.aid,
 					"$location_code":code,
@@ -515,17 +532,18 @@ dstore_db.refresh_act = function(db,aid,xml){
 			}
 		}
 
+// also accept 201 number codes
 		t.day_start=null;
 		t.day_end=null;
 		refry.tags(act,"activity-date",function(it){
-			if( it.type=="start-planned" ) 	{ t.day_start=iati_xml.get_isodate_number(it); }
+			if( it.type=="start-planned" || it.type=="1" ) 	{ t.day_start=iati_xml.get_isodate_number(it); }
 			else
-			if( it.type=="end-planned" )	{ t.day_end=iati_xml.get_isodate_number(it); }
+			if( it.type=="end-planned"   || it.type=="3" )	{ t.day_end=iati_xml.get_isodate_number(it); }
 		});
 		refry.tags(act,"activity-date",function(it){
-			if( it.type=="start-actual" ) 	{ t.day_start=iati_xml.get_isodate_number(it); }
+			if( it.type=="start-actual"  || it.type=="2" ) 	{ t.day_start=iati_xml.get_isodate_number(it); }
 			else
-			if( it.type=="end-actual" )		{ t.day_end=iati_xml.get_isodate_number(it); }
+			if( it.type=="end-actual"    || it.type=="4" )	{ t.day_end=iati_xml.get_isodate_number(it); }
 		});
 
 		t.day_length=null;

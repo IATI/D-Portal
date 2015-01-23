@@ -39,6 +39,12 @@ iati_cook.activity=function(act)
 		}
 	});
 //ls(activity_date);
+
+// convert any 201 codes to old style...
+	if(activity_date["1"]) { activity_date["1"].type="start-planned"; activity_date["start-planned"]=activity_date["1"]; }
+	if(activity_date["2"]) { activity_date["2"].type="start-actual";  activity_date["start-actual"] =activity_date["2"]; }
+	if(activity_date["3"]) { activity_date["3"].type="end-planned";   activity_date["end-planned"]  =activity_date["3"]; }
+	if(activity_date["4"]) { activity_date["$"].type="end-actual";    activity_date["end-actual"]   =activity_date["4"]; }
 	
 // if we have any actifity dates, then force a start-actual to something
 	if( ! activity_date["start-actual"] || !activity_date["start-actual"]["iso-date"])

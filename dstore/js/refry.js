@@ -177,6 +177,21 @@ refry.tagval_trim=function(json,name)
 	}
 }
 
+// as above but prefer first narrative subtag if it exists
+refry.tagval_narrative=function(json,name)
+{
+	var t=refry.tag(json,name); // find
+	if(t)
+	{
+		var n=refry.tagval_trim(t,"narrative");
+		if(n) { return n; }
+	}
+	if( t && t[1] && t[1][0] && ( "string" == typeof t[1][0] ) ) // check
+	{
+		return entities.decodeXML(t[1][0].trim());
+	}
+}
+
 // return the attr string of the first tag we find of the given name
 refry.tagattr=function(json,name,attr)
 {

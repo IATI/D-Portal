@@ -115,7 +115,7 @@ view_sectors.ajax=function(args)
 	var crs=crs_year_sectors[ (args.country || ctrack.args.country).toUpperCase() ];
 	if(crs)
 	{
-console.log(crs);
+//console.log(crs);
 		var crsg={};
 		for(var n in crs)
 		{
@@ -136,7 +136,7 @@ console.log(crs);
 			d.crs=commafy(""+Math.floor(crsg[n]));
 			d.crs_num=crsg[n];
 			fadd(d);
-console.log(d);
+//console.log(d);
 		}
 	}
 	
