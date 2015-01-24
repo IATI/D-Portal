@@ -7,7 +7,7 @@ echo
 echo get new json data
 echo
 bin/pull_di
-./fetch
+#./fetch
 bin/addcommit auto json fetch in nightly cron
 bin/pull_di
 bin/push_di
@@ -27,7 +27,16 @@ echo
 rm -rf dstore/cache/new
 rm -rf dstore/cache/old
 mkdir dstore/cache/old
-cp dstore/cache/*.xml dstore/cache/old
+
+# clear data to force a *full* import on sunday night
+if [ "$(date +'%u')" == "7" ] ; then
+	echo
+	echo SUNDAY full import
+	echo
+else
+	cp dstore/cache/*.xml dstore/cache/old
+fi
+exit 0
 
 echo
 echo download new files files may be the same
@@ -62,4 +71,6 @@ bin/dstore_vacuum
 
 
 date
+
+
 
