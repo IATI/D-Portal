@@ -1,7 +1,0 @@
-# clear data on saturday to force a full import on saturday night
-dow="$(date +'%u')"
-if [ "$dow" == "6" ] ; then
-
-echo "ok"
-
-fi

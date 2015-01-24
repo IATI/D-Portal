@@ -7,7 +7,7 @@ echo
 echo get new json data
 echo
 bin/pull_di
-#./fetch
+./fetch
 bin/addcommit auto json fetch in nightly cron
 bin/pull_di
 bin/push_di
@@ -36,7 +36,6 @@ if [ "$(date +'%u')" == "6" ] ; then
 else
 	cp dstore/cache/*.xml dstore/cache/old
 fi
-exit 0
 
 echo
 echo download new files files may be the same
