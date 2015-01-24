@@ -29,7 +29,7 @@ rm -rf dstore/cache/old
 mkdir dstore/cache/old
 
 # clear data to force a *full* import on sunday night
-if [ "$(date +'%u')" == "7" ] ; then
+if [ "$(date +'%u')" == "6" ] ; then
 	echo
 	echo SUNDAY full import
 	echo
