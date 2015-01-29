@@ -268,6 +268,7 @@ iati_codes.fetch = function(){
 
 	var d={};
 	var o={};
+	var r={};
 	var funder_names={};
 	for(var i=1;i<lines.length;i++)
 	{
@@ -279,6 +280,7 @@ iati_codes.fetch = function(){
 		if(a && a.length>0 && b && b.length>0 )
 		{
 			o[a.trim()]=b.trim();
+			r[b.trim()]=a.trim();
 		}
 		if(a && a.length>0 && c && c.length>0 )
 		{
@@ -291,9 +293,10 @@ iati_codes.fetch = function(){
 	}
 	
 //	ls(o);
-	codes["funder_names"]=funder_names;
-	codes["crs_funders"]=o;
-	codes["crs_no_iati"]=d;
+	codes.funder_names=funder_names;
+	codes.crs_funders=o;
+	codes.rev_crs_funders=r;
+	codes.crs_no_iati=d;
 
 
 	console.log("Fetching CRS countries csv")
@@ -302,6 +305,7 @@ iati_codes.fetch = function(){
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
 	var o={};
+	var r={};
 	for(var i=1;i<lines.length;i++)
 	{
 		var v=lines[i];
@@ -310,24 +314,19 @@ iati_codes.fetch = function(){
 		if(a && a.length>0 && b && b.length>0 )
 		{
 			o[a.trim()]=b.trim();
+			r[b.trim()]=a.trim();
 		}
 	}
 	
 //	ls(o);
-	codes["crs_countries"]=o;
+	codes.crs_countries=o;
+	codes.rev_crs_countries=r;
 	
 		
 	console.log("Writing json/iati_codes.json")	
 //	fs.writeFileSync("json/iati_codes.js","exports.codes="+JSON.stringify(codes)+";\n");
 	fs.writeFileSync(__dirname+"/../json/iati_codes.json",JSON.stringify(codes,null,'\t'));
 
-
-
-
-	var rev_crs_funders={};
-	for( var n in codes["crs_funders"]   ) { rev_crs_funders[   codes["crs_funders"  ][n] ]=n }
-	var rev_crs_countries={};
-	for( var n in codes["crs_countries"] ) { rev_crs_countries[ codes["crs_countries"][n] ]=n }
 	
 	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=3&output=csv");
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
@@ -338,14 +337,14 @@ iati_codes.fetch = function(){
 	for(var i=0;i<lines[0].length;i++)
 	{
 		var v=lines[0][i];
-		head[i]=rev_crs_funders[ v.trim() ];
+		head[i]=codes.rev_crs_funders[ v.trim() ];
 	}
 //	ls(head);
 	
 	for(var i=1;i<lines.length;i++)
 	{
 		var v=lines[i];
-		var a=rev_crs_countries[ v[0].trim() ];
+		var a=codes.rev_crs_countries[ v[0].trim() ];
 		if(a)
 		{
 			var t={};
@@ -392,7 +391,7 @@ iati_codes.fetch = function(){
 	for(var i=1;i<lines.length;i++)
 	{
 		var v=lines[i];
-		var a=rev_crs_countries[ v[0].trim() ];
+		var a=codes.rev_crs_countries[ v[0].trim() ];
 		if(a)
 		{
 			var t={};
@@ -428,14 +427,14 @@ iati_codes.fetch = function(){
 	for(var i=0;i<lines[0].length;i++)
 	{
 		var v=lines[0][i];
-		head[i]=rev_crs_funders[ v.trim() ];
+		head[i]=codes.rev_crs_funders[ v.trim() ];
 	}
 //	ls(head);
 	
 	for(var i=1;i<lines.length;i++)
 	{
 		var v=lines[i];
-		var a=rev_crs_countries[ v[0].trim() ];
+		var a=codes.rev_crs_countries[ v[0].trim() ];
 		if(a)
 		{
 			var t={};
@@ -482,7 +481,7 @@ iati_codes.fetch = function(){
 	for(var i=1;i<lines.length;i++)
 	{
 		var v=lines[i];
-		var a=rev_crs_countries[ v[0].trim() ];
+		var a=codes.rev_crs_countries[ v[0].trim() ];
 		if(a)
 		{
 			var t={};
