@@ -56,6 +56,20 @@ acts.each(function(i){var it=$(this);
 			it.append("<"+n+" />"); // just add a blank tag
 		}
 	});
+	
+/*
+	if( it.find("narrative").length==0 ) // no narrative ( PRE 201 ) , so we add them in to simplify the CSS
+	{
+		var narratives=["title"];
+		narratives.forEach(function(n){
+			it.find(n).each(function(i){var it=$(this);
+console.log("adding narrative tag to "+it.html());
+				it.wrapInner("<narrative></narrative>");
+			});
+		});
+	}
+*/
+	
 
 	var ad=it.children("activity-date");
 	var got_start=false;
@@ -76,6 +90,12 @@ acts.each(function(i){var it=$(this);
 	if(!got_end)  { it.append("<activity-date type=\"end-actual\" />"); }
 	
 });
+
+// change title to span_title (title tag seems to confuse browsers)
+acts.find("title").each(function(i){var it=$(this);
+	it.replaceWith($('<span-title>' + it.html() + '</span-title>'));
+});
+
 
 acts.find("participating-org").each(function(i){var it=$(this);
 	var c=it.attr("role");
@@ -258,6 +278,7 @@ acts.each(function(i){var it=$(this);
 sorted++;
 	var sortlist=[
 		"title",
+		"span-title",
 		"iati-identifier",
 		"recipient-country",
 		"activity-date",

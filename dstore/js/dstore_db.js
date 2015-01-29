@@ -506,15 +506,18 @@ dstore_db.refresh_act = function(db,aid,xml){
 				}
 				var point=refry.tag(it,"point");
 				var exact=refry.tag(it,"exactness");
-				if(point && exact) // new style point/pos
+				if(point) // new style point/pos
 				{
 					var pos=refry.tagval_trim(point,"pos");
 					if(pos)
 					{
 						var aa=pos.match(/\S+/g);
-						precision=exact.code;
 						longitude=parseFloat(aa[0]);
 						latitude=parseFloat(aa[1]);
+						if( exact && exact.code )
+						{
+							precision=exact.code;
+						}
 					}
 				}
 
