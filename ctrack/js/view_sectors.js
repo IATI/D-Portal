@@ -164,7 +164,7 @@ view_sectors.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.group=v.sector_group;
-				d["t"+(2+y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd));
+				d["t"+(2+y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd*ctrack.convert_usd));
 //				d["num_t"+(2+y-year)]=Math.floor(v.sum_of_percent_of_trans_usd);
 				fadd(d);
 			}
@@ -200,7 +200,7 @@ view_sectors.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.group=v.sector_group;
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
 				fadd(d);
 			}
 //			console.log(ctrack.sectors_data);

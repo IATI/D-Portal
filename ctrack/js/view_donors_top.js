@@ -54,7 +54,7 @@ view_donors_top.ajax=function(args)
 			var v=data.rows[i];
 			var d={};
 			d.funder=v.funder_ref;
-			d.usd=Math.floor(v.sum_of_percent_of_trans_usd);
+			d.usd=Math.floor(v.sum_of_percent_of_trans_usd*ctrack.convert_usd);
 			list.push(d);
 		}
 
@@ -83,7 +83,7 @@ view_donors_top.ajax=function(args)
 				var d={};
 				d.num=v.usd;
 				d.pct=Math.floor(100*v.usd/total);
-				d.str_num=commafy(d.num)+" USD";
+				d.str_num=commafy(d.num)+" "+ctrack.display_usd;
 				d.str_lab=iati_codes.funder_names[v.funder] || iati_codes.publisher_names[v.funder] || iati_codes.country[v.funder] || v.funder;
 				d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
 				dd.push(d);

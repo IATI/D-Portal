@@ -59,7 +59,7 @@ view_publisher_sectors_top.ajax=function(args)
 			var num=v.sum_of_percent_of_trans_usd;
 			d.sector_code=v.sector_code || "N/A";
 			d.sector_name=iati_codes.sector[v.sector_code] || v.sector_code || "N/A";
-			d.usd=Math.floor(num);
+			d.usd=Math.floor(num*ctrack.convert_usd);
 			list.push(d)
 		}
 		
@@ -88,7 +88,7 @@ view_publisher_sectors_top.ajax=function(args)
 				var d={};
 				d.num=v.usd;
 				d.pct=Math.floor(100*v.usd/total);
-				d.str_num=commafy(d.num)+" USD";
+				d.str_num=commafy(d.num)+" "+ctrack.display_usd;
 				d.str_lab=v.str_lab || v.sector_name;
 				d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
 				dd.push(d);

@@ -53,7 +53,7 @@ view_sectors_top.ajax=function(args)
 			var v=data.rows[i];
 			var d={};
 			d.sector_group=iati_codes.sector_names[ v.sector_group ];
-			d.usd=Math.floor(v.sum_of_percent_of_trans_usd);
+			d.usd=Math.floor(v.sum_of_percent_of_trans_usd*ctrack.convert_usd);
 			list.push(d);
 		}
 		list.sort(function(a,b){
@@ -95,7 +95,7 @@ view_sectors_top.ajax=function(args)
 					if(d.num<0) { d.num=-d.num; }
 					shown+=d.num;
 					d.pct=Math.floor(100*d.num/total);
-					d.str_num=commafy(v.usd)+" USD";
+					d.str_num=commafy(v.usd)+" "+ctrack.display_usd;
 					d.str_lab=v.sector_group;
 					d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
 					dd.push(d);

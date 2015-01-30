@@ -107,17 +107,18 @@ ctrack.setup=function(args)
 	ctrack.args=args;
 
 
-	args.chunks["USD"]="USD";
-	ctrack.xdr_hack=1; 
+	ctrack.display_usd="USD"; 
+	ctrack.convert_usd=1; 
 	if( ctrack.q.usd )
 	{
 		var usd=ctrack.q.usd.toUpperCase();
 		if(ctrack.xdr[usd])
 		{
-			args.chunks["USD"]=usd;
-			ctrack.xdr_hack=ctrack.xdr[usd] / ctrack.xdr["USD"]; // conversion from usd to ...
+			ctrack.display_usd=usd;
+			ctrack.convert_usd=ctrack.xdr[usd] / ctrack.xdr["USD"]; // conversion from usd to whatever we wish to display
 		}
 	}
+	args.chunks["USD"]=ctrack.display_usd;
 
 	
 // temporary country force hack

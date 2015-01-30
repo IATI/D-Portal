@@ -150,7 +150,7 @@ view_publisher_sectors.ajax=function(args)
 				var num=v.sum_of_percent_of_trans_usd;
 				d.sector_code=v.sector_code || "N/A";
 				d.sector_name=iati_codes.sector[v.sector_code] || v.sector_code || "N/A";
-				d["t"+(2+y-year)]=commafy(""+Math.floor(num));
+				d["t"+(2+y-year)]=commafy(""+Math.floor(num*ctrack.convert_usd));
 				if(y==year)
 				{
 					d.order=num; // default, use ctrack.year transaction value for sort
@@ -189,7 +189,7 @@ view_publisher_sectors.ajax=function(args)
 				var d={};
 				d.sector_code=v.sector_code || "N/A";
 				d.sector_name=iati_codes.sector[v.sector_code] || v.sector_code || "N/A";
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
 				fadd(d);
 			}
 //			console.log(ctrack.donors_data);

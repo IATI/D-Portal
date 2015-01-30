@@ -97,9 +97,9 @@ view_list_activities.ajax=function(args)
 				if(v.day_end  !==null) { d.date_end  =fetch.get_nday(v.day_end  ); }
 
 				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
-				d.commitment=commafy(""+Math.floor(v.commitment||0));
-				d.spend=commafy(""+Math.floor(v.spend||0));
-				d.currency="USD";
+				d.commitment=commafy(""+Math.floor((v.commitment||0)*ctrack.convert_usd));
+				d.spend=commafy(""+Math.floor((v.spend||0)*ctrack.convert_usd));
+				d.currency=ctrack.display_usd;
 				d.pct=0;
 				if( v.commitment && (v.commitment!=0) )
 				{

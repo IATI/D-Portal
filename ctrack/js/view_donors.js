@@ -161,7 +161,7 @@ view_donors.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				var num=v.sum_of_percent_of_trans_usd;
+				var num=v.sum_of_percent_of_trans_usd*ctrack.convert_usd;
 				d.funder=v.funder_ref;
 				d["t"+(2+y-year)]=commafy(""+Math.floor(num));
 				if(year==ctrack.year)
@@ -201,7 +201,7 @@ view_donors.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.funder=v.funder_ref;
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
 				fadd(d);
 			}
 //			console.log(ctrack.donors_data);
