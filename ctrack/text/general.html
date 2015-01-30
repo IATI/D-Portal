@@ -96,7 +96,9 @@
 			
 #main_head_tail
 			<td class="options">
-				<form action="">
+				<form class="currency" action="">
+					<select id="usd_select" name="usd">{all_usd_options}</select>
+				</form><form action="">
 				<select id="tongue_select" name="tongue">
 					<option value="eng" title="{tongue_eng_tip_text}">{tongue_eng_text}</option>
 					<option value="fra" title="{tongue_fra_tip_text}">{tongue_fra_text}</option>
@@ -114,15 +116,6 @@
 				<select id="flava_select" name="flava">
 					<option value="original">{flava_original_text}</option> 
 					<option value="high">{flava_high_visibility_text}</option> 
-				</select>
-				</form>
-			</td>
-		</tr>
-		<tr>
-			<td class="options">
-				<form action="">
-				<select id="usd_select" name="usd">
-{all_usd_options}
 				</select>
 				</form>
 			</td>
