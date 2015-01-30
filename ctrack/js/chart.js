@@ -138,7 +138,6 @@ chart.draw=function(sel,data,options){
 		if(opt.caption_css)  { d.css(opt.caption_css); }
 		div.over.append(d);
 		opt.ds[i]=d;
-//		$( ".caption div:last-of-type" ).css( "border-bottom",	"1px solid #666" );
 		
 		var w=d.outerWidth(true);
 		var h=d.outerHeight(true);
