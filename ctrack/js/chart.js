@@ -23,6 +23,7 @@ chart.draw=function(sel,data,options){
 		color:["#0f0","#8f0","#4f0","#0f4","#0f8","#4f4"],	//	Add as many colours as you want for pie slices (5 max for now)
 		caption_css:{"width":160,"padding":"8px","borderStyle":"solid","borderWidth":4},	//	Styling for the caption div
 		caption_edge:4,	//	Margin of caption div from the edge of entire chart div depending on layout (left/right)
+		caption_fix:[0,0],		//	fix caption positions x,y for slight nudges
 		stroke_width:4,	//	Thickness of chart border
 		line_width:1,	//	Thickness of lines from caption to chart
 		tints:{						//	Changing the numbers below apart from [1,1,1,1] gives experimental effects
@@ -177,6 +178,13 @@ chart.draw=function(sel,data,options){
 	if( (opt.layout=="left") || (opt.layout=="right") )
 	{
 		fix=[0, (opt.height-ppy)/2 ]; // center
+	}
+	
+	if(opt.caption_fix)
+	{
+		if(!fix) { fix=[0,0]; }
+		fix[0]+=opt.caption_fix[0];
+		fix[1]+=opt.caption_fix[1];
 	}
 
 	if(fix)
