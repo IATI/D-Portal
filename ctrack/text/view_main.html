@@ -283,7 +283,7 @@
 		center_y:140,
 		radius:135,
 		hole:40,
-		caption_css:{"width":300,"padding":"7px 20px","borderStyle":"solid","borderWidth":1, "border-bottom":0, "color":"#666", "background-color":"#fff",},
+		caption_css:undefined,
 		color:["#74BAFF","#42A0FB","#0081FF","#49739C","#5B6572"],
 		caption_edge:100,
 		stroke_width:1,
@@ -297,6 +297,21 @@
 	}
 	ctrack.draw_chart("#donor_graph",data,opts);
 </script>
+<style>
+ #donor_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #donor_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
 </div>
 
 #sector_graph
@@ -318,7 +333,7 @@
 		center_y:140,
 		radius:135,
 		hole:40,
-		caption_css:{"width":300,"padding":"7px 20px","borderStyle":"solid","borderWidth":1, "color":"#666", "background-color":"#fff",},
+		caption_css:undefined,
 		color:["#79F5C3","#0EFF9E","#00C475","#318F69","#476B5C"],
 		caption_edge:100,
 		stroke_width:1,
@@ -332,6 +347,21 @@
 	}
 	ctrack.draw_chart("#sector_graph",data,opts);
 </script>
+<style>
+ #sector_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #sector_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
 </div>
 
 #publisher_countries_graph
@@ -352,7 +382,7 @@
 		center_y:150,
 		radius:135,
 		hole:40,
-		caption_css:{"width":300,"padding":"7px 20px","borderStyle":"solid","borderWidth":1, "color":"#666", "background-color":"#fff",},
+		caption_css:undefined,
 		color:["#74BAFF","#42A0FB","#0081FF","#49739C","#5B6572"],
 		caption_edge:100,
 		stroke_width:1,
@@ -366,6 +396,21 @@
 	}
 	ctrack.draw_chart("#publisher_countries_graph",data,opts);
 </script>
+<style>
+ #publisher_countries_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #publisher_countries_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
 </div>
 
 #publisher_sectors_graph
@@ -387,7 +432,7 @@
 		center_y:170,
 		radius:135,
 		hole:40,
-		caption_css:{"width":300,"padding":"7px 20px","borderStyle":"solid","borderWidth":1, "color":"#666", "background-color":"#fff",},
+		caption_css:undefined,
 		color:["#79F5C3","#0EFF9E","#00C475","#318F69","#476B5C"],
 		caption_edge:100,
 		stroke_width:1,
@@ -401,6 +446,21 @@
 	}
 	ctrack.draw_chart("#publisher_sectors_graph",data,opts);
 </script>
+<style>
+ #publisher_sectors_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #publisher_sectors_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
 </div>
 
 #list_head

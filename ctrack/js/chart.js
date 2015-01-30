@@ -69,7 +69,7 @@ chart.draw=function(sel,data,options){
 	opt.div=div;
 	div.master=$(sel);
 	div.canvas=$("<canvas width='"+opt.width+"' height='"+opt.height+"'></canvas>");
-	div.over=$("<div class='caption'></div>");
+	div.over=$("<div class='char_captions'></div>");
 
 	div.master.empty();
 	div.master.append(div.canvas);
@@ -131,14 +131,14 @@ chart.draw=function(sel,data,options){
 	for (var i=0; i<data.length; i++){
 		var cc=csscolor.parseCSSColor( getdat("color",i) );
 		
-		d=$("<div></div>").html(getdat("str",i))
+		d=$("<div class='chart_caption'></div>").html(getdat("str",i))
 		if(opt.tints.text)   { d.css("color",           csscolor.rgba_to_str(cc,opt.tints.text));   }
 		if(opt.tints.back)   { d.css("background-color",csscolor.rgba_to_str(cc,opt.tints.back));   }
 		if(opt.tints.border) { d.css("border-color",    csscolor.rgba_to_str(cc,opt.tints.border)); }
-		d.css(opt.caption_css);
+		if(opt.caption_css)  { d.css(opt.caption_css); }
 		div.over.append(d);
 		opt.ds[i]=d;
-		$( ".caption div:last-of-type" ).css( "border-bottom",	"1px solid #666" );
+//		$( ".caption div:last-of-type" ).css( "border-bottom",	"1px solid #666" );
 		
 		var w=d.outerWidth(true);
 		var h=d.outerHeight(true);
