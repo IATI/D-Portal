@@ -97,7 +97,7 @@ view_sectors_top.ajax=function(args)
 					d.pct=Math.floor(100*d.num/total);
 					d.str_num=commafy(v.usd)+" "+ctrack.display_usd;
 					d.str_lab=v.sector_group;
-					d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
+					d.str=d.str_num+" ("+d.pct+"%)<br/>"+d.str_lab;
 					dd.push(d);
 				}
 			}

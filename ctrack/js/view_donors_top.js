@@ -85,7 +85,7 @@ view_donors_top.ajax=function(args)
 				d.pct=Math.floor(100*v.usd/total);
 				d.str_num=commafy(d.num)+" "+ctrack.display_usd;
 				d.str_lab=iati_codes.funder_names[v.funder] || iati_codes.publisher_names[v.funder] || iati_codes.country[v.funder] || v.funder;
-				d.str=d.str_lab+" ("+d.pct+"%)"+"<br/>"+d.str_num;
+				d.str=d.str_num+" ("+d.pct+"%)<br/>"+d.str_lab;
 				dd.push(d);
 			}
 		}
