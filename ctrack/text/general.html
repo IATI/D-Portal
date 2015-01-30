@@ -78,7 +78,7 @@
 <div class="default head">
 	<table class="head">
 		<tr>
-			<td rowspan="2">
+			<td rowspan="3">
 				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
 			</td>
 			{main_head_tail}
@@ -88,7 +88,7 @@
 <div class="default head">
 	<table class="head">
 		<tr>
-			<td rowspan="2">
+			<td rowspan="3">
 				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
 			</td>
 			{main_head_tail}
@@ -98,8 +98,8 @@
 			<td class="options">
 				<form action="">
 				<select id="tongue_select" name="tongue">
-					<option value="eng" title="{tongue_eng_tip_text}">{tongue_eng_text}</option> 
-					<option value="fra" title="{tongue_fra_tip_text}">{tongue_fra_text}</option> 
+					<option value="eng" title="{tongue_eng_tip_text}">{tongue_eng_text}</option>
+					<option value="fra" title="{tongue_fra_tip_text}">{tongue_fra_text}</option>
 					<option value="spa" title="{tongue_spa_tip_text}">{tongue_spa_text}</option>
 					<option value="jpn" title="{tongue_jpn_tip_text}">{tongue_jpn_text}</option>
 					<option value="cmn" title="{tongue_cmn_tip_text}">{tongue_cmn_text}</option>
@@ -118,6 +118,15 @@
 				</form>
 			</td>
 		</tr>
+		<tr>
+			<td class="options">
+				<form action="">
+				<select id="usd_select" name="usd">
+{all_usd_options}
+				</select>
+				</form>
+			</td>
+		</tr>
 	</table>
 	<div class="crumb_wrap">{crumbs}</div>
 </div>
@@ -127,7 +136,7 @@
 		$('#tongue_select').children().each(function(i,it){
 			if("{tongue}"==$(it).val())
 			{
-				$(it).attr("selected",1)
+				$(it).attr("selected",1);
 			}
 		});
 		$('#tongue_select').bind('change', function ()
@@ -141,12 +150,26 @@
 		$('#flava_select').children().each(function(i,it){
 			if("{flava_name}"==$(it).val())
 			{
-				$(it).attr("selected",1)
+				$(it).attr("selected",1);
 			}
 		});
 		$('#flava_select').bind('change', function ()
 		{
 			var url = "{mark_no_flava}&flava="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+	$(function(){
+		$('#usd_select').children().each(function(i,it){
+			if("{USD}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#usd_select').bind('change', function ()
+		{
+			var url = "{mark_no_usd}&usd="+$(this).val()+"{hash}";
 			window.location = url; // redirect
 			return false;
 		});

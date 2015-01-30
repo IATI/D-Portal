@@ -133,7 +133,7 @@ view_donors.ajax=function(args)
 	{
 		var d={};
 		d.funder=n;
-		d.crs=commafy(""+Math.floor(crs[n]));
+		d.crs=commafy(""+Math.floor(crs[n]*ctrack.convert_usd));
 		d.order=crs[n];
 		fadd(d);
 	}

@@ -240,6 +240,29 @@ iati_codes.fetch = function(){
 //	ls(o);
 	codes["iati_funders"]=o;
 
+
+	console.log("Fetching IATI currencies csv")
+
+	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=10&output=csv");
+	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
+
+	var o=[];
+	for(var i=1;i<lines.length;i++)
+	{
+		var v=lines[i];
+		var a=(v[0]);
+		var b=v[1];
+		if(a && a.length>0 && b && b.length>0 )
+		{
+			o.push({id:a.trim(),name:b.trim()});
+		}
+	}
+	
+//	ls(o);
+	codes["iati_currencies"]=o;
+	
+	
+
 	console.log("Fetching local currency csv")
 
 	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=8&output=csv");

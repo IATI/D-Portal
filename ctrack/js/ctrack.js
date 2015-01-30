@@ -119,7 +119,7 @@ ctrack.setup=function(args)
 		}
 	}
 	args.chunks["USD"]=ctrack.display_usd;
-
+console.log("convert USD "+ctrack.convert_usd);
 	
 // temporary country force hack
 	if( ctrack.q.country )
@@ -286,6 +286,16 @@ ctrack.setup=function(args)
 
 	var bb=[]; for(var n in aa) { if(n!="flava") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_flava","?"+bb.join("&"));
+
+	var bb=[]; for(var n in aa) { if(n!="usd") { bb.push(n+"="+aa[n]); } }
+	ctrack.chunk("mark_no_usd","?"+bb.join("&"));
+	
+	var ss=[];
+	for(var i in iati_codes.iati_currencies) { var it=iati_codes.iati_currencies[i];
+		ss.push('<option value="'+it.id+'">'+it.name+'</option>');
+	}
+	ctrack.chunk("all_usd_options",ss.join());
+	
 
  
 	ctrack.hash={};

@@ -133,7 +133,7 @@ view_sectors.ajax=function(args)
 		{
 			var d={};
 			d.group=n;
-			d.crs=commafy(""+Math.floor(crsg[n]));
+			d.crs=commafy(""+Math.floor(crsg[n]*ctrack.convert_usd));
 			d.crs_num=crsg[n];
 			fadd(d);
 //console.log(d);
