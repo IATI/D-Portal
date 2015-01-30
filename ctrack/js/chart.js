@@ -69,7 +69,7 @@ chart.draw=function(sel,data,options){
 	opt.div=div;
 	div.master=$(sel);
 	div.canvas=$("<canvas width='"+opt.width+"' height='"+opt.height+"'></canvas>");
-	div.over=$("<div></div>");
+	div.over=$("<div class='caption'></div>");
 
 	div.master.empty();
 	div.master.append(div.canvas);
@@ -138,6 +138,7 @@ chart.draw=function(sel,data,options){
 		d.css(opt.caption_css);
 		div.over.append(d);
 		opt.ds[i]=d;
+		$( ".caption div:last-of-type" ).css( "border-bottom",	"1px solid #666" );
 		
 		var w=d.outerWidth(true);
 		var h=d.outerHeight(true);
