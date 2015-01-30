@@ -227,13 +227,13 @@ Retour à la liste Pays
 Dépenses totales pour {donor} en {year}
 
 #view_donor_activities_text 
-Activités projets pour {donor} et dépenses actuelles (USD) 
+Activités projets pour {donor} et dépenses actuelles ({USD}) 
 
 #view_sector_transactions_text 
 Les dépenses totales pour {sector} en {year} 
 
 #view_sector_activities_text 
-Projets en cours dans {sector} et dépenses actuelles (USD) 
+Projets en cours dans {sector} et dépenses actuelles ({USD}) 
 
 #reported_by_text
 Rapporté par {reporting}
@@ -263,10 +263,10 @@ Budget total pour {donor} en {year}
 Le budget total pour {sector} en {year}
 
 #table_donor_title_transaction_text 
-PASSER de IATI (USD)
+PASSER de IATI ({USD})
 
 #table_donor_title_budget_text 
-BUDGET de IATI (USD)
+BUDGET de IATI ({USD})
 
 #table_donor_title_data_text
 CRS
@@ -293,7 +293,7 @@ Source des fonds
 Cliquez sur pour trier cette colonne
 
 #table_donor_tip_data_text
-Montant total des dépenses annuelles pour le donateur en 2012
+Montant total des dépenses annuelles pour le donateur en {yearcrs}
 
 #table_donor_tip_donor_text
 Cliquez pour découvrir les activités de donneur
@@ -317,10 +317,10 @@ Cliquez pour découvrir les activités de donneur pour {year3}
 Cliquez pour découvrir les activités de donneur pour {year4}
 
 #table_sector_title_transaction_text
-OPÉRATIONS de IATI (USD)
+OPÉRATIONS de IATI ({USD})
 
 #table_sector_title_budget_text
-BUDGET de IATI (USD)
+BUDGET de IATI ({USD})
 
 #table_sector_title_data_text
 CRS
@@ -476,7 +476,7 @@ Tous les membres du OECD et un certain nombre d' autres pays et institutions ren
 DONATEURS
 
 #donors_data_info2_text
-L'agence (qui peut être un donateur ou un organisme d'exécution) des données de déclaration à l'IATI et / ou CRS. Cliquez sur cette cellule vous amène à une liste de toutes les activités mentionnées à l'IATI par cette agence. Cette liste est ordonnée par la valeur de 2012 débours (le plus grand chiffre rapporté soit par CRS ou IATI)
+L'agence (qui peut être un donateur ou un organisme d'exécution) des données de déclaration à l'IATI et / ou CRS. Cliquez sur cette cellule vous amène à une liste de toutes les activités mentionnées à l'IATI par cette agence. Cette liste est ordonnée par la valeur de {yearcrs} débours (le plus grand chiffre rapporté soit par CRS ou IATI)
 
 #donors_data_title3_text
 IATI PASSER
@@ -524,7 +524,7 @@ Tous les membres du OECD et un certain nombre d' autres pays et institutions ren
 SECTEURS
 
 #sectors_data_info2_text
-Les secteurs énumérés ici sont des regroupements de codes-objet du SNPC de l'OECD. Il n'y a 197 CRS codes de but. DI a cartographié tous les codes de but contre ces secteurs. Cette liste est ordonnée par la valeur de 2012 débours (le plus grand chiffre rapporté soit par CRS ou de l'IATI )
+Les secteurs énumérés ici sont des regroupements de codes-objet du SNPC de l'OECD. Il n'y a 197 CRS codes de but. DI a cartographié tous les codes de but contre ces secteurs. Cette liste est ordonnée par la valeur de {yearcrs} débours (le plus grand chiffre rapporté soit par CRS ou de l'IATI )
 
 #sectors_data_title3_text
 IATI PASSER
@@ -730,7 +730,7 @@ Ce tableau indique les secteurs où les flux de ressources de développement ext
 SECTEURS
 
 #publisher_sectors_data_info1_text
-Les secteurs énumérés ici sont des regroupements de codes-objet du SNPC de l'OECD. Il n'y a 197 CRS codes de but. DI a cartographié tous les codes de but contre ces secteurs. Cette liste est ordonnée par la valeur de 2012 débours (le plus grand chiffre rapporté soit par CRS ou de l'IATI )
+Les secteurs énumérés ici sont des regroupements de codes-objet du SNPC de l'OECD. Il n'y a 197 CRS codes de but. DI a cartographié tous les codes de but contre ces secteurs. Cette liste est ordonnée par la valeur de {yearcrs} débours (le plus grand chiffre rapporté soit par CRS ou de l'IATI )
 
 #publisher_sectors_data_title2_text
 IATI PASSER
@@ -754,7 +754,7 @@ Ce tableau indique les secteurs où les flux de ressources de développement ext
 PAYS
 
 #publisher_countries_data_info1_text
-Les secteurs énumérés ici sont des regroupements de codes-objet du SNPC de l'OECD. Il n'y a 197 CRS codes de but. DI a cartographié tous les codes de but contre ces secteurs. Cette liste est ordonnée par la valeur de 2012 débours (le plus grand chiffre rapporté soit par CRS ou de l'IATI )
+Les secteurs énumérés ici sont des regroupements de codes-objet du SNPC de l'OECD. Il n'y a 197 CRS codes de but. DI a cartographié tous les codes de but contre ces secteurs. Cette liste est ordonnée par la valeur de {yearcrs} débours (le plus grand chiffre rapporté soit par CRS ou de l'IATI )
 
 #publisher_countries_data_title2_text
 IATI PASSER

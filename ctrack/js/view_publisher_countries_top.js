@@ -12,7 +12,7 @@ var fetch=require("./fetch.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
-var crs_year=require("../../dstore/json/crs_2012.json")
+var crs_year=require("../../dstore/json/crs_2013.json")
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -59,7 +59,7 @@ view_publisher_countries_top.ajax=function(args)
 			var num=v.sum_of_percent_of_trans_usd;
 			d.country_code=v.country_code || "N/A";
 			d.country_name=iati_codes.country[v.country_code] || v.country_code || "N/A";
-			d.usd=Math.floor(num);
+			d.usd=Math.floor(num*ctrack.convert_usd);
 			list.push(d)
 		}
 		

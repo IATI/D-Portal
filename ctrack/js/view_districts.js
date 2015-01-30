@@ -12,7 +12,7 @@ var fetch=require("./fetch.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
-var crs_year=require("../../dstore/json/crs_2012.json")
+var crs_year=require("../../dstore/json/crs_2013.json")
 
 var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -101,11 +101,11 @@ view_districts.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.location=v.location_name;
-				d["t"+(2+year-y)]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+				d["t"+(2+year-y)]=commafy(""+Math.floor(v.sum_of_percent_of_usd*ctrack.convert_usd));
 				if(y==year)
 				{
-					d.crs=commafy(""+Math.floor(v.sum_of_percent_of_usd));
-					d.order=v.sum_of_percent_of_usd;
+					d.crs=commafy(""+Math.floor(v.sum_of_percent_of_usd*ctrack.convert_usd));
+					d.order=v.sum_of_percent_of_usd*ctrack.convert_usd;
 				}
 				fadd(d);
 			}
@@ -141,7 +141,7 @@ view_districts.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.location=v.location_name;
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_usd*ctrack.convert_usd));
 				fadd(d);
 			}
 //			console.log(ctrack.districts_data);

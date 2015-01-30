@@ -19,10 +19,12 @@ iati-activity a 	{display:block;}
 iati-activity img	{display:block; -webkit-filter:brightness(100%); filter:brightness(100%);}
 
 
+narrative {display:block; color:inherit; font-family:inherit; word-wrap:inherit; }
+
 /*	Project title
 	============================================= */
-title		 		{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#FFF;}
-title:before 		{content:"PROJECT TITLE"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
+span-title			{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#FFF;}
+span-title:before		{content:"PROJECT TITLE"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
 
 
 /*	IATI Identifier
@@ -39,6 +41,7 @@ a.a_slug:before			{content:"IATI REGISTRY"; font-size:14px; color:#ccc; display:
 
 /*	Recipient countries
 	============================================= */
+transaction recipient-country {display:none;}
 span.span_recipient-country				{display:block; vertical-align:top; width:960px; background-color:rgba(17, 46, 105, 0.9);}
 recipient-country 						{display:block; vertical-align:top; padding:20px 40px;}
 span.span_recipient-country:before 		{content:"RECIPIENT COUNTRY"; font-size:14px; color:#FFF; padding:30px 0 0 40px; display:block;}
@@ -172,12 +175,12 @@ span.span_document-link						{width:880px; padding:0 40px; margin:0 auto;}
 span.span_document-link:before				{content:"Related Documents"; font-size:34px; color:#FFF; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #FFF;}
 a.a_document-link							{display:list-item; width:880px; padding:10px 0; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#ccc;}
 a.a_document-link:last-of-type				{padding-bottom:40px;}
-a.a_document-link document-link title		{color:#FFF; padding:0;}
-a.a_document-link document-link title:hover	{color:#FFAB5E;}
+a.a_document-link document-link span-title		{color:#FFF; padding:0;}
+a.a_document-link document-link span-title:hover	{color:#FFAB5E;}
 document-link								{display:block;}
 document-link span							{font-size:1.0em; display:block; color:#ccc;}
-document-link title:nth-of-type(n+1):before	{display:none;}
-document-link title:nth-of-type(n+1)		{font-size:18px;}
+document-link span-title:nth-of-type(n+1):before	{display:none;}
+document-link span-title:nth-of-type(n+1)		{font-size:18px;}
 
 
 /*	Family Tree list

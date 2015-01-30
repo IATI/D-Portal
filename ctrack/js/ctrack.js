@@ -13,7 +13,14 @@ var views=require("./views.js");
 
 var ganal=require("./ganal.js");
 
-var iati_codes=require("../../dstore/json/iati_codes.json")
+var iati_codes=require("../../dstore/json/iati_codes.json");
+
+var xdr_year=require("../../dstore/json/xdr_year.json");
+ctrack.xdr=xdr_year[2012];
+for(var year=2012;year<2100;year++)
+{
+	if(xdr_year[year]) { ctrack.xdr=xdr_year[year]; } else { break; }
+}
 
 // exports
 ctrack.savi_fixup=savi.fixup;
@@ -23,29 +30,11 @@ ctrack.url=function(url)
 {
 	if(ctrack.popout=="frame")
 	{
-//		console.log("popout "+url);
 		window.open(url);
 	}
 	else
 	{
 		window.location.href=url;
-/*
-		if(url[0]=="#")
-		{
-			window.location.hash=url;
-		}
-		else
-		if(url[0]=="?")
-		{
-//			var t=url.split("#")[1];
-//			window.location.hash=t || "";
-			window.location.search=url;
-		}
-		else
-		{
-			window.location=url;
-		}
-*/
 		return false;
 	}
 };
@@ -104,7 +93,8 @@ ctrack.setup=function(args)
 
 	if(args.css) { head.load(args.css); }
 	
-	ctrack.year=2013;
+	ctrack.year=2014;
+
 	ctrack.year_chunks=function(y){
 		ctrack.chunk("year" ,y  );
 		ctrack.chunk("year1",y-1);
@@ -115,6 +105,21 @@ ctrack.setup=function(args)
 	if(args.year) { ctrack.year=args.year; } // default base year for graphs tables etc
 
 	ctrack.args=args;
+
+
+	ctrack.display_usd="USD"; 
+	ctrack.convert_usd=1; 
+	if( ctrack.q.usd )
+	{
+		var usd=ctrack.q.usd.toUpperCase();
+		if(ctrack.xdr[usd])
+		{
+			ctrack.display_usd=usd;
+			ctrack.convert_usd=ctrack.xdr[usd] / ctrack.xdr["USD"]; // conversion from usd to whatever we wish to display
+		}
+	}
+	args.chunks["USD"]=ctrack.display_usd;
+
 	
 // temporary country force hack
 	if( ctrack.q.country )
@@ -249,6 +254,7 @@ ctrack.setup=function(args)
 			ctrack.chunks[n]=undefined;
 	};
 // set global defaults
+	ctrack.chunk("yearcrs" ,2013  ); // the crs data is for this year
 	ctrack.chunk("art",args.art);
 	ctrack.chunk("flava",args.art+args.flava+"/");
 	ctrack.chunk("flava_name",args.flava);

@@ -146,7 +146,7 @@ view_publisher_countries.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				var num=v.sum_of_percent_of_trans_usd;
+				var num=v.sum_of_percent_of_trans_usd*ctrack.convert_usd;
 				d.country_code=v.country_code || "N/A";
 				d.country_name=iati_codes.country[v.country_code] || v.country_code || "N/A";
 				d["t"+(2+y-year)]=commafy(""+Math.floor(num));
@@ -187,7 +187,7 @@ view_publisher_countries.ajax=function(args)
 				var d={};
 				d.country_code=v.country_code || "N/A";
 				d.country_name=iati_codes.country[v.country_code] || v.country_code || "N/A";
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
 				fadd(d);
 			}
 //			console.log(ctrack.donors_data);

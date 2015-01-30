@@ -13,7 +13,7 @@ var views=require("./views.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
-var crs_year=require("../../dstore/json/crs_2012.json")
+var crs_year=require("../../dstore/json/crs_2013.json")
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -97,9 +97,9 @@ view_list_activities.ajax=function(args)
 				if(v.day_end  !==null) { d.date_end  =fetch.get_nday(v.day_end  ); }
 
 				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
-				d.commitment=commafy(""+Math.floor(v.commitment||0));
-				d.spend=commafy(""+Math.floor(v.spend||0));
-				d.currency="USD";
+				d.commitment=commafy(""+Math.floor((v.commitment||0)*ctrack.convert_usd));
+				d.spend=commafy(""+Math.floor((v.spend||0)*ctrack.convert_usd));
+				d.currency=ctrack.display_usd;
 				d.pct=0;
 				if( v.commitment && (v.commitment!=0) )
 				{

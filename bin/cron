@@ -27,7 +27,18 @@ echo
 rm -rf dstore/cache/new
 rm -rf dstore/cache/old
 mkdir dstore/cache/old
-cp dstore/cache/*.xml dstore/cache/old
+
+# clear data to force a *full* import on sunday night
+if [ "$(date +'%u')" == "7" ] ; then
+	echo
+	echo SUNDAY force a full import
+	echo
+else
+	echo
+	echo normal minimal update import
+	echo
+	cp dstore/cache/*.xml dstore/cache/old
+fi
 
 echo
 echo download new files files may be the same
@@ -62,4 +73,6 @@ bin/dstore_vacuum
 
 
 date
+
+
 

@@ -129,7 +129,7 @@ view_publishers.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				var num=v.sum_of_percent_of_trans_usd;
+				var num=v.sum_of_percent_of_trans_usd*ctrack.convert_usd;
 				d.reporting_ref=v.reporting_ref;
 				d["t"+(2+y-year)]=commafy(""+Math.floor(num));
 				if(y==year)
@@ -167,7 +167,7 @@ view_publishers.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				d.reporting_ref=v.reporting_ref;
+				d.reporting_ref=v.reporting_ref*ctrack.convert_usd;
 				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
 				fadd(d);
 			}
