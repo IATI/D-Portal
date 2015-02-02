@@ -88,7 +88,7 @@ view_publisher_countries_top.ajax=function(args)
 				var d={};
 				d.num=v.usd;
 				d.pct=Math.floor(100*v.usd/total);
-				d.str_num=commafy(d.num)+" USD";
+				d.str_num=commafy(d.num)+" "+ctrack.display_usd;
 				d.str_lab=v.str_lab || v.country_name;
 				d.str="<b>"+d.str_num+"</b> ("+d.pct+"%)<br/>"+d.str_lab;
 				dd.push(d);
