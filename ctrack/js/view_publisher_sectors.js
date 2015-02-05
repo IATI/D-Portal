@@ -129,7 +129,7 @@ view_publisher_sectors.ajax=function(args)
 	{
 		var dat={
 				"from":"act,trans,sector",
-				"limit":args.limit || 100,
+				"limit":args.limit || -1,
 				"select":"sector_code,sum_of_percent_of_trans_usd",
 				"groupby":"sector_code",
 				"trans_code":"D|E",
@@ -168,7 +168,7 @@ view_publisher_sectors.ajax=function(args)
 	{
 		var dat={
 				"from":"act,budget,sector",
-				"limit":args.limit || 100,
+				"limit":args.limit || -1,
 				"select":"sector_code,sum_of_percent_of_budget_usd",
 				"budget_priority":1, // has passed some validation checks serverside
 				"groupby":"sector_code",

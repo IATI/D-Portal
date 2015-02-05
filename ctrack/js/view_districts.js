@@ -121,7 +121,7 @@ view_districts.ajax=function(args)
 	{
 		var dat={
 				"from":"budget,country,location",
-				"limit":args.limit || 100,
+				"limit":args.limit || -1,
 				"select":"location_name,sum_of_percent_of_usd",
 				"groupby":"location_name",
 				"priority":1, // has passed some validation checks serverside
