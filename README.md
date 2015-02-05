@@ -7,7 +7,7 @@ with the planning and monitoring of development activities.
 
 The live version lives at http://d-portal.org/
 
-We are currently in BETA. While d-portal is publicly available, it is not considered finished. You may experience bugs and missing features, but that is why we need your feedback and support.
+**We are currently in BETA. While d-portal is publicly available, it is not considered finished. You may experience bugs and missing features, but that is why we need your feedback and support.**
 
 One of its aims is to build a re-usable piece of code that can be 
 easily hosted by anyone, anywhere and that will tell an interesting 
