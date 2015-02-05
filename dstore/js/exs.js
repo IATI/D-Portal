@@ -247,7 +247,7 @@ exs.create_csv = function(){
 		{
 			if( v[x] && (v[x]>0) && v.USD && (v.USD>0) )
 			{
-				csv_ys[year][x]=v.USD/v[x]; // make realtive to usd
+				csv_ys[year][x]=v.USD/v[x]; // make relative to usd
 			}
 		}
 

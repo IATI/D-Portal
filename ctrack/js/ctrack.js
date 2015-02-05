@@ -15,11 +15,11 @@ var ganal=require("./ganal.js");
 
 var iati_codes=require("../../dstore/json/iati_codes.json");
 
-var xdr_year=require("../../dstore/json/xdr_year.json");
-ctrack.xdr=xdr_year[2012];
-for(var year=2012;year<2100;year++)
+var usd_years=require("../../dstore/json/usd_year.json");
+ctrack.usd_year={};
+for(var year=1990;year<2100;year++)
 {
-	if(xdr_year[year]) { ctrack.xdr=xdr_year[year]; } else { break; }
+	if(usd_years[year]) { ctrack.usd_year=usd_years[year]; } else { break; }
 }
 
 // exports
@@ -112,10 +112,10 @@ ctrack.setup=function(args)
 	if( ctrack.q.usd )
 	{
 		var usd=ctrack.q.usd.toUpperCase();
-		if(ctrack.xdr[usd])
+		if(ctrack.usd_year[usd])
 		{
 			ctrack.display_usd=usd;
-			ctrack.convert_usd=ctrack.xdr[usd] / ctrack.xdr["USD"]; // conversion from usd to whatever we wish to display
+			ctrack.convert_usd=ctrack.usd_year[usd]; // conversion from usd to whatever we wish to display
 		}
 	}
 	args.chunks["USD"]=ctrack.display_usd;
