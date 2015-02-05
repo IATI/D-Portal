@@ -7,6 +7,8 @@ with the planning and monitoring of development activities.
 
 The live version lives at http://d-portal.org/
 
+We are currently in BETA. While d-portal is publicly available, it is not considered finished. You may experience bugs and missing features, but that is why we need your feedback and support.
+
 One of its aims is to build a re-usable piece of code that can be 
 easily hosted by anyone, anywhere and that will tell an interesting 
 story using IATI data.
@@ -55,7 +57,7 @@ Updates
 ===================
 
 d-portal.org is currently being developed and designed so things
-are constantly changing.
+are constantly changing. Thank you for your patience and understanding.
 
 If you would like to keep up to date with discussions on d-portal, 
 join the [mailing list](https://groups.google.com/forum/#!forum/d-portal-list).
