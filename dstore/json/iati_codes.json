@@ -2230,27 +2230,23 @@
 	"iati_currencies": [
 		{
 			"id": "USD",
-			"name": "U.S. Dollar"
+			"name": "US Dollar"
 		},
 		{
-			"id": "XDR",
-			"name": "Special drawing rights"
+			"id": "EUR",
+			"name": "Euro"
 		},
 		{
-			"id": "AED",
-			"name": "U.A.E. Dirham"
+			"id": "GBP",
+			"name": "UK Pound Sterling"
 		},
 		{
-			"id": "ATS",
-			"name": "Austrian Schilling"
+			"id": "DZD",
+			"name": "Algerian Dinar"
 		},
 		{
 			"id": "AUD",
 			"name": "Australian Dollar"
-		},
-		{
-			"id": "BEF",
-			"name": "Belgian Franc"
 		},
 		{
 			"id": "BHD",
@@ -2265,10 +2261,6 @@
 			"name": "Canadian Dollar"
 		},
 		{
-			"id": "CHF",
-			"name": "Swiss Franc"
-		},
-		{
 			"id": "CLP",
 			"name": "Chilean Peso"
 		},
@@ -2281,72 +2273,40 @@
 			"name": "Colombian Peso"
 		},
 		{
-			"id": "DEM",
-			"name": "Deutsche Mark"
-		},
-		{
 			"id": "DKK",
 			"name": "Danish Krone"
 		},
 		{
-			"id": "DZD",
-			"name": "Algerian Dinar"
-		},
-		{
-			"id": "EEK",
-			"name": "Kroon"
-		},
-		{
-			"id": "ESP",
-			"name": "Spanish Peseta"
-		},
-		{
-			"id": "EUR",
-			"name": "Euro"
-		},
-		{
-			"id": "FIM",
-			"name": "Finnish Markka"
-		},
-		{
-			"id": "FRF",
-			"name": "French Franc"
-		},
-		{
-			"id": "GBP",
-			"name": "U.K. Pound Sterling"
-		},
-		{
-			"id": "GRD",
-			"name": "Greek Drachma"
-		},
-		{
-			"id": "IDR",
-			"name": "Indonesian Rupiah"
-		},
-		{
-			"id": "IEP",
-			"name": "Irish Pound"
-		},
-		{
-			"id": "INR",
-			"name": "Indian Rupee"
-		},
-		{
-			"id": "IRR",
-			"name": "Iranian Rial"
+			"id": "ETB",
+			"name": "Ethiopian Birr"
 		},
 		{
 			"id": "ISK",
 			"name": "Icelandic Krona"
 		},
 		{
-			"id": "ITL",
-			"name": "Italian Lira"
+			"id": "INR",
+			"name": "Indian Rupee"
+		},
+		{
+			"id": "IDR",
+			"name": "Indonesian Rupiah"
+		},
+		{
+			"id": "IRR",
+			"name": "Iranian Rial"
+		},
+		{
+			"id": "IEP",
+			"name": "Irish Pound"
 		},
 		{
 			"id": "JPY",
 			"name": "Japanese Yen"
+		},
+		{
+			"id": "KES",
+			"name": "Kenyan Shilling"
 		},
 		{
 			"id": "KRW",
@@ -2357,36 +2317,16 @@
 			"name": "Kuwaiti Dinar"
 		},
 		{
-			"id": "LKR",
-			"name": "Sri Lanka Rupee"
-		},
-		{
-			"id": "LUF",
-			"name": "Luxembourg Franc"
-		},
-		{
 			"id": "LYD",
 			"name": "Libyan Dinar"
-		},
-		{
-			"id": "MTL",
-			"name": "Maltese Lira"
-		},
-		{
-			"id": "MXN",
-			"name": "Mexican Peso"
 		},
 		{
 			"id": "MYR",
 			"name": "Malaysian Ringgit"
 		},
 		{
-			"id": "NLG",
-			"name": "Netherlands Guilder"
-		},
-		{
-			"id": "NOK",
-			"name": "Norwegian Krone"
+			"id": "MXN",
+			"name": "Mexican Peso"
 		},
 		{
 			"id": "NPR",
@@ -2397,28 +2337,28 @@
 			"name": "New Zealand Dollar"
 		},
 		{
+			"id": "NOK",
+			"name": "Norwegian Krone"
+		},
+		{
 			"id": "OMR",
 			"name": "Rial Omani"
-		},
-		{
-			"id": "PEN",
-			"name": "Nuevo Sol"
-		},
-		{
-			"id": "PHP",
-			"name": "Philippine Peso"
 		},
 		{
 			"id": "PKR",
 			"name": "Pakistani Rupee"
 		},
 		{
-			"id": "PLN",
-			"name": "Polish Zloty"
+			"id": "PEN",
+			"name": "Peru Nuevo Sol"
 		},
 		{
-			"id": "PTE",
-			"name": "Portuguese Escudo"
+			"id": "PHP",
+			"name": "Philippine Peso"
+		},
+		{
+			"id": "PLN",
+			"name": "Polish Zloty"
 		},
 		{
 			"id": "QAR",
@@ -2429,8 +2369,20 @@
 			"name": "Saudi Arabian Riyal"
 		},
 		{
+			"id": "ZAR",
+			"name": "South African Rand"
+		},
+		{
+			"id": "LKR",
+			"name": "Sri Lanka Rupee"
+		},
+		{
 			"id": "SEK",
 			"name": "Swedish Krona"
+		},
+		{
+			"id": "CHF",
+			"name": "Swiss Franc"
 		},
 		{
 			"id": "SGD",
@@ -2441,28 +2393,32 @@
 			"name": "Thai Baht"
 		},
 		{
-			"id": "TND",
-			"name": "Tunisian Dinar"
-		},
-		{
 			"id": "TTD",
 			"name": "Trinidad And Tobago Dollar"
 		},
 		{
-			"id": "UYU",
-			"name": "Peso Uruguayo"
+			"id": "TND",
+			"name": "Tunisian Dinar"
 		},
 		{
-			"id": "VEB",
-			"name": "Venezuelan Bolivar"
+			"id": "AED",
+			"name": "UAE Dirham"
+		},
+		{
+			"id": "UGX",
+			"name": "Ugandan Shilling"
+		},
+		{
+			"id": "UYU",
+			"name": "Uruguayan Peso"
 		},
 		{
 			"id": "VEF",
-			"name": "Bolivar Fuerte"
+			"name": "Venezuelan Bolivar"
 		},
 		{
-			"id": "ZAR",
-			"name": "South African Rand"
+			"id": "XDR",
+			"name": "Special drawing rights"
 		}
 	]
 }
