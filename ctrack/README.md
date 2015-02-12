@@ -1,5 +1,4 @@
-Country tracker, Client side Javascript and CSS view of the 
-iati-datastore.
+Country tracker, Client side Javascript and CSS view of IATI Activities.
 
 Installing
 ==========
