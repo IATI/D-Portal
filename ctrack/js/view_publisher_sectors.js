@@ -133,7 +133,7 @@ view_publisher_sectors.ajax=function(args)
 				"select":"sector_code,sum_of_percent_of_trans_usd",
 				"groupby":"sector_code",
 				"trans_code":"D|E",
-				"trans_day_gteq":y+"-01-01","trans_day_lt":(parseInt(y)+1)+"-01-01",
+				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
@@ -172,7 +172,7 @@ view_publisher_sectors.ajax=function(args)
 				"select":"sector_code,sum_of_percent_of_budget_usd",
 				"budget_priority":1, // has passed some validation checks serverside
 				"groupby":"sector_code",
-				"budget_day_end_gteq":y+"-01-01","budget_day_end_lt":(parseInt(y)+1)+"-01-01",
+				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};

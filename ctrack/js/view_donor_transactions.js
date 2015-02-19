@@ -44,8 +44,8 @@ view_donor_transactions.view=function()
 		"year":year,
 		"funder_ref":funder,
 	};
-	args.q["trans_day_gteq"]=year+"-01-01";
-	args.q["trans_day_lt"]=(parseInt(year)+1)+"-01-01";
+	args.q["trans_day_gteq"]=year+"-"+ctrack.args.newyear;
+	args.q["trans_day_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
 				
 	ctrack.chunk("alerts","");
 	if( iati_codes.crs_no_iati[funder] )

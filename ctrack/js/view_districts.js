@@ -87,7 +87,7 @@ view_districts.ajax=function(args)
 				"groupby":"location_name",
 				"location_code":"adm2",
 				"code":"D|E",
-				"day_gteq":y+"-01-01","day_lt":(parseInt(y)+1)+"-01-01",
+				"day_gteq":y+"-"+ctrack.args.newyear,"day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
@@ -126,7 +126,7 @@ view_districts.ajax=function(args)
 				"groupby":"location_name",
 				"priority":1, // has passed some validation checks serverside
 				"location_code":"adm2",
-				"day_end_gteq":y+"-01-01","day_end_lt":(parseInt(y)+1)+"-01-01",
+				"day_end_gteq":y+"-"+ctrack.args.newyear,"day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};

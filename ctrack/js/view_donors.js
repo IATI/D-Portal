@@ -148,7 +148,7 @@ view_donors.ajax=function(args)
 				"funder_ref_not_null":"",
 				"groupby":"funder_ref",
 				"trans_code":"D|E",
-				"trans_day_gteq":y+"-01-01","trans_day_lt":(parseInt(y)+1)+"-01-01",
+				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
@@ -186,7 +186,7 @@ view_donors.ajax=function(args)
 				"budget_priority":1, // has passed some validation checks serverside
 				"funder_ref_not_null":"",
 				"groupby":"funder_ref",
-				"budget_day_end_gteq":y+"-01-01","budget_day_end_lt":(parseInt(y)+1)+"-01-01",
+				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			};
