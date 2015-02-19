@@ -155,7 +155,7 @@
 				for(var i=0;i<reportings.rows.length;i++)
 				{
 					var v=reportings.rows[i];
-					if(v.reporting_ref!="null")
+					if(v.reporting_ref)
 					{
 						var d=v.reporting_ref;
 						var n= publisher_names[d] || d;
@@ -175,7 +175,7 @@
 				for(var i=0;i<reportings.rows.length;i++)
 				{
 					var v=reportings.rows[i];
-					if(v.reporting_ref!="null")
+					if(v.reporting_ref)
 					{
 					ll.append(
 "	<li>	"+
