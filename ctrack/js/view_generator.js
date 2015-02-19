@@ -362,7 +362,7 @@ view_generator.view=function(args)
 	for(var n in heights) // defaults
 	{
 		var v=heights[n];
-		var s="<option value='"+v+"'>"+v+" pixels high</option>";
+		var s="<option value='"+v+"'>"+("        " + v).slice(-6)+" pixels high</option>";
 		a.push(s);
 	}
 	a.sort(ss);
