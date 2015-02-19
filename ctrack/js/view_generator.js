@@ -85,6 +85,7 @@ var skins={}
 	skins.Inspire={flava:"original",rgba:"inspire"};
 
 var sizes=[320,400,450,500,550,640,750,960];
+var heights=[320,400,450,500,550,640,750,960,1024,2048,4096];
 
 
 view_generator.crs_ok=false;
@@ -178,6 +179,13 @@ view_generator.fixup=function()
 		var	size_fix=0;
 		if(gene.maxheight)
 		{
+
+			var vv=$("#generator_maxheight_dropdown").val();
+			if(vv && vv!="")
+			{
+				$("#generator_maxheight").val(vv);
+			}
+
 			$("#generator_maxheight_div").show();
 			var v=$("#generator_maxheight").val();
 			if(v=="")
@@ -264,6 +272,7 @@ view_generator.fixup=function()
 	$("#generator_aid").change(change);
 	$("#generator_limit").change(change);
 	$("#generator_maxheight").change(change);
+	$("#generator_maxheight_dropdown").change(change);
 
 	if(!view_generator.interval)
 	{
@@ -348,5 +357,15 @@ view_generator.view=function(args)
 	}
 	a.sort(ss);
 	ctrack.chunk("generator_options_size",a.join(""));
+
+	var a=[];
+	for(var n in heights) // defaults
+	{
+		var v=heights[n];
+		var s="<option value='"+v+"'>"+v+" pixels high</option>";
+		a.push(s);
+	}
+	a.sort(ss);
+	ctrack.chunk("generator_options_height",a.join(""));
 
 }
