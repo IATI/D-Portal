@@ -241,6 +241,8 @@ deleteFolderRecursive = function(path) {
 	});
 	chunkopts["publishers"]=pubs;
 
+	chunkopts["publisher_names_json"]=JSON.stringify( json_iati_codes["publisher_names"] );
+
 	
 	find_pages("")
 
