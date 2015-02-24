@@ -512,8 +512,8 @@ dstore_db.refresh_act = function(db,aid,xml){
 					if(pos)
 					{
 						var aa=pos.match(/\S+/g);
-						longitude=parseFloat(aa[0]);
-						latitude=parseFloat(aa[1]);
+						latitude=parseFloat(aa[0]);
+						longitude=parseFloat(aa[1]);
 						if( exact && exact.code )
 						{
 							precision=exact.code;
