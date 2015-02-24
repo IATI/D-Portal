@@ -16,10 +16,15 @@ var ganal=require("./ganal.js");
 var iati_codes=require("../../dstore/json/iati_codes.json");
 
 var usd_years=require("../../dstore/json/usd_year.json");
-ctrack.usd_year={};
+ctrack.usd_year={}; // merge latest data into here
 for(var year=1990;year<2100;year++)
 {
-	if(usd_years[year]) { ctrack.usd_year=usd_years[year]; } else { break; }
+	if(usd_years[year]) {
+		for(var n in usd_years[year])
+		{
+			ctrack.usd_year[n]=usd_years[year][n];
+		}
+	 }
 }
 
 // exports
