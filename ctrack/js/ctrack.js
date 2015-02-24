@@ -82,6 +82,7 @@ ctrack.setup=function(args)
 	args.flavas=args.flavas || ["original","high"];
 	args.flava=args.flava || ctrack.q.flava || "original";
 	args.rgba=args.rgba || ctrack.q.rgba ;
+	args.newyear=args.newyear || ctrack.q.newyear || "01-01" ;
 
 	if(!args.css) // can totally override with args
 	{
@@ -264,6 +265,7 @@ console.log("convert USD "+ctrack.convert_usd);
 	ctrack.chunk("flava",args.art+args.flava+"/");
 	ctrack.chunk("flava_name",args.flava);
 	ctrack.chunk("tongue",args.tongue);
+	ctrack.chunk("newyear",args.newyear);
 
 	ctrack.div={};
 
@@ -278,16 +280,21 @@ console.log("convert USD "+ctrack.convert_usd);
 // build ? strings for url changes
 
 	var aa={}
-	if(args.flava!="original") { aa["flava"]    =args.flava;         }
-	if(args.tongue!="eng")     { aa["tongue"]   =args.tongue;        }
-	if(ctrack.q.publisher)     { aa["publisher"]=ctrack.q.publisher; }
-	if(ctrack.q.country)       { aa["country"]  =ctrack.q.country;   }
+	if(args.flava!="original")    { aa["flava"]    =args.flava;         }
+	if(args.tongue!="eng")        { aa["tongue"]   =args.tongue;        }
+	if(args.newyear!="01-01")     { aa["newyear"]  =args.newyear;       }
+	if(ctrack.q.publisher)        { aa["publisher"]=ctrack.q.publisher; }
+	if(ctrack.q.country)          { aa["country"]  =ctrack.q.country;   }
+	if(ctrack.display_usd!="USD") { aa["usd"]      =ctrack.display_usd; }
 
 	var bb=[]; for(var n in aa) { bb.push(n+"="+aa[n]); }
 	ctrack.chunk("mark","?"+bb.join("&"));
 
 	var bb=[]; for(var n in aa) { if(n!="tongue") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_tongue","?"+bb.join("&"));
+
+	var bb=[]; for(var n in aa) { if(n!="newyear") { bb.push(n+"="+aa[n]); } }
+	ctrack.chunk("mark_no_newyear","?"+bb.join("&"));
 
 	var bb=[]; for(var n in aa) { if(n!="flava") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_flava","?"+bb.join("&"));
@@ -301,6 +308,16 @@ console.log("convert USD "+ctrack.convert_usd);
 	}
 	ctrack.chunk("all_usd_options",ss.join());
 	
+	var ss=[];
+	for (var d=1;d<365;d++)
+	{
+		var dd=new Date(2015, 0, d, 0, 0, 0, 0); // pick a non leap year and get days of each month
+		var d1=dd.getMonth();
+		var d2=dd.getDate();
+		var ds=("00" + (d1+1)).slice(-2) + "-" + ("00" + d2).slice(-2);
+		ss.push('<option value="'+ds+'">'+ds+'</option>');
+	}
+	ctrack.chunk("all_date_options",ss.join());
 
  
 	ctrack.hash={};

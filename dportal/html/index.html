@@ -155,12 +155,15 @@
 				for(var i=0;i<reportings.rows.length;i++)
 				{
 					var v=reportings.rows[i];
-					var d=v.reporting_ref;
-					var n= publisher_names[d] || d;
-					v.name=n;
-					var t=n+" ("+v.count+") ";
-					var s="<option value='"+d+"'>"+t+"</option>";
-					aa.push(s);
+					if(v.reporting_ref)
+					{
+						var d=v.reporting_ref;
+						var n= publisher_names[d] || d;
+						v.name=n;
+						var t=n+" ("+v.count+") ";
+						var s="<option value='"+d+"'>"+t+"</option>";
+						aa.push(s);
+					}
 				}
 				aa.push("</select>");
 				$("#publisher_dropmenu").html(aa.join(""));
@@ -172,6 +175,8 @@
 				for(var i=0;i<reportings.rows.length;i++)
 				{
 					var v=reportings.rows[i];
+					if(v.reporting_ref)
+					{
 					ll.append(
 "	<li>	"+
 "		<a class=\"country_code\" href=\"{root}ctrack.html?publisher="+v.reporting_ref+"&tongue={tongue}\">	"+
@@ -179,6 +184,7 @@
 "			<span class=\"select_wrap publisherid\">"+v.reporting_ref+"</span>	"+
 "		</a>	"+
 "	</li>		");
+					}
 				}
 
 			}

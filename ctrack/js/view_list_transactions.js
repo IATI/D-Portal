@@ -60,8 +60,8 @@ view_list_transactions.ajax=function(args)
 	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 	if(dat.year)
 	{
-		dat["trans_day_gteq"]=(parseInt(dat.year)+0)+"-01-01";
-		dat["trans_day_lt"]=(parseInt(dat.year)+1)+"-01-01";
+		dat["trans_day_gteq"]=(parseInt(dat.year)+0)+"-"+ctrack.args.newyear;
+		dat["trans_day_lt"]=(parseInt(dat.year)+1)+"-"+ctrack.args.newyear;
 	}
 	if(args.output=="count") // just count please
 	{

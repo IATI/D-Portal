@@ -38,7 +38,7 @@ view_donors_top.ajax=function(args)
 			"funder_ref_not_null":"",
 			"groupby":"funder_ref",
 			"trans_code":"D|E",
-			"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
+			"trans_day_gteq":year+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(year)+1)+"-"+ctrack.args.newyear,
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 		};

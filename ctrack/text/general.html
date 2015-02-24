@@ -97,9 +97,10 @@
 #main_head_tail
 			<td class="options">
 				<form class="currency" action="">
-					<select id="usd_select" name="usd">{all_usd_options}</select>
-				</form><form action="">
-				<select id="tongue_select" name="tongue">
+					<select id="usd_select" name="usd" class="">{all_usd_options}</select>
+				</form>
+				<form action="">
+				<select id="tongue_select" name="tongue" class="">
 					<option value="eng" title="{tongue_eng_tip_text}">{tongue_eng_text}</option>
 					<option value="fra" title="{tongue_fra_tip_text}">{tongue_fra_text}</option>
 					<option value="spa" title="{tongue_spa_tip_text}">{tongue_spa_text}</option>
@@ -112,8 +113,12 @@
 		</tr>
 		<tr>
 			<td class="options">
+				<form class="newyear" action="">
+					<span style="color:#fff;"> Year starts on </span>
+					<select id="newyear_select" name="newyear" class="">{all_date_options}</select>
+				</form>
 				<form action="">
-				<select id="flava_select" name="flava">
+				<select id="flava_select" name="flava" class="">
 					<option value="original">{flava_original_text}</option> 
 					<option value="high">{flava_high_visibility_text}</option> 
 				</select>
@@ -163,6 +168,20 @@
 		$('#usd_select').bind('change', function ()
 		{
 			var url = "{mark_no_usd}&usd="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+	$(function(){
+		$('#newyear_select').children().each(function(i,it){
+			if("{newyear}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#newyear_select').bind('change', function ()
+		{
+			var url = "{mark_no_newyear}&newyear="+$(this).val()+"{hash}";
 			window.location = url; // redirect
 			return false;
 		});

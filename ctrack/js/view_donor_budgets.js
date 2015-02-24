@@ -42,8 +42,8 @@ view_donor_budgets.view=function()
 		"year":year,
 		"funder_ref":funder,
 	};
-	args.q["budget_day_end_gteq"]=year+"-01-01";
-	args.q["budget_day_end_lt"]=(parseInt(year)+1)+"-01-01";				
+	args.q["budget_day_end_gteq"]=year+"-"+ctrack.args.newyear;
+	args.q["budget_day_end_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;				
 							
 	ctrack.chunk("alerts","");
 	if( iati_codes.crs_no_iati[funder] )
