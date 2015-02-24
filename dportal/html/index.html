@@ -58,9 +58,6 @@
 					<div class="country_menu_list_wrap">
 						<div class="menu_list_wrap left">
 							<ul class="country_menu_list">
-								<li class="top"><a class="path" href="{root}ctrack.html?#view=publisher_countries">
-									<span class="select_wrap full">{all_countries_text}</span>
-								</a></li>
 								{countries:country_select}
 							</ul>
 						</div><div class="menu_list_wrap">
@@ -117,9 +114,13 @@
 	</a>
 </li>
 
+
 #js_country_lookup
 "{it.cc}":"{it.name}",
 #jsmenu
+<script id="all_publishers_text" type="text/text">
+{all_publishers_text}
+</script>
 <script>
 	
 	(function(){
@@ -148,6 +149,15 @@
 			if(reportings)
 			{
 				var ll=$("#country_menu_list");
+				
+				ll.empty();
+				ll.append(
+"	<li class=\"top\">	"+
+"		<a class=\"path\" href=\"{root}ctrack.html?tongue={tongue}#view=publisher_countries\">	"+
+"			<span class=\"select_wrap full\">"+$("#all_publishers_text").text()+"</span>	"+
+"		</a>	"+
+"	</li>		");
+
 
 				var aa=[];
 				aa.push("<select>");
@@ -162,6 +172,7 @@
 						v.name=n;
 						if(v.name) // must be real publisher
 						{
+							v.namelow=v.name.toLowerCase();
 							var t=n+" ("+v.count+") ";
 							var s="<option value='"+d+"'>"+t+"</option>";
 							aa.push(s);
@@ -174,7 +185,7 @@
 				$("#publisher_dropmenu select").change(change);
 				$("#publisher_dropmenu select").chosen({"placeholder_text_single":"{publisher_dropmenu_text}"});
 
-				reportings.rows.sort(function(a,b){if(a.name.toLowerCase()<b.name.toLowerCase()){return -1;}if(a.name>b.name){return 1;}return 0;});
+				reportings.rows.sort(function(a,b){if(a.namelow<b.namelow){return -1;}if(a.namelow>b.namelow){return 1;}return 0;});
 				for(var i=0;i<reportings.rows.length;i++)
 				{
 					var v=reportings.rows[i];
