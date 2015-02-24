@@ -54,18 +54,20 @@
 				</div>
 				<div class="country_menu_wrap">
 					<span id="explore"></span>
+					<div class="compare_wrap">
+						<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publisher_countries">
+							<span class="select_wrap full">{all_countries_text}</span>
+						</a></div><div class="compare_wrap r">
+						<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publisher_countries">
+							<span class="select_wrap full">{all_publishers_text}</span>
+						</a>
+					</div>
 					<div id="country_dropmenu"></div><div id="publisher_dropmenu"></div>
 					<div class="country_menu_list_wrap">
 						<div class="menu_list_wrap left">
-							<ul class="country_menu_list">
-								<li class="top"><a class="path" href="{root}ctrack.html?tongue={tongue}#view=publisher_countries">
-									<span class="select_wrap full">{all_countries_text}</span>
-								</a></li>
-								{countries:country_select}
-							</ul>
+							<ul class="country_menu_list">{countries:country_select}</ul>
 						</div><div class="menu_list_wrap">
-							<ul id="country_menu_list" class="country_menu_list">
-							</ul>
+							<ul id="country_menu_list" class="country_menu_list"></ul>
 						</div>
 					</div>
 				</div>
@@ -118,12 +120,6 @@
 #js_country_lookup
 "{it.cc}":"{it.name}",
 #jsmenu
-<script id="all_countries_text" type="text/text">
-{all_countries_text}
-</script>
-<script id="all_publishers_text" type="text/text">
-{all_publishers_text}
-</script>
 <script>
 	
 	(function(){
@@ -154,12 +150,6 @@
 				var ll=$("#country_menu_list");
 				
 				ll.empty();
-				ll.append(
-"	<li class=\"top\">	"+
-"		<a class=\"path\" href=\"{root}ctrack.html?tongue={tongue}#view=publishers\">	"+
-"			<span class=\"select_wrap full\">"+$("#all_publishers_text").text()+"</span>	"+
-"		</a>	"+
-"	</li>		");
 
 
 				var aa=[];
