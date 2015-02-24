@@ -81,6 +81,7 @@ li.publishercol a.country_code		{padding:15px 0;}
 #country_dropmenu, #publisher_dropmenu,
 .compare_wrap											{display:inline-block; vertical-align:top; width:460px; margin-bottom:20px; margin-right:20px;}
 #publisher_dropmenu, .compare_wrap.r					{margin-right:0; margin-left:20px;}
+.compare_wrap											{margin-top:40px;}
 #country_dropmenu select, #publisher_dropmenu select	{min-width:460px; max-width:460px;}
 .chosen-container-single .chosen-single span			{color:#444;}
 .chosen-container .chosen-results li					{text-align:left;}
@@ -89,6 +90,7 @@ li.publishercol a.country_code		{padding:15px 0;}
 /*	Text and Description styles
 	============================================= */
 .description_wrap			{width:880px; margin:0 auto; margin-bottom:40px; padding:40px; text-align:left; background-color:rgba(255,255,255,0.1);}
+.description_wrap.a			{margin:0;}
 .description_wrap.publisher	{margin-top:40px; margin-bottom:40px;}
 .description				{display:inline-block; vertical-align:top; width:410px; margin-right:60px;}
 .description.full			{width:100%; margin:0;}
