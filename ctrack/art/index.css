@@ -66,13 +66,15 @@ ul.country_menu_list li:last-of-type	{border:0;}
 ul.country_menu_list li.top	{border:0; margin-bottom:10px;}
 span.select_wrap			{display:inline-block; vertical-align:top; width:50px;}
 span.select_wrap.countryid	{color:#CFC6B4;}
-span.select_wrap.publisherid{padding:0 10px; color:#FFF; text-align:right; width:120px; font-size:0.8em;}	
-span.select_wrap.countryname{width:330px; padding:0 10px; text-align:left;}
-span.select_wrap.publishername		{width:300px; padding:0 10px; text-align:left;}
+span.select_wrap.publisherid{display:block; padding:5px 0 0 10px; color:#C5BAA4; text-align:left; width:100%; font-size:0.8em; font-weight:bold;}
+span.select_wrap.publisherid::before{content:'Publisher ID: '; font-weight:normal;}
+span.select_wrap.countryname		{width:330px; padding:0 10px; text-align:left;}
+span.select_wrap.publishername		{width:100%; padding:0 10px; text-align:left; display:block;}
 span.select_wrap.full		{width:100%; padding:0; text-align:center; font-size:1.6em;}
 .publisher_list				{width:100%; height:100%; color:#fff; font-size:1.2em; line-height:1.15em; display:block; padding:20px 0; font-weight:bold;}
 a.country_code				{width:100%; height:100%; color:#fff; font-size:1.2em; line-height:1.15em; display:block; padding:20px 0; vertical-align:top; text-align:center;}
 a.country_code:hover		{background-color:rgba(37, 115, 205, 0.7);}
+li.publishercol a.country_code		{padding:15px 0;}
 
 
 /*	Select dropdowns
@@ -91,7 +93,7 @@ a.country_code:hover		{background-color:rgba(37, 115, 205, 0.7);}
 .description				{display:inline-block; vertical-align:top; width:410px; margin-right:60px;}
 .description.full			{width:100%; margin:0;}
 .description:last-of-type	{margin-right:0;}
-.description span.title		{display:block; color:#fff; line-height:1.35em; font-size:1.4em; padding:10px 0; width:100%; border-top:1px solid #fff; border-bottom:1px solid #fff;}
+.description span.title		{display:block; color:#fff; line-height:1.35em; font-size:1.4em; padding:10px 0; width:100%; border-top:1px solid #CFC6B4; border-bottom:1px solid #CFC6B4;}
 .description a:last-of-type	{margin-bottom:20px;}
 .description a:first-of-type{margin-top:10px;}
 .description p				{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em;}
