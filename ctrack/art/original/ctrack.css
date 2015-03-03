@@ -320,7 +320,7 @@ table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover,
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(17, 46, 105, 1);}
 table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(17, 101, 105, 1);}
 
-table.money a				{display:block; color:#A8C5E5;}
+table.money a				{display:block; color:#A8C5E5; word-wrap:normal;}
 table.money a:focus			{color:#A8C5E5; text-decoration:none;}
 table.money a:link  		{color:#A8C5E5; text-decoration:none;}
 table.money a:visited		{color:#A8C5E5; text-decoration:none;}
