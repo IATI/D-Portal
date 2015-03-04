@@ -12,8 +12,7 @@ html					{background-color:#000;}
 
 /*	Links & fonts
 	============================================= */
-a						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
-td						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
+td, a					{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
 a:focus					{text-decoration:underline;}
 a:link  				{color:#000; text-decoration:none;}
 a:visited				{color:#000; text-decoration:none;}
@@ -22,6 +21,8 @@ a:active				{color:#000; text-decoration:none;}
 em, .italic				{font-style:italic; color:inherit;}
 strong, .bold			{font-weight:bold; color:inherit;}
 .underline				{text-decoration:underline; color:inherit;}
+:focus					{outline:2px solid #53B4ED; outline:-webkit-focus-ring-color auto 5px;}
+:-moz-focusring			{outline:2px solid #53B4ED;}
 
 
 /*	Main wrappers for content & fixed background img
@@ -233,6 +234,7 @@ table.country td.flag img	{max-height:90px;}
 table.country.min			{padding:10px 0;}
 table.country.min td.name	{width:860px; max-width:860px; padding-right:20px; font-size:2.0em; line-height:1.1em; color:#000;}
 table.country.min td.flag img	{max-height:50px;}
+table.country td:hover		{cursor:default;}
 
 
 /*	Table Titles
@@ -309,7 +311,7 @@ table.money td.col1:hover	{cursor:default;}
 table.money tr.row2 td.col1:hover	{cursor:pointer;}
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover,
-table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:#E2E2E2; cursor:pointer;}
+table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:#E2E2E2;}
 
 table.money a				{display:block; color:#000; word-wrap:normal;}
 table.money a:focus			{color:#000; text-decoration:none;}
@@ -329,7 +331,6 @@ table.money.publishers th.col2	{border-top:1px solid #000;}
 	============================================= */
 table.activity			{width:100%; border-collapse:collapse;}
 table.activity td		{color:#000; font-size:1.25em; line-height:1.0em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642;}
-table.activity td:hover	{cursor:pointer;}
 table.activity th:hover	{cursor:default;}
 table.activity tr:last-child td	{border:0;}
 table.activity td.num	{padding:10px 0; font-size:1.0em; line-height:1.75em;}

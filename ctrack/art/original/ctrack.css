@@ -23,6 +23,8 @@ a:active				{color:#FFAB5E; text-decoration:none;}
 em, i, .italic			{font-style:italic; color:inherit;}
 strong, b, .bold		{font-weight:bold; color:inherit;}
 .underline				{text-decoration:underline; color:inherit;}
+:focus					{outline:2px solid #53B4ED; outline:-webkit-focus-ring-color auto 5px;}
+:-moz-focusring			{outline:2px solid #53B4ED;}
 
 
 /*	Main wrappers for content & fixed background img
