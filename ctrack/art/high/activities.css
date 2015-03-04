@@ -90,6 +90,7 @@ description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#000; dis
 description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 description[type="3"]:before	{content:"TARGET GROUPS"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 description:last-of-type		{padding-bottom:40px; border-bottom:1px solid #000; border-top:0;}
+description:nth-of-type(2)		{border-top:0;}
 
 
 /*	Sectors (also turned into graph: sector_pie)
