@@ -35,8 +35,10 @@ iati-identifier:hover	{color:#FFAB5E;}
 a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:baseline;}
 a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; padding-left:20px;}
 a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_xml_iati-identifier:hover	{text-decoration:underline;}
 a.a_slug				{display:inline-block; vertical-align:baseline; padding-left:20px;}
 a.a_slug:before			{content:"IATI REGISTRY"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_slug:hover			{text-decoration:underline;}
 
 
 /*	Recipient countries
