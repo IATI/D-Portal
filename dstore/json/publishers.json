@@ -9265,7 +9265,7 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "103bac13c193eef1c74dd03154270bc2",
-				"number_of_edits": 28,
+				"number_of_edits": 31,
 				"number_administered_packages": 3,
 				"display_name": "Jorge Pineda",
 				"fullname": "Jorge Pineda",
@@ -14110,8 +14110,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "656cc52661f401dd4197e3b0ab2d0dbd",
-				"number_of_edits": 3,
-				"number_administered_packages": 1,
+				"number_of_edits": 8,
+				"number_administered_packages": 2,
 				"display_name": "New Zealand Aid Programme ",
 				"fullname": "New Zealand Aid Programme ",
 				"id": "166ceb6a-d72c-4b3d-bec9-bad064bb7810"
@@ -14152,7 +14152,7 @@
 		"groups": [],
 		"revision_id": "21429892-81c6-4e75-b61a-ae7a9ab6e68f",
 		"packages": [
-			"mfat-890"
+			"mfat-activity"
 		],
 		"type": "organization",
 		"id": "f79a2055-7c54-4a37-8586-afa2ad7e4c6a",
@@ -21550,6 +21550,64 @@
 		"tags": [],
 		"name": "twin-iati"
 	},
+	"uasd": {
+		"users": [
+			{
+				"openid": null,
+				"about": null,
+				"capacity": "admin",
+				"name": "uasd",
+				"created": "2015-03-12T13:13:49.239891",
+				"sysadmin": false,
+				"activity_streams_email_notifications": false,
+				"email_hash": "cdbd1fc5908f23750a71c9ffe6cba624",
+				"number_of_edits": 2,
+				"number_administered_packages": 0,
+				"display_name": "Doina Doroftei",
+				"fullname": "Doina Doroftei",
+				"id": "3a3a5bbc-bce8-472b-aa7e-982dd94e7ace"
+			}
+		],
+		"display_name": "Romanian Ministry of Foreign Affairs",
+		"description": "",
+		"title": "Romanian Ministry of Foreign Affairs",
+		"package_count": 0,
+		"created": "2015-03-12T13:34:27.224783",
+		"approval_status": "approved",
+		"is_organization": true,
+		"state": "active",
+		"extras": {
+			"publisher_iati_id": "72-MAE-2014000",
+			"publisher_segmentation": "Yes.",
+			"publisher_implementation_schedule": "",
+			"publisher_organization_type": "10",
+			"publisher_frequency": "",
+			"publisher_frequency_select": "quarterly",
+			"publisher_units": "An activity can be core contribution, contribution to specific purpose program, budget support or project type.\r\nDetails will be published at activity level.",
+			"publisher_thresholds": "",
+			"publisher_ui": "Yes, it will be accessible in the second part of the year through MFA website.",
+			"publisher_contact": "Doina Doroftei\r\nHead of Unit for Development Assistance\r\nMinistry of Foreign Affairs\r\ntel +4021.4311325\r\ndoina.doroftei@mae.ro \r\nwww.aod.ro \r\n",
+			"publisher_agencies": "all agencies/line ministries that develop ODA activities.",
+			"publisher_field_exclusions": "",
+			"publisher_description": "The Romanian Ministry of Foreign Affairs (MFA) is the main institution responsible for the coordination of the national development cooperation policy. \r\nIn this context, the MFA aims to promote Romania’s international donor profile by the financial, human and technical involvement in assisting partner countries to implement political, economic and social reforms, as well as raising awareness on these issues.",
+			"publisher_record_exclusions": "",
+			"publisher_timeliness": "one month",
+			"license_id": "notspecified",
+			"publisher_country": "RO",
+			"publisher_refs": "Not yet available.",
+			"publisher_constraints": "",
+			"publisher_source_type": "primary_source",
+			"publisher_data_quality": "Data is verified at operational level."
+		},
+		"image_url": "",
+		"groups": [],
+		"revision_id": "9543d828-6dd8-4648-927b-b60d9ca70810",
+		"packages": [],
+		"type": "organization",
+		"id": "c66dd4d3-72a7-42d2-b28b-f9b4bd608cea",
+		"tags": [],
+		"name": "uasd"
+	},
 	"ukmod": {
 		"users": [
 			{
@@ -21561,8 +21619,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "31d6c7c329381f80bf66eb7b085973f5",
-				"number_of_edits": 2,
-				"number_administered_packages": 0,
+				"number_of_edits": 3,
+				"number_administered_packages": 1,
 				"display_name": "Karen Smith",
 				"fullname": "Karen Smith",
 				"id": "11613f41-4f5d-4fdb-882c-eedd6495ecda"
@@ -21571,7 +21629,7 @@
 		"display_name": "UK - Ministry of Defence",
 		"description": "",
 		"title": "UK - Ministry of Defence",
-		"package_count": 0,
+		"package_count": 1,
 		"created": "2015-03-09T10:24:24.581068",
 		"approval_status": "approved",
 		"is_organization": true,
@@ -21602,7 +21660,9 @@
 		"image_url": "",
 		"groups": [],
 		"revision_id": "30001e42-ed3d-44ef-91fb-30fec8a62651",
-		"packages": [],
+		"packages": [
+			"ukmod-activity2013"
+		],
 		"type": "organization",
 		"id": "14165e48-2d4d-4f47-b7b7-03181959e139",
 		"tags": [],
