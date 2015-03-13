@@ -12,6 +12,13 @@ bin/addcommit auto json fetch in nightly cron
 bin/pull_di
 bin/push_di
 
+echo "Restarting ctrack"
+
+/etc/init.d/dportal stop
+/etc/init.d/dportal start
+
+exit
+
 date
 
 
@@ -28,8 +35,8 @@ rm -rf dstore/cache/new
 rm -rf dstore/cache/old
 mkdir dstore/cache/old
 
-# clear data to force a *full* import on sunday night
-if [ "$(date +'%u')" == "1" ] ; then
+# clear data to force a *full* import on sunday morning
+if [ "$(date +'%u')" == "0" ] ; then
 	echo
 	echo SUNDAY force a full import
 	echo
@@ -70,6 +77,7 @@ echo
 echo speed up the database
 echo
 bin/dstore_vacuum
+
 
 
 date
