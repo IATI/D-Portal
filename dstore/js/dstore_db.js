@@ -512,11 +512,14 @@ dstore_db.refresh_act = function(db,aid,xml){
 					if(pos)
 					{
 						var aa=pos.match(/\S+/g);
-						latitude=parseFloat(aa[0]);
-						longitude=parseFloat(aa[1]);
-						if( exact && exact.code )
+						if(aa)
 						{
-							precision=exact.code;
+							latitude=parseFloat(aa[0]);
+							longitude=parseFloat(aa[1]);
+							if( exact && exact.code )
+							{
+								precision=exact.code;
+							}
 						}
 					}
 				}
