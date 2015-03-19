@@ -99,7 +99,7 @@ ctrack.setup=function(args)
 
 	if(args.css) { head.load(args.css); }
 	
-	ctrack.year=args.year || ctrack.q.year || 2014; // default base year for graphs tables etc
+	ctrack.year=parseInt(args.year || ctrack.q.year || 2014); // default base year for graphs tables etc
 
 	ctrack.year_chunks=function(y){					// function to build visible range of years for display
 		ctrack.chunk("year" ,y  );
