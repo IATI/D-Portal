@@ -466,7 +466,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 		var sectors=[];
 		var percents=[];
-		refry.tags(act,"sector",function(it){ if(it.vocabulary=="DAC") { sectors.push(it.code); percents.push(it.percentage); } });
+		refry.tags(act,"sector",function(it){ if(it.vocabulary=="DAC" || it.vocabulary=="1" || it.vocabulary=="2") { sectors.push(it.code); percents.push(it.percentage); } });
 		fixpercents(percents);
 		if(sectors[0]) {
 			for( var i=0; i<sectors.length ; i++ )

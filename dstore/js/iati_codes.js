@@ -63,6 +63,10 @@ iati_codes.fetch = function(){
 				name:"sector",
 			},
 			{
+				url:"http://iatistandard.org/201/codelists/downloads/clv2/json/en/SectorCategory.json",
+				name:"sector_category",
+			},
+			{
 				url:"http://iatistandard.org/104/codelists/downloads/clv2/json/en/TransactionType.json",
 				name:"old_transaction_type",
 			},
