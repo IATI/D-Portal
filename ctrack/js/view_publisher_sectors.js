@@ -149,7 +149,7 @@ view_publisher_sectors.ajax=function(args)
 				var d={};
 				var num=v.sum_of_percent_of_trans_usd;
 				d.sector_code=v.sector_code || "N/A";
-				d.sector_name=iati_codes.sector[v.sector_code] || v.sector_code || "N/A";
+				d.sector_name=iati_codes.sector[v.sector_code] || iati_codes.sector_category[v.sector_code] || v.sector_code || "N/A";
 				d["t"+(2+y-year)]=commafy(""+Math.floor(num*ctrack.convert_usd));
 				if(y==year)
 				{
@@ -188,7 +188,7 @@ view_publisher_sectors.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.sector_code=v.sector_code || "N/A";
-				d.sector_name=iati_codes.sector[v.sector_code] || v.sector_code || "N/A";
+				d.sector_name=iati_codes.sector[v.sector_code] || iati_codes.sector_category[v.sector_code] || v.sector_code || "N/A";
 				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
 				fadd(d);
 			}

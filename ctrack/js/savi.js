@@ -172,7 +172,7 @@ acts.find("sector").each(function(i){var it=$(this);
 
 	if(!it.attr("vocabulary")) { it.attr("vocabulary","DAC"); }
 
-	tc=iati_codes.sector[tc] || tc;	
+	tc=iati_codes.sector[tc]  || iati_codes.sector_category[tc] || tc;	
 	if(tc)
 	{
 		it.html("<span>"+tc+"</span><span>"+tp+"%</span>");

@@ -58,7 +58,7 @@ view_publisher_sectors_top.ajax=function(args)
 			var d={};
 			var num=v.sum_of_percent_of_trans_usd;
 			d.sector_code=v.sector_code || "N/A";
-			d.sector_name=iati_codes.sector[v.sector_code] || v.sector_code || "N/A";
+			d.sector_name=iati_codes.sector[v.sector_code] || iati_codes.sector_category[v.sector_code] || v.sector_code || "N/A";
 			d.usd=Math.floor(num*ctrack.convert_usd);
 			list.push(d)
 		}
