@@ -567,6 +567,9 @@ console.log("secondary "+id);
 			}
 		}
 	});
+
+// add a temp publisher id
+	codes.publisher_names["XI-IATI-OFID"]="The OPEC Fund for International Development"
 	
 //	ls(publishers);
 
