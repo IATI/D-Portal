@@ -269,8 +269,12 @@
 
 #donor_graph
 <div class="default">
-<a href="#view=donors" class="ask donor">{title_donor_text}</a>
-<div class="main_peak_wrap"><div class="peak donor"></div></div>
+<a onmouseover="$('.peak.donor').css({'border-top':'20px solid #33A4FC', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#33A4FC', 'transition-property':'none'});" onmouseout="$('.peak.donor').css({'border-top':'20px solid #008fff', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#008fff', 'transition-property':'none'});" href="#view=donors" class="ask donor">
+	<span class="ask_title">{title_donor_text}</span>
+	<span class="main_peak_wrap">
+		<span class="peak donor"></span>
+	</span>
+</a>
 <div id="donor_graph"></div>
 <a href="#view=donors" class="view_all_money">{link_donor_text}</a>
 
@@ -319,8 +323,12 @@
 
 #sector_graph
 <div class="default graph">
-<a href="#view=sectors" class="ask sector">{title_sector_text}</a>
-<div class="main_peak_wrap"><div class="peak sector"></div></div>
+<a onmouseover="$('.peak.sector').css({'border-top':'20px solid #14EE96', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#14EE96', 'transition-property':'none'});" onmouseout="$('.peak.sector').css({'border-top':'20px solid #00C475', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#00C475', 'transition-property':'none'});" href="#view=sectors" class="ask sector">
+	<span class="ask_title">{title_sector_text}</span>
+	<span class="main_peak_wrap">
+		<span class="peak sector"></span>
+	</span>
+</a>
 <div id="sector_graph"></div>
 <a href="#view=sectors" class="view_all_money">{link_sector_text}</a>
 
