@@ -14,8 +14,8 @@ bin/push_di
 
 echo "Restarting ctrack"
 
-sudo ctrack /etc/init.d/dportal stop
-sudo ctrack /etc/init.d/dportal start
+sudo -u ctrack /etc/init.d/dportal stop
+sudo -u ctrack /etc/init.d/dportal start
 
 
 date
