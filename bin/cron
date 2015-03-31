@@ -41,10 +41,10 @@ if [ "$(date +'%u')" == "0" ] ; then
 	echo
 else
 	echo
-#	echo normal minimal update import
-	echo HACK force a full import
+	echo normal minimal update import
+#	echo HACK force a full import
 	echo
-#	cp dstore/cache/*.xml dstore/cache/old
+	cp dstore/cache/*.xml dstore/cache/old
 fi
 
 echo
