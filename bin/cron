@@ -12,11 +12,12 @@ bin/addcommit auto json fetch in nightly cron
 bin/pull_di
 bin/push_di
 
-echo "Restarting ctrack"
-
-sudo -u ctrack /etc/init.d/dportal stop
-sudo -u ctrack /etc/init.d/dportal start
-
+#
+#echo "Restarting ctrack"
+#
+#sudo -u ctrack /etc/init.d/dportal stop
+#sudo -u ctrack /etc/init.d/dportal start
+#
 
 date
 
