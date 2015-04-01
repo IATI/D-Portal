@@ -12,11 +12,12 @@ bin/addcommit auto json fetch in nightly cron
 bin/pull_di
 bin/push_di
 
-echo "Restarting ctrack"
-
-/etc/init.d/dportal stop
-/etc/init.d/dportal start
-
+#
+#echo "Restarting ctrack"
+#
+#sudo -u ctrack /etc/init.d/dportal stop
+#sudo -u ctrack /etc/init.d/dportal start
+#
 
 date
 
@@ -42,6 +43,7 @@ if [ "$(date +'%u')" == "0" ] ; then
 else
 	echo
 	echo normal minimal update import
+#	echo HACK force a full import
 	echo
 	cp dstore/cache/*.xml dstore/cache/old
 fi
