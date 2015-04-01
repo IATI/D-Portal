@@ -62,6 +62,12 @@ wait.launchFiber(function(){
 		return;
 	}
 	else
+	if( argv._[0]=="fake" )
+	{
+		require("./dstore_db").fake_trans(); // create fake transactions
+		return;
+	}
+	else
 	if( argv._[0]=="cache" )
 	{
 		require("./dstore_cache").cmd(argv);

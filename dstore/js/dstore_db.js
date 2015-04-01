@@ -63,6 +63,9 @@ dstore_db.tables={
 		{ name:"trans_flow_code",				NOCASE:true , INDEX:true },
 		{ name:"trans_finance_code",			NOCASE:true , INDEX:true },
 		{ name:"trans_aid_code",				NOCASE:true , INDEX:true },
+		{ name:"trans_flags",					INTEGER:true , INDEX:true },
+// FLAGS set to 0 if good otherwise
+// 1 == this is a fake transaction built after a full import for publishers that only publish commitments
 	],
 	budget:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -282,6 +285,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t["trans_flow_code"]=		iati_xml.get_code(it,"flow-type");
 		t["trans_finance_code"]=	iati_xml.get_code(it,"finance-type");
 		t["trans_aid_code"]=		iati_xml.get_code(it,"aid-type");
+
 		
 		t["trans_currency"]=		iati_xml.get_value_currency(it,"value");
 		t["trans_value"]=			iati_xml.get_value(it,"value");
@@ -289,6 +293,9 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 // map new 201 codes to old		
 		t["trans_code"]= codes.transaction_type_map[ t["trans_code"] ] || t["trans_code"];
+
+// transaction flag, 0 by default
+		t["trans_flags"]=			0;
 
 		t.jml=JSON.stringify(it);
 		
