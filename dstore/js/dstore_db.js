@@ -65,7 +65,7 @@ dstore_db.tables={
 		{ name:"trans_aid_code",				NOCASE:true , INDEX:true },
 		{ name:"trans_flags",					INTEGER:true , INDEX:true },
 // FLAGS set to 0 if good otherwise
-// 1 == this is a fake transaction built after a full import for publishers that only publish commitments
+// 1 == this is a fake transaction built after a full import for publishers that only publish C not D/E
 	],
 	budget:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -608,6 +608,71 @@ dstore_db.refresh_act = function(db,aid,xml){
 	refresh_activity(xml);
 
 };
+
+
+dstore_db.fake_trans = function(){
+
+	var db = dstore_db.open();
+	
+	var ids={};
+
+	var fake_ids=[];
+	
+	process.stdout.write("Removing all fake transactions\n");
+	db.run("DELETE FROM trans WHERE trans_flags=?",1,function(err, rows)  // remove old fake
+	{
+
+		db.all("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code", function(err, rows)
+		{
+			for(i=0;i<rows.length;i++)
+			{
+				var v=rows[i];
+				if(v.trans_code=="C")
+				{
+					ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) + 1 ;
+				}
+				else
+				if( (v.trans_code=="D") || (v.trans_code=="E") )
+				{
+					ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) - 1 ;
+				}
+			}
+			for(var n in ids)
+			{
+				var v=ids[n];
+				if(v>0) // we have commitments but no D or E 
+				{
+					fake_ids.push(n);
+				}
+			}
+
+			process.stdout.write("The following publishers will have fake transactions added\n");
+			ls(fake_ids);
+
+
+			process.stdout.write("Adding fake transactions for the following IDs\n");
+			for(i=0;i<fake_ids.length;i++) // add new fake
+			{
+				var v=fake_ids[i];
+				db.all("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=? AND trans_code=\"C\" ",v, function(err, rows)
+				{
+					for(j=0;j<rows.length;j++)
+					{
+						var t=rows[j];
+						process.stdout.write(t.aid+"\n");
+						t.trans_code="D";
+						t.trans_flags=1;
+						dstore_sqlite.replace(db,"trans",t);
+					}
+	//				ls(rows);
+				});
+			}
+
+		});
+	});
+
+};
+
 
 dstore_db.create_tables = function(){
 	return dstore_sqlite.create_tables();
