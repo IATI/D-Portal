@@ -75,6 +75,12 @@ rm -rf dstore/cache/new
 
 
 echo
+echo add fake transactions for some publishers
+echo
+bin/dstore_fake
+
+
+echo
 echo speed up the database
 echo
 bin/dstore_vacuum
