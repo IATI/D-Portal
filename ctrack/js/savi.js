@@ -93,7 +93,8 @@ console.log("adding narrative tag to "+it.html());
 
 // change title to span_title (title tag seems to confuse browsers)
 acts.find("title").each(function(i){var it=$(this);
-	it.replaceWith($('<span-title>' + it.html() + '</span-title>'));
+//console.log(it.text());
+	it.replaceWith($('<span-title>' + it.text() + '</span-title>'));
 });
 
 
