@@ -96,3 +96,49 @@
 	<td class="col7" title="{table_publisher_tip_b2_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } return ctrack.url('#view=list_budgets&year={year4}&country_code={country_code}');">
 		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=list_budgets&year={year4}&country_code={country_code}">{b2}</a></td>
 </tr>
+
+#table_publisher_countries_crs
+<div class="table_wrap view">
+	<table class="money publishers">
+	{table_publisher_countries_crs_row_head}
+	{table_publisher_countries_crs_rows}
+	</table>
+	<a download="dportal_publisher_countries.csv" href="{csv_data}" class="csv_download">{download_csv_text}</a>
+</div>
+
+#table_publisher_countries_crs_rows
+{table_publisher_countries_crs_row}
+
+#table_publisher_countries_crs_row_head
+<tr class="row1">
+	<th class="col1" onclick="ctrack.dosort('crs');" 				title="{table_donor_tip_title_data_text}"		>{table_donor_title_data_text}</th>
+	<th class="col2" onclick="ctrack.dosort('country');" title="{table_publisher_country_tip_title_text}">{table_publisher_country_title_text}</th>
+	<th class="col3" colspan="3" title="{table_donor_tip_title_transaction_text}"><span onclick="ctrack.dosort('trans');">{table_donor_title_transaction_text}</span> <a href="#view=publisher_countries&year={year1}" onclick="return ctrack.url('#view=publisher_countries&year={year1}');" title="Previous Year" class="year prev">&lt;</a></th>
+	<th class="col4" colspan="2" title="{table_donor_tip_title_budget_text}"><span onclick="ctrack.dosort('budget');">{table_donor_title_budget_text}</span> <a href="#view=publisher_countries&year={year3}" onclick="return ctrack.url('#view=publisher_countries&year={year3}');" title="Next Year" class="year next">&gt;</a></th>
+</tr>
+<tr class="row2">
+	<td class="col1" title="{table_sort_text}"  onclick="ctrack.dosort('crs');" 	>{yearcrs}</td>
+	<td class="col2" title="{table_sort_text}"  onclick="ctrack.dosort('country');" >{table_donor_subtitle_donor_text}</td>
+	<td class="col3" title="{table_sort_text}" 	onclick="ctrack.dosort('t1');" 	>{year1}</td>
+	<td class="col4" title="{table_sort_text}" 	onclick="ctrack.dosort('t2');" 	>{year2}</td>
+	<td class="col5" title="{table_sort_text}" 	onclick="ctrack.dosort('t3');" 	>{year3}</td>
+	<td class="col6" title="{table_sort_text}" 	onclick="ctrack.dosort('b2');" 	>{year3}</td>
+	<td class="col7" title="{table_sort_text}" 	onclick="ctrack.dosort('b4');" 	>{year4}</td>
+</tr>
+
+#table_publisher_countries_crs_row
+<tr class="rows">
+	<td class="col1" title="{table_donor_tip_data_text}">{crs}</td>
+	<td class="col2" title="{table_publisher_explore_tip_text}" onclick="return ctrack.url('#view=list_transactions&country_code={country_code}');">
+		<a href="#view=list_transactions&country_code={country_code}">{country_name}</a></td>
+	<td class="col3" title="{table_publisher_tip_t1_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } return ctrack.url('#view=list_transactions&year={year1}&country_code={country_code}');">
+		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=list_transactions&year={year1}&country_code={country_code}">{t1}</a></td>
+	<td class="col4" title="{table_publisher_tip_t2_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } return ctrack.url('#view=list_transactions&year={year2}&country_code={country_code}');">
+		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=list_transactions&year={year2}&country_code={country_code}">{t2}</a></td>
+	<td class="col5" title="{table_publisher_tip_t3_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } return ctrack.url('#view=list_transactions&year={year3}&country_code={country_code}');">
+		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=list_transactions&year={year3}&country_code={country_code}">{t3}</a></td>
+	<td class="col6" title="{table_publisher_tip_b1_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } return ctrack.url('#view=list_budgets&year={year3}&country_code={country_code}');">
+		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=list_budgets&year={year3}&country_code={country_code}">{b1}</a></td>
+	<td class="col7" title="{table_publisher_tip_b2_text}" onclick="switch($(this).children().first().html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; } return ctrack.url('#view=list_budgets&year={year4}&country_code={country_code}');">
+		<a onclick="switch($(this).html()){ case '0': case '-' : $('html, body').animate({scrollTop: $('.description').offset().top}, 300); return false; };" href="#view=list_budgets&year={year4}&country_code={country_code}">{b2}</a></td>
+</tr>
