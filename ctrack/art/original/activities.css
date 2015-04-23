@@ -141,6 +141,8 @@ receiver-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1
 value				{display:inline-block; vertical-align:top; color:#FFF; text-align:right; font-size:1.0em; width:120px; max-width:120px; padding-right:40px; line-height:1.35em;}
 value span			{font-size:12px; color:#ccc;}
 
+transaction:nth-of-type(1) description:before {content:"DESCRIPTION"; font-size:14px; color:#FFF; width:235px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px; line-height:1.35em;}
+span.span_transaction transaction description {display:inline-block; vertical-align:top; padding:0px; width:220px; max-width:220px; padding-right:15px; line-height:1.35em; color:#FFF; font-size:1.0em; text-align:left; background-color:transparent;}
 span.span_transaction transaction description:nth-of-type(n+1):before		{display:none;}
 
 
