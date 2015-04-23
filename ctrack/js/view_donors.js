@@ -102,9 +102,9 @@ view_donors.ajax=function(args)
 		return parseInt(s);
 	}
 		var cc=[];
-		cc[0]=["crs","funder","t"+(year-1),"t"+(year),"t"+(year+1),"b"+(year+1),"b"+(year+2)];
+		cc[0]=["crs","donor","t"+(year-1),"t"+(year),"t"+(year+1),"b"+(year+1),"b"+(year+2)];
 		a.forEach(function(v){
-			cc[cc.length]=[p(v.crs),v.funder,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2)];
+			cc[cc.length]=[p(v.crs),v.donor,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2)];
 		});
 		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
  

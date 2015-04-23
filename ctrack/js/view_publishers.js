@@ -84,7 +84,7 @@ view_publishers.ajax=function(args)
 		var cc=[];
 		cc[0]=["publisher","t"+(year-1),"t"+(year),"t"+(year+1),"b"+(year+1),"b"+(year+2)];
 		a.forEach(function(v){
-			cc[cc.length]=[v.reporting_ref,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2)];
+			cc[cc.length]=[v.publisher,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2)];
 		});
 		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
  
