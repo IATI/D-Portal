@@ -134,11 +134,11 @@ transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:1
 transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#000; width:130px; display:block; padding-bottom:10px; border-bottom:2px solid #000; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#000; width:120px; display:block; padding-bottom:10px; border-bottom:2px solid #000; margin-bottom:15px; line-height:1.35em;}
 span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; width:235px; display:block; padding-bottom:10px; border-bottom:2px solid #000; margin-bottom:15px; line-height:1.35em;}
-span.span_transaction transaction description:nth-of-type(n+1):before		{display:none;}
+/*span.span_transaction transaction description:nth-of-type(n+1):before		{display:none;}*/
 
 transaction-date	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:100px; max-width:100px; padding-left:40px; padding-right:5px; line-height:1.35em;}
 transaction-type	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:14px; line-height:1.35em;}
-transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:220px; max-width:220px; padding-right:15px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
+span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:220px; max-width:220px; padding-right:15px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
 provider-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:14px; line-height:1.35em;}
 receiver-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:0px; line-height:1.35em;}
 value				{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:120px; max-width:120px; padding-right:40px; line-height:1.35em; text-align:right;}
