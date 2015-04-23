@@ -131,8 +131,8 @@ transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14
 transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#FFF; width:145px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#FFF; width:130px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#FFF; width:120px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px; line-height:1.35em;}
-transaction description:nth-of-type(n+1):before		{display:none;}
-transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#FFF; width:235px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px; line-height:1.35em;}
+span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#FFF; width:235px; display:block; padding-bottom:10px; border-bottom:2px solid rgba(17, 46, 105, 0.9); margin-bottom:15px; line-height:1.35em;}
+span.span_transaction transaction description:nth-of-type(n+1):before		{display:none;}
 
 transaction-date	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:100px; max-width:100px; padding-left:40px; padding-right:5px; line-height:1.35em;}
 transaction-type	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:130px; max-width:130px; padding-right:15px; line-height:1.35em;}
