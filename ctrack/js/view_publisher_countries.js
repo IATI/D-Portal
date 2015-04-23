@@ -15,6 +15,7 @@ var tables=require("./tables.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
+var crs_year=require("../../dstore/json/crs_2013.json");
 
 var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -54,6 +55,10 @@ view_publisher_countries.ajax=function(args)
 {
 	args=args || {};
 
+	var gotcrs; // set this to the CRS publisher if we have a map
+	var publisher=(args.publisher || ctrack.args.publisher_select);
+	if(publisher) { gotcrs=iati_codes.iati_funders[publisher]; }
+
 	var year=args.year || parseInt(ctrack.hash.year) || ctrack.year;
 	ctrack.year_chunks(year);
 	view_publisher_countries.year=year;
@@ -78,18 +83,34 @@ view_publisher_countries.ajax=function(args)
 		}
 		a.sort(sortby);
 		a.forEach(function(v){
+			if(!v.crs){v.crs="";}
 			if(!v.t1){v.t1="0";}
 			if(!v.t2){v.t2="0";}
 			if(!v.t3){v.t3="0";}
 			if(!v.b1){v.b1="0";}
 			if(!v.b2){v.b2="0";}
 
-			s.push( plate.replace(args.plate || "{table_publisher_countries_row}",v) );
+			if(gotcrs)
+			{
+				s.push( plate.replace(args.plate || "{table_publisher_countries_crs_row}",v) );
+			}
+			else
+			{
+				s.push( plate.replace(args.plate || "{table_publisher_countries_row}",v) );
+			}
 		});
-		ctrack.chunk(args.chunk || "table_publisher_countries_rows",s.join(""));
+		if(gotcrs)
+		{
+			ctrack.chunk(args.chunk || "table_publisher_countries_crs_rows",s.join(""));
+			ctrack.chunk("table_publisher_countries","{table_publisher_countries_crs}"); // use CRS version
+		}
+		else
+		{
+			ctrack.chunk(args.chunk || "table_publisher_countries_rows",s.join(""));
+			ctrack.chunk_clear("table_publisher_countries");
+		}
 
 		ctrack.chunk("countries_count",a.length);
-		ctrack.chunk_clear("table_publisher_countries");
 
 		var p=function(s)
 		{
@@ -114,6 +135,18 @@ view_publisher_countries.ajax=function(args)
 		var it=ctrack.publisher_countries_data[d.country_code];
 		if(!it) { it={}; ctrack.publisher_countries_data[d.country_code]=it; }
 		
+		if(gotcrs)
+		{
+			var crs=crs_year[ (d.country_code || "" ).toUpperCase() ];
+			if(crs)
+			{
+				if(crs[gotcrs])
+				{
+					d.crs=commafy(""+Math.floor(crs[gotcrs]*ctrack.convert_usd));
+				}
+			}
+		}
+
 		for(var n in d)
 		{
 			if(d[n])
