@@ -57,7 +57,17 @@ view_publisher_countries.ajax=function(args)
 
 	var gotcrs; // set this to the CRS publisher if we have a map
 	var publisher=(args.publisher || ctrack.args.publisher_select);
-	if(publisher) { gotcrs=iati_codes.iati_funders[publisher]; }
+	if(publisher)
+	{
+		gotcrs=iati_codes.iati_funders[publisher];
+		if(!gotcrs)
+		{
+			if(iati_codes.funder_names[publisher.toUpperCase()])
+			{
+				gotcrs=publisher.toUpperCase(); // a country code
+			}
+		}
+	}
 
 	var year=args.year || parseInt(ctrack.hash.year) || ctrack.year;
 	ctrack.year_chunks(year);
