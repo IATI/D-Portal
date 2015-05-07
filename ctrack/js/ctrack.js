@@ -183,7 +183,13 @@ console.log("convert USD "+ctrack.convert_usd);
 		args.chunks["publisher_name"]="";
 		args.chunks["back_publisher"]="";
 	}
-	
+
+	if( ctrack.q.search )
+	{
+		console.log(ctrack.q.search);
+		ctrack.args.search="%"+ctrack.q.search+"%";
+	}
+
 	if(args.publisher)
 	{
 		ctrack.crumbs=[{hash:"#view=publisher",view:"publisher"}];
