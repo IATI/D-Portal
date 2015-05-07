@@ -244,6 +244,7 @@ view_map.ajax_heat=function(args)
 			"groupby":"2,3",
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+			"title_like":(args.search || ctrack.args.search),
 		};
 	if(dat.country_code) { dat.from+=",country"; dat.country_percent=100; }
 	
@@ -317,6 +318,7 @@ view_map.ajax_pins=function(args)
 			"groupby":"2,3",
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+			"title_like":(args.search || ctrack.args.search),
 		};
 	if(dat.country_code) { dat.from+=",country"; dat.country_percent=100; }
 		

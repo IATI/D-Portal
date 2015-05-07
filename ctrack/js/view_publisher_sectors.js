@@ -136,6 +136,7 @@ view_publisher_sectors.ajax=function(args)
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+				"title_like":(args.search || ctrack.args.search),
 			};
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		if(dat.country_code) { dat.from+=",country"; }
@@ -175,6 +176,7 @@ view_publisher_sectors.ajax=function(args)
 				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 				"country_code":(args.country || ctrack.args.country_select),
 				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+				"title_like":(args.search || ctrack.args.search),
 			};
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		if(dat.country_code) { dat.from+=",country"; }

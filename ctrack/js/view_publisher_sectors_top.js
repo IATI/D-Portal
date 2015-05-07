@@ -46,6 +46,7 @@ view_publisher_sectors_top.ajax=function(args)
 			"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-"+ctrack.args.newyear,
 //				"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+			"title_like":(args.search || ctrack.args.search),
 		};
 	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 	fetch.ajax(dat,function(data){

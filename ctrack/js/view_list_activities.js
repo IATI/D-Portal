@@ -51,6 +51,7 @@ view_list_activities.ajax=function(args)
 			"groupby":"aid",
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+			"title_like":(args.search || ctrack.args.search),
 		};
 	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
 	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
