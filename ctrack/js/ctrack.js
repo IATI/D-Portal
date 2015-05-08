@@ -186,7 +186,7 @@ console.log("convert USD "+ctrack.convert_usd);
 
 	if( ctrack.q.search )
 	{
-		console.log(ctrack.q.search);
+//		console.log(ctrack.q.search);
 		ctrack.args.search="%"+ctrack.q.search+"%";
 	}
 
@@ -291,6 +291,7 @@ console.log("convert USD "+ctrack.convert_usd);
 	if(ctrack.q.publisher)        { aa["publisher"]=ctrack.q.publisher; }
 	if(ctrack.q.country)          { aa["country"]  =ctrack.q.country;   }
 	if(ctrack.display_usd!="USD") { aa["usd"]      =ctrack.display_usd; }
+	if(ctrack.q.search)  	      { aa["search"]   =ctrack.q.search;	}
 
 	var bb=[]; for(var n in aa) { bb.push(n+"="+aa[n]); }
 	ctrack.chunk("mark","?"+bb.join("&"));
@@ -307,6 +308,9 @@ console.log("convert USD "+ctrack.convert_usd);
 	var bb=[]; for(var n in aa) { if(n!="usd") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_usd","?"+bb.join("&"));
 	
+	var bb=[]; for(var n in aa) { if(n!="publisher") { bb.push(n+"="+aa[n]); } }
+	ctrack.chunk("mark_no_publisher","?"+bb.join("&"));
+
 	var ss=[];
 	for(var i in iati_codes.iati_currencies) { var it=iati_codes.iati_currencies[i];
 		ss.push('<option value="'+it.id+'">'+it.name+'</option>');
