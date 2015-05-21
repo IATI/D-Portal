@@ -93,8 +93,9 @@ span.span_description description:last-of-type		{padding-bottom:40px;}
 
 /*	Result and description
 	============================================= */
-result	{display:block;}
-result description	{display:block; padding:20px 40px; line-height:1.5em;}
+result					{display:block;}
+result description		{display:block; padding:20px 40px; line-height:1.5em;}
+result description:nth-of-type(1):before	{content:"RESULT"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
 
 
 /*	Sectors (also turned into graph: sector_pie)
