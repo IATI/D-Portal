@@ -91,6 +91,12 @@ span.span_description description[type="3"]:before	{content:"TARGET GROUPS"; fon
 span.span_description description:last-of-type		{padding-bottom:40px;}
 
 
+/*	Result and description
+	============================================= */
+result	{display:block;}
+result description	{display:block; padding:20px 40px; line-height:1.5em;}
+
+
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
 sector *						{display:none;}

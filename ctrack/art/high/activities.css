@@ -93,6 +93,12 @@ span.span_description description:last-of-type		{padding-bottom:40px; border-bot
 span.span_description description:nth-of-type(2)	{border-top:0;}
 
 
+/*	Result and description
+	============================================= */
+result	{display:block;}
+result description	{display:block; padding:20px 40px; line-height:1.5em;}
+
+
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
 sector *						{display:none;}
