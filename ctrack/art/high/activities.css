@@ -84,7 +84,7 @@ reporting-org:last-of-type		{padding-bottom:40px;}
 
 /*	Description of project (shared with Transaction table)
 	============================================= */
-span.span_description description {font-size:1.0em; word-spacing:0.05em; line-height:1.45em; display:block; width:880px; padding:40px; padding-bottom:0; color:#000; border-top:1px solid #000;}
+span.span_description description {font-size:1.0em; word-spacing:0.05em; line-height:1.45em; display:block; width:880px; padding:40px; padding-bottom:0; color:#000; border-top:1px solid #000; white-space:pre; unicode-bidi:embed;}
 span.span_description description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 span.span_description description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 span.span_description description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
@@ -96,7 +96,7 @@ span.span_description description:nth-of-type(2)	{border-top:0;}
 /*	Result and description
 	============================================= */
 result				{display:block;}
-result description	{display:block; padding:20px 40px; line-height:1.5em;}
+result description	{display:block; padding:20px 40px; line-height:1.5em; white-space:pre; unicode-bidi:embed;}
 result description:nth-of-type(1):before	{content:"RESULT"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 
 
