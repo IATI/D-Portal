@@ -156,7 +156,7 @@ span.span_transaction transaction description {display:inline-block; vertical-al
 
 /*	Contact info for Publisher
 	============================================= */
-contact-info		{display:block; width:880px; padding:10px 40px; font-size:18px; line-height:1.5em;}
+contact-info		{display:block; width:880px; padding:10px 40px; font-size:18px; line-height:1.5em; white-space:pre-line;}
 contact-info *		{display:block; padding:5px 0; color:#FFF;}
 contact-info:nth-of-type(1):before	{content:"CONTACT INFO"; font-size:14px; color:#ccc; display:block; margin-bottom:10px;}
 contact-info:nth-of-type(1)			{padding-top:40px;}
