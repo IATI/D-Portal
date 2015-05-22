@@ -113,10 +113,14 @@ result span-title			{display:block; font-size:30px; width:880px; padding:20px 0 
 result span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
 
 result indicator			{display:block; padding:0 40px;}
-result indicator period		{display:block;}
-result indicator span-title	{display:block; font-size:16px;}
-result indicator span-title:before	{content:"";}
-result indicator description:before	{content:"";}
+result indicator span-title	{display:inline-block; vertical-align:top; font-size:16px;}
+result indicator span-title:before	{content:""; padding:0; margin:0;}
+result indicator description:before	{content:""; padding:0; margin:0;}
+result indicator period				{display:inline-block; vertical-align:top;}
+result indicator period	period-start{width:initial; max-width:initial; padding:0; line-height:initial;}
+result indicator period	period-start:before	{content:"From "; color:#000;}
+result indicator period	period-end	{width:initial; max-width:initial; padding:0; line-height:initial;}
+result indicator period	period-end:before	{content:"to "; color:#000;}
 
 
 
