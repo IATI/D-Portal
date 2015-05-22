@@ -106,10 +106,17 @@ span.span_description description:nth-of-type(2)	{border-top:0;}
 	============================================= */
 result						{display:block; padding:20px 0;}
 result:nth-child(odd)		{border:1px solid #000; border-right:0; border-left:0;}
-result description			{display:block; padding:20px 40px; line-height:1.25em; white-space:pre-line; unicode-bidi:embed;}
+result description			{display:block; padding:0 40px 20px 40px; line-height:1.25em; white-space:pre-line; unicode-bidi:embed;}
+result description:nth-of-type(1)			{padding:20px 40px;}
 result description:nth-of-type(1):before	{content:"RESULT"; font-size:14px; color:#000; display:block;}
 result span-title			{display:block; font-size:30px; width:880px; padding:20px 0 10px 0; margin:0 auto; color:#000;}
 result span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
+
+result indicator			{display:block;}
+result indicator span-title	{display:block; font-size:16px;}
+result indicator span-title:before	{content:"";}
+result indicator description:before	{content:"";}
+
 
 
 /*	Sectors (also turned into graph: sector_pie)
