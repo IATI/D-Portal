@@ -112,12 +112,12 @@ result description:before	{content:"RESULT"; font-size:14px; color:#000; display
 result span-title			{display:block; font-size:30px; width:880px; padding:20px 0 10px 0; margin:0 auto; color:#000;}
 result span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
 
-result indicator			{display:block; padding:20px 40px;}
-result indicator span-title	{display:inline-block; vertical-align:top; font-size:16px; padding:0; width:478px; line-height:1.25em;}
+result indicator			{display:block; padding:20px 40px; border-top:1px solid #000;}
+result indicator span-title	{display:inline-block; vertical-align:top; font-size:16px; padding:0; width:218px; line-height:1.25em;}
 result indicator span-title:before	{content:""; padding:0; margin:0;}
-result indicator description{display:inline-block; vertical-align:top; padding:0; margin:0; white-space:initial; line-height:initial;}
+result indicator description{display:inline-block; vertical-align:top; padding:0; margin:0; white-space:initial; line-height:initial; width:218px;}
 result indicator description:before	{content:""; padding:0; margin:0;}
-result indicator period				{display:inline-block; vertical-align:top; width:478px;}
+result indicator period				{display:inline-block; vertical-align:top; width:218px;}
 result indicator period	period-start{width:initial; max-width:initial; padding:0; line-height:initial;}
 result indicator period	period-start:before	{content:"From "; color:#000;}
 result indicator period	period-end	{width:initial; max-width:initial; padding:0; line-height:initial;}
