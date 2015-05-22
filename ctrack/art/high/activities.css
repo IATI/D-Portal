@@ -84,11 +84,11 @@ reporting-org:last-of-type		{padding-bottom:40px;}
 
 /*	Description of project (shared with Transaction table)
 	============================================= */
-span.span_description description {font-size:1.0em; word-spacing:0.05em; line-height:1.5em; display:block; width:880px; padding:40px; padding-bottom:0; color:#000; border-top:1px solid #000; white-space:pre-line; unicode-bidi:embed;}
-span.span_description description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
-span.span_description description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
-span.span_description description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
-span.span_description description[type="3"]:before	{content:"TARGET GROUPS"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
+span.span_description description {font-size:1.0em; word-spacing:0.05em; line-height:1.25em; display:block; width:880px; padding:40px; padding-bottom:0; color:#000; border-top:1px solid #000; white-space:pre-line; unicode-bidi:embed;}
+span.span_description description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; display:block;}
+span.span_description description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#000; display:block;}
+span.span_description description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#000; display:block;}
+span.span_description description[type="3"]:before	{content:"TARGET GROUPS"; font-size:14px; color:#000; display:block;}
 span.span_description description:last-of-type		{padding-bottom:40px; border-bottom:1px solid #000; border-top:0;}
 span.span_description description:nth-of-type(2)	{border-top:0;}
 
@@ -96,8 +96,8 @@ span.span_description description:nth-of-type(2)	{border-top:0;}
 /*	Result and description
 	============================================= */
 result				{display:block;}
-result description	{display:block; padding:20px 40px; line-height:1.5em; white-space:pre-line; unicode-bidi:embed;}
-result description:nth-of-type(1):before	{content:"RESULT"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
+result description	{display:block; padding:20px 40px; line-height:1.25em; white-space:pre-line; unicode-bidi:embed;}
+result description:nth-of-type(1):before	{content:"RESULT"; font-size:14px; color:#000; display:block;}
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -157,7 +157,7 @@ span.span_transaction transaction description {display:inline-block; vertical-al
 
 /*	Contact info for Publisher
 	============================================= */
-contact-info	{display:block; width:880px; padding:10px 40px; font-size:18px; line-height:1.5em; white-space:pre-line;}
+contact-info	{display:block; width:880px; padding:10px 40px; font-size:18px; line-height:1.25em; white-space:pre-line;}
 contact-info *	{display:block; padding:5px 0; color:#000;}
 contact-info:nth-of-type(1):before	{content:"CONTACT INFO"; font-size:14px; color:#000; display:block; margin-bottom:10px;}
 contact-info:nth-of-type(1)			{padding-top:40px;}
