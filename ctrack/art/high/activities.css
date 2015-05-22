@@ -30,8 +30,8 @@ narrative {display:block; color:inherit; font-family:inherit; word-wrap:inherit;
 
 /*	Project title
 	============================================= */
-span-title			{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#000;}
-span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
+span.span_span-title span-title			{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#000;}
+span.span_span-title span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
 
 
 /*	IATI Identifier
@@ -112,6 +112,7 @@ result description:before	{content:"RESULT"; font-size:14px; color:#000; display
 result span-title			{display:block; font-size:30px; width:880px; padding:20px 0 10px 0; margin:0 auto; color:#000;}
 result span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
 
+/*
 result indicator			{display:block; padding:20px 40px; border-top:1px solid #000;}
 result indicator span-title	{display:inline-block; vertical-align:top; font-size:16px; padding:0; width:218px; line-height:1.25em;}
 result indicator span-title:before	{content:""; padding:0; margin:0;}
@@ -122,7 +123,7 @@ result indicator period	period-start{width:initial; max-width:initial; padding:0
 result indicator period	period-start:before	{content:"From "; color:#000;}
 result indicator period	period-end	{width:initial; max-width:initial; padding:0; line-height:initial;}
 result indicator period	period-end:before	{content:"to "; color:#000;}
-
+*/
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -132,8 +133,8 @@ sector[vocabulary="DAC"]		{font-size:1.0em; color:#000; width:239px; display:inl
 sector:nth-child(even)			{background-color:#e9e9e9;}
 sector[vocabulary="DAC"]:before	{content:"SECTOR"; font-size:14px; color:#000; width:240px; display:block; padding-bottom:5px;}
 span.span_sector				{padding-bottom:20px;}
-sector span						{color:#000; padding-top:10px;}
-sector span:nth-of-type(1)		{font-size:18px; line-height:1.25em;}
+sector span						{color:#000; padding-top:5px;}
+sector span:nth-of-type(1)		{line-height:1.2em;}
 sector span:nth-of-type(2)		{color:#000;}
 sector span:nth-of-type(2):after{content:"allocated"; padding-left:5px; display:inline-block;}
 img.sector_pie					{padding:40px 20px;}
