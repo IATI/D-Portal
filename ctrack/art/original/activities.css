@@ -24,7 +24,7 @@ narrative {display:block; color:inherit; font-family:inherit; word-wrap:inherit;
 /*	Project title
 	============================================= */
 span-title			{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#FFF;}
-span-title:before		{content:"PROJECT TITLE"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
+span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#ccc; display:block; margin-bottom:5px;}
 
 
 /*	IATI Identifier
@@ -95,7 +95,9 @@ span.span_description description:last-of-type		{padding-bottom:40px;}
 	============================================= */
 result					{display:block;}
 result description		{display:block; padding:20px 40px; line-height:1.25em; white-space:pre-line; unicode-bidi:embed;}
-result description:nth-of-type(1):before	{content:"RESULT"; font-size:14px; color:#ccc; display:block;}
+result description:nth-of-type(1):before	{content:"RESULT"; font-size:14px; color:#ccc; display:block; line-height:0.5em;}
+result span-title			{display:block; font-size:30px; width:880px; padding:20px 0 10px 0; margin:0 auto; color:#FFF;}
+result span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#ccc; display:block; margin-bottom:15px;}
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -188,12 +190,12 @@ span.span_document-link						{width:880px; padding:0 40px; margin:0 auto;}
 span.span_document-link:before				{content:"Related Documents"; font-size:34px; color:#FFF; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #FFF;}
 a.a_document-link							{display:list-item; width:880px; padding:10px 0; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#ccc;}
 a.a_document-link:last-of-type				{padding-bottom:40px;}
-a.a_document-link document-link span-title		{color:#FFF; padding:0;}
+a.a_document-link document-link span-title	{color:#FFF; padding:0;}
 a.a_document-link document-link span-title:hover	{color:#FFAB5E;}
 document-link								{display:block;}
 document-link span							{font-size:1.0em; display:block; color:#ccc;}
 document-link span-title					{display:block;}
-document-link span-title:nth-of-type(n+1):before	{display:none;}
+document-link span-title:nth-of-type(n+1):before{display:none;}
 document-link span-title:nth-of-type(n+1)		{font-size:18px;}
 
 
