@@ -19,11 +19,12 @@ iati-activity a 	{display:block;}
 iati-activity a:hover {text-decoration:underline;}
 iati-activity img	{display:block; -webkit-filter:brightness(100%); filter:brightness(100%); filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
 filter: grayscale(100%);
--moz-filter: grayscale(100%);
--ms-filter: grayscale(100%);
--o-filter: grayscale(100%);
+-moz-filter:contrast(400%)grayscale(100%);
+-ms-filter:contrast(400%)grayscale(100%);
+-o-filter:contrast(400%)grayscale(100%);
 filter: gray; /* IE6-9 */
--webkit-filter: grayscale(100%);}
+-webkit-filter:contrast(400%)grayscale(100%);
+-webkit-filter:contrast(5)grayscale(1);}
 
 narrative {display:block; color:inherit; font-family:inherit; word-wrap:inherit;}
 
@@ -129,10 +130,9 @@ result indicator period	period-end:before	{content:"to "; color:#000;}
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
 sector *						{display:none;}
-sector[vocabulary="DAC"]		{font-size:1.0em; color:#000; width:239px; display:inline-block; vertical-align:top; padding:30px 40px; max-height:80px; min-height:80px;}
+sector[vocabulary="DAC"]		{font-size:1.0em; color:#000; width:239px; display:inline-block; vertical-align:top; padding:30px 40px 40px 40px; max-height:80px; min-height:80px;}
 sector:nth-child(even)			{background-color:#e9e9e9;}
 sector[vocabulary="DAC"]:before	{content:"SECTOR"; font-size:14px; color:#000; width:240px; display:block; padding-bottom:5px;}
-span.span_sector				{padding-bottom:20px;}
 sector span						{color:#000; padding-top:5px;}
 sector span:nth-of-type(1)		{line-height:1.2em;}
 sector span:nth-of-type(2)		{color:#000;}
@@ -217,13 +217,13 @@ span.span_document-link			{width:880px; padding:0 40px; margin:0 auto;}
 span.span_document-link:before	{content:"Related Documents"; font-size:34px; color:#000; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #000;}
 a.a_document-link				{display:list-item; width:880px; padding:10px 0; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#000;}
 a.a_document-link:last-of-type	{padding-bottom:40px;}
-a.a_document-link document-link title		{color:#000; padding:0;}
-a.a_document-link document-link title:hover	{color:#000;}
+a.a_document-link document-link span-title		{color:#000; padding:0;}
+a.a_document-link document-link span-title:hover{color:#000;}
 document-link		{display:block;}
 document-link span	{font-size:1.0em; display:block; color:#000;}
 document-link span-title					{display:block;}
 document-link span-title:nth-of-type(n+1):before	{display:none;}
-document-link span-title:nth-of-type(n+1)		{font-size:18px;}
+document-link span-title:nth-of-type(n+1)	{font-size:18px;}
 
 
 /*	Family Tree list
