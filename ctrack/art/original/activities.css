@@ -19,7 +19,8 @@ iati-activity a 	{display:block;}
 iati-activity img	{display:block; -webkit-filter:brightness(100%); filter:brightness(100%);}
 
 
-narrative {display:block; color:inherit; font-family:inherit; word-wrap:inherit; }
+narrative {display:block; color:inherit; font-family:inherit; word-wrap:inherit;}
+
 
 /*	Project title
 	============================================= */
@@ -43,8 +44,8 @@ a.a_slug:hover			{text-decoration:underline;}
 
 /*	Recipient countries
 	============================================= */
-transaction recipient-country {display:none;}
-span.span_recipient-country				{display:block; vertical-align:top; width:960px; background-color:rgba(17, 46, 105, 0.9);}
+transaction recipient-country			{display:none;}
+span.span_recipient-country				{display:block; vertical-align:top; width:960px; background-color:rgba(17, 46, 105, 0.9);   padding-bottom:20px;}
 recipient-country 						{display:block; vertical-align:top; padding:20px 40px;}
 span.span_recipient-country:before 		{content:"RECIPIENT COUNTRY"; font-size:14px; color:#FFF; padding:30px 0 0 40px; display:block;}
 recipient-country span					{font-size:48px; color:#FFF;}
@@ -64,9 +65,9 @@ activity-date[type="end-actual"]:before	{content:"END DATE"; font-size:14px; col
 
 /*	Who's invloved?
 	============================================= */
-participating-org 						{display:block; width:880px; padding:10px 40px; font-size:18px; color:#FFF; background-color:rgba(17, 46, 105, 0.4);}
-participating-org:nth-of-type(1)		{padding-top:40px;}
-participating-org:nth-of-type(1):before {content:"Who's involved?"; font-size:34px; color:#FFF; display:block; padding:0; padding-bottom:10px; margin-bottom:20px; border-bottom:5px solid #FFF;}
+span.span_participating-org				{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#FFF; background-color:rgba(17, 46, 105, 0.4);}
+span.span_participating-org:before 		{content:"Who's involved?"; font-size:34px; color:#FFF; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:5px solid #FFF;}
+participating-org 						{display:list-item; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
 participating-org[role="funding"]:after			{content:"FUNDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="extending"]:after		{content:"EXTENDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
