@@ -408,6 +408,8 @@ dstore_db.refresh_act = function(db,aid,xml){
 		t.spend=0;
 		refry.tags(act,"transaction",function(it){
 			var code=iati_xml.get_code(it,"transaction-type");
+			code= codes.transaction_type_map[code] || code ; // map new 201 codes to old letters
+
 			code=code && (code.toUpperCase());
 			if(code=="C")
 			{
@@ -420,6 +422,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 				t.spend+=usd;
 			}
 		});
+//console.log("C="+t.commitment+"\tD+E="+t.spend);
 
 		var funder;
 		
