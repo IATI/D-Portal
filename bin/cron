@@ -28,7 +28,7 @@ echo just wipe the entire cache directory and run again
 echo
 
 echo
-echo Remove all temporary files and take a copy of the current state
+echo Removing all temporary files
 echo
 
 rm -rf dstore/cache/new
@@ -37,14 +37,20 @@ mkdir dstore/cache/old
 
 # clear data to force a *full* import on sunday morning
 if [ "$(date +'%u')" == "0" ] ; then
+	echo FULL >/var/tmp/dportal.update
+fi
+
+if [ -f /var/tmp/dportal.update ] ; then
 	echo
-	echo SUNDAY force a full import
+	echo performing a FULL import of all data
 	echo
+# just remove the flag file
+	rm /var/tmp/dportal.update
 else
 	echo
-	echo normal minimal update import
-#	echo HACK force a full import
+	echo performing a MINI import of changed data only
 	echo
+# take a snapshot of current files so we can find out what changed
 	cp dstore/cache/*.xml dstore/cache/old
 fi
 
