@@ -34,7 +34,7 @@ strong, b, .bold		{font-weight:bold; color:inherit;}
 #background_image	 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/mexico_background_image.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
 .overlay				{width:100%; height:100%; background-color:rgba(46, 41, 6, 0.6); position:relative;}	/* Overlay colour for background image */
 iati-activity			{margin-bottom:40px;}	/* Fixes too-large bottom margin during only this instance */
-iati-activity:after 	{content:"";}	/* Takes away content since footer is included on site */
+iati-activity:after 	{content:""; padding:0; display:initial;}	/* Takes away content since footer is included on site */
 .center_wrap			{width:960px; margin:0 auto; text-align:center;}
 
 
