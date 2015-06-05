@@ -13,6 +13,9 @@ var fs = require('fs');
 var refry=require('./refry');
 var exs=require('./exs');
 
+var sheeturl=function(n){
+	return 	"https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/pub?single=true&gid="+n+"&output=csv";
+}
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -178,7 +181,8 @@ iati_codes.fetch = function(){
 
 	console.log("Fetching IATI sector IDS csv")
 
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=9&output=csv");
+	var x=wait.for(https_getbody,sheeturl(9));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=9&output=csv"
 	var lines=x.split("\n");
 	lines=lines.map(function(l){return l.split(",")});
 
@@ -202,7 +206,8 @@ iati_codes.fetch = function(){
 
 	console.log("Fetching IATI sector groups csv")
 
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=0&output=csv");
+	var x=wait.for(https_getbody,sheeturl(0));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=0&output=csv"
 	var lines=x.split("\n");
 	lines=lines.map(function(l){return l.split(",")});
 
@@ -226,7 +231,8 @@ iati_codes.fetch = function(){
 
 	console.log("Fetching IATI funders csv")
 
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=2&output=csv");
+	var x=wait.for(https_getbody,sheeturl(2));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=2&output=csv"
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
 	var o={};
@@ -247,7 +253,8 @@ iati_codes.fetch = function(){
 
 	console.log("Fetching IATI currencies csv")
 
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=10&output=csv");
+	var x=wait.for(https_getbody,sheeturl(10));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=10&output=csv"
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
 	var o=[];
@@ -269,7 +276,8 @@ iati_codes.fetch = function(){
 
 	console.log("Fetching local currency csv")
 
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=8&output=csv");
+	var x=wait.for(https_getbody,sheeturl(8));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=8&output=csv"
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
 	var o={};
@@ -290,7 +298,8 @@ iati_codes.fetch = function(){
 	
 	console.log("Fetching CRS funders csv")
 
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=4&output=csv");
+	var x=wait.for(https_getbody,sheeturl(4));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=4&output=csv"
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
 	var d={};
@@ -328,7 +337,8 @@ iati_codes.fetch = function(){
 
 	console.log("Fetching CRS countries csv")
 
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=7&output=csv");
+	var x=wait.for(https_getbody,sheeturl(7));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=7&output=csv"
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
 	var o={};
@@ -344,8 +354,6 @@ iati_codes.fetch = function(){
 			r[b.trim()]=a.trim();
 		}
 	}
-	
-//	ls(o);
 	codes.crs_countries=o;
 	codes.rev_crs_countries=r;
 	
@@ -355,7 +363,8 @@ iati_codes.fetch = function(){
 	fs.writeFileSync(__dirname+"/../json/iati_codes.json",JSON.stringify(codes,null,'\t'));
 
 	
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=3&output=csv");
+	var x=wait.for(https_getbody,sheeturl(3));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=3&output=csv"
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
 	var o={};
@@ -402,7 +411,8 @@ iati_codes.fetch = function(){
 
 //
 
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=11&output=csv");
+	var x=wait.for(https_getbody,sheeturl(11));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=11&output=csv"
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
 	var o={};
@@ -445,7 +455,8 @@ iati_codes.fetch = function(){
 	fs.writeFileSync(__dirname+"/../json/crs_2012_sectors.json",JSON.stringify(o,null,'\t'));
 
 
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=14&output=csv");
+	var x=wait.for(https_getbody,sheeturl(14));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=14&output=csv"
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
 	var o={};
@@ -492,7 +503,8 @@ iati_codes.fetch = function(){
 
 //
 
-	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=15&output=csv");
+	var x=wait.for(https_getbody,sheeturl(15));
+//	"https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=15&output=csv"
 	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 
 	var o={};
