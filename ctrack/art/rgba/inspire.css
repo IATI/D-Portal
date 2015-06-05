@@ -346,6 +346,7 @@ span.span_description description[type="3"]:before		{color:rgba(136,136,136,1);}
 	============================================= */
 result:nth-child(odd)		{background-color:rgba(235,235,235,0.3);}
 result:last-of-type			{border-radius:0 0 4px 4px;}
+result description			{color:rgba(85,85,85,1);}
 result description:before	{color:rgba(136,136,136,1);}
 result span-title			{color:rgba(85,85,85,1);}
 result span-title:before	{color:rgba(136,136,136,1);}

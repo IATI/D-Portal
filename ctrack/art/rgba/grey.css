@@ -333,6 +333,7 @@ span.span_description description[type="3"]:before		{color:rgba(204,204,204,1);}
 /*	Result and description
 	============================================= */
 result:nth-child(odd)		{background-color:rgba(56,56,56,0.4);}
+result description			{color:rgba(255,255,255,1);}
 result description:before	{color:rgba(204,204,204,1);}
 result span-title			{color:rgba(255,255,255,1);}
 result span-title:before	{color:rgba(204,204,204,1);}
