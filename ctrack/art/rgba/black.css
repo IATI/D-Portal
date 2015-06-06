@@ -104,6 +104,7 @@ a.stats_link.missing span	{color:rgba(0,0,0,1);}
 .description			{background-color:rgba(0,0,0,0.1);}
 .description span.title	{color:rgba(0,0,0,1); border-top:1px solid rgba(0,0,0,1); border-bottom:1px solid rgba(0,0,0,1);}
 .description p			{color:rgba(0,0,0,1);}
+.description p.about_data	{border-top:1px solid rgba(0,0,0,1);}
 .description a			{color:rgba(0,0,0,1);}
 .description a:hover	{color:rgba(0,0,0,1);}
 a.read					{color:rgba(0,0,0,1);}
@@ -314,7 +315,7 @@ participating-org[role="accountable"]:after		{color:rgba(0,0,0,1);}
 
 /*	Reported by
 	============================================= */
-reporting-org 					{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.4)}
+reporting-org 					{color:rgba(0,0,0,1); background-color:rgba(0,0,0,0.9);}
 reporting-org:before 			{color:rgba(0,0,0,1);}
 
 
@@ -343,7 +344,7 @@ sector:nth-child(even)			{background-color:rgba(0,0,0,0.7);}
 sector[vocabulary="DAC"]:before	{color:rgba(0,0,0,1);}
 sector span						{color:rgba(0,0,0,1);}
 sector span:nth-of-type(2)		{color:rgba(0,0,0,1);}
-img.sector_pie					{background-color:rgba(0,0,0,1);}
+img.sector_pie					{background-color:rgba(255,255,255,1);}
 
 
 /*	Budget table
