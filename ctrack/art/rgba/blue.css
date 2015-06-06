@@ -29,6 +29,7 @@ a.crumb:hover			{color:rgba(0,0,255,1);}
 	============================================= */
 a.about_data			{color:rgba(0,0,204,1);}
 a.about_data:hover		{color:rgba(0,0,255,1);}
+a.about_data img		{-webkit-filter:brightness(100%) hue-rotate(80deg) saturate(500); filter:brightness(100%) hue-rotate(80deg) saturate(500);}
 a.about_data.quality	{border-left:1px solid rgba(0,0,187,1);}
 
 
@@ -406,7 +407,7 @@ activity-status[code="2"]	{background-color:rgba(0,0,191,1);}
 activity-status[code="3"]	{background-color:rgba(0,0,134,1);}
 activity-status[code="4"]	{background-color:rgba(0,0,152,1);}
 activity-status[code="5"]	{background-color:rgba(0,0,132,1);}
-activity-status				{background-color:rgba(0,0,152,1);}
+activity-status				{background-color:rgba(0,0,152,1); color:rgba(0,0,204,1);}
 activity-status:before		{color:rgba(0,0,255,1);}
 
 

@@ -29,6 +29,7 @@ a.crumb:hover			{color:rgba(0,255,0,1);}
 	============================================= */
 a.about_data			{color:rgba(0,204,0,1);}
 a.about_data:hover		{color:rgba(0,255,0,1);}
+a.about_data img		{-webkit-filter:brightness(100%) hue-rotate(300deg) saturate(500); filter:brightness(100%) hue-rotate(300deg) saturate(500);}
 a.about_data.quality	{border-left:1px solid rgba(0,187,0,1);}
 
 
@@ -406,8 +407,8 @@ activity-status[code="2"]	{background-color:rgba(0,191,0,1);}
 activity-status[code="3"]	{background-color:rgba(0,134,0,1);}
 activity-status[code="4"]	{background-color:rgba(0,152,0,1);}
 activity-status[code="5"]	{background-color:rgba(0,132,0,1);}
-activity-status				{background-color:rgba(0,152,0,1);}
-activity-status:before		{color:rgba(0,255,0,1);}
+activity-status				{background-color:rgba(0,152,0,1); color:rgba(0,15,0,1);}
+activity-status:before		{color:rgba(0,15,0,1);}
 
 
 /*	Related documents list
