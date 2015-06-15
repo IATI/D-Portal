@@ -244,6 +244,7 @@ table.title				{width:100%; margin:0 auto; border-collapse:separate; padding-bot
 table.title.key			{width:960px;}	/* Fix width for Key Figures */
 table.title.key a		{font-size:0.5em;}
 table.title td			{font-size:1.8em; line-height:1.15em; color:#000; vertical-align:bottom;}
+table.title td:hover	{cursor:default;}
 table.title td.sort		{padding:0 20px 0 10px; width:200px; color:#000; text-align:right; font-size:0.9em; line-height:1.1em;}
 table.title td.about	{padding-left:10px; width:350px;}
 table.title td.icon		{padding-right:10px; width:40px;}
