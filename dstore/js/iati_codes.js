@@ -136,7 +136,7 @@ iati_codes.fetch = function(){
 // it turns out wikipedia is the best source, since the iso website has decided to hide its most precious data behind a paywall
 // so now we will scrape wikipedia
 
-	var x=wait.for(http_getbody,"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2");
+	var x=wait.for(https_getbody,"https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2");
 	var j=refry.xml(x);
 	var o={};
 	
