@@ -337,6 +337,8 @@ view_generator.view=function(args)
 	}
 	a.sort(ss);
 	ctrack.chunk("generator_options_country",a.join(""));
+	console.log(iati_codes);
+	console.log(a);
 	
 	var a=[];
 	for(var n in iati_codes.publisher_names) // defaults
