@@ -198,8 +198,8 @@ activity-status[code="2"]	{background-color:rgb(204, 141, 230);}
 activity-status[code="3"]	{background-color:rgb(71, 255, 78);}
 activity-status[code="4"]	{background-color:rgb(255, 130, 71);}
 activity-status[code="5"]	{background-color:rgb(255, 71, 71);}
-activity-status				{display:block; font-size:20px; background-color:rgb(255, 130, 71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px;}
-activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#FFF; font-weight:bold; display:inline-block; padding-right:10px;}
+activity-status				{display:block; font-size:20px; background-color:rgb(255,130,71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px; color:rgba(0,14,32,1);}
+activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:rgba(0,14,32,1); font-weight:bold; display:inline-block; padding-right:10px;}
 
 
 /*	Related documents list

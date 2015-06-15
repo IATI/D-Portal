@@ -29,6 +29,7 @@ a.crumb:hover			{color:rgba(0,0,255,1);}
 	============================================= */
 a.about_data			{color:rgba(0,0,204,1);}
 a.about_data:hover		{color:rgba(0,0,255,1);}
+a.about_data img		{-webkit-filter:brightness(100%) hue-rotate(80deg) saturate(500); filter:brightness(100%) hue-rotate(80deg) saturate(500);}
 a.about_data.quality	{border-left:1px solid rgba(0,0,187,1);}
 
 
@@ -104,6 +105,7 @@ a.stats_link.missing span	{color:rgba(0,0,130,1);}
 .description			{background-color:rgba(0,0,255,0.1);}
 .description span.title	{color:rgba(0,0,255,1); border-top:1px solid rgba(0,0,255,1); border-bottom:1px solid rgba(0,0,255,1);}
 .description p			{color:rgba(0,0,255,1);}
+.description p.about_data	{border-top:1px solid rgba(0,0,255,1);}
 .description a			{color:rgba(0,0,204,1);}
 .description a:hover	{color:rgba(0,0,255,1);}
 a.read					{color:rgba(0,0,204,1);}
@@ -273,8 +275,8 @@ iati-activity:after 	{color:rgba(0,0,204,1);}
 
 /*	Project title
 	============================================= */
-title		 			{color:rgba(0,0,255,1);}
-title:before 			{color:rgba(0,0,204,1);}
+span.span_span-title span-title		 			{color:rgba(0,0,255,1);}
+span.span_span-title span-title:before 			{color:rgba(0,0,204,1);}
 
 
 /*	IATI Identifier
@@ -305,8 +307,9 @@ activity-date[type="end-actual"]:before		{color:rgba(0,0,204,1);}
 
 /*	Who's invloved?
 	============================================= */
-participating-org 								{color:rgba(0,0,255,1); background-color:rgba(0,0,56,0.4);}
-participating-org:nth-of-type(1):before 		{color:rgba(0,0,255,1); border-bottom:5px solid rgba(0,0,255,1);}
+span.span_participating-org 					{color:rgba(0,0,255,1); background-color:rgba(0,0,56,0.4);}
+span.span_participating-org:before 				{color:rgba(0,0,255,1); border-bottom:5px solid rgba(0,0,255,1);}
+participating-org								{color:rgba(0,0,255,1);}
 participating-org[role="funding"]:after			{color:rgba(0,0,204,1);}
 participating-org[role="implementing"]:after	{color:rgba(0,0,204,1);}
 participating-org[role="extending"]:after		{color:rgba(0,0,204,1);}
@@ -315,17 +318,26 @@ participating-org[role="accountable"]:after		{color:rgba(0,0,204,1);}
 
 /*	Reported by
 	============================================= */
-reporting-org 					{color:rgba(0,0,255,1);}
+reporting-org 					{color:rgba(0,0,255,1); background-color:rgba(0,0,56,0.9);}
 reporting-org:before 			{color:rgba(0,0,204,1);}
 
 
 /*	Description of project (shared with Transaction table)
 	============================================= */
-description 						{color:rgba(0,0,255,1);}
-description:nth-of-type(1):before	{color:rgba(0,0,204,1);}
-description[type="1"]:before		{color:rgba(0,0,204,1);}
-description[type="2"]:before		{color:rgba(0,0,204,1);}
-description[type="3"]:before		{color:rgba(0,0,204,1);}
+span.span_description description 						{color:rgba(0,0,255,1);}
+span.span_description description:nth-of-type(1):before	{color:rgba(0,0,204,1);}
+span.span_description description[type="1"]:before		{color:rgba(0,0,204,1);}
+span.span_description description[type="2"]:before		{color:rgba(0,0,204,1);}
+span.span_description description[type="3"]:before		{color:rgba(0,0,204,1);}
+
+
+/*	Result and description
+	============================================= */
+result:nth-child(odd)		{background-color:rgba(0,0,56,0.4);}
+result description			{color:rgba(0,0,255,1);}
+result description:before	{color:rgba(0,0,204,1);}
+result span-title			{color:rgba(0,0,255,1);}
+result span-title:before	{color:rgba(0,0,204,1);}
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -335,7 +347,7 @@ sector:nth-child(even)			{background-color:rgba(0,0,15,0.7);}
 sector[vocabulary="DAC"]:before	{color:rgba(0,0,204,1);}
 sector span						{color:rgba(0,0,255,1);}
 sector span:nth-of-type(2)		{color:rgba(0,0,204,1);}
-img.sector_pie					{background-color:rgba(0,0,255,1);}
+img.sector_pie					{background-color:rgba(255,255,255,1); -webkit-filter:hue-rotate(30deg); filter:hue-rotate(30deg);}
 
 
 /*	Budget table
@@ -364,11 +376,11 @@ transaction:nth-of-type(1) transaction-type:before	{color:rgba(0,0,255,1); borde
 transaction:nth-of-type(1) provider-org:before		{color:rgba(0,0,255,1); border-bottom:2px solid rgba(0,0,56, 0.9);}
 transaction:nth-of-type(1) receiver-org:before		{color:rgba(0,0,255,1); border-bottom:2px solid rgba(0,0,56, 0.9);}
 transaction:nth-of-type(1) value:before				{color:rgba(0,0,255,1); border-bottom:2px solid rgba(0,0,56, 0.9);}
-transaction:nth-of-type(1) description:nth-of-type(1):before {color:rgba(0,0,255,1); border-bottom:2px solid rgba(0,0,56, 0.9);}
+span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {color:rgba(0,0,255,1); border-bottom:2px solid rgba(0,0,56, 0.9);}
 
 transaction-date	{color:rgba(0,0,255,1);}
 transaction-type	{color:rgba(0,0,255,1);}
-transaction description:nth-of-type(1) {color:rgba(0,0,255,1);}
+span.span_transaction transaction description:nth-of-type(1) {color:rgba(0,0,255,1);}
 provider-org		{color:rgba(0,0,255,1);}
 receiver-org		{color:rgba(0,0,255,1);}
 value				{color:rgba(0,0,255,1);}
@@ -395,7 +407,7 @@ activity-status[code="2"]	{background-color:rgba(0,0,191,1);}
 activity-status[code="3"]	{background-color:rgba(0,0,134,1);}
 activity-status[code="4"]	{background-color:rgba(0,0,152,1);}
 activity-status[code="5"]	{background-color:rgba(0,0,132,1);}
-activity-status				{background-color:rgba(0,0,152,1);}
+activity-status				{background-color:rgba(0,0,152,1); color:rgba(0,0,204,1);}
 activity-status:before		{color:rgba(0,0,255,1);}
 
 
@@ -403,8 +415,8 @@ activity-status:before		{color:rgba(0,0,255,1);}
 	============================================= */
 span.span_document-link:before				{color:rgba(0,0,255,1); border-bottom:3px solid rgba(0,0,255,1);}
 a.a_document-link							{color:rgba(0,0,204,1);}
-a.a_document-link document-link title		{color:rgba(0,0,255,1);}
-a.a_document-link document-link title:hover	{color:rgba(0,0,173,1);}
+a.a_document-link document-link span-title			{color:rgba(0,0,255,1);}
+a.a_document-link document-link span-title:hover	{color:rgba(0,0,173,1);}
 document-link span							{color:rgba(0,0,204,1);}
 
 
