@@ -454,7 +454,7 @@ console.log("convert USD "+ctrack.convert_usd);
 				{
 					v.fixup();
 				}
-				$("select.chosen").chosen({allow_single_deselect:true});
+				$("select.chosen").chosen({allow_single_deselect:true,search_contains:true});
 			}
 		}
 	};
