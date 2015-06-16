@@ -169,7 +169,7 @@
 				$("#publisher_dropmenu").html(aa.join(""));
 				
 				$("#publisher_dropmenu select").change(change);
-				$("#publisher_dropmenu select").chosen({"placeholder_text_single":"{publisher_dropmenu_text}"});
+				$("#publisher_dropmenu select").chosen({search_contains:true,"placeholder_text_single":"{publisher_dropmenu_text}"});
 
 				for(var i=0;i<reportings.rows.length;i++)
 				{
@@ -206,7 +206,7 @@
 				$("#country_dropmenu").html(aa.join(""));
 
 				$("#country_dropmenu select").change(change);
-				$("#country_dropmenu select").chosen({"placeholder_text_single":"{country_dropmenu_text}"});
+				$("#country_dropmenu select").chosen({search_contains:true,"placeholder_text_single":"{country_dropmenu_text}"});
 			}
 		};
 
