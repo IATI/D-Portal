@@ -41,7 +41,7 @@ view_sectors_top.ajax=function(args)
 			"sector_group_not_null":1,
 			"groupby":"sector_group",
 			"trans_code":"D|E",
-			"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-"+ctrack.args.newyear,
+			"trans_day_gteq":year+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(year)+1)+"-"+ctrack.args.newyear,
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			"title_like":(args.search || ctrack.args.search),
