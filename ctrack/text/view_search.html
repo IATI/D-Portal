@@ -16,6 +16,27 @@
 
 #view_search_test
 
+<div id="view_search_test">
+	
+<select id="view_search_select_country" class="chosen">
+	<option value></option>
+	{search_options_country}
+</select>
+
+<select id="view_search_select_publisher" class="chosen">
+	<option value></option>
+	{search_options_publisher}
+</select>
+
+<select id="view_search_select_year" class="chosen">
+	<option value></option>
+	{search_options_year}
+</select>
+
+	
+</div>
+
+#view_search_test_test
   <script>
 
 	head.load("/jslib/select2.min.js","/art/select2.min.css",function(){
