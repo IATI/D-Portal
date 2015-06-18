@@ -26,9 +26,11 @@ Make sure to pick a Publisher if you choose a Publisher-specific view or a Recip
 
 When tweaking numbers, always press ENTER to update the current widget.
 
-Once you have created your widget, copy and paste the <iframe> code into the portion of your Wordpress blog post or website to embed it; eg.
+Once you have created your widget, copy and paste the ```<iframe>``` code into the portion of your Wordpress blog post or website to embed it; eg.
 
-<iframe scrolling="no" src="d-portal.org/ctrack.html?flava=original&amp;rgba=mustard&amp;country=AO&amp;publisher=30001&amp;#view=frame&amp;frame=publisher_countries" style="width: 960px; height: 528px; overflow: hidden;"></iframe>
+```
+<iframe scrolling="no" src="http://d-portal.org/ctrack.html?flava=original&amp;rgba=mustard&amp;country=AO&amp;publisher=30001&amp;#view=frame&amp;frame=publisher_countries" style="width: 960px; height: 528px; overflow: hidden;"></iframe>
+```
 
 You can also edit the iframe to include other options like scrollbars, different widths, different heights etc.
 
