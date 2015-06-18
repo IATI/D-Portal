@@ -41,7 +41,10 @@ How to create a widget
 
 ![generator example](http://devinit.org/wp-content/uploads/2014/11/gen-screen-DIPR-sectors-search.jpg)
 
-For examples and case uses, visit http://d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator.html
+For examples and case uses, visit these links below.
+
+1. http://d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator.html
+2. http://d-portal.org/news/2014-11-28-Bringing-IATI-data-life-d-portal-generator.html
 
 
 
