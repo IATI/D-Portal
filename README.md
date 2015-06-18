@@ -65,3 +65,4 @@ join the [mailing list](https://groups.google.com/forum/#!forum/d-portal-list).
 We also post daily logs of the nightly import of new IATI data being 
 published to d-portal.org [here](https://groups.google.com/forum/#!forum/d-portal-logs).
 
+If you are interested in finding out more or part-funding d-portal, please contact support@iatistandard.org
