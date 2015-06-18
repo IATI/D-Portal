@@ -43,7 +43,7 @@ view_publisher_countries_top.ajax=function(args)
 			"select":"country_code,sum_of_percent_of_trans_usd",
 			"groupby":"country_code",
 			"trans_code":"D|E",
-			"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-"+ctrack.args.newyear,
+			"trans_day_gteq":year+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(year)+1)+"-"+ctrack.args.newyear,
 			"country_code":(args.country || ctrack.args.country_select),
 			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 			"title_like":(args.search || ctrack.args.search),

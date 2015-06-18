@@ -12,6 +12,8 @@ var fetch=require("./fetch.js")
 
 var views=require("./views.js")
 
+var iati_codes=require("../../dstore/json/iati_codes.json")
+
 // the chunk names this view will fill with new data
 view_search.chunks=[
 //	"table_active_datas",
@@ -58,4 +60,48 @@ view_search.view=function(args)
 
 //	ctrack.map.pins=undefined;
 //	views.map.ajax_heat({limit:200});
+
+	var compare=function(a,b)
+	{
+		var aa=(a.split(">")[1]).split("<")[0];
+		var bb=(b.split(">")[1]).split("<")[0];
+		aa=aa.toLowerCase().replace("the ", "");
+		bb=bb.toLowerCase().replace("the ", "");
+		return ((aa > bb) - (bb > aa));
+	};
+	
+	
+	var a=[];
+	for(var n in iati_codes.crs_countries) // just recipient countries (use CRS list)
+	{
+		var v=iati_codes.country[n];
+		if(v)
+		{
+			var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+			a.push(s);
+		}
+	}
+	a.sort(compare);
+	ctrack.chunk("search_options_country",a.join(""));
+//	console.log(a);
+	
+	var a=[];
+	for(var n in iati_codes.publisher_names)
+	{
+		var v=iati_codes.publisher_names[n];
+		var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+		a.push(s);
+	}
+	a.sort(compare);
+	ctrack.chunk("search_options_publisher",a.join(""));
+
+	var a=[];
+	for(var i=1960;i<2020;i++)
+	{
+		var s="<option value='"+i+"'>"+i+"</option>";
+		a.push(s);
+	}
+	a.sort(compare);
+	ctrack.chunk("search_options_year",a.join(""));
+
 }

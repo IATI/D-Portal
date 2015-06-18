@@ -306,6 +306,7 @@ query.getsql_where=function(q,qv){
 		"":"="
 	};
 
+	var niq=0;
 	for(var n in ns)
 	{
 		for( var qe in qemap )
@@ -352,10 +353,27 @@ query.getsql_where=function(q,qv){
 						var so=[];
 						for(var i=0;i<v.length;i++)
 						{
-							so.push( " $"+n+"_"+i+" " )
-							qv["$"+n+"_"+i]=query.maybenumber(v[i],ty);
+							so.push( " $"+n+qe+"_"+i+" " )
+							qv["$"+n+qe+"_"+i]=query.maybenumber(v[i],ty);
 						}
-						ss.push( " "+n+" IN ("+so.join(",")+") " );
+						if(eq == "=") // make an IN statement
+						{
+							ss.push( " "+n+" IN ("+so.join(",")+") " );
+						}
+						else // explode into a bunch of OR statements
+						{
+							var st=[];
+							st.push( " ( " );
+							for(var i=0;i<so.length;i++)
+							{
+								var v=so[i];
+								if(i>0) { st.push( " OR " ); }
+								st.push( " "+n+" "+eq+v );
+							}
+							st.push( " ) " );
+							
+							ss.push(st.join(""));
+						}
 					}
 				}
 			}
