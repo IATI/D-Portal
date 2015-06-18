@@ -59,8 +59,7 @@ Updates
 d-portal.org is currently being developed and designed so things
 are constantly changing. Thank you for your patience and understanding.
 
-If you would like to keep up to date with discussions on d-portal, 
-join the [mailing list](https://groups.google.com/forum/#!forum/d-portal-list).
+If you have a suggestion or feedback, or would just like to partake in discussions on d-portal, join in by creating a new issue [here](https://github.com/devinit/D-Portal/issues).
 
 We also post daily logs of the nightly import of new IATI data being 
 published to d-portal.org [here](https://groups.google.com/forum/#!forum/d-portal-logs).
