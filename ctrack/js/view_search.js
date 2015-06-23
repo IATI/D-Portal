@@ -25,6 +25,63 @@ view_search.fixup=function()
 {
 //	views.map.fixup();
 
+
+	var lookup={};
+	var strings=[];
+	for(var n in iati_codes.sector_category)
+	{
+		var v=iati_codes.sector_category[n];
+		var s=v+" ("+n+")";
+		if(v)
+		{
+			strings.push(s);
+			lookup[s]={group:"category",value:n,text:v};
+		}
+	}
+	for(var n in iati_codes.sector)
+	{
+		var v=iati_codes.sector[n];
+		var s=v+" ("+n+")";
+		if(v)
+		{
+			strings.push(s);
+			lookup[s]={group:"sector",value:n,text:v};
+		}
+	}
+	for(var n in iati_codes.funder_names)
+	{
+		var v=iati_codes.funder_names[n];
+		var s=v+" ("+n+")";
+		if(v)
+		{
+			strings.push(s);
+			lookup[s]={group:"funder",value:n,text:v};
+		}
+	}
+	for(var n in iati_codes.crs_countries)
+	{
+		var v=iati_codes.country[n];
+		var s=v+" ("+n+")";
+		if(v)
+		{
+			strings.push(s);
+			lookup[s]={group:"country",value:n,text:v};
+		}
+	}
+	for(var n in iati_codes.publisher_names)
+	{
+		var v=iati_codes.publisher_names[n];
+		var s=v+" ("+n+")";
+		strings.push(s);
+		lookup[s]={group:"publisher",value:n,text:v};
+	}
+	for(var i=1960;i<2020;i++)
+	{
+		var s=i+"";
+		strings.push(s);
+		lookup[s]={group:"year",value:s,text:s};
+	}
+
 	var substringMatcher = function(strs) {
 	  return function findMatches(q, cb) {
 		var matches, substringRegex;
@@ -40,34 +97,50 @@ view_search.fixup=function()
 		$.each(strs, function(i, str) {
 		  if (substrRegex.test(str)) {
 			matches.push(str);
+			
+//			console.log(lookup[str]);
 		  }
 		});
 	 
 		cb(matches);
 	  };
 	};
-	 
-	var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-	  'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-	  'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-	  'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-	  'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-	  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-	  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-	  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-	  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-	];
-	 
+
 	$('#view_search_string').typeahead({
 	  hint: true,
 	  highlight: true,
 	  minLength: 1
 	},
 	{
-	  name: 'states',
-	  limit:5,
-	  source: substringMatcher(states)
+	  name: 'ctrack',
+	  limit:65536,
+	  source: substringMatcher(strings)
 	});
+
+	var apply=function(str){
+		var v=lookup[str];
+		if(v)
+		{
+			console.log(v);
+			var hash="#view_search_select_"+v.group;
+			$(hash).parent().show();
+			$(hash).val(v.value).trigger("chosen:updated");
+			var s=$('#view_search_string').val();
+			s=s.replace(str,"");
+			$('#view_search_string').typeahead('val', s);
+		}
+	};
+
+	$('#view_search_string').bind('typeahead:select', function(ev, str) {
+		console.log('typeahead:select: ' + str);
+		apply(str);
+	});
+
+	$('#view_search_string').bind('typeahead:autocomplete', function(ev, str) {
+		console.log('typeahead:autocomplete: ' + str);
+		apply(str);
+	});
+
 }
 //
 // Perform ajax call to get numof data
@@ -115,6 +188,45 @@ view_search.view=function(args)
 	};
 	
 	
+	var a=[];
+	for(var n in iati_codes.funder_names) // CRS funders (maybe multiple iati publishers)
+	{
+		var v=iati_codes.funder_names[n];
+		if(v)
+		{
+			var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+			a.push(s);
+		}
+	}
+	a.sort(compare);
+	ctrack.chunk("search_options_funder",a.join(""));
+
+	var a=[];
+	for(var n in iati_codes.sector) // CRS funders (maybe multiple iati publishers)
+	{
+		var v=iati_codes.sector[n];
+		if(v)
+		{
+			var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+			a.push(s);
+		}
+	}
+	a.sort(compare);
+	ctrack.chunk("search_options_sector",a.join(""));
+
+	var a=[];
+	for(var n in iati_codes.sector_category) // CRS funders (maybe multiple iati publishers)
+	{
+		var v=iati_codes.sector_category[n];
+		if(v)
+		{
+			var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+			a.push(s);
+		}
+	}
+	a.sort(compare);
+	ctrack.chunk("search_options_category",a.join(""));
+
 	var a=[];
 	for(var n in iati_codes.crs_countries) // just recipient countries (use CRS list)
 	{
