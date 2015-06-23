@@ -38,6 +38,18 @@ iati-activity:after 	{content:""; padding:0; display:initial;}	/* Takes away con
 .center_wrap			{width:960px; margin:0 auto; text-align:center;}
 
 
+/*	Settings
+	============================================= */
+#settings				{padding:10px 40px 30px 40px; margin:0 auto; background-color:#fff; margin-bottom:40px;}
+span.settings_info		{min-width:135px; display:inline-block;}
+td.settings_toggle		{text-align:right; vertical-align:middle;}
+a.settings_link span	{color:rgba(255,255,255,0); padding:10px 15px 0 0; display:inline-block; -webkit-transition:color .5s ease-out; -moz-transition:color .5s ease-out; -o-transition:color .5s ease-out; transition:color .5s ease-out;}
+a.settings_link:hover span	{color:rgba(255,255,255,1);}
+td.options				{padding-top:20px;}
+td.options:hover		{cursor:default;}
+td.options form			{display:inline-block;}
+
+
 /*	Breadcrumbs
 	============================================= */
 a.crumb					{display:inline-block; vertical-align:top; padding:0 10px; font-size:1.0em; color:#A8C5E5; line-height:1.1em;}
@@ -228,9 +240,6 @@ th.titles:last-child		{min-width:100px;}
 /*	Table for Header logo and Translations
 	============================================= */
 table.head					{width:100%; margin:0 auto; border-collapse:initial;}
-table.head td.options		{color:#FFF; text-align:right; vertical-align:top; font-size:0.9em;}
-table.head td.options form	{display:inline-block;}
-table.head td.options form.currency	{margin-right:10px;}
 table.head td				{cursor:default;}
 table.head img				{-webkit-filter:brightness(100%); filter:brightness(100%);}
 

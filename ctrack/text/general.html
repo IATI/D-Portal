@@ -76,54 +76,78 @@
 
 #main_country_head
 <div class="default head">
+	{main_settings}
 	<table class="head">
 		<tr>
 			<td rowspan="3">
 				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
 			</td>
-			{main_head_tail}
+			{main_head_tail_settings}
 			
-
+			
 #main_publisher_head
 <div class="default head">
+	{main_settings}
 	<table class="head">
 		<tr>
 			<td rowspan="3">
 				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
 			</td>
-			{main_head_tail}
+			{main_head_tail_settings}
 
 			
-#main_head_tail
-			<td class="options">
-				<form class="currency" action="">
-					<select id="usd_select" name="usd" class="">{all_usd_options}</select>
-				</form>
-				<form action="">
-				<select id="tongue_select" name="tongue" class="">
-					<option value="eng" title="{tongue_eng_tip_text}">{tongue_eng_text}</option>
-					<option value="fra" title="{tongue_fra_tip_text}">{tongue_fra_text}</option>
-					<option value="spa" title="{tongue_spa_tip_text}">{tongue_spa_text}</option>
-					<option value="jpn" title="{tongue_jpn_tip_text}">{tongue_jpn_text}</option>
-					<option value="cmn" title="{tongue_cmn_tip_text}">{tongue_cmn_text}</option>
-					<option value="hin" title="{tongue_hin_tip_text}">{tongue_hin_text}</option>
-				</select>
-				</form>
-			</td>
-		</tr>
-		<tr>
-			<td class="options">
-				<form class="newyear" action="">
-					<span>Year starts on </span>
-					<select id="newyear_select" name="newyear" class="">{all_date_options}</select>
-				</form>
-				<form action="">
-				<select id="flava_select" name="flava" class="">
-					<option value="original">{flava_original_text}</option> 
-					<option value="high">{flava_high_visibility_text}</option> 
-				</select>
-				</form>
-			</td>
+			
+#main_settings
+<div id="settings" style="display:none;">
+<table class="head">
+	<tr>
+		<td class="options">
+			<form class="currency" action="">
+				<span class="settings_info">{settings_currency_text} </span>
+				<select id="usd_select" name="usd" class="">{all_usd_options}</select>
+			</form>
+		</td>
+		<td class="options">
+			<form action="">
+			<span class="settings_info">{settings_language_text} </span>
+			<select id="tongue_select" name="tongue" class="">
+				<option value="eng" title="{tongue_eng_tip_text}">{tongue_eng_text}</option>
+				<option value="fra" title="{tongue_fra_tip_text}">{tongue_fra_text}</option>
+				<option value="spa" title="{tongue_spa_tip_text}">{tongue_spa_text}</option>
+				<option value="jpn" title="{tongue_jpn_tip_text}">{tongue_jpn_text}</option>
+				<option value="cmn" title="{tongue_cmn_tip_text}">{tongue_cmn_text}</option>
+				<option value="hin" title="{tongue_hin_tip_text}">{tongue_hin_text}</option>
+			</select>
+			</form>
+		</td>
+	</tr>
+	<tr>
+		<td class="options">
+			<form class="newyear" action="">
+				<span class="settings_info">{settings_year_text} </span>
+				<select id="newyear_select" name="newyear" class="">{all_date_options}</select>
+			</form>
+		</td>
+		<td class="options">
+			<form action="">
+			<span class="settings_info">{settings_themes_text} </span>
+			<select id="flava_select" name="flava" class="">
+				<option value="original">{flava_original_text}</option> 
+				<option value="high">{flava_high_visibility_text}</option> 
+			</select>
+			</form>
+		</td>
+	</tr>
+</table>
+</div>
+	
+
+#main_head_tail_settings
+		<td class="settings_toggle">
+			<a href="#" onclick="$('#settings').toggle();" class="settings_link">
+				<span>Change Settings</span><img src="{flava}settings.png" width="35" height="35"/>
+			</a>
+		</td>
 		</tr>
 	</table>
 	<div class="crumb_wrap">{crumbs}</div>
@@ -187,6 +211,7 @@
 		});
 	});
 </script>
+
 
 #main_min
 {main_countrymin}
