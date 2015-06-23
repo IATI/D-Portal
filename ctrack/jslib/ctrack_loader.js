@@ -20,6 +20,7 @@ ctrack_loader=function(args){
 	head.load(
 		root+"jslib/jquery.js",
 		root+"jslib/chosen.jquery.min.js",
+		root+"jslib/typeahead.jquery.min.js",
 		root+"jslib/ctrack.min.js",
 //		root+"jslib/ctrack.js",
 	function(){

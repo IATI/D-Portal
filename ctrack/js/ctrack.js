@@ -89,7 +89,8 @@ ctrack.setup=function(args)
 		args.css=[
 				args.art+args.flava+"/activities.css",
 				args.art+args.flava+"/ctrack.css",
-				args.art+"chosen.min.css"
+				args.art+"chosen.min.css",
+				args.art+"typeahead.css"
 		];
 		if(args.rgba) // only if given
 		{
