@@ -35,7 +35,7 @@ view_search.fixup=function()
 		if(v)
 		{
 			strings.push(s);
-			lookup[s]={group:"category",value:n,text:v};
+			lookup[s]={group:"category",value:n,text:v,str:s};
 		}
 	}
 	for(var n in iati_codes.sector)
@@ -45,7 +45,7 @@ view_search.fixup=function()
 		if(v)
 		{
 			strings.push(s);
-			lookup[s]={group:"sector",value:n,text:v};
+			lookup[s]={group:"sector",value:n,text:v,str:s};
 		}
 	}
 	for(var n in iati_codes.funder_names)
@@ -55,7 +55,7 @@ view_search.fixup=function()
 		if(v)
 		{
 			strings.push(s);
-			lookup[s]={group:"funder",value:n,text:v};
+			lookup[s]={group:"funder",value:n,text:v,str:s};
 		}
 	}
 	for(var n in iati_codes.crs_countries)
@@ -65,7 +65,7 @@ view_search.fixup=function()
 		if(v)
 		{
 			strings.push(s);
-			lookup[s]={group:"country",value:n,text:v};
+			lookup[s]={group:"country",value:n,text:v,str:s};
 		}
 	}
 	for(var n in iati_codes.publisher_names)
@@ -73,16 +73,16 @@ view_search.fixup=function()
 		var v=iati_codes.publisher_names[n];
 		var s=v+" ("+n+")";
 		strings.push(s);
-		lookup[s]={group:"publisher",value:n,text:v};
+		lookup[s]={group:"publisher",value:n,text:v,str:s};
 	}
 	for(var i=1960;i<2020;i++)
 	{
 		var s=i+"";
 		strings.push(s);
-		lookup[s]={group:"year",value:s,text:s};
+		lookup[s]={group:"year",value:s,text:s,str:s};
 	}
 
-	var substringMatcher = function(strs) {
+	var substringMatcher = function() {
 	  return function findMatches(q, cb) {
 		var matches, substringRegex;
 	 
@@ -94,17 +94,25 @@ view_search.fixup=function()
 	 
 		// iterate through the pool of strings and for any string that
 		// contains the substring `q`, add it to the `matches` array
-		$.each(strs, function(i, str) {
+		$.each(strings, function(i, str) {
 		  if (substrRegex.test(str)) {
-			matches.push(str);
-			
-//			console.log(lookup[str]);
+			if(lookup[str]) // sanity test
+			{
+				matches.push( lookup[str] );
+//				console.log(lookup[str]);
+			}
 		  }
 		});
 	 
 		cb(matches);
 	  };
 	};
+	
+	var testf=function(a)
+	{
+		console.log(a);
+		return "<div>"+a.str+"</div>";
+	}
 
 	$('#view_search_string').typeahead({
 	  hint: true,
@@ -112,10 +120,17 @@ view_search.fixup=function()
 	  minLength: 1
 	},
 	{
-	  name: 'ctrack',
-	  limit:65536,
-	  source: substringMatcher(strings)
-	});
+		name: 'ctrack',
+		display: function(a){return a.str;},
+		limit:65536,
+		source: substringMatcher(),
+		templates: {
+			suggestion: function(a)
+			{
+				return "<div><img src=\""+ctrack.args.art+""+a.group+".png\"></img>"+a.str+"</div>";
+			}
+		}
+  	});
 
 	var apply=function(str){
 		var v=lookup[str];
