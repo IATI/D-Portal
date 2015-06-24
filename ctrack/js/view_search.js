@@ -28,9 +28,9 @@ view_search.fixup=function()
 
 	var lookup={};
 	var strings=[];
-	for(var n in iati_codes.sector_category)
+	for(var n in iati_codes.sector_names)
 	{
-		var v=iati_codes.sector_category[n];
+		var v=iati_codes.sector_names[n];
 		var s=v+" ("+n+")";
 		if(v)
 		{
@@ -132,28 +132,25 @@ view_search.fixup=function()
 		}
   	});
 
-	var apply=function(str){
-		var v=lookup[str];
+	var apply=function(v){
 		if(v)
 		{
-			console.log(v);
+//			console.log(v);
 			var hash="#view_search_select_"+v.group;
 			$(hash).parent().show();
 			$(hash).val(v.value).trigger("chosen:updated");
 			var s=$('#view_search_string').val();
-			s=s.replace(str,"");
+			s=s.replace(v.str,"");
 			$('#view_search_string').typeahead('val', s);
 		}
 	};
 
-	$('#view_search_string').bind('typeahead:select', function(ev, str) {
-		console.log('typeahead:select: ' + str);
-		apply(str);
+	$('#view_search_string').bind('typeahead:select', function(ev, a) {
+		apply(a);
 	});
 
-	$('#view_search_string').bind('typeahead:autocomplete', function(ev, str) {
-		console.log('typeahead:autocomplete: ' + str);
-		apply(str);
+	$('#view_search_string').bind('typeahead:autocomplete', function(ev, a) {
+		apply(a);
 	});
 
 }
@@ -230,9 +227,9 @@ view_search.view=function(args)
 	ctrack.chunk("search_options_sector",a.join(""));
 
 	var a=[];
-	for(var n in iati_codes.sector_category) // CRS funders (maybe multiple iati publishers)
+	for(var n in iati_codes.sector_names) // CRS funders (maybe multiple iati publishers)
 	{
-		var v=iati_codes.sector_category[n];
+		var v=iati_codes.sector_names[n];
 		if(v)
 		{
 			var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
