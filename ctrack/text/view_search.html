@@ -7,7 +7,7 @@
 
 #view_search
 {view_head}
-<style>{css}.chosen-container 			{min-width:300px;}</style>
+<style>{css}.chosen-container{min-width:300px; max-width:300px;}</style>
 {beige}
 {main_head}
 {view_search_test}
@@ -17,32 +17,38 @@
 
 <div id="view_search_test">
 
-<div style="display:none;" class="search">
+<div class="search">
+	<div class="search_label">RECIPIENT</div>
 <select id="view_search_select_country" class="chosen">
 	<option value></option>
 	{search_options_country}
 </select>
-</div><div style="display:none;" class="search">
+</div><div class="search">
+	<div class="search_label">FUNDER</div>
 <select id="view_search_select_funder" class="chosen">
 	<option value></option>
 	{search_options_funder}
 </select>
-</div><div style="display:none;" class="search">
+</div><div class="search">
+	<div class="search_label">SECTOR</div>
 <select id="view_search_select_sector" class="chosen">
 	<option value></option>
 	{search_options_sector}
 </select>
-</div><div style="display:none;" class="search">
+</div><div class="search">
+	<div class="search_label">SECTOR CATEGORY</div>
 <select id="view_search_select_category" class="chosen">
 	<option value></option>
 	{search_options_category}
 </select>
-</div><div style="display:none;" class="search">
+</div><div class="search">
+	<div class="search_label">PUBLISHER</div>
 <select id="view_search_select_publisher" class="chosen">
 	<option value></option>
 	{search_options_publisher}
 </select>
-</div><div style="display:none;" class="search">
+</div><div class="search">
+	<div class="search_label">YEAR</div>
 <select id="view_search_select_year" class="chosen">
 	<option value></option>
 	{search_options_year}
