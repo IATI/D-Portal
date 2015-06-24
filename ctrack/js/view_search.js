@@ -48,6 +48,7 @@ view_search.fixup=function()
 			lookup[s]={group:"sector",value:n,text:v,str:s};
 		}
 	}
+/*
 	for(var n in iati_codes.funder_names)
 	{
 		var v=iati_codes.funder_names[n];
@@ -58,6 +59,7 @@ view_search.fixup=function()
 			lookup[s]={group:"funder",value:n,text:v,str:s};
 		}
 	}
+*/
 	for(var n in iati_codes.crs_countries)
 	{
 		var v=iati_codes.country[n];
@@ -89,30 +91,52 @@ view_search.fixup=function()
 		// an array that will be populated with substring matches
 		matches = [];
 	 
-		// regex used to determine if a string contains the substring `q`
-		substrRegex = new RegExp(q, 'i');
-	 
-		// iterate through the pool of strings and for any string that
-		// contains the substring `q`, add it to the `matches` array
-		$.each(strings, function(i, str) {
-		  if (substrRegex.test(str)) {
-			if(lookup[str]) // sanity test
+		var words=q.split(/(\s+)/);
+
+		var ups={}
+
+		for(var i in words)
+		{
+			var word=words[i];
+			
+			if((word!="")&&(!word.match(/\s/))) // ignore blank/spaces
 			{
-				matches.push( lookup[str] );
-//				console.log(lookup[str]);
+//console.log("searchin:"+word);
+				substrRegex = new RegExp(word, 'i');
+			 
+				// iterate through the pool of strings and for any string that
+				// contains the substring `q`, add it to the `matches` array
+				$.each(strings, function(i, str) {
+				  if (substrRegex.test(str)) {
+					if(lookup[str]) // sanity test
+					{
+						ups[str]=(ups[str]||0)+1;
+//						matches.push( lookup[str] );
+		//				console.log(lookup[str]);
+					}
+				  }
+				});
 			}
-		  }
+		}
+//		console.log(ups)
+		for(var n in ups)
+		{
+			matches.push( lookup[n] );
+		}
+		matches.sort(function(a,b){
+			var la=ups[a.str];
+			var lb=ups[b.str];
+			if(la==lb){ // sort by text
+				var aa=a.text.toLowerCase().replace("the ", "");
+				var bb=b.text.toLowerCase().replace("the ", "");
+				return ((aa > bb) - (bb > aa));
+			}
+			else if(la<lb) { return 1; } else { return -1; } // sort by number of dupes
 		});
-	 
+			
 		cb(matches);
 	  };
 	};
-	
-	var testf=function(a)
-	{
-		console.log(a);
-		return "<div>"+a.str+"</div>";
-	}
 
 	$('#view_search_string').typeahead({
 	  hint: true,
@@ -212,6 +236,7 @@ view_search.view=function(args)
 	}
 	a.sort(compare);
 	ctrack.chunk("search_options_funder",a.join(""));
+
 
 	var a=[];
 	for(var n in iati_codes.sector) // CRS funders (maybe multiple iati publishers)

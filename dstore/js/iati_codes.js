@@ -569,7 +569,14 @@ if(true)
 				var id=ids[i].trim();
 				if(id!="")
 				{
-					codes.publisher_names[ id ]=jj.title;
+					if(jj.packages.length>0) // ignore unpublished publishers with 0 packages
+					{
+						codes.publisher_names[ id ]=jj.title;
+					}
+					else
+					{
+console.log("unpublished "+id);				
+					}
 					if(jj.extras.publisher_source_type=="secondary_source")
 					{
 						codes.publisher_secondary[id]=jj.title;
