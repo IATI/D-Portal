@@ -7,6 +7,7 @@
 .tt-menu {width:100%; margin:12px 0; padding:8px 0; background-color:#fff;max-height:320px; overflow-y:auto;}
 .tt-suggestion {padding:3px 20px; font-size:18px;}
 .tt-suggestion:hover {cursor:pointer; color:#fff; background-color:#0097cf;}
+.tt-suggestion:hover img {-webkit-filter:invert(1) brightness(200%); filter:invert(1) brightness(200%);}
 .tt-suggestion.tt-cursor {color:#fff; background-color:#0097cf;}
 .tt-suggestion p {margin:0;}
 
