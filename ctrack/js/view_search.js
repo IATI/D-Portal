@@ -127,7 +127,7 @@ view_search.fixup=function()
 		templates: {
 			suggestion: function(a)
 			{
-				return "<div><img src=\""+ctrack.args.art+""+a.group+".png\"></img>"+a.str+"</div>";
+				return "<div><img src=\""+ctrack.args.art+"label_"+a.group+".png\"></img> "+a.str+"</div>";
 			}
 		}
   	});
