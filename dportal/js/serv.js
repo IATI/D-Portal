@@ -22,7 +22,7 @@ app.use(function(req, res, next) {
 		res.contentType('text/html'); // set to html
 	}
 	
-	if( req.headers['user-agent'].indexOf("Trident/5.0") > -1 ) // only if IE9
+	if( req.get('user-agent').indexOf("Trident/5.0") > -1 ) // only if IE9
 	{
 		res.set("X-UA-Compatible", "IE=9"); //This fixes IE9 iframes?
 	}
