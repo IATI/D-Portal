@@ -52,8 +52,6 @@ stop_app (){
 		rm -f $PID_FILE;
 		echo "Node stopped"
 	fi
-	echo "Killing all node procs"
-	killall node
 	sleep 1
 }
 
