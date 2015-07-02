@@ -60,35 +60,6 @@
 {main_money_row}
 
 
-#main_money
-<div class="money_wrap">
-	<div class="money_mod_wrap donor">
-		<div class="money_title donor">
-			{title_donor_text}
-		</div>
-		<div class="peak_space"></div>
-		<div class="main_peak_wrap">
-			<div class="peak donor"></div>
-		</div>
-		<table class="money_mod">{main_money_rows}</table>
-		<a href="#view=donors" class="view_all_money">
-			{link_donor_text}
-		</a>
-	</div><div class="money_mod_wrap sector">
-		<div class="money_title sector">
-			{title_sector_text}
-		</div>
-		<div class="peak_space"></div>
-		<div class="main_peak_wrap">
-			<div class="peak sector"></div>
-		</div>
-		<table class="money_mod">{main_sector_rows}</table>
-		<a href="#view=sectors" class="view_all_money">
-			{link_sector_text}
-		</a>
-	</div>
-</div>
-
 #main_sector_row
 <tr>
 	<td>{sector_group}</td>
@@ -270,7 +241,7 @@
 #donor_graph
 <div class="default">
 <a onmouseover="$('.peak.donor').css({'border-top':'20px solid #33A4FC', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#33A4FC', 'transition-property':'none'});" onmouseout="$('.peak.donor').css({'border-top':'20px solid #008fff', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#008fff', 'transition-property':'none'});" href="#view=donors" class="ask donor">
-	<span class="ask_title">{title_donor_text}</span>
+	<span class="ask_title">{title_donor_year_text}</span>
 	<span class="main_peak_wrap">
 		<span class="peak donor"></span>
 	</span>
@@ -324,7 +295,7 @@
 #sector_graph
 <div class="default graph">
 <a onmouseover="$('.peak.sector').css({'border-top':'20px solid #14EE96', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#14EE96', 'transition-property':'none'});" onmouseout="$('.peak.sector').css({'border-top':'20px solid #00C475', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#00C475', 'transition-property':'none'});" href="#view=sectors" class="ask sector">
-	<span class="ask_title">{title_sector_text}</span>
+	<span class="ask_title">{title_sector_year_text}</span>
 	<span class="main_peak_wrap">
 		<span class="peak sector"></span>
 	</span>
