@@ -728,7 +728,6 @@
 		"revision_id": "061c618f-b8e1-4489-a8ce-31e4634aa8a6",
 		"packages": [
 			"across-activity",
-			"across-activity",
 			"across-org"
 		],
 		"type": "organization",
@@ -5056,7 +5055,7 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "0c29858453faf16bd9d6f2da13e40b3a",
-				"number_of_edits": 8,
+				"number_of_edits": 9,
 				"number_administered_packages": 2,
 				"display_name": "Brooke DiPetrillo",
 				"fullname": "Brooke DiPetrillo",
@@ -6319,7 +6318,7 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "379e6e56caeef813eec5460bebcc8992",
-				"number_of_edits": 8,
+				"number_of_edits": 9,
 				"number_administered_packages": 2,
 				"display_name": "Olivia Sawyer",
 				"fullname": "Olivia Sawyer",
@@ -6685,8 +6684,8 @@
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"email_hash": "4f12623f8197f51cf1efbc665bfd36c5",
-				"number_of_edits": 5,
-				"number_administered_packages": 1,
+				"number_of_edits": 7,
+				"number_administered_packages": 2,
 				"display_name": "development aid from people to people(dapp) malawi",
 				"fullname": "development aid from people to people(dapp) malawi",
 				"id": "57c35fe5-f11f-4742-9576-52d6370902a0"
@@ -6695,7 +6694,7 @@
 		"display_name": "Development Aid from People to People (DAPP) Malawi",
 		"description": "",
 		"title": "Development Aid from People to People (DAPP) Malawi",
-		"package_count": 1,
+		"package_count": 2,
 		"created": "2013-05-16T07:30:02.079591",
 		"approval_status": "approved",
 		"is_organization": true,
@@ -6727,6 +6726,7 @@
 		"groups": [],
 		"revision_id": "2b70af7c-3810-46bd-999f-bd6d94f50bb4",
 		"packages": [
+			"dapp-activities",
 			"dapp-mw"
 		],
 		"type": "organization",
@@ -23210,6 +23210,21 @@
 	"transparency-international": {
 		"users": [
 			{
+				"openid": null,
+				"about": null,
+				"capacity": "admin",
+				"name": "agreen",
+				"created": "2015-06-30T17:12:42.533247",
+				"sysadmin": false,
+				"activity_streams_email_notifications": false,
+				"email_hash": "befcd8559c19fcadb501935bbe1c6427",
+				"number_of_edits": 5,
+				"number_administered_packages": 5,
+				"display_name": "Alex Green",
+				"fullname": "Alex Green",
+				"id": "33add107-b6e5-48a6-b464-cdde012d44a4"
+			},
+			{
 				"openid": "",
 				"about": "Head of Project Accounting",
 				"capacity": "admin",
@@ -23228,7 +23243,7 @@
 		"display_name": "Transparency International Secretariat",
 		"description": "",
 		"title": "Transparency International Secretariat",
-		"package_count": 12,
+		"package_count": 17,
 		"created": "2012-05-24T16:29:10.337334",
 		"approval_status": "approved",
 		"is_organization": true,
@@ -23269,6 +23284,16 @@
 			"transparency-international-10000839",
 			"transparency-international-10000848",
 			"transparency-international-10000913",
+			"transparency-international-10792",
+			"transparency-international-10792",
+			"transparency-international-11003",
+			"transparency-international-11003",
+			"transparency-international-11053",
+			"transparency-international-11053",
+			"transparency-international-11068",
+			"transparency-international-11068",
+			"transparency-international-12001",
+			"transparency-international-12001",
 			"transparency-international-org"
 		],
 		"type": "organization",
