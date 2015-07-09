@@ -83,6 +83,21 @@ iati_xml.get_value_year=function(it,name)
 	return null;
 }
 
+iati_xml.get_value_yearmonth=function(it,name)
+{
+	var t=it;
+	if(name) t=refry.tag(t,name);
+	if(t){
+		if(t["value-date"]){
+			var s=t["value-date"].trim();
+			s=s.replace("-","");
+			s=s.substring(0,6);
+			return parseInt(s,10); // yyyymm
+		}
+	}
+	return null;
+}
+
 iati_xml.get_value_currency=function(it,name)
 {
 	var t=it;
@@ -95,14 +110,14 @@ iati_xml.get_value_currency=function(it,name)
 	return null;
 }
 
-iati_xml.get_usd=function(it,name,default_currency)
+iati_xml.get_ex=function(it,name,ex)
 {
-	var y=iati_xml.get_value_year(it,name) || 2010; // pick a default year?
-	if(y<1990) { y=1990; } // deal with bad year formats
+	var ym=iati_xml.get_value_yearmonth(it,name) || 201001; // pick a default yearmonth?
+	if(ym<199001) { ym=199001; } // deal with bad year formats
 	
-	var x=iati_xml.get_value_currency(it,name) || default_currency || "USD";
+	var x=iati_xml.get_value_currency(it,name) || "USD";
 	var v=iati_xml.get_value(it,name);
-	if("number"==typeof v) { return exs.exchange_year(y,x,v); }
+	if("number"==typeof v) { return exs.exchange_yearmonth(ex,ym,x,v); }
 }
 
 iati_xml.get_code=function(it,name)
