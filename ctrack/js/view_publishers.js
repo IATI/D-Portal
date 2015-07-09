@@ -68,7 +68,10 @@ view_publishers.ajax=function(args)
 			if(!v.b2){v.b2="0";}
 
 			v.publisher=iati_codes.publisher_names[v.reporting_ref] || iati_codes.country[v.reporting_ref] || v.reporting_ref;
-			s.push( plate.replace(args.plate || "{table_publishers_row}",v) );
+			if(v.publisher)
+			{
+				s.push( plate.replace(args.plate || "{table_publishers_row}",v) );
+			}
 		});
 		ctrack.chunk(args.chunk || "table_publishers_rows",s.join(""));
 		ctrack.chunk("table_publishers_count",a.length);
