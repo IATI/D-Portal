@@ -169,10 +169,11 @@ view_publishers.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				d.reporting_ref=v.reporting_ref*ctrack.convert_usd;
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
+				d.reporting_ref=v.reporting_ref;
+				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
 				fadd(d);
 			}
+//			console.log( "b"+(y-year) );
 //			console.log(ctrack.publishers_data);
 			
 			display();
