@@ -212,13 +212,6 @@ view_search.fixup=function()
 			que.push("publisher="+v)
 		}
 
-		var v=$("#view_search_select_publisher").val();		
-		if(v)
-		{
-			txt.push("Where the IATI publisher is \""+v+"\"")
-			que.push("publisher="+v)
-		}
-
 		var v=$("#view_search_select_year").val();		
 		if(v)
 		{
@@ -227,7 +220,7 @@ view_search.fixup=function()
 		}
 
 
-		$("#search_span").html(txt.join("<br/>"));
+		$("#search_span").html("<span>"+txt.join("<span/><span>")+"</span>");
 		$("#search_link").attr("href","?"+que.join("&"));
 		
 	}
