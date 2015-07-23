@@ -244,6 +244,18 @@ table.head td				{cursor:default;}
 table.head img				{-webkit-filter:brightness(100%); filter:brightness(100%);}
 
 
+/*	Table for Search
+	============================================= */
+table.search				{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial; border-bottom:10px solid #FFF;}
+table.search td.head		{font-size:2.0em; line-height:1.1em; color:#FFF;}
+table.search td				{font-size:1.2em; line-height:1.1em; color:#FFF; padding-top:10px; width:320px;}
+table.search td	span		{font-size:0.9em;}
+
+table.search.min			{padding:5px 0 20px 0;}
+table.search.min td.head	{font-size:2.0em; line-height:1.1em; color:#FFF;}
+table.search td:hover		{cursor:default;}
+
+
 /*	Table for Country Name and Flag
 	============================================= */
 table.country				{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial; border-bottom:10px solid #FFF;}

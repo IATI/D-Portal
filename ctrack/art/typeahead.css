@@ -13,11 +13,11 @@
 
 #view_search_test		{margin:auto; width:960px; margin-bottom:480px; margin-top:30px;}
 input#view_search_string, input.typeahead.tt-hint		{font-size:32px; width:936px; height:48px; border:0; margin-top:10px;}
-.search					{display:inline-block; width:320px; margin-bottom:15px;}
-.search_label			{color:#fff;font-size:1em;border-bottom:1px solid #888;padding-bottom:5px;margin-right:23px;margin-bottom:10px;}
-.search_label img		{padding-right:7px;}
+.search_wrap			{display:inline-block; width:320px; margin-bottom:15px;}
+.search_label			{color:#fff;font-size:1.2em;border-bottom:1px solid #FFF;padding-bottom:5px;margin-right:23px;margin-bottom:10px;}
+.search_label img		{padding-right:7px;width:17px;height:17px;}
 
-.search .chosen-container{width:300px;min-width:300px;max-width:300px;}
+.search_wrap .chosen-container{width:300px;min-width:300px;max-width:300px;}
 select.chosen			{width:300px;min-width:300px;max-width:300px;}
 
 .tt-menu img			{width:16px; height:16px;}
