@@ -220,7 +220,7 @@ view_search.fixup=function()
 		}
 
 
-		$("#search_span").html("<span>"+txt.join("<span/><span>")+"</span>");
+		$("#search_span").html("<span>"+txt.join("</span><span>")+"</span>");
 		$("#search_link").attr("href","?"+que.join("&"));
 		
 	}
