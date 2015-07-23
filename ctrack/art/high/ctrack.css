@@ -237,24 +237,17 @@ table.head img				{-webkit-filter:brightness(100%); filter:brightness(100%);}
 
 /*	Table for Search View
 	============================================= */
-table.search				{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial; border-bottom:10px solid #000;}
+table.search				{width:960px; margin:0 auto; padding:5px 0 20px 0; border-collapse:initial; border-bottom:10px solid #000;}
 table.search td.head		{font-size:2.0em; line-height:1.1em; color:#000;}
-table.search td				{font-size:1.1em; line-height:1.1em; color:#000; padding-top:10px; width:320px;}
+table.search td				{font-size:1.0em; line-height:1.1em; color:#000; padding-top:10px; width:240px;}
 table.search td	span		{font-size:0.9em; display:block; padding-top:5px; font-style:italic;}
 
 table.search td.recipient, table.search td.donor, table.search td.sect_cat,
-table.search td.publisher 		{width:290px; padding-right:30px;}
-table.search.min td.recipient, table.search.min td.donor, table.search.min td.sect_cat,
-table.search.min td.publisher	{width:210px; padding-right:30px;}
+table.search td.publisher	{width:210px; padding-right:30px;}
 
 table.search td.sect_cat, table.search td.publisher,
 table.search td.year		{padding-top:20px;}
-table.search.min td.sect_cat, table.search.min td.publisher,
-table.search.min td.year	{padding-top:20px;}
 
-table.search.min			{padding:5px 0 20px 0;}
-table.search.min td.head	{font-size:2.0em; line-height:1.1em; color:#000;}
-table.search.min td			{font-size:1.1em; width:240px;}
 table.search td:hover		{cursor:default;}
 
 
