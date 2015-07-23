@@ -71,10 +71,6 @@
 
 
 #main_head
-{main_country_head}
-{main_publisher_head}
-
-#main_country_head
 <div class="default head">
 	{main_settings}
 	<table class="head">
@@ -83,18 +79,6 @@
 				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
 			</td>
 			{main_head_tail_settings}
-			
-			
-#main_publisher_head
-<div class="default head">
-	{main_settings}
-	<table class="head">
-		<tr>
-			<td rowspan="3">
-				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/></a>
-			</td>
-			{main_head_tail_settings}
-
 			
 			
 #main_settings
@@ -239,7 +223,7 @@
 
 #main_searchmin
 <div class="default min">
-	<table class="search min">
+	<table class="search">
 		<tr>
 			<td colspan="3" rowspan="2" class="head">{search_view_txt}</td>
 			<td class="recipient">Korea, Democratic People's Republic of<span>( {search_recipient_txt})</span></td>
@@ -278,13 +262,11 @@
 </div>
 
 #main_search
-<div class="default">
+<div class="default min">
 	<table class="search">
 		<tr>
-			<td colspan="3" class="head">{search_view_txt}</td>
-          </tr>
-          <tr>
-            <td class="recipient">Korea, Democratic People's Republic of<span>( {search_recipient_txt})</span></td>
+			<td colspan="3" rowspan="2" class="head">{search_view_txt}</td>
+			<td class="recipient">Korea, Democratic People's Republic of<span>( {search_recipient_txt})</span></td>
             <td class="donor">Organisation for Security and Co-operation in Europe<span>( {search_donor_txt})</span></td>
             <td class="sector">Civilian peace-building, conflict prevention and resolution<span>( {search_sector_txt})</span></td>
           </tr><tr>
