@@ -47,6 +47,12 @@ dstore_db.tables={
 		{ name:"description",					NOCASE:true },
 		{ name:"commitment",					REAL:true , INDEX:true }, // USD (C)
 		{ name:"spend",							REAL:true , INDEX:true },  // USD (D+E)
+		{ name:"commitment_eur",				REAL:true , INDEX:true }, // EUR (C)
+		{ name:"spend_eur",						REAL:true , INDEX:true },  // EUR (D+E)
+		{ name:"commitment_gbp",				REAL:true , INDEX:true }, // GBP (C)
+		{ name:"spend_gbp",						REAL:true , INDEX:true },  // GBP (D+E)
+		{ name:"commitment_cad",				REAL:true , INDEX:true }, // CAD (C)
+		{ name:"spend_cad",						REAL:true , INDEX:true },  // CAD (D+E)
 		{ name:"flags",							INTEGER:true , INDEX:true },
 // FLAGS set to 0 if good otherwise
 // 1 == secondary publisher so transactions/budgets should be ignored to avoid double accounting
@@ -59,6 +65,9 @@ dstore_db.tables={
 		{ name:"trans_currency",				NOCASE:true , INDEX:true },
 		{ name:"trans_value",					REAL:true , INDEX:true },
 		{ name:"trans_usd",						REAL:true , INDEX:true },
+		{ name:"trans_eur",						REAL:true , INDEX:true },
+		{ name:"trans_gbp",						REAL:true , INDEX:true },
+		{ name:"trans_cad",						REAL:true , INDEX:true },
 		{ name:"trans_code",					NOCASE:true , INDEX:true },
 		{ name:"trans_flow_code",				NOCASE:true , INDEX:true },
 		{ name:"trans_finance_code",			NOCASE:true , INDEX:true },
@@ -78,6 +87,9 @@ dstore_db.tables={
 		{ name:"budget_currency",				NOCASE:true , INDEX:true },
 		{ name:"budget_value",					REAL:true , INDEX:true },
 		{ name:"budget_usd",					REAL:true , INDEX:true },
+		{ name:"budget_eur",					REAL:true , INDEX:true },
+		{ name:"budget_gbp",					REAL:true , INDEX:true },
+		{ name:"budget_cad",					REAL:true , INDEX:true },
 	],
 	country:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -289,7 +301,10 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 		t["trans_currency"]=		iati_xml.get_value_currency(it,"value");
 		t["trans_value"]=			iati_xml.get_value(it,"value");
-		t["trans_usd"]=				iati_xml.get_usd(it,"value");
+		t["trans_usd"]=				iati_xml.get_ex(it,"value","USD");
+		t["trans_eur"]=				iati_xml.get_ex(it,"value","EUR");
+		t["trans_gbp"]=				iati_xml.get_ex(it,"value","GBP");
+		t["trans_cad"]=				iati_xml.get_ex(it,"value","CAD");
 
 // map new 201 codes to old		
 		t["trans_code"]= codes.transaction_type_map[ t["trans_code"] ] || t["trans_code"];
@@ -345,7 +360,10 @@ dstore_db.refresh_act = function(db,aid,xml){
 		
 		t["budget_currency"]=				iati_xml.get_value_currency(it,"value");
 		t["budget_value"]=					iati_xml.get_value(it,"value");
-		t["budget_usd"]=					iati_xml.get_usd(it,"value");
+		t["budget_usd"]=					iati_xml.get_ex(it,"value","USD");
+		t["budget_eur"]=					iati_xml.get_ex(it,"value","EUR");
+		t["budget_gbp"]=					iati_xml.get_ex(it,"value","GBP");
+		t["budget_cad"]=					iati_xml.get_ex(it,"value","CAD");
 
 		t.jml=JSON.stringify(it);
 		
@@ -406,6 +424,13 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 		t.commitment=0;
 		t.spend=0;
+		t.commitment_eur=0;
+		t.spend_eur=0;
+		t.commitment_gbp=0;
+		t.spend_gbp=0;
+		t.commitment_cad=0;
+		t.spend_cad=0;
+
 		refry.tags(act,"transaction",function(it){
 			var code=iati_xml.get_code(it,"transaction-type");
 			code= codes.transaction_type_map[code] || code ; // map new 201 codes to old letters
@@ -413,13 +438,17 @@ dstore_db.refresh_act = function(db,aid,xml){
 			code=code && (code.toUpperCase());
 			if(code=="C")
 			{
-				var usd=iati_xml.get_usd(it,"value");
-				t.commitment+=usd;
+				var usd=iati_xml.get_ex(it,"value","USD");	t.commitment+=usd;
+				var eur=iati_xml.get_ex(it,"value","EUR");	t.commitment_eur+=eur;
+				var gbp=iati_xml.get_ex(it,"value","GBP");	t.commitment_gbp+=gbp;
+				var cad=iati_xml.get_ex(it,"value","CAD");	t.commitment_cad+=cad;
 			}
 			if( (code=="D") || (code=="E") )
 			{
-				var usd=iati_xml.get_usd(it,"value");
-				t.spend+=usd;
+				var usd=iati_xml.get_ex(it,"value","USD");	t.spend+=usd;
+				var eur=iati_xml.get_ex(it,"value","EUR");	t.spend_eur+=eur;
+				var gbp=iati_xml.get_ex(it,"value","GBP");	t.spend_gbp+=gbp;
+				var cad=iati_xml.get_ex(it,"value","CAD");	t.spend_cad+=cad;
 			}
 		});
 //console.log("C="+t.commitment+"\tD+E="+t.spend);
@@ -573,7 +602,6 @@ dstore_db.refresh_act = function(db,aid,xml){
 		}
 		
 		
-		t.default_currency=act["default-currency"];
 		
 //		t.xml=xml;
 		t.jml=JSON.stringify(act);

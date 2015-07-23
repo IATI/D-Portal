@@ -25,18 +25,23 @@ var genes={};
 	genes.list_activities={
 		limit:true,
 		maxheight:true,
+		usd:true,
 		name:"List of activities (highest to lowest)"
 	};
 	genes.publisher_countries={
+		usd:true,
 		name:"Recipients (table)"
 	};
 	genes.publisher_countries_top={
+		usd:true,
 		name:"Top Recipients (graph)"
 	};
 	genes.publisher_sectors={
+		usd:true,
 		name:"Sectors (table)"
 	};
 	genes.publisher_sectors_top={
+		usd:true,
 		name:"Top Sectors (graph)"
 	};
 	genes.map={
@@ -47,18 +52,22 @@ var genes={};
 	};
 	genes.donors={
 		crs:true,
+		usd:true,
 		name:"Donors for a single recipient (table)"
 	};
 	genes.donors_top={
 		crs:true,
+		usd:true,
 		name:"Top Donors for a single recipient (graph)"
 	};
 	genes.sectors={
 		crs:true,
+		usd:true,
 		name:"Sectors for a single recipient (table)"
 	};
 	genes.sectors_top={
 		crs:true,
+		usd:true,
 		name:"Top Sectors for a single recipient (graph)"
 	};
 	genes.act={
@@ -239,6 +248,19 @@ view_generator.fixup=function()
 			$("#generator_aid_div").hide();
 		}
 				
+		if(gene.usd)
+		{
+			$("#generator_usd_div").show();
+			if($("#generator_usd").val() != "")
+			{
+				q=q+"usd="+$("#generator_usd").val()+"&";
+			}
+		}
+		else
+		{
+			$("#generator_usd_div").hide();
+		}
+		
 		if(crs_ok || (!gene.crs) )
 		{
 			view_generator.crs_ok=true;
@@ -273,6 +295,7 @@ view_generator.fixup=function()
 	$("#generator_limit").change(change);
 	$("#generator_maxheight").change(change);
 	$("#generator_maxheight_dropdown").change(change);
+	$("#generator_usd").change(change);
 
 	if(!view_generator.interval)
 	{
@@ -370,4 +393,9 @@ view_generator.view=function(args)
 	a.sort(ss);
 	ctrack.chunk("generator_options_height",a.join(""));
 
+	var ss=[];
+	for(var i in iati_codes.iati_currencies) { var it=iati_codes.iati_currencies[i];
+		ss.push('<option value="'+it.id+'">'+it.name+'</option>');
+	}
+	ctrack.chunk("generator_options_usd",ss.join());
 }

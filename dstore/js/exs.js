@@ -12,6 +12,8 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var years=require('../json/usd_year.json');
 
+var months=require('../json/xdr_month.json');
+
 // exchange at the given years rate into usd
 exs.exchange_year=function(year,ex,val)
 {
@@ -32,6 +34,32 @@ exs.exchange_year=function(year,ex,val)
 			}
 		}
 	}
+	return ret;
+}
+
+// exchange at the given years rate from ex currency into exto currency
+exs.exchange_yearmonth=function(exto,yearmonth,ex,val)
+{
+	if("number"!=typeof val) { val=1; } // default of 1
+	exto=exto.toUpperCase();
+	ex=ex.toUpperCase();
+	var ret;
+	var best=999912; // good for the next 8000 years
+	for(var ym in months)
+	{
+		var v=months[ym];
+		if(v[ex] && v[exto]) // both available
+		{
+			var ymi=parseInt( ym.replace("-","") ,10);
+			var test=Math.abs(ymi-yearmonth);
+			if(test<best)
+			{
+				ret=val*v[ex]/v[exto];
+				best=test;
+			}
+		}
+	}
+
 	return ret;
 }
 

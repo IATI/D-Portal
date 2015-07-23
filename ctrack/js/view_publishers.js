@@ -68,7 +68,10 @@ view_publishers.ajax=function(args)
 			if(!v.b2){v.b2="0";}
 
 			v.publisher=iati_codes.publisher_names[v.reporting_ref] || iati_codes.country[v.reporting_ref] || v.reporting_ref;
-			s.push( plate.replace(args.plate || "{table_publishers_row}",v) );
+			if(v.publisher)
+			{
+				s.push( plate.replace(args.plate || "{table_publishers_row}",v) );
+			}
 		});
 		ctrack.chunk(args.chunk || "table_publishers_rows",s.join(""));
 		ctrack.chunk("table_publishers_count",a.length);
@@ -169,10 +172,11 @@ view_publishers.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				d.reporting_ref=v.reporting_ref*ctrack.convert_usd;
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
+				d.reporting_ref=v.reporting_ref;
+				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
 				fadd(d);
 			}
+//			console.log( "b"+(y-year) );
 //			console.log(ctrack.publishers_data);
 			
 			display();

@@ -143,7 +143,8 @@ iati_codes.fetch = function(){
 	refry.tags(j,{0:"table",class:"wikitable"},function(it){
 		refry.tags(it,"td",function(it){
 			var name=it.title;
-			var code=refry.tagval_trim(it,"tt");
+			var code=refry.tagval_trim(it,"span");
+//console.log(code+" : "+name);
 			if( name && code )
 			{
 				if(name!="unassigned" && name!="user-assigned")
@@ -151,7 +152,10 @@ iati_codes.fetch = function(){
 					var aa=name.split(":");
 					if(aa[1])
 					{
-						o[code]=aa[1].trim();
+						if(aa[0]!="not used at present stage") // ignore names that must never be used
+						{
+							o[code]=aa[1].trim();
+						}
 					}
 					else
 					{
