@@ -241,9 +241,30 @@ deleteFolderRecursive = function(path) {
 	});
 	chunkopts["publishers"]=pubs;
 
-	chunkopts["publisher_names_json"]=JSON.stringify( json_iati_codes["publisher_names"] );
-
+// auto update the countries chunk
+	var ccs=[];
+	for(var id in json_iati_codes["crs_countries"])
+	{
+		var name=json_iati_codes["country"][id];
+		if(name)
+		{
+			var d={name:name,id:id};
+			ccs.push(d);
+		}
+	}
+	ccs.sort(function(a, b) {
+		var ta = a.name.toUpperCase();
+		var tb = b.name.toUpperCase();
+		return (ta < tb) ? -1 : (ta > tb) ? 1 : 0 ;
+	});
+	chunkopts["countries"]=ccs;
 	
+	
+	chunkopts["publisher_names_json"]=JSON.stringify( json_iati_codes["publisher_names"] );
+	chunkopts["country_names_json"]=JSON.stringify( json_iati_codes["country"] );
+	chunkopts["crs_countries_json"]=JSON.stringify( json_iati_codes["crs_countries"] );
+
+
 	find_pages("")
 
 // copy raw files into static
