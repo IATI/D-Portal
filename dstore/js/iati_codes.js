@@ -152,7 +152,10 @@ iati_codes.fetch = function(){
 					var aa=name.split(":");
 					if(aa[1])
 					{
-						o[code]=aa[1].trim();
+						if(aa[0]!="not used at present stage") // ignore names that must never be used
+						{
+							o[code]=aa[1].trim();
+						}
 					}
 					else
 					{
