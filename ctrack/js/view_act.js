@@ -55,15 +55,16 @@ view_act.ajax=function(args)
 			"aid":args.aid,
 			"location_latitude":args.lat,
 			"location_longitude":args.lng,
-			"country_code":(args.country || ctrack.args.country_select),
-			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-			"title_like":(args.search || ctrack.args.search),
+//			"country_code":(args.country || ctrack.args.country_select),
+//			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+//			"title_like":(args.search || ctrack.args.search),
 		};
-	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
-	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
-	for(var n in args.q) { dat[n]=args.q[n]; }
-	if(dat.country_code) { dat.from+=",country"; }
-	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
+//	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
+//	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
+//	for(var n in args.q) { dat[n]=args.q[n]; }
+//	if(dat.country_code) { dat.from+=",country"; }
+//	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
+	fetch.ajax_dat_fix(dat,args);
 	if(dat.aid){
 		delete dat.location_latitude;
 		delete dat.location_longitude;

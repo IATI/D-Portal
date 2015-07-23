@@ -242,12 +242,16 @@ view_map.ajax_heat=function(args)
 			"location_latitude_not_null":1,
 			"orderby":"1-",
 			"groupby":"2,3",
-			"country_code":(args.country || ctrack.args.country_select),
-			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-			"title_like":(args.search || ctrack.args.search),
+//			"country_code":(args.country || ctrack.args.country_select),
+//			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+//			"title_like":(args.search || ctrack.args.search),
 		};
-	if(dat.country_code) { dat.from+=",country"; dat.country_percent=100; }
-	
+	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100; }
+
+	fetch.ajax_dat_fix(dat,args);
+
+
+
 	if(args.round==0) // group more locations togethere (less precise)
 	{
 		dat.select="count,round0_location_longitude,round0_location_latitude";
@@ -316,11 +320,12 @@ view_map.ajax_pins=function(args)
 			"location_latitude_not_null":1,
 			"orderby":"1-",
 			"groupby":"2,3",
-			"country_code":(args.country || ctrack.args.country_select),
-			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-			"title_like":(args.search || ctrack.args.search),
+//			"country_code":(args.country || ctrack.args.country_select),
+//			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+//			"title_like":(args.search || ctrack.args.search),
 		};
-	if(dat.country_code) { dat.from+=",country"; dat.country_percent=100; }
+	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100; }
+	fetch.ajax_dat_fix(dat,args);
 		
 	fetch.ajax(dat,args.callback || function(data)
 	{

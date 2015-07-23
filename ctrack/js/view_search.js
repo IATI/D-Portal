@@ -160,6 +160,7 @@ view_search.fixup=function()
 	
 		var txt=[];
 		var que=[];
+		var q={};
 		
 //		que.push("this is a test");
 //		txt.push("this is a test");
@@ -170,6 +171,7 @@ view_search.fixup=function()
 		{
 			txt.push("Searching activity title for the term \""+v+"\"")
 			que.push("search="+v)
+			q.title_like="%"+v+"%";
 		}
 		else
 		{
@@ -182,6 +184,7 @@ view_search.fixup=function()
 		{
 			txt.push("Where the recipient country is \""+v+"\"")
 			que.push("country="+v)
+			q.country_code=v;
 		}
 		
 		var v=$("#view_search_select_funder").val();		
@@ -189,20 +192,23 @@ view_search.fixup=function()
 		{
 			txt.push("Where the CRS funder is \""+v+"\"")
 			que.push("funder="+v)
+			q.funder_ref=v;
 		}
 
 		var v=$("#view_search_select_sector").val();		
 		if(v)
 		{
 			txt.push("Where the IATI sector is \""+v+"\"")
-			que.push("sector="+v)
+			que.push("sector_code="+v)
+			q.sector_code=v;
 		}
 
 		var v=$("#view_search_select_category").val();		
 		if(v)
 		{
 			txt.push("Where the IATI sector category is \""+v+"\"")
-			que.push("category="+v)
+			que.push("sector_group="+v)
+			q.sector_group=v;
 		}
 
 		var v=$("#view_search_select_publisher").val();		
@@ -210,19 +216,25 @@ view_search.fixup=function()
 		{
 			txt.push("Where the IATI publisher is \""+v+"\"")
 			que.push("publisher="+v)
+			q.reporting_ref=v;
 		}
 
 		var v=$("#view_search_select_year").val();		
 		if(v)
 		{
 			txt.push("Where the year reported to IATI is \""+v+"\"")
-			que.push("year="+v)
+			que.push("year_min="+v);
+			que.push("year_max="+v);
+			que.push("year="+v);
+			q.day_start_lteq=(parseInt(v,10)+1)+"-01-01";
+			q.day_end_gt=(parseInt(v,10))+"-01-01";
 		}
 
 
 		$("#search_span").html("<span>"+txt.join("</span><span>")+"</span>");
-		$("#search_link").attr("href","?"+que.join("&"));
+		$("#search_link").attr("href","?"+que.join("&")+"#view=main");
 		
+		view_search.ajax({q:q});
 	}
 	
 	var o={allow_single_deselect:true,search_contains:true};
@@ -256,7 +268,7 @@ view_search.fixup=function()
 		build_query();
 	});
 	
-	$('#view_search_string').bind('typeahead:change', function(ev, a) {
+	$('#view_search_string').bind('change', function(ev, a) {
 		build_query();
 	});
 
@@ -380,4 +392,25 @@ view_search.view=function(args)
 	a.sort(compare);
 	ctrack.chunk("search_options_year",a.join(""));
 
+
+	view_search.ajax();
+}
+
+
+view_search.ajax=function(args)
+{
+	var args=args || {};
+	var dat={
+			"from":"act",
+			"limit":-1,
+			"select":"count_aid",
+		};
+	fetch.ajax_dat_fix(dat,args);
+	
+	$("#result_span").html("...");
+	fetch.ajax(dat,function(data){
+		var c=data.rows[0]["count_aid"];
+		$("#result_span").html("Found "+c+" activities");
+	});
+	
 }

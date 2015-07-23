@@ -49,3 +49,65 @@ fetch.ajax=function(dat,callback)
 	  success: callback
 	});
 }
+
+
+//modify dat so it reflects the args or base settings (eg limit to a publisher)
+fetch.ajax_dat_fix=function(dat,args)
+{
+
+// possibly do not need...
+	dat["country_code"]		=	dat["country_code"]		||	args.country;
+	dat["reporting_ref"]	=	dat["reporting_ref"]	||	args.publisher;
+
+// check for globals
+	dat["country_code"]		=	dat["country_code"]		||	ctrack.args.country_select;
+	dat["reporting_ref"]	=	dat["reporting_ref"]	||	ctrack.args.publisher_select;
+	dat["title_like"]		=	dat["title_like"]		||	ctrack.args.search;
+	dat["sector_code"]		=	dat["sector_code"]		||	ctrack.args.sector_code_select;
+	dat["sector_group"]		=	dat["sector_group"]		||	ctrack.args.sector_group_select;
+	dat["funder_ref"]		=	dat["funder_ref"]		||	ctrack.args.funder_ref_select;
+
+	if( !dat["day_start_lteq"] )
+	{
+		if(ctrack.args.year_max)
+		{
+			dat["day_start_lteq"]=(ctrack.args.year_max+1) + "-01-01"
+		}
+	}
+
+	if( !dat["day_end_gt"] )
+	{
+		if(ctrack.args.year_min)
+		{
+			dat["day_end_gt"]=(ctrack.args.year_min) + "-01-01"
+		}
+	}
+
+
+//	dat["day_start_lt"]		=	dat["day_start_lt"]		||	(args.date_max 		|| ctrack.args.date_max);
+//	dat["day_end_gteq"]		=	dat["day_end_gteq"]		||	(args.date_min 		|| ctrack.args.date_min);
+
+// allow hash overide what we have
+	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
+
+// then allow passed in args to overide that
+	for(var n in args.q) { dat[n]=args.q[n]; }
+
+
+// join any extra tables we might now need due to extra restrictions
+	if( dat.sector_code || dat.sector_group )
+	{
+		if(dat.from.indexOf("sector")==-1) { dat.from+=",sector"; }
+	}
+	if(dat.country_code)
+	{
+		if(dat.from.indexOf("country")==-1) { dat.from+=",country"; }
+	}
+	if( dat.location_latitude || dat.location_longitude )
+	{
+		if(dat.from.indexOf("location")==-1) { dat.from+=",location"; }
+	}
+
+	return dat;
+}
+

@@ -49,21 +49,23 @@ view_list_budgets.ajax=function(args)
 			"groupby":"aid",
 			"orderby":"1-",
 			"budget_priority":1, // has passed some validation checks serverside
-			"country_code":(args.country || ctrack.args.country_select),
-			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-			"title_like":(args.search || ctrack.args.search),
+//			"country_code":(args.country || ctrack.args.country_select),
+//			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+//			"title_like":(args.search || ctrack.args.search),
 		};
-	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
-	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
-	for(var n in args.q) { dat[n]=args.q[n]; }
-	if(dat.sector_code||dat.sector_group) { dat.from+=",sector"; }
-	if(dat.country_code) { dat.from+=",country"; }
-	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
+//	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
+//	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
+//	for(var n in args.q) { dat[n]=args.q[n]; }
+//	if(dat.sector_code||dat.sector_group) { dat.from+=",sector"; }
+//	if(dat.country_code) { dat.from+=",country"; }
+//	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 	if(dat.year)
 	{
 		dat["budget_day_end_gteq"]=(parseInt(dat.year)+0)+"-"+ctrack.args.newyear;
 		dat["budget_day_end_lt"]=(parseInt(dat.year)+1)+"-"+ctrack.args.newyear;
 	}
+	fetch.ajax_dat_fix(dat,args);
+
 	if(args.output=="count") // just count please
 	{
 		dat.select="count";

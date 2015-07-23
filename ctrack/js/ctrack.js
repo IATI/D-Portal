@@ -185,6 +185,35 @@ ctrack.setup=function(args)
 		args.chunks["back_publisher"]="";
 	}
 
+
+	if( ctrack.q.sector_code )
+	{
+		var cc=ctrack.q.sector_code.split(","); if(cc.length==1) { ctrack.q.sector_code.split("|"); }
+		args.sector_code=cc[0];
+		args.sector_code_select=cc.join("|");
+	}
+	if( ctrack.q.sector_group )
+	{
+		var cc=ctrack.q.sector_group.split(","); if(cc.length==1) { ctrack.q.sector_group.split("|"); }
+		args.sector_group=cc[0];
+		args.sector_group_select=cc.join("|");
+	}
+	if( ctrack.q.funder )
+	{
+		var cc=ctrack.q.funder.split(","); if(cc.length==1) { ctrack.q.funder.split("|"); }
+		args.funder_ref=cc[0];
+		args.funder_ref_select=cc.join("|");
+	}
+	if( ctrack.q.year_max )
+	{
+		args.year_max=parseInt(ctrack.q.year_max,10);
+	}
+	if( ctrack.q.year_min )
+	{
+		args.year_min=parseInt(ctrack.q.year_min,10);
+	}
+
+
 	if( ctrack.q.search || (ctrack.q.search=="") )
 	{
 		if( ctrack.q.search!="" )
@@ -218,7 +247,68 @@ ctrack.setup=function(args)
 		args.chunks["main_search"]="";
 		args.chunks["main_searchmin"]="";
 	}
+	ctrack.search_fixup=function(args){
+		args=args || ctrack.args;
+		if(args.showsearch)
+		{
+			$(".search .recipient").parent().hide();
+			$(".search .publisher").parent().hide();
+			$(".search .text").parent().hide();
+			$(".search .sector").parent().hide();
+			$(".search .sect_cat").parent().hide();
+			$(".search .donor").parent().hide();
+			$(".search .year").parent().hide();
 
+			if(args.country_select)
+			{
+				var s=$(".search .recipient");
+				var v=args.country_select.toUpperCase();
+				s.text( iati_codes.country[v] || v );
+				s.parent().show();
+			}
+			if(args.publisher_select)
+			{
+				var s=$(".search .publisher");
+				var v=args.publisher_select;
+				s.text( iati_codes.publisher_names[v] || v );
+				s.parent().show();
+			}
+			if(args.sector_code_select)
+			{
+				var s=$(".search .sector");
+				var v=args.sector_code_select;
+				s.text( iati_codes.sector[v] || v  );
+				s.parent().show();
+			}
+			if(args.sector_group_select)
+			{
+				var s=$(".search .sect_cat");
+				var v=args.sector_group_select;
+				s.text( iati_codes.sector_names[v] || v );
+				s.parent().show();
+			}
+			if(args.funder_ref_select)
+			{
+				var s=$(".search .donor");
+				var v=args.funder_ref_select;
+				s.text( iati_codes.funder_names[v] || v  );
+				s.parent().show();
+			}
+			if(args.year_min && args.year_max)
+			{
+				var s=$(".search .year");
+				s.text( args.year_min +" - "+ args.year_max );
+				s.parent().show();
+			}
+			if(args.search)
+			{
+				var s=$(".search .text");
+				s.text( args.search.split("%").join("") );
+				s.parent().show();
+			}
+
+		}
+	};
 
 	if(args.publisher)
 	{
@@ -484,6 +574,7 @@ ctrack.setup=function(args)
 				{
 					v.fixup();
 				}
+				ctrack.search_fixup();
 				$("select.chosen").chosen({allow_single_deselect:true,search_contains:true});
 			}
 		}

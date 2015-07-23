@@ -68,11 +68,12 @@ view_stats.ajax=function(args)
 	var dat={
 			"select":"stats",
 			"from":"act",
-			"country_code":(args.country || ctrack.args.country_select),
-			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-			"title_like":(args.search || ctrack.args.search),
+//			"country_code":(args.country || ctrack.args.country_select),
+//			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+//			"title_like":(args.search || ctrack.args.search),
 		};
-	if(dat.country_code) { dat.from+=",country"; }
+//	if(dat.country_code) { dat.from+=",country"; }
+	fetch.ajax_dat_fix(dat,args);
 		
 	fetch.ajax(dat,args.callback || function(data)
 	{
@@ -97,11 +98,12 @@ view_stats.ajax=function(args)
 			"limit":-1,
 			"location_longitude_not_null":1, // must have a location
 			"location_latitude_not_null":1, // must have a location
-			"country_code":(args.country || ctrack.args.country_select),
-			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-			"title_like":(args.search || ctrack.args.search),
+//			"country_code":(args.country || ctrack.args.country_select),
+//			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
+//			"title_like":(args.search || ctrack.args.search),
 		};
-	if(dat.country_code) { dat.from+=",country"; dat.country_percent=100;}
+	fetch.ajax_dat_fix(dat,args);
+	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100;}
 
 	fetch.ajax(dat,args.callback || function(data)
 	{
