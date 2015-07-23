@@ -70,7 +70,7 @@ ctrack.setup=function(args)
 	ctrack.q={};
 	window.location.search.substring(1).split("&").forEach(function(n){
 		var aa=n.split("=");
-		ctrack.q[aa[0]]=decodeURIComponent(aa[1]);
+		ctrack.q[aa[0]]=decodeURIComponent(aa[1]||"");
 	});
 	
 	args=args || {};
@@ -125,7 +125,7 @@ ctrack.setup=function(args)
 		}
 	}
 	args.chunks["USD"]=ctrack.display_usd;
-console.log("convert USD "+ctrack.convert_usd);
+//console.log("convert USD "+ctrack.convert_usd);
 	
 // temporary country force hack
 	if( ctrack.q.country )
@@ -187,13 +187,14 @@ console.log("convert USD "+ctrack.convert_usd);
 
 	if( ctrack.q.search || (ctrack.q.search=="") )
 	{
-		if( ( typeof(ctrack.q.search) == "string" ) && ctrack.q.search!="" )
+		if( ctrack.q.search!="" )
 		{
 			ctrack.args.search="%"+ctrack.q.search+"%";
 		}
 // always show search headers and hide publisher/country headers even if the searchstring is empty
 		ctrack.args.showsearch=true;
 	}
+//console.log("search="+ctrack.args.search);
 
 // show special search header
 	if(ctrack.args.showsearch)

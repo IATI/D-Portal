@@ -156,6 +156,90 @@ view_search.fixup=function()
 		}
   	});
 
+	var build_query=function(e){
+	
+		var txt=[];
+		var que=[];
+		
+//		que.push("this is a test");
+//		txt.push("this is a test");
+		
+		var v=$('#view_search_string').val();
+		
+		if(v)
+		{
+			txt.push("Searching activity title for the term \""+v+"\"")
+			que.push("search="+v)
+		}
+		else
+		{
+			txt.push("Searching for any activities")
+			que.push("search")
+		}
+
+		var v=$("#view_search_select_country").val();		
+		if(v)
+		{
+			txt.push("Where the recipient country is \""+v+"\"")
+			que.push("country="+v)
+		}
+		
+		var v=$("#view_search_select_funder").val();		
+		if(v)
+		{
+			txt.push("Where the CRS funder is \""+v+"\"")
+			que.push("funder="+v)
+		}
+
+		var v=$("#view_search_select_sector").val();		
+		if(v)
+		{
+			txt.push("Where the IATI sector is \""+v+"\"")
+			que.push("sector="+v)
+		}
+
+		var v=$("#view_search_select_category").val();		
+		if(v)
+		{
+			txt.push("Where the IATI sector category is \""+v+"\"")
+			que.push("category="+v)
+		}
+
+		var v=$("#view_search_select_publisher").val();		
+		if(v)
+		{
+			txt.push("Where the IATI publisher is \""+v+"\"")
+			que.push("publisher="+v)
+		}
+
+		var v=$("#view_search_select_publisher").val();		
+		if(v)
+		{
+			txt.push("Where the IATI publisher is \""+v+"\"")
+			que.push("publisher="+v)
+		}
+
+		var v=$("#view_search_select_year").val();		
+		if(v)
+		{
+			txt.push("Where the year reported to IATI is \""+v+"\"")
+			que.push("year="+v)
+		}
+
+
+		$("#search_span").html(txt.join("<br/>"));
+		$("#search_link").attr("href","?"+que.join("&"));
+		
+	}
+	
+	var o={allow_single_deselect:true,search_contains:true};
+	$("#view_search_select_country").chosen(o).change(build_query);
+	$("#view_search_select_funder").chosen(o).change(build_query);
+	$("#view_search_select_sector").chosen(o).change(build_query);
+	$("#view_search_select_category").chosen(o).change(build_query);
+	$("#view_search_select_publisher").chosen(o).change(build_query);
+	$("#view_search_select_year").chosen(o).change(build_query);
+
 	var apply=function(v){
 		if(v)
 		{
@@ -171,10 +255,16 @@ view_search.fixup=function()
 
 	$('#view_search_string').bind('typeahead:select', function(ev, a) {
 		apply(a);
+		build_query();
 	});
 
 	$('#view_search_string').bind('typeahead:autocomplete', function(ev, a) {
 		apply(a);
+		build_query();
+	});
+	
+	$('#view_search_string').bind('typeahead:change', function(ev, a) {
+		build_query();
 	});
 
 }
