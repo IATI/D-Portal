@@ -185,11 +185,39 @@ console.log("convert USD "+ctrack.convert_usd);
 		args.chunks["back_publisher"]="";
 	}
 
-	if( ctrack.q.search )
+	if( ctrack.q.search || (ctrack.q.search=="") )
 	{
-//		console.log(ctrack.q.search);
-		ctrack.args.search="%"+ctrack.q.search+"%";
+		if( ( typeof(ctrack.q.search) == "string" ) && ctrack.q.search!="" )
+		{
+			ctrack.args.search="%"+ctrack.q.search+"%";
+		}
+// always show search headers and hide publisher/country headers even if the searchstring is empty
+		ctrack.args.showsearch=true;
 	}
+
+// show special search header
+	if(ctrack.args.showsearch)
+	{
+// fill in possible search vars...
+
+		args.chunks["main_countrymin"]="";
+		args.chunks["main_country"]="";
+		args.chunks["main_country_head"]="";
+		args.chunks["back_country"]="";
+		
+		args.chunks["main_pubmin"]="";
+		args.chunks["main_publisher"]="";
+		args.chunks["main_publisher_head"]="";
+		args.chunks["main_publisher_map"]="";
+		args.chunks["publisher_name"]="";
+		args.chunks["back_publisher"]="";
+	}
+	else
+	{
+		args.chunks["main_search"]="";
+		args.chunks["main_searchmin"]="";
+	}
+
 
 	if(args.publisher)
 	{
