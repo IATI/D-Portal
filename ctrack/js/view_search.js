@@ -219,17 +219,25 @@ view_search.fixup=function()
 			q.reporting_ref=v;
 		}
 
-		var v=$("#view_search_select_year").val();		
+
+		var donemin;
+		var v=$("#view_search_select_year_min").val();		
 		if(v)
 		{
-			txt.push("Where the year reported to IATI is \""+v+"\"")
+			txt.push("Where the year reported to IATI is greater than or equal to \""+v+"\"")
 			que.push("year_min="+v);
-			que.push("year_max="+v);
 			que.push("year="+v);
-			q.day_start_lteq=(parseInt(v,10)+1)+"-01-01";
 			q.day_end_gt=(parseInt(v,10))+"-01-01";
+			
 		}
-
+		var v=$("#view_search_select_year_max").val();		
+		if(v)
+		{
+			txt.push("Where the year reported to IATI is less than or equal to \""+v+"\"")
+			que.push("year_max="+v);
+			if(!donemin) { que.push("year="+v); }
+			q.day_start_lteq=(parseInt(v,10)+1)+"-01-01";
+		}
 
 		$("#search_span").html("<span>"+txt.join("</span><span>")+"</span>");
 		$("#search_link").attr("href","?"+que.join("&")+"#view=main");
@@ -243,18 +251,24 @@ view_search.fixup=function()
 	$("#view_search_select_sector").chosen(o).change(build_query);
 	$("#view_search_select_category").chosen(o).change(build_query);
 	$("#view_search_select_publisher").chosen(o).change(build_query);
-	$("#view_search_select_year").chosen(o).change(build_query);
+	$("#view_search_select_year_min").chosen(o).change(build_query);
+	$("#view_search_select_year_max").chosen(o).change(build_query);
 
 	var apply=function(v){
 		if(v)
 		{
 //			console.log(v);
-			var hash="#view_search_select_"+v.group;
-			$(hash).parent().show();
-			$(hash).val(v.value).trigger("chosen:updated");
-			var s=$('#view_search_string').val();
-			s=s.replace(v.str,"");
-			$('#view_search_string').typeahead('val', s);
+			var aa=[v.group];
+			if(v.group=="year") { aa=["year_min","year_max"]; }
+			for(var i=0;i<aa.length;i++)
+			{
+				var hash="#view_search_select_"+aa[i];
+				$(hash).parent().show();
+				$(hash).val(v.value).trigger("chosen:updated");
+				var s=$('#view_search_string').val();
+				s=s.replace(v.str,"");
+				$('#view_search_string').typeahead('val', s);
+			}
 		}
 	};
 
