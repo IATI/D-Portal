@@ -18,7 +18,8 @@ input#view_search_string, input.typeahead.tt-hint		{font-size:32px; width:936px;
 .search_label img		{padding-right:7px;width:17px;height:17px;}
 
 .search_wrap .chosen-container{width:300px;min-width:300px;max-width:300px;}
-select.chosen			{width:300px;min-width:300px;max-width:300px;}
+
+.search_wrap.mini div#view_search_select_year_chosen	{width:150px;min-width:150px;max-width:150px;}
 
 .tt-menu img			{width:16px; height:16px;}
 
