@@ -151,6 +151,22 @@ a.csv_download:hover		{background-color:rgba(163,0,13,1); color:rgba(255,255,255
 .sectors_head_title			{background-color:rgba(206,131,0,1); color:rgba(255,255,255,1);}
 
 
+/*	For url #view=search
+	============================================= */
+.search_label				{color:rgba(85,85,85,1); border-bottom:1px solid rgba(136,136,136,1);}
+#search_div					{color:rgba(85,85,85,1);}
+a#search_link				{background-color:rgba(186,12,47,1); color:rgba(255,255,255,1);}
+a#search_link span			{color:rgba(255,255,255,1);}
+a#search_link:hover			{background-color:rgba(163,0,13,1);}
+	
+	
+/*	Search Headers
+	============================================= */
+.search_cont				{border-bottom:2px solid rgba(136,136,136,1);}
+.search.head				{color:rgba(85,85,85,1);}
+.search_query				{color:rgba(85,85,85,1);}
+
+
 /*	Table header styles
 	============================================= */
 th.titles					{color:rgba(136,136,136,1); border-bottom:1px solid rgba(56,56,56,1);}

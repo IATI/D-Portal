@@ -200,6 +200,7 @@ a.button:hover				{background-color:#008FFF;}
 a.csv_download				{display:block; margin-top:20px; padding:10px 20px; background-color:rgba(132, 191, 255, 0.24); text-align:center; color:#ccc;}
 a.csv_download:hover		{background-color:rgba(115, 182, 255, 0.49); color:#FFF;}
 	
+	
 /*	For url #view=donors & all #view=donor_*
 	============================================= */
 .donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;}	/* Triangles */
@@ -229,6 +230,26 @@ a.csv_download:hover		{background-color:rgba(115, 182, 255, 0.49); color:#FFF;}
 .act_wrap					{width:960px; margin:0 auto; padding:20px 0;}
 
 
+/*	For url #view=search
+	============================================= */
+.search_label				{color:#FFF; border-bottom:1px solid #FFF;}
+#search_div					{color:#FFF;}
+a#search_link				{background-color:rgba(0,14,32,0.7); color:#53B4ED;}
+a#search_link span			{color:#83AEC7;}
+a#search_link:hover			{background-color:rgba(0,14,32,0.9);}
+	
+	
+/*	Search Headers
+	============================================= */
+.search_cont				{margin:0 auto; padding:5px 0 10px 0; border-bottom:10px solid #FFF;}
+.search, .search_query		{display:inline-block; vertical-align:top;}
+.search						{width:240px;}
+.search.main				{width:720px;}
+.search.head				{font-size:2.0em; line-height:1.1em; color:#FFF;}
+.search_query				{font-size:1.1em; line-height:1.1em; color:#FFF; padding:0 30px 10px 0; width:210px;}
+.search_query span			{font-size:0.8em; display:block; padding-top:5px; font-style:italic;}
+
+
 /*	Table header styles
 	============================================= */
 th.titles					{color:#646E8F; text-align:left; padding:10px 0 10px 20px; border-bottom:1px solid #333642;}
@@ -243,21 +264,6 @@ table.head					{width:100%; margin:0 auto; border-collapse:initial;}
 table.head td				{cursor:default;}
 table.head img				{-webkit-filter:brightness(100%); filter:brightness(100%);}
 
-
-/*	Table for Search
-	============================================= */
-table.search				{width:960px; margin:0 auto; padding:5px 0 20px 0; border-collapse:initial; border-bottom:10px solid #FFF;}
-table.search td.head		{font-size:2.0em; line-height:1.1em; color:#FFF;}
-table.search td				{font-size:1.0em; line-height:1.1em; color:#FFF; padding-top:10px; width:240px;}
-table.search td	span		{font-size:0.9em; display:block; padding-top:5px; font-style:italic;}
-
-table.search td.recipient, table.search td.donor, table.search td.sect_cat,
-table.search td.publisher	{width:210px; padding-right:30px;}
-
-table.search td.sect_cat, table.search td.publisher,
-table.search td.year		{padding-top:20px;}
-
-table.search td:hover		{cursor:default;}
 
 
 /*	Table for Country Name and Flag

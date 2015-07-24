@@ -14,7 +14,7 @@
 #view_search_test		{margin:auto; width:960px; margin-bottom:480px; margin-top:30px;}
 input#view_search_string, input.typeahead.tt-hint		{font-size:32px; width:936px; height:48px; border:0; margin-top:10px;}
 .search_wrap			{display:inline-block; width:320px; margin-bottom:15px;}
-.search_label			{color:#fff;font-size:1.2em;border-bottom:1px solid #FFF;padding-bottom:5px;margin-right:23px;margin-bottom:10px;}
+.search_label			{font-size:1.2em;padding-bottom:5px;margin-right:23px;margin-bottom:10px;}
 .search_label img		{padding-right:7px;width:17px;height:17px;}
 
 .search_wrap .chosen-container{width:300px;min-width:300px;max-width:300px;}
@@ -22,9 +22,8 @@ select.chosen			{width:300px;min-width:300px;max-width:300px;}
 
 .tt-menu img			{width:16px; height:16px;}
 
-#search_div				{color:#FFF; margin-top:20px;}
+#search_div				{margin-top:20px;}
 #search_div span#search_span span	{display:block; padding-top:5px;}
 
-a#search_link			{display:block; padding:25px 20px; border-radius:8px; background-color:rgba(0,14,32,0.7); text-align:center; margin:0 auto; color:#53B4ED; font-size:1.6em; margin-top:40px;}
-a#search_link span		{display:block; color:#83AEC7; font-style:italic; font-size:0.6em; padding-top:5px;}
-a#search_link:hover		{background-color:rgba(0,14,32,0.9);}
+a#search_link			{display:block; padding:25px 20px; border-radius:8px; text-align:center; margin:0 auto; font-size:1.6em; margin-top:40px;}
+a#search_link span		{display:block; font-style:italic; font-size:0.6em; padding-top:5px;}
