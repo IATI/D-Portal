@@ -15,10 +15,8 @@ bin/push_di
 #
 #echo "Rebuilding ctrack with new json"
 #
-cd ctrack && npm run build
-cd ..
-cd dportal && npm run build
-cd ..
+dportal/build
+ctrack/build
 
 #just stop it, it will restart itself in a minute
 /etc/init.d/dportal stop
