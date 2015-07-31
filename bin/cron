@@ -15,11 +15,13 @@ bin/push_di
 #
 #echo "Rebuilding ctrack with new json"
 #
-dportal/build
 ctrack/build
+dportal/build
 
-#just stop it, it will restart itself in a minute
+# just stop it, it will restart itself in a minute
 /etc/init.d/dportal stop
+# seriously stop it just in case of problems
+sleep 5
 killall node
 
 date
