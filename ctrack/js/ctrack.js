@@ -115,6 +115,7 @@ ctrack.setup=function(args)
 
 	ctrack.display_usd="USD"; 
 	ctrack.convert_usd=1;
+//	ctrack.convert_have={}; // test old style
 	ctrack.convert_have={"CAD":true,"EUR":true,"GBP":true};
 	ctrack.convert_str=function(n){
 		if(ctrack.convert_have[ctrack.display_usd])
