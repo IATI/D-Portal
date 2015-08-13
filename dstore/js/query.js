@@ -134,6 +134,7 @@ query.getsql_select=function(q,qv){
 	}
 //these calculations need to be turned into generic prefix functions.
 	var calc={
+/*
 		"sum_of_percent_of_trans_usd":function(){
 			percents("sum_of_percent_of_trans_usd","trans_usd","SUM");
 		},
@@ -173,10 +174,43 @@ query.getsql_select=function(q,qv){
 		"count_aid":function(){
 			ss.push(" COUNT(DISTINCT aid) AS count_aid");
 		},
+*/
 		"count":function(){
 			ss.push(" COUNT(*) AS count");
 		}
 	};
+	
+// available funcs
+	var calc_funcs={
+		"count":true,
+		"round0":true,
+		"round1":true,
+		"percent_of":true,
+		"sum_of_percent_of":true,
+	};
+	
+	var calc_func=function(func,name)
+	{
+		switch(func)
+		{
+			case "count":
+				ss.push(" COUNT(DISTINCT "+name+") AS count_"+name);
+			break
+			case "round0":
+				ss.push(" ROUND("+name+",0) AS round0_"+name);
+			break
+			case "round1":
+				ss.push(" ROUND("+name+",1) AS round1_"+name);
+			break
+			case "percent_of":
+				percents("percent_of_"+name,name,"");
+			break
+			case "sum_of_percent_of":
+				percents("sum_of_percent_of_"+name,name,"SUM");
+			break
+		}
+	};
+	
 
 	var done_list=false;
 	if(q.select)
@@ -196,6 +230,20 @@ query.getsql_select=function(q,qv){
 			{
 				ss.push(v);
 				done_list=true;
+			}
+			else // try all the calc names
+			{
+				for(var func in calc_funcs)
+				{
+					for(var name in ns)
+					{
+						if(v==func+"_"+name)
+						{
+							calc_func(func,name);
+							done_list=true;
+						}
+					}
+				}
 			}
 		}
 	}
