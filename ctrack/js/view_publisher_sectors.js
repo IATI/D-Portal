@@ -130,7 +130,7 @@ view_publisher_sectors.ajax=function(args)
 		var dat={
 				"from":"act,trans,sector",
 				"limit":args.limit || -1,
-				"select":"sector_code,sum_of_percent_of_trans_usd",
+				"select":"sector_code,"+ctrack.convert_str("sum_of_percent_of_trans"),
 				"groupby":"sector_code",
 				"trans_code":"D|E",
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
@@ -149,10 +149,9 @@ view_publisher_sectors.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				var num=v.sum_of_percent_of_trans_usd;
 				d.sector_code=v.sector_code || "N/A";
 				d.sector_name=iati_codes.sector[v.sector_code] || iati_codes.sector_category[v.sector_code] || v.sector_code || "N/A";
-				d["t"+(2+y-year)]=commafy(""+Math.floor(num*ctrack.convert_usd));
+				d["t"+(2+y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v)));
 				if(y==year)
 				{
 					d.order=num; // default, use ctrack.year transaction value for sort
@@ -171,7 +170,7 @@ view_publisher_sectors.ajax=function(args)
 		var dat={
 				"from":"act,budget,sector",
 				"limit":args.limit || -1,
-				"select":"sector_code,sum_of_percent_of_budget_usd",
+				"select":"sector_code,"+ctrack.convert_str("sum_of_percent_of_budget"),
 				"budget_priority":1, // has passed some validation checks serverside
 				"groupby":"sector_code",
 				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
@@ -193,7 +192,7 @@ view_publisher_sectors.ajax=function(args)
 				var d={};
 				d.sector_code=v.sector_code || "N/A";
 				d.sector_name=iati_codes.sector[v.sector_code] || iati_codes.sector_category[v.sector_code] || v.sector_code || "N/A";
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
 				fadd(d);
 			}
 //			console.log(ctrack.donors_data);

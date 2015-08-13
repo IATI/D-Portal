@@ -46,7 +46,7 @@ view_list_activities.ajax=function(args)
 	var dat={
 			"from":"act",
 			"limit":args.limit || -1,
-			"select":"title,aid,funder_ref,commitment,spend,reporting,reporting_ref,day_start,day_end",
+			"select":"title,aid,funder_ref,"+ctrack.convert_str("commitment")+","+ctrack.convert_str("spend")+",reporting,reporting_ref,day_start,day_end",
 			"orderby":"4-",
 			"groupby":"aid",
 //			"country_code":(args.country || ctrack.args.country_select),
@@ -106,8 +106,8 @@ view_list_activities.ajax=function(args)
 				if(v.day_end  !==null) { d.date_end  =fetch.get_nday(v.day_end  ); }
 
 				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
-				d.commitment=commafy(""+Math.floor((v.commitment||0)*ctrack.convert_usd));
-				d.spend=commafy(""+Math.floor((v.spend||0)*ctrack.convert_usd));
+				d.commitment=commafy(""+Math.floor(ctrack.convert_num("commitment",v)));
+				d.spend=commafy(""+Math.floor(ctrack.convert_num("spend",v)));
 				d.currency=ctrack.display_usd;
 				d.pct=0;
 				if( v.commitment && (v.commitment!=0) )

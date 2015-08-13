@@ -116,7 +116,7 @@ view_publishers.ajax=function(args)
 		var dat={
 				"from":"act,trans,country",
 				"limit":args.limit || -1,
-				"select":"reporting_ref,sum_of_percent_of_trans_usd",
+				"select":"reporting_ref,"+ctrack.convert_str("sum_of_percent_of_trans"),
 				"groupby":"reporting_ref",
 				"trans_code":"D|E",
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
@@ -134,7 +134,7 @@ view_publishers.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				var num=v.sum_of_percent_of_trans_usd*ctrack.convert_usd;
+				var num=ctrack.convert_num("sum_of_percent_of_trans",v);
 				d.reporting_ref=v.reporting_ref;
 				d["t"+(2+y-year)]=commafy(""+Math.floor(num));
 				if(y==year)
@@ -155,7 +155,7 @@ view_publishers.ajax=function(args)
 		var dat={
 				"from":"act,budget,country",
 				"limit":args.limit || -1,
-				"select":"reporting_ref,sum_of_percent_of_budget_usd",
+				"select":"reporting_ref,"+ctrack.convert_str("sum_of_percent_of_budget"),
 				"budget_priority":1, // has passed some validation checks serverside
 				"groupby":"reporting_ref",
 				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
@@ -175,7 +175,7 @@ view_publishers.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.reporting_ref=v.reporting_ref;
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
 				fadd(d);
 			}
 //			console.log( "b"+(y-year) );

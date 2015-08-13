@@ -45,7 +45,7 @@ view_list_budgets.ajax=function(args)
 	var dat={
 			"from":"act,budget",
 			"limit":args.limit || -1,
-			"select":"sum_of_percent_of_budget_usd,aid,funder_ref,title,reporting,reporting_ref",
+			"select":ctrack.convert_str("sum_of_percent_of_budget")+",aid,funder_ref,title,reporting,reporting_ref",
 			"groupby":"aid",
 			"orderby":"1-",
 			"budget_priority":1, // has passed some validation checks serverside
@@ -99,8 +99,8 @@ view_list_budgets.ajax=function(args)
 				d.aid=encodeURIComponent(v.aid);
 				d.title=v.title || v.aid;
 				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref;
-				total+=v.sum_of_percent_of_budget_usd*ctrack.convert_usd;
-				d.amount=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
+				total+=ctrack.convert_num("sum_of_percent_of_budget",v);
+				d.amount=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
 				d.currency=ctrack.display_usd;
 
 				s.push( plate.replace(args.plate || "{list_budgets_data}",d) );

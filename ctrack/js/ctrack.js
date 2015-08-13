@@ -114,7 +114,44 @@ ctrack.setup=function(args)
 
 
 	ctrack.display_usd="USD"; 
-	ctrack.convert_usd=1; 
+	ctrack.convert_usd=1;
+	ctrack.convert_have={"CAD":true,"EUR":true,"GBP":true};
+	ctrack.convert_str=function(n){
+		if(ctrack.convert_have[ctrack.display_usd])
+		{
+			return n+"_"+ctrack.display_usd.toLowerCase();
+		}
+		else
+		{
+			if((n=="spend")||(n=="commitment")) // special USD case
+			{
+				return n;
+			}
+			else
+			{
+				return n+"_usd";
+			}
+		}
+	};
+	ctrack.convert_num=function(n,v){
+		if(ctrack.convert_have[ctrack.display_usd])
+		{
+			return  v[n+"_"+ctrack.display_usd.toLowerCase()];
+		}
+		else
+		{
+			if((n=="spend")||(n=="commitment")) // special USD case
+			{
+				return  v[n]*ctrack.convert_usd;
+			}
+			else
+			{
+				return  v[n+"_usd"]*ctrack.convert_usd;
+			}
+		}
+	};
+
+
 	if( ctrack.q.usd )
 	{
 		var usd=ctrack.q.usd.toUpperCase();

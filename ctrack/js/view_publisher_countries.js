@@ -173,7 +173,7 @@ view_publisher_countries.ajax=function(args)
 		var dat={
 				"from":"act,trans,country",
 				"limit":args.limit || -1,
-				"select":"country_code,sum_of_percent_of_trans_usd",
+				"select":"country_code,"+ctrack.convert_str("sum_of_percent_of_trans"),
 				"groupby":"country_code",
 				"trans_code":"D|E",
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
@@ -191,7 +191,7 @@ view_publisher_countries.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				var num=v.sum_of_percent_of_trans_usd*ctrack.convert_usd;
+				var num=ctrack.convert_num("sum_of_percent_of_trans",v);
 				d.country_code=v.country_code || "N/A";
 				d.country_name=iati_codes.country[v.country_code] || v.country_code || "N/A";
 				d["t"+(2+y-year)]=commafy(""+Math.floor(num));
@@ -213,7 +213,7 @@ view_publisher_countries.ajax=function(args)
 		var dat={
 				"from":"act,budget,country",
 				"limit":args.limit || -1,
-				"select":"country_code,sum_of_percent_of_budget_usd",
+				"select":"country_code,"+ctrack.convert_str("sum_of_percent_of_budget"),
 				"budget_priority":1, // has passed some validation checks serverside
 				"groupby":"country_code",
 				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
@@ -234,7 +234,7 @@ view_publisher_countries.ajax=function(args)
 				var d={};
 				d.country_code=v.country_code || "N/A";
 				d.country_name=iati_codes.country[v.country_code] || v.country_code || "N/A";
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
 				fadd(d);
 			}
 //			console.log(ctrack.donors_data);

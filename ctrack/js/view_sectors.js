@@ -146,7 +146,7 @@ view_sectors.ajax=function(args)
 		var dat={
 				"from":"act,trans,country,sector",
 				"limit":args.limit || -1,
-				"select":"sector_group,sum_of_percent_of_trans_usd",
+				"select":"sector_group,"+ctrack.convert_str("sum_of_percent_of_trans"),
 				"sector_group_not_null":1,
 				"groupby":"sector_group",
 				"trans_code":"D|E",
@@ -165,7 +165,7 @@ view_sectors.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.group=v.sector_group;
-				d["t"+(2+y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_trans_usd*ctrack.convert_usd));
+				d["t"+(2+y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v)));
 //				d["num_t"+(2+y-year)]=Math.floor(v.sum_of_percent_of_trans_usd);
 				fadd(d);
 			}
@@ -182,7 +182,7 @@ view_sectors.ajax=function(args)
 		var dat={
 				"from":"act,budget,country,sector",
 				"limit":args.limit || -1,
-				"select":"sector_group,sum_of_percent_of_budget_usd",
+				"select":"sector_group,"+ctrack.convert_str("sum_of_percent_of_budget"),
 				"sector_group_not_null":1,
 				"groupby":"sector_group",
 				"budget_priority":1, // has passed some validation checks serverside
@@ -203,7 +203,7 @@ view_sectors.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.group=v.sector_group;
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd*ctrack.convert_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
 				fadd(d);
 			}
 //			console.log(ctrack.sectors_data);
