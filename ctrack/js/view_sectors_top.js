@@ -37,7 +37,7 @@ view_sectors_top.ajax=function(args)
 	var dat={
 			"from":"act,trans,country,sector",
 			"limit":-1,
-			"select":"sector_group,sum_of_percent_of_trans_usd",
+			"select":"sector_group,"+ctrack.convert_str("sum_of_percent_of_trans"),
 			"sector_group_not_null":1,
 			"groupby":"sector_group",
 			"trans_code":"D|E",
@@ -56,7 +56,7 @@ view_sectors_top.ajax=function(args)
 			var v=data.rows[i];
 			var d={};
 			d.sector_group=iati_codes.sector_names[ v.sector_group ];
-			d.usd=Math.floor(v.sum_of_percent_of_trans_usd*ctrack.convert_usd);
+			d.usd=Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v));
 			list.push(d);
 		}
 		list.sort(function(a,b){

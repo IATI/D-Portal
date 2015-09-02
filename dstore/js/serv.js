@@ -21,7 +21,6 @@ argv.database=argv.database||"../dstore/db/dstore.sqlite";
 fs.mkdir("db",function(e){});
 
 
-app.use(express.logger());
 app.use(express.json());
 
 //app.use("/");

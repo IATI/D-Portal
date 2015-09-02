@@ -14,7 +14,6 @@ argv.port=argv.port||1337;
 argv.database=argv.database||"../dstore/db/dstore.sqlite";
 
 
-app.use(express.logger());
 app.use(express.json());
 
 app.use( function(req, res, next) {

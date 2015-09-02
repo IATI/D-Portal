@@ -83,7 +83,7 @@ view_districts.ajax=function(args)
 		var dat={
 				"from":"trans,country,location",
 				"limit":args.limit || -1,
-				"select":"location_name,sum_of_percent_of_usd",
+				"select":"location_name,"+ctrack.convert_str("sum_of_percent_of"),
 				"groupby":"location_name",
 				"location_code":"adm2",
 				"code":"D|E",
@@ -103,11 +103,11 @@ view_districts.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.location=v.location_name;
-				d["t"+(2+year-y)]=commafy(""+Math.floor(v.sum_of_percent_of_usd*ctrack.convert_usd));
+				d["t"+(2+year-y)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of",v)));
 				if(y==year)
 				{
-					d.crs=commafy(""+Math.floor(v.sum_of_percent_of_usd*ctrack.convert_usd));
-					d.order=v.sum_of_percent_of_usd*ctrack.convert_usd;
+					d.crs=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of",v)));
+					d.order=ctrack.convert_num("sum_of_percent_of",v);
 				}
 				fadd(d);
 			}
@@ -124,7 +124,7 @@ view_districts.ajax=function(args)
 		var dat={
 				"from":"budget,country,location",
 				"limit":args.limit || -1,
-				"select":"location_name,sum_of_percent_of_usd",
+				"select":"location_name,"+ctrack.convert_str("sum_of_percent_of"),
 				"groupby":"location_name",
 				"priority":1, // has passed some validation checks serverside
 				"location_code":"adm2",
@@ -145,7 +145,7 @@ view_districts.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				d.location=v.location_name;
-				d["b"+(y-year)]=commafy(""+Math.floor(v.sum_of_percent_of_usd*ctrack.convert_usd));
+				d["b"+(y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of",v)));
 				fadd(d);
 			}
 //			console.log(ctrack.districts_data);

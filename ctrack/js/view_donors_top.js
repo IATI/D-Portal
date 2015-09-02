@@ -34,7 +34,7 @@ view_donors_top.ajax=function(args)
 	var dat={
 			"from":"act,trans,country",
 			"limit":-1,
-			"select":"funder_ref,sum_of_percent_of_trans_usd",
+			"select":"funder_ref,"+ctrack.convert_str("sum_of_percent_of_trans"),
 			"funder_ref_not_null":"",
 			"groupby":"funder_ref",
 			"trans_code":"D|E",
@@ -56,7 +56,7 @@ view_donors_top.ajax=function(args)
 			var v=data.rows[i];
 			var d={};
 			d.funder=v.funder_ref;
-			d.usd=Math.floor(v.sum_of_percent_of_trans_usd*ctrack.convert_usd);
+			d.usd=Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v));
 			list.push(d);
 		}
 

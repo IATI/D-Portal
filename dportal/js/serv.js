@@ -2,6 +2,7 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 var express = require('express');
+//var morgan = require('morgan');
 var app = express();
 
 var argv=require('yargs').argv; global.argv=argv;
@@ -11,7 +12,7 @@ argv.database=argv.database||"../dstore/db/dstore.sqlite";
 
 express.static.mime.define({'text/plain': ['']});
 
-app.use(express.logger());
+//app.use(morgan('combined'));
 
 app.use(function(req, res, next) {
 	var aa=req.path.split("/");
