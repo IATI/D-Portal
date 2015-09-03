@@ -1,0 +1,237 @@
+#html
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{about_title_text}</title>
+	<script src="{root}jslib/jquery.js"></script>
+	<script>
+		$(function(){
+			$('span.info').hide();
+			$('.faq_list').click(function () {
+				$(this).children('span.info').slideToggle("fast");
+			});
+		});
+	</script>
+	<link  href="{root}art/original/ctrack.css" rel="stylesheet" type="text/css" >
+	<link  href="about.css" rel="stylesheet" type="text/css" >
+	<style>
+		
+		h1				{font-weight:normal; padding:0 0 30px 0;}
+		.faq_wrap		{width:960px; margin:0 auto; background-color:#FFF; padding:40px 30px; box-sizing:border-box;}
+		.faq_wrap.tech	{padding:40px;}
+		.faq_wrap.tech a	{display:list-item; padding-top:10px; color:#444; list-style-type:decimal; list-style-position:inside;}
+		
+		li				{list-style-type:decimal; list-style-position:inside;}
+		
+		span.topics		{display:inline-block; padding:10px 20px; color:#FFF; background-color:#FFA500; vertical-align:top; width:310px; box-sizing:border-box; text-align:center; border-radius:8px 8px 0 0; font-size:1.8em;}
+		span.topics.a	{margin-left:15px; margin-right:15px; background-color:#2573CD;}
+		span.topics.b	{background-color:#2DA620;}
+		
+		.faq_list		{display:inline-block; vertical-align:top; width:440px; padding:20px; margin-bottom:20px; box-sizing:border-box; background-color:#FFF;}
+		.faq_list.a		{margin-left:20px;}
+		.faq_list span	{display:block; color:#444;}
+		
+		span.list		{font-size:1.2em; font-weight:bold; line-height:1.2em; padding-bottom:10px;}
+		span.info		{font-size:0.95em; line-height:1.4em;}
+		span.info a		{color:#2573CD;}
+		span.info a:hover	{text-decoration:underline;}
+		span.info p		{color:#444; padding:10px 0 0 0;}
+		
+	</style>	
+	{ganal}
+</head>
+<body>
+	{view_head}
+	{main_head}
+	{faq}
+	{more_dportal}
+
+	{view_tail}
+</body>
+</html>
+
+#main_head
+<div class="navi" style="background-color:transparent; position:initial;">
+	<table class="head">
+		<tr>
+			<td class="logo">
+				<a href="{tongue_root}" title="{mainback_tip_text}">
+					<img src="{root}art/original/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}
+				</a>
+			</td>
+			<td class="dplinks"><a href="{tongue_root}about.html" class="top install">{about_link_text}</a></td>
+			<td class="dplinks"><a href="{tongue_root}news/posts.html" class="top news">{news_link_text}</a></td>
+			<td class="options" style="vertical-align:middle;">{tongue_select}</td>
+		</tr>
+	</table>
+</div>
+
+#status
+<span class="badge beta">BETA</span>
+
+#faq
+<div class="about_wrap" style="background-color:transparent; padding:40px 0;">
+	<div class="default">
+		<span class="topics">General</span><span class="topics a">Technical</span><span class="topics b">Generator</span>
+		{faq_tech}
+		{faq_general}
+	</div>
+</div>	
+
+#faq_tech
+<div class="faq_wrap tech">
+	<h1>Frequently Asked <b>Technical</b> Questions</h1>
+	<a href="#tech1">Which transaction types are used/not used in d-portal?</a>
+	<a href="#tech2">How/where is the data tidied up before being displayed in d-portal?</a>
+	<a href="#tech3">How is data apportioned to a specific year?</a>
+	<a href="#tech4">What counts as a ‘missing project’?</a>
+	<a href="#tech5">How are exchange rates calculated?</a>
+	<a href="#tech6">What are the criteria for my organisation’s data appearing in recipient country charts/tables/maps in d-portal?</a>
+	<a href="#tech7">Where do country codes/descriptions come from?</a>
+	<a href="#tech8">What classifies something as an active, ended or planned project?</a>
+	<a href="#tech9">How is the map data produced?</a>
+	<a href="#tech10">How are US government organisations shown?</a>
+	<a href="#tech11">Where does the data for single activity (SAVi) page come from?</a>
+	<a href="#tech12">Where can I find the code/README/project management information for d-portal?</a>
+	<a href="#tech13">Where is the additional data for d-portal stored?</a>
+	<a href="#tech14">When is ctrack updated?</a>
+	<a href="#tech15">What counts as 2014 (chart) data?</a>
+	
+	<ul>
+		<li>
+			<span id="tech1"></span>
+			<span class="list">Which transaction types are used/not used in d-portal?</span>
+			<span class="info">
+				A view of all IATI (<a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a>) data by recipient country or publisher, comparable with latest OECD DAC CRS (<a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a>) data.
+			</span>
+		</li>
+		<li>
+			<span id="tech2"></span>
+			<span class="list">How/where is the data tidied up before being displayed in d-portal?</span>
+			<span class="info">
+				A view of all IATI (<a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a>) data by recipient country or publisher, comparable with latest OECD DAC CRS (<a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a>) data.
+			</span>
+		</li>
+		<li>
+			<span id="tech3"></span>
+			<span class="list">Which transaction types are used/not used in d-portal?</span>
+			<span class="info">
+				A view of all IATI (<a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a>) data by recipient country or publisher, comparable with latest OECD DAC CRS (<a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a>) data.
+			</span>
+		</li>
+	</ul>
+</div>
+
+#faq_general
+<div class="faq_wrap" style="background-color:#2573CD;">
+	<div class="faq_list">
+		<span class="list">What is d-portal?</span>
+		<span class="info">
+			A view of all IATI (<a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a>) data by recipient country or publisher, comparable with latest OECD DAC CRS (<a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a>) data.
+		</span>
+	</div><div class="faq_list a">
+		<span class="list">Which datasets are included in d-portal?</span>
+		<span class="info">
+			<a href="http://www.aidtransparency.net">IATI</a> and <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS</a> data (see below for more information).
+		</span>
+	</div>
+	<div class="faq_list">
+		<span class="list">What is IATI?</span>
+		<span class="info">
+			The <a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a> - IATI is a voluntary, multi-stakeholder initiative that seeks to improve the transparency of aid, development, and humanitarian resources in order to increase their effectiveness in tackling poverty. 
+		</span>
+	</div><div class="faq_list a">
+		<span class="list">What is OECD DAC CRS?</span>
+		<span class="info">
+			The Organisation for Economic Co-operation and Development’s Development Assistance Committee <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a> - which contains Official Development Assistance data.
+		</span>
+	</div>
+	<div class="faq_list">
+		<span class="list">Where does the data come from?</span>
+		<span class="info">
+			The IATI data comes from the <a href="http://www.iatiregistry.org/">IATI Registry</a>. 
+			<p>The CRS data comes from <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS tables</a>.</p>
+			<p>Other data is stored in a Google <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a> spreadsheet.</p>
+		</span>
+	</div><div class="faq_list a">
+		<span class="list">Why is there data missing in some parts of d-portal?</span>
+		<span class="info">
+			Publishers report their IATI data at varying degrees of detail, and data is updated and improved all the time by publishers.  If a publisher only publishes data for 2013, it won’t appear in 2014 columns/charts etc.  
+			<p>d-portal attempts to only reflect what is in the data and does not make corrections to data or information published to IATI, with only small exceptions to make the site user-friendly*</p>
+
+			<p>See also information about <a href="http://d-portal.org/ctrack.html?country=AF&tongue=eng#view=data_quality">data quality</a> (<i>Afghanistan used as example</i>)</p>
+		</span>
+	</div>
+	<div class="faq_list">
+		<span class="list">Why are there zeroes and dashes in the tables?</span>
+		<span class="info">
+			Zeroes may denote issues with data quality (eg codes, dates, etc which are incompatible with the IATI Standard).  <i>There will shortly be links to the publisher’s page on the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a> to investigate specific data quality issues.</i>
+			<p>Dashes show that that donor/organisation is not currently an IATI publisher.</p>
+		</span>
+	</div><div class="faq_list a">
+		<span class="list">When/how is data in d-portal updated?</span>
+		<span class="info">
+			IATI data is updated every night (importing any data which has changed from the previous day) and a full import is done each weekend - in each instance the data is pulled from the IATI Registry.
+			<p>CRS data is downloaded annually and then stored in <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a>.</p>
+		</span>
+	</div>
+	<div class="faq_list">
+		<span class="list">Where can I see more detail on IATI data quality issues/stats on how often organisations are publishing, etc?</span>
+		<span class="info">
+			See the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a>.
+		</span>
+	</div><div class="faq_list a">
+		<span class="list">Where can I raise issues/questions about d-portal?</span>
+		<span class="info">
+			Either on our <a href="https://github.com/devinit/D-Portal">GitHub issues page</a> or via <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>
+		</span>
+	</div>
+	<div class="faq_list">
+		<span class="list">Where can I see plans for future development, and make suggestions?</span>
+		<span class="info">
+			See <a href="https://github.com/devinit/D-Portal/milestones">milestones on GitHub issues</a> page or contact us at <a href="https://github.com/devinit/D-Portal/milestones">queries@d-portal.org</a>
+		</span>
+	</div><div class="faq_list a">
+		<span class="list">How do I find out more about d-portal?</span>
+		<span class="info">
+			See the <a href="http://d-portal.org/about.html">About</a> page.
+			<p>Look at the <a href="https://github.com/devinit/D-Portal/issues">issues on GitHub</a>.</p>
+			<p>Contact us - <a href="https://github.com/devinit/D-Portal/milestones">queries@d-portal.org</a></p>
+		</span>
+	</div>
+</div>
+
+
+#more_dportal
+<span id="more"></span>
+<div class="about_wrap more">
+	<div class="default">
+		<div class="mid_wrap"></div><div class="mid_wrap"><div class="arrow more"></div></div>
+		<div class="about_wrap moretxt">
+			<p>{about_paragraph3_text}</p>
+			<p>{about_paragraph4_text}</p>
+			<p><span class="bold">d-portal.org</span> {about_paragraph6_text}</p>
+			<p>{about_paragraph7_text}</p>
+			<p><h1>{about_paragraph8_text}</h1></p>
+			<p>{about_paragraph9_text}</p>
+			<p>{about_paragraph10_text}</p>
+		</div>	
+	</div>
+</div>
+
+#view_tail
+		</div>
+	</div>
+	<div class="footer_wrap">
+	<div class="footer">
+		<div class="footer_link"><a href="http://d-portal.org/#explore">
+			{footer_pick_text}</a>
+		</div><div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+			{footer_top_text}</a>
+		</div><div class="footer_link mit">
+			{footer5_text}
+		</div>
+	</div>
+	</div>
+</div>
+
