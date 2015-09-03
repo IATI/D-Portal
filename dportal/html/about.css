@@ -25,6 +25,7 @@ a.top.savi:hover	{border-top:5px solid rgba(255,165,0,1);}
 a.top.hub:hover		{border-top:5px solid rgba(255,255,255,1);}
 a.top.news:hover	{border-top:5px solid #495BBE;}
 a.top.dash:hover	{border-top:5px solid #2DA620;}
+a.top.faq:hover		{border-top:5px solid #DEDEDE;}
 
 
 /*	Wrappers
@@ -102,7 +103,7 @@ table.sources th		{text-align:left; font-weight:bold; padding:20px 20px 20px 0;}
 table.sources th.col1	{width:25%;}
 table.sources th.col2	{width:40%;}
 table.sources th.col3	{width:35%;}
-table.sources td		{padding:10px 20px 10px 0; line-height:1.45em; border-bottom:1px solid #505050; vertical-align:baseline;}
+table.sources td		{padding:10px 20px 10px 0; line-height:1.45em; border-bottom:1px solid #505050; vertical-align:bottom;}
 table.sources td:hover	{cursor:default;}
 table.sources td:first-child	{color:#D0DEF0;}
 table.sources td a		{color:#5E96DD;}
@@ -121,7 +122,7 @@ a.git.small	{font-size:inherit; display:inline-block;}
 a.git:hover	{color:#1E90FF; text-decoration:underline;}
 
 
-/*	FAQ
+/*	FAQ page
 	============================================= */
 
 .faq_head				{font-size:38px; position:absolute; top:0; left:0; padding:40px 0 40px 100px; color:#FFF; width:860px;}
