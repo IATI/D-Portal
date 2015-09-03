@@ -43,8 +43,7 @@ iati-activity:after 	{content:""; padding:0; display:initial;}	/* Takes away con
 #settings				{padding:10px 40px 30px 40px; margin:0 auto; background-color:#fff; margin-bottom:40px;}
 span.settings_info		{min-width:135px; display:inline-block;}
 td.settings_toggle		{text-align:right; vertical-align:middle;}
-a.settings_link span	{color:rgba(255,255,255,0); padding:10px 15px 0 0; display:inline-block; -webkit-transition:color .5s ease-out; -moz-transition:color .5s ease-out; -o-transition:color .5s ease-out; transition:color .5s ease-out;}
-a.settings_link:hover span	{color:rgba(255,255,255,1);}
+a.settings_link span	{color:rgba(255,255,255,1); padding:10px 15px 0 0; display:inline-block;}
 td.options				{padding-top:20px;}
 td.options:hover		{cursor:default;}
 td.options form			{display:inline-block;}
