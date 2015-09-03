@@ -68,7 +68,7 @@ activity-date[type="end-actual"]:before	{content:"END DATE"; font-size:14px; col
 span.span_participating-org				{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#FFF; background-color:rgba(17, 46, 105, 0.4); counter-reset:section;}
 span.span_participating-org:before 		{content:"Who's involved?"; font-size:34px; color:#FFF; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:5px solid #FFF;}
 participating-org::before				{counter-increment:section; content:counter(section) ". ";}
-participating-org 						{display:inline-block; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
+participating-org 						{display:block; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
 participating-org[role="funding"]:after			{content:"FUNDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="extending"]:after		{content:"EXTENDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
