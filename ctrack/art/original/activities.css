@@ -204,8 +204,9 @@ activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:rgba(
 
 /*	Related documents list
 	============================================= */
-span.span_document-link						{width:880px; padding:0 40px; margin:0 auto;}
+span.span_document-link						{width:880px; padding:0 40px; margin:0 auto; counter-reset:section;}
 span.span_document-link:before				{content:"Related Documents"; font-size:34px; color:#FFF; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #FFF;}
+a.a_document-link::before		{counter-increment:section; content:counter(section) ". ";}
 a.a_document-link							{display:list-item; width:880px; padding:10px 0; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#ccc;}
 a.a_document-link:last-of-type				{padding-bottom:40px;}
 a.a_document-link document-link span-title	{color:#FFF; padding:0;}

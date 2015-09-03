@@ -6,39 +6,49 @@
 	<script src="{root}jslib/jquery.js"></script>
 	<script>
 			$(function(){
-				$('span.topics.a').addClass("on");
+				$('a.topics.a').addClass("on");
+				$('a.faq_top').hide();
 				$('.faq_wrap.tech').hide();
 				$('.faq_wrap.gene').hide();
 				
-				$('span.topics.a').click(function () {
+				$('a.topics.a').click(function () {
 					$('.faq_wrap.gen').show();
 					$('.faq_wrap.tech').hide();
 					$('.faq_wrap.gene').hide();
-					$('span.topics.a').addClass("on");
-					$('span.topics.b').removeClass("on");
-					$('span.topics.c').removeClass("on");
+					$('a.topics.a').addClass("on");
+					$('a.topics.b').removeClass("on");
+					$('a.topics.c').removeClass("on");
 				});
-				$('span.topics.b').click(function () {
+				$('a.topics.b').click(function () {
 					$('.faq_wrap.gen').hide();
 					$('.faq_wrap.tech').show();
 					$('.faq_wrap.gene').hide();
-					$('span.topics.a').removeClass("on");
-					$('span.topics.b').addClass("on");
-					$('span.topics.c').removeClass("on");
+					$('a.topics.a').removeClass("on");
+					$('a.topics.b').addClass("on");
+					$('a.topics.c').removeClass("on");
 				});
-				$('span.topics.c').click(function () {
+				$('a.topics.c').click(function () {
 					$('.faq_wrap.gen').hide();
 					$('.faq_wrap.tech').hide();
 					$('.faq_wrap.gene').show();
-					$('span.topics.a').removeClass("on");
-					$('span.topics.b').removeClass("on");
-					$('span.topics.c').addClass("on");
+					$('a.topics.a').removeClass("on");
+					$('a.topics.b').removeClass("on");
+					$('a.topics.c').addClass("on");
 				});
 				
 				$('.faq_links_wrap a').click(function () {
 					console.log($(this).attr('href'));
 					$('span.list').parent().removeClass("on");
 					$($(this).attr('href')).parent().addClass("on");
+				});
+				
+				$(document).scroll(function() {
+					var y = $(this).scrollTop();
+					if (y > 800) {
+						$('a.faq_top').show();
+					} else {
+						$('a.faq_top').hide();
+					}
 				});
 			});
 		</script>
@@ -76,7 +86,8 @@
 #faq
 <div class="about_wrap faq">
 	<div class="default">
-		<span class="topics a">General</span><span class="topics b">Technical</span><span class="topics c">Generator</span>
+		<a onclick="$('html,body').animate({scrollTop:0},'slow');return false;" class="faq_top">Back to FAQ list</a>
+		<a href="#" class="topics a">General</a><a href="#" class="topics b">Technical</a><a href="#" class="topics c">Generator</a>
 		{faq_general}
 		{faq_tech}
 		{faq_generator}
