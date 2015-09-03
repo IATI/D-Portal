@@ -29,9 +29,12 @@
 	<link  href="about.css" rel="stylesheet" type="text/css" >
 	<style>
 		
-		h1				{font-weight:normal; padding:0 0 30px 0;}
-		.faq_wrap		{width:960px; margin:0 auto; background-color:#FFF; padding:40px; box-sizing:border-box;}
-		.faq_links_wrap	{padding:20px 0 60px 60px;}
+		h1				{font-weight:normal; position:absolute; top:0; left:0; padding:30px 0 30px 100px; color:#FFF; width:860px;}
+		h1.a			{background-color:#2CE268;}
+		h1.b			{background-color:#FF860E;}
+		h1.c			{background-color:#53AEFF;}
+		.faq_wrap		{width:960px; margin:0 auto; background-color:#FFF; padding:80px 40px 40px 40px; box-sizing:border-box; position:relative;}
+		.faq_links_wrap	{padding:40px 0 60px 60px;}
 		.faq_links_wrap a	{display:list-item; padding-top:10px; color:#444; list-style-type:decimal; list-style-position:inside;}
 		.faq_links_wrap a:hover	{text-decoration:underline;}
 		
@@ -39,12 +42,12 @@
 		ul.faq_list		{padding-left:60px;}
 		ul.faq_list li	{font-size:1.2em; font-weight:bold; line-height:1.2em; padding-bottom:10px;}
 		
-		span.topics		{display:inline-block; padding:20px; color:#FFF; background-color:#27CA5D; vertical-align:top; width:310px; box-sizing:border-box; text-align:center; border-radius:8px 8px 0 0; font-size:1.8em;}
-		span.topics.a:hover	{background-color:#2CE268;}
-		span.topics.b	{margin-left:15px; margin-right:15px; background-color:#ED7804;}
-		span.topics.b:hover	{background-color:#FF860E;}
-		span.topics.c	{background-color:#48A3F4;}
-		span.topics.c:hover	{background-color:#53AEFF;}
+		span.topics		{display:inline-block; padding:20px; color:#FFF; background-color:#2CE268; vertical-align:top; width:310px; box-sizing:border-box; text-align:center; border-radius:8px 8px 0 0; font-size:1.8em;}
+		span.topics.a:hover	{background-color:#2BF26C;}
+		span.topics.b	{margin-left:15px; margin-right:15px; background-color:#FF860E;}
+		span.topics.b:hover	{background-color:#FF980A;}
+		span.topics.c	{background-color:#53AEFF;}
+		span.topics.c:hover	{background-color:#7BC2FF;}
 		span.topics:hover	{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
 		
 		span.info		{display:block; color:#444; font-size:0.8em; line-height:1.4em; font-weight:normal; padding:10px 40px 40px 5px;}
@@ -88,16 +91,132 @@
 <div class="about_wrap" style="background-color:transparent; padding:40px 0;">
 	<div class="default">
 		<span class="topics a">General</span><span class="topics b">Technical</span><span class="topics c">Generator</span>
-		{faq_tech}
 		{faq_general}
+		{faq_tech}
 		{faq_generator}
 	</div>
-</div>	
+</div>
+
+#faq_general
+<div class="faq_wrap gen">
+	<div class="faq_links_wrap">
+		<h1 class="a">Frequently Asked <b>General</b> Questions</h1>
+		<a href="#gen1">What is d-portal?</a>
+		<a href="#gen2">Which datasets are included in d-portal?</a>
+		<a href="#gen3">What is IATI?</a>
+		<a href="#gen4">What is OECD DAC CRS?</a>
+		<a href="#gen5">Where does the data come from?</a>
+		<a href="#gen6">Why is there data missing in some parts of d-portal?</a>
+		<a href="#gen7">Why are there zeroes and dashes in the tables?</a>
+		<a href="#gen8">When/how is data in d-portal updated?</a>
+		<a href="#gen9">Where can I see more detail on IATI data quality issues/stats on how often organisations are publishing, etc?</a>
+		<a href="#gen10">Where can I raise issues/questions about d-portal?</a>
+		<a href="#gen11">Where can I see plans for future development, and make suggestions?</a>
+		<a href="#gen12">How do I find out more about d-portal?</a>
+	</div>
+	
+	<ul class="faq_list">
+		<li>
+			<span id="gen1"></span>
+			<span class="list">What is d-portal?</span>
+			<span class="info">
+				A view of all IATI (<a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a>) data by recipient country or publisher, comparable with latest OECD DAC CRS (<a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a>) data.
+			</span>
+		</li>
+		<li>
+			<span id="gen2"></span>
+			<span class="list">Which datasets are included in d-portal?</span>
+			<span class="info">
+				<a href="http://www.aidtransparency.net">IATI</a> and <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS</a> data (see below for more information).
+			</span>
+		</li>
+		<li>
+			<span id="gen3"></span>
+			<span class="list">What is IATI?</span>
+			<span class="info">
+				The <a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a> - IATI is a voluntary, multi-stakeholder initiative that seeks to improve the transparency of aid, development, and humanitarian resources in order to increase their effectiveness in tackling poverty. 
+			</span>
+		</li>
+		<li>
+			<span id="gen4"></span>
+			<span class="list">What is OECD DAC CRS?</span>
+			<span class="info">
+				The Organisation for Economic Co-operation and Development’s Development Assistance Committee <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a> - which contains Official Development Assistance data.
+			</span>
+		</li>
+		<li>
+			<span id="gen5"></span>
+			<span class="list">Where does the data come from?</span>
+			<span class="info">
+				The IATI data comes from the <a href="http://www.iatiregistry.org/">IATI Registry</a>. 
+				<p>The CRS data comes from <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS tables</a>.</p>
+				<p>Other data is stored in a Google <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a> spreadsheet.</p>
+			</span>
+		</li>
+		<li>
+			<span id="gen6"></span>
+			<span class="list">Why is there data missing in some parts of d-portal?</span>
+			<span class="info">
+				Publishers report their IATI data at varying degrees of detail, and data is updated and improved all the time by publishers.  If a publisher only publishes data for 2013, it won’t appear in 2014 columns/charts etc.  
+				<p>d-portal attempts to only reflect what is in the data and does not make corrections to data or information published to IATI, with only small exceptions to make the site user-friendly*</p>
+
+				<p>See also information about <a href="http://d-portal.org/ctrack.html?country=AF&tongue=eng#view=data_quality">data quality</a> (<i>Afghanistan used as example</i>)</p>
+			</span>
+		</li>
+		<li>
+			<span id="gen7"></span>
+			<span class="list">Why are there zeroes and dashes in the tables?</span>
+			<span class="info">
+				Zeroes may denote issues with data quality (eg codes, dates, etc which are incompatible with the IATI Standard).  <i>There will shortly be links to the publisher’s page on the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a> to investigate specific data quality issues.</i>
+				<p>Dashes show that that donor/organisation is not currently an IATI publisher.</p>
+			</span>
+		</li>
+		<li>
+			<span id="gen8"></span>
+			<span class="list">When/how is data in d-portal updated?</span>
+			<span class="info">
+				IATI data is updated every night (importing any data which has changed from the previous day) and a full import is done each weekend - in each instance the data is pulled from the IATI Registry.
+				<p>CRS data is downloaded annually and then stored in <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a>.</p>
+			</span>
+		</li>
+		<li>
+			<span id="gen9"></span>
+			<span class="list">Where can I see more detail on IATI data quality issues/stats on how often organisations are publishing, etc?</span>
+			<span class="info">
+				See the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a>.
+			</span>
+		</li>
+		<li>
+			<span id="gen10"></span>
+			<span class="list">Where can I raise issues/questions about d-portal?</span>
+			<span class="info">
+				Either on our <a href="https://github.com/devinit/D-Portal">GitHub issues page</a> or via <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>
+			</span>
+		</li>
+		<li>
+			<span id="gen11"></span>
+			<span class="list">Where can I see plans for future development, and make suggestions?</span>
+			<span class="info">
+				See <a href="https://github.com/devinit/D-Portal/milestones">milestones on GitHub issues</a> page or contact us at <a href="https://github.com/devinit/D-Portal/milestones">queries@d-portal.org</a>
+			</span>
+		</li>
+		<li>
+			<span id="gen12"></span>
+			<span class="list">How do I find out more about d-portal?</span>
+			<span class="info">
+				See the <a href="http://d-portal.org/about.html">About</a> page.
+				<p>Look at the <a href="https://github.com/devinit/D-Portal/issues">issues on GitHub</a>.</p>
+				<p>Contact us - <a href="https://github.com/devinit/D-Portal/milestones">queries@d-portal.org</a></p>
+			</span>
+		</li>
+	</ul>
+</div>
+
 
 #faq_tech
 <div class="faq_wrap tech">
 	<div class="faq_links_wrap">
-		<h1>Frequently Asked <b>Technical</b> Questions</h1>
+		<h1 class="b">Frequently Asked <b>Technical</b> Questions</h1>
 		<a href="#tech1">Which transaction types are used/not used in d-portal?</a>
 		<a href="#tech2">How/where is the data tidied up before being displayed in d-portal?</a>
 		<a href="#tech3">How is data apportioned to a specific year?</a>
@@ -260,125 +379,11 @@
 	</ul>
 </div>
 
-#faq_general
-<div class="faq_wrap gen">
-	<div class="faq_links_wrap">
-		<h1>Frequently Asked <b>General</b> Questions</h1>
-		<a href="#gen1">What is d-portal?</a>
-		<a href="#gen2">Which datasets are included in d-portal?</a>
-		<a href="#gen3">What is IATI?</a>
-		<a href="#gen4">What is OECD DAC CRS?</a>
-		<a href="#gen5">Where does the data come from?</a>
-		<a href="#gen6">Why is there data missing in some parts of d-portal?</a>
-		<a href="#gen7">Why are there zeroes and dashes in the tables?</a>
-		<a href="#gen8">When/how is data in d-portal updated?</a>
-		<a href="#gen9">Where can I see more detail on IATI data quality issues/stats on how often organisations are publishing, etc?</a>
-		<a href="#gen10">Where can I raise issues/questions about d-portal?</a>
-		<a href="#gen11">Where can I see plans for future development, and make suggestions?</a>
-		<a href="#gen12">How do I find out more about d-portal?</a>
-	</div>
-	
-	<ul class="faq_list">
-		<li>
-			<span id="gen1"></span>
-			<span class="list">What is d-portal?</span>
-			<span class="info">
-				A view of all IATI (<a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a>) data by recipient country or publisher, comparable with latest OECD DAC CRS (<a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a>) data.
-			</span>
-		</li>
-		<li>
-			<span id="gen2"></span>
-			<span class="list">Which datasets are included in d-portal?</span>
-			<span class="info">
-				<a href="http://www.aidtransparency.net">IATI</a> and <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS</a> data (see below for more information).
-			</span>
-		</li>
-		<li>
-			<span id="gen3"></span>
-			<span class="list">What is IATI?</span>
-			<span class="info">
-				The <a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a> - IATI is a voluntary, multi-stakeholder initiative that seeks to improve the transparency of aid, development, and humanitarian resources in order to increase their effectiveness in tackling poverty. 
-			</span>
-		</li>
-		<li>
-			<span id="gen4"></span>
-			<span class="list">What is OECD DAC CRS?</span>
-			<span class="info">
-				The Organisation for Economic Co-operation and Development’s Development Assistance Committee <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a> - which contains Official Development Assistance data.
-			</span>
-		</li>
-		<li>
-			<span id="gen5"></span>
-			<span class="list">Where does the data come from?</span>
-			<span class="info">
-				The IATI data comes from the <a href="http://www.iatiregistry.org/">IATI Registry</a>. 
-				<p>The CRS data comes from <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS tables</a>.</p>
-				<p>Other data is stored in a Google <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a> spreadsheet.</p>
-			</span>
-		</li>
-		<li>
-			<span id="gen6"></span>
-			<span class="list">Why is there data missing in some parts of d-portal?</span>
-			<span class="info">
-				Publishers report their IATI data at varying degrees of detail, and data is updated and improved all the time by publishers.  If a publisher only publishes data for 2013, it won’t appear in 2014 columns/charts etc.  
-				<p>d-portal attempts to only reflect what is in the data and does not make corrections to data or information published to IATI, with only small exceptions to make the site user-friendly*</p>
-
-				<p>See also information about <a href="http://d-portal.org/ctrack.html?country=AF&tongue=eng#view=data_quality">data quality</a> (<i>Afghanistan used as example</i>)</p>
-			</span>
-		</li>
-		<li>
-			<span id="gen7"></span>
-			<span class="list">Why are there zeroes and dashes in the tables?</span>
-			<span class="info">
-				Zeroes may denote issues with data quality (eg codes, dates, etc which are incompatible with the IATI Standard).  <i>There will shortly be links to the publisher’s page on the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a> to investigate specific data quality issues.</i>
-				<p>Dashes show that that donor/organisation is not currently an IATI publisher.</p>
-			</span>
-		</li>
-		<li>
-			<span id="gen8"></span>
-			<span class="list">When/how is data in d-portal updated?</span>
-			<span class="info">
-				IATI data is updated every night (importing any data which has changed from the previous day) and a full import is done each weekend - in each instance the data is pulled from the IATI Registry.
-				<p>CRS data is downloaded annually and then stored in <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a>.</p>
-			</span>
-		</li>
-		<li>
-			<span id="gen9"></span>
-			<span class="list">Where can I see more detail on IATI data quality issues/stats on how often organisations are publishing, etc?</span>
-			<span class="info">
-				See the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a>.
-			</span>
-		</li>
-		<li>
-			<span id="gen10"></span>
-			<span class="list">Where can I raise issues/questions about d-portal?</span>
-			<span class="info">
-				Either on our <a href="https://github.com/devinit/D-Portal">GitHub issues page</a> or via <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>
-			</span>
-		</li>
-		<li>
-			<span id="gen11"></span>
-			<span class="list">Where can I see plans for future development, and make suggestions?</span>
-			<span class="info">
-				See <a href="https://github.com/devinit/D-Portal/milestones">milestones on GitHub issues</a> page or contact us at <a href="https://github.com/devinit/D-Portal/milestones">queries@d-portal.org</a>
-			</span>
-		</li>
-		<li>
-			<span id="gen12"></span>
-			<span class="list">How do I find out more about d-portal?</span>
-			<span class="info">
-				See the <a href="http://d-portal.org/about.html">About</a> page.
-				<p>Look at the <a href="https://github.com/devinit/D-Portal/issues">issues on GitHub</a>.</p>
-				<p>Contact us - <a href="https://github.com/devinit/D-Portal/milestones">queries@d-portal.org</a></p>
-			</span>
-		</li>
-	</ul>
-</div>
 
 #faq_generator
 <div class="faq_wrap gene">
 	<div class="faq_links_wrap">
-		<h1>Frequently Asked <b>Generator</b> Questions</h1>
+		<h1 class="c">Frequently Asked <b>Generator</b> Questions</h1>
 		<a href="#tech1">Which transaction types are used/not used in d-portal?</a>
 		<a href="#tech2">How/where is the data tidied up before being displayed in d-portal?</a>
 		<a href="#tech3">How is data apportioned to a specific year?</a>
