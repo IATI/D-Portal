@@ -75,9 +75,10 @@ activity-date[type="end-actual"]:before		{content:"END DATE"; font-size:14px; co
 
 /*	Who's invloved?
 	============================================= */
-span.span_participating-org				{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#000;}
+span.span_participating-org				{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#000; counter-reset:section;}
 span.span_participating-org:before 		{content:"Who's involved?"; font-size:34px; color:#000; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:5px solid #000;}
-participating-org 						{display:list-item; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
+participating-org::before				{counter-increment:section; content:counter(section) ". ";}
+participating-org 						{display:inline-block; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
 participating-org[role="funding"]:after			{content:"FUNDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="extending"]:after		{content:"EXTENDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
@@ -229,8 +230,9 @@ document-link span-title:nth-of-type(n+1)		{font-size:18px;}
 
 /*	Family Tree list
 	============================================= */
-span.span_related-activity			{width:880px; padding:0 40px; margin:0 auto;}
+span.span_related-activity			{width:880px; padding:0 40px; margin:0 auto; counter-reset:section;}
 span.span_related-activity:before	{content:"Family Tree"; font-size:34px; color:#000; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #000;}
+a.a_related-activity::before		{counter-increment:section; content:counter(section) ". ";}
 a.a_related-activity	{display:list-item; width:875px; padding:10px 0 0 5px; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#000;}
 a.a_related-activity:last-of-type								{padding-bottom:40px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
