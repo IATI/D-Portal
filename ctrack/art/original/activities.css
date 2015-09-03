@@ -85,7 +85,7 @@ reporting-org:last-of-type		{padding-bottom:40px;}
 
 /*	Description of project (shared with Transaction table)
 	============================================= */
-span.span_description description 					{font-size:1.0em; word-spacing:0.05em; line-height:1.25em; display:block; width:880px; padding:40px; padding-bottom:0; color:#FFF; white-space:pre-line; unicode-bidi:embed;}
+span.span_description description 					{font-size:1.0em; word-spacing:0.05em; line-height:1.5em; display:block; width:880px; padding:40px; padding-bottom:0; color:#FFF; white-space:pre-line; unicode-bidi:embed;}
 span.span_description description:nth-of-type(1):before{content:"DESCRIPTION"; font-size:14px; color:#ccc; display:block;}
 span.span_description description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#ccc; display:block;}
 span.span_description description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#ccc; display:block;}
@@ -225,7 +225,7 @@ span.span_related-activity			{width:880px; padding:0 40px; margin:0 auto; counte
 span.span_related-activity:before	{content:"Family Tree"; font-size:34px; color:#FFF; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #FFF;}
 span.span_related-activity			{color:#FFF;}
 a.a_related-activity::before		{counter-increment:section; content:counter(section) ". ";}
-a.a_related-activity				{display:inline-block; width:875px; padding:10px 0 0 5px; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#FFF;}
+a.a_related-activity				{display:inline-block; width:875px; padding:10px 0 10px 5px; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#FFF;}
 a.a_related-activity:last-of-type								{padding-bottom:40px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
 related-activity					{display:inline; color:#FFAB5E;}
