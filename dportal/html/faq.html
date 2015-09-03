@@ -6,58 +6,44 @@
 	<script src="{root}jslib/jquery.js"></script>
 	<script>
 			$(function(){
+				$('span.topics.a').addClass("on");
 				$('.faq_wrap.tech').hide();
 				$('.faq_wrap.gene').hide();
+				
 				$('span.topics.a').click(function () {
 					$('.faq_wrap.gen').show();
 					$('.faq_wrap.tech').hide();
 					$('.faq_wrap.gene').hide();
+					$('span.topics.a').addClass("on");
+					$('span.topics.b').removeClass("on");
+					$('span.topics.c').removeClass("on");
 				});
 				$('span.topics.b').click(function () {
 					$('.faq_wrap.gen').hide();
 					$('.faq_wrap.tech').show();
 					$('.faq_wrap.gene').hide();
+					$('span.topics.a').removeClass("on");
+					$('span.topics.b').addClass("on");
+					$('span.topics.c').removeClass("on");
 				});
 				$('span.topics.c').click(function () {
 					$('.faq_wrap.gen').hide();
 					$('.faq_wrap.tech').hide();
 					$('.faq_wrap.gene').show();
+					$('span.topics.a').removeClass("on");
+					$('span.topics.b').removeClass("on");
+					$('span.topics.c').addClass("on");
+				});
+				
+				$('.faq_links_wrap a').click(function () {
+					console.log($(this).attr('href'));
+					$('span.list').parent().removeClass("on");
+					$($(this).attr('href')).parent().addClass("on");
 				});
 			});
 		</script>
 	<link  href="{root}art/original/ctrack.css" rel="stylesheet" type="text/css" >
-	<link  href="about.css" rel="stylesheet" type="text/css" >
-	<style>
-		
-		h1				{font-weight:normal; position:absolute; top:0; left:0; padding:40px 0 40px 100px; color:#FFF; width:860px;}
-		h1.a			{background-color:#2CE268;}
-		h1.b			{background-color:#FF860E;}
-		h1.c			{background-color:#53AEFF;}
-		.faq_wrap		{width:960px; margin:0 auto; background-color:#FFF; padding:100px 40px 40px 40px; box-sizing:border-box; position:relative;}
-		.faq_links_wrap	{padding:40px 0 60px 60px;}
-		.faq_links_wrap a	{display:list-item; padding-top:10px; color:#444; list-style-type:decimal; list-style-position:inside;}
-		.faq_links_wrap a:hover	{text-decoration:underline;}
-		
-		li				{list-style-type:decimal;}
-		ul.faq_list		{padding-left:60px;}
-		ul.faq_list li	{font-size:1.2em; font-weight:bold; line-height:1.2em; padding-bottom:10px;}
-		
-		span.topics		{display:inline-block; padding:20px; color:#FFF; background-color:#2CE268; vertical-align:top; width:310px; box-sizing:border-box; text-align:center; border-radius:8px 8px 0 0; font-size:1.8em;}
-		span.topics.a:hover	{background-color:#2BF26C;}
-		span.topics.b	{margin-left:15px; margin-right:15px; background-color:#FF860E;}
-		span.topics.b:hover	{background-color:#FF980A;}
-		span.topics.c	{background-color:#53AEFF;}
-		span.topics.c:hover	{background-color:#7BC2FF;}
-		span.topics:hover	{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
-		
-		span.info		{display:block; color:#444; font-size:0.8em; line-height:1.4em; font-weight:normal; padding:10px 40px 40px 5px;}
-		span.info ul	{padding-left:20px;}
-		span.info li	{font-weight:normal; font-size:1.0em; list-style-type:lower-latin; padding:10px 0 0 0;}
-		span.info a		{color:#2573CD;}
-		span.info a:hover	{text-decoration:underline;}
-		span.info p		{color:#444; padding:10px 0 0 0;}
-		
-	</style>	
+	<link  href="about.css" rel="stylesheet" type="text/css" >	
 	{ganal}
 </head>
 <body>
@@ -69,7 +55,7 @@
 </html>
 
 #main_head
-<div class="navi" style="background-color:transparent; position:initial;">
+<div class="navi clear">
 	<table class="head">
 		<tr>
 			<td class="logo">
@@ -79,7 +65,7 @@
 			</td>
 			<td class="dplinks"><a href="{tongue_root}about.html" class="top install">{about_link_text}</a></td>
 			<td class="dplinks"><a href="{tongue_root}news/posts.html" class="top news">{news_link_text}</a></td>
-			<td class="options" style="vertical-align:middle;">{tongue_select}</td>
+			<td class="options">{tongue_select}</td>
 		</tr>
 	</table>
 </div>
@@ -88,7 +74,7 @@
 <span class="badge beta">BETA</span>
 
 #faq
-<div class="about_wrap" style="background-color:transparent; padding:40px 0;">
+<div class="about_wrap faq">
 	<div class="default">
 		<span class="topics a">General</span><span class="topics b">Technical</span><span class="topics c">Generator</span>
 		{faq_general}
@@ -100,7 +86,7 @@
 #faq_general
 <div class="faq_wrap gen">
 	<div class="faq_links_wrap">
-		<h1 class="a">Frequently Asked <b>General</b> Questions</h1>
+		<div class="faq_head a">Frequently Asked <b>General</b> Questions</div>
 		<a href="#gen1">What is d-portal?</a>
 		<a href="#gen2">Which datasets are included in d-portal?</a>
 		<a href="#gen3">What is IATI?</a>
@@ -216,7 +202,7 @@
 #faq_tech
 <div class="faq_wrap tech">
 	<div class="faq_links_wrap">
-		<h1 class="b">Frequently Asked <b>Technical</b> Questions</h1>
+		<div class="faq_head b">Frequently Asked <b>Technical</b> Questions</div>
 		<a href="#tech1">Which transaction types are used/not used in d-portal?</a>
 		<a href="#tech2">How/where is the data tidied up before being displayed in d-portal?</a>
 		<a href="#tech3">How is data apportioned to a specific year?</a>
@@ -383,7 +369,7 @@
 #faq_generator
 <div class="faq_wrap gene">
 	<div class="faq_links_wrap">
-		<h1 class="c">Frequently Asked <b>Generator</b> Questions</h1>
+		<div class="faq_head c">Frequently Asked <b>Generator</b> Questions</div>
 		<a href="#gene1">What is it?</a>
 		<a href="#gene2">Why does it exist?</a>
 		<a href="#gene3">How do I use it?</a>
