@@ -5,6 +5,8 @@
 var view_list_budgets=exports;
 exports.name="view_list_budgets";
 
+var csvw=require("./csvw.js")
+
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
@@ -90,6 +92,7 @@ view_list_budgets.ajax=function(args)
 				ctrack.args.chunks["table_header_amount"]="";
 			}
 			ctrack.chunk("list_budgets_count",data.rows.length);
+			var a=[];
 			for(var i=0;i<data.rows.length;i++)
 			{
 				var v=data.rows[i];
@@ -100,13 +103,28 @@ view_list_budgets.ajax=function(args)
 				d.title=v.title || v.aid;
 				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref;
 				total+=ctrack.convert_num("sum_of_percent_of_budget",v);
-				d.amount=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
+				d.amount_num=Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v));
+				d.amount=commafy(""+d.amount_num);
 				d.currency=ctrack.display_usd;
-
+				a.push(d);
 				s.push( plate.replace(args.plate || "{list_budgets_data}",d) );
 			}
 			ctrack.chunk(args.chunk || "list_budgets_datas",s.join(""));
 			ctrack.chunk("total",commafy(""+Math.floor(total)));
+
+			var p=function(s)
+			{
+				s=s || "";
+				s=s.replace(/[,]/g,"");
+				return parseInt(s);
+			}
+			var cc=[];
+			cc[0]=["aid","title","reporting","funder","amount","currency"];
+			a.forEach(function(v){
+				cc[cc.length]=[v.aid,v.title,v.reporting,v.funder,v.amount_num,v.currency];
+			});
+			ctrack.chunk((args.chunk || "list_budgets_datas")+"_csv","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
+
 		}
 		if(args.callback){args.callback(data);}
 		ctrack.display();
