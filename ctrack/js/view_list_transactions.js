@@ -122,9 +122,9 @@ view_list_transactions.ajax=function(args)
 				return parseInt(s);
 			}
 			var cc=[];
-			cc[0]=["aid","title","reporting","funder","amount","currency"];
+			cc[0]=["aid","title","reporting","amount","currency"];
 			a.forEach(function(v){
-				cc[cc.length]=[v.aid,v.title,v.reporting,v.funder,v.amount_num,v.currency];
+				cc[cc.length]=[v.aid,v.title,v.reporting,v.amount_num,v.currency];
 			});
 			ctrack.chunk((args.chunk || "list_transactions_datas")+"_csv","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
 
