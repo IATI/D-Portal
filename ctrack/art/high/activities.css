@@ -75,9 +75,10 @@ activity-date[type="end-actual"]:before		{content:"END DATE"; font-size:14px; co
 
 /*	Who's invloved?
 	============================================= */
-span.span_participating-org				{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#000;}
+span.span_participating-org				{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#000; counter-reset:section;}
 span.span_participating-org:before 		{content:"Who's involved?"; font-size:34px; color:#000; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:5px solid #000;}
-participating-org 						{display:list-item; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
+participating-org::before				{counter-increment:section; content:counter(section) ". ";}
+participating-org 						{display:block; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
 participating-org[role="funding"]:after			{content:"FUNDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="extending"]:after		{content:"EXTENDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
@@ -94,7 +95,7 @@ reporting-org:last-of-type		{padding-bottom:40px;}
 
 /*	Description of project (shared with Transaction table)
 	============================================= */
-span.span_description description {font-size:1.0em; word-spacing:0.05em; line-height:1.25em; display:block; width:880px; padding:40px; padding-bottom:0; color:#000; border-top:1px solid #000; white-space:pre-line; unicode-bidi:embed;}
+span.span_description description {font-size:1.0em; word-spacing:0.05em; line-height:1.5em; display:block; width:880px; padding:40px; padding-bottom:0; color:#000; border-top:1px solid #000; white-space:pre-line; unicode-bidi:embed;}
 span.span_description description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; display:block;}
 span.span_description description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#000; display:block;}
 span.span_description description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#000; display:block;}
@@ -213,24 +214,26 @@ activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#000;
 
 /*	Related documents list
 	============================================= */
-span.span_document-link			{width:880px; padding:0 40px; margin:0 auto;}
-span.span_document-link:before	{content:"Related Documents"; font-size:34px; color:#000; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #000;}
-a.a_document-link				{display:list-item; width:880px; padding:10px 0; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#000;}
-a.a_document-link:last-of-type	{padding-bottom:40px;}
+span.span_document-link							{width:880px; padding:0 40px; margin:0 auto; counter-reset:section;}
+span.span_document-link:before					{content:"Related Documents"; font-size:34px; color:#000; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #000;}
+a.a_document-link::before						{counter-increment:section; content:counter(section) ". ";}
+a.a_document-link								{display:inline-block; width:880px; padding:10px 0; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#000;}
+a.a_document-link:last-of-type					{padding-bottom:40px;}
 a.a_document-link document-link span-title		{color:#000; padding:0;}
 a.a_document-link document-link span-title:hover{color:#000;}
-document-link		{display:block;}
-document-link span	{font-size:1.0em; display:block; color:#000;}
-document-link span-title					{display:block;}
-document-link span-title:nth-of-type(n+1):before	{display:none;}
-document-link span-title:nth-of-type(n+1)	{font-size:18px;}
+document-link									{display:inline-block;}
+document-link span								{font-size:1.0em; display:block; color:#000;}
+document-link span-title						{display:block;}
+document-link span-title:nth-of-type(n+1):before{display:none;}
+document-link span-title:nth-of-type(n+1)		{font-size:18px;}
 
 
 /*	Family Tree list
 	============================================= */
-span.span_related-activity			{width:880px; padding:0 40px; margin:0 auto;}
+span.span_related-activity			{width:880px; padding:0 40px; margin:0 auto; counter-reset:section;}
 span.span_related-activity:before	{content:"Family Tree"; font-size:34px; color:#000; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:3px solid #000;}
-a.a_related-activity	{display:list-item; width:875px; padding:10px 0 0 5px; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#000;}
+a.a_related-activity::before		{counter-increment:section; content:counter(section) ". ";}
+a.a_related-activity	{display:list-item; width:875px; padding:10px 0 10px 5px; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#000;}
 a.a_related-activity:last-of-type								{padding-bottom:40px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
 related-activity		{display:inline; color:#000;}
