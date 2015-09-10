@@ -101,7 +101,7 @@ var	bufferToString=function(buffer) {
 
 	console.log("\t\tImporting xmlfile <"+charset+">: ("+acts.length+") \t"+xmlfilename);
 //	wait.for(function(cb){
-		require("./dstore_db").fill_acts(acts,xmlfilename);
+		require("./dstore_db").fill_acts(acts,xmlfilename,data);
 //		} );
 }
 
