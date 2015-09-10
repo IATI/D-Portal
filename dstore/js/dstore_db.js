@@ -372,7 +372,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 		t.jml=JSON.stringify(it);
 		
-		dstore_sqlite.replace(db,"transaction",t);
+		dstore_sqlite.replace(db,"trans",t);
 	};
 
 	var refresh_budget=function(it,act,act_json,priority)
