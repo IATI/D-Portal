@@ -131,9 +131,9 @@ a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#FFF;}
 .map_wrap				{width:100%; min-height:400px; max-height:400px; margin:0 auto; background-color:rgba(0,0,0,0.8); position:relative;}
 .map_info				{width:800px; margin:0 auto; top:0; left:-100px; right:-100px; padding:10px 40px; font-size:1.1em; color:#FFF; line-height:1.35em; position:absolute; background-color:rgba(52, 174, 255, 0.9); border-radius:0 0 8px 8px; text-align:center;}
 .map_no_info			{color:#FFF; font-size:1.2em; line-height:1.35em; text-align:center; position:absolute; top:50%; left:20%; right:20%;}
-a.map_percent			{display:block; width:140px; margin:0 auto; bottom:30px; left:-80px; right:-780px; padding:10px 20px; font-size:0.95em; color:#FFF; line-height:1.15em; position:absolute; background-color:rgba(0,14,32,0.8); border-radius:8px; z-index:1; text-align:left;}
+a.map_percent			{display:block; width:140px; margin:0 auto; bottom:30px; left:-80px; right:-780px; padding:10px 15px 15px 15px; font-size:0.95em; color:#FFF; line-height:1.15em; position:absolute; background-color:rgba(0,14,32,0.8); border-radius:8px; z-index:1; text-align:left;}
 a.map_percent:hover		{background-color:rgba(0,14,32,0.9);}
-a.map_percent span		{display:inline-block; vertical-align:bottom; font-size:1.0em; line-height:1.0em; color:#FFF; font-weight:bold; padding:0 3px 0 7px;}
+a.map_percent span		{display:inline; font-size:1.15em; line-height:1.0em; color:#FFF; font-weight:bold; padding:0 3px 0 7px;}
 #map					{width:100%; height:400px;}
 .map_wrap img			{-webkit-filter:brightness(100%); filter:brightness(100%);}
 .map_percent img		{-webkit-filter:brightness(200%); filter:brightness(200%);}

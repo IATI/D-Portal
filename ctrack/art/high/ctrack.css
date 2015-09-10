@@ -121,9 +121,9 @@ a.view_all_money:hover	{background-color:#000; color:#FFF;}
 .map_wrap				{width:100%; min-height:300px; max-height:400px; margin:0 auto; background-color:#000; position:relative;}
 .map_info				{width:800px; margin:0 auto; top:0; left:-100px; right:-100px; padding:10px 40px; font-size:1.1em; color:#FFF; line-height:1.35em; position:absolute; background-color:#000; border-radius:0 0 8px 8px; text-align:center;}
 .map_no_info			{color:#FFF; font-size:1.2em; line-height:1.35em; text-align:center; position:absolute; top:50%; left:20%; right:20%;}
-a.map_percent			{display:block; width:140px; margin:0 auto; bottom:30px; left:-80px; right:-778px; padding:10px 20px; font-size:0.95em; color:#000; line-height:1.15em; position:absolute; background-color:#FFF; border-radius:8px; z-index:1; text-align:left; border:1px solid #000;}
+a.map_percent			{display:block; width:140px; margin:0 auto; bottom:30px; left:-80px; right:-778px; padding:10px 15px 15px 15px; font-size:0.95em; color:#000; line-height:1.15em; position:absolute; background-color:#FFF; border-radius:8px; z-index:1; text-align:left; border:1px solid #000;}
 a.map_percent:hover		{background-color:#E9E9E9;}
-a.map_percent span		{display:inline-block; vertical-align:bottom; font-size:1.0em; line-height:1.0em; color:#000; font-weight:bold; padding:0 3px 0 7px;}
+a.map_percent span		{display:inline; font-size:1.0em; line-height:1.15em; color:#000; font-weight:bold; padding:0 3px 0 7px;}
 #map					{width:100%; height:400px;}
 
 
