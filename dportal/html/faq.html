@@ -50,6 +50,14 @@
 						$('a.faq_top').hide();
 					}
 				});
+				
+				$(document).ready(function(){
+					console.log($(this).attr('href'));
+					var locationHash = window.location.hash.substring(1);
+					if(locationHash == $(this).attr('href')){
+					  $('a.topics').parent().trigger('click');
+					}
+				});
 			});
 		</script>
 	<link  href="{root}art/original/ctrack.css" rel="stylesheet" type="text/css" >
