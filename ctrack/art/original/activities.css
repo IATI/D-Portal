@@ -19,7 +19,7 @@ iati-activity a 	{display:block;}
 iati-activity img	{display:block; -webkit-filter:brightness(100%); filter:brightness(100%);}
 
 
-narrative {display:block; color:inherit; font-family:inherit; word-wrap:inherit;}
+narrative {display:inline-block; color:inherit; font-family:inherit; word-wrap:inherit;}
 
 
 /*	Project title
@@ -186,7 +186,7 @@ contact-info:last-of-type			{padding-bottom:40px;}
 
 /*	Website or external links
 	============================================= */
-activity-website		{display:block; width:880px; margin:0 auto; text-align:center; padding:20px 40px; font-size:18px; border:0; color:#FF9E45; background-color: rgba(0,14,32,0.7);}
+activity-website		{display:block; width:880px; margin:0 auto; text-align:center; padding:20px 40px; font-size:14px; border:0; color:#FF9E45; background-color: rgba(0,14,32,0.7);}
 activity-website *		{display:block; padding:5px 0;}
 activity-website:before {content:"FOR MORE INFORMATION, VISIT "; font-size:14px; color:#ccc; display:inline-block; padding-right:10px;}
 activity-website:hover	{color:#FF7A00;}
