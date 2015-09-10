@@ -78,8 +78,8 @@ dstore_db.tables={
 	],
 	budget:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement)
-		{ name:"budget_priority",				INTEGER:true , INDEX:true }, // set to 0 if it should be ignored(bad data)
+		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement) or total (organization total)
+		{ name:"budget_priority",				INTEGER:true , INDEX:true }, // set to 0 if it should be ignored(bad data or total)
 		{ name:"budget_type",					NOCASE:true , INDEX:true },	// planed disburtions have priority
 		{ name:"budget_day_start",				INTEGER:true , INDEX:true },
 		{ name:"budget_day_end",				INTEGER:true , INDEX:true },
@@ -144,7 +144,7 @@ dstore_db.open = function(){
 
 
 
-dstore_db.fill_acts = function(acts,slug,main_cb){
+dstore_db.fill_acts = function(acts,slug,data,main_cb){
 
 	var before_time=Date.now();
 	var after_time=Date.now();
@@ -180,6 +180,24 @@ dstore_db.fill_acts = function(acts,slug,main_cb){
 	wait.for(function(cb){ db.run("PRAGMA page_count", function(err, row){ cb(err); }); });
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
+
+	if(acts.length==0) // probably an org file, try and import budgets from full data
+	{
+
+		var org=refry.xml(data); // raw xml convert to jml
+		var aid=iati_xml.get_aid(org);
+
+		console.log("importing budgets from org file for "+aid)
+
+		db.run("DELETE FROM budget    WHERE aid=?",aid);
+
+		refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
+
+		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slug"]);
+		sa.run({"$aid":aid,"$slug":slug});
+		sa.finalize();
+	}
+
 
 	for(var i=0;i<acts.length;i++)
 	{
@@ -252,35 +270,75 @@ dstore_db.analyze = function(){
 
 // pull every activity from the table and update *all* connected tables using its raw xml data
 
+dstore_db.refresh_budget=function(db,it,act,act_json,priority)
+{
+	
+	var t={};
+	for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
+
+	t.budget_priority=priority;
+	
+	t.budget="unknown";
+	if(it[0]=="planned-disbursement") // flag to share table with planned-disbursement (they seem very similar)
+	{
+		t.budget="plan";
+	}
+	else
+	if(it[0]=="budget")
+	{
+		t.budget="budget";
+	}
+	else
+	if(it[0]=="total-budget")
+	{
+		t.budget="total";
+		t.budget_priority=0; // make sure this does not double count
+	}
+	
+	t["budget_type"]=it["type"];
+
+	t["budget_day_start"]=				iati_xml.get_isodate_number(it,"period-start");
+	t["budget_day_end"]=				iati_xml.get_isodate_number(it,"period-end");
+
+
+	t["budget_day_length"]=null;
+	if(t["budget_day_end"] && t["budget_day_start"] ) // length may be null for bad data
+	{
+		t["budget_day_length"]=			t["budget_day_end"]-t["budget_day_start"];
+		if( t["budget_day_length"] < 0 )
+		{
+			t["budget_day_length"]=null; // ends before it starts
+		}
+	}
+	
+	if( (!t["budget_day_length"]) || (t["budget_day_length"] > 370) ) // allow a few days over a year
+	{
+		t.budget_priority=0; // remove priority
+	}
+	
+	t["budget_currency"]=				iati_xml.get_value_currency(it,"value");
+	t["budget_value"]=					iati_xml.get_value(it,"value");
+	t["budget_usd"]=					iati_xml.get_ex(it,"value","USD");
+	t["budget_eur"]=					iati_xml.get_ex(it,"value","EUR");
+	t["budget_gbp"]=					iati_xml.get_ex(it,"value","GBP");
+	t["budget_cad"]=					iati_xml.get_ex(it,"value","CAD");
+
+	t.jml=JSON.stringify(it);
+	
+	dstore_sqlite.replace(db,"budget",t);
+};
+
+
 dstore_db.refresh_act = function(db,aid,xml){
 
 // choose to prioritise planned-transaction or budgets for each year depending on which we fine in the xml
 // flag each year when present
 	var got_budget={};
 
-/*	
-	var preps={};
-	var prep=function(name)
-	{
-		if(!preps[name])
-		{
-			preps[name]=db.prepare(dstore_sqlite.tables_replace_sql[name]);
-		}
-		return preps[name];
-	}
-*/	
-
 	var replace=function(name,it)
 	{
 		dstore_sqlite.replace(db,name,it);
-/*		
-		var $t=dstore_sqlite.replace_vars(db,name,it);
-		var sa = prep(name);
-		sa.run($t);
-*/
 	}
-	
-
 
 	var refresh_transaction=function(it,act,act_json)
 	{
@@ -314,65 +372,15 @@ dstore_db.refresh_act = function(db,aid,xml){
 
 		t.jml=JSON.stringify(it);
 		
-//		dstore_sqlite.replace(db,"transaction",t);
-		replace("trans",t);
-
+		dstore_sqlite.replace(db,"trans",t);
 	};
 
 	var refresh_budget=function(it,act,act_json,priority)
 	{
-//		process.stdout.write("b");
-		
-		var t={};
-		for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
-
-		t.budget_priority=priority;
-		
-		if(it[0]=="planned-disbursement") // flag to share table with planned-disbursement (they seem very similar)
-		{
-			t.budget="plan";
-		}
-		else
-		{
-			t.budget="budget";
-		}
-		
-		t["budget_type"]=it["type"];
-
-		t["budget_day_start"]=				iati_xml.get_isodate_number(it,"period-start");
-		t["budget_day_end"]=				iati_xml.get_isodate_number(it,"period-end");
-
-
-		t["budget_day_length"]=null;
-		if(t["budget_day_end"] && t["budget_day_start"] ) // length may be null for bad data
-		{
-			t["budget_day_length"]=			t["budget_day_end"]-t["budget_day_start"];
-			if( t["budget_day_length"] < 0 )
-			{
-				t["budget_day_length"]=null; // ends before it starts
-			}
-		}
-		
-		if( (!t["budget_day_length"]) || (t["budget_day_length"] > 370) ) // allow a few days over a year
-		{
-			t.budget_priority=0; // remove priority
-		}
-		
-		t["budget_currency"]=				iati_xml.get_value_currency(it,"value");
-		t["budget_value"]=					iati_xml.get_value(it,"value");
-		t["budget_usd"]=					iati_xml.get_ex(it,"value","USD");
-		t["budget_eur"]=					iati_xml.get_ex(it,"value","EUR");
-		t["budget_gbp"]=					iati_xml.get_ex(it,"value","GBP");
-		t["budget_cad"]=					iati_xml.get_ex(it,"value","CAD");
-
-		t.jml=JSON.stringify(it);
-		
-//		dstore_sqlite.replace(db,"budgets",t);
-		replace("budget",t);
+		dstore_db.refresh_budget(db,it,act,act_json,priority);
 		
 		var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
 		got_budget[ y ]=true;
-
 	};
 
 	var refresh_activity=function(xml)
