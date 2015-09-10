@@ -149,9 +149,10 @@ view_publisher_sectors.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
+				var num=ctrack.convert_num("sum_of_percent_of_trans",v);
 				d.sector_code=v.sector_code || "N/A";
 				d.sector_name=iati_codes.sector[v.sector_code] || iati_codes.sector_category[v.sector_code] || v.sector_code || "N/A";
-				d["t"+(2+y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v)));
+				d["t"+(2+y-year)]=commafy(""+Math.floor(num));
 				if(y==year)
 				{
 					d.order=num; // default, use ctrack.year transaction value for sort
@@ -190,9 +191,10 @@ view_publisher_sectors.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
+				var num=ctrack.convert_num("sum_of_percent_of_budget",v);
 				d.sector_code=v.sector_code || "N/A";
 				d.sector_name=iati_codes.sector[v.sector_code] || iati_codes.sector_category[v.sector_code] || v.sector_code || "N/A";
-				d["b"+(y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
+				d["b"+(y-year)]=commafy(""+Math.floor(num));
 				fadd(d);
 			}
 //			console.log(ctrack.donors_data);
