@@ -86,12 +86,46 @@
 		<table class="quality">
 			<tr>
 				<td>
+					<table class="actdate_data">
+						<tr>
+							<th>Activity State</th>
+							<th>Activities</th>
+						</tr>
+						<tr>
+							<td>Total</td>
+							<td>{dash_quality_act_count_num}</td>
+						</tr>
+						<tr>
+							<td>Ended</td>
+							<td>{dash_list_actdate_act_ended}</td>
+						</tr>
+						<tr>
+							<td>Planned</td>
+							<td>{dash_list_actdate_act_planned}</td>
+						</tr>
+						<tr>
+							<td>Active</td>
+							<td>{dash_list_actdate_act_active}</td>
+						</tr>
+						<tr>
+							<td>Missing or bad dates so it can't be classified.</td>
+							<td>{dash_list_actdate_act_missing}</td>
+						</tr>
+						<tr>
+							<td>Missing end date only</td>
+							<td>{dash_list_actdate_act_missing_end}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
 					<table class="country_data">
 						<tr>
 							<td>
 								<div class="country_title">Total number of recipient countries:</div>
 								<div class="country_subtitle" title="{dash_quality_country_total_invalid_pct}%">Reporting {dash_quality_country_total_invalid} invalid recipients.</div>
-								<div class="note div">Click to view all acitivities reported per country for this publisher. Links open new window.</div>
+								<div class="note div">Click to view all activities reported per country for this publisher. Links open new window.</div>
 							</td>
 							<td><div class="country_title">{dash_quality_country_count}</div></td>
 						</tr>

@@ -17,6 +17,7 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 // the chunk names this view will fill with new data
 view_dash_quality.chunks=[
 	"dash_quality_pub",
+	"dash_quality_country_total_invalid",
 	"dash_quality_act_count",
 	"dash_quality_budget_count",
 	"dash_quality_trans_count",
@@ -50,7 +51,7 @@ view_dash_quality.ajax=function(args)
 	args.pub=ctrack.hash.pub;
 	args.country=ctrack.hash.country;
 	
-	ctrack.chunk("dash_quality_pub",args.pub);
+	ctrack.chunk("dash_quality_pub",args.pub || "N/A");
 	ctrack.chunk("dash_quality_pub_name",iati_codes.publisher_names[args.pub] || "N/A");	
 	
 	view_dash_quality.ajax1(args); // chain
@@ -75,6 +76,7 @@ view_dash_quality.ajax1=function(args)
 		{
 			var v=data.rows[0];
 			var count=v["COUNT(DISTINCT aid)"];
+			ctrack.chunk("dash_quality_act_count_num",Math.floor(count));
 			ctrack.chunk("dash_quality_act_count",commafy(Math.floor(count)));
 		}
 		
@@ -240,6 +242,117 @@ view_dash_quality.ajax5=function(args)
 		view_dash_quality.calc();
 		ctrack.display(); // every fetch.ajax must call display once
 
-//		view_dash_quality.ajax4(args);
+		view_dash_quality.ajax6(args);
 	});
 }
+
+
+view_dash_quality.ajax6=function(args)
+{
+	var today=fetch.get_today();
+	args=args || {};
+	var dat={
+			"country_code":(args.country),
+			"reporting_ref":(args.pub),
+			"select":"count",
+			"from":"act",
+			"limit":-1,
+			"day_end_lt":today,
+			"day_length_not_null":1,
+		};
+	fetch.ajax(dat,args.callback || function(data)
+	{
+		console.log(data);
+		
+		ctrack.chunk("dash_list_actdate_act_ended",data.rows[0].count);
+		
+		view_dash_quality.calc();
+		ctrack.display(); // every fetch.ajax must call display once
+		view_dash_quality.ajax7(args);
+	});
+}
+
+view_dash_quality.ajax7=function(args)
+{
+	var today=fetch.get_today();
+	args=args || {};
+	var dat={
+			"country_code":(args.country),
+			"reporting_ref":(args.pub),
+			"select":"count",
+			"from":"act",
+			"limit":-1,
+			"day_start_gt":today,
+			"day_length_not_null":1,
+		};
+	fetch.ajax(dat,args.callback || function(data)
+	{
+		console.log(data);
+		
+		ctrack.chunk("dash_list_actdate_act_planned",data.rows[0].count);
+		
+		view_dash_quality.calc();
+		ctrack.display(); // every fetch.ajax must call display once
+		view_dash_quality.ajax8(args);
+	});
+}
+
+
+view_dash_quality.ajax8=function(args)
+{
+	var today=fetch.get_today();
+	args=args || {};
+	var dat={
+			"country_code":(args.country),
+			"reporting_ref":(args.pub),
+			"select":"count",
+			"from":"act",
+			"limit":-1,
+			"day_end_gteq":today,
+			"day_start_lteq":today,
+			"day_length_not_null":1,
+		};
+	fetch.ajax(dat,args.callback || function(data)
+	{
+		console.log(data);
+		
+		ctrack.chunk("dash_list_actdate_act_active",data.rows[0].count);
+		
+		var n=ctrack.chunk("dash_list_actdate_act_ended")+ctrack.chunk("dash_list_actdate_act_planned")+ctrack.chunk("dash_list_actdate_act_active");
+
+		ctrack.chunk("dash_list_actdate_act_missing",ctrack.chunk("dash_quality_act_count_num")-n);
+
+		
+		view_dash_quality.calc();
+		ctrack.display(); // every fetch.ajax must call display once
+		view_dash_quality.ajax9(args);
+	});
+}
+
+
+view_dash_quality.ajax9=function(args)
+{
+	var today=fetch.get_today();
+	args=args || {};
+	var dat={
+			"country_code":(args.country),
+			"reporting_ref":(args.pub),
+			"select":"count",
+			"from":"act",
+			"limit":-1,
+			"day_start_not_null":1,
+			"day_end_null":1,
+		};
+	fetch.ajax(dat,args.callback || function(data)
+	{
+		console.log(data);
+		
+		ctrack.chunk("dash_list_actdate_act_missing_end",data.rows[0].count);
+		
+		view_dash_quality.calc();
+		ctrack.display(); // every fetch.ajax must call display once
+//		view_dash_quality.ajax9(args);
+	});
+}
+
+
