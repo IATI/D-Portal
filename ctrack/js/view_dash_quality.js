@@ -262,7 +262,7 @@ view_dash_quality.ajax6=function(args)
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log(data);
+//		console.log(data);
 		
 		ctrack.chunk("dash_list_actdate_act_ended",data.rows[0].count);
 		
@@ -287,7 +287,7 @@ view_dash_quality.ajax7=function(args)
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log(data);
+//		console.log(data);
 		
 		ctrack.chunk("dash_list_actdate_act_planned",data.rows[0].count);
 		
@@ -314,7 +314,7 @@ view_dash_quality.ajax8=function(args)
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log(data);
+//		console.log(data);
 		
 		ctrack.chunk("dash_list_actdate_act_active",data.rows[0].count);
 		
@@ -345,7 +345,7 @@ view_dash_quality.ajax9=function(args)
 		};
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		console.log(data);
+//		console.log(data);
 		
 		ctrack.chunk("dash_list_actdate_act_missing_end",data.rows[0].count);
 		

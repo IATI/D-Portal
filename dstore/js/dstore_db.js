@@ -184,7 +184,7 @@ dstore_db.fill_acts = function(acts,slug,data,main_cb){
 	if(acts.length==0) // probably an org file, try and import budgets from full data
 	{
 
-		var org=refry.xml(data); // raw xml convert to jml
+		var org=refry.xml(data,slug); // raw xml convert to jml
 		var aid=iati_xml.get_aid(org);
 
 		console.log("importing budgets from org file for "+aid)
@@ -203,7 +203,7 @@ dstore_db.fill_acts = function(acts,slug,data,main_cb){
 	{
 		var xml=acts[i];
 
-		json=refry.xml(xml);
+		json=refry.xml(xml,slug);
 		var aid=iati_xml.get_aid(json);
 		if(aid)
 		{
@@ -211,7 +211,7 @@ dstore_db.fill_acts = function(acts,slug,data,main_cb){
 			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
 			process.stdout.write(progchar[p]);
 
-			dstore_db.refresh_act(db,aid,xml);
+			dstore_db.refresh_act(db,aid,json);
 
 	// block and wait here
 
@@ -387,7 +387,8 @@ dstore_db.refresh_act = function(db,aid,xml){
 	{
 //		process.stdout.write("a");
 		
-		var act=refry.xml(xml); // raw xml convert to jml
+		var act=xml;
+		if((typeof xml)=="string") { act=refry.xml(xml,aid); } // raw xml convert to jml
 		act=refry.tag(act,"iati-activity"); // and get the main tag
 		
 		iati_cook.activity(act); // cook the raw json(xml) ( most cleanup logic has been moved here )

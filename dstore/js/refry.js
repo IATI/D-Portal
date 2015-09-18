@@ -6,6 +6,7 @@ var refry=exports;
 var util=require('util');
 
 var htmlparser=require('htmlparser');
+var expat = require('node-expat');
 
 var entities = require("entities");
 
@@ -24,9 +25,54 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 //
 // This gives a rather compact xml representation in json format.
 //
-refry.xml=function(data)
+refry.xml=function(data,filename)
 {
 	
+	var json=[];
+	var stack=[];
+	var top={};stack.push(top);
+	var cdata=false;
+
+	var parser = new expat.Parser('UTF-8');
+
+	parser.on('startElement', function (name, attrs) {
+		var parent=top;
+		top={};stack.push(top);
+		for(n in attrs) { top[n]=attrs[n]; }
+		top[0]=name;
+		if(!parent[1]){ parent[1]=[]; }
+		parent[1].push(top);
+	});
+
+	parser.on('endElement', function (name) {
+		stack.pop();
+		top=stack[stack.length-1];
+	});
+
+	parser.on('text', function (text) {
+		if(text.trim()!="") // ignore white space
+		{
+			if(!top[1]) { top[1]=[]; }
+			if(cdata)	{ 	top[1].push( entities.encodeXML(text) );	}
+			else		{	top[1].push(                    text  );	}
+		}
+	});
+
+// maintain cdata text flag
+	parser.on('startCdata', function () { cdata=true; });
+	parser.on('endCdata', function () { cdata=false; });
+
+//error?
+	parser.on('error', function (error) {
+		console.error("\n XML ERROR "+error+" : "+filename);
+	});
+
+	parser.write(data);
+
+	return stack[0][1];
+	
+/*
+
 	var dom;
 	(new htmlparser.Parser(new htmlparser.DefaultHandler(function(e,d){
 			if(!e) { dom=d; }
@@ -73,6 +119,8 @@ refry.xml=function(data)
 	xml_refry_dom(dom,json);
 
 	return json;
+*/
+
 }
 
 // turn json back into xml
