@@ -6,7 +6,6 @@ var refry=exports;
 var util=require('util');
 
 var htmlparser=require('htmlparser');
-var expat = require('node-expat');
 
 var entities = require("entities");
 
@@ -27,6 +26,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 //
 refry.xml=function(data,filename)
 {
+var expat = require('node-expat');
 	
 	var json=[];
 	var stack=[];
