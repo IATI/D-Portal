@@ -45,19 +45,12 @@
 				$(document).scroll(function() {
 					var y = $(this).scrollTop();
 					if (y > 800) {
-						$('a.faq_top').show();
+						$('a.faq_top').show().css('left',$('.default').offset().left+960);
 					} else {
 						$('a.faq_top').hide();
 					}
 				});
-				
-				$(document).ready(function(){
-					console.log($(this).attr('href'));
-					var locationHash = window.location.hash.substring(1);
-					if(locationHash == $(this).attr('href')){
-					  $('a.topics').parent().trigger('click');
-					}
-				});
+
 			});
 		</script>
 	<link  href="{root}art/original/ctrack.css" rel="stylesheet" type="text/css" >
@@ -100,9 +93,13 @@
 	<div class="default">
 		<a onclick="$('html,body').animate({scrollTop:0},'slow');return false;" class="faq_top">Back to FAQ list</a>
 		<a href="#" class="topics a">General</a><a href="#" class="topics b">Technical</a><a href="#" class="topics c">Generator</a>
-		{faq_general}
-		{faq_tech}
-		{faq_generator}
+		<div style="position:relative;">
+			
+			{faq_general}
+			{faq_tech}
+			{faq_generator}
+		</div>
+		
 	</div>
 </div>
 
