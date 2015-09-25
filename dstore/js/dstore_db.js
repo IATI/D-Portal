@@ -144,7 +144,7 @@ dstore_db.open = function(){
 
 
 
-dstore_db.fill_acts = function(acts,slug,data,main_cb){
+dstore_db.fill_acts = function(acts,slug,data,head,main_cb){
 
 	var before_time=Date.now();
 	var after_time=Date.now();
@@ -211,7 +211,7 @@ dstore_db.fill_acts = function(acts,slug,data,main_cb){
 			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
 			process.stdout.write(progchar[p]);
 
-			dstore_db.refresh_act(db,aid,json);
+			dstore_db.refresh_act(db,aid,json,head);
 
 	// block and wait here
 
@@ -329,7 +329,7 @@ dstore_db.refresh_budget=function(db,it,act,act_json,priority)
 };
 
 
-dstore_db.refresh_act = function(db,aid,xml){
+dstore_db.refresh_act = function(db,aid,xml,head){
 
 // choose to prioritise planned-transaction or budgets for each year depending on which we fine in the xml
 // flag each year when present
@@ -383,13 +383,18 @@ dstore_db.refresh_act = function(db,aid,xml){
 		got_budget[ y ]=true;
 	};
 
-	var refresh_activity=function(xml)
+	var refresh_activity=function(xml,head)
 	{
 //		process.stdout.write("a");
 		
 		var act=xml;
 		if((typeof xml)=="string") { act=refry.xml(xml,aid); } // raw xml convert to jml
 		act=refry.tag(act,"iati-activity"); // and get the main tag
+		
+		if(head) // copy all attributes from iati-activities into each activity unless the activity already has it
+		{
+			for(var n in head) { act[n]=act[n] || head[n]; }
+		}
 		
 		iati_cook.activity(act); // cook the raw json(xml) ( most cleanup logic has been moved here )
 	
@@ -645,7 +650,7 @@ dstore_db.refresh_act = function(db,aid,xml){
 	};
 	
 	// then add new
-	refresh_activity(xml);
+	refresh_activity(xml,head);
 
 };
 

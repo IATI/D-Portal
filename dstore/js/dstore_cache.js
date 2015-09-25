@@ -98,10 +98,23 @@ var	bufferToString=function(buffer) {
 		acts.push("<iati-activity dstore:slug=\""+xmlfilename+"\" dstore:idx=\""+i+"\" "+v+"</iati-activity>"); // rebuild and add import filename
 	}
 
-
+	var head;
+	if(aa[0]) // possible activities header, merge these attributes into iati-activity later on
+	{
+		var refry=require('./refry');
+		var xt=refry.tag( refry.xml(aa[0]) , "iati-activities" );
+		if(xt)
+		{
+			delete xt["0"];
+			delete xt["1"];
+			head=xt;
+		}
+	}
+//	ls(head);
+	
 	console.log("\t\tImporting xmlfile <"+charset+">: ("+acts.length+") \t"+xmlfilename);
 //	wait.for(function(cb){
-		require("./dstore_db").fill_acts(acts,xmlfilename,data);
+		require("./dstore_db").fill_acts(acts,xmlfilename,data,head);
 //		} );
 }
 
