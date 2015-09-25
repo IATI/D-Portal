@@ -224,11 +224,11 @@ iati_codes.fetch = function(){
 		var str=v[1];
 		if(num && str)
 		{
-			o[num]=rev_sector_names[str];
+			o[num]=rev_sector_names[str.trim()];
 		}
 	}
-	
-//	ls(o);
+//ls(lines)
+//ls(o);
 		
 	codes["sector_group"]=o;
 
