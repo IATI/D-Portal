@@ -50,7 +50,7 @@ var expat = require('node-expat');
 	});
 
 	parser.on('text', function (text) {
-		text.trim();
+		text=text.trim();
 		if(text!="") // ignore white space
 		{
 			if(!top[1]) {	top[1]=[];	}
