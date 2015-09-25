@@ -5,6 +5,8 @@
 var view_list_publishers=exports;
 exports.name="view_list_publishers";
 
+var csvw=require("./csvw.js")
+
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
@@ -83,6 +85,7 @@ view_list_publishers.ajax=function(args)
 				s.push( plate.replace(args.zerodata,{}) );
 				ctrack.args.chunks["table_header_amount"]="";
 			}
+			var a=[];
 			ctrack.chunk("list_publishers_count",data.rows.length);
 			for(var i=0;i<data.rows.length;i++)
 			{
@@ -92,12 +95,21 @@ view_list_publishers.ajax=function(args)
 
 				d.reporting_ref=v.reporting_ref || "N/A";
 				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
-				d.count=commafy(""+Math.floor(v.count||0));
-
+				d.count_num=Math.floor(v.count||0);
+				d.count=commafy(""+d.count_num);
+				a.push(d);
 				s.push( plate.replace(args.plate || "{list_publishers_data}",d) );
 			}
 			ctrack.chunk(args.chunk || "list_publishers_datas",s.join(""));
 			ctrack.chunk("numof_publishers" , data.rows.length );
+
+			var cc=[];
+			cc[0]=["reporting_ref","reporting","count"];
+			a.forEach(function(v){
+				cc[cc.length]=[v.reporting_ref,v.reporting,v.count_num];
+			});
+			ctrack.chunk((args.chunk || "list_publishers_datas")+"_csv","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
+
 		}
 		if(args.callback){args.callback(data);}
 		ctrack.display();
