@@ -5,6 +5,8 @@
 var view_list_activities=exports;
 exports.name="view_list_activities";
 
+var csvw=require("./csvw.js")
+
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
@@ -91,6 +93,7 @@ view_list_activities.ajax=function(args)
 				ctrack.args.chunks["table_header_amount"]="";
 			}
 			ctrack.chunk("list_activities_count",data.rows.length);
+			var a=[];
 			for(var i=0;i<data.rows.length;i++)
 			{
 				var v=data.rows[i];
@@ -117,10 +120,20 @@ view_list_activities.ajax=function(args)
 					if(d.pct>100){d.pct=100;}
 				}
 
+				a.push(d);
 				s.push( plate.replace(args.plate || "{list_activities_data}",d) );
 			}
 			ctrack.chunk(args.chunk || "list_activities_datas",s.join(""));
 			ctrack.chunk("total",data.rows.length);
+
+
+			var cc=[];
+			cc[0]=["aid","title","reporting","commitment","spend","currency"];
+			a.forEach(function(v){
+				cc[cc.length]=[v.aid,v.title,v.reporting,v.commitment,v.spend,v.currency];
+			});
+			ctrack.chunk((args.chunk || "list_activities_datas")+"_csv","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
+			
 		}
 		if(args.callback){args.callback(data);}
 		ctrack.display();
