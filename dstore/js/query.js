@@ -91,7 +91,7 @@ query.get_q = function(req){
 	{
 		q.from="act"; // default act
 	}
-	if(q.form=="xml") // xml view so we...
+	if( q.form=="xml" || q.form=="html" ) // xml view so we...
 	{
 		q.from+=",jml"; // ...need a jml join to spit out xml (jml is jsoned xml)
 	}
@@ -610,12 +610,16 @@ if(true)
 		}
 		else
 		{
+			res.set('charset','utf8');
 			res.set('Content-Type', 'application/json');
 			res.json(r);
 		}
 	};
 	db.run(";", function(err, row){
-		if(q.form=="xml")
+
+		res.set('charset','utf8'); // This is always the correct answer.
+
+		if(q.form=="html")
 		{
 			res.set('Content-Type', 'text/xml');
 
@@ -624,7 +628,7 @@ if(true)
 			
 			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n'+
 						xsl+
-						'<iati-activities xmlns:dstore="http://d-portal.org/dstore">\n');
+						'<iati-activities xmlns:dstore="http://d-portal.org/dstore" xmlns:iati-extra="http://datastore.iatistandard.org/ns">\n');
 						
 			for(var i=0;i<r.rows.length;i++)
 			{
@@ -632,6 +636,31 @@ if(true)
 				if(v && v.jml)
 				{
 					res.write(	refry.json(v.jml) );
+					res.write(	"\n" );
+				}
+			}
+
+			res.end(	'</iati-activities>\n');
+    
+   		}
+		else
+		if(q.form=="xml")
+		{
+			res.set('Content-Type', 'text/xml');
+
+			res.write(	'<iati-activities xmlns:iati-extra="http://datastore.iatistandard.org/ns">\n');
+						
+			for(var i=0;i<r.rows.length;i++)
+			{
+				var v=r.rows[i];
+				if(v && v.jml)
+				{
+					var d=JSON.parse(v.jml);
+					delete d["dstore:slug"];	// remove dstore tags
+					delete d["dstore:idx"];
+					
+					res.write(	refry.json(d) );
+					res.write(	"\n" );
 				}
 			}
 

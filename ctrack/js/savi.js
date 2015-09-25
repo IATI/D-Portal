@@ -13,7 +13,7 @@ savi.fixup = function(args){
 args=args || {};	
 var inside=args.inside || "";
 //var prelink=args.link || "http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier=";
-var prelink=args.link || "http://d-portal.org/q.xml?aid=";
+var prelink=args.link || "http://d-portal.org/q.html?aid=";
 var postlink=args.link_post || "";
 
 
@@ -412,10 +412,12 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 	var slug=it.parent().parent().attr("dstore:slug"); // do we know where this came from?
 	var id=encodeURIComponent(it.text().trim());
 	wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
-	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+"' href='http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier="+id+"'>xml</a>"));
+	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+
+//	"' href='http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier="+id+"'>xml</a>"));
+	"' href='http://d-portal.org/q.xml?aid="+id+"' target='_blank'>xml</a>"));
 	if(slug)
 	{
-		it.append($("<a class='a_slug' href='http://iatiregistry.org/dataset/"+slug+"'>dataset</a>"));
+		it.append($("<a class='a_slug' href='http://iatiregistry.org/dataset/"+slug+"' target='_blank'>dataset</a>"));
 	}
 });
 

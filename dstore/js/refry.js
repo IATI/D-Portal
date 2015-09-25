@@ -50,11 +50,12 @@ var expat = require('node-expat');
 	});
 
 	parser.on('text', function (text) {
-		if(text.trim()!="") // ignore white space
+		text.trim();
+		if(text!="") // ignore white space
 		{
-			if(!top[1]) { top[1]=[]; }
-			if(cdata)	{ 	top[1].push( entities.encodeXML(text) );	}
-			else		{	top[1].push(                    text  );	}
+			if(!top[1]) {	top[1]=[];	}
+			if(cdata)	{ 	top[1].push( (text) );	}
+			else		{	top[1].push( (text) );	}
 		}
 	});
 
@@ -71,56 +72,6 @@ var expat = require('node-expat');
 
 	return stack[0][1];
 	
-/*
-
-	var dom;
-	(new htmlparser.Parser(new htmlparser.DefaultHandler(function(e,d){
-			if(!e) { dom=d; }
-			},{ verbose: false, ignoreWhitespace: true }))).parseComplete(data);
-
-//	ls(dom);
-	
-	var json=[];
-	var xml_refry_dom;
-	xml_refry_dom=function(dom,kids)
-	{
-		for(var i=0;i<dom.length;i++)
-		{
-			var v=dom[i];
-			
-			if(v.type=="tag")
-			{
-				var e=v.attribs || {};// reuse attribs as base
-				e[0]=v.name;
-				kids.push(e);
-				if(v.children)
-				{
-					e[1]=[];
-					xml_refry_dom(v.children,e[1]); // recurse
-				}
-			}
-			else
-			if(v.type=="text")
-			{
-				var e=kids.push(v.data); // push a string
-			}
-			else
-			if(v.type=="directive")
-			{
-				if( v.data.slice(0,8) == "![CDATA[" )
-				{
-					var s=v.data.slice(8,-2);
-					var e=kids.push(entities.encodeXML(s)); // push a string that used to be cdata so needs escaping
-				}
-			}
-		}
-	}
-	
-	xml_refry_dom(dom,json);
-
-	return json;
-*/
-
 }
 
 // turn json back into xml
@@ -138,22 +89,29 @@ refry.json=function(data)
 	{
 		if("string" == typeof it)
 		{
-			ss.push(it);
+			ss.push(entities.encodeXML(it));
 		}
 		else
 		if("object" == typeof it)
 		{
 			ss.push("<"+it[0]);
-			for(var n in it)
+			for(var n in it) // attributes
 			{
 				if(n!=0 && n!=1)
 				{
-					ss.push(" "+n+"="+"\""+it[n]+"\"");
+					ss.push(" "+n+"="+"\""+entities.encodeXML( String(it[n]) )+"\"");
 				}
 			}
-			ss.push(" >\n");
-			if(it[1]) { it[1].forEach(f); }
-			ss.push("</"+it[0]+">\n");
+			if(it[1]) // child entities
+			{
+				ss.push(">");
+				it[1].forEach(f);
+				ss.push("</"+it[0]+">");
+			}
+			else // nothing inside so just close
+			{
+				ss.push("/>");
+			}
 		}
 	};
 	if(data.forEach) { data.forEach(f); }
