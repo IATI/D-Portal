@@ -246,10 +246,10 @@ view_map.ajax_heat=function(args)
 //			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 //			"title_like":(args.search || ctrack.args.search),
 		};
-	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100; }
 
 	fetch.ajax_dat_fix(dat,args);
 
+	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100; }
 
 
 	if(args.round==0) // group more locations togethere (less precise)
@@ -324,8 +324,8 @@ view_map.ajax_pins=function(args)
 //			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 //			"title_like":(args.search || ctrack.args.search),
 		};
-	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100; }
 	fetch.ajax_dat_fix(dat,args);
+	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100; }
 		
 	fetch.ajax(dat,args.callback || function(data)
 	{
