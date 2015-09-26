@@ -284,7 +284,6 @@ sorted++;
 		"iati-identifier",
 		"recipient-country",
 		"activity-date",
-		"activity-status",
 		"participating-org",
 		"reporting-org",
 		"description",
@@ -296,6 +295,7 @@ sorted++;
 		"activity-website",
 		"document-link",
 		"related-activity",
+		"activity-status",
 	0
 	];
 	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
