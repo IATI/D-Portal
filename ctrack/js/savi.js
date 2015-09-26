@@ -21,6 +21,7 @@ var acts=$(inside+"iati-activity").not(".savidone"); // ignore activities that h
 acts.addClass("savidone"); // mark as done so we ignore if we get called again
 
 //console.log("save fixup "+inside+"iati-activity"+" "+acts.length);
+//console.log(acts.html());
 
 
 var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {

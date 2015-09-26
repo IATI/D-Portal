@@ -110,7 +110,7 @@ refry.json=function(data)
 			}
 			else // nothing inside so just close
 			{
-				ss.push("/>");
+				ss.push("></"+it[0]+">");
 			}
 		}
 	};

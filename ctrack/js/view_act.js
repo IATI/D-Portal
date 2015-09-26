@@ -21,7 +21,7 @@ view_act.chunks=[
 // called on view display to fix html in place
 view_act.fixup=function()
 {
-	savi.fixup({link:"http://d-portal.org/q.xml?aid="});
+	savi.fixup({});
 }
 
 //
@@ -82,6 +82,7 @@ view_act.ajax=function(args)
 			for(var i=0;i<data.rows.length;i++)
 			{
 				aa[i]=refry.json( data["rows"][i].jml );
+//				console.log(aa[i]);
 			}
 			ctrack.chunk("xml", aa.join("") );
 		}
