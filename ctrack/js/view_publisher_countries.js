@@ -207,7 +207,7 @@ view_publisher_countries.ajax=function(args)
 		});
 	});
 	
-	var years=[year+1,year+2];
+	var years=[year+1];
 	years.forEach(function(y)
 	{
 		var dat={
@@ -217,9 +217,6 @@ view_publisher_countries.ajax=function(args)
 				"budget_priority":1, // has passed some validation checks serverside
 				"groupby":"country_code",
 				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
-//				"country_code":(args.country || ctrack.args.country_select),
-//				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-//				"title_like":(args.search || ctrack.args.search),
 			};
 		fetch.ajax_dat_fix(dat,args);
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
@@ -234,7 +231,7 @@ view_publisher_countries.ajax=function(args)
 				var d={};
 				d.country_code=v.country_code || "N/A";
 				d.country_name=iati_codes.country[v.country_code] || v.country_code || "N/A";
-				d["b"+(y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
+				d["b1"]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
 				fadd(d);
 			}
 //			console.log(ctrack.donors_data);
@@ -242,4 +239,40 @@ view_publisher_countries.ajax=function(args)
 			display();
 		});
 	});
+
+
+	var years=[year+1];
+	years.forEach(function(y)
+	{
+		var dat={
+				"from":"budget",
+				"limit":args.limit || -1,
+				"select":"budget_country,"+ctrack.convert_str("budget"),
+				"budget":"country", // only budgets for countries listed in org files
+				"groupby":"budget_country",
+				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
+			};
+		fetch.ajax_dat_fix(dat,args);
+		dat.budget_aid=dat.reporting_ref; // use fake reporting aid in budget data to choose a publisher
+		delete dat.reporting_ref
+		fetch.ajax(dat,function(data){
+			
+//			console.log("fetch budget donors "+year);			
+//			console.log(data);
+			
+			for(var i=0;i<data.rows.length;i++)
+			{
+				var v=data.rows[i];
+				var d={};
+				d.country_code=v.budget_country || "N/A";
+				d.country_name=iati_codes.country[d.country_code] || d.country_code;
+				d["b2"]=commafy(""+Math.floor(ctrack.convert_num("budget",v)));
+				fadd(d);
+			}
+//			console.log(ctrack.donors_data);
+			
+			display();
+		});
+	});
+
 }

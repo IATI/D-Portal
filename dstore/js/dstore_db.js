@@ -78,7 +78,7 @@ dstore_db.tables={
 	],
 	budget:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
-		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement) or total (organization total)
+		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement) or total,country,org (organization total,country,org)
 		{ name:"budget_priority",				INTEGER:true , INDEX:true }, // set to 0 if it should be ignored(bad data or total)
 		{ name:"budget_type",					NOCASE:true , INDEX:true },	// planed disburtions have priority
 		{ name:"budget_day_start",				INTEGER:true , INDEX:true },
@@ -90,6 +90,8 @@ dstore_db.tables={
 		{ name:"budget_eur",					REAL:true , INDEX:true },
 		{ name:"budget_gbp",					REAL:true , INDEX:true },
 		{ name:"budget_cad",					REAL:true , INDEX:true },
+		{ name:"budget_country",				NOCASE:true , INDEX:true },	// only used by country budget from orgfile
+		{ name:"budget_org",					NOCASE:true , INDEX:true },	// only used by org budget from orgfile
 	],
 	country:[
 		{ name:"aid",							NOCASE:true , INDEX:true },
@@ -187,11 +189,22 @@ dstore_db.fill_acts = function(acts,slug,data,head,main_cb){
 		var org=refry.xml(data,slug); // raw xml convert to jml
 		var aid=iati_xml.get_aid(org);
 
+
 		console.log("importing budgets from org file for "+aid)
 
 		db.run("DELETE FROM budget    WHERE aid=?",aid);
 
+
+		var o=refry.tag(org,"iati-organisation");
+		if(o)
+		{
+			console.log(o[0]+" -> "+o["default-currency"])
+			iati_cook.activity(o); // cook the raw json(xml) ( most cleanup logic has been moved here )
+		}
+
 		refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
+		refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
+		refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
 
 		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slug"]);
 		sa.run({"$aid":aid,"$slug":slug});
@@ -294,6 +307,18 @@ dstore_db.refresh_budget=function(db,it,act,act_json,priority)
 		t.budget="total";
 		t.budget_priority=0; // make sure this does not double count
 	}
+	else
+	if(it[0]=="recipient-org-budget")
+	{
+		t.budget="org";
+		t.budget_priority=0; // make sure this does not double count
+	}
+	else
+	if(it[0]=="recipient-country-budget")
+	{
+		t.budget="country";
+		t.budget_priority=0; // make sure this does not double count
+	}
 	
 	t["budget_type"]=it["type"];
 
@@ -322,6 +347,15 @@ dstore_db.refresh_budget=function(db,it,act,act_json,priority)
 	t["budget_eur"]=					iati_xml.get_ex(it,"value","EUR");
 	t["budget_gbp"]=					iati_xml.get_ex(it,"value","GBP");
 	t["budget_cad"]=					iati_xml.get_ex(it,"value","CAD");
+
+	t["budget_country"]=				refry.tagattr(it,"recipient-country","code");
+	t["budget_org"]=					refry.tagattr(it,"recipient-org","ref");
+	
+	if( t["budget_country"] )
+	{
+		t["budget_country"] = t["budget_country"].trim().toUpperCase();
+ 	}
+
 
 	t.jml=JSON.stringify(it);
 	
