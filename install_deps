@@ -1,7 +1,13 @@
 cd `dirname $0`
+
 cd ctrack
+rm -rf node_modules
 npm install
+
 cd ../dstore
+rm -rf node_modules
 npm install
+
 cd ../dportal
+rm -rf node_modules
 npm install
