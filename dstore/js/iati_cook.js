@@ -29,7 +29,7 @@ iati_cook.activity=function(act)
 	refry.tags(act,"activity-date",function(it){
 		activity_date[it.type]=it;
 		var d=iati_xml.get_isodate(it,"activity-date"); // sometimes iso-date is missing, use content if a valid format?
-		if( d && (null!==iati_xml.isodate_to_number(d)) )
+		if( ( typeof d === 'string' ) && (null!==iati_xml.isodate_to_number(d))  ) // might not be a string (child tags?)
 		{
 			it["iso-date"]=d.trim();
 		}
