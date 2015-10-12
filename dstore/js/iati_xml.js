@@ -15,7 +15,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 // can convert to unix time by multiplying by number of seconds in a day (60*60*24)
 iati_xml.isodate_to_number=function(s)
 {
-	if(s)
+	if(typeof s === "string")
 	{
 		s=s.trim();
 		var sb=/([0-9]{4})-([0-9]{2})-([0-9]{2})/.exec(s);
