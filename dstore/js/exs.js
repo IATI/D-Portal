@@ -3,7 +3,8 @@
 
 var exs=exports;
 
-var csv=require('csv');
+var csv_parse = require('csv-parse');
+var csv=undefined;//require('csv');
 var util=require('util');
 var wait=require('wait.for');
 var fs = require('fs');
@@ -108,7 +109,10 @@ exs.create_csv = function(){
 // grab currated csv to use for missing values
 
 	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/pub?single=true&gid="+13+"&output=csv");
-	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
+//	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
+	var lines=wait.for(csv_parse,x);
+
+
 
 	var head={};
 	for(var i=1;i<lines[0].length;i++)
@@ -192,7 +196,8 @@ exs.create_csv = function(){
 			dump_ms[year+"-"+month0]=dump_m;
 			
 			var csv_file=wait.for(http_getbody,"http://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate="+year+"-"+month+"-01&reportType=SDRCV&tsvflag=Y");
-			var csv_lines=wait.for( function(cb){ csv().from.string(csv_file,{delimiter:'\t'}).to.array( function(d){ cb(null,d); } ); } );
+//			var csv_lines=wait.for( function(cb){ csv().from.string(csv_file,{delimiter:'\t'}).to.array( function(d){ cb(null,d); } ); } );
+			var csv_lines=wait.for(csv_parse,csv_file);
 		
 			var active=false;
 			csv_lines.forEach(function(line){

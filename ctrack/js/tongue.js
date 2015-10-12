@@ -5,7 +5,7 @@ var tongue=exports;
 
 var wait=require('wait.for');
 var util=require('util');
-var csv=require('csv');
+var csv=undefined;//require('csv');
 var fs = require('fs');
 
 var plate=require("./plate.js");

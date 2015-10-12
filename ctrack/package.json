@@ -15,7 +15,7 @@
     "morgan": "*",
     "wait.for": "*",
     "yargs": "*",
-    "csv": "*"
+    "csv-parse": "*"
   },
   "scripts": {
     "build": "node js/bake.js && node node_modules/browserify/bin/cmd.js -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js && node node_modules/uglify-js/bin/uglifyjs jslib/ctrack.js -o jslib/ctrack.min.js"
