@@ -197,7 +197,8 @@ exs.create_csv = function(){
 			
 			var csv_file=wait.for(http_getbody,"http://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate="+year+"-"+month+"-01&reportType=SDRCV&tsvflag=Y");
 //			var csv_lines=wait.for( function(cb){ csv().from.string(csv_file,{delimiter:'\t'}).to.array( function(d){ cb(null,d); } ); } );
-			var csv_lines=wait.for(csv_parse,csv_file);
+			var csv_lines=wait.for(csv_parse,csv_file,{delimiter:'\t'});
+console.log(year + " " + month);
 		
 			var active=false;
 			csv_lines.forEach(function(line){
