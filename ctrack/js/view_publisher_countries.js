@@ -253,7 +253,7 @@ view_publisher_countries.ajax=function(args)
 				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
 		fetch.ajax_dat_fix(dat,args);
-		dat.budget_aid=dat.reporting_ref; // use fake reporting aid in budget data to choose a publisher
+		dat.aid=dat.reporting_ref; // use fake reporting aid in budget data to choose a publisher
 		delete dat.reporting_ref
 		fetch.ajax(dat,function(data){
 			
