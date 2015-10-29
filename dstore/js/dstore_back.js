@@ -4,3 +4,12 @@
 
 module.exports=exports=require('./dstore_sqlite');
 
+
+// use postgres
+if(argv.pg){
+	
+console.log("**WARNING USING POSTGRES WHICH IS UNDER CONSTRUCTION**");
+	
+	module.exports=exports=require('./dstore_pg');
+
+}
