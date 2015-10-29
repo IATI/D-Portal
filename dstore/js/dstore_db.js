@@ -7,7 +7,6 @@ var refry=require('./refry');
 var exs=require('./exs');
 var iati_xml=require('./iati_xml');
 var iati_cook=require('./iati_cook');
-var dstore_sqlite=require('./dstore_sqlite');
 
 var codes=require('../json/iati_codes');
 
@@ -15,7 +14,9 @@ var wait=require('wait.for');
 
 var util=require('util');
 var http=require('http');
-var sqlite3 = require('sqlite3').verbose();
+
+
+var dstore_back=require('./dstore_back');
 
 
 
@@ -141,7 +142,7 @@ var http_getbody=function(url,cb)
 
 
 dstore_db.open = function(){
-	return dstore_sqlite.open();
+	return dstore_back.open();
 };
 
 
@@ -206,7 +207,7 @@ dstore_db.fill_acts = function(acts,slug,data,head,main_cb){
 		refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
 		refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
 
-		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slug"]);
+		var sa = db.prepare(dstore_back.tables_replace_sql["slug"]);
 		sa.run({"$aid":aid,"$slug":slug});
 		sa.finalize();
 	}
@@ -246,7 +247,7 @@ dstore_db.fill_acts = function(acts,slug,data,head,main_cb){
 
 
 	db.run("PRAGMA page_count", function(err, row){
-		dstore_sqlite.close(db);
+		dstore_back.close(db);
 		
 		after_time=Date.now();
 		
@@ -264,7 +265,7 @@ dstore_db.vacuum = function(){
 	process.stdout.write("VACUUM start\n");
 	var db = dstore_db.open();
 	db.run("VACUUM", function(err, row){
-		dstore_sqlite.close(db);
+		dstore_back.close(db);
 		process.stdout.write("VACUUM done\n");
 	});
 
@@ -276,7 +277,7 @@ dstore_db.analyze = function(){
 	process.stdout.write("ANALYZE start\n");
 	var db = dstore_db.open();
 	db.run("ANALYZE", function(err, row){
-		dstore_sqlite.close(db);
+		dstore_back.close(db);
 		process.stdout.write("ANALYSE done\n");
 	});
 }
@@ -359,7 +360,7 @@ dstore_db.refresh_budget=function(db,it,act,act_json,priority)
 
 	t.jml=JSON.stringify(it);
 	
-	dstore_sqlite.replace(db,"budget",t);
+	dstore_back.replace(db,"budget",t);
 };
 
 
@@ -371,7 +372,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 	var replace=function(name,it)
 	{
-		dstore_sqlite.replace(db,name,it);
+		dstore_back.replace(db,name,it);
 	}
 
 	var refresh_transaction=function(it,act,act_json)
@@ -406,7 +407,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 		t.jml=JSON.stringify(it);
 		
-		dstore_sqlite.replace(db,"trans",t);
+		dstore_back.replace(db,"trans",t);
 	};
 
 	var refresh_budget=function(it,act,act_json,priority)
@@ -545,7 +546,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 			{
 				var cc=country[i];
 				var pc=percents[i];
-				var sa = db.prepare(dstore_sqlite.tables_replace_sql["country"]);
+				var sa = db.prepare(dstore_back.tables_replace_sql["country"]);
 				sa.run({"$aid":t.aid,"$country_code":cc,"$country_percent":pc});				
 				sa.finalize();
 			}
@@ -562,7 +563,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var pc=percents[i];
 				var group;
 				if(sc){ group=codes.sector_group[sc.slice(0,3)]; }
-				var sa = db.prepare(dstore_sqlite.tables_replace_sql["sector"]);
+				var sa = db.prepare(dstore_back.tables_replace_sql["sector"]);
 				sa.run({"$aid":t.aid,"$sector_group":group,"$sector_code":sc,"$sector_percent":pc});				
 				sa.finalize();
 			}
@@ -611,7 +612,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 					}
 				}
 
-				var sa = db.prepare(dstore_sqlite.tables_replace_sql["location"]);
+				var sa = db.prepare(dstore_back.tables_replace_sql["location"]);
 				sa.run({"$aid":t.aid,
 					"$location_code":code,
 					"$location_gazetteer_ref":gazref,
@@ -654,7 +655,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 //		t.xml=xml;
 		t.jml=JSON.stringify(act);
 		
-//		dstore_sqlite.replace(db,"activity",t);
+//		dstore_back.replace(db,"activity",t);
 		replace("act",t);
 		replace("jml",t);
 		
@@ -676,7 +677,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		
 //update slug
 
-		var sa = db.prepare(dstore_sqlite.tables_replace_sql["slug"]);
+		var sa = db.prepare(dstore_back.tables_replace_sql["slug"]);
 		sa.run({"$aid":t.aid,"$slug":t.slug});		
 		sa.finalize();
 		
@@ -741,7 +742,7 @@ dstore_db.fake_trans = function(){
 						process.stdout.write(t.aid+"\n");
 						t.trans_code="D";
 						t.trans_flags=1;
-						dstore_sqlite.replace(db,"trans",t);
+						dstore_back.replace(db,"trans",t);
 					}
 	//				ls(rows);
 				});
@@ -754,24 +755,24 @@ dstore_db.fake_trans = function(){
 
 
 dstore_db.create_tables = function(){
-	return dstore_sqlite.create_tables();
+	return dstore_back.create_tables();
 }
 
 dstore_db.create_indexes = function(){
-	return dstore_sqlite.create_indexes();
+	return dstore_back.create_indexes();
 }
 
 dstore_db.delete_indexes = function(){
-	return dstore_sqlite.delete_indexes();
+	return dstore_back.delete_indexes();
 }
 
 dstore_db.check_tables = function(){
-	return dstore_sqlite.check_tables();
+	return dstore_back.check_tables();
 }
 
 // prepare some sql code
 dstore_db.cache_prepare = function(){
-	return dstore_sqlite.cache_prepare(dstore_db.tables);
+	return dstore_back.cache_prepare(dstore_db.tables);
 }
 dstore_db.cache_prepare();
 
