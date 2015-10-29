@@ -63,8 +63,8 @@ view_list_budgets.ajax=function(args)
 //	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 	if(dat.year)
 	{
-		dat["budget_day_end_gteq"]=(parseInt(dat.year)+0)+"-"+ctrack.args.newyear;
-		dat["budget_day_end_lt"]=(parseInt(dat.year)+1)+"-"+ctrack.args.newyear;
+		dat["budget_day_start_gteq"]=(parseInt(dat.year)+0)+"-"+ctrack.args.newyear;
+		dat["budget_day_start_lt"]=(parseInt(dat.year)+1)+"-"+ctrack.args.newyear;
 	}
 	fetch.ajax_dat_fix(dat,args);
 

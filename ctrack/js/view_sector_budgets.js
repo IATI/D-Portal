@@ -45,8 +45,8 @@ view_sector_budgets.view=function()
 //		"sector_group":sector,
 //		"from":"act,country,sector,budget",
 	};
-	args.q["budget_day_end_gteq"]=year+"-"+ctrack.args.newyear;
-	args.q["budget_day_end_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
+	args.q["budget_day_start_gteq"]=year+"-"+ctrack.args.newyear;
+	args.q["budget_day_start_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
 				
 	args.callback=function(data){
 
