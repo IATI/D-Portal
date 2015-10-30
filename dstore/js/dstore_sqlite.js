@@ -43,6 +43,27 @@ dstore_sqlite.pragmas = function(db)
 	});
 }
 
+
+// run a query
+dstore_sqlite.query = function(db,q,v,cb){
+	return db.run(q,v,cb);
+}
+
+dstore_sqlite.query_run = function(db,q,v,cb){
+	return db.run(q,v,cb);
+}
+dstore_sqlite.query_all = function(db,q,v,cb){
+	return db.all(q,v,cb);
+}
+dstore_sqlite.query_each = function(db,q,v,cb){
+	return db.each(q,v,cb);
+}
+
+dstore_sqlite.query_exec = function(db,q,v,cb){
+	return db.exec(q,v,cb);
+}
+
+
 dstore_sqlite.create_tables = function(){
 
 	var db = dstore_sqlite.open();
