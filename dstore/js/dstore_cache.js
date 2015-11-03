@@ -232,7 +232,7 @@ dstore_cache.iati = function(argv){
 								{
 									var hm=Date.parse( h.headers["last-modified"] );
 									var fm=Date.parse( f.mtime );
-									if(hm<=fm) // we already have a newer file
+									if(hm<=fm) // we already have a newer file so ignore (might change mind when we check the size)
 									{
 										download=false;
 									}
@@ -240,12 +240,20 @@ dstore_cache.iati = function(argv){
 								if( h && h.headers["content-length"] )
 								{
 									var size=parseInt(h.headers["content-length"] ) ;
+									if(f && (size!=f.size) ) // wrong size so try download again
+									{
+										download=true;
+									}
 									if( size > 1024*1024*512 ) // huge file, skip it
 									{
 										failed_slugs[slug]="ERROR! File is too big > 512meg so skipping download...";
 										console.log("ERROR! File is too big > 512meg so skipping download...");
 										download=false;
 									}
+								}
+								else // a missing content-length also forces a download
+								{
+									download=true;
 								}
 								
 							}catch(e){}
