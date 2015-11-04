@@ -62,10 +62,10 @@ view_list_publishers.ajax=function(args)
 //	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 	fetch.ajax_dat_fix(dat,args);
 	
-	if( ctrack.args.year )
+	if( args.q.year )
 	{
-		dat.budget_day_start_lteq=ctrack.args.year;
-		dat.budget_day_end_gteq=ctrack.args.year;
+		dat.budget_day_start_lteq=args.q.year;
+		dat.budget_day_end_gteq=args.q.year;
 	}
 
 	if(args.output=="count") // just count please
