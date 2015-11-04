@@ -10,7 +10,7 @@ var refry=require('./refry');
 var exs=require('./exs');
 var iati_xml=require('./iati_xml');
 var dstore_db=require("./dstore_db");
-var dstore_sqlite=require("./dstore_sqlite");
+var dstore_back=require("./dstore_back");
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -259,7 +259,7 @@ query.getsql_select=function(q,qv){
 		for(i=0;i<aa.length;i++)
 		{
 			var f=aa[i];
-			for(n in dstore_sqlite.tables_active[f])
+			for(n in dstore_back.tables_active[f])
 			{
 //				if(!stats_skip[n])
 //				{
@@ -286,7 +286,7 @@ query.getsql_select=function(q,qv){
 			for(i=0;i<aa.length;i++)
 			{
 				var f=aa[i];
-				for(n in dstore_sqlite.tables_active[f])
+				for(n in dstore_back.tables_active[f])
 				{
 //					if(!stats_skip[n])
 //					{
@@ -309,7 +309,7 @@ query.getsql_from=function(q,qv){
 // filter by real tables
 	f=f.map(function(it){
 		var r="";
-		for(var name in dstore_sqlite.tables )
+		for(var name in dstore_back.tables )
 		{
 			if(it==name){ r=name; }
 		}
@@ -543,11 +543,11 @@ query.getsql_limit=function(q,qv){
 query.getsql_build_column_names=function(q,qv){
 
 	var ns={};
-	for(var name in dstore_sqlite.tables )
+	for(var name in dstore_back.tables )
 	{
-		for(var n in dstore_sqlite.tables_active[name])
+		for(var n in dstore_back.tables_active[name])
 		{
-			ns[n]=dstore_sqlite.tables_active[name][n];
+			ns[n]=dstore_back.tables_active[name][n];
 		}
 	}
 
@@ -733,7 +733,7 @@ if(true)
 			r.time=(Date.now()-q.start_time)/1000;
 			send_json(r);
 		}
-		dstore_sqlite.close(db);
+		dstore_back.close(db);
 	});
 
 

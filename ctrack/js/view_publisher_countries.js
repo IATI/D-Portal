@@ -216,7 +216,7 @@ view_publisher_countries.ajax=function(args)
 				"select":"country_code,"+ctrack.convert_str("sum_of_percent_of_budget"),
 				"budget_priority":1, // has passed some validation checks serverside
 				"groupby":"country_code",
-				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
+				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
 		fetch.ajax_dat_fix(dat,args);
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
@@ -250,7 +250,7 @@ view_publisher_countries.ajax=function(args)
 				"select":"budget_country,"+ctrack.convert_str("budget"),
 				"budget":"country", // only budgets for countries listed in org files
 				"groupby":"budget_country",
-				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
+				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
 		fetch.ajax_dat_fix(dat,args);
 		dat.aid=dat.reporting_ref; // use fake reporting aid in budget data to choose a publisher

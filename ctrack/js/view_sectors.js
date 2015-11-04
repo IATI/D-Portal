@@ -186,7 +186,7 @@ view_sectors.ajax=function(args)
 				"sector_group_not_null":1,
 				"groupby":"sector_group",
 				"budget_priority":1, // has passed some validation checks serverside
-				"budget_day_end_gteq":y+"-"+ctrack.args.newyear,"budget_day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
+				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 //				"country_code":(args.country || ctrack.args.country_select),
 //				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 //				"title_like":(args.search || ctrack.args.search),

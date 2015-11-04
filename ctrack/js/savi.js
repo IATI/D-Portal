@@ -106,6 +106,12 @@ acts.find("participating-org").each(function(i){var it=$(this);
 		c=c.toLowerCase();
 		it.attr("role",c)
 	}
+	
+	if( it.html().trim()=="" )
+	{
+		it.html( it.attr("ref") || it.html() );
+	}
+
 });
 
 acts.find("transaction").each(function(i){var it=$(this);
