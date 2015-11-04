@@ -346,7 +346,8 @@ table.money td.col1:hover	{cursor:default;}
 table.money tr.row2 td.col1:hover	{cursor:pointer;}
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover,
-table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:#E2E2E2;}
+table.money tr.rows td.col6:hover	{background-color:#E2E2E2;}
+table.money tr.rows td.col7:hover	{cursor:initial;}
 
 table.money a				{display:block; color:#000; word-wrap:normal;}
 table.money a:focus			{color:#000; text-decoration:none;}
