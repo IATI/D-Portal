@@ -767,13 +767,13 @@ Total activity-level budgets for this and next year reported to IATI. Clicking o
 How is the data calculated?
 
 #publisher_countries_data_description_text
-This table shows the recipient countries reported by this publisher. The columns display the following data:
+This table shows the recipient countries reported by {publisher_name}. The columns display the following data:
 
 #publisher_countries_data_title1_text
 COUNTRY
 
 #publisher_countries_data_info1_text
-The Countries listed here are recipient countries reported by this publisher.
+The Countries listed here are recipient countries reported by {publisher_name}.
 
 #publisher_countries_data_title2_text
 IATI SPEND
@@ -782,10 +782,16 @@ IATI SPEND
 Three columns contain total disbursements and expenditure reported to IATI for the current and previous two years. The first column will always be for the same year as the most recent CRS data, enabling comparisons between the two systems. 
 
 #publisher_countries_data_title3_text
-IATI BUDGET
+IATI BUDGET (allocated)
 
 #publisher_countries_data_info3_text
-Total activity-level budgets for this and next year reported to IATI. Clicking on any cell will take you to those projects that make up the value in the cell (listed in order of their contribution to that value). 
+Total activity-level budgets for this year reported to IATI in {publisher_name}’s activity files. Clicking on any cell will take you to those projects that make up the value in the cell (listed in order of their contribution to that value). Please note you can click through future years using the arrows.
+
+#publisher_countries_data_title4_text
+IATI BUDGET (total)
+
+#publisher_countries_data_info4_text
+Total organisational budgets for this year reported to IATI in {publisher_name}’s organisation file. These are flat figures for annual budgets by country so there is no breakdown within the data. Please note you can click through future years using the arrows. 
 
 #missing_data_text
 This activity is missing or cannot be found.
