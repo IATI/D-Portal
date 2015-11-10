@@ -234,11 +234,12 @@ a.a_document-link								{display:inline-block; width:880px; padding:10px 0; fon
 a.a_document-link:last-of-type					{padding-bottom:40px;}
 a.a_document-link document-link span-title		{color:#000; padding:0;}
 a.a_document-link document-link span-title:hover{color:#000;}
-document-link									{display:inline-block;}
+document-link									{display:inline;}
 document-link span								{font-size:1.0em; display:block; color:#000;}
-document-link span-title						{display:block;}
+document-link span-title						{display:inline;}
 document-link span-title:nth-of-type(n+1):before{display:none;}
 document-link span-title:nth-of-type(n+1)		{font-size:18px;}
+document-link span-title narrative				{display:inline;}
 
 
 /*	Family Tree list
