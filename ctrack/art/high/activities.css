@@ -122,6 +122,11 @@ result[type="9"] span-title:before	{content:"OTHER";}
 
 result indicator			{display:block;}
 result indicator span-title:before {content:" "; margin:0;}
+result[type="1"] indicator span-title:before {content:" "; margin:0;}
+result[type="2"] indicator span-title:before {content:" "; margin:0;}
+result[type="3"] indicator span-title:before {content:" "; margin:0;}
+result[type="9"] indicator span-title:before {content:" "; margin:0;}
+
 
 /*
 result indicator			{display:block; padding:20px 40px; border-top:1px solid #000;}
