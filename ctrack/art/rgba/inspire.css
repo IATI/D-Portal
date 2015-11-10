@@ -375,6 +375,12 @@ result description:before	{color:rgba(136,136,136,1);}
 result span-title			{color:rgba(85,85,85,1);}
 result span-title:before	{color:rgba(136,136,136,1);}
 
+result indicator span-title	{border-top:1px solid rgba(85,85,85,1);}
+result indicator period period-start, result indicator period period-end, result indicator period target, result indicator period actual,
+result indicator description			{color:rgba(85,85,85,1);}
+result indicator period period-start:before, result indicator period period-end:before, result indicator period target:before,
+result indicator period actual:before	{color:rgba(136,136,136,1);}
+
 
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
