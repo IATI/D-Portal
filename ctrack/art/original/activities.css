@@ -77,7 +77,7 @@ participating-org[role="accountable"]:after		{content:"ACCOUNTABLE ROLE"; font-s
 
 /*	Reported by
 	============================================= */
-reporting-org 					{display:block; width:880px; padding:20px 40px 40px 40px; font-size:18px; font-weight:bold; color:#FFF; background-color:rgba(17, 46, 105, 0.4);}
+reporting-org 					{display:block; width:880px; padding:20px 40px 40px 40px; font-size:18px; font-weight:bold; color:#FFF; background-color:rgba(17, 46, 105, 0.4); line-height:1.45em;}
 reporting-org:before 			{content:"This activity is reported by"; display:inline-block; padding-right:5px; color:#ccc; font-size:18px; font-weight:normal;}
 reporting-org:nth-of-type(1)	{padding-top:40px;}
 reporting-org:last-of-type		{padding-bottom:40px;}
@@ -98,10 +98,18 @@ span.span_description description:last-of-type		{padding-bottom:40px;}
 	============================================= */
 result						{display:block; padding:20px 0 40px 0;}
 result:nth-child(odd)		{background-color:rgba(0,14,32,0.3);}
-result description			{display:block; padding:0 40px 20px 40px; line-height:1.25em; white-space:pre-line; unicode-bidi:embed;}
+result description			{display:block; padding:0 40px 20px 40px; line-height:1.5em; white-space:pre-line; unicode-bidi:embed;}
 result description			{padding:0 40px;}
-result span-title			{display:block; font-size:30px; width:880px; padding:20px 0 10px 0; margin:0 auto; color:#FFF;}
+result description narrative {padding:10px 0;}
+result span-title			{display:block; font-size:30px; width:880px; line-height:1.25em; margin:0 auto; color:#FFF;}
+result span-title narrative	{display:block; padding:10px 0;}
 result span-title:before	{content:"RESULT"; font-size:14px; color:#ccc; display:block; margin-bottom:15px;}
+result[type="1"] span-title:before	{content:"OUTPUT";}
+result[type="2"] span-title:before	{content:"OUTCOME";}
+result[type="3"] span-title:before	{content:"IMPACT";}
+result[type="9"] span-title:before	{content:"OTHER";}
+
+result indicator span-title:before {content:" "; margin:0;}
 
 /*
 result indicator			{display:block; padding:20px 40px; border-top:1px solid #1E90FF;}
