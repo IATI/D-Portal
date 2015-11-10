@@ -121,12 +121,18 @@ result[type="3"] span-title:before	{content:"IMPACT";}
 result[type="9"] span-title:before	{content:"OTHER";}
 
 result indicator			{display:block;}
+result indicator span-title	{padding-top:20px; font-size:20px;}
 result indicator span-title:before {content:" "; margin:0;}
 result[type="1"] indicator span-title:before {content:" "; margin:0;}
 result[type="2"] indicator span-title:before {content:" "; margin:0;}
 result[type="3"] indicator span-title:before {content:" "; margin:0;}
 result[type="9"] indicator span-title:before {content:" "; margin:0;}
 
+result indicator period		{display:block; padding:10px 0;}
+result indicator period period-start:before	{content:"Start "; font-size:14px; color:#000; display:inline-block; vertical-align:top; width:220px; max-width:220px;}
+result indicator period period-end:before	{content:"End "; font-size:14px; color:#000; display:inline-block; vertical-align:top; width:220px; max-width:220px;}
+result indicator period target:before	{content:"Target "; font-size:14px; color:#000; display:inline-block; vertical-align:top; width:220px; max-width:220px;}
+result indicator period actual:before	{content:"Actual "; font-size:14px; color:#000; display:inline-block; vertical-align:top; width:220px; max-width:220px;}
 
 /*
 result indicator			{display:block; padding:20px 40px; border-top:1px solid #000;}
