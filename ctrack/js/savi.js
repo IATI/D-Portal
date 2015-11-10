@@ -147,7 +147,7 @@ acts.find("activity-date,transaction-date,period-start,period-end").each(functio
 	it.html( it.attr("iso-date") );
 });
 
-acts.find("result target, result value").each(function(i){var it=$(this);
+acts.find("result target, result actual").each(function(i){var it=$(this);
 	it.html( it.attr("value") );
 });
 
