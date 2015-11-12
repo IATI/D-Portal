@@ -358,6 +358,7 @@ span.span_description description[type="3"]:before		{color:rgba(0,204,0,1);}
 /*	Result and description
 	============================================= */
 result:nth-child(odd)		{background-color:rgba(0,56,0,0.4);}
+result:nth-of-type(1):before{color:rgba(0,255,0,1); background-color:rgba(0,56,0, 0.9);}
 result description			{color:rgba(0,255,0,1);}
 result description:before	{color:rgba(0,204,0,1);}
 result span-title			{color:rgba(0,255,0,1);}
@@ -398,7 +399,7 @@ budget value 			{color:rgba(0,255,0,1);}
 transaction							{border-top:1px solid rgba(0,143,0,1);}
 transaction a						{color:rgba(0,125,0,1);}
 transaction a:hover					{color:rgba(0,173,0,1);}
-transaction:last-of-type			{border-bottom:0px solid rgba(0,143,0,1);}
+transaction:last-of-type			{border-bottom:1px solid rgba(0,143,0,1);}
 transaction:nth-of-type(1):before	{color:rgba(0,255,0,1); background-color:rgba(0,56,0, 0.9);}
 
 transaction:nth-of-type(1) transaction-date:before	{color:rgba(0,255,0,1); border-bottom:2px solid rgba(0,56,0, 0.9);}

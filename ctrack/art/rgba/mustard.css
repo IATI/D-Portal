@@ -364,6 +364,7 @@ span.span_description description[type="3"]:before		{color:rgba(204,204,204,1);}
 /*	Result and description
 	============================================= */
 result:nth-child(odd)		{background-color:rgba(56,56,56,0.3);}
+result:nth-of-type(1):before{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 result description			{color:rgba(255,255,255,1);}
 result description:before	{color:rgba(204,204,204,1);}
 result span-title			{color:rgba(255,255,255,1);}
@@ -405,7 +406,7 @@ transaction							{border-top:1px solid rgba(143,143,143,1);}
 transaction a						{color:rgba(255,163,0,1);}
 a.a_receiver-org					{color:rgba(255,163,0,1);}
 transaction a:hover					{color:rgba(255,183,0,1);}
-transaction:last-of-type			{border-bottom:0px solid rgba(143,143,143,1);}
+transaction:last-of-type			{border-bottom:1px solid rgba(143,143,143,1);}
 transaction:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 
 transaction:nth-of-type(1) transaction-date:before	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56, 0.9);}
