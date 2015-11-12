@@ -243,7 +243,8 @@ table.money tr.rows td.col7	{border-right:1px solid rgba(199,199,199,1);}
 table.money td.col1:hover	{color:rgba(78,78,78,1);}
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(186,12,47,0);}
-table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(186,12,47,0);}
+table.money tr.rows td.col6:hover	{background-color:rgba(186,12,47,0);}
+table.money tr.rows td.col7:hover	{cursor:initial; color:rgba(78,78,78,1);}
 
 table.money a				{color:rgba(78,78,78,1);}
 table.money a:focus			{color:rgba(204,204,204,1);}

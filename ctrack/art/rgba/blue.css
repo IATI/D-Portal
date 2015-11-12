@@ -242,7 +242,8 @@ table.money tr.rows td.col7	{border-right:1px solid rgba(0,0,82,1);}
 
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(0,0,56,1);}
-table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(0,0,74,1);}
+table.money tr.rows td.col6:hover	{background-color:rgba(0,0,74,1);}
+table.money tr.rows td.col7:hover	{cursor:initial; color:rgba(0,0,198,1);}
 
 table.money a				{color:rgba(0,0,204,1);}
 table.money a:focus			{color:rgba(0,0,204,1);}
