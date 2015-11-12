@@ -103,6 +103,7 @@ result description			{padding:0 40px;}
 result description narrative {padding:10px 0;}
 result span-title			{display:block; font-size:30px; width:880px; line-height:1.25em; margin:0 auto; color:#FFF;}
 result span-title narrative	{display:block; padding:10px 0;}
+result:nth-of-type(1):before {content:"Result"; font-size:26px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px;}
 result span-title:before	{content:"RESULT"; font-size:14px; color:#ccc; display:block; margin-bottom:15px;}
 result[type="1"] span-title:before	{content:"OUTPUT";}
 result[type="2"] span-title:before	{content:"OUTCOME";}
