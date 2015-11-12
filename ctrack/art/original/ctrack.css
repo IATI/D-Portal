@@ -14,7 +14,8 @@ html					{background-color:#000;}
 
 /*	Links & fonts
 	============================================= */
-td, a					{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
+table.activity td, table.stats td, table.list td,
+table.money td, a		{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
 a:focus					{text-decoration:underline;}
 a:link  				{color:inherit; text-decoration:none;}
 a:visited				{color:inherit; text-decoration:none;}
