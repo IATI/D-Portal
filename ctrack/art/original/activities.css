@@ -96,7 +96,8 @@ span.span_description description:last-of-type		{padding-bottom:40px;}
 
 /*	Result and description
 	============================================= */
-result						{display:block; padding-bottom:40px;}
+result						{display:block; padding:20px 0 40px 0;}
+result:nth-child(1)			{padding-top:0;}
 result:nth-child(odd)		{background-color:rgba(0,14,32,0.3);}
 result description			{display:block; padding:0 40px 20px 40px; line-height:1.5em; white-space:pre-line; unicode-bidi:embed;}
 result description			{padding:0 40px;}
