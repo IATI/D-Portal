@@ -174,6 +174,7 @@ budget value {display:inline-block; vertical-align:top; color:#000; font-size:1.
 transaction							{display:block; width:958px; border-top:1px solid #000; padding:20px 0; border-bottom:0;}
 transaction a						{color:#000;}
 transaction a:hover					{color:#000;}
+transaction:last-of-type			{border-bottom:1px solid #000;}
 transaction:nth-of-type(1)			{margin-top:0px; padding-top:0;}
 transaction:nth-of-type(1):before	{content:"Transaction"; font-size:26px; color:#fff; background-color:#000; display:block; padding:20px 40px; margin-bottom:25px;}
 
