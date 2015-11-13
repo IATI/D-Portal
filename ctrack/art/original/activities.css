@@ -99,12 +99,11 @@ span.span_description description:last-of-type		{padding-bottom:40px;}
 result						{display:block; padding:20px 0 40px 0;}
 result:nth-child(1)			{padding-top:0;}
 result:nth-child(odd)		{background-color:rgba(0,14,32,0.3);}
-result description			{display:block; padding:0 40px 20px 40px; line-height:1.5em; white-space:pre-line; unicode-bidi:embed;}
-result description			{padding:0 40px;}
-result description narrative {padding:10px 0;}
+result description			{display:block; padding:10px 40px; line-height:1.25em; white-space:pre-line; unicode-bidi:embed;}
+result description narrative{padding:10px 0;}
 result span-title			{display:block; font-size:30px; width:880px; line-height:1.25em; margin:0 auto; color:#FFF;}
 result span-title narrative	{display:block; padding:10px 0;}
-result:nth-of-type(1):before {content:"Results"; font-size:26px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px;}
+result:nth-of-type(1):before{content:"Results"; font-size:26px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px;}
 result span-title:before	{content:"RESULTS"; font-size:14px; color:#ccc; display:block; margin-bottom:15px;}
 result[type="1"] span-title:before	{content:"OUTPUT";}
 result[type="2"] span-title:before	{content:"OUTCOME";}
@@ -119,7 +118,7 @@ result[type="2"] indicator span-title:before {content:" "; margin:0;}
 result[type="3"] indicator span-title:before {content:" "; margin:0;}
 result[type="9"] indicator span-title:before {content:" "; margin:0;}
 
-result indicator description	{font-size:0.9em; color:#ccc; padding-top:10px;}
+result indicator description{font-size:0.9em; color:#ccc; padding-top:10px;}
 
 result indicator period		{display:block; padding-top:10px;}
 result indicator period period-start:before	{content:"Start "; font-size:14px; color:#ccc; display:block; padding-right:10px;}
@@ -130,6 +129,8 @@ result indicator period actual:before	{content:"Actual "; font-size:14px; color:
 result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:220px; max-width:220px; line-height:1.35em;}
 
+result indicator > baseline			{display:block;}
+result indicator > baseline comment	{display:block; color:rgba(255,255,255,1); padding:10px 40px; line-height:1.25em;}
 
 
 /*	Sectors (also turned into graph: sector_pie)
