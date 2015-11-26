@@ -24,11 +24,21 @@ view_active.ajax=function(args)
 	
 	args=args || {};
 	
+	
 	args.q=args.q || {};
-	args.q.day_end_gteq = today;
+	args.q.day_end_gteq = today + ( args.notnull?"":"|NULL" ); // if args.notnull then ignore nulls...
 	args.q.day_start_lteq = today;
 	args.q.day_length_not_null = 1;
 	args.q.orderby="day_end";
+
+// local sort to put the nulls last
+	args.compare=args.compare || function(a,b){
+		if( null === a.day_end ) { if( null === b.day_end ) { return 0; } else { return  1; } }
+		if( null === b.day_end ) { if( null === a.day_end ) { return 0; } else { return -1; } }
+		if(a.day_end < b.day_end) { return -1; }
+		if(a.day_end > b.day_end) { return  1; }
+		return 0;
+	};
 	
 	if(args.output=="count") // just count please
 	{

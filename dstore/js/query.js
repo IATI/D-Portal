@@ -373,11 +373,19 @@ query.getsql_where=function(q,qv){
 					if(t=="string")
 					{
 						var sa=v.split("|");
-						var sb=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(v);
-						if( v.length==10 && sb && sb.length==4 && ty=="int") // date string, convert to number if dest is an int
+						var sb=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(sa[0]);
+						if( sa[0].length==10 && sb && sb.length==4 && ty=="int") // date string, convert to number if dest is an int
 						{
 							v=iati_xml.isodate_to_number(v);
-							ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v,ty);
+
+							if(sa.length==2 && (/null/i).test(sa[1]) ) // allow an explicit or |null case
+							{
+								ss.push( " ( "+n+" "+eq+" $"+n+qe+" OR "+n+" IS NULL ) " ); qv["$"+n+qe]=query.maybenumber(v,ty);
+							}
+							else
+							{
+								ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v,ty);
+							}
 						}
 						else
 						if(sa[1]) // there was an "|"
@@ -404,6 +412,12 @@ query.getsql_where=function(q,qv){
 							so.push( " $"+n+qe+"_"+i+" " )
 							qv["$"+n+qe+"_"+i]=query.maybenumber(v[i],ty);
 						}
+						if(v.length==2 && (/null/i).test(v[1]) ) // allow an explicit or null case for base comparisons
+						{
+							ss.push( " (  "+n+" "+eq+so[0]+" OR "+n+" IS NULL ) ");
+							qv[ so[1].trim() ]=undefined; // not going to be used
+						}
+						else
 						if(eq == "=") // make an IN statement
 						{
 							ss.push( " "+n+" IN ("+so.join(",")+") " );

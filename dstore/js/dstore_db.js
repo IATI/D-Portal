@@ -641,12 +641,19 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		});
 
 		t.day_length=null;
-		if(t["day_end"] && t["day_start"] ) // length may be null for bad data
+		if( t["day_start"] ) // length may be null for bad data
 		{
-			t["day_length"]=			t["day_end"]-t["day_start"];
-			if( t["day_length"] < 0 )
+			if(t["day_end"]) // allow missing end date
 			{
-				t["day_length"]=null; // ends before it starts
+				t["day_length"]=			t["day_end"]-t["day_start"];
+				if( t["day_length"] < 0 )
+				{
+					t["day_length"]=null; // ends before it starts
+				}
+			}
+			else // allow missing end date (null), just set length to 0 rather than null so it is not discarded
+			{
+				t.day_length=0
 			}
 		}
 		

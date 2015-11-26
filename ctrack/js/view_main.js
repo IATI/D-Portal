@@ -50,7 +50,7 @@ view_main.view=function(args)
 */
 	views.stats.ajax();
 	
-	views.active.ajax({limit:5,plate:"{table_active_data}",chunk:"table_active_datas"});
+	views.active.ajax({limit:5,plate:"{table_active_data}",chunk:"table_active_datas",notnull:true});
 	views.ended.ajax({limit:5,plate:"{table_ended_data}",chunk:"table_ended_datas"});
 
 	views.donors_top.ajax();

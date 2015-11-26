@@ -85,6 +85,12 @@ view_list_activities.ajax=function(args)
 		}
 		else
 		{
+			
+			if(args.compare)
+			{
+				data.rows.sort(args.compare);
+			}
+
 			var s=[];
 			ctrack.args.chunks["table_header_amount"]=undefined;
 			if((data.rows.length==0)&&(args.zerodata))
