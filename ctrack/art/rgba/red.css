@@ -236,7 +236,8 @@ table.money tr.rows td.col7	{border-right:1px solid rgba(82,0,0,1);}
 
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(56,0,0,1);}
-table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(74,0,0,1);}
+table.money tr.rows td.col6:hover	{background-color:rgba(74,0,0,1);}
+table.money tr.rows td.col7:hover	{color:rgba(198,0,0,1);}
 
 table.money a				{color:rgba(204,0,0,1);}
 table.money a:focus			{color:rgba(204,0,0,1);}
@@ -356,10 +357,19 @@ span.span_description description[type="3"]:before		{color:rgba(204,0,0,1);}
 /*	Result and description
 	============================================= */
 result:nth-child(odd)		{background-color:rgba(56,0,0,0.4);}
+result:nth-of-type(1):before{color:rgba(255,0,0,1); background-color:rgba(56,0,0,0.9);}
 result description			{color:rgba(255,0,0,1);}
 result description:before	{color:rgba(204,0,0,1);}
 result span-title			{color:rgba(255,0,0,1);}
 result span-title:before	{color:rgba(204,0,0,1);}
+
+result indicator span-title	{border-top:1px solid rgba(255,0,0,1);}
+result indicator period period-start, result indicator period period-end, result indicator period target, result indicator period actual,
+result indicator description			{color:rgba(255,0,0,1);}
+result indicator period period-start:before, result indicator period period-end:before, result indicator period target:before,
+result indicator period actual:before	{color:rgba(204,0,0,1);}
+
+result indicator > baseline comment	{color:rgba(255,0,0,1);}
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -390,15 +400,15 @@ budget value 			{color:rgba(255,0,0,1);}
 transaction							{border-top:1px solid rgba(143,0,0,1);}
 transaction a						{color:rgba(125,0,0,1);}
 transaction a:hover					{color:rgba(173,0,0,1);}
-transaction:last-of-type			{border-bottom:0px solid rgba(143,0,0,1);}
+transaction:last-of-type			{border-bottom:1px solid rgba(143,0,0,1);}
 transaction:nth-of-type(1):before	{color:rgba(255,0,0,1); background-color:rgba(56,0,0, 0.9);}
 
-transaction:nth-of-type(1) transaction-date:before	{color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0, 0.9);}
-transaction:nth-of-type(1) transaction-type:before	{color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0, 0.9);}
-transaction:nth-of-type(1) provider-org:before		{color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0, 0.9);}
-transaction:nth-of-type(1) receiver-org:before		{color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0, 0.9);}
-transaction:nth-of-type(1) value:before				{color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0, 0.9);}
-span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0, 0.9);}
+transaction:nth-of-type(1) transaction-date:before	{color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0,0.9);}
+transaction:nth-of-type(1) transaction-type:before	{color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0,0.9);}
+transaction:nth-of-type(1) provider-org:before		{color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0,0.9);}
+transaction:nth-of-type(1) receiver-org:before		{color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0,0.9);}
+transaction:nth-of-type(1) value:before				{color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0,0.9);}
+span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {color:rgba(255,0,0,1); border-bottom:2px solid rgba(56,0,0,0.9);}
 
 transaction-date	{color:rgba(255,0,0,1);}
 transaction-type	{color:rgba(255,0,0,1);}
@@ -413,11 +423,12 @@ value span			{color:rgba(204,0,0,1);}
 	============================================= */
 contact-info *						{color:rgba(255,0,0,1);}
 contact-info:nth-of-type(1):before	{color:rgba(204,0,0,1);}
+span.span_contact-info				{background-color:rgba(15,0,0,0.7);}
 
 
 /*	Website or external links
 	============================================= */
-activity-website		{color:rgba(160,0,0,1); background-color: rgba(15,0,0,0.7);}
+activity-website		{color:rgba(160,0,0,1); background-color:rgba(15,0,0,0.7);}
 activity-website:before {color:rgba(204,0,0,1);}
 activity-website:hover	{color:rgba(125,0,0,1);}
 

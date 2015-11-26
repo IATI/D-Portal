@@ -243,7 +243,8 @@ table.money tr.rows td.col7	{border-right:1px solid rgba(199,199,199,1);}
 table.money td.col1:hover	{color:rgba(78,78,78,1);}
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(186,12,47,0);}
-table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(186,12,47,0);}
+table.money tr.rows td.col6:hover	{background-color:rgba(186,12,47,0);}
+table.money tr.rows td.col7:hover	{color:rgba(78,78,78,1);}
 
 table.money a				{color:rgba(78,78,78,1);}
 table.money a:focus			{color:rgba(204,204,204,1);}
@@ -369,11 +370,20 @@ span.span_description description[type="3"]:before		{color:rgba(136,136,136,1);}
 /*	Result and description
 	============================================= */
 result:nth-child(odd)		{background-color:rgba(235,235,235,0.3);}
+result:nth-of-type(1):before{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
 result:last-of-type			{border-radius:0 0 4px 4px;}
 result description			{color:rgba(85,85,85,1);}
 result description:before	{color:rgba(136,136,136,1);}
 result span-title			{color:rgba(85,85,85,1);}
 result span-title:before	{color:rgba(136,136,136,1);}
+
+result indicator span-title	{border-top:1px solid rgba(85,85,85,1);}
+result indicator period period-start, result indicator period period-end, result indicator period target, result indicator period actual,
+result indicator description			{color:rgba(85,85,85,1);}
+result indicator period period-start:before, result indicator period period-end:before, result indicator period target:before,
+result indicator period actual:before	{color:rgba(136,136,136,1);}
+
+result indicator > baseline comment	{color:rgba(85,85,85,1);}
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -389,7 +399,7 @@ img.sector_pie					{background-color:rgba(255,255,255,1);}
 /*	Budget table
 	============================================= */
 budget					{border-top:1px solid rgba(235,235,235,1);}
-budget:last-of-type	 	{border-bottom:0px solid rgba(255,255,255,1);}
+budget:last-of-type	 	{border-bottom:1px solid rgba(255,255,255,1);}
 budget:nth-of-type(1):before				{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
 budget:nth-of-type(1) period-start:before 	{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
 budget:nth-of-type(1) period-end:before	  	{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
@@ -428,6 +438,7 @@ value span			{color:rgba(136,136,136,1);}
 	============================================= */
 contact-info *						{color:rgba(85,85,85,1);}
 contact-info:nth-of-type(1):before	{color:rgba(136,136,136,1);}
+span.span_contact-info				{background-color:rgba(235,235,235,1);}
 
 
 /*	Website or external links
