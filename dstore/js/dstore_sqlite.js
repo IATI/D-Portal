@@ -373,6 +373,21 @@ dstore_sqlite.cache_prepare = function(tables){
 	}
 }
 
+
+// delete  a row by a specific ID
+dstore_sqlite.delete_from = function(db,tablename,opts){
+
+
+	if( opts.trans_flags )
+	{
+		db.run(" DELETE FROM "+tablename+" WHERE trans_flags=? ",opts.trans_flags);
+	}
+	else
+	{
+		db.run(" DELETE FROM "+tablename+" WHERE aid=? ",opts.aid);
+	}
+};
+
 // call with your tables like so
 //dstore_sqlite.cache_prepare(tables);
 // to setup

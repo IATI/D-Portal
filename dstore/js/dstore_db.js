@@ -169,15 +169,12 @@ dstore_db.fill_acts = function(acts,slug,data,head,main_cb){
 // delete everything related to this slug
 	db.each("SELECT aid FROM slug WHERE slug=?",slug, function(err, row)
 	{
-		var a=row["aid"];
-		db.run("DELETE FROM act       WHERE aid=?",a);
-		db.run("DELETE FROM jml       WHERE aid=?",a);
-		db.run("DELETE FROM trans     WHERE aid=?",a);
-		db.run("DELETE FROM budget    WHERE aid=?",a);
-		db.run("DELETE FROM country   WHERE aid=?",a);
-		db.run("DELETE FROM sector    WHERE aid=?",a);
-		db.run("DELETE FROM location  WHERE aid=?",a);
-		db.run("DELETE FROM slug      WHERE aid=?",a);
+
+		(["act","jml","trans","budget","country","sector","location","slug"]).forEach(function(v,i,a){
+			dstore_db.delete_from(db,v,{aid:row["aid"]});
+		});
+
+
 	});
 
 	wait.for(function(cb){ db.run("PRAGMA page_count", function(err, row){ cb(err); }); });
@@ -193,7 +190,7 @@ dstore_db.fill_acts = function(acts,slug,data,head,main_cb){
 
 		console.log("importing budgets from org file for "+aid)
 
-		db.run("DELETE FROM budget    WHERE aid=?",aid);
+		dstore_db.delete_from(db,"budget",{aid:aid});
 
 
 		var o=refry.tag(org,"iati-organisation");
@@ -452,14 +449,9 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 
 // make really really sure old junk is deleted
-		db.run("DELETE FROM act       WHERE aid=?",t.aid);
-		db.run("DELETE FROM jml       WHERE aid=?",t.aid);
-		db.run("DELETE FROM trans     WHERE aid=?",t.aid);
-		db.run("DELETE FROM budget    WHERE aid=?",t.aid);
-		db.run("DELETE FROM country   WHERE aid=?",t.aid);
-		db.run("DELETE FROM sector    WHERE aid=?",t.aid);
-		db.run("DELETE FROM location  WHERE aid=?",t.aid);
-		db.run("DELETE FROM slug      WHERE aid=?",t.aid);
+		(["act","jml","trans","budget","country","sector","location","slug"]).forEach(function(v,i,a){
+			dstore_db.delete_from(db,v,{aid:t.aid});
+		});
 
 
 		t.title=refry.tagval_narrative(act,"title");
@@ -706,56 +698,55 @@ dstore_db.fake_trans = function(){
 	var fake_ids=[];
 	
 	process.stdout.write("Removing all fake transactions\n");
-	db.run("DELETE FROM trans WHERE trans_flags=?",1,function(err, rows)  // remove old fake
+
+	dstore_db.delete_from(db,"trans",{trans_flags:1});
+
+	db.all("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code", function(err, rows)
 	{
-
-		db.all("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code", function(err, rows)
+		for(i=0;i<rows.length;i++)
 		{
-			for(i=0;i<rows.length;i++)
+			var v=rows[i];
+			if(v.trans_code=="C")
 			{
-				var v=rows[i];
-				if(v.trans_code=="C")
-				{
-					ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) + 1 ;
-				}
-				else
-				if( (v.trans_code=="D") || (v.trans_code=="E") )
-				{
-					ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) - 1 ;
-				}
+				ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) + 1 ;
 			}
-			for(var n in ids)
+			else
+			if( (v.trans_code=="D") || (v.trans_code=="E") )
 			{
-				var v=ids[n];
-				if(v>0) // we have commitments but no D or E 
-				{
-					fake_ids.push(n);
-				}
+				ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) - 1 ;
 			}
-
-			process.stdout.write("The following publishers will have fake transactions added\n");
-			ls(fake_ids);
-
-
-			process.stdout.write("Adding fake transactions for the following IDs\n");
-			for(i=0;i<fake_ids.length;i++) // add new fake
+		}
+		for(var n in ids)
+		{
+			var v=ids[n];
+			if(v>0) // we have commitments but no D or E 
 			{
-				var v=fake_ids[i];
-				db.all("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=? AND trans_code=\"C\" ",v, function(err, rows)
-				{
-					for(j=0;j<rows.length;j++)
-					{
-						var t=rows[j];
-						process.stdout.write(t.aid+"\n");
-						t.trans_code="D";
-						t.trans_flags=1;
-						dstore_back.replace(db,"trans",t);
-					}
-	//				ls(rows);
-				});
+				fake_ids.push(n);
 			}
+		}
 
-		});
+		process.stdout.write("The following publishers will have fake transactions added\n");
+		ls(fake_ids);
+
+
+		process.stdout.write("Adding fake transactions for the following IDs\n");
+		for(i=0;i<fake_ids.length;i++) // add new fake
+		{
+			var v=fake_ids[i];
+			db.all("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=? AND trans_code=\"C\" ",v, function(err, rows)
+			{
+				for(j=0;j<rows.length;j++)
+				{
+					var t=rows[j];
+					process.stdout.write(t.aid+"\n");
+					t.trans_code="D";
+					t.trans_flags=1;
+					dstore_back.replace(db,"trans",t);
+				}
+//				ls(rows);
+			});
+		}
+
 	});
 
 };
@@ -775,6 +766,11 @@ dstore_db.delete_indexes = function(){
 
 dstore_db.check_tables = function(){
 	return dstore_back.check_tables();
+}
+
+// handle a simple delete
+dstore_db.delete_from = function(db,tablename,opts){
+	return dstore_back.delete_from(db,tablename,opts);
 }
 
 // prepare some sql code

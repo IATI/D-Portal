@@ -39,4 +39,13 @@ dstore_pg.getsql_prepare_update = function(name,row){};
 dstore_pg.getsql_create_table=function(db,name,tab){};
 
 
-dstore_pg.cache_prepare = function(tables){};
+dstore_pg.cache_prepare = function(tables){
+	
+	dstore_pg.tables=tables;
+
+};
+
+dstore_pg.delete_from = function(db,tablename,opts){
+
+
+};
