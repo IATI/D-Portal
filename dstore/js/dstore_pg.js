@@ -2,6 +2,7 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 var dstore_pg=exports;
+var dstore_back=exports;
 
 var wait=require("wait.for");
 
