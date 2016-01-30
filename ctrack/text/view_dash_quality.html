@@ -31,6 +31,7 @@
 			<tr>
 				<td>Publisher Name: <span>Converted from ID</span></td>
 				<td>{dash_quality_pub_name}</td>
+				<td rowspan=2 class="visit"><a href="http://d-portal.org/ctrack.html?&publisher={dash_quality_pub}#view=publisher" target="_blank">Visit portal</a></td>
 			</tr>
 			<tr>
 				<td>Publisher ID:</td>
@@ -173,7 +174,9 @@ table.name					{margin:0 auto; width:920px;}
 table.name td				{padding-bottom:20px; vertical-align:middle;}
 table.name tr:first-child td:first-child span	{display:block; font-size:0.7em; padding-top:5px; font-style:italic;}
 table.name td:first-child	{font-size:1.2em; width:20%;}
-table.name td:last-child	{font-size:2.2em;}
+table.name td:nth-child(2)	{font-size:2.2em;}
+table.name td.visit			{padding:0px; text-align:center; vertical-align:top; width:200px;}
+table.name td.visit a		{display:block; border:1px solid #ccc; color:#444; padding:20px 0px;}
 
 table.pub.dataset			{margin:0 auto; margin-bottom:40px; margin-top:40px; max-width:920px; width:920px;}
 table.pub.dataset td		{padding:5px 0;}
