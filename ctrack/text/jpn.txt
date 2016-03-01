@@ -43,6 +43,12 @@
 #alert_nodata4_tip_text 
 データ品質の問題は - 詳細はクリック
 
+#alert_nodata5_text
+{donor}のIATIデータにはアクティブなプロジェクトはまだありません
+
+#alert_nodata5_tip_text
+アクティブなプロジェクトが見つかりませんでした
+
 #active_icon_alt_text
 アクティブなプロジェクトのアイコン
 
@@ -485,7 +491,9 @@ OECDおよびその他の国や機関の数のすべてのメンバーは、政�
 供血
 
 #donors_data_info2_text
-機関（ドナーや実施機関とすることができる） IATIおよび/またはCRSへの報告データ。このセルをクリックすると、この機関によってIATIに報告されたすべてのアクティビティの一覧が表示されます。リストは値順に並べられ{yearcrs}実行額（大きな図はどちらCRSまたはIATIによる報告）
+機関（ドナーや実施機関とすることができる） IATIおよび/またはCRSへの報告データ。このセルをクリックすると、この機関によってIATIに報告されたすべてのアクティビティの一覧が表示されます。リストは値順に並べられ{yearcrs}実行額（大きな図はどちらCRSまたはIATIによる報告）。
+
+政府機関は<a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=4">CRS</a>のためにグループ化されています。
 
 #donors_data_title3_text
 IATI過ごす

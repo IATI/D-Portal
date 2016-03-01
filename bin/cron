@@ -41,7 +41,7 @@ rm -rf dstore/cache/old
 mkdir dstore/cache/old
 
 # clear data to force a *full* import on sunday morning
-if [ "$(date +'%u')" == "0" ] ; then
+if [ "$(date +'%u')" == "7" ] ; then
 	echo FULL >/var/tmp/dportal.update
 fi
 

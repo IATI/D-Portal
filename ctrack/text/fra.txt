@@ -43,6 +43,12 @@ Bien que certaines données ont été publiées, la faible qualité des données
 #alert_nodata4_tip_text 
 Problèmes de qualité de données - Cliquez pour plus d'infos
 
+#alert_nodata5_text
+Il n'y a pas de projets actifs dans {donor} de l'IATI données
+
+#alert_nodata5_tip_text
+Pas de projets actifs trouvés
+
 #active_icon_alt_text 
 Projets actifs icône 
 
@@ -485,7 +491,9 @@ Tous les membres du OECD et un certain nombre d' autres pays et institutions ren
 DONATEURS
 
 #donors_data_info2_text
-L'agence (qui peut être un donateur ou un organisme d'exécution) des données de déclaration à l'IATI et / ou CRS. Cliquez sur cette cellule vous amène à une liste de toutes les activités mentionnées à l'IATI par cette agence. Cette liste est ordonnée par la valeur de {yearcrs} débours (le plus grand chiffre rapporté soit par CRS ou IATI)
+L'agence (qui peut être un donateur ou un organisme d'exécution) des données de déclaration à l'IATI et / ou CRS. Cliquez sur cette cellule vous amène à une liste de toutes les activités mentionnées à l'IATI par cette agence. Cette liste est ordonnée par la valeur de {yearcrs} débours (le plus grand chiffre rapporté soit par CRS ou IATI).
+
+Les agences sont regroupées pour <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=4">CRS</a>.
 
 #donors_data_title3_text
 IATI PASSER
