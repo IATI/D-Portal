@@ -2,6 +2,7 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 var dstore_pg=exports;
+var dstore_back=exports;
 
 var wait=require("wait.for");
 
@@ -39,4 +40,13 @@ dstore_pg.getsql_prepare_update = function(name,row){};
 dstore_pg.getsql_create_table=function(db,name,tab){};
 
 
-dstore_pg.cache_prepare = function(tables){};
+dstore_pg.cache_prepare = function(tables){
+	
+	dstore_pg.tables=tables;
+
+};
+
+dstore_pg.delete_from = function(db,tablename,opts){
+
+
+};

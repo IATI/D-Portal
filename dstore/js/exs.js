@@ -16,6 +16,7 @@ var years=require('../json/usd_year.json');
 var months=require('../json/xdr_month.json');
 
 // exchange at the given years rate into usd
+/*
 exs.exchange_year=function(year,ex,val)
 {
 	if("number"!=typeof val) { val=1; } // default of 1
@@ -35,6 +36,39 @@ exs.exchange_year=function(year,ex,val)
 			}
 		}
 	}
+	return ret;
+}
+*/
+
+// exchange at the given years rate from ex currency into exto currency
+exs.exchange_year=function(exto,yearmonth,ex,val)
+{
+
+	yearmonth=parseInt( (""+yearmonth).replace("-","").substring(0, 4) ,10); // turn into year
+	
+	if("number"!=typeof val) { val=1; } // default of 1
+	exto=exto.toUpperCase();
+	ex=ex.toUpperCase();
+	var ret;
+	var best=9999; // good for the next 8000 years
+	for(var ym in years)
+	{
+		var v=years[ym];
+		if(v[ex] && v[exto]) // both available
+		{
+			var ymi=parseInt( ym.replace("-","").substring(0, 4) ,10);
+			var test=Math.abs(ymi-yearmonth);
+			if(test<best)
+			{
+				ret=val*v[exto]/v[ex]; //these usd values are inverted compared to the xdr ones 
+				best=test;
+			}
+		}
+	}
+if(ret)
+{
+//console.log("*using*usd*year*exchange*values*",exto,yearmonth,ex,val,ret);
+}
 	return ret;
 }
 
@@ -59,6 +93,11 @@ exs.exchange_yearmonth=function(exto,yearmonth,ex,val)
 				best=test;
 			}
 		}
+	}
+
+	if((!ret)&&(val!=0)) // try the usd year table which may have more obscure but inaccurate values.
+	{
+		return exs.exchange_year(exto,yearmonth,ex,val)
 	}
 
 	return ret;
