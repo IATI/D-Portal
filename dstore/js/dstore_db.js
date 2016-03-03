@@ -402,7 +402,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 			{
 				var cc=country[i];
 				var pc=percents[i];
-				dstore_back.replace(db,"country",{"$aid":t.aid,"$country_code":cc,"$country_percent":pc});				
+				dstore_back.replace(db,"country",{"aid":t.aid,"country_code":cc,"country_percent":pc});
 			}
 		}
 
@@ -417,7 +417,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var pc=percents[i];
 				var group;
 				if(sc){ group=codes.sector_group[sc.slice(0,3)]; }
-				dstore_back.replace(db,"sector",{"$aid":t.aid,"$sector_group":group,"$sector_code":sc,"$sector_percent":pc});
+				dstore_back.replace(db,"sector",{"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc});
 			}
 		}
 
@@ -465,15 +465,15 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				}
 
 				dstore_back.replace(db,"location",{
-					"$aid":t.aid,
-					"$location_code":code,
-					"$location_gazetteer_ref":gazref,
-					"$location_gazetteer":gaz,
-					"$location_name":name,
-					"$location_longitude":longitude,
-					"$location_latitude":latitude,
-					"$location_precision":precision,
-					"$location_percent":pc
+					"aid":t.aid,
+					"location_code":code,
+					"location_gazetteer_ref":gazref,
+					"location_gazetteer":gaz,
+					"location_name":name,
+					"location_longitude":longitude,
+					"location_latitude":latitude,
+					"location_precision":precision,
+					"location_percent":pc
 				});
 			}
 		}
@@ -536,7 +536,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		
 //update slug
 
-		dstore_back.replace(db,"slug",{"$aid":t.aid,"$slug":t.slug});
+		dstore_back.replace(db,"slug",{"aid":t.aid,"slug":t.slug});
 		
 		return t;
 	};
