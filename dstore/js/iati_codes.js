@@ -312,19 +312,36 @@ iati_codes.fetch = function(){
 		var a=(v[1]);
 		var b=v[0];
 		var c=v[2];
+		var n=parseInt(v[4])||0;
 		var display_name=v[3];
 		if(a && a.length>0 && b && b.length>0 )
 		{
 			o[a.trim()]=b.trim();
 			r[b.trim()]=a.trim();
+
+			if(n) // number
+			{
+				o[a.trim()]=n;
+				r[n]=a.trim();
+			}
 		}
 		if(a && a.length>0 && c && c.length>0 )
 		{
 			d[a.trim()]=true;
+
+//			if(n) // number
+//			{
+//				d[n]=true;
+//			}
 		}
 		if(a && a.length>0 && display_name && display_name.length>0 )
 		{
 			funder_names[a.trim()]=display_name;
+
+			if(n) // number
+			{
+				funder_names[n]=display_name;
+			}
 		}
 	}
 	
@@ -540,6 +557,89 @@ iati_codes.fetch = function(){
 	console.log("Writing json/crs_2013_sectors.json")
 //	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
 	fs.writeFileSync(__dirname+"/../json/crs_2013_sectors.json",JSON.stringify(o,null,'\t'));
+
+
+
+	var x=wait.for(https_getbody,sheeturl(1794224901));
+	var lines=wait.for(csv_parse,x);
+
+	var o={};
+
+	var head=[];
+	for(var i=0;i<lines[0].length;i++)
+	{
+		var v=lines[0][i];
+		head[i]=codes.rev_crs_funders[ v.trim() ];
+	}
+
+	for(var i=1;i<lines.length;i++)
+	{
+		var v=lines[i];
+		var a=codes.rev_crs_countries[ v[0].trim() ];
+		if(a)
+		{
+			var t={};
+			o[a]=t;
+			for(var j=0;j<v.length;j++)
+			{
+				var h=head[j];
+				if(h)
+				{
+					var n=Number(v[j]);
+					if(n)
+					{
+						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
+					}
+				}
+			}
+		}
+	}
+	
+//	ls(o);
+
+	console.log("Writing json/crs_2014.json")
+	fs.writeFileSync(__dirname+"/../json/crs_2014.json",JSON.stringify(o,null,'\t'));
+
+	var x=wait.for(https_getbody,sheeturl(830372680));
+	var lines=wait.for(csv_parse,x);
+
+	var o={};
+
+	var head=[];
+	for(var i=0;i<lines[0].length;i++)
+	{
+		var v=lines[0][i];
+		head[i]=v.trim();
+	}
+//	ls(head);
+	
+	for(var i=1;i<lines.length;i++)
+	{
+		var v=lines[i];
+		var a=codes.rev_crs_countries[ v[0].trim() ];
+		if(a)
+		{
+			var t={};
+			o[a]=t;
+			for(var j=0;j<v.length;j++)
+			{
+				var h=head[j];
+				if(h)
+				{
+					var n=Number(v[j]);
+					if(n)
+					{
+						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
+					}
+				}
+			}
+		}
+	}
+
+	console.log("Writing json/crs_2014_sectors.json")
+	fs.writeFileSync(__dirname+"/../json/crs_2014_sectors.json",JSON.stringify(o,null,'\t'));
+
+
 
 console.log("************************ This next bit takes a loooooong time to get every publisher id from iati...");
 if(true)

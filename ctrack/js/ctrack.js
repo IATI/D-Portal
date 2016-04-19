@@ -100,7 +100,7 @@ ctrack.setup=function(args)
 
 	if(args.css) { head.load(args.css); }
 	
-	ctrack.year=parseInt(args.year || ctrack.q.year || 2014); // default base year for graphs tables etc
+	ctrack.year=parseInt(args.year || ctrack.q.year || 2015); // default base year for graphs tables etc
 
 	ctrack.year_chunks=function(y){					// function to build visible range of years for display
 		ctrack.chunk("year" ,y  );
@@ -423,7 +423,7 @@ ctrack.setup=function(args)
 			ctrack.chunks[n]=undefined;
 	};
 // set global defaults
-	ctrack.chunk("yearcrs" ,2013  ); // the crs data is for this year
+	ctrack.chunk("yearcrs" ,2014  ); // the crs data is for this year
 	ctrack.chunk("art",args.art);
 	ctrack.chunk("flava",args.art+args.flava+"/");
 	ctrack.chunk("flava_name",args.flava);
