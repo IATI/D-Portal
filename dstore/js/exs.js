@@ -4,6 +4,7 @@
 var exs=exports;
 
 var csv_parse = require('csv-parse');
+var csv_write = require('json2csv');
 var csv=undefined;//require('csv');
 var util=require('util');
 var wait=require('wait.for');
@@ -311,10 +312,12 @@ console.log(year + " " + month);
 // start with csv_ys (which we grabbed from google docs) and replace with our imf values
 // that way we have some values for everything we can and accurate values from the IMF
 
+
 	for(var year in dump_ys)
 	{
 		var v=dump_ys[year];
 		csv_ys[year]=csv_ys[year] || {}
+		
 		
 		for(var x in v)
 		{
@@ -325,9 +328,41 @@ console.log(year + " " + month);
 		}
 
 	}
-
 	fs.writeFileSync(__dirname+"/../json/usd_year.json",JSON.stringify(csv_ys,null,'\t'));
 
+// build a USD based exchange CSV, similar to the one found in google docs.
+	var head={};	
+	for(var year in csv_ys)
+	{
+		for(var x in csv_ys[year])
+		{
+			head[x]=true;
+		}
+	}
+	var fields=[];
+	for(var x in head)
+	{
+		fields.push(x);
+	}
+	fields.sort();
+	fields.unshift("year");
+
+	var years=[];
+	for(var year in csv_ys)
+	{
+		years.push(year);
+	}
+	years.sort();
+
+	var data=[]
+	for(var idx in years)
+	{
+		var year=years[idx];
+		var aa=csv_ys[year];
+		aa.year=year
+		data.push(aa);
+	}
+	fs.writeFileSync(__dirname+"/../json/usd_year.csv", wait.for( csv_write,{data:data,fields:fields} ) );
 
 }
 
