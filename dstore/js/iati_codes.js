@@ -64,11 +64,11 @@ iati_codes.fetch = function(){
 
 	var files=[
 			{
-				url:"http://iatistandard.org/201/codelists/downloads/clv2/json/en/Sector.json",
+				url:"http://iatistandard.org/202/codelists/downloads/clv2/json/en/Sector.json",
 				name:"sector",
 			},
 			{
-				url:"http://iatistandard.org/201/codelists/downloads/clv2/json/en/SectorCategory.json",
+				url:"http://iatistandard.org/202/codelists/downloads/clv2/json/en/SectorCategory.json",
 				name:"sector_category",
 			},
 			{
@@ -76,11 +76,11 @@ iati_codes.fetch = function(){
 				name:"old_transaction_type",
 			},
 			{
-				url:"http://iatistandard.org/201/codelists/downloads/clv2/json/en/TransactionType.json",
+				url:"http://iatistandard.org/202/codelists/downloads/clv2/json/en/TransactionType.json",
 				name:"new_transaction_type",
 			},
 			{
-				url:"http://iatistandard.org/201/codelists/downloads/clv2/json/en/ActivityStatus.json",
+				url:"http://iatistandard.org/202/codelists/downloads/clv2/json/en/ActivityStatus.json",
 				name:"activity_status",
 			}
 		];
