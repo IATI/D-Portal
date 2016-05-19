@@ -1,0 +1,9 @@
+cd `dirname $0`
+cd ../dstore
+
+IFS=$'\n';
+for xmlfile in $(find ~/Nepal-Traceability-Study-2016/ -name '*.xml' )
+do
+echo "$xmlfile"
+ node js/cmd import "$xmlfile" || exit 1
+done
