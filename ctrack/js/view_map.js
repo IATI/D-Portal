@@ -124,7 +124,7 @@ view_map.fixup=function()
 							}
 						});
 					});
-					markerCluster = new MarkerClusterer(map, markers,{maxZoom:12});
+					markerCluster = new MarkerClusterer(map, markers,{maxZoom:12,imagePath:ctrack.args.jslib+"/markercluster/m"});
 				}
 				else
 				if( ctrack.map.heat )
