@@ -684,6 +684,7 @@ console.log("secondary "+id);
 
 // add a temp publisher id
 	codes.publisher_names["XI-IATI-OFID"]="The OPEC Fund for International Development"
+	codes.publisher_names["XI-IATI-WHS-NEPAL"]="Nepal Traceability Study 2016"
 	
 //	ls(publishers);
 
