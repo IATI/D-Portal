@@ -3,6 +3,6 @@ cd ../dstore
 
 for xmlfile in cache/*.xml
 do
-echo $xmlfile
+  echo $xmlfile
   node js/cmd import "$xmlfile" || exit 1
 done

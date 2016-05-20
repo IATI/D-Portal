@@ -1,9 +1,22 @@
 cd `dirname $0`
 cd ../dstore
 
+mkdir ~/Nepal-Traceability-Study-2016/import
+
+filename=~/Nepal-Traceability-Study-2016/import/nepalstudy.xml
+echo >$filename
+
+
+#merge all into one
+
 IFS=$'\n';
-for xmlfile in $(find ~/Nepal-Traceability-Study-2016/ -name '*.xml' )
+for xmlfile in $(find ~/Nepal-Traceability-Study-2016/R/ -name '*.xml' )
 do
-echo "$xmlfile"
- node js/cmd import "$xmlfile" || exit 1
+ echo "$xmlfile"
+ cat "$xmlfile" >>$filename
 done
+
+#import it
+node js/cmd import "$filename"
+
+
