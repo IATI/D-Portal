@@ -16,67 +16,63 @@
 #view_search_test
 
 <div id="view_search_test">
-
-	<div class="search_wrap">
-		<div class="search_label">
-			<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
+	<div class="search_filter">
+		<div class="search_wrap">
+			<div class="search_label">
+				<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
+			</div>
+			<select id="view_search_select_country" class="chosen">
+				<option value></option>
+				{search_options_country}
+			</select>
+		</div><div class="search_wrap">
+			<div class="search_label">
+				<img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}
+			</div>
+			<select id="view_search_select_funder" class="chosen">
+				<option value></option>
+				{search_options_funder}
+			</select>
+		</div><div class="search_wrap">
+			<div class="search_label">
+				<img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
+			</div>
+			<select id="view_search_select_sector" class="chosen">
+				<option value></option>
+				{search_options_sector}
+			</select>
+		</div><div class="search_wrap">
+			<div class="search_label">
+				<img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}
+			</div>
+			<select id="view_search_select_category" class="chosen">
+				<option value></option>
+				{search_options_category}
+			</select>
+		</div><div class="search_wrap">
+			<div class="search_label">
+				<img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}
+			</div>
+			<select id="view_search_select_publisher" class="chosen">
+				<option value></option>
+				{search_options_publisher}
+			</select>
+		</div><div class="search_wrap mini">
+			<div class="search_label">
+				<img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}
+			</div>
+			<select id="view_search_select_year_min" class="chosen">
+				<option value></option>
+				{search_options_year}
+			</select><select id="view_search_select_year_max" class="chosen">
+				<option value></option>
+				{search_options_year}
+			</select>
 		</div>
-		<select id="view_search_select_country" class="chosen">
-			<option value></option>
-			{search_options_country}
-		</select>
-	</div><div class="search_wrap">
-		<div class="search_label">
-			<img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}
-		</div>
-		<select id="view_search_select_funder" class="chosen">
-			<option value></option>
-			{search_options_funder}
-		</select>
-	</div><div class="search_wrap">
-		<div class="search_label">
-			<img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
-		</div>
-		<select id="view_search_select_sector" class="chosen">
-			<option value></option>
-			{search_options_sector}
-		</select>
-	</div><div class="search_wrap">
-		<div class="search_label">
-			<img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}
-		</div>
-		<select id="view_search_select_category" class="chosen">
-			<option value></option>
-			{search_options_category}
-		</select>
-	</div><div class="search_wrap">
-		<div class="search_label">
-			<img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}
-		</div>
-		<select id="view_search_select_publisher" class="chosen">
-			<option value></option>
-			{search_options_publisher}
-		</select>
-	</div><div class="search_wrap mini">
-		<div class="search_label">
-			<img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}
-		</div>
-		<select id="view_search_select_year_min" class="chosen">
-			<option value></option>
-			{search_options_year}
-		</select><select id="view_search_select_year_max" class="chosen">
-			<option value></option>
-			{search_options_year}
-		</select>
 	</div>
 
-	<div id="search_div"><span id="result_span"></span></div>
+	<div id="search_div"><span id="result_span"></span><a id="search_link" target="_blank">{search_button1_txt}</a></div>
 
 	<input type="text" id="view_search_string" class="typeahead" placeholder="{search_placeholder_txt}"/>
-
-	<div id="search_div">
-		<div><span id="search_span"></span></div>
-		<div><a id="search_link" target="_blank">{search_button1_txt}<span>{search_button2_txt}</span></a></div>
-	</div>
 	
 </div>

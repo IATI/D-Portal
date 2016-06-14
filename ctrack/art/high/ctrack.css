@@ -1,4 +1,4 @@
-/*	High Visibility flava CSS for d-portal.org 2014 ^o^
+/*	Print-friendly CSS for d-portal.org 2014 ^o^
 	If you're reading this in github, 
 	please change to Tabs-4 as github is broken.
 	============================================= */
@@ -193,7 +193,7 @@ a.read:hover			{text-decoration:underline;}
 .list_stats_num				{display:block; font-size:2.9em; color:#FFF; line-height:0.8em;}
 a.button					{padding:10px 20px; background-color:#FFF; font-size:1.25em; color:#000; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center; border:1px solid #000; border-top:0;}
 a.button:hover				{background-color:#000; color:#FFF;}
-a.csv_download				{display:block; margin-top:20px; padding:10px 0; background-color:#000; text-align:center; color:#FFF; margin-left:20px; margin-right:20px;}
+a.csv_download				{display:block; margin-top:20px; padding:10px 0; background-color:#000; text-align:center; color:#FFF; border-radius:4px;}
 a.csv_download:hover		{background-color:#000; color:#FFF;}
 
 
@@ -201,7 +201,7 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 	============================================= */
 .donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}	/* Triangles */
 .donors_peak.view			{border-right:30px solid #000;}
-.donors_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#FFF; font-size:2.3em;}
+.donors_head_title			{width:400px; background-color:#FFF; padding:20px 40px; text-align:center; color:#000; font-size:2.3em; border:3px solid #000;}
 .donors_head_title.view		{background-color:#000;}
 
 
@@ -228,7 +228,10 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 
 /*	For url #view=search
 	============================================= */
-.search_label				{color:#000; border-bottom:1px solid #000;}
+input.typeahead				{border-bottom:1px solid #000 !important;}
+input#view_search_string, input.typeahead.tt-hint		{color:#000;}
+.search_filter				{width:960px; margin:0 auto; padding:25px 18px 20px 18px; box-sizing:border-box; border:1px solid #000;}
+.search_label				{color:#000;}
 #search_div					{color:#000;}
 a#search_link				{background-color:#000; color:#FFF;}
 a#search_link span			{color:#FFF;}
@@ -268,7 +271,7 @@ table.country td.name		{width:800px; max-width:800px; padding-right:10px; font-s
 table.country td.flag		{text-align:right;}
 table.country td.flag img	{max-height:90px;}
 table.country.min			{padding:10px 0;}
-table.country.min td.name	{width:860px; max-width:860px; padding-right:20px; font-size:2.0em; line-height:1.1em; color:#000;}
+table.country.min td.name	{width:860px; max-width:860px; padding-right:20px; font-size:2.0em; line-height:1.1em; color:#000; vertical-align:bottom;}
 table.country.min td.flag img	{max-height:50px;}
 table.country td:hover		{cursor:default;}
 
@@ -320,26 +323,26 @@ table.money td.col1			{text-align:left; background-color:#F1F1F1;}
 table.money td.col2			{text-align:left;}
 table.money td.col3			{background-color:#F1F1F1;}
 table.money td.col4			{background-color:#F8F8F8;}
-table.money td.col5			{background-color:#FDFDFD;}
+table.money td.col5			{background-color:#F3F3F3;}
 table.money td.col6			{background-color:#F8F8F8;}
 table.money td.col7			{background-color:#FDFDFD;}
 
-table.money tr.row1 th		{background-color:transparent; color:#FFF; font-weight:700; text-align:center; padding:0px; position:relative;}
+table.money tr.row1 th		{background-color:#000; color:#FFF; font-weight:700; text-align:center; padding:0px; position:relative;}
 table.money tr.row1 th:hover{cursor:pointer;}
 table.money tr.row1 th span	{color:#FFF; display:block; padding:20px 10px;}
-table.money tr.row1 th.col1	{background-color:#000; text-align:left; border:1px solid #666; border-bottom:1px solid #666; padding:20px 10px;}
-table.money tr.row1 th.col2	{color:#000; text-align:left; border-bottom:1px solid #666; padding:20px 15px; border-top:1px solid #666;}
-table.money tr.row1 th.col3	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
-table.money tr.row1 th.col4	{background-color:#000; border:1px solid #666; border-bottom:1px solid #666;}
+table.money tr.row1 th.col1	{text-align:left; border:1px solid #666; border-bottom:1px solid #666; padding:20px 10px;}
+table.money tr.row1 th.col2	{text-align:left; border-bottom:1px solid #666; padding:20px 15px; border-top:1px solid #666;}
+table.money tr.row1 th.col3	{border:1px solid #666; border-bottom:1px solid #666;}
+table.money tr.row1 th.col4	{border:1px solid #666; border-bottom:1px solid #666;}
 
 table.money tr.row2 td		{color:#000; font-weight:500; padding:20px 10px;}
 table.money tr.row2 td.col1 {background-color:#C8C8C8; border-left:1px solid #666; border-right:1px solid #666;}
+table.money tr.row2 td.col2	{background-color:#C8C8C8; padding:20px 15px;}
 table.money tr.row2 td.col3	{background-color:#D2D2D2; border-left:1px solid #666;}
 table.money tr.row2 td.col4	{background-color:#DADADA;}
 table.money tr.row2 td.col5	{background-color:#DEDEDE; border-right:1px solid #666;}
 table.money tr.row2 td.col6	{background-color:#E5E5E5;}
 table.money tr.row2 td.col7	{background-color:#EDEDED; border-right:1px solid #666;}
-table.money tr.row2 td.col2	{padding:20px 15px;}
 
 table.money tr.rows td.col1	{border-left:1px solid #666; border-right:1px solid #666;}
 table.money tr.rows td.col3	{border-left:1px solid #666;}
