@@ -1,0 +1,3 @@
+cd "$(dirname "$(realpath "$0")")"
+
+./bin ctrack $@

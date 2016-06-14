@@ -1,0 +1,14 @@
+cd "$(dirname "$(realpath "$0")")"
+
+if [ ! -d "/vagrant" ]; then
+
+	vagrant up
+	vagrant ssh -c " cd /host/vbox/ ; ./bin $@ "
+
+else
+
+	CMD=$1
+	shift
+	../bin/$CMD $@
+
+fi
