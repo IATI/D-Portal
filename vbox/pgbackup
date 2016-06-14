@@ -1,0 +1,13 @@
+cd "$(dirname "$(realpath "$0")")"
+
+if [ ! -d "/vagrant" ]; then
+
+	vagrant up
+	vagrant ssh -c " cd /host/vbox/ ; ./pgbackup "
+
+else
+
+	rm -rf pgdata
+	pg_basebackup --progress --verbose --format=tar --compress=9 --pgdata=backup
+
+fi
