@@ -12,12 +12,12 @@ fi
 if [ ! -d "/vagrant" ]; then
 
 	echo $@
-	vagrant up
+#	vagrant up
 	vagrant ssh -c " cd /host/vbox/ ; ./bin $* "
 
 else
 
-	export DSTORE_PG=postgresql:///dstore
+	export DSTORE_PG="/var/run/postgresql dstore"
 
 	CMD=$1
 	shift

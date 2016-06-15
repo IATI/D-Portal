@@ -1,8 +1,11 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
+module.exports=exports;
+
 var dstore_sqlite=exports;
 var dstore_back=exports;
+
 
 var refry=require("./refry");
 var exs=require("./exs");
@@ -15,6 +18,7 @@ var http=require("http");
 var sqlite3 = require("sqlite3").verbose();
 
 var iati_cook=require('./iati_cook');
+var dstore_db=require('./dstore_db');
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -79,9 +83,9 @@ dstore_sqlite.create_tables = function(){
 // simple data dump table containing just the raw xml of each activity.
 // this is filled on import and then used as a source
 
-		for(var name in dstore_sqlite.tables)
+		for(var name in dstore_back.dstore_db.tables)
 		{
-			var tab=dstore_sqlite.tables[name];
+			var tab=dstore_back.dstore_db.tables[name];
 			var s=dstore_sqlite.getsql_create_table(db,name,tab);
 
 			console.log(s);

@@ -15,6 +15,9 @@ echo " install postgres "
 
 sudo apt-get install -y postgresql postgresql-contrib
 
+sudo pg_dropcluster --stop 9.1 main
+sudo pg_createcluster --locale en_US.UTF-8 --start 9.1 main
+
 
 echo " install and enable byobu "
 
@@ -48,5 +51,8 @@ echo 'local replication all peer' >> $pgmain/pg_hba.conf
 /etc/init.d/postgresql restart
 
 sudo -u postgres bash -c "psql -c \"CREATE USER vagrant WITH SUPERUSER PASSWORD 'vagrant';\""
+
+sudo -u postgres createdb dstore
+sudo -u postgres psql -l
 
 

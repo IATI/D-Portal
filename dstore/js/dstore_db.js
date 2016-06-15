@@ -1,6 +1,8 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
+module.exports=exports;
+
 var dstore_db=exports;
 
 var refry=require('./refry');
@@ -17,7 +19,7 @@ var http=require('http');
 
 
 var dstore_back=require('./dstore_back');
-dstore_back.dstore_db=dstore_db;
+//dstore_back.dstore_db=dstore_db; // circular dependencies...
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
