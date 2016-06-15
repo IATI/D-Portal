@@ -1,0 +1,14 @@
+cd "$(dirname "$(readlink -f "$0")")"
+
+if [ ! -d "/vagrant" ]; then
+
+	vagrant up
+	vagrant ssh -c " cd /host/vbox/ ; ./pgbackup "
+
+else
+
+	echo "you will need to rename or delete ( rm -rf backup ) any old backup first"
+
+	pg_basebackup --progress --verbose --format=tar --compress=9 --pgdata=backup
+
+fi

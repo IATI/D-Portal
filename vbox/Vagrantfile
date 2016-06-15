@@ -8,8 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
   config.vm.network :private_network, ip: "10.42.52.94"
-  config.vm.synced_folder "..", "/vbox"
-  config.vm.provision :shell, :path => "provision.sh"
+  config.vm.synced_folder "..", "/host"
+  config.vm.provision :shell, :path => "VagrantProvision"
 
 config.vm.provider "virtualbox" do |v|
   v.memory = 1024
