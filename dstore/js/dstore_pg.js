@@ -6,12 +6,26 @@ var dstore_back=exports;
 
 var wait=require("wait.for");
 
-var pgp = require("pg-promise")({});
-
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+var monitor = require("pg-monitor");
+var pgopts={
+};
+monitor.attach(pgopts);
+var pgp = require("pg-promise")(pgopts);
 
-dstore_pg.open = function(){};
+
+// use global db object
+
+var db = pgp(global.argv.database);
+
+
+
+
+
+dstore_pg.open = function(){
+	return db;
+};
 
 dstore_pg.close = function(db){};
 

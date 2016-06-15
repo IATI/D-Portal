@@ -16,10 +16,16 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 // global.argv
 var argv=require('yargs').argv; global.argv=argv;
 
-argv.port=argv.port||1337;
-argv.database=argv.database||"../dstore/db/dstore.sqlite";
-argv.cache=argv.cache||"../dstore/cache";
+// argv default settings which can be changed by environment and command line
 
+//setting     = commandline   || environment                 || default                      ;
+argv.port     = argv.port     || process.env.DSTORE_PORT     || 1337                         ;
+argv.database = argv.database || process.env.DSTORE_DATABASE || "../dstore/db/dstore.sqlite" ;
+argv.cache    = argv.cache    || process.env.DSTORE_CACHE    || "../dstore/cache"            ;
+argv.pg       = argv.pg       || process.env.DSTORE_PG       || undefined                    ;
+
+// to switch to postgres defaults set the following in your environment
+// DSTORE_PG=postgresql:///dstore
 
 wait.launchFiber(function(){
 

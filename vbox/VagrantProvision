@@ -1,5 +1,16 @@
 sudo apt-get update
 
+echo " install build system "
+
+sudo apt-get install -y software-properties-common python-software-properties
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+
+sudo apt-get install -y gcc-5 g++-5
+sudo apt-get install -y build-essential
+
+
+
 echo " install postgres "
 
 sudo apt-get install -y postgresql postgresql-contrib
@@ -15,8 +26,8 @@ echo " install node npm nvm "
 
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
 . ~/.nvm/nvm.sh
-nvm install stable
-nvm use stable
+nvm install 6
+nvm use 6
 
 n=$(which node)
 n=${n%/bin/node}
@@ -38,3 +49,10 @@ echo 'local replication all peer' >> $pgmain/pg_hba.conf
 
 sudo -u postgres bash -c "psql -c \"CREATE USER vagrant WITH SUPERUSER PASSWORD 'vagrant';\""
 
+
+echo " installing npm dependencies "
+
+/host/bin/npm_install
+
+echo " installed npm dependencies but since we share the directory the host will be confused after we install vbox versions "
+echo " so run bin/npm_install on the host if you need to run code on that machine again and visa versa "

@@ -7,6 +7,8 @@ if [ ! -d "/vagrant" ]; then
 
 else
 
+	DSTORE_PG=postgresql:///dstore
+
 	CMD=$1
 	shift
 	../bin/$CMD $@
