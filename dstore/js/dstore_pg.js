@@ -47,6 +47,7 @@ dstore_pg.create_tables = function(){
 
 	var err=function (error) {
         console.log("ERROR:", error.message || error); // print the error;
+        process.exit(1);
     }
 	
 console.log("CREATING TABLES");
@@ -71,16 +72,24 @@ console.log("CREATING TABLES");
 
 // indexs
 
-//			for(var i=0; i<tab.length;i++)
-//			{
-//				var col=tab[i];			
-//				if( col.INDEX )
-//				{
-//					s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
-//					console.log(s);
-//					db.run(s);
-//				}
-//			}
+			for(var i=0; i<tab.length;i++)
+			{
+				var col=tab[i];			
+				if( col.INDEX )
+				{
+					var s=(" CREATE INDEX "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
+					console.log(s);
+
+					wait.for(function(cb){
+						 db.none("DROP INDEX IF EXISTS "+name+"_index_"+col.name+";").catch(err).then(cb);
+					});
+
+					wait.for(function(cb){
+						db.none(s).catch(err).then(cb);
+					});
+
+				}
+			}
 		}
 
 
