@@ -2,12 +2,13 @@ cd "$(dirname "$(readlink -f "$0")")"
 
 if [ ! -d "/vagrant" ]; then
 
+	echo $@
 	vagrant up
-	vagrant ssh -c " cd /host/vbox/ ; ./bin $@ "
+	vagrant ssh -c " cd /host/vbox/ ; ./bin $* "
 
 else
 
-	DSTORE_PG=postgresql:///dstore
+	export DSTORE_PG=postgresql:///dstore
 
 	CMD=$1
 	shift

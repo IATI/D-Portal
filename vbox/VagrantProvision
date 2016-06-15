@@ -50,9 +50,3 @@ echo 'local replication all peer' >> $pgmain/pg_hba.conf
 sudo -u postgres bash -c "psql -c \"CREATE USER vagrant WITH SUPERUSER PASSWORD 'vagrant';\""
 
 
-echo " installing npm dependencies "
-
-/host/bin/npm_install
-
-echo " installed npm dependencies but since we share the directory the host will be confused after we install vbox versions "
-echo " so run bin/npm_install on the host if you need to run code on that machine again and visa versa "
