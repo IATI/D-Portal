@@ -417,15 +417,22 @@ a.data_invest:hover		{color:#FFF; background-color:#000; text-decoration:underli
 	============================================= */
 .footer_wrap			{display:table-footer-group; height:1px; background-color:#FFF;}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
-.footer_link			{width:320px; display:inline-block; vertical-align:top;}
-.footer_link a			{font-size:0.8em; line-height:1.5em; color:#000;}
+.footer_motto			{font-size:22px;}
+.footer_motto span		{color:#000; font-weight:bold;}
+.footer_link			{display:inline-block; vertical-align:top; width:620px; color:#000; padding:60px 50px 0 0; box-sizing:border-box; font-size:18px; line-height:1.5em;}
+.footer_link.list		{width:340px; padding:60px 0 30px 0;}
+.footer_link a			{font-size:1.0em; line-height:1.5em; color:#000;}
 .footer_link a:focus	{color:#000;}
 .footer_link a:link  	{color:#000;}
 .footer_link a:visited	{color:#000;}
 .footer_link a:hover	{color:#000; text-decoration:underline;}
 .footer_link a:active	{color:#000;}
 .footer_link.about		{text-align:right;}
-.footer_link.top		{text-align:center;}
+.footer_link.top		{text-align:right; width:960px;}
+.footer_link ul			{padding-bottom:20px;}
+.footer_link p			{padding-top:15px;}
+.footer_link p.beta		{font-style:italic; color:#000;}
+.footer_header			{font-size:20px; color:#000; border-bottom:1px solid #000; padding-bottom:5px; margin-bottom:10px;}
 
 
 /*	Disqus wrapper

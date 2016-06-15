@@ -177,7 +177,7 @@ a.stats_link.missing span	{color:#008FFF;}
 
 /*	Data Description styles
 	============================================= */
-.description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,0,0,1) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,1) 100%); padding-bottom:40px;}
+.description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,14,32,0.9) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 50%,rgba(0,14,32,0.9) 100%); padding-bottom:40px;}
 .description			{width:880px; margin:0 auto; padding:40px; text-align:left; margin-bottom:40px; background-color:rgba(255,255,255,0.1);}
 .description span.title	{display:block; color:#FFF; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-top:1px solid #FFF; border-bottom:1px solid #FFF;}
 .description span.title.sub	{font-size:1.0em; border:0; margin:0; padding-bottom:10px; font-weight:bold;}
@@ -431,17 +431,24 @@ a.data_invest:hover		{color:#FFF; background-color:rgba(194,0,255,0.8);}
 
 /*	Footer
 	============================================= */
-.footer_wrap			{display:table-footer-group; height:1px; background-color:rgba(0,0,0,0.95);}
+.footer_wrap			{display:table-footer-group; height:1px; background-color:rgba(0,14,32,0.9);}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
-.footer_link			{width:320px; display:inline-block; vertical-align:top;}
-.footer_link a			{font-size:0.8em; line-height:1.5em; color:#CCC;}
-.footer_link a:focus	{color:#FFF;}
+.footer_motto			{font-size:22px;}
+.footer_motto span		{color:#53B4ED; font-weight:bold;}
+.footer_link			{display:inline-block; vertical-align:top; width:620px; color:#FFF; padding:60px 50px 0 0; box-sizing:border-box; font-size:18px; line-height:1.5em;}
+.footer_link.list		{width:340px; padding:60px 0 30px 0;}
+.footer_link a			{font-size:1.0em; line-height:1.5em; color:#999;}
+.footer_link a:focus	{color:#999;}
 .footer_link a:link  	{color:#999;}
 .footer_link a:visited	{color:#999;}
 .footer_link a:hover	{color:#FFF;}
 .footer_link a:active	{color:#999;}
 .footer_link.about		{text-align:right;}
-.footer_link.top		{text-align:center;}
+.footer_link.top		{text-align:right; width:960px;}
+.footer_link ul			{padding-bottom:20px;}
+.footer_link p			{padding-top:15px;}
+.footer_link p.beta		{font-style:italic; color:#ccc;}
+.footer_header			{font-size:20px; color:#FFF; border-bottom:1px solid #A0988B; padding-bottom:5px; margin-bottom:10px;}
 
 
 /*	Disqus wrapper

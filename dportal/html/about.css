@@ -21,33 +21,39 @@ table.head td.dplinks	{text-align:center;}
 .navi				{width:100%; background-color:rgba(42,42,42,0.8); padding-bottom:30px; position:fixed; z-index:100;}
 a.top				{display:block; color:#fff; font-size:18px; vertical-align:top; padding-top: 45px; border-top:5px solid rgba(0,0,0,0);}
 a.top.install:hover	{border-top:5px solid #2573CD;}
-a.top.savi:hover	{border-top:5px solid rgba(255,165,0,1);}
+a.top.gen:hover		{border-top:5px solid #5C80AB;}
+a.top.savi:hover	{border-top:5px solid #FFA500;}
 a.top.hub:hover		{border-top:5px solid rgba(255,255,255,1);}
-a.top.news:hover	{border-top:5px solid #495BBE;}
-a.top.dash:hover	{border-top:5px solid #2DA620;}
-a.top.faq:hover		{border-top:5px solid #DEDEDE;}
+a.top.news:hover	{border-top:5px solid #960096;}
+a.top.dash:hover	{border-top:5px solid #B47447;}
+a.top.faq:hover		{border-top:5px solid #2BF26C;}
 
 
 /*	Wrappers
 	============================================= */
 
 .mid_wrap			{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
-.about_wrap			{width:100%; background-color:#2573CD; padding:140px 0 50px 0;}
-.about_wrap.more	{background-color:rgba(10, 14, 20, 0.35); padding:0 0 100px 0;}
-.about_wrap.moretxt	{font-size:1.1em; color:#fff; line-height:1.55em; margin-bottom:40px; background:none;}
-.about_wrap.sav		{background-color:#FFA500;}
-.about_wrap.install	{background-color:#2573CD; padding:0 0 40px 0;}
-.about_wrap.dash	{background-color:#2DA620; padding:0 0 40px 0;}
-.about_wrap.dq		{background-color:#724900; padding:0 0 50px 0;}
+.about_wrap			{width:100%; height:100%;}
+.about_wrap.start	{background-color:#2573CD; padding:140px 0 80px 0;}
+.about_wrap.more	{background-color:rgba(10,14,20,0.35);}
+.about_wrap.moretxt	{font-size:1.1em; color:#fff; line-height:1.55em; background:none; padding:80px 0}
+.about_wrap.sav		{background-color:#FFA500; padding:140px 0 40px 0;}
+.about_wrap.install	{background-color:#2573CD; padding:0 0 0 0;}
+.about_wrap.gen		{background-color:#505F71; padding:0 0 0 0;}
+.about_wrap.dash	{background-color:rgba(39,35,31,0.65); padding:0 0 0 0;}
+.about_wrap.dq		{background-color:#724900; padding:0 0 40px 0;}
 .about_wrap.q		{background-color:#4F3200; padding:0 0 40px 0;}
-.about_wrap.sources	{background-color:rgba(10, 14, 20, 0.35); padding:120px 0;}
+.about_wrap.sources	{background-color:rgba(10, 14, 20, 0.35); padding:80px 0 100px 0;}
 .about_wrap.git		{background-color:#fff; padding:160px 0 120px 0;}
+.screen				{text-align:center; width:960px; height:400px;}
+.screen.dash		{background:url('{root}art/dash.png')no-repeat;}
+.screen.generator	{background:url('{root}art/generator.png')no-repeat;}
 
 
 /*	Text styles
 	============================================= */
 
-h1				{font-weight:bold; font-size:38px; display:block; padding-top:30px;}
+h1				{font-weight:bold; font-size:38px; display:block; padding-top:30px; padding-bottom:10px;}
 h2				{font-weight:bold; font-size:30px; display:block; padding-top:30px;}
 h3				{font-weight:bold; font-size:24px; display:block; padding-top:30px;}
 h4				{font-style:italic; font-size:16px; display:block; padding-top:30px; padding-bottom:10px; border-bottom:1px solid #fff; margin-bottom:20px;}
@@ -66,6 +72,8 @@ a.country_portal{color:#031B35;}
 a.country_portal:hover	{text-decoration:underline;}
 a.dash_link		{color:#000;}
 a.dash_link:hover{text-decoration:underline;}
+.about_wrap.dash a {color:#ff7a01;}
+.about_wrap.gen a {color:#9eb5ff;}
 a.how			{display:inline-block; padding:5px 10px; background-color:#2573CD; color:rgba(10, 14, 20, 1); border-radius:6px; font-size:0.8em; font-weight:bold; margin-right:5px;}
 a.how:hover		{background-color:#3794FF;}
 a.news_link		{display:list-item; list-style-type:decimal; font-style:italic; list-style-position:inside; font-style:italic;}
