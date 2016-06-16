@@ -64,4 +64,6 @@ If you have a suggestion or feedback, or would just like to partake in discussio
 We also post daily logs of the nightly import of new IATI data being 
 published to d-portal.org [here](https://groups.google.com/forum/#!forum/d-portal-logs).
 
+Subscribe to our mailing list for announcements on current development by [joining the Google Group](https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list).
+
 If you are interested in finding out more or part-funding d-portal, please contact support@iatistandard.org
