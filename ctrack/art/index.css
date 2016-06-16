@@ -108,8 +108,6 @@ a.read:hover				{text-decoration:underline;}
 	============================================= */
 .footer_wrap			{display:table-footer-group; height:1px; background-color:rgba(0,14,32,0.9);}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
-.footer_motto			{font-size:22px;}
-.footer_motto span		{color:#53B4ED; font-weight:bold;}
 .footer_link			{display:inline-block; vertical-align:top; width:620px; color:#FFF; padding:40px 50px 0 0; box-sizing:border-box; font-size:18px; line-height:1.5em;}
 .footer_link.list		{width:340px; padding:40px 0;}
 .footer_link a			{font-size:1.0em; line-height:1.5em; color:#999;}
@@ -123,6 +121,13 @@ a.read:hover				{text-decoration:underline;}
 .footer_link ul			{padding-bottom:20px;}
 .footer_link p			{padding:15px 0;}
 .footer_link p.beta		{font-style:italic; color:#ccc;}
+.footer_motto			{font-size:22px; line-height:27px;}
+.footer_motto a			{color:#53B4ED; font-weight:bold; line-height:27px;}
+.footer_motto a:focus	{color:#53B4ED;}
+.footer_motto a:link  	{color:#53B4ED;}
+.footer_motto a:visited	{color:#53B4ED;}
+.footer_motto a:hover	{color:#8ACBF2;}
+.footer_motto a:active	{color:#53B4ED;}
 .footer_header			{font-size:20px; color:#FFF; border-bottom:1px solid #A0988B; padding-bottom:5px; margin-bottom:10px;}
 
 
