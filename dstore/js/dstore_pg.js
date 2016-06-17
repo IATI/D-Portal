@@ -10,6 +10,7 @@ var wait=require("wait.for");
 
 var dstore_db=require('./dstore_db');
 
+var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var monitor = require("pg-monitor");
@@ -109,11 +110,6 @@ dstore_pg.replace_vars = function(db,name,it){};
 
 dstore_pg.replace = function(db,name,it){};
 
-
-dstore_pg.getsql_prepare_replace = function(name,row){};
-
-dstore_pg.getsql_prepare_update = function(name,row){};
-
 dstore_pg.getsql_create_table=function(db,name,tab)
 {
 	var s=[];
@@ -152,11 +148,88 @@ dstore_pg.getsql_create_table=function(db,name,tab)
 };
 
 
+dstore_pg.getsql_prepare_replace = function(name,row){
 
-dstore_pg.cache_prepare = function(tables){
+	var s=[];
+
+	s.push("REPLACE INTO "+name+" ( ");
 	
-	dstore_pg.tables=tables;
+	var need_comma=false;
+	for(var n in row)
+	{
+		if(need_comma) { s.push(" , "); }
+		s.push(" "+n+" ");
+		need_comma=true
+	}
 
+	s.push(" ) VALUES ( ");
+
+	var need_comma=false;
+	for(var n in row)
+	{
+		if(need_comma) { s.push(" , "); }
+		s.push(" $"+n+" ");
+		need_comma=true
+	}
+
+	s.push(" ); ");
+
+	return s.join("");
+}
+
+dstore_pg.getsql_prepare_update = function(name,row){
+
+	var s=[];
+	s.push("UPDATE "+name+" SET ");
+	var need_comma=false;
+	for(var n in row)
+	{
+		if(need_comma) { s.push(" , "); }
+		s.push(" "+n+"=$"+n+" ");
+		need_comma=true
+	}
+	s.push(" ");
+	return s.join("");
+
+};
+
+
+
+// prepare some sql code, keep it in dstore_db as it all relates to dstore_db.tables data
+dstore_pg.cache_prepare = function(){
+	
+	dstore_db.tables_replace_sql={};
+	dstore_db.tables_update_sql={};
+	dstore_db.tables_active={};
+	for(var name in dstore_db.tables)
+	{
+		var t={};
+		for(var i=0; i<dstore_db.tables[name].length; i++ )
+		{
+			var v=dstore_db.tables[name][i];
+			
+			var ty="null";
+			
+			if(v.TEXT) { ty="char"; }
+			else
+			if(v.NOCASE) { ty="char"; }
+			else
+			if(v.INTEGER) { ty="int"; }
+			else
+			if(v.REAL) { ty="float"; }
+			
+			t[v.name]=ty;
+		}
+		dstore_db.tables_active[name]=t;
+		dstore_db.tables_replace_sql[name]=dstore_pg.getsql_prepare_replace(name,t);
+		dstore_db.tables_update_sql[name] =dstore_pg.getsql_prepare_update(name,t);
+	}
+	
+	ls(dstore_db.tables);
+	ls(dstore_db.tables_active);
+	ls(dstore_db.tables_replace_sql);
+	ls(dstore_db.tables_update_sql);
+	
 };
 
 dstore_pg.delete_from = function(db,tablename,opts){
