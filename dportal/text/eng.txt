@@ -220,8 +220,23 @@ Q allows you to query information you need via simple but complex filters.
 #q_example_title_text
 Here are some Query examples:
 
+#q_example_append1_text
+Append queries with your preferred format 
+
+#q_example_append2_text
+for SAVi.
+
+#q_example_xml_text
+Returns pure XML
+
+#q_example_json_text
+Returns JSON
+
+#q_example_savi_text
+Returns XML which is automatically formatted into HTML (SAVi). Source remains pure XML
+
 #q_example1_text
-Returns XML which is automatically formatted into HTML, source remains pure XML
+Returns XML which is automatically formatted into HTML (SAVi). Source remains pure XML
 
 #q_example1_info1_text
 This query displays activities limiting the amount to 10
@@ -233,7 +248,7 @@ sorted by starting day
 and from 1950 onwards
 
 #q_example2_text
-Returns XML which is automatically formatted into HTML, source remains pure XML
+Returns pure XML
 
 #q_example2_info1_text
 This query displays all activities within Bangladesh (country code is BD)

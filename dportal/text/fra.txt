@@ -220,8 +220,23 @@ Q vous permet d'interroger les informations dont vous avez besoin via des filtre
 #q_example_title_text
 Voici quelques exemples de requêtes :
 
+# q_example_append1_text
+Append requêtes avec votre format préféré
+
+# q_example_append2_text
+pour SAVi.
+
+#q_example_xml_text
+Retourne XML pur
+
+#q_example_json_text
+Renvoie JSON
+
+#q_example_savi_text
+Retourne XML qui est automatiquement formaté en HTML (SAVi). Source reste pur XML
+
 #q_example1_text
-Retours XML qui est automatiquement formaté en HTML, XML source reste pur
+Retourne XML qui est automatiquement formaté en HTML (SAVi). Source reste pur XML
 
 #q_example1_info1_text
 Cette requête affiche activités de limiter le montant à 10
@@ -233,7 +248,7 @@ triés en commençant par jour
 et à partir de 1950
 
 #q_example2_text
-Retours XML qui est automatiquement formaté en HTML, XML source reste pur
+Retourne XML pur
 
 #q_example2_info1_text
 Cette requête affiche toutes les activités de Bangladesh (code du pays est BD)
