@@ -48,7 +48,7 @@ view_list_budgets.ajax=function(args)
 			"from":"act,budget",
 			"limit":args.limit || -1,
 			"select":ctrack.convert_str("sum_of_percent_of_budget")+",aid,funder_ref,title,reporting,reporting_ref",
-			"distincton":"aid",
+			"groupby":"aid",
 			"orderby":"1-",
 			"budget_priority":1, // has passed some validation checks serverside
 //			"country_code":(args.country || ctrack.args.country_select),

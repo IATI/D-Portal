@@ -49,7 +49,7 @@ view_list_activities.ajax=function(args)
 			"from":"act",
 			"limit":args.limit || -1,
 			"select":"title,aid,funder_ref,"+ctrack.convert_str("commitment")+","+ctrack.convert_str("spend")+",reporting,reporting_ref,day_start,day_end",
-			"orderby":"4-",
+//			"orderby":"4-",
 			"distincton":"aid",
 //			"country_code":(args.country || ctrack.args.country_select),
 //			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
@@ -68,6 +68,8 @@ view_list_activities.ajax=function(args)
 
 	fetch.ajax_dat_fix(dat,args);
 
+// cant use, must fix code
+	delete dat.orderby;
 
 	if(args.output=="count") // just count please
 	{
@@ -75,6 +77,7 @@ view_list_activities.ajax=function(args)
 		delete dat.limit;
 		delete dat.orderby;
 		delete dat.groupby;
+		delete dat.distincton;
 	}
 		
 	fetch.ajax(dat,function(data){

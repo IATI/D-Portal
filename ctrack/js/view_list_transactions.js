@@ -48,7 +48,7 @@ view_list_transactions.ajax=function(args)
 			"from":"act,trans",
 			"limit":args.limit || -1,
 			"select":ctrack.convert_str("sum_of_percent_of_trans")+",aid,funder_ref,title,reporting,reporting_ref",
-			"distincton":"aid",
+			"groupby":"aid",
 			"orderby":"1-",
 			"trans_code":"D|E",
 //			"country_code":(args.country || ctrack.args.country_select),
