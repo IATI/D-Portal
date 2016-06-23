@@ -112,10 +112,10 @@ a.back_news:hover	{color:#A8C5E5;}
 #donor_graph, #sector_graph, #publisher_countries_graph,
 #publisher_sectors_graph{background-color:#FFF; font-size:1.0em; line-height:1.3em; color:#444; border:1px solid #FFF;}
 a.graph_wrap			{display:block; position:relative; width:960px;}
-span.graph_view_all			{display:block; background-color:rgba(3,14,27,0); position:absolute; left:0; top:0; width:960px; height:390px; color:rgba(255,255,255,0); font-size:60px; line-height:390px; text-align:center;}
+span.graph_view_all			{display:block; background-color:rgba(3,14,27,0); position:absolute; left:0; top:0; width:960px; height:100%; color:rgba(255,255,255,0); font-size:60px; line-height:390px; text-align:center;}
 span.graph_view_all:hover	{background-color:rgba(3,14,27,0.85); color:rgba(255,255,255,1);}
-span.graph_view_all.pub_donor		{height:410px; line-height:410px;}
-span.graph_view_all.pub_sector		{height:460px; line-height:460px;}
+span.graph_view_all.pub_donor		{line-height:410px;}
+span.graph_view_all.pub_sector		{line-height:460px;}
 span.ask				{display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:1.8em; text-align:center;}
 span.ask.donor			{background-color:#008FFF;}
 span.ask.sector			{background-color:#00C475;}
