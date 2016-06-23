@@ -51,7 +51,7 @@ view_act.ajax=function(args)
 	var dat={
 			"select":"jml",
 			"from":"act,jml",
-			"groupby":"aid",
+			"distincton":"aid",
 			"aid":args.aid,
 			"location_latitude":args.lat,
 			"location_longitude":args.lng,

@@ -50,7 +50,7 @@ view_list_activities.ajax=function(args)
 			"limit":args.limit || -1,
 			"select":"title,aid,funder_ref,"+ctrack.convert_str("commitment")+","+ctrack.convert_str("spend")+",reporting,reporting_ref,day_start,day_end",
 			"orderby":"4-",
-			"groupby":"aid",
+			"distincton":"aid",
 //			"country_code":(args.country || ctrack.args.country_select),
 //			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 //			"title_like":(args.search || ctrack.args.search),
