@@ -113,7 +113,7 @@ a.back_news:hover	{color:#A8C5E5;}
 #publisher_sectors_graph{background-color:#FFF; font-size:1.0em; line-height:1.3em; color:#444; border:1px solid #FFF;}
 a.graph_wrap			{display:block; position:relative; width:960px;}
 span.graph_view_all			{display:block; background-color:rgba(3,14,27,0); position:absolute; left:0; top:0; width:960px; height:100%; color:rgba(255,255,255,0); font-size:60px; line-height:390px; text-align:center;}
-span.graph_view_all:hover	{background-color:rgba(3,14,27,0.85); color:rgba(255,255,255,1);}
+span.graph_view_all:hover	{background-color:rgba(3,14,27,0.85); color:rgba(255,255,255,1); -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition: all .2s ease-in-out;}
 span.graph_view_all.pub_donor		{line-height:410px;}
 span.graph_view_all.pub_sector		{line-height:460px;}
 span.ask				{display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:1.8em; text-align:center;}
@@ -123,10 +123,6 @@ span.ask.sector			{background-color:#00C475;}
 .peak					{margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; display:block;}	/* Triangles */
 .peak.donor				{border-top:20px solid #008FFF;}
 .peak.sector			{border-top:20px solid #00C475;}
-
-a.view_all_money		{display:block; width:960px; background-color:rgba(0,14,32,0.7); color:#CCC; border-radius:0 0 8px 8px; text-align:center; margin:0 auto; padding:15px 0; font-size:1.1em;}
-a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#FFF;} /*	old view all button under graphs	*/
-
 .caption				{border-bottom:0;}
 .caption:last-of-type	{border-bottom:1px;}
 .ask_title				{padding:20px 40px; display:block;}
