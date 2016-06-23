@@ -57,7 +57,7 @@ a.path.publisher		{padding:20px; margin-top:10px; color:#fff; font-size:1.2em;}
 
 /*	Country Code List style
 	============================================= */
-.country_menu_wrap			{width:960px; margin:0 auto; padding-bottom:40px;}
+.country_menu_wrap			{width:960px; margin:0 auto; padding:60px 0;}
 .country_menu_list_wrap		{margin:0 auto; width:960px;}
 .publisher_menu_list_wrap	{margin:0 auto; width:860px;}
 .menu_list_wrap				{display:inline-block; vertical-align:top; padding-left:50px; width:500px; height:700px; overflow-x:hidden; overflow-y:scroll; box-sizing:border-box;}
@@ -84,11 +84,11 @@ li.publishercol a.country_code		{padding:15px 0;}
 /*	Select dropdowns
 	============================================= */
 #country_dropmenu, #publisher_dropmenu,
-.compare_wrap											{display:inline-block; vertical-align:top; width:460px; margin-bottom:20px; margin-right:20px;}
-#publisher_dropmenu, .compare_wrap.r					{margin-right:0; margin-left:20px;}
-.compare_wrap											{margin-top:40px;}
+.compare_wrap											{display:inline-block; vertical-align:top; width:460px; margin-bottom:40px; margin-right:20px;}
+#publisher_dropmenu, .compare_wrap.pub					{margin-right:0; margin-left:20px;}
 #country_dropmenu select, #publisher_dropmenu select	{min-width:460px; max-width:460px;}
-.chosen-container-single .chosen-single span			{color:#444;}
+.chosen-container-single .chosen-single span			{color:#444; font-size:20px; line-height:46px;}
+.chosen-container-single .chosen-single					{height:46px;}
 .chosen-container .chosen-results li					{text-align:left;}
 
 

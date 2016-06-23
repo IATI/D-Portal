@@ -33,12 +33,12 @@ a.top.faq:hover		{border-top:5px solid #2BF26C;}
 /*	Wrappers
 	============================================= */
 
-.mid_wrap			{display:inline-block; vertical-align:top; width:460px; max-width:460px;}
+.mid_wrap			{display:inline-block; vertical-align:middle; width:460px; max-width:460px;}
 .about_wrap			{width:100%;}
 .about_wrap.start	{background-color:#2573CD; padding:140px 0 80px 0;}
 .about_wrap.more	{background-color:rgba(10,14,20,0.35);}
 .about_wrap.moretxt	{font-size:1.1em; color:#fff; line-height:1.55em; background:none; padding:80px 0}
-.about_wrap.sav		{background-color:#FFA500; padding:140px 0 40px 0;}
+.about_wrap.sav		{background-color:#FFA500; padding:60px 0;}
 .about_wrap.install	{background-color:#2573CD; padding:0 0 0 0;}
 .about_wrap.gen		{background-color:#505F71; padding:80px 0 0 0;}
 .about_wrap.dash	{background-color:rgba(39,35,31,0.65); padding:40px 0 0 0;}
@@ -60,13 +60,13 @@ a.top.faq:hover		{border-top:5px solid #2BF26C;}
 /*	Text styles
 	============================================= */
 
-h1				{font-weight:bold; font-size:38px; display:block; padding-top:30px; padding-bottom:10px;}
+h1				{font-weight:bold; font-size:38px; display:block; padding-bottom:30px;}
 h2				{font-weight:bold; font-size:30px; display:block; padding-top:30px;}
 h3				{font-weight:bold; font-size:24px; display:block; padding-top:30px;}
 h4				{font-style:italic; font-size:16px; display:block; padding-top:30px; padding-bottom:10px; border-bottom:1px solid #fff; margin-bottom:20px;}
 p				{color:#fff; padding:15px 0;}
 .mid_wrap p		{color:#fff; padding:30px 0 5px;}
-.about_head		{color:#fff; line-height:1.25em; font-size:22px; padding:30px 0 0px 40px;}
+.about_head		{color:#fff; line-height:1.35em; font-size:22px; padding:30px 0 20px 40px; border-left:1px solid #FFF;}
 .about_info		{font-size:18px; line-height:1.4em; color:#E8F6FF; padding-top:10px;}
 .sources_head	{color:#fff; font-size:28px; padding-top:80px; margin-bottom:40px;}
 .sav_head		{color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;}

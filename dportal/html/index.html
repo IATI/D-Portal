@@ -22,14 +22,6 @@
 				{intro_generator}
 				<span id="explore"></span>
 				<div class="country_menu_wrap">
-					<div class="compare_wrap">
-						<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publisher_countries">
-							<span class="select_wrap full">{all_countries_text}</span>
-						</a></div><div class="compare_wrap r">
-						<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publishers">
-							<span class="select_wrap full">{all_publishers_text}</span>
-						</a>
-					</div>
 					<div id="country_dropmenu"></div><div id="publisher_dropmenu"></div>
 					<div class="country_menu_list_wrap">
 						<div class="menu_list_wrap left">
@@ -39,6 +31,7 @@
 						</div>
 					</div>
 				</div>
+				{compare_buttons}
 				<div class="description_wrap">
 					<div class="description full">
 						<span class="title">{index_title2_text}</span>
@@ -59,6 +52,17 @@
 </div>
 </body>
 </html>
+
+
+#compare_buttons
+<div class="compare_wrap">
+	<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publisher_countries">
+		<span class="select_wrap full">{all_countries_text}</span>
+	</a></div><div class="compare_wrap pub">
+	<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publishers">
+		<span class="select_wrap full">{all_publishers_text}</span>
+	</a>
+</div>
 
 
 #intro_generator
