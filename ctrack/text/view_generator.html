@@ -201,17 +201,18 @@ Please select <b>ONE</b> recipient and <b>NO</b> publisher to generate content h
 
 #reminder
 <div class="reminder_wrap">
-	<div class="tips_head">Tips:</div>
-	<p>You can compare multiple datasets by choosing multiple RECIPIENTS and/or PUBLISHERS.</p>
+	<p>Compare multiple datasets by choosing multiple RECIPIENTS and/or PUBLISHERS.</p>
 	<p>Picking both PUBLISHER and RECIPIENT data at the same time will limit the data in your generated content.</p>
 	<p>The SIZE option allows you to generate a variety of blog-friendly sized content.</p>
 	<p>Empty tables are due to no data found.
-	<p><b>Data populating the tables can be quite large. Please wait until the spinner disappears for your widget to appear.</b></p>
+	<p><b>Data populating the tables can be quite large.</b> <i>Please wait until the spinner disappears for your widget to appear.</i></p>
 	<p>All data is <b>LIVE</b> data and will change if these records are updated.</p>
-	<p><b>Stuck?</b> <a href="/news/2014-11-30-Interactive-IATI-data-d-portal-generator.html">Click here for some examples of what you can do</a>.</p>
-
-	<a href="mailto:support@iatistandard.org" class="mail">For all questions, suggestions and feedback please contact support@iatistandard.org</a>
+	<p><b>Stuck?</b> <a href="/news/2014-11-30-Interactive-IATI-data-d-portal-generator.html">Click here for some examples of what you can do</a> or watch the excellent video below by <a href="https://www.bond.org.uk/">Bond</a>.</p>
+	<p>{video}</p>
 </div>
+
+#video
+<iframe src="https://player.vimeo.com/video/148486364?title=0&byline=0&portrait=0&wmode=transparent" width="100%" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 #footer_pick_text
 Back to d-portal
@@ -222,7 +223,7 @@ textarea			{display:block; width:884px; height:100px; margin-top:5px;}
 form div			{padding:5px 0;}
 form div span.opt	{display:inline-block; min-width:100px; color:#FFF; text-align:right; vertical-align:middle; margin-right:10px;}
 select				{border-radius:2px;}
- #frame				{margin:0 auto; width:960px; padding:20px 20px 0 20px; text-align:center;}
+ #frame				{margin:0 auto; width:100%; padding:100px 0; text-align:center; margin-top:50px; background-color:#cecece;}
 a#frame_fix_size	{display:block; margin:0 auto; width:960px; border-radius:4px; padding:10px 0; text-align:center; background-color:#2573CD; color:#FFF; margin-top:10px; margin-bottom:10px;}
 a#frame_fix_size:hover	{background-color:#2F84E5;}
 .generator			{width:960px; margin:0 auto; padding:0; padding-top:20px;}
@@ -243,10 +244,11 @@ a#frame_fix_size:hover	{background-color:#2F84E5;}
 .instruct_fix		{background-color:#333; color:#ccc; padding:15px 0; text-align:center;}
 .instruct_fix span	{color:#4CA0FF; font-weight:bold;}
 .chosen-container	{min-width:250px; max-width:500px;}
-.reminder_wrap		{margin:0 auto; margin-top:60px; background-color:rgba(21, 21, 21, 0.7); width:880px; padding:20px 40px 30px 40px; color:#ccc; font-size:0.9em; line-height:1.2em; margin-bottom:200px;}
+.reminder_wrap		{margin:0 auto; margin-top:60px; background-color:rgba(21,21,21,0.7); width:880px; padding:20px 40px 40px 40px; color:#ccc; font-size:0.9em; line-height:1.2em; margin-bottom:200px;}
 .reminder_wrap.top	{background-color:#2573CD; font-size:1.4em; color:#FFF; padding:30px 40px; margin-bottom:0;}
-.reminder_wrap p	{padding-top:15px; color:#ccc; display:list-item; list-style-position:inside;}
-.tips_head			{border-bottom:1px solid #666; padding:15px 0 10px 0; font-size:1.2em; color:#aaa; display:block;}
+.reminder_wrap p	{padding-top:25px; color:#ccc; display:list-item; list-style-position:inside; list-style-type:circle; font-size:16px;}
+.reminder_wrap p:last-of-type	{display:block;}
+.tips_head			{border-bottom:1px solid #666; padding:15px 0 10px 0; font-size:1.8em; color:#aaa; display:block;}
 .reminder_wrap.top p{color:#FFF;}
 .view_info			{padding-bottom:10px; color:#FFF; font-size:0.9em; border-bottom:3px solid #666; margin-bottom:20px;}
 .view_info span		{display:inline-block; vertical-align:top; width:100px; color:#ccc;}
@@ -257,6 +259,8 @@ a.view				{display:inline-block; vertical-align:top; width:260px; position:relat
 a.view.mid			{margin:0 30px;}
 a.view.mid.savi		{text-align:center;}
 a.view span.imgtxt	{display:block; margin-top:5px; color:#ccc; font-size:0.8em;}
+.reminder_wrap a	{color:#4CA0FF;}
+.reminder_wrap a:hover		{color:#74B5FF;}
 a.mail				{display:block; margin-top:15px; color:#4CA0FF; padding:5px 0;}
 a.mail:hover		{color:#74B5FF;}
 a.logo				{display:inline-block; vertical-align:bottom; width:250px;}
