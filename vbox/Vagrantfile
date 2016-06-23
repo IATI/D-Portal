@@ -62,7 +62,8 @@ echo '#HAXTBH' >> $pgmain/pg_hba.conf
 echo 'local replication all peer' >> $pgmain/pg_hba.conf
 /etc/init.d/postgresql restart
 
-sudo -u postgres bash -c "psql -c \"CREATE USER vagrant WITH SUPERUSER PASSWORD 'vagrant';\""
+#notice the double \\ here because racecar
+sudo -u postgres bash -c "psql -c \\"CREATE USER vagrant WITH SUPERUSER PASSWORD 'vagrant';\\""
 
 sudo -u postgres createdb dstore
 sudo -u postgres psql -l
