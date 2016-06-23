@@ -9,6 +9,9 @@ var dstore_back=exports;
 var wait=require("wait.for");
 
 var dstore_db=require('./dstore_db');
+// how to use query replcaments
+dstore_db.text_plate=function(s){ return "${"+s+"}"; }
+dstore_db.text_name=function(s){ return s; }
 
 var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
@@ -19,13 +22,19 @@ var iati_xml=require('./iati_xml');
 var iati_cook=require('./iati_cook');
 
 var codes=require('../json/iati_codes');
+var	query=require("./query");
 
+var err=function (error) {
+	console.log("ERROR:", error.message || error); // print the error;
+	console.log((error.stack));
+	process.exit(1);
+}
 
 
 var monitor = require("pg-monitor");
 var pgopts={
 };
-//monitor.attach(pgopts);
+monitor.attach(pgopts);
 var pgp = require("pg-promise")(pgopts);
 
 
@@ -54,11 +63,6 @@ dstore_pg.pragmas = function(db){
 dstore_pg.create_tables = function(){
 
 	var db=dstore_pg.open();
-
-	var err=function (error) {
-        console.log("ERROR:", error.message || error); // print the error;
-        process.exit(1);
-    }
 	
 console.log("CREATING TABLES");
 
@@ -134,7 +138,9 @@ dstore_pg.getsql_create_table=function(db,name,tab)
 		else
 		if(col.BLOB) 				{ s.push(" BLOB "); }
 		else
-		if(col.TEXT || col.NOCASE)	{ s.push(" TEXT "); }
+		if(col.NOCASE)				{ s.push(" CITEXT "); }
+		else
+		if(col.TEXT)				{ s.push(" TEXT "); }
 
 		if(col.PRIMARY) 			{ s.push(" PRIMARY KEY "); }
 		else
@@ -266,11 +272,6 @@ dstore_pg.cache_prepare = function(){
 
 dstore_pg.delete_from = function(db,tablename,opts){
 
-	var err=function (error) {
-        console.log("ERROR:", error.message || error); // print the error;
-        process.exit(1);
-    }
-
 	wait.for(function(cb){
 		if( opts.trans_flags ) // hack opts as there are currently only two uses
 		{
@@ -286,11 +287,6 @@ dstore_pg.delete_from = function(db,tablename,opts){
 
 
 dstore_pg.replace = function(db,name,it){
-	
-	var err=function (error) {
-        console.log("ERROR:", error.message || error); // print the error;
-        process.exit(1);
-    }
 
 	wait.for(function(cb){
 		db.none(dstore_db.tables_replace_sql[name],it).then(cb).catch(err);
@@ -308,11 +304,6 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 	var db=dstore_pg.open();
 
-	var err=function (error) {
-        console.log("ERROR:", error.message || error); // print the error;
-        process.exit(1);
-    }
-	
 	wait.for(function(cb){
 		db.one("SELECT COUNT(*) FROM act;").then(function(row){	
 			before=row.count;
@@ -400,3 +391,23 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 	if(main_cb){ main_cb(); }
 };
+
+
+
+// the database part of the query code
+dstore_pg.query_select=function(q,res,r){
+
+
+	var db = dstore_pg.open();
+
+	var rows=
+		db.any(r.query,r.qvals).then(function(rows){
+
+			r.rows=rows;
+			r.count=rows.length;
+
+			query.do_select_response(q,res,r);
+
+		}).catch(err);
+}
+

@@ -12,10 +12,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // global.argv
 var argv=require('yargs').argv; global.argv=argv;
-
-argv.port=argv.port||1337;
-argv.database=argv.database||"../dstore/db/dstore.sqlite";
-
+require("./argv").parse(argv);
 
 // make sure we have a db dir
 fs.mkdir("db",function(e){});

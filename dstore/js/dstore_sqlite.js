@@ -18,6 +18,11 @@ var sqlite3 = require("sqlite3").verbose();
 
 var iati_cook=require('./iati_cook');
 var dstore_db=require('./dstore_db');
+// how to use query replcaments
+dstore_db.text_plate(s)=function{ return "$"+s; }
+dstore_db.text_name(s)=function{ return "$"+s; }
+
+var	query=require("./query");
 
 var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
@@ -603,3 +608,49 @@ dstore_sqlite.warn_dupes = function(db,aid){
 		});
 		
 };
+
+
+// the database part of the query code
+dstore_sqlite.query_select=function(q,res,r){
+
+	var db = dstore_db.open();
+	db.serialize();
+	
+if(true)
+{
+	db.all( "EXPLAIN QUERY PLAN "+r.query,r.qvals,
+		function(err,rows)
+		{
+			if(rows)
+			{
+				r.sqlite_explain_detail=[];
+				rows.forEach(function(it){
+					r.sqlite_explain_detail.push(it.detail);
+				});
+			}
+		}
+	);
+}
+
+	db.each(r.query,r.qvals, function(err, row)
+	{
+		if(err)
+		{
+			console.log(r.query+"\n"+err);
+		}
+		else
+		{
+			r.rows.push(row);
+			r.count++;
+		}
+	});
+
+	db.run(";", function(err, row){
+
+		query.do_select_response(q,res,r);
+		
+		dstore_back.close(db);
+	});
+
+}
+

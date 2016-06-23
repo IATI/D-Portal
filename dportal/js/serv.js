@@ -6,9 +6,7 @@ var express = require('express');
 var app = express();
 
 var argv=require('yargs').argv; global.argv=argv;
-
-argv.port=argv.port||1408;
-argv.database=argv.database||"../dstore/db/dstore.sqlite";
+require("../../dstore/js/argv").parse(argv);
 
 express.static.mime.define({'text/plain': ['']});
 

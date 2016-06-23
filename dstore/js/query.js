@@ -10,7 +10,6 @@ var refry=require('./refry');
 var exs=require('./exs');
 var iati_xml=require('./iati_xml');
 var dstore_db=require("./dstore_db");
-var dstore_back=require("./dstore_back");
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -31,7 +30,9 @@ query.mustbenumber=function(v)
 query.maybenumber=function(v,ty)
 {
 	if(ty=="char") { return ""+v; } // force string
-	return query.mustbenumber(v) || v;
+	var n=query.mustbenumber(v);
+	if("number" == typeof n) { return n; }
+	return v;
 }
 
 
@@ -134,47 +135,6 @@ query.getsql_select=function(q,qv){
 	}
 //these calculations need to be turned into generic prefix functions.
 	var calc={
-/*
-		"sum_of_percent_of_trans_usd":function(){
-			percents("sum_of_percent_of_trans_usd","trans_usd","SUM");
-		},
-		"sum_of_percent_of_trans_value":function(){
-			percents("sum_of_percent_of_trans_value","trans_value","SUM");
-		},
-		"percent_of_trans_usd":function(){
-			percents("percent_of_trans_usd","trans_usd","");
-		},
-		"percent_of_trans_value":function(){
-			percents("percent_of_trans_value","trans_value","");
-		},
-		"sum_of_percent_of_budget_usd":function(){
-			percents("sum_of_percent_of_budget_usd","budget_usd","SUM");
-		},
-		"sum_of_percent_of_budget_value":function(){
-			percents("sum_of_percent_of_budget_value","budget_value","SUM");
-		},
-		"percent_of_budget_usd":function(){
-			percents("percent_of_budget_usd","budget_usd","");
-		},
-		"percent_of_budget_value":function(){
-			percents("percent_of_budget_value","budget_value","");
-		},
-		"round0_location_longitude":function(){
-			ss.push(" ROUND(location_longitude,0) AS round0_location_longitude");
-		},
-		"round0_location_latitude":function(){
-			ss.push(" ROUND(location_latitude,0) AS round0_location_latitude");
-		},
-		"round1_location_longitude":function(){
-			ss.push(" ROUND(location_longitude,1) AS round1_location_longitude");
-		},
-		"round1_location_latitude":function(){
-			ss.push(" ROUND(location_latitude,1) AS round1_location_latitude");
-		},
-		"count_aid":function(){
-			ss.push(" COUNT(DISTINCT aid) AS count_aid");
-		},
-*/
 		"count":function(){
 			ss.push(" COUNT(*) AS count");
 		}
@@ -197,10 +157,10 @@ query.getsql_select=function(q,qv){
 				ss.push(" COUNT(DISTINCT "+name+") AS count_"+name);
 			break
 			case "round0":
-				ss.push(" ROUND("+name+",0) AS round0_"+name);
+				ss.push(" ROUND("+name+"::numeric,0) AS round0_"+name);
 			break
 			case "round1":
-				ss.push(" ROUND("+name+",1) AS round1_"+name);
+				ss.push(" ROUND("+name+"::numeric,1) AS round1_"+name);
 			break
 			case "percent_of":
 				percents("percent_of_"+name,name,"");
@@ -259,14 +219,18 @@ query.getsql_select=function(q,qv){
 		for(i=0;i<aa.length;i++)
 		{
 			var f=aa[i];
-			for(n in dstore_back.tables_active[f])
+			for(n in dstore_db.tables_active[f])
 			{
+				var t=dstore_db.tables_active[f][n];
 //				if(!stats_skip[n])
 //				{
-					ss.push(" MAX("+n+") ");
-					ss.push(" MIN("+n+") ");
-					ss.push(" AVG("+n+") ");
-					ss.push(" TOTAL("+n+") ");
+					if((t=="int")||(t=="float")) // only numbers
+					{
+						ss.push(" MAX("+n+") ");
+						ss.push(" MIN("+n+") ");
+						ss.push(" AVG("+n+") ");
+						ss.push(" SUM("+n+") ");
+					}
 					ss.push(" COUNT("+n+") ");
 					ss.push(" COUNT(DISTINCT "+n+") ");
 //				}
@@ -286,7 +250,7 @@ query.getsql_select=function(q,qv){
 			for(i=0;i<aa.length;i++)
 			{
 				var f=aa[i];
-				for(n in dstore_back.tables_active[f])
+				for(n in dstore_db.tables_active[f])
 				{
 //					if(!stats_skip[n])
 //					{
@@ -297,7 +261,7 @@ query.getsql_select=function(q,qv){
 		}
 	}
 	
-	return " SELECT "+ss.join(" , ");
+	return ss.join(" , ");
 };
 
 query.getsql_from=function(q,qv){
@@ -309,7 +273,7 @@ query.getsql_from=function(q,qv){
 // filter by real tables
 	f=f.map(function(it){
 		var r="";
-		for(var name in dstore_back.tables )
+		for(var name in dstore_db.tables )
 		{
 			if(it==name){ r=name; }
 		}
@@ -380,11 +344,11 @@ query.getsql_where=function(q,qv){
 
 							if(sa.length==2 && (/null/i).test(sa[1]) ) // allow an explicit or |null case
 							{
-								ss.push( " ( "+n+" "+eq+" $"+n+qe+" OR "+n+" IS NULL ) " ); qv["$"+n+qe]=query.maybenumber(v,ty);
+								ss.push( " ( "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" OR "+n+" IS NULL ) " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,ty);
 							}
 							else
 							{
-								ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v,ty);
+								ss.push( " "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,ty);
 							}
 						}
 						else
@@ -395,13 +359,13 @@ query.getsql_where=function(q,qv){
 						}
 						else
 						{
-							ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=query.maybenumber(v,ty);
+							ss.push( " "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,ty);
 						}
 					}
 					else
 					if(t=="number")
 					{
-						ss.push( " "+n+" "+eq+" $"+n+qe+" " ); qv["$"+n+qe]=v;
+						ss.push( " "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=v;
 					}
 					
 					if(t=="object") // array, string above may also have been split into array
@@ -409,8 +373,8 @@ query.getsql_where=function(q,qv){
 						var so=[];
 						for(var i=0;i<v.length;i++)
 						{
-							so.push( " $"+n+qe+"_"+i+" " )
-							qv["$"+n+qe+"_"+i]=query.maybenumber(v[i],ty);
+							so.push( " "+dstore_db.text_plate(n+qe+"_"+i)+" " )
+							qv[dstore_db.text_name(n+qe+"_"+i)]=query.maybenumber(v[i],ty);
 						}
 						if(v.length==2 && (/null/i).test(v[1]) ) // allow an explicit or null case for base comparisons
 						{
@@ -474,6 +438,35 @@ query.getsql_group_by=function(q,qv){
 	}
 	
 	if(ss[0]) { return " GROUP BY "+ss.join(" , "); }
+	return "";
+};
+
+query.getsql_distinct_on=function(q,qv){
+	var ss=[];
+
+	var ns=q[0];
+
+	if(q.distincton)
+	{
+		var qq;
+		qq=q.distincton.split(",");
+		for(var i=0;i<qq.length;i++)
+		{
+			var v=qq[i];
+			var n=parseInt(v);
+			if(ns[v]) // valid member names only
+			{
+				ss.push(v);
+			}
+			else
+			if("number" == typeof n) // or number
+			{
+				ss.push(n+"");
+			}
+		}
+	}
+	
+	if(ss[0]) { return " DISTINCT ON ( "+ss.join(" , ")+" ) "; }
 	return "";
 };
 
@@ -557,11 +550,11 @@ query.getsql_limit=function(q,qv){
 query.getsql_build_column_names=function(q,qv){
 
 	var ns={};
-	for(var name in dstore_back.tables )
+	for(var name in dstore_db.tables )
 	{
-		for(var n in dstore_back.tables_active[name])
+		for(var n in dstore_db.tables_active[name])
 		{
-			ns[n]=dstore_back.tables_active[name][n];
+			ns[n]=dstore_db.tables_active[name][n];
 		}
 	}
 
@@ -569,52 +562,7 @@ query.getsql_build_column_names=function(q,qv){
 
 };
 
-query.do_select=function(q,res){
-
-	query.getsql_build_column_names(q);
-
-	var r={rows:[],count:0};
-	var qv={};	
-	r.qvals=qv
-	r.query = 	query.getsql_select(q,qv) + 
-				query.getsql_from(q,qv) + 
-				query.getsql_where(q,qv) + 
-				query.getsql_group_by(q,qv) + 
-				query.getsql_order_by(q,qv) + 
-				query.getsql_limit(q,qv);
-
-	var db = dstore_db.open();
-	db.serialize();
-	
-if(true)
-{
-	db.all( "EXPLAIN QUERY PLAN "+r.query,qv,
-		function(err,rows)
-		{
-			if(rows)
-			{
-				r.sqlite_explain_detail=[];
-				rows.forEach(function(it){
-					r.sqlite_explain_detail.push(it.detail);
-				});
-			}
-		}
-	);
-}
-	
-
-	db.each(r.query,qv, function(err, row)
-	{
-		if(err)
-		{
-			console.log(r.query+"\n"+err);
-		}
-		else
-		{
-			r.rows.push(row);
-			r.count++;
-		}
-	});
+query.do_select_response=function(q,res,r){
 
 	var send_json=function(r)
 	{
@@ -629,128 +577,142 @@ if(true)
 			res.json(r);
 		}
 	};
-	db.run(";", function(err, row){
 
-		res.set('charset','utf8'); // This is always the correct answer.
+	res.set('charset','utf8'); // This is always the correct answer.
 
-		if(q.form=="html")
-		{
-			res.set('Content-Type', 'text/xml');
+	if(q.form=="html")
+	{
+		res.set('Content-Type', 'text/xml');
 
-			var xsl='<?xml-stylesheet type="text/xsl" href="/art/activities.xsl"?>\n';
-			if(q.xsl=="!") { xsl=""; } // disable pretty view
-			
-			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n'+
-						xsl+
-						'<iati-activities xmlns:dstore="http://d-portal.org/dstore" xmlns:iati-extra="http://datastore.iatistandard.org/ns">\n');
-						
-			for(var i=0;i<r.rows.length;i++)
-			{
-				var v=r.rows[i];
-				if(v && v.jml)
-				{
-					res.write(	refry.json(v.jml) );
-					res.write(	"\n" );
-				}
-			}
-
-			res.end(	'</iati-activities>\n');
-    
-   		}
-		else
-		if(q.form=="xml")
-		{
-			res.set('Content-Type', 'text/xml');
-
-			res.write(	'<iati-activities xmlns:iati-extra="http://datastore.iatistandard.org/ns">\n');
-						
-			for(var i=0;i<r.rows.length;i++)
-			{
-				var v=r.rows[i];
-				if(v && v.jml)
-				{
-					var d=JSON.parse(v.jml);
-					delete d["dstore:slug"];	// remove dstore tags
-					delete d["dstore:idx"];
+		var xsl='<?xml-stylesheet type="text/xsl" href="/art/activities.xsl"?>\n';
+		if(q.xsl=="!") { xsl=""; } // disable pretty view
+		
+		res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n'+
+					xsl+
+					'<iati-activities xmlns:dstore="http://d-portal.org/dstore" xmlns:iati-extra="http://datastore.iatistandard.org/ns">\n');
 					
-					res.write(	refry.json(d) );
-					res.write(	"\n" );
-				}
-			}
-
-			res.end(	'</iati-activities>\n');
-    
-   		}
-		else
-		if(q.form=="csv")
+		for(var i=0;i<r.rows.length;i++)
 		{
-			res.set('Content-Type', 'text/csv');
-
-			var head=[];
-			if(r.rows[0])
+			var v=r.rows[i];
+			if(v && v.jml)
 			{
-				for(var n in r.rows[0]) { head.push(n); }
-				head.sort();
-				res.write(	head.join(",")+"\n" );
-				for(var i=0;i<r.rows.length;i++)
-				{
-					var v=r.rows[i];
-					var t=[];
-					head.forEach(function(n){
-						var s=""+v[n];
-						if("string" == typeof s) // may need to escape
+				res.write(	refry.json(v.jml) );
+				res.write(	"\n" );
+			}
+		}
+
+		res.end(	'</iati-activities>\n');
+
+	}
+	else
+	if(q.form=="xml")
+	{
+		res.set('Content-Type', 'text/xml');
+
+		res.write(	'<iati-activities xmlns:iati-extra="http://datastore.iatistandard.org/ns">\n');
+					
+		for(var i=0;i<r.rows.length;i++)
+		{
+			var v=r.rows[i];
+			if(v && v.jml)
+			{
+				var d=JSON.parse(v.jml);
+				delete d["dstore:slug"];	// remove dstore tags
+				delete d["dstore:idx"];
+				
+				res.write(	refry.json(d) );
+				res.write(	"\n" );
+			}
+		}
+
+		res.end(	'</iati-activities>\n');
+
+	}
+	else
+	if(q.form=="csv")
+	{
+		res.set('Content-Type', 'text/csv');
+
+		var head=[];
+		if(r.rows[0])
+		{
+			for(var n in r.rows[0]) { head.push(n); }
+			head.sort();
+			res.write(	head.join(",")+"\n" );
+			for(var i=0;i<r.rows.length;i++)
+			{
+				var v=r.rows[i];
+				var t=[];
+				head.forEach(function(n){
+					var s=""+v[n];
+					if("string" == typeof s) // may need to escape
+					{
+						if(s.split(",")[1] || s.split("\n")[1] ) // need to escape
 						{
-							if(s.split(",")[1] || s.split("\n")[1] ) // need to escape
-							{
-								s="\""+s.split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string
-							}
+							s="\""+s.split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string
 						}
-						t.push( s );
-					});
-					res.write(	t.join(",")+"\n" );
-				}
-				res.end("");
+					}
+					t.push( s );
+				});
+				res.write(	t.join(",")+"\n" );
 			}
-			else
-			{
-				res.end("");
-			}
-		}
-		else
-		if(q.form=="jcsv") // a jsoned csv (much smaller than json for large table data)
-		{
-			if(r.rows[0])
-			{
-				var head=[];
-				var ta=[];
-				for(var n in r.rows[0]) { head.push(n); }
-				head.sort(); // result order will be fixed
-				ta[0]=head;
-				for(var i=0;i<r.rows.length;i++)
-				{
-					var v=r.rows[i];
-					var t=[];
-					ta[i+1]=t;
-					head.forEach(function(n){
-						t.push( v[n] || null );
-					});
-				}
-				send_json(ta);
-			}
-			else
-			{
-				send_json([]); // nothing to see, but still trigger callback
-			}
+			res.end("");
 		}
 		else
 		{
-			r.time=(Date.now()-q.start_time)/1000;
-			send_json(r);
+			res.end("");
 		}
-		dstore_back.close(db);
-	});
+	}
+	else
+	if(q.form=="jcsv") // a jsoned csv (much smaller than json for large table data)
+	{
+		if(r.rows[0])
+		{
+			var head=[];
+			var ta=[];
+			for(var n in r.rows[0]) { head.push(n); }
+			head.sort(); // result order will be fixed
+			ta[0]=head;
+			for(var i=0;i<r.rows.length;i++)
+			{
+				var v=r.rows[i];
+				var t=[];
+				ta[i+1]=t;
+				head.forEach(function(n){
+					t.push( v[n] || null );
+				});
+			}
+			send_json(ta);
+		}
+		else
+		{
+			send_json([]); // nothing to see, but still trigger callback
+		}
+	}
+	else
+	{
+		r.time=(Date.now()-q.start_time)/1000;
+		send_json(r);
+	}
+}
 
+query.do_select=function(q,res){
 
+	query.getsql_build_column_names(q);
+
+	var r={rows:[],count:0};
+	var qv={};	
+	r.qvals=qv
+	r.query =	" SELECT "+
+				query.getsql_distinct_on(q,qv) + 
+				query.getsql_select(q,qv) + 
+				query.getsql_from(q,qv) + 
+				query.getsql_where(q,qv) + 
+				query.getsql_group_by(q,qv) + 
+				query.getsql_order_by(q,qv) + 
+				query.getsql_limit(q,qv);
+
+	return dstore_db.query_select(q,res,r);
 };
 
 // handle the /q url space

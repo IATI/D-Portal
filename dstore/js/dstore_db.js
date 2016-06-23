@@ -603,5 +603,11 @@ dstore_db.delete_from = function(db,tablename,opts){
 dstore_db.cache_prepare = function(){
 	return dstore_back.cache_prepare(dstore_db.tables);
 }
+
+// the database part of the query code
+dstore_db.query_select=function(q,res,r){
+	return dstore_back.query_select(q,res,r);
+}
+
 dstore_db.cache_prepare();
 
