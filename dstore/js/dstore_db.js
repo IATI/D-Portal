@@ -419,6 +419,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var pc=percents[i];
 				var group;
 				if(sc){ group=codes.sector_group[sc.slice(0,3)]; }
+				sc=Number(sc) || 0;
 				dstore_back.replace(db,"sector",{"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc});
 			}
 		}
