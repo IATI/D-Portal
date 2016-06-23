@@ -240,6 +240,122 @@
 
 #donor_graph
 <div class="default">
+<a href="#view=donors" class="graph_wrap">
+	<span class="ask donor">
+		<span class="ask_title">{title_donor_year_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak donor"></span>
+		</span>
+	</span>
+<div id="donor_graph"></div>
+<span class="graph_view_all">{link_donor_text}</span>
+</a>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_donors");
+	var opts={
+		layout:"right",
+		width:958,
+		height:300,
+		center_x:250,
+		center_y:140,
+		radius:135,
+		hole:40,
+		caption_css:undefined,
+		color:["#74BAFF","#42A0FB","#0081FF","#49739C","#5B6572"],
+		caption_edge:100,
+		caption_fix:[0,-10],
+		stroke_width:1,
+		line_width:3,
+		tints:{
+			fill:[1,1,1,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
+		},
+	}
+	ctrack.draw_chart("#donor_graph",data,opts);
+</script>
+<style>
+ #donor_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #donor_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
+</div>
+
+
+#sector_graph
+<div class="default graph">
+<a href="#view=sectors" class="graph_wrap">
+	<span class="ask sector">
+		<span class="ask_title">{title_sector_year_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak sector"></span>
+		</span>
+	</span>
+<div id="sector_graph"></div>
+<span class="graph_view_all">{link_sector_text}</span>
+</a>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_sectors");
+	var opts={
+		layout:"left",
+		clockwise:-1,
+		width:958,
+		height:300,
+		center_x:750,
+		center_y:140,
+		radius:135,
+		hole:40,
+		caption_css:undefined,
+		color:["#79F5C3","#0EFF9E","#00C475","#318F69","#476B5C"],
+		caption_edge:100,
+		caption_fix:[0,-10],
+		stroke_width:1,
+		line_width:3,
+		tints:{
+			fill:[1,1,1,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
+		},
+	}
+	ctrack.draw_chart("#sector_graph",data,opts);
+</script>
+<style>
+ #sector_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #sector_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
+</div>
+
+
+
+#donor_graph_old
+<div class="default">
 <a onmouseover="$('.peak.donor').css({'border-top':'20px solid #33A4FC', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#33A4FC', 'transition-property':'none'});" onmouseout="$('.peak.donor').css({'border-top':'20px solid #008fff', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#008fff', 'transition-property':'none'});" href="#view=donors" class="ask donor">
 	<span class="ask_title">{title_donor_year_text}</span>
 	<span class="main_peak_wrap">
@@ -292,7 +408,7 @@
 </style>
 </div>
 
-#sector_graph
+#sector_graph_old
 <div class="default graph">
 <a onmouseover="$('.peak.sector').css({'border-top':'20px solid #14EE96', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#14EE96', 'transition-property':'none'});" onmouseout="$('.peak.sector').css({'border-top':'20px solid #00C475', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#00C475', 'transition-property':'none'});" href="#view=sectors" class="ask sector">
 	<span class="ask_title">{title_sector_year_text}</span>
@@ -347,16 +463,20 @@
 </style>
 </div>
 
+
+
 #publisher_countries_graph
 <div class="default">
-<a onmouseover="$('.peak.donor').css({'border-top':'20px solid #33A4FC', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#33A4FC', 'transition-property':'none'});" onmouseout="$('.peak.donor').css({'border-top':'20px solid #008fff', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#008fff', 'transition-property':'none'});" href="#view=publisher_countries" class="ask donor">
-	<span class="ask_title">{title_publisher_countries_text}</span>
-	<span class="main_peak_wrap">
-		<span class="peak donor"></span>
+<a href="#view=publisher_countries" class="graph_wrap">
+	<span class="ask donor">
+		<span class="ask_title">{title_publisher_countries_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak donor"></span>
+		</span>
 	</span>
-</a>
 <div id="publisher_countries_graph"></div>
-<a href="#view=publisher_countries" class="view_all_money">{link_donor_text}</a>
+<span class="graph_view_all">{link_donor_text}</span>
+</a>
 
 <script>
 	var ctrack=require("ctrack");
@@ -403,14 +523,16 @@
 
 #publisher_sectors_graph
 <div class="default graph">
-<a onmouseover="$('.peak.sector').css({'border-top':'20px solid #14EE96', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#14EE96', 'transition-property':'none'});" onmouseout="$('.peak.sector').css({'border-top':'20px solid #00C475', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#00C475', 'transition-property':'none'});" href="#view=publisher_sectors" class="ask sector">
-	<span class="ask_title">{title_publisher_sectors_text}</span>
-	<span class="main_peak_wrap">
-		<span class="peak sector"></span>
+<a href="#view=publisher_sectors" class="graph_wrap">
+	<span class="ask sector">
+		<span class="ask_title">{title_publisher_sectors_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak sector"></span>
+		</span>
 	</span>
-</a>
 <div id="publisher_sectors_graph"></div>
-<a href="#view=publisher_sectors" class="view_all_money">{link_sector_text}</a>
+<span class="graph_view_all">{link_sector_text}</span>
+</a>
 
 <script>
 	var ctrack=require("ctrack");

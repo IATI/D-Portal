@@ -109,7 +109,10 @@ a.back_news:hover	{color:#000;}
 	============================================= */
 #donor_graph, #sector_graph, #publisher_countries_graph,
 #publisher_sectors_graph{background-color:#FFF; font-size:1.0em; line-height:1.3em; color:#000; border:1px solid #000; border-top:0;}
-a.ask					{background-color:#000; display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:1.8em; text-align:center;}
+a.graph_wrap			{display:block; position:relative; width:960px; height:410px;}
+span.graph_view_all			{display:block; background-color:rgba(0,0,0,0); position:absolute; left:0; top:0; width:960px; height:410px; color:rgba(255,255,255,0); font-size:60px; line-height:390px; text-align:center;}
+span.graph_view_all:hover	{background-color:rgba(0,0,0,1); color:rgba(255,255,255,1);}
+span.ask				{background-color:#000; display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:1.8em; text-align:center;}
 .main_peak_wrap			{width:958px; background-color:#FFF; border:1px solid #000; border-top:0; border-bottom:0; display:block;}
 .peak					{margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; border-top:20px solid #000; display:block;}	/* Triangles */
 a.view_all_money		{display:block; width:958px; background-color:#FFF; color:#000; border-radius:0 0 8px 8px; text-align:center; margin:0 auto; padding:15px 0; font-size:1.1em; border:1px solid #000; border-top:0;}
