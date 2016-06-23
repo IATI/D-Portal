@@ -82,7 +82,7 @@ a.about_data.quality	{border-left:1px solid #000; text-align:right; padding-righ
 .default.head			{padding-top:20px;}
 .default.min			{padding-top:10px;}
 .default.declare		{padding:10px 0; font-size:0.9em; color:#000;}
-.default.graph			{padding:40px 0;}
+.default.graph			{margin-bottom:100px; margin-top:40px;}
 .default.about			{padding:10px 0; text-align:right;}
 .default.data			{padding:20px 0 40px 0;}
 
@@ -109,9 +109,11 @@ a.back_news:hover	{color:#000;}
 	============================================= */
 #donor_graph, #sector_graph, #publisher_countries_graph,
 #publisher_sectors_graph{background-color:#FFF; font-size:1.0em; line-height:1.3em; color:#000; border:1px solid #000; border-top:0;}
-a.graph_wrap			{display:block; position:relative; width:960px; height:410px;}
-span.graph_view_all			{display:block; background-color:rgba(0,0,0,0); position:absolute; left:0; top:0; width:960px; height:410px; color:rgba(255,255,255,0); font-size:60px; line-height:390px; text-align:center;}
+a.graph_wrap			{display:block; position:relative; width:960px;}
+span.graph_view_all			{display:block; background-color:rgba(0,0,0,0); position:absolute; left:0; top:0; width:960px; height:390px; color:rgba(255,255,255,0); font-size:60px; line-height:390px; text-align:center;}
 span.graph_view_all:hover	{background-color:rgba(0,0,0,1); color:rgba(255,255,255,1);}
+span.graph_view_all.pub_donor		{height:410px; line-height:410px;}
+span.graph_view_all.pub_sector		{height:460px; line-height:460px;}
 span.ask				{background-color:#000; display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:1.8em; text-align:center;}
 .main_peak_wrap			{width:958px; background-color:#FFF; border:1px solid #000; border-top:0; border-bottom:0; display:block;}
 .peak					{margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; border-top:20px solid #000; display:block;}	/* Triangles */
