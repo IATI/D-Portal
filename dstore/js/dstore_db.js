@@ -24,6 +24,17 @@ var dstore_back=require('./dstore_back');
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+var tonumber=function(v)
+{
+	var n=Number(v);
+	if(("number" == typeof n)&&(n==n)) // number and not nan
+	{
+		return n;
+	}
+	return undefined;
+}
+
+
 // values copied from the main activity into sub tables for quik lookup (no need to join tables)
 dstore_db.bubble_act={
 		"aid":true
@@ -419,7 +430,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var pc=percents[i];
 				var group;
 				if(sc){ group=codes.sector_group[sc.slice(0,3)]; }
-				sc=Number(sc) || 0;
+				sc=tonumber(sc) || 0;
 				dstore_back.replace(db,"sector",{"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc});
 			}
 		}
@@ -443,9 +454,9 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var co=refry.tag(it,"coordinates");
 				if(co)
 				{
-					longitude=Number(co.longitude);
-					latitude=Number(co.latitude);
-					precision=Number(co.precision);
+					longitude=tonumber(co.longitude);
+					latitude=tonumber(co.latitude);
+					precision=tonumber(co.precision);
 				}
 				var point=refry.tag(it,"point");
 				var exact=refry.tag(it,"exactness");
@@ -457,8 +468,8 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 						var aa=pos.match(/\S+/g);
 						if(aa)
 						{
-							latitude=Number(aa[0]);
-							longitude=Number(aa[1]);
+							latitude=tonumber(aa[0]);
+							longitude=tonumber(aa[1]);
 							if( exact && exact.code )
 							{
 								precision=exact.code;
