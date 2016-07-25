@@ -443,9 +443,9 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var co=refry.tag(it,"coordinates");
 				if(co)
 				{
-					longitude=co.longitude;
-					latitude=co.latitude;
-					precision=co.precision;
+					longitude=Number(co.longitude);
+					latitude=Number(co.latitude);
+					precision=Number(co.precision);
 				}
 				var point=refry.tag(it,"point");
 				var exact=refry.tag(it,"exactness");
@@ -457,8 +457,8 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 						var aa=pos.match(/\S+/g);
 						if(aa)
 						{
-							latitude=parseFloat(aa[0]);
-							longitude=parseFloat(aa[1]);
+							latitude=Number(aa[0]);
+							longitude=Number(aa[1]);
 							if( exact && exact.code )
 							{
 								precision=exact.code;
