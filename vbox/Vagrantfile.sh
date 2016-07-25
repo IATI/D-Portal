@@ -3,23 +3,14 @@ sudo apt-get update
 
 echo " install build system "
 
-sudo apt-get install -y gcc-5 g++-5
-sudo apt-get install -y build-essential
-
-
-
-echo " install postgres "
-
-sudo apt-get install -y postgresql postgresql-contrib
-
-sudo pg_dropcluster --stop 9.5 main
-sudo pg_createcluster --locale en_US.UTF-8 --start 9.5 main
+sudo apt-get install -y gcc-5 g++-5 build-essential
 
 
 echo " install and enable byobu "
 
 sudo apt-get install -y byobu
 sudo -u vagrant -H bash -c "byobu-enable"
+
 
 
 echo " hard install node npm nvm"
@@ -42,6 +33,14 @@ export NVM_DIR=\"/usr/local/nvm\"
 [ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"
 npm \$@" > /usr/local/bin/npm
 chmod +x /usr/local/bin/npm
+
+
+echo " install postgres "
+
+sudo apt-get install -y postgresql-9.5 postgresql-contrib-9.5 
+
+sudo pg_dropcluster --stop 9.5 main
+sudo pg_createcluster --locale en_US.UTF-8 --start 9.5 main
 
 
 echo " attempting to setup postgres "
