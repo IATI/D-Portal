@@ -4,82 +4,11 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
-
-#
-# The provision shell script to setup the box
-#
-$script = <<ENDOFSCRIPT
-
-sudo apt-get update
-
-echo " install build system "
-
-#sudo apt-get install -y software-properties-common python-software-properties
-#sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-#sudo apt-get update
-
-sudo apt-get install -y gcc-5 g++-5
-sudo apt-get install -y build-essential
-
-
-
-echo " install postgres "
-
-sudo apt-get install -y postgresql postgresql-contrib
-
-sudo pg_dropcluster --stop 9.5 main
-sudo pg_createcluster --locale en_US.UTF-8 --start 9.5 main
-
-
-echo " install and enable byobu "
-
-sudo apt-get install -y byobu
-sudo -u vagrant -H bash -c "byobu-enable"
-
-
-echo " install node npm nvm "
-
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
-. ~/.nvm/nvm.sh
-nvm install 6
-nvm use 6
-
-n=$(which node)
-n=${n%/bin/node}
-chmod -R 755 $n/bin/*
-sudo cp -r $n/{bin,lib,share} /usr/local
-
-
-echo " attempting to setup postgres "
-
-pgmain=/etc/postgresql/9.5/main
-
-echo '#HAXTBH' >> $pgmain/postgresql.conf
-echo 'max_wal_senders=1' >> $pgmain/postgresql.conf
-echo 'wal_level=hot_standby' >> $pgmain/postgresql.conf
-
-echo '#HAXTBH' >> $pgmain/pg_hba.conf
-echo 'local replication all peer' >> $pgmain/pg_hba.conf
-/etc/init.d/postgresql restart
-
-#notice the double \\ here because racecar
-sudo -u postgres bash -c "psql -c \\"CREATE USER vagrant WITH SUPERUSER PASSWORD 'vagrant';\\""
-
-sudo -u postgres createdb dstore
-sudo -u postgres bash -c "psql -c \\"CREATE EXTENSION IF NOT EXISTS citext;\\" dstore "
-sudo -u postgres psql -l
-
-
-ENDOFSCRIPT
-
-
-
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "geerlingguy/ubuntu1604"
   config.vm.network :private_network, ip: "10.42.52.94"
   config.vm.synced_folder "..", "/host"
-  config.vm.provision "shell", inline: $script
+  config.vm.provision "shell", path: "Vagrantfile.sh"
 
 config.vm.provider "virtualbox" do |v|
   v.memory = 1024
