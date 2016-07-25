@@ -34,7 +34,7 @@ var err=function (error) {
 var monitor = require("pg-monitor");
 var pgopts={
 };
-monitor.attach(pgopts);
+//monitor.attach(pgopts);
 var pgp = require("pg-promise")(pgopts);
 
 
