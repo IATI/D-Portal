@@ -335,7 +335,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		t.description=refry.tagval_narrative(act,"description");				
 		t.reporting=refry.tagval(act,"reporting-org");				
 		t.reporting_ref=refry.tagattr(act,"reporting-org","ref");
-		t.status_code=refry.tagattr(act,"activity-status","code");
+		t.status_code=tonumber(refry.tagattr(act,"activity-status","code"));
 
 		t.flags=0;
 		if( codes.publisher_secondary[t.reporting_ref] ) { t.flags=1; } // flag as secondary publisher (probably best to ignore)
@@ -430,7 +430,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var pc=percents[i];
 				var group;
 				if(sc){ group=codes.sector_group[sc.slice(0,3)]; }
-				sc=tonumber(sc) || 0;
+				sc=tonumber(sc);
 				dstore_back.replace(db,"sector",{"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc});
 			}
 		}
@@ -472,7 +472,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 							longitude=tonumber(aa[1]);
 							if( exact && exact.code )
 							{
-								precision=exact.code;
+								precision=tonumber(exact.code);
 							}
 						}
 					}
