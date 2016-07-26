@@ -70,7 +70,7 @@ view_dash.ajax2=function(args)
 			"country_code":(args.country),
 			"select":"count,reporting_ref,reporting",
 			"from":"act",//,country",
-			"groupby":"reporting_ref",
+			"groupby":"reporting_ref,reporting",
 			"orderby":"1-",
 			"limit":-1
 		};
