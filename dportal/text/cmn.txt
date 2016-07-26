@@ -188,10 +188,10 @@ d-portal.org帮助您通过提供国家或通过发布到IATI开发活动和预�
 当前平台提出了两个问题：哪里的资源从哪里来，到哪去了（按部门和地点）？近期，当前和未来的数据呈现和跨数据源进行比较。
 
 #about_paragraph5_text
-为了从一个国家的角度回答这些问题，这是不够的仅仅是为了显示可用的数据：绘制空白的信息也同样重要。质量差或丢失的数据是应对信息界面的重要组成部分。
+为了从一个国家的角度回答这些问题，这是不够的仅仅是为了显示可用的数据：
 
 #about_paragraph6_text
-是一个开源的平台。
+是一个开源的平台。这意味着您可以使用该平台的所有方面建立使用免费的源代码，自己的门户。
 
 #about_paragraph7_text
 虽然它目前提供了一个通用的部署对于任何国家，它已经开发出了被定制在国内，以满足当地需求的具体意图。有关如何可以针对某一特定国家创建一个自定义版本的更多信息，请参阅<a href="#install" class="how">如何安装</a>。
@@ -204,6 +204,21 @@ d-portal.org从2013年12月跑到全球伙伴关系会议在墨西哥2014年4月
 
 #about_paragraph10_text
 DI被开发和准备的现阶段资金至2014年八月底如果您有兴趣的d门户网站的持续发展的资金部分，请联系的<a href="mailto:support@iatistandard.org" target="_blank" class="co">support@iatistandard.org</a>
+
+#about_paragraph11_text
+开源的概念依赖于其他人会加入，共同搭建更好的平台，希望能实现资源共享。这包括寻找和报告错误，贡献新的功能，你想要的平台，让他们甚至创造新的主题，以便其他人可以使用它。
+
+#about_paragraph12_text
+基于d-portal其他站点将在下面列出。 <a href="mailto:support@iatistandard.org" target="_blank" class="co">在我们向support@iatistandard.org你补充。</a>
+
+#about_paragraph13_text
+<a href="http://open.undg.org/" target="_blank"> <img src="{root}art/UNDG_logo.png" alt="发展集团透明度门户网站标识" width="406" height="100" /></a>
+
+#about_paragraph14_text
+<span class="questions"> 1。哪里的资源来自哪里？</span> <span class="questions"> 2。他们在哪里去（按部门和位置)？</span>
+
+#about_paragraph15_text
+最近，当前和未来的数据呈现和跨数据源相比较。
 
 #savi_paragraph1_text
 SAVI是一个单一的活动观众对XML IATI ，你可以实时查看，在线，在你喜欢的浏览器。
@@ -299,7 +314,7 @@ CSV文件的回报（默认名称为q.csv）
 的d-portal由所述dstore后端和ctrack接口。要安装d-portal,您需要设置一台服务器。
 
 #install_paragraph4_text 
-访问<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md" class="country_portal">Github</a>上的说明来安装d-portal服务器。
+<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md">开始阅读指示安装d-portal服务器</a>
 
 #install_title2_text 
 如何创建一个d-portal部件 
@@ -317,10 +332,10 @@ CSV文件的回报（默认名称为q.csv）
 叉我们
 
 #github_info2_text
-d-portal.org目前正在开发和设计这样的事情是不断变化的。向我们发送您的建议，bug报告和议题或接触<a href="mailto:support@iatistandard.org" target="_blank" class="git small"> support@iatistandard.org</a>
+d-portal.org目前正在开发和设计这样的事情是不断变化的。向我们发送您的建议，bug报告和议题或接触<a href="mailto:support@iatistandard.org" target="_blank"> support@iatistandard.org</a>
 
 #github_info3_text
-如果你想保持最新与d-portal消息，请订阅<a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list" class="git small">谷歌论坛</a>。
+如果你想保持最新与d-portal消息，请订阅<a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">谷歌论坛</a>。
 
 #footer_pick_text 
 选择其他国家 
@@ -409,17 +424,17 @@ d-portal是不仅包含国家和出版商基于门户网站也有像赛维，发
 #faq_paragraph3_text
 FAQ可以在<a href="http://www.d-portal.org/faq.html"> http://www.d-portal.org/faq.html</a>被发现。
 
-#search_title_text
-Search<i>（阿尔法）</i>
+#discover_title_text
+Discover<i>（阿尔法）</i>
 
-#search_paragraph1_text
-Search是一种新功能，目前正在开发状态。通过dstore支持和Q，它将为用户提供通过庞大的数据库IATI筛选一个简单的搜索界面。
+#discover_paragraph1_text
+Discover是一种新功能，目前正在开发状态。通过dstore支持和Q，它将为用户提供通过庞大的数据库IATI筛选一个简单的搜索界面。
 
-#search_paragraph2_text
+#discover_paragraph2_text
 目前，我们正在寻找关于<搜索>的直观性和可用性反馈。确实有一展身手，并通过<a href="https://github.com/devinit/D-Portal/issues"> Github上论坛</a>添加一个新的问题向我们发送反馈，或者，如果你愿意，通过<a href="mailto:support@iatistandard.org"> support@iatistandard.org</a>取得联系。我们很想听听你的想法！
 
-#search_paragraph3_text
-尝试Search在<a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+#discover_paragraph3_text
+尝试Discover在<a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
 
 #publisher_title_text
 探索发行
