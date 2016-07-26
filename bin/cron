@@ -27,7 +27,7 @@ killall node
 date
 
 
-# clear data to force a *full* import on sunday morning
+# clear data to force a *full* import on a sunday morning
 if [ "$(date +'%u')" == "7" ] ; then
 	echo FULL >/var/tmp/dportal.update
 fi
