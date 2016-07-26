@@ -1,9 +1,9 @@
 cd `dirname $0`
 
 
-echo " we really need gcc 5 to install node-expat so will make sure it is installed now "
-echo " if this fails you may need to sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test to make it available "
-sudo apt-get install -y gcc-5 g++-5
+echo " we really need gcc 5 to install node-expat so will make sure it is installed "
+echo " you may need to sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test to make it available "
+#sudo apt-get install -y gcc-5 g++-5
 
 
 bin/npm_install
