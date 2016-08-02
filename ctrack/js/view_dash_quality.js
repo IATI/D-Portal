@@ -75,7 +75,7 @@ view_dash_quality.ajax1=function(args)
 		if(data.rows.length==1)
 		{
 			var v=data.rows[0];
-			var count=v["COUNT(DISTINCT aid)"];
+			var count=v["distinct_aid"];
 			ctrack.chunk("dash_quality_act_count_num",Math.floor(count));
 			ctrack.chunk("dash_quality_act_count",commafy(Math.floor(count)));
 		}

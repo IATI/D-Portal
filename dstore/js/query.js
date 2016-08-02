@@ -214,7 +214,7 @@ query.getsql_select=function(q,qv){
 	else
 	if(q.select=="stats")
 	{
-		ss.push(" COUNT(*) ");
+		ss.push(" COUNT(*) AS count");
 		var aa=q.from.split(",");
 		for(i=0;i<aa.length;i++)
 		{
@@ -226,13 +226,13 @@ query.getsql_select=function(q,qv){
 //				{
 					if((t=="int")||(t=="float")) // only numbers
 					{
-						ss.push(" MAX("+n+") ");
-						ss.push(" MIN("+n+") ");
-						ss.push(" AVG("+n+") ");
-						ss.push(" SUM("+n+") ");
+						ss.push(" MAX("+n+") AS max_"+n+" ");
+						ss.push(" MIN("+n+") AS min_"+n+" ");
+						ss.push(" AVG("+n+") AS avg_"+n+" ");
+						ss.push(" SUM("+n+") AS sum_"+n+" ");
 					}
-					ss.push(" COUNT("+n+") ");
-					ss.push(" COUNT(DISTINCT "+n+") ");
+					ss.push(" COUNT("+n+") AS count_"+n+" ");
+					ss.push(" COUNT(DISTINCT "+n+") AS distinct_"+n+" ");
 //				}
 			}
 		}
