@@ -110,10 +110,52 @@ d-portal.org还处于非常早期的开发，定于四月中旬Alpha版本。感
 关于d-portal.org
 
 #footer4_text
-返回D -portal.org
+返回d-portal.org
 
 #footer5_text
 许可：麻省理工学院许可证(MIT)于2014年
+
+#footer6_text
+d-portal.org
+
+#footer7_text
+可以帮助你探索IATI数据。
+
+#footer8_text
+它提供了按国家或通过发布到IATI开发活动和预算出版商信息。
+
+#footer9_text
+我们目前正处于测试阶段。而d-portal是公开的，它不被视为成品。您可能会遇到错误和缺失的功能，但是这就是为什么我们需要您的反馈和支持。
+
+#footer10_text
+发送电子邮件至
+
+#footer11_text
+support@iatistandard.org
+
+#footer12_text
+工具更新
+
+#footer13_text
+最新消息职位
+
+#footer14_text
+Dash - 发布的统计数据
+
+#footer15_text
+Generator - 小工具为您的网站
+
+#footer16_text
+信息
+
+#footer17_text
+常问问题
+
+#footer18_text
+署名和来源
+
+#footer19_text
+Github的反馈论坛
 
 #feedback_title_text
 d-portal.org反馈
@@ -134,7 +176,7 @@ d-portal.org反馈
 这是什么？
 
 #about_paragraph1_text
-d-portal.org是跟踪资源流动的国家为基础的信息平台。
+d-portal.org帮助您通过提供国家或通过发布到IATI开发活动和预算出版商信息探索IATI数据。
 
 #about_paragraph2_text
 它的目的是提供部委，国会议员和民间社会提供信息，可以帮助规划和监督发展活动。
@@ -178,8 +220,23 @@ Q允许您通过简单而复杂的过滤器查询您需要的信息。
 #q_example_title_text
 下面是一些查询示例：
 
+#q_example_append1_text
+追加查询您的首选格式
+
+#q_example_append2_text
+为 SAVI。
+
+#q_example_xml_text
+返回纯 XML
+
+#q_example_json_text
+返回 JSON
+
+#q_example_savi_text
+返回XML被自动设置为 HTML（SAVI）。来源仍然是纯XML
+
 #q_example1_text
-自动返回的XML所有这一切都被格式化成HTML ， XML源依然纯净
+返回XML被自动设置为 HTML（SAVI）。来源仍然是纯XML
 
 #q_example1_info1_text
 这个查询会显示活动的限制量10
@@ -191,7 +248,7 @@ Q允许您通过简单而复杂的过滤器查询您需要的信息。
 并从1950年起，
 
 #q_example2_text
-自动返回的XML所有这一切都被格式化成HTML ， XML源依然纯净
+返回纯 XML
 
 #q_example2_info1_text
 这个查询会显示所有活动在孟加拉国（国家代码为BD ）
@@ -230,10 +287,10 @@ CSV文件的回报（默认名称为q.csv）
 按日期排序
 
 #install_title_text 
-如何安装d-portal <i>(即将推出)</i>
+如何安装d-portal
 
 #install_paragraph1_text 
-在d-portal项目的心脏是公司的宗旨，任何人在任何地方可以采取后面的d门户开放的源代码，部署它自己并创建一个自定义的D-门户他们感兴趣的任何国家。这可能包括从增加援助信息管理系统，国家预算和一系列类似的社会经济指标的任何其他数据。 
+在d-portal项目的心脏是公司的宗旨，任何人在任何地方可以采取后面的d门户开放的源代码，部署它自己并创建一个自定义的d-portal他们感兴趣的任何国家。这可能包括从增加援助信息管理系统，国家预算和一系列类似的社会经济指标的任何其他数据。 
 
 #install_paragraph2_text 
 目前已经有专门的国家特有的d-portals如下的例子： 
@@ -263,7 +320,7 @@ CSV文件的回报（默认名称为q.csv）
 d-portal.org目前正在开发和设计这样的事情是不断变化的。向我们发送您的建议，bug报告和议题或接触<a href="mailto:support@iatistandard.org" target="_blank" class="git small"> support@iatistandard.org</a>
 
 #github_info3_text
-如果你想保持最新与d-portal消息，请订阅<a href="https://groups.google.com/forum/?hl=en-GB#!members/d-portal-list" class="git small">谷歌论坛</a>。
+如果你想保持最新与d-portal消息，请订阅<a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list" class="git small">谷歌论坛</a>。
 
 #footer_pick_text 
 选择其他国家 
@@ -299,7 +356,7 @@ d-portal.org目前正在开发和设计这样的事情是不断变化的。向�
 评论由
 
 #dash_title_text 
-Dash：出版者统计D-portal.org 
+Dash - 出版者统计D-portal.org 
 
 #dash_paragraph1_text 
 破折号是填充的d-portal.org，重点主要放在出版者统计和它们所报道的数据的质量的数据的概要。 
@@ -311,7 +368,58 @@ Dash：出版者统计D-portal.org
 Dash是不是特定国家的，因此您将能看到所有的在所有国家提供的发行统计数据包含在门户。这是为了容纳一个事实，即有多个发布，在多个受援国报告活动。 
 
 #dash_paragraph4_text 
-Dash是目前在访问<a href="http://d-portal.org/ctrack.html?#view=dash" class="dash_link">http://d-portal.org/ctrack.html?#view=dash</a>Dash是一项新功能，并仍处于开发阶段。
+Dash是目前在访问<a href="http://d-portal.org/ctrack.html?#view=dash" class="dash_link">http://d-portal.org/ctrack.html?#view=dash</a>。 Dash是一项新功能，并仍处于开发阶段。
+
+#gen_title_text
+Generator - 小工具为您的网站
+
+#gen_paragraph1_text
+有一个巨大的内IATI有趣的信息，并能够分享自由地在其他网站和博客一口大小的块就显著的价值数额。在d-portal发生器允许用户选择从d-portal网站的具体信息，并直接嵌入到自己的网站代码。
+
+#gen_paragraph2_text
+一旦你嵌入任何内容，出版商的数据在IATI注册表中更新它会自动更新（过夜）。当用户对内容点击它们将被引导到的相关页面上d-portal网站，使他们能够进一步调查。
+
+#gen_paragraph3_text
+发电机是目前 <a href="http://www.d-portal.org/ctrack.html?#view=generator">http://www.d-portal.org/ctrack.html?#view=generator</a>.
+
+#news_title_text
+新闻和更新
+
+#news_paragraph1_text
+这个页面将包含在发展过程中对d-portal网站的更新信息和当前功能。
+
+#news_paragraph2_text
+如果您想通过邮寄名单上的d-portal新闻跟上最新的，我们推荐的 <a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">加盟谷歌组</a>。此选项允许d-portal网站公告的直接交付到你的电子邮件收件箱。
+
+#news_paragraph3_text
+更新是罕见的。
+
+#news_paragraph4_text
+在开始 <a href="http://www.d-portal.org/news.html"> http://www.d-portal.org/news.html </a>阅读新闻。
+
+#faq_title_text
+经常问的问题
+
+#faq_paragraph1_text
+d-portal是不仅包含国家和出版商基于门户网站也有像赛维，发电机，短跑很快，搜索工具一个广阔的网站 - 由dstore和Q有了这个支持简单的搜索界面来约问题越来越数据库网站的不同部分的结构和功能。
+
+#faq_paragraph2_text
+现在，我们打破这些下降到3种不同类型的问题 - 通用，技术和有关发电机的问题。今后，我们将增加更多的选项卡列表中，以弥补即将到来的功能。
+
+#faq_paragraph3_text
+FAQ可以在<a href="http://www.d-portal.org/faq.html"> http://www.d-portal.org/faq.html</a>被发现。
+
+#search_title_text
+Search<i>（阿尔法）</i>
+
+#search_paragraph1_text
+Search是一种新功能，目前正在开发状态。通过dstore支持和Q，它将为用户提供通过庞大的数据库IATI筛选一个简单的搜索界面。
+
+#search_paragraph2_text
+目前，我们正在寻找关于<搜索>的直观性和可用性反馈。确实有一展身手，并通过<a href="https://github.com/devinit/D-Portal/issues"> Github上论坛</a>添加一个新的问题向我们发送反馈，或者，如果你愿意，通过<a href="mailto:support@iatistandard.org"> support@iatistandard.org</a>取得联系。我们很想听听你的想法！
+
+#search_paragraph3_text
+尝试Search在<a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
 
 #publisher_title_text
 探索发行

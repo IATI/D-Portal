@@ -16,52 +16,12 @@
 	<div class="main_wrap">
 		<div id="background_image"></div>
 		<div class="overlay">
-			{beige}
 			<div class="default index">
-				<img src="{root}art/dp_logo.index.png" width="600" height="250" alt="D-Portal logo"/>
+				<div class="logo_wrap"><span class="badge beta">BETA</span></div>
 				<div class="tongue_wrap">{tongue_select}</div>
-				<div class="tag">{tagline_text}</div>
-				<div class="default pad40">
-					<div class="third">
-						<a href="/ctrack.html#view=generator" class="path">
-							<span class="path_title install">{install_button_text}</span>
-							<span class="path_txt">{install_info_text}</span>
-						</a>
-					</div><div class="third">
-						<a href="#explore" class="path">
-							<span class="path_title explore">{explore_button_text}</span>
-							<span class="path_txt">{explore_info_text}</span>
-						</a>
-					</div><div class="third">
-						<a href="https://github.com/devinit/D-Portal/issues" target="_blank" class="path">
-							<span class="path_title develop">{develop_button_text}</span>
-							<span class="path_txt">{develop_info_text}</span>
-						</a>
-					</div>
-				</div>
-				<div class="description_wrap">
-					<div class="description">
-						<span class="title">{index_title_text}</span>
-						<p><span class="bold">d-portal.org</span> {index_paragraph1_text}</p>
-						<p>{index_paragraph2_text}</p>
-					</div><div class="description">
-						<span class="title">{links_title_text}</span>
-						<a href="{tongue_root}news/posts.html" class="read">&gt; {news_page_text}</a>
-						<a href="{tongue_root}about.html" class="read">&gt; {read_more_text}</a>
-						<span class="title">{explore_title_text}</span>
-						<p><b>{explore_paragraph1_text}</b></p><p>{explore_paragraph2_text}</p>
-					</div>
-				</div>
+				{intro_generator}
 				<span id="explore"></span>
 				<div class="country_menu_wrap">
-					<div class="compare_wrap">
-						<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publisher_countries">
-							<span class="select_wrap full">{all_countries_text}</span>
-						</a></div><div class="compare_wrap r">
-						<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publishers">
-							<span class="select_wrap full">{all_publishers_text}</span>
-						</a>
-					</div>
 					<div id="country_dropmenu"></div><div id="publisher_dropmenu"></div>
 					<div class="country_menu_list_wrap">
 						<div class="menu_list_wrap left">
@@ -71,6 +31,7 @@
 						</div>
 					</div>
 				</div>
+				{compare_buttons}
 				<div class="description_wrap">
 					<div class="description full">
 						<span class="title">{index_title2_text}</span>
@@ -85,18 +46,73 @@
 	</div>
 	<div class="footer_wrap">
 	<div class="footer">
-		<div class="footer_link"><a href="mailto:support@iatistandard.org" title="{footer1_tip_text}">
-			{footer1_text}</a>
-		</div><div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
-			{footer2_text}</a>
-		</div><div class="footer_link about"><a href="{tongue_root}about.html">
-			{footer3_text}</a>
-		</div>
+		{large_footer}
 	</div>
 	</div>
 </div>
 </body>
 </html>
+
+
+#compare_buttons
+<div class="compare_wrap">
+	<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publisher_countries">
+		<span class="select_wrap full">{all_countries_text}</span>
+	</a></div><div class="compare_wrap pub">
+	<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publishers">
+		<span class="select_wrap full">{all_publishers_text}</span>
+	</a>
+</div>
+
+
+#intro_generator
+<a href="/ctrack.html#view=generator" class="description_wrap bigbutton">
+	<span class="description">
+		<span class="title">{install_button_text}</span>
+		<p>{install_info_text}</p>
+	</span><span class="description">
+		<span class="screen generator"></span>
+	</span>
+</a>
+
+
+#tagline
+<div class="tag">{tagline_text}</div>
+
+#three_buttons
+<div class="default pad40">
+	<div class="third">
+		<a href="/ctrack.html#view=generator" class="path">
+			<span class="path_title install">{install_button_text}</span>
+			<span class="path_txt">{install_info_text}</span>
+		</a>
+	</div><div class="third">
+		<a href="#explore" class="path">
+			<span class="path_title explore">{explore_button_text}</span>
+			<span class="path_txt">{explore_info_text}</span>
+		</a>
+	</div><div class="third">
+		<a href="https://github.com/devinit/D-Portal/issues" target="_blank" class="path">
+			<span class="path_title develop">{develop_button_text}</span>
+			<span class="path_txt">{develop_info_text}</span>
+		</a>
+	</div>
+</div>
+
+#intro
+<div class="description_wrap">
+	<div class="description">
+		<span class="title">{index_title_text}</span>
+		<p><span class="bold">d-portal.org</span> {index_paragraph1_text}</p>
+		<p>{index_paragraph2_text}</p>
+	</div><div class="description">
+		<span class="title">{links_title_text}</span>
+		<a href="{tongue_root}news/posts.html" class="read">&gt; {news_page_text}</a>
+		<a href="{tongue_root}about.html" class="read">&gt; {read_more_text}</a>
+		<span class="title">{explore_title_text}</span>
+		<p><b>{explore_paragraph1_text}</b></p><p>{explore_paragraph2_text}</p>
+	</div>
+</div>
 
 #beige
 <div class="beigealert_wrap">

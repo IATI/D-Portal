@@ -52,7 +52,7 @@ td.options form			{display:inline-block;}
 
 /*	Status badge next to d-portal logo in headers
 	============================================= */
-span.badge			{display:inline-block; vertical-align:bottom; color:#fff; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px;}
+span.badge				{display:inline-block; vertical-align:bottom; color:#fff; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px;}
 span.badge.beta			{background-color:#D80051;}
 
 
@@ -84,7 +84,7 @@ a.about_data.quality	{border-left:1px solid #CCC; text-align:right; padding-righ
 .default.head			{padding-top:20px;}
 .default.min			{padding-top:10px;}
 .default.declare		{padding:10px 0; font-size:0.9em; color:#FFF;}
-.default.graph			{padding:40px 0;}
+.default.graph			{margin-bottom:60px; margin-top:40px;}
 .default.about			{padding:10px 0; text-align:right;}
 .default.data			{padding:20px 0 40px 0;}
 
@@ -110,18 +110,19 @@ a.back_news:hover	{color:#A8C5E5;}
 /*	Graph styles
 	============================================= */
 #donor_graph, #sector_graph, #publisher_countries_graph,
-#publisher_sectors_graph{background-color:#FFF; font-size:1.0em; line-height:1.3em; color:#444; border:1px solid #FFF;}
-a.ask					{display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:1.8em; text-align:center;}
-a.ask.donor				{background-color:#008FFF;}
-a.ask.donor:hover		{background-color:#33A4FC;}
-a.ask.sector			{background-color:#00C475;}
-a.ask.sector:hover		{background-color:#14EE96;}
+#publisher_sectors_graph{background-color:#FFF; font-size:1.0em; line-height:1.3em; color:#444; border:1px solid #FFF; border-radius:0 0 8px 8px;}
+a.graph_wrap			{display:block; position:relative; width:960px;}
+span.graph_view_all			{display:block; background-color:rgba(3,14,27,0); position:absolute; left:0; top:0; width:960px; height:100%; color:rgba(255,255,255,0); font-size:60px; line-height:390px; text-align:center; border-radius:0 0 8px 8px;}
+span.graph_view_all:hover	{background-color:rgba(3,14,27,0.85); color:rgba(255,255,255,1); -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition: all .2s ease-in-out;}
+span.graph_view_all.pub_donor		{line-height:410px;}
+span.graph_view_all.pub_sector		{line-height:460px;}
+span.ask				{display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:1.8em; text-align:center;}
+span.ask.donor			{background-color:#008FFF;}
+span.ask.sector			{background-color:#00C475;}
 .main_peak_wrap			{width:960px; background-color:#FFF; display:block;}
 .peak					{margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; display:block;}	/* Triangles */
 .peak.donor				{border-top:20px solid #008FFF;}
 .peak.sector			{border-top:20px solid #00C475;}
-a.view_all_money		{display:block; width:960px; background-color:rgba(0,14,32,0.7); color:#CCC; border-radius:0 0 8px 8px; text-align:center; margin:0 auto; padding:15px 0; font-size:1.1em;}
-a.view_all_money:hover	{background-color:rgba(0,14,32,0.9); color:#FFF;}
 .caption				{border-bottom:0;}
 .caption:last-of-type	{border-bottom:1px;}
 .ask_title				{padding:20px 40px; display:block;}
@@ -170,19 +171,19 @@ a.stats_link.missing span	{color:#008FFF;}
 	============================================= */
 .main_title_wrap		{width:960px; margin:0 auto; padding:40px 20px;}
 .title_wrap				{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
-.table_wrap				{background-color:rgba(0,14,32,0.7); padding:0 0 20px 0; border-radius:0 0 8px 8px;}
+.table_wrap				{background-color:rgba(0,14,32,0.7); padding:0; border-radius:8px 8px 0 0;}
 .table_wrap.main		{padding-bottom:0;}
 .table_wrap.view		{width:920px; margin:0 auto; padding:20px; margin-bottom:40px;}
 
 
 /*	Data Description styles
 	============================================= */
-.description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,0,0,1) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,1) 100%); padding-bottom:40px;}
+.description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,14,32,0.9) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 50%,rgba(0,14,32,0.9) 100%); padding-bottom:40px;}
 .description			{width:880px; margin:0 auto; padding:40px; text-align:left; margin-bottom:40px; background-color:rgba(255,255,255,0.1);}
-.description span.title	{display:block; color:#FFF; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-top:1px solid #FFF; border-bottom:1px solid #FFF;}
+.description span.title	{display:block; color:#FFF; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-bottom:1px solid #FFF;}
 .description span.title.sub	{font-size:1.0em; border:0; margin:0; padding-bottom:10px; font-weight:bold;}
 .description p			{padding:15px 0; font-size:1.0em; color:#FFF; line-height:1.4em;}
-.description p.about_data	{border-top:1px solid #fff; margin-top:30px;}
+.description p.about_data	{margin-top:30px;}
 .description a			{color:#A8C5E5; text-decoration:none;}
 .description a:hover	{text-decoration:underline;}
 a.read					{display:inline-block; width:50%; text-decoration:none; color:#A8C5E5; font-size:1.0em;}
@@ -202,10 +203,12 @@ a.read:hover			{text-decoration:underline;}
 .list_head_title			{width:400px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#FFF; font-size:2.3em;}
 .list_stats_title			{display:block; font-size:0.6em; color:#FFF; padding-bottom:10px;}
 .list_stats_num				{display:block; font-size:2.9em; color:#FFF; line-height:0.8em;}
-a.button					{padding:10px 20px; background-color:#33A4FC; font-size:1.25em; color:#FFF; border-radius:0 0 8px 8px; display:block; max-width:320px; margin:0 auto; text-align:center;}
+a.button					{padding:10px 20px; background-color:#33A4FC; font-size:1.25em; color:#FFF; border-radius:0 0 8px 8px; display:block; margin:0 auto; text-align:center;}
 a.button:hover				{background-color:#008FFF;}
-a.csv_download				{display:block; margin-top:20px; padding:10px 0; background-color:rgba(132,191,255,0.24); text-align:center; color:#ccc; border-radius:4px;}
+.download_wrap				{width:100%; margin:0 auto; text-align:center; padding:10px 0 40px 0;}
+a.csv_download				{display:inline-block; margin-top:20px; padding:20px; background-color:rgba(132,191,255,0.24); text-align:center; color:#ccc; border-radius:4px;}
 a.csv_download:hover		{background-color:rgba(115,182,255,0.49); color:#FFF;}
+.table_wrap.view a.csv_download	{display:block;}
 	
 	
 /*	For url #view=donors & all #view=donor_*
@@ -277,7 +280,7 @@ table.head img				{-webkit-filter:brightness(100%); filter:brightness(100%);}
 
 /*	Table for Country Name and Flag
 	============================================= */
-table.country				{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial; border-bottom:10px solid #FFF;}
+table.country				{width:960px; margin:0 auto; padding:20px 0; border-collapse:initial; border-bottom:1px solid #FFF;}
 table.country td.name		{width:800px; max-width:800px; padding-right:10px; font-size:4.0em; line-height:1.1em; color:#FFF;}
 table.country td.name.publisher	{width:960px; max-width:960px; padding-right:0px;}
 table.country td.flag		{text-align:right;}
@@ -292,11 +295,12 @@ table.country img			{-webkit-filter:brightness(100%); filter:brightness(100%);}
 
 /*	Table Titles
 	============================================= */
-table.title				{width:100%; margin:0 auto; border-collapse:separate; padding-bottom:15px; border-bottom:10px solid #FFF;}
+table.title				{width:100%; margin:0 auto; border-collapse:separate; padding-bottom:15px;}
 table.title.key			{width:960px;}	/* Fix width for Key Figures */
 table.title.key a		{font-size:0.5em;}
-table.title td			{font-size:1.8em; line-height:1.15em; color:#FFF; vertical-align:bottom;}
+table.title td			{font-size:1.4em; color:#FFF; vertical-align:bottom; text-transform:capitalize;}
 table.title td:hover	{cursor:default;}
+table.title.key td, table.title.main td		{font-size:1.8em;}
 table.title td.sort		{padding:0 20px 0 10px; width:200px; color:#CCC; text-align:right; font-size:0.9em; line-height:1.1em;}
 table.title td.about	{padding-left:10px; width:350px;}
 table.title td.icon		{padding-right:10px; width:40px;}
@@ -431,17 +435,29 @@ a.data_invest:hover		{color:#FFF; background-color:rgba(194,0,255,0.8);}
 
 /*	Footer
 	============================================= */
-.footer_wrap			{display:table-footer-group; height:1px; background-color:rgba(0,0,0,0.95);}
+.footer_wrap			{display:table-footer-group; height:1px; background-color:rgba(0,14,32,0.9);}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
-.footer_link			{width:320px; display:inline-block; vertical-align:top;}
-.footer_link a			{font-size:0.8em; line-height:1.5em; color:#CCC;}
-.footer_link a:focus	{color:#FFF;}
+.footer_link			{display:inline-block; vertical-align:top; width:620px; color:#FFF; padding:60px 50px 0 0; box-sizing:border-box; font-size:18px; line-height:1.5em;}
+.footer_link.list		{width:340px; padding:60px 0 30px 0;}
+.footer_link a			{font-size:1.0em; line-height:1.5em; color:#999;}
+.footer_link a:focus	{color:#999;}
 .footer_link a:link  	{color:#999;}
 .footer_link a:visited	{color:#999;}
 .footer_link a:hover	{color:#FFF;}
 .footer_link a:active	{color:#999;}
 .footer_link.about		{text-align:right;}
-.footer_link.top		{text-align:center;}
+.footer_link.top		{text-align:right; width:960px;}
+.footer_link ul			{padding-bottom:20px;}
+.footer_link p			{padding:15px 0;}
+.footer_link p.beta		{font-style:italic; color:#ccc;}
+.footer_motto			{font-size:22px; line-height:27px;}
+.footer_motto a			{color:#53B4ED; font-weight:bold; line-height:27px;}
+.footer_motto a:focus	{color:#53B4ED;}
+.footer_motto a:link  	{color:#53B4ED;}
+.footer_motto a:visited	{color:#53B4ED;}
+.footer_motto a:hover	{color:#53B4ED; text-decoration:underline;}
+.footer_motto a:active	{color:#53B4ED;}
+.footer_header			{font-size:20px; color:#FFF; border-bottom:1px solid #A0988B; padding-bottom:5px; margin-bottom:10px;}
 
 
 /*	Disqus wrapper

@@ -148,7 +148,7 @@
 
 #main_active
 <div class="main_title_wrap">
-	<table class="title">
+	<table class="title main">
 		<tr>
 			<td class="icon"><img src="{flava}active_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
 			<td>{list_active_text}</td>
@@ -167,7 +167,7 @@
 
 #main_ended
 <div class="main_title_wrap">
-	<table class="title">
+	<table class="title main">
 		<tr>
 			<td class="icon"><img src="{flava}ended_icon.png" alt="{ended_icon_alt_text}" width="40" height="40"/></td>
 			<td>{list_ended_text}</td>
@@ -240,14 +240,16 @@
 
 #donor_graph
 <div class="default">
-<a onmouseover="$('.peak.donor').css({'border-top':'20px solid #33A4FC', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#33A4FC', 'transition-property':'none'});" onmouseout="$('.peak.donor').css({'border-top':'20px solid #008fff', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#008fff', 'transition-property':'none'});" href="#view=donors" class="ask donor">
-	<span class="ask_title">{title_donor_year_text}</span>
-	<span class="main_peak_wrap">
-		<span class="peak donor"></span>
+<a href="#view=donors" class="graph_wrap">
+	<span class="ask donor">
+		<span class="ask_title">{title_donor_year_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak donor"></span>
+		</span>
 	</span>
-</a>
 <div id="donor_graph"></div>
-<a href="#view=donors" class="view_all_money">{link_donor_text}</a>
+<span class="graph_view_all">{link_donor_text}</span>
+</a>
 
 <script>
 	var ctrack=require("ctrack");
@@ -292,16 +294,19 @@
 </style>
 </div>
 
+
 #sector_graph
 <div class="default graph">
-<a onmouseover="$('.peak.sector').css({'border-top':'20px solid #14EE96', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#14EE96', 'transition-property':'none'});" onmouseout="$('.peak.sector').css({'border-top':'20px solid #00C475', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#00C475', 'transition-property':'none'});" href="#view=sectors" class="ask sector">
-	<span class="ask_title">{title_sector_year_text}</span>
-	<span class="main_peak_wrap">
-		<span class="peak sector"></span>
+<a href="#view=sectors" class="graph_wrap">
+	<span class="ask sector">
+		<span class="ask_title">{title_sector_year_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak sector"></span>
+		</span>
 	</span>
-</a>
 <div id="sector_graph"></div>
-<a href="#view=sectors" class="view_all_money">{link_sector_text}</a>
+<span class="graph_view_all">{link_sector_text}</span>
+</a>
 
 <script>
 	var ctrack=require("ctrack");
@@ -347,16 +352,19 @@
 </style>
 </div>
 
+
 #publisher_countries_graph
 <div class="default">
-<a onmouseover="$('.peak.donor').css({'border-top':'20px solid #33A4FC', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#33A4FC', 'transition-property':'none'});" onmouseout="$('.peak.donor').css({'border-top':'20px solid #008fff', 'transition-property':'none'});$('a.ask.donor').css({'background-color':'#008fff', 'transition-property':'none'});" href="#view=publisher_countries" class="ask donor">
-	<span class="ask_title">{title_publisher_countries_text}</span>
-	<span class="main_peak_wrap">
-		<span class="peak donor"></span>
+<a href="#view=publisher_countries" class="graph_wrap">
+	<span class="ask donor">
+		<span class="ask_title">{title_publisher_countries_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak donor"></span>
+		</span>
 	</span>
-</a>
 <div id="publisher_countries_graph"></div>
-<a href="#view=publisher_countries" class="view_all_money">{link_donor_text}</a>
+<span class="graph_view_all pub_donor">{link_donor_text}</span>
+</a>
 
 <script>
 	var ctrack=require("ctrack");
@@ -403,14 +411,16 @@
 
 #publisher_sectors_graph
 <div class="default graph">
-<a onmouseover="$('.peak.sector').css({'border-top':'20px solid #14EE96', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#14EE96', 'transition-property':'none'});" onmouseout="$('.peak.sector').css({'border-top':'20px solid #00C475', 'transition-property':'none'});$('a.ask.sector').css({'background-color':'#00C475', 'transition-property':'none'});" href="#view=publisher_sectors" class="ask sector">
-	<span class="ask_title">{title_publisher_sectors_text}</span>
-	<span class="main_peak_wrap">
-		<span class="peak sector"></span>
+<a href="#view=publisher_sectors" class="graph_wrap">
+	<span class="ask sector">
+		<span class="ask_title">{title_publisher_sectors_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak sector"></span>
+		</span>
 	</span>
-</a>
 <div id="publisher_sectors_graph"></div>
-<a href="#view=publisher_sectors" class="view_all_money">{link_sector_text}</a>
+<span class="graph_view_all pub_sector">{link_sector_text}</span>
+</a>
 
 <script>
 	var ctrack=require("ctrack");

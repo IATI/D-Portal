@@ -13,12 +13,16 @@
 	{main_head}
 	{about_dportal}
 	{more_dportal}
+	{about_generator}
 	{about_savi}
 	{about_dq}
 	{queries}
 	{sources}
 	{quick_install}
+	{about_news}
+	{about_faq}
 	{about_dash}
+	{about_discover}
 	{about_github}
 	{view_tail}
 </body>
@@ -33,29 +37,38 @@
 					<img src="{root}art/original/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}
 				</a>
 			</td>
-			<td class="dplinks"><a href="#sav" class="top savi">SAVi</a></td>
-			<td class="dplinks"><a href="#install" class="top install">{install_link_text}</a></td>
-			<td class="dplinks"><a href="#dash" class="top dash">Dash</a></td>
-			<td class="dplinks"><a href="#git" class="top hub">Github</a></td>
-			<td class="dplinks"><a href="{tongue_root}news/posts.html" class="top news">{news_link_text}</a></td>
+			<td class="dplinks"><a href="{tongue_root}about.html" class="top install">{about_link_text}</a></td>
 			<td class="dplinks"><a href="{tongue_root}faq.html" class="top faq">FAQ</a></td>
+			<td class="dplinks"><a href="{tongue_root}ctrack.html#view=generator" class="top savi">Generator</a></td>
+			<td class="dplinks"><a href="{tongue_root}ctrack.html#view=dash" class="top dash">Dash</a></td>
+			<td class="dplinks"><a href="{tongue_root}news/posts.html" class="top news">{news_link_text}</a></td>
+			<td class="dplinks"><a href="https://github.com/devinit/D-Portal" class="top hub">Github</a></td>
 			<td class="dplinks"><a href="{tongue_root}" class="top install">{home_link_text}</a></td>
 			<td class="options">{tongue_select}</td>
 		</tr>
 	</table>
 </div>
 
+#old_head
+<td class="dplinks"><a href="#generator" class="top gen">Generator</a></td>
+<td class="dplinks"><a href="#sav" class="top savi">SAVi</a></td>
+<td class="dplinks"><a href="#dash" class="top dash">Dash</a></td>
+<td class="dplinks"><a href="#git" class="top hub">Github</a></td>
+<td class="dplinks"><a href="#news" class="top news">{news_link_text}</a></td>
+<td class="dplinks"><a href="#faq" class="top faq">FAQ</a></td>
+<td class="dplinks"><a href="{tongue_root}" class="top install">{home_link_text}</a></td>
+<td class="options">{tongue_select}</td>
+
 #status
 <span class="badge beta">BETA</span>
 
 #about_dportal
-<div class="about_wrap">
+<div class="about_wrap start">
 	<div class="default">
 		<div class="mid_wrap"><img src="{root}art/dp_logo.400.png" alt="d-portal.org logo" width="400" height="400"/></div><div class="mid_wrap">
 			<div class="about_head">
 				<h1>{about_paragraph_title_text}</h1>
-				<p>{about_paragraph1_text}</p>
-				<p class="about_info">{about_paragraph2_text}</p>
+				{about_paragraph1_text}
 			</div>
 		</div>
 	</div>
@@ -67,25 +80,22 @@
 	<div class="default">
 		<div class="mid_wrap"></div><div class="mid_wrap"><div class="arrow more"></div></div>
 		<div class="about_wrap moretxt">
+			<p>{about_paragraph2_text}</p>
 			<p>{about_paragraph3_text}</p>
 			<p>{about_paragraph4_text}</p>
 			<p><span class="bold">d-portal.org</span> {about_paragraph6_text}</p>
-			<p>{about_paragraph7_text}</p>
-			<p><h1>{about_paragraph8_text}</h1></p>
-			<p>{about_paragraph9_text}</p>
-			<p>{about_paragraph10_text}</p>
 		</div>	
 	</div>
 </div>
 
 #about_savi
-<span id="sav"></span>
+<span id="savi"></span>
 <div class="about_wrap sav">
 	<div class="default">
 		<div class="mid_wrap"><img src="{root}art/savilogo.400.png" alt="SAVi logo" width="400" height="400"/></div><div class="mid_wrap">
 			<div class="sav_head">
-				<p>{savi_paragraph1_text}</p>
-				<p class="sav_info">{savi_paragraph2_text}</p>
+				{savi_paragraph1_text}
+				<p>{savi_paragraph2_text}</p>
 			</div>
 		</div>
 	</div>
@@ -113,15 +123,8 @@
 		<div class="about_wrap moretxt">
 			<h1>{install_title_text}</h1>
 			<p>{install_paragraph1_text}</p>
-			<p>{install_paragraph2_text}<a href="http://dportal.opennepal.net/" target="_blank" class="country_portal">http://dportal.opennepal.net/</a></p>
-	<!--		<p><h1>How to deploy</h1></p>	-->
 			<p>{install_paragraph3_text}</p>
-			<p>{install_paragraph4_text}</p>		
-	<!--		<p>Contracting</p>	-->
-	<!--		<p>Set-up time</p>	-->
-			<h1>{install_title2_text}</h1>
-			<p>{install_paragraph5_text}</p>
-			<p>{install_paragraph6_text}</p>
+			<p>{install_paragraph4_text}</p>
 		</div>
 	</div>
 </div>
@@ -131,22 +134,89 @@
 <div class="about_wrap dash">
 	<div class="default">
 		<div class="about_wrap moretxt">
-			<p><h1>{dash_title_text}</h1></p>
+			<h1>{dash_title_text}</h1>
 			<p>{dash_paragraph1_text}</p>
 			<p>{dash_paragraph2_text}</p>
 			<p>{dash_paragraph3_text}</p>
 			<p>{dash_paragraph4_text}</p>
 		</div>
+		<div class="screen dash"></div>
+	</div>
+</div>
+
+#about_generator
+<span id="generator"></span>
+<div class="about_wrap gen">
+	<div class="default">
+		<div class="about_wrap moretxt">
+			<h1>{gen_title_text}</h1>
+			<p>{gen_paragraph1_text}</p>
+			<p>{gen_paragraph2_text}</p>
+			<p>{gen_paragraph3_text}</p>
+		</div>
+		<div class="screen generator"></div>
+	</div>
+</div>
+
+#about_discover
+<span id="discover"></span>
+<div class="about_wrap gen">
+	<div class="default">
+		<div class="about_wrap moretxt">
+			<h1>{discover_title_text}</h1>
+			<p>{discover_paragraph1_text}</p>
+			<p>{discover_paragraph2_text}</p>
+			<p>{discover_paragraph3_text}</p>
+		</div>
+		<div class="screen discover"></div>
+	</div>
+</div>
+
+#about_news
+<span id="news"></span>
+<div class="about_wrap news">
+	<div class="default">
+		<div class="about_wrap moretxt">
+			<h1>{news_title_text}</h1>
+			<p>{news_paragraph1_text}</p>
+			<p>{news_paragraph2_text}</p>
+			<p>{news_paragraph3_text}</p>
+			<p>{news_paragraph4_text}</p>
+		</div>
+		<div class="screen news"></div>
+	</div>
+</div>
+
+#about_faq
+<span id="faq"></span>
+<div class="about_wrap faqinfo">
+	<div class="default">
+		<div class="about_wrap moretxt">
+			<h1>{faq_title_text}</h1>
+			<p>{faq_paragraph1_text}</p>
+			<p>{faq_paragraph2_text}</p>
+			<p>{faq_paragraph3_text}</p>
+		</div>
+		<div class="screen faq"></div>
 	</div>
 </div>
 
 #queries
-<span id="que"></span>
+<span id="q"></span>
 <div class="about_wrap q">
 	<div class="default">
 		<div class="mid_wrap"></div><div class="mid_wrap"><div class="arrow"></div></div>
 		<div class="qhead">{q_example_title_text}</div>
+		
+		<div class="qinfo">{q_example_append1_text} <span class="qdef">.json</span>, <span class="qdef">.xml</span>, <span class="qdef">.csv</span> or <span class="qdef">.html</span></div>
+		
 		<a href="http://d-portal.org/q.xml?limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.xml?limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
+		<div class="qabt">{q_example_xml_text}</div>
+		
+		<a href="http://d-portal.org/q.json?limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.json?limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
+		<div class="qabt">{q_example_json_text}</div>
+		
+		<a href="http://d-portal.org/q.html?limit=10&orderby=day_start&day_start_gt=1950-01-01" class="qeg">http://d-portal.org/q.html?limit=10&amp;orderby=day_start&amp;day_start_gt=1950-01-01</a>
 		<div class="qabt">{q_example1_text}</div>
 		<div class="qinfo">{q_example1_info1_text} <span class="qdef">limit=10</span> {q_example1_info2_text} <span class="qdef">orderby=day_start</span> {q_example1_info3_text} <span class="qdef">day_start_gt=1950-01-01</span>.</div>
 		
@@ -245,19 +315,16 @@
 	</div>
 </div>
 
+
+
 #view_tail
 		</div>
 	</div>
 	<div class="footer_wrap">
 	<div class="footer">
-		<div class="footer_link"><a href="http://d-portal.org/#explore">
-			{footer_pick_text}</a>
-		</div><div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
-			{footer_top_text}</a>
-		</div><div class="footer_link mit">
-			{footer5_text}
-		</div>
+		{large_footer}
 	</div>
 	</div>
 </div>
+
 

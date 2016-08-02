@@ -16,15 +16,45 @@
 	</div>
 	<div class="footer_wrap">
 	<div class="footer">
-		<div class="footer_link"><a href="{tongue_root}">
-			{footer_pick_text}</a>
-		</div><div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
-			{footer_top_text}</a>
-		</div><div class="footer_link about"><a href="{tongue_root}about.html">
-			{footer_about_text}</a>
-		</div>
+		{large_footer}
 	</div>
 	</div>
+</div>
+
+#large_footer
+<div class="footer_link">
+	<div class="footer_motto"><a href="http://d-portal.org/">{footer6_text}</a> {footer7_text}</div>
+	<p>{footer8_text}</p>
+	<p class="beta">{footer9_text}</p>
+	<p>{footer10_text} <b><a href="mailto:support@iatistandard.org">{footer11_text}</a></b></p>
+</div><div class="footer_link list">
+	<div class="footer_header">{footer12_text}</div>
+	<ul>
+		<li><a href="http://d-portal.org/news/posts.html">{footer13_text}</a></li>
+		<li><a href="http://d-portal.org/about.html">{about_title_text}</a></li>
+		<li><a href="http://d-portal.org/ctrack.html?#view=dash">{footer14_text}</a></li>
+		<li><a href="http://d-portal.org/ctrack.html#view=generator">{footer15_text}</a></li>
+	</ul>
+	<div class="footer_header">{footer16_text}</div>
+	<ul>
+		<li><a href="http://d-portal.org/faq.html">{footer17_text}</a></li>
+		<li><a href="http://d-portal.org/about.html#sources">{footer18_text}</a></li>
+		<li><a href="https://github.com/devinit/D-Portal/issues">{footer19_text}</a></li>
+	</ul>
+</div>
+<div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">{footer2_text}</a></div>
+
+
+#add_to_footer
+<li><a href="#view=data_quality">Why data quality matters</a></li>
+
+#small_footer
+<div class="footer_link"><a href="mailto:support@iatistandard.org" title="{footer1_tip_text}">
+	{footer1_text}</a>
+</div><div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+	{footer2_text}</a>
+</div><div class="footer_link about"><a href="{tongue_root}about.html">
+	{footer3_text}</a>
 </div>
 
 
