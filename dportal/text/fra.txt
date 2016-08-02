@@ -188,10 +188,10 @@ Dans sa première itération , il contient des données actuelles publiées par 
 La plate-forme actuelle pose deux questions : d'où viennent les ressources proviennent , et où vont-ils ( par secteur et localisation) ? Des données récentes , en cours et à venir est présenté et comparé différentes sources de données.
 
 #about_paragraph5_text
-Afin de répondre à ces questions dans une perspective de pays, il ne suffit pas simplement d'afficher des données disponibles : il est tout aussi important de tracer les lacunes dans l'information. Faire face à la mauvaise qualité ou des données manquantes est un élément essentiel de l'interface de l'information.
+Afin de répondre à ces questions dans une perspective de pays, il ne suffit pas simplement d'afficher des données disponibles :
 
 #about_paragraph6_text
-est une plate-forme open source.
+est une plate-forme open source. Cela signifie que vous pouvez utiliser tous les aspects de la plate-forme pour construire votre propre portail en utilisant le code source libre.
 
 #about_paragraph7_text
 Bien qu'il fournit actuellement un déploiement générique pour n'importe quel pays, il a été développé avec l'intention spécifique d'être personnalisée dans le pays pour répondre aux besoins locaux. Pour plus d'informations sur la façon dont vous pouvez créer une version personnalisée pour un pays spécifique, voir <a href="#install" class="how"> Comment installer </a>.
@@ -204,6 +204,21 @@ Le développement initial de d - portal.org qui a duré à partir de décembre 2
 
 #about_paragraph10_text
 DI finance le stade actuel de développement et de préparation à la fin de Août 2014, si vous êtes intéressé par une partie du financement de l'élaboration en cours de d- portail s'il vous plaît contacter <a href="mailto:support@iatistandard.org" target="_blank" class="co">support@iatistandard.org</a>
+
+#about_paragraph11_text
+Le concept open source repose sur le partage des ressources dans l'espoir que d'autres se joindront et construire une meilleure plate-forme ensemble. Cela comprend la recherche et signaler les bogues, contribuant de nouvelles fonctionnalités que vous souhaitez la plate-forme d'avoir ou même de créer de nouveaux thèmes afin que les autres puissent l'utiliser.
+
+#about_paragraph12_text
+Autres sites basés sur d-portal seront listés ci-dessous. <a href="mailto:support@iatistandard.org" target="_blank" class="co">Contactez-nous au support@iatistandard.org d'ajouter le vôtre ici</a>.
+
+#about_paragraph13_text
+<a href="http://open.undg.org/" target="_blank"><img src="{root}art/UNDG_logo.png" alt="UNDG Transparency Portal logo" width="406" height="100"></a>
+
+#about_paragraph14_text
+<span class="questions"> 1. D'où proviennent les ressources? </span> <span class="questions"> 2. Où vont-ils (par secteur et localisation)? </span>
+
+#about_paragraph15_text
+Des données récentes, actuelles et futures est présenté et comparé les sources de données.
 
 #savi_paragraph1_text
 Savi est une visionneuse d'activité simple pour l'IATI XML que vous pouvez voir en temps réel, en ligne, dans votre navigateur préféré.
@@ -299,7 +314,7 @@ Il existe déjà des exemples de mesure d-portals par pays comme suit:
 d-portal est constitué de la backend dstore et l'interface ctrack. Pour installer d-portal, vous devez configurer un serveur. 
 
 #install_paragraph4_text 
-Visitez <a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md" class="country_portal">Github</a> pour instructions pour installer un serveur d-portal.
+<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md">Commencez à lire des instructions pour installer un serveur d-portal</a>
 
 #install_title2_text 
 Comment créer un widget d-portal
@@ -317,10 +332,10 @@ Visitez d-portal.org sur Github
 Fourche-nous sur
 
 #github_info2_text
-d-portal.org est actuellement développé et conçu dans les choses changent constamment. Envoyez-nous vos suggestions, rapports et questions bug ou contactez <a href="mailto:support@iatistandard.org" target="_blank" class="git small"> support@iatistandard.org </a>
+d-portal.org est actuellement développé et conçu dans les choses changent constamment. Envoyez-nous vos suggestions, rapports et questions bug ou contactez <a href="mailto:support@iatistandard.org" target="_blank"> support@iatistandard.org </a>
 
 #github_info3_text
-Si vous souhaitez rester à jour avec des nouvelles sur d-portal s'il vous plaît vous abonner au <a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list" class="git small">groupe de Google</a>.
+Si vous souhaitez rester à jour avec des nouvelles sur d-portal s'il vous plaît vous abonner au <a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">groupe de Google</a>.
 
 #footer_pick_text 
 Choisissez un autre pays 
@@ -409,17 +424,17 @@ Pour l'instant, nous brisons ces bas à 3 différents types de questions - gén�
 #faq_paragraph3_text
 FAQ peut être trouvé à l'adresse <a href="http://www.d-portal.org/faq.html"> http://www.d-portal.org/faq.html </a>.
 
-#search_title_text
-Search <i> (alpha) </i>
+#discover_title_text
+Discover <i> (alpha) </i>
 
-#search_paragraph1_text
-Search est une nouvelle fonctionnalité qui est actuellement en cours de développement. Soutenu par dStore et Q, il fournira une interface de recherche simple pour les utilisateurs de filtrer à travers la vaste base de données de IATI.
+#discover_paragraph1_text
+Discover est une nouvelle fonctionnalité qui est actuellement en cours de développement. Soutenu par dStore et Q, il fournira une interface de recherche simple pour les utilisateurs de filtrer à travers la vaste base de données de IATI.
 
-#search_paragraph2_text
-Nous recherchons actuellement des commentaires sur le intuitivité et la convivialité de Search. N'avoir un aller et envoyez-nous vos commentaires en ajoutant une nouvelle émission à travers le <a href="https://github.com/devinit/D-Portal/issues"> Github forum </a> ou, si vous préférez, entrer en contact par le biais <a href="mailto:support@iatistandard.org"> support@iatistandard.org </a>. Nous aimerions entendre ce que vous pensez!
+#discover_paragraph2_text
+Nous recherchons actuellement des commentaires sur le intuitivité et la convivialité de Discover. N'avoir un aller et envoyez-nous vos commentaires en ajoutant une nouvelle émission à travers le <a href="https://github.com/devinit/D-Portal/issues"> Github forum </a> ou, si vous préférez, entrer en contact par le biais <a href="mailto:support@iatistandard.org"> support@iatistandard.org </a>. Nous aimerions entendre ce que vous pensez!
 
-#search_paragraph3_text
-Essayez Search à <a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+#discover_paragraph3_text
+Essayez Discover à <a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
 
 #publisher_title_text
 Explorez un éditeur

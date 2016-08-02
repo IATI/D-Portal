@@ -184,7 +184,6 @@ d-portal.orgは、あなたが国別またはIATIに公開された開発活動�
 #about_paragraph3_text
 その最初の反復では、国際援助の透明性イニシアティブ（ IATI ）だけでなく、が発行する最新の（ 2012年）のデータを通じて発行した最新のデータが含まれています<a href="http://www.oecd.org/dac/stats/crsguide.htm" target="_blank" class="co">OECD DAC Creditor Reporting System</a>。
 
-
 #about_paragraph4_text
 現在のプラットフォームには、二つの質問を提起：どこのリソースから来るのか、そしてどこに（部門や場所によって）行くのですか？最近の現在および将来のデータが提示されたデータソース間で比較されている。
 
@@ -192,7 +191,7 @@ d-portal.orgは、あなたが国別またはIATIに公開された開発活動�
 国の観点からこれらの質問に答えるためには、単に利用可能なデータを表示するには不十分である：それは、情報のギャップをプロットすることも同様に重要である。品質不良または欠落したデータに対処することは、情報インターフェースの重要な部分です。
 
 #about_paragraph6_text
-オープンソースのプラットフォームです。
+オープンソースのプラットフォームです。これは、あなたが自由にソースコードを使用して、独自のポータルを構築するためのプラットフォームのすべての側面を使用できることを意味します。
 
 #about_paragraph7_text 
 それが現在、どの国のための一般的な展開を提供しますが、それは、地域のニーズを満たすために、国のカスタマイズされて、特定の意図を持って開発されました。あなたが特定の国のためにカスタマイズされたバージョンを作成することができます方法の詳細については、<a href="#install" class="how">インストールする方法</a>を参照してください。
@@ -206,6 +205,21 @@ d-portal.orgは、あなたが国別またはIATIに公開された開発活動�
 #about_paragraph10_text
 DIは2014年8月の終わりに開発や準備の現在のステージに資金を提供している。あなたは、d-portalの進行中の開発の資金の一部に興味がある場合
 お問い合わせください <a href="mailto:support@iatistandard.org" target="_blank" class="co">support@iatistandard.org</a>
+
+#about_paragraph11_text
+オープンソースの概念は、他の人が参加すると一緒に、より良いプラットフォームを構築します期待して共有リソースに依存しています。これは、発見したバグを報告し、あなたが持っているのプラットフォームのようにしたい新機能を貢献するか、他の人がそれを使用できるようにしても、新しいテーマを作成することを含みます。
+
+#about_paragraph12_text
+d-portalに基づいて、他のサイトでは、以下に一覧表示されます。 <a href="mailto:support@iatistandard.org" target="_blank" class="co">イメージを追加するsupport@iatistandard.orgでお問い合わせください</a>。
+
+#about_paragraph13_text
+<a href="http://open.undg.org/" target="_blank"><img src="{root}art/UNDG_logo.png" alt="UNDG Transparency Portal logo" width="406" height="100"></a>
+
+#about_paragraph14_text
+<span class="questions"> 1。資源はどこから来るのか？</span><span class="questions">2。彼らは（部門と場所によって）どこに行くのですか？</span>
+
+#about_paragraph15_text
+最近の現在および将来のデータが提示され、データ・ソース間で比較されています。
 
 #savi_paragraph1_text
 SAVIは、あなたの好みのブラウザでは、オンライン、リアルタイムで見ることができますIATI XMLのための簡単なアクティビティビューアです。
@@ -301,7 +315,7 @@ d-portalプロジェクトの中心には、誰でもどこでも、d-portalの�
 d-portalはdstoreバックエンドとctrackインターフェースで構成されています。 d-portalをインストールするには、サーバーをセットアップする必要があります。 
 
 #install_paragraph4_text 
-d-portalサーバーをインストールする手順については、<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md" class="country_portal">Github</a>のをご覧ください。
+<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md">d-portalをインストールするための指示を読み始めるサーバ</a>
 
 #install_title2_text 
 d-portalウィジェットを作成する方法 
@@ -319,10 +333,10 @@ GitHubの上のd-portal.org をご覧ください
 お上のフォーク
 
 #github_info2_text
-d-portal.org は、現在開発され、物事は常に変化しているように設計されています。私達にあなたの提案、バグレポート、問題や接触の <a href="mailto:support@iatistandard.org" target="_blank" class="git small"> support@iatistandard.org </a> を送る
+d-portal.org は、現在開発され、物事は常に変化しているように設計されています。私達にあなたの提案、バグレポート、問題や接触の <a href="mailto:support@iatistandard.org" target="_blank"> support@iatistandard.org </a> を送る
 
 #github_info3_text
-あなたはd-portalでニュースを最新に保つためにご希望の場合<a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list" class="git small">のGoogleグループ</a>を購読してください。
+あなたはd-portalでニュースを最新に保つためにご希望の場合<a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">のGoogleグループ</a>を購読してください。
 
 #footer_pick_text
 別の国を選択
@@ -417,17 +431,17 @@ d-portalはサビ、発電機、ダッシュとすぐに、検索のような国
 #faq_paragraph3_text
 よくある質問は<a href="http://www.d-portal.org/faq.html"> http://www.d-portal.org/faq.html </a>から見つけることができます。
 
-#search_title_text
-Search <i>(alpha）</i>
+#discover_title_text
+Discover <i>(alpha）</i>
 
-#search_paragraph1_text
-Search 重い現在開発中の新機能です。 dstoreに裏打ちされたとQ、それは、ユーザーが膨大なIATIのデータベースを介してフィルタリングするためのシンプルな検索インターフェイスを提供します。
+#discover_paragraph1_text
+Discover 重い現在開発中の新機能です。 dstoreに裏打ちされたとQ、それは、ユーザーが膨大なIATIのデータベースを介してフィルタリングするためのシンプルな検索インターフェイスを提供します。
 
-#search_paragraph2_text
-我々は現在、Searchの直観とユーザビリティに関するフィードバックを求めています。ご希望の場合は、やってみると<a href="https://github.com/devinit/D-Portal/issues"> Githubのフォーラム</a>にして新しい問題を追加することによって、私達にあなたのフィードバックを送信したりでください、 <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>を介して連絡を取ります。私たちは、あなたが何を考えて聞いてみたいです！
+#discover_paragraph2_text
+我々は現在、Discoverの直観とユーザビリティに関するフィードバックを求めています。ご希望の場合は、やってみると<a href="https://github.com/devinit/D-Portal/issues"> Githubのフォーラム</a>にして新しい問題を追加することによって、私達にあなたのフィードバックを送信したりでください、 <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>を介して連絡を取ります。私たちは、あなたが何を考えて聞いてみたいです！
 
-#search_paragraph3_text
-Search で試してみてください Search <a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+#discover_paragraph3_text
+Discover で試してみてください Search <a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
 
 #publisher_title_text
 出版社、著者の探求

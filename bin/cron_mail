@@ -6,4 +6,4 @@ bin/cron 2>&1 | tee dportal/production/cron.log
 ( echo "Subject: d-portal update `date`"  ; uuencode dportal/production/cron.log dportal-cronlog.txt ) | sendmail krissd@gmail.com,notshi@gmail.com,d-portal-logs@googlegroups.com
 
 # make sure the other server is back up
-#/home/ctrack/ofid/serv.sh
+/home/ctrack/cdc/serv.sh

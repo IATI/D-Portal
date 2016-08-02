@@ -185,13 +185,13 @@ It is aimed at providing line ministries, parliamentarians and civil society in 
 d-portal contains current data published through the International Aid Transparency Initiative (IATI) as well as the most recent year's data available in the <a href="http://www.oecd.org/dac/stats/crsguide.htm" target="_blank" class="co">OECD DAC Creditor Reporting System</a>. 
 
 #about_paragraph4_text
-The current platform poses two questions: where do resources come from, and where do they go (by sector and location)? Recent, current and future data is presented and compared across data sources. 
+The current platform poses two questions:
 
 #about_paragraph5_text
 In order to answer these questions from a country perspective it is insufficient merely to display available data: it is equally important to show the gaps in the information. Coping with poor quality or missing data is an essential part of the information interface. 
 
 #about_paragraph6_text
-is an open source platform.
+is an open source platform. This means you can use all aspects of the platform to build your own portal using the free source code.
 
 #about_paragraph7_text
 While it currently provides a generic deployment for any country it has been developed with the specific intention of being customised in-country to meet local needs. For further information on how you could create a customised version for a specific country, see <a href="#install" class="how">How to Install</a>.
@@ -204,6 +204,21 @@ The initial development of d-portal.org which ran from Dec 2013 to the Global Pa
 
 #about_paragraph10_text
 DI is funding limited current development. If you are interested in funding part of the ongoing development of d-portal, or specific pieces of future development, please contact <a href="mailto:support@iatistandard.org" target="_blank" class="co">support@iatistandard.org</a>
+
+#about_paragraph11_text
+The open source concept relies on sharing resources in the hopes that others will join in and build a better platform together. This includes finding and reporting bugs, contributing new features that you'd like the platform to have or even creating new themes so that others may use it.
+
+#about_paragraph12_text
+Other sites based on d-portal will be listed below, <a href="mailto:support@iatistandard.org" target="_blank" class="co">get in touch to add yours</a>!
+
+#about_paragraph13_text
+<a href="http://open.undg.org/" target="_blank"><img src="{root}art/UNDG_logo.png" alt="UNDG Transparency Portal logo" width="406" height="100"></a>
+
+#about_paragraph14_text
+<span class="questions">1. Where do resources come from?</span><span class="questions">2. Where do they go (by sector and location)?</span>
+
+#about_paragraph15_text
+Recent, current and future data is presented and compared across data sources.
 
 #savi_paragraph1_text
 SAVi is a simple activity viewer for IATI XML that you can view in real time, online, in your favourite browser.
@@ -287,7 +302,7 @@ transaction data
 sorted by date
 
 #install_title_text
-How to install d-portal
+Installing d-portal
 
 #install_paragraph1_text
 At the heart of the d-portal project is the aim that anyone anywhere could take the open source code behind d-portal, deploy it for themselves and create a customised d-portal for any country that interests them.  This could include adding any other data from Aid Information Management Systems, national budgets and a range of comparable socio-economic indicators.
@@ -299,7 +314,7 @@ There are already examples of customised country-specific d-portals like
 d-portal is made up of the dstore backend and ctrack interface. To install d-portal, you need to set up a server.
 
 #install_paragraph4_text
-Visit <a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md" class="country_portal">Github</a> for instructions to install a d-portal server.
+<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md">Start reading instructions to install a d-portal server</a> 
 
 #install_title2_text
 How to generate and re-use d-portal content
@@ -317,10 +332,10 @@ Visit d-portal.org on Github
 Fork us on
 
 #github_info2_text
-d-portal.org is <b>open source</b>. It is currently being developed and designed so things are constantly changing. Do send us your suggestions, code contributions, bug reports, fixes and issues or contact <a href="mailto:support@iatistandard.org" target="_blank" class="git small">support@iatistandard.org</a>
+d-portal.org is <b>open source</b>. It is currently being developed and designed so things are constantly changing. Do send us your suggestions, code contributions, bug reports, fixes and issues or contact <a href="mailto:support@iatistandard.org" target="_blank">support@iatistandard.org</a>
 
 #github_info3_text
-If you would like to keep up to date with news on d-portal please subscribe to the <a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list" class="git small">Google group</a>.
+If you would like to keep up to date with news on d-portal please subscribe to the <a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">Google group</a>.
 
 #footer_pick_text
 Pick another country
