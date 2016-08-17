@@ -648,11 +648,11 @@ if(true)
 	codes.publisher_names={};
 	codes.publisher_secondary={};
 
-	var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/group");
+	var js=wait.for(https_getbody,"https://iatiregistry.org/api/rest/group");
 	var j=JSON.parse(js);
 	j.forEach(function(v){
 		console.log("Fetching publisher info for "+v);
-		var jjs=wait.for(http_getbody,"http://iatiregistry.org/api/rest/group/"+v);
+		var jjs=wait.for(https_getbody,"https://iatiregistry.org/api/rest/group/"+v);
 		var jj=JSON.parse(jjs);
 		publishers[v]=jj
 		
