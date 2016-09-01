@@ -393,13 +393,13 @@ table.money.publishers th.col2	{border-top:1px solid rgba(0,50,151,1);}
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
 table.activity			{width:100%; border-collapse:collapse;}
-table.activity td		{color:#B8C8CD; font-size:1.25em; line-height:1.0em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642;}
+table.activity td		{color:#B8C8CD; font-size:1.25em; line-height:1.0em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642; box-sizing:border-box;}
 table.activity th:hover	{cursor:default;}
 table.activity tr:last-child td	{border:0;}
 table.activity tr:hover	{background-color:rgba(0,0,0,0.4);}
 table.activity tr:first-child:hover	{background-color:transparent;}
 table.activity td.num	{padding:10px 0 10px 20px; font-size:1.0em; line-height:1.75em;}
-table.activity td.title	{padding:0 30px 0 0;}
+table.activity td.title	{padding:0 30px 0 0; max-width:600px;}
 table.activity td.title.missing	{max-width:600px;}
 table.activity td.value	{text-align:right; padding:10px 20px 25px 40px; font-size:1.0em; line-height:1.75em;}
 table.activity td.count	{text-align:right; padding:10px 20px 0 40px; font-size:1.7em; line-height:1.0em;}
