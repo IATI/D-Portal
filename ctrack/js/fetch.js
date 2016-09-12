@@ -103,7 +103,10 @@ fetch.ajax_dat_fix=function(dat,args)
 	{
 		if(dat.from.indexOf("country")==-1) { dat.from+=",country"; }
 	}
-	if( dat.location_latitude || dat.location_longitude )
+	if(
+		dat.location_latitude || dat.location_longitude ||
+		dat.location_latitude_lt || dat.location_longitude_lt ||
+		dat.location_latitude_gt || dat.location_longitude_gt )
 	{
 		if(dat.from.indexOf("location")==-1) { dat.from+=",location"; }
 	}

@@ -53,12 +53,21 @@ view_act.ajax=function(args)
 			"from":"act,jml",
 			"distincton":"aid",
 			"aid":args.aid,
-			"location_latitude":args.lat,
-			"location_longitude":args.lng,
 //			"country_code":(args.country || ctrack.args.country_select),
 //			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 //			"title_like":(args.search || ctrack.args.search),
 		};
+
+	if(args.lat)
+	{
+		dat.location_latitude_gt=Number(args.lat)-0.001;
+		dat.location_latitude_lt=Number(args.lat)+0.001;
+	}
+	if(args.lng)
+	{
+		dat.location_longitude_gt=Number(args.lng)-0.001;
+		dat.location_longitude_lt=Number(args.lng)+0.001;
+	}
 //	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
 //	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
 //	for(var n in args.q) { dat[n]=args.q[n]; }
@@ -66,8 +75,10 @@ view_act.ajax=function(args)
 //	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 	fetch.ajax_dat_fix(dat,args);
 	if(dat.aid){
-		delete dat.location_latitude;
-		delete dat.location_longitude;
+		delete dat.location_latitude_gt;
+		delete dat.location_latitude_lt;
+		delete dat.location_longitude_gt;
+		delete dat.location_longitude_lt;
 		delete dat.country_code;
 		delete dat.reporting_ref;
 	}

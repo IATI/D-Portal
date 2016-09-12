@@ -271,6 +271,10 @@ view_map.ajax_heat=function(args)
 			var v=data.rows[i];
 			var lat=v.round1_location_latitude  || v.round0_location_latitude;
 			var lng=v.round1_location_longitude || v.round0_location_longitude;
+
+			if("string"== typeof lng) { lng=Number(lng); }
+			if("string"== typeof lat) { lat=Number(lat); }
+
 			if( ("number"== typeof lng) && ("number"== typeof lat) )
 			{
 				if(!ctrack.map.heat)
@@ -280,7 +284,7 @@ view_map.ajax_heat=function(args)
 				ctrack.map.heat.push({
 					lat:lat,
 					lng:lng,
-					wgt:v.count
+					wgt:Number(v.count)
 				});
 				if( (lat<=90) && (lat>=-90) && (lng<=180) && (lng>=-180) ) // check for valid values
 				{
@@ -312,7 +316,7 @@ view_map.ajax_pins=function(args)
 	args=args || {};
     
 	var dat={
-			"select":"count,location_longitude,location_latitude,aid,title",
+			"select":"count,location_longitude,location_latitude,any_aid,any_title",
 			"from":"act,location",
 			"form":"jcsv",
 			"limit":args.limit || -1,

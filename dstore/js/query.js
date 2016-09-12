@@ -147,6 +147,7 @@ query.getsql_select=function(q,qv){
 		"round1":true,
 		"percent_of":true,
 		"sum_of_percent_of":true,
+		"any":true,
 	};
 	
 	var calc_func=function(func,name)
@@ -167,6 +168,9 @@ query.getsql_select=function(q,qv){
 			break
 			case "sum_of_percent_of":
 				percents("sum_of_percent_of_"+name,name,"SUM");
+			break
+			case "any":
+				ss.push(" MAX("+name+") AS "+name); // for getting a value from grouped data when any of them will do.
 			break
 		}
 	};

@@ -18,7 +18,11 @@ if [ ! -d "/vagrant" ]; then
 else
 
 	export DSTORE_PG="/var/run/postgresql dstore"
-#	export DSTORE_DEBUG=1
+
+	if [[ $1 == "dbg" ]] ; then
+		export DSTORE_DEBUG=1
+		shift
+	fi
 
 	CMD=$1
 	shift
