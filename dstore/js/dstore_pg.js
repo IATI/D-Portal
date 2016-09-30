@@ -407,8 +407,8 @@ dstore_pg.query_select=function(q,res,r){
 
 	var db = dstore_pg.open();
 	
-//	db.any("EXPLAIN ( ANALYZE ) "+r.query,r.qvals).then(function(rows){
-//		r.explain=[]; for( var i in rows ) { r.explain[i]=rows[i]["QUERY PLAN"]; }
+	db.any("EXPLAIN "+r.query,r.qvals).then(function(rows){
+		r.explain=[]; for( var i in rows ) { r.explain[i]=rows[i]["QUERY PLAN"]; }
 		
 		db.any(r.query,r.qvals).then(function(rows){
 
@@ -419,7 +419,7 @@ dstore_pg.query_select=function(q,res,r){
 
 		}).catch(err);
 
-//	}).catch(err);
+	}).catch(err);
 	
 
 }
