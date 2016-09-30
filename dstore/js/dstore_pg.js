@@ -406,8 +406,10 @@ dstore_pg.query_select=function(q,res,r){
 
 
 	var db = dstore_pg.open();
-
-	var rows=
+	
+//	db.any("EXPLAIN ( ANALYZE ) "+r.query,r.qvals).then(function(rows){
+//		r.explain=[]; for( var i in rows ) { r.explain[i]=rows[i]["QUERY PLAN"]; }
+		
 		db.any(r.query,r.qvals).then(function(rows){
 
 			r.rows=rows;
@@ -416,5 +418,23 @@ dstore_pg.query_select=function(q,res,r){
 			query.do_select_response(q,res,r);
 
 		}).catch(err);
+
+//	}).catch(err);
+	
+
 }
+
+
+dstore_pg.analyze = function(){
+
+	process.stdout.write("ANALYZE start\n");
+	var db = dstore_pg.open();
+	db.any("ANALYZE;").then(function(rows){
+		process.stdout.write("ANALYSE done\n");
+		pgp.end();	
+	}).catch(err);
+	
+}
+
+
 

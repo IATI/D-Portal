@@ -54,6 +54,7 @@ echo 'max_wal_senders=1' >> $PGMAIN/postgresql.conf
 echo 'wal_level=hot_standby' >> $PGMAIN/postgresql.conf
 echo 'synchronous_commit = off' >> $PGMAIN/postgresql.conf
 echo 'fsync = off' >> $PGMAIN/postgresql.conf
+echo 'work_mem = 128MB' >> $PGMAIN/postgresql.conf
 
 echo '#HAXTBH' >> $PGMAIN/pg_hba.conf
 echo 'local replication all peer' >> $PGMAIN/pg_hba.conf
