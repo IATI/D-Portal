@@ -84,18 +84,54 @@ console.log("CREATING TABLES");
 				db.none(s).catch(err).then(cb);
 			});
 
-// indexs
+		}
+
+	pgp.end();
+	
+
+	dstore_pg.create_indexes();
+	
+};
+
+dstore_pg.check_tables = function(){};
+
+
+dstore_pg.create_indexes = function(){
+	var db=dstore_pg.open();
+	
+console.log("CREATING INDEXS");
+
+// simple data dump table containing just the raw xml of each activity.
+// this is filled on import and then used as a source
+
+		for(var name in dstore_db.tables)
+		{
+			var tab=dstore_db.tables[name];
 
 			for(var i=0; i<tab.length;i++)
 			{
 				var col=tab[i];			
 				if( col.INDEX )
 				{
-					var s=(" CREATE INDEX "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
+					var s=(" CREATE INDEX "+name+"_btree_"+col.name+" ON "+name+" USING btree ( "+col.name+" ); ");
 					console.log(s);
 
 					wait.for(function(cb){
-						 db.none("DROP INDEX IF EXISTS "+name+"_index_"+col.name+";").catch(err).then(cb);
+						 db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err).then(cb);
+					});
+
+					wait.for(function(cb){
+						db.none(s).then(cb).catch(err);
+					});
+
+				}
+				if( col.HASH )
+				{
+					var s=(" CREATE INDEX "+name+"_hash_"+col.name+" ON "+name+" USING hash ( "+col.name+" ); ");
+					console.log(s);
+
+					wait.for(function(cb){
+						 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
 					});
 
 					wait.for(function(cb){
@@ -111,12 +147,37 @@ console.log("CREATING TABLES");
 	pgp.end();	
 };
 
-dstore_pg.check_tables = function(){};
+dstore_pg.delete_indexes = function(){
+	var db=dstore_pg.open();
+	
+console.log("DROPING INDEXS");
+
+// simple data dump table containing just the raw xml of each activity.
+// this is filled on import and then used as a source
+
+		for(var name in dstore_db.tables)
+		{
+			var tab=dstore_db.tables[name];
+
+			for(var i=0; i<tab.length;i++)
+			{
+				var col=tab[i];			
+				wait.for(function(cb){
+					 db.none("DROP INDEX IF EXISTS "+name+"_index_"+col.name+";").catch(err).then(cb);
+				});
+				wait.for(function(cb){
+					 db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err).then(cb);
+				});
+				wait.for(function(cb){
+					 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
+				});
+			}
+		}
 
 
-dstore_pg.create_indexes = function(){};
 
-dstore_pg.delete_indexes = function(){};
+	pgp.end();	
+};
 
 
 
@@ -407,8 +468,9 @@ dstore_pg.query_select=function(q,res,r){
 
 	var db = dstore_pg.open();
 	
-	db.any("EXPLAIN "+r.query,r.qvals).then(function(rows){
-		r.explain=[]; for( var i in rows ) { r.explain[i]=rows[i]["QUERY PLAN"]; }
+	db.any("EXPLAIN ( ANALYZE FALSE , VERBOSE TRUE , FORMAT JSON ) "+r.query,r.qvals).then(function(rows){
+//		r.explain=[]; for( var i in rows ) { r.explain[i]=rows[i]["QUERY PLAN"]; }
+		r.explain=rows[0]["QUERY PLAN"][0];
 		
 		db.any(r.query,r.qvals).then(function(rows){
 

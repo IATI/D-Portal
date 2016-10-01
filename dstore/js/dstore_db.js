@@ -44,11 +44,11 @@ dstore_db.bubble_act={
 // data table descriptions
 dstore_db.tables={
 	jml:[
-		{ name:"aid",							NOCASE:true , PRIMARY:true },
+		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"jml",							TEXT:true }, // moved to reduce the main act table size
 	],
 	act:[
-		{ name:"aid",							NOCASE:true , PRIMARY:true },
+		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"reporting",						NOCASE:true , INDEX:true },
 		{ name:"reporting_ref",					NOCASE:true , INDEX:true },
 		{ name:"funder_ref",					NOCASE:true , INDEX:true },
@@ -72,7 +72,7 @@ dstore_db.tables={
 // 1 == secondary publisher so transactions/budgets should be ignored to avoid double accounting
 	],
 	trans:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"trans_ref",						NOCASE:true , INDEX:true },
 		{ name:"trans_description",				NOCASE:true , INDEX:true },
 		{ name:"trans_day",						INTEGER:true , INDEX:true },
@@ -91,7 +91,7 @@ dstore_db.tables={
 // 1 == this is a fake transaction built after a full import for publishers that only publish C not D/E
 	],
 	budget:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement) or total,country,org (organization total,country,org)
 		{ name:"budget_priority",				INTEGER:true , INDEX:true }, // set to 0 if it should be ignored(bad data or total)
 		{ name:"budget_type",					NOCASE:true , INDEX:true },	// planed disburtions have priority
@@ -108,18 +108,18 @@ dstore_db.tables={
 		{ name:"budget_org",					NOCASE:true , INDEX:true },	// only used by org budget from orgfile
 	],
 	country:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"country_code",					NOCASE:true , INDEX:true },
 		{ name:"country_percent",				REAL:true , INDEX:true },
 	],
 	sector:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group
 		{ name:"sector_code",					INTEGER:true , INDEX:true },
 		{ name:"sector_percent",				REAL:true , INDEX:true },
 	],
 	location:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"location_code",					NOCASE:true , INDEX:true },
 		{ name:"location_gazetteer_ref",		NOCASE:true , INDEX:true },
 		{ name:"location_gazetteer",			NOCASE:true , INDEX:true },
@@ -131,7 +131,7 @@ dstore_db.tables={
 	],
 // track what was imported...
 	slug:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
 	]
 };

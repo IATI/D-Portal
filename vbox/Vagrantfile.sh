@@ -5,6 +5,8 @@ echo " install build system "
 
 sudo apt-get install -y gcc-5 g++-5 build-essential
 
+echo " setting default DSTORE_PG , must be done before byobu breaks .profile "
+echo "export DSTORE_PG=\"/var/run/postgresql dstore\" " >> ~/.profile
 
 echo " install and enable byobu "
 
