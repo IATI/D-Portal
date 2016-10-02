@@ -479,7 +479,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 					}
 				}
 				
-				if((longitude)&&(latitude)) // only bother to remember good data, otherwise we waste time filtering it out.
+				if((typeof(longitude)=="number")&&(typeof(latitude)=="number")) // only bother to remember good data, otherwise we waste time filtering it out.
 				{
 					dstore_back.replace(db,"location",{
 						"aid":t.aid,
