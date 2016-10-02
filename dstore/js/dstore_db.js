@@ -452,11 +452,12 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var gazref=refry.tagattr(it,"gazetteer-entry","gazetteer-ref");
 				var gaz=refry.tagval_narrative(it,"gazetteer-entry");
 				var co=refry.tag(it,"coordinates");
+				var flags=0;
 				if(co)
 				{
 					longitude=tonumber(co.longitude);
 					latitude=tonumber(co.latitude);
-					precision=tonumber(co.precision);
+					precision=tonumber(co.precision);					
 				}
 				var point=refry.tag(it,"point");
 				var exact=refry.tag(it,"exactness");
@@ -477,18 +478,21 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 						}
 					}
 				}
-
-				dstore_back.replace(db,"location",{
-					"aid":t.aid,
-					"location_code":code,
-					"location_gazetteer_ref":gazref,
-					"location_gazetteer":gaz,
-					"location_name":name,
-					"location_longitude":longitude,
-					"location_latitude":latitude,
-					"location_precision":precision,
-					"location_percent":pc
-				});
+				
+				if((longitude)&&(latitude)) // only bother to remember good data, otherwise we waste time filtering it out.
+				{
+					dstore_back.replace(db,"location",{
+						"aid":t.aid,
+						"location_code":code,
+						"location_gazetteer_ref":gazref,
+						"location_gazetteer":gaz,
+						"location_name":name,
+						"location_longitude":longitude,
+						"location_latitude":latitude,
+						"location_precision":precision,
+						"location_percent":pc,
+					});
+				}
 			}
 		}
 
