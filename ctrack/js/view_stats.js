@@ -96,8 +96,8 @@ view_stats.ajax=function(args)
 			"select":"stats",
 			"from":"act,location",
 			"limit":-1,
-			"location_longitude_not_null":1, // must have a location
-			"location_latitude_not_null":1, // must have a location
+//			"location_longitude_not_null":1, // must have a location
+//			"location_latitude_not_null":1, // must have a location
 //			"country_code":(args.country || ctrack.args.country_select),
 //			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 //			"title_like":(args.search || ctrack.args.search),
