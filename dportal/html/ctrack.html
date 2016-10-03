@@ -4,6 +4,14 @@
 	<head>
 		<!--[if IE]><script type="text/javascript" src="{root}jslib/excanvas.js"></script><![endif]-->
 		<title>Development Portal</title>
+
+		<script data-pace-options='{ "eventLag": false }' src="{root}jslib/pace.min.js"></script>
+		<style>
+.pace .pace-progress { height:4px; background:#88f; position:fixed; z-index:9999; top:0; right:100%; width:100%; }
+.pace-inactive { display:none; }
+.pace { -webkit-pointer-events:none; pointer-events:none; -webkit-user-select:none; -moz-user-select:none; user-select:none; }
+		</style>
+
 		<script src="{root}jslib/ctrack_loader.js"></script>
 		<script>
 			ctrack_loader({
