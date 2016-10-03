@@ -489,14 +489,29 @@ dstore_pg.query_select=function(q,res,r){
 
 dstore_pg.analyze = function(){
 
+	var start_time=Date.now();
 	process.stdout.write("ANALYZE start\n");
 	var db = dstore_pg.open();
 	db.any("ANALYZE;").then(function(rows){
-		process.stdout.write("ANALYSE done\n");
+		var time=(Date.now()-start_time)/1000;
+		process.stdout.write("ANALYSE done "+time+"\n");
 		pgp.end();	
 	}).catch(err);
 	
 }
 
 
+dstore_pg.vacuum = function(){
+
+	var start_time=Date.now();
+	process.stdout.write("VACUUM start\n");
+	var db = dstore_pg.open();
+	db.any("VACUUM;").then(function(rows){
+		var time=(Date.now()-start_time)/1000;
+
+		process.stdout.write("VACUUM done "+time+"\n");
+		pgp.end();	
+	}).catch(err);
+	
+}
 
