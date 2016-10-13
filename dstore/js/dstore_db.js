@@ -133,7 +133,11 @@ dstore_db.tables={
 	slug:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
-	]
+	],
+// should we create joined table caches of the large data tables to speed lookup?
+//	country_location:[
+//		{ join_tables: [ "country","location" ] , join_by="aid" },
+//	],
 };
 	
 var http_getbody=function(url,cb)
