@@ -67,7 +67,7 @@
 				"capacity": "admin",
 				"name": "aidsalliance",
 				"created": "2011-10-07T12:27:54.567745",
-				"email_hash": "32e887ecfe3372e73d260de5a45001e9",
+				"email_hash": "b62e3f9aa14f37bcacf3d31f083b7d0e",
 				"sysadmin": false,
 				"activity_streams_email_notifications": false,
 				"state": "active",
@@ -16428,7 +16428,24 @@
 		"name": "helpage_international"
 	},
 	"hewlett-foundation": {
-		"users": [],
+		"users": [
+			{
+				"openid": "http://hewlett.myopenid.com/",
+				"about": "The William and Flora Hewlett Foundation has been making grants since 1967 to solve social and environmental problems at home and around the world.",
+				"capacity": "admin",
+				"name": "hewlett_foundation",
+				"created": "2011-03-29T14:58:22.532571",
+				"email_hash": "cb702a5e87daed7cb14874253488e232",
+				"sysadmin": false,
+				"activity_streams_email_notifications": false,
+				"state": "active",
+				"number_of_edits": 13,
+				"display_name": "The William and Flora Hewlett Foundation",
+				"fullname": "The William and Flora Hewlett Foundation",
+				"id": "a5612efa-27d5-49ff-b6dd-53a6941ef1f6",
+				"number_created_packages": 2
+			}
+		],
 		"display_name": "The William and Flora Hewlett Foundation",
 		"description": "",
 		"image_display_url": null,
@@ -25273,7 +25290,7 @@
 				"sysadmin": true,
 				"activity_streams_email_notifications": false,
 				"state": "active",
-				"number_of_edits": 237,
+				"number_of_edits": 238,
 				"display_name": "Rory Scott",
 				"fullname": "Rory Scott",
 				"id": "ac689ba8-54ae-4878-9a85-648039425dec",
