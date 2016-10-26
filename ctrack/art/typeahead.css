@@ -17,7 +17,7 @@
 #view_search_test		{margin:0 auto; width:960px; padding:30px 0 400px 0;}
 input#view_search_string, input.typeahead.tt-hint		{font-size:32px; width:936px; height:48px; border:0; margin-top:10px;}
 .search_wrap			{display:inline-block; width:290px; margin-bottom:15px;}
-.search_wrap:nth-child(2), .search_wrap:nth-child(5)	{margin-left:15px; margin-right:15px;}
+.search_wrap:nth-child(2), .search_wrap:nth-child(5)	{margin-left:20px; margin-right:20px;}
 .search_label			{font-size:14px; padding-bottom:5px; margin-right:23px; line-height:1.2em; text-transform:uppercase;}
 .search_label img		{padding-right:7px;width:14px;height:14px;}
 
@@ -31,5 +31,6 @@ input#view_search_string, input.typeahead.tt-hint		{font-size:32px; width:936px;
 #search_div				{position:relative; min-height:50px; margin-top:30px; margin-bottom:20px;}
 #search_div span#search_span span	{display:block; padding-top:5px;}
 
+/*	Discover Results search button	*/
 a#search_link			{display:block; text-align:center; margin:0 auto; font-size:1.6em; position:absolute; right:0; bottom:0; border-radius:6px; height:48px; max-height:48px; box-sizing:border-box; padding:12px 20px;}
 a#search_link span		{display:block; font-style:italic; font-size:0.6em; padding-top:5px;}
