@@ -100,6 +100,18 @@
 			</td>
 			{main_head_tail_settings}
 			
+
+#main_head_search
+<div class="default head">
+	{main_settings}
+	<table class="head">
+		<tr>
+			<td rowspan="3">
+				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}</a>
+				<div class="search_head">DISCOVER</div>
+			</td>
+			{main_head_tail_settings}
+			
 			
 #main_settings
 <div id="settings" style="display:none;">
@@ -244,23 +256,23 @@
 #main_searchmin
 <div class="default min">
 	<div class="search_cont">
-		<div class="search head">
+		<a href="#view=search" class="search search_head">
 			{search_view_txt}
-		</div><div class="search main">
+		</a><div class="search search_main">
 			<div class="search_query">
-				<div class="recipient"></div><span>( {search_recipient_txt})</span>
+				<div class="recipient"></div><span><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</span>
 			</div><div class="search_query">
-				<div class="donor"></div><span>( {search_donor_txt})</span>
+				<div class="donor"></div><span><img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}</span>
 			</div><div class="search_query">
-				<div class="sector"></div><span>( {search_sector_txt})</span>
+				<div class="sector"></div><span><img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}</span>
 			</div><div class="search_query">
-				<div class="sect_cat"></div><span>( {search_sectorcategory_txt})</span>
+				<div class="sect_cat"></div><span><img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}</span>
 			</div><div class="search_query">
-				<div class="publisher"></div><span>( {search_publisher_txt})</span>
+				<div class="publisher"></div><span><img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}</span>
 			</div><div class="search_query">
-				<div class="year"></div><span>( {search_year_txt})</span>
+				<div class="year"></div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}</span>
 			</div><div class="search_query">
-				<div class="text">...</div><span>( {search_text_txt})</span>
+				<div class="text"></div><span>{search_text_txt}</span>
 			</div>
 		</div>
 	</div>
@@ -293,23 +305,23 @@
 #main_search
 <div class="default min">
 	<div class="search_cont">
-		<div class="search head">
+		<a href="#view=search" class="search search_head">
 			{search_view_txt}
-		</div><div class="search main">
+		</a><div class="search search_main">
 			<div class="search_query">
-				<div class="recipient"></div><span>( {search_recipient_txt})</span>
+				<div class="recipient"></div><span><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</span>
 			</div><div class="search_query">
-				<div class="donor"></div><span>( {search_donor_txt})</span>
+				<div class="donor"></div><span><img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}</span>
 			</div><div class="search_query">
-				<div class="sector"></div><span>( {search_sector_txt})</span>
+				<div class="sector"></div><span><img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}</span>
 			</div><div class="search_query">
-				<div class="sect_cat"></div><span>( {search_sectorcategory_txt})</span>
+				<div class="sect_cat"></div><span><img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}</span>
 			</div><div class="search_query">
-				<div class="publisher"></div><span>( {search_publisher_txt})</span>
+				<div class="publisher"></div><span><img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}</span>
 			</div><div class="search_query">
-				<div class="year"></div><span>( {search_year_txt})</span>
+				<div class="year"></div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}</span>
 			</div><div class="search_query">
-				<div class="text"></div><span>( {search_text_txt})</span>
+				<div class="text"></div><span>{search_text_txt}</span>
 			</div>
 		</div>
 	</div>

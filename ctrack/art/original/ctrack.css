@@ -243,23 +243,23 @@ a.csv_download:hover		{background-color:rgba(115,182,255,0.49); color:#FFF;}
 /*	For url #view=search
 	============================================= */
 input#view_search_string, input.typeahead.tt-hint		{color:#FFF;}
-.search_filter				{width:960px; margin:0 auto; padding:25px 23px 14px 23px; box-sizing:border-box; border:1px solid #FFF;}
+.search_filter				{width:960px; margin:0 auto; padding:25px 23px 14px 23px; box-sizing:border-box; background-color:rgba(11,37,60,0.5); border-radius:6px;}
 .search_label				{color:#FFF;}
 #search_div					{color:#FFF;}
-a#search_link				{background-color:rgba(0,14,32,0.7); color:#53B4ED;}
-a#search_link span			{color:#83AEC7;}
-a#search_link:hover			{background-color:rgba(0,14,32,0.9);}
+a#search_link				{background-color:#DDD; color:#6A7169;}
+a#search_link:hover			{background-color:#FFF;}
+.search_head				{color:#53B4ED; letter-spacing:5px; font-size:18px; font-weight:bold; margin-top:5px;}
 	
 	
-/*	Search Headers
+/*	For url #view=search - Discover styles
 	============================================= */
-.search_cont				{margin:0 auto; padding:5px 0 10px 0; border-bottom:10px solid #FFF;}
-.search, .search_query		{display:inline-block; vertical-align:top;}
-.search						{width:240px;}
-.search.main				{width:720px;}
-.search.head				{font-size:2.0em; line-height:1.1em; color:#FFF;}
-.search_query				{font-size:1.1em; line-height:1.1em; color:#FFF; padding:0 30px 10px 0; width:210px;}
-.search_query span			{font-size:0.8em; display:block; padding-top:5px; font-style:italic;}
+.search_cont				{margin:0 auto; background-color:rgba(11,37,60,0.5); border-radius:6px; width:960px; box-sizing:border-box; padding:20px 30px;}
+.search_query				{display:inline-block; vertical-align:top;}
+.search_main				{width:900px;}
+a.search_head				{display:block; color:#53B4ED; margin-top:10px; margin-bottom:10px;}
+.search_query				{font-size:1.1em; line-height:1.1em; color:#FFF; padding:10px 30px 10px 0; width:300px; box-sizing:border-box;}
+.search_query span			{font-size:14px; display:block; padding-top:5px; color:#ccc; line-height:1.2em; text-transform:uppercase;}
+.search_query span img		{padding-right:7px; height:14px; width:14px; -webkit-filter:brightness(80%); filter:brightness(80%);}
 
 
 /*	Table header styles

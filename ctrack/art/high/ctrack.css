@@ -235,23 +235,24 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 	============================================= */
 input.typeahead				{border-bottom:1px solid #000 !important;}
 input#view_search_string, input.typeahead.tt-hint		{color:#000;}
-.search_filter				{width:960px; margin:0 auto; padding:25px 23px 14px 23px; box-sizing:border-box; border:1px solid #000;}
+.search_filter				{width:960px; margin:0 auto; padding:25px 23px 14px 23px; box-sizing:border-box; border:1px solid #000; border-radius:6px;}
 .search_label				{color:#000;}
 #search_div					{color:#000;}
 a#search_link				{background-color:#000; color:#FFF;}
 a#search_link span			{color:#FFF;}
 a#search_link:hover			{background-color:#000; color:#FFF;}
+.search_head				{color:#000; letter-spacing:5px; font-size:18px; font-weight:bold; margin-top:5px;}
 
 
-/*	Search Headers
+/*	For url #view=search - Discover styles
 	============================================= */
-.search_cont				{margin:0 auto; padding:5px 0 10px 0; border-bottom:10px solid #000;}
-.search, .search_query		{display:inline-block; vertical-align:top;}
-.search						{width:240px;}
-.search.main				{width:720px;}
-.search.head				{font-size:2.0em; line-height:1.1em; color:#000;}
-.search_query				{font-size:1.1em; line-height:1.1em; color:#000; padding:0 30px 10px 0; width:210px;}
-.search_query span			{font-size:0.8em; display:block; padding-top:5px; font-style:italic;}
+.search_cont				{margin:0 auto; border:1px solid #000; border-radius:6px; width:960px; box-sizing:border-box; padding:20px 30px;}
+.search_query				{display:inline-block; vertical-align:top;}
+.search_main				{width:900px;}
+a.search_head				{display:block; color:#000; margin-top:10px; margin-bottom:10px;}
+.search_query				{font-size:1.1em; line-height:1.1em; color:#000; padding:10px 30px 10px 0; width:300px; box-sizing:border-box;}
+.search_query span			{font-size:14px; display:block; padding-top:5px; color:#000; line-height:1.2em; text-transform:uppercase;}
+.search_query span img		{padding-right:7px; height:14px; width:14px;}
 
 
 /*	Table header styles
