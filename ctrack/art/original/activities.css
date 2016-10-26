@@ -8,7 +8,7 @@ a:hover				{text-decoration:none; color:#FF7A00;}
 ok					{display:none;}
 query				{display:none;}
 iati-activity *		{display:none; color:#fff;}
-iati-activity		{display:block; width:960px; margin:0 auto; margin-bottom:320px; background-color:rgba(0,14,32,0.7);}
+iati-activity		{display:block; width:960px; margin:0 auto; margin-bottom:320px; background-color:rgba(0,14,32,0.7); word-break:break-word;}
 iati-activity:after {content:"Data is sourced from IATI for D-Portal. If you find anything out of place, please contact the development team - support@iatistandard.org"; font-size:14px; color:#ccc; display:block; padding:15px 0; text-align:center;}
 
 
@@ -30,7 +30,7 @@ span.span_span-title span-title:before	{content:"PROJECT TITLE"; font-size:14px;
 
 /*	IATI Identifier
 	============================================= */
-iati-identifier 		{display:block; background-color: rgba(0,14,32,0.7); width:880px; text-align:center; font-size:1.0em; padding:15px 40px; color:#FF7A00; margin:0 auto;}
+iati-identifier 		{display:block; background-color: rgba(0,14,32,0.7); width:880px; text-align:center; font-size:1.0em; line-height:1.5em; padding:15px 40px; color:#FF7A00; margin:0 auto;}
 iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:5px;}
 iati-identifier:hover	{color:#FFAB5E;}
 a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:baseline;}
