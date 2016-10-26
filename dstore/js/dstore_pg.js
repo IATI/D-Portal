@@ -515,3 +515,73 @@ dstore_pg.vacuum = function(){
 	
 }
 
+dstore_pg.fake_trans = function(){
+
+	var db = dstore_pg.open();
+	
+	var ids={};
+
+	var fake_ids=[];
+	
+	process.stdout.write("Removing all fake transactions\n");
+
+	dstore_back.delete_from(db,"trans",{trans_flags:1});
+
+	db.any("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code").then(function(rows)
+	{
+
+		for(i=0;i<rows.length;i++)
+		{
+			var v=rows[i];
+			if(v.trans_code=="C")
+			{
+				ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) + 1 ;
+			}
+			else
+			if( (v.trans_code=="D") || (v.trans_code=="E") )
+			{
+				ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) - 1 ;
+			}
+		}
+		for(var n in ids)
+		{
+			var v=ids[n];
+			if(v>0) // we have commitments but no D or E 
+			{
+				fake_ids.push(n);
+			}
+		}
+
+		process.stdout.write("The following publishers will have fake transactions added\n");
+		ls(fake_ids);
+
+		process.stdout.write("Adding fake transactions for the following IDs\n");
+		var ps=[];
+		for(i=0;i<fake_ids.length;i++) // add new fake
+		{
+			var v=fake_ids[i];
+			var p=db.any("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=${reporting_ref} AND trans_code=${trans_code} ",{reporting_ref:v,trans_code:"C"}).then(function(rows)
+			{
+				for(j=0;j<rows.length;j++)
+				{
+					var t=rows[j];
+					process.stdout.write(t.aid+"\n");
+					t.trans_code="D";
+					t.trans_flags=1;
+					var p=db.none(dstore_db.tables_replace_sql["trans"],t).catch(err);
+					ps.push(p);
+				}
+//					ls(rows);
+			}).catch(err);
+			ps.push(p);
+		}
+		
+		Promise.all(ps).then(function()
+		{
+			process.stdout.write("Finished\n");
+			pgp.end();
+		}).catch(err);
+
+	}).catch(err);
+
+};
