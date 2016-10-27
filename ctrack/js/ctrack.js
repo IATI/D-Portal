@@ -553,7 +553,7 @@ ctrack.setup=function(args)
 		
 		if(ctrack.display_wait_max>0)
 		{
-			ctrack.display_progress=100 - (100*ctrack.display_wait/ctrack.display_wait_max);
+			ctrack.display_progress=100 - (100*(ctrack.display_wait+1)/(ctrack.display_wait_max+1));
 		}
 		else
 		{
