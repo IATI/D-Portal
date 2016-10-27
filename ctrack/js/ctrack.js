@@ -528,16 +528,45 @@ ctrack.setup=function(args)
 	{
 		ctrack.hash={"view":"main"};
 	}
+	ctrack.display_wait_time=((new Date()).getTime());
 	ctrack.display_wait=0;
+	ctrack.display_wait_max=0;
+	ctrack.progress=100; // a progress value for pace
+	ctrack.display_wait_update=function(add){
+		ctrack.display_wait=ctrack.display_wait+add;
+		if( ctrack.display_wait <= 0 ) // done
+		{
+			ctrack.display_wait_time=((new Date()).getTime());
+			ctrack.display_wait=0;
+			ctrack.display_wait_max=0;
+			ctrack.progress=100;
+		}
+		else
+		if( ctrack.display_wait > ctrack.display_wait_max ) // waiting for
+		{
+			ctrack.display_wait_time=((new Date()).getTime());
+			ctrack.display_wait_max=ctrack.display_wait;
+		}
+		
+		if(ctrack.display_wait_max>0)
+		{
+			ctrack.progress=100 - (100*ctrack.display_wait/ctrack.display_wait_max);
+		}
+		else
+		{
+			ctrack.progress=100;
+		}
+	};
 	ctrack.display=function()
 	{
 //console.log(ctrack.display_wait);
-		ctrack.display_wait--;
-		if(ctrack.display_wait<=0)
-		{
-			ctrack.display_wait=0;
-			ctrack.change_hash();
-		}
+		ctrack.display_wait_update(-1);
+		
+//		if( ( ctrack.display_wait_time < ((new Date()).getTime()-1000) ) || ( ctrack.progress==100) )
+//		{
+			ctrack.change_hash(); // update when done or after waiting a little while
+//		}
+
 	}
 	ctrack.change_hash=function(h)
 	{
