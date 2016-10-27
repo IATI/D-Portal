@@ -12,6 +12,7 @@ var chart=require("./chart.js")
 var views=require("./views.js");
 
 var ganal=require("./ganal.js");
+var Nanobar=require("./nanobar.js");
 
 var iati_codes=require("../../dstore/json/iati_codes.json");
 
@@ -67,6 +68,8 @@ ctrack.dosort=function(s)
 
 ctrack.setup=function(args)
 {
+	ctrack.nanobar = new Nanobar( {} );
+
 	ctrack.q={};
 	window.location.search.substring(1).split("&").forEach(function(n){
 		var aa=n.split("=");
@@ -531,7 +534,7 @@ ctrack.setup=function(args)
 	ctrack.display_wait_time=((new Date()).getTime());
 	ctrack.display_wait=0;
 	ctrack.display_wait_max=0;
-	ctrack.progress=100; // a progress value for pace
+	ctrack.display_progress=100;
 	ctrack.display_wait_update=function(add){
 		ctrack.display_wait=ctrack.display_wait+add;
 		if( ctrack.display_wait <= 0 ) // done
@@ -539,7 +542,7 @@ ctrack.setup=function(args)
 			ctrack.display_wait_time=((new Date()).getTime());
 			ctrack.display_wait=0;
 			ctrack.display_wait_max=0;
-			ctrack.progress=100;
+			ctrack.display_progress=100;
 		}
 		else
 		if( ctrack.display_wait > ctrack.display_wait_max ) // waiting for
@@ -550,21 +553,24 @@ ctrack.setup=function(args)
 		
 		if(ctrack.display_wait_max>0)
 		{
-			ctrack.progress=100 - (100*ctrack.display_wait/ctrack.display_wait_max);
+			ctrack.display_progress=100 - (100*ctrack.display_wait/ctrack.display_wait_max);
 		}
 		else
 		{
-			ctrack.progress=100;
+			ctrack.display_progress=100;
 		}
+		
+		ctrack.nanobar.go( ctrack.display_progress );
+		
 	};
 	ctrack.display=function()
 	{
 //console.log(ctrack.display_wait);
 		ctrack.display_wait_update(-1);
 		
-//		if( ( ctrack.display_wait_time < ((new Date()).getTime()-1000) ) || ( ctrack.progress==100) )
+//		if( ( ctrack.display_wait_time < ((new Date()).getTime()-1000) ) || ( ctrack.display_progress==100) )
 //		{
-			ctrack.change_hash(); // update when done or after waiting a little while
+			ctrack.change_hash(); // update when done or after waiting a little while?
 //		}
 
 	}
