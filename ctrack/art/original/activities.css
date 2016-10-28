@@ -155,7 +155,7 @@ img.sector_pie					{padding:40px; background-color:#FFF;}
 	============================================= */
 budget					{display:block; width:960px; border-top:1px solid #AAA; padding:20px 0; border-bottom:0;}
 budget:last-of-type	 	{border-bottom:0px solid #1E90FF;}
-budget:nth-of-type(1)	{margin-top:0px; padding-top:0;}
+budget:nth-of-type(1)	{margin-top:0px; padding-top:0; border-top:0;}
 budget:nth-of-type(1):before				{content:"Budgets"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px;}
 budget:nth-of-type(1) period-start:before 	{content:"START DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
 budget:nth-of-type(1) period-end:before	  	{content:"END DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
@@ -170,8 +170,8 @@ budget value 			{display:inline-block; vertical-align:top; color:#FFF; font-size
 transaction							{display:block; width:960px; border-top:1px solid #AAA; padding:20px 0; border-bottom:0;}
 transaction a						{color:#FF7A00;}
 transaction a:hover					{color:#FFAB5E;}
-transaction:last-of-type			{border-bottom:1px solid #AAA;}
-transaction:nth-of-type(1)			{margin-top:0px; padding-top:0;}
+transaction:last-of-type			{border-bottom:0px solid #AAA;}
+transaction:nth-of-type(1)			{margin-top:0px; padding-top:0; border-top:0;}
 transaction:nth-of-type(1):before	{content:"Transactions"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px;}
 
 transaction:nth-of-type(1) transaction-date:before	{content:"DATE"; font-size:14px; color:#CCC; width:105px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
