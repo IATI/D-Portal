@@ -178,7 +178,7 @@ a.stats_link.missing span	{color:#008FFF;}
 
 /*	Data Description styles
 	============================================= */
-.description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,14,32,0.9) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 50%,rgba(0,14,32,0.9) 100%); padding-bottom:40px;}
+.description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(0,14,32,0) 0%,rgba(0,14,32,0.5) 60%,rgba(0,14,32,0.9) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,14,32,0) 0%,rgba(0,14,32,0.5) 60%,rgba(0,14,32,0.9) 100%); padding-bottom:40px;}
 .description			{width:880px; margin:0 auto; padding:40px; text-align:left; margin-bottom:40px; background-color:rgba(255,255,255,0.1);}
 .description span.title	{display:block; color:#FFF; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-bottom:1px solid #FFF;}
 .description span.title.sub	{font-size:1.0em; border:0; margin:0; padding-bottom:10px; font-weight:bold;}
@@ -429,7 +429,7 @@ table.data td			{color:#FFF; font-size:1.0em; line-height:1.4em; padding:10px 20
 /*	Data Investigators alert
 	============================================= */
 .data_wrap				{position:absolute; bottom:0; width:100%; margin:0 auto;}
-a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:0.9em; color:#C7A1D6; text-align:center; background-color:rgba(194,0,255,0.4);}
+a.data_invest			{display:block; width:100%; margin:0 auto; padding:10px 0; line-height:1.5em; font-size:16px; color:#C7A1D6; text-align:center; background-color:rgba(194,0,255,0.4);}
 a.data_invest:hover		{color:#FFF; background-color:rgba(194,0,255,0.8);}
 
 
