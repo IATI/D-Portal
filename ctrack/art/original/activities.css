@@ -33,14 +33,13 @@ span.span_span-title narrative:nth-of-type(2)	{display:block; padding:10px 0 0 0
 	============================================= */
 iati-identifier 		{display:block; background-color: rgba(0,14,32,0.7); width:880px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#FF7A00; margin:0 auto;}
 iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
-iati-identifier:hover	{color:#FFAB5E;}
 a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:baseline;}
 a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; padding-left:20px;}
 a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
-a.a_xml_iati-identifier:hover	{text-decoration:underline;}
+a.a_xml_iati-identifier:hover	{color:#FFAB5E;}
 a.a_slug				{display:inline-block; vertical-align:baseline; padding-left:20px;}
 a.a_slug:before			{content:"IATI REGISTRY"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
-a.a_slug:hover			{text-decoration:underline;}
+a.a_slug:hover			{color:#FFAB5E;}
 
 
 /*	Recipient countries
@@ -168,8 +167,8 @@ budget value 			{display:inline-block; vertical-align:top; color:#FFF; font-size
 /*	Transaction table
 	============================================= */
 transaction							{display:block; width:960px; border-top:1px solid #AAA; padding:20px 0; border-bottom:0;}
-transaction a						{color:#FF7A00;}
-transaction a:hover					{color:#FFAB5E;}
+transaction a						{color:#FFAB5E;}
+transaction a:hover					{color:#FF7A00;}
 transaction:last-of-type			{border-bottom:0px solid #AAA; margin-bottom:40px;}
 transaction:nth-of-type(1)			{margin-top:0px; padding-top:0; border-top:0;}
 transaction:nth-of-type(1):before	{content:"Transactions"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
