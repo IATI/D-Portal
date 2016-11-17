@@ -285,6 +285,9 @@ view_search.fixup=function()
 	$('#view_search_string').bind('change', function(ev, a) {
 		build_query();
 	});
+	
+	
+	build_query();
 
 }
 //
@@ -295,33 +298,9 @@ view_search.view=function(args)
 
 	views.search.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 
-//	views.planned.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-//	views.active.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-//	views.ended.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-//	views.stats.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-//	views.donors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-//	views.sectors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
-
-
 	ctrack.setcrumb(0);
 	ctrack.change_hash();
 
-/*
-	views.planned.ajax({output:"count"});
-	views.active.ajax({output:"count"});
-	views.ended.ajax({output:"count"});
-	views.missing.ajax({output:"count"});
-*/
-//	views.stats.ajax();
-	
-//	views.active.ajax({limit:5,plate:"{table_active_data}",chunk:"table_active_datas"});
-//	views.ended.ajax({limit:5,plate:"{table_ended_data}",chunk:"table_ended_datas"});
-
-//	views.donors_top.ajax();
-//	views.sectors_top.ajax();	
-
-//	ctrack.map.pins=undefined;
-//	views.map.ajax_heat({limit:200});
 
 	var compare=function(a,b)
 	{
@@ -406,6 +385,25 @@ view_search.view=function(args)
 	a.sort(compare);
 	ctrack.chunk("search_options_year",a.join(""));
 
+// old index hack... should stop using {root} maybe?
+	ctrack.chunk("root","/");
+
+	var s=[];
+	for(var n in iati_codes.country) { var v=iati_codes.country[n]; // only countries
+		if( iati_codes.crs_countries[n] ) // only recipients
+		{
+			s.push( plate.replace("{search_country_select}",{it:{id:n,name:v,cc:n.toLowerCase()}}) );
+		}
+	}
+	s.sort(compare);
+	ctrack.chunk("countries_country_select",s.join(""));
+
+	var s=[];
+	for(var n in iati_codes.publisher_names) { var v=iati_codes.publisher_names[n];
+		s.push( plate.replace("{search_publisher_select}",{it:{id:n,name:v}}) );
+	}
+	s.sort(compare);
+	ctrack.chunk("publishers_publisher_select",s.join(""));
 
 	view_search.ajax();
 }
