@@ -320,7 +320,7 @@ view_search.fixup=function()
 		$("#publisher_dropmenu").html(aa.join(""));
 		
 		$("#publisher_dropmenu select").change(change);
-		$("#publisher_dropmenu select").chosen({search_contains:true,"placeholder_text_single":"{search_publisher_dropmenu_text}"});
+		$("#publisher_dropmenu select").chosen({search_contains:true,"placeholder_text_single":plate.replace("{search_publisher_dropmenu_text}")});
 
 		var aa=[];
 		aa.push("<select>");
@@ -335,7 +335,7 @@ view_search.fixup=function()
 		$("#country_dropmenu").html(aa.join(""));
 
 		$("#country_dropmenu select").change(change);
-		$("#country_dropmenu select").chosen({search_contains:true,"placeholder_text_single":"{search_country_dropmenu_text}"});
+		$("#country_dropmenu select").chosen({search_contains:true,"placeholder_text_single":plate.replace("{search_country_dropmenu_text}")});
 
 	};
 
