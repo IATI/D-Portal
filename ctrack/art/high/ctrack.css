@@ -141,6 +141,17 @@ a.feedback_txt, #more_feedback_info	{color:#000; display:inline-block; vertical-
 #more_feedback_info a:hover	{border-bottom:1px solid #fff;}
 
 
+/*	Generator link - INDEX PAGE
+	============================================= */
+.screen_generator		{display:block; background:url('/art/generator.png')no-repeat; background-size:540px 562px; width:540px; height:200px;}
+a.description_wrap.bigbutton						{display:block; width:878px; margin-bottom:40px; padding:40px 40px 0 40px; background-color:rgba(255,255,255,0); border:1px solid #000;}
+a.description_wrap.bigbutton:hover					{background-color:rgba(255,255,255,0.1);}
+a.description_wrap.bigbutton span.description		{margin:0; width:340px; padding:0; background:transparent; display:inline-block; vertical-align:top;}
+a.description_wrap.bigbutton span.description.img	{width:540px;}
+a.description_wrap.bigbutton span.title				{border:0; font-size:60px; margin:0; width:100%;}
+a.description_wrap.bigbutton p						{padding:0; font-size:24px; line-height:29px; color:#000;}
+
+
 /*	Blog styles
 	============================================= */
 .blog_head			{width:960px; margin:0 auto; color:#000; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #000;}

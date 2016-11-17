@@ -13,6 +13,7 @@
 {view_search_test}
 {explore_portals}
 {compare_buttons}
+{intro_generator}
 {where_is_the_data_from}
 {view_tail}
 			
@@ -147,7 +148,17 @@
 <li class="publishercol">
 	<a class="country_code" href="/ctrack.html?publisher={it.id}&tongue={tongue}">
 		<span class="select_wrap publishername">{it.name}</span>
-		<span class="select_wrap publisherid">{it.id}<span>
+		<span class="select_wrap publisherid">{it.id}</span>
 	</a>
 </li>
 
+
+#intro_generator
+<a href="/ctrack.html#view=generator" class="description_wrap bigbutton">
+	<span class="description">
+		<span class="title">{install_button_text}</span>
+		<p>{install_info_text}</p>
+	</span><span class="description">
+		<span class="screen_generator"></span>
+	</span>
+</a>
