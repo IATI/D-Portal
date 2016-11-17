@@ -7,10 +7,13 @@
 
 #view_search
 {view_head}
-<style>.crumb_wrap{display:none;}#background_image{url('/art/mexico_background_image.jpg')};{css}</style>
+<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}#background_image{url('/art/mexico_background_image.jpg')};{css}</style>
 {beige}
-{main_head_search}
+{main_head}
 {view_search_test}
+{explore_portals}
+{compare_buttons}
+{where_is_the_data_from}
 {view_tail}
 			
 			
@@ -76,3 +79,306 @@
 	<input type="text" id="view_search_string" class="typeahead" placeholder="{search_placeholder_txt}"/>
 	
 </div>
+
+
+#explore_portals
+<span id="explore"></span>
+<div class="country_menu_wrap">
+	<div id="country_dropmenu"></div><div id="publisher_dropmenu"></div>
+	<div class="country_menu_list_wrap">
+		<div class="menu_list_wrap left">
+			<ul id="country_menu_list" class="country_menu_list">{countries:country_select}</ul>
+		</div><div class="menu_list_wrap">
+			<ul id="publisher_menu_list" class="country_menu_list">{publishers:publisher_select}</ul>
+		</div>
+	</div>
+</div>
+
+#compare_buttons
+<div class="default">
+	<div class="compare_wrap">
+		<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publisher_countries">
+			<span class="select_wrap full">{all_countries_text}</span>
+		</a></div><div class="compare_wrap pub">
+		<a class="path" href="{root}ctrack.html?tongue={tongue}#view=publishers">
+			<span class="select_wrap full">{all_publishers_text}</span>
+		</a>
+	</div>
+</div>
+
+#where_is_the_data_from
+<div class="description_splash">
+	<div class="description">
+		<span class="title">{index_title2_text}</span>
+		<p>{index_paragraph3_text}</p>
+		<p>{index_paragraph4_text}</p>
+		<p>{index_paragraph5_text}</p>
+		<p>{index_paragraph6_text}</p>
+	</div>
+</div>
+
+
+#country_select
+<li>
+	<a class="country_code" href="{root}ctrack.html?country={it.id}&tongue={tongue}">
+		<span class="select_wrap">
+			<img src="{root}art/flag/{it.cc}.png" alt="{it.name} {flag_alt_text}"/>
+		</span><span class="select_wrap countryid">
+			{it.id}
+		</span><span class="select_wrap countryname">
+			{it.name}
+		</span>
+	</a>
+</li>
+
+
+#publisher_select
+<li class="publishercol">
+	<a class="country_code" href="{root}ctrack.html?publisher={it.id}&tongue={tongue}">
+		<span class="select_wrap publishername">{it.name}</span>
+		<span class="select_wrap publisherid">{it.id}<span>
+	</a>
+</li>
+
+#js_country_lookup
+"{it.cc}":"{it.name}",
+#jsmenu
+<script>
+	
+	$(function(){
+
+		var publisher_names = {publisher_names_json};
+		var country_names = {country_names_json};
+		var crs_countries = {crs_countries_json};
+
+		var reportings;
+		var countries;
+		
+// default data in page so can display without any ajax
+
+		countries={rows:[]};
+		var rows=countries.rows;
+		for(idx in crs_countries)
+		{
+			var name=country_names[idx];
+			if(name){ rows.push({name:name,country_code:idx}); }
+		}
+		rows.sort(function(a, b) {
+			var ta = a.name.toUpperCase();
+			var tb = b.name.toUpperCase();
+			return (ta < tb) ? -1 : (ta > tb) ? 1 : 0 ;
+		});
+
+		reportings={rows:[]};
+		var rows=reportings.rows;
+		for(idx in publisher_names)
+		{
+			var name=publisher_names[idx];
+			rows.push({name:name,reporting_ref:idx});
+		}
+		rows.sort(function(a, b) {
+			var ta = a.name.toUpperCase();
+			var tb = b.name.toUpperCase();
+			return (ta < tb) ? -1 : (ta > tb) ? 1 : 0 ;
+		});
+
+		
+// goto new url
+		var change=function(){
+
+			var name=""+$("#publisher_dropmenu select").val();
+			if(name && (name!=""))
+			{
+				window.location.href="{root}ctrack.html?publisher="+name+"&tongue={tongue}"
+			}
+
+			var name=""+$("#country_dropmenu select").val();
+			if(name && (name!=""))
+			{
+				window.location.href="{root}ctrack.html?country="+name+"&tongue={tongue}"
+			}
+
+		};
+
+// fill in lists
+		var refresh=function(){
+			if(reportings)
+			{
+				var ll=$("#publisher_menu_list");
+				
+				ll.empty();
+
+
+				var aa=[];
+				aa.push("<select>");
+				aa.push("<option value=''></option>");
+				for(var i=0;i<reportings.rows.length;i++)
+				{
+					var v=reportings.rows[i];
+					if(v.reporting_ref && v.name) // must be real publisher
+					{
+						var t=v.name
+						if(v.count) { t=t+" ("+v.count+") "; }
+						var s="<option value='"+v.reporting_ref+"'>"+t+"</option>";
+						aa.push(s);
+					}
+				}
+				aa.push("</select>");
+				$("#publisher_dropmenu").html(aa.join(""));
+				
+				$("#publisher_dropmenu select").change(change);
+				$("#publisher_dropmenu select").chosen({search_contains:true,"placeholder_text_single":"{publisher_dropmenu_text}"});
+
+				for(var i=0;i<reportings.rows.length;i++)
+				{
+					var v=reportings.rows[i];
+					if(v.name && v.reporting_ref)
+					{
+					ll.append(
+"	<li class=\"publishercol\">	"+
+"		<a class=\"country_code\" href=\"{root}ctrack.html?publisher="+v.reporting_ref+"&tongue={tongue}\">	"+
+"			<span class=\"select_wrap publishername\">"+v.name+"</span>	"+
+"			<span class=\"select_wrap publisherid\">"+v.reporting_ref+"</span>	"+
+"		</a>	"+
+"	</li>		");
+					}
+				}
+
+			}
+			if(countries)
+			{
+				var aa=[];
+				aa.push("<select>");
+				aa.push("<option value=''></option>");
+				for(var i=0;i<countries.rows.length;i++)
+				{
+					var v=countries.rows[i];
+					if(v.name) // must be real country
+					{
+						var t=(v.name || v.country_code )
+						if(v.count) { t=t+" ("+v.count+") "; }
+						var s="<option value='"+v.country_code+"'>"+t+"</option>";
+						aa.push(s);
+					}
+				}
+				aa.push("</select>");
+				$("#country_dropmenu").html(aa.join(""));
+
+				$("#country_dropmenu select").change(change);
+				$("#country_dropmenu select").chosen({search_contains:true,"placeholder_text_single":"{country_dropmenu_text}"});
+			}
+		};
+
+// initialise page		
+		refresh();
+		
+/*
+		var lookup={ {countries:js_country_lookup} };
+
+
+		(function(){
+			var callback=function(dd)
+			{
+//				console.log("reporting");
+//				console.log(dd);
+				reportings=dd;
+				
+				for(var i=0;i<reportings.rows.length;i++)
+				{
+					var v=reportings.rows[i];
+					v.name=publisher_names[v.reporting_ref];
+					if(v.name)
+					{
+						v.name=v.name.replace("(","");
+						v.name=v.name.replace(")","");
+						v.namelow=v.name.toLowerCase();
+					}
+				}
+				for(var i=reportings.rows.length-1;i>=0;i--)
+				{
+					if(!reportings.rows[i].name)
+					{
+						reportings.rows.splice(i,1);
+					}
+				}
+				reportings.rows.sort(
+					function(a,b){
+						if(a.namelow && b.namelow)
+						{
+							if(a.namelow<b.namelow){return -1;}
+							if(a.namelow>b.namelow){return 1;}
+						}
+						return 0;
+					}
+				);
+				
+				refresh();
+			};
+			var dd={};
+			dd.groupby="reporting_ref";
+			dd.orderby="1-";
+			dd.select="count,reporting_ref,reporting";
+			dd.limit=-1;
+			$.ajax({
+			  dataType: "json",
+			  url: "/q?callback=?",
+			  data: dd,
+			  success: callback
+			});
+		})();
+
+		(function(){
+			var callback=function(dd)
+			{
+//				console.log("country");
+//				console.log(dd);
+				countries=dd;
+
+				for(var i=0;i<countries.rows.length;i++)
+				{
+					var v=countries.rows[i];
+					v.name=lookup[v.country_code.toLowerCase()];
+					if(v.name)
+					{
+						v.namelow=v.name.toLowerCase();
+					}
+				}
+				for(var i=countries.rows.length-1;i>=0;i--)
+				{
+					if(!countries.rows[i].name)
+					{
+						countries.rows.splice(i,1);
+					}
+				}
+				countries.rows.sort(
+					function(a,b){
+						if(a.namelow && b.namelow)
+						{
+							if(a.namelow<b.namelow){return -1;}
+							if(a.namelow>b.namelow){return 1;}
+						}
+						return 0;
+					}
+				);
+
+				refresh();
+			};
+			var dd={};
+			dd.groupby="country_code";
+			dd.orderby="1-";
+			dd.select="count,country_code";
+			dd.from="act,country";
+			dd.limit=-1;
+			$.ajax({
+			  dataType: "json",
+			  url: "/q?callback=?",
+			  data: dd,
+			  success: callback
+			});
+		})();
+*/
+
+	});
+
+</script>
+

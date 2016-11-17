@@ -7,9 +7,6 @@
 #title_sector_year_text
 どこにお金が行くのですか？ (IATI {year})
 
-#table_declare_text
-*探求するために、次のセルのいずれかをクリックして。説明のための任意のセル上にマウスを移動。それに応じて並べ替えるには、列のタイトルをクリックします。
-
 #money_title_icon_alt_text
 国民はお金がどこにあるか知って欲しい！
 
@@ -624,6 +621,21 @@ IATI予算
 #districts_data_description_text
 これは、データがお金が地区に行くために計算されている方法です。
 
+#index_title2_text
+データどこからですか？
+
+#index_paragraph3_text
+ドロップダウンメニュー内のデータがフェッチされた新しいデータで日常GMT0を更新<a href="https://github.com/devinit/D-Portal/tree/master/dstore">データベース</a>でから構築されているIATIレジストリから。
+
+#index_paragraph4_text
+私たちは、<a href="http://en.wikipedia.org/wiki/ISO_3166-2"> ISO3166-2</a>のを使用して、出版社によって報告されている国をリストアップ。帰属およびデータ·ソースへのリンクは、<a href="about.html#sources">はこちらを行く</a>.
+
+#index_paragraph5_text
+彼らのIATIパブリッシャIDを持つ出版社のリストはストレートIATIレジストリデータベースから来ている。
+
+#index_paragraph6_text
+出版社のドロップダウンリストは、これらの出版社によって報告された公開されたXMLの活動から来ている。
+
 #main_data_description_title_text
 データはどのように計算されますか？
 
@@ -934,3 +946,9 @@ DISCOVER
 
 #search_placeholder_txt
 入力します（例えば地震）、またはあなたの検索を絞り込むためにフィルタを追加
+
+#all_countries_text 
+すべての国の比較 
+
+#all_publishers_text 
+すべての出版社の比較

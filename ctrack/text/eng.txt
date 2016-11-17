@@ -7,9 +7,6 @@ Where does the money come from? (IATI {year})
 #title_sector_year_text
 Where does the money go? (IATI {year})
 
-#table_declare_text
-*Click on any Donor/Sector or IATI cells to explore. Hover over any cells for explanations. Click on the column titles to sort accordingly.
-
 #money_title_icon_alt_text
 The public wants to know where the money is!
 
@@ -624,6 +621,21 @@ How is the data calculated?
 #districts_data_description_text
 This is how the data is calculated for money going to districts.
 
+#index_title2_text
+Where is the data from?
+
+#index_paragraph3_text
+Data in the dropdown menu is built from the <a href="https://github.com/devinit/D-Portal/tree/master/dstore">database</a> which updates everyday at GMT +0 with new data fetched from the IATI Registry.
+
+#index_paragraph4_text
+We list countries that are reported by publishers using <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>. For attribution and links to data sources, <a href="about.html#sources">go here</a>.
+
+#index_paragraph5_text
+The list of publishers with their IATI publisher ID comes straight from the IATI Registry database.
+
+#index_paragraph6_text
+The dropdown list of publishers comes from published XML activities reported by these publishers.
+
 #main_data_description_title_text
 How is the data calculated?
 
@@ -932,3 +944,9 @@ Search
 
 #search_placeholder_txt
 Type (eg. quake) or add Filters to narrow your search
+
+#all_countries_text
+Compare all Countries
+
+#all_publishers_text
+Compare all Publishers

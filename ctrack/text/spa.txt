@@ -7,9 +7,6 @@
 #title_sector_year_text
 A dónde va el dinero? (IATI {year})
 
-#table_declare_text
-*Haga clic en cualquiera de las celdas de abajo para explorar. Pase el ratón sobre cualquier célula de explicaciones. Haga clic en los títulos de las columnas para ordenar en consecuencia.
-
 #money_title_icon_alt_text
 El público quiere saber dónde está el dinero !
 
@@ -621,6 +618,21 @@ El presupuesto se calcula sumando todos los presupuestos que se encuentra a meno
 #districts_data_description_text
 Así es como se calcula los datos de dinero que va a los distritos.
 
+#index_title2_text
+¿Dónde están los datos de?
+
+#index_paragraph3_text
+Los datos en el menú desplegable se construyen a partir de la <a href="https://github.com/devinit/D-Portal/tree/master/dstore">base de datos</a> que se actualiza todos los días GMT 0 con nuevos datos captados del Registro de la IATI.
+
+#index_paragraph4_text
+Tenemos una lista de países que se reportan por los editores que utilizan <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 alfa-2</a>. Para la atribución y un enlace a las fuentes de datos, <a href="about.html#sources">ir aquí</a>.
+
+#index_paragraph5_text
+La lista de los editores con su ID de editor de IATI viene directamente de la base de datos del Registro de la IATI.
+
+#index_paragraph6_text
+La lista desplegable de Editores proviene de actividades XML publicados reportados por estos editores.
+
 #main_data_description_title_text
 ¿Cómo se calcula la información?
 
@@ -931,3 +943,9 @@ Buscar
 
 #search_placeholder_txt
 Tipo (por ejemplo. Sismo) o añadir filtros para limitar su búsqueda
+
+#all_countries_text 
+Comparar todos los Países 
+
+#all_publishers_text 
+Comparar Editores

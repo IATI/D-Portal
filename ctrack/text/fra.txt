@@ -7,9 +7,6 @@ D'où vient l'argent? (IATI {year})
 #title_sector_year_text
 Où va l'argent? (IATI {year})
 
-#table_declare_text
-*Cliquez sur l'une des cellules ci-dessous pour explorer. Placez le curseur sur les cellules pour des explications. Cliquez sur les titres des colonnes pour trier en conséquence.
-
 #money_title_icon_alt_text 
 Le public veut savoir où est l'argent!
 
@@ -624,6 +621,21 @@ Comment les données sont -elle calculée?
 #districts_data_description_text
 C'est ainsi que les données sont calculées pour l'argent va aux districts.
 
+#index_title2_text
+Où sont les données à partir de?
+
+#index_paragraph3_text
+Les données dans le menu déroulant est construit à partir de la <a href="https://github.com/devinit/D-Portal/tree/master/dstore">base de données</a> qui met à jour tous les jours GMT +0 avec de nouvelles données récupérées à partir du Registre de IATI.
+
+#index_paragraph4_text
+Nous listons les pays qui sont signalés par les éditeurs utilisant <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>. Pour l'attribution et un lien vers les sources de données, <a href="about.html#sources">aller ici</a>.
+
+#index_paragraph5_text
+La liste des éditeurs avec leur IATI éditeur ID vient directement de la base de données du Registre de IATI.
+
+#index_paragraph6_text
+La liste déroulante des éditeurs provient des activités XML publiés rapportés par ces éditeurs.
+
 #main_data_description_title_text
 Comment les données sont -elle calculée?
 
@@ -934,3 +946,9 @@ Chercher
 
 #search_placeholder_txt
 Type (par ex. Séisme) ou ajouter des filtres pour affiner votre recherche
+
+#all_countries_text 
+Comparez tous les pays 
+
+#all_publishers_text 
+Comparez tous les éditeurs
