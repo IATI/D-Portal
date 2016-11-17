@@ -142,7 +142,17 @@ console.log("CREATING INDEXS");
 			}
 		}
 
+// we also create a text search index
+	var s=(" CREATE INDEX act_index_text_search ON act USING gin(to_tsvector('english',title || ' ' || description)); ");
+	console.log(s);
 
+	wait.for(function(cb){
+		 db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err).then(cb);
+	});
+
+	wait.for(function(cb){
+		db.none(s).then(cb).catch(err);
+	});
 
 	pgp.end();	
 };
@@ -174,7 +184,11 @@ console.log("DROPING INDEXS");
 			}
 		}
 
+// special search index
 
+	wait.for(function(cb){
+		 db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err).then(cb);
+	});
 
 	pgp.end();	
 };
