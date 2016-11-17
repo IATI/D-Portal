@@ -259,7 +259,7 @@ ctrack.setup=function(args)
 	{
 		if( ctrack.q.search!="" )
 		{
-			ctrack.args.search="%"+ctrack.q.search+"%";
+			ctrack.args.search=ctrack.q.search;
 		}
 // always show search headers and hide publisher/country headers even if the searchstring is empty
 		ctrack.args.showsearch=true;

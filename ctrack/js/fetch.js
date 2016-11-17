@@ -66,8 +66,6 @@ fetch.ajax_dat_fix=function(dat,args)
 	dat["sector_group"]		=	dat["sector_group"]		||	ctrack.args.sector_group_select;
 	dat["funder_ref"]		=	dat["funder_ref"]		||	ctrack.args.funder_ref_select;
 
-// TODO: remove title_like, use only text_search which is a special case
-	dat["title_like"]		=	dat["title_like"]		||	ctrack.args.search;
 	dat["text_search"]		=	dat["text_search"]		||	ctrack.args.search;
 
 	if( !dat["day_start_lteq"] )
