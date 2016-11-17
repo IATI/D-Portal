@@ -49,22 +49,8 @@ view_list_activities.ajax=function(args)
 			"from":"act",
 			"limit":args.limit || -1,
 			"select":"title,aid,funder_ref,"+ctrack.convert_str("commitment")+","+ctrack.convert_str("spend")+",reporting,reporting_ref,day_start,day_end",
-//			"orderby":"4-",
 			"distincton":"aid",
-//			"country_code":(args.country || ctrack.args.country_select),
-//			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-//			"title_like":(args.search || ctrack.args.search),
-//			"sector_code":(args.sector_code || ctrack.args.sector_code_select),
-//			"sector_group":(args.sector_group || ctrack.args.sector_group_select),
-//			"funder_ref":(args.funder_ref || ctrack.args.funder_ref_select),
-//			"day_start_lteq":(args.date_max || ctrack.args.date_max),
-//			"day_end_gteq":(args.date_min || ctrack.args.date_min),
 		};
-//	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
-//	for(var n in args.q) { dat[n]=args.q[n]; }
-//	if(dat.sector_code||dat.sector_group) { dat.from+=",sector"; }
-//	if(dat.country_code) { dat.from+=",country"; }
-//	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 
 	fetch.ajax_dat_fix(dat,args);
 

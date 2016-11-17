@@ -177,9 +177,6 @@ view_publisher_countries.ajax=function(args)
 				"groupby":"country_code",
 				"trans_code":"D|E",
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
-//				"country_code":(args.country || ctrack.args.country_select),
-//				"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-//				"title_like":(args.search || ctrack.args.search),
 			};
 		fetch.ajax_dat_fix(dat,args);
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher

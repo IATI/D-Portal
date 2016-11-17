@@ -50,16 +50,7 @@ view_list_publishers.ajax=function(args)
 			"select":"count,reporting_ref,reporting",
 			"groupby":"reporting_ref",
 			"orderby":"1-",
-//			"country_code":(args.country || ctrack.args.country_select),
-//			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-//			"title_like":(args.search || ctrack.args.search),
 		};
-//	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
-//	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
-//	for(var n in args.q) { dat[n]=args.q[n]; }
-//	if(dat.sector_code||dat.sector_group) { dat.from+=",sector"; }
-//	if(dat.country_code) { dat.from+=",country"; }
-//	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 	fetch.ajax_dat_fix(dat,args);
 	
 	if(args.output=="count") // just count please

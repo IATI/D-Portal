@@ -51,16 +51,7 @@ view_list_transactions.ajax=function(args)
 			"groupby":"aid",
 			"orderby":"1-",
 			"trans_code":"D|E",
-//			"country_code":(args.country || ctrack.args.country_select),
-//			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-//			"title_like":(args.search || ctrack.args.search),
 		};
-//	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
-//	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
-//	for(var n in args.q) { dat[n]=args.q[n]; }
-//	if(dat.sector_code||dat.sector_group) { dat.from+=",sector"; }
-//	if(dat.country_code) { dat.from+=",country"; }
-//	if(dat.location_latitude && dat.location_longitude) { dat.from+=",location"; }
 	if(dat.year)
 	{
 		dat["trans_day_gteq"]=(parseInt(dat.year)+0)+"-"+ctrack.args.newyear;

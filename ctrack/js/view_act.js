@@ -53,9 +53,6 @@ view_act.ajax=function(args)
 			"from":"act,jml",
 			"distincton":"aid",
 			"aid":args.aid,
-//			"country_code":(args.country || ctrack.args.country_select),
-//			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
-//			"title_like":(args.search || ctrack.args.search),
 		};
 
 	if(args.lat)

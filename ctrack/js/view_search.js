@@ -171,7 +171,7 @@ view_search.fixup=function()
 		{
 			txt.push("Searching activity title for the term \""+v+"\"")
 			que.push("search="+v)
-			q.title_like="%"+v+"%";
+			q.text_search=v;
 		}
 		else
 		{

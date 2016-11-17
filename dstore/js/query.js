@@ -410,6 +410,23 @@ query.getsql_where=function(q,qv){
 		}
 	}
 	
+	var v=q["text_search"];
+	if( (ns["title"]) && (ns["description"]) && v ) // description and title and text_search available
+	{
+//console.log("text_search "+v)
+		if(argv.pg) // can use better pg search code
+		{
+			ss.push( " to_tsvector('english',title || ' ' || description) @@ to_tsquery("+dstore_db.text_plate("text_search")+") " );
+			qv[dstore_db.text_name("text_search")]=v;
+		}
+		else // can only use old sqlite search code that only checks title
+		{
+			ss.push( " title LIKE "+dstore_db.text_plate("text_search") );
+			qv[dstore_db.text_name("text_search")]="%"+v+"%";
+		}
+	}
+
+	
 	var ret="";
 	if(ss[0]) { ret=" WHERE "+ss.join(" AND "); }
 	

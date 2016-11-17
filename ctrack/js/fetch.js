@@ -62,10 +62,11 @@ fetch.ajax_dat_fix=function(dat,args)
 // check for globals
 	dat["country_code"]		=	dat["country_code"]		||	ctrack.args.country_select;
 	dat["reporting_ref"]	=	dat["reporting_ref"]	||	ctrack.args.publisher_select;
-	dat["title_like"]		=	dat["title_like"]		||	ctrack.args.search;
 	dat["sector_code"]		=	dat["sector_code"]		||	ctrack.args.sector_code_select;
 	dat["sector_group"]		=	dat["sector_group"]		||	ctrack.args.sector_group_select;
 	dat["funder_ref"]		=	dat["funder_ref"]		||	ctrack.args.funder_ref_select;
+
+	dat["text_search"]		=	dat["text_search"]		||	ctrack.args.search;
 
 	if( !dat["day_start_lteq"] )
 	{
