@@ -19,8 +19,8 @@ var sqlite3 = require("sqlite3").verbose();
 var iati_cook=require('./iati_cook');
 var dstore_db=require('./dstore_db');
 // how to use query replcaments
-dstore_db.text_plate(s)=function{ return "$"+s; }
-dstore_db.text_name(s)=function{ return "$"+s; }
+dstore_db.text_plate=function(s){ return "$"+s; }
+dstore_db.text_name=function(s){ return "$"+s; }
 
 var	query=require("./query");
 
