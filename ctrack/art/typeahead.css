@@ -22,6 +22,7 @@ input#view_search_string, input.typeahead.tt-hint		{font-size:32px; width:936px;
 .search_label img		{padding-right:7px;width:14px;height:14px;}
 
 .search_wrap .chosen-container{width:290px; min-width:290px; max-width:290px;}
+#country_dropmenu .chosen-container, #publisher_dropmenu .chosen-container	{width:460px; min-width:460px; max-width:460px;}
 
 .search_wrap.mini div#view_search_select_year_min_chosen,
 .search_wrap.mini div#view_search_select_year_max_chosen	{width:145px; min-width:145px;max-width:145px;}
