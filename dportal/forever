@@ -1,1 +1,2 @@
+cd `dirname $0`
 forever -o production/out.log -e production/err.log js/serv.js
