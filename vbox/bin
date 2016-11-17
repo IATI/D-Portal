@@ -1,11 +1,28 @@
 cd "$(dirname "$(readlink -f "$0")")"
 
+if [[ $# -eq 0 ]] ; then
+	echo
+	ls -1 ../bin
+	echo
+	echo "		Choose one of these scripts to run inside the vbox : "
+	echo
+	exit 0
+fi
+
 if [ ! -d "/vagrant" ]; then
 
-	vagrant up
-	vagrant ssh -c " cd /host/vbox/ ; ./bin $@ "
+	echo $@
+#	vagrant up
+	vagrant ssh -c " cd /host/vbox/ ; ./bin $* "
 
 else
+
+	export DSTORE_PG="/var/run/postgresql dstore"
+
+	if [[ $1 == "dbg" ]] ; then
+		export DSTORE_DEBUG=1
+		shift
+	fi
 
 	CMD=$1
 	shift

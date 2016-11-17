@@ -75,7 +75,7 @@ view_dash_quality.ajax1=function(args)
 		if(data.rows.length==1)
 		{
 			var v=data.rows[0];
-			var count=v["COUNT(DISTINCT aid)"];
+			var count=Number(v["distinct_aid"]);
 			ctrack.chunk("dash_quality_act_count_num",Math.floor(count));
 			ctrack.chunk("dash_quality_act_count",commafy(Math.floor(count)));
 		}
@@ -105,7 +105,7 @@ view_dash_quality.ajax2=function(args)
 		if(data.rows.length==1)
 		{
 			var v=data.rows[0];
-			var count=v.count;
+			var count=Number(v.count);
 			ctrack.chunk("dash_quality_budget_count",commafy(Math.floor(count)));
 		}
 		
@@ -134,7 +134,7 @@ view_dash_quality.ajax3=function(args)
 		if(data.rows.length==1)
 		{
 			var v=data.rows[0];
-			var count=v.count;
+			var count=Number(v.count);
 			ctrack.chunk("dash_quality_trans_count",commafy(Math.floor(count)));
 		}
 		
@@ -181,7 +181,7 @@ view_dash_quality.ajax4=function(args)
 			var v=data.rows[i];
 			var d={};
 			d.num=i+1;
-			d.count=v.count;
+			d.count=Number(v.count);
 			d.country_code=v.country_code;
 			d.country_name=iati_codes.country[d.country_code] || "N/A";
 			d.country_valid=iati_codes.country[d.country_code] && "valid" || "invalid";
@@ -229,7 +229,7 @@ view_dash_quality.ajax5=function(args)
 			var v=data.rows[i];
 			var d={};
 			d.num=i+1;
-			d.count=v.count;
+			d.count=Number(v.count);
 			d.slug=v.slug;
 
 			total+=d.count;
@@ -264,7 +264,7 @@ view_dash_quality.ajax6=function(args)
 	{
 //		console.log(data);
 		
-		ctrack.chunk("dash_list_actdate_act_ended",data.rows[0].count);
+		ctrack.chunk("dash_list_actdate_act_ended",Number(data.rows[0].count));
 		
 		view_dash_quality.calc();
 		ctrack.display(); // every fetch.ajax must call display once
@@ -289,7 +289,7 @@ view_dash_quality.ajax7=function(args)
 	{
 //		console.log(data);
 		
-		ctrack.chunk("dash_list_actdate_act_planned",data.rows[0].count);
+		ctrack.chunk("dash_list_actdate_act_planned",Number(data.rows[0].count));
 		
 		view_dash_quality.calc();
 		ctrack.display(); // every fetch.ajax must call display once
@@ -316,7 +316,7 @@ view_dash_quality.ajax8=function(args)
 	{
 //		console.log(data);
 		
-		ctrack.chunk("dash_list_actdate_act_active",data.rows[0].count);
+		ctrack.chunk("dash_list_actdate_act_active",Number(data.rows[0].count));
 		
 		var n=ctrack.chunk("dash_list_actdate_act_ended")+ctrack.chunk("dash_list_actdate_act_planned")+ctrack.chunk("dash_list_actdate_act_active");
 
@@ -347,7 +347,7 @@ view_dash_quality.ajax9=function(args)
 	{
 //		console.log(data);
 		
-		ctrack.chunk("dash_list_actdate_act_missing_end",data.rows[0].count);
+		ctrack.chunk("dash_list_actdate_act_missing_end",Number(data.rows[0].count));
 		
 		view_dash_quality.calc();
 		ctrack.display(); // every fetch.ajax must call display once

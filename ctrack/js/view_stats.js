@@ -82,8 +82,8 @@ view_stats.ajax=function(args)
 			
 		if(data.rows[0])
 		{
-			ctrack.chunk("total_projects",data.rows[0]["COUNT(DISTINCT aid)"]);
-			ctrack.chunk("numof_publishers",data.rows[0]["COUNT(DISTINCT reporting_ref)"]);
+			ctrack.chunk("total_projects",data.rows[0]["count_aid"]);
+			ctrack.chunk("numof_publishers",data.rows[0]["distinct_reporting_ref"]);
 		}
 		
 		view_stats.calc();
@@ -96,8 +96,8 @@ view_stats.ajax=function(args)
 			"select":"stats",
 			"from":"act,location",
 			"limit":-1,
-			"location_longitude_not_null":1, // must have a location
-			"location_latitude_not_null":1, // must have a location
+//			"location_longitude_not_null":1, // must have a location
+//			"location_latitude_not_null":1, // must have a location
 //			"country_code":(args.country || ctrack.args.country_select),
 //			"reporting_ref":(args.publisher || ctrack.args.publisher_select),
 //			"title_like":(args.search || ctrack.args.search),
@@ -112,7 +112,7 @@ view_stats.ajax=function(args)
 			
 		if(data.rows[0])
 		{
-			ctrack.chunk("total_activities_with_location",data.rows[0]["COUNT(DISTINCT aid)"]);
+			ctrack.chunk("total_activities_with_location",data.rows[0]["distinct_aid"]);
 		}
 		view_stats.calc();
 

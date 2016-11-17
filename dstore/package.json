@@ -3,7 +3,6 @@
   "description": "dstore",
   "version": "0.0.1",
   "dependencies": {
-    "pg-promise": "*",
     "async": "*",
     "csv-parse": "*",
     "entities": "*",
@@ -19,6 +18,13 @@
     "wait.for": "*",
     "yargs": "*",
     "node-expat": "*",
-    "json2csv":"*"
+    "json2csv":"*",
+    "pg": "*",
+    "pg-monitor": "*",
+    "pg-promise": "*",
+    "pg-query-stream": "*",
+    "co": "*",
+    "thenify": "*",
+    "mz": "*"
   }
 }

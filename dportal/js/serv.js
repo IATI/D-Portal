@@ -6,9 +6,7 @@ var express = require('express');
 var app = express();
 
 var argv=require('yargs').argv; global.argv=argv;
-
-argv.port=argv.port||1408;
-argv.database=argv.database||"../dstore/db/dstore.sqlite";
+require("../../dstore/js/argv").parse(argv);
 
 express.static.mime.define({'text/plain': ['']});
 
@@ -23,9 +21,12 @@ app.use(function(req, res, next) {
 		res.contentType('text/html'); // set to html
 	}
 	
-	if( req.get('user-agent').indexOf("Trident/5.0") > -1 ) // only if IE9
+	if(req.get('user-agent'))
 	{
-		res.set("X-UA-Compatible", "IE=9"); //This fixes IE9 iframes?
+		if( req.get('user-agent').indexOf("Trident/5.0") > -1 ) // only if IE9
+		{
+			res.set("X-UA-Compatible", "IE=9"); //This fixes IE9 iframes?
+		}
 	}
 	
 	next();

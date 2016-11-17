@@ -34,7 +34,7 @@ view_donor_activities.view=function()
 	
 	args.q={
 		"funder_ref":funder,
-		"groupby":"aid",
+		"distincton":"aid",
 	};
 	
 	ctrack.chunk("alerts","");

@@ -435,7 +435,7 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 });
 
 acts.find("provider-org[provider-activity-id]").each(function(i){var it=$(this);
-	var id=it.attr("receiver-activity-id");
+	var id=it.attr("provider-activity-id");
 	if(id)
 	{
 		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());

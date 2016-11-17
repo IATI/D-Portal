@@ -3,99 +3,37 @@ cd ..
 
 date
 
-echo
-echo get new json data
-echo
-bin/pull_di
-./fetch
-bin/addcommit auto json fetch in nightly cron
-bin/pull_di
-bin/push_di
+#echo
+#echo get new json data
+#echo
+#bin/pull_di
+#./fetch
+#bin/addcommit auto json fetch in nightly cron
+#bin/pull_di
+#bin/push_di
 
 #
 #echo "Rebuilding ctrack with new json"
 #
-ctrack/build
-dportal/build
+#ctrack/build
+#dportal/build
 
 # just stop it, it will restart itself in a minute
-/etc/init.d/dportal stop
+#/etc/init.d/dportal stop
 # seriously stop it just in case of problems
-sleep 5
-killall node
+#sleep 5
+#killall node
 
-date
+#date
 
 
-echo
-echo if any of these steps fail the only safe thing to do is a full import
-echo just wipe the entire cache directory and run again
-echo
-
-echo
-echo Removing all temporary files
-echo
-
-rm -rf dstore/cache/new
-rm -rf dstore/cache/old
-mkdir dstore/cache/old
-
-# clear data to force a *full* import on sunday morning
+# clear data to force a *full* import on a sunday morning
 if [ "$(date +'%u')" == "7" ] ; then
 	echo FULL >/var/tmp/dportal.update
 fi
 
-if [ -f /var/tmp/dportal.update ] ; then
-	echo
-	echo performing a FULL import of all data
-	echo
-# just remove the flag file
-	rm /var/tmp/dportal.update
-else
-	echo
-	echo performing a MINI import of changed data only
-	echo
-# take a snapshot of current files so we can find out what changed
-	cp dstore/cache/*.xml dstore/cache/old
-fi
 
-echo
-echo download new files files may be the same
-echo
-dstore/dstore cache iati
-
-echo
-echo find the actually changed files
-echo
-dstore/dstore cache newold
-
-echo
-echo remove the backup
-echo
-rm -rf dstore/cache/old
-
-echo
-echo import new files
-echo
-bin/dstore_import_cache_new
-
-echo
-echo remove the files we just imported
-echo
-rm -rf dstore/cache/new
-
-
-echo
-echo add fake transactions for some publishers
-echo
-bin/dstore_fake
-
-
-echo
-echo speed up the database
-echo
-bin/dstore_vacuum
-
+bin/cron_import
 
 
 date

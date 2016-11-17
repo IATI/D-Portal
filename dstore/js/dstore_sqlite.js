@@ -1,8 +1,11 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
+module.exports=exports;
+
 var dstore_sqlite=exports;
 var dstore_back=exports;
+
 
 var refry=require("./refry");
 var exs=require("./exs");
@@ -10,12 +13,18 @@ var iati_xml=require("./iati_xml");
 
 var wait=require("wait.for");
 
-var util=require("util");
 var http=require("http");
 var sqlite3 = require("sqlite3").verbose();
 
 var iati_cook=require('./iati_cook');
+var dstore_db=require('./dstore_db');
+// how to use query replcaments
+dstore_db.text_plate(s)=function{ return "$"+s; }
+dstore_db.text_name(s)=function{ return "$"+s; }
 
+var	query=require("./query");
+
+var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
@@ -79,9 +88,9 @@ dstore_sqlite.create_tables = function(){
 // simple data dump table containing just the raw xml of each activity.
 // this is filled on import and then used as a source
 
-		for(var name in dstore_sqlite.tables)
+		for(var name in dstore_db.tables)
 		{
-			var tab=dstore_sqlite.tables[name];
+			var tab=dstore_db.tables[name];
 			var s=dstore_sqlite.getsql_create_table(db,name,tab);
 
 			console.log(s);
@@ -344,20 +353,18 @@ dstore_sqlite.check_tables = function(){
 }
 
 
-// prepare some sql code
-dstore_sqlite.cache_prepare = function(tables){
+// prepare some sql code, keep it in dstore_db as it all relates to dstore_db.tables data
+dstore_sqlite.cache_prepare = function(){
 	
-	dstore_sqlite.tables=tables;
-
-	dstore_sqlite.tables_replace_sql={};
-	dstore_sqlite.tables_update_sql={};
-	dstore_sqlite.tables_active={};
-	for(var name in dstore_sqlite.tables)
+	dstore_db.tables_replace_sql={};
+	dstore_db.tables_update_sql={};
+	dstore_db.tables_active={};
+	for(var name in dstore_db.tables)
 	{
 		var t={};
-		for(var i=0; i<dstore_sqlite.tables[name].length; i++ )
+		for(var i=0; i<dstore_db.tables[name].length; i++ )
 		{
-			var v=dstore_sqlite.tables[name][i];
+			var v=dstore_db.tables[name][i];
 			
 			var ty="null";
 			
@@ -371,9 +378,9 @@ dstore_sqlite.cache_prepare = function(tables){
 			
 			t[v.name]=ty;
 		}
-		dstore_sqlite.tables_active[name]=t;
-		dstore_sqlite.tables_replace_sql[name]=dstore_sqlite.getsql_prepare_replace(name,t);
-		dstore_sqlite.tables_update_sql[name] =dstore_sqlite.getsql_prepare_update(name,t);
+		dstore_db.tables_active[name]=t;
+		dstore_db.tables_replace_sql[name]=dstore_sqlite.getsql_prepare_replace(name,t);
+		dstore_db.tables_update_sql[name] =dstore_sqlite.getsql_prepare_update(name,t);
 	}
 }
 
@@ -513,9 +520,9 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 			iati_cook.activity(o); // cook the raw json(xml) ( most cleanup logic has been moved here )
 		}
 
-		refry.tags(org,"total-budget",function(it){dstore_back.dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
-		refry.tags(org,"recipient-org-budget",function(it){dstore_back.dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
-		refry.tags(org,"recipient-country-budget",function(it){dstore_back.dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
+		refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
+		refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
+		refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
 
 		dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
 	}
@@ -533,7 +540,7 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
 			process.stdout.write(progchar[p]);
 
-			dstore_back.dstore_db.refresh_act(db,aid,json,head);
+			dstore_db.refresh_act(db,aid,json,head);
 
 	// block and wait here
 
@@ -601,3 +608,49 @@ dstore_sqlite.warn_dupes = function(db,aid){
 		});
 		
 };
+
+
+// the database part of the query code
+dstore_sqlite.query_select=function(q,res,r){
+
+	var db = dstore_db.open();
+	db.serialize();
+	
+if(true)
+{
+	db.all( "EXPLAIN QUERY PLAN "+r.query,r.qvals,
+		function(err,rows)
+		{
+			if(rows)
+			{
+				r.sqlite_explain_detail=[];
+				rows.forEach(function(it){
+					r.sqlite_explain_detail.push(it.detail);
+				});
+			}
+		}
+	);
+}
+
+	db.each(r.query,r.qvals, function(err, row)
+	{
+		if(err)
+		{
+			console.log(r.query+"\n"+err);
+		}
+		else
+		{
+			r.rows.push(row);
+			r.count++;
+		}
+	});
+
+	db.run(";", function(err, row){
+
+		query.do_select_response(q,res,r);
+		
+		dstore_back.close(db);
+	});
+
+}
+

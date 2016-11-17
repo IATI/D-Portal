@@ -10,6 +10,16 @@ var exs=require('./exs');
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+var tonumber=function(v)
+{
+	var n=Number(v);
+	if(("number" == typeof n)&&(n==n)) // number and not nan
+	{
+		return n;
+	}
+	return undefined;
+}
+
 
 // convert isodate string to a number (days since 1970-01-01)
 // can convert to unix time by multiplying by number of seconds in a day (60*60*24)
@@ -66,7 +76,7 @@ iati_xml.get_value=function(it,name)
 	var t=refry.tagval(it,name);
 	if(t){
 		t=t.split(",").join(""); // should we remove commas?
-		return Number(t);
+		return tonumber(t);
 	}
 	return null;
 }

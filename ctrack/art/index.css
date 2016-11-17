@@ -156,3 +156,8 @@ a.beige:hover			{color:#fff;}
 
 span.badge				{display:inline-block; vertical-align:bottom; color:#fff; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px; position:absolute; bottom:-8px; right:135px;}
 span.badge.beta			{background-color:#D80051;}
+
+/* pace progress bar */
+.pace .pace-progress { height:4px; background:#88f; position:fixed; z-index:9999; top:0; right:100%; width:100%; }
+.pace-inactive { display:none; }
+.pace { -webkit-pointer-events:none; pointer-events:none; -webkit-user-select:none; -moz-user-select:none; user-select:none; }

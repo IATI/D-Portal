@@ -15,11 +15,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // global.argv
 var argv=require('yargs').argv; global.argv=argv;
-
-argv.port=argv.port||1337;
-argv.database=argv.database||"../dstore/db/dstore.sqlite";
-argv.cache=argv.cache||"../dstore/cache";
-
+require("./argv").parse(argv);
 
 wait.launchFiber(function(){
 

@@ -227,7 +227,7 @@ view_map.ajax_heat=function(args)
 {
 	if(ctrack.map.heat)
 	{
-		ctrack.display_wait+=1;
+		ctrack.display_wait_update(1);
 		ctrack.display();
 		return;
 	} // only fetch once
@@ -238,8 +238,8 @@ view_map.ajax_heat=function(args)
 			"select":"count,round1_location_longitude,round1_location_latitude",
 			"from":"act,location",
 			"limit":args.limit || 5,
-			"location_longitude_not_null":1,
-			"location_latitude_not_null":1,
+//			"location_longitude_not_null":1,
+//			"location_latitude_not_null":1,
 			"orderby":"1-",
 			"groupby":"2,3",
 //			"country_code":(args.country || ctrack.args.country_select),
@@ -271,6 +271,10 @@ view_map.ajax_heat=function(args)
 			var v=data.rows[i];
 			var lat=v.round1_location_latitude  || v.round0_location_latitude;
 			var lng=v.round1_location_longitude || v.round0_location_longitude;
+
+			if("string"== typeof lng) { lng=Number(lng); }
+			if("string"== typeof lat) { lat=Number(lat); }
+
 			if( ("number"== typeof lng) && ("number"== typeof lat) )
 			{
 				if(!ctrack.map.heat)
@@ -280,7 +284,7 @@ view_map.ajax_heat=function(args)
 				ctrack.map.heat.push({
 					lat:lat,
 					lng:lng,
-					wgt:v.count
+					wgt:Number(v.count)
 				});
 				if( (lat<=90) && (lat>=-90) && (lng<=180) && (lng>=-180) ) // check for valid values
 				{
@@ -304,7 +308,7 @@ view_map.ajax_pins=function(args)
 //	console.log("fetch map pins...");
 	if(ctrack.map.pins)
 	{
-		ctrack.display_wait+=1;
+		ctrack.display_wait_update(1);
 		ctrack.display();
 		return;
 	} // only fetch once
@@ -312,12 +316,12 @@ view_map.ajax_pins=function(args)
 	args=args || {};
     
 	var dat={
-			"select":"count,location_longitude,location_latitude,aid,title",
+			"select":"count,location_longitude,location_latitude,any_aid,any_title",
 			"from":"act,location",
 			"form":"jcsv",
 			"limit":args.limit || -1,
-			"location_longitude_not_null":1,
-			"location_latitude_not_null":1,
+//			"location_longitude_not_null":1,
+//			"location_latitude_not_null":1,
 			"orderby":"1-",
 			"groupby":"2,3",
 //			"country_code":(args.country || ctrack.args.country_select),
