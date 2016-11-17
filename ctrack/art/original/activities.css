@@ -80,7 +80,7 @@ span.span_participating-org narrative:nth-of-type(2)	{display:block; padding:10p
 	============================================= */
 reporting-org 					{display:block; width:880px; padding:20px 40px; font-size:18px; color:#FFF; line-height:1.45em;}
 reporting-org:before 			{content:"This activity is reported by"; display:inline-block; padding-right:5px; color:#ccc; font-size:16px; font-weight:normal;}
-reporting-org:after				{content:"."; font-weight:normal;}
+reporting-org:after				{content:"."; color:#ccc; font-size:16px; font-weight:normal;}
 reporting-org:nth-of-type(1)	{padding-top:20px; margin-top:20px;}
 reporting-org:last-of-type		{padding-bottom:20px;}
 
