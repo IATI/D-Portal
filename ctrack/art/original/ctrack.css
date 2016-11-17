@@ -336,7 +336,7 @@ table.list a:active		{color:#A8C5E5; text-decoration:none;}
 /*	Table for Money list (Donors / Sectors)
 	============================================= */
 table.money					{width:100%; border-collapse:collapse; table-layout:fixed;}
-table.money td				{text-align:right; color:#B8C8CD; font-size:1.0em; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #1E90FF; padding:15px 10px;}
+table.money td				{text-align:right; color:#B8C8CD; font-size:1.0em; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid rgb(13,26,49); padding:15px 10px;}
 table.money td.col1			{text-align:left; background-color:rgba(74,82,54,0.4);}
 table.money td.col2			{text-align:left;}
 table.money td.col3			{background-color:rgba(17,46,105,0.2);}
@@ -348,19 +348,19 @@ table.money td.col7			{background-color:rgba(17,101,105,0.6);}
 table.money tr.row1 th		{background-color:transparent; color:#FFF; font-weight:700; text-align:center; padding:0px; position:relative;}
 table.money tr.row1 th:hover{cursor:pointer;}
 table.money tr.row1 th span	{color:#FFF; display:block; padding:20px 10px;}
-table.money tr.row1 th.col1	{background-color:rgba(74,82,54,0.9); padding:20px 10px; text-align:left; border:1px solid rgba(74,87,43,1); border-bottom:1px solid #1E90FF;}
-table.money tr.row1 th.col2	{text-align:left; border-bottom:1px solid #1E90FF; padding:20px 15px; border-top:1px solid rgba(0,50,151,1);}
-table.money tr.row1 th.col3	{background-color:rgba(17,46,105,0.9); border:1px solid rgba(0,50,151,1); border-bottom:1px solid #1E90FF;}
-table.money tr.row1 th.col4	{background-color:rgba(17,101,105,0.9); border:1px solid rgba(7,117,122,1); border-bottom:1px solid #1E90FF;}
+table.money tr.row1 th.col1	{background-color:rgba(74,82,54,0.9); padding:20px 10px; text-align:left; border:1px solid rgba(74,82,54,0.9); border-bottom:1px solid rgb(13,26,49);}
+table.money tr.row1 th.col2	{background-color:#36414a; text-align:left; border-bottom:1px solid rgb(13,26,49); padding:20px 15px; border-top:1px solid #36414a;}
+table.money tr.row1 th.col3	{background-color:rgba(17,46,105,0.9); border:1px solid rgba(17,46,105,0.9); border-bottom:1px solid rgb(13,26,49);}
+table.money tr.row1 th.col4	{background-color:rgba(17,101,105,0.9); border:1px solid rgba(17,101,105,0.9); border-bottom:1px solid rgb(13,26,49);}
 
-table.money tr.row2 td		{color:#FFF; font-weight:500; padding:20px 10px;}
+table.money tr.row2 td		{color:#FFF; font-weight:500; padding:20px 10px; position:relative;}
 table.money tr.row2 td.col1 {background-color:rgba(74,82,54,0.9); border-left:1px solid rgba(74,87,43,1); border-right:1px solid rgba(74,87,43,1);}
 table.money tr.row2 td.col3	{background-color:rgba(17,46,105,0.6); border-left:1px solid rgba(0,50,151,1);}
 table.money tr.row2 td.col4	{background-color:rgba(17,46,105,0.8);}
 table.money tr.row2 td.col5	{background-color:rgba(17,46,105,0.9); border-right:1px solid rgba(0,50,151,1);}
 table.money tr.row2 td.col6	{background-color:rgba(17,101,105,0.7);}
 table.money tr.row2 td.col7	{background-color:rgba(17,101,105,0.9); border-right:1px solid rgba(7,117,122,1);}
-table.money tr.row2 td.col2	{padding:20px 15px;}
+table.money tr.row2 td.col2	{background-color:#36414a; padding:20px 15px;}
 
 table.money tr.rows td.col1	{border-left:1px solid rgba(74,87,43,1); border-right:1px solid rgba(74,87,43,1);}
 table.money tr.rows td.col3	{border-left:1px solid rgba(0,50,151,1);}
@@ -371,19 +371,24 @@ table.money td.col1:hover	{cursor:default;}
 table.money tr.row2 td.col1:hover	{cursor:pointer;}
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(17,46,105,1);}
-table.money tr.rows td.col6:hover	{background-color:rgba(17,101,105,1);}
-table.money tr.rows td.col7:hover	{cursor:initial; color:#B8C8CD;}
+table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(17,101,105,1);}
 
-table.money a				{display:block; color:#A8C5E5; word-wrap:normal;}
+table.money tr span.sort			{position:absolute; right:0px; top:0px; pointer-events:none;}
+table.money tr th.col4 span.sort	{position:absolute; right:initial; left:0px; top:0px;}
+table.money tr.row2 span.sort		{position:absolute; right:initial; left:10px; top:23px;}
+table.money tr.row2 td.col1 span.sort, table.money tr.row2 td.col2 span.sort	{position:absolute; right:10px; left:initial; top:23px;}
+
+table.money a				{display:block; color:#FFF; word-wrap:normal;}
 table.money a:focus			{color:#A8C5E5; text-decoration:none;}
-table.money a:link  		{color:#A8C5E5; text-decoration:none;}
-table.money a:visited		{color:#A8C5E5; text-decoration:none;}
-table.money td:hover,
+table.money a:link  		{color:#FFF; text-decoration:none;}
+table.money a:visited		{color:#FFF; text-decoration:none;}
 table.money a:hover			{color:#FFF; text-decoration:none;}
-table.money a:active		{color:#A8C5E5; text-decoration: none;}
-table.money a.year			{position:absolute; background-color:#3371B8; padding:20px 10px; top:0;}
+table.money a:active		{color:#FFF; text-decoration: none;}
+table.money a.year			{position:absolute; padding:20px 10px; top:0;}
 table.money a.year.prev		{left:0;}
+table.money a.year.prev:hover	{background-color:#2F57A5;}
 table.money a.year.next		{right:0;}
+table.money a.year.next:hover	{background-color:#198286;}
 
 table.money.publishers th.col2,
 table.money.publishers td.col2	{border-left:1px solid rgba(0,50,151,1);}
