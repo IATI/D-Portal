@@ -2,8 +2,11 @@
 	============================================= */
 * 					{font-family:sans-serif; word-wrap:break-word;}
 body,html			{background:url('dp_tile.400.png') top center; background-color:#121A31; color:#444; font-family:sans-serif;}
-a 					{text-decoration:none; color:#FFAB5E;}
+a					{text-decoration:none; color:#FFAB5E;}
+a:link				{text-decoration:none; color:#FFAB5E;}
+a:visited			{text-decoration:none; color:#FFAB5E;}
 a:hover				{text-decoration:none; color:#FF7A00;}
+a:active			{text-decoration:none; color:#FFAB5E;}
 
 ok					{display:none;}
 query				{display:none;}
@@ -36,10 +39,16 @@ iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; d
 a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:baseline;}
 a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; padding-left:20px;}
 a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_xml_iati-identifier:link	{color:#FF7A00;}
+a.a_xml_iati-identifier:visited	{color:#FF7A00;}
 a.a_xml_iati-identifier:hover	{color:#FFAB5E;}
+a.a_xml_iati-identifier:active	{color:#FF7A00;}
 a.a_slug				{display:inline-block; vertical-align:baseline; padding-left:20px;}
 a.a_slug:before			{content:"IATI REGISTRY"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_slug:link			{color:#FF7A00;}
+a.a_slug:visited		{color:#FF7A00;}
 a.a_slug:hover			{color:#FFAB5E;}
+a.a_slug:active			{color:#FF7A00;}
 
 
 /*	Recipient countries
@@ -167,7 +176,7 @@ budget value 			{display:inline-block; vertical-align:top; color:#FFF; font-size
 
 /*	Transaction table
 	============================================= */
-transaction							{display:block; width:960px; border-top:1px solid #AAA; padding:20px 0; border-bottom:0;}
+transaction							{display:block; width:960px; border-top:1px solid #333642; padding:20px 0; border-bottom:0;}
 transaction a						{color:#FFAB5E;}
 transaction a:link					{color:#FFAB5E;}
 transaction a:visited				{color:#FFAB5E;}
@@ -199,11 +208,12 @@ span.span_transaction transaction description {display:inline-block; vertical-al
 
 /*	Contact info for Publisher
 	============================================= */
-contact-info		{display:block; width:880px; padding:10px 40px; font-size:18px; line-height:1.5em; background-color:rgba(17,46,105,0.9);}
+contact-info		{display:block; width:880px; padding:20px 40px; font-size:18px; line-height:1.5em; background-color:rgba(17,46,105,0.9);}
 contact-info *		{display:block; padding:5px 0; color:#FFF;}
 contact-info:nth-of-type(1):before	{content:"CONTACT INFO"; font-size:14px; color:#ccc; display:block; margin-bottom:10px;}
 contact-info:nth-of-type(1)			{padding-top:30px; width:900px; margin-left:-10px;}
-contact-info:last-of-type			{padding-bottom:20px;}
+contact-info:nth-of-type(even)		{background-color:transparent;}
+contact-info:last-of-type			{padding-bottom:30px;}
 
 
 
