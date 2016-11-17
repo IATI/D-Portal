@@ -70,7 +70,7 @@ view_dash.ajax2=function(args)
 			"country_code":(args.country),
 			"select":"count,reporting_ref,reporting",
 			"from":"act",//,country",
-			"groupby":"reporting_ref",
+			"groupby":"reporting_ref,reporting",
 			"orderby":"1-",
 			"limit":-1
 		};
@@ -175,7 +175,7 @@ view_dash.ajax3=function(args)
 			d.country_name=iati_codes.country[d.country_code] || "N/A";
 			d.country_valid=iati_codes.country[d.country_code] && "valid" || "invalid";
 
-			if(!iati_codes.country[d.country_code]) { bad+=d.count; }
+			if(!iati_codes.country[d.country_code]) { bad+=Number(d.count); }
 			total+=d.count;
 			s.push( plate.replace(args.plate || "{dash_listall_country_data}",d) );
 		}

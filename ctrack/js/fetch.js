@@ -40,7 +40,7 @@ fetch.get_nday=function(n)
 fetch.ajax=function(dat,callback)
 {
 // we may queue a bunch of requests, this makes us wait for the last one before updating the view
-	ctrack.display_wait+=1;
+	ctrack.display_wait_update(1);
 	
 	$.ajax({
 	  dataType: "json",
@@ -103,7 +103,10 @@ fetch.ajax_dat_fix=function(dat,args)
 	{
 		if(dat.from.indexOf("country")==-1) { dat.from+=",country"; }
 	}
-	if( dat.location_latitude || dat.location_longitude )
+	if(
+		dat.location_latitude || dat.location_longitude ||
+		dat.location_latitude_lt || dat.location_longitude_lt ||
+		dat.location_latitude_gt || dat.location_longitude_gt )
 	{
 		if(dat.from.indexOf("location")==-1) { dat.from+=",location"; }
 	}

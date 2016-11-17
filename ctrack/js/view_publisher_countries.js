@@ -247,7 +247,7 @@ view_publisher_countries.ajax=function(args)
 		var dat={
 				"from":"budget",
 				"limit":args.limit || -1,
-				"select":"budget_country,"+ctrack.convert_str("budget"),
+				"select":"budget_country,"+"any_"+ctrack.convert_str("budget"),
 				"budget":"country", // only budgets for countries listed in org files
 				"groupby":"budget_country",
 				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,

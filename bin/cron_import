@@ -1,0 +1,67 @@
+cd `dirname $0`
+cd ..
+
+echo
+echo if any of these steps fail the only safe thing to do is a full import
+echo just wipe the entire cache directory and run again
+echo
+
+echo
+echo Removing all temporary files
+echo
+
+rm -rf dstore/cache/new
+rm -rf dstore/cache/old
+mkdir dstore/cache/old
+
+if [ -f /var/tmp/dportal.update ] ; then
+	echo
+	echo performing a FULL import of all data
+	echo
+# remove the flag file so it only happens once
+	rm /var/tmp/dportal.update
+else
+	echo
+	echo performing a MINI import of changed data only
+	echo
+# take a snapshot of current files so we can find out what changed
+	cp dstore/cache/*.xml dstore/cache/old
+fi
+
+echo
+echo download new files files may be the same
+echo
+dstore/dstore cache iati
+
+echo
+echo find the actually changed files
+echo
+dstore/dstore cache newold
+
+echo
+echo remove the backup
+echo
+rm -rf dstore/cache/old
+
+echo
+echo import new files
+echo
+bin/dstore_import_cache_new
+
+echo
+echo remove the files we just imported
+echo
+rm -rf dstore/cache/new
+
+
+echo
+echo add fake transactions for some publishers
+echo
+bin/dstore_fake
+
+
+echo
+echo speed up the database
+echo
+bin/dstore_vacuum
+

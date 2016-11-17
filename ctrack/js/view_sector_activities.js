@@ -37,7 +37,7 @@ view_sector_activities.view=function()
 	args.q={
 //		"sector_group":sector,
 //		"from":"act,country,sector",
-		"groupby":"aid",
+		"distincton":"aid",
 	};
 	
 	args.callback=function(data){

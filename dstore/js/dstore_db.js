@@ -1,6 +1,8 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
+module.exports=exports;
+
 var dstore_db=exports;
 
 var refry=require('./refry');
@@ -17,10 +19,21 @@ var http=require('http');
 
 
 var dstore_back=require('./dstore_back');
-dstore_back.dstore_db=dstore_db;
+//dstore_back.dstore_db=dstore_db; // circular dependencies...
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
+
+var tonumber=function(v)
+{
+	var n=Number(v);
+	if(("number" == typeof n)&&(n==n)) // number and not nan
+	{
+		return n;
+	}
+	return undefined;
+}
+
 
 // values copied from the main activity into sub tables for quik lookup (no need to join tables)
 dstore_db.bubble_act={
@@ -31,11 +44,11 @@ dstore_db.bubble_act={
 // data table descriptions
 dstore_db.tables={
 	jml:[
-		{ name:"aid",							NOCASE:true , PRIMARY:true },
+		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"jml",							TEXT:true }, // moved to reduce the main act table size
 	],
 	act:[
-		{ name:"aid",							NOCASE:true , PRIMARY:true },
+		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"reporting",						NOCASE:true , INDEX:true },
 		{ name:"reporting_ref",					NOCASE:true , INDEX:true },
 		{ name:"funder_ref",					NOCASE:true , INDEX:true },
@@ -59,7 +72,7 @@ dstore_db.tables={
 // 1 == secondary publisher so transactions/budgets should be ignored to avoid double accounting
 	],
 	trans:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"trans_ref",						NOCASE:true , INDEX:true },
 		{ name:"trans_description",				NOCASE:true , INDEX:true },
 		{ name:"trans_day",						INTEGER:true , INDEX:true },
@@ -78,7 +91,7 @@ dstore_db.tables={
 // 1 == this is a fake transaction built after a full import for publishers that only publish C not D/E
 	],
 	budget:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"budget",						NOCASE:true , INDEX:true }, // budget or plan (planned-disbursement) or total,country,org (organization total,country,org)
 		{ name:"budget_priority",				INTEGER:true , INDEX:true }, // set to 0 if it should be ignored(bad data or total)
 		{ name:"budget_type",					NOCASE:true , INDEX:true },	// planed disburtions have priority
@@ -95,18 +108,18 @@ dstore_db.tables={
 		{ name:"budget_org",					NOCASE:true , INDEX:true },	// only used by org budget from orgfile
 	],
 	country:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"country_code",					NOCASE:true , INDEX:true },
 		{ name:"country_percent",				REAL:true , INDEX:true },
 	],
 	sector:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group
 		{ name:"sector_code",					INTEGER:true , INDEX:true },
 		{ name:"sector_percent",				REAL:true , INDEX:true },
 	],
 	location:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"location_code",					NOCASE:true , INDEX:true },
 		{ name:"location_gazetteer_ref",		NOCASE:true , INDEX:true },
 		{ name:"location_gazetteer",			NOCASE:true , INDEX:true },
@@ -118,9 +131,13 @@ dstore_db.tables={
 	],
 // track what was imported...
 	slug:[
-		{ name:"aid",							NOCASE:true , INDEX:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
-	]
+	],
+// should we create joined table caches of the large data tables to speed lookup?
+//	country_location:[
+//		{ join_tables: [ "country","location" ] , join_by="aid" },
+//	],
 };
 	
 var http_getbody=function(url,cb)
@@ -322,7 +339,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		t.description=refry.tagval_narrative(act,"description");				
 		t.reporting=refry.tagval(act,"reporting-org");				
 		t.reporting_ref=refry.tagattr(act,"reporting-org","ref");
-		t.status_code=refry.tagattr(act,"activity-status","code");
+		t.status_code=tonumber(refry.tagattr(act,"activity-status","code"));
 
 		t.flags=0;
 		if( codes.publisher_secondary[t.reporting_ref] ) { t.flags=1; } // flag as secondary publisher (probably best to ignore)
@@ -417,6 +434,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var pc=percents[i];
 				var group;
 				if(sc){ group=codes.sector_group[sc.slice(0,3)]; }
+				sc=tonumber(sc);
 				dstore_back.replace(db,"sector",{"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc});
 			}
 		}
@@ -438,11 +456,12 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var gazref=refry.tagattr(it,"gazetteer-entry","gazetteer-ref");
 				var gaz=refry.tagval_narrative(it,"gazetteer-entry");
 				var co=refry.tag(it,"coordinates");
+				var flags=0;
 				if(co)
 				{
-					longitude=co.longitude;
-					latitude=co.latitude;
-					precision=co.precision;
+					longitude=tonumber(co.longitude);
+					latitude=tonumber(co.latitude);
+					precision=tonumber(co.precision);					
 				}
 				var point=refry.tag(it,"point");
 				var exact=refry.tag(it,"exactness");
@@ -454,27 +473,30 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 						var aa=pos.match(/\S+/g);
 						if(aa)
 						{
-							latitude=parseFloat(aa[0]);
-							longitude=parseFloat(aa[1]);
+							latitude=tonumber(aa[0]);
+							longitude=tonumber(aa[1]);
 							if( exact && exact.code )
 							{
-								precision=exact.code;
+								precision=tonumber(exact.code);
 							}
 						}
 					}
 				}
-
-				dstore_back.replace(db,"location",{
-					"aid":t.aid,
-					"location_code":code,
-					"location_gazetteer_ref":gazref,
-					"location_gazetteer":gaz,
-					"location_name":name,
-					"location_longitude":longitude,
-					"location_latitude":latitude,
-					"location_precision":precision,
-					"location_percent":pc
-				});
+				
+				if((typeof(longitude)=="number")&&(typeof(latitude)=="number")) // only bother to remember good data, otherwise we waste time filtering it out.
+				{
+					dstore_back.replace(db,"location",{
+						"aid":t.aid,
+						"location_code":code,
+						"location_gazetteer_ref":gazref,
+						"location_gazetteer":gaz,
+						"location_name":name,
+						"location_longitude":longitude,
+						"location_latitude":latitude,
+						"location_precision":precision,
+						"location_percent":pc,
+					});
+				}
 			}
 		}
 
@@ -600,5 +622,11 @@ dstore_db.delete_from = function(db,tablename,opts){
 dstore_db.cache_prepare = function(){
 	return dstore_back.cache_prepare(dstore_db.tables);
 }
+
+// the database part of the query code
+dstore_db.query_select=function(q,res,r){
+	return dstore_back.query_select(q,res,r);
+}
+
 dstore_db.cache_prepare();
 
