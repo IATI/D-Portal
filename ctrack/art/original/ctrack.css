@@ -137,6 +137,11 @@ a.path:hover			{background-color:rgba(0,14,32,0.9);}
 .description_splash .description span.title	{margin:0;}
 .description_splash .description p			{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em;}
 
+.feedback_links_wrap	{width:960px; margin:0 auto; margin-top:20px; text-align:right;}
+a.feedback_txt, #more_feedback_info	{color:#fff; display:inline-block; vertical-align:top;}
+#more_feedback_info		{margin-left:10px;}
+#more_feedback_info a:hover	{border-bottom:1px solid #fff;}
+
 
 
 /*	Blog styles
@@ -231,8 +236,8 @@ a.stats_link.missing span	{color:#008FFF;}
 .description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(0,14,32,0) 0%,rgba(0,14,32,0.5) 60%,rgba(0,14,32,0.9) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,14,32,0) 0%,rgba(0,14,32,0.5) 60%,rgba(0,14,32,0.9) 100%); padding-bottom:40px;}
 .description			{width:880px; margin:0 auto; padding:40px; text-align:left; margin-bottom:40px; background-color:rgba(255,255,255,0.1);}
 .description span.title	{display:block; color:#FFF; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-bottom:1px solid #FFF;}
-.description span.title.sub	{font-size:1.0em; border:0; margin:0; padding-bottom:10px; font-weight:bold;}
-.description p			{padding:15px 0; font-size:1.0em; color:#FFF; line-height:1.4em;}
+.description span.title.sub	{font-size:20px; border:0; margin:0; padding-bottom:5px; font-style:italic;}
+.description p			{padding:15px 0; font-size:19px; color:#fff; line-height:24px; word-spacing:0.07em;}
 .description p.about_data	{margin-top:30px;}
 .description a			{color:#A8C5E5; text-decoration:none;}
 .description a:hover	{text-decoration:underline;}
@@ -434,7 +439,7 @@ table.money a:link  		{color:#FFF; text-decoration:none;}
 table.money a:visited		{color:#FFF; text-decoration:none;}
 table.money a:hover			{color:#FFF; text-decoration:none;}
 table.money a:active		{color:#FFF; text-decoration: none;}
-table.money a.year			{position:absolute; padding:20px 10px; top:0;}
+table.money a.year			{position:absolute; padding:20px 10px; top:0; background-color:rgba(255,255,255,0.42);}
 table.money a.year.prev		{left:0;}
 table.money a.year.prev:hover	{background-color:#2F57A5;}
 table.money a.year.next		{right:0;}
@@ -473,7 +478,7 @@ table.activity a:active	{color:#A8C5E5; text-decoration:none;}
 /*	Table for data descriptions footer (Donors / Sectors)
 	============================================= */
 table.data				{width:880px; border-collapse:collapse;}
-table.data td			{color:#FFF; font-size:1.0em; line-height:1.4em; padding:10px 20px; vertical-align:top; border:1px solid #CCC; cursor:default;}
+table.data td			{color:#FFF; font-size:1.0em; line-height:24px; padding:20px; vertical-align:top; border:1px solid #CCC; cursor:default;}
 
 
 /*	Missing data

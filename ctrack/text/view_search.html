@@ -78,8 +78,19 @@
 
 	<input type="text" id="view_search_string" class="typeahead" placeholder="{search_placeholder_txt}"/>
 	
+	{feedback_links}
 </div>
 
+
+#feedback_links
+<div class="feedback_links_wrap">
+	<a href="#" onclick="$('#more_feedback_info').toggle();" class="feedback_txt">Feedback?</a>{more_feedback}
+</div>
+	
+#more_feedback
+<span id="more_feedback_info" style="display:none;">
+	<a href="mailto:support@iatistandard.org">Send us an email</a> or raise an issue <a href="https://github.com/devinit/D-Portal/issues">on Github</a>
+</span>
 
 #explore_portals
 <span id="explore"></span>
