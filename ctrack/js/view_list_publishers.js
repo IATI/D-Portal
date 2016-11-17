@@ -47,7 +47,7 @@ view_list_publishers.ajax=function(args)
 	var dat={
 			"from":"act",
 			"limit":args.limit || -1,
-			"select":"count,reporting_ref,reporting",
+			"select":"count,reporting_ref,any_reporting",
 			"groupby":"reporting_ref",
 			"orderby":"1-",
 		};
