@@ -289,6 +289,59 @@ view_search.fixup=function()
 	
 	build_query();
 
+// goto new url
+	var change=function(){
+
+		var name=""+$("#publisher_dropmenu select").val();
+		if(name && (name!=""))
+		{
+			window.location.href="/ctrack.html?publisher="+name
+		}
+
+		var name=""+$("#country_dropmenu select").val();
+		if(name && (name!=""))
+		{
+			window.location.href="/ctrack.html?country="+name
+		}
+
+	};
+
+// fill in lists
+	var refresh=function(){
+
+
+		var aa=[];
+		aa.push("<select>");
+		aa.push("<option value=''></option>");
+		for(var n in iati_codes.publisher_names) { var v=iati_codes.publisher_names[n];
+			aa.push("<option value='"+n+"'>"+v+"</option>");
+		}
+		aa.push("</select>");
+		$("#publisher_dropmenu").html(aa.join(""));
+		
+		$("#publisher_dropmenu select").change(change);
+		$("#publisher_dropmenu select").chosen({search_contains:true,"placeholder_text_single":"{search_publisher_dropmenu_text}"});
+
+		var aa=[];
+		aa.push("<select>");
+		aa.push("<option value=''></option>");
+		for(var n in iati_codes.country) { var v=iati_codes.country[n]; // only countries
+			if( iati_codes.crs_countries[n] ) // only recipients
+			{
+				aa.push("<option value='"+n+"'>"+v+"</option>");
+			}
+		}
+		aa.push("</select>");
+		$("#country_dropmenu").html(aa.join(""));
+
+		$("#country_dropmenu select").change(change);
+		$("#country_dropmenu select").chosen({search_contains:true,"placeholder_text_single":"{search_country_dropmenu_text}"});
+
+	};
+
+// initialise page		
+	refresh();
+
 }
 //
 // Perform ajax call to get numof data
@@ -385,8 +438,6 @@ view_search.view=function(args)
 	a.sort(compare);
 	ctrack.chunk("search_options_year",a.join(""));
 
-// old index hack... should stop using {root} maybe?
-	ctrack.chunk("root","/");
 
 	var s=[];
 	for(var n in iati_codes.country) { var v=iati_codes.country[n]; // only countries
