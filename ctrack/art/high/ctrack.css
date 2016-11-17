@@ -134,8 +134,11 @@ a.path:hover			{background-color:#E9E9E9;}
 	============================================= */
 .description_splash		{width:960px; margin:0 auto; padding:0px; box-sizing:border-box; text-align:left;}
 .description_splash .description span.title	{margin:0;}
-.description_splash .description p			{padding:15px 0; font-size:1.2em; color:#000; line-height:1.2em; word-spacing:0.07em;}
 
+.feedback_links_wrap	{width:960px; margin:0 auto; margin-top:20px; text-align:right;}
+a.feedback_txt, #more_feedback_info	{color:#000; display:inline-block; vertical-align:top;}
+#more_feedback_info		{margin-left:10px;}
+#more_feedback_info a:hover	{border-bottom:1px solid #fff;}
 
 
 /*	Blog styles
@@ -223,8 +226,8 @@ a.stats_link.missing span	{color:#000;}
 .description_wrap		{width:100%; margin:0 auto; padding-bottom:40px;}
 .description			{width:960px; margin:0 auto; padding:40px 0; text-align:left; margin-bottom:40px;}
 .description span.title	{display:block; color:#000; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-bottom:1px solid #000;}
-.description span.title.sub	{font-size:1.0em; border:0; margin:0; padding-bottom:10px; font-weight:bold;}
-.description p			{padding:15px 0; font-size:1.2em; color:#000; line-height:1.2em; word-spacing:0.07em;}
+.description span.title.sub	{font-size:20px; border:0; margin:0; padding-bottom:5px; font-style:italic;}
+.description p			{padding:15px 0; font-size:19px; color:#000; line-height:24px; word-spacing:0.07em;}
 .description p.about_data	{margin-top:30px;}
 .description a			{color:#000;}
 .description a:hover	{text-decoration:underline;}
@@ -385,9 +388,9 @@ table.money td.col5			{background-color:#F3F3F3;}
 table.money td.col6			{background-color:#F8F8F8;}
 table.money td.col7			{background-color:#FDFDFD;}
 
-table.money tr.row1 th		{background-color:#000; color:#FFF; font-weight:700; text-align:center; padding:0px; position:relative;}
+table.money tr.row1 th		{background-color:#EDEDED; color:#000; font-weight:700; text-align:center; padding:0px; position:relative;}
 table.money tr.row1 th:hover{cursor:pointer;}
-table.money tr.row1 th span	{color:#FFF; display:block; padding:20px 10px;}
+table.money tr.row1 th span	{color:#000; display:block; padding:20px 10px;}
 table.money tr.row1 th.col1	{text-align:left; border:1px solid #666; border-bottom:1px solid #666; padding:20px 10px;}
 table.money tr.row1 th.col2	{text-align:left; border-bottom:1px solid #666; padding:20px 15px; border-top:1px solid #666;}
 table.money tr.row1 th.col3	{border:1px solid #666; border-bottom:1px solid #666;}
@@ -413,13 +416,18 @@ table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover,
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover,
 table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:#E2E2E2;}
 
+table.money tr span.sort			{position:absolute; right:0px; top:0px; pointer-events:none;}
+table.money tr th.col4 span.sort	{position:absolute; right:initial; left:0px; top:0px;}
+table.money tr.row2 span.sort		{position:absolute; right:initial; left:10px; top:23px;}
+table.money tr.row2 td.col1 span.sort, table.money tr.row2 td.col2 span.sort	{position:absolute; right:10px; left:initial; top:23px;}
+
 table.money a				{display:block; color:#000; word-wrap:normal;}
 table.money a:focus			{color:#000; text-decoration:none;}
 table.money a:link  		{color:#000; text-decoration:none;}
 table.money a:visited		{color:#000; text-decoration:none;}
 table.money a:hover			{color:#000; text-decoration:none;}
 table.money a:active		{color:#000; text-decoration: none;}
-table.money a.year			{position:absolute; background-color:#666; padding:20px 10px; top:0;}
+table.money a.year			{position:absolute; background-color:#666; padding:20px 10px; top:0; background-color:#C8C8C8;}
 table.money a.year.prev		{left:0;}
 table.money a.year.next		{right:0;}
 
@@ -455,7 +463,7 @@ table.activity a:active	{color:#000; text-decoration:none;}
 /*	Table for data descriptions footer (Donors / Sectors)
 	============================================= */
 table.data				{width:960px; border-collapse:collapse;}
-table.data td			{color:#000; font-size:1.0em; line-height:1.4em; padding:10px 20px; vertical-align:top; border:1px solid #000; cursor:default;}
+table.data td			{color:#000; font-size:1.0em; line-height:24px; padding:20px; vertical-align:top; border:1px solid #000; cursor:default;}
 
 
 /*	Missing data
