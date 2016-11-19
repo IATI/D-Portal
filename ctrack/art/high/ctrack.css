@@ -29,7 +29,7 @@ strong, .bold			{font-weight:bold; color:inherit;}
 /*	Main wrappers for content & fixed background img
 	============================================= */
 .portal					{-moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; display:table; width:100%; height:100%;}
-.main_wrap				{width:100%; min-width:1040px; padding:0px; display:table-cell; background-color:#FFF;}
+.main_wrap				{width:100%; min-width:1040px; padding:0px; display:table-cell; background-color:#FFF; border-bottom:1px solid #000;}
 #background_image	 	{display:none;}
 .overlay				{width:100%; height:100%; background-color:#FFF; position:relative;}	/* Overlay colour for background image */
 iati-activity			{margin-bottom:40px;}	/* Fixes too-large bottom margin during only this instance */
@@ -134,11 +134,12 @@ a.path:hover			{background-color:#E9E9E9;}
 	============================================= */
 .description_splash		{width:960px; margin:0 auto; padding:0px; box-sizing:border-box; text-align:left;}
 .description_splash .description span.title	{margin:0;}
+.description_splash .description p			{padding:15px 0; font-size:1.2em; color:#000; line-height:1.2em; word-spacing:0.07em;}
 
 .feedback_links_wrap	{width:960px; margin:0 auto; margin-top:20px; text-align:right;}
 a.feedback_txt, #more_feedback_info	{color:#000; display:inline-block; vertical-align:top;}
 #more_feedback_info		{margin-left:10px;}
-#more_feedback_info a:hover	{border-bottom:1px solid #fff;}
+#more_feedback_info a:hover	{border-bottom:1px solid #000;}
 
 
 /*	Generator link - INDEX PAGE
@@ -537,3 +538,7 @@ a.beige:hover			{color:#FFF;}
 @-moz-keyframes spin {from {-moz-transform: rotate(0deg);} to {-moz-transform: rotate(359deg);}}
 @-o-keyframes spin {from {-o-transform: rotate(0deg);} to {-o-transform: rotate(359deg);}}
 @keyframes spin {from {transform: rotate(0deg);} to {transform: rotate(359deg);}}
+
+.nanobar{width:100%; height:8px; z-index:9999; top:0;}
+.bar	{width:0; height:100%; transition:height .3s; background:#000;}
+
