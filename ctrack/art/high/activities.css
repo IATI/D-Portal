@@ -39,6 +39,7 @@ span.span_span-title span-title:before	{content:"PROJECT TITLE"; font-size:14px;
 	============================================= */
 iati-identifier 		{display:block; width:880px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#000; margin:0 auto; border-top:1px solid #000; border-bottom:1px solid #000;}
 iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:5px;}
+iati-identifier div		{display:block;}
 iati-identifier:hover	{color:#000;}
 iati-identifier a:focus		{color:#000;}
 iati-identifier a:link  	{color:#000;}
@@ -83,10 +84,15 @@ activity-date[type="end-actual"]:before		{content:"END DATE"; font-size:14px; co
 
 /*	Who's invloved?
 	============================================= */
-span.span_participating-org				{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#000; counter-reset:section;}
-span.span_participating-org:before 		{content:"WHO'S INVOLVED?"; font-size:14px; color:#000; display:block; margin-bottom:20px;}
-participating-org::before				{counter-increment:section; content:counter(section) ". ";}
-participating-org 						{display:block; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
+span.span_participating-org			{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#000; counter-reset:section;}
+span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#000; display:block; margin-bottom:20px;}
+participating-org::before			{counter-increment:section; content:counter(section) ". ";}
+participating-org 					{display:block; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
+participating-org a					{display:initial;}
+participating-org a:link			{color:#000;}
+participating-org a:visited			{color:#000; text-decoration:underline;}
+participating-org a:hover			{color:#000;}
+participating-org a:active			{color:#000;}
 participating-org[role="funding"]:after			{content:"FUNDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="extending"]:after		{content:"EXTENDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}

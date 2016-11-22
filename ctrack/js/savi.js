@@ -425,6 +425,7 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 	var slug=it.parent().parent().attr("dstore:slug"); // do we know where this came from?
 	var id=encodeURIComponent(it.text().trim());
 	wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
+	it.append($("<div></div>"));
 	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+
 //	"' href='http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier="+id+"'>xml</a>"));
 	"' href='http://d-portal.org/q.xml?aid="+id+"' target='_blank'>xml</a>"));
@@ -449,6 +450,15 @@ acts.find("receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
 		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	}
 });
+
+acts.find("participating-org[activity-id]").each(function(i){var it=$(this);
+	var id=it.attr("activity-id");
+	if(id)
+	{
+		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
+	}
+});
+
 
 acts.find("related-activity").each(function(i){var it=$(this);
 	var id=it.attr("ref");
