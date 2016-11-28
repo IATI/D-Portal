@@ -520,8 +520,11 @@ view_search.ajax=function(args)
 	
 	$("#result_span").html("...");
 	fetch.ajax(dat,function(data){
-		var c=data.rows[0]["count_aid"];
-		$("#result_span").html("Found "+c+" activities");
+		if(count!=0) // show results
+		{
+			var c=data.rows[0]["count_aid"];
+			$("#result_span").html("Found "+c+" activities");
+		}
 	});
 	
 }
