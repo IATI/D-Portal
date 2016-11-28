@@ -66,10 +66,9 @@ view_stats.ajax=function(args)
 	args=args || {};
     
 	var dat={
-			"select":"count_aid,count_reporting_ref",
+			"select":"count_aid",
 			"from":"act",
 		};
-//	if(dat.country_code) { dat.from+=",country"; }
 	fetch.ajax_dat_fix(dat,args);
 		
 	fetch.ajax(dat,args.callback || function(data)
@@ -80,7 +79,6 @@ view_stats.ajax=function(args)
 		if(data.rows[0])
 		{
 			ctrack.chunk("total_projects",data.rows[0]["count_aid"]);
-			ctrack.chunk("numof_publishers",data.rows[0]["count_reporting_ref"]);
 		}
 		
 		view_stats.calc();
@@ -90,21 +88,41 @@ view_stats.ajax=function(args)
 	
 	
 	var dat={
-			"select":"stats",
+			"from":"act",
+			"select":"reporting_ref",
+			"groupby":"reporting_ref",
+			"limit":-1,
+		};
+//	var dat={
+//			"select":"count_reporting_ref",
+//			"from":"act",
+//		};
+	fetch.ajax_dat_fix(dat,args);
+		
+	fetch.ajax(dat,args.callback || function(data)
+	{
+		ctrack.chunk("numof_publishers",data.rows.length);
+
+		view_stats.calc();
+		
+		ctrack.display(); // every fetch.ajax must call display once
+	});
+
+
+	var dat={
+			"select":"count_aid",
 			"from":"act,location",
 			"limit":-1,
 		};
 	fetch.ajax_dat_fix(dat,args);
-	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100;}
+	if(dat.country_code) { dat.country_percent=100;}
 
 	fetch.ajax(dat,args.callback || function(data)
 	{
-//		console.log("total_activities_with_location");
-//		console.log(data);
 			
 		if(data.rows[0])
 		{
-			ctrack.chunk("total_activities_with_location",data.rows[0]["distinct_aid"]);
+			ctrack.chunk("total_activities_with_location",data.rows[0]["count_aid"]);
 		}
 		view_stats.calc();
 
