@@ -34,17 +34,18 @@ span.span_span-title narrative:nth-of-type(2)	{display:block; padding:10px 0 0 0
 
 /*	IATI Identifier
 	============================================= */
-iati-identifier 		{display:block; background-color: rgba(0,14,32,0.7); width:880px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#FF7A00; margin:0 auto;}
+iati-identifier 		{display:block; background-color:rgba(0,14,32,0.7); width:880px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#FF7A00; margin:0 auto;}
 iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+iati-identifier div		{display:block;}
 a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:baseline;}
-a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; padding-left:20px;}
+a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; width:50%;}
 a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
 a.a_xml_iati-identifier:link	{color:#FF7A00;}
 a.a_xml_iati-identifier:visited	{color:#FF7A00;}
 a.a_xml_iati-identifier:hover	{color:#FFAB5E;}
 a.a_xml_iati-identifier:active	{color:#FF7A00;}
-a.a_slug				{display:inline-block; vertical-align:baseline; padding-left:20px;}
-a.a_slug:before			{content:"IATI REGISTRY"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_slug				{display:inline-block; vertical-align:baseline; width:50%; text-align:right;}
+a.a_slug:before			{content:"VIEW IATI REGISTRY"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
 a.a_slug:link			{color:#FF7A00;}
 a.a_slug:visited		{color:#FF7A00;}
 a.a_slug:hover			{color:#FFAB5E;}
@@ -74,10 +75,15 @@ activity-date[type="end-actual"]:before	{content:"END DATE"; font-size:14px; col
 
 /*	Who's invloved?
 	============================================= */
-span.span_participating-org				{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#FFF; counter-reset:section;}
-span.span_participating-org:before 		{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
-participating-org::before				{counter-increment:section; content:counter(section) ". ";}
-participating-org 						{display:block; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
+span.span_participating-org			{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#FFF; counter-reset:section;}
+span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
+participating-org::before			{counter-increment:section; content:counter(section) ". ";}
+participating-org 					{display:block; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
+participating-org a					{display:initial;}
+participating-org a:link			{color:#FF7A00;}
+participating-org a:visited			{color:#FF7A00;}
+participating-org a:hover			{color:#FFAB5E;}
+participating-org a:active			{color:#FF7A00;}
 participating-org[role="funding"]:after			{content:"FUNDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
 participating-org[role="extending"]:after		{content:"EXTENDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}

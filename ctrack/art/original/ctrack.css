@@ -133,7 +133,7 @@ a.path:hover			{background-color:rgba(0,14,32,0.9);}
 
 /*	Text and Description styles - INDEX PAGE
 	============================================= */
-.description_splash		{width:960px; margin:0 auto; padding:0px; box-sizing:border-box; text-align:left;}
+.description_splash		{width:960px; margin:0 auto; padding:0px; box-sizing:border-box; text-align:left; padding-bottom:10px;}
 .description_splash .description span.title	{margin:0;}
 .description_splash .description p			{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em;}
 
@@ -142,6 +142,16 @@ a.feedback_txt, #more_feedback_info	{color:#fff; display:inline-block; vertical-
 #more_feedback_info		{margin-left:10px;}
 #more_feedback_info a:hover	{border-bottom:1px solid #fff;}
 
+
+/*	Generator link - INDEX PAGE
+	============================================= */
+.screen_generator		{display:block; background:url('/art/generator.png')no-repeat; background-size:540px 562px; width:540px; height:200px;}
+a.description_wrap.bigbutton						{display:block; width:878px; margin-bottom:40px; padding:40px 40px 0 40px; background-color:rgba(255,255,255,0); border:1px solid #fff;}
+a.description_wrap.bigbutton:hover					{background-color:rgba(255,255,255,0.1);}
+a.description_wrap.bigbutton span.description		{margin:0; width:340px; padding:0; background:transparent; display:inline-block; vertical-align:top;}
+a.description_wrap.bigbutton span.description.img	{width:540px;}
+a.description_wrap.bigbutton span.title				{border:0; font-size:60px; margin:0; width:100%;}
+a.description_wrap.bigbutton p						{padding:0; font-size:24px; line-height:29px; color:#fff;}
 
 
 /*	Blog styles
@@ -234,7 +244,7 @@ a.stats_link.missing span	{color:#008FFF;}
 /*	Data Description styles
 	============================================= */
 .description_wrap		{width:100%; margin:0 auto; background:linear-gradient(to bottom, rgba(0,14,32,0) 0%,rgba(0,14,32,0.5) 60%,rgba(0,14,32,0.9) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,14,32,0) 0%,rgba(0,14,32,0.5) 60%,rgba(0,14,32,0.9) 100%); padding-bottom:40px;}
-.description			{width:880px; margin:0 auto; padding:40px; text-align:left; margin-bottom:40px; background-color:rgba(255,255,255,0.1);}
+.description			{width:880px; margin:0 auto; padding:40px; text-align:left; margin-bottom:40px; margin-top:20px; padding-top:20px; background-color:rgba(255,255,255,0.1);}
 .description span.title	{display:block; color:#FFF; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-bottom:1px solid #FFF;}
 .description span.title.sub	{font-size:20px; border:0; margin:0; padding-bottom:5px; font-style:italic;}
 .description p			{padding:15px 0; font-size:19px; color:#fff; line-height:24px; word-spacing:0.07em;}
@@ -543,5 +553,6 @@ a.beige:hover			{color:#FFF;}
 @keyframes spin {from {transform: rotate(0deg);} to {transform: rotate(359deg);}}
 
 
-.nanobar{width:100%;height:8px;z-index:9999;top:0}.bar{width:0;height:100%;transition:height .3s;background:#08f}
+.nanobar{width:100%; height:8px; z-index:9999; top:0;}
+.bar	{width:0; height:100%; transition:height .3s; background:#08f;}
 
