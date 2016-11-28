@@ -328,7 +328,8 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .settings_search td div		{width:800px; margin:0 auto;}
 .settings_search td ul		{list-style-type:disc; list-style-position:outside;}
 .settings_search td ul li	{padding:10px 20px 10px 0;}
-.settings_search td a:hover	{color:#6ecaff;}
+.settings_search td a		{color:#6ecaff;}
+.settings_search td a:hover	{border-bottom:1px solid #6ecaff;}
 
 .settings_link_search span	{color:#fff; padding:10px 0 0 0; display:inline-block;}
 .settings_link_search span:nth-of-type(1)	{font-weight:bold; padding-right:5px;}

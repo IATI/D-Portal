@@ -308,8 +308,8 @@ input#view_search_string, input.typeahead.tt-hint		{color:#000;}
 a#search_link				{background-color:#000; color:#FFF;}
 a#search_link span			{color:#FFF;}
 a#search_link:hover			{background-color:#000; color:#FFF;}
-a.search_link_disable		{border:1px solid #000; color:#000; background-color:#fff;}
-a.search_link_disable:hover	{cursor:default;}
+a#search_link.search_link_disable		{border:1px solid #000; color:#000; background-color:#fff;}
+a#search_link.search_link_disable:hover	{cursor:default;}
 .search_head				{color:#000; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
 .search_head span			{color:#000; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
 
