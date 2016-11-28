@@ -184,7 +184,7 @@ ctrack.setup=function(args)
 	{
 		args.chunks["main_countrymin"]="";
 		args.chunks["main_country"]="";
-		args.chunks["main_country_map"]="";
+//		args.chunks["main_country_map"]="";
 		args.chunks["country_name"]="";
 	}
 
