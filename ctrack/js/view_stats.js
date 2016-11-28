@@ -101,11 +101,8 @@ view_stats.ajax=function(args)
 		
 	fetch.ajax(dat,args.callback || function(data)
 	{
-		if(data.rows[0])
-		{
-			ctrack.chunk("numof_publishers",data.rows.length);
-		}
-		
+		ctrack.chunk("numof_publishers",data.rows.length);
+
 		view_stats.calc();
 		
 		ctrack.display(); // every fetch.ajax must call display once
