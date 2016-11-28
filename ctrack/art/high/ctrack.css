@@ -39,19 +39,29 @@ iati-activity:after 	{content:""; padding:0; display:initial;}	/* Takes away con
 
 /*	Settings
 	============================================= */
-#settings				{padding:10px 40px 30px 40px; margin:0 auto; background-color:#fff; margin-bottom:40px;}
+#settings				{padding:10px 40px 30px 40px; margin:0 auto; border:1px solid #000; margin-bottom:40px;}
+#settings.settings_search	{padding:40px; box-sizing:border-box; width:960px; margin:0 auto; color:#000; font-size:1.2em; line-height:1.2em; margin-top:40px;}
+.settings_search p		{padding:25px 0;}
 span.settings_info		{min-width:135px; display:inline-block;}
 td.settings_toggle		{text-align:right; vertical-align:middle;}
-a.settings_link span	{color:rgba(0,0,0,1); padding:10px 15px 0 0; display:inline-block;}
+a.settings_link span	{color:#000; padding:10px 15px 0 0; display:inline-block;}
+a.settings_link span:nth-of-type(2)	{color:#000; border-bottom:1px solid #000; padding-right:0;}
+a.settings_link span:nth-of-type(2):hover	{font-style:italic;}
 td.options				{padding-top:20px;}
 td.options:hover		{cursor:default;}
 td.options form			{display:inline-block;}
+.settings_search td.options	{padding:0;}
+td.options span			{color:#000; letter-spacing:5px; font-weight:bold; margin-left:5px;}
+td.options div			{width:820px; margin:0 auto;}
+td.options ul			{list-style-type:disc; list-style-position:outside;}
+td.options ul li		{padding:10px 20px 10px 0;}
+td.options a:hover		{text-decoration:underline;}
 
 
 /*	Status badge next to d-portal logo in headers
 	============================================= */
-span.badge				{display:inline-block; vertical-align:bottom; color:#fff; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px;}
-span.badge.beta			{background-color:#000;}
+span.badge				{display:inline-block; vertical-align:bottom; color:#999; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px;}
+span.badge.beta			{border:1px solid #999;}
 
 
 /*	Breadcrumbs
