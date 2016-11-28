@@ -80,9 +80,9 @@ view_list_publishers.ajax=function(args)
 			ctrack.chunk("list_publishers_count",data.rows.length);
 			for(var i=0;i<data.rows.length;i++)
 			{
+				var v=data.rows[i];
 				if(v.reporting_ref) // ignore missing publisher data
 				{
-					var v=data.rows[i];
 					var d={};
 					d.num=i+1;
 
