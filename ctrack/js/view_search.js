@@ -485,6 +485,16 @@ view_search.ajax=function(args)
 			"select":"count_aid",
 		};
 	fetch.ajax_dat_fix(dat,args);
+
+	var count=0; for(var n in args.q) { count++; }
+	if(count==0) // disable results button
+	{
+		$("#search_link").addClass("search_link_disable");
+	}
+	else // enable results button
+	{
+		$("#search_link").removeClass("search_link_disable");
+	}
 	
 	$("#result_span").html("...");
 	fetch.ajax(dat,function(data){
