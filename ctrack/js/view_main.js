@@ -53,8 +53,16 @@ view_main.view=function(args)
 	views.active.ajax({limit:5,plate:"{table_active_data}",chunk:"table_active_datas",notnull:true});
 	views.ended.ajax({limit:5,plate:"{table_ended_data}",chunk:"table_ended_datas"});
 
-	views.donors_top.ajax();
-	views.sectors_top.ajax();	
+	if( ctrack.hash.search!=undefined || ctrack.q.search!=undefined)
+	{
+		views.donors_top.ajax({year:"all years"});
+		views.sectors_top.ajax({year:"all years"});
+	}
+	else
+	{
+		views.donors_top.ajax();
+		views.sectors_top.ajax();	
+	}
 
 	ctrack.map.pins=undefined;
 	views.map.ajax_heat({limit:200});

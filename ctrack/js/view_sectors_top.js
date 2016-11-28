@@ -41,8 +41,12 @@ view_sectors_top.ajax=function(args)
 			"sector_group_not_null":1,
 			"groupby":"sector_group",
 			"trans_code":"D|E",
-			"trans_day_gteq":year+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(year)+1)+"-"+ctrack.args.newyear,
 		};
+	if(year!="all years") // all years?
+	{
+			dat["trans_day_gteq"]=year+"-"+ctrack.args.newyear;
+			dat["trans_day_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
+	}
 	fetch.ajax_dat_fix(dat,args);
 
 	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
