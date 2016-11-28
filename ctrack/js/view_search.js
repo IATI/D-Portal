@@ -166,6 +166,9 @@ view_search.fixup=function()
 //		txt.push("this is a test");
 		
 		var v=$('#view_search_string').val();
+
+// remove and trim non alphanumerics, so search is very simple for now
+		v=v.replace(/[^A-Za-z0-9]+/gi," ").trim();
 		
 		var enable_search=false;
 		
