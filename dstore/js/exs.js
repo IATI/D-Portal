@@ -239,12 +239,12 @@ exs.create_csv = function(){
 			var csv_file=wait.for(http_getbody,"http://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate="+year+"-"+month+"-01&reportType=SDRCV&tsvflag=Y");
 //			var csv_lines=wait.for( function(cb){ csv().from.string(csv_file,{delimiter:'\t'}).to.array( function(d){ cb(null,d); } ); } );
 //			var csv_lines=wait.for(csv_parse,csv_file,{delimiter:'\t'});
-			var csv_lines=baby.parse(csv_file).data;
-console.log(year + " " + month);
+			var csv_lines=baby.parse(csv_file,{delimiter:'\t'}).data;
+console.log(year + " " + month );
 		
 			var active=false;
 			csv_lines.forEach(function(line){
-				if(line[0]=="Currency")
+				if(line[0].toLowerCase()=="currency")
 				{
 					active=true;
 				}
@@ -254,6 +254,7 @@ console.log(year + " " + month);
 					var cid=xes_low[ line[0].toLowerCase() ];
 					if( cid )
 					{
+
 						var dm=dump_m[cid] || {count:0,total:0}; dump_m[cid]=dm;
 						var dy=dump_y[cid] || {count:0,total:0}; dump_y[cid]=dy;
 						
