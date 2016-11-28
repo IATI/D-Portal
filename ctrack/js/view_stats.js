@@ -91,6 +91,7 @@ view_stats.ajax=function(args)
 			"from":"act",
 			"select":"reporting_ref",
 			"groupby":"reporting_ref",
+			"limit":-1,
 		};
 //	var dat={
 //			"select":"count_reporting_ref",
