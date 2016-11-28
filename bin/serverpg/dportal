@@ -24,17 +24,18 @@
 # Based on a script posted by https://gist.github.com/jinze at https://gist.github.com/3748766
 #
 
-if [ -e /lib/lsb/init-functions ]; then
+#if [ -e /lib/lsb/init-functions ]; then
 	# LSB source function library.
-	. /lib/lsb/init-functions
-fi;
+#	. /lib/lsb/init-functions
+#fi;
 
 pidFile="/var/run/dportal.pid"
 logFile="/var/run/dportal.log"
 
-command="node"
-nodeApp="js/serv.js"
-foreverApp="forever"
+command="/usr/local/nvm/versions/node/v6.3.1/bin/node"
+nodeDir="/home/ctrack/D-Portal"
+nodeApp="$nodeDir/dportal/js/serv.js"
+foreverApp="/usr/local/nvm/versions/node/v6.3.1/bin/forever"
 
 start() {
 	echo "Starting $nodeApp"
@@ -44,27 +45,40 @@ start() {
    # Launching forever with a full path
    # does not work unless we set the PATH.
    PATH=/usr/local/bin:$PATH
-	export NODE_ENV=production
-   #PORT=80
+   export NODE_ENV=production
+   export DSTORE_PG="/var/run/postgresql dstore"
+   export PGUSER="root"
+   cd $nodeDir/dportal
    $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" $nodeApp
    RETVAL=$?
 }
 
 restart() {
-	echo -n "Restarting $nodeApp"
+	echo "Restarting $nodeApp"
 	$foreverApp restart $nodeApp
 	RETVAL=$?
 }
 
 stop() {
-	echo -n "Shutting down $nodeApp"
+	echo "Shutting down $nodeApp"
    $foreverApp stop $nodeApp
    RETVAL=$?
 }
 
 status() {
-   echo -n "Status $nodeApp"
+   echo "Status $nodeApp"
    $foreverApp list
+   RETVAL=$?
+}
+
+log() {
+   echo "tail -f $logFile"
+   tail -f $logFile
+   RETVAL=$?
+}
+
+cron() {
+   echo "cron $nodeApp"
    RETVAL=$?
 }
 
@@ -81,8 +95,14 @@ case "$1" in
    restart)
    	restart
         ;;
+   log)
+   	log
+        ;;
+   cron)
+   	cron
+        ;;
 	*)
-       echo "Usage:  {start|stop|status|restart}"
+       echo "Usage:  {start|stop|status|restart|log}"
        exit 1
         ;;
 esac
