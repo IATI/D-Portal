@@ -89,10 +89,10 @@ view_stats.ajax=function(args)
 	
 	var dat={
 			"from":"act",
-			"select":"count",
+			"select":"reporting_ref",
 			"groupby":"reporting_ref",
 		};
-//	fetch.ajax_dat_fix(dat,args);	var dat={
+//	var dat={
 //			"select":"count_reporting_ref",
 //			"from":"act",
 //		};
@@ -102,7 +102,7 @@ view_stats.ajax=function(args)
 	{
 		if(data.rows[0])
 		{
-			ctrack.chunk("numof_publishers",data.rows[0]["count"]);
+			ctrack.chunk("numof_publishers",data.rows.length);
 		}
 		
 		view_stats.calc();
