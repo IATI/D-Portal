@@ -47,6 +47,7 @@ start() {
    PATH=/usr/local/bin:$PATH
    export NODE_ENV=production
    export DSTORE_PG="/var/run/postgresql dstore"
+   export PGUSER="root"
    cd $nodeDir/dportal
    $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" $nodeApp
    RETVAL=$?
