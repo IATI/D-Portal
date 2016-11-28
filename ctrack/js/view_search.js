@@ -167,8 +167,11 @@ view_search.fixup=function()
 		
 		var v=$('#view_search_string').val();
 		
+		var enable_search=false;
+		
 		if(v)
 		{
+			enable_search=true;
 			txt.push("Searching activity title for the term \""+v+"\"")
 			que.push("search="+v)
 			q.text_search=v;
@@ -182,6 +185,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_country").val();		
 		if(v)
 		{
+			enable_search=true;
 			txt.push("Where the recipient country is \""+v+"\"")
 			que.push("country="+v)
 			q.country_code=v;
@@ -190,6 +194,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_funder").val();		
 		if(v)
 		{
+			enable_search=true;
 			txt.push("Where the CRS funder is \""+v+"\"")
 			que.push("funder="+v)
 			q.funder_ref=v;
@@ -198,6 +203,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_sector").val();		
 		if(v)
 		{
+			enable_search=true;
 			txt.push("Where the IATI sector is \""+v+"\"")
 			que.push("sector_code="+v)
 			q.sector_code=v;
@@ -206,6 +212,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_category").val();		
 		if(v)
 		{
+			enable_search=true;
 			txt.push("Where the IATI sector category is \""+v+"\"")
 			que.push("sector_group="+v)
 			q.sector_group=v;
@@ -214,6 +221,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_publisher").val();		
 		if(v)
 		{
+			enable_search=true;
 			txt.push("Where the IATI publisher is \""+v+"\"")
 			que.push("publisher="+v)
 			q.reporting_ref=v;
@@ -224,6 +232,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_year_min").val();		
 		if(v)
 		{
+			enable_search=true;
 			txt.push("Where the year reported to IATI is greater than or equal to \""+v+"\"")
 			que.push("year_min="+v);
 			que.push("year="+v);
@@ -233,6 +242,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_year_max").val();		
 		if(v)
 		{
+			enable_search=true;
 			txt.push("Where the year reported to IATI is less than or equal to \""+v+"\"")
 			que.push("year_max="+v);
 			if(!donemin) { que.push("year="+v); }
@@ -240,8 +250,14 @@ view_search.fixup=function()
 		}
 
 		$("#search_span").html("<span>"+txt.join("</span><span>")+"</span>");
-		$("#search_link").attr("href","?"+que.join("&")+"#view=main");
-		
+		if(enable_search)
+		{
+			$("#search_link").attr("href","?"+que.join("&")+"#view=main");
+		}
+		else
+		{
+			$("#search_link").removeAttr("href");
+		}
 		view_search.ajax({q:q});
 	}
 	
