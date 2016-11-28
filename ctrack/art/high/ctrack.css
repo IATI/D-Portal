@@ -207,7 +207,7 @@ a.map_percent span		{display:inline; font-size:1.0em; line-height:1.15em; color:
 
 /*	Stats (key figures) styles
 	============================================= */
-.stats_wrap				{width:100%; margin:0 auto; padding:40px 0;}
+.stats_wrap				{width:100%; margin:0 auto; padding:40px 0; padding-top:0px;}
 span.stats_title		{display:block; font-size:1.5em; color:#000; padding-bottom:10px;}
 span.stats_title.view	{font-size:0.6em; color:#FFF;}
 span.stats_num			{display:block; font-size:8.0em; color:#000;}
@@ -308,8 +308,8 @@ input#view_search_string, input.typeahead.tt-hint		{color:#000;}
 a#search_link				{background-color:#000; color:#FFF;}
 a#search_link span			{color:#FFF;}
 a#search_link:hover			{background-color:#000; color:#FFF;}
-a.search_link_disable		{border:1px solid #000; color:#000; background-color:#fff;}
-a.search_link_disable:hover	{cursor:default;}
+a#search_link.search_link_disable		{border:1px solid #000; color:#000; background-color:#fff;}
+a#search_link.search_link_disable:hover	{cursor:default;}
 .search_head				{color:#000; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
 .search_head span			{color:#000; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
 
