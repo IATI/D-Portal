@@ -165,8 +165,11 @@ deleteFolderRecursive = function(path) {
 						else
 						{
 							page.it=page;
-							var html=plate.replace("{"+page._extension+"}",page);
-							fs.writeFileSync("static/"+tonguedir+dir+name,html);
+							if(page[page._extension]) // only write if we have the main chunk
+							{
+								var html=plate.replace("{"+page._extension+"}",page);
+								fs.writeFileSync("static/"+tonguedir+dir+name,html);
+							}
 						}
 					}
 				}

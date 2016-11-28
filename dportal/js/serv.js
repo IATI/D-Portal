@@ -50,6 +50,12 @@ app.use(function(req, res, next) {
 });
 
 
+// redirect any unknown page to main homepage
+app.get('*', function(req, res) {
+    res.redirect('/ctrack.html#view=search');
+});
+
+
 console.log("Starting static server at http://localhost:"+argv.port+"/");
 
 app.listen(argv.port);
