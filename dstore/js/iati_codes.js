@@ -149,7 +149,7 @@ iati_codes.fetch = function(){
 //console.log(code+" : "+name);
 			if( name && code )
 			{
-				if(name!="unassigned" && name!="user-assigned")
+				if(name!="unassigned" && name!="user-assigned" && name!="Unassigned" && name!="User-assigned")
 				{
 					var aa=name.split(":");
 					if(aa[1])
