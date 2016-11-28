@@ -10,16 +10,48 @@
 <style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}#background_image{url('/art/mexico_background_image.jpg')};{css}</style>
 {beige}
 {main_head_search}
+{search_intro}
+{more_search_intro}
 {view_search_test}
 {explore_portals}
 {compare_buttons}
 {where_is_the_data_from}
 {view_tail}
 			
-			
+
+#search_intro
+<div class="search_intro_wrap">
+	Use d-portal’s new search function to find IATI data on development and humanitarian activities on specific events or themes more easily. <span onclick="$('#more_search_intro').toggle();">Find out more about how it works</span>
+</div>
+
+#more_search_intro
+<div id="more_search_intro" class="settings_search" style="display:none;">
+<table class="head">
+	<tr>
+		<td>
+			The new <span class="discover">DISCOVER</span> feature helps find activities published to the IATI Standard based on keywords - it was originally developed to help people who wanted to find information on specific humanitarian crises, including the Ebola outbreak.
+			<p><b>This is a new feature of d-portal and development is ongoing</b> - as always feedback (<a href="#">email</a> or <a href="#">GitHub</a>) is very welcome.</p>
+			<div><ul>
+			<li>DISCOVER allows you to type in one or more keywords – it searches the Titles and Descriptions of <span class="underline">all</span> IATI activities and provides results in the usual d-portal format <span class="accent">(stats and charts which you can explore by clicking through to tables)</span></li>
+
+			<li>Refine your search by adding multiple words – eg ‘<i>Hurricane</i>’ will find more results than ‘<i>Hurricane Matthew</i>’</li>
+
+			<li>If you type multiple words, the results will display activities which contain <b>BOTH</b> or <b>ALL</b> of those words <span class="accent">(not necessarily in that order)</span></li>
+
+			<li>Leaving a space between words is currently the same as using a <b>+</b> symbol. Using quotation marks around a phrase e.g. “<i>World Humanitarian Summit</i>” currently gives the same results as using <b>+</b>. We aim to update the function to allow searching an exact phrase using quotation marks shortly.</li>
+
+			<li>Adapted for English plural nouns - eg typing ‘<i>Refugee</i>’ will include results for ‘<i>Refugees</i>’</li>
+			</ul></div>
+		</td>
+	</tr>
+</table>
+</div>
+
+	
 #view_search_test
 <div id="view_search_test">
 	<div class="search_filter">
+		{filter_head_text}
 		<div class="search_wrap">
 			<div class="search_label">
 				<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
@@ -78,9 +110,11 @@
 
 	<input type="text" id="view_search_string" class="typeahead" placeholder="{search_placeholder_txt}"/>
 	
-	{feedback_links}
 </div>
 
+
+#filter_head_text
+<div class="search_head">DISCOVER <span>filters</span></div>
 
 #feedback_links
 <div class="feedback_links_wrap">
@@ -90,7 +124,8 @@
 #more_feedback
 <span id="more_feedback_info" style="display:none;">
 	{feedback_links2_txt}
-</span>
+</span>	
+
 
 #explore_portals
 <span id="explore"></span>

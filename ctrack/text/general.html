@@ -103,7 +103,6 @@
 
 #main_head_search
 <div class="default head">
-	
 	<table class="head">
 		<tr>
 			<td rowspan="3">
@@ -114,39 +113,14 @@
 
 #main_head_tail_settings_search
 		<td class="settings_toggle">
-			<a onclick="$('#settings').toggle();" class="settings_link">
-				<span>Welcome to d-portal – helping you explore IATI data</span><span>Read more</span>
-			</a>
+			<div class="settings_link_search">
+				<span>Welcome to d-portal </span><span> – helping you explore IATI data</span>
+			</div>
 		</td>
 		</tr>
 	</table>
 	<div class="crumb_wrap">{crumbs}</div>
-</div>
-{main_settings_search}
-
-
-#main_settings_search
-<div id="settings" class="settings_search" style="display:none;">
-<table class="head">
-	<tr>
-		<td class="options">
-			The new <span>DISCOVER</span> feature is created to help you find IATI activities related to specific events or themes more easily.
-			<p>The aim of DISCOVER is to help you find activities based on keywords  - this was originally developed to help people who wanted to find IATI activities relating to Ebola and other humanitarian crises. This is a new feature of d-portal, as always feedback (<a href="#">email</a> or <a href="#">GitHub</a>) is very welcome, particularly if there are areas of d-portal we can improve to help you find what you need.</p>
-			<div><ul>
-			<li>DISCOVER allows you to type in one or more keywords – it finds the Titles and Descriptions of <b>all</b> IATI activities and provides results in the usual d-portal format (charts followed by tables)</li>
-
-			<li>Refine your search by adding multiple words – eg ‘<i>Hurricane</i>’ will find more <i>or</i> more broad results than ‘<i>Hurricane Matthew</i>’</li>
-
-			<li>If you type multiple words, the results will display activities which contain BOTH <i>or</i> ALL of those words (not necessarily in that order)</li>
-
-			<li>Currently the facility to use <b>“</b> is being developed to help refine results for specific phrases</li>
-
-			<li>Adapted for English plural nouns - eg typing ‘<i>Refugee</i>’ will include results for ‘<i>Refugees</i>’</li>
-			</ul></div>
-		</td>
-	</tr>
-</table>
-</div>		
+</div>	
 
 		
 #main_settings

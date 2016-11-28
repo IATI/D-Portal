@@ -19,8 +19,8 @@ a:link  				{color:#000; text-decoration:none;}
 a:visited				{color:#000; text-decoration:none;}
 a:hover					{color:#000; text-decoration:none;}
 a:active				{color:#000; text-decoration:none;}
-em, .italic				{font-style:italic; color:inherit;}
-strong, .bold			{font-weight:bold; color:inherit;}
+em, i, .italic			{font-style:italic; color:inherit;}
+strong, b, .bold		{font-weight:bold; color:inherit;}
 .underline				{text-decoration:underline; color:inherit;}
 :focus					{outline:2px solid #53B4ED; outline:-webkit-focus-ring-color auto 5px;}
 :-moz-focusring			{outline:2px solid #53B4ED;}
@@ -40,22 +40,13 @@ iati-activity:after 	{content:""; padding:0; display:initial;}	/* Takes away con
 /*	Settings
 	============================================= */
 #settings				{padding:10px 40px 30px 40px; margin:0 auto; border:1px solid #000; margin-bottom:40px;}
-#settings.settings_search	{padding:40px; box-sizing:border-box; width:960px; margin:0 auto; color:#000; font-size:1.2em; line-height:1.2em; margin-top:40px;}
-.settings_search p		{padding:25px 0;}
 span.settings_info		{min-width:135px; display:inline-block;}
 td.settings_toggle		{text-align:right; vertical-align:middle;}
 a.settings_link span	{color:#000; padding:10px 15px 0 0; display:inline-block;}
-a.settings_link span:nth-of-type(2)	{color:#000; border-bottom:1px solid #000; padding-right:0;}
-a.settings_link span:nth-of-type(2):hover	{font-style:italic;}
+
 td.options				{padding-top:20px;}
 td.options:hover		{cursor:default;}
 td.options form			{display:inline-block;}
-.settings_search td.options	{padding:0;}
-td.options span			{color:#000; letter-spacing:5px; font-weight:bold; margin-left:5px;}
-td.options div			{width:820px; margin:0 auto;}
-td.options ul			{list-style-type:disc; list-style-position:outside;}
-td.options ul li		{padding:10px 20px 10px 0;}
-td.options a:hover		{text-decoration:underline;}
 
 
 /*	Status badge next to d-portal logo in headers
@@ -317,7 +308,24 @@ input#view_search_string, input.typeahead.tt-hint		{color:#000;}
 a#search_link				{background-color:#000; color:#FFF;}
 a#search_link span			{color:#FFF;}
 a#search_link:hover			{background-color:#000; color:#FFF;}
-.search_head				{color:#000; letter-spacing:5px; font-size:18px; font-weight:bold; margin-top:5px;}
+.search_head				{color:#000; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
+.search_head span			{color:#000; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
+
+.settings_search			{padding:40px 50px; box-sizing:border-box; width:960px; margin:0 auto; color:#000; font-size:1.2em; line-height:1.2em; margin-top:20px;}
+.settings_search p			{padding:25px 0;}
+.settings_search td			{padding:0;}
+.settings_search td span.discover	{color:#000; letter-spacing:5px; font-weight:bold; margin-left:5px;}
+.settings_search span.accent		{font-size:0.9em; color:#000;}
+.settings_search td div		{width:800px; margin:0 auto;}
+.settings_search td ul		{list-style-type:disc; list-style-position:outside;}
+.settings_search td ul li	{padding:10px 20px 10px 0;}
+.settings_search td a:hover	{text-decoration:underline;}
+
+.settings_link_search span	{color:#000; padding:10px 15px 0 0; display:inline-block;}
+.settings_link_search span:nth-of-type(1)	{font-weight:bold; padding-right:5px;}
+.search_intro_wrap			{width:960px; margin:0 auto; margin-top:40px; color:#000; font-size:20px; line-height:26px;}
+.search_intro_wrap span		{font-size:1.0em; color:#000; padding-right:0; font-weight:bold;}
+.search_intro_wrap span:hover	{border-bottom:1px solid #000; cursor:pointer;}
 
 
 /*	For url #view=search - Discover styles
