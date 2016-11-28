@@ -81,15 +81,18 @@ view_list_publishers.ajax=function(args)
 			for(var i=0;i<data.rows.length;i++)
 			{
 				var v=data.rows[i];
-				var d={};
-				d.num=i+1;
+				if(v.reporting_ref) // ignore missing publisher data
+				{
+					var d={};
+					d.num=i+1;
 
-				d.reporting_ref=v.reporting_ref || "N/A";
-				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
-				d.count_num=Math.floor(v.count||0);
-				d.count=commafy(""+d.count_num);
-				a.push(d);
-				s.push( plate.replace(args.plate || "{list_publishers_data}",d) );
+					d.reporting_ref=v.reporting_ref || "N/A";
+					d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
+					d.count_num=Math.floor(v.count||0);
+					d.count=commafy(""+d.count_num);
+					a.push(d);
+					s.push( plate.replace(args.plate || "{list_publishers_data}",d) );
+				}
 			}
 			ctrack.chunk(args.chunk || "list_publishers_datas",s.join(""));
 			ctrack.chunk("numof_publishers" , data.rows.length );
