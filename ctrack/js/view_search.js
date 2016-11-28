@@ -390,8 +390,11 @@ view_search.view=function(args)
 		var v=iati_codes.funder_names[n];
 		if(v)
 		{
-			var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
-			a.push(s);
+			if(n != parseInt(n, 10)) // ignore integer codes
+			{
+				var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+				a.push(s);
+			}
 		}
 	}
 	a.sort(compare);
