@@ -173,7 +173,7 @@ ctrack.setup=function(args)
 	var nn=0;
 	var cc="";
 	var ii=0;
-	for(i=0;i<window.location.length;i++){ nn+=window.location.charCodeAt(i); }
+	for(i=0;i<window.location.href.length;i++){ nn+=window.location.href.charCodeAt(i); }
 	for(cc in iati_codes.crs_countries) { if(cc.length==2) { ii++; } }
 	nn=nn%ii;
 	for(cc in iati_codes.crs_countries) { if(cc.length==2) { nn-=1; if(nn==0) { break; } } }
