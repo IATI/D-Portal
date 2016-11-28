@@ -237,7 +237,7 @@ a.stats_link.missing span	{color:#008FFF;}
 /*	Active / Ended projects styles
 	============================================= */
 .main_title_wrap		{width:960px; margin:0 auto; padding:60px 20px 0px 20px;}
-.main_title_wrap:nth-of-type(2)	{padding-bottom:40px;}
+.main_title_wrap.ended	{padding-bottom:40px;}
 .title_wrap				{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
 .table_wrap				{background-color:rgba(0,14,32,0.7); padding:0; border-radius:8px 8px 0 0;}
 .table_wrap.main		{padding-bottom:0;}
