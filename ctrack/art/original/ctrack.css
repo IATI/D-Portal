@@ -42,18 +42,28 @@ iati-activity:after 	{content:""; padding:0; display:initial;}	/* Takes away con
 /*	Settings
 	============================================= */
 #settings				{padding:10px 40px 30px 40px; margin:0 auto; background-color:#fff; margin-bottom:40px;}
+#settings.settings_search	{padding:40px; box-sizing:border-box; width:960px; margin:0 auto; background-color:rgba(0,14,32,0.7); color:#fff; font-size:1.2em; line-height:1.2em; margin-top:40px;}
+.settings_search p		{padding:25px 0;}
 span.settings_info		{min-width:135px; display:inline-block;}
 td.settings_toggle		{text-align:right; vertical-align:middle;}
 a.settings_link span	{color:rgba(255,255,255,1); padding:10px 15px 0 0; display:inline-block;}
+a.settings_link span:nth-of-type(2)	{color:#6ecaff; border-bottom:1px solid #6ecaff; padding-right:0;}
+a.settings_link span:nth-of-type(2):hover	{font-style:italic;}
 td.options				{padding-top:20px;}
 td.options:hover		{cursor:default;}
 td.options form			{display:inline-block;}
+.settings_search td.options	{padding:0;}
+td.options span			{color:#53B4ED; letter-spacing:5px; font-weight:bold; margin-left:5px;}
+td.options div			{width:820px; margin:0 auto;}
+td.options ul			{list-style-type:disc; list-style-position:outside;}
+td.options ul li		{padding:10px 20px 10px 0;}
+td.options a:hover		{color:#6ecaff;}
 
 
 /*	Status badge next to d-portal logo in headers
 	============================================= */
-span.badge				{display:inline-block; vertical-align:bottom; color:#fff; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px;}
-span.badge.beta			{background-color:#D80051;}
+span.badge				{display:inline-block; vertical-align:bottom; color:#5a6261; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px;}
+span.badge.beta			{background-color:#a4b9b5;}
 
 
 /*	Breadcrumbs
@@ -311,8 +321,8 @@ input#view_search_string, input.typeahead.tt-hint		{color:#FFF;}
 .search_filter				{width:960px; margin:0 auto; padding:25px 23px 14px 23px; box-sizing:border-box; background-color:rgba(11,37,60,0.5); border-radius:6px;}
 .search_label				{color:#FFF;}
 #search_div					{color:#FFF;}
-a#search_link				{background-color:#DDD; color:#6A7169;}
-a#search_link:hover			{background-color:#FFF;}
+a#search_link				{border:1px solid #2f6381; color:#fff; background:linear-gradient(#68c7ff,#2d5d7b); background:-webkit-linear-gradient(#68c7ff,#2d5d7b); text-shadow:0 -1px 0 #366e90;}
+a#search_link:hover			{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#2d5d7b); background:-webkit-linear-gradient(#50a0d2,#2d5d7b); text-shadow:0 -1px 0 #2d5d7b;}
 .search_head				{color:#53B4ED; letter-spacing:5px; font-size:18px; font-weight:bold; margin-top:5px;}
 	
 	

@@ -33,5 +33,7 @@ input#view_search_string, input.typeahead.tt-hint		{font-size:32px; width:936px;
 #search_div span#search_span span	{display:block; padding-top:5px;}
 
 /*	Discover Results search button	*/
-a#search_link			{display:block; text-align:center; margin:0 auto; font-size:1.6em; position:absolute; right:0; bottom:0; border-radius:6px; height:48px; max-height:48px; box-sizing:border-box; padding:12px 20px;}
-a#search_link span		{display:block; font-style:italic; font-size:0.6em; padding-top:5px;}
+a#search_link		{display:block; text-align:center; margin:0 auto; font-size:1.6em; line-height:18px; position:absolute; right:1px; bottom:0; border-radius:6px; height:60px; max-height:60px; box-sizing:border-box; padding:20px;}
+a#search_link span	{display:block; font-style:italic; font-size:0.6em; padding-top:5px;}
+
+
