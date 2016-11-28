@@ -46,8 +46,7 @@ start() {
    # does not work unless we set the PATH.
    PATH=/usr/local/bin:$PATH
    export NODE_ENV=production
-   #PORT=1408
-   source $nodeDir/bin/serverpg/env.sh
+   export DSTORE_PG="/var/run/postgresql dstore"
    cd $nodeDir/dportal
    $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" $nodeApp
    RETVAL=$?
