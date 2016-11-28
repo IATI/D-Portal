@@ -112,7 +112,7 @@ view_sectors.ajax=function(args)
 		}
 	}
 // insert crs data if we have it
-	var crs=crs_year_sectors[ (args.country || ctrack.args.country).toUpperCase() ];
+	var crs=crs_year_sectors[ (args.country || ctrack.args.country || "" ).toUpperCase() ];
 	if(crs)
 	{
 //console.log(crs);
