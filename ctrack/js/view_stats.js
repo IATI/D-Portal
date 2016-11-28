@@ -66,7 +66,7 @@ view_stats.ajax=function(args)
 	args=args || {};
     
 	var dat={
-			"select":"stats",
+			"select":"count_aid,count_reporting_ref",
 			"from":"act",
 		};
 //	if(dat.country_code) { dat.from+=",country"; }
@@ -80,7 +80,7 @@ view_stats.ajax=function(args)
 		if(data.rows[0])
 		{
 			ctrack.chunk("total_projects",data.rows[0]["count_aid"]);
-			ctrack.chunk("numof_publishers",data.rows[0]["distinct_reporting_ref"]);
+			ctrack.chunk("numof_publishers",data.rows[0]["count_reporting_ref"]);
 		}
 		
 		view_stats.calc();
