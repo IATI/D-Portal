@@ -11,6 +11,7 @@ var wait=require('wait.for');
 var http=require('http');
 var https=require('https');
 var fs = require('fs');
+var baby = require('babyparse');
 
 var refry=require('./refry');
 var exs=require('./exs');
@@ -188,8 +189,9 @@ iati_codes.fetch = function(){
 	console.log("Fetching IATI sector IDS csv")
 
 	var x=wait.for(https_getbody,sheeturl(9));
-	var lines=wait.for(csv_parse,x);
-
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
+	
 	var o={};
 
 	for(var i=1;i<lines.length;i++)
@@ -211,7 +213,8 @@ iati_codes.fetch = function(){
 	console.log("Fetching IATI sector groups csv")
 
 	var x=wait.for(https_getbody,sheeturl(0));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 
 	var o={};
@@ -235,7 +238,8 @@ iati_codes.fetch = function(){
 	console.log("Fetching IATI funders csv")
 
 	var x=wait.for(https_getbody,sheeturl(2));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 
 	var o={};
@@ -257,7 +261,8 @@ iati_codes.fetch = function(){
 	console.log("Fetching IATI currencies csv")
 
 	var x=wait.for(https_getbody,sheeturl(10));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 
 	var o=[];
@@ -300,7 +305,8 @@ iati_codes.fetch = function(){
 	console.log("Fetching CRS funders csv")
 
 	var x=wait.for(https_getbody,sheeturl(4));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 	var d={};
 	var o={};
@@ -355,7 +361,8 @@ iati_codes.fetch = function(){
 	console.log("Fetching CRS countries csv")
 
 	var x=wait.for(https_getbody,sheeturl(7));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 	var o={};
 	var r={};
@@ -380,7 +387,8 @@ iati_codes.fetch = function(){
 
 	
 	var x=wait.for(https_getbody,sheeturl(3));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 	var o={};
 
@@ -427,7 +435,8 @@ iati_codes.fetch = function(){
 //
 
 	var x=wait.for(https_getbody,sheeturl(11));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 	var o={};
 
@@ -470,7 +479,8 @@ iati_codes.fetch = function(){
 
 
 	var x=wait.for(https_getbody,sheeturl(14));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 	var o={};
 
@@ -517,7 +527,8 @@ iati_codes.fetch = function(){
 //
 
 	var x=wait.for(https_getbody,sheeturl(15));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 	var o={};
 
@@ -561,7 +572,8 @@ iati_codes.fetch = function(){
 
 
 	var x=wait.for(https_getbody,sheeturl(1794224901));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 	var o={};
 
@@ -601,7 +613,8 @@ iati_codes.fetch = function(){
 	fs.writeFileSync(__dirname+"/../json/crs_2014.json",JSON.stringify(o,null,'\t'));
 
 	var x=wait.for(https_getbody,sheeturl(830372680));
-	var lines=wait.for(csv_parse,x);
+//	var lines=wait.for(csv_parse,x);
+	var lines=baby.parse(x).data;
 
 	var o={};
 
