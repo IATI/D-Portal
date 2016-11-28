@@ -88,19 +88,21 @@ view_stats.ajax=function(args)
 	
 	
 	var dat={
-			"select":"count_reporting_ref",
 			"from":"act",
+			"select":"count",
+			"groupby":"reporting_ref",
 		};
+//	fetch.ajax_dat_fix(dat,args);	var dat={
+//			"select":"count_reporting_ref",
+//			"from":"act",
+//		};
 	fetch.ajax_dat_fix(dat,args);
 		
 	fetch.ajax(dat,args.callback || function(data)
 	{
-//		console.log("view_stats.numof_callback");
-//		console.log(data);
-			
 		if(data.rows[0])
 		{
-			ctrack.chunk("numof_publishers",data.rows[0]["count_reporting_ref"]);
+			ctrack.chunk("numof_publishers",data.rows[0]["count"]);
 		}
 		
 		view_stats.calc();
