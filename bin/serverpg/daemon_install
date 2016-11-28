@@ -1,0 +1,6 @@
+cp dportal /etc/init.d/dportal
+update-rc.d dportal defaults
+update-rc.d dportal enable
+
+#echo "you should tell cron to run a check every few minutes > crontab -e"
+#echo "and add the following > */2 * * * * /etc/init.d/dportal cron"
