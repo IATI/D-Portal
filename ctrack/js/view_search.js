@@ -138,7 +138,7 @@ view_search.fixup=function()
 	  };
 	};
 
-	$('#view_search_string').typeahead({
+	var typeaheadref=$('#view_search_string').typeahead({
 	  hint: true,
 	  highlight: true,
 	  minLength: 1
@@ -361,6 +361,7 @@ view_search.fixup=function()
 // initialise page		
 	refresh();
 
+	typeaheadref.focus();
 }
 //
 // Perform ajax call to get numof data
@@ -495,6 +496,7 @@ view_search.view=function(args)
 	ctrack.chunk("publishers_publisher_select",s.join(""));
 
 	view_search.ajax();
+	
 }
 
 
