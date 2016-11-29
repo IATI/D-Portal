@@ -321,6 +321,9 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search_head				{color:#53B4ED; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
 .search_head span			{color:#fff; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
 
+.search_input_wrap			{position:relative;}
+.search_icon				{position:absolute; top:28px; left:-40px;}
+
 .settings_search			{padding:40px 50px; box-sizing:border-box; width:960px; margin:0 auto; background-color:rgba(0,14,32,0.7); color:#fff; font-size:1.2em; line-height:1.2em; margin-top:20px;}
 .settings_search p			{padding:25px 0;}
 .settings_search td			{padding:0;}
