@@ -495,6 +495,8 @@ view_search.view=function(args)
 	ctrack.chunk("publishers_publisher_select",s.join(""));
 
 	view_search.ajax();
+	
+	$("#search_link").focus();
 }
 
 
