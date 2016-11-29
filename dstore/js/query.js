@@ -743,8 +743,8 @@ query.serv = function(req,res){
 // special log info requests
 	if(q.from=="cronlog_time")
 	{
-		fs.stat('../dportal/production/cron.log', function (err, data) {
-				var ret={cwd:process.cwd()};
+		fs.stat(__dirname+'/../../dportal/production/cron.log', function (err, data) {
+				var ret={};
 				if(err) { ret.err=err; }
 				else
 				{
@@ -757,8 +757,8 @@ query.serv = function(req,res){
 	else
 	if(q.from=="cronlog")
 	{
-		fs.readFile('../dportal/production/cron.log',"utf8", function (err, data) {
-				var ret={cwd:process.cwd()};
+		fs.readFile(__dirname+'/../../dportal/production/cron.log',"utf8", function (err, data) {
+				var ret={};
 				if(err) { ret.err=err; }
 				else
 				{
