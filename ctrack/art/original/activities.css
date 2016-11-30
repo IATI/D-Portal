@@ -129,7 +129,7 @@ result[type="3"] span-title:before	{content:"IMPACT";}
 result[type="9"] span-title:before	{content:"OTHER";}
 
 result indicator			{display:block;}
-result indicator span-title	{padding-top:20px; font-size:20px; border-top:1px solid #AAA; margin-top:20px;}
+result indicator span-title	{padding-top:20px; font-size:20px; margin-top:20px;}
 result indicator span-title:before {content:" "; margin:0;}
 result[type="1"] indicator span-title:before {content:" "; margin:0;}
 result[type="2"] indicator span-title:before {content:" "; margin:0;}
@@ -146,6 +146,8 @@ result indicator period actual:before	{content:"Actual "; font-size:14px; color:
 
 result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:220px; max-width:220px; line-height:1.35em;}
+
+result indicator period actual comment narrative	{display:block; padding:10px 0;}
 
 result indicator > baseline			{display:block;}
 result indicator > baseline comment	{display:block; color:rgba(255,255,255,1); padding:10px 40px; line-height:1.25em;}
