@@ -165,7 +165,7 @@ view_search.fixup=function()
 //		que.push("this is a test");
 //		txt.push("this is a test");
 		
-		var v=$('#view_search_string').val();
+		var v=$('#view_search_string').val() || $('#view_search_string2').val();
 
 // remove and trim non alphanumerics, so search is very simple for now
 		v=v.replace(/[^A-Za-z0-9]+/gi," ").trim();
@@ -262,6 +262,8 @@ view_search.fixup=function()
 			$("#search_link").removeAttr("href");
 		}
 		view_search.ajax({q:q});
+		
+		return "?"+que.join("&")+"#view=main";
 	}
 	
 	var o={allow_single_deselect:true,search_contains:true};
@@ -358,10 +360,28 @@ view_search.fixup=function()
 
 	};
 
+// enter key press on search2
+	$('#view_search_string2').bind("enterKey",function(e){
+		window.location.href=build_query(e);
+	});
+	$('#view_search_string2').keyup(function(e){
+		if(e.keyCode == 13)
+		{
+			$(this).trigger("enterKey");
+		}
+	});
+
 // initialise page		
 	refresh();
 
-	typeaheadref.focus();
+	if(typeaheadref)
+	{
+		typeaheadref.focus();
+	}
+	else
+	{
+		$('#view_search_string2').focus();
+	}
 }
 //
 // Perform ajax call to get numof data
