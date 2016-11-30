@@ -3,7 +3,6 @@ ssh ctrack "sudo -u ctrack -H /home/ctrack/D-Portal/bin/pull"
 
 ssh ctrack "sudo -u ctrack -H /home/ctrack/D-Portal/bin/build"
 
-ssh ctrack /etc/init.d/dportal status
 ssh ctrack /etc/init.d/dportal restart
 ssh ctrack /etc/init.d/dportal status
 
