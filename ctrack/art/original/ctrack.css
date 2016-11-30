@@ -582,3 +582,12 @@ a.beige:hover			{color:#FFF;}
 .nanobar{width:100%; height:8px; z-index:9999; top:0;}
 .bar	{width:0; height:100%; transition:height .3s; background:#08f;}
 
+
+/* Phones to tablets 1024px and below
+-------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+
+#view_search_test select			{width:290px;}
+#ctrack_div							{height:100%; width:100%;}
+
+}
