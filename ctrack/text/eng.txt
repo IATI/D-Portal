@@ -197,7 +197,7 @@ Total number of projects that are still active now
 Total number of projects that have ended
 
 #stats_total_tip_text
-Total number of projects calculated for {portal_name}
+Total number of projects
 
 #stats_planned_tip_text
 Total number of projects being planned in the future
@@ -209,7 +209,7 @@ Total number of organisations that are reporting this data
 Total number of projects that are missing dates
 
 #declare_stats_text
-Data displayed above has been provided by {portal_name} to the IATI Registry as of {today}
+Data displayed above has been provided by the IATI Registry as of {today}
 
 #list_active_text
 Active projects ending soon
@@ -440,10 +440,10 @@ Original
 flag
 
 #map_info_text
-This is a heat map of all activities for {portal_name} that have been provided with precise locations.
+This is a heat map of all activities that have been provided with precise locations.
 
 #publisher_map_info_text
-This is a heat map of all activities for {portal_name} that have been provided with precise locations.
+This is a heat map of all activities that have been provided with precise locations.
 
 #map_view_text
 View all
@@ -559,7 +559,7 @@ Spend is calculated by adding disbursements and expenditures. This list shows yo
 How is the data calculated?
 
 #donor_transactions_data_description_text
-Spend is calculated by adding disbursements and expenditures. This list shows you all activities reported by {portal_name} and sorted by the activity with the highest spend at the top.
+Spend is calculated by adding disbursements and expenditures. This list shows you all activities reported and sorted by the activity with the highest spend at the top.
 
 #donor_budgets_data_description_title_text
 How is the data calculated?
@@ -607,7 +607,7 @@ Spend is calculated by adding disbursements and expenditures. This list shows yo
 How is the data calculated?
 
 #sector_transactions_data_description_text
-Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported in the {sector} sector for {portal_name} and sorted by the activity with the highest spend at the top.
+Spend is calculated by adding disbursements and expenditures. This table shows you all activities reported in the {sector} sector and sorted by the activity with the highest spend at the top.
 
 #sector_budgets_data_description_title_text
 How is the data calculated?
@@ -664,16 +664,16 @@ A count of IATI activities that contain specific coordinates in their location d
 Typically this data will have been updated from the <a href="http://iatiregistry.org/">IATI Registry</a> everyday at midnight GMT.
 
 #view_active_text
-All active projects for {portal_name}
+List of all active projects
 
 #view_ended_text
-All ended projects for {portal_name}
+List of all ended projects
 
 #view_planned_text
-All planned projects for {portal_name}
+List of all planned projects
 
 #view_list_publishers_text
-All publishers for {portal_name}
+List of all publishers
 
 #view_list_activities_text
 List of activities
@@ -727,7 +727,7 @@ For each project, there is a start and end date. An 'Other' project is one with 
 How is the data calculated?
 
 #map_data_description_text
-Only activities that provide locations are displayed on the map. Activities are also limited within the boundaries of {portal_name}.
+Only activities that provide locations are displayed on the map. Locations are longitude and latitude data.
 
 #data_title_text
 Why data quality matters
@@ -945,14 +945,17 @@ Search
 #search_placeholder_txt
 Type (eg. earthquake) or select filters to narrow your search
 
+#search2_placeholder_txt
+Type (eg. earthquake)
+
 #search_publisher_dropmenu_text trim=ends
-Type to search for a Publisher
+Search for a Publisher
 
 #search_country_dropmenu_text trim=ends
-Type to search for a Recipient Country
+Search for a Recipient Country
 
 #all_countries_text
-Compare all Countries
+Compare all Recipient Countries
 
 #all_publishers_text
 Compare all Publishers

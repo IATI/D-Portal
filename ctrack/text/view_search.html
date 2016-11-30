@@ -17,6 +17,18 @@
 {compare_buttons}
 {where_is_the_data_from}
 {view_tail}
+
+
+#view_search2
+{view_head}
+<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}#background_image{url('/art/mexico_background_image.jpg')};{css}</style>
+{beige}
+{main_head_search}
+{search_intro}
+{more_search_intro}
+{view_search2_test}
+{where_is_the_data_from}
+{view_tail}
 			
 
 #search_intro
@@ -47,10 +59,27 @@
 </table>
 </div>
 
+
+#view_search2_test
+<div id="view_search_test">
+
+	<div class="search_input_wrap"><div class="search_icon"><img src="/art/original/search_icon.png" width="30" height="30"/></div><input type="text" id="view_search_string_only" class="typeahead" placeholder="{search2_placeholder_txt}"/></div>
 	
+</div>
+
+
 #view_search_test
 <div id="view_search_test">
-	<div class="search_filter">
+	{view_search_filters}
+	<div id="search_div"><span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a></div>
+
+	<div class="search_input_wrap"><div class="search_icon"><img src="/art/original/search_icon.png" width="30" height="30"/></div><input type="text" id="view_search_string" class="typeahead" placeholder="{search_placeholder_txt}"/></div>
+	
+</div>
+
+
+#view_search_filters
+<div class="search_filter">
 		{filter_head_text}
 		<div class="search_wrap">
 			<div class="search_label">
@@ -105,12 +134,6 @@
 			</select>
 		</div>
 	</div>
-
-	<div id="search_div"><span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a></div>
-
-	<input type="text" id="view_search_string" class="typeahead" placeholder="{search_placeholder_txt}"/>
-	
-</div>
 
 
 #filter_head_text

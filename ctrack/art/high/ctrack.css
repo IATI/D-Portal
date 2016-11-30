@@ -90,7 +90,7 @@ a.about_data.quality	{border-left:1px solid #000; text-align:right; padding-righ
 
 /*	Country Code List style - INDEX PAGE
 	============================================= */
-.country_menu_wrap			{width:960px; margin:0 auto; padding:100px 0 60px 0;}
+.country_menu_wrap			{width:960px; margin:0 auto; padding:60px 0;}
 .country_menu_list_wrap		{margin:0 auto; width:960px;}
 .publisher_menu_list_wrap	{margin:0 auto; width:860px;}
 .menu_list_wrap				{display:inline-block; vertical-align:top; padding-left:50px; width:500px; height:700px; overflow-x:hidden; overflow-y:scroll; box-sizing:border-box;}
@@ -302,7 +302,7 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 /*	For url #view=search
 	============================================= */
 input.typeahead				{border-bottom:1px solid #000 !important;}
-input#view_search_string, input.typeahead.tt-hint		{color:#000;}
+input#view_search_string, input#view_search_string_only, input.typeahead.tt-hint		{color:#000;}
 .search_filter				{width:960px; margin:0 auto; padding:25px 23px 14px 23px; box-sizing:border-box; border:1px solid #000; border-radius:6px;}
 .search_label				{color:#000;}
 #search_div					{color:#000;}
@@ -313,6 +313,9 @@ a#search_link.search_link_disable		{border:1px solid #000; color:#000; backgroun
 a#search_link.search_link_disable:hover	{cursor:default;}
 .search_head				{color:#000; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
 .search_head span			{color:#000; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
+
+.search_input_wrap			{position:relative;}
+.search_icon				{position:absolute; top:28px; left:-40px;}
 
 .settings_search			{padding:40px 50px; box-sizing:border-box; width:960px; margin:0 auto; color:#000; font-size:1.2em; line-height:1.2em; margin-top:20px;}
 .settings_search p			{padding:25px 0;}
