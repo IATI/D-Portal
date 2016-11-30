@@ -165,10 +165,10 @@ view_search.fixup=function()
 //		que.push("this is a test");
 //		txt.push("this is a test");
 		
-		var v=$('#view_search_string').val() || $('#view_search_string2').val();
+		var v=$('#view_search_string').val() || $('#view_search_string_only').val();
 
 // remove and trim non alphanumerics, so search is very simple for now
-		v=v.replace(/[^A-Za-z0-9]+/gi," ").trim();
+		if(v) { v=v.replace(/[^A-Za-z0-9]+/gi," ").trim(); }
 		
 		var enable_search=false;
 		
@@ -361,10 +361,10 @@ view_search.fixup=function()
 	};
 
 // enter key press on search2
-	$('#view_search_string2').bind("enterKey",function(e){
+	$('#view_search_string_only').bind("enterKey",function(e){
 		window.location.href=build_query(e);
 	});
-	$('#view_search_string2').keyup(function(e){
+	$('#view_search_string_only').keyup(function(e){
 		if(e.keyCode == 13)
 		{
 			$(this).trigger("enterKey");
@@ -380,7 +380,7 @@ view_search.fixup=function()
 	}
 	else
 	{
-		$('#view_search_string2').focus();
+		$('#view_search_string_only').focus();
 	}
 }
 //
