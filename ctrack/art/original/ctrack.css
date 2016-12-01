@@ -468,6 +468,7 @@ table.money tr span.sort			{position:absolute; right:0px; top:0px; pointer-event
 table.money tr th.col4 span.sort	{position:absolute; right:initial; left:0px; top:0px;}
 table.money tr.row2 span.sort		{position:absolute; right:initial; left:10px; top:23px;}
 table.money tr.row2 td.col1 span.sort, table.money tr.row2 td.col2 span.sort	{position:absolute; right:10px; left:initial; top:23px;}
+table.money tr.row2 td.col6.allocate span.sort	{left:0;}
 
 table.money a				{display:block; color:#FFF; word-wrap:normal;}
 table.money a:focus			{color:#A8C5E5; text-decoration:none;}
