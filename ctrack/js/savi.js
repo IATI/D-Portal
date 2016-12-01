@@ -151,6 +151,12 @@ acts.find("result target, result actual").each(function(i){var it=$(this);
 	it.html( it.attr("value") );
 });
 
+// change title to span_title (title tag seems to confuse browsers)
+acts.find("result actual comment narrative").each(function(i){var it=$(this);
+//console.log(it.text());
+	it.replaceWith($('<span-narrative>' + it.text() + '</span-narrative>'));
+});
+
 
 acts.find("related-activity").each(function(i){var it=$(this);
 	if( it.html().length<4 )

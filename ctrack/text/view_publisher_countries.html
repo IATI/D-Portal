@@ -113,20 +113,21 @@
 
 #table_publisher_countries_crs_row_head
 <tr class="row1">
-	<th class="col1" onclick="ctrack.dosort('crs');" title="{table_donor_tip_title_data_text}">{table_donor_title_data_text}</th>
-	<th class="col2" onclick="ctrack.dosort('country');" title="{table_publisher_country_tip_title_text}">{table_publisher_country_title_text}</th>
-	<th class="col3" colspan="3" title="{table_donor_tip_title_transaction_text}"><span onclick="ctrack.dosort('trans');">{table_donor_title_transaction_text}</span> <a href="#view=publisher_countries&year={year1}" onclick="return ctrack.url('#view=publisher_countries&year={year1}');" title="Previous Year" class="year prev">&lt;</a></th>
-	<th class="col4" colspan="2" title="{table_donor_tip_title_budget_text}"><span onclick="ctrack.dosort('budget');">{table_donor_title_budget_text}</span> <a href="#view=publisher_countries&year={year3}" onclick="return ctrack.url('#view=publisher_countries&year={year3}');" title="Next Year" class="year next">&gt;</a></th>
+	<th class="col1" onclick="ctrack.dosort('crs');" title="{table_donor_tip_title_data_text}">{table_donor_title_data_text}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></th>
+	<th class="col2" onclick="ctrack.dosort('country');" title="{table_publisher_country_tip_title_text}">{table_publisher_country_title_text}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></th>
+	<th class="col3" colspan="3" title="{table_donor_tip_title_transaction_text}"><span onclick="ctrack.dosort('trans');">{table_donor_title_transaction_text}</span> <a href="#view=publisher_countries&year={year1}" onclick="return ctrack.url('#view=publisher_countries&year={year1}');" title="Previous Year" class="year prev">&lt;</a><span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></th>
+	<th class="col4" colspan="2" title="{table_donor_tip_title_budget_text}"><span onclick="ctrack.dosort('budget');">{table_donor_title_budget_text}</span> <a href="#view=publisher_countries&year={year3}" onclick="return ctrack.url('#view=publisher_countries&year={year3}');" title="Next Year" class="year next">&gt;</a><span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></th>
 </tr>
 <tr class="row2">
-	<td class="col1" title="{table_sort_text}"  onclick="ctrack.dosort('crs');" 	>{yearcrs}</td>
-	<td class="col2" title="{table_sort_text}"  onclick="ctrack.dosort('country');" >{table_donor_subtitle_donor_text}</td>
-	<td class="col3" title="{table_sort_text}" 	onclick="ctrack.dosort('t1');" 	>{year1}</td>
-	<td class="col4" title="{table_sort_text}" 	onclick="ctrack.dosort('t2');" 	>{year2}</td>
-	<td class="col5" title="{table_sort_text}" 	onclick="ctrack.dosort('t3');" 	>{year3}</td>
-	<td class="col6" title="{table_allocated_tip_text}" 	onclick="ctrack.dosort('b1');" 	>{year3} {table_allocated_text}</td>
-	<td class="col7" title="{table_available_tip_text}" 	onclick="ctrack.dosort('b2');" 	>{year3} {table_available_text}</td>
+	<td class="col1" title="{table_sort_text}"  onclick="ctrack.dosort('crs');" 	>{yearcrs}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
+	<td class="col2" title="{table_sort_text}"  onclick="ctrack.dosort('country');" >{table_donor_subtitle_donor_text}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
+	<td class="col3" title="{table_sort_text}" 	onclick="ctrack.dosort('t1');" 	>{year1}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
+	<td class="col4" title="{table_sort_text}" 	onclick="ctrack.dosort('t2');" 	>{year2}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
+	<td class="col5" title="{table_sort_text}" 	onclick="ctrack.dosort('t3');" 	>{year3}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
+	<td class="col6" title="{table_allocated_tip_text}" 	onclick="ctrack.dosort('b1');" 	>{year3} {table_allocated_text}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
+	<td class="col7" title="{table_available_tip_text}" 	onclick="ctrack.dosort('b2');" 	>{year3} {table_available_text}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
 </tr>
+
 
 #table_publisher_countries_crs_row
 <tr class="rows">
