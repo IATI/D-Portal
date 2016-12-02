@@ -63,11 +63,8 @@ a.back_news:hover	{color:rgba(204,204,204,1);}
 /*	Graph styles
 	============================================= */
 #donor_graph, #sector_graph	{background-color:rgba(255,255,255,1); color:rgba(68,68,68,1); border:1px solid rgba(255,255,255,1);}
-a.ask					{color:rgba(255,255,255,1);}
-a.ask.donor				{background-color:rgba(206,131,0,1);}
-a.ask.donor:hover		{background-color:rgba(255,163,0,1);}
-a.ask.sector			{background-color:rgba(206,131,0,1);}
-a.ask.sector:hover		{background-color:rgba(255,163,0,1);}
+span.ask.donor			{background-color:rgba(206,131,0,1);}
+span.ask.sector			{background-color:rgba(206,131,0,1);}
 .main_peak_wrap			{background-color:rgba(255,255,255,1);}
 .peak.donor				{border-top:20px solid rgba(206,131,0,1);}
 .peak.sector			{border-top:20px solid rgba(206,131,0,1);}
@@ -81,8 +78,8 @@ a.view_all_money:hover	{background-color:rgba(15,15,15,0.9); color:rgba(255,255,
 .map_info				{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 .map_no_info			{color:rgba(255,255,255,1);}
 .map_percent			{color:rgba(255,255,255,1); background-color:rgba(15,15,15,0.9);}
-.map_percent a			{color:rgba(206,131,0,1);}
-.map_percent a:hover	{color:rgba(255,163,0,1);}
+a.map_percent			{color:rgba(206,131,0,1);}
+a.map_percent:hover		{color:rgba(255,163,0,1);}
 .map_percent span		{color:rgba(255,255,255,1);}
 
 

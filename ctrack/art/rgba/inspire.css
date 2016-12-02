@@ -65,11 +65,8 @@ a.back_news:hover	{color:rgba(204,204,204,1);}
 /*	Graph styles
 	============================================= */
 #donor_graph, #sector_graph	{background-color:rgba(255,255,255,1); color:rgba(68,68,68,1); border:1px solid rgba(255,255,255,1);}
-a.ask					{color:rgba(255,255,255,1);}
-a.ask.donor				{background-color:rgba(149,162,0,1);}
-a.ask.donor:hover		{background-color:rgba(162,175,14,1);}
-a.ask.sector			{background-color:rgba(124,54,141,1);}
-a.ask.sector:hover		{background-color:rgba(154,55,179,1);}
+span.ask.donor			{background-color:rgba(149,162,0,1);}
+span.ask.sector			{background-color:rgba(124,54,141,1);}
 .main_peak_wrap			{background-color:rgba(255,255,255,1);}
 .peak.donor				{border-top:20px solid rgba(149,162,0,1);}
 .peak.sector			{border-top:20px solid rgba(124,54,141,1);}
@@ -83,10 +80,10 @@ a.view_all_money:hover	{background-color:rgba(15,15,15,0.9); color:rgba(255,255,
 .map_info				{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
 .map_no_info			{color:rgba(255,255,255,1);}
 .map_percent			{color:rgba(85,85,85,1); background-color:rgba(216,216,216,1);}
-.map_percent a			{color:rgba(186,12,47,1);}
-.map_percent a:hover	{color:rgba(163,0,13,1);}
-.map_percent span		{color:rgba(85,85,85,1);}
-.map_percent img		{-webkit-filter:brightness(50%); filter:brightness(50%);}
+a.map_percent			{background-color:rgba(186,12,47,1); color:rgba(255,255,255,1);}
+a.map_percent:hover		{background-color:rgba(163,0,13,1);}
+.map_percent span		{color:rgba(255,255,255,1);}
+.map_percent img		{-webkit-filter:brightness(100%); filter:brightness(100%);}
 
 
 /*	For url #view=map
@@ -200,6 +197,7 @@ table.title td.sort		{color:rgba(85,85,85,1);}
 
 /*	Table for Active / Ended projects
 	============================================= */
+table.list tr:hover		{background-color:rgba(255,255,255,0);}
 table.list td			{color:rgba(136,136,136,1); border-bottom:1px solid rgba(231,231,231,1);}
 table.list td span		{color:rgba(153,153,153,1);}
 table.list a			{color:rgba(218,218,218,1);}
@@ -223,12 +221,13 @@ table.money td.col7			{background-color:rgba(199,199,199,0.6);}
 table.money tr.row1 th		{color:rgba(78,78,78,1);}
 table.money tr.row1 th span	{color:rgba(78,78,78,1);}
 table.money tr.row1 th.col1	{background-color:rgba(243,243,243,0.6); border:1px solid rgba(199,199,199,1); border-bottom:1px solid rgba(199,199,199,1);}
-table.money tr.row1 th.col2	{border-bottom:1px solid rgba(199,199,199,1); border-top:1px solid rgba(199,199,199,1);}
+table.money tr.row1 th.col2	{background-color:rgba(243,243,243,0.6); border-bottom:1px solid rgba(199,199,199,1); border-top:1px solid rgba(199,199,199,1);}
 table.money tr.row1 th.col3	{background-color:rgba(216,216,216,1); border:1px solid rgba(199,199,199,1); border-bottom:1px solid rgba(199,199,199,1);}
 table.money tr.row1 th.col4	{background-color:rgba(199,199,199,0.9); border:1px solid rgba(199,199,199,1); border-bottom:1px solid rgba(199,199,199,1);}
 
 table.money tr.row2 td		{color:rgba(78,78,78,1);}
 table.money tr.row2 td.col1 {background-color:rgba(243,243,243,1); border-left:1px solid rgba(199,199,199,1); border-right:1px solid rgba(199,199,199,1);}
+table.money tr.row2 td.col2 {background-color:rgba(243,243,243,1);}
 table.money tr.row2 td.col3	{background-color:rgba(216,216,216,0.6); border-left:1px solid rgba(199,199,199,1);}
 table.money tr.row2 td.col4	{background-color:rgba(216,216,216,0.8);}
 table.money tr.row2 td.col5	{background-color:rgba(216,216,216,0.9); border-right:1px solid rgba(199,199,199,1);}
@@ -242,9 +241,8 @@ table.money tr.rows td.col7	{border-right:1px solid rgba(199,199,199,1);}
 
 table.money td.col1:hover	{color:rgba(78,78,78,1);}
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
-table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(186,12,47,0);}
-table.money tr.rows td.col6:hover	{background-color:rgba(186,12,47,0);}
-table.money tr.rows td.col7:hover	{color:rgba(78,78,78,1);}
+table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover,
+table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(186,12,47,0);}
 
 table.money a				{color:rgba(78,78,78,1);}
 table.money a:focus			{color:rgba(204,204,204,1);}
@@ -262,10 +260,11 @@ table.money.publishers th.col2	{border-top:1px solid rgba(199,199,199,1);}
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
+table.activity tr:hover	{background-color:rgba(0,0,0,0);}
 table.activity td		{color:rgba(136,136,136,1); border-bottom:1px solid rgba(231,231,231,1);}
 table.activity td span	{color:rgba(153,153,153,1);}
-table.activity a		{color:rgba(218,218,218,1);}
-table.activity a:focus	{color:rgba(255,255,255,1);}
+table.activity a		{color:rgb(85,85,85);}
+table.activity a:focus	{color:rgba(186,12,47,1);}
 table.activity a:link  	{color:rgba(85,85,85,1);}
 table.activity a:visited{color:rgba(85,85,85,1);}
 table.activity a:hover	{color:rgba(186,12,47,1); background-color:rgba(0,0,0,0);}
@@ -436,8 +435,9 @@ value span			{color:rgba(136,136,136,1);}
 
 /*	Contact info for Publisher
 	============================================= */
-contact-info *						{color:rgba(85,85,85,1);}
-contact-info:nth-of-type(1):before	{color:rgba(136,136,136,1);}
+contact-info *						{color:rgba(255,255,255,1);}
+contact-info						{background-color:rgba(186,12,47,1);}
+contact-info:nth-of-type(1):before	{color:rgba(255,255,255,1);}
 span.span_contact-info				{background-color:rgba(235,235,235,1);}
 
 
