@@ -254,13 +254,14 @@ table.money.publishers th.col2	{border-top:1px solid rgba(67,67,67,1);}
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
+table.activity tr:hover	{background-color:rgba(0,0,0,0.4);}
 table.activity td		{color:rgba(198,198,198,1); border-bottom:1px solid rgba(56,56,56,1);}
 table.activity td span	{color:rgba(153,153,153,1);}
-table.activity a		{color:rgba(218,218,218,1);}
-table.activity a:focus	{color:rgba(255,255,255,1);}
+table.activity tr:hover a		{color:rgba(255,174,34,1);}
+table.activity a:focus	{color:rgba(255,174,34,1);}
 table.activity a:link  	{color:rgba(218,218,218,1);}
 table.activity a:visited{color:rgba(218,218,218,1);}
-table.activity a:hover	{color:rgba(255,174,34,1); background-color:rgba(0,0,0,0.4);}
+table.activity a:hover	{color:rgba(255,174,34,1);}
 table.activity a:active	{color:rgba(218,218,218,1);}
 
 
