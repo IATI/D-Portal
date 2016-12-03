@@ -65,6 +65,7 @@ a.back_news:hover	{color:rgba(204,204,204,1);}
 /*	Graph styles
 	============================================= */
 #donor_graph, #sector_graph	{background-color:rgba(255,255,255,1); color:rgba(68,68,68,1); border:1px solid rgba(255,255,255,1);}
+span.graph_view_all:hover	{background-color:rgba(163,0,13,1);}
 span.ask.donor			{background-color:rgba(149,162,0,1);}
 span.ask.sector			{background-color:rgba(124,54,141,1);}
 .main_peak_wrap			{background-color:rgba(255,255,255,1);}
@@ -166,7 +167,7 @@ a#search_link:hover			{background-color:rgba(163,0,13,1);}
 	
 /*	Search Headers
 	============================================= */
-.search_cont				{border-bottom:2px solid rgba(136,136,136,1);}
+.search_cont				{border-bottom:1px solid rgba(136,136,136,0.6);}
 .search.head				{color:rgba(85,85,85,1);}
 .search_query				{color:rgba(85,85,85,1);}
 
@@ -183,7 +184,7 @@ table.head td.options		{color:rgba(255,255,255,1);}
 
 /*	Table for Country Name and Flag
 	============================================= */
-table.country				{border-bottom:2px solid rgba(136,136,136,1);}
+table.country				{border-bottom:1px solid rgba(136,136,136,0.6);}
 table.country td.name		{color:rgba(85,85,85,1);}
 table.country.min td.name	{color:rgba(85,85,85,1);}
 
@@ -344,7 +345,7 @@ activity-date[type="end-actual"]:before		{color:rgba(255,255,255,1);}
 /*	Who's invloved?
 	============================================= */
 span.span_participating-org	 					{color:rgba(85,85,85,1); background-color:rgba(255,255,255,1);}
-span.span_participating-org:before 				{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
+span.span_participating-org:before 				{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
 participating-org								{color:rgba(85,85,85,1);}
 participating-org[role="funding"]:after			{color:rgba(136,136,136,1);}
 participating-org[role="implementing"]:after	{color:rgba(136,136,136,1);}
@@ -401,9 +402,9 @@ img.sector_pie					{background-color:rgba(255,255,255,1);}
 budget					{border-top:1px solid rgba(235,235,235,1);}
 budget:last-of-type	 	{border-bottom:1px solid rgba(255,255,255,1);}
 budget:nth-of-type(1):before				{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
-budget:nth-of-type(1) period-start:before 	{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
-budget:nth-of-type(1) period-end:before	  	{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
-budget:nth-of-type(1) value:before		  	{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
+budget:nth-of-type(1) period-start:before 	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
+budget:nth-of-type(1) period-end:before	  	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
+budget:nth-of-type(1) value:before		  	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
 period-start 			{color:rgba(85,85,85,1);}
 period-end	 			{color:rgba(85,85,85,1);}
 budget value 			{color:rgba(85,85,85,1);}
@@ -418,12 +419,12 @@ transaction a:hover					{color:rgba(186,12,47,1);}
 transaction:last-of-type			{border-bottom:0px solid rgba(143,143,143,1);}
 transaction:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
 
-transaction:nth-of-type(1) transaction-date:before	{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
-transaction:nth-of-type(1) transaction-type:before	{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
-transaction:nth-of-type(1) provider-org:before		{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
-transaction:nth-of-type(1) receiver-org:before		{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
-transaction:nth-of-type(1) value:before				{color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
-span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {color:rgba(136,136,136,1); border-bottom:2px solid rgba(136,136,136,0.6);}
+transaction:nth-of-type(1) transaction-date:before	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
+transaction:nth-of-type(1) transaction-type:before	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
+transaction:nth-of-type(1) provider-org:before		{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
+transaction:nth-of-type(1) receiver-org:before		{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
+transaction:nth-of-type(1) value:before				{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
+span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
 
 transaction-date	{color:rgba(85,85,85,1);}
 transaction-type	{color:rgba(85,85,85,1);}
