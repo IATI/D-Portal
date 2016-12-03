@@ -177,10 +177,10 @@ budget:nth-of-type(1):before				{content:"Budgets"; font-size:20px; color:#FFF; 
 budget:nth-of-type(1) period-start:before 	{content:"START DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
 budget:nth-of-type(1) period-end:before	  	{content:"END DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
 budget:nth-of-type(1) value:before		  	{content:"VALUE"; font-size:14px; color:#CCC; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-budget:nth-of-type(1) period-end:after		{content:"BUDGET TYPE"; display:inline-block; position:absolute; top:-1px; right:-60px;}
-budget[type="1"] value:after				{content:"Original"; position:absolute; left:-55px; top:-2px;}
-budget[type="2"] value:after				{content:"Revised"; position:absolute; left:-55px; top:-2px;}
-budget[type="1"]:nth-of-type(1) value:after, budget[type="2"]:nth-of-type(1) value:after	{top:42px;}
+budget:nth-of-type(1) period-end:after		{content:"BUDGET TYPE"; font-size:14px; color:#CCC; display:block; position:absolute; top:0px; right:-40px; line-height:1.35em;}
+budget[type="1"] value:after				{content:"Original"; position:absolute; left:-60px; top:0px;}
+budget[type="2"] value:after				{content:"Revised"; position:absolute; left:-60px; top:0px;}
+budget[type="1"]:nth-of-type(1) value:after, budget[type="2"]:nth-of-type(1) value:after	{top:44px;}
 period-start 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; padding-left:40px; line-height:1.35em;}
 period-end	 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em; position:relative;}
 budget value 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em; position:relative;}
