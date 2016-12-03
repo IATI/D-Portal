@@ -136,8 +136,8 @@ result[type="3"] span-title:before	{content:"IMPACT";}
 result[type="9"] span-title:before	{content:"OTHER";}
 
 result indicator			{display:block;}
-result indicator span-title	{padding-top:20px; font-size:20px;}
-result indicator span-title:before {content:" "; margin:0;}
+result indicator span-title	{padding-top:20px; font-size:20px; padding-bottom:10px; border-bottom:1px solid #000;}
+result indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="1"] indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="2"] indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="3"] indicator span-title:before {content:" "; margin:0; border:0;}
@@ -159,6 +159,7 @@ result indicator period actual comment narrative	{display:block; padding:10px 0;
 result indicator > baseline			{display:block;}
 result indicator > baseline comment	{display:block; color:#000; padding:10px 40px; line-height:1.25em;}
 
+span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
 
 
 /*	Sectors (also turned into graph: sector_pie)
