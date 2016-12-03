@@ -182,8 +182,8 @@ budget[type="1"] value:after				{content:"Original"; position:absolute; left:-55
 budget[type="2"] value:after				{content:"Revised"; position:absolute; left:-55px; top:-2px;}
 budget[type="1"]:nth-of-type(1) value:after, budget[type="2"]:nth-of-type(1) value:after	{top:42px;}
 period-start 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; padding-left:40px; line-height:1.35em;}
-period-end	 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em;}
-budget value 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em;}
+period-end	 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em; position:relative;}
+budget value 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em; position:relative;}
 
 
 /*	Transaction table
