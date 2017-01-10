@@ -40,5 +40,20 @@ be sure to adjust PLATED_ROOT=/plated-example in the settings file from
 /plated-example to the new github name. If publishing to your main 
 github page eg xriss.github.io then this should be set to / only.
 
+To use this project as a starter for a github hosted website do the 
+following.
+
+1. Visit https://github.com/new and create a new project.
+
+2. Click the "Import code" option at the bottom and past 
+https://github.com/xriss/plated-example into the url.
+
+3. Edit the settings file in your new project and change 
+/plated-example to /your-project-name or if you are creating a 
+yourname.github.io user site then change it to / This is where on the 
+site your project will live, see https://pages.github.com/ for more 
+information about this special project name.
+
+You can now use your new project as described above.
 
 Visit https://github.com/xriss/plated for plated documentation.
