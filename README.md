@@ -44,14 +44,12 @@ github page eg xriss.github.io then this should be set to / only.
 
 Here is a step by step guide to use this project as a starter for a github hosted website.
 
-1. Visit https://github.com/new to **Create repository**.
+1. Visit https://github.com/new/import and enter `https://github.com/xriss/plated-example` into the URL.
+Click **Begin import**.
 
-2. Click **Import code** at the bottom, paste 
-https://github.com/xriss/plated-example into the url on the next page and **Begin import**.
+![plated-eg](https://cloud.githubusercontent.com/assets/1515961/21818013/21cad5fc-d75e-11e6-8ce4-d435ea1ed58f.png)
 
-![import](https://cloud.githubusercontent.com/assets/1515961/21817101/8a256684-d75a-11e6-8898-d08ca1ed740f.png)
-
-3. Edit the plated/settings **file** in your new project and change 
+2. Edit the plated/settings **file** in your new project and change 
 /plated-example to /your-project-name or if you are creating a 
 yourname.github.io user or organisation site then change it to /
 
@@ -59,10 +57,10 @@ yourname.github.io user or organisation site then change it to /
 
 	This is the root directory that your site is published to on github.
 
-4. Goto the settings page for your new project and change the git hub
+3. Goto the settings page for your new project and change the git hub
 pages source to use the master branch /docs folder.
 
-5. You can now use your new project as described at the start of this 
+4. You can now use your new project as described at the start of this 
 readme to create your own website on github pages. Be sure to run 
 npm-install inside the plated directory first.
 
