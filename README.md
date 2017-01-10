@@ -44,10 +44,9 @@ github page eg xriss.github.io then this should be set to / only.
 
 Here is a step by step guide to use this project as a starter for a github hosted website.
 
-1. Visit https://github.com/new/import and enter `https://github.com/xriss/plated-example` into the URL.
-Click **Begin import**.
+1. Visit https://github.com/new/import, paste `https://github.com/xriss/plated-example` into the URL and create a name for your new repository. Click **Begin import**.
 
-![plated-eg](https://cloud.githubusercontent.com/assets/1515961/21818013/21cad5fc-d75e-11e6-8ce4-d435ea1ed58f.png)
+![plated-eg](https://cloud.githubusercontent.com/assets/1515961/21818265/07abc360-d75f-11e6-8260-bf842eb2f7aa.png)
 
 2. Edit the plated/settings **file** in your new project and change 
 /plated-example to /your-project-name or if you are creating a 
