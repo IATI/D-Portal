@@ -42,14 +42,18 @@ github page eg xriss.github.io then this should be set to / only.
 
 Here is a step by step guide to use this project as a starter for a github hosted website.
 
-1. Visit https://github.com/new and create a new project.
+1. Visit https://github.com/new to **Create repository**.
 
-2. Click the "Import code" option at the bottom and past 
-https://github.com/xriss/plated-example into the url.
+2. Click **Import code** at the bottom, paste 
+https://github.com/xriss/plated-example into the url on the next page and **Begin import**.
+
+![import](https://cloud.githubusercontent.com/assets/1515961/21817101/8a256684-d75a-11e6-8898-d08ca1ed740f.png)
 
 3. Edit the settings **file** in the root of your new project and change 
 /plated-example to /your-project-name or if you are creating a 
 yourname.github.io user or organisation site then change it to /
+
+![settings](https://cloud.githubusercontent.com/assets/1515961/21817287/57385988-d75b-11e6-8a61-ac33fd259e78.png)
 
 	This is the root directory that your site is published to on github.
 
