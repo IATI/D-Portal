@@ -3,7 +3,7 @@ cd `dirname $0`
 source settings
 
 echo
-echo http://0.0.0.0:8000/$PLATED_ROOT
+echo http://0.0.0.0:8000$PLATED_ROOT
 echo
 
 ./node_modules/.bin/ecstatic --baseDir=$PLATED_ROOT --root=docs

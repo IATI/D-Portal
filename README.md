@@ -1,7 +1,7 @@
 # Plated-Example
 
 
-This is a node app so please make sure that node is installed after checkout EG:
+Plated is a node app, please make sure that it is installed after checkout EG:
 
 	git https://github.com/xriss/plated-example.git 
 	cd plated-example
@@ -36,8 +36,8 @@ github pages.
 
 
 If you want to publish this project using a different name be sure to 
-adjust PLATED_ROOT=plated-example in the settings file from 
-plated-example to the new name.
+adjust PLATED_ROOT=/plated-example in the settings file from 
+/plated-example to the new name.
 
 
 Visit https://github.com/xriss/plated for plated documentation.
