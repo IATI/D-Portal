@@ -55,7 +55,7 @@ yourname.github.io user or organisation site then change it to /
 	This is the root directory that your site is published to on github.
 
 4. Goto the settings page for your new project and change the git hub
-pages source to use the master branch /dpcs folder.
+pages source to use the master branch /docs folder.
 
 5. You can now use your new project as described at the start of this
 readme to create your own website on github pages.
