@@ -54,6 +54,10 @@ yourname.github.io user site then change it to / This is where on the
 site your project will live, see https://pages.github.com/ for more 
 information about this special project name.
 
-You can now use your new project as described above.
+4. Goto the settings page for your new project and change the git hub
+pages source to use the master branch /dpcs folder.
+
+5. You can now use your new project as described at the start of this
+readme to create your own website on github pages.
 
 Visit https://github.com/xriss/plated for plated documentation.
