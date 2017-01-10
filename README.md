@@ -48,7 +48,7 @@ following.
 2. Click the "Import code" option at the bottom and past 
 https://github.com/xriss/plated-example into the url.
 
-3. Edit the settings *file* in the root of your new project and change 
+3. Edit the settings **file** in the root of your new project and change 
 /plated-example to /your-project-name or if you are creating a 
 yourname.github.io user site then change it to / This is where on the 
 site your project will live, see https://pages.github.com/ for more 
