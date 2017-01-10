@@ -59,4 +59,15 @@ pages source to use the master branch /docs folder.
 5. You can now use your new project as described at the start of this
 readme to create your own website on github pages.
 
+
+Alternatively an easy way to pull all of the files from this project 
+into an existing project is
+
+	git pull git@github.com:xriss/plated-example --allow-unrelated-histories
+
+But beware of merge conflicts, where both projects contain the same 
+files. An even easier action is just to download this project as a zip 
+and paste all the fields into your existing project.
+
+
 Visit https://github.com/xriss/plated for plated documentation.
