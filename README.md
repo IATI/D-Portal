@@ -52,7 +52,7 @@ https://github.com/xriss/plated-example into the url.
 /plated-example to /your-project-name or if you are creating a 
 yourname.github.io user or organisation site then change it to /
 
-	(This is the root directory that your site is published to on github)
+	This is the root directory that your site is published to on github.
 
 4. Goto the settings page for your new project and change the git hub
 pages source to use the master branch /dpcs folder.
