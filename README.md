@@ -44,6 +44,9 @@ be sure to adjust PLATED_ROOT=/plated-example in the plated/settings file from
 /plated-example to the new github name. If publishing to your main 
 github page eg xriss.github.io then this should be set to / only.
 
+    This is the root directory that your site is published to on github.
+
+
 Here is a step by step guide to use this project as a starter for a github hosted website.
 
 1. Visit https://github.com/new/import, 
@@ -58,8 +61,6 @@ yourname.github.io user or organisation site then change it to /
 
     ![settings](https://cloud.githubusercontent.com/assets/1515961/21817287/57385988-d75b-11e6-8a61-ac33fd259e78.png)
     
-    This is the root directory that your site is published to on github.
-
 3. Goto the settings page for your new project and change the git hub
 pages source to use the master branch /docs folder.
 
