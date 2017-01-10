@@ -38,3 +38,6 @@ github pages.
 If you want to publish this project using a different name be sure to 
 adjust PLATED_ROOT=plated-example in the settings file from 
 plated-example to the new name.
+
+
+Visit https://github.com/xriss/plated for plated documentation.
