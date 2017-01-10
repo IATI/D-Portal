@@ -1,4 +1,6 @@
 cd `dirname $0`
 
-./node_modules/.bin/plated build --dumpjson --root=/plated-example/ --output=docs
+source settings
+
+./node_modules/.bin/plated build --dumpjson --root=/$PLATED_ROOT/ --output=docs
 

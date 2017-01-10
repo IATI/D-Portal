@@ -1,7 +1,9 @@
 cd `dirname $0`
 
+source settings
+
 echo
-echo http://0.0.0.0:8000/plated-example
+echo http://0.0.0.0:8000/$PLATED_ROOT
 echo
 
-./node_modules/.bin/ecstatic --baseDir=plated-example --root=docs
+./node_modules/.bin/ecstatic --baseDir=$PLATED_ROOT --root=docs
