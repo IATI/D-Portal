@@ -1,0 +1,7 @@
+cd `dirname $0`
+
+echo
+echo http://0.0.0.0:8000/plated-example
+echo
+
+./node_modules/.bin/ecstatic --baseDir=plated-example --root=docs

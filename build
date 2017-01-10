@@ -1,0 +1,4 @@
+cd `dirname $0`
+
+./node_modules/.bin/plated build --dumpjson --root=/plated-example/ --output=docs
+

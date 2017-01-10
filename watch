@@ -1,0 +1,4 @@
+cd `dirname $0`
+
+./node_modules/.bin/plated watch --dumpjson --root=/plated-example/ --output=docs
+
