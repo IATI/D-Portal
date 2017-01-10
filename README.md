@@ -3,7 +3,7 @@
 
 Plated is a node app, please make sure that it is installed after checkout EG:
 
-	git https://github.com/xriss/plated-example.git 
+	git clone https://github.com/xriss/plated-example.git 
 	cd plated-example
 	npm install
 
