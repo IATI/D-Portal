@@ -46,25 +46,24 @@ github page eg xriss.github.io then this should be set to / only.
 
 Here is a step by step guide to use this project as a starter for a github hosted website.
 
-1. Visit https://github.com/new to **Create repository**.
+1. Visit https://github.com/new/import, 
+paste `https://github.com/xriss/plated-example` into the URL and 
+create a name for your new repository. Click **Begin import**.
 
-2. Click **Import code** at the bottom, paste 
-https://github.com/xriss/plated-example into the url on the next page and **Begin import**.
+    ![plated-eg](https://cloud.githubusercontent.com/assets/1515961/21818265/07abc360-d75f-11e6-8260-bf842eb2f7aa.png)
 
-![import](https://cloud.githubusercontent.com/assets/1515961/21817101/8a256684-d75a-11e6-8898-d08ca1ed740f.png)
-
-3. Edit the plated/settings **file** in your new project and change 
+2. Edit the plated/settings **file** in your new project and change 
 /plated-example to /your-project-name or if you are creating a 
 yourname.github.io user or organisation site then change it to /
 
-![settings](https://cloud.githubusercontent.com/assets/1515961/21817287/57385988-d75b-11e6-8a61-ac33fd259e78.png)
+    ![settings](https://cloud.githubusercontent.com/assets/1515961/21817287/57385988-d75b-11e6-8a61-ac33fd259e78.png)
+    
+    This is the root directory that your site is published to on github.
 
-	This is the root directory that your site is published to on github.
-
-4. Goto the settings page for your new project and change the git hub
+3. Goto the settings page for your new project and change the git hub
 pages source to use the master branch /docs folder.
 
-5. You can now use your new project as described at the start of this 
+4. You can now use your new project as described at the start of this 
 readme to create your own website on github pages. Be sure to run 
 npm-install inside the plated directory first.
 
@@ -72,7 +71,7 @@ npm-install inside the plated directory first.
 Alternatively an easy way to pull all of the files from this project 
 into an existing project is
 
-	git pull git@github.com:xriss/plated-example --allow-unrelated-histories
+`git pull git@github.com:xriss/plated-example --allow-unrelated-histories`
 
 But beware of merge conflicts, where both projects contain the same 
 file, you will probably conflict with this README.md file which can 
