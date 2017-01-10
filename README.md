@@ -2,15 +2,17 @@
 
 
 Plated is a node app, please make sure that it is installed in the 
-plated directory after checkout EG:
-
-	git clone https://github.com/xriss/plated-example.git 
-	cd plated-example
-	cd plated
-	npm install
+plated directory after checkout.
 
 
-The following scripts may then be run.
+
+The following scripts may be run from your checked out directory.
+
+	plated/upgrade
+
+This will install or upgrade plated using npm. It must be done at least 
+once for the other scripts to work and can be run later to get the 
+latest version.
 
 
 	plated/build
@@ -30,7 +32,7 @@ http://0.0.0.0:8000/plated-example/ in your browser to view your
 site.
 
 
-The website is generated in docs from files found in plated/source. The 
+The website is generated into /docs from files found in /plated/source. The 
 docs folder is used for easy publishing using github pages. Select 
 master branch /docs folder as the source of your github pages under 
 project configuration. Now you can build and git commit changes to 
@@ -73,8 +75,13 @@ into an existing project is
 	git pull git@github.com:xriss/plated-example --allow-unrelated-histories
 
 But beware of merge conflicts, where both projects contain the same 
-files. An even easier action is just to download this project as a zip 
-and paste the plated directory into your existing project.
+file, you will probably conflict with this README.md file which can 
+obviously just be replaced with your own version. Make sure you have 
+node_modules listed in your .gitignore file.
+
+	git pull git@github.com:xriss/plated-example
+
+Can also be used to update the plated/* scripts later on.
 
 
 Visit https://github.com/xriss/plated for plated documentation.
