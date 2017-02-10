@@ -19,6 +19,8 @@ var crs_year=require("../../dstore/json/crs_2014.json")
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
+function html_encode(value){ return $('<div/>').text(value).html(); }
+
 // the chunk names this view will fill with new data
 view_list_transactions.chunks=[
 	"list_transactions_datas",
@@ -94,7 +96,7 @@ view_list_transactions.ajax=function(args)
 				d.num=i+1;
 				d.funder_ref=v.funder_ref;
 				d.aid=encodeURIComponent(v.aid);
-				d.title=v.title || v.aid;
+				d.title=html_encode(v.title || v.aid || "N/A");
 				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
 				total+=ctrack.convert_num("sum_of_percent_of_trans",v);
 				d.amount_num=Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v));
