@@ -1,17 +1,10 @@
 ![d-portal logo](https://raw.githubusercontent.com/devinit/D-Portal/master/ctrack/art/dp_git_logo.460.png)
  
-d-portal.org is a country-based information platform that tracks
-resource flows. It is aimed at providing line ministries,
-parliamentarians and civil society with information that can assist
-with the planning and monitoring of development activities.
+d-portal.org helps you explore IATI data by providing information by country or by publisher on development activities and budgets published to the platform.
 
 The live version lives at http://d-portal.org/
 
 **We are currently in BETA. While d-portal is publicly available, it is not considered finished. You may experience bugs and missing features, but that is why we need your feedback and support.**
-
-One of its aims is to build a re-usable piece of code that can be 
-easily hosted by anyone, anywhere and that will tell an interesting 
-story using IATI data.
 
 
 Features
