@@ -1,0 +1,26 @@
+cd `dirname $0`
+cd ../dstore
+
+echo " fetching some xml file from the live version of dportal for local testing "
+echo " this gets activities that contain result indicators and have agriculture sector code "
+echo " some may be missing as it is only the first 5000 but its a good test set "
+
+mkdir cache
+
+for PAGE in {0..5} ; do
+
+        echo "fetching page $PAGE"
+	if [ ! -f cache/agresult$PAGE.xml ]; then
+	        curl "http://d-portal.org/q.xml?distinct=aid&orderby=aid&from=sector,jml&sector_group=311&jml_like=%indicator%&limit=1000&page=$PAGE" >cache/agresult$PAGE.xml
+	fi
+
+done
+
+for PAGE in {0..5} ; do
+
+        echo "importing $PAGE"
+	node js/cmd import "cache/datastore_bd.xml"
+
+done
+
+node js/cmd analyze
