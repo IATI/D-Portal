@@ -19,7 +19,7 @@ done
 for PAGE in {0..5} ; do
 
         echo "importing $PAGE"
-	node js/cmd import "cache/datastore_bd.xml"
+	node js/cmd import "cache/agresult$PAGE.xml"
 
 done
 
