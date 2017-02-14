@@ -135,10 +135,10 @@ result[type="2"] span-title:before	{content:"OUTCOME";}
 result[type="3"] span-title:before	{content:"IMPACT";}
 result[type="9"] span-title:before	{content:"OTHER";}
 
-result indicator			{display:block; margin-top:20px; width:880px; margin:auto;}
-result indicator:before		{content:"INDICATOR"; font-size:14px; color:#ccc; display:block; margin:auto; margin-bottom:15px; border-bottom:1px solid #aaa; padding:10px 0;}
+result indicator			{display:block; margin:auto; margin-top:20px; width:880px;}
+result indicator:before		{content:"INDICATOR"; font-size:14px; color:#000; display:block; margin:auto; margin-bottom:15px; border-bottom:1px solid #000; padding:10px 0;}
 
-result indicator span-title	{padding-top:20px; font-size:20px; padding-bottom:10px;}
+result indicator span-title	{font-size:20px; padding-bottom:10px;}
 result indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="1"] indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="2"] indicator span-title:before {content:" "; margin:0; border:0;}
@@ -154,9 +154,9 @@ result indicator period target:before	{content:"Target "; font-size:14px; color:
 result indicator period actual:before	{content:"Actual "; font-size:14px; color:#000; display:block; padding-right:10px;}
 
 result indicator period period-start, result indicator period period-end,
-result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:150px; max-width:150px; line-height:1.35em;}
-result indicator period target, result indicator period actual	{width:280px; max-width:280px;}
-result indicator period target	{padding-right:20px;}
+result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px; max-width:440px; line-height:1.35em; padding-bottom:20px;}
+
+result indicator period target > *	{display:block;}
 
 result indicator period actual comment narrative	{display:block; padding:10px 0;}
 
@@ -192,9 +192,9 @@ budget:nth-of-type(1) period-end:after		{content:"BUDGET TYPE"; display:inline-b
 budget[type="1"] value:after				{content:"Original"; position:absolute; left:-55px; top:-2px;}
 budget[type="2"] value:after				{content:"Revised"; position:absolute; left:-55px; top:-2px;}
 budget[type="1"]:nth-of-type(1) value:after, budget[type="2"]:nth-of-type(1) value:after	{top:42px;}
-period-start {display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:289px; max-width:289px; padding-left:40px; line-height:1.35em;}
-period-end	 {display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:289px; max-width:289px; line-height:1.35em; position:relative;}
-budget value {display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em; position:relative;}
+budget period-start 	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:289px; max-width:289px; padding-left:40px; line-height:1.35em;}
+budget period-end	 	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:289px; max-width:289px; line-height:1.35em; position:relative;}
+budget value 			{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em; position:relative;}
 
 
 /*	Transaction table
