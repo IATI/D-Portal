@@ -152,8 +152,21 @@ acts.find("result target, result actual").each(function(i){var it=$(this);
 });
 
 acts.find("result dimension").each(function(i){var it=$(this);
-	it.append($('<span-narrative class="dimension-name">'  + it.attr("name") + '</span-narrative>'));
-	it.append($('<span-narrative class="dimension-value">' + it.attr("value") + '</span-narrative>'));
+	if(it.attr("name"))
+	{
+		it.append($('<span-narrative class="dimension-name">'  + it.attr("name") + '</span-narrative>'));
+	}
+	if(it.attr("value"))
+	{
+		it.append($('<span-narrative class="dimension-value">' + it.attr("value") + '</span-narrative>'));
+	}
+});
+
+acts.find("result location").each(function(i){var it=$(this);
+	if(it.attr("ref"))
+	{
+		it.append($('<span-narrative class="location-ref">'  + it.attr("ref") + '</span-narrative>'));
+	}
 });
 
 acts.find("result actual comment narrative").each(function(i){var it=$(this);
