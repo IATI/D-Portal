@@ -6,6 +6,8 @@ module.exports=exports;
 var dstore_pg=exports;
 var dstore_back=exports;
 
+exports.engine="pg";
+
 var wait=require("wait.for");
 
 var dstore_db=require('./dstore_db');

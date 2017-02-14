@@ -11,7 +11,7 @@ for PAGE in {0..5} ; do
 
         echo "fetching page $PAGE"
 	if [ ! -f cache/agresult$PAGE.xml ]; then
-	        curl "http://d-portal.org/q.xml?distinct=aid&orderby=aid&from=sector,jml&sector_group=311&jml_like=%indicator%&limit=1000&page=$PAGE" >cache/agresult$PAGE.xml
+	        curl "http://d-portal.org/q.xml?distincton=aid&orderby=aid&from=sector,jml&sector_group=311&jml_like=%indicator%&limit=1000&page=$PAGE" >cache/agresult$PAGE.xml
 	fi
 
 done

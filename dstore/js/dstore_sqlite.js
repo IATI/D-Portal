@@ -6,6 +6,7 @@ module.exports=exports;
 var dstore_sqlite=exports;
 var dstore_back=exports;
 
+exports.engine="sqlite";
 
 var refry=require("./refry");
 var exs=require("./exs");

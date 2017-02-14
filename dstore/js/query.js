@@ -153,6 +153,9 @@ query.getsql_select=function(q,qv){
 		"any":true,
 	};
 	
+	var numeric="";
+	if(dstore_db.engine=="pg") { numeric="::numeric"; }
+
 	var calc_func=function(func,name)
 	{
 		switch(func)
@@ -161,10 +164,10 @@ query.getsql_select=function(q,qv){
 				ss.push(" COUNT(DISTINCT "+name+") AS count_"+name);
 			break
 			case "round0":
-				ss.push(" ROUND("+name+"::numeric,0) AS round0_"+name);
+					ss.push(" ROUND("+name+numeric+",0) AS round0_"+name);
 			break
 			case "round1":
-				ss.push(" ROUND("+name+"::numeric,1) AS round1_"+name);
+				ss.push(" ROUND("+name+numeric+",1) AS round1_"+name);
 			break
 			case "percent_of":
 				percents("percent_of_"+name,name,"");
@@ -466,6 +469,9 @@ query.getsql_group_by=function(q,qv){
 };
 
 query.getsql_distinct_on=function(q,qv){
+
+	if(dstore_db.engine!="pg") { return ""; } // postgres only
+	
 	var ss=[];
 
 	var ns=q[0];
@@ -736,6 +742,7 @@ query.do_select=function(q,res){
 				query.getsql_order_by(q,qv) + 
 				query.getsql_limit(q,qv);
 
+//console.log(r.query);
 	return dstore_db.query_select(q,res,r);
 };
 
