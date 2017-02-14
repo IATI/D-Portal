@@ -155,9 +155,11 @@ result indicator period target > *	{display:block;}
 result indicator period actual comment narrative	{display:block; padding:10px 0;}
 
 result indicator > baseline			{display:block;}
-result indicator > baseline comment	{display:block; color:rgba(255,255,255,1); padding:10px 40px; line-height:1.25em;}
+result indicator > baseline comment	{display:block; color:rgba(255,255,255,1); padding:10px 0; line-height:1.25em;}
 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
+
+result indicator .empty		{display:none;}
 
 
 /*	Sectors (also turned into graph: sector_pie)
