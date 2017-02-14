@@ -200,7 +200,7 @@ dstore_sqlite.replace_vars = function(db,name,it){
 //	for(var n in it) { if( n!="xml" && n!="jml" && n!="json" ) { // skip these special long strings
 //		json[n]=it[n]; } }
 	
-	var $t={}; for(var n in dstore_sqlite.tables_active[name]) { $t["$"+n]=it[n]; } // prepare to insert using named values
+	var $t={}; for(var n in dstore_db.tables_active[name]) { $t["$"+n]=it[n]; } // prepare to insert using named values
 	
 //	$t.$json=JSON.stringify(json); // everything apart from xml/jml also lives in this json string
 
@@ -219,7 +219,7 @@ dstore_sqlite.replace = function(db,name,it){
 //db.run( dstore_sqlite.getsql_prepare_replace(name,dstore_sqlite.tables_active[name]) , $t );
 
 
-	var s=dstore_sqlite.tables_replace_sql[name];
+	var s=dstore_db.tables_replace_sql[name];
 	var sa = db.prepare(s);
 	sa.run($t);	
 	sa.finalize(); // seems faster to finalize now rather than let it hang?
