@@ -126,8 +126,8 @@ span.span_description description:nth-child(1)		{border-top:1px solid #000;}
 result						{display:block; padding:20px 0 40px 0;}
 result:nth-child(1)			{padding-top:0;}
 result:nth-child(odd)		{border:1px solid #000; border-right:0; border-left:0;}
-result description			{display:block; padding:10px 40px; line-height:1.25em; white-space:pre-line; unicode-bidi:embed;}
-result description narrative{padding:10px 0;}
+result description			{display:block; padding:10px 40px; white-space:pre-line; unicode-bidi:embed;}
+result description narrative{line-height:24px; word-spacing:0.05em; color:#000;}
 result span-title			{display:block; font-size:30px; width:880px; line-height:1.25em; margin:0 auto; color:#000;}
 result span-title narrative	{display:block; padding:10px 0;}
 result:nth-of-type(1):before{content:"Results"; font-size:26px; color:#FFF; background-color:#000; display:block; padding:20px 40px; margin-bottom:25px;}
@@ -159,6 +159,7 @@ result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px; max-width:440px; line-height:1.35em; padding-bottom:20px;}
 
 result indicator period target > *	{display:block;}
+result indicator period target		{width:420px; max-width:420px; padding-right:20px;}
 
 result indicator period actual comment narrative	{display:block; padding:10px 0;}
 
