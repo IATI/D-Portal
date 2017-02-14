@@ -21,6 +21,7 @@ var http=require('http');
 var dstore_back=require('./dstore_back');
 //dstore_back.dstore_db=dstore_db; // circular dependencies...
 
+dstore_db.engine=dstore_back.engine;
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
