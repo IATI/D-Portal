@@ -135,8 +135,10 @@ result[type="2"] span-title:before	{content:"OUTCOME";}
 result[type="3"] span-title:before	{content:"IMPACT";}
 result[type="9"] span-title:before	{content:"OTHER";}
 
-result indicator			{display:block;}
-result indicator span-title	{padding-top:20px; font-size:20px; padding-bottom:10px; border-bottom:1px solid #000;}
+result indicator			{display:block; margin-top:20px; width:880px; margin:auto;}
+result indicator:before		{content:"INDICATOR"; font-size:14px; color:#ccc; display:block; margin:auto; margin-bottom:15px; border-bottom:1px solid #aaa; padding:10px 0;}
+
+result indicator span-title	{padding-top:20px; font-size:20px; padding-bottom:10px;}
 result indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="1"] indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="2"] indicator span-title:before {content:" "; margin:0; border:0;}
@@ -145,7 +147,7 @@ result[type="9"] indicator span-title:before {content:" "; margin:0; border:0;}
 
 result indicator description{font-size:0.9em; color:#000; padding-top:10px;}
 
-result indicator period		{display:block; padding-top:10px;}
+result indicator period		{display:block; padding-top:10px; width:880px; margin:auto;}
 result indicator period period-start:before	{content:"Start "; font-size:14px; color:#000; display:block; padding-right:10px;}
 result indicator period period-end:before	{content:"End "; font-size:14px; color:#000; display:block; padding-right:10px;}
 result indicator period target:before	{content:"Target "; font-size:14px; color:#000; display:block; padding-right:10px;}
