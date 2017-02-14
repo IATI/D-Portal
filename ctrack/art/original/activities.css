@@ -160,6 +160,24 @@ result indicator > baseline comment	{display:block; color:rgba(255,255,255,1); p
 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
 
+span-narrative.dimension-name		{display:inline-block; vertical-align:top; text-transform:capitalize;}
+span-narrative.dimension-name:after {content:" :";}
+span-narrative.dimension-value		{display:inline-block; vertical-align:top; padding-left:10px; text-transform:capitalize;}
+
+result indicator period target {
+    background-color: rgba(80, 100, 119, 0.51);
+    max-width: 380px;
+    margin-right: 20px;
+    padding: 10px 20px;
+}
+
+result indicator period actual {
+    background-color: rgba(31, 108, 181, 0.51);
+    max-width: 380px;
+    margin-right: 20px;
+    padding: 10px 20px;
+}
+
 result indicator .empty		{display:none;}
 
 
