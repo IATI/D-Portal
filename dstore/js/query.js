@@ -94,7 +94,10 @@ query.get_q = function(req){
 	}
 	if( q.form=="xml" || q.form=="html" ) // xml view so we...
 	{
-		q.from+=",jml"; // ...need a jml join to spit out xml (jml is jsoned xml)
+		if(q.from.indexOf("jml")==-1) // only add once
+		{
+			q.from+=",jml"; // ...need a jml join to spit out xml (jml is jsoned xml)
+		}
 	}
 	
 
