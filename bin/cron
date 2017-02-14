@@ -3,28 +3,28 @@ cd ..
 
 date
 
-#echo
-#echo get new json data
-#echo
-#bin/pull_di
-#./fetch
-#bin/addcommit auto json fetch in nightly cron
-#bin/pull_di
-#bin/push_di
+echo
+echo "Get new json data"
+echo
 
-#
-#echo "Rebuilding ctrack with new json"
-#
-#ctrack/build
-#dportal/build
+bin/pull
+./fetch
+bin/addcommit auto json fetch in nightly cron
+bin/pull
+bin/push
 
-# just stop it, it will restart itself in a minute
-#/etc/init.d/dportal stop
-# seriously stop it just in case of problems
-#sleep 5
-#killall node
 
-#date
+echo
+echo "Rebuilding ctrack with new json"
+echo
+
+
+bin/build
+
+/etc/init.d/dportal restart
+/etc/init.d/dportal status
+
+date
 
 
 # clear data to force a *full* import on a sunday morning

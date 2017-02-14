@@ -169,7 +169,12 @@ refry.tagval=function(json,name)
 	var t=refry.tag(json,name); // find
 	if( t && t[1] && t[1][0] && ( "string" == typeof t[1][0] ) ) // check
 	{
-		return entities.decodeXML(t[1][0]);
+		var s="";
+		for(var i=0;i<t[1].length;i++)
+		{
+			if( "string" == typeof t[1][i] ) { s+=t[1][i]; } // join all child texts
+		}
+		return entities.decodeXML(s);
 	}
 }
 
@@ -179,7 +184,12 @@ refry.tagval_trim=function(json,name)
 	var t=refry.tag(json,name); // find
 	if( t && t[1] && t[1][0] && ( "string" == typeof t[1][0] ) ) // check
 	{
-		return entities.decodeXML(t[1][0].trim());
+		var s="";
+		for(var i=0;i<t[1].length;i++)
+		{
+			if( "string" == typeof t[1][i] ) { s+=t[1][i]; } // join all child texts
+		}
+		return entities.decodeXML(s.trim());
 	}
 }
 
@@ -273,6 +283,11 @@ refry.tagval_en=function(json,name)
 	var t=ret;
 	if( t && t[1] && t[1][0] && ( "string" == typeof t[1][0] ) ) // check
 	{
-		return entities.decodeXML(t[1][0].trim());
+		var s="";
+		for(var i=0;i<t[1].length;i++)
+		{
+			if( "string" == typeof t[1][i] ) { s+=t[1][i]; } // join all child texts
+		}
+		return entities.decodeXML(s.trim());
 	}
 }

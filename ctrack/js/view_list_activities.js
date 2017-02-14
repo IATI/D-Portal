@@ -20,6 +20,8 @@ var crs_year=require("../../dstore/json/crs_2014.json")
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
+function html_encode(value){ return $('<div/>').text(value).html(); }
+
 // the chunk names this view will fill with new data
 view_list_activities.chunks=[
 	"list_activities_datas",
@@ -96,7 +98,7 @@ view_list_activities.ajax=function(args)
 				d.num=i+1;
 				d.funder=v.funder || "N/A";
 				d.aid=encodeURIComponent(v.aid || "N/A");
-				d.title=v.title || v.aid || "N/A";
+				d.title=html_encode(v.title || v.aid || "N/A");
 				
 				d.date_start="N/A"
 				d.date_end="N/A"
