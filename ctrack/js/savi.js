@@ -148,7 +148,7 @@ acts.find("activity-date,transaction-date,period-start,period-end").each(functio
 });
 
 acts.find("result target, result actual").each(function(i){var it=$(this);
-	it.html( it.attr("value") );
+	it.append($('<span-narrative>' + it.attr("value") + '</span-narrative>'));
 });
 
 // change title to span_title (title tag seems to confuse browsers)
@@ -475,8 +475,9 @@ acts.find("related-activity").each(function(i){var it=$(this);
 });
 
 acts.find("*").each(function(i){var it=$(this);
-	if($.trim(it.text()) == '' && $(this).children().length == 0){
-        $(this).addClass("empty");
+	if( ($.trim(it.text())=="") && (it.children().length==0) ) // no text or tags
+	{
+        it.addClass("empty");
     }
 });
 
