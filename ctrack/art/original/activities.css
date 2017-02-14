@@ -128,8 +128,8 @@ result[type="2"] span-title:before	{content:"OUTCOME";}
 result[type="3"] span-title:before	{content:"IMPACT";}
 result[type="9"] span-title:before	{content:"OTHER";}
 
-result indicator			{display:block;}
-result indicator span-title	{padding-top:20px; font-size:20px; padding-bottom:10px; border-bottom:1px solid #aaa;}
+result indicator			{display:block;margin-top: 20px;}
+result indicator span-title	{padding-top:20px;font-size:20px;padding-bottom:10px;/* border-bottom:1px solid #aaa; */}
 result indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="1"] indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="2"] indicator span-title:before {content:" "; margin:0; border:0;}
