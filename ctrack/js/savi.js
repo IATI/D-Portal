@@ -151,9 +151,12 @@ acts.find("result target, result actual").each(function(i){var it=$(this);
 	it.append($('<span-narrative>' + it.attr("value") + '</span-narrative>'));
 });
 
-// change title to span_title (title tag seems to confuse browsers)
+acts.find("result dimension").each(function(i){var it=$(this);
+	it.append($('<span-narrative class="dimension-name">'  + it.attr("name") + '</span-narrative>'));
+	it.append($('<span-narrative class="dimension-value">' + it.attr("value") + '</span-narrative>'));
+});
+
 acts.find("result actual comment narrative").each(function(i){var it=$(this);
-//console.log(it.text());
 	it.replaceWith($('<span-narrative>' + it.text() + '</span-narrative>'));
 });
 
