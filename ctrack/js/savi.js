@@ -474,6 +474,12 @@ acts.find("related-activity").each(function(i){var it=$(this);
 	}
 });
 
+acts.find("*").each(function(i){var it=$(this);
+	if($.trim(it.text()) == '' && $(this).children().length == 0){
+        $(this).addClass("empty");
+    }
+});
+
 acts.each(function(i){var it=$(this);
 
 	var base=it.children(".span_sector");
