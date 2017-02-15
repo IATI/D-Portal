@@ -144,13 +144,16 @@ result[type="9"] indicator span-title:before {content:" "; margin:0; border:0;}
 result indicator description{font-size:0.9em; color:#ccc; padding:10px 0;}
 
 result indicator period		{display:block; padding-top:10px; width:880px; margin:auto;}
-result indicator period period-start:before	{content:"START"; font-size:14px; color:#ccc; display:inline-block; padding-right:10px;}
-result indicator period period-end:before	{content:"END"; font-size:14px; color:#ccc; display:inline-block; padding-right:10px;}
-result indicator period target:before	{content:"TARGET"; font-size:14px; color:#ccc; display:block; padding-right:10px; padding-bottom:10px;}
-result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#ccc; display:block; padding-right:10px; padding-bottom:10px;}
+result indicator period period-start:before	{content:"START"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
+result indicator period period-end:before	{content:"END"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
+result indicator period target:before	{content:"TARGET"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
+result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
 
 result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
+
+result indicator period period-start{width:180px; padding:20px; font-size:34px;}
+result indicator period period-end	{width:620px; padding:20px; font-size:34px;}	
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
@@ -158,8 +161,9 @@ result indicator period actual > *	{display:block;}
 result indicator period actual comment narrative	{display:block; padding:10px 0;}
 
 result indicator period baseline	{display:inline-block; vertical-align:top;}
-span-narrative.baseline-value, span-narrative.baseline-year	{display:block;}
-result indicator period baseline:before	{content:"BASELINE"; font-size:14px; color:#ccc;  display:block; padding-bottom:10px;}
+span-narrative.baseline-value	{display:block;}
+span-narrative.baseline-year	{display:inline-block; vertical-align:top; font-size:14px; line-height:14px;}
+result indicator period baseline:before	{content:"BASELINE"; font-size:14px; color:#ccc;  display:inline-block; vertical-align:top; padding-right:10px; padding-bottom:10px;}
 result indicator > baseline comment	{display:block; color:#ccc; padding:10px 0; line-height:1.25em;}
 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
@@ -173,10 +177,10 @@ span-narrative.location-ref			{display:inline-block; vertical-align:top; text-tr
 
 result indicator comment			{padding:10px 0; font-style:italic;}
 
-result indicator period baseline, result indicator period target, result indicator period actual	{min-height:110px;}
-result indicator period baseline	{background-color:rgba(9,15,23,0.5); max-width:120px; padding:20px;}
-result indicator period target		{background-color:rgba(80,100,119,0.5); max-width:320px; padding:20px;}
-result indicator period actual		{background-color:rgba(31,108,181,0.5); max-width:320px; padding:20px;}
+result indicator period baseline, result indicator period target, result indicator period actual	{min-height:80px;}
+result indicator period baseline	{background-color:rgba(9,15,23,0.5); width:180px; max-width:180px; padding:20px;}
+result indicator period target		{background-color:rgba(80,100,119,0.5); width:290px; max-width:290px; padding:20px;}
+result indicator period actual		{background-color:rgba(31,108,181,0.5); width:290px; max-width:290px; padding:20px;}
 
 result indicator period actual.value-higher		{background-color:rgba(0, 199, 35, 0.5);}
 result indicator period actual.value-lower		{background-color:rgba(189, 169, 21, 0.5);}

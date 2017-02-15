@@ -158,7 +158,7 @@ result indicator period target:before	{content:"TARGET"; font-size:14px; color:#
 result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 
 result indicator period period-start, result indicator period period-end,
-result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px; max-width:440px; line-height:1.35em; padding-bottom:20px;}
+result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
