@@ -291,3 +291,30 @@ refry.tagval_en=function(json,name)
 		return entities.decodeXML(s.trim());
 	}
 }
+
+
+// get volumes of all tags within this given tag, ignore this tag name
+refry.tag_volumes=function(it)
+{
+	var vols={};
+
+	var f; f=function(it,name0,name1,name2,name3)
+	{
+		if("object" == typeof it)
+		{
+			var t=[]; if(name2){t.push(name2);} if(name1){t.push(name1);} if(name0){t.push(name0);} t.push(it[0]);
+			var name=t.join(".");
+			vols[name]=(vols[name] || 0) + 1; // counter for each tag
+			if(it[1]) // child entities
+			{
+				it[1].forEach(function(v){ f(v,it[0],name0,name1,name2); });
+			}
+		}
+	};
+	it[1].forEach(function(v){ f(v,null,null,null,null); });
+
+//	ls(vols);
+	
+	return vols;
+}
+

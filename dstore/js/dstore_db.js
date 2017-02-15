@@ -135,6 +135,15 @@ dstore_db.tables={
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
 	],
+// track the internal layout of the xml, 4 levels is probably plenty unless the iati standard changes considerably
+	element:[
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
+		{ name:"element_name0",					NOCASE:true , INDEX:true },					// the element
+		{ name:"element_name1",					NOCASE:true , INDEX:true },					// the parent of the element
+		{ name:"element_name2",					NOCASE:true , INDEX:true },					// the parent of the parent of the element
+		{ name:"element_name3",					NOCASE:true , INDEX:true },					// the parent of the parent of the parent of the element
+		{ name:"element_volume",				INTEGER:true , INDEX:true },				// number of occurrences of element
+	],
 // should we create joined table caches of the large data tables to speed lookup?
 //	country_location:[
 //		{ join_tables: [ "country","location" ] , join_by="aid" },
@@ -331,7 +340,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		dstore_db.warn_dupes(db,t.aid);
 
 // make really really sure old junk is deleted
-		(["act","jml","trans","budget","country","sector","location","slug"]).forEach(function(v,i,a){
+		(["act","jml","trans","budget","country","sector","location","slug","element"]).forEach(function(v,i,a){
 			dstore_db.delete_from(db,v,{aid:t.aid});
 		});
 
@@ -561,6 +570,22 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 		dstore_back.replace(db,"slug",{"aid":t.aid,"slug":t.slug});
 		
+		var vols=refry.tag_volumes(refry.tag(act,"iati-activity"));
+		{
+			for(name in vols) { var vol=vols[name];
+				var aa=name.split(".");
+				var e={};
+				e.aid=t.aid;
+				e.element_volume=vol;
+				if(aa[aa.length-1]) { e.element_name0=aa[aa.length-1]; }
+				if(aa[aa.length-2]) { e.element_name1=aa[aa.length-2]; }
+				if(aa[aa.length-3]) { e.element_name2=aa[aa.length-3]; }
+				if(aa[aa.length-4]) { e.element_name3=aa[aa.length-4]; }
+
+				dstore_back.replace(db,"element",e);
+			}
+		}
+
 		return t;
 	};
 	
