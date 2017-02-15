@@ -598,8 +598,8 @@ dstore_db.warn_dupes = function(db,aid){
 
 
 
-dstore_db.create_tables = function(){
-	return dstore_back.create_tables();
+dstore_db.create_tables = function(opts){
+	return dstore_back.create_tables(opts);
 }
 
 dstore_db.create_indexes = function(){
@@ -610,6 +610,10 @@ dstore_db.delete_indexes = function(){
 	return dstore_back.delete_indexes();
 }
 
+// this function was intended to modify live table structure, but never happened
+// we can now call create_tables with {opts.do_not_drop} to add entirely new tables
+// which covers the most basic need when updating a live server of adding new tables without
+// having to take the site down while we rebuild all the data.
 dstore_db.check_tables = function(){
 	return dstore_back.check_tables();
 }

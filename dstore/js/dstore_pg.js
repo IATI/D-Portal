@@ -62,7 +62,8 @@ dstore_pg.pragmas = function(db){
 };
 
 // create tables
-dstore_pg.create_tables = function(){
+dstore_pg.create_tables = function(opts){
+	if(!opts){opts={};}
 
 	var db=dstore_pg.open();
 	
@@ -76,11 +77,16 @@ console.log("CREATING TABLES");
 			var tab=dstore_db.tables[name];
 			var s=dstore_back.getsql_create_table(db,name,tab);
 
-			console.log(s);
 
-			wait.for(function(cb){
-				 db.none("DROP TABLE IF EXISTS "+name+";").then(cb).catch(err);
-			});
+			if(!opts.do_not_drop)
+			{
+				console.log("DROPPING "+name);
+				wait.for(function(cb){
+					 db.none("DROP TABLE IF EXISTS "+name+";").then(cb).catch(err);
+				});
+			}
+
+			console.log(s);
 
 			wait.for(function(cb){
 				db.none(s).catch(err).then(cb);
@@ -201,7 +207,7 @@ dstore_pg.getsql_create_table=function(db,name,tab)
 {
 	var s=[];
 	
-	s.push("CREATE TABLE "+name+" ( ");
+	s.push("CREATE TABLE IF NOT EXISTS "+name+" ( ");
 	
 	for(var i=0; i<tab.length;i++)
 	{
