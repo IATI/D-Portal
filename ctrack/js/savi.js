@@ -175,7 +175,7 @@ acts.find("result").each(function(i){var it=$(this);
 					div.addClass("value-higher");
 				}
 				else
-				if(actual>0)
+//				if(actual>0)
 				{
 					div.addClass("value-lower");
 				}
@@ -222,6 +222,13 @@ acts.find("result actual comment narrative").each(function(i){var it=$(this);
 	it.replaceWith($('<span-narrative>' + it.text() + '</span-narrative>'));
 });
 
+acts.find("result reference").each(function(i){var it=$(this);
+	var id=it.attr("indicator-uri");
+	if(id)
+	{
+		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
+	}
+});
 
 acts.find("related-activity").each(function(i){var it=$(this);
 	if( it.html().length<4 )
