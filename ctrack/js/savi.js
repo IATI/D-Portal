@@ -150,10 +150,38 @@ acts.find("activity-date,transaction-date,period-start,period-end").each(functio
 // duplicate the baseline into the period for display purposes (it is in many ways a start value)
 acts.find("result").each(function(i){var it=$(this);
 
-	var baseline=it.find("baseline");
+	var baseline=it.find("baseline").first().clone();
 	
 	it.find("period").each(function(i){var it=$(this);
-		it.prepend( baseline.clone() );
+		it.prepend( baseline );
+		
+		var target=it.find("target").first();
+		var actual=it.find("actual").first();
+		
+		var div=actual; // the div we intend to change
+		
+		if(target&&actual)
+		{
+			target=target.attr("value");
+			actual=actual.attr("value");
+			
+			if($.isNumeric(target)&&$.isNumeric(actual))
+			{
+				target=Number(target);
+				actual=Number(actual);
+				
+				if(actual>=target)
+				{
+					div.addClass("value-higher");
+				}
+				else
+				if(actual>0)
+				{
+					div.addClass("value-lower");
+				}
+			}
+		}
+		
 	});
 });
 
