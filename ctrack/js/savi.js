@@ -150,10 +150,10 @@ acts.find("activity-date,transaction-date,period-start,period-end").each(functio
 // duplicate the baseline into the period for display purposes (it is in many ways a start value)
 acts.find("result").each(function(i){var it=$(this);
 
-	var baseline=it.find("baseline").first().clone();
+	var baseline=it.find("baseline").first();
 	
 	it.find("period").each(function(i){var it=$(this);
-		it.prepend( baseline );
+		it.prepend( baseline.clone() );
 		
 		var target=it.find("target").first();
 		var actual=it.find("actual").first();
@@ -226,6 +226,7 @@ acts.find("result reference").each(function(i){var it=$(this);
 	var id=it.attr("indicator-uri");
 	if(id)
 	{
+		it.text(id);
 		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	}
 });
