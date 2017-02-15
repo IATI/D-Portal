@@ -147,6 +147,44 @@ acts.find("activity-date,transaction-date,period-start,period-end").each(functio
 	it.html( it.attr("iso-date") );
 });
 
+// duplicate the baseline into the period for display purposes (it is in many ways a start value)
+acts.find("result").each(function(i){var it=$(this);
+
+	var baseline=it.find("baseline").first();
+	
+	it.find("period").each(function(i){var it=$(this);
+		it.prepend( baseline.clone() );
+		
+		var target=it.find("target").first();
+		var actual=it.find("actual").first();
+		
+		var div=actual; // the div we intend to change
+		
+		if(target&&actual)
+		{
+			target=target.attr("value");
+			actual=actual.attr("value");
+			
+			if($.isNumeric(target)&&$.isNumeric(actual))
+			{
+				target=Number(target);
+				actual=Number(actual);
+				
+				if(actual>=target)
+				{
+					div.addClass("value-higher");
+				}
+				else
+//				if(actual>0)
+				{
+					div.addClass("value-lower");
+				}
+			}
+		}
+		
+	});
+});
+
 acts.find("result target, result actual").each(function(i){var it=$(this);
 	it.append($('<span-narrative>' + it.attr("value") + '</span-narrative>'));
 });
@@ -162,6 +200,17 @@ acts.find("result dimension").each(function(i){var it=$(this);
 	}
 });
 
+acts.find("result baseline").each(function(i){var it=$(this);
+	if(it.attr("value"))
+	{
+		it.prepend($('<span-narrative class="baseline-value">' + it.attr("value") + '</span-narrative>'));
+	}
+	if(it.attr("year"))
+	{
+		it.prepend($('<span-narrative class="baseline-year">'  + it.attr("year") + '</span-narrative>'));
+	}
+});
+
 acts.find("result location").each(function(i){var it=$(this);
 	if(it.attr("ref"))
 	{
@@ -173,6 +222,14 @@ acts.find("result actual comment narrative").each(function(i){var it=$(this);
 	it.replaceWith($('<span-narrative>' + it.text() + '</span-narrative>'));
 });
 
+acts.find("result reference").each(function(i){var it=$(this);
+	var id=it.attr("indicator-uri");
+	if(id)
+	{
+		it.text(id);
+		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
+	}
+});
 
 acts.find("related-activity").each(function(i){var it=$(this);
 	if( it.html().length<4 )
@@ -242,6 +299,38 @@ acts.find("recipient-country").each(function(i){var it=$(this);
 			it.html("<span>"+tc+"</span><span>"+tp+"%</span>");
 		}
 	}
+
+});
+
+acts.find("period").each(function(i){var it=$(this);
+	
+	var sortlist=[
+		"period-start",
+		"period-end",
+		"baseline",
+		"target",
+		"actual",
+		0];
+	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+
+	var aa=it.children();
+	aa.sort(function(a,b){
+		var ret=0;
+		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
+		var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];	
+		if(ret===0)
+		{
+			if(aw > bw ) { ret= 1; }
+			if(aw < bw ) { ret=-1; }
+		}
+		if(ret===0)
+		{
+			if(a.tagName.toLowerCase() > b.tagName.toLowerCase() ) { ret= 1; }
+			if(a.tagName.toLowerCase() < b.tagName.toLowerCase() ) { ret=-1; }
+		}
+		return ret;
+	});
+	it.append(aa);
 
 });
 
