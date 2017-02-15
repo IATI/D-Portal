@@ -147,6 +147,16 @@ acts.find("activity-date,transaction-date,period-start,period-end").each(functio
 	it.html( it.attr("iso-date") );
 });
 
+// duplicate the baseline into the period for display purposes (it is in many ways a start value)
+acts.find("result").each(function(i){var it=$(this);
+
+	var baseline=it.find("baseline");
+	
+	it.find("period").each(function(i){var it=$(this);
+		it.prepend( baseline.clone() );
+	});
+});
+
 acts.find("result target, result actual").each(function(i){var it=$(this);
 	it.append($('<span-narrative>' + it.attr("value") + '</span-narrative>'));
 });
