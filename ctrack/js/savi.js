@@ -162,6 +162,17 @@ acts.find("result dimension").each(function(i){var it=$(this);
 	}
 });
 
+acts.find("result baseline").each(function(i){var it=$(this);
+	if(it.attr("value"))
+	{
+		it.prepend($('<span-narrative class="baseline-value">' + it.attr("value") + '</span-narrative>'));
+	}
+	if(it.attr("year"))
+	{
+		it.prepend($('<span-narrative class="baseline-year">'  + it.attr("year") + '</span-narrative>'));
+	}
+});
+
 acts.find("result location").each(function(i){var it=$(this);
 	if(it.attr("ref"))
 	{
