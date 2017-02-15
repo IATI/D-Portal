@@ -175,7 +175,7 @@ acts.find("result").each(function(i){var it=$(this);
 					div.addClass("value-higher");
 				}
 				else
-				if(actual>0)
+//				if(actual>0)
 				{
 					div.addClass("value-lower");
 				}
