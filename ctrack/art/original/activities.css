@@ -150,14 +150,15 @@ result indicator period target:before	{content:"TARGET"; font-size:14px; color:#
 result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#ccc; display:block; padding-right:10px; padding-bottom:10px;}
 
 result indicator period period-start, result indicator period period-end,
-result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px; max-width:440px; line-height:1.35em; padding-bottom:20px;}
+result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
 
 result indicator period actual comment narrative	{display:block; padding:10px 0;}
 
-result indicator period baseline, span-narrative.baseline-value, span-narrative.baseline-year	{display:block;}
+result indicator period baseline	{display:inline-block; vertical-align:top;}
+span-narrative.baseline-value, span-narrative.baseline-year	{display:block;}
 result indicator period baseline:before	{content:"BASELINE"; font-size:14px; color:#ccc;  display:block; padding-bottom:10px;}
 result indicator > baseline comment	{display:block; color:#ccc; padding:10px 0; line-height:1.25em;}
 
@@ -172,9 +173,13 @@ span-narrative.location-ref			{display:inline-block; vertical-align:top; text-tr
 
 result indicator comment			{padding:10px 0; font-style:italic;}
 
-result indicator period baseline	{background-color:rgba(9,15,23,0.5); max-width:380px; margin-right:20px; padding:20px;}
-result indicator period target		{background-color:rgba(80,100,119,0.5); max-width:380px; margin-right:20px; padding:20px;}
-result indicator period actual		{background-color:rgba(31,108,181,0.5); max-width:380px; margin-right:20px; padding:20px;}
+result indicator period baseline, result indicator period target, result indicator period actual	{min-height:110px;}
+result indicator period baseline	{background-color:rgba(9,15,23,0.5); max-width:120px; padding:20px;}
+result indicator period target		{background-color:rgba(80,100,119,0.5); max-width:320px; padding:20px;}
+result indicator period actual		{background-color:rgba(31,108,181,0.5); max-width:320px; padding:20px;}
+
+result indicator period actual.value-higher		{background-color:rgba(0, 199, 35, 0.5);}
+result indicator period actual.value-lower		{background-color:rgba(189, 169, 21, 0.5);}
 
 result indicator .empty				{display:none;}
 
