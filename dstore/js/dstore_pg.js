@@ -75,7 +75,6 @@ console.log("CREATING TABLES");
 		for(var name in dstore_db.tables)
 		{
 			var tab=dstore_db.tables[name];
-			var s=dstore_back.getsql_create_table(db,name,tab);
 
 
 			if(!opts.do_not_drop)
@@ -86,12 +85,8 @@ console.log("CREATING TABLES");
 				});
 			}
 
+			var s=dstore_back.getsql_create_table(db,name,tab);
 			console.log(s);
-			wait.for(function(cb){
-				 db.none(s).then(cb).catch(err);
-			});
-
-
 			wait.for(function(cb){
 				db.none(s).catch(err).then(cb);
 			});

@@ -93,7 +93,6 @@ dstore_sqlite.create_tables = function(opts){
 		for(var name in dstore_db.tables)
 		{
 			var tab=dstore_db.tables[name];
-			var s=dstore_sqlite.getsql_create_table(db,name,tab);
 
 
 			if(!opts.do_not_drop)
@@ -102,6 +101,7 @@ dstore_sqlite.create_tables = function(opts){
 				db.run("DROP TABLE IF EXISTS "+name+";");
 			}
 
+			var s=dstore_sqlite.getsql_create_table(db,name,tab);
 			console.log(s);
 			db.run(s);
 

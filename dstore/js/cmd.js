@@ -54,7 +54,7 @@ wait.launchFiber(function(){
 	else
 	if( argv._[0]=="check" )
 	{
-		require("./dstore_db").create_tables({do_not_delete:true});
+		require("./dstore_db").create_tables({do_not_drop:true});
 		require("./dstore_db").check_tables();
 		return;
 	}
