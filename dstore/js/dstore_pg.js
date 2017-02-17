@@ -87,6 +87,10 @@ console.log("CREATING TABLES");
 			}
 
 			console.log(s);
+			wait.for(function(cb){
+				 db.none(s).then(cb).catch(err);
+			});
+
 
 			wait.for(function(cb){
 				db.none(s).catch(err).then(cb);

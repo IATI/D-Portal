@@ -100,10 +100,10 @@ dstore_sqlite.create_tables = function(opts){
 			{
 				console.log("DROPPING "+name);
 				db.run("DROP TABLE IF EXISTS "+name+";");
-				db.run(s);
 			}
 
 			console.log(s);
+			db.run(s);
 
 // indexs
 
