@@ -227,7 +227,7 @@ acts.find("result reference").each(function(i){var it=$(this);
 	if(id)
 	{
 		it.text(id);
-		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,id,"a_"+this.tagName.toLowerCase());
 	}
 });
 

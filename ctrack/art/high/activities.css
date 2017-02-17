@@ -158,7 +158,7 @@ result indicator period target:before	{content:"TARGET"; font-size:14px; color:#
 result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 
 result indicator period period-start, result indicator period period-end,
-result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px; max-width:440px; line-height:1.35em; padding-bottom:20px;}
+result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
@@ -166,8 +166,9 @@ result indicator period actual > *	{display:block;}
 result indicator period actual comment narrative	{display:block; padding:10px 0;}
 
 result indicator period baseline	{display:inline-block; vertical-align:top;}
-span-narrative.baseline-value, span-narrative.baseline-year	{display:block;}
-result indicator period baseline:before	{content:"BASELINE"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
+span-narrative.baseline-value	{display:block;}
+span-narrative.baseline-year	{display:inline-block; vertical-align:top; font-size:14px; line-height:14px;}
+result indicator period baseline:before	{content:"BASELINE"; font-size:14px; color:#000;  display:inline-block; vertical-align:top; padding-right:10px; padding-bottom:10px;}
 result indicator > baseline comment	{display:block; color:#000; padding:10px 0; line-height:1.25em;}
 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
@@ -180,13 +181,18 @@ span-narrative.dimension-value		{display:inline-block; vertical-align:top; paddi
 span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
 
 result indicator comment			{padding:10px 0; font-style:italic;}
+target comment span-narrative, actual comment span-narrative, target comment narrative, actual comment narrative	{display:block; font-size:16px; line-height:1.25em;}
 
+result indicator period baseline, result indicator period target, result indicator period actual	{min-height:80px;}
 result indicator period baseline	{background-color:#BEB9B9; max-width:380px; padding:20px;}
 result indicator period target		{background-color:#DEDEDE; max-width:380px; padding:20px;}
 result indicator period actual		{background-color:#CECECE; max-width:380px; padding:20px;}
 
 result indicator period actual .value-higher	{background-color:#BEB9B9;}
 result indicator period actual .value-lower		{background-color:#BEB9B9;}
+
+result indicator reference			{display:block; padding:20px; border:1px solid #666; margin-top:20px;}
+result indicator reference a:hover	{cursor:pointer;}
 
 result indicator .empty				{display:none;}
 
