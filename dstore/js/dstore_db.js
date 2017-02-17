@@ -578,6 +578,12 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var e={};
 				e.aid=t.aid;
 				e.element_volume=vol;
+				e.element_name0=null;
+				e.element_name1=null;
+				e.element_name2=null;
+				e.element_name3=null;
+				e.element_attr=null;
+
 				if(aa[aa.length-1]) {
 					var bb=aa[aa.length-1].split("@"); // optional attribute
 					e.element_name0=bb[0];
