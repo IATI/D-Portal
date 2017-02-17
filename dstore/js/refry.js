@@ -303,8 +303,16 @@ refry.tag_volumes=function(it)
 		if("object" == typeof it)
 		{
 			var t=[]; if(name2){t.push(name2);} if(name1){t.push(name1);} if(name0){t.push(name0);} t.push(it[0]);
-			var name=t.join(".");
+			var name=t.join(".").toLowerCase();
 			vols[name]=(vols[name] || 0) + 1; // counter for each tag
+			for( var attr in it )
+			{
+				if((attr!="0")&&(attr!="1"))
+				{
+					var aname=(name+"@"+attr).toLowerCase();
+					vols[aname]=(vols[aname] || 0) + 1; // counter for each tag
+				}
+			}
 			if(it[1]) // child entities
 			{
 				it[1].forEach(function(v){ f(v,it[0],name0,name1,name2); });

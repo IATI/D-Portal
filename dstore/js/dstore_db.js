@@ -138,6 +138,7 @@ dstore_db.tables={
 // track the internal layout of the xml, 4 levels is probably plenty unless the iati standard changes considerably
 	element:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
+		{ name:"element_attr",					NOCASE:true , INDEX:true },					// the element attribute name, must be null for element stats
 		{ name:"element_name0",					NOCASE:true , INDEX:true },					// the element
 		{ name:"element_name1",					NOCASE:true , INDEX:true },					// the parent of the element
 		{ name:"element_name2",					NOCASE:true , INDEX:true },					// the parent of the parent of the element
@@ -577,7 +578,14 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var e={};
 				e.aid=t.aid;
 				e.element_volume=vol;
-				if(aa[aa.length-1]) { e.element_name0=aa[aa.length-1]; }
+				if(aa[aa.length-1]) {
+					var bb=aa[aa.length-1].split("@"); // optional attribute
+					e.element_name0=bb[0];
+					if( bb[1] )
+					{
+						e.element_attr=bb[1];
+					}
+				}
 				if(aa[aa.length-2]) { e.element_name1=aa[aa.length-2]; }
 				if(aa[aa.length-3]) { e.element_name2=aa[aa.length-3]; }
 				if(aa[aa.length-4]) { e.element_name3=aa[aa.length-4]; }
