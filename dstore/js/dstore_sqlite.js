@@ -78,7 +78,8 @@ dstore_sqlite.query_exec = function(db,q,v,cb){
 }
 
 
-dstore_sqlite.create_tables = function(){
+dstore_sqlite.create_tables = function(opts){
+	if(!opts){opts={};}
 
 	var db = dstore_sqlite.open();
 
@@ -92,11 +93,16 @@ dstore_sqlite.create_tables = function(){
 		for(var name in dstore_db.tables)
 		{
 			var tab=dstore_db.tables[name];
+
+
+			if(!opts.do_not_drop)
+			{
+				console.log("DROPPING "+name);
+				db.run("DROP TABLE IF EXISTS "+name+";");
+			}
+
 			var s=dstore_sqlite.getsql_create_table(db,name,tab);
-
 			console.log(s);
-
-			db.run("DROP TABLE IF EXISTS "+name+";");
 			db.run(s);
 
 // indexs
@@ -276,7 +282,7 @@ dstore_sqlite.getsql_create_table=function(db,name,tab)
 {
 	var s=[];
 	
-	s.push("CREATE TABLE "+name+" ( ");
+	s.push("CREATE TABLE IF NOT EXISTS "+name+" ( ");
 	
 	for(var i=0; i<tab.length;i++)
 	{

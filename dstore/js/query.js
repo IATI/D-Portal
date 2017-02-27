@@ -150,6 +150,10 @@ query.getsql_select=function(q,qv){
 		"round1":true,
 		"percent_of":true,
 		"sum_of_percent_of":true,
+		"avg":true,
+		"sum":true,
+		"max":true,
+		"min":true,
 		"any":true,
 	};
 	
@@ -174,6 +178,18 @@ query.getsql_select=function(q,qv){
 			break
 			case "sum_of_percent_of":
 				percents("sum_of_percent_of_"+name,name,"SUM");
+			break
+			case "avg":
+				ss.push(" AVG("+name+") AS avg_"+name);
+			break
+			case "sum":
+				ss.push(" SUM("+name+") AS sum_"+name);
+			break
+			case "max":
+				ss.push(" MAX("+name+") AS max_"+name);
+			break
+			case "min":
+				ss.push(" MIN("+name+") AS min_"+name);
 			break
 			case "any":
 				ss.push(" MAX("+name+") AS "+name); // for getting a value from grouped data when any of them will do.

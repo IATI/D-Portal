@@ -135,6 +135,16 @@ dstore_db.tables={
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
 	],
+// track the internal layout of the xml, 4 levels is probably plenty unless the iati standard changes considerably
+	element:[
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
+		{ name:"element_attr",					NOCASE:true , INDEX:true },					// the element attribute name, must be null for element stats
+		{ name:"element_name0",					NOCASE:true , INDEX:true },					// the element
+		{ name:"element_name1",					NOCASE:true , INDEX:true },					// the parent of the element
+		{ name:"element_name2",					NOCASE:true , INDEX:true },					// the parent of the parent of the element
+		{ name:"element_name3",					NOCASE:true , INDEX:true },					// the parent of the parent of the parent of the element
+		{ name:"element_volume",				INTEGER:true , INDEX:true },				// number of occurrences of element
+	],
 // should we create joined table caches of the large data tables to speed lookup?
 //	country_location:[
 //		{ join_tables: [ "country","location" ] , join_by="aid" },
@@ -331,7 +341,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		dstore_db.warn_dupes(db,t.aid);
 
 // make really really sure old junk is deleted
-		(["act","jml","trans","budget","country","sector","location","slug"]).forEach(function(v,i,a){
+		(["act","jml","trans","budget","country","sector","location","slug","element"]).forEach(function(v,i,a){
 			dstore_db.delete_from(db,v,{aid:t.aid});
 		});
 
@@ -561,6 +571,41 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 		dstore_back.replace(db,"slug",{"aid":t.aid,"slug":t.slug});
 		
+		var vols=refry.tag_volumes(refry.tag(act,"iati-activity"));
+		{
+			for(name in vols) { var vol=vols[name];
+				var aa=name.split(".");
+				var e={};
+				e.aid=t.aid;
+				e.element_volume=vol;
+				e.element_name0=null;
+				e.element_name1=null;
+				e.element_name2=null;
+				e.element_name3=null;
+				e.element_attr=null;
+
+				if(aa[aa.length-1]) {
+					var bb=aa[aa.length-1].split("@"); // optional attribute
+					e.element_name0=bb[0];
+					if( bb[1] )
+					{
+						e.element_attr=bb[1];
+					}
+				}
+				if(aa[aa.length-2]) { e.element_name1=aa[aa.length-2]; }
+				if(aa[aa.length-3]) { e.element_name2=aa[aa.length-3]; }
+				if(aa[aa.length-4]) { e.element_name3=aa[aa.length-4]; }
+
+// we run out of space on live server if we try and track attribute use
+// takes an extra 16gb+++ of indexing data
+// so disable saving attribute stats for now...
+				if(!e.element_attr)
+				{
+					dstore_back.replace(db,"element",e);
+				}
+			}
+		}
+
 		return t;
 	};
 	
@@ -598,8 +643,8 @@ dstore_db.warn_dupes = function(db,aid){
 
 
 
-dstore_db.create_tables = function(){
-	return dstore_back.create_tables();
+dstore_db.create_tables = function(opts){
+	return dstore_back.create_tables(opts);
 }
 
 dstore_db.create_indexes = function(){
@@ -610,6 +655,10 @@ dstore_db.delete_indexes = function(){
 	return dstore_back.delete_indexes();
 }
 
+// this function was intended to modify live table structure, but never happened
+// we can now call create_tables with {opts.do_not_drop} to add entirely new tables
+// which covers the most basic need when updating a live server of adding new tables without
+// having to take the site down while we rebuild all the data.
 dstore_db.check_tables = function(){
 	return dstore_back.check_tables();
 }
