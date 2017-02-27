@@ -239,6 +239,14 @@ acts.find("related-activity").each(function(i){var it=$(this);
 });
 
 
+//acts.find("participating-org").each(function(i){var it=$(this);
+//	if(it.attr("role"))
+//	{
+//		it.append($('<span-narrative class="participating-role">'  + it.attr("role") + " role" + '</span-narrative>'));
+//	}
+//});
+
+
 acts.find("reporting-org").each(function(i){var it=$(this);
 	var t=it.attr("ref");
 	t=iati_codes.publisher_names[t];

@@ -29,17 +29,17 @@ narrative {display:inline-block; color:inherit; font-family:inherit; word-wrap:i
 	============================================= */
 span.span_span-title span-title			{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#FFF; line-height:1.1em;}
 span.span_span-title span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#ccc; display:block; border-bottom:1px solid #aaa; margin-bottom:20px;}
-span.span_span-title narrative:nth-of-type(2)	{display:block; padding:10px 0 0 0; font-style:italic;}
+span.span_span-title narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0 0; font-style:italic;}
 
 
 /*	IATI Identifier
 	============================================= */
 iati-identifier 		{display:block; background-color:rgba(0,14,32,0.7); width:880px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#FF7A00; margin:0 auto;}
-iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
 iati-identifier div		{display:block;}
 a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:baseline;}
 a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; width:50%;}
-a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
 a.a_xml_iati-identifier:link	{color:#FF7A00;}
 a.a_xml_iati-identifier:visited	{color:#FF7A00;}
 a.a_xml_iati-identifier:hover	{color:#FFAB5E;}
@@ -84,12 +84,14 @@ participating-org a:link			{color:#FF7A00;}
 participating-org a:visited			{color:#FF7A00;}
 participating-org a:hover			{color:#FFAB5E;}
 participating-org a:active			{color:#FF7A00;}
-participating-org[role="funding"]:after			{content:"FUNDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="extending"]:after		{content:"EXTENDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="accountable"]:after		{content:"ACCOUNTABLE ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="1"] narrative:after, participating-org[role="funding"] narrative:after		{content:"FUNDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="2"] narrative:after, participating-org[role="accountable"] narrative:after	{content:"ACCOUNTABLE ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="3"] narrative:after, participating-org[role="extending"] narrative:after	{content:"EXTENDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="4"] narrative:after, participating-org[role="implementing"] narrative:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
 
-span.span_participating-org narrative:nth-of-type(2)	{display:block; padding:10px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
+span-narrative.participating-role	{font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px; text-transform:uppercase; line-height:initial;}
+
+span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
 
 
 /*	Reported by
@@ -118,7 +120,7 @@ span.span_description narrative:nth-of-type(2)		{display:block; padding:20px 0 0
 result						{display:block; padding:20px 0 40px 0;}
 result:nth-child(1)			{padding-top:0;}
 result:nth-child(odd)		{background-color:rgba(0,14,32,0.3);}
-result description			{display:block; padding:10px 40px; white-space:pre-line; unicode-bidi:embed;}
+result description			{display:block; padding:10px 40px; white-space:pre-line; unicode-bidi:embed; line-height:22px;}
 result description narrative{line-height:24px; word-spacing:0.05em; color:#ccc;}
 result span-title			{display:block; font-size:30px; width:880px; line-height:1.25em; margin:0 auto; color:#FFF;}
 result span-title narrative	{display:block; padding:10px 0;}
@@ -130,6 +132,7 @@ result[type="3"] span-title:before	{content:"IMPACT";}
 result[type="9"] span-title:before	{content:"OTHER";}
 
 result indicator			{display:block; margin:auto; margin-top:30px; margin-bottom:40px; width:880px;}
+result indicator:first-of-type	{margin-top:10px;}
 result indicator:before		{content:"INDICATOR"; font-size:14px; color:#ccc; display:block; margin:auto; margin-bottom:15px; border-bottom:1px solid #aaa; padding:10px 0;}
 result indicator[measure="1"]:before	{content:"INDICATOR UNIT";}
 result indicator[measure="2"]:before	{content:"INDICATOR PERCENTAGE";}
@@ -141,9 +144,9 @@ result[type="2"] indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="3"] indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="9"] indicator span-title:before {content:" "; margin:0; border:0;}
 
-result indicator description{font-size:0.9em; color:#ccc; padding:10px 0;}
+result indicator description{font-size:16px; color:#ccc; padding:10px 0;}
 
-result indicator period		{display:block; padding-top:10px; width:880px; margin:auto;}
+result indicator period		{display:block; padding-top:10px; width:880px; margin:auto; position:relative;}
 result indicator period period-start:before	{content:"START"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
 result indicator period period-end:before	{content:"END"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
 result indicator period target:before	{content:"TARGET"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
@@ -152,8 +155,8 @@ result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#
 result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
-result indicator period period-start{width:180px; padding:20px; font-size:34px; background-color: rgba(21, 16, 18, 0.64);}
-result indicator period period-end	{width:620px; padding:20px; font-size:34px; background-color: rgba(14, 14, 16, 0.78);}	
+result indicator period period-start{width:180px; padding:20px; font-size:34px;}
+result indicator period period-end	{width:620px; padding:20px; font-size:34px; text-align:right;}	
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
@@ -175,10 +178,10 @@ span-narrative.dimension-value		{display:inline-block; vertical-align:top; paddi
 
 span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
 
-result indicator comment			{padding:10px 0; font-style:italic;}
+result indicator comment			{padding:10px 0; font-style:italic; line-height:20px;}
 target comment narrative, actual comment narrative, target comment span-narrative, actual comment span-narrative	{display:block; font-size:16px; line-height:1.25em;}
 
-result indicator period baseline, result indicator period target, result indicator period actual	{min-height:80px;}
+result indicator period baseline, result indicator period target, result indicator period actual	{min-height:60px; display:table-cell;}
 result indicator period baseline	{background-color:rgba(9,15,23,0.5); width:180px; max-width:180px; padding:20px;}
 result indicator period target		{background-color:rgba(80,100,119,0.5); width:290px; max-width:290px; padding:20px;}
 result indicator period actual		{background-color:rgba(31,108,181,0.5); width:290px; max-width:290px; padding:20px;}
@@ -186,10 +189,13 @@ result indicator period actual		{background-color:rgba(31,108,181,0.5); width:29
 result indicator period actual.value-higher		{background-color:rgba(0,199,35,0.5);}
 result indicator period actual.value-lower		{background-color:rgba(189,169,21,0.5);}
 
-result indicator reference			{display:block; padding:20px; border:1px solid #666; margin-top:20px;}
+result indicator reference			{display:block; padding:20px; border:1px solid #666; margin-top:20px; margin-bottom:20px;}
 result indicator reference:before	{content:"REFERENCE"; font-size:14px; color:#ccc; display:block; margin:auto; margin-bottom:15px; padding-bottom:10px;}
 result indicator reference a:hover	{cursor:pointer;}
-result indicator reference a.a_reference	{display:list-item; list-style-type:decimal; list-style-position:inside;}
+result indicator reference a.a_reference	{display:list-item; list-style-type:circle; list-style-position:inside; margin-bottom:10px;}
+
+.timeline		{display:block; position:absolute; width:880px; height:5px; background-color:#34404d; top:102px; left:0; border-radius:20px; border-bottom:1px solid #666;}
+.time			{display:block; height:5px; width:660px; border-radius:20px 0 0 20px; background:-moz-linear-gradient(left,rgba(21,16,18,0.5) 0%,rgba(255,255,255,0.8) 100%); background:-webkit-linear-gradient(left,rgba(21,16,18,0.5) 0%,rgba(255,255,255,0.8) 100%); background:linear-gradient(to right,rgba(21,16,18,0.5) 0%,rgba(255,255,255,0.8) 100%); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80151012',endColorstr='#ccffffff',GradientType=1);}
 
 result indicator .empty				{display:none;}
 
@@ -209,7 +215,7 @@ img.sector_pie					{padding:40px; background-color:#FFF;}
 
 /*	Budget table
 	============================================= */
-budget					{display:block; width:960px; border-top:1px solid #333642; padding:20px 0; border-bottom:0;}
+budget					{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0;}
 budget:last-of-type	 	{border-bottom:0px solid #1E90FF;}
 budget:nth-of-type(1)	{margin-top:0px; padding-top:0; border-top:0;}
 budget:nth-of-type(1):before				{content:"Budgets"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
@@ -227,7 +233,7 @@ budget value 			{display:inline-block; vertical-align:top; color:#FFF; font-size
 
 /*	Transaction table
 	============================================= */
-transaction							{display:block; width:960px; border-top:1px solid #333642; padding:20px 0; border-bottom:0;}
+transaction							{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0;}
 transaction a						{color:#FFAB5E;}
 transaction a:link					{color:#FFAB5E;}
 transaction a:visited				{color:#FFAB5E;}
@@ -278,11 +284,11 @@ activity-website:hover	{color:#FF7A00;}
 
 /*	Activity Status
 	============================================= */
-activity-status[code="1"]	{background-color:rgb(71, 181, 255);}
-activity-status[code="2"]	{background-color:rgb(204, 141, 230);}
-activity-status[code="3"]	{background-color:rgb(71, 255, 78);}
-activity-status[code="4"]	{background-color:rgb(255, 130, 71);}
-activity-status[code="5"]	{background-color:rgb(255, 71, 71);}
+activity-status[code="1"]	{background-color:rgb(71,181,255);}
+activity-status[code="2"]	{background-color:rgb(204,141,230);}
+activity-status[code="3"]	{background-color:rgb(71,255,78);}
+activity-status[code="4"]	{background-color:rgb(255,130,71);}
+activity-status[code="5"]	{background-color:rgb(255,71,71);}
 activity-status				{display:block; font-size:20px; background-color:rgb(255,130,71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px; color:rgba(0,14,32,1); border-radius:0 0 6px 6px;}
 activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:rgba(0,14,32,1); font-weight:bold; display:inline-block; padding-right:10px;}
 

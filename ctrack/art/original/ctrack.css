@@ -129,7 +129,7 @@ li.publishercol a.country_code		{padding:15px 0;}
 
 /*	Buttons and header styles - INDEX PAGE
 	============================================= */
-a.path					{display:block; padding:40px 20px; border-radius:8px; background-color:rgba(0,14,32,0.7); text-align:center; margin:0 auto; color:#53B4ED;}
+a.path					{display:block;padding:40px 20px;border-radius:8px;background-color:rgba(0,14,32,0.7);text-align:center;margin:0 auto;color: #fff;text-transform: uppercase;font-size: xx-small;}
 a.path:hover			{background-color:rgba(0,14,32,0.9);}
 
 
@@ -172,6 +172,9 @@ a.blog_title		{display:block; font-size:2.2em; line-height:1.2em; color:#A8C5E5;
 a.blog_title:hover	{color:#FFF;}
 a.back_news			{display:block; margin-top:40px; text-align:right; color:#FFF;}
 a.back_news:hover	{color:#A8C5E5;}
+.blog_body code		{background-color:#fff; padding:10px 20px; color:#222; font-family:monospace; margin:15px 0; display:block;}
+.blog_body code a, .blog_body code a:focus, .blog_body code a:link, .blog_body code a:visited,
+.blog_body code a:hover, .blog_body code a:active	{color:#222; text-decoration:none; transition:initial;}
 
 
 /*	Graph styles

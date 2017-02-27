@@ -33,6 +33,7 @@ narrative {display:inline-block; color:inherit; font-family:inherit; word-wrap:i
 	============================================= */
 span.span_span-title span-title			{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#000; line-height:1.1em;}
 span.span_span-title span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
+span.span_span-title narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0 0; font-style:italic;}
 
 
 /*	IATI Identifier
@@ -48,13 +49,13 @@ iati-identifier a:hover		{color:#000;}
 iati-identifier a:active	{color:#000;}
 a.a_iati-identifier		{width:958px; margin:0 auto; vertical-align:baseline;}
 a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; color:#000; width:50%;}
-a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
 a.a_xml_iati-identifier:link	{color:#000;}
 a.a_xml_iati-identifier:visited	{color:#000;}
 a.a_xml_iati-identifier:hover	{color:#000; text-decoration:underline;}
 a.a_xml_iati-identifier:active	{color:#000;}
 a.a_slug				{display:inline-block; vertical-align:baseline; width:50%; text-align:right;}
-a.a_slug:before			{content:"VIEW IATI REGISTRY"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_slug:before			{content:"VIEW IATI REGISTRY"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
 a.a_slug:link			{color:#000;}
 a.a_slug:visited		{color:#000;}
 a.a_slug:hover			{color:#000; text-decoration:underline;}
@@ -93,12 +94,14 @@ participating-org a:link			{color:#000;}
 participating-org a:visited			{color:#000; text-decoration:underline;}
 participating-org a:hover			{color:#000;}
 participating-org a:active			{color:#000;}
-participating-org[role="funding"]:after			{content:"FUNDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="extending"]:after		{content:"EXTENDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="accountable"]:after		{content:"ACCOUNTABLE ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="1"] narrative:after, participating-org[role="funding"] narrative:after		{content:"FUNDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="2"] narrative:after, participating-org[role="accountable"] narrative:after	{content:"ACCOUNTABLE ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="3"] narrative:after, participating-org[role="extending"] narrative:after	{content:"EXTENDING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="4"] narrative:after, participating-org[role="implementing"] narrative:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#000; display:inline-block; padding:0; padding-left:10px;}
 
-span.span_participating-org narrative:nth-of-type(2)	{display:block; padding:10px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
+span-narrative.participating-role	{font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px; text-transform:uppercase; line-height:initial;}
+
+span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
 
 
 /*	Reported by
@@ -126,11 +129,11 @@ span.span_description description:nth-child(1)		{border-top:1px solid #000;}
 result						{display:block; padding:20px 0 40px 0;}
 result:nth-child(1)			{padding-top:0;}
 result:nth-child(odd)		{border:1px solid #000; border-right:0; border-left:0;}
-result description			{display:block; padding:10px 40px; white-space:pre-line; unicode-bidi:embed;}
+result description			{display:block; padding:10px 40px; white-space:pre-line; unicode-bidi:embed; line-height:22px;}
 result description narrative{line-height:24px; word-spacing:0.05em; color:#000;}
 result span-title			{display:block; font-size:30px; width:880px; line-height:1.25em; margin:0 auto; color:#000;}
 result span-title narrative	{display:block; padding:10px 0;}
-result:nth-of-type(1):before{content:"Results"; font-size:26px; color:#FFF; background-color:#000; display:block; padding:20px 40px; margin-bottom:25px;}
+result:nth-of-type(1):before{content:"RESULTS"; font-size:26px; color:#FFF; background-color:#000; display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
 result span-title:before	{content:"RESULTS"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
 result[type="1"] span-title:before	{content:"OUTPUT";}
 result[type="2"] span-title:before	{content:"OUTCOME";}
@@ -138,6 +141,7 @@ result[type="3"] span-title:before	{content:"IMPACT";}
 result[type="9"] span-title:before	{content:"OTHER";}
 
 result indicator			{display:block; margin:auto; margin-top:30px; margin-bottom:40px; width:880px;}
+result indicator:first-of-type	{margin-top:10px;}
 result indicator:before		{content:"INDICATOR"; font-size:14px; color:#000; display:block; margin:auto; margin-bottom:15px; border-bottom:1px solid #000; padding:10px 0;}
 result indicator[measure="1"]:before	{content:"INDICATOR UNIT";}
 result indicator[measure="2"]:before	{content:"INDICATOR PERCENTAGE";}
@@ -149,16 +153,19 @@ result[type="2"] indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="3"] indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="9"] indicator span-title:before {content:" "; margin:0; border:0;}
 
-result indicator description{font-size:0.9em; color:#000; padding:10px 0;}
+result indicator description{font-size:16px; color:#000; padding:10px 0;}
 
 result indicator period		{display:block; padding-top:10px; width:880px; margin:auto;}
-result indicator period period-start:before	{content:"START"; font-size:14px; color:#000; display:inline-block; padding-right:10px;}
-result indicator period period-end:before	{content:"END"; font-size:14px; color:#000; display:inline-block; padding-right:10px;}
+result indicator period period-start:before	{content:"START"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
+result indicator period period-end:before	{content:"END"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 result indicator period target:before	{content:"TARGET"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 
 result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
+
+result indicator period period-start{width:180px; padding:20px; font-size:34px;}
+result indicator period period-end	{width:620px; padding:20px; font-size:34px;}	
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
@@ -180,19 +187,25 @@ span-narrative.dimension-value		{display:inline-block; vertical-align:top; paddi
 
 span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
 
-result indicator comment			{padding:10px 0; font-style:italic;}
+result indicator comment			{padding:10px 0; font-style:italic; line-height:20px;}
 target comment span-narrative, actual comment span-narrative, target comment narrative, actual comment narrative	{display:block; font-size:16px; line-height:1.25em;}
 
-result indicator period baseline, result indicator period target, result indicator period actual	{min-height:80px;}
-result indicator period baseline	{background-color:#BEB9B9; max-width:380px; padding:20px;}
-result indicator period target		{background-color:#DEDEDE; max-width:380px; padding:20px;}
-result indicator period actual		{background-color:#CECECE; max-width:380px; padding:20px;}
+result indicator period baseline, result indicator period target, result indicator period actual	{min-height:60px; display:table-cell;}
+result indicator period baseline	{background-color:#BEB9B9; width:180px; max-width:180px; padding:20px;}
+result indicator period target		{background-color:#DEDEDE; width:290px; max-width:290px; padding:20px;}
+result indicator period actual		{background-color:#CECECE; width:290px; max-width:290px; padding:20px;}
 
 result indicator period actual .value-higher	{background-color:#BEB9B9;}
 result indicator period actual .value-lower		{background-color:#BEB9B9;}
 
-result indicator reference			{display:block; padding:20px; border:1px solid #666; margin-top:20px;}
+result indicator reference			{display:block; padding:20px; border:1px solid #000; margin-top:20px; margin-bottom:20px;}
+result indicator reference:before	{content:"REFERENCE"; font-size:14px; color:#000; display:block; margin:auto; margin-bottom:15px; padding-bottom:10px;}
 result indicator reference a:hover	{cursor:pointer;}
+result indicator reference a.a_reference	{display:list-item; list-style-type:circle; list-style-position:inside; margin-bottom:10px;}
+
+.timeline		{display:block; position:absolute; width:878px; height:5px; background-color:#fff; top:102px; left:0; border-radius:20px; border:1px solid #000;}
+.time			{display:block; height:5px; width:660px; background-color:#000; border-radius:20px 0 0 20px;}
+
 
 result indicator .empty				{display:none;}
 
@@ -212,7 +225,7 @@ img.sector_pie					{padding:40px 20px;}
 
 /*	Budget table
 	============================================= */
-budget	{display:block; width:958px; border-top:1px solid #000; padding:20px 0; border-bottom:0;}
+budget	{display:block; width:958px; border-top:1px solid #000; padding:15px 0 5px 0; border-bottom:0;}
 budget:last-of-type	  {border-bottom:0px solid #000;}
 budget:nth-of-type(1) {margin-top:0px; padding-top:0;}
 budget:nth-of-type(1):before {content:"Budgets"; font-size:26px; color:#000; border-bottom:1px solid #000; display:block; padding:20px 40px; margin-bottom:25px;}
@@ -230,7 +243,7 @@ budget value 			{display:inline-block; vertical-align:top; color:#000; font-size
 
 /*	Transaction table
 	============================================= */
-transaction							{display:block; width:958px; border-top:1px solid #000; padding:20px 0; border-bottom:0;}
+transaction							{display:block; width:958px; border-top:1px solid #000; padding:15px 0 5px 0; border-bottom:0;}
 transaction a						{color:#000;}
 transaction a:hover					{color:#000;}
 transaction:last-of-type			{border-bottom:1px solid #000;}
