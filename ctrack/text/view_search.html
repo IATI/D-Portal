@@ -18,7 +18,19 @@
 {where_is_the_data_from}
 {view_tail}
 
+<!-- new search in progress	-->
+#view_search2
+{view_head}
+<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}#background_image{url('/art/mexico_background_image.jpg')};{css}</style>
+{beige}
+{main_head_search}
+{search_intro}
+{more_search_intro}
+{view_search3_test}
+{where_is_the_data_from2}
+{view_tail}
 
+<!-- freetext search - alternative ui with filters below search bar	-->
 #view_freetext
 {view_head}
 <style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}#background_image{url('/art/mexico_background_image.jpg')};{css}</style>
@@ -63,6 +75,19 @@
 </div>
 
 
+<!-- new search in progress	-->
+#view_search3_test
+<div id="view_search_test">
+	
+	{view_search3_filters_wrap}
+	<div id="search_div"><span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button0_txt}</a></div>
+
+	<div class="search_input_wrap"><div class="search_icon"><img src="/art/original/search_icon.png" width="30" height="30"/></div><input type="text" id="view_search_string" class="typeahead explore" placeholder="{search_placeholder_txt}"/></div>
+	
+</div>
+
+
+<!-- freetext search -->
 #view_search2_test
 <div id="view_search_test">
 
@@ -87,6 +112,12 @@
 </div>
 
 
+#view_search3_filters_wrap
+<div class="search_filter">
+	{filter_head3_text}	
+	{view_search3_filters}
+</div>
+
 #view_search2_filters_wrap
 <div class="search_filter" style="display:none; margin-top:40px;">
 	{filter_head_text}	
@@ -99,6 +130,61 @@
 	{filter_head_text}	
 	{view_search_filters}
 </div>
+
+#view_search3_filters
+<div class="search_wrap">
+	<div class="search_label">
+		<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
+	</div>
+	<select id="view_search_select_country" class="chosen">
+		<option value></option>
+		{search_options_country}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<img src="{flava}search_sector.png" alt="Sector Group icon" width="13" height="13"/>{search_sectorgroup_txt}
+	</div>
+	<select id="view_search_select_category" class="chosen">
+		<option value></option>
+		{search_options_category}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}
+	</div>
+	<select id="view_search_select_funder" class="chosen">
+		<option value></option>
+		{search_options_funder}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}
+	</div>
+	<select id="view_search_select_publisher" class="chosen">
+		<option value></option>
+		{search_options_publisher}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<img src="{flava}search_category.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
+	</div>
+	<select id="view_search_select_sector" class="chosen">
+		<option value></option>
+		{search_options_sector}
+	</select>
+</div><div class="search_wrap mini">
+	<div class="search_label">
+		<img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}
+	</div>
+	<select id="view_search_select_year_min" class="chosen">
+		<option value></option>
+		{search_options_year}
+	</select><select id="view_search_select_year_max" class="chosen">
+		<option value></option>
+		{search_options_year}
+	</select>
+</div>
+
 
 #view_search_filters
 <div class="search_wrap">
@@ -119,7 +205,7 @@
 	</select>
 </div><div class="search_wrap">
 	<div class="search_label">
-		<img src="{flava}search_sector.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}
+		<img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}
 	</div>
 	<select id="view_search_select_category" class="chosen">
 		<option value></option>
@@ -127,7 +213,7 @@
 	</select>
 </div><div class="search_wrap">
 	<div class="search_label">
-		<img src="{flava}search_category.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
+		<img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
 	</div>
 	<select id="view_search_select_sector" class="chosen">
 		<option value></option>
@@ -154,6 +240,9 @@
 	</select>
 </div>
 
+
+#filter_head3_text
+<div><div class="search_head" style="display:inline-block; vertical-align:top; width:50%;">EXPLORE <span>filters</span></div><a class="search_clear" style="display:inline-block; vertical-align:top; width:50%; text-align:right; color:#fff;">Clear all filters</a></div>
 
 #filter_head_text
 <div class="search_head">DISCOVER <span>filters</span></div>
