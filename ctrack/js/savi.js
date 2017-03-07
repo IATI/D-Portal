@@ -155,6 +155,22 @@ acts.find("result").each(function(i){var it=$(this);
 	it.find("period").each(function(i){var it=$(this);
 		it.prepend( baseline.clone() );
 		
+		var sdate=it.find("period-start").first().attr("iso-date").split("-");
+		var edate=it.find("period-end").first().attr("iso-date").split("-");
+		
+		sdate=Date.UTC(sdate[0],sdate[1],sdate[2]);
+		edate=Date.UTC(edate[0],edate[1],edate[2]);
+		
+		var dtot=edate-sdate;
+		var dval=(new Date()).getTime()-sdate;
+		var dpct=Math.floor(100*dval/dtot);
+		if(dpct<0){dpct=0;}
+		if(dpct>100){dpct=100;}
+		
+//		console.log(it,dpct);
+		
+		it.find("period-end").first().after("<div class=\"timeline\"><div class=\"time time-percent"+dpct+"\" style=\"width:"+dpct+"%;\"><span></span></div></div>");
+		
 		var target=it.find("target").first();
 		var actual=it.find("actual").first();
 		
