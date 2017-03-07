@@ -355,6 +355,10 @@ a.search_head				{display:block; color:#53B4ED; margin-top:10px; margin-bottom:1
 .search_query span			{font-size:14px; display:block; padding-top:5px; color:#ccc; line-height:1.2em; text-transform:uppercase;}
 .search_query span img		{padding-right:7px; height:14px; width:14px; -webkit-filter:brightness(80%); filter:brightness(80%);}
 
+.search_clear				{display:inline-block; vertical-align:top; width:50%; text-align:right; color:#d2d2d2;}
+.search_clear:hover			{color:#fff;}
+.search_clear span			{display:inline-block; background-color:#d2d2d2; border-radius:30px; width:15px; text-align:center; margin-left:5px; font-size:15px; line-height:13px; height:15px; color:#354651;}
+
 
 /*	Table header styles
 	============================================= */
