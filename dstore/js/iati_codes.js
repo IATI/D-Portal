@@ -654,7 +654,96 @@ iati_codes.fetch = function(){
 
 
 
+
+
+
+
+	var x=wait.for(https_getbody,sheeturl(1661036011));
+	var lines=baby.parse(x).data;
+
+	var o={};
+
+	var head=[];
+	for(var i=0;i<lines[0].length;i++)
+	{
+		var v=lines[0][i];
+		head[i]=codes.rev_crs_funders[ v.trim() ];
+	}
+
+	for(var i=1;i<lines.length;i++)
+	{
+		var v=lines[i];
+		var a=codes.rev_crs_countries[ v[0].trim() ];
+		if(a)
+		{
+			var t={};
+			o[a]=t;
+			for(var j=0;j<v.length;j++)
+			{
+				var h=head[j];
+				if(h)
+				{
+					var n=Number(v[j]);
+					if(n)
+					{
+						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
+					}
+				}
+			}
+		}
+	}
+	console.log("Writing json/crs_2015.json")
+	fs.writeFileSync(__dirname+"/../json/crs_2015.json",JSON.stringify(o,null,'\t'));
+
+
+
+
+	var x=wait.for(https_getbody,sheeturl(2056313976));
+	var lines=baby.parse(x).data;
+
+	var o={};
+
+	var head=[];
+	for(var i=0;i<lines[0].length;i++)
+	{
+		var v=lines[0][i];
+		head[i]=v.trim();
+	}
+//	ls(head);
+	
+	for(var i=1;i<lines.length;i++)
+	{
+		var v=lines[i];
+		var a=codes.rev_crs_countries[ v[1].trim() ];
+		if(a)
+		{
+			var t={};
+			o[a]=t;
+			for(var j=2;j<v.length;j++)
+			{
+				var h=head[j];
+				if(h)
+				{
+					var n=Number(v[j]);
+					if(n)
+					{
+						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
+					}
+				}
+			}
+		}
+	}
+	console.log("Writing json/crs_2015_sectors.json")
+	fs.writeFileSync(__dirname+"/../json/crs_2015_sectors.json",JSON.stringify(o,null,'\t'));
+
+
+
+
+
+
+
 console.log("************************ This next bit takes a loooooong time to get every publisher id from iati...");
+console.log("************************ It's OK to CTRL+C and skip this last bit if you don't care.");
 if(true)
 {
 //	codes.publisher_ids={};
