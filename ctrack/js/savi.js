@@ -334,160 +334,71 @@ acts.find("recipient-country").each(function(i){var it=$(this);
 
 });
 
-acts.find("result").each(function(i){var it=$(this);
-	
-	var sortlist=[
+
+var sort_elements=function(selector,sortlist){
+
+	acts.find(selector).each(function(i){var it=$(this);
+		
+		var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+
+		var aa=it.children();
+		aa.sort(function(a,b){
+			var ret=0;
+			var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
+			var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];
+			if(ret===0)
+			{
+				if(aw > bw ) { ret= 1; }
+				if(aw < bw ) { ret=-1; }
+			}
+			if(ret===0)
+			{
+				if(a.tagName.toLowerCase() > b.tagName.toLowerCase() ) { ret= 1; }
+				if(a.tagName.toLowerCase() < b.tagName.toLowerCase() ) { ret=-1; }
+			}
+			return ret;
+		});
+		it.append(aa);
+
+	});
+
+}
+
+sort_elements("result",[
 		"span-title",
 		"description",
 		"indicator",
-		0];
-	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+		0]);
 
-	var aa=it.children();
-	aa.sort(function(a,b){
-		var ret=0;
-		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
-		var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];	
-		if(ret===0)
-		{
-			if(aw > bw ) { ret= 1; }
-			if(aw < bw ) { ret=-1; }
-		}
-		if(ret===0)
-		{
-			if(a.tagName.toLowerCase() > b.tagName.toLowerCase() ) { ret= 1; }
-			if(a.tagName.toLowerCase() < b.tagName.toLowerCase() ) { ret=-1; }
-		}
-		return ret;
-	});
-	it.append(aa);
-
-});
-
-acts.find("result indicator").each(function(i){var it=$(this);
-	
-	var sortlist=[
+sort_elements("result indicator",[
 		"span-title",
 		"description",
 		"period",
-		0];
-	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+		0]);
 
-	var aa=it.children();
-	aa.sort(function(a,b){
-		var ret=0;
-		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
-		var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];	
-		if(ret===0)
-		{
-			if(aw > bw ) { ret= 1; }
-			if(aw < bw ) { ret=-1; }
-		}
-		if(ret===0)
-		{
-			if(a.tagName.toLowerCase() > b.tagName.toLowerCase() ) { ret= 1; }
-			if(a.tagName.toLowerCase() < b.tagName.toLowerCase() ) { ret=-1; }
-		}
-		return ret;
-	});
-	it.append(aa);
-
-});
-
-acts.find("period").each(function(i){var it=$(this);
-	
-	var sortlist=[
+sort_elements("result indicator period",[
 		"period-start",
 		"period-end",
 		"baseline",
 		"target",
 		"actual",
-		0];
-	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+		0]);
 
-	var aa=it.children();
-	aa.sort(function(a,b){
-		var ret=0;
-		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
-		var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];	
-		if(ret===0)
-		{
-			if(aw > bw ) { ret= 1; }
-			if(aw < bw ) { ret=-1; }
-		}
-		if(ret===0)
-		{
-			if(a.tagName.toLowerCase() > b.tagName.toLowerCase() ) { ret= 1; }
-			if(a.tagName.toLowerCase() < b.tagName.toLowerCase() ) { ret=-1; }
-		}
-		return ret;
-	});
-	it.append(aa);
-
-});
-
-acts.find("budget").each(function(i){var it=$(this);
-	
-	var sortlist=[
+sort_elements("budget",[
 		"period-start",
 		"period-end",
 		"value",
-		0];
-	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+		0]);
 
-	var aa=it.children();
-	aa.sort(function(a,b){
-		var ret=0;
-		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
-		var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];	
-		if(ret===0)
-		{
-			if(aw > bw ) { ret= 1; }
-			if(aw < bw ) { ret=-1; }
-		}
-		if(ret===0)
-		{
-			if(a.tagName.toLowerCase() > b.tagName.toLowerCase() ) { ret= 1; }
-			if(a.tagName.toLowerCase() < b.tagName.toLowerCase() ) { ret=-1; }
-		}
-		return ret;
-	});
-	it.append(aa);
-
-});
-
-acts.find("transaction").each(function(i){var it=$(this);
-	
-	var sortlist=[
+sort_elements("transaction",[
 		"transaction-date",
 		"transaction-type",
 		"description",
 		"provider-org",
 		"receiver-org",
 		"value",
-		0];
-	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+		0]);
 
-	var aa=it.children();	
-	aa.sort(function(a,b){
-		var ret=0;
-		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
-		var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];	
-		if(ret===0)
-		{
-			if(aw > bw ) { ret= 1; }
-			if(aw < bw ) { ret=-1; }
-		}
-		if(ret===0)
-		{
-			if(a.tagName.toLowerCase() > b.tagName.toLowerCase() ) { ret= 1; }
-			if(a.tagName.toLowerCase() < b.tagName.toLowerCase() ) { ret=-1; }
-		}
-		return ret;
-	});
-	it.append(aa);
-
-});
 
 var sorted=0;
 acts.each(function(i){var it=$(this);
