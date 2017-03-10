@@ -16,6 +16,8 @@ var Nanobar=require("./nanobar.js");
 
 var iati_codes=require("../../dstore/json/iati_codes.json");
 
+var crs=require("../../dstore/json/crs.js");
+
 var usd_years=require("../../dstore/json/usd_year.json");
 ctrack.usd_year={}; // merge latest data into here
 for(var year=1990;year<2100;year++)
@@ -439,7 +441,7 @@ ctrack.setup=function(args)
 			ctrack.chunks[n]=undefined;
 	};
 // set global defaults
-	ctrack.chunk("yearcrs" ,2015  ); // the crs data is for this year
+	ctrack.chunk("yearcrs" ,crs.year  ); // the crs data is for this year
 	ctrack.chunk("art",args.art);
 	ctrack.chunk("flava",args.art+args.flava+"/");
 	ctrack.chunk("flava_name",args.flava);
