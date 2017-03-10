@@ -334,6 +334,66 @@ acts.find("recipient-country").each(function(i){var it=$(this);
 
 });
 
+acts.find("result").each(function(i){var it=$(this);
+	
+	var sortlist=[
+		"span-title",
+		"description",
+		"indicator",
+		0];
+	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+
+	var aa=it.children();
+	aa.sort(function(a,b){
+		var ret=0;
+		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
+		var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];	
+		if(ret===0)
+		{
+			if(aw > bw ) { ret= 1; }
+			if(aw < bw ) { ret=-1; }
+		}
+		if(ret===0)
+		{
+			if(a.tagName.toLowerCase() > b.tagName.toLowerCase() ) { ret= 1; }
+			if(a.tagName.toLowerCase() < b.tagName.toLowerCase() ) { ret=-1; }
+		}
+		return ret;
+	});
+	it.append(aa);
+
+});
+
+acts.find("result indicator").each(function(i){var it=$(this);
+	
+	var sortlist=[
+		"span-title",
+		"description",
+		"period",
+		0];
+	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
+
+	var aa=it.children();
+	aa.sort(function(a,b){
+		var ret=0;
+		var aw=sortweight[a.tagName.toLowerCase()] || sortweight[0];
+		var bw=sortweight[b.tagName.toLowerCase()] || sortweight[0];	
+		if(ret===0)
+		{
+			if(aw > bw ) { ret= 1; }
+			if(aw < bw ) { ret=-1; }
+		}
+		if(ret===0)
+		{
+			if(a.tagName.toLowerCase() > b.tagName.toLowerCase() ) { ret= 1; }
+			if(a.tagName.toLowerCase() < b.tagName.toLowerCase() ) { ret=-1; }
+		}
+		return ret;
+	});
+	it.append(aa);
+
+});
+
 acts.find("period").each(function(i){var it=$(this);
 	
 	var sortlist=[
