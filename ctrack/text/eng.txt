@@ -236,16 +236,16 @@ Back to Sector table
 Back to Country table
 
 #view_donor_transactions_text
-Total spend by {donor} in {year}
+Total spend in {year}
 
 #view_donor_activities_text
-All active projects for {donor} and current spend ({USD})
+Active projects and current spend ({USD})
 
 #view_sector_transactions_text
-Total spend for {sector} in {year}
+Total spend in {year}
 
 #view_sector_activities_text
-Active projects in {sector} and current spend ({USD})
+Active projects and current spend ({USD})
 
 #reported_by_text
 Reported by {reporting}
@@ -262,6 +262,9 @@ End date
 #amount_text
 Amount
 
+#view_donor_activities_amount_text
+Total commitments and % used
+
 #donor_activities_spend_text
 Total commitments
 
@@ -269,10 +272,10 @@ Total commitments
 Percentage of total commitments spent
 
 #view_donor_budgets_text
-Total budget for {donor} in {year}
+Total budget in {year}
 
 #view_sector_budgets_text
-Total budget for {sector} in {year}
+Total budget in {year}
 
 #table_donor_title_transaction_text
 IATI SPEND ({USD})
@@ -553,7 +556,7 @@ Total activity-level budgets for this and next year reported to IATI. Clicking o
 How is the data calculated?
 
 #donor_activities_data_description_text
-Spend is calculated by adding disbursements and expenditures. This list shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Black bars may signify data quality issues where published data is missing commitment and/or transaction information.
+Spend is calculated by adding disbursements and expenditures. This list shows you total commitments for each activity and the percentage spent so far, sorted by biggest at the top. Full black bars may signify data quality issues where published data is missing commitment and/or transaction information.
 
 #donor_transactions_data_description_title_text
 How is the data calculated?

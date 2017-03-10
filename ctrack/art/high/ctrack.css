@@ -51,8 +51,8 @@ td.options form			{display:inline-block;}
 
 /*	Status badge next to d-portal logo in headers
 	============================================= */
-span.badge				{display:inline-block; vertical-align:bottom; color:#999; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px;}
-span.badge.beta			{border:1px solid #999;}
+span.badge				{display:inline-block; vertical-align:bottom; color:#000; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px;}
+span.badge.beta			{border:1px solid #000;}
 
 
 /*	Breadcrumbs
@@ -184,7 +184,7 @@ span.graph_view_all			{display:block; background-color:rgba(0,0,0,0); position:a
 span.graph_view_all:hover	{background-color:rgba(0,0,0,1); color:rgba(255,255,255,1);}
 span.graph_view_all.pub_donor		{height:410px; line-height:410px;}
 span.graph_view_all.pub_sector		{height:460px; line-height:460px;}
-span.ask				{background-color:#000; display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:1.8em; text-align:center;}
+span.ask				{background-color:#000; display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:32px; text-align:center;}
 .main_peak_wrap			{width:958px; background-color:#FFF; border:1px solid #000; border-top:0; border-bottom:0; display:block;}
 .peak					{margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; border-top:20px solid #000; display:block;}	/* Triangles */
 .ask_title				{padding:20px 40px; display:block; color:#fff;}
@@ -212,10 +212,10 @@ a.map_percent span		{display:inline; font-size:1.0em; line-height:1.15em; color:
 	============================================= */
 .stats_wrap				{width:100%; margin:0 auto; padding:40px 0; padding-top:0px;}
 span.stats_title		{display:block; font-size:1.5em; color:#000; padding-bottom:10px;}
-span.stats_title.view	{font-size:0.6em; color:#FFF;}
+span.stats_title.view	{font-size:0.6em; color:#000;}
 span.stats_num			{display:block; font-size:8.0em; color:#000;}
 span.stats_num.small	{display:block; font-size:4.0em;}
-span.stats_num.view		{font-size:2.9em; color:#FFF; line-height:0.8em;}
+span.stats_num.view		{font-size:2.9em; color:#000; line-height:0.8em;}
 .declare.stats			{width:960px; margin:0 auto; padding-top:10px; color:#000; font-size:0.9em; line-height:1.4em; text-align:right;}
 
 a.stats_link			{display:block; padding:30px 40px; height:100%; border-radius:6px; border:1px solid #000; margin:15px 5px 5px 10px;}
@@ -255,20 +255,23 @@ a.read:hover			{text-decoration:underline;}
 
 /*	Generic styles
 	============================================= */
-.head_wrap					{width:860px; margin:0 auto; padding:20px 0;}	
+.head_wrap					{width:960px; margin:0 auto; padding:20px 0;}	
 .icon_wrap					{width:330px; display:inline-block; vertical-align:bottom;}
-.peak_wrap					{display:inline-block; vertical-align:top;}
+.peak_wrap					{display:none;}
 .peak_space					{height:30px;}
 .list_peak_space			{height:60px;}
 .list_peak					{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}
-.head_title_wrap			{width:480px; display:inline-block; vertical-align:top;}
-.list_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#FFF; font-size:2.3em;}
-.list_stats_title			{display:block; font-size:0.6em; color:#FFF; padding-bottom:10px;}
-.list_stats_num				{display:block; font-size:2.9em; color:#FFF; line-height:0.8em;}
+.head_title_wrap			{width:630px; display:inline-block; vertical-align:top; margin-top:15px;}
+
+/*	Table list views for Summary stats	*/
+.list_head_title			{width:580px; color:#000; font-size:58px; line-height:56px; text-align:center;}
+.list_stats_title			{display:block; font-size:0.6em; color:#000; padding-bottom:10px;}
+.list_stats_num				{display:block; font-size:2.9em; color:#000; line-height:0.8em;}
+
 a.button					{padding:10px 20px; background-color:#FFF; font-size:1.25em; color:#000; border-radius:0 0 8px 8px; display:block; margin:0 auto; text-align:center; border:1px solid #000; border-top:0;}
 a.button:hover				{background-color:#000; color:#FFF;}
 .download_wrap				{width:100%; margin:0 auto; text-align:center; padding:10px 0 40px 0;}
-a.csv_download				{display:inline-block; margin-top:20px; padding:20px; background-color:#000; text-align:center; color:#FFF; border-radius:4px;}
+a.csv_download				{display:inline-block; margin-top:20px; padding:20px; background-color:#fff; text-align:center; color:#000; border-radius:4px;}
 a.csv_download:hover		{background-color:#000; color:#FFF;}
 .table_wrap.view a.csv_download	{display:block;}
 
@@ -276,9 +279,9 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 /*	For url #view=donors & all #view=donor_*
 	============================================= */
 .donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}	/* Triangles */
-.donors_peak.view			{border-right:30px solid #000;}
-.donors_head_title			{width:400px; background-color:#FFF; padding:20px 40px; text-align:center; color:#000; font-size:2.3em; border:3px solid #000;}
-.donors_head_title.view		{background-color:#000;}
+.donors_head_title.view		{text-align:center;}
+.donors_head_title			{width:580px; color:#000; font-size:58px; line-height:56px; margin-top:10px; margin-left:50px;}
+.donors_head_title.view		{text-align:center; margin:0;}
 
 
 /*	For url #view=donor_activities
@@ -287,14 +290,14 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 .donor_activities_spend			{color:#000;}
 .donor_activities_spend span	{padding-bottom:3px;}
 .donor_activities_barchart_wrap	{min-width:100px; max-width:100px; position:absolute; right:0;}
-.donor_activities_percent_max	{width:100px; height:10px; background-color:#000; border:1px solid #494B4E;}
-.donor_activities_percent		{height:10px; background-color:#A1A1A1;}
+.donor_activities_percent_max	{width:100px; height:10px; background-color:#000; border:1px solid #494B4E; border-radius:8px 0 0 8px;}
+.donor_activities_percent		{height:10px; background-color:#A1A1A1; border-radius:8px 0 0 8px;}
 
 
 /*	For url #view=sectors & all #view=sector_*
 	============================================= */
 .sectors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}	/* Triangles */
-.sectors_head_title			{width:400px; background-color:#000; padding:20px 40px; text-align:center; color:#FFF; font-size:2.3em;}
+.sectors_head_title			{width:580px; color:#000; font-size:58px; line-height:56px; margin-top:10px; margin-left:50px;}
 
 
 /*	For url #view=act
@@ -427,7 +430,7 @@ table.money td.col5			{background-color:#F3F3F3;}
 table.money td.col6			{background-color:#F8F8F8;}
 table.money td.col7			{background-color:#FDFDFD;}
 
-table.money tr.row1 th		{background-color:#EDEDED; color:#000; font-weight:700; text-align:center; padding:0px; position:relative;}
+table.money tr.row1 th		{color:#000; font-weight:700; text-align:center; padding:0px; position:relative;}
 table.money tr.row1 th:hover{cursor:pointer;}
 table.money tr.row1 th span	{color:#000; display:block; padding:20px 10px;}
 table.money tr.row1 th.col1	{text-align:left; border:1px solid #666; border-bottom:1px solid #666; padding:20px 10px;}
@@ -467,9 +470,9 @@ table.money a:link  		{color:#000; text-decoration:none;}
 table.money a:visited		{color:#000; text-decoration:none;}
 table.money a:hover			{color:#000; text-decoration:none;}
 table.money a:active		{color:#000; text-decoration: none;}
-table.money a.year			{position:absolute; background-color:#666; padding:20px 10px; top:0; background-color:#C8C8C8;}
-table.money a.year.prev		{left:0;}
-table.money a.year.next		{right:0;}
+table.money a.year			{position:absolute; padding:20px 10px; top:0;}
+table.money a.year.prev		{left:0; border-right:1px solid #000;}
+table.money a.year.next		{right:0; border-left:1px solid #000;}
 
 table.money.publishers th.col2,
 table.money.publishers td.col2	{border-left:1px solid #000;}
@@ -486,7 +489,7 @@ table.activity tr:first-child:hover	{background-color:transparent;}
 table.activity td.num	{padding:10px 0 10px 20px; font-size:1.0em; line-height:1.75em;}
 table.activity td.title	{padding:0 30px 0 0; max-width:600px;}
 table.activity td.title.missing	{max-width:600px;}
-table.activity td.value	{text-align:right; padding:10px 20px 10px 40px; font-size:1.0em; line-height:1.75em;}
+table.activity td.value	{text-align:right; padding:10px 20px 25px 40px; font-size:1.0em; line-height:1.75em;}
 table.activity td.count	{text-align:right; padding:10px 20px 0 40px; font-size:1.7em; line-height:1.0em;}
 table.activity td.date	{text-align:right; white-space:nowrap; font-size:1.0em; line-height:1.75em;}
 table.activity td.alert_no_iati	{text-align:center; font-size:2.0em; padding:20px 0 0 0; cursor:default;}
