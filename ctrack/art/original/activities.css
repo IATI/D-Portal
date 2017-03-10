@@ -172,11 +172,11 @@ result indicator > baseline comment	{display:block; color:#ccc; padding:10px 0; 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
 span-narrative						{font-size:34px; line-height:40px;}
 
-span-narrative.dimension-name		{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
+span-narrative.dimension-name		{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-top:10px;}
 span-narrative.dimension-name:after {content:" :";}
-span-narrative.dimension-value		{display:inline-block; vertical-align:top; padding-left:10px; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
+span-narrative.dimension-value		{display:inline-block; vertical-align:top; padding-left:10px; text-transform:capitalize; font-size:20px; line-height:24px; padding-top:10px;}
 
-span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
+span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-top:10px;}
 
 result indicator comment			{padding:10px 0; font-style:italic; line-height:20px;}
 target comment narrative, actual comment narrative, target comment span-narrative, actual comment span-narrative	{display:block; font-size:16px; line-height:1.25em;}
