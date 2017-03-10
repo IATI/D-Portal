@@ -66,6 +66,7 @@ view_donors_top.ajax=function(args)
 		});
 		
 		var total=0; list.forEach(function(it){total+=it.usd;});
+		var shownpct=0;
 		var shown=0;
 		var top=list[0] && list[0].usd || 0;
 		var dd=[];
@@ -85,7 +86,8 @@ view_donors_top.ajax=function(args)
 				shown+=v.usd;
 				var d={};
 				d.num=v.usd;
-				d.pct=Math.round(100*v.usd/total);
+				d.pct=Math.round(100*shown/total)-shownpct;
+				shownpct+=d.pct
 				d.str_num=commafy(d.num)+" "+ctrack.display_usd;
 				d.str_lab=iati_codes.funder_names[v.funder] || iati_codes.publisher_names[v.funder] || iati_codes.country[v.funder] || v.funder;
 				d.str="<b>"+d.str_num+"</b> ("+d.pct+"%)<br/>"+d.str_lab;

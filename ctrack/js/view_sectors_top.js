@@ -74,6 +74,7 @@ view_sectors_top.ajax=function(args)
 				total-=it.usd;
 			}
 		});
+		var shownpct=0;
 		var shown=0;
 		var dd=[];
 		for( var i=0; i<limit ; i++ )
@@ -98,7 +99,8 @@ view_sectors_top.ajax=function(args)
 					d.num=v.usd;
 					if(d.num<0) { d.num=-d.num; }
 					shown+=d.num;
-					d.pct=Math.round(100*d.num/total);
+					d.pct=Math.round(100*shown/total)-shownpct;
+					shownpct+=d.pct
 					d.str_num=commafy(v.usd)+" "+ctrack.display_usd;
 					d.str_lab=v.sector_group;
 					d.str="<b>"+d.str_num+"</b> ("+d.pct+"%)<br/>"+d.str_lab;
