@@ -210,7 +210,7 @@ acts.find("result").each(function(i){var it=$(this);
 });
 
 acts.find("result target, result actual").each(function(i){var it=$(this);
-	it.append($('<span-narrative>' + it.attr("value") + '</span-narrative>'));
+	it.prepend($('<span-narrative>' + it.attr("value") + '</span-narrative>'));
 });
 
 acts.find("result dimension").each(function(i){var it=$(this);

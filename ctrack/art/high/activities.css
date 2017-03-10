@@ -39,7 +39,7 @@ span.span_span-title narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0
 /*	IATI Identifier
 	============================================= */
 iati-identifier 		{display:block; width:880px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#000; margin:0 auto; border-top:1px solid #000; border-bottom:1px solid #000;}
-iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:5px;}
+iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
 iati-identifier div		{display:block;}
 iati-identifier:hover	{color:#000;}
 iati-identifier a:focus		{color:#000;}
@@ -133,7 +133,7 @@ result description			{display:block; padding:10px 40px; white-space:pre-line; un
 result description narrative{line-height:24px; word-spacing:0.05em; color:#000;}
 result span-title			{display:block; font-size:30px; width:880px; line-height:1.25em; margin:0 auto; color:#000;}
 result span-title narrative	{display:block; padding:10px 0;}
-result:nth-of-type(1):before{content:"RESULTS"; font-size:26px; color:#FFF; background-color:#000; display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
+result:nth-of-type(1):before{content:"RESULTS"; font-size:26px; color:#000; display:block; padding:20px 40px; margin-bottom:25px; width:880px; border-bottom:1px solid #000;}
 result span-title:before	{content:"RESULTS"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
 result[type="1"] span-title:before	{content:"OUTPUT";}
 result[type="2"] span-title:before	{content:"OUTCOME";}
@@ -155,7 +155,7 @@ result[type="9"] indicator span-title:before {content:" "; margin:0; border:0;}
 
 result indicator description{font-size:16px; color:#000; padding:10px 0;}
 
-result indicator period		{display:block; padding-top:10px; width:880px; margin:auto;}
+result indicator period		{display:block; position:relative; padding-top:10px; width:880px; margin:auto;}
 result indicator period period-start:before	{content:"START"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 result indicator period period-end:before	{content:"END"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 result indicator period target:before	{content:"TARGET"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
@@ -165,7 +165,7 @@ result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
 result indicator period period-start{width:180px; padding:20px; font-size:34px;}
-result indicator period period-end	{width:620px; padding:20px; font-size:34px;}	
+result indicator period period-end	{width:620px; padding:20px; font-size:34px; text-align:right;}	
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
@@ -181,33 +181,32 @@ result indicator > baseline comment	{display:block; color:#000; padding:10px 0; 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
 span-narrative						{font-size:34px; line-height:40px;}
 
-span-narrative.dimension-name		{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
+span-narrative.dimension-name		{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-top:10px;}
 span-narrative.dimension-name:after {content:" :";}
-span-narrative.dimension-value		{display:inline-block; vertical-align:top; padding-left:10px; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
+span-narrative.dimension-value		{display:inline-block; vertical-align:top; padding-left:10px; text-transform:capitalize; font-size:20px; line-height:24px; padding-top:10px;}
 
-span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
+span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-top:10px;}
 
 result indicator comment			{padding:10px 0; font-style:italic; line-height:20px;}
-target comment span-narrative, actual comment span-narrative, target comment narrative, actual comment narrative	{display:block; font-size:16px; line-height:1.25em;}
+target comment narrative, actual comment narrative, target comment span-narrative, actual comment span-narrative	{display:block; font-size:16px; line-height:1.25em;}
 
 result indicator period baseline, result indicator period target, result indicator period actual	{min-height:60px; display:table-cell;}
-result indicator period baseline	{background-color:#BEB9B9; width:180px; max-width:180px; padding:20px;}
-result indicator period target		{background-color:#DEDEDE; width:290px; max-width:290px; padding:20px;}
-result indicator period actual		{background-color:#CECECE; width:290px; max-width:290px; padding:20px;}
-
-result indicator period actual .value-higher	{background-color:#BEB9B9;}
-result indicator period actual .value-lower		{background-color:#BEB9B9;}
+result indicator period baseline	{width:180px; max-width:180px; padding:20px; border:1px solid #000; border-right:0;}
+result indicator period target		{width:290px; max-width:290px; padding:20px; border:1px solid #000;}
+result indicator period actual		{width:290px; max-width:290px; padding:20px; border:1px solid #000; border-left:0;}
 
 result indicator reference			{display:block; padding:20px; border:1px solid #000; margin-top:20px; margin-bottom:20px;}
 result indicator reference:before	{content:"REFERENCE"; font-size:14px; color:#000; display:block; margin:auto; margin-bottom:15px; padding-bottom:10px;}
 result indicator reference a:hover	{cursor:pointer;}
 result indicator reference a.a_reference	{display:list-item; list-style-type:circle; list-style-position:inside; margin-bottom:10px;}
 
-.timeline		{display:block; position:absolute; width:878px; height:5px; background-color:#fff; top:102px; left:0; border-radius:20px; border:1px solid #000;}
-.time			{display:block; height:5px; width:660px; background-color:#000; border-radius:20px 0 0 20px;}
-
-
 result indicator .empty				{display:none;}
+
+.timeline		{display:block; position:absolute; width:878px; height:5px; background-color:#fff; top:102px; left:0; border-radius:20px; border:1px solid #000;}
+.time			{display:block; position:relative; height:5px; width:660px; background-color:#000; border-radius:20px 0 0 20px;}
+result indicator .time span		{display:block; position:absolute; height:10px; width:2px; background-color:#000; top:-2px; right:0;}
+result indicator .time.time-percent100 span	{display:none;}
+
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -289,12 +288,7 @@ activity-website:hover	{color:#fff; text-decoration:underline;}
 
 /*	Activity Status
 	============================================= */
-activity-status[code="1"]	{background-color:#e9e9e9;}
-activity-status[code="2"]	{background-color:#e9e9e9;}
-activity-status[code="3"]	{background-color:#e9e9e9;}
-activity-status[code="4"]	{background-color:#e9e9e9;}
-activity-status[code="5"]	{background-color:#e9e9e9;}
-activity-status				{display:block; font-size:20px; background-color:#e9e9e9; width:958px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px; color:#000;}
+activity-status				{display:block; font-size:20px; border-top:1px solid #000; width:958px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px; color:#000;}
 activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#000; font-weight:bold; display:inline-block; padding-right:10px;}
 
 

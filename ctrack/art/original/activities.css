@@ -146,7 +146,7 @@ result[type="9"] indicator span-title:before {content:" "; margin:0; border:0;}
 
 result indicator description{font-size:16px; color:#ccc; padding:10px 0;}
 
-result indicator period		{display:block; padding-top:10px; width:880px; margin:auto; position:relative;}
+result indicator period		{display:block; position:relative; padding-top:10px; width:880px; margin:auto;}
 result indicator period period-start:before	{content:"START"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
 result indicator period period-end:before	{content:"END"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
 result indicator period target:before	{content:"TARGET"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
@@ -172,11 +172,11 @@ result indicator > baseline comment	{display:block; color:#ccc; padding:10px 0; 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
 span-narrative						{font-size:34px; line-height:40px;}
 
-span-narrative.dimension-name		{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
+span-narrative.dimension-name		{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-top:10px;}
 span-narrative.dimension-name:after {content:" :";}
-span-narrative.dimension-value		{display:inline-block; vertical-align:top; padding-left:10px; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
+span-narrative.dimension-value		{display:inline-block; vertical-align:top; padding-left:10px; text-transform:capitalize; font-size:20px; line-height:24px; padding-top:10px;}
 
-span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-bottom:10px;}
+span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:20px; line-height:24px; padding-top:10px;}
 
 result indicator comment			{padding:10px 0; font-style:italic; line-height:20px;}
 target comment narrative, actual comment narrative, target comment span-narrative, actual comment span-narrative	{display:block; font-size:16px; line-height:1.25em;}
@@ -194,10 +194,13 @@ result indicator reference:before	{content:"REFERENCE"; font-size:14px; color:#c
 result indicator reference a:hover	{cursor:pointer;}
 result indicator reference a.a_reference	{display:list-item; list-style-type:circle; list-style-position:inside; margin-bottom:10px;}
 
-.timeline		{display:block; position:absolute; width:880px; height:5px; background-color:#34404d; top:102px; left:0; border-radius:20px; border-bottom:1px solid #666;}
-.time			{display:block; height:5px; width:660px; border-radius:20px 0 0 20px; background:-moz-linear-gradient(left,rgba(21,16,18,0.5) 0%,rgba(255,255,255,0.8) 100%); background:-webkit-linear-gradient(left,rgba(21,16,18,0.5) 0%,rgba(255,255,255,0.8) 100%); background:linear-gradient(to right,rgba(21,16,18,0.5) 0%,rgba(255,255,255,0.8) 100%); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80151012',endColorstr='#ccffffff',GradientType=1);}
-
 result indicator .empty				{display:none;}
+
+.timeline		{display:block; position:absolute; width:880px; height:5px; background-color:#03070a; top:102px; left:0; border-radius:3px 3px 0 0; border-bottom:1px solid #666;}
+.time			{display:block; position:relative; height:5px; width:660px; border-radius:3px 0 0 0; background-color:#c0c0c2;}
+result indicator .time span		{display:block; position:absolute; height:10px; width:2px; background-color:#dedede; top:-2px; right:0;}
+result indicator .time.time-percent100 span	{display:none;}
+
 
 
 /*	Sectors (also turned into graph: sector_pie)
