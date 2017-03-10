@@ -146,7 +146,7 @@ result[type="9"] indicator span-title:before {content:" "; margin:0; border:0;}
 
 result indicator description{font-size:16px; color:#ccc; padding:10px 0;}
 
-result indicator period		{display:block; padding-top:10px; width:880px; margin:auto; position:relative;}
+result indicator period		{display:block; position:relative; padding-top:10px; width:880px; margin:auto;}
 result indicator period period-start:before	{content:"START"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
 result indicator period period-end:before	{content:"END"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
 result indicator period target:before	{content:"TARGET"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
@@ -194,10 +194,13 @@ result indicator reference:before	{content:"REFERENCE"; font-size:14px; color:#c
 result indicator reference a:hover	{cursor:pointer;}
 result indicator reference a.a_reference	{display:list-item; list-style-type:circle; list-style-position:inside; margin-bottom:10px;}
 
-.timeline		{display:block; position:absolute; width:880px; height:5px; background-color:#34404d; top:102px; left:0; border-radius:20px; border-bottom:1px solid #666;}
-.time			{display:block; height:5px; width:660px; border-radius:20px 0 0 20px; background:-moz-linear-gradient(left,rgba(21,16,18,0.5) 0%,rgba(255,255,255,0.8) 100%); background:-webkit-linear-gradient(left,rgba(21,16,18,0.5) 0%,rgba(255,255,255,0.8) 100%); background:linear-gradient(to right,rgba(21,16,18,0.5) 0%,rgba(255,255,255,0.8) 100%); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80151012',endColorstr='#ccffffff',GradientType=1);}
-
 result indicator .empty				{display:none;}
+
+.timeline		{display:block; position:absolute; width:880px; height:5px; background-color:#03070a; top:102px; left:0; border-radius:3px 3px 0 0; border-bottom:1px solid #666;}
+.time			{display:block; position:relative; height:5px; width:660px; border-radius:3px 0 0 0; background-color:#c0c0c2;}
+result indicator .time span		{display:block; position:absolute; height:10px; width:2px; background-color:#dedede; top:-2px; right:0;}
+result indicator .time.time-percent100 span	{display:none;}
+
 
 
 /*	Sectors (also turned into graph: sector_pie)
