@@ -186,7 +186,7 @@ span.graph_view_all			{display:block; background-color:rgba(3,14,27,0); position
 span.graph_view_all:hover	{background-color:rgba(3,14,27,0.85); color:rgba(255,255,255,1); -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition: all .2s ease-in-out;}
 span.graph_view_all.pub_donor		{line-height:410px;}
 span.graph_view_all.pub_sector		{line-height:460px;}
-span.ask				{display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:1.8em; text-align:center;}
+span.ask				{display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:32px; text-align:center;}
 span.ask.donor			{background-color:#008FFF;}
 span.ask.sector			{background-color:#00C475;}
 .main_peak_wrap			{width:960px; background-color:#FFF; display:block;}
@@ -264,16 +264,19 @@ a.read:hover			{text-decoration:underline;}
 
 /*	Generic styles
 	============================================= */
-.head_wrap					{width:860px; margin:0 auto; padding:20px 0;}	
+.head_wrap					{width:960px; margin:0 auto; padding:20px 0;}	
 .icon_wrap					{width:330px; display:inline-block; vertical-align:bottom;}
-.peak_wrap					{display:inline-block; vertical-align:top;}
+.peak_wrap					{display:none;}
 .peak_space					{height:30px;}
 .list_peak_space			{height:60px;}
 .list_peak					{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;}
-.head_title_wrap			{width:480px; display:inline-block; vertical-align:top;}
-.list_head_title			{width:400px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#FFF; font-size:2.3em;}
+.head_title_wrap			{width:630px; display:inline-block; vertical-align:top; margin-top:15px;}
+
+/*	Table list views for Summary stats	*/
+.list_head_title			{width:580px; color:#FFF; font-size:58px; line-height:56px; text-align:center;}
 .list_stats_title			{display:block; font-size:0.6em; color:#FFF; padding-bottom:10px;}
 .list_stats_num				{display:block; font-size:2.9em; color:#FFF; line-height:0.8em;}
+
 a.button					{padding:10px 20px; background-color:#33A4FC; font-size:1.25em; color:#FFF; border-radius:0 0 8px 8px; display:block; margin:0 auto; text-align:center;}
 a.button:hover				{background-color:#008FFF;}
 .download_wrap				{width:100%; margin:0 auto; text-align:center; padding:10px 0 40px 0;}
@@ -286,8 +289,8 @@ a.csv_download:hover		{background-color:rgba(115,182,255,0.49); color:#FFF;}
 	============================================= */
 .donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;}	/* Triangles */
 .donors_peak.view			{border-right:30px solid #008FFF;}
-.donors_head_title			{width:400px; background-color:#008FFF; padding:20px 40px; text-align:center; color:#FFF; font-size:2.3em;}
-.donors_head_title.view		{background-color:#008FFF;}
+.donors_head_title			{width:580px; color:#FFF; font-size:58px; line-height:56px; margin-top:10px; margin-left:50px;}
+.donors_head_title.view		{text-align:center; margin:0;}
 
 
 /*	For url #view=donor_activities
@@ -296,14 +299,14 @@ a.csv_download:hover		{background-color:rgba(115,182,255,0.49); color:#FFF;}
 .donor_activities_spend			{color:#B8C8CD;}
 .donor_activities_spend span	{padding-bottom:3px;}
 .donor_activities_barchart_wrap	{min-width:100px; max-width:100px; position:absolute; right:0;}
-.donor_activities_percent_max	{width:100px; height:10px; background-color:#000000; border:1px solid #333642;}
-.donor_activities_percent		{height:10px; background-color:#33A4FC;}
+.donor_activities_percent_max	{width:100px; height:10px; background-color:#000000; border:1px solid #333642; border-radius:8px 0 0 8px;}
+.donor_activities_percent		{height:10px; background-color:#33A4FC; border-radius:8px 0 0 8px;}
 
 
 /*	For url #view=sectors & all #view=sector_*
 	============================================= */
 .sectors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #00C475; border-bottom:20px solid transparent;}	/* Triangles */
-.sectors_head_title			{width:400px; background-color:#00C475; padding:20px 40px; text-align:center; color:#FFF; font-size:2.3em;}
+.sectors_head_title			{width:580px; color:#FFF; font-size:58px; line-height:56px; margin-top:10px; margin-left:50px;}
 
 
 /*	For url #view=act
