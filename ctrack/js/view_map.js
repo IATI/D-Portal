@@ -56,10 +56,14 @@ view_map.show=function(change_of_view)
 }
 
 // called on view display to fix html in place
-view_map.fixup=function()
+view_map.fixup=function(forced)
 {
+
+
+
 	if(!view_map.loading)
 	{
+		
 		view_map.loading=true;
 		head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&callback=display_ctrack_map",
 		ctrack.args.jslib+"markerclusterer.js",
@@ -69,14 +73,19 @@ view_map.fixup=function()
 	if(ctrack.map.api_ready && view_map.loaded)
 	{
 //		console.log("map think");
-		if( ($("#map").length>0) && (!$("#map").attr("done")) ) // only fixup the map once
+		if( ($("#map").length>0) && ((!$("#map").attr("done"))||forced) ) // only fixup the map once
 		{
 //			console.log("map fix");
 
 				
 			if( ctrack.map.heat || ctrack.map.pins ) // got some data
 			{
-			$("#map").attr("done",1)
+
+				if(!$("#map").attr("done"))
+				{
+					$("#view_map_select_status").chosen({}).change(function(e,p){ view_map.fixup(true); });
+				}
+				$("#map").attr("done",1)
 
 //				console.log("map loaded");
 
@@ -100,30 +109,52 @@ view_map.fixup=function()
 
 				if( ctrack.map.pins )
 				{
+					var status=$("#view_map_select_status").val();
+					var today=Math.floor((new Date()).getTime()/(1000*60*60*24));
+
 					ctrack.map.pins.forEach(function(v){
-						// To add the marker to the map, use the 'map' property
-						var marker = new google.maps.Marker({
-							position: new google.maps.LatLng(v.lat,v.lng),
-//							map: map,
-							title:v.title,
-						});
-						markers.push(marker);
-						google.maps.event.addListener(marker, "click", function (e) {
-//							window.location.hash="#view=act&aid="+v.aid;
-							if( ctrack.args.country )
-							{
-								ctrack.url("#view=act&country="+ctrack.args.country_select+"&lat="+v.lat+"&lng="+v.lng);
-							}
-							else
-							if( ctrack.args.publisher_select )
-							{
-								ctrack.url("#view=act&publisher="+ctrack.args.publisher_select+"&lat="+v.lat+"&lng="+v.lng);
-							}
-							else
-							{
-								ctrack.url("#view=act&lat="+v.lat+"&lng="+v.lng);
-							}
-						});
+						
+						var show=true; // default is to view all
+						
+						switch(status) // filter type
+						{
+							case "active":
+								show=( (v.day_end>=today) && (v.day_start<=today) );
+							break;
+							case "planned":
+								show=(v.day_start>today);
+							break;
+							case "ended":
+								show=(v.day_end<today);
+							break;
+						}
+						
+						if(show)
+						{
+							// To add the marker to the map, use the 'map' property
+							var marker = new google.maps.Marker({
+								position: new google.maps.LatLng(v.lat,v.lng),
+	//							map: map,
+								title:v.title,
+							});
+							markers.push(marker);
+							google.maps.event.addListener(marker, "click", function (e) {
+	//							window.location.hash="#view=act&aid="+v.aid;
+								if( ctrack.args.country )
+								{
+									ctrack.url("#view=act&country="+ctrack.args.country_select+"&lat="+v.lat+"&lng="+v.lng);
+								}
+								else
+								if( ctrack.args.publisher_select )
+								{
+									ctrack.url("#view=act&publisher="+ctrack.args.publisher_select+"&lat="+v.lat+"&lng="+v.lng);
+								}
+								else
+								{
+									ctrack.url("#view=act&lat="+v.lat+"&lng="+v.lng);
+								}
+							});
+						}
 					});
 					markerCluster = new MarkerClusterer(map, markers,{maxZoom:12,imagePath:ctrack.args.jslib+"/markercluster/m"});
 				}
@@ -314,14 +345,14 @@ view_map.ajax_pins=function(args)
 	args=args || {};
     
 	var dat={
-			"select":"count,location_longitude,location_latitude,any_aid,any_title",
+			"select":"location_longitude,location_latitude,aid,title,day_start,day_end",
 			"from":"act,location",
 			"form":"jcsv",
 			"limit":args.limit || -1,
 //			"location_longitude_not_null":1,
 //			"location_latitude_not_null":1,
-			"orderby":"1-",
-			"groupby":"2,3",
+//			"orderby":"1-",
+//			"groupby":"2,3",
 		};
 	fetch.ajax_dat_fix(dat,args);
 	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100; }
@@ -350,9 +381,11 @@ view_map.ajax_pins=function(args)
 					ctrack.map.pins.push({
 						lat:v.location_latitude,
 						lng:v.location_longitude,
-						wgt:v.count,
+//						wgt:v.count,
 						aid:v.aid,
-						title:v.title
+						title:v.title,
+						day_start:v.day_start,
+						day_end:v.day_end,
 					});
 					if( (v.location_latitude<=90) && (v.location_latitude>=-90) && (v.location_longitude<=180) && (v.location_longitude>=-180) ) // check for valid values
 					{

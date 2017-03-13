@@ -13,9 +13,20 @@
 {main_datainvestigators}
 {view_tail}
 
+#map_select
+
+	<select id="view_map_select_status" class="chosen">
+		<option value="all">All</option>
+		<option value="active">Active</option>
+		<option value="planned">Planned</option>
+		<option value="ended">Ended</option>
+	</select>
+
+
 
 #map_map
 <div class="map_wrap view">
+	<div>{map_select}</div>
 	<div class="map_no_info view">{map_no_info_text}</div>
 	<div id="map" class="map_view"></div>
 </div>
