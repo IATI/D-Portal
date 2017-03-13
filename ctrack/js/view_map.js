@@ -58,14 +58,15 @@ view_map.show=function(change_of_view)
 // called on view display to fix html in place
 view_map.fixup=function()
 {
-	if(!view_map.loaded)
+	if(!view_map.loading)
 	{
-		view_map.loaded=true;
-		head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&sensor=false&callback=display_ctrack_map",
-		ctrack.args.jslib+"markerclusterer.js"
-);
+		view_map.loading=true;
+		head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&callback=display_ctrack_map",
+		ctrack.args.jslib+"markerclusterer.js",
+		function(){view_map.loaded=true;view_map.fixup();}
+		);
 	}
-	if(ctrack.map.api_ready)
+	if(ctrack.map.api_ready && view_map.loaded)
 	{
 //		console.log("map think");
 		if( ($("#map").length>0) && (!$("#map").attr("done")) ) // only fixup the map once
@@ -368,5 +369,6 @@ view_map.ajax_pins=function(args)
 			}
 		}
 		ctrack.display(); // every fetch.ajax must call display once
+		view_map.fixup();
 	});
 }
