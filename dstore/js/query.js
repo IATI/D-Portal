@@ -66,8 +66,11 @@ query.get_q = function(req){
 	};
 
 // use file extension as form
-	var aa=req.url.split(".");
-	if(aa[1]) { q.form=aa[1].split("?")[0]; }
+	var aa=req.url.split("?");
+	if(aa[0]) {
+		aa=aa[0].split(".");
+		if(aa[1]) { q.form=aa[1]; }
+	}
 
 // start with normal query
 	cp(req.query);
