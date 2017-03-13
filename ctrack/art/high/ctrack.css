@@ -203,9 +203,13 @@ a.map_percent span		{display:inline; font-size:1.0em; line-height:1.15em; color:
 
 /*	For url #view=map
 	============================================= */
-.map_wrap.view			{width:960px; min-height:600px; max-height:600px;}
+.map_wrap.view			{width:960px; min-height:600px; max-height:600px; background-color:transparent;}
 .map_no_info.view		{color:#FFF; font-size:1.2em; line-height:1.35em; text-align:center; position:absolute; top:50%; left:20%; right:20%;}
 #map.map_view			{width:100%; height:600px;}
+
+.map_filter_wrap		{margin-top:20px; margin-bottom:10px;}
+.map_filter, .map_filter.info	{display:inline-block; vertical-align:middle; width:250px;}
+.map_filter.info		{width:700px; padding-right:10px; text-align:right; color:#000; font-size:20px;}
 
 
 /*	Stats (key figures) styles
