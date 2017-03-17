@@ -56,7 +56,7 @@ view_dash_cronlog.ajax_cron=function()
 {
 	fetch.ajax({"from":"cronlog"},function(data)
 	{
-		ctrack.chunk("dash_cronlog",data.log || "N/A");
+		ctrack.chunk("dash_cronlog",data.log && ( $('<div/>').text(data.log).html().replace(/\n/g,"<br/>") ) || "N/A");
 		ctrack.display(); // every fetch.ajax must call display once
 	});
 };

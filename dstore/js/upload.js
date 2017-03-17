@@ -54,6 +54,7 @@ console.log("CREATING DATABASE");
 
 console.log("IMPORTING DATABASE");
 		
+/*
 		child_process.exec(__dirname+"/../../dstore/dstore --instance="+instance+" import instance/"+instance+".xml",
 
 			function(error, stdout, stderr){
@@ -62,6 +63,11 @@ console.log("IMPORTING DATABASE");
 			}
 
 		);
+*/
+
+		child_process.spawn(__dirname+"/../../dstore/dstore",
+			["--instance="+instance,"import","instance/"+instance+".xml"],
+			{stdio:["ignore",fs.openSync(log_filename,"a"),fs.openSync(log_filename,"a")]});
 
 		
 		res.redirect("http://"+instance+"."+req.headers.host+"/ctrack.html#view=dash_cronlog");
