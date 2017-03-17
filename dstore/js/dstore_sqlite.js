@@ -40,7 +40,7 @@ dstore_sqlite.open = function(instance){
 	if(argv.instance)
 	{
 		instance=String( instance || argv.instance ).replace(/[^A-Za-z0-9]/g, ''); // force alphanumeric only
-		var dbfilename=argv.instance_dir+instance+".sqlite";
+		var dbfilename=__dirname+"/../../dstore/instance/"+instance+".sqlite";
 		
 console.log("using instance databsse "+dbfilename)		
 		db = new sqlite3.Database( dbfilename );
