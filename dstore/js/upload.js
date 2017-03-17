@@ -18,5 +18,34 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 upload.serv = function(req,res){
 
 
+console.log("UPLOAD",req.files.xml);
+
+	if(req.files.xml)
+	{
+
+		var md5omatic = require('md5-o-matic');
+
+		var instance=md5omatic(req.files.xml.data.toString('utf8'));
+
+	console.log("INSTANCE : "+instance);
+
+		var xml_filename=argv.instance_dir+instance+".xml";
+
+	console.log("FILENAME : "+xml_filename);
+
+
+	/*
+		// rename file, keep it in our instance directory for parsing
+
+		fs.rename(req.files.data.path, xml_filename , function (err) {
+			
+			if (err) throw err;
+			console.log('successfully deleted ' + req.files.path);
+
+		});
+	*/
+
+	}
+
 };
 

@@ -39,7 +39,8 @@ dstore_sqlite.open = function(instance){
 	
 	if(argv.instance)
 	{
-		db = new sqlite3.Database( instance_dir+(instance||argv.instance)+".sqlite" );
+		instance=instance.replace(/[^A-Za-z0-9]/g, ''); // force alphanumeric only
+		db = new sqlite3.Database( argv.instance_dir+(instance||argv.instance)+".sqlite" );
 	}
 	else
 	{
