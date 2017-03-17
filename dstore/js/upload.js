@@ -35,9 +35,9 @@ upload.serv = function(req,res){
 
 console.log("INSTANCE : "+instance);
 
-		var xml_filename=__dirname+"../../dstore/instance/"+instance+".xml";
-		var log_filename=__dirname+"../../dstore/instance/"+instance+".log";
-		var sqlite_filename=__dirname+"../../dstore/instance/"+instance+".sqlite";
+		var xml_filename=__dirname+"/../../dstore/instance/"+instance+".xml";
+		var log_filename=__dirname+"/../../dstore/instance/"+instance+".log";
+		var sqlite_filename=__dirname+"/../../dstore/instance/"+instance+".sqlite";
 
 console.log("FILENAME : "+xml_filename);
 
@@ -50,11 +50,11 @@ console.log("REMOVING OLD FILES");
 
 console.log("CREATING DATABASE");
 		
-		child_process.execSync(__dirname+"../../dstore/dstore --instance="+instance+" init");
+		child_process.execSync(__dirname+"/../../dstore/dstore --instance="+instance+" init");
 
 console.log("IMPORTING DATABASE");
 		
-		child_process.exec(__dirname+"../../dstore/dstore --instance="+instance+" import instance/"+instance+".xml",
+		child_process.exec(__dirname+"/../../dstore/dstore --instance="+instance+" import instance/"+instance+".xml",
 
 			function(error, stdout, stderr){
 
