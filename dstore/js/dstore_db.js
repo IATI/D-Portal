@@ -674,8 +674,8 @@ dstore_db.cache_prepare = function(){
 }
 
 // the database part of the query code
-dstore_db.query_select=function(q,res,r){
-	return dstore_back.query_select(q,res,r);
+dstore_db.query_select=function(q,res,r,req){
+	return dstore_back.query_select(q,res,r,req);
 }
 
 dstore_db.cache_prepare();

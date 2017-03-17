@@ -39,8 +39,11 @@ dstore_sqlite.open = function(instance){
 	
 	if(argv.instance)
 	{
-		instance=instance.replace(/[^A-Za-z0-9]/g, ''); // force alphanumeric only
-		db = new sqlite3.Database( argv.instance_dir+(instance||argv.instance)+".sqlite" );
+		instance=String( instance || argv.instance ).replace(/[^A-Za-z0-9]/g, ''); // force alphanumeric only
+		var dbfilename=argv.instance_dir+instance+".sqlite";
+		
+console.log("using instance databsse "+dbfilename)		
+		db = new sqlite3.Database( dbfilename );
 	}
 	else
 	{
@@ -628,9 +631,9 @@ dstore_sqlite.warn_dupes = function(db,aid){
 
 
 // the database part of the query code
-dstore_sqlite.query_select=function(q,res,r){
+dstore_sqlite.query_select=function(q,res,r,req){
 
-	var db = dstore_db.open(r.subdomains[0]); // pick instance using subdomain
+	var db = dstore_db.open(req && req.subdomains && req.subdomains[0]); // pick instance using subdomain
 	db.serialize();
 	
 if(true)

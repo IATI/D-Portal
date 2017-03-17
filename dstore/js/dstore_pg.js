@@ -484,7 +484,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 
 // the database part of the query code
-dstore_pg.query_select=function(q,res,r){
+dstore_pg.query_select=function(q,res,r,req){
 
 
 	var db = dstore_pg.open();

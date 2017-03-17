@@ -5,6 +5,7 @@ var upload=exports;
 
 var util=require('util');
 var fs=require('fs');
+var child_process=require("child_process");
 
 var refry=require('./refry');
 var exs=require('./exs');
@@ -17,34 +18,70 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 // handle the /upload url space
 upload.serv = function(req,res){
 
+	if(!argv.instance)
+	{
+		res.send("DISABLED");
+		return;
+	}
 
-console.log("UPLOAD",req.files.xml);
+//console.log("UPLOAD",req.files.xml);
 
-	if(req.files.xml)
+	if(req.files && req.files.xml)
 	{
 
 		var md5omatic = require('md5-o-matic');
 
 		var instance=md5omatic(req.files.xml.data.toString('utf8'));
 
-	console.log("INSTANCE : "+instance);
+console.log("INSTANCE : "+instance);
 
 		var xml_filename=argv.instance_dir+instance+".xml";
+		var log_filename=argv.instance_dir+instance+".log";
+		var sqlite_filename=argv.instance_dir+instance+".sqlite";
 
-	console.log("FILENAME : "+xml_filename);
+console.log("FILENAME : "+xml_filename);
 
+		fs.writeFileSync(xml_filename, req.files.xml.data );
 
-	/*
-		// rename file, keep it in our instance directory for parsing
+console.log("REMOVING OLD FILES"); 
 
-		fs.rename(req.files.data.path, xml_filename , function (err) {
-			
-			if (err) throw err;
-			console.log('successfully deleted ' + req.files.path);
+		try{ fs.unlinkSync(log_filename);    }catch(e){} // ignore errors
+		try{ fs.unlinkSync(sqlite_filename); }catch(e){} // ignore errors
 
-		});
-	*/
+console.log("CREATING DATABASE");
+		
+		child_process.execSync("../dstore/dstore --instance="+instance+" init");
 
+console.log("IMPORTING DATABASE");
+		
+		child_process.exec("../dstore/dstore --instance="+instance+" import instance/"+instance+".xml",
+
+			function(error, stdout, stderr){
+
+				fs.writeFileSync(log_filename, stdout );
+			}
+
+		);
+
+		
+		res.redirect("http://"+instance+"."+req.headers.host+"/ctrack.html#view=dash_cronlog");
+
+	}
+	else
+	{
+		res.send(
+		
+		'<html><body>'+
+		
+		'<form action="/upload" method="post" enctype="multipart/form-data">'+
+		'	Select IATI xml file to upload:'+
+		'		<input type="file" name="xml" id="xml">'+
+		'		<input type="submit" value="Upload..." name="submit">'+
+		'</form>'+	
+
+		'</body></html>'+
+		
+		'')
 	}
 
 };
