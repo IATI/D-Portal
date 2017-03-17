@@ -169,8 +169,8 @@ var http_getbody=function(url,cb)
 };
 
 
-dstore_db.open = function(){
-	return dstore_back.open();
+dstore_db.open = function(instance){
+	return dstore_back.open(instance);
 };
 
 

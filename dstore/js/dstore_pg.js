@@ -45,7 +45,7 @@ var pgp = require("pg-promise")(pgopts);
 var master_db;
 
 // we have a global db so just return it
-dstore_pg.open = function(){
+dstore_pg.open = function(instance){
 	if(!master_db)
 	{
 		master_db = pgp(global.argv.pg);

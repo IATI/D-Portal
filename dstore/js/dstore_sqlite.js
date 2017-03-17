@@ -33,9 +33,18 @@ dstore_sqlite.close = function(db){
 	db.close();
 };
 
-dstore_sqlite.open = function(){
+dstore_sqlite.open = function(instance){
 //	var db = new sqlite3.cached.Database( global.argv.database );
-	var db = new sqlite3.Database( global.argv.database );
+	var db;
+	
+	if(argv.instance)
+	{
+		db = new sqlite3.Database( instance_dir+(instance||argv.instance)+".sqlite" );
+	}
+	else
+	{
+		db = new sqlite3.Database( global.argv.database );
+	}
 	
 	db.configure("busyTimeout",100000); // wait upto 100 sec on busy locks
 	
@@ -620,7 +629,7 @@ dstore_sqlite.warn_dupes = function(db,aid){
 // the database part of the query code
 dstore_sqlite.query_select=function(q,res,r){
 
-	var db = dstore_db.open();
+	var db = dstore_db.open(r.subdomains[0]); // pick instance using subdomain
 	db.serialize();
 	
 if(true)

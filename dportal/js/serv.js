@@ -39,9 +39,14 @@ app.use(function(req, res, next) {
 	var aa=req.path.split("/");
 	var ab=aa && (aa[aa.length-1].split("."));
 
-	if( ab && (ab[0]=="q") )
+	if( ab && (ab[0]=="q") ) // data query endpoint, 
 	{
 		require("../../dstore/js/query").serv(req,res);
+	}
+	else
+	if( ab && (ab[0]=="upload") ) // upload api endpoint, for testing xml files
+	{
+		require("../../dstore/js/upload").serv(req,res);
 	}
 	else
 	{
