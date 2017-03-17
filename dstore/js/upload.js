@@ -35,9 +35,9 @@ upload.serv = function(req,res){
 
 console.log("INSTANCE : "+instance);
 
-		var xml_filename=argv.instance_dir+instance+".xml";
-		var log_filename=argv.instance_dir+instance+".log";
-		var sqlite_filename=argv.instance_dir+instance+".sqlite";
+		var xml_filename=__dirname+"../../dstore/instance/"+instance+".xml";
+		var log_filename=__dirname+"../../dstore/instance/"+instance+".log";
+		var sqlite_filename=__dirname+"../../dstore/instance/"+instance+".sqlite";
 
 console.log("FILENAME : "+xml_filename);
 
