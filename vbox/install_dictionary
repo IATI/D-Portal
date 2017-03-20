@@ -31,6 +31,10 @@ sed -i 1d ../en_us.dict
 
 sudo -u postgres psql -c "DROP TEXT SEARCH DICTIONARY IF EXISTS ispell_en_us; CREATE TEXT SEARCH DICTIONARY ispell_en_us (template = ispell, dictfile = en_us, afffile = en_us, stopwords = english);"
 
+sudo -u postgres psql -c "ALTER TEXT SEARCH CONFIGURATION english ALTER MAPPING FOR asciiword, asciihword, hword_asciipart, word, hword, hword_part
+    WITH ispell_en_us, english_stem;"
+    
+    
 cd ..
 rm -rf tmp
 
