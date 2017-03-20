@@ -137,7 +137,7 @@ dstore_db.tables={
 	],
 // track the internal layout of the xml, 4 levels is probably plenty unless the iati standard changes considerably
 	element:[
-		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
+		{ name:"aid",							TEXT:true , HASH:true },
 		{ name:"element_attr",					NOCASE:true , INDEX:true },					// the element attribute name, must be null for element stats
 		{ name:"element_name0",					NOCASE:true , INDEX:true },					// the element
 		{ name:"element_name1",					NOCASE:true , INDEX:true },					// the parent of the element
