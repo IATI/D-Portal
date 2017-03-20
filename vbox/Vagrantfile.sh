@@ -19,8 +19,8 @@ echo " hard install node npm nvm"
 
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | NVM_DIR=/usr/local/nvm PROFILE=/etc/bash.bashrc bash
 . /usr/local/nvm/nvm.sh
-nvm install iojs # yeah but this node seems to get broken less for some reason?
-nvm use iojs
+nvm install default # yeah but this node seems to get broken less for some reason?
+nvm use default
 
 # create node executable
 echo "#!/bin/bash
