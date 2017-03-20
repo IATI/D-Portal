@@ -150,7 +150,7 @@ console.log("CREATING INDEXS");
 		}
 
 // we also create a text search index
-	var s=(" CREATE INDEX act_index_text_search ON act USING gin(to_tsvector('english',title || ' ' || description)); ");
+	var s=(" CREATE INDEX act_index_text_search ON act USING gin(to_tsvector('ispell_en_us',title || ' ' || description)); ");
 	console.log(s);
 
 	wait.for(function(cb){
