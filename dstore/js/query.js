@@ -441,7 +441,7 @@ query.getsql_where=function(q,qv){
 //console.log("text_search "+v)
 		if(argv.pg) // can use better pg search code
 		{
-			ss.push( " to_tsvector('english',title || ' ' || description) @@ plainto_tsquery("+dstore_db.text_plate("text_search")+") " );
+			ss.push( " to_tsvector('simple',title || ' ' || description) @@ plainto_tsquery("+dstore_db.text_plate("text_search")+") " );
 			qv[dstore_db.text_name("text_search")]=v;
 		}
 		else // can only use old sqlite search code that only checks title
