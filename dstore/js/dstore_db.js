@@ -647,8 +647,8 @@ dstore_db.create_tables = function(opts){
 	return dstore_back.create_tables(opts);
 }
 
-dstore_db.create_indexes = function(){
-	return dstore_back.create_indexes();
+dstore_db.create_indexes = function(idxs){
+	return dstore_back.create_indexes(idxs);
 }
 
 dstore_db.delete_indexes = function(){
