@@ -61,7 +61,7 @@ view_sectors.ajax=function(args)
 	ctrack.sectors_data={};
 	
 	ctrack.sortby="t2"; // reset sortby
-	var rev_sector_category={}; for(var n in iati_codes.sector_category) { rev_sector_category[ iati_codes.sector_category[n] ]=n; }
+//	var rev_sector_category={}; for(var n in iati_codes.sector_category) { rev_sector_category[ iati_codes.sector_category[n] ]=n; }
 	var display=function(sortby)
 	{
 		var s=[];
@@ -122,7 +122,7 @@ view_sectors.ajax=function(args)
 			if(n!="Grand Total")
 			{
 				var group=n.substring(0, 3); // now we have numbers, just take the first 3 digits
-				group=iati_codes.sector_group[group] || group; // but we may need to group them some more
+//				group=iati_codes.sector_group[group] || group; // but we may need to group them some more
 				if(!iati_codes.sector_category[group]){ group="930"; } // use other if we do not know the group
 				if(!crsg[group]){crsg[group]=0;}
 				crsg[group]+=crs[n];
