@@ -56,7 +56,7 @@ view_sectors_top.ajax=function(args)
 		{
 			var v=data.rows[i];
 			var d={};
-			d.sector_group=iati_codes.sector_names[ v.sector_group ];
+			d.sector_group=iati_codes.sector_category[ v.sector_group ];
 			d.usd=Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v));
 			list.push(d);
 		}

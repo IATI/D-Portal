@@ -115,7 +115,7 @@ dstore_db.tables={
 	],
 	sector:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
-		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group
+		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group ( category )
 		{ name:"sector_code",					INTEGER:true , INDEX:true },
 		{ name:"sector_percent",				REAL:true , INDEX:true },
 	],
@@ -444,7 +444,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var sc=sectors[i];
 				var pc=percents[i];
 				var group;
-				if(sc){ group=codes.sector_group[sc.slice(0,3)]; }
+				if(sc){ group=sc.slice(0,3); }
 				sc=tonumber(sc);
 				dstore_back.replace(db,"sector",{"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc});
 			}

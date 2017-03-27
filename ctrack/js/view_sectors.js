@@ -61,7 +61,7 @@ view_sectors.ajax=function(args)
 	ctrack.sectors_data={};
 	
 	ctrack.sortby="t2"; // reset sortby
-	var rev_sector_names={}; for(var n in iati_codes.sector_names) { rev_sector_names[ iati_codes.sector_names[n] ]=n; }
+	var rev_sector_category={}; for(var n in iati_codes.sector_category) { rev_sector_category[ iati_codes.sector_category[n] ]=n; }
 	var display=function(sortby)
 	{
 		var s=[];
@@ -79,7 +79,7 @@ view_sectors.ajax=function(args)
 			if(!v.t3){v.t3="0";}
 			if(!v.b1){v.b1="0";}
 			if(!v.b2){v.b2="0";}
-			v.sector=iati_codes.sector_names[v.group];
+			v.sector=iati_codes.sector_category[v.group];
 			s.push( plate.replace("{table_sectors_row}",v) );
 		});
 		ctrack.chunk("table_sectors_rows",s.join(""));
@@ -122,8 +122,8 @@ view_sectors.ajax=function(args)
 			if(n!="Grand Total")
 			{
 				var group=n.substring(0, 3); // now we have numbers, just take the first 3 digits
-				group=iati_codes.sector_group[group] || group; // but we need to group them some more
-				if(!iati_codes.sector_names[group]){ group="930"; } // use other if we do not know the group
+				group=iati_codes.sector_group[group] || group; // but we may need to group them some more
+				if(!iati_codes.sector_category[group]){ group="930"; } // use other if we do not know the group
 				if(!crsg[group]){crsg[group]=0;}
 				crsg[group]+=crs[n];
 			}
