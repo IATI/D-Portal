@@ -457,7 +457,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				}
 				if( vocabs[i]=="2" ) { sc=null; } // *forget* the 3 digit codes, it will have been remembered in the group.
 
-console.log("",sc,group);
+//console.log("",sc,group);
 				dstore_back.replace(db,"sector",{"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc});
 			}
 		}
