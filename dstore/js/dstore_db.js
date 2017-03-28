@@ -423,7 +423,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		
 		var country=[];
 		var percents=[];
-		refry.tags(act,"recipient-country",function(it){ country.push( (it.code || "").trim().toUpperCase() ); percents.push(it.percentage); });
+		refry.tags2(act,"iati-activity","recipient-country",function(it){ country.push( (it.code || "").trim().toUpperCase() ); percents.push(it.percentage); });
 		fixpercents(percents);
 		if(country[0]) {
 			for( var i=0; i<country.length ; i++ )
@@ -434,9 +434,14 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 			}
 		}
 
+		var vocabs=[];
 		var sectors=[];
 		var percents=[];
-		refry.tags(act,"sector",function(it){ if(it.vocabulary=="DAC" || it.vocabulary=="1" || it.vocabulary=="2") { sectors.push(it.code); percents.push(it.percentage); } });
+		refry.tags2(act,"iati-activity","sector",function(it){ if(it.vocabulary=="DAC" || it.vocabulary=="1" || it.vocabulary=="2" ) { // 5 or 3 digit codes
+				sectors.push(it.code);
+				percents.push(it.percentage);
+				vocabs.push(it.vocabulary);
+		}});
 		fixpercents(percents);
 		if(sectors[0]) {
 			for( var i=0; i<sectors.length ; i++ )
@@ -444,8 +449,15 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var sc=sectors[i];
 				var pc=percents[i];
 				var group;
-				if(sc){ group=sc.slice(0,3); }
-				sc=tonumber(sc);
+				if(sc){	sc=sc.trim(); } // remove white space, just in case
+				if(sc){  // take first 3 digits of this string as the category
+					group=sc.slice(0,3);
+					if(group.length!=3) { group=null; } // must be 3
+					else				{ group=tonumber(group); } // make sure it is an actual number
+				}
+				if( vocabs[i]=="2" ) { sc=null; } // *forget* the 3 digit codes, it will have been remembered in the group.
+
+console.log("",sc,group);
 				dstore_back.replace(db,"sector",{"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc});
 			}
 		}
