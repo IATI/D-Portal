@@ -12,7 +12,6 @@ var fetch=require("./fetch.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
-var crs_year_sectors=require("../../dstore/json/crs.js").sectors
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -56,7 +55,7 @@ view_sectors_top.ajax=function(args)
 		{
 			var v=data.rows[i];
 			var d={};
-			d.sector_group=iati_codes.sector_names[ v.sector_group ];
+			d.sector_group=iati_codes.sector_category[ v.sector_group ];
 			d.usd=Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v));
 			list.push(d);
 		}

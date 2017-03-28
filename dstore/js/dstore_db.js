@@ -115,7 +115,7 @@ dstore_db.tables={
 	],
 	sector:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
-		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group
+		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group ( category )
 		{ name:"sector_code",					INTEGER:true , INDEX:true },
 		{ name:"sector_percent",				REAL:true , INDEX:true },
 	],
@@ -169,8 +169,8 @@ var http_getbody=function(url,cb)
 };
 
 
-dstore_db.open = function(){
-	return dstore_back.open();
+dstore_db.open = function(instance){
+	return dstore_back.open(instance);
 };
 
 
@@ -444,7 +444,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				var sc=sectors[i];
 				var pc=percents[i];
 				var group;
-				if(sc){ group=codes.sector_group[sc.slice(0,3)]; }
+				if(sc){ group=sc.slice(0,3); }
 				sc=tonumber(sc);
 				dstore_back.replace(db,"sector",{"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc});
 			}
@@ -647,8 +647,8 @@ dstore_db.create_tables = function(opts){
 	return dstore_back.create_tables(opts);
 }
 
-dstore_db.create_indexes = function(){
-	return dstore_back.create_indexes();
+dstore_db.create_indexes = function(idxs){
+	return dstore_back.create_indexes(idxs);
 }
 
 dstore_db.delete_indexes = function(){
@@ -674,8 +674,8 @@ dstore_db.cache_prepare = function(){
 }
 
 // the database part of the query code
-dstore_db.query_select=function(q,res,r){
-	return dstore_back.query_select(q,res,r);
+dstore_db.query_select=function(q,res,r,req){
+	return dstore_back.query_select(q,res,r,req);
 }
 
 dstore_db.cache_prepare();

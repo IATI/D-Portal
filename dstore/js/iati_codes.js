@@ -64,24 +64,28 @@ iati_codes.fetch = function(){
 	var packages={};
 
 	var files=[
-			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv2/json/en/Sector.json",
-				name:"sector",
-			},
-			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv2/json/en/SectorCategory.json",
-				name:"sector_category",
-			},
+
+// old codes, do not change
 			{
 				url:"http://iatistandard.org/104/codelists/downloads/clv2/json/en/TransactionType.json",
 				name:"old_transaction_type",
 			},
+
+// new codes, these should be kept current
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv2/json/en/TransactionType.json",
+				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/Sector.json",
+				name:"sector",
+			},
+			{
+				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/SectorCategory.json",
+				name:"sector_category",
+			},
+			{
+				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/TransactionType.json",
 				name:"new_transaction_type",
 			},
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv2/json/en/ActivityStatus.json",
+				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/ActivityStatus.json",
 				name:"activity_status",
 			}
 		];
@@ -186,53 +190,6 @@ iati_codes.fetch = function(){
 // local currency ->       https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=8&output=csv
 
 
-	console.log("Fetching IATI sector IDS csv")
-
-	var x=wait.for(https_getbody,sheeturl(9));
-//	var lines=wait.for(csv_parse,x);
-	var lines=baby.parse(x).data;
-	
-	var o={};
-
-	for(var i=1;i<lines.length;i++)
-	{
-		var v=lines[i];
-		var d=(v[0]);
-		var str=v[1];
-		if(d && str)
-		{
-			o[d.trim()]=str.trim();
-		}
-	}
-	codes["sector_names"]=o;
-	
-	var rev_sector_names={};
-	for( var n in codes["sector_names"]   ) { rev_sector_names[   codes["sector_names"  ][n] ]=n }
-
-
-	console.log("Fetching IATI sector groups csv")
-
-	var x=wait.for(https_getbody,sheeturl(0));
-//	var lines=wait.for(csv_parse,x);
-	var lines=baby.parse(x).data;
-
-
-	var o={};
-
-	for(var i=1;i<lines.length;i++)
-	{
-		var v=lines[i];
-		var num=parseInt(v[0]);
-		var str=v[1];
-		if(num && str)
-		{
-			o[num]=rev_sector_names[str.trim()];
-		}
-	}
-//ls(lines)
-//ls(o);
-		
-	codes["sector_group"]=o;
 
 
 	console.log("Fetching IATI funders csv")

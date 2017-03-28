@@ -28,9 +28,9 @@ view_search.fixup=function()
 
 	var lookup={};
 	var strings=[];
-	for(var n in iati_codes.sector_names)
+	for(var n in iati_codes.sector_category)
 	{
-		var v=iati_codes.sector_names[n];
+		var v=iati_codes.sector_category[n];
 		var s=v+" ("+n+")";
 		if(v)
 		{
@@ -436,9 +436,9 @@ view_search.view=function(args)
 	ctrack.chunk("search_options_sector",a.join(""));
 
 	var a=[];
-	for(var n in iati_codes.sector_names) // CRS funders (maybe multiple iati publishers)
+	for(var n in iati_codes.sector_category) // CRS funders (maybe multiple iati publishers)
 	{
-		var v=iati_codes.sector_names[n];
+		var v=iati_codes.sector_category[n];
 		if(v)
 		{
 			var s="<option value='"+n+"'>"+v+" ("+n+")</option>";

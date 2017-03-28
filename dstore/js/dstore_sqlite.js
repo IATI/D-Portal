@@ -33,9 +33,22 @@ dstore_sqlite.close = function(db){
 	db.close();
 };
 
-dstore_sqlite.open = function(){
+dstore_sqlite.open = function(instance){
 //	var db = new sqlite3.cached.Database( global.argv.database );
-	var db = new sqlite3.Database( global.argv.database );
+	var db;
+	
+	if(argv.instance)
+	{
+		instance=String( instance || argv.instance ).replace(/[^A-Za-z0-9]/g, ''); // force alphanumeric only
+		var dbfilename=__dirname+"/../../dstore/instance/"+instance+".sqlite";
+		
+console.log("using instance databsse "+dbfilename)		
+		db = new sqlite3.Database( dbfilename );
+	}
+	else
+	{
+		db = new sqlite3.Database( global.argv.database );
+	}
 	
 	db.configure("busyTimeout",100000); // wait upto 100 sec on busy locks
 	
@@ -618,9 +631,9 @@ dstore_sqlite.warn_dupes = function(db,aid){
 
 
 // the database part of the query code
-dstore_sqlite.query_select=function(q,res,r){
+dstore_sqlite.query_select=function(q,res,r,req){
 
-	var db = dstore_db.open();
+	var db = dstore_db.open(req && req.subdomains && req.subdomains[0]); // pick instance using subdomain
 	db.serialize();
 	
 if(true)

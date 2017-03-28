@@ -50,7 +50,7 @@ view_sector_budgets.view=function()
 				
 	args.callback=function(data){
 
-		ctrack.chunk("sector",iati_codes.sector_names[sector] );
+		ctrack.chunk("sector",iati_codes.sector_category[sector] );
 		ctrack.chunk("year",year);
 	};
 	

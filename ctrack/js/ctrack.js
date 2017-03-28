@@ -340,7 +340,7 @@ ctrack.setup=function(args)
 			{
 				var s=$(".search .sect_cat");
 				var v=args.sector_group_select;
-				s.text( iati_codes.sector_names[v] || v );
+				s.text( iati_codes.sector_category[v] || v );
 				s.parent().show();
 			}
 			if(args.funder_ref_select)

@@ -2,8 +2,11 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 var express = require('express');
+var express_fileupload = require('express-fileupload');
+
 //var morgan = require('morgan');
 var app = express();
+
 
 var argv=require('yargs').argv; global.argv=argv;
 require("../../dstore/js/argv").parse(argv);
@@ -11,6 +14,8 @@ require("../../dstore/js/argv").parse(argv);
 express.static.mime.define({'text/plain': ['']});
 
 //app.use(morgan('combined'));
+
+app.use( express_fileupload() );
 
 app.use(function(req, res, next) {
 	var aa=req.path.split("/");
@@ -39,9 +44,14 @@ app.use(function(req, res, next) {
 	var aa=req.path.split("/");
 	var ab=aa && (aa[aa.length-1].split("."));
 
-	if( ab && (ab[0]=="q") )
+	if( ab && (ab[0]=="q") ) // data query endpoint, 
 	{
 		require("../../dstore/js/query").serv(req,res);
+	}
+	else
+	if( ab && (ab[0]=="upload") ) // upload api endpoint, for testing xml files
+	{
+		require("../../dstore/js/upload").serv(req,res);
 	}
 	else
 	{

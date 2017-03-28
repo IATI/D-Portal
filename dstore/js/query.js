@@ -441,7 +441,7 @@ query.getsql_where=function(q,qv){
 //console.log("text_search "+v)
 		if(argv.pg) // can use better pg search code
 		{
-			ss.push( " to_tsvector('english',title || ' ' || description) @@ plainto_tsquery("+dstore_db.text_plate("text_search")+") " );
+			ss.push( " to_tsvector('simple',title || ' ' || description) @@ plainto_tsquery('simple',"+dstore_db.text_plate("text_search")+") " );
 			qv[dstore_db.text_name("text_search")]=v;
 		}
 		else // can only use old sqlite search code that only checks title
@@ -745,7 +745,7 @@ query.do_select_response=function(q,res,r){
 	}
 }
 
-query.do_select=function(q,res){
+query.do_select=function(q,res,req){
 
 	query.getsql_build_column_names(q);
 
@@ -762,7 +762,7 @@ query.do_select=function(q,res){
 				query.getsql_limit(q,qv);
 
 //console.log(r.query);
-	return dstore_db.query_select(q,res,r);
+	return dstore_db.query_select(q,res,r,req);
 };
 
 // handle the /q url space
@@ -770,9 +770,17 @@ query.serv = function(req,res){
 	var q=query.get_q(req);
 
 // special log info requests
+	var logname=__dirname+'/../../dportal/production/cron.log'
+	if(argv.instance)
+	{
+		var instance=(req && req.subdomains && req.subdomains[0]) || argv.instance;
+		instance=String( instance ).replace(/[^A-Za-z0-9]/g, ''); // force alphanumeric only
+
+		logname=__dirname+"/../../dstore/instance/"+instance+".log";
+	}
 	if(q.from=="cronlog_time")
 	{
-		fs.stat(__dirname+'/../../dportal/production/cron.log', function (err, data) {
+		fs.stat(logname, function (err, data) {
 				var ret={};
 				if(err) { ret.err=err; }
 				else
@@ -786,7 +794,7 @@ query.serv = function(req,res){
 	else
 	if(q.from=="cronlog")
 	{
-		fs.readFile(__dirname+'/../../dportal/production/cron.log',"utf8", function (err, data) {
+		fs.readFile(logname,"utf8", function (err, data) {
 				var ret={};
 				if(err) { ret.err=err; }
 				else
@@ -798,6 +806,6 @@ query.serv = function(req,res){
 		return;
 	}
 	
-	return query.do_select(q,res);
+	return query.do_select(q,res,req);
 };
 

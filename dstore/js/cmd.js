@@ -42,7 +42,7 @@ wait.launchFiber(function(){
 	else
 	if( argv._[0]=="index" )
 	{
-		require("./dstore_db").create_indexes(); // add indexes to previously inserted data
+		require("./dstore_db").create_indexes(argv._[1]); // add indexes to previously inserted data
 		return;
 	}
 	else

@@ -45,7 +45,7 @@ var pgp = require("pg-promise")(pgopts);
 var master_db;
 
 // we have a global db so just return it
-dstore_pg.open = function(){
+dstore_pg.open = function(instance){
 	if(!master_db)
 	{
 		master_db = pgp(global.argv.pg);
@@ -103,7 +103,7 @@ console.log("CREATING TABLES");
 dstore_pg.check_tables = function(){};
 
 
-dstore_pg.create_indexes = function(){
+dstore_pg.create_indexes = function(idxs){
 	var db=dstore_pg.open();
 	
 console.log("CREATING INDEXS");
@@ -114,52 +114,59 @@ console.log("CREATING INDEXS");
 		for(var name in dstore_db.tables)
 		{
 			var tab=dstore_db.tables[name];
-
-			for(var i=0; i<tab.length;i++)
+			
+			if( (!idxs) || (idxs==name) )
 			{
-				var col=tab[i];			
-				if( col.INDEX )
+
+				for(var i=0; i<tab.length;i++)
 				{
-					var s=(" CREATE INDEX "+name+"_btree_"+col.name+" ON "+name+" USING btree ( "+col.name+" ); ");
-					console.log(s);
+					var col=tab[i];			
+					if( col.INDEX )
+					{
+						var s=(" CREATE INDEX "+name+"_btree_"+col.name+" ON "+name+" USING btree ( "+col.name+" ); ");
+						console.log(s);
 
-					wait.for(function(cb){
-						 db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err).then(cb);
-					});
+						wait.for(function(cb){
+							 db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err).then(cb);
+						});
 
-					wait.for(function(cb){
-						db.none(s).then(cb).catch(err);
-					});
+						wait.for(function(cb){
+							db.none(s).then(cb).catch(err);
+						});
 
-				}
-				if( col.HASH )
-				{
-					var s=(" CREATE INDEX "+name+"_hash_"+col.name+" ON "+name+" USING hash ( "+col.name+" ); ");
-					console.log(s);
+					}
+					if( col.HASH )
+					{
+						var s=(" CREATE INDEX "+name+"_hash_"+col.name+" ON "+name+" USING hash ( "+col.name+" ); ");
+						console.log(s);
 
-					wait.for(function(cb){
-						 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
-					});
+						wait.for(function(cb){
+							 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
+						});
 
-					wait.for(function(cb){
-						db.none(s).then(cb).catch(err);
-					});
+						wait.for(function(cb){
+							db.none(s).then(cb).catch(err);
+						});
 
+					}
 				}
 			}
 		}
 
 // we also create a text search index
-	var s=(" CREATE INDEX act_index_text_search ON act USING gin(to_tsvector('english',title || ' ' || description)); ");
-	console.log(s);
+	if(!idxs || idxs=="search")
+	{
+		var s=(" CREATE INDEX act_index_text_search ON act USING gin(to_tsvector('simple',title || ' ' || description)); ");
+		console.log(s);
 
-	wait.for(function(cb){
-		 db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err).then(cb);
-	});
+		wait.for(function(cb){
+			 db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err).then(cb);
+		});
 
-	wait.for(function(cb){
-		db.none(s).then(cb).catch(err);
-	});
+		wait.for(function(cb){
+			db.none(s).then(cb).catch(err);
+		});
+	}
 
 	pgp.end();	
 };
@@ -484,7 +491,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 
 // the database part of the query code
-dstore_pg.query_select=function(q,res,r){
+dstore_pg.query_select=function(q,res,r,req){
 
 
 	var db = dstore_pg.open();
