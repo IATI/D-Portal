@@ -79,7 +79,7 @@ view_sectors.ajax=function(args)
 			if(!v.t3){v.t3="0";}
 			if(!v.b1){v.b1="0";}
 			if(!v.b2){v.b2="0";}
-			v.sector=iati_codes.sector_category[v.group];
+			v.sector=iati_codes.sector_category[v.group] || v.group;
 			s.push( plate.replace("{table_sectors_row}",v) );
 		});
 		ctrack.chunk("table_sectors_rows",s.join(""));
@@ -123,7 +123,7 @@ view_sectors.ajax=function(args)
 			{
 				var group=n.substring(0, 3); // now we have numbers, just take the first 3 digits
 //				group=iati_codes.sector_group[group] || group; // but we may need to group them some more
-				if(!iati_codes.sector_category[group]){ group="930"; } // use other if we do not know the group
+//				if(!iati_codes.sector_category[group]){ group="930"; } // use other if we do not know the group
 				if(!crsg[group]){crsg[group]=0;}
 				crsg[group]+=crs[n];
 			}
