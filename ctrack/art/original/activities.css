@@ -22,7 +22,7 @@ iati-activity a 	{display:block;}
 iati-activity img	{display:block; -webkit-filter:brightness(100%); filter:brightness(100%);}
 
 
-narrative {display:inline-block; color:inherit; font-family:inherit; word-wrap:inherit;}
+narrative {display:inline-block;color:inherit;font-family:inherit;word-wrap:inherit;vertical-align: top;}
 
 
 /*	Project title
@@ -77,8 +77,8 @@ activity-date[type="end-actual"]:before	{content:"END DATE"; font-size:14px; col
 	============================================= */
 span.span_participating-org			{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#FFF; counter-reset:section;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
-participating-org::before			{counter-increment:section; content:counter(section) ". ";}
-participating-org 					{display:block; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
+participating-org::before			{counter-increment:section;content:counter(section) ". ";display: inline-block;vertical-align: top;}
+participating-org 					{display:block;list-style-position: outside;list-style-type:decimal;padding:10px 0;}
 participating-org a					{display:initial;}
 participating-org a:link			{color:#FF7A00;}
 participating-org a:visited			{color:#FF7A00;}
