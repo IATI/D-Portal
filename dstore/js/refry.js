@@ -253,6 +253,48 @@ refry.tags=function(json,name,cb)
 	else { f(json); }
 }
 
+// callback for all tags of the given name directly under the given name, so a two tag search
+refry.tags2=function(json,name1,name2,cb)
+{
+	if(!json){ return; }
+	var f;
+	f=function(it,parent)
+	{
+		if(typeof it == "object")
+		{
+			if( parent && (parent[0]==name1) ) // must be child of
+			{
+				if("string" == typeof name2) // simple string
+				{
+					if(it[0]==name2) {
+						cb(it);
+					}
+				}
+				else // check attrs
+				{
+					var found=true;
+					for( var a in name2)
+					{
+						var v=name2[a];
+						if( it[a] != v ) // all attributes must match ([0]==tagname)
+						{
+							found=false;
+							break;
+						}
+					}
+					if(found)
+					{
+						cb(it);
+					}
+				}
+			}
+			if(it[1]) { it[1].forEach(function(a){f(a,it)}); } // pass in parent
+		}
+	};
+	if(json.forEach) { json.forEach(f); }
+	else { f(json); }
+}
+
 
 // return the enclosed value string of the first tag we find of the given name
 // but *prefer* english if it is an option so multiple tags will be consdered
