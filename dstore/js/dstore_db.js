@@ -116,7 +116,7 @@ dstore_db.tables={
 	sector:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group ( category )
-		{ name:"sector_code",					INTEGER:true , INDEX:true },
+		{ name:"sector_code",					NOCASE:true , INDEX:true },
 		{ name:"sector_percent",				REAL:true , INDEX:true },
 	],
 	location:[
