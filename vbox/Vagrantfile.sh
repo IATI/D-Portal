@@ -55,7 +55,6 @@ echo '#HAXTBH' >> $PGMAIN/postgresql.conf
 echo 'max_wal_senders=1' >> $PGMAIN/postgresql.conf
 echo 'wal_level=hot_standby' >> $PGMAIN/postgresql.conf
 echo 'synchronous_commit = off' >> $PGMAIN/postgresql.conf
-echo 'fsync = off' >> $PGMAIN/postgresql.conf
 echo 'work_mem = 128MB' >> $PGMAIN/postgresql.conf
 
 echo '#HAXTBH' >> $PGMAIN/pg_hba.conf
@@ -66,5 +65,14 @@ sudo -u postgres bash -c "psql -c \"CREATE USER $PGUSER WITH SUPERUSER PASSWORD 
 
 sudo -u postgres createdb dstore
 sudo -u postgres bash -c "psql -c \"CREATE EXTENSION IF NOT EXISTS citext;\" dstore "
+sudo -u postgres psql -c "ALTER DATABASE dstore OWNER TO $PGUSER;"
+sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE dstore TO $PGUSER;"
 sudo -u postgres psql -l
+
+#
+# more things to do on the live server...
+#
+# sudo -u postgres bash -c "psql -c \"CREATE USER root WITH SUPERUSER PASSWORD 'password';\""
+# sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE dstore TO root;"
+# sudo -u postgres psql -l
 
