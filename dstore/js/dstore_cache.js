@@ -211,7 +211,7 @@ dstore_cache.iati = function(argv){
 				}
 				if(v.resources[0] && v.resources[0].url )
 				{
-					var slug=v.name;
+					var slug=v.name.replace(/[^0-9a-zA-Z\-_]/g, '_'); // hax sanity for slug used in filename
 					var url=v.resources[0].url;
 					var fname=global.argv.cache+"/"+slug+".xml";
 					var fname_old=global.argv.cache+"/old/"+slug+".xml";

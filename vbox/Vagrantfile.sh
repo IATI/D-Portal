@@ -76,3 +76,6 @@ sudo -u postgres psql -l
 # sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE dstore TO root;"
 # sudo -u postgres psql -l
 
+
+# apparently this one is also vitally important in sysctl
+# vm.overcommit_memory = 2

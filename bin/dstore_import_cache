@@ -1,8 +1,28 @@
 cd `dirname $0`
 cd ../dstore
 
-for xmlfile in cache/*.xml
+#start importing at this file
+FIRSTFILE=$1
+
+for XMLFILE in cache/*.xml
 do
-  echo $xmlfile
-  node js/cmd import "$xmlfile" || exit 1
+
+#only start after we find the first file
+
+  if [ "cache/$FIRSTFILE.xml" = "$XMLFILE" ] ; then
+
+    FIRSTFILE=""
+
+  fi
+
+  if [ -z "$FIRSTFILE" ] ; then
+
+    echo $XMLFILE
+    node js/cmd import "$XMLFILE" || exit 1
+
+  else
+
+    echo SKIP $XMLFILE
+
+  fi
 done
