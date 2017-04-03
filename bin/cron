@@ -22,8 +22,8 @@ echo
 bin/build
 
 # needs to be run by root...
-#/etc/init.d/dportal restart
-#/etc/init.d/dportal status
+sudo /etc/init.d/dportal restart
+sudo /etc/init.d/dportal status
 
 date
 
