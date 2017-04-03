@@ -21,8 +21,9 @@ echo
 
 bin/build
 
-/etc/init.d/dportal restart
-/etc/init.d/dportal status
+# needs to be run by root...
+#/etc/init.d/dportal restart
+#/etc/init.d/dportal status
 
 date
 
@@ -33,8 +34,8 @@ if [ "$(date +'%u')" == "7" ] ; then
 fi
 
 
-echo "SKIPPING IMPORT STEP"
-#bin/cron_import
+#echo "SKIPPING IMPORT STEP"
+bin/cron_import
 
 
 date
