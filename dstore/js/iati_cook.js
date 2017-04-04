@@ -49,8 +49,8 @@ iati_cook.activity=function(act)
 // if we have any actifity dates, then force a start-actual to something
 	if( ! activity_date["start-actual"] || !activity_date["start-actual"]["iso-date"])
 	{
-		var d;
-		var t;
+		var d=undefined; // avoid scope bug
+		var t=undefined;
 //		t=activity_date["end-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
 //		t=activity_date["end-actual"]; 		if( t && t["iso-date"] ) { d=t["iso-date"]; }
 		t=activity_date["start-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
@@ -72,8 +72,8 @@ iati_cook.activity=function(act)
 // if we have any activity dates, then force an end-actual to something
 	if( ! activity_date["end-actual"] || !activity_date["end-actual"]["iso-date"] )
 	{
-		var d;
-		var t;
+		var d=undefined; // fix scope bug
+		var t=undefined;
 //		t=activity_date["start-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
 //		t=activity_date["start-actual"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
 		t=activity_date["end-planned"]; 	if( t && t["iso-date"] ) { d=t["iso-date"]; }
