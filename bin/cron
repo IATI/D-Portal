@@ -21,18 +21,20 @@ echo
 
 bin/build
 
-/etc/init.d/dportal restart
-/etc/init.d/dportal status
+# needs to be run by root...
+sudo /etc/init.d/dportal restart
+sudo /etc/init.d/dportal status
 
 date
 
 
-# clear data to force a *full* import on a sunday morning
+# clear data to force a *full* import on a sunday morning / saturday night
 if [ "$(date +'%u')" == "7" ] ; then
 	echo FULL >/var/tmp/dportal.update
 fi
 
 
+#echo "SKIPPING IMPORT STEP"
 bin/cron_import
 
 
