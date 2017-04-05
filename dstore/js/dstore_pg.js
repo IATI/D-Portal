@@ -422,7 +422,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
-/*	if(acts.length==0) // probably an org file, try and import budgets from full data
+	if(acts.length==0) // probably an org file, try and import budgets from full data
 	{
 
 		var org=refry.xml(data,slug); // raw xml convert to jml
@@ -447,7 +447,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 		dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
 	}
-*/
+
 
 	for(var i=0;i<acts.length;i++)
 	{
