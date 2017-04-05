@@ -34,8 +34,8 @@ if [ "$(date +'%u')" == "7" ] ; then
 fi
 
 
-#echo "SKIPPING IMPORT STEP"
-bin/cron_import
+echo "SKIPPING IMPORT STEP"
+#bin/cron_import
 
 
 date
