@@ -11,8 +11,8 @@ The following scripts may be run from this projects root directory.
 	plated/upgrade
 
 This will install or upgrade plated using npm. It must be done at least 
-once for the other scripts to work and can be run later to get the 
-latest version.
+once for the other scripts to work and can be run later to upgrade to 
+the latest version.
 
 
 	plated/build
@@ -22,14 +22,22 @@ Build the static website, once.
 
 	plated/watch
 
-Watch the plated/source directory and continously build the static website when files are changes.
+Watch the plated/source directory and continuously build the static 
+website when files are changed.
 
 
-	plated/serve
+	plated/serv
 
 Start a simple static server locally, visit 
 http://0.0.0.0:8000/plated-example/ in your browser to view your 
 site.
+
+
+	plated/start
+
+Run plated/watch and plated/serv simultaneously. This is the main 
+script you should run to build and view your website locally whilst you 
+edit it.
 
 
 The website is generated into /docs from files found in /plated/source. The 
