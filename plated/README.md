@@ -39,6 +39,12 @@ Run plated/watch and plated/serv simultaneously. This is the main
 script you should run to build and view your website locally whilst you 
 edit it.
 
+	plated/publish
+
+Builds and then does a git add/commit/pull/push of all files to publish 
+your pages to github. You may want to do this manually for more 
+control.
+
 
 	plated/settings
 
