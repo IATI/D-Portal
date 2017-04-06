@@ -2,4 +2,4 @@ cd `dirname $0`
 
 source settings
 
-./node_modules/.bin/plated watch --dumpjson --root=$PLATED_ROOT/ --output=../docs
+./node_modules/.bin/plated watch --dumpjson --root=$PLATED_ROOT/ --output=$PLATED_OUTPUT
