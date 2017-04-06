@@ -2,7 +2,7 @@
 
 
 Plated is a node app, please make sure that node is available and that
-he node dependencies have been installed using plated/upgrade.
+the node dependencies have been installed using plated/upgrade.
 
 
 
