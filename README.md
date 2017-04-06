@@ -1,2 +1,2 @@
 
-Please view the [README](https://github.com/xriss/plated-example/tree/master/plated) in the plated directory.
+Please view the [README](plated/README.md) in the plated directory.
