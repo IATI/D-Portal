@@ -39,11 +39,20 @@ Run plated/watch and plated/serv simultaneously. This is the main
 script you should run to build and view your website locally whilst you 
 edit it.
 
+
 	plated/publish
 
 Builds and then does a git add/commit/pull/push of all files to publish 
 your pages to github. You may want to do this manually for more 
 control.
+
+
+	plated/pull
+
+Pull the latest changes direct from the plated-example repository and 
+attempt to ignore possible conflicts outside of this plated directory. 
+Hopefully this will pick up small bug fixes in these scripts without 
+breaking anything else.
 
 
 	plated/settings
@@ -64,6 +73,10 @@ github page eg xriss.github.io then this should be set to / only.
 
     This is the root directory that your site is published to on github.
 
+If you want to build into a different local directory then alter 
+PLATED_OUTPUT=../docs in the plated/settings file to point somewhere else. 
+
+    DANGER THE OUTPUT DIRECTORY WILL BE DELETED ON BUILD
 
 
 # How to plated^
