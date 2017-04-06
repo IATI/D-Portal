@@ -69,7 +69,7 @@ pages source to use the master branch /docs folder.
 
 4. You can now use your new project as described at the start of this 
 readme to create your own website on github pages. Be sure to run 
-'''npm install''' inside the plated directory first.
+```npm install``` inside the plated directory first.
 
 
 Alternatively an easy way to pull all of the files from this project 
