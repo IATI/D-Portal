@@ -47,6 +47,9 @@ github page eg xriss.github.io then this should be set to / only.
     This is the root directory that your site is published to on github.
 
 
+
+# How to plated^
+
 Here is a step by step guide to use this project as a starter for a github hosted website.
 
 1. Visit https://github.com/new/import, 
