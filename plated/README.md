@@ -1,8 +1,8 @@
 # Plated-Example
 
 
-Plated is a node app, please make sure that it is installed in the 
-plated directory after checkout.
+Plated is a node app, please make sure that node is available and that
+he node dependencies have been installed using plated/upgrade.
 
 
 
@@ -17,12 +17,12 @@ latest version.
 
 	plated/build
 
-Build the static website.
+Build the static website, once.
 
 
 	plated/watch
 
-Watch the plated/source directory and rebuild when files are changes.
+Watch the plated/source directory and continously build the static website when files are changes.
 
 
 	plated/serve
@@ -33,7 +33,7 @@ site.
 
 
 The website is generated into /docs from files found in /plated/source. The 
-docs folder is used for easy publishing using github pages. Select 
+docs folder is used for publishing using github pages. Select 
 master branch /docs folder as the source of your github pages under 
 project configuration. Now you can build and git commit changes to 
 publish to github pages.
