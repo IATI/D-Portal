@@ -2,7 +2,9 @@ cd `dirname $0`
 
 source settings
 
+echo
 echo "building and then publishing all changes to github"
+echo
 
 ./build
 
