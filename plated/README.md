@@ -40,12 +40,16 @@ script you should run to build and view your website locally whilst you
 edit it.
 
 
+	plated/settings
+
+This contains settings used by all the other scripts and should not be 
+run directly.
+
 The website is generated into /docs from files found in /plated/source. The 
 docs folder is used for publishing using github pages. Select 
 master branch /docs folder as the source of your github pages under 
 project configuration. Now you can build and git commit changes to 
 publish to github pages.
-
 
 If you want to publish this project using a different repository name 
 be sure to adjust PLATED_ROOT=/plated-example in the plated/settings file from 
