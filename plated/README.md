@@ -6,7 +6,7 @@ plated directory after checkout.
 
 
 
-The following scripts may be run from your checked out directory.
+The following scripts may be run from this projects root directory.
 
 	plated/upgrade
 
