@@ -47,6 +47,9 @@ github page eg xriss.github.io then this should be set to / only.
     This is the root directory that your site is published to on github.
 
 
+
+# How to plated^
+
 Here is a step by step guide to use this project as a starter for a github hosted website.
 
 1. Visit https://github.com/new/import, 
@@ -66,7 +69,7 @@ pages source to use the master branch /docs folder.
 
 4. You can now use your new project as described at the start of this 
 readme to create your own website on github pages. Be sure to run 
-npm-install inside the plated directory first.
+```npm install``` inside the plated directory first.
 
 
 Alternatively an easy way to pull all of the files from this project 
