@@ -50,15 +50,18 @@ Can also be used to update the ```plated/*``` scripts later on.
 
 # Scripts
 
-Plated is a node app, please make sure that node is available and that
-the node dependencies have been installed using ```plated/upgrade```.
+Plated is a node app.
+
+Please make sure node is available and node dependencies have been installed using ```plated/upgrade```.
 
 The following scripts may be run from this projects **root directory**.
 
+---
+
 	plated/upgrade
 
-&#8627; This will install or upgrade plated using npm. Run this once for
-the scripts to work. Run this later to upgrade to the latest version.
+&#8627; This will install or upgrade plated using npm.  
+Run this once for the scripts to work. Run this later to upgrade to the latest version.
 
 ---
 
@@ -71,14 +74,16 @@ the scripts to work. Run this later to upgrade to the latest version.
 	plated/start
 
 &#8627; **The main script you should run to build and view your website locally whilst you 
-edit it.** This runs ```plated/watch``` and ```plated/serv``` simultaneously.
+edit it.**  
+This runs ```plated/watch``` and ```plated/serv``` simultaneously.
 
 ---
 
 	plated/watch
 
 &#8627; Watches the ```plated/source``` directory and continuously build the static 
-website when files are changed. _(optional if ```plated/start``` is running)_
+website when files are changed.  
+_(optional if ```plated/start``` is running)_
 
 ---
 
@@ -86,7 +91,8 @@ website when files are changed. _(optional if ```plated/start``` is running)_
 
 &#8627; Start a simple static server locally, visit 
 http://0.0.0.0:8000/plated-example/ in your browser to view your 
-site. _(optional if ```plated/start``` is running)_
+site.  
+_(optional if ```plated/start``` is running)_
 
 ---
 
@@ -130,7 +136,7 @@ If you want to build into a different local directory, alter ```PLATED_OUTPUT=..
 in the plated/settings file to point somewhere else. 
 
 ```diff
-DANGER THE OUTPUT DIRECTORY WILL BE DELETED ON BUILD
+- DANGER THE OUTPUT DIRECTORY WILL BE DELETED ON BUILD
 ```
     
 
