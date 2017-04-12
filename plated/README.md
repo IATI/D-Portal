@@ -127,15 +127,15 @@ run directly.
 
 The website is generated into /docs from files found in /plated/source.
 
-If you want to publish this project using a different repository name, 
+**If you want to publish this project using a different repository name**, 
 be sure to adjust ```PLATED_ROOT=/plated-example``` in the plated/settings file from 
 /plated-example to the new github name.
 
-If publishing to your main github page; eg. _xriss.github.io_ then 
+**If publishing to your main github page**; eg. _xriss.github.io_ then 
 this should be set to ```/``` only. This is the root directory that your 
 site is published to on github.
 
-If you want to build into a different local directory, alter ```PLATED_OUTPUT=../docs``` 
+**If you want to build into a different local directory**, alter ```PLATED_OUTPUT=../docs``` 
 in the plated/settings file to point somewhere else. 
 
 ```diff
