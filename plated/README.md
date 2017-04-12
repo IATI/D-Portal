@@ -1,89 +1,13 @@
 # Plated-Example
 
-
-Plated is a node app, please make sure that node is available and that
-the node dependencies have been installed using plated/upgrade.
-
-
-
-The following scripts may be run from this projects root directory.
-
-	plated/upgrade
-
-This will install or upgrade plated using npm. It must be done at least 
-once for the other scripts to work and can be run later to upgrade to 
-the latest version.
-
-
-	plated/build
-
-Build the static website, once.
-
-
-	plated/watch
-
-Watch the plated/source directory and continuously build the static 
-website when files are changed.
-
-
-	plated/serv
-
-Start a simple static server locally, visit 
-http://0.0.0.0:8000/plated-example/ in your browser to view your 
-site.
-
-
-	plated/start
-
-Run plated/watch and plated/serv simultaneously. This is the main 
-script you should run to build and view your website locally whilst you 
-edit it.
-
-
-	plated/publish
-
-Builds and then does a git add/commit/pull/push of all files to publish 
-your pages to github. You may want to do this manually for more 
-control.
-
-
-	plated/pull
-
-Pull the latest changes direct from the plated-example repository and 
-attempt to ignore possible conflicts outside of this plated directory. 
-Hopefully this will pick up small bug fixes in these scripts without 
-breaking anything else.
-
-
-	plated/settings
-
-This contains settings used by all the other scripts and should not be 
-run directly.
-
-The website is generated into /docs from files found in /plated/source. The 
-docs folder is used for publishing using github pages. Select 
-master branch /docs folder as the source of your github pages under 
-project configuration. Now you can build and git commit changes to 
-publish to github pages.
-
-If you want to publish this project using a different repository name 
-be sure to adjust PLATED_ROOT=/plated-example in the plated/settings file from 
-/plated-example to the new github name. If publishing to your main 
-github page eg xriss.github.io then this should be set to / only.
-
-    This is the root directory that your site is published to on github.
-
-If you want to build into a different local directory then alter 
-PLATED_OUTPUT=../docs in the plated/settings file to point somewhere else. 
-
-    DANGER THE OUTPUT DIRECTORY WILL BE DELETED ON BUILD
+A boilerplate for a static website hosted on github.
 
 ## Dependencies
 
 Plated assumes you are comfortable with the command line and requires the following installed
 
-- [git](https://git-scm.com/downloads)
-- [nvm stable](https://github.com/creationix/nvm#installation)
+- [git](https://git-scm.com/downloads) ```sudo apt-get install git```
+- [nvm stable](https://github.com/creationix/nvm#installation) ```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash```
 
 # How to plated^
 
@@ -121,7 +45,95 @@ node_modules listed in your .gitignore file.
 
 	git pull git@github.com:xriss/plated-example
 
-Can also be used to update the plated/* scripts later on.
+Can also be used to update the ```plated/*``` scripts later on.
 
+
+# Scripts
+
+Plated is a node app, please make sure that node is available and that
+the node dependencies have been installed using ```plated/upgrade```.
+
+The following scripts may be run from this projects **root directory**.
+
+	plated/upgrade
+
+&#8627; This will install or upgrade plated using npm. Run this once for
+the scripts to work. Run this later to upgrade to the latest version.
+
+---
+
+	plated/build
+
+&#8627; Run this once to build the website.
+
+---
+
+	plated/start
+
+&#8627; **The main script you should run to build and view your website locally whilst you 
+edit it.** This runs ```plated/watch``` and ```plated/serv``` simultaneously.
+
+---
+
+	plated/watch
+
+&#8627; Watches the ```plated/source``` directory and continuously build the static 
+website when files are changed. _(optional if ```plated/start``` is running)_
+
+---
+
+	plated/serv
+
+&#8627; Start a simple static server locally, visit 
+http://0.0.0.0:8000/plated-example/ in your browser to view your 
+site. _(optional if ```plated/start``` is running)_
+
+---
+
+	plated/publish
+
+&#8627; Builds and then does a git add/commit/pull/push of all files to publish 
+your pages to github.
+
+You may want to do this manually for more control; _ie. add commit comments, etc._
+
+---
+
+	plated/pull
+
+&#8627; Pull the latest changes direct from the plated-example repository and 
+attempts to ignore possible conflicts outside of this plated directory.
+
+_This should pick up small bug fixes in these scripts without 
+breaking anything else._
+
+---
+
+	plated/settings
+
+&#8627; This contains settings used by all the other scripts and should not be 
+run directly.
+
+---
+
+The website is generated into /docs from files found in /plated/source.
+
+If you want to publish this project using a different repository name, 
+be sure to adjust ```PLATED_ROOT=/plated-example``` in the plated/settings file from 
+/plated-example to the new github name.
+
+If publishing to your main github page; eg. _xriss.github.io_ then 
+this should be set to ```/``` only. This is the root directory that your 
+site is published to on github.
+
+If you want to build into a different local directory, alter ```PLATED_OUTPUT=../docs``` 
+in the plated/settings file to point somewhere else. 
+
+```diff
+DANGER THE OUTPUT DIRECTORY WILL BE DELETED ON BUILD
+```
+    
+
+# Links
 
 Visit https://github.com/xriss/plated for plated documentation.
