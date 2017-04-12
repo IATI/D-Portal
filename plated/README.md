@@ -80,10 +80,10 @@ PLATED_OUTPUT=../docs in the plated/settings file to point somewhere else.
 
 ## Dependencies
 
-Requires the following installed
+Plated assumes you are comfortable with the command line and requires the following installed
 
-- [git](https://git-scm.com/download/linux)
-- [nvm stable](https://github.com/creationix/nvm)
+- [git](https://git-scm.com/downloads)
+- [nvm stable](https://github.com/creationix/nvm#installation)
 
 # How to plated^
 
