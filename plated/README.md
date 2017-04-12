@@ -7,8 +7,7 @@ A boilerplate for a static website hosted on github.
 Plated assumes you are comfortable with the command line and requires the following installed
 
 - [git](https://git-scm.com/downloads) ```sudo apt-get install git```
-- [nvm](https://github.com/creationix/nvm#installation) ```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash```
-- [latest node](https://github.com/creationix/nvm#usage) ```nvm install node```
+- [node](https://nodejs.org) ```sudo apt-get install nodejs-legacy npm```
 
 _Commands above are for debian/ubuntu. For other operating systems, please the use the links provided._
 
