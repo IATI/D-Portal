@@ -1,6 +1,6 @@
 # Plated-Example
 
-A boilerplate for a static website hosted on github.
+A boilerplate for a static website hosted on github; ie. http://username.github.io/new-repo
 
 ## Dependencies
 
@@ -63,21 +63,22 @@ The following scripts may be run from this projects **root directory**.
 	plated/upgrade
 
 &#8627; This will install or upgrade plated using npm.  
-Run this once for the scripts to work. Run this later to upgrade to the latest version.
+**Run this once for the scripts to work.** Run this later to upgrade to the latest version.
 
 ---
 
 	plated/build
 
-&#8627; Run this once to build the website.
+&#8627; **Run this once to build the website.**
 
 ---
 
 	plated/start
 
-&#8627; **The main script you should run to build and view your website locally whilst you 
-edit it.**  
-This runs ```plated/watch``` and ```plated/serv``` simultaneously.
+&#8627; This runs ```plated/watch``` and ```plated/serv``` simultaneously.  
+**This is the main script. It should be left running in the command line.**
+
+Run this to build and view your website locally whilst you edit it.
 
 ---
 
@@ -100,8 +101,8 @@ _(optional if ```plated/start``` is running)_
 
 	plated/publish
 
-&#8627; Builds and then does a git add/commit/pull/push of all files to publish 
-your pages to github.
+&#8627; Builds your website and then does a git add/commit/pull/push of all files to github.  
+**Run this to publish your pages to github. View your changes on your shiny new website!**
 
 You may want to do this manually for more control; _ie. add commit comments, etc._
 
