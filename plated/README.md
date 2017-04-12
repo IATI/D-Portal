@@ -78,6 +78,12 @@ PLATED_OUTPUT=../docs in the plated/settings file to point somewhere else.
 
     DANGER THE OUTPUT DIRECTORY WILL BE DELETED ON BUILD
 
+## Dependencies
+
+Requires the following installed
+
+- [git](https://git-scm.com/download/linux)
+- [nvm stable](https://github.com/creationix/nvm)
 
 # How to plated^
 
