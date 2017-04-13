@@ -14,8 +14,8 @@ _Commands above are for debian/ubuntu. For other operating systems, please the u
 # A step by step guide
 
 1. Visit https://github.com/new/import
-    - Paste `https://github.com/xriss/plated-example` into the URL
-    - Create a name for your new repository and click **Begin import**
+ - Paste `https://github.com/xriss/plated-example` into the URL
+ - Create a name for your new repository and click **Begin import**
 
 2. Edit /plated/settings in your new repository
     - Replace ```/plated-example``` with ```/new-repo```
@@ -70,7 +70,8 @@ The following scripts may be run from this projects **root directory**.
 
 	plated/upgrade
 
-&#8627; This will install or upgrade plated using npm.  
+&#8627; This will install or upgrade plated using npm.
+
 **Run this once for the scripts to work.** Run this later to upgrade to the latest version.
 
 ---
@@ -83,9 +84,9 @@ The following scripts may be run from this projects **root directory**.
 
 	plated/start
 
-&#8627; This runs ```plated/watch``` and ```plated/serv``` simultaneously.  
-**This is the main script. It should be left running in the command line.**
+&#8627; This runs ```plated/watch``` and ```plated/serv``` simultaneously.
 
+**This is the main script. It should be left running in the command line.**  
 Run this to build and view your website locally whilst you edit it.
 
 ---
@@ -93,8 +94,9 @@ Run this to build and view your website locally whilst you edit it.
 	plated/watch
 
 &#8627; Watches the ```plated/source``` directory and continuously build the static 
-website when files are changed.  
-_(optional if ```plated/start``` is running)_
+website when files are changed.
+
+_(Optional if ```plated/start``` is running)_
 
 ---
 
@@ -102,16 +104,17 @@ _(optional if ```plated/start``` is running)_
 
 &#8627; Start a simple static server locally, visit 
 http://0.0.0.0:8000/plated-example/ in your browser to view your 
-site.  
-_(optional if ```plated/start``` is running)_
+site.
+
+_(Optional if ```plated/start``` is running)_
 
 ---
 
 	plated/publish
 
-&#8627; Builds your website and then does a git add/commit/pull/push of all files to github.  
-**Run this to publish your pages to github. View your changes on your shiny new website!**
+&#8627; Builds your website and then does a git add/commit/pull/push of all files to github.
 
+**Run this to publish your pages to github. View your changes on your shiny new website!**  
 You may want to do this manually for more control; _ie. add commit comments, etc._
 
 ---
@@ -131,6 +134,7 @@ breaking anything else._
 &#8627; This contains settings used by all the other scripts and should not be 
 run directly.
 
+---
 
 
 ## Would you like to know more?
