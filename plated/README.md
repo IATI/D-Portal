@@ -133,6 +133,6 @@ run directly.
 
 
 
-# Links
+## Would you like to know more?
 
-Visit https://github.com/xriss/plated for plated documentation.
+Visit https://github.com/xriss/plated for plated documentation. See [LICENSE](https://github.com/xriss/plated-example/blob/master/plated/LICENSE.md) for details.
