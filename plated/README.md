@@ -2,6 +2,13 @@
 
 A boilerplate for a static website hosted on github; ie. http://username.github.io/new-repo
 
+## Table of contents
+  - [Dependencies](#dependencies)
+  - [A step by step guide](#a-step-by-step-guide)
+  - [Adding to an existing repository](#adding-plated-example-to-an-existing-repository)
+  - [Scripts](#scripts)
+  - [Links & license](#would-you-like-to-know-more)
+
 ## Dependencies
 
 Plated assumes you are comfortable with the command line and requires the following installed
@@ -14,8 +21,8 @@ _Commands above are for debian/ubuntu. For other operating systems, please the u
 # A step by step guide
 
 1. Visit https://github.com/new/import
- - Paste `https://github.com/xriss/plated-example` into the URL
- - Create a name for your new repository and click **Begin import**
+   - Paste `https://github.com/xriss/plated-example` into the URL
+   - Create a name for your new repository and click **Begin import**
 
 2. Edit /plated/settings in your new repository
     - Replace ```/plated-example``` with ```/new-repo```
@@ -64,7 +71,7 @@ Plated is a node app.
 
 Please make sure node is available and node dependencies have been installed using ```plated/upgrade```.
 
-The following scripts may be run from this projects **root directory**.
+The following scripts may be run from this project's **root directory**.
 
 ---
 
@@ -86,8 +93,8 @@ The following scripts may be run from this projects **root directory**.
 
 &#8627; This runs ```plated/watch``` and ```plated/serv``` simultaneously.
 
-**This is the main script. It should be left running in the command line.**  
-Run this to build and view your website locally whilst you edit it.
+**The main script. It should be left running in the command line.**  
+Run this to build and view your website locally whilst you edit it. Make sure your browser is not caching the content.
 
 ---
 
