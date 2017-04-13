@@ -9,7 +9,7 @@ A boilerplate for a static website hosted on github; ie. http://username.github.
   - [Scripts](#scripts)
   - [Links & license](#would-you-like-to-know-more)
 
-## Dependencies
+# Dependencies
 
 Plated assumes you are comfortable with the command line and requires the following installed
 
@@ -54,7 +54,7 @@ in the plated/settings file to point somewhere else.
 - DANGER THE OUTPUT DIRECTORY WILL BE DELETED ON BUILD
 ```
 
-## Adding Plated-Example to an existing repository
+# Adding Plated-Example to an existing repository
 
 Run the following to pull the latest version of Plated-Example into an existing repository
 
@@ -144,6 +144,6 @@ run directly.
 ---
 
 
-## Would you like to know more?
+# Would you like to know more?
 
 Visit https://github.com/xriss/plated for plated documentation. See [LICENSE](https://github.com/xriss/plated-example/blob/master/plated/LICENSE.md) for details.
