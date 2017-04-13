@@ -53,9 +53,9 @@ Run the following to pull the latest version of Plated-Example into an existing 
 
 `git pull git@github.com:xriss/plated-example --allow-unrelated-histories`
 
-    - Beware of merge conflicts, where both projects contain the same file.
-    - You will probably conflict with this README.md file but this can just be replaced with your own version.
-    - Make sure you have node_modules listed in your .gitignore file.
+  - Beware of merge conflicts, where both projects contain the same file.
+  - You will probably conflict with this README.md file but this can just be replaced with your own version.
+  - Make sure you have ```node_modules``` listed in your .gitignore file.
     
 
 # Scripts
