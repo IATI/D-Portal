@@ -753,11 +753,13 @@ query.do_select=function(q,res,req){
 	var qv={};	
 	r.qvals=qv
 	r.query =	" SELECT "+
+				(q.distincton?"* FROM ( SELECT ":"")+
 				query.getsql_distinct_on(q,qv) + 
 				query.getsql_select(q,qv) + 
 				query.getsql_from(q,qv) + 
 				query.getsql_where(q,qv) + 
 				query.getsql_group_by(q,qv) + 
+				(q.distincton?" ) q ":"")+
 				query.getsql_order_by(q,qv) + 
 				query.getsql_limit(q,qv);
 

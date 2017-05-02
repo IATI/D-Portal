@@ -56,8 +56,9 @@ view_list_activities.ajax=function(args)
 
 	fetch.ajax_dat_fix(dat,args);
 
-// cant use, must fix code
-	delete dat.orderby;
+// cant use for postgres, must fix code...
+//	delete dat.orderby;
+//if(dat.orderby){ dat.orderby=dat.orderby+",aid"; }
 
 	if(args.output=="count") // just count please
 	{
