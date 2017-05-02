@@ -120,12 +120,13 @@ iati_xml.get_value_currency=function(it,name)
 	return null;
 }
 
-iati_xml.get_ex=function(it,name,ex)
+iati_xml.get_ex=function(it,name,ex,cur)
 {
+	var cur=cur||"USD"; // default currency
 	var ym=iati_xml.get_value_yearmonth(it,name) || 201001; // pick a default yearmonth?
 	if(ym<199001) { ym=199001; } // deal with bad year formats
 	
-	var x=iati_xml.get_value_currency(it,name) || "USD";
+	var x=iati_xml.get_value_currency(it,name) || cur;
 	var v=iati_xml.get_value(it,name);
 	if("number"==typeof v) { return exs.exchange_yearmonth(ex,ym,x,v); }
 }

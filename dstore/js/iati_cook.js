@@ -14,6 +14,46 @@ var exs=require('./exs');
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// !!! ALL THIS CODE IS NOW DISABLED !!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // cook the data inside this activity
 // make sure that all default values are copied into the places they should be applied
 // some values are also unified if it makes sense, eg planed/actual dates are diplicated to the other if only one exists
@@ -221,3 +261,11 @@ iati_cook.transaction=function(act,it)
 iati_cook.budget=function(act,it)
 {
 }
+
+// disable all cooking of XML, this was a bad idea in the beginning and is now removed.
+
+iati_cook.activity=function(act){};
+iati_cook.transaction=function(act,it){};
+iati_cook.budget=function(act,it){};
+
+
