@@ -76,10 +76,12 @@ iati_codes.fetch = function(){
 				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/Sector.json",
 				name:"sector",
 			},
+/* replaced with csv/sector_category.csv
 			{
 				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/SectorCategory.json",
 				name:"sector_category",
 			},
+*/
 			{
 				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/TransactionType.json",
 				name:"new_transaction_type",
@@ -138,6 +140,28 @@ iati_codes.fetch = function(){
 	codes["transaction_type_map"]=o; // map new codes to old codes and leave old codes as they are
 
 	
+	console.log("Parsing csv/sector_category.csv")
+	
+	
+	var x=fs.readFileSync(__dirname+"/../csv/sector_category.csv","utf8");
+	var lines=baby.parse( x ).data;
+	var o={};
+	for(var i=1;i<lines.length;i++)
+	{
+		var v=lines[i];
+		var a=(v[0]);
+		var b=v[1];
+		if(a && a.length>0 && b && b.length>0 )
+		{
+			o[a.trim()]=b.trim();
+		}
+	}
+	
+//	ls(o);
+	codes["sector_category"]=o;
+
+
+
 	console.log("Fetching country_codes")
 
 // it turns out wikipedia is the best source, since the iso website has decided to hide its most precious data behind a paywall
