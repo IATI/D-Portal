@@ -69,10 +69,10 @@ console.log("adding narrative tag to "+it.html());
 			});
 		});
 	}
-*/
+
 	
 
-	var ad=it.children("activity-date");
+	var ad=it.children("activity-date"); // added in ( PRE 201 ), to include actual dates when there isn't one for savi layout
 	var got_start=false;
 	var got_end=false;
 	ad.each(function(i,a){
@@ -89,6 +89,7 @@ console.log("adding narrative tag to "+it.html());
 
 	if(!got_start){ it.append("<activity-date type=\"start-actual\" />"); }
 	if(!got_end)  { it.append("<activity-date type=\"end-actual\" />"); }
+*/
 	
 });
 
@@ -406,11 +407,11 @@ sorted++;
 	var sortlist=[
 		"title",
 		"span-title",
+		"reporting-org",
 		"iati-identifier",
 		"recipient-country",
 		"activity-date",
 		"participating-org",
-		"reporting-org",
 		"description",
 		"sector",
 		"budget",

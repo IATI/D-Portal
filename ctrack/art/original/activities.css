@@ -62,22 +62,34 @@ recipient-country span					{font-size:48px; color:#FFF;}
 recipient-country span:nth-of-type(2)	{font-size:20px; color:#97c4ff; padding-top:10px;}
 
 
-/*	Start and End dates
+/*	Start and End dates (Planned and Actual)
 	============================================= */
-span.span_activity-date				{display:block; vertical-align:baseline; width:980px; background-color:rgb(218,113,2); margin-left:-10px;}
-activity-date[type="start-planned"]	{display:none;}
-activity-date[type="end-planned"]	{display:none;}
-activity-date[type="start-actual"]	{font-size:20px; display:table-cell; vertical-align:baseline; padding:10px 30px 10px 50px; color:#FFF; width:480px;}
-activity-date[type="end-actual"]	{font-size:20px; display:table-cell; vertical-align:baseline; padding:10px 40px; color:#FFF; width:480px; text-align:right; background-color:#ff890c;}
-activity-date[type="start-actual"]:before{content:"START DATE"; font-size:14px; color:#000e20; display:inline-block; vertical-align:baseline; padding-right:10px;}
-activity-date[type="end-actual"]:before	{content:"END DATE"; font-size:14px; color:#000e20; display:inline-block; vertical-align:baseline; padding-right:10px;}
+span.span_activity-date				{display:block; vertical-align:baseline; width:980px; background-color:#724514; margin-left:-10px; position:relative; height:81px;}
+activity-date						{box-sizing:border-box;}
+
+activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"],
+activity-date[type="end-planned"]	{font-size:20px; display:block; vertical-align:baseline; padding:10px 30px 10px 50px; color:#FFF; width:490px; background-color:#da7102;}
+activity-date[type="2"], activity-date[type="4"], activity-date[type="start-actual"],
+activity-date[type="end-actual"]	{font-size:20px; display:block; vertical-align:baseline; padding:10px 40px; color:#FFF; width:490px; text-align:right; background-color:#ff890c;}
+
+
+activity-date[type="1"]:before, activity-date[type="start-planned"]:before	{content:"PLANNED START DATE"; font-size:14px; color:#000e20; display:inline-block; vertical-align:baseline; padding-right:10px;}
+activity-date[type="2"]:before, activity-date[type="start-actual"]:before	{content:"ACTUAL START DATE"; font-size:14px; color:#000e20; display:inline-block; vertical-align:baseline; padding-right:10px;}
+activity-date[type="3"]:before, activity-date[type="end-planned"]:before	{content:"PLANNED END DATE"; font-size:14px; color:#000e20; display:inline-block; vertical-align:baseline; padding-right:25px;}
+activity-date[type="4"]:before, activity-date[type="end-actual"]:before		{content:"ACTUAL END DATE"; font-size:14px; color:#000e20; display:inline-block; vertical-align:baseline; padding-right:10px;}
+
+activity-date[type="1"], activity-date[type="start-planned"]	{position:absolute; top:0; left:0;}
+activity-date[type="2"], activity-date[type="start-actual"]		{position:absolute; top:0; right:0;}
+activity-date[type="3"], activity-date[type="end-planned"]		{position:absolute; bottom:0; left:0;}
+activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; bottom:0; right:0;}
+
 
 
 /*	Who's invloved?
 	============================================= */
 span.span_participating-org			{display:block; width:880px; padding:40px 40px 10px 40px; font-size:18px; color:#FFF; counter-reset:section;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
-participating-org::before			{counter-increment:section;content:counter(section) ". ";display: inline-block;vertical-align: top;}
+participating-org::before			{counter-increment:section; content:counter(section) ". "; display:inline-block; vertical-align:top; margin-right:5px;}
 participating-org 					{display:block;list-style-position: outside;list-style-type:decimal;padding:10px 0;}
 participating-org a					{display:initial;}
 participating-org a:link			{color:#FF7A00;}
@@ -99,7 +111,7 @@ span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:1
 reporting-org 					{display:block; width:880px; padding:20px 40px; font-size:18px; color:#FFF; line-height:1.45em;}
 reporting-org:before 			{content:"This activity is reported by"; display:inline-block; padding-right:5px; color:#ccc; font-size:16px; font-weight:normal;}
 reporting-org:after				{content:"."; color:#ccc; font-size:16px; font-weight:normal;}
-reporting-org:nth-of-type(1)	{padding-top:20px; margin-top:20px;}
+reporting-org:nth-of-type(1)	{padding-top:0px;}
 reporting-org:last-of-type		{padding-bottom:20px;}
 
 
