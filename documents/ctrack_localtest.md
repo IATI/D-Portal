@@ -13,8 +13,7 @@ to install.
 https://help.github.com/articles/set-up-git
 
 
-1. Installing git and node on Ubuntu
-====================================
+## 1. Installing git and node on Ubuntu
 
 Open a command line and type the following one line at a time to 
 create a directory in your home directory containing the project.
@@ -36,8 +35,7 @@ you are expected to run them from. If you are already in the right
 directory then the CD may be skipped and should not be run twice.
 
 
-1. Installing git and node on Windows
-=====================================
+## 1. Installing git and node on Windows
 
 Download and install git and node for windows from the following 
 locations, just go with the default settings when the installers asks 
@@ -65,8 +63,7 @@ you are expected to run them from. If you are already in the right
 directory then the CD may be skipped and should not be run twice.
 
 
-2. Prepare the required node modules.
-=====================================
+## 2. Prepare the required node modules.
 
 This only needs to be run once, it will download and install the 
 node modules that ctrack depends upon.
@@ -77,8 +74,7 @@ node modules that ctrack depends upon.
 This will chug away for a little while downloading code.
 
 
-3. Run the localhost server.
-============================
+## 3. Run the localhost server.
 
 This is only going to run ctrack module, the extra opton tells it to 
 visit d-portal to fetch the data so you do not need to install or 
@@ -93,8 +89,7 @@ in your browser at the following url
 http://localhost:1337/
 
 
-4. Refresh the localhost server.
-================================
+## 4. Refresh the localhost server.
 
 Press Control + C to stop this server and then just run the command 
 again to start it up again. Since this also builds you should make 
@@ -103,8 +98,7 @@ in order to see your updates. Pressing up arrow is an easy way to
 get the last typed in command without having to type it in again.
 
 
-5. In the future
-================
+## 5. In the future
 
 After rebooting your machine you will not need to perform all the 
 above steps just the following,
@@ -116,8 +110,7 @@ above include help on how to do this.
 Now you can repeat steps 3 and 4 to run the server again.
 
 
-6. Testing local data
-=====================
+## 6. Testing local data
 
 We can also import xml activities into a local database to view and 
 test using the following commands.
@@ -128,6 +121,22 @@ test using the following commands.
 Creates or resets the local database, this must be run once before 
 importing data and should be run before importing new data if you want 
 to make sure that only the new data is included.
+
+	
+**There are a few scripts in here that can be run to download and import 
+data to the local database.**
+
+	cd D-Portal/bin
+	./dstore_import_bd_ug_hn
+	
+Downloads and imports data for these respective countries from IATI Datastore, one country at a time.  
+_This is the recommended option for filling up a test database._
+
+	cd D-Portal/bin
+	./dstore_import_full
+	
+Downloads and imports all the data from the IATI Datastore, one country at a time.  
+_This option will take a relatively long time to process and will use up a lot of disc space._
 
 	cd D-Portal/dstore
 	./dstore import activity_data.xml
