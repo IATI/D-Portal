@@ -131,6 +131,8 @@ span.span_description description[type="3"]:before	{content:"TARGET GROUPS"; fon
 span.span_description description:last-of-type		{padding-bottom:40px; border-bottom:1px solid #000; border-top:0;}
 span.span_description description:nth-child(1)		{border-top:1px solid #000;}
 
+span.span_description description.empty				{display:none;}	/*	Hides container if empty	*/
+
 
 /*	Result and description
 	============================================= */

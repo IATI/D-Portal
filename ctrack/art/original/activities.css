@@ -126,6 +126,8 @@ span.span_description description[type="3"]:before	{content:"TARGET GROUPS"; fon
 span.span_description description:last-of-type		{padding-bottom:40px;}
 span.span_description narrative:nth-of-type(2)		{display:block; padding:20px 0 0 0; font-style:italic;}
 
+span.span_description description.empty				{display:none;}	/*	Hides container if empty	*/
+
 
 /*	Result and description
 	============================================= */
