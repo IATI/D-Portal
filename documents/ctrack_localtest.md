@@ -1,6 +1,5 @@
 
-How to Install and Setup a test server
-=============================================
+# How to Install and Setup a test server
 
 First you need to install git and node this is a different problem 
 depending on which operating system you are using and only needs to 
@@ -11,6 +10,14 @@ little read of that first to give you an idea of what you are about
 to install.
 
 https://help.github.com/articles/set-up-git
+
+## Table of contents
+  - [Install on Ubuntu](#1-installing-git-and-node-on-ubuntu)
+  - [Install on Windows](#2-prepare-the-required-node-modules)
+  - [Run a local server](#3-run-the-localhost-server)
+  - [Refresh the server](#4-refresh-the-localhost-server)
+  - [Ongoing usage](#5-in-the-future)
+  - [Import some data](#6-testing-local-data)
 
 
 ## 1. Installing git and node on Ubuntu
@@ -101,13 +108,11 @@ get the last typed in command without having to type it in again.
 ## 5. In the future
 
 After rebooting your machine you will not need to perform all the 
-above steps just the following,
+above steps just the following:
 
-Open a command line, see step 1 above for help on how to do this on 
-your operating system. CD into the ctrack directory, again step 1 
-above include help on how to do this.
-
-Now you can repeat steps 3 and 4 to run the server again.
+  - Open a command line  (_see [Step 1](#1-installing-git-and-node-on-ubuntu) for help on how to do this on your operating system_)
+  - ```cd``` into the ctrack directory (_see [Step 1](#1-installing-git-and-node-on-ubuntu) for more help_)
+  - Now you can repeat Steps 3 and 4 to run the server again.
 
 
 ## 6. Testing local data
@@ -149,5 +154,5 @@ this many times and all the data will be merged.
 
 This runs the server using the local database, so it will only show 
 data that has been imported. it may be accessed, stopped and restarted as 
-described in step 3/4.
+described in [Step 3](#3-run-the-localhost-server) and [Step 4](#4-refresh-the-localhost-server).
 
