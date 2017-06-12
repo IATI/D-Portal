@@ -146,7 +146,7 @@ result[type="3"] span-title:before	{content:"IMPACT";}
 result[type="9"] span-title:before	{content:"OTHER";}
 
 result indicator			{display:block; margin:auto; margin-top:30px; margin-bottom:40px; width:880px;}
-result indicator:first-of-type	{margin-top:10px;}
+result indicator:first-of-type	{margin-top:20px;}
 result indicator:before		{content:"INDICATOR"; font-size:14px; color:#ccc; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #aaa; padding:10px 0;}
 result indicator[measure="1"]:before	{content:"INDICATOR UNIT";}
 result indicator[measure="2"]:before	{content:"INDICATOR PERCENTAGE";}
@@ -169,8 +169,8 @@ result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#
 result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
-result indicator period period-start{width:180px; padding:20px; font-size:34px;}
-result indicator period period-end	{width:620px; padding:20px; font-size:34px; text-align:right;}	
+result indicator period period-start{width:180px; padding:20px; padding-left:0; font-size:34px;}
+result indicator period period-end	{width:660px; padding:20px; padding-right:0; font-size:34px; text-align:right;}	
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
