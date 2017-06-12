@@ -366,14 +366,7 @@ ctrack.setup=function(args)
 		}
 	};
 
-	if(args.publisher)
-	{
-		ctrack.crumbs=[{hash:"#view=publisher",view:"publisher"}];
-	}
-	else
-	{
-		ctrack.crumbs=[{hash:"#view=main",view:"main"}];
-	}
+	ctrack.crumbs=[{hash:"#view=main",view:"main"}];
 	
 	ctrack.setcrumb=function(idx)
 	{
@@ -398,16 +391,8 @@ ctrack.setup=function(args)
 			}
 			else
 			{
-//				if(args.publisher)
-//				{
-//					ctrack.chunk("crumb"+i+"_hash","#view=publisher");
-//					ctrack.chunk("crumb"+i+"_view","publisher");
-//				}
-//				else
-				{
-					ctrack.chunk("crumb"+i+"_hash","#view=main");
-					ctrack.chunk("crumb"+i+"_view","main");
-				}
+				ctrack.chunk("crumb"+i+"_hash","#view=main");
+				ctrack.chunk("crumb"+i+"_view","main");
 			}
 		}
 		ctrack.chunk("crumbs","{crumbs"+ctrack.crumbs.length+"}");
