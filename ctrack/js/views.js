@@ -40,6 +40,9 @@ views.sector_transactions=require("./view_sector_transactions.js");
 views.sector_budgets=require("./view_sector_budgets.js");
 views.sector_activities=require("./view_sector_activities.js");
 
+views.countries=require("./view_countries.js");
+views.countries_top=require("./view_countries_top.js");
+
 views.districts=require("./view_districts.js");
 
 views.act=require("./view_act.js");

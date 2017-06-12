@@ -14,6 +14,7 @@
 {about_data_links}
 {main_stats}
 {donor_graph}
+{countries_graph}
 {sector_graph}
 {main_map}
 {main_active}
@@ -359,6 +360,62 @@
 </style>
 </div>
 
+
+#countries_graph
+<div class="default">
+<a href="#view=countries" class="graph_wrap">
+	<span class="ask donor">
+		<span class="ask_title">{title_countries_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak donor"></span>
+		</span>
+	</span>
+<div id="countries_graph"></div>
+<span class="graph_view_all pub_donor">{link_donor_text}</span>
+</a>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_countries");
+	var opts={
+		layout:"right",
+		width:958,
+		height:320,
+		center_x:250,
+		center_y:150,
+		radius:135,
+		hole:40,
+		caption_css:undefined,
+		color:["#74BAFF","#42A0FB","#0081FF","#49739C","#5B6572"],
+		caption_edge:100,
+		caption_fix:[0,-10],
+		stroke_width:1,
+		line_width:3,
+		tints:{
+			fill:[1,1,1,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
+		},
+	}
+	ctrack.draw_chart("#countries_graph",data,opts);
+</script>
+<style>
+ #countries_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #countries_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
+</div>
 
 #publisher_countries_graph
 <div class="default">

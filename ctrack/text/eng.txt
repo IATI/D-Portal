@@ -145,6 +145,9 @@ Activity map
 #crumbname_publisher_text
 {publisher_name} Home
 
+#crumbname_countries_text
+Country Table
+
 #crumbname_publisher_countries_text
 Country Table
 
@@ -807,6 +810,12 @@ total
 #table_available_tip_text
 Budget from publisher's organisation file
 
+#title_countries_text
+The funding went to {countries_count} countries (in {year})
+
+#title_countries_table_text
+The funding went to {countries_count} countries ({year1}-{year3})
+
 #title_publisher_countries_text
 The funding went to {countries_count} countries (in {year})
 
@@ -842,6 +851,36 @@ IATI BUDGET
 
 #publisher_sectors_data_info3_text
 Total activity-level budgets for this and next year reported to IATI. Clicking on any cell will take you to a list of projects that make up the value in that cell (listed in order of their contribution to that value). 
+
+#countries_data_description_title_text
+How is the data calculated?
+
+#countries_data_description_text
+This table shows the recipient countries reported by {publisher_name}. The columns display the following data:
+
+#countries_data_title1_text
+COUNTRY
+
+#countries_data_info1_text
+The Countries listed here are recipient countries reported by {publisher_name}.
+
+#countries_data_title2_text
+IATI SPEND
+
+#countries_data_info2_text
+Three columns contain total disbursements and expenditure reported to IATI for the current and previous two years. The first column year will always be for the same year as the most recent CRS data, enabling comparisons between the two systems. 
+
+#countries_data_title3_text
+IATI BUDGET (allocated)
+
+#countries_data_info3_text
+Total activity-level budgets for this year reported to IATI in {publisher_name}’s activity files. Clicking on any cell will take you to those projects that make up the value in the cell (listed in order of their contribution to that value). Please note you can click through future years using the arrows.
+
+#publisher_countries_data_title4_text
+IATI BUDGET (total)
+
+#countries_data_info4_text
+Total organisational budgets for this year reported to IATI in {publisher_name}’s organisation file. These are flat figures for annual budgets by country so there is no breakdown within the data. Please note you can click through future years using the arrows. 
 
 #publisher_countries_data_description_title_text
 How is the data calculated?
