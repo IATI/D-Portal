@@ -8,7 +8,7 @@ Where does the money come from? (IATI {year})
 Where does the money go? (IATI {year})
 
 #money_title_icon_alt_text
-The public wants to know where the money is!
+Explore IATI data!
 
 #sort_icon_alt_text
 Arrows pointing up and down to denote sorting
@@ -242,13 +242,13 @@ Back to Country table
 Total spend in {year}
 
 #view_donor_activities_text
-Active projects and current spend ({USD})
+Projects and current spend ({USD})
 
 #view_sector_transactions_text
 Total spend in {year}
 
 #view_sector_activities_text
-Active projects and current spend ({USD})
+Projects and current spend ({USD})
 
 #reported_by_text
 Reported by {reporting}
@@ -479,10 +479,10 @@ d-portal.org
 helps you explore IATI data.
 
 #footer8_text
-It provides information by country or by publisher on development activities and budgets published to IATI.
+It provides a search function and information by country or by publisher on development activities and budgets published to IATI.
 
 #footer9_text
-We are currently in BETA. While d-portal is publicly available, it is not considered finished. You may experience bugs and missing features, but that is why we need your feedback and support.
+d-portal is currently in BETA. While d-portal is publicly available, it is not considered finished. Please feedback if you experience any bugs and missing features.
 
 #footer10_text
 Send emails to
@@ -524,19 +524,19 @@ Attribution and links to data sources
 How is the data calculated?
 
 #xml_data_description_text
-Transaction amounts are in published currency (not necessarily USD, as previous pages). Missing values suggest insufficient data and signify data quality issues. Click on the IATI Identifier link above to view SAVi XML or view the unstyled XML by clicking on the XML link. Right-click and "Save as..." to download XML.
+Transaction amounts are in the published currency (not necessarily USD, as previous pages). Missing values suggest insufficient data and signify data quality issues. Click on the IATI Identifier link above to view SAVi XML or view the unstyled XML by clicking on the XML link. Right-click and "Save as..." to download XML.
 
 #donors_data_description_title_text
 How is the data calculated?
 
 #donors_data_description_text
-This table shows external resource flows being used in development: past, present and future.  All cells should contain data and the fact that many don't is a problem with the quality of available data. The columns display the following data:
+This table shows external resource flows being used in development: past, present and future.  All cells should contain data - the fact that some don't represents a problem with the quality of available data. The columns display the following data:
 
 #donors_data_title1_text
 CRS
 
 #donors_data_info1_text
-All members of the OECD and a number of other countries and institutions report annually to the <span class="bold italic">OECD Creditor Reporting System</span> on Official Development Assistance and other official flows. This data is published retrospectively: usually in December of each year the CRS is updated with data from the previous year (so is between 12 and 23 months out of date). While backward-looking data is not particularly helpful for development planning - it is a very useful and relatively accurate point of reference. It is particularly useful for including place holders for countries and institutions that currently do not report to IATI. The data provided in this column is the annual total disbursements (spend) for the donor. The values are in current US dollars. "-" indicate that there is no CRS data for that donor.
+All members of the OECD and a number of other countries and institutions report annually to the <span class="bold italic">OECD Creditor Reporting System</span> on Official Development Assistance and other official flows. This data is published retrospectively: usually in December of each year the CRS is updated with data from the previous year (so is between 12 and 23 months out of date). While backward-looking data is not particularly helpful for development planning it is a very useful and relatively accurate point of reference. It is particularly useful for including placeholders for countries and institutions that currently do not report to IATI. The data provided in this column is the annual total disbursements (spend) for the donor. The values are in current US dollars. "-" indicate that there is no CRS data for that donor.
 
 #donors_data_title2_text
 DONOR
@@ -586,7 +586,7 @@ This table shows the sectors to which external development resource flows are be
 CRS
 
 #sectors_data_info1_text
-All members of the OECD and a number of other countries and institutions report annually to the <span class="bold italic">OECD Creditor Reporting System</span> on Official Development Assistance and other official flows. This data is published retrospectively: in December of each year the CRS is updated with data from the previous year (so is between 12 and 23 months out of date). While backward-looking data is not particularly helpful for development planning, it is a very useful and relatively accurate point of reference. It is particularly useful for including place holders for countries and institutions that currently do not report to IATI. The data provided in this column is the annual total disbursements (spend) reported by <span class="italic">all</span> OECD CRS reporters for each sector. The values are in current US dollars.
+All members of the OECD and a number of other countries and institutions report annually to the <span class="bold italic">OECD Creditor Reporting System</span> on Official Development Assistance and other official flows. This data is published retrospectively: in December of each year the CRS is updated with data from the previous year (so is between 12 and 23 months out of date). While backward-looking data is not particularly helpful for development planning, it is a very useful and relatively accurate point of reference. It is particularly useful for including placeholders for countries and institutions that currently do not report to IATI. The data provided in this column is the annual total disbursements (spend) reported by <span class="italic">all</span> OECD CRS reporters for each sector. The values are in current US dollars.
 
 #sectors_data_title2_text
 SECTOR
@@ -673,7 +673,7 @@ IATI data for 2016 taken from the <a href="http://iatiregistry.org/">IATI Regist
 Heatmap
 
 #main_data_paragraph7_text
-A count of IATI activities that contain specific coordinates in their location data. NB - very few IATI activities currently contain this data.
+A count of IATI activities that contain specific coordinates in their location data. NB - only some IATI activities currently contain this data.
 
 #main_data_paragraph8_text
 Typically this data will have been updated from the <a href="http://iatiregistry.org/">IATI Registry</a> everyday at midnight GMT.
@@ -736,7 +736,7 @@ This is a list of all publishers found within this dataset.
 How is the data calculated?
 
 #missing_data_description_text
-For each project, there is a start and end date. An 'Other' project is one with invalid dates; ie, missing either start or both start and end dates.
+For each project, there is a start and end date. An 'Other' project is one with invalid dates; ie, missing either a start date or both start and end dates.
 
 #map_data_description_title_text
 How is the data calculated?
@@ -748,7 +748,7 @@ Only activities that provide locations are displayed on the map. Locations are l
 Why data quality matters
 
 #data_paragraph1_text
-Most of the data currently available in d-portal comes from IATI publishers: over 500 organisations who are publishing their development activities in IATI-XML format. This data is published on their own websites and indexed on IATI's Registry. On a nightly basis IATI polls all data indexed on the registry and saves the latest version of each published activity in a central Datastore. The Datastore is therefore not a curated database, but a compilation of all IATI data as of last night.
+Most of the data currently available in d-portal comes from IATI publishers: over 500 organisations who are publishing their development activities in IATI-XML format. This data is published on their own websites and indexed on IATI's Registry. 
 
 #data_paragraph2_text
 The IATI standard is flexible in its reporting rules to allow as many different organisations with varying capacity to publish their data in this common format. The philosophy is for organisations to start publishing what they can and improve the quality of their data over time. This means that there will always be data of varying quality available through IATI.
@@ -835,7 +835,7 @@ The sectors listed here are OECD DAC CRS 3 digit sector codes. This table is sor
 IATI SPEND
 
 #publisher_sectors_data_info2_text
-Three columns containing total disbursements and expenditure reported to IATI for the current and previous two years. The first column will always be the same year as the most recent CRS data, enabling comparisons between the two. 
+Three columns containing total disbursements and expenditure reported to IATI for the current and previous two years. The first column year will always be the same year as the most recent CRS data, enabling comparisons between the two. 
 
 #publisher_sectors_data_title3_text
 IATI BUDGET
@@ -859,7 +859,7 @@ The Countries listed here are recipient countries reported by {publisher_name}.
 IATI SPEND
 
 #publisher_countries_data_info2_text
-Three columns contain total disbursements and expenditure reported to IATI for the current and previous two years. The first column will always be for the same year as the most recent CRS data, enabling comparisons between the two systems. 
+Three columns contain total disbursements and expenditure reported to IATI for the current and previous two years. The first column year will always be for the same year as the most recent CRS data, enabling comparisons between the two systems. 
 
 #publisher_countries_data_title3_text
 IATI BUDGET (allocated)
@@ -892,7 +892,7 @@ The publishers listed here are those that have reported their data to IATI.
 IATI SPEND
 
 #publishers_data_info2_text
-Three columns containing total disbursements and expenditure reported to IATI for the current and previous two years. The first column will always be the same year as the most recent CRS data, enabling comparisons between the two. 
+Three columns containing total disbursements and expenditure reported to IATI for the current and previous two years. The first column year will always be the same year as the most recent CRS data, enabling comparisons between the two. 
 
 #publishers_data_title3_text
 IATI BUDGET
