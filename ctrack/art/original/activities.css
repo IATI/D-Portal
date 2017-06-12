@@ -104,7 +104,8 @@ participating-org[role="4"]:after, participating-org[role="implementing"]:after	
 
 span-narrative.participating-role	{font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px; text-transform:uppercase; line-height:initial;}
 
-span.span_participating-org narrative:nth-of-type(n+2)	{display:inline; padding:10px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
+span.span_participating-org narrative:nth-of-type(n+2)			{display:inline; padding:10px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
+span.span_participating-org narrative:nth-of-type(n+2):before	{display:block; content:""; padding-bottom:5px;}
 
 
 /*	Reported by
