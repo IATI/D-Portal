@@ -398,12 +398,12 @@ ctrack.setup=function(args)
 			}
 			else
 			{
-				if(args.publisher)
-				{
-					ctrack.chunk("crumb"+i+"_hash","#view=publisher");
-					ctrack.chunk("crumb"+i+"_view","publisher");
-				}
-				else
+//				if(args.publisher)
+//				{
+//					ctrack.chunk("crumb"+i+"_hash","#view=publisher");
+//					ctrack.chunk("crumb"+i+"_view","publisher");
+//				}
+//				else
 				{
 					ctrack.chunk("crumb"+i+"_hash","#view=main");
 					ctrack.chunk("crumb"+i+"_view","main");
