@@ -18,6 +18,8 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 
 // the chunk names this view will fill with new data
 view_sectors_top.chunks=[
+	"data_chart_publisher_sectors",
+	"sectors_count",
 ];
 
 
@@ -109,6 +111,10 @@ view_sectors_top.ajax=function(args)
 		}
 
 		ctrack.chunk("data_chart_sectors",dd);	
+		ctrack.chunk("sectors_count",list.length);
+
+		if(list.length==0) { ctrack.chunk("sector_graph",""); } // remove graph if no data
+
 		ctrack.display();
 
 	};

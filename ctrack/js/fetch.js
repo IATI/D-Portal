@@ -91,24 +91,29 @@ fetch.ajax_dat_fix=function(dat,args)
 	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
 
 // then allow passed in args to overide that
-	for(var n in args.q) { dat[n]=args.q[n]; }
-
+	if(args.q)
+	{
+		for(var n in args.q) { dat[n]=args.q[n]; }
+	}
 
 // join any extra tables we might now need due to extra restrictions
-	if( dat.sector_code || dat.sector_group )
+	if(dat.from)
 	{
-		if(dat.from.indexOf("sector")==-1) { dat.from+=",sector"; }
-	}
-	if(dat.country_code)
-	{
-		if(dat.from.indexOf("country")==-1) { dat.from+=",country"; }
-	}
-	if(
-		dat.location_latitude || dat.location_longitude ||
-		dat.location_latitude_lt || dat.location_longitude_lt ||
-		dat.location_latitude_gt || dat.location_longitude_gt )
-	{
-		if(dat.from.indexOf("location")==-1) { dat.from+=",location"; }
+		if( dat.sector_code || dat.sector_group )
+		{
+			if(dat.from.indexOf("sector")==-1) { dat.from+=",sector"; }
+		}
+		if(dat.country_code)
+		{
+			if(dat.from.indexOf("country")==-1) { dat.from+=",country"; }
+		}
+		if(
+			dat.location_latitude || dat.location_longitude ||
+			dat.location_latitude_lt || dat.location_longitude_lt ||
+			dat.location_latitude_gt || dat.location_longitude_gt )
+		{
+			if(dat.from.indexOf("location")==-1) { dat.from+=",location"; }
+		}
 	}
 
 	return dat;

@@ -35,6 +35,7 @@ view_main.view=function(args)
 	views.active.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.ended.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.stats.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+		
 	views.donors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.countries_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.sectors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
@@ -60,9 +61,35 @@ view_main.view=function(args)
 		top_opts.year="all years";
 	}
 
-	views.donors_top.ajax( top_opts );
-	views.countries_top.ajax( top_opts );
-	views.sectors_top.ajax( top_opts );
+	var test=fetch.ajax_dat_fix({},{}); // do all the icky merge logic so we can test
+	
+	if( test["country_code"] )
+	{
+		ctrack.chunk("countries_graph","");
+	}
+	else
+	{
+		views.countries_top.ajax( top_opts );
+	}
+
+	if( test["reporting_ref"] || test["funder_ref"] )
+	{
+		ctrack.chunk("donor_graph","");
+	}
+	else
+	{
+		views.donors_top.ajax( top_opts );
+	}
+
+	if( test["sector_code"] || test["sector_group"] )
+	{
+		ctrack.chunk("sector_graph","");
+	}
+	else
+	{
+		views.sectors_top.ajax( top_opts );
+	}
+
 
 	ctrack.map.pins=undefined;
 	views.map.ajax_heat({limit:200});

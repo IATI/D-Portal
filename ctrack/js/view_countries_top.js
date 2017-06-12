@@ -102,6 +102,8 @@ view_countries_top.ajax=function(args)
 		ctrack.chunk("data_chart_countries",dd);
 		ctrack.chunk("countries_count",list.length);
 
+		if(list.length==0) { ctrack.chunk("countries_graph",""); } // remove graph if no data
+
 		ctrack.display();
 	});
 
