@@ -90,21 +90,21 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 	============================================= */
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#FFF; counter-reset:section;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
-participating-org::before			{counter-increment:section; content:counter(section) ". "; display:inline-block; vertical-align:top; margin-right:5px;}
-participating-org 					{display:block;list-style-position: outside;list-style-type:decimal;padding:10px 0;}
+participating-org::before			{counter-increment:section; content:counter(section) ". "; display:inline-block; vertical-align:top; margin-right:5px; line-height:18px;}
+participating-org 					{display:block; list-style-position:outside; list-style-type:decimal; padding:10px 0;}
 participating-org a					{display:initial;}
 participating-org a:link			{color:#FF7A00;}
 participating-org a:visited			{color:#FF7A00;}
 participating-org a:hover			{color:#FFAB5E;}
 participating-org a:active			{color:#FF7A00;}
-participating-org[role="1"]:after, participating-org[role="funding"]:after		{content:"FUNDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="2"]:after, participating-org[role="accountable"]:after	{content:"ACCOUNTABLE ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="3"]:after, participating-org[role="extending"]:after	{content:"EXTENDING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
-participating-org[role="4"]:after, participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px;}
+participating-org[role="1"]:after, participating-org[role="funding"]:after		{content:"FUNDING ROLE"; font-size:14px; color:#ccc; display:inline; padding:0; padding-left:10px;}
+participating-org[role="2"]:after, participating-org[role="accountable"]:after	{content:"ACCOUNTABLE ROLE"; font-size:14px; color:#ccc; display:inline; padding:0; padding-left:10px;}
+participating-org[role="3"]:after, participating-org[role="extending"]:after	{content:"EXTENDING ROLE"; font-size:14px; color:#ccc; display:inline; padding:0; padding-left:10px;}
+participating-org[role="4"]:after, participating-org[role="implementing"]:after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#ccc; display:inline; padding:0; padding-left:10px;}
 
 span-narrative.participating-role	{font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px; text-transform:uppercase; line-height:initial;}
 
-span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
+span.span_participating-org narrative:nth-of-type(n+2)	{display:inline; padding:10px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
 
 
 /*	Reported by
