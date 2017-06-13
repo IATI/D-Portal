@@ -44,6 +44,8 @@ iati-activity:after 	{content:""; padding:0; display:initial;}	/* Takes away con
 span.settings_info		{min-width:135px; display:inline-block;}
 td.settings_toggle		{text-align:right; vertical-align:middle;}
 a.settings_link span	{color:#000; padding:10px 15px 0 0; display:inline-block;}
+a.settings_faq			{display:inline-block; line-height:35px; color:#000; margin-right:10px; font-weight:bold;}
+a.settings_faq:hover	{text-decoration:underline;}
 
 td.options				{padding-top:20px;}
 td.options:hover		{cursor:default;}
