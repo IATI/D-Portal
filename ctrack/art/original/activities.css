@@ -220,17 +220,17 @@ result indicator .time.time-percent100 span	{display:none;}
 
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
-sector *						{display:none;}
-sector[vocabulary="DAC"],
-sector[vocabulary="1"]			{font-size:1.0em; color:#FFF; width:240px; display:inline-block; vertical-align:top; padding:30px 40px 40px 40px; max-height:80px; min-height:80px;}
-sector:nth-child(even)			{background-color:rgba(0,14,32,0.7);}
-sector[vocabulary="DAC"]:before,
-sector[vocabulary="1"]:before	{content:"SECTOR"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
-sector span						{color:#FFF; padding-top:5px;}
-sector span:nth-of-type(1)		{line-height:1.2em;}
-sector span:nth-of-type(2)		{color:#ccc;}
-sector span:nth-of-type(2):after{content:"allocated"; padding-left:5px; display:inline-block;}
-img.sector_pie					{padding:40px; background-color:#FFF;}
+sector *		{display:none;}
+span.span_sector sector[vocabulary="DAC"],
+span.span_sector sector[vocabulary="1"]			{font-size:1.0em; color:#FFF; width:240px; display:inline-block; vertical-align:top; padding:30px 40px 40px 40px; max-height:80px; min-height:80px;}
+span.span_sector sector:nth-child(even)			{background-color:rgba(0,14,32,0.7);}
+span.span_sector sector[vocabulary="DAC"]:before,
+span.span_sector sector[vocabulary="1"]:before	{content:"SECTOR"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
+span.span_sector sector span					{color:#FFF; padding-top:5px;}
+span.span_sector sector span:nth-of-type(1)		{line-height:1.2em;}
+span.span_sector sector span:nth-of-type(2)		{color:#ccc;}
+span.span_sector sector span:nth-of-type(2):after{content:"allocated"; padding-left:5px; display:inline-block;}
+img.sector_pie	{padding:40px; background-color:#FFF;}
 
 
 /*	Budget table
@@ -249,6 +249,20 @@ budget[type="1"]:nth-of-type(1) value:after, budget[type="2"]:nth-of-type(1) val
 budget period-start 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em; padding-left:40px;}
 budget period-end	 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em; position:relative;}
 budget value 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em; position:relative;}
+
+
+/*	Planned Disbursement table
+	============================================= */
+planned-disbursement					{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0;}
+planned-disbursement:last-of-type	 	{border-bottom:0px solid #1E90FF;}
+planned-disbursement:nth-of-type(1)	{margin-top:0px; padding-top:0; border-top:0;}
+planned-disbursement:nth-of-type(1):before				{content:"Planned Disbursements"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
+planned-disbursement:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
+planned-disbursement:nth-of-type(1) period-end:before	{content:"END DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
+planned-disbursement:nth-of-type(1) value:before		{content:"VALUE"; font-size:14px; color:#CCC; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
+planned-disbursement period-start 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em; padding-left:40px;}
+planned-disbursement period-end	 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em; position:relative;}
+planned-disbursement value 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em; position:relative;}
 
 
 /*	Transaction table
@@ -280,6 +294,8 @@ value span			{font-size:12px; color:#ccc;}
 
 transaction:nth-of-type(1) description:before {content:"DESCRIPTION"; font-size:14px; color:#CCC; width:235px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
 span.span_transaction transaction description {display:inline-block; vertical-align:top; padding:0px; width:220px; max-width:220px; padding-right:15px; line-height:1.35em; color:#FFF; font-size:1.0em; text-align:left; background-color:transparent;}
+
+transaction sector	{display:none;}
 
 
 

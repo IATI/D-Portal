@@ -390,6 +390,12 @@ sort_elements("budget",[
 		"period-end",
 		"value",
 		0]);
+		
+sort_elements("planned-disbursement",[
+		"period-start",
+		"period-end",
+		"value",
+		0]);
 
 sort_elements("transaction",[
 		"transaction-date",
@@ -415,6 +421,7 @@ sorted++;
 		"description",
 		"sector",
 		"budget",
+		"planned-disbursement",
 		"transaction",
 		"result",
 		"contact-info",
