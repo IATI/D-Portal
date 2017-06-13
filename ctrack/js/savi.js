@@ -593,7 +593,7 @@ acts.find("*").each(function(i){var it=$(this);
 acts.each(function(i){var it=$(this);
 
 	var base=it.children(".span_sector");
-	var aa=base.children("sector[vocabulary=\"DAC\"]");
+	var aa=base.children("sector[vocabulary=\"DAC\"],sector[vocabulary=\"1\"]");
 	if(aa.length>0)
 	{
 	

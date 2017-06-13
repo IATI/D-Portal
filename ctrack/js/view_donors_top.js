@@ -19,8 +19,9 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 
 // the chunk names this view will fill with new data
 view_donors_top.chunks=[
+	"data_chart_donors",
+	"donors_count",
 ];
-
 
 view_donors_top.ajax=function(args)
 {
@@ -96,6 +97,10 @@ view_donors_top.ajax=function(args)
 		}
 		
 		ctrack.chunk("data_chart_donors",dd);
+		ctrack.chunk("donors_count",list.length);
+		
+		if(list.length==0) { ctrack.chunk("donor_graph",""); } // remove graph if no data
+
 		ctrack.display();
 
 	});

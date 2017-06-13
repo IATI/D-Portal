@@ -1,22 +1,15 @@
 {
   "name": "dportal",
-  "description": "d-portal.org static website builder",
+  "description": "D-Portal.org website",
+  "repository" : { "type" : "git", "url" : "https://github.com/devinit/D-Portal.git" },
   "version": "0.0.1",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/IATI/IATI-Country-Tracker.git"
-  },
+  "license": "MIT",
   "dependencies": {
     "express": "*",
     "express-fileupload": "*",
     "morgan": "*",
     "yargs": "*",
     "marked": "*"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "build": "node js/cmd.js build",
-    "serv": "node js/serv.js"
   }
 }
 
