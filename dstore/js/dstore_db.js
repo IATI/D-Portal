@@ -411,7 +411,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 			for(var i=0;i<aa.length;i++)
 			{
 				aa[i]=parseFloat(aa[i]) || 1;
-				if(aa[i]<1) { aa[i]=-aa[i]; } // fix negative percents?
+				if(aa[i]<0) { aa[i]=-aa[i]; } // fix negative percents?
 				total+=aa[i];
 			}
 
