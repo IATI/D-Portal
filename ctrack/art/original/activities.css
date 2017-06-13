@@ -221,9 +221,11 @@ result indicator .time.time-percent100 span	{display:none;}
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
 sector *						{display:none;}
-sector[vocabulary="DAC"]		{font-size:1.0em; color:#FFF; width:240px; display:inline-block; vertical-align:top; padding:30px 40px 40px 40px; max-height:80px; min-height:80px;}
+sector[vocabulary="DAC"],
+sector[vocabulary="1"]			{font-size:1.0em; color:#FFF; width:240px; display:inline-block; vertical-align:top; padding:30px 40px 40px 40px; max-height:80px; min-height:80px;}
 sector:nth-child(even)			{background-color:rgba(0,14,32,0.7);}
-sector[vocabulary="DAC"]:before	{content:"SECTOR"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
+sector[vocabulary="DAC"]:before,
+sector[vocabulary="1"]:before	{content:"SECTOR"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
 sector span						{color:#FFF; padding-top:5px;}
 sector span:nth-of-type(1)		{line-height:1.2em;}
 sector span:nth-of-type(2)		{color:#ccc;}

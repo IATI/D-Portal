@@ -145,7 +145,7 @@ d-portal.orgは現在、すべてのデータを再インポートしている�
 #crumbname_publisher_text
 {publisher_name}ホーム
 
-#crumbname_publisher_countries_text
+#crumbname_countries_text
 国リスト
 
 #crumbname_publishers_text 
@@ -773,10 +773,10 @@ d-portalは、主要な開発パートナーの数のベストプラクティス
 #table_publisher_title_publisher_text
 出版社
 
-#table_publisher_country_title_text
+#table_country_title_text
 カントリー
 
-#table_publisher_country_tip_title_text
+#table_country_tip_title_text
 被援助国
 
 #table_publisher_explore_tip_text
@@ -809,70 +809,40 @@ d-portalは、主要な開発パートナーの数のベストプラクティス
 #table_available_tip_text
 出版社の組織ファイルから予算
 
-#title_publisher_countries_text 
+#title_countries_text 
 お金は{countries_count}国に行く。 
 
-#title_publisher_sectors_text 
-お金は{sectors_count}セクタに行く。
-
-#title_publisher_countries_table_text 
+#title_countries_table_text 
 お金は{countries_count}国に行く。 
 
-#title_publisher_sectors_table_text 
-お金は{sectors_count}セクタに行く。
-
-#publisher_sectors_data_description_title_text 
-お金はどの国に行くのですか？ 
-
-#publisher_sectors_data_description_text
-このテーブルには、外部開発リソースフローが流されているためにセクターを示しています。まだIATIに報告していない、大きなドナーの数があるので、過去、現在、未来ほとんどの場合、CRSの値がIATIより多く高くなります。、データの列のデータを表示する低品質であるIATI出版社の数：
-
-#publisher_sectors_data_title1_text
-セクター
-
-#publisher_sectors_data_info1_text
-ここに記載されているセクターは、OECD CRSの目的コードをグループ化したものです。 197 CRSの目的コードは現在ありアール。 DIは論文のセクターに対するすべての目的コードをマッピングしています。リストは（金IATIについて報告しましたCRSによる大きな画像図のいずれか）{yearcrs}年支出の値によって順序付けされている 
-
-#publisher_sectors_data_title2_text
-IATI過ごす
-
-#publisher_sectors_data_info2_text
-3つの列は、最初の列は、常に二つのシステム間の比較を可能にする、最新のCRSのデータと同じ年のためになります。現在と以前の2年間はIATIに報告総支出と支出が含まれています。任意のセルをクリックするとが表示されます（その値への貢献のためにリストされている）セルの値を構成するこれらのプロジェクトが含まれているセル"-" 。組織はまだ"0"を含むIATI細胞に公開されていないことを示すためには、質の悪い報告の指標であるIATIへ。
-
-#publisher_sectors_data_title3_text
-IATI予算
-
-#publisher_sectors_data_info3_text
-このため全活性レベルの予算と来年は（その値への貢献のためにリストされている）は、細胞内含有する細胞を値を構成するこれらのプロジェクトに行くことができます任意のセルにIATIクリックすることが報告"-"と表示され組織がまだIATIに公開されていないこと。"0"を含む細胞はIATIへの報告低品質の指標である。
-
-#publisher_countries_data_description_title_text
+#countries_data_description_title_text
 データはどのように計算されますか？
 
-#publisher_countries_data_description_text
+#countries_data_description_text
 このテーブルには、{publisher_name}によって報告された受信者の国を示しています。列は、以下のデータを表示します：
 
-#publisher_countries_data_title1_text
+#countries_data_title1_text
 カントリー
 
-#publisher_countries_data_info1_text
+#countries_data_info1_text
 ここに記載されている国は、{publisher_name}によって報告された被援助国です。
 
-#publisher_countries_data_title2_text
+#countries_data_title2_text
 IATI過ごします
 
-#publisher_countries_data_info2_text
+#countries_data_info2_text
 3つの列は、現在および過去2年間のためにIATIに報告総支出と支出が含まれています。最初の列には、常に2つのシステム間の比較を可能にする、最新のCRSデータと同じ年になります。
 
-#publisher_countries_data_title3_text
+#countries_data_title3_text
 IATI予算（割り当てられました）
 
-#publisher_countries_data_info3_text
+#countries_data_info3_text
 今年の総活性レベルの予算が{publisher_name}の活動ファイルにIATIに報告。任意のセルをクリックすると、（その値への貢献のために記載されている）セルの値を構成するこれらのプロジェクトに行くことができます。あなたは矢印を使用して、将来何年にもわたってクリックすることができますのでご注意ください。
 
-#publisher_countries_data_title4_text
+#countries_data_title4_text
 IATI予算（総）
 
-#publisher_countries_data_info4_text
+#countries_data_info4_text
 今年の総組織の予算が{publisher_name}の組織ファイルにIATIに報告。データ内には故障がないように、これらは、国によって、年間予算のために平らな数値です。あなたは矢印を使用して、将来何年にもわたってクリックすることができますのでご注意ください。
 
 #missing_data_text 

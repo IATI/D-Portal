@@ -145,7 +145,7 @@ Activité de la carte
 #crumbname_publisher_text
 {publisher_name} Accueil
 
-#crumbname_publisher_countries_text
+#crumbname_countries_text
 Liste des Pays
 
 #crumbname_publishers_text 
@@ -773,10 +773,10 @@ Nous espérons que notre présentation des données - et les lacunes - fournit u
 #table_publisher_title_publisher_text
 ÉDITEUR
 
-#table_publisher_country_title_text
+#table_country_title_text
 PAYS
 
-#table_publisher_country_tip_title_text
+#table_country_tip_title_text
 Pays Bénéficiaires
 
 #table_publisher_explore_tip_text
@@ -809,70 +809,40 @@ total
 #table_available_tip_text
 Budget du dossier de l'organisation de l'éditeur
 
-#title_publisher_countries_text 
+#title_countries_text 
 L'argent va à {countries_count} pays. 
 
-#title_publisher_sectors_text 
-L'argent va à {sectors_count} secteurs.
-
-#title_publisher_countries_table_text 
+#title_countries_table_text 
 L'argent va à {countries_count} pays. 
 
-#title_publisher_sectors_table_text 
-L'argent va à {sectors_count} secteurs.
-
-#publisher_sectors_data_description_title_text
+#countries_data_description_title_text
 Comment les données sont -elle calculée?
 
-#publisher_sectors_data_description_text
-Ce tableau indique les secteurs où les flux de ressources de développement externes sont canalisés. Passé, présent et futur Dans la plupart des cas, la valeur CRS sera beaucoup plus élevé que l'IATI comme il ya un certain nombre de grands donateurs qui ne déclarent pas toujours à l'IATI , et un certain nombre d'éditeurs de l'IATI dont les données sont de mauvaise qualité les colonnes affichent les données suivantes.:
-
-#publisher_sectors_data_title1_text
-SECTEURS
-
-#publisher_sectors_data_info1_text
-Les secteurs énumérés ici sont des regroupements de codes-objet du SNPC de l'OECD. Il n'y a 197 CRS codes de but. DI a cartographié tous les codes de but contre ces secteurs. Cette liste est ordonnée par la valeur de {yearcrs} débours (le plus grand chiffre rapporté soit par CRS ou de l'IATI )
-
-#publisher_sectors_data_title2_text
-IATI PASSER
-
-#publisher_sectors_data_info2_text
-Trois colonnes contiennent le total des décaissements et les dépenses déclarées à l'IATI pour les deux années actuelles et précédentes. La première colonne sera toujours pour la même année que les plus récentes données du SNPC, permettant des comparaisons entre les deux systèmes.
-
-#publisher_sectors_data_title3_text
-BUDGET IATI
-
-#publisher_sectors_data_info3_text
-Total des budgets au niveau de l'activité pour l'année prochaine et ce signalées à l'IATI. Cliquez sur n'importe quelle cellule vous amène à ces projets qui constituent la valeur dans la cellule (dans l'ordre de leur contribution à cette valeur).
-
-#publisher_countries_data_description_title_text
-Comment les données sont -elle calculée?
-
-#publisher_countries_data_description_text
+#countries_data_description_text
 Ce tableau indique les pays bénéficiaires déclarées par {publisher_name}. Les colonnes affichent les données suivantes:
 
-# publisher_countries_data_title1_text
+# countries_data_title1_text
 PAYS
 
-# publisher_countries_data_info1_text
+# countries_data_info1_text
 Les pays listés ici sont les pays bénéficiaires déclarées par {publisher_name}.
 
-# publisher_countries_data_title2_text
+# countries_data_title2_text
 IATI DÉPENSES
 
-# publisher_countries_data_info2_text
+# countries_data_info2_text
 Trois colonnes contiennent le total des décaissements et les dépenses déclarées à l'IATI pour les deux années actuelles et précédentes. La première colonne sera toujours pour la même année que la plus récente des données CRS, permettant des comparaisons entre les deux systèmes.
 
-# publisher_countries_data_title3_text
+# countries_data_title3_text
 IATI BUDGET (alloué)
 
-# publisher_countries_data_info3_text
+# countries_data_info3_text
 Nombre de budgets au niveau de l'activité pour cette année signalés à l'IATI dans {publisher_name} fichiers de l 'activité. En cliquant sur une cellule vous amène à ces projets qui constituent la valeur dans la cellule (dans l'ordre de leur contribution à cette valeur). S'il vous plaît noter que vous pouvez cliquer sur les années à venir à l'aide des flèches.
 
-# publisher_countries_data_title4_text
+# countries_data_title4_text
 IATI BUDGET (total)
 
-# publisher_countries_data_info4_text
+# countries_data_info4_text
 Total des budgets d'organisation pour cette année signalés à l'IATI dans {publisher_name} fichier de l 'organisation. Ces chiffres sont plates pour les budgets annuels par pays donc il n'y a pas de ventilation dans les données. S'il vous plaît noter que vous pouvez cliquer sur les années à venir à l'aide des flèches.
 
 #missing_data_text 

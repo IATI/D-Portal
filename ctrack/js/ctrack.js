@@ -276,8 +276,28 @@ ctrack.setup=function(args)
 		{
 			ctrack.args.search=ctrack.q.search;
 		}
+		var only_country=false;
+		var only_publisher=false;
+
+			if(args.country_select) { only_country=true; }
+			if(args.publisher_select) { only_publisher=true; }
+			
+			if( args.sector_code_select || args.sector_group_select || args.funder_ref_select || args.year_min || args.year_max || args.search )
+			{
+				only_country=false;
+				only_publisher=false;
+			}
+			
+			if( ( only_country && (!only_publisher) ) || ( (!only_country) && only_publisher ) )
+			{
+// show normal header for publisher or country
+			}
+			else
+			{
 // always show search headers and hide publisher/country headers even if the searchstring is empty
-		ctrack.args.showsearch=true;
+				ctrack.args.showsearch=true;
+			}
+			
 	}
 //console.log("search="+ctrack.args.search);
 
@@ -366,14 +386,7 @@ ctrack.setup=function(args)
 		}
 	};
 
-	if(args.publisher)
-	{
-		ctrack.crumbs=[{hash:"#view=publisher",view:"publisher"}];
-	}
-	else
-	{
-		ctrack.crumbs=[{hash:"#view=main",view:"main"}];
-	}
+	ctrack.crumbs=[{hash:"#view=main",view:"main"}];
 	
 	ctrack.setcrumb=function(idx)
 	{
@@ -398,16 +411,8 @@ ctrack.setup=function(args)
 			}
 			else
 			{
-				if(args.publisher)
-				{
-					ctrack.chunk("crumb"+i+"_hash","#view=publisher");
-					ctrack.chunk("crumb"+i+"_view","publisher");
-				}
-				else
-				{
-					ctrack.chunk("crumb"+i+"_hash","#view=main");
-					ctrack.chunk("crumb"+i+"_view","main");
-				}
+				ctrack.chunk("crumb"+i+"_hash","#view=main");
+				ctrack.chunk("crumb"+i+"_view","main");
 			}
 		}
 		ctrack.chunk("crumbs","{crumbs"+ctrack.crumbs.length+"}");

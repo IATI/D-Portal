@@ -2,8 +2,8 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_publisher_countries_top=exports;
-exports.name="view_publisher_countries_top";
+var view_countries_top=exports;
+exports.name="view_countries_top";
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
@@ -18,8 +18,8 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
 // the chunk names this view will fill with new data
-view_publisher_countries_top.chunks=[
-	"data_chart_publisher_countries",
+view_countries_top.chunks=[
+	"data_chart_countries",
 	"countries_count",
 ];
 
@@ -27,7 +27,7 @@ view_publisher_countries_top.chunks=[
 //
 // Perform fake ajax call to get data 
 //
-view_publisher_countries_top.ajax=function(args)
+view_countries_top.ajax=function(args)
 {
 	args=args || {};
 	var limit=args.limit || 5;
@@ -43,8 +43,12 @@ view_publisher_countries_top.ajax=function(args)
 			"select":"country_code,"+ctrack.convert_str("sum_of_percent_of_trans"),
 			"groupby":"country_code",
 			"trans_code":"D|E",
-			"trans_day_gteq":year+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(year)+1)+"-"+ctrack.args.newyear,
 		};
+	if(year!="all years") // all years?
+	{
+			dat["trans_day_gteq"]=year+"-"+ctrack.args.newyear;
+			dat["trans_day_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
+	}
 	fetch.ajax_dat_fix(dat,args);
 	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 	fetch.ajax(dat,function(data){
@@ -95,8 +99,10 @@ view_publisher_countries_top.ajax=function(args)
 			}
 		}
 			
-		ctrack.chunk("data_chart_publisher_countries",dd);
+		ctrack.chunk("data_chart_countries",dd);
 		ctrack.chunk("countries_count",list.length);
+
+		if(list.length==0) { ctrack.chunk("countries_graph",""); } // remove graph if no data
 
 		ctrack.display();
 	});

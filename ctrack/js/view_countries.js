@@ -2,8 +2,8 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_publisher_countries=exports;
-exports.name="view_publisher_countries";
+var view_countries=exports;
+exports.name="view_countries";
 
 var csvw=require("./csvw.js")
 
@@ -21,37 +21,37 @@ var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
 // the chunk names this view will fill with new data
-view_publisher_countries.chunks=[
-	"table_publisher_countries_rows",
-	"table_publisher_countries",
+view_countries.chunks=[
+	"table_countries_rows",
+	"table_countries",
 	"countries_count",
 ];
 
 //
 // display the view
 //
-view_publisher_countries.view=function(args)
+view_countries.view=function(args)
 {
-	view_publisher_countries.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	view_countries.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	ctrack.setcrumb(1);
 	ctrack.change_hash();
-	view_publisher_countries.ajax(args);
+	view_countries.ajax(args);
 };
 
-view_publisher_countries.show=function()
+view_countries.show=function()
 {
 	var year=parseInt(ctrack.hash.year) || ctrack.year;
-	if(year!=view_publisher_countries.year) // new year update?
+	if(year!=view_countries.year) // new year update?
 	{
-		view_publisher_countries.ajax()
+		view_countries.ajax()
 	}
-	ctrack.div.master.html( plate.replace( "{view_publisher_countries}" ) );
+	ctrack.div.master.html( plate.replace( "{view_countries}" ) );
 };
 
 //
 // Perform ajax call to get data
 //
-view_publisher_countries.ajax=function(args)
+view_countries.ajax=function(args)
 {
 	args=args || {};
 
@@ -71,9 +71,9 @@ view_publisher_countries.ajax=function(args)
 
 	var year=args.year || parseInt(ctrack.hash.year) || ctrack.year;
 	ctrack.year_chunks(year);
-	view_publisher_countries.year=year;
+	view_countries.year=year;
 
-	ctrack.publisher_countries_data={};
+	ctrack.countries_data={};
 
 	ctrack.sortby="order"; // reset sortby
 	var display=function(sortby)
@@ -86,7 +86,7 @@ view_publisher_countries.ajax=function(args)
 		}
 		var s=[];
 		var a=[];
-		for(var n in ctrack.publisher_countries_data) { a.push( ctrack.publisher_countries_data[n] ); }
+		for(var n in ctrack.countries_data) { a.push( ctrack.countries_data[n] ); }
 		if(!sortby)
 		{
 			sortby=tables.sortby();
@@ -102,22 +102,22 @@ view_publisher_countries.ajax=function(args)
 
 			if(gotcrs)
 			{
-				s.push( plate.replace(args.plate || "{table_publisher_countries_crs_row}",v) );
+				s.push( plate.replace(args.plate || "{table_countries_crs_row}",v) );
 			}
 			else
 			{
-				s.push( plate.replace(args.plate || "{table_publisher_countries_row}",v) );
+				s.push( plate.replace(args.plate || "{table_countries_row}",v) );
 			}
 		});
 		if(gotcrs)
 		{
-			ctrack.chunk(args.chunk || "table_publisher_countries_crs_rows",s.join(""));
-			ctrack.chunk("table_publisher_countries","{table_publisher_countries_crs}"); // use CRS version
+			ctrack.chunk(args.chunk || "table_countries_crs_rows",s.join(""));
+			ctrack.chunk("table_countries","{table_countries_crs}"); // use CRS version
 		}
 		else
 		{
-			ctrack.chunk(args.chunk || "table_publisher_countries_rows",s.join(""));
-			ctrack.chunk_clear("table_publisher_countries");
+			ctrack.chunk(args.chunk || "table_countries_rows",s.join(""));
+			ctrack.chunk_clear("table_countries");
 		}
 
 		ctrack.chunk("countries_count",a.length);
@@ -138,12 +138,12 @@ view_publisher_countries.ajax=function(args)
 		ctrack.display();
 
 	};
-	view_publisher_countries.display=display;
+	view_countries.display=display;
 	
 	var fadd=function(d)
 	{
-		var it=ctrack.publisher_countries_data[d.country_code];
-		if(!it) { it={}; ctrack.publisher_countries_data[d.country_code]=it; }
+		var it=ctrack.countries_data[d.country_code];
+		if(!it) { it={}; ctrack.countries_data[d.country_code]=it; }
 		
 		if(gotcrs)
 		{
