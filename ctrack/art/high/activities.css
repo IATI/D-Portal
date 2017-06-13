@@ -39,7 +39,7 @@ span.span_span-title narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0
 
 /*	IATI Identifier
 	============================================= */
-iati-identifier 		{display:block; width:880px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#000; margin:0 auto; border-top:1px solid #000; border-bottom:1px solid #000;}
+iati-identifier 		{display:block; width:879px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#000; margin:0 auto; border-top:1px solid #000; border-bottom:1px solid #000;}
 iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
 iati-identifier div		{display:block;}
 iati-identifier:hover	{color:#000;}
@@ -75,16 +75,15 @@ recipient-country span:nth-of-type(2)	{font-size:20px; color:#000; padding-top:1
 
 /*	Start and End dates (Planned and Actual)
 	============================================= */
-span.span_activity-date				{display:block; vertical-align:bottom; width:958px; border-top:1px solid #000; border-bottom:1px solid #000; position:relative; height:81px;}
-activity-date						{box-sizing:border-box;}
+span.span_activity-date		{display:block; vertical-align:bottom; width:958px; border-top:1px solid #000; border-bottom:1px solid #000; background-color:#000; position:relative; height:81px;}
+activity-date				{box-sizing:border-box; height:40px; background-color:#fff;}
 activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"],
-activity-date[type="end-planned"]	{font-size:20px; display:block; padding:10px 40px; color:#000; width:480px;}
+activity-date[type="end-planned"]	{font-size:20px; display:block; padding:10px 40px; color:#000; width:477px;}
 activity-date[type="2"], activity-date[type="4"], activity-date[type="start-actual"],
 activity-date[type="end-actual"]	{font-size:20px; display:block; padding:10px 40px; color:#000; width:480px; text-align:right;}
-activity-date[type="1"], activity-date[type="2"], activity-date[type="start-planned"], activity-date[type="start-actual"]	{border-bottom:1px solid #000;}
 activity-date[type="1"]:before, activity-date[type="start-planned"]:before	{content:"PLANNED START DATE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
 activity-date[type="2"]:before, activity-date[type="start-actual"]:before	{content:"ACTUAL START DATE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
-activity-date[type="3"]:before, activity-date[type="end-planned"]:before	{content:"PLANNED END DATE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
+activity-date[type="3"]:before, activity-date[type="end-planned"]:before	{content:"PLANNED END DATE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:25px;}
 activity-date[type="4"]:before, activity-date[type="end-actual"]:before		{content:"ACTUAL END DATE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
 activity-date[type="1"], activity-date[type="start-planned"]	{position:absolute; top:0; left:0;}
 activity-date[type="2"], activity-date[type="start-actual"]		{position:absolute; top:0; right:0;}

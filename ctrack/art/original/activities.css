@@ -65,8 +65,8 @@ recipient-country span:nth-of-type(2)	{font-size:20px; color:#97c4ff; padding-to
 
 /*	Start and End dates (Planned and Actual)
 	============================================= */
-span.span_activity-date				{display:block; vertical-align:baseline; width:980px; background-color:#724514; margin-left:-10px; position:relative; height:81px;}
-activity-date						{box-sizing:border-box;}
+span.span_activity-date				{display:block; vertical-align:baseline; width:981px; background-color:#724514; margin-left:-10px; position:relative; height:81px;}
+activity-date						{box-sizing:border-box; height:40px;}
 
 activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"],
 activity-date[type="end-planned"]	{font-size:20px; display:block; vertical-align:baseline; padding:10px 30px 10px 50px; color:#FFF; width:490px; background-color:#da7102;}
