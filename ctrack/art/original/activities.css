@@ -90,8 +90,8 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 	============================================= */
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#FFF; counter-reset:section;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
-participating-org::before			{counter-increment:section; content:counter(section) ". "; display:inline-block; vertical-align:top; margin-right:5px; line-height:18px;}
-participating-org 					{display:block; list-style-position:outside; list-style-type:decimal; padding:10px 0;}
+participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:18px; position:absolute; top:10px; left:0;}
+participating-org 					{display:block; padding:10px 0; padding-left:20px; position:relative; line-height:18px;}
 participating-org a					{display:initial;}
 participating-org a:link			{color:#FF7A00;}
 participating-org a:visited			{color:#FF7A00;}
@@ -253,8 +253,8 @@ budget value 			{display:inline-block; vertical-align:top; color:#FFF; font-size
 
 /*	Planned Disbursement table
 	============================================= */
-planned-disbursement					{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0;}
-planned-disbursement:last-of-type	 	{border-bottom:0px solid #1E90FF;}
+planned-disbursement				{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0;}
+planned-disbursement:last-of-type	{border-bottom:0px solid #1E90FF;}
 planned-disbursement:nth-of-type(1)	{margin-top:0px; padding-top:0; border-top:0;}
 planned-disbursement:nth-of-type(1):before				{content:"Planned Disbursements"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
 planned-disbursement:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
@@ -335,12 +335,12 @@ activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:rgba(
 	============================================= */
 span.span_document-link							{width:880px; padding:0 40px; margin:0 auto; counter-reset:section;}
 span.span_document-link:before					{content:"RELATED DOCUMENTS"; font-size:14px; color:#CCC; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
-a.a_document-link::before						{counter-increment:section; content:counter(section) ". ";}
-a.a_document-link								{display:inline-block; width:880px; padding:10px 0; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#ccc;}
+a.a_document-link::before						{counter-increment:section; content:counter(section) ". "; position:absolute; left:0; top:10px; line-height:20px; font-size:18px;}
+a.a_document-link								{display:inline-block; width:860px; padding:10px 0; font-size:1.0em; line-height:1.25em; padding-left:20px; position:relative; color:#FFF;}
 a.a_document-link:last-of-type					{padding-bottom:40px;}
 a.a_document-link document-link span-title		{color:#FFF; padding:0;}
 a.a_document-link document-link span-title:hover{color:#FFAB5E;}
-document-link									{display:inline;}
+document-link									{display:block;}
 document-link span								{font-size:1.0em; display:block; color:#ccc;}
 document-link span-title						{display:inline;}
 document-link span-title:nth-of-type(n+1):before{display:none;}
