@@ -38,15 +38,22 @@ _Commands above are for debian/ubuntu. For other operating systems, please the u
     
 ---
 
+
 # Run this local
 
+You can test and build your website locally in your preferred browser by running the following scripts in the terminal.
+
 1. Run ```plated/build``` to build your website
+    - Run this at least once!
 
 2. Run ```plated/start``` to start a local server
+    - Leave this running in a separate tab, it should watch and rebuild your new changes
 
-3. View your website on a browser at: http://0.0.0.0:8000/your-new-repo-name
+3. View your website in a browser at: http://0.0.0.0:8000/your-new-repo-name
+    - Make sure your browser is not caching content, otherwise your changes will not show up
 
 ---
+
 
 The website is generated into /docs from files found in /plated/source.
 
