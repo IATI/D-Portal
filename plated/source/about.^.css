@@ -1,4 +1,5 @@
 #^css
+
 #background_image	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
 .overlay			{width:100%; height:100%; background-color:rgba(19, 16, 1, 0.8);}	/* Overlay colour for background image */
 a					{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}

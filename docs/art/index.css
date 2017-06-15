@@ -1,0 +1,163 @@
+/*	CSS for D-PORTAL 2014 ^o^
+	If you're reading this in github, 
+	please change to Tabs-4 as github is broken.
+	============================================= */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0} /* Resets */
+
+body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
+html					{background-color:#000;}
+
+
+/*	Links & fonts
+	============================================= */
+a						{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
+a, img					{border:0; outline:none;}
+a:focus					{text-decoration:underline;}
+a:link  				{color:#A8D2F8; text-decoration:none;}
+a:visited				{color:#A8D2F8; text-decoration:none;}
+a:hover					{color:#A8D2F8; text-decoration:none;}
+a:active				{color:#A8D2F8; text-decoration:none;}
+em, i, .italic			{font-style:italic; color:inherit;}
+strong, b, .bold		{font-weight:bold; color:inherit;}
+.underline				{text-decoration:underline; color:inherit;}
+.bold.ob				{font-style:italic;}
+:focus					{outline:2px solid #53B4ED; outline:-webkit-focus-ring-color auto 5px;}
+:-moz-focusring			{outline:2px solid #53B4ED;}
+
+
+/*	Main wrappers for content & fixed background img
+	============================================= */
+.portal					{-moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; display:table; width:100%; height:100%;}
+.main_wrap				{width:100%; min-width:1040px; padding:0px; display:table-cell; background-color: rgba(255,255,255,0.4);}
+#background_image	 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/mexico_background_image.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
+.overlay				{width:100%; height:100%; background-color:rgba(19, 16, 1, 0.6);}	/* Overlay colour for background image */
+.default				{width:960px; margin:0 auto; padding:0; position:relative;}
+.default.pad40			{padding:40px 0;}
+.default.index			{text-align:center; padding-bottom:40px;}
+.third					{display:inline-block; vertical-align:top; width:300px; padding-right:30px;}
+.third:last-of-type		{padding:0;}
+.tongue_wrap			{text-align:right; width:960px;}
+.logo_wrap				{position:relative; margin:0 auto; width:600px; background:url('/art/dp_logo.index.png')no-repeat; height:205px;}
+
+
+/*	Buttons and header styles
+	============================================= */
+.tag					{width:100%; margin:0 auto; padding:10px 0; border-top:1px solid #fff; border-bottom:1px solid #fff; text-align:center; color:#fff; font-size:1.4em; line-height:1.35em;}
+a.path					{display:block; padding:40px 20px; border-radius:8px; background-color:rgba(0,14,32,0.7); text-align:center; margin:0 auto; color:#53B4ED;}
+a.path:hover			{background-color:rgba(0,14,32,0.9);}
+a.path.no				{background-color:rgba(0,14,32,0.4);}
+a.path.no:hover			{background-color:rgba(0,14,32,0.4); cursor:default;}
+a.path.publisher		{padding:20px; margin-top:10px; color:#fff; font-size:1.2em;}
+.path_title				{display:block; font-size:2.3em;}
+.path_title.install		{color:#53AEFF;}
+.path_title.explore		{color:#2CE268;}
+.path_title.develop		{color:#FF860E;}
+.path_txt				{display:block; color:#fff; font-size:1.1em; padding-top:20px;}
+
+
+/*	Country Code List style
+	============================================= */
+.country_menu_wrap			{width:960px; margin:0 auto; padding:60px 0;}
+.country_menu_list_wrap		{margin:0 auto; width:960px;}
+.publisher_menu_list_wrap	{margin:0 auto; width:860px;}
+.menu_list_wrap				{display:inline-block; vertical-align:top; padding-left:50px; width:500px; height:700px; overflow-x:hidden; overflow-y:scroll; box-sizing:border-box;}
+.menu_list_wrap.left		{width:460px; padding-left:0; padding-right:0; border-right:1px solid #887E6E;}
+ul.country_menu_list		{list-style:none; padding:0; margin:0 auto; width:100%;}
+ul.country_menu_list li.no	{display:none;}
+ul.country_menu_list li img	{max-height:20px;}
+ul.country_menu_list li		{border-bottom:1px solid #A0988B;}
+ul.country_menu_list li:last-of-type	{border:0;}
+ul.country_menu_list li.top	{border:0; margin-bottom:10px;}
+span.select_wrap			{display:inline-block; vertical-align:top; width:50px;}
+span.select_wrap.countryid	{color:#CFC6B4;}
+span.select_wrap.publisherid{display:block; padding:5px 0 0 10px; color:#C5BAA4; text-align:left; width:100%; font-size:0.8em; font-weight:bold;}
+span.select_wrap.publisherid::before{content:'Publisher ID: '; font-weight:normal;}
+span.select_wrap.countryname		{width:310px; padding:0 10px; text-align:left;}
+span.select_wrap.publishername		{width:100%; padding:0 10px; text-align:left; display:block;}
+span.select_wrap.full		{width:100%; padding:0; text-align:center; font-size:1.6em;}
+.publisher_list				{width:100%; height:100%; color:#fff; font-size:1.2em; line-height:1.15em; display:block; padding:20px 0; font-weight:bold;}
+a.country_code				{width:100%; height:100%; color:#fff; font-size:1.2em; line-height:1.15em; display:block; padding:20px 0; vertical-align:top; text-align:center;}
+a.country_code:hover		{background-color:rgba(37, 115, 205, 0.7);}
+li.publishercol a.country_code		{padding:15px 0;}
+
+
+/*	Select dropdowns
+	============================================= */
+#country_dropmenu, #publisher_dropmenu,
+.compare_wrap											{display:inline-block; vertical-align:top; width:460px; margin-bottom:40px; margin-right:20px;}
+#publisher_dropmenu, .compare_wrap.pub					{margin-right:0; margin-left:20px;}
+#country_dropmenu select, #publisher_dropmenu select	{min-width:460px; max-width:460px;}
+.chosen-container-single .chosen-single span			{color:#444; font-size:20px; line-height:46px;}
+.chosen-container-single .chosen-single					{height:46px;}
+.chosen-container .chosen-results li					{text-align:left;}
+
+
+/*	Text and Description styles
+	============================================= */
+.description_wrap			{width:880px; margin:0 auto; padding:40px; text-align:left; background-color:rgba(255,255,255,0.1);}
+.description				{display:inline-block; vertical-align:top; width:410px; margin-right:60px;}
+.description.full			{width:100%; margin:0;}
+.description:last-of-type	{margin-right:0;}
+.description span.title		{display:block; color:#fff; line-height:1.35em; font-size:1.4em; padding:10px 0; width:100%; border-bottom:1px solid #CFC6B4;}
+.description a:last-of-type	{margin-bottom:20px;}
+.description a:first-of-type{margin-top:10px;}
+.description a:hover		{text-decoration:underline;}
+.description p				{padding:15px 0; font-size:1.2em; color:#fff; line-height:1.2em; word-spacing:0.07em;}
+a.read						{display:block; color:#A8D2F8; font-size:1.2em; padding:10px 0;}
+a.read:hover				{text-decoration:underline;}
+
+
+/*	Generator link on Index
+	============================================= */
+.screen					{display:block; text-align:center; width:540px; height:200px;}
+.screen.generator		{background:url('/art/generator.png')no-repeat; background-size:540px 562px;}
+a.description_wrap.bigbutton						{display:block; width:878px; margin-top:40px; padding:40px 40px 0 40px; background-color:rgba(255,255,255,0); border:1px solid #fff;}
+a.description_wrap.bigbutton:hover					{background-color:rgba(255,255,255,0.1);}
+a.description_wrap.bigbutton span.description		{margin:0; width:340px;}
+a.description_wrap.bigbutton span.description.img	{width:540px;}
+a.description_wrap.bigbutton span.title				{border:0; font-size:60px;}
+a.description_wrap.bigbutton p						{padding:0; font-size:24px; color:#fff;}
+
+
+
+/*	Footer
+	============================================= */
+.footer_wrap			{display:table-footer-group; height:1px; background-color:rgba(0,14,32,0.9);}
+.footer					{width:960px; margin:0 auto; padding:10px 0;}
+.footer_link			{display:inline-block; vertical-align:top; width:620px; color:#FFF; padding:40px 50px 0 0; box-sizing:border-box; font-size:18px; line-height:1.5em;}
+.footer_link.list		{width:340px; padding:40px 0;}
+.footer_link a			{font-size:1.0em; line-height:1.5em; color:#999;}
+.footer_link a:focus	{color:#999;}
+.footer_link a:link  	{color:#999;}
+.footer_link a:visited	{color:#999;}
+.footer_link a:hover	{color:#FFF;}
+.footer_link a:active	{color:#999;}
+.footer_link.about		{text-align:right;}
+.footer_link.top		{text-align:right; width:960px;}
+.footer_link ul			{padding-bottom:20px;}
+.footer_link p			{padding:15px 0;}
+.footer_link p.beta		{font-style:italic; color:#ccc;}
+.footer_motto			{font-size:22px; line-height:27px;}
+.footer_motto a			{color:#53B4ED; font-weight:bold; line-height:27px;}
+.footer_motto a:focus	{color:#53B4ED;}
+.footer_motto a:link  	{color:#53B4ED;}
+.footer_motto a:visited	{color:#53B4ED;}
+.footer_motto a:hover	{color:#53B4ED; text-decoration:underline;}
+.footer_motto a:active	{color:#53B4ED;}
+.footer_header			{font-size:20px; color:#FFF; border-bottom:1px solid #A0988B; padding-bottom:5px; margin-bottom:10px;}
+
+
+/*	Beige Alert
+	============================================= */
+.beigealert_wrap		{width:100%; margin:0 auto; background-color:#D80051;}
+.beigealert				{margin:0 auto; color:#fff; font-size:1.0em; line-height:1.25em; text-align:center; padding:10px 0;}
+a.beige					{font-weight:bold; color:#FFFF00;}
+a.beige:hover			{color:#fff;}
+
+span.badge				{display:inline-block; vertical-align:bottom; color:#fff; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px; position:absolute; bottom:-8px; right:135px;}
+span.badge.beta			{background-color:#D80051;}
+
+/* pace progress bar */
+.pace .pace-progress { height:4px; background:#88f; position:fixed; z-index:9999; top:0; right:100%; width:100%; }
+.pace-inactive { display:none; }
+.pace { -webkit-pointer-events:none; pointer-events:none; -webkit-user-select:none; -moz-user-select:none; user-select:none; }

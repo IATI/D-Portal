@@ -23,6 +23,70 @@ strong, b, .bold		{font-weight:bold; color:inherit;}
 :-moz-focusring			{outline:2px solid #53B4ED;}
 
 
+/*	Main wrappers for content & fixed background img
+	============================================= */
+.portal					{-moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; display:table; width:100%; height:100%;}
+.main_wrap				{width:100%; min-width:1040px; padding:0px; display:table-cell; background-color:rgba(255,255,255,0.4);}
+#background_image	 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/mexico_background_image.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
+.overlay				{width:100%; height:100%; background-color:rgba(46,41,6,0.6); position:relative;}	/* Overlay colour for background image */
+iati-activity			{margin-bottom:40px;}	/* Fixes too-large bottom margin during only this instance */
+iati-activity:after 	{content:""; padding:0; display:initial;}	/* Takes away content since footer is included on site */
+.center_wrap			{width:960px; margin:0 auto; text-align:center;}
+
+
+/*	Settings
+	============================================= */
+#settings				{padding:10px 40px 30px 40px; margin:0 auto; background-color:#fff; margin-bottom:40px;}
+span.settings_info		{min-width:135px; display:inline-block;}
+td.settings_toggle		{text-align:right; vertical-align:middle;}
+a.settings_link span	{color:#fff; padding:10px 15px 0 0; display:inline-block;}
+a.settings_faq			{display:inline-block; line-height:35px; color:#ccc; margin-right:10px; font-weight:bold;}
+a.settings_faq:hover	{color:#fff;}
+
+td.options				{padding-top:20px;}
+td.options:hover		{cursor:default;}
+td.options form			{display:inline-block;}
+
+
+
+/*	Status badge next to d-portal logo in headers
+	============================================= */
+span.badge				{display:inline-block; vertical-align:bottom; color:#fff; padding:5px 10px; border-radius:4px; font-weight:bold; font-size:0.8em; margin-left:10px;}
+span.badge.beta			{border:1px solid #fff;}
+
+
+/*	Breadcrumbs
+	============================================= */
+a.crumb					{display:inline-block; vertical-align:top; padding:0 10px; font-size:1.0em; color:#A8C5E5; line-height:1.1em;}
+a.crumb:hover			{color:#FFF;}
+a.crumb.first			{padding-left:0px;}
+.crumb_wrap				{width:960px; margin:0 auto; padding-top:10px; font-size:0.9em; color:#CCC; line-height:1.1em;}
+.crumb_wrap span		{display:inline-block; vertical-align:top; padding:0 10px; font-size:1.0em; color:#FFF; line-height:1.1em;}
+
+
+/*	Translation dropdown
+	============================================= */
+select					{font-size:0.9em; color:#000;}
+option					{color:#000;}
+
+
+/*	About data links
+	============================================= */
+a.about_data			{display:inline-block; vertical-align:bottom; padding:0 10px; text-align:center; color:#CCC; font-size:1.0em; line-height:1.2em;}
+a.about_data:hover		{color:#FFF;}
+a.about_data.quality	{border-left:1px solid #CCC; text-align:right; padding-right:0;}
+
+
+/*	Header styles
+	============================================= */
+.default				{width:960px; margin:0 auto; padding:0;}
+.default.head			{padding-top:20px;}
+.default.min			{padding-top:10px;}
+.default.graph			{margin-bottom:60px; margin-top:40px;}
+.default.about			{padding:10px 0; text-align:right;}
+.default.data			{padding:20px 0 40px 0;}
+
+
 /*	Select dropdowns - INDEX PAGE
 	============================================= */
 #country_dropmenu, #publisher_dropmenu,

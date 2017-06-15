@@ -1,0 +1,52 @@
+/* CSS for Search page */
+
+.typeahead, .tt-query, .tt-hint {width:396px; height:30px; padding:8px 12px; font-size:24px; line-height:30px; -webkit-border-radius:0; -moz-border-radius:0; border-radius:0; outline:none;}
+.typeahead {background-color:transparent !important; border-bottom:2px solid #fff !important; border-radius:0 !important; }
+.typeahead:focus {border:2px solid #0097cf;}
+.tt-hint {color:#999;}
+.tt-menu {width:100%; margin:12px 0; padding:8px 0; background-color:#fff;max-height:320px; overflow-y:auto;}
+.tt-suggestion {padding:3px 20px; font-size:18px;}
+.tt-suggestion:hover {cursor:pointer; color:#fff; background-color:#0097cf;}
+.tt-suggestion:hover img {-webkit-filter:invert(1) brightness(200%); filter:invert(1) brightness(200%);}
+.tt-suggestion.tt-cursor {color:#fff; background-color:#0097cf;}
+.tt-suggestion p {margin:0;}
+
+input#generator_maxheight	{color:#fff;}
+input#generator_limit		{color:#fff;}
+
+/*	Input placeholder font color	*/
+::-webkit-input-placeholder {/* WebKit, Blink, Edge */color:#bbb;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color:#bbb; opacity:1;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color:#bbb; opacity:1;}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */color:#ccc;}
+::-ms-input-placeholder { /* Microsoft Edge */color:#bbb;}
+
+
+#result_span			{font-size:3em;}
+#filter_span			{font-size:3em; display:none;}
+
+#view_search_test		{margin:0 auto; width:960px; padding:30px 0 40px 0;}
+input#view_search_string, input#view_search_string_only, input.typeahead.tt-hint	{font-size:32px; width:936px; height:48px; border:0; margin-top:10px;}
+.search_wrap			{display:inline-block; width:290px; margin-bottom:15px;}
+.search_wrap:nth-child(3), .search_wrap:nth-child(6)	{margin-left:20px; margin-right:20px;}
+.search_label			{font-size:14px; padding-bottom:5px; margin-right:23px; line-height:1.2em; text-transform:uppercase;}
+.search_label img		{padding-right:7px;width:14px;height:14px;}
+
+.search_wrap .chosen-container{width:290px; min-width:290px; max-width:290px;}
+#country_dropmenu .chosen-container, #publisher_dropmenu .chosen-container	{width:460px; min-width:460px; max-width:460px;}
+
+.search_wrap.mini div#view_search_select_year_min_chosen,
+.search_wrap.mini div#view_search_select_year_max_chosen	{width:145px; min-width:145px;max-width:145px;}
+
+.tt-menu img			{width:16px; height:16px;}
+
+#search_div				{position:relative; min-height:50px; margin-top:40px; margin-bottom:20px;}
+#search_div span#search_span span	{display:block; padding-top:5px;}
+
+/*	Discover Results search button	*/
+a#search_link		{display:block; text-align:center; margin:0 auto; font-size:1.6em; line-height:18px; position:absolute; right:1px; bottom:0; border-radius:6px; height:60px; max-height:60px; box-sizing:border-box; padding:20px;}
+a#search_link span	{display:block; font-style:italic; font-size:0.6em; padding-top:5px;}
+
+
+/*	WIP explore page	*/
+.typeahead.explore {width:934px; margin-bottom:40px; background-color:transparent !important; border:1px solid #fff !important; border-radius:0 !important; }
