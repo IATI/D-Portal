@@ -1,0 +1,187 @@
+#^css
+#background_image	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/backgroundimage.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
+.overlay			{width:100%; height:100%; background-color:rgba(19, 16, 1, 0.8);}	/* Overlay colour for background image */
+a					{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
+img					{-webkit-filter:brightness(100%); filter:brightness(100%);}
+
+/*	Blog posts images
+	============================================= */
+	
+img					{max-width:750px; height:inherit;}
+
+
+/*	Navigation
+	============================================= */
+
+table.head			{width:960px; margin:0 auto; position:relative;}
+table.head td.logo, table.head td.options	{padding-top:20px}
+table.head td.options	{color:#FFF; text-align:right; vertical-align:middle; font-size:0.9em;}
+table.head td.dplinks	{text-align:center;}
+.navi				{width:100%; background-color:rgba(42,42,42,0.8); padding-bottom:30px; position:fixed; z-index:100;}
+a.top				{display:block; color:#fff; font-size:18px; vertical-align:top; padding-top: 45px; border-top:5px solid rgba(0,0,0,0); min-width:50px; margin:0 auto;}
+a.top:hover			{padding-top:20px; margin-top:25px;}
+a.top.install:hover	{border-top:5px solid #2573CD;}
+a.top.gen:hover		{border-top:5px solid #5C80AB;}
+a.top.savi:hover	{border-top:5px solid #FFA500;}
+a.top.hub:hover		{border-top:5px solid rgba(255,255,255,1);}
+a.top.news:hover	{border-top:5px solid #960096;}
+a.top.dash:hover	{border-top:5px solid #B47447;}
+a.top.faq:hover		{border-top:5px solid #2BF26C;}
+
+
+/*	Wrappers
+	============================================= */
+
+.mid_wrap			{display:inline-block; vertical-align:middle; width:460px; max-width:460px;}
+.about_wrap			{width:100%;}
+.about_wrap.start	{background-color:#2573CD; padding:140px 0 80px 0;}
+.about_wrap.more	{background-color:rgba(10,14,20,0.35);}
+.about_wrap.moretxt	{font-size:1.1em; color:#fff; line-height:1.55em; background:none; padding:80px 0}
+.about_wrap.sav		{background-color:#FFA500; padding:60px 0;}
+.about_wrap.install	{background-color:#fff; padding:0 0 40px 0;}
+.about_wrap.gen		{background-color:#505F71; padding:80px 0 0 0;}
+.about_wrap.dash	{background-color:rgba(39,35,31,0.65); padding:40px 0 0 0;}
+.about_wrap.news	{background-color:#2b262b; padding:80px 0 0 0;}
+.about_wrap.faqinfo	{background-color:#37AF5F; padding:80px 0 0 0;}
+.about_wrap.discover{background-color:#505F71; padding:80px 0 0 0;}
+.about_wrap.dq		{background-color:#724900; padding:0 0 40px 0;}
+.about_wrap.q		{background-color:#4F3200; padding:0 0 40px 0;}
+.about_wrap.sources	{background-color:rgba(10, 14, 20, 0.35); padding:80px 0 100px 0;}
+.about_wrap.git		{background-color:#fff; padding:160px 0 0 0;}
+.screen				{text-align:center; width:960px; height:400px;}
+.screen.dash		{background:url('{_root}art/dash.png')no-repeat;}
+.screen.generator	{background:url('{_root}art/generator.png')no-repeat;}
+.screen.news		{background:url('{_root}art/news.jpg')no-repeat;}
+.screen.faq			{background:url('{_root}art/faq.png')no-repeat;}
+.screen.discover	{background:url('{_root}art/discover.jpg')no-repeat;}
+
+
+/*	Text styles
+	============================================= */
+
+h1				{font-weight:bold; font-size:38px; display:block; padding-bottom:30px;}
+h2				{font-weight:bold; font-size:30px; display:block; padding-top:30px;}
+h3				{font-weight:bold; font-size:24px; display:block; padding-top:30px;}
+h4				{font-style:italic; font-size:16px; display:block; padding-top:30px; padding-bottom:10px; border-bottom:1px solid #fff; margin-bottom:20px;}
+p				{color:#fff; padding:15px 0;}
+.mid_wrap p		{color:#fff; padding:30px 0 5px;}
+.about_head		{color:#fff; line-height:1.35em; font-size:22px; padding:30px 0 20px 40px; border-left:1px solid #FFF;}
+.about_info		{font-size:18px; line-height:1.4em; color:#E8F6FF; padding-top:10px;}
+.sources_head	{color:#fff; font-size:28px; padding-top:80px; margin-bottom:40px;}
+.sav_head		{color:#fff; line-height:1.25em; font-size:22px; padding:40px 0 40px 40px;}
+.sav_info		{font-size:18px; line-height:1.4em; padding-top:10px; color:#FFF0D4;}
+.dq_info		{font-size:18px; line-height:1.4em; padding:20px; color:#FFC761;}
+.footer_link.mit{font-size:13px; line-height:13px; color:#fff; text-align:right;}
+a.co			{color:#5E96DD;}
+a.co:hover		{text-decoration:underline;}
+a.dash_link		{color:#000;}
+a.dash_link:hover{text-decoration:underline;}
+.about_wrap a:hover		{text-decoration:underline;}
+.about_wrap.dash a 		{color:#ff7a01;}
+.about_wrap.gen a 		{color:#9eb5ff;}
+.about_wrap.news a		{color:#d0c481;}
+.about_wrap.faqinfo a	{color:#fff893;}
+a.how			{display:inline-block; padding:5px 10px; background-color:#2573CD; color:rgba(10, 14, 20, 1); border-radius:6px; font-size:0.8em; font-weight:bold; margin-right:5px;}
+a.how:hover		{background-color:#3794FF;}
+a.news_link		{display:list-item; list-style-type:decimal; font-style:italic; list-style-position:inside; font-style:italic;}
+span.questions	{display:block; padding:5px 0;}
+.install p, .install h1	{color:#444;}
+.install a		{color:#1E90FF; font-size:22px;}
+.install a:hover{text-decoration:underline;}
+
+
+/*	About dstore and q
+	============================================= */
+
+.l0			{width:470px; max-width:470px; border-right:10px solid #FFA500; height:100px; max-height:100px;}
+.l1			{display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;}
+.l2			{display:inline-block; vertical-align:top; width:230px; max-width:230px; border-left:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;}
+.l3			{display:inline-block; vertical-align:top; width:230px; max-width:230px; border-right:10px solid #FFA500; border-top:10px solid #FFA500; height:90px; max-height:90px;}
+.l4			{display:inline-block; vertical-align:top; width:240px; max-width:240px; height:100px; max-height:100px;}
+.dq_wrap	{display:inline-block; vertical-align:top; width:400px; max-width:400px; padding:40px;}
+.arrow		{width:0; height:0; border-top:30px solid #724900; border-left:30px solid transparent; border-right:30px solid transparent; margin-bottom:80px;}
+.arrow.more	{margin:0; border-top:30px solid #2573CD;}
+
+
+/*	q examples
+	============================================= */
+
+.qhead		{color:#FFA500; font-size:28px; margin-bottom:40px;}
+.qabt		{color:#B17300; font-size:16px; line-height:1.2em; margin-top:20px; margin-bottom:20px;}
+.qinfo		{color:#FFA500; font-size:18px; line-height:1.3em; padding:10px 0; margin-bottom:40px;}
+span.qdef	{display:inline-block; vertical-align:top; color:#FFBD44; font-size:16px; font-family:monospace;}
+a.qeg		{display:block; padding:10px 30px; background-color:#201500; color:#fff; font-size:18px; font-family:monospace;}
+a.qeg:hover	{background-color:#0E0900;}
+
+
+/*	Attribution and link to data sources
+	============================================= */
+	
+table.sources			{width:960px; margin:0 auto; color:#fff; table-layout:fixed;}
+table.sources th		{text-align:left; font-weight:bold; padding:20px 20px 20px 0;}
+table.sources th.col1	{width:25%;}
+table.sources th.col2	{width:40%;}
+table.sources th.col3	{width:35%;}
+table.sources td		{padding:10px 20px 10px 0; line-height:1.45em; border-bottom:1px solid #505050; vertical-align:bottom;}
+table.sources td:hover	{cursor:default;}
+table.sources td:first-child	{color:#D0DEF0;}
+table.sources td a		{color:#5E96DD;}
+table.sources td a:hover{color:#A5CDFF; text-decoration:underline;}
+
+
+/*	Github
+	============================================= */
+
+.gitcon		{display:inline-block; vertical-align:top; width:640px; max-width:640px;}
+.gitinfo	{width:640px; padding-top:10px; font-size:18px; line-height:1.3em;}
+.gitinfo p	{color:#444; line-height:25px; font-size:18px;}
+.octocat	{display:inline-block; vertical-align:top; width:300px; max-width:300px; margin-left:20px;}
+.gitinfo a	{color:#1E90FF;}
+.gitinfo a:hover	{text-decoration:underline;}
+a.git		{display:block; font-size:38px; background-color:#1E90FF; border-radius:14px; text-align:center; padding:20px 0; color:#fff; width:640px; box-sizing:border-box;}
+a.git:hover	{background-color:#66b4ff; text-decoration:none;}
+
+
+
+/*	FAQ page
+	============================================= */
+
+.faq_head				{font-size:38px; position:absolute; top:0; left:0; padding:40px 0 40px 100px; color:#FFF; width:860px;}
+.faq_head.a				{background-color:#2BF26C;}
+.faq_head.b				{background-color:#FF980A;}
+.faq_head.c				{background-color:#7BC2FF;}
+
+.navi.clear				{background-color:transparent; position:initial;}
+.about_wrap.faq			{background-color:transparent; padding:40px 0;}
+
+.faq_wrap				{width:960px; margin:0 auto; background-color:#FFF; padding:100px 40px 40px 40px; box-sizing:border-box; position:relative;}
+.faq_links_wrap			{padding:40px 0 60px 60px; counter-reset:section;}
+.faq_links_wrap a::before{counter-increment:section; content:counter(section) ". ";}
+.faq_links_wrap a		{display:block; padding-top:10px; color:#444; list-style-type:decimal; list-style-position:inside;}
+.faq_links_wrap a:hover	{text-decoration:underline;}
+
+ul.faq_list				{padding-left:60px;}
+ul.faq_list li			{font-size:1.2em; font-weight:bold; line-height:1.2em; padding-bottom:10px; list-style-type:decimal;}
+
+a.topics				{display:inline-block; padding:20px; color:#FFF; background-color:#2CE268; vertical-align:top; width:310px; box-sizing:border-box; text-align:center; border-radius:8px 8px 0 0; font-size:1.8em;}
+a.topics.a:hover		{background-color:#2BF26C;}
+a.topics.b				{margin-left:15px; margin-right:15px; background-color:#FF860E;}
+a.topics.b:hover		{background-color:#FF980A;}
+a.topics.c				{background-color:#53AEFF;}
+a.topics.c:hover		{background-color:#7BC2FF;}
+a.topics.a.on			{background-color:#2BF26C;}
+a.topics.b.on			{background-color:#FF980A;}
+a.topics.c.on			{background-color:#7BC2FF;}
+a.topics:hover			{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
+
+span.info				{display:block; color:#444; font-size:0.8em; line-height:1.4em; font-weight:normal; padding:10px 40px 40px 5px;}
+span.info ul			{padding-left:20px;}
+span.info li			{font-weight:normal; font-size:1.0em; list-style-type:lower-latin; padding:10px 0 0 0;}
+span.info a				{color:#2573CD;}
+span.info a:hover		{text-decoration:underline;}
+span.info p				{color:#444; padding:10px 0 0 0;}
+
+ul.faq_list li.on span.list	{background-color:#BEE1FF; padding:5px 10px;}
+
+a.faq_top				{display:block; position:fixed; right:100px; top:250px; padding:10px 10px 10px 20px; border-radius:0 4px 4px 0; background-color:#DEDEDE; color:#444; font-size:0.9em; font-weight:bold; width:60px; line-height:1.2em;}
+a.faq_top:hover			{background-color:#EBEBEB;}

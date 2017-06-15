@@ -1,0 +1,30 @@
+#html
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{blog_head_text}</title>
+	<script src="{root}jslib/jquery.js"></script>
+	<link  href="{root}art/original/ctrack.css" rel="stylesheet" type="text/css" >
+	<link  href="{root}about.css" rel="stylesheet" type="text/css" >
+	<style>{css}</style>
+</head>
+<body>
+	{view_head}
+	{main_head}
+	{main_title}	
+	<div>
+		{bloglist:blog_wrap}
+	</div>
+	{view_tail}
+</body>
+</html>
+
+
+#main_title
+<div class="default">
+	<div class="blog_head">{blog_head_text}</div>
+</div>
+
+
+#css
+.navi	{position:relative;}
