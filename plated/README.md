@@ -25,7 +25,7 @@ _Commands above are for debian/ubuntu. For other operating systems, please the u
    - Create a name for your new repository and click **Begin import**
 
 2. Edit /plated/settings in your new repository
-    - Replace ```/plated-example``` with ```/new-repo```
+    - Replace ```/plated-example``` with ```/your-new-repo-name```
     - If you're creating a yourname.github.io user or organisation site, change it to ```/```
     
 3. Go to ![settings](https://cloud.githubusercontent.com/assets/1515961/25015092/dcf5b398-2069-11e7-9740-424784716088.png)
