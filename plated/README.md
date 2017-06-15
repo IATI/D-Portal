@@ -1,10 +1,11 @@
 # Plated-Example
 
-A boilerplate for a static website hosted on github; ie. http://username.github.io/new-repo
+A boilerplate for a static website hosted on github; ie. http://username.github.io/your-new-repo-name
 
 ## Table of contents
   - [Dependencies](#dependencies)
   - [A step by step guide](#a-step-by-step-guide)
+  - [Running & testing your new website locally](#run-this-local)
   - [Adding to an existing repository](#adding-plated-example-to-an-existing-repository)
   - [Scripts](#scripts)
   - [Links & license](#would-you-like-to-know-more)
@@ -35,6 +36,16 @@ _Commands above are for debian/ubuntu. For other operating systems, please the u
 4. You can now start building your website!
     - Remember! Run ```plated/upgrade``` first to install the node required dependencies.
     
+---
+
+# Run this local
+
+1. Run ```plated/build``` to build your website
+
+2. Run ```plated/start``` to start a local server
+
+3. View your website on a browser at: http://0.0.0.0:8000/your-new-repo-name
+
 ---
 
 The website is generated into /docs from files found in /plated/source.
@@ -110,7 +121,7 @@ _(Optional if ```plated/start``` is running)_
 	plated/serv
 
 &#8627; Start a simple static server locally, visit 
-http://0.0.0.0:8000/plated-example/ in your browser to view your 
+http://0.0.0.0:8000/your-new-repo-name/ in your browser to view your 
 site.
 
 _(Optional if ```plated/start``` is running)_
