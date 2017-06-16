@@ -95,7 +95,7 @@ The following scripts may be run from this project's **root directory**.
 
 	plated/upgrade
 
-&#8627; This will install or upgrade plated using npm.
+&#8627; This will install or upgrade plated to the latest version using npm.
 
 **Run this once for the scripts to work.** Run this later to upgrade to the latest version.
 
