@@ -1,7 +1,9 @@
 <html>
-<head><title>The Generator – how to get live d-portal content on your website</title>
-<style>
-
+<head>
+	<meta charset="UTF-8">
+	<title>{blog_title}</title>
+	<script src="/d-portal.org/jslib/jquery.js"></script>
+	<style>
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:top;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}	/* Resets */
 
 a,img					{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outline:0;}
@@ -290,14 +292,83 @@ a.beige:hover			{color:#FFF;}
 
 }
 
+.navi	{position:relative;}
 
-</style></head>
-<body><div class="a_blog">
-	<div class="day">
-		<div class="scroll"></div>
-		<div class="scroll_tip"></div>
-		<div class="scroll_tip a"></div>
-		<div class="peak_box"><p>Check out this excellent <a href="https://vimeo.com/148486364">vimeo</a> that Bond put together which shows you the quick and simple steps to using the <a href="http://d-portal.org/ctrack.html#view=generator">d-portal generator</a>. 
+
+</style>
+</head>
+<body>
+	<div class="portal">
+	<div class="main_wrap">
+		<div id="background_image"></div>
+		<div class="overlay">
+	
+	<div class="navi">
+	<table class="head">
+		<tr>
+			<td class="logo">
+				<a href="/d-portal.org/" title="Back to d-portal
+">
+					<img src="/d-portal.org/art/dp_logo.60.png" alt="d-portal logo
+" width="150" height="60"/><span class="badge beta">BETA</span>
+
+				</a>
+			</td>
+			<td class="dplinks"><a href="/d-portal.org/about.html" class="top install">About
+</a></td>
+			<td class="dplinks"><a href="/d-portal.org/faq.html" class="top faq">FAQ</a></td>
+			<td class="dplinks"><a href="/d-portal.org/ctrack.html#view=generator" class="top savi">Generator</a></td>
+			<td class="dplinks"><a href="/d-portal.org/ctrack.html#view=dash" class="top dash">Dash</a></td>
+			<td class="dplinks"><a href="/d-portal.org/news/posts.html" class="top news">News
+</a></td>
+			<td class="dplinks"><a href="https://github.com/devinit/D-Portal" class="top hub">Github</a></td>
+			<td class="dplinks"><a href="/d-portal.org/" class="top install">Home
+</a></td>
+			<td class="options"><form action="">
+<select id="tongue_select" name="tongue">
+	
+	<option value="eng" title="View this in English(UK)">English (UK)</option> 
+	
+	<option value="fra" title="Voir ce en français">Français</option> 
+	
+	<option value="spa" title="Ver esto en español">Español</option> 
+	
+	<option value="jpn" title="日本語でこれを表示">日本の</option> 
+	
+	<option value="cmn" title="查看本在中国（简体）">中国的</option> 
+	
+	<option value="hin" title="हिंदी में यह दृश्य">हिंदी</option> 
+	
+</select>
+</form>
+
+<script>
+	$(function(){
+		$('#tongue_select').children().each(function(i,it){
+			if("{tongue}"==$(it).val())
+			{
+				$(it).attr("selected",1)
+			}
+		});
+		$('#tongue_select').bind('change', function ()
+		{
+			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/eng/"){t="/d-portal.org/";}
+			var url = t+"{_fullfilename}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+</script>
+</td>
+		</tr>
+	</table>
+</div>
+
+	
+<div class="blog_wrap">
+	<div class="blog_title">The Generator – how to get live d-portal content on your website</div>
+	<div class="blog_date">2016-06-17</div>
+	<div class="blog_body"><p>Check out this excellent <a href="https://vimeo.com/148486364">vimeo</a> that Bond put together which shows you the quick and simple steps to using the <a href="http://d-portal.org/ctrack.html#view=generator">d-portal generator</a>. 
 <br/>
 <br/></p>
 <p><iframe src="https://player.vimeo.com/video/148486364?title=0&byline=0&portrait=0&wmode=transparent" width="100%" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -310,16 +381,86 @@ Email - <a href="mailto:support@iatistandard.org?subject=Queries about Publisher
 <p>Google Group - <a href="https://groups.google.com/forum/#!forum/d-portal-list">groups.google.com/forum/#!forum/d-portal-list</a></p>
 <p>GitHub - <a href="https://github.com/devinit/D-Portal">github.com/devinit/D-Portal</a></p>
 </div>
-		<div class="peak_wrap"><div class="peak"></div></div>
-		<div class="date">~ Matt Bartlett, 2016-06-17</div>
-	</div>
-	<div class="bards"></div>
+	<a href="/news" class="back_news">Back to News page
+</a>
+	
+<!--
+	<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'dportalnews'; // required: replace example with your forum shortname
+		var disqus_identifier = "{_fullfilename}"; // unique id of post
+		
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by
+ <span class="logo-disqus">Disqus</span></a>
+-->
+   
 </div>
 
 <div class="nav_wrap">
 	<div class="page_link"><a href="/d-portal.org/news/2016-03-02-Results-data-now-showing-in-d-portal/">Older post</a>
-</div><div class="page_link"><a href="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/">Newer post</a>
+</div><div class="page_link"><a href="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/">Newer post</a
+
+
+
+
+
 </div>
+</div>
+
+			</div>
+	</div>
+	<div class="footer_wrap">
+	<div class="footer">
+		<div class="footer_link">
+	<div class="footer_motto"><a href="http://d-portal.org/">d-portal.org
+</a> helps you explore IATI data.
+</div>
+	<p>It provides a search function and information by country or by publisher on development activities and budgets published to IATI.
+</p>
+	<p class="beta">We are currently in BETA. While d-portal is publicly available, it is not considered finished. You may experience bugs and missing features, but that is why we need your feedback and support.
+</p>
+	<p>Send emails to
+ <b><a href="mailto:support@iatistandard.org">support@iatistandard.org
+</a></b></p>
+</div><div class="footer_link list">
+	<div class="footer_header">Tools &amp; Updates
+</div>
+	<ul>
+		<li><a href="http://d-portal.org/news/posts.html">Latest news posts
+</a></li>
+		<li><a href="http://d-portal.org/about.html">About d-portal.org
+</a></li>
+		<li><a href="http://d-portal.org/ctrack.html?#view=dash">Dash - Publishers statistics
+</a></li>
+		<li><a href="http://d-portal.org/ctrack.html#view=generator">Generator - Widgets for your website
+</a></li>
+	</ul>
+	<div class="footer_header">Information
+</div>
+	<ul>
+		<li><a href="http://d-portal.org/faq.html">FAQ
+</a></li>
+		<li><a href="http://d-portal.org/about.html#sources">Attribution &amp; Sources
+</a></li>
+		<li><a href="https://github.com/devinit/D-Portal/issues">Github Feedback Forum
+</a></li>
+	</ul>
+</div>
+<div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">Top of page
+</a></div>
+
+
+	</div>
+	</div>
 </div>
 
 </body>

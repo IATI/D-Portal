@@ -43,46 +43,48 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 #^-This is a single blog post viewed on its own page
 #^_blog_post_body_one
 #^------------------------------
-<div class="a_blog">
-	<div class="day">
-		<div class="scroll"></div>
-		<div class="scroll_tip"></div>
-		<div class="scroll_tip a"></div>
-		<div class="peak_box">{_blog_post_body}</div>
-		<div class="peak_wrap"><div class="peak"></div></div>
-		<div class="date">~ {_blog_post_json.author}, {_blog_post_json.datedash}</div>
-	</div>
-	<div class="bards"></div>
+
+<div class="blog_wrap">
+	<div class="blog_title">{_blog_post_json.title}</div>
+	<div class="blog_date">{_blog_post_json.datedash}</div>
+	<div class="blog_body">{_blog_post_body}</div>
+	<a href="/news" class="back_news">{back_news_text}</a>
+	
+<!--
+	<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'dportalnews'; // required: replace example with your forum shortname
+		var disqus_identifier = "{_fullfilename}"; // unique id of post
+		
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">{disqus_text} <span class="logo-disqus">Disqus</span></a>
+-->
+   
 </div>
 
 <div class="nav_wrap">
 	<div class="page_link">{_blog_post_older:link_older_post}</div><div class="page_link">{_blog_post_newer:link_newer_post}</div>
 </div>
 
-
 #^------------------------------
 #^-This is for the blog list
 #^_blog_post_body_many
 #^------------------------------
-<div class="a_blog">
-	<div class="day">
-		<div class="scroll"></div>
-		<div class="scroll_tip"></div>
-		<div class="scroll_tip a"></div>
-		<div class="peak_box">{_blog_post_body}</div>
-		<div class="peak_wrap"><div class="peak"></div></div>
-		<div class="date"><a href="{_dirname}">~ {_blog_post_json.author}, {_blog_post_json.datedash}</a></div>
-	</div>
-	<div class="bards"></div>
-</div>
 
-
-#^this_chunk_is_not_used
 <div class="blog_wrap">
-	<div class="blog_info"><a href="{_dirname}">{_blog_post_json.title}</a> by {_blog_post_json.author} on {_blog_post_json.datedash}</div>
-	{_blog_post_body}
-	{_blog_post_json.fun_file&fun_blog_link}
+	<a href="{_dirname}" class="blog_title">{_blog_post_json.title},</a>
+	<div class="blog_date">{_blog_post_json.datedash}</div>
+	<div class="blog_body">{_blog_post_body}</div>
 </div>
+
 
 #^------------------------------
 #^link_older_post
@@ -92,4 +94,66 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 #^------------------------------
 #^link_newer_post
 #^------------------------------
-<a href="{_it}">Newer post</a>
+<a href="{_it}">Newer post</a
+
+
+
+
+
+
+#^html
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{blog_title}</title>
+	<script src="{_root}jslib/jquery.js"></script>
+	<style>{css}</style>
+</head>
+<body>
+	{view_head}
+	{main_head}
+	{body}
+	{view_tail}
+</body>
+</html>
+
+#^main_head
+<div class="navi">
+	<table class="head">
+		<tr>
+			<td class="logo">
+				<a href="{tongue_root}" title="{mainback_tip_text}">
+					<img src="{_root}art/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}
+				</a>
+			</td>
+			<td class="dplinks"><a href="{tongue_root}about.html" class="top install">{about_link_text}</a></td>
+			<td class="dplinks"><a href="{tongue_root}faq.html" class="top faq">FAQ</a></td>
+			<td class="dplinks"><a href="{tongue_root}ctrack.html#view=generator" class="top savi">Generator</a></td>
+			<td class="dplinks"><a href="{tongue_root}ctrack.html#view=dash" class="top dash">Dash</a></td>
+			<td class="dplinks"><a href="{tongue_root}news/posts.html" class="top news">{news_link_text}</a></td>
+			<td class="dplinks"><a href="https://github.com/devinit/D-Portal" class="top hub">Github</a></td>
+			<td class="dplinks"><a href="{tongue_root}" class="top install">{home_link_text}</a></td>
+			<td class="options">{tongue_select}</td>
+		</tr>
+	</table>
+</div>
+
+#^status
+<span class="badge beta">BETA</span>
+
+#^main_title
+<div class="default">
+	<a href="{_root}/news" class="blog_head">{blog_head_text}</a>
+</div>
+
+
+#^main_title
+<div class="default">
+	<div class="blog_head">{blog_head_text}</div>
+</div>
+
+
+#^css same=append
+.navi	{position:relative;}
+
+
