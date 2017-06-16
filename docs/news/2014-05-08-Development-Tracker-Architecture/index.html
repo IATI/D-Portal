@@ -392,7 +392,13 @@ a.beige:hover			{color:#FFF;}
 			<div class="blog_author"><b>Kriss</b> ~ Lead Developer</div>
 			<div class="blog_date">Posted in
  Technical</div>
-			<div class="blog_date">2014-05-08</div>
+			<div class="blog_date">2014-05-08
+				<script type="text/javascript">
+					var d = new Date("2014-05-08");
+					var n = d.toDateString();
+					document.currentScript.parentElement.innerHTML = n;
+				</script>
+			</div
 		</div>
 	</div>
 	<div class="blog_title">Development Portal Architecture</div>
