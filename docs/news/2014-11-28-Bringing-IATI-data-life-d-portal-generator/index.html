@@ -133,23 +133,38 @@ a.description_wrap.bigbutton p						{padding:0; font-size:24px; line-height:29px
 
 /*	Blog styles
 	============================================= */
-.blog_head			{width:960px;margin:0 auto;color:#FFF;line-height:1.7em;font-size:4.0em;padding-top:20px;border-bottom: 1px solid #FFF;}
-a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #FFF;}
-.blog_wrap			{padding:40px 60px; color:#FFF; font-size:1.0em; line-height:1.4em; border-bottom:1px solid #FFF; background-color:rgba(255,255,255,0.1); width:800px; margin:auto; margin-top:40px; margin-bottom:40px;}
-.blog_date			{font-size:0.9em; line-height:1.2em; color:#CCC;}
-.blog_body			{padding:20px 0;}
-.blog_body p		{margin:1em 0; padding:0; color:inherit;}
+.blog_head			{width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:1px solid #FFF;}
+a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:1px solid #FFF;}
+.blog_wrap			{padding:40px 100px; color:rgba(42,42,42,0.8); font-size:1.0em; line-height:1.4em; border-bottom:1px solid rgba(42,42,42,0.8); background-color:#FFF; width:960px; margin:auto; margin-top:40px; margin-bottom:40px; box-sizing:border-box;}
+.blog_wrap:last-of-type	{margin-bottom:0;}
+.blog_info_wrap		{padding:20px 0 40px 0;}
+.blog_icon, .blog_info	{display:inline-block; vertical-align:top;}
+.blog_icon			{width:60px; height:60px; border-radius:80px;}
+.blog_icon img		{width:60px; height:60px;}
+.blog_info			{padding-left:15px;}
+.blog_date			{font-size:14px; line-height:20px;}
+.blog_author		{font-size:18px; line-height:24px;}
+.blog_body			{padding:20px 0; padding-top:0; font-size:20px; line-height:34px; color:rgba(42,42,42,0.8);}
+.blog_body p		{margin:1.8em 0; padding:0; color:inherit;}
 .blog_body ul		{list-style:inherit; list-style-position:inside;}
-.blog_body a		{color:#A8C5E5;}
-.blog_body a:hover	{color:#FFF; text-decoration:underline;}
-.blog_title			{font-size:2.2em; line-height:1.2em; color:#A8C5E5; padding-bottom:20px;}
-a.blog_title		{display:block; font-size:2.2em; line-height:1.2em; color:#A8C5E5; padding-bottom:20px;}
-a.blog_title:hover	{color:#FFF;}
-a.back_news			{display:block; margin-top:40px; text-align:right; color:#FFF;}
-a.back_news:hover	{color:#A8C5E5;}
-.blog_body code		{background-color:#fff; padding:10px 20px; color:#222; font-family:monospace; margin:15px 0; display:block;}
+.blog_body ul li	{font-size:20px; line-height:34px;}
+.blog_body a		{text-decoration:underline; color:rgba(42,42,42,0.8);}
+.blog_title			{font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8);}
+a.blog_title		{display:block; font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8); padding:0;}
+a.back_news			{display:block; margin-top:40px; text-align:right; color:rgba(42,42,42,0.8);}
+a.back_news:hover	{text-decoration:underline;}
+.blog_body code		{background-color:#eee; padding:10px 20px; font-size:18px; color:rgba(42,42,42,0.8); font-family:monospace; margin:15px 0; display:block;}
 .blog_body code a, .blog_body code a:focus, .blog_body code a:link, .blog_body code a:visited,
-.blog_body code a:hover, .blog_body code a:active	{color:#222; text-decoration:none; transition:initial;}
+.blog_body code a:hover, .blog_body code a:active	{color:rgba(42,42,42,0.8); text-decoration:none; transition:initial;}
+.blog_page_wrap		{width:920px; margin:0 auto; padding:20px 0; margin-bottom:40px;}
+.page_link			{display:inline-block; vertical-align:top; width:50%;}
+.page_link a		{display:block; color:#FFF;}
+.page_link:nth-of-type(2) a	{text-align:right;}
+.page_link a:hover	{color:#A8C5E5;}
+h4					{display:block; border-bottom:1px solid #ccc; padding-bottom:5px; margin-top:60px; margin-bottom:10px;}
+.blog_links_wrap	{counter-reset:section;}
+a.news_link			{display:block; font-style:italic; text-decoration:none;}
+a.news_link::before {counter-increment:section; content:counter(section) ". "; line-height:18px;}
 
 
 /*	Blog posts images
@@ -364,10 +379,23 @@ a.beige:hover			{color:#FFF;}
 	</table>
 </div>
 
+	<div class="default">
+	<a href="/d-portal.org//news" class="blog_head">News and updates
+</a>
+</div>
+
+
 	
 <div class="blog_wrap">
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>Matt Bartlett</b> ~ Project Manager</div>
+			<div class="blog_date">Posted in
+ Overview</div>
+			<div class="blog_date">2014-11-28</div>
+		</div>
+	</div>
 	<div class="blog_title">Bringing IATI data to life: d-portal generator</div>
-	<div class="blog_date">2014-11-28</div>
 	<div class="blog_body"><p>The <a href="http://www.d-portal.org/ctrack.html?#view=generator">generator</a> is a new d-portal feature that allows users to select subsets of <a href="http://www.aidtransparency.net/">International Aid Transparency Initiative</a> (IATI) information from the d-portal website and embed them into their own websites and blogs.</p>
 <h3><strong>What is d-portal?</strong></h3>
 
@@ -407,8 +435,10 @@ Nearly 300 organisations currently publish data on their activities to the <a hr
 <p><strong>IATI data </strong>includes data from donor governments and multilaterals, NGOs, foundations and private sector companies. It is forward-looking (it contains 2015 data from many publishers), comparable and increasingly comprehensive.</p>
 <p>Both the d-portal and the d-portal generator are currently in beta. We’d love to hear your feedback, so please let us know if you use either d-portal or the generator, and tell us about your experience; <strong>please send comments, queries and feedback to</strong> <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>, or <strong>raise issues</strong> on the <a href="https://github.com/devinit/D-Portal">d-portal GitHub</a>.</p>
 <p><em>If you are interested in <strong>finding out more or part-funding d-portal</strong>, please contact </em><a href="mailto:support@iatistandard.org"><em>support@iatistandard.org</em></a></p>
-<p><h4>Links</h4>
-<a href="/d-portal.org/ctrack.html#view=generator" class="news_link">Create IATI content with the d-portal Generator</a></p>
+<div class="blog_links_wrap">
+    <h4>Links</h4>
+    <a href="/d-portal.org/ctrack.html#view=generator" class="news_link">Create IATI content with the d-portal Generator</a>
+</div>
 </div>
 	<a href="/d-portal.org/news" class="back_news">Back to News page
 </a>
@@ -433,10 +463,11 @@ Nearly 300 organisations currently publish data on their activities to the <a hr
 -->
    
 </div>
-
-<div class="nav_wrap">
-	<div class="page_link"><a href="/d-portal.org/news/2014-05-28-Current-plans/">Older post</a>
-</div><div class="page_link"><a href="/d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator/">Newer post</a
+<div class="blog_page_wrap">
+	<div class="page_link"><a href="/d-portal.org/news/2014-05-28-Current-plans/">Older Post
+</a>
+</div><div class="page_link"><a href="/d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator/">Newer Post
+</a>
 
 
 

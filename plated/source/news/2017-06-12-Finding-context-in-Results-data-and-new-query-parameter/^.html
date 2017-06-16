@@ -10,6 +10,8 @@
 {
 	"title":"Finding context in Results data and new query parameter",
 	"author":"Shi",
+	"role":"Lead Developer",
+	"tag":"Technical",
 }
 
 #^------------------------------
@@ -22,7 +24,6 @@ Results data heirarchy is not particularly verbose.
 width="556" height="915">
 
 *Fig. 1 - The results element heirarchy*
-
 
 At its most basic, there is a title, description and an indicator. The 
 indicator makes up most of the results element with links to reference 
@@ -56,14 +57,12 @@ display results data in SAVi</a>, we misunderstood it entirely! Without
 context or how and what it was used for, a structure to compose a 
 visual layout was at most, based on assumptions.
 
-
 <img 
 src="http://devinit.org/wp-content/uploads/2016/03/resultsdatadportal.png" 
 alt="Results data" width="720" height="359">
 
 *Fig. 2 - First iteration of results data saw a rudimentary layout without 
 baseline data*
-
 
 The first thing we had to do was find some actual results data to work 
 with. Preferably an activity with most of the results subelement 
@@ -87,19 +86,16 @@ that has a high completion of the result subelements. This prompted us
 to add a **new query parameter to Q which is live right now on 
 d-portal**. Give it a go!
 
-
 <code><a href="http://d-portal.org/q.json?from=element&orderby=element_volume-&limit=10&element_name0=result">http://d-portal.org/q.json?from=element&orderby=element_volume-&limit=10&element_name0=result</a></code>
 
 The above query will display the top 10 activities that contain the 
 'result' element in descending order of frequency as JSON. Replace 
 **.json** with **.html**, **.xml** or **.csv** if you prefer.
 
-
 The query is 4 levels deep, this is enough to reach the deepest part of 
 the IATI standard. For example, if I want to search for activities that 
 have dimension data within the target element of results data, my query 
 will look like this:
-
 
 <code><a href="http://d-portal.org/q.json?from=element&orderby=element_volume-&limit=10&element_name0=dimension&element_name1=target&element_name2=period&element_name3=indicator">http://d-portal.org/q.json?from=element&orderby=element_volume-&limit=10&element_name0=dimension&element_name1=target&element_name2=period&element_name3=indicator</a></code>
 
@@ -112,7 +108,6 @@ We started going down the route of deeper searches into attributes but
 this is a rather resource hungry option so we've taken it out for now. 
 If there are demands for such things in the future, do let us know.
 
-
 During the four-day <a 
 href="http://www.publishwhatyoufund.org/open-ag-funding-action-tools-tackle-hunger/">Open 
 Ag Tool workshop</a>, we met experts in the field who gave us guidance 
@@ -123,12 +118,10 @@ approaches to publishing this data - Yearly, Quarterly etc. This gave
 us some context and a brief overview of the rather complex nature of 
 the results data element.
 
-
 <img src="{_dirname}/cordaid_result_2col.png" alt="Results data in activity" width="720" height="638">
 
 *Fig. 3 - WIP iteration of results data with two columns made the baseline look 
 out of place*
-
 
 We were later approached by Andy Lulham from Publish What You Fund 
 about the way we visualised baseline data (or rather, the lack of it)! 
@@ -140,7 +133,6 @@ getting somewhere close to making sense!
 Looking closer, we agreed that baseline could be interpreted as the 
 'start' value where 'target' and 'actual' data is based on (hence, 
 'baseline').
-
 
 Throughout the day, we huddled with so many exchanging findings. Nick 
 Hamlin from Global Giving shared interesting observations when he 
@@ -170,7 +162,6 @@ period-start and period-end dates. This meant the 3 columns could be
 used to compare values within the period element and visually, that 
 made sense.
 
-
 <img src="{_dirname}/cordaid_result_1.png" alt="Results data in activity" width="720" height="638">
 
 *Fig. 4 - Next iteration of results data with 3 columns for comparison*
@@ -184,7 +175,6 @@ ie. text is published instead of actual numbers.
 We've also added a small indicator to show if the period data is still 
 ongoing or has ended. This is represented by a 'progress bar' timeline 
 underneath the period dates.
-
 
 <img src="{_dirname}/cordaid_result.png" alt="Results data in activity" width="720" height="638">
 
@@ -203,5 +193,3 @@ many dedicated people working together towards the same goal with so
 much enthusiasm. We look forward to following the progress of all the 
 resulting projects and outcomes of this workshop.
 
-
-*This is a developer diary blog post by Shi.*

@@ -133,23 +133,38 @@ a.description_wrap.bigbutton p						{padding:0; font-size:24px; line-height:29px
 
 /*	Blog styles
 	============================================= */
-.blog_head			{width:960px;margin:0 auto;color:#FFF;line-height:1.7em;font-size:4.0em;padding-top:20px;border-bottom: 1px solid #FFF;}
-a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #FFF;}
-.blog_wrap			{padding:40px 60px; color:#FFF; font-size:1.0em; line-height:1.4em; border-bottom:1px solid #FFF; background-color:rgba(255,255,255,0.1); width:800px; margin:auto; margin-top:40px; margin-bottom:40px;}
-.blog_date			{font-size:0.9em; line-height:1.2em; color:#CCC;}
-.blog_body			{padding:20px 0;}
-.blog_body p		{margin:1em 0; padding:0; color:inherit;}
+.blog_head			{width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:1px solid #FFF;}
+a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:1px solid #FFF;}
+.blog_wrap			{padding:40px 100px; color:rgba(42,42,42,0.8); font-size:1.0em; line-height:1.4em; border-bottom:1px solid rgba(42,42,42,0.8); background-color:#FFF; width:960px; margin:auto; margin-top:40px; margin-bottom:40px; box-sizing:border-box;}
+.blog_wrap:last-of-type	{margin-bottom:0;}
+.blog_info_wrap		{padding:20px 0 40px 0;}
+.blog_icon, .blog_info	{display:inline-block; vertical-align:top;}
+.blog_icon			{width:60px; height:60px; border-radius:80px;}
+.blog_icon img		{width:60px; height:60px;}
+.blog_info			{padding-left:15px;}
+.blog_date			{font-size:14px; line-height:20px;}
+.blog_author		{font-size:18px; line-height:24px;}
+.blog_body			{padding:20px 0; padding-top:0; font-size:20px; line-height:34px; color:rgba(42,42,42,0.8);}
+.blog_body p		{margin:1.8em 0; padding:0; color:inherit;}
 .blog_body ul		{list-style:inherit; list-style-position:inside;}
-.blog_body a		{color:#A8C5E5;}
-.blog_body a:hover	{color:#FFF; text-decoration:underline;}
-.blog_title			{font-size:2.2em; line-height:1.2em; color:#A8C5E5; padding-bottom:20px;}
-a.blog_title		{display:block; font-size:2.2em; line-height:1.2em; color:#A8C5E5; padding-bottom:20px;}
-a.blog_title:hover	{color:#FFF;}
-a.back_news			{display:block; margin-top:40px; text-align:right; color:#FFF;}
-a.back_news:hover	{color:#A8C5E5;}
-.blog_body code		{background-color:#fff; padding:10px 20px; color:#222; font-family:monospace; margin:15px 0; display:block;}
+.blog_body ul li	{font-size:20px; line-height:34px;}
+.blog_body a		{text-decoration:underline; color:rgba(42,42,42,0.8);}
+.blog_title			{font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8);}
+a.blog_title		{display:block; font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8); padding:0;}
+a.back_news			{display:block; margin-top:40px; text-align:right; color:rgba(42,42,42,0.8);}
+a.back_news:hover	{text-decoration:underline;}
+.blog_body code		{background-color:#eee; padding:10px 20px; font-size:18px; color:rgba(42,42,42,0.8); font-family:monospace; margin:15px 0; display:block;}
 .blog_body code a, .blog_body code a:focus, .blog_body code a:link, .blog_body code a:visited,
-.blog_body code a:hover, .blog_body code a:active	{color:#222; text-decoration:none; transition:initial;}
+.blog_body code a:hover, .blog_body code a:active	{color:rgba(42,42,42,0.8); text-decoration:none; transition:initial;}
+.blog_page_wrap		{width:920px; margin:0 auto; padding:20px 0; margin-bottom:40px;}
+.page_link			{display:inline-block; vertical-align:top; width:50%;}
+.page_link a		{display:block; color:#FFF;}
+.page_link:nth-of-type(2) a	{text-align:right;}
+.page_link a:hover	{color:#A8C5E5;}
+h4					{display:block; border-bottom:1px solid #ccc; padding-bottom:5px; margin-top:60px; margin-bottom:10px;}
+.blog_links_wrap	{counter-reset:section;}
+a.news_link			{display:block; font-style:italic; text-decoration:none;}
+a.news_link::before {counter-increment:section; content:counter(section) ". "; line-height:18px;}
 
 
 /*	Blog posts images
@@ -364,20 +379,35 @@ a.beige:hover			{color:#FFF;}
 	</table>
 </div>
 
+	<div class="default">
+	<a href="/d-portal.org//news" class="blog_head">News and updates
+</a>
+</div>
+
+
 	
 <div class="blog_wrap">
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>Matt Bartlett</b> ~ Project Manager</div>
+			<div class="blog_date">Posted in
+ Overview</div>
+			<div class="blog_date">2016-03-02</div>
+		</div>
+	</div>
 	<div class="blog_title">Results data now showing in d-portal</div>
-	<div class="blog_date">2016-03-02</div>
-	<div class="blog_body"><p>Following requests from users about showing Results data in IATI with in d-portal you can now see this on the individual activity (<i>Savi</i>) pages – if you drill down into the data through the chart and tables, or via the maps, to see an individual activity you should be able to scroll down past the details of individual transactions within that activity and see information on Results (<i>as long as the publisher has reported Results data in their xml!</i>).</p>
-<p>For example on this Savi page for a <a href="http://d-portal.org/ctrack.html?publisher=NL-KVK-41160054&tongue=eng#view=act&aid=NL-KVK-41160054-109805">Cordaid activity</a> on improving health care in Zimbabwe you can see the Results data that Cordaid have published for this activity...</p>
+	<div class="blog_body"><p>Following requests from users about showing Results data in IATI with in d-portal you can now see this on the individual activity (<i>SAVi</i>) pages – if you drill down into the data through the chart and tables, or via the maps, to see an individual activity you should be able to scroll down past the details of individual transactions within that activity and see information on Results (<i>as long as the publisher has reported Results data in their xml!</i>).</p>
+<p>For example on this SAVi page for a <a href="http://d-portal.org/ctrack.html?publisher=NL-KVK-41160054&tongue=eng#view=act&aid=NL-KVK-41160054-109805">Cordaid activity</a> on improving health care in Zimbabwe you can see the Results data that Cordaid have published for this activity...</p>
 <p><img src="http://devinit.org/wp-content/uploads/2016/03/resultsdatadportal.png" alt="Results data" width="720" height="359">
 <br/>
 <br/></p>
 <p>As always <b>if you have any suggestions or feedback on d-portal</b> please do get in touch by one of the following means....</p>
-<p><h4>Links</h4>
-Email - <a href="mailto:support@iatistandard.org?subject=Queries about Publisher's data">support@iatistandard.org</a></p>
-<p>Google Group - <a href="https://groups.google.com/forum/#!forum/d-portal-list">groups.google.com/forum/#!forum/d-portal-list</a></p>
-<p>GitHub - <a href="https://github.com/devinit/D-Portal">github.com/devinit/D-Portal</a></p>
+<div class="blog_links_wrap">
+    <h4>Links</h4>
+    <a href="mailto:support@iatistandard.org?subject=Queries about Publisher's data" class="news_link">Email us about data queries and details</a>
+    <a href="https://groups.google.com/forum/#!forum/d-portal-list" class="news_link">Join the mailing list and Google Group and be informed about new updates</a>
+    <a href="https://github.com/devinit/D-Portal" class="news_link">Join discussions and feedback on Github</a>
+</div>
 </div>
 	<a href="/d-portal.org/news" class="back_news">Back to News page
 </a>
@@ -402,10 +432,11 @@ Email - <a href="mailto:support@iatistandard.org?subject=Queries about Publisher
 -->
    
 </div>
-
-<div class="nav_wrap">
-	<div class="page_link"><a href="/d-portal.org/news/2015-11-05-Adding-country-budgets-to-d-portal/">Older post</a>
-</div><div class="page_link"><a href="/d-portal.org/news/2016-06-17-The-Generator-how-to-get-live-d-portal-content-on-your-website/">Newer post</a
+<div class="blog_page_wrap">
+	<div class="page_link"><a href="/d-portal.org/news/2015-11-05-Adding-country-budgets-to-d-portal/">Older Post
+</a>
+</div><div class="page_link"><a href="/d-portal.org/news/2016-06-17-The-Generator-how-to-get-live-d-portal-content-on-your-website/">Newer Post
+</a>
 
 
 

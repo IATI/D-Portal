@@ -4,33 +4,11 @@
   "posts_per_page": 5
  },
  "_blog_page_body": "<div class=\"blog_list_wrap\">{_list:blog_list}</div>\n\n<div class=\"blog_page_wrap\">\n\t<div class=\"page_link\">{_blog_page_older:link_older_page}</div><div class=\"page_link\">{_blog_page_newer:link_newer_page}</div>\n</div>\n\n",
- "_blog_post_body": "<p>Check out this excellent <a href=\"https://vimeo.com/148486364\">vimeo</a> that Bond put together which shows you the quick and simple steps to using the <a href=\"http://d-portal.org/ctrack.html#view=generator\">d-portal generator</a>. </p>\n<iframe src=\"https://player.vimeo.com/video/148486364?title=0&byline=0&portrait=0&wmode=transparent\" width=\"100%\" height=\"540\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n\n<p>The generator allows you to choose from a wide variety of ways to view IATI data within d-portal, and then provides a link for you to easily embed the content you’ve chosen into your own site – great if you want to display your own IATI data in an engaging way, or are looking to visualise other IATI data for analysis.  You can embed charts, tables, maps and various other content, all of which can then be clicked through to allow users to explore the data further in d-portal – and once it’s embedded in your site it will update automatically overnight!</p>\n<p><b>Feedback welcome as always</b> – on the generator or other areas of d-portal...</p>\n<div class=\"blog_links_wrap\">\n    <h4>Links</h4>\n    <a href=\"mailto:support@iatistandard.org?subject=Queries about Publisher's data\" class=\"news_link\">Email us about data queries and details</a>\n    <a href=\"https://groups.google.com/forum/#!forum/d-portal-list\" class=\"news_link\">Join the mailing list and Google Group and be informed about new updates</a>\n    <a href=\"https://github.com/devinit/D-Portal\" class=\"news_link\">Join discussions and feedback on Github</a>\n</div>\n",
  "_blog_post_body_many": "\n<div class=\"blog_wrap\">\n\t<div class=\"blog_info_wrap\">\n\t\t<div class=\"blog_icon\" style=\"background:url('{_root}news/author/icon_{_blog_post_json.author}.jpg')no-repeat; background-size:cover;\"></div><div class=\"blog_info\">\n\t\t\t<div class=\"blog_author\"><b>{_blog_post_json.author}</b> ~ {_blog_post_json.role}</div>\n\t\t\t<div class=\"blog_date\">{posted_on3_text} {_blog_post_json.tag}</div>\n\t\t\t<div class=\"blog_date\">{_blog_post_json.datedash}</div>\n\t\t</div>\n\t</div>\n\t<a href=\"{_dirname}\" class=\"blog_title\">{_blog_post_json.title}</a>\n\t<div class=\"blog_body\">{_blog_post_body}</div>\n</div>\n\n",
  "_blog_post_body_one": "\n<div class=\"blog_wrap\">\n\t<div class=\"blog_info_wrap\">\n\t\t<div class=\"blog_icon\" style=\"background:url('{_root}news/author/icon_{_blog_post_json.author}.jpg')no-repeat; background-size:cover;\"></div><div class=\"blog_info\">\n\t\t\t<div class=\"blog_author\"><b>{_blog_post_json.author}</b> ~ {_blog_post_json.role}</div>\n\t\t\t<div class=\"blog_date\">{posted_on3_text} {_blog_post_json.tag}</div>\n\t\t\t<div class=\"blog_date\">{_blog_post_json.datedash}</div>\n\t\t</div>\n\t</div>\n\t<div class=\"blog_title\">{_blog_post_json.title}</div>\n\t<div class=\"blog_body\">{_blog_post_body}</div>\n\t<a href=\"{tongue_root}news\" class=\"back_news\">{back_news_text}</a>\n\t\n<!--\n\t<div id=\"disqus_thread\"></div>\n    <script type=\"text/javascript\">\n        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */\n        var disqus_shortname = 'dportalnews'; // required: replace example with your forum shortname\n\t\tvar disqus_identifier = \"{_fullfilename}\"; // unique id of post\n\t\t\n        /* * * DON'T EDIT BELOW THIS LINE * * */\n        (function() {\n            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;\n            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';\n            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);\n        })();\n    </script>\n    <noscript>Please enable JavaScript to view the <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>\n    <a href=\"http://disqus.com\" class=\"dsq-brlink\">{disqus_text} <span class=\"logo-disqus\">Disqus</span></a>\n-->\n   \n</div>\n<div class=\"blog_page_wrap\">\n\t<div class=\"page_link\">{_blog_post_older:link_older_post}</div><div class=\"page_link\">{_blog_post_newer:link_newer_post}</div>\n</div>\n",
- "_blog_post_json": {
-  "author": "Matt Bartlett",
-  "datedash": "2016-06-17",
-  "datetime": [
-   2016,
-   6,
-   17,
-   0,
-   0,
-   0
-  ],
-  "role": "Project Manager",
-  "tag": "Overview",
-  "title": "The Generator – how to get live d-portal content on your website",
-  "unixtime": 1466121600
- },
- "_blog_post_newer": "/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/",
- "_blog_post_older": "/d-portal.org/news/2016-03-02-Results-data-now-showing-in-d-portal/",
- "_dirname": "/d-portal.org/news/2016-06-17-The-Generator-how-to-get-live-d-portal-content-on-your-website",
- "_filename": "/d-portal.org/news/2016-06-17-The-Generator-how-to-get-live-d-portal-content-on-your-website",
+ "_dirname": "/d-portal.org/news/author",
+ "_filename": "/d-portal.org/news/author",
  "_flags": {
-  "_blog_post_body": {
-   "form": "markdown"
-  },
   "body": {
    "trim": "ends"
   },
@@ -60,7 +38,7 @@
   }
  },
  "_root": "/d-portal.org/",
- "_sourcename": "news/2016-06-17-The-Generator-how-to-get-live-d-portal-content-on-your-website/.",
+ "_sourcename": "news/author/.",
  "about_link_text": "About\n",
  "about_paragraph10_text": "IATI is funding current development. If you are interested in funding part of the ongoing development of d-portal, or specific pieces of future development, please contact <a href=\"mailto:support@iatistandard.org\" target=\"_blank\" class=\"co\">support@iatistandard.org</a>\n",
  "about_paragraph11_text": "The open source concept relies on sharing resources in the hopes that others will join in and build a better platform together. This includes finding and reporting bugs, contributing new features that you'd like the platform to have or even creating new themes so that others may use it.\n",
@@ -248,7 +226,7 @@
  "sources_title_text": "Attribution and link to data sources\n",
  "status": "<span class=\"badge beta\">BETA</span>\n",
  "tagline_text": "Helping you explore IATI data.\n",
- "title": "{_blog_post_json.title}",
+ "title": "D-Portal News and updates",
  "tongue_root": "{_root}",
  "tongue_select": "<form action=\"\">\n<select id=\"tongue_select\" name=\"tongue\">\n\t{tongue_select_options:tongue_select_option}\n</select>\n</form>\n\n<script>\n\t$(function(){\n\t\t$('#tongue_select').children().each(function(i,it){\n\t\t\tif(\"{tongue}\"==$(it).val())\n\t\t\t{\n\t\t\t\t$(it).attr(\"selected\",1)\n\t\t\t}\n\t\t});\n\t\t$('#tongue_select').bind('change', function ()\n\t\t{\n\t\t\tvar t=\"{_root}\"+$(this).val()+\"/\";if(t==\"/eng/\"){t=\"{_root}\";}\n\t\t\tvar url = t+\"{_fullfilename}\";\n\t\t\twindow.location = url; // redirect\n\t\t\treturn false;\n\t\t});\n\t});\n</script>\n",
  "tongue_select_option": "\n\t<option value=\"{_it.code}\" title=\"{_it.tip}\">{_it.text}</option> \n\t",
