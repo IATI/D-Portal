@@ -18,6 +18,15 @@ var iati_codes=require("../../dstore/json/iati_codes.json");
 
 var crs=require("../../dstore/json/crs.js");
 
+ctrack.map_old_views={
+	"publisher"                : "main",
+	"publisher_countries"      : "countries",
+	"ppublisher_countries_top" : "countries_top",
+	"publisher_sectors"        : "sectors",
+	"publisher_sectors_top"    : "sectors_top",
+}
+
+
 var usd_years=require("../../dstore/json/usd_year.json");
 ctrack.usd_year={}; // merge latest data into here
 for(var year=1990;year<2100;year++)
@@ -598,6 +607,11 @@ ctrack.setup=function(args)
 	{
 		if(h)
 		{
+			if(h.view)
+			{
+				h.view=ctrack.map_old_views[h.view] || h.view;
+			}
+
 			ctrack.hash={};
 			for(var n in h)
 			{
@@ -628,7 +642,11 @@ ctrack.setup=function(args)
 			ctrack.last_hash=h;
 			var l={};
 			ctrack.hash=ctrack.hash_split(h,l);
-			
+					
+			if(l.view)
+			{
+				l.view=ctrack.map_old_views[l.view] || l.view;
+			}
 			var change_of_view=false;
 			if(ctrack.last_view!=l.view) // scroll up when changing views
 			{
