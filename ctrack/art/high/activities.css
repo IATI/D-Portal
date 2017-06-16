@@ -39,7 +39,7 @@ span.span_span-title narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0
 
 /*	IATI Identifier
 	============================================= */
-iati-identifier 		{display:block; width:880px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#000; margin:0 auto; border-top:1px solid #000; border-bottom:1px solid #000;}
+iati-identifier 		{display:block; width:879px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#000; margin:0 auto; border-top:1px solid #000; border-bottom:1px solid #000;}
 iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
 iati-identifier div		{display:block;}
 iati-identifier:hover	{color:#000;}
@@ -75,16 +75,15 @@ recipient-country span:nth-of-type(2)	{font-size:20px; color:#000; padding-top:1
 
 /*	Start and End dates (Planned and Actual)
 	============================================= */
-span.span_activity-date				{display:block; vertical-align:bottom; width:958px; border-top:1px solid #000; border-bottom:1px solid #000; position:relative; height:81px;}
-activity-date						{box-sizing:border-box;}
+span.span_activity-date		{display:block; vertical-align:bottom; width:958px; border-top:1px solid #000; border-bottom:1px solid #000; background-color:#000; position:relative; height:81px;}
+activity-date				{box-sizing:border-box; height:40px; background-color:#fff;}
 activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"],
-activity-date[type="end-planned"]	{font-size:20px; display:block; padding:10px 40px; color:#000; width:480px;}
+activity-date[type="end-planned"]	{font-size:20px; display:block; padding:10px 40px; color:#000; width:477px;}
 activity-date[type="2"], activity-date[type="4"], activity-date[type="start-actual"],
 activity-date[type="end-actual"]	{font-size:20px; display:block; padding:10px 40px; color:#000; width:480px; text-align:right;}
-activity-date[type="1"], activity-date[type="2"], activity-date[type="start-planned"], activity-date[type="start-actual"]	{border-bottom:1px solid #000;}
 activity-date[type="1"]:before, activity-date[type="start-planned"]:before	{content:"PLANNED START DATE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
 activity-date[type="2"]:before, activity-date[type="start-actual"]:before	{content:"ACTUAL START DATE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
-activity-date[type="3"]:before, activity-date[type="end-planned"]:before	{content:"PLANNED END DATE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
+activity-date[type="3"]:before, activity-date[type="end-planned"]:before	{content:"PLANNED END DATE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:25px;}
 activity-date[type="4"]:before, activity-date[type="end-actual"]:before		{content:"ACTUAL END DATE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
 activity-date[type="1"], activity-date[type="start-planned"]	{position:absolute; top:0; left:0;}
 activity-date[type="2"], activity-date[type="start-actual"]		{position:absolute; top:0; right:0;}
@@ -96,8 +95,8 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 	============================================= */
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#000; counter-reset:section;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#000; display:block; margin-bottom:20px;}
-participating-org::before			{counter-increment:section; content:counter(section) ". "; display:inline-block; vertical-align:top; margin-right:5px; line-height:18px;}
-participating-org 					{display:block; list-style-position:inside; list-style-type:decimal; padding:10px 0;}
+participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:18px; position:absolute; top:10px; left:0;}
+participating-org 					{display:block; padding:10px 0; padding-left:20px; position:relative; line-height:18px;}
 participating-org a					{display:initial;}
 participating-org a:link			{color:#000;}
 participating-org a:visited			{color:#000; text-decoration:underline;}
@@ -112,6 +111,8 @@ span-narrative.participating-role	{font-size:14px; color:#ccc; display:inline-bl
 
 span.span_participating-org narrative:nth-of-type(n+2)			{display:inline; padding:10px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
 span.span_participating-org narrative:nth-of-type(n+2):before	{display:block; content:""; padding-bottom:5px;}
+
+span.span_participating-org participating-org narrative {margin-left:15px;}
 
 
 /*	Reported by
@@ -223,22 +224,22 @@ result indicator .time.time-percent100 span	{display:none;}
 
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
-sector *						{display:none;}
-sector[vocabulary="DAC"],
-sector[vocabulary="1"]			{font-size:1.0em; color:#000; width:239px; display:inline-block; vertical-align:top; padding:30px 40px 40px 40px; max-height:80px; min-height:80px;}
-sector:nth-child(even)			{background-color:#e9e9e9;}
-sector[vocabulary="DAC"]:before,
-sector[vocabulary="1"]:before	{content:"SECTOR"; font-size:14px; color:#000; width:240px; display:block; padding-bottom:5px;}
-sector span						{color:#000; padding-top:5px;}
-sector span:nth-of-type(1)		{line-height:1.2em;}
-sector span:nth-of-type(2)		{color:#000;}
-sector span:nth-of-type(2):after{content:"allocated"; padding-left:5px; display:inline-block;}
-img.sector_pie					{padding:40px 20px;}
+sector *		{display:none;}
+span.span_sector sector[vocabulary="DAC"],
+span.span_sector sector[vocabulary="1"]			{font-size:1.0em; color:#000; width:239px; display:inline-block; vertical-align:top; padding:30px 40px 40px 40px; max-height:80px; min-height:80px;}
+span.span_sector sector:nth-child(even)			{background-color:#e9e9e9;}
+span.span_sector sector[vocabulary="DAC"]:before,
+span.span_sector sector[vocabulary="1"]:before	{content:"SECTOR"; font-size:14px; color:#000; width:240px; display:block; padding-bottom:5px;}
+span.span_sector sector span					{color:#000; padding-top:5px;}
+span.span_sector sector span:nth-of-type(1)		{line-height:1.2em;}
+span.span_sector sector span:nth-of-type(2)		{color:#000;}
+span.span_sector sector span:nth-of-type(2):after{content:"allocated"; padding-left:5px; display:inline-block;}
+img.sector_pie	{padding:40px 20px;}
 
 
 /*	Budget table
 	============================================= */
-budget	{display:block; width:958px; border-top:1px solid #000; padding:15px 0 5px 0; border-bottom:0;}
+budget				  {display:block; width:958px; border-top:1px solid #000; padding:15px 0 5px 0; border-bottom:0;}
 budget:last-of-type	  {border-bottom:0px solid #000;}
 budget:nth-of-type(1) {margin-top:0px; padding-top:0;}
 budget:nth-of-type(1):before {content:"Budgets"; font-size:26px; color:#000; border-bottom:1px solid #000; display:block; padding:20px 40px; margin-bottom:25px;}
@@ -252,6 +253,20 @@ budget[type="1"]:nth-of-type(1) value:after, budget[type="2"]:nth-of-type(1) val
 budget period-start 	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:289px; max-width:289px; padding-left:40px; line-height:1.35em;}
 budget period-end	 	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:289px; max-width:289px; line-height:1.35em; position:relative;}
 budget value 			{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em; position:relative;}
+
+
+/*	Planned Disbursement table
+	============================================= */
+planned-disbursement				{display:block; width:958px; border-top:1px solid #000; padding:15px 0 5px 0; border-bottom:0;}
+planned-disbursement:last-of-type	{border-bottom:0px solid #000;}
+planned-disbursement:nth-of-type(1) {margin-top:0px; padding-top:0;}
+planned-disbursement:nth-of-type(1):before {content:"Planned Disbursements"; font-size:26px; color:#000; border-bottom:1px solid #000; display:block; padding:20px 40px; margin-bottom:25px;}
+planned-disbursement:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#000; width:289px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+planned-disbursement:nth-of-type(1) period-end:before	{content:"END DATE"; font-size:14px; color:#000; width:289px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+planned-disbursement:nth-of-type(1) value:before		{content:"VALUE"; font-size:14px; color:#000; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+planned-disbursement period-start 	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:289px; max-width:289px; padding-left:40px; line-height:1.35em;}
+planned-disbursement period-end	 	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:289px; max-width:289px; line-height:1.35em; position:relative;}
+planned-disbursement value 			{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em; position:relative;}
 
 
 /*	Transaction table
@@ -312,12 +327,12 @@ activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#000;
 	============================================= */
 span.span_document-link							{width:880px; padding:0 40px; margin:0 auto; counter-reset:section;}
 span.span_document-link:before					{content:"Related Documents"; font-size:34px; color:#000; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:1px solid #000;}
-a.a_document-link::before						{counter-increment:section; content:counter(section) ". ";}
-a.a_document-link								{display:inline-block; width:880px; padding:10px 0; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#000;}
+a.a_document-link::before						{counter-increment:section; content:counter(section) ". "; position:absolute; left:0; top:10px; line-height:20px; font-size:18px;}
+a.a_document-link								{display:inline-block; width:860px; padding:10px 0; font-size:1.0em; line-height:1.25em; padding-left:20px; position:relative; color:#000;}
 a.a_document-link:last-of-type					{padding-bottom:40px;}
 a.a_document-link document-link span-title		{color:#000; padding:0;}
 a.a_document-link document-link span-title:hover{color:#000;}
-document-link									{display:inline;}
+document-link									{display:block;}
 document-link span								{font-size:1.0em; display:block; color:#000;}
 document-link span-title						{display:inline;}
 document-link span-title:nth-of-type(n+1):before{display:none;}
