@@ -1,0 +1,95 @@
+#^------------------------------
+#^title trim=ends
+#^------------------------------
+
+Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
+
+
+#^------------------------------
+#^_blog_json
+#^------------------------------
+{
+	posts_per_page:20,
+}
+
+#^------------------------------
+#^_blog_page_body
+#^------------------------------
+<div class="blog_list_wrap">{_list:blog_list}</div>
+
+<div class="nav_wrap">
+	<div class="page_link">{_blog_page_older:link_older_page}</div><div class="page_link">{_blog_page_newer:link_newer_page}</div>
+</div>
+
+
+#^------------------------------
+#^-Paging for main blog list page
+#^link_older_page
+#^------------------------------
+<a href="{_it}">Older posts</a>
+
+#^link_newer_page
+<a href="{_it}">Newer posts</a>
+
+
+#^------------------------------
+#^-This is for the blog list
+#^blog_list
+#^------------------------------
+{_it._body}
+
+
+#^------------------------------
+#^-This is a single blog post viewed on its own page
+#^_blog_post_body_one
+#^------------------------------
+<div class="a_blog">
+	<div class="day">
+		<div class="scroll"></div>
+		<div class="scroll_tip"></div>
+		<div class="scroll_tip a"></div>
+		<div class="peak_box">{_blog_post_body}</div>
+		<div class="peak_wrap"><div class="peak"></div></div>
+		<div class="date">~ {_blog_post_json.author}, {_blog_post_json.datedash}</div>
+	</div>
+	<div class="bards"></div>
+</div>
+
+<div class="nav_wrap">
+	<div class="page_link">{_blog_post_older:link_older_post}</div><div class="page_link">{_blog_post_newer:link_newer_post}</div>
+</div>
+
+
+#^------------------------------
+#^-This is for the blog list
+#^_blog_post_body_many
+#^------------------------------
+<div class="a_blog">
+	<div class="day">
+		<div class="scroll"></div>
+		<div class="scroll_tip"></div>
+		<div class="scroll_tip a"></div>
+		<div class="peak_box">{_blog_post_body}</div>
+		<div class="peak_wrap"><div class="peak"></div></div>
+		<div class="date"><a href="{_dirname}">~ {_blog_post_json.author}, {_blog_post_json.datedash}</a></div>
+	</div>
+	<div class="bards"></div>
+</div>
+
+
+#^this_chunk_is_not_used
+<div class="blog_wrap">
+	<div class="blog_info"><a href="{_dirname}">{_blog_post_json.title}</a> by {_blog_post_json.author} on {_blog_post_json.datedash}</div>
+	{_blog_post_body}
+	{_blog_post_json.fun_file&fun_blog_link}
+</div>
+
+#^------------------------------
+#^link_older_post
+#^------------------------------
+<a href="{_it}">Older post</a>
+
+#^------------------------------
+#^link_newer_post
+#^------------------------------
+<a href="{_it}">Newer post</a>

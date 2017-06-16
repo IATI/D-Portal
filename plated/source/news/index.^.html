@@ -1,11 +1,9 @@
-#html
+#^html
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>{blog_title}</title>
-	<script src="{root}jslib/jquery.js"></script>
-	<link  href="{root}art/original/ctrack.css" rel="stylesheet" type="text/css" >
-	<link  href="{root}about.css" rel="stylesheet" type="text/css" >
+	<script src="{_root}jslib/jquery.js"></script>
 	<style>{css}</style>
 </head>
 <body>
@@ -17,13 +15,13 @@
 </body>
 </html>
 
-#main_head
+#^main_head
 <div class="navi">
 	<table class="head">
 		<tr>
 			<td class="logo">
 				<a href="{tongue_root}" title="{mainback_tip_text}">
-					<img src="{root}art/original/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}
+					<img src="{_root}art/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}
 				</a>
 			</td>
 			<td class="dplinks"><a href="{tongue_root}about.html" class="top install">{about_link_text}</a></td>
@@ -38,15 +36,15 @@
 	</table>
 </div>
 
-#status
+#^status
 <span class="badge beta">BETA</span>
 
-#main_title
+#^main_title
 <div class="default">
 	<a href="/news" class="blog_head">{blog_head_text}</a>
 </div>
 
-#blog_body
+#^blog_body
 <script>
 // fake blog body for this page if viewed alone
 // redirect from root to a full list, so you never get to see this page, only the actual blog pages.
@@ -56,17 +54,17 @@
 #blog_wrap
 <!--	Main News page - all blog posts on a single page	-->
 <div class="blog_wrap">
-	<a href="{tongue_root}{it._fullfilename}" class="blog_title">{it.blog_title}</a>
-	<div class="blog_date">{posted_on_text} {it._date}</div>
-	<div class="blog_body">{it.blog_body}</div>
+	<a href="{tongue_root}{_it._fullfilename}" class="blog_title">{_it.blog_title}</a>
+	<div class="blog_date">{posted_on_text} {_it._date}</div>
+	<div class="blog_body">{_it.blog_body}</div>
 </div>
 
-#blog_post_wrap
+#^blog_post_wrap
 <!--	Single blog post on its own page	-->
 <div class="blog_wrap">
-	<div class="blog_title">{it.blog_title}</div>
-	<div class="blog_date">{posted_on_text} {it._date}</div>
-	<div class="blog_body">{it.blog_body}</div>
+	<div class="blog_title">{_it.blog_title}</div>
+	<div class="blog_date">{posted_on_text} {_it._date}</div>
+	<div class="blog_body">{_it.blog_body}</div>
 	<a href="/news" class="back_news">{back_news_text}</a>
 	
 	<div id="disqus_thread"></div>
@@ -87,5 +85,5 @@
     
 </div>
 
-#css
+#^css same=append
 .navi	{position:relative;}
