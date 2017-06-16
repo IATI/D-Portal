@@ -7,7 +7,7 @@
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:top;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}	/* Resets */
 
 a,img					{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outline:0;}
-img						{-webkit-filter:brightness(200%); filter:brightness(200%); color:#FFF;}
+img						{-webkit-filter:brightness(100%); filter:brightness(100%); color:#FFF;}
 
 body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:Arial,Helvetica,sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
 html					{background-color:#000;}
@@ -133,23 +133,38 @@ a.description_wrap.bigbutton p						{padding:0; font-size:24px; line-height:29px
 
 /*	Blog styles
 	============================================= */
-.blog_head			{width:960px;margin:0 auto;color:#FFF;line-height:1.7em;font-size:4.0em;padding-top:20px;border-bottom: 1px solid #FFF;}
-a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #FFF;}
-.blog_wrap			{padding:40px 60px; color:#FFF; font-size:1.0em; line-height:1.4em; border-bottom:1px solid #FFF; background-color:rgba(255,255,255,0.1); width:800px; margin:auto; margin-top:40px; margin-bottom:40px;}
-.blog_date			{font-size:0.9em; line-height:1.2em; color:#CCC;}
-.blog_body			{padding:20px 0;}
-.blog_body p		{margin:1em 0; padding:0; color:inherit;}
+.blog_head			{width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:1px solid #FFF;}
+a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:1px solid #FFF;}
+.blog_wrap			{padding:40px 100px; color:rgba(42,42,42,0.8); font-size:1.0em; line-height:1.4em; border-bottom:1px solid rgba(42,42,42,0.8); background-color:#FFF; width:960px; margin:auto; margin-top:40px; margin-bottom:40px; box-sizing:border-box;}
+.blog_wrap:last-of-type	{margin-bottom:0;}
+.blog_info_wrap		{padding:20px 0 40px 0;}
+.blog_icon, .blog_info	{display:inline-block; vertical-align:top;}
+.blog_icon			{width:60px; height:60px; border-radius:80px;}
+.blog_icon img		{width:60px; height:60px;}
+.blog_info			{padding-left:15px;}
+.blog_date			{font-size:14px; line-height:20px;}
+.blog_author		{font-size:18px; line-height:24px;}
+.blog_body			{padding:20px 0; padding-top:0; font-size:20px; line-height:34px; color:rgba(42,42,42,0.8);}
+.blog_body p		{margin:1.8em 0; padding:0; color:inherit;}
 .blog_body ul		{list-style:inherit; list-style-position:inside;}
-.blog_body a		{color:#A8C5E5;}
-.blog_body a:hover	{color:#FFF; text-decoration:underline;}
-.blog_title			{font-size:2.2em; line-height:1.2em; color:#A8C5E5; padding-bottom:20px;}
-a.blog_title		{display:block; font-size:2.2em; line-height:1.2em; color:#A8C5E5; padding-bottom:20px;}
-a.blog_title:hover	{color:#FFF;}
-a.back_news			{display:block; margin-top:40px; text-align:right; color:#FFF;}
-a.back_news:hover	{color:#A8C5E5;}
-.blog_body code		{background-color:#fff; padding:10px 20px; color:#222; font-family:monospace; margin:15px 0; display:block;}
+.blog_body ul li	{font-size:20px; line-height:34px;}
+.blog_body a		{text-decoration:underline; color:rgba(42,42,42,0.8);}
+.blog_title			{font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8);}
+a.blog_title		{display:block; font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8); padding:0;}
+a.back_news			{display:block; margin-top:40px; text-align:right; color:rgba(42,42,42,0.8);}
+a.back_news:hover	{text-decoration:underline;}
+.blog_body code		{background-color:#eee; padding:10px 20px; font-size:18px; color:rgba(42,42,42,0.8); font-family:monospace; margin:15px 0; display:block;}
 .blog_body code a, .blog_body code a:focus, .blog_body code a:link, .blog_body code a:visited,
-.blog_body code a:hover, .blog_body code a:active	{color:#222; text-decoration:none; transition:initial;}
+.blog_body code a:hover, .blog_body code a:active	{color:rgba(42,42,42,0.8); text-decoration:none; transition:initial;}
+.blog_page_wrap		{width:920px; margin:0 auto; padding:20px 0; margin-bottom:40px;}
+.page_link			{display:inline-block; vertical-align:top; width:50%;}
+.page_link a		{display:block; color:#FFF;}
+.page_link:nth-of-type(2) a	{text-align:right;}
+.page_link a:hover	{color:#A8C5E5;}
+h4					{display:block; border-bottom:1px solid #ccc; padding-bottom:5px; margin-top:60px; margin-bottom:10px;}
+.blog_links_wrap	{counter-reset:section;}
+a.news_link			{display:block; font-style:italic; text-decoration:none;}
+a.news_link::before {counter-increment:section; content:counter(section) ". "; line-height:18px;}
 
 
 /*	Blog posts images
@@ -319,7 +334,7 @@ a.beige:hover			{color:#FFF;}
 			<td class="dplinks"><a href="/d-portal.org/faq.html" class="top faq">FAQ</a></td>
 			<td class="dplinks"><a href="/d-portal.org/ctrack.html#view=generator" class="top savi">Generator</a></td>
 			<td class="dplinks"><a href="/d-portal.org/ctrack.html#view=dash" class="top dash">Dash</a></td>
-			<td class="dplinks"><a href="/d-portal.org/news/posts.html" class="top news">News
+			<td class="dplinks"><a href="/d-portal.org/news" class="top news">News
 </a></td>
 			<td class="dplinks"><a href="https://github.com/devinit/D-Portal" class="top hub">Github</a></td>
 			<td class="dplinks"><a href="/d-portal.org/" class="top install">Home
@@ -364,16 +379,27 @@ a.beige:hover			{color:#FFF;}
 	</table>
 </div>
 
+	<div class="default">
+	<a href="/d-portal.org//news" class="blog_head">News and updates
+</a>
+</div>
+
+
 	<div class="blog_list_wrap">
 <div class="blog_wrap">
-	<a href="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter" class="blog_title">Finding context in Results data and new query parameter,</a>
-	<div class="blog_date">2017-06-12</div>
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Shi.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>Shi</b> ~ Lead Developer</div>
+			<div class="blog_date">Posted in
+ Technical</div>
+			<div class="blog_date">2017-06-12</div>
+		</div>
+	</div>
+	<a href="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter" class="blog_title">Finding context in Results data and new query parameter</a>
 	<div class="blog_body"><p>Results data heirarchy is not particularly verbose.</p>
-<p><img src="/art/news/2017-02-21/result.png" alt="Results element" 
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/result.png" alt="Results element" 
 width="556" height="915"></p>
-<p><em>Fig. 1 - The results element heirarchy</em>
-<br/>
-<br/></p>
+<p><em>Fig. 1 - The results element heirarchy</em></p>
 <p>At its most basic, there is a title, description and an indicator. The 
 indicator makes up most of the results element with links to reference 
 documents, a baseline and the all important period element. Here in the 
@@ -401,16 +427,12 @@ get the opportunity to delve deeper into use cases that are in demand.</p>
 href="https://github.com/devinit/D-Portal/issues/179">first asked to 
 display results data in SAVi</a>, we misunderstood it entirely! Without 
 context or how and what it was used for, a structure to compose a 
-visual layout was at most, based on assumptions.
-<br/>
-<br/></p>
+visual layout was at most, based on assumptions.</p>
 <p><img 
 src="http://devinit.org/wp-content/uploads/2016/03/resultsdatadportal.png" 
 alt="Results data" width="720" height="359"></p>
 <p><em>Fig. 2 - First iteration of results data saw a rudimentary layout without 
-baseline data</em>
-<br/>
-<br/></p>
+baseline data</em></p>
 <p>The first thing we had to do was find some actual results data to work 
 with. Preferably an activity with most of the results subelement 
 completed; this seemed a harder feat than we thought.</p>
@@ -429,21 +451,15 @@ the dashboard website where the full publisher names are displayed.</p>
 <p>In any case, there was still a lot to do after this to find an activity 
 that has a high completion of the result subelements. This prompted us 
 to add a <strong>new query parameter to Q which is live right now on 
-d-portal</strong>. Give it a go!
-<br/>
-<br/></p>
+d-portal</strong>. Give it a go!</p>
 <p><code><a href="http://d-portal.org/q.json?from=element&orderby=element_volume-&limit=10&element_name0=result">http://d-portal.org/q.json?from=element&amp;orderby=element_volume-&amp;limit=10&amp;element_name0=result</a></code></p>
 <p>The above query will display the top 10 activities that contain the 
 &#39;result&#39; element in descending order of frequency as JSON. Replace 
-<strong>.json</strong> with <strong>.html</strong>, <strong>.xml</strong> or <strong>.csv</strong> if you prefer.
-<br/>
-<br/></p>
+<strong>.json</strong> with <strong>.html</strong>, <strong>.xml</strong> or <strong>.csv</strong> if you prefer.</p>
 <p>The query is 4 levels deep, this is enough to reach the deepest part of 
 the IATI standard. For example, if I want to search for activities that 
 have dimension data within the target element of results data, my query 
-will look like this:
-<br/>
-<br/></p>
+will look like this:</p>
 <p><code><a href="http://d-portal.org/q.json?from=element&orderby=element_volume-&limit=10&element_name0=dimension&element_name1=target&element_name2=period&element_name3=indicator">http://d-portal.org/q.json?from=element&amp;orderby=element_volume-&amp;limit=10&amp;element_name0=dimension&amp;element_name1=target&amp;element_name2=period&amp;element_name3=indicator</a></code></p>
 <p>As you can see, the query starts with the innermost element and you&#39;ll 
 need to list the hierarchy as it appears <a 
@@ -451,9 +467,7 @@ href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activit
 the standard</a>.</p>
 <p>We started going down the route of deeper searches into attributes but 
 this is a rather resource hungry option so we&#39;ve taken it out for now. 
-If there are demands for such things in the future, do let us know.
-<br/>
-<br/></p>
+If there are demands for such things in the future, do let us know.</p>
 <p>During the four-day <a 
 href="http://www.publishwhatyoufund.org/open-ag-funding-action-tools-tackle-hunger/">Open 
 Ag Tool workshop</a>, we met experts in the field who gave us guidance 
@@ -462,14 +476,10 @@ not only shared how results data was published and how baseline was
 calculated, she also explained how different publishers had different 
 approaches to publishing this data - Yearly, Quarterly etc. This gave 
 us some context and a brief overview of the rather complex nature of 
-the results data element.
-<br/>
-<br/></p>
-<p><img src="/art/news/2017-02-21/cordaid_result_2col.png" alt="Results data in activity" width="720" height="638"></p>
+the results data element.</p>
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result_2col.png" alt="Results data in activity" width="720" height="638"></p>
 <p><em>Fig. 3 - WIP iteration of results data with two columns made the baseline look 
-out of place</em>
-<br/>
-<br/></p>
+out of place</em></p>
 <p>We were later approached by Andy Lulham from Publish What You Fund 
 about the way we visualised baseline data (or rather, the lack of it)! 
 He pointed out the importance of baseline data, how it provided context 
@@ -478,9 +488,7 @@ sense to include it alongside the two columns. This looked like it was
 getting somewhere close to making sense!</p>
 <p>Looking closer, we agreed that baseline could be interpreted as the 
 &#39;start&#39; value where &#39;target&#39; and &#39;actual&#39; data is based on (hence, 
-&#39;baseline&#39;).
-<br/>
-<br/></p>
+&#39;baseline&#39;).</p>
 <p>Throughout the day, we huddled with so many exchanging findings. Nick 
 Hamlin from Global Giving shared interesting observations when he 
 applied machine learning to a results dataset we supplied him with. We 
@@ -505,10 +513,8 @@ multiple periods share just the one baseline.</p>
 duplicated the baseline element into each period element, after the 
 period-start and period-end dates. This meant the 3 columns could be 
 used to compare values within the period element and visually, that 
-made sense.
-<br/>
-<br/></p>
-<p><img src="/art/news/2017-02-21/cordaid_result_1.png" alt="Results data in activity" width="720" height="638"></p>
+made sense.</p>
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result_1.png" alt="Results data in activity" width="720" height="638"></p>
 <p><em>Fig. 4 - Next iteration of results data with 3 columns for comparison</em></p>
 <p>We&#39;ve attached further visual feedback to the actual elements; green if 
 the actual value is equals to or more than the target value and 
@@ -517,10 +523,8 @@ actual box remains neutral blue if value data is missing or incorrect;
 ie. text is published instead of actual numbers.</p>
 <p>We&#39;ve also added a small indicator to show if the period data is still 
 ongoing or has ended. This is represented by a &#39;progress bar&#39; timeline 
-underneath the period dates.
-<br/>
-<br/></p>
-<p><img src="/art/news/2017-02-21/cordaid_result.png" alt="Results data in activity" width="720" height="638"></p>
+underneath the period dates.</p>
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result.png" alt="Results data in activity" width="720" height="638"></p>
 <p><em>Fig. 5 - Current iteration of results data with fixed height and timeline bar</em></p>
 <p>You can view this particular example activity on d-portal <a 
 href="http://d-portal.org/ctrack.html?publisher=NL-KVK-41160054#view=act&aid=NL-KVK-41160054-109805">here</a>.</p>
@@ -531,10 +535,7 @@ how to present the data for use.</p>
 to us to share knowledge, it was humbling and eye-opening to see so 
 many dedicated people working together towards the same goal with so 
 much enthusiasm. We look forward to following the progress of all the 
-resulting projects and outcomes of this workshop.
-<br/>
-<br/></p>
-<p><em>This is a developer diary blog post by Shi.</em></p>
+resulting projects and outcomes of this workshop.</p>
 </div>
 </div>
 
@@ -542,20 +543,26 @@ resulting projects and outcomes of this workshop.
 
 
 <div class="blog_wrap">
-	<a href="/d-portal.org/news/2016-06-17-The-Generator-how-to-get-live-d-portal-content-on-your-website" class="blog_title">The Generator – how to get live d-portal content on your website,</a>
-	<div class="blog_date">2016-06-17</div>
-	<div class="blog_body"><p>Check out this excellent <a href="https://vimeo.com/148486364">vimeo</a> that Bond put together which shows you the quick and simple steps to using the <a href="http://d-portal.org/ctrack.html#view=generator">d-portal generator</a>. 
-<br/>
-<br/></p>
-<p><iframe src="https://player.vimeo.com/video/148486364?title=0&byline=0&portrait=0&wmode=transparent" width="100%" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<br/>
-<br/></p>
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>Matt Bartlett</b> ~ Project Manager</div>
+			<div class="blog_date">Posted in
+ Overview</div>
+			<div class="blog_date">2016-06-17</div>
+		</div>
+	</div>
+	<a href="/d-portal.org/news/2016-06-17-The-Generator-how-to-get-live-d-portal-content-on-your-website" class="blog_title">The Generator – how to get live d-portal content on your website</a>
+	<div class="blog_body"><p>Check out this excellent <a href="https://vimeo.com/148486364">vimeo</a> that Bond put together which shows you the quick and simple steps to using the <a href="http://d-portal.org/ctrack.html#view=generator">d-portal generator</a>. </p>
+<iframe src="https://player.vimeo.com/video/148486364?title=0&byline=0&portrait=0&wmode=transparent" width="100%" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 <p>The generator allows you to choose from a wide variety of ways to view IATI data within d-portal, and then provides a link for you to easily embed the content you’ve chosen into your own site – great if you want to display your own IATI data in an engaging way, or are looking to visualise other IATI data for analysis.  You can embed charts, tables, maps and various other content, all of which can then be clicked through to allow users to explore the data further in d-portal – and once it’s embedded in your site it will update automatically overnight!</p>
 <p><b>Feedback welcome as always</b> – on the generator or other areas of d-portal...</p>
-<p><h4>Links</h4>
-Email - <a href="mailto:support@iatistandard.org?subject=Queries about Publisher's data">support@iatistandard.org</a></p>
-<p>Google Group - <a href="https://groups.google.com/forum/#!forum/d-portal-list">groups.google.com/forum/#!forum/d-portal-list</a></p>
-<p>GitHub - <a href="https://github.com/devinit/D-Portal">github.com/devinit/D-Portal</a></p>
+<div class="blog_links_wrap">
+    <h4>Links</h4>
+    <a href="mailto:support@iatistandard.org?subject=Queries about Publisher's data" class="news_link">Email us about data queries and details</a>
+    <a href="https://groups.google.com/forum/#!forum/d-portal-list" class="news_link">Join the mailing list and Google Group and be informed about new updates</a>
+    <a href="https://github.com/devinit/D-Portal" class="news_link">Join discussions and feedback on Github</a>
+</div>
 </div>
 </div>
 
@@ -563,18 +570,27 @@ Email - <a href="mailto:support@iatistandard.org?subject=Queries about Publisher
 
 
 <div class="blog_wrap">
-	<a href="/d-portal.org/news/2016-03-02-Results-data-now-showing-in-d-portal" class="blog_title">Results data now showing in d-portal,</a>
-	<div class="blog_date">2016-03-02</div>
-	<div class="blog_body"><p>Following requests from users about showing Results data in IATI with in d-portal you can now see this on the individual activity (<i>Savi</i>) pages – if you drill down into the data through the chart and tables, or via the maps, to see an individual activity you should be able to scroll down past the details of individual transactions within that activity and see information on Results (<i>as long as the publisher has reported Results data in their xml!</i>).</p>
-<p>For example on this Savi page for a <a href="http://d-portal.org/ctrack.html?publisher=NL-KVK-41160054&tongue=eng#view=act&aid=NL-KVK-41160054-109805">Cordaid activity</a> on improving health care in Zimbabwe you can see the Results data that Cordaid have published for this activity...</p>
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>Matt Bartlett</b> ~ Project Manager</div>
+			<div class="blog_date">Posted in
+ Overview</div>
+			<div class="blog_date">2016-03-02</div>
+		</div>
+	</div>
+	<a href="/d-portal.org/news/2016-03-02-Results-data-now-showing-in-d-portal" class="blog_title">Results data now showing in d-portal</a>
+	<div class="blog_body"><p>Following requests from users about showing Results data in IATI with in d-portal you can now see this on the individual activity (<i>SAVi</i>) pages – if you drill down into the data through the chart and tables, or via the maps, to see an individual activity you should be able to scroll down past the details of individual transactions within that activity and see information on Results (<i>as long as the publisher has reported Results data in their xml!</i>).</p>
+<p>For example on this SAVi page for a <a href="http://d-portal.org/ctrack.html?publisher=NL-KVK-41160054&tongue=eng#view=act&aid=NL-KVK-41160054-109805">Cordaid activity</a> on improving health care in Zimbabwe you can see the Results data that Cordaid have published for this activity...</p>
 <p><img src="http://devinit.org/wp-content/uploads/2016/03/resultsdatadportal.png" alt="Results data" width="720" height="359">
 <br/>
 <br/></p>
 <p>As always <b>if you have any suggestions or feedback on d-portal</b> please do get in touch by one of the following means....</p>
-<p><h4>Links</h4>
-Email - <a href="mailto:support@iatistandard.org?subject=Queries about Publisher's data">support@iatistandard.org</a></p>
-<p>Google Group - <a href="https://groups.google.com/forum/#!forum/d-portal-list">groups.google.com/forum/#!forum/d-portal-list</a></p>
-<p>GitHub - <a href="https://github.com/devinit/D-Portal">github.com/devinit/D-Portal</a></p>
+<div class="blog_links_wrap">
+    <h4>Links</h4>
+    <a href="mailto:support@iatistandard.org?subject=Queries about Publisher's data" class="news_link">Email us about data queries and details</a>
+    <a href="https://groups.google.com/forum/#!forum/d-portal-list" class="news_link">Join the mailing list and Google Group and be informed about new updates</a>
+    <a href="https://github.com/devinit/D-Portal" class="news_link">Join discussions and feedback on Github</a>
+</div>
 </div>
 </div>
 
@@ -582,17 +598,25 @@ Email - <a href="mailto:support@iatistandard.org?subject=Queries about Publisher
 
 
 <div class="blog_wrap">
-	<a href="/d-portal.org/news/2015-11-05-Adding-country-budgets-to-d-portal" class="blog_title">Adding country budgets to d-portal,</a>
-	<div class="blog_date">2015-11-05</div>
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>Matt Bartlett</b> ~ Project Manager</div>
+			<div class="blog_date">Posted in
+ Overview</div>
+			<div class="blog_date">2015-11-05</div>
+		</div>
+	</div>
+	<a href="/d-portal.org/news/2015-11-05-Adding-country-budgets-to-d-portal" class="blog_title">Adding country budgets to d-portal</a>
 	<div class="blog_body"><p>We have made a small change to what information is shown in publisher tables in d-portal – the ones where you are looking from an individual publisher’s perspective at recipient countries – by including organisation file budgets.  This is budget data which some publishers provide in their IATI organisation file (<i>as opposed to activity files, where most other IATI data is reported</i>) and it represents the total annual budget for that publisher, per recipient country.</p>
 <p>So instead of seeing the 2015 and 2016 activity file budget columns in tables such as <a href="http://d-portal.org/ctrack.html?publisher=GB-1">this</a>, you can now see and compare the budgets related to existing activities (<i>from the activity files – the column which we have called ‘allocated’</i>) and the budget information in general for that country (<i>the column which we have called ‘total’</i>).</p>
 <p><b>Note</b> - you can still scroll through past/future years using the arrows at the top of the table.</p>
 <p>The reason for this change is both to highlight the existence of general budget data within organisation files, which are potentially valuable data but not often known about or updated, and as a response to requests from users to be able to see this information – which (<i>provided the data is up to date</i>) allows you to start working out the remaining unallocated budget for a recipient country.</p>
 <p>As always <b>if you notice anything that you want to follow up on d-portal</b>, have any questions or suggestions please do get in touch...</p>
-<p><h4>Links</h4>
-Publisher’s data queries – <a href="mailto:support@iatistandard.org?subject=Queries about Publisher's data">support@iatistandard.org</a></p>
-<p>d-portal – <a href="mailto:queries@d-portal.org?subject=Queries about d-portal">queries@d-portal.org</a></p>
-<p>GitHub - <a href="https://github.com/devinit/D-Portal">https://github.com/devinit/D-Portal</a></p>
+<div class="blog_links_wrap">
+    <h4>Links</h4>
+    <a href="mailto:support@iatistandard.org?subject=Queries about Publisher's data" class="news_link">Email us about data queries and details</a>
+    <a href="https://github.com/devinit/D-Portal" class="news_link">Join discussions and feedback on Github</a>
+</div>
 </div>
 </div>
 
@@ -600,8 +624,15 @@ Publisher’s data queries – <a href="mailto:support@iatistandard.org?subject=
 
 
 <div class="blog_wrap">
-	<a href="/d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator" class="blog_title">Interactive IATI data – d-portal generator,</a>
-	<div class="blog_date">2014-11-30</div>
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>Matt Bartlett</b> ~ Project Manager</div>
+			<div class="blog_date">Posted in
+ Overview</div>
+			<div class="blog_date">2014-11-30</div>
+		</div>
+	</div>
+	<a href="/d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator" class="blog_title">Interactive IATI data – d-portal generator</a>
 	<div class="blog_body"><p><a href="http://www.d-portal.org">d-portal</a> is a platform that makes all <a href="http://www.aidtransparency.net">IATI</a> data accessible, and is a useful tool for investigating the increasing amount of IATI data. Nearly 300 organisations publish their activities in the <a href="http://www.iatiregistry.org/">IATI registry</a>, so we set up d-portal to turn that data into simple information for everyone – particularly those in developing countries interested in seeing information from their own country’s perspective. In addition to this, we recently added the <a href="http://www.d-portal.org/ctrack.html?#view=generator">generator</a> - to provide a means of re-using the IATI data in d-portal, by embedding it into other websites and blog posts.</p>
 <h3><strong>How to select and embed content</strong></h3>
 
@@ -633,109 +664,10 @@ Publisher’s data queries – <a href="mailto:support@iatistandard.org?subject=
 <p><em>(Publishers) </em><strong>WaterAid, United Nations Childrens Fund, The Coca-Cola Export Corporation, Heifer International South Africa</strong> ~ (<em>Recipient) </em><strong>Liberia</strong> ~ <em>(View)</em> <strong>Recipients (table)</strong> ~ 750 pixels</p>
 <iframe style="width: 750px; height: 273px;" src="http://www.d-portal.org/ctrack.html?country=LR&amp;publisher=XI-IATI-1001,ZA-NPO-013484,41122,GB-CHC-288701&amp;#view=frame&amp;frame=publisher_countries&amp;size=750" width="320" height="240" frameborder="0" scrolling="no"></iframe>
 
-<p><h4>Links</h4>
-<a href="/d-portal.org/ctrack.html#view=generator" class="news_link">Create IATI content with the d-portal Generator</a></p>
+<div class="blog_links_wrap">
+    <h4>Links</h4>
+    <a href="/d-portal.org/ctrack.html#view=generator" class="news_link">Create IATI content with the d-portal Generator</a>
 </div>
-</div>
-
-
-
-
-<div class="blog_wrap">
-	<a href="/d-portal.org/news/2014-11-28-Bringing-IATI-data-life-d-portal-generator" class="blog_title">Bringing IATI data to life: d-portal generator,</a>
-	<div class="blog_date">2014-11-28</div>
-	<div class="blog_body"><p>The <a href="http://www.d-portal.org/ctrack.html?#view=generator">generator</a> is a new d-portal feature that allows users to select subsets of <a href="http://www.aidtransparency.net/">International Aid Transparency Initiative</a> (IATI) information from the d-portal website and embed them into their own websites and blogs.</p>
-<h3><strong>What is d-portal?</strong></h3>
-
-<p><a href="http://d-portal.org/">d-portal</a> is a platform that makes all IATI data available and accessible for anyone to explore. We set it up with the aim of allowing people in developing countries to view IATI information from their own country’s perspective.
-Nearly 300 organisations currently publish data on their activities to the <a href="http://www.iatiregistry.org/">IATI registry</a> - d-portal transforms this machine-readable data into information for humans to understand. It shows you all published IATI data from the point of view of a recipient country or a publisher, and gives you the chance to drill down to individual project detail. Users can see what data exists, who has published and who hasn’t yet, and where there are data quality issues.</p>
-<h3><strong>What does the d-portal generator do?</strong></h3>
-
-<p>There is a huge amount of interesting information within IATI (and therefore, d-portal) and significant value in being able to share bite-size pieces of it freely on other websites and blogs. The d-portal generator allows users to select specific information from d-portal and embed it directly into their own website code.</p>
-<h3><strong>How do you use the generator?</strong></h3>
-
-<p>There are lots of combinations and possibilities of what to choose when selecting from the vast amount of data in d-portal, so we tried to make the process as simple as possible…</p>
-<p><a href="http://devinit.org/wp-content/uploads/2014/11/Gen-front-page.jpg"><img class="alignnone size-full wp-image-5036" src="http://devinit.org/wp-content/uploads/2014/11/Gen-front-page.jpg" alt="Gen front page" width="977" height="549" /></a>
-<br/>
-<br/></p>
-<p><strong>1 – Choose a combination of Publisher(s) and Recipient(s) information you want to see</strong>
-<br/>
-<br/></p>
-<p><strong>2 – Select how you want to display it (a map, table, list, pie chart, etc)</strong>
-<br/>
-<br/></p>
-<p><strong>3 – Select a colour scheme and re-size the width if required</strong>
-<br/>
-<br/></p>
-<p>Once you’ve completed steps 1 &amp; 2 (3 is optional), you’ll see some code appear automatically in the white box, and an example of your selected content below that box (as below). You then just need to copy the code and paste it into the code of your website or blog post, to embed the content you’ve generated.</p>
-<p><a href="http://devinit.org/wp-content/uploads/2014/11/GAVI-screen.jpg"><img class="alignnone size-full wp-image-5085" src="http://devinit.org/wp-content/uploads/2014/11/GAVI-screen.jpg" alt="GAVI screen" width="750" height="592" /></a>
-<br/>
-<br/></p>
-<p>Here’s the live example of the content which we&#39;ve chosen, and embedded into this page:
-<br/>
-<br/></p>
-<iframe style="width: 750px; height: 275px;" src="http://www.d-portal.org/ctrack.html?country=KE&amp;publisher=47122&amp;#view=frame&amp;frame=publisher_sectors&amp;size=750" width="300" height="150" frameborder="0" scrolling="no"></iframe>
-
-<p>Once you’ve embedded any content it will update automatically (overnight) as publishers’ data is updated in the IATI registry. When users click on the content they will be directed to the relevant page on d-portal so they can investigate further.</p>
-<p><em>We have used the tool to embed a simple table about our IATI data </em><a href="http://devinit.org/about/open-data/"><em>here</em></a><em>. We have also created a page showing some more examples of what you can do with d-portal generator content <a href="http://devinit.org/interactive-iati-data-d-portal-generator/">here</a>.</em></p>
-<h3><strong>More about…</strong></h3>
-
-<p><strong>IATI data </strong>includes data from donor governments and multilaterals, NGOs, foundations and private sector companies. It is forward-looking (it contains 2015 data from many publishers), comparable and increasingly comprehensive.</p>
-<p>Both the d-portal and the d-portal generator are currently in beta. We’d love to hear your feedback, so please let us know if you use either d-portal or the generator, and tell us about your experience; <strong>please send comments, queries and feedback to</strong> <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>, or <strong>raise issues</strong> on the <a href="https://github.com/devinit/D-Portal">d-portal GitHub</a>.</p>
-<p><em>If you are interested in <strong>finding out more or part-funding d-portal</strong>, please contact </em><a href="mailto:support@iatistandard.org"><em>support@iatistandard.org</em></a></p>
-<p><h4>Links</h4>
-<a href="/d-portal.org/ctrack.html#view=generator" class="news_link">Create IATI content with the d-portal Generator</a></p>
-</div>
-</div>
-
-
-
-
-<div class="blog_wrap">
-	<a href="/d-portal.org/news/2014-05-28-Current-plans" class="blog_title">Current plans,</a>
-	<div class="blog_date">2014-05-28</div>
-	<div class="blog_body"><p>Following an initial period of development in the first quarter of 2014, and the <a href="https://www.youtube.com/watch?v=sBAGH8JKJAU&sns=em">launch at the Global Partnership meeting</a> in April, d-portal is now entering a period of consolidation and consultation.  During this 3-4 month period we are aiming to do the following...</p>
-<ul>
-<li>Stabilise the code base</li>
-<li>Enable easy adoption of the code for anyone to create and customise individual country d-portals</li>
-<li>Allow the addition of other datasets as simply as possible</li>
-<li>Develop full guidance for those adopting the code </li>
-<li>Write up comprehensive documentation and methodology</li>
-<li>Consult with potential users around the longer term direction for d-portal</li>
-<li>Consider means of funding and sustaining support and updates for d-portal</li>
-</ul>
-<p>This page will contain any updates to information, and announcements on d-portal over the coming months.  If you would like to keep up to date with news on d-portal please subscribe to the <a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">Google group</a>.</p>
-<p><strong>Get in touch...</strong></p>
-<p>If you have <strong>any queries about d-portal</strong>, any comments or suggestions please do contact us at <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>
-<br/>
-<br/></p>
-<p><h4>Links</h4>
-<a href="/d-portal.org/about.html#more" class="news_link">Interested in funding d-portal?</a>
-<a href="/d-portal.org/about.html#install" class="news_link">How to create a country d-portal</a></p>
-</div>
-</div>
-
-
-
-
-<div class="blog_wrap">
-	<a href="/d-portal.org/news/2014-05-08-Development-Tracker-Architecture" class="blog_title">Development Portal Architecture,</a>
-	<div class="blog_date">2014-05-08</div>
-	<div class="blog_body"><p>...or &#39;Why we chose to use ECMAScript&#39;.</p>
-<p>We&#39;ve been working on a project to build a re-usable piece of code that can be easily hosted by anyone, anywhere and that will tell an interesting story using IATI data, under the working title; D-Portal <a href="https://github.com/devinit/D-Portal">https://github.com/devinit/D-Portal</a></p>
-<p>We were asked to build a HTML5 serverless design that would be easy to deploy and configure, so it was inevitable that ECMAScript (i.e. Javascript) would have to be used browser side.</p>
-<p>Languages are always a contentious issue among programmers and picking a language to use for a project is not only a matter of compromise but something that has to be decided on rather quickly or it becomes very hard to make any progress.</p>
-<p>We soon discovered that we would also need to have a server side component, something that processes raw data and makes it available to the client in a more digestible format. This could be written in any language but we chose to use a node server. Primarily this allows the same code to be shared between server and client and reduces code dependencies.</p>
-<p>On top of this we use a zero configuration database (SQLite) so there is no need to install, configure and maintain a complicated database server.</p>
-<p>Even if you do not consider yourself an ECMAScript programmer the ubiquity of the language online means that you have almost certainly worked with it, maybe you even consider it your second language. It is quite simply the language of the web and although Node is still rather new, what it represents is an inevitable, unstoppable spread of the language onto the server.</p>
-<ul>
-<li><a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a> is the technical name of JSscript or JavaScript.</li>
-<li><a href="http://en.wikipedia.org/wiki/KISS_principle">KISS</a> is the design principle behind all of these decisions.</li>
-<li><a href="http://nodejs.org/">Node</a> is a webserver based on googles <a href="https://code.google.com/p/v8/">V8 ECMAScript engine</a>.</li>
-</ul>
-<p><br/>
-<br/></p>
-<p><em>Originally posted on <a href="http://iati.github.io/2014/03/13/country-tracker-architecture.html">http://iati.github.io/</a></em></p>
 </div>
 </div>
 
@@ -743,8 +675,10 @@ Nearly 300 organisations currently publish data on their activities to the <a hr
 
 </div>
 
-<div class="nav_wrap">
-	<div class="page_link"></div><div class="page_link"></div>
+<div class="blog_page_wrap">
+	<div class="page_link"><a href="/d-portal.org/news/page2.html">Older Post
+</a>
+</div><div class="page_link"></div>
 </div>
 
 

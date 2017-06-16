@@ -2,14 +2,14 @@
 #^title trim=ends
 #^------------------------------
 
-Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
+D-Portal News and updates
 
 
 #^------------------------------
 #^_blog_json
 #^------------------------------
 {
-	posts_per_page:20,
+	posts_per_page:5,
 }
 
 #^------------------------------
@@ -17,7 +17,7 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 #^------------------------------
 <div class="blog_list_wrap">{_list:blog_list}</div>
 
-<div class="nav_wrap">
+<div class="blog_page_wrap">
 	<div class="page_link">{_blog_page_older:link_older_page}</div><div class="page_link">{_blog_page_newer:link_newer_page}</div>
 </div>
 
@@ -26,10 +26,10 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 #^-Paging for main blog list page
 #^link_older_page
 #^------------------------------
-<a href="{_it}">Older posts</a>
+<a href="{_it}">{older_post_news_text}</a>
 
 #^link_newer_page
-<a href="{_it}">Newer posts</a>
+<a href="{_it}">{newer_post_news_text}</a>
 
 
 #^------------------------------
@@ -45,10 +45,16 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 #^------------------------------
 
 <div class="blog_wrap">
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('{_root}news/author/icon_{_blog_post_json.author}.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>{_blog_post_json.author}</b> ~ {_blog_post_json.role}</div>
+			<div class="blog_date">{posted_on3_text} {_blog_post_json.tag}</div>
+			<div class="blog_date">{_blog_post_json.datedash}</div>
+		</div>
+	</div>
 	<div class="blog_title">{_blog_post_json.title}</div>
-	<div class="blog_date">{_blog_post_json.datedash}</div>
 	<div class="blog_body">{_blog_post_body}</div>
-	<a href="/news" class="back_news">{back_news_text}</a>
+	<a href="{tongue_root}news" class="back_news">{back_news_text}</a>
 	
 <!--
 	<div id="disqus_thread"></div>
@@ -69,8 +75,7 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 -->
    
 </div>
-
-<div class="nav_wrap">
+<div class="blog_page_wrap">
 	<div class="page_link">{_blog_post_older:link_older_post}</div><div class="page_link">{_blog_post_newer:link_newer_post}</div>
 </div>
 
@@ -80,8 +85,14 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 #^------------------------------
 
 <div class="blog_wrap">
-	<a href="{_dirname}" class="blog_title">{_blog_post_json.title},</a>
-	<div class="blog_date">{_blog_post_json.datedash}</div>
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('{_root}news/author/icon_{_blog_post_json.author}.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>{_blog_post_json.author}</b> ~ {_blog_post_json.role}</div>
+			<div class="blog_date">{posted_on3_text} {_blog_post_json.tag}</div>
+			<div class="blog_date">{_blog_post_json.datedash}</div>
+		</div>
+	</div>
+	<a href="{_dirname}" class="blog_title">{_blog_post_json.title}</a>
 	<div class="blog_body">{_blog_post_body}</div>
 </div>
 
@@ -89,12 +100,12 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 #^------------------------------
 #^link_older_post
 #^------------------------------
-<a href="{_it}">Older post</a>
+<a href="{_it}">{older_post_news_text}</a>
 
 #^------------------------------
 #^link_newer_post
 #^------------------------------
-<a href="{_it}">Newer post</a
+<a href="{_it}">{newer_post_news_text}</a>
 
 
 
@@ -112,6 +123,7 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 <body>
 	{view_head}
 	{main_head}
+	{main_title}
 	{body}
 	{view_tail}
 </body>
@@ -130,7 +142,7 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 			<td class="dplinks"><a href="{tongue_root}faq.html" class="top faq">FAQ</a></td>
 			<td class="dplinks"><a href="{tongue_root}ctrack.html#view=generator" class="top savi">Generator</a></td>
 			<td class="dplinks"><a href="{tongue_root}ctrack.html#view=dash" class="top dash">Dash</a></td>
-			<td class="dplinks"><a href="{tongue_root}news/posts.html" class="top news">{news_link_text}</a></td>
+			<td class="dplinks"><a href="{tongue_root}news" class="top news">{news_link_text}</a></td>
 			<td class="dplinks"><a href="https://github.com/devinit/D-Portal" class="top hub">Github</a></td>
 			<td class="dplinks"><a href="{tongue_root}" class="top install">{home_link_text}</a></td>
 			<td class="options">{tongue_select}</td>
@@ -144,12 +156,6 @@ Bards! Bards! Bards! : Playing gigs, Saving lives, Gettings paid.
 #^main_title
 <div class="default">
 	<a href="{_root}/news" class="blog_head">{blog_head_text}</a>
-</div>
-
-
-#^main_title
-<div class="default">
-	<div class="blog_head">{blog_head_text}</div>
 </div>
 
 

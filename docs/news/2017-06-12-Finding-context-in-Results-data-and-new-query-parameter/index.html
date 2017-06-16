@@ -7,7 +7,7 @@
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:top;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}	/* Resets */
 
 a,img					{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outline:0;}
-img						{-webkit-filter:brightness(200%); filter:brightness(200%); color:#FFF;}
+img						{-webkit-filter:brightness(100%); filter:brightness(100%); color:#FFF;}
 
 body,html 				{background:none; color:#444; width:100%; height:100%; margin:0; padding:0; font-family:Arial,Helvetica,sans-serif; text-rendering:optimizelegibility; word-wrap:break-word;}
 html					{background-color:#000;}
@@ -133,23 +133,38 @@ a.description_wrap.bigbutton p						{padding:0; font-size:24px; line-height:29px
 
 /*	Blog styles
 	============================================= */
-.blog_head			{width:960px;margin:0 auto;color:#FFF;line-height:1.7em;font-size:4.0em;padding-top:20px;border-bottom: 1px solid #FFF;}
-a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:10px solid #FFF;}
-.blog_wrap			{padding:40px 60px; color:#FFF; font-size:1.0em; line-height:1.4em; border-bottom:1px solid #FFF; background-color:rgba(255,255,255,0.1); width:800px; margin:auto; margin-top:40px; margin-bottom:40px;}
-.blog_date			{font-size:0.9em; line-height:1.2em; color:#CCC;}
-.blog_body			{padding:20px 0;}
-.blog_body p		{margin:1em 0; padding:0; color:inherit;}
+.blog_head			{width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:1px solid #FFF;}
+a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-height:1.7em; font-size:4.0em; padding-top:20px; border-bottom:1px solid #FFF;}
+.blog_wrap			{padding:40px 100px; color:rgba(42,42,42,0.8); font-size:1.0em; line-height:1.4em; border-bottom:1px solid rgba(42,42,42,0.8); background-color:#FFF; width:960px; margin:auto; margin-top:40px; margin-bottom:40px; box-sizing:border-box;}
+.blog_wrap:last-of-type	{margin-bottom:0;}
+.blog_info_wrap		{padding:20px 0 40px 0;}
+.blog_icon, .blog_info	{display:inline-block; vertical-align:top;}
+.blog_icon			{width:60px; height:60px; border-radius:80px;}
+.blog_icon img		{width:60px; height:60px;}
+.blog_info			{padding-left:15px;}
+.blog_date			{font-size:14px; line-height:20px;}
+.blog_author		{font-size:18px; line-height:24px;}
+.blog_body			{padding:20px 0; padding-top:0; font-size:20px; line-height:34px; color:rgba(42,42,42,0.8);}
+.blog_body p		{margin:1.8em 0; padding:0; color:inherit;}
 .blog_body ul		{list-style:inherit; list-style-position:inside;}
-.blog_body a		{color:#A8C5E5;}
-.blog_body a:hover	{color:#FFF; text-decoration:underline;}
-.blog_title			{font-size:2.2em; line-height:1.2em; color:#A8C5E5; padding-bottom:20px;}
-a.blog_title		{display:block; font-size:2.2em; line-height:1.2em; color:#A8C5E5; padding-bottom:20px;}
-a.blog_title:hover	{color:#FFF;}
-a.back_news			{display:block; margin-top:40px; text-align:right; color:#FFF;}
-a.back_news:hover	{color:#A8C5E5;}
-.blog_body code		{background-color:#fff; padding:10px 20px; color:#222; font-family:monospace; margin:15px 0; display:block;}
+.blog_body ul li	{font-size:20px; line-height:34px;}
+.blog_body a		{text-decoration:underline; color:rgba(42,42,42,0.8);}
+.blog_title			{font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8);}
+a.blog_title		{display:block; font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8); padding:0;}
+a.back_news			{display:block; margin-top:40px; text-align:right; color:rgba(42,42,42,0.8);}
+a.back_news:hover	{text-decoration:underline;}
+.blog_body code		{background-color:#eee; padding:10px 20px; font-size:18px; color:rgba(42,42,42,0.8); font-family:monospace; margin:15px 0; display:block;}
 .blog_body code a, .blog_body code a:focus, .blog_body code a:link, .blog_body code a:visited,
-.blog_body code a:hover, .blog_body code a:active	{color:#222; text-decoration:none; transition:initial;}
+.blog_body code a:hover, .blog_body code a:active	{color:rgba(42,42,42,0.8); text-decoration:none; transition:initial;}
+.blog_page_wrap		{width:920px; margin:0 auto; padding:20px 0; margin-bottom:40px;}
+.page_link			{display:inline-block; vertical-align:top; width:50%;}
+.page_link a		{display:block; color:#FFF;}
+.page_link:nth-of-type(2) a	{text-align:right;}
+.page_link a:hover	{color:#A8C5E5;}
+h4					{display:block; border-bottom:1px solid #ccc; padding-bottom:5px; margin-top:60px; margin-bottom:10px;}
+.blog_links_wrap	{counter-reset:section;}
+a.news_link			{display:block; font-style:italic; text-decoration:none;}
+a.news_link::before {counter-increment:section; content:counter(section) ". "; line-height:18px;}
 
 
 /*	Blog posts images
@@ -319,7 +334,7 @@ a.beige:hover			{color:#FFF;}
 			<td class="dplinks"><a href="/d-portal.org/faq.html" class="top faq">FAQ</a></td>
 			<td class="dplinks"><a href="/d-portal.org/ctrack.html#view=generator" class="top savi">Generator</a></td>
 			<td class="dplinks"><a href="/d-portal.org/ctrack.html#view=dash" class="top dash">Dash</a></td>
-			<td class="dplinks"><a href="/d-portal.org/news/posts.html" class="top news">News
+			<td class="dplinks"><a href="/d-portal.org/news" class="top news">News
 </a></td>
 			<td class="dplinks"><a href="https://github.com/devinit/D-Portal" class="top hub">Github</a></td>
 			<td class="dplinks"><a href="/d-portal.org/" class="top install">Home
@@ -364,16 +379,27 @@ a.beige:hover			{color:#FFF;}
 	</table>
 </div>
 
+	<div class="default">
+	<a href="/d-portal.org//news" class="blog_head">News and updates
+</a>
+</div>
+
+
 	
 <div class="blog_wrap">
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Shi.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>Shi</b> ~ Lead Developer</div>
+			<div class="blog_date">Posted in
+ Technical</div>
+			<div class="blog_date">2017-06-12</div>
+		</div>
+	</div>
 	<div class="blog_title">Finding context in Results data and new query parameter</div>
-	<div class="blog_date">2017-06-12</div>
 	<div class="blog_body"><p>Results data heirarchy is not particularly verbose.</p>
-<p><img src="/art/news/2017-02-21/result.png" alt="Results element" 
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/result.png" alt="Results element" 
 width="556" height="915"></p>
-<p><em>Fig. 1 - The results element heirarchy</em>
-<br/>
-<br/></p>
+<p><em>Fig. 1 - The results element heirarchy</em></p>
 <p>At its most basic, there is a title, description and an indicator. The 
 indicator makes up most of the results element with links to reference 
 documents, a baseline and the all important period element. Here in the 
@@ -401,16 +427,12 @@ get the opportunity to delve deeper into use cases that are in demand.</p>
 href="https://github.com/devinit/D-Portal/issues/179">first asked to 
 display results data in SAVi</a>, we misunderstood it entirely! Without 
 context or how and what it was used for, a structure to compose a 
-visual layout was at most, based on assumptions.
-<br/>
-<br/></p>
+visual layout was at most, based on assumptions.</p>
 <p><img 
 src="http://devinit.org/wp-content/uploads/2016/03/resultsdatadportal.png" 
 alt="Results data" width="720" height="359"></p>
 <p><em>Fig. 2 - First iteration of results data saw a rudimentary layout without 
-baseline data</em>
-<br/>
-<br/></p>
+baseline data</em></p>
 <p>The first thing we had to do was find some actual results data to work 
 with. Preferably an activity with most of the results subelement 
 completed; this seemed a harder feat than we thought.</p>
@@ -429,21 +451,15 @@ the dashboard website where the full publisher names are displayed.</p>
 <p>In any case, there was still a lot to do after this to find an activity 
 that has a high completion of the result subelements. This prompted us 
 to add a <strong>new query parameter to Q which is live right now on 
-d-portal</strong>. Give it a go!
-<br/>
-<br/></p>
+d-portal</strong>. Give it a go!</p>
 <p><code><a href="http://d-portal.org/q.json?from=element&orderby=element_volume-&limit=10&element_name0=result">http://d-portal.org/q.json?from=element&amp;orderby=element_volume-&amp;limit=10&amp;element_name0=result</a></code></p>
 <p>The above query will display the top 10 activities that contain the 
 &#39;result&#39; element in descending order of frequency as JSON. Replace 
-<strong>.json</strong> with <strong>.html</strong>, <strong>.xml</strong> or <strong>.csv</strong> if you prefer.
-<br/>
-<br/></p>
+<strong>.json</strong> with <strong>.html</strong>, <strong>.xml</strong> or <strong>.csv</strong> if you prefer.</p>
 <p>The query is 4 levels deep, this is enough to reach the deepest part of 
 the IATI standard. For example, if I want to search for activities that 
 have dimension data within the target element of results data, my query 
-will look like this:
-<br/>
-<br/></p>
+will look like this:</p>
 <p><code><a href="http://d-portal.org/q.json?from=element&orderby=element_volume-&limit=10&element_name0=dimension&element_name1=target&element_name2=period&element_name3=indicator">http://d-portal.org/q.json?from=element&amp;orderby=element_volume-&amp;limit=10&amp;element_name0=dimension&amp;element_name1=target&amp;element_name2=period&amp;element_name3=indicator</a></code></p>
 <p>As you can see, the query starts with the innermost element and you&#39;ll 
 need to list the hierarchy as it appears <a 
@@ -451,9 +467,7 @@ href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activit
 the standard</a>.</p>
 <p>We started going down the route of deeper searches into attributes but 
 this is a rather resource hungry option so we&#39;ve taken it out for now. 
-If there are demands for such things in the future, do let us know.
-<br/>
-<br/></p>
+If there are demands for such things in the future, do let us know.</p>
 <p>During the four-day <a 
 href="http://www.publishwhatyoufund.org/open-ag-funding-action-tools-tackle-hunger/">Open 
 Ag Tool workshop</a>, we met experts in the field who gave us guidance 
@@ -462,14 +476,10 @@ not only shared how results data was published and how baseline was
 calculated, she also explained how different publishers had different 
 approaches to publishing this data - Yearly, Quarterly etc. This gave 
 us some context and a brief overview of the rather complex nature of 
-the results data element.
-<br/>
-<br/></p>
-<p><img src="/art/news/2017-02-21/cordaid_result_2col.png" alt="Results data in activity" width="720" height="638"></p>
+the results data element.</p>
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result_2col.png" alt="Results data in activity" width="720" height="638"></p>
 <p><em>Fig. 3 - WIP iteration of results data with two columns made the baseline look 
-out of place</em>
-<br/>
-<br/></p>
+out of place</em></p>
 <p>We were later approached by Andy Lulham from Publish What You Fund 
 about the way we visualised baseline data (or rather, the lack of it)! 
 He pointed out the importance of baseline data, how it provided context 
@@ -478,9 +488,7 @@ sense to include it alongside the two columns. This looked like it was
 getting somewhere close to making sense!</p>
 <p>Looking closer, we agreed that baseline could be interpreted as the 
 &#39;start&#39; value where &#39;target&#39; and &#39;actual&#39; data is based on (hence, 
-&#39;baseline&#39;).
-<br/>
-<br/></p>
+&#39;baseline&#39;).</p>
 <p>Throughout the day, we huddled with so many exchanging findings. Nick 
 Hamlin from Global Giving shared interesting observations when he 
 applied machine learning to a results dataset we supplied him with. We 
@@ -505,10 +513,8 @@ multiple periods share just the one baseline.</p>
 duplicated the baseline element into each period element, after the 
 period-start and period-end dates. This meant the 3 columns could be 
 used to compare values within the period element and visually, that 
-made sense.
-<br/>
-<br/></p>
-<p><img src="/art/news/2017-02-21/cordaid_result_1.png" alt="Results data in activity" width="720" height="638"></p>
+made sense.</p>
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result_1.png" alt="Results data in activity" width="720" height="638"></p>
 <p><em>Fig. 4 - Next iteration of results data with 3 columns for comparison</em></p>
 <p>We&#39;ve attached further visual feedback to the actual elements; green if 
 the actual value is equals to or more than the target value and 
@@ -517,10 +523,8 @@ actual box remains neutral blue if value data is missing or incorrect;
 ie. text is published instead of actual numbers.</p>
 <p>We&#39;ve also added a small indicator to show if the period data is still 
 ongoing or has ended. This is represented by a &#39;progress bar&#39; timeline 
-underneath the period dates.
-<br/>
-<br/></p>
-<p><img src="/art/news/2017-02-21/cordaid_result.png" alt="Results data in activity" width="720" height="638"></p>
+underneath the period dates.</p>
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result.png" alt="Results data in activity" width="720" height="638"></p>
 <p><em>Fig. 5 - Current iteration of results data with fixed height and timeline bar</em></p>
 <p>You can view this particular example activity on d-portal <a 
 href="http://d-portal.org/ctrack.html?publisher=NL-KVK-41160054#view=act&aid=NL-KVK-41160054-109805">here</a>.</p>
@@ -531,12 +535,9 @@ how to present the data for use.</p>
 to us to share knowledge, it was humbling and eye-opening to see so 
 many dedicated people working together towards the same goal with so 
 much enthusiasm. We look forward to following the progress of all the 
-resulting projects and outcomes of this workshop.
-<br/>
-<br/></p>
-<p><em>This is a developer diary blog post by Shi.</em></p>
+resulting projects and outcomes of this workshop.</p>
 </div>
-	<a href="/news" class="back_news">Back to News page
+	<a href="/d-portal.org/news" class="back_news">Back to News page
 </a>
 	
 <!--
@@ -559,9 +560,9 @@ resulting projects and outcomes of this workshop.
 -->
    
 </div>
-
-<div class="nav_wrap">
-	<div class="page_link"><a href="/d-portal.org/news/2016-06-17-The-Generator-how-to-get-live-d-portal-content-on-your-website/">Older post</a>
+<div class="blog_page_wrap">
+	<div class="page_link"><a href="/d-portal.org/news/2016-06-17-The-Generator-how-to-get-live-d-portal-content-on-your-website/">Older Post
+</a>
 </div><div class="page_link"></div>
 </div>
 
