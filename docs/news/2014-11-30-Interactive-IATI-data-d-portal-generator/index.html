@@ -1,9 +1,7 @@
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>{blog_title}</title>
-	<script src="/d-portal.org/jslib/jquery.js"></script>
-	<style>
+<head><title>Interactive IATI data – d-portal generator</title>
+<style>
+
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:top;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}	/* Resets */
 
 a,img					{border:0; outline:none;}textarea:focus,input:focus{outline:0;}*:focus{outline:0;}
@@ -292,154 +290,57 @@ a.beige:hover			{color:#FFF;}
 
 }
 
-.navi	{position:relative;}
-</style>
-</head>
-<body>
-	<div class="portal">
-	<div class="main_wrap">
-		<div id="background_image"></div>
-		<div class="overlay">
-	
-	<div class="navi">
-	<table class="head">
-		<tr>
-			<td class="logo">
-				<a href="/d-portal.org/" title="Back to d-portal
-">
-					<img src="/d-portal.org/art/dp_logo.60.png" alt="d-portal logo
-" width="150" height="60"/><span class="badge beta">BETA</span>
 
-				</a>
-			</td>
-			<td class="dplinks"><a href="/d-portal.org/about.html" class="top install">About
-</a></td>
-			<td class="dplinks"><a href="/d-portal.org/faq.html" class="top faq">FAQ</a></td>
-			<td class="dplinks"><a href="/d-portal.org/ctrack.html#view=generator" class="top savi">Generator</a></td>
-			<td class="dplinks"><a href="/d-portal.org/ctrack.html#view=dash" class="top dash">Dash</a></td>
-			<td class="dplinks"><a href="/d-portal.org/news/posts.html" class="top news">News
-</a></td>
-			<td class="dplinks"><a href="https://github.com/devinit/D-Portal" class="top hub">Github</a></td>
-			<td class="dplinks"><a href="/d-portal.org/" class="top install">Home
-</a></td>
-			<td class="options"><form action="">
-<select id="tongue_select" name="tongue">
-	
-	<option value="eng" title="View this in English(UK)">English (UK)</option> 
-	
-	<option value="fra" title="Voir ce en français">Français</option> 
-	
-	<option value="spa" title="Ver esto en español">Español</option> 
-	
-	<option value="jpn" title="日本語でこれを表示">日本の</option> 
-	
-	<option value="cmn" title="查看本在中国（简体）">中国的</option> 
-	
-	<option value="hin" title="हिंदी में यह दृश्य">हिंदी</option> 
-	
-</select>
-</form>
+</style></head>
+<body><div class="a_blog">
+	<div class="day">
+		<div class="scroll"></div>
+		<div class="scroll_tip"></div>
+		<div class="scroll_tip a"></div>
+		<div class="peak_box"><p><a href="http://www.d-portal.org">d-portal</a> is a platform that makes all <a href="http://www.aidtransparency.net">IATI</a> data accessible, and is a useful tool for investigating the increasing amount of IATI data. Nearly 300 organisations publish their activities in the <a href="http://www.iatiregistry.org/">IATI registry</a>, so we set up d-portal to turn that data into simple information for everyone – particularly those in developing countries interested in seeing information from their own country’s perspective. In addition to this, we recently added the <a href="http://www.d-portal.org/ctrack.html?#view=generator">generator</a> - to provide a means of re-using the IATI data in d-portal, by embedding it into other websites and blog posts.</p>
+<h3><strong>How to select and embed content</strong></h3>
 
-<script>
-	$(function(){
-		$('#tongue_select').children().each(function(i,it){
-			if("{tongue}"==$(it).val())
-			{
-				$(it).attr("selected",1)
-			}
-		});
-		$('#tongue_select').bind('change', function ()
-		{
-			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/eng/"){t="/d-portal.org/";}
-			var url = t+"{_fullfilename}";
-			window.location = url; // redirect
-			return false;
-		});
-	});
-</script>
-</td>
-		</tr>
-	</table>
+<p>Here we give you some examples of information you can show using the d-portal generator - these are various randomly chosen examples of data which are currently published to IATI, but of course you can choose any current publisher, or combinations of publishers and recipients, depending on what information you want to display.</p>
+<p>This is a snapshot of a simple query we&#39;ve run on the generator...choosing Development Initiatives from the Publisher dropdown, and then the &#39;Sectors (table)&#39; view...</p>
+<p><a href="http://devinit.org/wp-content/uploads/2014/11/gen-screen-DIPR-sectors-search.jpg"><img class="alignnone size-full wp-image-5081" src="http://devinit.org/wp-content/uploads/2014/11/gen-screen-DIPR-sectors-search.jpg" alt="gen screen - DIPR sectors search" width="720" height="595" /></a>
+<br/>
+<br/></p>
+<p>...and here&#39;s the resulting table - which we&#39;ve embedded below by copying the code generated in the white box (above), and pasting it into the html code for this webpage. You can now click on information in the table, to explore further...
+<br/>
+<br/></p>
+<iframe style="width: 750px; height: 468px;" src="http://www.d-portal.org/ctrack.html?publisher=GB-COH-06368740&amp;#view=frame&amp;frame=publisher_sectors&amp;size=750" width="320" height="240" frameborder="0" scrolling="no"></iframe>
+
+<p>By changing around what you select in the generator dropdowns you can create a variety of different content - here&#39;s a few more examples of content that we generated from the IATI data in d-portal. We&#39;d love to hear your feedback from using d-portal and the generator - please do <a href="mailto:support@iatistandard.org">email us</a> any thoughts and feedback.</p>
+<p><a title="Our open data" href="http://devinit.org/about/open-data/">See here</a> for more information about DI&#39;s IATI data.
+<br/>
+<br/></p>
+<h3><strong>d-portal generator examples...</strong></h3>
+
+<p><em>(Publisher) </em><strong>ActionAid International</strong> ~ <em>(View)</em> <strong>List of activities</strong> (5) ~ Mustard ~ 750 pixels</p>
+<iframe style="width: 750px; height: 359px;" src="http://www.d-portal.org/ctrack.html?flava=original&amp;rgba=mustard&amp;publisher=NL-KVK-27264198&amp;#view=frame&amp;frame=list_activities&amp;size=750&amp;limit=5" width="320" height="240" frameborder="0" scrolling="no"></iframe>
+
+<p><em>(Recipient) </em><strong>Angola </strong>~ <em>(View)</em> <strong>Top Donors for a single recipient (graph)</strong> ~ High</p>
+<iframe style="width: 750px; height: 344px;" src="http://www.d-portal.org/ctrack.html?flava=high&amp;country=AO&amp;#view=frame&amp;frame=donors_top&amp;size=750" width="320" height="240" frameborder="0" scrolling="no"></iframe>
+
+<p><em>(Publisher) </em><strong>The World Bank</strong> ~ <em>(View)</em> <strong>Map </strong>~ 750 pixels</p>
+<iframe style="width: 750px; height: 501px;" src="http://www.d-portal.org/ctrack.html?publisher=44000&amp;#view=frame&amp;frame=map&amp;size=750" width="320" height="240" frameborder="0" scrolling="no"></iframe>
+
+<p><em>(Publishers) </em><strong>WaterAid, United Nations Childrens Fund, The Coca-Cola Export Corporation, Heifer International South Africa</strong> ~ (<em>Recipient) </em><strong>Liberia</strong> ~ <em>(View)</em> <strong>Recipients (table)</strong> ~ 750 pixels</p>
+<iframe style="width: 750px; height: 273px;" src="http://www.d-portal.org/ctrack.html?country=LR&amp;publisher=XI-IATI-1001,ZA-NPO-013484,41122,GB-CHC-288701&amp;#view=frame&amp;frame=publisher_countries&amp;size=750" width="320" height="240" frameborder="0" scrolling="no"></iframe>
+
+<p><h4>Links</h4>
+<a href="/d-portal.org/ctrack.html#view=generator" class="news_link">Create IATI content with the d-portal Generator</a></p>
 </div>
-
-	<div class="default">
-	<a href="/d-portal.org//news" class="blog_head">d-portal News
-</a>
-</div>
-
-	<!--	Single blog post on its own page	-->
-<div class="blog_wrap">
-	<div class="blog_title">{_it.blog_title}</div>
-	<div class="blog_date">Posted on
- {_it._date}</div>
-	<div class="blog_body">{_it.blog_body}</div>
-	<a href="/news" class="back_news">Back to News page
-</a>
-	
-	<div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'dportalnews'; // required: replace example with your forum shortname
-		var disqus_identifier = "{_fullfilename}"; // unique id of post
-		
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by
- <span class="logo-disqus">Disqus</span></a>
-    
-</div>
-
-			</div>
+		<div class="peak_wrap"><div class="peak"></div></div>
+		<div class="date">~ Matt Bartlett, 2014-11-30</div>
 	</div>
-	<div class="footer_wrap">
-	<div class="footer">
-		<div class="footer_link">
-	<div class="footer_motto"><a href="http://d-portal.org/">d-portal.org
-</a> helps you explore IATI data.
+	<div class="bards"></div>
 </div>
-	<p>It provides a search function and information by country or by publisher on development activities and budgets published to IATI.
-</p>
-	<p class="beta">We are currently in BETA. While d-portal is publicly available, it is not considered finished. You may experience bugs and missing features, but that is why we need your feedback and support.
-</p>
-	<p>Send emails to
- <b><a href="mailto:support@iatistandard.org">support@iatistandard.org
-</a></b></p>
-</div><div class="footer_link list">
-	<div class="footer_header">Tools &amp; Updates
-</div>
-	<ul>
-		<li><a href="http://d-portal.org/news/posts.html">Latest news posts
-</a></li>
-		<li><a href="http://d-portal.org/about.html">About d-portal.org
-</a></li>
-		<li><a href="http://d-portal.org/ctrack.html?#view=dash">Dash - Publishers statistics
-</a></li>
-		<li><a href="http://d-portal.org/ctrack.html#view=generator">Generator - Widgets for your website
-</a></li>
-	</ul>
-	<div class="footer_header">Information
-</div>
-	<ul>
-		<li><a href="http://d-portal.org/faq.html">FAQ
-</a></li>
-		<li><a href="http://d-portal.org/about.html#sources">Attribution &amp; Sources
-</a></li>
-		<li><a href="https://github.com/devinit/D-Portal/issues">Github Feedback Forum
-</a></li>
-	</ul>
-</div>
-<div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">Top of page
-</a></div>
 
-
-	</div>
-	</div>
+<div class="nav_wrap">
+	<div class="page_link"><a href="/d-portal.org/news/2014-11-28-Bringing-IATI-data-life-d-portal-generator/">Older post</a>
+</div><div class="page_link"><a href="/d-portal.org/news/2015-11-05-Adding-country-budgets-to-d-portal/">Newer post</a>
+</div>
 </div>
 
 </body>
