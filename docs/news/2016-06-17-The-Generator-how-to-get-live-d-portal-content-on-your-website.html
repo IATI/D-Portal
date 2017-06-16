@@ -29,7 +29,7 @@ strong, b, .bold		{font-weight:bold; color:inherit;}
 	============================================= */
 .portal					{-moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; display:table; width:100%; height:100%;}
 .main_wrap				{width:100%; min-width:1040px; padding:0px; display:table-cell; background-color:rgba(255,255,255,0.4);}
-#background_image	 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/mexico_background_image.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
+#background_image	 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/d-portal.org/art/mexico_background_image.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
 .overlay				{width:100%; height:100%; background-color:rgba(46,41,6,0.6); position:relative;}	/* Overlay colour for background image */
 iati-activity			{margin-bottom:40px;}	/* Fixes too-large bottom margin during only this instance */
 iati-activity:after 	{content:""; padding:0; display:initial;}	/* Takes away content since footer is included on site */
@@ -120,7 +120,7 @@ a.feedback_txt, #more_feedback_info	{color:#fff; display:inline-block; vertical-
 
 /*	Generator link - INDEX PAGE
 	============================================= */
-.screen_generator		{display:block; background:url('/art/generator.png')no-repeat; background-size:540px 562px; width:540px; height:200px;}
+.screen_generator		{display:block; background:url('/d-portal.org/art/generator.png')no-repeat; background-size:540px 562px; width:540px; height:200px;}
 a.description_wrap.bigbutton						{display:block; width:878px; margin-bottom:40px; padding:40px 40px 0 40px; background-color:rgba(255,255,255,0); border:1px solid #fff;}
 a.description_wrap.bigbutton:hover					{background-color:rgba(255,255,255,0.1);}
 a.description_wrap.bigbutton span.description		{margin:0; width:340px; padding:0; background:transparent; display:inline-block; vertical-align:top;}
@@ -148,6 +148,76 @@ a.back_news:hover	{color:#A8C5E5;}
 .blog_body code		{background-color:#fff; padding:10px 20px; color:#222; font-family:monospace; margin:15px 0; display:block;}
 .blog_body code a, .blog_body code a:focus, .blog_body code a:link, .blog_body code a:visited,
 .blog_body code a:hover, .blog_body code a:active	{color:#222; text-decoration:none; transition:initial;}
+
+
+/*	Blog posts images
+	============================================= */
+	
+img					{max-width:750px; height:inherit;}
+
+
+/*	Navigation
+	============================================= */
+
+table.head			{width:960px; margin:0 auto; position:relative;}
+table.head td.logo, table.head td.options	{padding-top:20px}
+table.head td.options	{color:#FFF; text-align:right; vertical-align:middle; font-size:0.9em;}
+table.head td.dplinks	{text-align:center;}
+.navi				{width:100%; background-color:rgba(42,42,42,0.8); padding-bottom:30px; position:fixed; z-index:100;}
+a.top				{display:block; color:#fff; font-size:18px; vertical-align:top; padding-top: 45px; border-top:5px solid rgba(0,0,0,0); min-width:50px; margin:0 auto;}
+a.top:hover			{padding-top:20px; margin-top:25px;}
+a.top.install:hover	{border-top:5px solid #2573CD;}
+a.top.gen:hover		{border-top:5px solid #5C80AB;}
+a.top.savi:hover	{border-top:5px solid #FFA500;}
+a.top.hub:hover		{border-top:5px solid rgba(255,255,255,1);}
+a.top.news:hover	{border-top:5px solid #960096;}
+a.top.dash:hover	{border-top:5px solid #B47447;}
+a.top.faq:hover		{border-top:5px solid #2BF26C;}
+
+
+
+/*	FAQ page
+	============================================= */
+
+.faq_head				{font-size:38px; position:absolute; top:0; left:0; padding:40px 0 40px 100px; color:#FFF; width:860px;}
+.faq_head.a				{background-color:#2BF26C;}
+.faq_head.b				{background-color:#FF980A;}
+.faq_head.c				{background-color:#7BC2FF;}
+
+.navi.clear				{background-color:transparent; position:initial;}
+.about_wrap.faq			{background-color:transparent; padding:40px 0;}
+
+.faq_wrap				{width:960px; margin:0 auto; background-color:#FFF; padding:100px 40px 40px 40px; box-sizing:border-box; position:relative;}
+.faq_links_wrap			{padding:40px 0 60px 60px; counter-reset:section;}
+.faq_links_wrap a::before{counter-increment:section; content:counter(section) ". ";}
+.faq_links_wrap a		{display:block; padding-top:10px; color:#444; list-style-type:decimal; list-style-position:inside;}
+.faq_links_wrap a:hover	{text-decoration:underline;}
+
+ul.faq_list				{padding-left:60px;}
+ul.faq_list li			{font-size:1.2em; font-weight:bold; line-height:1.2em; padding-bottom:10px; list-style-type:decimal;}
+
+a.topics				{display:inline-block; padding:20px; color:#FFF; background-color:#2CE268; vertical-align:top; width:310px; box-sizing:border-box; text-align:center; border-radius:8px 8px 0 0; font-size:1.8em;}
+a.topics.a:hover		{background-color:#2BF26C;}
+a.topics.b				{margin-left:15px; margin-right:15px; background-color:#FF860E;}
+a.topics.b:hover		{background-color:#FF980A;}
+a.topics.c				{background-color:#53AEFF;}
+a.topics.c:hover		{background-color:#7BC2FF;}
+a.topics.a.on			{background-color:#2BF26C;}
+a.topics.b.on			{background-color:#FF980A;}
+a.topics.c.on			{background-color:#7BC2FF;}
+a.topics:hover			{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer;}
+
+span.info				{display:block; color:#444; font-size:0.8em; line-height:1.4em; font-weight:normal; padding:10px 40px 40px 5px;}
+span.info ul			{padding-left:20px;}
+span.info li			{font-weight:normal; font-size:1.0em; list-style-type:lower-latin; padding:10px 0 0 0;}
+span.info a				{color:#2573CD;}
+span.info a:hover		{text-decoration:underline;}
+span.info p				{color:#444; padding:10px 0 0 0;}
+
+ul.faq_list li.on span.list	{background-color:#BEE1FF; padding:5px 10px;}
+
+a.faq_top				{display:block; position:fixed; right:100px; top:250px; padding:10px 10px 10px 20px; border-radius:0 4px 4px 0; background-color:#DEDEDE; color:#444; font-size:0.9em; font-weight:bold; width:60px; line-height:1.2em;}
+a.faq_top:hover			{background-color:#EBEBEB;}
 
 
 /*	Data Investigators alert

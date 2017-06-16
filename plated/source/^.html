@@ -45,3 +45,67 @@ Body is missing.
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 	window.ga('create', 'UA-6109435-15', 'auto');
 </script>
+
+#^tongue_select_options form=json
+
+[
+	{
+		"tip":"View this in English(UK)",
+		"text":"English (UK)",
+		"code":"eng"
+	},
+	{
+		"tip":"Voir ce en français",
+		"text":"Français",
+		"code":"fra"
+	},
+	{
+		"tip":"Ver esto en español",
+		"text":"Español",
+		"code":"spa"
+	},
+	{
+		"tip":"日本語でこれを表示",
+		"text":"日本の",
+		"code":"jpn"
+	},
+	{
+		"tip":"查看本在中国（简体）",
+		"text":"中国的",
+		"code":"cmn"
+	},
+	{
+		"tip":"हिंदी में यह दृश्य",
+		"text":"हिंदी",
+		"code":"hin"
+	}
+]
+
+#^tongue_select_option
+
+	<option value="{_it.code}" title="{_it.tip}">{_it.text}</option> 
+	
+#^tongue_select
+<form action="">
+<select id="tongue_select" name="tongue">
+	{tongue_select_options:tongue_select_option}
+</select>
+</form>
+
+<script>
+	$(function(){
+		$('#tongue_select').children().each(function(i,it){
+			if("{tongue}"==$(it).val())
+			{
+				$(it).attr("selected",1)
+			}
+		});
+		$('#tongue_select').bind('change', function ()
+		{
+			var t="{_root}"+$(this).val()+"/";if(t=="/eng/"){t="{_root}";}
+			var url = t+"{_fullfilename}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+</script>
