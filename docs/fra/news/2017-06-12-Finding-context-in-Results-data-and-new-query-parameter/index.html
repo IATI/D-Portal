@@ -360,15 +360,15 @@ a.beige:hover			{color:#FFF;}
 <script>
 	$(function(){
 		$('#tongue_select').children().each(function(i,it){
-			if("{tongue}"==$(it).val())
+			if("fra"==$(it).val())
 			{
 				$(it).attr("selected",1)
 			}
 		});
 		$('#tongue_select').bind('change', function ()
 		{
-			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/eng/"){t="/d-portal.org/";}
-			var url = t+"{_fullfilename}";
+			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/d-portal.org/eng/"){t="/d-portal.org/";}
+			var url = t+"news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/index.html";
 			window.location = url; // redirect
 			return false;
 		});

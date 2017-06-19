@@ -360,15 +360,15 @@ a.beige:hover			{color:#FFF;}
 <script>
 	$(function(){
 		$('#tongue_select').children().each(function(i,it){
-			if("{tongue}"==$(it).val())
+			if("hin"==$(it).val())
 			{
 				$(it).attr("selected",1)
 			}
 		});
 		$('#tongue_select').bind('change', function ()
 		{
-			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/eng/"){t="/d-portal.org/";}
-			var url = t+"{_fullfilename}";
+			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/d-portal.org/eng/"){t="/d-portal.org/";}
+			var url = t+"news/2014-11-28-Bringing-IATI-data-life-d-portal-generator/index.html";
 			window.location = url; // redirect
 			return false;
 		});

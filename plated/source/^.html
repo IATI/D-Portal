@@ -102,8 +102,8 @@ Body is missing.
 		});
 		$('#tongue_select').bind('change', function ()
 		{
-			var t="{_root}"+$(this).val()+"/";if(t=="/eng/"){t="{_root}";}
-			var url = t+"{_fullfilename}";
+			var t="{_root}"+$(this).val()+"/";if(t=="{_root}eng/"){t="{_root}";}
+			var url = t+"{_output_filename}";
 			window.location = url; // redirect
 			return false;
 		});

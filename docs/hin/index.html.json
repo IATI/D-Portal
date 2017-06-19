@@ -23,6 +23,9 @@
   "title": {
    "trim": "ends"
   },
+  "tongue": {
+   "trim": "ends"
+  },
   "tongue_root": {
    "trim": "ends"
   },
@@ -227,8 +230,9 @@
  "tagline_text": "आप विकास डेटा को समझने में मदद करना.\n",
  "three_buttons": "<div class=\"default pad40\">\n\t<div class=\"third\">\n\t\t<a href=\"/ctrack.html#view=generator\" class=\"path\">\n\t\t\t<span class=\"path_title install\">{install_button_text}</span>\n\t\t\t<span class=\"path_txt\">{install_info_text}</span>\n\t\t</a>\n\t</div><div class=\"third\">\n\t\t<a href=\"#explore\" class=\"path\">\n\t\t\t<span class=\"path_title explore\">{explore_button_text}</span>\n\t\t\t<span class=\"path_txt\">{explore_info_text}</span>\n\t\t</a>\n\t</div><div class=\"third\">\n\t\t<a href=\"https://github.com/devinit/D-Portal/issues\" target=\"_blank\" class=\"path\">\n\t\t\t<span class=\"path_title develop\">{develop_button_text}</span>\n\t\t\t<span class=\"path_txt\">{develop_info_text}</span>\n\t\t</a>\n\t</div>\n</div>\n",
  "title": "Title is missing.",
+ "tongue": "hin",
  "tongue_root": "{_root}",
- "tongue_select": "<form action=\"\">\n<select id=\"tongue_select\" name=\"tongue\">\n\t{tongue_select_options:tongue_select_option}\n</select>\n</form>\n\n<script>\n\t$(function(){\n\t\t$('#tongue_select').children().each(function(i,it){\n\t\t\tif(\"{tongue}\"==$(it).val())\n\t\t\t{\n\t\t\t\t$(it).attr(\"selected\",1)\n\t\t\t}\n\t\t});\n\t\t$('#tongue_select').bind('change', function ()\n\t\t{\n\t\t\tvar t=\"{_root}\"+$(this).val()+\"/\";if(t==\"/eng/\"){t=\"{_root}\";}\n\t\t\tvar url = t+\"{_fullfilename}\";\n\t\t\twindow.location = url; // redirect\n\t\t\treturn false;\n\t\t});\n\t});\n</script>\n",
+ "tongue_select": "<form action=\"\">\n<select id=\"tongue_select\" name=\"tongue\">\n\t{tongue_select_options:tongue_select_option}\n</select>\n</form>\n\n<script>\n\t$(function(){\n\t\t$('#tongue_select').children().each(function(i,it){\n\t\t\tif(\"{tongue}\"==$(it).val())\n\t\t\t{\n\t\t\t\t$(it).attr(\"selected\",1)\n\t\t\t}\n\t\t});\n\t\t$('#tongue_select').bind('change', function ()\n\t\t{\n\t\t\tvar t=\"{_root}\"+$(this).val()+\"/\";if(t==\"{_root}eng/\"){t=\"{_root}\";}\n\t\t\tvar url = t+\"{_output_filename}\";\n\t\t\twindow.location = url; // redirect\n\t\t\treturn false;\n\t\t});\n\t});\n</script>\n",
  "tongue_select_option": "\n\t<option value=\"{_it.code}\" title=\"{_it.tip}\">{_it.text}</option> \n\t",
  "tongue_select_options": [
   {

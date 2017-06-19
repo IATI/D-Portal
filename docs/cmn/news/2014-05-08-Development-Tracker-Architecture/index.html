@@ -360,15 +360,15 @@ a.beige:hover			{color:#FFF;}
 <script>
 	$(function(){
 		$('#tongue_select').children().each(function(i,it){
-			if("{tongue}"==$(it).val())
+			if("cmn"==$(it).val())
 			{
 				$(it).attr("selected",1)
 			}
 		});
 		$('#tongue_select').bind('change', function ()
 		{
-			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/eng/"){t="/d-portal.org/";}
-			var url = t+"{_fullfilename}";
+			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/d-portal.org/eng/"){t="/d-portal.org/";}
+			var url = t+"news/2014-05-08-Development-Tracker-Architecture/index.html";
 			window.location = url; // redirect
 			return false;
 		});

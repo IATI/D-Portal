@@ -485,15 +485,15 @@ a.git:hover	{background-color:#66b4ff; text-decoration:none;}
 <script>
 	$(function(){
 		$('#tongue_select').children().each(function(i,it){
-			if("{tongue}"==$(it).val())
+			if("jpn"==$(it).val())
 			{
 				$(it).attr("selected",1)
 			}
 		});
 		$('#tongue_select').bind('change', function ()
 		{
-			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/eng/"){t="/d-portal.org/";}
-			var url = t+"{_fullfilename}";
+			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/d-portal.org/eng/"){t="/d-portal.org/";}
+			var url = t+"about.html";
 			window.location = url; // redirect
 			return false;
 		});
