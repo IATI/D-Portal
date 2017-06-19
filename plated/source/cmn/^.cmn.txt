@@ -1,0 +1,511 @@
+
+#^------------------------------
+#^_include_json
+#^------------------------------
+{
+	include:[
+		"",
+	],
+	exclude:[
+		"cmn",
+		"fra",
+		"hin",
+		"jpn",
+		"spa",
+	],
+}
+
+#^welcome_text
+欢迎光临d-portal.org
+
+#^publishers_welcome_text
+欢迎光临d-portal.org : 发行版
+
+#^alert1_text
+d-portal.org还处于非常早期的开发，定于四月中旬Alpha版本。感谢您的耐心等待！很抱歉任何反馈
+
+#^alert2_text
+这里
+
+#^top_text
+顶部
+
+#^tagline_text
+帮助您了解开发数据。
+
+#^publishers_tagline_text
+发行版
+
+#^install_button_text
+发电机
+
+#^install_info_text
+创建小工具为您的网站。
+
+#^soon_text
+（不久!)
+
+#^explore_button_text
+探索
+
+#^explore_info_text
+浏览IATI数据。
+
+#^develop_button_text
+开发人员
+
+#^develop_info_text
+我们是在Github上。
+
+#^index_title_text
+这是什么？
+
+#^index_paragraph1_text
+是跟踪资源流动的国家为基础的信息平台。它的目的是提供部委，国会议员和民间社会提供信息，可以协助发展活动的调度和监控。
+
+#^index_paragraph2_text
+在第一次迭代ICTS它包含通过国际援助透明度倡议(IATI)以及由经合组织发展援助委员会债权人报告系统公布的最新（2012年）汇总数据公布的最新数据。将未来的发展包括，除其他外，援助信息管理系统，国家预算数据及可比的社会经济指标范围。
+
+#^index_title2_text
+来自哪里的数据？
+
+#^index_paragraph3_text
+在下拉菜单中的数据从<a href="https://github.com/devinit/D-Portal/tree/master/dstore">数据库</a>它每天更新GMT+ 0与获取新数据建从IATI注册。
+
+#^index_paragraph4_text
+我们列出报告使用 <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166-2</a> 出版商的国家。对于归属，并链接到数据源，<a href="about.html#sources">去这里</a>。
+
+#^index_paragraph5_text
+出版商与他们IATI发布者ID列表来自IATI注册表数据库直。
+
+#^index_paragraph6_text
+出版商的下拉列表来自报道的这些出版商已发布的XML活动。
+
+#^news_page_text 
+目前开发的信息（新闻） 
+
+#^install_link_text 
+安装 
+
+#^news_link_text 
+新闻 
+
+#^about_link_text
+关于
+
+#^home_link_text
+主页
+
+#^read_more_text 
+了解更多关于d-portal
+
+#^publisher_portal_text 
+发行版
+
+#^links_title_text 
+相关链接
+
+#^explore_title_text 
+探索国家和出版商 
+
+#^explore_paragraph1_text 
+选择一个国家或低于出版商发掘他们的数据。 
+
+#^explore_paragraph2_text 
+只有国家和出版商公布的数据，以IATI可供探索。
+
+#^footer1_text
+2014年项目由d-portal队
+
+#^footer1_tip_text
+国际援助透明度倡议(IATI)
+
+#^footer2_text
+返回页首
+
+#^footer3_text
+关于d-portal.org
+
+#^footer4_text
+返回d-portal.org
+
+#^footer5_text
+许可：麻省理工学院许可证(MIT)于2014年
+
+#^footer6_text
+d-portal.org
+
+#^footer7_text
+可以帮助你探索IATI数据。
+
+#^footer8_text
+它提供了按国家或通过发布到IATI开发活动和预算出版商信息。
+
+#^footer9_text
+我们目前正处于测试阶段。而d-portal是公开的，它不被视为成品。您可能会遇到错误和缺失的功能，但是这就是为什么我们需要您的反馈和支持。
+
+#^footer10_text
+发送电子邮件至
+
+#^footer11_text
+support@iatistandard.org
+
+#^footer12_text
+工具更新
+
+#^footer13_text
+最新消息职位
+
+#^footer14_text
+Dash - 发布的统计数据
+
+#^footer15_text
+Generator - 小工具为您的网站
+
+#^footer16_text
+信息
+
+#^footer17_text
+常问问题
+
+#^footer18_text
+署名和来源
+
+#^footer19_text
+Github的反馈论坛
+
+#^feedback_title_text
+d-portal.org反馈
+
+#^feedback_paragraph1_text
+您好，感谢大家参加beta测试者的手为d-portal.org。我们欢迎任何及所有反馈意见，建议和关注，你可能对网站的，所以请随意张贴'时间如下意见。整体而言，我们希望把重点放在易读性和用户体验，特别是在理解正在被提出的数据条款。
+
+#^feedback_paragraph2_text
+非常感谢您抽出宝贵的时间来做到这一点！我们希望创造一些有用的东西，轻松地部署，一个有趣的谈论的焦点瞄准最重要的是促进从报告发布机构更高质量的数据。
+
+#^feedback_paragraph3_text
+-shi
+
+#^about_title_text
+关于d-portal.org
+
+#^about_paragraph_title_text
+这是什么？
+
+#^about_paragraph1_text
+d-portal.org帮助您通过提供国家或通过发布到IATI开发活动和预算出版商信息探索IATI数据。
+
+#^about_paragraph2_text
+它的目的是提供部委，国会议员和民间社会提供信息，可以帮助规划和监督发展活动。
+
+#^about_paragraph3_text
+在其第一次迭代它包含通过国际援助透明度倡议（IATI），以及由的 <a href="http://www.oecd.org/dac/stats/crsguide.htm" target="_blank" class="co">OECD DAC Creditor Reporting System</a>。
+
+#^about_paragraph4_text
+当前平台提出了两个问题：哪里的资源从哪里来，到哪去了（按部门和地点）？近期，当前和未来的数据呈现和跨数据源进行比较。
+
+#^about_paragraph5_text
+为了从一个国家的角度回答这些问题，这是不够的仅仅是为了显示可用的数据：
+
+#^about_paragraph6_text
+是一个开源的平台。这意味着您可以使用该平台的所有方面建立使用免费的源代码，自己的门户。
+
+#^about_paragraph7_text
+虽然它目前提供了一个通用的部署对于任何国家，它已经开发出了被定制在国内，以满足当地需求的具体意图。有关如何可以针对某一特定国家创建一个自定义版本的更多信息，请参阅<a href="#install" class="how">如何安装</a>。
+
+#^about_paragraph8_text
+资金
+
+#^about_paragraph9_text
+d-portal.org从2013年12月跑到全球伙伴关系会议在墨西哥2014年4月的最初的发展是由 <a href="http://www.aidtransparency.net/" target="_blank" class="co">IATI</a> 和 <a href="http://devinit.org/" target="_blank" class="co">Development Initiatives (DI)</a>。
+
+#^about_paragraph10_text
+DI被开发和准备的现阶段资金至2014年八月底如果您有兴趣的d门户网站的持续发展的资金部分，请联系的<a href="mailto:support@iatistandard.org" target="_blank" class="co">support@iatistandard.org</a>
+
+#^about_paragraph11_text
+开源的概念依赖于其他人会加入，共同搭建更好的平台，希望能实现资源共享。这包括寻找和报告错误，贡献新的功能，你想要的平台，让他们甚至创造新的主题，以便其他人可以使用它。
+
+#^about_paragraph12_text
+基于d-portal其他站点将在下面列出。 <a href="mailto:support@iatistandard.org" target="_blank" class="co">在我们向support@iatistandard.org你补充</a>。
+
+#^about_paragraph13_text
+<a href="http://open.undg.org/" target="_blank"> <img src="{root}art/UNDG_logo.png" alt="发展集团透明度门户网站标识" width="406" height="100" /></a>
+
+#^about_paragraph14_text
+<span class="questions"> 1。哪里的资源来自哪里？</span> <span class="questions"> 2。他们在哪里去（按部门和位置)？</span>
+
+#^about_paragraph15_text
+最近，当前和未来的数据呈现和跨数据源相比较。
+
+#^savi_paragraph1_text
+SAVI是一个单一的活动观众对XML IATI ，你可以实时查看，在线，在你喜欢的浏览器。
+
+#^savi_paragraph2_text
+SAVI使用CSS和JavaScript来显示，否则复杂，寻找到一个XML格式更易于阅读和理解。
+
+#^dstore_paragraph_text
+dstore补贴的IATI数据存储与实时查询优化的NodeJS + SQLite的版本使用。
+
+#^q_paragraph_text
+Q允许您通过简单而复杂的过滤器查询您需要的信息。
+
+#^q_example_title_text
+下面是一些查询示例：
+
+#^q_example_append1_text
+追加查询您的首选格式
+
+#^q_example_append2_text
+为 SAVI。
+
+#^q_example_xml_text
+返回纯 XML
+
+#^q_example_json_text
+返回 JSON
+
+#^q_example_savi_text
+返回XML被自动设置为 HTML（SAVI）。来源仍然是纯XML
+
+#^q_example1_text
+返回XML被自动设置为 HTML（SAVI）。来源仍然是纯XML
+
+#^q_example1_info1_text
+这个查询会显示活动的限制量10
+
+#^q_example1_info2_text
+排序开始的第一天
+
+#^q_example1_info3_text
+并从1950年起，
+
+#^q_example2_text
+返回纯 XML
+
+#^q_example2_info1_text
+这个查询会显示所有活动在孟加拉国（国家代码为BD ）
+
+#^q_example2_info2_text
+该行业具备的数据报道了
+
+#^q_example2_info3_text
+最终，这个查询可以让您看所有的活动，有在EM图形。
+
+#^q_example3_text
+返回的JSON （默认为JSON ）关于活动（活动默认），其中从数据库中100行是默认的限制数据
+
+#^q_example3_info1_text
+这个查询显示数据统计
+
+#^q_example3_info2_text
+有关活动的每个组织报告
+
+#^q_example3_info3_text
+孟加拉国
+
+#^q_example4_text
+CSV文件的回报（默认名称为q.csv）
+
+#^q_example4_info1_text
+这个查询允许您下载CSV
+
+#^q_example4_info2_text
+1000
+
+#^q_example4_info3_text
+交易数据
+
+#^q_example4_info4_text
+按日期排序
+
+#^install_title_text 
+如何安装d-portal
+
+#^install_paragraph1_text 
+在d-portal项目的心脏是公司的宗旨，任何人在任何地方可以采取后面的d门户开放的源代码，部署它自己并创建一个自定义的d-portal他们感兴趣的任何国家。这可能包括从增加援助信息管理系统，国家预算和一系列类似的社会经济指标的任何其他数据。 
+
+#^install_paragraph2_text 
+目前已经有专门的国家特有的d-portals如下的例子： 
+
+#^install_paragraph3_text 
+的d-portal由所述dstore后端和ctrack接口。要安装d-portal,您需要设置一台服务器。
+
+#^install_paragraph4_text 
+<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md">开始阅读指示安装d-portal服务器</a>
+
+#^install_title2_text 
+如何创建一个d-portal部件 
+
+#^install_paragraph5_text 
+通过使用内部框架中，d-portal生成器允许你嵌入d-portal在任何支持HTML的发布平台段; IE浏览器。 WordPress的博客文章，QQ空间后，网站等等。 
+
+#^install_paragraph6_text 
+访问<a href="http://d-portal.org/ctrack.html#view=generator" class="country_portal">http://d-portal.org/ctrack.html#view=generator</a>创建一个d-portal部件。
+
+#^github_tip_text
+访问Github上的d-portal.org
+
+#^github_info1_text
+叉我们
+
+#^github_info2_text
+d-portal.org目前正在开发和设计这样的事情是不断变化的。向我们发送您的建议，bug报告和议题或接触<a href="mailto:support@iatistandard.org" target="_blank"> support@iatistandard.org</a>
+
+#^github_info3_text
+如果你想保持最新与d-portal消息，请订阅<a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">谷歌论坛</a>。
+
+#^footer_pick_text 
+选择其他国家 
+
+#^footer_top_text 
+返回页首 
+
+#^footer_about_text 
+关于d-portal.org 
+
+#^dportal_logo_alt_text 
+发展门户网站徽标 
+
+#^mainback_tip_text 
+返回门户开发 
+
+#^flava_high_visibility_text 
+高能见度 
+
+#^flava_original_text 
+原
+
+#^blog_head_text 
+发展门户网站新闻 
+
+#^posted_on_text 
+发表于 
+
+#^back_news_text 
+返回新闻页面 
+
+#^disqus_text 
+评论由
+
+#^dash_title_text 
+Dash - 出版者统计D-portal.org 
+
+#^dash_paragraph1_text 
+破折号是填充的d-portal.org，重点主要放在出版者统计和它们所报道的数据的质量的数据的概要。 
+
+#^dash_paragraph2_text 
+通过展示你在何时何地无效数据报告，Dash就能解释，都反映在主站点上的差距。 
+
+#^dash_paragraph3_text 
+Dash是不是特定国家的，因此您将能看到所有的在所有国家提供的发行统计数据包含在门户。这是为了容纳一个事实，即有多个发布，在多个受援国报告活动。 
+
+#^dash_paragraph4_text 
+Dash是目前在访问<a href="http://d-portal.org/ctrack.html?#view=dash" class="dash_link">http://d-portal.org/ctrack.html?#view=dash</a>。 Dash是一项新功能，并仍处于开发阶段。
+
+#^gen_title_text
+Generator - 小工具为您的网站
+
+#^gen_paragraph1_text
+有一个巨大的内IATI有趣的信息，并能够分享自由地在其他网站和博客一口大小的块就显著的价值数额。在d-portal发生器允许用户选择从d-portal网站的具体信息，并直接嵌入到自己的网站代码。
+
+#^gen_paragraph2_text
+一旦你嵌入任何内容，出版商的数据在IATI注册表中更新它会自动更新（过夜）。当用户对内容点击它们将被引导到的相关页面上d-portal网站，使他们能够进一步调查。
+
+#^gen_paragraph3_text
+发电机是目前 <a href="http://www.d-portal.org/ctrack.html?#view=generator">http://www.d-portal.org/ctrack.html?#view=generator</a>.
+
+#^news_title_text
+新闻和更新
+
+#^news_paragraph1_text
+这个页面将包含在发展过程中对d-portal网站的更新信息和当前功能。
+
+#^news_paragraph2_text
+如果您想通过邮寄名单上的d-portal新闻跟上最新的，我们推荐的 <a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">加盟谷歌组</a>。此选项允许d-portal网站公告的直接交付到你的电子邮件收件箱。
+
+#^news_paragraph3_text
+更新是罕见的。
+
+#^news_paragraph4_text
+在开始 <a href="http://www.d-portal.org/news.html"> http://www.d-portal.org/news.html </a>阅读新闻。
+
+#^faq_title_text
+经常问的问题
+
+#^faq_paragraph1_text
+d-portal是不仅包含国家和出版商基于门户网站也有像赛维，发电机，短跑很快，搜索工具一个广阔的网站 - 由dstore和Q有了这个支持简单的搜索界面来约问题越来越数据库网站的不同部分的结构和功能。
+
+#^faq_paragraph2_text
+现在，我们打破这些下降到3种不同类型的问题 - 通用，技术和有关发电机的问题。今后，我们将增加更多的选项卡列表中，以弥补即将到来的功能。
+
+#^faq_paragraph3_text
+FAQ可以在<a href="http://www.d-portal.org/faq.html"> http://www.d-portal.org/faq.html</a>被发现。
+
+#^discover_title_text
+Discover<i>（阿尔法）</i>
+
+#^discover_paragraph1_text
+Discover是一种新功能，目前正在开发状态。通过dstore支持和Q，它将为用户提供通过庞大的数据库IATI筛选一个简单的搜索界面。
+
+#^discover_paragraph2_text
+目前，我们正在寻找关于<搜索>的直观性和可用性反馈。确实有一展身手，并通过<a href="https://github.com/devinit/D-Portal/issues"> Github上论坛</a>添加一个新的问题向我们发送反馈，或者，如果你愿意，通过<a href="mailto:support@iatistandard.org"> support@iatistandard.org</a>取得联系。我们很想听听你的想法！
+
+#^discover_paragraph3_text
+尝试Discover在<a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+
+#^publisher_title_text
+探索发行
+
+#^publisher_paragraph1_text
+下面挑一个出版商，探讨他们的数据。
+
+#^sources_title_text 
+署名并链接到数据源 
+
+#^sources_header1_text 
+数据 
+
+#^sources_header2_text 
+源名称 
+
+#^sources_header3_text 
+来源网址 
+
+#^sources_data1_text 
+货币 
+
+#^sources_data2_text 
+国家的国旗 
+
+#^sources_data3_text 
+国家背景 
+
+#^sources_data4_text 
+国名 
+
+#^sources_data5_text 
+2字母的国家代码 
+
+#^sources_data6_text 
+维基百科只有公共领域的图片 
+
+#^sources_data7_text 
+公共谷歌电子表格
+
+#^sources_data8_text 
+Pixabay公共领域中的映像
+
+#^publisher_dropmenu_text trim=ends
+选择发布 
+
+#^country_dropmenu_text trim=ends
+选择一个受援国
+
+#^all_countries_text 
+对比所有国家 
+
+#^all_publishers_text 
+比较所有出版商
+
+#^flag_alt_text
+旗

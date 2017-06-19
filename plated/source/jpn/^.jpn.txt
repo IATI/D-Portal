@@ -1,0 +1,519 @@
+
+#^------------------------------
+#^_include_json
+#^------------------------------
+{
+	include:[
+		"",
+	],
+	exclude:[
+		"cmn",
+		"fra",
+		"hin",
+		"jpn",
+		"spa",
+	],
+}
+
+
+#^welcome_text
+d-portal.org へようこそ
+
+#^publishers_welcome_text
+d-portal.org へようこそ : 出版社版
+
+#^alert1_text
+d-portal.org はアルファリリース中旬4月に予定され、非常に初期のまだ開発中です。あなたの忍耐をありがとう！すべてのフィードバックを提供してください
+
+#^alert2_text
+ここに
+
+#^top_text
+トップ
+
+#^tagline_text
+あなたは、開発データを理解に役立ちます。
+
+#^publishers_tagline_text
+出版社版
+
+#^install_button_text
+発電機
+
+#^install_info_text
+あなたのウェブサイトのためのウィジェットを作成します。 
+
+#^soon_text
+（すぐに!）
+
+#^explore_button_text
+探る
+
+#^explore_info_text
+IATIデータを探る。
+
+#^develop_button_text
+開発する
+
+#^develop_info_text
+私たちは, GitHubのにしている。
+
+#^index_title_text
+それは何ですか？
+
+#^index_paragraph1_text
+リソース·フローを追跡し、国ベースの情報プラットフォームです。これは、企画·開発活動の監視を支援できる情報を関係省庁、国会議員と市民社会を提供することを目的とする。
+
+#^index_paragraph2_text
+その最初の反復では、国際援助の透明性イニシアティブ（ IATI ）だけでなく、OECDのDAC債権国報告システムによって発行さに集約（ 2012 ）最新のデータを通じて発行した最新のデータが含まれています。
+
+#^index_title2_text
+データどこからですか？
+
+#^index_paragraph3_text
+ドロップダウンメニュー内のデータがフェッチされた新しいデータで日常GMT0を更新<a href="https://github.com/devinit/D-Portal/tree/master/dstore">データベース</a>でから構築されているIATIレジストリから。
+
+#^index_paragraph4_text
+私たちは、<a href="http://en.wikipedia.org/wiki/ISO_3166-2"> ISO3166-2</a>のを使用して、出版社によって報告されている国をリストアップ。帰属およびデータ·ソースへのリンクは、<a href="about.html#sources">はこちらを行く</a>.
+
+#^index_paragraph5_text
+彼らのIATIパブリッシャIDを持つ出版社のリストはストレートIATIレジストリデータベースから来ている。
+
+#^index_paragraph6_text
+出版社のドロップダウンリストは、これらの出版社によって報告された公開されたXMLの活動から来ている。
+
+#^news_page_text
+現在の開発に関する情報
+
+#^install_link_text 
+インストール 
+
+#^news_link_text 
+ニュース 
+
+#^about_link_text
+について
+
+#^home_link_text
+ホーム
+
+#^read_more_text
+d-portalについての詳細を読む
+
+#^publisher_portal_text 
+出版社版
+
+#^links_title_text 
+関連するリンク
+
+#^explore_title_text 
+国や出版社を見る 
+
+#^explore_paragraph1_text 
+以下にそれらのデータを探索するために、国や出版社を選択してください。 
+
+#^explore_paragraph2_text 
+だけの国と​​IATIに公開されたデータと出版社が探査のための利用可能です。
+
+#^footer1_text
+d-portalチームが2014年のプロジェクト
+
+#^footer1_tip_text
+国際援助透明性イニシアティブ（ IATI ）
+
+#^footer2_text
+ページのトップへ
+
+#^footer3_text
+d-portal.org について
+
+#^footer4_text
+背中にd-portal.org 
+
+#^footer5_text
+ライセンス： MITライセンス（ MIT ） 2014
+
+#^footer6_text
+d-portal.org
+
+#^footer7_text
+あなたはIATIデータを探索するのに役立ちます。
+
+#^footer8_text
+それは、国別またはIATIに公開された開発活動や予算上の発行者による情報を提供します。
+
+#^footer9_text
+私たちは現在ベータ版です。 d-portalが公開されているが、それが終了したとみなされません。あなたはバグと欠けている機能を体験することができるが、我々はあなたのフィードバックやサポートを必要とする理由です。
+
+#^footer10_text
+へメールを送ります
+
+#^footer11_text
+support@iatistandard.org
+
+#^footer12_text
+ツール＆#amp;アップデート
+
+#^footer13_text
+最新のニュース記事
+
+#^footer14_text
+Dash - 出版社の統計を
+
+#^footer15_text
+Generator - あなたのウェブサイトのためのウィジェット
+
+#^footer16_text
+情報
+
+#^footer17_text
+よくある質問
+
+#^footer18_text
+アトリビューションとソース
+
+#^footer19_text
+Githubのフィードバックフォーラム
+
+#^feedback_title_text
+d-portal.org フィードバック
+
+#^feedback_paragraph1_text
+こんにちは、すべてのとd-portal.orgためのベータテスターとして参加していただきありがとうございます。我々は、任意およびすべてのフィードバックを歓迎し、提案やウェブサイトについてのあなたが持つかもしれない懸念ので、以下のコメントとしてそれらを投稿すること自由に感じなさい。全体的に、我々は、特に提示されているデータを理解するという点で、読みやすさとユーザーエクスペリエンスに集中したい。
+
+#^feedback_paragraph2_text
+これを行うために時間を割いていただきありがとうございまし！私たちは、便利かつ簡単に展開可能なもの、興味深い話のポイントを作成したいと考えていますが、最も重要なのは、組織の報告から、より良いデータ品質を促進する。
+
+#^feedback_paragraph3_text
+- shi
+
+#^about_title_text
+d-portal.org について
+
+#^about_paragraph_title_text
+それは何ですか？
+
+#^about_paragraph1_text
+d-portal.orgは、あなたが国別またはIATIに公開された開発活動や予算上の発行者による情報を提供することにより、IATIデータを探索するのに役立ちます。
+
+#^about_paragraph2_text
+これは、企画·開発活動の監視を支援できる情報を関係省庁、国会議員と市民社会を提供することを目的とする。
+
+#^about_paragraph3_text
+その最初の反復では、国際援助の透明性イニシアティブ（ IATI ）だけでなく、が発行する最新の（ 2012年）のデータを通じて発行した最新のデータが含まれています<a href="http://www.oecd.org/dac/stats/crsguide.htm" target="_blank" class="co">OECD DAC Creditor Reporting System</a>。
+
+#^about_paragraph4_text
+現在のプラットフォームには、二つの質問を提起：どこのリソースから来るのか、そしてどこに（部門や場所によって）行くのですか？最近の現在および将来のデータが提示されたデータソース間で比較されている。
+
+#^about_paragraph5_text
+国の観点からこれらの質問に答えるためには、単に利用可能なデータを表示するには不十分である：それは、情報のギャップをプロットすることも同様に重要である。品質不良または欠落したデータに対処することは、情報インターフェースの重要な部分です。
+
+#^about_paragraph6_text
+オープンソースのプラットフォームです。これは、あなたが自由にソースコードを使用して、独自のポータルを構築するためのプラットフォームのすべての側面を使用できることを意味します。
+
+#^about_paragraph7_text 
+それが現在、どの国のための一般的な展開を提供しますが、それは、地域のニーズを満たすために、国のカスタマイズされて、特定の意図を持って開発されました。あなたが特定の国のためにカスタマイズされたバージョンを作成することができます方法の詳細については、<a href="#install" class="how">インストールする方法</a>を参照してください。
+
+#^about_paragraph8_text
+資金調達
+
+#^about_paragraph9_text
+2014年4月にメキシコでグローバル·パートナーシップ会議に2013年12月から走ったD- portal.orgの初期開発はによって資金を供給された <a href="http://www.aidtransparency.net/" target="_blank" class="co">IATI</a> と <a href="http://devinit.org/" target="_blank" class="co">Development Initiatives (DI)</a>
+
+#^about_paragraph10_text
+DIは2014年8月の終わりに開発や準備の現在のステージに資金を提供している。あなたは、d-portalの進行中の開発の資金の一部に興味がある場合
+お問い合わせください <a href="mailto:support@iatistandard.org" target="_blank" class="co">support@iatistandard.org</a>
+
+#^about_paragraph11_text
+オープンソースの概念は、他の人が参加すると一緒に、より良いプラットフォームを構築します期待して共有リソースに依存しています。これは、発見したバグを報告し、あなたが持っているのプラットフォームのようにしたい新機能を貢献するか、他の人がそれを使用できるようにしても、新しいテーマを作成することを含みます。
+
+#^about_paragraph12_text
+d-portalに基づいて、他のサイトでは、以下に一覧表示されます。 <a href="mailto:support@iatistandard.org" target="_blank" class="co">イメージを追加するsupport@iatistandard.orgでお問い合わせください</a>。
+
+#^about_paragraph13_text
+<a href="http://open.undg.org/" target="_blank"><img src="{root}art/UNDG_logo.png" alt="UNDG Transparency Portal logo" width="406" height="100"></a>
+
+#^about_paragraph14_text
+<span class="questions"> 1。資源はどこから来るのか？</span><span class="questions">2。彼らは（部門と場所によって）どこに行くのですか？</span>
+
+#^about_paragraph15_text
+最近の現在および将来のデータが提示され、データ・ソース間で比較されています。
+
+#^savi_paragraph1_text
+SAVIは、あなたの好みのブラウザでは、オンライン、リアルタイムで見ることができますIATI XMLのための簡単なアクティビティビューアです。
+
+#^savi_paragraph2_text
+SAVIは読んで消化する方が簡単ですフォーマットにそうでなければ、複雑に見えるXMLを表示するためにCSSとJavaScriptを使用しています。
+
+#^dstore_paragraph_text
+dstoreは、リアルタイムクエリでの使用に最適化nodejs + SQLiteバージョンでIATIデータストアを助成。
+
+#^q_paragraph_text
+Qはあなたが単純だが複雑なフィルタを経由して、必要な情報を照会することができます。
+
+#^q_example_title_text
+ここではいくつかのクエリの例は以下のとおりです。
+
+#^q_example_append1_text
+お好みのフォーマットでクエリを追加
+
+#^q_example_append2_text
+Saviのため。
+
+#^q_example_xml_text
+返し純粋 XML
+
+#^q_example_json_text
+JSONを返します
+
+#^q_example_savi_text
+自動的にHTML（SAVi）にフォーマットされた戻り値のXML。ソースは、純粋なXMLのまま
+
+#^q_example1_text
+自動的にHTML（SAVi）にフォーマットされた戻り値のXML。ソースは、純粋なXMLのまま
+
+#^q_example1_info1_text
+このクエリは、 10の量を制限するアクティビティが表示され
+
+#^q_example1_info2_text
+一日を開始することで並べ替え
+
+#^q_example1_info3_text
+そして1950年から以降
+
+#^q_example2_text
+返し純粋 XML
+
+#^q_example2_info1_text
+このクエリは、バングラデシュ内のすべてのアクティビティが表示され（国コードがBDである）
+
+#^q_example2_info2_text
+データで報告セクタを持っている
+
+#^q_example2_info3_text
+最終的には、このクエリは、あなたがそれらのグラフを持っているすべての活動を見ることができます。
+
+#^q_example3_text
+JSONを返すデータベースから100行がデフォルトの制限であるのactivites （ activitesのがデフォルトである）に関するデータ（ JSONはデフォルトです）
+
+#^q_example3_info1_text
+このクエリでは、データの統計情報を表示します
+
+#^q_example3_info2_text
+各報告組織のactivitesについて
+
+#^q_example3_info3_text
+バングラデシュ
+
+#^q_example4_text
+CSVファイルを返します（デフォルトではq.csv命名）
+
+#^q_example4_info1_text
+このクエリでは、 CSVファイルをダウンロードすることができ
+
+#^q_example4_info2_text
+1000年の
+
+#^q_example4_info3_text
+トランザクションデータ
+
+#^q_example4_info4_text
+日付順
+
+#^install_title_text 
+d-portalをインストールする方法
+
+#^install_paragraph1_text 
+d-portalプロジェクトの中心には、誰でもどこでも、d-portalの背後にあるオープンソースのコードを取る自分自身のためにそれを展開し、それらを興味のどの国のためのカスタマイズされたd-portalを作成できることを目標としています。これは、援助情報管理システム、国家予算と同等の社会経済指標の範囲から、他のデータを追加することが含まれる可能性があります。 
+
+#^install_paragraph2_text 
+以下のようにカスタマイズされた国別のd-portalsの例としては、すでにあります。 
+
+#^install_paragraph3_text 
+d-portalはdstoreバックエンドとctrackインターフェースで構成されています。 d-portalをインストールするには、サーバーをセットアップする必要があります。 
+
+#^install_paragraph4_text 
+<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md">d-portalをインストールするための指示を読み始めるサーバ</a>
+
+#^install_title2_text 
+d-portalウィジェットを作成する方法 
+
+#^install_paragraph5_text 
+アイフレームを使用することにより、d-portalジェネレータを使用すると、任意のHTML対応のパブリッシングプラットフォームのd-portalのセクションを埋め込むことができます。すなわち。などWordpressのブログの記事、Tumblrの投稿、ウェブサイト 
+
+#^install_paragraph6_text 
+訪問<a href="http://d-portal.org/ctrack.html#view=generator" class="country_portal">http://d-portal.org/ctrack.html#view=generator</a> d-portalウィジェットを作成します。
+
+#^github_tip_text
+GitHubの上のd-portal.org をご覧ください
+
+#^github_info1_text
+お上のフォーク
+
+#^github_info2_text
+d-portal.org は、現在開発され、物事は常に変化しているように設計されています。私達にあなたの提案、バグレポート、問題や接触の <a href="mailto:support@iatistandard.org" target="_blank"> support@iatistandard.org </a> を送る
+
+#^github_info3_text
+あなたはd-portalでニュースを最新に保つためにご希望の場合<a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">のGoogleグループ</a>を購読してください。
+
+#^footer_pick_text
+別の国を選択
+
+#^footer_top_text
+ページのトップへ
+
+#^footer_about_text
+d-portal.org について
+
+#^dportal_logo_alt_text
+開発ポータルのロゴ
+
+#^mainback_tip_text
+戻る開発ポータルへ
+
+#^flava_high_visibility_text
+視認性の高い
+
+#^flava_original_text
+オリジナル
+
+#^blog_head_text
+開発ポータルニュース
+
+#^posted_on_text
+掲示された
+
+#^back_news_text
+ニュースに戻るページへ
+
+#^news_link1_text
+d-portalを資金興味がありますか？
+
+#^news_link2_text
+国d-portalを作成する方法
+
+#^disqus_text
+搭載のコメント
+
+#^dash_title_text 
+Dash - d-portal.orgための出版統計 
+
+#^dash_paragraph1_text 
+Dashは、主に出版社の統計に焦点を当て、それらによって報告されたデータの質とd-portal.orgを移入するデータの概要である。 
+
+#^dash_paragraph2_text 
+無効なデータが報告されたときに、どこを示すことによって、Dashは、メインのサイトに反映されているギャップを説明することができるようになります。 
+
+#^dash_paragraph3_text 
+Dashは、国固有のものではありませんので、すべての国全体で利用可能な出版社のすべての統計情報がポータルに含まれて閲覧することができます。これは、複数の被援助国での活動を報告し、複数の出版社が存在するという事実に対応するためにある。 
+
+#^dash_paragraph4_text 
+Dash現在の位置はアクセスできますか<a href="http://d-portal.org/ctrack.html?#view=dash" class="dash_link">http://d-portal.org/ctrack.html?#view=dash</a>。 Dashは、新しい機能であり、まだ開発されています。
+
+#^gen_title_text
+Generator - あなたのウェブサイトのためのウィジェット
+
+#^gen_paragraph1_text
+IATI内の興味深い情報の膨大な量と有意な値が他のウェブサイトやブログ上で自由にそれの一口サイズのピースを共有することができることにあります。 d-portalジェネレータは、ユーザーがd-portalから特定の情報を選択し、自分のウェブサイトのコードに直接埋め込むことができます。
+
+#^gen_paragraph2_text
+あなたが任意のコンテンツを埋め込んだ後は出版社のデータがIATIレジストリに更新されるように、（一晩）自動的に更新されます。ユーザーがコンテンツをクリックすると、彼らはさらに調査することができますので、彼らがd-portalの関連ページにリダイレクトされます。
+
+#^gen_paragraph3_text
+発電機は、<a href="http://www.d-portal.org/ctrack.html?#view=generator">http://www.d-portal.org/ctrack.html?#view=generator</a>.
+
+#^news_title_text
+ニュースや最新情報
+
+#^news_paragraph1_text
+このページには、開発の過程で、d-portal上の任意の情報を更新し、最新の機能が含まれます。
+
+#^news_paragraph2_text
+あなたはメーリングリストを介してd-portalでニュースを最新に保つしたい場合、私たちはは、<a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">Googleのグループ</a>を接合します。このオプションは、直接メールの受信トレイにd-portal発表の送達を可能にします。
+
+#^news_paragraph3_text
+更新はまれです。
+
+#^news_paragraph4_text
+<a href="http://www.d-portal.org/news.html">http://www.d-portal.org/news.html </a>からニュースを読み始めます。
+
+#^faq_title_text
+よくある質問
+
+#^faq_paragraph1_text
+d-portalはサビ、発電機、ダッシュとすぐに、検索のような国や出版社だけでなく、ベースのポータルだけでなく、ツールが含まれています広大な敷地である - これによりdstoreとQに裏打ちされたシンプルな検索インターフェイスは、についての質問の成長データベースが来ますサイトの異なる部分のアーキテクチャと機能。
+
+#^faq_paragraph2_text
+一般的な、技術的およびジェネレータについての質問 - 今のところ、我々は質問の異なる3種類までこれらを破ります。今後は、今後の機能を補うために、リストに複数のタブを追加していく予定です。
+
+#^faq_paragraph3_text
+よくある質問は<a href="http://www.d-portal.org/faq.html"> http://www.d-portal.org/faq.html </a>から見つけることができます。
+
+#^discover_title_text
+Discover <i>(alpha）</i>
+
+#^discover_paragraph1_text
+Discover 重い現在開発中の新機能です。 dstoreに裏打ちされたとQ、それは、ユーザーが膨大なIATIのデータベースを介してフィルタリングするためのシンプルな検索インターフェイスを提供します。
+
+#^discover_paragraph2_text
+我々は現在、Discoverの直観とユーザビリティに関するフィードバックを求めています。ご希望の場合は、やってみると<a href="https://github.com/devinit/D-Portal/issues"> Githubのフォーラム</a>にして新しい問題を追加することによって、私達にあなたのフィードバックを送信したりでください、 <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>を介して連絡を取ります。私たちは、あなたが何を考えて聞いてみたいです！
+
+#^discover_paragraph3_text
+Discover で試してみてください Search <a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+
+#^publisher_title_text
+出版社、著者の探求
+
+#^publisher_paragraph1_text
+それらのデータを探索するには、以下の出版社を選ぶ。
+
+#^sources_title_text 
+データソースへの帰属とリンク 
+
+#^sources_header1_text 
+データ 
+
+#^sources_header2_text 
+ソース名 
+
+#^sources_header3_text 
+ソースURL 
+
+#^sources_data1_text 
+通貨 
+
+#^sources_data2_text 
+国Flags 
+
+#^sources_data3_text 
+国の背景 
+
+#^sources_data4_text 
+国の名前 
+
+#^sources_data5_text 
+2文字の国コード 
+
+#^sources_data6_text 
+ウィキペディアパブリックドメインの画像のみ 
+
+#^sources_data7_text 
+公共Googleスプレッドシート
+
+#^sources_data8_text 
+Pixabayパブリックドメインの画像のみ
+
+#^publisher_dropmenu_text trim=ends
+出版社を選択 
+
+#^country_dropmenu_text trim=ends
+受信者の国を選択
+
+#^all_countries_text 
+すべての国の比較 
+
+#^all_publishers_text 
+すべての出版社の比較
+
+#^flag_alt_text
+フラグ
