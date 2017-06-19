@@ -276,8 +276,9 @@ iati-activity:after 	{color:rgba(204,204,204,1);}
 
 /*	Project title
 	============================================= */
-span.span_span-title span-title		 			{color:rgba(255,255,255,1);}
-span.span_span-title span-title:before 			{color:rgba(204,204,204,1);}
+span.span_span-title span-title		 	{color:rgba(255,255,255,1);}
+span.span_span-title span-title:before 	{color:rgba(204,204,204,1);}
+span.span_span-title					{background-color:rgba(93,93,93,0.9);}
 
 
 /*	IATI Identifier
@@ -319,7 +320,7 @@ participating-org[role="accountable"]:after		{color:rgba(204,204,204,1);}
 
 /*	Reported by
 	============================================= */
-reporting-org 					{color:rgba(255,255,255,1); background-color:rgba(56,56,56,0.9);}
+reporting-org 					{color:rgba(255,255,255,1); background-color:rgba(93,93,93,0.9);}
 reporting-org:before 			{color:rgba(204,204,204,1);}
 
 
@@ -371,6 +372,19 @@ budget:nth-of-type(1) value:before		  	{color:rgba(255,255,255,1); border-bottom
 period-start 			{color:rgba(255,255,255,1);}
 period-end	 			{color:rgba(255,255,255,1);}
 budget value 			{color:rgba(255,255,255,1);}
+
+
+/*	Planned Disbursement table
+	============================================= */
+planned-disbursement				{border-top:1px solid rgba(143,143,143,1);}
+planned-disbursement:last-of-type	{border-bottom:0px solid rgba(143,143,143,1);}
+planned-disbursement:nth-of-type(1):before				{color:rgba(255,255,255,1); background-color:rgba(56,56,56,0.9);}
+planned-disbursement:nth-of-type(1) period-start:before {color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
+planned-disbursement:nth-of-type(1) period-end:before	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
+planned-disbursement:nth-of-type(1) value:before		{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
+period-start 			{color:rgba(255,255,255,1);}
+period-end	 			{color:rgba(255,255,255,1);}
+planned-disbursement value 			{color:rgba(255,255,255,1);}
 
 
 /*	Transaction table
