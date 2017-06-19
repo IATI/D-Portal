@@ -96,7 +96,7 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#000; counter-reset:section;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#000; display:block; margin-bottom:20px;}
 participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:18px; position:absolute; top:10px; left:0;}
-participating-org 					{display:block; padding:10px 0; padding-left:20px; position:relative; line-height:18px;}
+participating-org 					{display:block; padding:10px 0; padding-left:40px; position:relative; line-height:18px;}
 participating-org a					{display:initial;}
 participating-org a:link			{color:#000;}
 participating-org a:visited			{color:#000; text-decoration:underline;}
@@ -111,8 +111,6 @@ span-narrative.participating-role	{font-size:14px; color:#ccc; display:inline-bl
 
 span.span_participating-org narrative:nth-of-type(n+2)			{display:inline; padding:10px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
 span.span_participating-org narrative:nth-of-type(n+2):before	{display:block; content:""; padding-bottom:5px;}
-
-span.span_participating-org participating-org narrative {margin-left:15px;}
 
 
 /*	Reported by

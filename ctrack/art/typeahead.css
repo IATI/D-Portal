@@ -11,8 +11,9 @@
 .tt-suggestion.tt-cursor {color:#fff; background-color:#0097cf;}
 .tt-suggestion p {margin:0;}
 
-input#generator_maxheight	{color:#000;}
-input#generator_limit		{color:#000;}
+input#generator_aid			{color:#000; background-color:#fff; padding:8px 3px; border-radius:3px; width:160px;}
+input#generator_maxheight	{color:#000; background-color:#fff; padding:8px 3px; border-radius:3px; width:160px;}
+input#generator_limit		{color:#000; background-color:#fff; padding:8px 3px; border-radius:3px; width:160px;}
 
 /*	Input placeholder font color	*/
 ::-webkit-input-placeholder {/* WebKit, Blink, Edge */color:#bbb;}
