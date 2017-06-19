@@ -295,7 +295,7 @@ a.a_slug:hover					{color:rgba(255,255,255,1);}
 
 /*	Recipient countries
 	============================================= */
-span.span_recipient-country				{background-color:rgba(56,56,56,0.9);}
+span.span_recipient-country				{background-color:rgba(56,56,56,0.4);}
 span.span_recipient-country:before 		{color:rgba(255,255,255,1);}
 recipient-country span					{color:rgba(255,255,255,1);}
 recipient-country span:nth-of-type(2)	{color:rgba(255,255,255,1);}
@@ -369,8 +369,8 @@ img.sector_pie					{background-color:rgba(255,255,255,1);}
 
 /*	Budget table
 	============================================= */
-budget					{border-top:1px solid rgba(143,143,143,1);}
-budget:last-of-type	 	{border-bottom:0px solid rgba(143,143,143,1);}
+budget					{border-top:1px solid rgba(86,86,86,1);}
+budget:last-of-type	 	{border-bottom:0px solid rgba(86,86,86,1);}
 budget:nth-of-type(1):before				{color:rgba(255,255,255,1); background-color:rgba(56,56,56,0.9);}
 budget:nth-of-type(1) period-start:before 	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
 budget:nth-of-type(1) period-end:before	  	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
@@ -382,8 +382,8 @@ budget value 			{color:rgba(255,255,255,1);}
 
 /*	Planned Disbursement table
 	============================================= */
-planned-disbursement				{border-top:1px solid rgba(143,143,143,1);}
-planned-disbursement:last-of-type	{border-bottom:0px solid rgba(143,143,143,1);}
+planned-disbursement				{border-top:1px solid rgba(86,86,86,1);}
+planned-disbursement:last-of-type	{border-bottom:0px solid rgba(86,86,86,1);}
 planned-disbursement:nth-of-type(1):before				{color:rgba(255,255,255,1); background-color:rgba(56,56,56,0.9);}
 planned-disbursement:nth-of-type(1) period-start:before {color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
 planned-disbursement:nth-of-type(1) period-end:before	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
@@ -395,10 +395,10 @@ planned-disbursement value 			{color:rgba(255,255,255,1);}
 
 /*	Transaction table
 	============================================= */
-transaction							{border-top:1px solid rgba(143,143,143,1);}
+transaction							{border-top:1px solid rgba(86,86,86,1);}
 transaction a						{color:rgba(125,125,125,1);}
 transaction a:hover					{color:rgba(173,173,173,1);}
-transaction:last-of-type			{border-bottom:1px solid rgba(143,143,143,1);}
+transaction:last-of-type			{border-bottom:1px solid rgba(86,86,86,1);}
 transaction:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(56,56,56,0.9);}
 
 transaction:nth-of-type(1) transaction-date:before	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
@@ -421,7 +421,7 @@ value span			{color:rgba(204,204,204,1);}
 	============================================= */
 contact-info *						{color:rgba(255,255,255,1);}
 contact-info:nth-of-type(1):before	{color:rgba(204,204,204,1);}
-span.span_contact-info				{background-color:rgbargba(56,56,56,0.9);}
+span.span_contact-info contact-info	{background-color:rgba(56,56,56,0.9);}
 
 
 /*	Website or external links
@@ -434,17 +434,17 @@ activity-website:hover	{color:rgba(125,125,125,1);}
 /*	Activity Status
 	============================================= */
 activity-status[code="1"]	{background-color:rgba(169,169,169,1);}
-activity-status[code="2"]	{background-color:rgba(191,191,191,1);}
+activity-status[code="2"]	{background-color:rgba(156,156,156,1);}
 activity-status[code="3"]	{background-color:rgba(134,134,134,1);}
-activity-status[code="4"]	{background-color:rgba(152,152,152,1);}
-activity-status[code="5"]	{background-color:rgba(132,132,132,1);}
+activity-status[code="4"]	{background-color:rgba(119,119,119,1);}
+activity-status[code="5"]	{background-color:rgba(113,113,113,1);}
 activity-status				{background-color:rgba(152,152,152,1); color:rgba(68,68,68,1);}
 activity-status:before		{color:rgba(255,255,255,1);}
 
 
 /*	Related documents list
 	============================================= */
-span.span_document-link:before				{color:rgba(255,255,255,1); border-bottom:3px solid rgba(255,255,255,1);}
+span.span_document-link:before				{color:rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1);}
 a.a_document-link							{color:rgba(204,204,204,1);}
 a.a_document-link document-link span-title			{color:rgba(255,255,255,1);}
 a.a_document-link document-link span-title:hover	{color:rgba(173,173,173,1);}
@@ -453,7 +453,7 @@ document-link span							{color:rgba(204,204,204,1);}
 
 /*	Family Tree list
 	============================================= */
-span.span_related-activity:before	{color:rgba(255,255,255,1); border-bottom:3px solid rgba(255,255,255,1);}
+span.span_related-activity:before	{color:rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1);}
 span.span_related-activity			{color:rgba(255,255,255,1);}
 a.a_related-activity				{color:rgba(255,255,255,1);}
 related-activity					{color:rgba(173,173,173,1);}
