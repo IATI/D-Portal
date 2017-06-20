@@ -30,6 +30,9 @@
   "title": {
    "trim": "ends"
   },
+  "tongue": {
+   "trim": "ends"
+  },
   "tongue_root": {
    "trim": "ends"
   },
@@ -37,6 +40,7 @@
    "form": "json"
   }
  },
+ "_output_filename": "news/",
  "_redirect_json": {
   "files": {
    "posts.html": "{_dirname}/index.html"
@@ -232,8 +236,9 @@
  "status": "<span class=\"badge beta\">BETA</span>\n",
  "tagline_text": "Helping you explore IATI data.\n",
  "title": "D-Portal News and updates",
+ "tongue": "eng",
  "tongue_root": "{_root}",
- "tongue_select": "<form action=\"\">\n<select id=\"tongue_select\" name=\"tongue\">\n\t{tongue_select_options:tongue_select_option}\n</select>\n</form>\n\n<script>\n\t$(function(){\n\t\t$('#tongue_select').children().each(function(i,it){\n\t\t\tif(\"{tongue}\"==$(it).val())\n\t\t\t{\n\t\t\t\t$(it).attr(\"selected\",1)\n\t\t\t}\n\t\t});\n\t\t$('#tongue_select').bind('change', function ()\n\t\t{\n\t\t\tvar t=\"{_root}\"+$(this).val()+\"/\";if(t==\"/eng/\"){t=\"{_root}\";}\n\t\t\tvar url = t+\"{_fullfilename}\";\n\t\t\twindow.location = url; // redirect\n\t\t\treturn false;\n\t\t});\n\t});\n</script>\n",
+ "tongue_select": "<form action=\"\">\n<select id=\"tongue_select\" name=\"tongue\">\n\t{tongue_select_options:tongue_select_option}\n</select>\n</form>\n\n<script>\n\t$(function(){\n\t\t$('#tongue_select').children().each(function(i,it){\n\t\t\tif(\"{tongue}\"==$(it).val())\n\t\t\t{\n\t\t\t\t$(it).attr(\"selected\",1)\n\t\t\t}\n\t\t});\n\t\t$('#tongue_select').bind('change', function ()\n\t\t{\n\t\t\tvar t=\"{_root}\"+$(this).val()+\"/\";if(t==\"{_root}eng/\"){t=\"{_root}\";}\n\t\t\tvar url = t+\"{_output_filename}\";\n\t\t\twindow.location = url; // redirect\n\t\t\treturn false;\n\t\t});\n\t});\n</script>\n",
  "tongue_select_option": "\n\t<option value=\"{_it.code}\" title=\"{_it.tip}\">{_it.text}</option> \n\t",
  "tongue_select_options": [
   {
