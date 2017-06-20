@@ -33,7 +33,20 @@
    "form": "json"
   }
  },
- "_include_json": "{\n\tinclude:[\n\t\t\"\",\n\t],\n\texclude:[\n\t\t\"cmn\",\n\t\t\"fra\",\n\t\t\"hin\",\n\t\t\"jpn\",\n\t\t\"spa\",\n\t],\n}\n",
+ "_include_json": {
+  "dirname": "cmn",
+  "exclude": [
+   "cmn",
+   "fra",
+   "hin",
+   "jpn",
+   "spa"
+  ],
+  "include": [
+   ""
+  ]
+ },
+ "_output_filename": "cmn/",
  "_root": "/d-portal.org/",
  "_sourcename": "cmn/.",
  "about_link_text": "关于\n",
