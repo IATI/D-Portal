@@ -138,16 +138,17 @@ a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-heigh
 .blog_wrap			{padding:40px 100px; color:rgba(42,42,42,0.8); font-size:1.0em; line-height:1.4em; border-bottom:1px solid rgba(42,42,42,0.8); background-color:#FFF; width:960px; margin:auto; margin-top:40px; margin-bottom:40px; box-sizing:border-box;}
 .blog_wrap:last-of-type	{margin-bottom:0;}
 .blog_info_wrap		{padding:20px 0 40px 0;}
-.blog_icon, .blog_info	{display:inline-block; vertical-align:top;}
-.blog_icon			{width:60px; height:60px; border-radius:80px;}
-.blog_icon img		{width:60px; height:60px;}
-.blog_info			{padding-left:15px;}
+.blog_icon, .blog_info	{display:inline-block; vertical-align:middle;}
+.blog_icon			{width:80px; height:80px; border-radius:80px;}
+.blog_icon img		{width:80px; height:80px;}
+.blog_info			{padding-right:20px; width:660px; text-align:right;}
 .blog_date			{font-size:14px; line-height:20px;}
 .blog_author		{font-size:18px; line-height:24px;}
 .blog_body			{padding:20px 0; padding-top:0; font-size:20px; line-height:34px; color:rgba(42,42,42,0.8);}
 .blog_body p		{margin:1.8em 0; padding:0; color:inherit;}
-.blog_body ul		{list-style:inherit; list-style-position:inside;}
+.blog_body ul		{list-style:inherit; list-style-position:initial;}
 .blog_body ul li	{font-size:20px; line-height:34px;}
+.blog_body em		{font-size:18px;}
 .blog_body a		{text-decoration:underline; color:rgba(42,42,42,0.8);}
 .blog_title			{font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8);}
 a.blog_title		{display:block; font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8); padding:0;}
@@ -163,7 +164,7 @@ a.back_news:hover	{text-decoration:underline;}
 .page_link a:hover	{color:#A8C5E5;}
 h4					{display:block; border-bottom:1px solid #ccc; padding-bottom:5px; margin-top:60px; margin-bottom:10px;}
 .blog_links_wrap	{counter-reset:section;}
-a.news_link			{display:block; font-style:italic; text-decoration:none;}
+a.news_link			{display:block; text-decoration:none;}
 a.news_link::before {counter-increment:section; content:counter(section) ". "; line-height:18px;}
 
 
@@ -379,12 +380,6 @@ a.beige:hover			{color:#FFF;}
 	</table>
 </div>
 
-	<div class="default">
-	<a href="/d-portal.org//news" class="blog_head">News and updates
-</a>
-</div>
-
-
 	
 <div class="blog_wrap">
 	<div class="blog_info_wrap">
@@ -404,7 +399,7 @@ a.beige:hover			{color:#FFF;}
 	<div class="blog_title">Finding context in Results data and new query parameter</div>
 	<div class="blog_body"><p>Results data heirarchy is not particularly verbose.</p>
 <p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/result.png" alt="Results element" 
-width="556" height="915"><br><em>Fig. 1 - The results element heirarchy</em></p>
+width="556" height="915"><br><em>Fig. 1 The results element heirarchy</em></p>
 <p>At its most basic, there is a title, description and an indicator. The 
 indicator makes up most of the results element with links to reference 
 documents, a baseline and the all important period element. Here in the 
@@ -435,7 +430,7 @@ context or how and what it was used for, a structure to compose a
 visual layout was at most, based on assumptions.</p>
 <p><img 
 src="http://devinit.org/wp-content/uploads/2016/03/resultsdatadportal.png" 
-alt="Results data" width="720" height="359"><br><em>Fig. 2 - First iteration of results data saw a rudimentary layout without 
+alt="Results data" width="720" height="359"><br><em>Fig. 2 First iteration of results data saw a rudimentary layout without 
 baseline data</em></p>
 <p>The first thing we had to do was find some actual results data to work 
 with. Preferably an activity with most of the results subelement 
@@ -481,7 +476,7 @@ calculated, she also explained how different publishers had different
 approaches to publishing this data - Yearly, Quarterly etc. This gave 
 us some context and a brief overview of the rather complex nature of 
 the results data element.</p>
-<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result_2col.png" alt="Results data in activity" width="720" height="638"><br><em>Fig. 3 - WIP iteration of results data with two columns made the baseline look 
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result_2col.png" alt="Results data in activity" width="720" height="638"><br><em>Fig. 3 WIP iteration of results data with two columns made the baseline look 
 out of place</em></p>
 <p>We were later approached by Andy Lulham from Publish What You Fund 
 about the way we visualised baseline data (or rather, the lack of it)! 
@@ -517,7 +512,7 @@ duplicated the baseline element into each period element, after the
 period-start and period-end dates. This meant the 3 columns could be 
 used to compare values within the period element and visually, that 
 made sense.</p>
-<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result_1.png" alt="Results data in activity" width="720" height="638"><br><em>Fig. 4 - Next iteration of results data with 3 columns for comparison</em></p>
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result_1.png" alt="Results data in activity" width="720" height="638"><br><em>Fig. 4 Next iteration of results data with 3 columns for comparison</em></p>
 <p>We&#39;ve attached further visual feedback to the actual elements; green if 
 the actual value is equals to or more than the target value and 
 off-yellow for actual values that are less than the target value. The 
@@ -526,7 +521,7 @@ ie. text is published instead of actual numbers.</p>
 <p>We&#39;ve also added a small indicator to show if the period data is still 
 ongoing or has ended. This is represented by a &#39;progress bar&#39; timeline 
 underneath the period dates.</p>
-<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result.png" alt="Results data in activity" width="720" height="638"><br><em>Fig. 5 - Current iteration of results data with fixed height and timeline bar</em></p>
+<p><img src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/cordaid_result.png" alt="Results data in activity" width="720" height="638"><br><em>Fig. 5 Current iteration of results data with fixed height and timeline bar</em></p>
 <p>You can view this particular example activity on d-portal <a 
 href="http://d-portal.org/ctrack.html?publisher=NL-KVK-41160054#view=act&aid=NL-KVK-41160054-109805">here</a>.</p>
 <p><strong>Results data with indicators and values are now live on d-portal</strong> and 
@@ -577,7 +572,7 @@ resulting projects and outcomes of this workshop.</p>
 </div>
 	<p>It provides a search function and information by country or by publisher on development activities and budgets published to IATI.
 </p>
-	<p class="beta">We are currently in BETA. While d-portal is publicly available, it is not considered finished. You may experience bugs and missing features, but that is why we need your feedback and support.
+	<p class="beta">d-portal is currently in BETA. While d-portal is publicly available, it is not considered finished. Please feedback if you experience any bugs and missing features.
 </p>
 	<p>Send emails to
  <b><a href="mailto:support@iatistandard.org">support@iatistandard.org

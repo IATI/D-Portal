@@ -138,16 +138,17 @@ a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-heigh
 .blog_wrap			{padding:40px 100px; color:rgba(42,42,42,0.8); font-size:1.0em; line-height:1.4em; border-bottom:1px solid rgba(42,42,42,0.8); background-color:#FFF; width:960px; margin:auto; margin-top:40px; margin-bottom:40px; box-sizing:border-box;}
 .blog_wrap:last-of-type	{margin-bottom:0;}
 .blog_info_wrap		{padding:20px 0 40px 0;}
-.blog_icon, .blog_info	{display:inline-block; vertical-align:top;}
-.blog_icon			{width:60px; height:60px; border-radius:80px;}
-.blog_icon img		{width:60px; height:60px;}
-.blog_info			{padding-left:15px;}
+.blog_icon, .blog_info	{display:inline-block; vertical-align:middle;}
+.blog_icon			{width:80px; height:80px; border-radius:80px;}
+.blog_icon img		{width:80px; height:80px;}
+.blog_info			{padding-right:20px; width:660px; text-align:right;}
 .blog_date			{font-size:14px; line-height:20px;}
 .blog_author		{font-size:18px; line-height:24px;}
 .blog_body			{padding:20px 0; padding-top:0; font-size:20px; line-height:34px; color:rgba(42,42,42,0.8);}
 .blog_body p		{margin:1.8em 0; padding:0; color:inherit;}
-.blog_body ul		{list-style:inherit; list-style-position:inside;}
+.blog_body ul		{list-style:inherit; list-style-position:initial;}
 .blog_body ul li	{font-size:20px; line-height:34px;}
+.blog_body em		{font-size:18px;}
 .blog_body a		{text-decoration:underline; color:rgba(42,42,42,0.8);}
 .blog_title			{font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8);}
 a.blog_title		{display:block; font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8); padding:0;}
@@ -163,7 +164,7 @@ a.back_news:hover	{text-decoration:underline;}
 .page_link a:hover	{color:#A8C5E5;}
 h4					{display:block; border-bottom:1px solid #ccc; padding-bottom:5px; margin-top:60px; margin-bottom:10px;}
 .blog_links_wrap	{counter-reset:section;}
-a.news_link			{display:block; font-style:italic; text-decoration:none;}
+a.news_link			{display:block; text-decoration:none;}
 a.news_link::before {counter-increment:section; content:counter(section) ". "; line-height:18px;}
 
 
@@ -379,12 +380,6 @@ a.beige:hover			{color:#FFF;}
 	</table>
 </div>
 
-	<div class="default">
-	<a href="/d-portal.org//news" class="blog_head">News and updates
-</a>
-</div>
-
-
 	
 <div class="blog_wrap">
 	<div class="blog_info_wrap">
@@ -416,15 +411,7 @@ Nearly 300 organisations currently publish data on their activities to the <a hr
 <p><a href="http://devinit.org/wp-content/uploads/2014/11/Gen-front-page.jpg"><img class="alignnone size-full wp-image-5036" src="http://devinit.org/wp-content/uploads/2014/11/Gen-front-page.jpg" alt="Gen front page" width="977" height="549" /></a>
 <br/>
 <br/></p>
-<p><strong>1 – Choose a combination of Publisher(s) and Recipient(s) information you want to see</strong>
-<br/>
-<br/></p>
-<p><strong>2 – Select how you want to display it (a map, table, list, pie chart, etc)</strong>
-<br/>
-<br/></p>
-<p><strong>3 – Select a colour scheme and re-size the width if required</strong>
-<br/>
-<br/></p>
+<p><strong>1. Choose a combination of Publisher(s) &amp; Recipient(s) information to view</strong><br><strong>2. Select how you want to display it (a map, table, list, pie chart, etc)</strong><br><strong>3. Select a colour scheme and re-size the width if required</strong></p>
 <p>Once you’ve completed steps 1 &amp; 2 (3 is optional), you’ll see some code appear automatically in the white box, and an example of your selected content below that box (as below). You then just need to copy the code and paste it into the code of your website or blog post, to embed the content you’ve generated.</p>
 <p><a href="http://devinit.org/wp-content/uploads/2014/11/GAVI-screen.jpg"><img class="alignnone size-full wp-image-5085" src="http://devinit.org/wp-content/uploads/2014/11/GAVI-screen.jpg" alt="GAVI screen" width="750" height="592" /></a>
 <br/>
@@ -492,7 +479,7 @@ Nearly 300 organisations currently publish data on their activities to the <a hr
 </div>
 	<p>It provides a search function and information by country or by publisher on development activities and budgets published to IATI.
 </p>
-	<p class="beta">We are currently in BETA. While d-portal is publicly available, it is not considered finished. You may experience bugs and missing features, but that is why we need your feedback and support.
+	<p class="beta">d-portal is currently in BETA. While d-portal is publicly available, it is not considered finished. Please feedback if you experience any bugs and missing features.
 </p>
 	<p>Send emails to
  <b><a href="mailto:support@iatistandard.org">support@iatistandard.org

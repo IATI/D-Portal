@@ -92,7 +92,7 @@ D-Portal News and updates
 
 <div class="blog_wrap">
 	<div class="blog_info_wrap">
-		<div class="blog_icon" style="background:url('{_root}news/author/icon_{_blog_post_json.author}.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+		<div class="blog_info">
 			<div class="blog_author"><b>{_blog_post_json.author}</b> ~ {_blog_post_json.role}</div>
 			<div class="blog_date">{posted_on3_text} <b>{_blog_post_json.tag}</b></div>
 			<div class="blog_date">{_blog_post_json.datedash}
@@ -102,8 +102,7 @@ D-Portal News and updates
 					var n = d.toDateString();
 					c.innerHTML = n;
 				</script>
-			</div>
-		</div>
+		</div></div><div class="blog_icon" style="background:url('{_root}news/author/icon_{_blog_post_json.author}.jpg')no-repeat; background-size:cover;"></div>
 	</div>
 	<a href="{_dirname}" class="blog_title">{_blog_post_json.title}</a>
 	<div class="blog_body">{_blog_post_body}</div>
@@ -136,7 +135,6 @@ D-Portal News and updates
 <body>
 	{view_head}
 	{main_head}
-	{main_title}
 	{body}
 	{view_tail}
 </body>
