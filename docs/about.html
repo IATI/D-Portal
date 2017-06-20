@@ -494,7 +494,7 @@ a.git:hover	{background-color:#66b4ff; text-decoration:none;}
 		$('#tongue_select').bind('change', function ()
 		{
 			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/d-portal.org/eng/"){t="/d-portal.org/";}
-			var url = t+"about.html";
+			var url = t+"{_output_filename}";
 			window.location = url; // redirect
 			return false;
 		});

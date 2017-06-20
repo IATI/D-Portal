@@ -369,7 +369,7 @@ a.beige:hover			{color:#FFF;}
 		$('#tongue_select').bind('change', function ()
 		{
 			var t="/d-portal.org/"+$(this).val()+"/";if(t=="/d-portal.org/eng/"){t="/d-portal.org/";}
-			var url = t+"news/2015-11-05-Adding-country-budgets-to-d-portal/index.html";
+			var url = t+"{_output_filename}";
 			window.location = url; // redirect
 			return false;
 		});
