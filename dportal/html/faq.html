@@ -114,6 +114,7 @@
 		<a href="#gen4">What is OECD DAC CRS?</a>
 		<a href="#gen5">Where does the data come from?</a>
 		<a href="#gen6">Why is there data missing in some parts of d-portal?</a>
+		<a href="#gen13">What are common reasons for a publisher’s data not showing in parts of d-portal?</a>
 		<a href="#gen7">Why are there zeroes and dashes in the tables?</a>
 		<a href="#gen8">When/how is data in d-portal updated?</a>
 		<a href="#gen9">Where can I see more detail on IATI data quality issues/stats on how often organisations are publishing, etc?</a>
@@ -168,6 +169,20 @@
 				<p>d-portal attempts to only reflect what is in the data and does not make corrections to data or information published to IATI, with only small exceptions to make the site user-friendly*</p>
 
 				<p>See also information about <a href="http://d-portal.org/ctrack.html?country=AF&tongue=eng#view=data_quality">data quality</a> (<i>Afghanistan used as example</i>)</p>
+			</span>
+		</li>
+		<li>
+			<span id="gen13"></span>
+			<span class="list">What are common reasons for a publisher’s data not showing in parts of d-portal?</span>
+			<span class="info">
+				Data that is marked as invalid IATI xml when using the <a href="http://validator.iatistandard.org/">Validator</a>.
+				<p>Mismatch between ‘Identifier’ in publisher’s profile in the <a href="https://iatiregistry.org/">IATI Registry</a>, and <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/reporting-org/">reporting-org</a> in that publisher’s data – this will show zeroes in the publisher’s data until the two are matched.</p>
+				<p><a href="http://iatistandard.org/202/codelists/TransactionType/">Transaction type code</a> not present.</p>
+				<p>Not using either Disbursements or Expenditure in <a href="http://iatistandard.org/202/codelists/TransactionType/">transaction type</a> field.</p>
+				<p><a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/activity-date/">Dates</a> in incorrect format in the data.</p>
+				<p>Illogical dates such as activity end date before activity start date.</p>
+				<p>No data relevant to the year being viewed on a pie chart or table (eg where a pie chart shows 2016 data and data published only relates to 2015).</p>
+				<p>If updating your Registry profile only, changes will show after the weekly full import (each weekend) as d-portal only updates nightly the data that has been changed in the xml.</p>
 			</span>
 		</li>
 		<li>
