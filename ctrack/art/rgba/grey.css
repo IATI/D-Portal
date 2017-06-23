@@ -1,510 +1,537 @@
 :root {
-  --white:rgba(255,255,255,1);
-  --white_40:rgba(255,255,255,0.4);
-  --white_10:rgba(255,255,255,0.1);
-  --high_grey:rgba(204,204,204,1);
-  --grey:rgba(170,170,170,1);
-  --quite_grey:rgba(156,156,156,1);
-  --quite_grey_40:rgba(156,156,156,0.4);
-  --mid_grey:rgba(130,130,130,1);
-  --dim_grey:rgba(119,119,119,1);
-  --dimmer_grey:rgba(86,86,86,1);
-  --dark_grey:rgba(68,68,68,1);
-  --dark_grey_80:rgba(68,68,68,0.8);
-  --dark_grey_60:rgba(68,68,68,0.6);
-  --dark_grey_40:rgba(68,68,68,0.4);
-  --dark_grey_20:rgba(68,68,68,0.2);
-  --darker_grey:rgba(56,56,56,1);
-  --darker_grey_80:rgba(56,56,56,0.8);
-  --darker_grey_60:rgba(56,56,56,0.6);
-  --darker_grey_40:rgba(56,56,56,0.4);
-  --darker_grey_20:rgba(56,56,56,0.2);
-  --high_black:rgba(15,15,15,1);
-  --higher_black_70:rgba(31,31,31,0.7);
-  --high_black_70:rgba(15,15,15,0.7);
-  --black:rgba(0,0,0,1);
-  --black_70:rgba(0,0,0,0.7);
-  --black_0:rgba(0,0,0,0);
+  --base15:rgba(255,255,255,1);
+  --base15_40:rgba(255,255,255,0.4);
+  --base15_10:rgba(255,255,255,0.1);
+  --base14:rgba(204,204,204,1);
+  --base13:rgba(170,170,170,1);
+  --base12:rgba(156,156,156,1);
+  --base12_40:rgba(156,156,156,0.4);
+  --base11:rgba(130,130,130,1);
+  --base:rgba(119,119,119,1);
+  --base01:rgba(86,86,86,1);
+  --base02:rgba(68,68,68,1);
+  --base02_80:rgba(68,68,68,0.8);
+  --base02_60:rgba(68,68,68,0.6);
+  --base02_40:rgba(68,68,68,0.4);
+  --base02_20:rgba(68,68,68,0.2);
+  --base03:rgba(56,56,56,1);
+  --base03_80:rgba(56,56,56,0.8);
+  --base03_60:rgba(56,56,56,0.6);
+  --base03_40:rgba(56,56,56,0.4);
+  --base03_20:rgba(56,56,56,0.2);
+  --base04:rgba(15,15,15,1);
+  --base04_70:rgba(15,15,15,0.7);
+  --base05:rgba(0,0,0,1);
+  --base05_70:rgba(0,0,0,0.7);
+  --base05_00:rgba(0,0,0,0);
 }
 
 
-body,html 				{color:var(--white);}
-html					{background-color:var(--black);}
+body,html 				{color:var(--base15);}
+html					{background-color:var(--base05);}
 
 
 /*	Links & fonts
 	============================================= */
-a:focus					{color:var(--grey);}
-a:link  				{color:var(--grey);}
-a:visited				{color:var(--grey);}
-a:hover					{color:var(--mid_grey);}
-a:active				{color:var(--grey);}
+a:focus					{color:var(--base13);}
+a:link  				{color:var(--base13);}
+a:visited				{color:var(--base13);}
+a:hover					{color:var(--base11);}
+a:active				{color:var(--base13);}
 
 
 /*	Main wrappers for content & fixed background img
 	============================================= */
-.main_wrap				{background-color:var(--white_40);}
-.overlay				{background-color:var(--higher_black_70);}
+.main_wrap				{background-color:var(--base15_40);}
+.overlay				{background-color:var(--base04_70);}
+
+
+/*	Settings
+	============================================= */
+#settings				{background-color:var(--base15);}
+a.settings_link span	{color:var(--base14);}
+a.settings_link:hover span	{color:var(--base15);}
+a.settings_faq			{color:var(--base14);}
+a.settings_faq:hover	{color:var(--base15);}
+
+
+/*	Status badge next to d-portal logo in headers
+	============================================= */
+span.badge				{color:var(--base15);}
+span.badge.beta			{border:1px solid var(--base15);}
+
+
+/*	Translation dropdown
+	============================================= */
+select					{color:var(--base05);}
+option					{color:var(--base05);}
 
 
 /*	Breadcrumbs
 	============================================= */
-a.crumb					{color:var(--high_grey);}
-a.crumb:hover			{color:var(--white);}
-.crumb_wrap				{color:var(--high_grey);}
-.crumb_wrap span		{color:var(--white);}
+a.crumb					{color:var(--base14);}
+a.crumb:hover			{color:var(--base15);}
+.crumb_wrap				{color:var(--base14);}
+.crumb_wrap span		{color:var(--base15);}
 
 
 /*	About data links
 	============================================= */
-a.about_data			{color:var(--high_grey);}
-a.about_data:hover		{color:var(--white);}
-a.about_data.quality	{border-left:1px solid var(--mid_grey);}
+a.about_data			{color:var(--base14);}
+a.about_data:hover		{color:var(--base15);}
+a.about_data.quality	{border-left:1px solid var(--base11);}
 
 
 /*	Header styles
 	============================================= */
-.default.declare	{color:var(--high_grey);}
+.default.declare	{color:var(--base14);}
 
 
 /*	Blog styles
 	============================================= */
-.blog_head			{color:var(--white); border-bottom:1px solid var(--white);}
-a.blog_head			{color:var(--white); border-bottom:1px solid var(--white);}
-.blog_wrap			{color:var(--white); border-bottom:1px solid var(--white); background-color:var(--white_10);}
-.blog_date			{color:var(--high_grey);}
-.blog_body a		{color:var(--high_grey);}
-.blog_body a:hover	{color:var(--white);}
-.blog_title			{color:var(--high_grey);}
-a.blog_title		{color:var(--high_grey);}
-a.blog_title:hover	{color:var(--white);}
-a.back_news			{color:var(--white);}
-a.back_news:hover	{color:var(--high_grey);}
+.blog_head			{color:var(--base15); border-bottom:1px solid var(--base15);}
+a.blog_head			{color:var(--base15); border-bottom:1px solid var(--base15);}
+.blog_wrap			{color:var(--base15); border-bottom:1px solid var(--base15); background-color:var(--base15_10);}
+.blog_date			{color:var(--base14);}
+.blog_body a		{color:var(--base14);}
+.blog_body a:hover	{color:var(--base15);}
+.blog_title			{color:var(--base14);}
+a.blog_title		{color:var(--base14);}
+a.blog_title:hover	{color:var(--base15);}
+a.back_news			{color:var(--base15);}
+a.back_news:hover	{color:var(--base14);}
 
 
 /*	Graph styles
 	============================================= */
-#donor_graph, #sector_graph	{background-color:var(--white); border:1px solid var(--white);}
-a.ask					{color:var(--white);}
-span.ask.donor			{background-color:var(--mid_grey);}
-span.ask.sector			{background-color:var(--mid_grey);}
-.main_peak_wrap			{background-color:var(--white);}
-.peak.donor				{border-top:20px solid var(--mid_grey);}
-.peak.sector			{border-top:20px solid var(--mid_grey);}
-span.graph_view_all:hover	{background-color:var(--high_black); color:var(--white);}
+#donor_graph, #sector_graph	{background-color:var(--base15); border:1px solid var(--base15);}
+a.ask					{color:var(--base15);}
+span.ask.donor			{background-color:var(--base11);}
+span.ask.sector			{background-color:var(--base11);}
+.main_peak_wrap			{background-color:var(--base15);}
+.peak.donor				{border-top:20px solid var(--base11);}
+.peak.sector			{border-top:20px solid var(--base11);}
+span.graph_view_all:hover	{background-color:var(--base04); color:var(--base15);}
 
 
 
 /*	Map styles (front page)
 	============================================= */
-.map_wrap				{background-color:var(--black);}
-.map_info				{color:var(--white); background-color:var(--mid_grey);}
-.map_no_info			{color:var(--white);}
-a.map_percent			{color:var(--white); background-color:var(--mid_grey);}
-a.map_percent:hover		{background-color:var(--dimmer_grey);}
-a.map_percent span		{color:var(--white);}
-.map_filter				{color:var(--dark_grey);}
-.map_filter.info		{color:var(--white);}
+.map_wrap				{background-color:var(--base05);}
+.map_info				{color:var(--base15); background-color:var(--base11);}
+.map_no_info			{color:var(--base15);}
+a.map_percent			{color:var(--base15); background-color:var(--base11);}
+a.map_percent:hover		{background-color:var(--base01);}
+a.map_percent span		{color:var(--base15);}
+.map_filter				{color:var(--base02);}
+.map_filter.info		{color:var(--base15);}
 
 
 /*	For url #view=map
 	============================================= */
-.map_no_info.view		{color:var(--white);}
+.map_no_info.view		{color:var(--base15);}
 
 
 /*	Stats (key figures) styles
 	============================================= */
-span.stats_title		{color:var(--high_grey);}
-span.stats_title.view	{color:var(--white);}
-span.stats_num			{color:var(--mid_grey);}
-span.stats_num.view		{color:var(--white);}
-.declare.stats			{color:var(--high_grey);}
-a.stats_link			{color:var(--high_grey); background-color:var(--high_black_70);}
-a.stats_link:hover		{background-color:var(--high_black);}
-a.stats_link.missing span	{color:var(--mid_grey);}
+span.stats_title		{color:var(--base14);}
+span.stats_title.view	{color:var(--base15);}
+span.stats_num			{color:var(--base11);}
+span.stats_num.view		{color:var(--base15);}
+.declare.stats			{color:var(--base14);}
+a.stats_link			{color:var(--base14); background-color:var(--base04_70);}
+a.stats_link:hover		{background-color:var(--base04);}
+a.stats_link.missing span	{color:var(--base11);}
 
 
 /*	Active / Ended projects styles
 	============================================= */
-.table_wrap				{background-color:var(--high_black_70);}
+.table_wrap				{background-color:var(--base04_70);}
 
 
 /*	Data Description styles
 	============================================= */
-.description_wrap		{background:linear-gradient(to bottom, var(--black_0) 0%,var(--black_70) 60%,var(--black) 100%); background:-prefix-linear-gradient(to bottom, var(--black_0) 0%,var(--black_70) 50%,var(--black) 100%);}
-.description			{background-color:var(--white_10);}
-.description span.title	{color:var(--white); border-top:1px solid var(--white); border-bottom:1px solid var(--white);}
-.description p			{color:var(--white);}
-.description p.about_data	{border-top:1px solid var(--white);}
-.description a			{color:var(--high_grey);}
-.description a:hover	{color:var(--white);}
-a.read					{color:var(--high_grey);}
-a.read:hover			{color:var(--white);}
+.description_wrap		{background:linear-gradient(to bottom, var(--base05_00) 0%,var(--base05_70) 60%,var(--base05) 100%); background:-prefix-linear-gradient(to bottom, var(--base05_00) 0%,var(--base05_70) 50%,var(--base05) 100%);}
+.description			{background-color:var(--base15_10);}
+.description span.title	{color:var(--base15); border-top:1px solid var(--base15); border-bottom:1px solid var(--base15);}
+.description p			{color:var(--base15);}
+.description p.about_data	{border-top:1px solid var(--base15);}
+.description a			{color:var(--base14);}
+.description a:hover	{color:var(--base15);}
+a.read					{color:var(--base14);}
+a.read:hover			{color:var(--base15);}
 
 
 /*	Generic styles
 	============================================= */
-.list_peak					{border-right:30px solid var(--mid_grey);}
-.list_head_title			{color:var(--white);}
-.list_stats_title			{color:var(--white);}
-.list_stats_num				{color:var(--white);}
-a.button					{background-color:var(--mid_grey); color:var(--white);}
-a.button:hover				{background-color:var(--quite_grey);}
-a.csv_download				{background-color:var(--dim_grey); color:var(--white);}
-a.csv_download:hover		{background-color:var(--higher_black_70); color:var(--white);}
+.list_peak					{border-right:30px solid var(--base11);}
+.list_head_title			{color:var(--base15);}
+.list_stats_title			{color:var(--base15);}
+.list_stats_num				{color:var(--base15);}
+a.button					{background-color:var(--base11); color:var(--base15);}
+a.button:hover				{background-color:var(--base12);}
+a.csv_download				{background-color:var(--base); color:var(--base15);}
+a.csv_download:hover		{background-color:var(--base04_70); color:var(--base15);}
 
 	
 /*	For url #view=donors & all #view=donor_*
 	============================================= */
-.donors_head_title			{color:var(--white);}
+.donors_head_title			{color:var(--base15);}
 
 
 /*	For url #view=donor_activities
 	============================================= */
-.donor_activities_spend			{color:var(--high_grey);}
-.donor_activities_percent_max	{background-color:var(--black); border:1px solid var(--darker_grey);}
-.donor_activities_percent		{background-color:var(--mid_grey);}
+.donor_activities_spend			{color:var(--base14);}
+.donor_activities_percent_max	{background-color:var(--base05); border:1px solid var(--base03);}
+.donor_activities_percent		{background-color:var(--base11);}
 
 
 /*	For url #view=sectors & all #view=sector_*
 	============================================= */
-.sectors_head_title			{color:var(--white);}
+.sectors_head_title			{color:var(--base15);}
 
 
 /*	Table header styles
 	============================================= */
-th.titles					{color:var(--dim_grey); border-bottom:1px solid var(--darker_grey);}
+th.titles					{color:var(--base); border-bottom:1px solid var(--base03);}
 
 
 /*	Table for Header logo and Translations
 	============================================= */
-table.head td.options		{color:var(--darker_grey);}
+table.head td.options		{color:var(--base03);}
 
 
 /*	Table for Country Name and Flag
 	============================================= */
-table.country				{border-bottom:1px solid var(--white);}
-table.country td.name		{color:var(--white);}
-table.country.min td.name	{color:var(--white);}
+table.country				{border-bottom:1px solid var(--base15);}
+table.country td.name		{color:var(--base15);}
+table.country.min td.name	{color:var(--base15);}
 
 
 /*	Table Titles
 	============================================= */
-table.title td			{color:var(--white);}
-table.title td.sort		{color:var(--high_grey);}
+table.title td			{color:var(--base15);}
+table.title td.sort		{color:var(--base14);}
 
 
 /*	Table for Active / Ended projects
 	============================================= */
-table.list td			{color:var(--high_grey);}
-table.list td span		{color:var(--quite_grey);}
-table.list a			{color:var(--high_grey);}
-table.list a:focus		{color:var(--white);}
-table.list a:link  		{color:var(--high_grey);}
-table.list a:visited	{color:var(--high_grey);}
-table.list a:hover		{color:var(--white);}
-table.list a:active		{color:var(--high_grey);}
+table.list td			{color:var(--base14);}
+table.list td span		{color:var(--base12);}
+table.list a			{color:var(--base14);}
+table.list a:focus		{color:var(--base15);}
+table.list a:link  		{color:var(--base14);}
+table.list a:visited	{color:var(--base14);}
+table.list a:hover		{color:var(--base15);}
+table.list a:active		{color:var(--base14);}
 
 
 /*	Table for Money list (Donors / Sectors)
 	============================================= */
-table.money td				{color:var(--high_grey); border-bottom:1px solid var(--mid_grey);}
-table.money td.col1			{background-color:var(--dark_grey_40);}
-table.money td.col3			{background-color:var(--darker_grey_20);}
-table.money td.col4			{background-color:var(--darker_grey_40);}
-table.money td.col5			{background-color:var(--darker_grey_60);}
-table.money td.col6			{background-color:var(--dark_grey_40);}
-table.money td.col7			{background-color:var(--dark_grey_60);}
+table.money td				{color:var(--base14); border-bottom:1px solid var(--base11);}
+table.money td.col1			{background-color:var(--base02_40);}
+table.money td.col3			{background-color:var(--base03_20);}
+table.money td.col4			{background-color:var(--base03_40);}
+table.money td.col5			{background-color:var(--base03_60);}
+table.money td.col6			{background-color:var(--base02_40);}
+table.money td.col7			{background-color:var(--base02_60);}
 
-table.money tr.row1 th		{color:var(--white);}
-table.money tr.row1 th span	{color:var(--white);}
-table.money tr.row1 th.col1	{background-color:var(--dark_grey); border:1px solid var(--dark_grey); border-bottom:1px solid var(--mid_grey);}
-table.money tr.row1 th.col2	{background-color:var(--dark_grey_20);border-bottom:1px solid var(--mid_grey); border-top:1px solid var(--dark_grey);}
-table.money tr.row1 th.col3	{background-color:var(--darker_grey); border:1px solid var(--dark_grey); border-bottom:1px solid var(--mid_grey);}
-table.money tr.row1 th.col4	{background-color:var(--dark_grey); border:1px solid var(--dimmer_grey); border-bottom:1px solid var(--mid_grey);}
+table.money tr.row1 th		{color:var(--base15);}
+table.money tr.row1 th span	{color:var(--base15);}
+table.money tr.row1 th.col1	{background-color:var(--base02); border:1px solid var(--base02); border-bottom:1px solid var(--base11);}
+table.money tr.row1 th.col2	{background-color:var(--base02_20);border-bottom:1px solid var(--base11); border-top:1px solid var(--base02);}
+table.money tr.row1 th.col3	{background-color:var(--base03); border:1px solid var(--base02); border-bottom:1px solid var(--base11);}
+table.money tr.row1 th.col4	{background-color:var(--base02); border:1px solid var(--base01); border-bottom:1px solid var(--base11);}
 
-table.money tr.row2 td		{color:var(--white);}
-table.money tr.row2 td.col1 {background-color:var(--dark_grey); border-left:1px solid var(--dark_grey); border-right:1px solid var(--dark_grey);}
-table.money tr.row2 td.col2 {background-color:var(--darker_grey_20);}
-table.money tr.row2 td.col3	{background-color:var(--darker_grey_60); border-left:1px solid var(--dark_grey);}
-table.money tr.row2 td.col4	{background-color:var(--darker_grey_80);}
-table.money tr.row2 td.col5	{background-color:var(--darker_grey); border-right:1px solid var(--dark_grey);}
-table.money tr.row2 td.col6	{background-color:var(--dark_grey_80);}
-table.money tr.row2 td.col7	{background-color:var(--dark_grey); border-right:1px solid var(--dimmer_grey);}
+table.money tr.row2 td		{color:var(--base15);}
+table.money tr.row2 td.col1 {background-color:var(--base02); border-left:1px solid var(--base02); border-right:1px solid var(--base02);}
+table.money tr.row2 td.col2 {background-color:var(--base03_20);}
+table.money tr.row2 td.col3	{background-color:var(--base03_60); border-left:1px solid var(--base02);}
+table.money tr.row2 td.col4	{background-color:var(--base03_80);}
+table.money tr.row2 td.col5	{background-color:var(--base03); border-right:1px solid var(--base02);}
+table.money tr.row2 td.col6	{background-color:var(--base02_80);}
+table.money tr.row2 td.col7	{background-color:var(--base02); border-right:1px solid var(--base01);}
 
-table.money tr.rows td.col1	{border-left:1px solid var(--dark_grey); border-right:1px solid var(--dark_grey);}
-table.money tr.rows td.col3	{border-left:1px solid var(--dark_grey);}
-table.money tr.rows td.col5	{border-right:1px solid var(--dark_grey);}
-table.money tr.rows td.col7	{border-right:1px solid var(--dimmer_grey);}
+table.money tr.rows td.col1	{border-left:1px solid var(--base02); border-right:1px solid var(--base02);}
+table.money tr.rows td.col3	{border-left:1px solid var(--base02);}
+table.money tr.rows td.col5	{border-right:1px solid var(--base02);}
+table.money tr.rows td.col7	{border-right:1px solid var(--base01);}
 
 table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
-table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:var(--darker_grey);}
-table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:var(--dark_grey);}
+table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:var(--base03);}
+table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:var(--base02);}
 
-table.money a				{color:var(--high_grey);}
-table.money a:focus			{color:var(--high_grey);}
-table.money a:link  		{color:var(--high_grey);}
-table.money a:visited		{color:var(--high_grey);}
-table.money a:hover			{color:var(--white);}
-table.money a:active		{color:var(--high_grey);}
+table.money a				{color:var(--base14);}
+table.money a:focus			{color:var(--base14);}
+table.money a:link  		{color:var(--base14);}
+table.money a:visited		{color:var(--base14);}
+table.money a:hover			{color:var(--base15);}
+table.money a:active		{color:var(--base14);}
 
-table.money a.year			{background-color:var(--dimmer_grey);}
-table.money a.year.prev:hover, table.money a.year.next:hover	{background-color:var(--mid_grey);}
+table.money a.year			{background-color:var(--base01);}
+table.money a.year.prev:hover, table.money a.year.next:hover	{background-color:var(--base11);}
 
 table.money.publishers th.col2,
-table.money.publishers td.col2	{border-left:1px solid var(--dark_grey);}
-table.money.publishers th.col2	{border-top:1px solid var(--dark_grey);}
+table.money.publishers td.col2	{border-left:1px solid var(--base02);}
+table.money.publishers th.col2	{border-top:1px solid var(--base02);}
 
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
-table.activity td		{color:var(--high_grey); border-bottom:1px solid var(--darker_grey);}
-table.activity td span	{color:var(--quite_grey);}
-table.activity a		{color:var(--high_grey);}
-table.activity a:focus	{color:var(--white);}
-table.activity a:link  	{color:var(--high_grey);}
-table.activity a:visited{color:var(--high_grey);}
-table.activity a:hover	{color:var(--white);}
-table.activity a:active	{color:var(--high_grey);}
+table.activity td		{color:var(--base14); border-bottom:1px solid var(--base03);}
+table.activity td span	{color:var(--base12);}
+table.activity a		{color:var(--base14);}
+table.activity a:focus	{color:var(--base15);}
+table.activity a:link  	{color:var(--base14);}
+table.activity a:visited{color:var(--base14);}
+table.activity a:hover	{color:var(--base15);}
+table.activity a:active	{color:var(--base14);}
 
 
 /*	Table for data descriptions footer (Donors / Sectors)
 	============================================= */
-table.data td			{color:var(--white); border:1px solid var(--high_grey);}
+table.data td			{color:var(--base15); border:1px solid var(--base14);}
 
 
 /*	Missing data
 	============================================= */
-.missing_data_wrap		{background-color:var(--high_black_70); color:var(--white);}
+.missing_data_wrap		{background-color:var(--base04_70); color:var(--base15);}
 
 
 /*	Data Investigators alert
 	============================================= */
-a.data_invest			{color:var(--high_grey); background-color:var(--quite_grey_40);}
-a.data_invest:hover		{color:var(--white); background-color:var(--dim_grey);}
+a.data_invest			{color:var(--base14); background-color:var(--base12_40);}
+a.data_invest:hover		{color:var(--base15); background-color:var(--base);}
 
 
 /*	Footer
 	============================================= */
-.footer_wrap			{background-color:var(--black);}
-.footer_link a			{color:var(--quite_grey);}
-.footer_link a:focus	{color:var(--white);}
-.footer_link a:link  	{color:var(--quite_grey);}
-.footer_link a:visited	{color:var(--quite_grey);}
-.footer_link a:hover	{color:var(--white);}
-.footer_link a:active	{color:var(--quite_grey);}
+.footer_wrap			{background-color:var(--base05);}
+.footer_link a			{color:var(--base12);}
+.footer_link a:focus	{color:var(--base15);}
+.footer_link a:link  	{color:var(--base12);}
+.footer_link a:visited	{color:var(--base12);}
+.footer_link a:hover	{color:var(--base15);}
+.footer_link a:active	{color:var(--base12);}
 
 
 /*	SAVi CSS
 	============================================= */
-iati-activity			{background-color:var(--high_black_70);}
-iati-activity:after 	{color:var(--high_grey);}
+iati-activity			{background-color:var(--base04_70);}
+iati-activity:after 	{color:var(--base14);}
 
 
 /*	Project title
 	============================================= */
-span.span_span-title span-title		 	{color:var(--white);}
-span.span_span-title span-title:before 	{color:var(--high_grey);}
+span.span_span-title span-title		 	{color:var(--base15);}
+span.span_span-title span-title:before 	{color:var(--base14);}
 
 
 /*	IATI Identifier
 	============================================= */
-iati-identifier 				{background-color: var(--high_black_70); color:var(--mid_grey);}
-iati-identifier:before			{color:var(--high_grey);}
-iati-identifier:hover			{color:var(--white);}
-a.a_xml_iati-identifier:before	{color:var(--high_grey);}
-a.a_slug:before					{color:var(--high_grey);}
-a.a_xml_iati-identifier:link	{color:var(--mid_grey);}
-a.a_xml_iati-identifier:visited	{color:var(--mid_grey);}
-a.a_xml_iati-identifier:hover	{color:var(--white);}
-a.a_xml_iati-identifier:active	{color:var(--mid_grey);}
-a.a_slug:link					{color:var(--mid_grey);}
-a.a_slug:visited				{color:var(--mid_grey);}
-a.a_slug:hover					{color:var(--white);}
-a.a_slug:active					{color:var(--mid_grey);}
+iati-identifier 				{background-color: var(--base04_70); color:var(--base11);}
+iati-identifier:before			{color:var(--base14);}
+iati-identifier:hover			{color:var(--base15);}
+a.a_xml_iati-identifier:before	{color:var(--base14);}
+a.a_slug:before					{color:var(--base14);}
+a.a_xml_iati-identifier:link	{color:var(--base11);}
+a.a_xml_iati-identifier:visited	{color:var(--base11);}
+a.a_xml_iati-identifier:hover	{color:var(--base15);}
+a.a_xml_iati-identifier:active	{color:var(--base11);}
+a.a_slug:link					{color:var(--base11);}
+a.a_slug:visited				{color:var(--base11);}
+a.a_slug:hover					{color:var(--base15);}
+a.a_slug:active					{color:var(--base11);}
 
 
 /*	Recipient countries
 	============================================= */
-span.span_recipient-country				{background-color:var(--darker_grey_40);}
-span.span_recipient-country:before 		{color:var(--white);}
-recipient-country span					{color:var(--white);}
-recipient-country span:nth-of-type(2)	{color:var(--white);}
+span.span_recipient-country				{background-color:var(--base03_40);}
+span.span_recipient-country:before 		{color:var(--base15);}
+recipient-country span					{color:var(--base15);}
+recipient-country span:nth-of-type(2)	{color:var(--base15);}
 
 
 /*	Start and End dates
 	============================================= */
-span.span_activity-date						{background-color:var(--darker_grey);}
+span.span_activity-date						{background-color:var(--base03);}
 
 activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"],
-activity-date[type="end-planned"]			{color:var(--white);background-color:var(--dim_grey);}
+activity-date[type="end-planned"]			{color:var(--base15);background-color:var(--base);}
 
 activity-date[type="2"], activity-date[type="4"], activity-date[type="start-actual"],
-activity-date[type="end-actual"]			{color:var(--white); background-color:var(--mid_grey);}
+activity-date[type="end-actual"]			{color:var(--base15); background-color:var(--base11);}
 
 activity-date[type="1"]:before, activity-date[type="3"]:before, activity-date[type="start-planned"]:before,
 activity-date[type="end-planned"]:before, activity-date[type="2"]:before,
 activity-date[type="4"]:before, activity-date[type="start-actual"]:before,
-activity-date[type="end-actual"]:before		{color:var(--high_grey);}
+activity-date[type="end-actual"]:before		{color:var(--base14);}
 
 
 /*	Who's invloved?
 	============================================= */
-span.span_participating-org 					{color:var(--white); background-color:var(--darker_grey_40);}
-span.span_participating-org:before 				{color:var(--white); border-bottom:1px solid var(--white);}
-participating-org								{color:var(--white);}
-participating-org[role="funding"]:after			{color:var(--high_grey);}
-participating-org[role="implementing"]:after	{color:var(--high_grey);}
-participating-org[role="extending"]:after		{color:var(--high_grey);}
-participating-org[role="accountable"]:after		{color:var(--high_grey);}
+span.span_participating-org 					{color:var(--base15); background-color:var(--base03_40);}
+span.span_participating-org:before 				{color:var(--base15); border-bottom:1px solid var(--base15);}
+participating-org								{color:var(--base15);}
+participating-org[role="funding"]:after			{color:var(--base14);}
+participating-org[role="implementing"]:after	{color:var(--base14);}
+participating-org[role="extending"]:after		{color:var(--base14);}
+participating-org[role="accountable"]:after		{color:var(--base14);}
 
 
 /*	Reported by
 	============================================= */
-reporting-org 					{color:var(--white);}
-reporting-org:before 			{color:var(--high_grey);}
+reporting-org 					{color:var(--base15);}
+reporting-org:before 			{color:var(--base14);}
 
 
 /*	Description of project (shared with Transaction table)
 	============================================= */
-span.span_description description 						{color:var(--white);}
-span.span_description description:nth-of-type(1):before	{color:var(--high_grey);}
-span.span_description description[type="1"]:before		{color:var(--high_grey);}
-span.span_description description[type="2"]:before		{color:var(--high_grey);}
-span.span_description description[type="3"]:before		{color:var(--high_grey);}
+span.span_description description 						{color:var(--base15);}
+span.span_description description:nth-of-type(1):before	{color:var(--base14);}
+span.span_description description[type="1"]:before		{color:var(--base14);}
+span.span_description description[type="2"]:before		{color:var(--base14);}
+span.span_description description[type="3"]:before		{color:var(--base14);}
 
 
 /*	Result and description
 	============================================= */
-result:nth-child(odd)		{background-color:var(--darker_grey_40);}
-result:nth-of-type(1):before{color:var(--white); background-color:var(--darker_grey);}
-result description			{color:var(--white);}
-result description:before	{color:var(--high_grey);}
-result span-title			{color:var(--white);}
-result span-title:before	{color:var(--high_grey);}
+result:nth-child(odd)		{background-color:var(--base03_40);}
+result:nth-of-type(1):before{color:var(--base15); background-color:var(--base03);}
+result description			{color:var(--base15);}
+result description:before	{color:var(--base14);}
+result span-title			{color:var(--base15);}
+result span-title:before	{color:var(--base14);}
 
 result indicator period period-start, result indicator period period-end, result indicator period target, result indicator period actual,
-result indicator description			{color:var(--white);}
+result indicator description			{color:var(--base15);}
 result indicator period period-start:before, result indicator period period-end:before, result indicator period target:before,
-result indicator period actual:before	{color:var(--high_grey);}
+result indicator period actual:before	{color:var(--base14);}
 
-result indicator period baseline				{background-color:var(--darker_grey);}
-result indicator period target					{background-color:var(--dimmer_grey);}
-result indicator period actual					{background-color:var(--dim_grey);}
-result indicator period actual.value-higher		{background-color:var(--mid_grey);}
-result indicator period actual.value-lower		{background-color:var(--dark_grey);}
+result indicator period baseline				{background-color:var(--base03);}
+result indicator period target					{background-color:var(--base01);}
+result indicator period actual					{background-color:var(--base);}
+result indicator period actual.value-higher		{background-color:var(--base11);}
+result indicator period actual.value-lower		{background-color:var(--base02);}
 
-result indicator > baseline comment	{color:var(--white);}
+result indicator > baseline comment	{color:var(--base15);}
+
+result indicator reference			{border:1px solid var(--base);}
+result indicator reference:before	{color:var(--base13);}
+
+.timeline		{background-color:var(--base04); border-bottom:1px solid var(--base);}
+.time			{background-color:var(--base13);}
+result indicator .time span		{background-color:var(--base);}
 
 
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
 span.span_sector sector[vocabulary="DAC"],
-span.span_sector sector[vocabulary="1"]	{color:var(--white);}
+span.span_sector sector[vocabulary="1"]	{color:var(--base15);}
 
 span.span_sector sector[vocabulary="DAC"]:before,
-span.span_sector sector[vocabulary="1"]:before	{color:var(--high_grey);}
+span.span_sector sector[vocabulary="1"]:before	{color:var(--base14);}
 
-span.span_sector sector:nth-child(even) {background-color:var(--high_black_70);}
-span.span_sector span					{color:var(--white);}
-span.span_sector span:nth-of-type(2)	{color:var(--high_grey);}
-img.sector_pie			{background-color:var(--white);}
+span.span_sector sector:nth-child(even) {background-color:var(--base04_70);}
+span.span_sector span					{color:var(--base15);}
+span.span_sector span:nth-of-type(2)	{color:var(--base14);}
+img.sector_pie			{background-color:var(--base15);}
 
 
 /*	Budget table
 	============================================= */
-budget					{border-top:1px solid var(--dimmer_grey);}
-budget:last-of-type	 	{border-bottom:0px solid var(--dimmer_grey);}
-budget:nth-of-type(1):before				{color:var(--white); background-color:var(--darker_grey);}
-budget:nth-of-type(1) period-start:before 	{color:var(--white); border-bottom:2px solid var(--darker_grey);}
-budget:nth-of-type(1) period-end:before	  	{color:var(--white); border-bottom:2px solid var(--darker_grey);}
-budget:nth-of-type(1) value:before		  	{color:var(--white); border-bottom:2px solid var(--darker_grey);}
-period-start 			{color:var(--white);}
-period-end	 			{color:var(--white);}
-budget value 			{color:var(--white);}
+budget					{border-top:1px solid var(--base01);}
+budget:last-of-type	 	{border-bottom:0px solid var(--base01);}
+budget:nth-of-type(1):before				{color:var(--base15); background-color:var(--base03);}
+budget:nth-of-type(1) period-start:before 	{color:var(--base15); border-bottom:2px solid var(--base03);}
+budget:nth-of-type(1) period-end:before	  	{color:var(--base15); border-bottom:2px solid var(--base03);}
+budget:nth-of-type(1) value:before		  	{color:var(--base15); border-bottom:2px solid var(--base03);}
+period-start 			{color:var(--base15);}
+period-end	 			{color:var(--base15);}
+budget value 			{color:var(--base15);}
 
 
 /*	Planned Disbursement table
 	============================================= */
-planned-disbursement				{border-top:1px solid var(--dimmer_grey);}
-planned-disbursement:last-of-type	{border-bottom:0px solid var(--dimmer_grey);}
-planned-disbursement:nth-of-type(1):before				{color:var(--white); background-color:var(--darker_grey);}
-planned-disbursement:nth-of-type(1) period-start:before {color:var(--white); border-bottom:2px solid var(--darker_grey);}
-planned-disbursement:nth-of-type(1) period-end:before	{color:var(--white); border-bottom:2px solid var(--darker_grey);}
-planned-disbursement:nth-of-type(1) value:before		{color:var(--white); border-bottom:2px solid var(--darker_grey);}
-period-start 			{color:var(--white);}
-period-end	 			{color:var(--white);}
-planned-disbursement value 			{color:var(--white);}
+planned-disbursement				{border-top:1px solid var(--base01);}
+planned-disbursement:last-of-type	{border-bottom:0px solid var(--base01);}
+planned-disbursement:nth-of-type(1):before				{color:var(--base15); background-color:var(--base03);}
+planned-disbursement:nth-of-type(1) period-start:before {color:var(--base15); border-bottom:2px solid var(--base03);}
+planned-disbursement:nth-of-type(1) period-end:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
+planned-disbursement:nth-of-type(1) value:before		{color:var(--base15); border-bottom:2px solid var(--base03);}
+period-start 			{color:var(--base15);}
+period-end	 			{color:var(--base15);}
+planned-disbursement value 			{color:var(--base15);}
 
 
 /*	Transaction table
 	============================================= */
-transaction							{border-top:1px solid var(--dimmer_grey);}
-transaction a						{font-weight:bold; color:var(--mid_grey);}
-transaction a						{color:var(--mid_grey);}
-transaction a:link					{color:var(--mid_grey);}
-transaction a:visited				{color:var(--mid_grey);}
-transaction a:hover					{color:var(--mid_grey);}
-transaction a:active				{color:var(--mid_grey);}
-transaction:last-of-type			{border-bottom:0px solid var(--dimmer_grey);}
-transaction:nth-of-type(1):before	{color:var(--white); background-color:var(--darker_grey);}
+transaction							{border-top:1px solid var(--base01);}
+transaction a						{font-weight:bold; color:var(--base11);}
+transaction a						{color:var(--base11);}
+transaction a:link					{color:var(--base11);}
+transaction a:visited				{color:var(--base11);}
+transaction a:hover					{color:var(--base11);}
+transaction a:active				{color:var(--base11);}
+transaction:last-of-type			{border-bottom:0px solid var(--base01);}
+transaction:nth-of-type(1):before	{color:var(--base15); background-color:var(--base03);}
 
-transaction:nth-of-type(1) transaction-date:before	{color:var(--white); border-bottom:2px solid var(--darker_grey);}
-transaction:nth-of-type(1) transaction-type:before	{color:var(--white); border-bottom:2px solid var(--darker_grey);}
-transaction:nth-of-type(1) provider-org:before		{color:var(--white); border-bottom:2px solid var(--darker_grey);}
-transaction:nth-of-type(1) receiver-org:before		{color:var(--white); border-bottom:2px solid var(--darker_grey);}
-transaction:nth-of-type(1) value:before				{color:var(--white); border-bottom:2px solid var(--darker_grey);}
-span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {color:var(--white); border-bottom:2px solid var(--darker_grey);}
+transaction:nth-of-type(1) transaction-date:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
+transaction:nth-of-type(1) transaction-type:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
+transaction:nth-of-type(1) provider-org:before		{color:var(--base15); border-bottom:2px solid var(--base03);}
+transaction:nth-of-type(1) receiver-org:before		{color:var(--base15); border-bottom:2px solid var(--base03);}
+transaction:nth-of-type(1) value:before				{color:var(--base15); border-bottom:2px solid var(--base03);}
+span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {color:var(--base15); border-bottom:2px solid var(--base03);}
 
-transaction-date	{color:var(--white);}
-transaction-type	{color:var(--white);}
-span.span_transaction transaction description:nth-of-type(1) {color:var(--white);}
-provider-org		{color:var(--white);}
-receiver-org		{color:var(--white);}
-value				{color:var(--white);}
-value span			{color:var(--high_grey);}
+transaction-date	{color:var(--base15);}
+transaction-type	{color:var(--base15);}
+span.span_transaction transaction description:nth-of-type(1) {color:var(--base15);}
+provider-org		{color:var(--base15);}
+receiver-org		{color:var(--base15);}
+value				{color:var(--base15);}
+value span			{color:var(--base14);}
 
 
 /*	Contact info for Publisher
 	============================================= */
-contact-info *						{color:var(--white);}
-contact-info:nth-of-type(1):before	{color:var(--high_grey);}
-span.span_contact-info contact-info	{background-color:var(--darker_grey);}
-span.span_contact-info contact-info:nth-of-type(even)	{background:var(--black_0);}
+contact-info *						{color:var(--base15);}
+contact-info:nth-of-type(1):before	{color:var(--base14);}
+span.span_contact-info contact-info	{background-color:var(--base03);}
+span.span_contact-info contact-info:nth-of-type(even)	{background:var(--base05_00);}
 
 
 /*	Website or external links
 	============================================= */
-activity-website		{color:var(--white); background-color:var(--high_black_70);}
-activity-website:before {color:var(--high_grey);}
-activity-website:hover	{color:var(--mid_grey);}
+activity-website		{color:var(--base15); background-color:var(--base04_70);}
+activity-website:before {color:var(--base14);}
+activity-website:hover	{color:var(--base11);}
 
 
 /*	Activity Status
 	============================================= */
-activity-status[code="1"]	{background-color:var(--grey);}
-activity-status[code="2"]	{background-color:var(--quite_grey);}
-activity-status[code="3"]	{background-color:var(--mid_grey);}
-activity-status[code="4"]	{background-color:var(--dim_grey);}
-activity-status[code="5"]	{background-color:var(--dimmer_grey);}
-activity-status				{background-color:var(--quite_grey); color:var(--dark_grey);}
-activity-status:before		{color:var(--white);}
+activity-status[code="1"]	{background-color:var(--base13);}
+activity-status[code="2"]	{background-color:var(--base11);}
+activity-status[code="3"]	{background-color:var(--base);}
+activity-status[code="4"]	{background-color:var(--base03);}
+activity-status[code="5"]	{background-color:var(--base04);}
+activity-status				{background-color:var(--base); color:var(--base15);}
+activity-status:before		{color:var(--base15);}
 
 
 /*	Related documents list
 	============================================= */
-span.span_document-link:before				{color:var(--white); border-bottom:1px solid var(--white);}
-a.a_document-link							{color:var(--high_grey);}
-a.a_document-link document-link span-title			{color:var(--white);}
-a.a_document-link document-link span-title:hover	{color:var(--mid_grey);}
-document-link span							{color:var(--high_grey);}
+span.span_document-link:before				{color:var(--base15); border-bottom:1px solid var(--base15);}
+a.a_document-link							{color:var(--base14);}
+a.a_document-link document-link span-title			{color:var(--base15);}
+a.a_document-link document-link span-title:hover	{color:var(--base11);}
+document-link span							{color:var(--base14);}
 
 
 /*	Family Tree list
 	============================================= */
-span.span_related-activity:before	{color:var(--white); border-bottom:1px solid var(--white);}
-span.span_related-activity			{color:var(--white);}
-a.a_related-activity				{color:var(--white);}
-related-activity					{color:var(--mid_grey);}
-related-activity:hover				{color:var(--mid_grey);}
-related-activity:before				{color:var(--white);}
+span.span_related-activity:before	{color:var(--base15); border-bottom:1px solid var(--base15);}
+span.span_related-activity			{color:var(--base15);}
+a.a_related-activity				{color:var(--base15);}
+related-activity					{color:var(--base11);}
+related-activity:hover				{color:var(--base11);}
+related-activity:before				{color:var(--base15);}
