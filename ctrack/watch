@@ -8,5 +8,5 @@ BROWSERIFY=node_modules/browserify/bin/cmd.js
 WATCHIFY=node_modules/watchify/bin/cmd.js
 
 echo "watchify"
-$WATCHIFY -v -g uglifyify -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js
+node $WATCHIFY -v -g uglifyify -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js
 
