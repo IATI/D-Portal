@@ -38,6 +38,8 @@ _Commands above are for debian/ubuntu. For other operating systems, please the u
 
 5. You can now start building your website!
     - Remember! Run ```plated/upgrade``` first to install the node required dependencies.
+
+6. Read [the next bit](#run-this-local) on how to push new changes to update your live website.
     
 ---
 
@@ -50,10 +52,14 @@ You can test and build your website locally in your preferred browser by running
     - Run this at least once!
 
 2. Run ```plated/start``` to start a local server
-    - Leave this running in a separate tab, it should watch and rebuild your new changes
+    - Leave this running in a separate tab, it should watch and rebuild your new changes.
 
 3. View your website in a browser at: http://0.0.0.0:8000/your-new-repo-name
-    - Make sure your browser is not caching content, otherwise your changes will not show up
+    - Make sure your browser is not caching content, otherwise your changes will not show up.
+    
+4. Run ```plated/publish``` to push changes to Github
+    - Doing this will re-build and update your current website with the new changes.
+    - Depending on Github, it might take a while for new changes to show up but it shouldn't be too long.
 
 ---
 
