@@ -54,6 +54,7 @@ You can test and build your website locally in your preferred browser by running
 
 3. Run ```plated/start``` to start a local server
     - Leave this running in a separate tab, it should watch and rebuild your new changes.
+    - Make sure that nothing else is using port http://0.0.0.0:8000, otherwise you can't view your local site.
 
 4. View your website in a browser at: http://0.0.0.0:8000/your-new-repo-name
     - Make sure your browser is not caching content, otherwise your changes will not show up.
