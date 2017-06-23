@@ -33,7 +33,10 @@ _Commands above are for debian/ubuntu. For other operating systems, please the u
     - Change the GitHub Pages source to use **master branch /docs folder**
     - Save
 
-4. You can now start building your website!
+4. Check your URL - http://username.github.io/your-new-repo-name
+    - Your github url should now work and contain the default plated-example landing page.
+
+5. You can now start building your website!
     - Remember! Run ```plated/upgrade``` first to install the node required dependencies.
     
 ---
