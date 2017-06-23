@@ -1,6 +1,4 @@
 cd `dirname $0`
 
-cd ../ctrack/ &&
-./build $@ &&
-cd ../dportal/ &&
-./build $@
+../ctrack/build $@ &&
+../dportal/build $@
