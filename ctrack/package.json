@@ -1,18 +1,23 @@
 {
   "name": "ctrack",
   "description": "client side javascript for D-Portal",
-  "repository" : { "type" : "git", "url" : "https://github.com/devinit/D-Portal.git" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devinit/D-Portal.git"
+  },
   "version": "0.0.1",
   "license": "MIT",
   "dependencies": {
-    "marked": "*",
-    "watchify": "*",
-    "uglify-js": "*",
     "browserify": "*",
+    "csv-parse": "*",
+    "exorcist": "^0.4.0",
     "express": "*",
+    "marked": "*",
     "morgan": "*",
+    "uglify-js": "*",
+    "uglifyify": "^4.0.1",
     "wait.for": "*",
-    "yargs": "*",
-    "csv-parse": "*"
+    "watchify": "*",
+    "yargs": "*"
   }
 }

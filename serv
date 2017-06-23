@@ -1,6 +1,8 @@
 cd `dirname $0`
+
 cd ctrack &&
 ./build &&
 cd ../dportal &&
 ./build &&
-node js/serv $*
+./serv
+
