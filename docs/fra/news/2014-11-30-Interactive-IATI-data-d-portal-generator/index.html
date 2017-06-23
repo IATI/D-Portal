@@ -154,10 +154,14 @@ a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-heigh
 a.blog_title		{display:block; font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8); padding:0;}
 a.back_news			{display:block; margin-top:40px; text-align:right; color:rgba(42,42,42,0.8);}
 a.back_news:hover	{text-decoration:underline;}
+a.back_news_top		{display:block; width:960px; margin:0 auto; margin-top:40px; text-align:right; color:rgba(255,255,255,1);}
+a.back_news_top:hover{text-decoration:underline;}
 .blog_body code		{background-color:#eee; padding:10px 20px; font-size:18px; color:rgba(42,42,42,0.8); font-family:monospace; margin:15px 0; display:block;}
 .blog_body code a, .blog_body code a:focus, .blog_body code a:link, .blog_body code a:visited,
 .blog_body code a:hover, .blog_body code a:active	{color:rgba(42,42,42,0.8); text-decoration:none; transition:initial;}
 .blog_page_wrap		{width:920px; margin:0 auto; padding:20px 0; margin-bottom:40px;}
+.blog_page_wrap_top	{width:920px; margin:0 auto; margin-top:40px;}
+.blog_list_wrap		{margin-bottom:40px;}
 .page_link			{display:inline-block; vertical-align:top; width:50%;}
 .page_link a		{display:block; color:#FFF;}
 .page_link:nth-of-type(2) a	{text-align:right;}
@@ -381,20 +385,22 @@ a.beige:hover			{color:#FFF;}
 </div>
 
 	
+<a href="/d-portal.org/fra/news" class="back_news_top">Retour à la page Nouvelles 
+</a>
 <div class="blog_wrap">
 	<div class="blog_info_wrap">
-		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+		<div class="blog_info">
 			<div class="blog_author"><b>Matt Bartlett</b> ~ Project Manager</div>
 			<div class="blog_date">Posted in
- Overview</div>
+ <b>Overview</b></div>
 			<div class="blog_date">2014-11-30
 				<script type="text/javascript">
+					var c = document.currentScript.parentElement;
 					var d = new Date("2014-11-30");
 					var n = d.toDateString();
-					document.currentScript.parentElement.innerHTML = n;
+					c.innerHTML = n;
 				</script>
-			</div>
-		</div>
+		</div></div><div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div>
 	</div>
 	<div class="blog_title">Interactive IATI data – d-portal generator</div>
 	<div class="blog_body"><p><a href="http://www.d-portal.org">d-portal</a> is a platform that makes all <a href="http://www.aidtransparency.net">IATI</a> data accessible, and is a useful tool for investigating the increasing amount of IATI data. Nearly 300 organisations publish their activities in the <a href="http://www.iatiregistry.org/">IATI registry</a>, so we set up d-portal to turn that data into simple information for everyone – particularly those in developing countries interested in seeing information from their own country’s perspective. In addition to this, we recently added the <a href="http://www.d-portal.org/ctrack.html?#view=generator">generator</a> - to provide a means of re-using the IATI data in d-portal, by embedding it into other websites and blog posts.</p>
@@ -402,7 +408,7 @@ a.beige:hover			{color:#FFF;}
 
 <p>Here we give you some examples of information you can show using the d-portal generator - these are various randomly chosen examples of data which are currently published to IATI, but of course you can choose any current publisher, or combinations of publishers and recipients, depending on what information you want to display.</p>
 <p>This is a snapshot of a simple query we&#39;ve run on the generator...choosing Development Initiatives from the Publisher dropdown, and then the &#39;Sectors (table)&#39; view...</p>
-<p><a href="http://devinit.org/wp-content/uploads/2014/11/gen-screen-DIPR-sectors-search.jpg"><img class="alignnone size-full wp-image-5081" src="http://devinit.org/wp-content/uploads/2014/11/gen-screen-DIPR-sectors-search.jpg" alt="gen screen - DIPR sectors search" width="720" height="595" /></a>
+<p><img src="/d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator/gen-screen-DIPR-sectors-search.jpg" alt="gen screen - DIPR sectors search" width="720" height="595" /></a>
 <br/>
 <br/></p>
 <p>...and here&#39;s the resulting table - which we&#39;ve embedded below by copying the code generated in the white box (above), and pasting it into the html code for this webpage. You can now click on information in the table, to explore further...

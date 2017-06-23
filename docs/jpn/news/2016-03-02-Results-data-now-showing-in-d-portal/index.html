@@ -154,10 +154,14 @@ a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-heigh
 a.blog_title		{display:block; font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8); padding:0;}
 a.back_news			{display:block; margin-top:40px; text-align:right; color:rgba(42,42,42,0.8);}
 a.back_news:hover	{text-decoration:underline;}
+a.back_news_top		{display:block; width:960px; margin:0 auto; margin-top:40px; text-align:right; color:rgba(255,255,255,1);}
+a.back_news_top:hover{text-decoration:underline;}
 .blog_body code		{background-color:#eee; padding:10px 20px; font-size:18px; color:rgba(42,42,42,0.8); font-family:monospace; margin:15px 0; display:block;}
 .blog_body code a, .blog_body code a:focus, .blog_body code a:link, .blog_body code a:visited,
 .blog_body code a:hover, .blog_body code a:active	{color:rgba(42,42,42,0.8); text-decoration:none; transition:initial;}
 .blog_page_wrap		{width:920px; margin:0 auto; padding:20px 0; margin-bottom:40px;}
+.blog_page_wrap_top	{width:920px; margin:0 auto; margin-top:40px;}
+.blog_list_wrap		{margin-bottom:40px;}
 .page_link			{display:inline-block; vertical-align:top; width:50%;}
 .page_link a		{display:block; color:#FFF;}
 .page_link:nth-of-type(2) a	{text-align:right;}
@@ -381,25 +385,27 @@ a.beige:hover			{color:#FFF;}
 </div>
 
 	
+<a href="/d-portal.org/jpn/news" class="back_news_top">ニュースに戻るページへ
+</a>
 <div class="blog_wrap">
 	<div class="blog_info_wrap">
-		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+		<div class="blog_info">
 			<div class="blog_author"><b>Matt Bartlett</b> ~ Project Manager</div>
 			<div class="blog_date">Posted in
- Overview</div>
+ <b>Overview</b></div>
 			<div class="blog_date">2016-03-02
 				<script type="text/javascript">
+					var c = document.currentScript.parentElement;
 					var d = new Date("2016-03-02");
 					var n = d.toDateString();
-					document.currentScript.parentElement.innerHTML = n;
+					c.innerHTML = n;
 				</script>
-			</div>
-		</div>
+		</div></div><div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div>
 	</div>
 	<div class="blog_title">Results data now showing in d-portal</div>
 	<div class="blog_body"><p>Following requests from users about showing Results data in IATI with in d-portal you can now see this on the individual activity (<i>SAVi</i>) pages – if you drill down into the data through the chart and tables, or via the maps, to see an individual activity you should be able to scroll down past the details of individual transactions within that activity and see information on Results (<i>as long as the publisher has reported Results data in their xml!</i>).</p>
 <p>For example on this SAVi page for a <a href="http://d-portal.org/ctrack.html?publisher=NL-KVK-41160054&tongue=eng#view=act&aid=NL-KVK-41160054-109805">Cordaid activity</a> on improving health care in Zimbabwe you can see the Results data that Cordaid have published for this activity...</p>
-<p><img src="http://devinit.org/wp-content/uploads/2016/03/resultsdatadportal.png" alt="Results data" width="720" height="359">
+<p><img src="/d-portal.org/news/2016-03-02-Results-data-now-showing-in-d-portal/resultsdatadportal.png" alt="Results data" width="720" height="359">
 <br/>
 <br/></p>
 <p>As always <b>if you have any suggestions or feedback on d-portal</b> please do get in touch by one of the following means....</p>

@@ -154,10 +154,14 @@ a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-heigh
 a.blog_title		{display:block; font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8); padding:0;}
 a.back_news			{display:block; margin-top:40px; text-align:right; color:rgba(42,42,42,0.8);}
 a.back_news:hover	{text-decoration:underline;}
+a.back_news_top		{display:block; width:960px; margin:0 auto; margin-top:40px; text-align:right; color:rgba(255,255,255,1);}
+a.back_news_top:hover{text-decoration:underline;}
 .blog_body code		{background-color:#eee; padding:10px 20px; font-size:18px; color:rgba(42,42,42,0.8); font-family:monospace; margin:15px 0; display:block;}
 .blog_body code a, .blog_body code a:focus, .blog_body code a:link, .blog_body code a:visited,
 .blog_body code a:hover, .blog_body code a:active	{color:rgba(42,42,42,0.8); text-decoration:none; transition:initial;}
 .blog_page_wrap		{width:920px; margin:0 auto; padding:20px 0; margin-bottom:40px;}
+.blog_page_wrap_top	{width:920px; margin:0 auto; margin-top:40px;}
+.blog_list_wrap		{margin-bottom:40px;}
 .page_link			{display:inline-block; vertical-align:top; width:50%;}
 .page_link a		{display:block; color:#FFF;}
 .page_link:nth-of-type(2) a	{text-align:right;}
@@ -380,7 +384,13 @@ a.beige:hover			{color:#FFF;}
 	</table>
 </div>
 
-	<div class="blog_list_wrap">
+	<div class="blog_page_wrap_top">
+	<div class="page_link"><a href="/d-portal.org/news/page2.html">Older Post
+</a>
+</div><div class="page_link"></div>
+</div>
+
+<div class="blog_list_wrap">
 <div class="blog_wrap">
 	<div class="blog_info_wrap">
 		<div class="blog_info">
@@ -429,7 +439,7 @@ display results data in SAVi</a>, we misunderstood it entirely! Without
 context or how and what it was used for, a structure to compose a 
 visual layout was at most, based on assumptions.</p>
 <p><img 
-src="http://devinit.org/wp-content/uploads/2016/03/resultsdatadportal.png" 
+src="/d-portal.org/news/2017-06-12-Finding-context-in-Results-data-and-new-query-parameter/resultsdatadportal.png" 
 alt="Results data" width="720" height="359"><br><em>Fig. 2 First iteration of results data saw a rudimentary layout without 
 baseline data</em></p>
 <p>The first thing we had to do was find some actual results data to work 
@@ -589,7 +599,7 @@ resulting projects and outcomes of this workshop.</p>
 	<a href="/d-portal.org/news/2016-03-02-Results-data-now-showing-in-d-portal" class="blog_title">Results data now showing in d-portal</a>
 	<div class="blog_body"><p>Following requests from users about showing Results data in IATI with in d-portal you can now see this on the individual activity (<i>SAVi</i>) pages – if you drill down into the data through the chart and tables, or via the maps, to see an individual activity you should be able to scroll down past the details of individual transactions within that activity and see information on Results (<i>as long as the publisher has reported Results data in their xml!</i>).</p>
 <p>For example on this SAVi page for a <a href="http://d-portal.org/ctrack.html?publisher=NL-KVK-41160054&tongue=eng#view=act&aid=NL-KVK-41160054-109805">Cordaid activity</a> on improving health care in Zimbabwe you can see the Results data that Cordaid have published for this activity...</p>
-<p><img src="http://devinit.org/wp-content/uploads/2016/03/resultsdatadportal.png" alt="Results data" width="720" height="359">
+<p><img src="/d-portal.org/news/2016-03-02-Results-data-now-showing-in-d-portal/resultsdatadportal.png" alt="Results data" width="720" height="359">
 <br/>
 <br/></p>
 <p>As always <b>if you have any suggestions or feedback on d-portal</b> please do get in touch by one of the following means....</p>
@@ -658,7 +668,7 @@ resulting projects and outcomes of this workshop.</p>
 
 <p>Here we give you some examples of information you can show using the d-portal generator - these are various randomly chosen examples of data which are currently published to IATI, but of course you can choose any current publisher, or combinations of publishers and recipients, depending on what information you want to display.</p>
 <p>This is a snapshot of a simple query we&#39;ve run on the generator...choosing Development Initiatives from the Publisher dropdown, and then the &#39;Sectors (table)&#39; view...</p>
-<p><a href="http://devinit.org/wp-content/uploads/2014/11/gen-screen-DIPR-sectors-search.jpg"><img class="alignnone size-full wp-image-5081" src="http://devinit.org/wp-content/uploads/2014/11/gen-screen-DIPR-sectors-search.jpg" alt="gen screen - DIPR sectors search" width="720" height="595" /></a>
+<p><img src="/d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator/gen-screen-DIPR-sectors-search.jpg" alt="gen screen - DIPR sectors search" width="720" height="595" /></a>
 <br/>
 <br/></p>
 <p>...and here&#39;s the resulting table - which we&#39;ve embedded below by copying the code generated in the white box (above), and pasting it into the html code for this webpage. You can now click on information in the table, to explore further...

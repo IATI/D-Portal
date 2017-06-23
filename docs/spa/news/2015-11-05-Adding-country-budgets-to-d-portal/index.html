@@ -154,10 +154,14 @@ a.blog_head			{display:block; width:960px; margin:0 auto; color:#FFF; line-heigh
 a.blog_title		{display:block; font-size:40px; line-height:42px; font-weight:bold; color:rgba(42,42,42,0.8); padding:0;}
 a.back_news			{display:block; margin-top:40px; text-align:right; color:rgba(42,42,42,0.8);}
 a.back_news:hover	{text-decoration:underline;}
+a.back_news_top		{display:block; width:960px; margin:0 auto; margin-top:40px; text-align:right; color:rgba(255,255,255,1);}
+a.back_news_top:hover{text-decoration:underline;}
 .blog_body code		{background-color:#eee; padding:10px 20px; font-size:18px; color:rgba(42,42,42,0.8); font-family:monospace; margin:15px 0; display:block;}
 .blog_body code a, .blog_body code a:focus, .blog_body code a:link, .blog_body code a:visited,
 .blog_body code a:hover, .blog_body code a:active	{color:rgba(42,42,42,0.8); text-decoration:none; transition:initial;}
 .blog_page_wrap		{width:920px; margin:0 auto; padding:20px 0; margin-bottom:40px;}
+.blog_page_wrap_top	{width:920px; margin:0 auto; margin-top:40px;}
+.blog_list_wrap		{margin-bottom:40px;}
 .page_link			{display:inline-block; vertical-align:top; width:50%;}
 .page_link a		{display:block; color:#FFF;}
 .page_link:nth-of-type(2) a	{text-align:right;}
@@ -381,20 +385,22 @@ a.beige:hover			{color:#FFF;}
 </div>
 
 	
+<a href="/d-portal.org/spa/news" class="back_news_top">Volver a la página de Noticias 
+</a>
 <div class="blog_wrap">
 	<div class="blog_info_wrap">
-		<div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+		<div class="blog_info">
 			<div class="blog_author"><b>Matt Bartlett</b> ~ Project Manager</div>
 			<div class="blog_date">Posted in
- Overview</div>
+ <b>Overview</b></div>
 			<div class="blog_date">2015-11-05
 				<script type="text/javascript">
+					var c = document.currentScript.parentElement;
 					var d = new Date("2015-11-05");
 					var n = d.toDateString();
-					document.currentScript.parentElement.innerHTML = n;
+					c.innerHTML = n;
 				</script>
-			</div>
-		</div>
+		</div></div><div class="blog_icon" style="background:url('/d-portal.org/news/author/icon_Matt Bartlett.jpg')no-repeat; background-size:cover;"></div>
 	</div>
 	<div class="blog_title">Adding country budgets to d-portal</div>
 	<div class="blog_body"><p>We have made a small change to what information is shown in publisher tables in d-portal – the ones where you are looking from an individual publisher’s perspective at recipient countries – by including organisation file budgets.  This is budget data which some publishers provide in their IATI organisation file (<i>as opposed to activity files, where most other IATI data is reported</i>) and it represents the total annual budget for that publisher, per recipient country.</p>
