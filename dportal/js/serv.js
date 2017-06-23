@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-app.use(express.static(__dirname+"/../../docs"));
+app.use(express.static(__dirname+"/../static"));
 
 
 app.use(function(req, res, next) {
