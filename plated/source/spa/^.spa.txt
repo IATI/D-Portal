@@ -1,0 +1,518 @@
+
+#^------------------------------
+#^_include_json
+#^------------------------------
+{
+	include:[
+		"",
+	],
+	exclude:[
+		"cmn",
+		"fra",
+		"hin",
+		"jpn",
+		"spa",
+	],
+}
+
+#^tongue trim=ends
+spa
+
+#^tongue_root trim=ends
+{_root}spa/
+
+
+#^welcome_text
+Bienvenido a d-portal.org
+
+#^publishers_welcome_text
+Bienvenido a d-portal.org : Editorial edición
+
+#^alert1_text
+d-portal.org está todavía en desarrollo muy temprano, programado para su estreno a mediados de abril Alfa. Gracias por su paciente usted! Lamentablemente Cualquier comentario
+
+#^alert2_text
+aquí
+
+#^top_text
+Superior
+
+#^tagline_text
+Ayudar a comprender los datos de desarrollo.
+
+#^publishers_tagline_text
+Editorial edición
+
+#^install_button_text
+Generador
+
+#^install_info_text
+Crear widgets para tu sitio web.
+
+#^soon_text
+(¡Muy pronto!)
+
+#^explore_button_text
+Explorar
+
+#^explore_info_text
+Explora los datos IATI.
+
+#^develop_button_text
+Realimentación
+
+#^develop_info_text
+Envíanos tus pensamientos.
+
+#^index_title_text
+¿Qué es?
+
+#^index_paragraph1_text
+es una plataforma de información basada en los países que registra los flujos de recursos. Está dirigido a proporcionar los ministerios competentes, los parlamentarios y la sociedad civil una información que puede ayudar con la programación y seguimiento de las actividades de desarrollo.
+
+#^index_paragraph2_text
+Las TIC en la primera iteración que contiene los datos actuales publicados a través de la Iniciativa Internacional de Transparencia de la Ayuda (IATI), así como los datos más recientes (2012) agregada publicados por el Sistema de Notificación de los Países Acreedores del CAD. ¿Será el desarrollo futuro incluyen, entre otros, los datos de emergencia información, Sistemas de Gestión de los presupuestos nacionales y una serie de indicadores socioeconómicos comparables.
+
+#^index_title2_text
+¿Dónde están los datos de?
+
+#^index_paragraph3_text
+Los datos en el menú desplegable se construyen a partir de la <a href="https://github.com/devinit/D-Portal/tree/master/dstore">base de datos</a> que se actualiza todos los días GMT 0 con nuevos datos captados del Registro de la IATI.
+
+#^index_paragraph4_text
+Tenemos una lista de países que se reportan por los editores que utilizan <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 alfa-2</a>. Para la atribución y un enlace a las fuentes de datos, <a href="about.html#sources">ir aquí</a>.
+
+#^index_paragraph5_text
+La lista de los editores con su ID de editor de IATI viene directamente de la base de datos del Registro de la IATI.
+
+#^index_paragraph6_text
+La lista desplegable de Editores proviene de actividades XML publicados reportados por estos editores.
+
+#^news_page_text 
+La información sobre el desarrollo actual (Noticias) 
+
+#^install_link_text 
+Instalar 
+
+#^news_link_text 
+Noticias
+
+#^about_link_text
+Acerca
+
+#^home_link_text
+Casa
+
+#^read_more_text 
+Lea más acerca de d-portal
+
+#^publisher_portal_text 
+Editorial Edición
+
+#^links_title_text 
+Enlaces de interés
+
+#^explore_title_text 
+Explore países y editores 
+
+#^explore_paragraph1_text 
+Escoge un país o editor de abajo para explorar sus datos. 
+
+#^explore_paragraph2_text 
+Sólo los países y editores con los datos publicados a IATI están disponibles para la exploración.
+
+#^footer1_text
+Un proyecto de 2014 por el equipo de d-portal
+
+#^footer1_tip_text
+Iniciativa Internacional para la Transparencia de la Ayuda (IATI)
+
+#^footer2_text
+Principio de la página
+
+#^footer3_text
+Acerca de d-portal.org
+
+#^footer4_text
+Volver a la d-portal.org
+
+#^footer5_text
+Licencia : La licencia MIT (MIT) en 2014
+
+#^footer6_text
+d-portal.org
+
+#^footer7_text
+ayuda a explorar los datos de la IATI.
+
+#^footer8_text
+Proporciona información por país o por el editor en las actividades de desarrollo y los presupuestos publicados hasta la IATI.
+
+#^footer9_text
+Actualmente estamos en etapa beta. Mientras d-portal está disponible al público, no se considera terminado. Puede experimentar errores o ausencia de funcionalidades, pero es por eso que necesitamos su colaboración y apoyo.
+
+#^footer10_text
+Enviar mensajes de correo electrónico a
+
+#^footer11_text
+support@iatistandard.org
+
+#^footer12_text
+Herramientas & amp; actualizaciones
+
+#^footer13_text
+Últimos mensajes de noticias
+
+#^footer14_text
+Dash - estadísticas Publishers
+
+#^footer15_text
+Generator - Reproductores de su sitio web
+
+#^footer16_text
+Información
+
+#^footer17_text
+Preguntas más frecuentes
+
+#^footer18_text
+Atribución y Fuentes
+
+#^footer19_text
+Foro de sugerencias Github
+
+#^feedback_title_text
+d-portal.org Feedback
+
+#^feedback_paragraph1_text
+Hola, y gracias a todos por tomarse beta testers para la mano como d-portal.org. Damos la bienvenida a cualquier y todos los comentarios, sugerencias e inquietudes que pueda tener sobre el sitio web así que por favor no dude en enviar 'em como comentarios a continuación. En general, queremos centrarnos en la legibilidad y la experiencia de los usuarios, especialmente en cuanto a la comprensión de los datos que se está presentando.
+
+#^feedback_paragraph2_text
+Muchas gracias por tomarse el tiempo para hacer esto ! Esperamos crear algo útil y de fácil despliegue, un tema de conversación interesante apuntar que es más importante, promover mejores datos de calidad de las organizaciones informantes.
+
+#^feedback_paragraph3_text
+- shi
+
+#^about_title_text
+Acerca de d- portal.org
+
+#^about_paragraph_title_text
+¿Qué es?
+
+#^about_paragraph1_text
+d-portal.org le ayuda a explorar los datos de la IATI, proporcionando información por país o por el editor en las actividades de desarrollo y los presupuestos publicados hasta la IATI.
+
+#^about_paragraph2_text
+Está dirigido a ofrecer a los ministerios de línea , los parlamentarios y la sociedad civil una información que le puede ayudar con la planificación y el seguimiento de las actividades de desarrollo .
+
+#^about_paragraph3_text
+En su primera versión que contiene los datos actuales publicados a través de la Iniciativa Internacional de Transparencia de la Ayuda ( IATI ), así como los datos más recientes (2012) publicados por el <a href="http://www.oecd.org/dac/stats/crsguide.htm" target="_blank" class="co">OECD DAC Creditor Reporting System</a>.
+
+#^about_paragraph4_text
+La plataforma actual plantea dos preguntas:
+
+#^about_paragraph5_text
+Con el fin de responder a estas preguntas desde una perspectiva nacional es insuficiente simplemente para mostrar los datos disponibles: es igualmente importante para trazar las lagunas en la información. Hacer frente a la mala calidad o los datos que faltan es una parte esencial de la interfaz de información.
+
+#^about_paragraph6_text
+es una plataforma de código abierto. Esto significa que puede utilizar todos los aspectos de la plataforma para construir su propio portal utilizando el código fuente libre.
+
+#^about_paragraph7_text
+A pesar de que actualmente proporciona una implementación genérica para cualquier país que se ha desarrollado con la intención específica de ser modificado para requisitos particulares en el país para satisfacer las necesidades locales. Para más información sobre cómo se puede crear una versión personalizada para un país específico, consulte <a href="#install" class="how"> Cómo instalar </a>.
+
+#^about_paragraph8_text
+Financiamiento
+
+#^about_paragraph9_text
+El desarrollo inicial de d- portal.org que duró desde diciembre de 2013 hasta la reunión de la Alianza Global en México en abril de 2014 fue financiada por <a href="http://www.aidtransparency.net/" target="_blank" class="co">IATI</a> y <a href="http://devinit.org/" target="_blank" class="co">Development Initiatives (DI)</a>.
+
+#^about_paragraph10_text
+DI está financiando la fase actual del desarrollo y la preparación hasta el final de agosto 2014 Si usted está interesado en la financiación de parte de la elaboración en curso de d- portal , por favor póngase en contacto con <a href="mailto:support@iatistandard.org" target="_blank" class="co">support@iatistandard.org</a>
+
+#^about_paragraph11_text
+El concepto de código abierto se basa en el intercambio de recursos con la esperanza de que otros se unan a adentro y construir una mejor plataforma juntos. Esto incluye la búsqueda y notificación de errores, aportando nuevas características que le gustaría tener la plataforma o incluso la creación de nuevos temas para que otros puedan utilizarlo.
+
+#^about_paragraph12_text
+Otros sitios sobre la base de d-portal se enumeran a continuación. <a target="_blank" href="mailto:support@iatistandard.org" class="co">Contáctenos al support@iatistandard.org añadir el suyo aquí</a>.
+
+#^about_paragraph13_text
+<a href="http://open.undg.org/" target="_blank"> <img src="{root}art/UNDG_logo.png" alt="logo GNUD Portal de Transparencia" width="406" height="100"> </a>
+
+#^about_paragraph14_text
+<span class="questions"> 1. ¿De dónde provienen los recursos? </span> <span class="questions"> 2. ¿A dónde van (por sector y ubicación)? </span>
+
+#^about_paragraph15_text
+Los datos recientes, actuales y futuros se presenta y comparado a través de fuentes de datos.
+
+#^savi_paragraph1_text
+SAVI es un único visor de actividad para la IATI XML que se pueden ver en tiempo real, en línea, en tu navegador favorito.
+
+#^savi_paragraph2_text
+SAVI usa CSS y JavaScript para mostrar lo contrario compleja - que mira en un formato XML que es más fácil de leer y digerir.
+
+#^dstore_paragraph_text
+dstore subvenciona la IATI Registry con una versión nodejs + SQLite optimizado para su uso en las consultas en tiempo real.
+
+#^q_paragraph_text
+Q le permite consultar información que necesita a través de filtros simples pero complejas.
+
+#^q_example_title_text
+Estos son algunos ejemplos de consulta :
+
+#^q_example_append1_text
+Anexar las consultas con su formato preferido
+
+#^q_example_append2_text
+para Savi.
+
+#^q_example_xml_text
+Devuelve pura XML
+
+#^q_example_json_text
+Devuelve JSON
+
+#^q_example_savi_text
+Valor devuelto XML que se formatea automáticamente en HTML (Savi). Fuente permanece XML pura
+
+#^q_example1_text
+Valor devuelto XML que se formatea automáticamente en HTML (Savi). Fuente permanece XML pura
+
+#^q_example1_info1_text
+Esta consulta muestra las actividades Limitando la Cantidad de 10
+
+#^q_example1_info2_text
+ordenados por el día de inicio
+
+#^q_example1_info3_text
+y desde 1950 en adelante
+
+#^q_example2_text
+Devuelve pura XML
+
+#^q_example2_info1_text
+Esta consulta muestra todas las actividades dentro de Bangladesh (código de país es BD)
+
+#^q_example2_info2_text
+Eso - han Sectores informado acerca de los datos
+
+#^q_example2_info3_text
+En última instancia, esta consulta permite que usted mire todas las actividades - tiene que los gráficos en ellos.
+
+#^q_example3_text
+Devuelve JSON (por defecto es JSON) datos sobre las actividades (actividades son por defecto), donde 100 filas de la base de datos es el límite predeterminado
+
+#^q_example3_info1_text
+Esta consulta muestra estadísticas de los datos
+
+#^q_example3_info2_text
+actividades sobre la presentación de informes para cada organización
+
+#^q_example3_info3_text
+para Bangladesh
+
+#^q_example4_text
+Retornos de archivo CSV (por defecto llamado q.csv)
+
+#^q_example4_info1_text
+Esta consulta Permite descargar el CSV
+
+#^q_example4_info2_text
+de 1000
+
+#^q_example4_info3_text
+datos de la transacción
+
+#^q_example4_info4_text
+ordenados por fecha
+
+#^install_title_text 
+Cómo instalar el d-portal
+
+#^install_paragraph1_text 
+En el corazón del proyecto d-portal es el objetivo que cualquier persona en cualquier lugar puede tomar el código fuente abierta detrás de d-portal, desplegar por sí mismos y crear un d-portal personalizado para cualquier país que les interesa. Esto podría incluir la adición de cualquier otro dato de emergencia información, Sistemas de Gestión de los presupuestos nacionales y una serie de indicadores socioeconómicos comparables. 
+
+#^install_paragraph2_text 
+Ya hay ejemplos de medida d-portals específica del país de la siguiente manera: 
+
+#^install_paragraph3_text 
+d-portal se compone de la backend dstore y la interfaz ctrack. Para instalar d-portal, es necesario configurar un servidor. 
+
+#^install_paragraph4_text 
+<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md">Empieza a leer instrucciones para instalar una d-portal del servidor</a> 
+
+#^install_title2_text 
+¿Cómo crear un widget-d portal 
+
+#^install_paragraph5_text 
+Mediante el uso de iframes, el Generador de d-portal le permite incluir secciones de d-portal en cualquier plataforma de publicación HTML habilitado; es decir. Mensaje Wordpress blog, mensaje Tumblr, un sitio web, etc 
+
+#^install_paragraph6_text 
+Visita <a href="http://d-portal.org/ctrack.html#view=generator" class="country_portal">http://d-portal.org/ctrack.html#view=generator</a> para crear un widget-d portal.
+
+#^github_tip_text
+Visite d-portal.org en Github
+
+#^github_info1_text
+Tenedor nosotros
+
+#^github_info2_text
+d-portal.org está siendo desarrollado y diseñado para que las cosas están cambiando constantemente en la actualidad. Envíanos tus sugerencias, informes de errores y problemas o contacto <a href="mailto:support@iatistandard.org" target="_blank"> support@iatistandard.org </a>
+
+#^github_info3_text
+Si quieres estar al día de las noticias sobre d-portal por favor suscríbase a la <a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list">Google grupo</a>.
+
+#^footer_pick_text 
+Elige otro país 
+
+#^footer_top_text 
+Principio de la página 
+
+#^footer_about_text 
+Acerca de d-portal.org 
+
+#^dportal_logo_alt_text 
+Logo d-portal
+
+#^mainback_tip_text 
+Volver al d-portal
+
+#^flava_high_visibility_text 
+Alta Visibilidad 
+
+#^flava_original_text 
+Original
+
+#^blog_head_text 
+d-portal Noticias 
+
+#^posted_on_text 
+Publicado el 
+
+#^back_news_text 
+Volver a la página de Noticias 
+
+#^disqus_text 
+alimentado por los comentarios
+
+#^dash_title_text 
+Dash - Editores estadísticas de d-portal.org 
+
+#^dash_paragraph1_text 
+Dash es un resumen de los datos que pueblan d-portal.org con un enfoque principalmente en estadísticas para afiliados y la calidad de los datos notificados por ellos. 
+
+#^dash_paragraph2_text 
+Al mostrar cuándo y dónde se informa de datos no válidos, Dash será capaz de explicar las diferencias que se reflejan en el sitio principal. 
+
+#^dash_paragraph3_text 
+Dash no es específico de cada país por lo que será capaz de ver todas las estadísticas para afiliados disponibles en todos los países incluidos en el portal. Esto es para acomodar el hecho de que hay varios editores que reportan actividades en varios países receptores. 
+
+#^dash_paragraph4_text 
+Dash es actualmente accesible en <a href="http://d-portal.org/ctrack.html?#view=dash" class="dash_link">http://d-portal.org/ctrack.html?#view=dash</a>. Dash es una característica nueva y todavía se está desarrollando.
+
+#^gen_title_text
+Generator - Reproductores de su sitio web
+
+#^gen_paragraph1_text
+Hay una enorme cantidad de información interesante dentro de la IATI y el valor significativo de poder compartir trozos pequeños de ella libremente en otros sitios web y blogs. El generador de d-portal permite a los usuarios seleccionar información específica de d-portal y incrustan directamente en su propio código del sitio web.
+
+#^gen_paragraph2_text
+Una vez que haya incorporado ningún contenido se actualizará automáticamente (durante la noche) ya que los datos de las editoriales se actualiza en el registro de IATI. Cuando los usuarios hacen clic en los contenidos que serán dirigidos a la página correspondiente de d-portal para que puedan investigar más a fondo.
+
+#^gen_paragraph3_text
+Generator es actualmente accesible en <a href="http://www.d-portal.org/ctrack.html?#view=generator">http://www.d-portal.org/ctrack.html?#view=generator</a>.
+
+#^news_title_text
+Noticias y actualizaciones
+
+#^news_paragraph1_text
+Esta página contendrá cualquier actualización de la información y las características actuales de d-portal en el transcurso del desarrollo.
+
+#^news_paragraph2_text
+Si desea mantenerse al día con las noticias sobre el d-portal a través de una lista de correo, se recomienda <a href="https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list"> unirse al grupo </a> Google. Esta opción permite la entrega de anuncios d-portal directamente en su buzón de correo electrónico.
+
+#^news_paragraph3_text
+Las actualizaciones son poco frecuentes.
+
+#^news_paragraph4_text
+Empieza a leer noticias en <a href="http://www.d-portal.org/news.html"> http://www.d-portal.org/news.html </a>.
+
+#^faq_title_text
+Preguntas frecuentes
+
+#^faq_paragraph1_text
+d-portal es un sitio expansiva que contiene portales no sólo del país y editor basado sino también herramientas como Savi, Generador, Dash y pronto, Búsqueda - una sencilla interfaz de búsqueda respaldado por dStore y Q. Con esto viene una gran base de datos de preguntas acerca la arquitectura y la funcionalidad de las diferentes partes del sitio.
+
+#^faq_paragraph2_text
+Por ahora, rompemos estas abajo de 3 tipos diferentes de preguntas - técnica general y preguntas sobre el generador. En el futuro, vamos a añadir más pestañas a la lista para compensar las próximas funciones.
+
+#^faq_paragraph3_text
+FAQ se puede encontrar en <a href="http://www.d-portal.org/faq.html"> http://www.d-portal.org/faq.html </a>.
+
+#^discover_title_text
+Discover <i>(alfa) </i>
+
+#^discover_paragraph1_text
+Discover es una nueva característica que se encuentra actualmente en fase de desarrollo pesada. Con el respaldo de dStore y Q, que proporcionará una sencilla interfaz de búsqueda de los usuarios filtrar a través de la amplia base de datos de la IATI.
+
+#^discover_paragraph2_text
+Actualmente estamos buscando comentarios sobre la intuición y la facilidad de uso de Discover. No tener un ir y nos envíe sus comentarios mediante la adición de una nueva emisión a través de la <a href="https://github.com/devinit/D-Portal/issues"> Github foro </a> o, si lo prefiere, ponerse en contacto a través de <a href="mailto:support@iatistandard.org"> support@iatistandard.org </a>. Nos encantaría saber lo que piensas!
+
+#^discover_paragraph3_text
+Trate Discover <ahref="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+
+#^publisher_title_text
+Explora un publicador
+
+#^publisher_paragraph1_text
+Elige un editor de abajo para explorar sus datos.
+
+#^sources_title_text 
+Reconocimiento y enlace a las fuentes de datos 
+
+#^sources_header1_text 
+Datos 
+
+#^sources_header2_text 
+Nombre de la fuente 
+
+#^sources_header3_text 
+URL Fuente 
+
+#^sources_data1_text 
+Moneda 
+
+#^sources_data2_text 
+Banderas de países 
+
+#^sources_data3_text 
+Fondos País 
+
+#^sources_data4_text 
+Nombres de países 
+
+#^sources_data5_text 
+2 Códigos Carta País 
+
+#^sources_data6_text 
+Sólo Wikipedia dominio público imágenes 
+
+#^sources_data7_text 
+Pública de hoja de cálculo Google
+
+#^sources_data8_text 
+Sólo Pixabay dominio público imágenes
+
+#^publisher_dropmenu_text trim=ends
+Búsqueda de un editor 
+
+#^country_dropmenu_text trim=ends
+Busque un país receptor
+
+#^all_countries_text 
+Comparar todos los Países 
+
+#^all_publishers_text 
+Comparar Editores
+
+#^flag_alt_text 
+bandera

@@ -1,0 +1,452 @@
+#^html
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Frequently Asked Questions: d-portal</title>
+	<script src="{_root}jslib/jquery.js"></script>
+	<script>
+			$(function(){
+				$('a.topics.a').addClass("on");
+				$('a.faq_top').hide();
+				$('.faq_wrap.tech').hide();
+				$('.faq_wrap.gene').hide();
+				
+				$('a.topics.a').click(function () {
+					$('.faq_wrap.gen').show();
+					$('.faq_wrap.tech').hide();
+					$('.faq_wrap.gene').hide();
+					$('a.topics.a').addClass("on");
+					$('a.topics.b').removeClass("on");
+					$('a.topics.c').removeClass("on");
+				});
+				$('a.topics.b').click(function () {
+					$('.faq_wrap.gen').hide();
+					$('.faq_wrap.tech').show();
+					$('.faq_wrap.gene').hide();
+					$('a.topics.a').removeClass("on");
+					$('a.topics.b').addClass("on");
+					$('a.topics.c').removeClass("on");
+				});
+				$('a.topics.c').click(function () {
+					$('.faq_wrap.gen').hide();
+					$('.faq_wrap.tech').hide();
+					$('.faq_wrap.gene').show();
+					$('a.topics.a').removeClass("on");
+					$('a.topics.b').removeClass("on");
+					$('a.topics.c').addClass("on");
+				});
+				
+				$('.faq_links_wrap a').click(function () {
+					console.log($(this).attr('href'));
+					$('span.list').parent().removeClass("on");
+					$($(this).attr('href')).parent().addClass("on");
+				});
+				
+				$(document).scroll(function() {
+					var y = $(this).scrollTop();
+					if (y > 800) {
+						$('a.faq_top').show().css('left',$('.default').offset().left+960);
+					} else {
+						$('a.faq_top').hide();
+					}
+				});
+
+			});
+		</script>
+	<style>{css}</style>
+	{ganal}
+</head>
+<body>
+	{view_head}
+	{main_head}
+	{faq}
+	{view_tail}
+</body>
+</html>
+
+#^main_head
+<div class="navi clear">
+	<table class="head">
+		<tr>
+			<td class="logo">
+				<a href="{tongue_root}" title="{mainback_tip_text}">
+					<img src="{_root}art/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}
+				</a>
+			</td>
+			<td class="dplinks"><a href="{tongue_root}about.html" class="top install">{about_link_text}</a></td>
+			<td class="dplinks"><a href="{tongue_root}faq.html" class="top faq">FAQ</a></td>
+			<td class="dplinks"><a href="{tongue_root}ctrack.html#view=generator" class="top savi">Generator</a></td>
+			<td class="dplinks"><a href="{tongue_root}ctrack.html#view=dash" class="top dash">Dash</a></td>
+			<td class="dplinks"><a href="{tongue_root}news" class="top news">{news_link_text}</a></td>
+			<td class="dplinks"><a href="https://github.com/devinit/D-Portal" class="top hub">Github</a></td>
+			<td class="dplinks"><a href="{tongue_root}" class="top install">{home_link_text}</a></td>
+			<td class="options">{tongue_select}</td>
+		</tr>
+	</table>
+</div>
+
+#^status
+<span class="badge beta">BETA</span>
+
+#^faq
+<div class="about_wrap faq">
+	<div class="default">
+		<a onclick="$('html,body').animate({scrollTop:0},'slow');return false;" class="faq_top">Back to FAQ list</a>
+		<a href="#" class="topics a">General</a><a href="#" class="topics b">Technical</a><a href="#" class="topics c">Generator</a>
+		<div style="position:relative;">
+			
+			{faq_general}
+			{faq_tech}
+			{faq_generator}
+		</div>
+		
+	</div>
+</div>
+
+#^faq_general
+<div class="faq_wrap gen">
+	<div class="faq_links_wrap">
+		<div class="faq_head a">Frequently Asked <b>General</b> Questions</div>
+		<a href="#gen1">What is d-portal?</a>
+		<a href="#gen2">Which datasets are included in d-portal?</a>
+		<a href="#gen3">What is IATI?</a>
+		<a href="#gen4">What is OECD DAC CRS?</a>
+		<a href="#gen5">Where does the data come from?</a>
+		<a href="#gen6">Why is there data missing in some parts of d-portal?</a>
+		<a href="#gen7">Why are there zeroes and dashes in the tables?</a>
+		<a href="#gen8">When/how is data in d-portal updated?</a>
+		<a href="#gen9">Where can I see more detail on IATI data quality issues/stats on how often organisations are publishing, etc?</a>
+		<a href="#gen10">Where can I raise issues/questions about d-portal?</a>
+		<a href="#gen11">Where can I see plans for future development, and make suggestions?</a>
+		<a href="#gen12">How do I find out more about d-portal?</a>
+	</div>
+	
+	<ul class="faq_list">
+		<li>
+			<span id="gen1"></span>
+			<span class="list">What is d-portal?</span>
+			<span class="info">
+				A view of all IATI (<a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a>) data by recipient country or publisher, comparable with latest OECD DAC CRS (<a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a>) data.
+			</span>
+		</li>
+		<li>
+			<span id="gen2"></span>
+			<span class="list">Which datasets are included in d-portal?</span>
+			<span class="info">
+				<a href="http://www.aidtransparency.net">IATI</a> and <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS</a> data (see below for more information).
+			</span>
+		</li>
+		<li>
+			<span id="gen3"></span>
+			<span class="list">What is IATI?</span>
+			<span class="info">
+				The <a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a> - IATI is a voluntary, multi-stakeholder initiative that seeks to improve the transparency of aid, development, and humanitarian resources in order to increase their effectiveness in tackling poverty. 
+			</span>
+		</li>
+		<li>
+			<span id="gen4"></span>
+			<span class="list">What is OECD DAC CRS?</span>
+			<span class="info">
+				The Organisation for Economic Co-operation and Development’s Development Assistance Committee <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a> - which contains Official Development Assistance data.
+			</span>
+		</li>
+		<li>
+			<span id="gen5"></span>
+			<span class="list">Where does the data come from?</span>
+			<span class="info">
+				The IATI data comes from the <a href="http://www.iatiregistry.org/">IATI Registry</a>. 
+				<p>The CRS data comes from <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS tables</a>.</p>
+				<p>Other data is stored in a Google <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a> spreadsheet.</p>
+			</span>
+		</li>
+		<li>
+			<span id="gen6"></span>
+			<span class="list">Why is there data missing in some parts of d-portal?</span>
+			<span class="info">
+				Publishers report their IATI data at varying degrees of detail, and data is updated and improved all the time by publishers.  If a publisher only publishes data for 2013, it won’t appear in 2014 columns/charts etc.  
+				<p>d-portal attempts to only reflect what is in the data and does not make corrections to data or information published to IATI, with only small exceptions to make the site user-friendly*</p>
+
+				<p>See also information about <a href="http://d-portal.org/ctrack.html?country=AF&tongue=eng#view=data_quality">data quality</a> (<i>Afghanistan used as example</i>)</p>
+			</span>
+		</li>
+		<li>
+			<span id="gen7"></span>
+			<span class="list">Why are there zeroes and dashes in the tables?</span>
+			<span class="info">
+				Zeroes may denote issues with data quality (eg codes, dates, etc which are incompatible with the IATI Standard).  <i>There will shortly be links to the publisher’s page on the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a> to investigate specific data quality issues.</i>
+				<p>Dashes show that that donor/organisation is not currently an IATI publisher.</p>
+			</span>
+		</li>
+		<li>
+			<span id="gen8"></span>
+			<span class="list">When/how is data in d-portal updated?</span>
+			<span class="info">
+				IATI data is updated every night (importing any data which has changed from the previous day) and a full import is done each weekend - in each instance the data is pulled from the IATI Registry.
+				<p>CRS data is downloaded annually and then stored in <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a>.</p>
+			</span>
+		</li>
+		<li>
+			<span id="gen9"></span>
+			<span class="list">Where can I see more detail on IATI data quality issues/stats on how often organisations are publishing, etc?</span>
+			<span class="info">
+				See the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a>.
+			</span>
+		</li>
+		<li>
+			<span id="gen10"></span>
+			<span class="list">Where can I raise issues/questions about d-portal?</span>
+			<span class="info">
+				Either on our <a href="https://github.com/devinit/D-Portal">GitHub issues page</a> or via <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>
+			</span>
+		</li>
+		<li>
+			<span id="gen11"></span>
+			<span class="list">Where can I see plans for future development, and make suggestions?</span>
+			<span class="info">
+				See <a href="https://github.com/devinit/D-Portal/milestones">milestones on GitHub issues</a> page or contact us at <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>
+			</span>
+		</li>
+		<li>
+			<span id="gen12"></span>
+			<span class="list">How do I find out more about d-portal?</span>
+			<span class="info">
+				See the <a href="http://d-portal.org/about.html">About</a> page.
+				<p>Look at the <a href="https://github.com/devinit/D-Portal/issues">issues on GitHub</a>.</p>
+				<p>Contact us - <a href="mailto:support@iatistandard.org">support@iatistandard.org</a></p>
+			</span>
+		</li>
+	</ul>
+</div>
+
+
+#^faq_tech
+<div class="faq_wrap tech">
+	<div class="faq_links_wrap">
+		<div class="faq_head b">Frequently Asked <b>Technical</b> Questions</div>
+		<a href="#tech1">Which transaction types are used/not used in d-portal?</a>
+		<a href="#tech2">How/where is the data tidied up before being displayed in d-portal?</a>
+		<a href="#tech3">How is data apportioned to a specific year?</a>
+		<a href="#tech4">What counts as a ‘missing project’?</a>
+		<a href="#tech5">How are exchange rates calculated?</a>
+		<a href="#tech6">What are the criteria for my organisation’s data appearing in recipient country charts/tables/maps in d-portal?</a>
+		<a href="#tech7">Where do country codes/descriptions come from?</a>
+		<a href="#tech8">What classifies something as an active, ended or planned project?</a>
+		<a href="#tech9">How is the map data produced?</a>
+		<a href="#tech10">How are US government organisations shown?</a>
+		<a href="#tech11">Where does the data for single activity (SAVi) page come from?</a>
+		<a href="#tech12">Where can I find the code/README/project management information for d-portal?</a>
+		<a href="#tech13">Where is the additional data for d-portal stored?</a>
+		<a href="#tech14">When is ctrack updated?</a>
+		<a href="#tech15">What counts as 2014 (chart) data?</a>
+	</div>
+	
+	<ul class="faq_list">
+		<li>
+			<span id="tech1"></span>
+			<span class="list">Which transaction types are used/not used in d-portal?</span>
+			<span class="info">
+				‘Expenditure’ and ‘Disbursements’ for Spend columns/data.  If there are neither, but ‘Commitment’ data exists, then the Commitment data will be shown.
+
+				<p>‘Budgets’ in activity file, for Budget columns/data (eg in tables on d-portal) - if no budget data is present in the activity file, then ‘planned-disbursements’ are used if present.</p>
+			</span>
+		</li>
+		<li>
+			<span id="tech2"></span>
+			<span class="list">How/where is the data tidied up before being displayed in d-portal?</span>
+			<span class="info">
+				<ul>
+					<li>If a transaction date is not present, d-portal uses the transaction-value date in order to ascertain the date of a transaction (and therefore assign it to a specific year).</li>
+					<li>Only displaying countries that exist in <a href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>.</li>
+					<li>Removing secondary publishers - flagged as secondary sources in IATI Registry - from tables (to avoid double counting, eg secondary publishers are for example UN-OCHA who re-publish data which would replicate data from those publishers in the same table - see here for <a href="https://github.com/devinit/D-Portal/issues/156">list of secondary publishers</a> excluded in these instances).</li>
+					<li>Not displaying publishers with 0 datasets in the IATI Registry.</li>
+					<li>If there are neither Expenditure nor Disbursement data but Commitment data does exist then the Commitment data will be displayed.</li>
+					<li>In order to match against CRS data in tables, government departments are combined and shown under the country name - details of which departments are in <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=2">ctrack</a>.</li>
+					<li><i>There are currently plans under consideration to use the lowest hierarchy level data only, should data at multiple hierarchies exist, in order to avoid double counting.</i></li>
+				</ul>
+			</span>
+		</li>
+		<li>
+			<span id="tech3"></span>
+			<span class="list">How is data apportioned to a specific year?</span>
+			<span class="info">
+				Using the transaction value date/transaction date (eg in Spend columns in tables).
+				<p>Using the end date in the budget data (eg in Budget columns in tables).</p>
+			</span>
+		</li>
+		<li>
+			<span id="tech4"></span>
+			<span class="list">What counts as a ‘missing project’?</span>
+			<span class="info">
+				Anything with invalid date ranges (eg start date after the end date).
+				<p>Projects with invalid date ranges that cannot be placed in one of the other 3 categories (Active, Planned, Ended).</p>
+			</span>
+		</li>
+		<li>
+			<span id="tech5"></span>
+			<span class="list">How are exchange rates calculated?</span>
+			<span class="info">
+				<ul>
+					<li>Default USD
+					<p>Currently (please note this may change soon) converting to USD using the exchange rate of the date specified in the <b>value-date</b> attribute. So when we display USD, it is very accurate to that date.</p></li>
+
+					<li>Other currencies
+					<p>For other currencies, the USD value is just converted using today’s exchange rate (please note this may change soon).</p></li>
+
+					<li>For budget information in future?
+					<p>Using the latest exchange rates (<a href="http://www.imf.org/external/np/fin/data/rms_five.aspx">International Monetary Fund</a>) every night and doing a full re-import once a week, so future budgets will use the current exchange rates and should be updated weekly.</p></li>
+				</ul>
+			</span>
+		</li>
+		<li>
+			<span id="tech6"></span>
+			<span class="list">What are the criteria for my organisation’s data appearing in recipient country charts/tables/maps in d-portal?</span>
+			<span class="info">
+				For charts - need a transaction with transaction date in the relevant year (the latest complete year, eg currently 2014) with a valid recipient country code or valid sector code, depending on which chart it is.
+				<p>For tables - as above, with transaction date relating to the relevant year column in the table.</p>
+				<p>For maps - any transactions (from any year) with valid location tag and recipient country code
+				(to be valid it needs to be on the relevant IATI codelists).</p>
+			</span>
+		</li>
+		<li>
+			<span id="tech7"></span>
+			<span class="list">Where do country codes/descriptions come from?</span>
+			<span class="info">
+				This <a href="https://en.wikipedia.org/wiki/ISO_3166-2">Wikipedia page</a> with ISO codes.
+			</span>
+		</li>
+		<li>
+			<span id="tech8"></span>
+			<span class="list">What classifies something as an active, ended or planned project?</span>
+			<span class="info">
+				Activity start/end dates are used to work out which projects are active or ended or planned for the future.  
+				<ul>
+					<li>Active projects are projects with a start date in the past and with an end date in the future.</li>
+					<li>Ended projects are projects with an end date in the past.</li>
+					<li>Planned projects are anything with a start date in the future.</li>
+				</ul>
+			</span>
+		</li>
+		<li>
+			<span id="tech9"></span>
+			<span class="list">How is the map data produced?</span>
+			<span class="info">
+				Using ‘location’ tags within the data to plot projects on the maps - either lat/long or point/pos, depending on which the publisher uses.
+			</span>
+		</li>
+		<li>
+			<span id="tech10"></span>
+			<span class="list">How are US government organisations shown?</span>
+			<span class="info">
+				All collated under heading ‘United States’.
+			</span>
+		</li>
+		<li>
+			<span id="tech11"></span>
+			<span class="list">Where does the data for Single Activity Viewer (SAVi) come from?</span>
+			<span class="info">
+				These pages for individual activities come from <a href="http://www.iatiregistry.org/">IATI Registry</a> and link directly to the relevant activity in the <a href="http://datastore.iatistandard.org/query/">IATI Datastore</a>.
+			</span>
+		</li>
+		<li>
+			<span id="tech12"></span>
+			<span class="list">Where can I find the code/README/project management information for d-portal?</span>
+			<span class="info">
+				<a href="https://github.com/devinit/D-Portal">https://github.com/devinit/D-Portal</a>
+			</span>
+		</li>
+		<li>
+			<span id="tech13"></span>
+			<span class="list">Where is the additional data for d-portal stored?</span>
+			<span class="info">
+				Here in the <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack data</a> spreadsheet, including
+					<ul>
+						<li>list of funder Org IDs</li>
+						<li>currencies</li>
+						<li>exchange rates</li>
+						<li>sector codes</li>
+						<li>CRS data</li>
+					</ul>
+			</span>
+		</li>
+		<li>
+			<span id="tech14"></span>
+			<span class="list">When is <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a> updated?</span>
+			<span class="info">
+				Newly published files are updated every night and then once a week, a full re-import of all files is done. The re-import ensures that any external value that may have been changed; for example, exchange rates, will be applied to all relevant data.
+			</span>
+		</li>
+		<li>
+			<span id="tech15"></span>
+			<span class="list">What counts as 2014 (chart) data?</span>
+			<span class="info">
+				An activity which includes part of 2014 according to the activity’s start and end dates.
+			</span>
+		</li>
+	</ul>
+</div>
+
+
+#^faq_generator
+<div class="faq_wrap gene">
+	<div class="faq_links_wrap">
+		<div class="faq_head c">Frequently Asked <b>Generator</b> Questions</div>
+		<a href="#gene1">What is it?</a>
+		<a href="#gene2">Why does it exist?</a>
+		<a href="#gene3">How do I use it?</a>
+		<a href="#gene4">How often will the generated content on my webpage update?</a>
+		<a href="#gene5">How reliable is it?</a>
+	</div>
+	
+	<ul class="faq_list">
+		<li>
+			<span id="gene1"></span>
+			<span class="list">What is it?</span>
+			<span class="info">
+				A tool to help users to reproduce data from d-portal in other webpages/blogs.
+			</span>
+		</li>
+		<li>
+			<span id="gene2"></span>
+			<span class="list">Why does it exist?</span>
+			<span class="info">
+				To help users who want to display their own data, or data they are interested in, within their own website/blog.
+			</span>
+		</li>
+		<li>
+			<span id="gene3"></span>
+			<span class="list">How do I use it?</span>
+			<span class="info">
+				Make selections from the dropdown menus and C&amp;P the code provided into your webpage’s html.
+				
+				<p>For more information see <a href="http://www.d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator.html">http://www.d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator.html</a></p>
+			</span>
+		</li>
+		<li>
+			<span id="gene4"></span>
+			<span class="list">How often will the generated content on my webpage update?</span>
+			<span class="info">
+				It’s dynamic, so will update automatically overnight. If you change your data, this will be reflected. So when you’ve got content from the generator in your site or blog post, it will change accordingly!
+			</span>
+		</li>
+		<li>
+			<span id="gene5"></span>
+			<span class="list">How reliable is it?</span>
+			<span class="info">
+				The embedded data in your blog post / website will stay up as long as the d-portal site is up (eg permanently).
+
+				<p>The only time this can go wrong is if your website provider disallows you to include external widgets in your blog posts, ie. if you can embed a youtube video into your blog post, you can embed generator content in your post.</p>
+			</span>
+		</li>
+	</ul>
+</div>
+
+#^view_tail
+		</div>
+	</div>
+	<div class="footer_wrap">
+	<div class="footer">
+		{large_footer}
+	</div>
+	</div>
+</div>
+

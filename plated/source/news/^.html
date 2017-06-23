@@ -1,0 +1,176 @@
+#^------------------------------
+#^title trim=ends
+#^------------------------------
+
+News and updates
+
+
+#^------------------------------
+#^_blog_json
+#^------------------------------
+{
+	posts_per_page:5,
+}
+
+#^------------------------------
+#^_blog_page_body
+#^------------------------------
+<div class="blog_list_wrap">{_list:blog_list}</div>
+
+<div class="blog_page_wrap">
+	<div class="page_link">{_blog_page_older:link_older_page}</div><div class="page_link">{_blog_page_newer:link_newer_page}</div>
+</div>
+
+
+#^------------------------------
+#^-Paging for main blog list page
+#^link_older_page
+#^------------------------------
+<a href="{_it}">{older_post_news_text}</a>
+
+#^link_newer_page
+<a href="{_it}">{newer_post_news_text}</a>
+
+
+#^------------------------------
+#^-This is for the blog list
+#^blog_list
+#^------------------------------
+{_it._body}
+
+
+#^------------------------------
+#^-This is a single blog post viewed on its own page
+#^_blog_post_body_one
+#^------------------------------
+
+<div class="blog_wrap">
+	<div class="blog_info_wrap">
+		<div class="blog_icon" style="background:url('{_root}news/author/icon_{_blog_post_json.author}.jpg')no-repeat; background-size:cover;"></div><div class="blog_info">
+			<div class="blog_author"><b>{_blog_post_json.author}</b> ~ {_blog_post_json.role}</div>
+			<div class="blog_date">{posted_on3_text} {_blog_post_json.tag}</div>
+			<div class="blog_date">{_blog_post_json.datedash}
+				<script type="text/javascript">
+					var d = new Date("{_blog_post_json.datedash}");
+					var n = d.toDateString();
+					document.currentScript.parentElement.innerHTML = n;
+				</script>
+			</div>
+		</div>
+	</div>
+	<div class="blog_title">{_blog_post_json.title}</div>
+	<div class="blog_body">{_blog_post_body}</div>
+	<a href="{tongue_root}news" class="back_news">{back_news_text}</a>
+	
+<!--
+	<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'dportalnews'; // required: replace example with your forum shortname
+		var disqus_identifier = "{_fullfilename}"; // unique id of post
+		
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">{disqus_text} <span class="logo-disqus">Disqus</span></a>
+-->
+   
+</div>
+<div class="blog_page_wrap">
+	<div class="page_link">{_blog_post_older:link_older_post}</div><div class="page_link">{_blog_post_newer:link_newer_post}</div>
+</div>
+
+#^------------------------------
+#^-This is for the blog list
+#^_blog_post_body_many
+#^------------------------------
+
+<div class="blog_wrap">
+	<div class="blog_info_wrap">
+		<div class="blog_info">
+			<div class="blog_author"><b>{_blog_post_json.author}</b> ~ {_blog_post_json.role}</div>
+			<div class="blog_date">{posted_on3_text} <b>{_blog_post_json.tag}</b></div>
+			<div class="blog_date">{_blog_post_json.datedash}
+				<script type="text/javascript">
+					var c = document.currentScript.parentElement;
+					var d = new Date("{_blog_post_json.datedash}");
+					var n = d.toDateString();
+					c.innerHTML = n;
+				</script>
+		</div></div><div class="blog_icon" style="background:url('{_root}news/author/icon_{_blog_post_json.author}.jpg')no-repeat; background-size:cover;"></div>
+	</div>
+	<a href="{_dirname}" class="blog_title">{_blog_post_json.title}</a>
+	<div class="blog_body">{_blog_post_body}</div>
+</div>
+
+
+#^------------------------------
+#^link_older_post
+#^------------------------------
+<a href="{_it}">{older_post_news_text}</a>
+
+#^------------------------------
+#^link_newer_post
+#^------------------------------
+<a href="{_it}">{newer_post_news_text}</a>
+
+
+
+
+
+
+#^html
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{title}</title>
+	<script src="{_root}jslib/jquery.js"></script>
+	<style>{css}</style>
+</head>
+<body>
+	{view_head}
+	{main_head}
+	{body}
+	{view_tail}
+</body>
+</html>
+
+#^main_head
+<div class="navi">
+	<table class="head">
+		<tr>
+			<td class="logo">
+				<a href="{tongue_root}" title="{mainback_tip_text}">
+					<img src="{_root}art/dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}
+				</a>
+			</td>
+			<td class="dplinks"><a href="{tongue_root}about.html" class="top install">{about_link_text}</a></td>
+			<td class="dplinks"><a href="{tongue_root}faq.html" class="top faq">FAQ</a></td>
+			<td class="dplinks"><a href="{tongue_root}ctrack.html#view=generator" class="top savi">Generator</a></td>
+			<td class="dplinks"><a href="{tongue_root}ctrack.html#view=dash" class="top dash">Dash</a></td>
+			<td class="dplinks"><a href="{tongue_root}news" class="top news">{news_link_text}</a></td>
+			<td class="dplinks"><a href="https://github.com/devinit/D-Portal" class="top hub">Github</a></td>
+			<td class="dplinks"><a href="{tongue_root}" class="top install">{home_link_text}</a></td>
+			<td class="options">{tongue_select}</td>
+		</tr>
+	</table>
+</div>
+
+#^status
+<span class="badge beta">BETA</span>
+
+#^main_title
+<div class="default">
+	<a href="{_root}/news" class="blog_head">{blog_head_text}</a>
+</div>
+
+
+#^css same=append
+.navi	{position:relative;}
+
+

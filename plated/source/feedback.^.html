@@ -1,0 +1,61 @@
+#^html
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+ <head>
+<title>{feedback_title_text}</title> 
+
+<script src="{_root}jslib/head.js"></script>
+<link  href="feedback.css" rel="stylesheet" type="text/css" >
+<style>{css}</style>
+{ganal}
+ </head> 
+<body>
+<div class="beigealert_wrap">
+	<div class="beigealert"><img src="{_root}art/alert_icon.png" alt="Alert icon" width="15" height="15"> d-portal.org is currently in BETA. </div>
+</div>
+<div class="portal">
+	<div class="hello">
+		<p>{feedback_paragraph1_text}</p>
+		<p>{feedback_paragraph2_text}</p>
+		<p>{feedback_paragraph3_text}</p>
+	</div>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'countrytracker'; // required: replace example with your forum shortname
+        var disqus_url = "http://dev.ctrack.iatistandard.org/html/feedback.html";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+	<div class="footer_wrap">
+	<div class="footer">
+		{large_footer}
+	</div>
+</div>
+</div>
+</body>
+</html>
+
+
+#^css same=append
+
+html			{background-color:#fff;}
+#disqus_thread	{width:960px; margin:0 auto;}
+a.team			{width:320px; display:inline-block; vertical-align:top; font-size:13px; font-weight:bold; line-height:1.5em; color:#A3A3A3;}
+a.team:hover	{color:#fff;}
+a.countrytracker{width:320px; display:inline-block; vertical-align:top; text-align:center; font-size:13px; font-weight:bold; line-height:1.5em; color:#FFA500;}
+a.countrytracker:hover	{color:#FFD800;}
+a.github		{width:320px; display:inline-block; vertical-align:top; text-align:right; font-size:13px; font-weight:bold; line-height:1.5em; color:#A3A3A3;}
+a.github:hover	{color:#fff;}
+.hello			{padding:40px 0; margin:0 auto; width:960px; line-height:1.2em; font-size:1.15em; color:#3F4549;}
+p				{padding:15px 0;}
+
