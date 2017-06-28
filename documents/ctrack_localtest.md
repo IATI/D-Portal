@@ -17,7 +17,8 @@ https://help.github.com/articles/set-up-git
   - [Run a local server](#3-run-the-localhost-server)
   - [Refresh the server](#4-refresh-the-localhost-server)
   - [Ongoing usage](#5-in-the-future)
-  - [Import some data](#6-testing-local-data)
+  - [Testing local data](#6-testing-local-data)
+  - [Import local data to view on d-portal](#7-import-local-data-view-on-d-portal)
 
 
 ## 1. Installing git and node on Ubuntu
@@ -93,7 +94,7 @@ update the dstore data just to test ctrack.
 If all goes well then ctrack should be available, from your machine 
 in your browser at the following url
 
-http://localhost:1337/
+http://localhost:1408/
 
 
 ## 4. Refresh the localhost server.
@@ -155,4 +156,26 @@ this many times and all the data will be merged.
 This runs the server using the local database, so it will only show 
 data that has been imported. it may be accessed, stopped and restarted as 
 described in [Step 3](#3-run-the-localhost-server) and [Step 4](#4-refresh-the-localhost-server).
+
+
+
+## 7. Import local data, view on d-portal
+
+Once you import some data, you can then view this on your local version of d-portal. This will **not** upload your data to the live d-portal website.
+
+	cd D-Portal/bin
+	./dstore_reset
+	
+This resets the database and empties the ```cache``` folder.
+
+	cd D-Portal/bin
+	./dstore_import_cache
+	
+This imports **all** XML files in the ```cache``` folder to the database.
+
+	http://localhost:1408/ctrack.html#view=dash
+	
+Go to **Dash** to view the imported XML.  
+    - Click on the ```publisher name``` to view your newly imported data in d-portal  
+    - Click on the ```publisher id``` to view more stats about your newly imported data
 
