@@ -129,7 +129,7 @@ importing data and should be run before importing new data if you want
 to make sure that only the new data is included.
 
 	
-**There are a few scripts in here that can be run to download and import 
+**There are a [few scripts in here](https://github.com/devinit/D-Portal/tree/master/bin) that can be run to download and import 
 data to the local database.**
 
 	cd D-Portal/bin
