@@ -613,7 +613,7 @@ acts.each(function(i){var it=$(this);
 			an.push(name+" ("+value+"%)");
 		});
 		
-		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=880x275&cht=p&chds=a";
+		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=880x275&cht=p&chds=a&chp=4.712";
 		url=url+"&chd=t:"+av.join(",")+"&chdl="+an.join("|")
 
 		base.before("<img src=\""+url+"\" style=\"width:880px;height:275px\" class=\"sector_pie\" />");
