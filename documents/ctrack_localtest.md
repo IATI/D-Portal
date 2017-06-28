@@ -163,7 +163,7 @@ described in [Step 3](#3-run-the-localhost-server) and [Step 4](#4-refresh-the-l
 
 Once you import some data, you can then view this on your local version of d-portal. This will **not** upload your data to the live d-portal website.
 
-Add the XML files into the ```cache``` folder.
+Add the XML files into the ```D-Portal/dstore/cache``` folder.
 
 	cd D-Portal/bin
 	./dstore_reset
