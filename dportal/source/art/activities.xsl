@@ -6,7 +6,7 @@
 		<head>
 			<link rel="stylesheet" type="text/css" href="/art/original/activities.css" />
 			<script src="../jslib/jquery.js" />
-			<script src="../jslib/ctrack.js" />
+			<script src="../ctrack/jslib/ctrack.js" />
 			<script>
 				$(function(){
 					require("ctrack").savi_fixup();
