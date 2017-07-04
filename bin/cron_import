@@ -1,10 +1,6 @@
 cd `dirname $0`
 cd ..
 
-sudo bin/dstore_import_cache_new
-exit
-
-
 echo
 echo if any of these steps fail the only safe thing to do is a full import
 echo just wipe the entire cache directory and run again
