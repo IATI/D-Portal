@@ -1,3 +1,4 @@
-export DSTORE_PG="/var/run/postgresql dstore"
-
-
+export DSTORE_PG="?"
+export PGUSER="root"
+export PGDATABASE="dstore"
+export PGHOST="/var/run/postgresql"
