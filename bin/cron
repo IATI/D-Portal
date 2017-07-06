@@ -19,8 +19,8 @@ echo
 echo "Rebuilding ctrack with new json"
 echo
 
-
-bin/build
+#build has borken randomly?
+#bin/build
 
 # needs to be run by root...
 sudo /etc/init.d/dportal restart

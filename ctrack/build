@@ -7,5 +7,7 @@ node js/bake.js
 #BROWSERIFY=node_modules/browserify/bin/cmd.js
 
 echo "browserify"
+
+#browserify -g uglifyify -r ./js/ctrack.js:ctrack > jslib/ctrack.js
 browserify -g uglifyify -r ./js/ctrack.js:ctrack -d | exorcist jslib/ctrack.js.map > jslib/ctrack.js
 
