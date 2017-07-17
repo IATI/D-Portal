@@ -463,7 +463,7 @@ dstore_sqlite.fake_trans = function(){
 		process.stdout.write("The following publishers will have fake transactions added\n");
 		ls(fake_ids);
 
-		process.stdout.write("Adding fake transactions for the following IDs\n");
+//		process.stdout.write("Adding fake transactions for the following IDs\n");
 		for(i=0;i<fake_ids.length;i++) // add new fake
 		{
 			var v=fake_ids[i];
@@ -472,7 +472,7 @@ dstore_sqlite.fake_trans = function(){
 				for(j=0;j<rows.length;j++)
 				{
 					var t=rows[j];
-					process.stdout.write(t.aid+"\n");
+//					process.stdout.write(t.aid+"\n");
 					t.trans_code="D";
 					t.trans_flags=1;
 					dstore_back.replace(db,"trans",t);

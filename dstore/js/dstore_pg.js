@@ -583,7 +583,7 @@ dstore_pg.fake_trans = function(){
 		process.stdout.write("The following publishers will have fake transactions added\n");
 		ls(fake_ids);
 
-		process.stdout.write("Adding fake transactions for the following IDs\n");
+//		process.stdout.write("Adding fake transactions for the following IDs\n");
 		var ps=[];
 		for(i=0;i<fake_ids.length;i++) // add new fake
 		{
@@ -593,7 +593,7 @@ dstore_pg.fake_trans = function(){
 				for(j=0;j<rows.length;j++)
 				{
 					var t=rows[j];
-					process.stdout.write(t.aid+"\n");
+//					process.stdout.write(t.aid+"\n");
 					t.trans_code="D";
 					t.trans_flags=1;
 					var p=db.none(dstore_db.tables_replace_sql["trans"],t).catch(err);
@@ -606,7 +606,7 @@ dstore_pg.fake_trans = function(){
 		
 		Promise.all(ps).then(function()
 		{
-			process.stdout.write("Finished\n");
+//			process.stdout.write("Finished\n");
 			pgp.end();
 		}).catch(err);
 

@@ -381,7 +381,7 @@ dstore_cache.newold = function(argv){
 			else
 			{
 // do not copy to new
-				console.log("OLD "+slug);
+//				console.log("OLD "+slug);
 			}
 
 // copy to old
