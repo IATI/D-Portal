@@ -1,0 +1,4 @@
+for f in cache/usaid-*
+do
+./dstore import $f
+done
