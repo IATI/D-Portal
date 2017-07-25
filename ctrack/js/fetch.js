@@ -99,6 +99,10 @@ fetch.ajax_dat_fix=function(dat,args)
 // join any extra tables we might now need due to extra restrictions
 	if(dat.from)
 	{
+		if( dat.funder_ref || dat.reporting_ref )
+		{
+			if(dat.from.indexOf("act")==-1) { dat.from+=",act"; }
+		}
 		if( dat.sector_code || dat.sector_group )
 		{
 			if(dat.from.indexOf("sector")==-1) { dat.from+=",sector"; }
