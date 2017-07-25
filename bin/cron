@@ -19,8 +19,7 @@ echo
 echo "Rebuilding ctrack with new json"
 echo
 
-#build has borken randomly?
-#bin/build
+bin/build
 
 # needs to be run by root...
 sudo /etc/init.d/dportal restart
@@ -35,12 +34,7 @@ if [ "$(date +'%u')" == "7" ] ; then
 	bin/instance_delete_all
 fi
 
-
-######echo "SKIPPING IMPORT STEP"
 bin/cron_import
 
-
 date
-
-
 

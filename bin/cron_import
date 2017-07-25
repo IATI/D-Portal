@@ -59,9 +59,15 @@ echo add fake transactions for some publishers
 echo
 bin/dstore_fake
 
-
+#
+# do not bother with vacuum/etc step anymore ?
+#
 #echo
 #echo speed up the database
 #echo
 #bin/dstore_vacuum
+
+
+
+echo FINISHED IMPORT
 
