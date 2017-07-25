@@ -3,11 +3,16 @@ cd `dirname $0`
 echo "bake"
 node js/bake.js
 
-#EXORCIST=node_modules/exorcist/bin/exorcist.js
-#BROWSERIFY=node_modules/browserify/bin/cmd.js
+EXORCIST=node_modules/exorcist/bin/exorcist.js
+BROWSERIFY=node_modules/browserify/bin/cmd.js
 
 echo "browserify"
 
-browserify -g uglifyify -r ./js/ctrack.js:ctrack -o jslib/ctrack.js
+$BROWSERIFY -g uglifyify -r ./js/ctrack.js:ctrack -d | $EXORCIST jslib/ctrack.js.map > jslib/ctrack.js
+
+
+#browserify-lite ./js/ctrack.js --standalone ctrack --outfile jslib/ctrack.js
+#browserify-lite ./js/ctrack.js --outfile jslib/ctrack.js
+#browserify -g uglifyify -r ./js/ctrack.js:ctrack -o jslib/ctrack.js
 #browserify -g uglifyify -r ./js/ctrack.js:ctrack -d | exorcist jslib/ctrack.js.map > jslib/ctrack.js
 
