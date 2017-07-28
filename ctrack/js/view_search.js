@@ -526,7 +526,7 @@ view_search.ajax=function(args)
 	var dat={
 			"from":"act",
 			"limit":-1,
-			"select":"count_aid,aid",
+			"select":"count_aid",
 		};
 	fetch.ajax_dat_fix(dat,args);
 
