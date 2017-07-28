@@ -333,7 +333,9 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search_head				{color:#53B4ED; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
 .search_head span			{color:#fff; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
 
-#result_aid_div				{color:#fff; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
+/*	IATI Identifier link	*/
+#result_aid_div	a			{display:block; color:#fff; font-weight:normal; letter-spacing:1px; margin-left:-5px; border:1px solid #2f6381; background:linear-gradient(#68c7ff,#2d5d7b); background:-webkit-linear-gradient(#68c7ff,#2d5d7b); text-shadow:0 -1px 0 #366e90; text-align:center; margin:0 auto; font-size:1.6em; line-height:18px; border-radius:6px; height:60px; max-height:60px; box-sizing:border-box; padding:20px;}
+#result_aid_div a:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#2d5d7b); background:-webkit-linear-gradient(#50a0d2,#2d5d7b); text-shadow:0 -1px 0 #2d5d7b;}
 .search_aid_link_disable    {display:none;}
 
 .search_input_wrap			{position:relative;}

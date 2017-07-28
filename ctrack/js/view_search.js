@@ -545,9 +545,13 @@ view_search.ajax=function(args)
 	$("#result_span").html("...");
 
 	fetch.ajax(dat,function(data){
+		var c=data.rows[0]["count_aid"];
+		if( c==0 ) // show results
+		{
+			$("#search_link").addClass("search_link_disable");
+		}
 		if(count!=0) // show results
 		{
-			var c=data.rows[0]["count_aid"];
 //console.log( data.rows[0] );
 			$("#result_span").html("Found "+c+" activities");
 		}
@@ -566,7 +570,7 @@ view_search.ajax=function(args)
 			{
 //console.log( data );
 				var aid=data.rows[0].aid
-				$("#result_aid_link").html("<a href=\"#view=act&aid="+aid+"\">"+aid+"</a>");
+				$("#result_aid_link").html("<a href=\"#view=act&aid="+aid+"\">View the activity with this IATI Identifier</a>");
 				$("#result_aid_div").removeClass("search_aid_link_disable");
 				
 //				ctrack.change_hash({view:"act",aid:aid});
