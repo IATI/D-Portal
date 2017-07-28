@@ -526,7 +526,7 @@ view_search.ajax=function(args)
 	var dat={
 			"from":"act",
 			"limit":-1,
-			"select":"count_aid",
+			"select":"count_aid,aid",
 		};
 	fetch.ajax_dat_fix(dat,args);
 
@@ -541,12 +541,34 @@ view_search.ajax=function(args)
 	}
 	
 	$("#result_span").html("...");
+
 	fetch.ajax(dat,function(data){
 		if(count!=0) // show results
 		{
 			var c=data.rows[0]["count_aid"];
+			console.log( data.rows[0] );
 			$("#result_span").html("Found "+c+" activities");
 		}
 	});
 	
+	$("#result_aid_link").html("");
+	$("#result_aid_div").addClass("search_aid_link_disable");
+	if( args && args.q && args.q.text_search ) // try for exact aid
+	{
+		fetch.ajax({
+				"from":"act",
+				"limit":1,
+				"aid":args.q.text_search,
+			},function(data){
+			if( data.rows.length>0 ) // show results
+			{
+				console.log( data );
+				var aid=data.rows[0].aid
+				$("#result_aid_link").html("<a href=\"#view=act&aid="+aid+"\">"+aid+"</a>");
+				$("#result_aid_div").removeClass("search_aid_link_disable");
+			}
+		});
+	}
+
+
 }

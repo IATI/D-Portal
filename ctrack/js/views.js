@@ -24,6 +24,7 @@ views.stats=require("./view_stats.js");
 views.map=require("./view_map.js");
 
 views.search=require("./view_search.js");
+views.search2=require("./view_search.js");
 views.freetext=require("./view_search.js");
 views.main=require("./view_main.js");
 
