@@ -16,6 +16,11 @@ iati-activity:after {content:"Data is sourced from IATI for D-Portal. If you fin
 *:before			{line-height:14px;}
 
 
+/*	Play nice with Google Translate font tags
+	============================================= */
+font					{display:inline;}
+
+
 /*	Hacks to display injected elements
 	============================================= */
 iati-activity span	{display:block;}
