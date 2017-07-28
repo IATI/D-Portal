@@ -568,6 +568,8 @@ view_search.ajax=function(args)
 				var aid=data.rows[0].aid
 				$("#result_aid_link").html("<a href=\"#view=act&aid="+aid+"\">"+aid+"</a>");
 				$("#result_aid_div").removeClass("search_aid_link_disable");
+				
+				ctrack.change_hash({view:"act",aid:aid});
 			}
 		});
 	}
