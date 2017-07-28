@@ -165,8 +165,9 @@ view_search.fixup=function()
 //		que.push("this is a test");
 //		txt.push("this is a test");
 		
-		var v=$('#view_search_string').val() || $('#view_search_string_only').val();
-
+		var vraw=$('#view_search_string').val() || $('#view_search_string_only').val();
+		var v=vraw;
+		
 // remove and trim non alphanumerics, so search is very simple for now
 		if(v) { v=v.replace(/[^A-Za-z0-9]+/gi," ").trim(); }
 		
@@ -178,6 +179,7 @@ view_search.fixup=function()
 			txt.push("Searching activity title for the term \""+v+"\"")
 			que.push("search="+v)
 			q.text_search=v;
+			q.raw_text_search=vraw;
 		}
 		else
 		{
@@ -558,7 +560,7 @@ view_search.ajax=function(args)
 		fetch.ajax({
 				"from":"act",
 				"limit":1,
-				"aid":args.q.text_search,
+				"aid":args.q.raw_text_search,
 			},function(data){
 			if( data.rows.length>0 ) // show results
 			{
