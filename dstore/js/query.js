@@ -633,7 +633,7 @@ query.do_select_response=function(q,res,r){
 	{
 		res.set('Content-Type', 'text/xml');
 
-		var xsl='<?xml-stylesheet type="text/xsl" href="/art/activities.xsl"?>\n';
+		var xsl='<?xml-stylesheet type="text/xsl" href="/ctrack/art/activities.xsl"?>\n';
 		if(q.xsl=="!") { xsl=""; } // disable pretty view
 		
 		res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n'+
