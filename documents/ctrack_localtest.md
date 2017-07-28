@@ -76,7 +76,6 @@ directory then the CD may be skipped and should not be run twice.
 This only needs to be run once, it will download and install the 
 node modules that ctrack depends upon.
 
-	cd D-Portal
 	./install_deps
 	
 This will chug away for a little while downloading code.
@@ -88,7 +87,6 @@ This is only going to run ctrack module, the extra opton tells it to
 visit d-portal to fetch the data so you do not need to install or 
 update the dstore data just to test ctrack.
 
-	cd D-Portal
 	./serv -q http://d-portal.org/
 
 If all goes well then ctrack should be available, from your machine 
@@ -121,8 +119,8 @@ above steps just the following:
 We can also import xml activities into a local database to view and 
 test using the following commands.
 
-	cd D-Portal/dstore
-	./dstore init
+	cd D-Portal
+	dstore/dstore init
 
 Creates or resets the local database, this must be run once before 
 importing data and should be run before importing new data if you want 
@@ -132,25 +130,23 @@ to make sure that only the new data is included.
 **There are a [few scripts in here](https://github.com/devinit/D-Portal/tree/master/bin) that can be run to download and import 
 data to the local database.**
 
-	cd D-Portal/bin
-	./dstore_import_bd_ug_hn
+For the purposes of running these scripts, we assume you are in the root of the project (```cd D-Portal```).
+
+	bin/dstore_import_bd_ug_hn
 	
 Downloads and imports data for these respective countries from IATI Datastore, one country at a time.  
 _This is the recommended option for filling up a test database._
 
-	cd D-Portal/bin
-	./dstore_import_full
+	bin/dstore_import_full
 	
 Downloads and imports all the data from the IATI Datastore, one country at a time.  
 _This option will take a relatively long time to process and will use up a lot of disc space._
 
-	cd D-Portal/dstore
-	./dstore import activity_data.xml
+	dstore/dstore import cache/activity_data.xml
 
-Import the file "activity_data.xml" into the local database. You may do 
+Import the file "activity_data.xml" from the ```D-Portal/dstore/cache``` folder into the local database. You may do 
 this many times and all the data will be merged.
 
-	cd D-Portal
 	./serv
 
 This runs the server using the local database, so it will only show 
@@ -163,15 +159,15 @@ described in [Step 3](#3-run-the-localhost-server) and [Step 4](#4-refresh-the-l
 
 Once you import some data, you can then view this on your local version of d-portal. This will **not** upload your data to the live d-portal website.
 
-Add the XML files into the ```D-Portal/dstore/cache``` folder.
+For the purposes of running these scripts, we assume you are in the root of the project (```cd D-Portal```).
 
-	cd D-Portal/bin
-	./dstore_reset
+You'll need to add your XML files into the ```D-Portal/dstore/cache``` folder.
+
+	bin/dstore_reset
 	
 This resets the database and empties the ```cache``` folder.
 
-	cd D-Portal/bin
-	./dstore_import_cache
+	bin/dstore_import_cache
 	
 This imports **all** XML files in the ```cache``` folder to the database.
 

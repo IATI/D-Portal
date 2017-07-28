@@ -416,6 +416,7 @@ sorted++;
 		"reporting-org",
 		"iati-identifier",
 		"recipient-country",
+		"location",
 		"activity-date",
 		"participating-org",
 		"description",
