@@ -306,6 +306,7 @@ view_map.ajax_heat=function(args)
 
 			if( ("number"== typeof lng) && ("number"== typeof lat) )
 			{
+				var weight=Number(v.count);
 				if(!ctrack.map.heat)
 				{
 					ctrack.map.heat=[];
@@ -313,13 +314,13 @@ view_map.ajax_heat=function(args)
 				ctrack.map.heat.push({
 					lat:lat,
 					lng:lng,
-					wgt:Number(v.count)
+					wgt:weight
 				});
 				if( (lat<=90) && (lat>=-90) && (lng<=180) && (lng>=-180) ) // check for valid values
 				{
-					alat+=lat;
-					alng+=lng;
-					acnt++;
+					alat+=lat*weight;
+					alng+=lng*weight;
+					acnt+=weight;
 				}
 			}
 		}
