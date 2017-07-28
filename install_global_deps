@@ -2,7 +2,4 @@ cd `dirname $0`
 
 echo " installing global commands from npm that you probably need "
 
-npm -g install exorcist browserify watchify forever
-
-
-
+npm -g install forever
