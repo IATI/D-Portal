@@ -31,7 +31,7 @@ strong, b, .bold		{font-weight:bold; color:inherit;}
 	============================================= */
 .portal					{-moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; display:table; width:100%; height:100%;}
 .main_wrap				{width:100%; min-width:1040px; padding:0px; display:table-cell; background-color:rgba(255,255,255,0.4);}
-#background_image	 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/art/mexico_background_image.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
+#background_image	 	{width:100%; height:100%; position:fixed; top:0; left:0; z-index:-1; background-image:url('/ctrack/art/mexico_background_image.jpg'); background-repeat:no-repeat; background-position:center center; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;}
 .overlay				{width:100%; height:100%; background-color:rgba(46,41,6,0.6); position:relative;}	/* Overlay colour for background image */
 iati-activity			{margin-bottom:40px;}	/* Fixes too-large bottom margin during only this instance */
 iati-activity:after 	{content:""; padding:0; display:initial;}	/* Takes away content since footer is included on site */
@@ -149,7 +149,7 @@ a.feedback_txt, #more_feedback_info	{color:#fff; display:inline-block; vertical-
 
 /*	Generator link - INDEX PAGE
 	============================================= */
-.screen_generator		{display:block; background:url('/art/generator.png')no-repeat; background-size:540px 562px; width:540px; height:200px;}
+.screen_generator		{display:block; background:url('/ctrack/art/generator.png')no-repeat; background-size:540px 562px; width:540px; height:200px;}
 a.description_wrap.bigbutton						{display:block; width:878px; margin-bottom:40px; padding:40px 40px 0 40px; background-color:rgba(255,255,255,0); border:1px solid #fff;}
 a.description_wrap.bigbutton:hover					{background-color:rgba(255,255,255,0.1);}
 a.description_wrap.bigbutton span.description		{margin:0; width:340px; padding:0; background:transparent; display:inline-block; vertical-align:top;}
