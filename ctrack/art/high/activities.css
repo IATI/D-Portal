@@ -38,7 +38,7 @@ narrative {display:inline-block; color:inherit; font-family:inherit; word-wrap:i
 /*	Project title
 	============================================= */
 span.span_span-title span-title			{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#000; line-height:1.1em;}
-span.span_span-title span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#000; display:block; margin-bottom:20px;}
+span.span_span-title span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#000; display:block; border-bottom:1px solid #000; padding-bottom:10px; margin-bottom:20px;}
 span.span_span-title narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0 0; font-style:italic;}
 
 
@@ -73,7 +73,7 @@ a.a_slug:active			{color:#000;}
 transaction recipient-country		{display:none;}
 span.span_recipient-country			{display:block; vertical-align:top; width:960px; padding:40px; box-sizing:border-box;}
 recipient-country 					{display:block; vertical-align:top; padding:20px 0;}
-span.span_recipient-country:before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#000; margin-bottom:20px; display:block;}
+span.span_recipient-country:before {content:"RECIPIENT COUNTRY"; font-size:14px; color:#000; border-bottom:1px solid #000; padding-bottom:10px; margin-bottom:20px; display:block;}
 recipient-country span				{font-size:48px; color:#000;}
 recipient-country span:nth-of-type(2)	{font-size:20px; color:#000; padding-top:10px;}
 
@@ -99,9 +99,10 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 /*	Who's invloved?
 	============================================= */
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#000; counter-reset:section;}
-span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#000; display:block; margin-bottom:20px;}
+span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#000; display:block; border-bottom:1px solid #000; padding-bottom:10px;  margin-bottom:20px;}
 participating-org 					{display:block; padding:10px 0 0 0; position:relative; line-height:24px;}
 participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
+participating-org narrative			{display:inline;}
 participating-org a					{display:initial;}
 participating-org a:link			{color:#000;}
 participating-org a:visited			{color:#000; text-decoration:underline;}
@@ -121,6 +122,19 @@ span-narrative.participating-role	{font-size:14px; color:#ccc; display:inline-bl
 span.span_participating-org narrative:nth-of-type(n+2)			{display:block; padding:5px 0 0 20px; font-style:italic; font-size:16px; line-height:inherit;}
 
 
+/*	Location (version 2.02++)
+	============================================= */
+span.span_location			{display:block; width:880px; padding:0 40px 40px 40px; font-size:18px; color:#000; counter-reset:section;}
+span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#000; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #000;}
+span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:24px;}
+span.span_location location::before	{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
+span.span_location location name	{display:inline;}
+span.span_location location point	{display:inline;}
+span.span_location location point > *	{display:inline; color:#000;}
+span.span_location location pos:before	{content:" (";}
+span.span_location location pos:after	{content:")";}
+
+
 /*	Reported by
 	============================================= */
 reporting-org 					{display:block; width:880px; padding:20px 40px 40px 40px; font-size:18px; font-weight:bold; color:#000; line-height:1.45em;}
@@ -136,7 +150,7 @@ span.span_description description:nth-of-type(1):before {content:"DESCRIPTION"; 
 span.span_description description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#000; display:block;}
 span.span_description description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#000; display:block;}
 span.span_description description[type="3"]:before	{content:"TARGET GROUPS"; font-size:14px; color:#000; display:block;}
-span.span_description description:last-of-type		{padding-bottom:40px; border-bottom:1px solid #000; border-top:0;}
+span.span_description description:last-of-type		{padding-bottom:40px; border-top:0;}
 span.span_description description:nth-child(1)		{border-top:1px solid #000;}
 
 span.span_description description.empty				{display:none;}	/*	Hides container if empty	*/
@@ -279,7 +293,6 @@ planned-disbursement value 			{display:inline-block; vertical-align:top; color:#
 transaction							{display:block; width:958px; border-top:1px solid #000; padding:15px 0 5px 0; border-bottom:0;}
 transaction a						{color:#000;}
 transaction a:hover					{color:#000;}
-transaction:last-of-type			{border-bottom:1px solid #000; padding-bottom:40px;}
 transaction:nth-of-type(1)			{margin-top:0px; padding-top:0;}
 transaction:nth-of-type(1):before	{content:"Transactions"; font-size:26px; color:#000; border-bottom:1px solid #000; display:block; padding:20px 40px; margin-bottom:25px;}
 
