@@ -145,7 +145,7 @@ Downloads and imports all the data from the IATI Datastore, one country at a tim
 _This option will take a relatively long time to process and will use up a lot of disc space._
 
 	cd D-Portal/dstore
-	./dstore import activity_data.xml
+	./dstore import cache/activity_data.xml
 
 Import the file "activity_data.xml" into the local database. You may do 
 this many times and all the data will be merged.
