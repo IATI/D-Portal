@@ -95,8 +95,8 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 	============================================= */
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#FFF; counter-reset:section;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
-participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:18px;}
-participating-org 					{display:block; padding:10px 0; position:relative; line-height:18px;}
+participating-org 					{display:block; padding:10px 0 0 0; position:relative; line-height:24px;}
+participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
 participating-org a					{display:initial;}
 participating-org a:link			{color:#FF7A00;}
 participating-org a:visited			{color:#FF7A00;}
@@ -113,7 +113,7 @@ participating-org[role="implementing"] narrative:nth-of-type(1):after	{content:"
 
 span-narrative.participating-role	{font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px; text-transform:uppercase; line-height:initial;}
 
-span.span_participating-org narrative:nth-of-type(n+2)			{display:inline; padding:5px 0 0 20px; font-style:italic; font-size:16px; line-height:20px;}
+span.span_participating-org narrative:nth-of-type(n+2)			{display:block; padding:5px 0 0 20px; font-style:italic; font-size:16px; line-height:inherit;}
 
 
 /*	Reported by
