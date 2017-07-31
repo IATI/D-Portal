@@ -18,7 +18,7 @@
 {where_is_the_data_from}
 {view_tail}
 
-<!-- new search in progress	-->
+<!-- new search in progress - Explore	-->
 #view_search2
 {view_head}
 <style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}#background_image{url('/ctrack/art/mexico_background_image.jpg')};{css}</style>
@@ -27,6 +27,7 @@
 {search_intro}
 {more_search_intro}
 {view_search3_test}
+{explore_portals_search3}
 {where_is_the_data_from2}
 {view_tail}
 
@@ -75,7 +76,7 @@
 </div>
 
 
-<!-- new search in progress	-->
+<!-- new search in progress - Explore	-->
 #view_search3_test
 <div id="view_search_test">
 	
@@ -117,6 +118,7 @@
 </div>
 
 
+<!-- new search in progress - Explore	-->
 #view_search3_filters_wrap
 <div class="search_filter">
 	{filter_head3_text}	
@@ -136,6 +138,8 @@
 	{view_search_filters}
 </div>
 
+
+<!-- new search in progress - Explore	-->
 #view_search3_filters
 <div class="search_wrap">
 	<div class="search_label">
@@ -155,7 +159,7 @@
 	</select>
 </div><div class="search_wrap">
 	<div class="search_label">
-		<img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}
+		<img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}
 	</div>
 	<select id="view_search_select_funder" class="chosen">
 		<option value></option>
@@ -246,6 +250,7 @@
 </div>
 
 
+<!-- new search in progress - Explore	-->
 #filter_head3_text
 <div><div class="search_head" style="display:inline-block; vertical-align:top; width:50%;">EXPLORE <span>filters</span></div><a class="search_clear">Clear all filters<span>x</span></a></div>
 
@@ -261,6 +266,20 @@
 <span id="more_feedback_info" style="display:none;">
 	{feedback_links2_txt}
 </span>	
+
+
+<!-- new search in progress - Explore	-->
+#explore_portals_search3
+<span id="explore"></span>
+<div class="country_menu_wrap" style="padding-top:0;">
+	<div class="country_menu_list_wrap">
+		<div class="menu_list_wrap left">
+			<ul id="country_menu_list" class="country_menu_list">{countries_country_select}</ul>
+		</div><div class="menu_list_wrap">
+			<ul id="publisher_menu_list" class="country_menu_list">{publishers_publisher_select}</ul>
+		</div>
+	</div>
+</div>
 
 
 #explore_portals
