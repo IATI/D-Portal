@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "ctrack",
   "description": "client side javascript for D-Portal",
   "repository": {
@@ -8,16 +9,17 @@
   "version": "0.0.1",
   "license": "MIT",
   "dependencies": {
-    "browserify": "*",
+    "plated": "*",
     "csv-parse": "*",
-    "exorcist": "^0.4.0",
     "express": "*",
     "marked": "*",
     "morgan": "*",
-    "uglify-js": "*",
-    "uglifyify": "^4.0.1",
     "wait.for": "*",
+    "yargs": "*",
+
+    "browserify": "*",
+    "uglifyify": "*",
     "watchify": "*",
-    "yargs": "*"
+    "exorcist": "*"
   }
 }
