@@ -83,6 +83,13 @@ view_search.fixup=function()
 		strings.push(s);
 		lookup[s]={group:"year",value:s,text:s,str:s};
 	}
+	for(var n in iati_codes.activity_status)
+	{
+		var v=iati_codes.activity_status[n];
+		var s=v+" ("+n+")";
+		strings.push(s);
+		lookup[s]={group:"status",value:n,text:v,str:s};
+	}
 
 	var substringMatcher = function() {
 	  return function findMatches(q, cb) {
@@ -254,6 +261,15 @@ view_search.fixup=function()
 			q.day_start_lteq=(parseInt(v,10)+1)+"-01-01";
 		}
 
+		var v=$("#view_search_select_status").val();		
+		if(v)
+		{
+			enable_search=true;
+			txt.push("Where the IATI status is \""+v+"\"")
+			que.push("status="+v)
+			q.status_code=v;
+		}
+
 		$("#search_span").html("<span>"+txt.join("</span><span>")+"</span>");
 		if(enable_search)
 		{
@@ -276,6 +292,7 @@ view_search.fixup=function()
 	$("#view_search_select_publisher").chosen(o).change(build_query);
 	$("#view_search_select_year_min").chosen(o).change(build_query);
 	$("#view_search_select_year_max").chosen(o).change(build_query);
+	$("#view_search_select_status").chosen(o).change(build_query);
 
 	var apply=function(v){
 		if(v)
@@ -483,6 +500,15 @@ view_search.view=function(args)
 	a.sort(compare);
 	ctrack.chunk("search_options_year",a.join(""));
 
+	var a=[];
+	for(var n in iati_codes.activity_status)
+	{
+		var v=iati_codes.activity_status[n];
+		var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+		a.push(s);
+	}
+	a.sort(compare);
+	ctrack.chunk("search_options_status",a.join(""));
 
 	var aa=[];
 	for(var n in iati_codes.country) { var v=iati_codes.country[n]; // only countries

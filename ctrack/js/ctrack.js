@@ -263,6 +263,12 @@ ctrack.setup=function(args)
 		args.sector_group=cc[0];
 		args.sector_group_select=cc.join("|");
 	}
+	if( ctrack.q.status )
+	{
+		var cc=ctrack.q.status.split(","); if(cc.length==1) { ctrack.q.status.split("|"); }
+		args.status_code=cc[0];
+		args.status_code_select=cc.join("|");
+	}
 	if( ctrack.q.funder )
 	{
 		var cc=ctrack.q.funder.split(","); if(cc.length==1) { ctrack.q.funder.split("|"); }
@@ -370,6 +376,13 @@ ctrack.setup=function(args)
 				var s=$(".search .sect_cat");
 				var v=args.sector_group_select;
 				s.text( iati_codes.sector_category[v] || v );
+				s.parent().show();
+			}
+			if(args.status_code_select)
+			{
+				var s=$(".search .status_code");
+				var v=args.status_code_select;
+				s.text( iati_codes.activity_status[v] || v );
 				s.parent().show();
 			}
 			if(args.funder_ref_select)
