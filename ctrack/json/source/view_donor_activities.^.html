@@ -1,0 +1,65 @@
+#crumbname_donor_activities
+{crumbname_donor_activities_text}
+
+#view_donor_activities
+{view_head}
+<style>{css}</style>
+{beige}
+{main_head}
+{main_min}
+{about_data_links}
+{donors_head}
+<div class="title_wrap">
+	<table class="title">
+		<tr>
+			<td class="icon"><img src="{flava}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
+			<td>{view_donor_activities_text}</td>
+		</tr>
+	</table>
+	<div class="table_wrap">
+		<table class="activity">
+			{alerts}
+			{table_donor_activities_header_amount}
+			{donor_activities_datas}
+		</table>
+		<div class="download_wrap"><a download="dportal_donor_activities.csv" href="{donor_activities_datas_csv}" class="csv_download">{download_csv_text}</a></div>
+	</div>
+	<div class="center_wrap">
+		<a href="#view=donors" class="button">{list_donor_back_text}</a>
+	</div>
+</div>
+{donor_activities_data_description}
+{main_datainvestigators}
+{view_tail}
+
+#donor_activities_data_description
+<div class="description_wrap">
+	<div class="description">
+		<span class="title">{donor_activities_data_description_title_text}</span>
+		<p>{donor_activities_data_description_text}</p>
+		<p class="about_data">
+			<a href="#view=data_quality" class="read">{read_more_text}</a><a href="about.html#sources" class="read right">{read_links_text}</a>
+		</p>
+	</div>
+</div>
+
+#donor_activities_data
+<tr onclick="return ctrack.url('#view=act&aid={aid}');">
+	<td class="num">{num}.</td>
+	<td class="title" title="{project_title_tip_text}">
+		<a class="percent">
+			{title}
+			<span>{reported_by_text}</span>
+		</a>
+	</td>
+	<td class="value">
+		<div class="donor_activities_spend_wrap">
+			<div class="donor_activities_spend" title="{donor_activities_spend_text}">{commitment}<span>{currency}</span></div>
+			<div class="donor_activities_barchart_wrap" title="{donor_activities_percentage_tip_text}">
+				<div class="donor_activities_percent_max">
+					<div style="width:{pct}px;" class="donor_activities_percent"></div>
+				</div>
+			</div>
+		</div>
+	</td>
+</tr>

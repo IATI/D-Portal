@@ -1,0 +1,45 @@
+#crumbname_map
+{crumbname_map_text}
+
+#view_map
+{view_head}
+<style>{css}</style>
+{beige}
+{main_head}
+{main_min}
+{about_data_links}
+{map_map}
+{map_data_description}
+{main_datainvestigators}
+{view_tail}
+
+#map_select
+
+	<select id="view_map_select_status" class="chosen">
+		<option value="all">All</option>
+		<option value="active">Active</option>
+		<option value="planned">Planned</option>
+		<option value="ended">Ended</option>
+	</select>
+
+
+
+#map_map
+<div class="map_wrap view">
+	<div class="map_filter_wrap">
+		<div class="map_filter info">{map_filter_info_text}</div><div class="map_filter">{map_select}</div>	
+	</div>
+	<div class="map_no_info view">{map_no_info_text}</div>
+	<div id="map" class="map_view"></div>
+</div>
+
+#map_data_description
+<div class="description_wrap">
+	<div class="description">
+		<span class="title">{map_data_description_title_text}</span>
+		<p>{map_data_description_text}</p>
+		<p class="about_data">
+			<a href="#view=data_quality" class="read">{read_more_text}</a><a href="about.html#sources" class="read right">{read_links_text}</a>
+		</p>
+	</div>
+</div>

@@ -1,0 +1,68 @@
+#crumbname_ended
+{crumbname_ended_text}
+
+#view_ended
+{view_head}
+<style>{css}</style>
+{beige}
+{main_head}
+{main_min}
+{about_data_links}
+{ended_head}
+<div class="title_wrap">
+	<table class="title">
+		<tr>
+			<td class="icon"><img src="{flava}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
+			<td>{view_ended_text}</td>
+		</tr>
+	</table>
+	<div class="table_wrap">
+		<table class="activity">
+			{table_header}
+			{ended_projects_datas}
+		</table>
+		<div class="download_wrap"><a download="dportal_list_activities.csv" href="{ended_projects_datas_csv}" class="csv_download">{download_csv_text}</a></div>
+	</div>
+	{back_portal}
+</div>
+{ended_data_description}
+{main_datainvestigators}
+{view_tail}
+
+#ended_data_description
+<div class="description_wrap">
+	<div class="description">
+		<span class="title">{ended_data_description_title_text}</span>
+		<p>{ended_data_description_text}</p>
+		<p class="about_data">
+			<a href="#view=data_quality" class="read">{read_more_text}</a><a href="about.html#sources" class="read right">{read_links_text}</a>
+		</p>
+	</div>
+</div>
+
+#ended_projects_data
+<tr onclick="return ctrack.url('#view=act&aid={aid}');">
+	<td class="num">{num}.</td>
+	<td class="title">
+		<a title="{project_title_tip_text}">
+			{title}
+			<span>{reported_by_text}</span>
+		</a>
+	</td>
+	<td class="date" title="{table_active_date_tip_text}">{date_end}</td>
+</tr>
+
+#ended_head
+<div class="head_wrap">
+	<div class="icon_wrap">
+		<img src="{flava}ended_icon_big.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>	
+	</div><div class="peak_wrap">
+			<div class="list_peak_space"></div>
+			<div class="donors_peak view"></div>
+	</div><div class="head_title_wrap">
+			<div class="donors_head_title view">
+				<span class="stats_title view">{stats_ended_text}</span>
+				<span class="stats_num view">{ended_projects}</span>
+			</div>
+		</div>
+</div>

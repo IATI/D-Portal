@@ -1,0 +1,66 @@
+#view_frame
+<style>
+	{css}
+	html	{background-color:transparent;}
+	.table_wrap.view	{margin-bottom:0; width:960px;}
+	.table_wrap			{width:960px; box-sizing:border-box;}
+	#background_image	{z-index:inherit; height:inherit; width:inherit;}
+
+</style>
+<div class="frame">{frame}</div>
+{replace}
+
+
+#replace
+<script>
+	$(function(){
+		var oldBGColor = $('.table_wrap').css('backgroundColor');
+		if (oldBGColor)
+		{
+			var newBGColor = oldBGColor.replace(/(rgba)\(([0-9]+),\s+([0-9]+),\s+([0-9]+),\s+([0-9\.]+)\)/, 'rgb($2,$3,$4)');
+			$('.table_wrap').css({backgroundColor: newBGColor});
+		}
+	});
+</script>
+
+#frame_sectors
+{table_sectors}
+
+#frame_sectors_top
+{sector_graph}
+
+#frame_donors
+{table_donors}
+
+#frame_donors_top
+{donor_graph}
+
+#frame_publisher_sectors
+{table_sectors}
+
+#frame_publisher_sectors_top
+{sector_graph}
+
+#frame_publisher_countries
+{table_countries}
+
+#frame_publisher_countries_top
+{countries_graph}
+
+#frame_map
+{map_map}
+
+#frame_stats
+{main_stats}
+
+#frame_act
+{xml}
+
+#frame_list_activities
+<div class="table_wrap">
+	<table class="activity">
+		{table_header_amount}
+		{list_activities_datas}
+	</table>
+</div>
+	

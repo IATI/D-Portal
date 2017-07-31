@@ -1,0 +1,534 @@
+#crumbname_start
+{crumbname_main}
+{crumbname_publisher_text}
+
+#crumbname_main
+{crumbname_main_text}
+
+#view_main
+{view_head}
+<style>.crumb_wrap{display:none;}{css}</style>
+{beige}
+{main_head}
+{main_max}
+{about_data_links}
+{main_stats}
+{donor_graph}
+{countries_graph}
+{sector_graph}
+{main_map}
+{main_active}
+{main_ended}
+{main_data_description}
+{main_datainvestigators}
+{view_tail}
+
+#about_data_links
+<div class="default about">
+	<a onclick="$('html, body').animate({scrollTop: $('.description').offset().top}, 300);return false;" class="about_data">
+		<img src="{flava}info_icon.png" alt="{info_icon_alt_text}" width="15" height="15"/> {about_this_data_text}
+	</a><a href="#view=data_quality" class="about_data quality">
+		<img src="{flava}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {about_data_quality_text}
+	</a>
+</div>
+
+#main_data_description
+<div class="description_wrap">
+	<div class="description">
+		<span class="title">{main_data_description_title_text}</span>
+		<p>{main_data_paragraph1_text}</p>
+		<p><span class="title sub">{main_data_paragraph2_text}</span>{main_data_paragraph3_text}</p>
+		<p><span class="title sub">{main_data_paragraph4_text}</span>{main_data_paragraph5_text}</p>
+		<p><span class="title sub">{main_data_paragraph6_text}</span>{main_data_paragraph7_text}</p>
+		<p>{main_data_paragraph8_text}</p>
+		<p class="about_data">
+			<a href="#view=data_quality" class="read">{read_more_text}</a><a href="about.html#sources" class="read right">{read_links_text}</a>
+		</p>
+	</div>
+</div>
+
+#main_money_row
+<tr>
+	<td>{donor}</td>
+	<td title="{usd} {USD}">
+		<div class="barchart_wrap">
+			<div class="barchart donor" style="width:{pct}px;"></div>
+		</div>
+	</td>
+</tr>
+
+#main_money_rows
+{main_money_row}
+
+
+#main_sector_row
+<tr>
+	<td>{sector_group}</td>
+	<td title="{usd} {USD}">
+		<div class="barchart_wrap">
+			<div class="barchart sector" style="width:{pct}px;"></div>
+		</div>
+	</td>
+</tr>
+
+#main_map
+<div class="map_wrap">
+	<div class="map_no_info">{map_no_info_text}</div>
+	<div id="map"></div>
+	<div class="map_info">{map_info_text}</div>
+	<a class="map_percent" href="#view=map">
+		<img src="{flava}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/>
+		<span>{percent_of_activities_with_location}%</span> {map_percent_text}
+		<b>{map_view_text}</b>
+	</a>
+</div>
+
+#main_stats
+<div class="stats_wrap">
+	<table class="title key">
+		<tr>
+			<td class="icon"><img src="{flava}publisher_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
+			<td>{stats_title_text}</td>
+		</tr>
+	</table>
+	<table class="stats">
+		<tr>
+			<td rowspan="2" colspan="2" title="{stats_active_tip_text}">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link active">
+					<span class="stats_title">{stats_active_text}</span>
+					<span class="stats_num">{active_projects}</span>
+				</a>
+				<a onclick="switch($(this).children('span').first().html()){ case '0': return false; };" href="#view=missing" class="stats_link missing" title="{stats_missing_tip_text}">{stats_missing_text} <span>{missing_projects}</span></a>
+			</td>
+			<td title="{stats_ended_tip_text}">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=ended" class="stats_link">
+					<span class="stats_title">{stats_ended_text}</span>
+					<span class="stats_num small">{ended_projects}</span>
+				</a>
+			</td>
+			<td title="{stats_total_tip_text}">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities" class="stats_link total">
+					<span class="stats_title">{stats_total_text}</span>
+					<span class="stats_num small">{total_projects}</span>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td title="{stats_planned_tip_text}">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=planned" class="stats_link planned">
+					<span class="stats_title">{stats_planned_text}</span>
+					<span class="stats_num small">{planned_projects}</span>
+				</a>
+			</td>
+			<td title="{stats_publisher_tip_text}">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_publishers" class="stats_link publishers">
+					<span class="stats_title">{stats_publisher_text}</span>
+					<span class="stats_num small">{numof_publishers}</span>
+				</a>
+			</td>
+		</tr>
+	</table>
+	<div class="declare stats">{declare_stats_text}</div>
+</div>
+
+#main_active
+<div class="main_title_wrap">
+	<table class="title main">
+		<tr>
+			<td class="icon"><img src="{flava}active_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
+			<td>{list_active_text}</td>
+			<td class="sort">{list_active_declare_text}</td>
+		</tr>
+	</table>
+	<div class="table_wrap main">
+		<table class="list">
+			{table_active_datas}
+		</table>
+	</div>
+	<div class="center_wrap">
+		<a href="#view=active" class="button">{view_all_text}</a>
+	</div>
+</div>
+
+#main_ended
+<div class="main_title_wrap ended">
+	<table class="title main">
+		<tr>
+			<td class="icon"><img src="{flava}ended_icon.png" alt="{ended_icon_alt_text}" width="40" height="40"/></td>
+			<td>{list_ended_text}</td>
+			<td class="sort">{list_ended_declare_text}</td>
+		</tr>
+	</table>
+	<div class="table_wrap main">
+		<table class="list">
+			{table_ended_datas}
+		</table>
+	</div>
+	<div class="center_wrap">
+		<a href="#view=ended" class="button">{view_all_text}</a>
+	</div>
+</div>
+
+
+#table_active_data
+<tr onclick="return ctrack.url('#view=act&aid={aid}');">
+	<td>{num}.</td>
+	<td class="title">
+		<a title="{project_title_tip_text}">
+			{title}
+			<span>{reported_by_text}</span>
+		</a>
+	</td>
+	<td class="date" title="{table_active_date_tip_text}">{date_end}</td>
+</tr>
+
+#table_ended_data
+<tr onclick="return ctrack.url('#view=act&aid={aid}');">
+	<td>{num}.</td>
+	<td class="title">
+		<a title="{project_title_tip_text}">
+			{title}
+			<span>{reported_by_text}</span>
+		</a>
+	</td>
+	<td class="date" title="{table_ended_date_tip_text}">{date_end}</td>
+</tr>
+
+#table_header
+<tr>
+    <th class="titles"></th>
+    <th class="titles">{project_title_tip_text}</th>
+    <th class="titles">{table_active_date_tip_text}</th>
+</tr>
+
+#table_header_list
+<tr>
+    <th class="titles"></th>
+    <th class="titles">{project_title_tip_text}</th>
+    <th class="titles">{stats_total_text}</th>
+</tr>
+
+#table_header_amount
+<tr>
+    <th class="titles"></th>
+    <th class="titles">{project_title_tip_text}</th>
+    <th class="titles">{amount_text}</th>
+</tr>
+
+#table_donor_activities_header_amount
+<tr>
+    <th class="titles"></th>
+    <th class="titles">{project_title_tip_text}</th>
+    <th class="titles">{view_donor_activities_amount_text}</th>
+</tr>
+
+#table_header_missing
+<tr>
+    <th class="titles"></th>
+    <th class="titles">{project_title_tip_text}</th>
+    <th class="titles">{date_start_tip_text}</th>
+    <th class="titles">{date_end_tip_text}</th>
+</tr>
+
+#donor_graph
+<div class="default graph" id="donor_graph_all" >
+<a href="#view=donors" class="graph_wrap">
+	<span class="ask donor">
+		<span class="ask_title">{title_donor_year_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak donor"></span>
+		</span>
+	</span>
+<div id="donor_graph"></div>
+<span class="graph_view_all">{link_donor_text}</span>
+</a>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_donors");
+	var opts={
+		layout:"right",
+		width:958,
+		height:300,
+		center_x:250,
+		center_y:140,
+		radius:135,
+		hole:40,
+		caption_css:undefined,
+		color:["#74BAFF","#42A0FB","#0081FF","#49739C","#5B6572"],
+		caption_edge:100,
+		caption_fix:[0,-10],
+		stroke_width:1,
+		line_width:3,
+		tints:{
+			fill:[1,1,1,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
+		},
+	}
+	ctrack.draw_chart("#donor_graph",data,opts);
+</script>
+<style>
+ #donor_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #donor_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
+</div>
+
+
+#sector_graph
+<div class="default graph" id="sector_graph_all">
+<a href="#view=sectors" class="graph_wrap">
+	<span class="ask sector">
+		<span class="ask_title">{title_sector_year_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak sector"></span>
+		</span>
+	</span>
+<div id="sector_graph"></div>
+<span class="graph_view_all">{link_sector_text}</span>
+</a>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_sectors");
+	var opts={
+		layout:"left",
+		clockwise:-1,
+		width:958,
+		height:300,
+		center_x:750,
+		center_y:140,
+		radius:135,
+		hole:40,
+		caption_css:undefined,
+		color:["#79F5C3","#0EFF9E","#00C475","#318F69","#476B5C"],
+		caption_edge:100,
+		caption_fix:[0,-10],
+		stroke_width:1,
+		line_width:3,
+		tints:{
+			fill:[1,1,1,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
+		},
+	}
+	ctrack.draw_chart("#sector_graph",data,opts);
+</script>
+<style>
+ #sector_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #sector_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
+</div>
+
+
+#countries_graph
+<div class="default graph" id="countries_graph_all" >
+<a href="#view=countries" class="graph_wrap">
+	<span class="ask donor">
+		<span class="ask_title">{title_countries_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak donor"></span>
+		</span>
+	</span>
+<div id="countries_graph"></div>
+<span class="graph_view_all pub_donor">{link_donor_text}</span>
+</a>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_countries");
+	var opts={
+		layout:"right",
+		width:958,
+		height:320,
+		center_x:250,
+		center_y:150,
+		radius:135,
+		hole:40,
+		caption_css:undefined,
+		color:["#74BAFF","#42A0FB","#0081FF","#49739C","#5B6572"],
+		caption_edge:100,
+		caption_fix:[0,-10],
+		stroke_width:1,
+		line_width:3,
+		tints:{
+			fill:[1,1,1,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
+		},
+	}
+	ctrack.draw_chart("#countries_graph",data,opts);
+</script>
+<style>
+ #countries_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #countries_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
+</div>
+
+#publisher_countries_graph
+<div class="default">
+<a href="#view=publisher_countries" class="graph_wrap">
+	<span class="ask donor">
+		<span class="ask_title">{title_publisher_countries_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak donor"></span>
+		</span>
+	</span>
+<div id="publisher_countries_graph"></div>
+<span class="graph_view_all pub_donor">{link_donor_text}</span>
+</a>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_publisher_countries");
+	var opts={
+		layout:"right",
+		width:958,
+		height:320,
+		center_x:250,
+		center_y:150,
+		radius:135,
+		hole:40,
+		caption_css:undefined,
+		color:["#74BAFF","#42A0FB","#0081FF","#49739C","#5B6572"],
+		caption_edge:100,
+		caption_fix:[0,-10],
+		stroke_width:1,
+		line_width:3,
+		tints:{
+			fill:[1,1,1,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
+		},
+	}
+	ctrack.draw_chart("#publisher_countries_graph",data,opts);
+</script>
+<style>
+ #publisher_countries_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #publisher_countries_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
+</div>
+
+#publisher_sectors_graph
+<div class="default graph">
+<a href="#view=publisher_sectors" class="graph_wrap">
+	<span class="ask sector">
+		<span class="ask_title">{title_publisher_sectors_text}</span>
+		<span class="main_peak_wrap">
+			<span class="peak sector"></span>
+		</span>
+	</span>
+<div id="publisher_sectors_graph"></div>
+<span class="graph_view_all pub_sector">{link_sector_text}</span>
+</a>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_publisher_sectors");
+	var opts={
+		layout:"left",
+		clockwise:-1,
+		width:958,
+		height:370,
+		center_x:750,
+		center_y:170,
+		radius:135,
+		hole:40,
+		caption_css:undefined,
+		color:["#79F5C3","#0EFF9E","#00C475","#318F69","#476B5C"],
+		caption_edge:100,
+		caption_fix:[0,-10],
+		stroke_width:1,
+		line_width:3,
+		tints:{
+			fill:[1,1,1,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
+		},
+	}
+	ctrack.draw_chart("#publisher_sectors_graph",data,opts);
+</script>
+<style>
+ #publisher_sectors_graph .chart_caption
+	{
+		width:300px;
+		padding:7px 20px;
+		border:solid 1px;
+		border-bottom:0px;
+		color:#666;
+		background-color:#fff;
+	}
+ #publisher_sectors_graph .chart_caption:last-child
+	{
+		border-bottom:solid 1px;
+	}
+</style>
+</div>
+
+#list_head
+<div class="head_wrap">
+	<div class="icon_wrap">
+		<img src="{flava}money_title_icon.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>	
+	</div><div class="peak_wrap">
+			<div class="peak_space"></div>
+			<div class="donors_peak"></div>
+	</div><div class="head_title_wrap">
+			<div class="donors_head_title">{title_publisher_countries_text}</div>
+		</div>
+</div>
+
+#missing_data
+<div class="default graph">
+	<div class="missing_data_wrap">
+		{missing_data_text}
+	</div>
+</div>

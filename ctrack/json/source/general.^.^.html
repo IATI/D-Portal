@@ -1,0 +1,397 @@
+#loading
+{spinner}
+
+#crumbs1
+{crumbname_{crumb0_view}}
+
+#crumbs2
+<a href="{crumb0_hash}" class="crumb first">{crumbname_{crumb0_view}}</a> >
+<span>{crumbname_{crumb1_view}}</span>
+
+#crumbs3
+<a href="{crumb0_hash}" class="crumb first">{crumbname_{crumb0_view}}</a> >
+<a href="{crumb1_hash}" class="crumb">{crumbname_{crumb1_view}}</a> >
+<span>{crumbname_{crumb2_view}}</span>
+
+#crumbs4
+<a href="{crumb0_hash}" class="crumb first">{crumbname_{crumb0_view}}</a> >
+<a href="{crumb1_hash}" class="crumb">{crumbname_{crumb1_view}}</a> >
+<a href="{crumb2_hash}" class="crumb">{crumbname_{crumb2_view}}</a> >
+<span>{crumbname_{crumb3_view}}</span>
+
+#spinner
+<div class="spinner"></div>
+
+#spinner_in_table_row
+<tr><td colspan="100">{spinner}</td></tr>
+
+#beige
+<div class="beigealert_wrap" style="display:none;">
+	<div class="beigealert"><img src="{flava}alert_icon_top.png" alt="{alert_icon_alt_text}" width="15" height="15"> {beige_alert2_text} </div>
+</div>
+
+#beige0
+<div class="beigealert_wrap">
+	<div class="beigealert"><img src="{flava}alert_icon_top.png" alt="{alert_icon_alt_text}" width="15" height="15"> {beige_alert_text} <a href="/html/feedback.html" class="beige" target="_blank">{beige_alert_here_text}</a>.</div>
+</div>
+
+#status
+<span class="badge beta">BETA</span>
+
+#portal_name
+{country_name}
+{publisher_name}
+
+#view_head
+<div class="portal">
+	<div class="main_wrap">
+		<div id="background_image"></div>
+		<div class="overlay">
+	
+#view_tail
+		</div>
+	</div>
+	<div class="footer_wrap">
+	<div class="footer">
+		{large_footer}
+	</div>
+	</div>
+</div>
+
+#large_footer
+<div class="footer_link">
+	<div class="footer_motto"><a href="http://d-portal.org/">{footer6_text}</a> {footer7_text}</div>
+	<p>{footer8_text}</p>
+	<p class="beta">{footer9_text}</p>
+	<p>{footer10_text} <b><a href="mailto:support@iatistandard.org">{footer11_text}</a></b></p>
+</div><div class="footer_link list">
+	<div class="footer_header">{footer12_text}</div>
+	<ul>
+		<li><a href="http://d-portal.org/news/posts.html">{footer13_text}</a></li>
+		<li><a href="http://d-portal.org/about.html">{footer_about_text}</a></li>
+		<li><a href="http://d-portal.org/ctrack.html?#view=dash">{footer14_text}</a></li>
+		<li><a href="http://d-portal.org/ctrack.html#view=generator">{footer15_text}</a></li>
+	</ul>
+	<div class="footer_header">{footer16_text}</div>
+	<ul>
+		<li><a href="http://d-portal.org/faq.html">{footer17_text}</a></li>
+		<li><a href="http://d-portal.org/about.html#sources">{footer18_text}</a></li>
+		<li><a href="https://github.com/devinit/D-Portal/issues">{footer19_text}</a></li>
+	</ul>
+</div>
+<div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">{footer_top_text}</a></div>
+
+
+#main_datainvestigators
+<div class="data_wrap">
+	<a href="mailto:support@iatistandard.org" class="data_invest">
+		{data_investigate_text}
+	</a>
+</div>
+
+
+#main_head
+<div class="default head">
+	{main_settings}
+	<table class="head">
+		<tr>
+			<td rowspan="3">
+				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}</a>
+			</td>
+			{main_head_tail_settings}
+			
+
+#main_head_search
+<div class="default head">
+	<table class="head">
+		<tr>
+			<td rowspan="3">
+				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}</a>
+			</td>
+			{main_head_tail_settings_search}
+
+
+#main_head_tail_settings_search
+		<td class="settings_toggle">
+			<div class="settings_link_search">
+				<span>Welcome to d-portal </span><span> – helping you explore IATI data</span>
+			</div>
+		</td>
+		</tr>
+	</table>
+	<div class="crumb_wrap">{crumbs}</div>
+</div>	
+
+		
+#main_settings
+<div id="settings" style="display:none;">
+<table class="head">
+	<tr>
+		<td class="options">
+			<form class="currency" action="">
+				<span class="settings_info">{settings_currency_text} </span>
+				<select id="usd_select" name="usd" class="">{all_usd_options}</select>
+			</form>
+		</td>
+		<td class="options">
+			<form action="">
+			<span class="settings_info">{settings_language_text} </span>
+			<select id="tongue_select" name="tongue" class="">
+				<option value="eng" title="{tongue_eng_tip_text}">{tongue_eng_text}</option>
+				<option value="fra" title="{tongue_fra_tip_text}">{tongue_fra_text}</option>
+				<option value="spa" title="{tongue_spa_tip_text}">{tongue_spa_text}</option>
+				<option value="jpn" title="{tongue_jpn_tip_text}">{tongue_jpn_text}</option>
+				<option value="cmn" title="{tongue_cmn_tip_text}">{tongue_cmn_text}</option>
+				<option value="hin" title="{tongue_hin_tip_text}">{tongue_hin_text}</option>
+			</select>
+			</form>
+		</td>
+	</tr>
+	<tr>
+		<td class="options">
+			<form class="newyear" action="">
+				<span class="settings_info">{settings_year_text} </span>
+				<select id="newyear_select" name="newyear" class="">{all_date_options}</select>
+			</form>
+		</td>
+		<td class="options">
+			<form action="">
+			<span class="settings_info">{settings_themes_text} </span>
+			<select id="flava_select" name="flava" class="">
+				<option value="original">{flava_original_text}</option> 
+				<option value="high">{flava_high_visibility_text}</option> 
+			</select>
+			</form>
+		</td>
+	</tr>
+</table>
+</div>
+	
+
+#main_head_tail_settings
+		<td class="settings_toggle">
+			<a href="http://d-portal.org/faq.html" class="settings_faq">FAQ</a><a href="#" onclick="$('#settings').toggle();" class="settings_link">
+				<span>{change_settings_text}</span><img src="{flava}settings.png" width="35" height="35"/>
+			</a>
+		</td>
+		</tr>
+	</table>
+	<div class="crumb_wrap">{crumbs}</div>
+</div>
+
+<script>
+	$(function(){
+		$('#tongue_select').children().each(function(i,it){
+			if("{tongue}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#tongue_select').bind('change', function ()
+		{
+			var url = "{mark_no_tongue}&tongue="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+	$(function(){
+		$('#flava_select').children().each(function(i,it){
+			if("{flava_name}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#flava_select').bind('change', function ()
+		{
+			var url = "{mark_no_flava}&flava="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+	$(function(){
+		$('#usd_select').children().each(function(i,it){
+			if("{USD}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#usd_select').bind('change', function ()
+		{
+			var url = "{mark_no_usd}&usd="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+	$(function(){
+		$('#newyear_select').children().each(function(i,it){
+			if("{newyear}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#newyear_select').bind('change', function ()
+		{
+			var url = "{mark_no_newyear}&newyear="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+</script>
+
+
+#main_min
+{main_countrymin}
+{main_pubmin}
+{main_searchmin}
+
+#main_countrymin
+<div class="default min">
+	<table class="country min">
+		<tr>
+			<td class="name">{portal_name}</td>
+			<td class="flag"><img src="{country_flag}" alt="{portal_name} {flag_alt_text}"/></td>
+		</tr>
+	</table>
+</div>
+
+#main_pubmin
+<div class="default min">
+	<table class="country min">
+		<tr>
+			<td class="name publisher">{portal_name}</td>
+		</tr>
+	</table>
+</div>
+
+#main_searchmin
+<div class="default min">
+	<div class="search_cont">
+		<a href="http://d-portal.org/ctrack.html#view=search" class="search search_head">
+			{search_view_txt}
+		</a><div class="search search_main">
+			<div class="search_query">
+				<div class="recipient"></div><span><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</span>
+			</div><div class="search_query">
+				<div class="donor"></div><span><img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}</span>
+			</div><div class="search_query">
+				<div class="sector"></div><span><img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}</span>
+			</div><div class="search_query">
+				<div class="sect_cat"></div><span><img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}</span>
+			</div><div class="search_query">
+				<div class="publisher"></div><span><img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}</span>
+			</div><div class="search_query">
+				<div class="year"></div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}</span>
+			</div><div class="search_query">
+				<div class="text"></div><span>{search_text_txt}</span>
+			</div>
+		</div>
+	</div>
+</div>
+	
+#main_max
+{main_country}
+{main_publisher}
+{main_search}
+
+#main_country
+<div class="default">
+	<table class="country">
+		<tr>
+			<td class="name">{portal_name}</td>
+			<td class="flag"><img src="{country_flag}" alt="{portal_name} {flag_alt_text}"/></td>
+		</tr>
+	</table>
+</div>
+
+#main_publisher
+<div class="default">
+	<table class="country">
+		<tr>
+			<td class="name publisher">{portal_name}</td>
+		</tr>
+	</table>
+</div>
+
+#main_search
+<div class="default min">
+	<div class="search_cont">
+		<a href="http://d-portal.org/ctrack.html#view=search" class="search search_head">
+			{search_view_txt}
+		</a><div class="search search_main">
+			<div class="search_query">
+				<div class="recipient"></div><span><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</span>
+			</div><div class="search_query">
+				<div class="donor"></div><span><img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}</span>
+			</div><div class="search_query">
+				<div class="sector"></div><span><img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}</span>
+			</div><div class="search_query">
+				<div class="sect_cat"></div><span><img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}</span>
+			</div><div class="search_query">
+				<div class="publisher"></div><span><img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}</span>
+			</div><div class="search_query">
+				<div class="year"></div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}</span>
+			</div><div class="search_query">
+				<div class="text"></div><span>{search_text_txt}</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+#back_portal
+{back_country}
+{back_publisher}
+
+#back_country
+<div class="center_wrap">
+	<a href="#view=main" class="button">{back_text}</a>
+</div>
+
+#back_publisher
+<div class="center_wrap">
+	<a href="#view=publisher" class="button">{back_text}</a>
+</div>
+
+#alerts
+{alert_no_iati}
+
+#alert_no_iati
+<tr>
+	<td colspan="3" class="alert_no_iati" title="{alert_no_iati_tip_text}">{alert_no_iati_text}</td>
+</tr>
+
+#alerts_quality
+{alert_no_data1}
+{alert_no_data2}
+{alert_no_data3}
+{alert_no_data4}
+{alert_no_data5}
+
+#alert_no_data1
+<tr>
+	<td colspan="3" class="alert_no_iati data" title="{alert_nodata1_tip_text}">{alert_nodata1_text}</td>
+</tr>
+
+#alert_no_data2
+<tr>
+	<td colspan="3" class="alert_no_iati data" title="{alert_nodata2_tip_text}">{alert_nodata2_text}</td>
+</tr>
+
+#alert_no_data3
+<tr>
+	<td colspan="3" class="alert_no_iati data" title="{alert_nodata3_tip_text}">{alert_nodata3_text}</td>
+</tr>
+
+#alert_no_data4
+<tr>
+	<td colspan="3" class="alert_no_iati data" title="{alert_nodata4_tip_text}">{alert_nodata4_text}</td>
+</tr>
+
+#alert_no_data5
+<tr>
+	<td colspan="3" class="alert_no_iati data" title="{alert_nodata5_tip_text}">{alert_nodata5_text}</td>
+</tr>
+
+
+#css
+ #background_image	{background-image:url('{background_image}');} /* Needed for displaying background images per different country */

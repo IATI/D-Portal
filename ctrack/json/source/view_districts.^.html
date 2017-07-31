@@ -1,0 +1,61 @@
+#crumbname_districts
+{crumbname_districts_text} <!-- not entered yet -->
+
+#view_districts
+{view_head}
+<style>{css}</style>
+{beige}
+{main_head}
+{districts_head}
+{table_districts}
+{districts_data_description}
+{main_datainvestigators}
+{view_tail}
+
+#districts_data_description
+<div class="description_wrap">
+	<div class="description">
+		<span class="title">{districts_data_description_title_text}</span>
+		<p>{districts_data_description_text}</p>
+		<p class="about_data">
+			<a href="#view=data_quality" class="read">{read_more_text}</a><a href="about.html#sources" class="read right">{read_links_text}</a>
+		</p>
+	</div>
+</div>
+
+#districts_head
+<div>Where does the money go to (Geography)?</div>
+
+#table_districts
+<table class="districts">
+{table_districts_row_head}
+{table_districts_rows}
+</table>
+
+#table_districts_rows
+{table_districts_row}
+
+#table_districts_row_head
+<tr>
+	<td></td>
+	<td colspan="3">TRANSACTIONS</td>
+	<td colspan="2">BUDGET</td>
+</tr>
+<tr>
+	<td>DISTRICT</td>
+	<td>{year1}</td>
+	<td>{year2}</td>
+	<td>{year3}</td>
+	<td>{year3}</td>
+	<td>{year4}</td>
+</tr>
+
+#table_districts_row
+<tr>
+	<td>{location}</td>
+	<td>{t1}</td>
+	<td>{t2}</td>
+	<td>{t3}</td>
+	<td>{b1}</td>
+	<td>{b2}</td>
+</tr>

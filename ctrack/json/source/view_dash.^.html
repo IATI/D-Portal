@@ -1,0 +1,143 @@
+#crumbname_dash
+{crumbname_dash_text}
+
+#view_dash
+{dash_wrap}
+{dash_navi}
+<style>{css}{css_dash}</style>
+{dash_body}
+{view_tail}
+
+#dash_navi
+<div class="head_wrap">
+	<div class="head_block">
+		<a href="#view=dash" class="head_title">Dash <img src="/ctrack/art/dash_logo.png" alt="Dash logo" width="35" height="25"></a>
+	</div><div class="head_block">
+		<a href="/" class="back_link">Back to d-portal.org</a>
+	</div>
+</div>
+
+
+#dash_listall_country_datas
+#dash_listall_country_data
+<tr>
+	<td title="{country_valid} country code" class="cc country_{country_valid}">
+		<a href="/q.xml?from=act,country&country_code={country_code}" target="_blank">{country_code}</a>
+	</td>
+	<td title="Number of activities reported" class="country_{country_valid}">{count}</td>
+</tr>
+
+#dash_list_reporting_datas
+#dash_list_reporting_data
+<tr>
+	<td title="View Publisher on d-portal" class="ref"><a href="{mark_no_publisher}&publisher={reporting_ref}" target="_blank">{reporting}</a></td>
+	<td title="View Publisher dash profile" class="ref"><a href="#view=dash_quality&pub={reporting_ref}">{reporting_ref}</a></td>
+	<td title="Activities">{count}</td>
+</tr>
+
+#dash_body
+<div class="default data">
+	<div class="left_block">
+		<div class="title">Publishers statistics for d-portal.org</div>
+		<table class="pub">
+			<tr>
+				<th>Publisher Name</th>
+				<th>Publisher ID</th>
+				<th>Activities</th>
+			</tr>
+			{dash_list_reporting_datas}
+		</table>
+	</div><div class="right_block">
+		<div class="title_snap">Snapshots</div>
+		<div class="snap_wrap">
+			<table class="snap">
+				<tr>
+					<td>Total Publishers</td>
+					<td>{dash_total_publishers}</td>
+				</tr>
+				<tr>
+					<td>Total Activities</td>
+					<td>{dash_total_activities}</td>
+				</tr>
+				<tr>
+					<td>Total Countries</td>
+					<td>{dash_total_countries}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="title_info">Info</div>
+		<div class="subtitle_info">Dash is an overview of the data populating d-portal.org with a focus primarily on publisher statistics and the quality of the data reported by them. By showing you when and where invalid data is reported, Dash will be able to explain the gaps that are reflected on the main site.
+		<p>Click on a <b>Publisher Name</b> to view their profile in d-portal.org</p>
+		<p>Click on a <b>Publisher ID</b> to view their statistics in Dash.</p>
+		<p><i>Only activities with unique IDs are imported. Dash does not import duplicates.</i></p>
+		</div>
+		<p>Updates everyday GMT +0.</p> 
+		<p>Last updated <a href="#view=dash_cronlog">{dash_last_updated}</a></p>
+		<div class="snap_wrap countries">
+			<div class="snap_title" title="{dash_country_total_invalid_pct}%">Reporting {dash_country_total_invalid} invalid recipients.</div>
+			<table class="snap countries">
+				<tr>
+					<th colspan="2">Recipient countries <div class="note div">Click to view all activities reported per country. Links open new window.</div></th>
+				</tr>
+				{dash_listall_country_datas}
+			</table>
+		</div>	
+	</div>
+</div>
+
+
+#dash_wrap
+<div class="portal">
+	<div class="main_wrap">
+		<div class="overlay">
+
+
+#css_dash
+html			{background-color:#fff;}
+.overlay		{background-color:#fff;}
+a:focus			{color:#FF5F00; text-decoration:none;}
+a:link  		{color:#FF5F00; text-decoration:none;}
+a:visited		{color:#FF5F00; text-decoration:none;}
+a:hover			{color:#FF5F00; text-decoration:underline;}
+a:active		{color:#FF5F00; text-decoration:none;}
+.maxwrap		{margin:0 auto; width:100%;}
+table td, table th	{cursor:auto;}
+
+table.pub		{font-size:0.9em; line-height:1.4em; max-width:600px; text-align:right; width:600px;}
+table.pub th	{font-weight:bold; padding:15px 30px 15px 0;}
+table.pub td	{border-bottom:1px solid #ccc; padding:15px 35px 15px 0;}
+table.pub td:first-child, table.pub th:first-child 	{text-align:left;}
+table.pub th:last-child 	{padding-right:0;}
+table.pub td:last-child		{padding-right:5px;}
+table.pub tr:last-child	td	{border-bottom:0;}
+table.pub td.ref			{padding:0;}
+table.pub td.ref a			{display:block; padding:15px 35px 15px 0;}
+
+table.snap				{font-size:0.9em; margin:0 auto; max-width:238px; padding:0 20px; width:238px;}
+table.snap td			{padding:15px 30px 15px 0;}
+table.snap.countries	{table-layout:fixed;}
+table.snap.countries th	{font-size:1.4em; padding:5px 30px 20px 0; text-align:left;}
+table.snap.countries td	{border-bottom:1px solid #ccc; padding:10px 5px 10px 0;}
+table.snap.countries td.cc				{padding:0;}
+table.snap.countries td.cc a			{display:block; padding:10px 30px 10px 0;}
+table.snap.countries td:last-child		{text-align:right;}
+table.snap.countries tr:last-child	td	{border-bottom:0;}
+
+table.snap.countries td.country_invalid a {color:#444;}
+table.snap.countries td.country_invalid   {color:#444; background-color:#eee;}
+
+.head_wrap		{border-bottom:5px solid #222; margin:0 auto; margin-bottom:20px; padding:20px 0; width:960px;}
+.head_block		{display:inline-block; vertical-align:bottom; width:50%;}
+a.head_title	{display:inline-block; font-size:1.8em;}
+a.back_link		{display:block; font-size:1.0em; text-align:right; color:#000;}
+.left_block		{display:inline-block; width:660px;}
+.right_block	{display:inline-block; width:280px;}
+.title			{font-size:2em; margin-bottom:20px;}
+.title_snap		{font-size:1.4em; margin-bottom:20px;}
+.snap_wrap		{border:1px solid #444; margin:0 auto; margin-bottom:30px; padding:20px; width:238px;}
+.snap_wrap.countries	{margin-top:40px; padding:20px 0; width:278px;}
+.snap_title		{font-size:0.9em; line-height:1.2em; padding:10px 20px;}
+.title_info		{font-size:1.4em; margin-bottom:10px;}
+p				{font-size:0.9em; margin-bottom:10px;}
+.subtitle_info	{font-size:0.9em; line-height:1.4em; margin-bottom:20px;}
+.subtitle_info p{font-size:1.0em; margin-top:10px;}
