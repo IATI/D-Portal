@@ -219,27 +219,37 @@ dstore_pg.getsql_create_table=function(db,name,tab)
 	{
 		var col=tab[i];
 
-		s.push(" "+col.name+" ");
-		
-		if(col.INTEGER)				{ s.push(" INTEGER "); }
-		else
-		if(col.REAL) 				{ s.push(" REAL "); }
-		else
-		if(col.BLOB) 				{ s.push(" BLOB "); }
-		else
-		if(col.NOCASE)				{ s.push(" CITEXT "); }
-		else
-		if(col.TEXT)				{ s.push(" TEXT "); }
-
-		if(col.PRIMARY) 			{ s.push(" PRIMARY KEY "); }
-		else
-		if(col.UNIQUE) 				{ s.push(" UNIQUE "); }
-		
-//		if(col.NOCASE)		 		{ s.push(" COLLATE NOCASE "); }
-		
-		if(i<tab.length-1)
+		if(col.name)
 		{
-		s.push(" , ");
+			s.push(" "+col.name+" ");
+			
+			if(col.INTEGER)				{ s.push(" INTEGER "); }
+			else
+			if(col.REAL) 				{ s.push(" REAL "); }
+			else
+			if(col.BLOB) 				{ s.push(" BLOB "); }
+			else
+			if(col.NOCASE)				{ s.push(" CITEXT "); }
+			else
+			if(col.TEXT)				{ s.push(" TEXT "); }
+
+			if(col.NOT_NULL)			{ s.push(" NOT NULL "); }
+
+			if(col.PRIMARY) 			{ s.push(" PRIMARY KEY "); }
+			else
+			if(col.UNIQUE) 				{ s.push(" UNIQUE "); }
+			
+	//		if(col.NOCASE)		 		{ s.push(" COLLATE NOCASE "); }
+			
+
+			if(i<tab.length-1) { s.push(" , "); }
+		}
+		else
+		if(col.UNIQUE) // add a multiple unique constraint
+		{
+			s.push(" UNIQUE ("+(col.UNIQUE.join(","))+") ");
+
+			if(i<tab.length-1) { s.push(" , "); }
 		}
 	}
 	

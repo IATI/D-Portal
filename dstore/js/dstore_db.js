@@ -72,6 +72,12 @@ dstore_db.tables={
 // FLAGS set to 0 if good otherwise
 // 1 == secondary publisher so transactions/budgets should be ignored to avoid double accounting
 	],
+// link to related activity ids found in the xml
+	related:[
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
+		{ name:"related_aid",					TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
+		{ 										UNIQUE:["aid","related_aid"] }, // each pair is unique
+	],
 	trans:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"trans_ref",						NOCASE:true , INDEX:true },
@@ -145,10 +151,6 @@ dstore_db.tables={
 		{ name:"element_name3",					NOCASE:true , INDEX:true },					// the parent of the parent of the parent of the element
 		{ name:"element_volume",				INTEGER:true , INDEX:true },				// number of occurrences of element
 	],
-// should we create joined table caches of the large data tables to speed lookup?
-//	country_location:[
-//		{ join_tables: [ "country","location" ] , join_by="aid" },
-//	],
 };
 	
 var http_getbody=function(url,cb)

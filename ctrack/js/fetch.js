@@ -64,6 +64,7 @@ fetch.ajax_dat_fix=function(dat,args)
 	dat["sector_code"]		=	dat["sector_code"]		||	ctrack.args.sector_code_select;
 	dat["sector_group"]		=	dat["sector_group"]		||	ctrack.args.sector_group_select;
 	dat["funder_ref"]		=	dat["funder_ref"]		||	ctrack.args.funder_ref_select;
+	dat["status_code"]		=	dat["status_code"]		||	ctrack.args.status_select;
 
 	dat["text_search"]		=	dat["text_search"]		||	ctrack.args.search;
 
@@ -99,7 +100,7 @@ fetch.ajax_dat_fix=function(dat,args)
 // join any extra tables we might now need due to extra restrictions
 	if(dat.from)
 	{
-		if( dat.funder_ref || dat.reporting_ref )
+		if( dat.funder_ref || dat.reporting_ref || dat.status_code )
 		{
 			if(dat.from.indexOf("act")==-1) { dat.from+=",act"; }
 		}
