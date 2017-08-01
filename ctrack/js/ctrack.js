@@ -347,6 +347,7 @@ ctrack.setup=function(args)
 			$(".search .text").parent().hide();
 			$(".search .sector").parent().hide();
 			$(".search .sect_cat").parent().hide();
+			$(".search .status_code").parent().hide();
 			$(".search .donor").parent().hide();
 			$(".search .year").parent().hide();
 
