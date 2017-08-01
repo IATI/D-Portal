@@ -284,16 +284,23 @@ view_search.fixup=function()
 		return "?"+que.join("&")+"#view=main";
 	}
 	
-	var o={allow_single_deselect:true,search_contains:true};
-	$("#view_search_select_country").chosen(o).change(build_query);
-	$("#view_search_select_funder").chosen(o).change(build_query);
-	$("#view_search_select_sector").chosen(o).change(build_query);
-	$("#view_search_select_category").chosen(o).change(build_query);
-	$("#view_search_select_publisher").chosen(o).change(build_query);
-	$("#view_search_select_year_min").chosen(o).change(build_query);
-	$("#view_search_select_year_max").chosen(o).change(build_query);
-	$("#view_search_select_status").chosen(o).change(build_query);
+	var search_select_ids={
+		"view_search_select_country":true,
+		"view_search_select_funder":true,
+		"view_search_select_sector":true,
+		"view_search_select_category":true,
+		"view_search_select_publisher":true,
+		"view_search_select_year_min":true,
+		"view_search_select_year_max":true,
+		"view_search_select_status":true,
+	};
 
+	var o={allow_single_deselect:true,search_contains:true};
+	for(var n in search_select_ids)
+	{
+		$("#"+n).chosen(o).change(build_query);
+	}
+	
 	var apply=function(v){
 		if(v)
 		{
@@ -326,6 +333,14 @@ view_search.fixup=function()
 		build_query();
 	});
 	
+	$('#view_search_clear').bind('click', function(e, a) {
+			e.preventDefault();
+			for(var n in search_select_ids)
+			{
+				$("#"+n).val("").trigger('chosen:updated');
+			}
+			build_query();
+		});
 	
 	build_query();
 
@@ -547,7 +562,7 @@ view_search.view=function(args)
 	
 }
 
-
+view_search.latest=0;
 view_search.ajax=function(args)
 {
 	var args=args || {};
@@ -558,33 +573,35 @@ view_search.ajax=function(args)
 		};
 	fetch.ajax_dat_fix(dat,args);
 
-	var count=0; for(var n in args.q) { count++; }
-	if(count==0) // disable results button
-	{
-		$("#search_link").addClass("search_link_disable");
-	}
-	else // enable results button
-	{
-		$("#search_link").removeClass("search_link_disable");
-	}
-	
-	$("#result_span").html("...");
-
-	fetch.ajax(dat,function(data){
-		var c=data.rows[0]["count_aid"];
-		if( c==0 ) // show results
-		{
-			$("#search_link").addClass("search_link_disable");
-		}
-		if(count!=0) // show results
-		{
-//console.log( data.rows[0] );
-			$("#result_span").html("Found "+c+" activities");
-		}
-	});
-	
+	$("#search_link").addClass("search_link_disable");
+	$("#result_span").html("");
 	$("#result_aid_link").html("");
 	$("#result_aid_div").addClass("search_aid_link_disable");
+
+	view_search.latest++;
+
+	var count=0; for(var n in args.q) { count++; }
+	if(count==0)
+	{
+		return;
+	}
+
+	$("#result_span").html("...");
+	
+	var latest=view_search.latest;
+	
+	fetch.ajax(dat,function(data){
+		if(latest!=view_search.latest) { return; } // ignore old search data
+
+		var c=data.rows[0]["count_aid"];
+		if( c>0 ) // show results
+		{
+			$("#search_link").removeClass("search_link_disable");
+		}
+//console.log( data.rows[0] );
+		$("#result_span").html("Found "+c+" activities");
+	});
+	
 	if( args && args.q && args.q.text_search ) // try for exact aid
 	{
 		fetch.ajax({
@@ -592,6 +609,8 @@ view_search.ajax=function(args)
 				"limit":1,
 				"aid":args.q.raw_text_search,
 			},function(data){
+			if(latest!=view_search.latest) { return; } // ignore old search data
+
 			if( data.rows.length>0 ) // show results
 			{
 //console.log( data );
