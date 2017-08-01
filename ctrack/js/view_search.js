@@ -574,7 +574,7 @@ view_search.ajax=function(args)
 	fetch.ajax_dat_fix(dat,args);
 
 	$("#search_link").addClass("search_link_disable");
-	$("#result_span").html("...");
+	$("#result_span").html("");
 	$("#result_aid_link").html("");
 	$("#result_aid_div").addClass("search_aid_link_disable");
 
@@ -585,6 +585,8 @@ view_search.ajax=function(args)
 	{
 		return;
 	}
+
+	$("#result_span").html("...");
 	
 	var latest=view_search.latest;
 	
