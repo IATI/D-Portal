@@ -275,10 +275,13 @@ view_map.ajax_heat=function(args)
 			"orderby":"1-",
 			"groupby":"2,3",
 		};
-
 	fetch.ajax_dat_fix(dat,args);
 
-	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100; }
+	if(dat.country_code)
+	{
+		dat.country_percent=100;
+		dat.reporting_ref_nteq="US-GOV-1"; // ignore bad data for now
+	}
 
 
 	if(args.round==0) // group more locations togethere (less precise)
