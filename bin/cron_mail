@@ -6,3 +6,12 @@ source ~/D-Portal/bin/server-pg/env.sh
 bin/cron 2>&1 | tee dportal/production/cron.log
 ( echo "Subject: d-portal update `date`"  ; uuencode dportal/production/cron.log dportal-cronlog.txt ) | sendmail krissd@gmail.com
 
+cp dportal/production/cron.log dportal/production/D-Portal-Logs/cron.log
+
+cd dportal/production/D-Portal-Logs/
+git add .
+git commit -m.
+git pull
+git push
+
+
