@@ -71,17 +71,51 @@ dstore_cache.cmd = function(argv){
 dstore_cache.import_xmlfile = function(xmlfile){
 
 var charset="unknown";
-var	bufferToString=function(buffer) {
+
+	var	bufferToString=function(buffer) {
 		if(!buffer) { return ""; }
 		var jschardet = require("jschardet")
 		var iconv = require("iconv-lite")
 
-		// the following is very resource hungry, hence the slice to stop us running out of memory
-		// however the slice may make it guess wrong, so I'm bumping the slice size up a lot to try and make it better.
-		charset = (jschardet.detect(buffer.slice(0,1024*1024)).encoding || "utf-8"); // this may wrongly select ascii 
 
-		charset = charset.toLowerCase();
-		if(charset=="ascii") { charset="utf-8"; } // so force utf-8 over ascii
+		var head=buffer.slice(0,1024); // grab a small part of the file as a test header
+
+		var headc=iconv.decode(head,"utf-8"); // assume utf8 and check for an xml header in case it was not
+		var aa=headc.split("?>")
+		if( aa[1] ) // found an xml header
+		{
+			aa=aa[0].split("encoding=")
+			if( aa[1] ) // found an encoding in the header eg -> <?XML encoding="utf-8"
+			{
+				var bb=aa[1].split("'"); // could be this quote type
+				if(bb[0]=="" && bb[1] )
+				{
+					charset=bb[1].toLowerCase();
+				}
+				else
+				{
+					var bb=aa[1].split("\""); // or this quote type
+					if(bb[0]=="" && bb[1] )
+					{
+						charset=bb[1].toLowerCase();
+					}
+				}
+			}
+		}
+
+		if( charset=="unknown" ) // might be utf-16 or utf-32 so check for them, otherwise assume utf-8
+		{
+
+			// the following is very resource hungry, hence the tiny head slice to stop us running out of memory
+			charset = (jschardet.detect(head).encoding || "utf-8");
+
+			charset = charset.toLowerCase();
+			if(charset.slice(0,3)!="utf") { charset="utf-8"; } // we only care about sniffing utf 16/32 formats, any other format and we will force utf-8 instead
+
+			// we should have picked one of the following UTF-8 , UTF-16 LE , UTF-16 BE , UTF-32 LE , UTF-32 BE
+		}
+		
+
 		return iconv.decode(buffer,charset);
 	}
 
