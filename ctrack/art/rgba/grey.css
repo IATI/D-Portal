@@ -358,7 +358,6 @@ a.a_slug:active					{color:var(--base11);}
 
 /*	Recipient countries
 	============================================= */
-span.span_recipient-country				{background-color:var(--base03_40);}
 span.span_recipient-country:before 		{color:var(--base15);}
 recipient-country span					{color:var(--base15);}
 recipient-country span:nth-of-type(2)	{color:var(--base15);}
@@ -389,6 +388,11 @@ participating-org[role="funding"]:after			{color:var(--base14);}
 participating-org[role="implementing"]:after	{color:var(--base14);}
 participating-org[role="extending"]:after		{color:var(--base14);}
 participating-org[role="accountable"]:after		{color:var(--base14);}
+
+participating-org a:link	{color:var(--base11);}
+participating-org a:visited	{color:var(--base11);}
+participating-org a:hover	{color:var(--base15);}
+participating-org a:active	{color:var(--base11);}
 
 
 /*	Reported by
@@ -483,7 +487,7 @@ transaction a						{font-weight:bold; color:var(--base11);}
 transaction a						{color:var(--base11);}
 transaction a:link					{color:var(--base11);}
 transaction a:visited				{color:var(--base11);}
-transaction a:hover					{color:var(--base11);}
+transaction a:hover					{color:var(--base15);}
 transaction a:active				{color:var(--base11);}
 transaction:last-of-type			{border-bottom:0px solid var(--base01);}
 transaction:nth-of-type(1):before	{color:var(--base15); background-color:var(--base03);}

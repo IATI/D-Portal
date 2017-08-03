@@ -356,7 +356,7 @@ activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:rgba(
 /*	Related documents list
 	============================================= */
 span.span_document-link							{width:880px; padding:0 40px; margin:0 auto; counter-reset:section;}
-span.span_document-link:before					{content:"RELATED DOCUMENTS"; font-size:14px; color:#CCC; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
+span.span_document-link:before					{content:"RELATED DOCUMENTS"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 a.a_document-link::before						{display:inline-block; counter-increment:section; content:counter(section) ". "; line-height:20px; font-size:18px;}
 a.a_document-link								{display:inline-block; width:860px; padding:10px 0; font-size:1.0em; line-height:1.25em; position:relative; color:#FFF;}
 a.a_document-link:last-of-type					{padding-bottom:40px;}
@@ -373,7 +373,7 @@ document-link span-title narrative				{display:inline;}
 /*	Family Tree list
 	============================================= */
 span.span_related-activity			{width:880px; padding:0 40px; margin:0 auto; counter-reset:section;}
-span.span_related-activity:before	{content:"FAMILY TREE"; font-size:14px; color:#CCC; display:block; padding:40px 0 20px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
+span.span_related-activity:before	{content:"FAMILY TREE"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_related-activity			{color:#FFF;}
 a.a_related-activity::before		{counter-increment:section; content:counter(section) ". ";}
 a.a_related-activity				{display:inline-block; width:875px; padding:10px 0 10px 5px; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#FFF;}

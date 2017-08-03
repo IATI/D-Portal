@@ -22,8 +22,10 @@ a:active				{color:rgba(170,170,170,1);}
 /*	Settings
 	============================================= */
 #settings				{background-color:rgba(97,2,21,0.3);}
-a.settings_link span	{color:rgba(255,255,255,0);}
+a.settings_link span	{color:rgba(235,235,235,1);}
 a.settings_link:hover span	{color:rgba(255,255,255,1);}
+a.settings_faq			{color:rgba(235,235,235,1);}
+a.settings_faq:hover span	{color:rgba(255,255,255,1);}
 
 
 /*	Breadcrumbs
@@ -125,8 +127,7 @@ a.read:hover			{color:rgba(186,12,47,1);}
 
 /*	Generic styles
 	============================================= */
-.list_peak					{border-right:30px solid rgba(186,12,47,1);}
-.list_head_title			{background-color:rgba(186,12,47,1); color:rgba(255,255,255,1);}
+.list_head_title			{color:rgba(255,255,255,1);}
 .list_stats_title			{color:rgba(255,255,255,1);}
 .list_stats_num				{color:rgba(255,255,255,1);}
 a.button					{background-color:rgba(186,12,47,1); color:rgba(255,255,255,1);}
@@ -137,10 +138,7 @@ a.csv_download:hover		{background-color:rgba(163,0,13,1); color:rgba(255,255,255
 	
 /*	For url #view=donors & all #view=donor_*
 	============================================= */
-.donors_peak				{border-right:30px solid rgba(149,162,0,1);}
-.donors_peak.view			{border-right:30px solid rgba(186,12,47,1);}
-.donors_head_title			{background-color:rgba(149,162,0,1); color:rgba(255,255,255,1);}
-.donors_head_title.view		{background-color:rgba(186,12,47,1);}
+.donors_head_title			{color:rgba(85,85,85,1);}
 
 
 /*	For url #view=donor_activities
@@ -152,8 +150,7 @@ a.csv_download:hover		{background-color:rgba(163,0,13,1); color:rgba(255,255,255
 
 /*	For url #view=sectors & all #view=sector_*
 	============================================= */
-.sectors_peak				{border-right:30px solid rgba(124,54,141,1);}
-.sectors_head_title			{background-color:rgba(124,54,141,1); color:rgba(255,255,255,1);}
+.sectors_head_title			{color:rgba(85,85,85,1);}
 
 
 /*	For url #view=search
@@ -253,6 +250,8 @@ table.money a:hover			{color:rgba(186,12,47,1);}
 table.money a:active		{color:rgba(78,78,78,1);}
 
 table.money a.year			{background-color:rgba(186,12,47,0);}
+table.money a.year.next:hover {background-color:rgba(170,170,170,1);}
+table.money a.year.prev:hover {background-color:rgba(170,170,170,1);}
 
 table.money.publishers th.col2,
 table.money.publishers td.col2	{border-left:1px solid rgba(199,199,199,1);}
@@ -317,11 +316,16 @@ span.span_span-title span-title:before 			{color:rgba(136,136,136,1);}
 iati-identifier 				{background-color:rgba(235, 235, 235, 0.6); color:rgba(186,12,47,1);}
 iati-identifier:before			{color:rgba(136,136,136,1);}
 iati-identifier:hover			{color:rgba(163,0,13,1);}
-a.a_xml_iati-identifier			{color:rgba(186,12,47,1);}
+a.a_xml_iati-identifier:link	{color:rgba(186,12,47,1);}
+a.a_xml_iati-identifier:visited	{color:rgba(186,12,47,1);}
 a.a_xml_iati-identifier:hover	{color:rgba(163,0,13,1);}
+a.a_xml_iati-identifier:active	{color:rgba(186,12,47,1);}
 a.a_xml_iati-identifier:before	{color:rgba(136,136,136,1);}
 a.a_slug						{color:rgba(186,12,47,1);}
+a.a_slug:link					{color:rgba(186,12,47,1);}
+a.a_slug:visited				{color:rgba(186,12,47,1);}
 a.a_slug:hover					{color:rgba(163,0,13,1);}
+a.a_slug:active					{color:rgba(186,12,47,1);}
 a.a_slug:before					{color:rgba(136,136,136,1);}
 
 
@@ -335,27 +339,43 @@ recipient-country span:nth-of-type(2)	{color:rgba(85,85,85,1);}
 
 /*	Start and End dates
 	============================================= */
-span.span_activity-date						{background-color:rgba(186,12,47,1);}
-activity-date[type="start-actual"]			{color:rgba(255,255,255,1);}
-activity-date[type="end-actual"]			{color:rgba(255,255,255,1);}
-activity-date[type="start-actual"]:before	{color:rgba(255,255,255,1);}
-activity-date[type="end-actual"]:before		{color:rgba(255,255,255,1);}
+span.span_activity-date					{background-color:rgba(206,206,206,1);}
+
+activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"], activity-date[type="end-planned"], activity-date[type="2"], activity-date[type="4"], activity-date[type="start-actual"], activity-date[type="end-actual"]	{background-color:rgba(186,12,47,1); color:rgba(255,255,255,1);}
+
+activity-date[type="1"]:before, activity-date[type="start-planned"]:before,
+activity-date[type="2"]:before, activity-date[type="start-actual"]:before,
+activity-date[type="3"]:before, activity-date[type="end-planned"]:before,
+activity-date[type="4"]:before, activity-date[type="end-actual"]:before	{color:rgba(206,206,206,1);}
 
 
 /*	Who's invloved?
 	============================================= */
 span.span_participating-org	 					{color:rgba(85,85,85,1); background-color:rgba(255,255,255,1);}
-span.span_participating-org:before 				{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
-participating-org								{color:rgba(85,85,85,1);}
-participating-org[role="funding"]:after			{color:rgba(136,136,136,1);}
-participating-org[role="implementing"]:after	{color:rgba(136,136,136,1);}
-participating-org[role="extending"]:after		{color:rgba(136,136,136,1);}
-participating-org[role="accountable"]:after		{color:rgba(136,136,136,1);}
+span.span_participating-org:before 				{color:rgba(136,136,136,1);}
+participating-org, span-narrative.participating-role	{color:rgba(85,85,85,1);}
+
+participating-org[role="1"] narrative:nth-of-type(1):after, participating-org[role="funding"] narrative:nth-of-type(1):after,
+participating-org[role="2"] narrative:nth-of-type(1):after, participating-org[role="accountable"] narrative:nth-of-type(1):after,
+participating-org[role="3"] narrative:nth-of-type(1):after, participating-org[role="extending"] narrative:nth-of-type(1):after,
+participating-org[role="4"] narrative:nth-of-type(1):after, participating-org[role="implementing"] narrative:nth-of-type(1):after	{color:rgba(136,136,136,1);}
+
+participating-org a:link	{color:rgba(186,12,47,1);}
+participating-org a:visited	{color:rgba(186,12,47,1);}
+participating-org a:hover	{color:rgba(163,0,13,1);}
+participating-org a:active	{color:rgba(186,12,47,1);}
+
+
+/*	Location (version 2.02++)
+	============================================= */
+span.span_location			{color:rgba(85,85,85,1);}
+span.span_location:before	{color:rgba(136,136,136,1);}
+span.span_location location point > *	{color:rgba(136,136,136,1);}
 
 
 /*	Reported by
 	============================================= */
-reporting-org 					{color:rgba(85,85,85,1); background-color:rgba(255,255,255,1);}
+reporting-org 					{color:rgba(85,85,85,1);}
 reporting-org:before 			{color:rgba(136,136,136,1);}
 
 
@@ -373,27 +393,35 @@ span.span_description description[type="3"]:before		{color:rgba(136,136,136,1);}
 result:nth-child(odd)		{background-color:rgba(235,235,235,0.3);}
 result:nth-of-type(1):before{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
 result:last-of-type			{border-radius:0 0 4px 4px;}
-result description			{color:rgba(85,85,85,1);}
+result description, result description narrative	{color:rgba(85,85,85,1);}
 result description:before	{color:rgba(136,136,136,1);}
 result span-title			{color:rgba(85,85,85,1);}
 result span-title:before	{color:rgba(136,136,136,1);}
 
-result indicator span-title	{border-top:1px solid rgba(85,85,85,1);}
+result indicator:before		{color:rgba(136,136,136,1);}
+
 result indicator period period-start, result indicator period period-end, result indicator period target, result indicator period actual,
 result indicator description			{color:rgba(85,85,85,1);}
-result indicator period period-start:before, result indicator period period-end:before, result indicator period target:before,
-result indicator period actual:before	{color:rgba(136,136,136,1);}
+result indicator period period-start:before, result indicator period period-end:before	{color:rgba(136,136,136,1);}
+
+result indicator period baseline:before, result indicator period target:before, result indicator period actual:before	{color:rgba(255,255,255,1);}
+result indicator period baseline{background-color:rgba(186,12,47,1);}
+result indicator period target	{background-color:rgba(70,70,70,1);}
+result indicator period actual.value-higher	{background-color:rgba(111,181,30,1);}
+result indicator period actual.value-lower	{background-color:rgba(220,194,0,1);}
 
 result indicator > baseline comment	{color:rgba(85,85,85,1);}
 
 
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
-sector[vocabulary="DAC"]		{color:rgba(85,85,85,1);}
-sector:nth-child(even)			{background-color:rgba(235,235,235,0.6);}
-sector[vocabulary="DAC"]:before	{color:rgba(136,136,136,1);}
-sector span						{color:rgba(85,85,85,1);}
-sector span:nth-of-type(2)		{color:rgba(136,136,136,1);}
+span.span_sector sector[vocabulary="DAC"],
+span.span_sector sector[vocabulary="1"]		{color:rgba(85,85,85,1);}
+span.span_sector sector:nth-child(even)		{background-color:rgba(235,235,235,0.6);}
+span.span_sector sector[vocabulary="DAC"]:before, 
+span.span_sector sector[vocabulary="1"]:before	{color:rgba(136,136,136,1);}
+sector span, span.span_sector sector span	{color:rgba(85,85,85,1);}
+span.span_sector sector span:nth-of-type(2)	{color:rgba(136,136,136,1);}
 img.sector_pie					{background-color:rgba(255,255,255,1);}
 
 
@@ -402,9 +430,10 @@ img.sector_pie					{background-color:rgba(255,255,255,1);}
 budget					{border-top:1px solid rgba(235,235,235,1);}
 budget:last-of-type	 	{border-bottom:1px solid rgba(255,255,255,1);}
 budget:nth-of-type(1):before				{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
-budget:nth-of-type(1) period-start:before 	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
-budget:nth-of-type(1) period-end:before	  	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
-budget:nth-of-type(1) value:before		  	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
+budget:nth-of-type(1) period-start:before 	{color:rgba(136,136,136,1);}
+budget:nth-of-type(1) period-end:before	  	{color:rgba(136,136,136,1);}
+budget:nth-of-type(1) value:before		  	{color:rgba(136,136,136,1);}
+budget:nth-of-type(1) period-end:after		{color:rgba(136,136,136,1);}
 period-start 			{color:rgba(85,85,85,1);}
 period-end	 			{color:rgba(85,85,85,1);}
 budget value 			{color:rgba(85,85,85,1);}
@@ -415,16 +444,19 @@ budget value 			{color:rgba(85,85,85,1);}
 transaction							{border-top:1px solid rgba(235,235,235,1);}
 transaction a						{color:rgba(163,0,13,1);}
 a.a_receiver-org					{color:rgba(163,0,13,1);}
+transaction a:link					{color:rgba(163,0,13,1);}
+transaction a:visited				{color:rgba(163,0,13,1);}
 transaction a:hover					{color:rgba(186,12,47,1);}
+transaction a:active				{color:rgba(163,0,13,1);}
 transaction:last-of-type			{border-bottom:0px solid rgba(143,143,143,1);}
 transaction:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
 
-transaction:nth-of-type(1) transaction-date:before	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
-transaction:nth-of-type(1) transaction-type:before	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
-transaction:nth-of-type(1) provider-org:before		{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
-transaction:nth-of-type(1) receiver-org:before		{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
-transaction:nth-of-type(1) value:before				{color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
-span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {color:rgba(136,136,136,1); border-bottom:1px solid rgba(136,136,136,0.6);}
+transaction:nth-of-type(1) transaction-date:before	{color:rgba(136,136,136,1);}
+transaction:nth-of-type(1) transaction-type:before	{color:rgba(136,136,136,1);}
+transaction:nth-of-type(1) provider-org:before		{color:rgba(136,136,136,1);}
+transaction:nth-of-type(1) receiver-org:before		{color:rgba(136,136,136,1);}
+transaction:nth-of-type(1) value:before				{color:rgba(136,136,136,1);}
+span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {color:rgba(136,136,136,1);}
 
 transaction-date	{color:rgba(85,85,85,1);}
 transaction-type	{color:rgba(85,85,85,1);}
@@ -463,7 +495,7 @@ activity-status:before		{color:rgba(255,255,255,1);}
 
 /*	Related documents list
 	============================================= */
-span.span_document-link:before				{color:rgba(136,136,136,1); border-bottom:3px solid rgba(136,136,136,1);}
+span.span_document-link:before				{color:rgba(136,136,136,1);}
 a.a_document-link							{color:rgba(136,136,136,1);}
 a.a_document-link document-link span-title			{color:rgba(85,85,85,1);}
 a.a_document-link document-link span-title:hover	{color:rgba(163,0,13,1);}
@@ -472,7 +504,7 @@ document-link span							{color:rgba(136,136,136,1);}
 
 /*	Family Tree list
 	============================================= */
-span.span_related-activity:before	{color:rgba(136,136,136,1); border-bottom:3px solid rgba(136,136,136,1);}
+span.span_related-activity:before	{color:rgba(136,136,136,1);}
 span.span_related-activity			{color:rgba(85,85,85,1);}
 a.a_related-activity				{color:rgba(85,85,85,1);}
 related-activity					{color:rgba(85,85,85,1);}

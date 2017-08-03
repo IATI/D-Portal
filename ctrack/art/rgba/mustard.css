@@ -20,13 +20,15 @@ a:active				{color:rgba(170,170,170,1);}
 /*	Settings
 	============================================= */
 #settings				{background-color:rgba(24,23,21,1);}
-a.settings_link span	{color:rgba(255,255,255,0);}
+a.settings_link span	{color:rgba(235,235,235,1);}
 a.settings_link:hover span	{color:rgba(255,255,255,1);}
+a.settings_faq			{color:rgba(235,235,235,1);}
+a.settings_faq:hover span	{color:rgba(255,255,255,1);}
 
 
 /*	Breadcrumbs
 	============================================= */
-a.crumb					{color:rgba(163,116,34,1);}
+a.crumb					{color:rgba(232,148,0,1);}
 a.crumb:hover			{color:rgba(255,174,34,1);}
 .crumb_wrap				{color:rgba(204,204,204,1);}
 .crumb_wrap span		{color:rgba(255,255,255,1);}
@@ -121,22 +123,18 @@ a.read:hover			{color:rgba(255,255,255,1);}
 
 /*	Generic styles
 	============================================= */
-.list_peak					{border-right:30px solid rgba(206,131,0,1);}
-.list_head_title			{background-color:rgba(206,131,0,1); color:rgba(255,255,255,1);}
+.list_head_title			{color:rgba(255,255,255,1);}
 .list_stats_title			{color:rgba(255,255,255,1);}
 .list_stats_num				{color:rgba(255,255,255,1);}
 a.button					{background-color:rgba(206,131,0,1); color:rgba(255,255,255,1);}
 a.button:hover				{background-color:rgba(255,163,0,1);}
-a.csv_download				{background-color:rgba(206,131,0,0.6); color:rgba(204,204,204,1);}
-a.csv_download:hover		{background-color:rgba(255,163,0,0.6); color:rgba(255,255,255,1);}
+a.csv_download				{background-color:rgba(206,131,0,1); color:rgba(255,255,255,1);}
+a.csv_download:hover		{background-color:rgba(255,163,0,1); color:rgba(255,255,255,1);}
 
 	
 /*	For url #view=donors & all #view=donor_*
 	============================================= */
-.donors_peak				{border-right:30px solid rgba(206,131,0,1);}
-.donors_peak.view			{border-right:30px solid rgba(206,131,0,1);}
-.donors_head_title			{background-color:rgba(206,131,0,1); color:rgba(255,255,255,1);}
-.donors_head_title.view		{background-color:rgba(206,131,0,1);}
+.donors_head_title			{color:rgba(255,255,255,1);}
 
 
 /*	For url #view=donor_activities
@@ -148,8 +146,7 @@ a.csv_download:hover		{background-color:rgba(255,163,0,0.6); color:rgba(255,255,
 
 /*	For url #view=sectors & all #view=sector_*
 	============================================= */
-.sectors_peak				{border-right:30px solid rgba(206,131,0,1);}
-.sectors_head_title			{background-color:rgba(206,131,0,1); color:rgba(255,255,255,1);}
+.sectors_head_title			{color:rgba(255,255,255,1);}
 
 
 /*	For url #view=search
@@ -248,6 +245,7 @@ table.money a:hover			{color:rgba(255,255,255,1);}
 table.money a:active		{color:rgba(204,204,204,1);}
 
 table.money a.year			{background-color:rgba(206,131,0,0.6);}
+table.money a.year.next:hover, table.money a.year.prev:hover	{background-color:rgba(206,131,0,1);}
 
 table.money.publishers th.col2,
 table.money.publishers td.col2	{border-left:1px solid rgba(67,67,67,1);}
@@ -312,17 +310,21 @@ span.span_span-title span-title:before 			{color:rgba(204,204,204,1);}
 iati-identifier 				{background-color: rgba(15,15,15,0.7); color:rgba(206,131,0,1);}
 iati-identifier:before			{color:rgba(204,204,204,1);}
 iati-identifier:hover			{color:rgba(255,163,0,1);}
-a.a_xml_iati-identifier			{color:rgba(206,131,0,1);}
+a.a_xml_iati-identifier:link	{color:rgba(206,131,0,1);}
+a.a_xml_iati-identifier:visited	{color:rgba(206,131,0,1);}
 a.a_xml_iati-identifier:hover	{color:rgba(255,163,0,1);}
+a.a_xml_iati-identifier:active	{color:rgba(206,131,0,1);}
 a.a_xml_iati-identifier:before	{color:rgba(204,204,204,1);}
 a.a_slug						{color:rgba(206,131,0,1);}
+a.a_slug:link					{color:rgba(206,131,0,1);}
+a.a_slug:visited				{color:rgba(206,131,0,1);}
 a.a_slug:hover					{color:rgba(255,163,0,1);}
+a.a_slug:active					{color:rgba(206,131,0,1);}
 a.a_slug:before					{color:rgba(204,204,204,1);}
 
 
 /*	Recipient countries
 	============================================= */
-span.span_recipient-country				{background-color:rgba(56,56,56,0.9);}
 span.span_recipient-country:before 		{color:rgba(255,255,255,1);}
 recipient-country span					{color:rgba(255,255,255,1);}
 recipient-country span:nth-of-type(2)	{color:rgba(255,255,255,1);}
@@ -340,17 +342,24 @@ activity-date[type="end-actual"]:before		{color:rgba(255,255,255,1);}
 /*	Who's invloved?
 	============================================= */
 span.span_participating-org	 					{color:rgba(255,255,255,1); background-color:rgba(56,56,56,0.4);}
-span.span_participating-org:before 				{color:rgba(255,255,255,1); border-bottom:5px solid rgba(255,255,255,1);}
-participating-org								{color:rgba(255,255,255,1);}
-participating-org[role="funding"]:after			{color:rgba(204,204,204,1);}
-participating-org[role="implementing"]:after	{color:rgba(204,204,204,1);}
-participating-org[role="extending"]:after		{color:rgba(204,204,204,1);}
-participating-org[role="accountable"]:after		{color:rgba(204,204,204,1);}
+span.span_participating-org:before 				{color:rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1);}
+
+participating-org, span-narrative.participating-role	{color:rgba(255,255,255,1);}
+
+participating-org[role="1"] narrative:nth-of-type(1):after, participating-org[role="funding"] narrative:nth-of-type(1):after,
+participating-org[role="2"] narrative:nth-of-type(1):after, participating-org[role="accountable"] narrative:nth-of-type(1):after,
+participating-org[role="3"] narrative:nth-of-type(1):after, participating-org[role="extending"] narrative:nth-of-type(1):after,
+participating-org[role="4"] narrative:nth-of-type(1):after, participating-org[role="implementing"] narrative:nth-of-type(1):after	{color:rgba(204,204,204,1);}
+
+participating-org a:link	{color:rgba(206,131,0,1);}
+participating-org a:visited	{color:rgba(206,131,0,1);}
+participating-org a:hover	{color:rgba(255,163,0,1);}
+participating-org a:active	{color:rgba(206,131,0,1);}
 
 
 /*	Reported by
 	============================================= */
-reporting-org 					{color:rgba(255,255,255,1); background-color:rgba(56,56,56,0.9);}
+reporting-org 					{color:rgba(255,255,255,1);}
 reporting-org:before 			{color:rgba(204,204,204,1);}
 
 
@@ -408,7 +417,10 @@ budget value 			{color:rgba(255,255,255,1);}
 transaction							{border-top:1px solid rgba(143,143,143,1);}
 transaction a						{color:rgba(255,163,0,1);}
 a.a_receiver-org					{color:rgba(255,163,0,1);}
+transaction a:link					{color:rgba(255,163,0,1);}
+transaction a:visited				{color:rgba(255,163,0,1);}
 transaction a:hover					{color:rgba(255,183,0,1);}
+transaction a:active				{color:rgba(255,163,0,1);}
 transaction:last-of-type			{border-bottom:1px solid rgba(143,143,143,1);}
 transaction:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 
@@ -456,7 +468,7 @@ activity-status:before		{color:rgba(0,14,32,1);}
 
 /*	Related documents list
 	============================================= */
-span.span_document-link:before				{color:rgba(255,255,255,1); border-bottom:3px solid rgba(255,255,255,1);}
+span.span_document-link:before				{color:rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1);}
 a.a_document-link							{color:rgba(204,204,204,1);}
 a.a_document-link document-link span-title			{color:rgba(255,255,255,1);}
 a.a_document-link document-link span-title:hover	{color:rgba(255,163,0,1);}
@@ -465,7 +477,7 @@ document-link span							{color:rgba(204,204,204,1);}
 
 /*	Family Tree list
 	============================================= */
-span.span_related-activity:before	{color:rgba(255,255,255,1); border-bottom:3px solid rgba(255,255,255,1);}
+span.span_related-activity:before	{color:rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1);}
 span.span_related-activity			{color:rgba(255,255,255,1);}
 a.a_related-activity				{color:rgba(255,255,255,1);}
 related-activity					{color:rgba(173,173,173,1);}
