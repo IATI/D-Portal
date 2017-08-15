@@ -506,7 +506,7 @@ dstore_pg.query_select=function(q,res,r,req){
 
 // return error do not crash
 var err=function (error) {
-	r.error=error
+	r.error=error.message || error 
 	query.do_select_response(q,res,r);
 }
 
