@@ -55,6 +55,8 @@ dstore_stats.cmd = function(argv){
 	stats.distinct=stats.distinct || {}
 	for(var tname in stats.tables)
 	{
+console.log("TABLE "+tname)
+
 		stats.count[tname]=stats.count[tname] || {}
 
 		var q="SELECT COUNT(*) AS num FROM "+tname+" ; "
