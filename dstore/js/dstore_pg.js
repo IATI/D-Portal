@@ -639,6 +639,6 @@ dstore_pg.query=function(q,v,cb){
 			
 	db.any(q,v).then(function(rows){
 		cb(null,rows)
-	});
+	}).catch(err);
 
 }
