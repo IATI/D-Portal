@@ -71,7 +71,8 @@ console.log(rows[0].num+" == "+q)
 			var vname=stats.tables[tname][i]
 
 			stats.distinct[tname][vname]=stats.distinct[tname][vname] || {}
-			var q="SELECT COUNT(DISTINCT "+vname+") AS num FROM "+tname+" ; "
+//			var q="SELECT COUNT(DISTINCT "+vname+") AS num FROM "+tname+" ; "
+			var q="SELECT COUNT(*) AS num FROM (SELECT DISTINCT "+vname+" FROM "+tname+") AS temp;"
 			var v={}
 			var rows=wait.for(dstore_db.query,q,v);
 console.log(rows[0].num+" == "+q)
