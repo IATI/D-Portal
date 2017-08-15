@@ -504,6 +504,13 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 dstore_pg.query_select=function(q,res,r,req){
 
 
+// return error do not crash
+var err=function (error) {
+	r.error=error
+	query.do_select_response(q,res,r);
+}
+
+
 	var db = dstore_pg.open();
 	
 	db.any("EXPLAIN ( ANALYZE FALSE , VERBOSE TRUE , FORMAT JSON ) "+r.query,r.qvals).then(function(rows){
@@ -623,3 +630,15 @@ dstore_pg.fake_trans = function(){
 	}).catch(err);
 
 };
+
+
+// generic query
+dstore_pg.query=function(q,v,cb){
+
+	var db = dstore_pg.open();
+			
+	db.any(q,v).then(function(rows){
+		cb(null,rows)
+	});
+
+}
