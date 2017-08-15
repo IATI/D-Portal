@@ -36,14 +36,17 @@ dstore_stats.cmd = function(argv){
 	stats.tables={}
 	for(var tname in dstore_db.tables)
 	{
-		var v=dstore_db.tables[tname]
-		var tab=[]
-		stats.tables[tname]=tab
-		for(var i=0;i<v.length;i++)
+		if(tname!="jml") // ignore jml it is a just a big dumb data cache
 		{
-			if(v[i].name)
+			var v=dstore_db.tables[tname]
+			var tab=[]
+			stats.tables[tname]=tab
+			for(var i=0;i<v.length;i++)
 			{
-				tab[tab.length]=v[i].name
+				if(v[i].name)
+				{
+					tab[tab.length]=v[i].name
+				}
 			}
 		}
 	}

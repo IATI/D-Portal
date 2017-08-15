@@ -8,7 +8,7 @@ bin/cron 2>&1 | tee dportal/production/cron.log
 
 cp dportal/production/cron.log dportal/production/D-Portal-Logs/cron.log
 
-dstore/dstore stats ../dportal/production/D-Portal-Logs/status.json
+dstore/dstore stats ../dportal/production/D-Portal-Logs/stats.json
 
 cd dportal/production/D-Portal-Logs/
 git add .
