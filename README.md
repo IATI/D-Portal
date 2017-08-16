@@ -62,6 +62,7 @@ If you are interested in finding out more or part-funding d-portal, please conta
 Logs
 ===================
 
-We are tracking daily logs of nightly imports of IATI data being 
+We are tracking the nightly imports of IATI data being 
 published to d-portal.org [here](https://github.com/xriss/D-Portal-Logs).
+
 
