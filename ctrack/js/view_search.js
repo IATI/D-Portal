@@ -20,6 +20,8 @@ view_search.chunks=[
 //	"table_ended_datas",
 ];
 
+
+
 // called on view display to fix html in place
 view_search.fixup=function()
 {
@@ -333,6 +335,58 @@ view_search.fixup=function()
 		build_query();
 	});
 	
+	var sort_chosen_by="ABC";
+	var sort_chosen=function(sel)
+	{
+
+		var selected = sel.val(); // cache selected value, before reordering
+		var opts_list = sel.find('option');
+		opts_list.sort(
+			function(a, b)
+			{
+				if(sort_chosen_by=="123")
+				{
+					return $(a).val().toUpperCase() > $(b).val().toUpperCase() ? 1 : -1;
+				}
+				else
+				{
+					return $(a).text() > $(b).text() ? 1 : -1;
+				}
+			}
+		);
+		sel.html('').append(opts_list);
+		sel.val(selected); // set cached selected value
+		
+	}
+
+	$('#view_search_order').bind('click', function(e, a) {
+			e.preventDefault();
+			
+			var a1=$('#view_search_order').children().eq(0);
+			var a2=$('#view_search_order').children().eq(1);
+			
+			if(a1.is(":visible"))
+			{
+				a1.hide();
+				a2.show();
+				sort_chosen_by="123";
+			}
+			else
+			{
+				a1.show();
+				a2.hide();
+				sort_chosen_by="ABC";
+			}
+			
+			
+			for(var n in search_select_ids)
+			{
+				sort_chosen($("#"+n));
+				$("#"+n).trigger('chosen:updated');
+			}
+			build_query();
+		});
+	
 	$('#view_search_clear').bind('click', function(e, a) {
 			e.preventDefault();
 			for(var n in search_select_ids)
@@ -341,7 +395,7 @@ view_search.fixup=function()
 			}
 			build_query();
 		});
-	
+
 	build_query();
 
 // goto new url
@@ -616,9 +670,8 @@ view_search.ajax=function(args)
 //console.log( data );
 				var aid=data.rows[0].aid
 				$("#result_aid_link").html("<a href=\"#view=act&aid="+aid+"\">View the activity with this IATI Identifier</a>");
-				$("#result_aid_div").removeClass("search_aid_link_disable");
-				
-//				ctrack.change_hash({view:"act",aid:aid});
+				$("#result_aid_div").removeClass("search_aid_link_disable");				
+				ctrack.change_hash({view:"act",aid:aid});
 			}
 		});
 	}
