@@ -17,6 +17,7 @@ var prelink=args.link || "http://d-portal.org/q.html?aid=";
 var postlink=args.link_post || "";
 
 var pubprelink=args.link || "http://d-portal.org/ctrack.html?publisher=";
+var pubpostlink=args.link_post || "#view=main";
 
 
 var acts=$(inside+"iati-activity").not(".savidone"); // ignore activities that have already been done
@@ -580,7 +581,7 @@ acts.find("participating-org[ref]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	if(id)
 	{
-		wrapInner_link(it,pubprelink+id+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
 	}
 });
 
