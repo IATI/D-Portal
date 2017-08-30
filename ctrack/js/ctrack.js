@@ -639,8 +639,8 @@ ctrack.setup=function(args)
 				ctrack.hash[n]=h[n];
 			}
 		}
-		ctrack.last_hash="";
 		ctrack.display_hash();
+		ctrack.last_hash="";
 		ctrack.check_hash();
 	}
 	ctrack.display_hash=function()
@@ -651,6 +651,7 @@ ctrack.setup=function(args)
 			a.push(n+"="+encodeURIComponent(ctrack.hash[n]));
 		}
 		document.location.hash=a.join("&");
+		ctrack.last_hash=document.location.hash; // disable change logic
 	}
 	ctrack.last_hash="";
 	ctrack.last_view="";
