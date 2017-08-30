@@ -88,6 +88,12 @@ wait.launchFiber(function(){
 		require("./dstore_cache").import_xmlfile( argv._[1] );
 		return;		
 	}
+	else
+	if( argv._[0]=="stats" )
+	{
+		require("./dstore_stats").cmd(argv);
+		return;		
+	}
 
 	// help text
 	console.log(

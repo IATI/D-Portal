@@ -303,6 +303,13 @@ ctrack.setup=function(args)
 				only_publisher=false;
 			}
 			
+			if	(	( args.country_select   && (args.country_select.indexOf("|")  !=-1) )	||
+					( args.publisher_select && (args.publisher_select.indexOf("|")!=-1) )	)
+			{
+				only_country=false;
+				only_publisher=false;
+			}
+			
 			if( ( only_country && (!only_publisher) ) || ( (!only_country) && only_publisher ) )
 			{
 // show normal header for publisher or country

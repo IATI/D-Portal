@@ -667,6 +667,7 @@ if(true)
 		if(err)
 		{
 			console.log(r.query+"\n"+err);
+			r.error=err
 		}
 		else
 		{
@@ -680,6 +681,23 @@ if(true)
 		query.do_select_response(q,res,r);
 		
 		dstore_back.close(db);
+	});
+
+}
+
+
+
+// generic query
+dstore_sqlite.query=function(q,v,cb){
+
+	var db = dstore_db.open();
+	db.serialize();
+	
+	db.all(q,v, function(err, rows)
+	{
+		dstore_back.close(db);
+		if(err) { console.log(q+"\n"+err); }
+		cb(err,rows)
 	});
 
 }

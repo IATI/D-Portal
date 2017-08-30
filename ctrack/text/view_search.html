@@ -145,7 +145,7 @@
 	<div class="search_label">
 		<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
 	</div>
-	<select id="view_search_select_country" class="chosen">
+	<select id="view_search_select_country" class="chosen" multiple>
 		<option value></option>
 		{search_options_country}
 	</select>
@@ -153,7 +153,7 @@
 	<div class="search_label">
 		<img src="{flava}search_sector.png" alt="Sector Group icon" width="13" height="13"/>{search_sectorgroup_txt}
 	</div>
-	<select id="view_search_select_category" class="chosen">
+	<select id="view_search_select_category" class="chosen" multiple>
 		<option value></option>
 		{search_options_category}
 	</select>
@@ -161,7 +161,7 @@
 	<div class="search_label">
 		<img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}
 	</div>
-	<select id="view_search_select_status" class="chosen">
+	<select id="view_search_select_status" class="chosen" multiple>
 		<option value></option>
 		{search_options_status}
 	</select>
@@ -169,7 +169,7 @@
 	<div class="search_label">
 		<img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}
 	</div>
-	<select id="view_search_select_publisher" class="chosen">
+	<select id="view_search_select_publisher" class="chosen" multiple>
 		<option value></option>
 		{search_options_publisher}
 	</select>
@@ -177,7 +177,7 @@
 	<div class="search_label">
 		<img src="{flava}search_category.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
 	</div>
-	<select id="view_search_select_sector" class="chosen">
+	<select id="view_search_select_sector" class="chosen" multiple>
 		<option value></option>
 		{search_options_sector}
 	</select>
@@ -252,7 +252,22 @@
 
 <!-- new search in progress - Explore	-->
 #filter_head3_text
-<div><div class="search_head" style="display:inline-block; vertical-align:top; width:70%;">EXPLORE <span>filters</span></div><a id="view_search_clear" class="search_clear abc"><span class="abc_toggle"><span></span></span>ABC</a><a id="view_search_clear" class="search_clear" style="width:20%;">Clear all filters<span>x</span></a></div>
+
+<div>
+	<div class="search_head" style="display:inline-block; vertical-align:top; width:640px;">
+		EXPLORE <span>filters</span>
+	</div><div class="search_opts" style="display:inline-block; vertical-align:top; width:120px;">
+		<a id="view_search_order" class="search_order">
+			<span class="order_1">ABC</span><div class="search_toggle_wrap"><div class="toggle_abc"></div><div class="toggle_123"></div></div><span class="order_2">123</span>
+		</a>
+	</div><div class="search_opts" style="display:inline-block; vertical-align:top; width:154px;">
+		<a id="view_search_clear" class="search_clear">
+			Clear all filters<span class="search_clear_close">x</span>
+		</a>
+	</div>
+</div>
+
+
 
 #filter_head_text
 <div class="search_head">DISCOVER <span>filters</span></div>

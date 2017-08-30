@@ -9,6 +9,12 @@ bin/cron 2>&1 | tee dportal/production/cron.log
 cp dportal/production/cron.log dportal/production/D-Portal-Logs/cron.log
 
 cd dportal/production/D-Portal-Logs/
+git pull
+cd ../../..
+
+dstore/dstore stats ../dportal/production/D-Portal-Logs/stats.json
+
+cd dportal/production/D-Portal-Logs/
 git add .
 git commit -m.
 git pull
