@@ -297,6 +297,14 @@ view_search.fixup=function()
 		"view_search_select_status":true,
 	};
 
+	var search_select_sort_ids={
+		"view_search_select_country":true,
+		"view_search_select_sector":true,
+		"view_search_select_category":true,
+		"view_search_select_publisher":true,
+		"view_search_select_status":true,
+	};
+
 	var o={allow_single_deselect:true,search_contains:true,placeholder_text_multiple:"Select one or multiple options"};
 	for(var n in search_select_ids)
 	{
@@ -354,37 +362,43 @@ view_search.fixup=function()
 				}
 			}
 		);
-		sel.html('').append("<option value></option>").append(opts_list);
-		sel.val(selected); // set cached selected value
-		
+		sel.html('').append(opts_list);
+		if(selected)
+		{
+			sel.val(selected); // set cached selected value
+		}
 	}
 
 	$('#view_search_order').bind('click', function(e, a) {
-			e.preventDefault();
-			
+			e.preventDefault();			
+
 			var a1=$('#view_search_order span.order_1, #view_search_order .toggle_abc');
 			var a2=$('#view_search_order span.order_2, #view_search_order .toggle_123');
 			
-			if(a1.is(":visible"))
+			if(sort_chosen_by=="ABC")
 			{
-				a1.hide();
-				a2.show();
+				a1.show().hide();
+				a2.hide().show();
 				sort_chosen_by="123";
+				ctrack.hash.sort="123";
+				ctrack.display_hash();
 			}
 			else
 			{
-				a1.show();
-				a2.hide();
+				a1.hide().show();
+				a2.show().hide();
 				sort_chosen_by="ABC";
+				ctrack.hash.sort="ABC";
+				ctrack.display_hash();
 			}
 			
 			
-			for(var n in search_select_ids)
+			for(var n in search_select_sort_ids)
 			{
 				sort_chosen($("#"+n));
 				$("#"+n).trigger('chosen:updated');
 			}
-			build_query();
+				
 		});
 	
 	$('#view_search_clear').bind('click', function(e, a) {
@@ -396,7 +410,7 @@ view_search.fixup=function()
 			}
 			build_query();
 		});
-
+		
 	build_query();
 
 // goto new url
@@ -470,6 +484,11 @@ view_search.fixup=function()
 	else
 	{
 		$('#view_search_string_only').focus();
+	}
+	
+	if(	(sort_chosen_by=="ABC") && (ctrack.hash.sort=="123") )
+	{
+		$('#view_search_order').trigger("click");
 	}
 }
 //
@@ -670,8 +689,8 @@ view_search.ajax=function(args)
 			{
 //console.log( data );
 				var aid=data.rows[0].aid
-				$("#result_aid_link").html("<a href=\"#view=act&aid="+aid+"\">View the activity with this IATI Identifier</a>");
-				$("#result_aid_div").removeClass("search_aid_link_disable");				
+//				$("#result_aid_link").html("<a href=\"#view=act&aid="+aid+"\">View the activity with this IATI Identifier</a>");
+//				$("#result_aid_div").removeClass("search_aid_link_disable");				
 				ctrack.change_hash({view:"act",aid:aid});
 			}
 		});
