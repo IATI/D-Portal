@@ -160,7 +160,11 @@ a#search_link:hover			{background-color:rgba(255,163,0,1);}
 	
 /*	Search Headers
 	============================================= */
-.search_cont				{border-bottom:2px solid rgba(165,99,0,1);}
+.search_cont				{background-color:rgba(56,56,56,0.4);}
+.search_cont a:link			{color:rgba(206,131,0,1);}
+.search_cont a:visited		{color:rgba(206,131,0,1);}
+.search_cont a:hover		{color:rgba(255,163,0,1);}
+.search_cont a:active		{color:rgba(206,131,0,1);}
 .search.head				{color:rgba(255,255,255,1);}
 .search_query				{color:rgba(255,255,255,1);}
 
@@ -332,11 +336,14 @@ recipient-country span:nth-of-type(2)	{color:rgba(255,255,255,1);}
 
 /*	Start and End dates
 	============================================= */
-span.span_activity-date						{background-color:rgba(206,131,0,1);}
-activity-date[type="start-actual"]			{color:rgba(255,255,255,1);}
-activity-date[type="end-actual"]			{color:rgba(255,255,255,1);}
-activity-date[type="start-actual"]:before	{color:rgba(255,255,255,1);}
-activity-date[type="end-actual"]:before		{color:rgba(255,255,255,1);}
+span.span_activity-date						{background-color:rgba(15,15,15,0.7);}
+
+activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"], activity-date[type="end-planned"], activity-date[type="2"], activity-date[type="4"], activity-date[type="start-actual"], activity-date[type="end-actual"]	{color:rgba(255,255,255,1);}
+
+activity-date[type="1"]:before, activity-date[type="start-planned"]:before,
+activity-date[type="2"]:before, activity-date[type="start-actual"]:before,
+activity-date[type="3"]:before, activity-date[type="end-planned"]:before,
+activity-date[type="4"]:before, activity-date[type="end-actual"]:before	{color:rgba(15,15,15,1);}
 
 
 /*	Who's invloved?
@@ -386,17 +393,19 @@ result indicator description			{color:rgba(255,255,255,1);}
 result indicator period period-start:before, result indicator period period-end:before, result indicator period target:before,
 result indicator period actual:before	{color:rgba(204,204,204,1);}
 
-result indicator > baseline comment	{color:rgba(255,255,255,1);}
+result indicator > baseline comment		{color:rgba(255,255,255,1);}
 
 
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
-sector[vocabulary="DAC"]		{color:rgba(255,255,255,1);}
-sector:nth-child(even)			{background-color:rgba(15,15,15,0.7);}
-sector[vocabulary="DAC"]:before	{color:rgba(204,204,204,1);}
-sector span						{color:rgba(255,255,255,1);}
-sector span:nth-of-type(2)		{color:rgba(204,204,204,1);}
-img.sector_pie					{background-color:rgba(255,255,255,1); -webkit-filter:hue-rotate(210deg); filter:hue-rotate(210deg);}
+span.span_sector sector[vocabulary="DAC"],
+span.span_sector sector[vocabulary="1"]			{color:rgba(255,255,255,1);}
+span.span_sector sector:nth-child(even)			{background-color:rgba(56,56,56,0.4);}
+span.span_sector sector[vocabulary="DAC"]:before, 
+span.span_sector sector[vocabulary="1"]:before	{color:rgba(204,204,204,1);}
+sector span, span.span_sector sector span		{color:rgba(255,255,255,1);}
+span.span_sector sector span:nth-of-type(2)		{color:rgba(204,204,204,1);}
+img.sector_pie	{background-color:rgba(255,255,255,1); -webkit-filter:hue-rotate(210deg); filter:hue-rotate(210deg);}
 
 
 /*	Budget table

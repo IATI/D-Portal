@@ -94,7 +94,7 @@ a.about_data.quality	{border-left:1px solid #CCC; text-align:right; padding-righ
 
 /*	Country Code List style - INDEX PAGE
 	============================================= */
-.country_menu_wrap			{width:960px; margin:0 auto; padding:60px 0;}
+.country_menu_wrap			{width:960px; margin:0 auto; padding:40px 0 60px 0;}
 .country_menu_list_wrap		{margin:0 auto; width:960px;}
 .publisher_menu_list_wrap	{margin:0 auto; width:860px;}
 .menu_list_wrap				{display:inline-block; vertical-align:top; padding-left:50px; width:500px; height:700px; overflow-x:hidden; overflow-y:scroll; box-sizing:border-box;}
@@ -372,6 +372,10 @@ a.search_head				{display:block; color:#53B4ED; margin-top:10px; margin-bottom:1
 .search_clear				{display:inline-block; vertical-align:top; width:50%; text-align:right; color:#d2d2d2;}
 .search_clear:hover			{color:#fff;}
 .search_clear span			{display:inline-block; background-color:#d2d2d2; border-radius:30px; width:15px; text-align:center; margin-left:5px; font-size:15px; line-height:13px; height:15px; color:#354651;}
+
+.search_clear.abc						{width:10%;}
+.search_clear.abc span.abc_toggle		{margin-left:0; margin-right:10px; width:30px; background-color:#909090;}
+.search_clear.abc span.abc_toggle span	{width:13px; background-color:#fff; margin:0; margin-left:17px; border:1px solid #ccc; height:13px;}
 
 
 /*	Table header styles

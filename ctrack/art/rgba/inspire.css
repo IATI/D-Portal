@@ -164,9 +164,14 @@ a#search_link:hover			{background-color:rgba(163,0,13,1);}
 	
 /*	Search Headers
 	============================================= */
-.search_cont				{border-bottom:1px solid rgba(136,136,136,0.6);}
+.search_cont				{background-color:rgba(255,255,255,1);}
+.search_cont a:link			{color:rgba(186,12,47,1);}
+.search_cont a:visited		{color:rgba(186,12,47,1);}
+.search_cont a:hover		{color:rgba(163,0,13,1);}
+.search_cont a:active		{color:rgba(186,12,47,1);}
 .search.head				{color:rgba(85,85,85,1);}
 .search_query				{color:rgba(85,85,85,1);}
+.search_query span			{color:rgba(136,136,136,1);}
 
 
 /*	Table header styles
@@ -422,7 +427,7 @@ span.span_sector sector[vocabulary="DAC"]:before,
 span.span_sector sector[vocabulary="1"]:before	{color:rgba(136,136,136,1);}
 sector span, span.span_sector sector span	{color:rgba(85,85,85,1);}
 span.span_sector sector span:nth-of-type(2)	{color:rgba(136,136,136,1);}
-img.sector_pie					{background-color:rgba(255,255,255,1);}
+img.sector_pie			{background-color:rgba(255,255,255,1);}
 
 
 /*	Budget table
