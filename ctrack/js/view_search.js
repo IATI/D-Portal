@@ -398,7 +398,6 @@ view_search.fixup=function()
 				sort_chosen($("#"+n));
 				$("#"+n).trigger('chosen:updated');
 			}
-			build_query();
 				
 		});
 	
