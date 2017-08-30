@@ -573,7 +573,7 @@ ctrack.setup=function(args)
 		}
 	}
 
-	ctrack.hash={"view":"main"};
+	ctrack.hash={"view":""};
 	ctrack.display_wait_time=((new Date()).getTime());
 	ctrack.display_wait=0;
 	ctrack.display_wait_max=0;
