@@ -573,14 +573,7 @@ ctrack.setup=function(args)
 		}
 	}
 
-	if(args.publisher)
-	{
-		ctrack.hash={"view":"publisher"};
-	}
-	else
-	{
-		ctrack.hash={"view":"main"};
-	}
+	ctrack.hash={"view":"main"};
 	ctrack.display_wait_time=((new Date()).getTime());
 	ctrack.display_wait=0;
 	ctrack.display_wait_max=0;
