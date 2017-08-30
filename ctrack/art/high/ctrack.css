@@ -93,7 +93,7 @@ a.about_data.quality	{border-left:1px solid #000; text-align:right; padding-righ
 
 /*	Country Code List style - INDEX PAGE
 	============================================= */
-.country_menu_wrap			{width:960px; margin:0 auto; padding:60px 0;}
+.country_menu_wrap			{width:960px; margin:0 auto; padding:40px 0 60px 0;}
 .country_menu_list_wrap		{margin:0 auto; width:960px;}
 .publisher_menu_list_wrap	{margin:0 auto; width:860px;}
 .menu_list_wrap				{display:inline-block; vertical-align:top; padding-left:50px; width:500px; height:700px; overflow-x:hidden; overflow-y:scroll; box-sizing:border-box;}
@@ -332,6 +332,7 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 #result_aid_div a:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#2d5d7b); background:-webkit-linear-gradient(#50a0d2,#2d5d7b); text-shadow:0 -1px 0 #2d5d7b;}
 .search_aid_link_disable    {display:none;}
 
+
 .search_input_wrap			{position:relative;}
 .search_icon				{position:absolute; top:28px; left:-40px;}
 
@@ -352,7 +353,7 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search_intro_wrap span:hover	{border-bottom:1px solid #000; cursor:pointer;}
 
 
-/*	For url #view=search - Discover styles
+/*	For url #view=search2 - Explore styles
 	============================================= */
 .search_cont				{margin:0 auto; border:1px solid #000; border-radius:6px; width:960px; box-sizing:border-box; padding:20px 30px;}
 .search_query				{display:inline-block; vertical-align:top;}
@@ -361,6 +362,30 @@ a.search_head				{display:block; color:#000; margin-top:10px; margin-bottom:10px
 .search_query				{font-size:1.1em; line-height:1.3em; color:#000; padding:10px 30px 10px 0; width:300px; box-sizing:border-box;}
 .search_query span			{font-size:14px; display:block; padding-top:5px; color:#000; line-height:1.2em; text-transform:uppercase;}
 .search_query span img		{padding-right:7px; height:14px; width:14px;}
+
+.search_clear, .search_order				{display:block; width:100%; text-align:right; color:#000;}
+.search_clear span, .search_order span		{display:inline-block; vertical-align:top;}
+
+span.search_clear_close		{background-color:#000; border-radius:30px; width:15px; height:15px; text-align:center; margin-left:5px; font-size:13px; line-height:13px; color:#fff; letter-spacing:-1px; font-weight:bold;}
+
+.search_order	{position:relative;}
+.search_order .search_toggle_wrap		{position:absolute; top:0; left:45px; border-radius:10px; width:40px; background-color:#000;}
+.search_order .search_toggle_wrap div	{width:13px; background-color:#fff; border-radius:30px; margin:0; border:1px solid #000; height:13px;}
+.search_order .search_toggle_wrap .toggle_abc	{margin-right:27px;}
+.search_order .search_toggle_wrap .toggle_123	{margin-left:27px; display:none;}
+
+span.order_1	{position:absolute; top:0; left:0;}
+span.order_2	{position:absolute; top:0; right:0; display:none;}
+
+.chosen-container-single .chosen-single span	{color:#000;}
+.chosen-container-multi ul.chosen-choices		{height:initial !important;}
+.chosen-container-multi ul.chosen-choices:after	{content:""; display:block; background:url(../chosen-sprite.png)no-repeat 0 2px; position:absolute; top:0; right:0; width:18px; height:100%;}
+.chosen-container-active ul.chosen-choices:after{display:none;}
+.chosen-container-active ul.chosen-choices		{border-radius:6px 6px 0 0;}
+.chosen-container-multi .chosen-choices li.search-field	{margin-top:-2px !important; width:100% !important;}
+.chosen-container-multi .chosen-choices li.search-field input[type="text"]	{width:100% !important;}
+ul.chosen-choices	{border-radius:6px;}
+.search-choice		{z-index:1;}
 
 
 /*	Table header styles

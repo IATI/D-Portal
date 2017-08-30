@@ -252,7 +252,22 @@
 
 <!-- new search in progress - Explore	-->
 #filter_head3_text
-<div><div class="search_head" style="display:inline-block; vertical-align:top; width:50%;">EXPLORE <span>filters</span></div><a id="view_search_order" class="search_order">Sorted by <span>ABC</span><span style="display:none">123</span><a id="view_search_clear" class="search_clear">Clear all filters<span>x</span></a></div>
+
+<div>
+	<div class="search_head" style="display:inline-block; vertical-align:top; width:640px;">
+		EXPLORE <span>filters</span>
+	</div><div class="search_opts" style="display:inline-block; vertical-align:top; width:120px;">
+		<a id="view_search_order" class="search_order">
+			<span class="order_1">ABC</span><div class="search_toggle_wrap"><div class="toggle_abc"></div><div class="toggle_123"></div></div><span class="order_2">123</span>
+		</a>
+	</div><div class="search_opts" style="display:inline-block; vertical-align:top; width:154px;">
+		<a id="view_search_clear" class="search_clear">
+			Clear all filters<span class="search_clear_close">x</span>
+		</a>
+	</div>
+</div>
+
+
 
 #filter_head_text
 <div class="search_head">DISCOVER <span>filters</span></div>
@@ -271,7 +286,7 @@
 <!-- new search in progress - Explore	-->
 #explore_portals_search3
 <span id="explore"></span>
-<div class="country_menu_wrap" style="padding-top:0;">
+<div class="country_menu_wrap">
 	<div class="country_menu_list_wrap">
 		<div class="menu_list_wrap left">
 			<ul id="country_menu_list" class="country_menu_list">{countries_country_select}</ul>

@@ -131,9 +131,9 @@ span.span_location location 		{display:block; padding:10px 0 0 0; position:relat
 span.span_location location::before	{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
 span.span_location location name	{display:inline;}
 span.span_location location point	{display:inline;}
-span.span_location location point > *	{display:inline; color:#000;}
-span.span_location location pos:before	{content:" (";}
-span.span_location location pos:after	{content:")";}
+span.span_location location point > *	{display:inline; color:#000; font-size:16px;}
+span.span_location location pos:before	{content:" [ ";}
+span.span_location location pos:after	{content:" ]";}
 
 
 /*	Reported by
