@@ -660,7 +660,7 @@ view_search.ajax=function(args)
 		return;
 	}
 
-	$("#result_span").html("...");
+	$("#result_span").html("Searching ...");
 	
 	var latest=view_search.latest;
 	
@@ -688,9 +688,6 @@ view_search.ajax=function(args)
 			if( data.rows.length>0 ) // show results
 			{
 //console.log( data );
-
-				$("#result_span").html("Adding filter");
-
 				var aid=data.rows[0].aid
 //				$("#result_aid_link").html("<a href=\"#view=act&aid="+aid+"\">View the activity with this IATI Identifier</a>");
 //				$("#result_aid_div").removeClass("search_aid_link_disable");				
