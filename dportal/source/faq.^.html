@@ -9,30 +9,47 @@
 				$('a.topics.a').addClass("on");
 				$('a.faq_top').hide();
 				$('.faq_wrap.tech').hide();
+				$('.faq_wrap.explore').hide();
 				$('.faq_wrap.gene').hide();
 				
 				$('a.topics.a').click(function () {
 					$('.faq_wrap.gen').show();
 					$('.faq_wrap.tech').hide();
+					$('.faq_wrap.explore').hide();
 					$('.faq_wrap.gene').hide();
 					$('a.topics.a').addClass("on");
 					$('a.topics.b').removeClass("on");
+					$('a.topics.d').removeClass("on");
 					$('a.topics.c').removeClass("on");
 				});
 				$('a.topics.b').click(function () {
 					$('.faq_wrap.gen').hide();
 					$('.faq_wrap.tech').show();
+					$('.faq_wrap.explore').hide();
 					$('.faq_wrap.gene').hide();
 					$('a.topics.a').removeClass("on");
 					$('a.topics.b').addClass("on");
+					$('a.topics.d').removeClass("on");
+					$('a.topics.c').removeClass("on");
+				});
+				$('a.topics.d').click(function () {
+					$('.faq_wrap.gen').hide();
+					$('.faq_wrap.tech').hide();
+					$('.faq_wrap.explore').show();
+					$('.faq_wrap.gene').hide();
+					$('a.topics.a').removeClass("on");
+					$('a.topics.b').removeClass("on");
+					$('a.topics.d').addClass("on");
 					$('a.topics.c').removeClass("on");
 				});
 				$('a.topics.c').click(function () {
 					$('.faq_wrap.gen').hide();
 					$('.faq_wrap.tech').hide();
+					$('.faq_wrap.explore').hide();
 					$('.faq_wrap.gene').show();
 					$('a.topics.a').removeClass("on");
 					$('a.topics.b').removeClass("on");
+					$('a.topics.d').removeClass("on");
 					$('a.topics.c').addClass("on");
 				});
 				
@@ -92,11 +109,12 @@
 <div class="about_wrap faq">
 	<div class="default">
 		<a onclick="$('html,body').animate({scrollTop:0},'slow');return false;" class="faq_top">Back to FAQ list</a>
-		<a href="#" class="topics a">General</a><a href="#" class="topics b">Technical</a><a href="#" class="topics c">Generator</a>
+		<a href="#" class="topics a">General</a><a href="#" class="topics b">Technical</a><a href="#" class="topics d">Explore</a><a href="#" class="topics c">Generator</a>
 		<div style="position:relative;">
 			
 			{faq_general}
 			{faq_tech}
+			{faq_explore}
 			{faq_generator}
 		</div>
 		
@@ -401,6 +419,95 @@
 </div>
 
 
+#^faq_explore
+<div class="faq_wrap explore">
+	<div class="faq_links_wrap">
+		<div class="faq_head d">Frequently Asked <b>EXPLORE</b> Questions</div>
+		<a href="#explore1">What is EXPLORE?</a>
+		<a href="#explore2">What does EXPLORE do?</a>
+		<a href="#explore3">How can I use the filters?</a>
+		<a href="#explore4">What is the data in the dropdown lists within filters?</a>
+		<a href="#explore5">How can I use and refine the freetext search?</a>
+		<a href="#explore6">How / what do the EXPLORE search results show?</a>
+		<a href="#explore7">When doing a freetext search, what IATI fields are being searched?</a>
+		<a href="#explore8">Do plural nouns work in freetext search?</a>
+	</div>
+	
+	<ul class="faq_list">
+		<li>
+			<span id="explore1"></span>
+			<span class="list">What is EXPLORE?</span>
+			<span class="info">
+				EXPLORE is made up of two parts – a series of filters, and a freetext box.
+				<p><b>1. Filters</b></p>
+				<p>These are a selection of filters relating to the <a href="http://iatistandard.org/">IATI Standard</a> allowing users to choose and refine the IATI data they want to explore.</p>
+				<p><b>2. Freetext</b></p>
+				<p>This is a freetext box allowing users to search for themes and topics, and specific activities published to IATI.</p>
+			</span>
+		</li>
+		<li>
+			<span id="explore2"></span>
+			<span class="list">What does EXPLORE do?</span>
+			<span class="info">
+				The EXPLORE feature is on the front page of <a href="http://d-portal.org">d-portal.org</a> and helps users find activities published to the IATI Standard based on keywords - it was originally developed to help people who wanted to find information on specific humanitarian crises.
+			</span>
+		</li>
+		<li>
+			<span id="explore3"></span>
+			<span class="list">How can I use the filters?</span>
+			<span class="info">
+				Select multiple filters from across the dropdowns.  As you build a query using these filters the space underneath the filters will populate with an indication of how many activities are available to view based on your selections.
+				<p>You can then click ‘<b>Explore Results</b>’ to find out more about those activities.</p>
+			</span>
+		</li>
+		<li>
+			<span id="explore4"></span>
+			<span class="list">What is the data in the dropdown lists within filters?</span>
+			<span class="info">
+				<b>Recipient Country</b> and <b>Publisher</b>
+				<p>The organisations that have published to the <a href="http://iatistandard.org/">IATI Standard</a>, and the countries where funds have gone to as published within IATI data.</p>
+				<p><b>Sector Group</b> and <b>Sector</b></p>
+				<p>The numeric codes and names to describe sectors within the <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">OECD DAC CRS</a>, as used within the IATI Standard.</p>
+				<p><b>Activity Status</b></p>
+				<p>The numeric codes and names within the <a href="http://iatistandard.org/202/codelists/ActivityStatus/">IATI activity status</a> field.</p>
+				<p><b>Year Range</b></p>
+				<p>Years from 1960 to ‘present year + 2’.</p>
+			</span>
+		</li>
+		<li>
+			<span id="explore5"></span>
+			<span class="list">How can I use and refine the freetext search?</span>
+			<span class="info">
+				Type in one or more keywords and press enter to see how many activities have been found.
+				<p>Click ‘<b>Explore Results</b>’ to see lists, graphs and maps allowing further exploration of the data.</p>
+				<p>Refine your search by adding multiple words – e.g. ‘<i>Hurricane Matthew</i>’ will find more refined (fewer) results than ‘<i>Hurricane</i>’.</p>
+			</span>
+		</li>
+		<li>
+			<span id="explore6"></span>
+			<span class="list">How / what do the EXPLORE search results show?</span>
+			<span class="info">
+				Clicking ‘<b>Explore Results</b>’ provides results in the usual d-portal format (stats and charts which you can explore by clicking through to tables).
+			</span>
+		</li>
+		<li>
+			<span id="explore7"></span>
+			<span class="list">When doing a freetext search, what IATI fields are being searched?</span>
+			<span class="info">
+				This searches the <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/title/">‘Title’</a> and <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/description/">‘Description’</a> fields within all published IATI activities.
+			</span>
+		</li>
+		<li>
+			<span id="explore8"></span>
+			<span class="list">Do plural nouns work in freetext search?</span>
+			<span class="info">
+				EXPLORE is adapted for English plural nouns - e.g. typing ‘<i>Refugee</i>’ will include results for ‘<i>Refugees</i>’.
+			</span>
+		</li>
+	</ul>
+</div>
+
+
 #^faq_generator
 <div class="faq_wrap gene">
 	<div class="faq_links_wrap">
@@ -410,6 +517,7 @@
 		<a href="#gene3">How do I use it?</a>
 		<a href="#gene4">How often will the generated content on my webpage update?</a>
 		<a href="#gene5">How reliable is it?</a>
+		<a href="#gene6">Help! I'm trying to create the widget in my company's internal website but it's not working.</a>
 	</div>
 	
 	<ul class="faq_list">
@@ -417,7 +525,7 @@
 			<span id="gene1"></span>
 			<span class="list">What is it?</span>
 			<span class="info">
-				A tool to help users to reproduce data from d-portal in other webpages/blogs.
+				The <a href="http://d-portal.org/ctrack.html#view=generator">Generator</a> is a tool to help users to reproduce data from d-portal in other webpages/blogs.
 			</span>
 		</li>
 		<li>
@@ -450,6 +558,15 @@
 				The embedded data in your blog post / website will stay up as long as the d-portal site is up (eg permanently).
 
 				<p>The only time this can go wrong is if your website provider disallows you to include external widgets in your blog posts, ie. if you can embed a youtube video into your blog post, you can embed generator content in your post.</p>
+			</span>
+		</li>
+		<li>
+			<span id="gene6"></span>
+			<span class="list">Help! I'm trying to create the widget in my company's internal website but it's not working.</span>
+			<span class="info">
+				Both secured and non-secured HTTP access is enabled and supported on d-portal. This should let users on secured domains use Generator content.
+				<p>Use <a href="https://d-portal.org/ctrack.html#view=generator">https://d-portal.org/ctrack.html#view=generator</a> instead.</p>
+				<p>If you are unsure if this affects you, see if your company's website uses http<b>s</b>:// instead of http:// in the website address.</p>
 			</span>
 		</li>
 	</ul>
