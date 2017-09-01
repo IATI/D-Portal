@@ -148,7 +148,7 @@ view_search.fixup=function()
 	};
 
 	var typeaheadref=$('#view_search_string').typeahead({
-	  hint: true,
+	  hint: false,
 	  highlight: true,
 	  minLength: 1
 	},
@@ -688,6 +688,9 @@ view_search.ajax=function(args)
 			if( data.rows.length>0 ) // show results
 			{
 //console.log( data );
+
+				$("#result_span").html("Adding filter");
+
 				var aid=data.rows[0].aid
 //				$("#result_aid_link").html("<a href=\"#view=act&aid="+aid+"\">View the activity with this IATI Identifier</a>");
 //				$("#result_aid_div").removeClass("search_aid_link_disable");				
