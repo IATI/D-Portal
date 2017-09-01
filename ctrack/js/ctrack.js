@@ -573,7 +573,7 @@ ctrack.setup=function(args)
 		}
 	}
 
-	ctrack.hash={"view":"main"};
+	ctrack.hash={};
 	ctrack.display_wait_time=((new Date()).getTime());
 	ctrack.display_wait=0;
 	ctrack.display_wait_max=0;
@@ -633,7 +633,7 @@ ctrack.setup=function(args)
 			}
 		}
 		ctrack.display_hash();
-		ctrack.last_hash="";
+		ctrack.last_hash="&";
 		ctrack.check_hash();
 	}
 	ctrack.display_hash=function()
@@ -646,7 +646,7 @@ ctrack.setup=function(args)
 		document.location.hash=a.join("&");
 		ctrack.last_hash=document.location.hash; // disable change logic
 	}
-	ctrack.last_hash="";
+	ctrack.last_hash="&";
 	ctrack.last_view="";
 	ctrack.check_hash=function()
 	{
@@ -658,12 +658,17 @@ ctrack.setup=function(args)
 			var l={};
 			ctrack.hash=ctrack.hash_split(h,l);
 					
+			var change_of_view=false;
 			if(l.view)
 			{
 				l.view=ctrack.map_old_views[l.view] || l.view;
 			}
-			var change_of_view=false;
-			if(ctrack.last_view!=l.view) // scroll up when changing views
+			else
+			{
+				l.view="main";
+				change_of_view=true;
+			}
+			if((ctrack.last_view!=l.view)||(change_of_view)) // scroll up when changing views
 			{
 				change_of_view=true;
 				ctrack.last_view=l.view;
