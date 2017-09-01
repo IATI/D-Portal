@@ -355,6 +355,8 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 
 .settings_link_search span	{color:#fff; padding:10px 0 0 0; display:inline-block;}
 .settings_link_search span:nth-of-type(1)	{font-weight:bold; padding-right:5px;}
+.settings_link_search a			{text-decoration:none; display:block; color:#ccc;}
+.settings_link_search a:hover	{color:#fff;}
 .search_intro_wrap			{width:960px; margin:0 auto; margin-top:40px; color:#fff; font-size:20px; line-height:26px;}
 .search_intro_wrap span		{font-size:1.0em; color:#6ecaff; padding-right:0;}
 .search_intro_wrap span:hover	{border-bottom:1px solid #6ecaff; cursor:pointer;}
