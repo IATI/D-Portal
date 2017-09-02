@@ -59,7 +59,7 @@ Subscribe to our mailing list for announcements on current development by [joini
 If you are interested in finding out more or part-funding d-portal, please contact support@iatistandard.org
 
 
-Logs
+Database Logs
 ===================
 
 We are tracking the nightly imports of IATI data being 
