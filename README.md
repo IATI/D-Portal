@@ -13,7 +13,7 @@ Features
 - Explore IATI data for both countries and publishers.
 - Updates everyday GMT +0 with new data from the IATI Registry.
 - [DStore](https://github.com/devinit/D-Portal/tree/master/dstore) is an
- optimized nodejs + SQLite database for use in real time queries.
+ optimized nodejs + PostgreSQL + SQLite database for use in real time queries.
 - [Q](https://github.com/devinit/D-Portal/blob/master/documents/dstore_q.md) allows queries via simple but complex filters.
 - [SAVi](https://github.com/devinit/D-Portal/blob/master/documents/savi.md) xml simplifies IATI xml to aid legibility for casual users.
 - [Localization](https://github.com/devinit/D-Portal/blob/master/documents/translations.md) ready means adding translations of different languages a breeze.
