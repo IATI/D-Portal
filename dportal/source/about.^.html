@@ -21,6 +21,7 @@
 	{about_faq}
 	{about_dash}
 	{about_discover}
+	{about_dlogs}
 	{about_github}
 	{quick_install}
 	{view_tail}
@@ -127,9 +128,23 @@
 		<div class="about_wrap moretxt">
 			<h1>{install_title_text}</h1>
 			<p>{install_paragraph1_text}</p>
-			<p>{install_paragraph3_text}</p>
-			<p>{install_paragraph4_text}</p>
+			<p>
+				<span>{install_paragraph3_text}</span><span>{install_paragraph4_text}</span>
+			</p>
 		</div>
+	</div>
+</div>
+
+#^about_dlogs
+<span id="dlogs"></span>
+<div class="about_wrap dash">
+	<div class="default">
+		<div class="about_wrap moretxt">
+			<h1>{dlogs_title_text}</h1>
+			<p>{dlogs_paragraph1_text}</p>
+			<p>{dlogs_paragraph2_text}</p>
+		</div>
+		<div class="screen dlogs"></div>
 	</div>
 </div>
 
@@ -366,6 +381,7 @@ img					{-webkit-filter:brightness(100%); filter:brightness(100%);}
 .screen.news		{background:url('{_root}ctrack/art/news.jpg')no-repeat;}
 .screen.faq			{background:url('{_root}ctrack/art/faq.png')no-repeat;}
 .screen.discover	{background:url('{_root}ctrack/art/discover.jpg')no-repeat;}
+.screen.dlogs		{background:url('{_root}ctrack/art/dlogs.png')no-repeat;}
 
 
 /*	Text styles
@@ -453,3 +469,12 @@ table.sources td a:hover{color:#A5CDFF; text-decoration:underline;}
 a.git		{display:block; font-size:38px; background-color:#1E90FF; border-radius:14px; text-align:center; padding:20px 0; color:#fff; width:640px; box-sizing:border-box;}
 a.git:hover	{background-color:#66b4ff; text-decoration:none;}
 
+
+/*	How to Install
+	============================================= */
+	
+.install .about_wrap p span	{display:inline-block; vertical-align:middle; width:50%; box-sizing:border-box;}
+.install .about_wrap p span:nth-of-type(1)	{font-weight:bold; width:60%; padding-right:40px; font-size:1.3em;}
+.install .about_wrap p span:nth-of-type(2)	{width:40%;}
+a.install_link			{display:inline-block; background-color:#172a46; padding:20px; border-radius:10px; text-align:center; color:#fff;}
+a.install_link:hover	{background-color:#31496D; text-decoration:none;}
