@@ -262,7 +262,8 @@ a.data_invest:hover		{color:#FFF; background-color:rgba(194,0,255,0.8);}
 .footer_link a:hover	{color:#FFF;}
 .footer_link a:active	{color:#999;}
 .footer_link.about		{text-align:right;}
-.footer_link.top		{text-align:right;width:960px;padding: 20px 50px 40px 0;}
+.footer_link.top		{text-align:right; width:960px; padding:0 0 40px 0;}
+.footer_link.top a		{display:block; text-align:center; padding:20px 0;}
 .footer_link ul			{padding-bottom:20px;}
 .footer_link p			{padding:15px 0;}
 .footer_link p.beta		{font-style:italic; color:#ccc;}
