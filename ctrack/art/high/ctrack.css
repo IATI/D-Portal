@@ -286,9 +286,9 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 /*	For url #view=donors & all #view=donor_*
 	============================================= */
 .donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}	/* Triangles */
-.donors_head_title.view		{text-align:center;}
 .donors_head_title			{width:100%; color:#000; font-size:58px; line-height:64px; text-align:center; padding:0 0 30px 0;}
 .donors_head_title.view		{text-align:center; margin:0;}
+.donors_head_title span		{display:block; font-size:0.7em; line-height:1.3em; padding-top:10px;}	/* Donor subtitle */
 
 
 /*	For url #view=donor_activities
@@ -305,6 +305,7 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 	============================================= */
 .sectors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #000; border-bottom:20px solid transparent;}	/* Triangles */
 .sectors_head_title			{width:100%; color:#000; font-size:58px; line-height:64px; text-align:center; padding:0 0 30px 0;}
+.sectors_head_title span	{display:block; font-size:0.7em; line-height:1.3em; padding-top:10px;}	/* Sector subtitle */
 
 
 /*	For url #view=act
@@ -448,7 +449,7 @@ table.list td:first-child	{padding-left:20px;}
 table.list td span		{display:block; padding-top:5px; color:#000; font-size:0.7em; line-height:1.25em;}
 table.list td.title		{padding:0; max-width:600px;}
 table.list td.date		{text-align:right; padding-right:20px; min-width:160px;}
-table.list td.alert_no_iati		{text-align:center; font-size:1.35em; padding:20px 0 0 0; cursor:default;}
+table.list td.alert_no_iati		{text-align:center; font-size:1.6em; padding:20px 0 0 0; cursor:default;}
 table.list td.alert_no_iati a	{padding:10px 0;}
 table.list a			{display:inline-block; padding:20px; width:100%; color:#000;}
 table.list a:focus		{color:#000; text-decoration:none;}
@@ -532,7 +533,7 @@ table.activity td.title.missing	{max-width:600px;}
 table.activity td.value	{text-align:right; padding:10px 20px 25px 40px; font-size:1.0em; line-height:1.75em;}
 table.activity td.count	{text-align:right; padding:10px 20px 0 40px; font-size:1.7em; line-height:1.0em;}
 table.activity td.date	{text-align:right; white-space:nowrap; font-size:1.0em; line-height:1.75em;}
-table.activity td.alert_no_iati	{text-align:center; font-size:2.0em; padding:40px; cursor:default;}
+table.activity td.alert_no_iati	{text-align:center; font-size:1.6em; padding:40px; cursor:default;}
 table.activity td span	{display:block; padding:2px 0 3px 0; color:#000; font-size:0.7em; line-height:1.25em;}
 table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#000; line-height:1.0em; box-sizing:border-box;}
 table.activity a.percent{padding:10px 0px 20px 20px;}

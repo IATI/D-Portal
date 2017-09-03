@@ -279,7 +279,7 @@ a.read:hover			{text-decoration:underline;}
 .head_title_wrap			{width:100%; display:block; vertical-align:top; padding:30px 0 40px 0;}
 
 /*	Table list views for Summary stats	*/
-.list_head_title			{width:100%; color:#FFF; font-size:58px; line-height:56px; text-align:center;}
+.list_head_title			{width:100%; color:#FFF; font-size:58px; line-height:56px; text-align:center; padding:0 0 30px 0;}
 .list_stats_title			{display:inline-block; font-size:1.0em; color:#FFF; margin-left:20px; vertical-align:bottom; text-align:left;}
 .list_stats_num				{display:inline-block; font-size:2.9em; color:#FFF; line-height:0.8em;}
 
@@ -294,9 +294,9 @@ a.csv_download:hover		{background-color:rgba(255,255,255, 0.3); color:#FFF;}
 /*	For url #view=donors & all #view=donor_*
 	============================================= */
 .donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;}	/* Triangles */
-.donors_peak.view			{border-right:30px solid #008FFF;}
 .donors_head_title			{width:100%; color:#FFF; font-size:58px; line-height:64px; text-align:center; padding:0 0 30px 0;}
 .donors_head_title.view		{text-align:center; margin:0;}
+.donors_head_title span		{display:block; font-size:0.7em; line-height:1.3em; padding-top:10px;}	/* Donor subtitle */
 
 
 /*	For url #view=donor_activities
@@ -313,6 +313,7 @@ a.csv_download:hover		{background-color:rgba(255,255,255, 0.3); color:#FFF;}
 	============================================= */
 .sectors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #00C475; border-bottom:20px solid transparent;}	/* Triangles */
 .sectors_head_title			{width:100%; color:#FFF; font-size:58px; line-height:64px; text-align:center; padding:0 0 30px 0;}
+.sectors_head_title span	{display:block; font-size:0.7em; line-height:1.3em; padding-top:10px;}	/* Sector subtitle */
 
 
 /*	For url #view=act
@@ -441,7 +442,7 @@ table.title td			{font-size:1.8em; color:#FFF; vertical-align:bottom;}
 table.title td:before	{content:"⋑ ";}
 table.title td:hover	{cursor:default;}
 table.title td.sort		{padding:0 20px 0 10px; width:200px; color:#CCC; text-align:right; font-size:1.0em; line-height:1.1em;} /* Small fonts: Most recent first, Descending */
-table.title td.sort:before {content:"";}
+table.title td.sort:before, table.title td.total_spend:before {content:"";}
 table.title td.about	{padding-left:10px; width:350px;}
 table.title td.icon		{padding-right:10px; width:40px; display:none;}
 
@@ -462,7 +463,7 @@ table.list td:first-child	{padding-left:20px;}
 table.list td span		{display:block; padding-top:5px; color:#999; font-size:0.7em; line-height:1.25em;}
 table.list td.title		{padding:0; max-width:600px;}
 table.list td.date		{text-align:right; padding-right:20px; min-width:160px;}
-table.list td.alert_no_iati		{text-align:center; font-size:1.35em; padding:20px 0 0 0; cursor:default;}
+table.list td.alert_no_iati		{text-align:center; font-size:1.6em; padding:20px 0 0 0; cursor:default;}
 table.list td.alert_no_iati a	{padding:10px 0;}
 table.list a			{display:inline-block; padding:20px; width:100%; color:#A8C5E5;}
 table.list a:focus		{color:#FFF; text-decoration:none;}
@@ -549,7 +550,7 @@ table.activity td.title.missing	{max-width:600px;}
 table.activity td.value	{text-align:right; padding:10px 20px 25px 40px; font-size:1.0em; line-height:1.75em;}
 table.activity td.count	{text-align:right; padding:10px 20px 0 40px; font-size:1.7em; line-height:1.0em;}
 table.activity td.date	{text-align:right; white-space:nowrap; font-size:1.0em; line-height:1.75em;}
-table.activity td.alert_no_iati	{text-align:center; font-size:2.0em; padding:40px; cursor:default;}
+table.activity td.alert_no_iati	{text-align:center; font-size:1.6em; padding:40px; cursor:default;}
 table.activity td span	{display:block; padding:2px 0 3px 0; color:#999; font-size:0.7em; line-height:1.25em;}
 table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#95B0CF; line-height:1.35em; box-sizing:border-box;}
 table.activity a.percent{padding:10px 0px 20px 20px;}
