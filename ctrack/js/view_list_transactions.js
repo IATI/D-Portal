@@ -49,7 +49,7 @@ view_list_transactions.ajax=function(args)
 	var dat={
 			"from":"act,trans",
 			"limit":args.limit || -1,
-			"select":ctrack.convert_str("sum_of_percent_of_trans")+",aid,funder_ref,title,reporting,reporting_ref,trans_code",
+			"select":ctrack.convert_str("sum_of_percent_of_trans")+",aid,funder_ref,title,reporting,reporting_ref",
 			"groupby":"aid",
 			"orderby":"1-",
 			"trans_code":"D|E",
@@ -97,7 +97,6 @@ view_list_transactions.ajax=function(args)
 				d.funder_ref=v.funder_ref;
 				d.aid=encodeURIComponent(v.aid);
 				d.title=html_encode(v.title || v.aid || "N/A");
-				d.trans_code=v.trans_code || "N/A";
 				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
 				total+=ctrack.convert_num("sum_of_percent_of_trans",v);
 				d.amount_num=Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v));
@@ -118,7 +117,7 @@ view_list_transactions.ajax=function(args)
 			var cc=[];
 			cc[0]=["activity-identifier","title","reporting-org","amount","currency","link","transaction-type"];
 			a.forEach(function(v){
-				cc[cc.length]=[v.aid,v.title,v.reporting,v.amount_num,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid,v.trans_code];
+				cc[cc.length]=[v.aid,v.title,v.reporting,v.amount_num,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid];
 			});
 			ctrack.chunk((args.chunk || "list_transactions_datas")+"_csv","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
 
