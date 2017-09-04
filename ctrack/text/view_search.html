@@ -5,30 +5,17 @@
 #crumbname_search
 {crumbname_search_text}
 
+<!-- EXPLORE	-->
 #view_search
 {view_head}
 <style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}#background_image{url('/ctrack/art/mexico_background_image.jpg')};{css}</style>
 {beige}
-{main_head_search}
+{main_head_search} <!-- general.html LINE 105	-->
 {search_intro}
 {more_search_intro}
 {view_search_test}
-{explore_portals}
-{compare_buttons}
+{explore_portals_search}
 {where_is_the_data_from}
-{view_tail}
-
-<!-- new search in progress - Explore	-->
-#view_search2
-{view_head}
-<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}#background_image{url('/ctrack/art/mexico_background_image.jpg')};{css}</style>
-{beige}
-{main_head_search3} <!-- general.html LINE 114	-->
-{search3_intro}
-{more_search3_intro}
-{view_search3_test}
-{explore_portals_search3}
-{where_is_the_data_from2}
 {view_tail}
 
 <!-- freetext search - alternative ui with filters below search bar	-->
@@ -40,24 +27,19 @@
 {search_intro}
 {more_search_intro}
 {view_search2_test}
-{where_is_the_data_from2}
+{where_is_the_data_from}
 {view_tail}
 			
 
+<!-- EXPLORE	-->
 #search_intro
-<div class="search_intro_wrap">
-	Use d-portal’s new search function to find IATI data on development and humanitarian activities on specific events or themes more easily. <span onclick="$('#more_search_intro').toggle();">Find out more about how it works</span>
-</div>
-
-<!-- new search in progress - Explore	-->
-#search3_intro
 <div class="search_intro_wrap">
 	Search IATI data on development and humanitarian activities on specific events or themes more easily.<br/>
 	<span onclick="$('#more_search_intro').toggle();">Find out more about updated features and how it works.</span>
 </div>
 
-<!-- new search in progress - Explore	-->
-#more_search3_intro
+<!-- EXPLORE	-->
+#more_search_intro
 <div id="more_search_intro" class="settings_search" style="display:none;">
 <table class="head">
 	<tr>
@@ -86,41 +68,14 @@
 </table>
 </div>
 
-#more_search_intro
-<div id="more_search_intro" class="settings_search" style="display:none;">
-<table class="head">
-	<tr>
-		<td>
-			The new <span class="discover">DISCOVER</span> feature helps find activities published to the IATI Standard based on keywords - it was originally developed to help people who wanted to find information on specific humanitarian crises, including the Ebola outbreak.
-			<p><b>This is a new feature of d-portal and development is ongoing</b> - as always feedback (<a href="mailto:support@iatistandard.org">email</a> or <a href="https://github.com/devinit/D-Portal/issues">GitHub</a>) is very welcome.</p>
-			<div><ul>
-			<li>DISCOVER allows you to type in one or more keywords – it searches the Titles and Descriptions of <span class="underline">all</span> IATI activities and provides results in the usual d-portal format <span class="accent">(stats and charts which you can explore by clicking through to tables)</span></li>
-
-			<li>Refine your search by adding multiple words – eg ‘<i>Hurricane</i>’ will find more results than ‘<i>Hurricane Matthew</i>’</li>
-
-			<li>If you type multiple words, the results will display activities which contain <b>BOTH</b> or <b>ALL</b> of those words <span class="accent">(not necessarily in that order)</span></li>
-
-			<li>Leaving a space between words is currently the same as using a <b>+</b> symbol. Using quotation marks around a phrase e.g. “<i>World Humanitarian Summit</i>” currently gives the same results as using <b>+</b>. We aim to update the function to allow searching an exact phrase using quotation marks shortly.</li>
-
-			<li>Adapted for English plural nouns - eg typing ‘<i>Refugee</i>’ will include results for ‘<i>Refugees</i>’</li>
-			</ul></div>
-		</td>
-	</tr>
-	<tr>
-		<td><p><a href="/ctrack.html#view=freetext">Click here to try a simpler version of the search interface – which version do you prefer?</a></p></td>
-	</tr>
-</table>
-</div>
-
-
-<!-- new search in progress - Explore	-->
-#view_search3_test
+<!-- EXPLORE	-->
+#view_search_test
 <div id="view_search_test">
 	
-	{view_search3_filters_wrap}
+	{view_search_filters_wrap}
 
 	<div id="search_div">
-		<span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button0_txt}</a> <!--Update to button1, translations-->
+		<span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a> <!--Update to button1, translations-->
 	</div>
 	
 	<div id="result_aid_div">
@@ -151,7 +106,6 @@
 	
 </div>
 
-
 <!-- freetext search -->
 #view_search2_test
 <div id="view_search_test">
@@ -166,26 +120,7 @@
 	
 </div>
 
-
-#view_search_test
-<div id="view_search_test">
-	{view_search_filters_wrap}
-	<div id="search_div"><span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a></div>
-	
-	<div id="result_aid_div"><span id="result_aid_link"></span></div>
-
-	<div class="search_input_wrap"><div class="search_icon"><img src="/ctrack/art/original/search_icon.png" alt="A magnifying glass icon to indicate that a search request is nigh" width="30" height="30"/></div><input type="text" id="view_search_string" class="typeahead" placeholder="{search_placeholder_txt}"/></div>
-		
-</div>
-
-
-<!-- new search in progress - Explore	-->
-#view_search3_filters_wrap
-<div class="search_filter">
-	{filter_head3_text}	
-	{view_search3_filters}
-</div>
-
+<!-- freetext search -->
 #view_search2_filters_wrap
 <div class="search_filter" style="display:none; margin-top:40px;">
 	{filter_head_text}	
@@ -193,15 +128,15 @@
 	<div id="search_div"><span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a></div>
 </div>
 
+<!-- EXPLORE	-->
 #view_search_filters_wrap
 <div class="search_filter">
 	{filter_head_text}	
 	{view_search_filters}
 </div>
 
-
-<!-- new search in progress - Explore	-->
-#view_search3_filters
+<!-- EXPLORE	-->
+#view_search_filters
 <div class="search_wrap">
 	<div class="search_label">
 		<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
@@ -255,97 +190,24 @@
 	</select>
 </div>
 
-
-#view_search_filters
-<div class="search_wrap">
-	<div class="search_label">
-		<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
-	</div>
-	<select id="view_search_select_country" class="chosen">
-		<option value></option>
-		{search_options_country}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}
-	</div>
-	<select id="view_search_select_funder" class="chosen">
-		<option value></option>
-		{search_options_funder}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}
-	</div>
-	<select id="view_search_select_category" class="chosen">
-		<option value></option>
-		{search_options_category}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
-	</div>
-	<select id="view_search_select_sector" class="chosen">
-		<option value></option>
-		{search_options_sector}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}
-	</div>
-	<select id="view_search_select_publisher" class="chosen">
-		<option value></option>
-		{search_options_publisher}
-	</select>
-</div><div class="search_wrap mini">
-	<div class="search_label">
-		<img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}
-	</div>
-	<select id="view_search_select_year_min" class="chosen">
-		<option value></option>
-		{search_options_year}
-	</select><select id="view_search_select_year_max" class="chosen">
-		<option value></option>
-		{search_options_year}
-	</select>
-</div>
-
-
-<!-- new search in progress - Explore	-->
-#filter_head3_text
-
+<!-- EXPLORE	-->
+#filter_head_text
 <div>
-	<div class="search_head" style="display:inline-block; vertical-align:top; width:640px;">
+	<div class="search_head">
 		EXPLORE <span>filters</span>
-	</div><div class="search_opts" style="display:inline-block; vertical-align:top; width:120px;">
+	</div><div class="search_opts">
 		<a id="view_search_order" class="search_order">
 			<span class="order_1">ABC</span><div class="search_toggle_wrap"><div class="toggle_abc"></div><div class="toggle_123"></div></div><span class="order_2">123</span>
 		</a>
-	</div><div class="search_opts" style="display:inline-block; vertical-align:top; width:154px;">
+	</div><div class="search_opts_clear">
 		<a id="view_search_clear" class="search_clear">
 			Clear all filters<span class="search_clear_close">x</span>
 		</a>
 	</div>
 </div>
 
-
-
-#filter_head_text
-<div class="search_head">DISCOVER <span>filters</span></div>
-
-#feedback_links
-<div class="feedback_links_wrap">
-	<a onclick="$('#more_feedback_info').toggle();" class="feedback_txt">{feedback_links1_txt}</a>{more_feedback}
-</div>
-	
-#more_feedback
-<span id="more_feedback_info" style="display:none;">
-	{feedback_links2_txt}
-</span>	
-
-
-<!-- new search in progress - Explore	-->
-#explore_portals_search3
+<!-- EXPLORE	-->
+#explore_portals_search
 <span id="explore"></span>
 <div class="country_menu_wrap">
 	<div class="country_menu_list_wrap">
@@ -357,19 +219,6 @@
 	</div>
 </div>
 
-
-#explore_portals
-<span id="explore"></span>
-<div class="country_menu_wrap">
-	<div id="country_dropmenu"></div><div id="publisher_dropmenu"></div>
-	<div class="country_menu_list_wrap">
-		<div class="menu_list_wrap left">
-			<ul id="country_menu_list" class="country_menu_list">{countries_country_select}</ul>
-		</div><div class="menu_list_wrap">
-			<ul id="publisher_menu_list" class="country_menu_list">{publishers_publisher_select}</ul>
-		</div>
-	</div>
-</div>
 
 #compare_buttons
 <div class="default">
@@ -383,18 +232,8 @@
 	</div>
 </div>
 
-#where_is_the_data_from
-<div class="description_splash">
-	<div class="description">
-		<span class="title">{index_title2_text}</span>
-		<p>{index_paragraph3_text}</p>
-		<p>{index_paragraph4_text}</p>
-		<p>{index_paragraph5_text}</p>
-		<p>{index_paragraph6_text}</p>
-	</div>
-</div>
 
-#where_is_the_data_from2
+#where_is_the_data_from
 <div class="description_splash">
 	<div class="description">
 		<span class="title">{index_title2_text}</span>
@@ -427,6 +266,7 @@
 </li>
 
 
+<!--	UNUSED	-->
 #intro_generator
 <a href="/ctrack.html#view=generator" class="description_wrap bigbutton">
 	<span class="description">

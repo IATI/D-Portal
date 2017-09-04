@@ -325,7 +325,7 @@ a#search_link span			{color:#FFF;}
 a#search_link:hover			{background-color:#000; color:#FFF;}
 a#search_link.search_link_disable		{border:1px solid #000; color:#000; background-color:#fff;}
 a#search_link.search_link_disable:hover	{cursor:default;}
-.search_head				{color:#000; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
+.search_head				{display:inline-block; vertical-align:top; width:640px; color:#000; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
 .search_head span			{color:#000; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
 
 /*	IATI Identifier link	*/
@@ -356,16 +356,19 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .press_enter 				{color:#000; position:absolute; right:20px; top:32px; font-size:20px;}	/*	Press Enter div in input box	*/
 
 
-/*	For url #view=search2 - Explore styles
+/*	For url #view=search - EXPLORE styles
 	============================================= */
 .search_cont				{margin:auto; border:1px solid #000; border-radius:6px; width:960px; box-sizing:border-box; padding:20px 30px; margin-top:10px; margin-bottom:10px;}
 .search_query				{display:inline-block; vertical-align:top;}
 .search_main				{width:900px;}
-a.search_head				{display:block; color:#000; margin-top:10px; margin-bottom:10px;}
-a.search_head:hover			{text-decoration:underline;}
+a.search_title				{display:block; color:#000; margin-top:10px; margin-bottom:10px; letter-spacing:5px; font-size:18px; font-weight:bold;}
+a.search_title:hover		{text-decoration:underline;}
 .search_query				{font-size:1.1em; line-height:1.3em; color:#000; padding:10px 30px 10px 0; width:300px; box-sizing:border-box;}
 .search_query span			{font-size:14px; display:block; padding-top:5px; color:#000; line-height:1.2em; text-transform:uppercase;}
 .search_query span img		{padding-right:7px; height:14px; width:14px;}
+
+.search_opts				{display:inline-block; vertical-align:top; width:120px;}
+.search_opts_clear			{display:inline-block; vertical-align:top; width:154px;}
 
 .search_clear, .search_order				{display:block; width:100%; text-align:right; color:#000;}
 .search_clear span, .search_order span		{display:inline-block; vertical-align:top;}

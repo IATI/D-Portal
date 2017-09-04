@@ -331,7 +331,7 @@ a#search_link				{border:1px solid #2f6381; color:#fff; background:linear-gradie
 a#search_link:hover			{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#2d5d7b); background:-webkit-linear-gradient(#50a0d2,#2d5d7b); text-shadow:0 -1px 0 #2d5d7b;}
 a#search_link.search_link_disable		{border:1px solid #6f7569; color:#6f7569; background:linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)); background:-webkit-linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)); text-shadow:initial;}
 a#search_link.search_link_disable:hover	{cursor:default;}
-.search_head				{color:#53B4ED; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
+.search_head				{display:inline-block; vertical-align:top; width:640px; color:#53B4ED; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
 .search_head span			{color:#fff; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
 
 /*	IATI Identifier link	*/
@@ -365,16 +365,19 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .press_enter 				{color:#ccc; position:absolute; right:20px; top:32px; font-size:20px;}	/*	Press Enter div in input box	*/
 	
 	
-/*	For url #view=search2 - Explore styles
+/*	For url #view=search - EXPLORE styles
 	============================================= */
 .search_cont				{margin:auto; background-color:rgba(11,37,60,0.5); border-radius:6px; width:960px; box-sizing:border-box; padding:20px 30px; border:1px solid #fff; margin-top:10px; margin-bottom:10px;}
 .search_query				{display:inline-block; vertical-align:top;}
 .search_main				{width:900px;}
-a.search_head				{display:block; color:#53B4ED; margin-top:10px; margin-bottom:10px;}
-a.search_head:hover			{color:#FFF;}
+a.search_title				{display:block; color:#53B4ED; margin-top:10px; margin-bottom:10px; letter-spacing:5px; font-size:18px; font-weight:bold;}
+a.search_title:hover		{color:#FFF;}
 .search_query				{font-size:1.1em; line-height:1.3em; color:#FFF; padding:10px 30px 10px 0; width:300px; box-sizing:border-box;}
 .search_query span			{font-size:14px; display:block; padding-top:5px; color:#ccc; line-height:1.2em; text-transform:uppercase;}
 .search_query span img		{padding-right:7px; height:14px; width:14px; -webkit-filter:brightness(80%); filter:brightness(80%);}
+
+.search_opts				{display:inline-block; vertical-align:top; width:120px;}
+.search_opts_clear			{display:inline-block; vertical-align:top; width:154px;}
 
 .search_clear, .search_order				{display:block; width:100%; text-align:right; color:#ddd;}
 .search_clear:hover, .search_order:hover	{color:#fff;}
