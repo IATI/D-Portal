@@ -1,8 +1,15 @@
+Issues
+===================
+Please be aware that we use Github Issues for **discussion** and not every issue represent a bug.
+
+If you have any questions about d-portal, please raise an [*issue*](https://github.com/devinit/D-Portal/issues/new). We very much welcome comments and feedback!
+
+
 ![d-portal logo](https://raw.githubusercontent.com/devinit/D-Portal/master/ctrack/art/dp_git_logo.460.png)
  
-d-portal.org helps you explore IATI data by providing information by country or by publisher on development activities and budgets published to the platform.
+Search IATI data on development and humanitarian activities on specific events or themes more easily on d-portal.
 
-The live version lives at http://d-portal.org/
+Visit the site at http://d-portal.org/
 
 **We are currently in BETA. While d-portal is publicly available, it is not considered finished. You may experience bugs and missing features, but that is why we need your feedback and support.**
 
@@ -43,7 +50,7 @@ example site you will find deployed at http://d-portal.org/
 
 [/bin](https://github.com/devinit/D-Portal/tree/master/bin) contains helper scripts.
 
-[/documents](https://github.com/devinit/D-Portal/tree/master/documents) contains documentation
+[/documents](https://github.com/devinit/D-Portal/tree/master/documents) contains some documentation.
 
 
 Updates
