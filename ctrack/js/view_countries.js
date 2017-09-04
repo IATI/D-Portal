@@ -129,9 +129,9 @@ view_countries.ajax=function(args)
 			return parseInt(s);
 		}
 			var cc=[];
-		cc[0]=["country","t"+(year-1),"t"+(year),"t"+(year+1),"ab"+(year+1),"tb"+(year+1)];
+		cc[0]=["country","t"+(year-1),"t"+(year),"t"+(year+1),"ab"+(year+1),"tb"+(year+1),link];
 		a.forEach(function(v){
-			cc[cc.length]=[v.country_code,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2)];
+			cc[cc.length]=[v.country_code,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2),"http://d-portal.org/ctrack.html?country="+v.country_code];
 		});
 		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
  

@@ -114,9 +114,9 @@ view_list_budgets.ajax=function(args)
 				return parseInt(s);
 			}
 			var cc=[];
-			cc[0]=["aid","title","reporting","amount","currency"];
+			cc[0]=["aid","title","reporting","amount","currency","link"];
 			a.forEach(function(v){
-				cc[cc.length]=[v.aid,v.title,v.reporting,v.amount_num,v.currency];
+				cc[cc.length]=[v.aid,v.title,v.reporting,v.amount_num,v.currency,"http://d-portal.org/ctrack.html?aid="+v.aid];
 			});
 			ctrack.chunk((args.chunk || "list_budgets_datas")+"_csv","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
 
