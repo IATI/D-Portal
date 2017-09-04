@@ -68,22 +68,6 @@ fetch.ajax_dat_fix=function(dat,args)
 
 	dat["text_search"]		=	dat["text_search"]		||	ctrack.args.search;
 
-	if( !dat["day_start_lteq"] )
-	{
-		if(ctrack.args.year_max)
-		{
-			dat["day_start_lteq"]=(ctrack.args.year_max+1) + "-01-01"
-		}
-	}
-
-	if( !dat["day_end_gt"] )
-	{
-		if(ctrack.args.year_min)
-		{
-			dat["day_end_gt"]=(ctrack.args.year_min) + "-01-01"
-		}
-	}
-
 
 //	dat["day_start_lt"]		=	dat["day_start_lt"]		||	(args.date_max 		|| ctrack.args.date_max);
 //	dat["day_end_gteq"]		=	dat["day_end_gteq"]		||	(args.date_min 		|| ctrack.args.date_min);
@@ -95,6 +79,44 @@ fetch.ajax_dat_fix=function(dat,args)
 	if(args.q)
 	{
 		for(var n in args.q) { dat[n]=args.q[n]; }
+	}
+
+	if( dat["day_start_lteq"] )
+	{
+		if(ctrack.args.year_max) // merge
+		{
+			var s=(ctrack.args.year_max+1) + "-01-01"
+			if(s<dat["day_start_lteq"])
+			{
+				dat["day_start_lteq"]=s
+			}
+		}
+	}
+	else
+	{
+		if(ctrack.args.year_max)
+		{
+			dat["day_start_lteq"]=(ctrack.args.year_max+1) + "-01-01"
+		}
+	}
+
+	if( dat["day_end_gt"] )
+	{
+		if(ctrack.args.year_min) // merge
+		{
+			var s=(ctrack.args.year_min) + "-01-01"
+			if(s>dat["day_end_gt"])
+			{
+				dat["day_end_gt"]=s
+			}
+		}
+	}
+	else
+	{
+		if(ctrack.args.year_min)
+		{
+			dat["day_end_gt"]=(ctrack.args.year_min) + "-01-01"
+		}
 	}
 
 // join any extra tables we might now need due to extra restrictions
