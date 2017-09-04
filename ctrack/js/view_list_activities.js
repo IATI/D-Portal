@@ -126,9 +126,9 @@ view_list_activities.ajax=function(args)
 
 
 			var cc=[];
-			cc[0]=["aid","title","reporting","commitment","spend","currency"];
+			cc[0]=["aid","title","reporting","commitment","spend","currency","link"];
 			a.forEach(function(v){
-				cc[cc.length]=[v.aid,v.title,v.reporting,v.commitment,v.spend,v.currency];
+				cc[cc.length]=[v.aid,v.title,v.reporting,v.commitment,v.spend,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid];
 			});
 			ctrack.chunk((args.chunk || "list_activities_datas")+"_csv","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
 			
