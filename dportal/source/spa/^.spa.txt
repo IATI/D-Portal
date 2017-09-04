@@ -158,13 +158,13 @@ Enviar mensajes de correo electrónico a
 support@iatistandard.org
 
 #^footer12_text
-Herramientas & amp; actualizaciones
+Herramientas & actualizaciones
 
 #^footer13_text
 Últimos mensajes de noticias
 
 #^footer14_text
-Dash - estadísticas Publishers
+Dash : estadísticas Publishers
 
 #^footer15_text
 Generator - Reproductores de su sitio web
@@ -180,6 +180,9 @@ Atribución y Fuentes
 
 #^footer19_text
 Foro de sugerencias Github
+
+#^footer20_text
+Registros de la base de datos
 
 #^feedback_title_text
 d-portal.org Feedback
@@ -236,7 +239,7 @@ El concepto de código abierto se basa en el intercambio de recursos con la espe
 Otros sitios sobre la base de d-portal se enumeran a continuación. <a target="_blank" href="mailto:support@iatistandard.org" class="co">Contáctenos al support@iatistandard.org añadir el suyo aquí</a>.
 
 #^about_paragraph13_text
-<a href="http://open.undg.org/" target="_blank"> <img src="{root}ctrack/art/UNDG_logo.png" alt="logo GNUD Portal de Transparencia" width="406" height="100"> </a>
+<a href="http://open.undg.org/" target="_blank"> <img src="{_root}ctrack/art/UNDG_logo.png" alt="logo GNUD Portal de Transparencia" width="406" height="100"> </a>
 
 #^about_paragraph14_text
 <span class="questions"> 1. ¿De dónde provienen los recursos? </span> <span class="questions"> 2. ¿A dónde van (por sector y ubicación)? </span>
@@ -251,10 +254,10 @@ SAVI es un único visor de actividad para la IATI XML que se pueden ver en tiemp
 SAVI usa CSS y JavaScript para mostrar lo contrario compleja - que mira en un formato XML que es más fácil de leer y digerir.
 
 #^dstore_paragraph_text
-dstore subvenciona la IATI Registry con una versión nodejs + SQLite optimizado para su uso en las consultas en tiempo real.
+<b>dstore</b> subvenciona la IATI Registry con una versión nodejs + PostgreSQL + SQLite optimizado para su uso en las consultas en tiempo real.
 
 #^q_paragraph_text
-Q le permite consultar información que necesita a través de filtros simples pero complejas.
+<b>Q</b> le permite consultar información que necesita a través de filtros simples pero complejas.
 
 #^q_example_title_text
 Estos son algunos ejemplos de consulta :
@@ -338,7 +341,7 @@ Ya hay ejemplos de medida d-portals específica del país de la siguiente manera
 d-portal se compone de la backend dstore y la interfaz ctrack. Para instalar d-portal, es necesario configurar un servidor. 
 
 #^install_paragraph4_text 
-<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md">Empieza a leer instrucciones para instalar una d-portal del servidor</a> 
+<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md" class="install_link">Empieza a leer instrucciones para instalar una d-portal del servidor</a> 
 
 #^install_title2_text 
 ¿Cómo crear un widget-d portal 
@@ -395,7 +398,7 @@ Volver a la página de Noticias
 alimentado por los comentarios
 
 #^dash_title_text 
-Dash - Editores estadísticas de d-portal.org 
+Dash : Editores estadísticas de d-portal.org 
 
 #^dash_paragraph1_text 
 Dash es un resumen de los datos que pueblan d-portal.org con un enfoque principalmente en estadísticas para afiliados y la calidad de los datos notificados por ellos. 
@@ -410,7 +413,7 @@ Dash no es específico de cada país por lo que será capaz de ver todas las est
 Dash es actualmente accesible en <a href="http://d-portal.org/ctrack.html?#view=dash" class="dash_link">http://d-portal.org/ctrack.html?#view=dash</a>. Dash es una característica nueva y todavía se está desarrollando.
 
 #^gen_title_text
-Generator - Reproductores de su sitio web
+Generator reproductores de su sitio web
 
 #^gen_paragraph1_text
 Hay una enorme cantidad de información interesante dentro de la IATI y el valor significativo de poder compartir trozos pequeños de ella libremente en otros sitios web y blogs. El generador de d-portal permite a los usuarios seleccionar información específica de d-portal y incrustan directamente en su propio código del sitio web.
@@ -449,16 +452,25 @@ Por ahora, rompemos estas abajo de 3 tipos diferentes de preguntas - técnica ge
 FAQ se puede encontrar en <a href="http://www.d-portal.org/faq.html"> http://www.d-portal.org/faq.html </a>.
 
 #^discover_title_text
-Discover <i>(alfa) </i>
+Explore
 
 #^discover_paragraph1_text
-Discover es una nueva característica que se encuentra actualmente en fase de desarrollo pesada. Con el respaldo de dStore y Q, que proporcionará una sencilla interfaz de búsqueda de los usuarios filtrar a través de la amplia base de datos de la IATI.
+Explore es una nueva característica que se encuentra actualmente en fase de desarrollo pesada. Con el respaldo de dStore y Q, que proporcionará una sencilla interfaz de búsqueda de los usuarios filtrar a través de la amplia base de datos de la IATI.
 
 #^discover_paragraph2_text
-Actualmente estamos buscando comentarios sobre la intuición y la facilidad de uso de Discover. No tener un ir y nos envíe sus comentarios mediante la adición de una nueva emisión a través de la <a href="https://github.com/devinit/D-Portal/issues"> Github foro </a> o, si lo prefiere, ponerse en contacto a través de <a href="mailto:support@iatistandard.org"> support@iatistandard.org </a>. Nos encantaría saber lo que piensas!
+Actualmente estamos buscando comentarios sobre la intuición y la facilidad de uso de Explore. No tener un ir y nos envíe sus comentarios mediante la adición de una nueva emisión a través de la <a href="https://github.com/devinit/D-Portal/issues"> Github foro </a> o, si lo prefiere, ponerse en contacto a través de <a href="mailto:support@iatistandard.org"> support@iatistandard.org </a>. Nos encantaría saber lo que piensas!
 
 #^discover_paragraph3_text
-Trate Discover <ahref="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+Trate Explore <ahref="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+
+#^dlogs_title_text
+Registros de la base de datos
+
+#^dlogs_paragraph1_text
+Estadísticas y gráficos de la base de datos de d-portal generados por las importaciones nocturnas. Esto fue creado para rastrear el creciente número de actividades de IATI publicadas en d-portal.
+
+#^dlogs_paragraph2_text
+Visite la base de datos en <a href="https://xriss.github.io/D-Portal-Logs/">https://xriss.github.io/D-Portal-Logs/</a>.
 
 #^publisher_title_text
 Explora un publicador

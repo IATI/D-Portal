@@ -53,7 +53,7 @@
 #search3_intro
 <div class="search_intro_wrap">
 	Search IATI data on development and humanitarian activities on specific events or themes more easily.<br/>
-	<span onclick="$('#more_search_intro').toggle();">Find out more about updated features and how it works</span>
+	<span onclick="$('#more_search_intro').toggle();">Find out more about updated features and how it works.</span>
 </div>
 
 <!-- new search in progress - Explore	-->
@@ -119,11 +119,35 @@
 	
 	{view_search3_filters_wrap}
 
-	<div id="search_div"><span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button0_txt}</a></div>
+	<div id="search_div">
+		<span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button0_txt}</a> <!--Update to button1, translations-->
+	</div>
 	
-	<div id="result_aid_div"><span id="result_aid_link"></span></div>
+	<div id="result_aid_div">
+		<span id="result_aid_link"></span>
+	</div>
 	
-	<div class="search_input_wrap"><div class="search_icon"><img src="/ctrack/art/original/search_icon.png" width="30" height="30"/></div><input type="text" id="view_search_string" class="typeahead explore" placeholder="{search_placeholder_txt}"/></div>
+	<div class="search_input_wrap">
+		<div class="search_icon">
+			<img src="/ctrack/art/original/search_icon.png" alt="A magnifying glass icon to indicate that a search request is nigh" width="30" height="30"/>
+		</div><input type="text" id="view_search_string" class="typeahead explore" placeholder="{search_placeholder_txt}" autocomplete="off"/>
+		<div class="press_enter"></div>
+		<script>
+			$('.typeahead.explore').keyup(function(event) {
+			
+			  $('.press_enter').text("Press Enter");
+			  
+			  if( $(this).val().length === 0 )
+				{
+					$('.press_enter').hide();
+				}
+			else
+				{
+					$('.press_enter').show();
+				}		 
+			});
+		</script>
+	</div>
 	
 </div>
 
@@ -132,7 +156,7 @@
 #view_search2_test
 <div id="view_search_test">
 	
-	<div class="search_input_wrap"><div class="search_icon"><img src="/ctrack/art/original/search_icon.png" width="30" height="30"/></div><input type="text" id="view_search_string_only" class="typeahead" placeholder="{search2_placeholder_txt}"/></div>
+	<div class="search_input_wrap"><div class="search_icon"><img src="/ctrack/art/original/search_icon.png" alt="A magnifying glass icon to indicate that a search request is nigh" width="30" height="30"/></div><input type="text" id="view_search_string_only" class="typeahead" placeholder="{search2_placeholder_txt}"/></div>
 	
 	<div class="feedback_links_wrap">
 		<a onclick="$('.search_filter').toggle();" class="feedback_txt">Show Filters?</a>
@@ -150,7 +174,7 @@
 	
 	<div id="result_aid_div"><span id="result_aid_link"></span></div>
 
-	<div class="search_input_wrap"><div class="search_icon"><img src="/ctrack/art/original/search_icon.png" width="30" height="30"/></div><input type="text" id="view_search_string" class="typeahead" placeholder="{search_placeholder_txt}"/></div>
+	<div class="search_input_wrap"><div class="search_icon"><img src="/ctrack/art/original/search_icon.png" alt="A magnifying glass icon to indicate that a search request is nigh" width="30" height="30"/></div><input type="text" id="view_search_string" class="typeahead" placeholder="{search_placeholder_txt}"/></div>
 		
 </div>
 
@@ -182,7 +206,7 @@
 	<div class="search_label">
 		<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
 	</div>
-	<select id="view_search_select_country" class="chosen" multiple>
+	<select aria-label="Select a country from this dropdown" id="view_search_select_country" class="chosen" multiple>
 		<option value></option>
 		{search_options_country}
 	</select>
@@ -190,7 +214,7 @@
 	<div class="search_label">
 		<img src="{flava}search_sector.png" alt="Sector Group icon" width="13" height="13"/>{search_sectorgroup_txt}
 	</div>
-	<select id="view_search_select_category" class="chosen" multiple>
+	<select aria-label="Select a sector group from this dropdown" id="view_search_select_category" class="chosen" multiple>
 		<option value></option>
 		{search_options_category}
 	</select>
@@ -198,7 +222,7 @@
 	<div class="search_label">
 		<img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}
 	</div>
-	<select id="view_search_select_status" class="chosen" multiple>
+	<select aria-label="Select an activity status from this dropdown" id="view_search_select_status" class="chosen" multiple>
 		<option value></option>
 		{search_options_status}
 	</select>
@@ -206,7 +230,7 @@
 	<div class="search_label">
 		<img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}
 	</div>
-	<select id="view_search_select_publisher" class="chosen" multiple>
+	<select aria-label="Select a publisher from this dropdown" id="view_search_select_publisher" class="chosen" multiple>
 		<option value></option>
 		{search_options_publisher}
 	</select>
@@ -214,7 +238,7 @@
 	<div class="search_label">
 		<img src="{flava}search_category.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
 	</div>
-	<select id="view_search_select_sector" class="chosen" multiple>
+	<select aria-label="Select a sector from this dropdown" id="view_search_select_sector" class="chosen" multiple>
 		<option value></option>
 		{search_options_sector}
 	</select>
@@ -222,10 +246,10 @@
 	<div class="search_label">
 		<img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}
 	</div>
-	<select id="view_search_select_year_min" class="chosen">
+	<select aria-label="Select a starting year from this dropdown" id="view_search_select_year_min" class="chosen">
 		<option value></option>
 		{search_options_year}
-	</select><select id="view_search_select_year_max" class="chosen">
+	</select><select aria-label="Select an ending year from this dropdown" id="view_search_select_year_max" class="chosen">
 		<option value></option>
 		{search_options_year}
 	</select>

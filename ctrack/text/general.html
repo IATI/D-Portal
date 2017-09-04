@@ -68,13 +68,14 @@
 	<div class="footer_header">{footer12_text}</div>
 	<ul>
 		<li><a href="http://d-portal.org/news/posts.html">{footer13_text}</a></li>
-		<li><a href="http://d-portal.org/about.html">{footer_about_text}</a></li>
 		<li><a href="http://d-portal.org/ctrack.html?#view=dash">{footer14_text}</a></li>
 		<li><a href="http://d-portal.org/ctrack.html#view=generator">{footer15_text}</a></li>
+		<li><a href="https://xriss.github.io/D-Portal-Logs/">{footer20_text}</a></li>
 	</ul>
 	<div class="footer_header">{footer16_text}</div>
 	<ul>
 		<li><a href="http://d-portal.org/faq.html">{footer17_text}</a></li>
+		<li><a href="http://d-portal.org/about.html">{footer_about_text}</a></li>
 		<li><a href="http://d-portal.org/about.html#sources">{footer18_text}</a></li>
 		<li><a href="https://github.com/devinit/D-Portal/issues">{footer19_text}</a></li>
 	</ul>
@@ -154,13 +155,13 @@
 		<td class="options">
 			<form class="currency" action="">
 				<span class="settings_info">{settings_currency_text} </span>
-				<select id="usd_select" name="usd" class="">{all_usd_options}</select>
+				<select aria-label="Select a currency from this dropdown" id="usd_select" name="usd" class="">{all_usd_options}</select>
 			</form>
 		</td>
 		<td class="options">
 			<form action="">
 			<span class="settings_info">{settings_language_text} </span>
-			<select id="tongue_select" name="tongue" class="">
+			<select aria-label="Select a language from this dropdown" id="tongue_select" name="tongue" class="">
 				<option value="eng" title="{tongue_eng_tip_text}">{tongue_eng_text}</option>
 				<option value="fra" title="{tongue_fra_tip_text}">{tongue_fra_text}</option>
 				<option value="spa" title="{tongue_spa_tip_text}">{tongue_spa_text}</option>
@@ -175,13 +176,13 @@
 		<td class="options">
 			<form class="newyear" action="">
 				<span class="settings_info">{settings_year_text} </span>
-				<select id="newyear_select" name="newyear" class="">{all_date_options}</select>
+				<select aria-label="Select a starting year from this dropdown" id="newyear_select" name="newyear" class="">{all_date_options}</select>
 			</form>
 		</td>
 		<td class="options">
 			<form action="">
 			<span class="settings_info">{settings_themes_text} </span>
-			<select id="flava_select" name="flava" class="">
+			<select aria-label="Select a colour theme from this dropdown" id="flava_select" name="flava" class="">
 				<option value="original">{flava_original_text}</option> 
 				<option value="high">{flava_high_visibility_text}</option> 
 			</select>
@@ -194,8 +195,8 @@
 
 #main_head_tail_settings
 		<td class="settings_toggle">
-			<a href="http://d-portal.org/faq.html" class="settings_faq">FAQ</a><a href="#" onclick="$('#settings').toggle();" class="settings_link">
-				<span>{change_settings_text}</span><img src="{flava}settings.png" width="35" height="35"/>
+			<a href="http://d-portal.org/faq.html" class="settings_faq">FAQ</a><a href="#" onclick="event.preventDefault();$('#settings').toggle();" class="settings_link">
+				<span>{change_settings_text}</span><img src="{flava}settings.png" alt="A cog wheel icon indicate settings and options for the website" width="35" height="35"/>
 			</a>
 		</td>
 		</tr>

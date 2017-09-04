@@ -164,6 +164,9 @@ Attribution &amp; Sources
 #^footer19_text
 Github Feedback Forum
 
+#^footer20_text
+Database Logs
+
 #^feedback_title_text
 d-portal.org Feedback
 
@@ -234,10 +237,10 @@ SAVi is a simple activity viewer for IATI XML that you can view in real time, on
 SAVi uses CSS and javascript to display otherwise complex-looking XML in a format that is easier to read and digest.
 
 #^dstore_paragraph_text
-dstore subsidises the IATI Registry with an optimized nodejs + SQLite version for use in real time queries.
+<b>dstore</b> subsidises the IATI Registry with an optimized nodejs, PostgreSQL and SQLite version for use in real time queries.
 
 #^q_paragraph_text
-Q allows you to query information you need via simple but complex filters.
+<b>Q</b> allows you to query information you need via simple but complex filters.
 
 #^q_example_title_text
 Here are some Query examples:
@@ -321,7 +324,7 @@ There are already examples of customised country-specific d-portals like
 d-portal is made up of the dstore backend and ctrack interface. To install d-portal, you need to set up a server.
 
 #^install_paragraph4_text
-<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md">Start reading instructions to install a d-portal server</a> 
+<a href="https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md" class="install_link">How to install a d-portal server</a> 
 
 #^install_title2_text
 How to generate and re-use d-portal content
@@ -396,7 +399,7 @@ How to create a country d-portal
 comments powered by
 
 #^dash_title_text
-Dash - Publishers statistics for d-portal.org
+Dash : Publishers statistics for d-portal.org
 
 #^dash_paragraph1_text
 Dash is an overview of the data populating d-portal.org with a focus primarily on publisher statistics and the quality of the data reported by them.
@@ -411,7 +414,7 @@ Dash is not country specific so you will be able to view all of the publisher st
 Dash is currently accessible at <a href="http://d-portal.org/ctrack.html?#view=dash">http://d-portal.org/ctrack.html?#view=dash</a>. Dash is still being developed.
 
 #^gen_title_text
-Generator - Widgets for your website
+Generator widgets for your website
 
 #^gen_paragraph1_text
 There is a huge amount of interesting information within IATI and significant value in being able to share bite-size pieces of it freely on other websites and blogs. The d-portal generator allows users to select specific information from d-portal and embed it directly into their own website code.
@@ -441,25 +444,34 @@ Start reading News at <a href="http://www.d-portal.org/news.html">http://www.d-p
 Frequently Asked Questions
 
 #^faq_paragraph1_text
-d-portal is an expansive site that contains not only the country and publisher based portals but also tools like SAVi, Generator, Dash and the recently developed Discover - a simple search interface backed by dstore and Q. With this comes a growing database of questions about the architecture and functionality of the different parts of the site.
+d-portal is an expansive site that contains not only the country and publisher based portals but also tools like SAVi, Generator, Dash and Explore - a simple search interface backed by dstore and Q with filtering options to narrow search enquiries. With this comes a growing database of questions about the architecture and functionality of the different parts of the site.
 
 #^faq_paragraph2_text
-These are broken down into 3 different types of questions - General, Technical and questions about the Generator. 
+There are 4 sections - General, Technical, information about the Explore search feature and Generator widgets. 
 
 #^faq_paragraph3_text
 FAQ can be found at <a href="http://www.d-portal.org/faq.html">http://www.d-portal.org/faq.html</a>.
 
 #^discover_title_text
-Discover <i>(alpha)</i>
+Explore
 
 #^discover_paragraph1_text
-Discover is a new feature that is currently under second stage of development. Backed by dstore and Q, it provides a simple interface for users to filter through the vast IATI database.
+Explore is a new feature that is currently under second stage of development. Backed by dstore and Q, it provides a simple interface for users to filter through the vast IATI database.
 
 #^discover_paragraph2_text
-We are currently seeking feedback about the intuitiveness and usability of Discover. Do have a go and send us your feedback by adding a new issue through the <a href="https://github.com/devinit/D-Portal/issues">Github forum</a> or, if you prefer, get in touch through <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>. We'd love to hear what you think!
+We are currently seeking feedback on the intuitiveness and usability of Explore. Do have a go and send us your feedback by adding a new issue through the <a href="https://github.com/devinit/D-Portal/issues">Github forum</a> or, if you prefer, get in touch through <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>. We'd love to hear what you think!
 
 #^discover_paragraph3_text
-Try Discover at <a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+Try Explore at <a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+
+#^dlogs_title_text
+Database Logs
+
+#^dlogs_paragraph1_text
+Statistics & graphs of the d-portal database generated from nightly imports. This was created to track the increasing number of IATI activities published to d-portal.
+
+#^dlogs_paragraph2_text
+Visit the database at <a href="https://xriss.github.io/D-Portal-Logs/">https://xriss.github.io/D-Portal-Logs/</a>.
 
 #^publisher_title_text
 Explore a Publisher

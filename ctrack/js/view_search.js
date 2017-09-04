@@ -148,7 +148,7 @@ view_search.fixup=function()
 	};
 
 	var typeaheadref=$('#view_search_string').typeahead({
-	  hint: true,
+	  hint: false,
 	  highlight: true,
 	  minLength: 1
 	},
@@ -305,7 +305,7 @@ view_search.fixup=function()
 		"view_search_select_status":true,
 	};
 
-	var o={allow_single_deselect:true,search_contains:true,placeholder_text_multiple:"Select one or multiple options"};
+	var o={allow_single_deselect:true,search_contains:true,placeholder_text:"Select an option",placeholder_text_multiple:"Select one or multiple options"};
 	for(var n in search_select_ids)
 	{
 		$("#"+n).chosen(o).change(build_query);
@@ -660,7 +660,7 @@ view_search.ajax=function(args)
 		return;
 	}
 
-	$("#result_span").html("...");
+	$("#result_span").html("Searching ...");
 	
 	var latest=view_search.latest;
 	
