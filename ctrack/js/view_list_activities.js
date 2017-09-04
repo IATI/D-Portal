@@ -50,7 +50,7 @@ view_list_activities.ajax=function(args)
 	var dat={
 			"from":"act",
 			"limit":args.limit || -1,
-			"select":"title,aid,funder_ref,"+ctrack.convert_str("commitment")+","+ctrack.convert_str("spend")+",reporting,reporting_ref,day_start,day_end",
+			"select":"title,aid,funder_ref,"+ctrack.convert_str("commitment")+","+ctrack.convert_str("spend")+",reporting,reporting_ref,day_start,day_end,status_code",
 			"distincton":"aid",
 		};
 
@@ -100,6 +100,7 @@ view_list_activities.ajax=function(args)
 				d.funder=v.funder || "N/A";
 				d.aid=encodeURIComponent(v.aid || "N/A");
 				d.title=html_encode(v.title || v.aid || "N/A");
+				d.status_code=v.status_code || "N/A";
 				
 				d.date_start="N/A"
 				d.date_end="N/A"
@@ -126,9 +127,9 @@ view_list_activities.ajax=function(args)
 
 
 			var cc=[];
-			cc[0]=["aid","title","reporting","commitment","spend","currency","link"];
+			cc[0]=["activity-identifier","title","reporting-org","total-commitment","total-spend","currency","link","activity-status-code"];
 			a.forEach(function(v){
-				cc[cc.length]=[v.aid,v.title,v.reporting,v.commitment,v.spend,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid];
+				cc[cc.length]=[v.aid,v.title,v.reporting,v.commitment,v.spend,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid,v.status_code];
 			});
 			ctrack.chunk((args.chunk || "list_activities_datas")+"_csv","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
 			
