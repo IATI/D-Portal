@@ -291,14 +291,14 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 .donors_head_title span		{display:block; font-size:0.7em; line-height:1.3em; padding-top:10px;}	/* Donor subtitle */
 
 
-/*	For url #view=donor_activities
+/*	For url #view=*_activities
 	============================================= */
-.donor_activities_spend_wrap	{position:relative;}
-.donor_activities_spend			{color:#000;}
-.donor_activities_spend span	{padding-bottom:3px;}
-.donor_activities_barchart_wrap	{min-width:100px; max-width:100px; position:absolute; right:0;}
-.donor_activities_percent_max	{width:100px; height:10px; background-color:#000; border:1px solid #494B4E; border-radius:8px 0 0 8px;}
-.donor_activities_percent		{height:10px; background-color:#A1A1A1; border-radius:8px 0 0 8px;}
+.activities_spend_wrap		{position:relative;}
+.activities_spend			{color:#000;}
+.activities_spend span		{padding-bottom:3px;}
+.activities_barchart_wrap	{min-width:100px; max-width:100px; position:absolute; right:0;}
+.activities_percent_max		{width:100px; height:10px; background-color:#000; border:1px solid #494B4E; border-radius:8px 0 0 8px;}
+.activities_percent			{height:10px; background-color:#A1A1A1; border-radius:8px 0 0 8px;}
 
 
 /*	For url #view=sectors & all #view=sector_*

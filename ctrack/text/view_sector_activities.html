@@ -19,7 +19,7 @@
 	<div class="table_wrap">
 		<table class="activity">
 			{alerts}
-			{table_header_amount}
+			{table_activities_header_amount}
 			{sector_activities_datas}
 		</table>
 		<div class="download_wrap"><a download="dportal_sector_activities.csv" href="{sector_activities_datas_csv}" class="csv_download">{download_csv_text}</a></div>
@@ -47,17 +47,17 @@
 <tr onclick="return ctrack.url('#view=act&aid={aid}');">
 	<td class="num">{num}.</td>
 	<td class="title">
-		<a>
+		<a class="percent">
 			{title}
 			<span>{reported_by_text}</span>
 		</a>
 	</td>
 	<td class="value">
-		<div class="donor_activities_spend_wrap">
-			<div class="donor_activities_spend" title="{donor_activities_spend_text}">{commitment}<span>{currency}</span></div>
-			<div class="donor_activities_barchart_wrap" title="{donor_activities_percentage_tip_text}">
-				<div class="donor_activities_percent_max">
-					<div style="width:{pct}px;" class="donor_activities_percent"></div>
+		<div class="activities_spend_wrap">
+			<div class="activities_spend" title="{activities_spend_text}">{commitment}<span>{currency}</span></div>
+			<div class="activities_barchart_wrap" title="{activities_percentage_tip_text}">
+				<div class="activities_percent_max">
+					<div style="width:{pct}px;" class="activities_percent"></div>
 				</div>
 			</div>
 		</div>
