@@ -1,7 +1,6 @@
 Issues
 ===================
-Please be aware that we use Github Issues for **discussion** and not every issue represent a bug.
-
+Please be aware that we use Github Issues for **discussion** and not every issue represent a bug.  
 If you have any questions about d-portal, please raise an [*issue*](https://github.com/devinit/D-Portal/issues/new). We very much welcome comments and feedback!
 
 
