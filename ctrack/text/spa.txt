@@ -14,10 +14,10 @@ El público quiere saber dónde está el dinero !
 Flechas que apuntan hacia arriba y hacia abajo para indicar la clasificación
 
 #alert_no_iati_text 
-Esta Donantes no publica a IATI.
+Esta Editors no publica a IATI.
 
 #alert_no_iati_tip_text
-Esta Donantes no publica a IATI.
+Esta Editors no publica a IATI.
 
 #alert_nodata1_text 
 Existen algunos problemas de calidad de datos con estos datos. <a href="faq.html#gen13"> Lea más acerca de la calidad de datos. </a> 
@@ -26,7 +26,7 @@ Existen algunos problemas de calidad de datos con estos datos. <a href="faq.html
 Algunos problemas de calidad de datos - Haga clic para obtener más información 
 
 #alert_nodata2_text 
-Aunque este donante ha publicado algunos datos a la IATI, la baja calidad de los datos significa que actualmente no podemos mostrar aquí. <a href="faq.html#gen13"> Haga clic aquí para obtener más información acerca de la calidad de datos. </a> Por favor, póngase en contacto con el editor directamente si le gustaría hablar de sus datos y la calidad de los datos. 
+Aunque este editor ha publicado algunos datos a la IATI, la baja calidad de los datos significa que actualmente no podemos mostrar aquí. <a href="faq.html#gen13"> Haga clic aquí para obtener más información acerca de la calidad de datos. </a> Por favor, póngase en contacto con el editor directamente si le gustaría hablar de sus datos y la calidad de los datos. 
 
 #alert_nodata2_tip_text 
 Los problemas de calidad de datos - Haga clic para obtener más información 
@@ -95,16 +95,16 @@ Volver
 {portal_name} Casa 
 
 #crumbname_donors_text 
-Lista de Donantes 
+Lista de Editors 
 
 #crumbname_donor_budgets_text 
-Presupuestos de los donantes 
+Presupuestos de los editor 
 
 #crumbname_donor_transactions_text 
-Transacciones de los donantes 
+Transacciones de los editor 
 
 #crumbname_donor_activities_text 
-Donantes Actividades 
+Editors Actividades 
 
 #crumbname_sectors_text 
 Lista Sector 
@@ -251,7 +251,7 @@ Descendiente
 Ver todo
 
 #list_donor_back_text
-Volver a la lista de los donantes
+Volver a la lista de los Editors
 
 #list_sector_back_text
 Volver a la lista de Sector
@@ -332,7 +332,7 @@ Origen de los fondos
 Haga clic para ordenar esta columna
 
 #table_donor_tip_data_text
-Gasto total anual reportada por todos los reporteros de la OECD CRS para el donante
+Gasto total anual reportada por todos los reporteros de la OECD CRS para el editor
 
 #table_donor_tip_donor_text
 Haga clic para explorar actividades
@@ -557,13 +557,13 @@ Esta tabla muestra los flujos de recursos externos que se utiliza en el desarrol
 CRS
 
 #donors_data_info1_text
-Todos los miembros de la OCDE y un número de otros países e instituciones informan anualmente a la <span class="bold italic"> acreedores de la OCDE Reporting System </span> en Ayuda Oficial al Desarrollo y otros flujos oficiales Estos datos se publican de forma retrospectiva : en de diciembre de cada año, el CRS se actualiza con los datos del año anterior (lo que es entre 12 y 23 meses de retraso) Si bien los datos que mira hacia atrás no es particularmente útil para la planificación del desarrollo - es un punto de muy útil y relativamente exacta referencia. Es particularmente útil para incluir marcadores de posición para los países y las instituciones que en la actualidad no informan a la IATI. los datos proporcionados en esta columna es el total de los desembolsos anuales (gastar) para el donante. Los valores están expresados ​​en dólares corrientes. "-" Indica que no hay datos de los sistemas centrales de ese donante.
+Todos los miembros de la OCDE y un número de otros países e instituciones informan anualmente a la <span class="bold italic"> acreedores de la OCDE Reporting System </span> en Ayuda Oficial al Desarrollo y otros flujos oficiales Estos datos se publican de forma retrospectiva : en de diciembre de cada año, el CRS se actualiza con los datos del año anterior (lo que es entre 12 y 23 meses de retraso) Si bien los datos que mira hacia atrás no es particularmente útil para la planificación del desarrollo - es un punto de muy útil y relativamente exacta referencia. Es particularmente útil para incluir marcadores de posición para los países y las instituciones que en la actualidad no informan a la IATI. los datos proporcionados en esta columna es el total de los desembolsos anuales (gastar) para el editor. Los valores están expresados ​​en dólares corrientes. "-" Indica que no hay datos de los sistemas centrales de ese editor.
 
 #donors_data_title2_text
 EDITOR
 
 #donors_data_info2_text
-La agencia (que puede ser un donante o una organización de ejecución) datos de informes a la IATI y / o CRS. Al hacer clic en esta celda le llevará a una lista de todas las actividades comunicadas a la IATI por esta agencia. La lista está ordenada por el valor de {yearcrs} los desembolsos (la figura más grande informó sea por CRS o IATI).
+La agencia (que puede ser un editor o una organización de ejecución) datos de informes a la IATI y / o CRS. Al hacer clic en esta celda le llevará a una lista de todas las actividades comunicadas a la IATI por esta agencia. La lista está ordenada por el valor de {yearcrs} los desembolsos (la figura más grande informó sea por CRS o IATI).
 
 Agencias se agrupan para <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=4">CRS</a>.
 
@@ -601,7 +601,7 @@ El presupuesto se calcula sumando todos los presupuestos que se encuentra a meno
 ¿Cómo se calcula la información?
 
 #sectors_data_description_text
-Esta tabla muestra los sectores a los que se están canalizando los flujos de recursos externos para el desarrollo:. Pasado, presente y futuro En la mayoría de los casos el valor de CRS será mucho más alto que la IATI, ya que hay una serie de grandes donantes que todavía no informan a la IATI ., y un número de editores IATI cuyos datos son de mala calidad las columnas muestran los siguientes datos:
+Esta tabla muestra los sectores a los que se están canalizando los flujos de recursos externos para el desarrollo:. Pasado, presente y futuro En la mayoría de los casos el valor de CRS será mucho más alto que la IATI, ya que hay una serie de grandes editors que todavía no informan a la IATI ., y un número de editores IATI cuyos datos son de mala calidad las columnas muestran los siguientes datos:
 
 #sectors_data_title1_text
 CRS
@@ -610,10 +610,10 @@ CRS
 Todos los miembros de la OCDE y un número de otros países e instituciones informan anualmente a la <span class="bold italic"> acreedores de la OCDE Reporting System </span> en Ayuda Oficial al Desarrollo y otros flujos oficiales Estos datos se publican de forma retrospectiva : en de diciembre de cada año, el CRS se actualiza con los datos del año anterior (lo que es entre 12 y 23 meses de retraso) Si bien los datos que mira hacia atrás no es particularmente útil para la planificación del desarrollo - es un punto de muy útil y relativamente exacta referencia. Es particularmente útil para incluir marcadores de posición para los países y las instituciones que en la actualidad no informan a la IATI. los datos proporcionados en esta columna es el total de los desembolsos anuales (gastar) para el país. Los valores están expresados ​​en dólares corrientes.
 
 #sectors_data_title2_text
-DONANTE
+EDITOR
 
 #sectors_data_info2_text
-La agencia (que puede ser un donante o una organización de ejecución) datos de informes a la IATI y / o CRS. Al hacer clic en esta celda le llevará a una lista de todas las actividades comunicadas a la IATI por esta agencia. La lista está ordenada por el valor de {yearcrs} los desembolsos (la figura más grande informó sea por CRS o IATI)
+La agencia (que puede ser un editor o una organización de ejecución) datos de informes a la IATI y / o CRS. Al hacer clic en esta celda le llevará a una lista de todas las actividades comunicadas a la IATI por esta agencia. La lista está ordenada por el valor de {yearcrs} los desembolsos (la figura más grande informó sea por CRS o IATI)
 
 #sectors_data_title3_text
 IATI PASAR
@@ -921,7 +921,7 @@ Cambiar Ajustes
 Beneficiario
 
 #search_donor_txt
-Donante
+Editor
 
 #search_status_txt
 Estado
