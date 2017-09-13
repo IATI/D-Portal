@@ -144,7 +144,7 @@ view_sectors.ajax=function(args)
 	years.forEach(function(y)
 	{
 		var dat={
-				"from":"act,trans,country,sector",
+				"from":"act,trans,sector",
 				"limit":args.limit || -1,
 				"select":"sector_group,"+ctrack.convert_str("sum_of_percent_of_trans"),
 				"sector_group_not_null":1,
@@ -178,7 +178,7 @@ view_sectors.ajax=function(args)
 	years.forEach(function(y)
 	{
 		var dat={
-				"from":"act,budget,country,sector",
+				"from":"act,budget,sector",
 				"limit":args.limit || -1,
 				"select":"sector_group,"+ctrack.convert_str("sum_of_percent_of_budget"),
 				"sector_group_not_null":1,
