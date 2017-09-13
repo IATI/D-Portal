@@ -337,7 +337,9 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search_input_wrap			{position:relative;}
 .search_icon				{position:absolute; top:28px; left:-40px;}
 
-.settings_search			{padding:40px 50px; box-sizing:border-box; width:960px; margin:0 auto; color:#000; font-size:1.2em; line-height:1.2em; margin-top:20px;}
+.settings_search			{padding:40px 50px 20px 50px; box-sizing:border-box; width:960px; margin:0 auto; color:#000; font-size:1.2em; line-height:1.2em; margin-top:20px; position:relative;}
+.hide_search_intro			{position:absolute; top:10px; right:20px; color:#000; width:30px; height:30px; box-sizing:border-box; text-align:center;}
+.hide_search_intro:hover	{cursor:pointer; color:#000;}
 .settings_search p			{padding:25px 0;}
 .settings_search td			{padding:0;}
 .settings_search td span.discover	{color:#000; letter-spacing:5px; font-weight:bold; margin-left:5px;}
@@ -477,6 +479,7 @@ table.money td.col7			{background-color:#FDFDFD;}
 table.money tr.row1 th		{color:#000; font-weight:700; text-align:center; padding:0px; position:relative;}
 table.money tr.row1 th:hover{cursor:pointer;}
 table.money tr.row1 th span	{color:#000; display:block; padding:20px 10px;}
+table.money tr.row1 th.col2 span	{padding:20px 5px;}	/*	PUBLISHER table header	*/
 table.money tr.row1 th.col1	{text-align:left; border:1px solid #666; border-bottom:1px solid #666; padding:20px 10px;}
 table.money tr.row1 th.col2	{text-align:left; border-bottom:1px solid #666; padding:20px 15px; border-top:1px solid #666;}
 table.money tr.row1 th.col3	{border:1px solid #666; border-bottom:1px solid #666;}
@@ -505,7 +508,8 @@ table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background
 table.money tr span.sort			{position:absolute; right:0px; top:0px; pointer-events:none;}
 table.money tr th.col4 span.sort	{position:absolute; right:initial; left:0px; top:0px;}
 table.money tr.row2 span.sort		{position:absolute; right:initial; left:10px; top:23px;}
-table.money tr.row2 td.col1 span.sort, table.money tr.row2 td.col2 span.sort	{position:absolute; right:10px; left:initial; top:23px;}
+table.money tr.row2 td.col1 span.sort	{position:absolute; right:10px; left:initial; top:23px;}
+table.money tr.row2 td.col2 span.sort	{position:absolute; right:5px; left:initial; top:23px;}	/*	NAME table header	*/
 table.money tr.row2 td.col6.allocate span.sort	{left:0;}
 
 table.money a				{display:block; color:#000; word-wrap:normal;}

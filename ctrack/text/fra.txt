@@ -14,19 +14,19 @@ Le public veut savoir où est l'argent!
 Flèches pointant vers le haut et vers le bas pour désigner le tri
 
 #alert_no_iati_text 
-Cette donateurs ne publie pas de IATI.
+Cette Éditeur ne publie pas de IATI.
 
 #alert_no_iati_tip_text
-Cette donateurs ne publie pas de IATI.
+Cette Éditeur ne publie pas de IATI.
 
 #alert_nodata1_text 
-Certains problèmes de qualité de données existent avec ces données. <a href="#view=data_quality"> savoir plus sur la qualité des données. </a> 
+Certains problèmes de qualité de données existent avec ces données. <a href="faq.html#gen13"> savoir plus sur la qualité des données. </a> 
 
 #alert_nodata1_tip_text 
 Certains problèmes de qualité de données - Cliquez pour plus d'infos 
 
 #alert_nodata2_text 
-Bien que ce donneur a publié des données à l'IATI, la faible qualité des données signifie que nous sommes actuellement pas en mesure de l'afficher ici. <a href="#view=data_quality"> Cliquez ici pour plus d'informations sur la qualité des données. </a> S'il vous plaît contacter directement l'éditeur si vous souhaitez discuter de leurs données et la qualité des données. 
+Bien que ce donneur a publié des données à l'IATI, la faible qualité des données signifie que nous sommes actuellement pas en mesure de l'afficher ici. <a href="faq.html#gen13"> Cliquez ici pour plus d'informations sur la qualité des données. </a> S'il vous plaît contacter directement l'éditeur si vous souhaitez discuter de leurs données et la qualité des données. 
 
 #alert_nodata2_tip_text 
 Problèmes de qualité de données - Cliquez pour plus d'infos 
@@ -38,7 +38,7 @@ Aucun flux de ressources ont été signalés à ce secteur au cours de cette pé
 Aucun flux de ressources ont été signalés à ce secteur au cours de cette période 
 
 #alert_nodata4_text 
-Bien que certaines données ont été publiées, la faible qualité des données signifie que nous sommes actuellement pas en mesure de l'afficher ici. <a href="#view=data_quality"> Cliquez ici pour plus d'informations sur la qualité des données. </a> 
+Bien que certaines données ont été publiées, la faible qualité des données signifie que nous sommes actuellement pas en mesure de l'afficher ici. <a href="faq.html#gen13"> Cliquez ici pour plus d'informations sur la qualité des données. </a> 
 
 #alert_nodata4_tip_text 
 Problèmes de qualité de données - Cliquez pour plus d'infos
@@ -95,16 +95,16 @@ Retour
 {portal_name} Maison 
 
 #crumbname_donors_text 
-Liste des Donateurs 
+Liste des Éditeur 
 
 #crumbname_donor_budgets_text 
 Budgets des Bailleurs de fonds 
 
 #crumbname_donor_transactions_text 
-Transactions Donateurs 
+Transactions Éditeur 
 
 #crumbname_donor_activities_text 
-Activités des Donneurs 
+Activités des Éditeur 
 
 #crumbname_sectors_text 
 Liste de Secteur 
@@ -251,7 +251,7 @@ Descendant
 Voir tous
 
 #list_donor_back_text
-Retour à la liste des donateurs
+Retour à la liste des Éditeur
 
 #list_sector_back_text
 Retour à la liste Secteur
@@ -311,7 +311,7 @@ BUDGET de IATI ({USD})
 CRS
 
 #table_donor_title_donor_text
-DONATEURS
+ÉDITEUR
 
 #table_donor_subtitle_donor_text
 NOM
@@ -563,10 +563,10 @@ CRS
 Tous les membres du OECD et un certain nombre d' autres pays et institutions rendent compte annuellement à la <span class="bold italic">OECD Système de notification des pays créanciers </span> sur l'aide publique au développement et d'autres flux officiels. En Décembre chaque année, le CRS est mis à jour avec les données de l'année précédente (si c'est entre 12 et 23 mois sur la date) Bien que les données passéiste n'est pas particulièrement utile pour la planification du développement - c'est un point de référence très utile et relativement précise. il est particulièrement utile pour inclure des espaces réservés pour les pays et les institutions qui ne relèvent pas actuellement de l'IATI. les données fournies dans cette colonne est le total des versements annuels (de dépenses) pour le donateurs. les valeurs sont en dollars courants des États-Unis. "-" indiquent qu'il n'y a pas de données CRS pour ce donneur.
 
 #donors_data_title2_text
-DONATEURS
+ÉDITEUR
 
 #donors_data_info2_text
-L'agence (qui peut être un donateur ou un organisme d'exécution) des données de déclaration à l'IATI et / ou CRS. Cliquez sur cette cellule vous amène à une liste de toutes les activités mentionnées à l'IATI par cette agence. Cette liste est ordonnée par la valeur de {yearcrs} débours (le plus grand chiffre rapporté soit par CRS ou IATI).
+L'agence (qui peut être un editeur ou un organisme d'exécution) des données de déclaration à l'IATI et / ou CRS. Cliquez sur cette cellule vous amène à une liste de toutes les activités mentionnées à l'IATI par cette agence. Cette liste est ordonnée par la valeur de {yearcrs} débours (le plus grand chiffre rapporté soit par CRS ou IATI).
 
 Les agences sont regroupées pour <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=4">CRS</a>.
 
@@ -924,7 +924,7 @@ Modifier Les Paramètres
 Destinataire
 
 #search_donor_txt
-Donateur
+ÉDITEUR
 
 #search_status_txt
 Statut

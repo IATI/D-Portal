@@ -14,19 +14,19 @@ Explore IATI data!
 Arrows pointing up and down to denote sorting
 
 #alert_no_iati_text
-This donor does not publish to IATI yet.
+This publisher does not publish to IATI yet.
 
 #alert_no_iati_tip_text
-This donor does not publish to IATI yet.
+This publisher does not publish to IATI yet.
 
 #alert_nodata1_text
-Some data quality issues exist with this data. <a href="#view=data_quality">Read more about data quality.</a>
+Some data quality issues exist with this data. <a href="faq.html#gen13">See common reasons for data not showing.</a>
 
 #alert_nodata1_tip_text
 Some data quality issues - Click for more info
 
 #alert_nodata2_text
-Although this donor has published some data to IATI, the low quality of the data means that we are currently unable to display it here. <a href="#view=data_quality">Click here for more information about data quality.</a> Please contact the publisher directly if you would like to discuss their data and data quality.
+Although this publisher has published some data to IATI, the low quality of the data means that we are currently unable to display it here. <a href="faq.html#gen13">See common reasons for data not showing.</a> Please contact the publisher directly if you would like to discuss their data and data quality.
 
 #alert_nodata2_tip_text
 Some data quality issues - Click for more info
@@ -38,7 +38,7 @@ No resource flows were reported to this sector during this period.
 No resource flows were reported to this sector during this period
 
 #alert_nodata4_text
-Although some data has been published, the low quality of the data means that we are currently unable to display it here. <a href="#view=data_quality">Click here for more information about data quality.</a>
+Although some data has been published, the low quality of the data means that we are currently unable to display it here. <a href="faq.html#gen13">See common reasons for data not showing.</a>
 
 #alert_nodata4_tip_text
 Some data quality issues - Click for more info
@@ -95,16 +95,16 @@ Back
 {portal_name} Home
 
 #crumbname_donors_text
-Donor Table
+Publisher Table
 
 #crumbname_donor_budgets_text
-Donor Budget
+Publisher Budget
 	
 #crumbname_donor_transactions_text
-Donor Spend
+Publisher Spend
 
 #crumbname_donor_activities_text
-Donor Activities
+Publisher Activities
 
 #crumbname_sectors_text
 Sector Table
@@ -251,7 +251,7 @@ Recent first
 View all
 
 #list_donor_back_text
-Back to Donor table
+Back to Publisher table
 
 #list_sector_back_text
 Back to Sector table
@@ -311,7 +311,7 @@ IATI BUDGET ({USD})
 CRS
 
 #table_donor_title_donor_text
-DONOR
+PUBLISHER
 
 #table_donor_subtitle_donor_text
 NAME
@@ -326,34 +326,34 @@ IATI Budget
 from OECD Creditor Reporting System
 
 #table_donor_tip_title_donor_text
-Source of funds
+Publishing organisation
 
 #table_sort_text
 Click to sort this column
 
 #table_donor_tip_data_text
-Annual total spend for the donor as reported to the CRS
+Annual total spend for the publisher as reported to the CRS
 
 #table_donor_tip_donor_text
-Click to explore all donor activities
+Click to explore all publisher activities
 
 #table_sector_tip_sector_text
 Click to explore all sector activities
 
 #table_donor_tip_t1_text
-Click to explore donor's IATI spend for {year1}
+Click to explore publisher's IATI spend for {year1}
 
 #table_donor_tip_t2_text
-Click to explore donor's IATI spend for {year2}
+Click to explore publisher's IATI spend for {year2}
 
 #table_donor_tip_t3_text
-Click to explore donor's IATI spend for {year3}
+Click to explore publisher's IATI spend for {year3}
 
 #table_donor_tip_b1_text
-Click to explore donor's IATI budget for {year3}
+Click to explore publisher's IATI budget for {year3}
 
 #table_donor_tip_b2_text
-Click to explore donor's IATI budget for {year4}
+Click to explore publisher's IATI budget for {year4}
 
 #table_sector_title_transaction_text
 IATI SPEND ({USD})
@@ -560,13 +560,13 @@ This table shows external resource flows being used in development: past, presen
 CRS
 
 #donors_data_info1_text
-All members of the OECD and a number of other countries and institutions report annually to the <span class="bold italic">OECD Creditor Reporting System</span> on Official Development Assistance and other official flows. This data is published retrospectively: usually in December of each year the CRS is updated with data from the previous year (so is between 12 and 23 months out of date). While backward-looking data is not particularly helpful for development planning it is a very useful and relatively accurate point of reference. It is particularly useful for including placeholders for countries and institutions that currently do not report to IATI. The data provided in this column is the annual total disbursements (spend) for the donor. The values are in current US dollars. "-" indicate that there is no CRS data for that donor.
+All members of the OECD and a number of other countries and institutions report annually to the <span class="bold italic">OECD Creditor Reporting System</span> on Official Development Assistance and other official flows. This data is published retrospectively: usually in December of each year the CRS is updated with data from the previous year (so is between 12 and 23 months out of date). While backward-looking data is not particularly helpful for development planning it is a very useful and relatively accurate point of reference. It is particularly useful for including placeholders for countries and institutions that currently do not report to IATI. The data provided in this column is the annual total disbursements (spend) for the publisher. The values are in current US dollars. "-" indicate that there is no CRS data for that publisher.
 
 #donors_data_title2_text
-DONOR
+PUBLISHER
 
 #donors_data_info2_text
-The agency (which can be a donor or an implementing organisation) reporting data to IATI and/or CRS. Clicking on this cell will take you to a list of all activities reported to IATI by this agency. This table is ordered by the value of 2016 IATI data, but can be re-sorted by clicking on the relevant year at the top of the table.
+The agency (which can be a publisher or an implementing organisation) reporting data to IATI and/or CRS. Clicking on this cell will take you to a list of all activities reported to IATI by this agency. This table is ordered by the value of 2016 IATI data, but can be re-sorted by clicking on the relevant year at the top of the table.
 
 Agencies are grouped for <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=4">CRS</a>.
 
