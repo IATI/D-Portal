@@ -14,7 +14,6 @@ iati-activity *		{display:none;}
 iati-activity		{display:block; width:958px; margin:0 auto; margin-bottom:320px; background-color:#fff; border:1px solid #000; word-break:break-word;}
 iati-activity:after {content:"Data is sourced from IATI for D-Portal. If you find anything out of place, please contact the development team - support@iatistandard.org"; font-size:14px; color:#000; display:block; padding:15px 0; text-align:center;}
 *:before			{line-height:14px;}
-*.empty				{display:none;}	/*	Hides container if empty	*/
 
 
 /*	Play nice with Google Translate font tags
@@ -158,7 +157,8 @@ span.span_description description[type="3"]:before	{content:"TARGET GROUPS"; fon
 span.span_description description:last-of-type		{padding-bottom:40px; border-top:0;}
 span.span_description description:nth-child(1)		{border-top:1px solid #000;}
 
-span.span_description description.empty				{display:none;}	/*	Hides container if empty	*/
+span.span_description description.empty,
+span.span_description description narrative.empty	{display:none;}	/*	Hides container if empty	*/
 
 
 /*	Result and description
