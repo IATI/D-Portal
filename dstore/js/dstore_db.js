@@ -96,6 +96,10 @@ dstore_db.tables={
 		{ name:"trans_flags",					INTEGER:true , INDEX:true },
 // FLAGS set to 0 if good otherwise
 // 1 == this is a fake transaction built after a full import for publishers that only publish C not D/E
+// added split trans by sector/country
+		{ name:"trans_country_code",			NOCASE:true , INDEX:true },
+		{ name:"trans_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
+		{ name:"trans_sector_code",				NOCASE:true , INDEX:true },
 	],
 	budget:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
@@ -113,6 +117,10 @@ dstore_db.tables={
 		{ name:"budget_cad",					REAL:true , INDEX:true },
 		{ name:"budget_country",				NOCASE:true , INDEX:true },	// only used by country budget from orgfile
 		{ name:"budget_org",					NOCASE:true , INDEX:true },	// only used by org budget from orgfile
+// added split budgets by sector/country
+		{ name:"budget_country_code",			NOCASE:true , INDEX:true },
+		{ name:"budget_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
+		{ name:"budget_sector_code",			NOCASE:true , INDEX:true },
 	],
 	country:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
