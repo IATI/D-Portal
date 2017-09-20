@@ -18,19 +18,19 @@ view_heatmap.chunks=[
 
 view_heatmap.show=function()
 {
-console.log("show")
+//console.log("show")
 	views.map.show(true);
 }
 
 view_heatmap.fixup=function()
 {
-console.log("fixup")
+//console.log("fixup")
 	views.map.fixup();
 }
 
 view_heatmap.ajax=function(args)
 {
-console.log("ajax")
+//console.log("ajax")
 
 	ctrack.map.pins=undefined;
 	views.map.ajax_heat({limit:-1});	
@@ -39,7 +39,7 @@ console.log("ajax")
 
 view_heatmap.view=function(args)
 {
-console.log("view")
+//console.log("view")
 
 	ctrack.setcrumb(0);
 	ctrack.change_hash();
