@@ -590,7 +590,7 @@ acts.find("related-activity").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	if(id)
 	{
-		wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
+		wrap_link(it,prelink+encodeURIComponent(id)+postlink,"a_"+this.tagName.toLowerCase());
 	}
 });
 

@@ -33,9 +33,9 @@ narrative {display:inline-block;color:inherit;font-family:inherit;word-wrap:inhe
 
 /*	Project title
 	============================================= */
-span.span_span-title span-title			{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#FFF; line-height:1.1em;}
+span.span_span-title span-title			{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#FFF; line-height:1.2em;}
 span.span_span-title span-title:before	{content:"PROJECT TITLE"; font-size:14px; color:#ccc; display:block; border-bottom:1px solid #aaa; padding-bottom:10px; margin-bottom:20px;}
-span.span_span-title narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0 0; font-style:italic;}
+span.span_span-title narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0 0; font-style:italic; font-size:34px;}
 
 
 /*	IATI Identifier
@@ -97,9 +97,9 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#FFF; counter-reset:section;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 participating-org 					{display:flex; padding:10px 0 0 0; position:relative; line-height:24px;}
-participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
+participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:inherit; margin-right:5px;}
 participating-org narrative			{display:inline;}
-participating-org a					{display:initial; padding-left:5px;}
+participating-org a					{display:initial;}
 participating-org a:link			{color:#FF7A00;}
 participating-org a:visited			{color:#FF7A00;}
 participating-org a:hover			{color:#FFAB5E;}
