@@ -18,7 +18,7 @@ iati-activity:after {content:"Data is sourced from IATI for D-Portal. If you fin
 
 /*	Play nice with Google Translate font tags
 	============================================= */
-font					{display:inline;}
+font				{display:inline;}
 
 
 /*	Hacks to display injected elements
@@ -71,7 +71,7 @@ recipient-country span:nth-of-type(2)	{font-size:20px; color:#97c4ff; padding-to
 
 /*	Start and End dates (Planned and Actual)
 	============================================= */
-span.span_activity-date				{display:block; vertical-align:baseline; width:981px; background-color:#724514; margin-left:-10px; position:relative; height:81px;}
+span.span_activity-date				{display:block; vertical-align:baseline; width:981px; margin-left:-10px; position:relative; height:81px;}
 activity-date						{box-sizing:border-box; height:40px;}
 
 activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"],
@@ -96,10 +96,10 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 	============================================= */
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#FFF; counter-reset:section;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
-participating-org 					{display:block; padding:10px 0 0 0; position:relative; line-height:24px;}
+participating-org 					{display:flex; padding:10px 0 0 0; position:relative; line-height:24px;}
 participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
 participating-org narrative			{display:inline;}
-participating-org a					{display:initial;}
+participating-org a					{display:initial; padding-left:5px;}
 participating-org a:link			{color:#FF7A00;}
 participating-org a:visited			{color:#FF7A00;}
 participating-org a:hover			{color:#FFAB5E;}
@@ -148,7 +148,8 @@ span.span_description description[type="3"]:before	{content:"TARGET GROUPS"; fon
 span.span_description description:last-of-type		{padding-bottom:40px;}
 span.span_description narrative:nth-of-type(2)		{display:block; padding:20px 0 0 0; font-style:italic;}
 
-span.span_description description.empty				{display:none;}	/*	Hides container if empty	*/
+span.span_description description.empty,
+span.span_description description narrative.empty	{display:none;}	/*	Hides container if empty	*/
 
 
 /*	Result and description
@@ -375,7 +376,7 @@ span.span_related-activity			{width:880px; padding:0 40px; margin:0 auto; counte
 span.span_related-activity:before	{content:"FAMILY TREE"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_related-activity			{color:#FFF;}
 a.a_related-activity::before		{counter-increment:section; content:counter(section) ". ";}
-a.a_related-activity				{display:inline-block; width:875px; padding:10px 0 10px 5px; font-size:1.0em; line-height:1.25em; list-style-type:decimal; list-style-position:inside; color:#FFF;}
+a.a_related-activity				{display:inline-block; width:875px; padding:10px 0 10px 5px; font-size:1.0em; line-height:1.25em; color:#FFF;}
 a.a_related-activity:last-of-type								{padding-bottom:40px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
 related-activity					{display:inline; color:#FF9E38;}

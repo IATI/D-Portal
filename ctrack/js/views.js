@@ -22,6 +22,7 @@ views.active=require("./view_active.js");
 
 views.stats=require("./view_stats.js");
 views.map=require("./view_map.js");
+views.heatmap=require("./view_heatmap.js");
 
 views.search=require("./view_search.js");
 views.search2=require("./view_search.js");
