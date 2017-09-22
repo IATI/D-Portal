@@ -16,8 +16,15 @@ var inside=args.inside || "";
 var prelink=args.link || "http://d-portal.org/q.html?aid=";
 var postlink=args.link_post || "";
 
+
+// links to publisher views
 var pubprelink=args.link || "http://d-portal.org/ctrack.html?publisher=";
 var pubpostlink=args.link_post || "#view=main";
+
+
+// links to fao
+var faoprelink=args.link || "http://aims.fao.org/aos/agrovoc/";
+var faopostlink=args.link_post || ".html";
 
 
 var acts=$(inside+"iati-activity").not(".savidone"); // ignore activities that have already been done
@@ -259,6 +266,27 @@ acts.find("result reference").each(function(i){var it=$(this);
 	}
 });
 
+
+// tag elements
+acts.find("openag\\:tag").each(function(i){var it=$(this);
+	
+	var id=it.attr("code");
+	
+	it.replaceWith($('<span-openag code=' + id + '>' + it.html() + '</span-openag>'));
+	
+});
+
+acts.find("span-openag").each(function(i){var it=$(this);
+	
+	var id=it.attr("code");
+	if(id)
+	{
+		wrapInner_link(it,faoprelink+id+faopostlink,"a_openag");
+	}
+	
+});
+
+
 acts.find("related-activity").each(function(i){var it=$(this);
 	if( it.html().length<4 )
 	{
@@ -424,6 +452,7 @@ sorted++;
 		"participating-org",
 		"description",
 		"sector",
+		"span-openag",
 		"budget",
 		"planned-disbursement",
 		"transaction",
