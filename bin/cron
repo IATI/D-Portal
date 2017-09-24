@@ -34,7 +34,8 @@ if [ "$(date +'%u')" == "7" ] ; then
 	bin/instance_delete_all
 fi
 
-bin/cron_import
+echo "SKIPPING IMPORT WHILE DATABASE IS UNDER MAINTENANCE"
+#bin/cron_import
 
 date
 
