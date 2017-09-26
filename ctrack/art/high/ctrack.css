@@ -212,7 +212,7 @@ a.map_percent span		{display:inline; font-size:1.0em; line-height:1.15em; color:
 
 .map_filter_wrap		{margin-top:20px; margin-bottom:10px;}
 .map_filter, .map_filter.info	{display:inline-block; vertical-align:middle; width:250px;}
-.map_filter.info		{width:700px; padding-right:10px; text-align:right; color:#000; font-size:20px;}
+.map_filter.info		{width:700px; padding-right:10px; text-align:right; color:#000; font-size:18px;}
 
 
 /*	Stats (key figures) styles
@@ -240,7 +240,7 @@ a.stats_link.missing span	{color:#000;}
 .main_title_wrap			{width:960px; margin:0 auto; padding:60px 20px 0px 20px;}
 .main_title_wrap.ended		{padding-bottom:40px;}
 .title_wrap					{width:960px; margin:0 auto; padding:0px 20px 40px 20px; margin-bottom:40px;}
-.table_wrap					{background-color:#FFF; padding:0; border-radius:8px; border:1px solid #000; border-radius:8px 8px 0 0; position:relative; width:960px;}
+.table_wrap					{background-color:#FFF; padding:0; border-radius:8px; border:1px solid #000; position:relative; width:960px;}
 .table_wrap.main			{padding-bottom:0;}
 .table_wrap.view			{width:920px; margin:0 auto; padding:20px; margin-bottom:40px; border:1px solid #000;}
 
@@ -281,6 +281,8 @@ a.button:hover				{background-color:#000; color:#FFF;}
 a.csv_download				{display:inline-block; padding:10px; background-color:#FFF; text-align:center; color:#000; border:1px solid #000; border-radius:4px; font-weight:bold; font-size:1.2em;}
 a.csv_download:hover		{background-color:#000; color:#FFF;}
 .table_wrap.view a.csv_download	{display:block;}
+
+.table_alert				{width:100%; text-align:center; padding:20px 0 10px 0; color:#000; font-size:20px;}
 
 
 /*	For url #view=donors & all #view=donor_*
