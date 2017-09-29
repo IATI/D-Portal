@@ -1080,7 +1080,62 @@
 		"GB-GOV-3": "GB"
 	},
 	"local_currency": {
-		".goog-inline-block{position:relative;display:-moz-inline-box;display:inline-block}* html .goog-inline-block{display:inline}*:first-child+html .goog-inline-block{display:inline}#drive-logo{margin:18px 0;position:absolute;white-space:nowrap}.docs-drivelogo-img{background-image:url('//ssl.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png');background-size:116px 41px;display:inline-block;height:41px;vertical-align:bottom;width:116px}.docs-drivelogo-text{color:#000;display:inline-block;opacity:0.54;text-decoration:none;font-family:'Product Sans'": "Arial"
+		"USD": "US Dollar",
+		"EUR": "Euro",
+		"GBP": "UK Pound Sterling",
+		"AFN": "Afghan Afghani",
+		"DZD": "Algerian Dinar",
+		"AUD": "Australian Dollar",
+		"BHD": "Bahrain Dinar",
+		"BDT": "Bangladeshi Taka",
+		"BRL": "Brazilian Real",
+		"CAD": "Canadian Dollar",
+		"CLP": "Chilean Peso",
+		"CNY": "Chinese Yuan",
+		"COP": "Colombian Peso",
+		"XOF": "CFA Franc",
+		"DKK": "Danish Krone",
+		"EGP": "Egyptian Pound",
+		"ETB": "Ethiopian Birr",
+		"GHS": "Ghanaian Cedi",
+		"GYD": "Guyanese Dollar",
+		"ISK": "Icelandic Krona",
+		"INR": "Indian Rupee",
+		"IDR": "Indonesian Rupiah",
+		"IRR": "Iranian Rial",
+		"IEP": "Irish Pound",
+		"JPY": "Japanese Yen",
+		"KES": "Kenyan Shilling",
+		"KRW": "Korean Won",
+		"KWD": "Kuwaiti Dinar",
+		"LYD": "Libyan Dinar",
+		"MYR": "Malaysian Ringgit",
+		"MXN": "Mexican Peso",
+		"NPR": "Nepalese Rupee",
+		"NZD": "New Zealand Dollar",
+		"NOK": "Norwegian Krone",
+		"OMR": "Rial Omani",
+		"PKR": "Pakistani Rupee",
+		"PEN": "Peru Nuevo Sol",
+		"PHP": "Philippine Peso",
+		"PLN": "Polish Zloty",
+		"QAR": "Qatar Riyal",
+		"SAR": "Saudi Arabian Riyal",
+		"SBD": "Solomon Islander Dollar",
+		"ZAR": "South African Rand",
+		"LKR": "Sri Lanka Rupee",
+		"SEK": "Swedish Krona",
+		"CHF": "Swiss Franc",
+		"SGD": "Singapore Dollar",
+		"THB": "Thai Baht",
+		"TTD": "Trinidad And Tobago Dollar",
+		"TND": "Tunisian Dinar",
+		"TRY": "Turkish Lira",
+		"AED": "UAE Dirham",
+		"UGX": "Ugandan Shilling",
+		"UYU": "Uruguayan Peso",
+		"VEF": "Venezuelan Bolivar",
+		"XDR": "IMF special drawing rights"
 	},
 	"funder_names": {
 		"1": "Austria",
@@ -1649,6 +1704,7 @@
 		"NL-KVK-41158230": "CARE Nederland",
 		"DK-CVR-29439915": "Caritas Denmark",
 		"FI-PRO-139407": "Caritas Finland",
+		"RS-APR-17062603": "Caritas Serbia",
 		"cbi-nigeria": "The Convention on Business Integrity",
 		"NL-KVK-41210820": "Clean Clothes Campaign",
 		"NG-CAC-IT-23286": "Centre For Citizens With Disabilities",
@@ -1804,11 +1860,11 @@
 		"NL-KVK-41188664": "ICS",
 		"XM-DAC-47058": "International IDEA",
 		"NL-KVK-53521129": "IDH, the Sustainable Trade Initiative",
-		"XM-DAC-47059": "International Development Law Organization",
+		"XM-DAC-47059": "International Development Law Organization (IDLO)",
 		"XM-DAC-301-2": "Canada - International Development Research Centre/Centre de recherches pour le développement international",
 		"GB-COH-877338": "Institute of Development Studies",
 		"GB-CHC-1148404": "Internews Europe ",
-		"XM-DAC-41108": "International Fund for Agricultural Development",
+		"XM-DAC-41108": "International Fund for Agricultural Development (IFAD)",
 		"XM-DAC-903": "International Finance Corporation",
 		"GB-CHC-1038860": "International HIV/AIDS Alliance",
 		"NL-KVK-41146484": "IHE Delft Institute for Water Education",
@@ -2520,8 +2576,228 @@
 	},
 	"iati_currencies": [
 		{
-			"id": ".goog-inline-block{position:relative;display:-moz-inline-box;display:inline-block}* html .goog-inline-block{display:inline}*:first-child+html .goog-inline-block{display:inline}#drive-logo{margin:18px 0;position:absolute;white-space:nowrap}.docs-drivelogo-img{background-image:url('//ssl.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png');background-size:116px 41px;display:inline-block;height:41px;vertical-align:bottom;width:116px}.docs-drivelogo-text{color:#000;display:inline-block;opacity:0.54;text-decoration:none;font-family:'Product Sans'",
-			"name": "Arial"
+			"id": "USD",
+			"name": "US Dollar"
+		},
+		{
+			"id": "EUR",
+			"name": "Euro"
+		},
+		{
+			"id": "GBP",
+			"name": "UK Pound Sterling"
+		},
+		{
+			"id": "AFN",
+			"name": "Afghan Afghani"
+		},
+		{
+			"id": "DZD",
+			"name": "Algerian Dinar"
+		},
+		{
+			"id": "AUD",
+			"name": "Australian Dollar"
+		},
+		{
+			"id": "BHD",
+			"name": "Bahrain Dinar"
+		},
+		{
+			"id": "BDT",
+			"name": "Bangladeshi Taka"
+		},
+		{
+			"id": "BRL",
+			"name": "Brazilian Real"
+		},
+		{
+			"id": "CAD",
+			"name": "Canadian Dollar"
+		},
+		{
+			"id": "CLP",
+			"name": "Chilean Peso"
+		},
+		{
+			"id": "CNY",
+			"name": "Chinese Yuan"
+		},
+		{
+			"id": "COP",
+			"name": "Colombian Peso"
+		},
+		{
+			"id": "XOF",
+			"name": "CFA Franc"
+		},
+		{
+			"id": "DKK",
+			"name": "Danish Krone"
+		},
+		{
+			"id": "EGP",
+			"name": "Egyptian Pound"
+		},
+		{
+			"id": "ETB",
+			"name": "Ethiopian Birr"
+		},
+		{
+			"id": "GHS",
+			"name": "Ghanaian Cedi"
+		},
+		{
+			"id": "GYD",
+			"name": "Guyanese Dollar"
+		},
+		{
+			"id": "ISK",
+			"name": "Icelandic Krona"
+		},
+		{
+			"id": "INR",
+			"name": "Indian Rupee"
+		},
+		{
+			"id": "IDR",
+			"name": "Indonesian Rupiah"
+		},
+		{
+			"id": "IRR",
+			"name": "Iranian Rial"
+		},
+		{
+			"id": "IEP",
+			"name": "Irish Pound"
+		},
+		{
+			"id": "JPY",
+			"name": "Japanese Yen"
+		},
+		{
+			"id": "KES",
+			"name": "Kenyan Shilling"
+		},
+		{
+			"id": "KRW",
+			"name": "Korean Won"
+		},
+		{
+			"id": "KWD",
+			"name": "Kuwaiti Dinar"
+		},
+		{
+			"id": "LYD",
+			"name": "Libyan Dinar"
+		},
+		{
+			"id": "MYR",
+			"name": "Malaysian Ringgit"
+		},
+		{
+			"id": "MXN",
+			"name": "Mexican Peso"
+		},
+		{
+			"id": "NPR",
+			"name": "Nepalese Rupee"
+		},
+		{
+			"id": "NZD",
+			"name": "New Zealand Dollar"
+		},
+		{
+			"id": "NOK",
+			"name": "Norwegian Krone"
+		},
+		{
+			"id": "OMR",
+			"name": "Rial Omani"
+		},
+		{
+			"id": "PKR",
+			"name": "Pakistani Rupee"
+		},
+		{
+			"id": "PEN",
+			"name": "Peru Nuevo Sol"
+		},
+		{
+			"id": "PHP",
+			"name": "Philippine Peso"
+		},
+		{
+			"id": "PLN",
+			"name": "Polish Zloty"
+		},
+		{
+			"id": "QAR",
+			"name": "Qatar Riyal"
+		},
+		{
+			"id": "SAR",
+			"name": "Saudi Arabian Riyal"
+		},
+		{
+			"id": "SBD",
+			"name": "Solomon Islander Dollar"
+		},
+		{
+			"id": "ZAR",
+			"name": "South African Rand"
+		},
+		{
+			"id": "LKR",
+			"name": "Sri Lanka Rupee"
+		},
+		{
+			"id": "SEK",
+			"name": "Swedish Krona"
+		},
+		{
+			"id": "CHF",
+			"name": "Swiss Franc"
+		},
+		{
+			"id": "SGD",
+			"name": "Singapore Dollar"
+		},
+		{
+			"id": "THB",
+			"name": "Thai Baht"
+		},
+		{
+			"id": "TTD",
+			"name": "Trinidad And Tobago Dollar"
+		},
+		{
+			"id": "TND",
+			"name": "Tunisian Dinar"
+		},
+		{
+			"id": "TRY",
+			"name": "Turkish Lira"
+		},
+		{
+			"id": "AED",
+			"name": "UAE Dirham"
+		},
+		{
+			"id": "UGX",
+			"name": "Ugandan Shilling"
+		},
+		{
+			"id": "UYU",
+			"name": "Uruguayan Peso"
+		},
+		{
+			"id": "VEF",
+			"name": "Venezuelan Bolivar"
+		},
+		{
+			"id": "XDR",
+			"name": "IMF special drawing rights"
 		}
 	],
 	"sector_category": {
