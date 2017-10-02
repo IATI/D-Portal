@@ -55,7 +55,12 @@ wait.launchFiber(function(){
 	if( argv._[0]=="check" )
 	{
 		require("./dstore_db").create_tables({do_not_drop:true});
-		require("./dstore_db").check_tables();
+		return;
+	}
+	else
+	if( argv._[0]=="dump" )
+	{
+		require("./dstore_db").dump_tables();
 		return;
 	}
 	else
@@ -101,8 +106,38 @@ wait.launchFiber(function(){
 		">	dstore init \n"+
 		"Reset or create database (remove all data).\n"+
 		"\n"+
+		">	dstore analyze \n"+
+		"Tell database to analyze itself.\n"+
+		"\n"+
+		">	dstore vacuum \n"+
+		"Tell database to vacuum itself.\n"+
+		"\n"+
+		">	dstore index \n"+
+		"Create any missing indexs.\n"+
+		"\n"+
+		">	dstore unindex \n"+
+		"Remove all indexs.\n"+
+		"\n"+
+		">	dstore check \n"+
+		"Make sure all expected rows and tables are present (live update of structure).\n"+
+		"\n"+
+		">	dstore fake \n"+
+		"Create fake transactions for publishers who do not report any D+E transaction types.\n"+
+		"\n"+
+		">	dstore cache \n"+
+		"Print cache related commands, run this for more help.\n"+
+		"\n"+
+		">	dstore exs \n"+
+		"Fetch and update exchange rates.\n"+
+		"\n"+
+		">	dstore fetch \n"+
+		"Fetch and update code lists.\n"+
+		"\n"+
 		">	dstore import data.xml \n"+
 		"Import data from an iati xml file.\n"+
+		"\n"+
+		">	dstore stats \n"+
+		"Dump database stats.\n"+
 		"\n"+
 		"\n"+
 	"");

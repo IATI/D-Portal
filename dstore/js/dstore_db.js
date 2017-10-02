@@ -98,9 +98,9 @@ dstore_db.tables={
 // 1 == this is a fake transaction built after a full import for publishers that only publish C not D/E
 // added split values by sector/country
 		{ name:"trans_country_code",			NOCASE:true , INDEX:true },
-		{ name:"trans_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
-		{ name:"trans_sector_code",				NOCASE:true , INDEX:true },
-		{ name:"trans_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
+//		{ name:"trans_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
+//		{ name:"trans_sector_code",				NOCASE:true , INDEX:true },
+//		{ name:"trans_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
 	],
 	budget:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
@@ -119,10 +119,10 @@ dstore_db.tables={
 		{ name:"budget_country",				NOCASE:true , INDEX:true },	// only used by country budget from orgfile
 		{ name:"budget_org",					NOCASE:true , INDEX:true },	// only used by org budget from orgfile
 // added split values by sector/country
-		{ name:"budget_country_code",			NOCASE:true , INDEX:true },
-		{ name:"budget_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
-		{ name:"budget_sector_code",			NOCASE:true , INDEX:true },
-		{ name:"budget_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
+//		{ name:"budget_country_code",			NOCASE:true , INDEX:true },
+//		{ name:"budget_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
+//		{ name:"budget_sector_code",			NOCASE:true , INDEX:true },
+//		{ name:"budget_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
 	],
 	country:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
@@ -432,34 +432,37 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				aa[i]=100*aa[i]/total;
 			}			
 		};
-		
+				
+		var splits={all:[],country:[],sector:[]}; // cached split data to break a transaction/budget into fragments
+
 		var country=[];
-		var percents=[];
-		refry.tags2(act,"iati-activity","recipient-country",function(it){ country.push( (it.code || "").trim().toUpperCase() ); percents.push(it.percentage); });
-		fixpercents(percents);
+		var country_percents=[];
+		refry.tags2(act,"iati-activity","recipient-country",function(it){ country.push( (it.code || "").trim().toUpperCase() ); country_percents.push(it.percentage); });
+		fixpercents(country_percents);
 		if(country[0]) {
 			for( var i=0; i<country.length ; i++ )
 			{
 				var cc=country[i];
-				var pc=percents[i];
+				var pc=country_percents[i];
 				dstore_back.replace(db,"country",{"aid":t.aid,"country_code":cc,"country_percent":pc});
+				splits.country.push({country_code:cc,country_percent:pc});
 			}
 		}
 
 		var vocabs=[];
 		var sectors=[];
-		var percents=[];
+		var sector_percents=[];
 		refry.tags2(act,"iati-activity","sector",function(it){ if(it.vocabulary=="DAC" || it.vocabulary=="1" || it.vocabulary=="2" || (!it.vocabulary) ) { // 5 or 3 digit codes
 				sectors.push(it.code);
-				percents.push(it.percentage);
+				sector_percents.push(it.percentage);
 				vocabs.push(it.vocabulary);
 		}});
-		fixpercents(percents);
+		fixpercents(sector_percents);
 		if(sectors[0]) {
 			for( var i=0; i<sectors.length ; i++ )
 			{
 				var sc=sectors[i];
-				var pc=percents[i];
+				var pc=sector_percents[i];
 				var group;
 				if(sc){	sc=sc.trim(); } // remove white space, just in case
 				if(sc){  // take first 3 digits of this string as the category
@@ -467,12 +470,42 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 					if(group.length!=3) { group=null; } // must be 3
 					else				{ group=tonumber(group); } // make sure it is an actual number
 				}
-				if( vocabs[i]=="2" ) { sc=null; } // *forget* the 3 digit codes, it will have been remembered in the group.
+				if( vocabs[i]=="2" ) { sc=null; sectors[i]=null; } // *forget* the 5 digit codes, it will have been remembered in the group.
 
 //console.log("",sc,group);
 				dstore_back.replace(db,"sector",{"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc});
+				splits.sector.push({sector_group:group,sector_code:sc,sector_percent:pc});
 			}
 		}
+
+		var sc=splits.country; if(sc.length==0) {sc=[{}];} // use empty so all contains data
+		var ss=splits.sector;  if(ss.length==0) {ss=[{}];}
+		
+		for(var idxc=0;idxc<sc.length;idxc++)
+		{
+			var vc=sc[idxc];
+			for(var idxs=0;idxs<ss.length;idxs++)
+			{
+				var vs=ss[idxs];
+				var v={};
+				for(var ns in vs) { v[ns]=vs[ns]; } // merge, there should be no name clash
+				for(var nc in vc) { v[nc]=vc[nc]; } 
+				v.all_percent=((v.sector_percent||100)*(v.country_percent||100))/100; // multiply percents
+				splits.all.push(v);
+			}
+		}
+		
+// print debug splits
+/*
+		var s="\n"+splits.all.length+" ("+splits.country.length+","+splits.sector.length+") :";
+		for(var i=0;i<splits.all.length;i++)
+		{
+			var v=splits.all[i];
+			s=s+" "+Math.floor(v.all_percent)
+		}
+		console.log(s)
+*/
+
 
 		var locations=[];
 		var percents=[];
@@ -667,6 +700,7 @@ dstore_db.warn_dupes = function(db,aid){
 
 
 
+// we can now call create_tables with {opts.do_not_drop} to update tables
 dstore_db.create_tables = function(opts){
 	return dstore_back.create_tables(opts);
 }
@@ -679,12 +713,8 @@ dstore_db.delete_indexes = function(){
 	return dstore_back.delete_indexes();
 }
 
-// this function was intended to modify live table structure, but never happened
-// we can now call create_tables with {opts.do_not_drop} to add entirely new tables
-// which covers the most basic need when updating a live server of adding new tables without
-// having to take the site down while we rebuild all the data.
-dstore_db.check_tables = function(){
-	return dstore_back.check_tables();
+dstore_db.dump_tables = function(){
+	return dstore_back.dump_tables();
 }
 
 // handle a simple delete
