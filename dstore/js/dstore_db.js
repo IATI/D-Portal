@@ -93,14 +93,14 @@ dstore_db.tables={
 		{ name:"trans_flow_code",				NOCASE:true , INDEX:true },
 		{ name:"trans_finance_code",			NOCASE:true , INDEX:true },
 		{ name:"trans_aid_code",				NOCASE:true , INDEX:true },
-		{ name:"trans_flags",					INTEGER:true , INDEX:true },
 // FLAGS set to 0 if good otherwise
 // 1 == this is a fake transaction built after a full import for publishers that only publish C not D/E
+		{ name:"trans_flags",					INTEGER:true , INDEX:true },
 // added split values by sector/country
 		{ name:"trans_country_code",			NOCASE:true , INDEX:true },
-//		{ name:"trans_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
-//		{ name:"trans_sector_code",				NOCASE:true , INDEX:true },
-//		{ name:"trans_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
+		{ name:"trans_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
+		{ name:"trans_sector_code",				NOCASE:true , INDEX:true },
+		{ name:"trans_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
 	],
 	budget:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
@@ -119,10 +119,10 @@ dstore_db.tables={
 		{ name:"budget_country",				NOCASE:true , INDEX:true },	// only used by country budget from orgfile
 		{ name:"budget_org",					NOCASE:true , INDEX:true },	// only used by org budget from orgfile
 // added split values by sector/country
-//		{ name:"budget_country_code",			NOCASE:true , INDEX:true },
-//		{ name:"budget_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
-//		{ name:"budget_sector_code",			NOCASE:true , INDEX:true },
-//		{ name:"budget_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
+		{ name:"budget_country_code",			NOCASE:true , INDEX:true },
+		{ name:"budget_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
+		{ name:"budget_sector_code",			NOCASE:true , INDEX:true },
+		{ name:"budget_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
 	],
 	country:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
@@ -189,7 +189,7 @@ dstore_db.open = function(instance){
 
 // pull every activity from the table and update *all* connected tables using its raw xml data
 
-dstore_db.refresh_budget=function(db,it,act,act_json,priority)
+dstore_db.refresh_budget=function(db,it,act,act_json,priority,splits)
 {
 	
 	var t={};
@@ -280,7 +280,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		dstore_back.replace(db,name,it);
 	}
 
-	var refresh_transaction=function(it,act,act_json)
+	var refresh_transaction=function(it,act,act_json,splits)
 	{
 //		process.stdout.write("t");
 
@@ -315,9 +315,9 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		dstore_back.replace(db,"trans",t);
 	};
 
-	var refresh_budget=function(it,act,act_json,priority)
+	var refresh_budget=function(it,act,act_json,priority,splits)
 	{
-		dstore_db.refresh_budget(db,it,act,act_json,priority);
+		dstore_db.refresh_budget(db,it,act,act_json,priority,splits);
 		
 		var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
 		got_budget[ y ]=true;
@@ -609,17 +609,17 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		replace("jml",t);
 		
 		got_budget={}; // reset
-		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t);});
-		refry.tags(act,"budget",function(it){refresh_budget(it,act,t,1);});
+		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t,splits);});
+		refry.tags(act,"budget",function(it){refresh_budget(it,act,t,1,splits);});
 		refry.tags(act,"planned-disbursement",function(it){
 			var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
 			if( (!y) || (!got_budget[y]) ) // if not already filled in (budget is missing or has bad data)
 			{
-				refresh_budget(it,act,t,1); // then try and use this planned-disbursement instead
+				refresh_budget(it,act,t,1,splits); // then try and use this planned-disbursement instead
 			}
 			else
 			{
-				refresh_budget(it,act,t,0); // else this is marked as data to ignore (priority of 0)
+				refresh_budget(it,act,t,0,splits); // else this is marked as data to ignore (priority of 0)
 //				ls({"skipyear":y});
 			}
 		});
