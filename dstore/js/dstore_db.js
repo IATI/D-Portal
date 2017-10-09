@@ -754,6 +754,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				{
 					total=total+Math.abs(ss[country])
 				}
+				if(total<=0){total=1;} // try not to /0
 				for(var country in ss)
 				{
 
