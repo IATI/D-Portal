@@ -97,9 +97,9 @@ dstore_db.tables={
 // 1 == this is a fake transaction built after a full import for publishers that only publish C not D/E
 		{ name:"trans_flags",					INTEGER:true , INDEX:true },
 // added split values by sector/country
-		{ name:"trans_country_code",			NOCASE:true , INDEX:true },
+		{ name:"trans_country",					NOCASE:true , INDEX:true },
+		{ name:"trans_sector",					NOCASE:true , INDEX:true },
 		{ name:"trans_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
-		{ name:"trans_sector_code",				NOCASE:true , INDEX:true },
 		{ name:"trans_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
 	],
 	budget:[
@@ -116,12 +116,12 @@ dstore_db.tables={
 		{ name:"budget_eur",					REAL:true , INDEX:true },
 		{ name:"budget_gbp",					REAL:true , INDEX:true },
 		{ name:"budget_cad",					REAL:true , INDEX:true },
-		{ name:"budget_country",				NOCASE:true , INDEX:true },	// only used by country budget from orgfile
+//		{ name:"budget_country",				NOCASE:true , INDEX:true },	// only used by country budget from orgfile
 		{ name:"budget_org",					NOCASE:true , INDEX:true },	// only used by org budget from orgfile
 // added split values by sector/country
-		{ name:"budget_country_code",			NOCASE:true , INDEX:true },
+		{ name:"budget_country",				NOCASE:true , INDEX:true },
+		{ name:"budget_sector",					NOCASE:true , INDEX:true },
 		{ name:"budget_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
-		{ name:"budget_sector_code",			NOCASE:true , INDEX:true },
 		{ name:"budget_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
 	],
 	country:[
