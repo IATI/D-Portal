@@ -97,12 +97,16 @@ console.log("CREATING TABLES");
 			for(var i=0; i<cs.length; i++)
 			{
 				var s="ALTER TABLE "+name+" ADD COLUMN "+cs[i]+" ;";
-				console.log(s);
 				wait.for(function(cb){
 					db.none(s).catch(function(error){
-						console.log("IGNORING:", error.message || error);
+						s=undefined;
+					}).then(function(error){
+						if(s)
+						{
+							console.log(s);
+						}
 						return cb(false);
-					}).then(cb);
+					});
 				});
 			}
 
