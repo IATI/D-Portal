@@ -254,17 +254,51 @@ dstore_db.refresh_budget=function(db,it,act,act_json,priority,splits)
 	t["budget_gbp"]=					iati_xml.get_ex(it,"value","GBP",act["default-currency"]);
 	t["budget_cad"]=					iati_xml.get_ex(it,"value","CAD",act["default-currency"]);
 
-	t["budget_country"]=				refry.tagattr(it,"recipient-country","code");
 	t["budget_org"]=					refry.tagattr(it,"recipient-org","ref");
-	
-	if( t["budget_country"] )
+
+	t["budget_country"]=null
+	var country_code=refry.tagattr(it,"recipient-country","code");	
+	if( country_code )
 	{
-		t["budget_country"] = t["budget_country"].trim().toUpperCase();
- 	}
+		t["budget_country"] = country_code.trim().toUpperCase();
+	}
+
+	t["budget_sector"]=null
+	t["budget_sector_group"]=null
+	var sector_xml=refry.tag(it,"sector");
+	if(sector_xml)
+	{
+		if( sector_xml.vocabulary=="DAC" || sector_xml.vocabulary=="1" || sector_xml.vocabulary=="2" )
+		{
+			var code=sector_xml.code;
+			if(code)
+			{
+				code=code.trim(); // remove dodgy white space
+				var group=code.slice(0,3);
+				if(code==group) // not a 5 digit code
+				{
+					t["budget_sector_group"]=group
+				}
+				else
+				{
+					t["budget_sector"]=code
+					t["budget_sector_group"]=group
+				}
+			}
+		}
+	}
+
 
 
 	t.jml=JSON.stringify(it);
 	
+	if(splits)
+	{			
+		splits.idx=splits.idx+1
+	}
+	
+	t["budget_id"]=splits && splits.idx || 0
+
 	dstore_back.replace(db,"budget",t);
 };
 
@@ -304,6 +338,41 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		t["trans_gbp"]=				iati_xml.get_ex(it,"value","GBP",act["default-currency"]);
 		t["trans_cad"]=				iati_xml.get_ex(it,"value","CAD",act["default-currency"]);
 
+
+		t["trans_country"]=null
+		var country_code=refry.tagattr(it,"recipient-country","code");	
+		if( country_code )
+		{
+			t["trans_country"] = country_code.trim().toUpperCase();
+		}
+
+		t["trans_sector"]=null
+		t["trans_sector_group"]=null
+		var sector_xml=refry.tag(it,"sector");
+		if(sector_xml)
+		{
+			if( sector_xml.vocabulary=="DAC" || sector_xml.vocabulary=="1" || sector_xml.vocabulary=="2" )
+			{
+				var code=sector_xml.code;
+				if(code)
+				{
+					code=code.trim(); // remove dodgy white space
+					var group=code.slice(0,3);
+					if(code==group) // not a 5 digit code
+					{
+						t["trans_sector_group"]=group
+					}
+					else
+					{
+						t["trans_sector"]=code
+						t["trans_sector_group"]=group
+					}
+				}
+			}
+		}
+
+
+
 // map new 201 codes to old		
 		t["trans_code"]= codes.transaction_type_map[ t["trans_code"] ] || t["trans_code"];
 
@@ -312,6 +381,53 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 		t.jml=JSON.stringify(it);
 		
+		if(splits)
+		{			
+			splits.idx=splits.idx+1
+
+// attempt to build country/sector percentages backwards from transactions
+
+			var value=(Math.abs(t["trans_usd"])||0)
+			
+			var country=t["trans_country"] // country split
+			if(country)
+			{
+				if(t["trans_code"]=="C")
+				{
+					splits.CC         = splits.CC         || {}
+					splits.CC.country = splits.CC.country || {}
+					splits.CC.country[country]=(splits.CC.country[country]||0)+value
+				}
+				else
+				if( (t["trans_code"]=="D") || (t["trans_code"]=="E") )
+				{
+					splits.DE         = splits.DE         || {}
+					splits.DE.country = splits.DE.country || {}
+					splits.DE.country[country]=(splits.DE.country[country]||0)+value
+				}
+			}
+			
+			var sector=t["trans_sector"] || t["trans_sector_group"] // assume all 5 or all 3 digit codes so we can mix
+			if(sector)
+			{
+				if(t["trans_code"]=="C")
+				{
+					splits.CC         = splits.CC         || {}
+					splits.CC.sector  = splits.CC.sector  || {}
+					splits.CC.sector[sector]=(splits.CC.sector[sector]||0)+value
+				}
+				else
+				if( (t["trans_code"]=="D") || (t["trans_code"]=="E") )
+				{
+					splits.DE         = splits.DE         || {}
+					splits.DE.sector  = splits.DE.sector  || {}
+					splits.DE.sector[sector]=(splits.DE.sector[sector]||0)+value
+				}
+			}
+		}
+		
+		t["trans_id"]=splits && splits.idx || 0
+
 		dstore_back.replace(db,"trans",t);
 	};
 
@@ -433,7 +549,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 			}			
 		};
 				
-		var splits={all:[],country:[],sector:[]}; // cached split data to break a transaction/budget into fragments
+		var splits={all:[],country:[],sector:[],idx:0}; // cached split data to break a transaction/budget into fragments
 
 		var country=[];
 		var country_percents=[];
@@ -623,6 +739,73 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 //				ls({"skipyear":y});
 			}
 		});
+
+
+// use splits containing transaction numbers to backwards work out activity level sector or country if we need it
+
+		if(splits.country.length==0) // need country
+		{
+			var ss = ( splits.CC && splits.CC.country) || ( splits.DE && splits.DE.country)
+			if(ss)
+			{
+//console.log("CAN WORKOUT COUNTRY")
+				var total=0
+				for(var country in ss)
+				{
+					total=total+Math.abs(ss[country])
+				}
+				for(var country in ss)
+				{
+
+					var pc=(100*Math.abs(ss[country])/total)
+					var cc=country
+					var d={"aid":t.aid,"country_code":cc,"country_percent":pc}
+
+					dstore_back.replace(db,"country",d);
+
+console.log(d) // this should not trigger, as we should not have to reconstruct 
+
+				}
+			}
+		}
+
+		if(splits.sector.length==0) // need sector
+		{
+			var ss = ( splits.CC && splits.CC.sector) || ( splits.DE && splits.DE.sector)
+			if(ss)
+			{
+//console.log("CAN WORKOUT SECTOR")
+				var total=0
+				for(var sector in ss)
+				{
+					total=total+Math.abs(ss[sector])
+				}
+				for(var sector in ss)
+				{
+
+					var pc=(100*Math.abs(ss[sector])/total)
+					var sc=sector
+					var group=null
+					if((""+sc).length==3)
+					{
+						group=sc
+						sc=null
+					}
+					else
+					if((""+sc).length==5)
+					{
+						group=(""+sc).slice(0,3)
+					}
+					
+					var d={"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc}
+
+					dstore_back.replace(db,"sector",d);
+
+//console.log(d)
+				}
+			}
+		}
+
 		
 //update slug
 
