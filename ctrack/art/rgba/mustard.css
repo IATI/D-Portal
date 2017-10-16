@@ -112,9 +112,8 @@ a.stats_link.missing span	{color:rgba(255,163,0,1);}
 	============================================= */
 .description_wrap		{background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%,rgba(0,0,0,1) 100%); background:-prefix-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,1) 100%);}
 .description			{background-color:rgba(255,255,255,0.1);}
-.description span.title	{color:rgba(255,255,255,1); border-top:1px solid rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1);}
+.description span.title	{color:rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1);}
 .description p			{color:rgba(255,255,255,1);}
-.description p.about_data	{border-top:1px solid rgba(255,255,255,1);}
 .description a			{color:rgba(204,204,204,1);}
 .description a:hover	{color:rgba(255,255,255,1);}
 a.read					{color:rgba(204,204,204,1);}
@@ -156,11 +155,18 @@ a.csv_download:hover		{background-color:rgba(255,163,0,1); color:rgba(255,255,25
 a#search_link				{background-color:rgba(206,131,0,1); color:rgba(255,255,255,1);}
 a#search_link span			{color:rgba(255,255,255,1);}
 a#search_link:hover			{background-color:rgba(255,163,0,1);}
+
+
+/*	For url #view=list_activities	*
+	============================================= */
+.activities_spend			{color:rgba(218,218,218,1);}
+.activities_percent			{background-color:rgba(206,131,0,1);}
+.activities_percent_max		{background-color:rgba(15,15,15,1); border:1px solid rgba(56,56,56,1);}
 	
 	
 /*	Search Headers
 	============================================= */
-.search_cont				{background-color:rgba(56,56,56,0.4);}
+.search_cont				{background-color:rgba(56,56,56,0.4); border:1px solid rgba(170,170,170,1);}
 .search_cont a:link			{color:rgba(206,131,0,1);}
 .search_cont a:visited		{color:rgba(206,131,0,1);}
 .search_cont a:hover		{color:rgba(255,163,0,1);}
@@ -336,9 +342,7 @@ recipient-country span:nth-of-type(2)	{color:rgba(255,255,255,1);}
 
 /*	Start and End dates
 	============================================= */
-span.span_activity-date						{background-color:rgba(15,15,15,0.7);}
-
-activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"], activity-date[type="end-planned"], activity-date[type="2"], activity-date[type="4"], activity-date[type="start-actual"], activity-date[type="end-actual"]	{color:rgba(255,255,255,1);}
+activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"], activity-date[type="end-planned"], activity-date[type="2"], activity-date[type="4"], activity-date[type="start-actual"], activity-date[type="end-actual"]	{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 
 activity-date[type="1"]:before, activity-date[type="start-planned"]:before,
 activity-date[type="2"]:before, activity-date[type="start-actual"]:before,
@@ -348,8 +352,8 @@ activity-date[type="4"]:before, activity-date[type="end-actual"]:before	{color:r
 
 /*	Who's invloved?
 	============================================= */
-span.span_participating-org	 					{color:rgba(255,255,255,1); background-color:rgba(56,56,56,0.4);}
-span.span_participating-org:before 				{color:rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1);}
+span.span_participating-org	 					{color:rgba(255,255,255,1);}
+span.span_participating-org:before 				{color:rgba(255,255,255,1);}
 
 participating-org, span-narrative.participating-role	{color:rgba(255,255,255,1);}
 
@@ -362,6 +366,13 @@ participating-org a:link	{color:rgba(206,131,0,1);}
 participating-org a:visited	{color:rgba(206,131,0,1);}
 participating-org a:hover	{color:rgba(255,163,0,1);}
 participating-org a:active	{color:rgba(206,131,0,1);}
+
+
+/*	Location (version 2.02++)
+	============================================= */
+span.span_location			{color:rgba(255,255,255,1);}
+span.span_location:before	{color:rgba(204,204,204,1);}
+span.span_location location point > *	{color:rgba(204,204,204,1);}
 
 
 /*	Reported by
@@ -390,19 +401,29 @@ result span-title:before	{color:rgba(204,204,204,1);}
 
 result indicator period period-start, result indicator period period-end, result indicator period target, result indicator period actual,
 result indicator description			{color:rgba(255,255,255,1);}
-result indicator period period-start:before, result indicator period period-end:before, result indicator period target:before,
+result indicator period period-start	{border-bottom:1px solid rgba(143,143,143,1);}
+result indicator period period-start:before, result indicator period period-end:before, result indicator period baseline:before, result indicator period target:before,
 result indicator period actual:before	{color:rgba(204,204,204,1);}
+
+result indicator period baseline			{background-color:rgba(15,15,15,0.7);}
+result indicator period target				{background-color:rgba(15,15,15,0.3);}
+result indicator period actual				{background-color:rgba(15,15,15,0.7);}
+result indicator period actual.value-higher	{background-color:rgba(206,131,0,0.9);}
+result indicator period actual.value-lower	{background-color:rgba(206,131,0,0.3);}
 
 result indicator > baseline comment		{color:rgba(255,255,255,1);}
 
 
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
+span.sector_img:before {color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
+
 span.span_sector sector[vocabulary="DAC"],
 span.span_sector sector[vocabulary="1"]			{color:rgba(255,255,255,1);}
 span.span_sector sector:nth-child(even)			{background-color:rgba(56,56,56,0.4);}
 span.span_sector sector[vocabulary="DAC"]:before, 
-span.span_sector sector[vocabulary="1"]:before	{color:rgba(204,204,204,1);}
+span.span_sector sector[vocabulary="1"]:before,
+span.span_sector sector[vocabulary="2"]:before	{color:rgba(204,204,204,1);}
 sector span, span.span_sector sector span		{color:rgba(255,255,255,1);}
 span.span_sector sector span:nth-of-type(2)		{color:rgba(204,204,204,1);}
 img.sector_pie	{background-color:rgba(255,255,255,1); -webkit-filter:hue-rotate(210deg); filter:hue-rotate(210deg);}
@@ -421,6 +442,15 @@ period-end	 			{color:rgba(255,255,255,1);}
 budget value 			{color:rgba(255,255,255,1);}
 
 
+/*	Planned Disbursement table
+	============================================= */
+planned-disbursement:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
+planned-disbursement 						{border-top: 1px solid rgba(143,143,143,1);}
+planned-disbursement:nth-of-type(1) period-start:before,
+planned-disbursement:nth-of-type(1) period-end:before,
+planned-disbursement:nth-of-type(1) value:before{border-bottom:2px solid rgba(56,56,56, 0.9);}
+
+
 /*	Transaction table
 	============================================= */
 transaction							{border-top:1px solid rgba(143,143,143,1);}
@@ -430,7 +460,6 @@ transaction a:link					{color:rgba(255,163,0,1);}
 transaction a:visited				{color:rgba(255,163,0,1);}
 transaction a:hover					{color:rgba(255,183,0,1);}
 transaction a:active				{color:rgba(255,163,0,1);}
-transaction:last-of-type			{border-bottom:1px solid rgba(143,143,143,1);}
 transaction:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 
 transaction:nth-of-type(1) transaction-date:before	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56, 0.9);}
@@ -452,7 +481,7 @@ value span			{color:rgba(204,204,204,1);}
 /*	Contact info for Publisher
 	============================================= */
 contact-info *						{color:rgba(255,255,255,1);}
-contact-info						{background-color:rgba(206,131,0,1)}
+contact-info						{background-color:rgba(15,15,15,1);}
 contact-info:nth-of-type(1):before	{color:rgba(255,255,255,1);}
 span.span_contact-info				{background-color:rgba(15,15,15,0.7);}
 
@@ -477,11 +506,13 @@ activity-status:before		{color:rgba(0,14,32,1);}
 
 /*	Related documents list
 	============================================= */
-span.span_document-link:before				{color:rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1);}
-a.a_document-link							{color:rgba(204,204,204,1);}
-a.a_document-link document-link span-title			{color:rgba(255,255,255,1);}
-a.a_document-link document-link span-title:hover	{color:rgba(255,163,0,1);}
+span.span_document-link:before				{color:rgba(255,255,255,1);}
+a.a_document-link							{color:rgba(204,204,204,1); background-color:rgba(56,56,56,0.4); border:1px solid rgba(56,56,56,1); border-bottom:0;}
+a.a_document-link:last-of-type				{border-bottom:1px solid rgba(56,56,56,1);}
+a.a_document-link:hover						{background-color:rgba(56,56,56,0.7);}
+a.a_document-link document-link span-title	{color:rgba(255,255,255,1);}
 document-link span							{color:rgba(204,204,204,1);}
+a.a_document-link span-title:after			{background-color:rgba(15,15,15,0.7);}
 
 
 /*	Family Tree list

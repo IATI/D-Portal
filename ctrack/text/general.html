@@ -167,8 +167,13 @@
 			<form action="">
 			<span class="settings_info">{settings_themes_text} </span>
 			<select aria-label="Select a colour theme from this dropdown" id="flava_select" name="flava" class="">
-				<option value="original">{flava_original_text}</option> 
-				<option value="high">{flava_high_visibility_text}</option> 
+				<option value="flava=original">{flava_choose_text}</option> 
+				<option value="flava=original">{flava_original_text}</option> 
+				<option value="flava=high">{flava_high_visibility_text}</option>
+				<option value="rgba=mustard">Mustard</option>
+				<option value="rgba=inspire">Inspire</option>
+				<option value="rgba=grey">Grey</option>
+				<option value="rgba=orange_teal">Orange Teal</option>
 			</select>
 			</form>
 		</td>
@@ -212,7 +217,7 @@
 		});
 		$('#flava_select').bind('change', function ()
 		{
-			var url = "{mark_no_flava}&flava="+$(this).val()+"{hash}";
+			var url = "{mark_no_flava}&"+$(this).val()+"{hash}";
 			window.location = url; // redirect
 			return false;
 		});

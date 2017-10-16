@@ -68,20 +68,30 @@ acts.each(function(i){var it=$(this);
 		}
 	});
 	
-/*
-	if( it.find("narrative").length==0 ) // no narrative ( PRE 201 ) , so we add them in to simplify the CSS
+
 	{
-		var narratives=["title"];
+		var narratives=["participating-org"];
 		narratives.forEach(function(n){
 			it.find(n).each(function(i){var it=$(this);
-console.log("adding narrative tag to "+it.html());
-				it.wrapInner("<narrative></narrative>");
+				if( it.find("narrative").length==0 ) // only if no narrative in this tag
+				{
+					var text=it.text(); // get text
+					if(text.trim()=="") // is text empty?
+					{
+						it.wrapInner("<narrative></narrative>");
+						it.find("narrative").text( it.attr("ref") ); // use ref
+					}
+					else
+					{
+						it.wrapInner("<narrative></narrative>"); // just wrap text
+					}
+				}
 			});
 		});
 	}
 
 	
-
+/*
 	var ad=it.children("activity-date"); // added in ( PRE 201 ), to include actual dates when there isn't one for savi layout
 	var got_start=false;
 	var got_end=false;
@@ -220,6 +230,26 @@ acts.find("result").each(function(i){var it=$(this);
 	});
 });
 
+acts.find("result indicator").each(function(i){var it=$(this);
+	var needed=["description"];
+	needed.forEach(function(n){
+		if( it.children(n).length==0 )
+		{
+			it.append("<"+n+" />"); // just add a blank tag
+		}
+	});
+});
+
+acts.find("result indicator period").each(function(i){var it=$(this);
+	var needed=["baseline", "target", "actual"];
+	needed.forEach(function(n){
+		if( it.children(n).length==0 )
+		{
+			it.append("<"+n+" />"); // just add a blank tag
+		}
+	});
+});
+
 acts.find("result target, result actual").each(function(i){var it=$(this);
 	it.prepend($('<span-narrative>' + it.attr("value") + '</span-narrative>'));
 });
@@ -255,6 +285,17 @@ acts.find("result location").each(function(i){var it=$(this);
 
 acts.find("result actual comment narrative").each(function(i){var it=$(this);
 	it.replaceWith($('<span-narrative>' + it.text() + '</span-narrative>'));
+});
+
+acts.find("result reference").each(function(i){var it=$(this);
+	if(it.attr("vocabulary"))
+	{
+		it.append($('<span-narrative class="reference-vocabulary">'  + it.attr("vocabulary") + '</span-narrative>'));
+	}
+	if(it.attr("code"))
+	{
+		it.append($('<span-narrative class="reference-code">' + it.attr("code") + '</span-narrative>'));
+	}
 });
 
 acts.find("result reference").each(function(i){var it=$(this);
@@ -446,6 +487,7 @@ sorted++;
 		"span-title",
 		"reporting-org",
 		"iati-identifier",
+		"document-link",
 		"recipient-country",
 		"location",
 		"activity-date",
@@ -458,8 +500,7 @@ sorted++;
 		"transaction",
 		"result",
 		"contact-info",
-		"activity-website",
-		"document-link",
+		"activity-website",		
 		"related-activity",
 		"activity-status",
 	0
@@ -488,13 +529,20 @@ sorted++;
 			if(aname < bname ) { ret=-1; }
 		}
 		
+		if( (ret===0) && (aname=="participating-org") )
+		{
+			var at=(a.getAttribute("role"));
+			var bt=(b.getAttribute("role"));
+			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
+		}
+		
 		if( (ret===0) && (aname=="recipient-country") )
 		{
 			var at=Number(a.getAttribute("percentage"));
 			var bt=Number(b.getAttribute("percentage"));
 			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
 		}
-		
+
 		if( (ret===0) && (aname=="activity-date") )
 		{
 			var at=a.getAttribute("type");
@@ -653,6 +701,19 @@ acts.each(function(i){var it=$(this);
 	}
 });
 
+
+// apply css to selected div
+acts.find("recipient-country").each(function(i){var it=$(this);
+	$("recipient-country.empty").parent().css( "display", "none" );
+});
+
+// move baseline-year after baseline-value
+$('span-narrative.baseline-year').each(function() {
+    $(this).insertAfter($(this).parent().find('span-narrative.baseline-value'));
+});
+
+// wrap span around sector image
+$('img.sector_pie').wrap($('<span class="sector_img">'));
 
 };
 

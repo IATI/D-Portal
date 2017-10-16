@@ -39,7 +39,8 @@ input#view_search_string, input#view_search_string_only, input.typeahead.tt-hint
 .search_wrap.mini div#view_search_select_year_min_chosen,
 .search_wrap.mini div#view_search_select_year_max_chosen	{width:145px; min-width:145px;max-width:145px;}
 
-.tt-menu img			{width:16px; height:16px;}
+/*	Icons in search dropdown	*/
+.tt-menu img			{width:16px; height:16px; padding-right:10px;}
 
 #search_div				{position:relative; min-height:50px; margin-top:40px; margin-bottom:20px;}
 #search_div span#search_span span	{display:block; padding-top:5px;}
@@ -50,4 +51,4 @@ a#search_link span	{display:block; font-style:italic; font-size:0.6em; padding-t
 
 
 /*	Explore page	*/
-.typeahead.explore {width:934px; background-color:transparent !important; border:1px solid #fff !important; border-radius:6px !important; }
+.typeahead.explore {width:934px; background-color:transparent !important; border:1px solid #fff !important;}
