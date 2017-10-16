@@ -91,16 +91,52 @@ console.log("CREATING TABLES");
 				db.none(s).catch(err).then(cb);
 			});
 
+// check we have all the columns in the table
+
+			var cs=dstore_back.getsql_create_table_columns(db,name,tab);
+			for(var i=0; i<cs.length; i++)
+			{
+				var s="ALTER TABLE "+name+" ADD COLUMN "+cs[i]+" ;";
+				wait.for(function(cb){
+					db.none(s).catch(function(error){
+						s=undefined;
+					}).then(function(error){
+						if(s)
+						{
+							console.log(s);
+						}
+						return cb(false);
+					});
+				});
+			}
+
 		}
 
 	pgp.end();
 	
 
-	dstore_pg.create_indexes();
+//	dstore_pg.create_indexes();
 	
 };
 
-dstore_pg.check_tables = function(){};
+dstore_pg.dump_tables = function(){
+
+	var db=dstore_pg.open();
+
+	console.log("OK?")
+	var s=(" SELECT * FROM INFORMATION_SCHEMA.COLUMNS ; ");
+	console.log(s);
+	var rows=wait.for(function(cb){
+		db.any(s,{}).then(function(rows){
+			cb(false,rows)
+		}).catch(err);
+	});
+	console.log("OK?")
+	ls(rows);
+	console.log("OK?")
+
+	pgp.end();
+};
 
 
 dstore_pg.create_indexes = function(idxs){
@@ -123,13 +159,8 @@ console.log("CREATING INDEXS");
 					var col=tab[i];			
 					if( col.INDEX )
 					{
-						var s=(" CREATE INDEX "+name+"_btree_"+col.name+" ON "+name+" USING btree ( "+col.name+" ); ");
+						var s=(" CREATE INDEX IF NOT EXISTS "+name+"_btree_"+col.name+" ON "+name+" USING btree ( "+col.name+" ); ");
 						console.log(s);
-
-						wait.for(function(cb){
-							 db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err).then(cb);
-						});
-
 						wait.for(function(cb){
 							db.none(s).then(cb).catch(err);
 						});
@@ -137,13 +168,8 @@ console.log("CREATING INDEXS");
 					}
 					if( col.HASH )
 					{
-						var s=(" CREATE INDEX "+name+"_hash_"+col.name+" ON "+name+" USING hash ( "+col.name+" ); ");
+						var s=(" CREATE INDEX IF NOT EXISTS "+name+"_hash_"+col.name+" ON "+name+" USING hash ( "+col.name+" ); ");
 						console.log(s);
-
-						wait.for(function(cb){
-							 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
-						});
-
 						wait.for(function(cb){
 							db.none(s).then(cb).catch(err);
 						});
@@ -156,13 +182,8 @@ console.log("CREATING INDEXS");
 // we also create a text search index
 	if(!idxs || idxs=="search")
 	{
-		var s=(" CREATE INDEX act_index_text_search ON act USING gin(to_tsvector('simple',title || ' ' || description)); ");
+		var s=(" CREATE INDEX IF NOT EXISTS act_index_text_search ON act USING gin(to_tsvector('simple',title || ' ' || description)); ");
 		console.log(s);
-
-		wait.for(function(cb){
-			 db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err).then(cb);
-		});
-
 		wait.for(function(cb){
 			db.none(s).then(cb).catch(err);
 		});
@@ -209,14 +230,15 @@ console.log("DROPING INDEXS");
 
 
 
-dstore_pg.getsql_create_table=function(db,name,tab)
+// return array of columns
+dstore_pg.getsql_create_table_columns=function(db,name,tab)
 {
-	var s=[];
-	
-	s.push("CREATE TABLE IF NOT EXISTS "+name+" ( ");
+	var ss=[];
 	
 	for(var i=0; i<tab.length;i++)
 	{
+		var s=[];
+
 		var col=tab[i];
 
 		if(col.name)
@@ -238,18 +260,31 @@ dstore_pg.getsql_create_table=function(db,name,tab)
 			if(col.PRIMARY) 			{ s.push(" PRIMARY KEY "); }
 			else
 			if(col.UNIQUE) 				{ s.push(" UNIQUE "); }
-			
-	//		if(col.NOCASE)		 		{ s.push(" COLLATE NOCASE "); }
-			
-
-			if(i<tab.length-1) { s.push(" , "); }
+		
+			ss.push(s.join(""))
 		}
-		else
+	}
+	
+	return ss;
+}
+
+dstore_pg.getsql_create_table=function(db,name,tab)
+{
+	var s=[];
+	
+	s.push("CREATE TABLE IF NOT EXISTS "+name+" ( ");
+	
+	var cs=dstore_pg.getsql_create_table_columns(db,name,tab)
+
+	s.push(cs.join(" , "))
+
+// add unique constraints
+	for(var i=0; i<tab.length;i++)
+	{
+		var col=tab[i];
 		if(col.UNIQUE) // add a multiple unique constraint
 		{
-			s.push(" UNIQUE ("+(col.UNIQUE.join(","))+") ");
-
-			if(i<tab.length-1) { s.push(" , "); }
+			s.push(" , UNIQUE ("+(col.UNIQUE.join(","))+") ");
 		}
 	}
 	

@@ -100,9 +100,6 @@ dstore_sqlite.create_tables = function(opts){
 
 		dstore_sqlite.pragmas(db);
 	
-// simple data dump table containing just the raw xml of each activity.
-// this is filled on import and then used as a source
-
 		for(var name in dstore_db.tables)
 		{
 			var tab=dstore_db.tables[name];
@@ -117,8 +114,18 @@ dstore_sqlite.create_tables = function(opts){
 			var s=dstore_sqlite.getsql_create_table(db,name,tab);
 			console.log(s);
 			db.run(s);
+			
+// check we have all the columns in the table
 
-// indexs
+			var cs=dstore_sqlite.getsql_create_table_columns(db,name,tab);
+			for(var i=0; i<cs.length; i++)
+			{
+				var s="ALTER TABLE "+name+" ADD COLUMN "+cs[i]+" ;";
+				console.log(s);
+				db.run(s,function(){});
+			}
+
+// add indexs
 
 			for(var i=0; i<tab.length;i++)
 			{
@@ -291,19 +298,19 @@ dstore_sqlite.getsql_prepare_update = function(name,row){
 	return s.join("");
 }
 
-dstore_sqlite.getsql_create_table=function(db,name,tab)
+// return array of columns
+dstore_sqlite.getsql_create_table_columns=function(db,name,tab)
 {
-	var s=[];
-	
-	s.push("CREATE TABLE IF NOT EXISTS "+name+" ( ");
+	var ss=[];
 	
 	for(var i=0; i<tab.length;i++)
 	{
+		var s=[];
+
 		var col=tab[i];
 
 		if(col.name)
 		{
-
 			s.push(" "+col.name+" ");
 			
 			if(col.INTEGER)				{ s.push(" INTEGER "); }
@@ -322,51 +329,39 @@ dstore_sqlite.getsql_create_table=function(db,name,tab)
 			
 			if(col.NOCASE)		 		{ s.push(" COLLATE NOCASE "); }
 		
-			if(i<tab.length-1) { s.push(" , "); }
-		}
-		else
-		if(col.UNIQUE) // add a multiple unique constraint
-		{
-			s.push(" UNIQUE ("+(col.UNIQUE.join(","))+") ");
-
-			if(i<tab.length-1) { s.push(" , "); }
+			ss.push(s.join(""))
 		}
 	}
+	
+	return ss;
+}
 
-// multiple primary keys?
-/*
-	var primary_done=false;
+dstore_sqlite.getsql_create_table=function(db,name,tab)
+{
+	var s=[];
+	
+	s.push("CREATE TABLE IF NOT EXISTS "+name+" ( ");
+	
+	var cs=dstore_sqlite.getsql_create_table_columns(db,name,tab)
+
+	s.push(cs.join(" , "))
+
+// add unique constraints
 	for(var i=0; i<tab.length;i++)
 	{
 		var col=tab[i];
-		
-		if(col.PRIMARY)
+		if(col.UNIQUE) // add a multiple unique constraint
 		{
-			if(!primary_done)
-			{
-				primary_done=true;
-				s.push(" , PRIMARY KEY ( ");
-			}
-			else
-			{
-				s.push(" , ");
-			}
-			
-			s.push(" "+col.name+" ");
+			s.push(" , UNIQUE ("+(col.UNIQUE.join(","))+") ");
 		}
 	}
-	if(primary_done)
-	{
-		s.push(" ) ");
-	}
-*/
 	
 	s.push(" ); ");
 
 	return s.join("");
 }
 
-dstore_sqlite.check_tables = function(){
+dstore_sqlite.dump_tables = function(){
 
 	var db = dstore_sqlite.open();
 
