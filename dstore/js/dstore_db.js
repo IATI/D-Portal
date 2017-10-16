@@ -507,7 +507,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		}
 		
 		t["trans_id"]=splits && splits.idx || 0
-		
+
 		if(splits)
 		{
 			var tt={} ; for(var n in t) { tt[n]=t[n] } // make a copy we can mess with
@@ -815,7 +815,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				});
 			 });
 		fixpercents(splits.country);
-		for(var idx=0;idx<splits.country;idx++)
+		for(var idx=0;idx<splits.country.length;idx++)
 		{
 			var v=splits.country[idx]
 			dstore_back.replace(db,"country",
@@ -848,7 +848,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				});
 		}});
 		fixpercents(splits.sector);
-		for(var idx=0;idx<splits.sector;idx++)
+		for(var idx=0;idx<splits.sector.length;idx++)
 		{
 			var v=splits.sector[idx]
 			dstore_back.replace(db,"sector",{
