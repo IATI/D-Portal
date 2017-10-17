@@ -60,7 +60,7 @@ acts.find("value").each(function(i){var it=$(this);
 });
 
 acts.each(function(i){var it=$(this);
-	var needed=["title","recipient-country","participating-org","reporting-org","description","activity-status"];
+	var needed=["title","participating-org","reporting-org","description","activity-status"];
 	needed.forEach(function(n){
 		if( it.children(n).length==0 )
 		{
@@ -703,8 +703,11 @@ acts.each(function(i){var it=$(this);
 
 
 // apply css to selected div
-acts.find("recipient-country").each(function(i){var it=$(this);
-	$("recipient-country.empty").parent().css( "display", "none" );
+acts.find("location").each(function(i){var it=$(this);
+	if(( it.find("narrative").length==0 ) &&  it.find( "pos" ).hasClass( "empty" ))
+	{
+		it.parent().css( "display", "none" );
+	}
 });
 
 // move baseline-year after baseline-value
