@@ -690,7 +690,7 @@ acts.find("participating-org[ref], participating-org[activity-id]").each(functio
 	
 	if( aid )
 	{
-		wrapInner_link(it,pubprelink+aid+pubpostlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,prelink+aid+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
 	if(id)
