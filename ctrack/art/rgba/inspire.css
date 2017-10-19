@@ -390,8 +390,12 @@ span.span_location location point > *	{color:rgba(136,136,136,1);}
 
 /*	Reported by
 	============================================= */
-reporting-org 					{color:rgba(85,85,85,1);}
-reporting-org:before 			{color:rgba(136,136,136,1);}
+reporting-org 				{color:rgba(85,85,85,1);}
+reporting-org:before 		{color:rgba(136,136,136,1);}
+reporting-org a:link		{color:rgba(186,12,47,1);}
+reporting-org a:visited		{color:rgba(186,12,47,1);}
+reporting-org a:hover		{color:rgba(163,0,13,1);}
+reporting-org a:active		{color:rgba(186,12,47,1);}
 
 
 /*	Description of project (shared with Transaction table)

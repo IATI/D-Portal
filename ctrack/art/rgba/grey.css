@@ -408,8 +408,12 @@ span.span_location location point > *	{color:var(--base13);}
 
 /*	Reported by
 	============================================= */
-reporting-org 					{color:var(--base15);}
-reporting-org:before 			{color:var(--base14);}
+reporting-org 				{color:var(--base15);}
+reporting-org:before 		{color:var(--base14);}
+reporting-org a:link		{color:var(--base11);}
+reporting-org a:visited		{color:var(--base11);}
+reporting-org a:hover		{color:var(--base15);}
+reporting-org a:active		{color:var(--base11);}
 
 
 /*	Description of project (shared with Transaction table)

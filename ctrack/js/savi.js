@@ -700,6 +700,16 @@ acts.find("participating-org[ref], participating-org[activity-id]").each(functio
 });
 
 
+acts.find("reporting-org[ref]").each(function(i){var it=$(this);
+	var id=it.attr("ref");
+	
+	if(id)
+	{
+		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
+	}
+});
+
+
 acts.find("related-activity").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	if(id)

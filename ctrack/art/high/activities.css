@@ -80,11 +80,12 @@ span.span_recipient-country:before 	{content:"RECIPIENT COUNTRY"; font-size:14px
 recipient-country span				{font-size:30px; color:#000;}
 recipient-country:nth-of-type(1) 	{padding-top:0;}
 recipient-country span:nth-of-type(2)	{font-size:20px; color:#000; padding-top:10px;}
+recipient-country:last-of-type		{padding-bottom:20px;}
 
 
 /*	Start and End dates (Planned and Actual)
 	============================================= */
-span.span_activity-date		{display:block; vertical-align:bottom; width:958px; border-top:1px solid #000; border-bottom:1px solid #000; background-color:#EEE; position:relative; height:91px; margin-top:40px;}
+span.span_activity-date		{display:block; vertical-align:bottom; width:958px; border-top:1px solid #000; border-bottom:1px solid #000; background-color:#EEE; position:relative; height:91px;}
 activity-date				{box-sizing:border-box; height:45px; background-color:#fff;}
 activity-date[type="1"], activity-date[type="3"], activity-date[type="start-planned"],
 activity-date[type="end-planned"]	{font-size:20px; display:block; padding:10px 40px; color:#000; width:477px;}
@@ -103,7 +104,7 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 /*	Who's invloved?
 	============================================= */
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#000; counter-reset:section;}
-span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#000; display:block; margin-bottom:10px;}
+span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
 participating-org 					{display:block; padding:0 0 5px 0; position:relative; line-height:24px;}
 participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:inherit; margin-right:-30px;}
 participating-org narrative			{display:inline-block; vertical-align:top; padding-left:34px;}
@@ -125,11 +126,14 @@ span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0
 span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
 span-narrative.org-role, span-narrative.org-type		{display:none; font-size:14px; line-height:24px; color:#000; margin-left:10px;}
 
+
 /*	Location (version 2.02++)
 	============================================= */
 span.span_location			{display:block; width:880px; padding:20px 40px 0 40px; font-size:18px; color:#000; counter-reset:section;}
 span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#000; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #000;}
 span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:24px;}
+span.span_location location:nth-of-type(1)	{padding:0;}
+span.span_location location:last-of-type	{padding-bottom:40px;}
 span.span_location location::before	{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
 span.span_location location name	{display:inline;}
 span.span_location location point	{display:inline;}
@@ -143,6 +147,11 @@ span.span_location location pos:after	{content:" ]";}
 reporting-org 					{display:block; width:880px; padding:20px 40px 40px 40px; font-size:18px; color:#000; line-height:1.45em;}
 reporting-org:before 			{content:"Reported by"; display:inline-block; padding-right:5px; color:#000; font-size:18px; font-weight:normal;}
 reporting-org:nth-of-type(1)	{padding-top:0px;}
+reporting-org a					{display:inline;}
+reporting-org a:link			{color:#000;}
+reporting-org a:visited			{color:#000;}
+reporting-org a:hover			{color:#000; text-decoration:underline;}
+reporting-org a:active			{color:#000;}
 
 
 /*	Description of project (shared with Transaction table)
@@ -317,14 +326,14 @@ transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14
 transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#000; width:144px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#000; width:130px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#000; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
-span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; width:235px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
-transaction:nth-of-type(1) description:before {content:"DESCRIPTION"; font-size:14px; color:#000; width:245px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
-span.span_transaction transaction description {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:15px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
+span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; width:260px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+transaction:nth-of-type(1) description:before {content:"DESCRIPTION"; font-size:14px; color:#000; width:260px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+span.span_transaction transaction description {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:20px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
 
 transaction-date	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:100px; max-width:100px; padding-left:40px; padding-right:5px; line-height:1.35em;}
-transaction-type	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:110px; max-width:110px; padding-right:14px; line-height:1.35em;}
-span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:220px; max-width:220px; padding-right:15px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
-provider-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:14px; line-height:1.35em;}
+transaction-type	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:110px; max-width:110px; padding-right:15px; line-height:1.35em;}
+span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:20px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
+provider-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:15px; line-height:1.35em;}
 receiver-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:0px; line-height:1.35em;}
 value				{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
 value span			{font-size:12px; color:#000;}
@@ -361,7 +370,7 @@ activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#000;
 
 /*	Related documents list
 	============================================= */
-span.span_document-link							{width:880px; padding:0 40px; margin:0 auto;}
+span.span_document-link							{width:880px; padding:0 40px; margin:0 auto;  margin-bottom:20px;}
 span.span_document-link:before					{content:"RELATED DOCUMENTS"; font-size:14px; color:#000; display:block; padding:40px 0 10px 0; margin-bottom:10px;}
 a.a_document-link::before						{display:inline-block; vertical-align:top; content:"☰"; border:1px solid #000; padding:2px; color:#000; margin-right:-24px;}
 a.a_document-link								{display:block; width:840px; padding:15px 20px; font-size:12px; line-height:1.5em; position:relative; color:#000; border:1px solid #000; border-bottom:0;}
@@ -386,7 +395,13 @@ a[href$=".html" i].a_document-link span-title:after	{content:"HTML";}
 a[href$=".odt" i].a_document-link span-title:after	{content:"ODT";}
 a[href$=".xls" i].a_document-link span-title:after	{content:"XLS";}
 a[href$=".xlsx" i].a_document-link span-title:after	{content:"XLSX";}
-a[href$=".jpg" i].a_document-link span-title:after	{content:"JPG";}
+a[href$=".jpg" i].a_document-link span-title:after,
+a[href$=".jpeg" i].a_document-link span-title:after,
+a[href$=".png" i].a_document-link span-title:after,
+a[href$=".bmp" i].a_document-link span-title:after,
+a[href$=".gif" i].a_document-link span-title:after,
+a[href$=".svg" i].a_document-link span-title:after,
+a[href$=".tiff" i].a_document-link span-title:after	{content:"IMAGE";}
 
 
 /*	Family Tree list
