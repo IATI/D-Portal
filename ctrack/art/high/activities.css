@@ -75,7 +75,7 @@ a.a_slug:active			{color:#000;}
 	============================================= */
 transaction recipient-country		{display:none;}
 span.span_recipient-country			{display:block; vertical-align:top; width:960px; padding:40px 40px 0 40px; box-sizing:border-box;}
-recipient-country 					{display:block; vertical-align:top; padding:20px 0;}
+recipient-country 					{display:block; vertical-align:top; padding:10px 0;}
 span.span_recipient-country:before 	{content:"RECIPIENT COUNTRY"; font-size:14px; color:#000; margin-bottom:20px; display:block;}
 recipient-country span				{font-size:30px; color:#000;}
 recipient-country:nth-of-type(1) 	{padding-top:0;}
@@ -104,7 +104,7 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 	============================================= */
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#000; counter-reset:section;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#000; display:block; margin-bottom:10px;}
-participating-org 					{display:block; padding:10px 0 0 0; position:relative; line-height:24px;}
+participating-org 					{display:block; padding:0 0 5px 0; position:relative; line-height:24px;}
 participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:inherit; margin-right:-30px;}
 participating-org narrative			{display:inline-block; vertical-align:top; padding-left:34px;}
 participating-org a					{display:initial;}
@@ -113,18 +113,17 @@ participating-org a:visited			{color:#000;}
 participating-org a:hover			{color:#000; text-decoration:underline;}
 participating-org a:active			{color:#000;}
 participating-org[role="1"] narrative:nth-of-type(1):after,
-participating-org[role="funding"] narrative:nth-of-type(1):after		{content:"FUNDING ROLE"; font-size:14px; color:#000; display:inline; padding:0; padding-left:10px;}
+participating-org[role="funding"] narrative:nth-of-type(1):after		{content:"FUNDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 participating-org[role="2"] narrative:nth-of-type(1):after,
-participating-org[role="accountable"] narrative:nth-of-type(1):after	{content:"ACCOUNTABLE ROLE"; font-size:14px; color:#000; display:inline; padding:0; padding-left:10px;}
+participating-org[role="accountable"] narrative:nth-of-type(1):after	{content:"ACCOUNTABLE"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 participating-org[role="3"] narrative:nth-of-type(1):after,
-participating-org[role="extending"] narrative:nth-of-type(1):after		{content:"EXTENDING ROLE"; font-size:14px; color:#000; display:inline; padding:0; padding-left:10px;}
+participating-org[role="extending"] narrative:nth-of-type(1):after		{content:"EXTENDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 participating-org[role="4"] narrative:nth-of-type(1):after,
-participating-org[role="implementing"] narrative:nth-of-type(1):after	{content:"IMPLEMENTING ROLE"; font-size:14px; color:#000; display:inline; padding:0; padding-left:10px;}
+participating-org[role="implementing"] narrative:nth-of-type(1):after	{content:"IMPLEMENTING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 
-span-narrative.participating-role	{font-size:14px; color:#ccc; display:inline-block; padding:0; padding-left:10px; text-transform:uppercase; line-height:initial;}
-
-span.span_participating-org narrative:nth-of-type(n+2)			{display:block; padding-left:24px; font-style:italic; font-size:16px; line-height:inherit;}
-
+span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0 0 0 24px; font-style:italic; font-size:16px; line-height:inherit;}
+span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
+span-narrative.org-role, span-narrative.org-type		{display:none; font-size:14px; line-height:24px; color:#000; margin-left:10px;}
 
 /*	Location (version 2.02++)
 	============================================= */
@@ -166,9 +165,9 @@ span.span_description description narrative.empty	{display:none;}	/*	Hides conta
 result						{display:block; padding:20px 0;}
 result:nth-child(1)			{padding-top:0;}
 result:nth-child(odd)		{border-top:1px solid #000;}
-result description			{display:block; padding:10px 40px; white-space:pre-line; unicode-bidi:embed; line-height:22px;}
+result description			{display:block; padding:0px 40px 10px 40px; white-space:pre-line; unicode-bidi:embed; line-height:22px;}
 result description narrative{line-height:24px; word-spacing:0.05em; color:#000;}
-result span-title			{display:block; font-size:20px; width:880px; line-height:1.25em; margin:0 auto; color:#000;}
+result span-title			{display:block; font-size:20px; width:880px; line-height:1.25em; margin:0 auto; color:#000; padding-bottom:5px;}
 result span-title narrative	{display:block;}
 result:nth-of-type(1):before{content:"Results"; font-size:20px; color:#000; display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
 result span-title:before	{content:"RESULTS"; font-size:14px; color:#000; display:block; padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #000;}
@@ -177,33 +176,34 @@ result[type="2"] span-title:before	{content:"OUTCOME";}
 result[type="3"] span-title:before	{content:"IMPACT";}
 result[type="9"] span-title:before	{content:"OTHER";}
 
-result indicator			{display:block; margin:auto; margin-bottom:0px; width:880px; position:relative;}
+result indicator			{display:block; margin:auto; margin-top:10px; margin-bottom:0px; width:880px; position:relative;}
+result indicator:nth-of-type(1)	{margin-top:0;}
 result indicator:before		{content:"INDICATOR"; font-size:14px; color:#000; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #000; padding:10px 0;}
 result indicator[measure="1"]:before	{content:"INDICATOR UNIT";}
 result indicator[measure="2"]:before	{content:"INDICATOR PERCENTAGE";}
 
-result indicator span-title	{display:inline-block; width:200px; vertical-align:top; font-size:16px; line-height:22px; padding-right:20px; box-sizing:border-box;}
+result indicator span-title	{display:inline-block; width:100%; vertical-align:top; font-size:16px; line-height:22px; padding:0 30px 0 0; box-sizing:border-box;}
 result indicator span-title:before {content:" "; margin:0; border:0;}
 result[type="1"] indicator span-title:before {content:" "; margin:0; border:0; padding:0;}
 result[type="2"] indicator span-title:before {content:" "; margin:0; border:0; padding:0;}
 result[type="3"] indicator span-title:before {content:" "; margin:0; border:0; padding:0;}
 result[type="9"] indicator span-title:before {content:" "; margin:0; border:0; padding:0;}
 
-result indicator description{display:inline-block; width:200px; vertical-align:top; box-sizing:border-box; padding:0 30px 0 0; font-size:14px; color:#000;}
+result indicator description{display:inline-block; width:100%; vertical-align:top; box-sizing:border-box; padding:0 30px 0 0; font-size:14px; color:#000;}
 result indicator description narrative	{line-height:20px;}
 
-result indicator period		{display:inline-block; position:relative; width:480px; margin:auto; vertical-align:top;}
-result indicator period:nth-of-type(n+2) {display:block; padding-top:20px; margin-left:45.5%;}
-result indicator period period-start:before	{content:"START DATE"; font-size:14px; color:#000; display:block; position:absolute; left:0; top:10px;}
-result indicator period period-end:before	{content:"END DATE"; font-size:14px; color:#000; display:block; position:absolute; left:0; top:10px;}
+result indicator period		{display:inline-block; position:relative; width:530px; margin:auto; vertical-align:top;}
+result indicator period:nth-of-type(n+2) {display:block; padding-top:20px; margin-left:40%;}
+result indicator period period-start:before	{content:"START DATE"; font-size:14px; color:#000; display:block; position:absolute; left:3px; top:8px;}
+result indicator period period-end:before	{content:"END DATE"; font-size:14px; color:#000; display:block; position:absolute; left:3px; top:8px;}
 result indicator period target:before	{content:"TARGET"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 
 result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
-result indicator period period-start{width:480px; padding:0 0 10px 0; margin-bottom:10px; font-size:26px; text-align:right; position:relative; border-bottom:1px solid #000;}
-result indicator period period-end	{width:480px; padding:0 0 14px 0; font-size:26px; text-align:right; position:relative;}	
+result indicator period period-start{width:100%; padding:0 0 10px 0; margin-bottom:10px; font-size:26px; text-align:right; position:relative;}
+result indicator period period-end	{width:100%; padding:0 0 10px 0; font-size:26px; text-align:right; position:relative;}	
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
@@ -218,7 +218,7 @@ result indicator period baseline:before	{content:"BASELINE"; font-size:14px; col
 result indicator > baseline comment	{display:block; color:#000; padding:10px 0; line-height:1.25em;}
 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
-span-narrative						{font-size:34px; line-height:40px;}
+span-narrative						{font-size:28px; line-height:30px;}
 
 span-narrative.dimension-name		{display:inline; text-transform:capitalize; font-size:14px; line-height:20px;}
 span-narrative.dimension-name:after {content:" :";}
@@ -228,27 +228,29 @@ span-narrative.location-ref			{display:inline-block; vertical-align:top; text-tr
 result indicator comment			{padding-top:10px; font-style:italic; line-height:20px;}
 target comment narrative, actual comment narrative, target comment span-narrative, actual comment span-narrative	{display:block; font-size:14px; line-height:1.25em;}
 
-result indicator period baseline, result indicator period target, result indicator period actual	{min-height:60px; display:table-cell;}
+result indicator period baseline, result indicator period target, result indicator period actual	{min-height:60px; display:table-cell; border-top:1px solid;}
 result indicator period baseline	{width:180px; max-width:180px; padding:20px 20px 20px 0; position:relative;}
 result indicator period target		{width:290px; max-width:290px; padding:20px;}
 result indicator period actual		{width:290px; max-width:290px; padding:20px;}
 
 result indicator reference			{display:inline; position:absolute; top:0px; right:0px;}
-result indicator reference span-narrative{display:inline; font-size:14px;}
+result indicator reference span-narrative	{display:inline; font-size:14px;}
 span-narrative.reference-vocabulary:before	{content:"VOCAB "; display:inline; font-size:14px; color:#000;}
 span-narrative.reference-code:before		{content:"CODE "; display:inline; font-size:14px; color:#000;}
 span-narrative.reference-code				{padding-left:10px;}
-result indicator reference a:hover	{cursor:pointer;}
+result indicator reference a:hover			{cursor:pointer;}
 result indicator reference a.a_reference	{display:list-item; list-style-type:circle; list-style-position:inside; margin-bottom:10px;}
 
 result indicator period .empty		{display:none;}
+result indicator description.empty	{display:none;}
 
-.timeline		{display:block; position:absolute; width:480px; height:5px; background-color:#FFF; top:84px; left:0; border-radius:3px 3px 0 0; border-bottom:1px solid #000;}
-result indicator period:nth-of-type(n+2) .timeline	{top:104px;}
+.timeline		{display:block; position:absolute; width:100%; height:5px; background-color:#FFF; top:34px; left:0; border-radius:3px 3px 0 0; border-bottom:1px solid #000;}
+result indicator period:nth-of-type(n+2) .timeline	{top:54px;}
 .time			{display:block; position:relative; height:5px; width:100%; border-radius:3px 0 0 0; background-color:#000;}
 result indicator .time span		{display:block; position:absolute; height:10px; width:2px; background-color:#000; top:-2px; right:0;}
 result indicator .time.time-percent100 span	{display:none;}
 
+result indicator span-result	{display:inline-block; vertical-align:top; width:350px;}
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -303,7 +305,7 @@ planned-disbursement value 			{display:inline-block; vertical-align:top; color:#
 
 /*	Transaction table
 	============================================= */
-transaction							{display:block; width:958px; border-top:1px solid #000; padding:15px 0 5px 0; border-bottom:0;}
+transaction							{display:block; width:958px; border-top:1px solid #000; padding:10px 0; border-bottom:0;}
 transaction a						{color:#000;}
 transaction a:hover					{color:#000;}
 transaction:last-of-type			{margin-bottom:40px;}
@@ -311,22 +313,22 @@ transaction:nth-of-type(1)			{margin-top:0px; padding-top:0;}
 transaction:nth-of-type(1):before	{content:"Transactions"; font-size:20px; color:#000; display:block; padding:40px 40px 20px 40px; margin-bottom:25px;}
 
 transaction:nth-of-type(1) transaction-date:before	{content:"DATE"; font-size:14px; color:#000; width:105px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
-transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14px; color:#000; width:144px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14px; color:#000; width:124px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#000; width:144px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#000; width:130px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#000; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
 span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; width:235px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+transaction:nth-of-type(1) description:before {content:"DESCRIPTION"; font-size:14px; color:#000; width:245px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+span.span_transaction transaction description {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:15px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
 
 transaction-date	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:100px; max-width:100px; padding-left:40px; padding-right:5px; line-height:1.35em;}
-transaction-type	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:14px; line-height:1.35em;}
+transaction-type	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:110px; max-width:110px; padding-right:14px; line-height:1.35em;}
 span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:220px; max-width:220px; padding-right:15px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
 provider-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:14px; line-height:1.35em;}
 receiver-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:0px; line-height:1.35em;}
-value				{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:120px; max-width:120px; padding-right:40px; line-height:1.35em; text-align:right;}
+value				{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
 value span			{font-size:12px; color:#000;}
 
-transaction:nth-of-type(1) description:before {content:"DESCRIPTION"; font-size:14px; color:#000; width:235px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
-span.span_transaction transaction description {display:inline-block; vertical-align:top; padding:0px; width:220px; max-width:220px; padding-right:15px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
 /*span.span_transaction transaction description:nth-of-type(n+1):before		{display:none;}*/
 
 
@@ -389,10 +391,10 @@ a[href$=".jpg" i].a_document-link span-title:after	{content:"JPG";}
 
 /*	Family Tree list
 	============================================= */
-span.span_related-activity			{width:880px; padding:0 40px; margin:0 auto; counter-reset:section;}
+span.span_related-activity			{width:880px; padding:0; margin:0 auto; counter-reset:section;}
 span.span_related-activity:before	{content:"FAMILY TREE"; font-size:14px; color:#000; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #000;}
 a.a_related-activity::before		{counter-increment:section; content:counter(section) ". ";}
-a.a_related-activity	{display:inline-block; width:875px; padding:10px 0 10px 5px; font-size:1.0em; line-height:1.25em; color:#000;}
+a.a_related-activity	{display:inline-block; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#000;}
 a.a_related-activity:last-of-type								{padding-bottom:40px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
 related-activity		{display:inline; color:#000;}
@@ -407,7 +409,7 @@ related-activity[type="4"]:before	{content:"Multifunded ";}
 /*	Tag
 	============================================= */
 span.span_span-openag			{width:880px; padding:0 40px 10px 40px; margin:0 auto; counter-reset:section; border-top:1px solid #000;}
-span.span_span-openag:before	{content:"Tag - AGROVOC"; font-size:20px; color:#000; display:block; padding:40px 40px 20px 40px; margin-bottom:10px; margin-left:-50px;}
+span.span_span-openag:before	{content:"Secondary Classification - AGROVOC"; font-size:20px; color:#000; display:block; padding:40px 40px 20px 40px; margin-bottom:10px; margin-left:-50px;}
 
 span-openag::before				{display:inline; counter-increment:section; content:counter(section) ". "; line-height:20px; font-size:18px;}
 span-openag						{display:block; width:860px; padding:10px 0; font-size:1.0em; line-height:1.25em; position:relative; color:#000; text-transform:capitalize;}
