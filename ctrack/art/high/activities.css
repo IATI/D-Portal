@@ -114,13 +114,17 @@ participating-org a:visited			{color:#000;}
 participating-org a:hover			{color:#000; text-decoration:underline;}
 participating-org a:active			{color:#000;}
 participating-org[role="1"] narrative:nth-of-type(1):after,
-participating-org[role="funding"] narrative:nth-of-type(1):after		{content:"FUNDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
+participating-org[role="funding"] narrative:nth-of-type(1):after,
+participating-org[role="Funding"] narrative:nth-of-type(1):after		{content:"FUNDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 participating-org[role="2"] narrative:nth-of-type(1):after,
-participating-org[role="accountable"] narrative:nth-of-type(1):after	{content:"ACCOUNTABLE"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
+participating-org[role="accountable"] narrative:nth-of-type(1):after,
+participating-org[role="Accountable"] narrative:nth-of-type(1):after	{content:"ACCOUNTABLE"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 participating-org[role="3"] narrative:nth-of-type(1):after,
-participating-org[role="extending"] narrative:nth-of-type(1):after		{content:"EXTENDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
+participating-org[role="extending"] narrative:nth-of-type(1):after,
+participating-org[role="Extending"] narrative:nth-of-type(1):after		{content:"EXTENDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 participating-org[role="4"] narrative:nth-of-type(1):after,
-participating-org[role="implementing"] narrative:nth-of-type(1):after	{content:"IMPLEMENTING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
+participating-org[role="implementing"] narrative:nth-of-type(1):after,
+participating-org[role="Implementing"] narrative:nth-of-type(1):after	{content:"IMPLEMENTING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 
 span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0 0 0 24px; font-style:italic; font-size:16px; line-height:inherit;}
 span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
