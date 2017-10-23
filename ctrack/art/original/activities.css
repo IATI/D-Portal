@@ -140,8 +140,8 @@ span.span_location location pos:after	{content:" ]";}
 
 /*	Reported by
 	============================================= */
-reporting-org 					{display:block; width:880px; padding:20px 40px 40px 40px; font-size:18px; color:#FFF; line-height:1.45em;}
-reporting-org:before 			{content:"Reported by"; display:inline-block; padding-right:5px; color:#ccc; font-size:18px; font-weight:normal;}
+reporting-org 					{display:block; width:880px; padding:20px 40px 40px 40px; font-size:18px; color:#FFF; line-height:26px;}
+reporting-org:before 			{content:"Reported by"; display:inline-block; padding-right:5px; color:#ccc; font-size:18px; line-height:26px; font-weight:normal;}
 reporting-org:nth-of-type(1)	{padding-top:0px;}
 reporting-org a					{display:inline;}
 reporting-org a:link			{color:#FFAB5E;}
@@ -287,37 +287,68 @@ budget:last-of-type	 	{border-bottom:0px solid #1E90FF; margin-bottom:10px;}
 budget:nth-of-type(1)	{margin-top:0px; padding-top:0; border-top:0;}
 
 span.span_budget:before						{content:"Budgets"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
-budget:nth-of-type(1) period-start:before 	{content:"START DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-budget:nth-of-type(1) period-end:before	  	{content:"END DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-budget:nth-of-type(1) value:before		  	{content:"VALUE"; font-size:14px; color:#CCC; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-budget:nth-of-type(1) period-end:after		{content:"BUDGET TYPE"; font-size:14px; color:#CCC; display:block; position:absolute; top:0px; right:-38px; line-height:1.35em;}
-budget[type="1"] value:after				{content:"Original"; position:absolute; left:-60px; top:0px;}
-budget[type="2"] value:after				{content:"Revised"; position:absolute; left:-60px; top:0px;}
+budget:nth-of-type(1) period-start:before,
+budget:nth-of-type(1) period-end:before,
+budget:nth-of-type(1) value:before,
+budget:nth-of-type(1) provider-org:before,
+budget:nth-of-type(1) receiver-org:before	{content:""; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; color:#CCC; line-height:1.35em;}
+budget:nth-of-type(1) period-end:after		{content:"TYPE"; font-size:14px; color:#CCC; display:block; position:absolute; top:0px; right:-45px; line-height:1.35em;}
+budget:nth-of-type(1) period-start:before 	{content:"START DATE"; width:110px;}
+budget:nth-of-type(1) period-end:before		{content:"END DATE"; width:110px;}
+budget:nth-of-type(1) value:before			{content:"VALUE"; width:660px;}
+budget[type="1"] value:after				{content:"Original"; position:absolute; left:10px; top:0px;}
+budget[type="2"] value:after				{content:"Revised";  position:absolute; left:10px; top:0px;}
 
 budget[type="1"]:nth-of-type(1) value:after, budget[type="2"]:nth-of-type(1) value:after	{top:44px;}
-budget period-start 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em; padding-left:40px;}
-budget period-end	 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em; position:relative;}
-budget value 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em; position:relative;}
+budget period-start,
+budget period-end,
+budget value		 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; line-height:1.35em;}
+budget period-start 	{width:110px; max-width:110px; padding-left:40px;}
+budget period-end	 	{width:110px; max-width:110px; position:relative;}
+budget value 			{width:660px; max-width:660px; padding-right:40px; position:relative;}
 
 
 /*	Planned Disbursement table
 	============================================= */
-planned-disbursement				{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0;}
+planned-disbursement				{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; position:relative;}
+planned-disbursement a				{color:#FFAB5E;}
+planned-disbursement a:link			{color:#FFAB5E;}
+planned-disbursement a:visited		{color:#FFAB5E;}
+planned-disbursement a:hover		{color:#FF7A00;}
+planned-disbursement a:active		{color:#FFAB5E;}
 planned-disbursement:last-of-type	{border-bottom:0px solid #1E90FF; margin-bottom:10px;}
 planned-disbursement:nth-of-type(1)	{margin-top:0px; padding-top:0; border-top:0;}
 
 span.span_planned-disbursement:before					{content:"Planned Disbursements"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
-planned-disbursement:nth-of-type(1) period-start:before {content:"START DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-planned-disbursement:nth-of-type(1) period-end:before	{content:"END DATE"; font-size:14px; color:#CCC; width:290px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-planned-disbursement:nth-of-type(1) value:before		{content:"VALUE"; font-size:14px; color:#CCC; width:300px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-planned-disbursement:nth-of-type(1) period-end:after	{content:"TYPE"; font-size:14px; color:#CCC; display:block; position:absolute; top:0px; right:23px; line-height:1.35em;}
-planned-disbursement[type="1"] value:after				{content:"Original"; position:absolute; left:-60px; top:0px;}
-planned-disbursement[type="2"] value:after				{content:"Revised"; position:absolute; left:-60px; top:0px;}
+planned-disbursement:nth-of-type(1) period-start:before,
+planned-disbursement:nth-of-type(1) period-end:before,
+planned-disbursement:nth-of-type(1) value:before,
+planned-disbursement:nth-of-type(1) provider-org:before,
+planned-disbursement:nth-of-type(1) receiver-org:before	{content:""; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; color:#CCC; line-height:1.35em;}
+planned-disbursement:nth-of-type(1) period-end:after	{content:"TYPE"; font-size:14px; color:#CCC; display:block; position:absolute; top:0px; right:-45px; line-height:1.35em;}
+planned-disbursement:nth-of-type(1) period-start:before {content:"START DATE"; width:110px;}
+planned-disbursement:nth-of-type(1) period-end:before	{content:"END DATE"; width:110px;}
+planned-disbursement:nth-of-type(1) value:before		{content:"VALUE"; width:660px;}
+planned-disbursement:nth-of-type(1) provider-org:before	{content:"PROVIDER"; width:130px;}
+planned-disbursement:nth-of-type(1) receiver-org:before	{content:"RECEIVER"; width:130px;}
+planned-disbursement[type="1"] value:after				{content:"Original"; position:absolute; left:10px; top:0px;}
+planned-disbursement[type="2"] value:after				{content:"Revised";  position:absolute; left:10px; top:0px;}
 
 planned-disbursement[type="1"]:nth-of-type(1) value:after, planned-disbursement[type="2"]:nth-of-type(1) value:after	{top:44px;}
-planned-disbursement period-start 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em; padding-left:40px;}
-planned-disbursement period-end	 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:290px; max-width:290px; line-height:1.35em; position:relative;}
-planned-disbursement value 			{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:300px; max-width:300px; padding-right:40px; line-height:1.35em; position:relative;}
+
+planned-disbursement period-start,
+planned-disbursement period-end,
+planned-disbursement value		 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; line-height:1.35em;}
+planned-disbursement period-start 	{width:110px; max-width:110px; padding-left:40px;}
+planned-disbursement period-end	 	{width:110px; max-width:110px; position:relative;}
+planned-disbursement value 			{width:660px; max-width:660px; padding-right:40px; position:relative;}
+planned-disbursement provider-org,
+planned-disbursement receiver-org	{display:block; color:#FFF; font-size:1.0em; line-height:1.35em; padding-right:20px;}
+planned-disbursement provider-org 	{width:130px; max-width:130px; position:absolute; top:0; left:530px;}
+planned-disbursement receiver-org 	{width:130px; max-width:130px; position:absolute; top:0; left:680px;}
+
+planned-disbursement:nth-of-type(n+2) provider-org,
+planned-disbursement:nth-of-type(n+2) receiver-org	{top:15px;}
 
 
 /*	Transaction table

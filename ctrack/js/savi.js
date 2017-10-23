@@ -70,16 +70,18 @@ acts.each(function(i){var it=$(this);
 	
 
 	{
-		var narratives=["participating-org"];
+		var narratives=["participating-org, receiver-org, provider-org"];
 		narratives.forEach(function(n){
 			it.find(n).each(function(i){var it=$(this);
 				if( it.find("narrative").length==0 ) // only if no narrative in this tag
 				{
+					var id=it.attr("ref");
+					id=iati_codes.publisher_names[id] || id;	//	converts ref to publisher name or if lookup fails, use raw text
 					var text=it.text(); // get text
 					if(text.trim()=="") // is text empty?
 					{
 						it.wrapInner("<narrative></narrative>");
-						it.find("narrative").text( it.attr("ref") ); // use ref
+						it.find("narrative").text( id ); // use ref
 					}
 					else
 					{
@@ -364,6 +366,7 @@ acts.find("related-activity").each(function(i){var it=$(this);
 		it.html(it.attr("ref"));
 	}
 });
+
 
 
 acts.find("reporting-org").each(function(i){var it=$(this);
@@ -668,19 +671,34 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 	}
 });
 
-acts.find("provider-org[provider-activity-id]").each(function(i){var it=$(this);
-	var id=it.attr("provider-activity-id");
+
+acts.find("provider-org[ref], provider-org[activity-id]").each(function(i){var it=$(this);
+	var id=it.attr("ref");
+	var aid=it.attr("activity-id");
+	
+	if( aid )
+	{
+		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
+	}
+	else
 	if(id)
 	{
-		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
 	}
 });
 
-acts.find("receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
-	var id=it.attr("receiver-activity-id");
+acts.find("receiver-org[ref], receiver-org[activity-id]").each(function(i){var it=$(this);
+	var id=it.attr("ref");
+	var aid=it.attr("activity-id");
+	
+	if( aid )
+	{
+		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
+	}
+	else
 	if(id)
 	{
-		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
 	}
 });
 
@@ -690,7 +708,7 @@ acts.find("participating-org[ref], participating-org[activity-id]").each(functio
 	
 	if( aid )
 	{
-		wrapInner_link(it,prelink+aid+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
 	if(id)
