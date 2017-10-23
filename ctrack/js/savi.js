@@ -765,5 +765,18 @@ $('span-narrative.baseline-year').each(function() {
 // wrap span around sector image
 $('img.sector_pie').wrap($('<span class="sector_img">'));
 
+//	add hide div to these classes
+$( "span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_recipient-country, span.span_location" ).each(function(i,el){
+	var e=$(el);
+	var ec=e.children();
+	var c=$("<span class='hide'>[ - ] HIDE</span>");
+	e.append(c);
+	c.click(function(){
+		c.text((c.text() == '[ - ] HIDE') ? '[ + ] SHOW' : '[ - ] HIDE').fadeIn();
+		ec.fadeToggle('fast');
+	});
+});
+
+
 };
 

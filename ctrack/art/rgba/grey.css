@@ -428,7 +428,7 @@ span.span_description description[type="3"]:before		{color:var(--base14);}
 /*	Result and description
 	============================================= */
 result:nth-child(odd)		{background-color:var(--base03_40);}
-result:nth-of-type(1):before{color:var(--base15); background-color:var(--base03);}
+span.span_result:before		{color:var(--base15); background-color:var(--base03);}
 result description			{color:var(--base15);}
 result description:before	{color:var(--base14);}
 result span-title			{color:var(--base15);}
@@ -475,12 +475,16 @@ img.sector_pie			{background-color:var(--base15);}
 	============================================= */
 budget					{border-top:1px solid var(--base01);}
 budget:last-of-type	 	{border-bottom:0px solid var(--base01);}
-budget:nth-of-type(1):before				{color:var(--base15); background-color:var(--base03);}
+span.span_budget:before						{color:var(--base15); background-color:var(--base03);}
 budget:nth-of-type(1) period-start:before 	{color:var(--base15); border-bottom:2px solid var(--base03);}
 budget:nth-of-type(1) period-end:before	  	{color:var(--base15); border-bottom:2px solid var(--base03);}
 budget:nth-of-type(1) value:before		  	{color:var(--base15); border-bottom:2px solid var(--base03);}
-period-start 			{color:var(--base15);}
-period-end	 			{color:var(--base15);}
+budget[type="1"] value:after,
+budget[type="2"] value:after,
+budget[type="1"]:nth-of-type(1) value:after,
+budget[type="2"]:nth-of-type(1) value:after,
+budget period-start,
+budget period-end,
 budget value 			{color:var(--base15);}
 
 
@@ -488,12 +492,17 @@ budget value 			{color:var(--base15);}
 	============================================= */
 planned-disbursement				{border-top:1px solid var(--base01);}
 planned-disbursement:last-of-type	{border-bottom:0px solid var(--base01);}
-planned-disbursement:nth-of-type(1):before				{color:var(--base15); background-color:var(--base03);}
+span.span_planned-disbursement:before					{color:var(--base15); background-color:var(--base03);}
 planned-disbursement:nth-of-type(1) period-start:before {color:var(--base15); border-bottom:2px solid var(--base03);}
 planned-disbursement:nth-of-type(1) period-end:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
 planned-disbursement:nth-of-type(1) value:before		{color:var(--base15); border-bottom:2px solid var(--base03);}
-period-start 			{color:var(--base15);}
-period-end	 			{color:var(--base15);}
+planned-disbursement:nth-of-type(1) period-end:after,
+planned-disbursement[type="1"] value:after,
+planned-disbursement[type="2"] value:after,
+planned-disbursement[type="1"]:nth-of-type(1) value:after,
+planned-disbursement[type="2"]:nth-of-type(1) value:after,
+planned-disbursement period-start,
+planned-disbursement period-end,
 planned-disbursement value 			{color:var(--base15);}
 
 
@@ -507,7 +516,7 @@ transaction a:visited				{color:var(--base11);}
 transaction a:hover					{color:var(--base15);}
 transaction a:active				{color:var(--base11);}
 transaction:last-of-type			{border-bottom:0px solid var(--base01);}
-transaction:nth-of-type(1):before	{color:var(--base15); background-color:var(--base03);}
+span.span_transaction:before	{color:var(--base15); background-color:var(--base03);}
 
 transaction:nth-of-type(1) transaction-date:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
 transaction:nth-of-type(1) transaction-type:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
@@ -570,3 +579,9 @@ a.a_related-activity				{color:var(--base15);}
 related-activity					{color:var(--base11);}
 related-activity:hover				{color:var(--base11);}
 related-activity:before				{color:var(--base15);}
+
+
+/*	Hide and expand buttons
+	============================================= */
+span.hide 		 {color:var(--base12);}
+span.hide:hover	 {color:var(--base15);}

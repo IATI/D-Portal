@@ -397,7 +397,7 @@ span.span_description description[type="3"]:before		{color:rgba(204,204,204,1);}
 /*	Result and description
 	============================================= */
 result:nth-child(odd)		{background-color:rgba(56,56,56,0.3);}
-result:nth-of-type(1):before{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
+span.span_result:before		{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 result description			{color:rgba(255,255,255,1);}
 result description:before	{color:rgba(204,204,204,1);}
 result span-title			{color:rgba(255,255,255,1);}
@@ -436,22 +436,34 @@ img.sector_pie	{background-color:rgba(255,255,255,1); -webkit-filter:hue-rotate(
 	============================================= */
 budget					{border-top:1px solid rgba(143,143,143,1);}
 budget:last-of-type	 	{border-bottom:0px solid rgba(143,143,143,1);}
-budget:nth-of-type(1):before				{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
+span.span_budget:before						{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 budget:nth-of-type(1) period-start:before 	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
 budget:nth-of-type(1) period-end:before	  	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
 budget:nth-of-type(1) value:before		  	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56,0.9);}
-period-start 			{color:rgba(255,255,255,1);}
-period-end	 			{color:rgba(255,255,255,1);}
+budget[type="1"] value:after,
+budget[type="2"] value:after,
+budget[type="1"]:nth-of-type(1) value:after,
+budget[type="2"]:nth-of-type(1) value:after,
+budget period-start,
+budget period-end,
 budget value 			{color:rgba(255,255,255,1);}
 
 
 /*	Planned Disbursement table
 	============================================= */
-planned-disbursement:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
-planned-disbursement 						{border-top: 1px solid rgba(143,143,143,1);}
+planned-disbursement 		{border-top: 1px solid rgba(143,143,143,1);}
+span.span_planned-disbursement:before					{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 planned-disbursement:nth-of-type(1) period-start:before,
 planned-disbursement:nth-of-type(1) period-end:before,
-planned-disbursement:nth-of-type(1) value:before{border-bottom:2px solid rgba(56,56,56, 0.9);}
+planned-disbursement:nth-of-type(1) value:before		{border-bottom:2px solid rgba(56,56,56, 0.9);}
+planned-disbursement:nth-of-type(1) period-end:after	{color:rgba(204,204,204,1);}
+planned-disbursement[type="1"] value:after,
+planned-disbursement[type="2"] value:after,
+planned-disbursement[type="1"]:nth-of-type(1) value:after,
+planned-disbursement[type="2"]:nth-of-type(1) value:after,
+planned-disbursement period-start,
+planned-disbursement period-end,
+planned-disbursement value 			{color:rgba(255,255,255,1);}
 
 
 /*	Transaction table
@@ -463,7 +475,7 @@ transaction a:link					{color:rgba(255,163,0,1);}
 transaction a:visited				{color:rgba(255,163,0,1);}
 transaction a:hover					{color:rgba(255,183,0,1);}
 transaction a:active				{color:rgba(255,163,0,1);}
-transaction:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
+span.span_transaction:before	{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 
 transaction:nth-of-type(1) transaction-date:before	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56, 0.9);}
 transaction:nth-of-type(1) transaction-type:before	{color:rgba(255,255,255,1); border-bottom:2px solid rgba(56,56,56, 0.9);}
@@ -526,3 +538,14 @@ a.a_related-activity				{color:rgba(255,255,255,1);}
 related-activity					{color:rgba(173,173,173,1);}
 related-activity:hover				{color:rgba(255,163,0,1);}
 related-activity:before				{color:rgba(255,255,255,1);}
+
+
+/*	Hide and expand buttons
+	============================================= */
+span.hide 		 {color:rgba(204,204,204,1);}
+span.hide:hover	 {color:rgba(255,255,255,1);}
+
+span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide,
+span.span_result span.hide			{color:rgba(15,15,15,1);}
+span.span_transaction span.hide:hover, span.span_planned-disbursement span.hide:hover, span.span_budget span.hide:hover,
+span.span_result span.hide:hover	{color:rgba(255,255,255,1);}
