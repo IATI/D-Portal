@@ -61,13 +61,16 @@ a.a_slug:active			{color:#FFAB5E;}
 /*	Recipient countries
 	============================================= */
 transaction recipient-country			{display:none;}
-span.span_recipient-country				{display:block; vertical-align:top; width:960px; padding:40px 40px 0 40px; box-sizing:border-box;}
+span.span_recipient-country				{display:none; vertical-align:top; width:960px; padding:40px 40px 0 40px; box-sizing:border-box;}
 recipient-country 						{display:block; vertical-align:top; padding:10px 0;}
 span.span_recipient-country:before 		{content:"RECIPIENT COUNTRY"; font-size:14px; color:#CCC; padding-bottom:10px; margin-bottom:20px; display:block; border-bottom:1px solid #aaa;}
 recipient-country span					{font-size:30px; color:#FFF;}
 recipient-country:nth-of-type(1) 		{padding-top:0;}
 recipient-country span:nth-of-type(2)	{font-size:20px; color:#97c4ff; padding-top:10px;}
 recipient-country:last-of-type			{padding-bottom:20px;}
+
+span.country_img:before {content:"Recipient Country"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; width:900px; margin-left:-10px;}
+img.country_pie			{padding:40px; background-color:#FFF;}
 
 
 /*	Start and End dates (Planned and Actual)
@@ -125,11 +128,10 @@ span-narrative.org-role, span-narrative.org-type		{display:none; font-size:14px;
 
 /*	Location (version 2.02++)
 	============================================= */
-span.span_location			{display:block; width:880px; padding:20px 40px 0 40px; font-size:18px; color:#FFF; counter-reset:section;}
+span.span_location			{display:block; width:880px; padding:40px; font-size:18px; color:#FFF; counter-reset:section;}
 span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:24px;}
 span.span_location location:nth-of-type(1)	{padding:0;}
-span.span_location location:last-of-type	{padding-bottom:40px;}
 span.span_location location::before	{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
 span.span_location location name	{display:inline;}
 span.span_location location point	{display:inline;}
@@ -418,7 +420,7 @@ activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:rgba(
 
 /*	Related documents list
 	============================================= */
-span.span_document-link							{width:880px; padding:0 40px; margin:0 auto; margin-bottom:20px;}
+span.span_document-link							{width:880px; padding:0 40px; margin:0 auto; margin-bottom:40px;}
 span.span_document-link:before					{content:"RELATED DOCUMENTS"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:10px;}
 a.a_document-link::before						{display:inline-block; vertical-align:top; content:"☰"; border:1px solid #CCC; padding:2px; color:#CCC; margin-right:-24px;}
 a.a_document-link								{display:block; width:840px; padding:15px 20px; font-size:12px; line-height:1.5em; position:relative; color:#FFF; background-color:rgba(50,58,64,0.6); border:1px solid #656a6f; border-bottom:0;}
@@ -492,6 +494,6 @@ span.span_document-link, span.span_participating-org, span.span_transaction, spa
 span.hide		 {display:block; position:absolute; top:35px; right:40px; font-size:12px; color:#CCC; line-height:24px; letter-spacing:1px;}
 span.hide:hover	 {cursor:pointer; color:#FFF;}
 
-span.span_location span.hide, span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide,
+span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide,
 span.span_result span.hide 				{top:15px;}
 span.span_related-activity span.hide	{right:0;}

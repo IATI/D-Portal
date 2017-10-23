@@ -339,6 +339,9 @@ span.span_recipient-country:before 		{color:rgba(255,255,255,1);}
 recipient-country span					{color:rgba(255,255,255,1);}
 recipient-country span:nth-of-type(2)	{color:rgba(255,255,255,1);}
 
+span.country_img:before {color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
+img.country_pie			{background-color:rgba(255,255,255,1); -webkit-filter:hue-rotate(210deg); filter:hue-rotate(210deg);}
+
 
 /*	Start and End dates
 	============================================= */
@@ -396,7 +399,7 @@ span.span_description description[type="3"]:before		{color:rgba(204,204,204,1);}
 
 /*	Result and description
 	============================================= */
-result:nth-child(odd)		{background-color:rgba(56,56,56,0.3);}
+result:nth-child(even)		{background-color:rgba(56,56,56,0.3);}
 span.span_result:before		{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 result description			{color:rgba(255,255,255,1);}
 result description:before	{color:rgba(204,204,204,1);}

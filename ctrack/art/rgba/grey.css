@@ -368,6 +368,9 @@ span.span_recipient-country:before 		{color:var(--base14);}
 recipient-country span					{color:var(--base15);}
 recipient-country span:nth-of-type(2)	{color:var(--base15);}
 
+span.country_img:before	{color:var(--base14); background-color:var(--base03);}
+img.country_pie			{background-color:var(--base15);}
+
 
 /*	Start and End dates
 	============================================= */
@@ -427,7 +430,7 @@ span.span_description description[type="3"]:before		{color:var(--base14);}
 
 /*	Result and description
 	============================================= */
-result:nth-child(odd)		{background-color:var(--base03_40);}
+result:nth-child(even)		{background-color:var(--base03_40);}
 span.span_result:before		{color:var(--base15); background-color:var(--base03);}
 result description			{color:var(--base15);}
 result description:before	{color:var(--base14);}

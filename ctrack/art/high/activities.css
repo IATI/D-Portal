@@ -74,13 +74,16 @@ a.a_slug:active			{color:#000;}
 /*	Recipient countries
 	============================================= */
 transaction recipient-country		{display:none;}
-span.span_recipient-country			{display:block; vertical-align:top; width:960px; padding:40px 40px 20px 40px; box-sizing:border-box;}
+span.span_recipient-country			{display:none; vertical-align:top; width:960px; padding:40px 40px 20px 40px; box-sizing:border-box;}
 recipient-country 					{display:block; vertical-align:top; padding:10px 0;}
 span.span_recipient-country:before 	{content:"RECIPIENT COUNTRY"; font-size:14px; color:#000; margin-bottom:20px; display:block;}
 recipient-country span				{font-size:30px; color:#000;}
 recipient-country:nth-of-type(1) 	{padding-top:0;}
 recipient-country span:nth-of-type(2)	{font-size:20px; color:#000; padding-top:10px;}
 recipient-country:last-of-type		{padding-bottom:20px;}
+
+span.country_img:before {content:"Recipient Country"; font-size:20px; color:#000; border-top:1px solid #000; display:block; padding:30px 40px 10px 40px; width:879px; margin-top:20px;}
+img.country_pie			{padding:39px; background-color:#FFF;}
 
 
 /*	Start and End dates (Planned and Actual)
@@ -133,11 +136,10 @@ span-narrative.org-role, span-narrative.org-type		{display:none; font-size:14px;
 
 /*	Location (version 2.02++)
 	============================================= */
-span.span_location			{display:block; width:880px; padding:40px 40px 0 40px; font-size:18px; color:#000; counter-reset:section; border-top:1px solid #000;}
+span.span_location			{display:block; width:880px; padding:40px; font-size:18px; color:#000; counter-reset:section; border-top:1px solid #000;}
 span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
 span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:24px;}
 span.span_location location:nth-of-type(1)	{padding:0;}
-span.span_location location:last-of-type	{padding-bottom:40px;}
 span.span_location location::before	{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
 span.span_location location name	{display:inline;}
 span.span_location location point	{display:inline;}
@@ -268,7 +270,7 @@ result indicator span-result	{display:inline-block; vertical-align:top; width:35
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
 sector *		{display:none;}
-span.sector_img:before {content:"Sector"; font-size:20px; color:#000; display:block; border-top:1px solid #000; line-height:1.35em; padding:30px 40px 20px 40px;}
+span.sector_img:before {content:"Sector"; font-size:20px; color:#000; display:block; border-top:1px solid #000; line-height:1.35em; padding:30px 40px 10px 40px;}
 span.span_sector sector[vocabulary="DAC"],
 span.span_sector sector[vocabulary="1"],
 span.span_sector sector[vocabulary="2"]			{font-size:1.0em; color:#000; width:239px; display:none; vertical-align:top; padding:30px 40px 40px 40px; max-height:80px; min-height:80px;}
@@ -409,7 +411,7 @@ activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#000;
 
 /*	Related documents list
 	============================================= */
-span.span_document-link							{width:880px; padding:0 40px; margin:0 auto;  margin-bottom:20px;}
+span.span_document-link							{width:880px; padding:0 40px; margin:0 auto;  margin-bottom:40px;}
 span.span_document-link:before					{content:"RELATED DOCUMENTS"; font-size:14px; color:#000; display:block; padding:40px 0 10px 0; margin-bottom:10px;}
 a.a_document-link::before						{display:inline-block; vertical-align:top; content:"☰"; border:1px solid #000; padding:2px; color:#000; margin-right:-24px;}
 a.a_document-link								{display:block; width:840px; padding:15px 20px; font-size:12px; line-height:1.5em; position:relative; color:#000; border:1px solid #000; border-bottom:0;}
@@ -482,5 +484,4 @@ span.span_document-link, span.span_participating-org, span.span_transaction, spa
 span.hide		 {display:block; position:absolute; top:35px; right:40px; font-size:12px; color:#000; line-height:24px; letter-spacing:1px;}
 span.hide:hover	 {cursor:pointer; color:#000;}
 
-span.span_location span.hide			{top:15px;}
 span.span_related-activity span.hide	{right:0;}

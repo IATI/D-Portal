@@ -766,6 +766,29 @@ acts.each(function(i){var it=$(this);
 	}
 });
 
+acts.each(function(i){var it=$(this);
+
+	var base=it.children(".span_recipient-country");
+	var aa=base.children("recipient-country");
+	if(aa.length>0)
+	{
+	
+		var av=[];
+		var an=[];
+		aa.each(function(i,v){
+			var name=$(this).children("span").first().html();
+			var value=$(this).attr("percentage") || "100";
+			av.push(value);
+			an.push(name+" ("+value+"%)");
+		});
+		
+		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=880x275&cht=p&chds=a&chp=4.712";
+		url=url+"&chd=t:"+av.join(",")+"&chdl="+an.join("|")
+
+		base.before("<img src=\""+url+"\" style=\"width:880px;height:275px\" class=\"country_pie\" />");
+	}
+});
+
 
 // apply css to selected div
 acts.find("location").each(function(i){var it=$(this);
@@ -780,8 +803,9 @@ $('span-narrative.baseline-year').each(function() {
     $(this).insertAfter($(this).parent().find('span-narrative.baseline-value'));
 });
 
-// wrap span around sector image
+// wrap span around sector / country image
 $('img.sector_pie').wrap($('<span class="sector_img">'));
+$('img.country_pie').wrap($('<span class="country_img">'));
 
 //	add hide div to these classes
 $( "span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_recipient-country, span.span_location" ).each(function(i,el){
