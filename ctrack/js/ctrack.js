@@ -84,7 +84,7 @@ ctrack.setup=function(args)
 	ctrack.q={};
 	window.location.search.substring(1).split("&").forEach(function(n){
 		var aa=n.split("=");
-		ctrack.q[aa[0]]=decodeURIComponent(aa[1]||"");
+		ctrack.q[aa[0]]=decodeURIComponent(aa[1]||"").split("<").join("%3C").split(">").join("%3E");
 	});
 	
 	args=args || {};
@@ -551,7 +551,7 @@ ctrack.setup=function(args)
 //console.log(bb);
 			if( ( "string" == typeof bb[0] ) && ( "string" == typeof bb[1] ) )
 			{
-				v[ bb[0] ] = decodeURIComponent(bb[1]) ;
+				v[ bb[0] ] = decodeURIComponent(bb[1]).split("<").join("%3C").split(">").join("%3E");
 			}
 		});
 		return v;
