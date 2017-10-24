@@ -351,6 +351,9 @@ span.span_recipient-country:before 		{color:rgba(136,136,136,1);}
 recipient-country span					{color:rgba(85,85,85,1);}
 recipient-country span:nth-of-type(2)	{color:rgba(85,85,85,1);}
 
+span.country_img:before {color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
+img.country_pie			{background-color:rgba(255,255,255,1);}
+
 
 /*	Start and End dates
 	============================================= */
@@ -390,13 +393,17 @@ span.span_location location point > *	{color:rgba(136,136,136,1);}
 
 /*	Reported by
 	============================================= */
-reporting-org 					{color:rgba(85,85,85,1);}
-reporting-org:before 			{color:rgba(136,136,136,1);}
+reporting-org 				{color:rgba(85,85,85,1);}
+reporting-org:before 		{color:rgba(136,136,136,1);}
+reporting-org a:link		{color:rgba(186,12,47,1);}
+reporting-org a:visited		{color:rgba(186,12,47,1);}
+reporting-org a:hover		{color:rgba(163,0,13,1);}
+reporting-org a:active		{color:rgba(186,12,47,1);}
 
 
 /*	Description of project (shared with Transaction table)
 	============================================= */
-span.span_description description 						{color:rgba(85,85,85,1); background-color:rgba(235, 235, 235, 0.6);}
+span.span_description description 						{color:rgba(85,85,85,1);}
 span.span_description description:nth-of-type(1):before	{color:rgba(136,136,136,1);}
 span.span_description description[type="1"]:before		{color:rgba(136,136,136,1);}
 span.span_description description[type="2"]:before		{color:rgba(136,136,136,1);}
@@ -405,8 +412,8 @@ span.span_description description[type="3"]:before		{color:rgba(136,136,136,1);}
 
 /*	Result and description
 	============================================= */
-result:nth-child(odd)		{background-color:rgba(235,235,235,0.3);}
-result:nth-of-type(1):before{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
+result:nth-child(even)		{background-color:rgba(235,235,235,0.3);}
+span.span_result:before		{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
 result:last-of-type			{border-radius:0 0 4px 4px;}
 result description, result description narrative	{color:rgba(85,85,85,1);}
 result description:before	{color:rgba(136,136,136,1);}
@@ -417,7 +424,6 @@ result indicator:before		{color:rgba(136,136,136,1);}
 
 result indicator period period-start, result indicator period period-end, result indicator period target, result indicator period actual,
 result indicator description			{color:rgba(85,85,85,1);}
-result indicator period period-start	{border-bottom:1px solid rgba(170,170,170,1);}
 result indicator period period-start:before, result indicator period period-end:before	{color:rgba(136,136,136,1);}
 
 result indicator period baseline:before, result indicator period target:before, result indicator period actual:before	{color:rgba(255,255,255,1);}
@@ -459,39 +465,60 @@ img.sector_pie			{background-color:rgba(255,255,255,1);}
 	============================================= */
 budget					{border-top:1px solid rgba(235,235,235,1);}
 budget:last-of-type	 	{border-bottom:1px solid rgba(255,255,255,1);}
-budget:nth-of-type(1):before				{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
+span.span_budget:before						{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
 budget:nth-of-type(1) period-start:before 	{color:rgba(136,136,136,1);}
 budget:nth-of-type(1) period-end:before	  	{color:rgba(136,136,136,1);}
 budget:nth-of-type(1) value:before		  	{color:rgba(136,136,136,1);}
 budget:nth-of-type(1) period-end:after		{color:rgba(136,136,136,1);}
-budget period-start 	{color:rgba(85,85,85,1);}
-budget period-end	 	{color:rgba(85,85,85,1);}
+budget[type="1"] value:after,
+budget[type="2"] value:after,
+budget[type="1"]:nth-of-type(1) value:after,
+budget[type="2"]:nth-of-type(1) value:after,
+budget period-start,
+budget period-end,
 budget value 			{color:rgba(85,85,85,1);}
 
 
 /*	Planned Disbursement table
 	============================================= */
-planned-disbursement:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
-planned-disbursement 						{border-top:1px solid rgba(235,235,235,1);}
+planned-disbursement 					{border-top:1px solid rgba(235,235,235,1);}
+planned-disbursement a					{color:rgba(163,0,13,1);}
+planned-disbursement a:link				{color:rgba(163,0,13,1);}
+planned-disbursement a:visited			{color:rgba(163,0,13,1);}
+planned-disbursement a:hover			{color:rgba(186,12,47,1);}
+planned-disbursement a:active			{color:rgba(163,0,13,1);}
+planned-disbursement:last-of-type		{border-bottom:0px solid rgba(143,143,143,1);}
+span.span_planned-disbursement:before	{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
+
 planned-disbursement:nth-of-type(1) period-start:before,
 planned-disbursement:nth-of-type(1) period-end:before,
-planned-disbursement:nth-of-type(1) value:before{color:rgba(136,136,136,1);}
-planned-disbursement period-start 	{color:rgba(85,85,85,1);}
-planned-disbursement period-end	 	{color:rgba(85,85,85,1);}
-planned-disbursement value 			{color:rgba(85,85,85,1);}
+planned-disbursement:nth-of-type(1) value:before,
+planned-disbursement:nth-of-type(1) provider-org:before,
+planned-disbursement:nth-of-type(1) receiver-org:before,
+planned-disbursement:nth-of-type(1) period-end:after		{color:rgba(136,136,136,1);}
+
+planned-disbursement[type="1"] value:after,
+planned-disbursement[type="2"] value:after,
+planned-disbursement[type="1"]:nth-of-type(1) value:after,
+planned-disbursement[type="2"]:nth-of-type(1) value:after,
+planned-disbursement period-start,
+planned-disbursement period-end,
+planned-disbursement value,
+planned-disbursement provider-org,
+planned-disbursement receiver-org 		{color:rgba(85,85,85,1);}
 
 
 /*	Transaction table
 	============================================= */
-transaction							{border-top:1px solid rgba(235,235,235,1);}
-transaction a						{color:rgba(163,0,13,1);}
-a.a_receiver-org					{color:rgba(163,0,13,1);}
-transaction a:link					{color:rgba(163,0,13,1);}
-transaction a:visited				{color:rgba(163,0,13,1);}
-transaction a:hover					{color:rgba(186,12,47,1);}
-transaction a:active				{color:rgba(163,0,13,1);}
-transaction:last-of-type			{border-bottom:0px solid rgba(143,143,143,1);}
-transaction:nth-of-type(1):before	{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
+transaction						{border-top:1px solid rgba(235,235,235,1);}
+transaction a					{color:rgba(163,0,13,1);}
+a.a_receiver-org				{color:rgba(163,0,13,1);}
+transaction a:link				{color:rgba(163,0,13,1);}
+transaction a:visited			{color:rgba(163,0,13,1);}
+transaction a:hover				{color:rgba(186,12,47,1);}
+transaction a:active			{color:rgba(163,0,13,1);}
+transaction:last-of-type		{border-bottom:0px solid rgba(143,143,143,1);}
+span.span_transaction:before	{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
 
 transaction:nth-of-type(1) transaction-date:before	{color:rgba(136,136,136,1);}
 transaction:nth-of-type(1) transaction-type:before	{color:rgba(136,136,136,1);}
@@ -555,3 +582,14 @@ a.a_related-activity				{color:rgba(85,85,85,1);}
 related-activity					{color:rgba(85,85,85,1);}
 related-activity:hover				{color:rgba(163,0,13,1);}
 related-activity:before				{color:rgba(136,136,136,1);}
+
+
+/*	Hide and expand buttons
+	============================================= */
+span.hide 		 {color:rgba(136,136,136,1);}
+span.hide:hover	 {color:rgba(163,0,13,1);}
+
+span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide,
+span.span_result span.hide			{color:rgba(204,204,204,1);}
+span.span_transaction span.hide:hover, span.span_planned-disbursement span.hide:hover, span.span_budget span.hide:hover,
+span.span_result span.hide:hover	{color:rgba(255,255,255,1);}

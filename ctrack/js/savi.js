@@ -70,16 +70,18 @@ acts.each(function(i){var it=$(this);
 	
 
 	{
-		var narratives=["participating-org"];
+		var narratives=["participating-org, receiver-org, provider-org"];
 		narratives.forEach(function(n){
 			it.find(n).each(function(i){var it=$(this);
 				if( it.find("narrative").length==0 ) // only if no narrative in this tag
 				{
+					var id=it.attr("ref");
+					id=iati_codes.publisher_names[id] || id;	//	converts ref to publisher name or if lookup fails, use raw text
 					var text=it.text(); // get text
 					if(text.trim()=="") // is text empty?
 					{
 						it.wrapInner("<narrative></narrative>");
-						it.find("narrative").text( it.attr("ref") ); // use ref
+						it.find("narrative").text( id ); // use ref
 					}
 					else
 					{
@@ -113,6 +115,7 @@ acts.each(function(i){var it=$(this);
 	
 });
 
+
 // change title to span_title (title tag seems to confuse browsers)
 acts.find("title").each(function(i){var it=$(this);
 //console.log(it.text());
@@ -122,11 +125,27 @@ acts.find("title").each(function(i){var it=$(this);
 
 acts.find("participating-org").each(function(i){var it=$(this);
 	var c=it.attr("role");
+//	var d=it.attr("type");
 	if(c)
 	{
 		c=c.toLowerCase();
-		it.attr("role",c)
+//		it.attr("role",c)
+		c=iati_codes.org_role[c] || c;
+		if(c)
+		{
+			it.append($('<span-narrative class="org-role">' + c.toUpperCase() + '</span-narrative>'));
+		}
 	}
+	
+//	if(d)
+//	{
+//		d=d.toLowerCase();
+//		d=iati_codes.org_type[d] || d;
+//		if(d)
+//		{
+//			it.append($('<span-narrative class="org-type">' + d.toUpperCase() + '</span-narrative>'));
+//		}
+//	}
 	
 	if( it.html().trim()=="" )
 	{
@@ -134,6 +153,13 @@ acts.find("participating-org").each(function(i){var it=$(this);
 	}
 
 });
+
+//acts.find("participating-org").each(function(i){var it=$(this);
+//	if(it.attr("role"))
+//	{
+//		it.append($('<span-narrative class="participating-role">'  + it.attr("role") + " role" + '</span-narrative>'));
+//	}
+//});
 
 acts.find("transaction").each(function(i){var it=$(this);
 	var needed=["transaction-date","transaction-type","description","provider-org","receiver-org","value"];
@@ -229,6 +255,12 @@ acts.find("result").each(function(i){var it=$(this);
 		
 	});
 });
+
+
+acts.find("result indicator").each(function(i){var it=$(this);	
+	it.find( "span-title, description" ).wrapAll( "<span-result class='lc'></span-result>" );	
+});
+
 
 acts.find("result indicator").each(function(i){var it=$(this);
 	var needed=["description"];
@@ -336,13 +368,6 @@ acts.find("related-activity").each(function(i){var it=$(this);
 });
 
 
-//acts.find("participating-org").each(function(i){var it=$(this);
-//	if(it.attr("role"))
-//	{
-//		it.append($('<span-narrative class="participating-role">'  + it.attr("role") + " role" + '</span-narrative>'));
-//	}
-//});
-
 
 acts.find("reporting-org").each(function(i){var it=$(this);
 	var t=it.attr("ref");
@@ -444,6 +469,7 @@ sort_elements("result",[
 		0]);
 
 sort_elements("result indicator",[
+		"span-result",
 		"span-title",
 		"description",
 		"period",
@@ -527,6 +553,13 @@ sorted++;
 		{
 			if(aname > bname ) { ret= 1; }
 			if(aname < bname ) { ret=-1; }
+		}
+		
+		if( (ret===0) && (aname=="document-link") )
+		{
+			var at=(a.getAttribute("format"));
+			var bt=(b.getAttribute("format"));
+			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
 		}
 		
 		if( (ret===0) && (aname=="participating-org") )
@@ -638,24 +671,56 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 	}
 });
 
-acts.find("provider-org[provider-activity-id]").each(function(i){var it=$(this);
-	var id=it.attr("provider-activity-id");
-	if(id)
-	{
-		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
-	}
-});
 
-acts.find("receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
-	var id=it.attr("receiver-activity-id");
-	if(id)
-	{
-		wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
-	}
-});
-
-acts.find("participating-org[ref]").each(function(i){var it=$(this);
+acts.find("provider-org[ref], provider-org[activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
+	var aid=it.attr("activity-id");
+	
+	if( aid )
+	{
+		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
+	}
+	else
+	if(id)
+	{
+		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
+	}
+});
+
+acts.find("receiver-org[ref], receiver-org[activity-id]").each(function(i){var it=$(this);
+	var id=it.attr("ref");
+	var aid=it.attr("activity-id");
+	
+	if( aid )
+	{
+		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
+	}
+	else
+	if(id)
+	{
+		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
+	}
+});
+
+acts.find("participating-org[ref], participating-org[activity-id]").each(function(i){var it=$(this);
+	var id=it.attr("ref");
+	var aid=it.attr("activity-id");
+	
+	if( aid )
+	{
+		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
+	}
+	else
+	if(id)
+	{
+		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
+	}
+});
+
+
+acts.find("reporting-org[ref]").each(function(i){var it=$(this);
+	var id=it.attr("ref");
+	
 	if(id)
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
@@ -701,6 +766,29 @@ acts.each(function(i){var it=$(this);
 	}
 });
 
+acts.each(function(i){var it=$(this);
+
+	var base=it.children(".span_recipient-country");
+	var aa=base.children("recipient-country");
+	if(aa.length>0)
+	{
+	
+		var av=[];
+		var an=[];
+		aa.each(function(i,v){
+			var name=$(this).children("span").first().html();
+			var value=$(this).attr("percentage") || "100";
+			av.push(value);
+			an.push(name+" ("+value+"%)");
+		});
+		
+		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=880x275&cht=p&chds=a&chp=4.712";
+		url=url+"&chd=t:"+av.join(",")+"&chdl="+an.join("|")
+
+		base.before("<img src=\""+url+"\" style=\"width:880px;height:275px\" class=\"country_pie\" />");
+	}
+});
+
 
 // apply css to selected div
 acts.find("location").each(function(i){var it=$(this);
@@ -715,8 +803,22 @@ $('span-narrative.baseline-year').each(function() {
     $(this).insertAfter($(this).parent().find('span-narrative.baseline-value'));
 });
 
-// wrap span around sector image
+// wrap span around sector / country image
 $('img.sector_pie').wrap($('<span class="sector_img">'));
+$('img.country_pie').wrap($('<span class="country_img">'));
+
+//	add hide div to these classes
+$( "span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_recipient-country, span.span_location" ).each(function(i,el){
+	var e=$(el);
+	var ec=e.children();
+	var c=$("<span class='hide'>[ - ] HIDE</span>");
+	e.append(c);
+	c.click(function(){
+		c.text((c.text() == '[ - ] HIDE') ? '[ + ] SHOW' : '[ - ] HIDE').fadeIn();
+		ec.fadeToggle('fast');
+	});
+});
+
 
 };
 

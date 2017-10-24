@@ -89,6 +89,14 @@ iati_codes.fetch = function(){
 			{
 				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/ActivityStatus.json",
 				name:"activity_status",
+			},
+			{
+				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/OrganisationType.json",
+				name:"org_type",
+			},
+			{
+				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/OrganisationRole.json",
+				name:"org_role",
 			}
 		];
 	

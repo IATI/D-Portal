@@ -368,6 +368,9 @@ span.span_recipient-country:before 		{color:var(--base14);}
 recipient-country span					{color:var(--base15);}
 recipient-country span:nth-of-type(2)	{color:var(--base15);}
 
+span.country_img:before	{color:var(--base14); background-color:var(--base03);}
+img.country_pie			{background-color:var(--base15);}
+
 
 /*	Start and End dates
 	============================================= */
@@ -408,8 +411,12 @@ span.span_location location point > *	{color:var(--base13);}
 
 /*	Reported by
 	============================================= */
-reporting-org 					{color:var(--base15);}
-reporting-org:before 			{color:var(--base14);}
+reporting-org 				{color:var(--base15);}
+reporting-org:before 		{color:var(--base14);}
+reporting-org a:link		{color:var(--base11);}
+reporting-org a:visited		{color:var(--base11);}
+reporting-org a:hover		{color:var(--base15);}
+reporting-org a:active		{color:var(--base11);}
 
 
 /*	Description of project (shared with Transaction table)
@@ -423,8 +430,8 @@ span.span_description description[type="3"]:before		{color:var(--base14);}
 
 /*	Result and description
 	============================================= */
-result:nth-child(odd)		{background-color:var(--base03_40);}
-result:nth-of-type(1):before{color:var(--base15); background-color:var(--base03);}
+result:nth-child(even)		{background-color:var(--base03_40);}
+span.span_result:before		{color:var(--base15); background-color:var(--base03);}
 result description			{color:var(--base15);}
 result description:before	{color:var(--base14);}
 result span-title			{color:var(--base15);}
@@ -432,7 +439,6 @@ result span-title:before	{color:var(--base14);}
 
 result indicator period period-start, result indicator period period-end, result indicator period target, result indicator period actual,
 result indicator description			{color:var(--base15);}
-result indicator period period-start	{border-bottom:1px solid var(--base03);}
 result indicator period period-start:before, result indicator period period-end:before, result indicator period baseline:before, result indicator period target:before,
 result indicator period actual:before	{color:var(--base14);}
 
@@ -472,39 +478,62 @@ img.sector_pie			{background-color:var(--base15);}
 	============================================= */
 budget					{border-top:1px solid var(--base01);}
 budget:last-of-type	 	{border-bottom:0px solid var(--base01);}
-budget:nth-of-type(1):before				{color:var(--base15); background-color:var(--base03);}
+span.span_budget:before						{color:var(--base15); background-color:var(--base03);}
 budget:nth-of-type(1) period-start:before 	{color:var(--base15); border-bottom:2px solid var(--base03);}
 budget:nth-of-type(1) period-end:before	  	{color:var(--base15); border-bottom:2px solid var(--base03);}
 budget:nth-of-type(1) value:before		  	{color:var(--base15); border-bottom:2px solid var(--base03);}
-period-start 			{color:var(--base15);}
-period-end	 			{color:var(--base15);}
+
+budget:nth-of-type(1) period-end:after,
+budget[type="1"] value:after,
+budget[type="2"] value:after,
+budget[type="1"]:nth-of-type(1) value:after,
+budget[type="2"]:nth-of-type(1) value:after,
+budget period-start,
+budget period-end,
 budget value 			{color:var(--base15);}
 
 
 /*	Planned Disbursement table
 	============================================= */
 planned-disbursement				{border-top:1px solid var(--base01);}
+planned-disbursement a				{font-weight:bold; color:var(--base11);}
+planned-disbursement a				{color:var(--base11);}
+planned-disbursement a:link			{color:var(--base11);}
+planned-disbursement a:visited		{color:var(--base11);}
+planned-disbursement a:hover		{color:var(--base11);}
+planned-disbursement a:active		{color:var(--base11);}
 planned-disbursement:last-of-type	{border-bottom:0px solid var(--base01);}
-planned-disbursement:nth-of-type(1):before				{color:var(--base15); background-color:var(--base03);}
-planned-disbursement:nth-of-type(1) period-start:before {color:var(--base15); border-bottom:2px solid var(--base03);}
-planned-disbursement:nth-of-type(1) period-end:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
-planned-disbursement:nth-of-type(1) value:before		{color:var(--base15); border-bottom:2px solid var(--base03);}
-period-start 			{color:var(--base15);}
-period-end	 			{color:var(--base15);}
-planned-disbursement value 			{color:var(--base15);}
+span.span_planned-disbursement:before{color:var(--base15); background-color:var(--base03);}
+
+planned-disbursement:nth-of-type(1) period-start:before,
+planned-disbursement:nth-of-type(1) period-end:before,
+planned-disbursement:nth-of-type(1) value:before,
+planned-disbursement:nth-of-type(1) provider-org:before,
+planned-disbursement:nth-of-type(1) receiver-org:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
+
+planned-disbursement:nth-of-type(1) period-end:after,
+planned-disbursement[type="1"] value:after,
+planned-disbursement[type="2"] value:after,
+planned-disbursement[type="1"]:nth-of-type(1) value:after,
+planned-disbursement[type="2"]:nth-of-type(1) value:after,
+planned-disbursement period-start,
+planned-disbursement period-end,
+planned-disbursement value,
+planned-disbursement provider-org,
+planned-disbursement receiver-org 			{color:var(--base15);}
 
 
 /*	Transaction table
 	============================================= */
-transaction							{border-top:1px solid var(--base01);}
-transaction a						{font-weight:bold; color:var(--base11);}
-transaction a						{color:var(--base11);}
-transaction a:link					{color:var(--base11);}
-transaction a:visited				{color:var(--base11);}
-transaction a:hover					{color:var(--base15);}
-transaction a:active				{color:var(--base11);}
-transaction:last-of-type			{border-bottom:0px solid var(--base01);}
-transaction:nth-of-type(1):before	{color:var(--base15); background-color:var(--base03);}
+transaction						{border-top:1px solid var(--base01);}
+transaction a					{font-weight:bold; color:var(--base11);}
+transaction a					{color:var(--base11);}
+transaction a:link				{color:var(--base11);}
+transaction a:visited			{color:var(--base11);}
+transaction a:hover				{color:var(--base15);}
+transaction a:active			{color:var(--base11);}
+transaction:last-of-type		{border-bottom:0px solid var(--base01);}
+span.span_transaction:before	{color:var(--base15); background-color:var(--base03);}
 
 transaction:nth-of-type(1) transaction-date:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
 transaction:nth-of-type(1) transaction-type:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
@@ -567,3 +596,9 @@ a.a_related-activity				{color:var(--base15);}
 related-activity					{color:var(--base11);}
 related-activity:hover				{color:var(--base11);}
 related-activity:before				{color:var(--base15);}
+
+
+/*	Hide and expand buttons
+	============================================= */
+span.hide 		 {color:var(--base12);}
+span.hide:hover	 {color:var(--base15);}
