@@ -59,10 +59,13 @@ dstore_cache.cmd = function(argv){
 	}
 	else // help
 	{
-		console.log("dstore cache datastore -- download all xml from the datastore")
-		console.log("dstore cache iati      -- download all xml direct from iati publishers")
-		console.log("dstore cache empty     -- empty every xml in the cache (so next import will clear all)")
-		console.log("dstore cache newold    -- update cache/new and cache/old with the current state")
+		console.log("dstore cache datastore            -- download all xml from the datastore")
+		console.log("dstore cache iati                 -- download new xml direct from iati publishers")
+		console.log("dstore cache iati --download      -- download all xml direct from iati publishers")
+		console.log("dstore cache iati --publisher=xxx -- ... only this iati publishers")
+		console.log("dstore cache iati --slug=xxx      -- ... only this file slug")
+		console.log("dstore cache empty                -- empty every xml in the cache (so next import will clear all)")
+		console.log("dstore cache newold               -- update cache/new and cache/old with the current state")
 	}
 
 };
@@ -217,7 +220,9 @@ dstore_cache.empty = function(argv,keep){
 
 dstore_cache.iati = function(argv){
 	
-	var just_this_slug=argv._[2] || undefined; // just download this slug (filename without .xml)
+	var force_download      = argv["download"]  || undefined; // force always download
+	var just_this_publisher = argv["publisher"] || undefined; // only this publisher
+	var just_this_slug      = argv["slug"]      || undefined; // just download this slug (filename without .xml)
 
 	try { fs.mkdirSync(global.argv.cache); } catch(e){}
 
@@ -228,6 +233,7 @@ dstore_cache.iati = function(argv){
 	var done=false;
 	while(!done)
 	{	
+		console.log( "iatiregistry query for packages "+(start+1)+" to "+(start+1000) );
 		var js=wait.for(http_getbody,"http://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
 
 		var j=JSON.parse(js.toString('utf8'));
@@ -235,10 +241,10 @@ dstore_cache.iati = function(argv){
 		done=true;
 		for(var i=0;i<rs.length;i++)
 		{
+			done=false;
 			var v=rs[i];
 			if(v.type=="dataset")
 			{
-				done=false;
 				if( v.resources[1] || !(v.resources[0] && v.resources[0].url ) )
 				{
 					console.log(v.resources); // problems with the data?
@@ -250,47 +256,70 @@ dstore_cache.iati = function(argv){
 					var fname=global.argv.cache+"/"+slug+".xml";
 					var fname_old=global.argv.cache+"/old/"+slug+".xml";
 					
-					if( (!just_this_slug) || (just_this_slug==slug) ) // maybe limit to one slug
+					var  dothisfile=true;
+					
+					if(just_this_publisher)
+					{
+						var test;
+						if(v.extras)
+						{
+							for(var xi=0;xi<v.extras.length;xi++)
+							{
+								var x=v.extras[xi];
+								if(x.key="publisher_iati_id")
+								{
+									test=x.value;
+								}
+							}
+						}
+						if(just_this_publisher!=test) { dothisfile=false; }
+					}
+					if( (just_this_slug) && (just_this_slug!=slug) ) { dothisfile=false; }
+					
+					if( dothisfile ) // maybe limit to one slug or publisher
 					{
 						slugs[slug]=url;
 						
 						try{
 							console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
 							var download=true;
-							try{
-								var h=wait.for(http_gethead,url);
-								var f; try{ f=fs.statSync(fname); }catch(e){}
-		//						console.log(h.headers);
-		//						console.log(f);
-								if( h && h.headers["last-modified"] && f && f.mtime )
-								{
-									var hm=Date.parse( h.headers["last-modified"] );
-									var fm=Date.parse( f.mtime );
-									if(hm<=fm) // we already have a newer file so ignore (might change mind when we check the size)
+							if(!force_download)
+							{
+								try{
+									var h=wait.for(http_gethead,url);
+									var f; try{ f=fs.statSync(fname); }catch(e){}
+			//						console.log(h.headers);
+			//						console.log(f);
+									if( h && h.headers["last-modified"] && f && f.mtime )
 									{
-										download=false;
+										var hm=Date.parse( h.headers["last-modified"] );
+										var fm=Date.parse( f.mtime );
+										if(hm<=fm) // we already have a newer file so ignore (might change mind when we check the size)
+										{
+											download=false;
+										}
 									}
-								}
-								if( h && h.headers["content-length"] )
-								{
-									var size=parseInt(h.headers["content-length"] ) ;
-									if(f && (size!=f.size) ) // wrong size so try download again
+									if( h && h.headers["content-length"] )
+									{
+										var size=parseInt(h.headers["content-length"] ) ;
+										if(f && (size!=f.size) ) // wrong size so try download again
+										{
+											download=true;
+										}
+										if( size > 1024*1024*512 ) // huge file, skip it
+										{
+											failed_slugs[slug]="ERROR! File is too big > 512meg so skipping download...";
+											console.log("ERROR! File is too big > 512meg so skipping download...");
+											download=false;
+										}
+									}
+									else // a missing content-length also forces a download
 									{
 										download=true;
 									}
-									if( size > 1024*1024*512 ) // huge file, skip it
-									{
-										failed_slugs[slug]="ERROR! File is too big > 512meg so skipping download...";
-										console.log("ERROR! File is too big > 512meg so skipping download...");
-										download=false;
-									}
-								}
-								else // a missing content-length also forces a download
-								{
-									download=true;
-								}
-								
-							}catch(e){}
+									
+								}catch(e){}
+							}
 
 							if(download)
 							{
@@ -316,7 +345,7 @@ dstore_cache.iati = function(argv){
 		start+=1000;
 	}
 	
-	if(!just_this_slug)
+	if((!just_this_slug)&&(!just_this_publisher))
 	{
 		console.log("");
 		console.log("EMPTYING OLD CACHE");
