@@ -275,67 +275,74 @@ dstore_cache.iati = function(argv){
 						if(just_this_publisher!=test) { dothisfile=false; }
 					}
 					if( (just_this_slug) && (just_this_slug!=slug) ) { dothisfile=false; }
-					
+										
 					if( dothisfile ) // maybe limit to one slug or publisher
 					{
-						slugs[slug]=url;
-						
-						try{
-							console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
-							var download=true;
-							if(!force_download)
-							{
-								try{
-									var h=wait.for(http_gethead,url);
-									var f; try{ f=fs.statSync(fname); }catch(e){}
-			//						console.log(h.headers);
-			//						console.log(f);
-									if( h && h.headers["last-modified"] && f && f.mtime )
-									{
-										var hm=Date.parse( h.headers["last-modified"] );
-										var fm=Date.parse( f.mtime );
-										if(hm<=fm) // we already have a newer file so ignore (might change mind when we check the size)
+						if(argv["list"])
+						{
+							console.log((i+start+1)+"/"+(start+rs.length)+":list "+slug+" from "+url)
+						}
+						else
+						{
+							
+							slugs[slug]=url;						
+							try{
+								console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
+								var download=true;
+								if(!force_download)
+								{
+									try{
+										var h=wait.for(http_gethead,url);
+										var f; try{ f=fs.statSync(fname); }catch(e){}
+				//						console.log(h.headers);
+				//						console.log(f);
+										if( h && h.headers["last-modified"] && f && f.mtime )
 										{
-											download=false;
+											var hm=Date.parse( h.headers["last-modified"] );
+											var fm=Date.parse( f.mtime );
+											if(hm<=fm) // we already have a newer file so ignore (might change mind when we check the size)
+											{
+												download=false;
+											}
 										}
-									}
-									if( h && h.headers["content-length"] )
-									{
-										var size=parseInt(h.headers["content-length"] ) ;
-										if(f && (size!=f.size) ) // wrong size so try download again
+										if( h && h.headers["content-length"] )
+										{
+											var size=parseInt(h.headers["content-length"] ) ;
+											if(f && (size!=f.size) ) // wrong size so try download again
+											{
+												download=true;
+											}
+											if( size > 1024*1024*512 ) // huge file, skip it
+											{
+												failed_slugs[slug]="ERROR! File is too big > 512meg so skipping download...";
+												console.log("ERROR! File is too big > 512meg so skipping download...");
+												download=false;
+											}
+										}
+										else // a missing content-length also forces a download
 										{
 											download=true;
 										}
-										if( size > 1024*1024*512 ) // huge file, skip it
-										{
-											failed_slugs[slug]="ERROR! File is too big > 512meg so skipping download...";
-											console.log("ERROR! File is too big > 512meg so skipping download...");
-											download=false;
-										}
-									}
-									else // a missing content-length also forces a download
-									{
-										download=true;
-									}
-									
-								}catch(e){}
-							}
+										
+									}catch(e){}
+								}
 
-							if(download)
-							{
-								var b=wait.for(http_getbody,url);
-								fs.writeFileSync(fname,b);
-								console.log("written\t"+b.length+" bytes to "+fname);
+								if(download)
+								{
+									var b=wait.for(http_getbody,url);
+									fs.writeFileSync(fname,b);
+									console.log("written\t"+b.length+" bytes to "+fname);
+								}
+								else
+								{
+									console.log("...");
+								}
+							
+							}catch(e){
+								failed_slugs[slug]=e;
+								console.log("Something went wrong, using last downloaded version of "+slug);
+								console.log(e);
 							}
-							else
-							{
-								console.log("...");
-							}
-						
-						}catch(e){
-							failed_slugs[slug]=e;
-							console.log("Something went wrong, using last downloaded version of "+slug);
-							console.log(e);
 						}
 					}
 				}
@@ -344,6 +351,8 @@ dstore_cache.iati = function(argv){
 		
 		start+=1000;
 	}
+	
+	if(argv["list"]) { return; }
 	
 	if((!just_this_slug)&&(!just_this_publisher))
 	{
