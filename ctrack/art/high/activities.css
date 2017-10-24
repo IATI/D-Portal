@@ -117,17 +117,13 @@ participating-org a:visited			{color:#000;}
 participating-org a:hover			{color:#000; text-decoration:underline;}
 participating-org a:active			{color:#000;}
 participating-org[role="1"] narrative:nth-of-type(1):after,
-participating-org[role="funding"] narrative:nth-of-type(1):after,
-participating-org[role="Funding"] narrative:nth-of-type(1):after		{content:"FUNDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
+participating-org[role="funding" i] narrative:nth-of-type(1):after		{content:"FUNDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 participating-org[role="2"] narrative:nth-of-type(1):after,
-participating-org[role="accountable"] narrative:nth-of-type(1):after,
-participating-org[role="Accountable"] narrative:nth-of-type(1):after	{content:"ACCOUNTABLE"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
+participating-org[role="accountable" i] narrative:nth-of-type(1):after	{content:"ACCOUNTABLE"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 participating-org[role="3"] narrative:nth-of-type(1):after,
-participating-org[role="extending"] narrative:nth-of-type(1):after,
-participating-org[role="Extending"] narrative:nth-of-type(1):after		{content:"EXTENDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
+participating-org[role="extending" i] narrative:nth-of-type(1):after	{content:"EXTENDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 participating-org[role="4"] narrative:nth-of-type(1):after,
-participating-org[role="implementing"] narrative:nth-of-type(1):after,
-participating-org[role="Implementing"] narrative:nth-of-type(1):after	{content:"IMPLEMENTING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
+participating-org[role="implementing" i] narrative:nth-of-type(1):after	{content:"IMPLEMENTING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 
 span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0 0 0 24px; font-style:italic; font-size:16px; line-height:inherit;}
 span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
@@ -234,9 +230,11 @@ result indicator > baseline comment	{display:block; color:#000; padding:10px 0; 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
 span-narrative						{font-size:28px; line-height:30px;}
 
-span-narrative.dimension-name		{display:inline; text-transform:capitalize; font-size:14px; line-height:20px;}
+result indicator period dimension:nth-of-type(1)	{padding-top:5px;}
+
+span-narrative.dimension-name		{display:inline; font-size:14px; line-height:20px;}
 span-narrative.dimension-name:after {content:" :";}
-span-narrative.dimension-value		{display:inline; padding-left:5px; text-transform:capitalize; font-size:14px; line-height:20px;}
+span-narrative.dimension-value		{display:inline; font-size:14px; line-height:20px; padding-left:5px;}
 
 span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:14px; line-height:20px;}
 result indicator comment			{padding-top:10px; font-style:italic; line-height:20px;}
