@@ -636,7 +636,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 		t.title=refry.tagval_narrative(act,"title");
 		t.description=refry.tagval_narrative(act,"description");				
-		t.reporting=refry.tagval(act,"reporting-org");				
+		t.reporting=refry.tagval_narrative(act,"reporting-org");				
 		t.reporting_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=tonumber(refry.tagattr(act,"activity-status","code"));
 
