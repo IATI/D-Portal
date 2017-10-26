@@ -161,6 +161,22 @@ acts.find("participating-org").each(function(i){var it=$(this);
 //	}
 //});
 
+
+acts.find("document-link category").each(function(i){var it=$(this);
+	var c=it.attr("code");
+	if(c)
+	{
+		c=c.toUpperCase();
+		c=iati_codes.doc_cat[c] || c;
+		if(c)
+		{
+			it.wrap($('<span-narrative class="doc-cat">' + c + '</span-narrative>'));
+		}
+	}
+});
+
+
+
 acts.find("transaction").each(function(i){var it=$(this);
 	var needed=["transaction-date","transaction-type","description","provider-org","receiver-org","value"];
 	needed.forEach(function(n){
@@ -503,6 +519,13 @@ sort_elements("transaction",[
 		"receiver-org",
 		"value",
 		0]);
+		
+sort_elements("document-link",[
+		"span-title",
+		"span-narrative",
+		0]);
+		
+		
 
 
 var sorted=0;
@@ -704,6 +727,7 @@ acts.find("receiver-org[ref], receiver-org[activity-id]").each(function(i){var i
 
 acts.find("participating-org[ref], participating-org[activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
+	id=iati_codes.publisher_names[id];
 	var aid=it.attr("activity-id");
 	
 	if( aid )
@@ -808,16 +832,46 @@ $('img.sector_pie').wrap($('<span class="sector_img">'));
 $('img.country_pie').wrap($('<span class="country_img">'));
 
 //	add hide div to these classes
-$( "span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_recipient-country, span.span_location" ).each(function(i,el){
+$( "span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children();
 	var c=$("<span class='hide'>[ - ] HIDE</span>");
+	var d=$("<span class='length'>( " + ec.length + " )</span>");		// count children
 	e.append(c);
+	e.append(d);
 	c.click(function(){
 		c.text((c.text() == '[ - ] HIDE') ? '[ + ] SHOW' : '[ - ] HIDE').fadeIn();
 		ec.fadeToggle('fast');
 	});
 });
+
+//	only count dac sectors
+$( "span.span_sector" ).each(function(i,el){
+	var e=$(el);
+	var ec=e.children("sector[vocabulary=\"DAC\"],sector[vocabulary=\"1\"]");
+	var d=$("<span class='length'>( " + ec.length + " )</span>");
+	
+	if(ec.length>1)
+	{
+		e.append(d);
+	}
+
+});
+
+//	count recipient children
+$( "span.span_recipient-country" ).each(function(i,el){
+	var e=$(el);
+	var ec=e.children();
+	var d=$("<span class='length'>( " + ec.length + " )</span>");
+	
+	e.append(d);
+
+});
+
+//	move these into another element
+$( "span.span_sector span.length" ).appendTo( $( "span.sector_img" ) );
+$( "span.span_recipient-country span.length" ).appendTo( $( "span.country_img" ) );
+
 
 
 };

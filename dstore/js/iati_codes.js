@@ -97,6 +97,10 @@ iati_codes.fetch = function(){
 			{
 				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/OrganisationRole.json",
 				name:"org_role",
+			},
+			{
+				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/DocumentCategory.json",
+				name:"doc_cat",
 			}
 		];
 	

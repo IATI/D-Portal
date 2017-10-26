@@ -587,6 +587,7 @@ a.a_document-link:hover						{background-color:var(--base03_40);}
 a.a_document-link document-link span-title	{color:var(--base15);}
 document-link span							{color:var(--base14);}
 a.a_document-link span-title:after			{background-color:var(--base04_70);}
+span-narrative.doc-cat						{color:var(--base15); background-color:var(--base02_40);}
 
 
 /*	Family Tree list
@@ -603,3 +604,8 @@ related-activity:before				{color:var(--base15);}
 	============================================= */
 span.hide 		 {color:var(--base14);}
 span.hide:hover	 {color:var(--base15);}
+
+
+/*	Count
+	============================================= */
+span.length		{color:var(--base15);}

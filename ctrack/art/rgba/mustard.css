@@ -546,6 +546,7 @@ a.a_document-link:hover						{background-color:rgba(56,56,56,0.7);}
 a.a_document-link document-link span-title	{color:rgba(255,255,255,1);}
 document-link span							{color:rgba(204,204,204,1);}
 a.a_document-link span-title:after			{background-color:rgba(15,15,15,0.7);}
+span-narrative.doc-cat						{color:rgba(255,255,255,1); background-color:rgba(101,101,101,0.4);}
 
 
 /*	Family Tree list
@@ -567,3 +568,8 @@ span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.
 span.span_result span.hide			{color:rgba(15,15,15,1);}
 span.span_transaction span.hide:hover, span.span_planned-disbursement span.hide:hover, span.span_budget span.hide:hover,
 span.span_result span.hide:hover	{color:rgba(255,255,255,1);}
+
+
+/*	Count
+	============================================= */
+span.length {color:rgba(255,255,255,1);}

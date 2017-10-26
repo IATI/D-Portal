@@ -70,6 +70,7 @@ recipient-country span:nth-of-type(2)	{font-size:20px; color:#97c4ff; padding-to
 recipient-country:last-of-type			{padding-bottom:20px;}
 
 span.country_img:before {content:"Recipient Country"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; width:900px; margin-left:-10px;}
+span.country_img		{position:relative;}
 img.country_pie			{padding:40px; background-color:#FFF;}
 
 
@@ -278,6 +279,7 @@ span.span_sector sector span:nth-of-type(1)		{line-height:1.2em;}
 span.span_sector sector span:nth-of-type(2)		{color:#ccc;}
 span.span_sector sector span:nth-of-type(2):after{content:"allocated"; padding-left:5px; display:inline-block;}
 img.sector_pie	{padding:40px; background-color:#FFF;}
+span.sector_img	{position:relative;}
 
 
 /*	Budget table
@@ -426,18 +428,21 @@ a.a_document-link:last-of-type					{border-bottom:1px solid #656a6f;}
 a.a_document-link:hover							{background-color:rgba(77,88,97,0.6);}
 document-link									{display:inline-block; vertical-align:top; padding-left:34px;}
 document-link span								{font-size:1.0em; display:block; color:#ccc;}
-document-link span-title						{display:inline;}
+document-link span-title						{display:block;}
 document-link span-title:nth-of-type(n+1):before{display:none;}
 document-link span-title:nth-of-type(n+1)		{font-size:16px;}
+document-link span-title:nth-of-type(n+2)		{display:none;}
 document-link span-title narrative				{display:inline;}
 
 a.a_document-link span-title:after				{content:"LINK"; margin-left:10px; color:#CCC; font-size:12px; vertical-align:top; background-color:rgba(22,24,37,0.6); border-radius:4px; padding:1px 4px;}
+span-narrative.doc-cat							{display:inline-block; margin-top:5px; margin-right:5px; color:#CCC; font-size:13px; vertical-align:top; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px; line-height:1.5em;}
 
 /*	Add i to be case-insensitive */
 
 a[href$=".doc" i].a_document-link span-title:after	{content:"DOC";}
 a[href$=".docx" i].a_document-link span-title:after	{content:"DOCX";}
 a[href$=".pdf" i].a_document-link span-title:after	{content:"PDF";}
+a[href$=".pdf " i].a_document-link span-title:after	{content:"PDF";}
 a[href$=".txt" i].a_document-link span-title:after	{content:"TXT";}
 a[href$=".html" i].a_document-link span-title:after	{content:"HTML";}
 a[href$=".odt" i].a_document-link span-title:after	{content:"ODT";}
@@ -495,3 +500,20 @@ span.hide:hover	 {cursor:pointer; color:#FFF;}
 span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide,
 span.span_result span.hide 				{top:15px;}
 span.span_related-activity span.hide	{right:0;}
+
+
+/*	Count
+	============================================= */
+span.length {position:absolute; top:39px; left:200px; font-size:14px; line-height:16px; color:#CCC;}
+span.span_document-link span.length			{left:210px;}
+span.span_participating-org span.length		{left:180px;}
+span.span_participating-org span.length		{left:180px;}
+span.span_budget span.length				{top:20px; left:120px;}
+span.span_transaction span.length			{top:20px; left:160px;}
+span.span_planned-disbursement span.length	{top:20px; left:260px;}
+span.span_result span.length				{top:20px; left:120px;}
+span.span_related-activity span.length		{left:110px;}
+span.span_location span.length				{left:135px;}
+span.sector_img span.length					{top:20px; left:105px;}
+span.country_img span.length				{top:20px; left:205px;}
+
