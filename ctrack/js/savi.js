@@ -848,10 +848,10 @@ $( "span.span_document-link, span.span_participating-org, span.span_transaction,
 //	only count dac sectors
 $( "span.span_sector" ).each(function(i,el){
 	var e=$(el);
-	var ec=e.children("sector[vocabulary=\"DAC\"],sector[vocabulary=\"1\"]");
+	var ec=e.children("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
 	
-	if(ec.length>1)
+	if(ec.length>0)
 	{
 		e.append(d);
 	}
