@@ -115,7 +115,7 @@ view_list_transactions.ajax=function(args)
 				return parseInt(s);
 			}
 			var cc=[];
-			cc[0]=["activity-identifier","title","reporting-org","amount","currency","link","transaction-type"];
+			cc[0]=["iati-identifier","title","reporting-org","total-transaction","currency","link","transaction-type"];
 			a.forEach(function(v){
 				cc[cc.length]=[v.aid,v.title,v.reporting,v.amount_num,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid];
 			});

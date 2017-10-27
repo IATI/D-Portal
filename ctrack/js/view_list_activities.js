@@ -127,7 +127,7 @@ view_list_activities.ajax=function(args)
 
 
 			var cc=[];
-			cc[0]=["activity-identifier","title","reporting-org","total-commitment","total-spend","currency","link","activity-status-code"];
+			cc[0]=["iati-identifier","title","reporting-org","total-commitment","total-spend","currency","link","activity-status"];
 			a.forEach(function(v){
 				cc[cc.length]=[v.aid,v.title,v.reporting,v.commitment,v.spend,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid,v.status_code];
 			});

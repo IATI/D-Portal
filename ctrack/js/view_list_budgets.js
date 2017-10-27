@@ -114,7 +114,7 @@ view_list_budgets.ajax=function(args)
 				return parseInt(s);
 			}
 			var cc=[];
-			cc[0]=["activity-identifier","title","reporting-org","amount","currency","link"];
+			cc[0]=["iati-identifier","title","reporting-org","total-budget","currency","link"];
 			a.forEach(function(v){
 				cc[cc.length]=[v.aid,v.title,v.reporting,v.amount_num,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid];
 			});
