@@ -697,6 +697,7 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 
 acts.find("provider-org[ref], provider-org[activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
+	id=iati_codes.publisher_names[id];
 	var aid=it.attr("activity-id");
 	
 	if( aid )
@@ -712,6 +713,7 @@ acts.find("provider-org[ref], provider-org[activity-id]").each(function(i){var i
 
 acts.find("receiver-org[ref], receiver-org[activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
+	id=iati_codes.publisher_names[id];
 	var aid=it.attr("activity-id");
 	
 	if( aid )
