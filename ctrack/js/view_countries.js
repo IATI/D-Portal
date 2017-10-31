@@ -171,14 +171,14 @@ view_countries.ajax=function(args)
 	years.forEach(function(y)
 	{
 		var dat={
-				"from":"act,trans,country",
+				"from":"act,trans",
 				"limit":args.limit || -1,
-				"select":"country_code,"+ctrack.convert_str("sum_of_percent_of_trans"),
-				"groupby":"country_code",
+				"select":"trans_country,"+ctrack.convert_str("sum_of_percent_of_trans"),
+				"groupby":"trans_country",
 				"trans_code":"D|E",
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args);
+		fetch.ajax_dat_fix(dat,args,"trans");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		fetch.ajax(dat,function(data){
 //			console.log("fetch transactions donors "+year);
@@ -189,8 +189,8 @@ view_countries.ajax=function(args)
 				var v=data.rows[i];
 				var d={};
 				var num=ctrack.convert_num("sum_of_percent_of_trans",v);
-				d.country_code=v.country_code || "N/A";
-				d.country_name=iati_codes.country[v.country_code] || v.country_code || "N/A";
+				d.country_code=v.trans_country || "N/A";
+				d.country_name=iati_codes.country[v.trans_country] || v.trans_country || "N/A";
 				d["t"+(2+y-year)]=commafy(""+Math.floor(num));
 				if(y==year)
 				{
@@ -208,14 +208,14 @@ view_countries.ajax=function(args)
 	years.forEach(function(y)
 	{
 		var dat={
-				"from":"act,budget,country",
+				"from":"act,budget",
 				"limit":args.limit || -1,
-				"select":"country_code,"+ctrack.convert_str("sum_of_percent_of_budget"),
+				"select":"budget_country,"+ctrack.convert_str("sum_of_percent_of_budget"),
 				"budget_priority":1, // has passed some validation checks serverside
-				"groupby":"country_code",
+				"groupby":"budget_country",
 				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args);
+		fetch.ajax_dat_fix(dat,args,"budget");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		fetch.ajax(dat,function(data){
 			
@@ -226,8 +226,8 @@ view_countries.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				d.country_code=v.country_code || "N/A";
-				d.country_name=iati_codes.country[v.country_code] || v.country_code || "N/A";
+				d.country_code=v.budget_country || "N/A";
+				d.country_name=iati_codes.country[v.budget_country] || v.budget_country || "N/A";
 				d["b1"]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
 				fadd(d);
 			}

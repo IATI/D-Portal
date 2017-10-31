@@ -59,7 +59,7 @@ view_list_transactions.ajax=function(args)
 		dat["trans_day_gteq"]=(parseInt(dat.year)+0)+"-"+ctrack.args.newyear;
 		dat["trans_day_lt"]=(parseInt(dat.year)+1)+"-"+ctrack.args.newyear;
 	}
-	fetch.ajax_dat_fix(dat,args);
+	fetch.ajax_dat_fix(dat,args,"trans");
 	if(args.output=="count") // just count please
 	{
 		dat.select="count";

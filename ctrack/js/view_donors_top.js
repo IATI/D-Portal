@@ -33,7 +33,7 @@ view_donors_top.ajax=function(args)
 
 
 	var dat={
-			"from":"act,trans,country",
+			"from":"act,trans",
 			"limit":-1,
 			"select":"funder_ref,"+ctrack.convert_str("sum_of_percent_of_trans"),
 			"funder_ref_not_null":"",
@@ -45,7 +45,7 @@ view_donors_top.ajax=function(args)
 		dat["trans_day_gteq"]=year+"-"+ctrack.args.newyear;
 		dat["trans_day_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
 	}
-	fetch.ajax_dat_fix(dat,args);
+	fetch.ajax_dat_fix(dat,args,"trans");
 	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 	fetch.ajax(dat,function(data){
 //			console.log("fetch transactions donors "+year);

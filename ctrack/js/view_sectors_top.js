@@ -36,11 +36,11 @@ view_sectors_top.ajax=function(args)
 	var list=[];
 
 	var dat={
-			"from":"act,trans,sector",
+			"from":"act,trans",
 			"limit":-1,
-			"select":"sector_group,"+ctrack.convert_str("sum_of_percent_of_trans"),
-			"sector_group_not_null":1,
-			"groupby":"sector_group",
+			"select":"trans_sector_group,"+ctrack.convert_str("sum_of_percent_of_trans"),
+			"trans_sector_group_not_null":1,
+			"groupby":"trans_sector_group",
 			"trans_code":"D|E",
 		};
 	if(year!="all years") // all years?
@@ -48,7 +48,7 @@ view_sectors_top.ajax=function(args)
 			dat["trans_day_gteq"]=year+"-"+ctrack.args.newyear;
 			dat["trans_day_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
 	}
-	fetch.ajax_dat_fix(dat,args);
+	fetch.ajax_dat_fix(dat,args,"trans");
 
 	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 	var callback=function(data){
@@ -57,7 +57,7 @@ view_sectors_top.ajax=function(args)
 		{
 			var v=data.rows[i];
 			var d={};
-			d.sector_group=iati_codes.sector_category[ v.sector_group ];
+			d.sector_group=iati_codes.sector_category[ v.trans_sector_group ];
 			d.usd=Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v));
 			list.push(d);
 		}

@@ -61,7 +61,7 @@ view_list_budgets.ajax=function(args)
 		dat["budget_day_start_gteq"]=(parseInt(year)+0)+"-"+ctrack.args.newyear;
 		dat["budget_day_start_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
 	}
-	fetch.ajax_dat_fix(dat,args);
+	fetch.ajax_dat_fix(dat,args,"budget");
 
 	if(args.output=="count") // just count please
 	{

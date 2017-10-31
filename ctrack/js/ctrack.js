@@ -132,6 +132,9 @@ ctrack.setup=function(args)
 //	ctrack.convert_have={}; // test old style
 	ctrack.convert_have={"CAD":true,"EUR":true,"GBP":true};
 	ctrack.convert_str=function(n){
+		if(n=="sum_of_percent_of_trans") { n="sum_trans" }
+		else
+		if(n=="sum_of_percent_of_budget") { n="sum_budget" }
 		if(ctrack.convert_have[ctrack.display_usd])
 		{
 			return n+"_"+ctrack.display_usd.toLowerCase();
@@ -149,6 +152,9 @@ ctrack.setup=function(args)
 		}
 	};
 	ctrack.convert_num=function(n,v){
+		if(n=="sum_of_percent_of_trans") { n="sum_trans" }
+		else
+		if(n=="sum_of_percent_of_budget") { n="sum_budget" }
 		if(ctrack.convert_have[ctrack.display_usd])
 		{
 			return  v[n+"_"+ctrack.display_usd.toLowerCase()];
