@@ -174,6 +174,7 @@ view_countries.ajax=function(args)
 				"from":"act,trans",
 				"limit":args.limit || -1,
 				"select":"trans_country,"+ctrack.convert_str("sum_of_percent_of_trans"),
+				"trans_country_not_null":"1",
 				"groupby":"trans_country",
 				"trans_code":"D|E",
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
@@ -212,6 +213,7 @@ view_countries.ajax=function(args)
 				"limit":args.limit || -1,
 				"select":"budget_country,"+ctrack.convert_str("sum_of_percent_of_budget"),
 				"budget_priority":1, // has passed some validation checks serverside
+				"budget_country_not_null":"1",
 				"groupby":"budget_country",
 				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
@@ -246,6 +248,7 @@ view_countries.ajax=function(args)
 				"limit":args.limit || -1,
 				"select":"budget_country,"+"any_"+ctrack.convert_str("budget"),
 				"budget":"country", // only budgets for countries listed in org files
+				"budget_country_not_null":"1",
 				"groupby":"budget_country",
 				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
