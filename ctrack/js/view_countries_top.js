@@ -40,8 +40,9 @@ view_countries_top.ajax=function(args)
 	var dat={
 			"from":"act,trans",
 			"limit":-1,
-			"select":"trans_country,"+ctrack.convert_str("trans"),
+			"select":"trans_country,"+ctrack.convert_str("sum_trans"),
 			"trans_country_not_null":"1",
+			"groupby":"trans_country",
 			"trans_code":"D|E",
 		};
 	if(year!="all years") // all years?
@@ -61,7 +62,7 @@ view_countries_top.ajax=function(args)
 			var d={};
 			d.country_code=v.trans_country || "N/A";
 			d.country_name=iati_codes.country[v.trans_country] || v.trans_country || "N/A";
-			d.usd=Math.floor(ctrack.convert_num("trans",v));
+			d.usd=Math.floor(ctrack.convert_num("sum_trans",v));
 			list.push(d)
 		}
 		
