@@ -41,6 +41,7 @@ view_countries_top.ajax=function(args)
 			"from":"act,trans",
 			"limit":-1,
 			"select":"trans_country,"+ctrack.convert_str("trans"),
+			"trans_country_not_null":"1",
 			"trans_code":"D|E",
 		};
 	if(year!="all years") // all years?
