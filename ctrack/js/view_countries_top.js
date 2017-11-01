@@ -38,10 +38,11 @@ view_countries_top.ajax=function(args)
 	ctrack.year_chunks(year);
 
 	var dat={
-			"from":"act,trans,country",
+			"from":"act,trans",
 			"limit":-1,
-			"select":"country_code,"+ctrack.convert_str("sum_of_percent_of_trans"),
-			"groupby":"country_code",
+			"select":"trans_country,"+ctrack.convert_str("sum_trans"),
+			"trans_country_not_null":"1",
+			"groupby":"trans_country",
 			"trans_code":"D|E",
 		};
 	if(year!="all years") // all years?
@@ -49,7 +50,7 @@ view_countries_top.ajax=function(args)
 			dat["trans_day_gteq"]=year+"-"+ctrack.args.newyear;
 			dat["trans_day_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
 	}
-	fetch.ajax_dat_fix(dat,args);
+	fetch.ajax_dat_fix(dat,args,"trans");
 	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 	fetch.ajax(dat,function(data){
 //			console.log("fetch transactions donors "+year);
@@ -59,9 +60,9 @@ view_countries_top.ajax=function(args)
 		{
 			var v=data.rows[i];
 			var d={};
-			d.country_code=v.country_code || "N/A";
-			d.country_name=iati_codes.country[v.country_code] || v.country_code || "N/A";
-			d.usd=Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v));
+			d.country_code=v.trans_country || "N/A";
+			d.country_name=iati_codes.country[v.trans_country] || v.trans_country || "N/A";
+			d.usd=Math.floor(ctrack.convert_num("sum_trans",v));
 			list.push(d)
 		}
 		

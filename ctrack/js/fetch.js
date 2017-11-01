@@ -51,18 +51,33 @@ fetch.ajax=function(dat,callback)
 
 
 //modify dat so it reflects the args or base settings (eg limit to a publisher)
-fetch.ajax_dat_fix=function(dat,args)
+fetch.ajax_dat_fix=function(dat,args,flag)
 {
-
-// possibly do not need...
-	dat["country_code"]		=	dat["country_code"]		||	args.country;
 	dat["reporting_ref"]	=	dat["reporting_ref"]	||	args.publisher;
 
-// check for globals
-	dat["country_code"]		=	dat["country_code"]		||	ctrack.args.country_select;
+	if(flag=="trans")
+	{
+		dat["trans_country"]		=	dat["country_code"]		||	ctrack.args.country_select;
+		dat["trans_sector"]			=	dat["sector_code"]		||	ctrack.args.sector_code_select;
+		dat["trans_sector_group"]	=	dat["sector_group"]		||	ctrack.args.sector_group_select;
+	}
+	else
+	if(flag=="budget")
+	{
+		dat["budget_country"]		=	dat["country_code"]		||	ctrack.args.country_select;
+		dat["budget_sector"]		=	dat["sector_code"]		||	ctrack.args.sector_code_select;
+		dat["budget_sector_group"]	=	dat["sector_group"]		||	ctrack.args.sector_group_select;
+	}
+	else
+	{
+		dat["country_code"]		=	dat["country_code"]		||	args.country;
+
+		dat["country_code"]		=	dat["country_code"]		||	ctrack.args.country_select;
+		dat["sector_code"]		=	dat["sector_code"]		||	ctrack.args.sector_code_select;
+		dat["sector_group"]		=	dat["sector_group"]		||	ctrack.args.sector_group_select;
+	}
+
 	dat["reporting_ref"]	=	dat["reporting_ref"]	||	ctrack.args.publisher_select;
-	dat["sector_code"]		=	dat["sector_code"]		||	ctrack.args.sector_code_select;
-	dat["sector_group"]		=	dat["sector_group"]		||	ctrack.args.sector_group_select;
 	dat["funder_ref"]		=	dat["funder_ref"]		||	ctrack.args.funder_ref_select;
 	dat["status_code"]		=	dat["status_code"]		||	ctrack.args.status_code_select;
 

@@ -144,15 +144,15 @@ view_sectors.ajax=function(args)
 	years.forEach(function(y)
 	{
 		var dat={
-				"from":"act,trans,sector",
+				"from":"act,trans",
 				"limit":args.limit || -1,
-				"select":"sector_group,"+ctrack.convert_str("sum_of_percent_of_trans"),
-				"sector_group_not_null":1,
-				"groupby":"sector_group",
+				"select":"trans_sector_group,"+ctrack.convert_str("sum_of_percent_of_trans"),
+				"trans_sector_group_not_null":1,
+				"groupby":"trans_sector_group",
 				"trans_code":"D|E",
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args);
+		fetch.ajax_dat_fix(dat,args,"trans");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		var callback=function(data){
 //			console.log("fetch transactions sectors "+year);
@@ -162,7 +162,7 @@ view_sectors.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				d.group=v.sector_group;
+				d.group=v.trans_sector_group;
 				d["t"+(2+y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v)));
 //				d["num_t"+(2+y-year)]=Math.floor(v.sum_of_percent_of_trans_usd);
 				fadd(d);
@@ -178,15 +178,15 @@ view_sectors.ajax=function(args)
 	years.forEach(function(y)
 	{
 		var dat={
-				"from":"act,budget,sector",
+				"from":"act,budget",
 				"limit":args.limit || -1,
-				"select":"sector_group,"+ctrack.convert_str("sum_of_percent_of_budget"),
-				"sector_group_not_null":1,
-				"groupby":"sector_group",
+				"select":"budget_sector_group,"+ctrack.convert_str("sum_of_percent_of_budget"),
+				"budget_sector_group_not_null":1,
+				"groupby":"budget_sector_group",
 				"budget_priority":1, // has passed some validation checks serverside
 				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args);
+		fetch.ajax_dat_fix(dat,args,"budget");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		var callback=function(data){
 			
@@ -197,7 +197,7 @@ view_sectors.ajax=function(args)
 			{
 				var v=data.rows[i];
 				var d={};
-				d.group=v.sector_group;
+				d.group=v.budget_sector_group;
 				d["b"+(y-year)]=commafy(""+Math.floor(ctrack.convert_num("sum_of_percent_of_budget",v)));
 				fadd(d);
 			}

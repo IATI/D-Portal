@@ -275,11 +275,12 @@ dstore_db.refresh_budget=function(db,it,act,act_json,priority,splits)
 			{
 				code=code.trim(); // remove dodgy white space
 				var group=code.slice(0,3);
-				if(code==group) // not a 5 digit code
+				if((""+code).length==3)
 				{
 					t["budget_sector_group"]=group
 				}
 				else
+				if((""+code).length==5)
 				{
 					t["budget_sector"]=code
 					t["budget_sector_group"]=group
@@ -438,11 +439,12 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				{
 					code=code.trim(); // remove dodgy white space
 					var group=code.slice(0,3);
-					if(code==group) // not a 5 digit code
+					if((""+code).length==3)
 					{
 						t["trans_sector_group"]=group
 					}
 					else
+					if((""+code).length==5)
 					{
 						t["trans_sector"]=code
 						t["trans_sector_group"]=group

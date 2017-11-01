@@ -142,7 +142,7 @@ view_donors.ajax=function(args)
 	years.forEach(function(y)
 	{
 		var dat={
-				"from":"act,trans,country",
+				"from":"act,trans",
 				"limit":args.limit || -1,
 				"select":"funder_ref,"+ctrack.convert_str("sum_of_percent_of_trans"),
 				"funder_ref_not_null":"",
@@ -150,7 +150,7 @@ view_donors.ajax=function(args)
 				"trans_code":"D|E",
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args);
+		fetch.ajax_dat_fix(dat,args,"trans");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		fetch.ajax(dat,function(data){
 //			console.log("fetch transactions donors "+year);
@@ -179,7 +179,7 @@ view_donors.ajax=function(args)
 	years.forEach(function(y)
 	{
 		var dat={
-				"from":"act,budget,country",
+				"from":"act,budget",
 				"limit":args.limit || -1,
 				"select":"funder_ref,"+ctrack.convert_str("sum_of_percent_of_budget"),
 				"budget_priority":1, // has passed some validation checks serverside
@@ -187,7 +187,7 @@ view_donors.ajax=function(args)
 				"groupby":"funder_ref",
 				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args);
+		fetch.ajax_dat_fix(dat,args,"budget");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		fetch.ajax(dat,function(data){
 			
