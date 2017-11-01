@@ -695,33 +695,31 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 });
 
 
-acts.find("provider-org[ref], provider-org[activity-id]").each(function(i){var it=$(this);
+acts.find("provider-org[ref], provider-org[provider-activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
-	id=iati_codes.publisher_names[id];
-	var aid=it.attr("activity-id");
+	var aid=it.attr("provider-activity-id");
 	
 	if( aid )
 	{
 		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
-	if(id)
+	if(iati_codes.publisher_names[id])
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
 	}
 });
 
-acts.find("receiver-org[ref], receiver-org[activity-id]").each(function(i){var it=$(this);
+acts.find("receiver-org[ref], receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
-	id=iati_codes.publisher_names[id];
-	var aid=it.attr("activity-id");
+	var aid=it.attr("receiver-activity-id");
 	
 	if( aid )
 	{
 		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
-	if(id)
+	if(iati_codes.publisher_names[id])
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
 	}
@@ -729,7 +727,6 @@ acts.find("receiver-org[ref], receiver-org[activity-id]").each(function(i){var i
 
 acts.find("participating-org[ref], participating-org[activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
-	id=iati_codes.publisher_names[id];
 	var aid=it.attr("activity-id");
 	
 	if( aid )
@@ -737,7 +734,7 @@ acts.find("participating-org[ref], participating-org[activity-id]").each(functio
 		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
-	if(id)
+	if(iati_codes.publisher_names[id])
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
 	}
