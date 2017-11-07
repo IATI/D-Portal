@@ -16,6 +16,7 @@ echo Need to fetch latest git changes from remote!
 
 git pull --ff-only
 
+./upgrade
 ./build
 
 fi
