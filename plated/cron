@@ -12,11 +12,17 @@ git fetch --quiet
 
 if [ $(git rev-parse HEAD) != $(git rev-parse @{u}) ] ; then
 
-echo Need to fetch latest git changes from remote!
+echo CRON UPDATE
 
-git pull --ff-only
-
+#pull and build
+git pull
 ./upgrade
 ./build
+
+#add the newly built files and push
+cd $PLATED_OUTPUT
+git add .
+git commit -m.
+git push
 
 fi
