@@ -1,0 +1,20 @@
+
+# recomended to run under a flock like so but with full paths
+# flock -w0 ./cron ./cron
+
+
+cd `dirname $0`
+
+source settings
+
+git fetch --quiet
+
+if [ $(git rev-parse HEAD) != $(git rev-parse @{u}) ] ; then
+
+echo Need to fetch latest git changes from remote!
+
+git pull --ff-only
+
+./build
+
+fi
