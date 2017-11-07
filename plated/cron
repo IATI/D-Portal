@@ -12,7 +12,7 @@ git fetch --quiet
 
 if [ $(git rev-parse HEAD) != $(git rev-parse @{u}) ] ; then
 
-echo CRON UPDATE
+echo CRON REBUILD
 
 #pull and build
 git pull
