@@ -1,7 +1,6 @@
-
-# recomended to run under a flock like so but with full paths
+# this script check for changes on the remote git and then perform a git pull followed by a build
+# recomended to run under a flock like so (but with full paths)
 # flock -w0 ./cron ./cron
-
 
 cd `dirname $0`
 
