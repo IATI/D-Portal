@@ -1,7 +1,8 @@
 #
-# this script checks for changes on the remote git and then performs a git pull and optional build
-# recomended to run under a flock like so (but with full paths)
-# flock -w0 ./cron ./cron
+# this script checks for changes on the remote git and then performs a git pull and build
+# the output from the build should be git ignored and this script called via
+# ./cron.lock
+# which simply wraps this script in a flock
 #
 
 cd `dirname $0`
@@ -12,22 +13,9 @@ git fetch --quiet
 
 if [ $(git rev-parse HEAD) != $(git rev-parse @{u}) ] ; then
 
-#only build with build flag
- if [ $1 = "build" ]; then
   echo "CRON PULL AND BUILD"
-#pull and build
   git pull
   ./upgrade
   ./build
-#add the newly built files and push
-  cd $PLATED_OUTPUT
-  git add .
-  git commit -m.
-  git push
- else
-  echo "CRON PULL"
-  git pull
-  cd $PLATED_OUTPUT
-  git pull
- fi
+
 fi
