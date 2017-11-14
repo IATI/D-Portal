@@ -337,7 +337,7 @@ a.a_slug:before					{color:rgba(204,204,204,1);}
 	============================================= */
 span.span_recipient-country:before 		{color:rgba(255,255,255,1);}
 recipient-country span					{color:rgba(255,255,255,1);}
-recipient-country span:nth-of-type(2)	{color:rgba(255,255,255,1);}
+recipient-country span:nth-of-type(2)	{color:rgba(204,204,204,1);}
 
 span.country_img:before {color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
 img.country_pie			{background-color:rgba(255,255,255,1); -webkit-filter:hue-rotate(210deg); filter:hue-rotate(210deg);}
@@ -360,10 +360,10 @@ span.span_participating-org:before 				{color:rgba(255,255,255,1);}
 
 participating-org, span-narrative.participating-role	{color:rgba(255,255,255,1);}
 
-participating-org[role="1"] narrative:nth-of-type(1):after, participating-org[role="funding"] narrative:nth-of-type(1):after,
-participating-org[role="2"] narrative:nth-of-type(1):after, participating-org[role="accountable"] narrative:nth-of-type(1):after,
-participating-org[role="3"] narrative:nth-of-type(1):after, participating-org[role="extending"] narrative:nth-of-type(1):after,
-participating-org[role="4"] narrative:nth-of-type(1):after, participating-org[role="implementing"] narrative:nth-of-type(1):after	{color:rgba(204,204,204,1);}
+participating-org[role="1"] narrative:nth-of-type(1):after, participating-org[role="funding" i] narrative:nth-of-type(1):after,
+participating-org[role="2"] narrative:nth-of-type(1):after, participating-org[role="accountable" i] narrative:nth-of-type(1):after,
+participating-org[role="3"] narrative:nth-of-type(1):after, participating-org[role="extending" i] narrative:nth-of-type(1):after,
+participating-org[role="4"] narrative:nth-of-type(1):after, participating-org[role="implementing" i] narrative:nth-of-type(1):after	{color:rgba(204,204,204,1);}
 
 participating-org a:link	{color:rgba(206,131,0,1);}
 participating-org a:visited	{color:rgba(206,131,0,1);}
@@ -426,12 +426,12 @@ span.sector_img:before {color:rgba(255,255,255,1); background-color:rgba(206,131
 
 span.span_sector sector[vocabulary="DAC"],
 span.span_sector sector[vocabulary="1"]			{color:rgba(255,255,255,1);}
-span.span_sector sector:nth-child(even)			{background-color:rgba(56,56,56,0.4);}
 span.span_sector sector[vocabulary="DAC"]:before, 
 span.span_sector sector[vocabulary="1"]:before,
 span.span_sector sector[vocabulary="2"]:before	{color:rgba(204,204,204,1);}
 sector span, span.span_sector sector span		{color:rgba(255,255,255,1);}
-span.span_sector sector span:nth-of-type(2)		{color:rgba(204,204,204,1);}
+span.span_sector sector span:nth-of-type(2),
+span.span_sector span:nth-of-type(2)			{color:rgba(204,204,204,1);}
 img.sector_pie	{background-color:rgba(255,255,255,1); -webkit-filter:hue-rotate(210deg); filter:hue-rotate(210deg);}
 
 
