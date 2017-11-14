@@ -451,6 +451,12 @@ result indicator period actual					{background-color:var(--base);}
 result indicator period actual.value-higher		{background-color:var(--base11);}
 result indicator period actual.value-lower		{background-color:var(--base02);}
 
+span-narrative.baseline-year,
+result indicator[measure="1"] period target:after,
+result indicator[measure="1"] period actual:after,
+result indicator[measure="2"] period target:after,
+result indicator[measure="2"] period actual:after	{color:var(--base15);}
+
 result indicator > baseline comment	{color:var(--base15);}
 
 result indicator reference:before	{color:var(--base13);}

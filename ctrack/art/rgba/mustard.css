@@ -417,6 +417,12 @@ result indicator period actual				{background-color:rgba(15,15,15,0.7);}
 result indicator period actual.value-higher	{background-color:rgba(206,131,0,0.9);}
 result indicator period actual.value-lower	{background-color:rgba(206,131,0,0.3);}
 
+span-narrative.baseline-year,
+result indicator[measure="1"] period target:after,
+result indicator[measure="1"] period actual:after,
+result indicator[measure="2"] period target:after,
+result indicator[measure="2"] period actual:after	{color:rgba(255,255,255,1);}
+
 result indicator > baseline comment		{color:rgba(255,255,255,1);}
 
 

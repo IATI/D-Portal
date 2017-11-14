@@ -433,6 +433,12 @@ result indicator period actual	{background-color:rgba(70,70,70,0.7);}
 result indicator period actual.value-higher	{background-color:rgba(111,181,30,1);}
 result indicator period actual.value-lower	{background-color:rgba(187,168,22,1);}
 
+span-narrative.baseline-year,
+result indicator[measure="1"] period target:after,
+result indicator[measure="1"] period actual:after,
+result indicator[measure="2"] period target:after,
+result indicator[measure="2"] period actual:after	{color:rgba(255,255,255,1);}
+
 result indicator reference span-narrative	{color:rgba(85,85,85,1);}
 span-narrative.reference-vocabulary:before	{color:rgba(136,136,136,1);}
 span-narrative.reference-code:before		{color:rgba(136,136,136,1);}
