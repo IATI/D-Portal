@@ -192,8 +192,8 @@ result[type="9"] span-title:before	{content:"OTHER";}
 result indicator			{display:block; margin:auto; margin-top:10px; margin-bottom:0px; width:880px; position:relative;}
 result indicator:nth-of-type(1)	{margin-top:0;}
 result indicator:before		{content:"INDICATOR"; font-size:14px; color:#000; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #000; padding:10px 0;}
-result indicator[measure="1"]:before	{content:"INDICATOR UNIT";}
-result indicator[measure="2"]:before	{content:"INDICATOR PERCENTAGE";}
+result indicator[measure="1"]:before,
+result indicator[measure="2"]:before	{content:"INDICATOR UNIT";}
 
 result indicator[measure="1"] period target:after, result indicator[measure="1"] period actual:after	{display:block; content:"UNIT"; font-size:12px; padding-top:10px;}
 result indicator[measure="2"] period target:after, result indicator[measure="2"] period actual:after	{display:block; content:"PERCENTAGE"; font-size:12px; padding-top:10px;}
