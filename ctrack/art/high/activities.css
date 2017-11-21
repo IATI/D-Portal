@@ -176,24 +176,25 @@ span.span_description description narrative.empty	{display:none;}	/*	Hides conta
 
 /*	Result and description
 	============================================= */
-result						{display:block; padding:20px 0; border-top:1px solid #000;}
+span.span_result			{counter-reset:section;}
+result						{counter-reset:subsection; display:block; padding:20px 0; position:relative; border-top:1px solid #000;}
 result:nth-child(1)			{padding-top:0; border:0;}
 result description			{display:block; padding:0px 40px 10px 40px; white-space:pre-line; unicode-bidi:embed; line-height:22px;}
 result description narrative{line-height:24px; word-spacing:0.05em; color:#000;}
 result span-title			{display:block; font-size:20px; width:880px; line-height:1.25em; margin:0 auto; color:#000; padding-bottom:5px;}
 result span-title narrative	{display:block;}
 span.span_result:before		{content:"Results"; font-size:20px; color:#000; display:block; padding:40px 40px 20px 40px; margin-bottom:25px; width:879px; border-top:1px solid #000;}
-result span-title:before	{content:"RESULTS"; font-size:14px; color:#000; display:block; padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #000;}
-result[type="1"] span-title:before	{content:"OUTPUT";}
-result[type="2"] span-title:before	{content:"OUTCOME";}
-result[type="3"] span-title:before	{content:"IMPACT";}
-result[type="9"] span-title:before	{content:"OTHER";}
+result:before				{content:counter(section) ". RESULTS"; counter-increment:section;font-size:14px; color:#000; display:block; padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #000; margin-left:40px; margin-right:40px;}
+result[type="1"]:before		{content:counter(section) ". OUTPUT";}
+result[type="2"]:before		{content:counter(section) ". OUTCOME ";}
+result[type="3"]:before		{content:counter(section) ". IMPACT";}
+result[type="9"]:before		{content:counter(section) ". OTHER";}
 
 result indicator			{display:block; margin:auto; margin-top:10px; margin-bottom:0px; width:880px; position:relative;}
 result indicator:nth-of-type(1)	{margin-top:0;}
-result indicator:before		{content:"INDICATOR"; font-size:14px; color:#000; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #000; padding:10px 0;}
+result indicator:before		{counter-increment:subsection; content:counter(section) "." counter(subsection) " INDICATOR"; font-size:14px; color:#000; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #000; padding:10px 0;}
 result indicator[measure="1"]:before,
-result indicator[measure="2"]:before	{content:"INDICATOR UNIT";}
+result indicator[measure="2"]:before	{content:counter(section) "." counter(subsection) " INDICATOR";}
 
 result indicator[measure="1"] period target:after, result indicator[measure="1"] period actual:after	{display:block; content:"UNIT"; font-size:12px; padding-top:10px;}
 result indicator[measure="2"] period target:after, result indicator[measure="2"] period actual:after	{display:block; content:"PERCENTAGE"; font-size:12px; padding-top:10px;}
@@ -245,7 +246,7 @@ span-narrative.dimension-name:after {content:" :";}
 span-narrative.dimension-value		{display:inline; font-size:14px; line-height:20px; padding-left:5px;}
 
 span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:14px; line-height:20px;}
-result indicator comment			{padding-top:10px; font-style:italic; line-height:20px;}
+result indicator comment			{display:block; padding-top:10px; font-size:14px; font-style:italic; line-height:20px;}
 target comment narrative, actual comment narrative, target comment span-narrative, actual comment span-narrative	{display:block; font-size:14px; line-height:1.25em;}
 
 result indicator period baseline, result indicator period target, result indicator period actual	{min-height:60px; display:table-cell; border-top:1px solid;}
@@ -371,10 +372,10 @@ transaction:nth-of-type(1)			{margin-top:0px; padding-top:0; border:0;}
 
 span.span_transaction:before						{content:"Transactions"; font-size:20px; color:#000; display:block; padding:40px 40px 20px 40px; margin-bottom:25px; border-top:1px solid #000;}
 transaction:nth-of-type(1) transaction-date:before	{content:"DATE"; font-size:14px; color:#000; width:105px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
-transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14px; color:#000; width:124px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
-transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#000; width:144px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14px; color:#000; width:125px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#000; width:145px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#000; width:130px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
-transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#000; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
+transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#000; width:110px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
 span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; width:260px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) description:before {content:"DESCRIPTION"; font-size:14px; color:#000; width:260px; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; line-height:1.35em;}
 span.span_transaction transaction description {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:20px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
@@ -384,7 +385,7 @@ transaction-type	{display:inline-block; vertical-align:top; color:#000; font-siz
 span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:20px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
 provider-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:15px; line-height:1.35em;}
 receiver-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:0px; line-height:1.35em;}
-value				{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:120px; max-width:120px; padding-right:30px; line-height:1.35em; text-align:right;}
+value				{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
 value span			{font-size:12px; color:#000;}
 
 /*span.span_transaction transaction description:nth-of-type(n+1):before		{display:none;}*/
@@ -494,6 +495,8 @@ span.span_document-link, span.span_participating-org, span.span_transaction, spa
 span.hide		 {display:block; position:absolute; top:35px; right:40px; font-size:12px; color:#000; line-height:24px; letter-spacing:1px;}
 span.hide:hover	 {cursor:pointer; color:#000;}
 
+span.span_result result span.hide 		{top:15px;}
+span.span_result result:nth-child(1) span.hide	{top:-5px;}
 span.span_related-activity span.hide	{right:0;}
 
 

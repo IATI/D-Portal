@@ -169,7 +169,8 @@ span.span_description description narrative.empty	{display:none;}	/*	Hides conta
 
 /*	Result and description
 	============================================= */
-result						{display:block; padding:20px 0;}
+span.span_result			{counter-reset:section;}
+result						{counter-reset:subsection; display:block; padding:20px 0; position:relative;}
 result:nth-child(1)			{padding-top:0;}
 result:nth-child(even)		{background-color:rgba(0,14,32,0.3);}
 result description			{display:block; padding:0px 40px 10px 40px; white-space:pre-line; unicode-bidi:embed; line-height:22px;}
@@ -177,17 +178,17 @@ result description narrative{line-height:24px; word-spacing:0.05em; color:#ccc;}
 result span-title			{display:block; font-size:20px; width:880px; line-height:1.25em; margin:0 auto; color:#FFF; padding-bottom:5px;}
 result span-title narrative	{display:block;}
 span.span_result:before		{content:"Results"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
-result span-title:before	{content:"RESULTS"; font-size:14px; color:#ccc; display:block; padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #aaa;}
-result[type="1"] span-title:before	{content:"OUTPUT";}
-result[type="2"] span-title:before	{content:"OUTCOME";}
-result[type="3"] span-title:before	{content:"IMPACT";}
-result[type="9"] span-title:before	{content:"OTHER";}
+result:before				{content:counter(section) ". RESULTS"; counter-increment:section; font-size:14px; color:#ccc; display:block; padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #aaa; margin-left:40px; margin-right:40px;}
+result[type="1"]:before		{content:counter(section) ". OUTPUT";}
+result[type="2"]:before		{content:counter(section) ". OUTCOME ";}
+result[type="3"]:before		{content:counter(section) ". IMPACT";}
+result[type="9"]:before		{content:counter(section) ". OTHER";}
 
 result indicator			{display:block; margin:auto; margin-top:10px; margin-bottom:0px; width:880px; position:relative;}
 result indicator:nth-of-type(1)	{margin-top:0;}
-result indicator:before		{content:"INDICATOR"; font-size:14px; color:#ccc; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #aaa; padding:10px 0;}
+result indicator:before		{counter-increment:subsection; content:counter(section) "." counter(subsection) " INDICATOR"; font-size:14px; color:#ccc; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #aaa; padding:10px 0;}
 result indicator[measure="1"]:before,
-result indicator[measure="2"]:before	{content:"INDICATOR";}
+result indicator[measure="2"]:before	{content:counter(section) "." counter(subsection) " INDICATOR";}
 
 result indicator[measure="1"] period target:after, result indicator[measure="1"] period actual:after	{display:block; content:"UNIT"; font-size:12px; padding-top:10px;}
 result indicator[measure="2"] period target:after, result indicator[measure="2"] period actual:after	{display:block; content:"PERCENTAGE"; font-size:12px; padding-top:10px;}
@@ -239,7 +240,7 @@ span-narrative.dimension-name:after {content:" :";}
 span-narrative.dimension-value		{display:inline; font-size:14px; line-height:20px; padding-left:5px;}
 
 span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:14px; line-height:20px;}
-result indicator comment			{padding-top:10px; font-style:italic; line-height:20px;}
+result indicator comment			{display:block; padding-top:10px; font-size:14px; font-style:italic; line-height:20px;}
 target comment narrative, actual comment narrative, target comment span-narrative, actual comment span-narrative	{display:block; font-size:14px; line-height:1.25em;}
 
 result indicator period baseline, result indicator period target, result indicator period actual	{min-height:60px; display:table-cell;}
@@ -505,8 +506,9 @@ span.span_document-link, span.span_participating-org, span.span_transaction, spa
 span.hide		 {display:block; position:absolute; top:35px; right:40px; font-size:12px; color:#CCC; line-height:24px; letter-spacing:1px;}
 span.hide:hover	 {cursor:pointer; color:#FFF;}
 
-span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide,
-span.span_result span.hide 				{top:15px;}
+span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide, span.span_result span.hide,
+span.span_result result span.hide 		{top:15px;}
+span.span_result result:nth-child(1) span.hide	{top:-5px;}
 span.span_related-activity span.hide	{right:0;}
 
 
