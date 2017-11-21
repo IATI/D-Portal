@@ -808,36 +808,6 @@ console.log("secondary "+id);
 	console.log("Writing json/publishers.json")
 	fs.writeFileSync(__dirname+"/../json/publishers.json",json_stringify(publishers,{ space: ' ' }));
 
-//
-// use the following query
-//
-// http://iatiregistry.org/api/search/dataset?fl=name,download_url,metadata_modified,groups,id,data_updated&offset=0&limit=99999
-// actually that does not work
-// try
-// http://iatiregistry.org/api/search/dataset?fl=name,res_url&offset=0&limit=99999
-//
-
-// get download urls of each xml file ?
-/*
-	for(var pname in publishers)
-	{
-		var p=publishers[pname];
-		for(var i=0;i<p.packages.length;i++)
-		{
-			var name=p.packages[i];
-			console.log("Fetching package info for "+name);
-			var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/dataset/"+name);
-			var j=JSON.parse(js);
-			packages[name]=j.download_url; // the only useful value...
-		}
-	}
-
-// list of urls if we want to do our own scan...
-	console.log("Writing json/packages.json")
-	fs.writeFileSync(__dirname+"/../json/packages.json",JSON.stringify(packages,null,'\t'));
-
-//	return;
-*/
 }	
 
 }
