@@ -349,7 +349,7 @@ a.a_slug:before					{color:rgba(136,136,136,1);}
 span.span_recipient-country				{background-color:rgba(255,255,255,1);}
 span.span_recipient-country:before 		{color:rgba(136,136,136,1);}
 recipient-country span					{color:rgba(85,85,85,1);}
-recipient-country span:nth-of-type(2)	{color:rgba(85,85,85,1);}
+recipient-country span:nth-of-type(2)	{color:rgba(136,136,136,1);}
 
 span.country_img:before {color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
 img.country_pie			{background-color:rgba(255,255,255,1);}
@@ -371,10 +371,10 @@ span.span_participating-org	 					{color:rgba(85,85,85,1); background-color:rgba
 span.span_participating-org:before 				{color:rgba(136,136,136,1);}
 participating-org, span-narrative.participating-role	{color:rgba(85,85,85,1);}
 
-participating-org[role="1"] narrative:nth-of-type(1):after, participating-org[role="funding"] narrative:nth-of-type(1):after,
-participating-org[role="2"] narrative:nth-of-type(1):after, participating-org[role="accountable"] narrative:nth-of-type(1):after,
-participating-org[role="3"] narrative:nth-of-type(1):after, participating-org[role="extending"] narrative:nth-of-type(1):after,
-participating-org[role="4"] narrative:nth-of-type(1):after, participating-org[role="implementing"] narrative:nth-of-type(1):after	{color:rgba(136,136,136,1);}
+participating-org[role="1"] narrative:nth-of-type(1):after, participating-org[role="funding" i] narrative:nth-of-type(1):after,
+participating-org[role="2"] narrative:nth-of-type(1):after, participating-org[role="accountable" i] narrative:nth-of-type(1):after,
+participating-org[role="3"] narrative:nth-of-type(1):after, participating-org[role="extending" i] narrative:nth-of-type(1):after,
+participating-org[role="4"] narrative:nth-of-type(1):after, participating-org[role="implementing" i] narrative:nth-of-type(1):after	{color:rgba(136,136,136,1);}
 
 participating-org a:link	{color:rgba(186,12,47,1);}
 participating-org a:visited	{color:rgba(186,12,47,1);}
@@ -432,6 +432,12 @@ result indicator period target	{background-color:rgba(70,70,70,1);}
 result indicator period actual	{background-color:rgba(70,70,70,0.7);}
 result indicator period actual.value-higher	{background-color:rgba(111,181,30,1);}
 result indicator period actual.value-lower	{background-color:rgba(187,168,22,1);}
+
+span-narrative.baseline-year,
+result indicator[measure="1"] period target:after,
+result indicator[measure="1"] period actual:after,
+result indicator[measure="2"] period target:after,
+result indicator[measure="2"] period actual:after	{color:rgba(255,255,255,1);}
 
 result indicator reference span-narrative	{color:rgba(85,85,85,1);}
 span-narrative.reference-vocabulary:before	{color:rgba(136,136,136,1);}
@@ -541,6 +547,7 @@ value span			{color:rgba(136,136,136,1);}
 contact-info *						{color:rgba(255,255,255,1);}
 contact-info						{background-color:rgba(186,12,47,1);}
 contact-info:nth-of-type(1):before	{color:rgba(255,255,255,1);}
+contact-info:nth-of-type(even)		{background-color:rgba(187,153,153,1);}
 span.span_contact-info				{background-color:rgba(235,235,235,1);}
 
 

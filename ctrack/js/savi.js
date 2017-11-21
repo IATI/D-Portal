@@ -213,10 +213,10 @@ acts.find("activity-date,transaction-date,period-start,period-end").each(functio
 // duplicate the baseline into the period for display purposes (it is in many ways a start value)
 acts.find("result").each(function(i){var it=$(this);
 
-	var baseline=it.find("baseline").first();
+//	var baseline=it.find("baseline").first();
 	
 	it.find("period").each(function(i){var it=$(this);
-		it.prepend( baseline.clone() );
+//		it.prepend( baseline.clone() );
 		
 		var dpct=0;
 		
@@ -228,8 +228,8 @@ acts.find("result").each(function(i){var it=$(this);
 			sdate=sdate.split("-");
 			edate=edate.split("-");
 			
-			sdate=Date.UTC(sdate[0],sdate[1],sdate[2]);
-			edate=Date.UTC(edate[0],edate[1],edate[2]);
+			sdate=Date.UTC(sdate[0],sdate[1]-1,sdate[2]);
+			edate=Date.UTC(edate[0],edate[1]-1,edate[2]);
 
 			var dtot=edate-sdate;
 			var dval=(new Date()).getTime()-sdate;
@@ -270,6 +270,17 @@ acts.find("result").each(function(i){var it=$(this);
 		}
 		
 	});
+});
+
+
+acts.find("result indicator").each(function(i){var it=$(this);
+
+	var baseline=it.find("baseline").first();
+	
+	it.find("period").each(function(i){var it=$(this);
+		it.prepend( baseline.clone() );
+	});
+
 });
 
 
@@ -417,6 +428,13 @@ acts.find("sector").each(function(i){var it=$(this);
 	}
 
 });
+
+
+acts.find("transaction recipient-country").each(function(i){var it=$(this);	
+	console.log("country code",it.attr("code"));
+	it.find( it.attr("code") ).wrapAll( "<span-transaction class='recipient-country'></span-transaction>" );	
+});
+
 
 acts.find("transaction-type").each(function(i){var it=$(this);
 
@@ -695,33 +713,31 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 });
 
 
-acts.find("provider-org[ref], provider-org[activity-id]").each(function(i){var it=$(this);
+acts.find("provider-org[ref], provider-org[provider-activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
-	id=iati_codes.publisher_names[id];
-	var aid=it.attr("activity-id");
+	var aid=it.attr("provider-activity-id");
 	
 	if( aid )
 	{
 		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
-	if(id)
+	if(iati_codes.publisher_names[id])
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
 	}
 });
 
-acts.find("receiver-org[ref], receiver-org[activity-id]").each(function(i){var it=$(this);
+acts.find("receiver-org[ref], receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
-	id=iati_codes.publisher_names[id];
-	var aid=it.attr("activity-id");
+	var aid=it.attr("receiver-activity-id");
 	
 	if( aid )
 	{
 		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
-	if(id)
+	if(iati_codes.publisher_names[id])
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
 	}
@@ -729,7 +745,6 @@ acts.find("receiver-org[ref], receiver-org[activity-id]").each(function(i){var i
 
 acts.find("participating-org[ref], participating-org[activity-id]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
-	id=iati_codes.publisher_names[id];
 	var aid=it.attr("activity-id");
 	
 	if( aid )
@@ -737,7 +752,7 @@ acts.find("participating-org[ref], participating-org[activity-id]").each(functio
 		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
-	if(id)
+	if(iati_codes.publisher_names[id])
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
 	}
@@ -851,12 +866,19 @@ $( "span.span_document-link, span.span_participating-org, span.span_transaction,
 $( "span.span_sector" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
+//	var c=$("<span class='hide'>[ + ] SHOW</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
-	
+//	ec.css( "display", "none" );
+//	e.append(c);
+	e.css( "display", "none" );
 	if(ec.length>0)
 	{
 		e.append(d);
 	}
+//	c.click(function(){
+//		c.text((c.text() == '[ + ] SHOW') ? '[ - ] HIDE' : '[ + ] SHOW').fadeIn();
+//		ec.fadeToggle('fast');
+//	});
 
 });
 
@@ -864,11 +886,18 @@ $( "span.span_sector" ).each(function(i,el){
 $( "span.span_recipient-country" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children();
+//	var c=$("<span class='hide'>[ + ] SHOW</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
-	
+//	ec.css( "display", "none" );
+//	e.append(c);
+	e.css( "display", "none" );
 	e.append(d);
-
+//	c.click(function(){
+//		c.text((c.text() == '[ + ] SHOW') ? '[ - ] HIDE' : '[ + ] SHOW').fadeIn();
+//		ec.fadeToggle('fast');
+//	});
 });
+
 
 //	move these into another element
 $( "span.span_sector span.length" ).appendTo( $( "span.sector_img" ) );

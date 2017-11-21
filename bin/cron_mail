@@ -1,6 +1,9 @@
 cd `dirname $0`
 cd ..
 
+#echo "IMPORT DISABLED"
+#exit 0
+
 source ~/D-Portal/bin/server-pg/env.sh
 
 bin/cron 2>&1 | tee dportal/production/cron.log

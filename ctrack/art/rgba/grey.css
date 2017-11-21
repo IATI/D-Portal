@@ -366,7 +366,7 @@ a.a_slug:active					{color:var(--base11);}
 	============================================= */
 span.span_recipient-country:before 		{color:var(--base14);}
 recipient-country span					{color:var(--base15);}
-recipient-country span:nth-of-type(2)	{color:var(--base15);}
+recipient-country span:nth-of-type(2)	{color:var(--base14);}
 
 span.country_img:before	{color:var(--base14); background-color:var(--base03);}
 img.country_pie			{background-color:var(--base15);}
@@ -390,11 +390,14 @@ activity-date[type="end-actual"]:before		{color:var(--base15);}
 	============================================= */
 span.span_participating-org 					{color:var(--base15);}
 span.span_participating-org:before 				{color:var(--base14); border-bottom:1px solid var(--base14);}
-participating-org								{color:var(--base15);}
-participating-org[role="funding"]:after			{color:var(--base14);}
-participating-org[role="implementing"]:after	{color:var(--base14);}
-participating-org[role="extending"]:after		{color:var(--base14);}
-participating-org[role="accountable"]:after		{color:var(--base14);}
+
+participating-org,
+span-narrative.participating-role				{color:var(--base15);}
+
+participating-org[role="1"] narrative:nth-of-type(1):after, participating-org[role="funding" i] narrative:nth-of-type(1):after,
+participating-org[role="2"] narrative:nth-of-type(1):after, participating-org[role="accountable" i] narrative:nth-of-type(1):after,
+participating-org[role="3"] narrative:nth-of-type(1):after, participating-org[role="extending" i] narrative:nth-of-type(1):after,
+participating-org[role="4"] narrative:nth-of-type(1):after, participating-org[role="implementing" i] narrative:nth-of-type(1):after	{color:var(--base14);}
 
 participating-org a:link	{color:var(--base11);}
 participating-org a:visited	{color:var(--base11);}
@@ -448,6 +451,12 @@ result indicator period actual					{background-color:var(--base);}
 result indicator period actual.value-higher		{background-color:var(--base11);}
 result indicator period actual.value-lower		{background-color:var(--base02);}
 
+span-narrative.baseline-year,
+result indicator[measure="1"] period target:after,
+result indicator[measure="1"] period actual:after,
+result indicator[measure="2"] period target:after,
+result indicator[measure="2"] period actual:after	{color:var(--base15);}
+
 result indicator > baseline comment	{color:var(--base15);}
 
 result indicator reference:before	{color:var(--base13);}
@@ -468,8 +477,8 @@ span.span_sector sector[vocabulary="DAC"]:before,
 span.span_sector sector[vocabulary="1"]:before,
 span.span_sector sector[vocabulary="2"]:before	{color:var(--base14);}
 
-span.span_sector sector:nth-child(even) {background-color:var(--base04_70);}
 span.span_sector span					{color:var(--base15);}
+span.span_sector sector span:nth-of-type(2),
 span.span_sector span:nth-of-type(2)	{color:var(--base14);}
 img.sector_pie			{background-color:var(--base15);}
 

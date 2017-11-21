@@ -61,17 +61,19 @@ a.a_slug:active			{color:#FFAB5E;}
 /*	Recipient countries
 	============================================= */
 transaction recipient-country			{display:none;}
-span.span_recipient-country				{display:none; vertical-align:top; width:960px; padding:40px 40px 0 40px; box-sizing:border-box;}
-recipient-country 						{display:block; vertical-align:top; padding:10px 0;}
-span.span_recipient-country:before 		{content:"RECIPIENT COUNTRY"; font-size:14px; color:#CCC; padding-bottom:10px; margin-bottom:20px; display:block; border-bottom:1px solid #aaa;}
-recipient-country span					{font-size:30px; color:#FFF;}
-recipient-country:nth-of-type(1) 		{padding-top:0;}
-recipient-country span:nth-of-type(2)	{font-size:20px; color:#97c4ff; padding-top:10px;}
-recipient-country:last-of-type			{padding-bottom:20px;}
+span.span_recipient-country				{display:block; width:960px; padding:30px 40px; box-sizing:border-box; position:relative;}
+recipient-country 						{display:block;}
+recipient-country span					{font-size:1.0em; line-height:1.5em; color:#FFF; display:inline;}
+recipient-country span:nth-of-type(2)	{color:#999; font-size:14px; line-height:24px; margin-left:10px;}
+
+span.span_recipient-country recipient-country span:nth-of-type(2):before	{content:"( ";}
+span.span_recipient-country recipient-country span:nth-of-type(2):after	{content:" )";}
 
 span.country_img:before {content:"Recipient Country"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; width:900px; margin-left:-10px;}
 span.country_img		{position:relative;}
 img.country_pie			{padding:40px; background-color:#FFF;}
+
+span.span_recipient-country span.hide	{top:20px;}
 
 
 /*	Start and End dates (Planned and Actual)
@@ -125,14 +127,14 @@ span-narrative.org-role, span-narrative.org-type		{display:none; font-size:14px;
 
 /*	Location (version 2.02++)
 	============================================= */
-span.span_location			{display:block; width:880px; padding:40px; font-size:18px; color:#FFF; counter-reset:section;}
+span.span_location			{display:block; width:880px; padding:40px; font-size:1.0em; color:#FFF; counter-reset:section;}
 span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:24px;}
 span.span_location location:nth-of-type(1)	{padding:0;}
 span.span_location location::before	{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
 span.span_location location name	{display:inline;}
 span.span_location location point	{display:inline;}
-span.span_location location point > *	{display:inline; color:#999; font-size:16px;}
+span.span_location location point > *	{display:inline; color:#999; font-size:14px;}
 span.span_location location pos:before	{content:" [ ";}
 span.span_location location pos:after	{content:" ]";}
 
@@ -184,8 +186,13 @@ result[type="9"] span-title:before	{content:"OTHER";}
 result indicator			{display:block; margin:auto; margin-top:10px; margin-bottom:0px; width:880px; position:relative;}
 result indicator:nth-of-type(1)	{margin-top:0;}
 result indicator:before		{content:"INDICATOR"; font-size:14px; color:#ccc; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #aaa; padding:10px 0;}
-result indicator[measure="1"]:before	{content:"INDICATOR UNIT";}
-result indicator[measure="2"]:before	{content:"INDICATOR PERCENTAGE";}
+result indicator[measure="1"]:before,
+result indicator[measure="2"]:before	{content:"INDICATOR";}
+
+result indicator[measure="1"] period target:after, result indicator[measure="1"] period actual:after	{display:block; content:"UNIT"; font-size:12px; padding-top:10px;}
+result indicator[measure="2"] period target:after, result indicator[measure="2"] period actual:after	{display:block; content:"PERCENTAGE"; font-size:12px; padding-top:10px;}
+
+result indicator[measure="2"] period target span-narrative:after, result indicator[measure="2"] period actual span-narrative:after	{content:" %";}
 
 result indicator span-title	{display:block; width:100%; font-size:16px; line-height:22px; padding:0 30px 0 0; box-sizing:border-box;}
 result indicator span-title:before {content:" "; margin:0; border:0;}
@@ -243,10 +250,10 @@ result indicator period actual		{background-color:rgba(31,108,181,0.5); width:18
 result indicator period actual.value-higher		{background-color:rgba(0,199,35,0.5);}
 result indicator period actual.value-lower		{background-color:rgba(189,169,21,0.5);}
 
-result indicator reference			{display:inline; position:absolute; top:0px; right:0px;}
-result indicator reference span-narrative	{display:inline; font-size:14px;}
-span-narrative.reference-vocabulary:before	{content:"VOCAB "; display:inline; font-size:14px; color:#ccc;}
-span-narrative.reference-code:before		{content:"CODE "; display:inline; font-size:14px; color:#ccc;}
+result indicator reference			{display:inline; position:absolute; top:5px; right:0px;}
+result indicator reference span-narrative	{display:inline; font-size:12px;}
+span-narrative.reference-vocabulary:before	{content:"VOCAB "; display:inline; font-size:12px; color:#ccc;}
+span-narrative.reference-code:before		{content:"CODE "; display:inline; font-size:12px; color:#ccc;}
 span-narrative.reference-code				{padding-left:10px;}
 result indicator reference a:hover			{cursor:pointer;}
 result indicator reference a.a_reference	{display:list-item; list-style-type:circle; list-style-position:inside; margin-bottom:10px;}
@@ -265,21 +272,22 @@ result indicator span-result	{display:inline-block; vertical-align:top; width:35
 
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
-sector *		{display:none;}
-span.sector_img:before {content:"Sector"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; width:900px; margin-left:-10px;}
+sector *				{display:none;}
+span.sector_img:before	{content:"Sector"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; width:900px; margin-left:-10px;}
+span.span_sector		{padding:30px 40px; position:relative;}
 span.span_sector sector[vocabulary="DAC"],
 span.span_sector sector[vocabulary="1"],
-span.span_sector sector[vocabulary="2"]			{font-size:1.0em; color:#FFF; width:240px; display:none; vertical-align:top; padding:30px 40px 40px 40px; max-height:80px; min-height:80px;}
-span.span_sector sector:nth-child(even)			{background-color:rgba(0,14,32,0.7);}
-span.span_sector sector[vocabulary="DAC"]:before,
-span.span_sector sector[vocabulary="1"]:before	{content:"SECTOR"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
-span.span_sector sector[vocabulary="2"]:before	{content:"SECTOR GROUP"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
-span.span_sector sector span					{color:#FFF; padding-top:5px;}
-span.span_sector sector span:nth-of-type(1)		{line-height:1.2em;}
-span.span_sector sector span:nth-of-type(2)		{color:#ccc;}
-span.span_sector sector span:nth-of-type(2):after{content:"allocated"; padding-left:5px; display:inline-block;}
+span.span_sector sector[vocabulary="2"]			{font-size:1.0em; color:#FFF; display:block; line-height:1.5em;}
+span.span_sector sector[vocabulary="2"]:nth-of-type(1):before	{content:"SECTOR GROUP"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
+span.span_sector sector span					{color:#FFF; display:inline;}
+span.span_sector sector span:nth-of-type(1)		{margin-right:10px;}
+span.span_sector sector span:nth-of-type(2)		{color:#999; font-size:14px;}
+span.span_sector sector span:nth-of-type(2):before	{content:"( ";}
+span.span_sector sector span:nth-of-type(2):after	{content:" )";}
 img.sector_pie	{padding:40px; background-color:#FFF;}
 span.sector_img	{position:relative;}
+
+span.span_sector span.hide	{top:20px;}
 
 
 /*	Budget table
