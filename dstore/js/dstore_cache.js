@@ -227,6 +227,7 @@ dstore_cache.iati = function(argv){
 	try { fs.mkdirSync(global.argv.cache); } catch(e){}
 
 	var slugs={};
+	var slug_count=0;
 	var failed_slugs={};
 
 	var start=0;
@@ -285,7 +286,8 @@ dstore_cache.iati = function(argv){
 						else
 						{
 							
-							slugs[slug]=url;						
+							slugs[slug]=url;
+							slug_count++;
 							try{
 								console.log((i+start+1)+"/"+(start+rs.length)+":downloading "+slug+" from "+url)
 								var download=true;
@@ -356,11 +358,21 @@ dstore_cache.iati = function(argv){
 	
 	if((!just_this_slug)&&(!just_this_publisher))
 	{
-		console.log("");
-		console.log("EMPTYING OLD CACHE");
-		console.log("");
-
-		dstore_cache.empty({},slugs);
+		if(slug_count<1000) // arbitrary minimum
+		{
+			console.log("********");
+			console.log("");
+			console.log("ERROR ONLY "+slug_count+" FILES FOUND WILL NOT DELETE OLD CACHE IN CASE REGISTRY IS BROKEN");
+			console.log("");
+			console.log("********");
+		}
+		else
+		{
+			console.log("");
+			console.log("EMPTYING OLD CACHE");
+			console.log("");
+			dstore_cache.empty({},slugs);
+		}
 	}
 
 	var failed_header=true;
