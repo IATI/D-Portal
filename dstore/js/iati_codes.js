@@ -12,6 +12,7 @@ var http=require('http');
 var https=require('https');
 var fs = require('fs');
 var baby = require('babyparse');
+var json_stringify = require('json-stable-stringify')
 
 var refry=require('./refry');
 var exs=require('./exs');
@@ -375,8 +376,7 @@ iati_codes.fetch = function(){
 	
 		
 	console.log("Writing json/iati_codes.json")	
-//	fs.writeFileSync("json/iati_codes.js","exports.codes="+JSON.stringify(codes)+";\n");
-	fs.writeFileSync(__dirname+"/../json/iati_codes.json",JSON.stringify(codes,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
 
 	
 	var x=wait.for(https_getbody,sheeturl(3));
@@ -419,8 +419,7 @@ iati_codes.fetch = function(){
 //	ls(o);
 
 	console.log("Writing json/crs_2012.json")
-//	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
-	fs.writeFileSync(__dirname+"/../json/crs_2012.json",JSON.stringify(o,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/crs_2012.json",json_stringify(o,{ space: ' ' }));
 
 //	codes["local_currency"]=o;
 
@@ -467,8 +466,7 @@ iati_codes.fetch = function(){
 //	ls(o);
 
 	console.log("Writing json/crs_2012_sectors.json")
-//	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
-	fs.writeFileSync(__dirname+"/../json/crs_2012_sectors.json",JSON.stringify(o,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/crs_2012_sectors.json",json_stringify(o,{ space: ' ' }));
 
 
 	var x=wait.for(https_getbody,sheeturl(14));
@@ -511,8 +509,7 @@ iati_codes.fetch = function(){
 //	ls(o);
 
 	console.log("Writing json/crs_2013.json")
-//	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
-	fs.writeFileSync(__dirname+"/../json/crs_2013.json",JSON.stringify(o,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/crs_2013.json",json_stringify(o,{ space: ' ' }));
 
 //	codes["local_currency"]=o;
 
@@ -559,8 +556,7 @@ iati_codes.fetch = function(){
 //	ls(o);
 
 	console.log("Writing json/crs_2013_sectors.json")
-//	fs.writeFileSync("json/crs_2012.js","exports.crs="+JSON.stringify(o)+";\n");
-	fs.writeFileSync(__dirname+"/../json/crs_2013_sectors.json",JSON.stringify(o,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/crs_2013_sectors.json",json_stringify(o,{ space: ' ' }));
 
 
 
@@ -603,7 +599,7 @@ iati_codes.fetch = function(){
 //	ls(o);
 
 	console.log("Writing json/crs_2014.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2014.json",JSON.stringify(o,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/crs_2014.json",json_stringify(o,{ space: ' ' }));
 
 	var x=wait.for(https_getbody,sheeturl(830372680));
 //	var lines=wait.for(csv_parse,x);
@@ -643,7 +639,7 @@ iati_codes.fetch = function(){
 	}
 
 	console.log("Writing json/crs_2014_sectors.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2014_sectors.json",JSON.stringify(o,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/crs_2014_sectors.json",json_stringify(o,{ space: ' ' }));
 
 
 
@@ -686,7 +682,7 @@ iati_codes.fetch = function(){
 		}
 	}
 	console.log("Writing json/crs_2015.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2015.json",JSON.stringify(o,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/crs_2015.json",json_stringify(o,{ space: ' ' }));
 
 
 
@@ -727,11 +723,34 @@ iati_codes.fetch = function(){
 		}
 	}
 	console.log("Writing json/crs_2015_sectors.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2015_sectors.json",JSON.stringify(o,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/crs_2015_sectors.json",json_stringify(o,{ space: ' ' }));
 
 
 
+	var start=0;
+	var done=false;
+	var packages={};
+	while(!done)
+	{	
+		console.log( "iatiregistry query for packages "+(start+1)+" to "+(start+1000) );
+		var js=wait.for(https_getbody,"https://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
 
+		var j=JSON.parse(js.toString('utf8'));
+		var rs=j.result.results;
+		done=true;
+		for(var i=0;i<rs.length;i++)
+		{
+			done=false;
+			var v=rs[i];
+			packages[v.name]=v;
+		}
+		start+=1000;
+	}
+	if(start>2000) // sanity, just in case of total registry failure
+	{
+		console.log("Writing json/packages.json")
+		fs.writeFileSync(__dirname+"/../json/packages.json",json_stringify(packages,{ space: ' ' }));
+	}
 
 
 
@@ -784,42 +803,11 @@ console.log("secondary "+id);
 //	ls(publishers);
 
 	console.log("Writing json/iati_codes.json")	
-//	fs.writeFileSync("json/iati_codes.js","exports.codes="+JSON.stringify(codes)+";\n");
-	fs.writeFileSync(__dirname+"/../json/iati_codes.json",JSON.stringify(codes,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
 
 	console.log("Writing json/publishers.json")
-	fs.writeFileSync(__dirname+"/../json/publishers.json",JSON.stringify(publishers,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/publishers.json",json_stringify(publishers,{ space: ' ' }));
 
-//
-// use the following query
-//
-// http://iatiregistry.org/api/search/dataset?fl=name,download_url,metadata_modified,groups,id,data_updated&offset=0&limit=99999
-// actually that does not work
-// try
-// http://iatiregistry.org/api/search/dataset?fl=name,res_url&offset=0&limit=99999
-//
-
-// get download urls of each xml file ?
-/*
-	for(var pname in publishers)
-	{
-		var p=publishers[pname];
-		for(var i=0;i<p.packages.length;i++)
-		{
-			var name=p.packages[i];
-			console.log("Fetching package info for "+name);
-			var js=wait.for(http_getbody,"http://iatiregistry.org/api/rest/dataset/"+name);
-			var j=JSON.parse(js);
-			packages[name]=j.download_url; // the only useful value...
-		}
-	}
-
-// list of urls if we want to do our own scan...
-	console.log("Writing json/packages.json")
-	fs.writeFileSync(__dirname+"/../json/packages.json",JSON.stringify(packages,null,'\t'));
-
-//	return;
-*/
 }	
 
 }

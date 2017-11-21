@@ -9,6 +9,7 @@ var csv=undefined;//require('csv');
 var util=require('util');
 var wait=require('wait.for');
 var fs = require('fs');
+var json_stringify = require('json-stable-stringify')
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -308,8 +309,8 @@ console.log(year + " " + month );
 	}
 
 // dump monthly averages
-	fs.writeFileSync(__dirname+"/../json/xdr_year.json",JSON.stringify(dump_ys,null,'\t'));
-	fs.writeFileSync(__dirname+"/../json/xdr_month.json",JSON.stringify(dump_ms,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/xdr_year.json",json_stringify(dump_ys,{ space: ' ' }));
+	fs.writeFileSync(__dirname+"/../json/xdr_month.json",json_stringify(dump_ms,{ space: ' ' }));
 
 
 // start with csv_ys (which we grabbed from google docs) and replace with our imf values
@@ -331,7 +332,7 @@ console.log(year + " " + month );
 		}
 
 	}
-	fs.writeFileSync(__dirname+"/../json/usd_year.json",JSON.stringify(csv_ys,null,'\t'));
+	fs.writeFileSync(__dirname+"/../json/usd_year.json",json_stringify(csv_ys,{ space: ' ' }));
 
 // build a USD based exchange CSV, similar to the one found in google docs.
 	var head={};	
