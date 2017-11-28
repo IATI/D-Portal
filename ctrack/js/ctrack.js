@@ -135,40 +135,37 @@ ctrack.setup=function(args)
 		if(n=="sum_of_percent_of_trans") { n="sum_trans" }
 		else
 		if(n=="sum_of_percent_of_budget") { n="sum_budget" }
+		
+		if((n=="spend")||(n=="commitment")) // special USD case
+		{
+			return n;
+		}
+		else
 		if(ctrack.convert_have[ctrack.display_usd])
 		{
 			return n+"_"+ctrack.display_usd.toLowerCase();
 		}
 		else
 		{
-			if((n=="spend")||(n=="commitment")) // special USD case
-			{
-				return n;
-			}
-			else
-			{
-				return n+"_usd";
-			}
+			return n+"_usd";
 		}
 	};
 	ctrack.convert_num=function(n,v){
 		if(n=="sum_of_percent_of_trans") { n="sum_trans" }
 		else
 		if(n=="sum_of_percent_of_budget") { n="sum_budget" }
+		if((n=="spend")||(n=="commitment")) // special USD case
+		{
+			return  v[n]*ctrack.convert_usd;
+		}
+		else
 		if(ctrack.convert_have[ctrack.display_usd])
 		{
 			return  v[n+"_"+ctrack.display_usd.toLowerCase()];
 		}
 		else
 		{
-			if((n=="spend")||(n=="commitment")) // special USD case
-			{
-				return  v[n]*ctrack.convert_usd;
-			}
-			else
-			{
-				return  v[n+"_usd"]*ctrack.convert_usd;
-			}
+			return  v[n+"_usd"]*ctrack.convert_usd;
 		}
 	};
 
