@@ -899,6 +899,19 @@ $( "span.span_recipient-country" ).each(function(i,el){
 });
 
 
+//	add hide div to these classes
+$( "result" ).each(function(i,el){
+	var e=$(el);
+	var ec=e.children();
+	var c=$("<span class='hide'>[ - ] HIDE</span>");
+	e.append(c);
+	c.click(function(){
+		c.text((c.text() == '[ - ] HIDE') ? '[ + ] SHOW' : '[ - ] HIDE').fadeIn();
+		ec.fadeToggle('fast');
+	});
+});
+
+
 //	move these into another element
 $( "span.span_sector span.length" ).appendTo( $( "span.sector_img" ) );
 $( "span.span_recipient-country span.length" ).appendTo( $( "span.country_img" ) );

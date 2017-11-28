@@ -141,6 +141,7 @@
 	</table>
 	<div class="table_wrap main">
 		<table class="list">
+			{table_activities_header_amount}
 			{table_active_datas}
 		</table>
 	</div>
@@ -160,6 +161,7 @@
 	</table>
 	<div class="table_wrap main">
 		<table class="list">
+			{table_activities_header_amount}
 			{table_ended_datas}
 		</table>
 	</div>
@@ -179,6 +181,16 @@
 		</a>
 	</td>
 	<td class="date" title="{table_active_date_tip_text}">{date_end}</td>
+	<td class="value">
+		<div class="activities_spend_wrap">
+			<div class="activities_spend" title="{activities_spend_text}">{commitment}<span class="currency">{currency}</span></div>
+			<div class="activities_barchart_wrap" title="{activities_percentage_tip_text}">
+				<div class="activities_percent_max">
+					<div style="width:{pct}px;" class="activities_percent"></div>
+				</div>
+			</div>
+		</div>
+	</td>
 </tr>
 
 #table_ended_data
@@ -191,6 +203,16 @@
 		</a>
 	</td>
 	<td class="date" title="{table_ended_date_tip_text}">{date_end}</td>
+	<td class="value">
+		<div class="activities_spend_wrap">
+			<div class="activities_spend" title="{activities_spend_text}">{commitment}<span class="currency">{currency}</span></div>
+			<div class="activities_barchart_wrap" title="{activities_percentage_tip_text}">
+				<div class="activities_percent_max">
+					<div style="width:{pct}px;" class="activities_percent"></div>
+				</div>
+			</div>
+		</div>
+	</td>
 </tr>
 
 #table_header
@@ -198,6 +220,7 @@
     <th class="titles"></th>
     <th class="titles">{project_title_tip_text}</th>
     <th class="titles">{table_active_date_tip_text}</th>
+    <th class="titles">{activities_spend_text}</th>
 </tr>
 
 #table_header_list
@@ -218,7 +241,8 @@
 <tr>
     <th class="titles"></th>
     <th class="titles">{project_title_tip_text}</th>
-    <th class="titles">{view_activities_amount_text}</th>
+    <th class="titles">{table_active_date_tip_text}</th>
+    <th class="titles">{activities_spend_text}</th>
 </tr>
 
 #table_header_missing
@@ -227,6 +251,7 @@
     <th class="titles">{project_title_tip_text}</th>
     <th class="titles">{date_start_tip_text}</th>
     <th class="titles">{date_end_tip_text}</th>
+    <th class="titles">{amount_text}</th>
 </tr>
 
 #donor_graph

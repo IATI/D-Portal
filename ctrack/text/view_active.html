@@ -50,6 +50,16 @@
 		</a>
 	</td>
 	<td class="date" title="{table_active_date_tip_text}">{date_end}</td>
+	<td class="value">
+		<div class="activities_spend_wrap">
+			<div class="activities_spend" title="{activities_spend_text}">{commitment}<span class="currency">{currency}</span></div>
+			<div class="activities_barchart_wrap" title="{activities_percentage_tip_text}">
+				<div class="activities_percent_max">
+					<div style="width:{pct}px;" class="activities_percent"></div>
+				</div>
+			</div>
+		</div>
+	</td>
 </tr>
 
 #active_head
@@ -60,8 +70,8 @@
 			<div class="list_peak_space"></div>
 			<div class="donors_peak view"></div>
 	</div><div class="head_title_wrap">
-			<div class="donors_head_title view">
-				<span class="stats_num view">{active_projects}</span><span class="stats_title view">{stats_active_table_text}</span>			
-			</div>
+		<div class="donors_head_title view">
+			<span class="stats_num view">{active_projects}</span><span class="stats_title view">{stats_active_table_text}</span>			
 		</div>
+	</div>
 </div>
