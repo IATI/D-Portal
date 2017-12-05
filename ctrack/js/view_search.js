@@ -681,7 +681,7 @@ view_search.ajax=function(args)
 		fetch.ajax({
 				"from":"act",
 				"limit":1,
-				"aid":args.q.raw_text_search,
+				"aid":args.q.raw_text_search.trim(),
 			},function(data){
 			if(latest!=view_search.latest) { return; } // ignore old search data
 
