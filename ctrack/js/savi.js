@@ -873,7 +873,7 @@ $( "span.span_sector" ).each(function(i,el){
 	e.css( "display", "none" );
 	if(ec.length>0)
 	{
-		e.append(d);
+		e.parent().find("span.sector_img").append(d);	//	move length out and into another element
 	}
 //	c.click(function(){
 //		c.text((c.text() == '[ + ] SHOW') ? '[ - ] HIDE' : '[ + ] SHOW').fadeIn();
@@ -891,7 +891,7 @@ $( "span.span_recipient-country" ).each(function(i,el){
 //	ec.css( "display", "none" );
 //	e.append(c);
 	e.css( "display", "none" );
-	e.append(d);
+	e.parent().find("span.country_img").append(d);	//	move length out and into another element
 //	c.click(function(){
 //		c.text((c.text() == '[ + ] SHOW') ? '[ - ] HIDE' : '[ + ] SHOW').fadeIn();
 //		ec.fadeToggle('fast');
@@ -910,13 +910,6 @@ $( "result" ).each(function(i,el){
 		ec.fadeToggle('fast');
 	});
 });
-
-
-//	move these into another element
-$( "span.span_sector span.length" ).appendTo( $( "span.sector_img" ) );
-$( "span.span_recipient-country span.length" ).appendTo( $( "span.country_img" ) );
-
-
 
 };
 
