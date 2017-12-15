@@ -187,11 +187,13 @@ view_search.fixup=function()
 			enable_search=true;
 			txt.push("Searching activity title for the term \""+v+"\"")
 			que.push("search="+v)
+			ctrack.hash.search=v
 			q.text_search=v;
 			q.raw_text_search=vraw;
 		}
 		else
 		{
+			delete ctrack.hash.search
 			txt.push("Searching for any activities")
 			que.push("search")
 		}
@@ -202,7 +204,12 @@ view_search.fixup=function()
 			enable_search=true;
 			txt.push("Where the recipient country is \""+v+"\"")
 			que.push("country="+v)
+			ctrack.hash.country=v
 			q.country_code=v;
+		}
+		else
+		{
+			delete ctrack.hash.country
 		}
 		
 		var v=$("#view_search_select_funder").val();		
@@ -211,7 +218,12 @@ view_search.fixup=function()
 			enable_search=true;
 			txt.push("Where the CRS funder is \""+v+"\"")
 			que.push("funder="+v)
+			ctrack.hash.funder=v
 			q.funder_ref=v;
+		}
+		else
+		{
+			delete ctrack.hash.funder
 		}
 
 		var v=$("#view_search_select_sector").val();		
@@ -220,7 +232,12 @@ view_search.fixup=function()
 			enable_search=true;
 			txt.push("Where the IATI sector is \""+v+"\"")
 			que.push("sector_code="+v)
+			ctrack.hash.sector_code=v
 			q.sector_code=v;
+		}
+		else
+		{
+			delete ctrack.hash.sector_code
 		}
 
 		var v=$("#view_search_select_category").val();		
@@ -229,7 +246,12 @@ view_search.fixup=function()
 			enable_search=true;
 			txt.push("Where the IATI sector category is \""+v+"\"")
 			que.push("sector_group="+v)
+			ctrack.hash.sector_group=v
 			q.sector_group=v;
+		}
+		else
+		{
+			delete ctrack.hash.sector_group
 		}
 
 		var v=$("#view_search_select_publisher").val();		
@@ -238,7 +260,12 @@ view_search.fixup=function()
 			enable_search=true;
 			txt.push("Where the IATI publisher is \""+v+"\"")
 			que.push("publisher="+v)
+			ctrack.hash.publisher=v
 			q.reporting_ref=v;
+		}
+		else
+		{
+			delete ctrack.hash.publisher
 		}
 
 
@@ -250,9 +277,15 @@ view_search.fixup=function()
 			txt.push("Where the year reported to IATI is greater than or equal to \""+v+"\"")
 			que.push("year_min="+v);
 			que.push("year="+v);
+			ctrack.hash.year_min=v
 			q.day_end_gt=(parseInt(v,10))+"-01-01";
 			
 		}
+		else
+		{
+			delete ctrack.hash.year_min
+		}
+
 		var v=$("#view_search_select_year_max").val();		
 		if(v)
 		{
@@ -260,7 +293,12 @@ view_search.fixup=function()
 			txt.push("Where the year reported to IATI is less than or equal to \""+v+"\"")
 			que.push("year_max="+v);
 			if(!donemin) { que.push("year="+v); }
+			ctrack.hash.year_max=v
 			q.day_start_lteq=(parseInt(v,10)+1)+"-01-01";
+		}
+		else
+		{
+			delete ctrack.hash.year_max
 		}
 
 		var v=$("#view_search_select_status").val();		
@@ -269,7 +307,12 @@ view_search.fixup=function()
 			enable_search=true;
 			txt.push("Where the IATI status is \""+v+"\"")
 			que.push("status="+v)
+			ctrack.hash.status=v
 			q.status_code=v;
+		}
+		else
+		{
+			delete ctrack.hash.status
 		}
 
 		$("#search_span").html("<span>"+txt.join("</span><span>")+"</span>");
@@ -282,6 +325,8 @@ view_search.fixup=function()
 			$("#search_link").removeAttr("href");
 		}
 		view_search.ajax({q:q});
+		
+		ctrack.display_hash(); // display current search settings in hash string so we can bookmark
 		
 		return "?"+que.join("&")+"#view=main";
 	}
@@ -411,7 +456,6 @@ view_search.fixup=function()
 			build_query();
 		});
 		
-	build_query();
 
 // goto new url
 	var change=function(){
@@ -432,7 +476,6 @@ view_search.fixup=function()
 
 // fill in lists
 	var refresh=function(){
-
 
 		var aa=[];
 		aa.push("<select>");
@@ -490,6 +533,60 @@ view_search.fixup=function()
 	{
 		$('#view_search_order').trigger("click");
 	}
+
+//	for(var n in ctrack.hash){console.log(n+" = "+ctrack.hash[n])}
+// update the current selection to values found in the hash
+	if(ctrack.hash.search)
+	{
+		var vs=ctrack.hash.search.split(",")
+		$("#view_search_string").val(vs).trigger('chosen:updated');
+		$("#view_search_string_only").val(vs).trigger('chosen:updated');
+	}
+
+	if(ctrack.hash.country)
+	{
+		var vs=ctrack.hash.country.split(",")
+		$("#view_search_select_country").val(vs).trigger('chosen:updated');
+	}
+	
+	if(ctrack.hash.funder)
+	{
+		var vs=ctrack.hash.funder.split(",")
+		$("#view_search_select_funder").val(vs).trigger('chosen:updated');
+	}
+
+	if(ctrack.hash.sector_code)
+	{
+		var vs=ctrack.hash.sector_code.split(",")
+		$("#view_search_select_sector").val(vs).trigger('chosen:updated');
+	}
+
+	if(ctrack.hash.sector_group)
+	{
+		var vs=ctrack.hash.sector_group.split(",")
+		$("#view_search_select_category").val(vs).trigger('chosen:updated');
+	}
+
+	if(ctrack.hash.year_min)
+	{
+		var vs=ctrack.hash.year_min.split(",")
+		$("#view_search_select_year_min").val(vs).trigger('chosen:updated');
+	}
+
+	if(ctrack.hash.year_max)
+	{
+		var vs=ctrack.hash.year_max.split(",")
+		$("#view_search_select_year_max").val(vs).trigger('chosen:updated');
+	}
+
+	if(ctrack.hash.status)
+	{
+		var vs=ctrack.hash.status.split(",")
+		$("#view_search_select_status").val(vs).trigger('chosen:updated');
+	}
+
+// wait a little while otherwise above changes do not work...
+	setTimeout(build_query,100)
 }
 //
 // Perform ajax call to get numof data

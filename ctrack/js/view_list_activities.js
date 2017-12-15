@@ -112,11 +112,17 @@ view_list_activities.ajax=function(args)
 				d.spend=commafy(""+Math.floor(ctrack.convert_num("spend",v)));
 				d.currency=ctrack.display_usd;
 				d.pct=0;
-				if( v.commitment && (v.commitment!=0) )
+				if( ctrack.convert_not_zero("commitment",v) )
 				{
-					d.pct=Math.floor(100*v.spend/v.commitment);
+					d.pct=Math.floor(0.5+100*ctrack.convert_num("spend/commitment",v));
 					if(d.pct<0){d.pct=0;}
 					if(d.pct>100){d.pct=100;}
+				}
+				else
+				if( ctrack.convert_not_zero("spend",v) )
+				{
+					d.commitment=d.spend
+					d.pct=100
 				}
 
 				a.push(d);
