@@ -296,7 +296,7 @@ a.csv_download:hover		{background-color:#000; color:#FFF;}
 /*	For url #view=*_activities
 	============================================= */
 .activities_spend_wrap		{position:relative;}
-.activities_spend			{color:#000;}
+.activities_spend			{color:#000; margin-bottom:5px;}
 .activities_spend span		{padding-bottom:3px;}
 .activities_barchart_wrap	{min-width:100px; max-width:100px; position:absolute; right:0;}
 .activities_percent_max		{width:100px; height:10px; background-color:#000; border:1px solid #494B4E; border-radius:8px 0 0 8px;}
@@ -456,7 +456,7 @@ table.list tr:last-child td	{border:0; padding-bottom:20px;}
 table.list tr:hover		{background-color:E9E9E9;}
 table.list td:first-child	{padding-left:20px; font-size:16px; line-height:1.75em; width:5%;}
 table.list td span		{display:block; padding-top:5px; color:#000; font-size:0.7em; line-height:1.25em;}
-table.list td span.currency	{padding:0 0 5px 0;}
+table.list td span.currency {display:inline; line-height:2.5em; padding:0 0 0 5px;}
 table.list td.title		{padding:0; width:60%;}
 table.list td.date		{text-align:right; padding:20px; font-size:16px; line-height:1.75em; width:15%;}
 table.list td.value		{padding:20px; text-align:right; font-size:16px; line-height:1.75em; width:20%;}
@@ -548,6 +548,7 @@ table.activity td.count	{text-align:right; padding:10px 20px 0 40px; font-size:1
 table.activity td.date	{text-align:right; white-space:nowrap; font-size:1.0em; line-height:1.75em;}
 table.activity td.alert_no_iati	{text-align:center; font-size:1.6em; padding:40px; cursor:default;}
 table.activity td span	{display:block; padding:2px 0 3px 0; color:#000; font-size:0.7em; line-height:1.25em;}
+table.activity td span.currency {display:inline; line-height:2.5em; padding:0 0 0 5px;}
 table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#000; line-height:1.0em; box-sizing:border-box;}
 table.activity a.percent{padding:10px 0px 20px 20px;}
 table.activity a:focus	{color:#000; text-decoration:none;}

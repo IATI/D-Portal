@@ -55,35 +55,67 @@
 		</div>
 	</div>
 	<div class="footer_wrap">
-	<div class="footer">
-		{large_footer}
-	</div>
+		<div class="footer">
+			{large_footer}
+		</div>
 	</div>
 </div>
 
+#view_tail_pub
+		</div>
+	</div>
+	<div class="footer_wrap">
+		<div class="footer">
+			{large_footer_pub}
+		</div>
+	</div>
+</div>
+
+
 #large_footer
 <div class="footer_link">
-	<div class="footer_motto">{footer6_text} {footer7_text}</div>
-	<p>{footer8_text}</p>
-	<p class="beta">{footer9_text}</p>
-	<p>{footer10_text} <b><a href="mailto:support@iatistandard.org">{footer11_text}</a></b></p>
+	{large_footer_left}
 </div><div class="footer_link list">
-	<div class="footer_header">{footer12_text}</div>
-	<ul>
-		<li><a href="http://d-portal.org/news/posts.html">{footer13_text}</a></li>
-		<li><a href="http://d-portal.org/ctrack.html?#view=dash">{footer14_text}</a></li>
-		<li><a href="http://d-portal.org/ctrack.html#view=generator">{footer15_text}</a></li>
-		<li><a href="https://xriss.github.io/D-Portal-Logs/">{footer20_text}</a></li>
-	</ul>
-	<div class="footer_header">{footer16_text}</div>
-	<ul>
-		<li><a href="http://d-portal.org/faq.html">{footer17_text}</a></li>
-		<li><a href="http://d-portal.org/about.html">{footer_about_text}</a></li>
-		<li><a href="http://d-portal.org/about.html#sources">{footer18_text}</a></li>
-		<li><a href="https://github.com/devinit/D-Portal/issues">{footer19_text}</a></li>
-	</ul>
+	{large_footer_right}
 </div>
 <div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">{footer_top_text}</a></div>
+
+#large_footer_pub
+<div class="footer_link">
+	{large_footer_left_pub}
+</div><div class="footer_link list">
+	{large_footer_right}
+</div>
+<div class="footer_link top"><a onclick="$('html,body').animate({scrollTop:0},'slow');return false;">{footer_top_text}</a></div>
+
+
+#large_footer_left
+<div class="footer_motto">{footer6_text} {footer7_text}</div>
+<p>{footer8_text}</p>
+<p class="beta">{footer9_text}</p>
+<p>{footer10_text} <b><a href="mailto:support@iatistandard.org">{footer11_text}</a></b></p>
+
+#large_footer_left_pub
+<div class="footer_motto">{footer6_text} {footer7_text}</div>
+<p>{footer8_text}</p>
+<p class="beta">{footer9_text}</p>
+<p>{footer10_text} <b><a href="mailto:support@iatistandard.org?subject=Regarding%20{publisher_name}%20on%20d-portal.org">{footer11_text}</a></b></p>
+
+#large_footer_right
+<div class="footer_header">{footer12_text}</div>
+<ul>
+	<li><a href="http://d-portal.org/news/posts.html">{footer13_text}</a></li>
+	<li><a href="http://d-portal.org/ctrack.html?#view=dash">{footer14_text}</a></li>
+	<li><a href="http://d-portal.org/ctrack.html#view=generator">{footer15_text}</a></li>
+	<li><a href="https://xriss.github.io/D-Portal-Logs/">{footer20_text}</a></li>
+</ul>
+<div class="footer_header">{footer16_text}</div>
+<ul>
+	<li><a href="http://d-portal.org/faq.html">{footer17_text}</a></li>
+	<li><a href="http://d-portal.org/about.html">{footer_about_text}</a></li>
+	<li><a href="http://d-portal.org/about.html#sources">{footer18_text}</a></li>
+	<li><a href="https://github.com/devinit/D-Portal/issues">{footer19_text}</a></li>
+</ul>
 
 
 #main_datainvestigators
