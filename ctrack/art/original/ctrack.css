@@ -374,10 +374,9 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search_cont				{margin:auto; background-color:rgba(28,31,33,0.8); border-radius:6px; width:960px; box-sizing:border-box; padding:20px 30px; border-bottom:1px solid #aaa; margin-top:10px; margin-bottom:10px;}
 .search_query				{display:inline-block; vertical-align:top;}
 .search_main				{width:900px;}
-a.search_title				{display:inline-block; vertical-align:middle; width:85%; color:#53B4ED; margin-top:10px; margin-bottom:10px; letter-spacing:5px; font-size:18px; font-weight:bold;}
-a.search_title:hover		{color:#FFF;}
-a.search.search_title:before{content:""; display:inline-block; background:url(/ctrack/art/original/search_icon.png)no-repeat center center; width:26px; height:26px; background-size:100%; zoom:70%;}
-a.search.search_title span	{color:#fff; font-weight:initial; letter-spacing:1px; line-height:24px; display:inline-block; margin-left:-5px;}
+.search_title				{display:inline-block; vertical-align:middle; width:85%; color:#53B4ED; margin-top:10px; margin-bottom:10px; letter-spacing:5px; font-size:18px; font-weight:bold;}
+.search.search_title:before	{content:""; display:inline-block; margin-right:15px; background:url(/ctrack/art/original/search_icon.png)no-repeat center center; width:26px; height:26px; background-size:100%; zoom:70%;}
+.search.search_title span	{color:#fff; font-weight:initial; letter-spacing:1px; line-height:24px; display:inline-block; margin-left:-5px;}
 a.search_refine 			{display:inline-block; vertical-align:middle; text-align:center; width:15%; padding:10px 0; border-radius:4px; font-size:16px; border:1px solid #2f6381; color:#fff; background:linear-gradient(#68c7ff,#2d5d7b); background:-webkit-linear-gradient(#68c7ff,#2d5d7b); text-shadow:0 -1px 0 #366e90; box-sizing:border-box;}
 .search_query				{font-size:1.1em; line-height:1.3em; color:#FFF; padding:10px 30px 10px 0; width:300px; box-sizing:border-box;}
 .search_query span			{font-size:14px; display:block; padding-top:5px; color:#999; line-height:1.2em; text-transform:uppercase;}
