@@ -529,7 +529,7 @@ ctrack.setup=function(args)
 	var bb=[]; for(var n in aa) { if(n!="newyear") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_newyear","?"+bb.join("&"));
 
-	var bb=[]; for(var n in aa) { if(n!="flava") { bb.push(n+"="+aa[n]); } }
+	var bb=[]; for(var n in aa) { if( (n!="flava") && (n!="rgba") ){ bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_flava","?"+bb.join("&"));
 
 	var bb=[]; for(var n in aa) { if(n!="usd") { bb.push(n+"="+aa[n]); } }
