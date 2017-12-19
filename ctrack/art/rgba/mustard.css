@@ -156,6 +156,7 @@ a#search_link				{background-color:rgba(206,131,0,1); color:rgba(255,255,255,1);
 a#search_link span			{color:rgba(255,255,255,1);}
 a#search_link:hover			{background-color:rgba(255,163,0,1);}
 
+.search_title				{color:rgba(255,163,0,1);}
 
 /*	For url #view=list_activities	*
 	============================================= */
@@ -173,6 +174,7 @@ a#search_link:hover			{background-color:rgba(255,163,0,1);}
 .search_cont a:active		{color:rgba(206,131,0,1);}
 .search.head				{color:rgba(255,255,255,1);}
 .search_query				{color:rgba(255,255,255,1);}
+a.search_refine				{border:0; text-shadow:initial; background:none; background-color:rgba(15,15,15,0.7);}
 
 
 /*	Table header styles
