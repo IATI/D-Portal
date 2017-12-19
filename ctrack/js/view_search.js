@@ -555,6 +555,12 @@ view_search.fixup=function()
 		$("#view_search_select_funder").val(vs).trigger('chosen:updated');
 	}
 
+	if(ctrack.hash.publisher)
+	{
+		var vs=ctrack.hash.publisher.split(",")
+		$("#view_search_select_publisher").val(vs).trigger('chosen:updated');
+	}
+
 	if(ctrack.hash.sector_code)
 	{
 		var vs=ctrack.hash.sector_code.split(",")
