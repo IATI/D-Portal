@@ -309,6 +309,23 @@ dstore_sqlite.replace = function(db,name,it){
 
 };
 		
+dstore_sqlite.file_get = function(db,slug){
+	return new Promise(function (fulfill, reject){
+
+		db.all(
+
+" SELECT * FROM file WHERE slug IS $slug ; "
+
+		,{$slug:slug}, function(err, rows)
+		{
+			if(err) { throw(err) } else {
+				fulfill(rows[0])
+			}
+		})
+
+	});
+};
+
 
 dstore_sqlite.file_url = function(db,slug,url){
 	return new Promise(function (fulfill, reject){

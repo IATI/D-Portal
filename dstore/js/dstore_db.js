@@ -46,9 +46,8 @@ dstore_db.bubble_act={
 dstore_db.tables={
 	file:[
 		{ name:"slug",							TEXT:true , PRIMARY:true , HASH:true }, // slug we got the data from (unique)
-		{ name:"file_url",						TEXT:true , INDEX:true }, // url we got the data from
 		{ name:"file_lock",						TEXT:true , INDEX:true }, // a unique name or null if not locked
-		{ name:"file_sum",						TEXT:true , INDEX:true }, // last downloaded file checksum
+		{ name:"file_url",						TEXT:true , INDEX:true }, // url we got the data from
 		{ name:"file_length",					INTEGER:true , INDEX:true }, // last downloaded file length
 		{ name:"file_count",					INTEGER:true , INDEX:true }, // number of activities found in xml file
 		{ name:"file_check",					INTEGER:true , INDEX:true }, // last check for changes timestamp (lock start time)
@@ -58,6 +57,7 @@ dstore_db.tables={
 	xml:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"slug",							TEXT:true , INDEX:true }, // slug we got the data from (unique)
+		{ name:"xml_lock",						TEXT:true , INDEX:true }, // a unique name or null if not locked
 		{ name:"xml_idx",						INTEGER:true , INDEX:true }, // activity index in xml file
 		{ name:"xml_check",						INTEGER:true , INDEX:true }, // last check for changes timestamp
 		{ name:"xml_download",					INTEGER:true , INDEX:true }, // last download timestamp
@@ -1128,14 +1128,6 @@ dstore_db.replace_pm = function(db,tablename,opts){
 	return dstore_back.replace_pm(db,tablename,opts);
 }
 
-// register or update a file url with a slug
-dstore_db.file_url  = function(db,slug,url) { return dstore_back.file_url(db,slug,url) }
-// get a lock on a file for processing
-dstore_db.file_lock = function(db,age)      { return dstore_back.file_lock(db,age)     }
-
-// transaction wrappers
-dstore_db.transaction_begin  = function(db) { return dstore_back.transaction_begin(db)  }
-dstore_db.transaction_commit = function(db) { return dstore_back.transaction_commit(db) }
 
 // prepare some sql code
 dstore_db.cache_prepare = function(){
@@ -1151,6 +1143,30 @@ dstore_db.query_select=function(q,res,r,req){
 dstore_db.query=function(q,v,cb){
 	return dstore_back.query(q,v,cb);
 }
+
+// these functions return promises
+
+// get file by slug
+dstore_db.file_get  = function(db,slug)     { return dstore_back.file_get(db,slug)     }
+
+// register or update a file url with a slug
+dstore_db.file_url  = function(db,slug,url) { return dstore_back.file_url(db,slug,url) }
+
+// get a lock on a file for processing
+dstore_db.file_lock = function(db,age)      { return dstore_back.file_lock(db,age)     }
+
+
+// get a lock on an xml activity for processing
+dstore_db.xml_lock = function(db,age) { return dstore_back.xml_lock(db,age) }
+
+// get xml by aid
+dstore_db.xml_get = function(db,aid)  { return dstore_back.xml_get(db,aid)  }
+
+
+// transaction wrappers
+dstore_db.transaction_begin  = function(db) { return dstore_back.transaction_begin(db)  }
+dstore_db.transaction_commit = function(db) { return dstore_back.transaction_commit(db) }
+
 
 dstore_db.cache_prepare();
 
