@@ -44,6 +44,27 @@ dstore_db.bubble_act={
 	
 // data table descriptions
 dstore_db.tables={
+	file:[
+		{ name:"slug",							TEXT:true , PRIMARY:true , HASH:true }, // slug we got the data from (unique)
+		{ name:"file_url",						TEXT:true , INDEX:true }, // url we got the data from
+		{ name:"file_lock",						TEXT:true , INDEX:true }, // a unique name or null if not locked
+		{ name:"file_sum",						TEXT:true , INDEX:true }, // last downloaded file checksum
+		{ name:"file_length",					INTEGER:true , INDEX:true }, // last downloaded file length
+		{ name:"file_count",					INTEGER:true , INDEX:true }, // number of activities found in xml file
+		{ name:"file_check",					INTEGER:true , INDEX:true }, // last check for changes timestamp (lock start time)
+		{ name:"file_download",					INTEGER:true , INDEX:true }, // last download timestamp
+		{ name:"file_log",						TEXT:true }, // raw text log of last download (errors)
+	],
+	xml:[
+		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
+		{ name:"slug",							TEXT:true , INDEX:true }, // slug we got the data from (unique)
+		{ name:"xml_idx",						INTEGER:true , INDEX:true }, // activity index in xml file
+		{ name:"xml_check",						INTEGER:true , INDEX:true }, // last check for changes timestamp
+		{ name:"xml_download",					INTEGER:true , INDEX:true }, // last download timestamp
+		{ name:"xml_parse",						INTEGER:true , INDEX:true }, // last parse timestamp
+		{ name:"xml_data",						TEXT:true }, // unparsed xml as raw UTF8 text
+		{ name:"xml_log",						TEXT:true }, // raw text log of last import (errors)
+	],
 	jml:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"jml",							TEXT:true }, // moved to reduce the main act table size
@@ -184,7 +205,9 @@ var http_getbody=function(url,cb)
 dstore_db.open = function(instance){
 	return dstore_back.open(instance);
 };
-
+dstore_db.close = function(db){
+	return dstore_back.close(db);
+}
 
 
 // pull every activity from the table and update *all* connected tables using its raw xml data
@@ -1093,6 +1116,26 @@ dstore_db.dump_tables = function(){
 dstore_db.delete_from = function(db,tablename,opts){
 	return dstore_back.delete_from(db,tablename,opts);
 }
+dstore_db.delete_from_pm = function(db,tablename,opts){
+	return dstore_back.delete_from_pm(db,tablename,opts);
+}
+
+// handle a simple replace (update or create a table entry)
+dstore_db.replace = function(db,tablename,opts){
+	return dstore_back.replace(db,tablename,opts);
+}
+dstore_db.replace_pm = function(db,tablename,opts){
+	return dstore_back.replace_pm(db,tablename,opts);
+}
+
+// register or update a file url with a slug
+dstore_db.file_url  = function(db,slug,url) { return dstore_back.file_url(db,slug,url) }
+// get a lock on a file for processing
+dstore_db.file_lock = function(db,age)      { return dstore_back.file_lock(db,age)     }
+
+// transaction wrappers
+dstore_db.transaction_begin  = function(db) { return dstore_back.transaction_begin(db)  }
+dstore_db.transaction_commit = function(db) { return dstore_back.transaction_commit(db) }
 
 // prepare some sql code
 dstore_db.cache_prepare = function(){

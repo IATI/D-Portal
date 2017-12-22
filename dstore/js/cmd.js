@@ -76,6 +76,12 @@ wait.launchFiber(function(){
 		return;
 	}
 	else
+	if( argv._[0]=="update" )
+	{
+		require("./dstore_update").cmd(argv);
+		return;
+	}
+	else
 	if( argv._[0]=="exs" )
 	{
 		require("./exs").create_csv();
@@ -138,6 +144,9 @@ wait.launchFiber(function(){
 		"\n"+
 		">	dstore stats \n"+
 		"Dump database stats.\n"+
+		"\n"+
+		">	dstore update \n"+
+		"Manage updates by automatic xml downloads and parsing.\n"+
 		"\n"+
 		"\n"+
 	"");

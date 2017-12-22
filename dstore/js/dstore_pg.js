@@ -404,27 +404,40 @@ dstore_pg.cache_prepare = function(){
 	
 };
 
+dstore_pg.delete_from_pm = function(db,tablename,opts){
+
+	if( opts.trans_flags ) // hack opts as there are currently only two uses
+	{
+		return db.none(" DELETE FROM "+tablename+" WHERE trans_flags=${trans_flags} ",opts)
+	}
+	else
+	{
+		return db.none(" DELETE FROM "+tablename+" WHERE aid=${aid} ",opts)
+	}
+
+};
+dstore_pg.delete_from_cb = function(db,tablename,opts,cb){
+		dstore_pg.delete_from_pm(db,tablename,opts).then(cb).catch(err);
+}
+
 dstore_pg.delete_from = function(db,tablename,opts){
 
 	wait.for(function(cb){
-		if( opts.trans_flags ) // hack opts as there are currently only two uses
-		{
-			db.none(" DELETE FROM "+tablename+" WHERE trans_flags=${trans_flags} ",opts).then(cb).catch(err);
-		}
-		else
-		{
-			db.none(" DELETE FROM "+tablename+" WHERE aid=${aid} ",opts).then(cb).catch(err);
-		}
+		dstore_pg.delete_from_cb(db,tablename,opts,cb)
 	});
 
 };
 
 
+dstore_pg.replace_pm = function(db,name,it){
+		return db.none(dstore_db.tables_replace_sql[name],it);
+}
+dstore_pg.replace_cb = function(db,name,it,cb){
+		dstore_pg.replace_pm(db,name,it).then(cb).catch(err);
+}
 dstore_pg.replace = function(db,name,it){
 
-	wait.for(function(cb){
-		db.none(dstore_db.tables_replace_sql[name],it).then(cb).catch(err);
-	});
+	wait.for(function(cb){ dstore_pg.replace_cb(db,name,it,cb)});
 	
 };
 

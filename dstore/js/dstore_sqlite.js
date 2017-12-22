@@ -8,6 +8,8 @@ var dstore_back=exports;
 
 exports.engine="sqlite";
 
+var uniqid = require('uniqid');
+
 var refry=require("./refry");
 var exs=require("./exs");
 var iati_xml=require("./iati_xml");
@@ -27,6 +29,12 @@ var	query=require("./query");
 
 var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
+
+var err=function (error) {
+	console.log("ERROR:", error.message || error); // print the error;
+	console.log((error.stack));
+	process.exit(1);
+}
 
 
 dstore_sqlite.close = function(db){
@@ -237,23 +245,197 @@ dstore_sqlite.replace_vars = function(db,name,it){
 	return $t;
 }
 
-dstore_sqlite.replace = function(db,name,it){
-	
-	var $t=dstore_sqlite.replace_vars(db,name,it);
+// get a lock on a filedata object that has not been updated in a while
+dstore_sqlite.lock_file_data = function(age){
+}
+
+// delete  a row by a specific ID
+dstore_sqlite.delete_from_pm = function(db,tablename,opts){
+	return new Promise(function (fulfill, reject){
+
+		if( opts.trans_flags ) // hack opts as there are currently only two uses
+		{
+			db.run(" DELETE FROM "+tablename+" WHERE trans_flags=? ",opts.trans_flags);
+		}
+		else
+		{
+			db.run(" DELETE FROM "+tablename+" WHERE aid=? ",opts.aid);
+		}
 		
-//	ls($t);
+		fulfill();
 
-//db.run( dstore_sqlite.getsql_prepare_replace(name,dstore_sqlite.tables_active[name]) , $t );
+	});
+};
+dstore_sqlite.delete_from_cb = function(db,tablename,opts,cb){
+		dstore_sqlite.delete_from_pm(db,tablename,opts).then(cb).catch(err);
+}
 
+dstore_sqlite.delete_from = function(db,tablename,opts){
 
-	var s=dstore_db.tables_replace_sql[name];
-	var sa = db.prepare(s);
-	sa.run($t);	
-	sa.finalize(); // seems faster to finalize now rather than let it hang?
+		if( opts.trans_flags ) // hack opts as there are currently only two uses
+		{
+			db.run(" DELETE FROM "+tablename+" WHERE trans_flags=? ",opts.trans_flags);
+		}
+		else
+		{
+			db.run(" DELETE FROM "+tablename+" WHERE aid=? ",opts.aid);
+		}
 
-	
+};
+
+dstore_sqlite.replace_pm = function(db,name,it){
+	return new Promise(function (fulfill, reject){
+
+		var $t=dstore_sqlite.replace_vars(db,name,it);
+		var s=dstore_db.tables_replace_sql[name];
+		var sa = db.prepare(s);
+		sa.run($t);	
+		sa.finalize(); // seems faster to finalize now rather than let it hang?
+
+		fulfill(true);
+
+	});
+}
+dstore_sqlite.replace_cb = function(db,name,it,cb){
+	dstore_sqlite.replace_pm(db,name,it).then(cb).catch(err);
+}
+dstore_sqlite.replace = function(db,name,it){
+
+		var $t=dstore_sqlite.replace_vars(db,name,it);
+		var s=dstore_db.tables_replace_sql[name];
+		var sa = db.prepare(s);
+		sa.run($t);	
+		sa.finalize(); // seems faster to finalize now rather than let it hang?
+
 };
 		
+
+dstore_sqlite.file_url = function(db,slug,url){
+	return new Promise(function (fulfill, reject){
+
+		var sa = db.prepare(
+
+	"INSERT OR IGNORE INTO file ( slug , file_url ) VALUES ( $slug , $file_url );"+
+	"UPDATE file SET file_url=$file_url WHERE slug=$slug;"
+
+		);
+
+		sa.run({$slug:slug,$file_url:url})
+		sa.finalize()
+
+		fulfill(true);
+
+	});
+}
+
+dstore_sqlite.file_lock = function(db,age){
+
+// cleanup any broken locks that are too old, ideally this should do nothing
+	dstore_sqlite.file_lock_clean(db,2*60*60) // 2 hours?
+
+	return dstore_sqlite.file_lock_once(db,age).then(function(slug){
+		return slug
+	},function(){
+		return dstore_sqlite.file_lock(db,age) // try again
+	})
+}
+
+// clean out old locks
+dstore_sqlite.file_lock_clean = function(db,age){
+	return new Promise(function (fulfill, reject){
+
+		var time=Math.floor(new Date() / 1000) // our current time
+
+		db.run(
+
+" UPDATE file SET file_lock=NULL WHERE file_lock IS NOT NULL AND file_check<=$file_check ; "
+
+		,{$file_check:time-age}, function(err)
+		{
+			if(err) { throw(err) } else {
+				fulfill()
+			}
+		})
+		
+	})
+}
+
+dstore_sqlite.file_lock_once = function(db,age){
+	return new Promise(function (fulfill, reject){
+		
+		var lockname=uniqid() // this is us
+		var time=Math.floor(new Date() / 1000) // our current time
+
+		db.all(
+
+" SELECT * FROM file WHERE file_lock IS NULL AND ( file_check<=$file_check OR file_check IS NULL ) ORDER BY file_check ASC LIMIT 1 ; "
+
+		,{$file_check:time-age}, function(err, rows)
+		{
+			if(err) { throw(err) } else {
+				if( ! rows[0] )
+				{
+					fulfill() // no file found needing an update, but it worked
+				}
+				else
+				{
+					var slug=rows[0].slug
+					db.all(
+
+" UPDATE file SET file_lock=$file_lock , file_check=$file_check WHERE slug=$slug AND file_lock IS NULL ; "
+
+					,{$file_lock:lockname,$file_check:time,$slug:slug}, function(err, rows)
+					{
+						if(err) { throw(err) } else {
+
+							db.all(
+
+" SELECT * FROM file WHERE slug=$slug AND file_lock=$file_lock AND file_check=$file_check ; "
+
+							,{$file_lock:lockname,$file_check:time,$slug:slug}, function(err, rows)
+							{
+								if(err) { throw(err) } else {
+									if( rows[0] && rows[0].slug==slug ) // sucess
+									{
+										fulfill(slug) // we claimed it
+									}
+									else // fail
+									{
+										reject() // race failure, try again
+									}
+								}
+							})
+						}
+					})
+				}
+			}
+		})
+
+	})
+}
+
+dstore_sqlite.transaction_begin = function(db){
+	return new Promise(function (fulfill, reject){
+
+		db.run("BEGIN TRANSACTION",function(err, ret){
+			if(err) { reject(err) } else { fulfill(ret) }
+		})
+		
+	});
+}
+
+dstore_sqlite.transaction_commit = function(db){
+	return new Promise(function (fulfill, reject){
+
+		db.run("COMMIT TRANSACTION",function(err, ret){
+			if(err) { reject(err) } else { fulfill(ret) }
+		})
+		
+	});
+}
+
+
+
 dstore_sqlite.getsql_prepare_replace = function(name,row){
 
 	var s=[];
@@ -410,19 +592,6 @@ dstore_sqlite.cache_prepare = function(){
 }
 
 
-// delete  a row by a specific ID
-dstore_sqlite.delete_from = function(db,tablename,opts){
-
-
-	if( opts.trans_flags ) // hack opts as there are currently only two uses
-	{
-		db.run(" DELETE FROM "+tablename+" WHERE trans_flags=? ",opts.trans_flags);
-	}
-	else
-	{
-		db.run(" DELETE FROM "+tablename+" WHERE aid=? ",opts.aid);
-	}
-};
 
 // call with your tables like so
 //dstore_sqlite.cache_prepare(tables);
