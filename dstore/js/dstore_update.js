@@ -9,6 +9,8 @@ var path=require('path');
 var http=require("http");
 var request = require('request');
 var dstore_db = require("./dstore_db")
+var refry = require("./refry")
+var iati_xml = require("./iati_xml")
 
 var packages = require('../json/packages.json');
 
@@ -128,8 +130,11 @@ dstore_update.test = function(argv){
 		if(slug)
 		{
 			console.log("LOCKED "+slug)
-			dstore_db.close(db)
-			dstore_update.slug(slug)
+			dstore_update.slug(db,slug).then(function(){
+				dstore_db.close(db)
+			},function(){
+				dstore_db.close(db)
+			})
 		}
 		else
 		{
@@ -146,17 +151,6 @@ dstore_update.urls = function(argv){
 	
 	var chain=dstore_db.transaction_begin(db) // our promise chain
 
-	var dofile=function(slug,url){
-
-		chain=chain.then(function(){
-			
-			return dstore_db.file_url(db,slug,url).then(function(){
-				console.log(slug+" -> "+url)
-			})
-
-		})
-	}
-
 	var count=0
 	for( var slug in packages)
 	{
@@ -167,7 +161,8 @@ dstore_update.urls = function(argv){
 		{
 			count++
 			if(count>10) { break } // for testing a smaller dataset
-			dofile(slug,url)
+			console.log(slug+" -> "+url)
+			chain=chain.then( dstore_db.file_url(db,slug,url) )
 		}
 	}
 	
@@ -184,14 +179,11 @@ dstore_update.urls = function(argv){
 
 
 // call this after locking a slug to perform a file download and check
-dstore_update.slug = function(slug){
-
-	var db = dstore_db.open()
+dstore_update.slug = function(db,slug){
 
 console.log("UPDATE "+slug)
 
-
-	dstore_db.file_get(db,slug).then(function(file){
+	return dstore_db.file_get(db,slug).then(function(file){
 
 		var time=Math.floor(new Date() / 1000) // our current time
 		
@@ -203,7 +195,7 @@ console.log("UPDATE "+slug)
 
 			var logerr=function(err){
 				file.file_log+=err+"\n"
-console.log(file)
+console.log(file.file_log)
 				return dstore_db.replace(db,"file",file)
 			}
 			
@@ -238,7 +230,7 @@ console.log(file)
 
 					file.file_log+="No change\n"
 
-console.log(file)
+console.log(file.file_log)
 					return dstore_db.replace(db,"file",file) // END
 				}
 				else
@@ -258,8 +250,10 @@ console.log(file)
 						file.file_log ="TIME : "+(new Date(time*1000))+"\n"
 						file.file_log+="Downloaded "+file.file_url+" ("+file.file_length+")\n"
 
-console.log(file)
-						return dstore_db.replace(db,"file",file)
+						return dstore_update.file_xml(db,file,body).then(function(){
+console.log(file.file_log)
+							return dstore_db.replace(db,"file",file)
+						})
 
 					},logerr)
 				}
@@ -272,3 +266,66 @@ console.log(file)
 	})
 
 }
+
+// call this after locking a slug to perform a file download and check
+dstore_update.file_xml = function(db,file,data){
+
+	var log=function(s){file.file_log+=s+"\n"}
+	
+	var chain=Promise.resolve(null)
+	
+	var aa=data.split(/<iati-activity/gi);
+
+	if( aa.length>1 ) // file contains activities
+	{
+
+		var head=aa[0];
+		var tail=""
+		if(aa[1])
+		{
+			tail=aa[aa.length-1].split(/<\/iati-activity>/gi)[1] || "";
+		}
+
+		var acts=[];
+		for(var i=1;i<aa.length;i++)
+		{
+			var v=aa[i];
+			var v=v.split(/<\/iati-activity>/gi)[0]; // trim the end
+			var s=""+
+			head+
+			"<iati-activity dstore:slug=\""+file.slug+"\""+
+			" dstore:idx=\""+i+"\""+
+			" dstore:url=\""+file.file_url+"\" "+
+				v+
+			"</iati-activity>"+
+			tail
+
+			acts.push(s)
+		}
+
+// remember how many we found
+		file.file_count=acts.length
+		log("Found "+file.file_count+" activities.")
+
+// write them all out
+
+		for(i=0;i<acts.length;i++)
+		{
+			var slug=file.slug
+			var s=acts[i]
+			var d=refry.xml(s,slug,log) // log any errors
+			var aid=iati_xml.get_aid(d) // find aid
+
+			chain=chain.then( dstore_db.xml_data(db,slug,aid,s) )
+		}
+		
+		return chain
+	}
+	else // probably an org file, no activities, dump entire file
+	{
+
+		return chain
+	}
+
+}
+

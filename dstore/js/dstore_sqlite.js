@@ -308,149 +308,6 @@ dstore_sqlite.replace = function(db,name,it){
 		sa.finalize(); // seems faster to finalize now rather than let it hang?
 
 };
-		
-dstore_sqlite.file_get = function(db,slug){
-	return new Promise(function (fulfill, reject){
-
-		db.all(
-
-" SELECT * FROM file WHERE slug IS $slug ; "
-
-		,{$slug:slug}, function(err, rows)
-		{
-			if(err) { throw(err) } else {
-				fulfill(rows[0])
-			}
-		})
-
-	});
-};
-
-
-dstore_sqlite.file_url = function(db,slug,url){
-	return new Promise(function (fulfill, reject){
-
-		var sa = db.prepare(
-
-	"INSERT OR IGNORE INTO file ( slug , file_url ) VALUES ( $slug , $file_url );"+
-	"UPDATE file SET file_url=$file_url WHERE slug=$slug;"
-
-		);
-
-		sa.run({$slug:slug,$file_url:url})
-		sa.finalize()
-
-		fulfill(true);
-
-	});
-}
-
-dstore_sqlite.file_lock = function(db,age){
-
-// cleanup any broken locks that are too old, ideally this should do nothing
-	dstore_sqlite.file_lock_clean(db,2*60*60) // 2 hours?
-
-	return dstore_sqlite.file_lock_once(db,age).then(function(slug){
-		return slug
-	},function(){
-		return dstore_sqlite.file_lock(db,age) // try again
-	})
-}
-
-// clean out old locks
-dstore_sqlite.file_lock_clean = function(db,age){
-	return new Promise(function (fulfill, reject){
-
-		var time=Math.floor(new Date() / 1000) // our current time
-
-		db.run(
-
-" UPDATE file SET file_lock=NULL WHERE file_lock IS NOT NULL AND file_check<=$file_check ; "
-
-		,{$file_check:time-age}, function(err)
-		{
-			if(err) { throw(err) } else {
-				fulfill()
-			}
-		})
-		
-	})
-}
-
-dstore_sqlite.file_lock_once = function(db,age){
-	return new Promise(function (fulfill, reject){
-		
-		var lockname=uniqid() // this is us
-		var time=Math.floor(new Date() / 1000) // our current time
-
-		db.all(
-
-" SELECT * FROM file WHERE file_lock IS NULL AND ( file_check<=$file_check OR file_check IS NULL ) ORDER BY file_check ASC LIMIT 1 ; "
-
-		,{$file_check:time-age}, function(err, rows)
-		{
-			if(err) { throw(err) } else {
-				if( ! rows[0] )
-				{
-					fulfill() // no file found needing an update, but it worked
-				}
-				else
-				{
-					var slug=rows[0].slug
-					db.all(
-
-" UPDATE file SET file_lock=$file_lock , file_check=$file_check WHERE slug=$slug AND file_lock IS NULL ; "
-
-					,{$file_lock:lockname,$file_check:time,$slug:slug}, function(err, rows)
-					{
-						if(err) { throw(err) } else {
-
-							db.all(
-
-" SELECT * FROM file WHERE slug=$slug AND file_lock=$file_lock AND file_check=$file_check ; "
-
-							,{$file_lock:lockname,$file_check:time,$slug:slug}, function(err, rows)
-							{
-								if(err) { throw(err) } else {
-									if( rows[0] && rows[0].slug==slug ) // sucess
-									{
-										fulfill(slug) // we claimed it
-									}
-									else // fail
-									{
-										reject() // race failure, try again
-									}
-								}
-							})
-						}
-					})
-				}
-			}
-		})
-
-	})
-}
-
-dstore_sqlite.transaction_begin = function(db){
-	return new Promise(function (fulfill, reject){
-
-		db.run("BEGIN TRANSACTION",function(err, ret){
-			if(err) { reject(err) } else { fulfill(ret) }
-		})
-		
-	});
-}
-
-dstore_sqlite.transaction_commit = function(db){
-	return new Promise(function (fulfill, reject){
-
-		db.run("COMMIT TRANSACTION",function(err, ret){
-			if(err) { reject(err) } else { fulfill(ret) }
-		})
-		
-	});
-}
-
 
 
 dstore_sqlite.getsql_prepare_replace = function(name,row){
@@ -881,5 +738,185 @@ dstore_sqlite.query=function(q,v,cb){
 		cb(err,rows)
 	});
 
+}
+
+
+//////////////////////////////
+// new import promises code //
+//////////////////////////////
+
+dstore_sqlite.transaction_begin = function(db){
+	return new Promise(function (fulfill, reject){
+
+		db.run("BEGIN TRANSACTION",function(err, ret){
+			if(err) { reject(err) } else { fulfill(ret) }
+		})
+		
+	});
+}
+
+dstore_sqlite.transaction_commit = function(db){
+	return new Promise(function (fulfill, reject){
+
+		db.run("COMMIT TRANSACTION",function(err, ret){
+			if(err) { reject(err) } else { fulfill(ret) }
+		})
+		
+	});
+}
+
+
+dstore_sqlite.file_lock = function(db,age){
+
+// cleanup any broken locks that are too old, ideally this should do nothing
+	dstore_sqlite.file_lock_clean(db,2*60*60) // 2 hours?
+
+	return dstore_sqlite.file_lock_once(db,age).then(function(slug){
+		return slug
+	},function(){
+		return dstore_sqlite.file_lock(db,age) // try again
+	})
+}
+
+// clean out old locks
+dstore_sqlite.file_lock_clean = function(db,age){
+	return new Promise(function (fulfill, reject){
+
+		var time=Math.floor(new Date() / 1000) // our current time
+
+		db.run(
+
+" UPDATE file SET file_lock=NULL WHERE file_lock IS NOT NULL AND file_check<=$file_check ; "
+
+		,{$file_check:time-age}, function(err)
+		{
+			if(err) { throw(err) } else {
+				fulfill()
+			}
+		})
+		
+	})
+}
+
+dstore_sqlite.file_lock_once = function(db,age){
+	return new Promise(function (fulfill, reject){
+		
+		var time=Math.floor(new Date() / 1000) // our current time
+
+		db.all(
+
+" SELECT * FROM file WHERE file_lock IS NULL AND ( file_check<=$file_check OR file_check IS NULL ) ORDER BY file_check ASC LIMIT 1 ; "
+
+		,{$file_check:time-age}, function(err, rows)
+		{
+			if(err) { throw(err) } else {
+				if( ! rows[0] )
+				{
+					fulfill() // no file found needing an update, but it worked
+				}
+				else
+				{
+					var slug=rows[0].slug
+					
+					dstore_sqlite.file_lock_slug(db,slug).then(fulfill,reject)
+				}
+			}
+		})
+
+	})
+}
+
+dstore_sqlite.file_lock_slug = function(db,slug){
+	return new Promise(function (fulfill, reject){
+		
+		var lockname=uniqid() // this is us
+		var time=Math.floor(new Date() / 1000) // our current time
+
+		db.all(
+
+" UPDATE file SET file_lock=$file_lock , file_check=$file_check WHERE slug=$slug AND file_lock IS NULL ; "
+
+		,{$file_lock:lockname,$file_check:time,$slug:slug}, function(err, rows)
+		{
+			if(err) { throw(err) } else {
+
+				db.all(
+
+" SELECT * FROM file WHERE slug=$slug AND file_lock=$file_lock AND file_check=$file_check ; "
+
+				,{$file_lock:lockname,$file_check:time,$slug:slug}, function(err, rows)
+				{
+					if(err) { throw(err) } else {
+						if( rows[0] && rows[0].slug==slug ) // sucess
+						{
+							fulfill(slug) // we claimed it
+						}
+						else // fail
+						{
+							reject() // race failure, try again
+						}
+					}
+				})
+			}
+		})
+
+	})
+}
+
+
+dstore_sqlite.file_get = function(db,slug){
+	return new Promise(function (fulfill, reject){
+
+		db.all(
+
+" SELECT * FROM file WHERE slug IS $slug ; "
+
+		,{$slug:slug}, function(err, rows)
+		{
+			if(err) { throw(err) } else {
+				fulfill(rows[0])
+			}
+		})
+
+	});
+};
+
+dstore_sqlite.file_url = function(db,slug,url){
+	return new Promise(function (fulfill, reject){
+
+		db.run(
+
+	"INSERT OR IGNORE INTO file ( slug , file_url ) VALUES ( $slug , $file_url );"+
+	"UPDATE file SET file_url=$file_url WHERE slug=$slug;"
+
+		,{$slug:slug,$file_url:url}, function(err)
+		{
+			if(err) { throw(err) } else {
+				fulfill(true)
+			}
+		})
+
+	});
+}
+
+
+dstore_sqlite.xml_data = function(db,slug,aid,data){
+	return new Promise(function (fulfill, reject){
+
+		var time=Math.floor(new Date() / 1000) // our current time
+
+		db.run(
+
+	"INSERT OR IGNORE INTO xml ( aid , slug , xml_download , xml_data ) VALUES ( $aid , $slug , $xml_download , $xml_data );"+
+	"UPDATE xml SET slug=$slug , xml_download=$xml_download , xml_data=$xml_data WHERE aid=$aid;"
+
+		,{$slug:slug,$aid:aid,$xml_data:data,$xml_download:time}, function(err)
+		{
+			if(err) { throw(err) } else {
+				fulfill(true)
+			}
+		})
+
+	});
 }
 

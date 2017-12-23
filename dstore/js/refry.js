@@ -24,7 +24,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 //
 // This gives a rather compact xml representation in json format.
 //
-refry.xml=function(data,filename)
+refry.xml=function(data,filename,log)
 {
 var expat = require('node-expat');
 	
@@ -65,7 +65,14 @@ var expat = require('node-expat');
 
 //error?
 	parser.on('error', function (error) {
-		console.error("\n XML ERROR "+error+" : "+filename);
+		if(log)
+		{
+			log("XML ERROR "+error); // use this log function
+		}
+		else
+		{
+			console.error("\n XML ERROR "+error+" : "+filename);
+		}
 	});
 
 	parser.write(data);
