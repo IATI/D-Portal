@@ -909,6 +909,26 @@ dstore_sqlite.file_url = function(db,slug,url){
 
 
 dstore_sqlite.xml_data = function(db,slug,aid,idx,data){
+	if( (!aid) && (!idx) && (!data) ) // clean by slug
+	{
+	return new Promise(function (fulfill, reject){
+
+		var time=Math.floor(new Date() / 1000) // our current time
+
+			db.run(
+
+		"UPDATE xml SET xml_idx=$xml_idx , xml_download=$xml_download , xml_data=$xml_data WHERE slug=$slug;"
+
+			,{$slug:slug,$xml_idx:idx,$xml_data:data,$xml_download:time}, function(err)
+			{
+				if(err) { throw(err) } else {
+					fulfill(true)
+				}
+			})
+	});
+	}
+	else
+	{
 	return new Promise(function (fulfill, reject){
 
 		var time=Math.floor(new Date() / 1000) // our current time
@@ -934,5 +954,120 @@ dstore_sqlite.xml_data = function(db,slug,aid,idx,data){
 		})
 
 	});
+	}
 }
 
+
+dstore_sqlite.xml_lock = function(db,age){
+
+// cleanup any broken locks that are too old, ideally this should do nothing
+	dstore_sqlite.xml_lock_clean(db,2*60*60) // 2 hours?
+
+	return dstore_sqlite.xml_lock_once(db,age).then(function(slug){
+		return slug
+	},function(){
+		return dstore_sqlite.xml_lock(db,age) // try again
+	})
+}
+
+// clean out old locks
+dstore_sqlite.xml_lock_clean = function(db,age){
+	return new Promise(function (fulfill, reject){
+
+		var time=Math.floor(new Date() / 1000) // our current time
+
+		db.run(
+
+" UPDATE xml SET xml_lock=NULL WHERE xml_lock IS NOT NULL AND xml_check<=$xml_check ; "
+
+		,{$xml_check:time-age}, function(err)
+		{
+			if(err) { throw(err) } else {
+				fulfill()
+			}
+		})
+		
+	})
+}
+
+dstore_sqlite.xml_lock_once = function(db,age){
+	return new Promise(function (fulfill, reject){
+		
+		var time=Math.floor(new Date() / 1000) // our current time
+
+		db.all(
+
+" SELECT * FROM xml WHERE xml_lock IS NULL AND ( xml_check<=$xml_check OR xml_check IS NULL ) ORDER BY xml_check ASC LIMIT 1 ; "
+
+		,{$xml_check:time-age}, function(err, rows)
+		{
+			if(err) { throw(err) } else {
+				if( ! rows[0] )
+				{
+					fulfill() // no file found needing an update, but it worked
+				}
+				else
+				{
+					var aid=rows[0].aid
+					
+					dstore_sqlite.xml_lock_aid(db,aid).then(fulfill,reject)
+				}
+			}
+		})
+
+	})
+}
+
+dstore_sqlite.xml_lock_aid = function(db,aid){
+	return new Promise(function (fulfill, reject){
+		
+		var lockname=uniqid() // this is us
+		var time=Math.floor(new Date() / 1000) // our current time
+
+		db.all(
+
+" UPDATE xml SET xml_lock=$xml_lock , xml_check=$xml_check WHERE aid=$aid AND xml_lock IS NULL ; "
+
+		,{$xml_lock:lockname,$xml_check:time,$aid:aid}, function(err, rows)
+		{
+			if(err) { throw(err) } else {
+
+				db.all(
+
+" SELECT * FROM xml WHERE aid=$aid AND xml_lock=$xml_lock AND xml_check=$xml_check ; "
+
+				,{$xml_lock:lockname,$xml_check:time,$aid:aid}, function(err, rows)
+				{
+					if(err) { throw(err) } else {
+						if( rows[0] && rows[0].aid==aid ) // sucess
+						{
+							fulfill(aid) // we claimed it
+						}
+						else // fail
+						{
+							reject() // race failure, try again
+						}
+					}
+				})
+			}
+		})
+
+	})
+}
+
+dstore_sqlite.xml_get = function(db,aid){
+	return new Promise(function (fulfill, reject){
+
+		db.all(
+
+" SELECT * FROM xml WHERE aid IS $aid ; "
+
+		,{$aid:aid}, function(err, rows)
+		{
+			if(err) { throw(err) } else {
+				fulfill(rows[0])
+			}
+		})
+
+	});
+};

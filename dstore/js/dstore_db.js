@@ -1147,19 +1147,25 @@ dstore_db.query=function(q,v,cb){
 
 // these functions return promises
 
-// get a lock on a file for processing
-dstore_db.file_lock = function(db,age)      { return dstore_back.file_lock(db,age)     }
+// get a lock on any file for processing, returns the slug
+dstore_db.file_lock = function(db,age)       { return dstore_back.file_lock(db,age)       }
 
-// get file by slug
-dstore_db.file_get  = function(db,slug)     { return dstore_back.file_get(db,slug)     }
+// get a lock on a specific file for processing, returns the slug on success
+dstore_db.file_lock_slug = function(db,slug) { return dstore_back.file_lock_slug(db,slug) }
+
+// get file by slug, returns object of data
+dstore_db.file_get  = function(db,slug)      { return dstore_back.file_get(db,slug)       }
 
 // register or update a file url with a slug
-dstore_db.file_url  = function(db,slug,url) { return dstore_back.file_url(db,slug,url) }
+dstore_db.file_url  = function(db,slug,url)  { return dstore_back.file_url(db,slug,url)   }
 
 
 
 // get a lock on an xml activity for processing
 dstore_db.xml_lock = function(db,age) { return dstore_back.xml_lock(db,age) }
+
+// get a lock on a specific xml activity for processing, returns the aid on success
+dstore_db.xml_lock_aid = function(db,aid) { return dstore_back.xml_lock_aid(db,aid) }
 
 // get xml by aid
 dstore_db.xml_get = function(db,aid)  { return dstore_back.xml_get(db,aid)  }

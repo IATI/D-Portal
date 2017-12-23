@@ -109,40 +109,101 @@ dstore_update.cmd = function(argv){
 	{
 		dstore_update.test(argv);
 	}
-	else // help
+	else
 	if( argv._[1]=="urls" )
 	{
 		dstore_update.urls(argv);
 	}
+	else
+	if( argv._[1]=="download" )
+	{
+		dstore_update.download(argv);
+	}
+	else
+	if( argv._[1]=="parse" )
+	{
+		dstore_update.parse(argv);
+	}
 	else // help
 	{
-		console.log("dstore update test            -- test")
-		console.log("dstore update urls            -- refresh the xml file download urls")
+		console.log("dstore update urls                    # refresh the xml file download urls ")
+		console.log("dstore update parse                   # parse the next xml in queue ")
+		console.log("dstore update parse --aid=...         # parse a specific id ")
+		console.log("dstore update download                # download the next file in queue ")
+		console.log("dstore update download --slug=...     # force download a specific file ")
 	}
 
 }
 
-dstore_update.test = function(argv){
+dstore_update.parse = function(argv){
 
 	var db = dstore_db.open()
-		
-	dstore_db.file_lock(db,60).then(function(slug){
-		if(slug)
+
+	dstore_db.xml_lock(db,60).then(function(aid){
+		if(aid)
 		{
-			console.log("LOCKED "+slug)
-			dstore_update.slug(db,slug).then(function(){
+console.log("LOCKED "+aid)
+			dstore_update.xml(db,aid).then(function(){
 				dstore_db.close(db)
 			},function(){
+				console.log("FAILED TO LOCK XML")
 				dstore_db.close(db)
 			})
 		}
 		else
 		{
-			console.log("NOTHING TO LOCK")
+			console.log("NO XML IN QUEUE")
 			dstore_db.close(db)
 		}
 	})
 
+}
+
+dstore_update.download = function(argv){
+
+	var db = dstore_db.open()
+	
+	if(argv.slug)
+	{
+		// try and lock
+		dstore_db.file_lock_slug(db,argv.slug).then(function(slug){
+			if(slug)
+			{
+				// force update
+				dstore_update.slug(db,slug,true).then(function(){
+					dstore_db.close(db)
+				},function(){
+					console.log("FAILED TO LOCK FILE")
+					dstore_db.close(db)
+				})
+			}
+			else
+			{
+				console.log("SLUG NOT FOUND")
+				dstore_db.close(db)
+			}
+		})
+	}
+	else
+	{
+		dstore_db.file_lock(db,60).then(function(slug){
+			if(slug)
+			{
+	//			console.log("LOCKED "+slug)
+				dstore_update.slug(db,slug).then(function(){
+					dstore_db.close(db)
+				},function(){
+					console.log("FAILED TO LOCK FILE")
+					dstore_db.close(db)
+				})
+			}
+			else
+			{
+				console.log("NO FILES IN QUEUE")
+				dstore_db.close(db)
+			}
+		})
+	}
 }
 
 dstore_update.urls = function(argv){
@@ -179,7 +240,7 @@ dstore_update.urls = function(argv){
 
 
 // call this after locking a slug to perform a file download and check
-dstore_update.slug = function(db,slug){
+dstore_update.slug = function(db,slug,forcedownload){
 
 console.log("UPDATE "+slug)
 
@@ -199,6 +260,33 @@ console.log(file.file_log)
 				return dstore_db.replace(db,"file",file)
 			}
 			
+			var download=function()
+			{
+				file.file_log+="Get Body\n"
+
+				return http_getbody(file.file_url).then(function(buffer){
+					
+					var body=bufferToString(buffer)
+					
+					file.file_length=buffer.length
+					file.file_download=time
+
+					file.file_log ="TIME : "+(new Date(time*1000))+"\n"
+					file.file_log+="Downloaded "+file.file_url+" ("+file.file_length+")\n"
+
+					return dstore_update.file_xml(db,file,body).then(function(){
+console.log(file.file_log)
+						return dstore_db.replace(db,"file",file)
+					})
+
+				},logerr)
+			}
+			
+			if(forcedownload)
+			{
+				return download()
+			}
+
 			return http_gethead(file.file_url).then(function(h){
 
 //console.log(h.headers);
@@ -226,7 +314,7 @@ console.log(file.file_log)
 
 				if( !dodownload )
 				{
-					console.log("OLD FILE") // no change
+//console.log("OLD FILE") // no change
 
 					file.file_log+="No change\n"
 
@@ -236,26 +324,10 @@ console.log(file.file_log)
 				else
 				{
 
-					console.log("NEW FILE")
+//console.log("NEW FILE")
 
-					file.file_log+="Get Body\n"
+					return download()
 
-					return http_getbody(file.file_url).then(function(buffer){
-						
-						var body=bufferToString(buffer)
-						
-						file.file_length=buffer.length
-						file.file_download=time
-
-						file.file_log ="TIME : "+(new Date(time*1000))+"\n"
-						file.file_log+="Downloaded "+file.file_url+" ("+file.file_length+")\n"
-
-						return dstore_update.file_xml(db,file,body).then(function(){
-console.log(file.file_log)
-							return dstore_db.replace(db,"file",file)
-						})
-
-					},logerr)
 				}
 
 			},logerr)
@@ -307,7 +379,11 @@ dstore_update.file_xml = function(db,file,data){
 		file.file_count=acts.length
 		log("Found "+file.file_count+" activities.")
 
-// write them all out
+// mark all existing activities as empty
+
+		chain=chain.then( dstore_db.xml_data(db,slug,null,null,null) )
+
+// then update or create all the ones in the file
 
 		for(i=0;i<acts.length;i++)
 		{
@@ -329,6 +405,37 @@ dstore_update.file_xml = function(db,file,data){
 
 		return chain
 	}
+
+}
+
+
+// call this after locking an xml activity to perform a parse update
+dstore_update.xml = function(db,aid,forceupdate){
+
+console.log("UPDATE "+aid)
+
+	return dstore_db.xml_get(db,aid).then(function(xml){
+
+		var time=Math.floor(new Date() / 1000) // our current time
+		
+		if(xml)
+		{
+			xml.xml_lock=null
+			xml.xml_log+="TIME : "+(new Date(time*1000))+"\n"
+			xml.xml_log+="Get Header\n"
+
+			var logerr=function(err){
+				xml.xml_log+=err+"\n"
+console.log(xml.xml_log)
+				return dstore_db.replace(db,"xml",xml)
+			}
+			
+
+			return dstore_db.replace(db,"xml",xml)
+
+		}
+
+	})
 
 }
 
