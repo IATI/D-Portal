@@ -316,13 +316,16 @@ dstore_update.file_xml = function(db,file,data){
 			var d=refry.xml(s,slug,log) // log any errors
 			var aid=iati_xml.get_aid(d) // find aid
 
-			chain=chain.then( dstore_db.xml_data(db,slug,aid,s) )
+			chain=chain.then( dstore_db.xml_data(db,slug,aid,i+1,s) )
 		}
 		
 		return chain
 	}
 	else // probably an org file, no activities, dump entire file
 	{
+		log("Saving as an ORG file.")
+		file.file_count=0
+		file.file_data=data
 
 		return chain
 	}

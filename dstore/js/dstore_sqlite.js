@@ -886,13 +886,21 @@ dstore_sqlite.file_url = function(db,slug,url){
 
 		db.run(
 
-	"INSERT OR IGNORE INTO file ( slug , file_url ) VALUES ( $slug , $file_url );"+
-	"UPDATE file SET file_url=$file_url WHERE slug=$slug;"
+	"INSERT OR IGNORE INTO file ( slug ) VALUES ( $slug );" // manifest first so update will always work
 
-		,{$slug:slug,$file_url:url}, function(err)
+		,{$slug:slug}, function(err)
 		{
 			if(err) { throw(err) } else {
-				fulfill(true)
+				db.run(
+
+			"UPDATE file SET file_url=$file_url WHERE slug=$slug;"
+
+				,{$slug:slug,$file_url:url}, function(err)
+				{
+					if(err) { throw(err) } else {
+						fulfill(true)
+					}
+				})
 			}
 		})
 
@@ -900,20 +908,28 @@ dstore_sqlite.file_url = function(db,slug,url){
 }
 
 
-dstore_sqlite.xml_data = function(db,slug,aid,data){
+dstore_sqlite.xml_data = function(db,slug,aid,idx,data){
 	return new Promise(function (fulfill, reject){
 
 		var time=Math.floor(new Date() / 1000) // our current time
 
 		db.run(
 
-	"INSERT OR IGNORE INTO xml ( aid , slug , xml_download , xml_data ) VALUES ( $aid , $slug , $xml_download , $xml_data );"+
-	"UPDATE xml SET slug=$slug , xml_download=$xml_download , xml_data=$xml_data WHERE aid=$aid;"
+	"INSERT OR IGNORE INTO xml ( aid ) VALUES ( $aid );" // manifest first so update will always work
 
-		,{$slug:slug,$aid:aid,$xml_data:data,$xml_download:time}, function(err)
+		,{$aid:aid}, function(err)
 		{
 			if(err) { throw(err) } else {
-				fulfill(true)
+				db.run(
+
+			"UPDATE xml SET slug=$slug , xml_idx=$xml_idx , xml_download=$xml_download , xml_data=$xml_data WHERE aid=$aid;"
+
+				,{$slug:slug,$aid:aid,$xml_idx:idx,$xml_data:data,$xml_download:time}, function(err)
+				{
+					if(err) { throw(err) } else {
+						fulfill(true)
+					}
+				})
 			}
 		})
 

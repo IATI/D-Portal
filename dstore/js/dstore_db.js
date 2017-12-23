@@ -52,6 +52,7 @@ dstore_db.tables={
 		{ name:"file_count",					INTEGER:true , INDEX:true }, // number of activities found in xml file
 		{ name:"file_check",					INTEGER:true , INDEX:true }, // last check for changes timestamp (lock start time)
 		{ name:"file_download",					INTEGER:true , INDEX:true }, // last download timestamp
+		{ name:"file_data",						TEXT:true }, // unparsed xml as raw UTF8 text if this is an ORG file
 		{ name:"file_log",						TEXT:true }, // raw text log of last download (errors)
 	],
 	xml:[
@@ -1164,7 +1165,7 @@ dstore_db.xml_lock = function(db,age) { return dstore_back.xml_lock(db,age) }
 dstore_db.xml_get = function(db,aid)  { return dstore_back.xml_get(db,aid)  }
 
 // register or update an activity by id and xml data
-dstore_db.xml_data  = function(db,slug,aid,data) { return dstore_back.xml_data(db,slug,aid,data) }
+dstore_db.xml_data  = function(db,slug,aid,idx,data) { return dstore_back.xml_data(db,slug,aid,idx,data) }
 
 
 // transaction wrappers
