@@ -750,6 +750,23 @@ iati_codes.fetch = function(){
 	{
 		console.log("Writing json/packages.json")
 		fs.writeFileSync(__dirname+"/../json/packages.json",json_stringify(packages,{ space: ' ' }));
+
+		console.log("Writing json/download.txt")
+
+		var cc=[]
+		
+		for( var slug in packages)
+		{
+			var package=packages[slug]
+			slug=slug.replace(/[^0-9a-zA-Z\-_]/g, '_') // sanitize the slug just in case
+			var url=package.resources && package.resources[0] && package.resources[0].url
+			if(url)
+			{
+				cc.push("curl -k -L -o "+slug+".xml \""+url+"\" \n")
+			}
+		}
+		
+		fs.writeFileSync(__dirname+"/../json/curl.txt",cc.join(""));
 	}
 
 

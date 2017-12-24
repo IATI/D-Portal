@@ -198,6 +198,11 @@ var codes=["ad","ae","af","ag","ai","al","am","an","ao","aq","ar","as","at","au"
 }
 
 dstore_cache.empty = function(argv,keep){
+	
+	if(!keep) // use global list of slugs->packages
+	{
+		keep=require("../json/packages.json")
+	}
 
 	try { fs.mkdirSync(global.argv.cache); } catch(e){}
 
