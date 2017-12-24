@@ -59,7 +59,11 @@ echo '#HAXTBH' >> $PGMAIN/postgresql.conf
 echo 'max_wal_senders=1' >> $PGMAIN/postgresql.conf
 echo 'wal_level=hot_standby' >> $PGMAIN/postgresql.conf
 echo 'synchronous_commit = off' >> $PGMAIN/postgresql.conf
-echo 'work_mem = 128MB' >> $PGMAIN/postgresql.conf
+echo 'work_mem = 256MB' >> $PGMAIN/postgresql.conf
+echo 'max_connections = 50' >> $PGMAIN/postgresql.conf
+echo '#this is dangerous but ohhhhhhh so much faster' >> $PGMAIN/postgresql.conf
+echo 'fsync=off' >> $PGMAIN/postgresql.conf
+
 
 echo '#HAXTBH' >> $PGMAIN/pg_hba.conf
 echo 'local replication all peer' >> $PGMAIN/pg_hba.conf
