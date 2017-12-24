@@ -628,7 +628,11 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
-		dstore_db.warn_dupes(db,t.aid);
+		if( dstore_db.warn_dupes(db,t.aid) )
+		{
+			console.log("\nSKIPPING: "+t.aid);
+			return;
+		}
 
 // make really really sure old junk is deleted
 		(["act","jml","trans","budget","country","sector","location","slug","element"]).forEach(function(v,i,a){
