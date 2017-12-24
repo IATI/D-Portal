@@ -635,7 +635,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		
 		if(head) // copy all attributes from iati-activities into each activity unless the activity already has it
 		{
-			for(var n in head) { act[n]=act[n] || head[n]; }
+			for(var n in head) { if(isNaN(n)) { act[n]=act[n] || head[n]; } }
 		}
 		
 		iati_cook.activity(act); // cook the raw json(xml) ( most cleanup logic has been moved here )

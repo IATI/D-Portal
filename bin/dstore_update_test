@@ -1,0 +1,31 @@
+cd `dirname $0`
+cd ../dstore
+
+echo " testing new downloads "
+
+./dstore update urls
+
+
+while [ 1 ] ; do
+
+./dstore update download &
+./dstore update download &
+./dstore update download &
+./dstore update download &
+
+
+echo " Performing parallel loop "
+
+	./dstore update parse &
+	./dstore update parse &
+	./dstore update parse &
+	./dstore update parse &
+	./dstore update parse &
+	./dstore update parse &
+	./dstore update parse &
+	./dstore update parse &
+
+	wait
+
+done
+

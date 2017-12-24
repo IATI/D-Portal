@@ -142,11 +142,12 @@ dstore_update.parse = function(argv){
 	dstore_db.xml_lock(db,60).then(function(aid){
 		if(aid)
 		{
-console.log("LOCKED "+aid)
+//console.log("LOCKED "+aid)
 			dstore_update.xml(db,aid).then(function(){
 				dstore_db.close(db)
-			},function(){
+			},function(err){
 				console.log("FAILED TO LOCK XML")
+				console.log(err)
 				dstore_db.close(db)
 			})
 		}
@@ -414,15 +415,17 @@ dstore_update.xml = function(db,aid,forceupdate){
 
 console.log("UPDATE "+aid)
 
-	return dstore_db.xml_get(db,aid).then(function(xml){
+	var chain=dstore_db.transaction_begin(db) // our promise chain
+
+	chain=chain.then(dstore_db.xml_get(db,aid)).then(function(xml){
 
 		var time=Math.floor(new Date() / 1000) // our current time
 		
 		if(xml)
 		{
 			xml.xml_lock=null
-			xml.xml_log+="TIME : "+(new Date(time*1000))+"\n"
-			xml.xml_log+="Get Header\n"
+			xml.xml_log="TIME : "+(new Date(time*1000))+"\n"
+			xml.xml_log+="Parse XML\n"
 
 			var logerr=function(err){
 				xml.xml_log+=err+"\n"
@@ -431,11 +434,36 @@ console.log(xml.xml_log)
 			}
 			
 
+//console.log(xml.xml_data)
+
+			var head;
+			var aid=xml.aid
+			var slug=xml.slug
+			var all=refry.xml(xml.xml_data)
+			var acts=refry.tag( all , "iati-activities" );
+			var act= refry.tag( acts , "iati-activity" );
+
+//console.log(xml.xml_data)
+
+			if( aid && act && acts )
+			{
+				dstore_db.refresh_act(db,aid,act,acts)
+			}
+			else
+			{
+				xml.xml_log+="No activity found, skipping parse."+"\n"
+			}
+			
+			xml.xml_parse=time
+console.log(xml.xml_log)
 			return dstore_db.replace(db,"xml",xml)
 
 		}
 
 	})
 
+	chain=chain.then(dstore_db.transaction_commit(db))
+
+	return chain
 }
 
