@@ -29,26 +29,26 @@
 	<div class="maxwrap">
 		<table class="name">
 			<tr>
-				<td>Publisher Name: <span>Converted from ID</span></td>
+				<td>Publisher Name <span>Converted from ID</span></td>
 				<td>{dash_quality_pub_name}</td>
 				<td rowspan=2 class="visit"><a href="http://d-portal.org/ctrack.html?&publisher={dash_quality_pub}#view=publisher" target="_blank">View on d-portal</a></td>
 			</tr>
 			<tr>
-				<td>Publisher ID:</td>
+				<td>Publisher ID</td>
 				<td>{dash_quality_pub}</td>
 			</tr>
 		</table>
 		<table class="quality">
 			<tr>
-				<td>
+				<td class="act_total">
 					<div>{dash_quality_act_count}</div>
 					<div>Activities</div>
-					<div>Total number of activities reported by this publisher.</div>
+					<div>Total number of activities reported by this publisher</div>
 				</td>
-				<td>
+				<td class="act_country">
 					<div>{dash_quality_country_count}</div>
 					<div>Countries</div>
-					<div>Total number of recipient countries reported by this publisher.</div>
+					<div>Total number of recipient countries reported by this publisher</div>
 				</td>
 			</tr>
 			<tr>
@@ -86,33 +86,33 @@
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td class="act_dataset">
 					<div>{dash_quality_dataset_count}</div>
 					<div>IATI Datasets</div>
-					<div>Total number of datasets reported by this publisher.</div>
+					<div>Total number of datasets reported by this publisher</div>
 				</td>
-				<td>
+				<td class="act_invalid">
 					<div>{dash_quality_country_total_invalid}</div>
 					<div>Invalid Recipients</div>
-					<div>Instances of invalid recipient countries across all activities.</div>
+					<div>Instances of invalid recipient countries across all activities</div>
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td class="act_trans">
 					<div>{dash_quality_trans_count}</div>
 					<div>Transactions</div>
-					<div>Total number of reported transactions across all activities.</div>
+					<div>Total number of reported transactions across all activities</div>
 				</td>
-				<td>
+				<td class="act_budget">
 					<div>{dash_quality_budget_count}</div>
 					<div>Budgets</div>
-					<div>Total number of reported budgets across all activities.</div>
+					<div>Total number of reported budgets across all activities</div>
 				</td>
 			</tr>
 		</table>	
 		<table class="pub dataset">
 			<tr>
-				<th>IATI Datasets <span class="note">Each dataset contains a number of activities. Links direct to IATI Registry in new window.</span></th>
+				<th>IATI Registry Datasets <span class="note">Links open new window</span></th>
 				<th>Activities</th>
 			</tr>
 			{dash_list_slug_datas}
@@ -124,11 +124,16 @@
 					<table class="country_data">
 						<tr>
 							<td>
-								<div class="country_title">Total number of recipient countries:</div>
-								<div class="country_subtitle" title="{dash_quality_country_total_invalid_pct}%">Reporting {dash_quality_country_total_invalid} instances of invalid recipients.</div>
-								<div class="note div">Click to view all activities reported per country for this publisher in XML. Links open new window.</div>
+								<div class="country_title">Total recipient countries</div>
+								<div class="country_title">Total <i class="invalid">invalid</i> recipients</div>
+								<div class="country_title"><i class="invalid">Invalid</i> recipients percentage</div>
+								<div class="note div">Links below to XML open new window</div>
 							</td>
-							<td><div class="country_title">{dash_quality_country_count}</div></td>
+							<td>
+								<div class="country_title">{dash_quality_country_count}</div>
+								<div class="country_title">{dash_quality_country_total_invalid}</div>
+								<div class="country_title">{dash_quality_country_total_invalid_pct}%</div>
+							</td>
 						</tr>
 						<tr>
 							<th>Country Code</th>
@@ -155,6 +160,12 @@ table.quality td div:first-of-type	{font-size:3.6em; padding-bottom:20px;}
 table.quality td div:nth-of-type(2)	{font-size:1.0em;}
 table.quality td div:last-of-type	{font-size:0.65em; line-height:1.2em; padding-top:10px; vertical-align:bottom;}
 
+table.quality td.act_total 	 {background-color:#010933;}
+table.quality td.act_dataset {background-color:#081d1a;}
+table.quality td.act_invalid {background-color:#170d15;}
+table.quality td.act_trans 	 {background-color:#0d170d;}
+table.quality td.act_budget  {background-color:#1d0808;}
+
 table.country_data th				{border-bottom:1px solid #3d4363; font-size:0.9em; font-weight:bold; padding:30px 0 10px 0; text-align:left;}
 table.country_data th:last-child	{text-align:right;}
 table.country_data					{width:100%; border-collapse:collapse; border-spacing:20px; margin:0 auto;}
@@ -169,8 +180,9 @@ table.country_data td.cc a				{display:block; padding:10px 30px 10px 0;}
 
 table.actdate_data.country_data td	{line-height:46px;}
 
-table.country_data td.country_invalid a {color:#444;}
-table.country_data td.country_invalid   {color:#444; background-color:#eee;}
+table.country_data td.country_invalid a {color:#5872ff; min-width:150px;}
+table.country_data td.country_invalid   {color:#9E9E9E; background-color:#111738; font-size:initial;}
+table.country_data td.country_valid	  	{font-size:initial;}
 
 table.quality td.data_numbers		{background-color:initial;}
 
@@ -189,7 +201,7 @@ table.pub.dataset td		{padding:5px 0;}
 table.pub.dataset td.set	{padding:0;}
 table.pub.dataset td.set a	{display:block; padding:5px 0;}
 table.pub.dataset th		{border-bottom:1px solid #3d4363; padding:5px 0;}
-table.pub.dataset th span.note	{display:inline-block; font-size:0.9em; padding-left:10px;}
+table.pub.dataset th span.note	{display:inline-block; font-size:0.7em; padding-left:10px;}
 
 table.actdate_data.country_data td:first-child, table.actdate_data.country_data th:first-child	{text-align:right; width:55%;}
 table.actdate_data.country_data th:first-child	{padding:30px 40px 0 0;}
