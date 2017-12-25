@@ -1,0 +1,4 @@
+cd `dirname $0`
+cd ../dstore
+
+ls cache/*.xml | sort -R | parallel "node js/cmd import {}"

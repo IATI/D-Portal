@@ -535,6 +535,28 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 
 
+dstore_pg.warn_dupes = function(db,aid){
+
+	var ret=false
+	
+// report if this id is from another file and being replaced, possibly from this file even
+// I think we should complain a lot about this during import
+	var rows=wait.for(function(cb){
+		db.any("SELECT * FROM slug WHERE aid=${aid};",{aid:aid}).then(function(rows){
+			cb(false,rows)
+		}).catch(err);
+	});
+
+	for(var i in rows)
+	{
+		var row=rows[i]
+		console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
+		ret=true
+	}
+
+	return ret
+};
+
 // the database part of the query code
 dstore_pg.query_select=function(q,res,r,req){
 

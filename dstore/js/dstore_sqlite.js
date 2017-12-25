@@ -625,13 +625,22 @@ dstore_sqlite.analyze = function(){
 
 dstore_sqlite.warn_dupes = function(db,aid){
 
+	var ret=false
+	
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
-		db.each("SELECT * FROM slug WHERE aid=?",aid, function(err, row)
-		{
-			console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
-		});
-		
+	var rows=wait.for(function(cb){
+		db.all("SELECT * FROM slug WHERE aid=?",aid,cb);
+	});
+
+	for(var i in rows)
+	{
+		var row=rows[i]
+		console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
+		ret=true
+	}
+
+	return ret
 };
 
 
