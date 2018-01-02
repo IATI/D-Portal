@@ -78,12 +78,6 @@ plated/publish
 
 The website is generated into /docs from files found in /plated/source.
 
-**If you want to publish this project using a different repository name**  
-Replace ```PLATED_ROOT=/plated-example``` with ```PLATED_ROOT=/new-repo``` in plated/settings.
-
-**If publishing to your main github page**; eg. _new-repo.github.io_  
-Replace ```PLATED_ROOT=/plated-example``` with ```PLATED_ROOT=/``` in plated/settings.
-
 **If you want to build into a different local directory**  
 Adjust ```PLATED_OUTPUT=../docs``` to point somewhere else in plated/settings.
 
@@ -111,77 +105,43 @@ Please make sure node is available and node dependencies have been installed usi
 
 The following scripts may be run from this project's **root directory**.
 
----
+```shell
 
-	plated/upgrade
+plated/upgrade	
+# This will install or upgrade plated to the latest version using npm.
+# Run this once for the scripts to work.
+# Run this later to upgrade to the latest version.
 
-&#8627; This will install or upgrade plated to the latest version using npm.
+plated/build
+# Run this at least once to build your website.
 
-**Run this once for the scripts to work.** Run this later to upgrade to the latest version.
+plated/start
+# Leave this running in a separate tab, it should watch and rebuild your new changes.
 
----
+plated/watch
+# Watches plated/source and continuously builds the website when files are changed.
+# Optional if ```plated/start``` is running
 
-	plated/build
+plated/serv
+# Start a simple static server locally.
+# Visit http://0.0.0.0:8000/new-repo/ in your browser to view your site.
+# Optional if ```plated/start``` is running
 
-&#8627; **Run this once to build the website.**
+plated/publish
+# Builds your website and then does a git add/commit/pull/push of all files to Github.
+# Run this after if you prefer the traditional git commands.
 
----
+plated/pull
+# Pull the latest changes direct from the plated-example repository.
+# Attempts to ignore possible conflicts outside of this plated directory.
+# This should pick up small bug fixes in these scripts without breaking anything else.
 
-	plated/start
+plated/settings
+# This contains settings used by all the other scripts and should not be run directly.
 
-&#8627; This runs ```plated/watch``` and ```plated/serv``` simultaneously.
-
-**The main script. It should be left running in the command line.**  
-Run this to build and view your website locally whilst you edit it. Make sure your browser is not caching the content.
-
----
-
-	plated/watch
-
-&#8627; Watches the ```plated/source``` directory and continuously build the static 
-website when files are changed.
-
-_(Optional if ```plated/start``` is running)_
-
----
-
-	plated/serv
-
-&#8627; Start a simple static server locally, visit 
-http://0.0.0.0:8000/your-new-repo-name/ in your browser to view your 
-site.
-
-_(Optional if ```plated/start``` is running)_
-
----
-
-	plated/publish
-
-&#8627; Builds your website and then does a git add/commit/pull/push of all files to github.
-
-**Run this to publish your pages to github. View your changes on your shiny new website!**  
-You may want to do this manually for more control; _ie. add commit comments, etc._
-
----
-
-	plated/pull
-
-&#8627; Pull the latest changes direct from the plated-example repository and 
-attempts to ignore possible conflicts outside of this plated directory.
-
-_This should pick up small bug fixes in these scripts without 
-breaking anything else._
-
----
-
-	plated/settings
-
-&#8627; This contains settings used by all the other scripts and should not be 
-run directly.
-
----
+```
 
 
 # Would you like to know more?
 
-Visit https://github.com/xriss/plated for plated documentation. See [LICENSE](https://github.com/xriss/plated-example/blob/master/plated/LICENSE.md) for details.
+Visit https://github.com/xriss/plated for plated documentation. See [MIT LICENSE](https://github.com/xriss/plated-example/blob/master/plated/LICENSE.md) for details.
