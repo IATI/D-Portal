@@ -73,8 +73,6 @@ plated/publish
 
 ```
 
----
-
 
 The website is generated into /docs from files found in /plated/source.
 
@@ -145,3 +143,7 @@ plated/settings
 # Would you like to know more?
 
 Visit https://github.com/xriss/plated for plated documentation. See [MIT LICENSE](https://github.com/xriss/plated-example/blob/master/plated/LICENSE.md) for details.
+
+---
+
+[Back to top](#plated-example)
