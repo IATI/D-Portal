@@ -1,6 +1,6 @@
 # Plated-Example
 
-A boilerplate for a static website hosted on github; ie. http://username.github.io/your-new-repo-name
+A boilerplate for a static website hosted on github; ie. http://username.github.io/new-repo
 
 ## Table of contents
   - [Dependencies](#dependencies)
@@ -12,7 +12,7 @@ A boilerplate for a static website hosted on github; ie. http://username.github.
 
 # Dependencies
 
-Plated assumes you are comfortable with the command line and requires the following installed
+Plated assumes you are comfortable with the command line and git and requires the following installed
 
 - [git](https://git-scm.com/downloads) ```sudo apt-get install git```
 - [node](https://nodejs.org) ```sudo apt-get install nodejs-legacy npm```
@@ -34,7 +34,7 @@ _Commands above are for debian/ubuntu. For other operating systems, please the u
     - Save
 
 4. Woohoo! You should now have a brand new website.
-    - Check your URL - http://username.github.io/your-new-repo-name
+    - Check your URL - http://username.github.io/new-repo
     - Your website should now work and contain the default plated-example landing page.
 
 5. Read [the next bit](#run-this-local) on how to push new changes to update your live website.
@@ -44,40 +44,49 @@ _Commands above are for debian/ubuntu. For other operating systems, please the u
 
 # Run this local
 
-You can test and build your website locally in your preferred browser by running the following scripts in the terminal.
-
-1. Run ```plated/upgrade``` first to install the node required dependencies.
-    - Run this first to install the node required dependencies.
-
-2. Run ```plated/build``` to build your website
-    - Run this at least once!
-
-3. Run ```plated/start``` to start a local server
-    - Leave this running in a separate tab, it should watch and rebuild your new changes.
-    - Make sure that nothing else is using port http://0.0.0.0:8000, otherwise you can't view your local site.
-
-4. View your website in a browser at: http://0.0.0.0:8000/your-new-repo-name
-    - Make sure your browser is not caching content, otherwise your changes will not show up.
+You can test and build your website locally in your preferred browser by running the following scripts in the terminal.   
     
-5. Run ```plated/publish``` to push changes to Github
-    - Doing this will re-build and update your current website with the new changes.
-    - Depending on Github, it might take a while for new changes to show up but it shouldn't be too long.
+```shell
+
+plated/upgrade	
+# Run this first to install the node required dependencies.
+
+plated/build
+# Run this at least once to build your website.
+
+plated/start
+# Leave this running in a separate tab, it should watch and rebuild your new changes.
+# Make sure nothing else is using port http://0.0.0.0:8000.
+
+```
+
+### View your website in a browser at http://0.0.0.0:8000/new-repo
+Make sure your browser is not caching content, otherwise your changes will not show up.
+
+
+```shell
+
+plated/publish
+# Run this to push changes to Github.
+# Doing this will re-build and update your current website with the new changes.
+# Depending on Github, it may take a while for new changes to show up but it shouldn't be too long.
+
+```
 
 ---
 
 
 The website is generated into /docs from files found in /plated/source.
 
-**If you want to publish this project using a different repository name**, 
-be sure to adjust ```PLATED_ROOT=/plated-example``` in the plated/settings file from 
-/plated-example to the new github name.
+**If you want to publish this project using a different repository name**  
+Replace ```PLATED_ROOT=/plated-example``` with ```PLATED_ROOT=/new-repo``` in plated/settings.
 
-**If publishing to your main github page**; eg. _xriss.github.io_ then 
-this should be set to ```/``` only. This is the root directory that your 
-site is published to on github.
+**If publishing to your main github page**; eg. _new-repo.github.io_  
+Replace ```PLATED_ROOT=/plated-example``` with ```PLATED_ROOT=/``` in plated/settings.
 
-**If you want to build into a different local directory**, alter ```PLATED_OUTPUT=../docs``` 
-in the plated/settings file to point somewhere else. 
+**If you want to build into a different local directory**  
+Adjust ```PLATED_OUTPUT=../docs``` to point somewhere else in plated/settings.
+
 
 ```diff
 - DANGER THE OUTPUT DIRECTORY WILL BE DELETED ON BUILD
