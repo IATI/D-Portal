@@ -24,20 +24,16 @@ _Commands above are for debian/ubuntu. For other operating systems, please the u
 1. Visit https://github.com/new/import
    - Paste `https://github.com/xriss/plated-example` into the URL
    - Create a name for your new repository and click **Begin import**
-
-2. Edit /plated/settings in your new repository
-    - Replace ```/plated-example``` with ```/your-new-repo-name```
-    - If you're creating a yourname.github.io user or organisation site, change it to ```/```
     
-3. Go to ![settings](https://cloud.githubusercontent.com/assets/1515961/25015092/dcf5b398-2069-11e7-9740-424784716088.png)
+2. Go to ![settings](https://cloud.githubusercontent.com/assets/1515961/25015092/dcf5b398-2069-11e7-9740-424784716088.png)
     - Change the GitHub Pages source to use **master branch /docs folder**
     - Save
 
-4. Woohoo! You should now have a brand new website.
+3. Woohoo! You should now have a brand new website.
     - Check your URL - http://username.github.io/new-repo
     - Your website should now work and contain the default plated-example landing page.
 
-5. Read [the next bit](#run-this-local) on how to push new changes to update your live website.
+4. Read [the next bit](#run-this-local) on how to push new changes to update your live website.
     
 ---
 
@@ -58,13 +54,10 @@ plated/start
 # Leave this running in a separate tab, it should watch and rebuild your new changes.
 # Make sure nothing else is using port http://0.0.0.0:8000.
 
-```
 
-### View your website in a browser at http://0.0.0.0:8000/new-repo
-Make sure your browser is not caching content, otherwise your changes will not show up.
+# View your website in a browser at http://0.0.0.0:8000/new-repo
+# Make sure your browser is not caching content, otherwise your changes will not show up.
 
-
-```shell
 
 plated/publish
 # Run this to push changes to Github.
@@ -84,6 +77,7 @@ Adjust ```PLATED_OUTPUT=../docs``` to point somewhere else in plated/settings.
 - DANGER THE OUTPUT DIRECTORY WILL BE DELETED ON BUILD
 ```
 
+
 # Adding Plated-Example to an existing repository
 
 Run the following to pull the latest version of Plated-Example into an existing repository
@@ -94,6 +88,7 @@ Run the following to pull the latest version of Plated-Example into an existing 
   - You will probably conflict with this README.md file but this can just be replaced with your own version.
   - Make sure you have ```node_modules``` listed in your .gitignore file.
     
+
 
 # Scripts
 
