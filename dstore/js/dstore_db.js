@@ -1034,7 +1034,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 // so disable saving attribute stats for now...
 				if(!e.element_attr)
 				{
-					dstore_back.replace(db,"element",e);
+//					dstore_back.replace(db,"element",e);
 				}
 			}
 		}
