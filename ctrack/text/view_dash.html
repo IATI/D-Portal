@@ -9,11 +9,13 @@
 {view_tail}
 
 #dash_navi
-<div class="head_wrap">
-	<div class="head_block">
-		<a href="#view=dash" class="head_title">Dash <img src="/ctrack/art/dash_logo.png" alt="Dash logo" width="35" height="25"></a>
-	</div><div class="head_block">
-		<a href="/" class="back_link">Back to d-portal.org</a>
+<div class="head_wrap_dash">
+	<div class="head_wrap">
+		<div class="head_block">
+			<a href="#view=dash" class="head_title">DASH<img src="/ctrack/art/dash_logo.png" alt="Dash logo" width="35" height="25"></a>
+		</div><div class="head_block">
+			<a href="/" class="back_link">Back to d-portal.org</a>
+		</div>
 	</div>
 </div>
 
@@ -36,7 +38,7 @@
 </tr>
 
 #dash_body
-<div class="default data">
+<div class="default">
 	<div class="left_block">
 		<div class="title">Publishers statistics for d-portal.org</div>
 		<table class="pub">
@@ -63,21 +65,30 @@
 					<td>Total Countries</td>
 					<td>{dash_total_countries}</td>
 				</tr>
+				<tr>
+					<td>Invalid Recipients</td>
+					<td>{dash_country_total_invalid}</td>
+				</tr>
+				<tr>
+					<td>Total Invalid %</td>
+					<td>{dash_country_total_invalid_pct}%</td>
+				</tr>
 			</table>
 		</div>
 		<div class="title_info">Info</div>
 		<div class="subtitle_info">Dash is an overview of the data populating d-portal.org with a focus primarily on publisher statistics and the quality of the data reported by them. By showing you when and where invalid data is reported, Dash will be able to explain the gaps that are reflected on the main site.
-		<p>Click on a <b>Publisher Name</b> to view their profile in d-portal.org</p>
-		<p>Click on a <b>Publisher ID</b> to view their statistics in Dash.</p>
+		<p>Click on a <b class="pub_name">Publisher Name</b> to view their profile in d-portal.org</p>
+		<p>Click on a <b class="pub_id">Publisher ID</b> to view their statistics in Dash.</p>
 		<p><i>Only activities with unique IDs are imported. Dash does not import duplicates.</i></p>
 		</div>
 		<p>Updates everyday GMT +0.</p> 
-		<p>Last updated <a href="#view=dash_cronlog">{dash_last_updated}</a></p>
+		<p class="cron_date">Last updated <a href="#view=dash_cronlog">{dash_last_updated}</a></p>
 		<div class="snap_wrap countries">
-			<div class="snap_title" title="{dash_country_total_invalid_pct}%">Reporting {dash_country_total_invalid} invalid recipients.</div>
 			<table class="snap countries">
 				<tr>
-					<th colspan="2">Recipient countries <div class="note div">Click to view all activities reported per country. Links open new window.</div></th>
+					<th colspan="2">
+						Recipient countries <div class="note div">Click to view XML of all activities reported per (<i class="invalid">invalild</i> / <i class="valid">valid</i>) country. Links open new window.</div>
+					</th>
 				</tr>
 				{dash_listall_country_datas}
 			</table>
@@ -93,51 +104,66 @@
 
 
 #css_dash
-html			{background-color:#fff;}
-.overlay		{background-color:#fff;}
-a:focus			{color:#FF5F00; text-decoration:none;}
-a:link  		{color:#FF5F00; text-decoration:none;}
-a:visited		{color:#FF5F00; text-decoration:none;}
-a:hover			{color:#FF5F00; text-decoration:underline;}
-a:active		{color:#FF5F00; text-decoration:none;}
+html			{background-color:#1d2550;}
+body			{color:#bdbdbd;}
+.overlay		{background-color:#1d2550;}
+a:focus			{color:#FFC107; text-decoration:none;}
+a:link  		{color:#FFF; text-decoration:none;}
+a:visited		{color:#FFF; text-decoration:none;}
+a:hover			{color:#FFC107; text-decoration:none;}
+a:active		{color:#FFF; text-decoration:none;}
 .maxwrap		{margin:0 auto; width:100%;}
+.default		{padding:20px 0 40px 0;}
 table td, table th	{cursor:auto;}
 
+b.pub_name		{color:#FFF;}
+b.pub_id		{color:#FFC107;}
+
+i.invalid		{color:#5872ff;}
+i.valid			{color:#FFF;}
+
 table.pub		{font-size:0.9em; line-height:1.4em; max-width:600px; text-align:right; width:600px;}
-table.pub th	{font-weight:bold; padding:15px 30px 15px 0;}
-table.pub td	{border-bottom:1px solid #ccc; padding:15px 35px 15px 0;}
+table.pub th	{font-size:1.25em; padding:15px 30px 15px 0;}
+table.pub td	{border-bottom:1px solid #3d4363; padding:15px 35px 15px 0;}
 table.pub td:first-child, table.pub th:first-child 	{text-align:left;}
 table.pub th:last-child 	{padding-right:0;}
 table.pub td:last-child		{padding-right:5px;}
 table.pub tr:last-child	td	{border-bottom:0;}
 table.pub td.ref			{padding:0;}
-table.pub td.ref a			{display:block; padding:15px 35px 15px 0;}
+table.pub td.ref a			{display:block; padding:15px 35px 15px 0; color:#FFC107;}
+table.pub td.ref a:hover	{color:#ffd452;}
+table.pub td.ref:nth-of-type(1) a {color:#e8e8e8;}
 
-table.snap				{font-size:0.9em; margin:0 auto; max-width:238px; padding:0 20px; width:238px;}
-table.snap td			{padding:15px 30px 15px 0;}
+table.snap				{font-size:0.9em; margin:0 auto; width:100%; word-break:break-all;}
+table.snap td			{padding:10px 10px 10px 0; line-height:16px;}
+table.snap td:nth-of-type(2) {font-size:2em; padding-right:0; line-height:16px;}
 table.snap.countries	{table-layout:fixed;}
-table.snap.countries th	{font-size:1.4em; padding:5px 30px 20px 0; text-align:left;}
-table.snap.countries td	{border-bottom:1px solid #ccc; padding:10px 5px 10px 0;}
+table.snap.countries th	{font-size:1.6em; padding:5px 30px 20px 0; text-align:left;}
+table.snap.countries td	{border-bottom:3px solid #1d2550; padding:10px 5px 10px 0;}
 table.snap.countries td.cc				{padding:0;}
-table.snap.countries td.cc a			{display:block; padding:10px 30px 10px 0;}
+table.snap.countries td.cc a			{display:block; padding:10px;}
 table.snap.countries td:last-child		{text-align:right;}
 table.snap.countries tr:last-child	td	{border-bottom:0;}
 
-table.snap.countries td.country_invalid a {color:#444;}
-table.snap.countries td.country_invalid   {color:#444; background-color:#eee;}
+table.snap.countries td.country_invalid a {color:#5872ff; min-width:150px;}
+table.snap.countries td.country_invalid a:hover {color:#99a8fb;}
+table.snap.countries td.country_invalid   {color:#9E9E9E; background-color:#111738; font-size:initial;}
+table.snap.countries td.country_valid	  {font-size:initial;}
 
-.head_wrap		{border-bottom:5px solid #222; margin:0 auto; margin-bottom:20px; padding:20px 0; width:960px;}
-.head_block		{display:inline-block; vertical-align:bottom; width:50%;}
-a.head_title	{display:inline-block; font-size:1.8em;}
-a.back_link		{display:block; font-size:1.0em; text-align:right; color:#000;}
+.head_wrap_dash	{width:100%; margin:0 auto; background-color:#e8e8e8; box-shadow:0 3px 5px rgb(17,23,56);}
+.head_wrap		{margin-bottom:20px;}
+.head_block		{display:inline-block; vertical-align:middle; width:50%;}
+a.head_title	{display:inline-block; font-size:1.3em; color:#343746; letter-spacing:10px;}
+a.back_link		{display:block; font-size:1.0em; text-align:right; color:#343746;}
 .left_block		{display:inline-block; width:660px;}
-.right_block	{display:inline-block; width:280px;}
-.title			{font-size:2em; margin-bottom:20px;}
-.title_snap		{font-size:1.4em; margin-bottom:20px;}
-.snap_wrap		{border:1px solid #444; margin:0 auto; margin-bottom:30px; padding:20px; width:238px;}
-.snap_wrap.countries	{margin-top:40px; padding:20px 0; width:278px;}
+.right_block	{display:inline-block; width:300px;}
+.title			{font-size:1.5em; margin-bottom:20px;}
+.title_snap		{font-size:1.5em; margin-bottom:20px;}
+.snap_wrap		{background-color:#111738; border-radius:4px; margin:0 auto; margin-bottom:30px; padding:20px; width:300px; box-sizing:border-box;}
+.snap_wrap.countries	{margin-top:25px;}
 .snap_title		{font-size:0.9em; line-height:1.2em; padding:10px 20px;}
 .title_info		{font-size:1.4em; margin-bottom:10px;}
 p				{font-size:0.9em; margin-bottom:10px;}
 .subtitle_info	{font-size:0.9em; line-height:1.4em; margin-bottom:20px;}
 .subtitle_info p{font-size:1.0em; margin-top:10px;}
+p.cron_date		{background-color:#171f48; padding:10px; text-align:center; border-radius:4px; margin-top:20px;}
