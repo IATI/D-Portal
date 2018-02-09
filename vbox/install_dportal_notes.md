@@ -3,7 +3,7 @@
 
 Install bits and bobs.
 
-	sudo apt install -y gcc-5 g++-5 build-essential byobu nodejs npm postgresql-9.6 postgresql-contrib-9.6 parallel
+	sudo apt install -y gcc-5 g++-5 build-essential byobu nodejs npm postgresql-9.6 postgresql-contrib-9.6 parallel git
 
 
 Move postgres database to another directory, some machines are setup 
@@ -22,7 +22,9 @@ Add a user that we will use to run all the node apps.
 
 	sudo adduser ctrack
 
-Give it a good password and hit return on everything else.
+Give it a good password as you will be able to connect to the server 
+using this password and hit return on everything else. In order to 
+switch to this user do "sudo -u ctrack -i"
 
 
 Setup this user with a database login and create a dstore database, 
@@ -49,3 +51,29 @@ copy paste the following into a root shell with a random password.
 	sudo -u postgres psql -c "ALTER DATABASE dstore OWNER TO $PGUSER;"
 	sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE dstore TO $PGUSER;"
 	sudo -u postgres psql -l
+
+Enable git access, past a key into github..
+
+	su ctrack
+	
+	ssh-keygen 
+	cat ~/.ssh/id_rsa.pub
+	
+copypaste that public key into github and git should now be able to 
+read write the d-portal repo so install it like so.
+
+	su ctrack
+	cd ~
+	git clone git@github.com:devinit/D-Portal.git
+	cd D-Portal
+	./install_deps
+
+Let ctrack know how to connect to postgres and not to use sqlite, add 
+the following to the end of your /home/ctrack/.profile
+
+	source ~/D-Portal/bin/server-pg/env.sh
+
+
+
+
+
