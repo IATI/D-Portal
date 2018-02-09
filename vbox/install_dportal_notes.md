@@ -1,25 +1,51 @@
 
 
 
-Can mostly follow the basic machine setup as seen in Vagrant.sh
+Install bits and bobs.
 
-	sudo apt install -y gcc-5 g++-5 build-essential byobu nodejs npm postgresql-9.6 postgresql-contrib-9.6
-
-
+	sudo apt install -y gcc-5 g++-5 build-essential byobu nodejs npm postgresql-9.6 postgresql-contrib-9.6 parallel
 
 
-May need to move postgres database to another directory, some machines 
-are setup with a small / and bigger drives mounted elsewhere. Also make 
-sure it is UTF8
+Move postgres database to another directory, some machines are setup 
+with a small / and bigger drives mounted elsewhere so this lets us put 
+it on the right drive. It also gives us a chance to make sure it is set 
+to UTF8 by default, the following delets the default and then recreates 
+it within /home/postgres with UTF8 text encoding
 
 	sudo service postgresql stop
-	rm -rf /home/postgres
-	mkdir /home/postgres
-	sudo chown -R postgres:postgres /home/postgres
-	sudo -u postgres /usr/lib/postgresql/9.6/bin/initdb -D /home/postgres --locale en_US.UTF-8 
-
-
-Then edit /etc/postgresql/9.6/main/postgresql.conf and make sure 
-data_directory is set to new location before starting it again
-
+	sudo pg_dropcluster 9.6 main
+	sudo pg_createcluster -d /home/postgres --locale en_US.UTF-8 9.6 main
 	sudo service postgresql start
+	
+
+Add a user that we will use to run all the node apps.
+
+	sudo adduser ctrack
+
+Give it a good password and hit return on everything else.
+
+
+Setup this user with a database login and create a dstore database, 
+copy paste the following into a root shell with a random password.
+
+	PGMAIN=/etc/postgresql/9.6/main
+	PGUSER=ctrack
+	PGPASS=ctrack
+
+	echo '#HAXTBH' >> $PGMAIN/postgresql.conf
+	echo 'max_wal_senders=1' >> $PGMAIN/postgresql.conf
+	echo 'wal_level=hot_standby' >> $PGMAIN/postgresql.conf
+	echo 'synchronous_commit = off' >> $PGMAIN/postgresql.conf
+	echo 'work_mem = 128MB' >> $PGMAIN/postgresql.conf
+
+	echo '#HAXTBH' >> $PGMAIN/pg_hba.conf
+	echo 'local replication all peer' >> $PGMAIN/pg_hba.conf
+	sudo service postgresql restart
+
+	sudo -u postgres bash -c "psql -c \"CREATE USER $PGUSER WITH SUPERUSER PASSWORD '$PGPASS';\""
+
+	sudo -u postgres createdb dstore
+	sudo -u postgres bash -c "psql -c \"CREATE EXTENSION IF NOT EXISTS citext;\" dstore "
+	sudo -u postgres psql -c "ALTER DATABASE dstore OWNER TO $PGUSER;"
+	sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE dstore TO $PGUSER;"
+	sudo -u postgres psql -l
