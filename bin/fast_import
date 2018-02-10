@@ -1,6 +1,9 @@
 cd `dirname $0`
 cd ../dstore
 
+STARTTIME=$(date +%s)
+echo "Starting Import of all xml files at $(date)" | tee -a time.log
+
 
 #import all xml files
 
@@ -15,4 +18,10 @@ node js/cmd import $file 2>&1 | tee ${file}.import.log
 }
 export -f doimport
 ls cache/*.xml | sort -R | parallel --bar doimport
+
+
+ENDTIME=$(date +%s)
+echo "Finished Import of all xml files at $(date)" | tee -a time.log
+echo "Import took  $(($ENDTIME - $STARTTIME)) seconds to complete." | tee -a time.log
+echo "" | tee -a time.log
 

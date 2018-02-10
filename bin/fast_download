@@ -1,6 +1,8 @@
 cd `dirname $0`
 cd ../dstore/cache
 
+STARTTIME=$(date +%s)
+echo "Starting Download of all xml files at $(date)" | tee -a time.log
 
 # trunicate all xml files first
 
@@ -27,3 +29,7 @@ cat ../json/curl.txt | parallel -j 0 --bar download
 #du -hsx *.curl.log | sort -rh | head -10
 
 
+ENDTIME=$(date +%s)
+echo "Finished Download of all xml files at $(date)" | tee -a time.log
+echo "Download took  $(($ENDTIME - $STARTTIME)) seconds to complete." | tee -a time.log
+echo "" | tee -a time.log
