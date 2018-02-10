@@ -36,6 +36,6 @@ cat ../json/curl.txt | parallel -j 0 --bar download
 
 ENDTIME=$(date +%s)
 echo "Finished Download of all xml files at $(date)" | tee -a time.log
-ls -s *.xml | awk '{sum+=$1;} END {printf("%'"'"'d bytes downloaded\n",sum);}' | tee -a time.log
+ls -s *.xml | awk '{sum+=$1;} END {printf("%'"'"'d kilobytes downloaded\n",sum);}' | tee -a time.log
 echo "Download took  $(($ENDTIME - $STARTTIME)) seconds to complete." | tee -a time.log
 echo "" | tee -a time.log
