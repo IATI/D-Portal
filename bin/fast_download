@@ -14,7 +14,7 @@ truncate -s 0 *.xml
 download() {
 declare -a 'a=('"$1"')'
 file=${a[4]}
-url=${a[5]}
+url=${a[5]// /%20}
 
 echo | tee -a ${file}.curl.log
 date | tee -a ${file}.curl.log
