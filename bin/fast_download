@@ -23,7 +23,7 @@ echo | tee -a ${file}.curl.log
 echo "Downloading $file from $url" | tee -a ${file}.curl.log
 echo | tee -a ${file}.curl.log
 
-curl --retry 10 --retry-delay 10 --speed-time 10 --speed-limit 1000 -k -L -o ${file} "${url}" 2>&1 | tee -a ${file}.curl.log
+curl -A "Mozilla/5.0" --retry 10 --retry-delay 10 --speed-time 10 --speed-limit 1000 -k -L -o ${file} "${url}" 2>&1 | tee -a ${file}.curl.log
 
 echo | tee -a ${file}.curl.log
 }
