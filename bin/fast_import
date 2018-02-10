@@ -2,7 +2,7 @@ cd `dirname $0`
 cd ../dstore
 
 STARTTIME=$(date +%s)
-echo "Starting Import of all xml files at $(date)" | tee -a time.log
+echo "Starting Import of all xml files at $(date)" | tee -a cache/time.log
 
 
 #import all xml files
@@ -21,7 +21,7 @@ ls cache/*.xml | sort -R | parallel --bar doimport
 
 
 ENDTIME=$(date +%s)
-echo "Finished Import of all xml files at $(date)" | tee -a time.log
-echo "Import took  $(($ENDTIME - $STARTTIME)) seconds to complete." | tee -a time.log
-echo "" | tee -a time.log
+echo "Finished Import of all xml files at $(date)" | tee -a cache/time.log
+echo "Import took  $(($ENDTIME - $STARTTIME)) seconds to complete." | tee -a cache/time.log
+echo "" | tee -a cache/time.log
 
