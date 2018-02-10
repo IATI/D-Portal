@@ -1,0 +1,29 @@
+cd `dirname $0`
+cd ../dstore/cache
+
+
+# trunicate all xml files first
+
+truncate -s 0 *.xml
+truncate -s 0 *.curl.log
+
+
+#download all xml files
+
+download() {
+
+a=($1)
+file=${a[4]}
+url=${a[5]}
+echo Downloading $file from $url
+
+curl --retry 10 --retry-delay 10 --speed-time 10 --speed-limit 1000 -k -L -o $file ${url//\"} 2>&1 | tee ${file}.curl.log
+
+}
+export -f download
+cat ../json/curl.txt | parallel -j 0 --bar download
+
+
+#du -hsx *.curl.log | sort -rh | head -10
+
+
