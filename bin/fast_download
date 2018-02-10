@@ -4,23 +4,28 @@ cd ../dstore/cache
 STARTTIME=$(date +%s)
 echo "Starting Download of all xml files at $(date)" | tee -a time.log
 
-# trunicate all xml files first
+# trunicate all xml files first, any files we can not download will trigger deletion of all their activities at import
 
 truncate -s 0 *.xml
-truncate -s 0 *.curl.log
 
 
 #download all xml files
 
 download() {
-
 a=($1)
 file=${a[4]}
 url=${a[5]}
-echo Downloading $file from $url
 
-curl --retry 10 --retry-delay 10 --speed-time 60 --speed-limit 1000 -k -L -o $file ${url//\"} 2>&1 | tee ${file}.curl.log
+echo | tee -a ${file}.curl.log
+echo date | tee -a ${file}.curl.log
+echo | tee -a ${file}.curl.log
 
+echo Downloading $file from $url | tee -a ${file}.curl.log
+echo | tee -a ${file}.curl.log
+
+curl --retry 10 --retry-delay 10 --speed-time 60 --speed-limit 1000 -k -L -o $file ${url//\"} 2>&1 | tee -a ${file}.curl.log
+
+echo | tee -a ${file}.curl.log
 }
 export -f download
 cat ../json/curl.txt | parallel -j 0 --bar download

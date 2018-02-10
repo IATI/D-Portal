@@ -11,10 +11,17 @@ doimport() {
 
 file=$1
 
-echo Importing $file
+echo | tee -a ${file}.import.log
+echo date | tee -a ${file}.import.log
+echo | tee -a ${file}.import.log
+
+
+echo Importing $file | tee -a ${file}.import.log
 
 node js/cmd import $file 2>&1 | tee ${file}.import.log
 
+
+echo | tee -a ${file}.import.log
 }
 export -f doimport
 ls cache/*.xml | sort -R | parallel --bar doimport
