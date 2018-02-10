@@ -3,7 +3,7 @@
 
 Install bits and bobs.
 
-	sudo apt install -y gcc-5 g++-5 build-essential byobu nodejs npm postgresql-9.6 postgresql-contrib-9.6 parallel git
+	sudo apt install -y gcc-5 g++-5 build-essential byobu nodejs npm postgresql-9.6 postgresql-contrib-9.6 parallel git curl
 
 
 Move postgres database to another directory, some machines are setup 

@@ -25,6 +25,7 @@ wait.launchFiber(function(){
 	if( argv._[0]=="init" )
 	{
 		require("./dstore_db").create_tables();
+		require("./dstore_db").create_indexes();
 		return;
 	}
 	else
