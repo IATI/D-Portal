@@ -12,18 +12,18 @@ truncate -s 0 *.xml
 #download all xml files
 
 download() {
-a=($1)
+declare -a 'a=('"$1"')'
 file=${a[4]}
 url=${a[5]}
 
 echo | tee -a ${file}.curl.log
-echo date | tee -a ${file}.curl.log
+date | tee -a ${file}.curl.log
 echo | tee -a ${file}.curl.log
 
-echo Downloading $file from $url | tee -a ${file}.curl.log
+echo "Downloading $file from $url" | tee -a ${file}.curl.log
 echo | tee -a ${file}.curl.log
 
-curl --retry 10 --retry-delay 10 --speed-time 60 --speed-limit 1000 -k -L -o $file ${url//\"} 2>&1 | tee -a ${file}.curl.log
+curl --retry 10 --retry-delay 10 --speed-time 10 --speed-limit 1000 -k -L -o ${file} "${url}" 2>&1 | tee -a ${file}.curl.log
 
 echo | tee -a ${file}.curl.log
 }
