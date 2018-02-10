@@ -1,4 +1,18 @@
 cd `dirname $0`
 cd ../dstore
 
-ls cache/*.xml | sort -R | parallel "node js/cmd import {}"
+
+#import all xml files
+
+doimport() {
+
+file=$1
+
+echo Importing $file
+
+node js/cmd import $file 2>&1 | tee ${file}.import.log
+
+}
+export -f doimport
+ls cache/*.xml | sort -R | parallel --bar doimport
+
