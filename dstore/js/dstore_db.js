@@ -81,7 +81,7 @@ dstore_db.tables={
 	trans:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"trans_ref",						NOCASE:true , HASH:true },
-		{ name:"trans_description",				NOCASE:true , INDEX:true },
+		{ name:"trans_description",				NOCASE:true},
 		{ name:"trans_day",						INTEGER:true , INDEX:true },
 		{ name:"trans_currency",				NOCASE:true , INDEX:true },
 		{ name:"trans_value",					REAL:true , INDEX:true },
