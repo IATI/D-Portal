@@ -16,16 +16,18 @@ declare -a 'a=('"$1"')'
 file=${a[4]}
 url=${a[5]// /%20}
 
-echo | tee -a ${file}.curl.log
-date | tee -a ${file}.curl.log
-echo | tee -a ${file}.curl.log
+truncate -s 0 ${file}.curl.last.log
 
-echo "Downloading $file from $url" | tee -a ${file}.curl.log
-echo | tee -a ${file}.curl.log
+echo | tee -a ${file}.curl.log ${file}.curl.last.log
+date | tee -a ${file}.curl.log ${file}.curl.last.log
+echo | tee -a ${file}.curl.log ${file}.curl.last.log
 
-curl -A "Mozilla/5.0" --retry 10 --retry-delay 10 --speed-time 10 --speed-limit 1000 -k -L -o ${file} "${url}" 2>&1 | tee -a ${file}.curl.log
+echo "Downloading $file from $url" | tee -a ${file}.curl.log ${file}.curl.last.log
+echo | tee -a ${file}.curl.log ${file}.curl.last.log
 
-echo | tee -a ${file}.curl.log
+curl -A "Mozilla/5.0" --retry 10 --retry-delay 10 --speed-time 10 --speed-limit 1000 -k -L -o ${file} "${url}" 2>&1 | tee -a ${file}.curl.log ${file}.curl.last.log
+
+echo | tee -a ${file}.curl.log ${file}.curl.last.log
 }
 export -f download
 cat ../json/curl.txt | parallel -j 0 --bar download
