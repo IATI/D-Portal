@@ -1032,10 +1032,10 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 // we run out of space on live server if we try and track attribute use
 // takes an extra 16gb+++ of indexing data
 // so disable saving attribute stats for now...
-				if(!e.element_attr)
-				{
-//					dstore_back.replace(db,"element",e);
-				}
+//				if(!e.element_attr)
+//				{
+					dstore_back.replace(db,"element",e);
+//				}
 			}
 		}
 
