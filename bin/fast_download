@@ -6,7 +6,7 @@ echo "Starting Download of all xml files at $(date)" | tee -a time.log
 
 # trunicate all xml files first, any files we can not download will trigger deletion of all their activities at import
 
-truncate -s 0 *.xml
+#truncate -s 0 *.xml
 
 
 #download all xml files
