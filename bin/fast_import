@@ -18,7 +18,7 @@ echo | tee -a ${file}.import.log
 
 echo "Importing $file" | tee -a ${file}.import.log
 
-node js/cmd import $file 2>&1 | tee ${file}.import.log
+node js/cmd import $file 2>&1 | tee -a ${file}.import.log
 
 
 echo | tee -a ${file}.import.log
