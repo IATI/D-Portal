@@ -10677,7 +10677,7 @@
     "id": "caa703ff-d579-4cc1-bec5-9526a914f25e",
     "name": "mfo",
     "number_created_packages": 2,
-    "number_of_edits": 159,
+    "number_of_edits": 164,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -16876,28 +16876,29 @@
   "display_name": "UK - Department for International Development (DFID)",
   "extras": {
    "license_id": "uk-ogl",
-   "publisher_agencies": "Initially IATI information for UK will cover DFID only (approx 90% of total UK ODA).  Discussion on the publication of ODA information in IATI format from other government departments is ongoing.",
+   "publisher_agencies": "All Official Development Assistance (ODA) activities of Department for International Development. This covers approx. 70% of all ODA of the United Kingdom.",
    "publisher_constraints": "",
-   "publisher_contact": "Public Enquiry Point, Abercrombie House, Eaglesham Road, East Kilbride, Glasgow G75 8EA.\r\nenquiry@dfid.gov.uk",
-   "publisher_contact_email": "Email not found",
+   "publisher_contact": "Public Enquiry Point, Abercrombie House, Eaglesham Road, East Kilbride, Glasgow G75 8EA.\r\n",
+   "publisher_contact_email": "enquiry@dfid.gov.uk",
    "publisher_country": "GB",
-   "publisher_data_quality": "The information that DFID provides to IATI will be operational data that has not yet necessarily been subjected to the rigours of statistical verification required before data is submitted to the CRS.\r\nHowever, data is quality assured as part of the data capture process and DFID will not seek to differentiate between data published as unverified or verified.  For the initial period of implementation, DFID has instituted an additional “light touch” quality assurance process.  Over the longer-term, the presumption is for quality assurance to take place in a devolved manner, in order to drive better compliance and quality of DFID’s work. \r\n",
-   "publisher_description": "In line with the IATI standard, beginning in January 2011, we will publish the following information on a monthly basis:\r\n\r\n•\tSignificant new details of project level and transactional data in line with the IATI standard.  \r\n•\tAll core project documentation, including our new project design document (business case), annual reviews, completion reports, and evaluations. In addition we will publish country plans and formal agreements with partners. Project summaries will be published and translated into major local languages of the relevant countries.\r\n•\tOur data will be published in an open, accessible format, using IATI XML format, and under an open “attribution only” licence.\r\n•\tA small number of exclusions will apply to sensitive information, based on the key principles of the UK’s Freedom of Information Act.\r\n",
-   "publisher_field_exclusions": "Some IATI data from the advanced stages of the standard is not currently captured in internal systems.  Work is ongoing on implementation.  All new data elements will be subject to a cost/ benefit analysis..",
-   "publisher_first_publish_date": "2011-01-29T00:00:00.000000",
-   "publisher_frequency": "DFID plans to publish project and transaction information monthly.  ",
-   "publisher_frequency_select": "not_specified",
+   "publisher_data_quality": "Data is quality assured as part of the data capture process but some discre",
+   "publisher_description": "DFID's IATI Data consists project information from 01 April 2001 until present. \r\n\r\nAll core project documentation, including our new project design document (business case), annual reviews, completion reports, and evaluations. In addition we will publish country plans and formal agreements with partners. Project summaries will be published and translated into major local languages of the relevant countries.\r\n\r\n",
+   "publisher_field_exclusions": "A small number of exclusions will apply to sensitive information, based on the key principles of the UK’s Freedom of Information Act.",
+   "publisher_frequency": "",
+   "publisher_frequency_select": "monthly",
    "publisher_iati_id": "GB-GOV-1",
    "publisher_implementation_schedule": "http://www.oecd.org/dac/aid-architecture/DFID_Implementation%20Schedule%20for%20the%20common%20standard%20(30%20June%202014).xls",
    "publisher_organization_type": "10",
    "publisher_record_exclusions": "For aid projects the assumption will be of automatic disclosure of any information that DFID has committed to publish, however a small number of exclusions apply to these in order not to do harm to DFID’s work or staff.  These are based on the key principles of the UK’s Freedom of Information Act and are as follows:\r\n\r\ni.\tInternational relations: Information that may harm DFID’s relations with other governments or institutions.\r\nii.\tSecurity and safety: Information that may pose a risk to the security or safety of any individual, including DFID staff, contractors and beneficiaries.\r\niii.\tPersonal information: Information that intrudes on the privacy of a person or could contravene confidentiality.\r\niv.\tCommercially sensitive information: Information that does harm to DFID’s or DFID’s partners or suppliers commercial interests.\r\nv.\tInformation that is exempt from disclosure under other policies or regulations\r\n",
    "publisher_refs": "",
-   "publisher_segmentation": "DFID will segment data by recipient country (including where the ‘country’ is a region or a multilateral organisation).\r\nFor technical purposes, note that projects and components will be stored as activities in the country file. No “orphaned” (standalone) component activities will be allowed as project activities will be duplicated across country files when the project has components in more than one country file. As financial information is stored at component activity level and not at project activity level, there will be no duplication of financial data.\r\n",
+   "publisher_segmentation": "DFID segments data by recipient country (including where the ‘country’ is a region or a multilateral organisation).\r\n\r\nFor technical purposes, note that projects and components will be stored as activities in the country file. No “orphaned” (standalone) component activities will be allowed as project activities will be duplicated across country files when the project has components in more than one country file. As financial information is stored at component activity level and not at project activity level, there will be no duplication of financial data.\r\n",
    "publisher_source_type": "primary_source",
-   "publisher_thresholds": "When project data was first published by DFID in August 2009, projects that were closed before 13 August 2009 were excluded from publication and this exclusion will continue to be applied.  Projects that have been active since 13 August 2009 will be included in the IATI data. This will keep the projects published in the IATI XML consistent with the projects published on DFID’s web pages.\r\nFrom January 2011, DFID will publish all active aid projects and components unless they fall in the following thresholds:\r\n•\tProject was closed before 13 August 2009\r\n•\tProject Stage is earlier than Appraisal and Design stage (ARIES Stage 3)\r\n•\tProject budget is below £500",
-   "publisher_timeliness": "It is planned that information will be published by the 15th (UK) working day of each month and will include information that has been input up to the end of the previous month.",
-   "publisher_ui": "IATI data will be accessible through DFID’s Projects Database http://projects.dfid.gov.uk/.  \r\n\r\nDFID will utilise a web-based Representational State Transfer (RESTful) service that creates the required IATI xml file on demand from the IATI registry.  \r\n",
-   "publisher_units": "DFID publishes at the project level.  For policy definition purposes, a project refers to all DFID-funded interventions, whether bilateral, core contributions to multilaterals, or agreements with non-governmental organisations etc.  \r\nFor technical definition purposes, projects are umbrella records that may encapsulate several components.   Some data elements, project purpose, documents, risk and scoring are stored at project level.  All other data is recorded at component level.\r\n"
+   "publisher_thresholds": "All ODA activities financed by DFID are reported as are humanitarian response projects in non ODA eligible countries.",
+   "publisher_timeliness": "Data is published within 14 working days at the end of every month",
+   "publisher_ui": "The Development Tracker uses open data on international development published by the UK Government and partners to show where the UK is investing in developing countries to implement the UK Aid Strategy. The open data is taken from the International Aid Transparency Intiative (IATI) open data standard.",
+   "publisher_ui_url": "https://devtracker.dfid.gov.uk/",
+   "publisher_units": "DFID publishes activities using two tiers of the IATI activity hierarchy, DFID’s hierarchy 1 activities are referred to as Projects and the hierarchy 2 activities are referred to as Components. Projects are umbrella activities that may encapsulate multiple components, they use the <related-activity> element in IATI to refer to each other. Some data elements, project purpose, documents, risk and scoring are stored at project level. All other data is recorded at component level.",
+   "publisher_url": "https://www.gov.uk/government/organisations/department-for-international-development"
   },
   "groups": [
   ],
@@ -17048,7 +17049,7 @@
     "id": "ffe50b5a-bfa2-4522-93b6-c2adfc7bee99",
     "name": "dfid-iati",
     "number_created_packages": 24,
-    "number_of_edits": 2045,
+    "number_of_edits": 2049,
     "openid": "",
     "state": "active",
     "sysadmin": false
@@ -17171,7 +17172,7 @@
   "name": "diakonia802017-3517",
   "package_count": 1,
   "packages": [
-   "diakonia8020173517-all_activities"
+   "diakonia802017-3517-all_activities"
   ],
   "revision_id": "974732b9-db70-4bdd-a620-0a0b461076a4",
   "state": "active",
@@ -17191,7 +17192,7 @@
     "id": "6d8118c3-e058-43ce-adea-4fd55c3772c0",
     "name": "diakonia802017-3517",
     "number_created_packages": 1,
-    "number_of_edits": 8,
+    "number_of_edits": 9,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -24596,14 +24597,14 @@
   "groups": [
   ],
   "id": "4654e264-18f1-4f26-b4f7-5bdf3a6df91f",
-  "image_display_url": "",
-  "image_url": "",
+  "image_display_url": "http://gggi.org/site/assets/uploads/2018/02/GGGI_vertical.png ",
+  "image_url": "http://gggi.org/site/assets/uploads/2018/02/GGGI_vertical.png ",
   "is_organization": true,
   "name": "gggi",
   "package_count": 0,
   "packages": [
   ],
-  "revision_id": "69d06bc1-c23b-46f1-b389-5eaa42b5d476",
+  "revision_id": "b047a3c3-ab78-4709-95bc-b6e0311dd99f",
   "state": "active",
   "tags": [
   ],
@@ -24621,7 +24622,7 @@
     "id": "b6a0777d-f1a0-4856-919f-640438acedad",
     "name": "gggispc",
     "number_created_packages": 0,
-    "number_of_edits": 3,
+    "number_of_edits": 5,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -27897,7 +27898,7 @@
     "id": "afeae5f9-4d2d-40de-8a5a-8f2e9eca138d",
     "name": "ia_nam",
     "number_created_packages": 97,
-    "number_of_edits": 1362,
+    "number_of_edits": 1363,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -31996,7 +31997,7 @@
     "id": "91987221-a2ad-457f-bfcb-b476e329762f",
     "name": "melissamullan",
     "number_created_packages": 2,
-    "number_of_edits": 305,
+    "number_of_edits": 307,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -43106,7 +43107,7 @@
     "id": "55e92be1-3e08-4893-a0ac-5f6c3dcd3448",
     "name": "fabbas",
     "number_created_packages": 2,
-    "number_of_edits": 5,
+    "number_of_edits": 7,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -50290,7 +50291,7 @@
     "id": "6d8118c3-e058-43ce-adea-4fd55c3772c0",
     "name": "diakonia802017-3517",
     "number_created_packages": 1,
-    "number_of_edits": 8,
+    "number_of_edits": 9,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -57342,7 +57343,7 @@
     "id": "b231503a-5302-4b89-8013-6f4685822e6e",
     "name": "unais",
     "number_created_packages": 2,
-    "number_of_edits": 23,
+    "number_of_edits": 32,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -61586,7 +61587,7 @@
     "id": "4535581f-73d8-405f-9c9d-0f591a7dddb8",
     "name": "warchildholland",
     "number_created_packages": 1,
-    "number_of_edits": 912,
+    "number_of_edits": 922,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -65870,7 +65871,7 @@
     "id": "56086706-d288-4c1b-9d98-a203a1511f07",
     "name": "zoa-ahekman",
     "number_created_packages": 2,
-    "number_of_edits": 433,
+    "number_of_edits": 434,
     "openid": null,
     "state": "active",
     "sysadmin": false
