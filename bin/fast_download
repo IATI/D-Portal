@@ -33,7 +33,22 @@ export -f download
 cat ../json/curl.txt | parallel -j 0 --bar download
 
 
-#du -hsx *.curl.log | sort -rh | head -10
+doempty() {
+
+file=$1
+
+if grep -q -e "-o $1" ../json/curl.txt ; then
+
+else
+
+	echo "" >$file
+	echo "Emptying $file"
+
+fi
+
+}
+export -f doempty
+ls *.xml | sort -R | parallel --bar doempty
 
 
 ENDTIME=$(date +%s)
