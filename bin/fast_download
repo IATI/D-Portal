@@ -30,14 +30,16 @@ curl -A "Mozilla/5.0" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-
 echo | tee -a ${file}.curl.log ${file}.curl.last.log
 }
 export -f download
-cat ../json/curl.txt | parallel -j 0 --bar download
+cat ../json/curl.txt | parallel --citation -j 0 --bar download
 
 
 doempty() {
 
 file=$1
 
-if grep -q -e "-o $1" ../json/curl.txt ; then
+if grep -q -c -e "-o $1" ../json/curl.txt ; then
+
+	true
 
 else
 
