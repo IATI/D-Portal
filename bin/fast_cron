@@ -1,6 +1,9 @@
 cd `dirname $0`
 cd ..
 
+exec >dportal/production/cron.log
+
+
 source bin/server/env.sh
 
 echo
@@ -33,6 +36,7 @@ cd dportal/production/D-Portal-Logs/
 git pull
 cd ../../..
 
+cp dportal/production/cron.log dportal/production/D-Portal-Logs/cron.log
 dstore/dstore stats ../dportal/production/D-Portal-Logs/stats.json
 
 cd dportal/production/D-Portal-Logs/
