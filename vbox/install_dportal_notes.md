@@ -71,9 +71,49 @@ read write the d-portal repo so install it like so.
 Let ctrack know how to connect to postgres and not to use sqlite, add 
 the following to the end of your /home/ctrack/.profile
 
-	source ~/D-Portal/bin/server-pg/env.sh
+	source /home/ctrack/D-Portal/bin/server/env.sh
 
 
+Setup nginx proxy to forward requests from port 80 to 1408 where we run the node app.
+
+	sudo apt install -y nginx-light
+
+Edit /etc/nginx/sites-enabled/default to contain the following proxy configuration.
+
+	upstream nodejsapp {
+			server 127.0.0.1:1408;
+	}
+
+	server {
+			server_name d-portal.org *.d-portal.org;
+			location / {
+					proxy_set_header X-Real-IP $remote_addr;
+					proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+					proxy_set_header Host $http_host;
+					proxy_set_header X-NginX-Proxy true;
+					proxy_read_timeout 200s;
+					proxy_pass http://nodejsapp;
+					proxy_redirect off;
+			}
+	}
 
 
+Then we should be good to go with accessing the node app via the 
+default port. To setup https we use letsencrypt and certbot, install it 
+like so.
 
+	sudo apt install -y python-certbot-nginx
+	
+	sudo certbot --nginx
+
+Which will ask you some questions and then hopefully update the nginx 
+configuration to support https.
+
+
+Get the node app to auto start at server reboots and keep an eye on itself using forever.
+
+	sudo bin/server/daemon_install
+
+Test it starts up OK with, this will probably go horribly wrong and need fixing.
+	
+	/etc/init.d/dportal start
