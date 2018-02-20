@@ -26,7 +26,9 @@ bin/build
 /etc/init.d/dportal restart
 /etc/init.d/dportal status
 
-bin/fast_download && bin/fast_import
+bin/fast_download >/dev/null
+
+bin/fast_import >/dev/null
 
 echo
 echo "Updating stats"
