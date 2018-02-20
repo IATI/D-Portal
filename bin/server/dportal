@@ -32,6 +32,7 @@
 pidFile="/var/run/dportal.pid"
 logFile="/var/run/dportal.log"
 
+myuser="ctrack"
 command="/usr/bin/node"
 nodeDir="/home/ctrack/D-Portal"
 nodeApp="$nodeDir/dportal/js/serv.js"
@@ -40,36 +41,39 @@ foreverApp="/usr/local/bin/forever"
 start() {
 	echo "Starting $nodeApp"
 
+
 	# Notice that we change the PATH because on reboot
    # the PATH does not include the path to node.
    # Launching forever with a full path
    # does not work unless we set the PATH.
    PATH=/usr/local/bin:$PATH
+   source $nodeDir/bin/server/env.sh
    export NODE_ENV=production
    export DSTORE_PG="?"
    export PGUSER="root"
    export PGDATABASE="dstore"
    export PGHOST="/var/run/postgresql"
 #   export DSTORE_DEBUG=1
-   $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" $nodeApp
+   cd $nodeDir
+   sudo -u $myuser $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" $nodeApp
    RETVAL=$?
 }
 
 restart() {
 	echo "Restarting $nodeApp"
-	$foreverApp restart $nodeApp
+	sudo -u $myuser $foreverApp restart $nodeApp
 	RETVAL=$?
 }
 
 stop() {
 	echo "Shutting down $nodeApp"
-   $foreverApp stop $nodeApp
+   sudo -u $myuser $foreverApp stop $nodeApp
    RETVAL=$?
 }
 
 status() {
    echo "Status $nodeApp"
-   $foreverApp list
+   sudo -u $myuser $foreverApp list
    RETVAL=$?
 }
 

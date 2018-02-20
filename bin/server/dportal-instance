@@ -32,7 +32,8 @@
 pidFile="/var/run/dportal-instance.pid"
 logFile="/var/run/dportal-instance.log"
 
-command="/usr/bin/node"
+myuser="ctrack"
+ccommand="/usr/bin/node"
 nodeDir="/home/ctrack/D-Portal"
 nodeApp="$nodeDir/dportal/js/serv.js"
 foreverApp="/usr/local/bin/forever"
@@ -47,7 +48,8 @@ start() {
    PATH=/usr/local/bin:$PATH
    export NODE_ENV=production
    export DSTORE_INSTANCE="instance"
-   $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" $nodeApp
+   cd $nodeDir
+   sudo -u $myuser $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" $nodeApp
    RETVAL=$?
 }
 
