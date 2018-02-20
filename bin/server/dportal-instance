@@ -32,10 +32,10 @@
 pidFile="/var/run/dportal-instance.pid"
 logFile="/var/run/dportal-instance.log"
 
-command="/usr/local/nvm/versions/node/v6.3.1/bin/node"
+command="/usr/bin/node"
 nodeDir="/home/ctrack/D-Portal"
 nodeApp="$nodeDir/dportal/js/serv.js"
-foreverApp="/usr/local/nvm/versions/node/v6.3.1/bin/forever"
+foreverApp="/usr/local/bin/forever"
 
 start() {
 	echo "Starting $nodeApp"
