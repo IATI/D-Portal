@@ -1,0 +1,50 @@
+cd `dirname $0`
+cd ..
+
+exec >dportal/production/cron.log
+
+
+source bin/server/env.sh
+
+echo
+echo "Get new json data"
+echo
+
+bin/pull
+./fetch
+bin/addcommit auto json fetch in nightly cron
+bin/pull
+bin/push
+
+
+echo
+echo "Rebuilding ctrack with new json"
+echo
+
+bin/build
+
+/etc/init.d/dportal restart
+/etc/init.d/dportal status
+
+bin/fast_download >/dev/null
+
+bin/fast_import >/dev/null
+
+echo
+echo "Updating stats"
+echo
+
+cd dportal/production/D-Portal-Logs/
+git pull
+cd ../../..
+
+cp dportal/production/cron.log dportal/production/D-Portal-Logs/cron.log
+dstore/dstore stats ../dportal/production/D-Portal-Logs/stats.json
+
+cd dportal/production/D-Portal-Logs/
+git add .
+git commit -m.
+git pull
+git push
+
+
