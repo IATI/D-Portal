@@ -34,7 +34,7 @@ iati_xml.isodate_to_number=function(s)
 			var year=parseInt(sb[1]);
 			var month=parseInt(sb[2])-1;
 			var day=parseInt(sb[3]);
-			var r=Date.UTC(year,month,day)/(1000*60*60*24);
+			var r=Math.floor(Date.UTC(year,month,day)/(1000*60*60*24));
 			
 			return r;
 		}

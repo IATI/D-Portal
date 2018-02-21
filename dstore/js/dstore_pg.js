@@ -428,6 +428,18 @@ dstore_pg.replace = function(db,name,it){
 	
 };
 
+// get a row by aid
+dstore_pg.select_by_aid = function(db,name,aid){
+	
+	var rows=wait.for(function(cb){
+		db.any("SELECT * FROM "+name+" WHERE aid=${aid};",{aid:aid}).then(function(rows){
+			cb(false,rows)
+		}).catch(err);
+	});
+
+	return rows[0]
+};
+
 
 dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 

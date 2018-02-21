@@ -17,6 +17,7 @@ var wait=require('wait.for');
 var util=require('util');
 var http=require('http');
 
+var crypto=require('crypto');
 
 var dstore_back=require('./dstore_back');
 //dstore_back.dstore_db=dstore_db; // circular dependencies...
@@ -47,6 +48,11 @@ dstore_db.tables={
 	jml:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"jml",							TEXT:true }, // moved to reduce the main act table size
+	],
+	hash:[
+		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
+		{ name:"hash_day",						INTEGER:true , INDEX:true }, // last detected change
+		{ name:"hash_jml",						TEXT:true }, // our cached hash value for jml on this day
 	],
 	act:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
@@ -393,6 +399,10 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 	var replace=function(name,it)
 	{
 		dstore_back.replace(db,name,it);
+	}
+	var select_by_aid=function(name,aid)
+	{
+		return dstore_back.select_by_aid(db,name,aid);
 	}
 
 	var refresh_transaction=function(it,act,act_json,splits)
@@ -975,11 +985,23 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		
 //		t.xml=xml;
 		t.jml=JSON.stringify(act);
+
+// update our hash if we detect a change, this lets us keep track of the last time we saw new data per activity.
+// note that obviously this data will be lost if we rebuild the database but it is still nice to be able to
+// find which activities changed yesterday.
+		t.hash_jml=crypto.createHash('sha256').update(t.jml).digest("hex");
+		t.hash_day=Math.floor( new Date() / (1000*60*60*24) ) // today
+		var hash=select_by_aid("hash",t.aid)
+		if( (!hash) || (hash.hash_jml!=t.hash_jml) ) // new data
+		{
+			replace("hash",t);
+		}
 		
 //		dstore_back.replace(db,"activity",t);
 		replace("act",t);
 		replace("jml",t);
 		
+
 		got_budget={}; // reset which budgets we found
 
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t,splits);});

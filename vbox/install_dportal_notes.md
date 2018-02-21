@@ -114,6 +114,24 @@ Get the node app to auto start at server reboots and keep an eye on itself using
 
 	sudo bin/server/daemon_install
 
-Test it starts up OK with, this will probably go horribly wrong and need fixing.
+Test it starts up OK, this will probably go horribly wrong and need fixing.
 	
 	/etc/init.d/dportal start
+	
+Install D-Portal-Logs under production.
+
+	cd dportal/production
+	git clone git@github.com:xriss/D-Portal-Logs.git
+	
+Edit the crontab for ctrack user with 
+
+	crontab -e
+
+and change to look like this.
+	
+	SHELL=/bin/bash
+	PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+	USER=ctrack
+
+	0 0 * * * /home/ctrack/D-Portal/bin/fast_cron
+	
