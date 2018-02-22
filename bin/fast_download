@@ -37,7 +37,7 @@ doempty() {
 
 file=$1
 
-if grep -q -c -e "-o $1" ../json/curl.txt ; then
+if grep -q -c -e "-o $file" ../json/curl.txt ; then
 
 	true
 
