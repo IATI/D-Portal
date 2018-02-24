@@ -1188,17 +1188,17 @@
   "approval_status": "approved",
   "created": "2015-04-14T15:37:03.521825",
   "description": "",
-  "display_name": "Action Against Hunger",
+  "display_name": "Action Against Hunger UK",
   "extras": {
    "license_id": "cc-by",
    "publisher_agencies": "",
    "publisher_constraints": "",
    "publisher_contact": "For any enquiry about Action Against Hunger's work, please contact our team: \r\n\r\nBy Telephone: +44 (0)20 8293 6190 (Mon-Fri, 9.30am-5.30pm)",
+   "publisher_contact_email": "j.birmingham@actionagainsthunger.org.uk",
    "publisher_country": "GB",
    "publisher_data_quality": "",
    "publisher_description": "Action Against Hunger | ACF is an international humanitarian organisation committed to ending child hunger. Every day we work to save the lives of malnourished children while providing communities with sustainable access to safe water and long-term solutions to hunger.",
    "publisher_field_exclusions": "",
-   "publisher_first_publish_date": "2015-05-15T00:00:00.000000",
    "publisher_frequency": "",
    "publisher_frequency_select": "quarterly",
    "publisher_iati_id": "GB-CHC-1047501",
@@ -1211,7 +1211,9 @@
    "publisher_thresholds": "",
    "publisher_timeliness": "",
    "publisher_ui": "",
-   "publisher_units": "Project"
+   "publisher_ui_url": null,
+   "publisher_units": "Project",
+   "publisher_url": null
   },
   "groups": [
   ],
@@ -1241,11 +1243,11 @@
    "acf-so",
    "acf-ye"
   ],
-  "revision_id": "38d78f55-af4d-428e-9be0-eb8b3eecef2e",
+  "revision_id": "3036ac71-6d24-44d5-9608-277de639b145",
   "state": "active",
   "tags": [
   ],
-  "title": "Action Against Hunger",
+  "title": "Action Against Hunger UK",
   "type": "organization",
   "users": [
    {
@@ -1259,7 +1261,7 @@
     "id": "7d720590-de3d-4788-8d4a-794edf21bde8",
     "name": "j_birmingham",
     "number_created_packages": 18,
-    "number_of_edits": 12,
+    "number_of_edits": 13,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -7523,7 +7525,7 @@
     "id": "adc18e09-9a20-4e18-81df-ed72e7e91e35",
     "name": "avsi",
     "number_created_packages": 0,
-    "number_of_edits": 3,
+    "number_of_edits": 5,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -18641,7 +18643,7 @@
     "id": "a09773cd-c263-497e-bebd-56fc235b164b",
     "name": "earwickj",
     "number_created_packages": 0,
-    "number_of_edits": 43,
+    "number_of_edits": 45,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -20785,7 +20787,7 @@
   "type": "organization",
   "users": [
    {
-    "about": null,
+    "about": "",
     "activity_streams_email_notifications": false,
     "capacity": "admin",
     "created": "2018-01-30T08:05:05.112253",
@@ -28275,7 +28277,7 @@
     "id": "afeae5f9-4d2d-40de-8a5a-8f2e9eca138d",
     "name": "ia_nam",
     "number_created_packages": 97,
-    "number_of_edits": 1363,
+    "number_of_edits": 1368,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -31614,7 +31616,7 @@
   "description": "",
   "display_name": "International Organization for Migration (IOM)",
   "extras": {
-   "license_id": "notspecified",
+   "license_id": "cc-by",
    "publisher_agencies": "IATI data will be published for all IOM missions worldwide.  ",
    "publisher_constraints": "",
    "publisher_contact": "17 Route des Moriloons\r\n1218 Grand-Saconnex\r\nSwitzerland\r\n\r\nEmail: iatipublishing@iom.int",
@@ -31689,6 +31691,22 @@
     "sysadmin": false
    },
    {
+    "about": null,
+    "activity_streams_email_notifications": false,
+    "capacity": "member",
+    "created": "2018-02-23T12:58:53.845720",
+    "display_name": "Jesper Roos",
+    "email_hash": "5efa3355c9cc987e256f6cc730ae4067",
+    "fullname": "Jesper Roos",
+    "id": "a9550583-1ac5-42e3-99c3-594f1c31ac47",
+    "name": "jroos",
+    "number_created_packages": 0,
+    "number_of_edits": 0,
+    "openid": null,
+    "state": "active",
+    "sysadmin": false
+   },
+   {
     "about": "International Organization for Migration (IOM), UN Agency for Migration\r\nIATI Project Manager",
     "activity_streams_email_notifications": false,
     "capacity": "admin",
@@ -31699,7 +31717,7 @@
     "id": "747ed41b-8ed2-4d6c-81ef-4be5bdc94c8e",
     "name": "mylevesque",
     "number_created_packages": 0,
-    "number_of_edits": 20,
+    "number_of_edits": 29,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -35101,7 +35119,7 @@
     "id": "26fc1da0-be9b-4590-ab0a-29a6e53f727b",
     "name": "lepra",
     "number_created_packages": 2,
-    "number_of_edits": 147,
+    "number_of_edits": 148,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -35511,7 +35529,7 @@
   "name": "lithuania_mfa",
   "package_count": 1,
   "packages": [
-   "lithuania_mfa-2014_2015"
+   "lithuania_mfa-2014_2016"
   ],
   "revision_id": "2ef2033c-32bd-44ab-9356-225155baaa6e",
   "state": "active",
@@ -35531,7 +35549,7 @@
     "id": "02bdd4a3-4d72-40d3-8d8c-feb1e8011d05",
     "name": "mindaugas",
     "number_created_packages": 1,
-    "number_of_edits": 15,
+    "number_of_edits": 18,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -37008,6 +37026,7 @@
    "publisher_data_quality": "",
    "publisher_description": "",
    "publisher_field_exclusions": "",
+   "publisher_first_publish_date": "2017-04-26T08:33:31.186496",
    "publisher_frequency": "",
    "publisher_frequency_select": "quarterly",
    "publisher_iati_id": "NL-KVK-34219433",
@@ -37020,7 +37039,6 @@
    "publisher_thresholds": "",
    "publisher_timeliness": "",
    "publisher_ui": "",
-   "publisher_ui_url": null,
    "publisher_units": "",
    "publisher_url": "http://www.maxfoundation.org/en/home/"
   },
@@ -48701,7 +48719,7 @@
    "publisher_data_quality": "",
    "publisher_description": "",
    "publisher_field_exclusions": "",
-   "publisher_first_publish_date": "",
+   "publisher_first_publish_date": "23.02.2018",
    "publisher_frequency": "",
    "publisher_frequency_select": "not_specified",
    "publisher_iati_id": "NL-KVK-32102434",
@@ -48725,8 +48743,13 @@
   "image_url": "",
   "is_organization": true,
   "name": "ruaf",
-  "package_count": 0,
+  "package_count": 5,
   "packages": [
+   "ruaf-bd",
+   "ruaf-et",
+   "ruaf-np",
+   "ruaf-org",
+   "ruaf-ug"
   ],
   "revision_id": "ddfcc3b8-0fb4-42d8-98f9-4aa90fb012c9",
   "state": "active",
@@ -48745,8 +48768,8 @@
     "fullname": "RUAF Foundation",
     "id": "17642c26-77c9-4250-b19e-9bd83dba4648",
     "name": "ruaf",
-    "number_created_packages": 0,
-    "number_of_edits": 2,
+    "number_created_packages": 5,
+    "number_of_edits": 7,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -54471,7 +54494,7 @@
     "id": "1a692e90-37ef-4337-a605-80fc95616592",
     "name": "amys",
     "number_created_packages": 0,
-    "number_of_edits": 852,
+    "number_of_edits": 856,
     "openid": null,
     "state": "active",
     "sysadmin": true
@@ -57090,10 +57113,11 @@
   "image_url": "",
   "is_organization": true,
   "name": "uasd",
-  "package_count": 2,
+  "package_count": 3,
   "packages": [
    "uasd-77",
-   "uasd-dataset"
+   "uasd-dataset",
+   "uasd-org"
   ],
   "revision_id": "671ca7ec-b38e-45a7-b59b-aaf2989ce8d8",
   "state": "active",
@@ -57112,8 +57136,8 @@
     "fullname": "uasd",
     "id": "3a3a5bbc-bce8-472b-aa7e-982dd94e7ace",
     "name": "uasd",
-    "number_created_packages": 2,
-    "number_of_edits": 4,
+    "number_created_packages": 3,
+    "number_of_edits": 6,
     "openid": null,
     "state": "active",
     "sysadmin": false
@@ -62334,7 +62358,7 @@
     "id": "4535581f-73d8-405f-9c9d-0f591a7dddb8",
     "name": "warchildholland",
     "number_created_packages": 1,
-    "number_of_edits": 935,
+    "number_of_edits": 938,
     "openid": null,
     "state": "active",
     "sysadmin": false
