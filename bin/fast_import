@@ -34,5 +34,6 @@ psql -c "vacuum full verbose;" | tee cache/vacuum.log
 ENDTIME=$(date +%s)
 echo "Finished Import of all xml files at $(date)" | tee -a cache/time.log
 echo "Import took  $(($ENDTIME - $STARTTIME)) seconds to complete." | tee -a cache/time.log
+du -sh /home/* | sort -h | tee -a cache/time.log
 echo "" | tee -a cache/time.log
 
