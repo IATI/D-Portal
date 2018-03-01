@@ -29,7 +29,7 @@ export -f doimport
 ls cache/*.xml | sort -R | parallel --bar doimport
 
 echo "Starting Vacuum of database at $(date)" | tee -a cache/time.log
-psql -c "vacuum full verbose;" | tee cache/vacuum.log
+psql -c "vacuum full verbose;" 2>&1 | tee cache/vacuum.log
 
 ENDTIME=$(date +%s)
 echo "Finished Import of all xml files at $(date)" | tee -a cache/time.log
