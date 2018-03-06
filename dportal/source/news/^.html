@@ -1,20 +1,17 @@
 #^------------------------------
 #^title trim=ends
-#^------------------------------
 
 News and updates
 
 
 #^------------------------------
 #^_blog_json
-#^------------------------------
 {
 	posts_per_page:5,
 }
 
 #^------------------------------
 #^_blog_page_body
-#^------------------------------
 <div class="blog_page_wrap_top">
 	<div class="page_link">{_blog_page_older:link_older_page}</div><div class="page_link">{_blog_page_newer:link_newer_page}</div>
 </div>
@@ -29,7 +26,6 @@ News and updates
 #^------------------------------
 #^-Paging for main blog list page
 #^link_older_page
-#^------------------------------
 <a href="{_it}">{older_post_news_text}</a>
 
 #^link_newer_page
@@ -39,14 +35,12 @@ News and updates
 #^------------------------------
 #^-This is for the blog list
 #^blog_list
-#^------------------------------
 {_it._body}
 
 
 #^------------------------------
 #^-This is a single blog post viewed on its own page
 #^_blog_post_body_one
-#^------------------------------
 
 <a href="{tongue_root}news" class="back_news_top">{back_news_text}</a>
 <div class="blog_wrap">
@@ -93,7 +87,6 @@ News and updates
 #^------------------------------
 #^-This is for the blog list
 #^_blog_post_body_many
-#^------------------------------
 
 <div class="blog_wrap">
 	<div class="blog_info_wrap">
@@ -116,12 +109,10 @@ News and updates
 
 #^------------------------------
 #^link_older_post
-#^------------------------------
 <a href="{_it}">{older_post_news_text}</a>
 
 #^------------------------------
 #^link_newer_post
-#^------------------------------
 <a href="{_it}">{newer_post_news_text}</a>
 
 
