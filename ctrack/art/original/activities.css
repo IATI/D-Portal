@@ -499,9 +499,9 @@ iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
 related-activity					{display:inline; color:#FF9E38;}
 related-activity:hover				{color:#FF7A00;}
 related-activity:before				{display:inline-block; padding-right:5px; color:#FFF; font-size:1.0em; line-height:1.25em;}
-related-activity[type="1"]:before	{content:"Child of ";}
-related-activity[type="2"]:before	{content:"Parent of ";}
-related-activity[type="3"]:before	{content:"Sibling of ";}
+related-activity[type="1"]:before	{content:"Parent ";}
+related-activity[type="2"]:before	{content:"Child ";}
+related-activity[type="3"]:before	{content:"Sibling ";}
 related-activity[type="4"]:before	{content:"Co-funded ";}
 related-activity[type="5"]:before	{content:"Third Party ";}
 
