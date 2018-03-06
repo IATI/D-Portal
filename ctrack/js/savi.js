@@ -283,9 +283,20 @@ acts.find("result indicator").each(function(i){var it=$(this);
 
 });
 
+acts.find("result").each(function(i){var it=$(this);	
+	it.find( "reference" ).not("indicator reference").wrapAll( "<span-result-reference></span-result-reference>" );	
+});
 
 acts.find("result indicator").each(function(i){var it=$(this);	
-	it.find( "span-title, description" ).wrapAll( "<span-result class='lc'></span-result>" );	
+	it.find( "span-title, description, reference, document-link" ).not("document-link span-title, document-link description").wrapAll( "<span-result class='lc'></span-result>" );	
+});
+
+acts.find("result indicator").each(function(i){var it=$(this);	
+	it.find( "reference" ).wrapAll( "<span-reference></span-reference>" );	
+});
+
+acts.find("result indicator").each(function(i){var it=$(this);	
+	it.find( "document-link" ).wrapAll( "<span-document></span-document>" );	
 });
 
 
@@ -313,56 +324,32 @@ acts.find("result target, result actual").each(function(i){var it=$(this);
 	it.prepend($('<span-narrative>' + it.attr("value") + '</span-narrative>'));
 });
 
-acts.find("result dimension").each(function(i){var it=$(this);
-	if(it.attr("name"))
-	{
-		it.append($('<span-narrative class="dimension-name">'  + it.attr("name") + '</span-narrative>'));
-	}
-	if(it.attr("value"))
-	{
-		it.append($('<span-narrative class="dimension-value">' + it.attr("value") + '</span-narrative>'));
-	}
-});
 
 acts.find("result baseline").each(function(i){var it=$(this);
 	if(it.attr("value"))
 	{
 		it.prepend($('<span-narrative class="baseline-value">' + it.attr("value") + '</span-narrative>'));
 	}
-	if(it.attr("year"))
-	{
-		it.prepend($('<span-narrative class="baseline-year">'  + it.attr("year") + '</span-narrative>'));
-	}
 });
 
-acts.find("result location").each(function(i){var it=$(this);
-	if(it.attr("ref"))
-	{
-		it.append($('<span-narrative class="location-ref">'  + it.attr("ref") + '</span-narrative>'));
-	}
-});
 
 acts.find("result actual comment narrative").each(function(i){var it=$(this);
 	it.replaceWith($('<span-narrative>' + it.text() + '</span-narrative>'));
 });
 
-acts.find("result reference").each(function(i){var it=$(this);
-	if(it.attr("vocabulary"))
-	{
-		it.append($('<span-narrative class="reference-vocabulary">'  + it.attr("vocabulary") + '</span-narrative>'));
-	}
-	if(it.attr("code"))
-	{
-		it.append($('<span-narrative class="reference-code">' + it.attr("code") + '</span-narrative>'));
-	}
-});
 
 acts.find("result reference").each(function(i){var it=$(this);
 	var id=it.attr("indicator-uri");
 	if(id)
 	{
-		it.text(id);
-		wrapInner_link(it,id,"a_"+this.tagName.toLowerCase());
+		wrap_link(it,id,"a_"+this.tagName.toLowerCase());
+	}
+});
+acts.find("result reference").each(function(i){var it=$(this);
+	var id=it.attr("vocabulary-uri");
+	if(id)
+	{
+		wrap_link(it,id,"a_"+this.tagName.toLowerCase());
 	}
 });
 
@@ -499,6 +486,8 @@ var sort_elements=function(selector,sortlist){
 sort_elements("result",[
 		"span-title",
 		"description",
+		"span-result-reference",
+		"document-link",
 		"indicator",
 		0]);
 
@@ -506,7 +495,15 @@ sort_elements("result indicator",[
 		"span-result",
 		"span-title",
 		"description",
+		"reference",
 		"period",
+		0]);
+		
+sort_elements("span-result",[
+		"span-title",
+		"description",
+		"span-reference",
+		"span-document",
 		0]);
 
 sort_elements("result indicator period",[
@@ -840,9 +837,9 @@ acts.find("location").each(function(i){var it=$(this);
 });
 
 // move baseline-year after baseline-value
-$('span-narrative.baseline-year').each(function() {
-    $(this).insertAfter($(this).parent().find('span-narrative.baseline-value'));
-});
+//$("result indicator reference").each(function() {
+//    $(this).insertAfter($(this).parent().find('span-result'));
+//});
 
 // wrap span around sector / country image
 $('img.sector_pie').wrap($('<span class="sector_img">'));
@@ -866,19 +863,12 @@ $( "span.span_document-link, span.span_participating-org, span.span_transaction,
 $( "span.span_sector" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
-//	var c=$("<span class='hide'>[ + ] SHOW</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
-//	ec.css( "display", "none" );
-//	e.append(c);
 	e.css( "display", "none" );
 	if(ec.length>0)
 	{
 		e.parent().find("span.sector_img").append(d);	//	move length out and into another element
 	}
-//	c.click(function(){
-//		c.text((c.text() == '[ + ] SHOW') ? '[ - ] HIDE' : '[ + ] SHOW').fadeIn();
-//		ec.fadeToggle('fast');
-//	});
 
 });
 
@@ -886,16 +876,9 @@ $( "span.span_sector" ).each(function(i,el){
 $( "span.span_recipient-country" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children();
-//	var c=$("<span class='hide'>[ + ] SHOW</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
-//	ec.css( "display", "none" );
-//	e.append(c);
 	e.css( "display", "none" );
 	e.parent().find("span.country_img").append(d);	//	move length out and into another element
-//	c.click(function(){
-//		c.text((c.text() == '[ + ] SHOW') ? '[ - ] HIDE' : '[ + ] SHOW').fadeIn();
-//		ec.fadeToggle('fast');
-//	});
 });
 
 
