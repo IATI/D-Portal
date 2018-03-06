@@ -74,33 +74,33 @@ iati_codes.fetch = function(){
 
 // new codes, these should be kept current
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/Sector.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/Sector.json",
 				name:"sector",
 			},
 /* replaced with csv/sector_category.csv
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/SectorCategory.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/SectorCategory.json",
 				name:"sector_category",
 			},
 */
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/TransactionType.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/TransactionType.json",
 				name:"new_transaction_type",
 			},
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/ActivityStatus.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/ActivityStatus.json",
 				name:"activity_status",
 			},
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/OrganisationType.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/OrganisationType.json",
 				name:"org_type",
 			},
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/OrganisationRole.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/OrganisationRole.json",
 				name:"org_role",
 			},
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/DocumentCategory.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/DocumentCategory.json",
 				name:"doc_cat",
 			},
 			{
