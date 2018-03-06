@@ -120,12 +120,21 @@ view_map.fixup=function(forced)
 						{
 							case "active":
 								show=( (v.day_end>=today) && (v.day_start<=today) );
+								var q="&day_end_gteq="+today+"&day_start_lteq="+today
+								$("#view_map_csv_url").attr("href",ctrack.chunk("map_csv_url")+q);
 							break;
 							case "planned":
 								show=(v.day_start>today);
+								var q="&day_start_gt="+today
+								$("#view_map_csv_url").attr("href",ctrack.chunk("map_csv_url")+q);
 							break;
 							case "ended":
 								show=(v.day_end<today);
+								var q="&day_end_lt="+today
+								$("#view_map_csv_url").attr("href",ctrack.chunk("map_csv_url")+q);
+							break;
+							case "all":
+								$("#view_map_csv_url").attr("href",ctrack.chunk("map_csv_url")); // reset
 							break;
 						}
 						
