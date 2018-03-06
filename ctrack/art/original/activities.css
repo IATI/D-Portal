@@ -215,8 +215,8 @@ result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#
 result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
-result indicator period period-start{width:100%; padding:0 0 10px 0; margin-bottom:10px; font-size:26px; text-align:right; position:relative;}
-result indicator period period-end	{width:100%; padding:0 0 10px 0; font-size:26px; text-align:right; position:relative;}	
+result indicator period period-start{width:100%; padding:0 0 10px 0; margin-bottom:10px; font-size:22px; line-height:28px; text-align:right; position:relative;}
+result indicator period period-end	{width:100%; padding:0 0 10px 0; font-size:22px; line-height:28px; text-align:right; position:relative;}	
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
@@ -231,7 +231,7 @@ result indicator period baseline:before	{content:"BASELINE"; font-size:14px; col
 result indicator > baseline comment	{display:block; color:#ccc; padding:10px 0; line-height:1.25em;}
 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
-span-narrative						{font-size:28px; line-height:30px;}
+span-narrative						{font-size:24px; line-height:30px;}
 
 result indicator period dimension:nth-of-type(1)	{padding-top:5px;}
 
@@ -265,6 +265,7 @@ result indicator description.empty	{display:none;}
 .timeline		{display:block; position:absolute; width:100%; height:5px; background-color:#03070a; top:34px; left:0; border-radius:3px 3px 0 0; border-bottom:1px solid #666;}
 result indicator period:nth-of-type(n+2) .timeline	{top:54px;}
 .time			{display:block; position:relative; height:5px; width:100%; border-radius:3px 0 0 0; background-color:#c0c0c2;}
+.time.time-percent100			{background-color:#2a3a4d;}
 result indicator .time span		{display:block; position:absolute; height:10px; width:2px; background-color:#dedede; top:-2px; right:0;}
 result indicator .time.time-percent100 span	{display:none;}
 
@@ -481,7 +482,8 @@ related-activity:before				{display:inline-block; padding-right:5px; color:#FFF;
 related-activity[type="1"]:before	{content:"Child of ";}
 related-activity[type="2"]:before	{content:"Parent of ";}
 related-activity[type="3"]:before	{content:"Sibling of ";}
-related-activity[type="4"]:before	{content:"Multifunded ";}
+related-activity[type="4"]:before	{content:"Co-funded ";}
+related-activity[type="5"]:before	{content:"Third Party ";}
 
 
 /*	Tag

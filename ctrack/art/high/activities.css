@@ -221,8 +221,8 @@ result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#
 result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
-result indicator period period-start{width:100%; padding:0 0 10px 0; margin-bottom:10px; font-size:26px; text-align:right; position:relative;}
-result indicator period period-end	{width:100%; padding:0 0 10px 0; font-size:26px; text-align:right; position:relative;}	
+result indicator period period-start{width:100%; padding:0 0 10px 0; margin-bottom:10px; font-size:22px; line-height:28px; text-align:right; position:relative;}
+result indicator period period-end	{width:100%; padding:0 0 10px 0; font-size:22px; line-height:28px; text-align:right; position:relative;}	
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
@@ -237,7 +237,7 @@ result indicator period baseline:before	{content:"BASELINE"; font-size:14px; col
 result indicator > baseline comment	{display:block; color:#000; padding:10px 0; line-height:1.25em;}
 
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
-span-narrative						{font-size:28px; line-height:30px;}
+span-narrative						{font-size:24px; line-height:30px;}
 
 result indicator period dimension:nth-of-type(1)	{padding-top:5px;}
 
@@ -461,16 +461,17 @@ a[href$=".tiff" i].a_document-link span-title:after	{content:"IMAGE";}
 span.span_related-activity			{width:880px; padding:0; margin:0 auto; counter-reset:section;}
 span.span_related-activity:before	{content:"FAMILY TREE"; font-size:14px; color:#000; display:block; padding:40px 0 10px 0; margin-bottom:20px;}
 a.a_related-activity::before		{counter-increment:section; content:counter(section) ". ";}
-a.a_related-activity	{display:inline-block; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#000;}
+a.a_related-activity				{display:inline-block; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#000;}
 a.a_related-activity:last-of-type								{padding-bottom:40px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
-related-activity		{display:inline; color:#000;}
-related-activity:hover	{color:#000;}
-related-activity:before	{display:inline-block; padding-right:5px; color:#000; font-size:1.0em; line-height:1.25em;}
+related-activity					{display:inline; color:#000;}
+related-activity:hover				{color:#000;}
+related-activity:before				{display:inline-block; padding-right:5px; color:#000; font-size:1.0em; line-height:1.25em;}
 related-activity[type="1"]:before	{content:"Child of ";}
 related-activity[type="2"]:before	{content:"Parent of ";}
 related-activity[type="3"]:before	{content:"Sibling of ";}
-related-activity[type="4"]:before	{content:"Multifunded ";}
+related-activity[type="4"]:before	{content:"Co-funded ";}
+related-activity[type="5"]:before	{content:"Third Party ";}
 
 
 /*	Tag
