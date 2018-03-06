@@ -745,7 +745,7 @@ query.do_select_response=function(q,res,r){
 					var s=""+humanizer(n,v[n]);
 					if("string" == typeof s) // may need to escape
 					{
-						if(s.split(",")[1] || s.split("\n")[1] ) // need to escape
+						if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") ) // need to escape
 						{
 							s="\""+s.split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string
 						}
