@@ -360,6 +360,14 @@ view_map.ajax_pins=function(args)
 		};
 	fetch.ajax_dat_fix(dat,args);
 	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100; }
+
+	var datcsv={} ; for(var n in dat) { if(dat[n]) { datcsv[n]=dat[n] } }
+	datcsv.select="*"
+	datcsv.form="csv"
+	datcsv.human=""
+	var csvurl=fetch.tourl(datcsv)
+	console.log(csvurl)
+	ctrack.chunk("map_csv_url",csvurl)
 		
 	fetch.ajax(dat,args.callback || function(data)
 	{

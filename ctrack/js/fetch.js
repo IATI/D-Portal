@@ -49,6 +49,10 @@ fetch.ajax=function(dat,callback)
 	});
 }
 
+fetch.tourl=function(dat)
+{
+	return ctrack.args.q + "?"  + $.param(dat)
+}
 
 //modify dat so it reflects the args or base settings (eg limit to a publisher)
 fetch.ajax_dat_fix=function(dat,args,flag)

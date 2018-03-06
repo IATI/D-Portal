@@ -13,6 +13,10 @@
 {main_datainvestigators}
 {view_tail}
 
+#map_download
+
+	<a download="dportal_map_activities.csv" href="{map_csv_url}" class="csv_download">{download_csv_text}</a>
+
 #map_select
 
 	<select id="view_map_select_status" class="chosen">
@@ -28,6 +32,7 @@
 <div class="map_wrap view">
 	<div class="map_filter_wrap">
 		<div class="map_filter info">{map_filter_info_text}</div><div class="map_filter">{map_select}</div>	
+		{map_download}
 	</div>
 	<div class="map_no_info view">{map_no_info_text}</div>
 	<div id="map" class="map_view"></div>
