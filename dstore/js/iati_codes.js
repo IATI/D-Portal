@@ -74,35 +74,39 @@ iati_codes.fetch = function(){
 
 // new codes, these should be kept current
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/Sector.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/Sector.json",
 				name:"sector",
 			},
 /* replaced with csv/sector_category.csv
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/SectorCategory.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/SectorCategory.json",
 				name:"sector_category",
 			},
 */
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/TransactionType.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/TransactionType.json",
 				name:"new_transaction_type",
 			},
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/ActivityStatus.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/ActivityStatus.json",
 				name:"activity_status",
 			},
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/OrganisationType.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/OrganisationType.json",
 				name:"org_type",
 			},
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/OrganisationRole.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/OrganisationRole.json",
 				name:"org_role",
 			},
 			{
-				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/DocumentCategory.json",
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/DocumentCategory.json",
 				name:"doc_cat",
-			}
+			},
+			{
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/IndicatorVocabulary.json",
+				name:"indicator_vocab",
+			},
 		];
 	
 	files.forEach(function(opts){
@@ -762,6 +766,7 @@ iati_codes.fetch = function(){
 			var url=package.resources && package.resources[0] && package.resources[0].url
 			if(url)
 			{
+				url=url.split(" ").join("%20") // spaces in urls breaks curl
 				cc.push("curl -k -L -o "+slug+".xml \""+url+"\" \n")
 			}
 		}
