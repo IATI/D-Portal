@@ -184,14 +184,15 @@ result[type="2"]:before		{content:counter(section) ". OUTCOME ";}
 result[type="3"]:before		{content:counter(section) ". IMPACT";}
 result[type="9"]:before		{content:counter(section) ". OTHER";}
 
+result a.a_document-link			{margin-left:40px;}
+result document-link span-title		{width:initial; padding:0;}
+result document-link description	{display:none;}
+
 result indicator			{display:block; margin:auto; margin-top:10px; margin-bottom:0px; width:880px; position:relative;}
-result indicator:nth-of-type(1)	{margin-top:0;}
+result indicator:nth-of-type(1)	{margin-top:20px;}
 result indicator:before		{counter-increment:subsection; content:counter(section) "." counter(subsection) " INDICATOR"; font-size:14px; color:#ccc; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #aaa; padding:10px 0;}
 result indicator[measure="1"]:before,
 result indicator[measure="2"]:before	{content:counter(section) "." counter(subsection) " INDICATOR";}
-
-result indicator[measure="1"] period target:after, result indicator[measure="1"] period actual:after	{display:block; content:"UNIT"; font-size:12px; padding-top:10px;}
-result indicator[measure="2"] period target:after, result indicator[measure="2"] period actual:after	{display:block; content:"PERCENTAGE"; font-size:12px; padding-top:10px;}
 
 result indicator[measure="2"] period target span-narrative:after, result indicator[measure="2"] period actual span-narrative:after	{content:" %";}
 
@@ -209,8 +210,10 @@ result indicator period		{display:inline-block; position:relative; width:530px; 
 result indicator period:nth-of-type(n+2) {display:block; padding-top:20px; margin-left:40%;}
 result indicator period period-start:before	{content:"START DATE"; font-size:14px; color:#ccc; display:block; position:absolute; left:3px; top:8px;}
 result indicator period period-end:before	{content:"END DATE"; font-size:14px; color:#ccc; display:block; position:absolute; left:3px; top:8px;}
-result indicator period target:before	{content:"TARGET"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
-result indicator period actual:before	{content:"ACTUAL"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
+result indicator[measure="1"] period target:before	{content:"TARGET UNIT"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
+result indicator[measure="2"] period target:before	{content:"TARGET %"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
+result indicator[measure="1"] period actual:before	{content:"ACTUAL UNIT"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
+result indicator[measure="2"] period actual:before	{content:"ACTUAL %"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
 
 result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
@@ -227,21 +230,25 @@ result indicator period actual comment narrative	{display:block; padding:10px 0;
 result indicator period baseline	{display:inline-block; vertical-align:top;}
 span-narrative.baseline-value		{display:block;}
 span-narrative.baseline-year		{display:block; font-size:14px; line-height:14px; color:#CCC; padding-top:10px;}
-result indicator period baseline:before	{content:"BASELINE"; font-size:14px; color:#ccc;  display:inline-block; vertical-align:top; padding-right:10px; padding-bottom:10px;}
+result indicator period baseline:before	{content:"BASELINE " attr(year); font-size:14px; color:#ccc;  display:inline-block; vertical-align:top; padding-right:10px; padding-bottom:10px;}
 result indicator > baseline comment	{display:block; color:#ccc; padding:10px 0; line-height:1.25em;}
 
-span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
-span-narrative						{font-size:24px; line-height:30px;}
+result indicator period location,
+result indicator period dimension			{display:block;}
+result indicator period location:before		{content:attr(ref); display:block; text-transform:capitalize; font-size:14px; line-height:20px;}
+result indicator period dimension:before	{content:attr(name) " : " attr(value); display:block; font-size:14px; line-height:20px;}
 
+result indicator period location:nth-of-type(1),
 result indicator period dimension:nth-of-type(1)	{padding-top:5px;}
 
-span-narrative.dimension-name		{display:inline; font-size:14px; line-height:20px;}
-span-narrative.dimension-name:after {content:" :";}
-span-narrative.dimension-value		{display:inline; font-size:14px; line-height:20px; padding-left:5px;}
+span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
+span-narrative								{font-size:24px; line-height:30px;}
 
-span-narrative.location-ref			{display:inline-block; vertical-align:top; text-transform:capitalize; font-size:14px; line-height:20px;}
 result indicator comment			{display:block; padding-top:10px; font-size:14px; font-style:italic; line-height:20px;}
-target comment narrative, actual comment narrative, target comment span-narrative, actual comment span-narrative	{display:block; font-size:14px; line-height:1.25em;}
+target comment narrative,
+actual comment narrative,
+target comment span-narrative,
+actual comment span-narrative		{display:block; font-size:14px; line-height:1.25em;}
 
 result indicator period baseline, result indicator period target, result indicator period actual	{min-height:60px; display:table-cell;}
 result indicator period baseline	{background-color:rgba(9,15,23,0.5); width:160px; max-width:160px; padding:20px; position:relative;}
@@ -251,15 +258,27 @@ result indicator period actual		{background-color:rgba(31,108,181,0.5); width:18
 result indicator period actual.value-higher		{background-color:rgba(0,199,35,0.5);}
 result indicator period actual.value-lower		{background-color:rgba(189,169,21,0.5);}
 
-result indicator reference			{display:inline; position:absolute; top:5px; right:0px;}
-result indicator reference span-narrative	{display:inline; font-size:12px;}
-span-narrative.reference-vocabulary:before	{content:"VOCAB "; display:inline; font-size:12px; color:#ccc;}
-span-narrative.reference-code:before		{content:"CODE "; display:inline; font-size:12px; color:#ccc;}
-span-narrative.reference-code				{padding-left:10px;}
-result indicator reference a:hover			{cursor:pointer;}
-result indicator reference a.a_reference	{display:list-item; list-style-type:circle; list-style-position:inside; margin-bottom:10px;}
+span-result-reference				{display:block; padding:0px 40px 20px 40px;}
+span-result-reference:before		{content:"REFERENCES"; font-size:14px; color:#ccc; display:block; margin:auto; margin-top:20px; margin-bottom:10px;}
+result span-result-reference reference			{display:block; font-size:14px; line-height:20px;}
+result span-result-reference reference:after	{content:" ( " attr(code) " ) "; display:inline; font-size:14px; line-height:20px; color:#fff;}
 
-result indicator period .empty		{display:none;}
+span-reference						{display:block;}
+span-reference:before				{content:"REFERENCES"; font-size:14px; color:#ccc; display:block; margin:auto; margin-top:30px; margin-bottom:10px;}
+result indicator reference			{display:block; font-size:14px; line-height:20px;}
+result indicator reference:after	{content:" ( " attr(code) " ) "; display:inline; font-size:14px; line-height:20px; color:#fff;}
+
+span-document						{display:block;}
+span-document:before				{content:"DOCUMENTS"; font-size:14px; color:#ccc; display:block; margin:auto; margin-top:30px; margin-bottom:10px;}
+result span-document a.a_document-link	{margin-left:0; width:initial; padding:10px;}
+result span-document a.a_document-link:before	{display:none;}
+result span-document document-link				{padding:0;}
+result span-document document-link span-title	{padding:0;}
+result span-document document-link description	{display:none;}
+
+result a.a_reference reference, result a.a_reference reference:after				{color:#FFAB5E;}
+result a.a_reference:hover reference, result a.a_reference:hover reference:after	{color:#FF7A00;}
+
 result indicator description.empty	{display:none;}
 
 .timeline		{display:block; position:absolute; width:100%; height:5px; background-color:#03070a; top:34px; left:0; border-radius:3px 3px 0 0; border-bottom:1px solid #666;}
@@ -269,7 +288,7 @@ result indicator period:nth-of-type(n+2) .timeline	{top:54px;}
 result indicator .time span		{display:block; position:absolute; height:10px; width:2px; background-color:#dedede; top:-2px; right:0;}
 result indicator .time.time-percent100 span	{display:none;}
 
-result indicator span-result	{display:inline-block; vertical-align:top; width:350px;}
+result indicator span-result	{display:inline-block; vertical-align:top; width:320px; margin-right:30px;}
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -443,6 +462,7 @@ document-link span-title:nth-of-type(n+1):before{display:none;}
 document-link span-title:nth-of-type(n+1)		{font-size:16px;}
 document-link span-title:nth-of-type(n+2)		{display:none;}
 document-link span-title narrative				{display:inline;}
+document-link span-title narrative:nth-of-type(2){padding-left:5px; font-style:italic;}
 
 a.a_document-link span-title:after				{content:"LINK"; margin-left:10px; color:#CCC; font-size:12px; vertical-align:top; background-color:rgba(22,24,37,0.6); border-radius:4px; padding:1px 4px;}
 span-narrative.doc-cat							{display:inline-block; margin-top:5px; margin-right:5px; color:#CCC; font-size:13px; vertical-align:top; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px; line-height:1.5em;}
@@ -479,9 +499,9 @@ iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
 related-activity					{display:inline; color:#FF9E38;}
 related-activity:hover				{color:#FF7A00;}
 related-activity:before				{display:inline-block; padding-right:5px; color:#FFF; font-size:1.0em; line-height:1.25em;}
-related-activity[type="1"]:before	{content:"Child of ";}
-related-activity[type="2"]:before	{content:"Parent of ";}
-related-activity[type="3"]:before	{content:"Sibling of ";}
+related-activity[type="1"]:before	{content:"Parent ";}
+related-activity[type="2"]:before	{content:"Child ";}
+related-activity[type="3"]:before	{content:"Sibling ";}
 related-activity[type="4"]:before	{content:"Co-funded ";}
 related-activity[type="5"]:before	{content:"Third Party ";}
 
