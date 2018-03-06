@@ -260,13 +260,13 @@ result indicator period actual.value-lower		{background-color:rgba(189,169,21,0.
 
 span-result-reference				{display:block; padding:0px 40px 20px 40px;}
 span-result-reference:before		{content:"REFERENCES"; font-size:14px; color:#ccc; display:block; margin:auto; margin-top:20px; margin-bottom:10px;}
-result span-result-reference reference			{display:block;}
-result span-result-reference reference:before	{content:"Vocabulary " attr(vocabulary) " Code " attr(code); display:inline; font-size:14px; line-height:20px; color:#fff;}
+result span-result-reference reference			{display:block; font-size:14px; line-height:20px;}
+result span-result-reference reference:after	{content:" ( " attr(code) " ) "; display:inline; font-size:14px; line-height:20px; color:#fff;}
 
 span-reference						{display:block;}
 span-reference:before				{content:"REFERENCES"; font-size:14px; color:#ccc; display:block; margin:auto; margin-top:30px; margin-bottom:10px;}
-result indicator reference			{display:block;}
-result indicator reference:before	{content:"Vocabulary " attr(vocabulary) " Code " attr(code); display:inline; font-size:14px; line-height:20px; color:#fff;}
+result indicator reference			{display:block; font-size:14px; line-height:20px;}
+result indicator reference:after	{content:" ( " attr(code) " ) "; display:inline; font-size:14px; line-height:20px; color:#fff;}
 
 span-document						{display:block;}
 span-document:before				{content:"DOCUMENTS"; font-size:14px; color:#ccc; display:block; margin:auto; margin-top:30px; margin-bottom:10px;}
@@ -276,8 +276,8 @@ result span-document document-link				{padding:0;}
 result span-document document-link span-title	{padding:0;}
 result span-document document-link description	{display:none;}
 
-result a.a_reference reference:before			{color:#FFAB5E;}
-result a.a_reference:hover reference:before		{color:#FF7A00;}
+result a.a_reference reference, result a.a_reference reference:after				{color:#FFAB5E;}
+result a.a_reference:hover reference, result a.a_reference:hover reference:after	{color:#FF7A00;}
 
 result indicator description.empty	{display:none;}
 
