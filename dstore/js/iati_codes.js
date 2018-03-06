@@ -766,6 +766,7 @@ iati_codes.fetch = function(){
 			var url=package.resources && package.resources[0] && package.resources[0].url
 			if(url)
 			{
+				url=url.split(" ").join("%20") // spaces in urls breaks curl
 				cc.push("curl -k -L -o "+slug+".xml \""+url+"\" \n")
 			}
 		}
