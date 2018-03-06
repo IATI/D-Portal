@@ -10,6 +10,7 @@ var refry=require('./refry');
 var exs=require('./exs');
 var iati_xml=require('./iati_xml');
 var dstore_db=require("./dstore_db");
+var iati_codes=require("../json/iati_codes.json")
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -613,6 +614,50 @@ query.getsql_build_column_names=function(q,qv){
 
 query.do_select_response=function(q,res,r){
 
+	var humanizer=function(name,value)
+	{
+		if(q.human!==undefined)
+		{
+			if( value != null )
+			{
+				switch(name)
+				{
+					case "day_start":
+					case "day_end":
+					case "hash_day":
+						value=(new Date( Number((value)*(1000*60*60*24)) )).toISOString().split("T")[0]
+					break
+					case "status_code":
+						value=iati_codes.activity_status[value] || value
+					break
+					case "trans_code":
+						value=iati_codes.transaction_type[value] || value
+					break
+					case "sector_code":
+					case "trans_sector":
+					case "budget_sector":
+						value=iati_codes.sector[value] || value
+					break
+					case "sector_group":
+					case "trans_sector_group":
+					case "budget_sector_group":
+						value=iati_codes.sector_category[value] || value
+					break
+					case "country_code":
+					case "trans_country":
+					case "budget_country":
+						value=iati_codes.country[value] || value
+					break
+				}
+			}
+			return value
+		}
+		else
+		{
+			return value
+		}
+	}
+
 	var send_json=function(r)
 	{
 		if(q.callback)
@@ -693,7 +738,7 @@ query.do_select_response=function(q,res,r){
 				var v=r.rows[i];
 				var t=[];
 				head.forEach(function(n){
-					var s=""+v[n];
+					var s=""+humanizer(v[n]);
 					if("string" == typeof s) // may need to escape
 					{
 						if(s.split(",")[1] || s.split("\n")[1] ) // need to escape
@@ -728,7 +773,7 @@ query.do_select_response=function(q,res,r){
 				var t=[];
 				ta[i+1]=t;
 				head.forEach(function(n){
-					t.push( v[n] || null );
+					t.push( humanizer(n,v[n]) || null );
 				});
 			}
 			send_json(ta);
@@ -740,6 +785,16 @@ query.do_select_response=function(q,res,r){
 	}
 	else
 	{
+		if(q.human!==undefined)
+		{
+			for(var i=0;i<r.rows.length;i++)
+			{
+				var v=r.rows[i];
+				var vv={}
+				for(var n in v) { vv[n]=humanizer(n,v[n]) }
+				r.rows[i]=vv
+			}
+		}
 		r.time=(Date.now()-q.start_time)/1000;
 		send_json(r);
 	}

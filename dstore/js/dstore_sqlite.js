@@ -253,7 +253,18 @@ dstore_sqlite.replace = function(db,name,it){
 
 	
 };
-		
+
+// get a row by aid
+dstore_sqlite.select_by_aid = function(db,name,aid){
+	
+	var rows=wait.for(function(cb){
+		db.all("SELECT * FROM "+name+" WHERE aid=?",aid,cb);
+	});
+
+	return rows[0]
+};
+
+
 dstore_sqlite.getsql_prepare_replace = function(name,row){
 
 	var s=[];

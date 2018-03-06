@@ -1,7 +1,0 @@
-check process nodejs with pidfile "/var/run/dportal.pid"
-	start program = "/etc/init.d/dportal start"
-   stop program = "/etc/init.d/dportal stop"
-    if failed port 1408 protocol HTTP
-    	request /
-        with timeout 10 seconds
-        then restart

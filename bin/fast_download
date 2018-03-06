@@ -1,0 +1,60 @@
+cd `dirname $0`
+cd ../dstore/cache
+
+STARTTIME=$(date +%s)
+echo "Starting Download of all xml files at $(date)" | tee -a time.log
+
+# trunicate all xml files first, any files we can not download will trigger deletion of all their activities at import
+
+#truncate -s 0 *.xml
+
+
+#download all xml files
+
+download() {
+declare -a 'a=('"$1"')'
+file=${a[4]}
+url=${a[5]// /%20}
+
+truncate -s 0 ${file}.curl.last.log
+
+echo | tee -a ${file}.curl.log ${file}.curl.last.log
+date | tee -a ${file}.curl.log ${file}.curl.last.log
+echo | tee -a ${file}.curl.log ${file}.curl.last.log
+
+echo "Downloading $file from $url" | tee -a ${file}.curl.log ${file}.curl.last.log
+echo | tee -a ${file}.curl.log ${file}.curl.last.log
+
+curl -A "Mozilla/5.0" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 -k -L -o ${file} "${url}" 2>&1 | tee -a ${file}.curl.log ${file}.curl.last.log
+
+echo | tee -a ${file}.curl.log ${file}.curl.last.log
+}
+export -f download
+cat ../json/curl.txt | parallel -j 0 --bar download
+
+
+doempty() {
+
+file=$1
+
+if grep -q -c -e "-o $file" ../json/curl.txt ; then
+
+	true
+
+else
+
+	echo "" >$file
+	echo "Emptying $file"
+
+fi
+
+}
+export -f doempty
+ls *.xml | sort -R | parallel --bar doempty
+
+
+ENDTIME=$(date +%s)
+echo "Finished Download of all xml files at $(date)" | tee -a time.log
+ls -s *.xml | awk '{sum+=$1;} END {printf("%'"'"'d kilobytes downloaded\n",sum);}' | tee -a time.log
+echo "Download took  $(($ENDTIME - $STARTTIME)) seconds to complete." | tee -a time.log
+echo "" | tee -a time.log
