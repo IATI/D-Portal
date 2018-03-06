@@ -102,7 +102,11 @@ iati_codes.fetch = function(){
 			{
 				url:"http://iatistandard.org/202/codelists/downloads/clv3/json/en/DocumentCategory.json",
 				name:"doc_cat",
-			}
+			},
+			{
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/IndicatorVocabulary.json",
+				name:"indicator_vocab",
+			},
 		];
 	
 	files.forEach(function(opts){
