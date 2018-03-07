@@ -648,6 +648,9 @@ query.do_select_response=function(q,res,r){
 					case "budget_country":
 						value=iati_codes.country[value] || value
 					break
+					case "aid":
+						value="http://d-portal.org/q.html?aid="+value
+					break
 				}
 			}
 			else
