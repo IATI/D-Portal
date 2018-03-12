@@ -725,7 +725,7 @@ acts.find("provider-org[ref], provider-org[provider-activity-id]").each(function
 	
 	if( aid )
 	{
-		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,prelink+encodeURIComponent(aid.trim())+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
 	if(iati_codes.publisher_names[id])
@@ -740,7 +740,7 @@ acts.find("receiver-org[ref], receiver-org[receiver-activity-id]").each(function
 	
 	if( aid )
 	{
-		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,prelink+encodeURIComponent(aid.trim())+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
 	if(iati_codes.publisher_names[id])
@@ -755,7 +755,7 @@ acts.find("participating-org[ref], participating-org[activity-id]").each(functio
 	
 	if( aid )
 	{
-		wrapInner_link(it,prelink+encodeURIComponent(aid)+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,prelink+encodeURIComponent(aid.trim())+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
 	if(iati_codes.publisher_names[id])
