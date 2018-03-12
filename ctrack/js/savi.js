@@ -302,6 +302,15 @@ acts.find("result indicator").each(function(i){var it=$(this);
 
 acts.find("result reference").each(function(i){var it=$(this);
 	var id=it.attr("vocabulary");
+	id=iati_codes.result_vocab[id] || id;
+	if(id)
+	{
+		it.html(id);
+	}
+});
+
+acts.find("result indicator reference").each(function(i){var it=$(this);
+	var id=it.attr("vocabulary");
 	id=iati_codes.indicator_vocab[id] || id;
 	if(id)
 	{
