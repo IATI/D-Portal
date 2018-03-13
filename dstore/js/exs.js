@@ -4,7 +4,7 @@
 var exs=exports;
 
 var baby = require('babyparse');
-var csv_write = require('json2csv');
+var csv_write = undefined;//require('json2csv');
 var csv=undefined;//require('csv');
 var util=require('util');
 var wait=require('wait.for');
@@ -335,6 +335,7 @@ console.log(year + " " + month );
 	fs.writeFileSync(__dirname+"/../json/usd_year.json",json_stringify(csv_ys,{ space: ' ' }));
 
 // build a USD based exchange CSV, similar to the one found in google docs.
+/*
 	var head={};	
 	for(var year in csv_ys)
 	{
@@ -367,6 +368,7 @@ console.log(year + " " + month );
 		data.push(aa);
 	}
 	fs.writeFileSync(__dirname+"/../json/usd_year.csv", wait.for( csv_write,{data:data,fields:fields} ) );
+*/
 
 }
 
