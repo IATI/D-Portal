@@ -842,6 +842,32 @@ query.serv = function(req,res){
 
 		logname=__dirname+"/../../dstore/instance/"+instance+".log";
 	}
+	if(q.from=="sluglog" && q.slug) // download a specific slug log
+	{
+		var slug=q.slug;
+		slug=String( slug ).replace(/[^0-9a-zA-Z\-_]/g, '_');
+		var logname1=__dirname+"/../../dstore/cache/"+slug+".curl.last.log";
+		var logname2=__dirname+"/../../dstore/cache/"+slug+".import.last.log";
+
+		fs.readFile(logname1,"utf8", function (err, data) {
+				var ret={};
+				if(err) { ret.err=err; res.jsonp(ret); }
+				else
+				{
+					ret.log = data;
+					fs.readFile(logname2,"utf8", function (err, data) {
+						if(err) { ret.err=err; res.jsonp(ret); }
+						else
+						{
+							ret.log = ret.log+"\n\n\n"+data;
+							res.jsonp(ret);
+						}
+					});
+				}
+		});
+		return;
+	}
+	else
 	if(q.from=="cronlog_time")
 	{
 		fs.stat(logname, function (err, data) {
