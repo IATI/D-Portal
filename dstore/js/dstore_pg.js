@@ -322,9 +322,9 @@ dstore_pg.getsql_prepare_replace = function(name,row){
 	
 
 	var pkey=dstore_db.tables_primary[name];
-	if(false)//(pkey)
+	if(pkey)
 	{
-		s.push("ON CONFLICT DO UPDATE SET ");
+		s.push("ON CONFLICT ("+pkey+") DO UPDATE SET ");
 		var need_comma=false;
 		for(var n in row)
 		{
@@ -332,7 +332,7 @@ dstore_pg.getsql_prepare_replace = function(name,row){
 			s.push(" "+n+"=${"+n+"} ");
 			need_comma=true
 		}
-		s.push(" WHERE "+pkey+"=$("+pkey+") ")
+//		s.push(" WHERE "+pkey+"=$("+pkey+") ")
 	}
 
 
