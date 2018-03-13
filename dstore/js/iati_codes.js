@@ -781,6 +781,7 @@ console.log("************************ It's OK to CTRL+C and skip this last bit i
 if(true)
 {
 //	codes.publisher_ids={};
+	codes.publisher_slugs={};
 	codes.publisher_names={};
 	codes.publisher_secondary={};
 
@@ -808,6 +809,7 @@ if(true)
 					{
 console.log("unpublished "+id);				
 					}
+					codes.publisher_slugs[ id ]=v; // so we can link to registry
 					if(jj.extras.publisher_source_type=="secondary_source")
 					{
 						codes.publisher_secondary[id]=jj.title;
