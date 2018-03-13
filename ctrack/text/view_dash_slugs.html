@@ -1,0 +1,29 @@
+#crumbname_data_slugs
+{crumbname_data_slugs_text}
+
+#view_dash_slugs
+{view_head}
+<style>.description{background-color:rgba(0,14,32,0.7);}{css}</style>
+{beige}
+{main_head}
+{main_min}
+		<div class="snap_wrap">
+			<table class="snap">
+				<tr>
+					<th colspan="2">
+						title test
+					</th>
+				</tr>
+				{data_listall_slugs}
+			</table>
+		</div>	
+{view_tail}
+
+#data_listall_slugs
+#data_listall_slug
+<tr>
+	<td title="{country_valid} country code" class="cc country_{country_valid}">
+		<a href="/q.xml?from=act,country&country_code={country_code}" target="_blank">{country_code}</a>
+	</td>
+	<td title="Number of activities reported" class="country_{country_valid}">{count}</td>
+</tr>
