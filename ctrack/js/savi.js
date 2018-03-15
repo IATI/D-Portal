@@ -724,6 +724,7 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 	if(slug)
 	{
 		it.append($("<a class='a_slug' href='http://iatiregistry.org/dataset/"+slug+"' target='_blank'>dataset</a>"));
+		it.append($("<a class='a_slug' href='http://d-portal.org/ctrack.html#view=dash_sluglog&slug="+slug+"' target='_blank'>logs</a>"));
 	}
 });
 
