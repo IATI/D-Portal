@@ -16,7 +16,7 @@ var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function(
 
 // the chunk names this view will fill with new data
 view_dash_slugs.chunks=[
-	"dash_slugs",
+	"dash_list_slug_datas",
 ];
 
 view_dash_slugs.view=function()
@@ -35,5 +35,34 @@ view_dash_slugs.calc=function()
 
 view_dash_slugs.ajax=function(args)
 {
-}
+	args=args || {};
+	var dat={
+			"country_code":(args.country),
+			"reporting_ref":(args.pub),
+			"select":"count,slug",
+			"from":"act",
+			"groupby":"slug",
+			"orderby":"1-",
+			"limit":-1
+		};
+	fetch.ajax_dat_fix(dat,args);
+	fetch.ajax(dat,args.callback || function(data)
+	{
+		var s=[];
+		var total=0;
+		for(var i=0;i<data.rows.length;i++)
+		{
+			var v=data.rows[i];
+			var d={};
+			d.num=i+1;
+			d.count=Number(v.count);
+			d.slug=v.slug;
 
+			total+=d.count;
+			s.push( plate.replace(args.plate || "{dash_list_slugs_data}",d) );
+		}
+		ctrack.chunk(args.chunk || "dash_list_slugs_datas",s.join(""));
+		
+		ctrack.display(); // every fetch.ajax must call display once
+	});
+}

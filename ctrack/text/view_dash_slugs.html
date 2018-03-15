@@ -2,28 +2,24 @@
 {crumbname_data_slugs_text}
 
 #view_dash_slugs
-{view_head}
-<style>.description{background-color:rgba(0,14,32,0.7);}{css}</style>
-{beige}
-{main_head}
-{main_min}
-		<div class="snap_wrap">
-			<table class="snap">
+{dash_wrap}
+{dash_navi}
+<style>{css}{css_dash}</style>
+		<div class="default more_data">	
+			<table class="pub dataset">
 				<tr>
-					<th colspan="2">
-						title test
-					</th>
+					<th>IATI Registry Datasets <span class="note">View logs</span></th>
+					<th>Activities</th>
 				</tr>
-				{data_listall_slugs}
+				{dash_list_slugs_datas}
 			</table>
-		</div>	
+		</div>
 {view_tail}
 
-#data_listall_slugs
-#data_listall_slug
+#dash_list_slugs_datas
+#dash_list_slugs_data
 <tr>
-	<td title="{country_valid} country code" class="cc country_{country_valid}">
-		<a href="/q.xml?from=act,country&country_code={country_code}" target="_blank">{country_code}</a>
-	</td>
-	<td title="Number of activities reported" class="country_{country_valid}">{count}</td>
+	<td title="Unique Dataset ID" class="set"><a href="#view=dash_sluglog&slug={slug}" target="_blank">{slug}</a></td>
+	<td title="Number of activities within this dataset">{count}</td>
 </tr>
+

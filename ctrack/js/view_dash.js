@@ -74,6 +74,7 @@ view_dash.ajax2=function(args)
 			"orderby":"1-",
 			"limit":-1
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash.ajax");
@@ -114,6 +115,7 @@ view_dash.ajax1=function(args)
 			"from":"act",
 			"limit":-1
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash.ajax");
@@ -146,6 +148,7 @@ view_dash.ajax3=function(args)
 			"orderby":"1-",
 			"limit":-1
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash.ajax");

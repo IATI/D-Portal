@@ -67,6 +67,7 @@ view_dash_quality.ajax1=function(args)
 			"from":"act",
 			"limit":-1
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash_quality.ajax1");
@@ -97,6 +98,7 @@ view_dash_quality.ajax2=function(args)
 			"from":"budget,act",
 			"limit":-1
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash_quality.ajax2");
@@ -126,6 +128,7 @@ view_dash_quality.ajax3=function(args)
 			"from":"trans,act",
 			"limit":-1
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash_quality.ajax3");
@@ -157,6 +160,7 @@ view_dash_quality.ajax4=function(args)
 			"orderby":"1-",
 			"limit":-1
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash_quality.ajax4");
@@ -217,6 +221,7 @@ view_dash_quality.ajax5=function(args)
 			"orderby":"1-",
 			"limit":-1
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash_quality.ajax5");
@@ -260,6 +265,7 @@ view_dash_quality.ajax6=function(args)
 			"day_end_lt":today,
 			"day_length_not_null":1,
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log(data);
@@ -285,6 +291,7 @@ view_dash_quality.ajax7=function(args)
 			"day_start_gt":today,
 			"day_length_not_null":1,
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log(data);
@@ -312,6 +319,7 @@ view_dash_quality.ajax8=function(args)
 			"day_start_lteq":today,
 			"day_length_not_null":1,
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log(data);
@@ -343,6 +351,7 @@ view_dash_quality.ajax9=function(args)
 			"day_start_not_null":1,
 			"day_end_null":1,
 		};
+	fetch.ajax_dat_fix(dat,args);
 	fetch.ajax(dat,args.callback || function(data)
 	{
 //		console.log(data);
