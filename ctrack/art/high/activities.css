@@ -221,11 +221,11 @@ result indicator[measure="2"] period target:before	{content:"TARGET %"; font-siz
 result indicator[measure="1"] period actual:before	{content:"ACTUAL UNIT"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 result indicator[measure="2"] period actual:before	{content:"ACTUAL %"; font-size:14px; color:#000; display:block; padding-bottom:10px;}
 
-result indicator period period-start, result indicator period period-end,
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
-result indicator period period-start{width:100%; padding:0 0 10px 0; margin-bottom:10px; font-size:22px; line-height:28px; text-align:right; position:relative;}
-result indicator period period-end	{width:100%; padding:0 0 10px 0; font-size:22px; line-height:28px; text-align:right; position:relative;}	
+result indicator period period-start,
+result indicator period period-end	{display:block; width:100%; padding:0 0 10px 0; min-height:38px; box-sizing:border-box; font-size:22px; line-height:28px; text-align:right; position:relative;}
+result indicator period period-start{margin-bottom:10px;}	
 
 result indicator period target > *	{display:block;}
 result indicator period actual > *	{display:block;}
