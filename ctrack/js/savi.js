@@ -329,7 +329,7 @@ acts.find("result indicator").each(function(i){var it=$(this);
 });
 
 acts.find("result indicator period").each(function(i){var it=$(this);
-	var needed=["baseline", "target", "actual"];
+	var needed=["period-start", "period-end", "baseline", "target", "actual"];
 	needed.forEach(function(n){
 		if( it.children(n).length==0 )
 		{
