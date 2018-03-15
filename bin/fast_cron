@@ -31,6 +31,18 @@ bin/fast_download >/dev/null
 bin/fast_import >/dev/null
 
 echo
+echo "Searching logs for download ERRORS"
+echo
+grep -i "error:" dstore/cache/*.curl.last.log
+
+
+echo
+echo "Searching logs for import ERRORS"
+echo
+grep -i "error" dstore/cache/*.import.last.log
+
+
+echo
 echo "Updating stats"
 echo
 
