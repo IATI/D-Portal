@@ -67,7 +67,6 @@ view_dash.ajax2=function(args)
 {
 	args=args || {};
 	var dat={
-			"country_code":(args.country),
 			"select":"count,reporting_ref,any_reporting",
 			"from":"act",//,country",
 			"groupby":"reporting_ref",
@@ -110,7 +109,6 @@ view_dash.ajax1=function(args)
 {
 	args=args || {};
 	var dat={
-			"country_code":(args.country),
 			"select":"count",
 			"from":"act",
 			"limit":-1
@@ -141,7 +139,6 @@ view_dash.ajax3=function(args)
 {
 	args=args || {};
 	var dat={
-			"country_code":(args.country),
 			"select":"count,country_code",
 			"from":"country",
 			"groupby":"country_code",

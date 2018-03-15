@@ -37,8 +37,6 @@ view_dash_slugs.ajax=function(args)
 {
 	args=args || {};
 	var dat={
-			"country_code":(args.country),
-			"reporting_ref":(args.pub),
 			"select":"count,slug",
 			"from":"act",
 			"groupby":"slug",
