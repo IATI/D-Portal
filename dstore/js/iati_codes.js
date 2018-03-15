@@ -785,6 +785,7 @@ console.log("************************ It's OK to CTRL+C and skip this last bit i
 if(true)
 {
 //	codes.publisher_ids={};
+	codes.publisher_slugs={};
 	codes.publisher_names={};
 	codes.publisher_secondary={};
 
@@ -807,6 +808,7 @@ if(true)
 					if(jj.packages.length>0) // ignore unpublished publishers with 0 packages
 					{
 						codes.publisher_names[ id ]=jj.title;
+						codes.publisher_slugs[ id ]=v; // so we can link to registry
 					}
 					else
 					{
