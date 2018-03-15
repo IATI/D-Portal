@@ -57,7 +57,7 @@ fetch.tourl=function(dat)
 //modify dat so it reflects the args or base settings (eg limit to a publisher)
 fetch.ajax_dat_fix=function(dat,args,flag)
 {
-	dat["reporting_ref"]	=	dat["reporting_ref"]	||	args.publisher;
+	dat["reporting_ref"]	=	dat["reporting_ref"]	||	args.publisher || ctrack.hash.publisher ;
 
 	if(flag=="trans")
 	{
@@ -74,7 +74,7 @@ fetch.ajax_dat_fix=function(dat,args,flag)
 	}
 	else
 	{
-		dat["country_code"]		=	dat["country_code"]		||	args.country;
+		dat["country_code"]		=	dat["country_code"]		||	args.country || ctrack.hash.country ;
 
 		dat["country_code"]		=	dat["country_code"]		||	ctrack.args.country_select;
 		dat["sector_code"]		=	dat["sector_code"]		||	ctrack.args.sector_code_select;
