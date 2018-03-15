@@ -44,13 +44,19 @@ iati-identifier 		{display:block; background-color:rgba(0,14,32,0.7); width:880p
 iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
 iati-identifier div		{display:block;}
 a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:baseline;}
-a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; width:50%;}
+a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; width:33.33%;}
 a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
 a.a_xml_iati-identifier:link	{color:#FFAB5E;}
 a.a_xml_iati-identifier:visited	{color:#FFAB5E;}
 a.a_xml_iati-identifier:hover	{color:#FF7A00;}
 a.a_xml_iati-identifier:active	{color:#FFAB5E;}
-a.a_slug				{display:inline-block; vertical-align:baseline; width:50%; text-align:right;}
+a.a_logs				{display:inline-block; vertical-align:baseline; width:33.33%; text-align:center;}
+a.a_logs:before			{content:"VIEW DATASET"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_logs:link			{color:#FFAB5E;}
+a.a_logs:visited		{color:#FFAB5E;}
+a.a_logs:hover			{color:#FF7A00;}
+a.a_logs:active			{color:#FFAB5E;}
+a.a_slug				{display:inline-block; vertical-align:baseline; width:33.33%; text-align:right;}
 a.a_slug:before			{content:"VIEW IATI REGISTRY"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
 a.a_slug:link			{color:#FFAB5E;}
 a.a_slug:visited		{color:#FFAB5E;}
