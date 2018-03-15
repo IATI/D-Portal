@@ -723,8 +723,8 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 	"' href='http://d-portal.org/q.xml?aid="+id+"' target='_blank'>xml</a>"));
 	if(slug)
 	{
+		it.append($("<a class='a_logs' href='http://d-portal.org/ctrack.html#view=dash_sluglog&slug="+slug+"' target='_blank'>logs</a>"));
 		it.append($("<a class='a_slug' href='http://iatiregistry.org/dataset/"+slug+"' target='_blank'>dataset</a>"));
-		it.append($("<a class='a_slug' href='http://d-portal.org/ctrack.html#view=dash_sluglog&slug="+slug+"' target='_blank'>logs</a>"));
 	}
 });
 
