@@ -48,8 +48,8 @@ view_dash_quality.calc=function()
 view_dash_quality.ajax=function(args)
 {
 	args=args || {};
-	args.pub=ctrack.hash.pub;
-	args.country=ctrack.hash.country;
+	args.publisher=args.publisher || ctrack.hash.publisher;
+	args.country=args.country || ctrack.hash.country;
 	
 	ctrack.chunk("dash_quality_pub",args.publisher || "N/A");
 	ctrack.chunk("dash_quality_pub_name",iati_codes.publisher_names[args.publisher] || args.publisher || "N/A");	
