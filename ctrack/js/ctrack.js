@@ -237,6 +237,7 @@ ctrack.setup=function(args)
 		args.publisher_select=cc.join("|");
 		args.chunks["publisher_code"]=args.publisher;
 		args.chunks["publisher_name"]=iati_codes.publisher_names[args.publisher] || args.publisher;
+		args.chunks["publisher_slug"]=iati_codes.publisher_slugs[args.publisher] || "";
 
 		var nn=0;
 		var cc="";
@@ -259,6 +260,7 @@ ctrack.setup=function(args)
 		args.chunks["main_publisher_head"]="";
 		args.chunks["main_publisher_map"]="";
 		args.chunks["publisher_name"]="";
+		args.chunks["publisher_slug"]="";
 		args.chunks["back_publisher"]="";
 	}
 
@@ -356,6 +358,7 @@ ctrack.setup=function(args)
 		args.chunks["main_publisher_head"]="";
 		args.chunks["main_publisher_map"]="";
 		args.chunks["publisher_name"]="";
+		args.chunks["publisher_slug"]="";
 		args.chunks["back_publisher"]="";
 	}
 	else
