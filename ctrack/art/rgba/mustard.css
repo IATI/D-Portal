@@ -327,6 +327,12 @@ a.a_xml_iati-identifier:visited	{color:rgba(206,131,0,1);}
 a.a_xml_iati-identifier:hover	{color:rgba(255,163,0,1);}
 a.a_xml_iati-identifier:active	{color:rgba(206,131,0,1);}
 a.a_xml_iati-identifier:before	{color:rgba(204,204,204,1);}
+a.a_logs						{color:rgba(206,131,0,1);}
+a.a_logs:link					{color:rgba(206,131,0,1);}
+a.a_logs:visited				{color:rgba(206,131,0,1);}
+a.a_logs:hover					{color:rgba(255,163,0,1);}
+a.a_logs:active					{color:rgba(206,131,0,1);}
+a.a_logs:before					{color:rgba(204,204,204,1);}
 a.a_slug						{color:rgba(206,131,0,1);}
 a.a_slug:link					{color:rgba(206,131,0,1);}
 a.a_slug:visited				{color:rgba(206,131,0,1);}
@@ -403,6 +409,7 @@ span.span_description description[type="3"]:before		{color:rgba(204,204,204,1);}
 	============================================= */
 result:nth-child(even)		{background-color:rgba(56,56,56,0.3);}
 span.span_result:before		{color:rgba(255,255,255,1); background-color:rgba(206,131,0,1);}
+span-reference:before		{color:rgba(204,204,204,1);}
 result description			{color:rgba(255,255,255,1);}
 result description:before	{color:rgba(204,204,204,1);}
 result span-title			{color:rgba(255,255,255,1);}
@@ -426,6 +433,11 @@ result indicator[measure="2"] period target:after,
 result indicator[measure="2"] period actual:after	{color:rgba(255,255,255,1);}
 
 result indicator > baseline comment		{color:rgba(255,255,255,1);}
+
+result a.a_reference reference,
+result a.a_reference reference:after		{color:rgba(255,163,0,1);}
+result a.a_reference:hover reference,
+result a.a_reference:hover reference:after	{color:rgba(255,183,0,1);}
 
 
 /*	Sectors (also turned into graph: sector_pie)
@@ -574,6 +586,7 @@ span.hide:hover	 {color:rgba(255,255,255,1);}
 
 span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide,
 span.span_result span.hide			{color:rgba(15,15,15,1);}
+span.span_result result span.hide	{color:rgba(204,204,204,1);}
 span.span_transaction span.hide:hover, span.span_planned-disbursement span.hide:hover, span.span_budget span.hide:hover,
 span.span_result span.hide:hover	{color:rgba(255,255,255,1);}
 

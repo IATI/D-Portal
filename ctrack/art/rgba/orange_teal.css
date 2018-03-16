@@ -355,11 +355,16 @@ iati-identifier 				{background-color:var(--base03_40); color:var(--base11);}
 iati-identifier:before			{color:var(--base14);}
 iati-identifier:hover			{color:var(--base15);}
 a.a_xml_iati-identifier:before	{color:var(--base14);}
+a.a_logs:before					{color:var(--base14);}
 a.a_slug:before					{color:var(--base14);}
 a.a_xml_iati-identifier:link	{color:var(--base11);}
 a.a_xml_iati-identifier:visited	{color:var(--base11);}
 a.a_xml_iati-identifier:hover	{color:var(--base15);}
 a.a_xml_iati-identifier:active	{color:var(--base11);}
+a.a_logs:link					{color:var(--base11);}
+a.a_logs:visited				{color:var(--base11);}
+a.a_logs:hover					{color:var(--base15);}
+a.a_logs:active					{color:var(--base11);}
 a.a_slug:link					{color:var(--base11);}
 a.a_slug:visited				{color:var(--base11);}
 a.a_slug:hover					{color:var(--base15);}
@@ -439,16 +444,20 @@ span.span_description description[type="3"]:before		{color:var(--base14); border
 	============================================= */
 result:nth-child(even)		{background-color:var(--base03_40);}
 span.span_result:before		{color:var(--base15); background-color:var(--base03);}
+span-reference:before		{color:var(--base15);}
+result:before				{color:var(--base14); border-bottom:1px solid var(--base03);}
 result description			{color:var(--base15);}
 result description:before	{color:var(--base14); border-bottom:1px solid var(--base03);}
 result span-title			{color:var(--base15);}
 result span-title:before	{color:var(--base14); border-bottom:1px solid var(--base03);}
 
 result indicator:before		{color:var(--base14); border-bottom:1px solid var(--base03);}
-result indicator period period-start, result indicator period period-end, result indicator period target, result indicator period actual,
-result indicator description			{color:var(--base15);}
-result indicator period period-start:before, result indicator period period-end:before, result indicator period baseline:before, result indicator period target:before,
-result indicator period actual:before	{color:var(--base15);}
+result indicator period period-start, result indicator period period-end,
+result indicator period target, result indicator period actual, result indicator description			{color:var(--base15);}
+result indicator period period-start:before, result indicator period period-end:before,
+result indicator period baseline:before, result indicator period target:before, result indicator period actual:before,
+result indicator[measure="1"] period target:before, result indicator[measure="2"] period target:before,
+result indicator[measure="1"] period actual:before, result indicator[measure="2"] period actual:before	{color:var(--base15);}
 
 result indicator period baseline				{background-color:var(--base03);}
 result indicator period target					{background-color:var(--base01);}
@@ -465,9 +474,14 @@ result indicator[measure="2"] period actual:after	{color:var(--base15);}
 result indicator > baseline comment	{color:var(--base15);}
 
 result indicator reference:before	{color:var(--base13);}
+result a.a_reference reference,
+result a.a_reference reference:after		{color:var(--base11);}
+result a.a_reference:hover reference,
+result a.a_reference:hover reference:after	{color:var(--base15);}
 
-.timeline		{background-color:var(--base04); border-bottom:1px solid var(--base);}
+.timeline		{background-color:var(--base04);}
 .time			{background-color:var(--base02);}
+.time.time-percent100	{background-color:var(--base03);}
 result indicator .time span		{background-color:var(--base);}
 
 

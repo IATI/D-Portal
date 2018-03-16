@@ -338,6 +338,12 @@ a.a_xml_iati-identifier:visited	{color:rgba(186,12,47,1);}
 a.a_xml_iati-identifier:hover	{color:rgba(163,0,13,1);}
 a.a_xml_iati-identifier:active	{color:rgba(186,12,47,1);}
 a.a_xml_iati-identifier:before	{color:rgba(136,136,136,1);}
+a.a_logs						{color:rgba(186,12,47,1);}
+a.a_logs:link					{color:rgba(186,12,47,1);}
+a.a_logs:visited				{color:rgba(186,12,47,1);}
+a.a_logs:hover					{color:rgba(163,0,13,1);}
+a.a_logs:active					{color:rgba(186,12,47,1);}
+a.a_logs:before					{color:rgba(136,136,136,1);}
 a.a_slug						{color:rgba(186,12,47,1);}
 a.a_slug:link					{color:rgba(186,12,47,1);}
 a.a_slug:visited				{color:rgba(186,12,47,1);}
@@ -416,19 +422,23 @@ span.span_description description[type="3"]:before		{color:rgba(136,136,136,1);}
 	============================================= */
 result:nth-child(even)		{background-color:rgba(235,235,235,0.3);}
 span.span_result:before		{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
+span-reference:before		{color:rgba(136,136,136,1);}
 result:last-of-type			{border-radius:0 0 4px 4px;}
 result description, result description narrative	{color:rgba(85,85,85,1);}
 result description:before	{color:rgba(136,136,136,1);}
 result span-title			{color:rgba(85,85,85,1);}
 result span-title:before	{color:rgba(136,136,136,1);}
-
+result:before				{color:rgba(136,136,136,1);}
 result indicator:before		{color:rgba(136,136,136,1);}
 
 result indicator period period-start, result indicator period period-end, result indicator period target, result indicator period actual,
 result indicator description			{color:rgba(85,85,85,1);}
 result indicator period period-start:before, result indicator period period-end:before	{color:rgba(136,136,136,1);}
 
-result indicator period baseline:before, result indicator period target:before, result indicator period actual:before	{color:rgba(255,255,255,1);}
+result indicator period baseline:before, result indicator period target:before, result indicator period actual:before,
+result indicator[measure="1"] period target:before, result indicator[measure="2"] period target:before,
+result indicator[measure="1"] period actual:before, result indicator[measure="2"] period actual:before	{color:rgba(255,255,255,1);}
+
 result indicator period baseline{background-color:rgba(186,12,47,1);}
 result indicator period target	{background-color:rgba(70,70,70,1);}
 result indicator period actual	{background-color:rgba(70,70,70,0.7);}
@@ -444,6 +454,11 @@ result indicator[measure="2"] period actual:after	{color:rgba(255,255,255,1);}
 result indicator reference span-narrative	{color:rgba(85,85,85,1);}
 span-narrative.reference-vocabulary:before	{color:rgba(136,136,136,1);}
 span-narrative.reference-code:before		{color:rgba(136,136,136,1);}
+
+result a.a_reference reference,
+result a.a_reference reference:after		{color:rgba(163,0,13,1);}
+result a.a_reference:hover reference,
+result a.a_reference:hover reference:after	{color:rgba(186,12,47,1);}
 
 result indicator .time span	{background-color:rgba(70,70,70,1);}
 
@@ -601,6 +616,7 @@ span.hide:hover	 {color:rgba(163,0,13,1);}
 
 span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide,
 span.span_result span.hide			{color:rgba(204,204,204,1);}
+span.span_result result span.hide	{color:rgba(136,136,136,1);}
 span.span_transaction span.hide:hover, span.span_planned-disbursement span.hide:hover, span.span_budget span.hide:hover,
 span.span_result span.hide:hover	{color:rgba(255,255,255,1);}
 
