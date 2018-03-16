@@ -34,7 +34,7 @@
 <tr>
 	<td title="View Publisher on d-portal" class="ref"><a href="{mark_no_publisher}&publisher={reporting_ref}" target="_blank">{reporting}</a></td>
 	<td title="View Publisher dash profile" class="ref"><a href="#view=dash_quality&publisher={reporting_ref}">{reporting_ref}</a></td>
-	<td title="Activities"><a href="#view=dash_slugs&publisher={reporting_ref}">{count}</td>
+	<td title="Activities"><a class="log_links" href="#view=dash_slugs&publisher={reporting_ref}">{count}</td>
 </tr>
 
 #dash_body
@@ -79,6 +79,7 @@
 		<div class="subtitle_info">Dash is an overview of the data populating d-portal.org with a focus primarily on publisher statistics and the quality of the data reported by them. By showing you when and where invalid data is reported, Dash will be able to explain the gaps that are reflected on the main site.
 		<p>Click on a <b class="pub_name">Publisher Name</b> to view their profile in d-portal.org</p>
 		<p>Click on a <b class="pub_id">Publisher ID</b> to view their statistics in Dash.</p>
+		<p>Click on the <b class="pub_logs">Number of Activities</b> to inspect the dataset.</p>
 		<p><i>Only activities with unique IDs are imported. Dash does not import duplicates.</i></p>
 		</div>
 		<p>Updates everyday GMT +0.</p> 
@@ -119,6 +120,7 @@ table td, table th	{cursor:auto;}
 
 b.pub_name		{color:#FFF;}
 b.pub_id		{color:#FFC107;}
+b.pub_logs		{color:#93a4ff;}
 
 i.invalid		{color:#5872ff;}
 i.valid			{color:#FFF;}
@@ -151,6 +153,8 @@ table.snap.countries td.country_invalid a:hover {color:#99a8fb;}
 table.snap.countries td.country_invalid   {color:#9E9E9E; background-color:#111738; font-size:initial;}
 table.snap.countries td.country_valid	  {font-size:initial;}
 
+a.log_links		{color:#93a4ff;}
+
 .head_wrap_dash	{width:100%; margin:0 auto; background-color:#e8e8e8; box-shadow:0 3px 5px rgb(17,23,56);}
 .head_wrap		{margin-bottom:20px;}
 .head_block		{display:inline-block; vertical-align:middle; width:50%;}
@@ -164,7 +168,7 @@ a.back_link		{display:block; font-size:1.0em; text-align:right; color:#343746;}
 .snap_wrap.countries	{margin-top:25px;}
 .snap_title		{font-size:0.9em; line-height:1.2em; padding:10px 20px;}
 .title_info		{font-size:1.4em; margin-bottom:10px;}
-p				{font-size:0.9em; margin-bottom:10px;}
+p				{font-size:0.9em; margin-bottom:10px; line-height:1.5em;}
 .subtitle_info	{font-size:0.9em; line-height:1.4em; margin-bottom:20px;}
 .subtitle_info p{font-size:1.0em; margin-top:10px;}
 p.cron_date		{background-color:#171f48; padding:10px; text-align:center; border-radius:4px; margin-top:20px;}
