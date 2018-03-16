@@ -12,7 +12,7 @@
 #dash_sluglog_body
 <div class="default data">
 	<div class="maxwrap">
-		<div class="title"><a href="http://iatiregistry.org/dataset/{dash_slugname}" target="_blank">{dash_slugname}</a></div> 
+		<div class="title"><span>{dash_slugname}</span><a class="slug_link" href="http://iatiregistry.org/dataset/{dash_slugname}" target="_blank">View this dataset on IATI Registry</a></div> 
 		<div class="cron">{dash_sluglog}</div>
 		<a href="#view=dash_slugs" class="back_link dash">Back to datasets</a>
 	</div>
@@ -20,4 +20,6 @@
 
 
 #css
-.cron {background-color:#000; color:#00FF00; font-family:monospace; font-size:0.85em; line-height:1.2em; padding:40px; }
+.cron 		{background-color:#000; color:#00FF00; font-family:monospace; font-size:0.85em; line-height:1.2em; padding:40px; }
+.title span	{width:60%; display:inline-block; vertical-align:baseline;}
+a.slug_link	{width:40%; display:inline-block; vertical-align:baseline; text-align:right; font-size:16px;}

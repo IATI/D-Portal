@@ -5,15 +5,16 @@
 {dash_wrap}
 {dash_navi}
 <style>{css}{css_dash}</style>
-		<div class="default more_data">	
-			<table class="pub dataset">
-				<tr>
-					<th>IATI Registry Datasets <span class="note">View logs</span></th>
-					<th>Activities</th>
-				</tr>
-				{dash_list_slugs_datas}
-			</table>
-		</div>
+	<div class="default data">	
+		<div class="title">Listed below are all the datasets found on d-portal. They are imported from IATI Registry nightly.</div>
+		<table class="pub dataset slugs_list">
+			<tr>
+				<th>IATI Registry Datasets <span class="note">Click to view on registry - links open new window</span></th>
+				<th>Activities <span class="note">Click to view logs</span></th>
+			</tr>
+			{dash_list_slugs_datas}
+		</table>
+	</div>
 {view_tail}
 
 #dash_list_slugs_datas
@@ -23,3 +24,8 @@
 	<td title="Number of activities within this dataset"><a href="#view=dash_sluglog&slug={slug}">{count}</a></td>
 </tr>
 
+
+#css
+table.pub.dataset.slugs_list				{width:100%; max-width:100%; display:table;}
+table.pub.dataset.slugs_list th span.note	{display:block; padding:5px 0 0 0;}
+title										{line-height:1.5em;}
