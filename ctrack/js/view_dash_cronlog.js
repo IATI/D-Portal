@@ -61,7 +61,7 @@ view_dash_cronlog.ajax_cron=function()
 		{
 			log=$('<div/>').text(data.log).html()
 			log=log.replace(/^dstore\/cache\/(.*)\.xml\.(curl|import)\.last\.log:/gim,function(v,slug){
-					return "<a href=\"#view=dash_sluglog?slug="+slug+"\">"+v+"</a>"
+					return "<a href=\"#view=dash_sluglog&slug="+slug+"\">"+v+"</a>"
 				})
 			log=log.replace(/\n/g,"<br/>")
 		}
