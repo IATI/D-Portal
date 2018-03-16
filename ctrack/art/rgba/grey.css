@@ -355,11 +355,16 @@ iati-identifier 				{background-color: var(--base04_70); color:var(--base11);}
 iati-identifier:before			{color:var(--base14);}
 iati-identifier:hover			{color:var(--base15);}
 a.a_xml_iati-identifier:before	{color:var(--base14);}
+a.a_logs:before					{color:var(--base14);}
 a.a_slug:before					{color:var(--base14);}
 a.a_xml_iati-identifier:link	{color:var(--base11);}
 a.a_xml_iati-identifier:visited	{color:var(--base11);}
 a.a_xml_iati-identifier:hover	{color:var(--base15);}
 a.a_xml_iati-identifier:active	{color:var(--base11);}
+a.a_logs:link					{color:var(--base11);}
+a.a_logs:visited				{color:var(--base11);}
+a.a_logs:hover					{color:var(--base15);}
+a.a_logs:active					{color:var(--base11);}
 a.a_slug:link					{color:var(--base11);}
 a.a_slug:visited				{color:var(--base11);}
 a.a_slug:hover					{color:var(--base15);}
@@ -464,6 +469,10 @@ result indicator[measure="2"] period actual:after	{color:var(--base15);}
 result indicator > baseline comment	{color:var(--base15);}
 
 result indicator reference:before	{color:var(--base13);}
+result a.a_reference reference,
+result a.a_reference reference:after		{color:var(--base11);}
+result a.a_reference:hover reference,
+result a.a_reference:hover reference:after	{color:var(--base15);}
 
 .timeline		{background-color:var(--base04); border-bottom:1px solid var(--base);}
 .time			{background-color:var(--base13);}
