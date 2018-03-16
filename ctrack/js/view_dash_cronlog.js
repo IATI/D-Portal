@@ -56,7 +56,17 @@ view_dash_cronlog.ajax_cron=function()
 {
 	fetch.ajax({"from":"cronlog"},function(data)
 	{
-		ctrack.chunk("dash_cronlog",data.log && ( $('<div/>').text(data.log).html().replace(/\n/g,"<br/>") ) || "N/A");
+		var log="N/A"
+		if(data.log)
+		{
+			log=$('<div/>').text(data.log).html()
+			log=log.replace(/^dstore\/cache\/(.*)\.xml\.(curl|import)\.last\.log:/gim,function(v,slug){
+					return "<a href=\"#view=dash_sluglog&slug="+slug+"\">"+v+"</a>"
+				})
+			log=log.replace(/\n/g,"<br/>")
+		}
+		ctrack.chunk("dash_cronlog", log )
+		
 		ctrack.display(); // every fetch.ajax must call display once
 	});
 };
