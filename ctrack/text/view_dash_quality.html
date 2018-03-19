@@ -31,7 +31,10 @@
 			<tr>
 				<td>Publisher Name <span>Converted from ID</span></td>
 				<td>{dash_quality_pub_name}</td>
-				<td rowspan=2 class="visit"><a href="http://d-portal.org/ctrack.html?&publisher={dash_quality_pub}#view=publisher" target="_blank">View on d-portal</a></td>
+				<td rowspan="2" class="visit">
+					<a href="http://d-portal.org/ctrack.html?&publisher={dash_quality_pub}#view=publisher" target="_blank">View on d-portal</a>
+					<a href="https://www.iatiregistry.org/publisher/{dash_quality_pub_slug}" target="_blank">View on IATI Registry</a>
+				</td>
 			</tr>
 			<tr>
 				<td>Publisher ID</td>
@@ -42,7 +45,7 @@
 			<tr>
 				<td class="act_total">
 					<div>{dash_quality_act_count}</div>
-					<div>Activities</div>
+					<div>Unique Activities</div>
 					<div>Total number of activities reported by this publisher</div>
 				</td>
 				<td class="act_country">
@@ -109,45 +112,50 @@
 					<div>Total number of reported budgets across all activities</div>
 				</td>
 			</tr>
+			<tr>
+				<td class="dataset_back">
+					<table class="country_data dataset">
+						<tr>
+							<td colspan="2" class="info">
+								<p>Dataset name links to IATI Registry in new window.</p>
+								<p>Activities link to dataset logs.</p>
+							</td>
+						</tr>
+						<tr>
+							<th>IATI Registry Datasets</th>
+							<th>Activities</th>
+						</tr>
+						{dash_list_slug_datas}
+					</table>
+				</td>
+				<td>
+					<table class="country_data">
+						<tr>
+							<td>
+								<div class="country_title">Total recipient countries</div>
+								<div class="country_title">Total <i class="invalid">invalid</i> recipients</div>
+								<div class="country_title"><i class="invalid">Invalid</i> recipients %</div>
+							</td>
+							<td>
+								<div class="country_title">{dash_quality_country_count}</div>
+								<div class="country_title">{dash_quality_country_total_invalid}</div>
+								<div class="country_title">{dash_quality_country_total_invalid_pct}%</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="no_border">
+								<div class="note div">Links below to XML open new window</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Country Code</th>
+							<th>Activities</th>
+						</tr>
+						{dash_list_country_datas}
+					</table>
+				</td>
+			</tr>
 		</table>
-		<div class="default more_data">	
-			<table class="pub dataset">
-				<tr>
-					<th>IATI Registry Datasets <span class="note">Links open new window</span></th>
-					<th>Activities</th>
-				</tr>
-				{dash_list_slug_datas}
-			</table><table class="quality country_stats">
-				<tr>
-					<td>
-						<table class="country_data">
-							<tr>
-								<td>
-									<div class="country_title">Total recipient countries</div>
-									<div class="country_title">Total <i class="invalid">invalid</i> recipients</div>
-									<div class="country_title"><i class="invalid">Invalid</i> recipients percentage</div>
-								</td>
-								<td>
-									<div class="country_title">{dash_quality_country_count}</div>
-									<div class="country_title">{dash_quality_country_total_invalid}</div>
-									<div class="country_title">{dash_quality_country_total_invalid_pct}%</div>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2" class="no_border">
-									<div class="note div">Links below to XML open new window</div>
-								</td>
-							</tr>
-							<tr>
-								<th>Country Code</th>
-								<th>Activities</th>
-							</tr>
-							{dash_list_country_datas}
-						</table>
-					</td>
-				</tr>
-			</table>
-		</div>
 		<a href="#view=dash" class="back_link dash">Back to publisher list</a>
 	</div>
 </div>
@@ -159,7 +167,7 @@ a.back_link.dash			{color:#bdbdbd; margin-right:20px; margin-top:40px; text-alig
 .note.div					{font-size:0.65em; line-height:1.2em; padding-top:5px; text-align:left;}
 .country_subtitle			{font-size:1.4em; margin-top:10px; margin-bottom:10px;}
 
-table.quality		{border-collapse:separate; border-spacing:20px; margin:0 auto; width:960px; table-layout:fixed;}
+table.quality		{border-collapse:separate; border-spacing:20px; margin:0 auto; width:1000px; table-layout:fixed; margin-left:-20px;}
 table.quality td	{background-color:#111738; border-radius:6px; font-size:1.4em; padding:20px; text-align:center;}
 table.quality td div:first-of-type	{font-size:3.6em; padding-bottom:20px;}
 table.quality td div:nth-of-type(2)	{font-size:1.0em;}
@@ -192,28 +200,23 @@ table.country_data td.country_invalid   {color:#9E9E9E; background-color:#111738
 table.country_data td.country_valid	  	{font-size:initial;}
 
 table.quality td.data_numbers		{background-color:initial;}
+table.quality td.dataset_back		{background-color:transparent;}
 
 table.name					{margin:0 auto; width:960px;}
 table.name td				{padding-bottom:20px; vertical-align:middle;}
 table.name tr:first-child td:first-child span	{display:block; font-size:0.7em; padding-top:5px; font-style:italic;}
 table.name td:first-child	{font-size:1.2em; width:17%;}
-table.name td:nth-child(2)	{font-size:2.2em;}
-table.name td.visit			{padding:0px; text-align:center; vertical-align:top; width:200px;}
-table.name td.visit a		{display:block; background-color:#111738; color:#bdbdbd; padding:20px 0px; border-radius:6px;}
+table.name td:nth-child(2)	{font-size:2.0em; padding-right:20px;}
+table.name td.visit			{padding:0px; text-align:center; vertical-align:middle; width:200px;}
+table.name td.visit a		{display:block; background-color:#111738; color:#bdbdbd; padding:20px 0px; border-radius:6px; margin-bottom:10px;}
+table.name td.visit a:hover	{background-color:#010933;}
 
-table.pub td:last-child		{font-size:1.2em;}
-
-table.pub.dataset			{margin:0 auto; margin-right:40px; width:380px;}
-table.pub.dataset td		{padding:5px 0; word-break:break-all;}
-table.pub.dataset td.set	{padding:0;}
-table.pub.dataset td.set a	{display:block; padding:5px 0;}
-table.pub.dataset th		{font-size:1.4em; font-weight:bold; border-bottom:1px solid #3d4363; padding:5px 0;}
-table.pub.dataset th span.note	{display:inline-block; font-size:0.7em; padding:5px 0;}
+table.dataset p						{font-size:16px; margin:0;}
+table.country_data.dataset td 		{font-size:15px; vertical-align:middle;}
+table.country_data.dataset td.info	{padding-bottom:20px; font-style:italic;}
 
 table.country_stats			{width:500px;}
 table.country_stats table.country_data	{width:460px;}
-
-table.pub.dataset, table.country_stats	{display:inline-block; vertical-align:top; margin-top:40px; border-spacing:unset;}
 
 table.actdate_data.country_data td:first-child, table.actdate_data.country_data th:first-child	{text-align:right; width:55%;}
 table.actdate_data.country_data th:first-child	{padding:10px 40px 0 0;}

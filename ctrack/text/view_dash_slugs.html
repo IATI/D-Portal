@@ -6,7 +6,7 @@
 {dash_navi}
 <style>{css}{css_dash}</style>
 	<div class="default data">	
-		<div class="title">These datasets are imported from IATI Registry nightly at GMT +0.</div>
+		<div class="title_pub">These datasets are imported from IATI Registry nightly at GMT +0.</div>
 		<table class="pub dataset slugs_list">
 			<tr>
 				<th>IATI Registry Datasets <span class="note">Click to view on registry - links open new window</span></th>
@@ -27,5 +27,6 @@
 
 #css
 table.pub.dataset.slugs_list				{width:100%; max-width:100%; display:table;}
-table.pub.dataset.slugs_list th span.note	{display:block; padding:5px 0 0 0;}
-.title										{line-height:1.5em;}
+table.pub.dataset.slugs_list th				{font-weight:bold; border-bottom:1px solid #3d4363;}
+table.pub.dataset.slugs_list th span.note	{display:block; padding:5px 0 0 0; font-weight:normal; font-size:16px; font-style:italic;}
+.title_pub									{line-height:1.5em;}

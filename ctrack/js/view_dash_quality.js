@@ -53,6 +53,7 @@ view_dash_quality.ajax=function(args)
 	
 	ctrack.chunk("dash_quality_pub",args.publisher || "N/A");
 	ctrack.chunk("dash_quality_pub_name",iati_codes.publisher_names[args.publisher] || args.publisher || "N/A");	
+	ctrack.chunk("dash_quality_pub_slug",iati_codes.publisher_slugs[args.publisher] || args.publisher || "N/A");
 	
 	view_dash_quality.ajax1(args); // chain
 }
