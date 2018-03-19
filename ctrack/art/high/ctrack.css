@@ -219,19 +219,19 @@ a.map_percent span		{display:inline; font-size:1.0em; line-height:1.15em; color:
 /*	Stats (key figures) styles
 	============================================= */
 .stats_wrap				{width:100%; margin:0 auto; padding:40px 0; padding-top:0px;}
-span.stats_title		{display:block; font-size:1.5em; color:#000; padding-bottom:10px;}
+span.stats_title		{display:block; font-size:24px; color:#000; padding-bottom:10px;}
 span.stats_title.view	{display:inline-block; font-size:1.0em; color:#000; margin-left:20px; vertical-align:bottom; text-align:left; padding:0;} /* Table view */
-span.stats_num			{display:block; font-size:8.0em; color:#000;}
-span.stats_num.small	{display:block; font-size:4.0em;}
-span.stats_num.view		{display:inline-block; font-size:2.9em; color:#000; line-height:0.8em;} /* Table view */
-.declare.stats			{width:960px; margin:0 auto; color:#000; font-size:1.0em; line-height:1.4em; text-align:right;}
+span.stats_num			{display:block; font-size:100px; color:#000;}
+span.stats_num.small	{display:block; font-size:52px;}
+span.stats_num.view		{display:inline-block; font-size:168px; color:#000; line-height:0.8em;} /* Table view */
+.declare.stats			{width:960px; margin:0 auto; color:#000; font-size:1.0em; line-height:1.4em; text-align:right;}	/* Date under stats */
 
 a.stats_link			{display:block; padding:30px 40px; height:100%; border-radius:6px; border:1px solid #000; margin:15px 5px 5px 10px;}
 a.stats_link.active		{margin-left:0; padding:40px;}
 a.stats_link.total, a.stats_link.publishers		{margin-right:0;}
 a.stats_link.planned, a.stats_link.publishers	{margin-top:10px;}
 a.stats_link:hover			{background-color:#e9e9e9;}
-a.stats_link.missing		{margin-left:0;}
+a.stats_link.missing		{margin-left:0; font-size:18px;}
 a.stats_link.missing span	{color:#000;}
 
 
@@ -250,6 +250,7 @@ a.stats_link.missing span	{color:#000;}
 	============================================= */
 .description_wrap		{width:100%; margin:0 auto; padding-bottom:40px;}
 .description			{width:960px; margin:0 auto; padding:40px 0; text-align:left; margin-bottom:40px; margin-top:20px; padding-top:20px;}
+.description.data_quality_wrap	{background-color:#FFF;}
 .description span.title	{display:block; color:#000; line-height:1.35em; font-size:1.4em; margin-top:20px; padding:10px 0; border-bottom:1px solid #000;}
 .description span.title.sub	{font-size:20px; border:0; margin:0; padding-bottom:5px;}
 .description p			{padding:15px 0; font-size:19px; color:#000; line-height:24px; word-spacing:0.07em;}

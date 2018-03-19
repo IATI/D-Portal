@@ -97,9 +97,9 @@ a.map_percent:hover		{background-color:rgba(163,0,13,1);}
 /*	Stats (key figures) styles
 	============================================= */
 span.stats_title		{color:rgba(241,241,241,1);}
-span.stats_title.view	{color:rgba(255,255,255,1);}
+span.stats_title.view	{color:rgba(85,85,85,1);}
 span.stats_num			{color:rgba(255,255,255,1);}
-span.stats_num.view		{color:rgba(255,255,255,1);}
+span.stats_num.view		{color:rgba(85,85,85,1);}
 .declare.stats			{color:rgba(85,85,85,1);}
 a.stats_link			{color:rgba(241,241,241,1); background-color:rgba(186,12,47,0.9);}
 a.stats_link:hover		{background-color:rgba(163,0,13,1);}
@@ -115,7 +115,7 @@ a.stats_link.missing span	{color:rgba(255,255,255,1);}
 /*	Data Description styles
 	============================================= */
 .description_wrap		{background:transparent;}
-.description			{background-color:rgba(255,255,255,1); border-radius:8px;}
+.description.data_quality_wrap	{background-color:rgba(255,255,255,1); border-radius:8px;}
 .description span.title	{color:rgba(136,136,136,1); border-bottom:1px solid rgba(199,199,199,1);}
 .description p			{color:rgba(78,78,78,1);}
 .description a			{color:rgba(163,0,13,1);}
