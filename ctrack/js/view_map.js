@@ -289,7 +289,7 @@ view_map.ajax_heat=function(args)
 	if(dat.country_code)
 	{
 		dat.country_percent=100;
-		dat.reporting_ref_nteq="US-GOV-1"; // ignore bad data for now
+//		dat.reporting_ref_nteq="US-GOV-1"; // ignore bad data for now
 	}
 
 
