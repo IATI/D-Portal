@@ -150,12 +150,12 @@ view_dash.ajax3=function(args)
 	{
 //		console.log("view_dash.ajax");
 //		console.log(data);
-		
-// push bad data to the top
+
+// push bad data to the bottom
 		data.rows.sort(function(a,b){
 			var av=(iati_codes.country[a.country_code]) && 1 || 0;
 			var bv=(iati_codes.country[b.country_code]) && 1 || 0;
-			if(av!=bv) { return av-bv; }
+			if(av!=bv) { return bv-av; }
 			if(a.count!=b.count) { return b.count-a.count; }
 			if(a.country_code<b.country_code){ return -1; }
 			if(a.country_code>b.country_code){ return  1; }
