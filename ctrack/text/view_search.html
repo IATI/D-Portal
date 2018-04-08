@@ -8,28 +8,15 @@
 <!-- EXPLORE	-->
 #view_search
 {view_head}
-<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}#background_image{url('/ctrack/art/mexico_background_image.jpg')};{css}</style>
+<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);};{css}</style>
 {beige}
 {main_head_search} <!-- general.html LINE 105	-->
 {search_intro}
 {more_search_intro}
 {view_search_test}
-{explore_portals_search}
 {where_is_the_data_from}
 {view_tail}
 
-<!-- freetext search - alternative ui with filters below search bar	-->
-#view_freetext
-{view_head}
-<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}#background_image{url('/ctrack/art/mexico_background_image.jpg')};{css}</style>
-{beige}
-{main_head_search}
-{search_intro}
-{more_search_intro}
-{view_search2_test}
-{where_is_the_data_from}
-{view_tail}
-			
 
 <!-- EXPLORE	-->
 #search_intro
@@ -100,33 +87,12 @@
 			else
 				{
 					$('.press_enter').show();
-				}		 
+				}
+					 
 			});
 		</script>
 	</div>
 	
-</div>
-
-<!-- freetext search -->
-#view_search2_test
-<div id="view_search_test">
-	
-	<div class="search_input_wrap"><div class="search_icon"><img src="/ctrack/art/original/search_icon.png" alt="A magnifying glass icon to indicate that a search request is nigh" width="30" height="30"/></div><input type="text" id="view_search_string_only" class="typeahead" placeholder="{search2_placeholder_txt}"/></div>
-	
-	<div class="feedback_links_wrap">
-		<a onclick="$('.search_filter').toggle();" class="feedback_txt">Show Filters?</a>
-	</div>
-	
-	{view_search2_filters_wrap}
-	
-</div>
-
-<!-- freetext search -->
-#view_search2_filters_wrap
-<div class="search_filter" style="display:none; margin-top:40px;">
-	{filter_head_text}	
-	{view_search_filters}
-	<div id="search_div"><span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a></div>
 </div>
 
 <!-- EXPLORE	-->
@@ -207,7 +173,54 @@
 	</div>
 </div>
 
-<!-- EXPLORE	-->
+
+<!-- freetext search - alternative ui with filters below search bar	-->
+#view_freetext
+{view_head}
+<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);};{css}</style>
+{beige}
+{main_head_search}
+{search_intro}
+{more_search_intro}
+{view_search2_test}
+{where_is_the_data_from}
+{view_tail}
+
+<!-- freetext search -->
+#view_search2_test
+<div id="view_search_test">
+	
+	<div class="search_input_wrap"><div class="search_icon"><img src="/ctrack/art/original/search_icon.png" alt="A magnifying glass icon to indicate that a search request is nigh" width="30" height="30"/></div><input type="text" id="view_search_string_only" class="typeahead" placeholder="{search2_placeholder_txt}"/></div>
+	
+	<div class="feedback_links_wrap">
+		<a onclick="$('.search_filter').toggle();" class="feedback_txt">Show Filters?</a>
+	</div>
+	
+	{view_search2_filters_wrap}
+	
+</div>
+
+<!-- freetext search -->
+#view_search2_filters_wrap
+<div class="search_filter" style="display:none; margin-top:40px;">
+	{filter_head_text}	
+	{view_search_filters}
+	<div id="search_div"><span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a></div>
+</div>
+
+<!--	Above footer	-->
+#where_is_the_data_from
+<div class="description_splash">
+	<div class="description">
+		<span class="title">{index_title2_text}</span>
+		<p>{index_paragraph7_text}</p>
+		<p>{index_paragraph8_text}</p>
+	</div>
+</div>
+
+
+
+<!--	ALL BELOW UNUSED	-->
 #explore_portals_search
 <span id="explore"></span>
 <div class="country_menu_wrap">
@@ -219,30 +232,6 @@
 		</div>
 	</div>
 </div>
-
-
-#compare_buttons
-<div class="default">
-	<div class="compare_wrap">
-		<a class="path" href="/ctrack.html?tongue={tongue}#view=publisher_countries">
-			<span class="select_wrap full">{all_countries_text}</span>
-		</a></div><div class="compare_wrap pub">
-		<a class="path" href="/ctrack.html?tongue={tongue}#view=publishers">
-			<span class="select_wrap full">{all_publishers_text}</span>
-		</a>
-	</div>
-</div>
-
-
-#where_is_the_data_from
-<div class="description_splash">
-	<div class="description">
-		<span class="title">{index_title2_text}</span>
-		<p>{index_paragraph7_text}</p>
-		<p>{index_paragraph8_text}</p>
-	</div>
-</div>
-
 
 #search_country_select
 <li>
@@ -257,7 +246,6 @@
 	</a>
 </li>
 
-
 #search_publisher_select
 <li class="publishercol">
 	<a class="country_code" href="/ctrack.html?publisher={it.id}&tongue={tongue}">
@@ -266,8 +254,6 @@
 	</a>
 </li>
 
-
-<!--	UNUSED	-->
 #intro_generator
 <a href="/ctrack.html#view=generator" class="description_wrap bigbutton">
 	<span class="description">
@@ -277,4 +263,17 @@
 		<span class="screen_generator"></span>
 	</span>
 </a>
+
+#compare_buttons
+<div class="default">
+	<div class="compare_wrap">
+		<a class="path" href="/ctrack.html?tongue={tongue}#view=publisher_countries">
+			<span class="select_wrap full">{all_countries_text}</span>
+		</a></div><div class="compare_wrap pub">
+		<a class="path" href="/ctrack.html?tongue={tongue}#view=publishers">
+			<span class="select_wrap full">{all_publishers_text}</span>
+		</a>
+	</div>
+</div>
+
 

@@ -203,7 +203,8 @@ a.search_head				{color:var(--base);}
 .search_clear:hover			{color:var(--base15);}
 .search_clear span			{background-color:var(--base14); color:var(--base04);}
 
-a.search_refine				{border:0; text-shadow:initial; background:none;}
+a.search_refine				{border:1px solid var(--base); text-shadow:initial; background:none;}
+a.search_refine:hover		{border:1px solid var(--base); text-shadow:initial; background:none;}
 
 
 /*	For url #view=list_activities	*
@@ -246,6 +247,7 @@ table.list a:link  		{color:var(--base14);}
 table.list a:visited	{color:var(--base14);}
 table.list a:hover		{color:var(--base15);}
 table.list a:active		{color:var(--base14);}
+table.list td.alert_no_iati	{color:var(--base12);}
 
 
 /*	Table for Money list (Donors / Sectors)

@@ -175,15 +175,16 @@ a#search_link:hover			{background-color:rgba(163,0,13,1);}
 /*	Search Headers
 	============================================= */
 .search_cont				{background-color:rgba(255,255,255,1);}
-.search_cont a:link			{color:rgba(186,12,47,1);}
-.search_cont a:visited		{color:rgba(186,12,47,1);}
-.search_cont a:hover		{color:rgba(163,0,13,1);}
+.search_cont a:link			{color:rgba(85,85,85,1);}
+.search_cont a:visited		{color:rgba(85,85,85,1);}
+.search_cont a:hover		{color:rgba(186,12,47,1);}
 .search_cont a:active		{color:rgba(186,12,47,1);}
 .search.head				{color:rgba(85,85,85,1);}
 .search_query				{color:rgba(85,85,85,1);}
 .search_query span			{color:rgba(136,136,136,1);}
 .search_query span img		{-webkit-filter:brightness(50%); filter:brightness(50%);}
-a.search_refine				{border:0; text-shadow:initial; background:none;}
+a.search_refine				{border:1px solid rgba(186,12,47,1); text-shadow:initial; background:none;}
+a.search_refine:hover		{border:1px solid rgba(186,12,47,1); text-shadow:initial; background:none;}
 
 
 /*	Table header styles
@@ -221,6 +222,7 @@ table.list a:link  		{color:rgba(85,85,85,1);}
 table.list a:visited	{color:rgba(85,85,85,1);}
 table.list a:hover		{color:rgba(186,12,47,1); background-color:rgba(0,0,0,0);}
 table.list a:active		{color:rgba(85,85,85,1);}
+table.list td.alert_no_iati	{color:rgba(85,85,85,1);}
 
 
 /*	Table for Money list (Donors / Sectors)

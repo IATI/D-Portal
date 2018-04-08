@@ -206,7 +206,7 @@ span.ask.sector			{background-color:#00C475;}
 .map_wrap				{width:100%; min-height:400px; max-height:400px; margin:0 auto; background-color:rgba(0,0,0,0.8); position:relative;}
 .map_info				{width:800px; margin:0 auto; top:0; left:-100px; right:-100px; background-color:#20344c; padding:10px 40px; font-size:1.1em; color:#FFF; line-height:1.35em; position:absolute;  border-radius:0 0 8px 8px; text-align:center;}
 .map_no_info			{color:#FFF; font-size:1.2em; line-height:1.35em; text-align:center; position:absolute; top:50%; left:20%; right:20%;}
-a.map_percent			{display:block; width:140px; margin:0 auto; bottom:30px; left:-80px; right:-780px; padding:10px 15px 15px 15px; font-size:0.95em; color:#FFF; line-height:1.15em; position:absolute; background-color:rgba(0,14,32,0.8); border-radius:8px; z-index:1; text-align:left;}
+a.map_percent			{display:block; width:140px; margin:0 auto; bottom:30px; left:-80px; right:-780px; padding:10px 15px 15px 15px; font-size:16px; color:#FFF; line-height:1.25em; position:absolute; background-color:rgba(0,14,32,0.8); border-radius:8px; z-index:1; text-align:left;}
 a.map_percent:hover		{background-color:rgba(0,14,32,0.9);}
 a.map_percent span		{display:inline; font-size:1.15em; line-height:1.0em; color:#FFF; font-weight:bold; padding:0 3px 0 7px;}
 #map					{width:100%; height:400px;}
@@ -326,12 +326,12 @@ a.csv_download:hover		{background-color:rgba(255,255,255, 0.3); color:#FFF;}
 
 /*	For url #view=search
 	============================================= */
-input#view_search_string, input#view_search_string_only, input.typeahead.tt-hint		{color:#FFF;}
-.search_filter				{width:960px; margin:0 auto; padding:25px 23px 14px 23px; box-sizing:border-box; background-color:rgba(11,37,60,0.5); border-radius:6px;}
+input#view_search_string, input#view_search_string_only, input.typeahead.tt-hint		{color:#444;}
+.search_filter				{width:960px; margin:0 auto; padding:25px 23px 14px 23px; box-sizing:border-box; background-color:rgba(11,37,60,0.7); border-radius:6px;}
 .search_label				{color:#d8d8d8;}
 #search_div					{color:#FFF;}
 a#search_link				{border:1px solid #2f6381; color:#fff; background:linear-gradient(#68c7ff,#2d5d7b); background:-webkit-linear-gradient(#68c7ff,#2d5d7b); text-shadow:0 -1px 0 #366e90;}
-a#search_link:hover			{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#2d5d7b); background:-webkit-linear-gradient(#50a0d2,#2d5d7b); text-shadow:0 -1px 0 #2d5d7b;}
+a#search_link:hover			{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#009dff); background:-webkit-linear-gradient(#50a0d2,#009dff); text-shadow:0 -1px 0 #2d5d7b;}
 a#search_link.search_link_disable		{border:1px solid #6f7569; color:#6f7569; background:linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)); background:-webkit-linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)); text-shadow:initial;}
 a#search_link.search_link_disable:hover	{cursor:default;}
 .search_head				{display:inline-block; vertical-align:top; width:640px; color:#53B4ED; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
@@ -367,7 +367,7 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search_intro_wrap span			{font-size:1.0em; color:#97d8ff; padding-right:0;}
 .search_intro_wrap span:hover	{border-bottom:2px solid #97d8ff; cursor:pointer;}
 
-.press_enter 				{color:#ccc; position:absolute; right:20px; top:32px; font-size:20px;}	/*	Press Enter div in input box	*/
+.press_enter 				{color:#666; position:absolute; right:3px; top:12px; font-size:20px; padding:20px; background-color:#FFF;}	/*	Press Enter div in input box	*/
 	
 	
 /*	For url #view=search - EXPLORE styles
@@ -379,6 +379,7 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search.search_title:before	{content:""; display:inline-block; margin-right:15px; background:url(/ctrack/art/original/search_icon.png)no-repeat center center; width:26px; height:26px; background-size:100%; zoom:70%;}
 .search.search_title span	{color:#fff; font-weight:initial; letter-spacing:1px; line-height:24px; display:inline-block; margin-left:-5px;}
 a.search_refine 			{display:inline-block; vertical-align:middle; text-align:center; width:15%; padding:10px 0; border-radius:4px; font-size:16px; border:1px solid #2f6381; color:#fff; background:linear-gradient(#68c7ff,#2d5d7b); background:-webkit-linear-gradient(#68c7ff,#2d5d7b); text-shadow:0 -1px 0 #366e90; box-sizing:border-box;}
+a.search_refine:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#009dff); background:-webkit-linear-gradient(#50a0d2,#009dff); text-shadow:0 -1px 0 #2d5d7b;}
 .search_query				{font-size:1.1em; line-height:1.3em; color:#FFF; padding:10px 30px 10px 0; width:300px; box-sizing:border-box;}
 .search_query span			{font-size:14px; display:block; padding-top:5px; color:#999; line-height:1.2em; text-transform:uppercase;}
 .search_query span img		{padding-right:7px; height:14px; width:14px; -webkit-filter:brightness(80%); filter:brightness(80%);}
@@ -469,15 +470,16 @@ table.list				{width:100%; border-collapse:collapse;}
 table.list td			{color:#B8C8CD; font-size:1.25em; line-height:1.35em; word-spacing:0.7px; padding:20px 0; vertical-align:top; border-bottom:1px solid #333642;}
 table.list tr:last-child td	{border:0; padding-bottom:20px;}
 table.list tr:hover		{background-color:rgba(0,0,0,0.4);}
+table.list tr:first-child:hover	{background-color:transparent;}
 table.list td:first-child	{padding-left:20px; font-size:16px; line-height:1.75em; width:5%;}
 table.list td span		{display:block; padding-top:5px; color:#999; font-size:0.7em; line-height:1.25em;}
 table.list td span.currency {display:inline; line-height:2.5em; padding:0 0 0 5px;}
 table.list td.title		{padding:0; width:60%;}
 table.list td.date		{text-align:right; padding:20px; font-size:16px; line-height:1.75em; width:15%;}
 table.list td.value		{padding:20px; text-align:right; font-size:16px; line-height:1.75em; width:20%;}
-table.list td.alert_no_iati		{text-align:center; font-size:1.6em; padding:20px 0 0 0; cursor:default;}
+table.list td.alert_no_iati		{text-align:center; font-size:1.6em; padding:20px 0 0 0; cursor:default; color:#DDD;}
 table.list td.alert_no_iati a	{padding:10px 0;}
-table.list a			{display:inline-block; padding:20px; color:#A8C5E5;}
+table.list a			{display:inline-block; padding:20px; color:#DDD;}
 table.list a:focus		{color:#FFF; text-decoration:none;}
 table.list a:link  		{color:#A8C5E5; text-decoration:none;}
 table.list a:visited	{color:#A8C5E5; text-decoration:none;}
@@ -567,7 +569,7 @@ table.activity td.date	{text-align:right; padding:10px 20px 10px 10px; white-spa
 table.activity td.alert_no_iati	{text-align:center; font-size:1.6em; padding:40px; cursor:default;}
 table.activity td span	{display:block; padding:2px 0 3px 0; color:#999; font-size:0.7em; line-height:1.25em; width:100%;}
 table.activity td span.currency {display:inline; line-height:2.5em; padding:0 0 0 5px;}
-table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#95B0CF; line-height:1.35em; box-sizing:border-box;}
+table.activity a		{display:inline-block; padding:10px 20px; width:100%; color:#DDD; line-height:1.35em; box-sizing:border-box;}
 table.activity a.percent{padding:10px 0px 20px 20px;}
 table.activity a:focus	{color:#FFF; text-decoration:none;}
 table.activity a:link  	{color:#A8C5E5; text-decoration:none;}

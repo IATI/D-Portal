@@ -1,7 +1,6 @@
 /* CSS for Search page */
 
 .typeahead, .tt-query, .tt-hint {width:396px; height:30px; padding:8px 12px; font-size:24px; line-height:30px; -webkit-border-radius:0; -moz-border-radius:0; border-radius:0; outline:none;}
-.typeahead {background-color:transparent !important; border-bottom:2px solid #fff !important; border-radius:0 !important; }
 .typeahead:focus {border:2px solid #0097cf;}
 .tt-hint {color:#999;}
 .tt-menu {width:100%; margin:12px 0; padding:8px 0; background-color:#fff;max-height:320px; overflow-y:auto;}
@@ -45,10 +44,7 @@ input#view_search_string, input#view_search_string_only, input.typeahead.tt-hint
 #search_div				{position:relative; min-height:50px; margin-top:40px; margin-bottom:20px;}
 #search_div span#search_span span	{display:block; padding-top:5px;}
 
-/*	Discover Results search button	*/
+/*	Explore search button (active)	*/
 a#search_link		{display:block; text-align:center; margin:0 auto; font-size:1.6em; line-height:18px; position:absolute; right:1px; bottom:0; border-radius:6px; height:60px; max-height:60px; box-sizing:border-box; padding:20px;}
 a#search_link span	{display:block; font-style:italic; font-size:0.6em; padding-top:5px;}
 
-
-/*	Explore page	*/
-.typeahead.explore {width:934px; background-color:transparent !important; border:1px solid #fff !important;}
