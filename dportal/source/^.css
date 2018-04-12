@@ -205,7 +205,7 @@ a.top.faq:hover		{border-top:5px solid #2BF26C;}
 /*	FAQ page
 	============================================= */
 
-.faq_head				{font-size:38px; position:absolute; top:0; left:0; padding:40px 0 40px 100px; color:#FFF; width:860px;}
+.faq_head				{font-size:38px; position:absolute; top:0; left:0; padding:40px 0 40px 80px; color:#FFF; width:880px;}
 .faq_head.a				{background-color:#2BF26C;}	/*	General section	*/
 .faq_head.b				{background-color:#FF980A;} /*	Technical section	*/
 .faq_head.c				{background-color:#7BC2FF;} /*	EXPLORE section	*/
@@ -215,13 +215,14 @@ a.top.faq:hover		{border-top:5px solid #2BF26C;}
 .about_wrap.faq			{background-color:transparent; padding:40px 0;}
 
 .faq_wrap				{width:960px; margin:0 auto; background-color:#FFF; padding:100px 40px 40px 40px; box-sizing:border-box; position:relative;}
-.faq_links_wrap			{padding:40px 0 60px 60px; counter-reset:section;}
-.faq_links_wrap a::before{counter-increment:section; content:counter(section) ". ";}
-.faq_links_wrap a		{display:block; padding-top:10px; color:#444; list-style-type:decimal; list-style-position:inside;}
+.faq_links_wrap			{padding:40px 0 60px 60px;}
+.faq_links_wrap a		{display:block; padding-top:10px; color:#444; line-height:20px;}
 .faq_links_wrap a:hover	{text-decoration:underline;}
 
 ul.faq_list				{padding-left:60px;}
 ul.faq_list li			{font-size:1.2em; font-weight:bold; line-height:1.2em; padding-bottom:10px; list-style-type:decimal;}
+
+ul.faq_links			{list-style-type:decimal;}
 
 a.topics				{display:inline-block; padding:20px; color:#FFF; background-color:#2CE268; vertical-align:top; width:228px; box-sizing:border-box; text-align:center; border-radius:8px 8px 0 0; font-size:1.8em;}
 a.topics.a:hover		{background-color:#4eff88;}
