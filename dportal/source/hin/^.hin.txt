@@ -514,6 +514,12 @@ Explore एक नई सुविधा भारी विकास के अ
 #^sources_data8_text 
 Pixabay पब्लिक डोमेन केवल छवियों
 
+#^sources_data9_text
+फ्रेंच अनुवाद (अपडेट किया गया 29-03-2018)
+
+#^sources_data10_text
+द्वारा उपलब्ध कराया गया
+
 #^publisher_dropmenu_text trim=ends
 एक प्रकाशक का चयन करें 
 
@@ -528,3 +534,351 @@ Pixabay पब्लिक डोमेन केवल छवियों
 
 #^flag_alt_text
 झंडा
+
+#^faq_back_text
+Back to FAQ list
+
+#^faq_title_general_text
+General
+
+#^faq_title_technical_text
+Technical
+
+#^faq_title_explore_text
+Explore
+
+#^faq_title_generator_text
+Generator
+
+#^faq_title_general_title_text
+Frequently Asked <b>General</b> Questions
+
+#^faq_title_technical_title_text
+Frequently Asked <b>Technical</b> Questions
+
+#^faq_title_explore_title_text
+Frequently Asked <b>Explore</b> Questions
+
+#^faq_title_generator_title_text
+Frequently Asked <b>Generator</b> Questions
+
+#^faq_general_q1_text
+What is d-portal?
+
+#^faq_general_a1_text
+A view of all IATI (<a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a>) data by recipient country or publisher, comparable with latest OECD DAC CRS (<a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a>) data.
+
+#^faq_general_q2_text
+Which datasets are included in d-portal?
+
+#^faq_general_a2_text
+<a href="http://www.aidtransparency.net">IATI</a> and <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS</a> data (see below for more information).
+
+#^faq_general_q3_text
+What is IATI?
+
+#^faq_general_a3_text
+The <a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a> - IATI is a voluntary, multi-stakeholder initiative that seeks to improve the transparency of aid, development, and humanitarian resources in order to increase their effectiveness in tackling poverty. 
+
+#^faq_general_q4_text
+What is OECD DAC CRS?
+
+#^faq_general_a4_text
+The Organisation for Economic Co-operation and Development’s Development Assistance Committee <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a> - which contains Official Development Assistance data.
+
+#^faq_general_q5_text
+Where does the data come from?
+
+#^faq_general_a5_text
+The IATI data comes from the <a href="http://www.iatiregistry.org/">IATI Registry</a>. 
+<p>The CRS data comes from <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS tables</a>.</p>
+<p>Other data is stored in a Google <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a> spreadsheet.</p>
+
+#^faq_general_q6_text
+Why is there data missing in some parts of d-portal?
+
+#^faq_general_a6_text
+Publishers report their IATI data at varying degrees of detail, and data is updated and improved all the time by publishers.  If a publisher only publishes data for 2013, it won’t appear in 2014 columns/charts etc.  
+<p>d-portal attempts to only reflect what is in the data and does not make corrections to data or information published to IATI, with only small exceptions to make the site user-friendly*</p>
+<p>See also information about <a href="http://d-portal.org/ctrack.html?country=AF&tongue=eng#view=data_quality">data quality</a> (<i>Afghanistan used as example</i>)</p>
+
+#^faq_general_q7_text
+Why are there zeroes and dashes in the tables?
+
+#^faq_general_a7_text
+Zeroes may denote issues with data quality (eg codes, dates, etc which are incompatible with the IATI Standard).  <i>There will shortly be links to the publisher’s page on the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a> to investigate specific data quality issues.</i>
+<p>Dashes show that that donor/organisation is not currently an IATI publisher.</p>
+
+#^faq_general_q8_text
+When/how is data in d-portal updated?
+
+#^faq_general_a8_text
+IATI data is updated every night (importing any data which has changed from the previous day) and a full import is done each weekend - in each instance the data is pulled from the IATI Registry.
+<p>CRS data is downloaded annually and then stored in <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a>.</p>
+
+#^faq_general_q9_text
+Where can I see more detail on IATI data quality issues/stats on how often organisations are publishing, etc?
+
+#^faq_general_a9_text
+See the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a>.
+
+#^faq_general_q10_text
+Where can I raise issues/questions about d-portal?
+
+#^faq_general_a10_text
+Either on our <a href="https://github.com/devinit/D-Portal">GitHub issues page</a> or via <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>
+
+#^faq_general_q11_text
+Where can I see plans for future development, and make suggestions?
+
+#^faq_general_a11_text
+See <a href="https://github.com/devinit/D-Portal/milestones">milestones on GitHub issues</a> page or contact us at <a href="mailto:support@iatistandard.org">support@iatistandard.org</a>
+
+#^faq_general_q12_text
+How do I find out more about d-portal?
+
+#^faq_general_a12_text
+See the <a href="http://d-portal.org/about.html">About</a> page.
+<p>Look at the <a href="https://github.com/devinit/D-Portal/issues">issues on GitHub</a>.</p>
+<p>Contact us - <a href="mailto:support@iatistandard.org">support@iatistandard.org</a></p>
+
+#^faq_general_q13_text
+What are common reasons for a publisher’s data not showing in parts of d-portal?
+
+#^faq_general_a13_text
+Data that is marked as invalid IATI xml when using the <a href="http://validator.iatistandard.org/">Validator</a>.
+<p>Mismatch between ‘Identifier’ in publisher’s profile in the <a href="https://iatiregistry.org/">IATI Registry</a>, and <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/reporting-org/">reporting-org</a> in that publisher’s data – this will show zeroes in the publisher’s data until the two are matched.</p>
+<p><a href="http://iatistandard.org/202/codelists/TransactionType/">Transaction type code</a> not present.</p>
+<p>Not using either Disbursements or Expenditure in <a href="http://iatistandard.org/202/codelists/TransactionType/">transaction type</a> field.</p>
+<p><a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/activity-date/">Dates</a> in incorrect format in the data.</p>
+<p>Illogical dates such as activity end date before activity start date.</p>
+<p>No data relevant to the year being viewed on a pie chart or table (eg where a pie chart shows 2016 data and data published only relates to 2015).</p>
+<p>If updating your Registry profile only, changes will show after the weekly full import (each weekend) as d-portal only updates nightly the data that has been changed in the xml.</p>
+
+#^faq_technical_q1_text
+Which transaction types are used/not used in d-portal?
+
+#^faq_technical_a1_text
+‘Expenditure’ and ‘Disbursements’ for Spend columns/data.  If there are neither, but ‘Commitment’ data exists, then the Commitment data will be shown.
+<p>‘Budgets’ in activity file, for Budget columns/data (eg in tables on d-portal) - if no budget data is present in the activity file, then ‘planned-disbursements’ are used if present.</p>
+
+#^faq_technical_q2_text
+How/where is the data tidied up before being displayed in d-portal?
+
+#^faq_technical_a2_text
+<ul>
+	<li>If a transaction date is not present, d-portal uses the transaction-value date in order to ascertain the date of a transaction (and therefore assign it to a specific year).</li>
+	<li>Only displaying countries that exist in <a href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>.</li>
+	<li>Removing secondary publishers - flagged as secondary sources in IATI Registry - from tables (to avoid double counting, eg secondary publishers are for example UN-OCHA who re-publish data which would replicate data from those publishers in the same table - see here for <a href="https://github.com/devinit/D-Portal/issues/156">list of secondary publishers</a> excluded in these instances).</li>
+	<li>Not displaying publishers with 0 datasets in the IATI Registry.</li>
+	<li>If there are neither Expenditure nor Disbursement data but Commitment data does exist then the Commitment data will be displayed.</li>
+	<li>In order to match against CRS data in tables, government departments are combined and shown under the country name - details of which departments are in <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=2">ctrack</a>.</li>
+	<li><i>There are currently plans under consideration to use the lowest hierarchy level data only, should data at multiple hierarchies exist, in order to avoid double counting.</i></li>
+</ul>
+
+#^faq_technical_q3_text
+How is data apportioned to a specific year?
+
+#^faq_technical_a3_text
+Using the transaction value date/transaction date (eg in Spend columns in tables).
+<p>Using the end date in the budget data (eg in Budget columns in tables).</p>
+
+#^faq_technical_q4_text
+What counts as a ‘missing project’?
+
+#^faq_technical_a4_text
+Anything with invalid date ranges (eg start date after the end date).
+<p>Projects with invalid date ranges that cannot be placed in one of the other 3 categories (Active, Planned, Ended).</p>
+
+#^faq_technical_q5_text
+How are exchange rates calculated?
+
+#^faq_technical_a5_text
+<ul>
+	<li>Default USD
+	<p>Currently (please note this may change soon) converting to USD using the exchange rate of the date specified in the <b>value-date</b> attribute. So when we display USD, it is very accurate to that date.</p></li>
+
+	<li>Other currencies
+	<p>For other currencies, the USD value is just converted using today’s exchange rate (please note this may change soon).</p></li>
+
+	<li>For budget information in future?
+	<p>Using the latest exchange rates (<a href="http://www.imf.org/external/np/fin/data/rms_five.aspx">International Monetary Fund</a>) every night and doing a full re-import once a week, so future budgets will use the current exchange rates and should be updated weekly.</p></li>
+</ul>
+
+#^faq_technical_q6_text
+What are the criteria for my organisation’s data appearing in recipient country charts/tables/maps in d-portal?
+
+#^faq_technical_a6_text
+For charts - need a transaction with transaction date in the relevant year (the latest complete year, eg currently 2014) with a valid recipient country code or valid sector code, depending on which chart it is.
+<p>For tables - as above, with transaction date relating to the relevant year column in the table.</p>
+<p>For maps - any transactions (from any year) with valid location tag and recipient country code
+(to be valid it needs to be on the relevant IATI codelists).</p>
+
+#^faq_technical_q7_text
+Where do country codes/descriptions come from?
+
+#^faq_technical_a7_text
+This <a href="https://en.wikipedia.org/wiki/ISO_3166-2">Wikipedia page</a> with ISO codes.
+
+#^faq_technical_q8_text
+What classifies something as an active, ended or planned project?
+
+#^faq_technical_a8_text
+Activity start/end dates are used to work out which projects are active or ended or planned for the future.  
+<ul>
+	<li>Active projects are projects with a start date in the past and with an end date in the future.</li>
+	<li>Ended projects are projects with an end date in the past.</li>
+	<li>Planned projects are anything with a start date in the future.</li>
+</ul>
+
+#^faq_technical_q9_text
+How is the map data produced?
+
+#^faq_technical_a9_text
+Using ‘location’ tags within the data to plot projects on the maps - either lat/long or point/pos, depending on which the publisher uses.
+
+#^faq_technical_q10_text
+How are US government organisations shown?
+
+#^faq_technical_a10_text
+All collated under heading ‘United States’.
+
+#^faq_technical_q11_text
+Where does the data for Single Activity Viewer (SAVi) come from?
+
+#^faq_technical_a11_text
+These pages for individual activities come from <a href="http://www.iatiregistry.org/">IATI Registry</a> and link directly to the relevant activity in the <a href="http://datastore.iatistandard.org/query/">IATI Datastore</a>.
+
+#^faq_technical_q12_text
+Where can I find the code/README/project management information for d-portal?
+
+#^faq_technical_a12_text
+<a href="https://github.com/devinit/D-Portal">https://github.com/devinit/D-Portal</a>
+
+#^faq_technical_q13_text
+Where is the additional data for d-portal stored?
+
+#^faq_technical_a13_text
+Here in the <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack data</a> spreadsheet, including
+<ul>
+	<li>list of funder Org IDs</li>
+	<li>currencies</li>
+	<li>exchange rates</li>
+	<li>sector codes</li>
+	<li>CRS data</li>
+</ul>
+
+#^faq_technical_q14_text
+When is ctrack updated?
+
+#^faq_technical_a14_text
+Newly published files are updated every night and then once a week, a full re-import of all files is done. The re-import ensures that any external value that may have been changed; for example, exchange rates, will be applied to all relevant data.
+
+#^faq_technical_q15_text
+What counts as 2014 (chart) data?
+
+#^faq_technical_a15_text
+An activity which includes part of 2014 according to the activity’s start and end dates.
+
+#^faq_explore_q1_text
+What is EXPLORE?
+
+#^faq_explore_a1_text
+EXPLORE is made up of two parts – a series of filters, and a freetext box.
+<p><b>1. Filters</b></p>
+<p>These are a selection of filters relating to the <a href="http://iatistandard.org/">IATI Standard</a> allowing users to choose and refine the IATI data they want to explore.</p>
+<p><b>2. Freetext</b></p>
+<p>This is a freetext box allowing users to search for themes and topics, and specific activities published to IATI.</p>
+
+
+#^faq_explore_q2_text
+What does EXPLORE do?
+
+#^faq_explore_a2_text
+The EXPLORE feature is on the front page of <a href="http://d-portal.org">d-portal.org</a> and helps users find activities published to the IATI Standard based on keywords - it was originally developed to help people who wanted to find information on specific humanitarian crises.
+
+#^faq_explore_q3_text
+How can I use the filters?
+
+#^faq_explore_a3_text
+Select multiple filters from across the dropdowns.  As you build a query using these filters the space underneath the filters will populate with an indication of how many activities are available to view based on your selections.
+<p>You can then click ‘<b>Explore Results</b>’ to find out more about those activities.</p>
+
+#^faq_explore_q4_text
+What is the data in the dropdown lists within filters?
+
+#^faq_explore_a4_text
+<b>Recipient Country</b> and <b>Publisher</b>
+<p>The organisations that have published to the <a href="http://iatistandard.org/">IATI Standard</a>, and the countries where funds have gone to as published within IATI data.</p>
+<p><b>Sector Group</b> and <b>Sector</b></p>
+<p>The numeric codes and names to describe sectors within the <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">OECD DAC CRS</a>, as used within the IATI Standard.</p>
+<p><b>Activity Status</b></p>
+<p>The numeric codes and names within the <a href="http://iatistandard.org/202/codelists/ActivityStatus/">IATI activity status</a> field.</p>
+<p><b>Year Range</b></p>
+<p>Years from 1960 to ‘present year + 2’.</p>
+
+#^faq_explore_q5_text
+How can I use and refine the freetext search?
+
+#^faq_explore_a5_text
+Type in one or more keywords and press enter to see how many activities have been found.
+<p>Click ‘<b>Explore Results</b>’ to see lists, graphs and maps allowing further exploration of the data.</p>
+<p>Refine your search by adding multiple words – e.g. ‘<i>Hurricane Matthew</i>’ will find more refined (fewer) results than ‘<i>Hurricane</i>’.</p>
+
+#^faq_explore_q6_text
+How / what do the EXPLORE search results show?
+
+#^faq_explore_a6_text
+Clicking ‘<b>Explore Results</b>’ provides results in the usual d-portal format (stats and charts which you can explore by clicking through to tables).
+
+#^faq_explore_q7_text
+When doing a freetext search, what IATI fields are being searched?
+
+#^faq_explore_a7_text
+This searches the <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/title/">Title</a> and <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/description/">Description</a> fields within all published IATI activities.
+
+#^faq_explore_q8_text
+Do plural nouns work in freetext search?
+
+#^faq_explore_a8_text
+EXPLORE is adapted for English plural nouns - e.g. typing ‘<i>Refugee</i>’ will include results for ‘<i>Refugees</i>’.
+
+#^faq_generator_q1_text
+What is it?
+
+#^faq_generator_a1_text
+The <a href="http://d-portal.org/ctrack.html#view=generator">Generator</a> is a tool to help users to reproduce data from d-portal in other webpages/blogs.
+
+#^faq_generator_q2_text
+Why does it exist?
+
+#^faq_generator_a2_text
+To help users who want to display their own data, or data they are interested in, within their own website/blog.
+
+#^faq_generator_q3_text
+How do I use it?
+
+#^faq_generator_a3_text
+Make selections from the dropdown menus and C&amp;P the code provided into your webpage’s html.
+<p>For more information see <a href="http://www.d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator.html">http://www.d-portal.org/news/2014-11-30-Interactive-IATI-data-d-portal-generator.html</a></p>
+
+#^faq_generator_q4_text
+How often will the generated content on my webpage update?
+
+#^faq_generator_a4_text
+It’s dynamic, so will update automatically overnight. If you change your data, this will be reflected. So when you’ve got content from the generator in your site or blog post, it will change accordingly!
+
+#^faq_generator_q5_text
+How reliable is it?
+
+#^faq_generator_a5_text
+The embedded data in your blog post / website will stay up as long as the d-portal site is up (eg permanently).
+<p>The only time this can go wrong is if your website provider disallows you to include external widgets in your blog posts, ie. if you can embed a youtube video into your blog post, you can embed generator content in your post.</p>
+
+#^faq_generator_q6_text
+Help! I'm trying to create the widget in my company's internal website but it's not working.
+
+#^faq_generator_a6_text
+Both secured and non-secured HTTP access is enabled and supported on d-portal. This should let users on secured domains use Generator content.
+<p>Use <a href="https://d-portal.org/ctrack.html#view=generator">https://d-portal.org/ctrack.html#view=generator</a> instead.</p>
+<p>If you are unsure if this affects you, see if your company's website uses http<b>s</b>:// instead of http:// in the website address.</p>
