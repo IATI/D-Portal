@@ -111,6 +111,18 @@ iati_codes.fetch = function(){
 				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/ResultVocabulary.json",
 				name:"result_vocab",
 			},
+			{
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/PolicyMarkerVocabulary.json",
+				name:"policy_vocab",
+			},
+			{
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/PolicyMarker.json",
+				name:"policy_mark",
+			},
+			{
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/PolicySignificance.json",
+				name:"policy_sig",
+			},
 		];
 	
 	files.forEach(function(opts){

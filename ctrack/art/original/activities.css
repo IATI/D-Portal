@@ -514,6 +514,16 @@ related-activity[type="4"]:before	{content:"Co-funded ";}
 related-activity[type="5"]:before	{content:"Third Party ";}
 
 
+/*	Policy marker
+	============================================= */
+span.span_policy-marker			{width:880px; padding:0; margin:0 auto; counter-reset:section;}
+span.span_policy-marker:before	{content:"POLICY MARKER"; font-size:14px; color:#CCC; display:none; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
+span.span_policy-marker			{color:#FFF;}
+policy-marker:before			{counter-increment:section; content:counter(section) ". ";}
+policy-marker					{display:none; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#FFF;}
+policy-marker narrative:nth-of-type(n+2) {padding:0 0 0 24px; font-style:italic; font-size:16px; line-height:inherit;}
+
+
 /*	Tag
 	============================================= */
 span.span_span-openag			{width:880px; padding:0 40px; margin:0 auto; counter-reset:section;}

@@ -582,7 +582,8 @@ sorted++;
 		"transaction",
 		"result",
 		"contact-info",
-		"activity-website",		
+		"activity-website",
+		"policy-marker",		
 		"related-activity",
 		"activity-status",
 	0
