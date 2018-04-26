@@ -212,8 +212,16 @@ ctrack.setup=function(args)
 		args.country_select=cc.join("|");
 		args.chunks["country_code"]=cc[0].toUpperCase();
 		args.chunks["country_name"]=iati_codes.country[ args.country.toUpperCase() ];
-		args.chunks["country_flag"]="{art}flag/"+args.country+".png";
-		args.chunks["background_image"]="{art}back/"+args.country+".jpg";
+		if( iati_codes.crs_countries[ args.country.toUpperCase() ] )
+		{
+			args.chunks["country_flag"]="{art}flag/"+args.country+".png";
+			args.chunks["background_image"]="{art}back/"+args.country+".jpg";
+		}
+		else
+		{
+			args.chunks["country_flag"]="{art}flag/empty_flag.png";
+			args.chunks["background_image"]="{art}back/fm.jpg";
+		}
 	}
 	else
 	{
