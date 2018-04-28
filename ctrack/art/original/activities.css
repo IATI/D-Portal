@@ -218,6 +218,10 @@ result indicator period		{display:inline-block; position:relative; width:530px; 
 result indicator period:nth-of-type(n+2) {display:block; padding-top:20px; margin-left:40%;}
 result indicator period period-start:before	{content:"START DATE"; font-size:14px; color:#ccc; display:block; position:absolute; left:3px; top:8px;}
 result indicator period period-end:before	{content:"END DATE"; font-size:14px; color:#ccc; display:block; position:absolute; left:3px; top:8px;}
+result indicator period target:before		{content:"TARGET"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
+result indicator period actual:before		{content:"ACTUAL"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
+
+
 result indicator[measure="1"] period target:before	{content:"TARGET UNIT"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
 result indicator[measure="2"] period target:before	{content:"TARGET %"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
 result indicator[measure="1"] period actual:before	{content:"ACTUAL UNIT"; font-size:14px; color:#ccc; display:block; padding-bottom:10px;}
@@ -516,12 +520,18 @@ related-activity[type="5"]:before	{content:"Third Party ";}
 
 /*	Policy marker
 	============================================= */
-span.span_policy-marker			{width:880px; padding:0; margin:0 auto; counter-reset:section;}
-span.span_policy-marker:before	{content:"POLICY MARKER"; font-size:14px; color:#CCC; display:none; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
-span.span_policy-marker			{color:#FFF;}
+span.span_policy-marker			{width:880px; padding:0; margin:0 auto; counter-reset:section; color:#FFF;}
+span.span_policy-marker:before	{content:"POLICY MARKER"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 policy-marker:before			{counter-increment:section; content:counter(section) ". ";}
-policy-marker					{display:none; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#FFF;}
-policy-marker narrative:nth-of-type(n+2) {padding:0 0 0 24px; font-style:italic; font-size:16px; line-height:inherit;}
+policy-marker					{display:inline-block; vertical-align:top; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#FFF;}
+policy-marker narrative			{vertical-align:initial;}
+policy-marker narrative:nth-of-type(n+2) {display:inline-block; font-style:italic; font-size:14px; line-height:inherit; text-indent:10px; color:#CCC;}
+policy-marker narrative:last-of-type:after	{display:block;}
+span-narrative.policy_vocab,
+span-narrative.policy_code,
+span-narrative.policy_sig		{display:inline-block; margin-left:5px; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px; line-height:1.5em;}
+span-narrative.policies			{display:inline-block; font-size:initial; line-height:initial;}
+policy-marker:last-of-type		{padding-bottom:40px;}
 
 
 /*	Tag
@@ -542,14 +552,27 @@ a.a_openag:active				{color:#FFAB5E;}
 
 /*	Hide and expand buttons
 	============================================= */
-span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_recipient-country, span.span_location	{position:relative;}	
-span.hide		 {display:block; position:absolute; top:35px; right:40px; font-size:12px; color:#CCC; line-height:24px; letter-spacing:1px;}
-span.hide:hover	 {cursor:pointer; color:#FFF;}
+span.span_document-link,
+span.span_participating-org,
+span.span_transaction,
+span.span_budget,
+span.span_planned-disbursement,
+span.span_result,
+span.span_related-activity,
+span.span_recipient-country,
+span.span_policy-marker,
+span.span_location	{position:relative;}	
+span.hide		 	{display:block; position:absolute; top:35px; right:40px; font-size:12px; color:#CCC; line-height:24px; letter-spacing:1px;}
+span.hide:hover	 	{cursor:pointer; color:#FFF;}
 
-span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide, span.span_result span.hide,
-span.span_result result span.hide 		{top:15px;}
+span.span_transaction span.hide,
+span.span_planned-disbursement span.hide,
+span.span_budget span.hide,
+span.span_result span.hide,
+span.span_result result span.hide 				{top:15px;}
 span.span_result result:nth-child(1) span.hide	{top:-5px;}
-span.span_related-activity span.hide	{right:0;}
+span.span_related-activity span.hide,
+span.span_policy-marker span.hide				{right:0;}
 
 
 /*	Count
@@ -563,6 +586,7 @@ span.span_transaction span.length			{top:20px; left:160px;}
 span.span_planned-disbursement span.length	{top:20px; left:260px;}
 span.span_result span.length				{top:20px; left:120px;}
 span.span_related-activity span.length		{left:110px;}
+span.span_policy-marker span.length			{left:135px;}
 span.span_location span.length				{left:135px;}
 span.sector_img span.length					{top:20px; left:105px;}
 span.country_img span.length				{top:20px; left:205px;}

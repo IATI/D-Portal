@@ -399,6 +399,32 @@ acts.find("related-activity").each(function(i){var it=$(this);
 	}
 });
 
+acts.find("policy-marker").each(function(i){var it=$(this);
+	var tc=it.attr("vocabulary");
+	var td=it.attr("code");
+	var te=it.attr("significance");	
+	var tcname=iati_codes.policy_vocab[tc] || tc;
+	td=iati_codes.policy_code[td] || td;
+	te=iati_codes.policy_sig[te] || te;	
+
+	if(tc=="1") // OECD DAC CRS is "1"
+	{
+		if(td)
+		{
+			it.html(td);
+		}
+	}
+
+//	if(tc)
+//	{
+//		it.append($('<span-narrative class="policy_vocab">' + tcname + '</span-narrative>'));
+//	}	
+	if(te)
+	{
+		it.append($('<span-narrative class="policy_sig">' + te + '</span-narrative>'));
+	}
+	it.find("span-narrative").wrapAll("<span-narrative class='policies'></span-narrative>");	
+});
 
 
 acts.find("reporting-org").each(function(i){var it=$(this);
@@ -866,7 +892,7 @@ $('img.sector_pie').wrap($('<span class="sector_img">'));
 $('img.country_pie').wrap($('<span class="country_img">'));
 
 //	add hide div to these classes
-$( "span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location" ).each(function(i,el){
+$( "span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_policy-marker" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children();
 	var c=$("<span class='hide'>[ - ] HIDE</span>");
