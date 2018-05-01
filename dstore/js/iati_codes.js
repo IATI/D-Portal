@@ -117,7 +117,7 @@ iati_codes.fetch = function(){
 			},
 			{
 				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/PolicyMarker.json",
-				name:"policy_mark",
+				name:"policy_code",
 			},
 			{
 				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/PolicySignificance.json",
