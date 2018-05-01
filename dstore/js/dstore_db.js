@@ -82,7 +82,8 @@ dstore_db.tables={
 	related:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
 		{ name:"related_aid",					TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
-		{ 										UNIQUE:["aid","related_aid"] }, // each pair is unique
+		{ name:"related_type",					INTEGER:true , INDEX:true },
+//		{ 										UNIQUE:["aid","related_aid"] }, // each pair is unique
 	],
 	trans:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
@@ -166,6 +167,11 @@ dstore_db.tables={
 		{ name:"element_name2",					NOCASE:true , INDEX:true },					// the parent of the parent of the element
 		{ name:"element_name3",					NOCASE:true , INDEX:true },					// the parent of the parent of the parent of the element
 		{ name:"element_volume",				INTEGER:true , INDEX:true },				// number of occurrences of element
+	],
+// include policy-markers (DAC codes only)
+	policy:[
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
+		{ name:"policy_code",					NOCASE:true , INDEX:true },				// the code is prefixed by the significance and an underscore then the code
 	],
 };
 	
@@ -645,7 +651,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		}
 
 // make really really sure old junk is deleted
-		(["act","jml","trans","budget","country","sector","location","slug","element"]).forEach(function(v,i,a){
+		(["act","jml","trans","budget","country","sector","location","slug","element","policy","related"]).forEach(function(v,i,a){
 			dstore_db.delete_from(db,v,{aid:t.aid});
 		});
 
@@ -981,6 +987,36 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 			}
 		}
 		
+// record policy-marker DAC only with significance and code closely coupled (they make no sense apart as one may negate the other)
+
+		refry.tags(act,"policy-marker",function(it){
+			if( (!it.vocabulary) || (it.vocabulary=="DAC") || (it.vocabulary==1) ) // must be DAC
+			{
+				if( parseInt(it.significance) && parseInt(it.code) )
+				{
+					var code=parseInt(it.significance)+"_"+parseInt(it.code)
+					dstore_back.replace(db,"policy",{
+						"aid":t.aid,
+						"policy_code":code,
+					});
+				}
+			}
+		});
+
+// work on related activities
+
+		refry.tags(act,"related-activity",function(it){
+
+			if( it.ref )
+			{
+				dstore_back.replace(db,"related",{
+					"aid":t.aid,
+					"related_aid":it.ref.trim(),
+					"related_type":parseInt(it.type),
+				});
+			}
+
+		});
 		
 		
 //		t.xml=xml;
