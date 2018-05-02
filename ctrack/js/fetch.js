@@ -167,7 +167,7 @@ fetch.ajax_dat_fix=function(dat,args,flag)
 		}
 	}
 
-console.log(dat)
+//console.log(dat)
 
 	return dat;
 }
