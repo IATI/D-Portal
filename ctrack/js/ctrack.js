@@ -310,6 +310,10 @@ ctrack.setup=function(args)
 		search_args.push("year_min"+"="+ctrack.q.year_min)
 		args.year_min=parseInt(ctrack.q.year_min,10);
 	}
+	if( ctrack.q.policy_code )
+	{
+		args.policy_code=ctrack.q.policy_code;
+	}
 
 
 	if( ctrack.q.search || (ctrack.q.search=="") )

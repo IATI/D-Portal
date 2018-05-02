@@ -87,6 +87,7 @@ fetch.ajax_dat_fix=function(dat,args,flag)
 
 	dat["text_search"]		=	dat["text_search"]		||	ctrack.args.search;
 
+	dat["policy_code"]		=	dat["policy_code"]		||	ctrack.args.policy_code ;
 
 //	dat["day_start_lt"]		=	dat["day_start_lt"]		||	(args.date_max 		|| ctrack.args.date_max);
 //	dat["day_end_gteq"]		=	dat["day_end_gteq"]		||	(args.date_min 		|| ctrack.args.date_min);
@@ -160,7 +161,13 @@ fetch.ajax_dat_fix=function(dat,args,flag)
 		{
 			if(dat.from.indexOf("location")==-1) { dat.from+=",location"; }
 		}
+		if(dat.policy_code)
+		{
+			if(dat.from.indexOf("policy")==-1) { dat.from+=",policy"; }
+		}
 	}
+
+console.log(dat)
 
 	return dat;
 }
