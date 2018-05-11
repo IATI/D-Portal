@@ -166,7 +166,7 @@ ctrack.setup=function(args)
 		}
 		else
 		{
-			if(n=="spend"||n=="commitment") { return v[n]; }
+			if(n=="spend"||n=="commitment") { return v[n]*ctrack.convert_usd; }
 			return  v[n+"_usd"]*ctrack.convert_usd;
 		}
 	};
