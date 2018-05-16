@@ -99,7 +99,7 @@ exs.exchange_yearmonth=function(exto,yearmonth,ex,val)
 
 	if((!ret)&&(val!=0)) // try the usd year table which may have more obscure but inaccurate values.
 	{
-		return exs.exchange_year(exto,yearmonth,ex,val)
+		return exs.exchange_year(exto,yearmonth,ex,val) || 0; // no nulls please
 	}
 
 	return ret;
@@ -182,6 +182,7 @@ exs.create_csv = function(){
 //	fs.writeFileSync(__dirname+"/../json/csv_year.json",JSON.stringify(csv_ys,null,'\t'));
 	
 	
+/*
 	var xes={
 		"ALGERIAN DINAR":"DZD",			"Australian dollar":"AUD",
 		"Austrian schilling":"ATS",		"Bahrain dinar":"BHD",
@@ -217,6 +218,66 @@ exs.create_csv = function(){
 		"Israeli New Sheqel":"ILS",		"Kazakhstani Tenge":"KZT",
 		"Mauritian Rupee":"MUR",		"Russian Ruble":"RUB"
 	};
+*/
+
+	var xes={
+
+"Chinese yuan"				:	"CNY",
+"Euro"						:	"EUR",
+"Japanese yen"				:	"JPY",
+"U.K. pound"				:	"GBP",
+"U.S. dollar"				:	"USD",
+"Algerian dinar"			:	"DZD",
+"Australian dollar"			:	"AUD",
+"Bahrain dinar"				:	"BHD",
+"Botswana pula"				:	"BWP",
+"Brazilian real"			:	"BRL",
+"Brunei dollar"				:	"BND",
+"Canadian dollar"			:	"CAD",
+"Chilean peso"				:	"CLP",
+"Colombian peso"			:	"COP",
+"Czech koruna"				:	"CZK",
+"Danish krone"				:	"DKK",
+"Hungarian forint"			:	"HUF",
+"Icelandic krona"			:	"ISK",
+"Indian rupee"				:	"INR",
+"Indonesian rupiah"			:	"IDR",
+"Iranian rial"				:	"IRR",
+"Israeli New Shekel"		:	"ILS",
+"Kazakhstani tenge"			:	"KZT",
+"Korean won"				:	"KRW",
+"Kuwaiti dinar"				:	"KWD",
+"Libyan dinar"				:	"LYD",
+"Malaysian ringgit"			:	"MYR",
+"Mauritian rupee"			:	"MUR",
+"Mexican peso"				:	"MXN",
+"Nepalese rupee"			:	"NPR",
+"New Zealand dollar"		:	"NZD",
+"Norwegian krone"			:	"NOK",
+"Omani rial"				:	"OMR",
+"Pakistani rupee"			:	"PKR",
+"Peruvian sol"				:	"PEN",
+"Philippine peso"			:	"PHP",
+"Polish zloty"				:	"PLN",
+"Qatari riyal"				:	"QAR",
+"Russian ruble"				:	"RUB",
+"Saudi Arabian riyal"		:	"SAR",
+"Singapore dollar"			:	"SGD",
+"South African rand"		:	"ZAR",
+"Sri Lankan rupee"			:	"LKR",
+"Swedish krona"				:	"SEK",
+"Swiss franc"				:	"CHF",
+"Thai baht"					:	"THB",
+"Trinidadian dollar"		:	"TTD",
+"Tunisian dinar"			:	"TND",
+"U.A.E. dirham"				:	"AED",
+"Uruguayan peso"			:	"UYU",
+"Bolivar Fuerte"			:	"VEF",
+
+}
+
+
+	var unknown={}
 
 	var xes_low={};
 	for(var n in xes) { xes_low[ n.toLowerCase() ]=xes[n]; } //fix case
@@ -237,46 +298,36 @@ exs.create_csv = function(){
 			var dump_m={}
 			dump_ms[year+"-"+month0]=dump_m;
 			
-			var csv_file=wait.for(http_getbody,"http://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate="+year+"-"+month+"-01&reportType=SDRCV&tsvflag=Y");
-//			var csv_lines=wait.for( function(cb){ csv().from.string(csv_file,{delimiter:'\t'}).to.array( function(d){ cb(null,d); } ); } );
-//			var csv_lines=wait.for(csv_parse,csv_file,{delimiter:'\t'});
+			var csv_file=wait.for(http_getbody,"http://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate="+year+"-"+month+"-01&reportType=CVSDR&tsvflag=Y");
+
 			var csv_lines=baby.parse(csv_file,{delimiter:'\t'}).data;
 console.log(year + " " + month );
-		
+
 			var active=false;
 			csv_lines.forEach(function(line){
-				if(line[0].toLowerCase()=="currency")
+				var cid=xes_low[ line[0].toLowerCase() ];
+				if( cid )
 				{
-					active=true;
-				}
-				else
-				if(active)
-				{
-					var cid=xes_low[ line[0].toLowerCase() ];
-					if( cid )
-					{
 
-						var dm=dump_m[cid] || {count:0,total:0}; dump_m[cid]=dm;
-						var dy=dump_y[cid] || {count:0,total:0}; dump_y[cid]=dy;
-						
-						for(i=1;i<line.length;i++)
+					var dm=dump_m[cid] || {count:0,total:0}; dump_m[cid]=dm;
+					var dy=dump_y[cid] || {count:0,total:0}; dump_y[cid]=dy;
+					
+					for(i=1;i<line.length;i++)
+					{
+						var pf=parseFloat( line[i].replace(",","") ); // deal with , in values
+						if( line[i] && ( pf > 0 ) )
 						{
-							var pf=parseFloat(line[i]);
-							if( line[i] && ( pf > 0 ) )
-							{
-								dm.total+=pf;
-								dm.count++;
-								dy.total+=pf;
-								dy.count++;
-							}
+							dm.total+=pf;
+							dm.count++;
+							dy.total+=pf;
+							dy.count++;
 						}
 					}
-					else
-					{
-						active=false;
-//						ls("UNKNOWN CURRENCY "+line[0]);
-					}
-				}		
+				}
+				else
+				{
+					unknown[ line[0] ]="???"
+				}
 			});
 			
 			for(var n in dump_m )
@@ -284,7 +335,7 @@ console.log(year + " " + month );
 				var d=dump_m[n];
 				if(d.count>0)
 				{
-					dump_m[n] = d.total/d.count;
+					dump_m[n] = 1/(d.total/d.count);
 					dump_m["XDR"]=1;
 				}
 				else
@@ -298,7 +349,7 @@ console.log(year + " " + month );
 			var d=dump_y[n];
 			if(d.count>0)
 			{
-				dump_y[n] = d.total/d.count;
+				dump_y[n] = 1/(d.total/d.count);
 				dump_y["XDR"]=1;
 			}
 			else
@@ -308,7 +359,12 @@ console.log(year + " " + month );
 		}
 	}
 
+console.log("IF THIS DUMP CONTAINS ANY REAL CURRENCIES THEN THE CODE IS BROKEN")
+console.log("YOU WILL NEED TO MANUALLY ADD IT TO THE LIST IN dstore/js/exs.js")
+console.log(unknown)
+
 // dump monthly averages
+
 	fs.writeFileSync(__dirname+"/../json/xdr_year.json",json_stringify(dump_ys,{ space: ' ' }));
 	fs.writeFileSync(__dirname+"/../json/xdr_month.json",json_stringify(dump_ms,{ space: ' ' }));
 
@@ -332,43 +388,8 @@ console.log(year + " " + month );
 		}
 
 	}
+
 	fs.writeFileSync(__dirname+"/../json/usd_year.json",json_stringify(csv_ys,{ space: ' ' }));
-
-// build a USD based exchange CSV, similar to the one found in google docs.
-/*
-	var head={};	
-	for(var year in csv_ys)
-	{
-		for(var x in csv_ys[year])
-		{
-			head[x]=true;
-		}
-	}
-	var fields=[];
-	for(var x in head)
-	{
-		fields.push(x);
-	}
-	fields.sort();
-	fields.unshift("year");
-
-	var years=[];
-	for(var year in csv_ys)
-	{
-		years.push(year);
-	}
-	years.sort();
-
-	var data=[]
-	for(var idx in years)
-	{
-		var year=years[idx];
-		var aa=csv_ys[year];
-		aa.year=year
-		data.push(aa);
-	}
-	fs.writeFileSync(__dirname+"/../json/usd_year.csv", wait.for( csv_write,{data:data,fields:fields} ) );
-*/
 
 }
 
