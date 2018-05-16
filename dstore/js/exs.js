@@ -99,7 +99,7 @@ exs.exchange_yearmonth=function(exto,yearmonth,ex,val)
 
 	if((!ret)&&(val!=0)) // try the usd year table which may have more obscure but inaccurate values.
 	{
-		return exs.exchange_year(exto,yearmonth,ex,val)
+		return exs.exchange_year(exto,yearmonth,ex,val) || 0; // no nulls please
 	}
 
 	return ret;
@@ -309,8 +309,11 @@ console.log(year + " " + month );
 	}
 
 // dump monthly averages
-	fs.writeFileSync(__dirname+"/../json/xdr_year.json",json_stringify(dump_ys,{ space: ' ' }));
-	fs.writeFileSync(__dirname+"/../json/xdr_month.json",json_stringify(dump_ms,{ space: ' ' }));
+
+//FIXME:BORKEN	
+//	fs.writeFileSync(__dirname+"/../json/xdr_year.json",json_stringify(dump_ys,{ space: ' ' }));
+//	fs.writeFileSync(__dirname+"/../json/xdr_month.json",json_stringify(dump_ms,{ space: ' ' }));
+//FIXME:BORKEN	
 
 
 // start with csv_ys (which we grabbed from google docs) and replace with our imf values
@@ -332,43 +335,10 @@ console.log(year + " " + month );
 		}
 
 	}
-	fs.writeFileSync(__dirname+"/../json/usd_year.json",json_stringify(csv_ys,{ space: ' ' }));
 
-// build a USD based exchange CSV, similar to the one found in google docs.
-/*
-	var head={};	
-	for(var year in csv_ys)
-	{
-		for(var x in csv_ys[year])
-		{
-			head[x]=true;
-		}
-	}
-	var fields=[];
-	for(var x in head)
-	{
-		fields.push(x);
-	}
-	fields.sort();
-	fields.unshift("year");
-
-	var years=[];
-	for(var year in csv_ys)
-	{
-		years.push(year);
-	}
-	years.sort();
-
-	var data=[]
-	for(var idx in years)
-	{
-		var year=years[idx];
-		var aa=csv_ys[year];
-		aa.year=year
-		data.push(aa);
-	}
-	fs.writeFileSync(__dirname+"/../json/usd_year.csv", wait.for( csv_write,{data:data,fields:fields} ) );
-*/
+//FIXME:BORKEN	
+//	fs.writeFileSync(__dirname+"/../json/usd_year.json",json_stringify(csv_ys,{ space: ' ' }));
+//FIXME:BORKEN	
 
 }
 
