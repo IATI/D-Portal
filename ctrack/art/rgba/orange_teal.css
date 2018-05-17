@@ -629,6 +629,15 @@ related-activity:hover				{color:var(--base11);}
 related-activity:before				{color:var(--base15);}
 
 
+/*	Policy marker
+	============================================= */
+span.span_policy-marker:before		{color:var(--base15); border-bottom:1px solid var(--base03);}
+policy-marker						{color:var(--base15);}
+span-narrative.policy_vocab,
+span-narrative.policy_code,
+span-narrative.policy_sig			{color:var(--base15); background-color:var(--base03);}
+
+
 /*	Hide and expand buttons
 	============================================= */
 span.hide 		 {color:var(--base14);}
