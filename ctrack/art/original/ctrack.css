@@ -466,7 +466,7 @@ table.stats td			{padding:0px; vertical-align:top;}
 
 /*	Table for Active / Ended projects
 	============================================= */
-table.list				{width:100%; border-collapse:collapse;}
+table.list				{width:100%; border-collapse:collapse; word-break:break-word;}
 table.list td			{color:#B8C8CD; font-size:1.25em; line-height:1.35em; word-spacing:0.7px; padding:20px 0; vertical-align:top; border-bottom:1px solid #333642;}
 table.list tr:last-child td	{border:0; padding-bottom:20px;}
 table.list tr:hover		{background-color:rgba(0,0,0,0.4);}
@@ -554,7 +554,7 @@ table.money.publishers th.col2	{border-top:1px solid rgba(0,50,151,1);}
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
-table.activity			{width:100%; border-collapse:collapse;}
+table.activity			{width:100%; border-collapse:collapse; word-break:break-word;}
 table.activity td		{color:#B8C8CD; font-size:1.25em; line-height:1.0em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642; box-sizing:border-box;}
 table.activity th:hover	{cursor:default;}
 table.activity tr:last-child td	{border:0;}
