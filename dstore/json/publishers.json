@@ -9132,7 +9132,7 @@
     "id": "030f77d6-fb17-4f07-90d8-08c099401ea3",
     "name": "ellenpaton",
     "number_created_packages": 2,
-    "number_of_edits": 30,
+    "number_of_edits": 32,
     "state": "active",
     "sysadmin": false
    }
@@ -11508,8 +11508,11 @@
   "image_url": "http://www.caribank.org/",
   "is_organization": true,
   "name": "caribank",
-  "package_count": 0,
+  "package_count": 3,
   "packages": [
+   "caribank-380",
+   "caribank-dm",
+   "caribank-vg"
   ],
   "revision_id": "6b5fbf81-edc9-438a-8d71-3d0022ad74bf",
   "state": "active",
@@ -11528,8 +11531,8 @@
     "fullname": "Caribbean Development Bank",
     "id": "1cccbef5-8e7e-487f-9e42-81b56c78f70e",
     "name": "caribank",
-    "number_created_packages": 0,
-    "number_of_edits": 18,
+    "number_created_packages": 3,
+    "number_of_edits": 21,
     "state": "active",
     "sysadmin": false
    }
@@ -15229,7 +15232,7 @@
     "id": "135e9908-64c5-4d92-808a-98986826b07b",
     "name": "cordaid",
     "number_created_packages": 2,
-    "number_of_edits": 350,
+    "number_of_edits": 353,
     "state": "active",
     "sysadmin": false
    }
@@ -18242,7 +18245,7 @@
     "id": "030f77d6-fb17-4f07-90d8-08c099401ea3",
     "name": "ellenpaton",
     "number_created_packages": 2,
-    "number_of_edits": 30,
+    "number_of_edits": 32,
     "state": "active",
     "sysadmin": false
    }
@@ -27233,6 +27236,72 @@
    }
   ]
  },
+ "givedirectly": {
+  "approval_status": "approved",
+  "created": "2018-05-24T16:18:16.743952",
+  "description": "",
+  "display_name": "GiveDirectly",
+  "extras": {
+   "license_id": "cc-by-sa",
+   "publisher_agencies": "Implementing organisation: GiveDirectly.\r\nFunding organisation: UK Department for International Development (DFID).\r\n% of total GiveDirectly development flow: ~1%\r\n% of total activity (Uganda Refugees Pilot) budget: 21.6%\r\nWhat is missing: data for all other projects and for non-DFID donors.",
+   "publisher_constraints": "",
+   "publisher_contact": "P.O. Box 3221, New York, NY 10008",
+   "publisher_contact_email": "paddy@givedirectly.org",
+   "publisher_country": "US",
+   "publisher_data_quality": "Operational data, possibly subject to a small amount of change as the project is completed.",
+   "publisher_description": "GiveDirectly aims to transform aid - and millions of lives, by delivering large, unconditional cash transfers to people living in poverty. We support academic research into our programs, and have launched the world's first true universal basic income trial in Kenya. We have reached over 100,000 households since launching in 2011 currently operate in Kenya, Uganda and Rwanda.",
+   "publisher_field_exclusions": "",
+   "publisher_first_publish_date": "",
+   "publisher_frequency": "",
+   "publisher_frequency_select": "quarterly",
+   "publisher_iati_id": "US-EIN-27-1661997",
+   "publisher_implementation_schedule": "",
+   "publisher_organization_type": "21",
+   "publisher_record_exclusions": "Initially we are only publishing data for our DFID-funded activities: the Uganda Refugees Pilot activity. \r\nFurther, we will initially only publish data for the DFID-funded components of this program, before later publishing for the non-DFID components.",
+   "publisher_refs": "",
+   "publisher_segmentation": "N/A: we will only publish data for one activity (Refugees pilot), in one country (Uganda)",
+   "publisher_source_type": "primary_source",
+   "publisher_thresholds": "See record exclusions above.",
+   "publisher_timeliness": "Within 6 months.",
+   "publisher_ui": "",
+   "publisher_ui_url": null,
+   "publisher_units": "Activities are defined at the project level. \r\nWe will publish data for the Uganda Refugees Pilot activity, initially for the DFID-funded component (and then later for all other components).",
+   "publisher_url": "https://givedirectly.org/"
+  },
+  "groups": [
+  ],
+  "id": "a541fc68-bac3-43d7-a69a-20e9e3265a95",
+  "image_display_url": "https://yt3.ggpht.com/a-/AJLlDp2QkYEL5yK6yEeaekI91MxprE7lZeOBRBj-=s900-mo-c-c0xffffffff-rj-k-no",
+  "image_url": "https://yt3.ggpht.com/a-/AJLlDp2QkYEL5yK6yEeaekI91MxprE7lZeOBRBj-=s900-mo-c-c0xffffffff-rj-k-no",
+  "is_organization": true,
+  "name": "givedirectly",
+  "package_count": 0,
+  "packages": [
+  ],
+  "revision_id": "3ac8cbfb-61c9-47c1-9e5b-614fa2a81119",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "GiveDirectly",
+  "type": "organization",
+  "users": [
+   {
+    "about": null,
+    "activity_streams_email_notifications": false,
+    "capacity": "admin",
+    "created": "2018-05-22T16:14:43.101887",
+    "display_name": "Paddy McCann",
+    "email_hash": "e95f7c6bb60943b88d7c1142ca72ac4d",
+    "fullname": "Paddy McCann",
+    "id": "c9dff1e3-0032-45ab-ae2a-fd40eea7aad2",
+    "name": "padmccann",
+    "number_created_packages": 0,
+    "number_of_edits": 2,
+    "state": "active",
+    "sysadmin": false
+   }
+  ]
+ },
  "gl": {
   "approval_status": "approved",
   "created": "2012-10-02T09:37:29.351970",
@@ -28164,7 +28233,7 @@
     "id": "47291f50-934d-4902-8ed9-5e15f1162eb3",
     "name": "hai",
     "number_created_packages": 2,
-    "number_of_edits": 127,
+    "number_of_edits": 128,
     "state": "active",
     "sysadmin": false
    }
@@ -45963,28 +46032,28 @@
   "display_name": "Orbis Africa",
   "extras": {
    "license_id": "cc-by",
-   "publisher_agencies": "",
-   "publisher_constraints": "",
+   "publisher_agencies": "Our IATI data covers our DFID-funded project in Copperbelt Province, Zambia for which Orbis Charitable Trust is the grant recipient and Orbis Africa and Orbis Zambia are the delivery organisation's. This covers around 18% of Orbis Africa's total programme funding in 2018.",
+   "publisher_constraints": "n/a",
    "publisher_contact": "Kings Cross Corner,\r\n9 Queens Park Avenue,\r\nSalt River,\r\nCape Town,\r\nSouth Africa,\r\n7925",
    "publisher_contact_email": "orbis@orbis.org.za",
    "publisher_country": "ZA",
-   "publisher_data_quality": "",
+   "publisher_data_quality": "Financial data will be verified by headquarters' finance staff prior to publication. Other information will be reviewed by headquarters' programme staff prior to publication.",
    "publisher_description": "Orbis Africa is part of Orbis International, a global non-profit organisation dedicated to preserving and restoring the sight of people in the poorest communities around the world. \r\n\r\nAs one of the leading members of the International Agency for the Prevention of Blindness (IAPB), Orbis is known for its prevention and treatment strategies against avoidable blindness. \r\n\r\nOrbis Africa was established in 2010, and our head office is in Cape Town.",
-   "publisher_field_exclusions": "",
-   "publisher_first_publish_date": "2018-05-01T16:21:09.211055",
+   "publisher_field_exclusions": "n/a",
    "publisher_frequency": "",
-   "publisher_frequency_select": "not_specified",
+   "publisher_frequency_select": "quarterly",
    "publisher_iati_id": "ZA-PBO-930040668",
-   "publisher_implementation_schedule": "",
+   "publisher_implementation_schedule": "https://www.dropbox.com/s/gw5viohwdl2wrf4/ImplementationSchedule_Orbis%20Africa.xlsx?dl=0",
    "publisher_organization_type": "21",
-   "publisher_record_exclusions": "",
-   "publisher_refs": "",
-   "publisher_segmentation": "",
+   "publisher_record_exclusions": "n/a",
+   "publisher_refs": "n/a",
+   "publisher_segmentation": "As only one project will be reported initially, we will only be publishing one file.",
    "publisher_source_type": "primary_source",
-   "publisher_thresholds": "",
-   "publisher_timeliness": "",
-   "publisher_ui": "",
-   "publisher_units": "",
+   "publisher_thresholds": "n/a",
+   "publisher_timeliness": "Data will be updated quarterly in arrears.",
+   "publisher_ui": "We will not be providing a user interface on our website initially. However, we will link to our IATI data from Orbis Charitable Trust's website.",
+   "publisher_ui_url": null,
+   "publisher_units": "Initially, we will only be publishing on the project level.",
    "publisher_url": "http://zaf.orbis.org"
   },
   "groups": [
@@ -46016,7 +46085,7 @@
     "id": "9151d4ee-3ede-40bb-a2e0-49c257bacb0e",
     "name": "orbis_admin",
     "number_created_packages": 9,
-    "number_of_edits": 94,
+    "number_of_edits": 97,
     "state": "active",
     "sysadmin": false
    }
@@ -46029,25 +46098,24 @@
   "display_name": "Orbis Ethiopia",
   "extras": {
    "license_id": "cc-by",
-   "publisher_agencies": "",
-   "publisher_constraints": "",
+   "publisher_agencies": "Our IATI data covers our DFID-funded project in Gedeo zone, Amaro and Burji woredas in Ethiopia for which Orbis Charitable Trust is the grant recipient and Orbis Ethiopia is the delivery organisation. This covers around 47% of Orbis Ethiopia's total programme funding in 2018.",
+   "publisher_constraints": "n/a",
    "publisher_contact": "3rd Floor, Rebecca Building, Haile Gebreselassie Ave., 22 Mazoria Yeka Sub-City, Kebel 11/12, Addis Ababa, Ethiopia",
    "publisher_contact_email": "programmesupportteamuk@orbis.org.uk",
    "publisher_country": "ET",
    "publisher_data_quality": "Financial data will be verified by Ethiopia and UK finance staff prior to publication. Other information will be reviewed by Ethiopia and UK programme staff prior to publication.",
    "publisher_description": "Orbis Ethiopia is an affiliate of Orbis International. It is the implementing partner of Orbis UK. Initially, it will be reporting its expenditure and results for an Aid Direct DFID funded project in the Gedeo zone and Amaro and Burji Woredas of SNNPR in Southern Ethiopia.",
    "publisher_field_exclusions": "We use all the fields required by DFID.",
-   "publisher_first_publish_date": "",
    "publisher_frequency": "",
    "publisher_frequency_select": "quarterly",
    "publisher_iati_id": "ET-CSA-1063",
-   "publisher_implementation_schedule": "",
+   "publisher_implementation_schedule": "https://www.dropbox.com/s/emjintxnczgaqv0/ImplementationSchedule_Orbis%20Ethiopia.xlsx?dl=0",
    "publisher_organization_type": "22",
-   "publisher_record_exclusions": "",
+   "publisher_record_exclusions": "n/a",
    "publisher_refs": "",
    "publisher_segmentation": "Oribs Ethiopia will be reporting on its own project.",
    "publisher_source_type": "primary_source",
-   "publisher_thresholds": "",
+   "publisher_thresholds": "n/a",
    "publisher_timeliness": "Data will be updated quarterly in arrears. ",
    "publisher_ui": "We will not be providing a user interface on our website initially. However, Orbis Charitable Trust will link to IATI data from its website.",
    "publisher_ui_url": null,
@@ -46084,7 +46152,7 @@
     "id": "9151d4ee-3ede-40bb-a2e0-49c257bacb0e",
     "name": "orbis_admin",
     "number_created_packages": 9,
-    "number_of_edits": 94,
+    "number_of_edits": 97,
     "state": "active",
     "sysadmin": false
    }
@@ -46097,29 +46165,28 @@
   "display_name": "Orbis International",
   "extras": {
    "license_id": "cc-by",
-   "publisher_agencies": "Orbis International will publish its financial flow data for projects that are funded by DFID.",
-   "publisher_constraints": "",
+   "publisher_agencies": "Orbis International will publish its financial flow data for projects that are funded by DFID. This covers around 0.14% of Orbis International's total programme funding in 2018.",
+   "publisher_constraints": "n/a",
    "publisher_contact": "520 8th Avenue, 12th Floor, New York, NY 10018, United States",
    "publisher_contact_email": "programmesupportteamuk@orbis.org.uk",
    "publisher_country": "US",
    "publisher_data_quality": "Financial data will be verified by US and UK finance staff prior to publication. ",
    "publisher_description": "Orbis International is the Head Quarters of the Orbis affiliate offices. Orbis is an international sight-saving charity. Through innovative programmes and partnerships, Orbis creates long-term, lasting solutions to prevent and treat blindness worldwide. By training medical staff, strengthening in-country eye care services, expanding quality eye care provision and preventing eye conditions, Orbis is part of the solution. ",
-   "publisher_field_exclusions": "We us all the fields required by DFID.",
-   "publisher_first_publish_date": "",
+   "publisher_field_exclusions": "We will use all the fields required by DFID.",
    "publisher_frequency": "",
    "publisher_frequency_select": "quarterly",
    "publisher_iati_id": "US-EIN-237297651",
-   "publisher_implementation_schedule": "",
+   "publisher_implementation_schedule": "https://www.dropbox.com/s/mu6h6zbrpd0ztt5/ImplementationSchedule_Orbis%20International.xlsx?dl=0",
    "publisher_organization_type": "21",
-   "publisher_record_exclusions": "",
+   "publisher_record_exclusions": "n/a",
    "publisher_refs": "",
-   "publisher_segmentation": "We will be reporting on our involvement in a DFID Aid Direct funded project in Ethiopia. ",
+   "publisher_segmentation": "We will be reporting on our involvement in a DFID Aid Direct funded project in Ethiopia and a DFID Aid Match funded project in Zambia.",
    "publisher_source_type": "primary_source",
-   "publisher_thresholds": "",
+   "publisher_thresholds": "n/a",
    "publisher_timeliness": "Financial flow data will be reported each quarter.",
    "publisher_ui": "Orbis Charitable Trust will link to IATI data from their website.",
    "publisher_ui_url": null,
-   "publisher_units": "",
+   "publisher_units": "Initially, we will only be publishing on the project level.",
    "publisher_url": "http://www.orbis.org/en"
   },
   "groups": [
@@ -46153,7 +46220,7 @@
     "id": "9151d4ee-3ede-40bb-a2e0-49c257bacb0e",
     "name": "orbis_admin",
     "number_created_packages": 9,
-    "number_of_edits": 94,
+    "number_of_edits": 97,
     "state": "active",
     "sysadmin": false
    }
@@ -46221,7 +46288,7 @@
     "id": "9151d4ee-3ede-40bb-a2e0-49c257bacb0e",
     "name": "orbis_admin",
     "number_created_packages": 9,
-    "number_of_edits": 94,
+    "number_of_edits": 97,
     "state": "active",
     "sysadmin": false
    }
@@ -49934,7 +50001,7 @@
     "id": "a2fdf85d-952a-4fd4-9808-3fadaa645721",
     "name": "pwcplindia",
     "number_created_packages": 2,
-    "number_of_edits": 23,
+    "number_of_edits": 25,
     "state": "active",
     "sysadmin": false
    }
@@ -55297,8 +55364,8 @@
     "fullname": "Nicolaas van Boeckel",
     "id": "ca46bd7c-08ad-4500-b7b3-b71e42462538",
     "name": "nicolaas",
-    "number_created_packages": 4,
-    "number_of_edits": 116,
+    "number_created_packages": 8,
+    "number_of_edits": 131,
     "state": "active",
     "sysadmin": false
    }
@@ -55364,8 +55431,8 @@
     "fullname": "Nicolaas van Boeckel",
     "id": "ca46bd7c-08ad-4500-b7b3-b71e42462538",
     "name": "nicolaas",
-    "number_created_packages": 4,
-    "number_of_edits": 116,
+    "number_created_packages": 8,
+    "number_of_edits": 131,
     "state": "active",
     "sysadmin": false
    }
@@ -55410,8 +55477,10 @@
   "image_url": "http://www.solidaridadnetwork.org/sites/solidaridadnetwork.org/themes/solidaridad_network/logo.png",
   "is_organization": true,
   "name": "solidaridad-ssea",
-  "package_count": 0,
+  "package_count": 2,
   "packages": [
+   "solidaridad-ssea-activities",
+   "solidaridad-ssea-org"
   ],
   "revision_id": "532bd513-c9b8-4c70-805f-2e292c167494",
   "state": "active",
@@ -55430,8 +55499,8 @@
     "fullname": "Nicolaas van Boeckel",
     "id": "ca46bd7c-08ad-4500-b7b3-b71e42462538",
     "name": "nicolaas",
-    "number_created_packages": 4,
-    "number_of_edits": 116,
+    "number_created_packages": 8,
+    "number_of_edits": 131,
     "state": "active",
     "sysadmin": false
    }
@@ -55476,8 +55545,10 @@
   "image_url": "http://www.solidaridadnetwork.org/sites/solidaridadnetwork.org/themes/solidaridad_network/logo.png",
   "is_organization": true,
   "name": "solidaridad-waf",
-  "package_count": 0,
+  "package_count": 2,
   "packages": [
+   "solidaridad-waf-activity",
+   "solidaridad-waf-org"
   ],
   "revision_id": "d077139a-d4a7-4688-a358-433273d2feca",
   "state": "active",
@@ -55496,8 +55567,8 @@
     "fullname": "Nicolaas van Boeckel",
     "id": "ca46bd7c-08ad-4500-b7b3-b71e42462538",
     "name": "nicolaas",
-    "number_created_packages": 4,
-    "number_of_edits": 116,
+    "number_created_packages": 8,
+    "number_of_edits": 131,
     "state": "active",
     "sysadmin": false
    }
@@ -57937,7 +58008,7 @@
     "id": "1a692e90-37ef-4337-a605-80fc95616592",
     "name": "amys",
     "number_created_packages": 0,
-    "number_of_edits": 1095,
+    "number_of_edits": 1096,
     "state": "active",
     "sysadmin": true
    }
@@ -58003,7 +58074,7 @@
     "id": "1a692e90-37ef-4337-a605-80fc95616592",
     "name": "amys",
     "number_created_packages": 0,
-    "number_of_edits": 1095,
+    "number_of_edits": 1096,
     "state": "active",
     "sysadmin": true
    }
@@ -65717,6 +65788,7 @@
    "publisher_data_quality": "",
    "publisher_description": "VVOB is a programme organisation specialised in improving the quality of education systems. We provide technical assistance that reinforces capacities of governments and local education authrorities. We contribute to greater solidarity by increasing the support for quality education as an engine for development and equity.",
    "publisher_field_exclusions": "",
+   "publisher_first_publish_date": "2018-04-30T08:56:49.865011",
    "publisher_frequency": "",
    "publisher_frequency_select": "annually",
    "publisher_iati_id": "BE-BCE_KBO-0423616717",
@@ -65729,7 +65801,6 @@
    "publisher_thresholds": "",
    "publisher_timeliness": "",
    "publisher_ui": "",
-   "publisher_ui_url": null,
    "publisher_units": "",
    "publisher_url": "http://www.vvob.be/vvob/en"
   },
@@ -65763,7 +65834,7 @@
     "id": "6814239c-90c9-49d9-ae46-4678f4aab206",
     "name": "vvob-admin",
     "number_created_packages": 2,
-    "number_of_edits": 39,
+    "number_of_edits": 43,
     "state": "active",
     "sysadmin": false
    }
