@@ -765,6 +765,19 @@ iati_codes.fetch = function(){
 		{
 			done=false;
 			var v=rs[i];
+// clean out some key bumf to reduce pointless updates
+			v.metadata_modified=undefined // seems to change everynight no matter what so ignore
+			if(v.extras)
+			{
+ 				for(var ki=v.extras.length-1;ki>=0;ki--) // backwards as we will be removing
+				{
+					var kv=v.extras[ki]
+					if(kv && kv.key && kv.key.startsWith("issue_")) // these are auto errors that get added by the registry, IGNORE
+					{
+						v.extras.splice(ki,1)
+					}
+				}
+			}
 			packages[v.name]=v;
 		}
 		start+=1000;
