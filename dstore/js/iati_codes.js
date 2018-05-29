@@ -153,24 +153,27 @@ iati_codes.fetch = function(){
 	}
 	codes["transaction_type"]=o;
 
-// conversion from new code to old (we keep using old codes internally)
-	var n;
-	var t={};
-	for(n in codes["old_transaction_type"])
-	{
-		t[ codes["old_transaction_type"][n] ]=n;
-	}
-	var o={};
-	for(n in codes["old_transaction_type"])
-	{
-		o[ n ]=n;
-	}
-	for(n in codes["new_transaction_type"])
-	{
-		o[ n ]=t[ codes["new_transaction_type"][n] ] || n;
-	}
 
-	codes["transaction_type_map"]=o; // map new codes to old codes and leave old codes as they are
+// conversion from new code to old (we keep using old codes internally)
+// This used to fail for C and IR as the wording changed so is now explicitly mapped
+	var t={
+		"1": "IF",
+		"2": "C",
+		"3": "D",
+		"4": "E",
+		"5": "IR",
+		"6": "LR",
+		"7": "R",
+		"8": "QP",
+		"9": "QS",
+		"10": "CG",
+	}
+	var o={}
+	for(n in codes["old_transaction_type"])	{ o[n]=n; } // copy
+	for(n in codes["new_transaction_type"]) { o[n]=n; } // copy
+	for(n in t) { o[n]=t[n]; } // map
+
+	codes["transaction_type_map"]=o; // map new codes to old codes where we can and leave old codes as they are
 
 	
 	console.log("Parsing csv/sector_category.csv")
