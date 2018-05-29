@@ -71,4 +71,4 @@ Database Logs
 We are tracking the nightly imports of IATI data being 
 published to d-portal.org [here](https://github.com/xriss/D-Portal-Logs).
 
-
+Service status on [Uptime Robot](https://stats.uptimerobot.com/8MWyWsgj7).

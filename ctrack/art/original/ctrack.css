@@ -415,9 +415,9 @@ ul.chosen-choices	{border-radius:6px;}
 
 /*	Table header styles
 	============================================= */
-th.titles					{color:#CCC; text-align:left; padding:15px 0 15px 20px; border-bottom:1px solid #333642;}
+th.titles					{color:#CCC; text-align:left; vertical-align:bottom; padding:15px 0 15px 20px; border-bottom:1px solid #333642;}
 th.titles:nth-child(1), th.titles:nth-child(3), th.titles:nth-child(4),
-th.titles:last-child		{padding:15px 20px 10px 0; text-align:right; font-size:0.9em;}
+th.titles:last-child		{padding:15px 20px 10px 20px; text-align:right; font-size:0.9em; line-height:1.25em;}
 th.titles:last-child		{min-width:120px; padding-left:20px;}
 
 
@@ -466,7 +466,7 @@ table.stats td			{padding:0px; vertical-align:top;}
 
 /*	Table for Active / Ended projects
 	============================================= */
-table.list				{width:100%; border-collapse:collapse;}
+table.list				{width:100%; border-collapse:collapse; word-break:break-word;}
 table.list td			{color:#B8C8CD; font-size:1.25em; line-height:1.35em; word-spacing:0.7px; padding:20px 0; vertical-align:top; border-bottom:1px solid #333642;}
 table.list tr:last-child td	{border:0; padding-bottom:20px;}
 table.list tr:hover		{background-color:rgba(0,0,0,0.4);}
@@ -554,18 +554,18 @@ table.money.publishers th.col2	{border-top:1px solid rgba(0,50,151,1);}
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
-table.activity			{width:100%; border-collapse:collapse;}
+table.activity			{width:100%; border-collapse:collapse; word-break:break-word;}
 table.activity td		{color:#B8C8CD; font-size:1.25em; line-height:1.0em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642; box-sizing:border-box;}
 table.activity th:hover	{cursor:default;}
 table.activity tr:last-child td	{border:0;}
 table.activity tr:hover	{background-color:rgba(0,0,0,0.4);}
 table.activity tr:first-child:hover	{background-color:transparent;}
-table.activity td.num	{padding:10px 0 10px 20px; font-size:1.0em; line-height:1.75em;}
-table.activity td.title	{padding:0 30px 0 0;}
-table.activity td.title.missing	{width:600px; max-width:600px;}
-table.activity td.value	{text-align:right; padding:10px 20px 25px 20px; font-size:1.0em; line-height:1.75em;}
+table.activity td.num	{padding:10px 0 10px 20px; font-size:1.0em; line-height:1.75em; width:5%;}
+table.activity td.title	{padding:0; width:60%;}
+table.activity td.value	{text-align:right; padding:10px 20px 25px 20px; font-size:1.0em; line-height:1.75em; width:20%;}
 table.activity td.count	{text-align:right; padding:10px 20px 0 40px; font-size:1.7em; line-height:1.0em;}
-table.activity td.date	{text-align:right; padding:10px 20px 10px 10px; white-space:nowrap; font-size:1.0em; line-height:1.75em;}
+table.activity td.date	{text-align:right; padding:10px 20px; white-space:nowrap; font-size:1.0em; line-height:1.75em; width:15%;}
+table.activity td.date.missing_date		{width:10%;}
 table.activity td.alert_no_iati	{text-align:center; font-size:1.6em; padding:40px; cursor:default;}
 table.activity td span	{display:block; padding:2px 0 3px 0; color:#999; font-size:0.7em; line-height:1.25em; width:100%;}
 table.activity td span.currency {display:inline; line-height:2.5em; padding:0 0 0 5px;}
