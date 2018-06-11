@@ -202,9 +202,7 @@ result document-link description	{display:none;}
 
 result indicator			{display:block; margin:auto; margin-top:10px; margin-bottom:0px; width:880px; position:relative;}
 result indicator:nth-of-type(1)	{margin-top:20px;}
-result indicator:before		{counter-increment:subsection; content:counter(section) "." counter(subsection) " INDICATOR"; font-size:14px; color:#000; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #000; padding:10px 0;}
-result indicator[measure="1"]:before,
-result indicator[measure="2"]:before	{content:counter(section) "." counter(subsection) " INDICATOR";}
+result indicator:before		{content:"INDICATOR"; font-size:14px; color:#000; display:block; margin:auto; margin-bottom:10px; border-bottom:1px solid #000; padding:10px 0;}
 
 result indicator[measure="2"] period baseline span-narrative:after,
 result indicator[measure="2"] period target span-narrative:after,
