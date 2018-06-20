@@ -328,12 +328,19 @@ query.getsql_from=function(q,qv){
 };
 
 query.getsql_where=function(q,qv){
-	var ss=[];
+	var filters=[];
+	var tables={};
+	var wheres=[];
 	
 	var ns=q[0];
 	
 	var joins={};
 	
+	var premap={ // possible prefixs
+		"filter_":"filter",
+		"":"query",
+	};
+
 	var qemap={ // possible comparisons
 		"_lt":"<",
 		"_gt":">",
@@ -348,16 +355,26 @@ query.getsql_where=function(q,qv){
 		"":"="
 	};
 
-	var niq=0;
-	for(var n in ns)
+var niq=0;
+for(var n in ns) // all valid fields
+{
+	for( var pm in premap ) // prefix
 	{
-		for( var qe in qemap )
+		var mp=premap[pm];
+		var ss;
+		if(mp=="filter")	{ ss=filters; } // a sub query
+		else 				{ ss=wheres;  }
+
+		for( var qe in qemap ) // postfix
 		{
-			var ty=ns[n];
-			var v=q[n+qe];
+			var nformat=ns[n].format;
+			var ntable=ns[n].table;
+			var v=q[pm+n+qe];
 			var eq=qemap[qe];
 			if( v !== undefined ) // got a value
 			{
+				if(mp=="filter") { tables[ntable]=true } // keep map of tables to filter with
+				
 				if( eq=="NOT NULL") { ss.push( " "+n+" IS NOT NULL " ); }
 				else
 				if( eq=="NULL") { ss.push( " "+n+" IS NULL " ); }
@@ -368,17 +385,17 @@ query.getsql_where=function(q,qv){
 					{
 						var sa=v.split("|");
 						var sb=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(sa[0]);
-						if( sa[0].length==10 && sb && sb.length==4 && ty=="int") // date string, convert to number if dest is an int
+						if( sa[0].length==10 && sb && sb.length==4 && nformat=="int") // date string, convert to number if dest is an int
 						{
 							v=iati_xml.isodate_to_number(v);
 
 							if(sa.length==2 && (/null/i).test(sa[1]) ) // allow an explicit or |null case
 							{
-								ss.push( " ( "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" OR "+n+" IS NULL ) " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,ty);
+								ss.push( " ( "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" OR "+n+" IS NULL ) " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,nformat);
 							}
 							else
 							{
-								ss.push( " "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,ty);
+								ss.push( " "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,nformat);
 							}
 						}
 						else
@@ -389,7 +406,7 @@ query.getsql_where=function(q,qv){
 						}
 						else
 						{
-							ss.push( " "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,ty);
+							ss.push( " "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,nformat);
 						}
 					}
 					else
@@ -404,7 +421,7 @@ query.getsql_where=function(q,qv){
 						for(var i=0;i<v.length;i++)
 						{
 							so.push( " "+dstore_db.text_plate(n+qe+"_"+i)+" " )
-							qv[dstore_db.text_name(n+qe+"_"+i)]=query.maybenumber(v[i],ty);
+							qv[dstore_db.text_name(n+qe+"_"+i)]=query.maybenumber(v[i],nformat);
 						}
 						if(v.length==2 && (/null/i).test(v[1]) ) // allow an explicit or null case for base comparisons
 						{
@@ -435,6 +452,7 @@ query.getsql_where=function(q,qv){
 			}
 		}
 	}
+}
 	
 	var v=q["text_search"];
 	if( (ns["title"]) && (ns["description"]) && v ) // description and title and text_search available
@@ -442,20 +460,28 @@ query.getsql_where=function(q,qv){
 //console.log("text_search "+v)
 		if(argv.pg) // can use better pg search code
 		{
-			ss.push( " to_tsvector('simple',title || ' ' || description) @@ plainto_tsquery('simple',"+dstore_db.text_plate("text_search")+") " );
+			wheres.push( " to_tsvector('simple',title || ' ' || description) @@ plainto_tsquery('simple',"+dstore_db.text_plate("text_search")+") " );
 			qv[dstore_db.text_name("text_search")]=v;
 		}
 		else // can only use old sqlite search code that only checks title
 		{
-			ss.push( " title LIKE "+dstore_db.text_plate("text_search") );
+			wheres.push( " title LIKE "+dstore_db.text_plate("text_search") );
 			qv[dstore_db.text_name("text_search")]="%"+v+"%";
 		}
 	}
 
 	
 	var ret="";
-	if(ss[0]) { ret=" WHERE "+ss.join(" AND "); }
 	
+	if(filters[0])
+	{
+		var ts=[]
+		for(var n in tables) { ts.push(n) } // convert to array so we can join it
+		tables=ts.join(",")
+		wheres.push( " aid IN ( SELECT DISTINCT aid FROM "+tables+" WHERE "+filters.join(" AND ")+" ) " )
+	}
+	if(wheres[0] ) { ret =" WHERE "+wheres.join(" AND "); }
+
 	return ret;
 };
 
@@ -604,7 +630,9 @@ query.getsql_build_column_names=function(q,qv){
 	{
 		for(var n in dstore_db.tables_active[name])
 		{
-			ns[n]=dstore_db.tables_active[name][n];
+			var tname=name
+			if(n=="aid") { tname="act" } // force act for all aid columns
+			ns[n]={ "format":dstore_db.tables_active[name][n] , "table":tname , "name":n };
 		}
 	}
 
