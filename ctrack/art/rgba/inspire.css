@@ -377,25 +377,31 @@ activity-date[type="4"]:before, activity-date[type="end-actual"]:before	{color:r
 
 /*	Who's invloved?
 	============================================= */
-span.span_participating-org	 					{color:rgba(85,85,85,1); background-color:rgba(255,255,255,1);}
-span.span_participating-org:before 				{color:rgba(85,85,85,1);}
-participating-org, span-narrative.participating-role	{color:rgba(85,85,85,1);}
+span.span_participating-org	 		{color:rgba(85,85,85,1); background-color:rgba(255,255,255,1);}
+span.span_participating-org:before 	{color:rgba(85,85,85,1);}
 
-participating-org[role="1"] narrative:nth-of-type(1):after, participating-org[role="funding" i] narrative:nth-of-type(1):after,
-participating-org[role="2"] narrative:nth-of-type(1):after, participating-org[role="accountable" i] narrative:nth-of-type(1):after,
-participating-org[role="3"] narrative:nth-of-type(1):after, participating-org[role="extending" i] narrative:nth-of-type(1):after,
-participating-org[role="4"] narrative:nth-of-type(1):after, participating-org[role="implementing" i] narrative:nth-of-type(1):after	{color:rgba(85,85,85,1);}
+participating-org,
+span-narrative.participating-role,
+participating-org span-lang	{color:rgba(85,85,85,1);}
 
+participating-org a:link span-lang,
 participating-org a:link	{color:rgba(186,12,47,1);}
+participating-org a:visited span-lang,
 participating-org a:visited	{color:rgba(186,12,47,1);}
+participating-org a:hover span-lang,
 participating-org a:hover	{color:rgba(163,0,13,1);}
+participating-org a:active span-lang,
 participating-org a:active	{color:rgba(186,12,47,1);}
+
+span-narrative.org-role,
+span-narrative.org-type		{color:rgba(255,255,255,1); background-color:rgba(15,15,15,0.4);}
 
 
 /*	Location (version 2.02++)
 	============================================= */
 span.span_location,
 span.span_location location name,
+span.span_location location description,
 span.span_location location	{color:rgba(85,85,85,1);}
 span.span_location:before	{color:rgba(85,85,85,1);}
 span.span_location location point > *	{color:rgba(85,85,85,1);}
@@ -491,16 +497,16 @@ img.sector_pie			{background-color:rgba(255,255,255,1);}
 budget					{border-top:1px solid rgba(235,235,235,1);}
 budget:last-of-type	 	{border-bottom:1px solid rgba(255,255,255,1);}
 span.span_budget:before						{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
-budget:nth-of-type(1) period-start:before 	{color:rgba(85,85,85,1);}
-budget:nth-of-type(1) period-end:before	  	{color:rgba(85,85,85,1);}
+budget:nth-of-type(1) period-start:before,
+budget:nth-of-type(1) period-end:before,
+budget:nth-of-type(1) span-budget-type:before,
+budget:nth-of-type(1) span-budget-status:before,
 budget:nth-of-type(1) value:before		  	{color:rgba(85,85,85,1);}
-budget:nth-of-type(1) period-end:after		{color:rgba(85,85,85,1);}
-budget[type="1"] value:after,
-budget[type="2"] value:after,
-budget[type="1"]:nth-of-type(1) value:after,
-budget[type="2"]:nth-of-type(1) value:after,
+
 budget period-start,
 budget period-end,
+budget span-budget-type,
+budget span-budget-status,
 budget value 			{color:rgba(85,85,85,1);}
 
 

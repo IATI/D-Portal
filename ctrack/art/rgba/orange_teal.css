@@ -406,15 +406,17 @@ span.span_participating-org:before 				{color:var(--base15); border-bottom:1px s
 participating-org,
 span-narrative.participating-role				{color:var(--base15);}
 
-participating-org[role="1"] narrative:nth-of-type(1):after, participating-org[role="funding" i] narrative:nth-of-type(1):after,
-participating-org[role="2"] narrative:nth-of-type(1):after, participating-org[role="accountable" i] narrative:nth-of-type(1):after,
-participating-org[role="3"] narrative:nth-of-type(1):after, participating-org[role="extending" i] narrative:nth-of-type(1):after,
-participating-org[role="4"] narrative:nth-of-type(1):after, participating-org[role="implementing" i] narrative:nth-of-type(1):after	{color:var(--base14);}
-
+participating-org a:link span-lang,
 participating-org a:link		{color:var(--base11);}
+participating-org a:visited span-lang,
 participating-org a:visited		{color:var(--base11);}
+participating-org a:hover span-lang,
 participating-org a:hover		{color:var(--base15);}
+participating-org a:active span-lang,
 participating-org a:active		{color:var(--base11);}
+
+span-narrative.org-role,
+span-narrative.org-type			{color:var(--base15); background-color:var(--base02_40);}
 
 
 /*	Location (version 2.02++)
@@ -422,6 +424,7 @@ participating-org a:active		{color:var(--base11);}
 span.span_location			{color:var(--base15);}
 span.span_location:before	{color:var(--base15); border-bottom:1px solid var(--base03);}
 span.span_location location point > *	{color:var(--base13);}
+span.span_location location description	{color:var(--base13);}
 	
 	
 /*	Reported by
@@ -510,18 +513,17 @@ img.sector_pie			{background-color:var(--base15);}
 budget					{border-top:1px solid var(--base02);}
 budget:last-of-type	 	{border-bottom:0px solid var(--base01);}
 span.span_budget:before						{color:var(--base15); background-color:var(--base03);}
-budget:nth-of-type(1) period-start:before 	{color:var(--base15); border-bottom:2px solid var(--base03);}
-budget:nth-of-type(1) period-end:before	  	{color:var(--base15); border-bottom:2px solid var(--base03);}
+budget:nth-of-type(1) period-start:before,
+budget:nth-of-type(1) period-end:before,
+budget:nth-of-type(1) span-budget-type:before,
+budget:nth-of-type(1) span-budget-status:before,
 budget:nth-of-type(1) value:before		  	{color:var(--base15); border-bottom:2px solid var(--base03);}
 
-budget:nth-of-type(1) period-end:after,
-budget[type="1"] value:after,
-budget[type="2"] value:after,
-budget[type="1"]:nth-of-type(1) value:after,
-budget[type="2"]:nth-of-type(1) value:after,
 budget period-start,
 budget period-end,
-budget value 			{color:var(--base15);}
+budget span-budget-type,
+budget span-budget-status,
+budget value			{color:var(--base15);}
 
 
 /*	Planned Disbursement table

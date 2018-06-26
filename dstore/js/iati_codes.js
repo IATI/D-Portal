@@ -123,6 +123,14 @@ iati_codes.fetch = function(){
 				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/PolicySignificance.json",
 				name:"policy_sig",
 			},
+			{
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/BudgetType.json",
+				name:"budget_type",
+			},
+			{
+				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/BudgetStatus.json",
+				name:"budget_status",
+			},
 		];
 	
 	files.forEach(function(opts){

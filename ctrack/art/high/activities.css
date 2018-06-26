@@ -119,24 +119,23 @@ span.span_participating-org			{display:block; width:880px; padding:40px; font-si
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
 participating-org 					{display:block; padding:0 0 5px 0; position:relative; line-height:24px;}
 participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:inherit; margin-right:-30px;}
-participating-org narrative			{display:inline-block; vertical-align:top; padding-left:34px;}
+participating-org narrative			{display:block; padding-left:24px;}
+participating-org span-lang			{display:inline-block; vertical-align:top;}
+participating-org span-lang narrative	{display:block; padding-left:34px;}
 participating-org a					{display:initial;}
+participating-org a:link span-lang,
 participating-org a:link			{color:#000;}
+participating-org a:visited span-lang,
 participating-org a:visited			{color:#000;}
+participating-org a:hover span-lang,
 participating-org a:hover			{color:#000; text-decoration:underline;}
+participating-org a:active span-lang,
 participating-org a:active			{color:#000;}
-participating-org[role="1"] narrative:nth-of-type(1):after,
-participating-org[role="funding" i] narrative:nth-of-type(1):after		{content:"FUNDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
-participating-org[role="2"] narrative:nth-of-type(1):after,
-participating-org[role="accountable" i] narrative:nth-of-type(1):after	{content:"ACCOUNTABLE"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
-participating-org[role="3"] narrative:nth-of-type(1):after,
-participating-org[role="extending" i] narrative:nth-of-type(1):after	{content:"EXTENDING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
-participating-org[role="4"] narrative:nth-of-type(1):after,
-participating-org[role="implementing" i] narrative:nth-of-type(1):after	{content:"IMPLEMENTING"; font-size:14px; color:#000; display:inline; padding:0; margin-left:10px;}
 
 span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0 0 0 24px; font-style:italic; font-size:16px; line-height:inherit;}
 span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
-span-narrative.org-role, span-narrative.org-type		{display:none; font-size:14px; line-height:24px; color:#000; margin-left:10px;}
+
+span-narrative.org-role, span-narrative.org-type		{display:inline; font-size:13px; line-height:24px; color:#000; margin-left:10px; border:1px solid #000; border-radius:4px; padding:2px 4px;}
 
 
 /*	Location (version 2.02++)
@@ -151,6 +150,7 @@ span.span_location location point	{display:inline;}
 span.span_location location point > *	{display:inline; color:#000; font-size:16px;}
 span.span_location location pos:before	{content:" [ ";}
 span.span_location location pos:after	{content:" ]";}
+span.span_location location description {display:inline; margin-left:10px; font-size:14px; color:#000;}
 
 
 /*	Reported by
@@ -328,23 +328,26 @@ budget:nth-of-type(1) {margin-top:0px; padding-top:0; border:0;}
 span.span_budget:before						{content:"Budgets"; font-size:20px; color:#000; display:block; padding:40px 40px 20px 40px; margin-bottom:25px; border-top:1px solid #000;}
 budget:nth-of-type(1) period-start:before,
 budget:nth-of-type(1) period-end:before,
-budget:nth-of-type(1) value:before,
-budget:nth-of-type(1) provider-org:before,
-budget:nth-of-type(1) receiver-org:before	{content:""; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; font-size:14px; color:#000; line-height:1.35em;}
-budget:nth-of-type(1) period-end:after		{content:"TYPE"; font-size:14px; color:#000; display:block; position:absolute; top:0px; right:-45px; line-height:1.35em;}
-budget:nth-of-type(1) period-start:before 	{content:"START DATE"; width:110px;}
-budget:nth-of-type(1) period-end:before		{content:"END DATE"; width:110px;}
-budget:nth-of-type(1) value:before			{content:"VALUE"; width:658px;}
-budget[type="1"] value:after				{content:"Original"; position:absolute; left:10px; top:0px;}
-budget[type="2"] value:after				{content:"Revised";  position:absolute; left:10px; top:0px;}
+budget:nth-of-type(1) span-budget-type:before,
+budget:nth-of-type(1) span-budget-status:before,
+budget:nth-of-type(1) value:before			{content:""; display:block; padding-bottom:10px; border-bottom:1px solid #000; margin-bottom:15px; font-size:14px; color:#000; line-height:1.35em;}
 
-budget[type="1"]:nth-of-type(1) value:after, budget[type="2"]:nth-of-type(1) value:after	{top:44px;}
+budget:nth-of-type(1) period-start:before 	{content:"START DATE"; width:110px;}
+budget:nth-of-type(1) period-end:before		{content:"END DATE"; width:120px;}
+budget:nth-of-type(1) span-budget-type:before	{content:"TYPE"; width:260px;}
+budget:nth-of-type(1) span-budget-status:before	{content:"STATUS"; width:140px;}
+budget:nth-of-type(1) value:before			{content:"VALUE"; width:238px;}
+
 budget period-start,
 budget period-end,
+budget span-budget-type,
+budget span-budget-status,
 budget value		 	{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; line-height:1.35em;}
 budget period-start 	{width:110px; max-width:110px; padding-left:40px;}
-budget period-end	 	{width:110px; max-width:110px; position:relative;}
-budget value 			{width:658px; max-width:658px; padding-right:40px; position:relative;}
+budget period-end	 	{width:120px; max-width:120px;}
+budget span-budget-type	{width:260px; max-width:260px;}
+budget span-budget-status{width:140px; max-width:140px;}
+budget value 			{width:238px; max-width:238px;}
 
 
 /*	Planned Disbursement table
