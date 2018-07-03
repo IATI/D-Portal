@@ -992,7 +992,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		refry.tags(act,"policy-marker",function(it){
 			if( (!it.vocabulary) || (it.vocabulary=="DAC") || (it.vocabulary==1) ) // must be DAC
 			{
-				if( isNaN(parseInt(it.significance)) && isNaN(parseInt(it.code)) )
+				if( (!isNaN(parseInt(it.significance))) && (!isNaN(parseInt(it.code))) )
 				{
 					var code=parseInt(it.significance)+"_"+parseInt(it.code)
 					dstore_back.replace(db,"policy",{
