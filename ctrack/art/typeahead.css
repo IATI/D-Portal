@@ -36,7 +36,9 @@ input#view_search_string, input#view_search_string_only, input.typeahead.tt-hint
 #country_dropmenu .chosen-container, #publisher_dropmenu .chosen-container	{width:460px; min-width:460px; max-width:460px;}
 
 .search_wrap.mini div#view_search_select_year_min_chosen,
-.search_wrap.mini div#view_search_select_year_max_chosen	{width:145px; min-width:145px;max-width:145px;}
+.search_wrap.mini div#view_search_select_year_max_chosen	{width:145px; min-width:145px; max-width:145px;}
+
+.search_wrap.maxi div#view_search_select_policy_chosen	{width:600px; min-width:600px; max-width:600px;}
 
 /*	Icons in search dropdown	*/
 .tt-menu img			{width:16px; height:16px; padding-right:10px;}
