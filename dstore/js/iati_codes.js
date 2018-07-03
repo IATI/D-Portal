@@ -757,6 +757,18 @@ iati_codes.fetch = function(){
 	fs.writeFileSync(__dirname+"/../json/crs_2015_sectors.json",json_stringify(o,{ space: ' ' }));
 
 
+// ignore these keys in the package data as they cache values and just change all the time without being useful
+	var ignoreresourcekeys=[
+		"created",
+		"hash",
+		"id",
+		"last_modified",
+		"mimetype",
+		"package_id",
+		"revision_id",
+		"size",
+	]
+
 
 	var start=0;
 	var done=false;
@@ -784,6 +796,15 @@ iati_codes.fetch = function(){
 					{
 						v.extras.splice(ki,1)
 					}
+				}
+			}
+			if(v.resources)
+			{
+ 				for(var ki in v.resources)
+				{
+					var kv=v.resources[ki]
+					for(var ni in ignoreresourcekeys) { var n=ignoreresourcekeys[ni]
+						 kv[n]=undefined } // forget
 				}
 			}
 			packages[v.name]=v;
