@@ -315,6 +315,20 @@ view_search.fixup=function()
 			delete ctrack.hash.status
 		}
 
+		var v=$("#view_search_select_policy").val();		
+		if(v)
+		{
+			enable_search=true;
+			txt.push("Where the IATI policy marker is \""+v+"\"")
+			que.push("policy="+v)
+			ctrack.hash.policy=v
+			q.filter_policy_code=v;
+		}
+		else
+		{
+			delete ctrack.hash.policy
+		}
+
 		$("#search_span").html("<span>"+txt.join("</span><span>")+"</span>");
 		if(enable_search)
 		{
@@ -340,6 +354,7 @@ view_search.fixup=function()
 		"view_search_select_year_min":true,
 		"view_search_select_year_max":true,
 		"view_search_select_status":true,
+		"view_search_select_policy":true,
 	};
 
 	var search_select_sort_ids={
@@ -348,6 +363,7 @@ view_search.fixup=function()
 		"view_search_select_category":true,
 		"view_search_select_publisher":true,
 		"view_search_select_status":true,
+		"view_search_select_policy":true,
 	};
 
 	var o={allow_single_deselect:true,search_contains:true,placeholder_text:"Select an option",placeholder_text_multiple:"Select one or multiple options"};
@@ -591,6 +607,12 @@ view_search.fixup=function()
 		$("#view_search_select_status").val(vs).trigger('chosen:updated');
 	}
 
+	if(ctrack.hash.policy)
+	{
+		var vs=ctrack.hash.policy.split(",")
+		$("#view_search_select_policy").val(vs).trigger('chosen:updated');
+	}
+
 // wait a little while otherwise above changes do not work...
 	setTimeout(build_query,100)
 }
@@ -616,6 +638,28 @@ view_search.view=function(args)
 	};
 	
 	
+	var a=[];
+	for(var sn in iati_codes.policy_sig)
+	{
+		var sv=iati_codes.policy_sig[sn];
+		if(sv)
+		{
+			for(var cn in iati_codes.policy_code)
+			{
+				var cv=iati_codes.policy_code[cn];
+				if(cv)
+				{
+					var n=sn+"_"+cn
+					var v=cv+" IS "+sv
+					var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+					a.push(s);
+				}
+			}
+		}
+	}
+	a.sort(compare);
+	ctrack.chunk("search_options_policy",a.join(""));
+
 	var a=[];
 	for(var n in iati_codes.funder_names) // CRS funders (maybe multiple iati publishers)
 	{

@@ -97,6 +97,7 @@ ctrack.setup=function(args)
 	args.flava=args.flava || ctrack.q.flava || "original";
 	args.rgba=args.rgba || ctrack.q.rgba ;
 	args.newyear=args.newyear || ctrack.q.newyear || "01-01" ;
+	args.policy=args.policy || ctrack.q.policy ;
 
 	if(!args.css) // can totally override with args
 	{
