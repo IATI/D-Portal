@@ -864,7 +864,7 @@ if(true)
 				{
 					if(jj.packages.length>0) // ignore unpublished publishers with 0 packages
 					{
-						codes.publisher_names[ id ]=jj.title;
+						codes.publisher_names[ id ]=jj.title.trim();
 						codes.publisher_slugs[ id ]=v; // so we can link to registry
 					}
 					else
@@ -873,7 +873,7 @@ console.log("unpublished "+id);
 					}
 					if(jj.extras.publisher_source_type=="secondary_source")
 					{
-						codes.publisher_secondary[id]=jj.title;
+						codes.publisher_secondary[id]=jj.title.trim();
 console.log("secondary "+id);				
 					}
 				}
