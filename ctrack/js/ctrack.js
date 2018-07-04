@@ -99,6 +99,11 @@ ctrack.setup=function(args)
 	args.newyear=args.newyear || ctrack.q.newyear || "01-01" ;
 	args.policy=args.policy || ctrack.q.policy ;
 
+	if(args.policy)
+	{
+		args.policy=args.policy.split(",").join("|") // convert , to |
+	}
+
 	if(!args.css) // can totally override with args
 	{
 		args.css=[
