@@ -68,67 +68,67 @@ iati_codes.fetch = function(){
 
 // old codes, do not change
 			{
-				url:"http://iatistandard.org/104/codelists/downloads/clv2/json/en/TransactionType.json",
+				url:"http://reference.iatistandard.org/104/codelists/downloads/clv2/json/en/TransactionType.json",
 				name:"old_transaction_type",
 			},
 
 // new codes, these should be kept current
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/Sector.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/Sector.json",
 				name:"sector",
 			},
 /* replaced with csv/sector_category.csv
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/SectorCategory.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/SectorCategory.json",
 				name:"sector_category",
 			},
 */
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/TransactionType.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/TransactionType.json",
 				name:"new_transaction_type",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/ActivityStatus.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/ActivityStatus.json",
 				name:"activity_status",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/OrganisationType.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/OrganisationType.json",
 				name:"org_type",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/OrganisationRole.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/OrganisationRole.json",
 				name:"org_role",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/DocumentCategory.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/DocumentCategory.json",
 				name:"doc_cat",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/IndicatorVocabulary.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/IndicatorVocabulary.json",
 				name:"indicator_vocab",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/ResultVocabulary.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/ResultVocabulary.json",
 				name:"result_vocab",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/PolicyMarkerVocabulary.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/PolicyMarkerVocabulary.json",
 				name:"policy_vocab",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/PolicyMarker.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/PolicyMarker.json",
 				name:"policy_code",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/PolicySignificance.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/PolicySignificance.json",
 				name:"policy_sig",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/BudgetType.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/BudgetType.json",
 				name:"budget_type",
 			},
 			{
-				url:"http://iatistandard.org/203/codelists/downloads/clv3/json/en/BudgetStatus.json",
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/BudgetStatus.json",
 				name:"budget_status",
 			},
 		];
