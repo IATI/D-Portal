@@ -970,7 +970,7 @@
     "id": "c00ea3e5-22d4-4a45-9261-c29163ff0aa1",
     "name": "aca_admin",
     "number_created_packages": 2,
-    "number_of_edits": 27,
+    "number_of_edits": 29,
     "state": "active",
     "sysadmin": false
    }
@@ -9189,8 +9189,8 @@
    "be-dgd-20171018_5_2015",
    "be-dgd-20180308_1",
    "be-dgd-20180308_2",
-   "be-dgd-20180308_3",
    "be-dgd-20180308_4",
+   "be-dgd-20180719_3",
    "be-dgd-org_2017-2020"
   ],
   "revision_id": "26a7e834-5fb5-44e8-b2a7-49e32eab3fdd",
@@ -9211,7 +9211,7 @@
     "id": "5fda019e-daff-4741-9eed-796c7952929a",
     "name": "broeca",
     "number_created_packages": 7,
-    "number_of_edits": 123,
+    "number_of_edits": 126,
     "state": "active",
     "sysadmin": false
    }
@@ -9408,7 +9408,7 @@
     "id": "030f77d6-fb17-4f07-90d8-08c099401ea3",
     "name": "ellenpaton",
     "number_created_packages": 2,
-    "number_of_edits": 36,
+    "number_of_edits": 37,
     "state": "active",
     "sysadmin": false
    }
@@ -13595,6 +13595,72 @@
    }
   ]
  },
+ "ciafg": {
+  "approval_status": "approved",
+  "created": "2018-07-17T05:54:42.572779",
+  "description": "",
+  "display_name": "CARE International Afghanistan",
+  "extras": {
+   "license_id": "other-at",
+   "publisher_agencies": "N/A",
+   "publisher_constraints": "N/A",
+   "publisher_contact": "House 242, 1st Street, Chahar Rahi Haji Yaqoob, District # 10, Kabul, Afghanistan | Tel: + (0) 20 220 3610 Fax: +93 20 220 3610 ",
+   "publisher_contact_email": "sharif.azimi@care.org",
+   "publisher_country": "AF",
+   "publisher_data_quality": "All project data will be quality checked at the time of upload to our Programme Database and finance system by the officer responsible for that project. The data will then subsequently be checked by the Management & Financial Support Officer before upload to IATI. ",
+   "publisher_description": "CARE has been operational in Afghanistan since 1961 and is currently implementing projects in 8 target provinces. CARE is directly implementing in Kabul, Khost, Paktia, Parwan, Kapisa, Ghazni and Balkh Provinces and implementing via partners in Kabul, Khost, Balkh, Parwan, Ghazni and Paktika Provinces.   Currently it has 474 (26% female) regular staff and its annual budget for FY 2018 is USD 11 Million.\r\nWe seek a world of hope, tolerance and social justice, where poverty has been overcome and people live in dignity and security. CARE will be a global force and a partner of choice within a worldwide movement dedicated to ending poverty. We will be known everywhere for our unshakable commitment to the dignity of people. CARE Afghanistan exists to bring positive change in the lives of poor, marginalized and vulnerable people in Afghanistan. Through the promotion of gender equity and diversity, we make a contribution towards building an inclusive society and national unity. Using the experience, ideas and resources of CARE globally, we work in partnership to achieve lasting impact by addressing the underlying causes of poverty, human suffering and social injustice.\r\n",
+   "publisher_field_exclusions": "Our data might feed most of the fields",
+   "publisher_first_publish_date": "",
+   "publisher_frequency": "Quarterly",
+   "publisher_frequency_select": "quarterly",
+   "publisher_iati_id": "AF-MOE-22",
+   "publisher_implementation_schedule": "N/A",
+   "publisher_organization_type": "21",
+   "publisher_record_exclusions": "All exclusions will be made in line with CARE UK exclusion policy which is published on thier website. This covers: safety / security issues; commercial interests; issues that are sensitive in nature; data protection / privacy issues.",
+   "publisher_refs": "N/A",
+   "publisher_segmentation": "We are going to report our IATI data in one file for Country office.",
+   "publisher_source_type": "primary_source",
+   "publisher_thresholds": "N/A",
+   "publisher_timeliness": "Quarterly",
+   "publisher_ui": "N/A",
+   "publisher_ui_url": null,
+   "publisher_units": "N/A",
+   "publisher_url": "https://www.careinternational.org/"
+  },
+  "groups": [
+  ],
+  "id": "53d3d637-00f9-404d-b064-d28ad523972a",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "name": "ciafg",
+  "package_count": 0,
+  "packages": [
+  ],
+  "revision_id": "a48483df-2084-48d0-b933-1c12d807215c",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "CARE International Afghanistan",
+  "type": "organization",
+  "users": [
+   {
+    "about": null,
+    "activity_streams_email_notifications": false,
+    "capacity": "admin",
+    "created": "2018-07-17T05:27:41.183324",
+    "display_name": "Mohammad Sharif Azimi",
+    "email_hash": "7da8ed5d28ff906c99ea7d396e38bceb",
+    "fullname": "Mohammad Sharif Azimi",
+    "id": "155c95ab-bc45-4a92-a356-e98806ea9e83",
+    "name": "sharif_azimi",
+    "number_created_packages": 0,
+    "number_of_edits": 2,
+    "state": "active",
+    "sysadmin": false
+   }
+  ]
+ },
  "cibe": {
   "approval_status": "approved",
   "created": "2017-05-29T11:22:48.731233",
@@ -14191,6 +14257,7 @@
    "publisher_data_quality": "",
    "publisher_description": "",
    "publisher_field_exclusions": "",
+   "publisher_first_publish_date": "2018-07-17T06:04:39.390937",
    "publisher_frequency": "",
    "publisher_frequency_select": "not_specified",
    "publisher_iati_id": "IN-MHA-147110006",
@@ -14203,9 +14270,7 @@
    "publisher_thresholds": "",
    "publisher_timeliness": "",
    "publisher_ui": "",
-   "publisher_ui_url": null,
-   "publisher_units": "",
-   "publisher_url": null
+   "publisher_units": ""
   },
   "groups": [
   ],
@@ -18950,7 +19015,7 @@
     "id": "030f77d6-fb17-4f07-90d8-08c099401ea3",
     "name": "ellenpaton",
     "number_created_packages": 2,
-    "number_of_edits": 36,
+    "number_of_edits": 37,
     "state": "active",
     "sysadmin": false
    }
@@ -20083,6 +20148,72 @@
    }
   ]
  },
+ "dkt": {
+  "approval_status": "approved",
+  "created": "2018-07-18T12:53:34.174730",
+  "description": "",
+  "display_name": "DKT - (Pakistan)",
+  "extras": {
+   "license_id": "notspecified",
+   "publisher_agencies": "DFID",
+   "publisher_constraints": "NA",
+   "publisher_contact": "37 C, RJ Building, 2nd Stadium Lane, Phase V, DHA, Krachi, Pakistan",
+   "publisher_contact_email": "dawar@dktinternational.org",
+   "publisher_country": "PK",
+   "publisher_data_quality": "Only verified data will be published",
+   "publisher_description": "DKT works to:\r\n•\tIncrease the availability and affordability of a full spectrum of modern birth control methods\r\n•\tStrengthen the supply chain to increase availability of contraception and improve method mix variety\r\n•\tIncrease demand and inspire new contraceptive users through advertising and educational campaigns\r\n•\tWorks mostly in the private sector, though often partnering with government and its health facilities to reach the total market\r\n",
+   "publisher_field_exclusions": "NA",
+   "publisher_first_publish_date": "",
+   "publisher_frequency": "",
+   "publisher_frequency_select": "annually",
+   "publisher_iati_id": "PK-SEC-0080655",
+   "publisher_implementation_schedule": "Dec 2017 to March 2022",
+   "publisher_organization_type": "70",
+   "publisher_record_exclusions": "Program and organization staff data",
+   "publisher_refs": "NA",
+   "publisher_segmentation": "Pakistan Program Data",
+   "publisher_source_type": "primary_source",
+   "publisher_thresholds": "Programme level data only",
+   "publisher_timeliness": "Annual",
+   "publisher_ui": "To be developed",
+   "publisher_ui_url": "https://www.dktpakistan.org",
+   "publisher_units": "Programme data",
+   "publisher_url": "https://www.dktpakistan.org"
+  },
+  "groups": [
+  ],
+  "id": "5bc274a5-e00a-4eee-9c58-763d8cbe87b2",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "name": "dkt",
+  "package_count": 0,
+  "packages": [
+  ],
+  "revision_id": "745de726-45d2-4d18-bc21-e46223a3551a",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "DKT - (Pakistan)",
+  "type": "organization",
+  "users": [
+   {
+    "about": "",
+    "activity_streams_email_notifications": false,
+    "capacity": "admin",
+    "created": "2018-07-16T09:36:11.789027",
+    "display_name": "Dawar Waraich",
+    "email_hash": "e758bd10f7a20837bb4d27a20cf4530b",
+    "fullname": "Dawar Waraich",
+    "id": "bd102701-dc3c-4495-8564-0ca52a1564af",
+    "name": "dawar",
+    "number_created_packages": 0,
+    "number_of_edits": 3,
+    "state": "active",
+    "sysadmin": false
+   }
+  ]
+ },
  "dla": {
   "approval_status": "approved",
   "created": "2014-11-20T20:06:39.819223",
@@ -20491,6 +20622,7 @@
    "publisher_data_quality": "",
    "publisher_description": "The Danish Refugee Council (DRC) is a humanitarian, non-governmental, non-profit organisation founded in 1956 that works in more than 30 countries throughout the world.\r\n\r\nDRC fulfils its mandate by providing direct assistance to conflict-affected populations – refugees, internally displaced people (IDPs) and host communities in the conflict areas of the world; and by advocating on behalf of conflict-affected populations internationally, and in Denmark, on the basis of humanitarian principles and the Human Rights Declaration. We understand \"durable solutions\" as any means by which the situation of refugees can be permanently and satisfactorily resolved, enabling them to live normal lives. Durable solutions can be voluntary repatriation, local integration or resettlement. In Denmark, DRC assists refugees in all aspects of integration as well as asylum procedures. Internationally, DRC actively participates in supporting the protection of refugees, and promoting durable solutions for conflict-affected populations.\r\n\r\nThe DRC’s supreme authority is the Council, which consists of up to three representatives of each member organisation, six representatives of the voluntary groups and refugee counselling organisations cooperating with the Danish Refugee Council, and of the Executive Committee.\r\nDRC is an umbrella organisation and is currently consisting of 30 organisation members and voluntary groups, committed to the refugee cause. Membership of the DRC is open to non-party-political, voluntary, nationwide humanitarian and international organisations that work on a democratic basis, and whose aims conform to those of the DRC.\r\n\r\nProviding refugees, internally displaced persons and other affected groups in situations of war and conflict with assistance according to their rights. This assistance can consist of relief and other humanitarian aid, rehabilitation and support to return home, as well as contributions to the promotion of durable solutions\r\nContributing to capacity building and co-operation between local and national authorities, as well as other relevant organisations. This work aims at strengthening advocacy and promoting solutions to problems related to situations of conflict, particularly with a view to improving the protection and reintegration of refugees and internally displaced persons\r\nUnder its mandate, DRC International focuses on protection, relief, rehabilitation, post-conflict recovery, capacity-building, humanitarian mine-action, and advocacy. Over the years, DRC has developed particular expertise in relation to the following core sectors:\r\n\r\nHousing and Small-Scale Infrastructure\r\nProduction and Income Generation\r\nFood security & Agricultural rehabilitation and Development\r\nNon-food items; Displacement-related Law and Information\r\nSocial Rehabilitation\r\nCapacity Development of Duty-Bearers and NGOs (including networking)\r\nHumanitarian Mine Action (DDG – Danish De-mining Group)\r\nMost of DRC International’s activities are implemented by DRC programme structures set up locally for the purpose to work with beneficiaries, local authorities and other stakeholders. However, DRC also implements through local partners when this is the best way to meet DRC’s mandate and values. In such cases, DRC is committed to assist the implementing partner strengthen its accountability and capacity.\r\n\r\nDRC International’s activities are funded by money raised from the Danish public and by project grants from the Danish government and other bilateral governmental donors, the European Union, and the United Nations. DRC are also funded by selling advisory and consultancy services related to the humanitarian aid sector.",
    "publisher_field_exclusions": "",
+   "publisher_first_publish_date": "2018-07-18T12:49:32.477114",
    "publisher_frequency": "",
    "publisher_frequency_select": "not_specified",
    "publisher_iati_id": "DK-CVR-20699310",
@@ -20503,7 +20635,6 @@
    "publisher_thresholds": "",
    "publisher_timeliness": "",
    "publisher_ui": "",
-   "publisher_ui_url": null,
    "publisher_units": "",
    "publisher_url": "https://drc.ngo"
   },
@@ -23963,7 +24094,7 @@
     "id": "39e94eb2-cb03-4de5-9f0c-db6cbacbe3df",
     "name": "srhhtsserviceuptake",
     "number_created_packages": 2,
-    "number_of_edits": 62,
+    "number_of_edits": 69,
     "state": "active",
     "sysadmin": false
    }
@@ -25859,7 +25990,7 @@
     "id": "b66b52b3-0578-413c-8c3b-24f8da26127e",
     "name": "foenl_admin",
     "number_created_packages": 2,
-    "number_of_edits": 24,
+    "number_of_edits": 25,
     "state": "active",
     "sysadmin": false
    }
@@ -26518,7 +26649,7 @@
     "id": "d59fde95-5084-4040-b471-05a321dc6dc7",
     "name": "freeagirl",
     "number_created_packages": 6,
-    "number_of_edits": 127,
+    "number_of_edits": 135,
     "state": "active",
     "sysadmin": false
    }
@@ -30797,7 +30928,7 @@
     "id": "ab6a3699-190f-47cd-8162-0d6f6a199bd4",
     "name": "hpa_admin",
     "number_created_packages": 2,
-    "number_of_edits": 58,
+    "number_of_edits": 59,
     "state": "active",
     "sysadmin": false
    }
@@ -31454,7 +31585,7 @@
     "id": "afeae5f9-4d2d-40de-8a5a-8f2e9eca138d",
     "name": "ia_nam",
     "number_created_packages": 96,
-    "number_of_edits": 1438,
+    "number_of_edits": 1440,
     "state": "active",
     "sysadmin": false
    },
@@ -37894,7 +38025,7 @@
     "id": "2e3eed5f-be74-489a-9cee-bfad8951880a",
     "name": "businessdevelopmentkit",
     "number_created_packages": 2,
-    "number_of_edits": 153,
+    "number_of_edits": 155,
     "state": "active",
     "sysadmin": false
    }
@@ -42855,6 +42986,7 @@
    "publisher_data_quality": "Data is provided by the partner organizations quarterly.",
    "publisher_description": "Programme Coordinator ",
    "publisher_field_exclusions": "n/a",
+   "publisher_first_publish_date": "2017-12-15T11:23:36.384623",
    "publisher_frequency": "n/a",
    "publisher_frequency_select": "quarterly",
    "publisher_iati_id": "NL-KVK-41149831",
@@ -42867,7 +42999,6 @@
    "publisher_thresholds": "n/a",
    "publisher_timeliness": "As soon as a contract is active it will be published in the quarterly update",
    "publisher_ui": "",
-   "publisher_ui_url": null,
    "publisher_units": "Projects as part of a Programme",
    "publisher_url": "http://www.mensenmeteenmissie.nl"
   },
@@ -55746,7 +55877,7 @@
     "id": "632cf839-ab71-4707-9dfa-4a2e2310b56d",
     "name": "gb-sac-299717",
     "number_created_packages": 7,
-    "number_of_edits": 511,
+    "number_of_edits": 513,
     "state": "active",
     "sysadmin": false
    }
@@ -55926,8 +56057,9 @@
   "image_url": "",
   "is_organization": true,
   "name": "sfd-yemen",
-  "package_count": 0,
+  "package_count": 1,
   "packages": [
+   "sfd-yemen-in062018"
   ],
   "revision_id": "2abb20ab-dba5-48bf-901e-427eae1e4713",
   "state": "active",
@@ -55946,8 +56078,8 @@
     "fullname": "Mohammed Al Magthoob",
     "id": "27ffd583-5888-4b8e-9f46-66c2fcf5d9e3",
     "name": "malmagthoob",
-    "number_created_packages": 0,
-    "number_of_edits": 2,
+    "number_created_packages": 1,
+    "number_of_edits": 5,
     "state": "active",
     "sysadmin": false
    }
@@ -67167,7 +67299,7 @@
     "id": "d16ba035-9a0c-428c-88a3-c4055b1ea921",
     "name": "uwezo_rwanda",
     "number_created_packages": 1,
-    "number_of_edits": 10,
+    "number_of_edits": 11,
     "state": "active",
     "sysadmin": false
    }
@@ -69596,7 +69728,7 @@
     "id": "86541e26-b858-4c5d-bbe9-4bdff109acca",
     "name": "wp_admin",
     "number_created_packages": 2,
-    "number_of_edits": 21,
+    "number_of_edits": 22,
     "state": "active",
     "sysadmin": false
    }
@@ -69662,7 +69794,7 @@
     "id": "5b2c2674-edff-43b3-9d4e-be4b4a1fc449",
     "name": "wellfound_admin",
     "number_created_packages": 2,
-    "number_of_edits": 24,
+    "number_of_edits": 25,
     "state": "active",
     "sysadmin": false
    }
@@ -72941,7 +73073,7 @@
     "id": "2f3c1968-01f3-4473-b9a3-ce6613340a30",
     "name": "ycare-1",
     "number_created_packages": 2,
-    "number_of_edits": 79,
+    "number_of_edits": 80,
     "state": "active",
     "sysadmin": false
    }
