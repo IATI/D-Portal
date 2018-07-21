@@ -260,6 +260,150 @@ iati_codes.fetch = function(){
 
 
 
+
+
+// ignore these keys in the package data as they cache values and just change all the time without being useful
+	var ignoreresourcekeys=[
+		"created",
+		"hash",
+		"id",
+		"last_modified",
+		"mimetype",
+		"package_id",
+		"revision_id",
+		"size",
+	]
+
+
+	var start=0;
+	var done=false;
+	var packages={};
+	while(!done)
+	{	
+		console.log( "iatiregistry query for packages "+(start+1)+" to "+(start+1000) );
+		var js=wait.for(https_getbody,"https://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
+
+		var j=JSON.parse(js.toString('utf8'));
+		var rs=j.result.results;
+		done=true;
+		for(var i=0;i<rs.length;i++)
+		{
+			done=false;
+			var v=rs[i];
+// clean out some key bumf to reduce pointless updates
+			v.metadata_modified=undefined // seems to change everynight no matter what so ignore
+			if(v.extras)
+			{
+ 				for(var ki=v.extras.length-1;ki>=0;ki--) // backwards as we will be removing
+				{
+					var kv=v.extras[ki]
+					if(kv && kv.key && kv.key.startsWith("issue_")) // these are auto errors that get added by the registry, IGNORE
+					{
+						v.extras.splice(ki,1)
+					}
+				}
+			}
+			if(v.resources)
+			{
+ 				for(var ki in v.resources)
+				{
+					var kv=v.resources[ki]
+					for(var ni in ignoreresourcekeys) { var n=ignoreresourcekeys[ni]
+						 kv[n]=undefined } // forget
+				}
+			}
+			packages[v.name]=v;
+		}
+		start+=1000;
+	}
+	if(start>2000) // sanity, just in case of total registry failure
+	{
+		console.log("Writing json/packages.json")
+		fs.writeFileSync(__dirname+"/../json/packages.json",json_stringify(packages,{ space: ' ' }));
+
+		console.log("Writing json/download.txt")
+
+		var cc=[]
+		
+		for( var slug in packages)
+		{
+			var package=packages[slug]
+			slug=slug.replace(/[^0-9a-zA-Z\-_]/g, '_') // sanitize the slug just in case
+			var url=package.resources && package.resources[0] && package.resources[0].url
+			if(url)
+			{
+				url=url.split(" ").join("%20") // spaces in urls breaks curl
+				cc.push("curl -k -L -o "+slug+".xml \""+url+"\" \n")
+			}
+		}
+		
+		fs.writeFileSync(__dirname+"/../json/curl.txt",cc.join(""));
+	}
+
+
+
+console.log("************************ This next bit takes a loooooong time to get every publisher id from iati...");
+console.log("************************ It's OK to CTRL+C and skip this last bit if you don't care.");
+if(true)
+{
+//	codes.publisher_ids={};
+	codes.publisher_slugs={};
+	codes.publisher_names={};
+	codes.publisher_secondary={};
+
+	var js=wait.for(https_getbody,"https://iatiregistry.org/api/rest/group");
+	var j=JSON.parse(js);
+	j.forEach(function(v){
+		console.log("Fetching publisher info for "+v);
+		var jjs=wait.for(https_getbody,"https://iatiregistry.org/api/rest/group/"+v);
+		var jj=JSON.parse(jjs);
+		publishers[v]=jj
+		
+		if(jj.extras)
+		{			
+			var ids=jj.extras.publisher_iati_id.split("|");
+			for(var i=0;i<ids.length;i++)
+			{
+				var id=ids[i].trim();
+				if(id!="")
+				{
+					if(jj.packages.length>0) // ignore unpublished publishers with 0 packages
+					{
+						codes.publisher_names[ id ]=jj.title.trim();
+						codes.publisher_slugs[ id ]=v; // so we can link to registry
+					}
+					else
+					{
+console.log("unpublished "+id);				
+					}
+					if(jj.extras.publisher_source_type=="secondary_source")
+					{
+						codes.publisher_secondary[id]=jj.title.trim();
+console.log("secondary "+id);				
+					}
+				}
+			}
+		}
+	});
+
+// add a temp publisher id
+	codes.publisher_names["XI-IATI-OFID"]="The OPEC Fund for International Development"
+	codes.publisher_names["XI-IATI-WHS-NEPAL"]="Nepal Traceability Study 2016"
+	
+//	ls(publishers);
+
+	console.log("Writing json/iati_codes.json")	
+	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
+
+	console.log("Writing json/publishers.json")
+	fs.writeFileSync(__dirname+"/../json/publishers.json",json_stringify(publishers,{ space: ' ' }));
+
+}	
+
+}
+
+function brokenimports()
+{
 	console.log("Fetching IATI funders csv")
 
 	var x=wait.for(https_getbody,sheeturl(2));
@@ -756,145 +900,4 @@ iati_codes.fetch = function(){
 	console.log("Writing json/crs_2015_sectors.json")
 	fs.writeFileSync(__dirname+"/../json/crs_2015_sectors.json",json_stringify(o,{ space: ' ' }));
 
-
-// ignore these keys in the package data as they cache values and just change all the time without being useful
-	var ignoreresourcekeys=[
-		"created",
-		"hash",
-		"id",
-		"last_modified",
-		"mimetype",
-		"package_id",
-		"revision_id",
-		"size",
-	]
-
-
-	var start=0;
-	var done=false;
-	var packages={};
-	while(!done)
-	{	
-		console.log( "iatiregistry query for packages "+(start+1)+" to "+(start+1000) );
-		var js=wait.for(https_getbody,"https://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
-
-		var j=JSON.parse(js.toString('utf8'));
-		var rs=j.result.results;
-		done=true;
-		for(var i=0;i<rs.length;i++)
-		{
-			done=false;
-			var v=rs[i];
-// clean out some key bumf to reduce pointless updates
-			v.metadata_modified=undefined // seems to change everynight no matter what so ignore
-			if(v.extras)
-			{
- 				for(var ki=v.extras.length-1;ki>=0;ki--) // backwards as we will be removing
-				{
-					var kv=v.extras[ki]
-					if(kv && kv.key && kv.key.startsWith("issue_")) // these are auto errors that get added by the registry, IGNORE
-					{
-						v.extras.splice(ki,1)
-					}
-				}
-			}
-			if(v.resources)
-			{
- 				for(var ki in v.resources)
-				{
-					var kv=v.resources[ki]
-					for(var ni in ignoreresourcekeys) { var n=ignoreresourcekeys[ni]
-						 kv[n]=undefined } // forget
-				}
-			}
-			packages[v.name]=v;
-		}
-		start+=1000;
-	}
-	if(start>2000) // sanity, just in case of total registry failure
-	{
-		console.log("Writing json/packages.json")
-		fs.writeFileSync(__dirname+"/../json/packages.json",json_stringify(packages,{ space: ' ' }));
-
-		console.log("Writing json/download.txt")
-
-		var cc=[]
-		
-		for( var slug in packages)
-		{
-			var package=packages[slug]
-			slug=slug.replace(/[^0-9a-zA-Z\-_]/g, '_') // sanitize the slug just in case
-			var url=package.resources && package.resources[0] && package.resources[0].url
-			if(url)
-			{
-				url=url.split(" ").join("%20") // spaces in urls breaks curl
-				cc.push("curl -k -L -o "+slug+".xml \""+url+"\" \n")
-			}
-		}
-		
-		fs.writeFileSync(__dirname+"/../json/curl.txt",cc.join(""));
-	}
-
-
-
-console.log("************************ This next bit takes a loooooong time to get every publisher id from iati...");
-console.log("************************ It's OK to CTRL+C and skip this last bit if you don't care.");
-if(true)
-{
-//	codes.publisher_ids={};
-	codes.publisher_slugs={};
-	codes.publisher_names={};
-	codes.publisher_secondary={};
-
-	var js=wait.for(https_getbody,"https://iatiregistry.org/api/rest/group");
-	var j=JSON.parse(js);
-	j.forEach(function(v){
-		console.log("Fetching publisher info for "+v);
-		var jjs=wait.for(https_getbody,"https://iatiregistry.org/api/rest/group/"+v);
-		var jj=JSON.parse(jjs);
-		publishers[v]=jj
-		
-		if(jj.extras)
-		{			
-			var ids=jj.extras.publisher_iati_id.split("|");
-			for(var i=0;i<ids.length;i++)
-			{
-				var id=ids[i].trim();
-				if(id!="")
-				{
-					if(jj.packages.length>0) // ignore unpublished publishers with 0 packages
-					{
-						codes.publisher_names[ id ]=jj.title.trim();
-						codes.publisher_slugs[ id ]=v; // so we can link to registry
-					}
-					else
-					{
-console.log("unpublished "+id);				
-					}
-					if(jj.extras.publisher_source_type=="secondary_source")
-					{
-						codes.publisher_secondary[id]=jj.title.trim();
-console.log("secondary "+id);				
-					}
-				}
-			}
-		}
-	});
-
-// add a temp publisher id
-	codes.publisher_names["XI-IATI-OFID"]="The OPEC Fund for International Development"
-	codes.publisher_names["XI-IATI-WHS-NEPAL"]="Nepal Traceability Study 2016"
-	
-//	ls(publishers);
-
-	console.log("Writing json/iati_codes.json")	
-	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
-
-	console.log("Writing json/publishers.json")
-	fs.writeFileSync(__dirname+"/../json/publishers.json",json_stringify(publishers,{ space: ' ' }));
-
-}	
-
 }
-
-
