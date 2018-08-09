@@ -274,6 +274,7 @@ iati_codes.fetch = function(){
 
 	var ignorethis=[
 		"revision_id",
+		"isopen",
 	]
 
 	var start=0;
