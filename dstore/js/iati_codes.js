@@ -224,10 +224,11 @@ iati_codes.fetch = function(){
 			{
 				if(name!="unassigned" && name!="user-assigned" && name!="Unassigned" && name!="User-assigned")
 				{
+					name = name.split(" (formerly:")[0];
 					var aa=name.split(":");
 					if(aa[1])
 					{
-						if(aa[0]!="not used at present stage") // ignore names that must never be used
+						if(aa[0]!="exceptionally reserved" && aa[0]!="transitionally reserved" && aa[0]!="indeterminately reserved" && aa[0]!="deleted") // ignore reserved and deleted codes
 						{
 							o[code]=aa[1].trim();
 						}
