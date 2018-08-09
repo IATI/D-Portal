@@ -268,6 +268,13 @@ iati_codes.fetch = function(){
 		"size",
 	]
 
+	var ignoreextras=[
+		"data_updated",
+	]
+
+	var ignorethis=[
+		"revision_id",
+	]
 
 	var start=0;
 	var done=false;
@@ -293,7 +300,18 @@ iati_codes.fetch = function(){
 					var kv=v.extras[ki]
 					if(kv && kv.key && kv.key.startsWith("issue_")) // these are auto errors that get added by the registry, IGNORE
 					{
-						v.extras.splice(ki,1)
+						v.extras.splice(ki,1) // forget
+					}
+					else
+					if(kv && kv.key)
+					{
+						for( var ni in ignoreextras) { var n=ignoreextras[ni]
+							if(kv.key==n)
+							{
+								v.extras.splice(ki,1) // forget
+								break;
+							}
+						}
 					}
 				}
 			}
@@ -306,6 +324,11 @@ iati_codes.fetch = function(){
 						 kv[n]=undefined } // forget
 				}
 			}
+
+			for( var ni in ignorethis) { var n=ignorethis[ni]
+				 v[n]=undefined // forget
+			}
+
 			packages[v.name]=v;
 		}
 		start+=1000;
