@@ -358,6 +358,9 @@ iati_codes.fetch = function(){
 	}
 
 
+	console.log("Writing json/iati_codes.json for the first time")	
+	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
+
 
 console.log("************************ This next bit takes a loooooong time to get every publisher id from iati...");
 console.log("************************ It's OK to CTRL+C and skip this last bit if you don't care.");
@@ -409,7 +412,7 @@ console.log("secondary "+id);
 	
 //	ls(publishers);
 
-	console.log("Writing json/iati_codes.json")	
+	console.log("Writing json/iati_codes.json for the last time")	
 	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
 
 	console.log("Writing json/publishers.json")
