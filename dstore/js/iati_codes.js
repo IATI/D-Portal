@@ -219,21 +219,14 @@ iati_codes.fetch = function(){
 		refry.tags(it,"td",function(it){
 			var name=it.title;
 			var code=refry.tagval_trim(it,"span");
-//console.log(code+" : "+name);
 			if( name && code )
 			{
 				if(name!="unassigned" && name!="user-assigned" && name!="Unassigned" && name!="User-assigned")
 				{
 					name = name.split(" (formerly:")[0];
 					var aa=name.split(":");
-					if(aa[1])
-					{
-						if(aa[0]!="exceptionally reserved" && aa[0]!="transitionally reserved" && aa[0]!="indeterminately reserved" && aa[0]!="deleted") // ignore reserved and deleted codes
-						{
-							o[code]=aa[1].trim();
-						}
-					}
-					else
+// Just ignore anything with a colon that wasnt a (formerly:
+					if(!aa[1])
 					{
 						o[code]=name;
 					}
