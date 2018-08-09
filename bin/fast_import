@@ -31,8 +31,19 @@ ls cache/*.xml | sort -R | parallel --bar doimport
 echo "Adding fake transactions at $(date)" | tee -a cache/time.log
 node js/cmd fake
 
+
+echo "Removing indexes at $(date)" | tee -a cache/time.log
+node js/cmd unindex
+
 echo "Starting Vacuum of database at $(date)" | tee -a cache/time.log
 psql -c "vacuum full verbose;" 2>&1 | tee cache/vacuum.log
+
+echo "Adding indexes at $(date)" | tee -a cache/time.log
+node js/cmd index
+
+echo "Starting Analyze of database at $(date)" | tee -a cache/time.log
+node js/cmd analyze
+
 
 ENDTIME=$(date +%s)
 echo "Finished Import of all xml files at $(date)" | tee -a cache/time.log
