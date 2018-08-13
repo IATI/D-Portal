@@ -34,6 +34,7 @@ echo
 echo "Searching logs for download ERRORS"
 echo
 grep -i "error:" dstore/cache/*.curl.last.log
+grep -i "Empty reply from server" dstore/cache/*.curl.last.log
 
 
 echo
