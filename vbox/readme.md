@@ -47,8 +47,36 @@ build ctrack
 	./bin build
 
 
-serv ctrack and dstore (postgres version)
+finally serv ctrack and dstore (postgres version) with the following 
+command
 
 	./bin serv
 
+The IP of the vagrant box is 10.42.52.94 as configured in the 
+Vagrantfile so use
 
+	http://10.42.52.94:1408/
+
+to access this server.
+
+
+
+Running the ./bin script is a tad slow as it connects to vargant so 
+often it makes more sense to just
+
+	vagrant ssh
+
+and then you can run commands directly on the box, navagate to the root 
+of this project with a
+
+	cd /host
+
+after which you may run any script in the bin folder like so
+
+	bin/dstore
+
+
+
+remember these files are all shared with the host so anychanges there 
+will effect your local files, probably not a good idea to run any git 
+commands there as it may break git things or your local machine.
