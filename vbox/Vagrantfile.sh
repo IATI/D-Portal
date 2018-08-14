@@ -3,7 +3,7 @@ sudo apt-get update
 
 echo " install build system "
 
-sudo apt-get install -y gcc-5 g++-5 build-essential
+sudo apt-get install -y build-essential
 
 echo " setting default DSTORE_PG , must be done before byobu breaks .profile "
 echo "export DSTORE_PG=\"/var/run/postgresql dstore\" " >> /home/vagrant/.profile
@@ -17,41 +17,25 @@ sudo -u vagrant -H bash -c "byobu-enable"
 
 echo " apt install node npm"
 
-sudo apt-get install -y nodejs-legacy nodejs npm
-
-#echo " hard install node npm nvm"
-
-#wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | NVM_DIR=/usr/local/nvm PROFILE=/etc/bash.bashrc bash
-#. /usr/local/nvm/nvm.sh
-#nvm install default # yeah but this node seems to get broken less for some reason?
-#nvm use default
-
-# create node executable
-#echo "#!/bin/bash
-#export NVM_DIR=\"/usr/local/nvm\"
-#[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"
-#node \$@" > /usr/local/bin/node
-#chmod +x /usr/local/bin/node
-
-# create npm executable
-#echo "#!/bin/bash
-#export NVM_DIR=\"/usr/local/nvm\"
-#[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"
-#npm \$@" > /usr/local/bin/npm
-#chmod +x /usr/local/bin/npm
+sudo apt-get install -y npm
+sudo apt-get install -y nodejs
 
 
 echo " install postgres "
 
-sudo apt-get install -y postgresql-9.6 postgresql-contrib-9.6 
+sudo apt-get install -y postgresql
+sudo apt-get install -y postgresql-contrib
 
-sudo pg_dropcluster --stop 9.6 main
-sudo pg_createcluster --locale en_US.UTF-8 --start 9.6 main
+# this hack will probably get us the version number...
+PGVER=`ls /etc/postgresql/`
+
+sudo pg_dropcluster --stop $PGVER main
+sudo pg_createcluster --locale en_US.UTF-8 --start $PGVER main
 
 
 echo " attempting to setup postgres "
 
-PGMAIN=/etc/postgresql/9.6/main
+PGMAIN=/etc/postgresql/$PGVER/main
 PGUSER=vagrant
 PGPASS=vagrant
 
