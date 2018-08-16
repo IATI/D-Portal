@@ -1012,7 +1012,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				dstore_back.replace(db,"related",{
 					"aid":t.aid,
 					"related_aid":it.ref.trim(),
-					"related_type":parseInt(it.type),
+					"related_type":parseInt(it.type)||0,
 				});
 			}
 

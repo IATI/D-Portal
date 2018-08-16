@@ -6,4 +6,5 @@ mkdir db
 rm db/dstore.sqlite
 
 node js/cmd init
+node js/cmd index
 node js/cmd analyze
