@@ -184,6 +184,92 @@ iati_codes.fetch = function(){
 	codes["transaction_type_map"]=o; // map new codes to old codes where we can and leave old codes as they are
 
 	
+	for(var year=2015;year<=2016;year++)
+	{
+			
+		console.log("Parsing csv/crs_"+year+".csv")
+		console.log(__dirname+"/../csv/crs_"+year+".csv")
+
+		var lines=baby.parse( fs.readFileSync(__dirname+"/../csv/crs_"+year+".csv",{encoding:"utf8"}) ).data;
+
+		var o={};
+
+		var head=[];
+		for(var i=0;i<lines[0].length;i++)
+		{
+			var v=lines[0][i];
+			head[i]=codes.rev_crs_funders[ v.trim() ];
+		}
+
+		for(var i=1;i<lines.length;i++)
+		{
+			var v=lines[i];
+			var a=codes.rev_crs_countries[ v[0].trim() ];
+			if(a)
+			{
+				var t={};
+				o[a]=t;
+				for(var j=0;j<v.length;j++)
+				{
+					var h=head[j];
+					if(h)
+					{
+						var n=Number(v[j]);
+						if(n)
+						{
+							t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
+						}
+					}
+				}
+			}
+		}
+		console.log("Writing json/crs_"+year+".json")
+		fs.writeFileSync(__dirname+"/../json/crs_"+year+".json",json_stringify(o,{ space: ' ' }));
+
+
+
+		console.log("Parsing csv/crs_"+year+"_sectors.csv")
+
+		var lines=baby.parse( fs.readFileSync(__dirname+"/../csv/crs_"+year+"_sectors.csv",{encoding:"utf8"}) ).data;
+
+		var o={};
+
+		var head=[];
+		for(var i=0;i<lines[0].length;i++)
+		{
+			var v=lines[0][i];
+			head[i]=v.trim();
+		}
+	//	ls(head);
+		
+		for(var i=1;i<lines.length;i++)
+		{
+			var v=lines[i];
+			var a=v[1]||"" ; a=codes.rev_crs_countries[ a.trim() ];
+			if(a)
+			{
+				var t={};
+				o[a]=t;
+				for(var j=2;j<v.length;j++)
+				{
+					var h=head[j];
+					if(h)
+					{
+						var n=Number(v[j]);
+						if(n)
+						{
+							t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
+						}
+					}
+				}
+			}
+		}
+		console.log("Writing json/crs_"+year+"_sectors.json")
+		fs.writeFileSync(__dirname+"/../json/crs_"+year+"_sectors.json",json_stringify(o,{ space: ' ' }));
+	}
+
+
+
 	console.log("Parsing csv/sector_category.csv")
 	
 	
@@ -573,352 +659,5 @@ function brokenimports()
 		
 	console.log("Writing json/iati_codes.json")	
 	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
-
-	
-	var x=wait.for(https_getbody,sheeturl(3));
-//	var lines=wait.for(csv_parse,x);
-	var lines=baby.parse(x).data;
-
-	var o={};
-
-	var head=[];
-	for(var i=0;i<lines[0].length;i++)
-	{
-		var v=lines[0][i];
-		head[i]=codes.rev_crs_funders[ v.trim() ];
-	}
-//	ls(head);
-	
-	for(var i=1;i<lines.length;i++)
-	{
-		var v=lines[i];
-		var a=codes.rev_crs_countries[ v[0].trim() ];
-		if(a)
-		{
-			var t={};
-			o[a]=t;
-			for(var j=0;j<v.length;j++)
-			{
-				var h=head[j];
-				if(h)
-				{
-					var n=Number(v[j]);
-					if(n)
-					{
-						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
-					}
-				}
-			}
-		}
-	}
-	
-//	ls(o);
-
-	console.log("Writing json/crs_2012.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2012.json",json_stringify(o,{ space: ' ' }));
-
-//	codes["local_currency"]=o;
-
-
-//
-
-	var x=wait.for(https_getbody,sheeturl(11));
-//	var lines=wait.for(csv_parse,x);
-	var lines=baby.parse(x).data;
-
-	var o={};
-
-	var head=[];
-	for(var i=0;i<lines[0].length;i++)
-	{
-		var v=lines[0][i];
-		head[i]=v.trim();
-	}
-//	ls(head);
-	
-	for(var i=1;i<lines.length;i++)
-	{
-		var v=lines[i];
-		var a=codes.rev_crs_countries[ v[0].trim() ];
-		if(a)
-		{
-			var t={};
-			o[a]=t;
-			for(var j=0;j<v.length;j++)
-			{
-				var h=head[j];
-				if(h)
-				{
-					var n=Number(v[j]);
-					if(n)
-					{
-						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
-					}
-				}
-			}
-		}
-	}
-	
-//	ls(o);
-
-	console.log("Writing json/crs_2012_sectors.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2012_sectors.json",json_stringify(o,{ space: ' ' }));
-
-
-	var x=wait.for(https_getbody,sheeturl(14));
-//	var lines=wait.for(csv_parse,x);
-	var lines=baby.parse(x).data;
-
-	var o={};
-
-	var head=[];
-	for(var i=0;i<lines[0].length;i++)
-	{
-		var v=lines[0][i];
-		head[i]=codes.rev_crs_funders[ v.trim() ];
-	}
-//	ls(head);
-	
-	for(var i=1;i<lines.length;i++)
-	{
-		var v=lines[i];
-		var a=codes.rev_crs_countries[ v[0].trim() ];
-		if(a)
-		{
-			var t={};
-			o[a]=t;
-			for(var j=0;j<v.length;j++)
-			{
-				var h=head[j];
-				if(h)
-				{
-					var n=Number(v[j]);
-					if(n)
-					{
-						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
-					}
-				}
-			}
-		}
-	}
-	
-//	ls(o);
-
-	console.log("Writing json/crs_2013.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2013.json",json_stringify(o,{ space: ' ' }));
-
-//	codes["local_currency"]=o;
-
-
-//
-
-	var x=wait.for(https_getbody,sheeturl(15));
-//	var lines=wait.for(csv_parse,x);
-	var lines=baby.parse(x).data;
-
-	var o={};
-
-	var head=[];
-	for(var i=0;i<lines[0].length;i++)
-	{
-		var v=lines[0][i];
-		head[i]=v.trim();
-	}
-//	ls(head);
-	
-	for(var i=1;i<lines.length;i++)
-	{
-		var v=lines[i];
-		var a=codes.rev_crs_countries[ v[0].trim() ];
-		if(a)
-		{
-			var t={};
-			o[a]=t;
-			for(var j=0;j<v.length;j++)
-			{
-				var h=head[j];
-				if(h)
-				{
-					var n=Number(v[j]);
-					if(n)
-					{
-						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
-					}
-				}
-			}
-		}
-	}
-	
-//	ls(o);
-
-	console.log("Writing json/crs_2013_sectors.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2013_sectors.json",json_stringify(o,{ space: ' ' }));
-
-
-
-	var x=wait.for(https_getbody,sheeturl(1794224901));
-//	var lines=wait.for(csv_parse,x);
-	var lines=baby.parse(x).data;
-
-	var o={};
-
-	var head=[];
-	for(var i=0;i<lines[0].length;i++)
-	{
-		var v=lines[0][i];
-		head[i]=codes.rev_crs_funders[ v.trim() ];
-	}
-
-	for(var i=1;i<lines.length;i++)
-	{
-		var v=lines[i];
-		var a=codes.rev_crs_countries[ v[0].trim() ];
-		if(a)
-		{
-			var t={};
-			o[a]=t;
-			for(var j=0;j<v.length;j++)
-			{
-				var h=head[j];
-				if(h)
-				{
-					var n=Number(v[j]);
-					if(n)
-					{
-						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
-					}
-				}
-			}
-		}
-	}
-	
-//	ls(o);
-
-	console.log("Writing json/crs_2014.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2014.json",json_stringify(o,{ space: ' ' }));
-
-	var x=wait.for(https_getbody,sheeturl(830372680));
-//	var lines=wait.for(csv_parse,x);
-	var lines=baby.parse(x).data;
-
-	var o={};
-
-	var head=[];
-	for(var i=0;i<lines[0].length;i++)
-	{
-		var v=lines[0][i];
-		head[i]=v.trim();
-	}
-//	ls(head);
-	
-	for(var i=1;i<lines.length;i++)
-	{
-		var v=lines[i];
-		var a=codes.rev_crs_countries[ v[0].trim() ];
-		if(a)
-		{
-			var t={};
-			o[a]=t;
-			for(var j=0;j<v.length;j++)
-			{
-				var h=head[j];
-				if(h)
-				{
-					var n=Number(v[j]);
-					if(n)
-					{
-						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
-					}
-				}
-			}
-		}
-	}
-
-	console.log("Writing json/crs_2014_sectors.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2014_sectors.json",json_stringify(o,{ space: ' ' }));
-
-
-
-
-
-
-
-	var x=wait.for(https_getbody,sheeturl(1661036011));
-	var lines=baby.parse(x).data;
-
-	var o={};
-
-	var head=[];
-	for(var i=0;i<lines[0].length;i++)
-	{
-		var v=lines[0][i];
-		head[i]=codes.rev_crs_funders[ v.trim() ];
-	}
-
-	for(var i=1;i<lines.length;i++)
-	{
-		var v=lines[i];
-		var a=codes.rev_crs_countries[ v[0].trim() ];
-		if(a)
-		{
-			var t={};
-			o[a]=t;
-			for(var j=0;j<v.length;j++)
-			{
-				var h=head[j];
-				if(h)
-				{
-					var n=Number(v[j]);
-					if(n)
-					{
-						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
-					}
-				}
-			}
-		}
-	}
-	console.log("Writing json/crs_2015.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2015.json",json_stringify(o,{ space: ' ' }));
-
-
-
-
-	var x=wait.for(https_getbody,sheeturl(2056313976));
-	var lines=baby.parse(x).data;
-
-	var o={};
-
-	var head=[];
-	for(var i=0;i<lines[0].length;i++)
-	{
-		var v=lines[0][i];
-		head[i]=v.trim();
-	}
-//	ls(head);
-	
-	for(var i=1;i<lines.length;i++)
-	{
-		var v=lines[i];
-		var a=codes.rev_crs_countries[ v[1].trim() ];
-		if(a)
-		{
-			var t={};
-			o[a]=t;
-			for(var j=2;j<v.length;j++)
-			{
-				var h=head[j];
-				if(h)
-				{
-					var n=Number(v[j]);
-					if(n)
-					{
-						t[h]=Math.round(n*1000000); // convert to usd, from millions of usd
-					}
-				}
-			}
-		}
-	}
-	console.log("Writing json/crs_2015_sectors.json")
-	fs.writeFileSync(__dirname+"/../json/crs_2015_sectors.json",json_stringify(o,{ space: ' ' }));
 
 }
