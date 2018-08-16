@@ -188,6 +188,14 @@ acts.find("document-link category").each(function(i){var it=$(this);
 	}
 });
 
+acts.find("document-link document-date").each(function(i){var it=$(this);
+	var c=it.attr("iso-date");
+	if(c)
+	{
+		it.wrap($('<span-doc_date>' + c + '</span-doc_date>'));
+	}
+});
+
 
 
 acts.find("transaction").each(function(i){var it=$(this);
@@ -619,6 +627,7 @@ sort_elements("transaction",[
 		
 sort_elements("document-link",[
 		"span-title",
+		"span-doc_date",
 		"span-narrative",
 		0]);
 		
