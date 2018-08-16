@@ -128,7 +128,7 @@ span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0
 span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
 
 span-narrative.org-role,
-span-narrative.org-type		{display:inline; font-size:13px; line-height:24px; color:#CCC; margin-left:10px; border-radius:4px; padding:2px 4px; background-color:rgba(72,79,86,0.6);}
+span-narrative.org-type		{display:inline; font-size:13px; line-height:24px; color:#CCC; margin-left:10px; border-radius:4px; padding:4px 4px 2px 4px; background-color:rgba(72,79,86,0.6);}
 
 
 /*	Location (version 2.02++)
@@ -478,8 +478,9 @@ document-link span-title:nth-of-type(n+2)		{display:none;}
 document-link span-title narrative				{display:inline;}
 document-link span-title narrative:nth-of-type(2){padding-left:5px; font-style:italic;}
 
-a.a_document-link span-title:after				{content:"LINK"; margin-left:10px; color:#CCC; font-size:12px; vertical-align:top; background-color:rgba(22,24,37,0.6); border-radius:4px; padding:1px 4px;}
-span-narrative.doc-cat							{display:inline-block; margin-top:5px; margin-right:5px; color:#CCC; font-size:13px; vertical-align:top; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px; line-height:1.5em;}
+a.a_document-link span-title:after				{content:"LINK"; margin-left:10px; color:#CCC; font-size:12px; vertical-align:top; background-color:rgba(22,24,37,0.6); border-radius:4px; padding:4px 4px 1px 4px;}
+span-narrative.doc-cat,
+span-doc_date									{display:inline-block; margin-top:5px; margin-right:5px; color:#CCC; font-size:13px; vertical-align:top; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px 0px 4px; line-height:1.5em;}
 
 /*	Add i to be case-insensitive */
 
@@ -531,7 +532,7 @@ policy-marker narrative:nth-of-type(n+2) {display:inline-block; font-style:itali
 policy-marker narrative:last-of-type:after	{display:block;}
 span-narrative.policy_vocab,
 span-narrative.policy_code,
-span-narrative.policy_sig		{display:inline-block; margin-left:5px; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px; line-height:1.5em;}
+span-narrative.policy_sig		{display:inline-block; margin-left:5px; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px 0px 4px; line-height:1.5em;}
 span-narrative.policies			{display:inline-block; font-size:initial; line-height:initial;}
 policy-marker:last-of-type		{padding-bottom:40px;}
 
