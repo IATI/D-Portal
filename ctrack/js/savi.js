@@ -685,6 +685,20 @@ sorted++;
 			if(aname < bname ) { ret=-1; }
 		}
 		
+		
+		if( (ret===0) && (aname=="document-link") )
+		{
+			var ad=($(a).find("document-date"));
+			var bd=($(b).find("document-date"));
+			if(ad&&bd)
+			{
+				var at=(ad.attr("iso-date"));
+				var bt=(bd.attr("iso-date"));
+				if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
+			}
+		}
+		
+		
 		if( (ret===0) && (aname=="document-link") )
 		{
 			var at=(a.getAttribute("format"));
