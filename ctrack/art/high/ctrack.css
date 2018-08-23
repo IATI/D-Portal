@@ -243,7 +243,7 @@ a.stats_link.missing span	{color:#000;}
 .title_wrap					{width:960px; margin:0 auto; padding:0 0 40px 0; margin-bottom:40px;}
 .table_wrap					{background-color:#FFF; padding:0; border-radius:8px 8px 0 0; border:1px solid #000; position:relative; width:960px;}
 .table_wrap.main			{padding-bottom:0; border-radius:8px 8px 0 0;}
-.table_wrap.view			{width:920px; margin:0 auto; padding:20px; margin-bottom:40px; border:1px solid #000;}
+.table_wrap.view			{width:960px; margin:0 auto; padding:5px; margin-bottom:40px; border:1px solid #000; box-sizing:border:box;}
 
 
 /*	Data Description styles
@@ -405,7 +405,7 @@ ul.chosen-choices	{border-radius:6px;}
 
 /*	Table header styles
 	============================================= */
-th.titles					{color:#000; text-align:left; vertical-align:bottom; padding:15px 0 15px 20px; border-bottom:1px solid #000;}
+th.titles					{color:#000; text-align:left; vertical-align:bottom; padding:15px 0 10px 20px; border-bottom:1px solid #000;}
 th.titles:nth-child(1), th.titles:nth-child(3), th.titles:nth-child(4),
 th.titles:last-child		{padding:15px 20px 10px 20px; text-align:right; font-size:0.9em; line-height:1.25em;}
 th.titles:last-child		{min-width:120px; padding-left:20px;}
@@ -476,7 +476,7 @@ table.list a:active		{color:#000; text-decoration:none;}
 /*	Table for Money list (Donors / Sectors)
 	============================================= */
 table.money					{width:100%; border-collapse:collapse; table-layout:fixed;}
-table.money td				{text-align:right; color:#000; font-size:1.0em; line-height:1.45em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #666; border-right:1px solid #666; padding:15px 10px;}
+table.money td				{text-align:right; color:#000; font-size:1.0em; line-height:1.3em; word-spacing:0.7px; padding:0px; vertical-align:top; border-bottom:1px solid #666; border-right:1px solid #666; padding:15px 10px;}
 table.money td.col1			{text-align:left; background-color:#F1F1F1;}
 table.money td.col2			{text-align:left;}
 table.money td.col3			{background-color:#F1F1F1;}
@@ -485,7 +485,7 @@ table.money td.col5			{background-color:#F3F3F3;}
 table.money td.col6			{background-color:#F8F8F8;}
 table.money td.col7			{background-color:#FDFDFD;}
 
-table.money tr.row1 th		{color:#000; font-weight:700; text-align:center; padding:0px; position:relative;}
+table.money tr.row1 th		{color:#000; font-size:14px; font-weight:700; text-align:center; padding:0px; position:relative;}
 table.money tr.row1 th:hover{cursor:pointer;}
 table.money tr.row1 th span	{color:#000; display:block; padding:20px 10px;}
 table.money tr.row1 th.col2 span	{padding:20px 5px;}	/*	PUBLISHER table header	*/
@@ -530,6 +530,9 @@ table.money a:active		{color:#000; text-decoration: none;}
 table.money a.year			{position:absolute; padding:20px 10px; top:0;}
 table.money a.year.prev		{left:0; border-right:1px solid #000;}
 table.money a.year.next		{right:0; border-left:1px solid #000;}
+
+table.money th.col2			{width:180px;}
+table.money td.col2	a		{word-break:break-word;}
 
 table.money.publishers th.col2,
 table.money.publishers td.col2	{border-left:1px solid #000;}
