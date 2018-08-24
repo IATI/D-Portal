@@ -3,7 +3,7 @@ cd `dirname $0`
 source settings
 
 ./watch &
-./serv &
+./serv $* &
 
 wait
 

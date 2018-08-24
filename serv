@@ -1,3 +1,3 @@
 cd `dirname $0`
 
-ctrack/watch 1>&2 | dportal/start
+ctrack/watch 1>&2 | dportal/start $*
