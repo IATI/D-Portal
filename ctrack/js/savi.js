@@ -445,7 +445,7 @@ acts.find("policy-marker").each(function(i){var it=$(this);
 	td=iati_codes.policy_code[td] || td;
 	te=iati_codes.policy_sig[te] || te;	
 
-	if(tc=="1") // OECD DAC CRS is "1"
+	if((!tc)||(tc=="1")) // OECD DAC CRS is "1"
 	{
 		if(td)
 		{
