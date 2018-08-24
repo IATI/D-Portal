@@ -324,6 +324,11 @@ iati-activity			{background-color:rgba(255,255,255,1); border-radius:8px;}
 iati-activity:after 	{color:rgba(85,85,85,1);}
 
 
+/*	Display when humanitarian
+	============================================= */
+iati-activity[humanitarian="1"]:before	{background-color:rgba(186,12,47,1); color:rgba(255,255,255,1);}
+
+
 /*	Project title
 	============================================= */
 span.span_span-title span-title		 			{color:rgba(85,85,85,1);}
@@ -332,7 +337,7 @@ span.span_span-title span-title:before 			{color:rgba(85,85,85,1);}
 
 /*	IATI Identifier
 	============================================= */
-iati-identifier 				{background-color:rgba(235, 235, 235, 0.6); color:rgba(186,12,47,1);}
+iati-identifier 				{background-color:rgba(235,235,235,0.6); color:rgba(186,12,47,1);}
 iati-identifier:before			{color:rgba(85,85,85,1);}
 iati-identifier:hover			{color:rgba(163,0,13,1);}
 a.a_xml_iati-identifier:link	{color:rgba(186,12,47,1);}

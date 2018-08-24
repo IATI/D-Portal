@@ -27,8 +27,12 @@ iati-activity span	{display:block;}
 iati-activity a 	{display:block;}
 iati-activity img	{display:block; -webkit-filter:brightness(100%); filter:brightness(100%);}
 
-
 narrative {display:inline-block;color:inherit;font-family:inherit;word-wrap:inherit;vertical-align: top;}
+
+
+/*	Display when humanitarian
+	============================================= */
+iati-activity[humanitarian="1"]:before	{content:"HUMANITARIAN"; padding:10px 40px 7px 40px; font-size:14px; color:#000e20; width:490px; text-align:right; background-color:#ff890c;}
 
 
 /*	Project title

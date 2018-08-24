@@ -345,6 +345,11 @@ iati-activity			{background-color:var(--base04_70);}
 iati-activity:after 	{color:var(--base14);}
 
 
+/*	Display when humanitarian
+	============================================= */
+iati-activity[humanitarian="1"]:before	{background-color:var(--base04); color:var(--base15);}
+
+
 /*	Project title
 	============================================= */
 span.span_span-title span-title		 	{color:var(--base15);}

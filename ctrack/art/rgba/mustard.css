@@ -312,6 +312,11 @@ iati-activity			{background-color:rgba(15,15,15,0.7);}
 iati-activity:after 	{color:rgba(204,204,204,1);}
 
 
+/*	Display when humanitarian
+	============================================= */
+iati-activity[humanitarian="1"]:before	{background-color:rgba(206,131,0,1); color:rgba(15,15,15,1);}
+
+
 /*	Project title
 	============================================= */
 span.span_span-title span-title		 			{color:rgba(255,255,255,1);}

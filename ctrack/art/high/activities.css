@@ -38,6 +38,12 @@ filter: gray; /* IE6-9 */
 narrative {display:inline-block; color:inherit; font-family:inherit; word-wrap:inherit;}
 
 
+/*	Display when humanitarian
+	============================================= */
+iati-activity[humanitarian="1"]:before	{content:"HUMANITARIAN"; padding:10px 40px 7px 40px; font-size:14px; color:#000; width:490px; text-align:right; background-color:#FFF; border:1px solid #000; margin-left:-1px;}
+
+
+
 /*	Project title
 	============================================= */
 span.span_span-title span-title			{display:block; font-size:42px; width:880px; padding:40px; margin:0 auto; color:#000; line-height:1.2em;}
