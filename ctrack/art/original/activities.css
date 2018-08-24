@@ -27,8 +27,12 @@ iati-activity span	{display:block;}
 iati-activity a 	{display:block;}
 iati-activity img	{display:block; -webkit-filter:brightness(100%); filter:brightness(100%);}
 
-
 narrative {display:inline-block;color:inherit;font-family:inherit;word-wrap:inherit;vertical-align: top;}
+
+
+/*	Display when humanitarian
+	============================================= */
+iati-activity[humanitarian="1"]:before	{content:"HUMANITARIAN"; padding:10px 40px 7px 40px; font-size:14px; color:#000e20; width:490px; text-align:right; background-color:#ff890c;}
 
 
 /*	Project title
@@ -255,11 +259,17 @@ result indicator period dimension:nth-of-type(1)	{padding-top:5px;}
 span.span_result narrative:nth-of-type(2)	{display:block; padding:20px 0 0 0; font-style:italic;}
 span-narrative								{font-size:24px; line-height:30px;}
 
-result indicator comment			{display:block; padding-top:10px; font-size:14px; font-style:italic; line-height:20px;}
+result indicator comment					{display:block; font-size:14px; font-style:italic; line-height:20px;}
+result indicator period comment narrative	{padding-top:10px;}
 target comment narrative,
 actual comment narrative,
 target comment span-narrative,
-actual comment span-narrative		{display:block; font-size:14px; line-height:1.25em;}
+actual comment span-narrative				{display:block; font-size:14px; line-height:1.25em;}
+
+result indicator period comment narrative.empty,
+result indicator period location[ref=""],
+result indicator period dimension[name=""],
+result indicator period dimension[value=""] {display:none;}
 
 result indicator period baseline, result indicator period target, result indicator period actual	{min-height:60px; display:table-cell;}
 result indicator period baseline	{background-color:rgba(9,15,23,0.5); width:160px; max-width:160px; padding:20px; position:relative;}

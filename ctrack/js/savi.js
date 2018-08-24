@@ -685,6 +685,9 @@ sorted++;
 			if(aname < bname ) { ret=-1; }
 		}
 		
+//		Sort document links:
+//		Latest date first, if dates are found, 
+//		then sort by format type.
 		
 		if( (ret===0) && (aname=="document-link") )
 		{
