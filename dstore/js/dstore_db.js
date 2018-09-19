@@ -260,11 +260,11 @@ dstore_db.refresh_budget=function(db,it,act,act_json,priority,splits)
 	}
 	
 	t["budget_currency"]=				iati_xml.get_value_currency(it,"value") || act["default-currency"];
-	t["budget_value"]=					iati_xml.get_value(it,"value");
-	t["budget_usd"]=					iati_xml.get_ex(it,"value","USD",act["default-currency"]);
-	t["budget_eur"]=					iati_xml.get_ex(it,"value","EUR",act["default-currency"]);
-	t["budget_gbp"]=					iati_xml.get_ex(it,"value","GBP",act["default-currency"]);
-	t["budget_cad"]=					iati_xml.get_ex(it,"value","CAD",act["default-currency"]);
+	t["budget_value"]=					iati_xml.get_value(it,"value")||0;
+	t["budget_usd"]=					iati_xml.get_ex(it,"value","USD",act["default-currency"])||0;
+	t["budget_eur"]=					iati_xml.get_ex(it,"value","EUR",act["default-currency"])||0;
+	t["budget_gbp"]=					iati_xml.get_ex(it,"value","GBP",act["default-currency"])||0;
+	t["budget_cad"]=					iati_xml.get_ex(it,"value","CAD",act["default-currency"])||0;
 
 	t["budget_org"]=					refry.tagattr(it,"recipient-org","ref");
 
@@ -429,11 +429,11 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 		
 		t["trans_currency"]=		iati_xml.get_value_currency(it,"value") || act["default-currency"];
-		t["trans_value"]=			iati_xml.get_value(it,"value");
-		t["trans_usd"]=				iati_xml.get_ex(it,"value","USD",act["default-currency"]);
-		t["trans_eur"]=				iati_xml.get_ex(it,"value","EUR",act["default-currency"]);
-		t["trans_gbp"]=				iati_xml.get_ex(it,"value","GBP",act["default-currency"]);
-		t["trans_cad"]=				iati_xml.get_ex(it,"value","CAD",act["default-currency"]);
+		t["trans_value"]=			iati_xml.get_value(it,"value")||0;
+		t["trans_usd"]=				iati_xml.get_ex(it,"value","USD",act["default-currency"])||0;
+		t["trans_eur"]=				iati_xml.get_ex(it,"value","EUR",act["default-currency"])||0;
+		t["trans_gbp"]=				iati_xml.get_ex(it,"value","GBP",act["default-currency"])||0;
+		t["trans_cad"]=				iati_xml.get_ex(it,"value","CAD",act["default-currency"])||0;
 
 
 		t["trans_country"]=null
@@ -681,17 +681,17 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 			code=code && (code.toUpperCase());
 			if(code=="C")
 			{
-				var usd=iati_xml.get_ex(it,"value","USD",act["default-currency"]);	t.commitment+=usd;
-				var eur=iati_xml.get_ex(it,"value","EUR",act["default-currency"]);	t.commitment_eur+=eur;
-				var gbp=iati_xml.get_ex(it,"value","GBP",act["default-currency"]);	t.commitment_gbp+=gbp;
-				var cad=iati_xml.get_ex(it,"value","CAD",act["default-currency"]);	t.commitment_cad+=cad;
+				var usd=iati_xml.get_ex(it,"value","USD",act["default-currency"])||0;	t.commitment+=usd;
+				var eur=iati_xml.get_ex(it,"value","EUR",act["default-currency"])||0;	t.commitment_eur+=eur;
+				var gbp=iati_xml.get_ex(it,"value","GBP",act["default-currency"])||0;	t.commitment_gbp+=gbp;
+				var cad=iati_xml.get_ex(it,"value","CAD",act["default-currency"])||0;	t.commitment_cad+=cad;
 			}
 			if( (code=="D") || (code=="E") )
 			{
-				var usd=iati_xml.get_ex(it,"value","USD",act["default-currency"]);	t.spend+=usd;
-				var eur=iati_xml.get_ex(it,"value","EUR",act["default-currency"]);	t.spend_eur+=eur;
-				var gbp=iati_xml.get_ex(it,"value","GBP",act["default-currency"]);	t.spend_gbp+=gbp;
-				var cad=iati_xml.get_ex(it,"value","CAD",act["default-currency"]);	t.spend_cad+=cad;
+				var usd=iati_xml.get_ex(it,"value","USD",act["default-currency"])||0;	t.spend+=usd;
+				var eur=iati_xml.get_ex(it,"value","EUR",act["default-currency"])||0;	t.spend_eur+=eur;
+				var gbp=iati_xml.get_ex(it,"value","GBP",act["default-currency"])||0;	t.spend_gbp+=gbp;
+				var cad=iati_xml.get_ex(it,"value","CAD",act["default-currency"])||0;	t.spend_cad+=cad;
 			}
 		});
 //console.log("C="+t.commitment+"\tD+E="+t.spend);
