@@ -133,7 +133,15 @@ query.getsql_select=function(q,qv){
 				mults.push(aa[i]);
 			}
 		}
-		var s=" "+agg+"( "+name+" ";
+		var s;
+		if(agg)
+		{
+			s=" "+agg+"( COALESCE("+name+",0) ";
+		}
+		else
+		{
+			s=" ( "+name+" ";
+		}
 		mults.forEach(function(n){
 			s=s+" * ("+n+"_percent/100)"
 		});
@@ -184,19 +192,19 @@ query.getsql_select=function(q,qv){
 				percents("sum_of_percent_of_"+name,name,"SUM");
 			break
 			case "avg":
-				ss.push(" AVG("+name+") AS avg_"+name);
+				ss.push(" AVG(COALESCE("+name+",0)) AS avg_"+name);
 			break
 			case "sum":
-				ss.push(" SUM("+name+") AS sum_"+name);
+				ss.push(" SUM(COALESCE("+name+",0)) AS sum_"+name);
 			break
 			case "max":
-				ss.push(" MAX("+name+") AS max_"+name);
+				ss.push(" MAX(COALESCE("+name+",0)) AS max_"+name);
 			break
 			case "min":
-				ss.push(" MIN("+name+") AS min_"+name);
+				ss.push(" MIN(COALESCE("+name+",0)) AS min_"+name);
 			break
 			case "any":
-				ss.push(" MAX("+name+") AS "+name); // for getting a value from grouped data when any of them will do.
+				ss.push(" MAX(COALESCE("+name+",0)) AS "+name); // for getting a value from grouped data when any of them will do.
 			break
 		}
 	};
