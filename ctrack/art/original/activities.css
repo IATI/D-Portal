@@ -1,7 +1,7 @@
 /*	Original flava CSS for SAVi d-portal.org 2014
 	============================================= */
 * 					{font-family:Arial,Helvetica,sans-serif; word-wrap:break-word;}
-body,html			{background:url('dp_tile.400.png') top center; background-color:#121A31; color:#444; font-family:sans-serif; background-attachment:fixed;}
+body,html			{background:url('dp_tile.400.png') top center; background-color:#121A31; color:#444; font-family:sans-serif; background-attachment:fixed; margin-top:40px;}
 a					{text-decoration:none; color:#FFAB5E;}
 a:link				{text-decoration:none; color:#FFAB5E;}
 a:visited			{text-decoration:none; color:#FFAB5E;}
@@ -111,13 +111,12 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 
 /*	Who's invloved?
 	============================================= */
-span.span_participating-org			{display:block; width:880px; padding:40px; font-size:18px; color:#FFF; counter-reset:section;}
+span.span_participating-org			{display:block; width:880px; padding:40px; font-size:16px; color:#FFF;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 participating-org 					{display:block; padding:0 0 5px 0; position:relative; line-height:24px;}
-participating-org::before			{counter-increment:section; content:counter(section) ". "; line-height:inherit; margin-right:-30px;}
-participating-org narrative			{display:block; padding-left:24px;}
+participating-org narrative			{display:block; font-style:italic;}
 participating-org span-lang			{display:inline-block; vertical-align:top;}
-participating-org span-lang narrative	{display:block; padding-left:34px;}
+participating-org span-lang narrative	{display:block; font-style:initial;}
 participating-org a					{display:initial;}
 participating-org a:link span-lang,
 participating-org a:link			{color:#FFAB5E;}
