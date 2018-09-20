@@ -175,8 +175,8 @@ view_dash.ajax3=function(args)
 			d.country_name=iati_codes.country[d.country_code] || "N/A";
 			d.country_valid=iati_codes.country[d.country_code] && "valid" || "invalid";
 
-			if(!iati_codes.country[d.country_code]) { bad+=Number(d.count); }
-			total+=d.count;
+			if(!iati_codes.country[d.country_code]) { bad+=1;}//Number(d.count); }
+			total+=1;//Number(d.count);
 			s.push( plate.replace(args.plate || "{dash_listall_country_data}",d) );
 		}
 		ctrack.chunk(args.chunk || "dash_listall_country_datas",s.join(""));
