@@ -136,7 +136,7 @@ query.getsql_select=function(q,qv){
 		var s;
 		if(agg)
 		{
-			s=" "+agg+"( COALESCE("+name+",0) ";
+			s=" "+agg+"( "+name+" ";
 		}
 		else
 		{
@@ -192,19 +192,19 @@ query.getsql_select=function(q,qv){
 				percents("sum_of_percent_of_"+name,name,"SUM");
 			break
 			case "avg":
-				ss.push(" AVG(COALESCE("+name+",0)) AS avg_"+name);
+				ss.push(" AVG("+name+") AS avg_"+name);
 			break
 			case "sum":
-				ss.push(" SUM(COALESCE("+name+",0)) AS sum_"+name);
+				ss.push(" SUM("+name+") AS sum_"+name);
 			break
 			case "max":
-				ss.push(" MAX(COALESCE("+name+",0)) AS max_"+name);
+				ss.push(" MAX("+name+") AS max_"+name);
 			break
 			case "min":
-				ss.push(" MIN(COALESCE("+name+",0)) AS min_"+name);
+				ss.push(" MIN("+name+") AS min_"+name);
 			break
 			case "any":
-				ss.push(" MAX(COALESCE("+name+",0)) AS "+name); // for getting a value from grouped data when any of them will do.
+				ss.push(" MAX("+name+") AS "+name); // for getting a value from grouped data when any of them will do.
 			break
 		}
 	};
