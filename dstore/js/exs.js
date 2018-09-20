@@ -298,13 +298,15 @@ exs.create_csv = function(){
 			var dump_m={}
 			dump_ms[year+"-"+month0]=dump_m;
 			
-			var csv_file=wait.for(http_getbody,"http://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate="+year+"-"+month+"-01&reportType=CVSDR&tsvflag=Y");
+			var csv_url="https://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate="+year+"-"+month+"-01&reportType=CVSDR&tsvflag=Y"
+			var csv_file=wait.for(https_getbody,csv_url);
 
 			var csv_lines=baby.parse(csv_file,{delimiter:'\t'}).data;
-console.log(year + " " + month );
+console.log(year + " " + month + " : " + csv_lines.length );
 
 			var active=false;
 			csv_lines.forEach(function(line){
+
 				var cid=xes_low[ line[0].toLowerCase() ];
 				if( cid )
 				{
