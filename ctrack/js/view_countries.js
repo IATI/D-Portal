@@ -133,7 +133,7 @@ view_countries.ajax=function(args)
 		a.forEach(function(v){
 			cc[cc.length]=[v.country_code,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2),"http://d-portal.org/ctrack.html?country="+v.country_code];
 		});
-		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
+		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
  
 		ctrack.display();
 

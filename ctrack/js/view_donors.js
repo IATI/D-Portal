@@ -106,7 +106,7 @@ view_donors.ajax=function(args)
 		a.forEach(function(v){
 			cc[cc.length]=[p(v.crs),v.donor,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2)];
 		});
-		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
+		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
  
 		ctrack.display();
 

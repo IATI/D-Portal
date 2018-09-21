@@ -178,7 +178,10 @@ view_search.fixup=function()
 		var v=vraw;
 		
 // remove and trim non alphanumerics, so search is very simple for now
-		if(v) { v=v.replace(/[^A-Za-z0-9]+/gi," ").trim(); }
+//		if(v) { v=v.replace(/[^A-Za-z0-9]+/gi," ").trim(); }
+
+// just trim it...
+		if(v) { v=v.trim(); }
 		
 		var enable_search=false;
 		
@@ -186,7 +189,7 @@ view_search.fixup=function()
 		{
 			enable_search=true;
 			txt.push("Searching activity title for the term \""+v+"\"")
-			que.push("search="+v)
+			que.push("search="+ctrack.encodeURIComponent(v))
 			ctrack.hash.search=v
 			q.text_search=v;
 			q.raw_text_search=vraw;

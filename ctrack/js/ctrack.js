@@ -39,6 +39,14 @@ for(var year=1990;year<2100;year++)
 	 }
 }
 
+ctrack.encodeURIComponent=function(str)
+{
+  return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+    return '%' + c.charCodeAt(0).toString(16);
+  });
+}
+
+
 // exports
 ctrack.savi_fixup=savi.fixup;
 ctrack.draw_chart=chart.draw;
@@ -681,7 +689,7 @@ ctrack.setup=function(args)
 		var a=[];
 		for(var n in ctrack.hash)
 		{
-			a.push(n+"="+encodeURIComponent(ctrack.hash[n]));
+			a.push(n+"="+ctrack.encodeURIComponent(ctrack.hash[n]));
 		}
 		document.location.hash=a.join("&");
 		ctrack.last_hash=document.location.hash; // disable change logic

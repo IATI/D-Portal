@@ -94,7 +94,7 @@ view_list_budgets.ajax=function(args)
 				var d={};
 				d.num=i+1;
 				d.funder_ref=v.funder_ref;
-				d.aid=encodeURIComponent(v.aid);
+				d.aid=ctrack.encodeURIComponent(v.aid);
 				d.title=html_encode(v.title || v.aid || "N/A");
 				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref;
 				total+=ctrack.convert_num("sum_of_percent_of_budget",v);
@@ -118,7 +118,7 @@ view_list_budgets.ajax=function(args)
 			a.forEach(function(v){
 				cc[cc.length]=[v.aid,v.title,v.reporting,v.amount_num,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid];
 			});
-			ctrack.chunk((args.chunk || "list_budgets_datas")+"_csv","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
+			ctrack.chunk((args.chunk || "list_budgets_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
 
 		}
 		if(args.callback){args.callback(data);}
