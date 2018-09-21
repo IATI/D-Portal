@@ -698,7 +698,7 @@ ctrack.setup=function(args)
 	ctrack.last_view="";
 	ctrack.check_hash=function()
 	{
-		var h=window.location.href.split('#')[1]||""
+		var h="#"+(window.location.href.split('#')[1]||"")
 		if(h!=ctrack.last_hash)
 		{
 			ctrack.chunk("hash",h);
