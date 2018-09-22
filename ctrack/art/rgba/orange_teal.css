@@ -23,7 +23,12 @@
   --base04_70:rgba(34,80,78,0.7);
   --base05:#212121;
   --base05_70:rgba(33,33,33,0.7);
-  --base05_00:rgba(33,33,33);
+  --base05_00:rgba(33,33,33,0.0);
+  
+  --col6:rgba(8,137,125,1);
+  --col4:rgba(32,111,105,1);
+  --col3:rgba(37,105,99,1);
+  --col2:rgba(32,96,91,1);
 }
 
 
@@ -217,7 +222,7 @@ a.search_refine:hover		{border:1px solid var(--base); text-shadow:initial; backg
 
 /*	Table header styles
 	============================================= */
-th.titles					{color:var(--base); border-bottom:1px solid var(--base03);}
+th.titles					{color:var(--base);}
 
 
 /*	Table for Header logo and Translations
@@ -253,7 +258,7 @@ table.list td.alert_no_iati	{color:var(--base14);}
 
 /*	Table for Money list (Donors / Sectors)
 	============================================= */
-table.money td				{color:var(--base14); border-bottom:1px solid var(--base11);}
+table.money td				{color:var(--base14);}
 table.money td.col1			{background-color:var(--base02_40);}
 table.money td.col3			{background-color:var(--base03_20);}
 table.money td.col4			{background-color:var(--base03_40);}
@@ -263,20 +268,21 @@ table.money td.col7			{background-color:var(--base02_60);}
 
 table.money tr.row1 th		{color:var(--base15);}
 table.money tr.row1 th span	{color:var(--base15);}
-table.money tr.row1 th.col1	{background-color:var(--base02); border:1px solid var(--base02); border-bottom:1px solid var(--base11);}
-table.money tr.row1 th.col2	{background-color:var(--base02_20);border-bottom:1px solid var(--base11); border-top:1px solid var(--base02);}
-table.money tr.row1 th.col3	{background-color:var(--base03); border:1px solid var(--base02); border-bottom:1px solid var(--base11);}
-table.money tr.row1 th.col4	{background-color:var(--base02); border:1px solid var(--base01); border-bottom:1px solid var(--base11);}
+table.money tr.row1 th.col1	{background-color:var(--base02); border:0px solid var(--base02);}
+table.money tr.row1 th.col2	{background-color:var(--col2); border:0px solid var(--base02);}
+table.money tr.row1 th.col3	{background-color:var(--base03); border:0px solid var(--base02);}
+table.money tr.row1 th.col4	{background-color:var(--base02); border:0px solid var(--base01);}
 
 table.money tr.row2 td		{color:var(--base15);}
 table.money tr.row2 td.col1 {background-color:var(--base02); border-left:1px solid var(--base02); border-right:1px solid var(--base02);}
-table.money tr.row2 td.col2 {background-color:var(--base03_20);}
-table.money tr.row2 td.col3	{background-color:var(--base03_60); border-left:1px solid var(--base02);}
-table.money tr.row2 td.col4	{background-color:var(--base03_80);}
+table.money tr.row2 td.col2 {background-color:var(--col2);}
+table.money tr.row2 td.col3	{background-color:var(--col3); border-left:1px solid var(--base02);}
+table.money tr.row2 td.col4	{background-color:var(--col4);}
 table.money tr.row2 td.col5	{background-color:var(--base03); border-right:1px solid var(--base02);}
-table.money tr.row2 td.col6	{background-color:var(--base02_80);}
+table.money tr.row2 td.col6	{background-color:var(--col6);}
 table.money tr.row2 td.col7	{background-color:var(--base02); border-right:1px solid var(--base01);}
 
+table.money tr.rows td		{border-bottom:1px solid var(--base11);}
 table.money tr.rows td.col1	{border-left:1px solid var(--base02); border-right:1px solid var(--base02);}
 table.money tr.rows td.col3	{border-left:1px solid var(--base02);}
 table.money tr.rows td.col5	{border-right:1px solid var(--base02);}
@@ -300,6 +306,9 @@ table.money.publishers th.col2,
 table.money.publishers td.col2	{border-left:1px solid var(--base02);}
 table.money.publishers th.col2	{border-top:1px solid var(--base02);}
 
+table.money tr.row1 th:after,
+table.money tr.row2 td:after	{border-bottom:1px solid var(--base11);}
+
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
@@ -311,6 +320,8 @@ table.activity a:link  	{color:var(--base14);}
 table.activity a:visited{color:var(--base14);}
 table.activity a:hover	{color:var(--base15);}
 table.activity a:active	{color:var(--base14);}
+table.activity tr th.titles			{background:var(--base04);}
+table.activity tr th.titles:after	{border-bottom:1px solid var(--base11);}
 
 
 /*	Table for data descriptions footer (Donors / Sectors)
