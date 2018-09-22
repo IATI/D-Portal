@@ -637,6 +637,7 @@ sort_elements("transaction",[
 		
 sort_elements("document-link",[
 		"span-title",
+		"description",
 		"span-doc_date",
 		"span-narrative",
 		0]);
