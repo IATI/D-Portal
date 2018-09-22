@@ -7,6 +7,16 @@ var savi=exports;
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
 
+savi.encodeURIComponent=function(str)
+{
+  return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+    return '%' + c.charCodeAt(0).toString(16);
+  });
+}
+
+
+
+
 savi.fixup = function(args){
 
 
@@ -806,7 +816,7 @@ acts.find("activity-website").each(function(i){var it=$(this);
 
 acts.find("iati-identifier").each(function(i){var it=$(this);
 	var slug=it.parent().parent().attr("dstore:slug"); // do we know where this came from?
-	var id=encodeURIComponent(it.text().trim());
+	var id=savi.encodeURIComponent(it.text().trim());
 	wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	it.append($("<div></div>"));
 	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+
@@ -826,7 +836,7 @@ acts.find("provider-org[ref], provider-org[provider-activity-id]").each(function
 	
 	if( aid )
 	{
-		wrapInner_link(it,prelink+encodeURIComponent(aid.trim())+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,prelink+savi.encodeURIComponent(aid.trim())+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
 	if(iati_codes.publisher_names[id])
@@ -841,7 +851,7 @@ acts.find("receiver-org[ref], receiver-org[receiver-activity-id]").each(function
 	
 	if( aid )
 	{
-		wrapInner_link(it,prelink+encodeURIComponent(aid.trim())+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,prelink+savi.encodeURIComponent(aid.trim())+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
 	if(iati_codes.publisher_names[id])
@@ -856,7 +866,7 @@ acts.find("participating-org[ref], participating-org[activity-id]").each(functio
 	
 	if( aid )
 	{
-		wrapInner_link(it,prelink+encodeURIComponent(aid.trim())+postlink,"a_"+this.tagName.toLowerCase());
+		wrapInner_link(it,prelink+savi.encodeURIComponent(aid.trim())+postlink,"a_"+this.tagName.toLowerCase());
 	}
 	else
 	if(iati_codes.publisher_names[id])
@@ -880,7 +890,7 @@ acts.find("related-activity").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	if(id)
 	{
-		wrap_link(it,prelink+encodeURIComponent(id)+postlink,"a_"+this.tagName.toLowerCase());
+		wrap_link(it,prelink+savi.encodeURIComponent(id)+postlink,"a_"+this.tagName.toLowerCase());
 	}
 });
 

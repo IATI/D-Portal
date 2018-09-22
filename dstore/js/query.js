@@ -133,7 +133,15 @@ query.getsql_select=function(q,qv){
 				mults.push(aa[i]);
 			}
 		}
-		var s=" "+agg+"( "+name+" ";
+		var s;
+		if(agg)
+		{
+			s=" "+agg+"( "+name+" ";
+		}
+		else
+		{
+			s=" ( "+name+" ";
+		}
 		mults.forEach(function(n){
 			s=s+" * ("+n+"_percent/100)"
 		});

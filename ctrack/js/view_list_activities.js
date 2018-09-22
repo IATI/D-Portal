@@ -98,7 +98,7 @@ view_list_activities.ajax=function(args)
 				var d={};
 				d.num=i+1;
 				d.funder=v.funder || "N/A";
-				d.aid=encodeURIComponent(v.aid || "N/A");
+				d.aid=ctrack.encodeURIComponent(v.aid || "N/A");
 				d.title=html_encode(v.title || v.aid || "N/A");
 				d.status_code=v.status_code || "N/A";
 				
@@ -137,7 +137,7 @@ view_list_activities.ajax=function(args)
 			a.forEach(function(v){
 				cc[cc.length]=[v.aid,v.title,v.reporting,v.commitment,v.spend,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid,v.status_code];
 			});
-			ctrack.chunk((args.chunk || "list_activities_datas")+"_csv","data:text/csv;charset=UTF-8,"+encodeURIComponent(csvw.arrayToCSV(cc)));
+			ctrack.chunk((args.chunk || "list_activities_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
 			
 		}
 		if(args.callback){args.callback(data);}
