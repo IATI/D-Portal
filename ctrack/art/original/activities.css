@@ -488,6 +488,8 @@ document-link span-title narrative				{display:inline;}
 document-link span-title narrative:nth-of-type(2){padding-left:5px; font-style:italic;}
 
 a.a_document-link span-title:after				{content:"LINK"; margin-left:10px; color:#CCC; font-size:12px; vertical-align:top; background-color:rgba(22,24,37,0.6); border-radius:4px; padding:4px 4px 1px 4px;}
+document-link description						{display:block;}
+document-link description narrative				{font-size:13px; margin-top:2px; color:#BBB;}
 span-narrative.doc-cat,
 span-doc_date									{display:inline-block; margin-top:5px; margin-right:5px; color:#CCC; font-size:13px; vertical-align:top; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px 0px 4px; line-height:1.5em;}
 span-doc_date									{background-color:rgba(48,71,103,1);}

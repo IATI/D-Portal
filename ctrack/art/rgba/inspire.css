@@ -189,7 +189,7 @@ a.search_refine:hover		{border:1px solid rgba(186,12,47,1); text-shadow:initial;
 
 /*	Table header styles
 	============================================= */
-th.titles					{color:rgba(85,85,85,1); border-bottom:1px solid rgba(56,56,56,1);}
+th.titles					{color:rgba(85,85,85,1);}
 
 
 /*	Table for Header logo and Translations
@@ -227,7 +227,7 @@ table.list td.alert_no_iati	{color:rgba(85,85,85,1);}
 
 /*	Table for Money list (Donors / Sectors)
 	============================================= */
-table.money td				{color:rgba(78,78,78,1); border-bottom:1px solid rgba(199,199,199,1);}
+table.money td				{color:rgba(78,78,78,1);}
 table.money td.col1			{background-color:rgba(243,243,243,0.6);}
 table.money td.col3			{background-color:rgba(216,216,216,0.2);}
 table.money td.col4			{background-color:rgba(216,216,216,0.4);}
@@ -237,20 +237,21 @@ table.money td.col7			{background-color:rgba(199,199,199,0.6);}
 
 table.money tr.row1 th		{color:rgba(78,78,78,1);}
 table.money tr.row1 th span	{color:rgba(78,78,78,1);}
-table.money tr.row1 th.col1	{background-color:rgba(243,243,243,0.6); border:1px solid rgba(199,199,199,1); border-bottom:1px solid rgba(199,199,199,1);}
-table.money tr.row1 th.col2	{background-color:rgba(243,243,243,0.6); border-bottom:1px solid rgba(199,199,199,1); border-top:1px solid rgba(199,199,199,1);}
-table.money tr.row1 th.col3	{background-color:rgba(216,216,216,1); border:1px solid rgba(199,199,199,1); border-bottom:1px solid rgba(199,199,199,1);}
-table.money tr.row1 th.col4	{background-color:rgba(199,199,199,0.9); border:1px solid rgba(199,199,199,1); border-bottom:1px solid rgba(199,199,199,1);}
+table.money tr.row1 th.col1	{background-color:rgba(248,248,248,1); border:1px solid rgba(199,199,199,1);}
+table.money tr.row1 th.col2	{background-color:rgba(248,248,248,1); border:1px solid rgba(199,199,199,1);}
+table.money tr.row1 th.col3	{background-color:rgba(216,216,216,1); border:1px solid rgba(199,199,199,1);}
+table.money tr.row1 th.col4	{background-color:rgba(204,204,204,1); border:1px solid rgba(199,199,199,1);}
 
 table.money tr.row2 td		{color:rgba(78,78,78,1);}
 table.money tr.row2 td.col1 {background-color:rgba(243,243,243,1); border-left:1px solid rgba(199,199,199,1); border-right:1px solid rgba(199,199,199,1);}
 table.money tr.row2 td.col2 {background-color:rgba(243,243,243,1);}
-table.money tr.row2 td.col3	{background-color:rgba(216,216,216,0.6); border-left:1px solid rgba(199,199,199,1);}
-table.money tr.row2 td.col4	{background-color:rgba(216,216,216,0.8);}
-table.money tr.row2 td.col5	{background-color:rgba(216,216,216,0.9); border-right:1px solid rgba(199,199,199,1);}
-table.money tr.row2 td.col6	{background-color:rgba(199,199,199,0.7);}
-table.money tr.row2 td.col7	{background-color:rgba(199,199,199,0.8); border-right:1px solid rgba(199,199,199,1);}
+table.money tr.row2 td.col3	{background-color:rgba(231,231,231,1); border-left:1px solid rgba(199,199,199,1);}
+table.money tr.row2 td.col4	{background-color:rgba(223,223,223,1);}
+table.money tr.row2 td.col5	{background-color:rgba(219,219,219,1); border-right:1px solid rgba(199,199,199,1);}
+table.money tr.row2 td.col6	{background-color:rgba(215,215,215,1);}
+table.money tr.row2 td.col7	{background-color:rgba(210,210,210,1); border-right:1px solid rgba(199,199,199,1);}
 
+table.money tr.rows td		{border-bottom:1px solid rgba(199,199,199,1);}
 table.money tr.rows td.col1	{border-left:1px solid rgba(199,199,199,1); border-right:1px solid rgba(199,199,199,1);}
 table.money tr.rows td.col3	{border-left:1px solid rgba(199,199,199,1);}
 table.money tr.rows td.col5	{border-right:1px solid rgba(199,199,199,1);}
@@ -276,6 +277,9 @@ table.money.publishers th.col2,
 table.money.publishers td.col2	{border-left:1px solid rgba(199,199,199,1);}
 table.money.publishers th.col2	{border-top:1px solid rgba(199,199,199,1);}
 
+table.money tr.row1 th:after,
+table.money tr.row2 td:after	{border-bottom:1px solid rgba(199,199,199,1);}
+
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
@@ -289,6 +293,8 @@ table.activity a:link  	{color:rgba(85,85,85,1);}
 table.activity a:visited{color:rgba(85,85,85,1);}
 table.activity a:hover	{color:rgba(186,12,47,1); background-color:rgba(0,0,0,0);}
 table.activity a:active	{color:rgba(85,85,85,1);}
+table.activity tr th.titles			{background:rgba(255,255,255,1);}
+table.activity tr th.titles:after	{border-bottom:1px solid rgba(199,199,199,1);}
 
 
 /*	Table for data descriptions footer (Donors / Sectors)
@@ -609,6 +615,7 @@ a.a_document-link:hover						{background-color:rgba(255,255,255,1);}
 a.a_document-link document-link span-title	{color:rgba(85,85,85,1);}
 document-link span							{color:rgba(85,85,85,1);}
 a.a_document-link span-title:after			{color:rgba(255,255,255,1); background-color:rgba(15,15,15,0.4);}
+document-link description narrative			{color:rgba(85,85,85,1);}
 span-narrative.doc-cat						{color:rgba(255,255,255,1); background-color:rgba(15,15,15,0.4);}
 span-doc_date								{color:rgba(255,255,255,1); background-color:rgba(115,115,115,1);}
 
