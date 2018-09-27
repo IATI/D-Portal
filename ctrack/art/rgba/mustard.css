@@ -402,6 +402,16 @@ span.span_location location point > *	{color:rgba(204,204,204,1);}
 span.span_location location description	{color:rgba(204,204,204,1);}
 
 
+/*	Recipient region
+	============================================= */
+span.span_recipient-region			{color:rgba(255,255,255,1);}
+span.span_recipient-region:before 	{color:rgba(204,204,204,1);}
+span.region-percent 				{color:rgba(204,204,204,1);}
+
+span.region-code,
+span.region-vocab			{color:rgba(255,255,255,1); background-color:rgba(101,101,101,0.4);}
+
+
 /*	Reported by
 	============================================= */
 reporting-org 				{color:rgba(255,255,255,1);}

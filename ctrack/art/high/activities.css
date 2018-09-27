@@ -140,14 +140,15 @@ participating-org a:active			{color:#000;}
 span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0 0 0 24px; font-style:italic; font-size:16px; line-height:inherit;}
 span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
 
-span-narrative.org-role, span-narrative.org-type		{display:inline; font-size:13px; line-height:24px; color:#000; margin-left:10px; border:1px solid #000; border-radius:4px; padding:4px 4px 2px 4px;}
+span-narrative.org-role,
+span-narrative.org-type		{display:inline; font-size:13px; line-height:24px; color:#000; margin-left:10px; border:1px solid #000; border-radius:4px; padding:2px 4px 3px 4px;}
 
 
 /*	Location (version 2.02++)
 	============================================= */
 span.span_location			{display:block; width:880px; padding:40px; font-size:18px; color:#000; counter-reset:section; border-top:1px solid #000;}
 span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
-span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:24px;}
+span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:20px;}
 span.span_location location:nth-of-type(1)	{padding:0;}
 span.span_location location::before	{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
 span.span_location location name	{display:inline;}
@@ -156,6 +157,21 @@ span.span_location location point > *	{display:inline; color:#000; font-size:16p
 span.span_location location pos:before	{content:" [ ";}
 span.span_location location pos:after	{content:" ]";}
 span.span_location location description {display:inline; margin-left:10px; font-size:14px; color:#000;}
+
+
+/*	Recipient region
+	============================================= */
+span.span_recipient-region			{display:block; width:880px; padding:40px; font-size:1.0em; color:#000;}
+span.span_recipient-region:before 	{content:"REGIONS"; font-size:14px; color:#000; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #000;}
+span.span_recipient-region recipient-region 				{display:block; padding:10px 0 0 0; position:relative; line-height:20px;}
+span.span_recipient-region recipient-region:nth-of-type(1)	{padding:0;}
+pan.span_recipient-region recipient-region narrative		{display:inline;}
+span.region-percent 		{display:inline; margin-left:10px; font-size:14px; color:#000;}
+span.region-percent:before	{content:"( ";}
+span.region-percent:after	{content:" )";}
+
+span.region-code,
+span.region-vocab			{display:inline; font-size:13px; line-height:24px; color:#000; margin-left:10px; border:1px solid #000; border-radius:4px; padding:2px 4px 3px 4px;}
 
 
 /*	Reported by
@@ -529,7 +545,7 @@ policy-marker narrative:nth-of-type(n+2) {display:inline-block; font-style:itali
 policy-marker narrative:last-of-type:after	{display:block;}
 span-narrative.policy_vocab,
 span-narrative.policy_code,
-span-narrative.policy_sig		{display:inline-block; margin-left:5px; color:#000; font-size:13px; border:1px solid #000; border-radius:4px; padding:1px 4px 0px 4px; line-height:1.5em;}
+span-narrative.policy_sig		{display:inline-block; margin-left:5px; color:#000; font-size:13px; border:1px solid #000; border-radius:4px; padding:0px 4px; line-height:1.5em;}
 span-narrative.policies			{display:inline-block; font-size:initial; line-height:initial;}
 policy-marker:last-of-type		{padding-bottom:40px;}
 
@@ -561,6 +577,7 @@ span.span_result,
 span.span_related-activity,
 span.span_recipient-country,
 span.span_policy-marker,
+span.span_recipient-region,
 span.span_location	{position:relative;}	
 span.hide		 	{display:block; position:absolute; top:35px; right:40px; font-size:12px; color:#000; line-height:24px; letter-spacing:1px;}
 span.hide:hover	 	{cursor:pointer; color:#000;}
@@ -590,3 +607,4 @@ span.span_policy-marker span.length			{left:135px;}
 span.span_location span.length				{left:135px;}
 span.sector_img span.length					{top:38px; left:105px;}
 span.country_img span.length				{top:30px; left:205px;}
+span.span_recipient-region span.length		{left:115px;}

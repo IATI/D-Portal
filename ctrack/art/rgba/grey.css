@@ -442,6 +442,16 @@ span.span_location location point > *	{color:var(--base13);}
 span.span_location location description	{color:var(--base13);}
 
 
+/*	Recipient region
+	============================================= */
+span.span_recipient-region			{color:var(--base15);}
+span.span_recipient-region:before 	{color:var(--base14);}
+span.region-percent 				{color:var(--base14);}
+
+span.region-code,
+span.region-vocab			{color:var(--base15); background-color:var(--base02_40);}
+
+
 /*	Reported by
 	============================================= */
 reporting-org 				{color:var(--base15);}

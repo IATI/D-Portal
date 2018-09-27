@@ -46,6 +46,21 @@ acts.addClass("savidone"); // mark as done so we ignore if we get called again
 
 var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
         return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+        
+var commafy_ifnum=function(s)
+{
+	var n=parseFloat(s);
+	var t=n.toString();
+	
+	if ( t == s )
+	{
+		return commafy(s);
+	}
+	else
+	{
+		return s;
+	}
+}
 
 // Adjust some tags using js
 
@@ -387,14 +402,14 @@ acts.find("result indicator period").each(function(i){var it=$(this);
 });
 
 acts.find("result target, result actual").each(function(i){var it=$(this);
-	it.prepend($('<span-narrative>' + it.attr("value") + '</span-narrative>'));
+	it.prepend($('<span-narrative>' + commafy_ifnum(it.attr("value")) + '</span-narrative>'));
 });
 
 
 acts.find("result baseline").each(function(i){var it=$(this);
 	if(it.attr("value"))
 	{
-		it.prepend($('<span-narrative class="baseline-value">' + it.attr("value") + '</span-narrative>'));
+		it.prepend($('<span-narrative class="baseline-value">' + commafy_ifnum(it.attr("value")) + '</span-narrative>'));
 	}
 });
 
@@ -473,6 +488,43 @@ acts.find("policy-marker").each(function(i){var it=$(this);
 	}
 	it.find("span-narrative").wrapAll("<span-narrative class='policies'></span-narrative>");	
 });
+
+
+acts.find("recipient-region").each(function(i){var it=$(this);
+	
+	var c=it.attr("code");
+	var v=it.attr("vocabulary");
+	var p=it.attr("percentage");	
+	
+	
+	if( it.find("narrative") && p )
+	{
+		it.html("<narrative>"+it.find("narrative").text()+"</narrative>"+"<span class='region-percent'>"+p+"%</span>");
+	}
+	else
+	{
+		it.text(""); //(version 2.01 - freetext is no longer allowed)
+	}
+	
+	if(c)
+	{
+		c=iati_codes.region_code[c]; //Only if lookup is valid
+		if(c)
+		{
+			it.append($('<span class="region-code">' + c + '</span>'));
+		}
+	}
+	
+	if(v)
+	{
+		v=iati_codes.region_vocab[v]; //Only if lookup is valid
+		if(v)
+		{
+			it.append($('<span class="region-vocab">' + v + '</span>'));
+		}
+	}
+});
+
 
 
 acts.find("reporting-org").each(function(i){var it=$(this);
@@ -656,6 +708,7 @@ sorted++;
 		"document-link",
 		"recipient-country",
 		"location",
+		"recipient-region",
 		"activity-date",
 		"participating-org",
 		"description",
@@ -967,7 +1020,7 @@ $('img.sector_pie').wrap($('<span class="sector_img">'));
 $('img.country_pie').wrap($('<span class="country_img">'));
 
 //	add hide div to these classes
-$( "span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_policy-marker" ).each(function(i,el){
+$( "span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_recipient-region, span.span_policy-marker" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children();
 	var c=$("<span class='hide'>[ - ] HIDE</span>");
