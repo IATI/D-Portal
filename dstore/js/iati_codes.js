@@ -153,7 +153,11 @@ iati_codes.fetch = function(){
 		var j=JSON.parse(js);
 		var o={};
 		j["data"].forEach(function(v){
-			o[ v.code ]=v.name;
+			if (v.status === 'withdrawn') {
+				o[v.code] = v.name + ' (withdrawn)';
+			} else {
+				o[v.code] = v.name;
+			}
 		});
 		codes[opts.name]=o;
 
