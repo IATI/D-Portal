@@ -154,7 +154,7 @@ iati_codes.fetch = function(){
 		var o={};
 		j["data"].forEach(function(v){
 			if (v.status === 'withdrawn') {
-				o[v.code] = v.name + ' (withdrawn)';
+				o[v.code] = '[Withdrawn] ' + v.name;
 			} else {
 				o[v.code] = v.name;
 			}
