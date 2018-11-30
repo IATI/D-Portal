@@ -284,10 +284,10 @@
   "image_display_url": "",
   "image_url": "",
   "is_organization": true,
-  "license_id": "notspecified",
+  "license_id": "cc-by",
   "name": "aadk",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 1,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Fælledvej 12\r\n2200 Copenhagen N.\r\nDenmark",
@@ -296,7 +296,6 @@
   "publisher_data_quality": "",
   "publisher_description": "",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "DK-CVR-18243717",
@@ -11198,7 +11197,7 @@
   "license_id": "notspecified",
   "name": "clingendael",
   "num_followers": 0,
-  "package_count": 7,
+  "package_count": 4,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Postal address:\r\nP.O. Box 93080\r\n2509 AB  The Hague\r\nThe Netherlands\r\n\r\nVisiting address:\r\nClingendael 7 \r\n2597 VH  The Hague \r\nThe Netherlands",
@@ -11897,7 +11896,7 @@
   "license_id": "odc-by",
   "name": "cordaid",
   "num_followers": 6,
-  "package_count": 3,
+  "package_count": 4,
   "publisher_agencies": "Approved projects of Stichting Cordaid started after 1 January 2016 will be published, taking into account the Exclusion Policy of Stichting Cordaid. These projects include approved grants to partner organizations and internally committed budgets for project activities under own management. For projects started before 2016, only the projects which are relevant for the track record of the organization will be published.",
   "publisher_constraints": "",
   "publisher_contact": "Lutherse Burgwal 10\r\n2512 CB Den Haag\r\nThe Netherlands",
@@ -14561,6 +14560,53 @@
    {
     "capacity": "editor",
     "name": "dhsc_ghs"
+   }
+  ]
+ },
+ "di": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "2a0826c8-e850-4b89-b82f-72fa00a63cea",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "odc-pddl",
+  "name": "di",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "",
+  "publisher_contact_email": "jef@di.dk",
+  "publisher_country": "DK",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "DK-CVR-16077593",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "70",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://www.danskindustri.dk/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Confederation of Danish Industry",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "dibd"
    }
   ]
  },
@@ -22109,7 +22155,7 @@
   "is_organization": true,
   "license_id": "uk-ogl",
   "name": "hooda",
-  "num_followers": 1,
+  "num_followers": 2,
   "package_count": 1,
   "publisher_agencies": "UK Home Office",
   "publisher_constraints": "N/A",
@@ -22119,6 +22165,7 @@
   "publisher_data_quality": "N/A",
   "publisher_description": "Priority Projects Lead",
   "publisher_field_exclusions": "None via DfID return. IATI can be accessed via HO website\r\n\r\n www.homeoffice.gov.uk",
+  "publisher_first_publish_date": "2018-11-01T15:01:17.754728",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "GB-6",
@@ -27191,6 +27238,53 @@
    }
   ]
  },
+ "kingscollegelondon": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "c1c48915-c3db-4ee1-bacc-45b5f5a44ac7",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "cc-zero",
+  "name": "kingscollegelondon",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "",
+  "publisher_contact_email": "max.manning_lowe@kcl.ac.uk",
+  "publisher_country": "GB",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "GB-COH-RC000297",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "80",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "http://www.kcl.ac.uk",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "King's College London",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "mmlkcl"
+   }
+  ]
+ },
  "kipkelion": {
   "description": "",
   "groups": [
@@ -30887,6 +30981,53 @@
    {
     "capacity": "admin",
     "name": "minbuza"
+   }
+  ]
+ },
+ "missioneast": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "dbcbb834-4d63-42b8-ac0e-142a62c83eed",
+  "image_display_url": "https://missioneast.org/iati/MElogo.png",
+  "image_url": "https://missioneast.org/iati/MElogo.png",
+  "is_organization": true,
+  "license_id": "cc-by",
+  "name": "missioneast",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "Mission Øst                                                                                             \r\nSankt Lukas Vej 13\r\n2900 Hellerup\r\nDanmark",
+  "publisher_contact_email": "richard.peppiette@missioneast.org",
+  "publisher_country": "DK",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "quarterly",
+  "publisher_iati_id": "DK-CVR-14723692",
+  "publisher_implementation_schedule": "Aiming to start in 2019 with basic data for single donor and then expand out in donors and depth during the year",
+  "publisher_organization_type": "21",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://missioneast.org",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Mission Øst",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "richardpeppiette"
    }
   ]
  },
