@@ -8,12 +8,12 @@
     "url": "git@github.com:devinit/D-Portal.git"
   },
   "dependencies": {
-    "plated": "*",
     "ecstatic": "*",
     "express": "*",
     "express-fileupload": "*",
+    "marked": "*",
     "morgan": "*",
-    "yargs": "*",
-    "marked": "*"
+    "plated": "0.0.58",
+    "yargs": "*"
   }
 }
