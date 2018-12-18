@@ -362,20 +362,22 @@ view_map.ajax_pins=function(args)
 			"from":"act,location",
 			"form":"jcsv",
 			"limit":args.limit || -1,
-//			"location_longitude_not_null":1,
-//			"location_latitude_not_null":1,
-//			"orderby":"1-",
-//			"groupby":"2,3",
 		};
 	fetch.ajax_dat_fix(dat,args);
-	if(dat.country_code) { /*dat.from+=",country";*/ dat.country_percent=100; }
+	if(dat.country_code) { dat.country_percent=100; } // if asking for a country, require 100% allocation into that country
 
-	var datcsv={} ; for(var n in dat) { if(dat[n]) { datcsv[n]=dat[n] } }
-	datcsv.select="*"
-	datcsv.form="csv"
-	datcsv.human=""
+// add sector information to download, beware, this explodes the data listing projects multiple times per sector...
+	var datcsv={
+			"select":"*",
+			"from":"act,location,sector",
+			"form":"csv",
+			"limit":-1,
+			"human":true,
+		};
+	fetch.ajax_dat_fix(datcsv,args);
+	if(datcsv.country_code) { datcsv.country_percent=100; } // if asking for a country, require 100% allocation into that country
+
 	var csvurl=fetch.tourl(datcsv)
-	console.log(csvurl)
 	ctrack.chunk("map_csv_url",csvurl)
 		
 	fetch.ajax(dat,args.callback || function(data)
