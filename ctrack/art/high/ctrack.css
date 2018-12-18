@@ -369,11 +369,11 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 
 /*	For url #view=search - EXPLORE styles
 	============================================= */
-.search_cont				{margin:auto; background:#FFF; border:1px solid #000; border-radius:6px; width:960px; box-sizing:border-box; padding:20px 30px; margin-top:10px; margin-bottom:10px;}
+.search_cont				{margin:auto; background:#FFF; border:1px solid #000; border-radius:6px; width:960px; box-sizing:border-box; padding:20px 30px; margin-bottom:10px;}
 .search_query				{display:inline-block; vertical-align:top;}
 .search_main				{width:900px;}
-.search_title				{display:inline-block; vertical-align:middle; width:85%; color:#000; margin-top:10px; margin-bottom:10px; letter-spacing:5px; font-size:18px; font-weight:bold;}
-.search.search_title:before	{content:""; display:inline-block; margin-right:15px; background:url(/ctrack/art/high/search_icon.png)no-repeat center center; width:26px; height:26px; background-size:100%; zoom:70%;}
+.search_title				{display:inline-block; vertical-align:middle; width:85%; color:#000; margin-top:10px; margin-bottom:10px; letter-spacing:5px; font-size:18px; font-weight:bold; line-height:24px;}
+.search.search_title:before	{content:""; display:inline-block; vertical-align:middle; margin-right:15px; background:url(/ctrack/art/high/search_icon.png)no-repeat top center; width:26px; height:26px; background-size:70%;}
 .search.search_title span	{color:#000; font-weight:initial; letter-spacing:1px; line-height:24px; display:inline-block; margin-left:-5px;}
 a.search_refine				{display:inline-block; vertical-align:middle; width:15%; border:1px solid #000; background:#FFF; text-shadow:none;}
 a.search_refine:hover		{background:#E2E2E2; border:1px solid #000; text-shadow:none;}
