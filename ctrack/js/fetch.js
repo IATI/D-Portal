@@ -51,7 +51,17 @@ fetch.ajax=function(dat,callback)
 
 fetch.tourl=function(dat)
 {
-	return ctrack.args.q + "?"  + $.param(dat)
+	var p={}; // filter empty values from url
+	for(var n in dat)
+	{
+		switch( typeof dat[n] )
+		{
+			case "number"  :                    p[n]=dat[n] ; break; // all numbers
+			case "string"  : if( dat[n]!="" ) { p[n]=dat[n] } break; // ignore empty strings
+			case "boolean" : if( dat[n]     ) { p[n]="1"    } break; // flags only if true
+		}
+	}
+	return ctrack.args.q + "?"  + $.param(p)
 }
 
 //modify dat so it reflects the args or base settings (eg limit to a publisher)
