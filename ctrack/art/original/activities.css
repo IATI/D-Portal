@@ -489,6 +489,7 @@ activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:rgba(
 	============================================= */
 activity-scope				{display:block; font-size:16px; width:880px; margin:0 auto; padding:20px 40px; max-height:150px; color:rgba(255,255,255,1);}
 activity-scope:before		{content:"ACTIVITY SCOPE"; font-size:14px; color:#CCC; display:inline-block; padding-right:10px;}
+activity-scope.empty		{display:none;}
 
 
 /*	Related documents list
