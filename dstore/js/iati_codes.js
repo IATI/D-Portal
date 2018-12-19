@@ -143,6 +143,10 @@ iati_codes.fetch = function(){
 				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/RegionVocabulary.json",
 				name:"region_vocab",
 			},
+			{
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/ActivityScope.json",
+				name:"act_scope",
+			},
 		];
 	
 	files.forEach(function(opts){

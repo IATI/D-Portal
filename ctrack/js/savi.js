@@ -85,7 +85,7 @@ acts.find("value").each(function(i){var it=$(this);
 });
 
 acts.each(function(i){var it=$(this);
-	var needed=["title","participating-org","reporting-org","description","activity-status"];
+	var needed=["title","participating-org","reporting-org","description","activity-status","activity-scope"];
 	needed.forEach(function(n){
 		if( it.children(n).length==0 )
 		{
@@ -545,6 +545,16 @@ acts.find("activity-status").each(function(i){var it=$(this);
 	}
 });
 
+
+acts.find("activity-scope").each(function(i){var it=$(this);
+	var tc=it.attr("code");
+	tc=iati_codes.act_scope[tc] || tc;
+	if(tc)
+	{
+		it.html(tc);
+	}
+});
+
 acts.find("sector").each(function(i){var it=$(this);
 
 	var tp=it.attr("percentage") || 100;
@@ -707,6 +717,7 @@ sorted++;
 		"iati-identifier",
 		"document-link",
 		"recipient-country",
+		"activity-scope",
 		"location",
 		"recipient-region",
 		"activity-date",
@@ -723,6 +734,7 @@ sorted++;
 		"policy-marker",		
 		"related-activity",
 		"activity-status",
+		
 	0
 	];
 	var sortweight={}; for(var i=0; i<sortlist.length; i++) { sortweight[ sortlist[i] ]=i+1; }
