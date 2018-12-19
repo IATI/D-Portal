@@ -485,6 +485,12 @@ activity-status				{display:block; font-size:20px; background-color:rgb(255,130,
 activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:rgba(0,14,32,1); font-weight:bold; display:inline-block; padding-right:10px;}
 
 
+/*	Activity Scope
+	============================================= */
+activity-scope				{display:block; font-size:16px; width:880px; margin:0 auto; padding:20px 40px; max-height:150px; color:rgba(255,255,255,1);}
+activity-scope:before		{content:"ACTIVITY SCOPE"; font-size:14px; color:#CCC; display:inline-block; padding-right:10px;}
+
+
 /*	Related documents list
 	============================================= */
 span.span_document-link							{width:880px; padding:0 40px; margin:0 auto; margin-bottom:40px;}
