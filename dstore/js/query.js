@@ -878,6 +878,15 @@ query.serv = function(req,res){
 
 		logname=__dirname+"/../../dstore/instance/"+instance+".log";
 	}
+
+// handle special results	
+	if(q.from=="meta") // return meta information about the database
+	{
+		var ret=dstore_db.get_meta()
+		res.jsonp(ret);
+		return;
+	}
+	else
 	if(q.from=="sluglog" && q.slug) // download a specific slug log
 	{
 		var slug=q.slug;
@@ -931,7 +940,8 @@ query.serv = function(req,res){
 		});
 		return;
 	}
-	
+
+// if not a special result then do a database select
 	return query.do_select(q,res,req);
 };
 

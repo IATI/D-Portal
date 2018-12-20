@@ -61,7 +61,7 @@ dstore_db.tables={
 		{ name:"funder_ref",					NOCASE:true , INDEX:true },
 		{ name:"title",							NOCASE:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
-		{ name:"status_code",					INTEGER:true , INDEX:true },	
+		{ name:"status_code",					INTEGER:true , INDEX:true , codes:"activity_status" },	
 		{ name:"day_start",						INTEGER:true , INDEX:true },	
 		{ name:"day_end",						INTEGER:true , INDEX:true },
 		{ name:"day_length",					INTEGER:true , INDEX:true },
@@ -96,7 +96,7 @@ dstore_db.tables={
 		{ name:"trans_eur",						REAL:true , INDEX:true },
 		{ name:"trans_gbp",						REAL:true , INDEX:true },
 		{ name:"trans_cad",						REAL:true , INDEX:true },
-		{ name:"trans_code",					NOCASE:true , INDEX:true },
+		{ name:"trans_code",					NOCASE:true , INDEX:true , codes:"transaction_type" },
 		{ name:"trans_flow_code",				NOCASE:true , INDEX:true },
 		{ name:"trans_finance_code",			NOCASE:true , INDEX:true },
 		{ name:"trans_aid_code",				NOCASE:true , INDEX:true },
@@ -104,9 +104,9 @@ dstore_db.tables={
 // 1 == this is a fake transaction built after a full import for publishers that only publish C not D/E
 		{ name:"trans_flags",					INTEGER:true , INDEX:true },
 // added split values by sector/country
-		{ name:"trans_country",					NOCASE:true , INDEX:true },
-		{ name:"trans_sector",					NOCASE:true , INDEX:true },
-		{ name:"trans_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
+		{ name:"trans_country",					NOCASE:true , INDEX:true , codes:"country" },
+		{ name:"trans_sector",					NOCASE:true , INDEX:true , codes:"sector" },
+		{ name:"trans_sector_group",			NOCASE:true , INDEX:true , codes:"sector_category" },	// sector group ( category )
 		{ name:"trans_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
 	],
 	budget:[
@@ -126,20 +126,20 @@ dstore_db.tables={
 //		{ name:"budget_country",				NOCASE:true , INDEX:true },	// only used by country budget from orgfile
 		{ name:"budget_org",					NOCASE:true , INDEX:true },	// only used by org budget from orgfile
 // added split values by sector/country
-		{ name:"budget_country",				NOCASE:true , INDEX:true },
-		{ name:"budget_sector",					NOCASE:true , INDEX:true },
-		{ name:"budget_sector_group",			NOCASE:true , INDEX:true },	// sector group ( category )
+		{ name:"budget_country",				NOCASE:true , INDEX:true , codes:"country"  },
+		{ name:"budget_sector",					NOCASE:true , INDEX:true , codes:"sector" },
+		{ name:"budget_sector_group",			NOCASE:true , INDEX:true , codes:"sector_category" },	// sector group ( category )
 		{ name:"budget_id",						INTEGER:true , INDEX:true }, // unique id within activity, can be used to group split values
 	],
 	country:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
-		{ name:"country_code",					NOCASE:true , INDEX:true },
+		{ name:"country_code",					NOCASE:true , INDEX:true , codes:"country" },
 		{ name:"country_percent",				REAL:true , INDEX:true },
 	],
 	sector:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
-		{ name:"sector_group",					NOCASE:true , INDEX:true },	// sector group ( category )
-		{ name:"sector_code",					NOCASE:true , INDEX:true },
+		{ name:"sector_group",					NOCASE:true , INDEX:true , codes:"sector_category" },	// sector group ( category )
+		{ name:"sector_code",					NOCASE:true , INDEX:true , codes:"sector" },
 		{ name:"sector_percent",				REAL:true , INDEX:true },
 	],
 	location:[
@@ -171,7 +171,7 @@ dstore_db.tables={
 // include policy-markers (DAC codes only)
 	policy:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
-		{ name:"policy_code",					NOCASE:true , INDEX:true },				// the code is prefixed by the significance and an underscore then the code
+		{ name:"policy_code",					NOCASE:true , INDEX:true , codes:"policy" },				// the code is prefixed by the significance and an underscore then the code
 	],
 };
 	
@@ -1106,7 +1106,50 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 };
 
+dstore_db.get_meta = function(){
+	if(dstore_db.meta) { return dstore_db.meta } else {
+	
+	var build_codes=function(dat){
+		var ret=[]
+		for(var n in dat)
+		{
+			var it={}
+			it.name=n
+			it.value=dat[n]
+			ret[ret.length]=it
+		}
+		return ret
+	}
 
+	var meta={}
+	dstore_db.meta=meta // cache it
+	
+	meta.tables=dstore_db.tables
+	
+	meta.codes={}
+	
+	meta.codes.activity_status  = build_codes( codes.activity_status )
+	meta.codes.transaction_type = build_codes( codes.transaction_type )
+	meta.codes.sector           = build_codes( codes.sector )
+	meta.codes.sector_category  = build_codes( codes.sector_category )
+	meta.codes.country          = build_codes( codes.country )
+	meta.codes.policy_code      = build_codes( codes.policy_code )
+	meta.codes.policy_sig       = build_codes( codes.policy_sig )
+	
+	meta.codes.policy = [] // policy is a merged value from two codelists
+	for(var ns in codes.policy_sig)
+	{
+		for(var nc in codes.policy_code)
+		{
+			var it={}
+			it.name=ns+"_"+nc
+			it.value=codes.policy_code[nc]+" IS "+codes.policy_sig[ns]
+			meta.codes.policy[meta.codes.policy.length]=it
+		}
+	}
+
+	return meta }
+}
 
 dstore_db.vacuum = function(){
 	var f=dstore_back.vacuum;
