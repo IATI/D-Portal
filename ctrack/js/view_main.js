@@ -56,10 +56,8 @@ view_main.view=function(args)
 	views.ended.ajax({limit:5,plate:"{table_ended_data}",chunk:"table_ended_datas"});
 
 	var top_opts={}
-	if( ctrack.hash.search!=undefined || ctrack.q.search!=undefined)
-	{
-		top_opts.year="all years";
-	}
+
+	top_opts.year="all years";
 
 	var test=fetch.ajax_dat_fix({},{}); // do all the icky merge logic so we can test
 	

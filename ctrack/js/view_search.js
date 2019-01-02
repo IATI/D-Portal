@@ -198,7 +198,6 @@ view_search.fixup=function()
 		{
 			delete ctrack.hash.search
 			txt.push("Searching for any activities")
-			que.push("search")
 		}
 
 		var v=$("#view_search_select_country").val();		

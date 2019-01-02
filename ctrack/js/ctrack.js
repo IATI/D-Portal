@@ -329,44 +329,40 @@ ctrack.setup=function(args)
 		args.policy_code=ctrack.q.policy_code;
 	}
 
-
-	if( ctrack.q.search || (ctrack.q.search=="") )
+	if( ctrack.q.search )
 	{
-		if( ctrack.q.search!="" )
-		{
-			search_args.push("search"+"="+ctrack.q.search)
-			ctrack.args.search=ctrack.q.search;
-		}
-		var only_country=false;
-		var only_publisher=false;
-
-			if(args.country_select) { only_country=true; }
-			if(args.publisher_select) { only_publisher=true; }
-			
-			if( args.sector_code_select || args.sector_group_select || args.funder_ref_select || args.year_min || args.year_max || args.search )
-			{
-				only_country=false;
-				only_publisher=false;
-			}
-			
-			if	(	( args.country_select   && (args.country_select.indexOf("|")  !=-1) )	||
-					( args.publisher_select && (args.publisher_select.indexOf("|")!=-1) )	)
-			{
-				only_country=false;
-				only_publisher=false;
-			}
-			
-			if( ( only_country && (!only_publisher) ) || ( (!only_country) && only_publisher ) )
-			{
-// show normal header for publisher or country
-			}
-			else
-			{
-// always show search headers and hide publisher/country headers even if the searchstring is empty
-				ctrack.args.showsearch=true;
-			}
-			
+		search_args.push("search"+"="+ctrack.q.search)
+		ctrack.args.search=ctrack.q.search;
 	}
+	var only_country=false;
+	var only_publisher=false;
+
+	if(args.country_select) { only_country=true; }
+	if(args.publisher_select) { only_publisher=true; }
+	
+	if( args.sector_code_select || args.sector_group_select || args.funder_ref_select || args.year_min || args.year_max || args.search )
+	{
+		only_country=false;
+		only_publisher=false;
+	}
+	
+	if	(	( args.country_select   && (args.country_select.indexOf("|")  !=-1) )	||
+			( args.publisher_select && (args.publisher_select.indexOf("|")!=-1) )	)
+	{
+		only_country=false;
+		only_publisher=false;
+	}
+	
+	if( ( only_country && (!only_publisher) ) || ( (!only_country) && only_publisher ) )
+	{
+// show normal header for publisher or country
+	}
+	else
+	{
+// always show search headers and hide publisher/country headers even if the searchstring is empty
+		ctrack.args.showsearch=true;
+	}
+
 //console.log("search="+ctrack.args.search);
 
 // show special search header
