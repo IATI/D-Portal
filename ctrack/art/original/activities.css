@@ -34,6 +34,9 @@ narrative {display:inline-block;color:inherit;font-family:inherit;word-wrap:inhe
 	============================================= */
 iati-activity[humanitarian="1"]:before	{content:"HUMANITARIAN"; padding:10px 40px 7px 40px; font-size:14px; color:#000e20; width:490px; text-align:right; background-color:#ff890c;}
 
+transaction[humanitarian="1"]			{position:relative;}
+transaction[humanitarian="1"]:before	{position:absolute; bottom:40px; left:40px; content:"Humanitarian"; padding:5px; font-size:13px; color:#CCC; background-color:rgba(48,71,103,1); border-radius:4px;}
+
 
 /*	Project title
 	============================================= */
@@ -174,6 +177,7 @@ reporting-org a:link			{color:#FFAB5E;}
 reporting-org a:visited			{color:#FFAB5E;}
 reporting-org a:hover			{color:#FF7A00;}
 reporting-org a:active			{color:#FFAB5E;}
+reporting-org.empty				{display:none;}
 
 
 /*	Description of project (shared with Transaction table)
@@ -483,6 +487,7 @@ activity-status[code="4"]	{background-color:rgb(255,130,71);}
 activity-status[code="5"]	{background-color:rgb(255,71,71);}
 activity-status				{display:block; font-size:20px; background-color:rgb(255,130,71); width:960px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px; color:rgba(0,14,32,1); border-radius:0 0 6px 6px;}
 activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:rgba(0,14,32,1); font-weight:bold; display:inline-block; padding-right:10px;}
+activity-status.empty		{display:none;}
 
 
 /*	Activity Scope

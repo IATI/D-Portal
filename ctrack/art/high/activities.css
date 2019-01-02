@@ -184,6 +184,7 @@ reporting-org a:link			{color:#000;}
 reporting-org a:visited			{color:#000;}
 reporting-org a:hover			{color:#000; text-decoration:underline;}
 reporting-org a:active			{color:#000;}
+reporting-org.empty				{display:none;}
 
 
 /*	Description of project (shared with Transaction table)
@@ -471,6 +472,7 @@ activity-website:hover	{color:#000; text-decoration:underline;}
 	============================================= */
 activity-status				{display:block; font-size:20px; border-top:1px solid #000; width:958px; text-align:center; margin:0 auto; padding:40px 0; max-height:150px; color:#000;}
 activity-status:before		{content:"ACTIVITY STATUS:"; font-size:14px; color:#000; font-weight:bold; display:inline-block; padding-right:10px;}
+activity-status.empty		{display:none;}
 
 
 /*	Activity Scope
