@@ -542,11 +542,10 @@ a[href$=".tiff" i].a_document-link span-title:after	{content:"IMAGE";}
 
 /*	Family Tree list
 	============================================= */
-span.span_related-activity			{width:880px; padding:0; margin:0 auto; counter-reset:section;}
+span.span_related-activity			{width:880px; padding:0; margin:0 auto;}
 span.span_related-activity:before	{content:"FAMILY TREE"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_related-activity			{color:#FFF;}
-a.a_related-activity::before		{counter-increment:section; content:counter(section) ". ";}
-a.a_related-activity				{display:inline-block; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#FFF;}
+a.a_related-activity				{display:inline-block; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.35em; color:#FFF;}
 a.a_related-activity:last-of-type								{padding-bottom:40px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
 related-activity					{display:inline; color:#FF9E38;}
