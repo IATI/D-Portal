@@ -333,6 +333,7 @@ iati-activity:after 	{color:rgba(85,85,85,1);}
 /*	Display when humanitarian
 	============================================= */
 iati-activity[humanitarian="1"]:before	{background-color:rgba(186,12,47,1); color:rgba(255,255,255,1);}
+transaction[humanitarian="1"]:before	{background-color:rgba(15,15,15,0.4); color:rgba(255,255,255,1);}
 
 
 /*	Project title
@@ -383,7 +384,7 @@ activity-date[type="1"], activity-date[type="3"], activity-date[type="start-plan
 activity-date[type="1"]:before, activity-date[type="start-planned"]:before,
 activity-date[type="2"]:before, activity-date[type="start-actual"]:before,
 activity-date[type="3"]:before, activity-date[type="end-planned"]:before,
-activity-date[type="4"]:before, activity-date[type="end-actual"]:before	{color:rgba(206,206,206,1);}
+activity-date[type="4"]:before, activity-date[type="end-actual"]:before	{color:rgba(255,255,255,1);}
 
 
 /*	Who's invloved?
@@ -617,7 +618,7 @@ activity-status:before		{color:rgba(255,255,255,1);}
 
 /*	Activity Scope
 	============================================= */
-activity-scope				{color:rgba(85,85,85,1);}
+activity-scope				{color:rgba(85,85,85,1); background-color:rgba(235,235,235,0.6);}
 activity-scope:before		{color:rgba(85,85,85,1);}
 
 
@@ -654,6 +655,8 @@ span-narrative.policy_vocab,
 span-narrative.policy_code,
 span-narrative.policy_sig			{color:rgba(255,255,255,1);}
 
+policy-marker narrative:nth-of-type(n+2)	{color:rgba(85,85,85,1);}
+
 
 /*	Hide and expand buttons
 	============================================= */
@@ -661,10 +664,11 @@ span.hide 		 {color:rgba(85,85,85,1);}
 span.hide:hover	 {color:rgba(163,0,13,1);}
 
 span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide,
-span.span_result span.hide			{color:rgba(204,204,204,1);}
+span.span_result span.hide			{color:rgba(255,255,255,1);}
 span.span_result result span.hide	{color:rgba(85,85,85,1);}
 span.span_transaction span.hide:hover, span.span_planned-disbursement span.hide:hover, span.span_budget span.hide:hover,
 span.span_result span.hide:hover	{color:rgba(255,255,255,1);}
+span.span_result result span.hide:hover	{color:rgba(163,0,13,1);}
 
 
 /*	Count

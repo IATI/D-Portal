@@ -42,6 +42,8 @@ narrative {display:inline-block; color:inherit; font-family:inherit; word-wrap:i
 	============================================= */
 iati-activity[humanitarian="1"]:before	{content:"HUMANITARIAN"; padding:10px 40px 7px 40px; font-size:14px; color:#000; width:490px; text-align:right; background-color:#FFF; border:1px solid #000; margin-left:-1px;}
 
+transaction[humanitarian="1"]			{position:relative;}
+transaction[humanitarian="1"]:before	{position:absolute; bottom:40px; left:40px; content:"Humanitarian"; padding:5px; font-size:13px; color:#000; background-color:#FFF; border:1px solid #000; border-radius:4px;}
 
 
 /*	Project title
@@ -190,7 +192,7 @@ reporting-org.empty				{display:none;}
 /*	Description of project (shared with Transaction table)
 	============================================= */
 span.span_description description {font-size:1.0em; word-spacing:0.05em; line-height:1.5em; display:block; width:880px; padding:40px; padding-bottom:0; color:#000; white-space:pre-line; unicode-bidi:embed;}
-span.span_description description:before			{margin-bottom:15px;}
+span.span_description description:before			{margin-bottom:20px;}
 span.span_description description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#000; display:block;}
 span.span_description description[type="1"]:before	{content:"GENERAL"; font-size:14px; color:#000; display:block;}
 span.span_description description[type="2"]:before	{content:"OBJECTIVES"; font-size:14px; color:#000; display:block;}
@@ -451,7 +453,7 @@ value span			{font-size:12px; color:#000;}
 	============================================= */
 contact-info	{display:block; width:880px; padding:10px 40px; font-size:18px; line-height:1.5em;}
 contact-info *	{display:block; padding:2px 0 0 0; color:#000;}
-contact-info:nth-of-type(1):before	{content:"CONTACT INFO"; font-size:14px; color:#000; display:block; margin-bottom:10px;}
+contact-info:nth-of-type(1):before	{content:"CONTACT INFO"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
 contact-info:nth-of-type(1)			{padding-top:40px;}
 contact-info:last-of-type			{padding-bottom:40px;}
 
@@ -477,7 +479,7 @@ activity-status.empty		{display:none;}
 
 /*	Activity Scope
 	============================================= */
-activity-scope				{display:block; font-size:16px; width:880px; margin:0 auto; padding:20px 40px; max-height:150px; color:#000;}
+activity-scope				{display:block; font-size:18px; width:880px; text-align:center; margin:0 auto; padding:20px 40px; max-height:150px; color:#000; border-top:1px solid #000;}
 activity-scope:before		{content:"ACTIVITY SCOPE"; font-size:14px; color:#000; display:inline-block; padding-right:10px;}
 activity-scope.empty		{display:none;}
 

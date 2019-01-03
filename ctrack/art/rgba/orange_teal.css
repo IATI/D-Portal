@@ -360,6 +360,7 @@ iati-activity:after 	{color:var(--base14);}
 /*	Display when humanitarian
 	============================================= */
 iati-activity[humanitarian="1"]:before	{background-color:var(--base03); color:var(--base15);}
+transaction[humanitarian="1"]:before	{background-color:var(--base02_40); color:var(--base15);}
 
 
 /*	Project title
@@ -638,7 +639,7 @@ activity-status:before		{color:var(--base15);}
 
 /*	Activity Scope
 	============================================= */
-activity-scope				{color:var(--base15);}
+activity-scope				{color:var(--base15); background-color:var(--base03_40);}
 activity-scope:before		{color:var(--base14);}
 
 

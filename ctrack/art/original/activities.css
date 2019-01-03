@@ -139,11 +139,10 @@ span-narrative.org-type		{display:inline; font-size:13px; line-height:24px; colo
 
 /*	Location (version 2.02++)
 	============================================= */
-span.span_location			{display:block; width:880px; padding:40px; font-size:1.0em; color:#FFF; counter-reset:section;}
+span.span_location			{display:block; width:880px; padding:40px; font-size:1.0em; color:#FFF;}
 span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:20px;}
 span.span_location location:nth-of-type(1)	{padding:0;}
-span.span_location location::before	{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
 span.span_location location name	{display:inline;}
 span.span_location location point	{display:inline;}
 span.span_location location point > *	{display:inline; color:#999; font-size:14px;}
@@ -461,7 +460,7 @@ transaction sector	{display:none;}
 	============================================= */
 contact-info		{display:block; width:880px; padding:20px 40px; font-size:18px; line-height:1.5em; background-color:rgba(17,46,105,0.9);}
 contact-info *		{display:block; padding:2px 0 0 0; color:#FFF;}
-contact-info:nth-of-type(1):before	{content:"CONTACT INFO"; font-size:14px; color:#ccc; display:block; margin-bottom:10px;}
+contact-info:nth-of-type(1):before	{content:"CONTACT INFO"; font-size:14px; color:#ccc; display:block; margin-bottom:15px;}
 contact-info:nth-of-type(1)			{padding-top:30px; width:900px; margin-left:-10px;}
 contact-info:nth-of-type(even)		{background-color:transparent;}
 contact-info:last-of-type			{padding-bottom:30px;}
@@ -492,7 +491,7 @@ activity-status.empty		{display:none;}
 
 /*	Activity Scope
 	============================================= */
-activity-scope				{display:block; font-size:16px; width:880px; margin:0 auto; padding:20px 40px; max-height:150px; color:rgba(255,255,255,1);}
+activity-scope				{display:block; font-size:18px; width:880px; text-align:center; margin:0 auto; padding:20px 40px; max-height:150px; color:rgba(255,255,255,1); background-color:rgba(0,14,32,0.7);}
 activity-scope:before		{content:"ACTIVITY SCOPE"; font-size:14px; color:#CCC; display:inline-block; padding-right:10px;}
 activity-scope.empty		{display:none;}
 
@@ -562,9 +561,8 @@ related-activity[type="5"]:before	{content:"Third Party ";}
 
 /*	Policy marker
 	============================================= */
-span.span_policy-marker			{width:880px; padding:0; margin:0 auto; counter-reset:section; color:#FFF;}
+span.span_policy-marker			{width:880px; padding:0; margin:0 auto; color:#FFF;}
 span.span_policy-marker:before	{content:"POLICY MARKER"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
-policy-marker:before			{counter-increment:section; content:counter(section) ". ";}
 policy-marker					{display:inline-block; vertical-align:top; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#FFF;}
 policy-marker narrative			{vertical-align:initial;}
 policy-marker narrative:nth-of-type(n+2) {display:inline-block; font-style:italic; font-size:14px; line-height:inherit; text-indent:10px; color:#CCC;}

@@ -322,6 +322,7 @@ iati-activity:after 	{color:rgba(204,204,204,1);}
 /*	Display when humanitarian
 	============================================= */
 iati-activity[humanitarian="1"]:before	{background-color:rgba(206,131,0,1); color:rgba(15,15,15,1);}
+transaction[humanitarian="1"]:before	{background-color:rgba(101,101,101,0.4); color:rgba(255,255,255,1);}
 
 
 /*	Project title
@@ -583,7 +584,7 @@ activity-status:before		{color:rgba(0,14,32,1);}
 
 /*	Activity Scope
 	============================================= */
-activity-scope				{color:rgba(255,255,255,1);}
+activity-scope				{color:rgba(255,255,255,1); background-color:rgba(15,15,15,0.7);}
 activity-scope:before		{color:rgba(204,204,204,1);}
 
 
@@ -609,6 +610,17 @@ a.a_related-activity				{color:rgba(255,255,255,1);}
 related-activity					{color:rgba(173,173,173,1);}
 related-activity:hover				{color:rgba(255,163,0,1);}
 related-activity:before				{color:rgba(255,255,255,1);}
+
+
+/*	Policy marker
+	============================================= */
+span.span_policy-marker:before		{color:rgba(255,255,255,1);}
+policy-marker						{color:rgba(255,255,255,1);}
+span-narrative.policy_vocab,
+span-narrative.policy_code,
+span-narrative.policy_sig			{color:rgba(255,255,255,1); background-color:rgba(101,101,101,0.4);}
+
+policy-marker narrative:nth-of-type(n+2)	{color:rgba(204,204,204,1);}
 
 
 /*	Hide and expand buttons

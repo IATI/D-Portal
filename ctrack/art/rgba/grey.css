@@ -358,6 +358,7 @@ iati-activity:after 	{color:var(--base14);}
 /*	Display when humanitarian
 	============================================= */
 iati-activity[humanitarian="1"]:before	{background-color:var(--base04); color:var(--base15);}
+transaction[humanitarian="1"]:before	{background-color:var(--base02_40); color:var(--base15);}
 
 
 /*	Project title
@@ -631,7 +632,7 @@ activity-status:before		{color:var(--base15);}
 
 /*	Activity Scope
 	============================================= */
-activity-scope				{color:var(--base15);}
+activity-scope				{color:var(--base15); background-color:var(--base04_70);}
 activity-scope:before		{color:var(--base14);}
 
 
@@ -657,6 +658,17 @@ a.a_related-activity				{color:var(--base15);}
 related-activity					{color:var(--base11);}
 related-activity:hover				{color:var(--base11);}
 related-activity:before				{color:var(--base15);}
+
+
+/*	Policy marker
+	============================================= */
+span.span_policy-marker:before		{color:var(--base15);}
+policy-marker						{color:var(--base15)}
+span-narrative.policy_vocab,
+span-narrative.policy_code,
+span-narrative.policy_sig			{color:var(--base15); background-color:var(--base02_40);}
+
+policy-marker narrative:nth-of-type(n+2)	{color:var(--base14);}
 
 
 /*	Hide and expand buttons
