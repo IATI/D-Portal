@@ -704,7 +704,7 @@ view_search.view=function(args)
 		var v=iati_codes.sector_withdrawn[n];
 		if(v)
 		{
-			var s="<option value='"+n+"'>"+v+" ("+n+") (WITHDRAWN)</option>";
+			var s="<option class='withdrawn' value='"+n+"'>"+v+" ("+n+")</option>";
 			a.push(s);
 		}
 	}
