@@ -579,7 +579,7 @@ policy-marker:last-of-type		{padding-bottom:40px;}
 /*	Humanitarian Scope
 	============================================= */
 humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; padding-bottom:40px;}
-humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
+humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#CCC; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span-narrative.hum_scope_vocab,
 span-narrative.hum_scope_type,
 span-narrative.hum_scope_code	{display:inline-block; margin-left:5px; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:0px 4px; line-height:1.5em;}
@@ -589,6 +589,8 @@ humanitarian-scope a:visited	{color:#FFAB5E;}
 humanitarian-scope a:hover		{color:#FF7A00;}
 humanitarian-scope a:active		{color:#FFAB5E;}
 span-narrative.hum_scope		{display:inline-block; font-size:initial; line-height:initial;}
+
+humanitarian-scope.empty		{display:none;}
 
 
 /*	Tag
