@@ -547,19 +547,19 @@ span.span_planned-disbursement:before	{color:rgba(255,255,255,1); background-col
 planned-disbursement:nth-of-type(1) period-start:before,
 planned-disbursement:nth-of-type(1) period-end:before,
 planned-disbursement:nth-of-type(1) value:before,
+planned-disbursement:nth-of-type(1) span-planned-type:before,
 planned-disbursement:nth-of-type(1) provider-org:before,
-planned-disbursement:nth-of-type(1) receiver-org:before,
-planned-disbursement:nth-of-type(1) period-end:after		{color:rgba(85,85,85,1);}
+planned-disbursement:nth-of-type(1) receiver-org:before		{color:rgba(85,85,85,1);}
 
-planned-disbursement[type="1"] value:after,
-planned-disbursement[type="2"] value:after,
-planned-disbursement[type="1"]:nth-of-type(1) value:after,
-planned-disbursement[type="2"]:nth-of-type(1) value:after,
 planned-disbursement period-start,
 planned-disbursement period-end,
 planned-disbursement value,
 planned-disbursement provider-org,
-planned-disbursement receiver-org 		{color:rgba(85,85,85,1);}
+planned-disbursement receiver-org					{color:rgba(85,85,85,1);}
+
+planned-disbursement span-narrative.org-role,
+planned-disbursement span-narrative.org-type,
+planned-disbursement span-narrative.org-ref 		{color:rgba(85,85,85,1); background-color:rgba(235,235,235,0.6);}
 
 
 /*	Transaction table
@@ -591,6 +591,10 @@ value span			{color:rgba(85,85,85,1);}
 
 span-narrative.provider-org-ref,
 span-narrative.receiver-org-ref		{color:rgba(85,85,85,1);}
+
+transaction span-narrative.org-role,
+transaction span-narrative.org-type,
+transaction span-narrative.org-ref	{color:rgba(85,85,85,1); background-color:rgba(235,235,235,0.6);}
 
 
 /*	Contact info for Publisher

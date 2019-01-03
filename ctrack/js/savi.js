@@ -523,6 +523,16 @@ acts.find("humanitarian-scope").each(function(i){var it=$(this);
 });
 
 
+acts.find("planned-disbursement").each(function(i){var it=$(this);
+	var t=it.attr("type");
+	t=iati_codes.budget_type[t];
+	if(t)
+	{
+		it.append($('<span-planned-type>'  + t + '</span-planned-type>'));
+	}
+});
+
+
 acts.find("recipient-region").each(function(i){var it=$(this);
 	
 	var c=it.attr("code");
@@ -718,6 +728,9 @@ sort_elements("budget",[
 sort_elements("planned-disbursement",[
 		"period-start",
 		"period-end",
+		"span-planned-type",
+		"provider-org",
+		"receiver-org",
 		"value",
 		0]);
 
@@ -930,9 +943,11 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 });
 
 
-acts.find("provider-org[ref], provider-org[provider-activity-id]").each(function(i){var it=$(this);
+acts.find("provider-org[ref], provider-org[provider-activity-id], provider-org[type]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	var aid=it.attr("provider-activity-id");
+	var d=it.attr("type");
+	d=iati_codes.org_type[d] || d;
 	
 	if( aid )
 	{
@@ -948,11 +963,17 @@ acts.find("provider-org[ref], provider-org[provider-activity-id]").each(function
 	{
 		it.append($('<div><span-narrative class="provider-org-ref">' + id + '</span-narrative></div>'));
 	}
+	if(d)
+	{
+		it.append($('<div><span-narrative class="org-type">' + d + '</span-narrative></div>'));
+	}
 });
 
-acts.find("receiver-org[ref], receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
+acts.find("receiver-org[ref], receiver-org[receiver-activity-id], receiver-org[type]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	var aid=it.attr("receiver-activity-id");
+	var d=it.attr("type");
+	d=iati_codes.org_type[d] || d;
 	
 	if( aid )
 	{
@@ -967,6 +988,10 @@ acts.find("receiver-org[ref], receiver-org[receiver-activity-id]").each(function
 	if(id)
 	{
 		it.append($('<div><span-narrative class="receiver-org-ref">' + id + '</span-narrative></div>'));
+	}
+	if(d)
+	{
+		it.append($('<div><span-narrative class="org-type">' + d + '</span-narrative></div>'));
 	}
 });
 
