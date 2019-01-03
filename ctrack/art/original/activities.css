@@ -426,7 +426,7 @@ planned-disbursement receiver-org	{width:120px; max-width:120px; display:inline-
 
 planned-disbursement span-narrative.org-role,
 planned-disbursement span-narrative.org-type,
-planned-disbursement span-narrative.org-ref	{display:inline; font-size:11px; line-height:24px; color:#CCC; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6); margin:0 auto;}
+planned-disbursement span-narrative.org-ref	{display:inline; font-size:11px; line-height:initial; color:#CCC; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6); margin:0 auto;}
 
 
 /*	Transaction table
@@ -458,7 +458,7 @@ receiver-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1
 value				{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
 value span			{font-size:12px; color:#ccc;}
 
-provider-org div, receiver-org div	{display:block;}
+provider-org div, receiver-org div	{display:block; padding:5px 0 3px 0; line-height:0;}
 span-narrative.provider-org-ref,
 span-narrative.receiver-org-ref		{display:inline; font-size:11px; line-height:initial; color:#CCC; margin:0 auto;}
 
