@@ -432,7 +432,8 @@ participating-org a:active span-lang,
 participating-org a:active	{color:var(--base11);}
 
 span-narrative.org-role,
-span-narrative.org-type		{color:var(--base15); background-color:var(--base02_40);}
+span-narrative.org-type,
+span-narrative.org-ref		{color:var(--base15); background-color:var(--base02_40);}
 
 
 /*	Location (version 2.02++)
@@ -602,6 +603,9 @@ provider-org		{color:var(--base15);}
 receiver-org		{color:var(--base15);}
 value				{color:var(--base15);}
 value span			{color:var(--base14);}
+
+span-narrative.provider-org-ref,
+span-narrative.receiver-org-ref		{color:var(--base15);}
 
 
 /*	Contact info for Publisher

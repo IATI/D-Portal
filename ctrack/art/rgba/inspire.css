@@ -407,6 +407,7 @@ participating-org a:active	{color:rgba(186,12,47,1);}
 
 span-narrative.org-role,
 span-narrative.org-type		{color:rgba(255,255,255,1); background-color:rgba(15,15,15,0.4);}
+span-narrative.org-ref		{color:rgba(85,85,85,1); background-color:rgba(235,235,235,0.6);}
 
 
 /*	Location (version 2.02++)
@@ -587,6 +588,9 @@ provider-org		{color:rgba(85,85,85,1);}
 receiver-org		{color:rgba(85,85,85,1);}
 value				{color:rgba(85,85,85,1);}
 value span			{color:rgba(85,85,85,1);}
+
+span-narrative.provider-org-ref,
+span-narrative.receiver-org-ref		{color:rgba(85,85,85,1);}
 
 
 /*	Contact info for Publisher

@@ -136,7 +136,13 @@ span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0
 span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
 
 span-narrative.org-role,
-span-narrative.org-type		{display:inline; font-size:13px; line-height:24px; color:#CCC; margin-left:10px; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
+span-narrative.org-type,
+span-narrative.org-ref		{display:inline; font-size:13px; line-height:24px; color:#CCC; margin-left:10px; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
+span-narrative.org-ref		{background-color:rgba(22,24,37,0.6);}
+
+span-narrative.org-role.empty,
+span-narrative.org-type.empty,
+span-narrative.org-ref.empty		{display:none;}
 
 
 /*	Location (version 2.02++)
@@ -149,7 +155,7 @@ span.span_location location name,
 span.span_location location name narrative,
 span.span_location location point		{display:inline;}
 span.span_location location point > *	{display:inline; color:#999; font-size:14px;}
-span.span_location location pos:before	{content:" [ ";}
+span.span_location location pos:before	{content:" [ "; margin-left:5px;}
 span.span_location location pos:after	{content:" ]";}
 span.span_location location description {display:inline; margin-left:10px; font-size:14px; color:#CCC;}
 
@@ -454,6 +460,10 @@ provider-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1
 receiver-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:130px; max-width:130px; padding-right:0px; line-height:1.35em;}
 value				{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
 value span			{font-size:12px; color:#ccc;}
+
+provider-org div, receiver-org div	{display:block;}
+span-narrative.provider-org-ref,
+span-narrative.receiver-org-ref		{display:inline; font-size:11px; line-height:initial; color:#CCC; margin:0 auto;}
 
 transaction sector	{display:none;}
 

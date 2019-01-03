@@ -151,6 +151,7 @@ acts.find("title").each(function(i){var it=$(this);
 acts.find("participating-org").each(function(i){var it=$(this);
 	var c=it.attr("role");
 	var d=it.attr("type");
+	var e=it.attr("ref");
 	if(c)
 	{
 		c=c.toLowerCase();
@@ -170,6 +171,10 @@ acts.find("participating-org").each(function(i){var it=$(this);
 		{
 			it.append($('<span-narrative class="org-type">' + d + '</span-narrative>'));
 		}
+	}
+	if(e)
+	{
+		it.append($('<span-narrative class="org-ref">' + e + '</span-narrative>'));
 	}
 	
 	if( it.html().trim()=="" )
@@ -938,6 +943,11 @@ acts.find("provider-org[ref], provider-org[provider-activity-id]").each(function
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
 	}
+	
+	if(id)
+	{
+		it.append($('<div><span-narrative class="provider-org-ref">' + id + '</span-narrative></div>'));
+	}
 });
 
 acts.find("receiver-org[ref], receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
@@ -952,6 +962,11 @@ acts.find("receiver-org[ref], receiver-org[receiver-activity-id]").each(function
 	if(iati_codes.publisher_names[id])
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
+	}
+	
+	if(id)
+	{
+		it.append($('<div><span-narrative class="receiver-org-ref">' + id + '</span-narrative></div>'));
 	}
 });
 
