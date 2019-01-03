@@ -85,7 +85,7 @@ acts.find("value").each(function(i){var it=$(this);
 });
 
 acts.each(function(i){var it=$(this);
-	var needed=["title","participating-org","reporting-org","description","activity-status","activity-scope"];
+	var needed=["title","participating-org","reporting-org","description","activity-status","activity-scope","humanitarian-scope"];
 	needed.forEach(function(n){
 		if( it.children(n).length==0 )
 		{
@@ -490,6 +490,34 @@ acts.find("policy-marker").each(function(i){var it=$(this);
 });
 
 
+acts.find("humanitarian-scope").each(function(i){var it=$(this);
+	var tc=it.attr("vocabulary");
+	td=it.attr("type");
+	te=it.attr("vocabulary-uri");
+	tf=it.attr("code");
+	var tc=iati_codes.hum_scope_vocab[tc] || tc;
+	td=iati_codes.hum_scope_type[td] || td;
+
+	if(te)
+	{
+		it.append($('<a href="' + te + '" class="hum_scope_uri">' + te + '</a>'));
+	}
+	if(tc)
+	{
+		it.append($('<span-narrative class="hum_scope_vocab">' + tc + '</span-narrative>'));
+	}	
+	if(td)
+	{
+		it.append($('<span-narrative class="hum_scope_type">' + td + '</span-narrative>'));
+	}
+	if(tf)
+	{
+		it.append($('<span-narrative class="hum_scope_code">' + tf + '</span-narrative>'));
+	}
+	it.find("span-narrative").wrapAll("<span-narrative class='hum_scope'></span-narrative>");	
+});
+
+
 acts.find("recipient-region").each(function(i){var it=$(this);
 	
 	var c=it.attr("code");
@@ -731,7 +759,8 @@ sorted++;
 		"result",
 		"contact-info",
 		"activity-website",
-		"policy-marker",		
+		"policy-marker",
+		"humanitarian-scope",		
 		"related-activity",
 		"activity-status",
 		

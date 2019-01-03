@@ -145,8 +145,9 @@ span.span_location			{display:block; width:880px; padding:40px; font-size:1.0em;
 span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:20px;}
 span.span_location location:nth-of-type(1)	{padding:0;}
-span.span_location location name	{display:inline;}
-span.span_location location point	{display:inline;}
+span.span_location location name,
+span.span_location location name narrative,
+span.span_location location point		{display:inline;}
 span.span_location location point > *	{display:inline; color:#999; font-size:14px;}
 span.span_location location pos:before	{content:" [ ";}
 span.span_location location pos:after	{content:" ]";}
@@ -573,6 +574,21 @@ span-narrative.policy_code,
 span-narrative.policy_sig		{display:inline-block; margin-left:5px; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:0px 4px; line-height:1.5em;}
 span-narrative.policies			{display:inline-block; font-size:initial; line-height:initial;}
 policy-marker:last-of-type		{padding-bottom:40px;}
+
+
+/*	Humanitarian Scope
+	============================================= */
+humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; padding-bottom:40px;}
+humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
+span-narrative.hum_scope_vocab,
+span-narrative.hum_scope_type,
+span-narrative.hum_scope_code	{display:inline-block; margin-left:5px; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:0px 4px; line-height:1.5em;}
+humanitarian-scope a			{display:inline; margin-left:5px;}
+humanitarian-scope a:link		{color:#FFAB5E;}
+humanitarian-scope a:visited	{color:#FFAB5E;}
+humanitarian-scope a:hover		{color:#FF7A00;}
+humanitarian-scope a:active		{color:#FFAB5E;}
+span-narrative.hum_scope		{display:inline-block; font-size:initial; line-height:initial;}
 
 
 /*	Tag

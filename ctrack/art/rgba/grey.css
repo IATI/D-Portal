@@ -663,12 +663,25 @@ related-activity:before				{color:var(--base15);}
 /*	Policy marker
 	============================================= */
 span.span_policy-marker:before		{color:var(--base15);}
-policy-marker						{color:var(--base15)}
+policy-marker						{color:var(--base15);}
 span-narrative.policy_vocab,
 span-narrative.policy_code,
 span-narrative.policy_sig			{color:var(--base15); background-color:var(--base02_40);}
 
 policy-marker narrative:nth-of-type(n+2)	{color:var(--base14);}
+
+
+/*	Humanitarian Scope
+	============================================= */
+humanitarian-scope				{color:var(--base15);}
+humanitarian-scope:before		{color:var(--base14); border-bottom:1px solid var(--base14);}
+span-narrative.hum_scope_vocab,
+span-narrative.hum_scope_type,
+span-narrative.hum_scope_code	{color:var(--base15); background-color:var(--base02_40);}
+humanitarian-scope a:link		{color:var(--base11);}
+humanitarian-scope a:visited	{color:var(--base11);}
+humanitarian-scope a:hover		{color:var(--base15);}
+humanitarian-scope a:active		{color:var(--base11);}
 
 
 /*	Hide and expand buttons

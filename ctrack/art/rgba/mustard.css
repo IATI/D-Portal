@@ -623,6 +623,19 @@ span-narrative.policy_sig			{color:rgba(255,255,255,1); background-color:rgba(10
 policy-marker narrative:nth-of-type(n+2)	{color:rgba(204,204,204,1);}
 
 
+/*	Humanitarian Scope
+	============================================= */
+humanitarian-scope				{color:rgba(255,255,255,1);}
+humanitarian-scope:before		{color:rgba(255,255,255,1);}
+span-narrative.hum_scope_vocab,
+span-narrative.hum_scope_type,
+span-narrative.hum_scope_code	{color:rgba(255,255,255,1); background-color:rgba(101,101,101,0.4);}
+humanitarian-scope a:link		{color:rgba(255,163,0,1);}
+humanitarian-scope a:visited	{color:rgba(255,163,0,1);}
+humanitarian-scope a:hover		{color:rgba(206,131,0,1);}
+humanitarian-scope a:active		{color:rgba(255,163,0,1);}
+
+
 /*	Hide and expand buttons
 	============================================= */
 span.hide 		 {color:rgba(204,204,204,1);}

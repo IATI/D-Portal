@@ -147,6 +147,14 @@ iati_codes.fetch = function(){
 				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/ActivityScope.json",
 				name:"act_scope",
 			},
+			{
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/HumanitarianScopeVocabulary.json",
+				name:"hum_scope_vocab",
+			},
+			{
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/HumanitarianScopeType.json",
+				name:"hum_scope_type",
+			},
 		];
 	
 	files.forEach(function(opts){

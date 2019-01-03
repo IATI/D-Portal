@@ -150,13 +150,13 @@ span-narrative.org-type		{display:inline; font-size:13px; line-height:24px; colo
 
 /*	Location (version 2.02++)
 	============================================= */
-span.span_location			{display:block; width:880px; padding:40px; font-size:18px; color:#000; counter-reset:section; border-top:1px solid #000;}
+span.span_location			{display:block; width:880px; padding:40px; font-size:18px; color:#000; border-top:1px solid #000;}
 span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#000; display:block; margin-bottom:15px;}
 span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:20px;}
 span.span_location location:nth-of-type(1)	{padding:0;}
-span.span_location location::before	{counter-increment:section; content:counter(section) ". "; line-height:inherit;}
-span.span_location location name	{display:inline;}
-span.span_location location point	{display:inline;}
+span.span_location location name,
+span.span_location location name narrative,
+span.span_location location point		{display:inline;}
 span.span_location location point > *	{display:inline; color:#000; font-size:16px;}
 span.span_location location pos:before	{content:" [ ";}
 span.span_location location pos:after	{content:" ]";}
@@ -531,9 +531,8 @@ a[href$=".tiff" i].a_document-link span-title:after	{content:"IMAGE";}
 
 /*	Family Tree list
 	============================================= */
-span.span_related-activity			{width:880px; padding:0; margin:0 auto; counter-reset:section;}
+span.span_related-activity			{width:880px; padding:0; margin:0 auto;}
 span.span_related-activity:before	{content:"FAMILY TREE"; font-size:14px; color:#000; display:block; padding:40px 0 10px 0; margin-bottom:20px;}
-a.a_related-activity::before		{counter-increment:section; content:counter(section) ". ";}
 a.a_related-activity				{display:inline-block; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#000;}
 a.a_related-activity:last-of-type								{padding-bottom:40px;}
 iati-activity  > a.a_related-activity ~ a.a_related-activity	{padding-top:10px;}
@@ -549,9 +548,8 @@ related-activity[type="5"]:before	{content:"Third Party ";}
 
 /*	Policy marker
 	============================================= */
-span.span_policy-marker			{width:880px; padding:0; margin:0 auto; counter-reset:section; color:#000;}
+span.span_policy-marker			{width:880px; padding:0; margin:0 auto; color:#000;}
 span.span_policy-marker:before	{content:"POLICY MARKER"; font-size:14px; color:#000; display:block; padding:40px 0 10px 0; margin-bottom:20px;}
-policy-marker:before			{counter-increment:section; content:counter(section) ". ";}
 policy-marker					{display:inline-block; vertical-align:top; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#000;}
 policy-marker narrative			{vertical-align:initial;}
 policy-marker narrative:nth-of-type(n+2) {display:inline-block; font-style:italic; font-size:14px; line-height:inherit; text-indent:10px; color:#000;}
@@ -561,6 +559,21 @@ span-narrative.policy_code,
 span-narrative.policy_sig		{display:inline-block; margin-left:5px; color:#000; font-size:13px; border:1px solid #000; border-radius:4px; padding:0px 4px; line-height:1.5em;}
 span-narrative.policies			{display:inline-block; font-size:initial; line-height:initial;}
 policy-marker:last-of-type		{padding-bottom:40px;}
+
+
+/*	Humanitarian Scope
+	============================================= */
+humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#000; padding-bottom:40px;}
+humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#000; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #000;}
+span-narrative.hum_scope_vocab,
+span-narrative.hum_scope_type,
+span-narrative.hum_scope_code	{display:inline-block; margin-left:5px; color:#000; font-size:13px; border:1px solid #000; border-radius:4px; padding:0px 4px; line-height:1.5em;}
+humanitarian-scope a			{display:inline; line-height:20px; margin-left:5px;}
+humanitarian-scope a:link		{color:#000;}
+humanitarian-scope a:visited	{color:#000;}
+humanitarian-scope a:hover		{color:#000;}
+humanitarian-scope a:active		{color:#000;}
+span-narrative.hum_scope		{display:inline-block; font-size:initial; line-height:initial;}
 
 
 /*	Tag
