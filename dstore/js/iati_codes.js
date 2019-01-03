@@ -155,12 +155,28 @@ iati_codes.fetch = function(){
 
 		var js=wait.for(http_getbody,opts.url);
 		var j=JSON.parse(js);
-		var o={};
+		var active;
+		var withdrawn;
 		j["data"].forEach(function(v){
-			o[ v.code ]=v.name;
+			if(v.status && v.status=="withdrawn")
+			{
+				withdrawn=withdrawn||{}
+				withdrawn[ v.code ]=v.name;
+			}
+			else
+			{
+				active=active||{}
+				active[ v.code ]=v.name;
+			}
 		});
-		codes[opts.name]=o;
-
+		if(active)
+		{
+			codes[opts.name]=active;
+		}
+		if(withdrawn)
+		{
+			codes[opts.name+"_withdrawn"]=withdrawn;
+		}
 	});
 
 // merge old/new transaction types and build map

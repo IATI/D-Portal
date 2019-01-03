@@ -50,6 +50,16 @@ view_search.fixup=function()
 			lookup[s]={group:"sector",value:n,text:v,str:s};
 		}
 	}
+	for(var n in iati_codes.sector_withdrawn)
+	{
+		var v=iati_codes.sector_withdrawn[n];
+		var s=v+" ("+n+")";
+		if(v)
+		{
+			strings.push(s);
+			lookup[s]={group:"sector",value:n,text:v,str:s};
+		}
+	}
 /*
 	for(var n in iati_codes.funder_names)
 	{
@@ -686,6 +696,15 @@ view_search.view=function(args)
 		if(v)
 		{
 			var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+			a.push(s);
+		}
+	}
+	for(var n in iati_codes.sector_withdrawn)
+	{
+		var v=iati_codes.sector_withdrawn[n];
+		if(v)
+		{
+			var s="<option value='"+n+"'>"+v+" ("+n+") (WITHDRAWN)</option>";
 			a.push(s);
 		}
 	}

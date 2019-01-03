@@ -672,7 +672,7 @@ query.do_select_response=function(q,res,r){
 					case "sector_code":
 					case "trans_sector":
 					case "budget_sector":
-						value=iati_codes.sector[value] || value
+						value=iati_codes.sector[value] || iati_codes.sector_withdrawn[value] || value
 					break
 					case "sector_group":
 					case "trans_sector_group":

@@ -419,7 +419,7 @@ ctrack.setup=function(args)
 			{
 				var s=$(".search .sector");
 				var v=args.sector_code_select;
-				s.text( iati_codes.sector[v] || v  );
+				s.text( iati_codes.sector[v] || iati_codes.sector_withdrawn[v] || v  );
 				s.parent().show();
 			}
 			if(args.sector_group_select)
