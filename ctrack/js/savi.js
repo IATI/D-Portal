@@ -572,7 +572,7 @@ acts.find("sector").each(function(i){var it=$(this);
 
 
 acts.find("transaction recipient-country").each(function(i){var it=$(this);	
-	console.log("country code",it.attr("code"));
+//	console.log("country code",it.attr("code"));
 	it.find( it.attr("code") ).wrapAll( "<span-transaction class='recipient-country'></span-transaction>" );	
 });
 
@@ -827,20 +827,19 @@ sorted++;
 			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
 		}
 
-		if( (ret===0) && (aname=="transaction") )
+		if( (ret===0) && (aname=="transaction") ) // sort by numeric type
 		{
-			var at=$(a).children("transaction-date").first().attr("iso-date");
-			var bt=$(b).children("transaction-date").first().attr("iso-date");
-			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
+			var at=$(a).children("transaction-type").first().attr("code");
+			var bt=$(b).children("transaction-type").first().attr("code");
+			at=iati_codes.transaction_type_num[at] || parseInt(at) || 0;
+			bt=iati_codes.transaction_type_num[bt] || parseInt(bt) || 0;
+			if(at>bt) { ret=1; } else if(at<bt) { ret=-1; }
 		}
 
 		if( (ret===0) && (aname=="transaction") )
 		{
-			var order={"C":4,"D":3,"IR":2,"E":1}; // order by transaction types
-			var at=$(a).children("transaction-type").first().attr("code");
-			var bt=$(b).children("transaction-type").first().attr("code");
-			at=order[at] || 0;
-			bt=order[bt] || 0;
+			var at=$(a).children("transaction-date").first().attr("iso-date");
+			var bt=$(b).children("transaction-date").first().attr("iso-date");
 			if(at<bt) { ret=1; } else if(at>bt) { ret=-1; }
 		}
 
@@ -866,7 +865,40 @@ sorted++;
 	it.append(aa);
 
 	for(var i=0; i<sortlist.length-1; i++) { var v=sortlist[i];
-		it.children( v ).wrapAll( "<span class='span_"+v+"' />");
+		var list=it.children( v );
+		list.wrapAll( "<span class='span_"+v+"' />");
+		if(v=="transaction") // split transactions
+		{
+			var split_idx
+			var split_start=-1
+			var split_end=-1
+			var split_type=false
+			var test_type
+			var dosplit=function(){
+				if(split_start>=0) // valid range
+				{
+//console.log("slice "+split_start+" to "+split_end)
+					list.slice(split_start,split_end+1).wrapAll( "<span class='span_transaction_code_"+split_type+"' />")
+				}
+				split_start=split_idx
+				split_end=split_idx
+				split_type=test_type
+			}
+			for( split_idx=0 ; split_idx<list.length ; split_idx++ ) // walk backwards
+			{
+				test_type=list.eq(split_idx).children("transaction-type").first().attr("code");
+				test_type=iati_codes.transaction_type_num[test_type] || parseInt(test_type) || 0;
+				if(test_type===split_type)
+				{
+					split_end=split_idx // advance group over the same items
+				}
+				else // change of type
+				{
+					dosplit()
+				}
+			}
+			dosplit()
+		}
 	}
 
 });

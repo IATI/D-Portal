@@ -215,6 +215,19 @@ iati_codes.fetch = function(){
 
 	codes["transaction_type_map"]=o; // map new codes to old codes where we can and leave old codes as they are
 
+	var o={
+		"IF": 1,
+		"C":  2,
+		"D":  3,
+		"E":  4,
+		"IR": 5,
+		"LR": 6,
+		"R":  7,
+		"QP": 8,
+		"QS": 9,
+		"CG": 10,
+	}
+	codes["transaction_type_num"]=o; // map old codes to new numbers
 	
 	console.log("Parsing csv/iati_funders.csv")	
 	var lines=baby.parse( fs.readFileSync(__dirname+"/../csv/iati_funders.csv",{encoding:"utf8"}) ).data;
