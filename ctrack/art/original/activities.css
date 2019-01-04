@@ -360,7 +360,7 @@ span.span_sector span.hide	{top:20px;}
 
 /*	Budget table
 	============================================= */
-budget					{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0;}
+budget					{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; font-size:14px;}
 budget:last-of-type	 	{border-bottom:0px solid #1E90FF; margin-bottom:10px;}
 budget:nth-of-type(1)	{margin-top:0px; padding-top:0; border-top:0;}
 
@@ -386,12 +386,12 @@ budget period-start 	{width:110px; max-width:110px; padding-left:40px;}
 budget period-end	 	{width:120px; max-width:120px;}
 budget span-budget-type	{width:260px; max-width:260px;}
 budget span-budget-status{width:140px; max-width:140px;}
-budget value 			{width:240px; max-width:240px;}
+budget value 			{width:240px; max-width:240px; font-size:1.15em;}
 
 
 /*	Planned Disbursement table
 	============================================= */
-planned-disbursement				{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; position:relative;}
+planned-disbursement				{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; position:relative; font-size:14px;}
 planned-disbursement a				{color:#FFAB5E;}
 planned-disbursement a:link			{color:#FFAB5E;}
 planned-disbursement a:visited		{color:#FFAB5E;}
@@ -420,7 +420,7 @@ planned-disbursement value		 	{display:inline-block; vertical-align:top; color:#
 planned-disbursement period-start 	{width:110px; max-width:110px; padding-left:40px;}
 planned-disbursement period-end	 	{width:120px; max-width:120px;}
 span-planned-type				 	{width:260px; max-width:260px;}
-planned-disbursement value 			{width:110px; max-width:110px; padding-right:40px;}
+planned-disbursement value 			{width:110px; max-width:110px; padding-right:40px; font-size:1.15em;}
 planned-disbursement provider-org,
 planned-disbursement receiver-org	{width:120px; max-width:120px; display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; line-height:1.35em; padding-right:20px;}
 
@@ -431,7 +431,7 @@ planned-disbursement span-narrative.org-ref	{display:inline; font-size:11px; lin
 
 /*	Transaction table
 	============================================= */
-transaction							{display:block; width:960px; border-top:1px solid #333642; padding:10px 0; border-bottom:0;}
+transaction							{display:block; width:960px; border-top:1px solid #333642; padding:10px 0; border-bottom:0; font-size:14px;}
 transaction a						{color:#FFAB5E;}
 transaction a:link					{color:#FFAB5E;}
 transaction a:visited				{color:#FFAB5E;}
@@ -455,7 +455,7 @@ transaction-type	{display:inline-block; vertical-align:top; color:#FFF; font-siz
 span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:20px; line-height:1.35em; color:#FFF; font-size:1.0em; text-align:left; background-color:transparent;}
 provider-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:130px; max-width:130px; padding-right:15px; line-height:1.35em;}
 receiver-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:130px; max-width:130px; padding-right:0px; line-height:1.35em;}
-value				{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
+value				{display:inline-block; vertical-align:top; color:#FFF; font-size:1.15em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
 value span			{font-size:12px; color:#ccc;}
 
 provider-org div, receiver-org div	{display:block; padding:5px 0 3px 0; line-height:0;}
@@ -464,7 +464,7 @@ span-narrative.receiver-org-ref		{display:inline; font-size:11px; line-height:in
 
 transaction span-narrative.org-role,
 transaction span-narrative.org-type,
-transaction span-narrative.org-ref	{display:inline; font-size:11px; line-height:24px; color:#CCC; margin:0 auto; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
+transaction span-narrative.org-ref	{display:inline; font-size:11px; line-height:initial; color:#CCC; margin:0 auto; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
 
 transaction sector	{display:none;}
 

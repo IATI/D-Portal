@@ -358,7 +358,7 @@ span.span_sector span.hide	{top:20px;}
 
 /*	Budget table
 	============================================= */
-budget				  {display:block; width:958px; border-top:1px solid #000; padding:15px 0 5px 0; border-bottom:0;}
+budget				  {display:block; width:958px; border-top:1px solid #000; padding:15px 0 5px 0; border-bottom:0; font-size:14px;}
 budget:last-of-type	  {border-bottom:0px solid #000; margin-bottom:20px;}
 budget:nth-of-type(1) {margin-top:0px; padding-top:0; border:0;}
 
@@ -384,12 +384,12 @@ budget period-start 	{width:110px; max-width:110px; padding-left:40px;}
 budget period-end	 	{width:120px; max-width:120px;}
 budget span-budget-type	{width:260px; max-width:260px;}
 budget span-budget-status{width:140px; max-width:140px;}
-budget value 			{width:238px; max-width:238px;}
+budget value 			{width:238px; max-width:238px; font-size:1.15em;}
 
 
 /*	Planned Disbursement table
 	============================================= */
-planned-disbursement				{display:block; width:958px; border-top:1px solid #000; padding:15px 0 10px 0; border-bottom:0; position:relative;}
+planned-disbursement				{display:block; width:958px; border-top:1px solid #000; padding:15px 0 10px 0; border-bottom:0; position:relative; font-size:14px;}
 planned-disbursement a				{color:#000;}
 planned-disbursement a:hover		{color:#000;}
 planned-disbursement:last-of-type	{border-bottom:0px solid #000; margin-bottom:20px;}
@@ -415,7 +415,7 @@ planned-disbursement value		 	{display:inline-block; vertical-align:top; color:#
 planned-disbursement period-start 	{width:110px; max-width:110px; padding-left:40px;}
 planned-disbursement period-end	 	{width:120px; max-width:120px;}
 span-planned-type				 	{width:258px; max-width:258px;}
-planned-disbursement value 			{width:110px; max-width:110px; padding-right:40px;}
+planned-disbursement value 			{width:110px; max-width:110px; padding-right:40px; font-size:1.15em;}
 planned-disbursement provider-org,
 planned-disbursement receiver-org	{width:120px; max-width:120px; display:inline-block; vertical-align:top; color:#000; font-size:1.0em; line-height:1.35em; padding-right:20px;}
 
@@ -427,7 +427,7 @@ planned-disbursement span-narrative.org-ref	{display:inline; font-size:11px; lin
 
 /*	Transaction table
 	============================================= */
-transaction							{display:block; width:958px; border-top:1px solid #000; padding:10px 0; border-bottom:0;}
+transaction							{display:block; width:958px; border-top:1px solid #000; padding:10px 0; border-bottom:0; font-size:14px;}
 transaction a						{color:#000;}
 transaction a:hover					{color:#000;}
 transaction:last-of-type			{margin-bottom:40px;}
@@ -448,7 +448,7 @@ transaction-type	{display:inline-block; vertical-align:top; color:#000; font-siz
 span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:20px; text-align:left; color:#000; font-size:1.0em; line-height:1.35em; border:0; background-color:transparent;}
 provider-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:15px; line-height:1.35em;}
 receiver-org		{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:130px; max-width:130px; padding-right:0px; line-height:1.35em;}
-value				{display:inline-block; vertical-align:top; color:#000; font-size:1.0em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
+value				{display:inline-block; vertical-align:top; color:#000; font-size:1.15em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
 value span			{font-size:12px; color:#000;}
 
 provider-org div, receiver-org div	{display:block; padding-top:5px; line-height:0;}
