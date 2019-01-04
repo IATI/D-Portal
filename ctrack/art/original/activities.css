@@ -35,6 +35,8 @@ narrative {display:inline-block;color:inherit;font-family:inherit;word-wrap:inhe
 iati-activity[humanitarian="1"]:before	{content:"HUMANITARIAN"; padding:10px 40px 7px 40px; font-size:14px; color:#000e20; width:490px; text-align:right; background-color:#ff890c;}
 
 transaction[humanitarian="1"]			{position:relative;}
+transaction[humanitarian="1"] transaction-date	{position:relative; min-height:85px;}
+transaction[humanitarian="1"]:nth-of-type(1) transaction-date	{position:relative; min-height:130px;}
 transaction[humanitarian="1"]:before	{position:absolute; bottom:40px; left:40px; content:"Humanitarian"; padding:5px; font-size:13px; color:#CCC; background-color:rgba(48,71,103,1); border-radius:4px;}
 
 
@@ -134,7 +136,13 @@ span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0
 span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
 
 span-narrative.org-role,
-span-narrative.org-type		{display:inline; font-size:13px; line-height:24px; color:#CCC; margin-left:10px; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
+span-narrative.org-type,
+span-narrative.org-ref		{display:inline; font-size:13px; line-height:24px; color:#CCC; margin-left:10px; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
+span-narrative.org-ref		{background-color:rgba(22,24,37,0.6);}
+
+span-narrative.org-role.empty,
+span-narrative.org-type.empty,
+span-narrative.org-ref.empty		{display:none;}
 
 
 /*	Location (version 2.02++)
@@ -143,10 +151,11 @@ span.span_location			{display:block; width:880px; padding:40px; font-size:1.0em;
 span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:20px;}
 span.span_location location:nth-of-type(1)	{padding:0;}
-span.span_location location name	{display:inline;}
-span.span_location location point	{display:inline;}
+span.span_location location name,
+span.span_location location name narrative,
+span.span_location location point		{display:inline;}
 span.span_location location point > *	{display:inline; color:#999; font-size:14px;}
-span.span_location location pos:before	{content:" [ ";}
+span.span_location location pos:before	{content:" [ "; margin-left:5px;}
 span.span_location location pos:after	{content:" ]";}
 span.span_location location description {display:inline; margin-left:10px; font-size:14px; color:#CCC;}
 
@@ -351,7 +360,7 @@ span.span_sector span.hide	{top:20px;}
 
 /*	Budget table
 	============================================= */
-budget					{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0;}
+budget					{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; font-size:14px;}
 budget:last-of-type	 	{border-bottom:0px solid #1E90FF; margin-bottom:10px;}
 budget:nth-of-type(1)	{margin-top:0px; padding-top:0; border-top:0;}
 
@@ -377,12 +386,12 @@ budget period-start 	{width:110px; max-width:110px; padding-left:40px;}
 budget period-end	 	{width:120px; max-width:120px;}
 budget span-budget-type	{width:260px; max-width:260px;}
 budget span-budget-status{width:140px; max-width:140px;}
-budget value 			{width:240px; max-width:240px;}
+budget value 			{width:240px; max-width:240px; font-size:1.15em;}
 
 
 /*	Planned Disbursement table
 	============================================= */
-planned-disbursement				{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; position:relative;}
+planned-disbursement				{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; position:relative; font-size:14px;}
 planned-disbursement a				{color:#FFAB5E;}
 planned-disbursement a:link			{color:#FFAB5E;}
 planned-disbursement a:visited		{color:#FFAB5E;}
@@ -391,41 +400,38 @@ planned-disbursement a:active		{color:#FFAB5E;}
 planned-disbursement:last-of-type	{border-bottom:0px solid #1E90FF; margin-bottom:10px;}
 planned-disbursement:nth-of-type(1)	{margin-top:0px; padding-top:0; border-top:0;}
 
-span.span_planned-disbursement:before					{content:"Planned Disbursements"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
+span.span_planned-disbursement:before{content:"Planned Disbursements"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
 planned-disbursement:nth-of-type(1) period-start:before,
 planned-disbursement:nth-of-type(1) period-end:before,
 planned-disbursement:nth-of-type(1) value:before,
 planned-disbursement:nth-of-type(1) provider-org:before,
 planned-disbursement:nth-of-type(1) receiver-org:before	{content:""; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; color:#CCC; line-height:1.35em;}
-planned-disbursement:nth-of-type(1) period-end:after	{content:"TYPE"; font-size:14px; color:#CCC; display:block; position:absolute; top:0px; right:-45px; line-height:1.35em;}
+planned-disbursement:nth-of-type(1) span-planned-type:before{content:"TYPE"; width:260px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; color:#CCC; line-height:1.35em;}
 planned-disbursement:nth-of-type(1) period-start:before {content:"START DATE"; width:110px;}
-planned-disbursement:nth-of-type(1) period-end:before	{content:"END DATE"; width:110px;}
-planned-disbursement:nth-of-type(1) value:before		{content:"VALUE"; width:660px;}
-planned-disbursement:nth-of-type(1) provider-org:before	{content:"PROVIDER"; width:130px;}
-planned-disbursement:nth-of-type(1) receiver-org:before	{content:"RECEIVER"; width:130px;}
-planned-disbursement[type="1"] value:after				{content:"Original"; position:absolute; left:10px; top:0px;}
-planned-disbursement[type="2"] value:after				{content:"Revised";  position:absolute; left:10px; top:0px;}
-
-planned-disbursement[type="1"]:nth-of-type(1) value:after, planned-disbursement[type="2"]:nth-of-type(1) value:after	{top:44px;}
+planned-disbursement:nth-of-type(1) period-end:before	{content:"END DATE"; width:120px;}
+planned-disbursement:nth-of-type(1) value:before		{content:"VALUE";}
+planned-disbursement:nth-of-type(1) provider-org:before	{content:"PROVIDER"; width:140px;}
+planned-disbursement:nth-of-type(1) receiver-org:before	{content:"RECEIVER"; width:140px;}
 
 planned-disbursement period-start,
 planned-disbursement period-end,
+span-planned-type,
 planned-disbursement value		 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; line-height:1.35em;}
 planned-disbursement period-start 	{width:110px; max-width:110px; padding-left:40px;}
-planned-disbursement period-end	 	{width:110px; max-width:110px; position:relative;}
-planned-disbursement value 			{width:660px; max-width:660px; padding-right:40px; position:relative;}
+planned-disbursement period-end	 	{width:120px; max-width:120px;}
+span-planned-type				 	{width:260px; max-width:260px;}
+planned-disbursement value 			{width:110px; max-width:110px; padding-right:40px; font-size:1.15em;}
 planned-disbursement provider-org,
-planned-disbursement receiver-org	{display:block; color:#FFF; font-size:1.0em; line-height:1.35em; padding-right:20px;}
-planned-disbursement provider-org 	{width:130px; max-width:130px; position:absolute; top:0; left:530px;}
-planned-disbursement receiver-org 	{width:130px; max-width:130px; position:absolute; top:0; left:680px;}
+planned-disbursement receiver-org	{width:120px; max-width:120px; display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; line-height:1.35em; padding-right:20px;}
 
-planned-disbursement:nth-of-type(n+2) provider-org,
-planned-disbursement:nth-of-type(n+2) receiver-org	{top:15px;}
+planned-disbursement span-narrative.org-role,
+planned-disbursement span-narrative.org-type,
+planned-disbursement span-narrative.org-ref	{display:inline; font-size:11px; line-height:initial; color:#CCC; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6); margin:0 auto;}
 
 
 /*	Transaction table
 	============================================= */
-transaction							{display:block; width:960px; border-top:1px solid #333642; padding:10px 0; border-bottom:0;}
+transaction							{display:block; width:960px; border-top:1px solid #333642; padding:10px 0; border-bottom:0; font-size:14px;}
 transaction a						{color:#FFAB5E;}
 transaction a:link					{color:#FFAB5E;}
 transaction a:visited				{color:#FFAB5E;}
@@ -449,8 +455,16 @@ transaction-type	{display:inline-block; vertical-align:top; color:#FFF; font-siz
 span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:20px; line-height:1.35em; color:#FFF; font-size:1.0em; text-align:left; background-color:transparent;}
 provider-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:130px; max-width:130px; padding-right:15px; line-height:1.35em;}
 receiver-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:130px; max-width:130px; padding-right:0px; line-height:1.35em;}
-value				{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
+value				{display:inline-block; vertical-align:top; color:#FFF; font-size:1.15em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
 value span			{font-size:12px; color:#ccc;}
+
+provider-org div, receiver-org div	{display:block; padding:5px 0 3px 0; line-height:0;}
+span-narrative.provider-org-ref,
+span-narrative.receiver-org-ref		{display:inline; font-size:11px; line-height:initial; color:#CCC; margin:0 auto;}
+
+transaction span-narrative.org-role,
+transaction span-narrative.org-type,
+transaction span-narrative.org-ref	{display:inline; font-size:11px; line-height:initial; color:#CCC; margin:0 auto; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
 
 transaction sector	{display:none;}
 
@@ -571,6 +585,23 @@ span-narrative.policy_code,
 span-narrative.policy_sig		{display:inline-block; margin-left:5px; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:0px 4px; line-height:1.5em;}
 span-narrative.policies			{display:inline-block; font-size:initial; line-height:initial;}
 policy-marker:last-of-type		{padding-bottom:40px;}
+
+
+/*	Humanitarian Scope
+	============================================= */
+humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; padding-bottom:40px;}
+humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#CCC; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
+span-narrative.hum_scope_vocab,
+span-narrative.hum_scope_type,
+span-narrative.hum_scope_code	{display:inline-block; margin-left:5px; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:0px 4px; line-height:1.5em;}
+humanitarian-scope a			{display:inline; margin-left:5px;}
+humanitarian-scope a:link		{color:#FFAB5E;}
+humanitarian-scope a:visited	{color:#FFAB5E;}
+humanitarian-scope a:hover		{color:#FF7A00;}
+humanitarian-scope a:active		{color:#FFAB5E;}
+span-narrative.hum_scope		{display:inline-block; font-size:initial; line-height:initial;}
+
+humanitarian-scope.empty		{display:none;}
 
 
 /*	Tag

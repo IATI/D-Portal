@@ -85,7 +85,7 @@ acts.find("value").each(function(i){var it=$(this);
 });
 
 acts.each(function(i){var it=$(this);
-	var needed=["title","participating-org","reporting-org","description","activity-status","activity-scope"];
+	var needed=["title","participating-org","reporting-org","description","activity-status","activity-scope","humanitarian-scope"];
 	needed.forEach(function(n){
 		if( it.children(n).length==0 )
 		{
@@ -151,6 +151,7 @@ acts.find("title").each(function(i){var it=$(this);
 acts.find("participating-org").each(function(i){var it=$(this);
 	var c=it.attr("role");
 	var d=it.attr("type");
+	var e=it.attr("ref");
 	if(c)
 	{
 		c=c.toLowerCase();
@@ -170,6 +171,10 @@ acts.find("participating-org").each(function(i){var it=$(this);
 		{
 			it.append($('<span-narrative class="org-type">' + d + '</span-narrative>'));
 		}
+	}
+	if(e)
+	{
+		it.append($('<span-narrative class="org-ref">' + e + '</span-narrative>'));
 	}
 	
 	if( it.html().trim()=="" )
@@ -490,6 +495,44 @@ acts.find("policy-marker").each(function(i){var it=$(this);
 });
 
 
+acts.find("humanitarian-scope").each(function(i){var it=$(this);
+	var tc=it.attr("vocabulary");
+	td=it.attr("type");
+	te=it.attr("vocabulary-uri");
+	tf=it.attr("code");
+	var tc=iati_codes.hum_scope_vocab[tc] || tc;
+	td=iati_codes.hum_scope_type[td] || td;
+
+	if(te)
+	{
+		it.append($('<a href="' + te + '" class="hum_scope_uri">' + te + '</a>'));
+	}
+	if(tc)
+	{
+		it.append($('<span-narrative class="hum_scope_vocab">' + tc + '</span-narrative>'));
+	}	
+	if(td)
+	{
+		it.append($('<span-narrative class="hum_scope_type">' + td + '</span-narrative>'));
+	}
+	if(tf)
+	{
+		it.append($('<span-narrative class="hum_scope_code">' + tf + '</span-narrative>'));
+	}
+	it.find("span-narrative").wrapAll("<span-narrative class='hum_scope'></span-narrative>");	
+});
+
+
+acts.find("planned-disbursement").each(function(i){var it=$(this);
+	var t=it.attr("type");
+	t=iati_codes.budget_type[t];
+	if(t)
+	{
+		it.append($('<span-planned-type>'  + t + '</span-planned-type>'));
+	}
+});
+
+
 acts.find("recipient-region").each(function(i){var it=$(this);
 	
 	var c=it.attr("code");
@@ -685,6 +728,9 @@ sort_elements("budget",[
 sort_elements("planned-disbursement",[
 		"period-start",
 		"period-end",
+		"span-planned-type",
+		"provider-org",
+		"receiver-org",
 		"value",
 		0]);
 
@@ -715,13 +761,14 @@ sorted++;
 		"span-title",
 		"reporting-org",
 		"iati-identifier",
-		"document-link",
+		"document-link",	
 		"recipient-country",
 		"activity-scope",
 		"location",
 		"recipient-region",
 		"activity-date",
 		"participating-org",
+		"humanitarian-scope",
 		"description",
 		"sector",
 		"span-openag",
@@ -731,7 +778,7 @@ sorted++;
 		"result",
 		"contact-info",
 		"activity-website",
-		"policy-marker",		
+		"policy-marker",	
 		"related-activity",
 		"activity-status",
 		
@@ -928,9 +975,11 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 });
 
 
-acts.find("provider-org[ref], provider-org[provider-activity-id]").each(function(i){var it=$(this);
+acts.find("provider-org[ref], provider-org[provider-activity-id], provider-org[type]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	var aid=it.attr("provider-activity-id");
+	var d=it.attr("type");
+	d=iati_codes.org_type[d] || d;
 	
 	if( aid )
 	{
@@ -940,12 +989,23 @@ acts.find("provider-org[ref], provider-org[provider-activity-id]").each(function
 	if(iati_codes.publisher_names[id])
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
+	}
+	
+	if(id)
+	{
+		it.append($('<div><span-narrative class="provider-org-ref">' + id + '</span-narrative></div>'));
+	}
+	if(d)
+	{
+		it.append($('<div><span-narrative class="org-type">' + d + '</span-narrative></div>'));
 	}
 });
 
-acts.find("receiver-org[ref], receiver-org[receiver-activity-id]").each(function(i){var it=$(this);
+acts.find("receiver-org[ref], receiver-org[receiver-activity-id], receiver-org[type]").each(function(i){var it=$(this);
 	var id=it.attr("ref");
 	var aid=it.attr("receiver-activity-id");
+	var d=it.attr("type");
+	d=iati_codes.org_type[d] || d;
 	
 	if( aid )
 	{
@@ -955,6 +1015,15 @@ acts.find("receiver-org[ref], receiver-org[receiver-activity-id]").each(function
 	if(iati_codes.publisher_names[id])
 	{
 		wrapInner_link(it,pubprelink+id+pubpostlink,"a_"+this.tagName.toLowerCase());
+	}
+	
+	if(id)
+	{
+		it.append($('<div><span-narrative class="receiver-org-ref">' + id + '</span-narrative></div>'));
+	}
+	if(d)
+	{
+		it.append($('<div><span-narrative class="org-type">' + d + '</span-narrative></div>'));
 	}
 });
 

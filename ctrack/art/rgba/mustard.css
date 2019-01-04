@@ -392,7 +392,8 @@ participating-org a:active span-lang,
 participating-org a:active	{color:rgba(206,131,0,1);}
 
 span-narrative.org-role,
-span-narrative.org-type		{color:rgba(255,255,255,1); background-color:rgba(101,101,101,0.4);}
+span-narrative.org-type,
+span-narrative.org-ref		{color:rgba(255,255,255,1); background-color:rgba(101,101,101,0.4);}
 
 
 /*	Location (version 2.02++)
@@ -502,7 +503,7 @@ budget value			{color:rgba(255,255,255,1);}
 
 /*	Planned Disbursement table
 	============================================= */
-planned-disbursement 					{border-top: 1px solid rgba(143,143,143,1);}
+planned-disbursement 					{border-top:2px solid rgba(56,56,56,0.9);}
 planned-disbursement a					{color:rgba(255,163,0,1);}
 planned-disbursement a:link				{color:rgba(255,163,0,1);}
 planned-disbursement a:visited			{color:rgba(255,163,0,1);}
@@ -513,25 +514,24 @@ span.span_planned-disbursement:before	{color:rgba(255,255,255,1); background-col
 planned-disbursement:nth-of-type(1) period-start:before,
 planned-disbursement:nth-of-type(1) period-end:before,
 planned-disbursement:nth-of-type(1) value:before,
+planned-disbursement:nth-of-type(1) span-planned-type:before,
 planned-disbursement:nth-of-type(1) provider-org:before,
 planned-disbursement:nth-of-type(1) receiver-org:before	{color:rgba(204,204,204,1); border-bottom:2px solid rgba(56,56,56, 0.9);}
 
-planned-disbursement:nth-of-type(1) period-end:after	{color:rgba(204,204,204,1);}
-
-planned-disbursement[type="1"] value:after,
-planned-disbursement[type="2"] value:after,
-planned-disbursement[type="1"]:nth-of-type(1) value:after,
-planned-disbursement[type="2"]:nth-of-type(1) value:after,
 planned-disbursement period-start,
 planned-disbursement period-end,
 planned-disbursement value ,
 planned-disbursement provider-org,
 planned-disbursement receiver-org		{color:rgba(255,255,255,1);}
 
+planned-disbursement span-narrative.org-role,
+planned-disbursement span-narrative.org-type,
+planned-disbursement span-narrative.org-ref {color:rgba(255,255,255,1); background-color:rgba(101,101,101,0.4);}
+
 
 /*	Transaction table
 	============================================= */
-transaction						{border-top:1px solid rgba(143,143,143,1);}
+transaction						{border-top:2px solid rgba(56,56,56,0.9);}
 transaction a					{color:rgba(255,163,0,1);}
 a.a_receiver-org				{color:rgba(255,163,0,1);}
 transaction a:link				{color:rgba(255,163,0,1);}
@@ -555,6 +555,12 @@ receiver-org		{color:rgba(255,255,255,1);}
 value				{color:rgba(255,255,255,1);}
 value span			{color:rgba(204,204,204,1);}
 
+span-narrative.provider-org-ref,
+span-narrative.receiver-org-ref	{color:rgba(255,255,255,1);}
+
+transaction span-narrative.org-role,
+transaction span-narrative.org-type,
+transaction span-narrative.org-ref	{color:rgba(255,255,255,1); background-color:rgba(101,101,101,0.4);}
 
 /*	Contact info for Publisher
 	============================================= */
@@ -621,6 +627,19 @@ span-narrative.policy_code,
 span-narrative.policy_sig			{color:rgba(255,255,255,1); background-color:rgba(101,101,101,0.4);}
 
 policy-marker narrative:nth-of-type(n+2)	{color:rgba(204,204,204,1);}
+
+
+/*	Humanitarian Scope
+	============================================= */
+humanitarian-scope				{color:rgba(255,255,255,1);}
+humanitarian-scope:before		{color:rgba(255,255,255,1);}
+span-narrative.hum_scope_vocab,
+span-narrative.hum_scope_type,
+span-narrative.hum_scope_code	{color:rgba(255,255,255,1); background-color:rgba(101,101,101,0.4);}
+humanitarian-scope a:link		{color:rgba(255,163,0,1);}
+humanitarian-scope a:visited	{color:rgba(255,163,0,1);}
+humanitarian-scope a:hover		{color:rgba(206,131,0,1);}
+humanitarian-scope a:active		{color:rgba(255,163,0,1);}
 
 
 /*	Hide and expand buttons

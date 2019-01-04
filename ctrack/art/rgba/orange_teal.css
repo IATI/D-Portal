@@ -434,6 +434,7 @@ participating-org a:active		{color:var(--base11);}
 
 span-narrative.org-role,
 span-narrative.org-type			{color:var(--base15); background-color:var(--base02_40);}
+span-narrative.org-ref			{color:var(--base15); background-color:var(--base03_40);}
 
 
 /*	Location (version 2.02++)
@@ -571,16 +572,15 @@ planned-disbursement:nth-of-type(1) value:before,
 planned-disbursement:nth-of-type(1) provider-org:before,
 planned-disbursement:nth-of-type(1) receiver-org:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
 
-planned-disbursement:nth-of-type(1) period-end:after,
-planned-disbursement[type="1"] value:after,
-planned-disbursement[type="2"] value:after,
-planned-disbursement[type="1"]:nth-of-type(1) value:after,
-planned-disbursement[type="2"]:nth-of-type(1) value:after,
 planned-disbursement period-start,
 planned-disbursement period-end,
 planned-disbursement value,
 planned-disbursement provider-org,
 planned-disbursement receiver-org 	{color:var(--base15);}
+
+planned-disbursement span-narrative.org-role,
+planned-disbursement span-narrative.org-type,
+planned-disbursement span-narrative.org-ref {color:var(--base15); background-color:var(--base02_40);}
 
 
 /*	Transaction table
@@ -609,6 +609,13 @@ provider-org		{color:var(--base15);}
 receiver-org		{color:var(--base15);}
 value				{color:var(--base15);}
 value span			{color:var(--base14);}
+
+span-narrative.provider-org-ref,
+span-narrative.receiver-org-ref		{color:var(--base15);}
+
+transaction span-narrative.org-role,
+transaction span-narrative.org-type,
+transaction span-narrative.org-ref	{color:var(--base15); background-color:var(--base02_40);}
 
 
 /*	Contact info for Publisher
@@ -674,6 +681,19 @@ policy-marker						{color:var(--base15);}
 span-narrative.policy_vocab,
 span-narrative.policy_code,
 span-narrative.policy_sig			{color:var(--base15); background-color:var(--base03);}
+
+
+/*	Humanitarian Scope
+	============================================= */
+humanitarian-scope				{color:var(--base15);}
+humanitarian-scope:before		{color:var(--base14); border-bottom:1px solid var(--base03);}
+span-narrative.hum_scope_vocab,
+span-narrative.hum_scope_type,
+span-narrative.hum_scope_code	{color:var(--base15); background-color:var(--base02_40);}
+humanitarian-scope a:link		{color:var(--base11);}
+humanitarian-scope a:visited	{color:var(--base11);}
+humanitarian-scope a:hover		{color:var(--base15);}
+humanitarian-scope a:active		{color:var(--base11);}
 
 
 /*	Hide and expand buttons

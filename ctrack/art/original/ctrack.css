@@ -412,6 +412,8 @@ span.order_2	{position:absolute; top:0; right:0; display:none;}
 ul.chosen-choices	{border-radius:6px;}
 .search-choice		{z-index:1;}
 
+.chosen-container .chosen-results li.active-result.withdrawn {color:#999; background-color:#eee;}
+.chosen-container .chosen-results li.active-result.withdrawn:after {content:" WITHDRAWN"; display:inline; font-size:9px;}
 
 /*	Table header styles
 	============================================= */
