@@ -1054,7 +1054,7 @@ sorted++;
 					var transactions=list.slice(split_start,split_end+1)
 					var here=transactions.wrapAll( "<span class='span_transaction_code_"+split_type+"' />").eq(0).parent().eq(0)
 					savi.add_transaction_chart({here:here,transactions:transactions,transaction_type=split_type,all:all})
-					all_here=here
+					all_here=all_here || here
 				}
 				split_start=split_idx
 				split_end=split_idx
