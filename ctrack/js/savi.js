@@ -1349,6 +1349,13 @@ $( "span.span_transaction_code_1, span.span_transaction_code_2, span.span_transa
 	});
 });
 
+$( "span.span_transaction" ).each(function(i,el){
+	var e=$(el);
+	e.parent().find("span.span_transaction_code_11").insertBefore("span.span_transaction_code_1");	//	move div before div
+	e.parent().find(".transactions_svg_type_11").insertBefore("span.span_transaction_code_1");	//	move div before div
+});
+
+
 
 //	add hide div to these classes
 $( "result" ).each(function(i,el){
