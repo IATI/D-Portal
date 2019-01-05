@@ -418,7 +418,7 @@ activity-date[type="end-actual"]:before		{color:var(--base15);}
 /*	Who's invloved?
 	============================================= */
 span.span_participating-org 					{color:var(--base15);}
-span.span_participating-org:before 				{color:var(--base15); border-bottom:1px solid var(--base03);}
+span.span_participating-org:before 				{color:var(--base14); border-bottom:1px solid var(--base03);}
 
 participating-org,
 span-narrative.participating-role				{color:var(--base15);}
@@ -448,7 +448,7 @@ span.span_location location description	{color:var(--base13);}
 /*	Recipient region
 	============================================= */
 span.span_recipient-region			{color:var(--base15);}
-span.span_recipient-region:before 	{color:var(--base14);}
+span.span_recipient-region:before 	{color:var(--base14); border-bottom:1px solid var(--base03);}
 span.region-percent 				{color:var(--base14);}
 
 span.region-code,
@@ -714,8 +714,8 @@ humanitarian-scope a:active		{color:var(--base11);}
 
 /*	Hide and expand buttons
 	============================================= */
-span.hide 		 {color:var(--base14);}
-span.hide:hover	 {color:var(--base15);}
+span.hide 		 {color:var(--base14); background-color:var(--base02_40);}
+span.hide:hover	 {color:var(--base15); background-color:var(--base02);}
 
 
 /*	Count

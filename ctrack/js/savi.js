@@ -1283,12 +1283,12 @@ $('img.country_pie').wrap($('<span class="country_img">'));
 $( "span.span_document-link, span.span_participating-org, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_recipient-region, span.span_policy-marker" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children();
-	var c=$("<span class='hide'>[ - ] HIDE</span>");
+	var c=$("<span class='hide'>-</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");		// count children
 	e.append(c);
 	e.append(d);
 	c.click(function(){
-		c.text((c.text() == '[ - ] HIDE') ? '[ + ] SHOW' : '[ - ] HIDE').fadeIn();
+		c.text((c.text() == '-') ? '+' : '-').fadeIn();
 		ec.fadeToggle('fast');
 	});
 });
@@ -1320,12 +1320,12 @@ $( "span.span_recipient-country" ).each(function(i,el){
 $( "span.span_transaction" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.find( "transaction" );
-	var c=$("<span class='hide'>[ - ] HIDE</span>");
+	var c=$("<span class='hide'>-</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");		// count children
 	e.append(c);
 	e.append(d);
 	c.click(function(){
-		c.text((c.text() == '[ - ] HIDE') ? '[ + ] SHOW' : '[ - ] HIDE').fadeIn();
+		c.text((c.text() == '-') ? '+' : '-').fadeIn();
 		ec.fadeToggle('fast');
 	});
 });
@@ -1334,12 +1334,12 @@ $( "span.span_transaction" ).each(function(i,el){
 $( "span.span_transaction_code_1, span.span_transaction_code_2, span.span_transaction_code_3, span.span_transaction_code_4, span.span_transaction_code_5, span.span_transaction_code_6, span.span_transaction_code_7, span.span_transaction_code_8, span.span_transaction_code_9, span.span_transaction_code_10, span.span_transaction_code_11, span.span_transaction_code_12, span.span_transaction_code_13" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.find( "transaction" );
-	var c=$("<span class='hide'>[ - ] HIDE</span>");
+	var c=$("<span class='hide'>-</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");		// count children
 	e.append(c);
 	e.append(d);
 	c.click(function(){
-		c.text((c.text() == '[ - ] HIDE') ? '[ + ] SHOW' : '[ - ] HIDE').fadeIn();
+		c.text((c.text() == '-') ? '+' : '-').fadeIn();
 		ec.fadeToggle('fast');
 	});
 });
@@ -1349,10 +1349,10 @@ $( "span.span_transaction_code_1, span.span_transaction_code_2, span.span_transa
 $( "result" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children();
-	var c=$("<span class='hide'>[ - ] HIDE</span>");
+	var c=$("<span class='hide'>-</span>");
 	e.append(c);
 	c.click(function(){
-		c.text((c.text() == '[ - ] HIDE') ? '[ + ] SHOW' : '[ - ] HIDE').fadeIn();
+		c.text((c.text() == '-') ? '+' : '-').fadeIn();
 		ec.fadeToggle('fast');
 	});
 });

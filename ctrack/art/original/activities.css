@@ -686,15 +686,16 @@ span.span_transaction_code_9,
 span.span_transaction_code_10,
 span.span_transaction_code_11,
 span.span_transaction_code_12,
-span.span_transaction_code_13	{position:relative;}	
-span.hide		 	{display:block; position:absolute; top:35px; right:40px; font-size:12px; color:#CCC; line-height:24px; letter-spacing:1px;}
-span.hide:hover	 	{cursor:pointer; color:#FFF;}
+span.span_transaction_code_13	{position:relative;}
+
+span.hide			{display:block; position:absolute; top:35px; right:40px; font-size:18px; line-height:18px; background-color:rgba(255,255,255,0.6); padding:0 3px; border-radius:2px; color:#112b61; font-weight:bold; width:14px; text-align:center;}
+span.hide:hover	 	{cursor:pointer; background-color:rgba(255,255,255,1);}
 
 span.span_transaction span.hide,
 span.span_planned-disbursement span.hide,
 span.span_budget span.hide,
 span.span_result span.hide,
-span.span_result result span.hide				{top:15px;}
+span.span_result result span.hide				{top:18px;}
 span.span_result result:nth-child(1) span.hide	{top:-5px;}
 span.span_related-activity span.hide,
 span.span_policy-marker span.hide				{right:0;}
@@ -711,7 +712,7 @@ span.span_transaction_code_9 span.hide,
 span.span_transaction_code_10 span.hide,
 span.span_transaction_code_11 span.hide,
 span.span_transaction_code_12 span.hide,
-span.span_transaction_code_13 span.hide		{top:6px; z-index:10;}
+span.span_transaction_code_13 span.hide		{top:8px; z-index:10;}
 
 
 /*	Count
