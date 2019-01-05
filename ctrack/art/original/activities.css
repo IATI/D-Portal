@@ -116,6 +116,7 @@ activity-date[type="4"], activity-date[type="end-actual"]		{position:absolute; b
 
 /*	Who's invloved?
 	============================================= */
+participating-org > *				{display:none;}
 span.span_participating-org			{display:block; width:880px; padding:40px; font-size:16px; color:#FFF;}
 span.span_participating-org:before 	{content:"WHO'S INVOLVED?"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 participating-org 					{display:block; padding:0 0 5px 0; position:relative; line-height:24px;}
@@ -132,7 +133,7 @@ participating-org a:hover			{color:#FF7A00;}
 participating-org a:active span-lang,
 participating-org a:active			{color:#FFAB5E;}
 
-span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0 0 0 24px; font-style:italic; font-size:16px; line-height:inherit;}
+span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0; font-style:italic; font-size:16px; line-height:inherit;}
 span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
 
 span-narrative.org-role,
@@ -147,6 +148,7 @@ span-narrative.org-ref.empty		{display:none;}
 
 /*	Location (version 2.02++)
 	============================================= */
+location > *		{display:none;}
 span.span_location			{display:block; width:880px; padding:40px; font-size:1.0em; color:#FFF;}
 span.span_location:before 	{content:"LOCATIONS"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_location location 		{display:block; padding:10px 0 0 0; position:relative; line-height:20px;}
@@ -162,6 +164,7 @@ span.span_location location description {display:inline; margin-left:10px; font-
 
 /*	Recipient region
 	============================================= */
+recipient-region > *		{display:none;}
 span.span_recipient-region			{display:block; width:880px; padding:40px; font-size:1.0em; color:#FFF;}
 span.span_recipient-region:before 	{content:"REGIONS"; font-size:14px; color:#CCC; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_recipient-region recipient-region 				{display:block; padding:10px 0 0 0; position:relative; line-height:20px;}
@@ -177,6 +180,7 @@ span.region-vocab			{display:inline; font-size:13px; line-height:24px; color:#CC
 
 /*	Reported by
 	============================================= */
+reporting-org > *				{display:none;}
 reporting-org 					{display:block; width:880px; padding:20px 40px 40px 40px; font-size:18px; color:#FFF; line-height:26px;}
 reporting-org:before 			{content:"Reported by"; display:inline-block; padding-right:5px; color:#ccc; font-size:18px; line-height:26px; font-weight:normal;}
 reporting-org:nth-of-type(1)	{padding-top:0px;}
@@ -206,6 +210,7 @@ span.span_description description narrative.empty	{display:none;}	/*	Hides conta
 
 /*	Result and description
 	============================================= */
+result > *					{display:none;}
 span.span_result			{counter-reset:section;}
 result						{counter-reset:subsection; display:block; padding:20px 0; position:relative;}
 result:nth-child(1)			{padding-top:0;}
@@ -259,7 +264,7 @@ result indicator[measure="2"] period actual:before	{content:"ACTUAL %"; font-siz
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
 result indicator period period-start,
-result indicator period period-end	{display:block; width:100%; padding:0 0 10px 0; min-height:38px; box-sizing:border-box; font-size:22px; line-height:28px; text-align:right; position:relative;}
+result indicator period period-end	{display:block; width:100%; padding:0 0 10px 0; min-height:38px; box-sizing:border-box; font-size:16px; line-height:28px; text-align:right; position:relative;}
 result indicator period period-start{margin-bottom:10px;}
 
 result indicator period target > *	{display:block;}
@@ -358,15 +363,9 @@ span.sector_img	{position:relative;}
 span.span_sector span.hide	{top:20px;}
 
 
-/*	Chartist SVG
-	============================================= */
-.ct-label {fill:#FFF; color:#FFF;}
-.ct-grid {stroke:rgba(255,255,255,0.5);}
-
-
-
 /*	Budget table
 	============================================= */
+budget > *				{display:none;}
 budget					{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; font-size:14px;}
 budget:last-of-type	 	{border-bottom:0px solid #1E90FF; margin-bottom:10px;}
 budget:nth-of-type(1)	{margin-top:0px; padding-top:0; border-top:0;}
@@ -398,6 +397,7 @@ budget value 			{width:370px; max-width:370px; font-size:1.15em;}
 
 /*	Planned Disbursement table
 	============================================= */
+planned-disbursement > *			{display:none;}
 planned-disbursement				{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; position:relative; font-size:14px;}
 planned-disbursement a				{color:#FFAB5E;}
 planned-disbursement a:link			{color:#FFAB5E;}
@@ -438,6 +438,7 @@ planned-disbursement span-narrative.org-ref	{display:inline; font-size:11px; lin
 
 /*	Transaction table
 	============================================= */
+transaction	> *	{display:none;}
 transaction							{display:block; width:960px; border-top:1px solid #333642; padding:10px 0; border-bottom:0; font-size:14px;}
 transaction a						{color:#FFAB5E;}
 transaction a:link					{color:#FFAB5E;}
@@ -540,6 +541,7 @@ activity-status.empty		{display:none;}
 
 /*	Activity Scope
 	============================================= */
+activity-scope > *			{display:none;}
 activity-scope				{display:block; font-size:18px; width:880px; text-align:center; margin:0 auto; padding:20px 40px; max-height:150px; color:rgba(255,255,255,1); background-color:rgba(0,14,32,0.7);}
 activity-scope:before		{content:"ACTIVITY SCOPE"; font-size:14px; color:#CCC; display:inline-block; padding-right:10px;}
 activity-scope.empty		{display:none;}
@@ -547,6 +549,7 @@ activity-scope.empty		{display:none;}
 
 /*	Related documents list
 	============================================= */
+document-link > *	{display:none;}
 span.span_document-link							{width:880px; padding:0 40px; margin:0 auto; margin-bottom:40px;}
 span.span_document-link:before					{content:"RELATED DOCUMENTS"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:10px;}
 a.a_document-link::before						{display:inline-block; vertical-align:top; content:"☰"; border:1px solid #CCC; padding:2px; color:#CCC; margin-right:-24px;}
@@ -591,6 +594,7 @@ a[href$=".tiff" i].a_document-link span-title:after	{content:"IMAGE";}
 
 /*	Family Tree list
 	============================================= */
+related-activity > *		{display:none;}
 span.span_related-activity			{width:880px; padding:0; margin:0 auto;}
 span.span_related-activity:before	{content:"FAMILY TREE"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_related-activity			{color:#FFF;}
@@ -609,6 +613,7 @@ related-activity[type="5"]:before	{content:"Third Party ";}
 
 /*	Policy marker
 	============================================= */
+policy-marker > *		{display:none;}
 span.span_policy-marker			{width:880px; padding:0; margin:0 auto; color:#FFF;}
 span.span_policy-marker:before	{content:"POLICY MARKER"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 policy-marker					{display:inline-block; vertical-align:top; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#FFF;}
@@ -624,7 +629,8 @@ policy-marker:last-of-type		{padding-bottom:40px;}
 
 /*	Humanitarian Scope
 	============================================= */
-humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; padding-bottom:40px;}
+humanitarian-scope > *			{display:none;}
+humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; padding-bottom:40px; line-height:24px;}
 humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#CCC; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span-narrative.hum_scope_vocab,
 span-narrative.hum_scope_type,
@@ -699,6 +705,10 @@ span.country_img span.length				{top:20px; left:205px;}
 span.span_recipient-region span.length		{left:115px;}
 
 
-
-.transactions_svg {display:block; margin:0 auto; width:940px; height:240px}
+/*	Chartist SVG
+	============================================= */
+.transactions_svg {display:block; width:920px; height:240px; margin:auto; margin-bottom:30px;}
 .transactions_svg svg {overflow:visible;}
+.ct-label {fill:#FFF; color:#FFF;}
+.ct-grid {stroke:rgba(255,255,255,0.5);}
+

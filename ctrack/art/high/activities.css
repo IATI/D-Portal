@@ -141,7 +141,7 @@ participating-org a:hover			{color:#000; text-decoration:underline;}
 participating-org a:active span-lang,
 participating-org a:active			{color:#000;}
 
-span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0 0 0 24px; font-style:italic; font-size:16px; line-height:inherit;}
+span.span_participating-org narrative:nth-of-type(n+2)	{display:block; padding:0; font-style:italic; font-size:16px; line-height:inherit;}
 span.span_participating-org narrative:nth-of-type(n+2):last-of-type		{padding-bottom:10px;}
 
 span-narrative.org-role,
@@ -264,7 +264,7 @@ result indicator[measure="2"] period actual:before	{content:"ACTUAL %"; font-siz
 result indicator period target, result indicator period actual	{display:inline-block; vertical-align:top; width:440px;}
 
 result indicator period period-start,
-result indicator period period-end	{display:block; width:100%; padding:0 0 10px 0; min-height:38px; box-sizing:border-box; font-size:22px; line-height:28px; text-align:right; position:relative;}
+result indicator period period-end	{display:block; width:100%; padding:0 0 10px 0; min-height:38px; box-sizing:border-box; font-size:16px; line-height:28px; text-align:right; position:relative;}
 result indicator period period-start{margin-bottom:10px;}	
 
 result indicator period target > *	{display:block;}
@@ -604,7 +604,7 @@ policy-marker:last-of-type		{padding-bottom:40px;}
 
 /*	Humanitarian Scope
 	============================================= */
-humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#000; padding-bottom:40px;}
+humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#000; padding-bottom:40px; line-height:24px;}
 humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#000; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #000;}
 span-narrative.hum_scope_vocab,
 span-narrative.hum_scope_type,
