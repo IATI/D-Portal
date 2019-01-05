@@ -1315,7 +1315,7 @@ $( "span.span_transaction" ).each(function(i,el){
 });
 
 // count transaction-type
-$( "span.span_transaction_code_1", "span.span_transaction_code_2", "span.span_transaction_code_3", "span.span_transaction_code_4", "span.span_transaction_code_5", "span.span_transaction_code_6", "span.span_transaction_code_7", "span.span_transaction_code_8", "span.span_transaction_code_9", "span.span_transaction_code_10", "span.span_transaction_code_11", "span.span_transaction_code_12", "span.span_transaction_code_13" ).each(function(i,el){
+$( "span.span_transaction_code_1, span.span_transaction_code_2, span.span_transaction_code_3, span.span_transaction_code_4, span.span_transaction_code_5, span.span_transaction_code_6, span.span_transaction_code_7, span.span_transaction_code_8, span.span_transaction_code_9, span.span_transaction_code_10, span.span_transaction_code_11, span.span_transaction_code_12, span.span_transaction_code_13" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.find( "transaction" );
 	var c=$("<span class='hide'>[ - ] HIDE</span>");
