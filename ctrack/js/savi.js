@@ -661,6 +661,17 @@ acts.find("planned-disbursement").each(function(i){var it=$(this);
 	}
 });
 
+acts.find("planned-disbursement").each(function(i){var it=$(this);
+	var needed=["period-start","period-end","span-planned-type","provider-org","receiver-org","value"];
+	needed.forEach(function(n){
+		if( it.children(n).length==0 )
+		{
+			it.append("<"+n+" />"); // just add a blank tag
+		}
+	});
+
+});
+
 
 acts.find("recipient-region").each(function(i){var it=$(this);
 	
