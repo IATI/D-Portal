@@ -1133,7 +1133,7 @@ $('img.sector_pie').wrap($('<span class="sector_img">'));
 $('img.country_pie').wrap($('<span class="country_img">'));
 
 //	add hide div to these classes
-$( "span.span_document-link, span.span_participating-org, span.span_transaction, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_recipient-region, span.span_policy-marker" ).each(function(i,el){
+$( "span.span_document-link, span.span_participating-org, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_recipient-region, span.span_policy-marker" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children();
 	var c=$("<span class='hide'>[ - ] HIDE</span>");
@@ -1166,6 +1166,21 @@ $( "span.span_recipient-country" ).each(function(i,el){
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
 	e.css( "display", "none" );
 	e.parent().find("span.country_img").append(d);	//	move length out and into another element
+});
+
+
+//	count transactions
+$( "span.span_transaction" ).each(function(i,el){
+	var e=$(el);
+	var ec=e.find( "transaction" );
+	var c=$("<span class='hide'>[ - ] HIDE</span>");
+	var d=$("<span class='length'>( " + ec.length + " )</span>");		// count children
+	e.append(c);
+	e.append(d);
+	c.click(function(){
+		c.text((c.text() == '[ - ] HIDE') ? '[ + ] SHOW' : '[ - ] HIDE').fadeIn();
+		ec.fadeToggle('fast');
+	});
 });
 
 
