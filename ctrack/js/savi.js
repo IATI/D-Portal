@@ -28,6 +28,7 @@ savi.add_transaction_chart = function(opts) {
 	var data=[]
 	var last_it
 	var currency=""
+	var it_total=0
 	opts.transactions.each(function(index){
 		var transaction=opts.transactions.eq(index)
 		var it={}
@@ -36,6 +37,8 @@ savi.add_transaction_chart = function(opts) {
 		var it_value=transaction.children("value").first().html();
 		var it_currency=transaction.children("value").first().children("span").first().html();
 		var it_number=parseFloat(it_value.split(",").join(""))
+
+		it_total+=it_number // makes more sense to display accumilated values
 		
 		if(!it_currency) // need a currency
 		{
@@ -52,15 +55,16 @@ savi.add_transaction_chart = function(opts) {
 		}
 
 		it.x=new Date( it_date+"T00:00:00.000Z" )
-		it.y=it_number
+		it.y=it_total
+		
 		if( last_it && ( last_it.x.getTime()==it.x.getTime() ) ) // merge
 		{
-			last_it.y+=it.y
+			last_it.y=it_total
 		}
 		else
 		{
 			data.push(it)
-			last_it=it // remember to merge
+			last_it=it // remember last so we can merge if the same time
 		}
 	})	
 	data.sort(function(a,b){return a.x-b.x})
