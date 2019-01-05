@@ -23,7 +23,7 @@ var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/
 
 savi.add_transaction_chart = function(opts) {
 	
-//	return; // remove this to enable
+	return; // remove this to enable
 
 	var data=[]
 	var last_it
