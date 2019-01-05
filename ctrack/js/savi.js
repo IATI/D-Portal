@@ -23,43 +23,51 @@ savi.add_transaction_chart = function(opts) {
 
 
 	var render=$('<div class="transactions_svg"></div>')
-	opts.here.before(render)
+	opts.here.after(render)
+	
+	var data=[]
 
-var chart = new Chartist.Line(render[0], {
-  series: [
-    {
-      name: 'series-1',
-      data: [
-        {x: new Date(143134652600), y: 53},
-        {x: new Date(143234652600), y: 40},
-        {x: new Date(143340052600), y: 45},
-        {x: new Date(143366652600), y: 40},
-        {x: new Date(143410652600), y: 20},
-        {x: new Date(143508652600), y: 32},
-        {x: new Date(143569652600), y: 18},
-        {x: new Date(143579652600), y: 11}
-      ]
-    },
-    {
-      name: 'series-2',
-      data: [
-        {x: new Date(143134652600), y: 53},
-        {x: new Date(143234652600), y: 35},
-        {x: new Date(143334652600), y: 30},
-        {x: new Date(143384652600), y: 30},
-        {x: new Date(143568652600), y: 10}
-      ]
-    }
-  ]
-}, {
-  axisX: {
-    type: Chartist.FixedScaleAxis,
-    divisor: 5,
-    labelInterpolationFnc: function(value) {
-      return moment(value).format('MMM D');
-    }
-  }
-});
+	var last_it
+	opts.transactions.each(function(index){
+		var transaction=opts.transactions.eq(index)
+		var it={}
+
+		var it_date=transaction.children("transaction-date").first().attr("iso-date");
+		var it_value=transaction.children("value").first().html();
+		var it_number=parseFloat(it_value.split(",").join(""))
+
+		it.x=new Date( it_date+"T00:00:00.000Z" )
+		it.y=it_number
+		if( last_it && ( last_it.x.getTime()==it.x.getTime() ) ) // merge
+		{
+			last_it.y+=it.y
+		}
+		else
+		{
+			data.push(it)
+			last_it=it // remember to merge
+		}
+	})
+	
+	data.sort(function(a,b){return a.x-b.x})
+//console.log(data)
+	
+	var chart = new Chartist.Line(render[0], {
+	  series: [
+		{
+		  name: 'transactions',
+		  data: data
+		},
+	  ]
+	}, {
+	  axisX: {
+		type: Chartist.FixedScaleAxis,
+		divisor: 5,
+		labelInterpolationFnc: function(value) {
+		  return moment(value).format('YYYY MMM D');
+		}
+	  }
+	});
 
 
 
