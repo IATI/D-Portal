@@ -10,7 +10,7 @@ a:active			{text-decoration:none; color:#FFAB5E;}
 
 ok					{display:none;}
 query				{display:none;}
-iati-activity *		{display:none; color:#fff;}
+iati-activity > *	{display:none; color:#fff;}
 iati-activity		{display:block; width:960px; margin:0 auto; margin-bottom:320px; background-color:rgba(0,14,32,0.7); word-break:break-word; border-radius:6px;}
 iati-activity:after {content:"Data is sourced from IATI for D-Portal. If you find anything out of place, please contact the development team - support@iatistandard.org"; font-size:14px; color:#ccc; display:block; padding:15px 0; text-align:center;}
 *:before			{line-height:14px;}
@@ -358,6 +358,13 @@ span.sector_img	{position:relative;}
 span.span_sector span.hide	{top:20px;}
 
 
+/*	Chartist SVG
+	============================================= */
+.ct-label {fill:#FFF; color:#FFF;}
+.ct-grid {stroke:rgba(255,255,255,0.5);}
+
+
+
 /*	Budget table
 	============================================= */
 budget					{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; font-size:14px;}
@@ -469,7 +476,7 @@ span.span_transaction:before		{content:"Transactions"; font-size:20px; color:#FF
 .span_transaction_code_12:before	{content:"OUTGOING PLEDGE";}
 
 transaction:nth-of-type(1) transaction-date:before	{content:"DATE"; font-size:14px; color:#CCC; width:110px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-/*transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14px; color:#CCC; width:125px; display:none; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}*/
+transaction:nth-of-type(1) transaction-type:before	{display:none;}
 transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#CCC; width:210px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#CCC; width:180px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#CCC; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
@@ -478,7 +485,7 @@ transaction:nth-of-type(1) description:before {content:"DESCRIPTION"; font-size:
 
 span.span_transaction transaction description {display:inline-block; vertical-align:top; padding:0px; width:230px; max-width:230px; padding-right:30px; line-height:1.35em; color:#FFF; font-size:1.0em; text-align:left; background-color:transparent;}
 transaction-date	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:100px; max-width:100px; padding-left:40px; padding-right:10px; line-height:1.35em;}
-/*transaction-type	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:110px; max-width:110px; padding-right:15px; line-height:1.35em;}*/
+transaction-type	{display:none;}
 
 span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:230px; max-width:230px; padding-right:30px; line-height:1.35em; color:#FFF; font-size:1.0em; text-align:left; background-color:transparent;}
 provider-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:180px; max-width:180px; padding-right:30px; line-height:1.35em;}
@@ -693,4 +700,4 @@ span.span_recipient-region span.length		{left:115px;}
 
 
 
-.transactions_svg {display:block; width:960px; height:240px}
+.transactions_svg {display:block; margin:0 auto; width:940px; height:240px}
