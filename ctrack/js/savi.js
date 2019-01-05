@@ -3,7 +3,8 @@
 
 var savi=exports;
 
-var chart=require("chart.js")
+var Chartist=require("chartist")
+var moment=require("moment")
 
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
@@ -16,7 +17,53 @@ savi.encodeURIComponent=function(str)
 }
 
 
+savi.add_transaction_chart = function(opts) {
+	
+	return; // remove this to enable
 
+
+	var render=$('<div class="transactions_svg"></div>')
+	opts.here.before(render)
+
+var chart = new Chartist.Line(render[0], {
+  series: [
+    {
+      name: 'series-1',
+      data: [
+        {x: new Date(143134652600), y: 53},
+        {x: new Date(143234652600), y: 40},
+        {x: new Date(143340052600), y: 45},
+        {x: new Date(143366652600), y: 40},
+        {x: new Date(143410652600), y: 20},
+        {x: new Date(143508652600), y: 32},
+        {x: new Date(143569652600), y: 18},
+        {x: new Date(143579652600), y: 11}
+      ]
+    },
+    {
+      name: 'series-2',
+      data: [
+        {x: new Date(143134652600), y: 53},
+        {x: new Date(143234652600), y: 35},
+        {x: new Date(143334652600), y: 30},
+        {x: new Date(143384652600), y: 30},
+        {x: new Date(143568652600), y: 10}
+      ]
+    }
+  ]
+}, {
+  axisX: {
+    type: Chartist.FixedScaleAxis,
+    divisor: 5,
+    labelInterpolationFnc: function(value) {
+      return moment(value).format('MMM D');
+    }
+  }
+});
+
+
+
+}
 
 savi.fixup = function(args){
 
@@ -926,7 +973,9 @@ sorted++;
 				if(split_start>=0) // valid range
 				{
 //console.log("slice "+split_start+" to "+split_end)
-					list.slice(split_start,split_end+1).wrapAll( "<span class='span_transaction_code_"+split_type+"' />")
+					var transactions=list.slice(split_start,split_end+1)
+					var here=transactions.wrapAll( "<span class='span_transaction_code_"+split_type+"' />").eq(0).parent().eq(0)
+					savi.add_transaction_chart({here:here,transactions:transactions,transaction_type=split_type})
 				}
 				split_start=split_idx
 				split_end=split_idx
@@ -946,6 +995,7 @@ sorted++;
 				}
 			}
 			dosplit()
+			
 		}
 	}
 
