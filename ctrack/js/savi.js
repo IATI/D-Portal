@@ -29,7 +29,8 @@ savi.add_transaction_chart = function(opts) {
 	var last_it
 	var currency=""
 	var it_total=0
-	opts.transactions.each(function(index){
+	for(var index=opts.transactions.length-1 ; index>=0 ; index--)
+	{
 		var transaction=opts.transactions.eq(index)
 		var it={}
 
@@ -66,7 +67,7 @@ savi.add_transaction_chart = function(opts) {
 			data.push(it)
 			last_it=it // remember last so we can merge if the same time
 		}
-	})	
+	}
 	data.sort(function(a,b){return a.x-b.x})
 //console.log(data)
 
