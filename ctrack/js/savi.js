@@ -23,7 +23,7 @@ var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/
 
 savi.add_transaction_chart = function(opts) {
 	
-	return; // remove this to enable
+//	return; // remove this to enable
 
 	var data=[]
 	var last_it
@@ -1302,6 +1302,20 @@ $( "span.span_recipient-country" ).each(function(i,el){
 
 //	count transactions
 $( "span.span_transaction" ).each(function(i,el){
+	var e=$(el);
+	var ec=e.find( "transaction" );
+	var c=$("<span class='hide'>[ - ] HIDE</span>");
+	var d=$("<span class='length'>( " + ec.length + " )</span>");		// count children
+	e.append(c);
+	e.append(d);
+	c.click(function(){
+		c.text((c.text() == '[ - ] HIDE') ? '[ + ] SHOW' : '[ - ] HIDE').fadeIn();
+		ec.fadeToggle('fast');
+	});
+});
+
+// count transaction-type
+$( "span.span_transaction_code_1", "span.span_transaction_code_2", "span.span_transaction_code_3", "span.span_transaction_code_4", "span.span_transaction_code_5", "span.span_transaction_code_6", "span.span_transaction_code_7", "span.span_transaction_code_8", "span.span_transaction_code_9", "span.span_transaction_code_10", "span.span_transaction_code_11", "span.span_transaction_code_12", "span.span_transaction_code_13" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.find( "transaction" );
 	var c=$("<span class='hide'>[ - ] HIDE</span>");
