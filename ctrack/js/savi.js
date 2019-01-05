@@ -23,7 +23,7 @@ var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/
 
 savi.add_transaction_chart = function(opts) {
 	
-//	return; // remove this to enable
+	return; // remove this to enable
 
 	var data=[]
 	var last_it
@@ -663,6 +663,17 @@ acts.find("planned-disbursement").each(function(i){var it=$(this);
 	{
 		it.append($('<span-planned-type>'  + t + '</span-planned-type>'));
 	}
+});
+
+acts.find("planned-disbursement").each(function(i){var it=$(this);
+	var needed=["period-start","period-end","span-planned-type","provider-org","receiver-org","value"];
+	needed.forEach(function(n){
+		if( it.children(n).length==0 )
+		{
+			it.append("<"+n+" />"); // just add a blank tag
+		}
+	});
+
 });
 
 
