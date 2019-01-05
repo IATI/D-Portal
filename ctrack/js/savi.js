@@ -16,25 +16,40 @@ savi.encodeURIComponent=function(str)
   });
 }
 
+var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+        return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+
+
 
 savi.add_transaction_chart = function(opts) {
 	
-	return; // remove this to enable
+//	return; // remove this to enable
 
-
-	var render=$('<div class="transactions_svg"></div>')
-	opts.here.after(render)
-	
 	var data=[]
-
 	var last_it
+	var currency=""
 	opts.transactions.each(function(index){
 		var transaction=opts.transactions.eq(index)
 		var it={}
 
 		var it_date=transaction.children("transaction-date").first().attr("iso-date");
 		var it_value=transaction.children("value").first().html();
+		var it_currency=transaction.children("value").first().children("span").first().html();
 		var it_number=parseFloat(it_value.split(",").join(""))
+		
+		if(!it_currency) // need a currency
+		{
+			return
+		}
+		
+		if(!currency)
+		{
+			currency=it_currency
+		}
+		else
+		{
+			if(currency!=it_currency) { return } // must be all the same
+		}
 
 		it.x=new Date( it_date+"T00:00:00.000Z" )
 		it.y=it_number
@@ -47,10 +62,20 @@ savi.add_transaction_chart = function(opts) {
 			data.push(it)
 			last_it=it // remember to merge
 		}
-	})
-	
+	})	
 	data.sort(function(a,b){return a.x-b.x})
 //console.log(data)
+
+
+	if(data.length<=1) // do not bother showing only 1 value
+	{
+		return;
+	}
+
+
+	var render=$('<div class="transactions_svg"></div>')
+	opts.here.after(render)
+	
 	
 	var chart = new Chartist.Line(render[0], {
 	  series: [
@@ -62,9 +87,17 @@ savi.add_transaction_chart = function(opts) {
 	}, {
 	  axisX: {
 		type: Chartist.FixedScaleAxis,
-		divisor: 5,
+		divisor: 8,
 		labelInterpolationFnc: function(value) {
 		  return moment(value).format('YYYY MMM D');
+		}
+	  },
+	  axisY: {
+		offset: 80,
+		scaleMinSpace: 24,
+		type: Chartist.AutoScaleAxis,
+		labelInterpolationFnc: function(value) {
+		  return commafy(value)+" "+currency;
 		}
 	  }
 	});
@@ -100,8 +133,6 @@ acts.addClass("savidone"); // mark as done so we ignore if we get called again
 //console.log(acts.html());
 
 
-var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
-        return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
         
 var commafy_ifnum=function(s)
 {
