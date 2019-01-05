@@ -73,37 +73,74 @@ savi.add_transaction_chart = function(opts) {
 	}
 
 
-	var render=$('<div class="transactions_svg"></div>')
+	var render=$('<div class="transactions_svg transactions_svg_type_'+opts.transaction_type+'"></div>')
 	opts.here.after(render)
 	
 	
-	var chart = new Chartist.Line(render[0], {
-	  series: [
+	var chart_options={
+		  axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+			  return moment(value).format('YYYY MMM D');
+			}
+		  },
+		  axisY: {
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+			  return commafy(value)+" "+currency;
+			}
+		  }
+		}
+
+	var chart_series=[]
+
+	if(opts.all && opts.all.series)
+	{
+		for(var i=0;i<opts.all.series.length;i++)
 		{
-		  name: 'transactions',
+			chart_series.push(
+				{
+				  name: opts.all.series[i].name, // remember name
+				  data: [] // empty place holder
+				}
+			)
+		}
+	}
+
+	chart_series.push(
+		{
+		  name: opts.transaction_type,
 		  data: data
-		},
-	  ]
-	}, {
-	  axisX: {
-		type: Chartist.FixedScaleAxis,
-		divisor: 8,
-		labelInterpolationFnc: function(value) {
-		  return moment(value).format('YYYY MMM D');
 		}
-	  },
-	  axisY: {
-		offset: 80,
-		scaleMinSpace: 24,
-		type: Chartist.AutoScaleAxis,
-		labelInterpolationFnc: function(value) {
-		  return commafy(value)+" "+currency;
-		}
-	  }
-	});
+	)
 
+	var chart = new Chartist.Line(render[0], {
+	  series: chart_series,
+	}, chart_options );
 
+	if(opts.all)
+	{
+		opts.all.series=opts.all.series || []
+		opts.all.series.push(
+			{
+			  name: opts.transaction_type,
+			  data: data
+			}
+		)
+	}
 
+	if(opts.all.here)
+	{
+		var render=$('<div class="transactions_svg transactions_svg_type_all"></div>')
+		opts.all.here.before(render)
+
+		var chart = new Chartist.Line(render[0], {
+			series:opts.all.series,
+		}, chart_options );
+	}
 }
 
 savi.fixup = function(args){
@@ -1003,6 +1040,8 @@ sorted++;
 		list.wrapAll( "<span class='span_"+v+"' />");
 		if(v=="transaction") // split transactions
 		{
+			var all_here
+			var all={}
 			var split_idx
 			var split_start=-1
 			var split_end=-1
@@ -1014,7 +1053,8 @@ sorted++;
 //console.log("slice "+split_start+" to "+split_end)
 					var transactions=list.slice(split_start,split_end+1)
 					var here=transactions.wrapAll( "<span class='span_transaction_code_"+split_type+"' />").eq(0).parent().eq(0)
-					savi.add_transaction_chart({here:here,transactions:transactions,transaction_type=split_type})
+					savi.add_transaction_chart({here:here,transactions:transactions,transaction_type=split_type,all:all})
+					all_here=here
 				}
 				split_start=split_idx
 				split_end=split_idx
@@ -1033,6 +1073,7 @@ sorted++;
 					dosplit()
 				}
 			}
+			all.here=all_here // final call will also render them all in one graph
 			dosplit()
 			
 		}
