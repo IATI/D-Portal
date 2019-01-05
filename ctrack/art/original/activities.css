@@ -358,13 +358,6 @@ span.sector_img	{position:relative;}
 span.span_sector span.hide	{top:20px;}
 
 
-/*	Chartist SVG
-	============================================= */
-.ct-label {fill:#FFF; color:#FFF;}
-.ct-grid {stroke:rgba(255,255,255,0.5);}
-
-
-
 /*	Budget table
 	============================================= */
 budget					{display:block; width:960px; border-top:1px solid #333642; padding:15px 0 5px 0; border-bottom:0; font-size:14px;}
@@ -624,7 +617,7 @@ policy-marker:last-of-type		{padding-bottom:40px;}
 
 /*	Humanitarian Scope
 	============================================= */
-humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; padding-bottom:40px;}
+humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; padding-bottom:40px; line-height:24px;}
 humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#CCC; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span-narrative.hum_scope_vocab,
 span-narrative.hum_scope_type,
@@ -699,6 +692,10 @@ span.country_img span.length				{top:20px; left:205px;}
 span.span_recipient-region span.length		{left:115px;}
 
 
-
-.transactions_svg {display:block; margin:0 auto; width:940px; height:240px}
+/*	Chartist SVG
+	============================================= */
+.transactions_svg {display:block; width:920px; height:240px; margin:auto; margin-bottom:30px;}
 .transactions_svg svg {overflow:visible;}
+.ct-label {fill:#FFF; color:#FFF;}
+.ct-grid {stroke:rgba(255,255,255,0.5);}
+
