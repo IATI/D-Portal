@@ -373,9 +373,9 @@ budget:nth-of-type(1) value:before			{content:""; display:block; padding-bottom:
 
 budget:nth-of-type(1) period-start:before 	{content:"START DATE"; width:110px;}
 budget:nth-of-type(1) period-end:before		{content:"END DATE"; width:120px;}
-budget:nth-of-type(1) span-budget-type:before	{content:"TYPE"; width:260px;}
+budget:nth-of-type(1) span-budget-type:before	{content:"TYPE"; width:140px;}
 budget:nth-of-type(1) span-budget-status:before	{content:"STATUS"; width:140px;}
-budget:nth-of-type(1) value:before			{content:"VALUE"; width:240px;}
+budget:nth-of-type(1) value:before			{content:"VALUE"; width:370px;}
 
 budget period-start,
 budget period-end,
@@ -384,9 +384,9 @@ budget span-budget-status,
 budget value		 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; line-height:1.35em;}
 budget period-start 	{width:110px; max-width:110px; padding-left:40px;}
 budget period-end	 	{width:120px; max-width:120px;}
-budget span-budget-type	{width:260px; max-width:260px;}
+budget span-budget-type	{width:140px; max-width:140px;}
 budget span-budget-status{width:140px; max-width:140px;}
-budget value 			{width:240px; max-width:240px; font-size:1.15em;}
+budget value 			{width:370px; max-width:370px; font-size:1.15em;}
 
 
 /*	Planned Disbursement table
@@ -406,12 +406,12 @@ planned-disbursement:nth-of-type(1) period-end:before,
 planned-disbursement:nth-of-type(1) value:before,
 planned-disbursement:nth-of-type(1) provider-org:before,
 planned-disbursement:nth-of-type(1) receiver-org:before	{content:""; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; color:#CCC; line-height:1.35em;}
-planned-disbursement:nth-of-type(1) span-planned-type:before{content:"TYPE"; width:260px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; color:#CCC; line-height:1.35em;}
+planned-disbursement:nth-of-type(1) span-planned-type:before{content:"TYPE"; width:140px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; color:#CCC; line-height:1.35em;}
 planned-disbursement:nth-of-type(1) period-start:before {content:"START DATE"; width:110px;}
 planned-disbursement:nth-of-type(1) period-end:before	{content:"END DATE"; width:120px;}
 planned-disbursement:nth-of-type(1) value:before		{content:"VALUE";}
-planned-disbursement:nth-of-type(1) provider-org:before	{content:"PROVIDER"; width:140px;}
-planned-disbursement:nth-of-type(1) receiver-org:before	{content:"RECEIVER"; width:140px;}
+planned-disbursement:nth-of-type(1) provider-org:before	{content:"PROVIDER"; width:200px;}
+planned-disbursement:nth-of-type(1) receiver-org:before	{content:"RECEIVER"; width:200px;}
 
 planned-disbursement period-start,
 planned-disbursement period-end,
@@ -419,10 +419,10 @@ span-planned-type,
 planned-disbursement value		 	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; line-height:1.35em;}
 planned-disbursement period-start 	{width:110px; max-width:110px; padding-left:40px;}
 planned-disbursement period-end	 	{width:120px; max-width:120px;}
-span-planned-type				 	{width:260px; max-width:260px;}
+span-planned-type				 	{width:140px; max-width:140px;}
 planned-disbursement value 			{width:110px; max-width:110px; padding-right:40px; font-size:1.15em;}
 planned-disbursement provider-org,
-planned-disbursement receiver-org	{width:120px; max-width:120px; display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; line-height:1.35em; padding-right:20px;}
+planned-disbursement receiver-org	{width:180px; max-width:180px; display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; line-height:1.35em; padding-right:20px;}
 
 planned-disbursement span-narrative.org-role,
 planned-disbursement span-narrative.org-type,
@@ -440,22 +440,50 @@ transaction a:active				{color:#FFAB5E;}
 transaction:last-of-type			{border-bottom:0px solid #AAA; margin-bottom:40px;}
 transaction:nth-of-type(1)			{margin-top:0px; padding-top:0; border-top:0;}
 
-span.span_transaction:before						{content:"Transactions"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
-transaction:nth-of-type(1) transaction-date:before	{content:"DATE"; font-size:14px; color:#CCC; width:105px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14px; color:#CCC; width:125px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#CCC; width:145px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#CCC; width:130px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#CCC; width:110px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
+span.span_transaction:before		{content:"Transactions"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
+.span_transaction_code_1:before,
+.span_transaction_code_2:before,
+.span_transaction_code_3:before,
+.span_transaction_code_4:before,
+.span_transaction_code_5:before,
+.span_transaction_code_6:before,
+.span_transaction_code_7:before,
+.span_transaction_code_8:before,
+.span_transaction_code_9:before,
+.span_transaction_code_10:before,
+.span_transaction_code_11:before,
+.span_transaction_code_12:before,
+.span_transaction_code_13:before	{content:"INCOMING PLEDGE"; font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:10px 40px; margin-bottom:25px; width:900px; margin-left:-10px; position:sticky; position:-webkit-sticky; z-index:1; top:0;}
+
+.span_transaction_code_1:before		{content:"INCOMING FUNDS";}
+.span_transaction_code_2:before		{content:"OUTGOING COMMITMENT";}
+.span_transaction_code_3:before		{content:"DISBURSEMENT";}
+.span_transaction_code_4:before		{content:"EXPENDITURE";}
+.span_transaction_code_5:before		{content:"INTEREST PAYMENT";}
+.span_transaction_code_6:before		{content:"LOAN REPAYMENT";}
+.span_transaction_code_7:before		{content:"REIMBURSEMENT";}
+.span_transaction_code_8:before		{content:"PURCHASE OF EQUITY";}
+.span_transaction_code_9:before		{content:"SALE OF EQUITY";}
+.span_transaction_code_10:before	{content:"CREDIT GUARANTEE";}
+.span_transaction_code_11:before	{content:"INCOMING COMMITMENT";}
+.span_transaction_code_12:before	{content:"OUTGOING PLEDGE";}
+
+transaction:nth-of-type(1) transaction-date:before	{content:"DATE"; font-size:14px; color:#CCC; width:110px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
+/*transaction:nth-of-type(1) transaction-type:before	{content:"TYPE"; font-size:14px; color:#CCC; width:125px; display:none; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}*/
+transaction:nth-of-type(1) provider-org:before		{content:"PROVIDER"; font-size:14px; color:#CCC; width:210px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
+transaction:nth-of-type(1) receiver-org:before		{content:"RECEIVER"; font-size:14px; color:#CCC; width:180px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
+transaction:nth-of-type(1) value:before				{content:"VALUE"; font-size:14px; color:#CCC; width:120px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
 span.span_transaction transaction:nth-of-type(1) description:nth-of-type(1):before {content:"DESCRIPTION"; font-size:14px; color:#CCC; width:260px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
 transaction:nth-of-type(1) description:before {content:"DESCRIPTION"; font-size:14px; color:#CCC; width:260px; display:block; padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; line-height:1.35em;}
-span.span_transaction transaction description {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:20px; line-height:1.35em; color:#FFF; font-size:1.0em; text-align:left; background-color:transparent;}
 
-transaction-date	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:100px; max-width:100px; padding-left:40px; padding-right:5px; line-height:1.35em;}
-transaction-type	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:110px; max-width:110px; padding-right:15px; line-height:1.35em;}
-span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:240px; max-width:240px; padding-right:20px; line-height:1.35em; color:#FFF; font-size:1.0em; text-align:left; background-color:transparent;}
-provider-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:130px; max-width:130px; padding-right:15px; line-height:1.35em;}
-receiver-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:130px; max-width:130px; padding-right:0px; line-height:1.35em;}
-value				{display:inline-block; vertical-align:top; color:#FFF; font-size:1.15em; width:110px; max-width:110px; padding-right:40px; line-height:1.35em; text-align:right;}
+span.span_transaction transaction description {display:inline-block; vertical-align:top; padding:0px; width:230px; max-width:230px; padding-right:30px; line-height:1.35em; color:#FFF; font-size:1.0em; text-align:left; background-color:transparent;}
+transaction-date	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:100px; max-width:100px; padding-left:40px; padding-right:10px; line-height:1.35em;}
+/*transaction-type	{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:110px; max-width:110px; padding-right:15px; line-height:1.35em;}*/
+
+span.span_transaction transaction description:nth-of-type(1) {display:inline-block; vertical-align:top; padding:0px; width:230px; max-width:230px; padding-right:30px; line-height:1.35em; color:#FFF; font-size:1.0em; text-align:left; background-color:transparent;}
+provider-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:180px; max-width:180px; padding-right:30px; line-height:1.35em;}
+receiver-org		{display:inline-block; vertical-align:top; color:#FFF; font-size:1.0em; width:180px; max-width:180px; padding-right:0px; line-height:1.35em;}
+value				{display:inline-block; vertical-align:top; color:#FFF; font-size:1.15em; width:120px; max-width:120px; padding-right:40px; line-height:1.35em; text-align:right;}
 value span			{font-size:12px; color:#ccc;}
 
 provider-org div, receiver-org div	{display:block; padding:5px 0 3px 0; line-height:0;}

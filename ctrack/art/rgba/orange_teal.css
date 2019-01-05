@@ -570,10 +570,12 @@ planned-disbursement:nth-of-type(1) period-start:before,
 planned-disbursement:nth-of-type(1) period-end:before,
 planned-disbursement:nth-of-type(1) value:before,
 planned-disbursement:nth-of-type(1) provider-org:before,
-planned-disbursement:nth-of-type(1) receiver-org:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
+planned-disbursement:nth-of-type(1) receiver-org:before,
+planned-disbursement:nth-of-type(1) span-planned-type::before	{color:var(--base15); border-bottom:2px solid var(--base03);}
 
 planned-disbursement period-start,
 planned-disbursement period-end,
+span-planned-type,
 planned-disbursement value,
 planned-disbursement provider-org,
 planned-disbursement receiver-org 	{color:var(--base15);}
@@ -593,6 +595,20 @@ transaction a:visited			{color:var(--base11);}
 transaction a:hover				{color:var(--base11);}
 transaction a:active			{color:var(--base11);}
 transaction:last-of-type		{border-bottom:0px solid var(--base01);}
+
+.span_transaction_code_1:before,
+.span_transaction_code_2:before,
+.span_transaction_code_3:before,
+.span_transaction_code_4:before,
+.span_transaction_code_5:before,
+.span_transaction_code_6:before,
+.span_transaction_code_7:before,
+.span_transaction_code_8:before,
+.span_transaction_code_9:before,
+.span_transaction_code_10:before,
+.span_transaction_code_11:before,
+.span_transaction_code_12:before,
+.span_transaction_code_13:before,
 span.span_transaction:before	{color:var(--base15); background-color:var(--base03);}
 
 transaction:nth-of-type(1) transaction-date:before	{color:var(--base15); border-bottom:2px solid var(--base03);}
