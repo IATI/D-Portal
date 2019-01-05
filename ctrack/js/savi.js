@@ -97,21 +97,25 @@ savi.add_transaction_chart = function(opts) {
 
 	var chart_series=[]
 
+/*
 	if(opts.all && opts.all.series)
 	{
 		for(var i=0;i<opts.all.series.length;i++)
 		{
 			chart_series.push(
 				{
+				className:"svg_line_transaction_type_"+opts.transaction_type,
 				  name: opts.all.series[i].name, // remember name
 				  data: [] // empty place holder
 				}
 			)
 		}
 	}
+*/
 
 	chart_series.push(
 		{
+		  className:"svg_line_transaction_type_"+opts.transaction_type,
 		  name: opts.transaction_type,
 		  data: data
 		}
@@ -126,6 +130,7 @@ savi.add_transaction_chart = function(opts) {
 		opts.all.series=opts.all.series || []
 		opts.all.series.push(
 			{
+			  className:"svg_line_transaction_type_"+opts.transaction_type,
 			  name: opts.transaction_type,
 			  data: data
 			}
