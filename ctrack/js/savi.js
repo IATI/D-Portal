@@ -3,6 +3,7 @@
 
 var savi=exports;
 
+var chart=require("chart.js")
 
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
