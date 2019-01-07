@@ -83,14 +83,16 @@ savi.add_transaction_chart = function(opts) {
 	
 	
 	var chart_options={
-		  axisX: {
+		width: '920px',
+		height: '240px',
+		axisX: {
 			type: Chartist.FixedScaleAxis,
 			divisor: 8,
 			labelInterpolationFnc: function(value) {
 			  return moment(value).format('YYYY MMM D');
 			}
 		  },
-		  axisY: {
+		axisY: {
 			offset: 80,
 			scaleMinSpace: 24,
 			type: Chartist.AutoScaleAxis,
