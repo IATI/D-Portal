@@ -792,13 +792,14 @@ acts.find("recipient-country").each(function(i){var it=$(this);
 
 	var tp=it.attr("percentage") || 100;
 	var tc=it.attr("code")
+	var td=it.attr("code");
 	if(tc)
 	{
 		tc=tc.toUpperCase();
 		tc=iati_codes.country[tc] || tc;
 		if(tc)
 		{
-			it.html("<span class='rec_code'>"+tc+"</span><span class='rec_bar' style='width:calc("+tp+" * 5.75px);'></span><span class='rec_value'>"+tp+"%</span>");
+			it.html("<span class='rec_code' code='"+td+"'>"+tc+"</span><span class='rec_bar' style='width:calc("+tp+" * 5.75px);'></span><span class='rec_value'>"+tp+"%</span>");
 		}
 	}
 
