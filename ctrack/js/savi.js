@@ -1319,8 +1319,16 @@ $( "span.span_sector" ).each(function(i,el){
 		e.append(d);
 	}
 	c.click(function(){
-		c.text((c.text() == '-') ? '+' : '-').fadeIn();
-		ec.fadeToggle('fast');
+		if( ec.eq(0).css('display') == 'none' )
+		{
+			c.text('-');
+			ec.show('fast');
+		}
+		else
+		{
+			c.text('+');
+			ec.hide('fast');
+		}
 	});
 });
 
@@ -1334,8 +1342,16 @@ $( "span.span_transaction" ).each(function(i,el){
 	e.append(c);
 	e.append(d);
 	c.click(function(){
-		c.text((c.text() == '-') ? '+' : '-').fadeIn();
-		ec.fadeToggle('fast');
+		if( ec.eq(0).css('display') == 'none' )
+		{
+			c.text('-');
+			ec.show('fast');
+		}
+		else
+		{
+			c.text('+');
+			ec.hide('fast');
+		}
 	});
 });
 
