@@ -23,7 +23,7 @@ var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/
 
 savi.add_transaction_chart = function(opts) {
 	
-	return; // remove this to enable
+//	return; // remove this to enable
 
 	var data=[]
 	var last_it
@@ -83,6 +83,8 @@ savi.add_transaction_chart = function(opts) {
 	
 	
 	var chart_options={
+		  width:  '920px',
+		  height: '240px',
 		  axisX: {
 			type: Chartist.FixedScaleAxis,
 			divisor: 8,
@@ -747,13 +749,20 @@ acts.find("sector").each(function(i){var it=$(this);
 
 	var tp=it.attr("percentage") || 100;
 	var tc=it.attr("code");
-
+	var td=it.attr("code");
+	
 	if(!it.attr("vocabulary")) { it.attr("vocabulary","DAC"); }
 
+	var te="active";
+	if(iati_codes.sector_withdrawn[tc])
+	{
+			te="withdrawn";
+	}
+	
 	tc=iati_codes.sector[tc] || iati_codes.sector_withdrawn[tc] || iati_codes.sector_category[tc] || tc;	
 	if(tc)
 	{
-		it.html("<span>"+tc+"</span><span>"+tp+"%</span>");
+		it.html("<span class='sec_code' code='"+td+"' status='"+te+"'>"+tc+"</span><span class='sec_bar' style='width:calc("+tp+" * 5.75px);'></span><span class='sec_value'>"+tp+"%</span>");
 	}
 
 });
@@ -789,7 +798,7 @@ acts.find("recipient-country").each(function(i){var it=$(this);
 		tc=iati_codes.country[tc] || tc;
 		if(tc)
 		{
-			it.html("<span>"+tc+"</span><span>"+tp+"%</span>");
+			it.html("<span class='rec_code'>"+tc+"</span><span class='rec_bar' style='width:calc("+tp+" * 5.75px);'></span><span class='rec_value'>"+tp+"%</span>");
 		}
 	}
 
@@ -1114,10 +1123,8 @@ acts.find("activity-website").each(function(i){var it=$(this);
 acts.find("iati-identifier").each(function(i){var it=$(this);
 	var slug=it.parent().parent().attr("dstore:slug"); // do we know where this came from?
 	var id=savi.encodeURIComponent(it.text().trim());
-	wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
-	it.append($("<div></div>"));
+	wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+
-//	"' href='http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier="+id+"'>xml</a>"));
 	"' href='http://d-portal.org/q.xml?aid="+id+"' target='_blank'>xml</a>"));
 	if(slug)
 	{
@@ -1220,6 +1227,7 @@ acts.find("*").each(function(i){var it=$(this);
     }
 });
 
+/* Not using sector_img from Google anymore
 acts.each(function(i){var it=$(this);
 
 	var base=it.children(".span_sector");
@@ -1243,6 +1251,7 @@ acts.each(function(i){var it=$(this);
 	}
 });
 
+
 acts.each(function(i){var it=$(this);
 
 	var base=it.children(".span_recipient-country");
@@ -1265,7 +1274,7 @@ acts.each(function(i){var it=$(this);
 		base.before("<img src=\""+url+"\" style=\"width:880px;height:275px\" class=\"country_pie\" />");
 	}
 });
-
+*/
 
 // apply css to selected div
 acts.find("location").each(function(i){var it=$(this);
@@ -1281,11 +1290,11 @@ acts.find("location").each(function(i){var it=$(this);
 //});
 
 // wrap span around sector / country image
-$('img.sector_pie').wrap($('<span class="sector_img">'));
-$('img.country_pie').wrap($('<span class="country_img">'));
+//$('img.sector_pie').wrap($('<span class="sector_img">'));
+//$('img.country_pie').wrap($('<span class="country_img">'));
 
 //	add hide div to these classes
-$( "span.span_document-link, span.span_participating-org, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_recipient-region, span.span_policy-marker" ).each(function(i,el){
+$( "span.span_document-link, span.span_participating-org, span.span_recipient-country, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_recipient-region, span.span_policy-marker" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children();
 	var c=$("<span class='hide'>-</span>");
@@ -1302,22 +1311,17 @@ $( "span.span_document-link, span.span_participating-org, span.span_budget, span
 $( "span.span_sector" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
+	var c=$("<span class='hide'>-</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
-	e.css( "display", "none" );
+	e.append(c);
 	if(ec.length>0)
 	{
-		e.parent().find("span.sector_img").append(d);	//	move length out and into another element
+		e.append(d);
 	}
-
-});
-
-//	count recipient children
-$( "span.span_recipient-country" ).each(function(i,el){
-	var e=$(el);
-	var ec=e.children();
-	var d=$("<span class='length'>( " + ec.length + " )</span>");
-	e.css( "display", "none" );
-	e.parent().find("span.country_img").append(d);	//	move length out and into another element
+	c.click(function(){
+		c.text((c.text() == '-') ? '+' : '-').fadeIn();
+		ec.fadeToggle('fast');
+	});
 });
 
 
