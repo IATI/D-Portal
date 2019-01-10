@@ -222,6 +222,7 @@ span.span_description description narrative.empty	{display:none;}	/*	Hides conta
 /*	Result and description
 	============================================= */
 result > *					{display:none;}
+indicator > *				{display:none;}
 span.span_result			{counter-reset:section;}
 result						{counter-reset:subsection; display:block; padding:20px 0; position:relative;}
 result:nth-child(1)			{padding-top:0;}
@@ -367,10 +368,9 @@ span.span_sector sector[vocabulary="2"]		{display:block; padding:0 40px;}
 span.span_sector sector[vocabulary="2"]:nth-of-type(1):before	{content:"SECTOR GROUP"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
 span.span_sector sector	{background-color:rgba(255,255,255,1); position:relative; z-index:-1;}
 span.span_sector sector:nth-of-type(1)		{padding-top:40px;}
-span.span_sector sector:last-of-type		{padding-bottom:40px;}
 span.span_sector sector span				{color:#444; font-size:14px; line-height:18px; display:inline-block; text-align:right; vertical-align:middle;}
 span.span_sector sector span.sec_code		{width:200px; min-height:25px; padding:10px 20px; border-right:1px solid #999;}
-span.span_sector sector span.sec_code:after						{content:attr(code); margin-left:10px; background-color:rgba(72,79,86,0.8); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
+span.span_sector sector span.sec_code:after						{content:attr(code); margin-left:10px; background-color:rgba(72,79,86,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
 span.span_sector sector span.sec_code[status="withdrawn"]:after	{content:attr(code) ' ' attr(status);}
 span.span_sector sector span.sec_value		{color:#444; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
 span.span_sector sector span.sec_bar		{background-color:#09f; width:100%; max-width:575px; height:24px; position:relative;}
@@ -526,6 +526,39 @@ transaction span-narrative.org-ref	{display:inline; font-size:11px; line-height:
 
 transaction sector	{display:none;}
 
+
+/*	Transaction table graphs
+	============================================= */
+.legend_wrap		{display:block; padding:0 15px; margin-bottom:30px; text-align:center;}
+span.legend			{display:inline-block; vertical-align:top; font-size:10px; color:#ccc; margin-right:15px;}
+span.legend:before	{content:""; display:inline-block; width:7px; height:7px; border-radius:4px; margin-right:5px;}
+
+span.legend.type_1:before	{background-color:#09f;}
+span.legend.type_2:before	{background-color:#f05b4f;}
+span.legend.type_3:before	{background-color:#90EE90;}
+span.legend.type_4:before	{background-color:#f4c63d;}
+span.legend.type_5:before	{background-color:#CC90EE;}
+span.legend.type_6:before	{background-color:#2E2CF1;}
+span.legend.type_7:before	{background-color:#00B601;}
+span.legend.type_8:before	{background-color:#FFB000;}
+span.legend.type_9:before	{background-color:#C0005F;}
+span.legend.type_10:before	{background-color:#FF34E5;}
+span.legend.type_11:before	{background-color:#AF77CF;}
+span.legend.type_12:before	{background-color:#5956B9;}
+span.legend.type_13:before	{background-color:#3AAEBE;}
+
+span.legend.type_1:after		{content:"INCOMING FUNDS";}
+span.legend.type_2:after		{content:"OUTGOING COMMITMENT";}
+span.legend.type_3:after		{content:"DISBURSEMENT";}
+span.legend.type_4:after		{content:"EXPENDITURE";}
+span.legend.type_5:after		{content:"INTEREST PAYMENT";}
+span.legend.type_6:after		{content:"LOAN REPAYMENT";}
+span.legend.type_7:after		{content:"REIMBURSEMENT";}
+span.legend.type_8:after		{content:"PURCHASE OF EQUITY";}
+span.legend.type_9:after		{content:"SALE OF EQUITY";}
+span.legend.type_10:after	{content:"CREDIT GUARANTEE";}
+span.legend.type_11:after	{content:"INCOMING COMMITMENT";}
+span.legend.type_12:after	{content:"OUTGOING PLEDGE";}
 
 
 /*	Contact info for Publisher
@@ -785,7 +818,8 @@ span.span_transaction_code_11 span.length	{left:200px;}
 /*	Chartist SVG
 	============================================= */
 .transactions_svg {display:block; width:920px; height:240px; margin:auto; margin-bottom:30px; padding-top:15px;}
-.transactions_svg svg {overflow:visible;}
+.transactions_svg_type_all	{padding-top:0; padding-bottom:40px;}
+.transactions_svg svg 		{overflow:visible;}
 
 .svg_line_transaction_type_1	{stroke:#09f;}
 .svg_line_transaction_type_2	{stroke:#f05b4f;}

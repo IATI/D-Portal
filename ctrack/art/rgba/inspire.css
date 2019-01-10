@@ -509,6 +509,7 @@ result indicator .time span	{background-color:rgba(186,12,47,1);}
 /*	Sectors (also turned into graph)
 	============================================= */
 span.span_sector:before	{color:rgba(255,255,255,1); background-color:rgba(186,12,47,1);}
+span.span_sector:after	{background-color:rgba(255,255,255,1);}
 span.span_sector sector	{background-color:rgba(255,255,255,1);}
 span.span_sector sector span				{color:rgba(85,85,85,1);}
 span.span_sector sector span.sec_code		{color:rgba(85,85,85,1); border-right:1px solid rgba(85,85,85,1);}
@@ -703,10 +704,10 @@ humanitarian-scope a:active		{color:rgba(186,12,47,1);}
 span.hide 		 {color:rgba(255,255,255,1); background-color:rgba(15,15,15,0.2);}
 span.hide:hover	 {background-color:rgba(15,15,15,0.3);}
 
-span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide,
+span.span_transaction span.hide, span.span_planned-disbursement span.hide, span.span_budget span.hide, span.span_recipient-country span.hide, span.span_sector span.hide,
 span.span_result span.hide			{color:rgba(255,255,255,1);}
 span.span_result result span.hide	{color:rgba(255,255,255,1);}
-span.span_transaction span.hide:hover, span.span_planned-disbursement span.hide:hover, span.span_budget span.hide:hover,
+span.span_transaction span.hide:hover, span.span_planned-disbursement span.hide:hover, span.span_budget span.hide:hover, span.span_recipient-country span.hide:hover, span.span_sector span.hide:hover,
 span.span_result span.hide:hover	{color:rgba(255,255,255,1);}
 span.span_result result span.hide:hover	{color:rgba(163,0,13,1);}
 
@@ -714,3 +715,9 @@ span.span_result result span.hide:hover	{color:rgba(163,0,13,1);}
 /*	Count
 	============================================= */
 span.length {color:rgba(255,255,255,1);}
+
+
+/*	Chartist SVG
+	============================================= */
+.ct-label	{fill:rgba(85,85,85,1); color:rgba(85,85,85,1);}
+.ct-grid	{stroke:rgba(85,85,85,0.4);}

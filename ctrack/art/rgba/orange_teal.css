@@ -529,6 +529,7 @@ result indicator .time span		{background-color:var(--base);}
 /*	Sectors (also turned into graph)
 	============================================= */
 span.span_sector:before	{color:var(--base14); background-color:var(--base03);}
+span.span_sector:after	{background-color:var(--base15);}
 span.span_sector sector	{background-color:var(--base15);}
 span.span_sector sector span				{color:var(--base03);}
 span.span_sector sector span.sec_code		{color:var(--base05_70); border-right:1px solid var(--base03);}

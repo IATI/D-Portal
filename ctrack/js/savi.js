@@ -1302,8 +1302,16 @@ $( "span.span_document-link, span.span_participating-org, span.span_recipient-co
 	e.append(c);
 	e.append(d);
 	c.click(function(){
-		c.text((c.text() == '-') ? '+' : '-').fadeIn();
-		ec.fadeToggle('fast');
+		if( ec.eq(0).css('display') == 'none' )
+		{
+			c.text('-');
+			ec.show('fast');
+		}
+		else
+		{
+			c.text('+');
+			ec.hide('fast');
+		}
 	});
 });
 
@@ -1364,17 +1372,30 @@ $( "span.span_transaction_code_1, span.span_transaction_code_2, span.span_transa
 	e.append(c);
 	e.append(d);
 	c.click(function(){
-		c.text((c.text() == '-') ? '+' : '-').fadeIn();
-		ec.fadeToggle('fast');
+		if( ec.eq(0).css('display') == 'none' )
+		{
+			c.text('-');
+			ec.show('fast');
+		}
+		else
+		{
+			c.text('+');
+			ec.hide('fast');
+		}
 	});
 });
 
-$( "span.span_transaction" ).each(function(i,el){
+$( "span.span_transaction").each(function(i,el){
 	var e=$(el);
 	e.parent().find("span.span_transaction_code_11").insertBefore("span.span_transaction_code_1");	//	move div before div
 	e.parent().find(".transactions_svg_type_11").insertBefore("span.span_transaction_code_1");	//	move div before div
+	e.parent().find(".transactions_svg_type_all").append("<div class='legend_wrap'></div>");	//	move div before div
+	for(var idx=1; idx<=13; idx++)
+	{
+		e.parent().find(".transactions_svg_type_"+idx).append("<span class='legend type_" + idx + "'></span>");	// add span for legend
+	}	
+	e.parent().find("span.legend").detach().appendTo(".legend_wrap");	// move to legend_wrap
 });
-
 
 
 //	add hide div to these classes
@@ -1384,8 +1405,16 @@ $( "result" ).each(function(i,el){
 	var c=$("<span class='hide'>-</span>");
 	e.append(c);
 	c.click(function(){
-		c.text((c.text() == '-') ? '+' : '-').fadeIn();
-		ec.fadeToggle('fast');
+		if( ec.eq(0).css('display') == 'none' )
+		{
+			c.text('-');
+			ec.show('fast');
+		}
+		else
+		{
+			c.text('+');
+			ec.hide('fast');
+		}
 	});
 });
 
