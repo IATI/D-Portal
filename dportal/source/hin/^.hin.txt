@@ -616,7 +616,7 @@ Zeroes may denote issues with data quality (eg codes, dates, etc which are incom
 <p>Dashes show that that donor/organisation is not currently an IATI publisher.</p>
 
 #^faq_general_q8_text
-When/how is data in d-portal updated?
+When / how is data in d-portal updated?
 
 #^faq_general_a8_text
 IATI data is updated every night (importing any data which has changed from the previous day) and a full import is done each weekend - in each instance the data is pulled from the IATI Registry.
@@ -669,7 +669,7 @@ Which transaction types are used/not used in d-portal?
 <p>‘Budgets’ in activity file, for Budget columns/data (eg in tables on d-portal) - if no budget data is present in the activity file, then ‘planned-disbursements’ are used if present.</p>
 
 #^faq_technical_q2_text
-How/where is the data tidied up before being displayed in d-portal?
+How / where is the data tidied up before being displayed in d-portal?
 
 #^faq_technical_a2_text
 <ul>
@@ -791,6 +791,24 @@ Why are sector aggregations using three-digit codes when five-digit codes are pu
 
 #^faq_technical_a16_text
 Some publishers only produce data with 3 digit codes. We convert the 5 digit codes to 3 digits to unify the data for visualisation on d-portal.
+
+#^faq_technical_q17_text
+For the country and sector graphs, why have your changed them into bars?
+
+#^faq_technical_a17_text
+Google charts have deprecated these graphs - some country graphs are showing up as empty even when there is data in them. Bar charts allow users to see the data in relation to each other.
+
+#^faq_technical_q18_text
+Why are some graphs missing for some types of transactions on the acitivity pages?
+
+#^faq_technical_a18_text
+We're only showing graphs that have been published using the same currency. We've kept SAVi (Simple Activity Viewer) as simple as possible so there are no extra calculations made on the page, just displaying the raw xml as we get them.
+
+#^faq_technical_q19_text
+Why are there less nodules on some of the graphs for transactions on the activity pages?
+
+#^faq_technical_a19_text
+The transactions are merged if they are published for the same date.
 
 #^faq_explore_q1_text
 What is EXPLORE?
