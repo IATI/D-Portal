@@ -531,8 +531,10 @@ transaction sector	{display:none;}
 /*	Transaction table graphs
 	============================================= */
 .legend_wrap		{display:block; padding:10px 15px 0 15px; margin-bottom:20px; text-align:center;}
-span.legend			{display:inline-block; vertical-align:top; font-size:10px; color:#ccc; margin-right:15px;}
 span.legend:before	{content:""; display:inline-block; width:7px; height:7px; border-radius:4px; margin-right:5px;}
+span.legend			{font-size:10px; color:#ccc;}
+.transactions_svg span.legend			{display:block; margin:0 auto; text-align:center; padding-bottom:10px;}
+.transactions_svg_type_all span.legend	{display:inline-block; vertical-align:top; padding:0; margin-right:15px;}
 
 span.legend.type_1:before	{background-color:#09f;}
 span.legend.type_2:before	{background-color:#f05b4f;}
@@ -818,7 +820,7 @@ span.span_transaction_code_11 span.length	{left:200px;}
 
 /*	Chartist SVG
 	============================================= */
-.transactions_svg {display:block; width:920px; height:240px; margin:auto; margin-bottom:20px; padding-top:15px;}
+.transactions_svg {display:block; width:920px; height:240px; margin:auto; margin-bottom:25px; padding-top:10px;}
 .transactions_svg_type_all	{padding-top:0; padding-bottom:45px;}
 .transactions_svg svg 		{overflow:visible;}
 
