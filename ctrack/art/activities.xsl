@@ -5,6 +5,7 @@
 	<html>
 		<head>
 			<meta name="viewport" content="width=device-width" />
+			<link rel="stylesheet" type="text/css" href="/ctrack/art/chartist.min.css" />
 			<link rel="stylesheet" type="text/css" href="/ctrack/art/original/ctrack.css" />
 			<link rel="stylesheet" type="text/css" href="/ctrack/art/original/activities.css" />
 			<script src="/ctrack/jslib/jquery.js" />

@@ -183,7 +183,7 @@ savi.add_transaction_chart = function(opts) {
 			}
 			console.log(tmin+" - "+tmax)
 
-			opts.chart_options.axisX.referenceValue = tmin
+			opts.chart_options.axisX.low = tmin.getTime()
 			
 			for(var di=0;di<opts.datas.length;di++)
 			{
@@ -192,9 +192,9 @@ savi.add_transaction_chart = function(opts) {
 					var ds=opts.datas[di]
 					var l=ds[ds.length-1]
 					var f=ds[0]
-					if(l.x<tmax)
+//					if(l.x<tmax)
 					{
-						ds.push({x:tmax,y:l.y,className:"fake_transaction_data"}) // add a final number
+						ds.push({x:new Date(tmax.getTime()+1),y:l.y,className:"fake_transaction_data"}) // add a final number
 					}
 					if(l.x>tmin)
 					{
@@ -206,7 +206,7 @@ savi.add_transaction_chart = function(opts) {
 		for(var i in opts.charts) // update each chart with new data
 		{
 			var v=opts.charts[i]
-			v.update()
+			v.update(undefined,opts.chart_options,true)
 		}
 	}
 
