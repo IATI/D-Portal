@@ -181,7 +181,7 @@ savi.add_transaction_chart = function(opts) {
 					if(v.x<tmin){tmin=v.x}
 				}
 			}
-			console.log(tmin+" - "+tmax)
+//console.log(tmin+" - "+tmax)
 
 			opts.chart_options.axisX.low = tmin.getTime()
 			
