@@ -822,6 +822,8 @@ span.span_transaction_code_11 span.length	{left:200px;}
 .transactions_svg_type_all	{padding-top:0; padding-bottom:45px;}
 .transactions_svg svg 		{overflow:visible;}
 
+.transactions_svg line:last-of-type {stroke-linecap:unset}
+
 .svg_line_transaction_type_1	{stroke:#09f;}
 .svg_line_transaction_type_2	{stroke:#f05b4f;}
 .svg_line_transaction_type_3	{stroke:#90EE90;}
