@@ -183,7 +183,7 @@ savi.add_transaction_chart = function(opts) {
 			}
 			console.log(tmin+" - "+tmax)
 
-			opts.chart_options.axisX.referenceValue = tmin
+			opts.chart_options.axisX.low = tmin.getTime()
 			
 			for(var di=0;di<opts.datas.length;di++)
 			{
@@ -206,7 +206,7 @@ savi.add_transaction_chart = function(opts) {
 		for(var i in opts.charts) // update each chart with new data
 		{
 			var v=opts.charts[i]
-			v.update()
+			v.update(undefined,opts.chart_options,true)
 		}
 	}
 
