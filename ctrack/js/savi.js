@@ -25,6 +25,8 @@ savi.add_transaction_chart = function(opts) {
 	
 //	return; // remove this to enable
 
+	opts.charts=opts.charts || []
+
 	var data=[]
 	var last_it
 	var currency=""
@@ -71,6 +73,10 @@ savi.add_transaction_chart = function(opts) {
 	data.sort(function(a,b){return a.x-b.x})
 //console.log(data)
 
+// remember list of data for later changes
+	opts.datas=opts.datas || []
+	opts.datas.push(data)
+
 
 //	if(data.length<=1) // do not bother showing only 1 value
 //	{
@@ -81,8 +87,9 @@ savi.add_transaction_chart = function(opts) {
 	var render=$('<div class="transactions_svg transactions_svg_type_'+opts.transaction_type+'"></div>')
 	opts.here.after(render)
 	
-	
-	var chart_options={
+
+// share options
+	opts.chart_options = opts.chart_options || {
 		  width:  '920px',
 		  height: '240px',
 		  axisX: {
@@ -93,6 +100,7 @@ savi.add_transaction_chart = function(opts) {
 			}
 		  },
 		  axisY: {
+			referenceValue: 0,
 			offset: 80,
 			scaleMinSpace: 24,
 			type: Chartist.AutoScaleAxis,
@@ -130,7 +138,8 @@ savi.add_transaction_chart = function(opts) {
 
 	var chart = new Chartist.Line(render[0], {
 	  series: chart_series,
-	}, chart_options );
+	}, opts.chart_options );
+	opts.charts.push(chart)
 
 	if(opts.all)
 	{
@@ -151,8 +160,56 @@ savi.add_transaction_chart = function(opts) {
 
 		var chart = new Chartist.Line(render[0], {
 			series:opts.all.series,
-		}, chart_options );
+		}, opts.chart_options );
+
+		opts.charts.push(chart)
 	}
+
+	if(opts.final) // final adjustments to all chart data
+	{
+		if(opts.datas)
+		{
+			var tmin=new Date( "9999-01-01" )
+			var tmax=new Date( "0000-01-01" )
+			for(var di=0;di<opts.datas.length;di++)
+			{
+				var ds=opts.datas[di]
+				for(var i=0;i<ds.length;i++)
+				{
+					var v=ds[i]
+					if(v.x>tmax){tmax=v.x}
+					if(v.x<tmin){tmin=v.x}
+				}
+			}
+			console.log(tmin+" - "+tmax)
+
+			opts.chart_options.axisX.referenceValue = tmin
+			
+			for(var di=0;di<opts.datas.length;di++)
+			{
+				if(ds.length>0)
+				{
+					var ds=opts.datas[di]
+					var l=ds[ds.length-1]
+					var f=ds[0]
+					if(l.x<tmax)
+					{
+						ds.push({x:tmax,y:l.y,className:"fake_transaction_data"}) // add a final number
+					}
+					if(l.x>tmin)
+					{
+//						ds.unshift({x:tmin,y:0,className:"fake_transaction_data"}) // add a start number
+					}
+				}
+			}
+		}
+		for(var i in opts.charts) // update each chart with new data
+		{
+			var v=opts.charts[i]
+			v.update()
+		}
+	}
+
 }
 
 savi.fixup = function(args){
@@ -1078,13 +1135,22 @@ sorted++;
 			var split_end=-1
 			var split_type=false
 			var test_type
-			var dosplit=function(){
+			var opts={}
+			var dosplit=function(final){
 				if(split_start>=0) // valid range
 				{
 //console.log("slice "+split_start+" to "+split_end)
 					var transactions=list.slice(split_start,split_end+1)
 					var here=transactions.wrapAll( "<span class='span_transaction_code_"+split_type+"' />").eq(0).parent().eq(0)
-					savi.add_transaction_chart({here:here,transactions:transactions,transaction_type=split_type,all:all})
+
+					opts.here=here
+					opts.transactions=transactions
+					opts.transaction_type=split_type
+					opts.all=all
+					opts.final=final
+
+					savi.add_transaction_chart(opts)
+
 					all_here=all_here || here
 				}
 				split_start=split_idx
@@ -1105,7 +1171,7 @@ sorted++;
 				}
 			}
 			all.here=all_here // final call will also render them all in one graph
-			dosplit()
+			dosplit(true)
 			
 		}
 	}
