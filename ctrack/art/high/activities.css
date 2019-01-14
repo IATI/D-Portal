@@ -641,8 +641,8 @@ policy-marker:last-of-type		{padding-bottom:40px;}
 /*	Humanitarian Scope
 	============================================= */
 humanitarian-scope > *	{display:none;}
-span.span_humanitarian-scope			{width:880px; padding:0; margin:0 auto; color:#000;}
-span.span_humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#000; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #000;}
+humanitarian-scope		{width:880px; padding:0; margin:0 auto; color:#000;}
+humanitarian-scope:first-of-type:before	{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#000; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #000;}
 humanitarian-scope						{display:block; width:880px; padding:0; margin:0 auto; color:#000; line-height:24px;}
 humanitarian-scope:last-of-type			{padding-bottom:40px;}
 humanitarian-scope narrative			{display:block; font-style:italic; padding-bottom:10px;}
