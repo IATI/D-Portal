@@ -366,8 +366,7 @@ span.span_sector:after	{content:""; display:block; padding-bottom:40px; backgrou
 span.span_sector sector[vocabulary="DAC"],
 span.span_sector sector[vocabulary="1"],
 span.span_sector sector[vocabulary="2"]		{display:block; padding:0 40px;}
-span.span_sector sector[vocabulary="2"]:nth-of-type(1):before	{content:"SECTOR GROUP"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
-span.span_sector sector	{background-color:rgba(255,255,255,1); position:relative; z-index:-1;}
+span.span_sector sector						{background-color:rgba(255,255,255,1); position:relative; z-index:-1;}
 span.span_sector sector:nth-of-type(1)		{padding-top:40px;}
 span.span_sector sector span				{color:#444; font-size:14px; line-height:18px; display:inline-block; text-align:right; vertical-align:middle;}
 span.span_sector sector span.sec_code		{width:200px; min-height:25px; padding:10px 20px; border-right:1px solid #999;}
@@ -687,9 +686,14 @@ policy-marker:last-of-type		{padding-bottom:40px;}
 
 /*	Humanitarian Scope
 	============================================= */
-humanitarian-scope > *			{display:none;}
-humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; padding-bottom:40px; line-height:24px;}
-humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#CCC; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
+humanitarian-scope > *	{display:none;}
+span.span_humanitarian-scope			{width:880px; padding:0; margin:0 auto; color:#FFF;}
+span.span_humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#CCC; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
+humanitarian-scope						{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; line-height:24px;}
+humanitarian-scope:last-of-type			{padding-bottom:40px;}
+humanitarian-scope narrative			{display:block; font-style:italic; padding-bottom:10px;}
+humanitarian-scope span-lang			{display:inline-block; vertical-align:top;}
+humanitarian-scope span-lang narrative	{display:block; font-style:initial; padding-bottom:0;}
 span-narrative.hum_scope_vocab,
 span-narrative.hum_scope_type,
 span-narrative.hum_scope_code	{display:inline-block; margin-left:5px; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:0px 4px; line-height:1.5em;}

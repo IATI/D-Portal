@@ -96,7 +96,7 @@ savi.add_transaction_chart = function(opts) {
 			type: Chartist.FixedScaleAxis,
 			divisor: 8,
 			labelInterpolationFnc: function(value) {
-			  return moment(value).format('YYYY MMM D');
+			  return moment(value).format('YYYY MMM');
 			}
 		  },
 		  axisY: {
@@ -712,7 +712,8 @@ acts.find("humanitarian-scope").each(function(i){var it=$(this);
 	{
 		it.append($('<span-narrative class="hum_scope_code">' + tf + '</span-narrative>'));
 	}
-	it.find("span-narrative").wrapAll("<span-narrative class='hum_scope'></span-narrative>");	
+	it.find("span-narrative").wrapAll("<span-narrative class='hum_scope'></span-narrative>");
+	it.find("narrative").first().wrap($('<span-lang></span-lang>'));
 });
 
 
@@ -962,7 +963,11 @@ sort_elements("document-link",[
 		"span-narrative",
 		0]);
 		
-		
+sort_elements("humanitarian-scope",[
+		"span-lang",
+		"span-narrative",
+		"narrative",
+		0]);		
 
 
 var sorted=0;
