@@ -1,0 +1,165 @@
+
+#^------------------------------
+#^title trim=ends
+{_blog_post_json.title}
+
+#^------------------------------
+#^_blog_post_json
+{
+	"title":"New year, new features and additions",
+	"about":"Upgrading the transaction tables in SAVi, replacing deprecated pie charts and displaying more elements in the activity viewer.",
+	"author":"Shi",
+	"role":"Lead Developer",
+	"tag":"Overview",
+}
+
+#^------------------------------
+#^_blog_post_body form=markdown
+
+We've been quite busy at d-portal. There have been a few changes since 
+the last news post, so here is a quick rundown of things added since 
+December.
+
+**New features**
+
+<img 
+src="{_dirname}/trans_graph.png" 
+alt="Simple graph showing the different type of transactions" width="720" height="359">
+**_Figure 1._** *New addition to the transaction table - groupings and graphs*
+
+Transactions are now grouped by type in SAVi (<a 
+href="https://github.com/devinit/D-Portal/issues/379">#379</a>). This 
+should make it easier to quickly look through the otherwise, unwieldy 
+list. By doing this, we're able to add simple graphs for each 
+transaction type.
+
+The main graph will collectively display all transaction types reported 
+within the activity and individual graphs will be displayed below each 
+section.
+
+Transactions are merged if they are published for the same date and 
+we're only showing graphs for transactions that have been published 
+using the same currency.
+
+
+<img 
+src="{_dirname}/country_graph.png" 
+alt="Country bar graphs" width="720" height="359">
+**_Figure 2._** *Country bar graph*
+
+We've replaced the Sector and Country pie charts with more useful bar 
+graphs. The previous Google graphs are fully deprecated with some pages 
+not showing them at all even when data is present.
+
+<img 
+src="{_dirname}/sector_graph.png" 
+alt="Sector bar graphs" width="720" height="359">
+**_Figure 3._** *Sector bar graph*
+
+It should now be easier to see the data in relation to percentages. 
+We're also displaying the 2-digit country codes and sector codes.
+
+
+**Add Sectors to map csv download** (<a href="https://github.com/devinit/D-Portal/issues/480">#480</a>)
+
+<img 
+src="{_dirname}/sector_csv.png" 
+alt="Sector data in spreadsheet download" width="720" height="359">
+**_Figure 4._** *Sector data in csv download*
+
+CSV data downloads now include both sectors and sector groups (DAC 5 
+and 3 Digit codes) as columns.
+
+At present, the downloaded data does not reflect what you see on the 
+map page so we are very keen to devote more time to creating a proper 
+interface to access such data, but this will take some time. As such, 
+it would be good to know if we should prioritise such a thing.
+
+If you would like to see this developed, let us know <a 
+href="https://github.com/devinit/D-Portal/issues/409">here</a>.
+
+
+**Display humanitarian in transactions** (<a href="https://github.com/devinit/D-Portal/issues/501">#501</a>)
+
+<img 
+src="{_dirname}/human00.png" 
+alt="Activity that relates to humanitarian aid will be displayed with a flag" width="720" height="359">
+**_Figure 5._** *Humanitarian flag displayed on SAVi (Simple Activity Viewer)*
+
+For activities reported using iati-activity/@humanitarian, ie. the 
+entire activity relates to humanitarian aid, we're displaying a 
+humanitarian flag in the activity viewer.
+
+<img 
+src="{_dirname}/human01.png" 
+alt="Humanitarian flag within transactions" width="720" height="359">
+**_Figure 6._** *Displaying humanitarian flag at transaction level*
+
+At transaction level, the flag is displayed within the transaction 
+tables.
+
+According to the standard, reporting @humanitarian at transaction level 
+does not indicate that the entire activity is related to humanitarian 
+aid. Therefore, the display here will differ.
+
+
+**Display 'Withdrawn' for withdrawn Sectors in search dropdown** (<a href="https://github.com/devinit/D-Portal/issues/455">#455</a>)
+
+<img 
+src="{_dirname}/withdrawn00_andy.png" 
+alt="Dropdown stylings for withdrawn codes" width="720" height="359">
+<img 
+src="{_dirname}/withdrawn01.png" 
+alt="Withdrawn codes in SAVi" width="720" height="359">
+**_Figure 7._** *Withdrawn codes in search dropdown (Image by Andy Lulham) and in sector graph*
+
+Withdrawn codes are now styled differently in the search dropdown to 
+make it easier to differentiate them.
+
+Withdrawn sector codes are also displayed accordingly in the new graphs.
+
+
+**Add and display ref attribute** (<a href="https://github.com/devinit/D-Portal/issues/417">#417</a>)
+
+<img 
+src="{_dirname}/ref.png" 
+alt="Adding ref attribute to the list" width="720" height="359">
+**_Figure 8._** *Displaying organisation references*
+
+With the addition of displaying the @ref attribute, the 
+participating-org list looks to be getting longer and longer. This is a 
+first step in showing as much data as is published in an activity - 
+we'll be looking at making this section more manageable in the near 
+future.
+
+**Display organisation-type for provider and receiver** (<a href="https://github.com/devinit/D-Portal/issues/475">#475</a>)
+
+<img 
+src="{_dirname}/org_type_ref.png" 
+alt="Displaying organisation type" width="720" height="359">
+**_Figure 9._** *Displaying type and references at transaction level*
+
+Organisation type and references are useful information to see in the 
+context of an activity. These attributes are now displayed at 
+transaction and planned disbursement levels when they are reported.
+
+
+**Other additions, updates and fixes**
+
+Add humanitarian-scope and display in SAVi (<a href="https://github.com/devinit/D-Portal/issues/473">#473</a>)  
+Add and display activity-scope (<a href="https://github.com/devinit/D-Portal/issues/497">#497</a>)  
+Default graph to all years (<a href="https://github.com/devinit/D-Portal/issues/469">#469</a>)  
+Update FAQ (<a href="https://github.com/devinit/D-Portal/issues/441">#441</a>) *We're always looking for translations - can you help?*  
+Fixed text bug (<a href="https://github.com/devinit/D-Portal/issues/499">#499</a>)
+
+Many thanks to those who have continually supported the development of 
+d-portal by using and promoting the site. Special thanks to those who 
+have given us feedback, requested features and reported bugs through 
+Github - with your input, d-portal is continually improving!
+
+IATI is continually working on more ways to ensure people can access 
+the data they want through d-portal. Please share any comments or 
+suggestions via <a 
+href="https://github.com/devinit/D-Portal">GitHub</a> or email <a 
+href="mailto:support@iatistandard.org?subject=Regarding%20d-portal.org">support@iatistandard.org</a>. 
+With your help, we can make d-portal better.

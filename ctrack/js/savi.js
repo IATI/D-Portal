@@ -23,7 +23,9 @@ var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/
 
 savi.add_transaction_chart = function(opts) {
 	
-	return; // remove this to enable
+//	return; // remove this to enable
+
+	opts.charts=opts.charts || []
 
 	var data=[]
 	var last_it
@@ -71,6 +73,10 @@ savi.add_transaction_chart = function(opts) {
 	data.sort(function(a,b){return a.x-b.x})
 //console.log(data)
 
+// remember list of data for later changes
+	opts.datas=opts.datas || []
+	opts.datas.push(data)
+
 
 //	if(data.length<=1) // do not bother showing only 1 value
 //	{
@@ -81,18 +87,19 @@ savi.add_transaction_chart = function(opts) {
 	var render=$('<div class="transactions_svg transactions_svg_type_'+opts.transaction_type+'"></div>')
 	opts.here.after(render)
 	
-	
-	var chart_options={
-		width: '920px',
-		height: '240px',
-		axisX: {
+// share options
+	opts.chart_options = opts.chart_options || {
+		  width:  '920px',
+		  height: '240px',
+		  axisX: {
 			type: Chartist.FixedScaleAxis,
 			divisor: 8,
 			labelInterpolationFnc: function(value) {
-			  return moment(value).format('YYYY MMM D');
+			  return moment(value).format('YYYY MMM');
 			}
 		  },
-		axisY: {
+		  axisY: {
+			referenceValue: 0,
 			offset: 80,
 			scaleMinSpace: 24,
 			type: Chartist.AutoScaleAxis,
@@ -130,7 +137,8 @@ savi.add_transaction_chart = function(opts) {
 
 	var chart = new Chartist.Line(render[0], {
 	  series: chart_series,
-	}, chart_options );
+	}, opts.chart_options );
+	opts.charts.push(chart)
 
 	if(opts.all)
 	{
@@ -151,8 +159,56 @@ savi.add_transaction_chart = function(opts) {
 
 		var chart = new Chartist.Line(render[0], {
 			series:opts.all.series,
-		}, chart_options );
+		}, opts.chart_options );
+
+		opts.charts.push(chart)
 	}
+
+	if(opts.final) // final adjustments to all chart data
+	{
+		if(opts.datas)
+		{
+			var tmin=new Date( "9999-01-01" )
+			var tmax=new Date( "0000-01-01" )
+			for(var di=0;di<opts.datas.length;di++)
+			{
+				var ds=opts.datas[di]
+				for(var i=0;i<ds.length;i++)
+				{
+					var v=ds[i]
+					if(v.x>tmax){tmax=v.x}
+					if(v.x<tmin){tmin=v.x}
+				}
+			}
+//console.log(tmin+" - "+tmax)
+
+			opts.chart_options.axisX.low = tmin.getTime()
+			
+			for(var di=0;di<opts.datas.length;di++)
+			{
+				if(ds.length>0)
+				{
+					var ds=opts.datas[di]
+					var l=ds[ds.length-1]
+					var f=ds[0]
+//					if(l.x<tmax)
+					{
+						ds.push({x:new Date(tmax.getTime()+1),y:l.y,className:"fake_transaction_data"}) // add a final number
+					}
+					if(l.x>tmin)
+					{
+//						ds.unshift({x:tmin,y:0,className:"fake_transaction_data"}) // add a start number
+					}
+				}
+			}
+		}
+		for(var i in opts.charts) // update each chart with new data
+		{
+			var v=opts.charts[i]
+			v.update(undefined,opts.chart_options,true)
+		}
+	}
+
 }
 
 savi.fixup = function(args){
@@ -655,7 +711,8 @@ acts.find("humanitarian-scope").each(function(i){var it=$(this);
 	{
 		it.append($('<span-narrative class="hum_scope_code">' + tf + '</span-narrative>'));
 	}
-	it.find("span-narrative").wrapAll("<span-narrative class='hum_scope'></span-narrative>");	
+	it.find("span-narrative").wrapAll("<span-narrative class='hum_scope'></span-narrative>");
+	it.find("narrative").first().wrap($('<span-lang></span-lang>'));
 });
 
 
@@ -749,13 +806,20 @@ acts.find("sector").each(function(i){var it=$(this);
 
 	var tp=it.attr("percentage") || 100;
 	var tc=it.attr("code");
-
+	var td=it.attr("code");
+	
 	if(!it.attr("vocabulary")) { it.attr("vocabulary","DAC"); }
 
+	var te="active";
+	if(iati_codes.sector_withdrawn[tc])
+	{
+			te="withdrawn";
+	}
+	
 	tc=iati_codes.sector[tc] || iati_codes.sector_withdrawn[tc] || iati_codes.sector_category[tc] || tc;	
 	if(tc)
 	{
-		it.html("<span>"+tc+"</span><span>"+tp+"%</span>");
+		it.html("<span class='sec_code' code='"+td+"' status='"+te+"'>"+tc+"</span><span class='sec_bar' style='width:calc("+tp+" * 5.75px);'></span><span class='sec_value'>"+tp+"%</span>");
 	}
 
 });
@@ -785,13 +849,14 @@ acts.find("recipient-country").each(function(i){var it=$(this);
 
 	var tp=it.attr("percentage") || 100;
 	var tc=it.attr("code")
+	var td=it.attr("code");
 	if(tc)
 	{
 		tc=tc.toUpperCase();
 		tc=iati_codes.country[tc] || tc;
 		if(tc)
 		{
-			it.html("<span>"+tc+"</span><span>"+tp+"%</span>");
+			it.html("<span class='rec_code' code='"+td+"'>"+tc+"</span><span class='rec_bar' style='width:calc("+tp+" * 5.75px);'></span><span class='rec_value'>"+tp+"%</span>");
 		}
 	}
 
@@ -897,7 +962,11 @@ sort_elements("document-link",[
 		"span-narrative",
 		0]);
 		
-		
+sort_elements("humanitarian-scope",[
+		"span-lang",
+		"span-narrative",
+		"narrative",
+		0]);		
 
 
 var sorted=0;
@@ -1070,13 +1139,22 @@ sorted++;
 			var split_end=-1
 			var split_type=false
 			var test_type
-			var dosplit=function(){
+			var opts={}
+			var dosplit=function(final){
 				if(split_start>=0) // valid range
 				{
 //console.log("slice "+split_start+" to "+split_end)
 					var transactions=list.slice(split_start,split_end+1)
 					var here=transactions.wrapAll( "<span class='span_transaction_code_"+split_type+"' />").eq(0).parent().eq(0)
-					savi.add_transaction_chart({here:here,transactions:transactions,transaction_type=split_type,all:all})
+
+					opts.here=here
+					opts.transactions=transactions
+					opts.transaction_type=split_type
+					opts.all=all
+					opts.final=final
+
+					savi.add_transaction_chart(opts)
+
 					all_here=all_here || here
 				}
 				split_start=split_idx
@@ -1097,7 +1175,7 @@ sorted++;
 				}
 			}
 			all.here=all_here // final call will also render them all in one graph
-			dosplit()
+			dosplit(true)
 			
 		}
 	}
@@ -1116,10 +1194,8 @@ acts.find("activity-website").each(function(i){var it=$(this);
 acts.find("iati-identifier").each(function(i){var it=$(this);
 	var slug=it.parent().parent().attr("dstore:slug"); // do we know where this came from?
 	var id=savi.encodeURIComponent(it.text().trim());
-	wrap_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
-	it.append($("<div></div>"));
+	wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+
-//	"' href='http://datastore.iatistandard.org/api/1/access/activity.xml?iati-identifier="+id+"'>xml</a>"));
 	"' href='http://d-portal.org/q.xml?aid="+id+"' target='_blank'>xml</a>"));
 	if(slug)
 	{
@@ -1222,52 +1298,6 @@ acts.find("*").each(function(i){var it=$(this);
     }
 });
 
-acts.each(function(i){var it=$(this);
-
-	var base=it.children(".span_sector");
-	var aa=base.children("sector[vocabulary=\"DAC\"],sector[vocabulary=\"1\"]");
-	if(aa.length>0)
-	{
-	
-		var av=[];
-		var an=[];
-		aa.each(function(i,v){
-			var name=$(this).children("span").first().html();
-			var value=$(this).attr("percentage") || "100";
-			av.push(value);
-			an.push(name+" ("+value+"%)");
-		});
-		
-		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=880x275&cht=p&chds=a&chp=4.712";
-		url=url+"&chd=t:"+av.join(",")+"&chdl="+an.join("|")
-
-		base.before("<img src=\""+url+"\" style=\"width:880px;height:275px\" class=\"sector_pie\" />");
-	}
-});
-
-acts.each(function(i){var it=$(this);
-
-	var base=it.children(".span_recipient-country");
-	var aa=base.children("recipient-country");
-	if(aa.length>0)
-	{
-	
-		var av=[];
-		var an=[];
-		aa.each(function(i,v){
-			var name=$(this).children("span").first().html();
-			var value=$(this).attr("percentage") || "100";
-			av.push(value);
-			an.push(name+" ("+value+"%)");
-		});
-		
-		var url="http://chart.googleapis.com/chart?chco=0099ff,888888&chdls=444444,16&chs=880x275&cht=p&chds=a&chp=4.712";
-		url=url+"&chd=t:"+av.join(",")+"&chdl="+an.join("|")
-
-		base.before("<img src=\""+url+"\" style=\"width:880px;height:275px\" class=\"country_pie\" />");
-	}
-});
-
 
 // apply css to selected div
 acts.find("location").each(function(i){var it=$(this);
@@ -1277,17 +1307,9 @@ acts.find("location").each(function(i){var it=$(this);
 	}
 });
 
-// move baseline-year after baseline-value
-//$("result indicator reference").each(function() {
-//    $(this).insertAfter($(this).parent().find('span-result'));
-//});
-
-// wrap span around sector / country image
-$('img.sector_pie').wrap($('<span class="sector_img">'));
-$('img.country_pie').wrap($('<span class="country_img">'));
 
 //	add hide div to these classes
-$( "span.span_document-link, span.span_participating-org, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_recipient-region, span.span_policy-marker" ).each(function(i,el){
+$( "span.span_document-link, span.span_participating-org, span.span_recipient-country, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_recipient-region, span.span_policy-marker" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children();
 	var c=$("<span class='hide'>-</span>");
@@ -1295,8 +1317,16 @@ $( "span.span_document-link, span.span_participating-org, span.span_budget, span
 	e.append(c);
 	e.append(d);
 	c.click(function(){
-		c.text((c.text() == '-') ? '+' : '-').fadeIn();
-		ec.fadeToggle('fast');
+		if( ec.eq(0).css('display') == 'none' )
+		{
+			c.text('-');
+			ec.show('fast');
+		}
+		else
+		{
+			c.text('+');
+			ec.hide('fast');
+		}
 	});
 });
 
@@ -1304,22 +1334,25 @@ $( "span.span_document-link, span.span_participating-org, span.span_budget, span
 $( "span.span_sector" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
+	var c=$("<span class='hide'>-</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
-	e.css( "display", "none" );
+	e.append(c);
 	if(ec.length>0)
 	{
-		e.parent().find("span.sector_img").append(d);	//	move length out and into another element
+		e.append(d);
 	}
-
-});
-
-//	count recipient children
-$( "span.span_recipient-country" ).each(function(i,el){
-	var e=$(el);
-	var ec=e.children();
-	var d=$("<span class='length'>( " + ec.length + " )</span>");
-	e.css( "display", "none" );
-	e.parent().find("span.country_img").append(d);	//	move length out and into another element
+	c.click(function(){
+		if( ec.eq(0).css('display') == 'none' )
+		{
+			c.text('-');
+			ec.show('fast');
+		}
+		else
+		{
+			c.text('+');
+			ec.hide('fast');
+		}
+	});
 });
 
 
@@ -1332,8 +1365,16 @@ $( "span.span_transaction" ).each(function(i,el){
 	e.append(c);
 	e.append(d);
 	c.click(function(){
-		c.text((c.text() == '-') ? '+' : '-').fadeIn();
-		ec.fadeToggle('fast');
+		if( ec.eq(0).css('display') == 'none' )
+		{
+			c.text('-');
+			ec.show('fast');
+		}
+		else
+		{
+			c.text('+');
+			ec.hide('fast');
+		}
 	});
 });
 
@@ -1346,17 +1387,30 @@ $( "span.span_transaction_code_1, span.span_transaction_code_2, span.span_transa
 	e.append(c);
 	e.append(d);
 	c.click(function(){
-		c.text((c.text() == '-') ? '+' : '-').fadeIn();
-		ec.fadeToggle('fast');
+		if( ec.eq(0).css('display') == 'none' )
+		{
+			c.text('-');
+			ec.show('fast');
+		}
+		else
+		{
+			c.text('+');
+			ec.hide('fast');
+		}
 	});
 });
 
-$( "span.span_transaction" ).each(function(i,el){
+$( "span.span_transaction").each(function(i,el){
 	var e=$(el);
 	e.parent().find("span.span_transaction_code_11").insertBefore("span.span_transaction_code_1");	//	move div before div
 	e.parent().find(".transactions_svg_type_11").insertBefore("span.span_transaction_code_1");	//	move div before div
+	e.parent().find(".transactions_svg_type_all").append("<div class='legend_wrap'></div>");	//	move div before div
+	for(var idx=1; idx<=13; idx++)
+	{
+		e.parent().find(".transactions_svg_type_"+idx).append("<span class='legend type_" + idx + "'></span>");	// add span for legend
+	}	
+	e.parent().find("span.legend").clone().appendTo(".legend_wrap");	// duplicate and move inside legend_wrap
 });
-
 
 
 //	add hide div to these classes
@@ -1366,8 +1420,16 @@ $( "result" ).each(function(i,el){
 	var c=$("<span class='hide'>-</span>");
 	e.append(c);
 	c.click(function(){
-		c.text((c.text() == '-') ? '+' : '-').fadeIn();
-		ec.fadeToggle('fast');
+		if( ec.eq(0).css('display') == 'none' )
+		{
+			c.text('-');
+			ec.show('fast');
+		}
+		else
+		{
+			c.text('+');
+			ec.hide('fast');
+		}
 	});
 });
 

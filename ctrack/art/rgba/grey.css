@@ -369,9 +369,15 @@ span.span_span-title span-title:before 	{color:var(--base14);}
 
 /*	IATI Identifier
 	============================================= */
-iati-identifier 				{background-color: var(--base04_70); color:var(--base11);}
-iati-identifier:before			{color:var(--base14);}
-iati-identifier:hover			{color:var(--base15);}
+iati-identifier 				{background-color:var(--base04_70); color:var(--base11);}
+a.a_iati-identifier:before		{color:var(--base14);}
+a.a_iati-identifier:link		{color:var(--base11);}
+a.a_iati-identifier:visited		{color:var(--base11);}
+a.a_iati-identifier:hover		{color:var(--base15);}
+a.a_iati-identifier:active		{color:var(--base11);}
+a.a_xml_iati-identifier,
+a.a_logs,
+a.a_slug						{background-color:var(--base02_40);}
 a.a_xml_iati-identifier:before	{color:var(--base14);}
 a.a_logs:before					{color:var(--base14);}
 a.a_slug:before					{color:var(--base14);}
@@ -391,12 +397,13 @@ a.a_slug:active					{color:var(--base11);}
 
 /*	Recipient countries
 	============================================= */
-span.span_recipient-country:before 		{color:var(--base14);}
-recipient-country span					{color:var(--base15);}
-recipient-country span:nth-of-type(2)	{color:var(--base14);}
-
-span.country_img:before	{color:var(--base14); background-color:var(--base03);}
-img.country_pie			{background-color:var(--base15);}
+span.span_recipient-country:before 					{color:var(--base14); background-color:var(--base03);}
+span.span_recipient-country recipient-country		{background-color:var(--base15);}
+span.span_recipient-country recipient-country span	{color:var(--base03);}
+span.span_recipient-country recipient-country span.rec_code			{color:var(--base03); border-right:1px solid var(--base03);}
+span.span_recipient-country recipient-country span.sec_value		{color:var(--base03);}
+span.span_recipient-country recipient-country span.rec_bar::before	{background-color:var(--base03_20);}
+span.span_recipient-country recipient-country:nth-of-type(n+1) span.rec_bar		{background-color:var(--base03);}
 
 
 /*	Start and End dates
@@ -514,19 +521,15 @@ result indicator .time span		{background-color:var(--base);}
 
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
-span.sector_img:before {color:var(--base14); background-color:var(--base03);}
-
-span.span_sector sector[vocabulary="DAC"],
-span.span_sector sector[vocabulary="1"]	{color:var(--base15);}
-
-span.span_sector sector[vocabulary="DAC"]:before,
-span.span_sector sector[vocabulary="1"]:before,
-span.span_sector sector[vocabulary="2"]:before	{color:var(--base14);}
-
-span.span_sector span					{color:var(--base15);}
-span.span_sector sector span:nth-of-type(2),
-span.span_sector span:nth-of-type(2)	{color:var(--base14);}
-img.sector_pie			{background-color:var(--base15);}
+span.span_sector:before	{color:var(--base14); background-color:var(--base03);}
+span.span_sector:after	{background-color:var(--base15);}
+span.span_sector sector	{background-color:var(--base15);}
+span.span_sector sector span				{color:var(--base03);}
+span.span_sector sector span.sec_code		{color:var(--base05_70); border-right:1px solid var(--base03);}
+span.span_sector sector span.sec_code:after	{color:var(--base15); background-color:var(--base);}
+span.span_sector sector span.sec_value		{color:var(--base05_70);}
+span.span_sector sector span.sec_bar::before{background-color:var(--base03_20);}
+span.span_sector sector:nth-of-type(n+1) span.sec_bar	{background-color:var(--base03);}
 
 
 /*	Budget table

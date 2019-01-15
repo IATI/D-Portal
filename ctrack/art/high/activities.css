@@ -58,29 +58,28 @@ span.span_span-title narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0
 /*	IATI Identifier
 	============================================= */
 iati-identifier 		{display:block; width:879px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#000; margin:0 auto; border-top:1px solid #000; border-bottom:1px solid #000;}
-iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
-iati-identifier div		{display:block;}
-iati-identifier:hover	{color:#000;}
-iati-identifier a:focus		{color:#000;}
-iati-identifier a:link  	{color:#000;}
-iati-identifier a:visited	{color:#000;}
-iati-identifier a:hover		{color:#000;}
-iati-identifier a:active	{color:#000;}
-a.a_iati-identifier		{width:958px; margin:0 auto; vertical-align:baseline;}
-a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; color:#000; width:33.33%;}
-a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
+a.a_iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_iati-identifier:link	{color:#000;}
+a.a_iati-identifier:visited	{color:#000;}
+a.a_iati-identifier:hover	{color:#000; text-decoration:underline;}
+a.a_iati-identifier:active	{color:#000;}
+a.a_xml_iati-identifier,
+a.a_logs,
+a.a_slug{display:inline-block; vertical-align:baseline; box-sizing:border-box; border-radius:4px; border:1px solid #000; text-align:center; font-size:16px; font-variant:all-small-caps; padding:5px 0;  margin:10px 2% 5px 0;}
+a.a_xml_iati-identifier	{width:31.33%;}
+a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:16x; color:#000; display:inline-block; vertical-align:baseline; padding-right:5px;}
 a.a_xml_iati-identifier:link	{color:#000;}
 a.a_xml_iati-identifier:visited	{color:#000;}
 a.a_xml_iati-identifier:hover	{color:#000; text-decoration:underline;}
 a.a_xml_iati-identifier:active	{color:#000;}
-a.a_logs				{display:inline-block; vertical-align:baseline; width:33.33%; text-align:center;}
-a.a_logs:before			{content:"VIEW DATASET"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
+a.a_logs				{width:32.33%;}
+a.a_logs:before			{content:"VIEW DATASET"; font-size:16px; color:#000; display:inline-block; vertical-align:baseline; padding-right:5px;}
 a.a_logs:link			{color:#000;}
 a.a_logs:visited		{color:#000;}
 a.a_logs:hover			{color:#000; text-decoration:underline;}
 a.a_logs:active			{color:#000;}
-a.a_slug				{display:inline-block; vertical-align:baseline; width:33.33%; text-align:right;}
-a.a_slug:before			{content:"VIEW IATI REGISTRY"; font-size:14px; color:#000; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
+a.a_slug				{width:32.33%; margin-right:0;}
+a.a_slug:before			{content:"VIEW IATI REGISTRY"; font-size:16px; color:#000; display:inline-block; vertical-align:baseline; padding-right:5px;}
 a.a_slug:link			{color:#000;}
 a.a_slug:visited		{color:#000;}
 a.a_slug:hover			{color:#000; text-decoration:underline;}
@@ -89,20 +88,20 @@ a.a_slug:active			{color:#000;}
 
 /*	Recipient countries
 	============================================= */
-transaction recipient-country			{display:none;}
-span.span_recipient-country				{display:block; width:960px; padding:30px 40px; box-sizing:border-box; position:relative;}
-recipient-country 						{display:block;}
-recipient-country span					{font-size:1.0em; line-height:1.5em; color:#000; display:inline;}
-recipient-country span:nth-of-type(2)	{color:#000; font-size:14px; line-height:24px; margin-left:10px;}
-
-span.span_recipient-country recipient-country span:nth-of-type(2):before	{content:"( ";}
-span.span_recipient-country recipient-country span:nth-of-type(2):after	{content:" )";}
-
-span.country_img:before {content:"Recipient Country"; font-size:20px; color:#000; display:block; padding:30px 40px 10px 40px; width:879px;}
-span.country_img		{position:relative;}
-img.country_pie			{padding:39px; background-color:#FFF;}
-
-span.span_recipient-country span.hide	{top:20px;}
+transaction recipient-country > *	{display:none;}
+span.span_recipient-country:before	{content:"Recipient Country"; font-size:20px; color:#000; display:block; padding:40px 40px 20px 40px; width:900px; margin-left:-10px;}
+span.span_recipient-country > *		{display:none;}
+span.span_recipient-country			{z-index:1;}
+span.span_recipient-country recipient-country						{background-color:rgba(255,255,255,1); display:block; padding:0 40px; position:relative; z-index:-1;}
+span.span_recipient-country recipient-country:nth-of-type(1)		{padding-top:40px;}
+span.span_recipient-country recipient-country:last-of-type			{padding-bottom:40px;}
+span.span_recipient-country recipient-country span					{color:#000; font-size:14px; line-height:18px; display:inline-block; text-align:right; vertical-align:middle;}
+span.span_recipient-country recipient-country span.rec_code			{width:200px; min-height:25px; padding:10px 20px; border-right:1px solid #000;}
+span.span_recipient-country recipient-country span.rec_code:after	{content:attr(code); margin-left:10px; border:1px solid #000; padding:2px 5px; border-radius:4px; font-size:11px; color:#000; white-space:nowrap;}
+span.span_recipient-country recipient-country span.rec_value		{color:#000; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
+span.span_recipient-country recipient-country span.rec_bar			{background-color:#000; width:100%; max-width:575px; height:24px; position:relative;}
+span.span_recipient-country recipient-country span.rec_bar::before	{content:""; background-color:rgba(0,0,0,0.1); width:575px; height:24px; z-index:-1; position:absolute; left:0; top:0;}
+span.span_recipient-country recipient-country span.rec_bar			{background-color:#000;}
 
 
 /*	Start and End dates (Planned and Actual)
@@ -213,6 +212,8 @@ span.span_description description narrative.empty	{display:none;}	/*	Hides conta
 
 /*	Result and description
 	============================================= */
+result > *					{display:none;}
+indicator > *				{display:none;}
 span.span_result			{counter-reset:section;}
 result						{counter-reset:subsection; display:block; padding:20px 0; position:relative; border-top:1px solid #000;}
 result:nth-child(1)			{padding-top:0; border:0;}
@@ -338,22 +339,23 @@ result indicator span-result	{display:inline-block; vertical-align:top; width:32
 
 /*	Sectors (also turned into graph: sector_pie)
 	============================================= */
-sector *		{display:none;}
-span.sector_img:before {content:"Sector"; font-size:20px; color:#000; display:block; border-top:1px solid #000; line-height:1.35em; padding:30px 40px 10px 40px;}
-span.span_sector	   {padding:30px 40px; position:relative;}
+sector > *				{display:none;}
+span.span_sector:before	{content:"Sector"; font-size:20px; color:#000; display:block; padding:40px 40px 20px 40px; width:900px; margin-left:-10px;}
+span.span_sector > *	{display:none;}
+span.span_sector		{z-index:1; position:relative; border-top:1px solid #000;}
+span.span_sector:after	{content:""; display:block; padding-bottom:40px; background-color:#FFF;}
 span.span_sector sector[vocabulary="DAC"],
 span.span_sector sector[vocabulary="1"],
-span.span_sector sector[vocabulary="2"]			{font-size:1.0em; color:#000; display:block; line-height:1.5em;}
-span.span_sector sector[vocabulary="2"]:nth-of-type(1):before	{content:"SECTOR GROUP"; font-size:14px; color:#000; display:block; margin-bottom:5px;}
-span.span_sector sector span					{color:#000; display:inline;}
-span.span_sector sector span:nth-of-type(1)		{margin-right:10px;}
-span.span_sector sector span:nth-of-type(2)		{color:#000; font-size:14px;}
-span.span_sector sector span:nth-of-type(2):before	{content:"( ";}
-span.span_sector sector span:nth-of-type(2):after	{content:" )";}
-img.sector_pie	{padding:40px 20px;}
-span.sector_img	{position:relative;}
-
-span.span_sector span.hide	{top:20px;}
+span.span_sector sector[vocabulary="2"]		{display:block; padding:0 40px;}
+span.span_sector sector						{background-color:rgba(255,255,255,1); position:relative; z-index:-1;}
+span.span_sector sector:nth-of-type(1)		{padding-top:40px;}
+span.span_sector sector span				{color:#000; font-size:14px; line-height:18px; display:inline-block; text-align:right; vertical-align:middle;}
+span.span_sector sector span.sec_code		{width:200px; min-height:25px; padding:10px 20px; border-right:1px solid #000;}
+span.span_sector sector span.sec_code:after						{content:attr(code); margin-left:10px; border:1px solid #000; padding:2px 5px; border-radius:4px; font-size:11px; color:#000; white-space:nowrap;}
+span.span_sector sector span.sec_code[status="withdrawn"]:after	{content:attr(code) ' ' attr(status);}
+span.span_sector sector span.sec_value		{color:#000; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
+span.span_sector sector span.sec_bar::before{content:""; background-color:rgba(0,0,0,0.1); width:575px; height:24px; z-index:-1; position:absolute; left:0; top:0;}
+span.span_sector sector span.sec_bar		{background-color:#000; width:100%; max-width:575px; height:24px; position:relative;}
 
 
 /*	Budget table
@@ -430,7 +432,7 @@ planned-disbursement span-narrative.org-ref	{display:inline; font-size:11px; lin
 transaction							{display:block; width:958px; border-top:1px solid #000; padding:10px 0; border-bottom:0; font-size:14px;}
 transaction a						{color:#000;}
 transaction a:hover					{color:#000;}
-transaction:last-of-type			{margin-bottom:40px;}
+transaction:last-of-type			{margin-bottom:25px;}
 transaction:nth-of-type(1)			{margin-top:0px; padding-top:0; border:0;}
 
 span.span_transaction:before		{content:"Transactions"; font-size:20px; color:#000; display:block; padding:40px 40px 20px 40px; margin-bottom:25px; border-top:1px solid #000;}
@@ -489,7 +491,41 @@ transaction span-narrative.org-ref	{display:inline; font-size:11px; line-height:
 
 transaction sector	{display:none;}
 
-/*span.span_transaction transaction description:nth-of-type(n+1):before		{display:none;}*/
+
+/*	Transaction table graphs
+	============================================= */
+.legend_wrap		{display:block; padding:10px 15px 0 15px; margin-bottom:20px; text-align:center;}
+span.legend:before	{content:""; display:inline-block; width:7px; height:7px; border-radius:4px; margin-right:5px;}
+span.legend			{font-size:10px; color:#000;}
+.transactions_svg span.legend			{display:block; margin:0 auto; text-align:center; padding-bottom:10px;}
+.transactions_svg_type_all span.legend	{display:inline-block; vertical-align:top; padding:0; margin-right:15px;}
+
+span.legend.type_1:before	{background-color:#09f;}
+span.legend.type_2:before	{background-color:#f05b4f;}
+span.legend.type_3:before	{background-color:#90EE90;}
+span.legend.type_4:before	{background-color:#f4c63d;}
+span.legend.type_5:before	{background-color:#CC90EE;}
+span.legend.type_6:before	{background-color:#2E2CF1;}
+span.legend.type_7:before	{background-color:#00B601;}
+span.legend.type_8:before	{background-color:#FFB000;}
+span.legend.type_9:before	{background-color:#C0005F;}
+span.legend.type_10:before	{background-color:#FF34E5;}
+span.legend.type_11:before	{background-color:#AF77CF;}
+span.legend.type_12:before	{background-color:#5956B9;}
+span.legend.type_13:before	{background-color:#3AAEBE;}
+
+span.legend.type_1:after	{content:"INCOMING FUNDS";}
+span.legend.type_2:after	{content:"OUTGOING COMMITMENT";}
+span.legend.type_3:after	{content:"DISBURSEMENT";}
+span.legend.type_4:after	{content:"EXPENDITURE";}
+span.legend.type_5:after	{content:"INTEREST PAYMENT";}
+span.legend.type_6:after	{content:"LOAN REPAYMENT";}
+span.legend.type_7:after	{content:"REIMBURSEMENT";}
+span.legend.type_8:after	{content:"PURCHASE OF EQUITY";}
+span.legend.type_9:after	{content:"SALE OF EQUITY";}
+span.legend.type_10:after	{content:"CREDIT GUARANTEE";}
+span.legend.type_11:after	{content:"INCOMING COMMITMENT";}
+span.legend.type_12:after	{content:"OUTGOING PLEDGE";}
 
 
 /*	Contact info for Publisher
@@ -604,8 +640,14 @@ policy-marker:last-of-type		{padding-bottom:40px;}
 
 /*	Humanitarian Scope
 	============================================= */
-humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#000; padding-bottom:40px; line-height:24px;}
-humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#000; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #000;}
+humanitarian-scope > *	{display:none;}
+humanitarian-scope		{width:880px; padding:0; margin:0 auto; color:#000;}
+humanitarian-scope:first-of-type:before	{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#000; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #000;}
+humanitarian-scope						{display:block; width:880px; padding:0; margin:0 auto; color:#000; line-height:24px;}
+humanitarian-scope:last-of-type			{padding-bottom:40px;}
+humanitarian-scope narrative			{display:block; font-style:italic; padding-bottom:10px;}
+humanitarian-scope span-lang			{display:inline-block; vertical-align:top;}
+humanitarian-scope span-lang narrative	{display:block; font-style:initial; padding-bottom:0;}
 span-narrative.hum_scope_vocab,
 span-narrative.hum_scope_type,
 span-narrative.hum_scope_code	{display:inline-block; margin-left:5px; color:#000; font-size:13px; border:1px solid #000; border-radius:4px; padding:0px 4px; line-height:1.5em;}
@@ -690,10 +732,12 @@ span.span_transaction_code_13 span.hide		{top:18px; z-index:10;}
 
 /*	Count
 	============================================= */
-span.length {position:absolute; top:39px; left:200px; font-size:14px; line-height:16px; color:#000;}
+span.length {display:block; position:absolute; top:39px; left:200px; font-size:14px; line-height:16px; color:#000;}
 span.span_document-link span.length			{left:210px;}
 span.span_participating-org span.length		{left:180px;}
 span.span_participating-org span.length		{left:180px;}
+span.span_recipient-country span.length		{top:40px; left:210px;}
+span.span_sector span.length,
 span.span_budget span.length				{top:41px; left:120px;}
 span.span_transaction span.length			{top:41px; left:160px;}
 span.span_planned-disbursement span.length	{top:41px; left:260px;}
@@ -701,8 +745,6 @@ span.span_result span.length				{top:41px; left:120px;}
 span.span_related-activity span.length		{left:110px;}
 span.span_policy-marker span.length			{left:135px;}
 span.span_location span.length				{left:135px;}
-span.sector_img span.length					{top:38px; left:105px;}
-span.country_img span.length				{top:30px; left:205px;}
 span.span_recipient-region span.length		{left:115px;}
 
 span.span_transaction_code_1 span.length,
@@ -728,3 +770,28 @@ span.span_transaction_code_13 span.length	{left:150px;}
 
 span.span_transaction_code_2 span.length,
 span.span_transaction_code_11 span.length	{left:200px;}
+
+
+/*	Chartist SVG
+	============================================= */
+.transactions_svg {display:block; width:920px; height:240px; margin:auto; margin-bottom:25px; padding-top:10px;}
+.transactions_svg *			{display:block;}
+.transactions_svg_type_all	{padding-top:0; padding-bottom:45px;}
+.transactions_svg svg		{display:block; overflow:visible;}
+
+.ct-label	{fill:#000; color:#000 !important;}
+.ct-grid	{stroke:rgba(0,0,0,0.4) !important;}
+
+.svg_line_transaction_type_1	{stroke:#09f;}
+.svg_line_transaction_type_2	{stroke:#f05b4f;}
+.svg_line_transaction_type_3	{stroke:#90EE90;}
+.svg_line_transaction_type_4	{stroke:#f4c63d;}
+.svg_line_transaction_type_5	{stroke:#CC90EE;}
+.svg_line_transaction_type_6	{stroke:#2E2CF1;}
+.svg_line_transaction_type_7	{stroke:#00B601;}
+.svg_line_transaction_type_8	{stroke:#FFB000;}
+.svg_line_transaction_type_9	{stroke:#C0005F;}
+.svg_line_transaction_type_10	{stroke:#FF34E5;}
+.svg_line_transaction_type_11	{stroke:#AF77CF;}
+.svg_line_transaction_type_12	{stroke:#5956B9;}
+.svg_line_transaction_type_13	{stroke:#3AAEBE;}

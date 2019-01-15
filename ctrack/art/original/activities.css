@@ -49,46 +49,58 @@ span.span_span-title narrative:nth-of-type(n+2)	{display:block; padding:10px 0 0
 
 /*	IATI Identifier
 	============================================= */
-iati-identifier 		{display:block; background-color:rgba(0,14,32,0.7); width:880px; font-size:20px; line-height:1.5em; padding:15px 40px; color:#FFAB5E; margin:0 auto;}
-iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
-iati-identifier div		{display:block;}
-a.a_iati-identifier		{width:960px; margin:0 auto; vertical-align:baseline;}
-a.a_xml_iati-identifier	{display:inline-block; vertical-align:baseline; width:33.33%;}
-a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px; min-width:120px;}
-a.a_xml_iati-identifier:link	{color:#FFAB5E;}
-a.a_xml_iati-identifier:visited	{color:#FFAB5E;}
-a.a_xml_iati-identifier:hover	{color:#FF7A00;}
-a.a_xml_iati-identifier:active	{color:#FFAB5E;}
-a.a_logs				{display:inline-block; vertical-align:baseline; width:33.33%; text-align:center;}
-a.a_logs:before			{content:"VIEW DATASET"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
-a.a_logs:link			{color:#FFAB5E;}
-a.a_logs:visited		{color:#FFAB5E;}
-a.a_logs:hover			{color:#FF7A00;}
-a.a_logs:active			{color:#FFAB5E;}
-a.a_slug				{display:inline-block; vertical-align:baseline; width:33.33%; text-align:right;}
-a.a_slug:before			{content:"VIEW IATI REGISTRY"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
-a.a_slug:link			{color:#FFAB5E;}
-a.a_slug:visited		{color:#FFAB5E;}
-a.a_slug:hover			{color:#FF7A00;}
-a.a_slug:active			{color:#FFAB5E;}
+iati-identifier 			{display:block; background-color:rgba(0,14,32,0.7); width:880px; font-size:18px; line-height:1.5em; padding:20px 40px; color:#FFAB5E; margin:0 auto;}
+a.a_iati-identifier:before	{content:"IATI IDENTIFIER"; font-size:14px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:10px;}
+a.a_iati-identifier:link	{color:#FFAB5E;}
+a.a_iati-identifier:visited	{color:#FFAB5E;}
+a.a_iati-identifier:hover	{color:#FF7A00;}
+a.a_iati-identifier:active	{color:#FFAB5E;}
+a.a_xml_iati-identifier,
+a.a_logs,
+a.a_slug{display:inline-block; vertical-align:baseline; box-sizing:border-box; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; padding:5px 0;  margin:10px 2% 5px 0;}
+a.a_xml_iati-identifier	{width:31.33%;}
+a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:16x; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:5px;}
+a.a_xml_iati-identifier:link	{color:#FFF;}
+a.a_xml_iati-identifier:visited	{color:#FFF;}
+a.a_xml_iati-identifier:hover	{color:#FFAB5E;}
+a.a_xml_iati-identifier:active	{color:#FFF;}
+a.a_logs				{width:32.33%;}
+a.a_logs:before			{content:"VIEW DATASET"; font-size:16px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:5px;}
+a.a_logs:link			{color:#FFF;}
+a.a_logs:visited		{color:#FFF;}
+a.a_logs:hover			{color:#FFAB5E;}
+a.a_logs:active			{color:#FFF;}
+a.a_slug				{width:32.33%; margin-right:0;}
+a.a_slug:before			{content:"VIEW IATI REGISTRY"; font-size:16px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:5px;}
+a.a_slug:link			{color:#FFF;}
+a.a_slug:visited		{color:#FFF;}
+a.a_slug:hover			{color:#FFAB5E;}
+a.a_slug:active			{color:#FFF;}
 
 
 /*	Recipient countries
 	============================================= */
-transaction recipient-country			{display:none;}
-span.span_recipient-country				{display:block; width:960px; padding:30px 40px; box-sizing:border-box; position:relative;}
-recipient-country 						{display:block;}
-recipient-country span					{font-size:1.0em; line-height:1.5em; color:#FFF; display:inline;}
-recipient-country span:nth-of-type(2)	{color:#999; font-size:14px; line-height:24px; margin-left:10px;}
-
-span.span_recipient-country recipient-country span:nth-of-type(2):before	{content:"( ";}
-span.span_recipient-country recipient-country span:nth-of-type(2):after	{content:" )";}
-
-span.country_img:before {content:"Recipient Country"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; width:900px; margin-left:-10px;}
-span.country_img		{position:relative;}
-img.country_pie			{padding:40px; background-color:#FFF;}
-
-span.span_recipient-country span.hide	{top:20px;}
+transaction recipient-country > *	{display:none;}
+span.span_recipient-country:before	{content:"Recipient Country"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; width:900px; margin-left:-10px;}
+span.span_recipient-country > *		{display:none;}
+span.span_recipient-country			{z-index:1;}
+span.span_recipient-country recipient-country						{background-color:rgba(255,255,255,1); display:block; padding:0 40px; position:relative; z-index:-1;}
+span.span_recipient-country recipient-country:nth-of-type(1)		{padding-top:40px;}
+span.span_recipient-country recipient-country:last-of-type			{padding-bottom:40px;}
+span.span_recipient-country recipient-country span					{color:#444; font-size:14px; line-height:18px; display:inline-block; text-align:right; vertical-align:middle;}
+span.span_recipient-country recipient-country span.rec_code			{width:200px; min-height:25px; padding:10px 20px; border-right:1px solid #999;}
+span.span_recipient-country recipient-country span.rec_code:after	{content:attr(code); margin-left:10px; background-color:rgba(72,79,86,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
+span.span_recipient-country recipient-country span.rec_value		{color:#444; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
+span.span_recipient-country recipient-country span.rec_bar			{background-color:#09f; width:100%; max-width:575px; height:24px; position:relative;}
+span.span_recipient-country recipient-country span.rec_bar::before	{content:""; background-color:rgba(17,46,105,0.1); width:575px; height:24px; z-index:-1; position:absolute; left:0; top:0;}
+span.span_recipient-country recipient-country:nth-of-type(2) span.rec_bar		{background-color:#1b96e7;}
+span.span_recipient-country recipient-country:nth-of-type(3) span.rec_bar		{background-color:#3692cf;}
+span.span_recipient-country recipient-country:nth-of-type(4) span.rec_bar		{background-color:#528fb8;}
+span.span_recipient-country recipient-country:nth-of-type(5) span.rec_bar		{background-color:#6d8ba0;}
+span.span_recipient-country recipient-country:nth-of-type(6) span.rec_bar		{background-color:#888;}
+span.span_recipient-country recipient-country:nth-of-type(7) span.rec_bar		{background-color:#667077;}
+span.span_recipient-country recipient-country:nth-of-type(8) span.rec_bar		{background-color:#4f5d68;}
+span.span_recipient-country recipient-country:nth-of-type(n+9) span.rec_bar		{background-color:#415360;}
 
 
 /*	Start and End dates (Planned and Actual)
@@ -211,6 +223,7 @@ span.span_description description narrative.empty	{display:none;}	/*	Hides conta
 /*	Result and description
 	============================================= */
 result > *					{display:none;}
+indicator > *				{display:none;}
 span.span_result			{counter-reset:section;}
 result						{counter-reset:subsection; display:block; padding:20px 0; position:relative;}
 result:nth-child(1)			{padding-top:0;}
@@ -343,24 +356,33 @@ result indicator .time.time-percent100 span	{display:none;}
 result indicator span-result	{display:inline-block; vertical-align:top; width:320px; margin-right:30px;}
 
 
-/*	Sectors (also turned into graph: sector_pie)
+/*	Sectors (also turned into graph)
 	============================================= */
-sector *				{display:none;}
-span.sector_img:before	{content:"Sector"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; width:900px; margin-left:-10px;}
-span.span_sector		{padding:30px 40px; position:relative;}
+sector > *				{display:none;}
+span.span_sector:before	{content:"Sector"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; width:900px; margin-left:-10px;}
+span.span_sector > *	{display:none;}
+span.span_sector		{z-index:1;}
+span.span_sector:after	{content:""; display:block; padding-bottom:40px; background-color:#FFF;}
 span.span_sector sector[vocabulary="DAC"],
 span.span_sector sector[vocabulary="1"],
-span.span_sector sector[vocabulary="2"]			{font-size:1.0em; color:#FFF; display:block; line-height:1.5em;}
-span.span_sector sector[vocabulary="2"]:nth-of-type(1):before	{content:"SECTOR GROUP"; font-size:14px; color:#ccc; width:240px; display:block; padding-bottom:5px;}
-span.span_sector sector span					{color:#FFF; display:inline;}
-span.span_sector sector span:nth-of-type(1)		{margin-right:10px;}
-span.span_sector sector span:nth-of-type(2)		{color:#999; font-size:14px;}
-span.span_sector sector span:nth-of-type(2):before	{content:"( ";}
-span.span_sector sector span:nth-of-type(2):after	{content:" )";}
-img.sector_pie	{padding:40px; background-color:#FFF;}
-span.sector_img	{position:relative;}
-
-span.span_sector span.hide	{top:20px;}
+span.span_sector sector[vocabulary="2"]		{display:block; padding:0 40px;}
+span.span_sector sector						{background-color:rgba(255,255,255,1); position:relative; z-index:-1;}
+span.span_sector sector:nth-of-type(1)		{padding-top:40px;}
+span.span_sector sector span				{color:#444; font-size:14px; line-height:18px; display:inline-block; text-align:right; vertical-align:middle;}
+span.span_sector sector span.sec_code		{width:200px; min-height:25px; padding:10px 20px; border-right:1px solid #999;}
+span.span_sector sector span.sec_code:after						{content:attr(code); margin-left:10px; background-color:rgba(72,79,86,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
+span.span_sector sector span.sec_code[status="withdrawn"]:after	{content:attr(code) ' ' attr(status);}
+span.span_sector sector span.sec_value		{color:#444; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
+span.span_sector sector span.sec_bar		{background-color:#09f; width:100%; max-width:575px; height:24px; position:relative;}
+span.span_sector sector span.sec_bar::before{content:""; background-color:rgba(17,46,105,0.1); width:575px; height:24px; z-index:-1; position:absolute; left:0; top:0;}
+span.span_sector sector:nth-of-type(2) span.sec_bar		{background-color:#1b96e7;}
+span.span_sector sector:nth-of-type(3) span.sec_bar		{background-color:#3692cf;}
+span.span_sector sector:nth-of-type(4) span.sec_bar		{background-color:#528fb8;}
+span.span_sector sector:nth-of-type(5) span.sec_bar		{background-color:#6d8ba0;}
+span.span_sector sector:nth-of-type(6) span.sec_bar		{background-color:#888;}
+span.span_sector sector:nth-of-type(7) span.sec_bar		{background-color:#667077;}
+span.span_sector sector:nth-of-type(8) span.sec_bar		{background-color:#4f5d68;}
+span.span_sector sector:nth-of-type(n+9) span.sec_bar	{background-color:#415360;}
 
 
 /*	Budget table
@@ -445,7 +467,7 @@ transaction a:link					{color:#FFAB5E;}
 transaction a:visited				{color:#FFAB5E;}
 transaction a:hover					{color:#FF7A00;}
 transaction a:active				{color:#FFAB5E;}
-transaction:last-of-type			{border-bottom:0px solid #AAA; margin-bottom:40px;}
+transaction:last-of-type			{border-bottom:0px solid #AAA; margin-bottom:25px;}
 transaction:nth-of-type(1)			{margin-top:0px; padding-top:0; border-top:0;}
 
 span.span_transaction:before		{content:"Transactions"; font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); display:block; padding:20px 40px; margin-bottom:25px; width:900px; margin-left:-10px;}
@@ -504,6 +526,41 @@ transaction span-narrative.org-ref	{display:inline; font-size:11px; line-height:
 
 transaction sector	{display:none;}
 
+
+/*	Transaction table graphs
+	============================================= */
+.legend_wrap		{display:block; padding:10px 15px 0 15px; margin-bottom:20px; text-align:center;}
+span.legend:before	{content:""; display:inline-block; width:7px; height:7px; border-radius:4px; margin-right:5px;}
+span.legend			{font-size:10px; color:#ccc;}
+.transactions_svg span.legend			{display:block; margin:0 auto; text-align:center; padding-bottom:10px;}
+.transactions_svg_type_all span.legend	{display:inline-block; vertical-align:top; padding:0; margin-right:15px;}
+
+span.legend.type_1:before	{background-color:#09f;}
+span.legend.type_2:before	{background-color:#f05b4f;}
+span.legend.type_3:before	{background-color:#90EE90;}
+span.legend.type_4:before	{background-color:#f4c63d;}
+span.legend.type_5:before	{background-color:#CC90EE;}
+span.legend.type_6:before	{background-color:#2E2CF1;}
+span.legend.type_7:before	{background-color:#00B601;}
+span.legend.type_8:before	{background-color:#FFB000;}
+span.legend.type_9:before	{background-color:#C0005F;}
+span.legend.type_10:before	{background-color:#FF34E5;}
+span.legend.type_11:before	{background-color:#AF77CF;}
+span.legend.type_12:before	{background-color:#5956B9;}
+span.legend.type_13:before	{background-color:#3AAEBE;}
+
+span.legend.type_1:after	{content:"INCOMING FUNDS";}
+span.legend.type_2:after	{content:"OUTGOING COMMITMENT";}
+span.legend.type_3:after	{content:"DISBURSEMENT";}
+span.legend.type_4:after	{content:"EXPENDITURE";}
+span.legend.type_5:after	{content:"INTEREST PAYMENT";}
+span.legend.type_6:after	{content:"LOAN REPAYMENT";}
+span.legend.type_7:after	{content:"REIMBURSEMENT";}
+span.legend.type_8:after	{content:"PURCHASE OF EQUITY";}
+span.legend.type_9:after	{content:"SALE OF EQUITY";}
+span.legend.type_10:after	{content:"CREDIT GUARANTEE";}
+span.legend.type_11:after	{content:"INCOMING COMMITMENT";}
+span.legend.type_12:after	{content:"OUTGOING PLEDGE";}
 
 
 /*	Contact info for Publisher
@@ -629,9 +686,14 @@ policy-marker:last-of-type		{padding-bottom:40px;}
 
 /*	Humanitarian Scope
 	============================================= */
-humanitarian-scope > *			{display:none;}
-humanitarian-scope				{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; padding-bottom:40px; line-height:24px;}
-humanitarian-scope:before		{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#CCC; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
+humanitarian-scope > *	{display:none;}
+humanitarian-scope		{width:880px; padding:0; margin:0 auto; color:#FFF;}
+humanitarian-scope:first-of-type:before	{content:"HUMANITARIAN SCOPE"; font-size:14px; color:#CCC; display:block; padding:0 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
+humanitarian-scope						{display:block; width:880px; padding:0; margin:0 auto; color:#FFF; line-height:24px;}
+humanitarian-scope:last-of-type			{padding-bottom:40px;}
+humanitarian-scope narrative			{display:block; font-style:italic; padding-bottom:10px;}
+humanitarian-scope span-lang			{display:inline-block; vertical-align:top;}
+humanitarian-scope span-lang narrative	{display:block; font-style:initial; padding-bottom:0;}
 span-narrative.hum_scope_vocab,
 span-narrative.hum_scope_type,
 span-narrative.hum_scope_code	{display:inline-block; margin-left:5px; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:0px 4px; line-height:1.5em;}
@@ -671,6 +733,7 @@ span.span_planned-disbursement,
 span.span_result,
 span.span_related-activity,
 span.span_recipient-country,
+span.span_sector,
 span.span_policy-marker,
 span.span_recipient-region,
 span.span_location,
@@ -699,6 +762,8 @@ span.span_result result span.hide				{top:18px;}
 span.span_result result:nth-child(1) span.hide	{top:-5px;}
 span.span_related-activity span.hide,
 span.span_policy-marker span.hide				{right:0;}
+span.span_recipient-country span.hide,
+span.span_sector span.hide						{top:20px;}
 
 span.span_transaction_code_1 span.hide,
 span.span_transaction_code_2 span.hide,
@@ -717,10 +782,12 @@ span.span_transaction_code_13 span.hide		{top:8px; z-index:10;}
 
 /*	Count
 	============================================= */
-span.length {position:absolute; top:39px; left:200px; font-size:14px; line-height:16px; color:#CCC;}
+span.length {display:block; position:absolute; top:39px; left:200px; font-size:14px; line-height:16px; color:#CCC;}
 span.span_document-link span.length			{left:210px;}
 span.span_participating-org span.length		{left:180px;}
 span.span_participating-org span.length		{left:180px;}
+span.span_recipient-country span.length		{top:20px; left:210px;}
+span.span_sector span.length,
 span.span_budget span.length				{top:20px; left:120px;}
 span.span_transaction span.length			{top:20px; left:160px;}
 span.span_planned-disbursement span.length	{top:20px; left:260px;}
@@ -728,8 +795,6 @@ span.span_result span.length				{top:20px; left:120px;}
 span.span_related-activity span.length		{left:110px;}
 span.span_policy-marker span.length			{left:135px;}
 span.span_location span.length				{left:135px;}
-span.sector_img span.length					{top:20px; left:105px;}
-span.country_img span.length				{top:20px; left:205px;}
 span.span_recipient-region span.length		{left:115px;}
 
 span.span_transaction_code_1 span.length,
@@ -759,8 +824,11 @@ span.span_transaction_code_11 span.length	{left:200px;}
 
 /*	Chartist SVG
 	============================================= */
-.transactions_svg {display:block; width:920px; height:240px; margin:auto; margin-bottom:30px;}
-.transactions_svg svg {overflow:visible;}
+.transactions_svg {display:block; width:920px; height:240px; margin:auto; margin-bottom:25px; padding-top:10px;}
+.transactions_svg_type_all	{padding-top:0; padding-bottom:45px;}
+.transactions_svg svg 		{overflow:visible;}
+
+.transactions_svg line:last-of-type {stroke-linecap:unset}
 
 .svg_line_transaction_type_1	{stroke:#09f;}
 .svg_line_transaction_type_2	{stroke:#f05b4f;}
