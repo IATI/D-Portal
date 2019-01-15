@@ -674,7 +674,7 @@ policy-marker > *		{display:none;}
 span.span_policy-marker			{width:880px; padding:0; margin:0 auto; color:#FFF;}
 span.span_policy-marker:before	{content:"POLICY MARKER"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 policy-marker					{display:inline-block; vertical-align:top; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#FFF;}
-policy-marker narrative			{vertical-align:initial;}
+policy-marker narrative			{display:inline; vertical-align:initial;}
 policy-marker narrative:nth-of-type(n+2) {display:inline-block; font-style:italic; font-size:14px; line-height:inherit; text-indent:10px; color:#CCC;}
 policy-marker narrative:last-of-type:after	{display:block;}
 span-narrative.policy_vocab,
