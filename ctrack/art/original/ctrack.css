@@ -361,7 +361,7 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 
 .settings_link_search span	{color:#fff; padding:10px 0 0 0; display:inline-block;}
 .settings_link_search span:nth-of-type(1)	{font-weight:bold; padding-right:5px;}
-.settings_link_search a			{text-decoration:none; display:block; color:#ccc;}
+.settings_link_search a			{text-decoration:none; display:block; color:#ccc; background-color:rgba(249,249,249,0.1); padding:5px 10px; border-radius:4px;}
 .settings_link_search a:hover	{color:#fff;}
 .search_intro_wrap				{width:960px; margin:0 auto; margin-top:40px; color:#fff; font-size:20px; line-height:26px;}
 .search_intro_wrap span			{font-size:1.0em; color:#97d8ff; padding-right:0;}
@@ -624,6 +624,7 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 .footer					{width:960px; margin:0 auto; padding:10px 0;}
 .footer_link			{display:inline-block; vertical-align:top; width:620px; color:#FFF; padding:60px 50px 0 0; box-sizing:border-box; font-size:18px; line-height:1.5em;}
 .footer_link.list		{width:340px; padding:60px 0 30px 0;}
+.footer_link.list li a	{display:block;}
 .footer_link a			{font-size:1.0em; line-height:1.5em; color:#999;}
 .footer_link a:focus	{color:#AAA;}
 .footer_link a:link  	{color:#AAA;}
@@ -635,7 +636,7 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 .footer_link.top a		{display:block; text-align:center; padding:20px 0;}
 .footer_link ul			{padding-bottom:20px;}
 .footer_link p			{padding:15px 0;}
-.footer_link p.beta		{font-style:italic; color:#ccc;}
+.footer_link p.beta		{font-style:italic; color:#ccc; font-size:16px; line-height:22px;}
 .footer_motto			{font-size:22px; line-height:27px;}
 .footer_motto a			{color:#53B4ED; font-weight:bold; line-height:27px;}
 .footer_motto a:focus	{color:#53B4ED;}
