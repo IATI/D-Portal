@@ -88,11 +88,11 @@ span.span_recipient-country recipient-country						{background-color:rgba(255,25
 span.span_recipient-country recipient-country:nth-of-type(1)		{padding-top:40px;}
 span.span_recipient-country recipient-country:last-of-type			{padding-bottom:40px;}
 span.span_recipient-country recipient-country span					{color:#444; font-size:14px; line-height:18px; display:inline-block; text-align:right; vertical-align:middle;}
-span.span_recipient-country recipient-country span.rec_code			{width:200px; min-height:25px; padding:10px 20px; border-right:1px solid #999;}
+span.span_recipient-country recipient-country span.rec_code			{width:300px; min-height:25px; padding:10px 20px; border-right:1px solid #999;}
 span.span_recipient-country recipient-country span.rec_code:after	{content:attr(code); margin-left:10px; background-color:rgba(72,79,86,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
 span.span_recipient-country recipient-country span.rec_value		{color:#444; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
-span.span_recipient-country recipient-country span.rec_bar			{background-color:#09f; width:100%; max-width:575px; height:24px; position:relative;}
-span.span_recipient-country recipient-country span.rec_bar::before	{content:""; background-color:rgba(17,46,105,0.1); width:575px; height:24px; z-index:-1; position:absolute; left:0; top:0;}
+span.span_recipient-country recipient-country span.rec_bar			{background-color:#09f; width:100%; max-width:475px; height:24px; position:relative;}
+span.span_recipient-country recipient-country span.rec_bar::before	{content:""; background-color:rgba(17,46,105,0.1); width:475px; height:24px; z-index:-1; position:absolute; left:0; top:0;}
 span.span_recipient-country recipient-country:nth-of-type(2) span.rec_bar		{background-color:#1b96e7;}
 span.span_recipient-country recipient-country:nth-of-type(3) span.rec_bar		{background-color:#3692cf;}
 span.span_recipient-country recipient-country:nth-of-type(4) span.rec_bar		{background-color:#528fb8;}
@@ -369,12 +369,12 @@ span.span_sector sector[vocabulary="2"]		{display:block; padding:0 40px;}
 span.span_sector sector						{background-color:rgba(255,255,255,1); position:relative; z-index:-1;}
 span.span_sector sector:nth-of-type(1)		{padding-top:40px;}
 span.span_sector sector span				{color:#444; font-size:14px; line-height:18px; display:inline-block; text-align:right; vertical-align:middle;}
-span.span_sector sector span.sec_code		{width:200px; min-height:25px; padding:10px 20px; border-right:1px solid #999;}
+span.span_sector sector span.sec_code		{width:300px; min-height:25px; padding:10px 20px; border-right:1px solid #999;}
 span.span_sector sector span.sec_code:after						{content:attr(code); margin-left:10px; background-color:rgba(72,79,86,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
 span.span_sector sector span.sec_code[status="withdrawn"]:after	{content:attr(code) ' ' attr(status);}
 span.span_sector sector span.sec_value		{color:#444; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
-span.span_sector sector span.sec_bar		{background-color:#09f; width:100%; max-width:575px; height:24px; position:relative;}
-span.span_sector sector span.sec_bar::before{content:""; background-color:rgba(17,46,105,0.1); width:575px; height:24px; z-index:-1; position:absolute; left:0; top:0;}
+span.span_sector sector span.sec_bar		{background-color:#09f; width:100%; max-width:475px; height:24px; position:relative;}
+span.span_sector sector span.sec_bar::before{content:""; background-color:rgba(17,46,105,0.1); width:475px; height:24px; z-index:-1; position:absolute; left:0; top:0;}
 span.span_sector sector:nth-of-type(2) span.sec_bar		{background-color:#1b96e7;}
 span.span_sector sector:nth-of-type(3) span.sec_bar		{background-color:#3692cf;}
 span.span_sector sector:nth-of-type(4) span.sec_bar		{background-color:#528fb8;}
@@ -674,7 +674,7 @@ policy-marker > *		{display:none;}
 span.span_policy-marker			{width:880px; padding:0; margin:0 auto; color:#FFF;}
 span.span_policy-marker:before	{content:"POLICY MARKER"; font-size:14px; color:#CCC; display:block; padding:40px 0 10px 0; margin-bottom:20px; border-bottom:1px solid #AAA;}
 policy-marker					{display:inline-block; vertical-align:top; width:875px; padding:0 0 5px 5px; font-size:1.0em; line-height:1.25em; color:#FFF;}
-policy-marker narrative			{vertical-align:initial;}
+policy-marker narrative			{display:inline; vertical-align:initial;}
 policy-marker narrative:nth-of-type(n+2) {display:inline-block; font-style:italic; font-size:14px; line-height:inherit; text-indent:10px; color:#CCC;}
 policy-marker narrative:last-of-type:after	{display:block;}
 span-narrative.policy_vocab,

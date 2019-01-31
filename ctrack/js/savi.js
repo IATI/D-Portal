@@ -819,7 +819,7 @@ acts.find("sector").each(function(i){var it=$(this);
 	tc=iati_codes.sector[tc] || iati_codes.sector_withdrawn[tc] || iati_codes.sector_category[tc] || tc;	
 	if(tc)
 	{
-		it.html("<span class='sec_code' code='"+td+"' status='"+te+"'>"+tc+"</span><span class='sec_bar' style='width:calc("+tp+" * 5.75px);'></span><span class='sec_value'>"+tp+"%</span>");
+		it.html("<span class='sec_code' code='"+td+"' status='"+te+"'>"+tc+"</span><span class='sec_bar' style='width:calc("+tp+" * 4.75px);'></span><span class='sec_value'>"+tp+"%</span>");
 	}
 
 });
@@ -856,7 +856,7 @@ acts.find("recipient-country").each(function(i){var it=$(this);
 		tc=iati_codes.country[tc] || tc;
 		if(tc)
 		{
-			it.html("<span class='rec_code' code='"+td+"'>"+tc+"</span><span class='rec_bar' style='width:calc("+tp+" * 5.75px);'></span><span class='rec_value'>"+tp+"%</span>");
+			it.html("<span class='rec_code' code='"+td+"'>"+tc+"</span><span class='rec_bar' style='width:calc("+tp+" * 4.75px);'></span><span class='rec_value'>"+tp+"%</span>");
 		}
 	}
 
