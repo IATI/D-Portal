@@ -105,8 +105,7 @@ fetch.ajax_dat_fix=function(dat,args,flag)
 //	dat["day_start_lt"]		=	dat["day_start_lt"]		||	(args.date_max 		|| ctrack.args.date_max);
 //	dat["day_end_gteq"]		=	dat["day_end_gteq"]		||	(args.date_min 		|| ctrack.args.date_min);
 
-// allow query or hash to add extra values
-	for(var n in ctrack.args) { dat[n]=ctrack.args[n]; }
+// allow hash overide what we have
 	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
 
 // then allow passed in args to overide that
