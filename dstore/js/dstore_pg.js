@@ -485,24 +485,22 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 		var org=refry.xml(data,slug); // raw xml convert to jml
 		var aid=iati_xml.get_aid(org);
 
-
-		console.log("importing budgets from org file for "+aid)
-
-		dstore_back.delete_from(db,"budget",{aid:aid});
-
-
-		var o=refry.tag(org,"iati-organisation");
+		var o=refry.tag(org,"iati-organisation"); // check for org file data
 		if(o)
 		{
+			console.log("importing budgets from org file for "+aid)
+
+			dstore_back.delete_from(db,"budget",{aid:aid});
+
 			console.log(o[0]+" -> "+o["default-currency"])
 			iati_cook.activity(o); // cook the raw json(xml) ( most cleanup logic has been moved here )
+
+			refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
+			refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
+			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
+
+			dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
 		}
-
-		refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
-		refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
-		refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
-
-		dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
 	}
 
 
