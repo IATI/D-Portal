@@ -444,6 +444,8 @@ span.span_sector sector[vocabulary="11"] span.sec_bar,
 span.span_sector sector[vocabulary="99"] span.sec_bar,
 span.span_sector sector[vocabulary="98"] span.sec_bar	{background-color:#A51BE7;}
 
+span.span_sector span.length::after {content:" DAC";}
+
 
 /*	Budget table
 	============================================= */

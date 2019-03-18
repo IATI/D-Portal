@@ -1337,6 +1337,7 @@ $( "span.span_document-link, span.span_participating-org, span.span_recipient-co
 $( "span.span_sector" ).each(function(i,el){
 	var e=$(el);
 	var ec=e.children("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
+	var ed=e.find( "sector" );
 	var c=$("<span class='hide'>-</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
 	e.append(c);
@@ -1345,15 +1346,15 @@ $( "span.span_sector" ).each(function(i,el){
 		e.append(d);
 	}
 	c.click(function(){
-		if( ec.eq(0).css('display') == 'none' )
+		if( ed.eq(0).css('display') == 'none' )
 		{
 			c.text('-');
-			ec.show('fast');
+			ed.show('fast');
 		}
 		else
 		{
 			c.text('+');
-			ec.hide('fast');
+			ed.hide('fast');
 		}
 	});
 });
