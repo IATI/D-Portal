@@ -84,6 +84,10 @@ iati_codes.fetch = function(){
 			},
 */
 			{
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/SectorVocabulary.json",
+				name:"sector_vocab",
+			},
+			{
 				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/TransactionType.json",
 				name:"new_transaction_type",
 			},

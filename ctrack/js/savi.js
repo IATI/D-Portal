@@ -808,7 +808,7 @@ acts.find("sector").each(function(i){var it=$(this);
 	var tc=it.attr("code");
 	var td=it.attr("code");
 	
-	if(!it.attr("vocabulary")) { it.attr("vocabulary","DAC"); }
+	if(!it.attr("vocabulary")) { it.attr("vocabulary","DAC"); } //	If there is no vocab, assume it is DAC.
 
 	var te="active";
 	if(iati_codes.sector_withdrawn[tc])
@@ -817,10 +817,13 @@ acts.find("sector").each(function(i){var it=$(this);
 	}
 	
 	tc=iati_codes.sector[tc] || iati_codes.sector_withdrawn[tc] || iati_codes.sector_category[tc] || tc;	
+	var tf=it.attr("vocabulary");
+//	tf=iati_codes.sector_vocab[tf] || tf;
 	if(tc)
 	{
-		it.html("<span class='sec_code' code='"+td+"' status='"+te+"'>"+tc+"</span><span class='sec_bar' style='width:calc("+tp+" * 4.75px);'></span><span class='sec_value'>"+tp+"%</span>");
+		it.html("<span class='sec_code' code='"+td+"' vocab='"+tf+"' status='"+te+"'>"+tc+"</span><span class='sec_bar' style='width:calc("+tp+" * 4.75px);'></span><span class='sec_value'>"+tp+"%</span>");
 	}
+	
 
 });
 
