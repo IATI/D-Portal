@@ -219,6 +219,7 @@ view_countries.ajax=function(args)
 			};
 		fetch.ajax_dat_fix(dat,args,"budget");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
+
 		fetch.ajax(dat,function(data){
 			
 //			console.log("fetch budget donors "+year);			
@@ -255,6 +256,8 @@ view_countries.ajax=function(args)
 		fetch.ajax_dat_fix(dat,args);
 		dat.aid=dat.reporting_ref; // use fake reporting aid in budget data to choose a publisher
 		delete dat.reporting_ref
+		dat.from="budget" // special org budget has no other data so force it
+
 		fetch.ajax(dat,function(data){
 			
 //			console.log("fetch budget donors "+year);			
