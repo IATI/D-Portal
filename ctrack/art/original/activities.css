@@ -444,6 +444,7 @@ span.span_sector sector[vocabulary="11"] span.sec_bar,
 span.span_sector sector[vocabulary="99"] span.sec_bar,
 span.span_sector sector[vocabulary="98"] span.sec_bar	{background-color:#A51BE7;}
 
+/*	Show only when DAC sectors are displayed	*/
 span.span_sector span.length::after {content:" DAC";}
 
 
@@ -690,6 +691,8 @@ document-link description narrative				{font-size:13px; margin-top:2px; color:#B
 span-narrative.doc-cat,
 span-doc_date									{display:inline-block; margin-top:5px; margin-right:5px; color:#CCC; font-size:13px; vertical-align:top; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px 0px 4px; line-height:1.5em;}
 span-doc_date									{background-color:rgba(48,71,103,1);}
+/*	Hide category because we are showing it with codes	*/
+span-narrative.doc-cat category					{display:none;}
 
 /*	Add i to be case-insensitive */
 

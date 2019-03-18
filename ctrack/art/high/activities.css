@@ -417,6 +417,9 @@ span.span_sector sector[vocabulary="11"] span.sec_bar,
 span.span_sector sector[vocabulary="99"] span.sec_bar,
 span.span_sector sector[vocabulary="98"] span.sec_bar	{background-color:#000;}
 
+/*	Show only when DAC sectors are displayed	*/
+span.span_sector span.length::after {content:" DAC";}
+
 
 /*	Budget table
 	============================================= */
@@ -644,6 +647,8 @@ document-link description						{display:block;}
 document-link description narrative				{font-size:13px; margin-top:2px; color:#000;}
 span-narrative.doc-cat,
 span-doc_date									{display:inline-block; margin-top:5px; margin-right:5px;  color:#000; font-size:13px; vertical-align:top; border:1px solid #000; border-radius:4px; padding:1px 4px 0px 4px; line-height:1.5em;}
+/*	Hide category because we are showing it with codes	*/
+span-narrative.doc-cat category					{display:none;}
 
 
 /*	Add i to be case-insensitive */
