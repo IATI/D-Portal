@@ -1357,6 +1357,13 @@ $( "span.span_sector" ).each(function(i,el){
 			ed.hide('fast');
 		}
 	});
+
+	// get all non dac sectors
+	var ee=e.find( "sector" ).not("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
+	if(ee.length>0) // got some  non dac
+	{
+		ee.wrapAll( "<div class='non_dac_sectors' />");
+	}
 });
 
 
