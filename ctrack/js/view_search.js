@@ -21,6 +21,12 @@ view_search.chunks=[
 ];
 
 
+var split_or=function(s)
+{
+	var a=s.split(",")
+	if(a.length>1) { return a }
+	return s.split("|")
+}
 
 // called on view display to fix html in place
 view_search.fixup=function()
@@ -580,55 +586,55 @@ view_search.fixup=function()
 
 	if(ctrack.hash.country)
 	{
-		var vs=ctrack.hash.country.split("|")
+		var vs=split_or(ctrack.hash.country)
 		$("#view_search_select_country").val(vs).trigger('chosen:updated');
 	}
 	
 	if(ctrack.hash.funder)
 	{
-		var vs=ctrack.hash.funder.split("|")
+		var vs=split_or(ctrack.hash.funder)
 		$("#view_search_select_funder").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.publisher)
 	{
-		var vs=ctrack.hash.publisher.split("|")
+		var vs=split_or(ctrack.hash.publisher)
 		$("#view_search_select_publisher").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.sector_code)
 	{
-		var vs=ctrack.hash.sector_code.split("|")
+		var vs=split_or(ctrack.hash.sector_code)
 		$("#view_search_select_sector").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.sector_group)
 	{
-		var vs=ctrack.hash.sector_group.split("|")
+		var vs=split_or(ctrack.hash.sector_group)
 		$("#view_search_select_category").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.year_min)
 	{
-		var vs=ctrack.hash.year_min.split("|")
+		var vs=split_or(ctrack.hash.year_min)
 		$("#view_search_select_year_min").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.year_max)
 	{
-		var vs=ctrack.hash.year_max.split("|")
+		var vs=split_or(ctrack.hash.year_max)
 		$("#view_search_select_year_max").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.status)
 	{
-		var vs=ctrack.hash.status.split("|")
+		var vs=split_or(ctrack.hash.status)
 		$("#view_search_select_status").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.policy)
 	{
-		var vs=ctrack.hash.policy.split("|")
+		var vs=split_or(ctrack.hash.policy)
 		$("#view_search_select_policy").val(vs).trigger('chosen:updated');
 	}
 
