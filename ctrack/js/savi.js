@@ -697,7 +697,11 @@ acts.find("humanitarian-scope").each(function(i){var it=$(this);
 
 	if(te)
 	{
-		it.append($('<a href="' + te + '" class="hum_scope_uri">' + te + '</a>'));
+		it.find("narrative").first().wrap($('<span-lang><a href="' + te + '" class="hum_scope_uri"></a></span-lang>'));
+	}
+	else
+	{
+		it.find("narrative").first().wrap($('<span-lang></span-lang>'));
 	}
 	if(tc)
 	{
@@ -712,7 +716,7 @@ acts.find("humanitarian-scope").each(function(i){var it=$(this);
 		it.append($('<span-narrative class="hum_scope_code">' + tf + '</span-narrative>'));
 	}
 	it.find("span-narrative").wrapAll("<span-narrative class='hum_scope'></span-narrative>");
-	it.find("narrative").first().wrap($('<span-lang></span-lang>'));
+	
 });
 
 
