@@ -213,6 +213,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_country").val();		
 		if(v)
 		{
+			v=v.join("|")
 			enable_search=true;
 			txt.push("Where the recipient country is \""+v+"\"")
 			que.push("country="+v)
@@ -227,6 +228,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_funder").val();		
 		if(v)
 		{
+			v=v.join("|")
 			enable_search=true;
 			txt.push("Where the CRS funder is \""+v+"\"")
 			que.push("funder="+v)
@@ -241,6 +243,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_sector").val();		
 		if(v)
 		{
+			v=v.join("|")
 			enable_search=true;
 			txt.push("Where the IATI sector is \""+v+"\"")
 			que.push("sector_code="+v)
@@ -255,6 +258,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_category").val();		
 		if(v)
 		{
+			v=v.join("|")
 			enable_search=true;
 			txt.push("Where the IATI sector category is \""+v+"\"")
 			que.push("sector_group="+v)
@@ -269,6 +273,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_publisher").val();		
 		if(v)
 		{
+			v=v.join("|")
 			enable_search=true;
 			txt.push("Where the IATI publisher is \""+v+"\"")
 			que.push("publisher="+v)
@@ -316,6 +321,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_status").val();		
 		if(v)
 		{
+			v=v.join("|")
 			enable_search=true;
 			txt.push("Where the IATI status is \""+v+"\"")
 			que.push("status="+v)
@@ -330,6 +336,7 @@ view_search.fixup=function()
 		var v=$("#view_search_select_policy").val();		
 		if(v)
 		{
+			v=v.join("|")
 			enable_search=true;
 			txt.push("Where the IATI policy marker is \""+v+"\"")
 			que.push("policy="+v)
@@ -566,62 +573,62 @@ view_search.fixup=function()
 // update the current selection to values found in the hash
 	if(ctrack.hash.search)
 	{
-		var vs=ctrack.hash.search.split(",")
+		var vs=ctrack.hash.search.split("|")
 		$("#view_search_string").val(vs).trigger('chosen:updated');
 		$("#view_search_string_only").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.country)
 	{
-		var vs=ctrack.hash.country.split(",")
+		var vs=ctrack.hash.country.split("|")
 		$("#view_search_select_country").val(vs).trigger('chosen:updated');
 	}
 	
 	if(ctrack.hash.funder)
 	{
-		var vs=ctrack.hash.funder.split(",")
+		var vs=ctrack.hash.funder.split("|")
 		$("#view_search_select_funder").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.publisher)
 	{
-		var vs=ctrack.hash.publisher.split(",")
+		var vs=ctrack.hash.publisher.split("|")
 		$("#view_search_select_publisher").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.sector_code)
 	{
-		var vs=ctrack.hash.sector_code.split(",")
+		var vs=ctrack.hash.sector_code.split("|")
 		$("#view_search_select_sector").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.sector_group)
 	{
-		var vs=ctrack.hash.sector_group.split(",")
+		var vs=ctrack.hash.sector_group.split("|")
 		$("#view_search_select_category").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.year_min)
 	{
-		var vs=ctrack.hash.year_min.split(",")
+		var vs=ctrack.hash.year_min.split("|")
 		$("#view_search_select_year_min").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.year_max)
 	{
-		var vs=ctrack.hash.year_max.split(",")
+		var vs=ctrack.hash.year_max.split("|")
 		$("#view_search_select_year_max").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.status)
 	{
-		var vs=ctrack.hash.status.split(",")
+		var vs=ctrack.hash.status.split("|")
 		$("#view_search_select_status").val(vs).trigger('chosen:updated');
 	}
 
 	if(ctrack.hash.policy)
 	{
-		var vs=ctrack.hash.policy.split(",")
+		var vs=ctrack.hash.policy.split("|")
 		$("#view_search_select_policy").val(vs).trigger('chosen:updated');
 	}
 
