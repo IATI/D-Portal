@@ -820,11 +820,9 @@ acts.find("sector").each(function(i){var it=$(this);
 		}
 		
 		tc=iati_codes.sector[tc] || iati_codes.sector_withdrawn[tc] || iati_codes.sector_category[tc] || tc;	
-		var tf=it.attr("vocabulary");
-	//	tf=iati_codes.sector_vocab[tf] || tf;
 		if(tc)
 		{
-			it.html("<span class='sec_code' code='"+td+"' vocab='"+tf+"' status='"+te+"'>"+tc+"</span><span class='sec_bar' style='width:calc("+tp+" * 4.75px);'></span><span class='sec_value'>"+tp+"%</span>");
+			it.html("<span class='sec_code' code='"+td+"' status='"+te+"'>"+tc+"</span><span class='sec_bar' style='width:calc("+tp+" * 4.75px);'></span><span class='sec_value'>"+tp+"%</span>");
 		}
 	}
 	else
@@ -835,8 +833,9 @@ acts.find("sector").each(function(i){var it=$(this);
 			tc=$(nn[0]).text()
 		}
 		var tf=it.attr("vocabulary");
+		var tg=it.attr("vocabulary");
+		tf=iati_codes.sector_vocab[tf] || tf;	
 		it.html("<span class='sec_code' code='"+td+"' vocab='"+tf+"'>"+tc+"</span><span class='sec_value'>"+tp+"%</span>");
-//		it.wrapAll("<span class='sec_code' code='"+td+"' vocab='"+tf+"' status='"+te+"'></span>")
 	}
 	
 

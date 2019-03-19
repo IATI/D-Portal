@@ -384,37 +384,13 @@ span.span_sector sector:nth-of-type(7) span.sec_bar		{background-color:#667077;}
 span.span_sector sector:nth-of-type(8) span.sec_bar		{background-color:#4f5d68;}
 span.span_sector sector:nth-of-type(n+9) span.sec_bar	{background-color:#415360;}
 
-span.span_sector sector[vocabulary="3"] span.sec_code:before	{content:"Classification of the Functions of Government (UN)"; font-size:14px; color:#444;}
-span.span_sector sector[vocabulary="4"] span.sec_code:before	{content:"Statistical classification of economic activities in the European Community"; font-size:14px; color:#444;}
-span.span_sector sector[vocabulary="5"] span.sec_code:before	{content:"National Taxonomy for Exempt Entities (USA)"; font-size:14px; color:#444;}
-span.span_sector sector[vocabulary="6"] span.sec_code:before	{content:"AidData"; font-size:14px; color:#444;}
-span.span_sector sector[vocabulary="7"] span.sec_code:before	{content:"SDG Goal"; font-size:14px; color:#444;}
-span.span_sector sector[vocabulary="8"] span.sec_code:before	{content:"SDG Target"; font-size:14px; color:#444;}
-span.span_sector sector[vocabulary="9"] span.sec_code:before	{content:"SDG Indicator"; font-size:14px; color:#444;}
-span.span_sector sector[vocabulary="10"] span.sec_code:before	{content:"Humanitarian Global Clusters (Inter-Agency Standing Committee)"; font-size:14px; color:#444;}
-span.span_sector sector[vocabulary="11"] span.sec_code:before	{content:"North American Industry Classification System (NAICS)"; font-size:14px; color:#444;}
-span.span_sector sector[vocabulary="99"] span.sec_code:before	{content:"Reporting Organisation"; font-size:14px; color:#444;}
-span.span_sector sector[vocabulary="98"] span.sec_code:before	{content:"Reporting Organisation 2"; font-size:14px; color:#444;}
-
-span.span_sector sector[vocabulary="3"] span.sec_code,
-span.span_sector sector[vocabulary="4"] span.sec_code,
-span.span_sector sector[vocabulary="5"] span.sec_code,
-span.span_sector sector[vocabulary="6"] span.sec_code,
-span.span_sector sector[vocabulary="7"] span.sec_code,
-span.span_sector sector[vocabulary="8"] span.sec_code,
-span.span_sector sector[vocabulary="9"] span.sec_code,
-span.span_sector sector[vocabulary="10"] span.sec_code,
-span.span_sector sector[vocabulary="11"] span.sec_code,
-span.span_sector sector[vocabulary="99"] span.sec_code,
-span.span_sector sector[vocabulary="98"] span.sec_code	{font-size:0;}
-
 span.span_sector .non_dac_sectors:before	{content:"NON-DAC"; font-size:14px; color:#444; display:block; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #AAA;}
 span.span_sector .non_dac_sectors			{display:block; padding:40px 40px 0 40px; background-color:#FFF;}
 span.span_sector .non_dac_sectors sector	{display:block; z-index:1; padding:0;}
-span.span_sector .non_dac_sectors sector span.sec_value			{display: inline; vertical-align:top; margin-left:10px; text-align:initial; max-width:initial;}
+span.span_sector .non_dac_sectors sector span.sec_value			{display:inline; vertical-align:top; margin-left:10px; text-align:initial; max-width:initial;}
 span.span_sector .non_dac_sectors sector span.sec_bar			{display:none;}
 span.span_sector .non_dac_sectors sector span.sec_code			{width:initial; border:0; padding:0;}
-span.span_sector .non_dac_sectors sector span.sec_code:after	{content:'Vocab ' attr(vocab) ' Code ' attr(code); margin-left:10px; background-color:rgba(72,79,86,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
+span.span_sector .non_dac_sectors sector span.sec_code:after	{content:attr(vocab) ' Code ' attr(code); margin-left:10px; background-color:rgba(72,79,86,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
 
 
 /*	Show only when DAC sectors are displayed	*/
