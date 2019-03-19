@@ -834,7 +834,8 @@ acts.find("sector").each(function(i){var it=$(this);
 		{
 			tc=$(nn[0]).text()
 		}
-		it.html("<span class='sec_code' code='"+td+"' vocab='"+tf+"' status='"+te+"'>"+tc+"</span><span class='sec_value'>"+tp+"%</span>");
+		var tf=it.attr("vocabulary");
+		it.html("<span class='sec_code' code='"+td+"' vocab='"+tf+"'>"+tc+"</span><span class='sec_value'>"+tp+"%</span>");
 //		it.wrapAll("<span class='sec_code' code='"+td+"' vocab='"+tf+"' status='"+te+"'></span>")
 	}
 	
