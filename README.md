@@ -29,6 +29,7 @@ Features
 - [Dash](https://github.com/devinit/D-Portal/blob/master/documents/dash.md) explores the *gaps*, highlights quality of data being published and displayed on d-portal.org
 - Easily create [news posts](https://github.com/devinit/D-Portal/blob/master/documents/dstore_blog.md) using Markdown.
 - [Install](https://github.com/devinit/D-Portal/blob/master/documents/ctrack_localtest.md) your own d-portal.
+- [Sitemap](https://github.com/devinit/D-Portal/blob/master/documents/sitemap.md) of the site.
 - Open source with [The MIT License](http://opensource.org/licenses/MIT).
 
 
