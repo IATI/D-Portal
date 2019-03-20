@@ -583,6 +583,8 @@ a.a_document-link								{display:block; width:840px; padding:15px 20px; font-si
 a.a_document-link:last-of-type					{border-bottom:1px solid #000;}
 a.a_document-link:hover							{background-color:#EEE;}
 document-link									{display:inline-block; vertical-align:top; padding-left:34px;}
+document-link language							{display:inline-block; vertical-align:top;}
+document-link language:before					{display:inline-block; content:attr(code); margin-top:5px; margin-right:5px; color:#000; font-size:13px; vertical-align:top; padding:2px 4px 0 0; line-height:1.5em; text-transform:uppercase;}
 document-link span								{font-size:1.0em; display:block; color:#000;}
 document-link span-title						{display:block;}
 document-link span-title:nth-of-type(n+1):before{display:none;}
