@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "dflat",
+  "description": "Attempt to fully flaten iati data.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devinit/D-Portal.git"
+  },
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "entities": "^1.1.2",
+    "node-expat": "^2.3.17",
+    "pify": "^4.0.1",
+    "yargs": "^13.2.2"
+  }
+}
