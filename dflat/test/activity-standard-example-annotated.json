@@ -1,0 +1,300 @@
+{
+ "iati-activities/iati-activity": [
+  {
+   "/activity-date/1/narrative/en": "Planned start date of the activity",
+   "/activity-date/1/narrative/fr": "Date prévue de début de l'activité",
+   "/activity-date/1@iso-date": "2012-04-15",
+   "/activity-date/1@type": "1",
+   "/activity-date/2@iso-date": "2012-04-28",
+   "/activity-date/2@type": "2",
+   "/activity-date/3@iso-date": "2015-12-31",
+   "/activity-date/3@type": "3",
+   "/activity-scope@code": "3",
+   "/activity-status@code": "2",
+   "/budget": [
+    {
+     "/period-end@iso-date": "2014-12-31",
+     "/period-start@iso-date": "2014-01-01",
+     "/value": "3000",
+     "/value@currency": "EUR",
+     "/value@value-date": "2014-01-01",
+     "@type": "1"
+    }
+   ],
+   "/capital-spend@percentage": "88.8",
+   "/collaboration-type@code": "1",
+   "/conditions/condition/narrative/en": "Conditions text",
+   "/conditions/condition/narrative/fr": "Conditions texte",
+   "/conditions/condition@type": "1",
+   "/conditions@attached": "1",
+   "/contact-info": [
+    {
+     "/department/narrative/en": "Department B",
+     "/email": "transparency@example.org",
+     "/job-title/narrative/en": "Transparency Lead",
+     "/mailing-address/narrative/en": "Transparency House, The Street, Town, City, Postcode",
+     "/organisation/narrative/en": "Agency A",
+     "/person-name/narrative/en": "A. Example",
+     "/telephone": "0044111222333444",
+     "/website": "http://www.example.org",
+     "@type": "1"
+    }
+   ],
+   "/country-budget-items/budget-item": [
+    {
+     "/description/narrative/en": "Description text",
+     "@code": "1.1.1",
+     "@percentage": "50"
+    },
+    {
+     "/description/narrative/en": "Description text",
+     "@code": "1.2.1",
+     "@percentage": "50"
+    }
+   ],
+   "/country-budget-items@vocabulary": "2",
+   "/crs-add/loan-status/interest-arrears": "0",
+   "/crs-add/loan-status/interest-received": "200000",
+   "/crs-add/loan-status/principal-arrears": "0",
+   "/crs-add/loan-status/principal-outstanding": "1500000",
+   "/crs-add/loan-status@currency": "GBP",
+   "/crs-add/loan-status@value-date": "2013-05-24",
+   "/crs-add/loan-status@year": "2014",
+   "/crs-add/loan-terms/commitment-date@iso-date": "2013-09-01",
+   "/crs-add/loan-terms/repayment-final-date@iso-date": "2020-12-31",
+   "/crs-add/loan-terms/repayment-first-date@iso-date": "2014-01-01",
+   "/crs-add/loan-terms/repayment-plan@code": "4",
+   "/crs-add/loan-terms/repayment-type@code": "1",
+   "/crs-add/loan-terms@rate-1": "4",
+   "/crs-add/loan-terms@rate-2": "3",
+   "/crs-add/other-flags": [
+    {
+     "@code": "1",
+     "@significance": "1"
+    }
+   ],
+   "/default-aid-type@code": "A01",
+   "/default-finance-type@code": "110",
+   "/default-flow-type@code": "10",
+   "/default-tied-status@code": "3",
+   "/description/1/narrative/en": "General activity description text.  Long description of the activity with no particular structure.",
+   "/description/1/narrative/fr": "Activité générale du texte de description. Longue description de l'activité sans structure particulière.",
+   "/description/2/narrative/en": "Objectives for the activity, for example from a logical framework.",
+   "/description/2/narrative/fr": "Objectifs de l'activité, par exemple à partir d'un cadre logique.",
+   "/description/3/narrative/en": "Statement of groups targeted to benefit from the activity.",
+   "/description/3/narrative/fr": "Déclaration de groupes ciblés pour bénéficier de l'activité.",
+   "/document-link": [
+    {
+     "/category@code": "A01",
+     "/language@code": "en",
+     "/title/narrative/en": "Project Report 2013",
+     "/title/narrative/fr": "Rapport de projet 2013",
+     "@format": "application/vnd.oasis.opendocument.text",
+     "@url": "http:www.example.org/docs/report_en.odt"
+    }
+   ],
+   "/fss/forecast": "10000",
+   "/fss/forecast@currency": "GBP",
+   "/fss/forecast@value-date": "2013-07-03",
+   "/fss/forecast@year": "2014",
+   "/fss@extraction-date": "2014-05-06",
+   "/fss@phaseout-year": "2016",
+   "/fss@priority": "1",
+   "/iati-identifier": "AA-AAA-123456789-ABC123",
+   "/legacy-data": [
+    {
+     "@iati-equivalent": "activity-status",
+     "@name": "Project Status",
+     "@value": "7"
+    },
+    {
+     "@iati-equivalent": "transaction",
+     "@name": "cost",
+     "@value": "1000"
+    }
+   ],
+   "/location": [
+    {
+     "/activity-description/narrative/en": "A description that qualifies the activity taking place at the location",
+     "/administrative@code": "1453782",
+     "/administrative@level": "1",
+     "/administrative@vocabulary": "G1",
+     "/description/narrative/en": "Location description",
+     "/exactness@code": "1",
+     "/feature-designation@code": "ADMF",
+     "/location-class@code": "2",
+     "/location-id@code": "1453782",
+     "/location-id@vocabulary": "G1",
+     "/location-reach@code": "1",
+     "/name/narrative/en": "Location name",
+     "/point/pos": "31.616944 65.716944",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "AF-KAN"
+    }
+   ],
+   "/other-identifier": [
+    {
+     "/owner-org/narrative/en": "Organisation name",
+     "/owner-org@ref": "AA-AAA-123456789",
+     "@ref": "ABC123-XYZ",
+     "@type": "A1"
+    }
+   ],
+   "/participating-org": [
+    {
+     "/narrative/en": "Name of Agency B",
+     "@ref": "BB-BBB-123456789",
+     "@role": "1",
+     "@type": "40"
+    },
+    {
+     "/narrative/en": "Name of Agency C",
+     "@ref": "CC-CCC-123456789",
+     "@role": "2",
+     "@type": "10"
+    },
+    {
+     "/narrative/en": "Name of Agency A",
+     "/narrative/fr": "Nom de l'agence A",
+     "@ref": "AA-AAA-123456789",
+     "@role": "3",
+     "@type": "21"
+    }
+   ],
+   "/planned-disbursement": [
+    {
+     "/period-end@iso-date": "2014-12-31",
+     "/period-start@iso-date": "2014-01-01",
+     "/value": "3000",
+     "/value@currency": "EUR",
+     "/value@value-date": "2014-01-01",
+     "@type": "1"
+    },
+    {
+     "/period-end@iso-date": "2014-12-31",
+     "/period-start@iso-date": "2014-01-01",
+     "/value": "3000",
+     "/value@currency": "EUR",
+     "/value@value-date": "2014-01-01",
+     "@type": "1"
+    }
+   ],
+   "/policy-marker": [
+    {
+     "@code": "2",
+     "@significance": "3",
+     "@vocabulary": "1"
+    },
+    {
+     "@code": "9",
+     "@significance": "4",
+     "@vocabulary": "1"
+    }
+   ],
+   "/recipient-country": [
+    {
+     "@code": "AF",
+     "@percentage": "25"
+    },
+    {
+     "@code": "AG",
+     "@percentage": "25"
+    }
+   ],
+   "/recipient-region": [
+    {
+     "@code": "489",
+     "@percentage": "25",
+     "@vocabulary": "1"
+    },
+    {
+     "@code": "289",
+     "@percentage": "25",
+     "@vocabulary": "1"
+    }
+   ],
+   "/related-activity": [
+    {
+     "@ref": "AA-AAA-123456789-6789",
+     "@type": "1"
+    }
+   ],
+   "/reporting-org/narrative/en": "Organisation name",
+   "/reporting-org/narrative/fr": "Nom de l'organisme",
+   "/reporting-org@ref": "AA-AAA-123456789",
+   "/reporting-org@secondary-reporter": "0",
+   "/reporting-org@type": "40",
+   "/result": [
+    {
+     "/description/narrative/en": "Result description text",
+     "/indicator/baseline/comment/narrative/en": "Baseline comment text",
+     "/indicator/baseline@value": "10",
+     "/indicator/baseline@year": "2012",
+     "/indicator/description/narrative/en": "Indicator description text",
+     "/indicator/period/actual/comment/narrative/en": "Actual comment text",
+     "/indicator/period/actual@value": "11",
+     "/indicator/period/period-end@iso-date": "2013-03-31",
+     "/indicator/period/period-start@iso-date": "2013-01-01",
+     "/indicator/period/target/comment/narrative/en": "Target comment text",
+     "/indicator/period/target@value": "10",
+     "/indicator/title/narrative/en": "Indicator title",
+     "/indicator@ascending": "1",
+     "/indicator@measure": "1",
+     "/title/narrative/en": "Result title",
+     "@aggregation-status": "1",
+     "@type": "1"
+    }
+   ],
+   "/sector": [
+    {
+     "@code": "111",
+     "@percentage": "50",
+     "@vocabulary": "2"
+    },
+    {
+     "@code": "112",
+     "@percentage": "50",
+     "@vocabulary": "2"
+    }
+   ],
+   "/title/narrative/en": "Activity title",
+   "/title/narrative/es": "Título de la actividad",
+   "/title/narrative/fr": "Titre de l'activité",
+   "/transaction": [
+    {
+     "/aid-type@code": "A01",
+     "/description/narrative/en": "Transaction description text",
+     "/disbursement-channel@code": "1",
+     "/finance-type@code": "110",
+     "/flow-type@code": "10",
+     "/provider-org/narrative/en": "Agency B",
+     "/provider-org@provider-activity-id": "BB-BBB-123456789-1234AA",
+     "/provider-org@ref": "BB-BBB-123456789",
+     "/receiver-org/narrative/en": "Agency A",
+     "/receiver-org@receiver-activity-id": "AA-AAA-123456789-1234",
+     "/receiver-org@ref": "AA-AAA-123456789",
+     "/recipient-country@code": "AF",
+     "/recipient-region@code": "456",
+     "/recipient-region@vocabulary": "1",
+     "/sector@code": "111",
+     "/sector@vocabulary": "2",
+     "/tied-status@code": "3",
+     "/transaction-date@iso-date": "2012-01-01",
+     "/transaction-type@code": "1",
+     "/value": "1000",
+     "/value@currency": "EUR",
+     "/value@value-date": "2012-01-01",
+     "@ref": "1234"
+    }
+   ],
+   "@default-currency": "USD",
+   "@hierarchy": "1",
+   "@last-updated-datetime": "2014-09-10T07:15:37Z",
+   "@linked-data-uri": "http://data.example.org/123456789",
+   "@xml:lang": "en"
+  }
+ ],
+ "iati-activities@generated-datetime": "2014-09-10T07:15:37Z",
+ "iati-activities@linked-data-default": "http://data.example.org/",
+ "iati-activities@version": "2.01"
+}
