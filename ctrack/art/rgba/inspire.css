@@ -653,6 +653,7 @@ activity-scope:before		{color:rgba(85,85,85,1);}
 
 /*	Related documents list
 	============================================= */
+document-link language:before				{color:rgba(85,85,85,1);}
 span.span_document-link:before				{color:rgba(85,85,85,1);}
 a.a_document-link							{color:rgba(85,85,85,1); background-color:rgba(255,255,255,1); border:1px solid rgba(163,0,13,1); border-bottom:0;}
 a.a_document-link::before					{border:1px solid rgba(163,0,13,1); color:rgba(163,0,13,1);}
