@@ -851,7 +851,6 @@ acts.find("transaction recipient-country").each(function(i){var it=$(this);
 	it.find( it.attr("code") ).wrapAll( "<span-transaction class='recipient-country'></span-transaction>" );	
 });
 
-
 acts.find("transaction-type").each(function(i){var it=$(this);
 
 	var tc=it.attr("code");
@@ -971,6 +970,7 @@ sort_elements("transaction",[
 		"transaction-date",
 		"transaction-type",
 		"description",
+		"sector",
 		"provider-org",
 		"receiver-org",
 		"value",
