@@ -28,7 +28,7 @@ dflat.xml_to_json=function(data)
 
 	var store=function(op,n,v)
 	{
-		console.log(n+" = "+v)
+//		console.log(n+" = "+v)
 		var tn=pretrim(n,op.trim)
 		op.store[tn]=v
 	}
