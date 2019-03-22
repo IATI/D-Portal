@@ -172,45 +172,43 @@ dflat.xml_to_json=function(data)
 //
 dflat.xml_to_jml=function(data)
 {
-var expat = require('node-expat');
-	
 	var json=[];
 	var stack=[];
 	var top={};stack.push(top);
 	var cdata=false;
 
-	var parser = new expat.Parser('UTF-8');
+	var parser = require('sax').parser(true)
 
-	parser.on('startElement', function (name, attrs) {
-		var parent=top;
-		top={};stack.push(top);
-		for(n in attrs) { top[n]=attrs[n]; }
-		top[0]=name;
+	parser.onopentag=(node)=>{
+		var parent=top
+		top={};stack.push(top)
+		for(n in node.attributes) { top[n]=node.attributes[n] }
+		top[0]=node.name
 		if(!parent[1]){ parent[1]=[]; }
-		parent[1].push(top);
-	});
+		parent[1].push(top)
+	}
 
-	parser.on('endElement', function (name) {
-		stack.pop();
-		top=stack[stack.length-1];
-	});
+	parser.onclosetag=(name)=>{
+		stack.pop()
+		top=stack[stack.length-1]
+	}
 
-	parser.on('text', function (text) {
-		text=text.trim();
+	parser.ontext=(text)=>{
+		text=text.trim()
 		if(text!="") // ignore white space
 		{
-			if(!top[1]) {	top[1]=[];	}
-			if(cdata)	{ 	top[1].push( (text) );	}
-			else		{	top[1].push( (text) );	}
+			if(!top[1]) {	top[1]=[]	}
+			if(cdata)	{ 	top[1].push( (text) )	}
+			else		{	top[1].push( (text) )	}
 		}
-	});
+	}
 
 // maintain cdata text flag
-	parser.on('startCdata', function () { cdata=true; });
-	parser.on('endCdata', function () { cdata=false; });
+	parser.onopencdata=()=>{ cdata=true; }
+	parser.onclosecdata=()=>{ cdata=false; }
 
 //throw any errors
-	parser.on( 'error', (e)=>{ throw new Error(e) } );
+	parser.onerror=(e)=>{ throw new Error(e) }
 
 	parser.write(data);
 

@@ -106,11 +106,6 @@ cmd.run=async function(argv)
 					}
 				}
 				await csvWriter.writeRecords([it])
-			}
-
-			for(var ai=0; ai<a.length ; ai++)
-			{
-				var b=a[ai]
 				var c=[]
 				for(var bn in b)
 				{
