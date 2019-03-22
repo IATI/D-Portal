@@ -744,17 +744,37 @@ acts.find("planned-disbursement").each(function(i){var it=$(this);
 acts.find("recipient-region").each(function(i){var it=$(this);
 	
 	var c=it.attr("code");
+	var d=it.attr("code");
 	var v=it.attr("vocabulary");
+	var u=it.attr("vocabulary-uri");
 	var p=it.attr("percentage");	
 	
 	
-	if( it.find("narrative") && p )
+	if( it.find("narrative").text()!="" )
 	{
-		it.html("<narrative>"+it.find("narrative").text()+"</narrative>"+"<span class='region-percent'>"+p+"%</span>");
+		it.html("<narrative>"+it.find("narrative").text()+"</narrative>");
+		if(p)
+		{
+			it.html("<narrative>"+it.find("narrative").text()+"</narrative>"+"<span class='region-percent'>"+p+"%</span>");
+		}
 	}
-	else
+	else //(version 2.01 - freetext is no longer allowed)
 	{
-		it.text(""); //(version 2.01 - freetext is no longer allowed)
+		it.html("<narrative>"+d+"</narrative>");
+		if(p)
+		{
+			it.html("<narrative>"+d+"</narrative>"+"<span class='region-percent'>"+p+"%</span>");
+		}
+		//it.text(""); 
+	}
+		
+	if(u)
+	{
+		it.html($('<a href="' + u + '" class="region-uri">' + d + '</a>'));
+		if(p)
+		{
+			it.html($('<a href="' + u + '" class="region-uri">' + d + '</a><span class="region-percent">' + p + '%</span>'));
+		}
 	}
 	
 	if(c)
