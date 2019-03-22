@@ -84,8 +84,7 @@ cmd.run=async function(argv)
 			header[0]={id:"TYPE",title:"TYPE"}
 
 
-			const createCsvWriter = require('csv-writer').createObjectCsvWriter;
-			const csvWriter = createCsvWriter({
+			const csvWriter = require('csv-writer').createObjectCsvWriter({
 				path: filename+'.csv',
 				header: header
 			});
