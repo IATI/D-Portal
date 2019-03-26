@@ -103,7 +103,7 @@ dflat.xml_to_json=function(data)
 			np.name=op.root+it[0]
 			np.root=np.name+"/"
 			
-			if(it[0]=="iati-activity" && op.root=="/iati-activities/" )
+			if( np.name == "/iati-activities/iati-activity" )
 			{
 				np.name="iati-activity"
 				np.root=np.name+"/"
@@ -118,9 +118,9 @@ dflat.xml_to_json=function(data)
 			}
 
 // split out *possible* multiple elemets into arrays, no matter how many there are
-			if( multi_elements[ op.root+it[0] ] ) // can there be multiples?S
+			if( multi_elements[ np.name ] ) // can there be multiples?S
 			{
-				var n=pretrim( op.root+it[0] , "iati-activity" ) // trim
+				var n=pretrim( np.name , "iati-activity" ) // trim
 
 				op.store[ n ]=op.store[ n ] || []
 				np.store={}
@@ -129,18 +129,18 @@ dflat.xml_to_json=function(data)
 			}
 
 // flatten description using @type
-			if( it[0]=="description"&& op.root=="iati-activity/" )
+			if( np.name == "iati-activity/description" )
 			{
-				np.name=op.root+it[0]+"/"+(it["type"] || "1") // defaults to type 1
+				np.name=np.name+"/"+(it["type"] || "1") // defaults to type 1
 				np.root=np.name+"/"
 				if(it[1]) { dump(it[1],np) }
 				return
 			}
 
 // flatten activity-date using @type	
-			if( it[0]=="activity-date" && it["type"] && op.root=="iati-activity/" )
+			if( it["type"] && ( np.name == "iati-activity/activity-date" ) )
 			{
-				np.name=op.root+it[0]+"/"+it["type"]
+				np.name=np.name+"/"+it["type"]
 				np.root=np.name+"/"
 				dump_attr(it,np)
 				if(it[1]) { dump(it[1],np) }
