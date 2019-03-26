@@ -15,6 +15,29 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 cmd.run=async function(argv)
 {
+	if( argv._[0]=="fetch" )
+	{
+		const download = require('download')
+		const xpathParser = require("pify")(require('xml2xpath'));
+		
+		pfs.mkdir("fetched").catch(e=>{})
+		for(var n in {
+			"iati-activities-schema.xsd":true,
+			"iati-common.xsd":true,
+			"iati-organisations-schema.xsd":true,
+			"iati-registry-record-schema.xsd":true,
+			"xml.xsd":true,
+		})
+		{
+			console.log("downloading "+n)
+			await download("https://raw.githubusercontent.com/IATI/IATI-Schemas/version-2.03/"+n,"fetched")
+		}
+		 
+//		console.log( ( await xpathParser.parseXsd('fetched/iati-activities-schema.xsd') ).join("\n") )
+
+		return
+	}
+
 	if( argv._[0]=="xml2json" )
 	{
 		var filename=argv.filename || argv._[1] ;
@@ -142,6 +165,9 @@ cmd.run=async function(argv)
 	
 	// help text
 	console.log(
+		"\n"+
+		">	dflat fetch \n"+
+		"Fetch remote files and update cached data\n"+
 		"\n"+
 		">	dflat xml2json filename[.xml] \n"+
 		"Convert activities from filename.xml into filename.json/*\n"+
