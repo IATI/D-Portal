@@ -63,7 +63,7 @@ cmd.run=async function(argv)
 		{
 			var dat=await pfs.readFile(filename+".xml",{ encoding: 'utf8' });
 			var json=dflat.xml_to_json(dat)
-			
+
 			var headers={}
 			var cb
 			cb=function(it,root)
@@ -89,9 +89,9 @@ cmd.run=async function(argv)
 			var header=[]
 			for(var n in headers)
 			{
-				if(n.startsWith("iati-activities/iati-activity"))
+				if(n.startsWith("/iati-activities/iati-activity"))
 				{
-					var s=n.substr( ("iati-activities/iati-activity").length )
+					var s=n.substr( ("/iati-activities/iati-activity").length )
 					if(s)
 					{
 						header.push(s)
@@ -104,7 +104,7 @@ cmd.run=async function(argv)
 			{
 				header[i+1]={id:header[i],title:header[i]}
 			}
-			header[0]={id:"TYPE",title:"TYPE"}
+			header[0]={id:"TYPE",title:"/iati-activities/iati-activity"}
 
 
 			const csvWriter = require('csv-writer').createObjectCsvWriter({
@@ -113,11 +113,11 @@ cmd.run=async function(argv)
 			});
 			
 			
-			var a=json["iati-activities/iati-activity"]
+			var a=json["/iati-activities/iati-activity"]
 			for(var ai=0; ai<a.length ; ai++)
 			{
 				var it={}
-				it.TYPE="iati-activity"
+				it.TYPE=""
 				var b=a[ai]
 				for(var bn in b)
 				{
@@ -144,7 +144,7 @@ cmd.run=async function(argv)
 					for(var di=0;di<d.length;di++)
 					{
 						var it={}
-						it.TYPE="iati-activity"+bn
+						it.TYPE=bn
 						it["/iati-identifier"]=b["/iati-identifier"] // copy id
 						
 						var e=d[di]

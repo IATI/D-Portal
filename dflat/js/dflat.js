@@ -102,7 +102,7 @@ dflat.xml_to_json=function(data)
 			np.name=op.root+it[0]
 			np.root=np.name+"/"
 			
-			if(it[0]=="iati-activity" && op.root=="iati-activities/" )
+			if(it[0]=="iati-activity" && op.root=="/iati-activities/" )
 			{
 				np.name="iati-activity"
 				np.root=np.name+"/"
@@ -110,10 +110,10 @@ dflat.xml_to_json=function(data)
 				{
 					np.lang=it["xml:lang"]
 				}
-				flat["iati-activities/iati-activity"]=flat["iati-activities/iati-activity"] || []
+				flat["/iati-activities/iati-activity"]=flat["/iati-activities/iati-activity"] || []
 				np.store={}
 				np.trim=np.name
-				flat["iati-activities/iati-activity"].push(np.store)
+				flat["/iati-activities/iati-activity"].push(np.store)
 			}
 
 // split out *possible* multiple elemets into arrays, no matter how many there are
@@ -151,7 +151,7 @@ dflat.xml_to_json=function(data)
 		}
 
 	}
-	dump(jml,{root:"",store:flat})
+	dump(jml,{root:"/",store:flat})
 
 
 
