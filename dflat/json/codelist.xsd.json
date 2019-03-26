@@ -1,0 +1,1686 @@
+{
+ "0": "xs:schema",
+ "xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+ "1": [
+  {
+   "0": "xs:import",
+   "namespace": "http://www.w3.org/XML/1998/namespace",
+   "schemaLocation": "xml.xsd"
+  },
+  {
+   "0": "xs:element",
+   "name": "narrative",
+   "1": [
+    {
+     "0": "xs:annotation",
+     "1": [
+      {
+       "0": "xs:documentation",
+       "xml:lang": "en",
+       "1": [
+        "The free text name or description of the item being described. This can\n      be repeated in multiple languages."
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xs:complexType",
+     "1": [
+      {
+       "0": "xs:simpleContent",
+       "1": [
+        {
+         "0": "xs:extension",
+         "base": "xs:string",
+         "1": [
+          {
+           "0": "xs:attribute",
+           "ref": "xml:lang",
+           "use": "optional",
+           "1": [
+            {
+             "0": "xs:annotation",
+             "1": [
+              {
+               "0": "xs:documentation",
+               "xml:lang": "en",
+               "1": [
+                "ISO 639-1 code specifying the language of text in this element. If a default language is specified in the iati-activity element it does not have to be repeated here."
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "0": "xs:anyAttribute",
+           "namespace": "##other",
+           "processContents": "lax"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:complexType",
+   "name": "textType",
+   "1": [
+    {
+     "0": "xs:annotation",
+     "1": [
+      {
+       "0": "xs:documentation",
+       "xml:lang": "en",
+       "1": [
+        "Data type for an element that may contain human-readable text\n      in different languages."
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xs:sequence",
+     "1": [
+      {
+       "0": "xs:element",
+       "maxOccurs": "unbounded",
+       "minOccurs": "0",
+       "ref": "narrative"
+      },
+      {
+       "0": "xs:any",
+       "maxOccurs": "unbounded",
+       "minOccurs": "0",
+       "namespace": "##other",
+       "processContents": "lax"
+      }
+     ]
+    },
+    {
+     "0": "xs:anyAttribute",
+     "namespace": "##other",
+     "processContents": "lax"
+    }
+   ]
+  },
+  {
+   "0": "xs:element",
+   "name": "codelist-item",
+   "1": [
+    {
+     "0": "xs:complexType",
+     "1": [
+      {
+       "0": "xs:sequence",
+       "1": [
+        {
+         "0": "xs:element",
+         "maxOccurs": "1",
+         "minOccurs": "1",
+         "name": "code",
+         "type": "xs:string"
+        },
+        {
+         "0": "xs:element",
+         "maxOccurs": "1",
+         "minOccurs": "0",
+         "name": "name",
+         "type": "textType"
+        },
+        {
+         "0": "xs:element",
+         "maxOccurs": "1",
+         "minOccurs": "0",
+         "name": "description",
+         "type": "textType"
+        },
+        {
+         "0": "xs:element",
+         "maxOccurs": "1",
+         "minOccurs": "0",
+         "name": "category",
+         "type": "xs:string"
+        },
+        {
+         "0": "xs:element",
+         "maxOccurs": "1",
+         "minOccurs": "0",
+         "name": "url",
+         "type": "xs:anyURI"
+        },
+        {
+         "0": "xs:any",
+         "maxOccurs": "unbounded",
+         "minOccurs": "0",
+         "namespace": "##other",
+         "processContents": "lax"
+        }
+       ]
+      },
+      {
+       "0": "xs:attribute",
+       "name": "public-database",
+       "use": "optional"
+      },
+      {
+       "0": "xs:attribute",
+       "name": "status",
+       "type": "xs:string",
+       "use": "optional"
+      },
+      {
+       "0": "xs:attribute",
+       "name": "activation-date",
+       "type": "xs:date",
+       "use": "optional"
+      },
+      {
+       "0": "xs:attribute",
+       "name": "withdrawal-date",
+       "type": "xs:date",
+       "use": "optional"
+      },
+      {
+       "0": "xs:anyAttribute",
+       "namespace": "##other",
+       "processContents": "lax"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:element",
+   "name": "codelist-items",
+   "1": [
+    {
+     "0": "xs:complexType",
+     "1": [
+      {
+       "0": "xs:sequence",
+       "1": [
+        {
+         "0": "xs:element",
+         "maxOccurs": "unbounded",
+         "minOccurs": "0",
+         "ref": "codelist-item"
+        },
+        {
+         "0": "xs:any",
+         "maxOccurs": "unbounded",
+         "minOccurs": "0",
+         "namespace": "##other",
+         "processContents": "lax"
+        }
+       ]
+      },
+      {
+       "0": "xs:anyAttribute",
+       "namespace": "##other",
+       "processContents": "lax"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:element",
+   "name": "codelist",
+   "1": [
+    {
+     "0": "xs:complexType",
+     "1": [
+      {
+       "0": "xs:sequence",
+       "1": [
+        {
+         "0": "xs:element",
+         "maxOccurs": "1",
+         "minOccurs": "1",
+         "name": "metadata",
+         "1": [
+          {
+           "0": "xs:complexType",
+           "1": [
+            {
+             "0": "xs:sequence",
+             "1": [
+              {
+               "0": "xs:element",
+               "maxOccurs": "1",
+               "minOccurs": "0",
+               "name": "name",
+               "type": "textType"
+              },
+              {
+               "0": "xs:element",
+               "maxOccurs": "1",
+               "minOccurs": "0",
+               "name": "description",
+               "type": "textType"
+              },
+              {
+               "0": "xs:element",
+               "maxOccurs": "1",
+               "minOccurs": "0",
+               "name": "url",
+               "type": "xs:anyURI"
+              },
+              {
+               "0": "xs:any",
+               "maxOccurs": "unbounded",
+               "minOccurs": "0",
+               "namespace": "##other",
+               "processContents": "lax"
+              }
+             ]
+            },
+            {
+             "0": "xs:anyAttribute",
+             "namespace": "##other",
+             "processContents": "lax"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "0": "xs:element",
+         "maxOccurs": "1",
+         "minOccurs": "1",
+         "ref": "codelist-items"
+        }
+       ]
+      },
+      {
+       "0": "xs:attribute",
+       "name": "ref",
+       "use": "optional"
+      },
+      {
+       "0": "xs:attribute",
+       "name": "name",
+       "use": "optional"
+      },
+      {
+       "0": "xs:attribute",
+       "name": "category-codelist",
+       "use": "optional"
+      },
+      {
+       "0": "xs:attribute",
+       "ref": "xml:lang",
+       "use": "optional"
+      },
+      {
+       "0": "xs:attribute",
+       "name": "complete",
+       "type": "xs:boolean",
+       "use": "optional"
+      },
+      {
+       "0": "xs:attribute",
+       "name": "embedded",
+       "type": "xs:boolean",
+       "use": "optional"
+      },
+      {
+       "0": "xs:anyAttribute",
+       "namespace": "##other",
+       "processContents": "lax"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:element",
+   "name": "codelists",
+   "1": [
+    {
+     "0": "xs:complexType",
+     "1": [
+      {
+       "0": "xs:sequence",
+       "1": [
+        {
+         "0": "xs:element",
+         "maxOccurs": "unbounded",
+         "minOccurs": "0",
+         "ref": "codelist"
+        },
+        {
+         "0": "xs:any",
+         "maxOccurs": "unbounded",
+         "minOccurs": "0",
+         "namespace": "##other",
+         "processContents": "lax"
+        }
+       ]
+      },
+      {
+       "0": "xs:anyAttribute",
+       "namespace": "##other",
+       "processContents": "lax"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xsd:annotation",
+   "1": [
+    {
+     "0": "xsd:documentation",
+     "xml:lang": "en",
+     "1": [
+      "International Aid Transparency Initiative: Common Markup Components\n\n      Release 2.03, 2018-02-19\n\n      This schema is not meant to be used on its own: it contains\n      common shared markup components for the IATI activities and\n      organisations schemas.  It must be in the same directory as\n      iati-activities-schema.xsd and iati-organisations-schema.xsd\n      (together with xml.xsd)."
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xsd:import",
+   "namespace": "http://www.w3.org/XML/1998/namespace",
+   "schemaLocation": "xml.xsd"
+  },
+  {
+   "0": "xsd:element",
+   "name": "narrative",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "The free text name or description of the item being described. This can\n        be repeated in multiple languages."
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xsd:complexType",
+     "1": [
+      {
+       "0": "xsd:simpleContent",
+       "1": [
+        {
+         "0": "xsd:extension",
+         "base": "xsd:string",
+         "1": [
+          {
+           "0": "xsd:attribute",
+           "ref": "xml:lang",
+           "use": "optional",
+           "1": [
+            {
+             "0": "xsd:annotation",
+             "1": [
+              {
+               "0": "xsd:documentation",
+               "xml:lang": "en",
+               "1": [
+                "A code specifying the language of text in this element. It is recommended that wherever possible only codes from ISO 639-1 are used. If not present, the default language is assumed."
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "0": "xsd:anyAttribute",
+           "namespace": "##other",
+           "processContents": "lax"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xsd:element",
+   "name": "title",
+   "type": "textRequiredType",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "A short, human-readable title."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xsd:element",
+   "name": "description",
+   "type": "descriptionBase",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "A longer, human-readable description."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xsd:element",
+   "name": "comment",
+   "type": "textRequiredType",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "A human-readable comment associated with a piece of aid information."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xsd:element",
+   "name": "reporting-org",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "The organisation issuing the report.\n        May be a primary source (reporting on its own activity as\n        donor, implementing agency, etc) or a secondary source\n        (reporting on the activities of another organisation).\n\n        Specifying the @ref attribute is mandatory.\n        May contain the organisation name as content.\n\n        All activities in an activity xml file must contain the same\n        @ref AND this @ref must be the same as the iati-identifier\n        recorded in the registry publisher record of the account under\n        which this file is published."
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xsd:complexType",
+     "1": [
+      {
+       "0": "xsd:sequence",
+       "1": [
+        {
+         "0": "xsd:element",
+         "maxOccurs": "unbounded",
+         "minOccurs": "1",
+         "ref": "narrative",
+         "1": [
+          {
+           "0": "xsd:annotation",
+           "1": [
+            {
+             "0": "xsd:documentation",
+             "xml:lang": "en",
+             "1": [
+              "The name of the organisation. May be repeated for\n              different languages."
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "0": "xsd:any",
+         "maxOccurs": "unbounded",
+         "minOccurs": "0",
+         "namespace": "##other",
+         "processContents": "lax"
+        }
+       ]
+      },
+      {
+       "0": "xsd:attribute",
+       "name": "ref",
+       "type": "xsd:string",
+       "use": "required",
+       "1": [
+        {
+         "0": "xsd:annotation",
+         "1": [
+          {
+           "0": "xsd:documentation",
+           "xml:lang": "en",
+           "1": [
+            "Machine-readable identification string for the organisation issuing the report. Must be in the format {RegistrationAgency}-{RegistrationNumber} where {RegistrationAgency} is a valid code in the Organisation Registration Agency code list and {RegistrationNumber} is a valid identifier issued by the {RegistrationAgency}."
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "0": "xsd:attribute",
+       "name": "type",
+       "type": "xsd:string",
+       "use": "required",
+       "1": [
+        {
+         "0": "xsd:annotation",
+         "1": [
+          {
+           "0": "xsd:documentation",
+           "xml:lang": "en",
+           "1": [
+            "The type of organisation issuing the report. See IATI codelist for values."
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "0": "xsd:attribute",
+       "name": "secondary-reporter",
+       "type": "xsd:boolean",
+       "use": "optional",
+       "1": [
+        {
+         "0": "xsd:annotation",
+         "1": [
+          {
+           "0": "xsd:documentation",
+           "xml:lang": "en",
+           "1": [
+            "A flag indicating that the reporting organisation of this activity is acting as a secondary reporter. A secondary reporter is one that reproduces data on the activities of an organisation for which it is not directly responsible. This does not include a publisher officially assigned as a proxy to report on behalf of another."
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "0": "xsd:anyAttribute",
+       "namespace": "##other",
+       "processContents": "lax"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xsd:attribute",
+   "name": "value-date",
+   "type": "xsd:date",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "The date to be used for determining the exchange rate for\n        currency conversions."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xsd:complexType",
+   "name": "descriptionBase",
+   "1": [
+    {
+     "0": "xsd:sequence",
+     "1": [
+      {
+       "0": "xsd:element",
+       "maxOccurs": "unbounded",
+       "minOccurs": "1",
+       "ref": "narrative"
+      },
+      {
+       "0": "xsd:any",
+       "maxOccurs": "unbounded",
+       "minOccurs": "0",
+       "namespace": "##other",
+       "processContents": "lax"
+      }
+     ]
+    },
+    {
+     "0": "xsd:anyAttribute",
+     "namespace": "##other",
+     "processContents": "lax"
+    }
+   ]
+  },
+  {
+   "0": "xsd:complexType",
+   "name": "textType",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "Data type for an element that may contain human-readable text\n        in different languages."
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xsd:sequence",
+     "1": [
+      {
+       "0": "xsd:element",
+       "maxOccurs": "unbounded",
+       "minOccurs": "0",
+       "ref": "narrative"
+      },
+      {
+       "0": "xsd:any",
+       "maxOccurs": "unbounded",
+       "minOccurs": "0",
+       "namespace": "##other",
+       "processContents": "lax"
+      }
+     ]
+    },
+    {
+     "0": "xsd:anyAttribute",
+     "namespace": "##other",
+     "processContents": "lax"
+    }
+   ]
+  },
+  {
+   "0": "xsd:complexType",
+   "name": "textRequiredType",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "Data type for an element that must contain human-readable text.\n        The information may be repeated in different languages."
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xsd:sequence",
+     "1": [
+      {
+       "0": "xsd:element",
+       "maxOccurs": "unbounded",
+       "minOccurs": "1",
+       "ref": "narrative"
+      },
+      {
+       "0": "xsd:any",
+       "maxOccurs": "unbounded",
+       "minOccurs": "0",
+       "namespace": "##other",
+       "processContents": "lax"
+      }
+     ]
+    },
+    {
+     "0": "xsd:anyAttribute",
+     "namespace": "##other",
+     "processContents": "lax"
+    }
+   ]
+  },
+  {
+   "0": "xsd:complexType",
+   "name": "documentLinkBase",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "A link to an online, publicly accessible web page or document."
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xsd:sequence",
+     "1": [
+      {
+       "0": "xsd:element",
+       "maxOccurs": "1",
+       "minOccurs": "1",
+       "ref": "title"
+      },
+      {
+       "0": "xsd:element",
+       "maxOccurs": "1",
+       "minOccurs": "0",
+       "name": "description",
+       "type": "descriptionBase",
+       "1": [
+        {
+         "0": "xsd:annotation",
+         "1": [
+          {
+           "0": "xsd:documentation",
+           "xml:lang": "en",
+           "1": [
+            "A description of the document contents, or guidance on where to access the relevant information in the document."
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "0": "xsd:element",
+       "maxOccurs": "unbounded",
+       "minOccurs": "1",
+       "name": "category",
+       "1": [
+        {
+         "0": "xsd:annotation",
+         "1": [
+          {
+           "0": "xsd:documentation",
+           "xml:lang": "en",
+           "1": [
+            "IATI Document Category Code"
+           ]
+          }
+         ]
+        },
+        {
+         "0": "xsd:complexType",
+         "1": [
+          {
+           "0": "xsd:sequence",
+           "1": [
+            {
+             "0": "xsd:any",
+             "maxOccurs": "unbounded",
+             "minOccurs": "0",
+             "namespace": "##other",
+             "processContents": "lax"
+            }
+           ]
+          },
+          {
+           "0": "xsd:attribute",
+           "name": "code",
+           "type": "xsd:string",
+           "use": "required",
+           "1": [
+            {
+             "0": "xsd:annotation",
+             "1": [
+              {
+               "0": "xsd:documentation",
+               "xml:lang": "en",
+               "1": [
+                "An IATI code defining the category of the document."
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "0": "xsd:anyAttribute",
+           "namespace": "##other",
+           "processContents": "lax"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "0": "xsd:element",
+       "maxOccurs": "unbounded",
+       "minOccurs": "0",
+       "name": "language",
+       "1": [
+        {
+         "0": "xsd:annotation",
+         "1": [
+          {
+           "0": "xsd:documentation",
+           "xml:lang": "en",
+           "1": [
+            "The ISO 639-1 language code in which target document is written, e.g. \"en\". Can be repeated to describe multi-lingual documents."
+           ]
+          }
+         ]
+        },
+        {
+         "0": "xsd:complexType",
+         "1": [
+          {
+           "0": "xsd:sequence",
+           "1": [
+            {
+             "0": "xsd:any",
+             "maxOccurs": "unbounded",
+             "minOccurs": "0",
+             "namespace": "##other",
+             "processContents": "lax"
+            }
+           ]
+          },
+          {
+           "0": "xsd:attribute",
+           "name": "code",
+           "type": "xsd:string",
+           "use": "required",
+           "1": [
+            {
+             "0": "xsd:annotation",
+             "1": [
+              {
+               "0": "xsd:documentation",
+               "xml:lang": "en",
+               "1": [
+                "ISO 639-1 language code"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "0": "xsd:anyAttribute",
+           "namespace": "##other",
+           "processContents": "lax"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "0": "xsd:element",
+       "maxOccurs": "1",
+       "minOccurs": "0",
+       "name": "document-date",
+       "1": [
+        {
+         "0": "xsd:annotation",
+         "1": [
+          {
+           "0": "xsd:documentation",
+           "xml:lang": "en",
+           "1": [
+            "The date of publication of the document that is being linked to."
+           ]
+          }
+         ]
+        },
+        {
+         "0": "xsd:complexType",
+         "1": [
+          {
+           "0": "xsd:sequence",
+           "1": [
+            {
+             "0": "xsd:any",
+             "maxOccurs": "unbounded",
+             "minOccurs": "0",
+             "namespace": "##other",
+             "processContents": "lax"
+            }
+           ]
+          },
+          {
+           "0": "xsd:attribute",
+           "name": "iso-date",
+           "type": "xsd:date",
+           "use": "required"
+          },
+          {
+           "0": "xsd:anyAttribute",
+           "namespace": "##other",
+           "processContents": "lax"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "0": "xsd:any",
+       "maxOccurs": "unbounded",
+       "minOccurs": "0",
+       "namespace": "##other",
+       "processContents": "lax"
+      }
+     ]
+    },
+    {
+     "0": "xsd:attribute",
+     "name": "url",
+     "type": "xsd:anyURI",
+     "use": "required",
+     "1": [
+      {
+       "0": "xsd:annotation",
+       "1": [
+        {
+         "0": "xsd:documentation",
+         "xml:lang": "en",
+         "1": [
+          "The target URL of the external document, e.g. \"http://www.example.org/doc.odt\"."
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xsd:attribute",
+     "name": "format",
+     "type": "xsd:string",
+     "use": "required",
+     "1": [
+      {
+       "0": "xsd:annotation",
+       "1": [
+        {
+         "0": "xsd:documentation",
+         "xml:lang": "en",
+         "1": [
+          "An IANA code for the MIME type of the document being referenced, e.g. \"application/pdf\"."
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xsd:anyAttribute",
+     "namespace": "##other",
+     "processContents": "lax"
+    }
+   ]
+  },
+  {
+   "0": "xs:annotation",
+   "1": [
+    {
+     "0": "xs:documentation",
+     "1": [
+      {
+       "0": "div",
+       "1": [
+        {
+         "0": "h1",
+         "1": [
+          "About the XML namespace"
+         ]
+        },
+        {
+         "0": "div",
+         "class": "bodytext",
+         "1": [
+          {
+           "0": "p",
+           "1": [
+            "This schema document describes the XML namespace, in a form\n      suitable for import by other schema documents."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "See",
+            {
+             "0": "a",
+             "href": "http://www.w3.org/XML/1998/namespace.html",
+             "1": [
+              "http://www.w3.org/XML/1998/namespace.html"
+             ]
+            },
+            "and",
+            {
+             "0": "a",
+             "href": "http://www.w3.org/TR/REC-xml",
+             "1": [
+              "http://www.w3.org/TR/REC-xml"
+             ]
+            },
+            "for information \n      about this namespace."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "Note that local names in this namespace are intended to be\n      defined only by the World Wide Web Consortium or its subgroups.\n      The names currently defined in this namespace are listed below.\n      They should not be used with conflicting semantics by any Working\n      Group, specification, or document instance."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "See further below in this document for more information about",
+            {
+             "0": "a",
+             "href": "#usage",
+             "1": [
+              "how to refer to this schema document from your own\n      XSD schema documents"
+             ]
+            },
+            "and about",
+            {
+             "0": "a",
+             "href": "#nsversioning",
+             "1": [
+              "the\n      namespace-versioning policy governing this schema document"
+             ]
+            },
+            "."
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:attribute",
+   "name": "lang",
+   "1": [
+    {
+     "0": "xs:annotation",
+     "1": [
+      {
+       "0": "xs:documentation",
+       "1": [
+        {
+         "0": "div",
+         "1": [
+          {
+           "0": "h3",
+           "1": [
+            "lang (as an attribute name)"
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "denotes an attribute whose value\n       is a language code for the natural language of the content of\n       any element; its value is inherited.  This name is reserved\n       by virtue of its definition in the XML specification."
+           ]
+          }
+         ]
+        },
+        {
+         "0": "div",
+         "1": [
+          {
+           "0": "h4",
+           "1": [
+            "Notes"
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "Attempting to install the relevant ISO 2- and 3-letter\n      codes as the enumerated possible values is probably never\n      going to be a realistic possibility."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "See BCP 47 at",
+            {
+             "0": "a",
+             "href": "http://www.rfc-editor.org/rfc/bcp/bcp47.txt",
+             "1": [
+              "http://www.rfc-editor.org/rfc/bcp/bcp47.txt"
+             ]
+            },
+            "and the IANA language subtag registry at",
+            {
+             "0": "a",
+             "href": "http://www.iana.org/assignments/language-subtag-registry",
+             "1": [
+              "http://www.iana.org/assignments/language-subtag-registry"
+             ]
+            },
+            "for further information."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "The union allows for the 'un-declaration' of xml:lang with\n      the empty string."
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xs:simpleType",
+     "1": [
+      {
+       "0": "xs:union",
+       "memberTypes": "xs:language",
+       "1": [
+        {
+         "0": "xs:simpleType",
+         "1": [
+          {
+           "0": "xs:restriction",
+           "base": "xs:string",
+           "1": [
+            {
+             "0": "xs:enumeration",
+             "value": ""
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:attribute",
+   "name": "space",
+   "1": [
+    {
+     "0": "xs:annotation",
+     "1": [
+      {
+       "0": "xs:documentation",
+       "1": [
+        {
+         "0": "div",
+         "1": [
+          {
+           "0": "h3",
+           "1": [
+            "space (as an attribute name)"
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "denotes an attribute whose\n       value is a keyword indicating what whitespace processing\n       discipline is intended for the content of the element; its\n       value is inherited.  This name is reserved by virtue of its\n       definition in the XML specification."
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xs:simpleType",
+     "1": [
+      {
+       "0": "xs:restriction",
+       "base": "xs:NCName",
+       "1": [
+        {
+         "0": "xs:enumeration",
+         "value": "default"
+        },
+        {
+         "0": "xs:enumeration",
+         "value": "preserve"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:attribute",
+   "name": "base",
+   "type": "xs:anyURI",
+   "1": [
+    {
+     "0": "xs:annotation",
+     "1": [
+      {
+       "0": "xs:documentation",
+       "1": [
+        {
+         "0": "div",
+         "1": [
+          {
+           "0": "h3",
+           "1": [
+            "base (as an attribute name)"
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "denotes an attribute whose value\n       provides a URI to be used as the base for interpreting any\n       relative URIs in the scope of the element on which it\n       appears; its value is inherited.  This name is reserved\n       by virtue of its definition in the XML Base specification."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "See",
+            {
+             "0": "a",
+             "href": "http://www.w3.org/TR/xmlbase/",
+             "1": [
+              "http://www.w3.org/TR/xmlbase/"
+             ]
+            },
+            "for information about this attribute."
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:attribute",
+   "name": "id",
+   "type": "xs:ID",
+   "1": [
+    {
+     "0": "xs:annotation",
+     "1": [
+      {
+       "0": "xs:documentation",
+       "1": [
+        {
+         "0": "div",
+         "1": [
+          {
+           "0": "h3",
+           "1": [
+            "id (as an attribute name)"
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "denotes an attribute whose value\n       should be interpreted as if declared to be of type ID.\n       This name is reserved by virtue of its definition in the\n       xml:id specification."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "See",
+            {
+             "0": "a",
+             "href": "http://www.w3.org/TR/xml-id/",
+             "1": [
+              "http://www.w3.org/TR/xml-id/"
+             ]
+            },
+            "for information about this attribute."
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:attributeGroup",
+   "name": "specialAttrs",
+   "1": [
+    {
+     "0": "xs:attribute",
+     "ref": "xml:base"
+    },
+    {
+     "0": "xs:attribute",
+     "ref": "xml:lang"
+    },
+    {
+     "0": "xs:attribute",
+     "ref": "xml:space"
+    },
+    {
+     "0": "xs:attribute",
+     "ref": "xml:id"
+    }
+   ]
+  },
+  {
+   "0": "xs:annotation",
+   "1": [
+    {
+     "0": "xs:documentation",
+     "1": [
+      {
+       "0": "div",
+       "1": [
+        {
+         "0": "h3",
+         "1": [
+          "Father (in any context at all)"
+         ]
+        },
+        {
+         "0": "div",
+         "class": "bodytext",
+         "1": [
+          {
+           "0": "p",
+           "1": [
+            "denotes Jon Bosak, the chair of \n      the original XML Working Group.  This name is reserved by \n      the following decision of the W3C XML Plenary and \n      XML Coordination groups:"
+           ]
+          },
+          {
+           "0": "blockquote",
+           "1": [
+            {
+             "0": "p",
+             "1": [
+              "In appreciation for his vision, leadership and\n\tdedication the W3C XML Plenary on this 10th day of\n\tFebruary, 2000, reserves for Jon Bosak in perpetuity\n\tthe XML name \"xml:Father\"."
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:annotation",
+   "1": [
+    {
+     "0": "xs:documentation",
+     "1": [
+      {
+       "0": "div",
+       "id": "usage",
+       "xml:id": "usage",
+       "1": [
+        {
+         "0": "h2",
+         "1": [
+          {
+           "0": "a",
+           "name": "usage",
+           "1": [
+            "About this schema document"
+           ]
+          }
+         ]
+        },
+        {
+         "0": "div",
+         "class": "bodytext",
+         "1": [
+          {
+           "0": "p",
+           "1": [
+            "This schema defines attributes and an attribute group suitable\n      for use by schemas wishing to allow",
+            {
+             "0": "code",
+             "1": [
+              "xml:base"
+             ]
+            },
+            ",",
+            {
+             "0": "code",
+             "1": [
+              "xml:lang"
+             ]
+            },
+            ",",
+            {
+             "0": "code",
+             "1": [
+              "xml:space"
+             ]
+            },
+            "or",
+            {
+             "0": "code",
+             "1": [
+              "xml:id"
+             ]
+            },
+            "attributes on elements they define."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "To enable this, such a schema must import this schema for\n      the XML namespace, e.g. as follows:"
+           ]
+          },
+          {
+           "0": "pre",
+           "1": [
+            "<schema . . .>\n           . . .\n           <import namespace=\"http://www.w3.org/XML/1998/namespace\"\n                      schemaLocation=\"http://www.w3.org/2001/xml.xsd\"/>"
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "or"
+           ]
+          },
+          {
+           "0": "pre",
+           "1": [
+            "<import namespace=\"http://www.w3.org/XML/1998/namespace\"\n                      schemaLocation=\"http://www.w3.org/2009/01/xml.xsd\"/>"
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "Subsequently, qualified reference to any of the attributes or the\n      group defined below will have the desired effect, e.g."
+           ]
+          },
+          {
+           "0": "pre",
+           "1": [
+            "<type . . .>\n           . . .\n           <attributeGroup ref=\"xml:specialAttrs\"/>"
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "will define a type which will schema-validate an instance element\n      with any of those attributes."
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xs:annotation",
+   "1": [
+    {
+     "0": "xs:documentation",
+     "1": [
+      {
+       "0": "div",
+       "id": "nsversioning",
+       "xml:id": "nsversioning",
+       "1": [
+        {
+         "0": "h2",
+         "1": [
+          {
+           "0": "a",
+           "name": "nsversioning",
+           "1": [
+            "Versioning policy for this schema document"
+           ]
+          }
+         ]
+        },
+        {
+         "0": "div",
+         "class": "bodytext",
+         "1": [
+          {
+           "0": "p",
+           "1": [
+            "In keeping with the XML Schema WG's standard versioning\n      policy, this schema document will persist at",
+            {
+             "0": "a",
+             "href": "http://www.w3.org/2009/01/xml.xsd",
+             "1": [
+              "http://www.w3.org/2009/01/xml.xsd"
+             ]
+            },
+            "."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "At the date of issue it can also be found at",
+            {
+             "0": "a",
+             "href": "http://www.w3.org/2001/xml.xsd",
+             "1": [
+              "http://www.w3.org/2001/xml.xsd"
+             ]
+            },
+            "."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "The schema document at that URI may however change in the future,\n      in order to remain compatible with the latest version of XML\n      Schema itself, or with the XML namespace itself.  In other words,\n      if the XML Schema or XML namespaces change, the version of this\n      document at",
+            {
+             "0": "a",
+             "href": "http://www.w3.org/2001/xml.xsd",
+             "1": [
+              "http://www.w3.org/2001/xml.xsd"
+             ]
+            },
+            "will change accordingly; the version at",
+            {
+             "0": "a",
+             "href": "http://www.w3.org/2009/01/xml.xsd",
+             "1": [
+              "http://www.w3.org/2009/01/xml.xsd"
+             ]
+            },
+            "will not change."
+           ]
+          },
+          {
+           "0": "p",
+           "1": [
+            "Previous dated (and unchanging) versions of this schema \n      document are at:"
+           ]
+          },
+          {
+           "0": "ul",
+           "1": [
+            {
+             "0": "li",
+             "1": [
+              {
+               "0": "a",
+               "href": "http://www.w3.org/2009/01/xml.xsd",
+               "1": [
+                "http://www.w3.org/2009/01/xml.xsd"
+               ]
+              }
+             ]
+            },
+            {
+             "0": "li",
+             "1": [
+              {
+               "0": "a",
+               "href": "http://www.w3.org/2007/08/xml.xsd",
+               "1": [
+                "http://www.w3.org/2007/08/xml.xsd"
+               ]
+              }
+             ]
+            },
+            {
+             "0": "li",
+             "1": [
+              {
+               "0": "a",
+               "href": "http://www.w3.org/2004/10/xml.xsd",
+               "1": [
+                "http://www.w3.org/2004/10/xml.xsd"
+               ]
+              }
+             ]
+            },
+            {
+             "0": "li",
+             "1": [
+              {
+               "0": "a",
+               "href": "http://www.w3.org/2001/03/xml.xsd",
+               "1": [
+                "http://www.w3.org/2001/03/xml.xsd"
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

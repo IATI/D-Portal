@@ -120,7 +120,8 @@ jml.to_xml=function(tree)
 
 // call back is called with (element,xpath) for each jml element in the tree
 // return true to prevent further recursion on this element
-jml.walk_xpath=function(tree,cb)
+// if cruftless is true then ignore the namespace:xml cruft
+jml.walk_xpath=function(tree,cb,cruftless)
 {
 	if(!tree){ return }
 
@@ -128,6 +129,11 @@ jml.walk_xpath=function(tree,cb)
 	walk=function(it,root)
 	{
 		var name=it[0]
+		if(cruftless) // remove cruft
+		{
+			var aa=name.split(":")
+			name=aa[1] || aa[0]
+		}
 		var children=it[1]
 		var path=root+"/"+name
 		if( cb(it,path) ) { return } // callback can disable recursion by returning true
@@ -140,5 +146,20 @@ jml.walk_xpath=function(tree,cb)
 		}
 	}
 	walk(tree,"")
+}
+
+
+jml.find_xpath=function(tree,findpath,cruftless)
+{
+	var ret=[]
+	jml.walk_xpath(tree,(it,path)=>{
+		if(path==findpath)
+		{
+			ret.push(it)
+			return true
+		}
+		if(!findpath.startsWith(path)) { return true } // go no further down this path
+	},cruftless)
+	return ret
 }
 
