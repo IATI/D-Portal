@@ -298,8 +298,34 @@ fetch.codelist=async function()
 	var data=await pfs.readFile("fetched/mapping.xml",{ encoding: 'utf8' })
 	var tree=jml.from_xml(data)
 	
+	var codemap=[]
+	var code={}
 	jml.walk_xpath(tree,(it,path)=>{
-//		console.log(path)
+		if( path=="/mappings/mapping" ) // new map
+		{
+			code={}
+			codemap.push(code)
+		}
+		else
+		if( path=="/mappings/mapping/path" )
+		{
+			var s=it[1][0] // string
+			code.path=s
+		}
+		else
+		if( path=="/mappings/mapping/codelist" )
+		{
+			code.codelist=it["ref"] // string
+		}
+		else
+		if( path=="/mappings/mapping/condition" )
+		{
+			var s=it[1][0] // string
+			code.condition=s
+		}
+
+
 	})
+	await pfs.writeFile("json/codemap.json",stringify(codemap,{space:" "}));
 
 }
