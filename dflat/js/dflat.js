@@ -7,7 +7,7 @@ var util=require('util');
 
 var entities = require("entities");
 
-var dflat_parse = require("./dflat_parse.js");
+var jml = require("./jml.js");
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
@@ -15,8 +15,9 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 // parse the xml string into a flat structure
 dflat.xml_to_json=function(data)
 {
+	data=jml.from_xml(data)
+
 	var flat={}
-	var jml=dflat_parse.xml_to_jml(data)
 
 	var pretrim=function(s,b)
 	{
@@ -152,7 +153,7 @@ dflat.xml_to_json=function(data)
 		}
 
 	}
-	dump(jml,{root:"/",store:flat})
+	dump(data,{root:"/",store:flat})
 
 
 

@@ -1,9 +1,20 @@
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var dflat_parse=exports;
+var jml=exports;
 
 var entities = require("entities");
+
+
+// sort jml
+jml.cmp=function(a,b)
+{
+	if(a.key=="0" || b.key=="1") { return -1 }
+	if(b.key=="0" || a.key=="1") { return  1 }
+	return a.key > b.key ? 1 : -1;
+}
+
+
 
 //
 // Refry an XML string into json ( JML ) via sax.
@@ -15,7 +26,7 @@ var entities = require("entities");
 //
 // This gives a rather compact xml representation in json format.
 //
-dflat_parse.xml_to_jml=function(data)
+jml.from_xml=function(data)
 {
 	var json=[];
 	var stack=[];
@@ -62,16 +73,16 @@ dflat_parse.xml_to_jml=function(data)
 }
 
 // turn json back into xml
-dflat_parse.jml_to_xml=function(data)
+jml.to_xml=function(tree)
 {
-	if("string"==typeof data)
+	if("string"==typeof tree)
 	{
-		data=JSON.parse(data);
+		tree=JSON.parse(tree);
 	}
 	
 	var ss=[];
 
-	if(!data){ return; }
+	if(!tree){ return; }
 	var f; f=function(it)
 	{
 		if("string" == typeof it)
@@ -101,9 +112,33 @@ dflat_parse.jml_to_xml=function(data)
 			}
 		}
 	};
-	if(data.forEach) { data.forEach(f); }
-	else { f(data); }
+	if(tree.forEach) { tree.forEach(f); }
+	else { f(tree); }
 	
 	return ss.join("");
+}
+
+// call back is called with (element,xpath) for each jml element in the tree
+// return true to prevent further recursion on this element
+jml.walk_xpath=function(tree,cb)
+{
+	if(!tree){ return }
+
+	var walk
+	walk=function(it,root)
+	{
+		var name=it[0]
+		var children=it[1]
+		var path=root+"/"+name
+		if( cb(it,path) ) { return } // callback can disable recursion by returning true
+		if(children)
+		{
+			for(var i=0;i<children.length;i++)
+			{
+				walk(children[i],root+"/"+name)
+			}
+		}
+	}
+	walk(tree,"")
 }
 

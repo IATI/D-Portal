@@ -6,35 +6,26 @@ var cmd=exports;
 var pfs=require("pify")( require("fs") )
 
 var dflat=require("./dflat.js")
+var jml=require("./jml.js")
 
 var stringify = require('json-stable-stringify');
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+// sort jml
+var jml_cmp=function(a,b)
+{
+	if(a.key=="0" || b.key=="1") { return -1 }
+	if(b.key=="0" || a.key=="1") { return  1 }
+	return a.key > b.key ? 1 : -1;
+}
 
 cmd.run=async function(argv)
 {
 	if( argv._[0]=="fetch" )
 	{
-		const download = require('download')
-		const xpathParser = require("pify")(require('xml2xpath'));
-		
-		pfs.mkdir("fetched").catch(e=>{})
-		for(var n in {
-			"iati-activities-schema.xsd":true,
-			"iati-common.xsd":true,
-			"iati-organisations-schema.xsd":true,
-			"iati-registry-record-schema.xsd":true,
-			"xml.xsd":true,
-		})
-		{
-			console.log("downloading "+n)
-			await download("https://raw.githubusercontent.com/IATI/IATI-Schemas/version-2.03/"+n,"fetched")
-		}
-		 
-//		console.log( ( await xpathParser.parseXsd('fetched/iati-activities-schema.xsd') ).join("\n") )
-
+		await require("./fetch.js").all()
 		return
 	}
 
@@ -45,12 +36,7 @@ cmd.run=async function(argv)
 		{
 			var dat=await pfs.readFile(filename+".xml",{ encoding: 'utf8' });
 			var json=dflat.xml_to_json(dat)
-			await pfs.writeFile(filename+".json",stringify(json,{space:" ",cmp:(a,b)=>{
-				if(a.key=="0" || b.key=="1") { return -1 }
-				if(b.key=="0" || a.key=="1") { return  1 }
-				return a.key > b.key ? 1 : -1;
-				
-			}}));
+			await pfs.writeFile(filename+".json",stringify(json,{space:" "}));
 
 			return
 		}
