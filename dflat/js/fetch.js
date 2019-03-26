@@ -113,6 +113,9 @@ fetch.xsd=async function()
 	}
 	
 
+	console.log("downloading codelist mapping.xsd")
+	await download("https://raw.githubusercontent.com/IATI/IATI-Codelists/version-2.03/mapping.xml","fetched")
+
 	console.log("downloading codelist.xsd")
 	await download("https://raw.githubusercontent.com/IATI/IATI-Codelists/version-2.03/codelist.xsd","fetched")
 
@@ -289,5 +292,14 @@ fetch.codelist=async function()
 		codelists[name]=it
 	}
 	await pfs.writeFile("json/codelists.json",stringify(codelists,{space:" "}));
+
+	console.log("parsing codelist mapping.xml")
+
+	var data=await pfs.readFile("fetched/mapping.xml",{ encoding: 'utf8' })
+	var tree=jml.from_xml(data)
+	
+	jml.walk_xpath(tree,(it,path)=>{
+//		console.log(path)
+	})
 
 }

@@ -128,6 +128,7 @@ jml.walk_xpath=function(tree,cb,cruftless)
 	var walk
 	walk=function(it,root)
 	{
+		if( typeof it != "object" ) { return } // ignore string
 		var name=it[0]
 		if(cruftless) // remove cruft
 		{
@@ -137,7 +138,7 @@ jml.walk_xpath=function(tree,cb,cruftless)
 		var children=it[1]
 		var path=root+"/"+name
 		if( cb(it,path) ) { return } // callback can disable recursion by returning true
-		if(children)
+		if(Array.isArray(children))
 		{
 			for(var i=0;i<children.length;i++)
 			{
