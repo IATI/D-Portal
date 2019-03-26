@@ -1,4 +1,4 @@
-// Copyright (c) 2014 International Aid Transparency Initiative (IATI)
+// Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 var dflat=exports;
@@ -56,6 +56,8 @@ dflat.xml_to_json=function(data)
 		"iati-activity/other-identifier":true,
 		"iati-activity/crs-add/other-flags":true,
 		"iati-activity/country-budget-items/budget-item":true,
+		
+		"/codelist/codelist-items/codelist-item":true,
 	}
 
 	var dump
@@ -94,7 +96,7 @@ dflat.xml_to_json=function(data)
 		{
 			if( Array.isArray(it[1]) && (it[1].length==1) && (typeof it[1][0] == "string") )
 			{
-				var lang = it["xml:lang"] || op.lang // use default lang
+				var lang = it["xml:lang"] || op.lang || "en" // use default lang
 				store(op,op.root+"narrative/"+lang,it[1][0])
 			}
 		}

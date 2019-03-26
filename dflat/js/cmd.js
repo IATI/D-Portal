@@ -1,4 +1,4 @@
-// Copyright (c) 2014 International Aid Transparency Initiative (IATI)
+// Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 var cmd=exports;
@@ -13,13 +13,6 @@ var stringify = require('json-stable-stringify');
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-// sort jml
-var jml_cmp=function(a,b)
-{
-	if(a.key=="0" || b.key=="1") { return -1 }
-	if(b.key=="0" || a.key=="1") { return  1 }
-	return a.key > b.key ? 1 : -1;
-}
 
 cmd.run=async function(argv)
 {

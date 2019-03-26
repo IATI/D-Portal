@@ -3,6 +3,8 @@
 
 var fetch=exports;
 
+var dflat=require("./dflat.js")
+
 var pfs=require("pify")( require("fs") )
 var jml=require("./jml.js")
 var stringify = require('json-stable-stringify');
@@ -219,7 +221,7 @@ fetch.codelist_filenames_2={
 	"DisbursementChannel.xml":true,
 	"DocumentCategory-category.xml":true,
 	"EarmarkingCategory.xml":true,
-	"FileFormat.xml":true,
+//	"FileFormat.xml":true, // external cruft
 	"FinanceType-category.xml":true,
 	"FinanceType.xml":true,
 	"FlowType.xml":true,
@@ -237,7 +239,7 @@ fetch.codelist_filenames_2={
 	"LoanRepaymentPeriod.xml":true,
 	"LoanRepaymentType.xml":true,
 	"LocationType-category.xml":true,
-	"LocationType.xml":true,
+//	"LocationType.xml":true, // external cruft
 	"OrganisationIdentifier.xml":true,
 	"OrganisationRegistrationAgency.xml":true,
 	"OrganisationType.xml":true,
@@ -276,5 +278,16 @@ fetch.codelist=async function()
 		console.log("downloading "+n)
 		await download("https://raw.githubusercontent.com/IATI/IATI-Codelists-NonEmbedded/master/xml/"+n,"fetched")
 	}
+
+	var codelists={}
+	for(var n in fetch.codelist_filenames )
+	{
+		console.log("parsing "+n)
+		var data=await pfs.readFile("fetched/"+n,{ encoding: 'utf8' })
+		var it=dflat.xml_to_json(data)
+		var name=it["/codelist@name"]
+		codelists[name]=it
+	}
+	await pfs.writeFile("json/codelists.json",stringify(codelists,{space:" "}));
 
 }
