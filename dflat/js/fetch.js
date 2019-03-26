@@ -183,91 +183,95 @@ fetch.xsd=async function()
 
 }
 
+fetch.codelist_filenames={}
+
+fetch.codelist_filenames_1={
+	"ActivityDateType.xml":true,
+	"ActivityStatus.xml":true,
+	"BudgetStatus.xml":true,
+	"BudgetType.xml":true,
+	"DocumentCategory.xml":true,
+	"GazetteerAgency.xml":true,
+	"OrganisationRole.xml":true,
+	"RelatedActivityType.xml":true,
+	"TransactionType.xml":true,
+}
+for(var n in fetch.codelist_filenames_1){fetch.codelist_filenames[n]=true}
+
+fetch.codelist_filenames_2={
+	"ActivityScope.xml":true,
+	"AidType-category.xml":true,
+	"AidType.xml":true,
+	"AidTypeVocabulary.xml":true,
+	"BudgetIdentifier.xml":true,
+	"BudgetIdentifierSector-category.xml":true,
+	"BudgetIdentifierSector.xml":true,
+	"BudgetIdentifierVocabulary.xml":true,
+	"BudgetNotProvided.xml":true,
+	"CRSAddOtherFlags.xml":true,
+	"CRSChannelCode.xml":true,
+	"CollaborationType.xml":true,
+	"ConditionType.xml":true,
+	"ContactType.xml":true,
+	"Country.xml":true,
+	"Currency.xml":true,
+	"DescriptionType.xml":true,
+	"DisbursementChannel.xml":true,
+	"DocumentCategory-category.xml":true,
+	"EarmarkingCategory.xml":true,
+	"FileFormat.xml":true,
+	"FinanceType-category.xml":true,
+	"FinanceType.xml":true,
+	"FlowType.xml":true,
+	"GeographicExactness.xml":true,
+	"GeographicLocationClass.xml":true,
+	"GeographicLocationReach.xml":true,
+	"GeographicVocabulary.xml":true,
+	"GeographicalPrecision.xml":true,
+	"HumanitarianScopeType.xml":true,
+	"HumanitarianScopeVocabulary.xml":true,
+	"IATIOrganisationIdentifier.xml":true,
+	"IndicatorMeasure.xml":true,
+	"IndicatorVocabulary.xml":true,
+	"Language.xml":true,
+	"LoanRepaymentPeriod.xml":true,
+	"LoanRepaymentType.xml":true,
+	"LocationType-category.xml":true,
+	"LocationType.xml":true,
+	"OrganisationIdentifier.xml":true,
+	"OrganisationRegistrationAgency.xml":true,
+	"OrganisationType.xml":true,
+	"OtherIdentifierType.xml":true,
+	"PolicyMarker.xml":true,
+	"PolicyMarkerVocabulary.xml":true,
+	"PolicySignificance.xml":true,
+	"PublisherType.xml":true,
+	"Region.xml":true,
+	"RegionVocabulary.xml":true,
+	"ResultType.xml":true,
+	"ResultVocabulary.xml":true,
+	"Sector.xml":true,
+	"SectorCategory.xml":true,
+	"SectorVocabulary.xml":true,
+	"TagVocabulary.xml":true,
+	"TiedStatus.xml":true,
+	"VerificationStatus.xml":true,
+	"Version.xml":true,
+}
+for(var n in fetch.codelist_filenames_2){fetch.codelist_filenames[n]=true}
+
+
 fetch.codelist=async function()
 {
 	const download = require('download')
 
-	var filenamea={
-		"ActivityDateType.xml":true,
-		"ActivityStatus.xml":true,
-		"BudgetStatus.xml":true,
-		"BudgetType.xml":true,
-		"DocumentCategory.xml":true,
-		"GazetteerAgency.xml":true,
-		"OrganisationRole.xml":true,
-		"RelatedActivityType.xml":true,
-		"TransactionType.xml":true,
-	}
-
-	for(var n in filenamea )
+	for(var n in fetch.codelist_filenames_1 )
 	{
 		console.log("downloading "+n)
 		await download("https://raw.githubusercontent.com/IATI/IATI-Codelists/version-2.03/xml/"+n,"fetched")
 	}
 
-
-	var filenameb={
-		"ActivityScope.xml":true,
-		"AidType-category.xml":true,
-		"AidType.xml":true,
-		"AidTypeVocabulary.xml":true,
-		"BudgetIdentifier.xml":true,
-		"BudgetIdentifierSector-category.xml":true,
-		"BudgetIdentifierSector.xml":true,
-		"BudgetIdentifierVocabulary.xml":true,
-		"BudgetNotProvided.xml":true,
-		"CRSAddOtherFlags.xml":true,
-		"CRSChannelCode.xml":true,
-		"CollaborationType.xml":true,
-		"ConditionType.xml":true,
-		"ContactType.xml":true,
-		"Country.xml":true,
-		"Currency.xml":true,
-		"DescriptionType.xml":true,
-		"DisbursementChannel.xml":true,
-		"DocumentCategory-category.xml":true,
-		"EarmarkingCategory.xml":true,
-		"FileFormat.xml":true,
-		"FinanceType-category.xml":true,
-		"FinanceType.xml":true,
-		"FlowType.xml":true,
-		"GeographicExactness.xml":true,
-		"GeographicLocationClass.xml":true,
-		"GeographicLocationReach.xml":true,
-		"GeographicVocabulary.xml":true,
-		"GeographicalPrecision.xml":true,
-		"HumanitarianScopeType.xml":true,
-		"HumanitarianScopeVocabulary.xml":true,
-		"IATIOrganisationIdentifier.xml":true,
-		"IndicatorMeasure.xml":true,
-		"IndicatorVocabulary.xml":true,
-		"Language.xml":true,
-		"LoanRepaymentPeriod.xml":true,
-		"LoanRepaymentType.xml":true,
-		"LocationType-category.xml":true,
-		"LocationType.xml":true,
-		"OrganisationIdentifier.xml":true,
-		"OrganisationRegistrationAgency.xml":true,
-		"OrganisationType.xml":true,
-		"OtherIdentifierType.xml":true,
-		"PolicyMarker.xml":true,
-		"PolicyMarkerVocabulary.xml":true,
-		"PolicySignificance.xml":true,
-		"PublisherType.xml":true,
-		"Region.xml":true,
-		"RegionVocabulary.xml":true,
-		"ResultType.xml":true,
-		"ResultVocabulary.xml":true,
-		"Sector.xml":true,
-		"SectorCategory.xml":true,
-		"SectorVocabulary.xml":true,
-		"TagVocabulary.xml":true,
-		"TiedStatus.xml":true,
-		"VerificationStatus.xml":true,
-		"Version.xml":true,
-	}
-
-	for(var n in filenameb )
+	for(var n in fetch.codelist_filenames_2 )
 	{
 		console.log("downloading "+n)
 		await download("https://raw.githubusercontent.com/IATI/IATI-Codelists-NonEmbedded/master/xml/"+n,"fetched")
