@@ -63,8 +63,10 @@ fetch.xsd_xpaths=function(tree,root)
 		if(e.name)
 		{
 			path=path+"/"+e.name
-			paths[path]=e
 		}
+
+		paths[path] = paths[path] || e
+		
 		var as=jml.find_xpath(e,"/element/complexType/simpleContent/extension/attribute",true)
 		for(var ai=0;ai<as.length;ai++)
 		{
@@ -375,13 +377,13 @@ fetch.codelist=async function()
 fetch.database=async function()
 {
 	var typelookup={
-		"textRequiredType":						false,
-		"documentLinkBase":						false,
-		"documentLinkResultBase":				false,
-		"descriptionBase":						false,
-		"resultLocationBase":					false,
-		"aidTypeBase":							false,
-		"documentLinkWithReceipientCountry":	false,
+		"textRequiredType":						"null",
+		"documentLinkBase":						"null",
+		"documentLinkResultBase":				"null",
+		"descriptionBase":						"null",
+		"resultLocationBase":					"null",
+		"aidTypeBase":							"null",
+		"documentLinkWithReceipientCountry":	"null",
 		"xsd:int":								"int",
 		"xsd:boolean":							"int",
 		"xsd:nonNegativeInteger":				"int",
@@ -408,15 +410,14 @@ fetch.database=async function()
 			
 			var store_path=function(xtype)
 			{
-				var type=typelookup[xtype] // convert
-				if(type)
-				{
-					var d={type:type}
-					if(it.maxOccurs=="unbounded") { d.multiple=true }
-					if(it.minOccurs=="1")         { d.required=true }
-					database.paths[n]=d
-				}
-				else
+				var type="null"
+				if(xtype) { type=typelookup[xtype] } // convert
+				var d={type:type}
+				if(it.use=="required")        { d.required=true }
+				if(it.maxOccurs=="unbounded") { d.multiple=true }
+				if(it.minOccurs=="1")         { d.required=true }
+				database.paths[n]=d
+
 				if(typeof type=="undefined")
 				{
 					console.log("unkonwn type "+xtype+" : "+n)
@@ -434,27 +435,18 @@ fetch.database=async function()
 				var sub=jml.find_xpath(it,"/element/complexType/simpleContent/extension",true)
 //console.log(n+" ? "+sub)
 //jml.walk_xpath(it,(it,path)=>{console.log(path)},true)
-				if( sub[0] )
+				if( sub[0] && sub[0].base )
 				{
-					if(sub[0].base=="xsd:string")
-					{
-						store_path(sub[0].base)
-					}
-					else
-					if(sub[0].base=="xsd:decimal")
-					{
-						store_path(sub[0].base)
-					}
-					else
-					if(sub[0].base=="xsd:anyURI")
-					{
-						store_path(sub[0].base)
-					}
-					else
-					{
-						console.log("unknown extension "+sub[0].base+" : "+n)
-					}
+					store_path(sub[0].base)
 				}
+				else
+				{
+					store_path()
+				}
+			}
+			else
+			{
+				store_path()
 			}
 		}
 	}
