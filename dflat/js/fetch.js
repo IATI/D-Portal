@@ -22,8 +22,11 @@ fetch.xsd_xpaths=function(tree,root)
 {
 	var paths={}
 	
+	var amap={}
 	var emap={}
 	var tmap={}
+	
+	emap["xml:lang"]={0:"xsd:attribute",name:"xml:lang",type:"xsd:string"}
 	
 	var es=jml.find_xpath(tree,"/schema/element",true)
 	for(var ei=0;ei<es.length;ei++)
@@ -36,28 +39,41 @@ fetch.xsd_xpaths=function(tree,root)
 	for(var ti=0;ti<ts.length;ti++)
 	{
 		var tv=ts[ti]
-		tmap[tv.name]=tv
+		tmap[tv.name]={0:"element",1:[ tv ]}
 	}
-//	console.log(tmap)
+	
+	var as=jml.find_xpath(tree,"/schema/attribute",true)
+	for(var ai=0;ai<as.length;ai++)
+	{
+		var av=as[ai]
+		amap[av.name]=av
+	}
+
+	tmap["documentLinkResultBase"]=tmap["documentLinkBase"] // bad schema is bad, just hack it
+
 	
 	var parse
-	parse=function(e,root,p)
+	parse=function(e,root)
 	{
-		var path=root+"/"+e.name
-		paths[path]=e
-
+		var path=root
+		
+		if(e.name)
+		{
+			path=path+"/"+e.name
+			paths[path]=e
+		}
 		var as=jml.find_xpath(e,"/element/complexType/simpleContent/extension/attribute",true)
 		for(var ai=0;ai<as.length;ai++)
 		{
 			var av=as[ai]
+			if(av.ref)
+			{
+				paths[path+"@"+av.ref]=amap[ av.ref ] || {}
+			}
+			else
 			if(av.name)
 			{
 				paths[path+"@"+av.name]=av
-			}
-			else
-			if(av.ref)
-			{
-				paths[path+"@"+av.ref]=emap[ av.ref ] || {}
 			}
 		}
 
@@ -65,6 +81,11 @@ fetch.xsd_xpaths=function(tree,root)
 		for(var ai=0;ai<as.length;ai++)
 		{
 			var av=as[ai]
+			if(av.ref)
+			{
+				paths[path+"@"+av.ref]=amap[ av.ref ] || {}
+			}
+			else
 			if(av.name)
 			{
 				paths[path+"@"+av.name]=av
@@ -75,15 +96,25 @@ fetch.xsd_xpaths=function(tree,root)
 		for(var ci=0;ci<cs.length;ci++)
 		{
 			var cv=cs[ci]
-			if(cv.name)
-			{
-				parse(cv,path)
-			}
-			else
+
 			if(cv.ref)
 			{
 				var e=emap[ cv.ref ]
 				parse(e,path)
+			}
+			else
+			if(cv.name)
+			{
+				parse(cv,path)
+			}
+			
+			if(cv.type )
+			{
+				if( tmap[cv.type] )
+				{
+					var e=tmap[cv.type]
+					parse(e,path+"/"+cv.name,true)
+				}
 			}
 		}
 	}
@@ -92,10 +123,6 @@ fetch.xsd_xpaths=function(tree,root)
 	{
 		parse( emap[root] ,"" )
 	}
-
-//	parse( emap["iati-activities"] ,"" )
-//	parse( emap["iati-organisations"] ,"" )
-//	parse( emap["codelists"] ,"" )
 	
 	return paths
 }
@@ -344,21 +371,74 @@ fetch.codelist=async function()
 
 fetch.database=async function()
 {
-
+	var typelookup={
+		"textRequiredType":			false,
+		"documentLinkBase":			false,
+		"documentLinkResultBase":	false,
+		"descriptionBase":			false,
+		"resultLocationBase":		false,
+		"aidTypeBase":				false,
+		"currencyType":				"number",
+		"xsd:string":				"string",
+		"xsd:date":					"number",
+		"xsd:dateTime":				"number",
+		"xsd:int":					"number",
+		"xsd:decimal":				"number",
+		"xsd:boolean":				"number",
+		"xsd:nonNegativeInteger":	"number",
+		"xsd:positiveInteger":		"number",
+		"xsd:anyURI":				"string",
+		"xsd:NMTOKEN":				"string",
+	}
+	
+	var database={paths:{}}
+	
 	var data=await pfs.readFile("json/iati.xsd.json",{ encoding: 'utf8' })
 	var tree=JSON.parse(data)
 	var paths=fetch.xsd_xpaths(tree,"iati-activities",true)
 	for(var n in paths)
 	{
 		var it=paths[n]
+		
+		var store_path=function(xtype)
+		{
+			var type=typelookup[xtype] // convert
+			if(type)
+			{
+				database.paths[n]={type:type}
+			}
+			else
+			if(typeof type=="undefined")
+			{
+				console.log("unkonwn type "+xtype+" : "+n)
+			}
+		}
+		
 		if(it.type)
 		{
-			console.log(n+" "+it.type)
+			store_path(it.type)
 		}
 		else
+		if(it[1])
 		{
-//			console.log(n)
+			
+			var sub=jml.find_xpath(it,"/element/complexType/simpleContent/extension",true)
+//console.log(n+" ? "+sub)
+//jml.walk_xpath(it,(it,path)=>{console.log(path)},true)
+			if( sub[0] )
+			{
+				if(sub[0].base=="xsd:string")
+				{
+					store_path(sub[0].base)
+				}
+				else
+				if(sub[0].base=="xsd:decimal")
+				{
+					store_path(sub[0].base)
+				}
+			}
 		}
 	}
+	await pfs.writeFile("json/database.json",stringify(database,{space:" "}));
 
 }
