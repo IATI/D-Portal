@@ -433,7 +433,10 @@
   },
   "/iati-activities/iati-activity/humanitarian-scope/narrative": {
    "multiple": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-activities/iati-activity/humanitarian-scope/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-activities/iati-activity/humanitarian-scope@code": {
    "required": true,
@@ -652,7 +655,10 @@
   },
   "/iati-activities/iati-activity/planned-disbursement/provider-org/narrative": {
    "multiple": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-activities/iati-activity/planned-disbursement/provider-org/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-activities/iati-activity/planned-disbursement/provider-org@provider-activity-id": {
    "type": "string"
@@ -668,7 +674,10 @@
   },
   "/iati-activities/iati-activity/planned-disbursement/receiver-org/narrative": {
    "multiple": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-activities/iati-activity/planned-disbursement/receiver-org/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-activities/iati-activity/planned-disbursement/receiver-org@receiver-activity-id": {
    "type": "string"
@@ -698,7 +707,10 @@
   },
   "/iati-activities/iati-activity/policy-marker/narrative": {
    "multiple": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-activities/iati-activity/policy-marker/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-activities/iati-activity/policy-marker@code": {
    "required": true,
@@ -774,7 +786,10 @@
   "/iati-activities/iati-activity/reporting-org/narrative": {
    "multiple": true,
    "required": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-activities/iati-activity/reporting-org/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-activities/iati-activity/reporting-org@ref": {
    "required": true,
@@ -1226,7 +1241,10 @@
   },
   "/iati-activities/iati-activity/sector/narrative": {
    "multiple": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-activities/iati-activity/sector/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-activities/iati-activity/sector@code": {
    "required": true,
@@ -1327,7 +1345,10 @@
   },
   "/iati-activities/iati-activity/transaction/provider-org/narrative": {
    "multiple": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-activities/iati-activity/transaction/provider-org/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-activities/iati-activity/transaction/provider-org@provider-activity-id": {
    "type": "string"
@@ -1343,7 +1364,10 @@
   },
   "/iati-activities/iati-activity/transaction/receiver-org/narrative": {
    "multiple": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-activities/iati-activity/transaction/receiver-org/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-activities/iati-activity/transaction/receiver-org@receiver-activity-id": {
    "type": "string"
@@ -1394,7 +1418,10 @@
   },
   "/iati-activities/iati-activity/transaction/sector/narrative": {
    "multiple": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-activities/iati-activity/transaction/sector/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-activities/iati-activity/transaction/sector@code": {
    "required": true,
@@ -1676,7 +1703,10 @@
   "/iati-organisations/iati-organisation/recipient-org-budget/recipient-org/narrative": {
    "multiple": true,
    "required": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-organisations/iati-organisation/recipient-org-budget/recipient-org/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-organisations/iati-organisation/recipient-org-budget/recipient-org@ref": {
    "type": "string"
@@ -1779,7 +1809,10 @@
   "/iati-organisations/iati-organisation/reporting-org/narrative": {
    "multiple": true,
    "required": true,
-   "type": "null"
+   "type": "string"
+  },
+  "/iati-organisations/iati-organisation/reporting-org/narrative@xml:lang": {
+   "type": "string"
   },
   "/iati-organisations/iati-organisation/reporting-org@ref": {
    "required": true,

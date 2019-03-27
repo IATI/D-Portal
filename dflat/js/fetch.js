@@ -111,7 +111,8 @@ fetch.xsd_xpaths=function(tree,root)
 			else
 			if(cv.ref)
 			{
-				var e=Object.assign({},emap[ cv.ref ],cv)
+				var e=Object.assign({},emap[cv.ref],cv)
+				e[1]=emap[cv.ref][1]
 				parse(e,path)
 			}
 			else
