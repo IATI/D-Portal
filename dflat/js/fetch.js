@@ -12,8 +12,8 @@ var stringify = require('json-stable-stringify');
 
 fetch.all=async function()
 {
-//	await fetch.xsd()
-//	await fetch.codelist()
+	await fetch.xsd()
+	await fetch.codelist()
 	await fetch.database()
 }
 
@@ -26,7 +26,7 @@ fetch.xsd_xpaths=function(tree,root)
 	var emap={}
 	var tmap={}
 	
-	emap["xml:lang"]={0:"xsd:attribute",name:"xml:lang",type:"xsd:string"}
+	amap["xml:lang"]={0:"xsd:attribute",name:"xml:lang",type:"xsd:string"}
 	
 	var es=jml.find_xpath(tree,"/schema/element",true)
 	for(var ei=0;ei<es.length;ei++)
@@ -50,6 +50,9 @@ fetch.xsd_xpaths=function(tree,root)
 	}
 
 	tmap["documentLinkResultBase"]=tmap["documentLinkBase"] // bad schema is bad, just hack it
+
+//need to merge this one we are missing the country part with this hack	
+	tmap["documentLinkWithReceipientCountry"]=tmap["documentLinkBase"]
 
 	
 	var parse
@@ -372,69 +375,82 @@ fetch.codelist=async function()
 fetch.database=async function()
 {
 	var typelookup={
-		"textRequiredType":			false,
-		"documentLinkBase":			false,
-		"documentLinkResultBase":	false,
-		"descriptionBase":			false,
-		"resultLocationBase":		false,
-		"aidTypeBase":				false,
-		"currencyType":				"number",
-		"xsd:string":				"string",
-		"xsd:date":					"number",
-		"xsd:dateTime":				"number",
-		"xsd:int":					"number",
-		"xsd:decimal":				"number",
-		"xsd:boolean":				"number",
-		"xsd:nonNegativeInteger":	"number",
-		"xsd:positiveInteger":		"number",
-		"xsd:anyURI":				"string",
-		"xsd:NMTOKEN":				"string",
+		"textRequiredType":						false,
+		"documentLinkBase":						false,
+		"documentLinkResultBase":				false,
+		"descriptionBase":						false,
+		"resultLocationBase":					false,
+		"aidTypeBase":							false,
+		"documentLinkWithReceipientCountry":	false,
+		"xsd:int":								"int",
+		"xsd:boolean":							"int",
+		"xsd:nonNegativeInteger":				"int",
+		"xsd:positiveInteger":					"int",
+		"xsd:decimal":							"number",
+		"currencyType":							"number",
+		"xsd:date":								"number",
+		"xsd:dateTime":							"number",
+		"xsd:string":							"string",
+		"xsd:anyURI":							"string",
+		"xsd:NMTOKEN":							"string",
 	}
 	
 	var database={paths:{}}
 	
 	var data=await pfs.readFile("json/iati.xsd.json",{ encoding: 'utf8' })
 	var tree=JSON.parse(data)
-	var paths=fetch.xsd_xpaths(tree,"iati-activities",true)
-	for(var n in paths)
+	for(var basen in {"iati-activities":true,"iati-organisations":true})
 	{
-		var it=paths[n]
-		
-		var store_path=function(xtype)
+		var paths=fetch.xsd_xpaths(tree,basen,true)
+		for(var n in paths)
 		{
-			var type=typelookup[xtype] // convert
-			if(type)
-			{
-				database.paths[n]={type:type}
-			}
-			else
-			if(typeof type=="undefined")
-			{
-				console.log("unkonwn type "+xtype+" : "+n)
-			}
-		}
-		
-		if(it.type)
-		{
-			store_path(it.type)
-		}
-		else
-		if(it[1])
-		{
+			var it=paths[n]
 			
-			var sub=jml.find_xpath(it,"/element/complexType/simpleContent/extension",true)
-//console.log(n+" ? "+sub)
-//jml.walk_xpath(it,(it,path)=>{console.log(path)},true)
-			if( sub[0] )
+			var store_path=function(xtype)
 			{
-				if(sub[0].base=="xsd:string")
+				var type=typelookup[xtype] // convert
+				if(type)
 				{
-					store_path(sub[0].base)
+					database.paths[n]={type:type}
 				}
 				else
-				if(sub[0].base=="xsd:decimal")
+				if(typeof type=="undefined")
 				{
-					store_path(sub[0].base)
+					console.log("unkonwn type "+xtype+" : "+n)
+				}
+			}
+			
+			if(it.type)
+			{
+				store_path(it.type)
+			}
+			else
+			if(it[1])
+			{
+				
+				var sub=jml.find_xpath(it,"/element/complexType/simpleContent/extension",true)
+//console.log(n+" ? "+sub)
+//jml.walk_xpath(it,(it,path)=>{console.log(path)},true)
+				if( sub[0] )
+				{
+					if(sub[0].base=="xsd:string")
+					{
+						store_path(sub[0].base)
+					}
+					else
+					if(sub[0].base=="xsd:decimal")
+					{
+						store_path(sub[0].base)
+					}
+					else
+					if(sub[0].base=="xsd:anyURI")
+					{
+						store_path(sub[0].base)
+					}
+					else
+					{
+						console.log("unknown extension "+sub[0].base+" : "+n)
+					}
 				}
 			}
 		}
