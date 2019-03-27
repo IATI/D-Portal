@@ -12,8 +12,9 @@ var stringify = require('json-stable-stringify');
 
 fetch.all=async function()
 {
-	await fetch.xsd()
-	await fetch.codelist()
+//	await fetch.xsd()
+//	await fetch.codelist()
+	await fetch.database()
 }
 
 
@@ -22,12 +23,21 @@ fetch.xsd_xpaths=function(tree,root)
 	var paths={}
 	
 	var emap={}
+	var tmap={}
 	var es=jml.find_xpath(tree,"/schema/element",true)
 	for(var ei=0;ei<es.length;ei++)
 	{
 		var ev=es[ei]
 		emap[ev.name]=ev
 	}
+
+	var ts=jml.find_xpath(tree,"/schema/complexType",true)
+	for(var ti=0;ti<ts.length;ti++)
+	{
+		var tv=ts[ti]
+		tmap[tv.name]=tv
+	}
+	console.log(tmap)
 	
 	var parse
 	parse=function(e,root,p)
@@ -327,5 +337,27 @@ fetch.codelist=async function()
 
 	})
 	await pfs.writeFile("json/codemap.json",stringify(codemap,{space:" "}));
+
+}
+
+
+fetch.database=async function()
+{
+
+	var data=await pfs.readFile("json/iati.xsd.json",{ encoding: 'utf8' })
+	var tree=JSON.parse(data)
+	var paths=fetch.xsd_xpaths(tree,"iati-activities",true)
+	for(var n in paths)
+	{
+		var it=paths[n]
+		if(it.type)
+		{
+			console.log(n+" "+it.type)
+		}
+		else
+		{
+//			console.log(n)
+		}
+	}
 
 }
