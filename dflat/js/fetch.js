@@ -39,7 +39,7 @@ fetch.xsd_xpaths=function(tree,root)
 	for(var ti=0;ti<ts.length;ti++)
 	{
 		var tv=ts[ti]
-		tmap[tv.name]={0:"element",1:[ tv ]}
+		tmap[tv.name]=tv // {0:"element",1:[ tv ]}
 	}
 	
 	var as=jml.find_xpath(tree,"/schema/attribute",true)
@@ -65,7 +65,7 @@ fetch.xsd_xpaths=function(tree,root)
 			path=path+"/"+e.name
 		}
 
-		paths[path] = paths[path] || e
+		paths[path] = e
 		
 		var as=jml.find_xpath(e,"/element/complexType/simpleContent/extension/attribute",true)
 		for(var ai=0;ai<as.length;ai++)
@@ -102,24 +102,22 @@ fetch.xsd_xpaths=function(tree,root)
 		{
 			var cv=cs[ci]
 
+			if( cv.type &&  tmap[cv.type] )
+			{
+				var e=Object.assign({},cv)
+				e[1]=[tmap[cv.type]]
+				parse(e,path)
+			}
+			else
 			if(cv.ref)
 			{
-				var e=emap[ cv.ref ]
+				var e=Object.assign({},emap[ cv.ref ],cv)
 				parse(e,path)
 			}
 			else
 			if(cv.name)
 			{
 				parse(cv,path)
-			}
-			
-			if(cv.type )
-			{
-				if( tmap[cv.type] )
-				{
-					var e=tmap[cv.type]
-					parse(e,path+"/"+cv.name,true)
-				}
 			}
 		}
 	}
