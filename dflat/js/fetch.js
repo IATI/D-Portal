@@ -24,6 +24,7 @@ fetch.xsd_xpaths=function(tree,root)
 	
 	var emap={}
 	var tmap={}
+	
 	var es=jml.find_xpath(tree,"/schema/element",true)
 	for(var ei=0;ei<es.length;ei++)
 	{
@@ -37,7 +38,7 @@ fetch.xsd_xpaths=function(tree,root)
 		var tv=ts[ti]
 		tmap[tv.name]=tv
 	}
-	console.log(tmap)
+//	console.log(tmap)
 	
 	var parse
 	parse=function(e,root,p)
