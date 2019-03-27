@@ -411,7 +411,10 @@ fetch.database=async function()
 				var type=typelookup[xtype] // convert
 				if(type)
 				{
-					database.paths[n]={type:type}
+					var d={type:type}
+					if(it.maxOccurs=="unbounded") { d.multiple=true }
+					if(it.minOccurs=="1")         { d.required=true }
+					database.paths[n]=d
 				}
 				else
 				if(typeof type=="undefined")

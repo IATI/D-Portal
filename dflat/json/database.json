@@ -25,6 +25,7 @@
    "type": "number"
   },
   "/iati-activities/iati-activity/budget/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-activities/iati-activity/budget/value@currency": {
@@ -64,6 +65,7 @@
    "type": "string"
   },
   "/iati-activities/iati-activity/contact-info/email": {
+   "multiple": true,
    "type": "string"
   },
   "/iati-activities/iati-activity/contact-info/job-title/narrative": {
@@ -91,9 +93,11 @@
    "type": "string"
   },
   "/iati-activities/iati-activity/contact-info/telephone": {
+   "multiple": true,
    "type": "string"
   },
   "/iati-activities/iati-activity/contact-info/website": {
+   "multiple": true,
    "type": "string"
   },
   "/iati-activities/iati-activity/contact-info@type": {
@@ -205,6 +209,7 @@
    "type": "string"
   },
   "/iati-activities/iati-activity/fss/forecast": {
+   "multiple": true,
    "type": "number"
   },
   "/iati-activities/iati-activity/fss/forecast@currency": {
@@ -301,6 +306,7 @@
    "type": "string"
   },
   "/iati-activities/iati-activity/location/point/pos": {
+   "required": true,
    "type": "string"
   },
   "/iati-activities/iati-activity/location/point@srsName": {
@@ -382,6 +388,7 @@
    "type": "string"
   },
   "/iati-activities/iati-activity/planned-disbursement/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-activities/iati-activity/planned-disbursement/value@currency": {
@@ -787,6 +794,7 @@
    "type": "string"
   },
   "/iati-activities/iati-activity/transaction/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-activities/iati-activity/transaction/value@currency": {
@@ -865,6 +873,7 @@
    "type": "string"
   },
   "/iati-organisations/iati-organisation/recipient-country-budget/budget-line/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-organisations/iati-organisation/recipient-country-budget/budget-line/value@currency": {
@@ -892,6 +901,7 @@
    "type": "string"
   },
   "/iati-organisations/iati-organisation/recipient-country-budget/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-organisations/iati-organisation/recipient-country-budget/value@currency": {
@@ -910,6 +920,7 @@
    "type": "string"
   },
   "/iati-organisations/iati-organisation/recipient-org-budget/budget-line/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-organisations/iati-organisation/recipient-org-budget/budget-line/value@currency": {
@@ -937,6 +948,7 @@
    "type": "string"
   },
   "/iati-organisations/iati-organisation/recipient-org-budget/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-organisations/iati-organisation/recipient-org-budget/value@currency": {
@@ -955,6 +967,7 @@
    "type": "string"
   },
   "/iati-organisations/iati-organisation/recipient-region-budget/budget-line/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-organisations/iati-organisation/recipient-region-budget/budget-line/value@currency": {
@@ -988,6 +1001,7 @@
    "type": "string"
   },
   "/iati-organisations/iati-organisation/recipient-region-budget/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-organisations/iati-organisation/recipient-region-budget/value@currency": {
@@ -1021,6 +1035,7 @@
    "type": "string"
   },
   "/iati-organisations/iati-organisation/total-budget/budget-line/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-organisations/iati-organisation/total-budget/budget-line/value@currency": {
@@ -1039,6 +1054,7 @@
    "type": "number"
   },
   "/iati-organisations/iati-organisation/total-budget/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-organisations/iati-organisation/total-budget/value@currency": {
@@ -1057,6 +1073,7 @@
    "type": "string"
   },
   "/iati-organisations/iati-organisation/total-expenditure/expense-line/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-organisations/iati-organisation/total-expenditure/expense-line/value@currency": {
@@ -1075,6 +1092,7 @@
    "type": "number"
   },
   "/iati-organisations/iati-organisation/total-expenditure/value": {
+   "required": true,
    "type": "number"
   },
   "/iati-organisations/iati-organisation/total-expenditure/value@currency": {
