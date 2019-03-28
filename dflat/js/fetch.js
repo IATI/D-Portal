@@ -95,7 +95,9 @@ fetch.xsd_xpaths=function(tree,root)
 			}
 		}
 
-		var cs=jml.find_xpath(e,"/element/complexType/sequence/element",true)
+		var cs=[].concat(
+				jml.find_xpath(e,"/element/complexType/sequence/element",true)
+			)
 		for(var ci=0;ci<cs.length;ci++)
 		{
 			var cv=cs[ci]
