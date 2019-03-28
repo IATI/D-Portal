@@ -12,8 +12,8 @@ var stringify = require('json-stable-stringify');
 
 fetch.all=async function()
 {
-	await fetch.xsd()
-	await fetch.codelist()
+//	await fetch.xsd()
+//	await fetch.codelist()
 	await fetch.database()
 }
 
@@ -391,9 +391,9 @@ fetch.database=async function()
 		"currencyType":							"number",
 		"xsd:date":								"number",
 		"xsd:dateTime":							"number",
-		"xsd:string":							"string",
-		"xsd:anyURI":							"string",
-		"xsd:NMTOKEN":							"string",
+		"xsd:string":							"text",
+		"xsd:anyURI":							"text",
+		"xsd:NMTOKEN":							"text",
 	}
 	
 	var database={paths:{}}
@@ -449,6 +449,73 @@ fetch.database=async function()
 			}
 		}
 	}
+
+
+// hacky fixups for what looks like bad xsd data?
+	database.paths["/iati-organisations/iati-organisation/organisation-identifier"].type="text"
+	
+
+	database.structures={}
+	
+	var basename =function(path) { return (path.substr(path.lastIndexOf('/') + 1)) }
+	var cleanname=function(name) { return name.replace(/[\W_]+/g,"_") }
+
+	for(var pn in database.paths)
+	{
+		var pv=database.paths[pn]
+		
+		if(pv.multiple) // these need a table
+		{
+			var name=(basename(pn))
+			database.structures[name]=database.structures[name] || {}
+			database.structures[name].paths=database.structures[name].paths || {}
+			database.structures[name].paths[pn]=true
+		}
+	}
+
+	for(var pn in database.paths)
+	{
+		var test=(pn)
+		var pv=database.paths[pn]
+		var table
+		for(var tn in database.structures)
+		{
+			var idx=test.indexOf("/"+tn+"/")
+			if( idx<0 ) { idx=test.indexOf("/"+tn+"@") }
+			if( idx>=0 )
+			{
+				table=tn
+				test=test.substring(idx+tn.length+1)
+			}
+		}
+		if(table)
+		{
+			database.structures[table].columns=database.structures[table].columns || {}
+			var name=test.substring(1)
+			
+			database.structures[table].columns[name]=database.structures[table].columns[name] || {}
+//			database.structures[table].columns[name].paths=database.structures[table].columns[name].paths || {}
+//			database.structures[table].columns[name].paths[pn]=true
+
+			Object.assign(database.structures[table].columns[name],database.paths[pn])
+		}
+	}
+
+	for(var tn in database.structures)
+	{
+		var tv=database.structures[tn]
+		for(var pn in tv.paths )
+		{
+			var pv=database.paths[pn]
+			if(pv.type=="text") // we need to include a text column
+			{
+				tv.columns=tv.columns || {}
+				tv.columns["text"]={type:"text"}
+			}
+			break // only do once
+		}
+	}
+
 	await pfs.writeFile("json/database.json",stringify(database,{space:" "}));
 
 }
