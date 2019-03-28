@@ -111,8 +111,13 @@ fetch.xsd_xpaths=function(tree,root)
 			else
 			if(cv.ref)
 			{
+
 				var e=Object.assign({},emap[cv.ref],cv)
 				e[1]=[].concat( emap[cv.ref][1] , cv[1] )
+				if(e.type && tmap[e.type])
+				{
+					e[1]=e[1].concat([tmap[e.type]])
+				}
 				parse(e,path)
 			}
 			else

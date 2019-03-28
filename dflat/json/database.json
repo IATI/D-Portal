@@ -93,6 +93,8 @@
     ],
     "/default-aid-type": [
      {
+      "@code": "text",
+      "@vocabulary": "text"
      }
     ],
     "/default-finance-type@code": "text",
@@ -116,6 +118,8 @@
       "/language@code": [
        "text"
       ],
+      "/title/narrative/en": "text",
+      "/title/narrative/fr": "text",
       "@format": "text",
       "@url": "text"
      }
@@ -260,6 +264,8 @@
     "/reporting-org@type": "text",
     "/result": [
      {
+      "/description/narrative/en": "text",
+      "/description/narrative/fr": "text",
       "/document-link": [
        {
         "/category@code": [
@@ -271,6 +277,8 @@
         "/language@code": [
          "text"
         ],
+        "/title/narrative/en": "text",
+        "/title/narrative/fr": "text",
         "@format": "text",
         "@url": "text"
        }
@@ -279,6 +287,8 @@
        {
         "/baseline": [
          {
+          "/comment/narrative/en": "text",
+          "/comment/narrative/fr": "text",
           "/dimension": [
            {
             "@name": "text",
@@ -296,6 +306,8 @@
             "/language@code": [
              "text"
             ],
+            "/title/narrative/en": "text",
+            "/title/narrative/fr": "text",
             "@format": "text",
             "@url": "text"
            }
@@ -308,6 +320,8 @@
           "@year": 1
          }
         ],
+        "/description/narrative/en": "text",
+        "/description/narrative/fr": "text",
         "/document-link": [
          {
           "/category@code": [
@@ -319,6 +333,8 @@
           "/language@code": [
            "text"
           ],
+          "/title/narrative/en": "text",
+          "/title/narrative/fr": "text",
           "@format": "text",
           "@url": "text"
          }
@@ -327,6 +343,8 @@
          {
           "/actual": [
            {
+            "/comment/narrative/en": "text",
+            "/comment/narrative/fr": "text",
             "/dimension": [
              {
               "@name": "text",
@@ -344,6 +362,8 @@
               "/language@code": [
                "text"
               ],
+              "/title/narrative/en": "text",
+              "/title/narrative/fr": "text",
               "@format": "text",
               "@url": "text"
              }
@@ -358,6 +378,8 @@
           "/period-start@iso-date": 1.1,
           "/target": [
            {
+            "/comment/narrative/en": "text",
+            "/comment/narrative/fr": "text",
             "/dimension": [
              {
               "@name": "text",
@@ -375,6 +397,8 @@
               "/language@code": [
                "text"
               ],
+              "/title/narrative/en": "text",
+              "/title/narrative/fr": "text",
               "@format": "text",
               "@url": "text"
              }
@@ -394,6 +418,8 @@
           "@vocabulary": "text"
          }
         ],
+        "/title/narrative/en": "text",
+        "/title/narrative/fr": "text",
         "@aggregation-status": 1,
         "@ascending": 1,
         "@measure": "text"
@@ -406,6 +432,8 @@
         "@vocabulary-uri": "text"
        }
       ],
+      "/title/narrative/en": "text",
+      "/title/narrative/fr": "text",
       "@aggregation-status": 1,
       "@type": "text"
      }
@@ -506,6 +534,8 @@
       "/language@code": [
        "text"
       ],
+      "/title/narrative/en": "text",
+      "/title/narrative/fr": "text",
       "@format": "text",
       "@url": "text"
      }
@@ -949,6 +979,13 @@
    "multiple": true,
    "type": "null"
   },
+  "/iati-activities/iati-activity/default-aid-type@code": {
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/default-aid-type@vocabulary": {
+   "type": "text"
+  },
   "/iati-activities/iati-activity/default-finance-type": {
    "type": "null"
   },
@@ -1028,6 +1065,14 @@
   "/iati-activities/iati-activity/document-link/title": {
    "required": true,
    "type": "null"
+  },
+  "/iati-activities/iati-activity/document-link/title/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/document-link/title/narrative@xml:lang": {
+   "type": "text"
   },
   "/iati-activities/iati-activity/document-link@format": {
    "required": true,
@@ -1446,6 +1491,14 @@
   "/iati-activities/iati-activity/result/description": {
    "type": "null"
   },
+  "/iati-activities/iati-activity/result/description/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/description/narrative@xml:lang": {
+   "type": "text"
+  },
   "/iati-activities/iati-activity/result/document-link": {
    "multiple": true,
    "type": "null"
@@ -1489,6 +1542,14 @@
    "required": true,
    "type": "null"
   },
+  "/iati-activities/iati-activity/result/document-link/title/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/document-link/title/narrative@xml:lang": {
+   "type": "text"
+  },
   "/iati-activities/iati-activity/result/document-link@format": {
    "required": true,
    "type": "text"
@@ -1508,6 +1569,14 @@
   },
   "/iati-activities/iati-activity/result/indicator/baseline/comment": {
    "type": "null"
+  },
+  "/iati-activities/iati-activity/result/indicator/baseline/comment/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/indicator/baseline/comment/narrative@xml:lang": {
+   "type": "text"
   },
   "/iati-activities/iati-activity/result/indicator/baseline/dimension": {
    "multiple": true,
@@ -1562,6 +1631,14 @@
    "required": true,
    "type": "null"
   },
+  "/iati-activities/iati-activity/result/indicator/baseline/document-link/title/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/indicator/baseline/document-link/title/narrative@xml:lang": {
+   "type": "text"
+  },
   "/iati-activities/iati-activity/result/indicator/baseline/document-link@format": {
    "required": true,
    "type": "text"
@@ -1589,6 +1666,14 @@
   },
   "/iati-activities/iati-activity/result/indicator/description": {
    "type": "null"
+  },
+  "/iati-activities/iati-activity/result/indicator/description/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/indicator/description/narrative@xml:lang": {
+   "type": "text"
   },
   "/iati-activities/iati-activity/result/indicator/document-link": {
    "multiple": true,
@@ -1633,6 +1718,14 @@
    "required": true,
    "type": "null"
   },
+  "/iati-activities/iati-activity/result/indicator/document-link/title/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/indicator/document-link/title/narrative@xml:lang": {
+   "type": "text"
+  },
   "/iati-activities/iati-activity/result/indicator/document-link@format": {
    "required": true,
    "type": "text"
@@ -1651,6 +1744,14 @@
   },
   "/iati-activities/iati-activity/result/indicator/period/actual/comment": {
    "type": "null"
+  },
+  "/iati-activities/iati-activity/result/indicator/period/actual/comment/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/indicator/period/actual/comment/narrative@xml:lang": {
+   "type": "text"
   },
   "/iati-activities/iati-activity/result/indicator/period/actual/dimension": {
    "multiple": true,
@@ -1705,6 +1806,14 @@
    "required": true,
    "type": "null"
   },
+  "/iati-activities/iati-activity/result/indicator/period/actual/document-link/title/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/indicator/period/actual/document-link/title/narrative@xml:lang": {
+   "type": "text"
+  },
   "/iati-activities/iati-activity/result/indicator/period/actual/document-link@format": {
    "required": true,
    "type": "text"
@@ -1745,6 +1854,14 @@
   },
   "/iati-activities/iati-activity/result/indicator/period/target/comment": {
    "type": "null"
+  },
+  "/iati-activities/iati-activity/result/indicator/period/target/comment/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/indicator/period/target/comment/narrative@xml:lang": {
+   "type": "text"
   },
   "/iati-activities/iati-activity/result/indicator/period/target/dimension": {
    "multiple": true,
@@ -1799,6 +1916,14 @@
    "required": true,
    "type": "null"
   },
+  "/iati-activities/iati-activity/result/indicator/period/target/document-link/title/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/indicator/period/target/document-link/title/narrative@xml:lang": {
+   "type": "text"
+  },
   "/iati-activities/iati-activity/result/indicator/period/target/document-link@format": {
    "required": true,
    "type": "text"
@@ -1836,6 +1961,14 @@
    "required": true,
    "type": "null"
   },
+  "/iati-activities/iati-activity/result/indicator/title/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/indicator/title/narrative@xml:lang": {
+   "type": "text"
+  },
   "/iati-activities/iati-activity/result/indicator@aggregation-status": {
    "type": "int"
   },
@@ -1864,6 +1997,14 @@
   "/iati-activities/iati-activity/result/title": {
    "required": true,
    "type": "null"
+  },
+  "/iati-activities/iati-activity/result/title/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-activities/iati-activity/result/title/narrative@xml:lang": {
+   "type": "text"
   },
   "/iati-activities/iati-activity/result@aggregation-status": {
    "type": "int"
@@ -2190,6 +2331,14 @@
   "/iati-organisations/iati-organisation/document-link/title": {
    "required": true,
    "type": "null"
+  },
+  "/iati-organisations/iati-organisation/document-link/title/narrative": {
+   "multiple": true,
+   "required": true,
+   "type": "text"
+  },
+  "/iati-organisations/iati-organisation/document-link/title/narrative@xml:lang": {
+   "type": "text"
   },
   "/iati-organisations/iati-organisation/document-link@format": {
    "required": true,
@@ -2617,6 +2766,11 @@
     "comment": {
      "type": "null"
     },
+    "comment/narrative": {
+     "multiple": true,
+     "required": true,
+     "type": "text"
+    },
     "dimension": {
      "multiple": true,
      "type": "null"
@@ -2673,6 +2827,11 @@
    "columns": {
     "comment": {
      "type": "null"
+    },
+    "comment/narrative": {
+     "multiple": true,
+     "required": true,
+     "type": "text"
     },
     "dimension": {
      "multiple": true,
@@ -2877,6 +3036,15 @@
    }
   },
   "default-aid-type": {
+   "columns": {
+    "code": {
+     "required": true,
+     "type": "text"
+    },
+    "vocabulary": {
+     "type": "text"
+    }
+   },
    "paths": {
     "/iati-activities/iati-activity/default-aid-type": true
    }
@@ -2939,6 +3107,11 @@
     "title": {
      "required": true,
      "type": "null"
+    },
+    "title/narrative": {
+     "multiple": true,
+     "required": true,
+     "type": "text"
     },
     "url": {
      "required": true,
@@ -3468,6 +3641,11 @@
     "title": {
      "required": true,
      "type": "null"
+    },
+    "title/narrative": {
+     "multiple": true,
+     "required": true,
+     "type": "text"
     }
    },
    "paths": {
@@ -3635,6 +3813,7 @@
     "/iati-activities/iati-activity/country-budget-items/budget-item/description/narrative": true,
     "/iati-activities/iati-activity/description/narrative": true,
     "/iati-activities/iati-activity/document-link/description/narrative": true,
+    "/iati-activities/iati-activity/document-link/title/narrative": true,
     "/iati-activities/iati-activity/humanitarian-scope/narrative": true,
     "/iati-activities/iati-activity/location/activity-description/narrative": true,
     "/iati-activities/iati-activity/location/description/narrative": true,
@@ -3647,11 +3826,23 @@
     "/iati-activities/iati-activity/recipient-country/narrative": true,
     "/iati-activities/iati-activity/recipient-region/narrative": true,
     "/iati-activities/iati-activity/reporting-org/narrative": true,
+    "/iati-activities/iati-activity/result/description/narrative": true,
     "/iati-activities/iati-activity/result/document-link/description/narrative": true,
+    "/iati-activities/iati-activity/result/document-link/title/narrative": true,
+    "/iati-activities/iati-activity/result/indicator/baseline/comment/narrative": true,
     "/iati-activities/iati-activity/result/indicator/baseline/document-link/description/narrative": true,
+    "/iati-activities/iati-activity/result/indicator/baseline/document-link/title/narrative": true,
+    "/iati-activities/iati-activity/result/indicator/description/narrative": true,
     "/iati-activities/iati-activity/result/indicator/document-link/description/narrative": true,
+    "/iati-activities/iati-activity/result/indicator/document-link/title/narrative": true,
+    "/iati-activities/iati-activity/result/indicator/period/actual/comment/narrative": true,
     "/iati-activities/iati-activity/result/indicator/period/actual/document-link/description/narrative": true,
+    "/iati-activities/iati-activity/result/indicator/period/actual/document-link/title/narrative": true,
+    "/iati-activities/iati-activity/result/indicator/period/target/comment/narrative": true,
     "/iati-activities/iati-activity/result/indicator/period/target/document-link/description/narrative": true,
+    "/iati-activities/iati-activity/result/indicator/period/target/document-link/title/narrative": true,
+    "/iati-activities/iati-activity/result/indicator/title/narrative": true,
+    "/iati-activities/iati-activity/result/title/narrative": true,
     "/iati-activities/iati-activity/sector/narrative": true,
     "/iati-activities/iati-activity/tag/narrative": true,
     "/iati-activities/iati-activity/title/narrative": true,
@@ -3662,6 +3853,7 @@
     "/iati-activities/iati-activity/transaction/recipient-region/narrative": true,
     "/iati-activities/iati-activity/transaction/sector/narrative": true,
     "/iati-organisations/iati-organisation/document-link/description/narrative": true,
+    "/iati-organisations/iati-organisation/document-link/title/narrative": true,
     "/iati-organisations/iati-organisation/name/narrative": true,
     "/iati-organisations/iati-organisation/recipient-country-budget/budget-line/narrative": true,
     "/iati-organisations/iati-organisation/recipient-country-budget/recipient-country/narrative": true,
@@ -4107,6 +4299,11 @@
      "required": true,
      "type": "null"
     },
+    "title/narrative": {
+     "multiple": true,
+     "required": true,
+     "type": "text"
+    },
     "type": {
      "required": true,
      "type": "text"
@@ -4167,6 +4364,11 @@
    "columns": {
     "comment": {
      "type": "null"
+    },
+    "comment/narrative": {
+     "multiple": true,
+     "required": true,
+     "type": "text"
     },
     "dimension": {
      "multiple": true,
