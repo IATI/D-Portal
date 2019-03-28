@@ -1,4 +1,641 @@
 {
+ "json": {
+  "/iati-activities/iati-activity": [
+   {
+    "/activity-date": [
+     {
+      "/narrative/en": "text",
+      "/narrative/fr": "text",
+      "@iso-date": 1.1,
+      "@type": "text"
+     }
+    ],
+    "/activity-scope@code": "text",
+    "/activity-status@code": "text",
+    "/budget": [
+     {
+      "/period-end@iso-date": 1.1,
+      "/period-start@iso-date": 1.1,
+      "/value": 1.1,
+      "/value@currency": "text",
+      "/value@value-date": 1.1,
+      "@status": "text",
+      "@type": "text"
+     }
+    ],
+    "/capital-spend@percentage": 1.1,
+    "/collaboration-type@code": "text",
+    "/conditions/condition": [
+     {
+      "/narrative/en": "text",
+      "/narrative/fr": "text",
+      "@type": "text"
+     }
+    ],
+    "/conditions@attached": 1,
+    "/contact-info": [
+     {
+      "/department/narrative/en": "text",
+      "/department/narrative/fr": "text",
+      "/email": [
+       "text"
+      ],
+      "/job-title/narrative/en": "text",
+      "/job-title/narrative/fr": "text",
+      "/mailing-address": [
+       {
+        "/narrative/en": "text",
+        "/narrative/fr": "text"
+       }
+      ],
+      "/organisation/narrative/en": "text",
+      "/organisation/narrative/fr": "text",
+      "/person-name/narrative/en": "text",
+      "/person-name/narrative/fr": "text",
+      "/telephone": [
+       "text"
+      ],
+      "/website": [
+       "text"
+      ],
+      "@type": "text"
+     }
+    ],
+    "/country-budget-items/budget-item": [
+     {
+      "/description/narrative/en": "text",
+      "/description/narrative/fr": "text",
+      "@code": "text",
+      "@percentage": 1.1
+     }
+    ],
+    "/country-budget-items@vocabulary": "text",
+    "/crs-add/channel-code": "text",
+    "/crs-add/loan-status/interest-arrears": 1.1,
+    "/crs-add/loan-status/interest-received": 1.1,
+    "/crs-add/loan-status/principal-arrears": 1.1,
+    "/crs-add/loan-status/principal-outstanding": 1.1,
+    "/crs-add/loan-status@currency": "text",
+    "/crs-add/loan-status@value-date": 1.1,
+    "/crs-add/loan-status@year": 1.1,
+    "/crs-add/loan-terms/commitment-date@iso-date": 1.1,
+    "/crs-add/loan-terms/repayment-final-date@iso-date": 1.1,
+    "/crs-add/loan-terms/repayment-first-date@iso-date": 1.1,
+    "/crs-add/loan-terms/repayment-plan@code": "text",
+    "/crs-add/loan-terms/repayment-type@code": "text",
+    "/crs-add/loan-terms@rate-1": 1.1,
+    "/crs-add/loan-terms@rate-2": 1.1,
+    "/crs-add/other-flags": [
+     {
+      "@code": "text",
+      "@significance": 1
+     }
+    ],
+    "/default-aid-type": [
+     {
+     }
+    ],
+    "/default-finance-type@code": "text",
+    "/default-flow-type@code": "text",
+    "/default-tied-status@code": "text",
+    "/description": [
+     {
+      "/narrative/en": "text",
+      "/narrative/fr": "text",
+      "@type": "text"
+     }
+    ],
+    "/document-link": [
+     {
+      "/category@code": [
+       "text"
+      ],
+      "/description/narrative/en": "text",
+      "/description/narrative/fr": "text",
+      "/document-date@iso-date": 1.1,
+      "/language@code": [
+       "text"
+      ],
+      "@format": "text",
+      "@url": "text"
+     }
+    ],
+    "/fss/forecast": [
+     {
+      "": 1.1,
+      "@currency": "text",
+      "@value-date": 1.1,
+      "@year": 1.1
+     }
+    ],
+    "/fss@extraction-date": 1.1,
+    "/fss@phaseout-year": 1.1,
+    "/fss@priority": 1,
+    "/humanitarian-scope": [
+     {
+      "/narrative/en": "text",
+      "/narrative/fr": "text",
+      "@code": "text",
+      "@type": "text",
+      "@vocabulary": "text",
+      "@vocabulary-uri": "text"
+     }
+    ],
+    "/iati-identifier": "text",
+    "/legacy-data": [
+     {
+      "@iati-equivalent": "text",
+      "@name": "text",
+      "@value": "text"
+     }
+    ],
+    "/location": [
+     {
+      "/activity-description/narrative/en": "text",
+      "/activity-description/narrative/fr": "text",
+      "/administrative": [
+       {
+        "@code": "text",
+        "@level": 1,
+        "@vocabulary": "text"
+       }
+      ],
+      "/description/narrative/en": "text",
+      "/description/narrative/fr": "text",
+      "/exactness@code": "text",
+      "/feature-designation@code": "text",
+      "/location-class@code": "text",
+      "/location-id": [
+       {
+        "@code": "text",
+        "@vocabulary": "text"
+       }
+      ],
+      "/location-reach@code": "text",
+      "/name/narrative/en": "text",
+      "/name/narrative/fr": "text",
+      "/point/pos": "text",
+      "/point@srsName": "text",
+      "@ref": "text"
+     }
+    ],
+    "/other-identifier": [
+     {
+      "/owner-org/narrative/en": "text",
+      "/owner-org/narrative/fr": "text",
+      "/owner-org@ref": "text",
+      "@ref": "text",
+      "@type": "text"
+     }
+    ],
+    "/participating-org": [
+     {
+      "/narrative/en": "text",
+      "/narrative/fr": "text",
+      "@activity-id": "text",
+      "@crs-channel-code": "text",
+      "@ref": "text",
+      "@role": "text",
+      "@type": "text"
+     }
+    ],
+    "/planned-disbursement": [
+     {
+      "/period-end@iso-date": 1.1,
+      "/period-start@iso-date": 1.1,
+      "/provider-org/narrative/en": "text",
+      "/provider-org/narrative/fr": "text",
+      "/provider-org@provider-activity-id": "text",
+      "/provider-org@ref": "text",
+      "/provider-org@type": "text",
+      "/receiver-org/narrative/en": "text",
+      "/receiver-org/narrative/fr": "text",
+      "/receiver-org@receiver-activity-id": "text",
+      "/receiver-org@ref": "text",
+      "/receiver-org@type": "text",
+      "/value": 1.1,
+      "/value@currency": "text",
+      "/value@value-date": 1.1,
+      "@type": "text"
+     }
+    ],
+    "/policy-marker": [
+     {
+      "/narrative/en": "text",
+      "/narrative/fr": "text",
+      "@code": "text",
+      "@significance": "text",
+      "@vocabulary": "text",
+      "@vocabulary-uri": "text"
+     }
+    ],
+    "/recipient-country": [
+     {
+      "/narrative/en": "text",
+      "/narrative/fr": "text",
+      "@code": "text",
+      "@percentage": 1.1
+     }
+    ],
+    "/recipient-region": [
+     {
+      "/narrative/en": "text",
+      "/narrative/fr": "text",
+      "@code": "text",
+      "@percentage": 1.1,
+      "@vocabulary": "text",
+      "@vocabulary-uri": "text"
+     }
+    ],
+    "/related-activity": [
+     {
+      "@ref": "text",
+      "@type": "text"
+     }
+    ],
+    "/reporting-org/narrative/en": "text",
+    "/reporting-org/narrative/fr": "text",
+    "/reporting-org@ref": "text",
+    "/reporting-org@secondary-reporter": 1,
+    "/reporting-org@type": "text",
+    "/result": [
+     {
+      "/document-link": [
+       {
+        "/category@code": [
+         "text"
+        ],
+        "/description/narrative/en": "text",
+        "/description/narrative/fr": "text",
+        "/document-date@iso-date": 1.1,
+        "/language@code": [
+         "text"
+        ],
+        "@format": "text",
+        "@url": "text"
+       }
+      ],
+      "/indicator": [
+       {
+        "/baseline": [
+         {
+          "/dimension": [
+           {
+            "@name": "text",
+            "@value": "text"
+           }
+          ],
+          "/document-link": [
+           {
+            "/category@code": [
+             "text"
+            ],
+            "/description/narrative/en": "text",
+            "/description/narrative/fr": "text",
+            "/document-date@iso-date": 1.1,
+            "/language@code": [
+             "text"
+            ],
+            "@format": "text",
+            "@url": "text"
+           }
+          ],
+          "/location@ref": [
+           "text"
+          ],
+          "@iso-date": 1.1,
+          "@value": "text",
+          "@year": 1
+         }
+        ],
+        "/document-link": [
+         {
+          "/category@code": [
+           "text"
+          ],
+          "/description/narrative/en": "text",
+          "/description/narrative/fr": "text",
+          "/document-date@iso-date": 1.1,
+          "/language@code": [
+           "text"
+          ],
+          "@format": "text",
+          "@url": "text"
+         }
+        ],
+        "/period": [
+         {
+          "/actual": [
+           {
+            "/dimension": [
+             {
+              "@name": "text",
+              "@value": "text"
+             }
+            ],
+            "/document-link": [
+             {
+              "/category@code": [
+               "text"
+              ],
+              "/description/narrative/en": "text",
+              "/description/narrative/fr": "text",
+              "/document-date@iso-date": 1.1,
+              "/language@code": [
+               "text"
+              ],
+              "@format": "text",
+              "@url": "text"
+             }
+            ],
+            "/location@ref": [
+             "text"
+            ],
+            "@value": "text"
+           }
+          ],
+          "/period-end@iso-date": 1.1,
+          "/period-start@iso-date": 1.1,
+          "/target": [
+           {
+            "/dimension": [
+             {
+              "@name": "text",
+              "@value": "text"
+             }
+            ],
+            "/document-link": [
+             {
+              "/category@code": [
+               "text"
+              ],
+              "/description/narrative/en": "text",
+              "/description/narrative/fr": "text",
+              "/document-date@iso-date": 1.1,
+              "/language@code": [
+               "text"
+              ],
+              "@format": "text",
+              "@url": "text"
+             }
+            ],
+            "/location@ref": [
+             "text"
+            ],
+            "@value": "text"
+           }
+          ]
+         }
+        ],
+        "/reference": [
+         {
+          "@code": "text",
+          "@indicator-uri": "text",
+          "@vocabulary": "text"
+         }
+        ],
+        "@aggregation-status": 1,
+        "@ascending": 1,
+        "@measure": "text"
+       }
+      ],
+      "/reference": [
+       {
+        "@code": "text",
+        "@vocabulary": "text",
+        "@vocabulary-uri": "text"
+       }
+      ],
+      "@aggregation-status": 1,
+      "@type": "text"
+     }
+    ],
+    "/sector": [
+     {
+      "/narrative/en": "text",
+      "/narrative/fr": "text",
+      "@code": "text",
+      "@percentage": 1.1,
+      "@vocabulary": "text",
+      "@vocabulary-uri": "text"
+     }
+    ],
+    "/tag": [
+     {
+      "/narrative/en": "text",
+      "/narrative/fr": "text",
+      "@code": "text",
+      "@vocabulary": "text",
+      "@vocabulary-uri": "text"
+     }
+    ],
+    "/title/narrative/en": "text",
+    "/title/narrative/fr": "text",
+    "/transaction": [
+     {
+      "/aid-type": [
+       {
+        "@code": "text",
+        "@vocabulary": "text"
+       }
+      ],
+      "/description/narrative/en": "text",
+      "/description/narrative/fr": "text",
+      "/disbursement-channel@code": "text",
+      "/finance-type@code": "text",
+      "/flow-type@code": "text",
+      "/provider-org/narrative/en": "text",
+      "/provider-org/narrative/fr": "text",
+      "/provider-org@provider-activity-id": "text",
+      "/provider-org@ref": "text",
+      "/provider-org@type": "text",
+      "/receiver-org/narrative/en": "text",
+      "/receiver-org/narrative/fr": "text",
+      "/receiver-org@receiver-activity-id": "text",
+      "/receiver-org@ref": "text",
+      "/receiver-org@type": "text",
+      "/recipient-country/narrative/en": "text",
+      "/recipient-country/narrative/fr": "text",
+      "/recipient-country@code": "text",
+      "/recipient-region/narrative/en": "text",
+      "/recipient-region/narrative/fr": "text",
+      "/recipient-region@code": "text",
+      "/recipient-region@vocabulary": "text",
+      "/recipient-region@vocabulary-uri": "text",
+      "/sector": [
+       {
+        "/narrative/en": "text",
+        "/narrative/fr": "text",
+        "@code": "text",
+        "@vocabulary": "text",
+        "@vocabulary-uri": "text"
+       }
+      ],
+      "/tied-status@code": "text",
+      "/transaction-date@iso-date": 1.1,
+      "/transaction-type@code": "text",
+      "/value": 1.1,
+      "/value@currency": "text",
+      "/value@value-date": 1.1,
+      "@humanitarian": 1,
+      "@ref": "text"
+     }
+    ],
+    "@budget-not-provided": "text",
+    "@default-currency": "text",
+    "@hierarchy": 1,
+    "@humanitarian": 1,
+    "@last-updated-datetime": 1.1,
+    "@linked-data-uri": "text",
+    "@xml:lang": "text"
+   }
+  ],
+  "/iati-activities@generated-datetime": 1.1,
+  "/iati-activities@linked-data-default": "text",
+  "/iati-activities@version": "text",
+  "/iati-organisations/iati-organisation": [
+   {
+    "/document-link": [
+     {
+      "/category@code": [
+       "text"
+      ],
+      "/description/narrative/en": "text",
+      "/description/narrative/fr": "text",
+      "/document-date@iso-date": 1.1,
+      "/language@code": [
+       "text"
+      ],
+      "@format": "text",
+      "@url": "text"
+     }
+    ],
+    "/name/narrative/en": "text",
+    "/name/narrative/fr": "text",
+    "/organisation-identifier": "text",
+    "/recipient-country-budget": [
+     {
+      "/budget-line": [
+       {
+        "/narrative/en": "text",
+        "/narrative/fr": "text",
+        "/value": 1.1,
+        "/value@currency": "text",
+        "/value@value-date": 1.1,
+        "@ref": "text"
+       }
+      ],
+      "/period-end@iso-date": 1.1,
+      "/period-start@iso-date": 1.1,
+      "/recipient-country/narrative/en": "text",
+      "/recipient-country/narrative/fr": "text",
+      "/recipient-country@code": "text",
+      "/value": 1.1,
+      "/value@currency": "text",
+      "/value@value-date": 1.1,
+      "@status": "text"
+     }
+    ],
+    "/recipient-org-budget": [
+     {
+      "/budget-line": [
+       {
+        "/narrative/en": "text",
+        "/narrative/fr": "text",
+        "/value": 1.1,
+        "/value@currency": "text",
+        "/value@value-date": 1.1,
+        "@ref": "text"
+       }
+      ],
+      "/period-end@iso-date": 1.1,
+      "/period-start@iso-date": 1.1,
+      "/recipient-org/narrative/en": "text",
+      "/recipient-org/narrative/fr": "text",
+      "/recipient-org@ref": "text",
+      "/value": 1.1,
+      "/value@currency": "text",
+      "/value@value-date": 1.1,
+      "@status": "text"
+     }
+    ],
+    "/recipient-region-budget": [
+     {
+      "/budget-line": [
+       {
+        "/narrative/en": "text",
+        "/narrative/fr": "text",
+        "/value": 1.1,
+        "/value@currency": "text",
+        "/value@value-date": 1.1,
+        "@ref": "text"
+       }
+      ],
+      "/period-end@iso-date": 1.1,
+      "/period-start@iso-date": 1.1,
+      "/recipient-region/narrative/en": "text",
+      "/recipient-region/narrative/fr": "text",
+      "/recipient-region@code": "text",
+      "/recipient-region@vocabulary": "text",
+      "/recipient-region@vocabulary-uri": "text",
+      "/value": 1.1,
+      "/value@currency": "text",
+      "/value@value-date": 1.1,
+      "@status": "text"
+     }
+    ],
+    "/reporting-org/narrative/en": "text",
+    "/reporting-org/narrative/fr": "text",
+    "/reporting-org@ref": "text",
+    "/reporting-org@secondary-reporter": 1,
+    "/reporting-org@type": "text",
+    "/total-budget": [
+     {
+      "/budget-line": [
+       {
+        "/narrative/en": "text",
+        "/narrative/fr": "text",
+        "/value": 1.1,
+        "/value@currency": "text",
+        "/value@value-date": 1.1,
+        "@ref": "text"
+       }
+      ],
+      "/period-end@iso-date": 1.1,
+      "/period-start@iso-date": 1.1,
+      "/value": 1.1,
+      "/value@currency": "text",
+      "/value@value-date": 1.1,
+      "@status": "text"
+     }
+    ],
+    "/total-expenditure": [
+     {
+      "/expense-line": [
+       {
+        "/narrative/en": "text",
+        "/narrative/fr": "text",
+        "/value": 1.1,
+        "/value@currency": "text",
+        "/value@value-date": 1.1,
+        "@ref": "text"
+       }
+      ],
+      "/period-end@iso-date": 1.1,
+      "/period-start@iso-date": 1.1,
+      "/value": 1.1,
+      "/value@currency": "text",
+      "/value@value-date": 1.1
+     }
+    ],
+    "@default-currency": "text",
+    "@last-updated-datetime": 1.1,
+    "@xml:lang": "text"
+   }
+  ],
+  "/iati-organisations@generated-datetime": 1.1,
+  "/iati-organisations@version": "text"
+ },
  "paths": {
   "/iati-activities": {
    "type": "null"

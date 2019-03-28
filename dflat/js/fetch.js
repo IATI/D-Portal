@@ -516,6 +516,136 @@ fetch.database=async function()
 		}
 	}
 
+	database.json={}
+
+	var get_example_value=function(it)
+	{
+		if(it.type=="text")
+		{
+			return "text"
+		}
+		if(it.type=="int")
+		{
+			return 1
+		}
+		if(it.type=="number")
+		{
+			return 1.1
+		}
+	}
+	
+	var stack_fill
+	stack_fill=function(top)
+	{
+		var trim=function(s)
+		{
+			if(s.startsWith(top.path))
+			{
+				s=s.substr(top.path.length)
+			}
+			return s
+		}
+		for(var pn in database.paths )
+		{
+			var pv=database.paths[pn]
+			
+			if( pn.startsWith(top.path) )
+			{
+				var insert=true
+				for(var tn in top.data)
+				{
+					var tv=top.data[tn]
+					if( typeof tv == "object" )
+					{
+						if( trim(pn).startsWith(tn) )
+						{
+							insert=false
+							break
+						}
+					}
+				}
+				if(insert)
+				{
+					if(pv.multiple && top.path!=pn )
+					{
+						if( trim(pn).endsWith("/narrative") ) // special
+						{
+							top.data[trim(pn)+"/en"]="text"
+							top.data[trim(pn)+"/fr"]="text"
+						}
+						else
+						{
+							var aa=[]
+							top.data[trim(pn)]=aa
+							for(var i=0;i<1;i++)
+							{
+								aa[i]={}
+								stack_fill({ path:pn , data:aa[i] })
+							}
+						}
+					}
+					else
+					if(pv.type!="null")
+					{
+						if( ! pn.endsWith("/narrative@xml:lang") ) // special
+						{
+							top.data[trim(pn)]=get_example_value(pv)
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	stack_fill({ path:"" , data:database.json })
+
+// shrink arrays with only one member in an object	
+	var walk
+	walk=function(it)
+	{
+		children={}
+		for(var n in it)
+		{
+			if(typeof(it[n])=="object")
+			{
+				children[n]=true
+			}
+		}
+		for(var cn in children)
+		{
+			var aa=it[cn]
+			var name
+			var count=0
+			for(var n in aa[0])
+			{
+				count++
+				name=n
+				if(typeof aa[0][n] =="object") // disable this if it cascades
+				{
+					count++
+				}
+			}
+			if( count==1 && name!==undefined ) // compress
+			{
+				var bb=[]
+				for( var i=0 ; i<aa.length ; i++ )
+				{
+					bb[i]=aa[i][name]
+				}
+				delete it[cn] // remove and
+				it[cn+name]=bb // replace
+			}
+			else
+			{
+				for( var i=0 ; i<aa.length ; i++ )
+				{
+					walk( aa[i] )
+				}
+			}
+		}
+	}
+	walk(database.json)
+
 	await pfs.writeFile("json/database.json",stringify(database,{space:" "}));
 
 }
