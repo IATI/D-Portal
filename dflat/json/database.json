@@ -534,6 +534,13 @@
       "/language@code": [
        "text"
       ],
+      "/recipient-country": [
+       {
+        "/narrative/en": "text",
+        "/narrative/fr": "text",
+        "@code": "text"
+       }
+      ],
       "/title/narrative/en": "text",
       "/title/narrative/fr": "text",
       "@format": "text",
@@ -2328,6 +2335,21 @@
    "required": true,
    "type": "text"
   },
+  "/iati-organisations/iati-organisation/document-link/recipient-country": {
+   "multiple": true,
+   "type": "null"
+  },
+  "/iati-organisations/iati-organisation/document-link/recipient-country/narrative": {
+   "multiple": true,
+   "type": "text"
+  },
+  "/iati-organisations/iati-organisation/document-link/recipient-country/narrative@xml:lang": {
+   "type": "text"
+  },
+  "/iati-organisations/iati-organisation/document-link/recipient-country@code": {
+   "required": true,
+   "type": "text"
+  },
   "/iati-organisations/iati-organisation/document-link/title": {
    "required": true,
    "type": "null"
@@ -3104,6 +3126,10 @@
      "multiple": true,
      "type": "null"
     },
+    "recipient-country": {
+     "multiple": true,
+     "type": "null"
+    },
     "title": {
      "required": true,
      "type": "null"
@@ -3853,6 +3879,7 @@
     "/iati-activities/iati-activity/transaction/recipient-region/narrative": true,
     "/iati-activities/iati-activity/transaction/sector/narrative": true,
     "/iati-organisations/iati-organisation/document-link/description/narrative": true,
+    "/iati-organisations/iati-organisation/document-link/recipient-country/narrative": true,
     "/iati-organisations/iati-organisation/document-link/title/narrative": true,
     "/iati-organisations/iati-organisation/name/narrative": true,
     "/iati-organisations/iati-organisation/recipient-country-budget/budget-line/narrative": true,
@@ -4070,7 +4097,8 @@
     }
    },
    "paths": {
-    "/iati-activities/iati-activity/recipient-country": true
+    "/iati-activities/iati-activity/recipient-country": true,
+    "/iati-organisations/iati-organisation/document-link/recipient-country": true
    }
   },
   "recipient-country-budget": {

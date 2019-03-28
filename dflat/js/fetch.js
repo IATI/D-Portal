@@ -48,11 +48,20 @@ fetch.xsd_xpaths=function(tree,root)
 		var av=as[ai]
 		amap[av.name]=av
 	}
-
-	tmap["documentLinkResultBase"]=tmap["documentLinkBase"] // bad schema is bad, just hack it
-
-//need to merge this one we are missing the country part with this hack	
-	tmap["documentLinkWithReceipientCountry"]=tmap["documentLinkBase"]
+	
+	for(var tn in tmap)
+	{
+		var tv=tmap[tn]
+		var as=jml.find_xpath(tv,"/complexType/complexContent/extension",true)
+		for(var ai=0;ai<as.length;ai++)
+		{
+			var av=as[ai]
+			if( tmap[av.base] )
+			{
+				tv[1]=[].concat(av[1],tmap[av.base][1])
+			}
+		}
+	}
 
 	
 	var parse
@@ -67,22 +76,11 @@ fetch.xsd_xpaths=function(tree,root)
 
 		paths[path] = e
 		
-		var as=jml.find_xpath(e,"/element/complexType/simpleContent/extension/attribute",true)
-		for(var ai=0;ai<as.length;ai++)
-		{
-			var av=as[ai]
-			if(av.ref)
-			{
-				paths[path+"@"+av.ref]=amap[ av.ref ] || {}
-			}
-			else
-			if(av.name)
-			{
-				paths[path+"@"+av.name]=av
-			}
-		}
-
-		var as=jml.find_xpath(e,"/element/complexType/attribute",true)
+		var as=[].concat(
+				jml.find_xpath(e,"/element/complexType/simpleContent/extension/attribute",true),
+				jml.find_xpath(e,"/element/complexType/complexContent/extension/attribute",true),
+				jml.find_xpath(e,"/element/complexType/attribute",true)
+			)
 		for(var ai=0;ai<as.length;ai++)
 		{
 			var av=as[ai]
