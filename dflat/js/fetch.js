@@ -657,7 +657,7 @@ fetch.database=async function()
 	
 //	database.jpath={}
 
-	xson.pairs(database.tree,(v,nn)=>{
+	xson.all(database.tree,(v,nn)=>{
 		var xpath = nn.join("")
 		var jpath = '{"'+nn.join('","')+'"}'
 		

@@ -1,14 +1,22 @@
 {
  "/iati-activities/iati-activity": [
   {
-   "/activity-date/1/narrative/en": "Planned start date of the activity",
-   "/activity-date/1/narrative/fr": "Date prévue de début de l'activité",
-   "/activity-date/1@iso-date": "2012-04-15",
-   "/activity-date/1@type": "1",
-   "/activity-date/2@iso-date": "2012-04-28",
-   "/activity-date/2@type": "2",
-   "/activity-date/3@iso-date": "2015-12-31",
-   "/activity-date/3@type": "3",
+   "/activity-date": [
+    {
+     "/narrative/en": "Planned start date of the activity",
+     "/narrative/fr": "Date prévue de début de l'activité",
+     "@iso-date": "2012-04-15",
+     "@type": "1"
+    },
+    {
+     "@iso-date": "2012-04-28",
+     "@type": "2"
+    },
+    {
+     "@iso-date": "2015-12-31",
+     "@type": "3"
+    }
+   ],
    "/activity-scope@code": "3",
    "/activity-status@code": "2",
    "/budget": [
@@ -23,20 +31,40 @@
    ],
    "/capital-spend@percentage": "88.8",
    "/collaboration-type@code": "1",
-   "/conditions/condition/narrative/en": "Conditions text",
-   "/conditions/condition/narrative/fr": "Conditions texte",
-   "/conditions/condition@type": "1",
+   "/conditions/condition": [
+    {
+     "/narrative/en": "Conditions text",
+     "/narrative/fr": "Conditions texte",
+     "@type": "1"
+    }
+   ],
    "/conditions@attached": "1",
    "/contact-info": [
     {
      "/department/narrative/en": "Department B",
-     "/email": "transparency@example.org",
+     "/email": [
+      {
+       "": "transparency@example.org"
+      }
+     ],
      "/job-title/narrative/en": "Transparency Lead",
-     "/mailing-address/narrative/en": "Transparency House, The Street, Town, City, Postcode",
+     "/mailing-address": [
+      {
+       "/narrative/en": "Transparency House, The Street, Town, City, Postcode"
+      }
+     ],
      "/organisation/narrative/en": "Agency A",
      "/person-name/narrative/en": "A. Example",
-     "/telephone": "0044111222333444",
-     "/website": "http://www.example.org",
+     "/telephone": [
+      {
+       "": "0044111222333444"
+      }
+     ],
+     "/website": [
+      {
+       "": "http://www.example.org"
+      }
+     ],
      "@type": "1"
     }
    ],
@@ -73,30 +101,57 @@
      "@significance": "1"
     }
    ],
-   "/default-aid-type@code": "A01",
+   "/default-aid-type": [
+    {
+     "@code": "A01"
+    }
+   ],
    "/default-finance-type@code": "110",
    "/default-flow-type@code": "10",
    "/default-tied-status@code": "3",
-   "/description/1/narrative/en": "General activity description text.  Long description of the activity with no particular structure.",
-   "/description/1/narrative/fr": "Activité générale du texte de description. Longue description de l'activité sans structure particulière.",
-   "/description/2/narrative/en": "Objectives for the activity, for example from a logical framework.",
-   "/description/2/narrative/fr": "Objectifs de l'activité, par exemple à partir d'un cadre logique.",
-   "/description/3/narrative/en": "Statement of groups targeted to benefit from the activity.",
-   "/description/3/narrative/fr": "Déclaration de groupes ciblés pour bénéficier de l'activité.",
+   "/description": [
+    {
+     "/narrative/en": "General activity description text.  Long description of the activity with no particular structure.",
+     "/narrative/fr": "Activité générale du texte de description. Longue description de l'activité sans structure particulière.",
+     "@type": "1"
+    },
+    {
+     "/narrative/en": "Objectives for the activity, for example from a logical framework.",
+     "/narrative/fr": "Objectifs de l'activité, par exemple à partir d'un cadre logique.",
+     "@type": "2"
+    },
+    {
+     "/narrative/en": "Statement of groups targeted to benefit from the activity.",
+     "/narrative/fr": "Déclaration de groupes ciblés pour bénéficier de l'activité.",
+     "@type": "3"
+    }
+   ],
    "/document-link": [
     {
-     "/category@code": "A01",
-     "/language@code": "en",
+     "/category": [
+      {
+       "@code": "A01"
+      }
+     ],
+     "/language": [
+      {
+       "@code": "en"
+      }
+     ],
      "/title/narrative/en": "Project Report 2013",
      "/title/narrative/fr": "Rapport de projet 2013",
      "@format": "application/vnd.oasis.opendocument.text",
      "@url": "http:www.example.org/docs/report_en.odt"
     }
    ],
-   "/fss/forecast": "10000",
-   "/fss/forecast@currency": "GBP",
-   "/fss/forecast@value-date": "2013-07-03",
-   "/fss/forecast@year": "2014",
+   "/fss/forecast": [
+    {
+     "": "10000",
+     "@currency": "GBP",
+     "@value-date": "2013-07-03",
+     "@year": "2014"
+    }
+   ],
    "/fss@extraction-date": "2014-05-06",
    "/fss@phaseout-year": "2016",
    "/fss@priority": "1",
@@ -116,15 +171,23 @@
    "/location": [
     {
      "/activity-description/narrative/en": "A description that qualifies the activity taking place at the location",
-     "/administrative@code": "1453782",
-     "/administrative@level": "1",
-     "/administrative@vocabulary": "G1",
+     "/administrative": [
+      {
+       "@code": "1453782",
+       "@level": "1",
+       "@vocabulary": "G1"
+      }
+     ],
      "/description/narrative/en": "Location description",
      "/exactness@code": "1",
      "/feature-designation@code": "ADMF",
      "/location-class@code": "2",
-     "/location-id@code": "1453782",
-     "/location-id@vocabulary": "G1",
+     "/location-id": [
+      {
+       "@code": "1453782",
+       "@vocabulary": "G1"
+      }
+     ],
      "/location-reach@code": "1",
      "/name/narrative/en": "Location name",
      "/point/pos": "31.616944 65.716944",
@@ -227,19 +290,39 @@
    "/result": [
     {
      "/description/narrative/en": "Result description text",
-     "/indicator/baseline/comment/narrative/en": "Baseline comment text",
-     "/indicator/baseline@value": "10",
-     "/indicator/baseline@year": "2012",
-     "/indicator/description/narrative/en": "Indicator description text",
-     "/indicator/period/actual/comment/narrative/en": "Actual comment text",
-     "/indicator/period/actual@value": "11",
-     "/indicator/period/period-end@iso-date": "2013-03-31",
-     "/indicator/period/period-start@iso-date": "2013-01-01",
-     "/indicator/period/target/comment/narrative/en": "Target comment text",
-     "/indicator/period/target@value": "10",
-     "/indicator/title/narrative/en": "Indicator title",
-     "/indicator@ascending": "1",
-     "/indicator@measure": "1",
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "/comment/narrative/en": "Baseline comment text",
+         "@value": "10",
+         "@year": "2012"
+        }
+       ],
+       "/description/narrative/en": "Indicator description text",
+       "/period": [
+        {
+         "/actual": [
+          {
+           "/comment/narrative/en": "Actual comment text",
+           "@value": "11"
+          }
+         ],
+         "/period-end@iso-date": "2013-03-31",
+         "/period-start@iso-date": "2013-01-01",
+         "/target": [
+          {
+           "/comment/narrative/en": "Target comment text",
+           "@value": "10"
+          }
+         ]
+        }
+       ],
+       "/title/narrative/en": "Indicator title",
+       "@ascending": "1",
+       "@measure": "1"
+      }
+     ],
      "/title/narrative/en": "Result title",
      "@aggregation-status": "1",
      "@type": "1"
@@ -262,7 +345,11 @@
    "/title/narrative/fr": "Titre de l'activité",
    "/transaction": [
     {
-     "/aid-type@code": "A01",
+     "/aid-type": [
+      {
+       "@code": "A01"
+      }
+     ],
      "/description/narrative/en": "Transaction description text",
      "/disbursement-channel@code": "1",
      "/finance-type@code": "110",
@@ -276,8 +363,12 @@
      "/recipient-country@code": "AF",
      "/recipient-region@code": "456",
      "/recipient-region@vocabulary": "1",
-     "/sector@code": "111",
-     "/sector@vocabulary": "2",
+     "/sector": [
+      {
+       "@code": "111",
+       "@vocabulary": "2"
+      }
+     ],
      "/tied-status@code": "3",
      "/transaction-date@iso-date": "2012-01-01",
      "/transaction-type@code": "1",

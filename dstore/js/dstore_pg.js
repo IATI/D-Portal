@@ -254,6 +254,8 @@ dstore_pg.getsql_create_table_columns=function(db,name,tab)
 			if(col.NOCASE)				{ s.push(" CITEXT "); }
 			else
 			if(col.TEXT)				{ s.push(" TEXT "); }
+			else
+			if(col.JSON)				{ s.push(" JSONB "); }
 
 			if(col.NOT_NULL)			{ s.push(" NOT NULL "); }
 

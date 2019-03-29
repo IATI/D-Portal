@@ -49,6 +49,10 @@ dstore_db.tables={
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"jml",							TEXT:true }, // moved to reduce the main act table size
 	],
+	xson:[
+		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
+		{ name:"xson",							JSON:true }, // this is magical in postgres but just text is sqlite
+	],
 	hash:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"hash_day",						INTEGER:true , INDEX:true }, // last detected change

@@ -331,6 +331,8 @@ dstore_sqlite.getsql_create_table_columns=function(db,name,tab)
 			if(col.BLOB) 				{ s.push(" BLOB "); }
 			else
 			if(col.TEXT || col.NOCASE)	{ s.push(" TEXT "); }
+			else
+			if(col.JSON)				{ s.push(" TEXT "); }
 
 			if(col.NOT_NULL)			{ s.push(" NOT NULL "); }
 

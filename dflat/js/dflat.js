@@ -8,12 +8,14 @@ var util=require('util');
 var entities = require("entities");
 
 var jml = require("./jml.js");
+var xson = require("./xson.js");
 
+var database = require("../json/database.json");
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // parse the xml string into a flat structure
-dflat.xml_to_json=function(data)
+dflat.xml_to_xson=function(data)
 {
 	data=jml.from_xml(data)
 
@@ -35,31 +37,6 @@ dflat.xml_to_json=function(data)
 		op.store[tn]=v
 	}
 	
-
-
-	var multi_elements={
-		"iati-activity/contact-info":true,
-		"iati-activity/participating-org":true,
-		"iati-activity/recipient-country":true,
-		"iati-activity/recipient-region":true,
-		"iati-activity/location":true,
-		"iati-activity/sector":true,
-		"iati-activity/policy-marker":true,
-		"iati-activity/budget":true,
-		"iati-activity/planned-disbursement":true,
-		"iati-activity/transaction":true,
-		"iati-activity/document-link":true,
-		"iati-activity/related-activity":true,
-		"iati-activity/legacy-data":true,
-		"iati-activity/result":true,
-		"iati-activity/humanitarian-scope":true,
-		"iati-activity/other-identifier":true,
-		"iati-activity/crs-add/other-flags":true,
-		"iati-activity/country-budget-items/budget-item":true,
-		
-		"/codelist/codelist-items/codelist-item":true,
-	}
-
 	var dump
 	var dump_attr=function(it,op)
 	{
@@ -97,67 +74,149 @@ dflat.xml_to_json=function(data)
 			if( Array.isArray(it[1]) && (it[1].length==1) && (typeof it[1][0] == "string") )
 			{
 				var lang = it["xml:lang"] || op.lang || "en" // use default lang
-				store(op,op.root+"narrative/"+lang,it[1][0])
+				store(op,op.root+"/"+"narrative/"+lang,it[1][0])
 			}
 		}
 		else
 		{
 			var np=Object.assign({},op)
-			np.name=op.root+it[0]
-			np.root=np.name+"/"
+			np.name=op.root+"/"+it[0]
+			np.root=np.name
 			
-			if( np.name == "/iati-activities/iati-activity" )
-			{
-				np.name="iati-activity"
-				np.root=np.name+"/"
-				if(it["xml:lang"])
-				{
-					np.lang=it["xml:lang"]
-				}
-				flat["/iati-activities/iati-activity"]=flat["/iati-activities/iati-activity"] || []
-				np.store={}
-				np.trim=np.name
-				flat["/iati-activities/iati-activity"].push(np.store)
-			}
+			var info = database.paths[ np.name ]
 
-// split out *possible* multiple elemets into arrays, no matter how many there are
-			if( multi_elements[ np.name ] ) // can there be multiples?S
+			if( info && info.multiple ) // can there be multiples?
 			{
-				var n=pretrim( np.name , "iati-activity" ) // trim
+				var n=pretrim( np.name , np.trim ) // trim
 
 				op.store[ n ]=op.store[ n ] || []
 				np.store={}
 				np.trim=np.name
 				op.store[ n ].push(np.store)
 			}
-
-// flatten description using @type
-			if( np.name == "iati-activity/description" )
-			{
-				np.name=np.name+"/"+(it["type"] || "1") // defaults to type 1
-				np.root=np.name+"/"
-				if(it[1]) { dump(it[1],np) }
-				return
-			}
-
-// flatten activity-date using @type	
-			if( it["type"] && ( np.name == "iati-activity/activity-date" ) )
-			{
-				np.name=np.name+"/"+it["type"]
-				np.root=np.name+"/"
-				dump_attr(it,np)
-				if(it[1]) { dump(it[1],np) }
-				return
-			}
-
+			
 			dump_attr(it,np)
 			if(it[1]) { dump(it[1],np) }
 		}
 
 	}
-	dump(data,{root:"/",store:flat})
+	dump(data,{root:"",store:flat})
 
 
 
 	return flat
 }
+
+
+dflat.xson_to_xsv=function(data,root)
+{
+
+	var header=[]
+	var t={}
+	xson.all(data,function(v,a){
+		var n=a.join("")
+		if(n.startsWith(root)) //
+		{
+			n=n.substr( root.length )
+			t[n]=true
+		}
+	})
+	for(var n in t)
+	{
+		header.push(n)
+	}
+	header.sort()
+	header.unshift(root)
+	header.unshift("parent")
+	header.unshift("index")
+
+	var lines=[]
+	
+	lines.push(header.join(","))
+
+	var row=function(it)
+	{
+		var t=[];
+		t.push(it[0]);
+		t.push(it[1]);
+		t.push(it[2]);
+		for(var i=3;i<header.length;i++)
+		{
+			var head=header[i]
+			if( it[root+head] !== undefined )
+			{
+				var s=""+it[root+head]
+				if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") ) // need to escape
+				{
+					s="\""+s.split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string
+				}
+				t.push( s );
+			}
+			else
+			{
+				t.push("");
+			}
+		}
+		lines.push(t.join(","))
+	}
+	
+
+	var rows=[]
+
+	var walk
+	walk=function(it,nn,row)
+	{
+		var basepath=nn.join("")
+
+		if(basepath==root) // start a new item
+		{
+			row={0:rows.length+1,2:basepath}
+			rows[rows.length]=row // new row
+		}
+
+		for(const n of Object.keys(it).sort() ) // force order
+		{
+			var v=it[n]
+			if(Array.isArray(v))
+			{
+				if(v.length>1)
+				{
+					for(let i=0;i<v.length;i++)
+					{
+						if(basepath.startsWith(root))
+						{
+							rows[rows.length]={0:rows.length+1,1:row[0],2:basepath+n,[basepath+n]:i+1,[basepath]:row[basepath]} // new row
+							walk( v[i] , nn.concat([n]) , rows[rows.length-1] )
+						}
+						else
+						{
+							walk( v[i] , nn.concat([n]) , row )
+						}
+					}
+				}
+				else
+				if(v.length==1)
+				{
+					walk( v[0] , nn.concat([n]) , row ) // not a new row just a new path
+				}
+			}
+			else
+			{
+				if(basepath.startsWith(root))
+				{
+					row[ basepath+n ]=v
+				}
+			}
+		}
+	}
+	walk(data,[],{})
+
+	for(var v of rows)
+	{
+		row(v)
+	}
+
+	return lines.join("\n")
+}
+
+

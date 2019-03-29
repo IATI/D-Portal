@@ -28,7 +28,7 @@ cmd.run=async function(argv)
 		if(filename)
 		{
 			var dat=await pfs.readFile(filename+".xml",{ encoding: 'utf8' });
-			var json=dflat.xml_to_json(dat)
+			var json=dflat.xml_to_xson(dat)
 			await pfs.writeFile(filename+".json",stringify(json,{space:" "}));
 
 			return
@@ -41,102 +41,10 @@ cmd.run=async function(argv)
 		if(filename)
 		{
 			var dat=await pfs.readFile(filename+".xml",{ encoding: 'utf8' });
-			var json=dflat.xml_to_json(dat)
+			var json=dflat.xml_to_xson(dat)
+			var csv=dflat.xson_to_xsv(json,"/iati-activities/iati-activity")
 
-			var headers={}
-			var cb
-			cb=function(it,root)
-			{
-				for(var n in it)
-				{
-					var v=it[n]
-					if( Array.isArray(v) )
-					{
-						for( var i=0 ; i<v.length ; i++ )
-						{
-							cb(v[i],root+n)
-						}
-					}
-					else
-					{
-						headers[ root+n ]=true
-					}
-				}
-			}
-			cb(json,"")
-			
-			var header=[]
-			for(var n in headers)
-			{
-				if(n.startsWith("/iati-activities/iati-activity"))
-				{
-					var s=n.substr( ("/iati-activities/iati-activity").length )
-					if(s)
-					{
-						header.push(s)
-					}
-				}
-			}
-			
-			header.sort()
-			for(var i=header.length;i>=0;i--)
-			{
-				header[i+1]={id:header[i],title:header[i]}
-			}
-			header[0]={id:"TYPE",title:"/iati-activities/iati-activity"}
-
-
-			const csvWriter = require('csv-writer').createObjectCsvWriter({
-				path: filename+'.csv',
-				header: header
-			});
-			
-			
-			var a=json["/iati-activities/iati-activity"]
-			for(var ai=0; ai<a.length ; ai++)
-			{
-				var it={}
-				it.TYPE=""
-				var b=a[ai]
-				for(var bn in b)
-				{
-					var bv=b[bn]
-					if( ! Array.isArray(bv) )
-					{
-						it[ bn ] = bv
-					}
-				}
-				await csvWriter.writeRecords([it])
-				var c=[]
-				for(var bn in b)
-				{
-					if( Array.isArray(b[bn]) )
-					{
-						c.push(bn)
-					}
-				}
-				c.sort() // good order
-				for(var ci=0;ci<c.length;ci++)
-				{
-					var bn=c[ci]
-					var d=b[bn]
-					for(var di=0;di<d.length;di++)
-					{
-						var it={}
-						it.TYPE=bn
-						it["/iati-identifier"]=b["/iati-identifier"] // copy id
-						
-						var e=d[di]
-						for(var en in e)
-						{
-							var ev=e[en]
-							it[ bn+en ] = ev
-						}
-					
-						await csvWriter.writeRecords([it])
-					}
-				}
-			}
+			await pfs.writeFile(filename+".csv",csv);
 
 			return
 		}
