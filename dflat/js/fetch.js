@@ -7,6 +7,7 @@ var dflat=require("./dflat.js")
 
 var pfs=require("pify")( require("fs") )
 var jml=require("./jml.js")
+var xson=require("./xson.js")
 var stringify = require('json-stable-stringify');
 
 
@@ -460,6 +461,7 @@ fetch.database=async function()
 	database.paths["/iati-organisations/iati-organisation/organisation-identifier"].type="text"
 	
 
+/*
 	database.structures={}
 	
 	var basename =function(path) { return (path.substr(path.lastIndexOf('/') + 1)) }
@@ -520,8 +522,10 @@ fetch.database=async function()
 			break // only do once
 		}
 	}
+*/
 
-	database.json={}
+
+	database.tree={}
 
 	var get_example_value=function(it)
 	{
@@ -602,7 +606,7 @@ fetch.database=async function()
 		}
 		
 	}
-	stack_fill({ path:"" , data:database.json })
+	stack_fill({ path:"" , data:database.tree })
 
 // shrink arrays with only one member in an object	
 	var walk
@@ -649,7 +653,28 @@ fetch.database=async function()
 			}
 		}
 	}
-	walk(database.json)
+//	walk(database.tree)
+	
+//	database.jpath={}
+
+	xson.pairs(database.tree,(v,nn)=>{
+		var xpath = nn.join("")
+		var jpath = '{"'+nn.join('","')+'"}'
+		
+		if(xpath.endsWith("narrative/en"))
+		{
+			xpath=xpath.substring(0,xpath.length-3)
+		}
+		
+//		database.jpath[jpath]=xpath
+		
+		var p=database.paths[xpath]
+		if(p)
+		{
+			p.jpath=nn
+		}
+
+	})
 
 	await pfs.writeFile("json/database.json",stringify(database,{space:" "}));
 
