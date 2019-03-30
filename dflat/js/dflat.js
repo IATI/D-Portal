@@ -17,8 +17,12 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 // parse the xml string into a flat structure
 dflat.xml_to_xson=function(data)
 {
-	data=jml.from_xml(data)
-
+	if(typeof data=="string")
+	{
+		data=jml.from_xml(data)
+	}
+// else assume it is already parsed jml
+	
 	var flat={}
 
 	var pretrim=function(s,b)
@@ -108,17 +112,21 @@ dflat.xml_to_xson=function(data)
 }
 
 
-dflat.xson_to_xsv=function(data,root)
+dflat.xson_to_xsv=function(data,root,paths)
 {
 
 	var header=[]
 	var t={}
 	xson.all(data,function(v,a){
 		var n=a.join("")
-		if(n.startsWith(root)) //
+		for(let path in paths)
 		{
-			n=n.substr( root.length )
-			t[n]=true
+			if(n.startsWith(path)) // only remember these values
+			{
+				n=n.substr( root.length )
+				t[n]=true
+				break
+			}
 		}
 	})
 	for(var n in t)
@@ -157,6 +165,7 @@ dflat.xson_to_xsv=function(data,root)
 				t.push("");
 			}
 		}
+		while(t[t.length-1]==="") { t.splice(-1) } // trim trailing commas
 		lines.push(t.join(","))
 	}
 	
@@ -170,8 +179,11 @@ dflat.xson_to_xsv=function(data,root)
 
 		if(basepath==root) // start a new item
 		{
-			row={0:rows.length+1,2:basepath}
-			rows[rows.length]=row // new row
+			if(row[2]!=="") // check if we are already done
+			{
+				row={0:rows.length+1,2:basepath.substr( root.length )}
+				rows[rows.length]=row // new row
+			}
 		}
 
 		for(const n of Object.keys(it).sort() ) // force order
@@ -183,9 +195,9 @@ dflat.xson_to_xsv=function(data,root)
 				{
 					for(let i=0;i<v.length;i++)
 					{
-						if(basepath.startsWith(root))
+						if(basepath.startsWith(root)) // always need a new row to keep heirachy
 						{
-							rows[rows.length]={0:rows.length+1,1:row[0],2:basepath+n,[basepath+n]:i+1,[basepath]:row[basepath]} // new row
+							rows[rows.length]={ 0:rows.length+1 , 1:row[0] , 2:(basepath+n).substr( root.length ) } // new row
 							walk( v[i] , nn.concat([n]) , rows[rows.length-1] )
 						}
 						else
@@ -202,9 +214,13 @@ dflat.xson_to_xsv=function(data,root)
 			}
 			else
 			{
-				if(basepath.startsWith(root))
+				for(let path in paths)
 				{
-					row[ basepath+n ]=v
+					if(basepath.startsWith(path)) // only remember these values
+					{
+						row[ basepath+n ]=v
+						break
+					}
 				}
 			}
 		}

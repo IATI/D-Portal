@@ -42,7 +42,7 @@ cmd.run=async function(argv)
 		{
 			var dat=await pfs.readFile(filename+".xml",{ encoding: 'utf8' });
 			var json=dflat.xml_to_xson(dat)
-			var csv=dflat.xson_to_xsv(json,"/iati-activities/iati-activity")
+			var csv=dflat.xson_to_xsv(json,"/iati-activities/iati-activity",{"/iati-activities/iati-activity":true})
 
 			await pfs.writeFile(filename+".csv",csv);
 
