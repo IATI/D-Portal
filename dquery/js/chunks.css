@@ -1,0 +1,110 @@
+#^css
+
+*		{box-sizing:border-box;}
+html	{overflow:hidden;}
+body	{background:#000; font-family:'Cabin',monospace,sans-serif; font-size:16px; letter-spacing:1px; line-height:24px; color:#ccc; width:100%; padding:0; margin:0 auto; position:relative;}
+h1		{font-size:4em; font-weight:normal; color:#1400ff;}
+h2		{font-size:2em; font-weight:normal;}
+a		{color:#88f;}
+a		{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out; cursor:pointer; overflow-wrap:break-word; word-wrap:break-word; word-break:break-word; -ms-hyphens:auto; -moz-hyphens:auto; -webkit-hyphens:auto; hyphens:auto;} /* Fix long urls */
+b		{font-weight:700;}
+
+body { margin:0; position:absolute; top:0; bottom:0; left:0; right:0; }
+
+#split_top { margin:0; height:32px; width:100%; overflow:hidden; }
+#split_bot { margin:0; position:absolute; top:32px; bottom:0; left:0; right:0; }
+
+#editor {margin:0; position:absolute; top:0; bottom:0; left:0; right:0;}
+#gamecake_container {overflow:hidden; width:100%; height:100%;}
+
+.splitter_panel .vsplitter {background-color:#222;}
+.splitter_panel .hsplitter {background-color:#222;}
+
+#iconbar	{width:100%; height:32px; background-color:#232323; position:relative; }
+a:focus		{outline: none;}
+#iconbar a	{display:inline-block; text-align:center; text-decoration:none; width:23.5%; height:100%; padding:5px 4px; margin:0; transition:all 0.3s ease; color:#ccc; overflow:hidden;}
+#iconbar a:hover {background-color:#00ff80; color:#444; cursor:pointer;}
+#iconbar a#iconbar_about:hover {background-color:#eab000;}
+
+#gamecake_log {width:100%; height:100%; margin:0; color:#4c4; line-height:18px; font-size:14px; padding:0 10px;}
+#gamecake_canvas:-webkit-full-screen {width:100%; height:100%;}
+
+/*	Fullscreen button	*/
+a#iconbar_full {font-size:32px; line-height:17px; width:6%; position:absolute; right:0; top:0;}
+
+::-webkit-scrollbar			{width: 12px;  /* for vertical scrollbars */ 
+							 height: 12px; /* for horizontal scrollbars */}
+::-webkit-scrollbar-track	{background:rgba(128,128,128,0.1);}
+::-webkit-scrollbar-thumb	{background:rgba(128,128,128,0.5);}
+
+/*	WRAPPERS	*/
+
+.pop_wrapper	{transition:opacity 0.2s;}
+.pop_wrapper	{padding:50px 150px; background-color:rgba(64,67,70,0.8); overflow:hidden; position:absolute; top:0; left:0; bottom:0; right:0; z-index:999;}
+
+/*	ABOUT link popup	*/
+.pop_wrap		{height:100%; width:100%; background-color:#000; box-sizing:border-box; border:5px solid #00ff80; border-radius:4px; box-shadow:1px 1px 20px rgba(0,0,0,0.5); overflow:auto;}
+.pop_text		{padding:40px 60px 20px 60px;}
+.pop_head		{font-size:24px; line-height:30px; margin-top:20px;}
+.pop_head.title	{margin-top:40px; margin-bottom:20px;}
+.pop_head a		{text-decoration:none; color:#fff; font-weight:700;}
+.pop_head a:hover	{color:#00ff80;}
+.pop_head a:after	{content:"\279a"; font-size:10px; display:inline-block; vertical-align:top; color:#00adff;}
+.pop_head a:before	{background:url('../data/favicon.png')no-repeat center center; display:inline-block; background-size:100%; width:30px; height:24px; content:""; zoom:70%;}
+.pop_head.title a:before	{display:none;}
+.pop_close_wrap	{position:relative; width:100%;}
+a.pop_close		{position:absolute; display:block; top:15px; right:15px; width:40px; height:40px; font-size:35px; line-height:35px; text-align:center; color:#00ff80;}
+a.pop_close:hover{color:#42F89E; cursor:pointer;}
+
+.pop_div		{display:inline-block; vertical-align:top; width:33.33%; padding-right:6%; padding-top:5%; padding-bottom:5%; position:relative;}
+
+.pop_div span	{display:inline; background-color:#00ff80; padding:5px 15px; color:#222; font-size:20px; font-weight:400; box-shadow:3px 3px 0px rgba(255,0,153,0.77);}
+.pop_info		{margin-top:20px; font-size:18px; line-height:26px;}
+.pop_info a		{text-decoration:none; color:#fff; font-weight:700;}
+.pop_info a:hover	{color:#00ff80;}
+.pop_info a:after	{content:"\279a"; font-size:10px; display:inline-block; vertical-align:top; color:#00adff;}
+
+.pop_wrapper.load .pop_div	{height:140px;}
+.pop_div.gist1	{background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),url('../data/example_01.png')no-repeat center center;}
+.pop_div.gist2	{background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),url('../data/example_03.png')no-repeat center center;}
+.pop_div.gist3	{background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),url('../data/example_04.png')no-repeat center center;}
+.pop_div.gist4	{background:linear-gradient(rgba(0,0,0,1), 	  rgba(0,0,0,0.45)),url('../data/example_05.png')no-repeat -1065px center;}
+.pop_div.gist5	{background:linear-gradient(rgba(63,81,181,1),rgba(0,0,0,0.45)),url('../data/example_02.png')no-repeat -803px center;}
+.pop_div.gist6	{background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),url('../data/example_06.png')no-repeat center center;}
+.pop_div.gist7	{background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),url('../data/example_07.png')no-repeat center center;}
+
+.pop_wrapper.load .pop_div:hover	{background-color:#000;}
+.pop_wrapper.load .pop_div:hover .pop_info	{color:#fff;}
+
+.pop_wrapper.load .pop_info	{font-weight:700; text-align:center; width:90%; position:absolute; top:35px; left:5%; font-size:24px; color:#ccc; line-height:30px; text-shadow:1px 2px 5px rgba(0,0,0,0.8);}
+
+span.pad_icon:before	{background:url('../data/icon_pad.png')no-repeat center center; display:inline-block; background-size:contain; width:24px; height:24px; content:""; margin-right:10px;}
+span.fun64_icon:before	{background:url('../data/favicon.png')no-repeat center center; display:inline-block; background-size:100%; width:30px; height:24px; content:""; margin-right:10px; zoom:70%;}
+
+/*	LOAD link popup	*/
+
+.pop_wrapper.about	{display:none;}
+.pop_wrapper.load	{display:none;}
+
+input#gamecake_text_input	{width:100%; font-size:x-large; padding:5px 10px;}
+
+
+.ace_editor		{font-size:16px;}
+.ace-twilight .ace_gutter	{color:#666 !important;}
+
+
+#menubar { display: inline-block; }
+#menubar > li { display: inline-block; }
+#menubar > li > ul > li { display: block; }
+
+
+.cmd .cursor.blink {
+  color: #aaa;
+  border-left: 1px solid #aaa;
+  background-color: black;
+  margin-left: -1px;
+}
+
+iframe { width:100%; height:100%; overflow: scroll; border:0; }
+
+#top_title { display:inline-block; }
