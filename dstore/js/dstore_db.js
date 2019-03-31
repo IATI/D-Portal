@@ -1027,7 +1027,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		
 //		t.xml=xml;
 		t.jml=JSON.stringify(act);
-		t.xson=JSON.stringify( dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } ) );
+		t.xson=JSON.stringify( dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )["/iati-activities/iati-activity"][0] );
 
 // update our hash if we detect a change, this lets us keep track of the last time we saw new data per activity.
 // note that obviously this data will be lost if we rebuild the database but it is still nice to be able to
