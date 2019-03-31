@@ -32,7 +32,8 @@ else // normal server
 	argv.port     = argv.port     || process.env.DSTORE_PORT     || 1408                         ;
 	argv.database = argv.database || process.env.DSTORE_DATABASE || "../dstore/db/dstore.sqlite" ;
 	argv.cache    = argv.cache    || process.env.DSTORE_CACHE    || "../dstore/cache"            ;
-	argv.pg       = argv.pg       || process.env.DSTORE_PG       || undefined                    ;
+	argv.pg       = argv.pg       || process.env.DSTORE_PG       || undefined                    ; // main PG
+	argv.pgro     = argv.pgro     || process.env.DSTORE_PGRO     || undefined                    ; // read only PG
 
 	// to switch to postgres defaults set the following in your environment
 	// DSTORE_PG=postgresql:///dstore

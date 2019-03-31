@@ -13,6 +13,13 @@ if(typeof window !== 'undefined')
 //	var tree=require("jstree/dist/jstree.js")
 }
 
+var plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
+
+dquery.chunks={}
+plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/chunks.html', 'utf8'), dquery.chunks )
+plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/chunks.css', 'utf8'), dquery.chunks )
+
+plated.plate=function(str){ return plated.chunks.replace(str,dquery.chunks) }
 
 dquery.opts={}
 dquery.opts.test=false
@@ -55,9 +62,7 @@ dquery.start_loaded=async function(){
 		timresize_timeouteout=setTimeout(f,100);
 	};
 	$( window ).resize(resize_func) // keep height full
-	$("#split").height("100%").split({orientation:'vertical',limit:5,position:'20%',onDrag: resize_func });
-	$("#split_left").split({orientation:'horizontal',limit:5,position:'80%',onDrag: resize_func });
-//	$("#split_right").split({orientation:'horizontal',limit:5,position:'90%',onDrag: resize_func });
+	$("#split").height("100%").split({orientation:'vertical',limit:5,position:'50%',onDrag: resize_func });
 
 	$("#menubar").menu({
 		position: { my: 'left top', at: 'left bottom' },
@@ -80,6 +85,35 @@ dquery.start_loaded=async function(){
 	dquery.editor.setTheme("ace/theme/twilight");
 	dquery.editor.$blockScrolling = Infinity 
 
+	dquery.hash=window.location.hash
+	var session=dquery.editor.getSession()
+	session.setValue( decodeURI( dquery.hash.substr(1) ) )
+
+	window.setInterval(dquery.cron,1000) // start cron tasks
+
+}
+
+dquery.cron=async function()
+{
+	if(dquery.cron.lock) { return; } // there can be only one
+	dquery.cron.lock=true
+	
+	var session=dquery.editor.getSession()
+	var undo=session.getUndoManager()
+	if( !undo.isClean() )
+	{
+		dquery.hash="#"+encodeURI(session.getValue())
+		window.location.hash=dquery.hash
+		undo.markClean()
+	}
+	
+	if( dquery.hash != window.location.hash ) // update editor with any chnages to hash (browser forward/back buttons)
+	{
+		dquery.hash = window.location.hash
+		session.setValue( decodeURI( dquery.hash.substr(1) ) )
+	}
+
+	dquery.cron.lock=false
 }
 
 dquery.click=async function(id)

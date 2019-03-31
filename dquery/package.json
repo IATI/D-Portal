@@ -14,13 +14,19 @@
     "lib": "js"
   },
   "dependencies": {
-    "pify": "^4.0.1",
-    "yargs": "^13.2.2",
     "brace": "^0.11.1",
     "jquery": "^3.3.1",
     "jquery-ui": "^1.12.1",
     "jquery.splitter": "^0.27.1",
-    "jqueryui": "^1.11.1"
+    "jqueryui": "^1.11.1",
+    "pg": "^7.9.0",
+    "pg-monitor": "^1.1.0",
+    "pg-promise": "^8.6.4",
+    "pg-query-stream": "^2.0.0",
+    "pify": "^4.0.1",
+    "plated": "0.0.67",
+    "serve-static": "^1.13.2",
+    "yargs": "^13.2.2"
   },
   "devDependencies": {
     "brfs": "^2.0.2",
