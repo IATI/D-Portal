@@ -35,13 +35,8 @@ dquery.start_loaded=async function(){
 	require("brace/ext/modelist")
 	require("brace/theme/twilight")
 
-	require("brace/mode/javascript")
+	require("brace/mode/pgsql")
 	require("brace/mode/json")
-	require("brace/mode/html")
-	require("brace/mode/css")
-	require("brace/mode/markdown")
-	require("brace/mode/sh")
-	require("brace/mode/gitignore")
 
 	$("html").prepend(plated.plate('<style>{css}</style>')) // load our styles
 
@@ -88,8 +83,17 @@ dquery.start_loaded=async function(){
 	dquery.hash=window.location.hash
 	var session=dquery.editor.getSession()
 	session.setValue( decodeURI( dquery.hash.substr(1) ) )
+	session.setMode( "ace/mode/pgsql" );
+
 
 	window.setInterval(dquery.cron,1000) // start cron tasks
+
+	$('body').keydown(function (e) {
+	  if (e.ctrlKey && e.keyCode == 13) {
+		  
+		  dquery.click("nenu_execute")
+	  }
+	});
 
 }
 
@@ -116,10 +120,29 @@ dquery.cron=async function()
 	dquery.cron.lock=false
 }
 
+dquery.result=function(data,status,xhdr)
+{
+	var stringify = require('json-stable-stringify');
+
+	$("#result").text( stringify(data,{space:" "}) )
+}
+
 dquery.click=async function(id)
 {
 	switch(id)
 	{
+
+		case "nenu_execute":
+			var session=dquery.editor.getSession()
+			$.ajax({
+			  type: "POST",
+			  url: "/dquery",
+			  data: {sql:session.getValue()},
+			  success: dquery.result,
+			  dataType: "json",
+			});
+		break;
+		
 		default:
 			console.log("unhandled click "+id)
 		break

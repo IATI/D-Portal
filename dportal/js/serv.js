@@ -59,6 +59,9 @@ app.use(function(req, res, next) {
 	}
 });
 
+app.use( express.json() )
+app.use( express.urlencoded() )
+
 // dquery
 app.use('/dquery', require("../../dquery/js/query").serv )
 

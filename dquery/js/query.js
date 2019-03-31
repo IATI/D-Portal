@@ -31,7 +31,7 @@ var serve_html = require('serve-static')(__dirname+'/../html', {'index': ['index
 
 
 // handle the /dquery url space
-query.serv = function(req,res,next){
+query.serv = async function(req,res,next){
 
 	if(!argv.pgro)
 	{
@@ -40,15 +40,22 @@ query.serv = function(req,res,next){
 	}
 	else
 	{
-
-// serv up static files
-console.log(req.path)
-		var ap=req.path.split("/");
-		ap.splice(1,1)
-		req.path=ap.join("/")
-console.log(ap.join("/"))
-console.log(req.path)
-		serve_html(req,res,()=>{res.send("DISABLED");})
+		if(req.body.sql) // a post query
+		{
+//			console.log( req.body.sql )
+			var db=query.db()
+			var r
+			r = await db.any( req.body.sql ).catch((e)=>{
+				r={error:e.toString()}
+				res.jsonp(r);
+			})
+			res.jsonp(r);
+		}
+		else
+		{
+			// serv up static files
+			serve_html(req,res,()=>{res.send("DISABLED");})
+		}
 	}
 
 };
