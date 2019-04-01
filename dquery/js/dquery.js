@@ -90,6 +90,7 @@ dquery.start_loaded=async function(){
 	var session=dquery.editor.getSession()
 	session.setValue( decodeURI( dquery.hash.substr(1) ) )
 	session.setMode( "ace/mode/pgsql" );
+	session.setUseWrapMode(true);
 
 
 	window.setInterval(dquery.cron,1000) // start cron tasks
