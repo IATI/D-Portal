@@ -11,6 +11,9 @@ if(typeof window !== 'undefined')
 	var ui=require("./jquery-ui.js")
 
 //	var tree=require("jstree/dist/jstree.js")
+
+	var jsonv=require("jquery.json-viewer/json-viewer/jquery.json-viewer.js")
+
 }
 
 var plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
@@ -41,7 +44,10 @@ dquery.start_loaded=async function(){
 	$("html").prepend(plated.plate('<style>{css}</style>')) // load our styles
 
 	$("html").prepend("<style>"+require("jquery.splitter/css/jquery.splitter.css")+"</style>")
+	$("html").prepend("<style>"+require("jquery.json-viewer/json-viewer/jquery.json-viewer.css")+"</style>")
+
 	$("html").prepend("<style>"+require('fs').readFileSync(__dirname + '/jquery-ui.css', 'utf8')+"</style>")
+
 
 	$("body").empty().append(plated.plate('{body}')) // fill in the base body
 
@@ -123,8 +129,10 @@ dquery.cron=async function()
 dquery.result=function(data,status,xhdr)
 {
 	var stringify = require('json-stable-stringify');
+	
+	$('#result').jsonViewer(data);
 
-	$("#result").text( stringify(data,{space:" "}) )
+//	$("#result").text( stringify(data,{space:" "}) )
 }
 
 dquery.click=async function(id)
@@ -133,6 +141,7 @@ dquery.click=async function(id)
 	{
 
 		case "nenu_execute":
+			$('#result').jsonViewer({});
 			var session=dquery.editor.getSession()
 			$.ajax({
 			  type: "POST",
