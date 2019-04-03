@@ -73,35 +73,24 @@ dflat.xml_to_xson=function(data)
 			return
 		}
 		
-		if( it[0] == "narrative" )
-		{
-			if( Array.isArray(it[1]) && (it[1].length==1) && (typeof it[1][0] == "string") )
-			{
-				var lang = it["xml:lang"] || op.lang || "en" // use default lang
-				store(op,op.root+"/"+"narrative/"+lang,it[1][0])
-			}
-		}
-		else
-		{
-			var np=Object.assign({},op)
-			np.name=op.root+"/"+it[0]
-			np.root=np.name
-			
-			var info = database.paths[ np.name ]
+		var np=Object.assign({},op)
+		np.name=op.root+"/"+it[0]
+		np.root=np.name
+		
+		var info = database.paths[ np.name ]
 
-			if( info && info.multiple ) // can there be multiples?
-			{
-				var n=pretrim( np.name , np.trim ) // trim
+		if( info && info.multiple ) // can there be multiples?
+		{
+			var n=pretrim( np.name , np.trim ) // trim
 
-				op.store[ n ]=op.store[ n ] || []
-				np.store={}
-				np.trim=np.name
-				op.store[ n ].push(np.store)
-			}
-			
-			dump_attr(it,np)
-			if(it[1]) { dump(it[1],np) }
+			op.store[ n ]=op.store[ n ] || []
+			np.store={}
+			np.trim=np.name
+			op.store[ n ].push(np.store)
 		}
+		
+		dump_attr(it,np)
+		if(it[1]) { dump(it[1],np) }
 
 	}
 	dump(data,{root:"",store:flat})

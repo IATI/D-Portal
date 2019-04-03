@@ -13,8 +13,8 @@ var stringify = require('json-stable-stringify');
 
 fetch.all=async function()
 {
-//	await fetch.xsd()
-//	await fetch.codelist()
+	await fetch.xsd()
+	await fetch.codelist()
 	await fetch.database()
 }
 
@@ -140,7 +140,6 @@ fetch.xsd_xpaths=function(tree,root)
 fetch.xsd=async function()
 {
 	const download = require('download')
-	const xpathParser = require("pify")(require('xml2xpath'));
 
 // mkae sure dirs exist	
 	pfs.mkdir("json").catch(e=>{})
@@ -335,8 +334,8 @@ fetch.codelist=async function()
 	{
 		console.log("parsing "+n)
 		var data=await pfs.readFile("fetched/"+n,{ encoding: 'utf8' })
-		var it=dflat.xml_to_json(data)
-		var name=it["/codelist@name"]
+		var it=xson.from_xml(data)
+		var name=it["/codelist"][0]["@name"]
 		codelists[name]=it
 	}
 	await pfs.writeFile("json/codelists.json",stringify(codelists,{space:" "}));
@@ -577,29 +576,18 @@ fetch.database=async function()
 				{
 					if(pv.multiple && top.path!=pn )
 					{
-						if( trim(pn).endsWith("/narrative") ) // special
+						var aa=[]
+						top.data[trim(pn)]=aa
+						for(var i=0;i<1;i++)
 						{
-							top.data[trim(pn)+"/en"]="text"
-							top.data[trim(pn)+"/fr"]="text"
-						}
-						else
-						{
-							var aa=[]
-							top.data[trim(pn)]=aa
-							for(var i=0;i<1;i++)
-							{
-								aa[i]={}
-								stack_fill({ path:pn , data:aa[i] })
-							}
+							aa[i]={}
+							stack_fill({ path:pn , data:aa[i] })
 						}
 					}
 					else
 					if(pv.type!="null")
 					{
-						if( ! pn.endsWith("/narrative@xml:lang") ) // special
-						{
-							top.data[trim(pn)]=get_example_value(pv)
-						}
+						top.data[trim(pn)]=get_example_value(pv)
 					}
 				}
 			}
@@ -660,12 +648,7 @@ fetch.database=async function()
 	xson.all(database.tree,(v,nn)=>{
 		var xpath = nn.join("")
 		var jpath = '{"'+nn.join('","')+'"}'
-		
-		if(xpath.endsWith("narrative/en"))
-		{
-			xpath=xpath.substring(0,xpath.length-3)
-		}
-		
+				
 //		database.jpath[jpath]=xpath
 		
 		var p=database.paths[xpath]

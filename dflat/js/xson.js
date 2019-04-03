@@ -3,6 +3,89 @@
 
 var xson=exports;
 
+var jml = require("./jml.js");
+
+// parse the xml string into a jml structure
+// it is assumed every element can be multiple so is put in an array
+xson.from_xml=function(data)
+{
+	if(typeof data=="string")
+	{
+		data=jml.from_xml(data)
+	}
+// else assume it is already parsed jml
+	
+	var flat={}
+
+	var pretrim=function(s,b)
+	{
+		if( b && s.startsWith(b) )
+		{
+			s=s.substr(b.length)
+		}
+		return s
+	}
+
+	var store=function(op,n,v)
+	{
+//		console.log(n+" = "+v)
+		var tn=pretrim(n,op.trim)
+		op.store[tn]=v
+	}
+	
+	var dump
+	var dump_attr=function(it,op)
+	{
+		for(var name in it)
+		{
+			if( (name!="0") && (name!="1") )
+			{
+				store(op,op.name+"@"+name,it[name])
+			}
+		}
+		if( Array.isArray(it[1]) && (it[1].length==1) && (typeof it[1][0] == "string") )
+		{
+			store(op,op.name,it[1][0])
+		}
+	}
+
+	dump=function(it,op)
+	{
+		if(typeof it === 'string')
+		{
+			return
+		}
+
+		if(Array.isArray(it))
+		{
+			for(var i=0;i<it.length;i++)
+			{
+				dump(it[i],op)
+			}
+			return
+		}
+		
+		var np=Object.assign({},op)
+		np.name=op.root+"/"+it[0]
+		np.root=np.name
+		
+		var n=pretrim( np.name , np.trim ) // trim
+
+		op.store[ n ]=op.store[ n ] || []
+		np.store={}
+		np.trim=np.name
+		op.store[ n ].push(np.store)
+		
+		dump_attr(it,np)
+		if(it[1]) { dump(it[1],np) }
+
+	}
+	dump(data,{root:"",store:flat})
+
+	return flat
+}
+
+
 
 xson.walk=function(it,cb)
 {
