@@ -72,7 +72,7 @@ sudo -u postgres psql --dbname=dstore -c "ALTER DEFAULT PRIVILEGES IN SCHEMA pub
 
 sudo -u postgres psql -l
 
-
+#DSTORE_PGRO=postgres://readonly:secret@localhost:5432/dstore
 
 #
 # more things to do on the live server...
