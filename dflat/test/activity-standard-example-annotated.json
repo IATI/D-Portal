@@ -3,8 +3,15 @@
   {
    "/activity-date": [
     {
-     "/narrative/en": "Planned start date of the activity",
-     "/narrative/fr": "Date prévue de début de l'activité",
+     "/narrative": [
+      {
+       "": "Planned start date of the activity"
+      },
+      {
+       "": "Date prévue de début de l'activité",
+       "@xml:lang": "fr"
+      }
+     ],
      "@iso-date": "2012-04-15",
      "@type": "1"
     },
@@ -33,28 +40,55 @@
    "/collaboration-type@code": "1",
    "/conditions/condition": [
     {
-     "/narrative/en": "Conditions text",
-     "/narrative/fr": "Conditions texte",
+     "/narrative": [
+      {
+       "": "Conditions text"
+      },
+      {
+       "": "Conditions texte",
+       "@xml:lang": "fr"
+      }
+     ],
      "@type": "1"
     }
    ],
    "/conditions@attached": "1",
    "/contact-info": [
     {
-     "/department/narrative/en": "Department B",
+     "/department/narrative": [
+      {
+       "": "Department B"
+      }
+     ],
      "/email": [
       {
        "": "transparency@example.org"
       }
      ],
-     "/job-title/narrative/en": "Transparency Lead",
-     "/mailing-address": [
+     "/job-title/narrative": [
       {
-       "/narrative/en": "Transparency House, The Street, Town, City, Postcode"
+       "": "Transparency Lead"
       }
      ],
-     "/organisation/narrative/en": "Agency A",
-     "/person-name/narrative/en": "A. Example",
+     "/mailing-address": [
+      {
+       "/narrative": [
+        {
+         "": "Transparency House, The Street, Town, City, Postcode"
+        }
+       ]
+      }
+     ],
+     "/organisation/narrative": [
+      {
+       "": "Agency A"
+      }
+     ],
+     "/person-name/narrative": [
+      {
+       "": "A. Example"
+      }
+     ],
      "/telephone": [
       {
        "": "0044111222333444"
@@ -70,12 +104,20 @@
    ],
    "/country-budget-items/budget-item": [
     {
-     "/description/narrative/en": "Description text",
+     "/description/narrative": [
+      {
+       "": "Description text"
+      }
+     ],
      "@code": "1.1.1",
      "@percentage": "50"
     },
     {
-     "/description/narrative/en": "Description text",
+     "/description/narrative": [
+      {
+       "": "Description text"
+      }
+     ],
      "@code": "1.2.1",
      "@percentage": "50"
     }
@@ -111,18 +153,39 @@
    "/default-tied-status@code": "3",
    "/description": [
     {
-     "/narrative/en": "General activity description text.  Long description of the activity with no particular structure.",
-     "/narrative/fr": "Activité générale du texte de description. Longue description de l'activité sans structure particulière.",
+     "/narrative": [
+      {
+       "": "General activity description text.  Long description of the activity with no particular structure."
+      },
+      {
+       "": "Activité générale du texte de description. Longue description de l'activité sans structure particulière.",
+       "@xml:lang": "fr"
+      }
+     ],
      "@type": "1"
     },
     {
-     "/narrative/en": "Objectives for the activity, for example from a logical framework.",
-     "/narrative/fr": "Objectifs de l'activité, par exemple à partir d'un cadre logique.",
+     "/narrative": [
+      {
+       "": "Objectives for the activity, for example from a logical framework."
+      },
+      {
+       "": "Objectifs de l'activité, par exemple à partir d'un cadre logique.",
+       "@xml:lang": "fr"
+      }
+     ],
      "@type": "2"
     },
     {
-     "/narrative/en": "Statement of groups targeted to benefit from the activity.",
-     "/narrative/fr": "Déclaration de groupes ciblés pour bénéficier de l'activité.",
+     "/narrative": [
+      {
+       "": "Statement of groups targeted to benefit from the activity."
+      },
+      {
+       "": "Déclaration de groupes ciblés pour bénéficier de l'activité.",
+       "@xml:lang": "fr"
+      }
+     ],
      "@type": "3"
     }
    ],
@@ -138,8 +201,15 @@
        "@code": "en"
       }
      ],
-     "/title/narrative/en": "Project Report 2013",
-     "/title/narrative/fr": "Rapport de projet 2013",
+     "/title/narrative": [
+      {
+       "": "Project Report 2013"
+      },
+      {
+       "": "Rapport de projet 2013",
+       "@xml:lang": "fr"
+      }
+     ],
      "@format": "application/vnd.oasis.opendocument.text",
      "@url": "http:www.example.org/docs/report_en.odt"
     }
@@ -170,7 +240,11 @@
    ],
    "/location": [
     {
-     "/activity-description/narrative/en": "A description that qualifies the activity taking place at the location",
+     "/activity-description/narrative": [
+      {
+       "": "A description that qualifies the activity taking place at the location"
+      }
+     ],
      "/administrative": [
       {
        "@code": "1453782",
@@ -178,7 +252,11 @@
        "@vocabulary": "G1"
       }
      ],
-     "/description/narrative/en": "Location description",
+     "/description/narrative": [
+      {
+       "": "Location description"
+      }
+     ],
      "/exactness@code": "1",
      "/feature-designation@code": "ADMF",
      "/location-class@code": "2",
@@ -189,7 +267,11 @@
       }
      ],
      "/location-reach@code": "1",
-     "/name/narrative/en": "Location name",
+     "/name/narrative": [
+      {
+       "": "Location name"
+      }
+     ],
      "/point/pos": "31.616944 65.716944",
      "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
      "@ref": "AF-KAN"
@@ -197,7 +279,11 @@
    ],
    "/other-identifier": [
     {
-     "/owner-org/narrative/en": "Organisation name",
+     "/owner-org/narrative": [
+      {
+       "": "Organisation name"
+      }
+     ],
      "/owner-org@ref": "AA-AAA-123456789",
      "@ref": "ABC123-XYZ",
      "@type": "A1"
@@ -205,20 +291,35 @@
    ],
    "/participating-org": [
     {
-     "/narrative/en": "Name of Agency B",
+     "/narrative": [
+      {
+       "": "Name of Agency B"
+      }
+     ],
      "@ref": "BB-BBB-123456789",
      "@role": "1",
      "@type": "40"
     },
     {
-     "/narrative/en": "Name of Agency C",
+     "/narrative": [
+      {
+       "": "Name of Agency C"
+      }
+     ],
      "@ref": "CC-CCC-123456789",
      "@role": "2",
      "@type": "10"
     },
     {
-     "/narrative/en": "Name of Agency A",
-     "/narrative/fr": "Nom de l'agence A",
+     "/narrative": [
+      {
+       "": "Name of Agency A"
+      },
+      {
+       "": "Nom de l'agence A",
+       "@xml:lang": "fr"
+      }
+     ],
      "@ref": "AA-AAA-123456789",
      "@role": "3",
      "@type": "21"
@@ -282,29 +383,52 @@
      "@type": "1"
     }
    ],
-   "/reporting-org/narrative/en": "Organisation name",
-   "/reporting-org/narrative/fr": "Nom de l'organisme",
+   "/reporting-org/narrative": [
+    {
+     "": "Organisation name"
+    },
+    {
+     "": "Nom de l'organisme",
+     "@xml:lang": "fr"
+    }
+   ],
    "/reporting-org@ref": "AA-AAA-123456789",
    "/reporting-org@secondary-reporter": "0",
    "/reporting-org@type": "40",
    "/result": [
     {
-     "/description/narrative/en": "Result description text",
+     "/description/narrative": [
+      {
+       "": "Result description text"
+      }
+     ],
      "/indicator": [
       {
        "/baseline": [
         {
-         "/comment/narrative/en": "Baseline comment text",
+         "/comment/narrative": [
+          {
+           "": "Baseline comment text"
+          }
+         ],
          "@value": "10",
          "@year": "2012"
         }
        ],
-       "/description/narrative/en": "Indicator description text",
+       "/description/narrative": [
+        {
+         "": "Indicator description text"
+        }
+       ],
        "/period": [
         {
          "/actual": [
           {
-           "/comment/narrative/en": "Actual comment text",
+           "/comment/narrative": [
+            {
+             "": "Actual comment text"
+            }
+           ],
            "@value": "11"
           }
          ],
@@ -312,18 +436,30 @@
          "/period-start@iso-date": "2013-01-01",
          "/target": [
           {
-           "/comment/narrative/en": "Target comment text",
+           "/comment/narrative": [
+            {
+             "": "Target comment text"
+            }
+           ],
            "@value": "10"
           }
          ]
         }
        ],
-       "/title/narrative/en": "Indicator title",
+       "/title/narrative": [
+        {
+         "": "Indicator title"
+        }
+       ],
        "@ascending": "1",
        "@measure": "1"
       }
      ],
-     "/title/narrative/en": "Result title",
+     "/title/narrative": [
+      {
+       "": "Result title"
+      }
+     ],
      "@aggregation-status": "1",
      "@type": "1"
     }
@@ -340,9 +476,19 @@
      "@vocabulary": "2"
     }
    ],
-   "/title/narrative/en": "Activity title",
-   "/title/narrative/es": "Título de la actividad",
-   "/title/narrative/fr": "Titre de l'activité",
+   "/title/narrative": [
+    {
+     "": "Activity title"
+    },
+    {
+     "": "Titre de l'activité",
+     "@xml:lang": "fr"
+    },
+    {
+     "": "Título de la actividad",
+     "@xml:lang": "es"
+    }
+   ],
    "/transaction": [
     {
      "/aid-type": [
@@ -350,14 +496,26 @@
        "@code": "A01"
       }
      ],
-     "/description/narrative/en": "Transaction description text",
+     "/description/narrative": [
+      {
+       "": "Transaction description text"
+      }
+     ],
      "/disbursement-channel@code": "1",
      "/finance-type@code": "110",
      "/flow-type@code": "10",
-     "/provider-org/narrative/en": "Agency B",
+     "/provider-org/narrative": [
+      {
+       "": "Agency B"
+      }
+     ],
      "/provider-org@provider-activity-id": "BB-BBB-123456789-1234AA",
      "/provider-org@ref": "BB-BBB-123456789",
-     "/receiver-org/narrative/en": "Agency A",
+     "/receiver-org/narrative": [
+      {
+       "": "Agency A"
+      }
+     ],
      "/receiver-org@receiver-activity-id": "AA-AAA-123456789-1234",
      "/receiver-org@ref": "AA-AAA-123456789",
      "/recipient-country@code": "AF",
