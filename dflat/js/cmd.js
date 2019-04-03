@@ -50,6 +50,13 @@ cmd.run=async function(argv)
 		}
 	}
 	
+	if( argv._[0]=="frankenstein" )
+	{
+		await require("./frankenstein.js").all()
+		return
+	}
+
+
 	// help text
 	console.log(
 		"\n"+
@@ -62,6 +69,9 @@ cmd.run=async function(argv)
 		">	dflat xml2csv filename[.xml] \n"+
 		"Convert activities from filename.xml into filename.csv/*\n"+
 		"\n"+
+		">	dflat frankenstein \n"+
+		"Build a full example activity from parts of other activities\n"+
+		"\n"+
 		"\n"+
 	"");
 }
@@ -71,5 +81,6 @@ if(!global.argv)
 {
 	var argv = require('yargs').argv
 	global.argv=argv
+	require("../../dstore/js/argv").parse(argv);
 	cmd.run(argv)
 }

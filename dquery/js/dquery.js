@@ -20,7 +20,8 @@ var plated=require("plated").create({},{pfs:{}}) // create a base instance for i
 
 dquery.chunks={}
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/chunks.html', 'utf8'), dquery.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/chunks.css', 'utf8'), dquery.chunks )
+plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/chunks.css',  'utf8'), dquery.chunks )
+plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/chunks.sql',  'utf8'), dquery.chunks )
 
 plated.plate=function(str){ return plated.chunks.replace(str,dquery.chunks) }
 
@@ -136,6 +137,13 @@ dquery.result=function(data,status,xhdr)
 //	$("#result").text( stringify(data,{space:" "}) )
 }
 
+dquery.text_insert=async function(s)
+{
+	dquery.editor.session.replace(dquery.editor.selection.getRange(), s);
+//	dquery.editor.session.insert(dquery.editor.getCursorPosition(), plated.plate("{sql_select_activity}"))
+}
+
+
 dquery.click=async function(id)
 {
 	switch(id)
@@ -151,6 +159,17 @@ dquery.click=async function(id)
 			  success: dquery.result,
 			  dataType: "json",
 			});
+		break;
+		
+		case "nenu_examples_select_activity":
+			dquery.text_insert( plated.plate("{sql_select_activity}") )
+		break
+		case "nenu_examples_select_activity_top_level":
+			dquery.text_insert( plated.plate("{sql_select_activity_top_level}") )
+		break
+		
+		case "nenu_examples_select_count":
+			dquery.text_insert( plated.plate("{sql_select_count}") )
 		break;
 		
 		default:
