@@ -44,6 +44,8 @@ app.use(function(req, res, next) {
 	var aa=req.path.split("/");
 	var ab=aa && aa[1] && (aa[1].split("."));
 
+console.log(req.path)
+
 	if( ab && (ab[0]=="q") ) // data query endpoint, 
 	{
 		require("../../dstore/js/query").serv(req,res,next);
