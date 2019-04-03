@@ -6,8 +6,8 @@ echo " install build system "
 sudo apt-get install -y build-essential
 
 echo " setting default DSTORE_PG , must be done before byobu breaks .profile "
-echo "export DSTORE_PG=\"/var/run/postgresql dstore\" " >> /home/vagrant/.profile
-echo "export DSTORE_PGRO=\"/var/run/postgresql dstore\" " >> /home/vagrant/.profile
+echo "export DSTORE_PG=\"?\" " >> /home/vagrant/.profile
+echo "export DSTORE_PGRO=\"postgres://readonly:secret@localhost:5432/dstore\" " >> /home/vagrant/.profile
 echo "export DSTORE_DEBUG=1 " >> /home/vagrant/.profile
 
 echo " install and enable byobu "
@@ -47,9 +47,8 @@ echo 'wal_level=hot_standby' >> $PGMAIN/postgresql.conf
 echo 'synchronous_commit = off' >> $PGMAIN/postgresql.conf
 echo 'work_mem = 128MB' >> $PGMAIN/postgresql.conf
 
-echo "hostssl dstore readonly 0.0.0.0/0 md5" >> $PGMAIN/pg_hba.conf
-
 echo '#HAXTBH' >> $PGMAIN/pg_hba.conf
+echo "hostssl dstore readonly 127.0.0.1/32 md5" >> $PGMAIN/pg_hba.conf
 echo 'local replication all peer' >> $PGMAIN/pg_hba.conf
 /etc/init.d/postgresql restart
 
