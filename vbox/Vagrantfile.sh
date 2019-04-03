@@ -47,9 +47,8 @@ echo 'wal_level=hot_standby' >> $PGMAIN/postgresql.conf
 echo 'synchronous_commit = off' >> $PGMAIN/postgresql.conf
 echo 'work_mem = 128MB' >> $PGMAIN/postgresql.conf
 
-echo "hostssl dstore readonly 0.0.0.0/0 md5" >> $PGMAIN/pg_hba.conf
-
 echo '#HAXTBH' >> $PGMAIN/pg_hba.conf
+echo "hostssl dstore readonly 127.0.0.1/32 md5" >> $PGMAIN/pg_hba.conf
 echo 'local replication all peer' >> $PGMAIN/pg_hba.conf
 /etc/init.d/postgresql restart
 
