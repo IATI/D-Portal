@@ -9,8 +9,12 @@
   "version": "0.0.1",
   "license": "MIT",
   "dependencies": {
+    "pg": "^7.9.0",
+    "pg-monitor": "^1.1.0",
+    "pg-promise": "^8.6.4",
     "csv-writer": "^1.2.0",
     "entities": "^1.1.2",
+    "json-stable-stringify": "^1.0.1",
     "pify": "^4.0.1",
     "sax": "^1.2.4",
     "yargs": "^13.2.2"

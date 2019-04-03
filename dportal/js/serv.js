@@ -42,16 +42,16 @@ app.use(express.static(__dirname+"/../static"));
 
 app.use(function(req, res, next) {
 	var aa=req.path.split("/");
-	var ab=aa && (aa[aa.length-1].split("."));
+	var ab=aa && aa[1] && (aa[1].split("."));
 
 	if( ab && (ab[0]=="q") ) // data query endpoint, 
 	{
-		require("../../dstore/js/query").serv(req,res);
+		require("../../dstore/js/query").serv(req,res,next);
 	}
 	else
 	if( ab && (ab[0]=="upload") ) // upload api endpoint, for testing xml files
 	{
-		require("../../dstore/js/upload").serv(req,res);
+		require("../../dstore/js/upload").serv(req,res,next);
 	}
 	else
 	{
@@ -59,6 +59,11 @@ app.use(function(req, res, next) {
 	}
 });
 
+app.use( express.json() )
+app.use( express.urlencoded() )
+
+// dquery
+app.use('/dquery', require("../../dquery/js/query").serv )
 
 // redirect any unknown page to main homepage
 app.get('*', function(req, res) {

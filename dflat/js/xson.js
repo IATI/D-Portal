@@ -9,9 +9,9 @@ xson.walk=function(it,cb)
 	if(!it){ return }
 
 	var walk
-	walk=function(it,nn)
+	walk=function(it,nn,idx)
 	{
-		if( cb(it,nn) ) { return }
+		if( cb(it,nn,idx) ) { return }
 		for(var n of Object.keys(it).sort() ) // force order
 		{
 			var v=it[n]
@@ -21,16 +21,16 @@ xson.walk=function(it,cb)
 				{
 					if( typeof v[i] === 'object' ) // may be string
 					{
-						walk( v[i] , nn.concat([n]) )
+						walk( v[i] , nn.concat([n]) , i )
 					}
 				}
 			}
 		}
 	}
-	walk(it,[])
+	walk(it,[],0)
 }
 
-xson.pairs=function(it,cb)
+xson.all=function(it,cb)
 {
 	xson.walk(it,function(it,nn){
 		for(var n of Object.keys(it).sort() ) // force order

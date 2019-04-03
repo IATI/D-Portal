@@ -10,6 +10,8 @@ var exs=require('./exs');
 var iati_xml=require('./iati_xml');
 var iati_cook=require('./iati_cook');
 
+var dflat=require('../../dflat/js/dflat');
+
 var codes=require('../json/iati_codes');
 
 var wait=require('wait.for');
@@ -48,6 +50,10 @@ dstore_db.tables={
 	jml:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"jml",							TEXT:true }, // moved to reduce the main act table size
+	],
+	xson:[
+		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
+		{ name:"xson",							JSON:true }, // this is magical in postgres but just text in sqlite
 	],
 	hash:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
@@ -651,7 +657,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		}
 
 // make really really sure old junk is deleted
-		(["act","jml","trans","budget","country","sector","location","slug","element","policy","related"]).forEach(function(v,i,a){
+		(["act","jml","xson","trans","budget","country","sector","location","slug","element","policy","related"]).forEach(function(v,i,a){
 			dstore_db.delete_from(db,v,{aid:t.aid});
 		});
 
@@ -1021,6 +1027,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		
 //		t.xml=xml;
 		t.jml=JSON.stringify(act);
+		t.xson=JSON.stringify( dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )["/iati-activities/iati-activity"][0] );
 
 // update our hash if we detect a change, this lets us keep track of the last time we saw new data per activity.
 // note that obviously this data will be lost if we rebuild the database but it is still nice to be able to
@@ -1036,6 +1043,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 //		dstore_back.replace(db,"activity",t);
 		replace("act",t);
 		replace("jml",t);
+		replace("xson",t);
 		
 
 		got_budget={}; // reset which budgets we found

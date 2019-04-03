@@ -1,0 +1,10 @@
+cd `dirname $0`
+
+NAME=dquery
+EXORCIST=node_modules/exorcist/bin/exorcist.js
+BROWSERIFY=node_modules/browserify/bin/cmd.js
+
+echo "browserify"
+
+$BROWSERIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/$NAME.js:$NAME -d | $EXORCIST html/lib/$NAME.js.map > html/lib/$NAME.js
+

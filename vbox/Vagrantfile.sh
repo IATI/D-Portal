@@ -7,6 +7,8 @@ sudo apt-get install -y build-essential
 
 echo " setting default DSTORE_PG , must be done before byobu breaks .profile "
 echo "export DSTORE_PG=\"/var/run/postgresql dstore\" " >> /home/vagrant/.profile
+echo "export DSTORE_PGRO=\"/var/run/postgresql dstore\" " >> /home/vagrant/.profile
+echo "export DSTORE_DEBUG=1 " >> /home/vagrant/.profile
 
 echo " install and enable byobu "
 
