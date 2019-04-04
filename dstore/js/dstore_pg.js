@@ -175,6 +175,16 @@ console.log("CREATING INDEXS");
 						});
 
 					}
+					if( col.GIN )
+					{
+						var s=(" CREATE INDEX IF NOT EXISTS "+name+"_gin_"+col.name+" ON "+name+" USING gin ( "+col.name+" ); ");
+						console.log(s);
+						wait.for(function(cb){
+							db.none(s).then(cb).catch(err);
+						});
+
+					}
+
 				}
 			}
 		}
@@ -215,6 +225,9 @@ console.log("DROPING INDEXS");
 				});
 				wait.for(function(cb){
 					 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
+				});
+				wait.for(function(cb){
+					 db.none("DROP INDEX IF EXISTS "+name+"_gin_"+col.name+";").catch(err).then(cb);
 				});
 			}
 		}
