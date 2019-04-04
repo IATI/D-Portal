@@ -44,12 +44,19 @@ query.serv = async function(req,res,next){
 		{
 //			console.log( req.body.sql )
 			var db=query.db()
-			var r
-			r = await db.any( req.body.sql ).catch((e)=>{
-				r={error:e.toString()}
-				res.jsonp(r);
+			var ret={}
+			var starting=new Date().getTime()
+			ret.explain=await db.any( "explain "+req.body.sql ).catch((e)=>{
+				ret.error=e.toString()
+				res.jsonp(ret)
 			})
-			res.jsonp(r);
+			ret.result=await db.any( req.body.sql ).catch((e)=>{
+				ret.error=e.toString()
+				res.jsonp(ret)
+			})
+			var ending=new Date().getTime()
+			ret.duration=(ending-starting)/1000.0
+			res.jsonp(ret);
 		}
 		else
 		{

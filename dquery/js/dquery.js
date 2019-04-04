@@ -132,7 +132,7 @@ dquery.result=function(data,status,xhdr)
 {
 	var stringify = require('json-stable-stringify');
 	
-	$('#result').jsonViewer(data);
+	$('#result').jsonViewer(data,{collapsed:true,rootCollapsable:false});
 
 //	$("#result").text( stringify(data,{space:" "}) )
 }
@@ -150,7 +150,7 @@ dquery.click=async function(id)
 	{
 
 		case "nenu_execute":
-			$('#result').jsonViewer({});
+			$('#result').jsonViewer({"Loading":"..."});
 			var session=dquery.editor.getSession()
 			$.ajax({
 			  type: "POST",
