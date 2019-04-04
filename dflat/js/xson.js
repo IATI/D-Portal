@@ -137,3 +137,65 @@ xson.all=function(it,cb)
 		}
 	})
 }
+
+xson.compact=function(it)
+{
+	var walk
+	walk=function(it)
+	{
+		let done=false
+		while( !done ) // flaten arrays
+		{
+			let del_it={}
+			let add_it={}
+			for( let n in it )
+			{
+				let v=it[n]
+				if( Array.isArray(v) )
+				{
+					if( v.length==1)
+					{
+						del_it[ n ]=true
+						for( let nn in v[0] )
+						{
+							let vv=v[0][nn]
+							add_it[ n+nn ]=vv
+						}
+					}
+				}
+			}
+			done=true
+			for( let n in del_it )
+			{
+				done=false
+				delete it[n]
+			}
+			for( let n in add_it )
+			{
+				done=false
+				it[n] = add_it[n]
+			}
+		}
+
+		for( let n in it ) // recurse
+		{
+			let v=it[n]
+			if( Array.isArray(v) )
+			{
+				for( let i=0 ; i<v.length ; i++ )
+				{
+					walk( v[i] )
+				}
+			}
+			else
+			if( "object" == typeof v )
+			{
+				walk( v )
+			}
+		}
+		
+	}
+	walk(it)
+	
+	return it
+}

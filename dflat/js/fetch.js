@@ -335,7 +335,8 @@ fetch.codelist=async function()
 		console.log("parsing "+n)
 		var data=await pfs.readFile("fetched/"+n,{ encoding: 'utf8' })
 		var it=xson.from_xml(data)
-		var name=it["/codelist"][0]["@name"]
+		it=xson.compact(it)
+		var name=it["/codelist@name"]
 		codelists[name]=it
 	}
 	await pfs.writeFile("json/codelists.json",stringify(codelists,{space:" "}));
