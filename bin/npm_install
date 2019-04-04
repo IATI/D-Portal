@@ -1,5 +1,13 @@
 cd `dirname $0`
 
+cd ../dflat
+rm -rf node_modules
+npm install
+
+cd ../dquery
+rm -rf node_modules
+npm install
+
 cd ../ctrack
 rm -rf node_modules
 npm install
