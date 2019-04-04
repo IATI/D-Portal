@@ -45,12 +45,13 @@ query.serv = async function(req,res,next){
 //			console.log( req.body.sql )
 			var db=query.db()
 			var ret={}
+			ret.sql=req.body.sql.split(";")[0]+";" // first query only
 			var starting=new Date().getTime()
-			ret.explain=await db.any( "explain "+req.body.sql ).catch((e)=>{
+			ret.explain=await db.any( "explain "+ret.sql ).catch((e)=>{
 				ret.error=e.toString()
 				res.jsonp(ret)
 			})
-			ret.result=await db.any( req.body.sql ).catch((e)=>{
+			ret.result=await db.any( ret.sql ).catch((e)=>{
 				ret.error=e.toString()
 				res.jsonp(ret)
 			})
