@@ -7,6 +7,58 @@ var jml = require("./jml.js");
 
 // parse the xml string into a jml structure
 // it is assumed every element can be multiple so is put in an array
+xson.to_jml=function(data)
+{
+	var walk
+	walk=function(it,out)
+	{
+		for( let n in it ) // recurse
+		{
+			let v=it[n]
+			if( Array.isArray(v) )
+			{
+				let o=jml.manifest_xpath(out,n)
+				if(v.length==1 && "string" == typeof v[0])
+				{
+					o[1].push(v[0])
+				}
+				else
+				{
+					for( let i=0 ; i<v.length ; i++ )
+					{
+						walk( v[i] , o )
+					}
+				}
+			}
+			else
+			if( "object" == typeof v )
+			{
+				let o=jml.manifest_xpath(out,n)
+				walk( v , o )
+			}
+			else
+			{
+				let aa=n.split("@")
+				if(aa.length==2)
+				{
+					let o=jml.manifest_xpath(out,aa[0])
+					o[ aa[1] ]=v
+				}
+				else
+				{
+					let o=jml.manifest_xpath(out,n)
+					o[1].push(v)
+				}
+			}
+		}
+	}
+	let out={0:"",1:[]}
+	walk(data,out)
+	return out[1][0]
+}
+
+// parse the xml string into a jml structure
+// it is assumed every element can be multiple so is put in an array
 xson.from_xml=function(data)
 {
 	if(typeof data=="string")

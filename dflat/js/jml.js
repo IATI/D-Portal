@@ -102,13 +102,13 @@ jml.to_xml=function(tree)
 			}
 			if(it[1]) // child entities
 			{
-				ss.push(">");
+				ss.push(">\n");
 				it[1].forEach(f);
-				ss.push("</"+it[0]+">");
+				ss.push("</"+it[0]+">\n");
 			}
 			else // nothing inside so just close
 			{
-				ss.push("></"+it[0]+">");
+				ss.push("></"+it[0]+">\n");
 			}
 		}
 	};
@@ -161,6 +161,38 @@ jml.find_xpath=function(tree,findpath,cruftless)
 		}
 		if(!findpath.startsWith(path)) { return true } // go no further down this path
 	},cruftless)
+	return ret
+}
+
+jml.find_child=function(tree,name)
+{
+	for(let i=0;i<tree[1].length;i++) // find
+	{
+		if(name==tree[1][i][0])
+		{
+			return tree[1][i]
+		}
+	}
+}
+
+
+jml.manifest_xpath=function(tree,path)
+{
+	if(path=="") { return tree }
+	
+	let aa=path.split("/") // path must begin with a / and not contain any @
+	let ret=tree
+	for( let i=1 ; i<aa.length ; i++) // find or create
+	{
+		let name=aa[i]
+		let it=jml.find_child(ret,name)
+		if(!it) // or create
+		{
+			it={0:name,1:[]}
+			ret[1].push(it)
+		}
+		ret=it
+	}
 	return ret
 }
 

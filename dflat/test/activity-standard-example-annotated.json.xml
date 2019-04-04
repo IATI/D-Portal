@@ -1,0 +1,268 @@
+<iati-activities generated-datetime="2014-09-10T07:15:37Z" linked-data-default="http://data.example.org/" version="2.01">
+<iati-activity default-currency="USD" hierarchy="1" last-updated-datetime="2014-09-10T07:15:37Z" linked-data-uri="http://data.example.org/123456789" xml:lang="en">
+<activity-date iso-date="2015-12-31" type="3">
+<narrative xml:lang="fr">
+Planned start date of the activityDate pr&#xE9;vue de d&#xE9;but de l&apos;activit&#xE9;</narrative>
+</activity-date>
+<activity-scope code="3">
+</activity-scope>
+<activity-status code="2">
+</activity-status>
+<budget type="1">
+<period-end iso-date="2014-12-31">
+</period-end>
+<period-start iso-date="2014-01-01">
+</period-start>
+<value currency="EUR" value-date="2014-01-01">
+3000</value>
+</budget>
+<capital-spend percentage="88.8">
+</capital-spend>
+<collaboration-type code="1">
+</collaboration-type>
+<conditions attached="1">
+<condition type="1">
+<narrative xml:lang="fr">
+Conditions textConditions texte</narrative>
+</condition>
+</conditions>
+<contact-info type="1">
+<department>
+<narrative>
+Department B</narrative>
+</department>
+<email>
+transparency@example.org</email>
+<job-title>
+<narrative>
+Transparency Lead</narrative>
+</job-title>
+<mailing-address>
+<narrative>
+Transparency House, The Street, Town, City, Postcode</narrative>
+</mailing-address>
+<organisation>
+<narrative>
+Agency A</narrative>
+</organisation>
+<person-name>
+<narrative>
+A. Example</narrative>
+</person-name>
+<telephone>
+0044111222333444</telephone>
+<website>
+http://www.example.org</website>
+</contact-info>
+<country-budget-items vocabulary="2">
+<budget-item code="1.2.1" percentage="50">
+<description>
+<narrative>
+Description textDescription text</narrative>
+</description>
+</budget-item>
+</country-budget-items>
+<crs-add>
+<loan-status currency="GBP" value-date="2013-05-24" year="2014">
+<interest-arrears>
+0</interest-arrears>
+<interest-received>
+200000</interest-received>
+<principal-arrears>
+0</principal-arrears>
+<principal-outstanding>
+1500000</principal-outstanding>
+</loan-status>
+<loan-terms rate-1="4" rate-2="3">
+<commitment-date iso-date="2013-09-01">
+</commitment-date>
+<repayment-final-date iso-date="2020-12-31">
+</repayment-final-date>
+<repayment-first-date iso-date="2014-01-01">
+</repayment-first-date>
+<repayment-plan code="4">
+</repayment-plan>
+<repayment-type code="1">
+</repayment-type>
+</loan-terms>
+<other-flags code="1" significance="1">
+</other-flags>
+</crs-add>
+<default-aid-type code="A01">
+</default-aid-type>
+<default-finance-type code="110">
+</default-finance-type>
+<default-flow-type code="10">
+</default-flow-type>
+<default-tied-status code="3">
+</default-tied-status>
+<description type="3">
+<narrative xml:lang="fr">
+General activity description text.  Long description of the activity with no particular structure.Activit&#xE9; g&#xE9;n&#xE9;rale du texte de description. Longue description de l&apos;activit&#xE9; sans structure particuli&#xE8;re.Objectives for the activity, for example from a logical framework.Objectifs de l&apos;activit&#xE9;, par exemple &#xE0; partir d&apos;un cadre logique.Statement of groups targeted to benefit from the activity.D&#xE9;claration de groupes cibl&#xE9;s pour b&#xE9;n&#xE9;ficier de l&apos;activit&#xE9;.</narrative>
+</description>
+<document-link format="application/vnd.oasis.opendocument.text" url="http:www.example.org/docs/report_en.odt">
+<category code="A01">
+</category>
+<language code="en">
+</language>
+<title>
+<narrative xml:lang="fr">
+Project Report 2013Rapport de projet 2013</narrative>
+</title>
+</document-link>
+<fss extraction-date="2014-05-06" phaseout-year="2016" priority="1">
+<forecast currency="GBP" value-date="2013-07-03" year="2014">
+10000</forecast>
+</fss>
+<iati-identifier>
+AA-AAA-123456789-ABC123</iati-identifier>
+<legacy-data iati-equivalent="transaction" name="cost" value="1000">
+</legacy-data>
+<location ref="AF-KAN">
+<activity-description>
+<narrative>
+A description that qualifies the activity taking place at the location</narrative>
+</activity-description>
+<administrative code="1453782" level="1" vocabulary="G1">
+</administrative>
+<description>
+<narrative>
+Location description</narrative>
+</description>
+<exactness code="1">
+</exactness>
+<feature-designation code="ADMF">
+</feature-designation>
+<location-class code="2">
+</location-class>
+<location-id code="1453782" vocabulary="G1">
+</location-id>
+<location-reach code="1">
+</location-reach>
+<name>
+<narrative>
+Location name</narrative>
+</name>
+<point srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+<pos>
+31.616944 65.716944</pos>
+</point>
+</location>
+<other-identifier ref="ABC123-XYZ" type="A1">
+<owner-org ref="AA-AAA-123456789">
+<narrative>
+Organisation name</narrative>
+</owner-org>
+</other-identifier>
+<participating-org ref="AA-AAA-123456789" role="3" type="21">
+<narrative xml:lang="fr">
+Name of Agency BName of Agency CName of Agency ANom de l&apos;agence A</narrative>
+</participating-org>
+<planned-disbursement type="1">
+<period-end iso-date="2014-12-31">
+</period-end>
+<period-start iso-date="2014-01-01">
+</period-start>
+<value currency="EUR" value-date="2014-01-01">
+30003000</value>
+</planned-disbursement>
+<policy-marker code="9" significance="4" vocabulary="1">
+</policy-marker>
+<recipient-country code="AG" percentage="25">
+</recipient-country>
+<recipient-region code="289" percentage="25" vocabulary="1">
+</recipient-region>
+<related-activity ref="AA-AAA-123456789-6789" type="1">
+</related-activity>
+<reporting-org ref="AA-AAA-123456789" secondary-reporter="0" type="40">
+<narrative xml:lang="fr">
+Organisation nameNom de l&apos;organisme</narrative>
+</reporting-org>
+<result aggregation-status="1" type="1">
+<description>
+<narrative>
+Result description text</narrative>
+</description>
+<indicator ascending="1" measure="1">
+<baseline value="10" year="2012">
+<comment>
+<narrative>
+Baseline comment text</narrative>
+</comment>
+</baseline>
+<description>
+<narrative>
+Indicator description text</narrative>
+</description>
+<period>
+<actual value="11">
+<comment>
+<narrative>
+Actual comment text</narrative>
+</comment>
+</actual>
+<period-end iso-date="2013-03-31">
+</period-end>
+<period-start iso-date="2013-01-01">
+</period-start>
+<target value="10">
+<comment>
+<narrative>
+Target comment text</narrative>
+</comment>
+</target>
+</period>
+<title>
+<narrative>
+Indicator title</narrative>
+</title>
+</indicator>
+<title>
+<narrative>
+Result title</narrative>
+</title>
+</result>
+<sector code="112" percentage="50" vocabulary="2">
+</sector>
+<title>
+<narrative xml:lang="es">
+Activity titleTitre de l&apos;activit&#xE9;T&#xED;tulo de la actividad</narrative>
+</title>
+<transaction ref="1234">
+<aid-type code="A01">
+</aid-type>
+<description>
+<narrative>
+Transaction description text</narrative>
+</description>
+<disbursement-channel code="1">
+</disbursement-channel>
+<finance-type code="110">
+</finance-type>
+<flow-type code="10">
+</flow-type>
+<provider-org provider-activity-id="BB-BBB-123456789-1234AA" ref="BB-BBB-123456789">
+<narrative>
+Agency B</narrative>
+</provider-org>
+<receiver-org receiver-activity-id="AA-AAA-123456789-1234" ref="AA-AAA-123456789">
+<narrative>
+Agency A</narrative>
+</receiver-org>
+<recipient-country code="AF">
+</recipient-country>
+<recipient-region code="456" vocabulary="1">
+</recipient-region>
+<sector code="111" vocabulary="2">
+</sector>
+<tied-status code="3">
+</tied-status>
+<transaction-date iso-date="2012-01-01">
+</transaction-date>
+<transaction-type code="1">
+</transaction-type>
+<value currency="EUR" value-date="2012-01-01">
+1000</value>
+</transaction>
+</iati-activity>
+</iati-activities>
