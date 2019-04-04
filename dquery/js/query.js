@@ -46,7 +46,7 @@ query.serv = async function(req,res,next){
 			var db=query.db()
 			var ret={explain:{}}
 			ret.explain.sql=req.body.sql.split(";")[0]+";" // first query only
-			ret.explain.plan=""
+			ret.explain.plan="\n"
 			var starting=new Date().getTime()
 			var ex=await db.any( "explain "+ret.explain.sql ).catch((e)=>{
 				ret.error=e.toString()
