@@ -44,14 +44,19 @@ query.serv = async function(req,res,next){
 		{
 //			console.log( req.body.sql )
 			var db=query.db()
-			var ret={}
-			ret.sql=req.body.sql.split(";")[0]+";" // first query only
+			var ret={explain:{}}
+			ret.explain.sql=req.body.sql.split(";")[0]+";" // first query only
+			ret.explain.plan=""
 			var starting=new Date().getTime()
-			ret.explain=await db.any( "explain "+ret.sql ).catch((e)=>{
+			var ex=await db.any( "explain "+ret.explain.sql ).catch((e)=>{
 				ret.error=e.toString()
 				res.jsonp(ret)
 			})
-			ret.result=await db.any( ret.sql ).catch((e)=>{
+			for(let v of ex)
+			{
+				ret.explain.plan+=v["QUERY PLAN"]+"\n"
+			}
+			ret.result=await db.any( ret.explain.sql ).catch((e)=>{
 				ret.error=e.toString()
 				res.jsonp(ret)
 			})
