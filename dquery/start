@@ -1,0 +1,3 @@
+cd `dirname $0`
+
+./watch 1>&2 | tee | ./serv

@@ -5,5 +5,5 @@ NAME=dquery
 WATCHIFY=node_modules/watchify/bin/cmd.js
 
 echo "watchify"
-$WATCHIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -v -r ./js/$NAME.js:$NAME -d -o html/lib/$NAME.js | tee | ./serv
+$WATCHIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -v -r ./js/$NAME.js:$NAME -d -o html/lib/$NAME.js
 
