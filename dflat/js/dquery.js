@@ -132,7 +132,7 @@ dquery.result=function(data,status,xhdr)
 {
 	var stringify = require('json-stable-stringify');
 	
-	$('#result').jsonViewer(data,{collapsed:true,rootCollapsable:false});
+	$('#result').jsonViewer(data,{collapsed:false,rootCollapsable:true});
 
 //	$("#result").text( stringify(data,{space:" "}) )
 }
