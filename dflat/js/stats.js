@@ -58,7 +58,7 @@ stats.cmd = async function(argv){
 			let rn=ret.xpath[n]
 			
 			let fromx="from xson"
-			for( let i = j.length-2 ; i>0 ; i-- )
+			for( let i = 1 ; i<j.length-2 ; i++ )
 			{
 				fromx="from ( select aid , jsonb_array_elements(xson->'"+j[i]+"') as xson \n"+
 				fromx+" \n"+
