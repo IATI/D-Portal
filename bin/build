@@ -1,5 +1,5 @@
 cd `dirname $0`
 
 ../ctrack/build $@ &&
-../dquery/build $@ &&
+../dflat/build $@ &&
 ../dportal/build $@

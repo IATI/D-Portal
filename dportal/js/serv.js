@@ -65,7 +65,7 @@ app.use( express.json() )
 app.use( express.urlencoded() )
 
 // dquery
-app.use('/dquery', require("../../dquery/js/query").serv )
+app.use('/dquery', require("../../dflat/js/query").serv )
 
 // redirect any unknown page to main homepage
 app.get('*', function(req, res) {
