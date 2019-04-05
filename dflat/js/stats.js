@@ -3,11 +3,13 @@
 
 var stats=exports;
 
+var fs=require('fs')
 var util=require('util');
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var stringify = require('json-stable-stringify');
 
+var database = require("../json/database.json");
 
 var monitor = require("pg-monitor");
 var pgopts={
@@ -39,14 +41,59 @@ stats.cmd = async function(argv){
 		}
 	}
 
+	var db=stats.db()
+
+
+	ret.xpath=ret.xpath || {}
+
+	for(let n in database.paths)
+	{
+		let p=database.paths[n]
+		let j=p.jpath
+		
+		if( j && j[0]=="/iati-activities/iati-activity" && j.length>1)
+		{
+
+			ret.xpath[n]=ret.xpath[n] || {}
+			let rn=ret.xpath[n]
+			
+			let fromx="from xson"
+			for( let i = j.length-2 ; i>0 ; i-- )
+			{
+				fromx="from ( select aid , jsonb_array_elements(xson->'"+j[i]+"') as xson \n"+
+				fromx+" \n"+
+				") as xson"+i+" "
+			}
+			let jx=j[j.length-1]
+
+			let rc = await db.any( "select count( xson->>'"+jx+"') "+fromx+" where xson->>'"+jx+"' is not null;" )
+			let ra = await db.any( "select count( distinct aid ) "+fromx+" where xson->>'"+jx+"' is not null;" )
+			let rd = await db.any( "select count( distinct xson->>'"+jx+"') "+fromx+" where xson->>'"+jx+"' is not null;" )
+			let rt = await db.any( "select count(*) as count , xson->>'"+jx+"' as value , MAX(aid) as aid "+fromx+"  where xson->>'"+jx+"' is not null group by xson->>'"+jx+"' order by 1 desc limit 10;" )
+			
+			rn.count=rn.count || {}
+			rn.count[day]=rc[0].count
+
+			rn.distinct=rn.distinct || {}
+			rn.distinct[day]=rd[0].count
+
+			rn.activities=rn.activities || {}
+			rn.activities[day]=ra[0].count
+
+			rn.top=rt
+
+			console.log(n+" : "+rc[0].count+" : "+ra[0].count+" : "+rd[0].count)
+
+		}
+	}
 
 
 	if(filename) // write out new stats
 	{
-		fs.writeFileSync(filename, stringify(stats,{ space: ' ' }) )
+		fs.writeFileSync(filename, stringify(ret,{ space: ' ' }) )
 	}
 	else // dump to commandline
 	{
-		console.log( stringify(stats,{ space: ' ' }) )
+		console.log( stringify(ret,{ space: ' ' }) )
 	}
 }
