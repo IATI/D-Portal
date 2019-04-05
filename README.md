@@ -61,8 +61,6 @@ are constantly changing. Thank you for your patience and understanding.
 
 If you have a suggestion or feedback, or would just like to partake in discussions on d-portal, join in by creating a new issue [here](https://github.com/devinit/D-Portal/issues).
 
-Subscribe to our mailing list for announcements on current development by [joining the Google Group](https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list).
-
 If you are interested in finding out more or part-funding d-portal, please contact support@iatistandard.org
 
 
