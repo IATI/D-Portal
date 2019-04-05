@@ -6,5 +6,7 @@ BROWSERIFY=node_modules/browserify/bin/cmd.js
 
 echo "browserify"
 
+mkdir html/lib
+
 $BROWSERIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/$NAME.js:$NAME -d | $EXORCIST html/lib/$NAME.js.map > html/lib/$NAME.js
 
