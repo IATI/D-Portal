@@ -66,34 +66,30 @@ stats.cmd = async function(argv){
 			}
 			let jx=j[j.length-1]
 
-			var sql = "select count( xson->>'"+jx+"') "+fromx+" where xson->>'"+jx+"' is not null;"
+			var sql = 
+				"select count( xson->>'"+jx+"') as cc \n"+
+				", count( distinct aid ) as ca \n"+
+				", count( distinct xson->>'"+jx+"') as cd \n"+
+				fromx+" where xson->>'"+jx+"' is not null;"
 			console.log(sql)
 			let rc = await db.any( sql )
 			
-			var sql = "select count( distinct aid ) "+fromx+" where xson->>'"+jx+"' is not null;"
-			console.log(sql)
-			let ra = await db.any( sql )
-
-			var sql = "select count( distinct xson->>'"+jx+"') "+fromx+" where xson->>'"+jx+"' is not null;"
-			console.log(sql)
-			let rd = await db.any( sql )
-
 			var sql = "select count(*) as count , xson->>'"+jx+"' as value , MAX(aid) as aid "+fromx+" where xson->>'"+jx+"' is not null group by xson->>'"+jx+"' order by 1 desc limit 10;"
 			console.log(sql)
 			let rt = await db.any( sql )
 			
 			rn.count=rn.count || {}
-			rn.count[day]=rc[0].count
-
-			rn.distinct=rn.distinct || {}
-			rn.distinct[day]=rd[0].count
+			rn.count[day]=rc[0].cc
 
 			rn.activities=rn.activities || {}
-			rn.activities[day]=ra[0].count
+			rn.activities[day]=rc[0].ca
+
+			rn.distinct=rn.distinct || {}
+			rn.distinct[day]=rc[0].cd
 
 			rn.top=rt
 
-			console.log(n+" : "+rc[0].count+" : "+ra[0].count+" : "+rd[0].count)
+			console.log("\n"+n+" : "+rc[0].cc+" : "+rc[0].ca+" : "+rc[0].cd+"\n")
 
 		}
 	}
