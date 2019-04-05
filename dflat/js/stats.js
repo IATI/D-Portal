@@ -6,12 +6,13 @@ var stats=exports;
 var util=require('util');
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+var stringify = require('json-stable-stringify');
 
 
 var monitor = require("pg-monitor");
 var pgopts={
 };
-if(process.env.DSTORE_DEBUG){ monitor.attach(pgopts); }
+//if(process.env.DSTORE_DEBUG){ monitor.attach(pgopts); }
 var pgp = require("pg-promise")(pgopts);
 
 
@@ -24,13 +25,7 @@ stats.db = function(){
 	return stats.pg_db;
 };
 
-
-var serve_html = require('serve-static')(__dirname+'/../html', {'index': ['index.html', 'index.htm']})
-
-
-
-
-stats.cmd = function(argv){
+stats.cmd = async function(argv){
 
 	var day=Math.floor((new Date())/8.64e7);
 	var filename=argv._[1]
@@ -48,10 +43,10 @@ stats.cmd = function(argv){
 
 	if(filename) // write out new stats
 	{
-		fs.writeFileSync(filename, json_stringify(stats,{ space: ' ' }) )
+		fs.writeFileSync(filename, stringify(stats,{ space: ' ' }) )
 	}
 	else // dump to commandline
 	{
-		console.log( json_stringify(stats,{ space: ' ' }) )
+		console.log( stringify(stats,{ space: ' ' }) )
 	}
 }

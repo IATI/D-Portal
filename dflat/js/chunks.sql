@@ -31,3 +31,17 @@ as xson
 from xson
 
 limit 10;
+
+#^sql_select_activity_subarray
+
+select
+
+*
+
+from ( select aid , jsonb_array_elements(xson->'/title/narrative') as xson 
+from ( select aid , jsonb_array_elements(xson->'/document-link') as xson
+from xson
+) as xson2
+) as xson3
+
+limit 10;

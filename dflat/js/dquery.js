@@ -149,7 +149,7 @@ dquery.click=async function(id)
 	switch(id)
 	{
 
-		case "nenu_execute":
+		case "menu_execute":
 			$('#result').jsonViewer({"Loading":"..."});
 			var session=dquery.editor.getSession()
 			$.ajax({
@@ -161,15 +161,19 @@ dquery.click=async function(id)
 			});
 		break;
 		
-		case "nenu_examples_select_activity":
+		case "menu_examples_select_activity":
 			dquery.text_insert( plated.plate("{sql_select_activity}") )
 		break
-		case "nenu_examples_select_activity_top_level":
+		case "menu_examples_select_activity_top_level":
 			dquery.text_insert( plated.plate("{sql_select_activity_top_level}") )
 		break
 		
-		case "nenu_examples_select_count":
+		case "menu_examples_select_count":
 			dquery.text_insert( plated.plate("{sql_select_count}") )
+		break;
+		
+		case "menu_examples_select_subarray":
+			dquery.text_insert( plated.plate("{sql_select_activity_subarray}") )
 		break;
 		
 		default:

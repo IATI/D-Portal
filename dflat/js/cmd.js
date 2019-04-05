@@ -71,6 +71,11 @@ cmd.run=async function(argv)
 		return
 	}
 
+	if( argv._[0]=="stats" )
+	{
+		await require("./stats.js").cmd(argv)
+		return
+	}
 
 	// help text
 	console.log(
@@ -89,6 +94,9 @@ cmd.run=async function(argv)
 		"\n"+
 		">	dflat frankenstein \n"+
 		"Build a full example activity from parts of other activities\n"+
+		"\n"+
+		">	dflat stats \n"+
+		"Build or update json based stats\n"+
 		"\n"+
 		"\n"+
 	"");
