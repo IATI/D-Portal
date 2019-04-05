@@ -67,20 +67,20 @@ stats.cmd = async function(argv){
 			let jx=j[j.length-1]
 
 			var sql = "select count( xson->>'"+jx+"') "+fromx+" where xson->>'"+jx+"' is not null;"
-			let rc = await db.any( sql )
 			console.log(sql)
+			let rc = await db.any( sql )
 			
 			var sql = "select count( distinct aid ) "+fromx+" where xson->>'"+jx+"' is not null;"
-			let ra = await db.any( sql )
 			console.log(sql)
+			let ra = await db.any( sql )
 
 			var sql = "select count( distinct xson->>'"+jx+"') "+fromx+" where xson->>'"+jx+"' is not null;"
-			let rd = await db.any( sql )
 			console.log(sql)
+			let rd = await db.any( sql )
 
 			var sql = "select count(*) as count , xson->>'"+jx+"' as value , MAX(aid) as aid "+fromx+" where xson->>'"+jx+"' is not null group by xson->>'"+jx+"' order by 1 desc limit 10;"
-			let rt = await db.any( sql )
 			console.log(sql)
+			let rt = await db.any( sql )
 			
 			rn.count=rn.count || {}
 			rn.count[day]=rc[0].count
