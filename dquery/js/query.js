@@ -44,19 +44,9 @@ query.serv = async function(req,res,next){
 		{
 //			console.log( req.body.sql )
 			var db=query.db()
-			var ret={explain:{}}
-			ret.explain.sql=req.body.sql.split(";")[0]+";" // first query only
-			ret.explain.plan="\n"
+			var ret={}
 			var starting=new Date().getTime()
-			var ex=await db.any( "explain "+ret.explain.sql ).catch((e)=>{
-				ret.error=e.toString()
-				res.jsonp(ret)
-			})
-			for(let v of ex)
-			{
-				ret.explain.plan+=v["QUERY PLAN"]+"\n"
-			}
-			ret.result=await db.any( ret.explain.sql ).catch((e)=>{
+			ret.result=await db.any( req.body.sql ).catch((e)=>{
 				ret.error=e.toString()
 				res.jsonp(ret)
 			})
