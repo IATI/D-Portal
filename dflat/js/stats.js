@@ -71,11 +71,11 @@ stats.cmd = async function(argv){
 				", count( distinct aid ) as ca \n"+
 				", count( distinct xson->>'"+jx+"') as cd \n"+
 				fromx+" where xson->>'"+jx+"' is not null;"
-			console.log(sql)
+//			console.log(sql)
 			let rc = await db.any( sql )
 			
 			var sql = "select count(*) as count , xson->>'"+jx+"' as value , MAX(aid) as aid "+fromx+" where xson->>'"+jx+"' is not null group by xson->>'"+jx+"' order by 1 desc limit 10;"
-			console.log(sql)
+//			console.log(sql)
 			let rt = await db.any( sql )
 			
 			rn.count=rn.count || {}
@@ -89,7 +89,7 @@ stats.cmd = async function(argv){
 
 			rn.top=rt
 
-			console.log("\n"+n+" : "+rc[0].cc+" : "+rc[0].ca+" : "+rc[0].cd+"\n")
+			console.log(n+" : "+rc[0].cc+" : "+rc[0].ca+" : "+rc[0].cd)
 
 		}
 	}
