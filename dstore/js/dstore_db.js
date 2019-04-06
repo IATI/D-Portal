@@ -52,8 +52,9 @@ dstore_db.tables={
 		{ name:"jml",							TEXT:true}, // moved to reduce the main act table size
 	],
 	xson:[
-		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
-		{ name:"xson",							JSON:true , GIN:true }, // this is magical in postgres but just text in sqlite
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
+		{ name:"root",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true }, // root of the xson data
+		{ name:"xson",							JSON:true , GIN:true , NOT_NULL:true }, // this is magical in postgres but just text in sqlite
 	],
 	hash:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
@@ -1027,6 +1028,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		
 //		t.xml=xml;
 		t.jml=JSON.stringify(act);
+		t.root="/iati-activities/iati-activity"
 		t.xson=JSON.stringify( dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )["/iati-activities/iati-activity"][0] );
 
 // update our hash if we detect a change, this lets us keep track of the last time we saw new data per activity.

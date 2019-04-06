@@ -72,6 +72,14 @@ console.log("CREATING TABLES");
 // simple data dump table containing just the raw xml of each activity.
 // this is filled on import and then used as a source
 
+
+// temp patch	
+		wait.for(function(cb){
+			 db.none("DROP TABLE IF EXISTS xson;").then(cb).catch(err);
+		});
+
+
+
 		for(var name in dstore_db.tables)
 		{
 			var tab=dstore_db.tables[name];

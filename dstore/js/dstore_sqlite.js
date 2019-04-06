@@ -99,7 +99,7 @@ dstore_sqlite.create_tables = function(opts){
 	db.serialize(function() {
 
 		dstore_sqlite.pragmas(db);
-	
+
 		for(var name in dstore_db.tables)
 		{
 			var tab=dstore_db.tables[name];
