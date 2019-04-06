@@ -54,28 +54,36 @@ stats.cmd = async function(argv){
 		if( j && j[0]=="/iati-activities/iati-activity" && j.length>1)
 		{
 
+var tstart=new Date().getTime()
+
 			ret.xpath[n]=ret.xpath[n] || {}
 			let rn=ret.xpath[n]
 			
+			let tname=""
 			let fromx="from ( select aid , xson->>'/reporting-org@ref' as pid , xson from xson ) as xson0"
 			for( let i = 1 ; i<j.length-1 ; i++ )
 			{
+				tname=tname+j[i]
 				fromx="from ( select aid , pid , jsonb_array_elements(xson->'"+j[i]+"') as xson \n"+
 				fromx+" \n"+
 				") as xson"+i+" "
 			}
 			let jx=j[j.length-1]
 
+			var sql="create temp table IF NOT EXISTS \"temp_"+tname+"\" as select * "+fromx+";"
+//			console.log(sql)
+			let rr = await db.any( sql )
+
 			var sql = 
 				"select count( xson->>'"+jx+"') as cc \n"+
 				", count( distinct aid ) as ca \n"+
 				", count( distinct xson->>'"+jx+"') as cd \n"+
 				", count( distinct pid ) as cp \n"+
-				fromx+" where xson->>'"+jx+"' is not null;"
+				"from \"temp_"+tname+"\" where xson->>'"+jx+"' is not null;"
 //			console.log(sql)
 			let rc = await db.any( sql )
 			
-			var sql = "select count(*) as count , xson->>'"+jx+"' as value , MAX(aid) as aid , MAX(pid) as pid "+fromx+" where xson->>'"+jx+"' is not null group by xson->>'"+jx+"' order by 1 desc limit 10;"
+			var sql = "select count(*) as count , xson->>'"+jx+"' as value , MAX(aid) as aid , MAX(pid) as pid from \"temp_"+tname+"\" where xson->>'"+jx+"' is not null group by xson->>'"+jx+"' order by 1 desc limit 10;"
 //			console.log(sql)
 			let rt = await db.any( sql )
 			
@@ -93,7 +101,9 @@ stats.cmd = async function(argv){
 
 			rn.top=rt
 
-			console.log(n+" : "+rc[0].cc+" : "+rc[0].ca+" : "+rc[0].cp+" : "+rc[0].cd)
+var ttime = (( new Date().getTime() ) - tstart)/1000
+
+			console.log(n+" : "+rc[0].cc+" : "+rc[0].ca+" : "+rc[0].cp+" : "+rc[0].cd+" T "+ttime)
 			
 //			console.log(rt)
 
