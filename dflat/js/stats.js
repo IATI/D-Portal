@@ -61,18 +61,22 @@ var tstart=new Date().getTime()
 			
 			let tname=""
 			let fromx="from ( select aid , xson->>'/reporting-org@ref' as pid , xson from xson ) as xson0"
+
+await db.any( "create temp table IF NOT EXISTS \"temp_"+tname+"\" as select * "+fromx+";" )
+
 			for( let i = 1 ; i<j.length-1 ; i++ )
 			{
-				tname=tname+j[i]
 				fromx="from ( select aid , pid , jsonb_array_elements(xson->'"+j[i]+"') as xson \n"+
-				fromx+" \n"+
+				"from \"temp_"+tname+"\" \n"+
 				") as xson"+i+" "
+
+				tname=tname+j[i]
+				
+await db.any( "create temp table IF NOT EXISTS \"temp_"+tname+"\" as select * "+fromx+";" )
+
 			}
 			let jx=j[j.length-1]
 
-			var sql="create temp table IF NOT EXISTS \"temp_"+tname+"\" as select * "+fromx+";"
-//			console.log(sql)
-			let rr = await db.any( sql )
 
 			var sql = 
 				"select count( xson->>'"+jx+"') as cc \n"+
