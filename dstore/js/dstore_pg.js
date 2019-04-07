@@ -74,9 +74,9 @@ console.log("CREATING TABLES");
 
 
 // temp patch	
-		wait.for(function(cb){
-			 db.none("DROP TABLE IF EXISTS xson;").then(cb).catch(err);
-		});
+//		wait.for(function(cb){
+//			 db.none("DROP TABLE IF EXISTS xson;").then(cb).catch(err);
+//		});
 
 
 
