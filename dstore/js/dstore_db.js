@@ -52,7 +52,8 @@ dstore_db.tables={
 		{ name:"jml",							TEXT:true}, // moved to reduce the main act table size
 	],
 	xson:[
-		{ name:"aid",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
+		{ name:"pid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"root",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true }, // root of the xson data
 		{ name:"xson",							JSON:true , GIN:true , NOT_NULL:true }, // this is magical in postgres but just text in sqlite
 	],
@@ -1028,8 +1029,6 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		
 //		t.xml=xml;
 		t.jml=JSON.stringify(act);
-		t.root="/iati-activities/iati-activity"
-		t.xson=JSON.stringify( dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )["/iati-activities/iati-activity"][0] );
 
 // update our hash if we detect a change, this lets us keep track of the last time we saw new data per activity.
 // note that obviously this data will be lost if we rebuild the database but it is still nice to be able to
@@ -1045,8 +1044,34 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 //		dstore_back.replace(db,"activity",t);
 		replace("act",t);
 		replace("jml",t);
-		replace("xson",t);
+
+	let xtree=dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )["/iati-activities/iati-activity"][0]
+	t.pid=xtree["/reporting-org@ref"]
+	let xwalk
+	xwalk=function(it,path)
+	{
+		let x={}
+
+		x.aid=t.aid
+		x.pid=t.pid
+		x.root=path
+		x.xson=JSON.stringify( it );
 		
+		replace("xson",x);
+
+		for(let n in it )
+		{
+			let v=it[n]
+			if(Array.isArray(v))
+			{
+				for(let i=0;i<v.length;i++)
+				{
+					xwalk( v[i] , path+n )
+				}
+			}
+		}
+	}
+	xwalk( xtree ,"/iati-activities/iati-activity")
 
 		got_budget={}; // reset which budgets we found
 

@@ -60,34 +60,28 @@ var tstart=new Date().getTime()
 			let rn=ret.xpath[n]
 			
 			let tname=""
-			let fromx="from ( select aid , xson->>'/reporting-org@ref' as pid , xson from xson ) as xson0"
-
-await db.any( "create temp table IF NOT EXISTS \"temp_"+tname+"\" as select * "+fromx+";" )
-
-			for( let i = 1 ; i<j.length-1 ; i++ )
-			{
-				fromx="from ( select aid , pid , jsonb_array_elements(xson->'"+j[i]+"') as xson \n"+
-				"from \"temp_"+tname+"\" \n"+
-				") as xson"+i+" "
-
-				tname=tname+j[i]
-				
-await db.any( "create temp table IF NOT EXISTS \"temp_"+tname+"\" as select * "+fromx+";" )
-
-			}
+			let tt=""
+			for( let v of j ) { tname=tt ; tt=tt+v }
+			let fromx=`
+				from (
+					select aid , pid , xson
+					from xson
+					where root='${tname}'
+				) as xson0 `
+//			console.log(fromx)
 			let jx=j[j.length-1]
 
 
-			var sql = 
-				"select count( xson->>'"+jx+"') as cc \n"+
-				", count( distinct aid ) as ca \n"+
-				", count( distinct xson->>'"+jx+"') as cd \n"+
-				", count( distinct pid ) as cp \n"+
-				"from \"temp_"+tname+"\" where xson->>'"+jx+"' is not null;"
+			var sql =` 
+				select count(*) as cc
+				, count( distinct aid ) as ca
+				, count( distinct xson->>'${jx}') as cd
+				, count( distinct pid ) as cp
+				${fromx} where xson->>'${jx}' is not null;`
 //			console.log(sql)
 			let rc = await db.any( sql )
 			
-			var sql = "select count(*) as count , xson->>'"+jx+"' as value , MAX(aid) as aid , MAX(pid) as pid from \"temp_"+tname+"\" where xson->>'"+jx+"' is not null group by xson->>'"+jx+"' order by 1 desc limit 10;"
+			var sql = `select count(*) as count , xson->>'${jx}' as value , MAX(aid) as aid , MAX(pid) as pid ${fromx} where xson->>'${jx}' is not null group by xson->>'${jx}' order by 1 desc limit 10;`
 //			console.log(sql)
 			let rt = await db.any( sql )
 			
