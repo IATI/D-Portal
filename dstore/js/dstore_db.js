@@ -52,10 +52,10 @@ dstore_db.tables={
 		{ name:"jml",							TEXT:true}, // moved to reduce the main act table size
 	],
 	xson:[
-		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
-		{ name:"pid",							TEXT:true , INDEX:true , HASH:true },
-		{ name:"root",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true }, // root of the xson data
-		{ name:"xson",							JSON:true , GIN:true , NOT_NULL:true }, // this is magical in postgres but just text in sqlite
+		{ name:"aid",							TEXT:true , INDEX:true , _HASH:true },
+		{ name:"pid",							TEXT:true , _INDEX:true , _HASH:true },
+		{ name:"root",							TEXT:true , _INDEX:true , _HASH:true , NOT_NULL:true }, // root of the xson data
+		{ name:"xson",							JSON:true , _GIN:true , NOT_NULL:true }, // this is magical in postgres but just text in sqlite
 	],
 	hash:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
@@ -1045,34 +1045,6 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		replace("act",t);
 		replace("jml",t);
 
-	let xtree=dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )["/iati-activities/iati-activity"][0]
-	t.pid=xtree["/reporting-org@ref"]
-	let xwalk
-	xwalk=function(it,path)
-	{
-		let x={}
-
-		x.aid=t.aid
-		x.pid=t.pid
-		x.root=path
-		x.xson=JSON.stringify( it );
-		
-		replace("xson",x);
-
-		for(let n in it )
-		{
-			let v=it[n]
-			if(Array.isArray(v))
-			{
-				for(let i=0;i<v.length;i++)
-				{
-					xwalk( v[i] , path+n )
-				}
-			}
-		}
-	}
-	xwalk( xtree ,"/iati-activities/iati-activity")
-
 		got_budget={}; // reset which budgets we found
 
 		refry.tags(act,"transaction",function(it){refresh_transaction(it,act,t,splits);});
@@ -1097,6 +1069,8 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 		dstore_back.replace(db,"slug",{"aid":t.aid,"slug":t.slug});
 		
+// do not need this any more as we have xson
+/*
 		var vols=refry.tag_volumes(refry.tag(act,"iati-activity"));
 		{
 			for(name in vols) { var vol=vols[name];
@@ -1131,6 +1105,36 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				}
 			}
 		}
+*/
+
+// update xson
+		let xtree=dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )["/iati-activities/iati-activity"][0]
+		t.pid=xtree["/reporting-org@ref"]
+		let xwalk
+		xwalk=function(it,path)
+		{
+			let x={}
+
+			x.aid=t.aid
+			x.pid=t.pid
+			x.root=path
+			x.xson=JSON.stringify( it );
+			
+			replace("xson",x);
+
+			for(let n in it )
+			{
+				let v=it[n]
+				if(Array.isArray(v))
+				{
+					for(let i=0;i<v.length;i++)
+					{
+//						xwalk( v[i] , path+n )
+					}
+				}
+			}
+		}
+		xwalk( xtree ,"/iati-activities/iati-activity")
 
 
 		return t;
