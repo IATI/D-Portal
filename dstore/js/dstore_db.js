@@ -11,6 +11,7 @@ var iati_xml=require('./iati_xml');
 var iati_cook=require('./iati_cook');
 
 var dflat=require('../../dflat/js/dflat');
+var dflat_database=require('../../dflat/json/database.json');
 
 var codes=require('../json/iati_codes');
 
@@ -55,7 +56,11 @@ dstore_db.tables={
 		{ name:"aid",							TEXT:true , INDEX:true },
 		{ name:"pid",							TEXT:true , INDEX:true },
 		{ name:"root",							TEXT:true , INDEX:true , NOT_NULL:true }, // root of the xson data
-		{ name:"xson",							JSON:true , NOT_GIN:true , NOT_NULL:true }, // this is magical in postgres but just text in sqlite
+		{ name:"xson",							JSON:true , NOT_NULL:true }, // this is magical in postgres but just text in sqlite
+// see below for code that will
+// automagically include special indexes from xflat database
+// in the following format
+//		{	XSON_INDEX:["/iati-identifier","int"] },
 	],
 	hash:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
@@ -185,7 +190,32 @@ dstore_db.tables={
 		{ name:"policy_code",					NOCASE:true , INDEX:true , codes:"policy" },				// the code is prefixed by the significance and an underscore then the code
 	],
 };
+
+let dflat_indexs={}
+for( let pn in dflat_database.paths ) // auto xson indexes
+{
+	let p=dflat_database.paths[pn]
+	if( p.jpath )
+	{
+		let a=p.jpath[ p.jpath.length-1 ]
+// do not index any path ending in "" as it can be huge text, eg narratives
+		if(a!="")
+		{
+			dflat_indexs[ a ] = p // merge
+		}
+	}
+}
+for( let pn in dflat_indexs ) // auto ad index
+{
+	let p=dflat_indexs[pn]
+	let a=p.jpath[ p.jpath.length-1 ]
+	let it={}
+	it.XSON_INDEX=[a,p.type]
+	dstore_db.tables.xson.push(it)
 	
+}
+//console.log(dstore_db.tables.xson)
+
 var http_getbody=function(url,cb)
 {
 	http.get(url, function(res) {
@@ -1121,10 +1151,13 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 			x.aid=t.aid
 			x.pid=t.pid
 			x.root=path
-			x.xson=JSON.stringify( it );
+			x.xson=it // JSON.stringify( it );
 			
-			replace("xson",x);
-
+			if(x.xson)
+			{
+				replace("xson",x);
+			}
+			
 			for(let n in it )
 			{
 				let v=it[n]

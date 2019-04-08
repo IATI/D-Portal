@@ -414,7 +414,10 @@ dstore_sqlite.cache_prepare = function(){
 			else
 			if(v.REAL) { ty="float"; }
 			
-			t[v.name]=ty;
+			if(v.name)
+			{
+				t[v.name]=ty;
+			}
 		}
 		dstore_db.tables_active[name]=t;
 		dstore_db.tables_replace_sql[name]=dstore_sqlite.getsql_prepare_replace(name,t);

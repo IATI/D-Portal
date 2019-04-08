@@ -192,6 +192,18 @@ console.log("CREATING INDEXS");
 						});
 
 					}
+					
+					if(col.XSON_INDEX)
+					{
+						let t=col.XSON_INDEX
+						let n=t[0]
+						let nu=n.replace(/[\W_]+/g,"_");
+						var s=(" CREATE INDEX IF NOT EXISTS "+name+"_xson_"+nu+" ON "+name+" USING btree (((xson ->> '"+n+"')::text)) WHERE xson ->> '"+n+"' IS NOT NULL ; ");
+						console.log(s);
+						wait.for(function(cb){
+							db.none(s).then(cb).catch(err);
+						});
+					}
 
 				}
 			}
@@ -224,19 +236,35 @@ console.log("DROPING INDEXS");
 
 			for(var i=0; i<tab.length;i++)
 			{
-				var col=tab[i];			
-				wait.for(function(cb){
-					 db.none("DROP INDEX IF EXISTS "+name+"_index_"+col.name+";").catch(err).then(cb);
-				});
-				wait.for(function(cb){
-					 db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err).then(cb);
-				});
-				wait.for(function(cb){
-					 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
-				});
-				wait.for(function(cb){
-					 db.none("DROP INDEX IF EXISTS "+name+"_gin_"+col.name+";").catch(err).then(cb);
-				});
+				var col=tab[i];
+				
+				if( col.name )
+				{
+					wait.for(function(cb){
+						 db.none("DROP INDEX IF EXISTS "+name+"_index_"+col.name+";").catch(err).then(cb);
+					});
+					wait.for(function(cb){
+						 db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err).then(cb);
+					});
+					wait.for(function(cb){
+						 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
+					});
+					wait.for(function(cb){
+						 db.none("DROP INDEX IF EXISTS "+name+"_gin_"+col.name+";").catch(err).then(cb);
+					});
+				}
+
+				if(col.XSON_INDEX)
+				{
+					let t=col.XSON_INDEX
+					let n=t[0]
+					let nu=n.replace(/[\W_]+/g,"_");
+					var s=(" DROP INDEX IF EXISTS "+name+"_xson_"+nu+" ; ");
+					wait.for(function(cb){
+						db.none(s).then(cb).catch(err);
+					});
+				}
+
 			}
 		}
 
@@ -412,7 +440,10 @@ dstore_pg.cache_prepare = function(){
 				dstore_db.tables_primary[name]=v.name;
 			}
 			
-			t[v.name]=ty;
+			if(v.name)
+			{
+				t[v.name]=ty;
+			}
 		}
 		dstore_db.tables_active[name]=t;
 		dstore_db.tables_replace_sql[name]=dstore_pg.getsql_prepare_replace(name,t);
