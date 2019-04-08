@@ -52,10 +52,10 @@ dstore_db.tables={
 		{ name:"jml",							TEXT:true}, // moved to reduce the main act table size
 	],
 	xson:[
-		{ name:"aid",							TEXT:true , INDEX:true , _HASH:true },
-		{ name:"pid",							TEXT:true , _INDEX:true , _HASH:true },
-		{ name:"root",							TEXT:true , _INDEX:true , _HASH:true , NOT_NULL:true }, // root of the xson data
-		{ name:"xson",							JSON:true , _GIN:true , NOT_NULL:true }, // this is magical in postgres but just text in sqlite
+		{ name:"aid",							TEXT:true , INDEX:true },
+		{ name:"pid",							TEXT:true , INDEX:true },
+		{ name:"root",							TEXT:true , INDEX:true , NOT_NULL:true }, // root of the xson data
+		{ name:"xson",							JSON:true , NOT_GIN:true , NOT_NULL:true }, // this is magical in postgres but just text in sqlite
 	],
 	hash:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
