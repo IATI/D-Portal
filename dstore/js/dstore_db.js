@@ -167,6 +167,7 @@ dstore_db.tables={
 		{ name:"slug",							NOCASE:true , INDEX:true },
 	],
 // track the internal layout of the xml, 4 levels is probably plenty unless the iati standard changes considerably
+/*
 	element:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"element_attr",					NOCASE:true , INDEX:true },					// the element attribute name, must be null for element stats
@@ -176,6 +177,8 @@ dstore_db.tables={
 		{ name:"element_name3",					NOCASE:true , INDEX:true },					// the parent of the parent of the parent of the element
 		{ name:"element_volume",				INTEGER:true , INDEX:true },				// number of occurrences of element
 	],
+*/
+
 // include policy-markers (DAC codes only)
 	policy:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
@@ -1129,7 +1132,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				{
 					for(let i=0;i<v.length;i++)
 					{
-//						xwalk( v[i] , path+n )
+						xwalk( v[i] , path+n )
 					}
 				}
 			}
