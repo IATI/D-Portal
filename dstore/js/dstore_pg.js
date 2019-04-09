@@ -536,7 +536,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 //	for(var idx=0;idx<rows.length;idx++)
 //	{
 //		var row=rows[idx];
-		(["act","jml","xson","trans","budget","country","sector","location","slug","element","policy","related"]).forEach(function(v,i,a){
+		(["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"]).forEach(function(v,i,a){
 
 			db.any("DELETE FROM "+v+" WHERE aid IN ( SELECT aid FROM slug WHERE slug=${slug} ) ;",{slug:slug}).catch(err);
 

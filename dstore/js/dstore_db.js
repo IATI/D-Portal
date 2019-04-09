@@ -692,7 +692,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		}
 
 // make really really sure old junk is deleted
-		(["act","jml","xson","trans","budget","country","sector","location","slug","element","policy","related"]).forEach(function(v,i,a){
+		(["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"]).forEach(function(v,i,a){
 			dstore_db.delete_from(db,v,{aid:t.aid});
 		});
 
