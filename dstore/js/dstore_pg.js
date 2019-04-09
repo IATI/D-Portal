@@ -526,23 +526,21 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 
 // find old data and remove it before we do anything else	
-/*
 	var rows=wait.for(function(cb){
 		db.any("SELECT aid FROM slug WHERE slug=${slug};",{slug:slug}).then(function(rows){
 			cb(false,rows)
 		}).catch(err);
 	});
-*/
-//	for(var idx=0;idx<rows.length;idx++)
-//	{
-//		var row=rows[idx];
+	for(var idx=0;idx<rows.length;idx++)
+	{
+		var row=rows[idx];
 		(["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"]).forEach(function(v,i,a){
 
-			db.any("DELETE FROM "+v+" WHERE aid IN ( SELECT aid FROM slug WHERE slug=${slug} ) ;",{slug:slug}).catch(err);
+//			db.any("DELETE FROM "+v+" WHERE aid IN $aids ) ;",{aids:aids}).catch(err);
 
-//			dstore_pg.delete_from(db,v,{aid:row["aid"]});
+			dstore_pg.delete_from(db,v,{aid:row["aid"]});
 		});
-//	}
+	}
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
