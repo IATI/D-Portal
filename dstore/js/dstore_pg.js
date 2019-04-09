@@ -18,6 +18,9 @@ dstore_db.text_name=function(s){ return s; }
 var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+var dflat=require('../../dflat/js/dflat');
+var dflat_database=require('../../dflat/json/database.json');
+
 var refry=require('./refry');
 var exs=require('./exs');
 var iati_xml=require('./iati_xml');
@@ -466,8 +469,14 @@ dstore_pg.delete_from = function(db,tablename,opts){
 			db.none(" DELETE FROM "+tablename+" WHERE trans_flags=${trans_flags} ",opts).then(cb).catch(err);
 		}
 		else
+		if(opts.aid)
 		{
 			db.none(" DELETE FROM "+tablename+" WHERE aid=${aid} ",opts).then(cb).catch(err);
+		}
+		else
+		if(opts.pid)
+		{
+			db.none(" DELETE FROM "+tablename+" WHERE pid=${pid} ",opts).then(cb).catch(err);
 		}
 	});
 
@@ -515,21 +524,25 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 		db.none("BEGIN;").then(cb).catch(err);
 	});
 
-	
+
+// find old data and remove it before we do anything else	
+/*
 	var rows=wait.for(function(cb){
 		db.any("SELECT aid FROM slug WHERE slug=${slug};",{slug:slug}).then(function(rows){
 			cb(false,rows)
 		}).catch(err);
 	});
+*/
+//	for(var idx=0;idx<rows.length;idx++)
+//	{
+//		var row=rows[idx];
+		(["act","jml","xson","trans","budget","country","sector","location","slug","element","policy","related"]).forEach(function(v,i,a){
 
+			db.any("DELETE FROM "+v+" WHERE aid IN ( SELECT aid FROM slug WHERE slug=${slug} ) ;",{slug:slug}).catch(err);
 
-	for(var idx=0;idx<rows.length;idx++)
-	{
-		var row=rows[idx];
-		(["act","jml","trans","budget","country","sector","location","slug"]).forEach(function(v,i,a){
-			dstore_pg.delete_from(db,v,{aid:row["aid"]});
+//			dstore_pg.delete_from(db,v,{aid:row["aid"]});
 		});
-	}
+//	}
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
@@ -542,6 +555,45 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 		var o=refry.tag(org,"iati-organisation"); // check for org file data
 		if(o)
 		{
+
+			console.log("importing xson from org file for "+aid)
+
+			let xtree=dflat.xml_to_xson( { 0:"iati-organisations" , 1:[o] } )["/iati-organisations/iati-organisation"][0]
+			let pid=xtree["/reporting-org@ref"]
+
+// delete old info
+			dstore_back.delete_from(db,"xson",{pid:pid});
+
+			let xwalk
+			xwalk=function(it,path)
+			{
+				let x={}
+
+				x.aid=null
+				x.pid=pid // we have a pid but no aid
+				x.root=path
+				x.xson=it // JSON.stringify( it );
+				
+				if(x.xson)
+				{
+					dstore_back.replace(db,"xson",x);
+				}
+				
+				for(let n in it )
+				{
+					let v=it[n]
+					if(Array.isArray(v))
+					{
+						for(let i=0;i<v.length;i++)
+						{
+							xwalk( v[i] , path+n )
+						}
+					}
+				}
+			}
+			xwalk( xtree ,"/iati-organisations/iati-organisation")
+
+
 			console.log("importing budgets from org file for "+aid)
 
 			dstore_back.delete_from(db,"budget",{aid:aid});
