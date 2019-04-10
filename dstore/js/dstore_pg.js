@@ -533,7 +533,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 	});
 	var row=rows[idx];
 	for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
-
+	{
 console.log("about to delete "+rows.length+" ids from "+v)
 
 		for(var idx=0;idx<rows.length;idx++)
@@ -543,7 +543,7 @@ console.log("about to delete "+rows.length+" ids from "+v)
 
 			dstore_pg.delete_from(db,v,{aid:row["aid"]});
 		}
-	});
+	}
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
