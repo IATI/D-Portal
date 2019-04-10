@@ -531,13 +531,13 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			cb(false,rows)
 		}).catch(err);
 	});
-	var row=rows[idx];
 	for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
 	{
 console.log("about to delete "+rows.length+" ids from "+v)
 
 		for(var idx=0;idx<rows.length;idx++)
 		{
+			let row=rows[idx];
 
 //			db.any("DELETE FROM "+v+" WHERE aid IN $aids ) ;",{aids:aids}).catch(err);
 
