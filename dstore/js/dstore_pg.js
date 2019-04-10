@@ -533,7 +533,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 	});
 	for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
 	{
-console.log("about to delete "+rows.length+" ids from "+v)
+//console.log("about to delete "+rows.length+" ids from "+v)
 
 		for(var idx=0;idx<rows.length;idx++)
 		{
