@@ -51,7 +51,7 @@ stats.cmd = async function(argv){
 		let p=database.paths[n]
 		let j=p.jpath
 		
-		if( j && j[0]=="/iati-activities/iati-activity" && j.length>1)
+		if( j && j.length>1)
 		{
 
 var tstart=new Date().getTime()
