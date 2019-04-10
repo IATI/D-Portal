@@ -539,9 +539,9 @@ console.log("about to delete "+rows.length+" ids from "+v)
 		{
 			let row=rows[idx];
 
-//			db.any("DELETE FROM "+v+" WHERE aid IN $aids ) ;",{aids:aids}).catch(err);
+			db.any("DELETE FROM "+v+" WHERE aid = $aid ;",{aid:row["aid"]}),{aids:aids}).catch(err);
 
-			dstore_pg.delete_from(db,v,{aid:row["aid"]});
+//			dstore_pg.delete_from(db,v,{aid:row["aid"]});
 		}
 	}
 
