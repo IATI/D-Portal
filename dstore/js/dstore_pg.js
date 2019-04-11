@@ -531,6 +531,8 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			cb(false,rows)
 		}).catch(err);
 	});
+	console.log("deleting "+rows.length+" activities")
+	
 	for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
 	{
 //console.log("about to delete "+rows.length+" ids from "+v)
