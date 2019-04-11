@@ -513,17 +513,17 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 	var db=dstore_pg.open();
 
+
+	wait.for(function(cb){
+		db.none("BEGIN;").then(cb).catch(err);
+	});
+
 	wait.for(function(cb){
 		db.one("SELECT COUNT(*) FROM act;").then(function(row){	
 			before=row.count;
 			cb();
 		}).catch(err);
 	});
-
-	wait.for(function(cb){
-		db.none("BEGIN;").then(cb).catch(err);
-	});
-
 
 // find old data and remove it before we do anything else	
 	var rows=wait.for(function(cb){
@@ -631,14 +631,14 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 	process.stdout.write("\n");
 
 	wait.for(function(cb){
-		db.none("COMMIT;").then(cb).catch(err);
-	});
-
-	wait.for(function(cb){
 		db.one("SELECT COUNT(*) FROM act;").then(function(row){	
 			after=row.count;
 			cb();
 		}).catch(err);
+	});
+
+	wait.for(function(cb){
+		db.none("COMMIT;").then(cb).catch(err);
 	});
 
 	after_time=Date.now();
