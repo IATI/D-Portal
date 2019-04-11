@@ -518,12 +518,15 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 		db.none("BEGIN;").then(cb).catch(err);
 	});
 
+/*
 	wait.for(function(cb){
 		db.one("SELECT COUNT(*) FROM act;").then(function(row){	
 			before=row.count;
 			cb();
 		}).catch(err);
 	});
+*/
+
 
 // find old data and remove it before we do anything else	
 	var rows=wait.for(function(cb){
@@ -615,6 +618,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 	}
 
 
+	let count_new=0
 	for(var i=0;i<acts.length;i++)
 	{
 		var xml=acts[i];
@@ -628,18 +632,22 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			process.stdout.write(progchar[p]);
 
 			dstore_db.refresh_act(db,aid,json,head);
+			count_new++
 		}
 	}
 
 
 	process.stdout.write("\n");
 
+
+/*
 	wait.for(function(cb){
 		db.one("SELECT COUNT(*) FROM act;").then(function(row){	
 			after=row.count;
 			cb();
 		}).catch(err);
 	});
+*/
 
 	wait.for(function(cb){
 		db.none("COMMIT;").then(cb).catch(err);
@@ -647,7 +655,8 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 	after_time=Date.now();
 	
-	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
+	console.log("added "+count_new+" new activities in "+(after_time-before_time)+"ms\n")
+//	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
 	
 	pgp.end();	
 
