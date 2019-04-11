@@ -1151,7 +1151,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 			x.aid=t.aid
 			x.pid=t.pid
 			x.root=path
-			x.xson=it // JSON.stringify( it );
+			x.xson=JSON.stringify( it );
 			
 			if(x.xson)
 			{
