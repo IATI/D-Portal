@@ -541,7 +541,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 		{
 			let row=rows[idx];
 			
-			console.log( "DELETE FROM "+v+" WHERE aid = ${aid} ; "+row["aid"] )
+			console.log( row )
 
 			db.any("DELETE FROM "+v+" WHERE aid = ${aid} ;",{aid:row["aid"]}).catch(err);
 
