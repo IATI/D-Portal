@@ -527,11 +527,11 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 // find old data and remove it before we do anything else	
 	var rows=wait.for(function(cb){
-		db.any("SELECT aid FROM slug WHERE slug=${slug};",{slug:slug}).then(function(rows){
+		db.any("SELECT aid FROM slug WHERE slug=${slug} AND aid IS NOT NULL;",{slug:slug}).then(function(rows){
 			cb(false,rows)
 		}).catch(err);
 	});
-	console.log("deleting "+rows.length+" activities using "+slug)
+	console.log("deleting "+rows.length+" old activities")
 	
 	for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
 	{
@@ -541,13 +541,13 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 		{
 			let row=rows[idx];
 			
-			console.log( row )
-
 			db.any("DELETE FROM "+v+" WHERE aid = ${aid} ;",{aid:row["aid"]}).catch(err);
 
 //			dstore_pg.delete_from(db,v,{aid:row["aid"]});
 		}
 	}
+// clean up slug table
+	db.any("DELETE FROM slug WHERE slug=${slug} ;",{slug:slug}).catch(err);
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
