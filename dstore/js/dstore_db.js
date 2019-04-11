@@ -687,7 +687,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 // I think we should complain a lot about this during import
 		if( dstore_db.warn_dupes(db,t.aid) )
 		{
-			console.log("\nSKIPPING: "+t.aid);
+//			console.log("\nSKIPPING: "+t.aid);
 			return;
 		}
 

@@ -667,7 +667,7 @@ dstore_pg.warn_dupes = function(db,aid){
 	for(var i in rows)
 	{
 		var row=rows[i]
-		console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
+//		console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
 		ret=true
 	}
 
