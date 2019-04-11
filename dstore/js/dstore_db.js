@@ -678,20 +678,20 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		t.slug=refry.tagattr(act,"iati-activity","dstore:slug"); // this value is hacked in when the acts are split
 		t.aid=iati_xml.get_aid(act);
 
-		if(!t.aid) // do not save when there is no ID
+		if(!t.aid || !t.slug) // do not save when there is no ID or slug
 		{
-			return;
+			return false;
 		}
 
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
-		if( dstore_db.warn_dupes(db,t.aid) )
+		if( dstore_db.warn_dupes(db,t.aid,t.slug) )
 		{
 //			console.log("\nSKIPPING: "+t.aid);
-			return;
+			return false;
 		}
 
-// make really really sure old junk is deleted
+// delete all traces of this activity before we add it
 		(["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"]).forEach(function(v,i,a){
 			dstore_db.delete_from(db,v,{aid:t.aid});
 		});
@@ -1177,7 +1177,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 	};
 	
 	// then add new
-	refresh_activity(xml,head);
+	return refresh_activity(xml,head);
 
 };
 
@@ -1246,9 +1246,9 @@ dstore_db.fake_trans = function(){
 	if(f) { return f(); }
 };
 
-dstore_db.warn_dupes = function(db,aid){
+dstore_db.warn_dupes = function(db,aid,slug){
 	var f=dstore_back.warn_dupes;
-	if(f) { return f(db,aid); }
+	if(f) { return f(db,aid,slug); }
 };
 
 

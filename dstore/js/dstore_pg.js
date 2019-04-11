@@ -534,23 +534,12 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			cb(false,rows)
 		}).catch(err);
 	});
-	console.log("deleting "+rows.length+" old activities")
-	
-	for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
-	{
-//console.log("about to delete "+rows.length+" ids from "+v)
+	var deleteme={} // create map
+	for(let row of rows) { deleteme[ row["aid"] ] = true }
 
-		for(var idx=0;idx<rows.length;idx++)
-		{
-			let row=rows[idx];
-			
-			db.any("DELETE FROM "+v+" WHERE aid = ${aid} ;",{aid:row["aid"]}).catch(err);
+// clean up slug table, which may have some old nulls
+	db.any("DELETE FROM slug WHERE slug=${slug} AND aid IS NULL ;",{slug:slug}).catch(err);
 
-//			dstore_pg.delete_from(db,v,{aid:row["aid"]});
-		}
-	}
-// clean up slug table
-	db.any("DELETE FROM slug WHERE slug=${slug} ;",{slug:slug}).catch(err);
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
@@ -580,7 +569,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 				x.aid=null
 				x.pid=pid // we have a pid but no aid
 				x.root=path
-				x.xson=it // JSON.stringify( it );
+				x.xson=JSON.stringify( it );
 				
 				if(x.xson)
 				{
@@ -631,15 +620,44 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
 			process.stdout.write(progchar[p]);
 
-			if( dstore_db.refresh_act(db,aid,json,head) );
+
+			if( dstore_db.refresh_act(db,aid,json,head) )
 			{
-				count_new++ // only count if a real activity
+				count_new++ // only count if a real activity that we added
+				
+				delete deleteme[aid] // replaced no need to delete
 			}
 		}
 	}
 
 
 	process.stdout.write("\n");
+
+	let delete_list=[]
+	for( let n in deleteme)
+	{
+		delete_list.push(n)
+	}
+	console.log("deleting "+delete_list.length+" old activities")
+	
+	if( delete_list.length>0 ) // delete activities that used to be in this file but are not there any more
+	{
+		for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
+		{
+	//console.log("about to delete "+rows.length+" ids from "+v)
+
+			for(var idx=0;idx<rows.length;idx++)
+			{
+				let row=rows[idx];
+				
+				db.any("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).catch(err);
+
+	//			dstore_pg.delete_from(db,v,{aid:row["aid"]});
+			}
+		}
+	}
+
+
 
 
 /*
@@ -667,14 +685,14 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 
 
-dstore_pg.warn_dupes = function(db,aid){
+dstore_pg.warn_dupes = function(db,aid,slug){
 
 	var ret=false
 	
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
 	var rows=wait.for(function(cb){
-		db.any("SELECT * FROM slug WHERE aid=${aid};",{aid:aid}).then(function(rows){
+		db.any("SELECT * FROM slug WHERE aid=${aid} AND slug!=${slug};",{aid:aid,slug:slug}).then(function(rows){
 			cb(false,rows)
 		}).catch(err);
 	});
