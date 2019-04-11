@@ -603,6 +603,8 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
 
 			dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
+
+			delete deleteme[aid] // replaced no need to delete
 		}
 	}
 
