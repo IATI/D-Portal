@@ -631,8 +631,10 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
 			process.stdout.write(progchar[p]);
 
-			dstore_db.refresh_act(db,aid,json,head);
-			count_new++
+			if( dstore_db.refresh_act(db,aid,json,head) );
+			{
+				count_new++ // only count if a real activity
+			}
 		}
 	}
 
