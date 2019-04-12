@@ -559,11 +559,11 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			let pid=xtree["/reporting-org@ref"]
 
 // delete old org info
-/*
+
 			wait.for(function(cb){
-				db.any("DELETE FROM xson WHERE aid IS NULL AND pid=${pid} ;",{pid:pid}).then(cb).catch(err);
+				db.any("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:pid}).then(cb).catch(err);
 			});
-*/
+
 			let xwalk
 			xwalk=function(it,path)
 			{
