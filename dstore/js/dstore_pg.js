@@ -650,7 +650,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 		for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
 		{
 			wait.for(function(cb){
-				db.any("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).then(cb).catch(err);
+				db.none("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).then(cb).catch(err);
 			});
 		}
 	}
