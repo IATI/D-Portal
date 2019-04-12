@@ -146,7 +146,7 @@ assert( filename , "base filename required" )
 		let pids={}
 		let pids_length=0
 //only include publishers with 100 or more activities as this takes a long time
-		for(let it of its) { if( it.pid && it.count>=100 ) { pids_length++ ; pids[it.pid]={ name:it.name||"unknown",count:it.count } } // name may be unknown
+		for(let it of its) { if( it.pid && it.count>=100 ) { pids_length++ ; pids[it.pid]={ name:it.name||"unknown",count:it.count } } } // name may be unknown
 		
 		var dir = filename + '/pids';
 //console.log( dir )
