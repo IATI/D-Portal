@@ -164,7 +164,7 @@ assert( filename , "base filename required" )
 			let outputfilename=dir+"/"+clean(pid)+".json"
 
 			let prog=Math.floor(100*pn/pids_length)
-			console.log( prog+"% : "+outputfilename + " : "+pids[pid])
+			console.log( prog+"% : "+outputfilename + " : "+pids[pid].count+" : "+pids[pid].name )
 
 			if(fs.existsSync(outputfilename))
 			{
