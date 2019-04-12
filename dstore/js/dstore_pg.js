@@ -558,8 +558,10 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			let xtree=dflat.xml_to_xson( { 0:"iati-organisations" , 1:[o] } )["/iati-organisations/iati-organisation"][0]
 			let pid=xtree["/reporting-org@ref"]
 
-// delete old info
-			dstore_back.delete_from(db,"xson",{pid:pid});
+// delete old org info
+			wait.for(function(cb){
+				db.any("DELETE FROM xson WHERE aid IS NULL AND pid=${pid} ;",{pid:pid}).then(cb).catch(err);
+			});
 
 			let xwalk
 			xwalk=function(it,path)
@@ -646,16 +648,9 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 	{
 		for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
 		{
-	//console.log("about to delete "+rows.length+" ids from "+v)
-
-			for(var idx=0;idx<rows.length;idx++)
-			{
-				let row=rows[idx];
-				
-				db.any("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).catch(err);
-
-	//			dstore_pg.delete_from(db,v,{aid:row["aid"]});
-			}
+			wait.for(function(cb){
+				db.any("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).then(cb).catch(err);
+			});
 		}
 	}
 
