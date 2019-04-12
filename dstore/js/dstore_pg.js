@@ -606,7 +606,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 			dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
 
-			delete deleteme[aid] // replaced no need to delete
+			delete deleteme[aid] // replaced so no need to delete
 		}
 	}
 
@@ -637,7 +637,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 	process.stdout.write("\n");
 
-	let delete_list=[]
+	let delete_list=[];
 	for( let n in deleteme)
 	{
 		delete_list.push(n)
