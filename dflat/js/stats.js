@@ -142,7 +142,7 @@ assert( filename , "base filename required" )
 	if( argv.publishers )
 	{
 		var db=stats.db()
-		let its = await db.any( `select pid , max(xson->>'') as name , distinct(aid) as count from xson where pid is not null and root='/iati-activities/iati-activity/reporting-org/narrative' group by pid ;` )
+		let its = await db.any( `select pid , max(xson->>'') as name , count( distinct aid ) as count from xson where pid is not null and root='/iati-activities/iati-activity/reporting-org/narrative' group by pid ;` )
 		let pids={}
 		let pids_length=0
 //only include publishers with 100 or more activities as this takes a long time
