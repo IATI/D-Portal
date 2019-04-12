@@ -561,7 +561,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 // delete old org info
 
 			wait.for(function(cb){
-				db.any("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:pid}).then(cb).catch(err);
+				db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:pid}).then(cb).catch(err);
 			});
 
 			let xwalk
