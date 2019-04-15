@@ -1,11 +1,13 @@
 cd `dirname $0`
 
-NAME=dquery
+NAME1=dquery
+NAME2=savi
 
 WATCHIFY=node_modules/watchify/bin/cmd.js
 
 mkdir html/lib
 
 echo "watchify"
-$WATCHIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -v -r ./js/$NAME.js:$NAME -d -o html/lib/$NAME.js
+$WATCHIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -v -r ./js/$NAME1.js:$NAME1 -d -o html/lib/$NAME1.js &
+$WATCHIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -v -r ./js/$NAME2.js:$NAME2 -d -o html/lib/$NAME2.js
 
