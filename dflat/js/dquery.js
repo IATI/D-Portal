@@ -19,9 +19,9 @@ if(typeof window !== 'undefined')
 var plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
 
 dquery.chunks={}
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/chunks.html', 'utf8'), dquery.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/chunks.css',  'utf8'), dquery.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/chunks.sql',  'utf8'), dquery.chunks )
+plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.html', 'utf8'), dquery.chunks )
+plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.css',  'utf8'), dquery.chunks )
+plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.sql',  'utf8'), dquery.chunks )
 
 plated.plate=function(str){ return plated.chunks.replace(str,dquery.chunks) }
 
