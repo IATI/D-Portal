@@ -3,4 +3,54 @@
 
 var savi=exports;
 
+var xson=require("./xson.js")
 
+// running in browser
+if(typeof window !== 'undefined')
+{
+	window.$ = window.jQuery = require("jquery")
+}
+
+savi.plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
+
+savi.chunks={}
+savi.plate=function(str){ return savi.plated.chunks.replace(str,savi.chunks) }
+
+savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.html', 'utf8'), savi.chunks )
+savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.css',  'utf8'), savi.chunks )
+
+
+savi.opts={}
+savi.opts.test=false
+
+savi.start=function(opts){
+	for(var n in opts) { savi.opts[n]=opts[n] } // copy opts
+	$(savi.start_loaded)
+}
+
+savi.start_loaded=function(){
+
+
+// prepare test page
+	let savi_frankenstein=require('../json/frankenstein.json')
+	
+	xson.walk( savi_frankenstein , (it,nn,idx)=>{
+		for(let n of Object.keys(it))
+		{
+			let v=it[n]
+			if(!Array.isArray(v)) // only rename if not an array
+			{
+				if(n=="") { it.text=v }
+				if(n=="@xml:lang") { it["@lang"]=v }
+			}
+		}
+	})
+
+	console.log(savi_frankenstein)
+
+// test render
+	$("html").prepend(savi.plate('<style>{css}</style>')) // load our styles
+	savi.chunks.frankenstein=savi_frankenstein
+	$("body").empty().append(savi.plate('{body}')) // fill in the base body
+	
+}
