@@ -25,7 +25,7 @@ query.db = function(){
 };
 
 
-var serve_html = require('serve-static')(__dirname+'/../html', {'index': ['index.html', 'index.htm']})
+var serve_html = require('serve-static')(__dirname+'/../html', {'index': ['dquery.html']})
 
 
 
