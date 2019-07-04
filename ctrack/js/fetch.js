@@ -115,6 +115,16 @@ fetch.ajax_dat_fix=function(dat,args,flag)
 		for(var n in args.q) { dat[n]=args.q[n]; }
 	}
 
+// finally make sure we filter out aid sector/country values that would explode the transaction or budget values
+// these need to only use the trans_* or budget_* country or sectory filters which will have been filled in above
+	if((flag=="trans")||(flag=="budget"))
+	{
+		delete dat["country_code"];
+		delete dat["sector_code"];
+		delete dat["sector_group"];
+	}
+
+
 	if( dat["day_start_lteq"] )
 	{
 		if(ctrack.args.year_max) // merge
