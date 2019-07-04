@@ -3,7 +3,7 @@
 
 var savi=exports;
 
-var Chartist=require("chartist")
+//var Chartist=require("chartist")
 var moment=require("moment")
 
 var iati_codes=require("../../dstore/json/iati_codes.json")
