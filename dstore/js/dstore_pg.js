@@ -18,6 +18,9 @@ dstore_db.text_name=function(s){ return s; }
 var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+var dflat=require('../../dflat/js/dflat');
+var dflat_database=require('../../dflat/json/database.json');
+
 var refry=require('./refry');
 var exs=require('./exs');
 var iati_xml=require('./iati_xml');
@@ -71,6 +74,14 @@ console.log("CREATING TABLES");
 
 // simple data dump table containing just the raw xml of each activity.
 // this is filled on import and then used as a source
+
+
+// temp patch	
+//		wait.for(function(cb){
+//			 db.none("DROP TABLE IF EXISTS xson;").then(cb).catch(err);
+//		});
+
+
 
 		for(var name in dstore_db.tables)
 		{
@@ -184,6 +195,18 @@ console.log("CREATING INDEXS");
 						});
 
 					}
+					
+					if(col.XSON_INDEX)
+					{
+						let t=col.XSON_INDEX
+						let n=t[0]
+						let nu=n.replace(/[\W_]+/g,"_");
+						var s=(" CREATE INDEX IF NOT EXISTS "+name+"_xson_"+nu+" ON "+name+" USING btree (((xson ->> '"+n+"')::text)) WHERE xson ->> '"+n+"' IS NOT NULL ; ");
+						console.log(s);
+						wait.for(function(cb){
+							db.none(s).then(cb).catch(err);
+						});
+					}
 
 				}
 			}
@@ -216,19 +239,35 @@ console.log("DROPING INDEXS");
 
 			for(var i=0; i<tab.length;i++)
 			{
-				var col=tab[i];			
-				wait.for(function(cb){
-					 db.none("DROP INDEX IF EXISTS "+name+"_index_"+col.name+";").catch(err).then(cb);
-				});
-				wait.for(function(cb){
-					 db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err).then(cb);
-				});
-				wait.for(function(cb){
-					 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
-				});
-				wait.for(function(cb){
-					 db.none("DROP INDEX IF EXISTS "+name+"_gin_"+col.name+";").catch(err).then(cb);
-				});
+				var col=tab[i];
+				
+				if( col.name )
+				{
+					wait.for(function(cb){
+						 db.none("DROP INDEX IF EXISTS "+name+"_index_"+col.name+";").catch(err).then(cb);
+					});
+					wait.for(function(cb){
+						 db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err).then(cb);
+					});
+					wait.for(function(cb){
+						 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
+					});
+					wait.for(function(cb){
+						 db.none("DROP INDEX IF EXISTS "+name+"_gin_"+col.name+";").catch(err).then(cb);
+					});
+				}
+
+				if(col.XSON_INDEX)
+				{
+					let t=col.XSON_INDEX
+					let n=t[0]
+					let nu=n.replace(/[\W_]+/g,"_");
+					var s=(" DROP INDEX IF EXISTS "+name+"_xson_"+nu+" ; ");
+					wait.for(function(cb){
+						db.none(s).then(cb).catch(err);
+					});
+				}
+
 			}
 		}
 
@@ -404,7 +443,10 @@ dstore_pg.cache_prepare = function(){
 				dstore_db.tables_primary[name]=v.name;
 			}
 			
-			t[v.name]=ty;
+			if(v.name)
+			{
+				t[v.name]=ty;
+			}
 		}
 		dstore_db.tables_active[name]=t;
 		dstore_db.tables_replace_sql[name]=dstore_pg.getsql_prepare_replace(name,t);
@@ -427,8 +469,14 @@ dstore_pg.delete_from = function(db,tablename,opts){
 			db.none(" DELETE FROM "+tablename+" WHERE trans_flags=${trans_flags} ",opts).then(cb).catch(err);
 		}
 		else
+		if(opts.aid)
 		{
 			db.none(" DELETE FROM "+tablename+" WHERE aid=${aid} ",opts).then(cb).catch(err);
+		}
+		else
+		if(opts.pid)
+		{
+			db.none(" DELETE FROM "+tablename+" WHERE pid=${pid} ",opts).then(cb).catch(err);
 		}
 	});
 
@@ -465,32 +513,33 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 	var db=dstore_pg.open();
 
+
+	wait.for(function(cb){
+		db.none("BEGIN;").then(cb).catch(err);
+	});
+
+/*
 	wait.for(function(cb){
 		db.one("SELECT COUNT(*) FROM act;").then(function(row){	
 			before=row.count;
 			cb();
 		}).catch(err);
 	});
+*/
 
-	wait.for(function(cb){
-		db.none("BEGIN;").then(cb).catch(err);
-	});
 
-	
+// find old data and remove it before we do anything else	
 	var rows=wait.for(function(cb){
-		db.any("SELECT aid FROM slug WHERE slug=${slug};",{slug:slug}).then(function(rows){
+		db.any("SELECT aid FROM slug WHERE slug=${slug} AND aid IS NOT NULL;",{slug:slug}).then(function(rows){
 			cb(false,rows)
 		}).catch(err);
 	});
+	var deleteme={} // create map
+	for(let row of rows) { deleteme[ row["aid"] ] = true }
 
+// clean up slug table, which may have some old nulls
+	db.any("DELETE FROM slug WHERE slug=${slug} AND aid IS NULL ;",{slug:slug}).catch(err);
 
-	for(var idx=0;idx<rows.length;idx++)
-	{
-		var row=rows[idx];
-		(["act","jml","trans","budget","country","sector","location","slug"]).forEach(function(v,i,a){
-			dstore_pg.delete_from(db,v,{aid:row["aid"]});
-		});
-	}
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
@@ -503,6 +552,48 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 		var o=refry.tag(org,"iati-organisation"); // check for org file data
 		if(o)
 		{
+
+			console.log("importing xson from org file for "+aid)
+
+			let xtree=dflat.xml_to_xson( { 0:"iati-organisations" , 1:[o] } )["/iati-organisations/iati-organisation"][0]
+			let pid=xtree["/reporting-org@ref"]
+
+// delete old org info
+
+			wait.for(function(cb){
+				db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:pid}).then(cb).catch(err);
+			});
+
+			let xwalk
+			xwalk=function(it,path)
+			{
+				let x={}
+
+				x.aid=null
+				x.pid=pid // we have a pid but no aid
+				x.root=path
+				x.xson=JSON.stringify( it );
+				
+				if(x.xson)
+				{
+					dstore_back.replace(db,"xson",x);
+				}
+				
+				for(let n in it )
+				{
+					let v=it[n]
+					if(Array.isArray(v))
+					{
+						for(let i=0;i<v.length;i++)
+						{
+							xwalk( v[i] , path+n )
+						}
+					}
+				}
+			}
+			xwalk( xtree ,"/iati-organisations/iati-organisation")
+
+
 			console.log("importing budgets from org file for "+aid)
 
 			dstore_back.delete_from(db,"budget",{aid:aid});
@@ -515,10 +606,13 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
 
 			dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
+
+			delete deleteme[aid] // replaced so no need to delete
 		}
 	}
 
 
+	let count_new=0
 	for(var i=0;i<acts.length;i++)
 	{
 		var xml=acts[i];
@@ -531,27 +625,56 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
 			process.stdout.write(progchar[p]);
 
-			dstore_db.refresh_act(db,aid,json,head);
+
+			if( dstore_db.refresh_act(db,aid,json,head) )
+			{
+				count_new++ // only count if a real activity that we added
+				
+				delete deleteme[aid] // replaced no need to delete
+			}
 		}
 	}
 
 
 	process.stdout.write("\n");
 
-	wait.for(function(cb){
-		db.none("COMMIT;").then(cb).catch(err);
-	});
+	let delete_list=[];
+	for( let n in deleteme)
+	{
+		delete_list.push(n)
+	}
+	console.log("deleting "+delete_list.length+" old activities")
+	
+	if( delete_list.length>0 ) // delete activities that used to be in this file but are not there any more
+	{
+		for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
+		{
+			wait.for(function(cb){
+				db.none("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).then(cb).catch(err);
+			});
+		}
+	}
 
+
+
+
+/*
 	wait.for(function(cb){
 		db.one("SELECT COUNT(*) FROM act;").then(function(row){	
 			after=row.count;
 			cb();
 		}).catch(err);
 	});
+*/
+
+	wait.for(function(cb){
+		db.none("COMMIT;").then(cb).catch(err);
+	});
 
 	after_time=Date.now();
 	
-	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
+	console.log("added "+count_new+" new activities in "+(after_time-before_time)+"ms\n")
+//	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
 	
 	pgp.end();	
 
@@ -560,14 +683,14 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 
 
-dstore_pg.warn_dupes = function(db,aid){
+dstore_pg.warn_dupes = function(db,aid,slug){
 
 	var ret=false
 	
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
 	var rows=wait.for(function(cb){
-		db.any("SELECT * FROM slug WHERE aid=${aid};",{aid:aid}).then(function(rows){
+		db.any("SELECT * FROM slug WHERE aid=${aid} AND slug!=${slug};",{aid:aid,slug:slug}).then(function(rows){
 			cb(false,rows)
 		}).catch(err);
 	});
@@ -575,7 +698,7 @@ dstore_pg.warn_dupes = function(db,aid){
 	for(var i in rows)
 	{
 		var row=rows[i]
-		console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
+//		console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
 		ret=true
 	}
 

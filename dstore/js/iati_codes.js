@@ -17,6 +17,8 @@ var json_stringify = require('json-stable-stringify')
 var refry=require('./refry');
 var exs=require('./exs');
 
+var request=require('request');
+
 var sheeturl=function(n){
 	return 	"https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/pub?single=true&gid="+n+"&output=csv";
 }
@@ -26,37 +28,19 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var http_getbody=function(url,cb)
 {
-	http.get(url, function(res) {
-		res.setEncoding('utf8');
-		var s="";
-		res.on('data', function (chunk) {
-			s=s+chunk;
-		});
-		res.on('end', function() {
-			cb(null,s);
-		});
-	}).on('error', function(e) {
-		cb(e,null);
+	request(url, function (error, response, body) {
+		if(error)
+		{
+			cb(error,null);
+		}
+		else
+		{
+			cb(null,body);
+		}
 	});
-
 };
 
-var https_getbody=function(url,cb)
-{
-	https.get(url, function(res) {
-		res.setEncoding('utf8');
-		var s="";
-		res.on('data', function (chunk) {
-			s=s+chunk;
-		});
-		res.on('end', function() {
-			cb(null,s);
-		});
-	}).on('error', function(e) {
-		cb(e,null);
-	});
-
-};
+var https_getbody=http_getbody;
 
 iati_codes.fetch = function(){
 
@@ -376,7 +360,7 @@ iati_codes.fetch = function(){
 	
 		
 
-	for(var year=2015;year<=2016;year++)
+	for(var year=2015;year<=2017;year++)
 	{
 			
 		console.log("Parsing csv/crs_"+year+".csv")

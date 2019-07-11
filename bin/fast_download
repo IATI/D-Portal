@@ -4,10 +4,8 @@ cd ../dstore/cache
 STARTTIME=$(date +%s)
 echo "Starting Download of all xml files at $(date)" | tee -a time.log
 
-# trunicate all xml files first, any files we can not download will trigger deletion of all their activities at import
-
-#truncate -s 0 *.xml
-
+# remove old logs
+truncate -s 0 *.curl.last.log
 
 #download all xml files
 
@@ -15,8 +13,6 @@ download() {
 declare -a 'a=('"$1"')'
 file=${a[4]}
 url=${a[5]// /%20}
-
-truncate -s 0 ${file}.curl.last.log
 
 echo | tee -a ${file}.curl.log ${file}.curl.last.log
 date | tee -a ${file}.curl.log ${file}.curl.last.log

@@ -11,6 +11,7 @@ var iati_xml=require('./iati_xml');
 var iati_cook=require('./iati_cook');
 
 var dflat=require('../../dflat/js/dflat');
+var dflat_database=require('../../dflat/json/database.json');
 
 var codes=require('../json/iati_codes');
 
@@ -52,8 +53,14 @@ dstore_db.tables={
 		{ name:"jml",							TEXT:true}, // moved to reduce the main act table size
 	],
 	xson:[
-		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
-		{ name:"xson",							JSON:true , GIN:true }, // this is magical in postgres but just text in sqlite
+		{ name:"aid",							TEXT:true , INDEX:true },
+		{ name:"pid",							TEXT:true , INDEX:true },
+		{ name:"root",							TEXT:true , INDEX:true , NOT_NULL:true }, // root of the xson data
+		{ name:"xson",							JSON:true , NOT_NULL:true }, // this is magical in postgres but just text in sqlite
+// see below for code that will
+// automagically include special indexes from xflat database
+// in the following format
+//		{	XSON_INDEX:["/iati-identifier","int"] },
 	],
 	hash:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
@@ -165,6 +172,7 @@ dstore_db.tables={
 		{ name:"slug",							NOCASE:true , INDEX:true },
 	],
 // track the internal layout of the xml, 4 levels is probably plenty unless the iati standard changes considerably
+/*
 	element:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"element_attr",					NOCASE:true , INDEX:true },					// the element attribute name, must be null for element stats
@@ -174,13 +182,40 @@ dstore_db.tables={
 		{ name:"element_name3",					NOCASE:true , INDEX:true },					// the parent of the parent of the parent of the element
 		{ name:"element_volume",				INTEGER:true , INDEX:true },				// number of occurrences of element
 	],
+*/
+
 // include policy-markers (DAC codes only)
 	policy:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"policy_code",					NOCASE:true , INDEX:true , codes:"policy" },				// the code is prefixed by the significance and an underscore then the code
 	],
 };
+
+let dflat_indexs={}
+for( let pn in dflat_database.paths ) // auto xson indexes
+{
+	let p=dflat_database.paths[pn]
+	if( p.jpath )
+	{
+		let a=p.jpath[ p.jpath.length-1 ]
+// do not index any path ending in "" as it can be huge text, eg narratives
+		if( (a!="") && (a!="@ref") ) // ignore long strings
+		{
+			dflat_indexs[ a ] = p // merge
+		}
+	}
+}
+for( let pn in dflat_indexs ) // auto ad index
+{
+	let p=dflat_indexs[pn]
+	let a=p.jpath[ p.jpath.length-1 ]
+	let it={}
+	it.XSON_INDEX=[a,p.type]
+	dstore_db.tables.xson.push(it)
 	
+}
+//console.log(dstore_db.tables.xson)
+
 var http_getbody=function(url,cb)
 {
 	http.get(url, function(res) {
@@ -643,21 +678,21 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		t.slug=refry.tagattr(act,"iati-activity","dstore:slug"); // this value is hacked in when the acts are split
 		t.aid=iati_xml.get_aid(act);
 
-		if(!t.aid) // do not save when there is no ID
+		if(!t.aid || !t.slug) // do not save when there is no ID or slug
 		{
-			return;
+			return false;
 		}
 
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
-		if( dstore_db.warn_dupes(db,t.aid) )
+		if( dstore_db.warn_dupes(db,t.aid,t.slug) )
 		{
-			console.log("\nSKIPPING: "+t.aid);
-			return;
+//			console.log("\nSKIPPING: "+t.aid);
+			return false;
 		}
 
-// make really really sure old junk is deleted
-		(["act","jml","xson","trans","budget","country","sector","location","slug","element","policy","related"]).forEach(function(v,i,a){
+// delete all traces of this activity before we add it
+		(["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"]).forEach(function(v,i,a){
 			dstore_db.delete_from(db,v,{aid:t.aid});
 		});
 
@@ -1027,7 +1062,6 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		
 //		t.xml=xml;
 		t.jml=JSON.stringify(act);
-		t.xson=JSON.stringify( dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )["/iati-activities/iati-activity"][0] );
 
 // update our hash if we detect a change, this lets us keep track of the last time we saw new data per activity.
 // note that obviously this data will be lost if we rebuild the database but it is still nice to be able to
@@ -1043,8 +1077,6 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 //		dstore_back.replace(db,"activity",t);
 		replace("act",t);
 		replace("jml",t);
-		replace("xson",t);
-		
 
 		got_budget={}; // reset which budgets we found
 
@@ -1070,6 +1102,8 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 
 		dstore_back.replace(db,"slug",{"aid":t.aid,"slug":t.slug});
 		
+// do not need this any more as we have xson
+/*
 		var vols=refry.tag_volumes(refry.tag(act,"iati-activity"));
 		{
 			for(name in vols) { var vol=vols[name];
@@ -1104,13 +1138,46 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 				}
 			}
 		}
+*/
+
+// update xson
+		let xtree=dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )["/iati-activities/iati-activity"][0]
+		t.pid=xtree["/reporting-org@ref"]
+		let xwalk
+		xwalk=function(it,path)
+		{
+			let x={}
+
+			x.aid=t.aid
+			x.pid=t.pid
+			x.root=path
+			x.xson=JSON.stringify( it );
+			
+			if(x.xson)
+			{
+				replace("xson",x);
+			}
+			
+			for(let n in it )
+			{
+				let v=it[n]
+				if(Array.isArray(v))
+				{
+					for(let i=0;i<v.length;i++)
+					{
+						xwalk( v[i] , path+n )
+					}
+				}
+			}
+		}
+		xwalk( xtree ,"/iati-activities/iati-activity")
 
 
 		return t;
 	};
 	
 	// then add new
-	refresh_activity(xml,head);
+	return refresh_activity(xml,head);
 
 };
 
@@ -1179,9 +1246,9 @@ dstore_db.fake_trans = function(){
 	if(f) { return f(); }
 };
 
-dstore_db.warn_dupes = function(db,aid){
+dstore_db.warn_dupes = function(db,aid,slug){
 	var f=dstore_back.warn_dupes;
-	if(f) { return f(db,aid); }
+	if(f) { return f(db,aid,slug); }
 };
 
 

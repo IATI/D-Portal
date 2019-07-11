@@ -1,0 +1,34 @@
+
+#^body
+<div>
+	{frankenstein./iati-activities/iati-activity:iati-activity}
+</div>
+
+#^iati-activity
+<pre>
+
+	TITLE
+{_it./title/narrative:/narrative}
+	
+	DOCUMENTS
+{_it./document-link:/document-link}
+
+	{_it./activity-scope@code}
+	{_it./activity-status@code}
+</pre>
+
+#^/narrative trim=ends
+	{_it.@lang} -> {_it.text}
+
+#^/document-link
+{_it./description/narrative:/narrative}
+{_it./category:/document-link/category}
+{_it./language:/document-link/language}
+	{_it./document-date@iso-date}
+	{_it.@format}
+	{_it.@url}
+
+#^/document-link/category
+	{_it.@code}
+#^/document-link/language
+	{_it.@code}

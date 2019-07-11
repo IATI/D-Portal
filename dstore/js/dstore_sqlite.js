@@ -99,7 +99,7 @@ dstore_sqlite.create_tables = function(opts){
 	db.serialize(function() {
 
 		dstore_sqlite.pragmas(db);
-	
+
 		for(var name in dstore_db.tables)
 		{
 			var tab=dstore_db.tables[name];
@@ -414,7 +414,10 @@ dstore_sqlite.cache_prepare = function(){
 			else
 			if(v.REAL) { ty="float"; }
 			
-			t[v.name]=ty;
+			if(v.name)
+			{
+				t[v.name]=ty;
+			}
 		}
 		dstore_db.tables_active[name]=t;
 		dstore_db.tables_replace_sql[name]=dstore_sqlite.getsql_prepare_replace(name,t);
@@ -634,20 +637,20 @@ dstore_sqlite.analyze = function(){
 }
 
 
-dstore_sqlite.warn_dupes = function(db,aid){
+dstore_sqlite.warn_dupes = function(db,aid,slug){
 
 	var ret=false
 	
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
 	var rows=wait.for(function(cb){
-		db.all("SELECT * FROM slug WHERE aid=?",aid,cb);
+		db.all("SELECT * FROM slug WHERE aid=? AND slug!=?",aid,cb);
 	});
 
 	for(var i in rows)
 	{
 		var row=rows[i]
-		console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
+//		console.log("\nDUPLICATE: "+row.slug+" : "+row.aid);
 		ret=true
 	}
 

@@ -1,0 +1,19 @@
+if [ "$1" = "full" ] ; then
+echo FULL > /var/tmp/dportal.update
+fi
+
+if [ "$1" = "mini" ] ; then
+rm /var/tmp/dportal.update
+fi
+
+
+if [ -f /var/tmp/dportal.update ] ; then
+	echo
+	echo flag set to FULL \(use "./cronflag mini" to change\)
+	echo
+else
+	echo
+	echo flag set to MINI \(use "./cronflag full" to change\)
+	echo
+fi
+

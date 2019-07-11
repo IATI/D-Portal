@@ -4,14 +4,14 @@ cd ../dstore
 STARTTIME=$(date +%s)
 echo "Starting Import of all xml files at $(date)" | tee -a cache/time.log
 
+# remove old logs
+truncate -s 0 *.import.last.log
 
 #import all xml files
 
 doimport() {
 
 file=$1
-
-truncate -s 0 ${file}.import.last.log
 
 echo | tee -a ${file}.import.log ${file}.import.last.log
 date | tee -a ${file}.import.log ${file}.import.last.log
@@ -32,14 +32,14 @@ echo "Adding fake transactions at $(date)" | tee -a cache/time.log
 node js/cmd fake
 
 
-echo "Removing indexes at $(date)" | tee -a cache/time.log
-node js/cmd unindex
+#echo "Removing indexes at $(date)" | tee -a cache/time.log
+#node js/cmd unindex
 
 echo "Starting Vacuum of database at $(date)" | tee -a cache/time.log
 psql -c "vacuum full verbose;" 2>&1 | tee cache/vacuum.log
 
-echo "Adding indexes at $(date)" | tee -a cache/time.log
-node js/cmd index
+#echo "Adding indexes at $(date)" | tee -a cache/time.log
+#node js/cmd index
 
 echo "Starting Analyze of database at $(date)" | tee -a cache/time.log
 node js/cmd analyze
