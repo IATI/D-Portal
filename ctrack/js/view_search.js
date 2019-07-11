@@ -675,7 +675,7 @@ view_search.view=function(args)
 				if(cv)
 				{
 					var n=sn+"_"+cn
-					var v=cv+" IS "+sv
+					var v=cv+" ("+sv+")"
 					var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
 					a.push(s);
 				}
