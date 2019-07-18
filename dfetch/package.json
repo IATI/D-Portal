@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "dfetch",
+  "description": "IATI data fetcher.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "js/dfetch.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devinit/D-Portal.git",
+    "directory": "dfetch"
+  },
+  "directories": {
+    "lib": "js"
+  },
+  "dependencies": {
+    "json-stable-stringify": "^1.0.1",
+    "pify": "^4.0.1",
+    "yargs": "^13.2.2"
+    "download": "^7.1.0",
+  },
+}

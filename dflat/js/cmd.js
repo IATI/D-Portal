@@ -107,6 +107,5 @@ if(!global.argv)
 {
 	var argv = require('yargs').argv
 	global.argv=argv
-	require("../../dstore/js/argv").parse(argv);
 	cmd.run(argv)
 }
