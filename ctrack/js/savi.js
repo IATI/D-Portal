@@ -835,7 +835,7 @@ acts.find("sector").each(function(i){var it=$(this);
 	if(!it.attr("vocabulary")) { it.attr("vocabulary","DAC"); } //	If there is no vocab, assume it is DAC.
 
 	var vocab=it.attr("vocabulary")
-	if( vocab=="1" || vocab=="DAC" )
+	if( vocab=="1" || vocab=="2" || vocab=="DAC" )
 	{
 		var te="active";
 		if(iati_codes.sector_withdrawn[tc])
@@ -1350,6 +1350,16 @@ acts.find("location").each(function(i){var it=$(this);
 });
 
 
+// Version 1 banner notice
+acts.each(function(i){var it=$(this);
+	var c=it.attr("version");
+	if( (c)== "1.0" || (c)== "1.00" || (c)== "1.01" || (c)== "1.02" || (c)== "1.03" || (c)== "1.04" || (c)== "1.05" )
+	{
+		it.prepend($('<a href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/" class="banner_v1">Data on this page has been published according to version 1 of the IATI Standard, which has now been deprecated. Learn more.</a>'));
+	}
+});
+
+
 //	add hide div to these classes
 $( "span.span_document-link, span.span_participating-org, span.span_recipient-country, span.span_budget, span.span_planned-disbursement, span.span_result, span.span_related-activity, span.span_location, span.span_recipient-region, span.span_policy-marker" ).each(function(i,el){
 	var e=$(el);
@@ -1375,7 +1385,7 @@ $( "span.span_document-link, span.span_participating-org, span.span_recipient-co
 //	only count dac sectors
 $( "span.span_sector" ).each(function(i,el){
 	var e=$(el);
-	var ec=e.children("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
+	var ec=e.children("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"], sector[vocabulary=\"2\"]");
 	var ed=e.find( "sector" );
 	var c=$("<span class='hide'>-</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
@@ -1398,7 +1408,7 @@ $( "span.span_sector" ).each(function(i,el){
 	});
 
 	// get all non dac sectors
-	var ee=e.find( "sector" ).not("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
+	var ee=e.find( "sector" ).not("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"], sector[vocabulary=\"2\"]");
 	if(ee.length>0) // got some  non dac
 	{
 		ee.wrapAll( "<div class='non_dac_sectors' />");
@@ -1484,4 +1494,3 @@ $( "result" ).each(function(i,el){
 });
 
 };
-
