@@ -30,6 +30,14 @@ iati-activity img	{display:block; -webkit-filter:brightness(100%); filter:bright
 narrative {display:inline-block;color:inherit;font-family:inherit;word-wrap:inherit;vertical-align: top;}
 
 
+/*	Version 1 banner notice
+	============================================= */
+a.banner_v1:link	{display:block; background-color:#c40000; color:#fff; padding:20px; border-radius:2px 2px 0 0; font-size:16px; text-align:center;}
+a.banner_v1:visited	{color:#fff;}
+a.banner_v1:hover	{background-color:#f00;}
+a.banner_v1:active	{color:#fff;}
+
+
 /*	Display when humanitarian
 	============================================= */
 iati-activity[humanitarian="1"]:before	{content:"HUMANITARIAN"; padding:10px 40px 7px 40px; font-size:14px; color:#000e20; width:490px; text-align:right; background-color:#ff890c;}
