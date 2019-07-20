@@ -24,12 +24,14 @@ var getbody=require("pify")( function(url,cb)
 
 packages.prepare_download=async function(argv)
 {
-	console.log("Preparing \""+argv.dir+"\" to fetch upto "+argv.limit+" IATI packages.")
+	console.log("Preparing \""+argv.dir+"\" directory to fetch upto "+argv.limit+" IATI packages.")
 	
-	var downloaded=path.join(argv.dir,"downloaded")
+	var dir_downloaded=path.join(argv.dir,"downloaded")
+	var dir_packages=path.join(argv.dir,"packages")
 
-	await fse.emptyDir(argv.dir) // create output directory
-	await fse.emptyDir(downloaded) // create output sub directory
+	await fse.emptyDir(argv.dir) // create output directories
+	await fse.emptyDir(dir_downloaded)
+	await fse.emptyDir(dir_packages)
 
 	var body=JSON.parse( await getbody("https://iatiregistry.org/api/3/action/package_search?rows="+argv.limit) )
 	var results=body.result.results
@@ -44,9 +46,8 @@ packages.prepare_download=async function(argv)
 		var result=results[idx]
 		var slug=result.name
 		var url=result.resources[0].url
-		ls(slug+" : "+url)
 
-		await fse.writeFile( path.join( downloaded ,slug+".meta.json") , stringify( result , {space:" "} ) )
+		await fse.writeFile( path.join( dir_packages ,slug+".meta.json") , stringify( result , {space:" "} ) )
 		
 		curl.push("echo "+slug+" : "+url+" ; curl -s -S -A \"Mozilla/5.0\" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 -k -L -o downloaded/"+slug+".xml \""+url+"\" 2>&1 >/dev/null | tee downloaded/"+slug+".log\n")
 		
@@ -57,5 +58,7 @@ packages.prepare_download=async function(argv)
 
 	await fse.writeFile( path.join(argv.dir,"fetch_packages_with_curl_in_parallel.sh") ,"cd `dirname $0` ; cat downloaded.curl | sort -R | parallel -j 0 --bar")
 	await fse.chmod(     path.join(argv.dir,"fetch_packages_with_curl_in_parallel.sh") , 0o755 )
+	
+	console.log("You may now run the script "+path.join(argv.dir,"fetch_packages_with_curl_in_parallel.sh")+" to download packages.")
 
 }
