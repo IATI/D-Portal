@@ -835,7 +835,7 @@ acts.find("sector").each(function(i){var it=$(this);
 	if(!it.attr("vocabulary")) { it.attr("vocabulary","DAC"); } //	If there is no vocab, assume it is DAC.
 
 	var vocab=it.attr("vocabulary")
-	if( vocab=="1" || vocab=="DAC" )
+	if( vocab=="1" || vocab=="2" || vocab=="DAC" )
 	{
 		var te="active";
 		if(iati_codes.sector_withdrawn[tc])
