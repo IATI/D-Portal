@@ -7,7 +7,7 @@ var util=require("util")
 var path=require("path")
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-var pfs=require("pify")( require("fs") )
+var fse=require("fs-extra")
 var stringify = require('json-stable-stringify');
 
 var request=require('request');
@@ -25,13 +25,19 @@ var getbody=require("pify")( function(url,cb)
 dfetch.download_prepare=async function(argv)
 {
 	console.log("Preparing \""+argv.dir+"\" to fetch upto "+argv.limit+" IATI packages.")
+	
+	var downloaded=path.join(argv.dir,"downloaded")
 
-	if(! await pfs.existsSync(argv.dir) ){ await pfs.mkdirSync(argv.dir) } // create output directory
+	await fse.emptyDir(argv.dir) // create output directory
+	await fse.emptyDir(downloaded) // create output sub directory
 
 	var body=JSON.parse( await getbody("https://iatiregistry.org/api/3/action/package_search?rows="+argv.limit) )
 	var results=body.result.results
 
-	await pfs.writeFile( path.join(argv.dir,"all.meta.json") , stringify( results , {space:" "} ) )
+	await fse.writeFile( path.join(argv.dir,"packages.meta.json") , stringify( results , {space:" "} ) )
+
+
+	var curl=[]
 
 	for(var idx in results)
 	{
@@ -40,7 +46,16 @@ dfetch.download_prepare=async function(argv)
 		var url=result.resources[0].url
 		ls(slug+" : "+url)
 
-		await pfs.writeFile( path.join(argv.dir,slug+".meta.json") , stringify( result , {space:" "} ) )
+		await fse.writeFile( path.join( downloaded ,slug+".meta.json") , stringify( result , {space:" "} ) )
+		
+		curl.push("echo "+slug+" : "+url+" ; curl -s -S -A \"Mozilla/5.0\" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 -k -L -o downloaded/"+slug+".xml \""+url+"\" 2>&1 >/dev/null | tee downloaded/"+slug+".log\n")
+		
 	}
+
+
+	await fse.writeFile( path.join(argv.dir,"downloaded.curl") , curl.join("") )
+
+	await fse.writeFile( path.join(argv.dir,"fetch_packages_with_curl_in_parallel.sh") ,"cd `dirname $0` ; cat downloaded.curl | sort -R | parallel -j 0 --bar")
+	await fse.chmod(     path.join(argv.dir,"fetch_packages_with_curl_in_parallel.sh") , 0o755 )
 
 }

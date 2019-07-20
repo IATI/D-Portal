@@ -12,7 +12,7 @@ cmd.parse=function(argv)
 
 
 
-argv.dir   =           argv.dir   || process.env.DFETCH_DIR   || "downloaded"   ;
+argv.dir   =           argv.dir   || process.env.DFETCH_DIR   || "data"   ;
 argv.limit = parseInt( argv.limit || process.env.DFETCH_LIMIT || "999999"     ) ;
 
 }
@@ -31,7 +31,7 @@ cmd.run=async function(argv)
 		">	dfetch prepare \n"+
 		"Prepare a directory to fetch IATI pakages into.\n"+
 		"\n"+
-		"	--dir downloaded \n"+
+		"	--dir data \n"+
 		"	Directory to download into.\n"+
 		"\n"+
 		"	--limit 999999 \n"+
