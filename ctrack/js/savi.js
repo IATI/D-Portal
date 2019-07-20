@@ -1353,7 +1353,7 @@ acts.find("location").each(function(i){var it=$(this);
 // Version 1 banner notice
 acts.each(function(i){var it=$(this);
 	var c=it.attr("version");
-	if( (c)== "1.01"  || (c)== "1.02" || (c)== "1.03" || (c)== "1.04" || (c)== "1.05" )
+	if( (c)== "1.0" || (c)== "1.00" || (c)== "1.01" || (c)== "1.02" || (c)== "1.03" || (c)== "1.04" || (c)== "1.05" )
 	{
 		it.prepend($('<a href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/" class="banner_v1">Data on this page has been published according to version 1 of the IATI Standard, which has now been deprecated. Learn more.</a>'));
 	}
