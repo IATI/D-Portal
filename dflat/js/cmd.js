@@ -15,6 +15,14 @@ var stringify = require('json-stable-stringify');
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
+cmd.parse=function(argv)
+{
+
+	argv.dir   =           argv.dir   || process.env.DFLAT_DIR   || "data"
+	argv.limit = parseInt( argv.limit || process.env.DFLAT_LIMIT || "999999"     )
+
+}
+
 cmd.run=async function(argv)
 {
 	if( argv._[0]=="fetch" )
@@ -77,6 +85,12 @@ cmd.run=async function(argv)
 		return
 	}
 
+	if( argv._[0]=="packages" )
+	{
+		await require("./packages.js").prepare_download(argv)
+		return
+	}
+
 	// help text
 	console.log(
 		"\n"+
@@ -98,6 +112,15 @@ cmd.run=async function(argv)
 		">	dflat stats \n"+
 		"Build or update json based stats\n"+
 		"\n"+
+		">	dflat packages \n"+
+		"Prepare a data directory to fetch IATI packages into.\n"+
+		"\n"+
+		"	--dir data \n"+
+		"	Directory to download into.\n"+
+		"\n"+
+		"	--limit 999999 \n"+
+		"	Maximum number of packages to download.\n"+
+		"\n"+
 		"\n"+
 	"");
 }
@@ -107,5 +130,6 @@ if(!global.argv)
 {
 	var argv = require('yargs').argv
 	global.argv=argv
+	cmd.parse(argv)
 	cmd.run(argv)
 }

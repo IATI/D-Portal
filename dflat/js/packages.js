@@ -1,7 +1,7 @@
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var dfetch=exports;
+var packages=exports;
 
 var util=require("util")
 var path=require("path")
@@ -22,7 +22,7 @@ var getbody=require("pify")( function(url,cb)
 } );
 
 
-dfetch.download_prepare=async function(argv)
+packages.prepare_download=async function(argv)
 {
 	console.log("Preparing \""+argv.dir+"\" to fetch upto "+argv.limit+" IATI packages.")
 	
