@@ -1385,7 +1385,7 @@ $( "span.span_document-link, span.span_participating-org, span.span_recipient-co
 //	only count dac sectors
 $( "span.span_sector" ).each(function(i,el){
 	var e=$(el);
-	var ec=e.children("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
+	var ec=e.children("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"], sector[vocabulary=\"2\"]");
 	var ed=e.find( "sector" );
 	var c=$("<span class='hide'>-</span>");
 	var d=$("<span class='length'>( " + ec.length + " )</span>");
@@ -1408,7 +1408,7 @@ $( "span.span_sector" ).each(function(i,el){
 	});
 
 	// get all non dac sectors
-	var ee=e.find( "sector" ).not("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"]");
+	var ee=e.find( "sector" ).not("sector[vocabulary=\"DAC\"], sector[vocabulary=\"1\"], sector[vocabulary=\"2\"]");
 	if(ee.length>0) // got some  non dac
 	{
 		ee.wrapAll( "<div class='non_dac_sectors' />");
