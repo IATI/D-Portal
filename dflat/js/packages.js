@@ -40,6 +40,7 @@ packages.prepare_download=async function(argv)
 
 
 	var curl=[]
+	var parse=[]
 
 	for(var idx in results)
 	{
@@ -49,16 +50,24 @@ packages.prepare_download=async function(argv)
 
 		await fse.writeFile( path.join( dir_packages ,slug+".meta.json") , stringify( result , {space:" "} ) )
 		
-		curl.push("echo "+slug+" : "+url+" ; curl -s -S -A \"Mozilla/5.0\" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 -k -L -o downloaded/"+slug+".xml \""+url+"\" 2>&1 >/dev/null | tee downloaded/"+slug+".log\n")
+		curl.push("echo Downloading "+slug+" : "+url+" ; curl -s -S -A \"Mozilla/5.0\" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 -k -L -o downloaded/"+slug+".xml \""+url+"\" 2>&1 >/dev/null | tee downloaded/"+slug+".log\n")
+
+		parse.push("echo Parsing "+slug+" : "+url+" ; echo 2>&1 >/dev/null | tee packages/"+slug+".log\n")
 		
 	}
 
 
 	await fse.writeFile( path.join(argv.dir,"downloaded.curl") , curl.join("") )
+	await fse.writeFile( path.join(argv.dir,"downloaded.parse") , parse.join("") )
 
 	await fse.writeFile( path.join(argv.dir,"fetch_packages_with_curl_in_parallel.sh") ,"cd `dirname $0` ; cat downloaded.curl | sort -R | parallel -j 0 --bar")
 	await fse.chmod(     path.join(argv.dir,"fetch_packages_with_curl_in_parallel.sh") , 0o755 )
 	
-	console.log("You may now run the script "+path.join(argv.dir,"fetch_packages_with_curl_in_parallel.sh")+" to download packages.")
+
+	await fse.writeFile( path.join(argv.dir,"parse_packages_in_parallel.sh") ,"cd `dirname $0` ; cat downloaded.parse | sort -R | parallel -j 0 --bar")
+	await fse.chmod(     path.join(argv.dir,"parse_packages_in_parallel.sh") , 0o755 )
+
+
+	console.log("You may now run the scripts in \""+argv.dir+"\" to fetch and parse packages.")
 
 }

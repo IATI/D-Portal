@@ -1,9 +1,5 @@
 cd `dirname $0`
 
-cd ../dfetch
-rm -rf node_modules
-npm install
-
 cd ../dflat
 rm -rf node_modules
 npm install

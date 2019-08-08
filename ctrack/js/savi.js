@@ -26,10 +26,10 @@ savi.add_transaction_chart = function(opts) {
 //	return; // remove this to enable
 
 	opts.charts=opts.charts || []
+	opts.containers=opts.containers || []
 
 	var data=[]
 	var last_it
-	var currency=""
 	var it_total=0
 	for(var index=opts.transactions.length-1 ; index>=0 ; index--)
 	{
@@ -45,16 +45,16 @@ savi.add_transaction_chart = function(opts) {
 		
 		if(!it_currency) // need a currency
 		{
-			return
+			opts.bad_currency = true
 		}
 		
-		if(!currency)
+		if(!opts.currency)
 		{
-			currency=it_currency
+			opts.currency=it_currency
 		}
 		else
 		{
-			if(currency!=it_currency) { return } // must be all the same
+			if(opts.currency!=it_currency) { opts.bad_currency = true } // bad data, should all be the same currency
 		}
 
 		it.x=new Date( it_date+"T00:00:00.000Z" )
@@ -104,7 +104,7 @@ savi.add_transaction_chart = function(opts) {
 			scaleMinSpace: 24,
 			type: Chartist.AutoScaleAxis,
 			labelInterpolationFnc: function(value) {
-			  return commafy(value)+" "+currency;
+			  return commafy(value)+" "+opts.currency;
 			}
 		  }
 		}
@@ -139,6 +139,7 @@ savi.add_transaction_chart = function(opts) {
 	  series: chart_series,
 	}, opts.chart_options );
 	opts.charts.push(chart)
+	opts.containers.push(render)
 
 	if(opts.all)
 	{
@@ -162,6 +163,8 @@ savi.add_transaction_chart = function(opts) {
 		}, opts.chart_options );
 
 		opts.charts.push(chart)
+		opts.containers.push(render)
+
 	}
 
 	if(opts.final) // final adjustments to all chart data
@@ -184,6 +187,9 @@ savi.add_transaction_chart = function(opts) {
 
 			opts.chart_options.axisX.low = tmin.getTime()
 			
+			opts.chart_options.axisX.low  = tmin.getTime() - ( 1000 * 60 * 60 * 24 * 32 ) // 32 days buffer
+			opts.chart_options.axisX.high = tmax.getTime() + ( 1000 * 60 * 60 * 24 * 32 ) // 32 days buffer
+			
 			for(var di=0;di<opts.datas.length;di++)
 			{
 				if(ds.length>0)
@@ -193,7 +199,7 @@ savi.add_transaction_chart = function(opts) {
 					var f=ds[0]
 //					if(l.x<tmax)
 					{
-						ds.push({x:new Date(tmax.getTime()+1),y:l.y,className:"fake_transaction_data"}) // add a final number
+						ds.push({x:new Date(tmax.getTime()+( 1000 * 60 * 60 * 24 * 32 )),y:l.y,className:"fake_transaction_data"}) // add a final number
 					}
 					if(l.x>tmin)
 					{
@@ -206,6 +212,20 @@ savi.add_transaction_chart = function(opts) {
 		{
 			var v=opts.charts[i]
 			v.update(undefined,opts.chart_options,true)
+		}
+
+		if( opts.bad_currency ) // mixxed curencies so we should hide the charts
+		{
+			for(var i in opts.charts) // remove each chart
+			{
+				var v=opts.charts[i]
+				v.detach()
+			}
+			for(var i in opts.containers) // empty each container
+			{
+				var v=opts.containers[i]
+				v.remove()
+			}
 		}
 	}
 
