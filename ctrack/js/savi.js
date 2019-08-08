@@ -95,7 +95,7 @@ savi.add_transaction_chart = function(opts) {
 			type: Chartist.FixedScaleAxis,
 			divisor: 8,
 			labelInterpolationFnc: function(value) {
-			  return moment(value).format('YYYY MMM');
+			  return moment(value).format('YYYY MMM DD');
 			}
 		  },
 		  axisY: {
