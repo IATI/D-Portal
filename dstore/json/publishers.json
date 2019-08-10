@@ -699,6 +699,10 @@
    {
     "capacity": "admin",
     "name": "agulhas_iati"
+   },
+   {
+    "capacity": "admin",
+    "name": "markagulhas"
    }
   ]
  },
@@ -14611,7 +14615,7 @@
   "license_id": "uk-ogl",
   "name": "cssf",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 2,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "",
@@ -14620,7 +14624,7 @@
   "publisher_data_quality": "",
   "publisher_description": "The UK’s security and wider international interests are directly impacted where other countries are at risk of conflict or instability. The Conflict, Stability and Security Fund (CSSF) supports work to reduce that risk in these countries where the UK has key interests. Through the CSSF, the UK and our international partners are more secure.",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2019-08-09T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "GB-GOV-52",
@@ -38398,52 +38402,6 @@
    }
   ]
  },
- "nidos": {
-  "description": "",
-  "groups": [
-  ],
-  "id": "543ee003-f873-4c98-9c45-2ec6a9437700",
-  "image_display_url": "",
-  "image_url": "",
-  "is_organization": true,
-  "license_id": "odc-pddl",
-  "name": "nidos",
-  "num_followers": 0,
-  "package_count": 2,
-  "publisher_agencies": "Our IATI data covers our own activities and projects. ",
-  "publisher_constraints": "",
-  "publisher_contact": "NIDOS\r\nThornhouse\r\n5 Rose Street\r\nEdinburgh \r\nEH2 2PR",
-  "publisher_contact_email": "info@nidos.org.uk",
-  "publisher_country": "GB",
-  "publisher_data_quality": "",
-  "publisher_description": "NIDOS is a network of international NGOs based in Scotland. We provide networking, information, capacity building/training and advocacy support to our members. We facilitate member collective advocacy and policy input. ",
-  "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "2014-06-19T00:00:00.000000",
-  "publisher_frequency": "Quarterly",
-  "publisher_frequency_select": "quarterly",
-  "publisher_iati_id": "GB-SC-035314",
-  "publisher_implementation_schedule": "",
-  "publisher_organization_type": "23",
-  "publisher_record_exclusions": "",
-  "publisher_refs": "",
-  "publisher_segmentation": "We do not work in different countries or fund projects abroad. ",
-  "publisher_source_type": "primary_source",
-  "publisher_thresholds": "",
-  "publisher_timeliness": "We aim to publish data within one month. ",
-  "publisher_ui": "",
-  "publisher_units": "Programmes",
-  "state": "active",
-  "tags": [
-  ],
-  "title": "Network of International Development Organisations in Scotland",
-  "type": "organization",
-  "users": [
-   {
-    "capacity": "admin",
-    "name": "nidos"
-   }
-  ]
- },
  "nimd-hq": {
   "description": "",
   "groups": [
@@ -43887,7 +43845,7 @@
   "license_id": "uk-ogl",
   "name": "prosperityfund",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 2,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "",
@@ -43896,6 +43854,7 @@
   "publisher_data_quality": "Currently this information is published as csv. ",
   "publisher_description": "The Prosperity Fund supports the inclusive economic growth needed to reduce poverty in partner countries. Through this, the Fund’s activities will contribute to the UN Sustainable Development Goals.",
   "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "2019-08-09T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "GB-GOV-50",
@@ -48714,6 +48673,57 @@
    {
     "capacity": "admin",
     "name": "sinar"
+   }
+  ]
+ },
+ "sinda": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "543ee003-f873-4c98-9c45-2ec6a9437700",
+  "image_display_url": "https://www.intdevalliance.scot/application/themes/alliance/images/logo.png",
+  "image_url": "https://www.intdevalliance.scot/application/themes/alliance/images/logo.png",
+  "is_organization": true,
+  "license_id": "odc-pddl",
+  "name": "sinda",
+  "num_followers": 0,
+  "package_count": 2,
+  "publisher_agencies": "Our IATI data covers our own activities and projects. ",
+  "publisher_constraints": "",
+  "publisher_contact": "Hayweight House,\r\n23 Lauriston Street,\r\nEdinburgh,\r\nEH3 9DQ",
+  "publisher_contact_email": "admin@intdevalliance.scot",
+  "publisher_country": "GB",
+  "publisher_data_quality": "",
+  "publisher_description": "Scotland's International Development Alliance is the membership body for Scotland-based organisations committed to creating a fairer world, free from poverty, injustice and environmental threats.",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "2014-11-10T00:00:00.000000",
+  "publisher_frequency": "Quarterly",
+  "publisher_frequency_select": "quarterly",
+  "publisher_iati_id": "GB-SC-SC035314",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "23",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "We do not work in different countries or fund projects abroad. ",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "Programmes",
+  "publisher_url": "https://www.intdevalliance.scot",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Scotland's International Development Alliance",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "nidos"
+   },
+   {
+    "capacity": "admin",
+    "name": "sinda"
    }
   ]
  },
@@ -55509,7 +55519,7 @@
   "license_id": "other-pd",
   "name": "unitedstates",
   "num_followers": 1,
-  "package_count": 267,
+  "package_count": 276,
   "publisher_agencies": "By the end of 2012, the U.S. Government plans to publish (1) CY 2009, 2010 and 2011 CRS data (2) preliminary FY12 Activity data (for USAID and MCC) and (3) forward-looking budget request data (for approximately 70% of total ODA flows) in the IATI XML format.   The U.S. Government will continue to publish IATI compliant data in the following three ways:  (1) Activity level data on a quarterly basis will be published for approximately 70% of total ODA by the end of 2013.  The coverage is expected to increase to approximately 90% of total ODA by the end of 2014, with 100% of all ODA flows reporting all available IATI compliant data expected by the end of 2015.  (2) At the end of February each year, the U.S. Government will publish annual, 1-year forward planning budget data which is the requested amount submitted to Congress.  ODA coverage rates are expected to follow the same pattern as the quarterly activity data. (3) Verified, complete statistical data and information on U.S. Government ODA flows will be published in the IATI format at the end of each calendar year once OECD/DAC reporting is complete.",
   "publisher_constraints": "N/A",
   "publisher_contact": "Foreign Assistance Dashboard (ForeignAssistanceWeb@state.gov)",
