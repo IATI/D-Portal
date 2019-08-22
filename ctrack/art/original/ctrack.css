@@ -364,8 +364,10 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .settings_link_search a			{text-decoration:none; display:block; color:#ccc; background-color:rgba(249,249,249,0.1); padding:5px 10px; border-radius:4px;}
 .settings_link_search a:hover	{color:#fff;}
 .search_intro_wrap				{width:960px; margin:0 auto; margin-top:40px; color:#fff; font-size:20px; line-height:26px;}
-.search_intro_wrap span			{font-size:1.0em; color:#97d8ff; padding-right:0;}
-.search_intro_wrap span:hover	{border-bottom:2px solid #97d8ff; cursor:pointer;}
+.search_intro_wrap span,
+.search_intro_wrap a			{font-size:1.0em; color:#97d8ff; padding-right:0;}
+.search_intro_wrap span:hover,
+.search_intro_wrap a:hover		{border-bottom:2px solid #97d8ff; cursor:pointer;}
 
 .press_enter 				{color:#666; position:absolute; right:3px; top:12px; font-size:20px; padding:20px; background-color:#FFF;}	/*	Press Enter div in input box	*/
 	

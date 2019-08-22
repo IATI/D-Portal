@@ -27,6 +27,26 @@
   "5": "Cancelled",
   "6": "Suspended"
  },
+ "aid_type": {
+  "A01": "General budget support",
+  "A02": "Sector budget support",
+  "B01": "Core support to NGOs, other private bodies, PPPs and research institutes",
+  "B02": "Core contributions to multilateral institutions",
+  "B03": "Contributions to specific-purpose programmes and funds managed by implementing partners",
+  "B04": "Basket funds/pooled funding",
+  "C01": "Project-type interventions",
+  "D01": "Donor country personnel",
+  "D02": "Other technical assistance",
+  "E01": "Scholarships/training in donor country",
+  "E02": "Imputed student costs",
+  "F01": "Debt relief",
+  "G01": "Administrative costs not included elsewhere",
+  "H01": "Development awareness",
+  "H02": "Refugees/asylum seekers in donor countries",
+  "H03": "Asylum-seekers ultimately accepted",
+  "H04": "Asylum-seekers ultimately rejected",
+  "H05": "Recognised refugees"
+ },
  "budget_status": {
   "1": "Indicative",
   "2": "Committed"
@@ -34,6 +54,15 @@
  "budget_type": {
   "1": "Original",
   "2": "Revised"
+ },
+ "collab_type": {
+  "1": "Bilateral",
+  "2": "Multilateral (inflows)",
+  "3": "Bilateral, core contributions to NGOs and other private bodies / PPPs",
+  "4": "Multilateral outflows",
+  "6": "Private Sector Outflows",
+  "7": "Bilateral, ex-post reporting on NGOs’ activities funded through core contributions",
+  "8": "Bilateral, triangular co-operation."
  },
  "country": {
   "AD": "Andorra",
@@ -616,6 +645,92 @@
   "B16": "Organisation web page",
   "B17": "Country/Region web page",
   "B18": "Sector web page"
+ },
+ "finance_type": {
+  "1": "GNI: Gross National Income",
+  "110": "Standard grant",
+  "1100": "Guarantees/insurance",
+  "2": "ODA % GNI",
+  "210": "Interest subsidy",
+  "3": "Total Flows % GNI",
+  "310": "Capital subscription on deposit basis",
+  "311": "Capital subscription on encashment basis",
+  "4": "Population",
+  "421": "Standard loan",
+  "422": "Reimbursable grant",
+  "423": "Bonds",
+  "424": "Asset-backed securities",
+  "425": "Other debt securities",
+  "431": "Subordinated loan",
+  "432": "Preferred equity",
+  "433": "Other hybrid instruments",
+  "510": "Common equity",
+  "520": "Shares in collective investment vehicles",
+  "530": "Reinvested earnings",
+  "610": "Debt forgiveness: ODA claims (P)",
+  "611": "Debt forgiveness: ODA claims (I)",
+  "612": "Debt forgiveness: OOF claims (P)",
+  "613": "Debt forgiveness: OOF claims (I)",
+  "614": "Debt forgiveness: Private claims (P)",
+  "615": "Debt forgiveness: Private claims (I)",
+  "616": "Debt forgiveness: OOF claims (DSR)",
+  "617": "Debt forgiveness: Private claims (DSR)",
+  "618": "Debt forgiveness: Other",
+  "620": "Debt rescheduling: ODA claims (P)",
+  "621": "Debt rescheduling: ODA claims (I)",
+  "622": "Debt rescheduling: OOF claims (P)",
+  "623": "Debt rescheduling: OOF claims (I)",
+  "624": "Debt rescheduling: Private claims (P)",
+  "625": "Debt rescheduling: Private claims (I)",
+  "626": "Debt rescheduling: OOF claims (DSR)",
+  "627": "Debt rescheduling: Private claims (DSR)",
+  "630": "Debt rescheduling: OOF claim (DSR – original loan principal)",
+  "631": "Debt rescheduling: OOF claim (DSR – original loan interest)",
+  "632": "Debt rescheduling: Private claim (DSR – original loan principal)",
+  "633": "Debt forgiveness/conversion: export credit claims (P)",
+  "634": "Debt forgiveness/conversion: export credit claims (I)",
+  "635": "Debt forgiveness: export credit claims (DSR)",
+  "636": "Debt rescheduling: export credit claims (P)",
+  "637": "Debt rescheduling: export credit claims (I)",
+  "638": "Debt rescheduling: export credit claims (DSR)",
+  "639": "Debt rescheduling: export credit claim (DSR – original loan principal)"
+ },
+ "finance_type_withdrawn": {
+  "111": "Subsidies to national private investors",
+  "211": "Interest subsidy to national private exporters",
+  "410": "Aid loan excluding debt reorganisation",
+  "411": "Investment-related loan to developing countries",
+  "412": "Loan in a joint venture with the recipient",
+  "413": "Loan to national private investor",
+  "414": "Loan to national private exporter",
+  "451": "Non-banks guaranteed export credits",
+  "452": "Non-banks non-guaranteed portions of guaranteed export credits",
+  "453": "Bank export credits",
+  "511": "Acquisition of equity not part of joint venture in developing countries",
+  "512": "Other acquisition of equity",
+  "710": "Foreign direct investment, new capital outflow (includes reinvested earnings if separate identification not available)",
+  "711": "Other foreign direct investment, including reinvested earnings",
+  "712": "Foreign direct investment, reinvested earnings",
+  "810": "Bank bonds",
+  "811": "Non-bank bonds",
+  "910": "Other bank securities/claims",
+  "911": "Other non-bank securities/claims",
+  "912": "Purchase of securities from issuing agencies",
+  "913": "Securities and other instruments originally issued by multilateral agencies"
+ },
+ "flow_type": {
+  "10": "ODA",
+  "21": "Non-export credit OOF",
+  "22": "Officially supported export credits",
+  "30": "Private Development Finance",
+  "36": "Private Foreign Direct Investment",
+  "37": "Other Private flows at market terms",
+  "40": "Non flow",
+  "50": "Other flows"
+ },
+ "flow_type_withdrawn": {
+  "20": "OOF",
+  "35": "Private Market"
  },
  "funder_names": {
   "1": "Austria",
@@ -4518,6 +4633,11 @@
  "sector_withdrawn": {
   "41050": "Flood prevention/control",
   "74010": "Disaster prevention and preparedness"
+ },
+ "tied_status": {
+  "3": "Partially tied",
+  "4": "Tied",
+  "5": "Untied"
  },
  "transaction_type": {
   "1": "Incoming Funds",
