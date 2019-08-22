@@ -4,14 +4,13 @@ cd ../dflat
 rm -rf node_modules
 npm install
 
-cd ../ctrack
-rm -rf node_modules
-npm install
-
 cd ../dstore
 rm -rf node_modules
 npm install
-#CC=gcc-5 CXX=g++-5 npm install
+
+cd ../ctrack
+rm -rf node_modules
+npm install
 
 cd ../dportal
 rm -rf node_modules
