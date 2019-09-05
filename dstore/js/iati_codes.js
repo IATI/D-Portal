@@ -142,6 +142,26 @@ iati_codes.fetch = function(){
 			{
 				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/HumanitarianScopeType.json",
 				name:"hum_scope_type",
+			},		
+			{
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/CollaborationType.json",
+				name:"collab_type",
+			},
+			{
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/FlowType.json",
+				name:"flow_type",
+			},
+			{
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/FinanceType.json",
+				name:"finance_type",
+			},
+			{
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/AidType.json",
+				name:"aid_type",
+			},
+			{
+				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/TiedStatus.json",
+				name:"tied_status",
 			},
 		];
 	
