@@ -738,7 +738,7 @@ view_search.view=function(args)
 	ctrack.chunk("search_options_category",a.join(""));
 
 	var a=[];
-	for(var n in iati_codes.crs_countries) // just recipient countries (use CRS list)
+	for(var n in iati_codes.country) // just use all countries
 	{
 		var v=iati_codes.country[n];
 		if(v)

@@ -93,52 +93,6 @@
    }
   ]
  },
- "123345678-test": {
-  "description": "",
-  "groups": [
-  ],
-  "id": "484e4dfa-065b-4a2a-bf8d-73a8d1acb442",
-  "image_display_url": "",
-  "image_url": "",
-  "is_organization": true,
-  "license_id": "notspecified",
-  "name": "123345678-test",
-  "num_followers": 0,
-  "package_count": 0,
-  "publisher_agencies": "",
-  "publisher_constraints": "",
-  "publisher_contact": "",
-  "publisher_contact_email": "jodie@derilinx.com",
-  "publisher_country": "",
-  "publisher_data_quality": "",
-  "publisher_description": "",
-  "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
-  "publisher_frequency": "",
-  "publisher_frequency_select": "not_specified",
-  "publisher_iati_id": "1234test5678",
-  "publisher_implementation_schedule": "",
-  "publisher_organization_type": "80",
-  "publisher_record_exclusions": "",
-  "publisher_refs": "",
-  "publisher_segmentation": "",
-  "publisher_source_type": "primary_source",
-  "publisher_thresholds": "",
-  "publisher_timeliness": "",
-  "publisher_ui": "",
-  "publisher_units": "",
-  "state": "active",
-  "tags": [
-  ],
-  "title": "test test test geo",
-  "type": "organization",
-  "users": [
-   {
-    "capacity": "admin",
-    "name": "admin"
-   }
-  ]
- },
  "12921047": {
   "description": "",
   "groups": [
@@ -2633,6 +2587,53 @@
    {
     "capacity": "admin",
     "name": "nldwen1"
+   }
+  ]
+ },
+ "aecid": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "7c41bf39-3760-4fcf-ad13-7208531cb489",
+  "image_display_url": "http://www.aecid.es/Style%20Library/AECID/Imagenes/logo_aecid.png",
+  "image_url": "http://www.aecid.es/Style%20Library/AECID/Imagenes/logo_aecid.png",
+  "is_organization": true,
+  "license_id": "odc-by",
+  "name": "aecid",
+  "num_followers": 0,
+  "package_count": 80,
+  "publisher_agencies": "AECID",
+  "publisher_constraints": "",
+  "publisher_contact": "Av. Reyes Católicos 4 - 28040 Madrid",
+  "publisher_contact_email": "upec@aecid.es",
+  "publisher_country": "ES",
+  "publisher_data_quality": "Operational/Sub to change data",
+  "publisher_description": "The Spanish Agency for International Development Cooperation (AECID) is Spanish Cooperation’s main management body, aimed at combating poverty and promoting sustainable human development. \r\nAECID is under the aegis of the Ministry of Foreign Affairs, European Union and Cooperation through the State Secretariat for International Development Cooperation and for Ibero-America and the Caribbean.",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "2019-08-30T13:16:43.803059",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "quarterly",
+  "publisher_iati_id": "ES-DIR3-EA0035768",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "10",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "Projects",
+  "publisher_url": "http://www.aecid.es",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Spanish Agency for International Development Cooperation (AECID)",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "upec"
    }
   ]
  },
@@ -14713,7 +14714,7 @@
   "license_id": "odc-pddl",
   "name": "csu",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 1,
   "publisher_agencies": "DFID, CSU, Ministry of Gender Labour and Social Development, Ministry of Education and Sports, Kampala Capital City Authority",
   "publisher_constraints": "n/a",
   "publisher_contact": "935 Old Kira Road Bukoto\r\nP.O. Box 70012, Clock Tower\r\nKampala - Uganda\r\nTel:  +256 414 532 411\r\nEmail:  csu@csuganda.org",
@@ -14722,6 +14723,7 @@
   "publisher_data_quality": "internally audited",
   "publisher_description": "Cheshire Services Uganda (CSU) is a locally registered Non Governmental Organization working for and with Persons with Disabilities and Orphans and Other Vulnerable Children.  CSU was established in 1994 and legally registered in 1997 as National Council of Leonard Cheshire Homes in Uganda.  However, due the growing need to be in line with the changing global approach to disability, especially the shift from institutionalisation to community based approaches; in 2012 the organisation changed the name to Cheshire Services Uganda (CSU).  CSU implements projects in education, livelihoods, human rights promotion, health and rehabilitation and support for daily living all aimed at improving the quality of life for disabled people.",
   "publisher_field_exclusions": "n/a",
+  "publisher_first_publish_date": "2019-09-02T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "quarterly",
   "publisher_iati_id": "UG-NGB-5914-7209",
@@ -14741,6 +14743,10 @@
   "title": "Cheshire Services Uganda",
   "type": "organization",
   "users": [
+   {
+    "capacity": "admin",
+    "name": "data4development"
+   },
    {
     "capacity": "admin",
     "name": "richard_mukaga"
@@ -15467,12 +15473,12 @@
   "publisher_data_quality": "audited/verified",
   "publisher_description": "The Danish Red Cross  is part of the Red Cross Movement, which is present in 191 countries and has some 17 million volunteers. Our common foundation is the Red Cross principles and the special mandate granted to us under the Geneva Conventions. Danish Red Cross is implementing humanitarian, relief and development programmes in multiple developing countries.",
   "publisher_field_exclusions": "To be determined",
-  "publisher_first_publish_date": "2019-02-18T00:00:00.000000",
+  "publisher_first_publish_date": "2019-08-30T17:12:00.441042",
   "publisher_frequency": "",
   "publisher_frequency_select": "annually",
   "publisher_iati_id": "DK-CVR-20700211",
   "publisher_implementation_schedule": " ",
-  "publisher_organization_type": "21",
+  "publisher_organization_type": "22",
   "publisher_record_exclusions": "Security sensitive data will not be shared",
   "publisher_refs": "To be determined",
   "publisher_segmentation": "To be determined",
@@ -17347,7 +17353,7 @@
   "license_id": "cc-by-sa",
   "name": "dndi_transparency",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 2,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Drugs for Neglected Diseases initiative\r\n15 Chemin Louis-Dunant | 1202 Geneva | Switzerland \r\n",
@@ -17356,7 +17362,7 @@
   "publisher_data_quality": "",
   "publisher_description": "",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2019-09-02T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "annually",
   "publisher_iati_id": "CH-FDJP-CHE110141200",
@@ -21370,7 +21376,6 @@
   "publisher_data_quality": "",
   "publisher_description": "Fifty Eight partners with companies, NGOs, public sector and others ​to address the challenges of modern slavery and improve working conditions in global supply chains. ",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
   "publisher_frequency": "",
   "publisher_frequency_select": "quarterly",
   "publisher_iati_id": "GB-COH-07291220",
@@ -21383,7 +21388,7 @@
   "publisher_thresholds": "",
   "publisher_timeliness": "Within 14 days of period end",
   "publisher_ui": "",
-  "publisher_units": "The company has two separate divisions about which it will create activity reports. 1. Just Good Work where reports will indicate number of app downloads, number of companies supported, number of white label contracts. 2. EAPEC where activity reports are yet to be defined.",
+  "publisher_units": "UK Aid Connect EAPEC ",
   "publisher_url": "https://www.50eight.com/",
   "state": "active",
   "tags": [
@@ -23221,48 +23226,6 @@
    }
   ]
  },
- "gdtp": {
-  "description": "",
-  "groups": [
-  ],
-  "id": "46c2d023-7248-4ac4-9a2c-9d8df5064e33",
-  "image_display_url": "",
-  "image_url": "",
-  "is_organization": true,
-  "license_id": "notspecified",
-  "name": "gdtp",
-  "num_followers": 0,
-  "package_count": 0,
-  "publisher_agencies": "",
-  "publisher_constraints": "",
-  "publisher_contact": "DI North Quay House\r\nTemple Back",
-  "publisher_contact_email": "wendy.rogers@devinit.org",
-  "publisher_country": "GB",
-  "publisher_data_quality": "",
-  "publisher_description": "",
-  "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
-  "publisher_frequency": "",
-  "publisher_frequency_select": "not_specified",
-  "publisher_iati_id": "XM-DAC-40006",
-  "publisher_implementation_schedule": "",
-  "publisher_organization_type": "10",
-  "publisher_record_exclusions": "",
-  "publisher_refs": "",
-  "publisher_segmentation": "",
-  "publisher_source_type": "primary_source",
-  "publisher_thresholds": "",
-  "publisher_timeliness": "",
-  "publisher_ui": "",
-  "publisher_units": "",
-  "state": "active",
-  "tags": [
-  ],
-  "title": "Goverment donor test publisher",
-  "type": "organization",
-  "users": [
-  ]
- },
  "gecfundmanagerpwc": {
   "description": "",
   "groups": [
@@ -23697,7 +23660,7 @@
   "image_display_url": "",
   "image_url": "",
   "is_organization": true,
-  "license_id": "notspecified",
+  "license_id": "cc-by-sa",
   "name": "gif",
   "num_followers": 0,
   "package_count": 1,
@@ -23709,7 +23672,7 @@
   "publisher_data_quality": "",
   "publisher_description": "The Global Innovation Fund invests in social innovations that aim to improve the lives and opportunities of millions of people in the developing world.\r\n\r\nThrough our grants and risk capital, we support breakthrough solutions to global development challenges from social enterprises, for-profit firms, non-profit organisations, researchers, and government agencies.",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "2017-05-13T00:00:00.000000",
+  "publisher_first_publish_date": "2019-08-22T13:41:04.176902",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "GB-CHC-1171353",
@@ -25799,7 +25762,7 @@
   "license_id": "other-open",
   "name": "hif",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 1,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Paasheuvelweg 25 Tower B, 4th\r\n1105BP \r\nAmsterdam\r\nthe Netherlands",
@@ -25808,6 +25771,7 @@
   "publisher_data_quality": "",
   "publisher_description": "HIF Project Management Office",
   "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "2019-09-02T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "annually",
   "publisher_iati_id": "NL-KVK-34234456",
@@ -27572,7 +27536,7 @@
   "license_id": "other-at",
   "name": "ide",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 1,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Posner Center for International Development\r\n1031 33rd St., #270\r\nDenver, CO 80205",
@@ -27581,7 +27545,7 @@
   "publisher_data_quality": "",
   "publisher_description": "iDE is a global effort that spans offices in 9 countries, encompassing 4 social enterprises, employing over 1,000 people directly, and indirectly enabling many more through our market-based approaches in agriculture; water, sanitation, and hygiene; and finance. ",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2019-08-22T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "US-EIN-23-2220051",
@@ -27772,9 +27736,8 @@
   "publisher_contact_email": "idi@idi.no",
   "publisher_country": "NO",
   "publisher_data_quality": "Income data is audited\r\nPerformance data is subjective to evaluation",
-  "publisher_description": "The IDI is the INTOSAI body that works across The International Organisation of Supreme Audit Institutions (INTOSAI) strategic goal areas and supports SAIs in developing countries, in their efforts to sustainably enhance performance, independence and professionalism. INTOSAI is a non-profit umbrella organization of SAIs across the world. Established in 1953, it currently has 194 regular members and five associate members.\r\n\r\nThe IDI provides support to SAIs by facilitating:\r\n\r\n- Implementation of international standards, including the ISSAIs\r\n- Development of institutional, organisational and professional staff capacities\r\n- Knowledge sharing and implementation of good practices\r\n- Scaled up and more effective support to SAIs through partnerships with stakeholders\r\n- Using a client-centered approach the IDI facilitates SAI development initiatives at global, regional, sub-regional and SAI level; including bilateral support on a needs basis.\r\n\r\n\r\nThe IDI also serves as secretariat to the INTOSAI-Donor Cooperation, established in 2010 to enhance the volume and coordination of support for strengthening SAIs in developing countries. Besides delivering capacity development programmes and serving as the secretariat to the INTOSAI-Donor Cooperation, the IDI also serves as an expert and information centre on public sector auditing for donors, SAIs and other stakeholders; and facilitates knowledge sharing in the INTOSAI community.\r\n\r\nThe IDI was established by resolution of the INTOSAI Congress (INCOSAI) in 1986 and was hosted by the SAI of Canada from 1986 to 2000 prior to being hosted by the Office of the Auditor General of Norway (OAGN) since 2001 following approval of the Norwegian Parliament. IDI actively partners in its operations with INTOSAI which has regional groupings and different working groups and task forces on specific areas of SAIs’ operations.\r\n\r\nThe IDI’s target group of beneficiary SAIs includes over 140 developing countries listed on the OECD DAC list for the respective years. As per the IDI Strategic Plan 2014-2018, the IDI also provides support to developed countries on cost recovery basis. Limited Bilateral support is also offered to SAIs from fragile states.\r\n\r\nOrganisation and Governance\r\nThe IDI Secretariat is based in Oslo and has 26 staff members from 14 nationalities, with some of them operating from INTOSAI regions. The IDI is registered as a Norwegian foundation. The IDI Board is chaired by Auditor General, Norway. There are nine other members from SAIs of Austria (Secretary General of INTOSAI), Norway, Sierra Leone, South Africa(Chair of the INTOSAI Capacity Building Committee), Sweden;jamaica, Portugal and Costa Rica. Most of the IDI Board members are heads of their respective SAIs.",
+  "publisher_description": "The IDI is the INTOSAI body that works across The International Organisation of Supreme Audit Institutions (INTOSAI) strategic goal areas and supports SAIs in developing countries, in their efforts to sustainably enhance performance, independence and professionalism. INTOSAI is a non-profit umbrella organization of SAIs across the world. Established in 1953, it currently has 194 regular members and five associate members.\r\n\r\nThe IDI provides support to SAIs by facilitating:\r\n\r\n- Implementation of international standards, including the ISSAIs\r\n- Development of institutional, organisational and professional staff capacities\r\n- Knowledge sharing and implementation of good practices\r\n- Scaled up and more effective support to SAIs through partnerships with stakeholders\r\n- Using a client-centered approach the IDI facilitates SAI development initiatives at global, regional, sub-regional and SAI level; including bilateral support on a needs basis.\r\n\r\n\r\nThe IDI also serves as secretariat to the INTOSAI-Donor Cooperation, established in 2010 to enhance the volume and coordination of support for strengthening SAIs in developing countries. Besides delivering capacity development programmes and serving as the secretariat to the INTOSAI-Donor Cooperation, the IDI also serves as an expert and information centre on public sector auditing for donors, SAIs and other stakeholders; and facilitates knowledge sharing in the INTOSAI community.\r\n\r\nThe IDI was established by resolution of the INTOSAI Congress (INCOSAI) in 1986 and was hosted by the SAI of Canada from 1986 to 2000 prior to being hosted by the Office of the Auditor General of Norway (OAGN) since 2001 following approval of the Norwegian Parliament. IDI actively partners in its operations with INTOSAI which has regional groupings and different working groups and task forces on specific areas of SAIs’ operations.\r\n\r\nThe IDI’s target group of beneficiary SAIs includes over 146 developing countries listed on the OECD DAC list for the respective years. As per the IDI Strategic Plan 2014-2018, the IDI also provides support to developed countries on cost recovery basis. Limited Bilateral support is also offered to SAIs from fragile states.\r\n\r\nOrganisation and Governance\r\nThe IDI Secretariat is based in Oslo and has 36 staff members from 10 nationalities, with some of them operating from INTOSAI regions. The IDI is registered as a Norwegian foundation. The IDI Board is chaired by Auditor General, Norway. There are nine other members from SAIs of Austria (Secretary General of INTOSAI), Norway, Sierra Leone, South Africa(Chair of the INTOSAI Capacity Building Committee), Sweden;jamaica, Portugal and Costa Rica. Most of the IDI Board members are heads of their respective SAIs.",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
   "publisher_frequency": "",
   "publisher_frequency_select": "quarterly",
   "publisher_iati_id": "NO-BRC-980997278",
@@ -28425,6 +28388,53 @@
    }
   ]
  },
+ "ifpri": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "01fb7775-7e6c-4539-806d-cc2aaef06ec0",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "odc-odbl",
+  "name": "ifpri",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "1201 Eye St, NW\r\nWashington, DC 20005-3915 USA",
+  "publisher_contact_email": "ifpri-essp@cgiar.org",
+  "publisher_country": "US",
+  "publisher_data_quality": "",
+  "publisher_description": "The Ethiopia Strategy Support Program (ESSP) is a collaborative program undertaken by the International Food Policy Research Institute (IFPRI) and the Ethiopian Development Research Institute (EDRI). The objective of ESSP is to help improve the policy-making process in Ethiopia. Increasing the capacity of Ethiopian institutions to undertake sound economic analysis that is linked to current issues, and improving public information and dialogue, create a cornerstone to evidence-based policy making.",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "XI-GRID-grid.419346.d",
+  "publisher_implementation_schedule": "March 2019 - October 2020",
+  "publisher_organization_type": "21",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://www.ifpri.org/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "International Food Policy Research Institute",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "ifpri-essp"
+   }
+  ]
+ },
  "ifrcrcs": {
   "description": "",
   "groups": [
@@ -28905,7 +28915,7 @@
   "license_id": "cc-by",
   "name": "ilo",
   "num_followers": 1,
-  "package_count": 5,
+  "package_count": 6,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Konuganti Srinivasa\r\nkonuganti@ilo.org\r\n+41227996223",
@@ -29324,6 +29334,53 @@
    {
     "capacity": "admin",
     "name": "dutchsino"
+   }
+  ]
+ },
+ "inclusion": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "4fd1d4c9-bbec-49f6-8312-e0a1f506f5ea",
+  "image_display_url": "https://inclusion-international.org/wp-content/uploads/2013/05/copy-ii-logo.png",
+  "image_url": "https://inclusion-international.org/wp-content/uploads/2013/05/copy-ii-logo.png",
+  "is_organization": true,
+  "license_id": "cc-by",
+  "name": "inclusion",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "N/A",
+  "publisher_contact": "Inclusion International\r\nKnowledge Dock 2.03\r\nUniversity of East London\r\n4-6 University Way,\r\nLondon E16 2RD,\r\nUnited Kingdom",
+  "publisher_contact_email": "info@inclusion-international.org",
+  "publisher_country": "GB",
+  "publisher_data_quality": "",
+  "publisher_description": "Inclusion International is the international network of people with intellectual disabilities and their families advocating for the human rights of people with intellectual disabilities worldwide. For over fifty years Inclusion International has been committed to the promotion of these human rights and our organization now represents over 200 member federations in 115 countries throughout five regions including the Middle East and North Africa, Europe, Africa, the Americas, and Asia Pacific.",
+  "publisher_field_exclusions": "N/A",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "quarterly",
+  "publisher_iati_id": "GB-CHC-1106715",
+  "publisher_implementation_schedule": "N/A",
+  "publisher_organization_type": "21",
+  "publisher_record_exclusions": "N/A",
+  "publisher_refs": "",
+  "publisher_segmentation": "Unsegmented",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "N/A",
+  "publisher_timeliness": "Data will be published on a quarterly basis and within three months of the end of the preceding quarter.",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://inclusion-international.org/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Inclusion International",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "kimber"
    }
   ]
  },
@@ -31229,7 +31286,7 @@
   "users": [
    {
     "capacity": "admin",
-    "name": "julescolomer"
+    "name": "gugicg"
    }
   ]
  },
@@ -31277,52 +31334,6 @@
    {
     "capacity": "admin",
     "name": "iucn_nl"
-   }
-  ]
- },
- "iut": {
-  "description": "",
-  "groups": [
-  ],
-  "id": "986d6d70-d06f-44ce-be03-368ae233d9a3",
-  "image_display_url": "",
-  "image_url": "",
-  "is_organization": true,
-  "license_id": "odc-pddl",
-  "name": "iut",
-  "num_followers": 0,
-  "package_count": 0,
-  "publisher_agencies": "",
-  "publisher_constraints": "",
-  "publisher_contact": "",
-  "publisher_contact_email": "support@iatistandard.org",
-  "publisher_country": "",
-  "publisher_data_quality": "",
-  "publisher_description": "",
-  "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
-  "publisher_frequency": "",
-  "publisher_frequency_select": "not_specified",
-  "publisher_iati_id": "XI-IATI-TEST",
-  "publisher_implementation_schedule": "",
-  "publisher_organization_type": "80",
-  "publisher_record_exclusions": "",
-  "publisher_refs": "",
-  "publisher_segmentation": "",
-  "publisher_source_type": "primary_source",
-  "publisher_thresholds": "",
-  "publisher_timeliness": "",
-  "publisher_ui": "",
-  "publisher_units": "",
-  "state": "active",
-  "tags": [
-  ],
-  "title": "IATI upload TEST",
-  "type": "organization",
-  "users": [
-   {
-    "capacity": "admin",
-    "name": "a_silcock"
    }
   ]
  },
@@ -31875,52 +31886,6 @@
    {
     "capacity": "admin",
     "name": "imahasneh"
-   }
-  ]
- },
- "joshtest3": {
-  "description": "",
-  "groups": [
-  ],
-  "id": "d8eb7488-c1d6-4de7-a5d6-597cb3b8a9db",
-  "image_display_url": "",
-  "image_url": "",
-  "is_organization": true,
-  "license_id": "notspecified",
-  "name": "joshtest3",
-  "num_followers": 0,
-  "package_count": 0,
-  "publisher_agencies": "",
-  "publisher_constraints": "",
-  "publisher_contact": "",
-  "publisher_contact_email": "j.stanley654@btinternet.com",
-  "publisher_country": "AF",
-  "publisher_data_quality": "",
-  "publisher_description": "",
-  "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
-  "publisher_frequency": "",
-  "publisher_frequency_select": "not_specified",
-  "publisher_iati_id": "GB-COH-222222",
-  "publisher_implementation_schedule": "",
-  "publisher_organization_type": "80",
-  "publisher_record_exclusions": "",
-  "publisher_refs": "",
-  "publisher_segmentation": "",
-  "publisher_source_type": "primary_source",
-  "publisher_thresholds": "",
-  "publisher_timeliness": "",
-  "publisher_ui": "",
-  "publisher_units": "",
-  "state": "active",
-  "tags": [
-  ],
-  "title": "JoshTest3",
-  "type": "organization",
-  "users": [
-   {
-    "capacity": "admin",
-    "name": "joshuastanley"
    }
   ]
  },
@@ -32839,7 +32804,7 @@
   "license_id": "other-pd",
   "name": "knust",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 2,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Kwame Nkrumah University of Science and Technology-School of Public Health\r\nAccra Road\r\nKumasi",
@@ -32848,7 +32813,7 @@
   "publisher_data_quality": "",
   "publisher_description": "The Kwame Nkrumah University of Science and technology-School of Public Health focuses on offering training programs in public at t he undergraduate and graduate levels. The School also has a huge public health research portfolio that seeks to address local public health challenges, and in partnership with other agencies and institutions, international public health challenges. Finally, the School supports local communities to improve public health indicators at the household, family and community levels",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2019-08-26T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "XI-GRID-grid.9829.a",
@@ -33210,7 +33175,7 @@
   "license_id": "cc-by",
   "name": "ksrelief291",
   "num_followers": 0,
-  "package_count": 3,
+  "package_count": 12,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Prince Sultan Bin Abdulaziz Road, As Sulimaniyah,12234 Riyadh.",
@@ -34083,6 +34048,53 @@
    {
     "capacity": "admin",
     "name": "lepra"
+   }
+  ]
+ },
+ "lestari_capital": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "21fa6feb-5e1f-4307-9191-31c178ede192",
+  "image_display_url": "http://lestaricapital.com/wp-content/uploads/2018/07/LC-Logo-favicon.png",
+  "image_url": "http://lestaricapital.com/wp-content/uploads/2018/07/LC-Logo-favicon.png",
+  "is_organization": true,
+  "license_id": "other-pd",
+  "name": "lestari_capital",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "600 North Bridge Road, Parkview Square #10-01, S188778",
+  "publisher_contact_email": "y.ting@lestaricapital.com",
+  "publisher_country": "SG",
+  "publisher_data_quality": "",
+  "publisher_description": "Yi Ting is responsible for the operations, finances and business management aspect of the company.",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "annually",
+  "publisher_iati_id": "SG-ACRA-201735455C",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "70",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "http://lestaricapital.com",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Lestari Capital Pte Ltd",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "yttan89"
    }
   ]
  },
@@ -36102,6 +36114,53 @@
    {
     "capacity": "admin",
     "name": "mdm-fr"
+   }
+  ]
+ },
+ "mdrf_12": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "13b6fa60-6349-4974-b87f-d477c77cdc85",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "cc-zero",
+  "name": "mdrf_12",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "",
+  "publisher_contact_email": "drmohans@diabetes.ind.in",
+  "publisher_country": "IN",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "IN-MHA-075900672",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "60",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "http://www.mdrf.in",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "MADRAS DIABETES RESEARCH FOUNDATION",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "mdrf"
    }
   ]
  },
@@ -40209,7 +40268,7 @@
   "license_id": "other-pd",
   "name": "odakorea",
   "num_followers": 1,
-  "package_count": 48,
+  "package_count": 49,
   "publisher_agencies": "Data Coverage : Project-type intervention(C01) \r\n - Economic Development Cooperation Fund (EDCF) : 324 activities(11%*) \r\n - Korea International Cooperation Agency(KOICA) : 419 activities(3%*)\r\n* Gross Disbursement Basis\r\n",
   "publisher_constraints": "none",
   "publisher_contact": "<Publishing>\r\nThe Export-Import Bank of Korea (KEXIM)\r\nEDCF Planning & Coordination Department\r\n- Tel : +82-2-3779-6608 \r\n- E-mail : iati@koreaexim.go.kr\r\n- URL: https://www.koreaexim.go.kr/site/main/index002",
@@ -45298,7 +45357,7 @@
   "license_id": "cc-by",
   "name": "rcel",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 1,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Royal Commonwealth Ex-Sevices League\r\nHaig House\r\n199 Borough High Street\r\nLondon\r\nSE1 1AA",
@@ -45307,7 +45366,7 @@
   "publisher_data_quality": "",
   "publisher_description": "The object of the Royal Commonwealth Ex-Services League is to ensure that no service man or woman who served in the Armed Forces of any Commonwealth Country before that country achieved independence from the United Kingdom shall be without help if in need.  The RCEL was established in 1921 as a charity to provide support to those who served The British Crown during The Great War. Over the last century RCEL has continued to support veterans who served in the British Armed Forces and their widows from Commonwealth Nations prior to their country's independence. All those supported are resident in their country of origin and living in poverty.",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2019-08-23T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "GB-CHC-1174874",
@@ -48743,7 +48802,7 @@
   "is_organization": true,
   "license_id": "other-pd",
   "name": "sida",
-  "num_followers": 2,
+  "num_followers": 3,
   "package_count": 167,
   "publisher_agencies": "All Swedish government agencies that use official development cooperation funds, including Swedish International Development Agency, Ministry of Foreign Affairs, Ministry of the Environment and other departments. ",
   "publisher_constraints": "None. The IATI translation is being updated, and compliance may improve going forward.",
@@ -49402,7 +49461,7 @@
   "license_id": "cc-by",
   "name": "slf",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 1,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Liliane Foundation\r\nHavensingel 26,\r\n5211 TX ‘s-Hertogenbosch\r\nThe Netherlands\r\n",
@@ -49411,7 +49470,7 @@
   "publisher_data_quality": "",
   "publisher_description": "",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2019-09-03T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "NL-KVK-41081480",
@@ -50505,7 +50564,7 @@
   "license_id": "odc-by",
   "name": "ssn",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 2,
   "publisher_agencies": "Department for International Development (DFID)\r\nOxford University\r\nPaul Watkiss and Associates",
   "publisher_constraints": "Still to be determined",
   "publisher_contact": "55 Salt River Road, \r\nCape Town, \r\nSouth Africa",
@@ -50514,7 +50573,7 @@
   "publisher_data_quality": "Still to be determined",
   "publisher_description": "SouthSouthNorth (SSN) supports national and regional responses to climate change through policy and knowledge interventions, partnerships and deep collaboration. We do this by connecting people and information, enhancing capability and mobilising resources to respond innovatively to the challenges and opportunities that climate change presents.",
   "publisher_field_exclusions": "Still to be determined",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2019-08-30T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "quarterly",
   "publisher_iati_id": "ZA-NPO-048-364",
@@ -51935,147 +51994,6 @@
    }
   ]
  },
- "test1111": {
-  "description": "",
-  "groups": [
-  ],
-  "id": "86e59354-c205-43a3-b979-e40b47b6f8a3",
-  "image_display_url": "",
-  "image_url": "",
-  "is_organization": true,
-  "license_id": "notspecified",
-  "name": "test1111",
-  "num_followers": 0,
-  "package_count": 0,
-  "publisher_agencies": "",
-  "publisher_constraints": "",
-  "publisher_contact": "",
-  "publisher_contact_email": "amysilcock@hotmail.com",
-  "publisher_country": "GB",
-  "publisher_data_quality": "",
-  "publisher_description": "",
-  "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
-  "publisher_frequency": "",
-  "publisher_frequency_select": "not_specified",
-  "publisher_iati_id": "test-111111",
-  "publisher_implementation_schedule": "",
-  "publisher_organization_type": "80",
-  "publisher_record_exclusions": "",
-  "publisher_refs": "",
-  "publisher_segmentation": "",
-  "publisher_source_type": "primary_source",
-  "publisher_thresholds": "",
-  "publisher_timeliness": "",
-  "publisher_ui": "",
-  "publisher_units": "",
-  "state": "active",
-  "tags": [
-  ],
-  "title": "Test 1111",
-  "type": "organization",
-  "users": [
-   {
-    "capacity": "admin",
-    "name": "amys"
-   }
-  ]
- },
- "test123456": {
-  "description": "",
-  "groups": [
-  ],
-  "id": "575a1f17-d69a-453d-a43e-1460c0eda3be",
-  "image_display_url": "",
-  "image_url": "",
-  "is_organization": true,
-  "license_id": "notspecified",
-  "name": "test123456",
-  "num_followers": 0,
-  "package_count": 0,
-  "publisher_agencies": "",
-  "publisher_constraints": "",
-  "publisher_contact": "",
-  "publisher_contact_email": "amy.silcock@devinit.org",
-  "publisher_country": "",
-  "publisher_data_quality": "",
-  "publisher_description": "",
-  "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
-  "publisher_frequency": "",
-  "publisher_frequency_select": "not_specified",
-  "publisher_iati_id": "GB-12345678",
-  "publisher_implementation_schedule": "",
-  "publisher_organization_type": "80",
-  "publisher_record_exclusions": "",
-  "publisher_refs": "",
-  "publisher_segmentation": "",
-  "publisher_source_type": "primary_source",
-  "publisher_thresholds": "",
-  "publisher_timeliness": "",
-  "publisher_ui": "",
-  "publisher_units": "",
-  "state": "active",
-  "tags": [
-  ],
-  "title": "Silcock Foundations",
-  "type": "organization",
-  "users": [
-   {
-    "capacity": "admin",
-    "name": "amys"
-   }
-  ]
- },
- "test_pubid_change": {
-  "description": "",
-  "groups": [
-  ],
-  "id": "e8c194f8-4f92-498f-a644-51d66bf212be",
-  "image_display_url": "",
-  "image_url": "",
-  "is_organization": true,
-  "license_id": "cc-zero",
-  "name": "test_pubid_change",
-  "num_followers": 0,
-  "package_count": 0,
-  "publisher_agencies": "",
-  "publisher_constraints": "",
-  "publisher_contact": "",
-  "publisher_contact_email": "swaroop@derilinx.com",
-  "publisher_country": "",
-  "publisher_data_quality": "",
-  "publisher_description": "",
-  "publisher_field_exclusions": "",
-  "publisher_frequency": "",
-  "publisher_frequency_select": "not_specified",
-  "publisher_iati_id": "test_pubid_change",
-  "publisher_implementation_schedule": "",
-  "publisher_organization_type": "80",
-  "publisher_record_exclusions": "",
-  "publisher_refs": "",
-  "publisher_segmentation": "",
-  "publisher_source_type": "primary_source",
-  "publisher_thresholds": "",
-  "publisher_timeliness": "",
-  "publisher_ui": "",
-  "publisher_units": "",
-  "state": "active",
-  "tags": [
-  ],
-  "title": "test_pubid",
-  "type": "organization",
-  "users": [
-   {
-    "capacity": "admin",
-    "name": "admin"
-   },
-   {
-    "capacity": "admin",
-    "name": "swaroop"
-   }
-  ]
- },
  "tfac": {
   "description": "",
   "groups": [
@@ -53405,7 +53323,7 @@
   "license_id": "cc-by",
   "name": "transparency-international",
   "num_followers": 1,
-  "package_count": 58,
+  "package_count": 59,
   "publisher_agencies": "Transparency International Secretariat",
   "publisher_constraints": "",
   "publisher_contact": "Gustavo Arnaudo\r\nHead of Project Accounting\r\ngarnaudo@transparency.org ",
@@ -55946,7 +55864,7 @@
   "license_id": "other-pd",
   "name": "unitedstates",
   "num_followers": 1,
-  "package_count": 276,
+  "package_count": 277,
   "publisher_agencies": "By the end of 2012, the U.S. Government plans to publish (1) CY 2009, 2010 and 2011 CRS data (2) preliminary FY12 Activity data (for USAID and MCC) and (3) forward-looking budget request data (for approximately 70% of total ODA flows) in the IATI XML format.   The U.S. Government will continue to publish IATI compliant data in the following three ways:  (1) Activity level data on a quarterly basis will be published for approximately 70% of total ODA by the end of 2013.  The coverage is expected to increase to approximately 90% of total ODA by the end of 2014, with 100% of all ODA flows reporting all available IATI compliant data expected by the end of 2015.  (2) At the end of February each year, the U.S. Government will publish annual, 1-year forward planning budget data which is the requested amount submitted to Congress.  ODA coverage rates are expected to follow the same pattern as the quarterly activity data. (3) Verified, complete statistical data and information on U.S. Government ODA flows will be published in the IATI format at the end of each calendar year once OECD/DAC reporting is complete.",
   "publisher_constraints": "N/A",
   "publisher_contact": "Foreign Assistance Dashboard (ForeignAssistanceWeb@state.gov)",
@@ -56563,7 +56481,7 @@
   "image_display_url": "",
   "image_url": "",
   "is_organization": true,
-  "license_id": "other-pd",
+  "license_id": "cc-by",
   "name": "us-imawh",
   "num_followers": 0,
   "package_count": 0,
@@ -56575,11 +56493,10 @@
   "publisher_data_quality": "",
   "publisher_description": "IMA World Health is a faith-based international relief and development organization rooted in the Lutheran tradition and ecumenically connected with others in focusing on improving health and livelihoods in complex environments and helping people lift themselves out of extreme poverty by ministering to the well-being of the whole person and providing humanitarian assistance.",
   "publisher_field_exclusions": "To be determined",
-  "publisher_first_publish_date": "",
   "publisher_frequency": "",
   "publisher_frequency_select": "quarterly",
   "publisher_iati_id": "US-EIN-522112460",
-  "publisher_implementation_schedule": "In process",
+  "publisher_implementation_schedule": "Completed, to be shared in September 2019",
   "publisher_organization_type": "21",
   "publisher_record_exclusions": "Policy currently in development",
   "publisher_refs": "To be added later",
@@ -56615,26 +56532,26 @@
   "num_followers": 1,
   "package_count": 177,
   "publisher_agencies": "Published data cover 100% of USAID financial flows.",
-  "publisher_constraints": "Page 17- 20 of USAID's IATI Cost Management Plan (https://www.usaid.gov/sites/default/files/documents/1870/IATI%20Cost%20Management%20Plan_u_14July2015.pdf) outline the fields that USAID does not capture or cannot be published to IATI by U.S. Government policy.",
+  "publisher_constraints": "Page 17- 20 of USAID's IATI Cost Management Plan (https://www.usaid.gov/sites/default/files/documents/1870/IATI%20Cost%20Management%20Plan_u_14July2015.pdf) outlines the fields that USAID does not capture or cannot be published to IATI by U.S. Government policy.",
   "publisher_contact": "1300 Pennsylvania Ave NW \r\nWashington, DC 20004",
   "publisher_contact_email": "aidtransparency@usaid.gov",
   "publisher_country": "US",
   "publisher_data_quality": "",
-  "publisher_description": "USAID Mission: We partner to end extreme poverty and promote resilient, democratic societies while advancing our security and prosperity.",
+  "publisher_description": "USAID Mission:  On behalf of the American people, we promote and demonstrate democratic values abroad, and advance a free, peaceful, and prosperous world. In support of America's foreign policy, the U.S. Agency for International Development leads the U.S. Government's international development and disaster assistance through partnerships and investments that save lives, reduce poverty, strengthen democratic governance, and help people emerge from humanitarian crises and progress beyond assistance.\r\n\r\nOur objective is to support partners to become self-reliant and capable of leading their own development journeys. We make progress toward this by reducing the reach of conflict, preventing the spread of pandemic disease, and counteracting the drivers of violence, instability, transnational crime and other security threats. We promote American prosperity through investments that expand markets for U.S. exports; create a level playing field for U.S. businesses; and support more stable, resilient, and democratic societies. We stand with people when disaster strikes or crisis emerges as the world leader in humanitarian assistance.\r\n",
   "publisher_field_exclusions": "Page 17- 20 of USAID's IATI Cost Management Plan (https://www.usaid.gov/sites/default/files/documents/1870/IATI%20Cost%20Management%20Plan_u_14July2015.pdf) outline the fields that USAID does not capture or cannot be published to IATI by U.S. Government policy.",
-  "publisher_first_publish_date": "2017-04-27T00:00:00.000000",
+  "publisher_first_publish_date": "2018-03-30T19:03:01.677093",
   "publisher_frequency": "",
   "publisher_frequency_select": "quarterly",
   "publisher_iati_id": "US-GOV-1",
   "publisher_implementation_schedule": "",
   "publisher_organization_type": "10",
-  "publisher_record_exclusions": "It is the policy of the U.S. Government, per OMB Bulletin 12-01 (/http://www.whitehouse.gov/sites/default/files/omb/bulletins/fy2012/b12-01.pdf), for agencies to have a strong presumption in favor of openness. The guidance does provide the following principled exceptions: a) When public disclosure threatens national security interests; b) When public disclosure is likely to jeopardize the personal safety of U.S. personnel or recipients of U.S. resources; c) When public disclosure would interfere with the agency's ability to effectively discharge its ongoing responsibilities in foreign assistance activities; d) When there are legal constraints on the disclosure of business or proprietary information of non-governmental organizations, contractors, or private sector clients; e) When the laws or regulations of a recipient country apply to a bilateral agreement and restrict access to information; or f) When data reveal private information about individuals that must be kept confidential consistent with ethical guidelines and federal regulations. When examining information that falls within these categories, USG agencies have sufficient flexibility to protect sensitive information from disclosure, on a case-by-case basis, in order to protect against potential harm while maintaining a strong presumption in favor of transparency. To ensure that these exceptions are rarely applied, and are used appropriately and consistent with the presumption of openness, agencies will maintain specific case-by-case justifications for all instances of reliance on the principled exceptions established in this section.",
-  "publisher_refs": "Published budget figures come from the Congressional Budget Justification - a document sent to Congress by the President in January or February of each year, as required by law (31 U.S.C. § 1105), requesting new budget authority for federal programs and estimating federal revenues and outlays for the upcoming fiscal year and 4 subsequent outyears. Although the title of the document is Budget of the U.S. Government, it represents proposals for congressional consideration. There is not a one-to-one link between budget figures and the financial data - commitments and disbursements - for a given year.\r\n\r\nThe Congressional Budget Justification includes sectors specific to the U.S. Government.  The budgets have been mapped to the Organisation for Economic Co-operation and Development - Development Assistance Committee (OECD/DAC) sector codes in order to improve international usability.\r\n",
-  "publisher_segmentation": "Data are published as separate files per country",
+  "publisher_record_exclusions": "USAID does not exclude entire activities from IATI publication; instead, it removes specific fields per the policies below:\r\n\r\nIt is the policy of the U.S. Government, per OMB Bulletin 12-01, and the Foreign Aid Transparency and Accountability Act of 2016 (FATAA) for agencies to have a strong presumption in favor of openness. \r\nFATAA provides the following principled exceptions: 1) When public disclosure threatens national security interests; 2) When public disclosure is likely to jeopardize the personal safety of U.S. personnel or recipients of U.S. resources; 3) When there are legal constraints on the disclosure of business or proprietary information of non-governmental organizations, contractors, or private sector clients; or 4) When data reveal private information about individuals that must be kept confidential consistent with ethical guidelines and federal regulations. When examining information that falls within these categories, USG agencies have sufficient flexibility to protect sensitive information from disclosure, on a case-by-case basis, in order to protect against potential harm while maintaining a strong presumption in favor of transparency. To ensure that these exceptions are rarely applied, and are used appropriately and consistent with the presumption of openness, USAID maintains  specific case-by-case justifications for all instances of reliance on the principled exceptions established in this section.\r\n",
+  "publisher_refs": "Published budget figures come from the Congressional Budget Justification - a document sent to Congress by the President in January or February of each year, as required by law (31 U.S.C. § 1105), requesting new budget authority for federal programs and estimating federal revenues and outlays for the upcoming fiscal year and 4 subsequent outyears. Although the title of the document is Budget of the U.S. Government, it represents proposals for congressional consideration. There is not a one-to-one link between budget figures and the financial data - commitments and disbursements - for a given year. The Congressional Budget Justification includes sectors specific to the U.S. Government. The budgets have been mapped to the Organisation for Economic Co-operation and Development - Development Assistance Committee (OECD/DAC) sector codes in order to improve international usability.",
+  "publisher_segmentation": "USAID activities are disaggregated into separate files.  Activities that report only one recipient country or region are assigned to a single file under the country or region name.  Similarly, global activities reporting worldwide as the recipient region will be assigned to a worldwide file.  All other activities that report multiple countries and/or regions are assigned to the ‘multi-country’ file.  Currently, worldwide and multi-country files are split out so as to conform to the 40mb file size limit.  ",
   "publisher_source_type": "primary_source",
   "publisher_thresholds": "",
-  "publisher_timeliness": "Within 90 days of fiscal quarter closure",
-  "publisher_ui": "Yes.  USAID IATI data will be available at explorer.usaid.gov.",
+  "publisher_timeliness": "Within 90 days of fiscal quarter closure (U.S. Government’s fiscal year is October 1 - September 30.)\r\n",
+  "publisher_ui": "Yes. USAID IATI data are available at explorer.usaid.gov.\r\n",
   "publisher_units": "USAID data are published at an activity level. An aid ‘activity’ is a project, program, cash transfer, delivery of goods, training course, research project, debt relief operation, or a contribution to an international organization.",
   "publisher_url": "https://www.usaid.gov",
   "state": "active",
@@ -56650,6 +56567,10 @@
    {
     "capacity": "admin",
     "name": "denterline"
+   },
+   {
+    "capacity": "admin",
+    "name": "dlakin"
    },
    {
     "capacity": "member",
@@ -57229,7 +57150,7 @@
   "license_id": "uk-ogl",
   "name": "vfi",
   "num_followers": 0,
-  "package_count": 1,
+  "package_count": 2,
   "publisher_agencies": "NGO's",
   "publisher_constraints": "",
   "publisher_contact": " 800 W. Chestnut Ave., Monrovia, 91016, CA, United States  ",
@@ -58856,7 +58777,7 @@
   "license_id": "cc-by",
   "name": "wei",
   "num_followers": 1,
-  "package_count": 0,
+  "package_count": 1,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "44 Farnsworth Street, Boston, MA 02210 USA",
@@ -58865,7 +58786,7 @@
   "publisher_data_quality": "",
   "publisher_description": "World Education improves the quality of life through education for half a million children and adults in 20 countries. World Education's programs promote individual and collective change: Our training programs improve adult education, help displaced peoples, stem the tide of HIV, and reduce violence through conflict resolution. How do we do it? World Education is a leader in building the skills, knowledge and resources of local groups so they can accomplish their missions effectively. \r\n\r\nWe use experiential and engaging teaching techniques to help people and organizations develop skills that build on the learners' context (cultural, linguistic, geographic, and economic), and include vital information about life and livelihoods—health, agriculture, small business development—that learners can put to immediate use. \r\n\r\nFounded in 1951 to meet the needs of the educationally disadvantaged, World Education has worked in over 50 countries in Asia, Africa, and Latin America, as well as in the United States. Working in concert with private, public, and nongovernmental organizations, World Education initiatives support effective local management and promote partnerships between local organizations.",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2019-08-28T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "quarterly",
   "publisher_iati_id": "US-EIN-13-1804349",
@@ -60382,52 +60303,6 @@
    {
     "capacity": "admin",
     "name": "wppiati"
-   }
-  ]
- },
- "wrgb": {
-  "description": "",
-  "groups": [
-  ],
-  "id": "b6c771d2-d4e5-4940-8e41-338ade7581fc",
-  "image_display_url": "",
-  "image_url": "",
-  "is_organization": true,
-  "license_id": "odc-by",
-  "name": "wrgb",
-  "num_followers": 0,
-  "package_count": 0,
-  "publisher_agencies": "",
-  "publisher_constraints": "",
-  "publisher_contact": "",
-  "publisher_contact_email": "wendy.rogers@devinit.org",
-  "publisher_country": "",
-  "publisher_data_quality": "",
-  "publisher_description": "",
-  "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
-  "publisher_frequency": "",
-  "publisher_frequency_select": "not_specified",
-  "publisher_iati_id": "GB-COH-893249298",
-  "publisher_implementation_schedule": "",
-  "publisher_organization_type": "80",
-  "publisher_record_exclusions": "",
-  "publisher_refs": "",
-  "publisher_segmentation": "",
-  "publisher_source_type": "primary_source",
-  "publisher_thresholds": "",
-  "publisher_timeliness": "",
-  "publisher_ui": "",
-  "publisher_units": "",
-  "state": "active",
-  "tags": [
-  ],
-  "title": "Grand Bargain Test",
-  "type": "organization",
-  "users": [
-   {
-    "capacity": "admin",
-    "name": "wrgrandbargain"
    }
   ]
  },
