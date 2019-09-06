@@ -656,7 +656,8 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 
 /*	Beige Alert
 	============================================= */
-.beigealert_wrap		{width:100%; margin:0 auto; background-color:#D80051;}
+.beigealert_wrap		{width:100%; margin:0 auto; background-color:#D80051; box-sizing:border-box;}
+.beigealert_wrap.delete	{padding:0.5em; font-size:2em; font-weight:bold;}
 .beigealert				{margin:0 auto; color:#FFF; font-size:1.0em; line-height:1.25em; text-align:center; padding:10px 0;}
 a.beige					{font-weight:bold; color:#FFFF00;}
 a.beige:hover			{color:#FFF;}
