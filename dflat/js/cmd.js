@@ -19,8 +19,36 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 cmd.parse=function(argv)
 {
 
-	argv.dir   =           argv.dir   || process.env.DFLAT_DIR   || "data"
-	argv.limit = parseInt( argv.limit || process.env.DFLAT_LIMIT || "999999"     )
+	argv.dir    =           argv.dir    || process.env.DFLAT_DIR   || "data"
+	argv.limit  = parseInt( argv.limit  || process.env.DFLAT_LIMIT || "999999"     )
+
+}
+
+cmd.parse_filename=async function(argv,opts)
+{
+	argv.filename = argv.filename || argv._[1]
+	
+	if( ! argv.filename ) { return }
+	
+	if( argv.filename.endsWith(opts.input) )
+	{
+		argv.filename=argv.filename.substring(0,argv.filename.length - opts.input.length)
+	}
+	
+	if( ! argv.input )
+	{
+		argv.input=argv.filename + opts.input
+	}
+
+	if( ! argv.output )
+	{
+		argv.output=argv.filename + opts.output
+	}
+
+	
+	console.log( argv.filename )
+	console.log( argv.input )
+	console.log( argv.output )
 
 }
 
@@ -34,12 +62,12 @@ cmd.run=async function(argv)
 
 	if( argv._[0]=="xml2json" )
 	{
-		var filename=argv.filename || argv._[1] ;
-		if(filename)
+		await cmd.parse_filename(argv,{input:".xml",output:".json"})
+		if(argv.input)
 		{
-			var dat=await pfs.readFile(filename+".xml",{ encoding: 'utf8' });
+			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
 			var json=dflat.xml_to_xson(dat)
-			await pfs.writeFile(filename+".xml.json",stringify(json,{space:" "}));
+			await pfs.writeFile(argv.output,stringify(json,{space:" "}));
 
 			return
 		}
@@ -47,13 +75,13 @@ cmd.run=async function(argv)
 	
 	if( argv._[0]=="json2xml" )
 	{
-		var filename=argv.filename || argv._[1] ;
-		if(filename)
+		await cmd.parse_filename(argv,{input:".json",output:".xml"})
+		if(argv.input)
 		{
-			var dat=await pfs.readFile(filename+".json",{ encoding: 'utf8' });
+			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
 			var json=JSON.parse(dat)
 			var xml=jml.to_xml( xson.to_jml(json) )
-			await pfs.writeFile(filename+".json.xml",xml);
+			await pfs.writeFile(argv.output,xml);
 
 			return
 		}
@@ -61,14 +89,14 @@ cmd.run=async function(argv)
 
 	if( argv._[0]=="xml2csv")
 	{
-		var filename=argv.filename || argv._[1] ;
-		if(filename)
+		await cmd.parse_filename(argv,{input:".xml",output:".csv"})
+		if(argv.input)
 		{
-			var dat=await pfs.readFile(filename+".xml",{ encoding: 'utf8' });
+			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
 			var json=dflat.xml_to_xson(dat)
 			var csv=dflat.xson_to_xsv(json,"/iati-activities/iati-activity",{"/iati-activities/iati-activity":true})
 
-			await pfs.writeFile(filename+"xml.csv",csv);
+			await pfs.writeFile(argv.output,csv);
 
 			return
 		}
@@ -101,11 +129,20 @@ cmd.run=async function(argv)
 		">	dflat xml2json filename[.xml] \n"+
 		"Convert activities from filename.xml into filename.json/*\n"+
 		"\n"+
+		"	--output filename.xml.json \n"+
+		"	Explicit output path/filename.\n"+
+		"\n"+
 		">	dflat xml2csv filename[.xml] \n"+
 		"Convert activities from filename.xml into filename.csv/*\n"+
 		"\n"+
-		">	dflat json2xml filename[.jxon] \n"+
-		"Convert activities from filename.jxon into filename.xml/*\n"+
+		"	--output filename.csv \n"+
+		"	Explicit output path/filename.\n"+
+		"\n"+
+		">	dflat json2xml filename[.xml.json] \n"+
+		"Convert activities from filename.json into filename.xml/*\n"+
+		"\n"+
+		"	--output filename.xml \n"+
+		"	Explicit output path/filename.\n"+
 		"\n"+
 		">	dflat frankenstein \n"+
 		"Build a full example activity from parts of other activities\n"+
@@ -121,6 +158,9 @@ cmd.run=async function(argv)
 		"\n"+
 		"	--limit 999999 \n"+
 		"	Maximum number of packages to download.\n"+
+		"\n"+
+		"	--source registry\n"+
+		"	The source for the packages, registry or datastore.\n"+
 		"\n"+
 		"\n"+
 	"");
