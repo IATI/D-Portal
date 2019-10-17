@@ -1,0 +1,9 @@
+
+cd `dirname $0`
+
+npm version patch
+git add . -m.
+git commit .
+git push
+npm publish
+
