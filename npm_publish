@@ -2,8 +2,8 @@
 cd `dirname $0`
 
 npm version patch
-git add . -m.
-git commit .
+git add .
+git commit . -m.
 git push
 npm publish
 
