@@ -2,8 +2,8 @@ cd `dirname $0`
 
 NAME1=dquery
 NAME2=savi
-EXORCIST=node_modules/exorcist/bin/exorcist.js
-BROWSERIFY=node_modules/browserify/bin/cmd.js
+EXORCIST=../node_modules/exorcist/bin/exorcist.js
+BROWSERIFY=../node_modules/browserify/bin/cmd.js
 
 echo "browserify"
 
