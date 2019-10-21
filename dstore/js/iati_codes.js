@@ -11,7 +11,7 @@ var wait=require('wait.for');
 var http=require('http');
 var https=require('https');
 var fs = require('fs');
-var baby = require('babyparse');
+var papa = require('papaparse');
 var json_stringify = require('json-stable-stringify')
 
 var refry=require('./refry');
@@ -246,7 +246,7 @@ iati_codes.fetch = function(){
 	codes["transaction_type_num"]=o; // map old codes to new numbers
 	
 	console.log("Parsing csv/iati_funders.csv")	
-	var lines=baby.parse( fs.readFileSync(__dirname+"/../csv/iati_funders.csv",{encoding:"utf8"}) ).data;
+	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/iati_funders.csv",{encoding:"utf8"}) ).data;
 
 	var o={};
 	for(var i=1;i<lines.length;i++)
@@ -265,7 +265,7 @@ iati_codes.fetch = function(){
 
 
 	console.log("Parsing csv/imf_currencies.csv")
-	var lines=baby.parse( fs.readFileSync(__dirname+"/../csv/imf_currencies.csv",{encoding:"utf8"}) ).data;
+	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/imf_currencies.csv",{encoding:"utf8"}) ).data;
 
 
 	var o=[];
@@ -286,7 +286,7 @@ iati_codes.fetch = function(){
 	
 
 	console.log("Parsing csv/local_currency.csv")
-	var lines=baby.parse( fs.readFileSync(__dirname+"/../csv/local_currency.csv",{encoding:"utf8"}) ).data;
+	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/local_currency.csv",{encoding:"utf8"}) ).data;
 
 	var o={};
 	for(var i=1;i<lines.length;i++)
@@ -306,7 +306,7 @@ iati_codes.fetch = function(){
 	
 	console.log("Parsing csv/crs_funders.csv")
 
-	var lines=baby.parse( fs.readFileSync(__dirname+"/../csv/crs_funders.csv",{encoding:"utf8"}) ).data;
+	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/crs_funders.csv",{encoding:"utf8"}) ).data;
 
 	var d={};
 	var o={};
@@ -360,7 +360,7 @@ iati_codes.fetch = function(){
 
 	console.log("Parsing csv/crs_countries.csv")
 
-	var lines=baby.parse( fs.readFileSync(__dirname+"/../csv/crs_countries.csv",{encoding:"utf8"}) ).data;
+	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/crs_countries.csv",{encoding:"utf8"}) ).data;
 
 	var o={};
 	var r={};
@@ -386,7 +386,7 @@ iati_codes.fetch = function(){
 		console.log("Parsing csv/crs_"+year+".csv")
 		console.log(__dirname+"/../csv/crs_"+year+".csv")
 
-		var lines=baby.parse( fs.readFileSync(__dirname+"/../csv/crs_"+year+".csv",{encoding:"utf8"}) ).data;
+		var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/crs_"+year+".csv",{encoding:"utf8"}) ).data;
 
 		var o={};
 
@@ -426,7 +426,7 @@ iati_codes.fetch = function(){
 
 		console.log("Parsing csv/crs_"+year+"_sectors.csv")
 
-		var lines=baby.parse( fs.readFileSync(__dirname+"/../csv/crs_"+year+"_sectors.csv",{encoding:"utf8"}) ).data;
+		var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/crs_"+year+"_sectors.csv",{encoding:"utf8"}) ).data;
 
 		var o={};
 
@@ -470,7 +470,7 @@ iati_codes.fetch = function(){
 	
 	
 	var x=fs.readFileSync(__dirname+"/../csv/sector_category.csv","utf8");
-	var lines=baby.parse( x ).data;
+	var lines=papa.parse( x ).data;
 	var o={};
 	for(var i=1;i<lines.length;i++)
 	{
