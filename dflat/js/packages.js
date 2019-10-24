@@ -63,6 +63,7 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 
 	var txt=[]
 	var curl=[]
+//	var badcurl=[]
 	for(var idx in downloads)
 	{
 		var it=downloads[idx]
@@ -70,9 +71,12 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		txt.push(it.slug+" "+it.url+"\n")
 
 		curl.push("echo Downloading "+it.slug+" : "+it.url+" | tee downloads/"+it.slug+".log ; curl -s -S -A \"Mozilla/5.0\" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 -k -L -o downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a downloads/"+it.slug+".log\n")
+
+//		badcurl.push("curl -o "+it.slug+".xml \""+it.url+"\" \n")
 	}
 	await fse.writeFile( path.join(argv.dir,"downloads.txt") , txt.join("") )
 	await fse.writeFile( path.join(argv.dir,"downloads.curl") , curl.join("") )
+//	await fse.writeFile( path.join(argv.dir,"downloads.badcurl") , badcurl.join("") )
 
 
 
@@ -113,7 +117,14 @@ cat packages.parse | sort -R | parallel -j 0 --bar
 	await fse.chmod(     path.join(argv.dir,"packages.sh") , 0o755 )
 
 
-	console.log("You may now run the scripts in \""+argv.dir+"\" to download and parse packages.")
+	console.log(
+`
+You may now run the bash scripts in \"`+argv.dir+`\" to download and parse packages.
+
+Please make sure you also have curl and parallel installed and available to these scripts.
+
+`)
+
 }
 
 /*
