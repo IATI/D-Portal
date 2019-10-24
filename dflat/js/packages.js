@@ -210,7 +210,7 @@ packages.prepare_download_registry=async function(argv)
 		total += limit
 	}
 	process.stdout.write("\n");
-	await fse.writeFile( path.join(argv.dir,"packages.iatiregistry.json") , stringify( results , {space:" "} ) )
+	await fse.writeFile( path.join(argv.dir,"packages.registry.json") , stringify( results , {space:" "} ) )
 
 	console.log("Found "+results.length+" packages.")
 
