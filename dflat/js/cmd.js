@@ -20,7 +20,7 @@ cmd.parse=function(argv)
 {
 	argv.filename_dflat=__filename
 
-	argv.dir    =           argv.dir    || process.env.DFLAT_DIR   || "data"
+	argv.dir    =           argv.dir    || process.env.DFLAT_DIR   || "flatdata"
 	argv.limit  = parseInt( argv.limit  || process.env.DFLAT_LIMIT || "999999"     )
 
 }
@@ -168,7 +168,7 @@ Build or update json based stats
 
 Prepare a data directory to fetch IATI packages into.
 
-	--dir data 
+	--dir flatdata
 	Directory to download into.
 
 	--limit 999999 
@@ -179,10 +179,13 @@ Prepare a data directory to fetch IATI packages into.
 
 >	dflat packages filename
 
-Process a downloaded package into multiple files. it is assumed we are 
-in the data directory and that the file to process can be found in 
-downloads/filename.xml we will then process it and write it into other 
-locations such as packages/ or activities/ in this directory.
+	--dir flatdata
+	Directory to process data in.
+
+Process a downloaded package into multiple files. The file to process 
+should be found in downloads/filename.xml we will then process it 
+and write it into other locations such as packages/ or 
+activities/ in the data directory.
 
 `)
 }
