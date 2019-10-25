@@ -20,7 +20,7 @@ cmd.parse=function(argv)
 {
 	argv.filename_dflat=__filename
 
-	argv.dir    =           argv.dir    || process.env.DFLAT_DIR   || "flatdata"
+	argv.dir    =           argv.dir    || process.env.DFLAT_DIR   || "dataflat"
 	argv.limit  = parseInt( argv.limit  || process.env.DFLAT_LIMIT || "999999"     )
 
 }
@@ -168,7 +168,7 @@ Build or update json based stats
 
 Prepare a data directory to fetch IATI packages into.
 
-	--dir flatdata
+	--dir dataflat
 	Directory to download into.
 
 	--limit 999999 
@@ -179,7 +179,7 @@ Prepare a data directory to fetch IATI packages into.
 
 >	dflat packages filename
 
-	--dir flatdata
+	--dir dataflat
 	Directory to process data in.
 
 Process a downloaded package into multiple files. The file to process 

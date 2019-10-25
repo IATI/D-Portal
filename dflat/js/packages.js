@@ -93,7 +93,7 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		
 		txt.push(it.slug+"\n")
 
-		parse.push("echo Parsing "+it.slug+" | tee packages/"+it.slug+".log ; node "+argv.filename_dflat+" packages "+it.slug+" 2>&1 | tee -a packages/"+it.slug+".log\n")
+		parse.push("echo Parsing "+it.slug+" | tee packages/"+it.slug+".log ; node "+argv.filename_dflat+" --dir . packages "+it.slug+" 2>&1 | tee -a packages/"+it.slug+".log\n")
 	}
 	await fse.writeFile( path.join(argv.dir,"packages.txt") , parse.join("") )
 	await fse.writeFile( path.join(argv.dir,"packages.parse") , parse.join("") )
