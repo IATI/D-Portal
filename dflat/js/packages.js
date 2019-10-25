@@ -88,7 +88,7 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		
 		txt.push(it.slug+"\n")
 
-		parse.push("echo Parsing "+it.slug+" | tee packages/"+it.slug+".log ; echo 2>&1 >/dev/null | tee packages/"+it.slug+".log\n")
+		parse.push("echo Parsing "+it.slug+" | tee packages/"+it.slug+".log ; node "+argv.filename_dflat+" packages "+it.slug+" 2>&1 | tee -a packages/"+it.slug+".log\n")
 	}
 	await fse.writeFile( path.join(argv.dir,"packages.txt") , parse.join("") )
 	await fse.writeFile( path.join(argv.dir,"packages.parse") , parse.join("") )
@@ -99,7 +99,11 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 `
 cd \`dirname $0\`
 
-cat downloads.curl | sort -R | parallel -j 0 --bar
+if [ "$1" = "debug" ] ; then
+	bash downloads.curl
+else
+	cat downloads.curl | sort -R | parallel -j 0 --bar
+fi
 
 cat downloads/*.log >downloads.curl.log
 
@@ -111,7 +115,11 @@ cat downloads/*.log >downloads.curl.log
 `
 cd \`dirname $0\`
 
-cat packages.parse | sort -R | parallel -j 0 --bar
+if [ "$1" = "debug" ] ; then
+	bash packages.parse
+else
+	cat packages.parse | sort -R | parallel -j 0 --bar
+fi
 
 `)
 	await fse.chmod(     path.join(argv.dir,"packages.sh") , 0o755 )
@@ -127,20 +135,6 @@ Please make sure you also have curl and parallel installed and available to thes
 
 }
 
-/*
-
-new datastore
-
-fetch all datasets in pages
-
-https://datastore.iati.cloud/api/datasets/?format=json&page_size=20&page=1
-
-
-then fetch all activities for each dataset in pages
-
-https://datastore.iati.cloud/api/activities/?format=xml&fields=all&dataset=3112&page_size=20page=1
-
-*/
 
 
 packages.prepare_download_datastore=async function(argv)
@@ -239,3 +233,7 @@ packages.prepare_download_registry=async function(argv)
 	await packages.prepare_download_common_downloads(argv,downloads)
 }
 
+packages.process_download=async function(argv)
+{
+	console.log( "processing "+argv._[1]+" "+argv.filename_dflat )
+}

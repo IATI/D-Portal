@@ -1,6 +1,6 @@
-Experimentation with flatening "full" iati data.
+Experimentation with flattening "full" iati data.
 
-The idea is to have something that can expressed as a handfull of tables and converted back to XML.
+The idea is to have something that can expressed as a handful of tables and converted back to XML.
 
 So it needs an understanding of the format but just enough to group the data sensibly.
 

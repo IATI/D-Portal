@@ -18,6 +18,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 cmd.parse=function(argv)
 {
+	argv.filename_dflat=__filename
 
 	argv.dir    =           argv.dir    || process.env.DFLAT_DIR   || "data"
 	argv.limit  = parseInt( argv.limit  || process.env.DFLAT_LIMIT || "999999"     )
@@ -116,54 +117,74 @@ cmd.run=async function(argv)
 
 	if( argv._[0]=="packages" )
 	{
-		await require("./packages.js").prepare_download(argv)
+		if( argv._[1] )
+		{
+			await require("./packages.js").process_download(argv)
+		}
+		else
+		{
+			await require("./packages.js").prepare_download(argv)
+		}
 		return
 	}
 
 	// help text
 	console.log(
-		"\n"+
-		">	dflat fetch \n"+
-		"Fetch remote files and update cached data\n"+
-		"\n"+
-		">	dflat xml2json filename[.xml] \n"+
-		"Convert activities from filename.xml into filename.json/*\n"+
-		"\n"+
-		"	--output filename.xml.json \n"+
-		"	Explicit output path/filename.\n"+
-		"\n"+
-		">	dflat xml2csv filename[.xml] \n"+
-		"Convert activities from filename.xml into filename.csv/*\n"+
-		"\n"+
-		"	--output filename.csv \n"+
-		"	Explicit output path/filename.\n"+
-		"\n"+
-		">	dflat json2xml filename[.xml.json] \n"+
-		"Convert activities from filename.json into filename.xml/*\n"+
-		"\n"+
-		"	--output filename.xml \n"+
-		"	Explicit output path/filename.\n"+
-		"\n"+
-		">	dflat frankenstein \n"+
-		"Build a full example activity from parts of other activities\n"+
-		"\n"+
-		">	dflat stats \n"+
-		"Build or update json based stats\n"+
-		"\n"+
-		">	dflat packages \n"+
-		"Prepare a data directory to fetch IATI packages into.\n"+
-		"\n"+
-		"	--dir data \n"+
-		"	Directory to download into.\n"+
-		"\n"+
-		"	--limit 999999 \n"+
-		"	Maximum number of packages to download.\n"+
-		"\n"+
-		"	--source registry\n"+
-		"	The source for the packages, registry or datastore.\n"+
-		"\n"+
-		"\n"+
-	"");
+`
+>	dflat fetch 
+
+Fetch remote files and update cached data
+
+>	dflat xml2json filename[.xml] 
+
+Convert activities from filename.xml into filename.json/*
+
+	--output filename.xml.json 
+	Explicit output path/filename.
+
+>	dflat xml2csv filename[.xml] 
+
+Convert activities from filename.xml into filename.csv/*
+
+	--output filename.csv 
+	Explicit output path/filename.
+
+>	dflat json2xml filename[.xml.json] 
+
+Convert activities from filename.json into filename.xml/*
+
+	--output filename.xml 
+	Explicit output path/filename.
+
+>	dflat frankenstein 
+
+Build a full example activity from parts of other activities
+
+>	dflat stats 
+
+Build or update json based stats
+
+>	dflat packages 
+
+Prepare a data directory to fetch IATI packages into.
+
+	--dir data 
+	Directory to download into.
+
+	--limit 999999 
+	Maximum number of packages to download.
+
+	--source registry
+	The source for the packages, registry or datastore.
+
+>	dflat packages filename
+
+Process a downloaded package into multiple files. it is assumed we are 
+in the data directory and that the file to process can be found in 
+downloads/filename.xml we will then process it and write it into other 
+locations such as packages/ or activities/ in this directory.
+
+`)
 }
 
 // if global.argv is set then we are inside another command so do nothing
