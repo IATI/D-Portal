@@ -12,6 +12,11 @@ var stringify = require('json-stable-stringify');
 
 var request=require('request');
 
+var pfs=require("pify")( require("fs") )
+var dflat=require("./dflat.js")
+var jml=require("./jml.js")
+var xson=require("./xson.js")
+
 // I promise to turn a url into data
 var getbody=require("pify")( function(url,cb)
 {
@@ -235,5 +240,18 @@ packages.prepare_download_registry=async function(argv)
 
 packages.process_download=async function(argv)
 {
-	console.log( "processing "+argv._[1]+" "+argv.filename_dflat )
+	var slug=argv._[1]
+	
+	console.log( "processing "+slug )
+
+	var dat=await pfs.readFile("downloads/"+slug+".xml",{ encoding: 'utf8' });
+	var json=dflat.xml_to_xson(dat)
+	await pfs.writeFile("packages/"+slug+".json",stringify(json,{space:" "}));
+
+	var xml=jml.to_xml( xson.to_jml(json) )
+	await pfs.writeFile("packages/"+slug+".xml",xml);
+
+	var csv=dflat.xson_to_xsv(json,"/iati-activities/iati-activity",{"/iati-activities/iati-activity":true})
+	await pfs.writeFile("packages/"+slug+".csv",csv);
+
 }
