@@ -257,3 +257,18 @@ xson.compact=function(it)
 	
 	return it
 }
+
+
+// build full xpath value frequency stats for this xson
+xson.xpath_stats=function(it)
+{
+	stats={}
+
+	xson.all(it,function(value,path){
+		let xpath=path.join("")
+		if( ! stats[ xpath ] ) { stats[ xpath ]={} }
+		stats[ xpath ][ value ] =  ( stats[ xpath ][ value ] || 0 ) + 1
+	})
+
+	return stats
+}

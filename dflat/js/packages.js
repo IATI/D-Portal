@@ -252,6 +252,10 @@ packages.process_download=async function(argv)
 	
 	await pfs.writeFile( path.join(argv.dir,"packages/"+slug+".json") ,stringify(json,{space:" "}));
 
+	var stats = xson.xpath_stats(json)
+	await pfs.writeFile( path.join(argv.dir,"packages/"+slug+".stats.json") ,stringify(stats,{space:" "}));
+
+
 	var xjml=xson.to_jml(json)
 	var xml=jml.to_xml( xjml )
 	await pfs.writeFile( path.join(argv.dir,"packages/"+slug+".xml") ,xml);
