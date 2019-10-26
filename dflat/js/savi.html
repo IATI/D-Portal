@@ -5,30 +5,34 @@
 </div>
 
 #^iati-activity
-<pre>
+<div class="activity">
+	<div class="head_title">PROJECT TITLE</div>
+	<div class="wrap_title">{_it./title/narrative:/narrative}</div>
 
-	TITLE
-{_it./title/narrative:/narrative}
-	
-	DOCUMENTS
-{_it./document-link:/document-link}
+	<div class="wrap_reporting-org">
+		<div>Reported by</div><div><a href="#">{_it./reporting-org/narrative:/narrative}</a></div>
+	</div>
 
-	{_it./activity-scope@code}
-	{_it./activity-status@code}
-</pre>
+	<div class="iati_identifier">IATI IDENTIFIER <a href="#">{_it./iati-identifier}</a></div>
+
+	<div class="head_document">RELATED DOCUMENTS</div>
+	{_it./document-link:/document-link}
+</div>
 
 #^/narrative trim=ends
-	{_it.@lang} -> {_it.text}
+<span class="text">{_it.text}</span>
 
 #^/document-link
+<pre>
 {_it./description/narrative:/narrative}
 {_it./category:/document-link/category}
 {_it./language:/document-link/language}
-	{_it./document-date@iso-date}
-	{_it.@format}
-	{_it.@url}
+{_it./document-date@iso-date}
+{_it.@format}
+{_it.@url}
+</pre>
 
 #^/document-link/category
-	{_it.@code}
+{_it.@code}
 #^/document-link/language
-	{_it.@code}
+{_it.@code}
