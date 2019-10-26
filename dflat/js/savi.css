@@ -46,17 +46,17 @@ table.budget	{border-collapse:collapse; table-layout:fixed; text-align:left; wid
 table.budget th	{padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em;}
 table.budget td	{font-size:14px; color:#FFF; line-height:1.35em; vertical-align:top; border-bottom:1px solid #333642; padding:10px 0;}
 table.budget tr:nth-of-type(2) td	{padding-top:15px;}
+table.budget tr:nth-of-type(1) th	{position:sticky; top:0; z-index:1; background-color:#152136f2; padding:10px 0; border-bottom:1px solid #fff;}
 
 table.budget th:first-of-type,
-table.budget td:first-of-type	{width:230px; padding-right:20px;}
-table.budget th:nth-of-type(3),
-table.budget td:nth-of-type(3)	{width:360px; padding-right:20px;}
+table.budget td:first-of-type,
 table.budget th:nth-of-type(2),
 table.budget td:nth-of-type(2),
 table.budget.rec_country th:nth-of-type(2),
-table.budget.rec_country td:nth-of-type(2),
+table.budget.rec_country td:nth-of-type(2)	{width:130px; padding-right:20px;}
+table.budget th:nth-of-type(3),
+table.budget td:nth-of-type(3)				{width:460px; padding-right:20px;}
 table.budget.rec_country th:nth-of-type(3),
-table.budget.rec_country td:nth-of-type(3)	{width:130px; padding-right:20px;}
-
+table.budget.rec_country td:nth-of-type(3),
 table.budget.rec_country th:nth-of-type(4),
 table.budget.rec_country td:nth-of-type(4)	{width:230px; padding-right:20px;}

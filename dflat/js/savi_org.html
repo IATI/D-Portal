@@ -9,10 +9,10 @@
 	<div class="header">ORGANISATION FILE</div>
 
 	<div class="wrap_reporting_org">
-		<div>Reported by</div><div><a href="#">{_it./reporting-org}</a> <span class="org_rep_type">{_it./reporting-org@type}</span></div>
+		<div>Reported by</div><div><a href="#">{_it./reporting-org@ref}</a> <span class="org_rep_type">{_it./reporting-org@type}</span></div>
 	</div>
 
-	<div class="iati_identifier">IATI IDENTIFIER <a href="#">{_it./iati-identifier}</a></div>
+	<div class="org_identifier">Organisation Identifier <a href="#">{_it./organisation-identifier}</a></div>
 
 	<div class="header_doc">DOCUMENTS</div>
 	{_it./document-link:/document-link}
@@ -33,9 +33,9 @@
 	<div class="header_budget">Recipient Country Budgets</div>
 	<table class="budget rec_country">
 		<tr>
-			<th>RECIPIENT COUNTRY</th>
 			<th>PERIOD START</th>
 			<th>PERIOD END</th>
+			<th>RECIPIENT COUNTRY</th>
 			<th>BUDGET LINE</th>
 			<th>VALUE</th>
 		</tr>
@@ -71,9 +71,9 @@
 
 #^/recipient-country-budget
 <tr>
-	<td>{_it./recipient-country}</td>
 	<td>{_it./period-start@iso-date}</td>
 	<td>{_it./period-end@iso-date}</td>
+	<td>{_it./recipient-country}</td>
 	<td>{_it./budget-line.0./narrative.0.text}</td>
 	<td>{_it./value}</td>
 </tr>
