@@ -3,7 +3,7 @@ cd `dirname $0`
 NAME1=dquery
 NAME2=savi
 
-WATCHIFY=node_modules/watchify/bin/cmd.js
+WATCHIFY=../node_modules/watchify/bin/cmd.js
 
 mkdir html/lib
 

@@ -3,7 +3,7 @@
 
 var exs=exports;
 
-var baby = require('babyparse');
+var papa = require('papaparse');
 var csv_write = undefined;//require('json2csv');
 var csv=undefined;//require('csv');
 var util=require('util');
@@ -152,7 +152,7 @@ exs.create_csv = function(){
 	var x=wait.for(https_getbody,"https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/pub?single=true&gid="+13+"&output=csv");
 //	var lines=wait.for( function(cb){ csv().from.string(x).to.array( function(d){ cb(null,d); } ); } ); // so complex, much wow, very node
 //	var lines=wait.for(csv_parse,x);
-	var lines=baby.parse(x).data;
+	var lines=papa.parse(x).data;
 
 
 
@@ -301,7 +301,7 @@ exs.create_csv = function(){
 			var csv_url="https://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate="+year+"-"+month+"-01&reportType=CVSDR&tsvflag=Y"
 			var csv_file=wait.for(https_getbody,csv_url);
 
-			var csv_lines=baby.parse(csv_file,{delimiter:'\t'}).data;
+			var csv_lines=papa.parse(csv_file,{delimiter:'\t'}).data;
 console.log(year + " " + month + " : " + csv_lines.length );
 
 			var active=false;

@@ -3,7 +3,7 @@ cd `dirname $0`
 echo "bake"
 node js/bake.js
 
-WATCHIFY=node_modules/watchify/bin/cmd.js
+WATCHIFY=../node_modules/watchify/bin/cmd.js
 
 echo "watchify"
 $WATCHIFY -v -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js

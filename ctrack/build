@@ -3,8 +3,8 @@ cd `dirname $0`
 echo "bake"
 node js/bake.js
 
-EXORCIST=node_modules/exorcist/bin/exorcist.js
-BROWSERIFY=node_modules/browserify/bin/cmd.js
+EXORCIST=../node_modules/exorcist/bin/exorcist.js
+BROWSERIFY=../node_modules/browserify/bin/cmd.js
 
 echo "browserify"
 

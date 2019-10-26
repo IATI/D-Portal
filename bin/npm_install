@@ -1,18 +1,9 @@
 cd `dirname $0`
 
-cd ../dflat
+cd ..
 rm -rf node_modules
 npm install
 
-cd ../dstore
-rm -rf node_modules
-npm install
-
-cd ../ctrack
-rm -rf node_modules
-npm install
-
-cd ../dportal
-rm -rf node_modules
+cd dportal
 ./upgrade
 

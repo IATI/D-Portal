@@ -24,14 +24,42 @@ var getbody=require("pify")( function(url,cb)
 
 packages.prepare_download=async function(argv)
 {
-	console.log("Preparing \""+argv.dir+"\" directory to fetch upto "+argv.limit+" IATI packages.")
-	
-	var dir_downloaded=path.join(argv.dir,"downloaded")
-	var dir_packages=path.join(argv.dir,"packages")
+	if( argv.source=="datastore")
+	{
+		await packages.prepare_download_datastore(argv)
+	}
+	else
+	{
+		await packages.prepare_download_registry(argv)
+	}
+}
+
+packages.prepare_download_common=async function(argv)
+{
+
+	argv.dir_downloaded=path.join(argv.dir,"downloaded")
+	argv.dir_packages=path.join(argv.dir,"packages")
 
 	await fse.emptyDir(argv.dir) // create output directories
-	await fse.emptyDir(dir_downloaded)
-	await fse.emptyDir(dir_packages)
+	await fse.emptyDir(argv.dir_downloaded)
+	await fse.emptyDir(argv.dir_packages)
+
+}
+
+packages.prepare_download_datastore=async function(argv)
+{
+	console.log("Preparing \""+argv.dir+"\" directory to fetch upto "+argv.limit+" IATI packages from the datastore.")
+	
+	await packages.prepare_download_common(argv)
+
+}
+
+packages.prepare_download_registry=async function(argv)
+{
+	console.log("Preparing \""+argv.dir+"\" directory to fetch upto "+argv.limit+" IATI packages via the registry.")
+	
+	await packages.prepare_download_common(argv)
+	
 
 	var body=JSON.parse( await getbody("https://iatiregistry.org/api/3/action/package_search?rows="+argv.limit) )
 	var results=body.result.results
@@ -48,7 +76,7 @@ packages.prepare_download=async function(argv)
 		var slug=result.name
 		var url=result.resources[0].url
 
-		await fse.writeFile( path.join( dir_packages ,slug+".meta.json") , stringify( result , {space:" "} ) )
+		await fse.writeFile( path.join( argv.dir_packages ,slug+".meta.json") , stringify( result , {space:" "} ) )
 		
 		curl.push("echo Downloading "+slug+" : "+url+" ; curl -s -S -A \"Mozilla/5.0\" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 -k -L -o downloaded/"+slug+".xml \""+url+"\" 2>&1 >/dev/null | tee downloaded/"+slug+".log\n")
 
