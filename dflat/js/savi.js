@@ -32,7 +32,7 @@ savi.start_loaded=function(){
 
 
 // prepare test page
-	let savi_frankenstein=require('../json/test_iati_org.xml.json')
+	let savi_frankenstein=require('../json/test_iati_org_1.json')
 	
 	xson.walk( savi_frankenstein , (it,nn,idx)=>{
 		for(let n of Object.keys(it))
