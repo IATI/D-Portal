@@ -9,6 +9,7 @@ var xson=require("./xson.js")
 if(typeof window !== 'undefined')
 {
 	window.$ = window.jQuery = require("jquery")
+	require("stupid-table-plugin")
 }
 
 savi.plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
@@ -52,5 +53,11 @@ savi.start_loaded=function(){
 	$("html").prepend(savi.plate('<style>{css}</style>')) // load our styles
 	savi.chunks.frankenstein=savi_frankenstein
 	$("body").empty().append(savi.plate('{body}')) // fill in the base body
-	
+
+// apply javascript to rendered html	
+
+// give your table the class of sortable and they will sortable
+	console.log( $("table.sortable") )
+	$("table.sortable").stupidtable()
+
 }

@@ -137,21 +137,21 @@ Fetch remote files and update cached data
 
 >	dflat xml2json filename[.xml] 
 
-Convert activities from filename.xml into filename.json/*
+Convert activities from filename.xml into filename.json
 
 	--output filename.xml.json 
 	Explicit output path/filename.
 
 >	dflat xml2csv filename[.xml] 
 
-Convert activities from filename.xml into filename.csv/*
+Convert activities from filename.xml into filename.csv
 
 	--output filename.csv 
 	Explicit output path/filename.
 
->	dflat json2xml filename[.xml.json] 
+>	dflat json2xml filename[.json] 
 
-Convert activities from filename.json into filename.xml/*
+Convert activities from filename.json into filename.xml
 
 	--output filename.xml 
 	Explicit output path/filename.
@@ -179,13 +179,13 @@ Prepare a data directory to fetch IATI packages into.
 
 >	dflat packages filename
 
-	--dir dataflat
-	Directory to process data in.
-
 Process a downloaded package into multiple files. The file to process 
 should be found in downloads/filename.xml we will then process it 
 and write it into other locations such as packages/ or 
 activities/ in the data directory.
+
+	--dir dataflat
+	Directory to process data in.
 
 `)
 }
