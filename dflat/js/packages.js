@@ -126,6 +126,8 @@ else
 	cat packages.parse | sort -R | parallel -j 0 --bar
 fi
 
+cat packages/*.log >packages.parse.log
+
 `)
 	await fse.chmod(     path.join(argv.dir,"packages.sh") , 0o755 )
 
@@ -135,7 +137,6 @@ fi
 You may now run the bash scripts in \"`+argv.dir+`\" to download and parse packages.
 
 Please make sure you also have curl and parallel installed and available to these scripts.
-
 `)
 
 }
@@ -246,11 +247,12 @@ packages.process_download=async function(argv)
 
 	var dat=await pfs.readFile( path.join(argv.dir,"downloads/"+slug+".xml") ,{ encoding: 'utf8' });
 	var json=dflat.xml_to_xson(dat)
+	
+	dflat.clean(json) // we want cleaned up data
+	
 	await pfs.writeFile( path.join(argv.dir,"packages/"+slug+".json") ,stringify(json,{space:" "}));
 
 	var xjml=xson.to_jml(json)
-//	await pfs.writeFile( path.join(argv.dir,"packages/"+slug+".jml") ,stringify(xjml,{space:" "}));
-
 	var xml=jml.to_xml( xjml )
 	await pfs.writeFile( path.join(argv.dir,"packages/"+slug+".xml") ,xml);
 

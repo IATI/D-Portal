@@ -14,6 +14,13 @@ var database = require("../json/database.json");
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+// trim white space and force lowercase and replace any non alpha or numeric or _ chars with -
+dflat.saneid=function(insaneid)
+{
+	return insaneid.trim().toLowerCase().replace(/\W+/g,"-")
+}
+
+
 // parse the xml string into a flat structure
 dflat.xml_to_xson=function(data)
 {
@@ -222,6 +229,23 @@ dflat.xson_to_xsv=function(data,root,paths)
 	}
 
 	return lines.join("\n")
+}
+
+// perform sanitation work on the input XML
+dflat.clean=function(data)
+{
+	dflat.clean_copy_toplevel_attributes(data)
+}
+
+// copy all the atributes on iati-activities into each sub iati-activitiy
+// and do the same for iati-organisations into iati-organisation
+// so that when these individual activities are removed from their original file
+// we still know what these values where
+dflat.clean_copy_toplevel_attributes=function(data)
+{
+
+
+	return data
 }
 
 
