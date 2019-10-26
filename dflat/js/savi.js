@@ -16,7 +16,7 @@ savi.plated=require("plated").create({},{pfs:{}}) // create a base instance for 
 savi.chunks={}
 savi.plate=function(str){ return savi.plated.chunks.replace(str,savi.chunks) }
 
-savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.html', 'utf8'), savi.chunks )
+savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi_org.html', 'utf8'), savi.chunks )
 savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.css',  'utf8'), savi.chunks )
 
 
@@ -32,7 +32,7 @@ savi.start_loaded=function(){
 
 
 // prepare test page
-	let savi_frankenstein=require('../json/frankenstein.json')
+	let savi_frankenstein=require('../json/test_iati_org.xml.json')
 	
 	xson.walk( savi_frankenstein , (it,nn,idx)=>{
 		for(let n of Object.keys(it))

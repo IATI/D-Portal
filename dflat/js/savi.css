@@ -1,2 +1,62 @@
 #^css
+*			{box-sizing:border-box; font-family:Arial,Helvetica,sans-serif; word-wrap:break-word;}
+body		{background-color:#47506B; margin-top:40px; color:#FFF;}
+a			{text-decoration:none; color:#FFAB5E;}
+a:link		{text-decoration:none; color:#FFAB5E;}
+a:visited	{text-decoration:none; color:#FFAB5E;}
+a:hover		{text-decoration:none; color:#FF7A00;}
+a:active	{text-decoration:none; color:#FFAB5E;}
 
+.activity:nth-of-type(2)	{display:none;}
+.activity	{width:960px; margin:0 auto; padding:40px;}
+.org		{width:960px; margin:0 auto; padding:40px; background-color:rgba(0,14,32,0.7); border-radius:6px;}
+
+.header,
+.header_doc	{font-size:14px; color:#ccc; display:block; border-bottom:1px solid #aaa; padding-bottom:10px; margin-bottom:20px;}
+.header_doc	{border:0; margin:30px 0 0 0;}
+.header_budget	{font-size:20px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:20px 40px; margin:30px 0 25px -50px; width:980px;}
+span.block	{display:block;}
+span.inblock{display:inline-block; vertical-align:top;}
+span.inblock:nth-of-type(n+2)	{padding-left:5px;}
+
+.wrap_reporting_org			{padding-bottom:10px;}
+.wrap_title span,
+.wrap_reporting_org span	{display:block;}
+.wrap_reporting_org div		{display:inline-block; vertical-align:top; padding-right:5px;}
+
+/*	Organisation File	*/
+a.org_doc_link:before	{display:inline-block; vertical-align:top; content:"☰"; border:1px solid #CCC; padding:2px; color:#CCC; margin-right:-24px;}
+a.org_doc_link			{display:block; width:100%; padding:15px 20px; font-size:12px; line-height:1.5em; position:relative; color:#FFF; background-color:rgba(50,58,64,0.6); border:1px solid #656a6f; border-bottom:0;}
+a.org_doc_link:hover	{background-color:rgba(77,88,97,0.6);}
+a.org_doc_link:last-of-type	{border-bottom:1px solid #656a6f;}
+
+.wrap_org_doc_link	{display:inline-block; vertical-align:top; padding-left:34px;}
+span.org_doc_title	{font-size:16px;}
+span.org_doc_title span.inblock:nth-of-type(n+2)	{font-style:italic;}
+span.org_doc_format	{margin-left:10px; color:#CCC; font-size:12px; background-color:rgba(22,24,37,0.6); border-radius:4px; padding:4px 4px 1px 4px;}
+span.org_doc_lang	{display:inline-block; vertical-align:top; margin:7px 8px 0 0; color:#CCC; font-size:13px; text-transform:uppercase;}
+span.org_rep_type	{display:inline-block; vertical-align:middle; color:#CCC; font-size:13px; margin-left:5px;}
+span.org_doc_cat span.inblock,
+span.org_doc_rec span.inblock,
+span.org_doc_date	{display:inline-block; vertical-align:top; margin:5px 5px 0 0; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px 0px 4px; line-height:1.5em;}
+span.org_doc_date	{background-color:rgba(48,71,103,1);}
+span.org_doc_rec span.inblock	{background-color:rgba(22,24,37,0.6);}
+
+table.budget	{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
+table.budget th	{padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em;}
+table.budget td	{font-size:14px; color:#FFF; line-height:1.35em; vertical-align:top; border-bottom:1px solid #333642; padding:10px 0;}
+table.budget tr:nth-of-type(2) td	{padding-top:15px;}
+
+table.budget th:first-of-type,
+table.budget td:first-of-type	{width:230px; padding-right:20px;}
+table.budget th:nth-of-type(3),
+table.budget td:nth-of-type(3)	{width:360px; padding-right:20px;}
+table.budget th:nth-of-type(2),
+table.budget td:nth-of-type(2),
+table.budget.rec_country th:nth-of-type(2),
+table.budget.rec_country td:nth-of-type(2),
+table.budget.rec_country th:nth-of-type(3),
+table.budget.rec_country td:nth-of-type(3)	{width:130px; padding-right:20px;}
+
+table.budget.rec_country th:nth-of-type(4),
+table.budget.rec_country td:nth-of-type(4)	{width:230px; padding-right:20px;}
