@@ -12,35 +12,98 @@
 		<div>Reported by</div><div><a href="#">{_it./reporting-org@ref}</a> <span class="org_rep_type">{_it./reporting-org@type}</span></div>
 	</div>
 
-	<div class="org_identifier">Organisation Identifier <a href="#">{_it./organisation-identifier}</a></div>
+	<div class="org_identifier">Organisation Identifier <a href="#">{_it./organisation-identifier||}</a></div>
 
-	<div class="header_doc">DOCUMENTS</div>
-	{_it./document-link:/document-link}
+	<div id="docs">
+		<div class="header_doc">DOCUMENTS</div>
+		{_it./document-link:/document-link}
+		<div id="result"></div>
+	</div>
 	
-	<div class="header_budget">Total Budgets</div>
-	<table class="budget sortable">
-		<thead>
-			<tr>
-				<th data-sort="string">PERIOD START</th>
-				<th data-sort="string">PERIOD END</th>
-				<th data-sort="string">BUDGET LINE</th>
-				<th data-sort="string">VALUE</th>
-			</tr>
-		</thead>
-		{_it./total-budget:/total-budget}
-	</table>
+	<div id="count">
+		<div class="header_budget">Total Budgets</div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">PERIOD START</th>
+					<th data-sort="string">PERIOD END</th>
+					<th data-sort="string">BUDGET LINE</th>
+					<th data-sort="string">STATUS</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./total-budget:/total-budget}
+		</table>
+		<div id="counter"></div>
+	</div>
 	
-	<div class="header_budget">Recipient Country Budgets</div>
-	<table class="budget rec_country">
-		<tr>
-			<th>PERIOD START</th>
-			<th>PERIOD END</th>
-			<th>RECIPIENT COUNTRY</th>
-			<th>BUDGET LINE</th>
-			<th>VALUE</th>
-		</tr>
-		{_it./recipient-country-budget:/recipient-country-budget}
-	</table>
+	<div id="count">
+		<div class="header_budget">Total Expenditure</div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">PERIOD START</th>
+					<th data-sort="string">PERIOD END</th>
+					<th data-sort="string">EXPENSE LINE</th>
+					<th data-sort="string">STATUS</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./total-expenditure:/total-expenditure}
+		</table>
+		<div id="counter"></div>
+	</div>
+	
+	<div id="count">
+		<div class="header_budget">Recipient Org Budgets</div>
+		<table class="budget rec_country sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">PERIOD START</th>
+					<th data-sort="string">PERIOD END</th>
+					<th data-sort="string">RECIPIENT COUNTRY</th>
+					<th data-sort="string">BUDGET LINE</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./recipient-org-budget:/recipient-org-budget}
+		</table>
+		<div id="counter" class="rec_budget"></div>
+	</div>
+	
+	<div id="count">
+		<div class="header_budget">Recipient Region Budgets</div>
+		<table class="budget rec_country sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">PERIOD START</th>
+					<th data-sort="string">PERIOD END</th>
+					<th data-sort="string">RECIPIENT COUNTRY</th>
+					<th data-sort="string">BUDGET LINE</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./recipient-region-budget:/recipient-region-budget}
+		</table>
+		<div id="counter" class="rec_budget"></div>
+	</div>
+	
+	<div id="count">
+		<div class="header_budget">Recipient Country Budgets</div>
+		<table class="budget rec_country sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">PERIOD START</th>
+					<th data-sort="string">PERIOD END</th>
+					<th data-sort="string">RECIPIENT COUNTRY</th>
+					<th data-sort="string">BUDGET LINE</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./recipient-country-budget:/recipient-country-budget}
+		</table>
+		<div id="counter" class="rec_budget"></div>
+	</div>
 </div>
 
 #^/narrative trim=ends
@@ -56,42 +119,67 @@
 			<span class="org_doc_desc">{_it./description/narrative:/document-link/description/narrative}</span>
 		</span>
 		<span class="block">
-			<span class="org_doc_lang">{_it./language:/document-link/language}</span><span class="org_doc_date">{_it./document-date@iso-date}</span><span class="org_doc_cat">{_it./category:/document-link/category}</span><span class="org_doc_rec">{_it./recipient-country:/document-link/recipient-country}</span>
+			<span class="org_doc_lang">{_it./language:/document-link/language}</span><span class="org_doc_date">{_it./document-date@iso-date||}</span><span class="org_doc_cat">{_it./category:/document-link/category}</span><span class="org_doc_rec">{_it./recipient-country:/document-link/recipient-country}</span>
 		</span>
 	</span>
 </a>
 
 #^/total-budget
-<tr>
+<tr class="row_count">
 	<td>{_it./period-start@iso-date}</td>
 	<td>{_it./period-end@iso-date}</td>
 	<td>{_it./budget-line.0./narrative.0.text||}</td>
-	<td>{_it./value}</td>
+	<td>{_it.@status||}</td>
+	<td>{_it./value||}</td>
+</tr>
+
+#^/total-expenditure
+<tr class="row_count">
+	<td>{_it./period-start@iso-date}</td>
+	<td>{_it./period-end@iso-date}</td>
+	<td>{_it./expense-line.0./narrative.0.text||}</td>
+	<td>{_it.@status||}</td>
+	<td>{_it./value||}</td>
+</tr>
+
+#^/recipient-org-budget
+<tr class="row_count">
+	<td>{_it./period-start@iso-date}</td>
+	<td>{_it./period-end@iso-date}</td>
+	<td>{_it./recipient-org||}</td>
+	<td>{_it./budget-line.0./narrative.0.text||}</td>
+	<td>{_it./value||}</td>
+</tr>
+
+#^/recipient-region-budget
+<tr class="row_count">
+	<td>{_it./period-start@iso-date}</td>
+	<td>{_it./period-end@iso-date}</td>
+	<td>{_it./recipient-region||}</td>
+	<td>{_it./budget-line.0./narrative.0.text||}</td>
+	<td>{_it./value||}</td>
 </tr>
 
 #^/recipient-country-budget
-<tr>
+<tr class="row_count">
 	<td>{_it./period-start@iso-date}</td>
 	<td>{_it./period-end@iso-date}</td>
-	<td>{_it./recipient-country}</td>
-	<td>{_it./budget-line.0./narrative.0.text}</td>
-	<td>{_it./value}</td>
+	<td>{_it./recipient-country||}</td>
+	<td>{_it./budget-line.0./narrative.0.text||}</td>
+	<td>{_it./value||}</td>
 </tr>
-
-#^/document-link/document-date
-{_it.@iso-date}
 
 <!--	New template for multiple items	-->
 #^/document-link/title/narrative
-<span class="inblock">{_it.text}</span>
+<span class="inblock">{_it.text||}</span>
 #^/document-link/description/narrative
-<span class="inblock">{_it.text}</span>
+<span class="inblock">{_it.text||}</span>
 #^/document-link/category
-<span class="inblock">{_it.@code}</span>
+<span class="inblock">{_it.@code||}</span>
 #^/document-link/language
-<span class="inblock">{_it.@code}</span>
+<span class="inblock">{_it.@code||}</span>
 #^/document-link/recipient-country
-<span class="inblock">{_it.@code}</span>
+<span class="inblock">{_it.@code||}</span>
 #^/document-link/recipient-country/narrative
-<span class="inblock">{_it.text}</span>
+<span class="inblock">{_it.text||}</span>
 
