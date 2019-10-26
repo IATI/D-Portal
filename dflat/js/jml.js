@@ -83,15 +83,18 @@ jml.to_xml=function(tree)
 	var ss=[];
 
 	if(!tree){ return; }
-	var f; f=function(it)
+	var f; f=function(it,space)
 	{
 		if("string" == typeof it)
 		{
+			ss.push(space);
 			ss.push(entities.encodeXML(it));
+			ss.push("\n");
 		}
 		else
 		if("object" == typeof it)
 		{
+			ss.push(space);
 			ss.push("<"+it[0]);
 			for(var n in it) // attributes
 			{
@@ -100,10 +103,11 @@ jml.to_xml=function(tree)
 					ss.push(" "+n+"="+"\""+entities.encodeXML( String(it[n]) )+"\"");
 				}
 			}
-			if(it[1]) // child entities
+			if(it[1][0]) // child entities
 			{
 				ss.push(">\n");
-				it[1].forEach(f);
+				it[1].forEach(function(it){return f(it,space+" ")});
+				ss.push(space);
 				ss.push("</"+it[0]+">\n");
 			}
 			else // nothing inside so just close
@@ -112,8 +116,8 @@ jml.to_xml=function(tree)
 			}
 		}
 	};
-	if(tree.forEach) { tree.forEach(f); }
-	else { f(tree); }
+	if(tree.forEach) { tree.forEach(function(it){return f(it,"")}); }
+	else { f(tree,""); }
 	
 	return ss.join("");
 }

@@ -244,14 +244,17 @@ packages.process_download=async function(argv)
 	
 	console.log( "processing "+slug )
 
-	var dat=await pfs.readFile("downloads/"+slug+".xml",{ encoding: 'utf8' });
+	var dat=await pfs.readFile( path.join(argv.dir,"downloads/"+slug+".xml") ,{ encoding: 'utf8' });
 	var json=dflat.xml_to_xson(dat)
-	await pfs.writeFile("packages/"+slug+".json",stringify(json,{space:" "}));
+	await pfs.writeFile( path.join(argv.dir,"packages/"+slug+".json") ,stringify(json,{space:" "}));
 
-	var xml=jml.to_xml( xson.to_jml(json) )
-	await pfs.writeFile("packages/"+slug+".xml",xml);
+	var xjml=xson.to_jml(json)
+//	await pfs.writeFile( path.join(argv.dir,"packages/"+slug+".jml") ,stringify(xjml,{space:" "}));
+
+	var xml=jml.to_xml( xjml )
+	await pfs.writeFile( path.join(argv.dir,"packages/"+slug+".xml") ,xml);
 
 	var csv=dflat.xson_to_xsv(json,"/iati-activities/iati-activity",{"/iati-activities/iati-activity":true})
-	await pfs.writeFile("packages/"+slug+".csv",csv);
+	await pfs.writeFile( path.join(argv.dir,"packages/"+slug+".csv") ,csv);
 
 }

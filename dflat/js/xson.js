@@ -17,16 +17,22 @@ xson.to_jml=function(data)
 			let v=it[n]
 			if( Array.isArray(v) )
 			{
-				let o=jml.manifest_xpath(out,n)
 				if(v.length==1 && "string" == typeof v[0])
 				{
+					let o=jml.manifest_xpath(out,n)
 					o[1].push(v[0])
 				}
 				else
 				{
+					let aa=n.split("/")
+					let ln=aa.pop()
+					let an=aa.join("/")
+					let o=jml.manifest_xpath(out,an)
 					for( let i=0 ; i<v.length ; i++ )
 					{
-						walk( v[i] , o )
+						let it={0:ln,1:[]}
+						o[1].push(it)
+						walk( v[i] , it )
 					}
 				}
 			}
