@@ -12,7 +12,7 @@ xson.to_jml=function(data)
 	var walk
 	walk=function(it,out)
 	{
-		for( let n in it ) // recurse
+		for(const n of Object.keys(it).sort() ) // force order
 		{
 			let v=it[n]
 			if( Array.isArray(v) )

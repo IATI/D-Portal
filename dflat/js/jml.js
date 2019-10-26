@@ -85,7 +85,7 @@ jml.to_xml=function(tree)
 	if(!tree){ return; }
 	var f; f=function(it,space)
 	{
-		if("string" == typeof it)
+		if("string" == typeof it) // this is probably never used
 		{
 			ss.push(space);
 			ss.push(entities.encodeXML(it));
@@ -96,19 +96,28 @@ jml.to_xml=function(tree)
 		{
 			ss.push(space);
 			ss.push("<"+it[0]);
-			for(var n in it) // attributes
+			for(const n of Object.keys(it).sort() ) // force order
 			{
 				if(n!=0 && n!=1)
 				{
 					ss.push(" "+n+"="+"\""+entities.encodeXML( String(it[n]) )+"\"");
 				}
 			}
-			if(it[1][0]) // child entities
+			if(it[1].length>0) // child entities
 			{
-				ss.push(">\n");
-				it[1].forEach(function(it){return f(it,space+" ")});
-				ss.push(space);
-				ss.push("</"+it[0]+">\n");
+				if( (it[1].length==1) && ("string" == typeof it[1][0]) ) // smart wrap if just a single string
+				{
+					ss.push(">");
+					ss.push(entities.encodeXML(it[1][0]));
+					ss.push("</"+it[0]+">\n");
+				}
+				else
+				{
+					ss.push(">\n");
+					it[1].forEach(function(it){return f(it,space+" ")});
+					ss.push(space);
+					ss.push("</"+it[0]+">\n");
+				}
 			}
 			else // nothing inside so just close
 			{
