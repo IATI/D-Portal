@@ -45,6 +45,12 @@ dflat.xml_to_xson=function(data)
 	{
 //		console.log(n+" = "+v)
 		var tn=pretrim(n,op.trim)
+		if(typeof v === 'string')
+		{
+			v=v.trim()
+			v=v.split("\r\n").join("\n") // convert CRLF
+			v=v.split("\r").join("\n") // convert CR
+		}
 		op.store[tn]=v
 	}
 	
@@ -152,7 +158,7 @@ dflat.xson_to_xsv=function(data,root,paths)
 				var s=""+it[root+head]
 				if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") ) // need to escape
 				{
-					s="\""+s.split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string
+					s="\""+s.split("\n").join("\\n").split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string and kill newlines
 				}
 				t.push( s );
 			}
@@ -243,8 +249,55 @@ dflat.clean=function(data)
 // we still know what these values where
 dflat.clean_copy_toplevel_attributes=function(data)
 {
+	if( data["/iati-activities/iati-activity"] )
+	{
+		let ac={}
+		for( const name in data ) // find iati-activities attributes
+		{
+			let aa = name.split("@")
+			if( aa[1] && aa[0]=="/iati-activities")
+			{
+				ac["@"+aa[1]]=data[name]
+			}
+		}
+		for( const act of data["/iati-activities/iati-activity"] )
+		{
+			for( const n in ac )
+			{
+				if( ! act[n] ) // do not destroy existing values
+				{
+					act[n]=ac[n]
+				}
+			}
+		}
+	}
+
+	if( data["/iati-organisations/iati-organisation"] )
+	{
+		let ac={}
+		for( const name in data ) // find iati-activities attributes
+		{
+			let aa = name.split("@")
+			if( aa[1] && aa[0]=="/iati-organisations")
+			{
+				ac["@"+aa[1]]=data[name]
+			}
+		}
+		for( const act of data["/iati-organisations/iati-organisation"] )
+		{
+			for( const n in ac )
+			{
+				if( ! act[n] ) // do not destroy existing values
+				{
+					act[n]=ac[n]
+				}
+			}
+		}
+	}
 
 
+
+	
 	return data
 }
 
