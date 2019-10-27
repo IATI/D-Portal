@@ -45,17 +45,11 @@ packages.prepare_download_common=async function(argv)
 
 	argv.dir_downloads  = path.join(argv.dir,"downloads")
 	argv.dir_packages   = path.join(argv.dir,"packages")
-	argv.dir_publishers = path.join(argv.dir,"publishers")
-	argv.dir_countries  = path.join(argv.dir,"countries")
-	argv.dir_activities = path.join(argv.dir,"activities")
 
 	await fse.emptyDir(argv.dir) // create output directories
 	await fse.emptyDir(argv.dir_downloads)
 	await fse.emptyDir(argv.dir_packages)
-	await fse.emptyDir(argv.dir_publishers)
-	await fse.emptyDir(argv.dir_countries)
-	await fse.emptyDir(argv.dir_activities)
-
+	
 }
 
 packages.prepare_download_common_downloads=async function(argv,downloads)
@@ -240,35 +234,43 @@ packages.prepare_download_registry=async function(argv)
 	await packages.prepare_download_common_downloads(argv,downloads)
 }
 
-packages.process_download_save=async function(argv,json,filename)
+packages.process_download_save=async function(argv,json,basename)
 {
-	await pfs.writeFile( filename+".json" ,stringify(json,{space:" "}));
+	await pfs.writeFile( basename+".json" ,stringify(json,{space:" "}));
 
 	var stats = xson.xpath_stats(json)
-	await pfs.writeFile( filename+".stats.json" ,stringify(stats,{space:" "}));
+	await pfs.writeFile( basename+".stats.json" ,stringify(stats,{space:" "}));
 
 	var xjml=xson.to_jml(json)
 	var xml=jml.to_xml( xjml )
-	await pfs.writeFile( filename+".xml" ,xml);
+	await pfs.writeFile( basename+".xml" ,xml);
 
 	if( json["/iati-activities/iati-activity"] )
 	{
 		var csv=dflat.xson_to_xsv(json,"/iati-activities/iati-activity",{"/iati-activities/iati-activity":true})
-		await pfs.writeFile( filename+".csv" ,csv);
+		await pfs.writeFile( basename+".csv" ,csv);
 	}
 	else
 	if( json["/iati-organisations/iati-organisation"] )
 	{
 		var csv=dflat.xson_to_xsv(json,"/iati-organisations/iati-organisation",{"/iati-organisations/iati-organisation":true})
-		await pfs.writeFile( filename+".csv" ,csv);
+		await pfs.writeFile( basename+".csv" ,csv);
 	}
+}
+
+packages.process_download_link=async function(basename,linkname)
+{
+	await fse.ensureSymlink(basename+".json",      linkname+".json")
+	await fse.ensureSymlink(basename+".stats.json",linkname+".stats.json")
+	await fse.ensureSymlink(basename+".xml"       ,linkname+".xml")
+	await fse.ensureSymlink(basename+".csv"       ,linkname+".csv")
 }
 
 packages.process_download=async function(argv)
 {
-	var slug=argv._[1]
+	let slug=argv._[1]
 		
-	var downloaded_filename=path.join(argv.dir,"downloads/"+slug+".xml")
+	let downloaded_filename=path.join(argv.dir,"downloads/"+slug+".xml")
 	
 	if( ! fs.existsSync( downloaded_filename ) )
 	{
@@ -278,12 +280,12 @@ packages.process_download=async function(argv)
 
 	console.log( "processing "+downloaded_filename )
 	
-	var dat=await pfs.readFile( downloaded_filename ,{ encoding: 'utf8' });
-	var json=dflat.xml_to_xson(dat)
+	let dat=await pfs.readFile( downloaded_filename ,{ encoding: 'utf8' });
+	let json=dflat.xml_to_xson(dat)
 	
 	dflat.clean(json) // we want cleaned up data
 	
-	var basename=path.join(argv.dir,"packages/"+slug)
+	let basename=path.join(argv.dir,"packages/"+slug)
 	await packages.process_download_save( argv , json , basename )
 
 // if we got some activities, spit them out individually
@@ -292,8 +294,20 @@ packages.process_download=async function(argv)
 		await fse.emptyDir(basename)
 		for( const act of json["/iati-activities/iati-activity"] )
 		{
-			var aid=dflat.saneid( act["/iati-identifier"] )
+			let aid=dflat.saneid( act["/iati-identifier"] )
 			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+aid )
+
+// all activities
+			let linkname=path.join(argv.dir,"activities")
+			await packages.process_download_link( basename+"/"+aid , linkname+"/"+aid )
+
+// reporting-orgs
+			let reporting=act["/reporting-org@ref"]
+			if(reporting)
+			{
+				let linkname=path.join(argv.dir,"reporting-orgs/"+dflat.saneid(reporting))
+				await packages.process_download_link( basename+"/"+aid , linkname+"/"+aid )
+			}
 		}
 	}
 }
