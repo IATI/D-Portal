@@ -46,17 +46,18 @@
 		</table>
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
+	
+	<div class="wrap_description">
+		{_it./description:/description}
+	</div>
 </div>
-
-#^/narrative trim=ends
-<span class="narrative">{_it.text}</span>
 
 #^/participating-org
 <tr class="row_count">
 	<td><a href="#">{_it./narrative.0.text||}</a></td>
 	<td>{_it.@ref||}</td>
-	<td>{_it.@role||}</td>
-	<td>{_it.@type||}</td>
+	<td title="{_it.@role-description}">{_it.@role-name||}</td>
+	<td title="{_it.@type-description}">{_it.@type-name||}</td>
 </tr>
 
 #^/document-link
@@ -74,6 +75,10 @@
 	</span>
 </a>
 
+#^/description
+<div class="header">{_it.@type-name}</div>
+<div class="text">{_it./narrative:/narrative}</div>
+
 <!--	New template for multiple items	-->
 #^/document-link/title/narrative
 <span class="inblock">{_it.text||}</span>
@@ -82,4 +87,7 @@
 #^/document-link/category
 <span class="inblock">{_it.@code-name||}</span>
 #^/document-link/language
-<span class="inblock">{_it.@code-name||}</span>
+<span class="inblock">{_it.@code||}</span>
+
+#^/narrative trim=ends
+<span class="narrative">{_it.text}</span>
