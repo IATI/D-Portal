@@ -6,33 +6,80 @@
 
 #^iati-activity
 <div class="activity">
-	<div class="head_title">PROJECT TITLE</div>
+	<div class="header">PROJECT TITLE</div>
 	<div class="wrap_title">{_it./title/narrative:/narrative}</div>
 
-	<div class="wrap_reporting-org">
-		<div>Reported by</div><div><a href="#">{_it./reporting-org/narrative:/narrative}</a></div>
+	<div class="wrap_reporting_org">
+		<div class="text">Reported by</div><div class="reporting_org"><a href="#">{_it./reporting-org/narrative:/narrative}</a></div>
 	</div>
 
-	<div class="iati_identifier">IATI IDENTIFIER <a href="#">{_it./iati-identifier}</a></div>
+	<div class="wrap_iati_identifier">
+		<div class="text">IATI IDENTIFIER <a href="#">{_it./iati-identifier}</a></div>
+		<div class="data_source">
+			<a class="xml" href="#" target="_blank"><span>view source</span> xml</a><a class="dlogs" href="#" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="#" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="#" target="_blank"><span>download</span> csv</a>
+		</div>
+	</div>
 
-	<div class="head_document">RELATED DOCUMENTS</div>
-	{_it./document-link:/document-link}
+	<div class="docs">
+		<div class="header_doc collapsable">DOCUMENTS</div>
+		{_it./document-link:/document-link}
+		<div class="result"></div>
+	</div>
+	
+	<div class="wrap_activity_date">
+		<div class="planned_start"><span>Planned start date</span> {_it./activity-date.2.@iso-date||}</div><div class="actual_start"><span>Actual start date</span> {_it./activity-date.0.@iso-date||}</div>
+		<div class="planned_end"><span>Planned end date</span> {_it./activity-date.3.@iso-date||}</div><div class="actual_end"><span>Actual end date</span> {_it./activity-date.1.@iso-date||}</div>
+	</div>
+	
+	<div class="wrap_participating_org count">
+		<div class="header_section collapsable">WHO'S INVOLVED</div>
+		<table class="budget part_org sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">PARTICIPATING ORG</th>
+					<th data-sort="string">REF</th>
+					<th data-sort="int">ROLE</th>
+					<th data-sort="int">TYPE</th>
+				</tr>
+			</thead>
+			{_it./participating-org:/participating-org}
+		</table>
+		<div class="wrap_counter"><div class="counter"></div></div>
+	</div>
 </div>
 
 #^/narrative trim=ends
-<span class="text">{_it.text}</span>
+<span class="narrative">{_it.text}</span>
+
+#^/participating-org
+<tr class="row_count">
+	<td><a href="#">{_it./narrative.0.text||}</a></td>
+	<td>{_it.@ref||}</td>
+	<td>{_it.@role||}</td>
+	<td>{_it.@type||}</td>
+</tr>
 
 #^/document-link
-<pre>
-{_it./description/narrative:/narrative}
-{_it./category:/document-link/category}
-{_it./language:/document-link/language}
-{_it./document-date@iso-date}
-{_it.@format}
-{_it.@url}
-</pre>
+<a class="doc_link" href="{_it.@url}">
+	<span class="wrap_doc_link">
+		<span class="block">
+			<span class="doc_title">{_it./title/narrative:/document-link/title/narrative}</span><span class="doc_format">{_it.@format}</span>
+		</span>
+		<span class="block">
+			<span class="doc_desc">{_it./description/narrative:/document-link/description/narrative}</span>
+		</span>
+		<span class="block">
+			<span class="doc_lang">{_it./language:/document-link/language}</span><span class="doc_date">{_it./document-date@iso-date||}</span><span class="doc_cat">{_it./category:/document-link/category}</span>
+		</span>
+	</span>
+</a>
 
+<!--	New template for multiple items	-->
+#^/document-link/title/narrative
+<span class="inblock">{_it.text||}</span>
+#^/document-link/description/narrative
+<span class="inblock">{_it.text||}</span>
 #^/document-link/category
-{_it.@code}
+<span class="inblock">{_it.@code||}</span>
 #^/document-link/language
-{_it.@code}
+<span class="inblock">{_it.@code||}</span>

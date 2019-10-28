@@ -12,16 +12,16 @@
 		<div>Reported by</div><div><a href="#">{_it./reporting-org@ref}</a> <span class="org_rep_type">{_it./reporting-org@type}</span></div>
 	</div>
 
-	<div class="org_identifier">Organisation Identifier <a href="#">{_it./organisation-identifier||}</a></div>
+	<div class="identifier">Organisation identifier <a href="#">{_it./organisation-identifier||}</a></div>
 
-	<div id="docs">
-		<div class="header_doc">DOCUMENTS</div>
+	<div class="docs">
+		<div class="header_doc collapsable">DOCUMENTS</div>
 		{_it./document-link:/document-link}
-		<div id="result"></div>
+		<div class="result"></div>
 	</div>
 	
-	<div id="count">
-		<div class="header_budget">Total Budgets</div>
+	<div class="count">
+		<div class="header_section collapsable">Total Budgets</div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -34,11 +34,11 @@
 			</thead>
 			{_it./total-budget:/total-budget}
 		</table>
-		<div id="counter"></div>
+		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 	
-	<div id="count">
-		<div class="header_budget">Total Expenditure</div>
+	<div class="count">
+		<div class="header_section collapsable">Total Expenditure</div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -51,11 +51,11 @@
 			</thead>
 			{_it./total-expenditure:/total-expenditure}
 		</table>
-		<div id="counter"></div>
+		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 	
-	<div id="count">
-		<div class="header_budget">Recipient Org Budgets</div>
+	<div class="count">
+		<div class="header_section collapsable">Recipient Org Budgets</div>
 		<table class="budget rec_country sortable">
 			<thead>
 				<tr>
@@ -68,11 +68,11 @@
 			</thead>
 			{_it./recipient-org-budget:/recipient-org-budget}
 		</table>
-		<div id="counter" class="rec_budget"></div>
+		<div class="wrap_counter rec_budget"><div class="counter"></div></div>
 	</div>
 	
-	<div id="count">
-		<div class="header_budget">Recipient Region Budgets</div>
+	<div class="count">
+		<div class="header_section collapsable">Recipient Region Budgets</div>
 		<table class="budget rec_country sortable">
 			<thead>
 				<tr>
@@ -85,11 +85,11 @@
 			</thead>
 			{_it./recipient-region-budget:/recipient-region-budget}
 		</table>
-		<div id="counter" class="rec_budget"></div>
+		<div class="wrap_counter rec_budget"><div class="counter"></div></div>
 	</div>
 	
-	<div id="count">
-		<div class="header_budget">Recipient Country Budgets</div>
+	<div class="count">
+		<div class="header_section collapsable">Recipient Country Budgets</div>
 		<table class="budget rec_country sortable">
 			<thead>
 				<tr>
@@ -102,7 +102,7 @@
 			</thead>
 			{_it./recipient-country-budget:/recipient-country-budget}
 		</table>
-		<div id="counter" class="rec_budget"></div>
+		<div class="wrap_counter rec_budget"><div class="counter"></div></div>
 	</div>
 </div>
 
@@ -110,16 +110,16 @@
 <span class="text">{_it.text}</span>
 
 #^/document-link
-<a class="org_doc_link" href="{_it.@url}">
-	<span class="wrap_org_doc_link">
+<a class="doc_link" href="{_it.@url}">
+	<span class="wrap_doc_link">
 		<span class="block">
-			<span class="org_doc_title">{_it./title/narrative:/document-link/title/narrative}</span><span class="org_doc_format">{_it.@format}</span>
+			<span class="doc_title">{_it./title/narrative:/document-link/title/narrative}</span><span class="doc_format">{_it.@format}</span>
 		</span>
 		<span class="block">
-			<span class="org_doc_desc">{_it./description/narrative:/document-link/description/narrative}</span>
+			<span class="doc_desc">{_it./description/narrative:/document-link/description/narrative}</span>
 		</span>
 		<span class="block">
-			<span class="org_doc_lang">{_it./language:/document-link/language}</span><span class="org_doc_date">{_it./document-date@iso-date||}</span><span class="org_doc_cat">{_it./category:/document-link/category}</span><span class="org_doc_rec">{_it./recipient-country:/document-link/recipient-country}</span>
+			<span class="doc_lang">{_it./language:/document-link/language}</span><span class="doc_date">{_it./document-date@iso-date||}</span><span class="doc_cat">{_it./category:/document-link/category}</span><span class="doc_rec">{_it./recipient-country:/document-link/recipient-country}</span>
 		</span>
 	</span>
 </a>

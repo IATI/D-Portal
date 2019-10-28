@@ -1,0 +1,8152 @@
+{
+ "/iati-activities/iati-activity": [
+  {
+   "/activity-date": [
+    {
+     "@iso-date": "2017-01-01",
+     "@type": "2"
+    },
+    {
+     "@iso-date": "2017-12-31",
+     "@type": "4"
+    }
+   ],
+   "/activity-scope@code": "4",
+   "/activity-status@code": "3",
+   "/budget": [
+    {
+     "/period-end@iso-date": "2017-12-31",
+     "/period-start@iso-date": "2017-01-01",
+     "/value": "551108264.85",
+     "/value@currency": "USD",
+     "/value@value-date": "2018-06-01"
+    }
+   ],
+   "/capital-spend@percentage": "0",
+   "/collaboration-type@code": "4",
+   "/contact-info": [
+    {
+     "/email": [
+      {
+       "": "IATI@unhcr.org"
+      }
+     ],
+     "/mailing-address": [
+      {
+       "/narrative": [
+        {
+         "": "Case Postale 2500, CH-1211 Genève 2 Dépôt, Suisse"
+        }
+       ]
+      }
+     ],
+     "/organisation/narrative": [
+      {
+       "": "United Nations High Commissioner for Refugees (UNHCR)"
+      }
+     ],
+     "/website": [
+      {
+       "": "http://www.unhcr.org/"
+      }
+     ],
+     "@type": "1"
+    }
+   ],
+   "/default-aid-type": [
+    {
+     "@code": "B02"
+    }
+   ],
+   "/default-finance-type@code": "110",
+   "/default-flow-type@code": "10",
+   "/default-tied-status@code": "5",
+   "/description": [
+    {
+     "/narrative": [
+      {
+       "": "This activity shows details of the UNHCR operation in Uganda for 2017 including the budget, funding, expenditure and results."
+      },
+      {
+       "": "Cette activitémontre les détails de l'opération du HCR en Ouganda pour 2017, y compris le budget, les financements, les dépenses et les résultats.",
+       "@xml:lang": "fr"
+      }
+     ],
+     "@type": "1"
+    },
+    {
+     "/narrative": [
+      {
+       "": "UNHCR, the UN Refugee Agency, is a global organisation dedicated to saving lives, protecting rights and building a better future for refugees, forcibly displaced communities and stateless people."
+      },
+      {
+       "": "Le HCR, l’Agence des Nations Unies pour les réfugiés, est une organisation internationale qui a pour mission de sauver des vies, de protéger les droits des réfugiés et de construire un avenir meilleur pour les réfugiés, les communautés déplacées et les apatrides.",
+       "@xml:lang": "fr"
+      }
+     ],
+     "@type": "3"
+    }
+   ],
+   "/document-link": [
+    {
+     "/category": [
+      {
+       "@code": "A12"
+      }
+     ],
+     "/document-date@iso-date": "2018-11-16",
+     "/language": [
+      {
+       "@code": "en"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Operation Website"
+      }
+     ],
+     "@format": "text/html",
+     "@url": "http://reporting.unhcr.org/node/5129"
+    },
+    {
+     "/category": [
+      {
+       "@code": "A02"
+      }
+     ],
+     "/document-date@iso-date": "2017-01-01",
+     "/language": [
+      {
+       "@code": "en"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "2017 Planning summary"
+      }
+     ],
+     "@format": "application/pdf",
+     "@url": "http://reporting.unhcr.org/sites/default/files/pdfsummaries/GA2017-Uganda-eng.pdf"
+    },
+    {
+     "/category": [
+      {
+       "@code": "A02"
+      }
+     ],
+     "/document-date@iso-date": "2017-01-01",
+     "/language": [
+      {
+       "@code": "fr"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Résumédu plan 2017"
+      }
+     ],
+     "@format": "application/pdf",
+     "@url": "http://reporting.unhcr.org/sites/default/files/pdfsummaries/GA2017-Uganda-fr.pdf"
+    },
+    {
+     "/category": [
+      {
+       "@code": "A08"
+      }
+     ],
+     "/document-date@iso-date": "2017-12-31",
+     "/language": [
+      {
+       "@code": "en"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "2017 Year-end report"
+      }
+     ],
+     "@format": "application/pdf",
+     "@url": "http://reporting.unhcr.org/sites/default/files/pdfsummaries/GR2017-Uganda-eng.pdf"
+    },
+    {
+     "/category": [
+      {
+       "@code": "A08"
+      }
+     ],
+     "/document-date@iso-date": "2017-12-31",
+     "/language": [
+      {
+       "@code": "fr"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Rapport de fin d'année 2017"
+      }
+     ],
+     "@format": "application/pdf",
+     "@url": "http://reporting.unhcr.org/sites/default/files/pdfsummaries/GR2017-Uganda-fr.pdf"
+    },
+    {
+     "/category": [
+      {
+       "@code": "B17"
+      }
+     ],
+     "/document-date@iso-date": "2018-11-16",
+     "/language": [
+      {
+       "@code": "en"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Latest News"
+      }
+     ],
+     "@format": "text/html",
+     "@url": "http://www.unhcr.org/search?page=search&skip=0&docid=&cid=49aea93a7d&coi=UGA&comid=4a098fdd6"
+    },
+    {
+     "/category": [
+      {
+       "@code": "B16"
+      }
+     ],
+     "/document-date@iso-date": "2018-11-16",
+     "/language": [
+      {
+       "@code": "en"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "UNHCR IATI Overview"
+      }
+     ],
+     "@format": "application/pdf",
+     "@url": "http://reporting.unhcr.org/iati"
+    }
+   ],
+   "/humanitarian-scope": [
+    {
+     "/narrative": [
+      {
+       "": "Global Appeal 2017 Update"
+      },
+      {
+       "": "Appel global actualisation 2017",
+       "@xml:lang": "fr"
+      }
+     ],
+     "@code": "GLOBAL-APPEAL-2017-UPDATE",
+     "@type": "2",
+     "@vocabulary": "99",
+     "@vocabulary-uri": "http://reporting.unhcr.org/publications"
+    },
+    {
+     "/narrative": [
+      {
+       "": "BURUNDI SITUATION 2017 Supplementary Appeal January - December 2017"
+      }
+     ],
+     "@code": "BURUNDI-SITUATION-2017",
+     "@type": "2",
+     "@vocabulary": "99",
+     "@vocabulary-uri": "http://reporting.unhcr.org/publications"
+    },
+    {
+     "/narrative": [
+      {
+       "": "SUPPLEMENTARY APPEAL JANUARY - DECEMBER 2017 South Sudan Situation"
+      }
+     ],
+     "@code": "SOUTH-SUDAN-SITUATION-2017",
+     "@type": "2",
+     "@vocabulary": "99",
+     "@vocabulary-uri": "http://reporting.unhcr.org/publications"
+    },
+    {
+     "/narrative": [
+      {
+       "": "BURUNDI REGIONAL REFUGEE RESPONSE PLAN MID YEAR REVISION JANUARY - DECEMBER 2017"
+      }
+     ],
+     "@code": "BURUNDI-REGIONAL-RRP-2017",
+     "@type": "2",
+     "@vocabulary": "99",
+     "@vocabulary-uri": "http://reporting.unhcr.org/publications"
+    },
+    {
+     "/narrative": [
+      {
+       "": "SOUTH SUDAN REGIONAL REFUGEE RESPONSE PLAN - REVISED January - December 2017"
+      }
+     ],
+     "@code": "SOUTH-SUDAN-SITUATION-REGIONAL-RRP-2017",
+     "@type": "2",
+     "@vocabulary": "99",
+     "@vocabulary-uri": "http://reporting.unhcr.org/publications"
+    }
+   ],
+   "/iati-identifier": "XM-DAC-41121-2017-AFR-UGA",
+   "/location": [
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Field Unit"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Kyangwali"
+      }
+     ],
+     "/point/pos": "1.2207 30.8156",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000736"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Country Office"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Kampala"
+      }
+     ],
+     "/point/pos": "0.3348 32.5967",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000362"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Sub-Office"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Mbarara"
+      }
+     ],
+     "/point/pos": "-0.5978 30.6286",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000364"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Field Unit"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Nakivale"
+      }
+     ],
+     "/point/pos": "-0.7815 30.9496",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000738"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Field Unit"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Kyaka II"
+      }
+     ],
+     "/point/pos": "0.3574 31.0814",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000734"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Sub-Office"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Hoima"
+      }
+     ],
+     "/point/pos": "1.4255 31.3556",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000474"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Sub-Office"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Arua"
+      }
+     ],
+     "/point/pos": "3.0149 30.9219",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000361"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Field Unit"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Kiryandongo"
+      }
+     ],
+     "/point/pos": "1.86 32.033",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp003301"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Field Unit"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Kisoro"
+      }
+     ],
+     "/point/pos": "-1.2885 29.6908",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000715"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Sub-Office"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Adjumani-Pakelle"
+      }
+     ],
+     "/point/pos": "3.3591 31.8526",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000360"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Field Unit"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Rwamwanja"
+      }
+     ],
+     "/point/pos": "0.3441 30.6543",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000863"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Field Unit"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Lamwo"
+      }
+     ],
+     "/point/pos": "3.2515 32.5349",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp006979"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Field Unit"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Oruchinga"
+      }
+     ],
+     "/point/pos": "-0.9612 30.6373",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp010043"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Sub-Office"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Moyo"
+      }
+     ],
+     "/point/pos": "3.65 31.724",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp000603"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "UNHCR Sub-Office"
+      }
+     ],
+     "/exactness@code": "1",
+     "/location-class@code": "3",
+     "/location-reach@code": "1",
+     "/name/narrative": [
+      {
+       "": "Yumbe"
+      }
+     ],
+     "/point/pos": "3.471 31.2484",
+     "/point@srsName": "http://www.opengis.net/def/crs/EPSG/0/4326",
+     "@ref": "UGAp006978"
+    }
+   ],
+   "/participating-org": [
+    {
+     "/narrative": [
+      {
+       "": "United Nations High Commissioner for Refugees (UNHCR)"
+      }
+     ],
+     "@ref": "XM-DAC-41121",
+     "@role": "4",
+     "@type": "40"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Australia for UNHCR"
+      }
+     ],
+     "@role": "1",
+     "@type": "70"
+    },
+    {
+     "/narrative": [
+      {
+       "": "España con ACNUR"
+      }
+     ],
+     "@role": "1",
+     "@type": "70"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Japan for UNHCR"
+      }
+     ],
+     "@role": "1",
+     "@type": "70"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Sverige för UNHCR"
+      }
+     ],
+     "@role": "1",
+     "@type": "70"
+    },
+    {
+     "/narrative": [
+      {
+       "": "UNO-Flüchtlingshilfe"
+      }
+     ],
+     "@role": "1",
+     "@type": "70"
+    },
+    {
+     "/narrative": [
+      {
+       "": "USA for UNHCR"
+      }
+     ],
+     "@role": "1",
+     "@type": "70"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Australia - Department of  Foreign Affairs and Trade"
+      }
+     ],
+     "@ref": "AU-5",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Belgian Development Cooperation"
+      }
+     ],
+     "@ref": "XM-DAC-2-10",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Canada - Global Affairs Canada | Affaires mondiales Canada"
+      }
+     ],
+     "@ref": "CA-3",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Denmark - Ministry of Foreign Affairs"
+      }
+     ],
+     "@ref": "XM-DAC-3-1",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "European Commission - Humanitarian Aid&Civil Protection"
+      }
+     ],
+     "@ref": "XI-IATI-EC_ECHO",
+     "@role": "1",
+     "@type": "40"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Finland - Ministry of Foreign Affairs"
+      }
+     ],
+     "@ref": "FI-3",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Germany - Ministry for Economic Cooperation and Development"
+      }
+     ],
+     "@ref": "DE-1",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Government of Austria"
+      }
+     ],
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Government of France"
+      }
+     ],
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Government of Germany"
+      }
+     ],
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Government of Italy"
+      }
+     ],
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Government of Japan"
+      }
+     ],
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Government of Norway"
+      }
+     ],
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Government of the Netherlands"
+      }
+     ],
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Government of the United Arab Emirates"
+      }
+     ],
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Holy See"
+      }
+     ],
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Intergovernmental Authority on Development"
+      }
+     ],
+     "@role": "1",
+     "@type": "40"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Ireland - Department of Foreign Affairs and Trade"
+      }
+     ],
+     "@ref": "XM-DAC-21-1",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Republic of Korea"
+      }
+     ],
+     "@ref": "KR-GOV-021",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Republic of Korea"
+      }
+     ],
+     "@ref": "KR-GOV-021",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Sweden, through Swedish International Development Cooperation Agency (Sida)"
+      }
+     ],
+     "@ref": "SE-0",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Switzerland - Swiss Agency for Development and Cooperation (SDC)"
+      }
+     ],
+     "@ref": "CH-4",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "UK - Department for International Development (DFID)"
+      }
+     ],
+     "@ref": "GB-GOV-1",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "United Nations Central Emergency Response Fund (CERF)"
+      }
+     ],
+     "@ref": "XM-OCHA-CERF",
+     "@role": "1",
+     "@type": "40"
+    },
+    {
+     "/narrative": [
+      {
+       "": "United Nations Foundation"
+      }
+     ],
+     "@ref": "US-EIN-58-2368165",
+     "@role": "1",
+     "@type": "70"
+    },
+    {
+     "/narrative": [
+      {
+       "": "United Nations Population Fund"
+      }
+     ],
+     "@ref": "41119",
+     "@role": "1",
+     "@type": "40"
+    },
+    {
+     "/narrative": [
+      {
+       "": "United States"
+      }
+     ],
+     "@ref": "US-USAGOV",
+     "@role": "1",
+     "@type": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Private donors"
+      }
+     ],
+     "@role": "1",
+     "@type": "70"
+    }
+   ],
+   "/recipient-country": [
+    {
+     "@code": "UG"
+    }
+   ],
+   "/related-activity": [
+    {
+     "@ref": "XM-DAC-41121-2017-AFR",
+     "@type": "1"
+    }
+   ],
+   "/reporting-org/narrative": [
+    {
+     "": "United Nations High Commissioner for Refugees (UNHCR)"
+    }
+   ],
+   "/reporting-org@ref": "XM-DAC-41121",
+   "/reporting-org@type": "40",
+   "/result": [
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "91",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "51.52"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of persons of concern with disabilities who receive services for their specific needs"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Services for persons with specific needs"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "5.1",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "3.79"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "2"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Prevalence of global acute malnutrition (6-59 months)"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Nutrition"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "96.73"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01"
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of livebirths attended by skilled personnel"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Reproductive health and HIV/ Aids response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "50",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "57.69"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "85"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of programme priorities identified by the community that are implemented"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Community mobilization"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "99.9",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "29.54"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Measles vaccination coverage"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "0.2",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0.23"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "0"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Under-5 mortality rate (per 1000 population/month)"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "37.9",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "91.54"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "80"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of primary school-aged children enrolled in primary education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "13.6",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "4.17"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "75"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of secondary school-aged young people enrolled in secondary education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "74.1",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "66.57"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "85"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of households living in adequate dwellings"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Shelter and infrastructure"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "18",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "20"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Average # of litres of potable water available per person per day"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Water"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "70",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "81"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "90"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent community is active in SGBV prevention and survivor centered protection"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "SGBV prevention and response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "0.2",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0.13"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "0"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Under-5 mortality rate (per 1000 population/month)"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "3.1",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "3.79"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "2"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Prevalence of global acute malnutrition (6-59 months)"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Nutrition"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "60",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "85"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of persons of concern identified in need of resettlement submitted for resettlement"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Resettlement"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "70",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "58.75"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "85"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of households living in adequate dwellings"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Shelter and infrastructure"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "97.4",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "96.77"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of livebirths attended by skilled personnel"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Reproductive health and HIV/ Aids response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "75",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "90"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "95"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent persons of concern able to make an informed choice concerning return"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Voluntary return"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "100",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "91"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent community is active in SGBV prevention and survivor centered protection"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "SGBV prevention and response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "48.5",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "39.33"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "75"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of persons of concern with disabilities who receive services for their specific needs"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Services for persons with specific needs"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "65",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "65.15"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "95"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of primary school-aged children enrolled in primary education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "58.2",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "42.56"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "70"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of children aged 3-5 yrs enrolled in early childhood education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "7.9",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "2.41"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "50"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of secondary school-aged young people enrolled in secondary education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "73.8",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "72.44"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "85"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of persons of concern (18-59 yrs) with own business / self-employed for more than 12 months"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "19.8",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "20"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Average # of litres of potable water available per person per day"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Water"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "68.9",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "43.27"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of UASC for whom a best interests process has been initiated or completed"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Child protection"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "70.6",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "62.69"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "80"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of programme priorities identified by the community that are implemented"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Community mobilization"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "23.3",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "50"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% children under 12 months old who have been issued birth certificates by the authorities"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Civil status documentation"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "65",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "75"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent Comprehensive Solutions strategy identified and agreed"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Solutions strategy"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "90",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0.01"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "30"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Average # of days from registration to first instance interview"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Status determination"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "80",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "87"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent known SGBV survivors receive appropriate support"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "SGBV prevention and response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "60",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "77"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "90"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent community is active in SGBV prevention and survivor centered protection"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "SGBV prevention and response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "90",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent children of concern have non-discriminatory access to national child protection and social services"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Child protection"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "45.2",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "69.48"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "80"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of UASC for whom a best interests process has been initiated or completed"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Child protection"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "91.2",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "95"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of programme priorities identified by the community that are implemented"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Community mobilization"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "44",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "40.78"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "50"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of active female participants in leadership/ management structures"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Community mobilization"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "20.5",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "5.2"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of persons of concern identified in need of resettlement submitted for resettlement"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Resettlement"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "53.4",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "75.13"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of older persons of concern who receive services for their specific needs"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Services for persons with specific needs"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "27.2",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "86.92"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "90"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of persons of concern with disabilities who receive services for their specific needs"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Services for persons with specific needs"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "70.4",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "57.07"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "90"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of primary school-aged children enrolled in primary education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "36.4",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "42.46"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "80"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of children aged 3-5 yrs enrolled in early childhood education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "24.5",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "9.09"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "50"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of secondary school-aged young people enrolled in secondary education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "85.5",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "91.81"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of households living in adequate dwellings"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Shelter and infrastructure"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "95",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "93.8"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "98"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of livebirths attended by skilled personnel"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Reproductive health and HIV/ Aids response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "12",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "14.83"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "20"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Average # of litres of potable water available per person per day"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Water"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "0.4",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0.12"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "0"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Under-5 mortality rate (per 1000 population/month)"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "5.3",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "10.56"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "3"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Prevalence of global acute malnutrition (6-59 months)"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Nutrition"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "12.8",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "80"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% children under 12 months old who have been issued birth certificates by the authorities"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Civil status documentation"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "81.7",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "45.95"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of primary school-aged children enrolled in primary education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "41.8",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "50.96"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "70"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of children aged 3-5 yrs enrolled in early childhood education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "37",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "42.2"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "55"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of secondary school-aged young people enrolled in secondary education"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "60",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "72"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of known LGBTI persons of concern who receive services for their specific needs"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Services for persons with specific needs"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "35.8",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "90"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of older persons of concern who receive services for their specific needs"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Services for persons with specific needs"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "32.1",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of persons of concern with disabilities who receive services for their specific needs"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Services for persons with specific needs"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "0",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0.34"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "50"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% children under 12 months old who have been issued birth certificates by the authorities"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Civil status documentation"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "100",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent known SGBV survivors receive appropriate support"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "SGBV prevention and response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "75",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "75"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent community is active in SGBV prevention and survivor centered protection"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "SGBV prevention and response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "34",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "40"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of persons of concern (18-59 yrs) with own business / self-employed for more than 12 months"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "70",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "80"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent persons of concern have formal access to work opportunities in host country"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "100",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent status determination procedure meets minimum procedural standards advocated by UNHCR"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Status determination"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "40.7",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "46.07"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "50"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of active female participants in leadership/ management structures"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Community mobilization"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "101.7",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "89.25"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of persons of concern identified in need of resettlement submitted for resettlement"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Resettlement"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "49.1",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "36.61"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "10"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Prevalence of anaemia in children (6-59 months)"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Nutrition"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "80",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "85"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Extent children of concern have non-discriminatory access to national child protection and social services"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Child protection"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "64.4",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "32.63"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of identified children of concern with specific needs that are assisted"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Child protection"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "50.5",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "10.2"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of UASC for whom a best interests process has been initiated or completed"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Child protection"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/baseline": [
+        {
+         "@value": "45.3",
+         "@year": "2017"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "53.13"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of children with safe access to community spaces for socializing, play, learning, etc."
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Child protection"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "2"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Community management of acute malnutrition programmes implemented and monitored"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "2682"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "1920"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of new admissions to community management of acute malnutrition programmes"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Nutrition"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Community self-management supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "5"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "8"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of community self-management structures strengthened"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Community mobilization"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Environmental health and hygiene campaigns implemented"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "32520"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "32000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of PoC reached by environmental health and hygiene campaigns"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Sanitation and hygiene"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Household sanitary facilities / latrines constructed"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "467"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "5000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of household sanitary facilities/ latrines constructed"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Sanitation and hygiene"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Access to primary health care services provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Access of PoC to national/government primary health care facilities ensured (yes/no)"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Early childhood education provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "1411"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "4600"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of children aged 3-5 enrolled in early childhood education"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Educational infrastructure constructed, improved or maintained"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "27"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "60"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of educational facilities constructed or improved"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Primary education provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "5661"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "12000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of children enrolled in primary education"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Secondary education provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "449"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "500"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of students enrolled in lower secondary education"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Emergency response"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Water system constructed, expanded and/or upgraded"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "6"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "50"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of wells constructed"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Water"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Access to primary health care services provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Access of PoC to national/government primary health care facilities ensured (yes/no)"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Health services to children under 5 delivered"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Integrated management of childhood illness (IMCI) implemented (yes/no)"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Preventative and community-based health care services provided"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "690"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "700"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of community health workers"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Community management of acute malnutrition programmes implemented and monitored"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "7028"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "12000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of new admissions to community management of acute malnutrition programmes"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Nutrition"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Legal assistance provided"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "1088"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "750"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of reported SGBV incidents for which survivors receive legal assistance"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "SGBV prevention and response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Psychosocial counselling provided"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "1619"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "1000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of reported SGBV incidents for which survivors receive psychosocial counselling"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "SGBV prevention and response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Early childhood education provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "15683"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "24061"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of children aged 3-5 enrolled in early childhood education"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Educational infrastructure constructed, improved or maintained"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "323"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "60"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of educational facilities constructed or improved"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Measures to improve primary education quality and learning achievement implemented"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "1.9766114"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "75"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of primary school graduates (successful completion of final grade)"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Measures to improve primary education quality and learning achievement implemented"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "86"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "70"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of children per teacher"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Primary education provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "51385"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "80000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of children enrolled in primary education"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Secondary education provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "15.279362"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "75"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of upper secondary school graduates (successful completion of final grade)"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Access to agricultural / livestock / fisheries production enabled"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "37.573654"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "95"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of households with access to arable land or other productive natural resources"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Access to self employment / business facilitated"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "2967"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "76252"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of PoC provided with entrepreneurship / business training"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Access to training and learning enabled"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "6580"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "76252"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of PoC receiving life-skills training for livelihood purposes"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Vocational training / Technical skills provided"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "84.84487"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of vocational training students who graduate (successful completion and receipt of certification)"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Water system constructed, expanded and/or upgraded"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "235116"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "250000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of PoC served by water system"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Water"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Water system constructed, expanded and/or upgraded"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "9"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "47"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of wells constructed"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Water"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Water system operations maintained"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "238"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "124"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of boreholes / wells rehabilitated"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Water"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Water system operations maintained"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "44"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "57"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of generators / pumps maintained"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Water"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Environmental health and hygiene campaigns implemented"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "121962"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "200000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of PoC reached by environmental health and hygiene campaigns"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Sanitation and hygiene"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Burundian, Congolese, Rwandan, Somali and other refugees  | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Household sanitary facilities / latrines constructed"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "6552"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "12319"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of household sanitary facilities/ latrines constructed"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Sanitation and hygiene"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Psychosocial counselling provided"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "859"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "3000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of reported SGBV incidents for which survivors receive psychosocial counselling"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "SGBV prevention and response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Best interest determination process established and operational"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "27711"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "12000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of best interests assessments conducted"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Child protection"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Early childhood education provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "50126"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "60000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of children aged 3-5 enrolled in early childhood education"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Educational infrastructure constructed, improved or maintained"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "585"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "173"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of educational facilities constructed or improved"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Primary education provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "181282"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "250000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of children enrolled in primary education"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Long-term/ permanent shelter provided and sustained"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "675"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "600"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of long-term/permanent shelters provided"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Shelter and infrastructure"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Environmental health and hygiene campaigns implemented"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "873963"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "550000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of PoC reached by environmental health and hygiene campaigns"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Sanitation and hygiene"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Household sanitary facilities / latrines constructed"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "58395"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "40000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of household sanitary facilities/ latrines constructed"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Sanitation and hygiene"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Access to primary health care services provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "100"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Access of PoC to national/government primary health care facilities ensured (yes/no)"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Referral mechanisms established"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "10358"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "5000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of persons referred to secondary and tertiary medical care"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: South Sudanese refugees and asylum-seekers | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Community management of acute malnutrition programmes implemented and monitored"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "22136"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "20000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of new admissions to community management of acute malnutrition programmes"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Nutrition"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Early childhood education provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "3926"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "11000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of children aged 3-5 enrolled in early childhood education"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Educational infrastructure constructed, improved or maintained"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "15"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of educational facilities constructed or improved"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Primary education provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "13878"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "35000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of children enrolled in primary education"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Specific services for LGBTI persons of concern provided"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "37"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "120"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of known LGBTI PoC receiving specific support"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Services for persons with specific needs"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Access to primary health care services provided or supported"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "96"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Access of PoC to national/government primary health care facilities ensured (yes/no)"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Referral mechanisms established"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "897"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "20000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of persons referred to secondary and tertiary medical care"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Safety and security for SGBV survivors provided"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "424"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "600"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of reported SGBV incidents for which  survivors are provided with a safe space"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "SGBV prevention and response"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Access to Information and Communications Technologies enabled"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "5000"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of PoC provided with e-learning/education/skills training in CTA Centres"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Access to self employment / business facilitated"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "1500"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of small business associations formed / supported"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Access to self employment / business facilitated"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "1500"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of PoC provided with entrepreneurship / business training"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Strategy developed and implemented"
+        }
+       ],
+       "/period": [
+        {
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "30"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "% of participants in livelihood-support projects from host communities"
+        }
+       ],
+       "@measure": "2"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Strategy developed and implemented"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "100"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "Strategic plan for livelihoods programming informed by assessment (yes/no)"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Vocational training / Technical skills provided"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "0"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "1200"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of PoC enrolled in formal national insitutions for certified skills training"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Self-reliance and livelihoods"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Participatory Approach implemented"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "1"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "4"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of participatory assessments conducted"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Community mobilization"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Resettlement departures arranged"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "373"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "150"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of persons for whom UNHCR made interventions to faciliate their departures"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Resettlement"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Resettlement files submitted"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "237"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "150"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of Resettlement Registration Forms (RRFs) submitted"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Resettlement"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Population targeted: Refugees and asylum-seekers (urban) | Goal: Protection and mixed solutions"
+      }
+     ],
+     "/indicator": [
+      {
+       "/description/narrative": [
+        {
+         "": "Related output: Best interest determination process established and operational"
+        }
+       ],
+       "/period": [
+        {
+         "/actual": [
+          {
+           "@value": "70"
+          }
+         ],
+         "/period-end@iso-date": "2017-12-31",
+         "/period-start@iso-date": "2017-01-01",
+         "/target": [
+          {
+           "@value": "500"
+          }
+         ]
+        }
+       ],
+       "/title/narrative": [
+        {
+         "": "# of best interests assessments conducted"
+        }
+       ],
+       "@measure": "1"
+      }
+     ],
+     "/title/narrative": [
+      {
+       "": "Child protection"
+      }
+     ],
+     "@aggregation-status": "0",
+     "@type": "1"
+    }
+   ],
+   "/sector": [
+    {
+     "/narrative": [
+      {
+       "": "Pillar 1: Refugee programme"
+      }
+     ],
+     "@code": "1",
+     "@percentage": "99.96",
+     "@vocabulary": "99"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Pillar 2: Stateless programme"
+      }
+     ],
+     "@code": "2",
+     "@percentage": "0.04",
+     "@vocabulary": "99"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Law and policy developed or strengthened"
+      }
+     ],
+     "@code": "111",
+     "@percentage": "0.00",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Access to legal assistance and legal remedies improved"
+      }
+     ],
+     "@code": "113",
+     "@percentage": "0.64",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Access to the territory improved and risk of refoulement reduced"
+      }
+     ],
+     "@code": "114",
+     "@percentage": "0.24",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Reception conditions improved"
+      }
+     ],
+     "@code": "210",
+     "@percentage": "4.35",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Quality of registration and profiling improved or maintained"
+      }
+     ],
+     "@code": "212",
+     "@percentage": "2.99",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Access to and quality of status determination procedures improved"
+      }
+     ],
+     "@code": "213",
+     "@percentage": "0.23",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Level of individual documentation increased"
+      }
+     ],
+     "@code": "214",
+     "@percentage": "0.21",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Civil registration and civil status documentation strengthened"
+      }
+     ],
+     "@code": "215",
+     "@percentage": "0.28",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Protection from crime strengthened"
+      }
+     ],
+     "@code": "310",
+     "@percentage": "0.71",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Risk of SGBV is reduced and quality of response improved"
+      }
+     ],
+     "@code": "312",
+     "@percentage": "1.59",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Protection of children strengthened"
+      }
+     ],
+     "@code": "314",
+     "@percentage": "1.41",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Health status of the population improved"
+      }
+     ],
+     "@code": "410",
+     "@percentage": "11.02",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Population has optimal access to reproductive health and HIV services"
+      }
+     ],
+     "@code": "411",
+     "@percentage": "1.40",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Nutritional well-being improved"
+      }
+     ],
+     "@code": "412",
+     "@percentage": "0.83",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Food security improved"
+      }
+     ],
+     "@code": "413",
+     "@percentage": "0.21",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Supply of potable water increased or maintained"
+      }
+     ],
+     "@code": "414",
+     "@percentage": "20.01",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Population lives in satisfactory conditions of sanitation and hygiene"
+      }
+     ],
+     "@code": "415",
+     "@percentage": "2.94",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Shelter and infrastructure established, improved and maintained"
+      }
+     ],
+     "@code": "416",
+     "@percentage": "9.05",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Population has sufficient access to energy"
+      }
+     ],
+     "@code": "417",
+     "@percentage": "0.70",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Population has sufficient basic and domestic items"
+      }
+     ],
+     "@code": "418",
+     "@percentage": "7.00",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Services for persons with specific needs strengthened"
+      }
+     ],
+     "@code": "419",
+     "@percentage": "2.32",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Population has optimal access to education"
+      }
+     ],
+     "@code": "420",
+     "@percentage": "7.79",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Community mobilization strengthened and expanded"
+      }
+     ],
+     "@code": "510",
+     "@percentage": "1.46",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Peaceful co-existence with local communities promoted"
+      }
+     ],
+     "@code": "511",
+     "@percentage": "2.13",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Natural resources and shared environment better protected"
+      }
+     ],
+     "@code": "512",
+     "@percentage": "0.68",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Self reliance and livelihoods improved"
+      }
+     ],
+     "@code": "513",
+     "@percentage": "3.46",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Comprehensive Solutions strategy developed, strengthened or updated"
+      }
+     ],
+     "@code": "610",
+     "@percentage": "0.13",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Potential for voluntary return realized"
+      }
+     ],
+     "@code": "611",
+     "@percentage": "0.58",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Potential for integration realized"
+      }
+     ],
+     "@code": "613",
+     "@percentage": "0.44",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Potential for resettlement realized"
+      }
+     ],
+     "@code": "614",
+     "@percentage": "0.59",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Coordination and partnerships strengthened"
+      }
+     ],
+     "@code": "710",
+     "@percentage": "1.21",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Camp management and coordination refined and improved"
+      }
+     ],
+     "@code": "711",
+     "@percentage": "0.50",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Logistics and supply optimized to serve operational needs"
+      }
+     ],
+     "@code": "810",
+     "@percentage": "7.04",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Operations management, coordination and support strengthened and optimized"
+      }
+     ],
+     "@code": "811",
+     "@percentage": "5.86",
+     "@vocabulary": "98"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Material relief assistance and services"
+      }
+     ],
+     "@code": "72010",
+     "@percentage": "62.23",
+     "@vocabulary": "1"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Emergency food aid"
+      }
+     ],
+     "@code": "72040",
+     "@percentage": "1.03",
+     "@vocabulary": "1"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Relief co-ordination; protection and support services"
+      }
+     ],
+     "@code": "72050",
+     "@percentage": "31.68",
+     "@vocabulary": "1"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Reconstruction relief and rehabilitation"
+      }
+     ],
+     "@code": "73010",
+     "@percentage": "5.06",
+     "@vocabulary": "1"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Camp Coordination / Management"
+      }
+     ],
+     "@code": "1",
+     "@percentage": "0.55",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Early Recovery"
+      }
+     ],
+     "@code": "2",
+     "@percentage": "5.59",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Education"
+      }
+     ],
+     "@code": "3",
+     "@percentage": "8.38",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Emergency Shelter and NFI"
+      }
+     ],
+     "@code": "4",
+     "@percentage": "18.03",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Health"
+      }
+     ],
+     "@code": "7",
+     "@percentage": "13.36",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Logistics"
+      }
+     ],
+     "@code": "8",
+     "@percentage": "7.57",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Nutrition"
+      }
+     ],
+     "@code": "9",
+     "@percentage": "1.11",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Emergency Shelter and NFI"
+      }
+     ],
+     "@code": "10",
+     "@percentage": "2.49",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Protection"
+      }
+     ],
+     "@code": "10",
+     "@percentage": "14.27",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Water Sanitation Hygiene"
+      }
+     ],
+     "@code": "11",
+     "@percentage": "24.69",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Child Protection"
+      }
+     ],
+     "@code": "5403",
+     "@percentage": "1.52",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Gender Based Violence"
+      }
+     ],
+     "@code": "5404",
+     "@percentage": "1.71",
+     "@vocabulary": "10"
+    },
+    {
+     "/narrative": [
+      {
+       "": "Housing, Land and Property"
+      }
+     ],
+     "@code": "5405",
+     "@percentage": "0.73",
+     "@vocabulary": "10"
+    }
+   ],
+   "/title/narrative": [
+    {
+     "": "UNHCR Operation in Uganda (2017)"
+    },
+    {
+     "": "L'opération du HCR en Ouganda (2017)",
+     "@xml:lang": "fr"
+    }
+   ],
+   "/transaction": [
+    {
+     "/provider-org/narrative": [
+      {
+       "": "United Nations Central Emergency Response Fund (CERF)"
+      }
+     ],
+     "/provider-org@ref": "XM-OCHA-CERF",
+     "/provider-org@type": "40",
+     "/transaction-date@iso-date": "2017-03-13",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "4651651.00",
+     "/value": "4651651.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-03-13"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "European Commission - Humanitarian Aid&Civil Protection"
+      }
+     ],
+     "/provider-org@ref": "XI-IATI-EC_ECHO",
+     "/provider-org@type": "40",
+     "/transaction-date@iso-date": "2017-09-06",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "11418269.23",
+     "/value": "9500000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-09-06"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "European Commission - Humanitarian Aid&Civil Protection"
+      }
+     ],
+     "/provider-org@ref": "XI-IATI-EC_ECHO",
+     "/provider-org@type": "40",
+     "/transaction-date@iso-date": "2017-06-21",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "12318029.12",
+     "/value": "11000000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-06-21"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "European Commission - Humanitarian Aid&Civil Protection"
+      }
+     ],
+     "/provider-org@ref": "XI-IATI-EC_ECHO",
+     "/provider-org@type": "40",
+     "/transaction-date@iso-date": "2017-03-13",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "3181336.16",
+     "/value": "3000000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-03-13"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Holy See"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-09-20",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "5000.00",
+     "/value": "5000.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-09-20"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "United Nations Population Fund"
+      }
+     ],
+     "/provider-org@ref": "41119",
+     "/provider-org@type": "40",
+     "/transaction-date@iso-date": "2017-10-24",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "49491.00",
+     "/value": "49491.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-10-24"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Canada - Global Affairs Canada | Affaires mondiales Canada"
+      }
+     ],
+     "/provider-org@ref": "CA-3",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-03-28",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1486988.85",
+     "/value": "2000000.00",
+     "/value@currency": "CAD",
+     "/value@value-date": "2017-03-28"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Canada - Global Affairs Canada | Affaires mondiales Canada"
+      }
+     ],
+     "/provider-org@ref": "CA-3",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-10-20",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "801924.62",
+     "/value": "1000000.00",
+     "/value@currency": "CAD",
+     "/value@value-date": "2017-10-20"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "United States"
+      }
+     ],
+     "/provider-org@ref": "US-USAGOV",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-09-11",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "534605.00",
+     "/value": "534605.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-09-11"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "United States"
+      }
+     ],
+     "/provider-org@ref": "US-USAGOV",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-03-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "29000000.00",
+     "/value": "29000000.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-03-31"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "United States"
+      }
+     ],
+     "/provider-org@ref": "US-USAGOV",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-05-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "17000000.00",
+     "/value": "17000000.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-05-31"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "United States"
+      }
+     ],
+     "/provider-org@ref": "US-USAGOV",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-04-28",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "25400000.00",
+     "/value": "25400000.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-04-28"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "United States"
+      }
+     ],
+     "/provider-org@ref": "US-USAGOV",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-09-26",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "687665.00",
+     "/value": "687665.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-09-26"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "United States"
+      }
+     ],
+     "/provider-org@ref": "US-USAGOV",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-07-21",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "18700000.00",
+     "/value": "18700000.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-07-21"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "United States"
+      }
+     ],
+     "/provider-org@ref": "US-USAGOV",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-01-25",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "25200000.00",
+     "/value": "25200000.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-01-25"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "UK - Department for International Development (DFID)"
+      }
+     ],
+     "/provider-org@provider-activity-id": "GB-GOV-1-300357",
+     "/provider-org@ref": "GB-GOV-1",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-07-19",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "18134715.03",
+     "/value": "14000000.00",
+     "/value@currency": "GBP",
+     "/value@value-date": "2017-07-19"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Australia - Department of  Foreign Affairs and Trade"
+      }
+     ],
+     "/provider-org@ref": "AU-5",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-06-07",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "3728560.78",
+     "/value": "5000000.00",
+     "/value@currency": "AUD",
+     "/value@value-date": "2017-06-07"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of the United Arab Emirates"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-11-01",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1424357.00",
+     "/value": "1424357.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-11-01"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of the United Arab Emirates"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-09-18",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "167760.00",
+     "/value": "167760.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-09-18"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Switzerland - Swiss Agency for Development and Cooperation (SDC)"
+      }
+     ],
+     "/provider-org@ref": "CH-4",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2016-12-12",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "986193.29",
+     "/value": "1000000.00",
+     "/value@currency": "CHF",
+     "/value@value-date": "2016-12-12"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Denmark - Ministry of Foreign Affairs"
+      }
+     ],
+     "/provider-org@ref": "XM-DAC-3-1",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2016-12-12",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "4475100.74",
+     "/value": "31361506.00",
+     "/value@currency": "DKK",
+     "/value@value-date": "2016-12-12"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of Austria"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-09-04",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1802884.62",
+     "/value": "1500000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-09-04"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of Norway"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-07-07",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "592979.13",
+     "/value": "5000000.00",
+     "/value@currency": "NOK",
+     "/value@value-date": "2017-07-07"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of Norway"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-08-23",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1885369.53",
+     "/value": "15000000.00",
+     "/value@currency": "NOK",
+     "/value@value-date": "2017-08-23"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of the Netherlands"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-11-23",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1137656.00",
+     "/value": "1137656.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-11-23"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Republic of Korea"
+      }
+     ],
+     "/provider-org@ref": "KR-GOV-021",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-09-11",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1166667.00",
+     "/value": "1166667.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-09-11"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of Germany"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-07-25",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "568828.21",
+     "/value": "500000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-07-25"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of Germany"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-05-29",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "100000.00",
+     "/value": "92100.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-05-29"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of Germany"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-06-28",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "14557670.77",
+     "/value": "13000000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-06-28"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Germany - Ministry for Economic Cooperation and Development"
+      }
+     ],
+     "/provider-org@ref": "DE-1",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2016-05-23",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1133786.85",
+     "/value": "1000000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2016-05-23"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Finland - Ministry of Foreign Affairs"
+      }
+     ],
+     "/provider-org@ref": "FI-3",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-03-30",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1067235.86",
+     "/value": "1000000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-03-30"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Sweden, through Swedish International Development Cooperation Agency (Sida)"
+      }
+     ],
+     "/provider-org@ref": "SE-0",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-03-23",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1676539.62",
+     "/value": "15000000.00",
+     "/value@currency": "SEK",
+     "/value@value-date": "2017-03-23"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Sweden, through Swedish International Development Cooperation Agency (Sida)"
+      }
+     ],
+     "/provider-org@ref": "SE-0",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-06-28",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "108679.00",
+     "/value": "108679.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-06-28"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of Japan"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-06-22",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "4000000.00",
+     "/value": "4000000.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-06-22"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of Japan"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-02-14",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "2584000.00",
+     "/value": "2584000.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-02-14"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of France"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-05-15",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "150000.00",
+     "/value": "150000.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-05-15"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Government of Italy"
+      }
+     ],
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-01-12",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1046025.10",
+     "/value": "1000000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-01-12"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Ireland - Department of Foreign Affairs and Trade"
+      }
+     ],
+     "/provider-org@ref": "XM-DAC-21-1",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-07-26",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "669188.85",
+     "/value": "588217.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-07-26"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Ireland - Department of Foreign Affairs and Trade"
+      }
+     ],
+     "/provider-org@ref": "XM-DAC-21-1",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-11-27",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "871080.14",
+     "/value": "750000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-11-27"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Ireland - Department of Foreign Affairs and Trade"
+      }
+     ],
+     "/provider-org@ref": "XM-DAC-21-1",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-09-20",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "340476.00",
+     "/value": "340476.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-09-20"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Belgian Development Cooperation"
+      }
+     ],
+     "/provider-org@ref": "XM-DAC-2-10",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2016-12-09",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "398090.23",
+     "/value": "375001.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2016-12-09"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Belgian Development Cooperation"
+      }
+     ],
+     "/provider-org@provider-activity-id": "XM-DAC-2-10-1225",
+     "/provider-org@ref": "XM-DAC-2-10",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2017-07-26",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1137656.43",
+     "/value": "1000000.00",
+     "/value@currency": "EUR",
+     "/value@value-date": "2017-07-26"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Republic of Korea"
+      }
+     ],
+     "/provider-org@ref": "KR-GOV-021",
+     "/provider-org@type": "10",
+     "/transaction-date@iso-date": "2016-12-12",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1066667.00",
+     "/value": "1066667.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2016-12-12"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in Switzerland"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "95622.61",
+     "/value": "95622.61",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in Republic of Korea"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "14909.27",
+     "/value": "14909.27",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in Italy"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "516431.16",
+     "/value": "516431.16",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in the United States of America"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "2657340.04",
+     "/value": "2657340.04",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "United Nations Foundation"
+      }
+     ],
+     "/provider-org@ref": "US-EIN-58-2368165",
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-21",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "200000.00",
+     "/value": "200000.00",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-21"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in Canada"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "176134.15",
+     "/value": "176134.15",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in Ireland"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "120.19",
+     "/value": "120.19",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in Germany"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "315500.23",
+     "/value": "315500.23",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in Australia"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "887973.80",
+     "/value": "887973.80",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in Qatar"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "1441309.26",
+     "/value": "1441309.26",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in the United Kingdom of Great Britain and Northern Ireland"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "787.94",
+     "/value": "787.94",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/provider-org/narrative": [
+      {
+       "": "Intergovernmental Authority on Development"
+      }
+     ],
+     "/provider-org@type": "40",
+     "/transaction-date@iso-date": "2017-07-17",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "246798.71",
+     "/value": "246798.71",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-07-17"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Annual contribution summary"
+      }
+     ],
+     "/provider-org/narrative": [
+      {
+       "": "Private donors in Uganda"
+      }
+     ],
+     "/provider-org@type": "70",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "11",
+     "/unhcr:value-USD": "5369.91",
+     "/value": "5369.91",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Total expenditure under Pillar 1: Refugee programme"
+      }
+     ],
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "4",
+     "/value": "103237977.10",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Total expenditure under Pillar 2: Stateless programme"
+      }
+     ],
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "4",
+     "/value": "17628.24",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Total disbursement to International NGO partners for Pillar 1: Refugee programme"
+      }
+     ],
+     "/receiver-org/narrative": [
+      {
+       "": "International NGO"
+      }
+     ],
+     "/receiver-org@type": "21",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "3",
+     "/value": "83085936.28",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Total disbursement to National NGO partners for Pillar 1: Refugee programme"
+      }
+     ],
+     "/receiver-org/narrative": [
+      {
+       "": "National NGO"
+      }
+     ],
+     "/receiver-org@type": "22",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "3",
+     "/value": "2579053.11",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Total disbursement to Multilateral partners for Pillar 1: Refugee programme"
+      }
+     ],
+     "/receiver-org/narrative": [
+      {
+       "": "Multilateral"
+      }
+     ],
+     "/receiver-org@type": "40",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "3",
+     "/value": "881813.85",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    },
+    {
+     "/description/narrative": [
+      {
+       "": "Total disbursement to Governmental partners for Pillar 1: Refugee programme"
+      }
+     ],
+     "/receiver-org/narrative": [
+      {
+       "": "Government"
+      }
+     ],
+     "/receiver-org@type": "10",
+     "/transaction-date@iso-date": "2017-12-31",
+     "/transaction-type@code": "3",
+     "/value": "14886709.30",
+     "/value@currency": "USD",
+     "/value@value-date": "2017-12-31"
+    }
+   ],
+   "@default-currency": "USD",
+   "@generated-datetime": "2018-11-16T15:44:45.970000+00:00",
+   "@hierarchy": "3",
+   "@humanitarian": "1",
+   "@last-updated-datetime": "2018-11-16T15:44:45.970000+00:00",
+   "@version": "2.03",
+   "@xml:lang": "en",
+   "@xmlns:unhcr": "http://reporting.unhcr.org/"
+  }
+ ],
+ "/iati-activities@xmlns:iati-extra": "http://datastore.iatistandard.org/ns"
+}
