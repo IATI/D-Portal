@@ -59,6 +59,7 @@ savi.start_loaded=function(){
 				cm=cm[0] // first item
 				if(!cm.condition) // only the simple codemaps
 				{
+					n=toString(n).toUpperCase()
 					let m=codelists["en-name"][cm.codelist]
 					if(m) // check it was a valid codelist
 					{
