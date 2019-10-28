@@ -30,6 +30,42 @@ stats.db = function(){
 	return stats.pg_db;
 };
 
+
+stats.compress_table = function(tab){
+
+// delete the first few days that had bad data
+	for( var i=17992 ; i<17998 ; i++ )
+	{
+		if(tab[i])
+		{
+			delete tab[i]
+		}
+	}
+
+
+// remove all middle values, only keep the days where the value changes
+
+	var prev=[]
+	var days = Object.keys(tab).sort()
+	for( let day of days )
+	{
+		prev[0]=prev[1]
+		prev[1]=prev[2]
+		prev[2]={ day:day , value:tab[day] }
+
+		if( prev[0] && prev[1] && prev[2] )
+		{
+			if( (prev[0].value==prev[1].value) && (prev[1].value==prev[2].value) )
+			{
+				delete tab[ prev[1].day ]
+			}
+		}
+		
+	}
+
+
+}
+
 stats.fill = async function(ret,opts){
 	
 	let xpathroot="/"
@@ -90,17 +126,21 @@ stats.fill = async function(ret,opts){
 				
 				rn.count=rn.count || {}
 				rn.count[day]=rc[0].cc
+				stats.compress_table(rn.count)
 
 				rn.activities=rn.activities || {}
 				rn.activities[day]=rc[0].ca
+				stats.compress_table(rn.activities)
 
 	if(!opts.pid)
 	{
 				rn.publishers=rn.publishers || {}
 				rn.publishers[day]=rc[0].cp
+				stats.compress_table(rn.publishers)
 	}
 				rn.distinct=rn.distinct || {}
 				rn.distinct[day]=rc[0].cd
+				stats.compress_table(rn.distinct)
 
 				rn.top=rt
 
@@ -125,9 +165,7 @@ stats.cmd = async function(argv){
 // fix pid so it can be used as a filename	
 	var clean=function(s)
 	{
-		s=s.split("/").join("_")
-		s=s.split(":").join("_")
-		return s
+		return s.trim().toLowerCase().replace(/\W+/g,"-")
 	}
 	
 

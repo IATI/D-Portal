@@ -270,6 +270,13 @@
                "type": "xs:anyURI"
               },
               {
+               "0": "xs:element",
+               "maxOccurs": "1",
+               "minOccurs": "0",
+               "name": "category",
+               "type": "textType"
+              },
+              {
                "0": "xs:any",
                "maxOccurs": "unbounded",
                "minOccurs": "0",
@@ -1023,6 +1030,69 @@
      "0": "xsd:anyAttribute",
      "namespace": "##other",
      "processContents": "lax"
+    }
+   ]
+  },
+  {
+   "0": "xsd:complexType",
+   "name": "currencyType",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "Data type for an element containing a currency value."
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xsd:simpleContent",
+     "1": [
+      {
+       "0": "xsd:extension",
+       "base": "xsd:decimal",
+       "1": [
+        {
+         "0": "xsd:attribute",
+         "ref": "currency",
+         "use": "optional"
+        },
+        {
+         "0": "xsd:attribute",
+         "ref": "value-date",
+         "use": "required"
+        },
+        {
+         "0": "xsd:anyAttribute",
+         "namespace": "##other",
+         "processContents": "lax"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xsd:attribute",
+   "name": "currency",
+   "type": "xsd:string",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "A three letter ISO 4217 code for the original currency of the\n        amount. This is required for all currency amounts unless\n        the iati-organisation/\\@default-currency attribute is\n        specified."
+       ]
+      }
+     ]
     }
    ]
   },
