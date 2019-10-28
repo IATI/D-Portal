@@ -36,10 +36,10 @@
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
-					<th data-sort-value="{_it./narrative.0.text}">PARTICIPATING ORG</th>
-					<th data-sort-value="{_it.@ref}">REF</th>
-					<th data-sort-value="{_it.@role}">ROLE</th>
-					<th data-sort-value="{_it.@type}">TYPE</th>
+					<th data-sort="string">PARTICIPATING ORG</th>
+					<th data-sort="string">REF</th>
+					<th data-sort="int">ROLE</th>
+					<th data-sort="int">TYPE</th>
 				</tr>
 			</thead>
 			{_it./participating-org:/participating-org}
@@ -56,8 +56,8 @@
 <tr class="row_count">
 	<td><a href="#">{_it./narrative.0.text||}</a></td>
 	<td>{_it.@ref||}</td>
-	<td title="{_it.@role-description}">{_it.@role-name||}</td>
-	<td title="{_it.@type-description}">{_it.@type-name||}</td>
+	<td title="{_it.@role-description}" data-sort-value="{_it.@role}">{_it.@role-name||}</td>
+	<td title="{_it.@type-description}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
 
 #^/document-link
