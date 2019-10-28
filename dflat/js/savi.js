@@ -31,19 +31,39 @@ savi.start=function(opts){
 
 savi.start_loaded=function(){
 
+	let codelists=require('../json/codelists.json')
+	let codemap=require('../json/codemap.json')
 
 // prepare test page
 	let savi_frankenstein=require('../json/test_org_4.json')
 	
 	xson.walk( savi_frankenstein , (it,nn,idx)=>{
-		for(let n of Object.keys(it))
+		let nb=nn.join("")
+		for(let n of Object.keys(it)) // this caches the keys so we can modify
 		{
 			let v=it[n]
 			if(!Array.isArray(v)) // only rename if not an array
 			{
 				if(n=="") { it.text=v }
-				if(n=="@xml:lang") { it["@lang"]=v }
+				let na=n.replace(/(\w+):/g,"") // remove namespace if it exists
+				if( (na!=n) && (!it[na]) ) // safe to include without namespace
+				{
+					it[na]=v
+				}
 			}
+			let cm=codemap[nb+n]
+			if(cm) // we have a code to map
+			{
+				if(!cm.condition) // only the simple codemaps
+				{
+					let m=codelists["en-name"][cm.codelist]
+					if(m) // check it was a valid codelist
+					{
+						it[n+"-name"]=m[v] || v
+					}
+				}
+			}
+
 		}
 	})
 
