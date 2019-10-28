@@ -49,6 +49,7 @@ savi.start_loaded=function(){
 				let na=n.replace(/(\w+):/g,"") // remove namespace if it exists
 				if( (na!=n) && (!it[na]) ) // safe to include without namespace
 				{
+//					console.log("map "+n+" -> "+na)
 					it[na]=v
 				}
 			}
@@ -62,6 +63,11 @@ savi.start_loaded=function(){
 					if(m) // check it was a valid codelist
 					{
 						it[n+"-name"]=m[v] || v
+					}
+					m=codelists["en-description"][cm.codelist]
+					if(m) // check it was a valid codelist
+					{
+						it[n+"-description"]=m[v] || v
 					}
 				}
 			}
