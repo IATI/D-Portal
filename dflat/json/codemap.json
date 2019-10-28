@@ -53,7 +53,7 @@
  },
  {
   "codelist": "BudgetIdentifier",
-  "condition": "@vocabulary = '1'",
+  "condition": "../@vocabulary = '1'",
   "path": "//iati-activity/country-budget-items/budget-item/@code"
  },
  {
@@ -83,6 +83,16 @@
  {
   "codelist": "AidType",
   "condition": "@vocabulary = '1' or not(@vocabulary)",
+  "path": "//iati-activity/default-aid-type/@code"
+ },
+ {
+  "codelist": "EarmarkingCategory",
+  "condition": "@vocabulary = '2'",
+  "path": "//iati-activity/default-aid-type/@code"
+ },
+ {
+  "codelist": "CashandVoucherModalities",
+  "condition": "@vocabulary = '4'",
   "path": "//iati-activity/default-aid-type/@code"
  },
  {
@@ -132,6 +142,11 @@
  {
   "codelist": "GeographicVocabulary",
   "path": "//iati-activity/location/administrative/@vocabulary"
+ },
+ {
+  "codelist": "Country",
+  "condition": "@vocabulary = 'A4'",
+  "path": "//iati-activity/location/administrative/@code"
  },
  {
   "codelist": "LocationType",
@@ -318,12 +333,32 @@
   "path": "//iati-activity/sector/@vocabulary"
  },
  {
+  "codelist": "UNSDG-Goals",
+  "condition": "@vocabulary = '2'",
+  "path": "//iati-activity/tag/@code"
+ },
+ {
+  "codelist": "UNSDG-Targets",
+  "condition": "@vocabulary = '3'",
+  "path": "//iati-activity/tag/@code"
+ },
+ {
   "codelist": "TagVocabulary",
   "path": "//iati-activity/tag/@vocabulary"
  },
  {
   "codelist": "AidType",
   "condition": "@vocabulary = '1' or not(@vocabulary)",
+  "path": "//iati-activity/transaction/aid-type/@code"
+ },
+ {
+  "codelist": "EarmarkingCategory",
+  "condition": "@vocabulary = '2'",
+  "path": "//iati-activity/transaction/aid-type/@code"
+ },
+ {
+  "codelist": "CashandVoucherModalities",
+  "condition": "@vocabulary = '4'",
   "path": "//iati-activity/transaction/aid-type/@code"
  },
  {
@@ -427,6 +462,10 @@
  },
  {
   "codelist": "Currency",
+  "path": "//iati-organisation/recipient-country-budget/budget-line/value/@currency"
+ },
+ {
+  "codelist": "Currency",
   "path": "//iati-organisation/recipient-country-budget/value/@currency"
  },
  {
@@ -438,13 +477,17 @@
   "path": "//iati-organisation/recipient-org-budget/value/@currency"
  },
  {
+  "codelist": "Currency",
+  "path": "//iati-organisation/recipient-org-budget/budget-line/value/@currency"
+ },
+ {
   "codelist": "BudgetStatus",
   "path": "//iati-organisation/recipient-region-budget/@status"
  },
  {
   "codelist": "Region",
   "condition": "@vocabulary = '1' or not(@vocabulary)",
-  "path": "//iati-organisation/recipient-region-budget/@code"
+  "path": "//iati-organisation/recipient-region-budget/recipient-region/@code"
  },
  {
   "codelist": "RegionVocabulary",

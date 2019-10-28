@@ -474,7 +474,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "A code specifying the default language of text in this activity. It is recommended that wherever possible only codes from ISO 639-1 are used."
+            "A code specifying the default language of text in this activity. It is recommended that wherever possible only codes from ISO 639-1 are used. If this is not declared then the xml:lang attribute MUST be specified for each narrative element."
            ]
           }
          ]
@@ -574,7 +574,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "A code indicating the reason why this activity does not contain any iati-activity/budget elements. The value must exist in the BudgetNotProvided codelist."
+            "A code indicating the reason why this activity does not contain any iati-activity/budget elements. The attribute MUST only be used when no budget elements are present."
            ]
           }
          ]
@@ -905,7 +905,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "The percentage of total commitments or total activity budget to this item. Content must be a decimal number between 0 and 100 inclusive, with no percentage sign. Percentages for all reported countries and regions MUST add up to 100."
+            "The percentage of total commitments or total activity budget to this item. Content must be a decimal number between 0 and 100 inclusive, with no percentage sign. Percentages for all reported countries and regions within a vocabulary MUST add up to 100."
            ]
           }
          ]
@@ -1031,7 +1031,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "The percentage of total commitments or total activity budget to this item. Content must be a decimal number between 0 and 100 inclusive, with no percentage sign. Percentages for all reported countries and regions MUST add up to 100."
+            "The percentage of total commitments or total activity budget to this item. Content must be a decimal number between 0 and 100 inclusive, with no percentage sign. Percentages for all reported countries and regions within a vocabulary MUST add up to 100."
            ]
           }
          ]
@@ -2189,7 +2189,7 @@
              "0": "xsd:documentation",
              "xml:lang": "en",
              "1": [
-              "A description of the policy marker. This MUST ONLY be\n              used where vocabulary = \"99 - RO\" (the reporting\n              organisation's own marker vocabulary). May be repeated\n              for multiple languages."
+              "A description of the policy marker. This MUST ONLY be\n              used if vocabulary is 99 (the reporting\n              organisation's own marker vocabulary). May be repeated\n              for multiple languages."
              ]
             }
            ]
@@ -3076,7 +3076,7 @@
                  "0": "xsd:documentation",
                  "xml:lang": "en",
                  "1": [
-                  "Either an OECD DAC or UN region code. Codelist i determined by vocabulary attribute."
+                  "Either an OECD DAC or UN region code. Codelist is determined by vocabulary attribute."
                  ]
                 }
                ]
@@ -4746,7 +4746,7 @@
                        "0": "xsd:documentation",
                        "xml:lang": "en",
                        "1": [
-                        "The URI where this vocabulary is defined. If the vocabulary is 99 or 98 (reporting organisation), the URI where this internal vocabulary is defined. While this is an optional field it is STRONGLY RECOMMENDED that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
+                        "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. While this is an optional field it is STRONGLY RECOMMENDED that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
                        ]
                       }
                      ]
@@ -4860,7 +4860,7 @@
                        "0": "xsd:documentation",
                        "xml:lang": "en",
                        "1": [
-                        "The baseline value.\n\n                        The @value must be omitted for qualitative measures.\n                        \n                        The @value must be included for non-qualitative measures.\n                        \n                        The @value should be a valid number for all non-qualitative measures."
+                        "The baseline value.\n\n                        The @value should be omitted for qualitative measures.\n\n                        The @value must be included for non-qualitative measures.\n\n                        The @value should be a valid number for all non-qualitative measures."
                        ]
                       }
                      ]
@@ -5068,7 +5068,7 @@
                              "0": "xsd:documentation",
                              "xml:lang": "en",
                              "1": [
-                              "The target value.\n\n                              The @value must be omitted for qualitative measures.\n                              \n                              The @value must be included for non-qualitative measures.\n                              \n                              The @value should be a valid number for all non-qualitative measures."
+                              "The target value.\n\n                              The @value should be omitted for qualitative measures.\n\n                              The @value must be included for non-qualitative measures.\n\n                              The @value should be a valid number for all non-qualitative measures."
                              ]
                             }
                            ]
@@ -5151,7 +5151,7 @@
                              "0": "xsd:documentation",
                              "xml:lang": "en",
                              "1": [
-                              "The actual measure.\n\n                              The @value must be omitted for qualitative measures.\n                              \n                              The @value must be included for non-qualitative measures.\n                              \n                              The @value should be a valid number for all non-qualitative measures."
+                              "The actual measure.\n\n                              The @value should be omitted for qualitative measures.\n                              \n                              The @value must be included for non-qualitative measures.\n\n                              The @value should be a valid number for all non-qualitative measures."
                              ]
                             }
                            ]
@@ -6941,69 +6941,6 @@
   },
   {
    "0": "xsd:complexType",
-   "name": "currencyType",
-   "1": [
-    {
-     "0": "xsd:annotation",
-     "1": [
-      {
-       "0": "xsd:documentation",
-       "xml:lang": "en",
-       "1": [
-        "Data type for an element containing a currency value."
-       ]
-      }
-     ]
-    },
-    {
-     "0": "xsd:simpleContent",
-     "1": [
-      {
-       "0": "xsd:extension",
-       "base": "xsd:decimal",
-       "1": [
-        {
-         "0": "xsd:attribute",
-         "ref": "currency",
-         "use": "optional"
-        },
-        {
-         "0": "xsd:attribute",
-         "ref": "value-date",
-         "use": "required"
-        },
-        {
-         "0": "xsd:anyAttribute",
-         "namespace": "##other",
-         "processContents": "lax"
-        }
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "0": "xsd:attribute",
-   "name": "currency",
-   "type": "xsd:string",
-   "1": [
-    {
-     "0": "xsd:annotation",
-     "1": [
-      {
-       "0": "xsd:documentation",
-       "xml:lang": "en",
-       "1": [
-        "The ISO 4217 alphabetic currency code of the value reported.\n        This is required unless the iati-activity/\\@default-currency is present and applies."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "0": "xsd:complexType",
    "name": "documentLinkResultBase",
    "1": [
     {
@@ -7823,6 +7760,69 @@
    ]
   },
   {
+   "0": "xsd:complexType",
+   "name": "currencyType",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "Data type for an element containing a currency value."
+       ]
+      }
+     ]
+    },
+    {
+     "0": "xsd:simpleContent",
+     "1": [
+      {
+       "0": "xsd:extension",
+       "base": "xsd:decimal",
+       "1": [
+        {
+         "0": "xsd:attribute",
+         "ref": "currency",
+         "use": "optional"
+        },
+        {
+         "0": "xsd:attribute",
+         "ref": "value-date",
+         "use": "required"
+        },
+        {
+         "0": "xsd:anyAttribute",
+         "namespace": "##other",
+         "processContents": "lax"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "0": "xsd:attribute",
+   "name": "currency",
+   "type": "xsd:string",
+   "1": [
+    {
+     "0": "xsd:annotation",
+     "1": [
+      {
+       "0": "xsd:documentation",
+       "xml:lang": "en",
+       "1": [
+        "A three letter ISO 4217 code for the original currency of the\n        amount. This is required for all currency amounts unless\n        the iati-organisation/\\@default-currency attribute is\n        specified."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "0": "xsd:annotation",
    "1": [
     {
@@ -8060,7 +8060,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "A code specifying the default language of text in this organisation. It is recommended that wherever possible only codes from ISO 639-1 are used."
+            "A code specifying the default language of text in this organisation. It is recommended that wherever possible only codes from ISO 639-1 are used. If this is not declared then the xml:lang attribute MUST be specified for each narrative element."
            ]
           }
          ]
@@ -9707,69 +9707,6 @@
   },
   {
    "0": "xsd:complexType",
-   "name": "currencyType",
-   "1": [
-    {
-     "0": "xsd:annotation",
-     "1": [
-      {
-       "0": "xsd:documentation",
-       "xml:lang": "en",
-       "1": [
-        "Data type for an element containing a currency value."
-       ]
-      }
-     ]
-    },
-    {
-     "0": "xsd:simpleContent",
-     "1": [
-      {
-       "0": "xsd:extension",
-       "base": "xsd:decimal",
-       "1": [
-        {
-         "0": "xsd:attribute",
-         "ref": "currency",
-         "use": "optional"
-        },
-        {
-         "0": "xsd:attribute",
-         "ref": "value-date",
-         "use": "required"
-        },
-        {
-         "0": "xsd:anyAttribute",
-         "namespace": "##other",
-         "processContents": "lax"
-        }
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "0": "xsd:attribute",
-   "name": "currency",
-   "type": "xsd:string",
-   "1": [
-    {
-     "0": "xsd:annotation",
-     "1": [
-      {
-       "0": "xsd:documentation",
-       "xml:lang": "en",
-       "1": [
-        "A three letter ISO 4217 code for the original currency of the\n        amount. This is required for all currency amounts unless\n        the iati-organisation/\\@default-currency attribute is\n        specified."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "0": "xsd:complexType",
    "name": "documentLinkWithReceipientCountry",
    "1": [
     {
@@ -9779,6 +9716,18 @@
        "0": "xsd:extension",
        "base": "documentLinkBase",
        "1": [
+        {
+         "0": "xsd:annotation",
+         "1": [
+          {
+           "0": "xsd:documentation",
+           "xml:lang": "en",
+           "1": [
+            "A link to an online, publicly accessible web page or document."
+           ]
+          }
+         ]
+        },
         {
          "0": "xsd:sequence",
          "1": [
@@ -9849,13 +9798,6 @@
              ]
             }
            ]
-          },
-          {
-           "0": "xsd:any",
-           "maxOccurs": "unbounded",
-           "minOccurs": "0",
-           "namespace": "##other",
-           "processContents": "lax"
           }
          ]
         }

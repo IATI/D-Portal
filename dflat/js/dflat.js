@@ -294,11 +294,15 @@ dflat.clean_copy_toplevel_attributes=function(data)
 			}
 		}
 	}
-
-
-
-	
 	return data
 }
 
+// copy the defaults explicitly into the places they should apply
+dflat.clean_copy_defaults=function(data)
+{
+	
+	xson.walk(data,function(it,paths,index){
+	})
 
+	return data
+}

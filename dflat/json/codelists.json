@@ -3,7 +3,15 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The date on which the activity is planned to start, for example the date of the first planned disbursement or when physical activity starts.",
+    "/description/narrative": [
+     {
+      "": "The date on which the activity is planned to start, for example the date of the first planned disbursement or when physical activity starts."
+     },
+     {
+      "": "La date à laquelle on prévoit que l'activité commencera, par ex. la date du premier décaissement prévu ou la date où les activités concrètes commenceront.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Planned start"
@@ -16,7 +24,15 @@
    },
    {
     "/code": "2",
-    "/description/narrative": "The actual date the activity starts, for example the date of the first disbursement or when physical activity starts.",
+    "/description/narrative": [
+     {
+      "": "The actual date the activity starts, for example the date of the first disbursement or when physical activity starts."
+     },
+     {
+      "": "La date à laquelle l'activité commence réellement, par ex. la date du premier décaissement ou la date où les activités concrètes commencent.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Actual start"
@@ -29,7 +45,15 @@
    },
    {
     "/code": "3",
-    "/description/narrative": "The date on which the activity is planned to end, for example the date of the last planned disbursement or when physical activity is complete.",
+    "/description/narrative": [
+     {
+      "": "The date on which the activity is planned to end, for example the date of the last planned disbursement or when physical activity is complete."
+     },
+     {
+      "": "La date à laquelle on prévoit que l'activité prendra fin, par ex. la date du dernier décaissement prévu ou la date où les activités concrètes se termineront.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Planned End"
@@ -42,7 +66,15 @@
    },
    {
     "/code": "4",
-    "/description/narrative": "The actual date the activity ends, for example the date of the last disbursement or when physical activity is complete.",
+    "/description/narrative": [
+     {
+      "": "The actual date the activity ends, for example the date of the last disbursement or when physical activity is complete."
+     },
+     {
+      "": "La date à laquelle l'activité prend réellement fin, par ex. la date du dernier décaissement prévu ou la date où les activités concrètes se terminent.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Actual end"
@@ -54,6 +86,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Core",
   "/codelist/metadata/description/narrative": "Types of date for activities.\n        \n            There are many different business models and dates that can be used\n            to describe the start and end of activities. It is recommended that\n            each publisher adopts their own consistent approach that provides\n            users with a meaningful indication of the lifespan of an activity.",
   "/codelist/metadata/name/narrative": "Activity Date Type",
   "/codelist@complete": "1",
@@ -65,7 +98,15 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The activity scope is global",
+    "/description/narrative": [
+     {
+      "": "The activity scope is global"
+     },
+     {
+      "": "L'activité est de portée mondiale",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Global"
@@ -78,7 +119,15 @@
    },
    {
     "/code": "2",
-    "/description/narrative": "The activity scope is a supranational region",
+    "/description/narrative": [
+     {
+      "": "The activity scope is a supranational region"
+     },
+     {
+      "": "La portée de l'activité concerne une région supranationale",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Regional"
@@ -91,7 +140,15 @@
    },
    {
     "/code": "3",
-    "/description/narrative": "The activity scope covers multiple countries, that don't constitute a region",
+    "/description/narrative": [
+     {
+      "": "The activity scope covers multiple countries, that don't constitute a region"
+     },
+     {
+      "": "La portée de l'activité concerne de multiples pays qui ne constituent pas une région",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Multi-national"
@@ -104,7 +161,15 @@
    },
    {
     "/code": "4",
-    "/description/narrative": "The activity scope covers one country",
+    "/description/narrative": [
+     {
+      "": "The activity scope covers one country"
+     },
+     {
+      "": "La portée de l'activité correspond à un pays",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "National"
@@ -117,46 +182,78 @@
    },
    {
     "/code": "5",
-    "/description/narrative": "The activity scope covers more than one first-level subnational administrative areas (e.g. counties, provinces, states)",
+    "/description/narrative": [
+     {
+      "": "The activity scope covers more than one first-level subnational administrative areas (e.g. counties, provinces, states)"
+     },
+     {
+      "": "La portée de l'activité concerne plus d'une région administrative infranationale de premier niveau (p. ex. comtés, provinces, états)",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Sub-national: Multi-first-level administrative areas"
      },
      {
-      "": "Infranational : multiples régions administratives de premier niveau",
+      "": "Infranational: multiples régions administratives de premier niveau",
       "@xml:lang": "fr"
      }
     ]
    },
    {
     "/code": "6",
-    "/description/narrative": "The activity scope covers one first-level subnational administrative area (e.g. country, province, state)",
+    "/description/narrative": [
+     {
+      "": "The activity scope covers one first-level subnational administrative area (e.g. country, province, state)"
+     },
+     {
+      "": "La portée de l'activité concerne une seule région administrative infranationale de premier niveau (p. ex. comté, province, état)",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Sub-national: Single first-level administrative area"
      },
      {
-      "": "Infranational : Région administrative unique de premier niveau",
+      "": "Infranational: région administrative de premier niveau unique",
       "@xml:lang": "fr"
      }
     ]
    },
    {
     "/code": "7",
-    "/description/narrative": "The activity scope covers one second-level subnational administrative area (e.g. municipality or district)",
+    "/description/narrative": [
+     {
+      "": "The activity scope covers one second-level subnational administrative area (e.g. municipality or district)"
+     },
+     {
+      "": "La portée de l'activité concerne une seule région administrative infranationale de deuxième niveau  (p. ex. municipalité ou district)",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Sub-national: Single second-level administrative area"
      },
      {
-      "": "Infranational : Région administrative unique de deuxième niveau",
+      "": "Infranational: région administrative de second niveau unique",
       "@xml:lang": "fr"
      }
     ]
    },
    {
     "/code": "8",
-    "/description/narrative": "The activity scope covers one single location (e.g. town, village, farm)",
+    "/description/narrative": [
+     {
+      "": "The activity scope covers one single location (e.g. town, village, farm)"
+     },
+     {
+      "": "La portée de l'activité concerne un seul endroit (p. ex. ville, village, ferme)",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Single location"
@@ -168,6 +265,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "Geographic scope of activity",
   "/codelist/metadata/name/narrative": "Activity Scope",
   "/codelist@complete": "1",
@@ -179,7 +277,15 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The activity is being scoped or planned",
+    "/description/narrative": [
+     {
+      "": "The activity is being scoped or planned"
+     },
+     {
+      "": "On planifie l'activité ou on en établit la portée",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Pipeline/identification"
@@ -192,7 +298,15 @@
    },
    {
     "/code": "2",
-    "/description/narrative": "The activity is currently being implemented",
+    "/description/narrative": [
+     {
+      "": "The activity is currently being implemented"
+     },
+     {
+      "": "L'activité est en cours de mise en œuvre",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Implementation"
@@ -205,7 +319,15 @@
    },
    {
     "/code": "3",
-    "/description/narrative": "Physical activity is complete or the final disbursement has been made, but the activity remains open pending financial sign off or M&E",
+    "/description/narrative": [
+     {
+      "": "Physical activity is complete or the final disbursement has been made, but the activity remains open pending financial sign off or M&E"
+     },
+     {
+      "": "L'activité concrète est terminée ou le débours final a été effectué, mais l'activité reste ouverte en attendant une signature de l'autorité financière ou une évaluation (C et E).",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Finalisation"
@@ -218,7 +340,15 @@
    },
    {
     "/code": "4",
-    "/description/narrative": "Physical activity is complete or the final disbursement has been made.",
+    "/description/narrative": [
+     {
+      "": "Physical activity is complete or the final disbursement has been made."
+     },
+     {
+      "": "L'activité concrète est terminée ou le dernier débours a été effectué.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Closed"
@@ -231,7 +361,15 @@
    },
    {
     "/code": "5",
-    "/description/narrative": "The activity has been cancelled",
+    "/description/narrative": [
+     {
+      "": "The activity has been cancelled"
+     },
+     {
+      "": "L'activité a été annulée",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Cancelled"
@@ -244,7 +382,15 @@
    },
    {
     "/code": "6",
-    "/description/narrative": "The activity has been temporarily suspended",
+    "/description/narrative": [
+     {
+      "": "The activity has been temporarily suspended"
+     },
+     {
+      "": "L'activité a été suspendue temporairement",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Suspended"
@@ -256,6 +402,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Core",
   "/codelist/metadata/description/narrative": "Lifecycle status of the activity from pipeline to completion",
   "/codelist/metadata/name/narrative": "Activity Status",
   "/codelist@complete": "1",
@@ -695,6 +842,7 @@
     "@status": "active"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/name/narrative": "Aid Type",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
   "/codelist@category-codelist": "AidType-category",
@@ -884,6 +1032,7 @@
     "@status": "active"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/description/narrative": "This codelists exists to group the Aid Type codelist into categories. It is not used as a codelist in its own right.",
   "/codelist/metadata/name/narrative": "Aid Type (category)",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
@@ -897,22 +1046,37 @@
    {
     "/code": "1",
     "/description/narrative": "List of codes provided by the OECD DAC used to distinguish types of aid",
-    "/name/narrative": "OECD DAC",
-    "/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm"
+    "/name/narrative": [
+     {
+      "": "OECD DAC"
+     },
+     {
+      "": "CAD OCDE",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/url": "http://reference.iatistandard.org/codelists/AidType/"
    },
    {
     "/code": "2",
     "/description/narrative": "This vocabulary has been created by IATI and is derived from the Grand Bargain Earmarking Modality codelist",
     "/name/narrative": "Earmarking Category",
-    "/url": "http://iatistandard.org/codelists/EarmarkingCategory"
+    "/url": "http://reference.iatistandard.org/codelists/EarmarkingCategory/"
    },
    {
     "/code": "3",
     "/description/narrative": "Codes A to L replicated directly from Grand Bargain document found in Annex 1 (pg.16)",
     "/name/narrative": "Earmarking Modality",
     "/url": "https://reliefweb.int/sites/reliefweb.int/files/resources/Grand_Bargain_final_22_May_FINAL-2.pdf"
+   },
+   {
+    "/code": "4",
+    "/description/narrative": "This vocabulary has been created by IATI, following agreements and recommendations of the Tracking Cash and Voucher Assistance (CVA) Working Group.",
+    "/name/narrative": "Cash and Voucher Modalities",
+    "/url": "http://reference.iatistandard.org/codelists/CashandVoucherModalities/"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "The AidTypeVocabulary codelist defines a range of external codelists which themselves provide codes and descriptions for aid type.",
   "/codelist/metadata/name/narrative": "Aid Type Vocabulary",
   "/codelist@complete": "1",
@@ -1683,6 +1847,7 @@
     "/name/narrative": "General Budget Support - General Budget Support"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "IATI Functional and Administrative Common Code : One of several possible Budget Identifier Vocabularies. As of version 2.03 this codelist has been deprecated.",
   "/codelist/metadata/name/narrative": "Budget Identifier",
   "/codelist@category-codelist": "BudgetIdentifierSector",
@@ -1849,6 +2014,7 @@
     "/name/narrative": "General Budget Support"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "This codelists exists to group the Budget Identifier codelist into sectors. It is not used as a codelist in its own right.",
   "/codelist/metadata/name/narrative": "Budget Identifier Sector",
   "/codelist@category-codelist": "BudgetIdentifierSector-category",
@@ -1888,6 +2054,7 @@
     "/name/narrative": "General Budget Support and Aid support external to General Government Sector"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "This codelists exists to group the Budget Identifier codelist into categories. It is not used as a codelist in its own right.",
   "/codelist/metadata/name/narrative": "Budget Identifier Sector (category)",
   "/codelist@complete": "1",
@@ -1899,32 +2066,113 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The budget identifier reported uses IATI budget identifier categories",
-    "/name/narrative": "IATI",
+    "/description/narrative": [
+     {
+      "": "The budget identifier reported uses IATI budget identifier categories"
+     },
+     {
+      "": "L'identifiant budgétaire déclaré se sert des catégories d'identification budgétaire de l'IITA",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "IATI"
+     },
+     {
+      "": "IITA",
+      "@xml:lang": "fr"
+     }
+    ],
     "@status": "withdrawn",
     "@withdrawal-date": "2018-04-18"
    },
    {
     "/code": "2",
-    "/description/narrative": "The budget identifier reported corresponds to the recipient country chart of accounts",
-    "/name/narrative": "Country Chart of Accounts"
+    "/description/narrative": [
+     {
+      "": "The budget identifier reported corresponds to the recipient country chart of accounts"
+     },
+     {
+      "": "L'identifiant budgétaire déclaré correspond au plan comptable national du pays bénéficiaire",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Country Chart of Accounts"
+     },
+     {
+      "": "Plan comptable national",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/description/narrative": "The budget identifier reported corresponds to a recipient country system other than the chart of accounts",
-    "/name/narrative": "Other Country System"
+    "/description/narrative": [
+     {
+      "": "The budget identifier reported corresponds to a recipient country system other than the chart of accounts"
+     },
+     {
+      "": "L'identifiant budgétaire déclaré correspond à un système du pays bénéficiaire autre que le plan comptable",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Other Country System"
+     },
+     {
+      "": "Autre système national",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "4",
-    "/description/narrative": "The budget identifier reported corresponds to categories that are specific to the reporting organisation",
-    "/name/narrative": "Reporting Organisation"
+    "/description/narrative": [
+     {
+      "": "The budget identifier reported corresponds to categories that are specific to the reporting organisation"
+     },
+     {
+      "": "L'identifiant budgétaire déclaré correspond à des catégories particulières à l'organisation déclarante",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Reporting Organisation"
+     },
+     {
+      "": "Organisation déclarante",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "5",
-    "/description/narrative": "The budget identifier reported uses a different vocabulary, not specified in the codelist",
-    "/name/narrative": "Other"
+    "/description/narrative": [
+     {
+      "": "The budget identifier reported uses a different vocabulary, not specified in the codelist"
+     },
+     {
+      "": "L'identifiant budgétaire déclaré emploie un vocabulaire différent ne faisant pas partie de la liste des codes",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Other"
+     },
+     {
+      "": "Autre",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": "Budget Identifier Vocabulary",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -1935,17 +2183,42 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/name/narrative": "Commercial Restrictions"
+    "/name/narrative": [
+     {
+      "": "Commercial Restrictions"
+     },
+     {
+      "": "Restrictions commerciales",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/name/narrative": "Legal Restrictions"
+    "/name/narrative": [
+     {
+      "": "Legal Restrictions"
+     },
+     {
+      "": "Restrictions légales",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/name/narrative": "Rapid Onset Emergency"
+    "/name/narrative": [
+     {
+      "": "Rapid Onset Emergency"
+     },
+     {
+      "": "Urgence à développement rapide",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "A codelist defining the reasons why an activity does not contain any iati-activity/budget elements.",
   "/codelist/metadata/name/narrative": "Budget Not Provided",
   "/codelist@complete": "1",
@@ -1957,7 +2230,15 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "A non-binding estimate for the described budget.",
+    "/description/narrative": [
+     {
+      "": "A non-binding estimate for the described budget."
+     },
+     {
+      "": "Une estimation non contraignante du budget décrit.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Indicative"
@@ -1965,12 +2246,24 @@
      {
       "": "Indicative",
       "@xml:lang": "en"
+     },
+     {
+      "": "Indicatif",
+      "@xml:lang": "fr"
      }
     ]
    },
    {
     "/code": "2",
-    "/description/narrative": "A binding agreement for the described budget.",
+    "/description/narrative": [
+     {
+      "": "A binding agreement for the described budget."
+     },
+     {
+      "": "Une entente contraignante au sujet du budget décrit.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Committed"
@@ -1978,10 +2271,15 @@
      {
       "": "Committed",
       "@xml:lang": "en"
+     },
+     {
+      "": "Engagé",
+      "@xml:lang": "fr"
      }
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Core",
   "/codelist/metadata/description/narrative": "Code to denote if the described budget is binding.",
   "/codelist/metadata/name/narrative": "Budget Status",
   "/codelist@complete": "1",
@@ -1993,7 +2291,15 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The original budget allocated to the activity",
+    "/description/narrative": [
+     {
+      "": "The original budget allocated to the activity"
+     },
+     {
+      "": "Le budget initialement affecté à l'activité.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Original"
@@ -2001,12 +2307,24 @@
      {
       "": "Original",
       "@xml:lang": "en"
+     },
+     {
+      "": "Original",
+      "@xml:lang": "fr"
      }
     ]
    },
    {
     "/code": "2",
-    "/description/narrative": "The updated budget for an activity",
+    "/description/narrative": [
+     {
+      "": "The updated budget for an activity"
+     },
+     {
+      "": "Le budget mis à jour pour une activité.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Revised"
@@ -2018,6 +2336,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Core",
   "/codelist/metadata/name/narrative": "Budget Type",
   "/codelist@complete": "1",
   "/codelist@embedded": "1",
@@ -2028,25 +2347,90 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "Free standing technical cooperation (Col 24 in CRS++ Reporting format)",
-    "/name/narrative": "Free standing technical cooperation"
+    "/description/narrative": [
+     {
+      "": "Free standing technical cooperation (Col 24 in CRS++ Reporting format)"
+     },
+     {
+      "": "Coopération technique pure (col 24 du gabarit CRS++)",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Free standing technical cooperation"
+     },
+     {
+      "": "Coopération technique pure",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/description/narrative": "Programme-based approach (Col 25 in CRS++ Reporting format)",
-    "/name/narrative": "Programme-based approach"
+    "/description/narrative": [
+     {
+      "": "Programme-based approach (Col 25 in CRS++ Reporting format)"
+     },
+     {
+      "": "Approche-programme (col 25 du gabarit CRS++)",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Programme-based approach"
+     },
+     {
+      "": "Approche-programme",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/description/narrative": "Investment project (Col 26 in CRS++ Reporting format)",
-    "/name/narrative": "Investment project"
+    "/description/narrative": [
+     {
+      "": "Investment project (Col 26 in CRS++ Reporting format)"
+     },
+     {
+      "": "Projet d'investissement (col 26 du gabarit CRS++)",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Investment project"
+     },
+     {
+      "": "Projet d'investissement",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "4",
-    "/description/narrative": "Associated financing (Col 27 in CRS++ Reporting format)",
-    "/name/narrative": "Associated financing"
+    "/description/narrative": [
+     {
+      "": "Associated financing (Col 27 in CRS++ Reporting format)"
+     },
+     {
+      "": "Financement associé (col 27 du gabarit CRS++)",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Associated financing"
+     },
+     {
+      "": "Financement associé",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "OECD DAC classification used to distinguish aid modalities.",
   "/codelist/metadata/name/narrative": "CRS Additional Other Flags",
   "/codelist@complete": "1",
@@ -2296,14 +2680,7 @@
    },
    {
     "/code": "21063",
-    "/name/narrative": [
-     {
-      "": "Conservation International"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "Conservation International",
     "@activation-date": "2017-08-08",
     "@status": "active"
    },
@@ -2365,14 +2742,7 @@
    },
    {
     "/code": "21503",
-    "/name/narrative": [
-     {
-      "": "Family Health International 360"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "Family Health International 360",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
@@ -2560,27 +2930,13 @@
    },
    {
     "/code": "21504",
-    "/name/narrative": [
-     {
-      "": "International Relief and Development"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "International Relief and Development",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
    {
     "/code": "21506",
-    "/name/narrative": [
-     {
-      "": "International Rescue Committee"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "International Rescue Committee",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
@@ -2628,27 +2984,13 @@
    },
    {
     "/code": "21501",
-    "/name/narrative": [
-     {
-      "": "OXFAM International"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "OXFAM International",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
    {
     "/code": "21507",
-    "/name/narrative": [
-     {
-      "": "Pact World"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "Pact World",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
@@ -2682,14 +3024,7 @@
    },
    {
     "/code": "21505",
-    "/name/narrative": [
-     {
-      "": "Save the Children"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "Save the Children",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
@@ -2737,14 +3072,7 @@
    },
    {
     "/code": "21502",
-    "/name/narrative": [
-     {
-      "": "World Vision"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "World Vision",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
@@ -2974,27 +3302,13 @@
    },
    {
     "/code": "22501",
-    "/name/narrative": [
-     {
-      "": "OXFAM - provider country office"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "OXFAM - provider country office",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
    {
     "/code": "22502",
-    "/name/narrative": [
-     {
-      "": "Save the Children - donor country office"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "Save the Children - donor country office",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
@@ -3140,14 +3454,7 @@
    },
    {
     "/code": "23501",
-    "/name/narrative": [
-     {
-      "": "National Red Cross and Red Crescent Societies"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "National Red Cross and Red Crescent Societies",
     "@activation-date": "2017-08-08",
     "@status": "active"
    },
@@ -4231,14 +4538,7 @@
    },
    {
     "/code": "41501",
-    "/name/narrative": [
-     {
-      "": "United Nations Reducing Emissions from Deforestation and Forest Degradation"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "United Nations Reducing Emissions from Deforestation and Forest Degradation",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
@@ -4398,14 +4698,7 @@
    },
    {
     "/code": "41503",
-    "/name/narrative": [
-     {
-      "": "UN-led Country-based Pooled Funds"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "UN-led Country-based Pooled Funds",
     "@activation-date": "2017-08-08",
     "@status": "active"
    },
@@ -4481,14 +4774,7 @@
    },
    {
     "/code": "41319",
-    "/name/narrative": [
-     {
-      "": "World Tourism Organization"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "World Tourism Organization",
     "@activation-date": "2017-08-08",
     "@status": "active"
    },
@@ -4914,14 +5200,7 @@
    },
    {
     "/code": "46026",
-    "/name/narrative": [
-     {
-      "": "Asian Infrastructure Investment Bank"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "Asian Infrastructure Investment Bank",
     "@activation-date": "2017-08-08",
     "@status": "active"
    },
@@ -5333,14 +5612,7 @@
    },
    {
     "/code": "47145",
-    "/name/narrative": [
-     {
-      "": "Center of Excellence in Finance"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "Center of Excellence in Finance",
     "@activation-date": "2017-08-08",
     "@status": "active"
    },
@@ -5556,14 +5828,7 @@
    },
    {
     "/code": "47504",
-    "/name/narrative": [
-     {
-      "": "Forest Carbon Partnership Facility"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "Forest Carbon Partnership Facility",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
@@ -5611,14 +5876,7 @@
    },
    {
     "/code": "47503",
-    "/name/narrative": [
-     {
-      "": "Global Agriculture and Food Security Program"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "Global Agriculture and Food Security Program",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
@@ -5680,14 +5938,7 @@
    },
    {
     "/code": "47502",
-    "/name/narrative": [
-     {
-      "": "Global Fund for Disaster Risk Reduction"
-     },
-     {
-      "@xml:lang": "fr"
-     }
-    ],
+    "/name/narrative": "Global Fund for Disaster Risk Reduction",
     "@activation-date": "2015-12-07",
     "@status": "active"
    },
@@ -7065,6 +7316,7 @@
     "@status": "active"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/name/narrative": "CRS Channel Code",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
   "/codelist@complete": "1",
@@ -7217,6 +7469,7 @@
     "@status": "active"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/description/narrative": "OECD DAC classification used to determine the character of resource flows (bilateral or multilateral).",
   "/codelist/metadata/name/narrative": "Collaboration Type",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
@@ -7291,6 +7544,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": [
    {
     "": "Condition type – e.g. policy, performance."
@@ -7318,25 +7572,90 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "General Enquiries",
-    "/name/narrative": "General Enquiries"
+    "/description/narrative": [
+     {
+      "": "General Enquiries"
+     },
+     {
+      "": "Renseignements généraux",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "General Enquiries"
+     },
+     {
+      "": "Renseignements généraux",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/description/narrative": "Project Management",
-    "/name/narrative": "Project Management"
+    "/description/narrative": [
+     {
+      "": "Project Management"
+     },
+     {
+      "": "Gestion de projet",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Project Management"
+     },
+     {
+      "": "Gestion de projet",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/description/narrative": "Financial Management",
-    "/name/narrative": "Financial Management"
+    "/description/narrative": [
+     {
+      "": "Financial Management"
+     },
+     {
+      "": "Gestion financière",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Financial Management"
+     },
+     {
+      "": "Gestion financière",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "4",
-    "/description/narrative": "Communications",
-    "/name/narrative": "Communications"
+    "/description/narrative": [
+     {
+      "": "Communications"
+     },
+     {
+      "": "Communications",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Communications"
+     },
+     {
+      "": "Communications",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": "Contact Type",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -8351,6 +8670,7 @@
     "/name/narrative": "Zimbabwe"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/description/narrative": "The Country codelist is generated from the ISO 3166-1 part of the\n            ISO 3166 standard. The standard makes allowance, alongside the\n            officially assigned codes, for code elements to be expanded by\n            using either reserved codes or user-assigned codes. IATI currently\n            defines additional codes in the XA -XZ range.",
   "/codelist/metadata/name/narrative": "Country",
   "/codelist/metadata/url": "http://www.iso.org/iso/home/standards/country_codes.htm",
@@ -9084,6 +9404,7 @@
     "/name/narrative": "Zimbabwe Dollar"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/description/narrative": "ISO 4217 Currency used for all transactions and budgets",
   "/codelist/metadata/name/narrative": "Currency",
   "/codelist/metadata/url": "http://www.iso.org/iso/home/standards/currency_codes.htm",
@@ -9096,7 +9417,15 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "Unstructured, long description of the activity",
+    "/description/narrative": [
+     {
+      "": "Unstructured, long description of the activity"
+     },
+     {
+      "": "Description longue et non structurée de l'activité",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "General"
@@ -9109,7 +9438,15 @@
    },
    {
     "/code": "2",
-    "/description/narrative": "Specific objectives for the activity, e.g. taken from logical framework",
+    "/description/narrative": [
+     {
+      "": "Specific objectives for the activity, e.g. taken from logical framework"
+     },
+     {
+      "": "Objectifs précis pour l'activité, p. ex. tirés d'un cadre logique",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Objectives"
@@ -9122,7 +9459,15 @@
    },
    {
     "/code": "3",
-    "/description/narrative": "Details of groups that are intended to benefit from the activity",
+    "/description/narrative": [
+     {
+      "": "Details of groups that are intended to benefit from the activity"
+     },
+     {
+      "": "Détails sur les groupes qui devraient profiter de l'activité",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Target Groups"
@@ -9135,7 +9480,15 @@
    },
    {
     "/code": "4",
-    "/description/narrative": "For miscellaneous use. A further classification or breakdown may be included in the narrative",
+    "/description/narrative": [
+     {
+      "": "For miscellaneous use. A further classification or breakdown may be included in the narrative"
+     },
+     {
+      "": "Pour utilisation diverse. Une classification ou une ventilation supplémentaires peuvent figurer dans le texte",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Other"
@@ -9147,6 +9500,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "Activity decription types. (General, objectives, etc)",
   "/codelist/metadata/name/narrative": "Description Type",
   "/codelist@complete": "1",
@@ -9158,25 +9512,90 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "Money is disbursed through central Ministry of Finance or Treasury",
-    "/name/narrative": "Money is disbursed through central Ministry of Finance or Treasury"
+    "/description/narrative": [
+     {
+      "": "Money is disbursed through central Ministry of Finance or Treasury"
+     },
+     {
+      "": "Les fonds sont déboursés par l'entremise du ministère des Finances ou du Trésor central",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Money is disbursed through central Ministry of Finance or Treasury"
+     },
+     {
+      "": "Les fonds sont déboursés par l'entremise du ministère des Finances ou du Trésor central",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/description/narrative": "Money is disbursed directly to the implementing institution and managed through a separate bank account",
-    "/name/narrative": "Money is disbursed directly to the implementing institution and managed through a separate bank account"
+    "/description/narrative": [
+     {
+      "": "Money is disbursed directly to the implementing institution and managed through a separate bank account"
+     },
+     {
+      "": "Les fonds sont versés directement à l'organisation responsable de la mise en œuvre et gérés au moyen d'un compte bancaire distinct",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Money is disbursed directly to the implementing institution and managed through a separate bank account"
+     },
+     {
+      "": "Les fonds sont versés directement à l'organisation responsable de la mise en œuvre et gérés au moyen d'un compte bancaire distinct",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/description/narrative": "Aid in kind: Donors utilise third party agencies, e.g. NGOs or management companies",
-    "/name/narrative": "Aid in kind: Donors utilise third party agencies, e.g. NGOs or management companies"
+    "/description/narrative": [
+     {
+      "": "Aid in kind: Donors utilise third party agencies, e.g. NGOs or management companies"
+     },
+     {
+      "": "Aide en nature : Les donateurs utilisent des organisations tierces, p. ex. des ONG ou des sociétés de gestion",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Aid in kind: Donors utilise third party agencies, e.g. NGOs or management companies"
+     },
+     {
+      "": "Aide en nature : Les donateurs utilisent des organisations tierces, p. ex. des ONG ou des sociétés de gestion",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "4",
-    "/description/narrative": "Aid in kind: Donors manage funds themselves",
-    "/name/narrative": "Aid in kind: Donors manage funds themselves"
+    "/description/narrative": [
+     {
+      "": "Aid in kind: Donors manage funds themselves"
+     },
+     {
+      "": "Aide en nature : Les donateurs gèrent eux-mêmes les fonds",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Aid in kind: Donors manage funds themselves"
+     },
+     {
+      "": "Aide en nature : Les donateurs gèrent eux-mêmes les fonds",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "Categories of information included in published documents",
   "/codelist/metadata/name/narrative": "Disbursement Channel",
   "/codelist@complete": "1",
@@ -9194,7 +9613,7 @@
       "": "Pre- and post-project impact appraisal"
      },
      {
-      "": "Évaluation de l’impact avant et après le projet",
+      "": "Évaluation de l'incidence avant et après le projet",
       "@xml:lang": "fr"
      }
     ]
@@ -9207,7 +9626,7 @@
       "": "Objectives / Purpose of activity"
      },
      {
-      "": "Objectifs/finalités de l’activité",
+      "": "Objectifs/raison d'être de l'activité",
       "@xml:lang": "fr"
      }
     ]
@@ -9259,7 +9678,7 @@
       "": "Summary information about contract"
      },
      {
-      "": "Résumé du contrat",
+      "": "Renseignements sommaires sur le contrat",
       "@xml:lang": "fr"
      }
     ]
@@ -9272,7 +9691,7 @@
       "": "Review of project performance and evaluation"
      },
      {
-      "": "Examen de la performance du projet et évaluation",
+      "": "Examen du rendement du projet et évaluation",
       "@xml:lang": "fr"
      }
     ]
@@ -9285,7 +9704,7 @@
       "": "Results, outcomes and outputs"
      },
      {
-      "": "Résultats, réalisations et produits",
+      "": "Résultats et extrants",
       "@xml:lang": "fr"
      }
     ]
@@ -9298,7 +9717,7 @@
       "": "Memorandum of understanding (If agreed by all parties)"
      },
      {
-      "": "Protocole d’accord (si celui-ci a été approuvé par toutes les parties)",
+      "": "Protocole d'entente (s'il y a entente entre toutes les parties)",
       "@xml:lang": "fr"
      }
     ]
@@ -9337,7 +9756,7 @@
       "": "Activity web page"
      },
      {
-      "": "Page Web sur les activités",
+      "": "Page Web sur l'activité",
       "@xml:lang": "fr"
      }
     ]
@@ -9363,7 +9782,7 @@
       "": "Institutional Strategy paper"
      },
      {
-      "": "Document de stratégie institutionnelle",
+      "": "Stratégie organisationnelle",
       "@xml:lang": "fr"
      }
     ]
@@ -9376,7 +9795,7 @@
       "": "Country strategy paper"
      },
      {
-      "": "Document de stratégie nationale",
+      "": "Stratégie-pays",
       "@xml:lang": "fr"
      }
     ]
@@ -9389,7 +9808,7 @@
       "": "Aid Allocation Policy"
      },
      {
-      "": "Politique d’affectation de l’aide",
+      "": "Politique sur la répartition de l'aide",
       "@xml:lang": "fr"
      }
     ]
@@ -9402,7 +9821,7 @@
       "": "Procurement Policy and Procedure"
      },
      {
-      "": "Politique et procédure d’approvisionnement",
+      "": "Politique et procédure d'approvisionnement",
       "@xml:lang": "fr"
      }
     ]
@@ -9415,7 +9834,7 @@
       "": "Institutional Audit Report"
      },
      {
-      "": "Rapport d’audit institutionnel",
+      "": "Rapport de vérification de l'organisation",
       "@xml:lang": "fr"
      }
     ]
@@ -9428,7 +9847,7 @@
       "": "Country Audit Report"
      },
      {
-      "": "Rapport d’audit de pays",
+      "": "Rapport de vérification du pays",
       "@xml:lang": "fr"
      }
     ]
@@ -9441,7 +9860,7 @@
       "": "Exclusions Policy"
      },
      {
-      "": "Politique relative aux exclusions",
+      "": "Politique sur les exclusions",
       "@xml:lang": "fr"
      }
     ]
@@ -9454,7 +9873,7 @@
       "": "Institutional Evaluation Report"
      },
      {
-      "": "Rapport d’évaluation institutionnelle",
+      "": "Rapport d'évaluation de l'organisation",
       "@xml:lang": "fr"
      }
     ]
@@ -9467,7 +9886,7 @@
       "": "Country Evaluation Report"
      },
      {
-      "": "Rapport d’évaluation nationale",
+      "": "Rapport d'évaluation nationale",
       "@xml:lang": "fr"
      }
     ]
@@ -9506,7 +9925,7 @@
       "": "Country-level Memorandum of Understanding"
      },
      {
-      "": "Protocole d’accord national",
+      "": "Protocole d'entente national",
       "@xml:lang": "fr"
      }
     ]
@@ -9519,7 +9938,7 @@
       "": "Evaluations policy"
      },
      {
-      "": "Politique relative aux évaluations",
+      "": "Politique sur les évaluations",
       "@xml:lang": "fr"
      }
     ]
@@ -9532,7 +9951,7 @@
       "": "General Terms and Conditions"
      },
      {
-      "": "Conditions générales",
+      "": "Modalités générales",
       "@xml:lang": "fr"
      }
     ]
@@ -9545,7 +9964,7 @@
       "": "Organisation web page"
      },
      {
-      "": "Page Web sur l’organisation",
+      "": "Page Web sur l'organisation",
       "@xml:lang": "fr"
      }
     ]
@@ -9558,7 +9977,7 @@
       "": "Country/Region web page"
      },
      {
-      "": "Page Web sur les pays/régions",
+      "": "Page Web sur le pays/la région",
       "@xml:lang": "fr"
      }
     ]
@@ -9571,12 +9990,13 @@
       "": "Sector web page"
      },
      {
-      "": "Page Web sur les secteurs",
+      "": "Page Web sur le secteur",
       "@xml:lang": "fr"
      }
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Core",
   "/codelist/metadata/name/narrative": [
    {
     "": "Document Category"
@@ -9605,6 +10025,7 @@
     "/name/narrative": "Organisation Level"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "This codelists exists to group the Document Category codelist into categories. It is not used as a codelist in its own right.",
   "/codelist/metadata/name/narrative": "Document Category (category)",
   "/codelist@complete": "1",
@@ -9635,8 +10056,10 @@
     "/name/narrative": "Tightly Earmarked"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/description/narrative": "This codelist has been created by IATI and is derived from the Grand Bargain Earmarking Modality codelist.",
   "/codelist/metadata/name/narrative": "EarmarkingCategory",
+  "/codelist/metadata/url": "https://reliefweb.int/sites/reliefweb.int/files/resources/Grand_Bargain_final_22_May_FINAL-2.pdf",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
   "/codelist@name": "EarmarkingCategory",
@@ -11138,6 +11561,7 @@
     "@withdrawal-date": "2015-12-31"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/description/narrative": "DAC/CRS transaction classification used to distinguish financial instruments,  e.g. grants or loans.",
   "/codelist/metadata/name/narrative": "Finance Type",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
@@ -11433,6 +11857,7 @@
     "@withdrawal-date": "2015-12-31"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/description/narrative": "This codelists exists to group the Finance Type codelist into categories. It is not used as a codelist in its own right.",
   "/codelist/metadata/name/narrative": "Finance Type (category)",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
@@ -11670,6 +12095,7 @@
     "@status": "active"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/description/narrative": "DAC/CRS distinction between ODA (official development assistance) and other types of resource flow.",
   "/codelist/metadata/name/narrative": "Flow Type",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
@@ -11682,17 +12108,42 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/name/narrative": "Geonames.org"
+    "/name/narrative": [
+     {
+      "": "Geonames.org"
+     },
+     {
+      "": "Geonames.org",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/name/narrative": "National Geospatial-Intelligence Agency"
+    "/name/narrative": [
+     {
+      "": "National Geospatial-Intelligence Agency"
+     },
+     {
+      "": "National Geospatial-Intelligence Agency",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/name/narrative": "Open Street Map"
+    "/name/narrative": [
+     {
+      "": "Open Street Map"
+     },
+     {
+      "": "Open Street Map",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Core",
   "/codelist/metadata/description/narrative": "An online resource that holds coordinates and descriptions of geographic locations",
   "/codelist/metadata/name/narrative": "Gazetteer Agency",
   "/codelist@complete": "1",
@@ -11745,6 +12196,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": [
    {
     "": "Geographic Exactness"
@@ -11846,6 +12298,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": [
    {
     "": "Geographic Location Class"
@@ -11905,6 +12358,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": [
    {
     "": "Geographic Location Reach"
@@ -11923,37 +12377,102 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "A1",
-    "/name/narrative": "Global Admininistrative Unit Layers",
+    "/name/narrative": [
+     {
+      "": "Global Admininistrative Unit Layers"
+     },
+     {
+      "": "Global Administrative Unit Layers",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691"
    },
    {
     "/code": "A2",
-    "/description/narrative": "Note: the unsalb.org website is no longer accessible, and public access to the boundaries resources has been removed http://www.ungiwg.org/content/united-nations-international-and-administrative-boundaries-resources",
-    "/name/narrative": "UN Second Administrative Level Boundary Project",
+    "/description/narrative": [
+     {
+      "": "Note: the unsalb.org website is no longer accessible, and public access to the boundaries resources has been removed http://www.ungiwg.org/content/united-nations-international-and-administrative-boundaries-resources"
+     },
+     {
+      "": "Remarque : Le site Web unsalb.org n'est plus accessible et l'accès public aux ressources sur les frontières a été retiré http://www.ungiwg.org/content/united-nations-international-and-administrative-boundaries-resources",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "UN Second Administrative Level Boundary Project"
+     },
+     {
+      "": "UN Second Administrative Level Boundary Project",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "http://www.unsalb.org/"
    },
    {
     "/code": "A3",
-    "/name/narrative": "Global Administrative Areas",
+    "/name/narrative": [
+     {
+      "": "Global Administrative Areas"
+     },
+     {
+      "": "Global Administrative Areas",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "http://www.gadm.org/"
    },
    {
     "/code": "A4",
-    "/name/narrative": "ISO Country (3166-1 alpha-2)",
-    "/url": "http://www.iso.org/iso/country_codes.htm"
+    "/name/narrative": [
+     {
+      "": "ISO Country (3166-1 alpha-2)"
+     },
+     {
+      "": "Pays ISO (3166-1 alpha-2)",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/url": "http://reference.iatistandard.org/codelists/Country/"
    },
    {
     "/code": "G1",
-    "/name/narrative": "Geonames",
+    "/name/narrative": [
+     {
+      "": "Geonames"
+     },
+     {
+      "": "Geonames",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "http://www.geonames.org/"
    },
    {
     "/code": "G2",
-    "/description/narrative": "Note: the code should be formed by prefixing the relevant OpenStreetMap ID with node/ way/ or relation/ as appropriate, e.g. node/1234567",
-    "/name/narrative": "OpenStreetMap",
+    "/description/narrative": [
+     {
+      "": "Note: the code should be formed by prefixing the relevant OpenStreetMap ID with node/ way/ or relation/ as appropriate, e.g. node/1234567"
+     },
+     {
+      "": "Remarque : Le code doit être produit en faisant précéder le code OpenStreetMap pertinent du préfixe « node/ », « way/ » ou « relation/ », selon le cas, p. ex. node/1234567",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "OpenStreetMap"
+     },
+     {
+      "": "OpenStreetMap",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "http://www.openstreetmap.org/"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": "Geographic Vocabulary",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -11964,50 +12483,195 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The coordinates corresponds to an exact location, such as a populated place or a hill. The code is also used for locations that join a location which is a line (such as a road or railroad). Lines are not coded only the points that connect lines. All points that are mentioned in the source are coded.",
-    "/name/narrative": "Exact location"
+    "/description/narrative": [
+     {
+      "": "The coordinates corresponds to an exact location, such as a populated place or a hill. The code is also used for locations that join a location which is a line (such as a road or railroad). Lines are not coded only the points that connect lines. All points that are mentioned in the source are coded."
+     },
+     {
+      "": "Les coordonnées correspondent à un lieu précis, comme un endroit peuplé ou une colline. Le code est aussi utilisé pour les lieux qui rejoignent un autre endroit et qui est linéaire (comme une route ou une voie ferrée). Les lignes ne sont pas codées, seulement les points qui les forment. Tous les points mentionnés dans la source sont codés.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Exact location"
+     },
+     {
+      "": "Lieu précis",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/description/narrative": "The location is mentioned in the source as being \"near\", in the \"area\" of, or up to 25 km away from an exact location. The coordinates refer to that adjacent, exact, location.",
-    "/name/narrative": "Near exact location"
+    "/description/narrative": [
+     {
+      "": "The location is mentioned in the source as being \"near\", in the \"area\" of, or up to 25 km away from an exact location. The coordinates refer to that adjacent, exact, location."
+     },
+     {
+      "": "Le lieu est mentionné dans la source comme étant « près », dans le « secteur » ou se trouvant à jusqu'à 25 km d'un lieu précis. Les coordonnées renvoient à ce lieu précis adjacent.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Near exact location"
+     },
+     {
+      "": "Près d'un lieu précis",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/description/narrative": "The location is, or lies in, a second order administrative division (ADM2), such as a district, municipality or commune",
-    "/name/narrative": "Second order administrative division"
+    "/description/narrative": [
+     {
+      "": "The location is, or lies in, a second order administrative division (ADM2), such as a district, municipality or commune"
+     },
+     {
+      "": "Le lieu est ou se trouve dans une division administrative de second niveau (ADM2), comme un district, une municipalité ou une commune.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Second order administrative division"
+     },
+     {
+      "": "Division administrative de second niveau",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "4",
-    "/description/narrative": "The location is, or lies in, a first order administrative division (ADM1), such as a province, state or governorate.",
-    "/name/narrative": "First order administrative division"
+    "/description/narrative": [
+     {
+      "": "The location is, or lies in, a first order administrative division (ADM1), such as a province, state or governorate."
+     },
+     {
+      "": "Le lien est ou se trouve dans une division administrative de premier niveau (ADM1), comme une province, un État ou un gouvernorat.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "First order administrative division"
+     },
+     {
+      "": "Division administrative de premier niveau",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "5",
-    "/description/narrative": "The location can only be related to estimated coordinates, such as when a location lies between populated places; along rivers, roads and borders; more than 25 km away from a specific location; or when sources refer to parts of a country greater than ADM1 (e.g. \"northern Uganda\").",
-    "/name/narrative": "Estimated coordinates"
+    "/description/narrative": [
+     {
+      "": "The location can only be related to estimated coordinates, such as when a location lies between populated places; along rivers, roads and borders; more than 25 km away from a specific location; or when sources refer to parts of a country greater than ADM1 (e.g. \"northern Uganda\")."
+     },
+     {
+      "": "On ne peut désigner le lieu qu'au moyen de coordonnées estimées, par exemple pour un lieu situé entre deux endroits peuplés.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Estimated coordinates"
+     },
+     {
+      "": "Coordonnées estimées",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "6",
-    "/description/narrative": "The location can only be related to an independent political entity, meaning the pair of coordinates that represent a country.",
-    "/name/narrative": "Independent political entity"
+    "/description/narrative": [
+     {
+      "": "The location can only be related to an independent political entity, meaning the pair of coordinates that represent a country."
+     },
+     {
+      "": "On ne peut désigner le lieu que par rapport à une entité politique autonome, ce qui signifie la paire de coordonnées représentant un pays.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Independent political entity"
+     },
+     {
+      "": "Entité politique autonome",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "7",
-    "/description/narrative": "Unclear. The capital is assumed to be one of two possible locations. (The other option is the country level, with precision 9.)",
-    "/name/narrative": "Unclear - capital"
+    "/description/narrative": [
+     {
+      "": "Unclear. The capital is assumed to be one of two possible locations. (The other option is the country level, with precision 9.)"
+     },
+     {
+      "": "Imprécis. On suppose que la capitale est l'un de deux lieux possibles. (L'autre possibilité est le niveau du pays, avec la précision 9.)",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Unclear - capital"
+     },
+     {
+      "": "Imprécis - Capitale",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "8",
-    "/description/narrative": "The location is estimated to be a seat of an administrative division (local capital) or the national capital. If aid goes to Luanda without further specification on the location, and there is an ADM1 and a capital called Luanda, then code the coordinates of the capital with precision 8. If it is not spelled out that aid goes to the capital; but if it is clear that it goes to a government ministry or to government financial institutions; and if those institutions are most likely located in the capital; then the coordinates of the capital are coded with precision 8. (However, if it can be verified that the recipient institution is located in the capital then precision 1 is used.)",
-    "/name/narrative": "Local or national capital"
+    "/description/narrative": [
+     {
+      "": "The location is estimated to be a seat of an administrative division (local capital) or the national capital. If aid goes to Luanda without further specification on the location, and there is an ADM1 and a capital called Luanda, then code the coordinates of the capital with precision 8. If it is not spelled out that aid goes to the capital; but if it is clear that it goes to a government ministry or to government financial institutions; and if those institutions are most likely located in the capital; then the coordinates of the capital are coded with precision 8. (However, if it can be verified that the recipient institution is located in the capital then precision 1 is used.)"
+     },
+     {
+      "": "On estime que le lieu est le siège d'une division administrative (capitale locale) ou la capitale nationale. Si de l'aide est dirigée vers Luanda sans autre précision sur le lieu et qu'il existe une ADM1 et une capitale nommée Luanda, les coordonnées de la capitale doivent être inscrites avec la précision 8. En l'absence d'indication que l'aide va à la capitale",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Local or national capital"
+     },
+     {
+      "": "Capitale locale ou nationale",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "9",
-    "/description/narrative": "Unclear. The locations is estimated to be the country level (often paired with the capital, with precision 7)",
-    "/name/narrative": "Unclear - country"
+    "/description/narrative": [
+     {
+      "": "Unclear. The locations is estimated to be the country level (often paired with the capital, with precision 7)"
+     },
+     {
+      "": "Imprécis. On estime que lieu est un pays (accompagne souvent la capitale, avec la précision 7)",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Unclear - country"
+     },
+     {
+      "": "Imprécis - Pays",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "A system for clarifying the accuracy and usage of geographical coordinates",
   "/codelist/metadata/name/narrative": "Geographical Precision",
   "/codelist@complete": "1",
@@ -12019,13 +12683,30 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/name/narrative": "Emergency"
+    "/name/narrative": [
+     {
+      "": "Emergency"
+     },
+     {
+      "": "Urgence",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/name/narrative": "Appeal"
+    "/name/narrative": [
+     {
+      "": "Appeal"
+     },
+     {
+      "": "Appel",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "The Humanitarian Scope Type codelist defines codes for types of humanitarian events and actions.",
   "/codelist/metadata/name/narrative": "Humanitarian Scope Type",
   "/codelist@complete": "0",
@@ -12037,19 +12718,44 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1-2",
-    "/name/narrative": "Glide",
+    "/name/narrative": [
+     {
+      "": "Glide"
+     },
+     {
+      "": "Glide",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "http://glidenumber.net/glide/public/search/search.jsp"
    },
    {
     "/code": "2-1",
-    "/name/narrative": "Humanitarian Plan",
+    "/name/narrative": [
+     {
+      "": "Humanitarian Plan"
+     },
+     {
+      "": "Plan humanitaire",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "https://fts.unocha.org/plan-code-list-iati"
    },
    {
     "/code": "99",
-    "/name/narrative": "Reporting Organisation"
+    "/name/narrative": [
+     {
+      "": "Reporting Organisation"
+     },
+     {
+      "": "Organisation déclarante",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "The Humanitarian Scope Vocabulary codelist defines a range of external codelists which themselves provide codes and descriptions for humanitarian events and actions.",
   "/codelist/metadata/name/narrative": "Humanitarian Scope Vocabulary",
   "/codelist@complete": "0",
@@ -12235,6 +12941,7 @@
     "@activation-date": "2016-12-15"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "This is a list of organisation identifiers that is maintained by the IATI Secretariat.\n            The prefix for organisations on this list is XI-IATI\n\n            If a bona fide organisation is not registered with any recognised or appropriate registration agency (http://iatistandard.org/202/codelists/OrganisationRegistrationAgency/) they should contact the IATI Technical Team who will exceptionally allocate an organisation identifier using the XI-IATI prefix.\n\n            While some of these identifiers have been derived from DAC codes, this 'meaning' is not carried forward. i.e. IATI generated identifiers have no intrinsic meaning.\n\n            For general guidance about constructing Organisation Identifiers, please see http://iatistandard.org/organisation-identifiers/",
   "/codelist/metadata/name/narrative": "IATI Organisation Identifier",
   "/codelist@complete": "1",
@@ -12246,31 +12953,112 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The indicator is measured in units.",
-    "/name/narrative": "Unit"
+    "/description/narrative": [
+     {
+      "": "The indicator is measured in units."
+     },
+     {
+      "": "L'indicateur est mesuré à l'aide d'unités.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Unit"
+     },
+     {
+      "": "Unité",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/description/narrative": "The indicator is measured in percentages",
-    "/name/narrative": "Percentage"
+    "/description/narrative": [
+     {
+      "": "The indicator is measured in percentages"
+     },
+     {
+      "": "L'indicateur est mesuré en pourcentage.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Percentage"
+     },
+     {
+      "": "Pourcentage",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/description/narrative": "The indicator is measured as a quantitative nominal scale.",
-    "/name/narrative": "Nominal"
+    "/description/narrative": [
+     {
+      "": "The indicator is measured as a quantitative nominal scale."
+     },
+     {
+      "": "L'indicateur est mesuré selon une échelle nominale quantitative.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Nominal"
+     },
+     {
+      "": "Nominal",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "4",
-    "/description/narrative": "The indicator is measured as a quantitative ordinal scale.",
-    "/name/narrative": "Ordinal"
+    "/description/narrative": [
+     {
+      "": "The indicator is measured as a quantitative ordinal scale."
+     },
+     {
+      "": "L'indicateur est mesurée selon une échelle ordinale quantitative.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Ordinal"
+     },
+     {
+      "": "Ordinal",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "5",
-    "/description/narrative": "The indicator is qualitative.",
-    "/name/narrative": "Qualitative"
+    "/description/narrative": [
+     {
+      "": "The indicator is qualitative."
+     },
+     {
+      "": "L'indicateur est qualitatif.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Qualitative"
+     },
+     {
+      "": "Qualitatif",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
-  "/codelist/metadata/description/narrative": "To specify the language of titles, descriptions and documents",
+  "/codelist/metadata/category/narrative": "Non-Core",
+  "/codelist/metadata/description/narrative": "To specify how an indicator is being measured. This includes qualitative and quantitative values.",
   "/codelist/metadata/name/narrative": "Indicator Measure",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -12329,6 +13117,7 @@
     "/name/narrative": "Reporting Organisation"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "The Indicator Vocabulary codelist defines a range of external codelists which themselves provide codes and descriptions for indicators, for example to specify results.",
   "/codelist/metadata/name/narrative": "Indicator Vocabulary",
   "/codelist@complete": "0",
@@ -13063,6 +13852,7 @@
     "/name/narrative": "Zulu"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/name/narrative": "Language",
   "/codelist/metadata/url": "http://www.iso.org/iso/home/standards/language_codes.htm",
   "/codelist@complete": "0",
@@ -13074,25 +13864,90 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The loan has 1 repayment per year",
-    "/name/narrative": "Annual"
+    "/description/narrative": [
+     {
+      "": "The loan has 1 repayment per year"
+     },
+     {
+      "": "Le prêt a 1 remboursement par an",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Annual"
+     },
+     {
+      "": "Annuel",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/description/narrative": "The loan has 2 repayments per year",
-    "/name/narrative": "Semi-annual"
+    "/description/narrative": [
+     {
+      "": "The loan has 2 repayments per year"
+     },
+     {
+      "": "Le prêt a 2 remboursements par an",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Semi-annual"
+     },
+     {
+      "": "Semi-annuel",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "4",
-    "/description/narrative": "The loan has 4 repayments per year",
-    "/name/narrative": "Quarterly"
+    "/description/narrative": [
+     {
+      "": "The loan has 4 repayments per year"
+     },
+     {
+      "": "Le prêt a 4 remboursements par an",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Quarterly"
+     },
+     {
+      "": "Trimestriel",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "12",
-    "/description/narrative": "The loan has 12, monthly repayments per year",
-    "/name/narrative": "Monthly"
+    "/description/narrative": [
+     {
+      "": "The loan has 12, monthly repayments per year"
+     },
+     {
+      "": "Le prêt a 12 remboursements par an",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Monthly"
+     },
+     {
+      "": "Mensuel",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "CRS Loan Repayment No of Payments",
   "/codelist/metadata/name/narrative": "Loan Repayment Period",
   "/codelist@embedded": "0",
@@ -13103,25 +13958,90 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "As required and defined by CRS++ reporting format Column 44",
-    "/name/narrative": "Equal Principal Payments (EPP)"
+    "/description/narrative": [
+     {
+      "": "As required and defined by CRS++ reporting format Column 44"
+     },
+     {
+      "": "Tel que requis et défini dans le gabarit CRS++ colonne 44",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Equal Principal Payments (EPP)"
+     },
+     {
+      "": "Remboursements en tranches égales du principal",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/description/narrative": "As required and defined by CRS++ reporting format Column 44",
-    "/name/narrative": "Annuity"
+    "/description/narrative": [
+     {
+      "": "As required and defined by CRS++ reporting format Column 44"
+     },
+     {
+      "": "Tel que requis et défini dans le gabarit CRS++ colonne 44",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Annuity"
+     },
+     {
+      "": "Rente",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/description/narrative": "As required and defined by CRS++ reporting format Column 44",
-    "/name/narrative": "Lump sum"
+    "/description/narrative": [
+     {
+      "": "As required and defined by CRS++ reporting format Column 44"
+     },
+     {
+      "": "Tel que requis et défini dans le gabarit CRS++ colonne 44",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Lump sum"
+     },
+     {
+      "": "Montant forfaitaire",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "5",
-    "/description/narrative": "As required and defined by CRS++ reporting format Column 44",
-    "/name/narrative": "Other"
+    "/description/narrative": [
+     {
+      "": "As required and defined by CRS++ reporting format Column 44"
+     },
+     {
+      "": "Tel que requis et défini dans le gabarit CRS++ colonne 44",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Other"
+     },
+     {
+      "": "Autre",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "used in additional CRS elements",
   "/codelist/metadata/name/narrative": "Loan Repayment Type",
   "/codelist@complete": "1",
@@ -13168,6 +14088,7 @@
     "/name/narrative": "Vegetation"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/description/narrative": "This category is equivalent to US NGA's \"Feature Class\"",
   "/codelist/metadata/name/narrative": "Location Type (category)",
   "/codelist/metadata/url": "http://geonames.nga.mil/ggmagaz/",
@@ -14855,6 +15776,7 @@
     "/name/narrative": "Global Knowledge Partnership"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "As of 1.04 this list is no longer maintained. http://support.iatistandard.org/entries/28497976-Retire-the-Organisation-Identifier-codelist#view-post-25368673\n\n            For general guidance about constructing Organisation Identifiers, please see http://iatistandard.org/organisation-identifiers/",
   "/codelist/metadata/name/narrative": "Organisation Identifier",
   "/codelist@complete": "0",
@@ -16633,6 +17555,7 @@
     "@status": "active"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/name/narrative": "Organisation Registration Agency",
   "/codelist@category-codelist": "Country",
   "/codelist@complete": "0",
@@ -16644,7 +17567,15 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The government or organisation which provides funds to the activity.",
+    "/description/narrative": [
+     {
+      "": "The government or organisation which provides funds to the activity."
+     },
+     {
+      "": "Le gouvernement ou l'organisation qui finance l'activité.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Funding"
@@ -16657,7 +17588,15 @@
    },
    {
     "/code": "2",
-    "/description/narrative": "An organisation responsible for oversight of the activity and its outcomes",
+    "/description/narrative": [
+     {
+      "": "An organisation responsible for oversight of the activity and its outcomes"
+     },
+     {
+      "": "Une organisation responsable de la supervision de l'activité et de ses résultats",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Accountable"
@@ -16670,7 +17609,15 @@
    },
    {
     "/code": "3",
-    "/description/narrative": "An organisation that manages the budget and direction of an activity on behalf of the funding organisation",
+    "/description/narrative": [
+     {
+      "": "An organisation that manages the budget and direction of an activity on behalf of the funding organisation"
+     },
+     {
+      "": "Une organisation qui gère le budget et l'orientation d'une activité au nom de l'organisation offrant le financement",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Extending"
@@ -16683,7 +17630,15 @@
    },
    {
     "/code": "4",
-    "/description/narrative": "The organisation that physically carries out the activity or intervention.",
+    "/description/narrative": [
+     {
+      "": "The organisation that physically carries out the activity or intervention."
+     },
+     {
+      "": "L'organisation qui exécute physiquement l'activité ou l'intervention.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Implementing"
@@ -16695,6 +17650,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Core",
   "/codelist/metadata/description/narrative": "IATI codes for the role of an organisation within an activity. An organisation can play more than one role within an activity.",
   "/codelist/metadata/name/narrative": "Organisation Role",
   "/codelist@complete": "1",
@@ -16771,7 +17727,7 @@
    },
    {
     "/code": "24",
-    "/description/narrative": "Partner country based NGO- NGOs not based in an aid recipient country and carrying out operations in one or more aid recipient countries.",
+    "/description/narrative": "Local and National NGO / CSO based in aid/assistance recipient country",
     "/name/narrative": "Partner Country based NGO"
    },
    {
@@ -16854,6 +17810,7 @@
     "/name/narrative": "Other"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": "Organisation Type",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -16944,6 +17901,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": [
    {
     "": "Other Identifier Type"
@@ -16962,39 +17920,111 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/name/narrative": "Gender Equality"
+    "/name/narrative": [
+     {
+      "": "Gender Equality"
+     },
+     {
+      "": "Egalité des genres",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/name/narrative": "Aid to Environment"
+    "/name/narrative": [
+     {
+      "": "Aid to Environment"
+     },
+     {
+      "": "Aide à l'environnement",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/name/narrative": "Participatory Development/Good Governance"
+    "/name/narrative": [
+     {
+      "": "Participatory Development/Good Governance"
+     },
+     {
+      "": "Développement participatif/Bonne gouvernance",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "4",
-    "/name/narrative": "Trade Development"
+    "/name/narrative": [
+     {
+      "": "Trade Development"
+     },
+     {
+      "": "Développement du commerce",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "5",
-    "/name/narrative": "Aid Targeting the Objectives of the Convention on Biological Diversity"
+    "/name/narrative": [
+     {
+      "": "Aid Targeting the Objectives of the Convention on Biological Diversity"
+     },
+     {
+      "": "Aide axée sur les objectifs de la Convention des Nations Unies sur la diversité biologique",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "6",
-    "/name/narrative": "Aid Targeting the Objectives of the Framework Convention on Climate Change - Mitigation"
+    "/name/narrative": [
+     {
+      "": "Aid Targeting the Objectives of the Framework Convention on Climate Change - Mitigation"
+     },
+     {
+      "": "Aide axée sur les objectifs de la Convention-cadre des Nations Unies sur les changements climatiques - Atténuation",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "7",
-    "/name/narrative": "Aid Targeting the Objectives of the Framework Convention on Climate Change - Adaptation"
+    "/name/narrative": [
+     {
+      "": "Aid Targeting the Objectives of the Framework Convention on Climate Change - Adaptation"
+     },
+     {
+      "": "Aide axée sur les objectifs de la Convention-cadre des Nations Unies sur les changements climatiques - Adaptation",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "8",
-    "/name/narrative": "Aid Targeting the Objectives of the Convention to Combat Desertification"
+    "/name/narrative": [
+     {
+      "": "Aid Targeting the Objectives of the Convention to Combat Desertification"
+     },
+     {
+      "": "Aide axée sur les objectifs de la Convention des Nations Unies sur la lutte contre la désertification",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "9",
-    "/name/narrative": "Reproductive, Maternal, Newborn and Child Health (RMNCH)"
+    "/name/narrative": [
+     {
+      "": "Reproductive, Maternal, Newborn and Child Health (RMNCH)"
+     },
+     {
+      "": "Santé génésique, maternelle, néonatale et infantile",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "10",
@@ -17009,6 +18039,7 @@
     "/name/narrative": "Nutrition"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/description/narrative": "The Policy Marker codelist is derived from the policy markers declared by the WP-STAT. The codes themselves are created by IATI.",
   "/codelist/metadata/name/narrative": "Policy Marker",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
@@ -17021,15 +18052,49 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The policy marker is an OECD DAC CRS policy marker, Reported in columns 20-23, 28-31 and 54 of CRS++ reporting format.",
-    "/name/narrative": "OECD DAC CRS"
+    "/description/narrative": [
+     {
+      "": "The policy marker is an OECD DAC CRS policy marker, Reported in columns 20-23, 28-31 and 54 of CRS++ reporting format."
+     },
+     {
+      "": "Le marqueur de politique est un marqueur de politique OCDE CAD SNPC, indiqué dans les colonnes 20-23, 28-31 et 54 du format de préparation de déclaration SNPC++.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "OECD DAC CRS"
+     },
+     {
+      "": "OCDE CAD CRS",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/url": "http://reference.iatistandard.org/codelists/PolicyMarker/"
    },
    {
     "/code": "99",
-    "/description/narrative": "The policy marker is one that is defined and tracked by the reporting organisation",
-    "/name/narrative": "Reporting Organisation"
+    "/description/narrative": [
+     {
+      "": "The policy marker is one that is defined and tracked by the reporting organisation"
+     },
+     {
+      "": "Le marqueur de politique est un marqueur défini et suivi par l'organisation déclarante",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Reporting Organisation"
+     },
+     {
+      "": "Organisation déclarante",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": "Policy Marker Vocabulary",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -17063,6 +18128,7 @@
     "/name/narrative": "Explicit primary objective"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/name/narrative": "Policy Significance",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
   "/codelist@complete": "1",
@@ -17112,6 +18178,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": "Publisher Type",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -17325,6 +18392,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/name/narrative": "Region",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
   "/codelist@complete": "1",
@@ -17336,22 +18404,71 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "Supra-national regions according to OECD DAC CRS recipient codes",
-    "/name/narrative": "OECD DAC",
+    "/description/narrative": [
+     {
+      "": "Supra-national regions according to OECD DAC CRS recipient codes"
+     },
+     {
+      "": "Régions supranationales selon les codes de bénéficiaire OCDE CAD SNPC",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "OECD DAC"
+     },
+     {
+      "": "OCDE CAD",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "http://reference.iatistandard.org/codelists/Region/"
    },
    {
     "/code": "2",
-    "/description/narrative": "Supra-national regions maintained by UN Statistics Division (M49 standard)",
-    "/name/narrative": "UN",
+    "/description/narrative": [
+     {
+      "": "Supra-national regions maintained by UN Statistics Division (M49 standard)"
+     },
+     {
+      "": "Régions supranationales maintenues par la Division de la statistique de l'ONU",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "UN"
+     },
+     {
+      "": "ONU",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "https://unstats.un.org/unsd/methodology/m49/"
    },
    {
     "/code": "99",
-    "/description/narrative": "The region reported corresponds to a region vocabulary maintained by the reporting organisation for this activity.",
-    "/name/narrative": "Reporting Organisation"
+    "/description/narrative": [
+     {
+      "": "The region reported corresponds to a region vocabulary maintained by the reporting organisation for this activity."
+     },
+     {
+      "": "La région déclarée correspond à un vocabulaire régional maintenu par l'organisation déclarante aux fins de l'activité.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Reporting Organisation"
+     },
+     {
+      "": "Organisation déclarante",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": "Region Vocabulary",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -17466,6 +18583,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Core",
   "/codelist/metadata/name/narrative": [
    {
     "": "Related Activity Type"
@@ -17484,20 +18602,36 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "Results of the activity that came about as a direct effect of your work and specific, what is done, and what communities are reached. For example, X number of individuals.",
+    "/description/narrative": [
+     {
+      "": "Results of the activity that came about as a direct effect of your work and specific, what is done, and what communities are reached. For example, X number of individuals."
+     },
+     {
+      "": "Résultats de l'activité découlant directement de votre travail et précisions connexes (ce qui est fait, les communautés rejointes). Par exemple, X nombre de personnes.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Output"
      },
      {
-      "": "Donateur",
+      "": "Extrant",
       "@xml:lang": "fr"
      }
     ]
    },
    {
     "/code": "2",
-    "/description/narrative": "Results of the activity that produce an effect on the overall communities or issues you serve. For example lower rate of infection after a vaccination programme.",
+    "/description/narrative": [
+     {
+      "": "Results of the activity that produce an effect on the overall communities or issues you serve. For example lower rate of infection after a vaccination programme."
+     },
+     {
+      "": "Les résultats de l'activité qui produisent un effet sur les communautés générales ou les grands enjeux sur lesquels vous intervenez. Par exemple, taux d'infection réduit après une campagne de vaccination.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Outcome"
@@ -17510,7 +18644,15 @@
    },
    {
     "/code": "3",
-    "/description/narrative": "The long term effects of the outcomes, that lead to larger, over arching results, such as improved life-expectancy.",
+    "/description/narrative": [
+     {
+      "": "The long term effects of the outcomes, that lead to larger, over arching results, such as improved life-expectancy."
+     },
+     {
+      "": "Les incidences à long terme des effets qui mènent à des résultats de niveau supérieur et de grande envergure, comme une amélioration de l'espérance de vie.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Impact"
@@ -17523,7 +18665,15 @@
    },
    {
     "/code": "9",
-    "/description/narrative": "Another type of result, not specified above.",
+    "/description/narrative": [
+     {
+      "": "Another type of result, not specified above."
+     },
+     {
+      "": "Autre type de résultat non décrit ci-dessus.",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Other"
@@ -17535,6 +18685,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": "Result Type",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -17543,7 +18694,16 @@
  },
  "ResultVocabulary": {
   "/codelist/codelist-items/codelist-item/code": "99",
-  "/codelist/codelist-items/codelist-item/name/narrative": "Reporting Organisation",
+  "/codelist/codelist-items/codelist-item/name/narrative": [
+   {
+    "": "Reporting Organisation"
+   },
+   {
+    "": "Organisation déclarante",
+    "@xml:lang": "fr"
+   }
+  ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "The ResultVocabulary codelist currently includes only 1 code (99) that can be used by organisations to define different results frameworks they are using.",
   "/codelist/metadata/name/narrative": "Result Vocabulary",
   "/codelist@complete": "1",
@@ -18919,6 +20079,13 @@
    },
    {
     "/category": "151",
+    "/code": "15120",
+    "/description/narrative": "Strengthening financial and managerial accountability; public expenditure management; improving financial management systems; tax assessment procedures; budget drafting; field auditing; measures against waste, fraud and corruption.",
+    "/name/narrative": "Public sector financial management",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "151",
     "/code": "15121",
     "/description/narrative": [
      {
@@ -19308,6 +20475,13 @@
    },
    {
     "/category": "151",
+    "/code": "15140",
+    "/description/narrative": "Systems of government including parliament, local government, decentralisation; civil service and civil service reform. Including general services by government (or commissioned by government) not elsewhere specified e.g. police, fire protection; cartography, meteorology, legal metrology, aerial surveys and remote sensing; administrative buildings.",
+    "/name/narrative": "Government administration",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "151",
     "/code": "15142",
     "/description/narrative": [
      {
@@ -19556,6 +20730,34 @@
      }
     ],
     "@status": "active"
+   },
+   {
+    "/category": "151",
+    "/code": "15161",
+    "/description/narrative": "Electoral assistance and monitoring, voters' education [other than in connection with UN peace building (15230)].",
+    "/name/narrative": "Elections",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "151",
+    "/code": "15162",
+    "/description/narrative": "Monitoring of human rights performance; support for national and regional human rights bodies; protection of ethnic, religious and cultural minorities [other than in connection with un peace building (15230)].",
+    "/name/narrative": "Human rights",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "151",
+    "/code": "15163",
+    "/description/narrative": "Uncensored flow of information on public issues, including activities that increase the professionalism, skills and integrity of the print and broadcast media (e.g. training of journalists).",
+    "/name/narrative": "Free flow of information",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "151",
+    "/code": "15164",
+    "/description/narrative": "Support for institutions and organisations (governmental and non-governmental) working for gender equality and women's empowerment.",
+    "/name/narrative": "Women's equality organisations and institutions",
+    "@status": "withdrawn"
    },
    {
     "/category": "151",
@@ -20678,6 +21880,122 @@
      }
     ],
     "@status": "active"
+   },
+   {
+    "/category": "230",
+    "/code": "23010",
+    "/description/narrative": "Energy sector policy, planning and programmes; aid to energy ministries; institution capacity building and advice; unspecified energy activities including energy conservation.",
+    "/name/narrative": "Energy policy and administrative management",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23020",
+    "/description/narrative": "Thermal power plants including when heat source cannot be determined; combined gas-coal power plants.",
+    "/name/narrative": "Power generation/non-renewable sources",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23030",
+    "/description/narrative": "Including policy, planning, development programmes, surveys and incentives. Fuelwood/ charcoal production should be included under forestry (31261).",
+    "/name/narrative": "Power generation/renewable sources",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23040",
+    "/description/narrative": "Distribution from power source to end user; transmission lines.",
+    "/name/narrative": "Electrical transmission/ distribution",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23050",
+    "/description/narrative": "Delivery for use by ultimate consumer.",
+    "/name/narrative": "Gas distribution",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23061",
+    "/description/narrative": "Including diesel power plants.",
+    "/name/narrative": "Oil-fired power plants",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23062",
+    "/name/narrative": "Gas-fired power plants",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23063",
+    "/name/narrative": "Coal-fired power plants",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23064",
+    "/description/narrative": "Including nuclear safety.",
+    "/name/narrative": "Nuclear power plants",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23065",
+    "/description/narrative": "Including power-generating river barges.",
+    "/name/narrative": "Hydro-electric power plants",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23066",
+    "/name/narrative": "Geothermal energy",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23067",
+    "/description/narrative": "Including photo-voltaic cells, solar thermal applications and solar heating.",
+    "/name/narrative": "Solar energy",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23068",
+    "/description/narrative": "Wind energy for water lifting and electric power generation.",
+    "/name/narrative": "Wind power",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23069",
+    "/description/narrative": "Including ocean thermal energy conversion, tidal and wave power.",
+    "/name/narrative": "Ocean power",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23070",
+    "/description/narrative": "Densification technologies and use of biomass for direct power generation including biogas, gas obtained from sugar cane and other plant residues, anaerobic digesters.",
+    "/name/narrative": "Biomass",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23081",
+    "/description/narrative": "Applies to all energy sub-sectors; all levels of training.",
+    "/name/narrative": "Energy education/training",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "230",
+    "/code": "23082",
+    "/description/narrative": "Including general inventories, surveys.",
+    "/name/narrative": "Energy research",
+    "@status": "withdrawn"
    },
    {
     "/category": "231",
@@ -23825,6 +25143,26 @@
     "@status": "active"
    },
    {
+    "/category": "920",
+    "/code": "92010",
+    "/description/narrative": "In the donor country.",
+    "/name/narrative": "Support to national NGOs",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "920",
+    "/code": "92020",
+    "/name/narrative": "Support to international NGOs",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "920",
+    "/code": "92030",
+    "/description/narrative": "In the recipient country or region.",
+    "/name/narrative": "Support to local and regional NGOs",
+    "@status": "withdrawn"
+   },
+   {
     "/category": "930",
     "/code": "93010",
     "/description/narrative": [
@@ -24086,6 +25424,7 @@
     "@status": "active"
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/name/narrative": "DAC 5 Digit Sector",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
   "/codelist@category-codelist": "SectorCategory",
@@ -24369,6 +25708,12 @@
       "@xml:lang": "fr"
      }
     ]
+   },
+   {
+    "/code": "230",
+    "/description/narrative": "Energy sector policy, planning and programmes; aid to energy ministries; institution capacity building and advice; unspecified energy activities including energy conservation.",
+    "/name/narrative": "ENERGY GENERATION AND SUPPLY",
+    "@status": "withdrawn"
    },
    {
     "/code": "231",
@@ -24877,6 +26222,12 @@
     ]
    },
    {
+    "/code": "920",
+    "/description/narrative": "In the donor country.",
+    "/name/narrative": "SUPPORT TO NON- GOVERNMENTAL ORGANISATIONS (NGOs)",
+    "@status": "withdrawn"
+   },
+   {
     "/code": "930",
     "/description/narrative": [
      {
@@ -24916,6 +26267,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Replicated",
   "/codelist/metadata/name/narrative": "DAC 3 Digit Sector",
   "/codelist/metadata/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm",
   "/codelist@complete": "1",
@@ -24927,41 +26279,65 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "The sector reported corresponds to an OECD DAC CRS 5-digit purpose code",
+    "/description/narrative": [
+     {
+      "": "The sector reported corresponds to an OECD DAC CRS 5-digit purpose code"
+     },
+     {
+      "": "Le secteur déclaré correspond à un code de secteur OCDE CAD SNPC à cinq chiffres",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "OECD DAC CRS Purpose Codes (5 digit)"
      },
      {
-      "": "Codes-objet à cinq chiffres du Système de notification des pays créanciers du Comité d'aide au développement de l'OCDE",
+      "": "Codes-secteurs OCDE CAD SNPC (5 chiffres)",
       "@xml:lang": "fr"
      }
     ],
-    "/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm"
+    "/url": "http://reference.iatistandard.org/codelists/Sector/"
    },
    {
     "/code": "2",
-    "/description/narrative": "The sector reported corresponds to an OECD DAC CRS 3-digit purpose code",
+    "/description/narrative": [
+     {
+      "": "The sector reported corresponds to an OECD DAC CRS 3-digit purpose code"
+     },
+     {
+      "": "Le secteur déclaré correspond à un code de secteur OCDE CAD SNPC à trois chiffres",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "OECD DAC CRS Purpose Codes (3 digit)"
      },
      {
-      "": "Codes-objet à trois chiffres du Système de notification des pays créanciers du Comité d’aide au développement de l'OCDE",
+      "": "Codes-secteurs OCDE CAD SNPC (3 chiffres)",
       "@xml:lang": "fr"
      }
     ],
-    "/url": "http://www.oecd.org/dac/stats/dacandcrscodelists.htm"
+    "/url": "http://reference.iatistandard.org/codelists/SectorCategory/"
    },
    {
     "/code": "3",
-    "/description/narrative": "The sector reported corresponds to the UN Classification of the Functions of Government (CoFoG)",
+    "/description/narrative": [
+     {
+      "": "The sector reported corresponds to the UN Classification of the Functions of Government (CoFoG)"
+     },
+     {
+      "": "Le secteur déclaré correspond à la Classification des fonctions gouvernementales (COFOG) de l'ONU",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Classification of the Functions of Government (UN)"
      },
      {
-      "": "Classification des fonctions des administrations publiques (ONU)",
+      "": "Classification des fonctions gouvernementales (ONU)",
       "@xml:lang": "fr"
      }
     ],
@@ -24969,13 +26345,21 @@
    },
    {
     "/code": "4",
-    "/description/narrative": "The sector reported corresponds to the statistical classifications of economic activities in the European Community",
+    "/description/narrative": [
+     {
+      "": "The sector reported corresponds to the statistical classifications of economic activities in the European Community"
+     },
+     {
+      "": "Le secteur déclaré correspond aux classifications statistiques des activités économiques dans l'Union européenne",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Statistical classification of economic activities in the European Community"
      },
      {
-      "": "Nomenclature statistique des activités économiques dans la Communauté européenne",
+      "": "Classification statistique sur les activités économiques dans l'Union européenne",
       "@xml:lang": "fr"
      }
     ],
@@ -24983,13 +26367,21 @@
    },
    {
     "/code": "5",
-    "/description/narrative": "The sector reported corresponds to the National Taxonomy for Exempt Entities (NTEE) - USA",
+    "/description/narrative": [
+     {
+      "": "The sector reported corresponds to the National Taxonomy for Exempt Entities (NTEE) - USA"
+     },
+     {
+      "": "Le secteur déclaré correspond à la taxonomie nationale des entités exonérées (NTEE) - États-Unis",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "National Taxonomy for Exempt Entities (USA)"
      },
      {
-      "": "Taxonomie nationale des entités exonérées (É.-U.)",
+      "": "Taxonomie nationale des entités exemptes (États-Unis)",
       "@xml:lang": "fr"
      }
     ],
@@ -24997,7 +26389,15 @@
    },
    {
     "/code": "6",
-    "/description/narrative": "The sector reported corresponds to AidData classifications",
+    "/description/narrative": [
+     {
+      "": "The sector reported corresponds to AidData classifications"
+     },
+     {
+      "": "Le secteur déclaré  correspond aux classifications AidData",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "AidData"
@@ -25010,26 +26410,90 @@
    },
    {
     "/code": "7",
-    "/description/narrative": "A value from the top-level list of UN sustainable development goals (SDGs) (e.g. ‘1’)",
-    "/name/narrative": "SDG Goal",
+    "/description/narrative": [
+     {
+      "": "A value from the top-level list of UN sustainable development goals (SDGs) (e.g. ‘1’)"
+     },
+     {
+      "": "Valeur tirée de la liste des principaux objectifs de développement durable (ODD) de l'ONU (p. ex. '1')",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "SDG Goal"
+     },
+     {
+      "": "ODD (objectif)",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "https://sustainabledevelopment.un.org/?menu=1300"
    },
    {
     "/code": "8",
-    "/description/narrative": "A value from the second-level list of UN sustainable development goals (SDGs) (e.g. ‘1.1’)",
-    "/name/narrative": "SDG Target",
+    "/description/narrative": [
+     {
+      "": "A value from the second-level list of UN sustainable development goals (SDGs) (e.g. ‘1.1’)"
+     },
+     {
+      "": "Valeur tirée de la liste des sous-objectifs de développement durable (ODD) de l'ONU (p. ex. '1.1')",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "SDG Target"
+     },
+     {
+      "": "ODD (cible)",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "http://unstats.un.org/sdgs/indicators/indicators-list/"
    },
    {
     "/code": "9",
-    "/description/narrative": "A value from the second-level list of UN sustainable development (SDG) indicators",
-    "/name/narrative": "SDG Indicator",
+    "/description/narrative": [
+     {
+      "": "A value from the second-level list of UN sustainable development (SDG) indicators"
+     },
+     {
+      "": "Valeur tirée de la liste des indicateurs de développement durable (ODD) de deuxième niveau de l'ONU",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "SDG Indicator"
+     },
+     {
+      "": "ODD (indicateur)",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "http://unstats.un.org/sdgs/indicators/indicators-list/"
    },
    {
     "/code": "10",
-    "/description/narrative": "The sector reported corresponds to an Inter-Agency Standard Committee Humanitarian Global Cluster code",
-    "/name/narrative": "Humanitarian Global Clusters (Inter-Agency Standing Committee)",
+    "/description/narrative": [
+     {
+      "": "The sector reported corresponds to an Inter-Agency Standard Committee Humanitarian Global Cluster code"
+     },
+     {
+      "": "Le secteur déclaré correspond à un code de groupe sectoriel du Comité permanent interorganisations",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Humanitarian Global Clusters (Inter-Agency Standing Committee)"
+     },
+     {
+      "": "Groupes sectoriels d'aide humanitaire (Comité permanent interorganisations)",
+      "@xml:lang": "fr"
+     }
+    ],
     "/url": "https://data.humdata.org/dataset/global-coordination-groups-beta"
    },
    {
@@ -25040,7 +26504,15 @@
    },
    {
     "/code": "99",
-    "/description/narrative": "The sector reported corresponds to a sector vocabulary maintained by the reporting organisation for this activity",
+    "/description/narrative": [
+     {
+      "": "The sector reported corresponds to a sector vocabulary maintained by the reporting organisation for this activity"
+     },
+     {
+      "": "Le secteur déclaré correspond à un vocabulaire sectoriel maintenu par l'organisation déclarante aux fins de l'activité",
+      "@xml:lang": "fr"
+     }
+    ],
     "/name/narrative": [
      {
       "": "Reporting Organisation"
@@ -25058,7 +26530,7 @@
       "": "The sector reported corresponds to a sector vocabulary maintained by the reporting organisation for this activity (if they are referencing more than one)"
      },
      {
-      "": "Si plus d’un secteur est mentionné, le secteur indiqué correspond au vocabulaire utilisé par l’organisation déclarante en référence à cette activité",
+      "": "Le secteur déclaré correspond à un vocabulaire sectoriel maintenu par l'organisation déclarante aux fins de l'activité (si l'organisation en indique plus d'un)",
       "@xml:lang": "fr"
      }
     ],
@@ -25073,6 +26545,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": "Sector Vocabulary",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -25088,10 +26561,23 @@
     "/url": "http://agrovoc.uniroma2.it/agrovoc/agrovoc/en/"
    },
    {
+    "/code": "2",
+    "/description/narrative": "A value from the top-level list of UN sustainable development goals (SDGs) (e.g. ‘1’)",
+    "/name/narrative": "UN Sustainable Development Goals (SDG)",
+    "/url": "http://reference.iatistandard.org/codelists/UNSDG-Goals/"
+   },
+   {
+    "/code": "3",
+    "/description/narrative": "A value from the second-level list of UN sustainable development goals (SDGs) (e.g. ‘1.1’)",
+    "/name/narrative": "UN Sustainable Development Goals (SDG) Targets",
+    "/url": "http://reference.iatistandard.org/codelists/UNSDG-Targets/"
+   },
+   {
     "/code": "99",
     "/name/narrative": "Reporting Organisation"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "The Tag Vocabulary codelist defines external codelists which themselves provide codes and descriptions for tag elements.",
   "/codelist/metadata/name/narrative": "Tag Vocabulary",
   "/codelist@complete": "1",
@@ -25165,6 +26651,7 @@
     ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": [
    {
     "": "Tied Status"
@@ -25183,70 +26670,279 @@
   "/codelist/codelist-items/codelist-item": [
    {
     "/code": "1",
-    "/description/narrative": "Funds recieved for use on the activity, which can be from an external or internal source.",
-    "/name/narrative": "Incoming Funds"
+    "/description/narrative": [
+     {
+      "": "Funds recieved for use on the activity, which can be from an external or internal source."
+     },
+     {
+      "": "Fonds reçus pour être utilisés dans le cadre de l'activité et qui peuvent provenir d'une source externe ou interne.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Incoming Funds"
+     },
+     {
+      "": "Fonds entrants",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "2",
-    "/description/narrative": "A firm, written obligation from a donor or provider to provide a specified amount of funds, under particular terms and conditions, for specific purposes, for the benefit of the recipient.",
-    "/name/narrative": "Outgoing Commitment"
+    "/description/narrative": [
+     {
+      "": "A firm, written obligation from a donor or provider to provide a specified amount of funds, under particular terms and conditions, for specific purposes, for the benefit of the recipient."
+     },
+     {
+      "": "Une obligation ferme et écrite d'un donateur ou d'un fournisseur d'offrir au bénéficiaire un financement d'un montant établi, conformément à des modalités précises, dans un but explicite.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Outgoing Commitment"
+     },
+     {
+      "": "Engagement sortant",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "3",
-    "/description/narrative": "Outgoing funds that are placed at the disposal of a recipient government or organisation, or funds transferred between two separately reported activities.",
-    "/name/narrative": "Disbursement"
+    "/description/narrative": [
+     {
+      "": "Outgoing funds that are placed at the disposal of a recipient government or organisation, or funds transferred between two separately reported activities."
+     },
+     {
+      "": "Fonds sortants mis à la disposition d'un gouvernement ou d'une organisation bénéficiaire ou fonds transférés entre deux activités faisant l'objet de déclarations distinctes.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Disbursement"
+     },
+     {
+      "": "Décaissement",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "4",
-    "/description/narrative": "Outgoing funds that are spent on goods and services for the activity.",
-    "/name/narrative": "Expenditure"
+    "/description/narrative": [
+     {
+      "": "Outgoing funds that are spent on goods and services for the activity."
+     },
+     {
+      "": "Fonds sortants dépensés pour acquérir des biens et services pour l'activité.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Expenditure"
+     },
+     {
+      "": "Dépenses",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "5",
-    "/description/narrative": "The actual amount of interest paid on a loan or line of credit, including fees.",
-    "/name/narrative": "Interest Payment"
+    "/description/narrative": [
+     {
+      "": "The actual amount of interest paid on a loan or line of credit, including fees."
+     },
+     {
+      "": "Le montant réel des intérêts payés en lien avec un prêt ou une marge de crédit, y compris les frais.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Interest Payment"
+     },
+     {
+      "": "Paiements d’intérêts",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "6",
-    "/description/narrative": "The actual amount of principal (amortisation) repaid, including any arrears.",
-    "/name/narrative": "Loan Repayment"
+    "/description/narrative": [
+     {
+      "": "The actual amount of principal (amortisation) repaid, including any arrears."
+     },
+     {
+      "": "Le montant réel du capital remboursé (amortissement), y compris les arriérés, le cas échéant.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Loan Repayment"
+     },
+     {
+      "": "Remboursement du prêt",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "7",
-    "/description/narrative": "A type of disbursement that covers funds that have already been spent by the recipient, as agreed in the terms of the grant or loan",
-    "/name/narrative": "Reimbursement"
+    "/description/narrative": [
+     {
+      "": "A type of disbursement that covers funds that have already been spent by the recipient, as agreed in the terms of the grant or loan"
+     },
+     {
+      "": "Un type de décaissement qui couvre des fonds qui ont déjà été dépensés par le bénéficiaire, conformément aux modalités de la subvention ou du prêt",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Reimbursement"
+     },
+     {
+      "": "Remboursement",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "8",
-    "/description/narrative": "Outgoing funds that are used to purchase equity in a business",
-    "/name/narrative": "Purchase of Equity"
+    "/description/narrative": [
+     {
+      "": "Outgoing funds that are used to purchase equity in a business"
+     },
+     {
+      "": "Fonds sortants qui sont utilisés pour acquérir de l'équité dans une entreprise",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Purchase of Equity"
+     },
+     {
+      "": "Achat d'équité",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "9",
-    "/description/narrative": "Incoming funds from the sale of equity.",
-    "/name/narrative": "Sale of Equity"
+    "/description/narrative": [
+     {
+      "": "Incoming funds from the sale of equity."
+     },
+     {
+      "": "Fonds reçus en lien avec la vente d'équité",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Sale of Equity"
+     },
+     {
+      "": "Vente d'équité",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "10",
-    "/description/narrative": "A commitment made by a funding organisation to underwrite a loan or line of credit entered into by a third party.",
-    "/name/narrative": "Credit Guarantee"
+    "/description/narrative": [
+     {
+      "": "A commitment made by a funding organisation to underwrite a loan or line of credit entered into by a third party."
+     },
+     {
+      "": "Engagement pris par une organisation de financement pour garantir un prêt ou une marge de crédit contractés par une tierce partie.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Credit Guarantee"
+     },
+     {
+      "": "Caution",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "11",
-    "/description/narrative": "A firm, written obligation from a donor or provider to provide a specified amount of funds, under particular terms and conditions, reported by a recipient for this activity.",
-    "/name/narrative": "Incoming Commitment"
+    "/description/narrative": [
+     {
+      "": "A firm, written obligation from a donor or provider to provide a specified amount of funds, under particular terms and conditions, reported by a recipient for this activity."
+     },
+     {
+      "": "Une obligation ferme et écrite d'un donateur ou d'un fournisseur d'offrir un financement d'un montant établi, conformément à des modalités précises et déclarée par le bénéficiaire en lien avec l'activité.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Incoming Commitment"
+     },
+     {
+      "": "Engagement entrant",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "12",
-    "/description/narrative": "Indicative, non-binding advice of an intended outgoing commitment.",
-    "/name/narrative": "Outgoing Pledge"
+    "/description/narrative": [
+     {
+      "": "Indicative, non-binding advice of an intended outgoing commitment."
+     },
+     {
+      "": "Avis indicatif et sans obligation indiquant une intention de prendre un engagement sortant.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Outgoing Pledge"
+     },
+     {
+      "": "Promesse sortante",
+      "@xml:lang": "fr"
+     }
+    ]
    },
    {
     "/code": "13",
-    "/description/narrative": "Indicative, non-binding advice of an intended incoming commitment.",
-    "/name/narrative": "Incoming Pledge"
+    "/description/narrative": [
+     {
+      "": "Indicative, non-binding advice of an intended incoming commitment."
+     },
+     {
+      "": "Avis indicatif et sans obligation indiquant une intention de prendre un engagement entrant.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Incoming Pledge"
+     },
+     {
+      "": "Promesse entrante",
+      "@xml:lang": "fr"
+     }
+    ]
    }
   ],
+  "/codelist/metadata/category/narrative": "Core",
   "/codelist/metadata/name/narrative": "Transaction Type",
   "/codelist@complete": "1",
   "/codelist@embedded": "1",
@@ -25266,6 +26962,7 @@
     "/name/narrative": "Verified"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/name/narrative": "Verification Status",
   "/codelist@complete": "1",
   "/codelist@embedded": "0",
@@ -25307,6 +27004,7 @@
     "/url": "http://iatistandard.org/203/"
    }
   ],
+  "/codelist/metadata/category/narrative": "Non-Core",
   "/codelist/metadata/description/narrative": "Version of the IATI Standard",
   "/codelist/metadata/name/narrative": "Version",
   "/codelist@complete": "1",
