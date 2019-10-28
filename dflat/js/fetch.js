@@ -345,7 +345,6 @@ fetch.codelist=async function()
 	let codes={}
 	for(let n in codelists)
 	{
-		codes[n]={}
 		let list=codelists[n]["/codelist/codelist-items/codelist-item"]
 		if(list)
 		{
@@ -355,14 +354,57 @@ fetch.codelist=async function()
 				if( code )
 				{
 					code=code.toUpperCase() // force upper for all codes as they tend to mix with numbers
-					let name=c["/name/narrative"]
-					if( Array.isArray(name) )
+					let index=0
+					let done=false
+					let lang="en"
+					while(!done)
 					{
-						name=name[0][""]
+						let narr=c["/name/narrative"]
+						let name=""
+						if( Array.isArray(narr) )
+						{
+							if( ! narr[index] ) { break }
+							name=narr[index][""]
+							lang=narr[index]["@xml:lang"] || "en"
+							lang=lang.toLowerCase()
+						}
+						else
+						{
+							done=true
+						}
+						if( name )
+						{
+							codes[lang+"-name"]=codes[lang+"-name"] || {}
+							codes[lang+"-name"][n]=codes[lang+"-name"][n] || {}
+							codes[lang+"-name"][n][ code ] = name
+						}
+						index++
 					}
-					if( name )
+					index=0
+					done=false
+					lang="en"
+					while(!done)
 					{
-						codes[n][ code ] = name
+						let narr=c["/description/narrative"]
+						let description=""
+						if( Array.isArray(narr) )
+						{
+							if( ! narr[index] ) { break }
+							description=narr[index][""]
+							lang=narr[index]["@xml:lang"] || "en"
+							lang=lang.toLowerCase()
+						}
+						else
+						{
+							done=true
+						}
+						if( description )
+						{
+							codes[lang+"-description"]=codes[lang+"-description"] || {}
+							codes[lang+"-description"][n]=codes[lang+"-description"][n] || {}
+							codes[lang+"-description"][n][ code ] = description
+						}
+						index++
 					}
 				}
 			}
