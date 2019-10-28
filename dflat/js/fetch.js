@@ -339,26 +339,59 @@ fetch.codelist=async function()
 		var name=it["/codelist@name"]
 		codelists[name]=it
 	}
-	await pfs.writeFile("json/codelists.json",stringify(codelists,{space:" "}));
+	await pfs.writeFile("json/codelists.xml.json",stringify(codelists,{space:" "})); // raw xml dump
+	
+	
+	let codes={}
+	for(let n in codelists)
+	{
+		codes[n]={}
+		let list=codelists[n]["/codelist/codelist-items/codelist-item"]
+		if(list)
+		{
+			for( let c of list )
+			{
+				let code=c["/code"]
+				if( code )
+				{
+					code=code.toUpperCase() // force upper for all codes as they tend to mix with numbers
+					let name=c["/name/narrative"]
+					if( Array.isArray(name) )
+					{
+						name=name[0][""]
+					}
+					if( name )
+					{
+						codes[n][ code ] = name
+					}
+				}
+			}
+		}
+	}
+	await pfs.writeFile("json/codelists.json",stringify(codes,{space:" "})); // raw xml dump
+	
 
 	console.log("parsing codelist mapping.xml")
 
 	var data=await pfs.readFile("fetched/mapping.xml",{ encoding: 'utf8' })
 	var tree=jml.from_xml(data)
 	
-	var codemap=[]
+	var codemap={}
 	var code={}
 	jml.walk_xpath(tree,(it,path)=>{
 		if( path=="/mappings/mapping" ) // new map
 		{
 			code={}
-			codemap.push(code)
 		}
 		else
 		if( path=="/mappings/mapping/path" )
 		{
 			var s=it[1][0] // string
-			code.path=s
+			s=s.split("//").join("/") // fix the wildcard paths provided here
+			s=s.split("/@").join("@") // to match the explicit paths we are using
+//			code.path=s
+			codemap[s]=codemap[s] || []
+			codemap[s].push(code)
 		}
 		else
 		if( path=="/mappings/mapping/codelist" )
