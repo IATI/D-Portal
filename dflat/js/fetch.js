@@ -431,6 +431,14 @@ fetch.codelist=async function()
 			var s=it[1][0] // string
 			s=s.split("//").join("/") // fix the wildcard paths provided here
 			s=s.split("/@").join("@") // to match the explicit paths we are using
+			if( s.startsWith("/iati-activity") )
+			{
+				s="/iati-activities"+s
+			}
+			if( s.startsWith("/iati-organisation") )
+			{
+				s="/iati-organisations"+s
+			}
 //			code.path=s
 			codemap[s]=codemap[s] || []
 			codemap[s].push(code)

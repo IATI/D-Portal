@@ -39,6 +39,7 @@ savi.start_loaded=function(){
 	
 	xson.walk( savi_frankenstein , (it,nn,idx)=>{
 		let nb=nn.join("")
+
 		for(let n of Object.keys(it)) // this caches the keys so we can modify
 		{
 			let v=it[n]
@@ -54,6 +55,7 @@ savi.start_loaded=function(){
 			let cm=codemap[nb+n]
 			if(cm) // we have a code to map
 			{
+				cm=cm[0] // first item
 				if(!cm.condition) // only the simple codemaps
 				{
 					let m=codelists["en-name"][cm.codelist]
