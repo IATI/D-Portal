@@ -12634,7 +12634,7 @@
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "XM-DAC-47021",
   "publisher_implementation_schedule": "",
-  "publisher_organization_type": "21",
+  "publisher_organization_type": "40",
   "publisher_record_exclusions": "",
   "publisher_refs": "",
   "publisher_segmentation": "",
@@ -12650,6 +12650,10 @@
   "title": "International Potato Center",
   "type": "organization",
   "users": [
+   {
+    "capacity": "admin",
+    "name": "cip-iati"
+   },
    {
     "capacity": "admin",
     "name": "pcabellor"
@@ -24898,6 +24902,53 @@
    {
     "capacity": "admin",
     "name": "global-rights-compliance"
+   }
+  ]
+ },
+ "ground-truth-solutions": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "48fe0f33-dd6a-435e-b881-b1b1e751d5d1",
+  "image_display_url": "https://www.dropbox.com/s/y2528tnvhy8m3od/logo_centered_high%20res.png?dl=0",
+  "image_url": "https://www.dropbox.com/s/y2528tnvhy8m3od/logo_centered_high%20res.png?dl=0",
+  "is_organization": true,
+  "license_id": "odc-by",
+  "name": "ground-truth-solutions",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "Waehringer Strasse 6-8/12a 2.stock",
+  "publisher_contact_email": "konstantinos@groundtruthsolutions.org",
+  "publisher_country": "AT",
+  "publisher_data_quality": "",
+  "publisher_description": "Ground Truth Solutions is an international non-governmental organisation that helps people affected by crisis influence the design and implementation of humanitarian aid. We also capture the perspective of field staff and local partner organisations as a counterpoint to the views of those caught up in humanitarian crises.\r\nWe believe that the intended beneficiaries of humanitarian aid should have more of a say in how aid is provided. Through our work, we help them communicate their feedback to policymakers and aid providers in the most effective way possible. We regularly engage with people affected by crisis to discover whether they find humanitarian services relevant and fair, if they trust aid agencies, and whether they feel empowered. Our goal is to make their perceptions the touchstone and driver of humanitarian effectiveness. To achieve this, we champion the views of people affected by crisis at the global level and wherever decisions about aid are made.",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "annually",
+  "publisher_iati_id": "AT-UID-U74408937",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "21",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://groundtruthsolutions.org/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Ground Truth Solutions",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "groundtruthsolutions"
    }
   ]
  },
@@ -46616,7 +46667,7 @@
   "license_id": "other-pd",
   "name": "resilience",
   "num_followers": 0,
-  "package_count": 1,
+  "package_count": 0,
   "publisher_agencies": "Resiliencia Ethiopia\r\nResiliencia Mozambique\r\nResiliencia Rwanda ltd. \r\nResilience BV Netherlands",
   "publisher_constraints": "",
   "publisher_contact": "De Valk\r\nDreijenlaan 2\r\n6703 HA Wageningen\r\nThe Netherlands",
@@ -57090,7 +57141,7 @@
   "license_id": "odc-by",
   "name": "unocha",
   "num_followers": 1,
-  "package_count": 49,
+  "package_count": 82,
   "publisher_agencies": "UNOCHA",
   "publisher_constraints": "N/A",
   "publisher_contact": "oct@un.org\r\n",
