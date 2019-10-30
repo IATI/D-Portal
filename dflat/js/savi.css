@@ -15,10 +15,12 @@ a:active	{text-decoration:none; color:#FFAB5E;}
 .header,
 .header_doc	{font-size:14px; color:#ccc; text-transform:uppercase; display:block; border-bottom:1px solid #aaa; padding-bottom:10px; margin-bottom:20px;}
 .header_doc	{border:0; margin:0;}
-.header_section	{font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:30px 0 20px -50px; width:980px; text-transform:uppercase; position:sticky; top:-1px; z-index:1;}
+.header_section	{font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:30px 0 20px -50px; width:980px; text-transform:uppercase;}
+.sticky		{position:sticky; top:-1px; z-index:1;}
 span.block	{display:block;}
 .narrative:nth-of-type(2)	{font-style:italic; display:block;}
 
+/*	WRAPPERS	*/
 .wrap_title					{padding-bottom:40px;}
 .wrap_reporting_org			{font-size:18px; line-height:1.35em; color:#ccc;}
 .wrap_title span,
@@ -37,9 +39,33 @@ span.block	{display:block;}
 .wrap_default .text			{display:inline-block; vertical-align:top; font-size:14px; color:#ccc; width:50%;}
 .wrap_default .text:first-of-type	{padding-right:20px;}
 .wrap_default .text	span	{font-size:16px; color:#fff; padding-left:10px;}
+.wrap_location .header_section	{margin-top:0;}
 
 .reporting_org .narrative:nth-of-type(2)	{font-style:italic;}
-.data_source a	{display:inline-block; vertical-align:baseline; width:21%; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; color:#fff; padding:5px 0; margin:10px 2% 5px 0;}
+
+/*	FLAGS	*/
+.humanitarian	{text-transform:uppercase; position:absolute; top:30px; left:224px; padding:10px 40px 7px 40px; font-size:14px; color:#000e20; text-align:right; background-color:#ff890c;}
+
+/*	GRAPHS	*/
+.wrap_recipient_country,
+.wrap_sector		{color:#444; background-color:#fff; margin-top:-20px; width:960px; margin-left:-40px; padding:0 0 40px 0;}
+.sector				{color:#444; font-size:14px; line-height:18px; padding:0 40px;}
+.wrap_code,
+.wrap_bar			{display:inline-block; vertical-align:middle; width:500px;}
+.wrap_code			{text-align:right; width:380px; border-right:1px solid #999; padding:10px 20px 10px 0;}
+.wrap_bar			{height:24px;}
+.sector_code		{margin-left:10px; background-color:rgba(72,79,86,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
+.sector_code:nth-of-type(3)	{margin-left:5px;}
+.sector_bar,
+.sector_value		{display:inline-block; vertical-align:middle;}
+.sector_bar			{background-color:#09f; max-width:435px; height:24px; position:relative;}
+.sector_bar:before	{content:""; background-color:rgba(17,46,105,0.1); width:435px; height:24px; position:absolute; top:0; left:0;}
+.sector_value		{color:#444; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
+.sector_value:after	{content:"%";}
+.wrap_sector .header{color:#444; margin-left:40px; width:880px; padding-top:40px;}
+
+/*	DATA SOURCES	*/
+.data_source a		{display:inline-block; vertical-align:baseline; width:21%; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; color:#fff; padding:5px 0; margin:10px 2% 5px 0;}
 .data_source a span	{color:#ccc;}
 .data_source a:hover{color:#FFAB5E;}
 .data_source a.slug	{width:31%;}
@@ -51,17 +77,19 @@ span.block	{display:block;}
 .result:before	{content:"( "counter(docs)" )";}
 .result			{position:absolute; top:0; left:110px; font-size:13px; color:#ccc;}
 
-.count,
-.count_div			{counter-reset:count; position:relative;}
-.count > table tr.row_count,
-.count_div > .div_count	{counter-increment:count;}
+.count			{counter-reset:count; position:relative;}
+.count > table tr.row_count	{counter-increment:count;}
 .counter:before	{content:"( "counter(count)" )";}
 .wrap_counter	{position:absolute; top:10px; left:130px; height:100%; font-size:12px; color:#ccc;}
 .counter		{position:sticky; top:9px; z-index:1; font-size:12px; color:#ccc;}
 .wrap_counter.rec_budget	{left:200px;}
 .wrap_humanitarian_scope .wrap_counter	{left:140px;}
-.wrap_location .wrap_counter,
-.wrap_sector .wrap_counter	{left:70px;}
+
+.count_div			{counter-reset:count; position:relative;}
+.count_div > .sector{counter-increment:count;}
+.div_count:before	{content:"( "counter(count)" )";}
+.div_count			{position:absolute; top:40px; left:210px; font-size:13px; color:#444;}
+.non_dac .div_count	{left:120px;}
 
 /*	DOCUMENTS	*/
 a.doc_link:before	{display:inline-block; vertical-align:top; content:"☰"; border:1px solid #CCC; padding:2px; color:#CCC; margin-right:-24px;}
@@ -89,10 +117,12 @@ span.doc_rec span.inblock	{background-color:rgba(22,24,37,0.6);}
 .wrap_activity_date div span				{font-size:14px; color:#000e20; text-transform:uppercase;}
 
 /*	TABLES	*/
+.currency		{font-size:12px; color:#ccc;}
 table.budget	{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
 table.budget th	{padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 10px center;}
 table.budget th:hover	{cursor:pointer;}
-table.budget td	{font-size:14px; color:#FFF; line-height:1.35em; vertical-align:top; border-bottom:1px solid #333642; padding:10px 0;}
+table.budget td			{font-size:14px; color:#FFF; line-height:1.35em; vertical-align:top; border-bottom:1px solid #333642; padding:10px 0;}
+table.budget td.value	{font-size:16px; padding-right:20px; text-align:right;}
 table.budget tr:nth-of-type(1) td	{padding-top:15px;}
 table.budget tr:nth-of-type(1) th	{position:sticky; top:33px; z-index:5; background-color:#152136f2; padding:10px 0;}
 table.budget tr:nth-of-type(1) th:after	{content:''; position:absolute; left:0; bottom:-1px; width:100%; border-bottom:1px solid #aaa;}
@@ -106,7 +136,7 @@ table.budget td:first-of-type,
 table.budget th:nth-of-type(2),
 table.budget td:nth-of-type(2),
 table.budget th:nth-of-type(4),
-table.budget td:nth-of-type(4)
+table.budget td:nth-of-type(4),
 table.budget.rec_country th:nth-of-type(2),
 table.budget.rec_country td:nth-of-type(2)	{width:130px; padding-right:20px;}
 table.budget th:nth-of-type(3),
@@ -137,3 +167,17 @@ table.budget.location td:nth-of-type(5),
 table.budget.location th:nth-of-type(6),
 table.budget.location td:nth-of-type(6)		{width:120px; padding-right:0px;}
 
+table.budget.act th,
+table.budget.act td,
+table.budget.act_trans th:nth-of-type(1),
+table.budget.act_trans td:nth-of-type(1)	{width:120px; padding-right:0px;}
+table.budget.act th:nth-of-type(1),
+table.budget.act td:nth-of-type(1)			{width:75px; padding-right:0px;}
+table.budget.act th:nth-of-type(2),
+table.budget.act td:nth-of-type(2)			{width:160px; padding-right:0px;}
+table.budget.act_trans th:nth-of-type(2),
+table.budget.act_trans td:nth-of-type(2)	{width:230px; padding-right:30px;}
+table.budget.act_trans th:nth-of-type(3),
+table.budget.act_trans td:nth-of-type(3)	{width:180px; padding-right:30px;}
+table.budget.act_trans th:nth-of-type(4),
+table.budget.act_trans td:nth-of-type(4)	{width:180px; padding-right:0px;}

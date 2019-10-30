@@ -6,6 +6,7 @@
 
 #^iati-activity
 <div class="activity">
+	{_it.@humanitarian==1&&humanitarian}
 	<div class="header">PROJECT TITLE</div>
 	<div class="wrap_title">{_it./title/narrative:/narrative}</div>
 
@@ -36,7 +37,7 @@
 	</div>
 	
 	<div class="wrap_participating_org count">
-		<div class="header_section collapsable">WHO'S INVOLVED</div>
+		<div class="header_section sticky collapsable">WHO'S INVOLVED</div>
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
@@ -56,7 +57,7 @@
 	</div>
 	
 	<div class="wrap_humanitarian_scope count">
-		<div class="header_section collapsable">humanitarian scope</div>
+		<div class="header_section sticky collapsable">humanitarian scope</div>
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
@@ -71,14 +72,16 @@
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 	
-	<div class="wrap_recipient_country count_div">
+	<div class="count_div">
 		<div class="header_section collapsable">recipient country</div>
-		{_it./recipient-country:/recipient-country}
+		<div class="wrap_recipient_country">
+			{_it./recipient-country:/recipient-country}
+		</div>
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 	
 	<div class="wrap_location count">
-		<div class="header_section collapsable">LOCATION</div>
+		<div class="header_section sticky collapsable">LOCATION</div>
 		<table class="budget location sortable">
 			<thead>
 				<tr>
@@ -95,22 +98,106 @@
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 	
+	<div class="header_section collapsable">sector</div>
 	<div class="wrap_sector count_div">
-		<div class="header_section collapsable">sector</div>
-		{_it./sector:/sector}
+		<div class="count_div">
+			<div class="header">OECD DAC CRS 5 digit</div>
+			{_it./sector:sectors-1}
+			<div class="div_count"></div>
+		</div>
+		<div class="count_div">
+			<div class="header">OECD DAC CRS 3 digit</div>
+			{_it./sector:sectors-2}
+			<div class="div_count"></div>
+		</div>
+		<div class="count_div non_dac">
+			<div class="header">NON-DAC</div>
+			{_it./sector:sectors-99}
+			<div class="div_count"></div>
+		</div>
+	</div>
+	
+	<div class="count">
+		<div class="header_section sticky collapsable">Budget</div>
+		<table class="budget act sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">START DATE</th>
+					<th data-sort="string">END DATE</th>
+					<th data-sort="string">TYPE</th>
+					<th data-sort="string">STATUS</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./budget:/budget}
+		</table>
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 	
+	<div class="count">
+		<div class="header_section sticky collapsable">Transaction</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction:/transaction}
+		</table>
+		<div class="wrap_counter rec_budget"><div class="counter"></div></div>
+	</div>
 </div>
+
+#^/transaction
+<tr class="row_count">
+	<td>{_it./transaction-date@iso-date||}</td>
+	<td>{_it./description/narrative.0.text||}</td>
+	<td>{_it./provider-org/narrative.0.text||}</td>
+	<td>{_it./receiver-org/narrative.0.text||}</td>
+	<td class="value">{_it./value||}<div class="currency">{_it./value@currency}</div></td>
+</tr>
+
+#^/budget
+<tr class="row_count">
+	<td>{_it./period-start@iso-date||}</td>
+	<td>{_it./period-end@iso-date||}</td>
+	<td>{_it.@type-name||}</td>
+	<td>{_it.@status-name||}</td>
+	<td class="value">{_it./value||}</td>
+</tr>
+
+#^sectors-1
+{_it.@vocabulary==1&&_it:/sector||}
+
+#^sectors-2
+{_it.@vocabulary==2&&_it:/sector||}
+
+#^sectors-99
+{_it.@vocabulary>2&&_it:/sector||}
+
+#^/sector
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it./narrative.0.text||}</span><span class="sector_code">{_it.@code||}</span><span class="sector_code">{_it.@vocabulary||}</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage} * 4.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
+	</div>
+</div>
+
+#^humanitarian
+<div class="humanitarian">humanitarian</div>
 
 #^/default-aid-type
 </div>{_it.@code-name}</div>
 
-#^/sector
-<div class="sector div_count">{_it.@code-name||}</div>
-
 #^/recipient-country
-<div class="recipient_country div_count">{_it.@code-name||}</div>
+<div class="recipient_country div_count">
+	<span class="recipient_country_code">{_it.@code||}</span>
+</div>
 
 #^/location
 <tr class="row_count">
