@@ -35,9 +35,9 @@ savi.start_loaded=function(){
 	let codemap=require('../json/codemap.json')
 
 // prepare test page
-	let savi_frankenstein=require('../json/test_1.json')
+	let iati_xson=require('../json/test_1.json')
 	
-	xson.walk( savi_frankenstein , (it,nn,idx)=>{
+	xson.walk( iati_xson , (it,nn,idx)=>{
 		let nb=nn.join("")
 
 		for(let n of Object.keys(it)) // this caches the keys so we can modify
@@ -102,12 +102,83 @@ savi.start_loaded=function(){
 
 		}
 	})
+	
+	if(iati_xson["/iati-activities/iati-activity"])
+	{
+		for( let act of iati_xson["/iati-activities/iati-activity"] )
+		{
+// explicit dates based on @type
+			if(act["/activity-date"])
+			{
+				for( let date of act["/activity-date"] )
+				{
+					let n=Number(date["@type"])||0
+					act["/activity-date-"+n]=date
+				}
+			}
+// split sectors on /transaction-type@code
+			if(act["/transaction"])
+			{
+				let tosort=[]
+				tosort.push( act["/transaction"] )
+				for( let transaction of act["/transaction"] )
+				{
+					let code=Number(transaction["/transaction-type@code"])
+					if(code)
+					{
+						if(! act["/transaction-"+code] )
+						{
+							let transactions=[]
+							act["/transaction-"+code]=transactions
+							tosort.push( transactions )
+						}
+						act["/transaction-"+code].push( transaction )
+					}
+				}
+				for( let tab of tosort )
+				{
+					tab.sort(function(a,b){
+						let an=a["/transaction-date@iso-date"]||""
+						let bn=b["/transaction-date@iso-date"]||""
+						return a-b
+					})
+				}
+			}
+// split sectors on @vocabulary
+			if(act["/sector"])
+			{
+				let tosort=[]
+				tosort.push( act["/sector"] )
+				for( let sector of act["/sector"] )
+				{
+					let vocabulary=Number(sector["@vocabulary"]) || 1
+					if(! act["/sector-"+vocabulary] )
+					{
+						let sectors=[]
+						act["/sector-"+vocabulary]=sectors
+						tosort.push( sectors )
+					}
+					act["/sector-"+vocabulary].push( sector )
+				}
+				for( let tab of tosort )
+				{
+					tab.sort(function(a,b){
+						let an=Number(a["@percentage"])||0
+						let bn=Number(b["@percentage"])||0
+						return a-b
+					})
+				}
+			}
+		}
+	}
 
-	console.log(savi_frankenstein)
+
+
+	console.log(iati_xson)
 
 // test render
 	$("html").prepend(savi.plate('<style>{css}</style>')) // load our styles
-	savi.chunks.frankenstein=savi_frankenstein
+	savi.chunks.frankenstein=iati_xson
 	$("body").empty().append(savi.plate('{body}')) // fill in the base body
 
 // apply javascript to rendered html	
