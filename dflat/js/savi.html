@@ -148,7 +148,7 @@
 			</thead>
 			{_it./transaction:/transaction}
 		</table>
-		<div class="wrap_counter rec_budget"><div class="counter"></div></div>
+		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 </div>
 
@@ -156,18 +156,27 @@
 <tr class="row_count">
 	<td>{_it./transaction-date@iso-date||}</td>
 	<td>{_it./description/narrative.0.text||}</td>
-	<td>{_it./provider-org/narrative.0.text||}<div><span class="ref">{_it./provider-org@ref||}</span></div><div><span class="type">{_it./provider-org@type-name||}</span></div></td>
-	<td>{_it./receiver-org/narrative.0.text||}<div><span class="type">{_it./receiver-org@type-name||}</span></div></td>
-	<td class="value">{_it./value||}<div class="currency">{_it./value@currency}</div></td>
+	<td>{_it./provider-org/narrative.0.text||}<div>{_it./provider-org@ref&&_it:/provider-org-ref||}</div><div>{_it./provider-org@type&&_it:/provider-org-type||}</div></td>
+	<td>{_it./receiver-org/narrative.0.text||}<div>{_it./receiver-org@type&&_it:/receiver-org-type||}</div></td>
+	<td class="value">{_it./value-human||}<div class="currency">{_it./value@currency}</div></td>
 </tr>
+
+#^/provider-org-ref
+<span class="ref">{_it./provider-org@ref||}</span>
+
+#^/provider-org-type
+<span title="{_it./provider-org@type-description||}" class="type">{_it./provider-org@type-name||}</span>
+
+#^/receiver-org-type
+<span title="{_it./receiver-org@type-description||}" class="type">{_it./receiver-org@type-name||}</span>
 
 #^/budget
 <tr class="row_count">
 	<td>{_it./period-start@iso-date||}</td>
 	<td>{_it./period-end@iso-date||}</td>
-	<td>{_it.@type-name||}</td>
-	<td>{_it.@status-name||}</td>
-	<td class="value">{_it./value||}</td>
+	<td title="{_it.@type-description||}">{_it.@type-name||}</td>
+	<td title="{_it.@status-description||}">{_it.@status-name||}</td>
+	<td class="value">{_it./value-human||}<div class="currency">{_it./value@currency}</div></td>
 </tr>
 
 #^sectors-1
