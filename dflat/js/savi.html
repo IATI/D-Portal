@@ -12,6 +12,10 @@
 	<div class="wrap_reporting_org">
 		<div class="text">Reported by</div><div class="reporting_org"><a href="#">{_it./reporting-org/narrative:/narrative}</a></div>
 	</div>
+	
+	<div class="wrap_default">
+		<div class="text">ACTIVITY SCOPE <span>{_it./activity-scope@code-name}</span></div><div class="text">COLLABORATION TYPE <span>{_it./collaboration-type@code-name}</span></div>
+	</div>
 
 	<div class="wrap_iati_identifier">
 		<div class="text">IATI IDENTIFIER <a href="#">{_it./iati-identifier}</a></div>
@@ -36,10 +40,10 @@
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">PARTICIPATING ORG</th>
-					<th data-sort="string">REF</th>
-					<th data-sort="int">ROLE</th>
-					<th data-sort="int">TYPE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3">PARTICIPATING ORG</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3">REF</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3">ROLE</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
 				</tr>
 			</thead>
 			{_it./participating-org:/participating-org}
@@ -50,14 +54,88 @@
 	<div class="wrap_description">
 		{_it./description:/description}
 	</div>
+	
+	<div class="wrap_humanitarian_scope count">
+		<div class="header_section collapsable">humanitarian scope</div>
+		<table class="budget part_org sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3">TITLE</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3">VOCAB</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3">CODE</th>
+				</tr>
+			</thead>
+			{_it./humanitarian-scope:/humanitarian-scope}
+		</table>
+		<div class="wrap_counter"><div class="counter"></div></div>
+	</div>
+	
+	<div class="wrap_recipient_country count_div">
+		<div class="header_section collapsable">recipient country</div>
+		{_it./recipient-country:/recipient-country}
+		<div class="wrap_counter"><div class="counter"></div></div>
+	</div>
+	
+	<div class="wrap_location count">
+		<div class="header_section collapsable">LOCATION</div>
+		<table class="budget location sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">NAME</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">DESCRIPTION</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">POSITION</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">CLASS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">REACH</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">EXACTNESS</th>
+				</tr>
+			</thead>
+			{_it./location:/location}
+		</table>
+		<div class="wrap_counter"><div class="counter"></div></div>
+	</div>
+	
+	<div class="wrap_sector count_div">
+		<div class="header_section collapsable">sector</div>
+		{_it./sector:/sector}
+		<div class="wrap_counter"><div class="counter"></div></div>
+	</div>
+	
 </div>
+
+#^/default-aid-type
+</div>{_it.@code-name}</div>
+
+#^/sector
+<div class="sector div_count">{_it.@code-name||}</div>
+
+#^/recipient-country
+<div class="recipient_country div_count">{_it.@code-name||}</div>
+
+#^/location
+<tr class="row_count">
+	<td>{_it./name/narrative.0.text||}</a></td>
+	<td>{_it./description/narrative.0.text||}</a></td>
+	<td>{_it./point/pos||}</td>
+	<td title="{_it./location-class@code-description}" data-sort-value="{_it./location-class@code}">{_it./location-class@code-name||}</td>
+	<td title="{_it./location-reach@code-description}" data-sort-value="{_it./location-reach@code}">{_it./location-reach@code-name||}</td>
+	<td title="{_it./exactness@code-description}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
+</tr>
 
 #^/participating-org
 <tr class="row_count">
-	<td><a href="#">{_it./narrative.0.text||}</a></td>
+	<td><a href="{_it.@ref||}">{_it./narrative:/narrative||}</a></td>
 	<td>{_it.@ref||}</td>
 	<td title="{_it.@role-description}" data-sort-value="{_it.@role}">{_it.@role-name||}</td>
 	<td title="{_it.@type-description}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+</tr>
+
+#^/humanitarian-scope
+<tr class="row_count">
+	<td><a href="{_it.@vocabulary-uri}">{_it./narrative:/narrative||}</a></td>
+	<td title="{_it.@type-description}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+	<td title="{_it.@vocabulary-description}" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
+	<td>{_it.@code||}</td>
 </tr>
 
 #^/document-link
