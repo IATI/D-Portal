@@ -118,6 +118,8 @@ span.doc_rec span.inblock	{background-color:rgba(22,24,37,0.6);}
 
 /*	TABLES	*/
 .currency		{font-size:12px; color:#ccc;}
+.type			{font-size:11px; line-height:initial; color:#CCC; display:inline; margin:0 auto; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
+
 table.budget	{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
 table.budget th	{padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 10px center;}
 table.budget th:hover	{cursor:pointer;}
@@ -170,14 +172,20 @@ table.budget.location td:nth-of-type(6)		{width:120px; padding-right:0px;}
 table.budget.act th,
 table.budget.act td,
 table.budget.act_trans th:nth-of-type(1),
-table.budget.act_trans td:nth-of-type(1)	{width:120px; padding-right:0px;}
-table.budget.act th:nth-of-type(1),
-table.budget.act td:nth-of-type(1)			{width:75px; padding-right:0px;}
+table.budget.act_trans td:nth-of-type(1)	{width:110px; padding-right:0px;}
 table.budget.act th:nth-of-type(2),
-table.budget.act td:nth-of-type(2)			{width:160px; padding-right:0px;}
+table.budget.act td:nth-of-type(2),
+table.budget.act th:nth-of-type(3)
+table.budget.act td:nth-of-type(3)			{width:120px; padding-right:0px;}
+table.budget.act th:nth-of-type(4),
+table.budget.act td:nth-of-type(4)			{width:200px; padding-right:0px;}
+table.budget.act th:nth-of-type(5),
+table.budget.act td:nth-of-type(5)			{width:330px; padding-right:20px;}
 table.budget.act_trans th:nth-of-type(2),
-table.budget.act_trans td:nth-of-type(2)	{width:230px; padding-right:30px;}
+table.budget.act_trans td:nth-of-type(2)	{width:240px; padding-right:30px;}
 table.budget.act_trans th:nth-of-type(3),
-table.budget.act_trans td:nth-of-type(3)	{width:180px; padding-right:30px;}
+table.budget.act_trans td:nth-of-type(3)	{width:200px; padding-right:30px;}
 table.budget.act_trans th:nth-of-type(4),
-table.budget.act_trans td:nth-of-type(4)	{width:180px; padding-right:0px;}
+table.budget.act_trans td:nth-of-type(4)	{width:170px; padding-right:0px;}
+table.budget.act_trans th:nth-of-type(5),
+table.budget.act_trans td:nth-of-type(5)	{width:160px; padding-right:20px;}

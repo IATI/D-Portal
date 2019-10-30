@@ -122,8 +122,8 @@
 		<table class="budget act sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">START DATE</th>
-					<th data-sort="string">END DATE</th>
+					<th data-sort="string">START</th>
+					<th data-sort="string">END</th>
 					<th data-sort="string">TYPE</th>
 					<th data-sort="string">STATUS</th>
 					<th data-sort="int">VALUE</th>
@@ -157,7 +157,7 @@
 	<td>{_it./transaction-date@iso-date||}</td>
 	<td>{_it./description/narrative.0.text||}</td>
 	<td>{_it./provider-org/narrative.0.text||}</td>
-	<td>{_it./receiver-org/narrative.0.text||}</td>
+	<td><div>{_it./receiver-org/narrative.0.text||}</div><div class="type">{_it./receiver-org@type-name||}</div></td>
 	<td class="value">{_it./value||}<div class="currency">{_it./value@currency}</div></td>
 </tr>
 
@@ -171,10 +171,10 @@
 </tr>
 
 #^sectors-1
-{_it.@vocabulary==1&&_it:/sector||}
+{_it.@vocabulary==1&&_it:/sector_dac||}
 
 #^sectors-2
-{_it.@vocabulary==2&&_it:/sector||}
+{_it.@vocabulary==2&&_it:/sector_dac||}
 
 #^sectors-99
 {_it.@vocabulary>2&&_it:/sector||}
@@ -183,6 +183,15 @@
 <div class="sector">
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it./narrative.0.text||}</span><span class="sector_code">{_it.@code||}</span><span class="sector_code">{_it.@vocabulary||}</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage} * 4.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
+	</div>
+</div>
+
+#^/sector_dac
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span><span class="sector_code">{_it.@vocabulary||}</span>
 	</div><div class="wrap_bar">
 		<span class="sector_bar" style="width:calc({_it.@percentage} * 4.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
 	</div>
