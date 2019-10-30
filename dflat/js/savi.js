@@ -12,6 +12,19 @@ if(typeof window !== 'undefined')
 	require("stupid-table-plugin")
 }
 
+var encodeURIComponent=function(str)
+{
+  return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+    return '%' + c.charCodeAt(0).toString(16);
+  });
+}
+
+var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+        return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+
+
+
+
 savi.plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
 
 savi.chunks={}
@@ -116,7 +129,28 @@ savi.start_loaded=function(){
 					act["/activity-date-"+n]=date
 				}
 			}
-// split sectors on /transaction-type@code
+// budgets
+			if(act["/budget"])
+			{
+				let tosort=[]
+				tosort.push( act["/budget"] )
+				for( let budget of act["/budget"] )
+				{
+					if("/value" in budget)
+					{
+						budget["/value-human"]=commafy(budget["/value"])
+					}
+				}
+				for( let tab of tosort )
+				{
+					tab.sort(function(a,b){
+						let an=a["/period-start@iso-date"]||""
+						let bn=b["/period-start@iso-date"]||""
+						return a-b
+					})
+				}
+			}
+// split transacions on /transaction-type@code
 			if(act["/transaction"])
 			{
 				let tosort=[]
@@ -133,6 +167,10 @@ savi.start_loaded=function(){
 							tosort.push( transactions )
 						}
 						act["/transaction-"+code].push( transaction )
+					}
+					if("/value" in transaction)
+					{
+						transaction["/value-human"]=commafy(transaction["/value"])
 					}
 				}
 				for( let tab of tosort )
@@ -184,6 +222,6 @@ savi.start_loaded=function(){
 // apply javascript to rendered html	
 
 // give your table the class of sortable and they will sortable
-	$("table.sortable").stupidtable()
+//	$("table.sortable").stupidtable()
 
 }
