@@ -15,7 +15,26 @@
 	</div>
 	
 	<div class="wrap_default">
-		<div class="text">ACTIVITY SCOPE <span>{_it./activity-scope@code-name}</span></div><div class="text">COLLABORATION TYPE <span>{_it./collaboration-type@code-name}</span></div>
+		<table class="modals">
+			<tr>
+				<th>ACTIVITY SCOPE</td>
+				<th>COLLABORATION TYPE</td>
+				<th>AID TYPE</td>
+				<th>FINANCE TYPE</td>
+				<th>FLOW TYPE</td>
+				<th>TIED STATUS</td>
+				<th>HIERARCHY</td>
+			</tr>
+			<tr>
+				<td title="{_it./activity-scope@code-description||}">{_it./activity-scope@code-name||}</td>
+				<td title="{_it./collaboration-type@code-description||}">{_it./collaboration-type@code-name||}</td>
+				<td title="{_it./default-aid-type.0.@code-description||}">{_it./default-aid-type.0.@code-name||}</td>
+				<td title="{_it./default-finance-type@code-description||}">{_it./default-finance-type@code-name||}</td>
+				<td title="{_it./default-flow-type@code-description||}">{_it./default-flow-type@code-name||}</td>
+				<td title="{_it./default-tied-status@code-description||}">{_it./default-tied-status@code-name||}</td>
+				<td title="{_it.@hierarchy-description||}">{_it.@hierarchy||}</td>
+			</tr>
+		</table>
 	</div>
 
 	<div class="wrap_iati_identifier">

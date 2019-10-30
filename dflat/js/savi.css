@@ -9,9 +9,13 @@ a:active	{text-decoration:none; color:#FFAB5E;}
 
 
 .activity,
-.org		{width:960px; margin:0 auto; padding:40px; background-color:rgba(0,14,32,0.7); border-radius:6px;}
+.org		{width:960px; margin:0 auto; padding:40px; background-color:rgba(0,14,32,0.7); border-radius:6px; position:relative;}
 .activity:nth-of-type(2)	{display:none;}
 
+/*	FLAGS	*/
+.humanitarian{text-transform:uppercase; position:absolute; top:-10px; left:0; padding:10px 40px 7px 40px; font-size:14px; color:#000e20; text-align:right; background-color:#ff890c;}
+
+/*	HEADERS	*/
 .header,
 .header_doc	{font-size:14px; color:#ccc; text-transform:uppercase; display:block; border-bottom:1px solid #aaa; padding-bottom:10px; margin-bottom:20px;}
 .header_doc	{border:0; margin:0;}
@@ -35,16 +39,13 @@ span.block	{display:block;}
 .wrap_description			{margin:40px auto;}
 .wrap_description .text		{margin-bottom:30px;}
 .wrap_description .text .narrative:nth-of-type(2)	{font-style:italic; display:block; margin-top:15px;}
-.wrap_default				{padding:10px 0 0 0; margin:0 auto;}
+.wrap_default				{padding:20px 0 0 0; margin:0 auto;}
 .wrap_default .text			{display:inline-block; vertical-align:top; font-size:14px; color:#ccc; width:50%;}
 .wrap_default .text:first-of-type	{padding-right:20px;}
 .wrap_default .text	span	{font-size:16px; color:#fff; padding-left:10px;}
 .wrap_location .header_section	{margin-top:0;}
 
 .reporting_org .narrative:nth-of-type(2)	{font-style:italic;}
-
-/*	FLAGS	*/
-.humanitarian	{text-transform:uppercase; position:absolute; top:30px; left:224px; padding:10px 40px 7px 40px; font-size:14px; color:#000e20; text-align:right; background-color:#ff890c;}
 
 /*	GRAPHS	*/
 .wrap_recipient_country,
@@ -190,3 +191,30 @@ table.budget.act_trans th:nth-of-type(4),
 table.budget.act_trans td:nth-of-type(4)	{width:170px; padding-right:0px;}
 table.budget.act_trans th:nth-of-type(5),
 table.budget.act_trans td:nth-of-type(5)	{width:160px; padding-right:20px;}
+
+/*	DEFAULTS MODALITIES	*/
+table.modals					{table-layout:fixed; border-collapse:collapse; width:100%;}
+table.modals td,
+table.modals th 				{text-align:left; font-size:12px; padding:5px 10px 5px 5px; vertical-align:top; width:100px;}
+table.modals th					{font-size:10px; color:#ccc; text-transform:uppercase; font-weight:normal; border-bottom:1px solid #666;}
+table.modals td:nth-of-type(1),
+table.modals th:nth-of-type(1)	{width:120px;}
+table.modals td:nth-of-type(2),
+table.modals th:nth-of-type(2),
+table.modals td:nth-of-type(3),
+table.modals th:nth-of-type(3),
+table.modals td:nth-of-type(4),
+table.modals th:nth-of-type(4)	{width:160px;}
+table.modals th:last-of-type,
+table.modals td:last-of-type	{width:80px; padding-right:0;}
+
+
+
+
+
+
+
+
+
+
+
