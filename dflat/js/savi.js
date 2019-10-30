@@ -53,22 +53,49 @@ savi.start_loaded=function(){
 					it[na]=v
 				}
 			}
-			let cm=codemap[nb+n]
-			if(cm) // we have a code to map
+			let cms=codemap[nb+n]
+			if(cms) // we have a code to map
 			{
-				cm=cm[0] // first item
-				if(!cm.condition) // only the simple codemaps
+				for( let i=0 ; i<cms.length ; i++ )
 				{
-//					v=toString(v).toUpperCase()
-					let m=codelists["en-name"][cm.codelist]
-					if(m) // check it was a valid codelist
+					let active=false
+					let cm=cms[i]
+					if(cm.condition) // deal with conditions
 					{
-						it[n+"-name"]=m[v] || v
+						var m=cm.condition.match(/@(\w+).*'(\d+)'/) // hack match
+						if(m && m[0] && m[1] && m[2] )
+						{
+							if( it[ "@"+m[1] ] == m[2] )
+							{
+								active=true
+							}
+							if(cm.condition.split(" or ").length>1) // the missing case
+							{
+								if( ! it["@"+m[1]] ) // not exist
+								{
+									active=true
+								}
+							}
+						}
 					}
-					m=codelists["en-description"][cm.codelist]
-					if(m) // check it was a valid codelist
+					else // no condition
 					{
-						it[n+"-description"]=m[v] || v
+						active=true
+					}
+					if(active)
+					{
+						v=(v).toString().trim().toUpperCase() // sanity, trim and uppercase all codes
+						let m=codelists["en-name"][cm.codelist]
+						if(m) // check it was a valid codelist
+						{
+							it[n+"-name"]=m[v] || v
+//console.log(nb+n+" : "+cm.condition+" : "+cm.codelist+" : "+v+" : "+m[v])
+						}
+						m=codelists["en-description"][cm.codelist]
+						if(m) // check it was a valid codelist
+						{
+							it[n+"-description"]=m[v] || v
+						}
 					}
 				}
 			}
@@ -86,7 +113,6 @@ savi.start_loaded=function(){
 // apply javascript to rendered html	
 
 // give your table the class of sortable and they will sortable
-	console.log( $("table.sortable") )
 	$("table.sortable").stupidtable()
 
 }
