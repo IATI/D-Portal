@@ -51,8 +51,8 @@
 	</div>
 	
 	<div class="wrap_activity_date">
-		<div class="planned_start"><span>Planned start date</span> {_it./activity-date.2.@iso-date||}</div><div class="actual_start"><span>Actual start date</span> {_it./activity-date.0.@iso-date||}</div>
-		<div class="planned_end"><span>Planned end date</span> {_it./activity-date.3.@iso-date||}</div><div class="actual_end"><span>Actual end date</span> {_it./activity-date.1.@iso-date||}</div>
+		<div class="planned_start"><span>Planned start date</span> {_it./activity-date-1.@iso-date||}</div><div class="actual_start"><span>Actual start date</span> {_it./activity-date-2.@iso-date||}</div>
+		<div class="planned_end"><span>Planned end date</span> {_it./activity-date-3.@iso-date||}</div><div class="actual_end"><span>Actual end date</span> {_it./activity-date-4.@iso-date||}</div>
 	</div>
 	
 	<div class="wrap_participating_org count">
@@ -119,21 +119,19 @@
 	
 	<div class="header_section collapsable">sector</div>
 	<div class="wrap_sector count_div">
-		<div class="count_div">
-			<div class="header">OECD DAC CRS 5 digit</div>
-			{_it./sector:sectors-1}
-			<div class="div_count"></div>
-		</div>
-		<div class="count_div">
-			<div class="header">OECD DAC CRS 3 digit</div>
-			{_it./sector:sectors-2}
-			<div class="div_count"></div>
-		</div>
-		<div class="count_div non_dac">
-			<div class="header">NON-DAC</div>
-			{_it./sector:sectors-99}
-			<div class="div_count"></div>
-		</div>
+		{_it./sector-1&&_it:sectors-1||}
+		{_it./sector-2&&_it:sectors-2||}
+		{_it./sector-3&&_it:sectors-3||}
+		{_it./sector-4&&_it:sectors-4||}
+		{_it./sector-5&&_it:sectors-5||}
+		{_it./sector-6&&_it:sectors-6||}
+		{_it./sector-7&&_it:sectors-7||}
+		{_it./sector-8&&_it:sectors-8||}
+		{_it./sector-9&&_it:sectors-9||}
+		{_it./sector-10&&_it:sectors-10||}
+		{_it./sector-11&&_it:sectors-11||}
+		{_it./sector-99&&_it:sectors-99||}
+		{_it./sector-98&&_it:sectors-98||}
 	</div>
 	
 	<div class="count">
@@ -198,30 +196,101 @@
 	<td class="value">{_it./value-human||}<div class="currency">{_it./value@currency}</div></td>
 </tr>
 
+
 #^sectors-1
-{_it.@vocabulary==1&&_it:/sector_dac||}
-
+<div class="count_div">
+	<div class="header">OECD DAC CRS 5 digit</div>
+	{_it./sector-1:/sector_dac||}
+	<div class="div_count"></div>
+</div>
 #^sectors-2
-{_it.@vocabulary==2&&_it:/sector_dac||}
-
+<div class="count_div">
+	<div class="header">OECD DAC CRS 3 digit</div>
+	{_it./sector-2:/sector_dac||}
+	<div class="div_count"></div>
+</div>
+#^sectors-3
+<div class="count_div">
+	<div class="header">Classification of the Functions of Government (UN)</div>
+	{_it./sector-3:/sector||}
+	<div class="div_count"></div>
+</div>
+#^sectors-4
+<div class="count_div">
+	<div class="header">Statistical classification of economic activities in the European Community</div>
+	{_it./sector-4:/sector||}
+	<div class="div_count"></div>
+</div>
+#^sectors-5
+<div class="count_div">
+	<div class="header">National Taxonomy for Exempt Entities (USA)</div>
+	{_it./sector-5:/sector||}
+	<div class="div_count"></div>
+</div>
+#^sectors-6
+<div class="count_div">
+	<div class="header">AidData</div>
+	{_it./sector-6:/sector||}
+	<div class="div_count"></div>
+</div>
+#^sectors-7
+<div class="count_div">
+	<div class="header">SDG Goal</div>
+	{_it./sector-7:/sector||}
+	<div class="div_count"></div>
+</div>
+#^sectors-8
+<div class="count_div">
+	<div class="header">SDG Target</div>
+	{_it./sector-8:/sector||}
+	<div class="div_count"></div>
+</div>
+#^sectors-9
+<div class="count_div">
+	<div class="header">SDG Indicator</div>
+	{_it./sector-9:/sector||}
+	<div class="div_count"></div>
+</div>
+#^sectors-10
+<div class="count_div">
+	<div class="header">Humanitarian Global Clusters (Inter-Agency Standing Committee)</div>
+	{_it./sector-10:/sector||}
+	<div class="div_count"></div>
+</div>
+#^sectors-11
+<div class="count_div">
+	<div class="header">North American Industry Classification System (NAICS)</div>
+	{_it./sector-11:/sector||}
+	<div class="div_count"></div>
+</div>
 #^sectors-99
-{_it.@vocabulary>2&&_it:/sector||}
-
-#^/sector
-<div class="sector">
-	<div class="wrap_code">
-		<span class="sector_code_text">{_it./narrative.0.text||}</span><span class="sector_code">{_it.@code||}</span><span class="sector_code">{_it.@vocabulary||}</span>
-	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 4.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
-	</div>
+<div class="count_div">
+	<div class="header">Reporting Organisation</div>
+	{_it./sector-99:/sector||}
+	<div class="div_count"></div>
+</div>
+#^sectors-98
+<div class="count_div">
+	<div class="header">Reporting Organisation 2</div>
+	{_it./sector-98:/sector||}
+	<div class="div_count"></div>
 </div>
 
 #^/sector_dac
 <div class="sector">
 	<div class="wrap_code">
-		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span><span class="sector_code">{_it.@vocabulary||}</span>
+		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 4.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
+	</div>
+</div>
+
+#^/sector
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it./narrative.0.text||}</span><span class="sector_code">{_it.@code||}</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
 	</div>
 </div>
 
