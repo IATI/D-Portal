@@ -151,8 +151,25 @@
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 	
-	<div class="count">
-		<div class="header_section sticky collapsable">Transaction</div>
+	{_it./transaction-1&&_it:transaction-1||}
+	{_it./transaction-2&&_it:transaction-2||}
+	{_it./transaction-3&&_it:transaction-3||}
+	{_it./transaction-4&&_it:transaction-4||}
+	{_it./transaction-5&&_it:transaction-5||}
+	{_it./transaction-6&&_it:transaction-6||}
+	{_it./transaction-7&&_it:transaction-7||}
+	{_it./transaction-8&&_it:transaction-8||}
+	{_it./transaction-9&&_it:transaction-9||}
+	{_it./transaction-10&&_it:transaction-10||}
+	{_it./transaction-11&&_it:transaction-11||}
+	{_it./transaction-12&&_it:transaction-12||}
+	{_it./transaction-13&&_it:transaction-13||}
+</div>
+
+
+#^transaction-1
+<div class="count">
+	<div class="header_section sticky collapsable">Incoming Funds</div>
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
@@ -163,10 +180,213 @@
 					<th data-sort="int">VALUE</th>
 				</tr>
 			</thead>
-			{_it./transaction:/transaction}
+			{_it./transaction-1:/transaction||}
 		</table>
-		<div class="wrap_counter"><div class="counter"></div></div>
-	</div>
+	<div class="wrap_counter"><div class="counter"></div></div>
+</div>
+#^transaction-2
+<div class="count">
+	<div class="header_section sticky collapsable">Outgoing Commitment</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-2:/transaction||}
+		</table>
+	<div class="wrap_counter long"><div class="counter"></div></div>
+</div>
+#^transaction-3
+<div class="count">
+	<div class="header_section sticky collapsable">Disbursement</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-3:/transaction||}
+		</table>
+	<div class="wrap_counter"><div class="counter"></div></div>
+</div>
+#^transaction-4
+<div class="count">
+	<div class="header_section sticky collapsable">Expenditure</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-4:/transaction||}
+		</table>
+	<div class="wrap_counter"><div class="counter"></div></div>
+</div>
+#^transaction-5
+<div class="count">
+	<div class="header_section sticky collapsable">Interest Payment</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-5:/transaction||}
+		</table>
+	<div class="wrap_counter"><div class="counter"></div></div>
+</div>
+#^transaction-6
+<div class="count">
+	<div class="header_section sticky collapsable">Loan Repayment</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-6:/transaction||}
+		</table>
+	<div class="wrap_counter"><div class="counter"></div></div>
+</div>
+#^transaction-7
+<div class="count">
+	<div class="header_section sticky collapsable">Reimbursement</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-7:/transaction||}
+		</table>
+	<div class="wrap_counter"><div class="counter"></div></div>
+</div>
+#^transaction-8
+<div class="count">
+	<div class="header_section sticky collapsable">Purchase of Equity</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-8:/transaction||}
+		</table>
+	<div class="wrap_counter"><div class="counter"></div></div>
+</div>
+#^transaction-9
+<div class="count">
+	<div class="header_section sticky collapsable">Sale of Equity</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-9:/transaction||}
+		</table>
+	<div class="wrap_counter"><div class="counter"></div></div>
+</div>
+#^transaction-10
+<div class="count">
+	<div class="header_section sticky collapsable">Credit Guarantee</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-10:/transaction||}
+		</table>
+	<div class="wrap_counter"><div class="counter"></div></div>
+</div>
+#^transaction-11
+<div class="count">
+	<div class="header_section sticky collapsable">Incoming Commitment</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-11:/transaction||}
+		</table>
+	<div class="wrap_counter long"><div class="counter"></div></div>
+</div>
+#^transaction-12
+<div class="count">
+	<div class="header_section sticky collapsable">Outgoing Pledge</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-12:/transaction||}
+		</table>
+	<div class="wrap_counter"><div class="counter"></div></div>
+</div>
+#^transaction-13
+<div class="count">
+	<div class="header_section sticky collapsable">Incoming Pledge</div>
+		<table class="budget act_trans sortable">
+			<thead>
+				<tr>
+					<th data-sort="string">DATE</th>
+					<th data-sort="string">DESCRIPTION</th>
+					<th data-sort="string">PROVIDER</th>
+					<th data-sort="string">RECEIVER</th>
+					<th data-sort="int">VALUE</th>
+				</tr>
+			</thead>
+			{_it./transaction-13:/transaction||}
+		</table>
+	<div class="wrap_counter"><div class="counter"></div></div>
 </div>
 
 #^/transaction
