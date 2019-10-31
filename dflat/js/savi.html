@@ -9,11 +9,11 @@
 	{_it.@humanitarian==1&&humanitarian}
 	<div class="header">PROJECT TITLE</div>
 	<div class="wrap_title">{_it./title/narrative:/narrative}</div>
-
+<!--	REPORTING ORG	-->
 	<div class="wrap_reporting_org">
 		<div class="text">Reported by</div><div class="reporting_org"><a href="#">{_it./reporting-org/narrative:/narrative}</a></div>
 	</div>
-	
+<!--	DEFAULT MODALITIES	-->	
 	<div class="wrap_default">
 		<table class="modals">
 			<tr>
@@ -36,25 +36,25 @@
 			</tr>
 		</table>
 	</div>
-
+<!--	IATI IDENTIFIER AND SOURCES	-->
 	<div class="wrap_iati_identifier">
 		<div class="text">IATI IDENTIFIER <a href="#">{_it./iati-identifier}</a></div>
 		<div class="data_source">
 			<a class="xml" href="#" target="_blank"><span>view source</span> xml</a><a class="dlogs" href="#" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="#" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="#" target="_blank"><span>download</span> csv</a>
 		</div>
 	</div>
-
+<!--	DOCUMENTS	-->
 	<div class="docs">
 		<div class="header_doc collapsable">DOCUMENTS</div>
 		{_it./document-link:/document-link}
 		<div class="result"></div>
 	</div>
-	
+<!--	ACTIVITY DATE	-->	
 	<div class="wrap_activity_date">
 		<div class="planned_start"><span>Planned start date</span> {_it./activity-date-1.@iso-date||}</div><div class="actual_start"><span>Actual start date</span> {_it./activity-date-2.@iso-date||}</div>
 		<div class="planned_end"><span>Planned end date</span> {_it./activity-date-3.@iso-date||}</div><div class="actual_end"><span>Actual end date</span> {_it./activity-date-4.@iso-date||}</div>
 	</div>
-	
+<!--	PARTICIPATING ORG	-->	
 	<div class="wrap_participating_org count">
 		<div class="header_section sticky collapsable">WHO'S INVOLVED</div>
 		<table class="budget part_org sortable">
@@ -70,11 +70,11 @@
 		</table>
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
-	
+<!--	DESCRIPTION	-->	
 	<div class="wrap_description">
 		{_it./description:/description}
 	</div>
-	
+<!--	HUMANITARIAN SCOPE	-->	
 	<div class="wrap_humanitarian_scope count">
 		<div class="header_section sticky collapsable">humanitarian scope</div>
 		<table class="budget part_org sortable">
@@ -90,7 +90,7 @@
 		</table>
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
-	
+<!--	RECIPIENT COUNTRY	-->	
 	<div class="count_div">
 		<div class="header_section collapsable">recipient country</div>
 		<div class="wrap_recipient_country">
@@ -98,7 +98,7 @@
 		</div>
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
-	
+<!--	LOCATION	-->	
 	<div class="wrap_location count">
 		<div class="header_section sticky collapsable">LOCATION</div>
 		<table class="budget location sortable">
@@ -116,7 +116,7 @@
 		</table>
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
-	
+<!--	SECTOR	-->	
 	<div class="header_section collapsable">sector</div>
 	<div class="wrap_sector count_div">
 		{_it./sector-1&&_it:sectors-1||}
@@ -133,51 +133,55 @@
 		{_it./sector-99&&_it:sectors-99||}
 		{_it./sector-98&&_it:sectors-98||}
 	</div>
-	
+<!--	BUDGET	-->	
 	<div class="count">
 		<div class="header_section sticky collapsable">Budget</div>
 		<table class="budget act sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">START</th>
-					<th data-sort="string">END</th>
-					<th data-sort="string">TYPE</th>
-					<th data-sort="string">STATUS</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">TYPE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">STATUS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./budget:/budget}
 		</table>
 		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
-	
-	{_it./transaction-1&&_it:transaction-1||}
-	{_it./transaction-2&&_it:transaction-2||}
-	{_it./transaction-3&&_it:transaction-3||}
-	{_it./transaction-4&&_it:transaction-4||}
-	{_it./transaction-5&&_it:transaction-5||}
-	{_it./transaction-6&&_it:transaction-6||}
-	{_it./transaction-7&&_it:transaction-7||}
-	{_it./transaction-8&&_it:transaction-8||}
-	{_it./transaction-9&&_it:transaction-9||}
-	{_it./transaction-10&&_it:transaction-10||}
-	{_it./transaction-11&&_it:transaction-11||}
-	{_it./transaction-12&&_it:transaction-12||}
-	{_it./transaction-13&&_it:transaction-13||}
+<!--	TRANSACTION	-->	
+	<div class="count">
+		<div class="header_section collapsable">Transactions</div>
+			{_it./transaction-1&&_it:transaction-1||}
+			{_it./transaction-2&&_it:transaction-2||}
+			{_it./transaction-3&&_it:transaction-3||}
+			{_it./transaction-4&&_it:transaction-4||}
+			{_it./transaction-5&&_it:transaction-5||}
+			{_it./transaction-6&&_it:transaction-6||}
+			{_it./transaction-7&&_it:transaction-7||}
+			{_it./transaction-8&&_it:transaction-8||}
+			{_it./transaction-9&&_it:transaction-9||}
+			{_it./transaction-10&&_it:transaction-10||}
+			{_it./transaction-11&&_it:transaction-11||}
+			{_it./transaction-12&&_it:transaction-12||}
+			{_it./transaction-13&&_it:transaction-13||}
+		<div class="wrap_counter"><div class="counter nostick"></div></div>
+	</div>
 </div>
 
-
+<!--	TRANSACTION TYPES	-->
 #^transaction-1
 <div class="count">
 	<div class="header_section sticky collapsable">Incoming Funds</div>
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-1:/transaction||}
@@ -190,11 +194,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-2:/transaction||}
@@ -207,11 +211,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-3:/transaction||}
@@ -224,11 +228,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-4:/transaction||}
@@ -241,11 +245,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-5:/transaction||}
@@ -258,11 +262,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-6:/transaction||}
@@ -275,11 +279,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-7:/transaction||}
@@ -292,11 +296,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-8:/transaction||}
@@ -309,11 +313,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-9:/transaction||}
@@ -326,11 +330,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-10:/transaction||}
@@ -343,11 +347,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-11:/transaction||}
@@ -360,11 +364,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-12:/transaction||}
@@ -377,11 +381,11 @@
 		<table class="budget act_trans sortable">
 			<thead>
 				<tr>
-					<th data-sort="string">DATE</th>
-					<th data-sort="string">DESCRIPTION</th>
-					<th data-sort="string">PROVIDER</th>
-					<th data-sort="string">RECEIVER</th>
-					<th data-sort="int">VALUE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
 				</tr>
 			</thead>
 			{_it./transaction-13:/transaction||}
@@ -389,13 +393,14 @@
 	<div class="wrap_counter"><div class="counter"></div></div>
 </div>
 
+<!--	TRANSACTION ROWS	-->
 #^/transaction
 <tr class="row_count">
 	<td>{_it./transaction-date@iso-date||}</td>
 	<td>{_it./description/narrative.0.text||}</td>
 	<td>{_it./provider-org/narrative.0.text||}<div>{_it./provider-org@ref&&_it:/provider-org-ref||}</div><div>{_it./provider-org@type&&_it:/provider-org-type||}</div></td>
 	<td>{_it./receiver-org/narrative.0.text||}<div>{_it./receiver-org@type&&_it:/receiver-org-type||}</div></td>
-	<td class="value">{_it./value-human||}<div class="currency">{_it./value@currency}</div></td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency}</div></td>
 </tr>
 
 #^/provider-org-ref
@@ -407,16 +412,17 @@
 #^/receiver-org-type
 <span title="{_it./receiver-org@type-description||}" class="type">{_it./receiver-org@type-name||}</span>
 
+<!--	BUDGET ROWS	-->
 #^/budget
 <tr class="row_count">
 	<td>{_it./period-start@iso-date||}</td>
 	<td>{_it./period-end@iso-date||}</td>
 	<td title="{_it.@type-description||}">{_it.@type-name||}</td>
 	<td title="{_it.@status-description||}">{_it.@status-name||}</td>
-	<td class="value">{_it./value-human||}<div class="currency">{_it./value@currency}</div></td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency}</div></td>
 </tr>
 
-
+<!--	SECTOR TYPES	-->
 #^sectors-1
 <div class="count_div">
 	<div class="header">OECD DAC CRS 5 digit</div>
@@ -496,6 +502,7 @@
 	<div class="div_count"></div>
 </div>
 
+<!--	SECTOR DAC TEMPLATE	-->
 #^/sector_dac
 <div class="sector">
 	<div class="wrap_code">
@@ -504,7 +511,7 @@
 		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
 	</div>
 </div>
-
+<!--	SECTOR NON-DAC TEMPLATE	-->
 #^/sector
 <div class="sector">
 	<div class="wrap_code">
@@ -525,16 +532,18 @@
 	<span class="recipient_country_code">{_it.@code||}</span>
 </div>
 
+<!--	LOCATION ROWS	-->
 #^/location
 <tr class="row_count">
-	<td>{_it./name/narrative.0.text||}</a></td>
-	<td>{_it./description/narrative.0.text||}</a></td>
+	<td>{_it./name/narrative.0.text||}</td>
+	<td>{_it./description/narrative.0.text||}</td>
 	<td>{_it./point/pos||}</td>
 	<td title="{_it./location-class@code-description}" data-sort-value="{_it./location-class@code}">{_it./location-class@code-name||}</td>
 	<td title="{_it./location-reach@code-description}" data-sort-value="{_it./location-reach@code}">{_it./location-reach@code-name||}</td>
 	<td title="{_it./exactness@code-description}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
 </tr>
 
+<!--	PARTICIPATING ORG ROWS	-->
 #^/participating-org
 <tr class="row_count">
 	<td><a href="{_it.@ref||}">{_it./narrative:/narrative||}</a></td>
@@ -543,6 +552,7 @@
 	<td title="{_it.@type-description}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
 
+<!--	HUMANITARIAN SCOPE ROWS	-->
 #^/humanitarian-scope
 <tr class="row_count">
 	<td><a href="{_it.@vocabulary-uri}">{_it./narrative:/narrative||}</a></td>
@@ -551,6 +561,7 @@
 	<td>{_it.@code||}</td>
 </tr>
 
+<!--	DOCUMENT LINK	-->
 #^/document-link
 <a class="doc_link" href="{_it.@url}">
 	<span class="wrap_doc_link">
@@ -566,6 +577,7 @@
 	</span>
 </a>
 
+<!--	DESCRIPTION	-->
 #^/description
 <div class="header">{_it.@type-name}</div>
 <div class="text">{_it./narrative:/narrative}</div>
@@ -580,5 +592,6 @@
 #^/document-link/language
 <span class="inblock">{_it.@code||}</span>
 
+<!--	NARRATIVE	-->
 #^/narrative trim=ends
 <span class="narrative">{_it.text}</span>
