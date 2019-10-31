@@ -44,10 +44,9 @@
 		</div>
 	</div>
 <!--	DOCUMENTS	-->
-	<div class="docs">
-		<div class="header_doc collapsable">DOCUMENTS</div>
+	<div class="wrap_document">
+		<div class="header_doc collapsable">DOCUMENTS <span class="count">( {_it./document-link.length} )</span></div>
 		{_it./document-link:/document-link}
-		<div class="result"></div>
 	</div>
 <!--	ACTIVITY DATE	-->	
 	<div class="wrap_activity_date">
@@ -55,8 +54,8 @@
 		<div class="planned_end"><span>Planned end date</span> {_it./activity-date-3.@iso-date||}</div><div class="actual_end"><span>Actual end date</span> {_it./activity-date-4.@iso-date||}</div>
 	</div>
 <!--	PARTICIPATING ORG	-->	
-	<div class="wrap_participating_org count">
-		<div class="header_section sticky collapsable">WHO'S INVOLVED</div>
+	<div class="wrap_participating_org">
+		<div class="header_section sticky collapsable">WHO'S INVOLVED <span class="count">( {_it./participating-org.length} )</span></div>
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
@@ -68,15 +67,14 @@
 			</thead>
 			{_it./participating-org:/participating-org}
 		</table>
-		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 <!--	DESCRIPTION	-->	
 	<div class="wrap_description">
 		{_it./description:/description}
 	</div>
-<!--	HUMANITARIAN SCOPE	-->	
-	<div class="wrap_humanitarian_scope count">
-		<div class="header_section sticky collapsable">humanitarian scope</div>
+<!--	HUMANITARIAN SCOPE	-->
+	<div class="wrap_humanitarian_scope">
+		<div class="header_section sticky collapsable">humanitarian scope <span class="count">( {_it./humanitarian-scope.length} )</span></div>
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
@@ -88,19 +86,15 @@
 			</thead>
 			{_it./humanitarian-scope:/humanitarian-scope}
 		</table>
-		<div class="wrap_counter hum_scope"><div class="counter"></div></div>
 	</div>
-<!--	RECIPIENT COUNTRY	-->	
-	<div class="count_div">
-		<div class="header_section collapsable">recipient country</div>
-		<div class="wrap_recipient_country">
-			{_it./recipient-country:/recipient-country}
-		</div>
-		<div class="wrap_counter"><div class="counter"></div></div>
+<!--	RECIPIENT COUNTRY	-->
+	<div class="header_section collapsable">recipient country <span class="count">( {_it./recipient-country.length} )</span></div>
+	<div class="wrap_recipient_country">
+		{_it./recipient-country:/recipient-country}
 	</div>
 <!--	LOCATION	-->	
-	<div class="wrap_location count">
-		<div class="header_section sticky collapsable">LOCATION</div>
+	<div class="wrap_location">
+		<div class="header_section sticky collapsable">LOCATION  <span class="count">( {_it./location.length} )</span></div>
 		<table class="budget location sortable">
 			<thead>
 				<tr>
@@ -114,11 +108,10 @@
 			</thead>
 			{_it./location:/location}
 		</table>
-		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 <!--	SECTOR	-->	
-	<div class="header_section collapsable">sector</div>
-	<div class="wrap_sector count_div">
+	<div class="header_section collapsable">sector  <span class="count">( {_it./sector.length} )</span></div>
+	<div class="wrap_sector">
 		{_it./sector-1&&_it:sectors-1||}
 		{_it./sector-2&&_it:sectors-2||}
 		{_it./sector-3&&_it:sectors-3||}
@@ -134,8 +127,8 @@
 		{_it./sector-98&&_it:sectors-98||}
 	</div>
 <!--	BUDGET	-->	
-	<div class="count">
-		<div class="header_section sticky collapsable">Budget</div>
+	<div class="wrap_budget">
+		<div class="header_section sticky collapsable">Budget <span class="count">( {_it./budget.length} )</span></div>
 		<table class="budget act sortable">
 			<thead>
 				<tr>
@@ -148,250 +141,208 @@
 			</thead>
 			{_it./budget:/budget}
 		</table>
-		<div class="wrap_counter"><div class="counter"></div></div>
 	</div>
 <!--	TRANSACTION	-->	
-	<div class="trans_count">
-		<div class="header_section collapsable">Transactions</div>
-			{_it./transaction-1&&_it:transaction-1||}
-			{_it./transaction-2&&_it:transaction-2||}
-			{_it./transaction-3&&_it:transaction-3||}
-			{_it./transaction-4&&_it:transaction-4||}
-			{_it./transaction-5&&_it:transaction-5||}
-			{_it./transaction-6&&_it:transaction-6||}
-			{_it./transaction-7&&_it:transaction-7||}
-			{_it./transaction-8&&_it:transaction-8||}
-			{_it./transaction-9&&_it:transaction-9||}
-			{_it./transaction-10&&_it:transaction-10||}
-			{_it./transaction-11&&_it:transaction-11||}
-			{_it./transaction-12&&_it:transaction-12||}
-			{_it./transaction-13&&_it:transaction-13||}
-		<div class="trans_counter"></div>
+	<div class="wrap_transaction">
+		<div class="header_section collapsable">Transactions <span class="count">( {_it./transaction.length} )</span></div>
+		{_it./transaction-1&&_it:transaction-1||}
+		{_it./transaction-2&&_it:transaction-2||}
+		{_it./transaction-3&&_it:transaction-3||}
+		{_it./transaction-4&&_it:transaction-4||}
+		{_it./transaction-5&&_it:transaction-5||}
+		{_it./transaction-6&&_it:transaction-6||}
+		{_it./transaction-7&&_it:transaction-7||}
+		{_it./transaction-8&&_it:transaction-8||}
+		{_it./transaction-9&&_it:transaction-9||}
+		{_it./transaction-10&&_it:transaction-10||}
+		{_it./transaction-11&&_it:transaction-11||}
+		{_it./transaction-12&&_it:transaction-12||}
+		{_it./transaction-13&&_it:transaction-13||}
 	</div>
-</div>
 
 <!--	TRANSACTION TYPES	-->
 #^transaction-1
-<div class="count">
-	<div class="header_section sticky collapsable">Incoming Funds</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-1:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Incoming Funds  <span class="count">( {_it./transaction-1.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-1:/transaction||}
+	</table>
 #^transaction-2
-<div class="count">
-	<div class="header_section sticky collapsable">Outgoing Commitment</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-2:/transaction||}
-		</table>
-	<div class="wrap_counter long"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Outgoing Commitment <span class="count">( {_it./transaction-2.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-2:/transaction||}
+	</table>
 #^transaction-3
-<div class="count">
-	<div class="header_section sticky collapsable">Disbursement</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-3:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Disbursement <span class="count">( {_it./transaction-3.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-3:/transaction||}
+	</table>
 #^transaction-4
-<div class="count">
-	<div class="header_section sticky collapsable">Expenditure</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-4:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Expenditure <span class="count">( {_it./transaction-4.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-4:/transaction||}
+	</table>
 #^transaction-5
-<div class="count">
-	<div class="header_section sticky collapsable">Interest Payment</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-5:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Interest Payment <span class="count">( {_it./transaction-5.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-5:/transaction||}
+	</table>
 #^transaction-6
-<div class="count">
-	<div class="header_section sticky collapsable">Loan Repayment</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-6:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Loan Repayment <span class="count">( {_it./transaction-6.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-6:/transaction||}
+	</table>
 #^transaction-7
-<div class="count">
-	<div class="header_section sticky collapsable">Reimbursement</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-7:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Reimbursement <span class="count">( {_it./transaction-7.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-7:/transaction||}
+	</table>
 #^transaction-8
-<div class="count">
-	<div class="header_section sticky collapsable">Purchase of Equity</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-8:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Purchase of Equity <span class="count">( {_it./transaction-8.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-8:/transaction||}
+	</table>
 #^transaction-9
-<div class="count">
-	<div class="header_section sticky collapsable">Sale of Equity</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-9:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Sale of Equity <span class="count">( {_it./transaction-9.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-9:/transaction||}
+	</table>
 #^transaction-10
-<div class="count">
-	<div class="header_section sticky collapsable">Credit Guarantee</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-10:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Credit Guarantee <span class="count">( {_it./transaction-10.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-10:/transaction||}
+	</table>
 #^transaction-11
-<div class="count">
-	<div class="header_section sticky collapsable">Incoming Commitment</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-11:/transaction||}
-		</table>
-	<div class="wrap_counter long"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Incoming Commitment <span class="count">( {_it./transaction-11.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-11:/transaction||}
+	</table>
 #^transaction-12
-<div class="count">
-	<div class="header_section sticky collapsable">Outgoing Pledge</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-12:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Outgoing Pledge <span class="count">( {_it./transaction-12.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-12:/transaction||}
+	</table>
 #^transaction-13
-<div class="count">
-	<div class="header_section sticky collapsable">Incoming Pledge</div>
-		<table class="budget act_trans sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
-				</tr>
-			</thead>
-			{_it./transaction-13:/transaction||}
-		</table>
-	<div class="wrap_counter"><div class="counter"></div></div>
-</div>
+	<div class="header_section sticky collapsable">Incoming Pledge <span class="count">( {_it./transaction-13.length} )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+			<tr>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DATE</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">DESCRIPTION</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">PROVIDER</th>
+				<th data-sort="string" data-sort-multicolumn="0,1,2,3,4">RECEIVER</th>
+				<th data-sort="int" data-sort-multicolumn="0,1,2,3,4">VALUE</th>
+			</tr>
+		</thead>
+		{_it./transaction-13:/transaction||}
+	</table>
 
 <!--	TRANSACTION ROWS	-->
 #^/transaction
@@ -424,83 +375,44 @@
 
 <!--	SECTOR TYPES	-->
 #^sectors-1
-<div class="count_div">
-	<div class="header">OECD DAC CRS 5 digit</div>
-	{_it./sector-1:/sector_dac||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-1.0.@vocabulary-description||}">OECD DAC CRS 5 digit <span class="count">( {_it./sector-1.length} )</span></div>
+{_it./sector-1:/sector_dac||}
 #^sectors-2
-<div class="count_div">
-	<div class="header">OECD DAC CRS 3 digit</div>
-	{_it./sector-2:/sector_dac||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-2.0.@vocabulary-description||}">OECD DAC CRS 3 digit <span class="count">( {_it./sector-2.length} )</span></div>
+{_it./sector-2:/sector_dac||}
 #^sectors-3
-<div class="count_div">
-	<div class="header">Classification of the Functions of Government (UN)</div>
-	{_it./sector-3:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-3.0.@vocabulary-description||}">Classification of the Functions of Government (UN) <span class="count">( {_it./sector-3.length} )</span></div>
+{_it./sector-3:/sector||}
 #^sectors-4
-<div class="count_div">
-	<div class="header">Statistical classification of economic activities in the European Community</div>
-	{_it./sector-4:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-4.0.@vocabulary-description||}">Statistical classification of economic activities in the European Community <span class="count">( {_it./sector-4.length} )</span></div>
+{_it./sector-4:/sector||}
 #^sectors-5
-<div class="count_div">
-	<div class="header">National Taxonomy for Exempt Entities (USA)</div>
-	{_it./sector-5:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-5.0.@vocabulary-description||}">National Taxonomy for Exempt Entities (USA) <span class="count">( {_it./sector-5.length} )</span></div>
+{_it./sector-5:/sector||}
 #^sectors-6
-<div class="count_div">
-	<div class="header">AidData</div>
-	{_it./sector-6:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-6.0.@vocabulary-description||}">AidData <span class="count">( {_it./sector-6.length} )</span></div>
+{_it./sector-6:/sector||}
 #^sectors-7
-<div class="count_div">
-	<div class="header">SDG Goal</div>
-	{_it./sector-7:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-7.0.@vocabulary-description||}">SDG Goal <span class="count">( {_it./sector-7.length} )</span></div>
+{_it./sector-7:/sector||}
 #^sectors-8
-<div class="count_div">
-	<div class="header">SDG Target</div>
-	{_it./sector-8:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-8.0.@vocabulary-description||}">SDG Target <span class="count">( {_it./sector-8.length} )</span></div>
+{_it./sector-8:/sector||}
 #^sectors-9
-<div class="count_div">
-	<div class="header">SDG Indicator</div>
-	{_it./sector-9:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-9.0.@vocabulary-description||}">SDG Indicator <span class="count">( {_it./sector-9.length} )</span></div>
+{_it./sector-9:/sector||}
 #^sectors-10
-<div class="count_div">
-	<div class="header">Humanitarian Global Clusters (Inter-Agency Standing Committee)</div>
-	{_it./sector-10:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-10.0.@vocabulary-description||}">Humanitarian Global Clusters (Inter-Agency Standing Committee) <span class="count">( {_it./sector-10.length} )</span></div>
+{_it./sector-10:/sector||}
 #^sectors-11
-<div class="count_div">
-	<div class="header">North American Industry Classification System (NAICS)</div>
-	{_it./sector-11:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-11.0.@vocabulary-description||}">North American Industry Classification System (NAICS) <span class="count">( {_it./sector-11.length} )</span></div>
+{_it./sector-11:/sector||}
 #^sectors-99
-<div class="count_div">
-	<div class="header">Reporting Organisation</div>
-	{_it./sector-99:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-99.0.@vocabulary-description||}">Reporting Organisation <span class="count">( {_it./sector-99.length} )</span></div>
+{_it./sector-99:/sector||}
 #^sectors-98
-<div class="count_div">
-	<div class="header">Reporting Organisation 2</div>
-	{_it./sector-98:/sector||}
-	<div class="div_count"></div>
-</div>
+<div class="header" title="{_it./sector-98.0.@vocabulary-description||}">Reporting Organisation 2 <span class="count">( {_it./sector-98.length} )</span></div>
+{_it./sector-98:/sector||}
 
 <!--	SECTOR DAC TEMPLATE	-->
 #^/sector_dac
@@ -538,9 +450,9 @@
 	<td>{_it./name/narrative.0.text||}</td>
 	<td>{_it./description/narrative.0.text||}</td>
 	<td>{_it./point/pos||}</td>
-	<td title="{_it./location-class@code-description}" data-sort-value="{_it./location-class@code}">{_it./location-class@code-name||}</td>
-	<td title="{_it./location-reach@code-description}" data-sort-value="{_it./location-reach@code}">{_it./location-reach@code-name||}</td>
-	<td title="{_it./exactness@code-description}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
+	<td title="{_it./location-class@code-description||}" data-sort-value="{_it./location-class@code}">{_it./location-class@code-name||}</td>
+	<td title="{_it./location-reach@code-description||}" data-sort-value="{_it./location-reach@code}">{_it./location-reach@code-name||}</td>
+	<td title="{_it./exactness@code-description||}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
 </tr>
 
 <!--	PARTICIPATING ORG ROWS	-->
@@ -548,16 +460,16 @@
 <tr class="row_count">
 	<td><a href="{_it.@ref||}">{_it./narrative:/narrative||}</a></td>
 	<td>{_it.@ref||}</td>
-	<td title="{_it.@role-description}" data-sort-value="{_it.@role}">{_it.@role-name||}</td>
-	<td title="{_it.@type-description}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+	<td title="{_it.@role-description||}" data-sort-value="{_it.@role}">{_it.@role-name||}</td>
+	<td title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
 
 <!--	HUMANITARIAN SCOPE ROWS	-->
 #^/humanitarian-scope
 <tr class="row_count">
 	<td><a href="{_it.@vocabulary-uri}">{_it./narrative:/narrative||}</a></td>
-	<td title="{_it.@type-description}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
-	<td title="{_it.@vocabulary-description}" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
+	<td title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+	<td title="{_it.@vocabulary-description||}" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
 	<td>{_it.@code||}</td>
 </tr>
 
