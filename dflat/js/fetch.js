@@ -370,6 +370,7 @@ fetch.codelist=async function()
 						}
 						else
 						{
+							name=narr
 							done=true
 						}
 						if( name )
@@ -396,6 +397,7 @@ fetch.codelist=async function()
 						}
 						else
 						{
+							description=narr
 							done=true
 						}
 						if( description )
