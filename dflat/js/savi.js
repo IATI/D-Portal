@@ -146,7 +146,7 @@ savi.start_loaded=function(){
 					tab.sort(function(a,b){
 						let an=a["/period-start@iso-date"]||""
 						let bn=b["/period-start@iso-date"]||""
-						return a-b
+						return an.localeCompare(bn)
 					})
 				}
 			}
@@ -178,7 +178,7 @@ savi.start_loaded=function(){
 					tab.sort(function(a,b){
 						let an=a["/transaction-date@iso-date"]||""
 						let bn=b["/transaction-date@iso-date"]||""
-						return a-b
+						return an.localeCompare(bn)
 					})
 				}
 			}
@@ -203,7 +203,7 @@ savi.start_loaded=function(){
 					tab.sort(function(a,b){
 						let an=Number(a["@percentage"])||0
 						let bn=Number(b["@percentage"])||0
-						return a-b
+						return bn-an
 					})
 				}
 			}
