@@ -85,6 +85,7 @@ span.block	{display:block;}
 .counter		{position:sticky; top:9px; z-index:1; font-size:12px; color:#ccc;}
 .wrap_counter.rec_budget	{left:200px;}
 .wrap_counter.long			{left:160px;}
+.nostick		{position:initial;}
 .wrap_humanitarian_scope .wrap_counter	{left:140px;}
 
 .count_div			{counter-reset:count; position:relative;}
