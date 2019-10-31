@@ -222,6 +222,6 @@ savi.start_loaded=function(){
 // apply javascript to rendered html	
 
 // give your table the class of sortable and they will sortable
-//	$("table.sortable").stupidtable()
+	$("table.sortable").stupidtable()
 
 }
