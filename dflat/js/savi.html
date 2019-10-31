@@ -439,9 +439,14 @@
 #^/default-aid-type
 </div>{_it.@code-name}</div>
 
+<!--	RECIPIENT-COUNTRY TEMPLATE	-->
 #^/recipient-country
-<div class="recipient_country div_count">
-	<span class="recipient_country_code">{_it.@code||}</span>
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
+	</div>
 </div>
 
 <!--	LOCATION ROWS	-->
