@@ -45,13 +45,13 @@ directory then the CD may be skipped and should not be run twice.
 
 ## 1. Installing git and node on Windows
 
-Download and install git and node for windows from the following 
-locations, just go with the default settings and click 'Next' to all
-the options to start installation.
+Download and install git - click 'Next' to all the options to start installation.
 
-http://git-scm.com/download/win
+http://git-scm.com/download/win (You must **Enable symbolic links**)
 
-http://nodejs.org (Choose the Recommended version)
+Download and install node - click 'Next' to all the options to start installation.
+
+https://nodejs.org/dist/latest-v8.x/node-v8.16.2-x64.msi (64-bit)
 
 Using **Windows PowerShell (Admin)**, type the following and type Y when asked:
 
