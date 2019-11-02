@@ -74,7 +74,7 @@ to type the commands on this page into.
 
 Finally we need to grab the code with the following command
 
-	git clone https://github.com/devinit/D-Portal
+	git clone -c core.symlinks=true https://github.com/devinit/D-Portal
 
 and then move into the D-Portal directory
 
