@@ -13,7 +13,7 @@ https://help.github.com/articles/set-up-git
 
 ## Table of contents
   - [Install on Ubuntu](#1-installing-git-and-node-on-ubuntu)
-  - [Install on Windows](#2-prepare-the-required-node-modules)
+  - [Install on Windows](#1-installing-git-and-node-on-windows)
   - [Run a local server](#3-run-the-localhost-server)
   - [Refresh the server](#4-refresh-the-localhost-server)
   - [Ongoing usage](#5-in-the-future)
@@ -46,12 +46,12 @@ directory then the CD may be skipped and should not be run twice.
 ## 1. Installing git and node on Windows
 
 Download and install git and node for windows from the following 
-locations, just go with the default settings when the installers asks 
-you a complicated looking question and you will be fine.
+locations, just go with the default settings and click 'Next' to all
+the options to start installation.
 
 http://git-scm.com/download/win
 
-http://nodejs.org/download/
+http://nodejs.org (Choose the Recommended version)
 
 Now run "git bash" this can be found in your startmenu under git on 
 windows 7 and below or searched for on windows 8 and above. When run 
