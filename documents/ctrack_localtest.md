@@ -14,11 +14,11 @@ https://help.github.com/articles/set-up-git
 ## Table of contents
   - [Install on Ubuntu](#1-installing-git-and-node-on-ubuntu)
   - [Install on Windows](#1-installing-git-and-node-on-windows)
-  - [Run a local server](#3-run-the-localhost-server)
-  - [Refresh the server](#4-refresh-the-localhost-server)
-  - [Ongoing usage](#5-in-the-future)
-  - [Testing local data](#6-testing-local-data)
-  - [Import local data to view on d-portal](#7-import-local-data-view-on-d-portal)
+  - [Download node dependencies](#2-download-node-dependencies)
+  - [Import IATI data from IATI Datastore](#3-import-iati-data-from-the-datastore)
+  - [Run the localhost server](#4-run-the-localhost-server)
+  - [Import any xml data to view on local d-portal](#5-import-any-xml-data-to-view-on-local-d-portal)
+  - [Extra](#6-extra)
 
 
 ## 1. Installing git and node on Ubuntu
@@ -53,7 +53,21 @@ http://git-scm.com/download/win
 
 http://nodejs.org (Choose the Recommended version)
 
-Now run "git bash" this can be found in your startmenu under git on 
+Using **Windows PowerShell (Admin)**, type the following and type Y when asked:
+
+	npm install --global windows-build-tools
+	
+This installs the Windows compiler which is needed for node-expat.
+
+	Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+	
+This installs Chocolatey so we can install other needed things for Windows.
+
+	choco install wget
+	
+This installs wget so we can fetch xml files from the internet.
+
+Now open "git bash" this can be found in your startmenu under git on 
 windows 7 and below or searched for on windows 8 and above. When run 
 it should open up a command line window, this is the window you need 
 to type the commands on this page into.
@@ -71,23 +85,51 @@ you are expected to run them from. If you are already in the right
 directory then the CD may be skipped and should not be run twice.
 
 
-## 2. Prepare the required node modules.
+## 2. Download node dependencies
 
 This only needs to be run once, it will download and install the 
 node modules that ctrack depends upon.
 
-	./install_deps
+	npm install
 	
 This will chug away for a little while downloading code.
 
 
-## 3. Run the localhost server.
+## 3. Import IATI data from IATI Datastore
 
-This is only going to run ctrack module, the extra opton tells it to 
-visit d-portal to fetch the data so you do not need to install or 
-update the dstore data just to test ctrack.
+Import some data into a local database to view and 
+test using the following commands.
 
-	./serv -q http://d-portal.org/
+	dstore/dstore init
+
+Creates or resets the local database, this must be run once before 
+importing data and should be run before importing new data if you want 
+to make sure that only the new data is included.
+
+The following are scripts you can run to import different datasets into the local database.
+
+For now, let's type the following line:
+
+	bin/dstore_import_bd_ug_hn
+	
+Downloads and imports data for these respective countries from IATI Datastore, one country at a time.  
+_This is the recommended option for filling up a test database._
+
+
+*Optional*
+
+	bin/dstore_import_full
+	
+Downloads and imports all the data from the IATI Datastore, one country at a time.  
+_This option will take a relatively long time to process and will use up a lot of disc space._
+
+
+## 4. Run the localhost server
+
+	./serv
+
+This runs the server using the local database, so it will only show 
+data that has been imported.
 
 If all goes well then ctrack should be available, from your machine 
 in your browser at the following url
@@ -95,73 +137,21 @@ in your browser at the following url
 http://localhost:1408/
 
 
-## 4. Refresh the localhost server.
+## 5. Import any xml data to view on local d-portal
 
-Press Control + C to stop this server and then just run the command 
-again to start it up again. Since this also builds you should make 
-changes to the source then stop the server (ctrl c) and run it again 
-in order to see your updates. Pressing up arrow is an easy way to 
-get the last typed in command without having to type it in again.
+This will **not** upload your data to the live d-portal website.
 
+Copy and paste any xml files into the ```D-Portal/dstore/cache``` folder.
 
-## 5. In the future
+	dstore/dstore import cache/name-of-file.xml
 
-After rebooting your machine you will not need to perform all the 
-above steps just the following:
-
-  - Open a command line  (_see [Step 1](#1-installing-git-and-node-on-ubuntu) for help on how to do this on your operating system_)
-  - ```cd``` into the ctrack directory (_see [Step 1](#1-installing-git-and-node-on-ubuntu) for more help_)
-  - Now you can repeat Steps 3 and 4 to run the server again.
-
-
-## 6. Testing local data
-
-We can also import xml activities into a local database to view and 
-test using the following commands.
-
-	cd D-Portal
-	dstore/dstore init
-
-Creates or resets the local database, this must be run once before 
-importing data and should be run before importing new data if you want 
-to make sure that only the new data is included.
-
-	
-**There are a [few scripts in here](https://github.com/devinit/D-Portal/tree/master/bin) that can be run to download and import 
-data to the local database.**
-
-For the purposes of running these scripts, we assume you are in the root of the project (```cd D-Portal```).
-
-	bin/dstore_import_bd_ug_hn
-	
-Downloads and imports data for these respective countries from IATI Datastore, one country at a time.  
-_This is the recommended option for filling up a test database._
-
-	bin/dstore_import_full
-	
-Downloads and imports all the data from the IATI Datastore, one country at a time.  
-_This option will take a relatively long time to process and will use up a lot of disc space._
-
-	dstore/dstore import cache/activity_data.xml
-
-Import the file "activity_data.xml" from the ```D-Portal/dstore/cache``` folder into the local database. You may do 
+Import "name-of-file.xml" from the ```D-Portal/dstore/cache``` folder into the local database. You may do 
 this many times and all the data will be merged.
 
-	./serv
 
-This runs the server using the local database, so it will only show 
-data that has been imported. it may be accessed, stopped and restarted as 
-described in [Step 3](#3-run-the-localhost-server) and [Step 4](#4-refresh-the-localhost-server).
+## 6. Extra
 
-
-
-## 7. Import local data, view on d-portal
-
-Once you import some data, you can then view this on your local version of d-portal. This will **not** upload your data to the live d-portal website.
-
-For the purposes of running these scripts, we assume you are in the root of the project (```cd D-Portal```).
-
-You'll need to add your XML files into the ```D-Portal/dstore/cache``` folder.
+The following are optional scripts that can be run on the database.
 
 	bin/dstore_reset
 	
