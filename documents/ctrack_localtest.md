@@ -45,6 +45,8 @@ directory then the CD may be skipped and should not be run twice.
 
 ## 1. Install on Windows
 
+*We don't recommend or test on Windows*
+
 Download and install git - click 'Next' to all the options to start installation.
 
 http://git-scm.com/download/win (You must **Enable symbolic links**)
