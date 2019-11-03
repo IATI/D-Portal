@@ -67,10 +67,11 @@ This installs Chocolatey so we can install other needed things for Windows.
 	
 This installs wget so we can fetch xml files from the internet.
 
-Now open "git bash" this can be found in your startmenu under git on 
-windows 7 and below or searched for on windows 8 and above. When run 
-it should open up a command line window, this is the window you need 
-to type the commands on this page into.
+Now open "git bash" and **Run as administrator**.
+
+This can be found in your startmenu under git on windows 7 and below or
+searched for on windows 8 and above. When run it should open up a command
+line window, this is the window you need  to type the commands on this page into.
 
 Finally we need to grab the code with the following command
 
