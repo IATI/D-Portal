@@ -12,8 +12,8 @@ to install.
 https://help.github.com/articles/set-up-git
 
 ## Table of contents
-  - [Install on Ubuntu](#1-installing-git-and-node-on-ubuntu)
-  - [Install on Windows](#1-installing-git-and-node-on-windows)
+  - [Install on Ubuntu](#1-install-on-ubuntu)
+  - [Install on Windows](#1-install-on-windows)
   - [Download node dependencies](#2-download-node-dependencies)
   - [Import IATI data from IATI Datastore](#3-import-iati-data-from-the-datastore)
   - [Run the localhost server](#4-run-the-localhost-server)
@@ -21,7 +21,7 @@ https://help.github.com/articles/set-up-git
   - [Extra](#6-extra)
 
 
-## 1. Installing git and node on Ubuntu
+## 1. Install on Ubuntu
 
 Open a command line and type the following one line at a time to 
 create a directory in your home directory containing the project.
@@ -43,7 +43,7 @@ you are expected to run them from. If you are already in the right
 directory then the CD may be skipped and should not be run twice.
 
 
-## 1. Installing git and node on Windows
+## 1. Install on Windows
 
 Download and install git - click 'Next' to all the options to start installation.
 
