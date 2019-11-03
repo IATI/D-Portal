@@ -15,7 +15,7 @@ https://help.github.com/articles/set-up-git
   - [Install on Ubuntu](#1-install-on-ubuntu)
   - [Install on Windows](#1-install-on-windows)
   - [Download node dependencies](#2-download-node-dependencies)
-  - [Import IATI data from IATI Datastore](#3-import-iati-data-from-the-datastore)
+  - [Import IATI data from IATI Datastore](#3-import-iati-data-from-iati-datastore)
   - [Run the localhost server](#4-run-the-localhost-server)
   - [Import any xml data to view on local d-portal](#5-import-any-xml-data-to-view-on-local-d-portal)
   - [Extra](#6-extra)
