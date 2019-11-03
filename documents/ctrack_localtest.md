@@ -1,9 +1,8 @@
 
 # How to Install and Setup a test server
 
-First you need to install git and node this is a different problem 
-depending on which operating system you are using and only needs to 
-be done once so please check and follow the steps bellow carefully.
+We develop and test on Ubuntu so you may face problems on any
+other platforms. We do not recommend Windows.
 
 Github also has a help page for setting up git so you can have a 
 little read of that first to give you an idea of what you are about 
@@ -38,14 +37,9 @@ following command.
 	cd ~/D-Portal
 
 
-The other steps below begin with a CD command as a reminder of where 
-you are expected to run them from. If you are already in the right 
-directory then the CD may be skipped and should not be run twice.
-
-
 ## 1. Install on Windows
 
-*We don't recommend or test on Windows*
+*We don't recommend or test on Windows but the following works on 3 Nov 2019.*
 
 Download and install git - click 'Next' to all the options to start installation.  
 http://git-scm.com/download/win (You must **Enable symbolic links**)
