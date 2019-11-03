@@ -47,16 +47,14 @@ directory then the CD may be skipped and should not be run twice.
 
 *We don't recommend or test on Windows*
 
-Download and install git - click 'Next' to all the options to start installation.
-
+Download and install git - click 'Next' to all the options to start installation.  
 http://git-scm.com/download/win (You must **Enable symbolic links**)
 
-Download and install node - click 'Next' to all the options to start installation.
-
+Download and install node - click 'Next' to all the options to start installation.  
 https://nodejs.org/dist/latest-v8.x/node-v8.16.2-x64.msi (64-bit)
 
-Using **Windows PowerShell (Admin)**, type the following and type Y when asked:
-
+Using **Windows PowerShell (Admin)**, type the commands below and type Y when asked:
+	
 	npm install --global windows-build-tools
 	
 This installs the Windows compiler which is needed for node-expat.
@@ -71,21 +69,17 @@ This installs wget so we can fetch xml files from the internet.
 
 Now open "git bash" and **Run as administrator**.
 
-This can be found in your startmenu under git on windows 7 and below or
+  This can be found in your startmenu under git on windows 7 and below or
 searched for on windows 8 and above. When run it should open up a command
-line window, this is the window you need  to type the commands on this page into.
+line window, this is the window you need to type the commands on this page into.
 
-Finally we need to grab the code with the following command
+Type the following to clone the repo
 
 	git clone -c core.symlinks=true https://github.com/devinit/D-Portal
 
-and then move into the D-Portal directory
+Type the following to move into the D-Portal directory
 
 	cd D-Portal
-
-The other steps below begin with a CD command as a reminder of where 
-you are expected to run them from. If you are already in the right 
-directory then the CD may be skipped and should not be run twice.
 
 
 ## 2. Download node dependencies
