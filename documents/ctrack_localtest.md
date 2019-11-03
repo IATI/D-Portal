@@ -39,7 +39,7 @@ following command.
 
 ## 1. Install on Windows
 
-*We don't recommend or test on Windows but the following works on 3 Nov 2019.*
+*We don't recommend or test on Windows but the following works as of 3 Nov 2019.*
 
 Download and install git - click 'Next' to all the options to start installation.  
 http://git-scm.com/download/win (You must **Enable symbolic links**)
