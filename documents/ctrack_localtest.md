@@ -111,7 +111,7 @@ The following are scripts you can run to import different datasets into the loca
 
 For now, let's type the following line: (This will take a long time!)
 
-	bin/dstore_import_bd_ug_hn
+	bin/dstore_import_bd
 	
 Downloads and imports data for these respective countries from IATI Datastore, one country at a time.  
 _This is the recommended option for filling up a test database._
