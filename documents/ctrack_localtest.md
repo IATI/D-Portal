@@ -109,7 +109,7 @@ to make sure that only the new data is included.
 
 The following are scripts you can run to import different datasets into the local database.
 
-For now, let's type the following line:
+For now, let's type the following line: (This will take a long time!)
 
 	bin/dstore_import_bd_ug_hn
 	
