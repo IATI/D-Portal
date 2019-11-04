@@ -6,12 +6,12 @@
 
 #^iati-activity
 <div class="activity">
-	{_it.@humanitarian==1&&humanitarian}
+	{_it.@humanitarian==1&&humanitarian||}
 	<div class="header">PROJECT TITLE</div>
 	<div class="wrap_title">{_it./title/narrative:/narrative}</div>
 <!--	REPORTING ORG	-->
 	<div class="wrap_reporting_org">
-		<div class="text">Reported by</div><div class="reporting_org"><a href="#">{_it./reporting-org/narrative:/narrative}</a></div>
+		<div class="text">Reported by</div><div class="reporting_org"><a href="#">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
 	</div>
 <!--	DEFAULT MODALITIES	-->	
 	<div class="wrap_default">
@@ -159,6 +159,51 @@
 		{_it./transaction-12&&_it:transaction-12||}
 		{_it./transaction-13&&_it:transaction-13||}
 	</div>
+<!--	RESULT	-->
+	<div class="wrap_result">
+		<div class="header_section sticky collapsable">result<span class="count">( {_it./result.length} )</span></div>
+		<table class="budget result sortable">
+			<thead>
+				<tr>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3">TITLE / DESCRIPTION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3">INDICATOR</th>				
+				</tr>
+			</thead>
+			{_it./result:/result}
+		</table>
+	</div>
+
+
+<!--	RESULT ROWS	-->
+#^/result
+<tr class="row_count">
+	<td title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+	<td><div class="result_title">{_it./title/narrative.0.text||}</div><div class="result_desc">{_it./description/narrative.0.text||}</div></td>
+	<td>{_it./indicator:/result_indicator}</td>	
+</tr>
+
+<!--	RESULT INDICATOR	-->
+#^/result_indicator
+<div>
+	<div class="result_in">
+		{_it./title/narrative.0.text}
+		<div class="result_per">
+			<div>TARGET</div><div>ACTUAL</div>
+			<div>{_it./period:/target}</div><div>{_it./period:/actual}</div>
+		</div>
+	</div><div class="result_in_date">{_it./period:/period}</div>
+</div>
+
+#^/period
+<div><span>START</span> {_it./period-start@iso-date||}</div>
+<div><span>END</span> {_it./period-end@iso-date||}</div>
+
+#^/target
+{_it./target@value||}
+
+#^/actual
+{_it./actual@value||}
 
 <!--	TRANSACTION TYPES	-->
 #^transaction-1

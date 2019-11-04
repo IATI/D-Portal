@@ -27,30 +27,32 @@ span.block	{display:block;}
 /*	WRAPPERS	*/
 .wrap_title					{padding-bottom:40px;}
 .wrap_reporting_org			{font-size:18px; line-height:1.35em; color:#ccc;}
-.wrap_title span,
-.wrap_reporting_org span	{display:block;}
-.wrap_title span			{font-size:42px; line-height:1.2em;}
+.wrap_title span			{display:block; font-size:42px; line-height:1.2em;}
 .wrap_title span:nth-of-type(2)	{font-style:italic; font-size:30px; line-height:1em;}
 .wrap_reporting_org div		{display:inline-block; vertical-align:top; padding-right:10px;}
-.wrap_iati_identifier		{background-color:rgba(0,14,32,0.7); width:960px; font-size:18px; line-height:1.5em; padding:20px 40px; color:#FFAB5E; margin:0 auto; margin-left:-40px; margin-top:30px;}
+.wrap_iati_identifier		{background-color:rgba(0,14,32,0.7); width:960px; font-size:18px; line-height:1.5em; padding:20px 40px; color:#FFAB5E; margin:0 auto; margin-left:-40px; margin-top:25px;}
 .wrap_reporting_org .text,
 .wrap_iati_identifier .text		{color:#ccc; text-transform:uppercase; font-size:14px;}
 .wrap_iati_identifier .text a	{font-size:18px; padding-left:5px;}
 .wrap_description			{margin:40px auto;}
 .wrap_description .text		{margin-bottom:30px;}
+.wrap_description .text .narrative					{line-height:1.35em;}
 .wrap_description .text .narrative:nth-of-type(2)	{font-style:italic; display:block; margin-top:15px;}
 .wrap_default				{padding:20px 0 0 0; margin:0 auto;}
 .wrap_default .text			{display:inline-block; vertical-align:top; font-size:14px; color:#ccc; width:50%;}
 .wrap_default .text:first-of-type	{padding-right:20px;}
 .wrap_default .text	span	{font-size:16px; color:#fff; padding-left:10px;}
-.wrap_location .header_section	{margin-top:0;}
+.wrap_location .header_section,
+.wrap_budget .header_section{margin-top:0;}
 .wrap_document	{margin:30px 0;}
 
+.reporting_org span	{font-size:12px; padding-left:5px; vertical-align:middle;}
 .reporting_org .narrative:nth-of-type(2)	{font-style:italic;}
 
 /*	GRAPHS	*/
 .wrap_recipient_country,
 .wrap_sector		{color:#444; background-color:#fff; margin-top:-20px; width:960px; margin-left:-40px; padding:0 0 40px 0;}
+.wrap_recipient_country	{padding:40px 0;}
 .sector				{color:#444; font-size:14px; line-height:18px; padding:0 40px;}
 .wrap_code,
 .wrap_bar			{display:inline-block; vertical-align:middle; width:400px;}
@@ -86,6 +88,7 @@ a.doc_link:last-of-type	{border-bottom:1px solid #656a6f;}
 .wrap_doc_link	{display:inline-block; vertical-align:top; padding-left:34px;}
 span.doc_title	{font-size:14px; line-height:1.25em;}
 span.doc_title span.inblock:nth-of-type(n+2)	{font-style:italic;}
+span.doc_desc	{font-size:12px;}
 span.doc_format	{margin-left:10px; color:#CCC; font-size:12px; background-color:rgba(22,24,37,0.6); border-radius:4px; padding:4px 4px 1px 4px;}
 span.doc_lang	{display:inline-block; vertical-align:top; margin:10px 8px 0 0; color:#CCC; font-size:13px; text-transform:uppercase;}
 span.rep_type	{display:inline-block; vertical-align:middle; color:#CCC; font-size:12px; margin-left:5px;}
@@ -135,13 +138,20 @@ table.budget.rec_country td:nth-of-type(3),
 table.budget.rec_country th:nth-of-type(4),
 table.budget.rec_country td:nth-of-type(4)	{width:230px; padding-right:20px;}
 table.budget.part_org th:nth-of-type(1),
-table.budget.part_org td:nth-of-type(1)		{width:370px; padding-right:40px;}
+table.budget.part_org td:nth-of-type(1)		{width:420px; padding-right:40px;}
 table.budget.part_org th:nth-of-type(2),
-table.budget.part_org td:nth-of-type(2),
+table.budget.part_org td:nth-of-type(2)		{width:200px; padding-right:20px;}
 table.budget.part_org th:nth-of-type(3),
-table.budget.part_org td:nth-of-type(3)		{width:100px; padding-right:20px;}
+table.budget.part_org td:nth-of-type(3)		{width:120px; padding-right:20px;}
 table.budget.part_org th:nth-of-type(4),
-table.budget.part_org td:nth-of-type(4)		{width:160px; padding-right:0px;}
+table.budget.part_org td:nth-of-type(4)		{width:140px; padding-right:0px;}
+
+.wrap_humanitarian_scope table.budget.part_org th:nth-of-type(2),
+.wrap_humanitarian_scope table.budget.part_org td:nth-of-type(2)		{width:120px;}
+.wrap_humanitarian_scope table.budget.part_org th:nth-of-type(3),
+.wrap_humanitarian_scope table.budget.part_org td:nth-of-type(3),
+.wrap_humanitarian_scope table.budget.part_org th:nth-of-type(4),
+.wrap_humanitarian_scope table.budget.part_org td:nth-of-type(4)		{width:180px;}
 
 table.budget.location th,
 table.budget.location td					{width:130px; padding-right:30px;}
@@ -176,6 +186,20 @@ table.budget.act_trans th:nth-of-type(4),
 table.budget.act_trans td:nth-of-type(4)	{width:170px; padding-right:0px;}
 table.budget.act_trans th:nth-of-type(5),
 table.budget.act_trans td:nth-of-type(5)	{width:160px; padding-right:20px;}
+
+table.budget.result th,
+table.budget.result td						{width:100px; padding-right:0px;}
+table.budget.result th:nth-of-type(2),
+table.budget.result td:nth-of-type(2)		{width:280px; padding-right:20px;}
+table.budget.result th:nth-of-type(3),
+table.budget.result td:nth-of-type(3)		{width:500px; padding-right:0px;}
+.result_title	{font-size:16px; padding-bottom:5px;}
+.result_desc	{font-size:14px; color:#ccc;}
+.result_in_date,
+.result_in		{display:inline-block; vertical-align:top; width:70%;}
+.result_in_date	{width:30%;}
+.result_in_date div			{text-align:right;}
+.result_in_date div span	{font-size:12px; color:#ccc; width:50px; text-align:left;}
 
 /*	DEFAULTS MODALITIES	*/
 table.modals					{table-layout:fixed; border-collapse:collapse; width:100%;}
