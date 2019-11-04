@@ -1,6 +1,14 @@
 # convincing npm to pick the latest version of a dependency is, uhm, lets go with too clever by half
 # this script is a forced npm install of wanted dependencies
 
+cd `dirname $0`
+
+rm -rf node_modules
+rm package-lock.json
+
+#we used to have this
+npm uninstall mz
+
 npm install stupid-table-plugin
 npm install async
 npm install papaparse
@@ -32,7 +40,6 @@ npm install mc
 npm install md5-o-matic
 npm install moment
 npm install morgan
-npm install mz
 npm install node-expat
 npm install pg
 npm install pg-monitor
