@@ -6,9 +6,6 @@ cd `dirname $0`
 rm -rf node_modules
 rm package-lock.json
 
-#we used to have this
-npm uninstall mz
-
 npm install stupid-table-plugin
 npm install async
 npm install papaparse
