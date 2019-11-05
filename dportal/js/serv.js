@@ -62,7 +62,7 @@ console.log(req.path)
 });
 
 app.use( express.json() )
-app.use( express.urlencoded() )
+app.use( express.urlencoded({ extended: true }) )
 
 // dquery
 app.use('/dquery', require("../../dflat/js/query").serv )
