@@ -51,7 +51,7 @@ Using **Windows PowerShell (Admin)**, type the commands below and type Y when as
 	
 	npm install --global windows-build-tools
 	
-This installs the Windows compiler which is needed for node-expat.
+This installs the Windows compiler.
 
 	Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 	
