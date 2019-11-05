@@ -24,9 +24,8 @@ query.db = function(){
 	return query.pg_db;
 };
 
-
-var serve_html = require('serve-static')(__dirname+'/../html', {'index': ['dquery.html']})
-
+var express = require('express');
+var serve_html = express.static(__dirname+"/../html",{'index': ['dquery.html']})
 
 
 
