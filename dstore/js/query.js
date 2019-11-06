@@ -526,7 +526,7 @@ query.getsql_group_by=function(q,qv){
 };
 
 // check the new json values
-query.getsql_where_xson=function(q,qv){
+query.getsql_where_xson=function(q,qv,wheres){
 
 	if(dstore_db.engine!="pg") { return ""; } // postgres only
 
@@ -539,7 +539,7 @@ query.getsql_where_xson=function(q,qv){
 		
 		let p=database.paths[n]
 		
-		if(p) // a valid path
+		if(p && p.jpath) // a valid path
 		{
 
 			let cn=n.trim().toLowerCase().replace(/\W+/g,"_")
