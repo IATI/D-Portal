@@ -568,7 +568,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 //			push(n,v)
 		}
 		else
-		if(n.startsWith("/")) // shorthand for /iati-activities/iati-activity
+		if( n.startsWith("/") || n.startsWith("@") ) // shorthand for /iati-activities/iati-activity
 		{
 			push("/iati-activities/iati-activity"+n,v)
 		}
