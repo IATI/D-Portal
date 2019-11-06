@@ -807,7 +807,10 @@ query.do_select_response=function(q,res,r){
 		
 		for(var i=0;i<r.rows.length;i++)
 		{
-			tab.push( JSON.parse( r.rows[i].xson ) )
+			if( r.rows[i].xson )
+			{
+				tab.push( JSON.parse( r.rows[i].xson ) )
+			}
 		}
 
 		if(q.form=="csv" && q.root=="/iati-activities/iati-activity" )
