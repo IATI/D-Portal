@@ -99,6 +99,16 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 `
 cd \`dirname $0\`
 
+if ! [ -x "$(command -v curl)" ]; then
+	echo "curl is not installed, atempting to install"
+	sudo apt install -y curl
+fi
+
+if ! [ -x "$(command -v parallel)" ]; then
+	echo "parallel is not installed, atempting to install"
+	sudo apt install -y parallel
+fi
+
 if [ "$1" = "debug" ] ; then
 	bash downloads.curl
 else
@@ -114,6 +124,11 @@ cat downloads/*.log >downloads.curl.log
 	await fse.writeFile( path.join(argv.dir,"packages.sh") ,
 `
 cd \`dirname $0\`
+
+if ! [ -x "$(command -v parallel)" ]; then
+	echo "parallel is not installed, atempting to install"
+	sudo apt install -y parallel
+fi
 
 if [ "$1" = "debug" ] ; then
 	bash packages.parse
