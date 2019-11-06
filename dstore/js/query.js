@@ -12,6 +12,7 @@ var iati_xml=require('./iati_xml');
 var dstore_db=require("./dstore_db");
 var iati_codes=require("../json/iati_codes.json")
 
+var dflat=require("../../dflat/js/dflat.js")
 var database=require("../../dflat/json/database.json")
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
@@ -784,6 +785,50 @@ query.do_select_response=function(q,res,r){
 
 	res.set('charset','utf8'); // This is always the correct answer.
 
+	if(q.from=="xson") // use dflat to output xson activities as csv or json
+	{
+		let tab=[]
+		let df={}
+
+		if( q.root=="/iati-organisations/iati-organisation" ) // org files
+		{
+			df["/iati-organisations/iati-organisation"]=tab
+		}
+		else
+		if( q.root=="/iati-activities/iati-activity" ) // activities
+		{
+			df["/iati-activities/iati-activity"]=tab
+		}
+		else // raw xson table of results
+		{
+			df=tab
+		}
+ 
+		
+		for(var i=0;i<r.rows.length;i++)
+		{
+			tab.push( JSON.parse( r.rows[i].xson ) )
+		}
+
+		if(q.form=="csv" && q.root=="/iati-activities/iati-activity" )
+		{
+			var csv=dflat.xson_to_xsv(df,"/iati-activities/iati-activity",{"/iati-activities/iati-activity":true})
+			res.set('Content-Type', 'text/csv');
+			res.end(csv);
+		}
+		else
+		if(q.form=="csv" && q.root=="/iati-organisations/iati-organisation" )
+		{
+			var csv=dflat.xson_to_xsv(df,"/iati-organisations/iati-organisation",{"/iati-organisations/iati-organisation":true})
+			res.set('Content-Type', 'text/csv');
+			res.end(csv);
+		}
+		else // default to json output
+		{
+			send_json(df);
+		}
+	}
+	else
 	if(q.form=="html")
 	{
 		res.set('Content-Type', 'text/xml');
