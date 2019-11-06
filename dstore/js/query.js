@@ -12,6 +12,8 @@ var iati_xml=require('./iati_xml');
 var dstore_db=require("./dstore_db");
 var iati_codes=require("../json/iati_codes.json")
 
+var database=require("../../dflat/json/database.json")
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
@@ -522,6 +524,64 @@ query.getsql_group_by=function(q,qv){
 	return "";
 };
 
+// check the new json values
+query.getsql_where_xson=function(q,qv){
+
+//	if(dstore_db.engine!="pg") { return ""; } // postgres only
+
+
+	let ss=[]
+	
+	let push=function(n,v)
+	{
+//		console.log(n+" == "+v)
+		
+		let p=database.paths[n]
+		
+		if(p) // a valid path
+		{
+
+			let cn=n.trim().toLowerCase().replace(/\W+/g,"_")
+			let nb=p.jpath[ p.jpath.length-1 ]
+			let na=p.jpath.join("").slice(0,-nb.length)
+
+
+			ss.push( " ( root = '"+na+"' AND xson-->'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+
+			qv[ dstore_db.text_name(cn) ]=v
+
+		}
+	}
+
+	for( let n in q )
+	{
+		v=q[n]
+		if(n.startsWith("/iati-activities/iati-activity"))
+		{
+			push(n,v)
+		}
+		else
+		if(n.startsWith("/iati-organisations/iati-organisation"))
+		{
+// future support for org files ?
+//			push(n,v)
+		}
+		else
+		if(n.startsWith("/")) // shorthand for /iati-activities/iati-activity
+		{
+			push("/iati-activities/iati-activity"+n,v)
+		}
+	}
+
+	let ret=" ( select aid from xson where aid is not null AND "+ss.join(" AND ")+" group by aid ) "
+
+//	console.log(ret)
+//	console.log(qv)
+
+	return ""
+}
+
+
 query.getsql_distinct_on=function(q,qv){
 
 	if(dstore_db.engine!="pg") { return ""; } // postgres only
@@ -855,6 +915,7 @@ query.do_select=function(q,res,req){
 				query.getsql_distinct_on(q,qv) + 
 				query.getsql_select(q,qv) + 
 				query.getsql_from(q,qv) + 
+				query.getsql_where_xson(q,qv) + 
 				query.getsql_where(q,qv) + 
 				query.getsql_group_by(q,qv) + 
 				(q.distincton?" ) q ":"")+

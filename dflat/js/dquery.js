@@ -5,8 +5,12 @@ var dquery=exports;
 if(typeof window !== 'undefined')
 {
 	window.$ = window.jQuery = require("jquery");
+
 	var split=require("jquery.splitter")
+	split( window.jQuery )
+
 //	var term=(require("jquery.terminal"))()
+
 
 	var ui=require("./jquery-ui.js")
 
@@ -40,7 +44,7 @@ dquery.start_loaded=async function(){
 	require("brace/theme/twilight")
 
 	require("brace/mode/pgsql")
-	require("brace/mode/json")
+//	require("brace/mode/json")
 
 	$("html").prepend(plated.plate('<style>{css}</style>')) // load our styles
 

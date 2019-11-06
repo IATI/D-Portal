@@ -32,13 +32,14 @@ var serve_html = express.static(__dirname+"/../html",{'index': ['dquery.html']})
 // handle the /dquery url space
 query.serv = async function(req,res,next){
 
+/*
 	if(!argv.pgro)
 	{
-		res.send("DISABLED");
+		res.send("This does not work with sqlite.");
 		return;
 	}
 	else
-	{
+*/	{
 		if(req.body.sql) // a post query
 		{
 //			console.log( req.body.sql )
@@ -56,7 +57,7 @@ query.serv = async function(req,res,next){
 		else
 		{
 			// serv up static files
-			serve_html(req,res,()=>{res.send("DISABLED");})
+			serve_html(req,res,next)
 		}
 	}
 
