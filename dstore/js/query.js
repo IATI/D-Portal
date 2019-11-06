@@ -480,7 +480,8 @@ for(var n in ns) // all valid fields
 		}
 	}
 
-	
+	query.getsql_where_xson(q,qv,wheres)
+
 	var ret="";
 	
 	if(filters[0])
@@ -527,7 +528,7 @@ query.getsql_group_by=function(q,qv){
 // check the new json values
 query.getsql_where_xson=function(q,qv){
 
-//	if(dstore_db.engine!="pg") { return ""; } // postgres only
+	if(dstore_db.engine!="pg") { return ""; } // postgres only
 
 
 	let ss=[]
@@ -546,7 +547,7 @@ query.getsql_where_xson=function(q,qv){
 			let na=p.jpath.join("").slice(0,-nb.length)
 
 
-			ss.push( " ( root = '"+na+"' AND xson-->'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+			ss.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
 
 			qv[ dstore_db.text_name(cn) ]=v
 
@@ -573,12 +574,18 @@ query.getsql_where_xson=function(q,qv){
 		}
 	}
 
-	let ret=" ( select aid from xson where aid is not null AND "+ss.join(" AND ")+" group by aid ) "
+	if( ss.length>0 )
+	{
+
+		let ret=" aid in ( select aid from xson where aid is not null AND "+ss.join(" AND ")+" group by aid ) "
 
 //	console.log(ret)
 //	console.log(qv)
 
-	return ""
+		wheres.push(ret)
+
+	}
+
 }
 
 
@@ -915,7 +922,6 @@ query.do_select=function(q,res,req){
 				query.getsql_distinct_on(q,qv) + 
 				query.getsql_select(q,qv) + 
 				query.getsql_from(q,qv) + 
-				query.getsql_where_xson(q,qv) + 
 				query.getsql_where(q,qv) + 
 				query.getsql_group_by(q,qv) + 
 				(q.distincton?" ) q ":"")+
