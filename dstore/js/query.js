@@ -807,9 +807,9 @@ query.do_select_response=function(q,res,r){
 		
 		for(var i=0;i<r.rows.length;i++)
 		{
-
-			console.log( r.rows[i].xson )
-			tab.push( JSON.parse( r.rows[i].xson ) )
+			var it=r.rows[i].xson
+			if( "string" == typeof it ) { it=JSON.parse( it ) } // this converts from string for sqlite niceness
+			tab.push( it )
 			
 		}
 
