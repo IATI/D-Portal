@@ -72,26 +72,33 @@ a.a_iati-identifier:visited	{color:#FFAB5E;}
 a.a_iati-identifier:hover	{color:#FF7A00;}
 a.a_iati-identifier:active	{color:#FFAB5E;}
 a.a_xml_iati-identifier,
+a.a_download,
 a.a_logs,
-a.a_slug{display:inline-block; vertical-align:baseline; box-sizing:border-box; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; padding:5px 0;  margin:10px 2% 5px 0;}
-a.a_xml_iati-identifier	{width:31.33%;}
+a.a_slug				{display:inline-block; vertical-align:baseline; box-sizing:border-box; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; padding:5px 0;  margin:10px 2% 5px 0;}
+a.a_xml_iati-identifier	{width:20%;}
 a.a_xml_iati-identifier:before	{content:"VIEW SOURCE"; font-size:16x; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:5px;}
 a.a_xml_iati-identifier:link	{color:#FFF;}
 a.a_xml_iati-identifier:visited	{color:#FFF;}
 a.a_xml_iati-identifier:hover	{color:#FFAB5E;}
 a.a_xml_iati-identifier:active	{color:#FFF;}
-a.a_logs				{width:32.33%;}
+a.a_logs				{width:20%;}
 a.a_logs:before			{content:"VIEW DATASET"; font-size:16px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:5px;}
 a.a_logs:link			{color:#FFF;}
 a.a_logs:visited		{color:#FFF;}
 a.a_logs:hover			{color:#FFAB5E;}
 a.a_logs:active			{color:#FFF;}
-a.a_slug				{width:32.33%; margin-right:0;}
+a.a_slug				{width:28%; margin-right:0;}
 a.a_slug:before			{content:"VIEW IATI REGISTRY"; font-size:16px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:5px;}
 a.a_slug:link			{color:#FFF;}
 a.a_slug:visited		{color:#FFF;}
 a.a_slug:hover			{color:#FFAB5E;}
 a.a_slug:active			{color:#FFF;}
+a.a_download			{width:12%;}
+a.a_download:before		{content:"VIEW"; font-size:16px; color:#ccc; display:inline-block; vertical-align:baseline; padding-right:5px;}
+a.a_download:link		{color:#FFF;}
+a.a_download:visited	{color:#FFF;}
+a.a_download:hover		{color:#FFAB5E;}
+a.a_download:active		{color:#FFF;}
 
 
 /*	Recipient countries

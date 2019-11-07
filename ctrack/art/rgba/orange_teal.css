@@ -378,6 +378,7 @@ a.a_iati-identifier:visited		{color:var(--base11);}
 a.a_iati-identifier:hover		{color:var(--base15);}
 a.a_iati-identifier:active		{color:var(--base11);}
 a.a_xml_iati-identifier,
+a.a_download,
 a.a_logs,
 a.a_slug						{background-color:var(--base04_70);}
 a.a_xml_iati-identifier:before	{color:var(--base14);}
@@ -395,6 +396,10 @@ a.a_slug:link					{color:var(--base11);}
 a.a_slug:visited				{color:var(--base11);}
 a.a_slug:hover					{color:var(--base15);}
 a.a_slug:active					{color:var(--base11);}
+a.a_download:link				{color:var(--base11);}
+a.a_download:visited			{color:var(--base11);}
+a.a_download:hover				{color:var(--base15);}
+a.a_download:active				{color:var(--base11);}
 
 
 /*	Recipient countries
