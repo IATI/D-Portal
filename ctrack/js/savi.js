@@ -1257,8 +1257,9 @@ acts.find("iati-identifier").each(function(i){var it=$(this);
 	var slug=it.parent().parent().attr("dstore:slug"); // do we know where this came from?
 	var id=savi.encodeURIComponent(it.text().trim());
 	wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
-	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+
-	"' href='http://d-portal.org/q.xml?aid="+id+"' target='_blank'>xml</a>"));
+	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+"' href='http://d-portal.org/q.xml?aid="+id+"' target='_blank'>xml</a>"));
+	it.append($("<a class='a_download' href='http://d-portal.org/q.csv?&from=xson&root=/iati-activities/iati-activity&aid="+id+"' target='_blank'>csv</a>"));
+	it.append($("<a class='a_download' href='http://d-portal.org/q.json?&from=xson&root=/iati-activities/iati-activity&aid="+id+"' target='_blank'>json</a>"));
 	if(slug)
 	{
 		it.append($("<a class='a_logs' href='http://d-portal.org/ctrack.html#view=dash_sluglog&slug="+slug+"' target='_blank'>logs</a>"));
