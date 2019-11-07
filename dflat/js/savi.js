@@ -148,25 +148,28 @@ savi.start_loaded=function(){
 			}
 		}
 // budgets
-		if(act["/budget"])
+		let tosort=[]
+		for(let bname of ["/budget","/planned-disbursement","/recipient-org-budget","/recipient-region-budget","/recipient-country-budget","/total-budget","/total-expenditure"])
 		{
-			let tosort=[]
-			tosort.push( act["/budget"] )
-			for( let budget of act["/budget"] )
+			if(act[bname])
 			{
-				if("/value" in budget)
+				tosort.push( act[bname] )
+				for( let budget of act[bname] )
 				{
-					budget["/value-human"]=commafy(budget["/value"])
+					if("/value" in budget)
+					{
+						budget["/value-human"]=commafy(budget["/value"])
+					}
 				}
 			}
-			for( let tab of tosort )
-			{
-				tab.sort(function(a,b){
-					let an=a["/period-start@iso-date"]||""
-					let bn=b["/period-start@iso-date"]||""
-					return an.localeCompare(bn)
-				})
-			}
+		}
+		for( let tab of tosort )
+		{
+			tab.sort(function(a,b){
+				let an=a["/period-start@iso-date"]||""
+				let bn=b["/period-start@iso-date"]||""
+				return an.localeCompare(bn)
+			})
 		}
 // split transactions on /transaction-type@code
 		if(act["/transaction"])
