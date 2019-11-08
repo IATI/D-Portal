@@ -31,6 +31,7 @@ span.block	{display:block;}
 .wrap_title span:nth-of-type(2)	{font-style:italic; font-size:30px; line-height:1em;}
 .wrap_reporting_org div		{display:inline-block; vertical-align:top; padding-right:10px;}
 .wrap_iati_identifier		{background-color:rgba(0,14,32,0.7); width:960px; font-size:18px; line-height:1.5em; padding:20px 40px; color:#FFAB5E; margin:0 auto; margin-left:-40px; margin-top:25px;}
+.wrap_iati_identifier.org_id	{margin-top:10px;}
 .wrap_reporting_org .text,
 .wrap_iati_identifier .text		{color:#ccc; text-transform:uppercase; font-size:14px;}
 .wrap_iati_identifier .text a	{font-size:18px; padding-left:5px;}
@@ -69,11 +70,12 @@ span.block	{display:block;}
 .wrap_sector .header{color:#444; margin-left:40px; width:880px; padding-top:40px;}
 
 /*	DATA SOURCES	*/
-.data_source a		{display:inline-block; vertical-align:baseline; width:21%; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; color:#fff; padding:5px 0; margin:10px 2% 5px 0;}
+.data_source a		{display:inline-block; vertical-align:baseline; width:12%; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; color:#fff; padding:5px 0; margin:10px 2% 5px 0;}
 .data_source a span	{color:#ccc;}
 .data_source a:hover{color:#FFAB5E;}
-.data_source a.slug	{width:31%;}
-.data_source a.csv	{margin-right:0;}
+.data_source a.dlogs{width:20%;}
+.data_source a.slug	{width:28%;}
+.data_source a.csv	{width:20%; margin-right:0;}
 
 /*	COUNT	*/
 span.count				{color:#ccc; font-size:12px; padding-left:20px;}
@@ -86,17 +88,19 @@ a.doc_link:hover	{background-color:rgba(77,88,97,0.6);}
 a.doc_link:last-of-type	{border-bottom:1px solid #656a6f;}
 
 .wrap_doc_link	{display:inline-block; vertical-align:top; padding-left:34px;}
-span.doc_title	{font-size:14px; line-height:1.25em;}
-span.doc_title span.inblock:nth-of-type(n+2)	{font-style:italic;}
-span.doc_desc	{font-size:12px;}
+span.doc_title,
+span.doc_format	{display:inline-block; vertical-align:middle;}
+span.doc_title	{font-size:14px; line-height:1.25em; max-width:600px;}
+span.doc_title:nth-of-type(n+2)	{font-style:italic;}
+span.doc_desc	{font-size:12px; display:block; padding:5px 0;}
 span.doc_format	{margin-left:10px; color:#CCC; font-size:12px; background-color:rgba(22,24,37,0.6); border-radius:4px; padding:4px 4px 1px 4px;}
 span.doc_lang	{display:inline-block; vertical-align:top; margin:10px 8px 0 0; color:#CCC; font-size:13px; text-transform:uppercase;}
 span.rep_type	{display:inline-block; vertical-align:middle; color:#CCC; font-size:12px; margin-left:5px;}
-span.doc_cat span.inblock,
-span.doc_rec span.inblock,
+span.doc_cat,
+span.doc_rec,
 span.doc_date	{display:inline-block; vertical-align:top; margin:5px 5px 0 0; color:#CCC; font-size:13px; background-color:rgba(72,79,86,0.6); border-radius:4px; padding:1px 4px 0px 4px; line-height:1.5em;}
 span.doc_date	{background-color:rgba(48,71,103,1);}
-span.doc_rec span.inblock	{background-color:rgba(22,24,37,0.6);}
+span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 
 /*	DATES	*/
 .wrap_activity_date	{width:980px; margin-left:-50px;}
@@ -107,14 +111,28 @@ span.doc_rec span.inblock	{background-color:rgba(22,24,37,0.6);}
 
 /*	TABLES	*/
 .currency		{font-size:12px; color:#ccc;}
+.value			{text-align:right;}
+.status			{text-align:center;}
 .type			{font-size:11px; line-height:initial; color:#CCC; margin:0 auto; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
 .ref			{font-size:11px; line-height:initial; color:#CCC; margin:0 auto;}
+.wrap_tab		{padding-bottom:5px; border-bottom:1px solid #666; margin-bottom:5px;}
+.wrap_tab:last-of-type	{border:0;}
+.tab_text,
+.tab_currency	{display:inline-block; vertical-align:top; width:60%;}
+.tab_currency	{width:40%; padding-left:30px; text-align:right; font-size:12px; color:#ccc;}
+
 
 table.budget	{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
-table.budget th	{padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 10px center;}
+table.budget th	{padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 5px center;}
+table.budget th.status,
+table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right -5px center;}
 table.budget th:hover	{cursor:pointer;}
 table.budget td			{font-size:14px; color:#FFF; line-height:1.35em; vertical-align:top; border-bottom:1px solid #333642; padding:10px 0;}
 table.budget td.value	{font-size:16px; padding-right:20px; text-align:right;}
+table.budget td.status	{text-align:right;}
+.org table.budget td.value			{font-size:14px;}
+
+
 table.budget tr:nth-of-type(1) td	{padding-top:15px;}
 table.budget tr:nth-of-type(1) th	{position:sticky; top:32px; z-index:1; background-color:#152136f2; padding:10px 0;}
 table.budget tr:nth-of-type(1) th:after	{content:''; position:absolute; left:0; bottom:-1px; width:100%; border-bottom:1px solid #aaa;}
@@ -126,17 +144,54 @@ table.location td					{padding:5px 0;}
 table.budget th:first-of-type,
 table.budget td:first-of-type,
 table.budget th:nth-of-type(2),
-table.budget td:nth-of-type(2),
+table.budget td:nth-of-type(2)	{width:100px; padding-right:20px;}
 table.budget th:nth-of-type(4),
-table.budget td:nth-of-type(4),
-table.budget.rec_country th:nth-of-type(2),
-table.budget.rec_country td:nth-of-type(2)	{width:130px; padding-right:20px;}
+table.budget td:nth-of-type(4)				{width:100px;}
 table.budget th:nth-of-type(3),
-table.budget td:nth-of-type(3)				{width:330px; padding-right:20px;}
-table.budget.rec_country th:nth-of-type(3),
-table.budget.rec_country td:nth-of-type(3),
-table.budget.rec_country th:nth-of-type(4),
-table.budget.rec_country td:nth-of-type(4)	{width:230px; padding-right:20px;}
+table.budget td:nth-of-type(3)				{width:420px; padding-right:20px;}
+
+
+/*	DATE AND STATUS COLUMN	*/
+.wrap_total_budget table.budget th.date,
+.wrap_total_budget table.budget td.date,
+.wrap_total_expenditure table.budget th.date,
+.wrap_total_expenditure table.budget td.date,
+.wrap_recipient_budget table.budget th.date,
+.wrap_recipient_budget table.budget td.date,
+.wrap_total_budget table.budget th.status,
+.wrap_total_budget table.budget td.status,
+.wrap_total_expenditure table.budget th.status,
+.wrap_total_expenditure table.budget td.status,
+.wrap_recipient_budget table.budget th.status,
+.wrap_recipient_budget table.budget td.status		{width:100px; padding-right:0;}
+
+/*	RECIPIENT COLUMN	*/
+.wrap_recipient_budget table.budget th.recipient,
+.wrap_recipient_budget table.budget td.recipient	{width:180px; padding-right:20px;}
+
+/*	BUDGET-LINE COLUMN	*/
+.wrap_total_budget table.budget th.line,
+.wrap_total_budget table.budget td.line				{width:460px; padding-right:0;}
+
+/*	RECIPIENT-BUDGET-LINE COLUMN	*/
+.wrap_recipient_budget table.budget th.line,
+.wrap_recipient_budget table.budget td.line			{width:280px; padding-right:0;}
+
+/*	EXPENSE-LINE COLUMN	*/
+.wrap_total_expenditure table.budget th.line,
+.wrap_total_expenditure table.budget td.line		{width:560px; padding-right:20px;}
+
+/*	VALUE HEADER COLUMN	*/
+.wrap_total_budget table.budget th.value,
+.wrap_total_expenditure table.budget th.value,
+.wrap_recipient_budget table.budget th.value		{width:120px; padding-right:20px;}
+
+/*	VALUE COLUMN	*/
+.wrap_total_budget table.budget td.value,
+.wrap_total_expenditure table.budget td.value,
+.wrap_recipient_budget table.budget td.value		{width:120px; padding-right:0;}
+
+
 table.budget.part_org th:nth-of-type(1),
 table.budget.part_org td:nth-of-type(1)		{width:420px; padding-right:40px;}
 table.budget.part_org th:nth-of-type(2),
