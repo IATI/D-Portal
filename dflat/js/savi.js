@@ -42,13 +42,68 @@ savi.start=function(opts){
 	$(savi.start_loaded)
 }
 
-savi.start_loaded=function(){
+savi.start_loaded=async function(){
+
+// prepare test page
+	let iati=null
+
+	let urlParams = new URLSearchParams(window.location.search);
+	let aid = urlParams.get('aid');
+	let pid = urlParams.get('pid');
+
+console.log(aid)
+console.log(pid)
+
+/*
+	let ropts={mode:"cors"}
+	if(aid)
+	{
+		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-activities/iati-activity&aid="+aid,ropts)
+		iati=await iati.json()
+	}
+	else
+	if(pid)
+	{
+		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-organisations/iati-organisation&pid="+pid,ropts)
+		iati=await iati.json()
+	}
+	else
+*/
+	{
+		iati=require('../json/test_1.json')
+		aid=true
+	}
+	
+	savi.prepare(iati)
+
+	console.log(iati)
+
+// test render
+	$("html").prepend(savi.plate('<style>{css}</style>')) // load our styles
+	savi.chunks.iati=iati
+
+	if(aid)
+	{
+		$("body").empty().append(savi.plate('<div>{iati./iati-activities/iati-activity:iati-activity}</div>')) // fill in the base body
+	}
+	else
+	if(pid)
+	{
+		$("body").empty().append(savi.plate('<div>{iati./iati-activities/iati-organisation:iati-organisation}</div>')) // fill in the base body
+	}
+
+// apply javascript to rendered html	
+
+// give your table the class of sortable and they will sortable
+	$("table.sortable").stupidtable()
+
+}
+
+
+savi.prepare=function(iati_xson){
 
 	let codelists=require('../json/codelists.json')
 	let codemap=require('../json/codemap.json')
-
-// prepare test page
-	let iati_xson=require('../json/test_1.json')
 	
 	xson.walk( iati_xson , (it,nn,idx)=>{
 		let nb=nn.join("")
@@ -149,7 +204,16 @@ savi.start_loaded=function(){
 		}
 // budgets
 		let tosort=[]
-		for(let bname of ["/budget","/planned-disbursement","/recipient-org-budget","/recipient-region-budget","/recipient-country-budget","/total-budget","/total-expenditure"])
+		for(let bname of
+			[
+				"/budget",
+				"/planned-disbursement",
+				"/recipient-org-budget",
+				"/recipient-region-budget",
+				"/recipient-country-budget",
+				"/total-budget",
+				"/total-expenditure",
+			])
 		{
 			if(act[bname])
 			{
@@ -245,16 +309,5 @@ savi.start_loaded=function(){
 		}
 	}
 
-	console.log(iati_xson)
-
-// test render
-	$("html").prepend(savi.plate('<style>{css}</style>')) // load our styles
-	savi.chunks.frankenstein=iati_xson
-	$("body").empty().append(savi.plate('{body}')) // fill in the base body
-
-// apply javascript to rendered html	
-
-// give your table the class of sortable and they will sortable
-	$("table.sortable").stupidtable()
-
+	return iati_xson // we tweaked and added values in preperation for display
 }

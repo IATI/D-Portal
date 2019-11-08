@@ -18,7 +18,10 @@ express.static.mime.define({'text/plain': ['']});
 app.use( express_fileupload() );
 
 app.use(function(req, res, next) {
-	var aa=req.path.split("/");
+
+	res.setHeader("Access-Control-Allow-Origin", "*")
+  
+ 	var aa=req.path.split("/");
 	var ab=aa && (aa[aa.length-1].split("."));
 
 	if( ab && (ab.length==1) ) // no extension
