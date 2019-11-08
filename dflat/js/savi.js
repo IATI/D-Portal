@@ -42,20 +42,85 @@ savi.start=function(opts){
 	$(savi.start_loaded)
 }
 
-savi.start_loaded=function(){
+savi.start_loaded=async function(){
+
+	const dflat=require('./dflat.js')
+
+// prepare test page
+	let iati=null
+
+	let urlParams = new URLSearchParams(window.location.search);
+	let aid = urlParams.get('aid');
+	let pid = urlParams.get('pid');
+
+	let ropts={mode:"cors"}
+	if(aid!==null)
+	{
+		if(aid!="") { aid="&aid="+aid }
+		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-activities/iati-activity"+aid,ropts)
+		iati=await iati.json()
+		aid=true
+	}
+	else
+	if(pid!==null)
+	{
+		if(pid!="") { pid="&pid="+pid }
+		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-organisations/iati-organisation"+pid,ropts)
+		iati=await iati.json()
+		pid=true
+	}
+	else
+	{
+		iati=require('../json/test_1.json')
+		aid=true
+	}
+	
+	dflat.clean(iati) // clean this data
+	
+	savi.prepare(iati) // prepare for display
+
+// test render
+	$("html").prepend(savi.plate('<style>{css}</style>')) // load our styles
+	savi.chunks.iati=iati
+
+	console.log( savi.chunks.iati ) // to help debuging
+
+	if(aid)
+	{
+		$("body").empty().append(savi.plate('<div>{iati./iati-activities/iati-activity:iati-activity}</div>')) // fill in the base body
+	}
+	else
+	if(pid)
+	{
+		$("body").empty().append(savi.plate('<div>{iati./iati-organisations/iati-organisation:iati-organisation}</div>')) // fill in the base body
+	}
+
+// apply javascript to rendered html	
+
+// give your table the class of sortable and they will sortable
+	$("table.sortable").stupidtable()
+
+}
+
+
+savi.prepare=function(iati_xson){
 
 	let codelists=require('../json/codelists.json')
 	let codemap=require('../json/codemap.json')
-
-// prepare test page
-	let iati_xson=require('../json/test_1.json')
 	
 	xson.walk( iati_xson , (it,nn,idx)=>{
 		let nb=nn.join("")
 
+		let found_code=null
+		let found_vocabulary=null
+
 		for(let n of Object.keys(it)) // this caches the keys so we can modify
 		{
 			let v=it[n]
+			
+			if(n.endsWith("@code"))       { found_code=n }
+			if(n.endsWith("@vocabulary")) { found_vocabulary=n }
+
 			if(!Array.isArray(v)) // only rename if not an array
 			{
 				if(n=="") { it.text=v }
@@ -114,114 +179,138 @@ savi.start_loaded=function(){
 			}
 
 		}
+// expand @vocabulary @code pairs, this is a common design choice and this helps treat the vocabs as special
+		if( found_code && found_vocabulary )
+		{
+			let n=it[ found_code+"-name" ]
+			let c=it[ found_code ]
+			let v=it[ found_vocabulary ]
+			it[ found_code+"-"+v ]=c
+			if(n)
+			{
+				it[ found_code+"-"+v+"-name" ]=n
+			}
+		}
+
 	})
 	
-	if(iati_xson["/iati-activities/iati-activity"])
+	let subents=function(act)
 	{
-		for( let act of iati_xson["/iati-activities/iati-activity"] )
-		{
 // explicit dates based on @type
-			if(act["/activity-date"])
+		if(act["/activity-date"])
+		{
+			for( let date of act["/activity-date"] )
 			{
-				for( let date of act["/activity-date"] )
-				{
-					let n=Number(date["@type"])||0
-					act["/activity-date-"+n]=date
-				}
+				let n=Number(date["@type"])||0
+				act["/activity-date-"+n]=date
 			}
+		}
 // budgets
-			if(act["/budget"])
+		let tosort=[]
+		for(let bname of
+			[
+				"/budget",
+				"/planned-disbursement",
+				"/recipient-org-budget",
+				"/recipient-region-budget",
+				"/recipient-country-budget",
+				"/total-budget",
+				"/total-expenditure",
+			])
+		{
+			if(act[bname])
 			{
-				let tosort=[]
-				tosort.push( act["/budget"] )
-				for( let budget of act["/budget"] )
+				tosort.push( act[bname] )
+				for( let budget of act[bname] )
 				{
 					if("/value" in budget)
 					{
 						budget["/value-human"]=commafy(budget["/value"])
 					}
 				}
-				for( let tab of tosort )
-				{
-					tab.sort(function(a,b){
-						let an=a["/period-start@iso-date"]||""
-						let bn=b["/period-start@iso-date"]||""
-						return an.localeCompare(bn)
-					})
-				}
 			}
-// split transacions on /transaction-type@code
-			if(act["/transaction"])
+		}
+		for( let tab of tosort )
+		{
+			tab.sort(function(a,b){
+				let an=a["/period-start@iso-date"]||""
+				let bn=b["/period-start@iso-date"]||""
+				return an.localeCompare(bn)
+			})
+		}
+// split transactions on /transaction-type@code
+		if(act["/transaction"])
+		{
+			let tosort=[]
+			tosort.push( act["/transaction"] )
+			for( let transaction of act["/transaction"] )
 			{
-				let tosort=[]
-				tosort.push( act["/transaction"] )
-				for( let transaction of act["/transaction"] )
+				let code=Number(transaction["/transaction-type@code"])
+				if(code)
 				{
-					let code=Number(transaction["/transaction-type@code"])
-					if(code)
+					if(! act["/transaction-"+code] )
 					{
-						if(! act["/transaction-"+code] )
-						{
-							let transactions=[]
-							act["/transaction-"+code]=transactions
-							tosort.push( transactions )
-						}
-						act["/transaction-"+code].push( transaction )
+						let transactions=[]
+						act["/transaction-"+code]=transactions
+						tosort.push( transactions )
 					}
-					if("/value" in transaction)
-					{
-						transaction["/value-human"]=commafy(transaction["/value"])
-					}
+					act["/transaction-"+code].push( transaction )
 				}
-				for( let tab of tosort )
+				if("/value" in transaction)
 				{
-					tab.sort(function(a,b){
-						let an=a["/transaction-date@iso-date"]||""
-						let bn=b["/transaction-date@iso-date"]||""
-						return an.localeCompare(bn)
-					})
+					transaction["/value-human"]=commafy(transaction["/value"])
 				}
 			}
+			for( let tab of tosort )
+			{
+				tab.sort(function(a,b){
+					let an=a["/transaction-date@iso-date"]||""
+					let bn=b["/transaction-date@iso-date"]||""
+					return an.localeCompare(bn)
+				})
+			}
+		}
 // split sectors on @vocabulary
-			if(act["/sector"])
+		if(act["/sector"])
+		{
+			let tosort=[]
+			tosort.push( act["/sector"] )
+			for( let sector of act["/sector"] )
 			{
-				let tosort=[]
-				tosort.push( act["/sector"] )
-				for( let sector of act["/sector"] )
+				let vocabulary=Number(sector["@vocabulary"]) || 1
+				if(! act["/sector-"+vocabulary] )
 				{
-					let vocabulary=Number(sector["@vocabulary"]) || 1
-					if(! act["/sector-"+vocabulary] )
-					{
-						let sectors=[]
-						act["/sector-"+vocabulary]=sectors
-						tosort.push( sectors )
-					}
-					act["/sector-"+vocabulary].push( sector )
+					let sectors=[]
+					act["/sector-"+vocabulary]=sectors
+					tosort.push( sectors )
 				}
-				for( let tab of tosort )
-				{
-					tab.sort(function(a,b){
-						let an=Number(a["@percentage"])||0
-						let bn=Number(b["@percentage"])||0
-						return bn-an
-					})
-				}
+				act["/sector-"+vocabulary].push( sector )
+			}
+			for( let tab of tosort )
+			{
+				tab.sort(function(a,b){
+					let an=Number(a["@percentage"])||0
+					let bn=Number(b["@percentage"])||0
+					return bn-an
+				})
 			}
 		}
 	}
+	
+	if(iati_xson["/iati-activities/iati-activity"])
+	{
+		for( let act of iati_xson["/iati-activities/iati-activity"] )
+		{
+			subents(act)
+		}
+	}
+	if(iati_xson["/iati-organisations/iati-organisation"]) // orgfiles
+	{
+		for( let act of iati_xson["/iati-organisations/iati-organisation"] )
+		{
+			subents(act)
+		}
+	}
 
-
-
-	console.log(iati_xson)
-
-// test render
-	$("html").prepend(savi.plate('<style>{css}</style>')) // load our styles
-	savi.chunks.frankenstein=iati_xson
-	$("body").empty().append(savi.plate('{body}')) // fill in the base body
-
-// apply javascript to rendered html	
-
-// give your table the class of sortable and they will sortable
-	$("table.sortable").stupidtable()
-
+	return iati_xson // we tweaked and added values in preperation for display
 }
