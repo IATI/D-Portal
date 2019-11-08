@@ -48,8 +48,8 @@ dflat.xml_to_xson=function(data)
 		if(typeof v === 'string')
 		{
 			v=v.trim()
-			v=v.split("\r\n").join("\n") // convert CRLF
-			v=v.split("\r").join("\n") // convert CR
+			v=v.replace("\r\n","\n") // convert CRLF
+			v=v.replace("\r","\n") // convert CR
 		}
 		op.store[tn]=v
 	}
@@ -89,6 +89,16 @@ dflat.xml_to_xson=function(data)
 		var np=Object.assign({},op)
 		np.name=op.root+"/"+it[0]
 		np.root=np.name
+
+if(np.name=="/iati-activities/iati-activity/iati-identifier")
+{
+console.log(it)
+}
+else
+if(np.name=="/iati-activities/iati-activity/transaction")
+{
+process.stdout.write(".")
+}
 		
 		var info = database.paths[ np.name ]
 
@@ -158,7 +168,7 @@ dflat.xson_to_xsv=function(data,root,paths)
 				var s=""+it[root+head]
 				if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") ) // need to escape
 				{
-					s="\""+s.split("\n").join("\\n").split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string and kill newlines
+					s="\""+s.replace("\n","\\n").replace("\"","\"\"")+"\""; // wrap in quotes and double quotes in string and kill newlines
 				}
 				t.push( s );
 			}
