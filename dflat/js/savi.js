@@ -44,15 +44,14 @@ savi.start=function(opts){
 
 savi.start_loaded=async function(){
 
+	const dflat=require('./dflat.js')
+
 // prepare test page
 	let iati=null
 
 	let urlParams = new URLSearchParams(window.location.search);
 	let aid = urlParams.get('aid');
 	let pid = urlParams.get('pid');
-
-console.log(aid)
-console.log(pid)
 
 	let ropts={mode:"cors"}
 	if(aid)
@@ -72,13 +71,15 @@ console.log(pid)
 		aid=true
 	}
 	
-	savi.prepare(iati)
-
-	console.log(iati)
+	dflat.clean(iati) // clean this data
+	
+	savi.prepare(iati) // prepare for display
 
 // test render
 	$("html").prepend(savi.plate('<style>{css}</style>')) // load our styles
 	savi.chunks.iati=iati
+
+	console.log( savi.chunks.iati ) // to help debuging
 
 	if(aid)
 	{
