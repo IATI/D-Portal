@@ -54,7 +54,6 @@ savi.start_loaded=async function(){
 console.log(aid)
 console.log(pid)
 
-/*
 	let ropts={mode:"cors"}
 	if(aid)
 	{
@@ -68,7 +67,6 @@ console.log(pid)
 		iati=await iati.json()
 	}
 	else
-*/
 	{
 		iati=require('../json/test_1.json')
 		aid=true
@@ -89,7 +87,7 @@ console.log(pid)
 	else
 	if(pid)
 	{
-		$("body").empty().append(savi.plate('<div>{iati./iati-activities/iati-organisation:iati-organisation}</div>')) // fill in the base body
+		$("body").empty().append(savi.plate('<div>{iati./iati-organisations/iati-organisation:iati-organisation}</div>')) // fill in the base body
 	}
 
 // apply javascript to rendered html	
