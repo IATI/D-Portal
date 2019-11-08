@@ -54,16 +54,20 @@ savi.start_loaded=async function(){
 	let pid = urlParams.get('pid');
 
 	let ropts={mode:"cors"}
-	if(aid)
+	if(aid!==null)
 	{
-		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-activities/iati-activity&aid="+aid,ropts)
+		if(aid!="") { aid="&aid="+aid }
+		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-activities/iati-activity"+aid,ropts)
 		iati=await iati.json()
+		aid=true
 	}
 	else
-	if(pid)
+	if(pid!==null)
 	{
-		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-organisations/iati-organisation&pid="+pid,ropts)
+		if(pid!="") { pid="&pid="+pid }
+		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-organisations/iati-organisation"+pid,ropts)
 		iati=await iati.json()
+		pid=true
 	}
 	else
 	{
