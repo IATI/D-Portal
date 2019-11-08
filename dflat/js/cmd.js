@@ -23,6 +23,9 @@ cmd.parse=function(argv)
 	argv.dir    =           argv.dir    || process.env.DFLAT_DIR   || "dataflat"
 	argv.limit  = parseInt( argv.limit  || process.env.DFLAT_LIMIT || "999999"     )
 
+// we need this to connect to the postgres server and read stats
+	argv.pgro   = argv.pgro             || process.env.DSTORE_PGRO || undefined                    ; // read only PG
+
 }
 
 cmd.parse_filename=async function(argv,opts)
