@@ -27,7 +27,7 @@ span.block	{display:block;}
 /*	WRAPPERS	*/
 .wrap_title					{padding-bottom:40px;}
 .wrap_reporting_org			{font-size:18px; line-height:1.35em; color:#ccc;}
-.wrap_title span			{display:block; font-size:42px; line-height:1.2em;}
+.wrap_title span			{display:block; font-size:42px; line-height:1em; padding-top:10px;}
 .wrap_title span:nth-of-type(2)	{font-style:italic; font-size:30px; line-height:1em;}
 .wrap_reporting_org div		{display:inline-block; vertical-align:top; padding-right:10px;}
 .wrap_iati_identifier		{background-color:rgba(0,14,32,0.7); width:960px; font-size:18px; line-height:1.5em; padding:20px 40px; color:#FFAB5E; margin:0 auto; margin-left:-40px; margin-top:25px;}
@@ -113,13 +113,15 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 .currency		{font-size:12px; color:#ccc;}
 .value			{text-align:right;}
 .status			{text-align:center;}
-.type			{font-size:11px; line-height:initial; color:#CCC; margin:0 auto; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
-.ref			{font-size:11px; line-height:initial; color:#CCC; margin:0 auto;}
 .wrap_tab		{padding-bottom:5px; border-bottom:1px solid #666; margin-bottom:5px;}
 .wrap_tab:last-of-type	{border:0;}
 .tab_text,
 .tab_currency	{display:inline-block; vertical-align:top; width:60%;}
 .tab_currency	{width:40%; padding-left:30px; text-align:right; font-size:12px; color:#ccc;}
+
+/*	PROVIDER, RECEIVER ORG	*/
+.type			{font-size:11px; line-height:initial; color:#CCC; margin:0 auto; border-radius:4px; padding:2px 4px 3px 4px; background-color:rgba(72,79,86,0.6);}
+.ref			{font-size:11px; line-height:initial; color:#CCC; margin:0 auto;}
 
 
 table.budget	{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
