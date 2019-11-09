@@ -8,7 +8,7 @@ a:hover		{text-decoration:none; color:#FFC794;}
 a:active	{text-decoration:none; color:#FFAB5E;}
 
 
-.activity, .org				{width:960px; margin:0 auto; padding:40px; background-color:rgba(0,14,32,0.7); border-radius:6px; position:relative; margin-bottom:40px;}
+.activity, .org				{width:960px; margin:0 auto; padding:40px 40px 1px 40px; background-color:rgba(0,14,32,0.7); border-radius:6px; position:relative; margin-bottom:40px;}
 .activity:nth-of-type(2)	{display:none;}
 
 /*	FLAGS	*/
@@ -18,7 +18,7 @@ a:active	{text-decoration:none; color:#FFAB5E;}
 .header,
 .header_doc	{font-size:14px; color:#ccc; text-transform:uppercase; display:block; border-bottom:1px solid #aaa; padding-bottom:10px; margin-bottom:20px;}
 .header_doc	{border:0; margin:0;}
-.header_section	{font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:30px 0 20px -50px; width:980px; text-transform:uppercase;}
+.header_section	{font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:0 0 20px -50px; width:980px; text-transform:uppercase;}
 .sticky		{position:sticky; top:-1px; z-index:2;}
 .nostick	{position:initial;}
 span.block	{display:block;}
@@ -147,11 +147,13 @@ table.location td					{padding:5px 0;}
 table.budget th:first-of-type,
 table.budget td:first-of-type,
 table.budget th:nth-of-type(2),
-table.budget td:nth-of-type(2)	{width:100px; padding-right:20px;}
+table.budget td:nth-of-type(2)		{width:100px; padding-right:20px;}
 table.budget th:nth-of-type(4),
-table.budget td:nth-of-type(4)				{width:100px;}
+table.budget td:nth-of-type(4)		{width:100px;}
 table.budget th:nth-of-type(3),
-table.budget td:nth-of-type(3)				{width:420px; padding-right:20px;}
+table.budget td:nth-of-type(3)		{width:420px; padding-right:20px;}
+
+table.budget tr:last-of-type td		{border:0; padding-bottom:30px;}	/*	Remove border-bottom from last row of tables	*/
 
 
 /*	DATE AND STATUS COLUMN	*/
@@ -192,7 +194,7 @@ table.budget td:nth-of-type(3)				{width:420px; padding-right:20px;}
 /*	VALUE COLUMN	*/
 .wrap_total_budget table.budget td.value,
 .wrap_total_expenditure table.budget td.value,
-.wrap_recipient_budget table.budget td.value		{width:120px; padding-right:0;}
+.wrap_recipient_budget table.budget td.value		{width:120px; padding-right:0; padding-left:20px;}
 
 
 table.budget.part_org th:nth-of-type(1),
