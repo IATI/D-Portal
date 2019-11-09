@@ -89,7 +89,7 @@ dflat.xml_to_xson=function(data)
 		var np=Object.assign({},op)
 		np.name=op.root+"/"+it[0]
 		np.root=np.name
-
+/*
 if(np.name=="/iati-activities/iati-activity/iati-identifier")
 {
 console.log(it)
@@ -99,7 +99,7 @@ if(np.name=="/iati-activities/iati-activity/transaction")
 {
 process.stdout.write(".")
 }
-		
+*/
 		var info = database.paths[ np.name ]
 
 		if( info && info.multiple ) // can there be multiples?
