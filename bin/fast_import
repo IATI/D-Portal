@@ -5,7 +5,7 @@ STARTTIME=$(date +%s)
 echo "Starting Import of all xml files at $(date)" | tee -a cache/time.log
 
 # remove old logs
-truncate -s 0 *.import.last.log
+truncate -s 0 cache/*.import.last.log
 
 #import all xml files
 
@@ -20,7 +20,7 @@ echo | tee -a ${file}.import.log ${file}.import.last.log
 
 echo "Importing $file" | tee -a ${file}.import.log ${file}.import.last.log
 
-node js/cmd import $file 2>&1 | tee -a ${file}.import.log ${file}.import.last.log
+node --max-old-space-size=4096 js/cmd import $file 2>&1 | tee -a ${file}.import.log ${file}.import.last.log
 
 
 echo | tee -a ${file}.import.log ${file}.import.last.log
