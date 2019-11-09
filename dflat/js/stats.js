@@ -165,7 +165,7 @@ stats.cmd = async function(argv){
 // fix pid so it can be used as a filename	
 	var clean=function(s)
 	{
-		return s.trim().toLowerCase().replace(/\W+/g,"-")
+		return s.trim().toUpperCase().replace(/\W+/g,"-")
 	}
 	
 
