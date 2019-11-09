@@ -8,7 +8,7 @@ a:hover		{text-decoration:none; color:#FFC794;}
 a:active	{text-decoration:none; color:#FFAB5E;}
 
 
-.activity, .org				{width:960px; margin:0 auto; padding:40px; background-color:rgba(0,14,32,0.7); border-radius:6px; position:relative;}
+.activity, .org				{width:960px; margin:0 auto; padding:40px; background-color:rgba(0,14,32,0.7); border-radius:6px; position:relative; margin-bottom:40px;}
 .activity:nth-of-type(2)	{display:none;}
 
 /*	FLAGS	*/
@@ -63,8 +63,9 @@ span.block	{display:block;}
 .sector_code:nth-of-type(3)	{margin-left:5px;}
 .sector_bar,
 .sector_value		{display:inline-block; vertical-align:middle;}
-.sector_bar			{background-color:#09f; max-width:335px; height:24px; position:relative;}
+.sector_bar			{background-color:#05569d; max-width:335px; height:24px; position:relative;}
 .sector_bar:before	{content:""; background-color:rgba(17,46,105,0.1); width:335px; height:24px; position:absolute; top:0; left:0;}
+.sector_overlay		{position:absolute; top:0; left:0; height:24px;}
 .sector_value		{color:#444; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
 .sector_value:after	{content:"%";}
 .wrap_sector .header{color:#444; margin-left:40px; width:880px; padding-top:40px;}

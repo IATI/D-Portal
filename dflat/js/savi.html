@@ -11,7 +11,7 @@
 	<div class="wrap_title">{_it./title/narrative:/narrative}</div>
 <!--	REPORTING ORG	-->
 	<div class="wrap_reporting_org">
-		<div class="text">Reported by</div><div class="reporting_org"><a href="#">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
+		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
 	</div>
 <!--	DEFAULT MODALITIES	-->	
 	<div class="wrap_default">
@@ -38,9 +38,9 @@
 	</div>
 <!--	IATI IDENTIFIER AND SOURCES	-->
 	<div class="wrap_iati_identifier">
-		<div class="text">IATI IDENTIFIER <a href="#">{_it./iati-identifier}</a></div>
+		<div class="text">IATI IDENTIFIER <a href="http://d-portal.org/q.html?aid={_it./iati-identifier}" target="blank">{_it./iati-identifier}</a></div>
 		<div class="data_source">
-			<a class="xml" href="#" target="_blank"><span>view</span> xml</a><a class="json" href="#" target="_blank"><span>view</span> json</a><a class="dlogs" href="#" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="#" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="#" target="_blank"><span>download</span> csv</a>
+			<a class="xml" href="http://d-portal.org/q.xml?aid={_it./iati-identifier}" target="_blank"><span>view</span> xml</a><a class="json" href="http://d-portal.org/q.json?&from=xson&root=/iati-activities/iati-activity&aid={_it./iati-identifier}" target="_blank"><span>view</span> json</a><a class="dlogs" href="http://d-portal.org/ctrack.html#view=dash_sluglog&slug={_it.@dataset}" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="http://iatiregistry.org/dataset/{_it.@dataset}" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="http://d-portal.org/q.csv?&from=xson&root=/iati-activities/iati-activity&aid={_it./iati-identifier}" target="_blank"><span>download</span> csv</a>
 		</div>
 	</div>
 {_it./document-link&&_it:/wrap-document-link||}
@@ -368,7 +368,7 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
 	</div>
 </div>
 <!--	SECTOR NON-DAC TEMPLATE	-->
@@ -377,7 +377,7 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it./narrative.0.text||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
 	</div>
 </div>
 
@@ -442,13 +442,13 @@
 	<div class="header">ORGANISATION FILE</div>
 
 	<div class="wrap_reporting_org">	<!--	REPORTING ORG	-->
-		<div class="text">Reported by</div><div class="reporting_org"><a href="#">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
+		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
 	</div>
 
 	<div class="wrap_iati_identifier org_id">	<!--	ORG IDENTIFIER AND SOURCES	-->
 		<div class="text">Organisation identifier <a href="#">{_it./organisation-identifier||}</a></div>
 		<div class="data_source">
-			<a class="xml" href="#" target="_blank"><span>view</span> xml</a><a class="json" href="#" target="_blank"><span>view</span> json</a><a class="dlogs" href="#" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="#" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="#" target="_blank"><span>download</span> csv</a>
+			<a class="xml" href="http://d-portal.org/q.xml?aid={_it./organisation-identifier}" target="_blank"><span>view</span> xml</a><a class="json" href="http://d-portal.org/q.json?&from=xson&root=/iati-activities/iati-activity&aid={_it./organisation-identifier}" target="_blank"><span>view</span> json</a><a class="dlogs" href="http://d-portal.org/ctrack.html#view=dash_sluglog&slug={_it.@dataset}" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="http://iatiregistry.org/dataset/{_it.@dataset}" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="http://d-portal.org/q.csv?&from=xson&root=/iati-activities/iati-activity&aid={_it./organisation-identifier}" target="_blank"><span>download</span> csv</a>
 		</div>
 	</div>
 	{_it./document-link&&_it:/wrap-document-link||}
