@@ -190,17 +190,9 @@ view_search.fixup=function()
 //		que.push("this is a test");
 //		txt.push("this is a test");
 		
-		var vraw=$('#view_search_string').val() || $('#view_search_string_only').val();
-		var v=vraw;
-		
-// remove and trim non alphanumerics, so search is very simple for now
-//		if(v) { v=v.replace(/[^A-Za-z0-9]+/gi," ").trim(); }
-
-// just trim it...
+		var v=$('#view_search_string').val() || $('#view_search_string_only').val();		
 		if(v) { v=v.trim(); }
-		
 		var enable_search=false;
-		
 		if(v)
 		{
 			enable_search=true;
@@ -208,7 +200,6 @@ view_search.fixup=function()
 			que.push("search="+ctrack.encodeURIComponent(v))
 			ctrack.hash.search=v
 			q.text_search=v;
-			q.raw_text_search=vraw;
 		}
 		else
 		{
@@ -862,7 +853,7 @@ view_search.ajax=function(args)
 		fetch.ajax({
 				"from":"act",
 				"limit":1,
-				"aid":args.q.raw_text_search.trim(),
+				"aid":args.q.text_search.trim(),
 			},function(data){
 			if(latest!=view_search.latest) { return; } // ignore old search data
 
