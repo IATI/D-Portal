@@ -243,7 +243,7 @@ ctrack.setup=function(args)
 	var backgrounds_idx=( search_hash%backgrounds.length )
 	
 	args.chunks["background_image"]="{art}back/"+backgrounds[backgrounds_idx].toLowerCase()+".jpg";
-	args.chunks["country_flag"]="";
+	args.chunks["country_flag"]="{art}flag/empty_flag.png";
 
 	args.chunks["country_code"]="";
 	args.chunks["country_name"]="";
