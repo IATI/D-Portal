@@ -238,8 +238,8 @@ ctrack.setup=function(args)
 	
 // pick a random background based on search values	
 	var search_hash=Math.abs(shash(search_args.join("&")||""))
-	var backgrounds=[]
-	for(var cc in iati_codes.crs_countries) { if(cc.length==2) { backgrounds.push(cc) } }
+	var backgrounds=["BF"]
+	for(var cc in iati_codes.country) { if( iati_codes.crs_countries[cc] ) { backgrounds.push(cc) } }
 	var backgrounds_idx=( search_hash%backgrounds.length )
 	
 	args.chunks["background_image"]="{art}back/"+backgrounds[backgrounds_idx].toLowerCase()+".jpg";
@@ -251,7 +251,6 @@ ctrack.setup=function(args)
 	args.chunks["publisher_name"]="";
 	args.chunks["publisher_slug"]="";
 
-	
 	if(search_args.length==1) // only 1
 	{
 		if( search_args[0].indexOf("|")!=-1 || search_args[0].indexOf(",")!=-1 ) // actually not 1 as it is a multiple
