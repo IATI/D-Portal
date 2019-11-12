@@ -327,7 +327,7 @@ ctrack.setup=function(args)
 	if( ctrack.q.reporting_ref )
 	{
 		var code=ctrack.q.reporting_ref
-		var codes=code.toLowerCase().split(","); if(cc.length==1) { code.toLowerCase().split("|"); }
+		var codes=code.split(","); if(cc.length==1) { code.split("|"); }
 
 		args.publisher=codes[0]; // case is important?
 		args.publisher_select=codes.join("|");
