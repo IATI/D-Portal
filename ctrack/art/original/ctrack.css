@@ -336,6 +336,9 @@ a#search_link.search_link_disable		{border:1px solid #6f7569; color:#6f7569; bac
 a#search_link.search_link_disable:hover	{cursor:default;}
 .search_head				{display:inline-block; vertical-align:top; width:640px; color:#53B4ED; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
 .search_head span			{color:#fff; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
+table.filter_table			{table-layout:fixed;}
+table.filter_table td		{padding-right:30px; font-size:15px; line-height:1.25em;}
+table.filter_table td.filter_title	{padding-top:20px; padding-bottom:5px; text-transform:uppercase; color:#d8d8d8; font-size:14px;}
 
 /*	IATI Identifier link	*/
 #result_aid_div	a			{display:block; color:#fff; font-weight:normal; letter-spacing:1px; margin-left:-5px; border:1px solid #2f6381; background:linear-gradient(#68c7ff,#2d5d7b); background:-webkit-linear-gradient(#68c7ff,#2d5d7b); text-shadow:0 -1px 0 #366e90; text-align:center; margin:0 auto; font-size:1.6em; line-height:18px; border-radius:6px; height:60px; max-height:60px; box-sizing:border-box; padding:20px;}
@@ -346,8 +349,8 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search_input_wrap			{position:relative;}
 .search_icon				{position:absolute; top:28px; left:-40px;}
 
-.settings_search			{padding:40px 50px 20px 50px; box-sizing:border-box; width:960px; margin:0 auto; background-color:rgba(0,14,32,0.7); color:#fff; font-size:1.2em; line-height:1.2em; margin-top:20px; position:relative;}
-.hide_search_intro			{position:absolute; top:10px; right:10px; color:#778c98; width:30px; height:30px; box-sizing:border-box; text-align:center;}
+.settings_search			{padding:40px 30px; box-sizing:border-box; width:960px; margin:0 auto; background-color:rgba(0,14,32,0.7); color:#fff; font-size:1.1em; line-height:1.2em; margin-top:20px; position:relative;}
+.hide_search_intro			{position:absolute; top:10px; right:10px; color:#ccc; width:30px; height:30px; box-sizing:border-box; text-align:center;}
 .hide_search_intro:hover	{cursor:pointer; color:#fff;}
 .settings_search p			{padding:25px 0;}
 .settings_search td			{padding:0;}

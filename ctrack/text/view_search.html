@@ -8,7 +8,7 @@
 <!-- EXPLORE	-->
 #view_search
 {view_head}
-<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);};{css}</style>
+<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}{css}</style>
 {beige}
 {main_head_search} <!-- general.html LINE 105	-->
 {search_intro}
@@ -18,14 +18,14 @@
 {view_tail}
 
 
-<!-- EXPLORE	-->
+<!-- EXPLORE: Introduction	-->
 #search_intro
 <div class="search_intro_wrap">
 	Search IATI data on development and humanitarian activities on specific events or themes more easily.<br/>
 	<a href="http://d-portal.org/news/2019-01-14-New-year-new-features-and-additions/">Find out more about updated features and how they work.</a>
 </div>
 
-<!-- EXPLORE	-->
+<!-- EXPLORE: Toggle search intro section, hidden at load	-->
 #more_search_intro
 <div id="more_search_intro" class="settings_search" style="display:none;">
 	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">x</div>
@@ -56,7 +56,7 @@
 </table>
 </div>
 
-<!-- EXPLORE	-->
+<!-- EXPLORE: Wrapper for entire search section	-->
 #view_search_test
 <div id="view_search_test">
 	
@@ -95,14 +95,14 @@
 	
 </div>
 
-<!-- EXPLORE	-->
+<!-- EXPLORE: Wrapper for all filters, in blue section	-->
 #view_search_filters_wrap
 <div class="search_filter">
 	{filter_head_text}	
 	{view_search_filters}
 </div>
 
-<!-- EXPLORE	-->
+<!-- EXPLORE: Filters	-->
 #view_search_filters
 <div class="search_wrap">
 	<div class="search_label">
@@ -169,7 +169,7 @@
 </div>
 
 
-<!-- EXPLORE	-->
+<!-- EXPLORE: Toggle buttons	-->
 #filter_head_text
 <div>
 	<div class="search_head">
@@ -185,11 +185,200 @@
 	</div>
 </div>
 
+<!-- NEW SEARCH TEST	-->
+#view_search2
+{view_head}
+<style>
+	.crumb_wrap{display:none;}
+	.description_wrap{background:transparent;}
+	img{-webkit-filter:brightness(100%);filter:brightness(100%);}
+	{css}</style>
+{beige}
+{main_head_search} <!-- general.html LINE 105	-->
+{search_intro2}
+{more_search_intro2}
+{view_search_test2}
+{where_is_the_data_from}
+{view_tail}
+
+<!-- EXPLORE: Introduction	-->
+#search_intro2
+<div class="search_intro_wrap">
+	Search IATI data on development and humanitarian activities on specific events or themes more easily.<br/>
+	<span onclick="$('#more_search_intro').toggle();">Find out more about the filters below.</>
+</div>
+
+<!-- EXPLORE: Toggle search intro section, hidden at load	-->
+#more_search_intro2
+<div id="more_search_intro" class="settings_search" style="display:none;">
+	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">x</div>
+	Find activities published to the IATI Standard using filters and keywords.
+	<p>Sort filter dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> <span class="accent">(e.g. by CRS sector numbers)</span></p>
+<table class="head filter_table">
+	<tr>
+		<td class="filter_title"><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</td>
+		<td class="filter_title"><img src="{flava}search_sector.png" alt="Sector Group icon" width="13" height="13"/>{search_sectorgroup_txt}</td>
+		<td class="filter_title"><img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}</td>
+	</tr>
+	<tr>
+		<td>Countries reported by publishers are using <a href="https://en.wikipedia.org/wiki/ISO_3166-2" target="blank">ISO3166 Alpha-2</a></td>
+		<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/SectorCategory/#codes" target="blank">OECD DAC CRS 3-digit purpose code</a></td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/ActivityStatus/#codes" target="blank">IATI code</a> defining the current status of the activity</td>
+	</tr>
+	<tr>
+		<td class="filter_title"><img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}</td>
+		<td class="filter_title"><img src="{flava}search_category.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}</td>
+		<td class="filter_title"><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}</td>
+	</tr>
+	<tr>
+		<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank">IATI Registry</a></td>
+		<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/Sector/#codes" target="blank">OECD DAC CRS 5-digit purpose code</a></td>
+		<td>An option to select the starting and ending year as a period for activities</td>
+	</tr>
+	<tr>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_policy_txt}</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> PARTICIPATING ORG</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> FLAGS AND TAGS</td>
+	</tr>
+	<tr>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/OrganisationType/#codes" target="blank">IATI code</a> for an organisation involved with the activity</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/TagVocabulary/#codes" target="blank">IATI code</a> for the vocabulary or taxonomy used for tag classifications and/or a process flag to indicate that this activity relates entirely or partially to humanitarian aid</td>
+	</tr>
+</table>
+</div>
+
+<!-- EXPLORE: Wrapper for entire search section	-->
+#view_search_test2
+<div id="view_search_test">
+	
+	{view_search_filters_wrap2}
+
+	<div id="search_div">
+		<span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a> <!--Update to button1, translations-->
+	</div>
+	
+	<div id="result_aid_div">
+		<span id="result_aid_link"></span>
+	</div>
+	
+	<div class="search_input_wrap">
+		<div class="search_icon">
+			<img src="/ctrack/art/original/search_icon.png" alt="A magnifying glass icon to indicate that a search request is nigh" width="30" height="30"/>
+		</div><input type="text" id="view_search_string" class="typeahead explore" placeholder="{search_placeholder_txt}" autocomplete="off"/>
+		<div class="press_enter"></div>
+		<script>
+			$('.typeahead.explore').keyup(function(event) {
+			
+			  $('.press_enter').text("Press Enter");
+			  
+			  if( $(this).val().length === 0 )
+				{
+					$('.press_enter').hide();
+				}
+			else
+				{
+					$('.press_enter').show();
+				}
+					 
+			});
+		</script>
+	</div>
+	
+</div>
+
+<!-- EXPLORE: Wrapper for all filters, in blue section	-->
+#view_search_filters_wrap2
+<div class="search_filter">
+	{filter_head_text}	
+	{view_search_filters2}
+</div>
+
+<!-- EXPLORE: Filters	-->
+#view_search_filters2
+<div class="search_wrap">
+	<div class="search_label">
+		<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
+	</div>
+	<select aria-label="Select a country from this dropdown" id="view_search_select_country" class="chosen" multiple>
+		<option value></option>
+		{search_options_country}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<img src="{flava}search_sector.png" alt="Sector Group icon" width="13" height="13"/>{search_sectorgroup_txt}
+	</div>
+	<select aria-label="Select a sector group from this dropdown" id="view_search_select_category" class="chosen" multiple>
+		<option value></option>
+		{search_options_category}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}
+	</div>
+	<select aria-label="Select an activity status from this dropdown" id="view_search_select_status" class="chosen" multiple>
+		<option value></option>
+		{search_options_status}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}
+	</div>
+	<select aria-label="Select a publisher from this dropdown" id="view_search_select_publisher" class="chosen" multiple>
+		<option value></option>
+		{search_options_publisher}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<img src="{flava}search_category.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
+	</div>
+	<select aria-label="Select a sector from this dropdown" id="view_search_select_sector" class="chosen" multiple>
+		<option value></option>
+		{search_options_sector}
+	</select>
+</div><div class="search_wrap mini">
+	<div class="search_label">
+		<img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}
+	</div>
+	<select aria-label="Select a starting year from this dropdown" id="view_search_select_year_min" class="chosen">
+		<option value></option>
+		{search_options_year}
+	</select><select aria-label="Select an ending year from this dropdown" id="view_search_select_year_max" class="chosen">
+		<option value></option>
+		{search_options_year}
+	</select>
+</div>
+
+<div class="search_wrap"><!-- POLICY MARKER-->
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_policy_txt}
+	</div>
+	<select aria-label="Select a policy significance and code from this dropdown" id="view_search_select_policy" class="chosen" multiple>
+		<option value></option>
+		{search_options_policy}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> PARTICIPATING ORG
+	</div>
+	<select aria-label="Select an participating organisation type from this dropdown" id="view_search_select_policy" class="chosen" multiple>
+		<option value></option>
+		{search_options_policy}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> FLAGS AND TAGS
+	</div>
+	<select aria-label="Select a flag or tag code from this dropdown" id="view_search_select_policy" class="chosen" multiple>
+		<option value></option>
+		{search_options_policy}
+	</select>
+</div>
 
 <!-- freetext search - alternative ui with filters below search bar	-->
 #view_freetext
 {view_head}
-<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);};{css}</style>
+<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}{css}</style>
 {beige}
 {main_head_search}
 {search_intro}
