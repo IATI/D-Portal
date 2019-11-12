@@ -127,6 +127,17 @@ view_search.terms=[
 },
 
 {
+	name   : "participating",
+	search : false,
+	filter : true,
+	codes  : [ iati_codes.publisher_names, ],
+	drops  : [ "#view_search_select_participating" ],
+	q      : "/participating-org@ref",
+	list   : "search_options_participating",
+	show   : "search_display_participating",
+},
+
+{
 	name   : "policy",
 	search : true,
 	filter : true,
@@ -138,14 +149,14 @@ view_search.terms=[
 },
 
 {
-	name   : "participating",
+	name   : "finance_type",
 	search : false,
 	filter : true,
-	codes  : [ iati_codes.publisher_names, ],
-	drops  : [ "#view_search_select_participating" ],
-	q      : "/participating-org@ref",
-	list   : "search_options_participating",
-	show   : "search_display_participating",
+	codes  : [ iati_codes.finance_type, iati_codes.finance_type_withdrawn, ],
+	drops  : [ "#view_search_select_finance_type" ],
+	q      : "/default-finance-type@code",
+	list   : "search_options_finance_type",
+	show   : "search_display_finance_type",
 },
 
 ]

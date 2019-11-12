@@ -112,7 +112,7 @@
 		<option value></option>
 		{search_options_country}
 	</select>
-</div><div class="search_wrap">
+</div><div class="search_wrap mid">
 	<div class="search_label">
 		<img src="{flava}search_sector.png" alt="Sector Group icon" width="13" height="13"/>{search_sectorgroup_txt}
 	</div>
@@ -136,7 +136,7 @@
 		<option value></option>
 		{search_options_publisher}
 	</select>
-</div><div class="search_wrap">
+</div><div class="search_wrap mid">
 	<div class="search_label">
 		<img src="{flava}search_category.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
 	</div>
@@ -205,7 +205,7 @@
 #search_intro2
 <div class="search_intro_wrap">
 	Search IATI data on development and humanitarian activities on specific events or themes more easily.<br/>
-	<span onclick="$('#more_search_intro').toggle();">Find out more about the filters below.</>
+	<span onclick="$('#more_search_intro').toggle();">Find out more about the filters below.</span>
 </div>
 
 <!-- EXPLORE: Toggle search intro section, hidden at load	-->
@@ -236,14 +236,14 @@
 		<td>An option to select the starting and ending year as a period for activities</td>
 	</tr>
 	<tr>
-		<td class="filter_title"><span>&#10096;&#10097;</span> {search_policy_txt}</td>
 		<td class="filter_title"><span>&#10096;&#10097;</span> {search_participating_txt}</td>
-		<td class="filter_title"><span>&#10096;&#10097;</span> FLAGS AND TAGS</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_policy_txt}</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> Default Finance Type</td>
 	</tr>
 	<tr>
+		<td>A list of <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/participating-org/" target="blank">IATI reference numbers</a> for organisations that are reported as being involved with an activity</td>
 		<td>An <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity</td>
-		<td>A list of <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/participating-org/" target="blank">IATI reference numbers</a> for organisations involved with the activity</td>
-		<td>An <a href="http://reference.iatistandard.org/203/codelists/TagVocabulary/#codes" target="blank">IATI code</a> for the vocabulary or taxonomy used for tag classifications and/or a process flag to indicate that this activity relates entirely or partially to humanitarian aid</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/FinanceType/#codes" target="blank">IATI code</a> for the default DAC/CRS transaction classification used to distinguish financial instruments like grants or loans</td>
 	</tr>
 </table>
 </div>
@@ -304,7 +304,7 @@
 		<option value></option>
 		{search_options_country}
 	</select>
-</div><div class="search_wrap">
+</div><div class="search_wrap mid">
 	<div class="search_label">
 		<img src="{flava}search_sector.png" alt="Sector Group icon" width="13" height="13"/>{search_sectorgroup_txt}
 	</div>
@@ -328,7 +328,7 @@
 		<option value></option>
 		{search_options_publisher}
 	</select>
-</div><div class="search_wrap">
+</div><div class="search_wrap mid">
 	<div class="search_label">
 		<img src="{flava}search_category.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
 	</div>
@@ -348,8 +348,18 @@
 		{search_options_year}
 	</select>
 </div>
+<div onclick="$('#more_filters').toggle();" class="search_show">Advance filters</div>
 
-<div class="search_wrap"><!-- POLICY MARKER-->
+<div id="more_filters" style="display:none;">
+<div class="search_wrap">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_participating_txt}
+	</div>
+	<select aria-label="Select an participating organisation type from this dropdown" id="view_search_select_participating" class="chosen" multiple>
+		<option value></option>
+		{search_options_participating}
+	</select>
+</div><div class="search_wrap mid"><!-- POLICY MARKER-->
 	<div class="search_label">
 		<span>&#10096;&#10097;</span> {search_policy_txt}
 	</div>
@@ -359,20 +369,13 @@
 	</select>
 </div><div class="search_wrap">
 	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_participating_txt}
+		<span>&#10096;&#10097;</span> DEFAULT FINANCE TYPE
 	</div>
-	<select aria-label="Select an participating organisation type from this dropdown" id="view_search_select_participating" class="chosen" multiple>
+	<select aria-label="Select a tag code from this dropdown" id="view_search_select_finance_type" class="chosen" multiple>
 		<option value></option>
-		{search_options_participating}
+		{search_options_finance_type}
 	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> TAGS
-	</div>
-	<select aria-label="Select a tag code from this dropdown" id="view_search_select_policy" class="chosen" multiple>
-		<option value></option>
-		{search_options_policy}
-	</select>
+</div>
 </div>
 
 <!-- freetext search - alternative ui with filters below search bar	-->

@@ -345,7 +345,6 @@ table.filter_table td.filter_title	{padding-top:20px; padding-bottom:5px; text-t
 #result_aid_div a:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#2d5d7b); background:-webkit-linear-gradient(#50a0d2,#2d5d7b); text-shadow:0 -1px 0 #2d5d7b;}
 .search_aid_link_disable    {display:none;}
 
-
 .search_input_wrap			{position:relative;}
 .search_icon				{position:absolute; top:28px; left:-40px;}
 
@@ -389,6 +388,9 @@ a.search_refine:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50
 .search_query span			{font-size:14px; display:block; padding-top:5px; color:#999; line-height:1.2em; text-transform:uppercase;}
 .search_query span img		{padding:2px 7px 0 0; height:12px; width:12px; -webkit-filter:brightness(80%); filter:brightness(80%);}
 .search_query span.filter_icon	{display:inline-block; padding:2px 5px 0 0; font-size:10px;}
+
+.search_show				{text-align:right; color:#ccc; padding:5px 0 10px 0;}
+.search_show:hover			{cursor:pointer; color:#fff;}
 
 .search_opts				{display:inline-block; vertical-align:top; width:120px;}
 .search_opts_clear			{display:inline-block; vertical-align:top; width:154px;}

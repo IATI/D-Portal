@@ -334,15 +334,20 @@
 	<div class="search_query">
 		<div class="text">{search_text}</div><span>{search_text_txt}</span>
 	</div>
+	
+#search_display_participating trim=ends
+	<div class="search_query">
+		<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_participating_txt}</span>
+	</div>
 
 #search_display_policy trim=ends
 	<div class="search_query">
 		<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_policy_txt}</span>
 	</div>
-
-#search_display_participating trim=ends
+	
+#search_display_finance_type trim=ends
 	<div class="search_query">
-		<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_participating_txt}</span>
+		<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_finance_type_txt}</span>
 	</div>
 
 #main_searchmin
