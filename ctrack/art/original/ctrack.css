@@ -387,7 +387,8 @@ a.search_refine 			{display:inline-block; vertical-align:middle; text-align:cent
 a.search_refine:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#009dff); background:-webkit-linear-gradient(#50a0d2,#009dff); text-shadow:0 -1px 0 #2d5d7b;}
 .search_query				{font-size:1.1em; line-height:1.3em; color:#FFF; padding:10px 30px 10px 0; width:300px; box-sizing:border-box;}
 .search_query span			{font-size:14px; display:block; padding-top:5px; color:#999; line-height:1.2em; text-transform:uppercase;}
-.search_query span img		{padding-right:7px; height:14px; width:14px; -webkit-filter:brightness(80%); filter:brightness(80%);}
+.search_query span img		{padding:2px 7px 0 0; height:12px; width:12px; -webkit-filter:brightness(80%); filter:brightness(80%);}
+.search_query span.filter_icon	{display:inline-block; padding:2px 5px 0 0; font-size:10px;}
 
 .search_opts				{display:inline-block; vertical-align:top; width:120px;}
 .search_opts_clear			{display:inline-block; vertical-align:top; width:154px;}

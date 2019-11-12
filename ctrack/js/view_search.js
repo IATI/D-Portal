@@ -47,28 +47,6 @@ view_search.terms=[
 },
 
 {
-	name   : "sector_group",
-	search : true,
-	filter : true,
-	codes  : [ iati_codes.sector_category, ],
-	drops  : [ "#view_search_select_category" ],
-	q      : "sector_group",
-	list   : "search_options_sector_group",
-	show   : "search_display_sector_group",
-},
-
-{
-	name   : "sector",
-	search : true,
-	filter : true,
-	codes  : [ iati_codes.sector , iati_codes.sector_withdrawn ],
-	drops  : [ "#view_search_select_sector" ],
-	q      : "sector_code",
-	list   : "search_options_sector",
-	show   : "search_display_sector",
-},
-
-{
 	name   : "country",
 	search : true,
 	filter : true,
@@ -80,6 +58,28 @@ view_search.terms=[
 },
 
 {
+	name   : "sector_group",
+	search : true,
+	filter : true,
+	codes  : [ iati_codes.sector_category, ],
+	drops  : [ "#view_search_select_category" ],
+	q      : "sector_group",
+	list   : "search_options_sector_group",
+	show   : "search_display_sector_group",
+},
+
+{
+	name   : "status",
+	search : true,
+	filter : true,
+	codes  : [ iati_codes.activity_status, ],
+	drops  : [ "#view_search_select_status" , ],
+	q      : "status_code",
+	list   : "search_options_status",
+	show   : "search_display_status",
+},
+
+{
 	name   : "publisher",
 	search : true,
 	filter : true,
@@ -88,6 +88,17 @@ view_search.terms=[
 	q      : "reporting_ref",
 	list   : "search_options_publisher",
 	show   : "search_display_publisher",
+},
+
+{
+	name   : "sector",
+	search : true,
+	filter : true,
+	codes  : [ iati_codes.sector , iati_codes.sector_withdrawn ],
+	drops  : [ "#view_search_select_sector" ],
+	q      : "sector_code",
+	list   : "search_options_sector",
+	show   : "search_display_sector",
 },
 
 {
@@ -113,17 +124,6 @@ view_search.terms=[
 	drops  : [ "#view_search_select_year_max" ],
 	q      : "year_max",
 	show   : "search_display_year_max",
-},
-
-{
-	name   : "status",
-	search : true,
-	filter : true,
-	codes  : [ iati_codes.activity_status, ],
-	drops  : [ "#view_search_select_status" , ],
-	q      : "status_code",
-	list   : "search_options_status",
-	show   : "search_display_status",
 },
 
 {

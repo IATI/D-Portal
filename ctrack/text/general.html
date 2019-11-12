@@ -329,11 +329,6 @@
 	<div class="search_query">
 		<div class="year">{search_text}</div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt} max</span>
 	</div>
-
-#search_display_policy trim=ends
-	<div class="search_query" style="display:none;">
-		<div class="policy">{search_text}</div><span><img src="{flava}search_policy.png" alt="Policy Marker and Significance icon" width="13" height="13"/>{search_policy_txt}</span>
-	</div>
 	
 #search_display_search trim=ends
 	<div class="search_query">
@@ -342,12 +337,12 @@
 
 #search_display_policy trim=ends
 	<div class="search_query">
-		<div class="text">{search_text}</div><span>{search_policy_txt}</span>
+		<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_policy_txt}</span>
 	</div>
 
 #search_display_participating trim=ends
 	<div class="search_query">
-		<div class="text">{search_text}</div><span>{search_participating_txt}</span>
+		<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_participating_txt}</span>
 	</div>
 
 #main_searchmin
