@@ -220,14 +220,10 @@ ctrack.setup=function(args)
 	for( var idx in views.search.terms )
 	{
 		var it=views.search.terms[idx]
-		if( it.name && ctrack.q[it.name] )
-		{
-			search_args.push(it.name+"="+ctrack.q[it.name])
-		}
-		else
 		if( it.q && ctrack.q[it.q] )
 		{
 			search_args.push(it.q+"="+ctrack.q[it.q])
+			if( !args[it.q] ) { args[it.q] = ctrack.q[it.q] }
 		}
 	}
 	
@@ -418,7 +414,7 @@ ctrack.setup=function(args)
 				var it=views.search.terms[idx]
 				if(it.show)
 				{
-					var text=args[it.name] || args[it.q]
+					var text=args[it.q]
 					if(text)
 					{
 						if(it.codes)
@@ -448,73 +444,6 @@ ctrack.setup=function(args)
 					}
 				}
 			}
-
-/*
-			$(".search .recipient").parent().hide();
-			$(".search .publisher").parent().hide();
-			$(".search .text").parent().hide();
-			$(".search .sector").parent().hide();
-			$(".search .sect_cat").parent().hide();
-			$(".search .status_code").parent().hide();
-			$(".search .donor").parent().hide();
-			$(".search .year").parent().hide();
-
-			if(args.country_select)
-			{
-				var s=$(".search .recipient");
-				var v=args.country_select.toUpperCase();
-				s.text( iati_codes.country[v] || v );
-				s.parent().show();
-			}
-			if(args.publisher_select)
-			{
-				var s=$(".search .publisher");
-				var v=args.publisher_select;
-				s.text( iati_codes.publisher_names[v] || v );
-				s.parent().show();
-			}
-			if(args.sector_code_select)
-			{
-				var s=$(".search .sector");
-				var v=args.sector_code_select;
-				s.text( iati_codes.sector[v] || iati_codes.sector_withdrawn[v] || v  );
-				s.parent().show();
-			}
-			if(args.sector_group_select)
-			{
-				var s=$(".search .sect_cat");
-				var v=args.sector_group_select;
-				s.text( iati_codes.sector_category[v] || v );
-				s.parent().show();
-			}
-			if(args.status_code_select)
-			{
-				var s=$(".search .status_code");
-				var v=args.status_code_select;
-				s.text( iati_codes.activity_status[v] || v );
-				s.parent().show();
-			}
-			if(args.funder_ref_select)
-			{
-				var s=$(".search .donor");
-				var v=args.funder_ref_select;
-				s.text( iati_codes.funder_names[v] || v  );
-				s.parent().show();
-			}
-			if(args.year_min && args.year_max)
-			{
-				var s=$(".search .year");
-				s.text( args.year_min +" - "+ args.year_max );
-				s.parent().show();
-			}
-			if(args.search)
-			{
-				var s=$(".search .text");
-				s.text( args.search.split("%").join("") );
-				s.parent().show();
-			}
-*/
-
 		}
 	};
 

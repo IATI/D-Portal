@@ -53,7 +53,7 @@ view_search.terms=[
 	codes  : [ iati_codes.sector_category, ],
 	drops  : [ "#view_search_select_category" ],
 	q      : "sector_group",
-	chunk  : "search_options_sector_group",
+	list   : "search_options_sector_group",
 	show   : "search_display_sector_group",
 },
 
@@ -64,7 +64,7 @@ view_search.terms=[
 	codes  : [ iati_codes.sector , iati_codes.sector_withdrawn ],
 	drops  : [ "#view_search_select_sector" ],
 	q      : "sector_code",
-	chunk  : "search_options_sector",
+	list   : "search_options_sector",
 	show   : "search_display_sector",
 },
 
@@ -75,7 +75,7 @@ view_search.terms=[
 	codes  : [ iati_codes.country, ],
 	drops  : [ "#view_search_select_country" ],
 	q      : "country_code",
-	chunk  : "search_options_country",
+	list   : "search_options_country",
 	show   : "search_display_country",
 },
 
@@ -86,7 +86,7 @@ view_search.terms=[
 	codes  : [ iati_codes.publisher_names, ],
 	drops  : [ "#view_search_select_publisher" ],
 	q      : "reporting_ref",
-	chunk  : "search_options_publisher",
+	list   : "search_options_publisher",
 	show   : "search_display_publisher",
 },
 
@@ -94,7 +94,7 @@ view_search.terms=[
 	name   : "year",
 	search : true,
 	codes  : [ text_years, ],
-	chunk  : "search_options_year",
+	list   : "search_options_year",
 },
 
 {
@@ -122,7 +122,7 @@ view_search.terms=[
 	codes  : [ iati_codes.activity_status, ],
 	drops  : [ "#view_search_select_status" , ],
 	q      : "status_code",
-	chunk  : "search_options_status",
+	list   : "search_options_status",
 	show   : "search_display_status",
 },
 
@@ -133,8 +133,19 @@ view_search.terms=[
 	codes  : [ text_policy, ],
 	drops  : [ "#view_search_select_policy" , ],
 	q      : "policy_code",
-	chunk  : "search_options_policy",
+	list   : "search_options_policy",
 	show   : "search_display_policy",
+},
+
+{
+	name   : "participating",
+	search : false,
+	filter : true,
+	codes  : [ iati_codes.publisher_names, ],
+	drops  : [ "#view_search_select_participating" ],
+	q      : "/participating-org@ref",
+	list   : "search_options_participating",
+	show   : "search_display_participating",
 },
 
 ]
@@ -281,13 +292,13 @@ view_search.fixup=function()
 				if(v)
 				{
 					enable_search=true
-					que.push(it.name+"="+ctrack.encodeURIComponent(v))
-					ctrack.hash[it.name]=v
+					que.push(it.q+"="+ctrack.encodeURIComponent(v))
+					ctrack.hash[it.q]=v
 					q[it.q]=v
 				}
 				else
 				{
-					delete ctrack.hash[it.name]
+					delete ctrack.hash[it.q]
 				}
 			}
 		}
@@ -483,7 +494,7 @@ view_search.fixup=function()
 		var it=view_search.terms[idx]
 		if(it.filter) // perform substring match in search box
 		{
-			var v=ctrack.hash[it.name]
+			var v=ctrack.hash[it.q]
 			if(v)
 			{
 				var vs=split_or(v)
@@ -523,7 +534,7 @@ view_search.view=function(args)
 	for( var idx in view_search.terms )
 	{
 		var it=view_search.terms[idx]
-		if(it.chunk && it.codes)
+		if(it.list && it.codes)
 		{
 			var a=[];
 			for(var codes of it.codes)
@@ -536,7 +547,7 @@ view_search.view=function(args)
 				}
 			}
 			a.sort(compare);
-			ctrack.chunk(it.chunk,a.join(""));
+			ctrack.chunk(it.list,a.join(""));
 		}
 	}
 
