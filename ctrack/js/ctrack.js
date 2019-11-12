@@ -237,10 +237,11 @@ ctrack.setup=function(args)
 	}
 	
 // pick a random background based on search values	
-	var search_hash=shash(search_args.join("&"))
+	var search_hash=shash(search_args.join("&")||"")
 	var backgrounds=[]
 	for(var cc in iati_codes.crs_countries) { if(cc.length==2) { backgrounds.push(cc) } }
 	var backgrounds_idx=(search_hash%backgrounds.length)
+	
 	args.chunks["background_image"]="{art}back/"+backgrounds[backgrounds_idx].toLowerCase()+".jpg";
 	args.chunks["country_flag"]="";
 
