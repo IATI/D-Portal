@@ -388,14 +388,21 @@ view_search.fixup=function()
 	var sort_chosen=function(sel)
 	{
 
-		var selected = sel.val(); // cache selected value, before reordering
+		var selected = sel.val() || ""; // cache selected value, before reordering
 		var opts_list = sel.find('option').filter(function() { return this.value || $.trim(this.value).length != 0; });
 		opts_list.sort(
 			function(a, b)
 			{
 				if(sort_chosen_by=="123")
 				{
-					return $(a).val().toUpperCase() > $(b).val().toUpperCase() ? 1 : -1;
+					var av=$(a).val().toUpperCase()
+					var bv=$(b).val().toUpperCase()
+					if( ( (Number(av)+"") == av ) && ( (Number(bv)+"") == bv ) )
+					{
+						av=Number(av)  //non destructive conversion to number
+						bv=Number(bv)
+					}
+					return av > bv ? 1 : -1;
 				}
 				else
 				{
@@ -404,10 +411,7 @@ view_search.fixup=function()
 			}
 		);
 		sel.html('').append(opts_list);
-		if(selected)
-		{
-			sel.val(selected); // set cached selected value
-		}
+		sel.val(selected); // set cached selected value
 	}
 
 	$('#view_search_order').bind('click', function(e, a) {
@@ -436,7 +440,7 @@ view_search.fixup=function()
 			
 			for(var n in search_select_sort_ids)
 			{
-				sort_chosen($("#"+n));
+				sort_chosen($(n));
 				$(n).trigger('chosen:updated');
 			}
 				
@@ -446,8 +450,8 @@ view_search.fixup=function()
 			e.preventDefault();
 			for(var n in search_select_ids)
 			{
-				$("#"+n+' option').prop('selected', false);
-				$("#"+n).trigger('chosen:updated');
+				$(n+' option').prop('selected', false);
+				$(n).trigger('chosen:updated');
 			}
 			build_query();
 		});
