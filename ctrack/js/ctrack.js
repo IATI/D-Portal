@@ -85,6 +85,22 @@ ctrack.dosort=function(s)
 	}
 };
 
+// hash of a string
+var shash=function(s) {
+	if (s.length === 0) return 0
+	var hash = 0
+	var i
+	var chr
+	for (i = 0; i < s.length; i++)
+	{
+		chr   = s.charCodeAt(i);
+		hash  = ((hash << 5) - hash) + chr;
+		hash |= 0; // Convert to 32bit integer
+	}
+	return hash;
+};
+
+
 ctrack.setup=function(args)
 {
 	ctrack.nanobar = new Nanobar( {} );
@@ -204,19 +220,12 @@ ctrack.setup=function(args)
 //console.log("convert USD "+ctrack.convert_usd);
 
 
-// pick a random background image using URL
-	var nn=0;
-	var cc="";
-	var ii=0;
-	for(i=0;i<window.location.href.length;i++){ nn+=window.location.href.charCodeAt(i); }
-	for(cc in iati_codes.crs_countries) { if(cc.length==2) { ii++; } }
-	nn=nn%ii;
-	for(cc in iati_codes.crs_countries) { if(cc.length==2) { nn-=1; if(nn==0) { break; } } }
-	args.chunks["background_image"]="{art}back/"+cc.toLowerCase()+".jpg";
+// copy old args to q args as defined in search
+	if( ctrack.q.country   ) { ctrack.q.country_code  = ctrack.q.country }
+	if( ctrack.q.publisher ) { ctrack.q.reporting_ref = ctrack.q.publisher }
 
 
 	var search_args=[]
-	
 	for( var idx in views.search.terms )
 	{
 		var it=views.search.terms[idx]
@@ -226,170 +235,54 @@ ctrack.setup=function(args)
 			if( !args[it.q] ) { args[it.q] = ctrack.q[it.q] }
 		}
 	}
-	if( (!args.country) && (args.county_code) )
-	{
-		args.country=args.county_code
-	}
-	if( (!args.publisher) && (args.reporting_ref) )
-	{
-		args.publisher=args.reporting_ref
-	}
 	
+// pick a random background based on search values	
+	var search_hash=shash(search_args.join("&"))
+	var backgrounds=[]
+	for(var cc in iati_codes.crs_countries) { if(cc.length==2) { backgrounds.push(cc) } }
+	var backgrounds_idx=(search_hash%backgrounds.length)
+	args.chunks["background_image"]="{art}back/"+backgrounds[backgrounds_idx].toLowerCase()+".jpg";
+	args.chunks["country_flag"]="";
 
-// temporary country force hack
-	if( ctrack.q.country )
+
+	
+	if(search_args.length==1) // only 1
 	{
-//		search_args.push("country"+"="+ctrack.q.country)
-		var cc=ctrack.q.country.toLowerCase().split(","); // allow list
-		if(cc.length==1) { ctrack.q.country.toLowerCase().split("|"); }
-		args.country=cc[0].toLowerCase();
-		args.country_select=cc.join("|");
-		args.chunks["country_code"]=cc[0].toUpperCase();
-		args.chunks["country_name"]=iati_codes.country[ args.country.toUpperCase() ];
-		if( iati_codes.crs_countries[ args.country.toUpperCase() ] )
+		if( search_args[0].indexOf("|")!=-1 || search_args[0].indexOf(",")!=-1 ) // actually not 1 as it is a multiple
 		{
-			args.chunks["country_flag"]="{art}flag/"+args.country+".png";
-			args.chunks["background_image"]="{art}back/"+args.country+".jpg";
+			ctrack.args.showsearch=true;
+		}
+		else
+		if( ctrack.q.country_code )
+		{
+			args.chunks["main_publisher"]="";
+			args.chunks["main_publishermin"]="";
+
+			args.chunks["main_publisher_head"]="";
+			args.chunks["main_publisher_map"]="";
+			args.chunks["publisher_name"]="";
+			args.chunks["publisher_slug"]="";
+			args.chunks["back_publisher"]="";
+		}
+		else
+		if( ctrack.q.reporting_ref )
+		{
+			args.chunks["main_country"]="";
+			args.chunks["main_countrymin"]="";
 		}
 		else
 		{
-			args.chunks["country_flag"]="{art}flag/empty_flag.png";
-			args.chunks["background_image"]="{art}back/fm.jpg";
+			ctrack.args.showsearch=true;
 		}
 	}
 	else
 	{
-		args.chunks["main_countrymin"]="";
-		args.chunks["main_country"]="";
-//		args.chunks["main_country_map"]="";
-		args.chunks["country_name"]="";
-	}
-
-	if( ctrack.q.tongue ) // choose a new tongue
-	{
-		args.tongue=ctrack.q.tongue;
-	}
-
-	if( ctrack.q.publisher )
-	{
-//		search_args.push("publisher"+"="+ctrack.q.publisher)
-		var cc=ctrack.q.publisher.split(","); // allow list
-		if(cc.length==1) { ctrack.q.publisher.split("|"); }
-		args.publisher=cc[0]; // case is important?
-		args.publisher_select=cc.join("|");
-		args.chunks["publisher_code"]=args.publisher;
-		args.chunks["publisher_name"]=iati_codes.publisher_names[args.publisher] || args.publisher;
-		args.chunks["publisher_slug"]=iati_codes.publisher_slugs[args.publisher] || "";
-
-		var nn=0;
-		var cc="";
-		var ii=0;
-		for(i=0;i<args.chunks["publisher_name"].length;i++){ nn+=args.chunks["publisher_name"].charCodeAt(i); }
-		for(cc in iati_codes.crs_countries) { if(cc.length==2) { ii++; } }
-		nn=nn%ii;
-		for(cc in iati_codes.crs_countries) { if(cc.length==2) { nn-=1; if(nn==0) { break; } } }
-		args.chunks["background_image"]="{art}back/"+cc.toLowerCase()+".jpg";
-
-		args.chunks["main_countrymin"]="";
-		args.chunks["main_country"]="";
-		args.chunks["main_country_head"]="";
-		args.chunks["back_country"]="";
-	}
-	else
-	{
-		args.chunks["main_pubmin"]="";
-		args.chunks["main_publisher"]="";
-		args.chunks["main_publisher_head"]="";
-		args.chunks["main_publisher_map"]="";
-		args.chunks["publisher_name"]="";
-		args.chunks["publisher_slug"]="";
-		args.chunks["back_publisher"]="";
-	}
-
-	if( ctrack.q.sector_code )
-	{
-//		search_args.push("sector_code"+"="+ctrack.q.sector_code)
-		var cc=ctrack.q.sector_code.split(","); if(cc.length==1) { ctrack.q.sector_code.split("|"); }
-		args.sector_code=cc[0];
-		args.sector_code_select=cc.join("|");
-	}
-	if( ctrack.q.sector_group )
-	{
-//		search_args.push("sector_group"+"="+ctrack.q.sector_group)
-		var cc=ctrack.q.sector_group.split(","); if(cc.length==1) { ctrack.q.sector_group.split("|"); }
-		args.sector_group=cc[0];
-		args.sector_group_select=cc.join("|");
-	}
-	if( ctrack.q.status )
-	{
-//		search_args.push("status"+"="+ctrack.q.status)
-		var cc=ctrack.q.status.split(","); if(cc.length==1) { ctrack.q.status.split("|"); }
-		args.status_code=cc[0];
-		args.status_code_select=cc.join("|");
-	}
-	if( ctrack.q.funder )
-	{
-//		search_args.push("funder"+"="+ctrack.q.funder)
-		var cc=ctrack.q.funder.split(","); if(cc.length==1) { ctrack.q.funder.split("|"); }
-		args.funder_ref=cc[0];
-		args.funder_ref_select=cc.join("|");
-	}
-	if( ctrack.q.year_max )
-	{
-//		search_args.push("year_max"+"="+ctrack.q.year_max)
-		args.year_max=parseInt(ctrack.q.year_max,10);
-	}
-	if( ctrack.q.year_min )
-	{
-//		search_args.push("year_min"+"="+ctrack.q.year_min)
-		args.year_min=parseInt(ctrack.q.year_min,10);
-	}
-	if( ctrack.q.policy_code )
-	{
-		args.policy_code=ctrack.q.policy_code;
-	}
-
-	if( ctrack.q.search )
-	{
-//		search_args.push("search"+"="+ctrack.q.search)
-		ctrack.args.search=ctrack.q.search;
-	}
-	var only_country=false;
-	var only_publisher=false;
-
-	if(args.country_select) { only_country=true; }
-	if(args.publisher_select) { only_publisher=true; }
-	
-	if( args.sector_code_select || args.sector_group_select || args.funder_ref_select || args.year_min || args.year_max || args.search )
-	{
-		only_country=false;
-		only_publisher=false;
-	}
-	
-	if	(	( args.country_select   && (args.country_select.indexOf("|")  !=-1) )	||
-			( args.publisher_select && (args.publisher_select.indexOf("|")!=-1) )	)
-	{
-		only_country=false;
-		only_publisher=false;
-	}
-	
-	if( ( only_country && (!only_publisher) ) || ( (!only_country) && only_publisher ) )
-	{
-// show normal header for publisher or country
-	}
-	else
-	{
-// always show search headers and hide publisher/country headers even if the searchstring is empty
 		ctrack.args.showsearch=true;
 	}
 
-//console.log("search="+ctrack.args.search);
-
 // show special search header
-	if(ctrack.args.showsearch)
+	if(ctrack.args.showsearch) // hide all country/publisher special things
 	{
-// fill in possible search vars...
-
 		args.chunks["main_countrymin"]="";
 		args.chunks["main_country"]="";
 		args.chunks["main_country_head"]="";
@@ -403,11 +296,46 @@ ctrack.setup=function(args)
 		args.chunks["publisher_slug"]="";
 		args.chunks["back_publisher"]="";
 	}
-	else
+	else // hide search header
 	{
 		args.chunks["main_search"]="";
 		args.chunks["main_searchmin"]="";
 	}
+
+
+	if( ctrack.q.country_code )
+	{
+		var code=ctrack.q.country_code
+		var codes=code.toLowerCase().split(","); if(cc.length==1) { code.toLowerCase().split("|"); }
+
+		args.country=codes[0].toLowerCase();
+		args.country_select=codes.join("|");
+		args.chunks["country_code"]=codes[0].toUpperCase();
+		args.chunks["country_name"]=iati_codes.country[ args.country.toUpperCase() ];
+
+// forced background for country
+		if( iati_codes.crs_countries[ args.country.toUpperCase() ] )
+		{
+			args.chunks["country_flag"]="{art}flag/"+args.country+".png";
+			args.chunks["background_image"]="{art}back/"+args.country+".jpg";
+		}
+		
+	}
+
+	if( ctrack.q.reporting_ref )
+	{
+		var code=ctrack.q.reporting_ref
+		var codes=code.toLowerCase().split(","); if(cc.length==1) { code.toLowerCase().split("|"); }
+
+		args.publisher=codes[0]; // case is important?
+		args.publisher_select=codes.join("|");
+		args.chunks["publisher_code"]=args.publisher;
+		args.chunks["publisher_name"]=iati_codes.publisher_names[args.publisher] || args.publisher;
+		args.chunks["publisher_slug"]=iati_codes.publisher_slugs[args.publisher] || "";
+
+	}
+
+
 	ctrack.search_fixup=function(args){
 		args=args || ctrack.args;
 		if(args.showsearch)

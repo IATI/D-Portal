@@ -389,7 +389,6 @@ view_search.fixup=function()
 	{
 
 		var selected = sel.val() || ""; // cache selected value, before reordering
-console.log(selected)
 		var opts_list = sel.find('option').filter(function() { return this.value || $.trim(this.value).length != 0; });
 		opts_list.sort(
 			function(a, b)
