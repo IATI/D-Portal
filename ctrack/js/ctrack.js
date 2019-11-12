@@ -216,11 +216,26 @@ ctrack.setup=function(args)
 
 
 	var search_args=[]
+	
+	for( var idx in views.search.terms )
+	{
+		var it=views.search.terms[idx]
+		if( it.name && ctrack.q[it.name] )
+		{
+			search_args.push(it.name+"="+ctrack.q[it.name])
+		}
+		else
+		if( it.q && ctrack.q[it.q] )
+		{
+			search_args.push(it.q+"="+ctrack.q[it.q])
+		}
+	}
+	
 
 // temporary country force hack
 	if( ctrack.q.country )
 	{
-		search_args.push("country"+"="+ctrack.q.country)
+//		search_args.push("country"+"="+ctrack.q.country)
 		var cc=ctrack.q.country.toLowerCase().split(","); // allow list
 		if(cc.length==1) { ctrack.q.country.toLowerCase().split("|"); }
 		args.country=cc[0].toLowerCase();
@@ -253,7 +268,7 @@ ctrack.setup=function(args)
 
 	if( ctrack.q.publisher )
 	{
-		search_args.push("publisher"+"="+ctrack.q.publisher)
+//		search_args.push("publisher"+"="+ctrack.q.publisher)
 		var cc=ctrack.q.publisher.split(","); // allow list
 		if(cc.length==1) { ctrack.q.publisher.split("|"); }
 		args.publisher=cc[0]; // case is important?
@@ -289,40 +304,40 @@ ctrack.setup=function(args)
 
 	if( ctrack.q.sector_code )
 	{
-		search_args.push("sector_code"+"="+ctrack.q.sector_code)
+//		search_args.push("sector_code"+"="+ctrack.q.sector_code)
 		var cc=ctrack.q.sector_code.split(","); if(cc.length==1) { ctrack.q.sector_code.split("|"); }
 		args.sector_code=cc[0];
 		args.sector_code_select=cc.join("|");
 	}
 	if( ctrack.q.sector_group )
 	{
-		search_args.push("sector_group"+"="+ctrack.q.sector_group)
+//		search_args.push("sector_group"+"="+ctrack.q.sector_group)
 		var cc=ctrack.q.sector_group.split(","); if(cc.length==1) { ctrack.q.sector_group.split("|"); }
 		args.sector_group=cc[0];
 		args.sector_group_select=cc.join("|");
 	}
 	if( ctrack.q.status )
 	{
-		search_args.push("status"+"="+ctrack.q.status)
+//		search_args.push("status"+"="+ctrack.q.status)
 		var cc=ctrack.q.status.split(","); if(cc.length==1) { ctrack.q.status.split("|"); }
 		args.status_code=cc[0];
 		args.status_code_select=cc.join("|");
 	}
 	if( ctrack.q.funder )
 	{
-		search_args.push("funder"+"="+ctrack.q.funder)
+//		search_args.push("funder"+"="+ctrack.q.funder)
 		var cc=ctrack.q.funder.split(","); if(cc.length==1) { ctrack.q.funder.split("|"); }
 		args.funder_ref=cc[0];
 		args.funder_ref_select=cc.join("|");
 	}
 	if( ctrack.q.year_max )
 	{
-		search_args.push("year_max"+"="+ctrack.q.year_max)
+//		search_args.push("year_max"+"="+ctrack.q.year_max)
 		args.year_max=parseInt(ctrack.q.year_max,10);
 	}
 	if( ctrack.q.year_min )
 	{
-		search_args.push("year_min"+"="+ctrack.q.year_min)
+//		search_args.push("year_min"+"="+ctrack.q.year_min)
 		args.year_min=parseInt(ctrack.q.year_min,10);
 	}
 	if( ctrack.q.policy_code )
@@ -332,7 +347,7 @@ ctrack.setup=function(args)
 
 	if( ctrack.q.search )
 	{
-		search_args.push("search"+"="+ctrack.q.search)
+//		search_args.push("search"+"="+ctrack.q.search)
 		ctrack.args.search=ctrack.q.search;
 	}
 	var only_country=false;
