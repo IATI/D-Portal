@@ -369,17 +369,25 @@
 	</select>
 </div><div class="search_wrap">
 	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_finance_type_txt}
+		<span>&#10096;&#10097;</span> {search_tag_txt}
 	</div>
-	<select aria-label="Select a tag code from this dropdown" id="view_search_select_finance_type" class="chosen" multiple>
+	<select aria-label="Select a tag vocabulary from this dropdown" id="view_search_select_tag_vocab" class="chosen" multiple>
 		<option value></option>
-		{search_options_finance_type}
+		{search_options_tag_vocab}
 	</select>
 </div><div class="search_wrap">
 	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_finance_type_txt}
+	</div>
+	<select aria-label="Select a default finance type from this dropdown" id="view_search_select_finance_type" class="chosen" multiple>
+		<option value></option>
+		{search_options_finance_type}
+	</select>
+</div><div class="search_wrap mid">
+	<div class="search_label">
 		<span>&#10096;&#10097;</span> Humanitarian Activity
 	</div>
-	<select aria-label="Select a tag code from this dropdown" id="view_search_select_humanitarian_activity" class="chosen" multiple>
+	<select aria-label="Select if humanitarian global is set from this dropdown" id="view_search_select_humanitarian_activity" class="chosen" multiple>
 		<option value></option>
 		{search_options_humanitarian_activity}
 	</select>
@@ -387,7 +395,7 @@
 	<div class="search_label">
 		<span>&#10096;&#10097;</span> Humanitarian Transaction
 	</div>
-	<select aria-label="Select a tag code from this dropdown" id="view_search_select_humanitarian_transaction" class="chosen" multiple>
+	<select aria-label="Select if transactions are humanitarian from this dropdown" id="view_search_select_humanitarian_transaction" class="chosen" multiple>
 		<option value></option>
 		{search_options_humanitarian_transaction}
 	</select>
