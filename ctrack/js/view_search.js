@@ -155,7 +155,7 @@ view_search.terms=[
 	name   : "tag_vocab",
 	search : false,
 	filter : true,
-	codes  : [ iati_codes.tag_vocab, ],
+	codes  : [ dflat_codes["en-name"]["TagVocabulary"], ],
 	drops  : [ "#view_search_select_tag_vocab" ],
 	q      : "/tag@vocabulary",
 	list   : "search_options_tag_vocab",
