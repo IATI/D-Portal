@@ -14,6 +14,8 @@ var views=require("./views.js")
 
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
+var dflat_codes=require("../../dflat/json/codelists.json")
+
 // valid years for drop downs
 var text_years={} ; for(var i=1960;i<2030;i++) { text_years[i]=i+"" }
 var text_years_date={} ; for(var i=1960;i<2030;i++) { text_years_date[i]=i+"-01-01" }
