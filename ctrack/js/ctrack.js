@@ -244,6 +244,11 @@ ctrack.setup=function(args)
 	args.chunks["background_image"]="{art}back/"+backgrounds[backgrounds_idx].toLowerCase()+".jpg";
 	args.chunks["country_flag"]="";
 
+	args.chunks["country_code"]="";
+	args.chunks["country_name"]="";
+	args.chunks["publisher_code"]="";
+	args.chunks["publisher_name"]="";
+	args.chunks["publisher_slug"]="";
 
 	
 	if(search_args.length==1) // only 1
@@ -260,8 +265,6 @@ ctrack.setup=function(args)
 
 			args.chunks["main_publisher_head"]="";
 			args.chunks["main_publisher_map"]="";
-			args.chunks["publisher_name"]="";
-			args.chunks["publisher_slug"]="";
 			args.chunks["back_publisher"]="";
 		}
 		else
@@ -292,8 +295,6 @@ ctrack.setup=function(args)
 		args.chunks["main_publisher"]="";
 		args.chunks["main_publisher_head"]="";
 		args.chunks["main_publisher_map"]="";
-		args.chunks["publisher_name"]="";
-		args.chunks["publisher_slug"]="";
 		args.chunks["back_publisher"]="";
 	}
 	else // hide search header
