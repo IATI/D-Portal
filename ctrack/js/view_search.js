@@ -29,6 +29,7 @@ for(var sn in iati_codes.policy_sig) // policy needs two codes to be joined
 		text_policy[n]=v
 	}
 }
+var text_bool={0:"False",1:"True"}
 
 
 
@@ -157,6 +158,28 @@ view_search.terms=[
 	q      : "/default-finance-type@code",
 	list   : "search_options_finance_type",
 	show   : "search_display_finance_type",
+},
+
+{
+	name   : "humanitarian_activity",
+	search : false,
+	filter : true,
+	codes  : [ text_bool, ],
+	drops  : [ "#view_search_select_humanitarian_activity" ],
+	q      : "@humanitarian",
+	list   : "search_options_humanitarian_activity",
+	show   : "search_display_humanitarian_activity",
+},
+
+{
+	name   : "humanitarian_transaction",
+	search : false,
+	filter : true,
+	codes  : [ text_bool, ],
+	drops  : [ "#view_search_select_humanitarian_transaction" ],
+	q      : "/transaction@humanitarian",
+	list   : "search_options_humanitarian_transaction",
+	show   : "search_display_humanitarian_transaction",
 },
 
 ]
