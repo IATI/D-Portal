@@ -388,7 +388,8 @@ view_search.fixup=function()
 	var sort_chosen=function(sel)
 	{
 
-		var selected = sel.val(); // cache selected value, before reordering
+		var selected = sel.val() || ""; // cache selected value, before reordering
+console.log(selected)
 		var opts_list = sel.find('option').filter(function() { return this.value || $.trim(this.value).length != 0; });
 		opts_list.sort(
 			function(a, b)
@@ -404,10 +405,7 @@ view_search.fixup=function()
 			}
 		);
 		sel.html('').append(opts_list);
-		if(selected)
-		{
-			sel.val(selected); // set cached selected value
-		}
+		sel.val(selected); // set cached selected value
 	}
 
 	$('#view_search_order').bind('click', function(e, a) {

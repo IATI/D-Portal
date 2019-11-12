@@ -226,6 +226,14 @@ ctrack.setup=function(args)
 			if( !args[it.q] ) { args[it.q] = ctrack.q[it.q] }
 		}
 	}
+	if( (!args.country) && (args.county_code) )
+	{
+		args.country=args.county_code
+	}
+	if( (!args.publisher) && (args.reporting_ref) )
+	{
+		args.publisher=args.reporting_ref
+	}
 	
 
 // temporary country force hack
