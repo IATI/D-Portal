@@ -436,7 +436,7 @@ view_search.fixup=function()
 			
 			for(var n in search_select_sort_ids)
 			{
-				sort_chosen($("#"+n));
+				sort_chosen($(n));
 				$(n).trigger('chosen:updated');
 			}
 				
@@ -446,8 +446,8 @@ view_search.fixup=function()
 			e.preventDefault();
 			for(var n in search_select_ids)
 			{
-				$("#"+n+' option').prop('selected', false);
-				$("#"+n).trigger('chosen:updated');
+				$(n+' option').prop('selected', false);
+				$(n).trigger('chosen:updated');
 			}
 			build_query();
 		});
