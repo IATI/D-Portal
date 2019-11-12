@@ -395,7 +395,14 @@ view_search.fixup=function()
 			{
 				if(sort_chosen_by=="123")
 				{
-					return $(a).val().toUpperCase() > $(b).val().toUpperCase() ? 1 : -1;
+					var av=$(a).val().toUpperCase()
+					var bv=$(b).val().toUpperCase()
+					if( ( (Number(av)+"") == av ) && ( (Number(bv)+"") == bv ) )
+					{
+						av=Number(av)  //non destructive conversion to number
+						bv=Number(bv)
+					}
+					return av > bv ? 1 : -1;
 				}
 				else
 				{
