@@ -224,6 +224,7 @@ ctrack.setup=function(args)
 	if( ctrack.q.country   ) { ctrack.q.country_code  = ctrack.q.country }
 	if( ctrack.q.publisher ) { ctrack.q.reporting_ref = ctrack.q.publisher }
 
+	if( ctrack.q.tongue ) { ctrack.args.tongue = ctrack.q.tongue }
 
 	var search_args=[]
 	for( var idx in views.search.terms )
