@@ -43,7 +43,7 @@ view_search.terms=[
 	codes  : null,
 	drops  : [ "#view_search_string" , "#view_search_string_only" ],
 	q      : "text_search",
-	
+	show   : "search_display_search",
 },
 
 {
@@ -54,6 +54,7 @@ view_search.terms=[
 	drops  : [ "#view_search_select_category" ],
 	q      : "sector_group",
 	chunk  : "search_options_sector_group",
+	show   : "search_display_sector_group",
 },
 
 {
@@ -64,6 +65,7 @@ view_search.terms=[
 	drops  : [ "#view_search_select_sector" ],
 	q      : "sector_code",
 	chunk  : "search_options_sector",
+	show   : "search_display_sector",
 },
 
 {
@@ -74,6 +76,7 @@ view_search.terms=[
 	drops  : [ "#view_search_select_country" ],
 	q      : "country_code",
 	chunk  : "search_options_country",
+	show   : "search_display_country",
 },
 
 {
@@ -84,6 +87,7 @@ view_search.terms=[
 	drops  : [ "#view_search_select_publisher" ],
 	q      : "reporting_ref",
 	chunk  : "search_options_publisher",
+	show   : "search_display_publisher",
 },
 
 {
@@ -99,6 +103,7 @@ view_search.terms=[
 	codes  : [ text_years_date, ],
 	drops  : [ "#view_search_select_year_min" ],
 	q      : "year_min",
+	show   : "search_display_year_min",
 },
 
 {
@@ -107,6 +112,7 @@ view_search.terms=[
 	codes  : [ text_years_date, ],
 	drops  : [ "#view_search_select_year_max" ],
 	q      : "year_max",
+	show   : "search_display_year_max",
 },
 
 {
@@ -117,6 +123,7 @@ view_search.terms=[
 	drops  : [ "#view_search_select_status" , ],
 	q      : "status_code",
 	chunk  : "search_options_status",
+	show   : "search_display_status",
 },
 
 {
@@ -127,6 +134,7 @@ view_search.terms=[
 	drops  : [ "#view_search_select_policy" , ],
 	q      : "policy_code",
 	chunk  : "search_options_policy",
+	show   : "search_display_policy",
 },
 
 ]

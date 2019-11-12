@@ -393,6 +393,48 @@ ctrack.setup=function(args)
 		args=args || ctrack.args;
 		if(args.showsearch)
 		{
+			
+			var div=$("#main_searchmin_all")
+			
+			div.empty()
+			
+			for( var idx in views.search.terms )
+			{
+				var it=views.search.terms[idx]
+				if(it.show)
+				{
+					var text=args[it.name] || args[it.q]
+					if(text)
+					{
+						if(it.codes)
+						{
+							for( var c of it.codes )
+							{
+								if(c[text])
+								{
+									text=c[text]
+								}
+								if(typeof text=="string") // try fixing the case for lookup
+								{
+									if(c[text.toUpperCase()])
+									{
+										text=c[text.toUpperCase()]
+									}
+									else
+									if(c[text.toLowerCase()])
+									{
+										text=c[text.toLowerCase()]
+									}
+								}
+							}
+						}
+						var chunk=plate.replace("{"+it.show+"}",{search_text:text})
+						div.append(chunk)
+					}
+				}
+			}
+
+/*
 			$(".search .recipient").parent().hide();
 			$(".search .publisher").parent().hide();
 			$(".search .text").parent().hide();
@@ -456,6 +498,7 @@ ctrack.setup=function(args)
 				s.text( args.search.split("%").join("") );
 				s.parent().show();
 			}
+*/
 
 		}
 	};

@@ -290,31 +290,66 @@
 	</table>
 </div>
 
+#search_display_status trim=ends
+	<div class="search_query">
+		<div class="status_code">{search_text}</div><span><img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}</span>
+	</div>
+	
+#search_display_country trim=ends
+	<div class="search_query">
+		<div class="recipient">{search_text}</div><span><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</span>
+	</div>
+	
+#search_display_funder trim=ends
+	<div class="search_query">
+		<div class="donor">{search_text}</div><span><img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}</span>
+	</div>
+	
+#search_display_sector trim=ends
+	<div class="search_query">
+		<div class="sector">{search_text}</div><span><img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}</span>
+	</div>
+	
+#search_display_sector_group trim=ends
+	<div class="search_query">
+		<div class="sect_cat">{search_text}</div><span><img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}</span>
+	</div>
+	
+#search_display_publisher trim=ends
+	<div class="search_query">
+		<div class="publisher">{search_text}</div><span><img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}</span>
+	</div>
+	
+#search_display_year_min trim=ends
+	<div class="search_query">
+		<div class="year">{search_text}</div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt} min</span>
+	</div>
+	
+#search_display_year_max trim=ends
+	<div class="search_query">
+		<div class="year">{search_text}</div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt} max</span>
+	</div>
+
+#search_display_policy trim=ends
+	<div class="search_query" style="display:none;">
+		<div class="policy">{search_text}</div><span><img src="{flava}search_policy.png" alt="Policy Marker and Significance icon" width="13" height="13"/>{search_policy_txt}</span>
+	</div>
+	
+#search_display_search trim=ends
+	<div class="search_query">
+		<div class="text">{search_text}</div><span>{search_text_txt}</span>
+	</div>
+
+#search_display_policy trim=ends
+	<div class="search_query">
+		<div class="text">{search_text}</div><span>{search_policy_txt}</span>
+	</div>
+
 #main_searchmin
 <div class="default min">
 	<div class="search_cont">
 		<div class="search search_title">{search_view_txt}</div><a href="{search_url}" class="search_refine">{search_refine_txt}</a>
-		<div class="search search_main">
-			<div class="search_query">
-				<div class="status_code"></div><span><img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}</span>
-			</div><div class="search_query">
-				<div class="recipient"></div><span><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</span>
-			</div><div class="search_query">
-				<div class="donor"></div><span><img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}</span>
-			</div><div class="search_query">
-				<div class="sector"></div><span><img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}</span>
-			</div><div class="search_query">
-				<div class="sect_cat"></div><span><img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}</span>
-			</div><div class="search_query">
-				<div class="publisher"></div><span><img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}</span>
-			</div><div class="search_query">
-				<div class="year"></div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}</span>
-			</div><div class="search_query" style="display:none;">
-				<div class="policy"></div><span><img src="{flava}search_policy.png" alt="Policy Marker and Significance icon" width="13" height="13"/>{search_policy_txt}</span>
-			</div><div class="search_query">
-				<div class="text"></div><span>{search_text_txt}</span>
-			</div>
-		</div>
+		<div class="search search_main" id="main_searchmin_all"></div>
 	</div>
 </div>
 	
@@ -346,26 +381,7 @@
 <div class="default min">
 	<div class="search_cont">
 		<div class="search search_title">{search_view_txt}</div><a href="{search_url}" class="search_refine">{search_refine_txt}</a>
-		<div class="search search_main">
-			<div class="search_query">
-				<div class="status_code"></div><span><img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}</span>
-			</div><div class="search_query">
-				<div class="recipient"></div><span><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</span>
-			</div><div class="search_query">
-				<div class="donor"></div><span><img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}</span>
-			</div><div class="search_query">
-				<div class="sector"></div><span><img src="{flava}search_sector.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}</span>
-			</div><div class="search_query">
-				<div class="sect_cat"></div><span><img src="{flava}search_category.png" alt="Sector Category icon" width="13" height="13"/>{search_sectorcategory_txt}</span>
-			</div><div class="search_query">
-				<div class="publisher"></div><span><img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}</span>
-			</div><div class="search_query">
-				<div class="year"></div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}</span>
-			</div><div class="search_query">
-				<div class="text"></div><span>{search_text_txt}</span>
-			</div>
-		</div>
-	</div>
+		<div class="search search_main" id="main_searchmin_all"></div>
 </div>
 
 
