@@ -328,7 +328,7 @@ a.csv_download:hover		{background-color:rgba(255,255,255, 0.3); color:#FFF;}
 	============================================= */
 input#view_search_string, input#view_search_string_only, input.typeahead.tt-hint		{color:#444;}
 .search_filter				{width:960px; margin:0 auto; padding:25px 23px 14px 23px; box-sizing:border-box; background-color:rgba(11,37,60,0.7); border-radius:6px;}
-.search_label				{color:#d8d8d8;}
+.search_label				{color:#FFF;}
 #search_div					{color:#FFF;}
 a#search_link				{border:1px solid #2f6381; color:#fff; background:linear-gradient(#68c7ff,#2d5d7b); background:-webkit-linear-gradient(#68c7ff,#2d5d7b); text-shadow:0 -1px 0 #366e90;}
 a#search_link:hover			{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#009dff); background:-webkit-linear-gradient(#50a0d2,#009dff); text-shadow:0 -1px 0 #2d5d7b;}
@@ -348,7 +348,7 @@ table.filter_table td.filter_title	{padding-top:20px; padding-bottom:5px; text-t
 .search_input_wrap			{position:relative;}
 .search_icon				{position:absolute; top:28px; left:-40px;}
 
-.settings_search			{padding:40px 30px; box-sizing:border-box; width:960px; margin:0 auto; background-color:rgba(0,14,32,0.7); color:#fff; font-size:1.1em; line-height:1.2em; margin-top:20px; position:relative;}
+.settings_search			{padding:40px; box-sizing:border-box; width:960px; margin:0 auto; background-color:rgba(0,14,32,0.7); color:#fff; font-size:1.1em; line-height:1.5em; margin-top:20px; position:relative;}
 .hide_search_intro			{position:absolute; top:10px; right:10px; color:#ccc; width:30px; height:30px; box-sizing:border-box; text-align:center;}
 .hide_search_intro:hover	{cursor:pointer; color:#fff;}
 .settings_search p			{padding:25px 0;}
@@ -391,6 +391,10 @@ a.search_refine:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50
 
 .search_show				{text-align:right; color:#ccc; padding:5px 0 10px 0; margin-top:-5px;}
 .search_show:hover			{cursor:pointer; color:#fff;}
+.filter_text:before,
+.filter_text:after			{content:""; border-top:1px solid #666; width:40%; display:block; position:absolute; top:28px;}
+.filter_text:after			{right:0;}
+.filter_text				{text-align:center; padding:20px 0 0 0; color:#ccc; font-size:16px; position:relative;}
 
 .search_opts				{display:inline-block; vertical-align:top; width:120px;}
 .search_opts_clear			{display:inline-block; vertical-align:top; width:154px;}
