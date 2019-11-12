@@ -261,7 +261,7 @@ ctrack.setup=function(args)
 		if( ctrack.q.country_code )
 		{
 			args.chunks["main_publisher"]="";
-			args.chunks["main_publishermin"]="";
+			args.chunks["main_pubmin"]="";
 
 			args.chunks["main_publisher_head"]="";
 			args.chunks["main_publisher_map"]="";
