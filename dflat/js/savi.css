@@ -81,8 +81,11 @@ span.block	{display:block;}
 
 /*	DATA SOURCES	*/
 .data_source a		{display:inline-block; vertical-align:baseline; width:12%; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; color:#fff; padding:5px 0; margin:10px 2% 5px 0;}
+.data_source a:link		{color:#fff;}
+.data_source a:visited	{color:#fff;}
+.data_source a:hover	{color:#FFAB5E;}
+.data_source a:active	{color:#fff;}
 .data_source a span	{color:#ccc;}
-.data_source a:hover{color:#FFAB5E;}
 .data_source a.dlogs{width:20%;}
 .data_source a.slug	{width:28%;}
 .data_source a.csv	{width:20%; margin-right:0;}
@@ -94,7 +97,11 @@ span.count				{color:#ccc; font-size:12px; padding-left:20px;}
 /*	DOCUMENTS	*/
 a.doc_link:before	{display:inline-block; vertical-align:top; content:"☰"; border:1px solid #CCC; padding:2px; color:#CCC; margin-right:-24px;}
 a.doc_link			{display:block; padding:10px 15px; font-size:10px; line-height:1.25em; position:relative; color:#FFF; background-color:rgba(50,58,64,0.6); border:1px solid #656a6f; border-bottom:0;}
-a.doc_link:hover	{background-color:rgba(77,88,97,0.6);}
+.wrap_document a		{color:#fff;}
+.wrap_document a:link	{color:#fff;}
+.wrap_document a:visited{color:#fff;}
+.wrap_document a:hover	{background-color:rgba(77,88,97,0.6);}
+.wrap_document a:active	{color:#fff;}
 a.doc_link:last-of-type	{border-bottom:1px solid #656a6f;}
 
 .wrap_doc_link	{display:inline-block; vertical-align:top; padding-left:34px;}
