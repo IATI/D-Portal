@@ -12,6 +12,9 @@ var iati_xml=require('./iati_xml');
 var dstore_db=require("./dstore_db");
 var iati_codes=require("../json/iati_codes.json")
 
+var jml=require("../../dflat/js/jml.js")
+var xson=require("../../dflat/js/xson.js")
+var savi=require("../../dflat/js/savi.js")
 var dflat=require("../../dflat/js/dflat.js")
 var database=require("../../dflat/json/database.json")
 
@@ -99,7 +102,7 @@ query.get_q = function(req){
 	{
 		q.from="act"; // default act
 	}
-	if( q.form=="xml" || q.form=="html" ) // xml view so we...
+	if( ( q.form=="xml" || q.form=="html" ) && (q.from.indexOf("xson")==-1) ) // xml hax needs exclusions for new xson
 	{
 		if(q.from.indexOf("jml")==-1) // only add once
 		{
@@ -280,7 +283,7 @@ query.getsql_select=function(q,qv){
 	}
 	else
 	{
-		if(q.form=="xml") // just need jml to spit out xml
+		if(q.form=="xml"&&q.from!="xson") // just need jml to spit out xml
 		{
 			ss.push(" jml ");
 		}
@@ -785,6 +788,8 @@ query.do_select_response=function(q,res,r){
 
 	res.set('charset','utf8'); // This is always the correct answer.
 
+//console.log(q.from+" : "+q.form)
+
 	if(q.from=="xson") // use dflat to output xson activities as csv or json
 	{
 		let tab=[]
@@ -825,6 +830,24 @@ query.do_select_response=function(q,res,r){
 			var csv=dflat.xson_to_xsv(df,"/iati-organisations/iati-organisation",{"/iati-organisations/iati-organisation":true})
 			res.set('Content-Type', 'text/csv');
 			res.end(csv);
+		}
+		else
+		if(q.form=="xml")
+		{
+			var x=jml.to_xml( xson.to_jml(df) )
+			res.set('Content-Type', 'text/xml');
+			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n' )
+			res.end(x);
+		}
+		else
+		if(q.form=="html")
+		{
+			dflat.clean(df) // clean this data
+			savi.prepare(df) // prepare for display
+			savi.chunks.iati=df
+			var x=savi.plate('<html></html><body><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>')
+			res.set('Content-Type', 'text/html');
+			res.end(x);
 		}
 		else // default to json output
 		{
