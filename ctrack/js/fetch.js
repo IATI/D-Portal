@@ -67,6 +67,8 @@ fetch.tourl=function(dat)
 //modify dat so it reflects the args or base settings (eg limit to a publisher)
 fetch.ajax_dat_fix=function(dat,args,flag)
 {
+	args=args||{}
+	
 	dat["reporting_ref"]	=	dat["reporting_ref"]	||	args.publisher || ctrack.hash.publisher ;
 
 	if(flag=="trans")

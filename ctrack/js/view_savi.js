@@ -63,7 +63,7 @@ view_savi.ajax_aid=function(aid)
 
 		dflat_savi.chunks.iati=iati
 
-		var dd=dflat_savi.plate('<style>{css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}</div>')
+		var dd=dflat_savi.plate('<style>{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}</div>')
 
 		ctrack.chunk("view_savi_file",dd);
 
@@ -87,7 +87,7 @@ view_savi.ajax_pid=function(pid)
 
 		dflat_savi.chunks.iati=iati
 
-		var dd=dflat_savi.plate('<style>{css}</style><div>{iati./iati-organisations/iati-organisation:iati-organisation}</div>')
+		var dd=dflat_savi.plate('<style>{savi-css}</style><div>{iati./iati-organisations/iati-organisation:iati-organisation}</div>')
 
 		ctrack.chunk("view_savi_file",dd);
 

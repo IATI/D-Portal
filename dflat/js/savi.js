@@ -5,12 +5,6 @@ var savi=exports;
 
 var xson=require("./xson.js")
 
-// running in browser
-if(typeof window !== 'undefined')
-{
-	window.$ = window.jQuery = require("jquery")
-	require("stupid-table-plugin")
-}
 
 var encodeURIComponent=function(str)
 {
@@ -43,6 +37,13 @@ savi.start=function(opts){
 }
 
 savi.start_loaded=async function(){
+
+// running in browser
+if(typeof window !== 'undefined')
+{
+	window.$ = window.jQuery = require("jquery")
+	require("stupid-table-plugin")
+}
 
 	const dflat=require('./dflat.js')
 
@@ -80,7 +81,7 @@ savi.start_loaded=async function(){
 	savi.prepare(iati) // prepare for display
 
 // test render
-	$("html").prepend(savi.plate('<style>{css}</style>')) // load our styles
+	$("html").prepend(savi.plate('<style>{savi-css}</style>')) // load our styles
 	savi.chunks.iati=iati
 
 	console.log( savi.chunks.iati ) // to help debuging
