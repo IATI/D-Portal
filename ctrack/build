@@ -8,5 +8,5 @@ BROWSERIFY=../node_modules/browserify/bin/cmd.js
 
 echo "browserify"
 
-$BROWSERIFY -g uglifyify -r ./js/ctrack.js:ctrack -d | $EXORCIST jslib/ctrack.js.map > jslib/ctrack.js
+$BROWSERIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/ctrack.js:ctrack -d | $EXORCIST jslib/ctrack.js.map > jslib/ctrack.js
 

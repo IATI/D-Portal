@@ -6,5 +6,5 @@ node js/bake.js
 WATCHIFY=../node_modules/watchify/bin/cmd.js
 
 echo "watchify"
-$WATCHIFY -v -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js
+$WATCHIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -v -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js
 
