@@ -118,7 +118,7 @@ savi.prepare=function(iati_xson){
 		for(let n of Object.keys(it)) // this caches the keys so we can modify
 		{
 			let v=it[n]
-			
+
 			if(n.endsWith("@code"))       { found_code=n }
 			if(n.endsWith("@vocabulary")) { found_vocabulary=n }
 
@@ -197,6 +197,12 @@ savi.prepare=function(iati_xson){
 	
 	let subents=function(act)
 	{
+		if( (!act["@dataset"]) && (act["@dstore:slug"]) ) // d-portal dataset hack
+		{
+			act["@dataset"]=act["@dstore:slug"]
+		}
+
+		
 // explicit dates based on @type
 		if(act["/activity-date"])
 		{
