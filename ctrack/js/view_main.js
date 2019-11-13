@@ -40,6 +40,7 @@ view_main.view=function(args)
 	views.countries_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 	views.sectors_top.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 
+	views.savi.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 
 	ctrack.setcrumb(0);
 	ctrack.change_hash();
@@ -88,6 +89,14 @@ view_main.view=function(args)
 		views.sectors_top.ajax( top_opts );
 	}
 
+	if( test["reporting_ref"] ) // show savi org file
+	{
+		views.savi.ajax_pid( test["reporting_ref"] )
+	}
+	else
+	{
+		ctrack.chunk("view_savi_file","");
+	}
 
 	ctrack.map.pins=undefined;
 	views.map.ajax_heat({limit:200});
