@@ -12,6 +12,9 @@ var refry=require("./refry");
 var exs=require("./exs");
 var iati_xml=require("./iati_xml");
 
+var dflat=require('../../dflat/js/dflat');
+var dflat_database=require('../../dflat/json/database.json');
+
 var wait=require("wait.for");
 
 var http=require("http");
@@ -552,6 +555,43 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 		if(o)
 		{
 			console.log("importing budgets from org file for "+aid)
+
+			let xtree=dflat.xml_to_xson( { 0:"iati-organisations" , 1:[o] } )["/iati-organisations/iati-organisation"][0]
+			let pid=xtree["/reporting-org@ref"]
+
+// remember dataset
+			xtree["@dataset"]=slug
+
+			db.run("DELETE FROM xson WHERE pid=? AND aid IS NULL ;",pid);
+			
+			let xwalk
+			xwalk=function(it,path)
+			{
+				let x={}
+
+				x.aid=null
+				x.pid=pid // we have a pid but no aid
+				x.root=path
+				x.xson=JSON.stringify( it );
+				
+				if(x.xson)
+				{
+					dstore_back.replace(db,"xson",x);
+				}
+				
+				for(let n in it )
+				{
+					let v=it[n]
+					if(Array.isArray(v))
+					{
+						for(let i=0;i<v.length;i++)
+						{
+							xwalk( v[i] , path+n )
+						}
+					}
+				}
+			}
+			xwalk( xtree ,"/iati-organisations/iati-organisation")
 
 			dstore_back.delete_from(db,"budget",{aid:aid});
 
