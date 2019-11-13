@@ -845,7 +845,7 @@ query.do_select_response=function(q,res,r){
 			dflat.clean(df) // clean this data
 			savi.prepare(df) // prepare for display
 			savi.chunks.iati=df
-			var x=savi.plate('<html></html><body><style>{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>')
+			var x=savi.plate('<html></html><body><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>')
 			res.set('Content-Type', 'text/html');
 			res.end(x);
 		}
