@@ -152,6 +152,17 @@ view_search.terms=[
 },
 
 {
+	name   : "tag_vocab",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["TagVocabulary"], ],
+	drops  : [ "#view_search_select_tag_vocab" ],
+	q      : "/tag@vocabulary",
+	list   : "search_options_tag_vocab",
+	show   : "search_display_tag_vocab",
+},
+
+{
 	name   : "finance_type",
 	search : false,
 	filter : true,

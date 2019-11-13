@@ -213,7 +213,7 @@
 <div id="more_search_intro" class="settings_search" style="display:none;">
 	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">x</div>
 	Find activities published to the IATI Standard using filters and keywords.
-	<p>Sort filter dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> <span class="accent">(e.g. by CRS sector numbers)</span></p>
+	<br/>Sort filter dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> <span class="accent">(e.g. by CRS sector numbers)</span>
 <table class="head filter_table">
 	<tr>
 		<td class="filter_title"><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</td>
@@ -236,14 +236,27 @@
 		<td>An option to select the starting and ending year as a period for activities</td>
 	</tr>
 	<tr>
+		<td colspan="3"><div class="filter_text">Advance filters</div></td>
+	</tr>
+	<tr>
 		<td class="filter_title"><span>&#10096;&#10097;</span> {search_participating_txt}</td>
 		<td class="filter_title"><span>&#10096;&#10097;</span> {search_policy_txt}</td>
-		<td class="filter_title"><span>&#10096;&#10097;</span> Default Finance Type</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_tag_vocab_txt}</td>
 	</tr>
 	<tr>
 		<td>A list of <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/participating-org/" target="blank">IATI reference numbers</a> for organisations that are reported as being involved with an activity</td>
 		<td>An <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/TagVocabulary/#codes" target="blank">IATI code</a> for the vocabulary or taxonomy used for tag classifications</td>
+	</tr>
+	<tr>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_finance_type_txt}</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_humanitarian_activity_txt}</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_humanitarian_transaction_txt}</td>
+	</tr>
+	<tr>
 		<td>An <a href="http://reference.iatistandard.org/203/codelists/FinanceType/#codes" target="blank">IATI code</a> for the default DAC/CRS transaction classification used to distinguish financial instruments like grants or loans</td>
+		<td>A <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/" target="blank">process flag</a> to indicate that this activity relates entirely or partially to humanitarian aid</td>
+		<td>A <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/transaction/" target="blank">process flag</a> to indicate that this transaction relates entirely or partially to humanitarian aid</td>
 	</tr>
 </table>
 </div>
@@ -369,25 +382,33 @@
 	</select>
 </div><div class="search_wrap">
 	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_finance_type_txt}
+		<span>&#10096;&#10097;</span> {search_tag_vocab_txt}
 	</div>
-	<select aria-label="Select a tag code from this dropdown" id="view_search_select_finance_type" class="chosen" multiple>
+	<select aria-label="Select a tag vocabulary from this dropdown" id="view_search_select_tag_vocab" class="chosen" multiple>
 		<option value></option>
-		{search_options_finance_type}
+		{search_options_tag_vocab}
 	</select>
 </div><div class="search_wrap">
 	<div class="search_label">
-		<span>&#10096;&#10097;</span> Humanitarian Activity
+		<span>&#10096;&#10097;</span> {search_finance_type_txt}
 	</div>
-	<select aria-label="Select a tag code from this dropdown" id="view_search_select_humanitarian_activity" class="chosen" multiple>
+	<select aria-label="Select a default finance type from this dropdown" id="view_search_select_finance_type" class="chosen" multiple>
+		<option value></option>
+		{search_options_finance_type}
+	</select>
+</div><div class="search_wrap mid">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_humanitarian_activity_txt}
+	</div>
+	<select aria-label="Select if humanitarian global is set from this dropdown" id="view_search_select_humanitarian_activity" class="chosen" multiple>
 		<option value></option>
 		{search_options_humanitarian_activity}
 	</select>
 </div><div class="search_wrap">
 	<div class="search_label">
-		<span>&#10096;&#10097;</span> Humanitarian Transaction
+		<span>&#10096;&#10097;</span> {search_humanitarian_transaction_txt}
 	</div>
-	<select aria-label="Select a tag code from this dropdown" id="view_search_select_humanitarian_transaction" class="chosen" multiple>
+	<select aria-label="Select if transactions are humanitarian from this dropdown" id="view_search_select_humanitarian_transaction" class="chosen" multiple>
 		<option value></option>
 		{search_options_humanitarian_transaction}
 	</select>

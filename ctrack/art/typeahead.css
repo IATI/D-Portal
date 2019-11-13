@@ -31,9 +31,9 @@ input#view_search_string, input#view_search_string_only, input.typeahead.tt-hint
 .search_wrap.mid		{margin-left:20px; margin-right:20px;}
 .search_label			{font-size:14px; padding-bottom:5px; margin-right:23px; line-height:1.2em; text-transform:uppercase;}
 td.filter_title img,
-.search_label img		{padding-right:7px; width:14px; height:14px;}
+.search_label img		{padding:3px 7px 0 0; width:12px; height:12px;}
 td.filter_title span,
-.search_label span		{color:#fff; font-size:10px;}
+.search_label span		{color:#fff; font-size:10px; line-height:16px;}
 
 .search_wrap .chosen-container{width:290px; min-width:290px; max-width:290px;}
 #country_dropmenu .chosen-container, #publisher_dropmenu .chosen-container	{width:460px; min-width:460px; max-width:460px;}
