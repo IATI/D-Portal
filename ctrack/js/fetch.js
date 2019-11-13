@@ -131,7 +131,7 @@ fetch.ajax_dat_fix=function(dat,args,flag)
 	{
 		if(ctrack.args.year_max) // merge
 		{
-			var s=(ctrack.args.year_max+1) + "-01-01"
+			var s=(Number(ctrack.args.year_max)+1) + "-01-01"
 			if(s<dat["day_start_lteq"])
 			{
 				dat["day_start_lteq"]=s
@@ -142,7 +142,7 @@ fetch.ajax_dat_fix=function(dat,args,flag)
 	{
 		if(ctrack.args.year_max)
 		{
-			dat["day_start_lteq"]=(ctrack.args.year_max+1) + "-01-01"
+			dat["day_start_lteq"]=(Number(ctrack.args.year_max)+1) + "-01-01"
 		}
 	}
 

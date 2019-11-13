@@ -18,7 +18,7 @@ var dflat_codes=require("../../dflat/json/codelists.json")
 
 // valid years for drop downs
 var text_years={} ; for(var i=1960;i<2030;i++) { text_years[i]=i+"" }
-var text_years_date={} ; for(var i=1960;i<2030;i++) { text_years_date[i]=i+"-01-01" }
+var text_years_date={} ; for(var i=1960;i<2030;i++) { text_years_date[i]=i }
 var text_policy={}
 for(var sn in iati_codes.policy_sig) // policy needs two codes to be joined
 {
@@ -616,6 +616,15 @@ view_search.ajax=function(args)
 			"select":"count_aid",
 		};
 	fetch.ajax_dat_fix(dat,args);
+
+	if(dat.year_max)
+	{
+		dat["day_start_lteq"]=(Number(dat.year_max)+1) + "-01-01"
+	}
+	if(dat.year_min)
+	{
+		dat["day_end_gt"]=(Number(dat.year_min)) + "-01-01"
+	}
 
 	$("#search_link").addClass("search_link_disable");
 	$("#result_span").html("");
