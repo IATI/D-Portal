@@ -441,9 +441,9 @@
 	</div>
 
 	<div class="wrap_iati_identifier org_id">	<!--	ORG IDENTIFIER AND SOURCES	-->
-		<div class="text">Organisation identifier <a href="http://d-portal.org/q.html?aid={_it./organisation-identifier}">{_it./organisation-identifier||}</a></div>
+		<div class="text">Organisation identifier <a href="http://d-portal.org/q.html?pid={_it./organisation-identifier}">{_it./organisation-identifier||}</a></div>
 		<div class="data_source">
-			<a class="xml" href="http://d-portal.org/q.xml?aid={_it./organisation-identifier}" target="_blank"><span>view</span> xml</a><a class="json" href="http://d-portal.org/q.json?&from=xson&root=/iati-activities/iati-activity&aid={_it./organisation-identifier}" target="_blank"><span>view</span> json</a><a class="dlogs" href="http://d-portal.org/ctrack.html#view=dash_sluglog&slug={_it.@dataset}" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="http://iatiregistry.org/dataset/{_it.@dataset}" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="http://d-portal.org/q.csv?&from=xson&root=/iati-activities/iati-activity&aid={_it./organisation-identifier}" target="_blank"><span>download</span> csv</a>
+			<a class="xml" href="http://d-portal.org/q.xml?pid={_it./organisation-identifier}" target="_blank"><span>view</span> xml</a><a class="json" href="http://d-portal.org/q.json?&from=xson&root=/iati-activities/iati-activity&pid={_it./organisation-identifier}" target="_blank"><span>view</span> json</a><a class="dlogs" href="http://d-portal.org/ctrack.html#view=dash_sluglog&slug={_it.@dataset}" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="http://iatiregistry.org/dataset/{_it.@dataset}" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="http://d-portal.org/q.csv?&from=xson&root=/iati-activities/iati-activity&pid={_it./organisation-identifier}" target="_blank"><span>download</span> csv</a>
 		</div>
 	</div>
 	{_it./document-link&&_it:/wrap-document-link||}
