@@ -215,6 +215,7 @@ savi.prepare=function(iati_xson){
 		}
 // budgets
 		let tosort=[]
+		let tosort2=[]
 		for(let bname of
 			[
 				"/budget",
@@ -234,6 +235,26 @@ savi.prepare=function(iati_xson){
 					if("/value" in budget)
 					{
 						budget["/value-human"]=commafy(budget["/value"])
+
+						for(let lname of
+							[
+								"/budget-line",
+								"/expense-line",
+							])
+						{
+							if(budget[lname])
+							{
+								tosort2.push( budget[lname] )
+								for( let line of budget[lname] )
+								{
+									if("/value" in line)
+									{
+										line["/value-human"]=commafy(line["/value"])
+									}
+								}
+							}
+						}
+
 					}
 				}
 			}
@@ -244,6 +265,14 @@ savi.prepare=function(iati_xson){
 				let an=a["/period-start@iso-date"]||""
 				let bn=b["/period-start@iso-date"]||""
 				return an.localeCompare(bn)
+			})
+		}
+		for( let tab of tosort2 )
+		{
+			tab.sort(function(a,b){
+				let an=Number(a["/value"])||0
+				let bn=Number(b["/value"])||0
+				return bn-an
 			})
 		}
 // split transactions on /transaction-type@code
