@@ -2,13 +2,11 @@ cd `dirname $0`
 
 NAME1=dquery
 NAME2=savi
-EXORCIST=../node_modules/exorcist/bin/exorcist.js
-BROWSERIFY=../node_modules/browserify/bin/cmd.js
 
 echo "browserify"
 
-mkdir html/lib
+mkdir -p html/lib
 
-$BROWSERIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/$NAME1.js:$NAME1 -d | $EXORCIST html/lib/$NAME1.js.map > html/lib/$NAME1.js &
-$BROWSERIFY -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/$NAME2.js:$NAME2 -d | $EXORCIST html/lib/$NAME2.js.map > html/lib/$NAME2.js
+npx browserify -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/$NAME1.js:$NAME1 -d | npx exorcist html/lib/$NAME1.js.map > html/lib/$NAME1.js &
+npx browserify -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/$NAME2.js:$NAME2 -d | npx exorcist html/lib/$NAME2.js.map > html/lib/$NAME2.js
 
