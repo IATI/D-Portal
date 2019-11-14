@@ -32,18 +32,19 @@ savi.opts={}
 savi.opts.test=false
 
 savi.start=function(opts){
+
+	// running in browser
+	if(typeof window !== 'undefined')
+	{
+		window.$ = window.jQuery = require("jquery")
+		require("stupid-table-plugin")
+	}
+
 	for(var n in opts) { savi.opts[n]=opts[n] } // copy opts
 	$(savi.start_loaded)
 }
 
 savi.start_loaded=async function(){
-
-// running in browser
-if(typeof window !== 'undefined')
-{
-	window.$ = window.jQuery = require("jquery")
-	require("stupid-table-plugin")
-}
 
 	const dflat=require('./dflat.js')
 
@@ -81,7 +82,7 @@ if(typeof window !== 'undefined')
 	savi.prepare(iati) // prepare for display
 
 // test render
-	$("html").prepend(savi.plate('<style>{savi-css}</style>')) // load our styles
+	$("html").prepend(savi.plate('<style>{savi-page-css}{savi-css}</style>')) // load our styles
 	savi.chunks.iati=iati
 
 	console.log( savi.chunks.iati ) // to help debuging

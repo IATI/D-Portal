@@ -558,7 +558,8 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			let xtree=dflat.xml_to_xson( { 0:"iati-organisations" , 1:[o] } )["/iati-organisations/iati-organisation"][0]
 			let pid=xtree["/reporting-org@ref"]
 
-// delete old org info
+// remember dataset
+			xtree["@dataset"]=slug
 
 			wait.for(function(cb){
 				db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:pid}).then(cb).catch(err);
