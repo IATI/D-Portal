@@ -553,7 +553,7 @@
 	<td class="date">{_it./period-end@iso-date||}</td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
-	<td class="value" data-sort-value="{_it./value}">{_it./value||}<div class="currency">{_it./value@currency||}</div></td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
 
 #^/total-expenditure	<!--	TOTAL EXPENDITURE ROWS	-->
@@ -561,7 +561,7 @@
 	<td class="date">{_it./period-start@iso-date||}</td>
 	<td class="date">{_it./period-end@iso-date||}</td>
 	<td class="line">{_it./expense-line:/budget-line||}</td>
-	<td class="value" data-sort-value="{_it./value}">{_it./value||}<div class="currency">{_it./value@currency||}</div></td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
 
 #^/recipient-org-budget	<!--	RECIPIENT ORG BUDGET ROWS	-->
@@ -571,7 +571,7 @@
 	<td class="recipient">{_it./recipient-org||}<div>{_it./recipient-org@ref&&_it:/recipient-org-ref||}</div></td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
-	<td class="value" data-sort-value="{_it./value}">{_it./value||}<div class="currency">{_it./value@currency||}</div></td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
 
 #^/recipient-region-budget	<!--	RECIPIENT REGION BUDGET ROWS	-->
@@ -581,7 +581,7 @@
 	<td class="recipient">{_it./recipient-region@code-name||}{_it./recipient-region@vocabulary&&_it:/recipient-region-vocabulary||}</td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
-	<td class="value" data-sort-value="{_it./value}">{_it./value||}<div class="currency">{_it./value@currency||}</div></td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
 
 #^/recipient-country-budget	<!--	RECIPIENT COUNTRY BUDGET ROWS	-->
@@ -591,7 +591,7 @@
 	<td class="recipient">{_it./recipient-country||}</td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
-	<td class="value" data-sort-value="{_it./value}">{_it./value||}<div class="currency">{_it./value@currency||}</div></td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
 
 #^/recipient-org-ref
@@ -601,7 +601,7 @@
 <div><span class="ref">{_it./recipient-region@vocabulary||}</span></div>
 
 #^/budget-line	<!--	BUDGET LINE	-->
-<div class="wrap_tab"><div class="tab_text">{_it./narrative:/budget-line-narrative||}</div><div class="tab_currency">{_it./value||}<div>{_it./value@currency||}</div></div></div>
+<div class="wrap_tab"><div class="tab_text">{_it./narrative:/budget-line-narrative||}</div><div class="tab_currency">{_it./value-human||}<div>{_it./value@currency||}</div></div></div>
 
 #^/budget-line-narrative trim=ends	<!--	BUDGET LINE NARRATIVE	-->
 {_it.text}
@@ -640,13 +640,13 @@
 <span class="block"><span class="doc_desc">{_it.text||}</span></span>
 
 #^/document-link/category
-<span class="doc_cat">{_it.@code||}</span>
+<span class="doc_cat">{_it.@code-name||}</span>
 
 #^/document-link/language
 <span class="doc_lang">{_it.@code||}</span>
 
 #^/document-link/recipient-country
-<span class="inblock">{_it.@code||}</span>
+<span class="inblock">{_it.@code-name||}</span>
 
 #^/document-link/recipient-country/narrative
 <span class="inblock">{_it.text||}</span>
