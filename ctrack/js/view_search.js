@@ -32,6 +32,17 @@ for(var sn in iati_codes.policy_sig) // policy needs two codes to be joined
 	}
 }
 var text_bool={0:"False",1:"True"}
+var text_powers={1:"1 USD",
+				 10:"10 USD",
+				 100:"100 USD",
+				 1000:"1 Thousand USD",
+				 10000:"10 Thousand USD",
+				 100000:"100 Thousand USD",
+				 1000000:"1 Million USD",
+				 10000000:"10 Million USD",
+				 100000000:"100 Million USD",
+				 1000000000:"1 Billion USD",
+				 10000000000:"10 Billion USD"}
 
 
 
@@ -193,6 +204,28 @@ view_search.terms=[
 	q      : "/transaction@humanitarian",
 	list   : "search_options_humanitarian_transaction",
 	show   : "search_display_humanitarian_transaction",
+},
+
+{
+	name   : "commitment_min",
+	search : false,
+	filter : true,
+	codes  : [ text_powers, ],
+	drops  : [ "#view_search_select_commitment_min" ],
+	q      : "commitment_gteq",
+	list   : "search_options_commitment_min",
+	show   : "search_display_commitment_min",
+},
+
+{
+	name   : "commitment_max",
+	search : false,
+	filter : true,
+	codes  : [ text_powers, ],
+	drops  : [ "#view_search_select_commitment_max" ],
+	q      : "commitment_lteq",
+	list   : "search_options_commitment_max",
+	show   : "search_display_commitment_max",
 },
 
 ]
