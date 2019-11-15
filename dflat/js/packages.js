@@ -192,7 +192,7 @@ packages.prepare_download_datastore=async function(argv)
 	{
 		var result=results[idx]
 		var slug=result.name
-		var url="https://iatidatastore.iatistandard.org/api/activities/?format=xml&fields=all&dataset="+result.id+"&page_size=20page=1"
+		var url="https://iatidatastore.iatistandard.org/api/activities/?format=xml&fields=all&dataset="+result.id+"&page_size=20&page=1"
 		
 		downloads.push( {slug:slug,url:url} )
 	}
