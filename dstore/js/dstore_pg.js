@@ -556,7 +556,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			console.log("importing xson from org file for "+aid)
 
 			let xtree=dflat.xml_to_xson( { 0:"iati-organisations" , 1:[o] } )["/iati-organisations/iati-organisation"][0]
-			let pid=xtree["/reporting-org@ref"]
+			let pid=xtree["/organisation-identifier"] || xtree["/reporting-org@ref"]
 
 // remember dataset
 			xtree["@dataset"]=slug
