@@ -1141,7 +1141,10 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 */
 
 // update xson
-		let xtree=dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )["/iati-activities/iati-activity"][0]
+		let xtree=dflat.xml_to_xson( { 0:"iati-activities" , 1:[act] } )
+		dflat.clean(xtree)
+		xtree=xtree["/iati-activities/iati-activity"][0]
+
 		t.pid=xtree["/reporting-org@ref"]
 		let xwalk
 		xwalk=function(it,path)
