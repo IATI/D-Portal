@@ -251,6 +251,7 @@ dflat.xson_to_xsv=function(data,root,paths)
 dflat.clean=function(data)
 {
 	dflat.clean_copy_toplevel_attributes(data)
+	dflat.reduce_values(data)
 }
 
 // copy all the atributes on iati-activities into each sub iati-activitiy
@@ -305,6 +306,60 @@ dflat.clean_copy_toplevel_attributes=function(data)
 		}
 	}
 	return data
+}
+
+// Reduce values based on types to make them easier to query
+// So for example multiple boolean values are converted to 0 and 1 from any true and false strings.
+// we can also force cast numbers and dates and times here to remove bad values.
+dflat.reduce_values=function(data)
+{
+	xson.walk(data,function(it,paths,index){
+
+		let path=paths.join("")
+
+		for(let n of Object.keys(it)) // this caches the keys so we can modify
+		{
+			let v=it[n]
+			let p=database.paths[path+n]
+			
+			if( p )
+			{
+				if( (p.type=="int") || (p.type=="uint") || (p.type=="number") )
+				{
+					if(typeof v == "string" )
+					{
+						v=v.trim().toLowerCase()
+						
+						if(Number(v)==v) // converts to number if the act is non destructive
+						{
+							it[n]=Number(v)
+						}
+					}
+				}
+				if(p.type=="bool")
+				{
+					if(typeof v == "string" )
+					{
+						v=v.trim().toLowerCase()
+						
+						if(Number(v)==v) // converts to number
+						{
+							it[n]=Number(v)
+						}
+						
+						if(v=="true")
+						{
+							it[n]=1
+						}
+						if(v=="false")
+						{
+							it[n]=0
+						}
+					}
+				}
+			}
+		}
+	})
 }
 
 // copy the defaults explicitly into the places they should apply

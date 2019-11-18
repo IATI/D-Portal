@@ -475,13 +475,13 @@ fetch.database=async function()
 		"aidTypeBase":							"null",
 		"documentLinkWithReceipientCountry":	"null",
 		"xsd:int":								"int",
-		"xsd:boolean":							"int",
-		"xsd:nonNegativeInteger":				"int",
-		"xsd:positiveInteger":					"int",
+		"xsd:boolean":							"bool",
+		"xsd:nonNegativeInteger":				"uint",
+		"xsd:positiveInteger":					"uint",
 		"xsd:decimal":							"number",
 		"currencyType":							"number",
-		"xsd:date":								"number",
-		"xsd:dateTime":							"number",
+		"xsd:date":								"date",
+		"xsd:dateTime":							"time",
 		"xsd:string":							"text",
 		"xsd:anyURI":							"text",
 		"xsd:NMTOKEN":							"text",
@@ -620,11 +620,27 @@ fetch.database=async function()
 		}
 		if(it.type=="int")
 		{
+			return -1
+		}
+		if(it.type=="uint")
+		{
 			return 1
+		}
+		if(it.type=="bool")
+		{
+			return 0
 		}
 		if(it.type=="number")
 		{
 			return 1.1
+		}
+		if(it.type=="date")
+		{
+			return "1970-01-01"
+		}
+		if(it.type=="time")
+		{
+			return "1970-01-01T00:00:00"
 		}
 	}
 	
