@@ -532,29 +532,59 @@ query.getsql_group_by=function(q,qv){
 // check the new json values
 query.getsql_where_xson=function(q,qv,wheres){
 
+
 	if(dstore_db.engine!="pg") { return ""; } // postgres only
 
 
-	let ss=[]
+	let ands=[]
 	
 	let push=function(n,v)
 	{
 //		console.log(n+" == "+v)
-		
-		let p=database.paths[n]
-		
-		if(p && p.jpath) // a valid path
+
+		if( n.startsWith("*") ) // wildcarded xpath partial so we must find all possible paths
 		{
-
+			let ors=[]
 			let cn=n.trim().toLowerCase().replace(/\W+/g,"_")
-			let nb=p.jpath[ p.jpath.length-1 ]
-			let na=p.jpath.join("").slice(0,-nb.length)
+			let ne=n.slice(1) // remmove * from start
+			for(let n in database.paths)
+			{
+				let p=database.paths[n]
+				if( n.endsWith(ne) ) // wildcard test
+				{
+					let nb=p.jpath[ p.jpath.length-1 ]
+					let na=p.jpath.join("").slice(0,-nb.length)
+
+					ors.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+				}
+			}
+
+			if( ors.length>0 )
+			{
+				ands.push( " ( "+ors.join(" OR ")+" ) " )
+
+				qv[ dstore_db.text_name(cn) ]=v
+			}
+
+		}
+		else
+		{
+		
+			let p=database.paths[n]
+			
+			if(p && p.jpath) // a valid path
+			{
+
+				let cn=n.trim().toLowerCase().replace(/\W+/g,"_")
+				let nb=p.jpath[ p.jpath.length-1 ]
+				let na=p.jpath.join("").slice(0,-nb.length)
 
 
-			ss.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+				ands.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
 
-			qv[ dstore_db.text_name(cn) ]=v
+				qv[ dstore_db.text_name(cn) ]=v
 
+			}
 		}
 	}
 
@@ -576,12 +606,17 @@ query.getsql_where_xson=function(q,qv,wheres){
 		{
 			push("/iati-activities/iati-activity"+n,v)
 		}
+		else
+		if( n.startsWith("*") ) // wildcarded xpath partial match
+		{
+			push(n,v)
+		}
 	}
 
-	if( ss.length>0 )
+	if( ands.length>0 )
 	{
 
-		let ret=" aid in ( select aid from xson where aid is not null AND "+ss.join(" AND ")+" group by aid ) "
+		let ret=" aid in ( select aid from xson where aid is not null AND "+ands.join(" AND ")+" group by aid ) "
 
 //	console.log(ret)
 //	console.log(qv)
