@@ -228,6 +228,28 @@ view_search.terms=[
 	show   : "search_display_commitment_max",
 },
 
+{
+	name   : "result_type",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["ResultType"], ],
+	drops  : [ "#view_search_select_result_type" ],
+	q      : "/result@type",
+	list   : "search_options_result_type",
+	show   : "search_display_result_type",
+},
+
+{
+	name   : "document_category",
+	search : false,
+	filter : true,
+	codes  : [ iati_codes.doc_cat, ],
+	drops  : [ "#view_search_select_document_category" ],
+	q      : "/document-link/category@type",
+	list   : "search_options_document_category",
+	show   : "search_display_document_category",
+},
+
 ]
 
 // the chunk names this view will fill with new data
