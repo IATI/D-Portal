@@ -245,7 +245,7 @@ view_search.terms=[
 	filter : true,
 	codes  : [ iati_codes.doc_cat, ],
 	drops  : [ "#view_search_select_document_category" ],
-	q      : "/document-link/category@code",
+	q      : "*/document-link/category@code",
 	list   : "search_options_document_category",
 	show   : "search_display_document_category",
 },
