@@ -244,7 +244,7 @@
 		<td class="filter_title"><span>&#10096;&#10097;</span> {search_tag_vocab_txt}</td>
 	</tr>
 	<tr>
-		<td>A list of <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/participating-org/" target="blank">IATI reference numbers</a> for organisations that are reported as being involved with an activity</td>
+		<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank">IATI Registry</a></td>
 		<td>An <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity</td>
 		<td>An <a href="http://reference.iatistandard.org/203/codelists/TagVocabulary/#codes" target="blank">IATI code</a> for the vocabulary or taxonomy used for tag classifications</td>
 	</tr>
@@ -411,6 +411,33 @@
 	<select aria-label="Select if transactions are humanitarian from this dropdown" id="view_search_select_humanitarian_transaction" class="chosen" multiple>
 		<option value></option>
 		{search_options_humanitarian_transaction}
+	</select>
+</div><div class="search_wrap mini">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_commitment_txt}
+	</div>
+	<select aria-label="Select minimum commitment value from this dropdown" id="view_search_select_commitment_min" class="chosen">
+		<option value></option>
+		{search_options_commitment_min}
+	</select><select aria-label="Select minimum commitment value from this dropdown" id="view_search_select_commitment_max" class="chosen">
+		<option value></option>
+		{search_options_commitment_max}
+	</select>
+</div><div class="search_wrap mid">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_result_type_txt}
+	</div>
+	<select aria-label="Select a result type from this dropdown" id="view_search_select_result_type" class="chosen" multiple>
+		<option value></option>
+		{search_options_result_type}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_document_category_txt}
+	</div>
+	<select aria-label="Select a document category from this dropdown" id="view_search_select_document_category" class="chosen" multiple>
+		<option value></option>
+		{search_options_document_category}
 	</select>
 </div>
 </div>
