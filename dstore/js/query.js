@@ -542,7 +542,7 @@ query.getsql_external_aids=function(q,qv,wheres){
 		if( Array.isArray( q.aids ) )
 		{
 			qv[ dstore_db.text_name("aids") ]=q.aids
-			let ret=" aid IN "+dstore_db.text_plate("aids")+" "
+			let ret=" aid = ANY("+dstore_db.text_plate("aids")+") "
 
 //	console.log(ret)
 
