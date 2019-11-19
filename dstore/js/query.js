@@ -484,6 +484,7 @@ for(var n in ns) // all valid fields
 		}
 	}
 
+	query.getsql_external_aids(q,qv,wheres)
 	query.getsql_where_xson(q,qv,wheres)
 
 	var ret="";
@@ -528,6 +529,28 @@ query.getsql_group_by=function(q,qv){
 	if(ss[0]) { return " GROUP BY "+ss.join(" , "); }
 	return "";
 };
+
+// support external list of json
+query.getsql_external_aids=function(q,qv,wheres){
+	
+	if(q.aids)
+	{
+		if(typeof q.aids=="string") // convert to json
+		{
+			q.aids=JSON.parse(q.aids)
+		}
+		if( Array.isArray( q.aids ) )
+		{
+			qv[ dstore_db.text_name("aids") ]=q.aids
+			let ret=" aid IN ("+dstore_db.text_plate("aids")+") "
+
+//	console.log(ret)
+
+			wheres.push(ret)
+		}
+	}
+
+}
 
 // check the new json values
 query.getsql_where_xson=function(q,qv,wheres){

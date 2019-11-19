@@ -17,6 +17,7 @@ express.static.mime.define({'text/plain': ['']});
 
 app.use( express_fileupload() );
 
+
 app.use(function(req, res, next) {
 
 	res.setHeader("Access-Control-Allow-Origin", "*")
@@ -43,6 +44,8 @@ app.use(function(req, res, next) {
 app.use(express.static(__dirname+"/../static"));
 
 
+app.use( express.json() )
+
 app.use(function(req, res, next) {
 	var aa=req.path.split("/");
 	var ab=aa && aa[1] && (aa[1].split("."));
@@ -64,7 +67,6 @@ console.log(req.path)
 	}
 });
 
-app.use( express.json() )
 app.use( express.urlencoded({ extended: true }) )
 
 // dquery
