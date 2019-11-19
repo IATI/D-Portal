@@ -574,7 +574,14 @@ query.getsql_where_xson=function(q,qv,wheres){
 					let nb=p.jpath[ p.jpath.length-1 ]
 					let na=p.jpath.join("").slice(0,-nb.length)
 
-					ors.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+					if( v=="*" || v=="!*" )
+					{
+						ors.push( " ( root = '"+na+"' AND xson ? '"+nb+"' ) " )
+					}
+					else
+					{
+						ors.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+					}
 				}
 			}
 
@@ -610,7 +617,14 @@ query.getsql_where_xson=function(q,qv,wheres){
 					v=v.slice(0,-1)
 					prefix=" NOT "
 				}
-				ands.push( prefix+" ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+				if( v=="*" || v=="!*" )
+				{
+					ands.push( prefix+" ( root = '"+na+"' AND xson ? '"+nb+"' ) " )
+				}
+				else
+				{
+					ands.push( prefix+" ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+				}
 
 				qv[ dstore_db.text_name(cn) ]=v
 
