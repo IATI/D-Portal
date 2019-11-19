@@ -535,12 +535,36 @@ query.getsql_where_xson=function(q,qv,wheres){
 
 	if(dstore_db.engine!="pg") { return ""; } // postgres only
 
-
 	let ands=[]
 	
-	let push=function(n,v)
+	let push=function(no,v)
 	{
 //		console.log(n+" == "+v)
+
+// we should allow these operators?
+	let pc={ // possible operators
+		"_lt":"<",
+		"_gt":">",
+		"_lteq":"<=",
+		"_gteq":">=",
+		"_nteq":"!=",
+		"_eq":"=",
+		"_null":"IS NULL",
+		"_not_null":"IS NOT NULL",
+	}
+	let n=no
+	let op="=" // the operator to use
+	for( let eo in pc )
+	{
+		if( n.endsWith(eo) )
+		{
+			n=n.slice(0,-eo.length)
+			op=pc[eo]
+			break
+		}
+	}
+
+
 
 		if( n.startsWith("*") ) // wildcarded xpath partial so we must find all possible paths
 		{
@@ -616,7 +640,8 @@ query.getsql_where_xson=function(q,qv,wheres){
 	if( ands.length>0 )
 	{
 
-		let ret=" aid in ( select aid from xson where aid is not null AND "+ands.join(" AND ")+" group by aid ) "
+		let ret=" aid in ( select distinct aid from xson where aid is not null AND "+
+			ands.join(" INTERSECT select distinct aid from xson where aid is not null AND ")+" ) "
 
 //	console.log(ret)
 //	console.log(qv)
