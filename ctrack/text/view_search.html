@@ -212,8 +212,11 @@
 #more_search_intro2
 <div id="more_search_intro" class="settings_search" style="display:none;">
 	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">x</div>
-	Find activities published to the IATI Standard using filters and keywords.
-	<br/>Sort filter dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> <span class="accent">(e.g. by CRS sector numbers)</span>
+	<div class="search_text">
+		Find activities published to the IATI Standard using filters and keywords.
+		<br/>Text search searches the Title and Description fields within all published IATI activities.
+		<br/>Sort filter dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> <span class="accent">(e.g. by CRS sector numbers)</span>
+	</div>
 <table class="head filter_table">
 	<tr>
 		<td class="filter_title"><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</td>
@@ -221,9 +224,9 @@
 		<td class="filter_title"><img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}</td>
 	</tr>
 	<tr>
-		<td>Countries reported by publishers are using <a href="https://en.wikipedia.org/wiki/ISO_3166-2" target="blank">ISO3166 Alpha-2</a></td>
-		<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/SectorCategory/#codes" target="blank">OECD DAC CRS 3-digit purpose code</a></td>
-		<td>An <a href="http://reference.iatistandard.org/203/codelists/ActivityStatus/#codes" target="blank">IATI code</a> defining the current status of the activity</td>
+		<td>Countries reported by publishers are using <a href="https://en.wikipedia.org/wiki/ISO_3166-2" target="blank">ISO3166 Alpha-2</a>.</td>
+		<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/SectorCategory/#codes" target="blank">OECD DAC CRS 3-digit purpose code</a>.</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/ActivityStatus/#codes" target="blank">IATI code</a> defining the current status of the activity.</td>
 	</tr>
 	<tr>
 		<td class="filter_title"><img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}</td>
@@ -231,9 +234,9 @@
 		<td class="filter_title"><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}</td>
 	</tr>
 	<tr>
-		<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank">IATI Registry</a></td>
-		<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/Sector/#codes" target="blank">OECD DAC CRS 5-digit purpose code</a></td>
-		<td>An option to select the starting and ending year as a period for activities</td>
+		<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank">IATI Registry</a>.</td>
+		<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/Sector/#codes" target="blank">OECD DAC CRS 5-digit purpose code</a>.</td>
+		<td>Select the starting and/or ending year as a period for activities.</td>
 	</tr>
 	<tr>
 		<td colspan="3"><div class="filter_text">Advance filters</div></td>
@@ -244,19 +247,39 @@
 		<td class="filter_title"><span>&#10096;&#10097;</span> {search_tag_vocab_txt}</td>
 	</tr>
 	<tr>
-		<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank">IATI Registry</a></td>
-		<td>An <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity</td>
-		<td>An <a href="http://reference.iatistandard.org/203/codelists/TagVocabulary/#codes" target="blank">IATI code</a> for the vocabulary or taxonomy used for tag classifications</td>
+		<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank">IATI Registry</a>.</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity.</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/TagVocabulary/#codes" target="blank">IATI code</a> for the vocabulary or taxonomy used for tag classifications.</td>
+	</tr>
+	<tr>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_humanitarian_scope_txt}</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_humanitarian_activity_txt}</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_commitment_txt}</td>
+	</tr>
+	<tr>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/HumanitarianScopeVocabulary/#codes" target="blank">IATI code</a> for a recognised vocabulary of terms classifying the event or action.</td>
+		<td>A <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/" target="blank">process flag</a> to indicate that this activity and/or transaction relates entirely or partially to humanitarian aid.</td>
+		<td>Select the minimum and/or maximum commitment threshold amount.</td>
+	</tr>
+	<tr>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_result_type_txt}</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_document_category_txt}</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_transaction_type_txt}</td>
+	</tr>
+	<tr>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/ResultType/#codes" target="blank">IATI code</a> for the type of result being reported.</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/DocumentCategory/#codes" target="blank">IATI code</a> defining the category of the document.</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/TransactionType/#codes" target="blank">IATI code</a> defining the type of transaction.</td>
 	</tr>
 	<tr>
 		<td class="filter_title"><span>&#10096;&#10097;</span> {search_finance_type_txt}</td>
-		<td class="filter_title"><span>&#10096;&#10097;</span> {search_humanitarian_activity_txt}</td>
-		<td class="filter_title"><span>&#10096;&#10097;</span> {search_humanitarian_transaction_txt}</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_flow_type_txt}</td>
+		<td class="filter_title"><span>&#10096;&#10097;</span> {search_collaboration_type_txt}</td>
 	</tr>
 	<tr>
-		<td>An <a href="http://reference.iatistandard.org/203/codelists/FinanceType/#codes" target="blank">IATI code</a> for the default DAC/CRS transaction classification used to distinguish financial instruments like grants or loans</td>
-		<td>A <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/" target="blank">process flag</a> to indicate that this activity relates entirely or partially to humanitarian aid</td>
-		<td>A <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/transaction/" target="blank">process flag</a> to indicate that this transaction relates entirely or partially to humanitarian aid</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/FinanceType/#codes" target="blank">IATI code</a> for the default DAC/CRS transaction classification used to distinguish financial instruments like grants or loans.</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/FlowType/#codes" target="blank">IATI code</a> defining whether the activity is funded by Official Development Assistance (ODA), Other Official Flows (OOF), etc.</td>
+		<td>An <a href="http://reference.iatistandard.org/203/codelists/CollaborationType/#codes" target="blank">IATI code</a> defining the type of collaboration involved in the activity’s disbursements.</td>
 	</tr>
 </table>
 </div>
@@ -390,11 +413,11 @@
 	</select>
 </div><div class="search_wrap">
 	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_finance_type_txt}
+		<span>&#10096;&#10097;</span> {search_humanitarian_scope_txt}
 	</div>
-	<select aria-label="Select a default finance type from this dropdown" id="view_search_select_finance_type" class="chosen" multiple>
+	<select aria-label="Select a humanitarian scope from this dropdown" id="view_search_select_humanitarian_scope" class="chosen" multiple>
 		<option value></option>
-		{search_options_finance_type}
+		{search_options_humanitarian_scope}
 	</select>
 </div><div class="search_wrap mid">
 	<div class="search_label">
@@ -403,14 +426,6 @@
 	<select aria-label="Select if humanitarian global is set from this dropdown" id="view_search_select_humanitarian_activity" class="chosen" multiple>
 		<option value></option>
 		{search_options_humanitarian_activity}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_humanitarian_transaction_txt}
-	</div>
-	<select aria-label="Select if transactions are humanitarian from this dropdown" id="view_search_select_humanitarian_transaction" class="chosen" multiple>
-		<option value></option>
-		{search_options_humanitarian_transaction}
 	</select>
 </div><div class="search_wrap mini">
 	<div class="search_label">
@@ -423,7 +438,7 @@
 		<option value></option>
 		{search_options_commitment_max}
 	</select>
-</div><div class="search_wrap mid">
+</div><div class="search_wrap">
 	<div class="search_label">
 		<span>&#10096;&#10097;</span> {search_result_type_txt}
 	</div>
@@ -431,13 +446,45 @@
 		<option value></option>
 		{search_options_result_type}
 	</select>
-</div><div class="search_wrap">
+</div><div class="search_wrap mid">
 	<div class="search_label">
 		<span>&#10096;&#10097;</span> {search_document_category_txt}
 	</div>
 	<select aria-label="Select a document category from this dropdown" id="view_search_select_document_category" class="chosen" multiple>
 		<option value></option>
 		{search_options_document_category}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_transaction_type_txt}
+	</div>
+	<select aria-label="Select a transaction type from this dropdown" id="view_search_select_transaction_type" class="chosen" multiple>
+		<option value></option>
+		{search_options_transaction_type}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_finance_type_txt}
+	</div>
+	<select aria-label="Select a default finance type from this dropdown" id="view_search_select_finance_type" class="chosen" multiple>
+		<option value></option>
+		{search_options_finance_type}
+	</select>
+</div><div class="search_wrap mid">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_flow_type_txt}
+	</div>
+	<select aria-label="Select a default flow type from this dropdown" id="view_search_select_flow_type" class="chosen" multiple>
+		<option value></option>
+		{search_options_flow_type}
+	</select>
+</div><div class="search_wrap">
+	<div class="search_label">
+		<span>&#10096;&#10097;</span> {search_collaboration_type_txt}
+	</div>
+	<select aria-label="Select a collaboration type from this dropdown" id="view_search_select_collaboration_type" class="chosen" multiple>
+		<option value></option>
+		{search_options_collaboration_type}
 	</select>
 </div>
 </div>
