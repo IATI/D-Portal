@@ -537,22 +537,18 @@ query.getsql_where_xson=function(q,qv,wheres){
 
 	let ands=[]
 	
-	let push=function(no,v)
+	let push=function(_n,v)
 	{
+	let n=_n
+	v=""+v // force to string
+
 //		console.log(n+" == "+v)
 
 // we should allow these operators?
+/*
 	let pc={ // possible operators
-		"_lt":"<",
-		"_gt":">",
-		"_lteq":"<=",
-		"_gteq":">=",
-		"_nteq":"!=",
-		"_eq":"=",
-		"_null":"IS NULL",
-		"_not_null":"IS NOT NULL",
+		"_not":"NOT",
 	}
-	let n=no
 	let op="=" // the operator to use
 	for( let eo in pc )
 	{
@@ -563,7 +559,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 			break
 		}
 	}
-
+*/
 
 
 		if( n.startsWith("*") ) // wildcarded xpath partial so we must find all possible paths
@@ -585,7 +581,13 @@ query.getsql_where_xson=function(q,qv,wheres){
 
 			if( ors.length>0 )
 			{
-				ands.push( " ( "+ors.join(" OR ")+" ) " )
+				let prefix=""
+				if( v.beginsWith("!") )
+				{
+					v=v.slice(0,-1)
+					prefix=" NOT "
+				}
+				ands.push( prefix+" ( "+ors.join(" OR ")+" ) " )
 
 				qv[ dstore_db.text_name(cn) ]=v
 			}
@@ -603,8 +605,13 @@ query.getsql_where_xson=function(q,qv,wheres){
 				let nb=p.jpath[ p.jpath.length-1 ]
 				let na=p.jpath.join("").slice(0,-nb.length)
 
-
-				ands.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+				let prefix=""
+				if( v.beginsWith("!") )
+				{
+					v=v.slice(0,-1)
+					prefix=" NOT "
+				}
+				ands.push( prefix+" ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
 
 				qv[ dstore_db.text_name(cn) ]=v
 
