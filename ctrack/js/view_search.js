@@ -174,14 +174,14 @@ view_search.terms=[
 },
 
 {
-	name   : "finance_type",
+	name   : "humanitarian_scope",
 	search : false,
 	filter : true,
-	codes  : [ iati_codes.finance_type, iati_codes.finance_type_withdrawn, ],
-	drops  : [ "#view_search_select_finance_type" ],
-	q      : "/default-finance-type@code",
-	list   : "search_options_finance_type",
-	show   : "search_display_finance_type",
+	codes  : [ dflat_codes["en-name"]["HumanitarianScopeVocabulary"], ],
+	drops  : [ "#view_search_select_humanitarian_scope" ],
+	q      : "/humanitarian-scope@vocabulary",
+	list   : "search_options_humanitarian_scope",
+	show   : "search_display_humanitarian_scope",
 },
 
 {
@@ -190,20 +190,9 @@ view_search.terms=[
 	filter : true,
 	codes  : [ text_bool, ],
 	drops  : [ "#view_search_select_humanitarian_activity" ],
-	q      : "@humanitarian",
+	q      : "*@humanitarian",
 	list   : "search_options_humanitarian_activity",
 	show   : "search_display_humanitarian_activity",
-},
-
-{
-	name   : "humanitarian_transaction",
-	search : false,
-	filter : true,
-	codes  : [ text_bool, ],
-	drops  : [ "#view_search_select_humanitarian_transaction" ],
-	q      : "/transaction@humanitarian",
-	list   : "search_options_humanitarian_transaction",
-	show   : "search_display_humanitarian_transaction",
 },
 
 {
@@ -243,11 +232,55 @@ view_search.terms=[
 	name   : "document_category",
 	search : false,
 	filter : true,
-	codes  : [ iati_codes.doc_cat, ],
+	codes  : [ dflat_codes["en-name"]["DocumentCategory"], ],
 	drops  : [ "#view_search_select_document_category" ],
 	q      : "*/document-link/category@code",
 	list   : "search_options_document_category",
 	show   : "search_display_document_category",
+},
+
+{
+	name   : "transaction_type",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["TransactionType"],, ],
+	drops  : [ "#view_search_select_transaction_type" ],
+	q      : "/transaction-type@code",
+	list   : "search_options_transaction_type",
+	show   : "search_display_transaction_type",
+},
+
+{
+	name   : "finance_type",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["FinanceType"], ],
+	drops  : [ "#view_search_select_finance_type" ],
+	q      : "/default-finance-type@code",
+	list   : "search_options_finance_type",
+	show   : "search_display_finance_type",
+},
+
+{
+	name   : "flow_type",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["FlowType"], ],
+	drops  : [ "#view_search_select_flow_type" ],
+	q      : "/default-flow-type@code",
+	list   : "search_options_flow_type",
+	show   : "search_display_flow_type",
+},
+
+{
+	name   : "collaboration_type",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["CollaborationType"], ],
+	drops  : [ "#view_search_select_collaboration_type" ],
+	q      : "/collaboration-type@code",
+	list   : "search_options_collaboration_type",
+	show   : "search_display_collaboration_type",
 },
 
 ]
