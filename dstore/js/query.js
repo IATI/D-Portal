@@ -540,7 +540,6 @@ query.getsql_where_xson=function(q,qv,wheres){
 	let push=function(_n,v)
 	{
 	let n=_n
-	v=""+v // force to string
 
 //		console.log(n+" == "+v)
 
@@ -582,7 +581,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 			if( ors.length>0 )
 			{
 				let prefix=""
-				if( v.beginsWith("!") )
+				if( v.startsWith("!") )
 				{
 					v=v.slice(0,-1)
 					prefix=" NOT "
@@ -606,7 +605,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 				let na=p.jpath.join("").slice(0,-nb.length)
 
 				let prefix=""
-				if( v.beginsWith("!") )
+				if( v.startsWith("!") )
 				{
 					v=v.slice(0,-1)
 					prefix=" NOT "
