@@ -39,7 +39,7 @@
     "@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/activity-date@type": {
    "jpath": [
@@ -88,7 +88,7 @@
     "/period-end@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/budget/period-start": {
    "required": true,
@@ -101,7 +101,7 @@
     "/period-start@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/budget/value": {
    "jpath": [
@@ -126,7 +126,7 @@
     "/budget",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/budget@status": {
    "jpath": [
@@ -208,7 +208,7 @@
     "/conditions@attached"
    ],
    "required": true,
-   "type": "int"
+   "type": "bool"
   },
   "/iati-activities/iati-activity/contact-info": {
    "multiple": true,
@@ -479,7 +479,7 @@
     "/iati-activities/iati-activity",
     "/crs-add/loan-status@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/crs-add/loan-status@year": {
    "jpath": [
@@ -501,7 +501,7 @@
     "/crs-add/loan-terms/commitment-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/crs-add/loan-terms/repayment-final-date": {
    "type": "null"
@@ -512,7 +512,7 @@
     "/crs-add/loan-terms/repayment-final-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/crs-add/loan-terms/repayment-first-date": {
    "type": "null"
@@ -523,7 +523,7 @@
     "/crs-add/loan-terms/repayment-first-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/crs-add/loan-terms/repayment-plan": {
    "type": "null"
@@ -581,7 +581,7 @@
     "@significance"
    ],
    "required": true,
-   "type": "int"
+   "type": "bool"
   },
   "/iati-activities/iati-activity/default-aid-type": {
    "multiple": true,
@@ -722,7 +722,7 @@
     "/document-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/document-link/language": {
    "multiple": true,
@@ -806,7 +806,7 @@
     "/fss/forecast",
     "@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/fss/forecast@year": {
    "jpath": [
@@ -823,7 +823,7 @@
     "/fss@extraction-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/fss@phaseout-year": {
    "jpath": [
@@ -837,7 +837,7 @@
     "/iati-activities/iati-activity",
     "/fss@priority"
    ],
-   "type": "int"
+   "type": "bool"
   },
   "/iati-activities/iati-activity/humanitarian-scope": {
    "multiple": true,
@@ -983,7 +983,7 @@
     "/administrative",
     "@level"
    ],
-   "type": "int"
+   "type": "uint"
   },
   "/iati-activities/iati-activity/location/administrative@vocabulary": {
    "jpath": [
@@ -1273,7 +1273,7 @@
     "/period-end@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/planned-disbursement/period-start": {
    "required": true,
@@ -1286,7 +1286,7 @@
     "/period-start@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/planned-disbursement/provider-org": {
    "type": "null"
@@ -1403,7 +1403,7 @@
     "/planned-disbursement",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/planned-disbursement@type": {
    "jpath": [
@@ -1622,7 +1622,7 @@
     "/iati-activities/iati-activity",
     "/reporting-org@secondary-reporter"
    ],
-   "type": "int"
+   "type": "bool"
   },
   "/iati-activities/iati-activity/reporting-org@type": {
    "jpath": [
@@ -1715,7 +1715,7 @@
     "/document-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/result/document-link/language": {
    "multiple": true,
@@ -1904,7 +1904,7 @@
     "/document-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/result/indicator/baseline/document-link/language": {
    "multiple": true,
@@ -2000,7 +2000,7 @@
     "/baseline",
     "@iso-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/result/indicator/baseline@value": {
    "jpath": [
@@ -2021,7 +2021,7 @@
     "@year"
    ],
    "required": true,
-   "type": "int"
+   "type": "uint"
   },
   "/iati-activities/iati-activity/result/indicator/description": {
    "type": "null"
@@ -2108,7 +2108,7 @@
     "/document-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/result/indicator/document-link/language": {
    "multiple": true,
@@ -2309,7 +2309,7 @@
     "/document-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/result/indicator/period/actual/document-link/language": {
    "multiple": true,
@@ -2427,7 +2427,7 @@
     "/period-end@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/result/indicator/period/period-start": {
    "required": true,
@@ -2442,7 +2442,7 @@
     "/period-start@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/result/indicator/period/target": {
    "multiple": true,
@@ -2573,7 +2573,7 @@
     "/document-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/result/indicator/period/target/document-link/language": {
    "multiple": true,
@@ -2747,7 +2747,7 @@
     "/indicator",
     "@aggregation-status"
    ],
-   "type": "int"
+   "type": "bool"
   },
   "/iati-activities/iati-activity/result/indicator@ascending": {
    "jpath": [
@@ -2756,7 +2756,7 @@
     "/indicator",
     "@ascending"
    ],
-   "type": "int"
+   "type": "bool"
   },
   "/iati-activities/iati-activity/result/indicator@measure": {
    "jpath": [
@@ -2831,7 +2831,7 @@
     "/result",
     "@aggregation-status"
    ],
-   "type": "int"
+   "type": "bool"
   },
   "/iati-activities/iati-activity/result@type": {
    "jpath": [
@@ -3301,7 +3301,7 @@
     "/transaction-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/transaction/transaction-type": {
    "required": true,
@@ -3339,7 +3339,7 @@
     "/transaction",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-activities/iati-activity/transaction@humanitarian": {
    "jpath": [
@@ -3347,7 +3347,7 @@
     "/transaction",
     "@humanitarian"
    ],
-   "type": "int"
+   "type": "bool"
   },
   "/iati-activities/iati-activity/transaction@ref": {
    "jpath": [
@@ -3383,14 +3383,14 @@
     "/iati-activities/iati-activity",
     "@humanitarian"
    ],
-   "type": "int"
+   "type": "bool"
   },
   "/iati-activities/iati-activity@last-updated-datetime": {
    "jpath": [
     "/iati-activities/iati-activity",
     "@last-updated-datetime"
    ],
-   "type": "number"
+   "type": "time"
   },
   "/iati-activities/iati-activity@linked-data-uri": {
    "jpath": [
@@ -3410,7 +3410,7 @@
    "jpath": [
     "/iati-activities@generated-datetime"
    ],
-   "type": "number"
+   "type": "time"
   },
   "/iati-activities@linked-data-default": {
    "jpath": [
@@ -3485,7 +3485,7 @@
     "/document-date@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/document-link/language": {
    "multiple": true,
@@ -3664,7 +3664,7 @@
     "/budget-line",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-country-budget/budget-line@ref": {
    "jpath": [
@@ -3686,7 +3686,7 @@
     "/period-end@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-country-budget/period-start": {
    "required": true,
@@ -3699,7 +3699,7 @@
     "/period-start@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-country-budget/recipient-country": {
    "required": true,
@@ -3756,7 +3756,7 @@
     "/recipient-country-budget",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-country-budget@status": {
    "jpath": [
@@ -3822,7 +3822,7 @@
     "/budget-line",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-org-budget/budget-line@ref": {
    "jpath": [
@@ -3844,7 +3844,7 @@
     "/period-end@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-org-budget/period-start": {
    "required": true,
@@ -3857,7 +3857,7 @@
     "/period-start@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-org-budget/recipient-org": {
    "required": true,
@@ -3914,7 +3914,7 @@
     "/recipient-org-budget",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-org-budget@status": {
    "jpath": [
@@ -3980,7 +3980,7 @@
     "/budget-line",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-region-budget/budget-line@ref": {
    "jpath": [
@@ -4002,7 +4002,7 @@
     "/period-end@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-region-budget/period-start": {
    "required": true,
@@ -4015,7 +4015,7 @@
     "/period-start@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-region-budget/recipient-region": {
    "required": true,
@@ -4087,7 +4087,7 @@
     "/recipient-region-budget",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/recipient-region-budget@status": {
    "jpath": [
@@ -4132,7 +4132,7 @@
     "/iati-organisations/iati-organisation",
     "/reporting-org@secondary-reporter"
    ],
-   "type": "int"
+   "type": "bool"
   },
   "/iati-organisations/iati-organisation/reporting-org@type": {
    "jpath": [
@@ -4198,7 +4198,7 @@
     "/budget-line",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/total-budget/budget-line@ref": {
    "jpath": [
@@ -4220,7 +4220,7 @@
     "/period-end@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/total-budget/period-start": {
    "required": true,
@@ -4233,7 +4233,7 @@
     "/period-start@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/total-budget/value": {
    "jpath": [
@@ -4258,7 +4258,7 @@
     "/total-budget",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/total-budget@status": {
    "jpath": [
@@ -4324,7 +4324,7 @@
     "/expense-line",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/total-expenditure/expense-line@ref": {
    "jpath": [
@@ -4346,7 +4346,7 @@
     "/period-end@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/total-expenditure/period-start": {
    "required": true,
@@ -4359,7 +4359,7 @@
     "/period-start@iso-date"
    ],
    "required": true,
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation/total-expenditure/value": {
    "jpath": [
@@ -4384,7 +4384,7 @@
     "/total-expenditure",
     "/value@value-date"
    ],
-   "type": "number"
+   "type": "date"
   },
   "/iati-organisations/iati-organisation@default-currency": {
    "jpath": [
@@ -4398,7 +4398,7 @@
     "/iati-organisations/iati-organisation",
     "@last-updated-datetime"
    ],
-   "type": "number"
+   "type": "time"
   },
   "/iati-organisations/iati-organisation@xml:lang": {
    "jpath": [
@@ -4411,7 +4411,7 @@
    "jpath": [
     "/iati-organisations@generated-datetime"
    ],
-   "type": "number"
+   "type": "time"
   },
   "/iati-organisations@version": {
    "jpath": [
@@ -4432,7 +4432,7 @@
         "@xml:lang": "text"
        }
       ],
-      "@iso-date": 1.1,
+      "@iso-date": "1970-01-01",
       "@type": "text"
      }
     ],
@@ -4440,11 +4440,11 @@
     "/activity-status@code": "text",
     "/budget": [
      {
-      "/period-end@iso-date": 1.1,
-      "/period-start@iso-date": 1.1,
+      "/period-end@iso-date": "1970-01-01",
+      "/period-start@iso-date": "1970-01-01",
       "/value": 1.1,
       "/value@currency": "text",
-      "/value@value-date": 1.1,
+      "/value@value-date": "1970-01-01",
       "@status": "text",
       "@type": "text"
      }
@@ -4462,7 +4462,7 @@
       "@type": "text"
      }
     ],
-    "/conditions@attached": 1,
+    "/conditions@attached": 0,
     "/contact-info": [
      {
       "/department/narrative": [
@@ -4536,11 +4536,11 @@
     "/crs-add/loan-status/principal-arrears": 1.1,
     "/crs-add/loan-status/principal-outstanding": 1.1,
     "/crs-add/loan-status@currency": "text",
-    "/crs-add/loan-status@value-date": 1.1,
+    "/crs-add/loan-status@value-date": "1970-01-01",
     "/crs-add/loan-status@year": 1.1,
-    "/crs-add/loan-terms/commitment-date@iso-date": 1.1,
-    "/crs-add/loan-terms/repayment-final-date@iso-date": 1.1,
-    "/crs-add/loan-terms/repayment-first-date@iso-date": 1.1,
+    "/crs-add/loan-terms/commitment-date@iso-date": "1970-01-01",
+    "/crs-add/loan-terms/repayment-final-date@iso-date": "1970-01-01",
+    "/crs-add/loan-terms/repayment-first-date@iso-date": "1970-01-01",
     "/crs-add/loan-terms/repayment-plan@code": "text",
     "/crs-add/loan-terms/repayment-type@code": "text",
     "/crs-add/loan-terms@rate-1": 1.1,
@@ -4548,7 +4548,7 @@
     "/crs-add/other-flags": [
      {
       "@code": "text",
-      "@significance": 1
+      "@significance": 0
      }
     ],
     "/default-aid-type": [
@@ -4584,7 +4584,7 @@
         "@xml:lang": "text"
        }
       ],
-      "/document-date@iso-date": 1.1,
+      "/document-date@iso-date": "1970-01-01",
       "/language": [
        {
         "@code": "text"
@@ -4604,13 +4604,13 @@
      {
       "": 1.1,
       "@currency": "text",
-      "@value-date": 1.1,
+      "@value-date": "1970-01-01",
       "@year": 1.1
      }
     ],
-    "/fss@extraction-date": 1.1,
+    "/fss@extraction-date": "1970-01-01",
     "/fss@phaseout-year": 1.1,
-    "/fss@priority": 1,
+    "/fss@priority": 0,
     "/humanitarian-scope": [
      {
       "/narrative": [
@@ -4705,8 +4705,8 @@
     ],
     "/planned-disbursement": [
      {
-      "/period-end@iso-date": 1.1,
-      "/period-start@iso-date": 1.1,
+      "/period-end@iso-date": "1970-01-01",
+      "/period-start@iso-date": "1970-01-01",
       "/provider-org/narrative": [
        {
         "": "text",
@@ -4727,7 +4727,7 @@
       "/receiver-org@type": "text",
       "/value": 1.1,
       "/value@currency": "text",
-      "/value@value-date": 1.1,
+      "/value@value-date": "1970-01-01",
       "@type": "text"
      }
     ],
@@ -4784,7 +4784,7 @@
      }
     ],
     "/reporting-org@ref": "text",
-    "/reporting-org@secondary-reporter": 1,
+    "/reporting-org@secondary-reporter": 0,
     "/reporting-org@type": "text",
     "/result": [
      {
@@ -4807,7 +4807,7 @@
           "@xml:lang": "text"
          }
         ],
-        "/document-date@iso-date": 1.1,
+        "/document-date@iso-date": "1970-01-01",
         "/language": [
          {
           "@code": "text"
@@ -4852,7 +4852,7 @@
               "@xml:lang": "text"
              }
             ],
-            "/document-date@iso-date": 1.1,
+            "/document-date@iso-date": "1970-01-01",
             "/language": [
              {
               "@code": "text"
@@ -4873,7 +4873,7 @@
             "@ref": "text"
            }
           ],
-          "@iso-date": 1.1,
+          "@iso-date": "1970-01-01",
           "@value": "text",
           "@year": 1
          }
@@ -4897,7 +4897,7 @@
             "@xml:lang": "text"
            }
           ],
-          "/document-date@iso-date": 1.1,
+          "/document-date@iso-date": "1970-01-01",
           "/language": [
            {
             "@code": "text"
@@ -4942,7 +4942,7 @@
                 "@xml:lang": "text"
                }
               ],
-              "/document-date@iso-date": 1.1,
+              "/document-date@iso-date": "1970-01-01",
               "/language": [
                {
                 "@code": "text"
@@ -4966,8 +4966,8 @@
             "@value": "text"
            }
           ],
-          "/period-end@iso-date": 1.1,
-          "/period-start@iso-date": 1.1,
+          "/period-end@iso-date": "1970-01-01",
+          "/period-start@iso-date": "1970-01-01",
           "/target": [
            {
             "/comment/narrative": [
@@ -4995,7 +4995,7 @@
                 "@xml:lang": "text"
                }
               ],
-              "/document-date@iso-date": 1.1,
+              "/document-date@iso-date": "1970-01-01",
               "/language": [
                {
                 "@code": "text"
@@ -5034,8 +5034,8 @@
           "@xml:lang": "text"
          }
         ],
-        "@aggregation-status": 1,
-        "@ascending": 1,
+        "@aggregation-status": 0,
+        "@ascending": 0,
         "@measure": "text"
        }
       ],
@@ -5052,7 +5052,7 @@
         "@xml:lang": "text"
        }
       ],
-      "@aggregation-status": 1,
+      "@aggregation-status": 0,
       "@type": "text"
      }
     ],
@@ -5154,25 +5154,25 @@
        }
       ],
       "/tied-status@code": "text",
-      "/transaction-date@iso-date": 1.1,
+      "/transaction-date@iso-date": "1970-01-01",
       "/transaction-type@code": "text",
       "/value": 1.1,
       "/value@currency": "text",
-      "/value@value-date": 1.1,
-      "@humanitarian": 1,
+      "/value@value-date": "1970-01-01",
+      "@humanitarian": 0,
       "@ref": "text"
      }
     ],
     "@budget-not-provided": "text",
     "@default-currency": "text",
-    "@hierarchy": 1,
-    "@humanitarian": 1,
-    "@last-updated-datetime": 1.1,
+    "@hierarchy": -1,
+    "@humanitarian": 0,
+    "@last-updated-datetime": "1970-01-01T00:00:00",
     "@linked-data-uri": "text",
     "@xml:lang": "text"
    }
   ],
-  "/iati-activities@generated-datetime": 1.1,
+  "/iati-activities@generated-datetime": "1970-01-01T00:00:00",
   "/iati-activities@linked-data-default": "text",
   "/iati-activities@version": "text",
   "/iati-organisations/iati-organisation": [
@@ -5190,7 +5190,7 @@
         "@xml:lang": "text"
        }
       ],
-      "/document-date@iso-date": 1.1,
+      "/document-date@iso-date": "1970-01-01",
       "/language": [
        {
         "@code": "text"
@@ -5236,12 +5236,12 @@
         ],
         "/value": 1.1,
         "/value@currency": "text",
-        "/value@value-date": 1.1,
+        "/value@value-date": "1970-01-01",
         "@ref": "text"
        }
       ],
-      "/period-end@iso-date": 1.1,
-      "/period-start@iso-date": 1.1,
+      "/period-end@iso-date": "1970-01-01",
+      "/period-start@iso-date": "1970-01-01",
       "/recipient-country/narrative": [
        {
         "": "text",
@@ -5251,7 +5251,7 @@
       "/recipient-country@code": "text",
       "/value": 1.1,
       "/value@currency": "text",
-      "/value@value-date": 1.1,
+      "/value@value-date": "1970-01-01",
       "@status": "text"
      }
     ],
@@ -5267,12 +5267,12 @@
         ],
         "/value": 1.1,
         "/value@currency": "text",
-        "/value@value-date": 1.1,
+        "/value@value-date": "1970-01-01",
         "@ref": "text"
        }
       ],
-      "/period-end@iso-date": 1.1,
-      "/period-start@iso-date": 1.1,
+      "/period-end@iso-date": "1970-01-01",
+      "/period-start@iso-date": "1970-01-01",
       "/recipient-org/narrative": [
        {
         "": "text",
@@ -5282,7 +5282,7 @@
       "/recipient-org@ref": "text",
       "/value": 1.1,
       "/value@currency": "text",
-      "/value@value-date": 1.1,
+      "/value@value-date": "1970-01-01",
       "@status": "text"
      }
     ],
@@ -5298,12 +5298,12 @@
         ],
         "/value": 1.1,
         "/value@currency": "text",
-        "/value@value-date": 1.1,
+        "/value@value-date": "1970-01-01",
         "@ref": "text"
        }
       ],
-      "/period-end@iso-date": 1.1,
-      "/period-start@iso-date": 1.1,
+      "/period-end@iso-date": "1970-01-01",
+      "/period-start@iso-date": "1970-01-01",
       "/recipient-region/narrative": [
        {
         "": "text",
@@ -5315,7 +5315,7 @@
       "/recipient-region@vocabulary-uri": "text",
       "/value": 1.1,
       "/value@currency": "text",
-      "/value@value-date": 1.1,
+      "/value@value-date": "1970-01-01",
       "@status": "text"
      }
     ],
@@ -5326,7 +5326,7 @@
      }
     ],
     "/reporting-org@ref": "text",
-    "/reporting-org@secondary-reporter": 1,
+    "/reporting-org@secondary-reporter": 0,
     "/reporting-org@type": "text",
     "/total-budget": [
      {
@@ -5340,15 +5340,15 @@
         ],
         "/value": 1.1,
         "/value@currency": "text",
-        "/value@value-date": 1.1,
+        "/value@value-date": "1970-01-01",
         "@ref": "text"
        }
       ],
-      "/period-end@iso-date": 1.1,
-      "/period-start@iso-date": 1.1,
+      "/period-end@iso-date": "1970-01-01",
+      "/period-start@iso-date": "1970-01-01",
       "/value": 1.1,
       "/value@currency": "text",
-      "/value@value-date": 1.1,
+      "/value@value-date": "1970-01-01",
       "@status": "text"
      }
     ],
@@ -5364,23 +5364,23 @@
         ],
         "/value": 1.1,
         "/value@currency": "text",
-        "/value@value-date": 1.1,
+        "/value@value-date": "1970-01-01",
         "@ref": "text"
        }
       ],
-      "/period-end@iso-date": 1.1,
-      "/period-start@iso-date": 1.1,
+      "/period-end@iso-date": "1970-01-01",
+      "/period-start@iso-date": "1970-01-01",
       "/value": 1.1,
       "/value@currency": "text",
-      "/value@value-date": 1.1
+      "/value@value-date": "1970-01-01"
      }
     ],
     "@default-currency": "text",
-    "@last-updated-datetime": 1.1,
+    "@last-updated-datetime": "1970-01-01T00:00:00",
     "@xml:lang": "text"
    }
   ],
-  "/iati-organisations@generated-datetime": 1.1,
+  "/iati-organisations@generated-datetime": "1970-01-01T00:00:00",
   "/iati-organisations@version": "text"
  }
 }
