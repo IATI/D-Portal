@@ -711,10 +711,9 @@ view_search.view=function(args)
 view_search.latest=0;
 view_search.ajax=function(args)
 {
-	if( args.aids ) // need to perform prefetch of this url
+	if( ctrack.hash.aids ) // need to perform prefetch of this url
 	{
-		fetcher.prefetch_aids(args.aids,function(){
-			delete args.aids
+		fetcher.prefetch_aids(ctrack.hash.aids,function(){
 			view_search.ajax_fetch(args)
 		})
 	}
