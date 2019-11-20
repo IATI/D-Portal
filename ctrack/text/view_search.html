@@ -387,106 +387,109 @@
 <div onclick="$('#more_filters').toggle();" class="search_show">Advance filters</div>
 
 <div id="more_filters" style="display:none;">
-<div class="search_wrap">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_participating_txt}
+	<div class="search_wrap">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_participating_txt}
+		</div>
+		<select aria-label="Select an participating organisation type from this dropdown" id="view_search_select_participating" class="chosen" multiple>
+			<option value></option>
+			{search_options_participating}
+		</select>
+	</div><div class="search_wrap mid"><!-- POLICY MARKER-->
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_policy_txt}
+		</div>
+		<select aria-label="Select a policy significance and code from this dropdown" id="view_search_select_policy" class="chosen" multiple>
+			<option value></option>
+			{search_options_policy}
+		</select>
+	</div><div class="search_wrap">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_tag_vocab_txt}
+		</div>
+		<select aria-label="Select a tag vocabulary from this dropdown" id="view_search_select_tag_vocab" class="chosen" multiple>
+			<option value></option>
+			{search_options_tag_vocab}
+		</select>
+	</div><div class="search_wrap">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_humanitarian_scope_txt}
+		</div>
+		<select aria-label="Select a humanitarian scope from this dropdown" id="view_search_select_humanitarian_scope" class="chosen" multiple>
+			<option value></option>
+			{search_options_humanitarian_scope}
+		</select>
+	</div><div class="search_wrap mid">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_humanitarian_activity_txt}
+		</div>
+		<select aria-label="Select if humanitarian global is set from this dropdown" id="view_search_select_humanitarian_activity" class="chosen" multiple>
+			<option value></option>
+			{search_options_humanitarian_activity}
+		</select>
+	</div><div class="search_wrap mini">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_commitment_txt}
+		</div>
+		<select aria-label="Select minimum commitment value from this dropdown" id="view_search_select_commitment_min" class="chosen">
+			<option value></option>
+			{search_options_commitment_min}
+		</select><select aria-label="Select minimum commitment value from this dropdown" id="view_search_select_commitment_max" class="chosen">
+			<option value></option>
+			{search_options_commitment_max}
+		</select>
+	</div><div class="search_wrap">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_result_type_txt}
+		</div>
+		<select aria-label="Select a result type from this dropdown" id="view_search_select_result_type" class="chosen" multiple>
+			<option value></option>
+			{search_options_result_type}
+		</select>
+	</div><div class="search_wrap mid">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_document_category_txt}
+		</div>
+		<select aria-label="Select a document category from this dropdown" id="view_search_select_document_category" class="chosen" multiple>
+			<option value></option>
+			{search_options_document_category}
+		</select>
+	</div><div class="search_wrap">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_transaction_type_txt}
+		</div>
+		<select aria-label="Select a transaction type from this dropdown" id="view_search_select_transaction_type" class="chosen" multiple>
+			<option value></option>
+			{search_options_transaction_type}
+		</select>
+	</div><div class="search_wrap">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_finance_type_txt}
+		</div>
+		<select aria-label="Select a default finance type from this dropdown" id="view_search_select_finance_type" class="chosen" multiple>
+			<option value></option>
+			{search_options_finance_type}
+		</select>
+	</div><div class="search_wrap mid">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_flow_type_txt}
+		</div>
+		<select aria-label="Select a default flow type from this dropdown" id="view_search_select_flow_type" class="chosen" multiple>
+			<option value></option>
+			{search_options_flow_type}
+		</select>
+	</div><div class="search_wrap">
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_collaboration_type_txt}
+		</div>
+		<select aria-label="Select a collaboration type from this dropdown" id="view_search_select_collaboration_type" class="chosen" multiple>
+			<option value></option>
+			{search_options_collaboration_type}
+		</select>
 	</div>
-	<select aria-label="Select an participating organisation type from this dropdown" id="view_search_select_participating" class="chosen" multiple>
-		<option value></option>
-		{search_options_participating}
-	</select>
-</div><div class="search_wrap mid"><!-- POLICY MARKER-->
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_policy_txt}
+	<div>
+		<div style="color: #fff;font-size: 14px;padding: 0 0 10px 0;font-weight: bold;">EXTERNAL JSON QUERY <div style="padding: 5px 0;font-weight: normal;">Paste the URL of IATI identifiers in JSON format to view them on d-portal.</div></div><input style="width: 890px;height: auto;min-height: 70px;">
 	</div>
-	<select aria-label="Select a policy significance and code from this dropdown" id="view_search_select_policy" class="chosen" multiple>
-		<option value></option>
-		{search_options_policy}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_tag_vocab_txt}
-	</div>
-	<select aria-label="Select a tag vocabulary from this dropdown" id="view_search_select_tag_vocab" class="chosen" multiple>
-		<option value></option>
-		{search_options_tag_vocab}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_humanitarian_scope_txt}
-	</div>
-	<select aria-label="Select a humanitarian scope from this dropdown" id="view_search_select_humanitarian_scope" class="chosen" multiple>
-		<option value></option>
-		{search_options_humanitarian_scope}
-	</select>
-</div><div class="search_wrap mid">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_humanitarian_activity_txt}
-	</div>
-	<select aria-label="Select if humanitarian global is set from this dropdown" id="view_search_select_humanitarian_activity" class="chosen" multiple>
-		<option value></option>
-		{search_options_humanitarian_activity}
-	</select>
-</div><div class="search_wrap mini">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_commitment_txt}
-	</div>
-	<select aria-label="Select minimum commitment value from this dropdown" id="view_search_select_commitment_min" class="chosen">
-		<option value></option>
-		{search_options_commitment_min}
-	</select><select aria-label="Select minimum commitment value from this dropdown" id="view_search_select_commitment_max" class="chosen">
-		<option value></option>
-		{search_options_commitment_max}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_result_type_txt}
-	</div>
-	<select aria-label="Select a result type from this dropdown" id="view_search_select_result_type" class="chosen" multiple>
-		<option value></option>
-		{search_options_result_type}
-	</select>
-</div><div class="search_wrap mid">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_document_category_txt}
-	</div>
-	<select aria-label="Select a document category from this dropdown" id="view_search_select_document_category" class="chosen" multiple>
-		<option value></option>
-		{search_options_document_category}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_transaction_type_txt}
-	</div>
-	<select aria-label="Select a transaction type from this dropdown" id="view_search_select_transaction_type" class="chosen" multiple>
-		<option value></option>
-		{search_options_transaction_type}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_finance_type_txt}
-	</div>
-	<select aria-label="Select a default finance type from this dropdown" id="view_search_select_finance_type" class="chosen" multiple>
-		<option value></option>
-		{search_options_finance_type}
-	</select>
-</div><div class="search_wrap mid">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_flow_type_txt}
-	</div>
-	<select aria-label="Select a default flow type from this dropdown" id="view_search_select_flow_type" class="chosen" multiple>
-		<option value></option>
-		{search_options_flow_type}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<span>&#10096;&#10097;</span> {search_collaboration_type_txt}
-	</div>
-	<select aria-label="Select a collaboration type from this dropdown" id="view_search_select_collaboration_type" class="chosen" multiple>
-		<option value></option>
-		{search_options_collaboration_type}
-	</select>
-</div>
 </div>
 
 <!-- freetext search - alternative ui with filters below search bar	-->
