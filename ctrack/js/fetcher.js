@@ -55,8 +55,7 @@ fetcher.prefetch=function(f)
 			}
 		}
 
-
-		console.log(aids)
+//		console.log(aids)
 		
 		fetcher.aids=aids // remember this array for all later requests
 		
@@ -118,8 +117,6 @@ fetcher.ajax=async function(dat,callback)
 	if(fetcher.aids)
 	{
 
-console.log( JSON.stringify(dat) )
-
 		let d = await fetch( ctrack.args.q , {
 			method: 'POST', // *GET, POST, PUT, DELETE, etc.
 			mode: 'cors', // no-cors, *cors, same-origin
@@ -132,27 +129,9 @@ console.log( JSON.stringify(dat) )
 			body: JSON.stringify(dat) // body data type must match "Content-Type" header
 		})
 			  
-console.log(d)
-
 		d = await d.json()
 
-console.log(d)
-
 		callback(d)
-
-/*
-		$.ajax({
-			cache:false,
-			method:"POST",
-			dataType: "json",
-			url: ctrack.args.q ,
-			data: JSON.stringify(dat),
-			success: function(d){
-				console.log(d)
-				callback(d)
-			}
-		});
-*/
 
 	}
 	else
