@@ -66,8 +66,6 @@ fetcher.prefetch=function(f)
 	if( ctrack.q.aids )
 	{
 		var url=ctrack.q.aids
-//		delete ctrack.q.aids
-		console.log( url )
 
 		try {
 
