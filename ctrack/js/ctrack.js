@@ -232,7 +232,7 @@ ctrack.setup=function(args)
 		var it=views.search.terms[idx]
 		if( it.q && ctrack.q[it.q] )
 		{
-			search_args.push(it.q+"="+encodeURI(ctrack.q[it.q]))
+			search_args.push(it.q+"="+encodeURIComponent(ctrack.q[it.q]))
 			if( !args[it.q] ) { args[it.q] = ctrack.q[it.q] }
 		}
 	}
@@ -465,7 +465,7 @@ ctrack.setup=function(args)
 // build ? strings for url changes
 
 	var aa={}
-	for(var n in ctrack.q) { aa[n]=encodeURI(ctrack.q[n]); } // use raw Q
+	for(var n in ctrack.q) { aa[n]=encodeURIComponent(ctrack.q[n]); } // use raw Q
 	if(args.flava!="original")		{ aa["flava"]    =args.flava;         }
 	if(args.tongue!="eng")			{ aa["tongue"]   =args.tongue;        }
 	if(args.newyear!="01-01")		{ aa["newyear"]  =args.newyear;       }
