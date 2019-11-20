@@ -40,18 +40,21 @@ query.serv = async function(req,res,next){
 	}
 	else
 */	{
-		if(req.body.sql) // a post query
+		let sql=req.body.sql||req.query.sql
+		if(sql) // a post query
 		{
 //			console.log( req.body.sql )
 			var db=query.db()
 			var ret={}
 			var starting=new Date().getTime()
-			ret.result=await db.any( req.body.sql ).catch((e)=>{
+			ret.result=await db.any( sql ).catch((e)=>{
 				ret.error=e.toString()
 				res.jsonp(ret)
 			})
 			var ending=new Date().getTime()
 			ret.duration=(ending-starting)/1000.0
+			res.set('charset','utf8');
+			res.set('Content-Type', 'application/json');
 			res.jsonp(ret);
 		}
 		else

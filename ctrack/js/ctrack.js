@@ -232,7 +232,7 @@ ctrack.setup=function(args)
 		var it=views.search.terms[idx]
 		if( it.q && ctrack.q[it.q] )
 		{
-			search_args.push(it.q+"="+ctrack.q[it.q])
+			search_args.push(it.q+"="+encodeURIComponent(ctrack.q[it.q]))
 			if( !args[it.q] ) { args[it.q] = ctrack.q[it.q] }
 		}
 	}
@@ -254,7 +254,7 @@ ctrack.setup=function(args)
 
 	if(search_args.length==1) // only 1
 	{
-		if( search_args[0].indexOf("|")!=-1 || search_args[0].indexOf(",")!=-1 ) // actually not 1 as it is a multiple
+		if( search_args[0].indexOf("%2C")!=-1 || search_args[0].indexOf("%7C")!=-1 ) // actually not 1 as it is a multiple
 		{
 			ctrack.args.showsearch=true;
 		}
@@ -465,7 +465,7 @@ ctrack.setup=function(args)
 // build ? strings for url changes
 
 	var aa={}
-	for(var n in ctrack.q) { aa[n]=encodeURI(ctrack.q[n]); } // use raw Q
+	for(var n in ctrack.q) { aa[n]=encodeURIComponent(ctrack.q[n]); } // use raw Q
 	if(args.flava!="original")		{ aa["flava"]    =args.flava;         }
 	if(args.tongue!="eng")			{ aa["tongue"]   =args.tongue;        }
 	if(args.newyear!="01-01")		{ aa["newyear"]  =args.newyear;       }
@@ -696,7 +696,7 @@ ctrack.setup=function(args)
 		}
 	}
 	
-	fetcher.prefetch(function(){
+	fetcher.prefetch_aids(ctrack.q.aids,function(){
 		
 		ctrack.check_hash();
 		ctrack.display_hash(); // this will display view=main or whatever page is requsted

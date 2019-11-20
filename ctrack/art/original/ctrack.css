@@ -397,10 +397,10 @@ a.search_refine:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50
 .filter_text:after			{right:0;}
 .filter_text				{text-align:center; padding:20px 0 0 0; color:#ccc; font-size:16px; position:relative;}
 
-.search_external			{color:#fff; font-size:14px; font-weight:bold;}
-.search_external span		{display:block; padding:5px 0 10px 0; font-weight:normal;}
-textarea.search_textarea	{width:900px; height:80px; padding:5px;}
-textarea.search_textarea::placeholder {color:#777;}
+.search_external			{color:#fff; font-size:14px; font-weight:bold; padding-top:5px;}
+.search_external span		{font-weight:normal;}
+.search_external input		{width:895px; height:40px; margin-top:10px;}
+.search_external input::placeholder {color:#777;}
 
 .search_opts				{display:inline-block; vertical-align:top; width:120px;}
 .search_opts_clear			{display:inline-block; vertical-align:top; width:154px;}

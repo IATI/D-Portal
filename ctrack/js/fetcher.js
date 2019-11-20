@@ -18,7 +18,7 @@ var refry=require("../../dstore/js/refry.js")
 
 
 // pre fetch cache data we will need for future fetches
-fetcher.prefetch=function(f)
+fetcher.prefetch_aids=function(aids,f)
 {
 
 	var setaids=function(d){
@@ -33,6 +33,11 @@ fetcher.prefetch=function(f)
 		if( typeof rows == "object" &&  d.rows ) // dportal style
 		{
 			rows=d.rows
+		}
+		else
+		if( typeof rows == "object" &&  d.result ) // dportal dquery style
+		{
+			rows=d.result
 		}
 
 
@@ -63,22 +68,19 @@ fetcher.prefetch=function(f)
 	}
 
 
-console.log("prefetch")
-
-	if( ctrack.q.aids )
+	fetcher.aids=undefined
+	if( aids )
 	{
-		var url=ctrack.q.aids
-//		delete ctrack.q.aids
-		console.log( url )
-
 		try {
 
-			var d=JSON.parse(url);
+			var d=JSON.parse(aids);
 			setaids(d) // got local json
 			
 		} catch (e) {
 
-			$.getJSON( url , function(d){
+			console.log("Prefetching : "+aids)
+
+			$.getJSON( aids , function(d){
 				setaids(d) // got remote json
 			}) 
 		}
