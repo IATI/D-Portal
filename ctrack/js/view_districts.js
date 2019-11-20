@@ -8,7 +8,7 @@ exports.name="view_districts";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
@@ -89,7 +89,7 @@ view_districts.ajax=function(args)
 				"code":"D|E",
 				"day_gteq":y+"-"+ctrack.args.newyear,"day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args);
+		fetcher.ajax_dat_fix(dat,args);
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		var callback=function(data){
 //			console.log("fetch transactions districts "+year);
@@ -112,7 +112,7 @@ view_districts.ajax=function(args)
 			
 			display();
 		};
-		fetch.ajax(dat,callback);
+		fetcher.ajax(dat,callback);
 	});
 	
 	var years=[year+1,year+2];
@@ -127,7 +127,7 @@ view_districts.ajax=function(args)
 				"location_code":"adm2",
 				"day_end_gteq":y+"-"+ctrack.args.newyear,"day_end_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args);
+		fetcher.ajax_dat_fix(dat,args);
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		var callback=function(data){
 			
@@ -146,6 +146,6 @@ view_districts.ajax=function(args)
 			
 			display();
 		};
-		fetch.ajax(dat,callback);
+		fetcher.ajax(dat,callback);
 	});
 }

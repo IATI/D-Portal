@@ -2,7 +2,7 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var fetch=exports;
+var fetcher=exports;
 
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
@@ -14,11 +14,84 @@ var iati_codes=require("../../dstore/json/iati_codes.json")
 var refry=require("../../dstore/js/refry.js")
 //var iati_xml=require("../../dstore/js/iati_xml.js")
 
-//var fetch=require("./fetch.js")
+//var fetcher=require("./fetcher.js")
 
 
+// pre fetch cache data we will need for future fetches
+fetcher.prefetch=function(f)
+{
 
-fetch.get_today=function()
+	var setaids=function(d){
+
+		var rows=d
+		
+		if( typeof rows == "object" && d.response && d.response.docs ) // datastore style
+		{
+			rows=d.response.docs
+		}
+		else
+		if( typeof rows == "object" &&  d.rows ) // dportal style
+		{
+			rows=d.rows
+		}
+
+
+		var aids=[]
+		
+		for(var i=0 ; i<rows.length ; i++ )
+		{
+			var v=rows[i]
+			
+			if( typeof v == "string" )
+			{
+				aids.push(v)
+			}
+			else
+			if( typeof v == "object" )
+			{
+				if(v.aid) { aids.push(v.aid) }
+				else
+				if(v.iati_identifier) { aids.push(v.iati_identifier) }
+			}
+		}
+
+//		console.log(aids)
+		
+		fetcher.aids=aids // remember this array for all later requests
+		
+		f()
+	}
+
+
+console.log("prefetch")
+
+	if( ctrack.q.aids )
+	{
+		var url=ctrack.q.aids
+//		delete ctrack.q.aids
+		console.log( url )
+
+		try {
+
+			var d=JSON.parse(url);
+			setaids(d) // got local json
+			
+		} catch (e) {
+
+			$.getJSON( url , function(d){
+				setaids(d) // got remote json
+			}) 
+		}
+
+	}
+	else
+	{
+		f() // nothing to wait for
+	}
+
+}
+
+fetcher.get_today=function()
 {
 	var now = new Date();
     var day = ("0" + now.getDate()).slice(-2);
@@ -27,7 +100,7 @@ fetch.get_today=function()
     return today;
 }
 
-fetch.get_nday=function(n)
+fetcher.get_nday=function(n)
 {
 	var now = new Date(n*1000*60*60*24);
     var day = ("0" + now.getDate()).slice(-2);
@@ -36,20 +109,44 @@ fetch.get_nday=function(n)
     return nday;
 }
 
-fetch.ajax=function(dat,callback)
+fetcher.ajax=async function(dat,callback)
 {
 // we may queue a bunch of requests, this makes us wait for the last one before updating the view
 	ctrack.display_wait_update(1);
-	
-	$.ajax({
-	  dataType: "json",
-	  url: ctrack.args.q + "?callback=?",
-	  data: dat,
-	  success: callback
-	});
+
+	if(fetcher.aids)
+	{
+
+		let d = await fetch( ctrack.args.q , {
+			method: 'POST', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrer: 'no-referrer', // no-referrer, *client
+			body: JSON.stringify(dat) // body data type must match "Content-Type" header
+		})
+			  
+		d = await d.json()
+
+		callback(d)
+
+	}
+	else
+
+	{
+		$.ajax({
+			dataType: "json",
+			url: ctrack.args.q + "?callback=?",
+			data: dat,
+			success: callback,
+		});
+	}
 }
 
-fetch.tourl=function(dat)
+fetcher.tourl=function(dat)
 {
 	var p={}; // filter empty values from url
 	for(var n in dat)
@@ -65,7 +162,7 @@ fetch.tourl=function(dat)
 }
 
 //modify dat so it reflects the args or base settings (eg limit to a publisher)
-fetch.ajax_dat_fix=function(dat,args,flag)
+fetcher.ajax_dat_fix=function(dat,args,flag)
 {
 	args=args||{}
 	
@@ -115,6 +212,11 @@ fetch.ajax_dat_fix=function(dat,args,flag)
 	if(args.q)
 	{
 		for(var n in args.q) { dat[n]=args.q[n]; }
+	}
+
+	if(fetcher.aids)
+	{
+		dat.aids=fetcher.aids
 	}
 
 // finally make sure we filter out aid sector/country values that would explode the transaction or budget values

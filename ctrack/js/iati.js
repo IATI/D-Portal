@@ -8,7 +8,7 @@ var iati=exports;
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 //var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 
 ctrack.iati={};

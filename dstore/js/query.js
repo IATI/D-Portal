@@ -484,6 +484,7 @@ for(var n in ns) // all valid fields
 		}
 	}
 
+	query.getsql_external_aids(q,qv,wheres)
 	query.getsql_where_xson(q,qv,wheres)
 
 	var ret="";
@@ -529,18 +530,59 @@ query.getsql_group_by=function(q,qv){
 	return "";
 };
 
+// support external list of json
+query.getsql_external_aids=function(q,qv,wheres){
+	
+	if(q.aids)
+	{
+		if(typeof q.aids=="string") // convert to json
+		{
+			q.aids=JSON.parse(q.aids)
+		}
+		if( Array.isArray( q.aids ) )
+		{
+			qv[ dstore_db.text_name("aids") ]=q.aids
+			let ret=" aid = ANY("+dstore_db.text_plate("aids")+") "
+
+//	console.log(ret)
+
+			wheres.push(ret)
+		}
+	}
+
+}
+
 // check the new json values
 query.getsql_where_xson=function(q,qv,wheres){
 
 
 	if(dstore_db.engine!="pg") { return ""; } // postgres only
 
-
 	let ands=[]
 	
-	let push=function(n,v)
+	let push=function(_n,v)
 	{
+	let n=_n
+
 //		console.log(n+" == "+v)
+
+// we should allow these operators?
+/*
+	let pc={ // possible operators
+		"_not":"NOT",
+	}
+	let op="=" // the operator to use
+	for( let eo in pc )
+	{
+		if( n.endsWith(eo) )
+		{
+			n=n.slice(0,-eo.length)
+			op=pc[eo]
+			break
+		}
+	}
+*/
+
 
 		if( n.startsWith("*") ) // wildcarded xpath partial so we must find all possible paths
 		{
@@ -555,13 +597,26 @@ query.getsql_where_xson=function(q,qv,wheres){
 					let nb=p.jpath[ p.jpath.length-1 ]
 					let na=p.jpath.join("").slice(0,-nb.length)
 
-					ors.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+					if( v=="*" || v=="!*" )
+					{
+						ors.push( " ( root = '"+na+"' AND xson ? '"+nb+"' ) " )
+					}
+					else
+					{
+						ors.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+					}
 				}
 			}
 
 			if( ors.length>0 )
 			{
-				ands.push( " ( "+ors.join(" OR ")+" ) " )
+				let prefix=""
+				if( v.startsWith("!") )
+				{
+					v=v.slice(0,-1)
+					prefix=" NOT "
+				}
+				ands.push( prefix+" ( "+ors.join(" OR ")+" ) " )
 
 				qv[ dstore_db.text_name(cn) ]=v
 			}
@@ -579,8 +634,20 @@ query.getsql_where_xson=function(q,qv,wheres){
 				let nb=p.jpath[ p.jpath.length-1 ]
 				let na=p.jpath.join("").slice(0,-nb.length)
 
-
-				ands.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+				let prefix=""
+				if( v.startsWith("!") )
+				{
+					v=v.slice(0,-1)
+					prefix=" NOT "
+				}
+				if( v=="*" || v=="!*" )
+				{
+					ands.push( prefix+" ( root = '"+na+"' AND xson ? '"+nb+"' ) " )
+				}
+				else
+				{
+					ands.push( prefix+" ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
+				}
 
 				qv[ dstore_db.text_name(cn) ]=v
 
@@ -616,7 +683,8 @@ query.getsql_where_xson=function(q,qv,wheres){
 	if( ands.length>0 )
 	{
 
-		let ret=" aid in ( select aid from xson where aid is not null AND "+ands.join(" AND ")+" group by aid ) "
+		let ret=" aid in ( select distinct aid from xson where aid is not null AND "+
+			ands.join(" INTERSECT select distinct aid from xson where aid is not null AND ")+" ) "
 
 //	console.log(ret)
 //	console.log(qv)

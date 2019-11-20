@@ -10,7 +10,7 @@ var csvw=require("./csvw.js")
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 var tables=require("./tables.js")
 
 var refry=require("../../dstore/js/refry.js")
@@ -152,7 +152,7 @@ view_sectors.ajax=function(args)
 				"trans_code":"D|E",
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args,"trans");
+		fetcher.ajax_dat_fix(dat,args,"trans");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		var callback=function(data){
 //			console.log("fetch transactions sectors "+year);
@@ -171,7 +171,7 @@ view_sectors.ajax=function(args)
 			
 			display();
 		};
-		fetch.ajax(dat,callback);
+		fetcher.ajax(dat,callback);
 	});
 	
 	var years=[year+1,year+2];
@@ -186,7 +186,7 @@ view_sectors.ajax=function(args)
 				"budget_priority":1, // has passed some validation checks serverside
 				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args,"budget");
+		fetcher.ajax_dat_fix(dat,args,"budget");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 		var callback=function(data){
 			
@@ -205,6 +205,6 @@ view_sectors.ajax=function(args)
 			
 			display();
 		};
-		fetch.ajax(dat,callback);
+		fetcher.ajax(dat,callback);
 	});
 }

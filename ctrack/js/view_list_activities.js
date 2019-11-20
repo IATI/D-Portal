@@ -10,7 +10,7 @@ var csvw=require("./csvw.js")
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 var views=require("./views.js")
 
 var refry=require("../../dstore/js/refry.js")
@@ -54,7 +54,7 @@ view_list_activities.ajax=function(args)
 			"distincton":"aid",
 		};
 
-	fetch.ajax_dat_fix(dat,args);
+	fetcher.ajax_dat_fix(dat,args);
 
 // cant use for postgres, must fix code...
 //	delete dat.orderby;
@@ -69,7 +69,7 @@ view_list_activities.ajax=function(args)
 		delete dat.distincton;
 	}
 		
-	fetch.ajax(dat,function(data){
+	fetcher.ajax(dat,function(data){
 		if(args.output=="count")
 		{
 			ctrack.chunk(args.chunk || "list_activities_count",data.rows[0]["count_aid"]);
@@ -104,8 +104,8 @@ view_list_activities.ajax=function(args)
 				
 				d.date_start="N/A"
 				d.date_end="N/A"
-				if(v.day_start!==null) { d.date_start=fetch.get_nday(v.day_start); }
-				if(v.day_end  !==null) { d.date_end  =fetch.get_nday(v.day_end  ); }
+				if(v.day_start!==null) { d.date_start=fetcher.get_nday(v.day_start); }
+				if(v.day_end  !==null) { d.date_end  =fetcher.get_nday(v.day_end  ); }
 
 				d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
 				d.commitment=commafy(""+Math.floor(ctrack.convert_num("commitment",v)));

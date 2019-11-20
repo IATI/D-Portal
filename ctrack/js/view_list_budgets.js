@@ -10,7 +10,7 @@ var csvw=require("./csvw.js")
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
@@ -61,7 +61,7 @@ view_list_budgets.ajax=function(args)
 		dat["budget_day_start_gteq"]=(parseInt(year)+0)+"-"+ctrack.args.newyear;
 		dat["budget_day_start_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
 	}
-	fetch.ajax_dat_fix(dat,args,"budget");
+	fetcher.ajax_dat_fix(dat,args,"budget");
 
 	if(args.output=="count") // just count please
 	{
@@ -70,7 +70,7 @@ view_list_budgets.ajax=function(args)
 		delete dat.orderby;
 		delete dat.groupby;
 	}
-	fetch.ajax(dat,function(data){
+	fetcher.ajax(dat,function(data){
 		if(args.output=="count")
 		{
 			ctrack.chunk(args.chunk || "list_budgets_count",data.rows[0]["count"]);

@@ -10,7 +10,7 @@ var csvw=require("./csvw.js")
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
@@ -51,7 +51,7 @@ view_list_publishers.ajax=function(args)
 			"groupby":"reporting_ref",
 			"orderby":"1-",
 		};
-	fetch.ajax_dat_fix(dat,args);
+	fetcher.ajax_dat_fix(dat,args);
 	
 	if(args.output=="count") // just count please
 	{
@@ -61,7 +61,7 @@ view_list_publishers.ajax=function(args)
 		delete dat.groupby;
 	}
 		
-	fetch.ajax(dat,function(data){
+	fetcher.ajax(dat,function(data){
 		if(args.output=="count")
 		{
 			ctrack.chunk(args.chunk || "list_publishers_count",data.rows[0]["count"]);

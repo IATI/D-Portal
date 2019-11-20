@@ -8,7 +8,7 @@ exports.name="view_dash_sluglog";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
@@ -37,9 +37,9 @@ view_dash_sluglog.ajax=function()
 {
 	ctrack.chunk("dash_slugname",ctrack.hash.slug);
 
-	fetch.ajax({"from":"sluglog","slug":ctrack.hash.slug},function(data)
+	fetcher.ajax({"from":"sluglog","slug":ctrack.hash.slug},function(data)
 	{
 		ctrack.chunk("dash_sluglog",data.log && ( $('<div/>').text(data.log).html().replace(/\n/g,"<br/>") ) || "N/A");
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 	});
 };

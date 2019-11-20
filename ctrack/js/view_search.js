@@ -8,7 +8,7 @@ exports.name="view_search";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var views=require("./views.js")
 
@@ -703,7 +703,7 @@ view_search.ajax=function(args)
 			"limit":-1,
 			"select":"count_aid",
 		};
-	fetch.ajax_dat_fix(dat,args);
+	fetcher.ajax_dat_fix(dat,args);
 
 	if(dat.year_max)
 	{
@@ -731,7 +731,7 @@ view_search.ajax=function(args)
 	
 	var latest=view_search.latest;
 	
-	fetch.ajax(dat,function(data){
+	fetcher.ajax(dat,function(data){
 		if(latest!=view_search.latest) { return; } // ignore old search data
 
 		var c=data.rows[0]["count_aid"];
@@ -745,7 +745,7 @@ view_search.ajax=function(args)
 	
 	if( args && args.q && args.q.text_search ) // try for exact aid
 	{
-		fetch.ajax({
+		fetcher.ajax({
 				"from":"act",
 				"limit":1,
 				"aid":args.q.text_search.trim(),

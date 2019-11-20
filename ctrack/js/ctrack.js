@@ -5,7 +5,7 @@ var ctrack=exports;
 
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 var savi=require("./savi.js")
 var chart=require("./chart.js")
 
@@ -459,13 +459,13 @@ ctrack.setup=function(args)
 	ctrack.div.master.html( plate.replace("{loading}")  );
 	
 	
-	ctrack.chunk("today",fetch.get_today());
+	ctrack.chunk("today",fetcher.get_today());
 	ctrack.chunk("hash","");
 	
 // build ? strings for url changes
 
 	var aa={}
-	for(var n in ctrack.q) { aa[n]=ctrack.q[n]; } // use raw Q
+	for(var n in ctrack.q) { aa[n]=encodeURI(ctrack.q[n]); } // use raw Q
 	if(args.flava!="original")		{ aa["flava"]    =args.flava;         }
 	if(args.tongue!="eng")			{ aa["tongue"]   =args.tongue;        }
 	if(args.newyear!="01-01")		{ aa["newyear"]  =args.newyear;       }
@@ -695,8 +695,13 @@ ctrack.setup=function(args)
 			}
 		}
 	}
-	ctrack.check_hash();
-	ctrack.display_hash(); // this will display view=main or whatever page is requsted
+	
+	fetcher.prefetch(function(){
+		
+		ctrack.check_hash();
+		ctrack.display_hash(); // this will display view=main or whatever page is requsted
+
+	})
 
 }
 

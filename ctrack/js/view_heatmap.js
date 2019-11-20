@@ -8,7 +8,7 @@ exports.name="view_heatmap";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var views=require("./views.js")
 

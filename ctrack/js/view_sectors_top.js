@@ -8,7 +8,7 @@ exports.name="view_sectors_top";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
@@ -48,7 +48,7 @@ view_sectors_top.ajax=function(args)
 			dat["trans_day_gteq"]=year+"-"+ctrack.args.newyear;
 			dat["trans_day_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
 	}
-	fetch.ajax_dat_fix(dat,args,"trans");
+	fetcher.ajax_dat_fix(dat,args,"trans");
 
 	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 	var callback=function(data){
@@ -118,6 +118,6 @@ view_sectors_top.ajax=function(args)
 		ctrack.display();
 
 	};
-	fetch.ajax(dat,callback);
+	fetcher.ajax(dat,callback);
 
 }

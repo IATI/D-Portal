@@ -8,7 +8,7 @@ exports.name="view_donors_top";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
@@ -45,9 +45,9 @@ view_donors_top.ajax=function(args)
 		dat["trans_day_gteq"]=year+"-"+ctrack.args.newyear;
 		dat["trans_day_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
 	}
-	fetch.ajax_dat_fix(dat,args,"trans");
+	fetcher.ajax_dat_fix(dat,args,"trans");
 	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
-	fetch.ajax(dat,function(data){
+	fetcher.ajax(dat,function(data){
 //			console.log("fetch transactions donors "+year);
 //			console.log(data);
 		

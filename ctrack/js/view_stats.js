@@ -8,7 +8,7 @@ exports.name="view_stats";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var views=require("./views.js")
 
@@ -69,9 +69,9 @@ view_stats.ajax=function(args)
 			"select":"count_aid",
 			"from":"act",
 		};
-	fetch.ajax_dat_fix(dat,args);
+	fetcher.ajax_dat_fix(dat,args);
 		
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_stats.numof_callback");
 //		console.log(data);
@@ -83,7 +83,7 @@ view_stats.ajax=function(args)
 		
 		view_stats.calc();
 		
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 	});
 	
 	
@@ -97,15 +97,15 @@ view_stats.ajax=function(args)
 //			"select":"count_reporting_ref",
 //			"from":"act",
 //		};
-	fetch.ajax_dat_fix(dat,args);
+	fetcher.ajax_dat_fix(dat,args);
 		
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 		ctrack.chunk("numof_publishers",data.rows.length);
 
 		view_stats.calc();
 		
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 	});
 
 
@@ -114,10 +114,10 @@ view_stats.ajax=function(args)
 			"from":"act,location",
 			"limit":-1,
 		};
-	fetch.ajax_dat_fix(dat,args);
+	fetcher.ajax_dat_fix(dat,args);
 	if(dat.country_code) { dat.country_percent=100;}
 
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 			
 		if(data.rows[0])
@@ -126,7 +126,7 @@ view_stats.ajax=function(args)
 		}
 		view_stats.calc();
 
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 	});
 	
 	views.planned.ajax({output:"count"});

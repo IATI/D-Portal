@@ -10,7 +10,7 @@ var csvw=require("./csvw.js")
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 var tables=require("./tables.js")
 
 var refry=require("../../dstore/js/refry.js")
@@ -121,9 +121,9 @@ view_publishers.ajax=function(args)
 				"trans_code":"D|E",
 				"trans_day_gteq":y+"-"+ctrack.args.newyear,"trans_day_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args,"trans");
+		fetcher.ajax_dat_fix(dat,args,"trans");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
-		fetch.ajax(dat,function(data){
+		fetcher.ajax(dat,function(data){
 //			console.log("fetch transactions publishers "+year);
 //			console.log(data);
 			
@@ -157,9 +157,9 @@ view_publishers.ajax=function(args)
 				"groupby":"reporting_ref",
 				"budget_day_start_gteq":y+"-"+ctrack.args.newyear,"budget_day_start_lt":(parseInt(y)+1)+"-"+ctrack.args.newyear,
 			};
-		fetch.ajax_dat_fix(dat,args,"budget");
+		fetcher.ajax_dat_fix(dat,args,"budget");
 		if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
-		fetch.ajax(dat,function(data){
+		fetcher.ajax(dat,function(data){
 			
 //			console.log("fetch budget publishers "+year);			
 //			console.log(data);

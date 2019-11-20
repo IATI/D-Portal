@@ -8,7 +8,7 @@ exports.name="view_main";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var views=require("./views.js")
 
@@ -60,7 +60,7 @@ view_main.view=function(args)
 
 	top_opts.year="all years";
 
-	var test=fetch.ajax_dat_fix({},{}); // do all the icky merge logic so we can test
+	var test=fetcher.ajax_dat_fix({},{}); // do all the icky merge logic so we can test
 	
 	if( test["country_code"] )
 	{

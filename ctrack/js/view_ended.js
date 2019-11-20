@@ -7,7 +7,7 @@ exports.name="view_ended";
 
 var ctrack=require("./ctrack.js")
 var views=require("./views.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 // the chunk names this view will fill with new data
 view_ended.chunks=[
@@ -20,7 +20,7 @@ view_ended.chunks=[
 //
 view_ended.ajax=function(args)
 {	
-	var today=fetch.get_today();
+	var today=fetcher.get_today();
 	
 	args=args || {};
 	

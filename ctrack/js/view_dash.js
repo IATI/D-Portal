@@ -8,7 +8,7 @@ exports.name="view_dash";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
@@ -56,10 +56,10 @@ view_dash.ajax=function(args)
 
 view_dash.ajax_cronlog=function()
 {
-	fetch.ajax({"from":"cronlog_time"},function(data)
+	fetcher.ajax({"from":"cronlog_time"},function(data)
 	{
 		ctrack.chunk("dash_last_updated",data.time || "N/A");
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 	});
 };
 
@@ -73,8 +73,8 @@ view_dash.ajax2=function(args)
 			"orderby":"1-",
 			"limit":-1
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash.ajax");
 //		console.log(data);
@@ -99,7 +99,7 @@ view_dash.ajax2=function(args)
 			
 		view_dash.calc();
 
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 
 		view_dash.ajax3(args);
 	});
@@ -113,8 +113,8 @@ view_dash.ajax1=function(args)
 			"from":"act",
 			"limit":-1
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash.ajax");
 //		console.log(data);
@@ -129,7 +129,7 @@ view_dash.ajax1=function(args)
 		
 		view_dash.calc();
 
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 		
 		view_dash.ajax2(args);
 	});
@@ -145,8 +145,8 @@ view_dash.ajax3=function(args)
 			"orderby":"1-",
 			"limit":-1
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash.ajax");
 //		console.log(data);
@@ -189,7 +189,7 @@ view_dash.ajax3=function(args)
 		
 		view_dash.calc();
 
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 	});
 
 }
