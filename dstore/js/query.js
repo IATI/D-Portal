@@ -626,7 +626,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 				}
 				ands.push( prefix+" ( "+ors.join(" OR ")+" ) " )
 
-				qv[ dstore_db.text_name(cn) ]=vs | v
+				qv[ dstore_db.text_name(cn) ]=vs || v
 			}
 
 		}
@@ -662,7 +662,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 					ands.push( prefix+" ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
 				}
 
-				qv[ dstore_db.text_name(cn) ]=vs|v
+				qv[ dstore_db.text_name(cn) ]=vs||v
 
 			}
 		}
