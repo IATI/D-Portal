@@ -63,6 +63,7 @@ fetcher.prefetch_aids=function(aids,f)
 	}
 
 
+	fetcher.aids=undefined
 	if( aids )
 	{
 		try {

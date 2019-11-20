@@ -713,7 +713,10 @@ view_search.ajax=function(args)
 {
 	if( args.aids ) // need to perform prefetch of this url
 	{
-		fetcher.prefetch_aids(args.aids,function(){view_search.ajax_fetch(args)})
+		fetcher.prefetch_aids(args.aids,function(){
+			delete args.aids
+			view_search.ajax_fetch(args)
+		})
 	}
 	else
 	{
