@@ -53,7 +53,8 @@ query.serv = async function(req,res,next){
 			})
 			var ending=new Date().getTime()
 			ret.duration=(ending-starting)/1000.0
-			res.set({ 'content-type': 'application/json;charset=utf-8' })
+			res.set('charset','utf8');
+			res.set('Content-Type', 'application/json');
 			res.jsonp(ret);
 		}
 		else
