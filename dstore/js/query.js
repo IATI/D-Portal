@@ -556,13 +556,16 @@ query.getsql_external_aids=function(q,qv,wheres){
 query.getsql_where_xson=function(q,qv,wheres){
 
 
-	if(dstore_db.engine!="pg") { return ""; } // postgres only
+	if(dstore_db.engine!="pg") { return ""; } // postgres only ( so following sql code is postgres )
 
 	let ands=[]
 	
 	let push=function(_n,v)
 	{
 	let n=_n
+	
+	let vs=v.split(/[,|]/) // check for multiple values
+	if(vs.length==1) { vs=undefined } // not a multiple
 
 //		console.log(n+" == "+v)
 
@@ -602,6 +605,11 @@ query.getsql_where_xson=function(q,qv,wheres){
 						ors.push( " ( root = '"+na+"' AND xson ? '"+nb+"' ) " )
 					}
 					else
+					if(vs)
+					{
+						ors.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = ANY("+dstore_db.text_plate(cn)+") ) " )
+					}
+					else
 					{
 						ors.push( " ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
 					}
@@ -618,7 +626,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 				}
 				ands.push( prefix+" ( "+ors.join(" OR ")+" ) " )
 
-				qv[ dstore_db.text_name(cn) ]=v
+				qv[ dstore_db.text_name(cn) ]=vs | v
 			}
 
 		}
@@ -645,11 +653,16 @@ query.getsql_where_xson=function(q,qv,wheres){
 					ands.push( prefix+" ( root = '"+na+"' AND xson ? '"+nb+"' ) " )
 				}
 				else
+				if(vs)
+				{
+					ands.push( prefix+" ( root = '"+na+"' AND xson->>'"+nb+"' = ANY("+dstore_db.text_plate(cn)+") ) " )
+				}
+				else
 				{
 					ands.push( prefix+" ( root = '"+na+"' AND xson->>'"+nb+"' = "+dstore_db.text_plate(cn)+" ) " )
 				}
 
-				qv[ dstore_db.text_name(cn) ]=v
+				qv[ dstore_db.text_name(cn) ]=vs|v
 
 			}
 		}
