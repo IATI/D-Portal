@@ -55,7 +55,7 @@ view_search.terms=[
 	search : false,
 	filter : true,
 	codes  : null,
-	drops  : [ "#view_search_string" , "#view_search_string_only" ],
+	inputs : [ "#view_search_string" , "#view_search_string_only" ],
 	q      : "text_search",
 	show   : "search_display_search",
 },
@@ -283,6 +283,16 @@ view_search.terms=[
 	show   : "search_display_collaboration_type",
 },
 
+{
+	name   : "aids",
+	search : false,
+	filter : true,
+	codes  : null,
+	inputs : [ "#view_search_input_aids" ],
+	q      : "aids",
+	show   : "search_display_aids",
+},
+
 ]
 
 // the chunk names this view will fill with new data
@@ -415,9 +425,8 @@ view_search.fixup=function()
 			if(it.filter)
 			{
 				var v=undefined
-				for(var drop_idx in it.drops)
+				for(let drop of (it.inputs||it.drops||[]) )
 				{
-					var drop=it.drops[drop_idx]
 					if(!v)
 					{
 						v=$(drop).val()
@@ -461,14 +470,20 @@ view_search.fixup=function()
 		var it=view_search.terms[idx]
 		if(it.filter)
 		{
-			if( it.drops.length==1 ) // only if one drop (skips search)
+			for( let drop of (it.drops||[]) ) // (skips search)
 			{
-				var drop=it.drops[0]
 				search_select_ids[drop]=true
 				search_select_sort_ids[drop]=true
 			}
 		}
 	}
+
+// check for external json url
+	$('#view_search_input_aids').bind("change",function(e){
+console.log("changed")
+		build_query();
+	});
+
 
 	var o={allow_single_deselect:true,search_contains:true,placeholder_text:"Select an option",placeholder_text_multiple:"Select one or multiple options"};
 	for(var n in search_select_ids)
@@ -637,7 +652,7 @@ view_search.fixup=function()
 			if(v)
 			{
 				var vs=split_or(v)
-				for(var drop of it.drops)
+				for(var drop of (it.drops||[]) )
 				{
 					$(drop).val(vs).trigger('chosen:updated')
 				}
