@@ -10,7 +10,7 @@ var csvw=require("./csvw.js")
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
@@ -59,7 +59,7 @@ view_list_transactions.ajax=function(args)
 		dat["trans_day_gteq"]=(parseInt(dat.year)+0)+"-"+ctrack.args.newyear;
 		dat["trans_day_lt"]=(parseInt(dat.year)+1)+"-"+ctrack.args.newyear;
 	}
-	fetch.ajax_dat_fix(dat,args,"trans");
+	fetcher.ajax_dat_fix(dat,args,"trans");
 	if(args.output=="count") // just count please
 	{
 		dat.select="count";
@@ -68,7 +68,7 @@ view_list_transactions.ajax=function(args)
 		delete dat.groupby;
 	}
 
-	fetch.ajax(dat,function(data){
+	fetcher.ajax(dat,function(data){
 //		console.log("fetch transactions "+year);
 //		console.log(data);
 

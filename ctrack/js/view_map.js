@@ -8,7 +8,7 @@ exports.name="view_map";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var refry=require("../../dstore/js/refry.js")
 
@@ -284,7 +284,7 @@ view_map.ajax_heat=function(args)
 			"orderby":"1-",
 			"groupby":"2,3",
 		};
-	fetch.ajax_dat_fix(dat,args);
+	fetcher.ajax_dat_fix(dat,args);
 
 	if(dat.country_code)
 	{
@@ -298,7 +298,7 @@ view_map.ajax_heat=function(args)
 		dat.select="count,round0_location_longitude,round0_location_latitude";
 	}
 	
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("fetch map heat");
 //		console.log(data);
@@ -341,7 +341,7 @@ view_map.ajax_heat=function(args)
 			ctrack.map.lat=alat/acnt; // use average
 			ctrack.map.lng=alng/acnt;
 		}
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 	});
 }
 
@@ -363,7 +363,7 @@ view_map.ajax_pins=function(args)
 			"form":"jcsv",
 			"limit":args.limit || -1,
 		};
-	fetch.ajax_dat_fix(dat,args);
+	fetcher.ajax_dat_fix(dat,args);
 	if(dat.country_code) { dat.country_percent=100; } // if asking for a country, require 100% allocation into that country
 
 // add sector information to download, beware, this explodes the data listing projects multiple times per sector...
@@ -374,13 +374,13 @@ view_map.ajax_pins=function(args)
 			"limit":-1,
 			"human":true,
 		};
-	fetch.ajax_dat_fix(datcsv,args);
+	fetcher.ajax_dat_fix(datcsv,args);
 	if(datcsv.country_code) { datcsv.country_percent=100; } // if asking for a country, require 100% allocation into that country
 
-	var csvurl=fetch.tourl(datcsv)
+	var csvurl=fetcher.tourl(datcsv)
 	ctrack.chunk("map_csv_url",csvurl)
 		
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("fetch map pins");
 //		console.log(data);
@@ -424,7 +424,7 @@ view_map.ajax_pins=function(args)
 				ctrack.map.lng=lng/count;
 			}
 		}
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 		view_map.fixup();
 	});
 }

@@ -8,7 +8,7 @@ exports.name="view_savi";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var dflat=require("../../dflat/js/dflat.js")
 var dflat_savi=require("../../dflat/js/savi.js")
@@ -33,7 +33,7 @@ view_savi.view=function(args)
 view_savi.ajax=function(args)
 {
 	args=args||{}
-	fetch.ajax_dat_fix(args)
+	fetcher.ajax_dat_fix(args)
 
 	if(args.aid)
 	{
@@ -55,7 +55,7 @@ view_savi.ajax_aid=function(aid)
 		"aid":aid,
 	}
 
-	fetch.ajax(dat,function(iati)
+	fetcher.ajax(dat,function(iati)
 	{
 		dflat.clean(iati) // clean this data
 		
@@ -79,7 +79,7 @@ view_savi.ajax_pid=function(pid)
 		"pid":pid,
 	}
 
-	fetch.ajax(dat,function(iati)
+	fetcher.ajax(dat,function(iati)
 	{
 		dflat.clean(iati) // clean this data
 		

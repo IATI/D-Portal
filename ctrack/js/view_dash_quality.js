@@ -8,7 +8,7 @@ exports.name="view_dash_quality";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
@@ -66,8 +66,8 @@ view_dash_quality.ajax1=function(args)
 			"from":"act",
 			"limit":-1
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash_quality.ajax1");
 //		console.log(data);
@@ -81,7 +81,7 @@ view_dash_quality.ajax1=function(args)
 		}
 		
 		view_dash_quality.calc();
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 
 		view_dash_quality.ajax2(args);
 	});
@@ -95,8 +95,8 @@ view_dash_quality.ajax2=function(args)
 			"from":"budget,act",
 			"limit":-1
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash_quality.ajax2");
 //		console.log(data);
@@ -109,7 +109,7 @@ view_dash_quality.ajax2=function(args)
 		}
 		
 		view_dash_quality.calc();
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 
 		view_dash_quality.ajax3(args);
 	});
@@ -123,8 +123,8 @@ view_dash_quality.ajax3=function(args)
 			"from":"trans,act",
 			"limit":-1
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash_quality.ajax3");
 //		console.log(data);
@@ -137,7 +137,7 @@ view_dash_quality.ajax3=function(args)
 		}
 		
 		view_dash_quality.calc();
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 
 		view_dash_quality.ajax4(args);
 	});
@@ -153,8 +153,8 @@ view_dash_quality.ajax4=function(args)
 			"orderby":"1-",
 			"limit":-1
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash_quality.ajax4");
 //		console.log(data);
@@ -196,7 +196,7 @@ view_dash_quality.ajax4=function(args)
 		ctrack.chunk("dash_quality_country_count",commafy(data.rows.length));
 		
 		view_dash_quality.calc();
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 
 		view_dash_quality.ajax5(args);
 	});
@@ -212,8 +212,8 @@ view_dash_quality.ajax5=function(args)
 			"orderby":"1-",
 			"limit":-1
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_dash_quality.ajax5");
 //		console.log(data);
@@ -236,7 +236,7 @@ view_dash_quality.ajax5=function(args)
 		ctrack.chunk( "dash_quality_dataset_count",data.rows.length);
 		
 		view_dash_quality.calc();
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 
 		view_dash_quality.ajax6(args);
 	});
@@ -245,7 +245,7 @@ view_dash_quality.ajax5=function(args)
 
 view_dash_quality.ajax6=function(args)
 {
-	var today=fetch.get_today();
+	var today=fetcher.get_today();
 	args=args || {};
 	var dat={
 			"select":"count",
@@ -254,22 +254,22 @@ view_dash_quality.ajax6=function(args)
 			"day_end_lt":today,
 			"day_length_not_null":1,
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log(data);
 		
 		ctrack.chunk("dash_list_actdate_act_ended",Number(data.rows[0].count));
 		
 		view_dash_quality.calc();
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 		view_dash_quality.ajax7(args);
 	});
 }
 
 view_dash_quality.ajax7=function(args)
 {
-	var today=fetch.get_today();
+	var today=fetcher.get_today();
 	args=args || {};
 	var dat={
 			"select":"count",
@@ -278,15 +278,15 @@ view_dash_quality.ajax7=function(args)
 			"day_start_gt":today,
 			"day_length_not_null":1,
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log(data);
 		
 		ctrack.chunk("dash_list_actdate_act_planned",Number(data.rows[0].count));
 		
 		view_dash_quality.calc();
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 		view_dash_quality.ajax8(args);
 	});
 }
@@ -294,7 +294,7 @@ view_dash_quality.ajax7=function(args)
 
 view_dash_quality.ajax8=function(args)
 {
-	var today=fetch.get_today();
+	var today=fetcher.get_today();
 	args=args || {};
 	var dat={
 			"select":"count",
@@ -304,8 +304,8 @@ view_dash_quality.ajax8=function(args)
 			"day_start_lteq":today,
 			"day_length_not_null":1,
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log(data);
 		
@@ -317,7 +317,7 @@ view_dash_quality.ajax8=function(args)
 
 		
 		view_dash_quality.calc();
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 		view_dash_quality.ajax9(args);
 	});
 }
@@ -325,7 +325,7 @@ view_dash_quality.ajax8=function(args)
 
 view_dash_quality.ajax9=function(args)
 {
-	var today=fetch.get_today();
+	var today=fetcher.get_today();
 	args=args || {};
 	var dat={
 			"select":"count",
@@ -334,15 +334,15 @@ view_dash_quality.ajax9=function(args)
 			"day_start_not_null":1,
 			"day_end_null":1,
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log(data);
 		
 		ctrack.chunk("dash_list_actdate_act_missing_end",Number(data.rows[0].count));
 		
 		view_dash_quality.calc();
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 //		view_dash_quality.ajax9(args);
 	});
 }

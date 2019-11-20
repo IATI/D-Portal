@@ -10,7 +10,7 @@ var csscolor=require("./csscolor.js")
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")

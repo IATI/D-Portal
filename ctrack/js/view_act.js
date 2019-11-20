@@ -8,7 +8,7 @@ exports.name="view_act";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 var savi=require("./savi.js")
 
 var refry=require("../../dstore/js/refry.js")
@@ -68,10 +68,10 @@ view_act.ajax=function(args)
 			dat.location_longitude_gt=Number(args.lng)-0.001;
 			dat.location_longitude_lt=Number(args.lng)+0.001;
 		}
-		fetch.ajax_dat_fix(dat,args);
+		fetcher.ajax_dat_fix(dat,args);
 	}
 	
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 //		console.log("view_act.numof_callback");
 //		console.log(data);
@@ -91,6 +91,6 @@ view_act.ajax=function(args)
 			ctrack.chunk("xml","{missing_data}");
 		}
 				
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 	});
 }

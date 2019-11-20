@@ -8,7 +8,7 @@ exports.name="view_dash_slugs";
 var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
-var fetch=require("./fetch.js")
+var fetcher=require("./fetcher.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
@@ -43,8 +43,8 @@ view_dash_slugs.ajax=function(args)
 			"orderby":"1-",
 			"limit":-1
 		};
-	fetch.ajax_dat_fix(dat,args);
-	fetch.ajax(dat,args.callback || function(data)
+	fetcher.ajax_dat_fix(dat,args);
+	fetcher.ajax(dat,args.callback || function(data)
 	{
 		var s=[];
 		var total=0;
@@ -61,6 +61,6 @@ view_dash_slugs.ajax=function(args)
 		}
 		ctrack.chunk(args.chunk || "dash_list_slugs_datas",s.join(""));
 		
-		ctrack.display(); // every fetch.ajax must call display once
+		ctrack.display(); // every fetcher.ajax must call display once
 	});
 }
