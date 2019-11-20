@@ -232,7 +232,7 @@ ctrack.setup=function(args)
 		var it=views.search.terms[idx]
 		if( it.q && ctrack.q[it.q] )
 		{
-			search_args.push(it.q+"="+ctrack.q[it.q])
+			search_args.push(it.q+"="+encodeURI(ctrack.q[it.q]))
 			if( !args[it.q] ) { args[it.q] = ctrack.q[it.q] }
 		}
 	}
@@ -254,7 +254,7 @@ ctrack.setup=function(args)
 
 	if(search_args.length==1) // only 1
 	{
-		if( search_args[0].indexOf("|")!=-1 || search_args[0].indexOf(",")!=-1 ) // actually not 1 as it is a multiple
+		if( search_args[0].indexOf("%2C")!=-1 || search_args[0].indexOf("%7C")!=-1 ) // actually not 1 as it is a multiple
 		{
 			ctrack.args.showsearch=true;
 		}
