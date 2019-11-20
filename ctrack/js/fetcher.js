@@ -63,8 +63,6 @@ fetcher.prefetch=function(f)
 	}
 
 
-console.log("prefetch")
-
 	if( ctrack.q.aids )
 	{
 		var url=ctrack.q.aids
@@ -77,6 +75,8 @@ console.log("prefetch")
 			setaids(d) // got local json
 			
 		} catch (e) {
+
+			console.log("Prefetching : "+url)
 
 			$.getJSON( url , function(d){
 				setaids(d) // got remote json

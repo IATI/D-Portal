@@ -480,7 +480,6 @@ view_search.fixup=function()
 
 // check for external json url
 	$('#view_search_input_aids').bind("change",function(e){
-console.log("changed")
 		build_query();
 	});
 
