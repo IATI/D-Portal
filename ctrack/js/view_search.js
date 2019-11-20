@@ -711,6 +711,20 @@ view_search.view=function(args)
 view_search.latest=0;
 view_search.ajax=function(args)
 {
+	if( args.aids ) // need to perform prefetch of this url
+	{
+		fetcher.prefetch_aids(args.aids,function(){view_search.ajax_fetch(args)})
+	}
+	else
+	{
+		fetcher.aids=undefined // removed any cached aids values
+		
+		view_search.ajax_fetch(args)
+	}
+}
+
+view_search.ajax_fetch=function(args)
+{
 	var args=args || {};
 	var dat={
 			"from":"act",

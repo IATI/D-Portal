@@ -18,7 +18,7 @@ var refry=require("../../dstore/js/refry.js")
 
 
 // pre fetch cache data we will need for future fetches
-fetcher.prefetch=function(f)
+fetcher.prefetch_aids=function(aids,f)
 {
 
 	var setaids=function(d){
@@ -63,20 +63,18 @@ fetcher.prefetch=function(f)
 	}
 
 
-	if( ctrack.q.aids )
+	if( aids )
 	{
-		var url=ctrack.q.aids
-
 		try {
 
-			var d=JSON.parse(url);
+			var d=JSON.parse(aids);
 			setaids(d) // got local json
 			
 		} catch (e) {
 
-			console.log("Prefetching : "+url)
+			console.log("Prefetching : "+aids)
 
-			$.getJSON( url , function(d){
+			$.getJSON( aids , function(d){
 				setaids(d) // got remote json
 			}) 
 		}

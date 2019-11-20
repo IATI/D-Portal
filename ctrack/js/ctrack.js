@@ -696,7 +696,7 @@ ctrack.setup=function(args)
 		}
 	}
 	
-	fetcher.prefetch(function(){
+	fetcher.prefetch_aids(ctrack.q.aids,function(){
 		
 		ctrack.check_hash();
 		ctrack.display_hash(); // this will display view=main or whatever page is requsted
