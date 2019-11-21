@@ -12,7 +12,7 @@
 #dash_list_country_data
 <tr>
 	<td title="{country_valid} country code" class="cc country_{country_valid}">
-		<a href="/q.xml?from=act,country&country_code={country_code}&reporting_ref={dash_quality_pub}" target="_blank">{country_code}</a>
+		<a href="/q.xml?from=act,country&country_code={country_code}&reporting_ref={dash_quality_pub}" target="_blank" rel="noopener noreferrer">{country_code}</a>
 	</td>
 	<td title="Number of activities reported" class="country_{country_valid}">{count}</td>
 </tr>
@@ -20,7 +20,7 @@
 #dash_list_slug_datas
 #dash_list_slug_data
 <tr>
-	<td title="Unique Dataset ID" class="set"><a href="http://iatiregistry.org/dataset/{slug}" target="_blank">{slug}</a></td>
+	<td title="Unique Dataset ID" class="set"><a href="http://iatiregistry.org/dataset/{slug}" target="_blank" rel="noopener noreferrer">{slug}</a></td>
 	<td title="Number of activities within this dataset"><a href="#view=dash_sluglog&slug={slug}">{count}</a></td>
 </tr>
 
@@ -32,8 +32,8 @@
 				<td>Publisher Name <span>Converted from ID</span></td>
 				<td>{dash_quality_pub_name}</td>
 				<td rowspan="2" class="visit">
-					<a href="/ctrack.html?&publisher={dash_quality_pub}#view=publisher" target="_blank">View on d-portal</a>
-					<a href="https://www.iatiregistry.org/publisher/{dash_quality_pub_slug}" target="_blank">View on IATI Registry</a>
+					<a href="/ctrack.html?&publisher={dash_quality_pub}#view=publisher" target="_blank" rel="noopener noreferrer">View on d-portal</a>
+					<a href="https://www.iatiregistry.org/publisher/{dash_quality_pub_slug}" target="_blank" rel="noopener noreferrer">View on IATI Registry</a>
 				</td>
 			</tr>
 			<tr>
