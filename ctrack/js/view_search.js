@@ -284,6 +284,39 @@ view_search.terms=[
 },
 
 {
+	name   : "aid_type",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["AidType"], ],
+	drops  : [ "#view_search_select_aid_type" ],
+	q      : "/default-aid-type@code",
+	list   : "search_options_aid_type",
+	show   : "search_display_aid_type",
+},
+
+{
+	name   : "tied_status",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["TiedStatus"], ],
+	drops  : [ "#view_search_select_tied_status" ],
+	q      : "/default-tied-status@code",
+	list   : "search_options_tied_status",
+	show   : "search_display_tied_status",
+},
+
+{
+	name   : "related_activity",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["RelatedActivityType"], ],
+	drops  : [ "#view_search_select_related_activity" ],
+	q      : "/related-activity@code",
+	list   : "search_options_related_activity",
+	show   : "search_display_related_activity",
+},
+
+{
 	name   : "aids",
 	search : false,
 	filter : true,

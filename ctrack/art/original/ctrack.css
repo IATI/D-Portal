@@ -349,8 +349,8 @@ table.filter_table td.filter_title	{padding-top:20px; padding-bottom:5px; text-t
 .search_input_wrap			{position:relative;}
 .search_icon				{position:absolute; top:28px; left:-40px;}
 
-.settings_search			{padding:40px; box-sizing:border-box; width:960px; margin:0 auto; background-color:rgba(34,49,57,1); color:#fff; font-size:1.1em; line-height:1.5em; margin-top:20px; position:relative;}
-.hide_search_intro			{position:absolute; top:10px; right:10px; color:#ccc; width:30px; height:30px; box-sizing:border-box; text-align:center;}
+.settings_search			{padding:40px 30px 40px 50px; box-sizing:border-box; width:960px; margin:0 auto; background-color:rgba(34,49,57,1); color:#fff; font-size:1.1em; line-height:1.5em; margin-top:10px; position:relative;}
+.hide_search_intro			{position:absolute; top:10px; right:0; color:#ccc; width:100px; height:30px; box-sizing:border-box; text-align:center;}
 .hide_search_intro:hover	{cursor:pointer; color:#fff;}
 .settings_search p			{padding:25px 0;}
 .settings_search td			{padding:0;}
@@ -366,7 +366,7 @@ table.filter_table td.filter_title	{padding-top:20px; padding-bottom:5px; text-t
 .settings_link_search span:nth-of-type(1)	{font-weight:bold; padding-right:5px;}
 .settings_link_search a			{text-decoration:none; display:block; color:#ccc; background-color:rgba(249,249,249,0.1); padding:5px 10px; border-radius:4px;}
 .settings_link_search a:hover	{color:#fff;}
-.search_intro_wrap				{width:960px; margin:0 auto; margin-top:40px; color:#fff; font-size:20px; line-height:26px;}
+.search_intro_wrap				{width:960px; margin:0 auto; margin-top:40px; color:#fff; font-size:20px; line-height:26px; text-align:center;}
 .search_intro_wrap span,
 .search_intro_wrap a			{font-size:1.0em; color:#fff; padding-right:0; font-style:italic;}
 .search_intro_wrap span:hover,
@@ -390,6 +390,9 @@ a.search_refine:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50
 .search_query span img		{padding:2px 7px 0 0; height:12px; width:12px; -webkit-filter:brightness(80%); filter:brightness(80%);}
 .search_query span.filter_icon	{display:inline-block; padding:2px 5px 0 0; font-size:10px;}
 
+.search_help				{width:100%; text-align:right;}
+.search_help span			{display:inline-block; margin-right:20px; background-color:#ffc233c4; padding:5px; border-radius:4px 4px 0 0; font-size:14px; font-weight:bold;}
+.search_help span:hover		{cursor:pointer; background-color:#ffd982c4;}
 .search_show				{text-align:right; color:#eee; padding:5px 0 10px 0; margin-top:-5px;}
 .search_show:hover			{cursor:pointer; color:#fff;}
 .filter_text:before,
