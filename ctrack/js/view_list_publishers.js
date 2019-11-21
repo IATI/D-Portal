@@ -64,7 +64,7 @@ view_list_publishers.ajax=function(args)
 	fetcher.ajax(dat,function(data){
 		if(args.output=="count")
 		{
-			ctrack.chunk(args.chunk || "list_publishers_count",data.rows[0]["count"]);
+			ctrack.chunk(args.chunk || "list_publishers_count",commafy(data.rows[0]["count"]));
 			view_stats.calc();
 		}
 		else

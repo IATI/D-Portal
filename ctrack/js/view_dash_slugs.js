@@ -53,7 +53,7 @@ view_dash_slugs.ajax=function(args)
 			var v=data.rows[i];
 			var d={};
 			d.num=i+1;
-			d.count=Number(v.count);
+			d.count=commafy(Number(v.count));
 			d.slug=v.slug;
 
 			total+=d.count;

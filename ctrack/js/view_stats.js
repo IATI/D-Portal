@@ -12,9 +12,12 @@ var fetcher=require("./fetcher.js")
 
 var views=require("./views.js")
 
+var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+
 // the chunk names this view will fill with new data
 view_stats.chunks=[
-	"total_projects",
+	"total_projects_human",
 	"missing_projects",
 	"active_projects",
 	"ended_projects",
@@ -79,6 +82,7 @@ view_stats.ajax=function(args)
 		if(data.rows[0])
 		{
 			ctrack.chunk("total_projects",data.rows[0]["count_aid"]);
+			ctrack.chunk("total_projects_human",commafy(data.rows[0]["count_aid"]));
 		}
 		
 		view_stats.calc();

@@ -73,7 +73,7 @@ view_list_budgets.ajax=function(args)
 	fetcher.ajax(dat,function(data){
 		if(args.output=="count")
 		{
-			ctrack.chunk(args.chunk || "list_budgets_count",data.rows[0]["count"]);
+			ctrack.chunk(args.chunk || "list_budgets_count",commafy(data.rows[0]["count"]));
 			view_stats.calc();
 		}
 		else

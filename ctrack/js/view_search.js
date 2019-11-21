@@ -16,6 +16,9 @@ var iati_codes=require("../../dstore/json/iati_codes.json")
 
 var dflat_codes=require("../../dflat/json/codelists.json")
 
+var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+
 // valid years for drop downs
 var text_years={} ; for(var i=1960;i<2030;i++) { text_years[i]=i+"" }
 var text_years_date={} ; for(var i=1960;i<2030;i++) { text_years_date[i]=i }
@@ -797,7 +800,7 @@ view_search.ajax_fetch=function(args)
 	fetcher.ajax(dat,function(data){
 		if(latest!=view_search.latest) { return; } // ignore old search data
 
-		var c=data.rows[0]["count_aid"];
+		var c=commafy(data.rows[0]["count_aid"]);
 		if( c>0 ) // show results
 		{
 			$("#search_link").removeClass("search_link_disable");

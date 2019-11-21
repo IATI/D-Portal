@@ -74,7 +74,7 @@ view_list_transactions.ajax=function(args)
 
 		if(args.output=="count")
 		{
-			ctrack.chunk(args.chunk || "list_transactions_count",data.rows[0]["count"]);
+			ctrack.chunk(args.chunk || "list_transactions_count",commafy(data.rows[0]["count"]));
 			view_stats.calc();
 		}
 		else

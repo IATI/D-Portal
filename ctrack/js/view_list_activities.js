@@ -72,7 +72,7 @@ view_list_activities.ajax=function(args)
 	fetcher.ajax(dat,function(data){
 		if(args.output=="count")
 		{
-			ctrack.chunk(args.chunk || "list_activities_count",data.rows[0]["count_aid"]);
+			ctrack.chunk(args.chunk || "list_activities_count",commafy(data.rows[0]["count_aid"]));
 			views.stats.calc();
 		}
 		else
