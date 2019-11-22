@@ -800,13 +800,13 @@ view_search.ajax_fetch=function(args)
 	fetcher.ajax(dat,function(data){
 		if(latest!=view_search.latest) { return; } // ignore old search data
 
-		var c=commafy(data.rows[0]["count_aid"]);
+		var c=data.rows[0]["count_aid"];
 		if( c>0 ) // show results
 		{
 			$("#search_link").removeClass("search_link_disable");
 		}
 //console.log( data.rows[0] );
-		$("#result_span").html("Found "+c+" activities");
+		$("#result_span").html("Found "+commafy(c)+" activities");
 	});
 	
 	if( args && args.q && args.q.text_search ) // try for exact aid
