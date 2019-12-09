@@ -397,7 +397,7 @@ for(var n in ns) // all valid fields
 					var t=typeof v;
 					if(t=="string")
 					{
-						var sa=v.split("|");
+						var sa=v.split(/,|\|/);
 						var sb=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(sa[0]);
 						if( sa[0].length==10 && sb && sb.length==4 && nformat=="int") // date string, convert to number if dest is an int
 						{

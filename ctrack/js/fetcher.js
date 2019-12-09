@@ -173,23 +173,21 @@ fetcher.ajax_dat_fix=function(dat,args,flag)
 	if(flag=="trans")
 	{
 		dat["trans_country"]		=	dat["country_code"]		||	ctrack.args.country_select;
-		dat["trans_sector"]			=	dat["sector_code"]		||	ctrack.args.sector_code_select;
-		dat["trans_sector_group"]	=	dat["sector_group"]		||	ctrack.args.sector_group_select;
+		dat["trans_sector"]			=	dat["sector_code"]		||	ctrack.q.sector_code;
+		dat["trans_sector_group"]	=	dat["sector_group"]		||	ctrack.q.sector_group;
 	}
 	else
 	if(flag=="budget")
 	{
 		dat["budget_country"]		=	dat["country_code"]		||	ctrack.args.country_select;
-		dat["budget_sector"]		=	dat["sector_code"]		||	ctrack.args.sector_code_select;
-		dat["budget_sector_group"]	=	dat["sector_group"]		||	ctrack.args.sector_group_select;
+		dat["budget_sector"]		=	dat["sector_code"]		||	ctrack.q.sector_code;
+		dat["budget_sector_group"]	=	dat["sector_group"]		||	ctrack.q.sector_group;
 	}
 	else
 	{
-		dat["country_code"]		=	dat["country_code"]		||	args.country || ctrack.hash.country ;
-
 		dat["country_code"]		=	dat["country_code"]		||	ctrack.args.country_select;
-		dat["sector_code"]		=	dat["sector_code"]		||	ctrack.args.sector_code_select;
-		dat["sector_group"]		=	dat["sector_group"]		||	ctrack.args.sector_group_select;
+		dat["sector_code"]		=	dat["sector_code"]		||	ctrack.q.sector_code;
+		dat["sector_group"]		=	dat["sector_group"]		||	ctrack.q.sector_group;
 	}
 
 	dat["reporting_ref"]	=	dat["reporting_ref"]	||	ctrack.args.publisher_select;
