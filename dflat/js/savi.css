@@ -121,7 +121,7 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 
 /*	DATES	*/
 .wrap_activity_date	{width:980px; margin-left:-50px;}
-.wrap_activity_date div	{display:inline-block; vertical-align:baseline; padding:10px 40px; font-size:20px; color:#FFF;}
+.wrap_activity_date div	{display:inline-block; vertical-align:top; padding:10px 40px; font-size:20px; color:#FFF; min-height:44px;}
 .wrap_activity_date div:nth-of-type(odd)	{width:489px; margin:1px 1px 0 0; background-color:#da7102;}
 .wrap_activity_date div:nth-of-type(even)	{width:490px; margin:1px 0 0 0; background-color:#ff890c; text-align:right;}
 .wrap_activity_date div span				{font-size:14px; color:#000e20; text-transform:uppercase;}
