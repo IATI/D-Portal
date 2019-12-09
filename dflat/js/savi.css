@@ -63,7 +63,11 @@ span.block	{display:block;}
 .wrap_recipient_country,
 .wrap_sector		{color:#444; background-color:#fff; margin-top:-20px; width:960px; margin-left:-40px; padding:0 0 40px 0;}
 .wrap_recipient_country	{padding:40px 0;}
-.sector				{color:#444; font-size:14px; line-height:18px; padding:0 40px;}
+.sector,
+.sector_list_wrap		{color:#444; font-size:14px; line-height:18px; padding:0 40px;}
+.sector_list_wrap span	{display:inline-block; vertical-align:top; padding-right:40px; width:30%;}
+.sector_list_wrap span.sector_list_description	{padding:0; width:70%; font-size:13px; line-height:15px;}
+.sector_list		{padding-bottom:15px;}
 .wrap_code,
 .wrap_bar			{display:inline-block; vertical-align:middle; width:400px;}
 .wrap_code			{text-align:right; width:480px; border-right:1px solid #999; padding:10px 20px 10px 0;}
@@ -106,7 +110,7 @@ a.doc_link:last-of-type	{border-bottom:1px solid #656a6f;}
 
 .wrap_doc_link	{display:inline-block; vertical-align:top; padding-left:34px;}
 span.doc_title,
-span.doc_format	{display:inline-block; vertical-align:middle;}
+span.doc_format	{display:inline-block; vertical-align:top;}
 span.doc_title	{font-size:14px; line-height:1.25em; max-width:600px;}
 span.doc_title:nth-of-type(n+2)	{font-style:italic;}
 span.doc_desc	{font-size:12px; display:block; padding:5px 0;}
