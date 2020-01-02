@@ -320,9 +320,13 @@
 #^sectors-1
 <div class="header" title="{_it./sector-1.0.@vocabulary-description||}">OECD DAC CRS 5 digit <span class="count">( {_it./sector-1.length} )</span></div>
 {_it./sector-1:/sector_dac||}
+<div class="header">GLOSSARY</div>
+<div class="sector_list_wrap">{_it./sector-1:/sector_code_description}</div>
 #^sectors-2
 <div class="header" title="{_it./sector-2.0.@vocabulary-description||}">OECD DAC CRS 3 digit <span class="count">( {_it./sector-2.length} )</span></div>
 {_it./sector-2:/sector_dac||}
+<div class="header">GLOSSARY</div>
+<div class="sector_list_wrap">{_it./sector-2:/sector_code_description}</div>
 #^sectors-3
 <div class="header" title="{_it./sector-3.0.@vocabulary-description||}">Classification of the Functions of Government (UN) <span class="count">( {_it./sector-3.length} )</span></div>
 {_it./sector-3:/sector||}
@@ -359,13 +363,20 @@
 
 <!--	SECTOR DAC TEMPLATE	-->
 #^/sector_dac
-<div class="sector">
+<div class="sector" title="{_it.@code-description||}">
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
 		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
 	</div>
 </div>
+
+<!--	SECTOR DESCRIPTIONS	-->
+#^/sector_code_description
+<div class="sector_list"> 
+	<span>{_it.@code-name||}</span><span class="sector_list_description">{_it.@code-description||}</span>
+</div>
+
 <!--	SECTOR NON-DAC TEMPLATE	-->
 #^/sector
 <div class="sector">
@@ -388,7 +399,7 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"></span><span class="sector_value">{_it.@percentage||}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
 	</div>
 </div>
 
