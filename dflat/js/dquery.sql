@@ -45,3 +45,18 @@ from xson where root='/iati-activities/iati-activity'
 ) as xson3
 
 limit 10;
+
+#^sql_select_documents_title_and_url
+
+select
+
+*
+
+from ( select aid , jsonb_array_elements(xson->'/title/narrative')->'' as title , xson->'@url'as url
+from ( select aid , jsonb_array_elements(xson->'/document-link') as xson
+from xson where root='/iati-activities/iati-activity'
+) as xson2
+) as xson3
+
+limit 100;
+
