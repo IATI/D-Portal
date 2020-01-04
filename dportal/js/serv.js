@@ -44,7 +44,7 @@ app.use(function(req, res, next) {
 app.use(express.static(__dirname+"/../static"));
 
 
-app.use( express.json() )
+app.use( express.json( { limit: '5MB' } ) )
 
 app.use(function(req, res, next) {
 	var aa=req.path.split("/");
