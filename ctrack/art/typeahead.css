@@ -1,13 +1,13 @@
 /* CSS for Search page */
 
 .typeahead, .tt-query, .tt-hint {width:396px; height:30px; padding:8px 12px; font-size:24px; line-height:30px; -webkit-border-radius:0; -moz-border-radius:0; border-radius:0; outline:none;}
-.typeahead:focus {border:2px solid #0097cf;}
+.typeahead:focus {border:2px solid #3875d7;}
 .tt-hint {color:#999;}
 .tt-menu {width:100%; margin:12px 0; padding:8px 0; background-color:#fff;max-height:320px; overflow-y:auto;}
 .tt-suggestion {padding:3px 20px; font-size:18px;}
-.tt-suggestion:hover {cursor:pointer; color:#fff; background-color:#0097cf;}
+.tt-suggestion:hover {cursor:pointer; color:#fff; background-color:#3875d7;}
 .tt-suggestion:hover img {-webkit-filter:invert(1) brightness(200%); filter:invert(1) brightness(200%);}
-.tt-suggestion.tt-cursor {color:#fff; background-color:#0097cf;}
+.tt-suggestion.tt-cursor {color:#fff; background-color:#3875d7;}
 .tt-suggestion p {margin:0;}
 
 input#generator_aid			{color:#000; background-color:#fff; padding:8px 3px; border-radius:3px; width:160px;}
