@@ -266,7 +266,6 @@ ctrack.setup=function(args)
 
 			args.chunks["main_publisher_head"]="";
 			args.chunks["main_publisher_map"]="";
-			args.chunks["back_publisher"]="";
 		}
 		else
 		if( ctrack.q.reporting_ref )
@@ -290,13 +289,11 @@ ctrack.setup=function(args)
 		args.chunks["main_countrymin"]="";
 		args.chunks["main_country"]="";
 		args.chunks["main_country_head"]="";
-		args.chunks["back_country"]="";
 		
 		args.chunks["main_pubmin"]="";
 		args.chunks["main_publisher"]="";
 		args.chunks["main_publisher_head"]="";
 		args.chunks["main_publisher_map"]="";
-		args.chunks["back_publisher"]="";
 	}
 	else // hide search header
 	{
