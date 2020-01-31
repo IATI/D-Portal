@@ -575,7 +575,6 @@ ctrack.setup=function(args)
 	};
 	ctrack.display=function()
 	{
-//console.log(ctrack.display_wait);
 		ctrack.display_wait_update(-1);
 		
 //		if( ( ctrack.display_wait_time < ((new Date()).getTime()-1000) ) || ( ctrack.display_progress==100) )

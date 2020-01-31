@@ -110,5 +110,11 @@ view_main.view=function(args)
 	}
 
 	ctrack.map.pins=undefined;
-	views.map.ajax_heat({limit:200});
+	views.map.ajax_heat({limit:200,callback2:function(data){
+		if(data.rows.length==0)
+		{
+			ctrack.chunk("main_map","")
+		}
+	}});
+
 }
