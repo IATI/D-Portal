@@ -68,7 +68,7 @@ jml.from_xml=function(data)
 
 	parser.write(data);
 
-	return stack[0][1][0];
+	return stack[0] && stack[0][1] && stack[0][1][0];
 	
 }
 
