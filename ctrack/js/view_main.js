@@ -53,8 +53,19 @@ view_main.view=function(args)
 */
 	views.stats.ajax();
 	
-	views.active.ajax({limit:5,plate:"{table_active_data}",chunk:"table_active_datas",notnull:true});
-	views.ended.ajax({limit:5,plate:"{table_ended_data}",chunk:"table_ended_datas"});
+	views.active.ajax({limit:5,plate:"{table_active_data}",chunk:"table_active_datas",notnull:true,callback:function(data){
+		if(data.rows.length==0)
+		{
+			ctrack.chunk("main_active","")
+		}
+	}});
+	views.ended.ajax({limit:5,plate:"{table_ended_data}",chunk:"table_ended_datas",callback:function(data){
+		if(data.rows.length==0)
+		{
+			ctrack.chunk("main_ended","")
+		}
+	}});
+
 
 	var top_opts={}
 
