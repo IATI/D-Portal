@@ -341,6 +341,7 @@ view_map.ajax_heat=function(args)
 			ctrack.map.lat=alat/acnt; // use average
 			ctrack.map.lng=alng/acnt;
 		}
+		if(args.callback2){args.callback2(data);}
 		ctrack.display(); // every fetcher.ajax must call display once
 	});
 }
@@ -424,6 +425,7 @@ view_map.ajax_pins=function(args)
 				ctrack.map.lng=lng/count;
 			}
 		}
+		if(args.callback2){args.callback2(data);}
 		ctrack.display(); // every fetcher.ajax must call display once
 		view_map.fixup();
 	});
