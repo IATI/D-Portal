@@ -59,98 +59,25 @@
 			{_it./participating-org:/participating-org}
 		</table>
 	</div>
-<!--	DESCRIPTION	-->	
-	<div class="wrap_description">
-		{_it./description:/description}
-	</div>
-<!--	HUMANITARIAN SCOPE	-->
-	<div class="wrap_humanitarian_scope">
-		<div class="header_section sticky collapsable">humanitarian scope <span class="count">( {_it./humanitarian-scope.length} )</span></div>
-		<table class="budget part_org sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3">TITLE</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3">VOCAB</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3">CODE</th>
-				</tr>
-			</thead>
-			{_it./humanitarian-scope:/humanitarian-scope}
-		</table>
-	</div>
-<!--	RECIPIENT COUNTRY	-->
-	<div class="header_section collapsable">recipient country <span class="count">( {_it./recipient-country.length} )</span></div>
-	<div class="wrap_recipient_country">
-		{_it./recipient-country:/recipient-country}
-	</div>
-<!--	LOCATION	-->	
-	<div class="wrap_location">
-		<div class="header_section sticky collapsable">LOCATION  <span class="count">( {_it./location.length} )</span></div>
-		<table class="budget location sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">NAME</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">DESCRIPTION</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">POSITION</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">CLASS</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">REACH</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">EXACTNESS</th>
-				</tr>
-			</thead>
-			{_it./location:/location}
-		</table>
-	</div>
-<!--	SECTOR	-->	
-	<div class="header_section collapsable">sector  <span class="count">( {_it./sector.length} )</span></div>
-	<div class="wrap_sector">
-		{_it./sector-1&&_it:sectors-1||}
-		{_it./sector-2&&_it:sectors-2||}
-		{_it./sector-3&&_it:sectors-3||}
-		{_it./sector-4&&_it:sectors-4||}
-		{_it./sector-5&&_it:sectors-5||}
-		{_it./sector-6&&_it:sectors-6||}
-		{_it./sector-7&&_it:sectors-7||}
-		{_it./sector-8&&_it:sectors-8||}
-		{_it./sector-9&&_it:sectors-9||}
-		{_it./sector-10&&_it:sectors-10||}
-		{_it./sector-11&&_it:sectors-11||}
-		{_it./sector-99&&_it:sectors-99||}
-		{_it./sector-98&&_it:sectors-98||}
-	</div>
-<!--	BUDGET	-->	
-	<div class="wrap_budget">
-		<div class="header_section sticky collapsable">Budget <span class="count">( {_it./budget.length} )</span></div>
-		<table class="budget sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">START</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">END</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="tab_type">TYPE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="status">STATUS</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4" class="value">VALUE</th>
-				</tr>
-			</thead>
-			{_it./budget:/budget}
-		</table>
-	</div>
-<!--	TRANSACTION	-->	
-	<div class="wrap_transaction">
-		<div class="header_section collapsable">Transactions <span class="count">( {_it./transaction.length} )</span></div>
-		{_it./transaction-1&&_it:transaction-1||}
-		{_it./transaction-2&&_it:transaction-2||}
-		{_it./transaction-3&&_it:transaction-3||}
-		{_it./transaction-4&&_it:transaction-4||}
-		{_it./transaction-5&&_it:transaction-5||}
-		{_it./transaction-6&&_it:transaction-6||}
-		{_it./transaction-7&&_it:transaction-7||}
-		{_it./transaction-8&&_it:transaction-8||}
-		{_it./transaction-9&&_it:transaction-9||}
-		{_it./transaction-10&&_it:transaction-10||}
-		{_it./transaction-11&&_it:transaction-11||}
-		{_it./transaction-12&&_it:transaction-12||}
-		{_it./transaction-13&&_it:transaction-13||}
-	</div>
-<!--	RESULT	-->
+{_it./description&&_it:/wrap-description||}
+{_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
+{_it./recipient-country&&_it:/wrap-recipient-country||}
+{_it./recipient-region&&_it:/wrap-recipient-region||}	<!--	??		-->
+{_it./location&&_it:/wrap-location||}
+{_it./sector&&_it:/wrap-sector||}
+{_it./tag&&_it:/wrap-tag||}	<!--	??		-->
+{_it./budget&&_it:/wrap-budget||}
+{_it./planned-disbursement&&_it:/wrap-planned-disbursement||}	<!--	??		-->
+{_it./transaction&&_it:/wrap-transaction||}
+{_it./result&&_it:/wrap-result||}
+{_it./contact-info&&_it:/wrap-contact-info||}	<!--	??		-->
+{_it./activity-website&&_it:/wrap-activity-website||}	<!--	??		-->
+{_it./policy-marker&&_it:/wrap-policy-marker||}	<!--	??		-->
+{_it./related-activity&&_it:/wrap-related-activity||}	<!--	??		-->
+{_it./activity-status&&_it:/wrap-activity-status||}	<!--	??		-->
+</div>
+
+#^/wrap-result	<!--	RESULT	-->
 	<div class="wrap_result">
 		<div class="header_section sticky collapsable">result<span class="count">( {_it./result.length} )</span></div>
 		<table class="budget result sortable">
@@ -164,7 +91,6 @@
 			{_it./result:/result}
 		</table>
 	</div>
-</div>
 
 <!--	RESULT ROWS	-->
 #^/result
@@ -195,6 +121,24 @@
 
 #^/actual
 {_it./actual@value||}
+
+#^/wrap-transaction	<!--	TRANSACTION	-->	
+	<div class="wrap_transaction">
+		<div class="header_section collapsable">Transactions <span class="count">( {_it./transaction.length} )</span></div>
+		{_it./transaction-1&&_it:transaction-1||}
+		{_it./transaction-2&&_it:transaction-2||}
+		{_it./transaction-3&&_it:transaction-3||}
+		{_it./transaction-4&&_it:transaction-4||}
+		{_it./transaction-5&&_it:transaction-5||}
+		{_it./transaction-6&&_it:transaction-6||}
+		{_it./transaction-7&&_it:transaction-7||}
+		{_it./transaction-8&&_it:transaction-8||}
+		{_it./transaction-9&&_it:transaction-9||}
+		{_it./transaction-10&&_it:transaction-10||}
+		{_it./transaction-11&&_it:transaction-11||}
+		{_it./transaction-12&&_it:transaction-12||}
+		{_it./transaction-13&&_it:transaction-13||}
+	</div>
 
 <!--	TRANSACTION TYPES	-->
 #^transaction-1
@@ -306,6 +250,23 @@
 #^/receiver-org-type
 <span title="{_it./receiver-org@type-description||}" class="type">{_it./receiver-org@type-name||}</span>
 
+#^/wrap-budget	<!--	BUDGET	-->	
+	<div class="wrap_budget">
+		<div class="header_section sticky collapsable">Budget <span class="count">( {_it./budget.length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="tab_type">TYPE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="status">STATUS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4" class="value">VALUE</th>
+				</tr>
+			</thead>
+			{_it./budget:/budget}
+		</table>
+	</div>
+
 <!--	BUDGET ROWS	-->
 #^/budget
 <tr class="row_count">
@@ -315,6 +276,24 @@
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
+
+#^/wrap-sector	<!--	SECTOR	-->	
+	<div class="header_section collapsable">sector  <span class="count">( {_it./sector.length} )</span></div>
+	<div class="wrap_sector">
+		{_it./sector-1&&_it:sectors-1||}
+		{_it./sector-2&&_it:sectors-2||}
+		{_it./sector-3&&_it:sectors-3||}
+		{_it./sector-4&&_it:sectors-4||}
+		{_it./sector-5&&_it:sectors-5||}
+		{_it./sector-6&&_it:sectors-6||}
+		{_it./sector-7&&_it:sectors-7||}
+		{_it./sector-8&&_it:sectors-8||}
+		{_it./sector-9&&_it:sectors-9||}
+		{_it./sector-10&&_it:sectors-10||}
+		{_it./sector-11&&_it:sectors-11||}
+		{_it./sector-99&&_it:sectors-99||}
+		{_it./sector-98&&_it:sectors-98||}
+	</div>
 
 <!--	SECTOR TYPES	-->
 #^sectors-1
@@ -393,6 +372,12 @@
 #^/default-aid-type
 <div>{_it.@code-name}</div>
 
+#^/wrap-recipient-country	<!--	RECIPIENT COUNTRY	-->
+	<div class="header_section collapsable">recipient country <span class="count">( {_it./recipient-country.length} )</span></div>
+	<div class="wrap_recipient_country">
+		{_it./recipient-country:/recipient-country}
+	</div>
+
 <!--	RECIPIENT-COUNTRY TEMPLATE	-->
 #^/recipient-country
 <div class="sector">
@@ -402,6 +387,24 @@
 		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
 	</div>
 </div>
+
+#^/wrap-location	<!--	LOCATION	-->	
+	<div class="wrap_location">
+		<div class="header_section sticky collapsable">LOCATION  <span class="count">( {_it./location.length} )</span></div>
+		<table class="budget location sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">NAME</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">DESCRIPTION</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">POSITION</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">CLASS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">REACH</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">EXACTNESS</th>
+				</tr>
+			</thead>
+			{_it./location:/location}
+		</table>
+	</div>
 
 <!--	LOCATION ROWS	-->
 #^/location
@@ -423,6 +426,22 @@
 	<td title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
 
+#^/wrap-humanitarian-scope	<!--	HUMANITARIAN SCOPE	-->
+	<div class="wrap_humanitarian_scope">
+		<div class="header_section sticky collapsable">humanitarian scope <span class="count">( {_it./humanitarian-scope.length} )</span></div>
+		<table class="budget part_org sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3">TITLE</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3">VOCAB</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3">CODE</th>
+				</tr>
+			</thead>
+			{_it./humanitarian-scope:/humanitarian-scope}
+		</table>
+	</div>
+
 <!--	HUMANITARIAN SCOPE ROWS	-->
 #^/humanitarian-scope
 <tr class="row_count">
@@ -432,10 +451,20 @@
 	<td>{_it.@code||}</td>
 </tr>
 
+#^/wrap-description	<!--	DESCRIPTION	-->
+	<div class="wrap_description">
+		{_it./description:/description}
+	</div>
+	
 <!--	IATI ACTIVITY DESCRIPTION	-->
 #^/description
-<div class="header">{_it.@type-name}</div>
+{_it.type-name&&_it:/description-type||_it:/description-type-default}
 <div class="text">{_it./narrative:/narrative}</div>
+
+#^/description-type
+<div class="header">{_it.@type-name}</div>
+#^/description-type-default
+<div class="header">DESCRIPTION</div>
 
 
 #^body	<!--	ORG	-->

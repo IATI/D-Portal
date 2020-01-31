@@ -658,7 +658,7 @@ Data that is marked as invalid IATI xml when using the <a href="http://validator
 <p><a href="http://iatistandard.org/202/codelists/TransactionType/">Transaction type code</a> not present.</p>
 <p>Not using either Disbursements or Expenditure in <a href="http://iatistandard.org/202/codelists/TransactionType/">transaction type</a> field.</p>
 <p><a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/activity-date/">Dates</a> in incorrect format in the data.</p>
-<p>Projects with missing end date will not show up on lists that need end date.</p>
+<p>Activities without end date are not shown on the list of projects ending soon or any lists that need an end date to order them.</p>
 <p>Illogical dates such as activity end date before activity start date.</p>
 <p>No data relevant to the year being viewed on a pie chart or table (eg where a pie chart shows 2016 data and data published only relates to 2015).</p>
 <p>If updating your Registry profile only, changes will show after the weekly full import (each weekend) as d-portal only updates nightly the data that has been changed in the xml.</p>
