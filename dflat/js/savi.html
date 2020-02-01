@@ -41,8 +41,10 @@
 {_it./document-link&&_it:/wrap-document-link||}
 <!--	ACTIVITY DATE	-->	
 	<div class="wrap_activity_date">
-		<div class="planned_start"><span>Planned start date</span> {_it./activity-date-1.@iso-date||}</div><div class="actual_start"><span>Actual start date</span> {_it./activity-date-2.@iso-date||}</div>
-		<div class="planned_end"><span>Planned end date</span> {_it./activity-date-3.@iso-date||}</div><div class="actual_end"><span>Actual end date</span> {_it./activity-date-4.@iso-date||}</div>
+		{_it./activity-date-1&&_it:/wrap-activity-date-1||}
+		{_it./activity-date-2&&_it:/wrap-activity-date-2||}
+		{_it./activity-date-3&&_it:/wrap-activity-date-3||}
+		{_it./activity-date-4&&_it:/wrap-activity-date-4||}
 	</div>
 <!--	PARTICIPATING ORG	-->	
 	<div class="wrap_participating_org">
@@ -466,6 +468,14 @@
 #^/description-type-default
 <div class="header">DESCRIPTION</div>
 
+#^/wrap-activity-date-1
+<div class="planned_start"><span>Planned start date</span> {_it./activity-date-1.@iso-date||}</div>
+#^/wrap-activity-date-2
+<div class="actual_start"><span>Actual start date</span> {_it./activity-date-2.@iso-date||}</div>
+#^/wrap-activity-date-3
+<div class="planned_end"><span>Planned end date</span> {_it./activity-date-3.@iso-date||}</div>
+#^/wrap-activity-date-4
+<div class="actual_end"><span>Actual end date</span> {_it./activity-date-4.@iso-date||}</div>
 
 #^body	<!--	ORG	-->
 <div>

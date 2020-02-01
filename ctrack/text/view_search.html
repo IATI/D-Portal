@@ -28,7 +28,7 @@
 <!-- EXPLORE: Toggle search intro section, hidden at load	-->
 #more_search_intro
 <div id="more_search_intro" class="settings_search" style="display:none;">
-	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">x</div>
+	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">CLOSE X</div>
 <table class="head">
 	<tr>
 		<td>
@@ -210,12 +210,13 @@
 <!-- EXPLORE: Toggle search intro section, hidden at load	-->
 #more_search_intro2
 <div id="more_search_intro" class="settings_search" style="display:none;">
-	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">x</div>
+	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">CLOSE X</div>
 	<div class="search_text">
 		Find activities published to the IATI Standard using filters and keywords.
 		<br/>Text search searches the Title and Description fields within all published IATI activities.
 		<br/>Sort filter dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> (e.g. by CRS sector numbers)
 	</div>
+	<div class="filter_text">GLOSSARY</div>
 <table class="head filter_table">
 	<tr>
 		<td class="filter_title"><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</td>
@@ -233,12 +234,9 @@
 		<td class="filter_title"><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}</td>
 	</tr>
 	<tr>
-		<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a>.</td>
+		<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a>. This <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/reporting-org/" target="blank" rel="noopener noreferrer">IATI element</a> is a list of reporting organisations issuing the report.</td>
 		<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/Sector/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 5-digit purpose code</a>.</td>
 		<td>Select the starting and/or ending year as the range for activities.</td>
-	</tr>
-	<tr>
-		<td colspan="3"><div class="filter_text">Advance filters</div></td>
 	</tr>
 	<tr>
 		<td class="filter_title"><span>&#10096;&#10097;</span> {search_collaboration_type_txt}</td>
