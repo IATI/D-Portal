@@ -46,37 +46,23 @@
 		{_it./activity-date-3&&_it:/wrap-activity-date-3||}
 		{_it./activity-date-4&&_it:/wrap-activity-date-4||}
 	</div>
-<!--	PARTICIPATING ORG	-->	
-	<div class="wrap_participating_org">
-		<div class="header_section sticky collapsable">WHO'S INVOLVED <span class="count">( {_it./participating-org.length} )</span></div>
-		<table class="budget part_org sortable">
-			<thead>
-				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3">PARTICIPATING ORG</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3">REF</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3">ROLE</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
-				</tr>
-			</thead>
-			{_it./participating-org:/participating-org}
-		</table>
-	</div>
+{_it./participating-org&&_it:/wrap-participating-org||}
 {_it./description&&_it:/wrap-description||}
 {_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
 {_it./recipient-country&&_it:/wrap-recipient-country||}
-{_it./recipient-region&&_it:/wrap-recipient-region||}	<!--	??		-->
+{_it./recipient-region&&_it:/wrap-recipient-region||}	<!--	1		-->
 {_it./location&&_it:/wrap-location||}
 {_it./sector&&_it:/wrap-sector||}
-{_it./tag&&_it:/wrap-tag||}	<!--	??		-->
+{_it./tag&&_it:/wrap-tag||}	<!--	2		-->
 {_it./budget&&_it:/wrap-budget||}
-{_it./planned-disbursement&&_it:/wrap-planned-disbursement||}	<!--	??		-->
+{_it./planned-disbursement&&_it:/wrap-planned-disbursement||}	<!--	3		-->
 {_it./transaction&&_it:/wrap-transaction||}
 {_it./result&&_it:/wrap-result||}
-{_it./contact-info&&_it:/wrap-contact-info||}	<!--	??		-->
-{_it./activity-website&&_it:/wrap-activity-website||}	<!--	??		-->
-{_it./policy-marker&&_it:/wrap-policy-marker||}	<!--	??		-->
-{_it./related-activity&&_it:/wrap-related-activity||}	<!--	??		-->
-{_it./activity-status&&_it:/wrap-activity-status||}	<!--	??		-->
+{_it./contact-info&&_it:/wrap-contact-info||}	<!--	4		-->
+{_it./activity-website&&_it:/wrap-activity-website||}	<!--	5		-->
+{_it./policy-marker&&_it:/wrap-policy-marker||}	<!--	6		-->
+{_it./related-activity&&_it:/wrap-related-activity||}	<!--	7		-->
+{_it./activity-status&&_it:/wrap-activity-status||}	<!--	8		-->
 </div>
 
 #^/wrap-result	<!--	RESULT	-->
@@ -418,6 +404,22 @@
 	<td title="{_it./location-reach@code-description||}" data-sort-value="{_it./location-reach@code}">{_it./location-reach@code-name||}</td>
 	<td title="{_it./exactness@code-description||}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
 </tr>
+
+#^/wrap-participating-org	<!--	PARTICIPATING ORG	-->	
+	<div class="wrap_participating_org">
+		<div class="header_section sticky collapsable">WHO'S INVOLVED <span class="count">( {_it./participating-org.length} )</span></div>
+		<table class="budget part_org sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3">PARTICIPATING ORG</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3">REF</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3">ROLE</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
+				</tr>
+			</thead>
+			{_it./participating-org:/participating-org}
+		</table>
+	</div>
 
 <!--	PARTICIPATING ORG ROWS	-->
 #^/participating-org
