@@ -127,13 +127,11 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 /*	DATES	*/
 .wrap_activity_date	{position:relative; width:980px; height:82px; margin-left:-50px;}
 .wrap_activity_date div	{display:inline-block; vertical-align:top; padding:10px 40px; font-size:20px; color:#FFF; min-height:40px; height:40px; line-height:18px;}
-.wrap_activity_date div:nth-of-type(odd)	{width:489px; margin:1px 1px 0 0; background-color:#da7102;}
-.wrap_activity_date div:nth-of-type(even)	{width:490px; margin:1px 0 0 0; background-color:#ff890c; text-align:right;}
 .wrap_activity_date div span				{font-size:14px; color:#000e20; text-transform:uppercase; min-width:165px; display:inline-block; vertical-align:bottom; padding-right:10px;}
-.wrap_activity_date .planned_start	{position:absolute; top:0; left:0;}
-.wrap_activity_date .actual_start	{position:absolute; top:0; right:0;}
-.wrap_activity_date .planned_end	{position:absolute; bottom:0; left:0;}
-.wrap_activity_date .actual_end		{position:absolute; bottom:0; right:0;}
+.wrap_activity_date .planned_start	{position:absolute; top:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#da7102;}
+.wrap_activity_date .actual_start	{position:absolute; top:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ff890c; text-align:right;}
+.wrap_activity_date .planned_end	{position:absolute; bottom:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#da7102;}
+.wrap_activity_date .actual_end		{position:absolute; bottom:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ff890c; text-align:right;}
 
 /*	TABLES	*/
 td .currency	{font-size:12px; color:#ccc;}
