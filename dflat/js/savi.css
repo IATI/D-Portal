@@ -73,6 +73,8 @@ span.block	{display:block;}
 .wrap_bar			{display:inline-block; vertical-align:middle; width:400px;}
 .wrap_code			{text-align:right; width:480px; border-right:1px solid #999; padding:10px 20px 10px 0;}
 .wrap_bar			{height:24px;}
+.wrap_code span		{display:inline-block; vertical-align:middle;}
+.sector_code_text	{max-width:400px;}
 .sector_code		{margin-left:10px; background-color:rgba(48,57,70,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
 .sector_code:nth-of-type(3)	{margin-left:5px;}
 .sector_bar,
@@ -114,7 +116,7 @@ span.doc_title,
 span.doc_format	{display:inline-block; vertical-align:top;}
 span.doc_title	{font-size:14px; line-height:1.25em; max-width:600px;}
 span.doc_title:nth-of-type(n+2)	{font-style:italic;}
-span.doc_desc	{font-size:12px; display:block; padding:5px 0;}
+span.doc_desc	{font-size:12px; display:block; padding:5px 0; color:#ccc;}
 span.doc_format	{margin-left:10px; color:#CCC; font-size:12px; background-color:rgba(22,24,37,0.6); border-radius:4px; padding:4px 4px 1px 4px;}
 span.doc_lang	{display:inline-block; vertical-align:top; margin:10px 8px 0 0; color:#CCC; font-size:13px; text-transform:uppercase;}
 span.rep_type	{display:inline-block; vertical-align:middle; color:#CCC; font-size:12px; margin-left:5px;}
@@ -125,16 +127,18 @@ span.doc_date	{background-color:rgba(48,71,103,1);}
 span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 
 /*	DATES	*/
-.wrap_activity_date	{width:980px; margin-left:-50px;}
-.wrap_activity_date div	{display:inline-block; vertical-align:top; padding:10px 40px; font-size:20px; color:#FFF; min-height:44px;}
-.wrap_activity_date div:nth-of-type(odd)	{width:489px; margin:1px 1px 0 0; background-color:#da7102;}
-.wrap_activity_date div:nth-of-type(even)	{width:490px; margin:1px 0 0 0; background-color:#ff890c; text-align:right;}
-.wrap_activity_date div span				{font-size:14px; color:#000e20; text-transform:uppercase;}
+.wrap_activity_date	{position:relative; width:980px; height:82px; margin-left:-50px;}
+.wrap_activity_date div	{display:inline-block; vertical-align:top; padding:10px 40px; font-size:20px; color:#FFF; min-height:40px; height:40px; line-height:18px;}
+.wrap_activity_date div span				{font-size:14px; color:#000e20; text-transform:uppercase; min-width:165px; display:inline-block; vertical-align:bottom; padding-right:10px;}
+.wrap_activity_date .planned_start	{position:absolute; top:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#da7102;}
+.wrap_activity_date .actual_start	{position:absolute; top:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ff890c; text-align:right;}
+.wrap_activity_date .planned_end	{position:absolute; bottom:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#da7102;}
+.wrap_activity_date .actual_end		{position:absolute; bottom:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ff890c; text-align:right;}
 
 /*	TABLES	*/
 td .currency	{font-size:12px; color:#ccc;}
 .value			{text-align:right;}
-.status			{text-align:center;}
+/*.status			{text-align:center;}*/
 .wrap_tab		{padding-bottom:5px; border-bottom:1px solid #666; margin-bottom:5px;}
 .wrap_tab:last-of-type	{border:0;}
 .tab_text,
@@ -153,7 +157,6 @@ table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhE
 table.budget th:hover	{cursor:pointer;}
 table.budget td			{font-size:14px; color:#FFF; line-height:1.35em; vertical-align:top; border-bottom:1px solid #333642; padding:10px 0;}
 table.budget td.value	{font-size:16px; padding-right:20px; text-align:right;}
-table.budget td.status	{text-align:right;}
 .org table.budget td.value			{font-size:14px;}
 
 
@@ -165,19 +168,20 @@ table.location td:nth-of-type(1)	{font-size:16px;}
 table.part_org td,
 table.location td					{padding:5px 0;}
 
-table.budget th:first-of-type,
-table.budget td:first-of-type,
-table.budget th:nth-of-type(2),
-table.budget td:nth-of-type(2)		{width:100px; padding-right:20px;}
-table.budget th:nth-of-type(4),
-table.budget td:nth-of-type(4)		{width:100px;}
-table.budget th:nth-of-type(3),
-table.budget td:nth-of-type(3)		{width:420px; padding-right:20px;}
+/*	IATI ACTIVITY BUDGET AND PLANNED DISBURSEMENT TABLE	*/
+table.budget tr th.date,
+table.budget tr td.date				{width:100px; padding-right:20px;}
+table.budget tr th.tab_type,
+table.budget tr td.tab_type			{width:350px; padding-right:20px;}
+table.budget tr th.status,
+table.budget tr td.status			{width:170px;}
+table.budget tr th.value,
+table.budget tr td.value			{width:160px; padding-right:20px;}
 
 table.budget tr:last-of-type td		{border:0; padding-bottom:30px;}	/*	Remove border-bottom from last row of tables	*/
 
 
-/*	DATE AND STATUS COLUMN	*/
+/*	IATI ORG DATE AND STATUS COLUMN	*/
 .wrap_total_budget table.budget th.date,
 .wrap_total_budget table.budget td.date,
 .wrap_total_expenditure table.budget th.date,
@@ -198,41 +202,41 @@ table.budget tr:last-of-type td		{border:0; padding-bottom:30px;}	/*	Remove bord
 .wrap_recipient_budget table.budget th.status,
 .wrap_recipient_budget table.budget td.status		{text-align:center;}
 
-/*	RECIPIENT COLUMN	*/
+/*	IATI ORG RECIPIENT COLUMN	*/
 .wrap_recipient_budget table.budget th.recipient,
 .wrap_recipient_budget table.budget td.recipient	{width:180px; padding-right:20px;}
 
-/*	BUDGET-LINE COLUMN	*/
+/*	IATI ORG BUDGET-LINE COLUMN	*/
 .wrap_total_budget table.budget th.line,
 .wrap_total_budget table.budget td.line				{width:460px; padding-right:0;}
 
-/*	RECIPIENT-BUDGET-LINE COLUMN	*/
+/*	IATI ORG RECIPIENT-BUDGET-LINE COLUMN	*/
 .wrap_recipient_budget table.budget th.line,
 .wrap_recipient_budget table.budget td.line			{width:260px; padding-right:0;}
 
-/*	EXPENSE-LINE COLUMN	*/
+/*	IATI ORG EXPENSE-LINE COLUMN	*/
 .wrap_total_expenditure table.budget th.line,
 .wrap_total_expenditure table.budget td.line		{width:460px; padding-right:0px;}
 
-/*	VALUE HEADER COLUMN	*/
+/*	IATI ORG VALUE HEADER COLUMN	*/
 .wrap_total_expenditure table.budget th.value		{width:200px; padding-right:20px;}
 .wrap_total_budget table.budget th.value,
 .wrap_recipient_budget table.budget th.value		{width:100px; padding-right:20px;}
 
-/*	VALUE COLUMN	*/
+/*	IATI ORG VALUE COLUMN	*/
 .wrap_total_expenditure table.budget td.value		{width:200px; padding-right:0; padding-left:20px;}
 .wrap_total_budget table.budget td.value,
 .wrap_recipient_budget table.budget td.value		{width:120px; padding-right:0; padding-left:20px;}
 
-
-table.budget.part_org th:nth-of-type(1),
-table.budget.part_org td:nth-of-type(1)		{width:420px; padding-right:40px;}
-table.budget.part_org th:nth-of-type(2),
-table.budget.part_org td:nth-of-type(2)		{width:200px; padding-right:20px;}
-table.budget.part_org th:nth-of-type(3),
-table.budget.part_org td:nth-of-type(3)		{width:120px; padding-right:20px;}
-table.budget.part_org th:nth-of-type(4),
-table.budget.part_org td:nth-of-type(4)		{width:140px; padding-right:0px;}
+/*	IATI ACTIVITY PARTICIPATING ORG TABLE	*/
+table.budget.part_org th.part_org_name,
+table.budget.part_org td.part_org_name		{width:420px; padding-right:40px;}
+table.budget.part_org th.part_org_ref,
+table.budget.part_org td.part_org_ref		{width:200px; padding-right:20px;}
+table.budget.part_org th.part_org_role,
+table.budget.part_org td.part_org_role		{width:120px; padding-right:20px;}
+table.budget.part_org th.part_org_type,
+table.budget.part_org td.part_org_type		{width:140px; padding-right:0px;}
 
 .wrap_humanitarian_scope table.budget.part_org th:nth-of-type(2),
 .wrap_humanitarian_scope table.budget.part_org td:nth-of-type(2)		{width:120px;}
@@ -241,23 +245,25 @@ table.budget.part_org td:nth-of-type(4)		{width:140px; padding-right:0px;}
 .wrap_humanitarian_scope table.budget.part_org th:nth-of-type(4),
 .wrap_humanitarian_scope table.budget.part_org td:nth-of-type(4)		{width:180px;}
 
+/*	IATI ACTIVITY LOCATION TABLE	*/
 table.budget.location th,
 table.budget.location td					{width:130px; padding-right:30px;}
-table.budget.location th:first-of-type,
-table.budget.location td:first-of-type,
-table.budget.location th:nth-of-type(2),
-table.budget.location td:nth-of-type(2)		{width:180px; padding-right:30px;}
-table.budget.location th:nth-of-type(3),
-table.budget.location td:nth-of-type(3)		{width:150px; padding-right:30px;}
-table.budget.location th:nth-of-type(5),
-table.budget.location td:nth-of-type(5),
-table.budget.location th:nth-of-type(6),
-table.budget.location td:nth-of-type(6)		{width:120px; padding-right:0px;}
+table.budget.location th.loc_name,
+table.budget.location td.loc_name,
+table.budget.location th.loc_des,
+table.budget.location td.loc_des			{width:180px; padding-right:30px;}
+table.budget.location th.loc_pos,
+table.budget.location td.loc_pos			{width:150px; padding-right:30px;}
+table.budget.location th.loc_reach,
+table.budget.location td.loc_reach,
+table.budget.location th.loc_exact,
+table.budget.location td.loc_exact			{width:120px; padding-right:0px;}
 
 table.budget.act th,
 table.budget.act td,
-table.budget.act_trans th:nth-of-type(1),
-table.budget.act_trans td:nth-of-type(1)	{width:110px; padding-right:0px;}
+table.budget.act_trans th.date,
+table.budget.act_trans td.date				{width:110px; padding-right:0px;}
+
 table.budget.act th:nth-of-type(2),
 table.budget.act td:nth-of-type(2),
 table.budget.act th:nth-of-type(3)
@@ -266,14 +272,16 @@ table.budget.act th:nth-of-type(4),
 table.budget.act td:nth-of-type(4)			{width:200px; padding-right:0px;}
 table.budget.act th:nth-of-type(5),
 table.budget.act td:nth-of-type(5)			{width:330px; padding-right:20px;}
-table.budget.act_trans th:nth-of-type(2),
-table.budget.act_trans td:nth-of-type(2)	{width:240px; padding-right:30px;}
-table.budget.act_trans th:nth-of-type(3),
-table.budget.act_trans td:nth-of-type(3)	{width:200px; padding-right:30px;}
-table.budget.act_trans th:nth-of-type(4),
-table.budget.act_trans td:nth-of-type(4)	{width:170px; padding-right:0px;}
-table.budget.act_trans th:nth-of-type(5),
-table.budget.act_trans td:nth-of-type(5)	{width:160px; padding-right:20px;}
+
+/*	IATI ACTIVITY TRANSACTION TABLES	*/
+table.budget.act_trans th.description,
+table.budget.act_trans td.description		{width:240px; padding-right:30px;}
+table.budget.act_trans th.provider,
+table.budget.act_trans td.provider			{width:200px; padding-right:30px;}
+table.budget.act_trans th.receiver,
+table.budget.act_trans td.receiver			{width:170px; padding-right:0px;}
+table.budget.act_trans th.value,
+table.budget.act_trans td.value				{width:160px; padding-right:20px;}
 
 table.budget.result th,
 table.budget.result td						{width:100px; padding-right:0px;}
@@ -294,13 +302,13 @@ table.modals					{table-layout:fixed; border-collapse:collapse; width:100%;}
 table.modals td,
 table.modals th 				{text-align:left; font-size:12px; padding:5px 10px 5px 5px; vertical-align:top; width:100px;}
 table.modals th					{font-size:10px; color:#ccc; text-transform:uppercase; font-weight:normal; border-bottom:1px solid #666;}
-table.modals td:nth-of-type(1),
-table.modals th:nth-of-type(1)	{width:120px;}
-table.modals td:nth-of-type(2),
-table.modals th:nth-of-type(2),
-table.modals td:nth-of-type(3),
-table.modals th:nth-of-type(3),
-table.modals td:nth-of-type(4),
-table.modals th:nth-of-type(4)	{width:160px;}
-table.modals th:last-of-type,
-table.modals td:last-of-type	{width:80px; padding-right:0;}
+table.modals td.mod_1,
+table.modals th.mod_1			{width:120px;}
+table.modals td.mod_2,
+table.modals th.mod_2,
+table.modals td.mod_3,
+table.modals th.mod_3,
+table.modals td.mod_4,
+table.modals th.mod_4			{width:160px;}
+table.modals th.mod_7,
+table.modals td.mod_7			{width:80px; padding-right:0;}
