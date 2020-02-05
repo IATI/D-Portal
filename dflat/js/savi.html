@@ -12,22 +12,22 @@
 	<div class="wrap_default">
 		<table class="modals">
 			<tr>
-				<th>ACTIVITY SCOPE</td>
-				<th>COLLABORATION TYPE</td>
-				<th>AID TYPE</td>
-				<th>FINANCE TYPE</td>
-				<th>FLOW TYPE</td>
-				<th>TIED STATUS</td>
-				<th>HIERARCHY</td>
+				<th class="mod_1">ACTIVITY SCOPE</td>
+				<th class="mod_2">COLLABORATION TYPE</td>
+				<th class="mod_3">AID TYPE</td>
+				<th class="mod_4">FINANCE TYPE</td>
+				<th class="mod_5">FLOW TYPE</td>
+				<th class="mod_6">TIED STATUS</td>
+				<th class="mod_7">HIERARCHY</td>
 			</tr>
 			<tr>
-				<td title="{_it./activity-scope@code-description||}">{_it./activity-scope@code-name||}</td>
-				<td title="{_it./collaboration-type@code-description||}">{_it./collaboration-type@code-name||}</td>
-				<td title="{_it./default-aid-type.0.@code-description||}">{_it./default-aid-type.0.@code-name||}</td>
-				<td title="{_it./default-finance-type@code-description||}">{_it./default-finance-type@code-name||}</td>
-				<td title="{_it./default-flow-type@code-description||}">{_it./default-flow-type@code-name||}</td>
-				<td title="{_it./default-tied-status@code-description||}">{_it./default-tied-status@code-name||}</td>
-				<td title="{_it.@hierarchy-description||}">{_it.@hierarchy||}</td>
+				<td class="mod_1" title="{_it./activity-scope@code-description||}">{_it./activity-scope@code-name||}</td>
+				<td class="mod_2" title="{_it./collaboration-type@code-description||}">{_it./collaboration-type@code-name||}</td>
+				<td class="mod_3" title="{_it./default-aid-type.0.@code-description||}">{_it./default-aid-type.0.@code-name||}</td>
+				<td class="mod_4" title="{_it./default-finance-type@code-description||}">{_it./default-finance-type@code-name||}</td>
+				<td class="mod_5" title="{_it./default-flow-type@code-description||}">{_it./default-flow-type@code-name||}</td>
+				<td class="mod_6" title="{_it./default-tied-status@code-description||}">{_it./default-tied-status@code-name||}</td>
+				<td class="mod_7" title="{_it.@hierarchy-description||}">{_it.@hierarchy||}</td>
 			</tr>
 		</table>
 	</div>
@@ -50,7 +50,7 @@
 {_it./description&&_it:/wrap-description||}
 {_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
 {_it./recipient-country&&_it:/wrap-recipient-country||}
-{_it./recipient-region&&_it:/wrap-recipient-region||}	<!--	1		-->
+{_it./recipient-region&&_it:/wrap-recipient-region||}	<!--	1	done	-->
 {_it./location&&_it:/wrap-location||}
 {_it./sector&&_it:/wrap-sector||}
 {_it./tag&&_it:/wrap-tag||}	<!--	2		-->
@@ -238,6 +238,33 @@
 #^/receiver-org-type
 <span title="{_it./receiver-org@type-description||}" class="type">{_it./receiver-org@type-name||}</span>
 
+#^/wrap-planned-disbursement	<!--	PLANNED DISBURSEMENT	-->	
+	<div class="wrap_budget">
+		<div class="header_section sticky collapsable">Planned Disbursement <span class="count">( {_it./planned-disbursement.length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="tab_type">TYPE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="status">STATUS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4" class="value">VALUE</th>
+				</tr>
+			</thead>
+			{_it./planned-disbursement:/planned-disbursement}
+		</table>
+	</div>
+
+<!--	PLANNED DISBURSEMENT ROWS	-->
+#^/planned-disbursement
+<tr class="row_count">
+	<td class="date">{_it./period-start@iso-date||}</td>
+	<td class="date">{_it./period-end@iso-date||}</td>
+	<td class="tab_type" title="{_it.@type-description||}">{_it.@type-name||}</td>
+	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
+</tr>
+
 #^/wrap-budget	<!--	BUDGET	-->	
 	<div class="wrap_budget">
 		<div class="header_section sticky collapsable">Budget <span class="count">( {_it./budget.length} )</span></div>
@@ -360,6 +387,22 @@
 #^/default-aid-type
 <div>{_it.@code-name}</div>
 
+#^/wrap-recipient-region	<!--	RECIPIENT REGION	-->
+	<div class="header_section collapsable">recipient region <span class="count">( {_it./recipient-region.length} )</span></div>
+	<div class="wrap_recipient_country">
+		{_it./recipient-region:/recipient-region}
+	</div>
+
+<!--	RECIPIENT-REGION TEMPLATE	-->
+#^/recipient-region
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
+	</div>
+</div>
+
 #^/wrap-recipient-country	<!--	RECIPIENT COUNTRY	-->
 	<div class="header_section collapsable">recipient country <span class="count">( {_it./recipient-country.length} )</span></div>
 	<div class="wrap_recipient_country">
@@ -382,12 +425,12 @@
 		<table class="budget location sortable">
 			<thead>
 				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">NAME</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">DESCRIPTION</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">POSITION</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">CLASS</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">REACH</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">EXACTNESS</th>
+					<th class="loc_name" data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">NAME</th>
+					<th class="loc_des" data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">DESCRIPTION</th>
+					<th class="loc_pos" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">POSITION</th>
+					<th class="loc_class" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">CLASS</th>
+					<th class="loc_reach" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">REACH</th>
+					<th class="loc_exact" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">EXACTNESS</th>
 				</tr>
 			</thead>
 			{_it./location:/location}
@@ -397,12 +440,12 @@
 <!--	LOCATION ROWS	-->
 #^/location
 <tr class="row_count">
-	<td>{_it./name/narrative.0.text||}</td>
-	<td>{_it./description/narrative.0.text||}</td>
-	<td>{_it./point/pos||}</td>
-	<td title="{_it./location-class@code-description||}" data-sort-value="{_it./location-class@code}">{_it./location-class@code-name||}</td>
-	<td title="{_it./location-reach@code-description||}" data-sort-value="{_it./location-reach@code}">{_it./location-reach@code-name||}</td>
-	<td title="{_it./exactness@code-description||}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
+	<td class="loc_name">{_it./name/narrative.0.text||}</td>
+	<td class="loc_des">{_it./description/narrative.0.text||}</td>
+	<td class="loc_pos">{_it./point/pos||}</td>
+	<td class="loc_class" title="{_it./location-class@code-description||}" data-sort-value="{_it./location-class@code}">{_it./location-class@code-name||}</td>
+	<td class="loc_reach" title="{_it./location-reach@code-description||}" data-sort-value="{_it./location-reach@code}">{_it./location-reach@code-name||}</td>
+	<td class="loc_exact" title="{_it./exactness@code-description||}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
 </tr>
 
 #^/wrap-participating-org	<!--	PARTICIPATING ORG	-->	
@@ -411,10 +454,10 @@
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3">PARTICIPATING ORG</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3">REF</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3">ROLE</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
+					<th class="part_org_name" data-sort="string" data-sort-multicolumn="0,1,2,3">PARTICIPATING ORG</th>
+					<th class="part_org_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">REF</th>
+					<th class="part_org_role" data-sort="int" data-sort-multicolumn="0,1,2,3">ROLE</th>
+					<th class="part_org_type" data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
 				</tr>
 			</thead>
 			{_it./participating-org:/participating-org}
@@ -424,10 +467,10 @@
 <!--	PARTICIPATING ORG ROWS	-->
 #^/participating-org
 <tr class="row_count">
-	<td><a href="{_it.@ref||}">{_it./narrative:/narrative||}</a></td>
-	<td>{_it.@ref||}</td>
-	<td title="{_it.@role-description||}" data-sort-value="{_it.@role}">{_it.@role-name||}</td>
-	<td title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+	<td class="part_org_name"><a href="{_it.@ref||}">{_it./narrative:/narrative||}</a></td>
+	<td class="part_org_ref">{_it.@ref||}</td>
+	<td class="part_org_role" title="{_it.@role-description||}" data-sort-value="{_it.@role}">{_it.@role-name||}</td>
+	<td class="part_org_type" title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
 
 #^/wrap-humanitarian-scope	<!--	HUMANITARIAN SCOPE	-->
