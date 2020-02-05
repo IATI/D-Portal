@@ -55,15 +55,52 @@
 {_it./sector&&_it:/wrap-sector||}
 {_it./tag&&_it:/wrap-tag||}	<!--	2		-->
 {_it./budget&&_it:/wrap-budget||}
-{_it./planned-disbursement&&_it:/wrap-planned-disbursement||}	<!--	3		-->
+{_it./planned-disbursement&&_it:/wrap-planned-disbursement||}	<!--	3	done	-->
 {_it./transaction&&_it:/wrap-transaction||}
 {_it./result&&_it:/wrap-result||}
 {_it./contact-info&&_it:/wrap-contact-info||}	<!--	4		-->
-{_it./activity-website&&_it:/wrap-activity-website||}	<!--	5		-->
-{_it./policy-marker&&_it:/wrap-policy-marker||}	<!--	6		-->
-{_it./related-activity&&_it:/wrap-related-activity||}	<!--	7		-->
-{_it./activity-status&&_it:/wrap-activity-status||}	<!--	8		-->
+{_it./policy-marker&&_it:/wrap-policy-marker||}	<!--	5	done	-->
+{_it./related-activity&&_it:/wrap-related-activity||}	<!--	6		-->
+{_it./activity-status&&_it:/wrap-activity-status||}	<!--	7		-->
 </div>
+
+#^/wrap-contact-info	<!--	CONTACT INFO	-->
+	<div class="wrap_contact-info">
+		{_it./contact-info:/contact-info}
+	</div>
+
+#^/contact-info
+{_it./organisation/narrative.0.text||}
+{_it./department/narrative.0.text||}
+{_it./person-name/narrative.0.text||}
+{_it./job-title/narrative.0.text||}
+{_it./telephone.0.text||}
+{_it./email.0.text||}
+{_it./website.0.text||}
+{_it./mailing-address/narrative.0.text||}
+
+#^/wrap-policy-marker	<!--	POLICY MARKER	-->
+	<div class="wrap_policy_marker">
+		<div class="header_section sticky collapsable">policy marker<span class="count">( {_it./policy-marker.length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="policy_code" data-sort="int" data-sort-multicolumn="0,1,2">CODE</th>
+					<th class="policy_sig" data-sort="int" data-sort-multicolumn="0,1,2">SIGNIFICANCE</th>
+					<th class="policy_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>			
+				</tr>
+			</thead>
+			{_it./policy-marker:/policy-marker}
+		</table>
+	</div>
+
+<!--	POLICY MARKER ROWS	-->
+#^/policy-marker
+<tr class="row_count">
+	<td class="policy_code" title="{_it.@code-description||}" data-sort-value="{_it.@code}">{_it.@code-name||}</td>
+	<td class="policy_sig" title="{_it.@significance-description||}" data-sort-value="{_it.@significance}">{_it.@significance-name||}</td>
+	<td class="policy_vocab" title="{_it.@vocabulary-description||}" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
+</tr>
 
 #^/wrap-result	<!--	RESULT	-->
 	<div class="wrap_result">
@@ -389,15 +426,37 @@
 
 #^/wrap-recipient-region	<!--	RECIPIENT REGION	-->
 	<div class="header_section collapsable">recipient region <span class="count">( {_it./recipient-region.length} )</span></div>
-	<div class="wrap_recipient_country">
-		{_it./recipient-region:/recipient-region}
+	<div class="wrap_sector">
+		{_it./recipient-region-1&&_it:recipient-regions-1||}
+		{_it./recipient-region-2&&_it:recipient-regions-2||}
+		{_it./recipient-region-99&&_it:recipient-regions-99||}
 	</div>
+	
+<!--	RECIPIENT REGION VOCAB	-->
+#^recipient-regions-1
+<div class="header" title="{_it./recipient-region-1.0.@vocabulary-description||}">OECD DAC <span class="count">( {_it./recipient-region-1.length} )</span></div>
+{_it./recipient-region-1:/recipient-region_dac||}
+#^recipient-regions-2
+<div class="header" title="{_it./recipient-region-2.0.@vocabulary-description||}">UN <span class="count">( {_it./recipient-region-2.length} )</span></div>
+{_it./recipient-region-2:/recipient-region||}
+#^recipient-regions-99
+<div class="header" title="{_it./recipient-region-99.0.@vocabulary-description||}">Reporting Organisation <span class="count">( {_it./recipient-region-99.length} )</span></div>
+{_it./recipient-region-99:/recipient-region||}
 
 <!--	RECIPIENT-REGION TEMPLATE	-->
-#^/recipient-region
+#^/recipient-region_dac
 <div class="sector">
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
+	</div>
+</div>
+
+#^/recipient-region
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it./narrative.0.text||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
 		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
 	</div>
@@ -479,10 +538,10 @@
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3">TITLE</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3">VOCAB</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3">CODE</th>
+					<th class="hum_title" data-sort="string" data-sort-multicolumn="0,1,2,3">TITLE</th>
+					<th class="hum_type" data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
+					<th class="hum_vocab" data-sort="int" data-sort-multicolumn="0,1,2,3">VOCAB</th>
+					<th class="hum_code" data-sort="string" data-sort-multicolumn="0,1,2,3">CODE</th>
 				</tr>
 			</thead>
 			{_it./humanitarian-scope:/humanitarian-scope}
@@ -492,10 +551,10 @@
 <!--	HUMANITARIAN SCOPE ROWS	-->
 #^/humanitarian-scope
 <tr class="row_count">
-	<td><a href="{_it.@vocabulary-uri}">{_it./narrative:/narrative||}</a></td>
-	<td title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
-	<td title="{_it.@vocabulary-description||}" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
-	<td>{_it.@code||}</td>
+	<td class="hum_title"><a href="{_it.@vocabulary-uri}">{_it./narrative:/narrative||}</a></td>
+	<td class="hum_type" title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+	<td class="hum_vocab" title="{_it.@vocabulary-description||}" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
+	<td class="hum_code">{_it.@code||}</td>
 </tr>
 
 #^/wrap-description	<!--	DESCRIPTION	-->
