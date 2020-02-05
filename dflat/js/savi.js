@@ -185,12 +185,17 @@ savi.prepare=function(iati_xson){
 		if( found_code && found_vocabulary )
 		{
 			let n=it[ found_code+"-name" ]
+			let d=it[ found_code+"-description" ]
 			let c=it[ found_code ]
 			let v=it[ found_vocabulary ]
 			it[ found_code+"-"+v ]=c
 			if(n)
 			{
 				it[ found_code+"-"+v+"-name" ]=n
+			}
+			if(d)
+			{
+				it[ found_code+"-"+v+"-description" ]=d
 			}
 		}
 
@@ -332,8 +337,47 @@ savi.prepare=function(iati_xson){
 				})
 			}
 		}
+// split regions on @vocabulary
+		if(act["/recipient-region"])
+		{
+			let tosort=[]
+			tosort.push( act["/recipient-region"] )
+			for( let region of act["/recipient-region"] )
+			{
+				let vocabulary=Number(region["@vocabulary"]) || 1
+				if(! act["/recipient-region-"+vocabulary] )
+				{
+					let regions=[]
+					act["/recipient-region-"+vocabulary]=regions
+					tosort.push( regions )
+				}
+				act["/recipient-region-"+vocabulary].push( region )
+			}
+			for( let tab of tosort )
+			{
+				tab.sort(function(a,b){
+					let an=Number(a["@percentage"])||0
+					let bn=Number(b["@percentage"])||0
+					return bn-an
+				})
+			}
+		}
+// sort countries
+		if(act["/recipient-country"])
+		{
+			let tosort=[]
+			tosort.push( act["/recipient-country"] )
+			for( let tab of tosort )
+			{
+				tab.sort(function(a,b){
+					let an=Number(a["@percentage"])||0
+					let bn=Number(b["@percentage"])||0
+					return bn-an
+				})
+			}
+		}
 	}
-	
+
 	if(iati_xson["/iati-activities/iati-activity"])
 	{
 		for( let act of iati_xson["/iati-activities/iati-activity"] )
