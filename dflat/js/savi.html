@@ -50,19 +50,24 @@
 {_it./description&&_it:/wrap-description||}
 {_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
 {_it./recipient-country&&_it:/wrap-recipient-country||}
-{_it./recipient-region&&_it:/wrap-recipient-region||}	<!--	1	done	-->
+{_it./recipient-region&&_it:/wrap-recipient-region||}
 {_it./location&&_it:/wrap-location||}
 {_it./sector&&_it:/wrap-sector||}
 {_it./budget&&_it:/wrap-budget||}
-{_it./planned-disbursement&&_it:/wrap-planned-disbursement||}	<!--	3	done	-->
+{_it./planned-disbursement&&_it:/wrap-planned-disbursement||}
 {_it./transaction&&_it:/wrap-transaction||}
 {_it./result&&_it:/wrap-result||}
-{_it./tag&&_it:/wrap-tag||}	<!--	2	done	-->
-{_it./policy-marker&&_it:/wrap-policy-marker||}	<!--	5	done	-->
-{_it./contact-info&&_it:/wrap-contact-info||}	<!--	4	done	-->
-{_it./related-activity&&_it:/wrap-related-activity||}	<!--	6		-->
-{_it./activity-status&&_it:/wrap-activity-status||}	<!--	7		-->
+{_it./tag&&_it:/wrap-tag||}
+{_it./policy-marker&&_it:/wrap-policy-marker||}
+{_it./contact-info&&_it:/wrap-contact-info||}
+{_it./related-activity&&_it:/wrap-related-activity||}
+{_it./activity-status&&_it:/wrap-activity-status||}
 </div>
+
+#^/wrap-activity-status	<!--	ACTIVITY STATUS WRAPPER	-->
+	<div class="wrap_activity_status">
+		{_it.@code-name}
+	</div>
 
 #^/wrap-contact-info	<!--	CONTACT INFO WRAPPER	-->
 	<div class="wrap_contact_info">
@@ -80,7 +85,7 @@
 {_it./website&&_it:/wrap-website||}
 {_it./mailing-address&&_it:/wrap-mailing-address||}
 
-#^/wrap-organisation
+#^/wrap-organisation	<!--	CONTACT INFO TEXT WRAPPERS	-->
 <div class="wrap_contact_org">{_it./organisation/narrative.0.text||}</div>
 #^/wrap-department
 <div class="wrap_contact_dept">{_it./department/narrative.0.text||}</div>
@@ -114,8 +119,9 @@
 		<table class="budget sortable">
 			<thead>
 				<tr>
-					<th class="related_ref" data-sort="string" data-sort-multicolumn="0,1">REFERENCE IDENTIFIER</th>
-					<th class="related_type" data-sort="int" data-sort-multicolumn="0,1">TYPE</th>			
+					<th class="related_ref" data-sort="string" data-sort-multicolumn="0,1,2">REFERENCE IDENTIFIER</th>
+					<th class="related_type" data-sort="int" data-sort-multicolumn="0,1,2">TYPE</th>
+					<th class="related_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>			
 				</tr>
 			</thead>
 			{_it./related-activity:/related-activity}
@@ -127,6 +133,7 @@
 <tr class="row_count">
 	<td class="related_ref" data-sort-value="{_it.@ref}"><a href="http://d-portal.org/q.html?aid={_it.@ref}">{_it.@ref||}</a></td>
 	<td class="related_type" data-sort-value="{_it.@type-code}">{_it.@type-name||}</td>
+	<td class="related_desc" data-sort-value="{_it.@type-description}">{_it.@type-description||}</td>
 </tr>
 
 #^/wrap-tag	<!--	TAG WRAPPER	-->
