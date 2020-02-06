@@ -65,26 +65,26 @@
 </div>
 
 #^/wrap-activity-status	<!--	ACTIVITY STATUS WRAPPER	-->
-	<div class="wrap_activity_status" style="background-color:{/status-back.1};">
+	<div class="wrap_activity_status" style="background-color:{status.6};">
 		<span>activity status:</span> {_it./activity-status@code-name||}
 		<div class="status_desc">{_it./activity-status@code-description||}</div>
 	</div>
 	
-#^/status-back form=json
+#^status form=json
 {
-	1:"#f0f",
-	2:"#fff",
-	3:"#000",
-	4:"#3f0",
-	5:"#f46",
-	6:"#0f0"
+	"1":"#f0f",
+	"2":"#fff",
+	"3":"#000",
+	"4":"#3f0",
+	"5":"#f46",
+	"6":"#0f0",
 }
 
 #^/wrap-contact-info	<!--	CONTACT INFO WRAPPER	-->
 	<div class="wrap_contact_info">
 		{_it./contact-info:/contact-info}
 	</div>
-
+{status.6}
 #^/contact-info	<!--	CONTACT INFO	-->
 {_it.@type&&_it:/contact-type||}
 {_it./organisation/narrative&&_it:/wrap-organisation||}
