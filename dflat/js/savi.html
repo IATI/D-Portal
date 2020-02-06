@@ -80,9 +80,32 @@
 <div class="wrap_contact_add">{_it./mailing-address:/mailing-address}</div>
 
 #^/mailing-address	<!--	CONTACT INFO MAILING ADDRESS TEXT FOR MULTIPLE ITEMS	-->
-{_it.narrative:/info_text}
+{_it./narrative:/info_text}
 #^/info_text	<!--	CONTACT INFO TEXT FOR MULTIPLE ITEMS	-->
 <div>{_it.text}</div>
+
+#^/wrap-tag	<!--	TAG WRAPPER	-->
+	<div class="wrap_tag">
+		<div class="header_section sticky collapsable">tag<span class="count">( {_it./tag.length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="tag_code" data-sort="int" data-sort-multicolumn="0,1,2">CODELIST</th>
+					<th class="tag_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>
+					<th class="tag_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>			
+				</tr>
+			</thead>
+			{_it./tag:/tag}
+		</table>
+	</div>
+
+<!--	TAG ROWS	-->
+#^/tag
+<tr class="row_count">
+	<td class="tag_code" data-sort-value="{_it.@code}">{_it.@code-name||}</td>
+	<td class="tag_vocab" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
+	<td class="tag_desc" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-description||}</td>
+</tr>
 
 #^/wrap-policy-marker	<!--	POLICY MARKER WRAPPER	-->
 	<div class="wrap_policy_marker">
@@ -577,6 +600,7 @@
 #^/description-type-default
 <div class="header">DESCRIPTION</div>
 
+<!--	IATI ACTIVITY DATE WRAPPER	-->
 #^/wrap-activity-date-1
 <div class="planned_start"><span>Planned start date</span> {_it./activity-date-1.@iso-date||}</div>
 #^/wrap-activity-date-2
