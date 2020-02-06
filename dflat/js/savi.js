@@ -27,6 +27,7 @@ savi.plate=function(str){ return savi.plated.chunks.replace(str,savi.chunks) }
 savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.html', 'utf8'), savi.chunks )
 savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.css',  'utf8'), savi.chunks )
 
+savi.plated.chunks.format_chunks( savi.chunks )
 
 savi.opts={}
 savi.opts.test=false
