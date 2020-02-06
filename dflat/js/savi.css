@@ -126,6 +126,12 @@ span.doc_date	{display:inline-block; vertical-align:top; margin:5px 5px 0 0; col
 span.doc_date	{background-color:rgba(48,71,103,1);}
 span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 
+/*	CONTACT INFO	*/
+.wrap_contact_info					{width:980px; margin:0 0 20px -50px; padding:20px 40px; font-size:18px; line-height:1.5em; background-color:rgba(17,46,105,0.9);}
+.wrap_contact_info:last-of-type 	{padding-bottom:30px;}
+.wrap_contact_info:nth-of-type(1) 	{padding-top:30px; width:900px; margin-left:-10px;}
+
+
 /*	DATES	*/
 .wrap_activity_date	{position:relative; width:980px; height:82px; margin-left:-50px;}
 .wrap_activity_date div	{display:inline-block; vertical-align:top; padding:10px 40px; font-size:20px; color:#FFF; min-height:40px; height:40px; line-height:18px;}

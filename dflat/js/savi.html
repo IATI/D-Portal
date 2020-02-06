@@ -64,28 +64,33 @@
 {_it./activity-status&&_it:/wrap-activity-status||}	<!--	7		-->
 </div>
 
-#^/wrap-contact-info	<!--	CONTACT INFO	-->
-	<div class="wrap_contact-info">
+#^/wrap-contact-info	<!--	CONTACT INFO WRAPPER	-->
+	<div class="wrap_contact_info">
 		{_it./contact-info:/contact-info}
 	</div>
 
-#^/contact-info
-{_it./organisation/narrative.0.text||}
-{_it./department/narrative.0.text||}
-{_it./person-name/narrative.0.text||}
-{_it./job-title/narrative.0.text||}
-{_it./telephone.0.text||}
-{_it./email.0.text||}
-{_it./website.0.text||}
-{_it./mailing-address/narrative.0.text||}
+#^/contact-info	<!--	CONTACT INFO	-->
+<div class="wrap_contact_org">{_it./organisation/narrative.0.text||}</div>
+<div class="wrap_contact_dept">{_it./department/narrative.0.text||}</div>
+<div class="wrap_contact_name">{_it./person-name/narrative.0.text||}</div>
+<div class="wrap_contact_title">{_it./job-title/narrative.0.text||}</div>
+<div class="wrap_contact_tel">{_it./telephone:/info_text}</div>
+<div class="wrap_contact_email">{_it./email:/info_text}</div>
+<div class="wrap_contact_web">{_it./website:/info_text}</div>
+<div class="wrap_contact_add">{_it./mailing-address:/mailing-address}</div>
 
-#^/wrap-policy-marker	<!--	POLICY MARKER	-->
+#^/mailing-address	<!--	CONTACT INFO MAILING ADDRESS TEXT FOR MULTIPLE ITEMS	-->
+{_it.narrative:/info_text}
+#^/info_text	<!--	CONTACT INFO TEXT FOR MULTIPLE ITEMS	-->
+<div>{_it.text}</div>
+
+#^/wrap-policy-marker	<!--	POLICY MARKER WRAPPER	-->
 	<div class="wrap_policy_marker">
 		<div class="header_section sticky collapsable">policy marker<span class="count">( {_it./policy-marker.length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
-					<th class="policy_code" data-sort="int" data-sort-multicolumn="0,1,2">CODE</th>
+					<th class="policy_code" data-sort="int" data-sort-multicolumn="0,1,2">CODELIST</th>
 					<th class="policy_sig" data-sort="int" data-sort-multicolumn="0,1,2">SIGNIFICANCE</th>
 					<th class="policy_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>			
 				</tr>
@@ -102,7 +107,7 @@
 	<td class="policy_vocab" title="{_it.@vocabulary-description||}" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
 </tr>
 
-#^/wrap-result	<!--	RESULT	-->
+#^/wrap-result	<!--	RESULT WRAPPER	-->
 	<div class="wrap_result">
 		<div class="header_section sticky collapsable">result<span class="count">( {_it./result.length} )</span></div>
 		<table class="budget result sortable">
@@ -147,7 +152,7 @@
 #^/actual
 {_it./actual@value||}
 
-#^/wrap-transaction	<!--	TRANSACTION	-->	
+#^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
 	<div class="wrap_transaction">
 		<div class="header_section collapsable">Transactions <span class="count">( {_it./transaction.length} )</span></div>
 		{_it./transaction-1&&_it:transaction-1||}
@@ -275,7 +280,7 @@
 #^/receiver-org-type
 <span title="{_it./receiver-org@type-description||}" class="type">{_it./receiver-org@type-name||}</span>
 
-#^/wrap-planned-disbursement	<!--	PLANNED DISBURSEMENT	-->	
+#^/wrap-planned-disbursement	<!--	PLANNED DISBURSEMENT WRAPPER	-->	
 	<div class="wrap_budget">
 		<div class="header_section sticky collapsable">Planned Disbursement <span class="count">( {_it./planned-disbursement.length} )</span></div>
 		<table class="budget sortable">
@@ -302,7 +307,7 @@
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
 
-#^/wrap-budget	<!--	BUDGET	-->	
+#^/wrap-budget	<!--	BUDGET WRAPPER	-->	
 	<div class="wrap_budget">
 		<div class="header_section sticky collapsable">Budget <span class="count">( {_it./budget.length} )</span></div>
 		<table class="budget sortable">
@@ -329,7 +334,7 @@
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
 
-#^/wrap-sector	<!--	SECTOR	-->	
+#^/wrap-sector	<!--	SECTOR WRAPPER	-->	
 	<div class="header_section collapsable">sector  <span class="count">( {_it./sector.length} )</span></div>
 	<div class="wrap_sector">
 		{_it./sector-1&&_it:sectors-1||}
@@ -424,7 +429,7 @@
 #^/default-aid-type
 <div>{_it.@code-name}</div>
 
-#^/wrap-recipient-region	<!--	RECIPIENT REGION	-->
+#^/wrap-recipient-region	<!--	RECIPIENT REGION WRAPPER	-->
 	<div class="header_section collapsable">recipient region <span class="count">( {_it./recipient-region.length} )</span></div>
 	<div class="wrap_sector">
 		{_it./recipient-region-1&&_it:recipient-regions-1||}
@@ -462,7 +467,7 @@
 	</div>
 </div>
 
-#^/wrap-recipient-country	<!--	RECIPIENT COUNTRY	-->
+#^/wrap-recipient-country	<!--	RECIPIENT COUNTRY WRAPPER	-->
 	<div class="header_section collapsable">recipient country <span class="count">( {_it./recipient-country.length} )</span></div>
 	<div class="wrap_recipient_country">
 		{_it./recipient-country:/recipient-country}
@@ -478,7 +483,7 @@
 	</div>
 </div>
 
-#^/wrap-location	<!--	LOCATION	-->	
+#^/wrap-location	<!--	LOCATION WRAPPER	-->	
 	<div class="wrap_location">
 		<div class="header_section sticky collapsable">LOCATION  <span class="count">( {_it./location.length} )</span></div>
 		<table class="budget location sortable">
@@ -507,7 +512,7 @@
 	<td class="loc_exact" title="{_it./exactness@code-description||}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
 </tr>
 
-#^/wrap-participating-org	<!--	PARTICIPATING ORG	-->	
+#^/wrap-participating-org	<!--	PARTICIPATING ORG WRAPPER	-->	
 	<div class="wrap_participating_org">
 		<div class="header_section sticky collapsable">WHO'S INVOLVED <span class="count">( {_it./participating-org.length} )</span></div>
 		<table class="budget part_org sortable">
@@ -532,7 +537,7 @@
 	<td class="part_org_type" title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
 
-#^/wrap-humanitarian-scope	<!--	HUMANITARIAN SCOPE	-->
+#^/wrap-humanitarian-scope	<!--	HUMANITARIAN SCOPE WRAPPER	-->
 	<div class="wrap_humanitarian_scope">
 		<div class="header_section sticky collapsable">humanitarian scope <span class="count">( {_it./humanitarian-scope.length} )</span></div>
 		<table class="budget part_org sortable">
@@ -608,13 +613,13 @@
 	{_it./recipient-country-budget&&_it:/wrap-recipient-country-budget||}
 </div>
 
-#^/wrap-document-link	<!--	DOCUMENTS	-->
+#^/wrap-document-link	<!--	DOCUMENTS WRAPPER	-->
 	<div class="wrap_document">
 		<div class="header_doc collapsable">DOCUMENTS <span class="count">( {_it./document-link.length} )</span></div>
 		{_it./document-link:/document-link}
 	</div>
 	
-#^/wrap-total-budget	<!--	TOTAL BUDGET	-->	
+#^/wrap-total-budget	<!--	TOTAL BUDGET WRAPPER	-->	
 	<div class="wrap_total_budget">
 		<div class="header_section sticky collapsable">Total Budget <span class="count">( {_it./total-budget.length} )</span></div>
 		<table class="budget sortable">
@@ -631,7 +636,7 @@
 		</table>
 	</div>
 	
-#^/wrap-total-expenditure	<!--	TOTAL EXPENDITURE	-->	
+#^/wrap-total-expenditure	<!--	TOTAL EXPENDITURE WRAPPER	-->	
 	<div class="wrap_total_expenditure">
 		<div class="header_section sticky collapsable">Total Expenditure <span class="count">( {_it./total-expenditure.length} )</span></div>
 		<table class="budget sortable">
@@ -647,7 +652,7 @@
 		</table>
 	</div>
 	
-#^/wrap-recipient-org-budget	<!--	RECIPIENT ORG BUDGET	-->	
+#^/wrap-recipient-org-budget	<!--	RECIPIENT ORG BUDGET WRAPPER	-->	
 	<div class="wrap_recipient_budget">
 		<div class="header_section sticky collapsable">Recipient Org Budget <span class="count">( {_it./recipient-org-budget.length} )</span></div>
 		<table class="budget rec_country sortable">
@@ -665,7 +670,7 @@
 		</table>
 	</div>
 	
-#^/wrap-recipient-region-budget	<!--	RECIPIENT REGION BUDGET	-->	
+#^/wrap-recipient-region-budget	<!--	RECIPIENT REGION BUDGET WRAPPER	-->	
 	<div class="wrap_recipient_budget">
 		<div class="header_section sticky collapsable">Recipient Region Budget <span class="count">( {_it./recipient-region-budget.length} )</span></div>
 		<table class="budget rec_country sortable">
@@ -683,7 +688,7 @@
 		</table>
 	</div>
 	
-#^/wrap-recipient-country-budget	<!--	RECIPIENT COUNTRY BUDGET	-->	
+#^/wrap-recipient-country-budget	<!--	RECIPIENT COUNTRY BUDGET WRAPPER	-->	
 	<div class="wrap_recipient_budget">
 		<div class="header_section sticky collapsable">Recipient Country Budget <span class="count">( {_it./recipient-country-budget.length} )</span></div>
 		<table class="budget rec_country sortable">
