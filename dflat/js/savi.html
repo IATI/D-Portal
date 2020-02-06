@@ -592,7 +592,7 @@
 	
 <!--	IATI ACTIVITY DESCRIPTION	-->
 #^/description
-{_it.type-name&&_it:/description-type||_it:/description-type-default}
+{_it.@type&&_it:/description-type||_it:/description-type-default}
 <div class="text">{_it./narrative:/narrative}</div>
 
 #^/description-type

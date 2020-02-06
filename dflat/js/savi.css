@@ -131,7 +131,6 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 .wrap_contact_info:last-of-type 	{padding-bottom:30px;}
 .wrap_contact_info:nth-of-type(1) 	{padding-top:30px; width:900px; margin-left:-10px;}
 
-
 /*	DATES	*/
 .wrap_activity_date	{position:relative; width:980px; height:82px; margin-left:-50px;}
 .wrap_activity_date div	{display:inline-block; vertical-align:top; padding:10px 40px; font-size:20px; color:#FFF; min-height:40px; height:40px; line-height:18px;}
@@ -309,6 +308,12 @@ table.budget.result td:nth-of-type(3)		{width:500px; padding-right:0px;}
 .wrap_policy_marker table.budget td.policy_code		{width:480px; padding-right:40px;}
 .wrap_policy_marker table.budget th.policy_sig,
 .wrap_policy_marker table.budget td.policy_sig		{text-transform:capitalize;}	
+
+/*	IATI ACTIVITY TAG TABLE	*/
+.wrap_tag table.budget th.tag_code,
+.wrap_tag table.budget td.tag_code		{width:480px; padding-right:40px;}
+.wrap_tag table.budget th.tag_vocab,
+.wrap_tag table.budget td.tag_vocab		{width:200px; padding-right:40px;}
 
 
 /*	DEFAULTS MODALITIES	*/
