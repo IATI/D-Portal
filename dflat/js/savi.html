@@ -66,7 +66,7 @@
 
 #^/wrap-activity-status	<!--	ACTIVITY STATUS WRAPPER	-->
 	<div class="wrap_activity_status">
-		{_it.@code-name}
+		{_it.@code-name||}
 	</div>
 
 #^/wrap-contact-info	<!--	CONTACT INFO WRAPPER	-->
@@ -76,10 +76,10 @@
 
 #^/contact-info	<!--	CONTACT INFO	-->
 {_it.@type&&_it:/contact-type||}
-{_it./organisation&&_it:/wrap-organisation||}
-{_it./department&&_it:/wrap-department||}
-{_it./person-name&&_it:/wrap-person-name||}
-{_it./job-title&&_it:/wrap-job-title||}
+{_it./organisation/narrative&&_it:/wrap-organisation||}
+{_it./department/narrative&&_it:/wrap-department||}
+{_it./person-name/narrative&&_it:/wrap-person-name||}
+{_it./job-title/narrative&&_it:/wrap-job-title||}
 {_it./telephone&&_it:/wrap-telephone||}
 {_it./email&&_it:/wrap-email||}
 {_it./website&&_it:/wrap-website||}
