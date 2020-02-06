@@ -309,6 +309,8 @@ fetch.codelist_filenames_2={
 	"TiedStatus.xml":true,
 	"VerificationStatus.xml":true,
 	"Version.xml":true,
+	"UNSDG-Goals.xml":true,
+	"UNSDG-Targets.xml":true,
 }
 for(var n in fetch.codelist_filenames_2){fetch.codelist_filenames[n]=true}
 
