@@ -53,13 +53,13 @@
 {_it./recipient-region&&_it:/wrap-recipient-region||}	<!--	1	done	-->
 {_it./location&&_it:/wrap-location||}
 {_it./sector&&_it:/wrap-sector||}
-{_it./tag&&_it:/wrap-tag||}	<!--	2		-->
 {_it./budget&&_it:/wrap-budget||}
 {_it./planned-disbursement&&_it:/wrap-planned-disbursement||}	<!--	3	done	-->
 {_it./transaction&&_it:/wrap-transaction||}
 {_it./result&&_it:/wrap-result||}
-{_it./contact-info&&_it:/wrap-contact-info||}	<!--	4		-->
+{_it./tag&&_it:/wrap-tag||}	<!--	2	done	-->
 {_it./policy-marker&&_it:/wrap-policy-marker||}	<!--	5	done	-->
+{_it./contact-info&&_it:/wrap-contact-info||}	<!--	4	done	-->
 {_it./related-activity&&_it:/wrap-related-activity||}	<!--	6		-->
 {_it./activity-status&&_it:/wrap-activity-status||}	<!--	7		-->
 </div>
@@ -70,19 +70,64 @@
 	</div>
 
 #^/contact-info	<!--	CONTACT INFO	-->
+{_it.@type&&_it:/contact-type||}
+{_it./organisation&&_it:/wrap-organisation||}
+{_it./department&&_it:/wrap-department||}
+{_it./person-name&&_it:/wrap-person-name||}
+{_it./job-title&&_it:/wrap-job-title||}
+{_it./telephone&&_it:/wrap-telephone||}
+{_it./email&&_it:/wrap-email||}
+{_it./website&&_it:/wrap-website||}
+{_it./mailing-address&&_it:/wrap-mailing-address||}
+
+#^/wrap-organisation
 <div class="wrap_contact_org">{_it./organisation/narrative.0.text||}</div>
+#^/wrap-department
 <div class="wrap_contact_dept">{_it./department/narrative.0.text||}</div>
+#^/wrap-person-name
 <div class="wrap_contact_name">{_it./person-name/narrative.0.text||}</div>
+#^/wrap-job-title
 <div class="wrap_contact_title">{_it./job-title/narrative.0.text||}</div>
+#^/wrap-telephone
 <div class="wrap_contact_tel">{_it./telephone:/info_text}</div>
-<div class="wrap_contact_email">{_it./email:/info_text}</div>
-<div class="wrap_contact_web">{_it./website:/info_text}</div>
+#^/wrap-email
+<div class="wrap_contact_email">{_it./email:/email}</div>
+#^/wrap-website
+<div class="wrap_contact_web">{_it./website:/website}</div>
+#^/wrap-mailing-address
 <div class="wrap_contact_add">{_it./mailing-address:/mailing-address}</div>
 
+#^/contact-type
+<div class="wrap_contact_type">{_it.@type-name}</div>
 #^/mailing-address	<!--	CONTACT INFO MAILING ADDRESS TEXT FOR MULTIPLE ITEMS	-->
 {_it./narrative:/info_text}
 #^/info_text	<!--	CONTACT INFO TEXT FOR MULTIPLE ITEMS	-->
 <div>{_it.text}</div>
+#^/website	<!--	WEBSITE LINKS FOR MULTIPLE ITEMS	-->
+<a href="{_it.text}">{_it.text}</a>
+#^/email	<!--	EMAIL LINKS FOR MULTIPLE ITEMS	-->
+<a href="mailto:{_it.text}">{_it.text}</a>
+
+#^/wrap-related-activity	<!--	RELATED ACTIVITY (PREVIOUSLY FAMILY TREE) WRAPPER	-->
+	<div class="wrap_related_activity">
+		<div class="header_section sticky collapsable">related-activity<span class="count">( {_it./related-activity.length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="related_ref" data-sort="string" data-sort-multicolumn="0,1">REFERENCE IDENTIFIER</th>
+					<th class="related_type" data-sort="int" data-sort-multicolumn="0,1">TYPE</th>			
+				</tr>
+			</thead>
+			{_it./related-activity:/related-activity}
+		</table>
+	</div>
+
+<!--	RELATED ACTIVITY ROWS	-->
+#^/related-activity
+<tr class="row_count">
+	<td class="related_ref" data-sort-value="{_it.@ref}"><a href="http://d-portal.org/q.html?aid={_it.@ref}">{_it.@ref||}</a></td>
+	<td class="related_type" data-sort-value="{_it.@type-code}">{_it.@type-name||}</td>
+</tr>
 
 #^/wrap-tag	<!--	TAG WRAPPER	-->
 	<div class="wrap_tag">
@@ -585,7 +630,7 @@
 	<td class="hum_code">{_it.@code||}</td>
 </tr>
 
-#^/wrap-description	<!--	DESCRIPTION	-->
+#^/wrap-description	<!--	DESCRIPTION WRAPPER	-->
 	<div class="wrap_description">
 		{_it./description:/description}
 	</div>
