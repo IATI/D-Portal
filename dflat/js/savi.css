@@ -145,10 +145,15 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 .wrap_activity_date .planned_end	{position:absolute; bottom:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#da7102;}
 .wrap_activity_date .actual_end		{position:absolute; bottom:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ff890c; text-align:right;}
 
+/*	ACTIVITY STATUS	*/
+.wrap_activity_status		{width:960px; font-size:20px; text-align:center; margin-left:-40px; padding:20px 0; max-height:150px; color:rgba(0,14,32,1); border-radius:0 0 6px 6px; background-color:rgb(204,141,230);}
+.wrap_activity_status span	{font-size:14px; font-weight:bold; text-transform:uppercase;}
+.status_desc				{font-size:16px; padding-top:5px; width:500px; margin:0 auto;}
+
 /*	TABLES	*/
 td .currency	{font-size:12px; color:#ccc;}
 .value			{text-align:right;}
-/*.status			{text-align:center;}*/
+/*.status		{text-align:center;}*/
 .wrap_tab		{padding-bottom:5px; border-bottom:1px solid #666; margin-bottom:5px;}
 .wrap_tab:last-of-type	{border:0;}
 .tab_text,
