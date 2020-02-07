@@ -461,6 +461,11 @@ fetch.codelist=async function()
 
 
 	})
+
+// hax
+codemap["/iati-activities/iati-activity/country-budget-items/budget-item@vocabulary"]
+	=	codemap["/iati-activities/iati-activity/country-budget-items@vocabulary"]
+ 
 	await pfs.writeFile("json/codemap.json",stringify(codemap,{space:" "}));
 
 }
