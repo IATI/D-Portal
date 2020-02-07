@@ -173,9 +173,14 @@ savi.prepare=function(iati_xson){
 //console.log(nb+n+" : "+cm.condition+" : "+cm.codelist+" : "+v+" : "+m[v])
 						}
 						m=codelists["en-description"][cm.codelist]
-						if(m) // check it was a valid codelist
+						if(m&&m[v]) // check it was a valid codelist and the code exists and it has a description
 						{
-							it[n+"-description"]=m[v] || v
+							it[n+"-description"]=m[v]
+						}
+						m=codelists["url"][cm.codelist]
+						if(m&&m[v]) // check it was a valid codelist and the code exists and it has a url
+						{
+							it[n+"-url"]=m[v]
 						}
 					}
 				}
