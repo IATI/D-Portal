@@ -62,8 +62,8 @@ span.block	{display:block;}
 
 /*	GRAPHS	*/
 .wrap_recipient_country,
-.wrap_sector		{color:#444; background-color:#fff; margin-top:-20px; width:960px; margin-left:-40px; padding:0 0 40px 0;}
-.wrap_recipient_country	{padding:40px 0;}
+.wrap_sector				{color:#444; background-color:#fff; margin-top:-20px; width:960px; margin-left:-40px; padding:0 0 40px 0;}
+.wrap_recipient_country		{padding:40px 0;}
 .wrap_country_budget_items	{padding-top:40px;}
 .sector,
 .sector_list_wrap		{color:#444; font-size:14px; line-height:18px; padding:0 40px;}
@@ -75,7 +75,7 @@ span.block	{display:block;}
 .wrap_code			{text-align:right; width:480px; border-right:1px solid #999; padding:10px 20px 10px 0;}
 .wrap_bar			{height:24px;}
 .wrap_code span		{display:inline-block; vertical-align:middle;}
-.sector_code_text	{max-width:400px;}
+.sector_code_text	{max-width:360px;}
 .sector_code		{margin-left:10px; background-color:rgba(48,57,70,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
 .sector_code:nth-of-type(3)	{margin-left:5px;}
 .sector_bar,
@@ -85,7 +85,9 @@ span.block	{display:block;}
 .sector_overlay		{position:absolute; top:0; left:0; height:24px;}
 .sector_value		{color:#444; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
 .sector_value:after	{content:"%";}
-.wrap_sector .header{color:#444; margin-left:40px; width:880px; padding-top:40px;}
+.wrap_sector .header{color:#444; font-weight:bold; text-align:center; margin-left:40px; width:880px; padding-top:40px;}
+.wrap_sector .header.glossary	{text-align:left;}
+.wrap_sector .header .subheader	{font-size:12px; font-weight:normal; text-transform:initial; padding-top:5px;}
 
 /*	DATA SOURCES	*/
 .data_source a		{display:inline-block; vertical-align:baseline; width:12%; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; color:#fff; padding:5px 0; margin:10px 2% 5px 0;}
@@ -186,8 +188,10 @@ table.location td					{padding:5px 0;}
 /*	IATI ACTIVITY BUDGET AND PLANNED DISBURSEMENT TABLE	*/
 table.budget tr th.date,
 table.budget tr td.date				{width:100px; padding-right:20px;}
+table.budget tr th.end_date,
+table.budget tr td.end_date			{width:240px; padding-right:30px;}
 table.budget tr th.tab_type,
-table.budget tr td.tab_type			{width:350px; padding-right:20px;}
+table.budget tr td.tab_type			{width:200px; padding-right:30px;}
 table.budget tr th.status,
 table.budget tr td.status			{width:170px;}
 table.budget tr th.value,
@@ -330,6 +334,15 @@ table.budget.result td:nth-of-type(3)		{width:500px; padding-right:0px;}
 .wrap_related_activity td.related_ref	{width:480px; padding-right:40px;}
 .wrap_related_activity th.related_type,
 .wrap_related_activity td.related_type	{width:160px;}
+
+.wrap_other_identifier th.other_desc,
+.wrap_other_identifier td.other_desc	{width:240px;}
+.wrap_other_identifier th.other_type,
+.wrap_other_identifier td.other_type	{width:160px; padding-right:20px;}
+.wrap_other_identifier th.other_ref,
+.wrap_other_identifier td.other_ref,
+.wrap_other_identifier th.owner_ref,
+.wrap_other_identifier td.owner_ref		{padding-right:20px;}
 
 /*	DEFAULTS MODALITIES	*/
 table.modals					{table-layout:fixed; border-collapse:collapse; width:100%;}

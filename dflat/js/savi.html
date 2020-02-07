@@ -63,7 +63,7 @@
 {_it./related-activity&&_it:/wrap-related-activity||}
 {_it./other-identifier&&_it:/wrap-other-identifier||}	<!--	NEW	-->
 {_it./country-budget-items/budget-item&&_it:/wrap-country-budget-items||}
-{_it./conditions&&_it:/wrap-conditions||}
+{_it./conditions@attached&&_it:/wrap-conditions||}
 {_it./capital-spend&&_it:/wrap-capital-spend||}
 {_it./legacy-data&&_it:/wrap-legacy-data||}
 {_it./crs-add&&_it:/wrap-crss-add||}
@@ -72,6 +72,10 @@
 </div>
 
 	
+#^wrap-conditions	<!--	CONDITIONS WRAPPER	-->
+{_it./conditions@attached}
+
+
 #^/wrap-other-identifier	<!--	OTHER IDENTIFIER WRAPPER	-->
 	<div class="wrap_other_identifier">
 		<div class="header_section sticky collapsable">other identifier<span class="count">( {_it./other-identifier.length} )</span></div>
@@ -429,7 +433,7 @@
 			<thead>
 				<tr>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">START</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="end_date">END</th>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="tab_type">TYPE</th>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="status">STATUS</th>
 					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4" class="value">VALUE</th>
@@ -443,7 +447,7 @@
 #^/planned-disbursement
 <tr class="row_count">
 	<td class="date">{_it./period-start@iso-date||}</td>
-	<td class="date">{_it./period-end@iso-date||}</td>
+	<td class="end_date">{_it./period-end@iso-date||}</td>
 	<td class="tab_type" title="{_it.@type-description||}">{_it.@type-name||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
@@ -456,7 +460,7 @@
 			<thead>
 				<tr>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">START</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="end_date">END</th>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="tab_type">TYPE</th>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="status">STATUS</th>
 					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4" class="value">VALUE</th>
@@ -470,7 +474,7 @@
 #^/budget
 <tr class="row_count">
 	<td class="date">{_it./period-start@iso-date||}</td>
-	<td class="date">{_it./period-end@iso-date||}</td>
+	<td class="end_date">{_it./period-end@iso-date||}</td>
 	<td class="tab_type" title="{_it.@type-description||}">{_it.@type-name||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
@@ -496,47 +500,86 @@
 
 <!--	SECTOR TYPES	-->
 #^sectors-1
-<div class="header" title="{_it./sector-1.0.@vocabulary-description||}">OECD DAC CRS 5 digit <span class="count">( {_it./sector-1.length} )</span></div>
+<div class="header">
+	OECD DAC CRS 5 digit <span class="count">( {_it./sector-1.length} )</span>
+	<div class="subheader">{_it./sector-1.0.@vocabulary-description||} {_it./sector-1.0.@vocabulary-url}</div>
+</div>
 {_it./sector-1:/sector_dac||}
-<div class="header">GLOSSARY</div>
+<div class="header glossary">GLOSSARY</div>
 <div class="sector_list_wrap">{_it./sector-1:/sector_code_description}</div>
 #^sectors-2
-<div class="header" title="{_it./sector-2.0.@vocabulary-description||}">OECD DAC CRS 3 digit <span class="count">( {_it./sector-2.length} )</span></div>
+<div class="header">
+	OECD DAC CRS 3 digit <span class="count">( {_it./sector-2.length} )</span>
+	<div class="subheader">{_it./sector-2.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-2:/sector_dac||}
-<div class="header">GLOSSARY</div>
+<div class="header glossary">GLOSSARY</div>
 <div class="sector_list_wrap">{_it./sector-2:/sector_code_description}</div>
 #^sectors-3
-<div class="header" title="{_it./sector-3.0.@vocabulary-description||}">Classification of the Functions of Government (UN) <span class="count">( {_it./sector-3.length} )</span></div>
+<div class="header">
+	Classification of the Functions of Government (UN) <span class="count">( {_it./sector-3.length} )</span>
+	<div class="subheader">{_it./sector-3.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-3:/sector||}
 #^sectors-4
-<div class="header" title="{_it./sector-4.0.@vocabulary-description||}">Statistical classification of economic activities in the European Community <span class="count">( {_it./sector-4.length} )</span></div>
+<div class="header">
+	Statistical classification of economic activities in the European Community <span class="count">( {_it./sector-4.length} )</span>
+	<div class="subheader">{_it./sector-4.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-4:/sector||}
 #^sectors-5
-<div class="header" title="{_it./sector-5.0.@vocabulary-description||}">National Taxonomy for Exempt Entities (USA) <span class="count">( {_it./sector-5.length} )</span></div>
+<div class="header">
+	National Taxonomy for Exempt Entities (USA) <span class="count">( {_it./sector-5.length} )</span>
+	<div class="subheader">{_it./sector-5.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-5:/sector||}
 #^sectors-6
-<div class="header" title="{_it./sector-6.0.@vocabulary-description||}">AidData <span class="count">( {_it./sector-6.length} )</span></div>
+<div class="header">
+	AidData <span class="count">( {_it./sector-6.length} )</span>
+	<div class="subheader">{_it./sector-6.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-6:/sector||}
 #^sectors-7
-<div class="header" title="{_it./sector-7.0.@vocabulary-description||}">SDG Goal <span class="count">( {_it./sector-7.length} )</span></div>
+<div class="header">
+	SDG Goal <span class="count">( {_it./sector-7.length} )</span>
+	<div class="subheader">{_it./sector-7.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-7:/sector||}
 #^sectors-8
-<div class="header" title="{_it./sector-8.0.@vocabulary-description||}">SDG Target <span class="count">( {_it./sector-8.length} )</span></div>
+<div class="header">
+	SDG Target <span class="count">( {_it./sector-8.length} )</span>
+	<div class="subheader">{_it./sector-8.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-8:/sector||}
 #^sectors-9
-<div class="header" title="{_it./sector-9.0.@vocabulary-description||}">SDG Indicator <span class="count">( {_it./sector-9.length} )</span></div>
+<div class="header">
+	SDG Indicator <span class="count">( {_it./sector-9.length} )</span>
+	<div class="subheader">{_it./sector-9.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-9:/sector||}
 #^sectors-10
-<div class="header" title="{_it./sector-10.0.@vocabulary-description||}">Humanitarian Global Clusters (Inter-Agency Standing Committee) <span class="count">( {_it./sector-10.length} )</span></div>
+<div class="header">
+	Humanitarian Global Clusters (Inter-Agency Standing Committee) <span class="count">( {_it./sector-10.length} )</span>
+	<div class="subheader">{_it./sector-10.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-10:/sector||}
 #^sectors-11
-<div class="header" title="{_it./sector-11.0.@vocabulary-description||}">North American Industry Classification System (NAICS) <span class="count">( {_it./sector-11.length} )</span></div>
+<div class="header">
+	North American Industry Classification System (NAICS) <span class="count">( {_it./sector-11.length} )</span>
+	<div class="subheader">{_it./sector-11.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-11:/sector||}
 #^sectors-99
-<div class="header" title="{_it./sector-99.0.@vocabulary-description||}">Reporting Organisation <span class="count">( {_it./sector-99.length} )</span></div>
+<div class="header">
+	Reporting Organisation <span class="count">( {_it./sector-99.length} )</span>
+	<div class="subheader">{_it./sector-99.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-99:/sector||}
 #^sectors-98
-<div class="header" title="{_it./sector-98.0.@vocabulary-description||}">Reporting Organisation 2 <span class="count">( {_it./sector-98.length} )</span></div>
+<div class="header">
+	Reporting Organisation 2 <span class="count">( {_it./sector-98.length} )</span>
+	<div class="subheader">{_it./sector-98.0.@vocabulary-description||}</div>
+</div>
 {_it./sector-98:/sector||}
 
 <!--	SECTOR DAC TEMPLATE	-->
