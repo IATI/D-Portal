@@ -51,6 +51,7 @@
 {_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
 {_it./recipient-country&&_it:/wrap-recipient-country||}
 {_it./recipient-region&&_it:/wrap-recipient-region||}
+{_it./country-budget-items/budget-item&&_it:/wrap-country-budget-items||}
 {_it./location&&_it:/wrap-location||}
 {_it./sector&&_it:/wrap-sector||}
 {_it./budget&&_it:/wrap-budget||}
@@ -62,7 +63,6 @@
 {_it./contact-info&&_it:/wrap-contact-info||}
 {_it./related-activity&&_it:/wrap-related-activity||}
 {_it./other-identifier&&_it:/wrap-other-identifier||}	<!--	NEW	-->
-{_it./country-budget-items/budget-item&&_it:/wrap-country-budget-items||}
 {_it./conditions@attached&&_it:/wrap-conditions||}
 {_it./capital-spend&&_it:/wrap-capital-spend||}
 {_it./legacy-data&&_it:/wrap-legacy-data||}
@@ -104,6 +104,18 @@
 #^/owner-org
 <div>{_it./owner-org/narrative.0.text||}</div>
 
+#^/wrap-capital-spend	<!--	CAPITAL SPEND WRAPPER	-->
+	<div class="header_section collapsable">capital spend <span class="count">( {_it./capital-spend.length} )</span></div>
+	<div class="wrap_sector">
+		<div class="sector">
+			<div class="wrap_code">
+				<span class="sector_code_text">Capital Spend</span>
+			</div><div class="wrap_bar">
+				<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+			</div>
+		</div>
+	</div>
+
 #^/wrap-country-budget-items	<!--	COUNTRY BUDGET ITEMS WRAPPER	-->
 	<div class="header_section collapsable">country budget items <span class="count">( {_it./country-budget-items/budget-item.length} )</span></div>
 	<div class="wrap_sector wrap_country_budget_items">
@@ -118,7 +130,7 @@
 #^/budget-item
 <div class="sector">
 	<div class="wrap_code">
-		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span><span class="sector_code">{_it.@vocabulary-name||}</span>
+		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span><span class="sector_code vocab_name">{_it.@vocabulary-name||}</span>
 	</div><div class="wrap_bar">
 		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
