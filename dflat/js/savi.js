@@ -192,6 +192,7 @@ savi.prepare=function(iati_xson){
 		{
 			let n=it[ found_code+"-name" ]
 			let d=it[ found_code+"-description" ]
+			let u=it[ found_code+"-url" ]
 			let c=it[ found_code ]
 			let v=it[ found_vocabulary ]
 			it[ found_code+"-"+v ]=c
@@ -202,6 +203,10 @@ savi.prepare=function(iati_xson){
 			if(d)
 			{
 				it[ found_code+"-"+v+"-description" ]=d
+			}
+			if(u) // codes probably do not have a url but just in case
+			{
+				it[ found_code+"-"+v+"-url" ]=u
 			}
 		}
 
