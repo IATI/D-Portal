@@ -254,12 +254,32 @@ dflat.clean=function(data)
 	dflat.reduce_values(data)
 }
 
+// precalculate currency default map
+let currencymap={}
+for( const n in database.paths )
+{
+	if(n.endsWith("@currency"))
+	{
+		let v=database.paths[n]
+		let d=""
+		let a=""
+		for( let i=0 ; i<v.jpath.length-1 ; i++ )
+		{
+			d+=v.jpath[i]
+		}
+		a=v.jpath[v.jpath.length-1]
+
+		currencymap[d]=a // hopefully only one per parent (this might break...)
+	}
+}
+
 // copy all the atributes on iati-activities into each sub iati-activitiy
 // and do the same for iati-organisations into iati-organisation
 // so that when these individual activities are removed from their original file
 // we still know what these values where
 dflat.clean_copy_toplevel_attributes=function(data)
 {
+
 	if( data["/iati-activities/iati-activity"] )
 	{
 		let ac={}
@@ -279,6 +299,27 @@ dflat.clean_copy_toplevel_attributes=function(data)
 				{
 					act[n]=ac[n]
 				}
+			}
+			if( act["/country-budget-items@vocabulary"] && act["/country-budget-items/budget-item"] )
+			{
+				for(const it of act["/country-budget-items/budget-item"] )
+				{
+					it["@vocabulary"]=act["/country-budget-items@vocabulary"]
+				}
+			}
+			if(act["@default-currency"]) // copy default to all missing @currency attributes 
+			{
+				xson.walk(act,function(it,paths,index){
+					let path="/iati-activities/iati-activity"+paths.join("")
+					let v=currencymap[path]
+					if(v)
+					{
+						if(!it[v])
+						{
+							it[v]=act["@default-currency"]
+						}
+					}
+				})
 			}
 		}
 	}
@@ -302,6 +343,20 @@ dflat.clean_copy_toplevel_attributes=function(data)
 				{
 					act[n]=ac[n]
 				}
+			}
+			if(act["@default-currency"]) // copy default to all missing @currency attributes 
+			{
+				xson.walk(act,function(it,paths,index){
+					let path="/iati-organisations/iati-organisation"+paths.join("")
+					let v=currencymap[path]
+					if(v)
+					{
+						if(!it[v])
+						{
+							it[v]=act["@default-currency"]
+						}
+					}
+				})
 			}
 		}
 	}
