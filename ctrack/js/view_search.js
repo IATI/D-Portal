@@ -314,7 +314,7 @@ view_search.terms=[
 	filter : true,
 	codes  : [ dflat_codes["en-name"]["RelatedActivityType"], ],
 	drops  : [ "#view_search_select_related_activity" ],
-	q      : "/related-activity@code",
+	q      : "/related-activity@ref",
 	list   : "search_options_related_activity",
 	show   : "search_display_related_activity",
 },
