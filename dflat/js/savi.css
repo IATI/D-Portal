@@ -70,6 +70,8 @@ span.block	{display:block;}
 .sector_list_wrap span	{display:inline-block; vertical-align:top; padding-right:40px; width:30%;}
 .sector_list_wrap span.sector_list_description	{padding:0; width:70%; font-size:13px; line-height:15px;}
 .sector_list		{padding-bottom:15px;}
+.sector_vocab		{padding-bottom:20px; border-bottom:1px solid #aaa;}
+.sector_vocab:last-of-type	{border:0; padding-bottom:0;}
 .wrap_code,
 .wrap_bar			{display:inline-block; vertical-align:middle; width:400px;}
 .wrap_code			{text-align:right; width:480px; border-right:1px solid #999; padding:10px 20px 10px 0;}
@@ -85,9 +87,14 @@ span.block	{display:block;}
 .sector_overlay		{position:absolute; top:0; left:0; height:24px;}
 .sector_value		{color:#444; font-size:14px; text-align:right; margin-left:20px; max-width:36px; white-space:nowrap;}
 .sector_value:after	{content:"%";}
-.wrap_sector .header{color:#444; font-weight:bold; text-align:center; margin-left:40px; width:880px; padding-top:40px;}
-.wrap_sector .header.glossary	{text-align:left;}
-.wrap_sector .subheader	{text-align:center; font-size:12px; margin-top:-10px; padding-bottom:20px; color:#555;}
+.wrap_sector .header			{color:#444; font-weight:bold; text-align:center; width:880px; padding:30px 0 5px 0; border:0; margin:0 auto;}
+.wrap_sector .header.glossary	{text-align:left; margin-bottom:10px; border-bottom:1px solid #aaa;}
+.wrap_sector .subheader			{text-align:center; font-size:12px; padding-bottom:20px; color:#555; max-width:600px; margin:0 auto; line-height:16px; word-break:keep-all;}
+.wrap_sector .subheader a			{color:#093E6F;}
+.wrap_sector .subheader a:link		{color:#093E6F;}
+.wrap_sector .subheader a:visited	{color:#093E6F;}
+.wrap_sector .subheader a:hover		{color:#0373C9;}
+.wrap_sector .subheader a:active	{color:#093E6F;}
 
 /*	DATA SOURCES	*/
 .data_source a		{display:inline-block; vertical-align:baseline; width:12%; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; color:#fff; padding:5px 0; margin:10px 2% 5px 0;}

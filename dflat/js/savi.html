@@ -98,7 +98,7 @@
 	<td class="other_ref" data-sort-value="{_it.@ref}">{_it.@ref||}</td>
 	<td class="owner_ref" data-sort-value="{_it./owner-org@ref}"><a href="http://d-portal.org/q.html?aid={_it./owner-org@ref}">{_it./owner-org@ref||}</a>{_it./owner-org/narrative&&_it:/owner-org||}</td>
 	<td class="other_type" data-sort-value="{_it.@type-code}">{_it.@type-name||}</td>
-	<td class="other_desc" data-sort-value="{_it.@type-description}">{_it.@type-description||}</td>
+	<td class="other_desc" data-sort-value="{_it.@type-description}">{_it.@type-description||/empty-description}</td>
 </tr>
 
 #^/owner-org
@@ -120,14 +120,14 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span><span class="sector_code">{_it.@vocabulary-name||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
 #^/wrap-activity-status	<!--	ACTIVITY STATUS WRAPPER	-->
 	<div class="wrap_activity_status" style="background-color:{status.{_it./activity-status@code}};">
 		<span>activity status:</span> {_it./activity-status@code-name||}
-		<div class="status_desc">{_it./activity-status@code-description||}</div>
+		<div class="status_desc">{_it./activity-status@code-description||/empty-description}</div>
 	</div>
 	
 #^status form=json	<!--	ACTIVITY STATUS BACKGROUND COLOR	-->
@@ -204,7 +204,7 @@
 <tr class="row_count">
 	<td class="related_ref" data-sort-value="{_it.@ref}"><a href="http://d-portal.org/q.html?aid={_it.@ref}">{_it.@ref||}</a></td>
 	<td class="related_type" data-sort-value="{_it.@type-code}">{_it.@type-name||}</td>
-	<td class="related_desc" data-sort-value="{_it.@type-description}">{_it.@type-description||}</td>
+	<td class="related_desc" data-sort-value="{_it.@type-description}">{_it.@type-description||/empty-description}</td>
 </tr>
 
 #^/wrap-tag	<!--	TAG WRAPPER	-->
@@ -227,7 +227,7 @@
 <tr class="row_count">
 	<td class="tag_code" data-sort-value="{_it.@code}">{_it.@code-name||}</td>
 	<td class="tag_vocab" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
-	<td class="tag_desc" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-description||}</td>
+	<td class="tag_desc" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-description||/empty-description}</td>
 </tr>
 
 #^/wrap-policy-marker	<!--	POLICY MARKER WRAPPER	-->
@@ -500,88 +500,113 @@
 
 <!--	SECTOR TYPES	-->
 #^sectors-1
-<div class="header">
-	OECD DAC CRS 5 digit <span class="count">( {_it./sector-1.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		OECD DAC CRS 5 digit <span class="count">( {_it./sector-1.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-1.0.@vocabulary-description||} <a href="{_it./sector-1.0.@vocabulary-url}">{_it./sector-1.0.@vocabulary-url}</a></div>
+	{_it./sector-1:/sector_dac||}
+	<div class="header glossary">GLOSSARY</div>
+	<div class="sector_list_wrap">{_it./sector-1:/sector_code_description}</div>
 </div>
-<div class="subheader">{_it./sector-1.0.@vocabulary-description||} {_it./sector-1.0.@vocabulary-url}</div>
-{_it./sector-1:/sector_dac||}
-<div class="header glossary">GLOSSARY</div>
-<div class="sector_list_wrap">{_it./sector-1:/sector_code_description}</div>
 #^sectors-2
-<div class="header">
-	OECD DAC CRS 3 digit <span class="count">( {_it./sector-2.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		OECD DAC CRS 3 digit <span class="count">( {_it./sector-2.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-2.0.@vocabulary-description||} <a href="{_it./sector-2.0.@vocabulary-url}">{_it./sector-2.0.@vocabulary-url}</a></div>
+	{_it./sector-2:/sector_dac||}
+	<div class="header glossary">GLOSSARY</div>
+	<div class="sector_list_wrap">{_it./sector-2:/sector_code_description}</div>
 </div>
-<div class="subheader">{_it./sector-2.0.@vocabulary-description||}</div>
-{_it./sector-2:/sector_dac||}
-<div class="header glossary">GLOSSARY</div>
-<div class="sector_list_wrap">{_it./sector-2:/sector_code_description}</div>
 #^sectors-3
-<div class="header">
-	Classification of the Functions of Government (UN) <span class="count">( {_it./sector-3.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		Classification of the Functions of Government (UN) <span class="count">( {_it./sector-3.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-3.0.@vocabulary-description||} <a href="{_it./sector-3.0.@vocabulary-url}">{_it./sector-3.0.@vocabulary-url}</a></div>
+	{_it./sector-3:/sector||}
 </div>
-<div class="subheader">{_it./sector-3.0.@vocabulary-description||}
-</div>
-{_it./sector-3:/sector||}
 #^sectors-4
-<div class="header">
-	Statistical classification of economic activities in the European Community <span class="count">( {_it./sector-4.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		Statistical classification of economic activities in the European Community <span class="count">( {_it./sector-4.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-4.0.@vocabulary-description||} <a href="{_it./sector-4.0.@vocabulary-url}">{_it./sector-4.0.@vocabulary-url}</a></div>
+	{_it./sector-4:/sector||}
 </div>
-<div class="subheader">{_it./sector-4.0.@vocabulary-description||}</div>
-{_it./sector-4:/sector||}
 #^sectors-5
-<div class="header">
-	National Taxonomy for Exempt Entities (USA) <span class="count">( {_it./sector-5.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		National Taxonomy for Exempt Entities (USA) <span class="count">( {_it./sector-5.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-5.0.@vocabulary-description||} <a href="{_it./sector-5.0.@vocabulary-url}">{_it./sector-5.0.@vocabulary-url}</a></div>
+	{_it./sector-5:/sector||}
 </div>
-<div class="subheader">{_it./sector-5.0.@vocabulary-description||}</div>
-{_it./sector-5:/sector||}
 #^sectors-6
-<div class="header">
-	AidData <span class="count">( {_it./sector-6.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		AidData <span class="count">( {_it./sector-6.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-6.0.@vocabulary-description||} <a href="{_it./sector-6.0.@vocabulary-url}">{_it./sector-6.0.@vocabulary-url}</a></div>
+	{_it./sector-6:/sector||}
 </div>
-<div class="subheader">{_it./sector-6.0.@vocabulary-description||}</div>
-{_it./sector-6:/sector||}
 #^sectors-7
-<div class="header">
-	SDG Goal <span class="count">( {_it./sector-7.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		SDG Goal <span class="count">( {_it./sector-7.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-7.0.@vocabulary-description||} <a href="{_it./sector-7.0.@vocabulary-url}">{_it./sector-7.0.@vocabulary-url}</a></div>
+	{_it./sector-7:/sector||}
 </div>
-<div class="subheader">{_it./sector-7.0.@vocabulary-description||}</div>
-{_it./sector-7:/sector||}
 #^sectors-8
-<div class="header">
-	SDG Target <span class="count">( {_it./sector-8.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		SDG Target <span class="count">( {_it./sector-8.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-8.0.@vocabulary-description||} <a href="{_it./sector-8.0.@vocabulary-url}">{_it./sector-8.0.@vocabulary-url}</a></div>
+	{_it./sector-8:/sector||}
 </div>
-<div class="subheader">{_it./sector-8.0.@vocabulary-description||}</div>
-{_it./sector-8:/sector||}
 #^sectors-9
-<div class="header">
-	SDG Indicator <span class="count">( {_it./sector-9.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		SDG Indicator <span class="count">( {_it./sector-9.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-9.0.@vocabulary-description||} <a href="{_it./sector-9.0.@vocabulary-url}">{_it./sector-9.0.@vocabulary-url}</a></div>
+	{_it./sector-9:/sector||}
 </div>
-<div class="subheader">{_it./sector-9.0.@vocabulary-description||}</div>
-{_it./sector-9:/sector||}
 #^sectors-10
-<div class="header">
-	Humanitarian Global Clusters (Inter-Agency Standing Committee) <span class="count">( {_it./sector-10.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		Humanitarian Global Clusters (Inter-Agency Standing Committee) <span class="count">( {_it./sector-10.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-10.0.@vocabulary-description||} <a href="{_it./sector-10.0.@vocabulary-url}">{_it./sector-10.0.@vocabulary-url}</a></div>
+	{_it./sector-10:/sector||}
 </div>
-<div class="subheader">{_it./sector-10.0.@vocabulary-description||}</div>
-{_it./sector-10:/sector||}
 #^sectors-11
-<div class="header">
-	North American Industry Classification System (NAICS) <span class="count">( {_it./sector-11.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		North American Industry Classification System (NAICS) <span class="count">( {_it./sector-11.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-11.0.@vocabulary-description||} <a href="{_it./sector-11.0.@vocabulary-url}">{_it./sector-11.0.@vocabulary-url}</a></div>
+	{_it./sector-11:/sector||}
 </div>
-<div class="subheader">{_it./sector-11.0.@vocabulary-description||}</div>
-{_it./sector-11:/sector||}
 #^sectors-99
-<div class="header">
-	Reporting Organisation <span class="count">( {_it./sector-99.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		Reporting Organisation <span class="count">( {_it./sector-99.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-99.0.@vocabulary-description||}</div>
+	{_it./sector-99:/sector||}
 </div>
-<div class="subheader">{_it./sector-99.0.@vocabulary-description||}</div>
-{_it./sector-99:/sector||}
 #^sectors-98
-<div class="header">
-	Reporting Organisation 2 <span class="count">( {_it./sector-98.length} )</span>
+<div class="sector_vocab">
+	<div class="header">
+		Reporting Organisation 2 <span class="count">( {_it./sector-98.length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-98.0.@vocabulary-description||}</div>
+	{_it./sector-98:/sector||}
 </div>
-<div class="subheader">{_it./sector-98.0.@vocabulary-description||}</div>
-{_it./sector-98:/sector||}
 
 <!--	SECTOR DAC TEMPLATE	-->
 #^/sector_dac
@@ -589,14 +614,14 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
 <!--	SECTOR DESCRIPTIONS	-->
 #^/sector_code_description
 <div class="sector_list"> 
-	<span>{_it.@code-name||}</span><span class="sector_list_description">{_it.@code-description||}</span>
+	<span>{_it.@code-name||}</span><span class="sector_list_description">{_it.@code-description||/empty-description}</span>
 </div>
 
 <!--	SECTOR NON-DAC TEMPLATE	-->
@@ -605,7 +630,7 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it./narrative.0.text||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -625,14 +650,29 @@
 	
 <!--	RECIPIENT REGION VOCAB	-->
 #^recipient-regions-1
-<div class="header" title="{_it./recipient-region-1.0.@vocabulary-description||}">OECD DAC <span class="count">( {_it./recipient-region-1.length} )</span></div>
-{_it./recipient-region-1:/recipient-region_dac||}
+<div class="sector_vocab">
+	<div class="header">
+		OECD DAC <span class="count">( {_it./recipient-region-1.length} )</span>
+	</div>
+	<div class="subheader">{_it./recipient-region-1.0.@vocabulary-description||} <a href="{_it./recipient-region-1.0.@vocabulary-url}">{_it./recipient-region-1.0.@vocabulary-url}</a></div>
+	{_it./recipient-region-1:/recipient-region_dac||}
+</div>
 #^recipient-regions-2
-<div class="header" title="{_it./recipient-region-2.0.@vocabulary-description||}">UN <span class="count">( {_it./recipient-region-2.length} )</span></div>
-{_it./recipient-region-2:/recipient-region||}
+<div class="sector_vocab">
+	<div class="header">
+		UN <span class="count">( {_it./recipient-region-2.length} )</span>
+	</div>
+	<div class="subheader">{_it./recipient-region-2.0.@vocabulary-description||} <a href="{_it./recipient-region-2.0.@vocabulary-url}">{_it./recipient-region-2.0.@vocabulary-url}</a></div>
+	{_it./recipient-region-2:/recipient-region||}
+</div>
 #^recipient-regions-99
-<div class="header" title="{_it./recipient-region-99.0.@vocabulary-description||}">Reporting Organisation <span class="count">( {_it./recipient-region-99.length} )</span></div>
-{_it./recipient-region-99:/recipient-region||}
+<div class="sector_vocab">
+	<div class="header">
+		Reporting Organisation <span class="count">( {_it./recipient-region-99.length} )</span>
+	</div>
+	<div class="subheader">{_it./recipient-region-99.0.@vocabulary-description||} <a href="{_it./recipient-region-99.0.@vocabulary-url}">{_it./recipient-region-99.0.@vocabulary-url}</a></div>
+	{_it./recipient-region-99:/recipient-region||}
+</div>
 
 <!--	RECIPIENT-REGION TEMPLATE	-->
 #^/recipient-region_dac
@@ -640,7 +680,7 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -649,7 +689,7 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it./narrative.0.text||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -665,7 +705,7 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -1000,3 +1040,8 @@
 #^/narrative trim=ends	<!--	NARRATIVE	-->
 <span class="narrative">{_it.text}</span>
 
+#^/empty-description	<!--	DISPLAY THIS WHEN DESCRIPTION IS MISSING IN IATI STANDARD CODELISTS	-->
+No description provided.
+
+#^/empty-percentage	<!--	USE THIS WHEN PERCENTAGE IS MISSING IN DATA	-->
+100
