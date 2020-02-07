@@ -173,9 +173,14 @@ savi.prepare=function(iati_xson){
 //console.log(nb+n+" : "+cm.condition+" : "+cm.codelist+" : "+v+" : "+m[v])
 						}
 						m=codelists["en-description"][cm.codelist]
-						if(m) // check it was a valid codelist
+						if(m&&m[v]) // check it was a valid codelist and the code exists and it has a description
 						{
-							it[n+"-description"]=m[v] || v
+							it[n+"-description"]=m[v]
+						}
+						m=codelists["url"][cm.codelist]
+						if(m&&m[v]) // check it was a valid codelist and the code exists and it has a url
+						{
+							it[n+"-url"]=m[v]
 						}
 					}
 				}
@@ -187,6 +192,7 @@ savi.prepare=function(iati_xson){
 		{
 			let n=it[ found_code+"-name" ]
 			let d=it[ found_code+"-description" ]
+			let u=it[ found_code+"-url" ]
 			let c=it[ found_code ]
 			let v=it[ found_vocabulary ]
 			it[ found_code+"-"+v ]=c
@@ -197,6 +203,10 @@ savi.prepare=function(iati_xson){
 			if(d)
 			{
 				it[ found_code+"-"+v+"-description" ]=d
+			}
+			if(u) // codes probably do not have a url but just in case
+			{
+				it[ found_code+"-"+v+"-url" ]=u
 			}
 		}
 

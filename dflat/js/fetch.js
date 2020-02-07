@@ -353,6 +353,14 @@ fetch.codelist=async function()
 			for( let c of list )
 			{
 				let code=c["/code"]
+				let url=c["/url"]
+				if(url)
+				{
+					url=url.trim()
+					codes["url"]=codes["url"] || {}
+					codes["url"][n]=codes["url"][n] || {}
+					codes["url"][n][code] = url
+				}
 				if( code )
 				{
 					code=code.toUpperCase() // force upper for all codes as they tend to mix with numbers
