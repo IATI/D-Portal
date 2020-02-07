@@ -30,13 +30,13 @@
     {
      "/period-end@iso-date": "2014-12-31",
      "/period-start@iso-date": "2014-01-01",
-     "/value": "3000",
+     "/value": 3000,
      "/value@currency": "EUR",
      "/value@value-date": "2014-01-01",
      "@type": "1"
     }
    ],
-   "/capital-spend@percentage": "88.8",
+   "/capital-spend@percentage": 88.8,
    "/collaboration-type@code": "1",
    "/conditions/condition": [
     {
@@ -52,7 +52,7 @@
      "@type": "1"
     }
    ],
-   "/conditions@attached": "1",
+   "/conditions@attached": 1,
    "/contact-info": [
     {
      "/department/narrative": [
@@ -110,7 +110,8 @@
       }
      ],
      "@code": "1.1.1",
-     "@percentage": "50"
+     "@percentage": 50,
+     "@vocabulary": "2"
     },
     {
      "/description/narrative": [
@@ -119,33 +120,35 @@
       }
      ],
      "@code": "1.2.1",
-     "@percentage": "50"
+     "@percentage": 50,
+     "@vocabulary": "2"
     }
    ],
    "/country-budget-items@vocabulary": "2",
-   "/crs-add/loan-status/interest-arrears": "0",
-   "/crs-add/loan-status/interest-received": "200000",
-   "/crs-add/loan-status/principal-arrears": "0",
-   "/crs-add/loan-status/principal-outstanding": "1500000",
+   "/crs-add/loan-status/interest-arrears": 0,
+   "/crs-add/loan-status/interest-received": 200000,
+   "/crs-add/loan-status/principal-arrears": 0,
+   "/crs-add/loan-status/principal-outstanding": 1500000,
    "/crs-add/loan-status@currency": "GBP",
    "/crs-add/loan-status@value-date": "2013-05-24",
-   "/crs-add/loan-status@year": "2014",
+   "/crs-add/loan-status@year": 2014,
    "/crs-add/loan-terms/commitment-date@iso-date": "2013-09-01",
    "/crs-add/loan-terms/repayment-final-date@iso-date": "2020-12-31",
    "/crs-add/loan-terms/repayment-first-date@iso-date": "2014-01-01",
    "/crs-add/loan-terms/repayment-plan@code": "4",
    "/crs-add/loan-terms/repayment-type@code": "1",
-   "/crs-add/loan-terms@rate-1": "4",
-   "/crs-add/loan-terms@rate-2": "3",
+   "/crs-add/loan-terms@rate-1": 4,
+   "/crs-add/loan-terms@rate-2": 3,
    "/crs-add/other-flags": [
     {
      "@code": "1",
-     "@significance": "1"
+     "@significance": 1
     }
    ],
    "/default-aid-type": [
     {
-     "@code": "A01"
+     "@code": "A01",
+     "@vocabulary": "1"
     }
    ],
    "/default-finance-type@code": "110",
@@ -216,15 +219,15 @@
    ],
    "/fss/forecast": [
     {
-     "": "10000",
+     "": 10000,
      "@currency": "GBP",
      "@value-date": "2013-07-03",
-     "@year": "2014"
+     "@year": 2014
     }
    ],
    "/fss@extraction-date": "2014-05-06",
-   "/fss@phaseout-year": "2016",
-   "/fss@priority": "1",
+   "/fss@phaseout-year": 2016,
+   "/fss@priority": 1,
    "/iati-identifier": "AA-AAA-123456789-ABC123",
    "/legacy-data": [
     {
@@ -248,7 +251,7 @@
      "/administrative": [
       {
        "@code": "1453782",
-       "@level": "1",
+       "@level": 1,
        "@vocabulary": "G1"
       }
      ],
@@ -329,7 +332,7 @@
     {
      "/period-end@iso-date": "2014-12-31",
      "/period-start@iso-date": "2014-01-01",
-     "/value": "3000",
+     "/value": 3000,
      "/value@currency": "EUR",
      "/value@value-date": "2014-01-01",
      "@type": "1"
@@ -337,7 +340,7 @@
     {
      "/period-end@iso-date": "2014-12-31",
      "/period-start@iso-date": "2014-01-01",
-     "/value": "3000",
+     "/value": 3000,
      "/value@currency": "EUR",
      "/value@value-date": "2014-01-01",
      "@type": "1"
@@ -358,22 +361,22 @@
    "/recipient-country": [
     {
      "@code": "AF",
-     "@percentage": "25"
+     "@percentage": 25
     },
     {
      "@code": "AG",
-     "@percentage": "25"
+     "@percentage": 25
     }
    ],
    "/recipient-region": [
     {
      "@code": "489",
-     "@percentage": "25",
+     "@percentage": 25,
      "@vocabulary": "1"
     },
     {
      "@code": "289",
-     "@percentage": "25",
+     "@percentage": 25,
      "@vocabulary": "1"
     }
    ],
@@ -393,7 +396,7 @@
     }
    ],
    "/reporting-org@ref": "AA-AAA-123456789",
-   "/reporting-org@secondary-reporter": "0",
+   "/reporting-org@secondary-reporter": 0,
    "/reporting-org@type": "40",
    "/result": [
     {
@@ -412,7 +415,7 @@
           }
          ],
          "@value": "10",
-         "@year": "2012"
+         "@year": 2012
         }
        ],
        "/description/narrative": [
@@ -451,7 +454,7 @@
          "": "Indicator title"
         }
        ],
-       "@ascending": "1",
+       "@ascending": 1,
        "@measure": "1"
       }
      ],
@@ -460,19 +463,19 @@
        "": "Result title"
       }
      ],
-     "@aggregation-status": "1",
+     "@aggregation-status": 1,
      "@type": "1"
     }
    ],
    "/sector": [
     {
      "@code": "111",
-     "@percentage": "50",
+     "@percentage": 50,
      "@vocabulary": "2"
     },
     {
      "@code": "112",
-     "@percentage": "50",
+     "@percentage": 50,
      "@vocabulary": "2"
     }
    ],
@@ -493,7 +496,8 @@
     {
      "/aid-type": [
       {
-       "@code": "A01"
+       "@code": "A01",
+       "@vocabulary": "1"
       }
      ],
      "/description/narrative": [
@@ -530,16 +534,19 @@
      "/tied-status@code": "3",
      "/transaction-date@iso-date": "2012-01-01",
      "/transaction-type@code": "1",
-     "/value": "1000",
+     "/value": 1000,
      "/value@currency": "EUR",
      "/value@value-date": "2012-01-01",
      "@ref": "1234"
     }
    ],
    "@default-currency": "USD",
-   "@hierarchy": "1",
+   "@generated-datetime": "2014-09-10T07:15:37Z",
+   "@hierarchy": 1,
    "@last-updated-datetime": "2014-09-10T07:15:37Z",
+   "@linked-data-default": "http://data.example.org/",
    "@linked-data-uri": "http://data.example.org/123456789",
+   "@version": "2.01",
    "@xml:lang": "en"
   }
  ],

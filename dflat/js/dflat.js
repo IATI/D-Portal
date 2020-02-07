@@ -398,6 +398,8 @@ dflat.clean_reduce_values=function(data)
 					}
 				}
 			}
+			
+			if(it[n]==="") { delete it[n] } // delete empty strings
 		}
 	})
 }
