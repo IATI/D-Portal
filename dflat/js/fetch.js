@@ -465,7 +465,10 @@ fetch.codelist=async function()
 // hax
 codemap["/iati-activities/iati-activity/country-budget-items/budget-item@vocabulary"]
 	=	codemap["/iati-activities/iati-activity/country-budget-items@vocabulary"]
- 
+
+codemap["/iati-activities/iati-activity@version"]
+	=	codemap["/iati-activities@version"]
+
 	await pfs.writeFile("json/codemap.json",stringify(codemap,{space:" "}));
 
 }
