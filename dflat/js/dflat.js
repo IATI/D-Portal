@@ -251,7 +251,8 @@ dflat.xson_to_xsv=function(data,root,paths)
 dflat.clean=function(data)
 {
 	dflat.clean_copy_toplevel_attributes(data)
-	dflat.reduce_values(data)
+	dflat.clean_copy_defaults(data)
+	dflat.clean_reduce_values(data)
 }
 
 // precalculate currency default map
@@ -270,6 +271,25 @@ for( const n in database.paths )
 		a=v.jpath[v.jpath.length-1]
 
 		currencymap[d]=a // hopefully only one per parent (this might break...)
+	}
+}
+
+// precalculate currency default map
+let vocabmap={}
+for( const n in database.paths )
+{
+	if(n.endsWith("@vocabulary"))
+	{
+		let v=database.paths[n]
+		let d=""
+		let a=""
+		for( let i=0 ; i<v.jpath.length-1 ; i++ )
+		{
+			d+=v.jpath[i]
+		}
+		a=v.jpath[v.jpath.length-1]
+
+		vocabmap[d]=a // hopefully only one per parent (this might break...)
 	}
 }
 
@@ -300,27 +320,6 @@ dflat.clean_copy_toplevel_attributes=function(data)
 					act[n]=ac[n]
 				}
 			}
-			if( act["/country-budget-items@vocabulary"] && act["/country-budget-items/budget-item"] )
-			{
-				for(const it of act["/country-budget-items/budget-item"] )
-				{
-					it["@vocabulary"]=act["/country-budget-items@vocabulary"]
-				}
-			}
-			if(act["@default-currency"]) // copy default to all missing @currency attributes 
-			{
-				xson.walk(act,function(it,paths,index){
-					let path="/iati-activities/iati-activity"+paths.join("")
-					let v=currencymap[path]
-					if(v)
-					{
-						if(!it[v])
-						{
-							it[v]=act["@default-currency"]
-						}
-					}
-				})
-			}
 		}
 	}
 
@@ -344,20 +343,6 @@ dflat.clean_copy_toplevel_attributes=function(data)
 					act[n]=ac[n]
 				}
 			}
-			if(act["@default-currency"]) // copy default to all missing @currency attributes 
-			{
-				xson.walk(act,function(it,paths,index){
-					let path="/iati-organisations/iati-organisation"+paths.join("")
-					let v=currencymap[path]
-					if(v)
-					{
-						if(!it[v])
-						{
-							it[v]=act["@default-currency"]
-						}
-					}
-				})
-			}
 		}
 	}
 	return data
@@ -366,7 +351,7 @@ dflat.clean_copy_toplevel_attributes=function(data)
 // Reduce values based on types to make them easier to query
 // So for example multiple boolean values are converted to 0 and 1 from any true and false strings.
 // we can also force cast numbers and dates and times here to remove bad values.
-dflat.reduce_values=function(data)
+dflat.clean_reduce_values=function(data)
 {
 	xson.walk(data,function(it,paths,index){
 
@@ -420,9 +405,65 @@ dflat.reduce_values=function(data)
 // copy the defaults explicitly into the places they should apply
 dflat.clean_copy_defaults=function(data)
 {
-	
-	xson.walk(data,function(it,paths,index){
-	})
+
+	for( const act of (data["/iati-activities/iati-activity"] || [] ) )
+	{
+		if( act["/country-budget-items@vocabulary"] && act["/country-budget-items/budget-item"] )
+		{
+			for(const it of act["/country-budget-items/budget-item"] )
+			{
+				it["@vocabulary"]=act["/country-budget-items@vocabulary"]
+			}
+		}
+		if(act["@default-currency"]) // copy default to all missing @currency attributes 
+		{
+			xson.walk(act,function(it,paths,index){
+				let path="/iati-activities/iati-activity"+paths.join("")
+				let v=currencymap[path]
+				if(v)
+				{
+					if(!it[v])
+					{
+						it[v]=act["@default-currency"]
+					}
+				}
+				v=vocabmap[path]
+				if(v)
+				{
+					if(!it[v])
+					{
+						it[v]="1" // set default vocabulary
+					}
+				}
+			})
+		}
+	}
+
+	for( const act of (data["/iati-organisations/iati-organisation"] || [] ) )
+	{
+		if(act["@default-currency"]) // copy default to all missing @currency attributes 
+		{
+			xson.walk(act,function(it,paths,index){
+				let path="/iati-organisations/iati-organisation"+paths.join("")
+				let v=currencymap[path]
+				if(v)
+				{
+					if(!it[v])
+					{
+						it[v]=act["@default-currency"]
+					}
+				}
+				v=vocabmap[path]
+				if(v)
+				{
+					if(!it[v])
+					{
+						it[v]="1" // set default vocabulary
+					}
+				}
+			})
+		}
+	}
 
 	return data
 }
