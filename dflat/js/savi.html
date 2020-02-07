@@ -2,7 +2,7 @@
 #^iati-activity
 <div class="activity">
 	{_it.@humanitarian==1&&humanitarian||}
-	<div class="header">PROJECT TITLE</div>
+	<div class="header">PROJECT TITLE<div class="version"><a href="{_it.@version-url||}"><span>VERSION</span> {_it.@version||}</a></div></div>
 	<div class="wrap_title">{_it./title/narrative:/narrative}</div>
 <!--	REPORTING ORG	-->
 	<div class="wrap_reporting_org">
@@ -51,8 +51,9 @@
 {_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
 {_it./recipient-country&&_it:/wrap-recipient-country||}
 {_it./recipient-region&&_it:/wrap-recipient-region||}
-{_it./country-budget-items/budget-item&&_it:/wrap-country-budget-items||}
 {_it./location&&_it:/wrap-location||}
+{_it./country-budget-items/budget-item&&_it:/wrap-country-budget-items||}
+{_it./capital-spend@percentage&&_it:/wrap-capital-spend||}
 {_it./sector&&_it:/wrap-sector||}
 {_it./budget&&_it:/wrap-budget||}
 {_it./planned-disbursement&&_it:/wrap-planned-disbursement||}
@@ -64,7 +65,6 @@
 {_it./related-activity&&_it:/wrap-related-activity||}
 {_it./other-identifier&&_it:/wrap-other-identifier||}	<!--	NEW	-->
 {_it./conditions@attached&&_it:/wrap-conditions||}
-{_it./capital-spend&&_it:/wrap-capital-spend||}
 {_it./legacy-data&&_it:/wrap-legacy-data||}
 {_it./crs-add&&_it:/wrap-crss-add||}
 {_it./fss&&_it:/wrap-fss||}
@@ -124,13 +124,19 @@
 	
 <!--	COUNTRY BUDGET ITEMS VOCAB	-->
 #^/country-budget-items-vocab
-{_it./country-budget-items/budget-item:/budget-item||}
+<div class="sector_vocab">
+	<div class="header">
+		{_it./country-budget-items@vocabulary-name||} <span class="count">( {_it./country-budget-items/budget-item.length} )</span>
+	</div>
+	<div class="subheader">{_it./country-budget-items@vocabulary-description||}</div>
+	{_it./country-budget-items/budget-item:/budget-item||}
+</div>
 
 <!--	COUNTRY BUDGET ITEMS TEMPLATE	-->
 #^/budget-item
 <div class="sector">
 	<div class="wrap_code">
-		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span><span class="sector_code vocab_name">{_it.@vocabulary-name||}</span>
+		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
 		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
@@ -1053,7 +1059,7 @@
 <span class="narrative">{_it.text}</span>
 
 #^/empty-description	<!--	DISPLAY THIS WHEN DESCRIPTION IS MISSING IN IATI STANDARD CODELISTS	-->
-No description provided.
+No description provided
 
 #^/empty-percentage	<!--	USE THIS WHEN PERCENTAGE IS MISSING IN DATA	-->
 100
