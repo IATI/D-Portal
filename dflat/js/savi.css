@@ -87,7 +87,7 @@ span.block	{display:block;}
 .sector_value:after	{content:"%";}
 .wrap_sector .header{color:#444; font-weight:bold; text-align:center; margin-left:40px; width:880px; padding-top:40px;}
 .wrap_sector .header.glossary	{text-align:left;}
-.wrap_sector .header .subheader	{font-size:12px; font-weight:normal; text-transform:initial; padding-top:5px;}
+.wrap_sector .subheader	{text-align:center; font-size:12px; margin-top:-10px; padding-bottom:20px; color:#555;}
 
 /*	DATA SOURCES	*/
 .data_source a		{display:inline-block; vertical-align:baseline; width:12%; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; color:#fff; padding:5px 0; margin:10px 2% 5px 0;}
@@ -102,7 +102,7 @@ span.block	{display:block;}
 
 /*	COUNT	*/
 span.count				{color:#ccc; font-size:12px; padding-left:20px;}
-.wrap_sector span.count	{color:#444;}
+.wrap_sector span.count	{color:#444; font-weight:normal; padding-left:5px;}
 
 /*	DOCUMENTS	*/
 a.doc_link:before	{display:inline-block; vertical-align:top; content:"☰"; border:1px solid #CCC; padding:2px; color:#CCC; margin-right:-24px;}
