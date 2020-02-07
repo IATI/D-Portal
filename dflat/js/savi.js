@@ -182,6 +182,11 @@ savi.prepare=function(iati_xson){
 						{
 							it[n+"-url"]=m[v]
 						}
+						m=codelists["withdrawn"][cm.codelist]
+						if(m&&m[v]) // check it was a valid codelist and the code exists and it has been withdrawn
+						{
+							it[n+"-withdrawn"]=m[v]
+						}
 					}
 				}
 			}
@@ -193,6 +198,7 @@ savi.prepare=function(iati_xson){
 			let n=it[ found_code+"-name" ]
 			let d=it[ found_code+"-description" ]
 			let u=it[ found_code+"-url" ]
+			let w=it[ found_code+"-withdrawn" ]
 			let c=it[ found_code ]
 			let v=it[ found_vocabulary ]
 			it[ found_code+"-"+v ]=c
@@ -204,9 +210,9 @@ savi.prepare=function(iati_xson){
 			{
 				it[ found_code+"-"+v+"-description" ]=d
 			}
-			if(u) // codes probably do not have a url but just in case
+			if(w) // codes probably do not have a url but just in case
 			{
-				it[ found_code+"-"+v+"-url" ]=u
+				it[ found_code+"-"+v+"-withdrawn" ]=w
 			}
 		}
 

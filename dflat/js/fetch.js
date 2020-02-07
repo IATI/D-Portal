@@ -353,6 +353,13 @@ fetch.codelist=async function()
 			for( let c of list )
 			{
 				let code=c["/code"]
+				let withdrawn=(c["@status"]=="withdrawn")
+				if(withdrawn)
+				{
+					codes["withdrawn"]=codes["withdrawn"] || {}
+					codes["withdrawn"][n]=codes["withdrawn"][n] || {}
+					codes["withdrawn"][n][code] = true
+				}
 				let url=c["/url"]
 				if(url)
 				{
