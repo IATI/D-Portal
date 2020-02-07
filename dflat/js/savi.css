@@ -26,13 +26,15 @@ body		{background-color:#47506B; margin-top:40px; color:#FFF;}
 
 /*	HEADERS	*/
 .header,
-.header_doc	{font-size:14px; color:#ccc; text-transform:uppercase; display:block; border-bottom:1px solid #aaa; padding-bottom:10px; margin-bottom:20px;}
+.header_doc	{font-size:14px; color:#ccc; text-transform:uppercase; display:block; border-bottom:1px solid #aaa; padding-bottom:10px; margin-bottom:20px; position:relative;}
 .header_doc	{border:0; margin:0;}
 .header_section	{font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:0 0 20px -50px; width:980px; text-transform:uppercase; box-sizing:border-box;}
 .sticky		{position:sticky; top:-1px; z-index:2;}
 .nostick	{position:initial;}
 span.block	{display:block;}
 .narrative:nth-of-type(2)	{font-style:italic; display:block;}
+.version		{font-size:12px; display:block; position:absolute; top:0; right:0;}
+.version span	{color:#fff;}
 
 /*	WRAPPERS	*/
 .wrap_title					{padding-bottom:40px;}
@@ -64,7 +66,6 @@ span.block	{display:block;}
 .wrap_recipient_country,
 .wrap_sector				{color:#444; background-color:#fff; margin-top:-20px; width:960px; margin-left:-40px; padding:0 0 40px 0;}
 .wrap_recipient_country		{padding:40px 0;}
-.wrap_country_budget_items	{padding-top:40px;}
 .sector,
 .sector_list_wrap		{color:#444; font-size:14px; line-height:18px; padding:0 40px;}
 .sector_list_wrap span	{display:inline-block; vertical-align:top; padding-right:40px; width:30%;}
@@ -79,7 +80,6 @@ span.block	{display:block;}
 .wrap_code span		{display:inline-block; vertical-align:middle;}
 .sector_code_text	{max-width:360px;}
 .sector_code		{margin-left:10px; background-color:rgba(48,57,70,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
-.sector_code.vocab_name	{background-color:rgba(22,71,140,0.7);}
 .sector_code:nth-of-type(3)	{margin-left:5px;}
 .sector_bar,
 .sector_value		{display:inline-block; vertical-align:middle;}
