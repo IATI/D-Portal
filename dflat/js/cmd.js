@@ -71,6 +71,7 @@ cmd.run=async function(argv)
 		{
 			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
 			var json=dflat.xml_to_xson(dat)
+			dflat.clean(json)
 			await pfs.writeFile(argv.output,stringify(json,{space:" "}));
 
 			return
