@@ -63,61 +63,63 @@
 {_it./policy-marker&&_it:/wrap-policy-marker||}
 {_it./contact-info&&_it:/wrap-contact-info||}
 {_it./related-activity&&_it:/wrap-related-activity||}
-{_it./other-identifier&&_it:/wrap-other-identifier||}	<!--	NEW	-->
+{_it./other-identifier&&_it:/wrap-other-identifier||}
 {_it./conditions@attached&&_it:/wrap-conditions||}
 {_it./legacy-data&&_it:/wrap-legacy-data||}
 {_it./crs-add/other-flags&&_it:/wrap-crs-add||}
-{_it./crs-add/loan-status/interest-received&&_it:/loan-status||}
-{_it./fss&&_it:/wrap-fss||}
+<div class="crs">
+{_it./crs-add/loan-status@year&&_it:/loan-status/year||}
+{_it./crs-add/loan-status/interest-received&&_it:/loan-status/interest-received||}
+{_it./crs-add/loan-status/principal-outstanding&&_it:/loan-status/principal-outstanding||}
+{_it./crs-add/loan-status/principal-arrears&&_it:/loan-status/principal-arrears||}
+{_it./crs-add/loan-status/interest-arrears&&_it:/loan-status/interest-arrears||}
+</div>
+{_it./fss&&_it:/wrap-fss||}	<!--	0% published, need data to display	-->
 {_it./activity-status@code&&_it:/wrap-activity-status||}
 </div>
 
 	
 #^/wrap-crs-add	<!--	CRS WRAPPER	-->
 	<div class="wrap_crs_add">
-		<div class="header_section sticky collapsable">crs add</div>
-		{_it./crs-add/channel-code&&_it:/channel-code||}
+		<div class="header_section sticky collapsable">crs add{_it./crs-add/channel-code&&_it:/channel-code||}</div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
-					<th class="condition_narr" data-sort="string" data-sort-multicolumn="0,1,2">CODELIST</th>
-					<th class="condition_type" data-sort="int" data-sort-multicolumn="0,1,2">SIGNIFICANCE</th>
-					<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2">DESCRIPTION</th>
+					<th class="crs_ele" data-sort="string" data-sort-multicolumn="0,1,2,3">ELEMENT</th>
+					<th class="crs_code" data-sort="string" data-sort-multicolumn="0,1,2,3">CODELIST</th>
+					<th class="crs_sig" data-sort="int" data-sort-multicolumn="0,1,2,3">SIGNIFICANCE</th>
+					<th class="crs_desc" data-sort="string" data-sort-multicolumn="0,1,2,3">DESCRIPTION</th>
 				</tr>
 			</thead>
 			{_it./crs-add/other-flags:/other-flags}
 		</table>
 	</div>
+	
+#^/channel-code
+<div class="crs_channel_code"><span>CHANNEL CODE</span> {_it./crs-add/channel-code}</div>
 
-#^/other-flags	<!--	CRS	ROWS	-->
+#^/other-flags	<!--	CRS	OTHER FLAGS ROWS	-->
 <tr class="row_count">
-	<td class="condition_narr" data-sort-value="{_it.@code-name}">{_it.@code-name||}</td>
-	<td class="condition_type" data-sort-value="{_it.@significance}">{_it.@significance||}</td>
-	<td class="condition_desc" data-sort-value="{_it.@code-description}">{_it.@code-description||}</td>
+	<td class="crs_ele" data-sort-value="{_it.@code-name}">Other Flags</td>
+	<td class="crs_code" data-sort-value="{_it.@code-name}">{_it.@code-name||}</td>
+	<td class="crs_sig" data-sort-value="{_it.@significance}">{_it.@significance||}</td>
+	<td class="crs_desc" data-sort-value="{_it.@code-description}">{_it.@code-description||}</td>
 </tr>
 
-#^/channel-code
-Channel Code: {_it./crs-add/channel-code}
+#^/loan-status/year
+<div class="wrap_crs"><div class="crs_head">CRS-ADD YEAR</div>{_it./crs-add/loan-status@year}</div>
 
-#^/loan-status
-<table class="budget sortable">
-	<thead>
-		<tr>
-			<th class="condition_narr" data-sort="string" data-sort-multicolumn="0,1,2,3,4">YEAR</th>
-			<th class="condition_type" data-sort="int" data-sort-multicolumn="0,1,2,3,4">INTEREST</th>
-			<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL OUTSTANDING</th>
-			<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL ARREARS</th>
-			<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INTEREST ARREARS</th>
-		</tr>
-	</thead>
-	<tr class="row_count">
-		<td class="condition_narr" data-sort-value="{_it.@year}">{_it.@year||}</td>
-		<td class="condition_type" data-sort-value="{_it./interest-received}">{_it./interest-received||}</td>
-		<td class="condition_desc" data-sort-value="{_it.@code-description}">{_it./principal-outstanding||}</td>
-		<td class="condition_desc" data-sort-value="{_it.@code-description}">{_it./principal-arrears||}</td>
-		<td class="condition_desc" data-sort-value="{_it.@code-description}">{_it./interest-arrears||}</td>
-	</tr>
-</table>
+#^/loan-status/interest-received
+<div class="wrap_crs"><div class="crs_head">INTEREST</div>{_it./crs-add/loan-status/interest-received} <span>{_it./crs-add/loan-status@currency}</span></div>
+
+#^/loan-status/principal-outstanding
+<div class="wrap_crs"><div class="crs_head">PRINCIPAL OUTSTANDING</div>{_it./crs-add/loan-status/principal-outstanding} <span>{_it./crs-add/loan-status@currency}</span></div>
+
+#^/loan-status/principal-arrears
+<div class="wrap_crs"><div class="crs_head">PRINCIPAL ARREARS</div>{_it./crs-add/loan-status/principal-arrears} <span>{_it./crs-add/loan-status@currency}</span></div>
+
+#^/loan-status/interest-arrears
+<div class="wrap_crs"><div class="crs_head">INTEREST ARREARS</div>{_it./crs-add/loan-status/interest-arrears} <span>{_it./crs-add/loan-status@currency}</span></div>
 
 #^/wrap-conditions	<!--	CONDITIONS WRAPPER	-->
 	<div class="wrap_conditions">

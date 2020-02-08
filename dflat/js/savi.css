@@ -28,7 +28,7 @@ body		{background-color:#47506B; margin-top:40px; color:#FFF;}
 .header,
 .header_doc	{font-size:14px; color:#ccc; text-transform:uppercase; display:block; border-bottom:1px solid #aaa; padding-bottom:10px; margin-bottom:20px; position:relative;}
 .header_doc	{border:0; margin:0;}
-.header_section	{font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:0 0 20px -50px; width:980px; text-transform:uppercase; box-sizing:border-box;}
+.header_section	{font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:0 0 20px -50px; width:980px; position:relative; text-transform:uppercase; box-sizing:border-box;}
 .sticky		{position:sticky; top:-1px; z-index:2;}
 .nostick	{position:initial;}
 span.block	{display:block;}
@@ -333,7 +333,7 @@ table.budget.result td:nth-of-type(3)		{width:500px; padding-right:0px;}
 .wrap_policy_marker table.budget th.policy_code,
 .wrap_policy_marker table.budget td.policy_code		{width:480px; padding-right:40px;}
 .wrap_policy_marker table.budget th.policy_sig,
-.wrap_policy_marker table.budget td.policy_sig		{width:160px; text-transform:capitalize;}
+.wrap_policy_marker table.budget td.policy_sig		{width:160px; padding-right:20px; text-transform:capitalize;}
 
 /*	IATI ACTIVITY LEGACY DATA TABLE	*/
 .wrap_legacy_data th.legacy_name,
@@ -367,6 +367,13 @@ table.budget.result td:nth-of-type(3)		{width:500px; padding-right:0px;}
 .wrap_other_identifier td.other_ref,
 .wrap_other_identifier th.owner_ref,
 .wrap_other_identifier td.owner_ref		{padding-right:20px;}
+
+/*	CRS ADD	*/
+.wrap_crs			{display:inline-block; vertical-align:bottom; width:19%; padding-bottom:35px; font-size:14px;}
+.crs_head			{font-size:12px; border-bottom:1px solid #aaa; color:#ccc; margin-bottom:10px; padding-bottom:10px;}
+.crs .wrap_crs:first-of-type::before	{content:"CRS ADD LOAN STATUS"; font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:0 0 20px -50px; width:980px; text-transform:uppercase; box-sizing:border-box; display:block;}
+.crs_channel_code	{width:200px; font-size:14px; position:absolute; top:9px; right:20px; text-align:center;}
+.crs_channel_code span	{font-size:12px;}
 
 /*	DEFAULTS MODALITIES	*/
 table.modals					{table-layout:fixed; border-collapse:collapse; width:100%;}
