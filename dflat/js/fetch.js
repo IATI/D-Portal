@@ -458,6 +458,10 @@ fetch.codelist=async function()
 			{
 				s="/iati-organisations"+s
 			}
+			if( s.endsWith("/text()") )
+			{
+				s=s.substring( 0, s.indexOf( "/text()" ) )
+			}
 //			code.path=s
 			codemap[s]=codemap[s] || []
 			codemap[s].push(code)

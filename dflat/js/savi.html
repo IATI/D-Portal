@@ -96,7 +96,7 @@
 	</div>
 	
 #^/channel-code
-<div class="crs_channel_code"><span>CHANNEL CODE</span> {_it./crs-add/channel-code}</div>
+<div class="crs_channel_code"><span>CHANNEL CODE</span> {_it./crs-add/channel-code-name}</div>
 
 #^/other-flags	<!--	CRS	OTHER FLAGS ROWS	-->
 <tr class="row_count">
@@ -214,7 +214,7 @@
 #^/country-budget-items-vocab
 <div class="sector_vocab">
 	<div class="header">
-		{_it./country-budget-items@vocabulary-name||} {_it./country-budget-items@vocabulary-withdrawn&&_it:/vocab-withdrawn||} <span class="count">( {_it./country-budget-items/budget-item.length} )</span>
+		{_it./country-budget-items@vocabulary-name||} {_it./country-budget-items@vocabulary-withdrawn&&_it:/withdrawn||} <span class="count">( {_it./country-budget-items/budget-item.length} )</span>
 	</div>
 	<div class="subheader">{_it./country-budget-items@vocabulary-description||}</div>
 	{_it./country-budget-items/budget-item:/budget-item||}
@@ -727,7 +727,7 @@
 <!--	SECTOR DESCRIPTIONS	-->
 #^/sector_code_description
 <div class="sector_list"> 
-	<span>{_it.@code-name||}</span><span class="sector_list_description">{_it.@code-description||/empty-description}</span>
+	<span>{_it.@code-name||} {_it.@code-withdrawn&&_it:/withdrawn||}</span><span class="sector_list_description">{_it.@code-description||/empty-description}</span>
 </div>
 
 <!--	SECTOR NON-DAC TEMPLATE	-->
@@ -1152,5 +1152,5 @@ No description provided
 #^/empty-percentage	<!--	USE THIS WHEN PERCENTAGE IS MISSING IN DATA	-->
 100
 
-#^/vocab-withdrawn	<!--	USE WHEN VOCAB IS WITHDRAWN	-->
+#^/withdrawn	<!--	USE WHEN VOCAB/CODE/THING IS WITHDRAWN	-->
 <span class="withdrawn">Withdrawn</span>
