@@ -294,6 +294,25 @@ for( const n in database.paths )
 	}
 }
 
+// precalculate langauge default map
+let langmap={}
+for( const n in database.paths )
+{
+	if( n.endsWith("@xml:lang") || n.endsWith("language@code") )
+	{
+		let v=database.paths[n]
+		let d=""
+		let a=""
+		for( let i=0 ; i<v.jpath.length-1 ; i++ )
+		{
+			d+=v.jpath[i]
+		}
+		a=v.jpath[v.jpath.length-1]
+
+		langmap[d]=a // hopefully only one per parent (this might break...)
+	}
+}
+
 // copy all the atributes on iati-activities into each sub iati-activitiy
 // and do the same for iati-organisations into iati-organisation
 // so that when these individual activities are removed from their original file
@@ -364,12 +383,12 @@ dflat.clean_reduce_values=function(data)
 			let v=it[n]
 			let p=database.paths[path+n]
 
-			if( codemap[path+n] ) // this is a lookup code so treat as special
+			if( codemap[path+n] || n.endsWith("@xml:lang") || n.endsWith("language@code") ) // this is a lookup code so treat as special
 			{
 				v=(v).toString().trim().toUpperCase() // sanity, trim and uppercase all codes
 				it[n]=v
 			}
-			
+
 			if( p )
 			{
 				if( (p.type=="int") || (p.type=="uint") || (p.type=="number") )
@@ -415,8 +434,7 @@ dflat.clean_reduce_values=function(data)
 // copy the defaults explicitly into the places they should apply
 dflat.clean_copy_defaults=function(data)
 {
-
-	for( const act of (data["/iati-activities/iati-activity"] || [] ) )
+	let f=function(root,act)
 	{
 		if( act["/country-budget-items@vocabulary"] && act["/country-budget-items/budget-item"] )
 		{
@@ -428,7 +446,7 @@ dflat.clean_copy_defaults=function(data)
 		if(act["@default-currency"]) // copy default to all missing @currency attributes 
 		{
 			xson.walk(act,function(it,paths,index){
-				let path="/iati-activities/iati-activity"+paths.join("")
+				let path=root+paths.join("")
 				let v=currencymap[path]
 				if(v)
 				{
@@ -437,42 +455,43 @@ dflat.clean_copy_defaults=function(data)
 						it[v]=act["@default-currency"]
 					}
 				}
-				v=vocabmap[path]
+			})
+		}
+		if(act["@xml:lang"]) // copy default to all missing @lang attributes 
+		{
+			xson.walk(act,function(it,paths,index){
+				let path=root+paths.join("")
+				let v=langmap[path]
 				if(v)
 				{
 					if(!it[v])
 					{
-						it[v]="1" // set default vocabulary
+						it[v]=act["@xml:lang"]
 					}
 				}
 			})
 		}
+		xson.walk(act,function(it,paths,index){
+			let path=root+paths.join("")
+			let v=vocabmap[path]
+			if(v)
+			{
+				if(!it[v])
+				{
+					it[v]="1" // set default vocabulary
+				}
+			}
+		})
+	}
+
+	for( const act of (data["/iati-activities/iati-activity"] || [] ) )
+	{
+		f("/iati-activities/iati-activity",act)
 	}
 
 	for( const act of (data["/iati-organisations/iati-organisation"] || [] ) )
 	{
-		if(act["@default-currency"]) // copy default to all missing @currency attributes 
-		{
-			xson.walk(act,function(it,paths,index){
-				let path="/iati-organisations/iati-organisation"+paths.join("")
-				let v=currencymap[path]
-				if(v)
-				{
-					if(!it[v])
-					{
-						it[v]=act["@default-currency"]
-					}
-				}
-				v=vocabmap[path]
-				if(v)
-				{
-					if(!it[v])
-					{
-						it[v]="1" // set default vocabulary
-					}
-				}
-			})
-		}
+		f("/iati-organisations/iati-organisation",act)
 	}
 
 	return data
