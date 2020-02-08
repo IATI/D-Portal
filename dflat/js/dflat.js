@@ -436,6 +436,9 @@ dflat.clean_copy_defaults=function(data)
 {
 	let f=function(root,act)
 	{
+		if(!act["@xml:lang"]) { act["@xml:lang"]="EN" } // a missing default language is assumed to be english
+
+		// vocab is in "wrong" place for these items, so force copy it
 		if( act["/country-budget-items@vocabulary"] && act["/country-budget-items/budget-item"] )
 		{
 			for(const it of act["/country-budget-items/budget-item"] )
@@ -443,10 +446,10 @@ dflat.clean_copy_defaults=function(data)
 				it["@vocabulary"]=act["/country-budget-items@vocabulary"]
 			}
 		}
-		if(act["@default-currency"]) // copy default to all missing @currency attributes 
-		{
-			xson.walk(act,function(it,paths,index){
-				let path=root+paths.join("")
+		xson.walk(act,function(it,paths,index){
+			let path=root+paths.join("")
+			if(act["@default-currency"]) // copy default to all missing @currency attributes 
+			{
 				let v=currencymap[path]
 				if(v)
 				{
@@ -455,12 +458,9 @@ dflat.clean_copy_defaults=function(data)
 						it[v]=act["@default-currency"]
 					}
 				}
-			})
-		}
-		if(act["@xml:lang"]) // copy default to all missing @lang attributes 
-		{
-			xson.walk(act,function(it,paths,index){
-				let path=root+paths.join("")
+			}
+			if(act["@xml:lang"]) // copy default to all missing @lang attributes 
+			{
 				let v=langmap[path]
 				if(v)
 				{
@@ -469,21 +469,18 @@ dflat.clean_copy_defaults=function(data)
 						it[v]=act["@xml:lang"]
 					}
 				}
-			})
-		}
-		xson.walk(act,function(it,paths,index){
-			let path=root+paths.join("")
-			let v=vocabmap[path]
+			}
+			let v=vocabmap[path] // set default vocabulary to 1
 			if(v)
 			{
 				if(!it[v])
 				{
-					it[v]="1" // set default vocabulary
+					it[v]="1"
 				}
 			}
 		})
 	}
-
+	
 	for( const act of (data["/iati-activities/iati-activity"] || [] ) )
 	{
 		f("/iati-activities/iati-activity",act)
