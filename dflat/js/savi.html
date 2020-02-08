@@ -53,8 +53,8 @@
 {_it./recipient-region&&_it:/wrap-recipient-region||}
 {_it./location&&_it:/wrap-location||}
 {_it./country-budget-items/budget-item&&_it:/wrap-country-budget-items||}
-{_it./capital-spend@percentage&&_it:/wrap-capital-spend||}
 {_it./sector&&_it:/wrap-sector||}
+{_it./capital-spend@percentage&&_it:/wrap-capital-spend||}
 {_it./budget&&_it:/wrap-budget||}
 {_it./planned-disbursement&&_it:/wrap-planned-disbursement||}
 {_it./transaction&&_it:/wrap-transaction||}
@@ -66,15 +66,102 @@
 {_it./other-identifier&&_it:/wrap-other-identifier||}	<!--	NEW	-->
 {_it./conditions@attached&&_it:/wrap-conditions||}
 {_it./legacy-data&&_it:/wrap-legacy-data||}
-{_it./crs-add&&_it:/wrap-crss-add||}
+{_it./crs-add/other-flags&&_it:/wrap-crs-add||}
+{_it./crs-add/loan-status/interest-received&&_it:/loan-status||}
 {_it./fss&&_it:/wrap-fss||}
 {_it./activity-status@code&&_it:/wrap-activity-status||}
 </div>
 
 	
-#^wrap-conditions	<!--	CONDITIONS WRAPPER	-->
-{_it./conditions@attached}
+#^/wrap-crs-add	<!--	CRS WRAPPER	-->
+	<div class="wrap_crs_add">
+		<div class="header_section sticky collapsable">crs add</div>
+		{_it./crs-add/channel-code&&_it:/channel-code||}
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="condition_narr" data-sort="string" data-sort-multicolumn="0,1,2">CODELIST</th>
+					<th class="condition_type" data-sort="int" data-sort-multicolumn="0,1,2">SIGNIFICANCE</th>
+					<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2">DESCRIPTION</th>
+				</tr>
+			</thead>
+			{_it./crs-add/other-flags:/other-flags}
+		</table>
+	</div>
 
+#^/other-flags	<!--	CRS	ROWS	-->
+<tr class="row_count">
+	<td class="condition_narr" data-sort-value="{_it.@code-name}">{_it.@code-name||}</td>
+	<td class="condition_type" data-sort-value="{_it.@significance}">{_it.@significance||}</td>
+	<td class="condition_desc" data-sort-value="{_it.@code-description}">{_it.@code-description||}</td>
+</tr>
+
+#^/channel-code
+Channel Code: {_it./crs-add/channel-code}
+
+#^/loan-status
+<table class="budget sortable">
+	<thead>
+		<tr>
+			<th class="condition_narr" data-sort="string" data-sort-multicolumn="0,1,2,3,4">YEAR</th>
+			<th class="condition_type" data-sort="int" data-sort-multicolumn="0,1,2,3,4">INTEREST</th>
+			<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL OUTSTANDING</th>
+			<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL ARREARS</th>
+			<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INTEREST ARREARS</th>
+		</tr>
+	</thead>
+	<tr class="row_count">
+		<td class="condition_narr" data-sort-value="{_it.@year}">{_it.@year||}</td>
+		<td class="condition_type" data-sort-value="{_it./interest-received}">{_it./interest-received||}</td>
+		<td class="condition_desc" data-sort-value="{_it.@code-description}">{_it./principal-outstanding||}</td>
+		<td class="condition_desc" data-sort-value="{_it.@code-description}">{_it./principal-arrears||}</td>
+		<td class="condition_desc" data-sort-value="{_it.@code-description}">{_it./interest-arrears||}</td>
+	</tr>
+</table>
+
+#^/wrap-conditions	<!--	CONDITIONS WRAPPER	-->
+	<div class="wrap_conditions">
+		<div class="header_section sticky collapsable">conditions<span class="count">( {_it./conditions/condition.length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="condition_narr" data-sort="string" data-sort-multicolumn="0,1,2">NARRATIVE</th>
+					<th class="condition_type" data-sort="int" data-sort-multicolumn="0,1,2">TYPE</th>
+					<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2">DESCRIPTION</th>
+				</tr>
+			</thead>
+			{_it./conditions/condition:/condition}
+		</table>
+	</div>
+
+#^/condition	<!--	CONDITIONS	ROWS	-->
+<tr class="row_count">
+	<td class="condition_narr" data-sort-value="{_it.@name}">{_it./narrative.0.text||}</td>
+	<td class="condition_type" data-sort-value="{_it.@type-code}">{_it.@type-name||}</td>
+	<td class="condition_desc" data-sort-value="{_it.@type-description}">{_it.@type-description||}</td>
+</tr>
+
+#^/wrap-legacy-data	<!--	LEGACY DATA WRAPPER	-->
+	<div class="wrap_legacy_data">
+		<div class="header_section sticky collapsable">legacy data<span class="count">( {_it./legacy-data.length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="legacy_name" data-sort="string" data-sort-multicolumn="0,1,2">NAME</th>
+					<th class="legacy_value" data-sort="int" data-sort-multicolumn="0,1,2">VALUE</th>
+					<th class="legacy_iati" data-sort="string" data-sort-multicolumn="0,1,2">IATI EQUIVALENT</th>
+				</tr>
+			</thead>
+			{_it./legacy-data:/legacy-data}
+		</table>
+	</div>
+
+#^/legacy-data	<!--	LEGACY DATA	ROWS	-->
+<tr class="row_count">
+	<td class="legacy_name" data-sort-value="{_it.@name}">{_it.@name||}</td>
+	<td class="legacy_value" data-sort-value="{_it.@value}">{_it.@value||}</td>
+	<td class="legacy_iati" data-sort-value="{_it.@iati-equivalent}">{_it.@iati-equivalent||}</td>
+</tr>
 
 #^/wrap-other-identifier	<!--	OTHER IDENTIFIER WRAPPER	-->
 	<div class="wrap_other_identifier">
@@ -92,8 +179,7 @@
 		</table>
 	</div>
 
-<!--	OTHER IDENTIFIER ROWS	-->
-#^/other-identifier
+#^/other-identifier	<!--	OTHER IDENTIFIER ROWS	-->
 <tr class="row_count">
 	<td class="other_ref" data-sort-value="{_it.@ref}">{_it.@ref||}</td>
 	<td class="owner_ref" data-sort-value="{_it./owner-org@ref}"><a href="http://d-portal.org/q.html?aid={_it./owner-org@ref}">{_it./owner-org@ref||}</a>{_it./owner-org/narrative&&_it:/owner-org||}</td>
@@ -105,11 +191,11 @@
 <div>{_it./owner-org/narrative.0.text||}</div>
 
 #^/wrap-capital-spend	<!--	CAPITAL SPEND WRAPPER	-->
-	<div class="header_section collapsable">capital spend <span class="count">( {_it./capital-spend.length} )</span></div>
-	<div class="wrap_sector">
+	<div class="header_section collapsable">capital spend</div>
+	<div class="wrap_sector wrap_capital_spend">
 		<div class="sector">
 			<div class="wrap_code">
-				<span class="sector_code_text">Capital Spend</span>
+				<span class="sector_code_text">The percentage of the total commitment that is for capital spending</span>
 			</div><div class="wrap_bar">
 				<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 			</div>
@@ -126,7 +212,7 @@
 #^/country-budget-items-vocab
 <div class="sector_vocab">
 	<div class="header">
-		{_it./country-budget-items@vocabulary-name||} <span class="count">( {_it./country-budget-items/budget-item.length} )</span>
+		{_it./country-budget-items@vocabulary-name||} {_it./country-budget-items@vocabulary-withdrawn&&_it:/vocab-withdrawn||} <span class="count">( {_it./country-budget-items/budget-item.length} )</span>
 	</div>
 	<div class="subheader">{_it./country-budget-items@vocabulary-description||}</div>
 	{_it./country-budget-items/budget-item:/budget-item||}
@@ -566,7 +652,7 @@
 	<div class="header">
 		AidData <span class="count">( {_it./sector-6.length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-6.0.@vocabulary-description||} <a href="{_it./sector-6.0.@vocabulary-url}">{_it./sector-6.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-6.0.@vocabulary-description||}</div>
 	{_it./sector-6:/sector||}
 </div>
 #^sectors-7
@@ -632,7 +718,7 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -1063,3 +1149,6 @@ No description provided
 
 #^/empty-percentage	<!--	USE THIS WHEN PERCENTAGE IS MISSING IN DATA	-->
 100
+
+#^/vocab-withdrawn	<!--	USE WHEN VOCAB IS WITHDRAWN	-->
+<span class="withdrawn">Withdrawn</span>

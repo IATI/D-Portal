@@ -70,8 +70,9 @@ span.block	{display:block;}
 .sector_list_wrap		{color:#444; font-size:14px; line-height:18px; padding:0 40px;}
 .sector_list_wrap span	{display:inline-block; vertical-align:top; padding-right:40px; width:30%;}
 .sector_list_wrap span.sector_list_description	{padding:0; width:70%; font-size:13px; line-height:15px;}
-.sector_list		{padding-bottom:15px;}
+.sector_list		{padding-bottom:10px; border-bottom:1px solid #ddd; margin-bottom:10px;}
 .sector_vocab		{padding-bottom:20px; border-bottom:1px solid #aaa;}
+.sector_list:last-of-type,
 .sector_vocab:last-of-type	{border:0; padding-bottom:0;}
 .wrap_code,
 .wrap_bar			{display:inline-block; vertical-align:middle; width:400px;}
@@ -96,6 +97,9 @@ span.block	{display:block;}
 .wrap_sector .subheader a:visited	{color:#093E6F;}
 .wrap_sector .subheader a:hover		{color:#0373C9;}
 .wrap_sector .subheader a:active	{color:#093E6F;}
+.withdrawn			{font-size:12px; font-style:italic; font-weight:normal; text-transform:initial; color:#888;}
+.wrap_capital_spend	{padding:20px 0;}
+.wrap_capital_spend .sector_code_text	{max-width:initial;}
 
 /*	DATA SOURCES	*/
 .data_source a		{display:inline-block; vertical-align:baseline; width:12%; background-color:#24405d99; border-radius:4px; text-align:center; font-size:16px; font-variant:all-small-caps; color:#fff; padding:5px 0; margin:10px 2% 5px 0;}
@@ -329,7 +333,19 @@ table.budget.result td:nth-of-type(3)		{width:500px; padding-right:0px;}
 .wrap_policy_marker table.budget th.policy_code,
 .wrap_policy_marker table.budget td.policy_code		{width:480px; padding-right:40px;}
 .wrap_policy_marker table.budget th.policy_sig,
-.wrap_policy_marker table.budget td.policy_sig		{width:160px; text-transform:capitalize;}	
+.wrap_policy_marker table.budget td.policy_sig		{width:160px; text-transform:capitalize;}
+
+/*	IATI ACTIVITY LEGACY DATA TABLE	*/
+.wrap_legacy_data th.legacy_name,
+.wrap_legacy_data td.legacy_name		{width:480px; padding-right:40px;}
+.wrap_legacy_data th.legacy_value,
+.wrap_legacy_data td.legacy_value		{width:160px;}
+
+/*	IATI ACTIVITY CONDITIONS TABLE	*/
+.wrap_conditions th.condition_narr,
+.wrap_conditions td.condition_narr		{width:480px; padding-right:40px;}
+.wrap_conditions th.condition_type,
+.wrap_conditions td.condition_type		{width:160px;}
 
 /*	IATI ACTIVITY TAG TABLE	*/
 .wrap_tag table.budget th.tag_code,
