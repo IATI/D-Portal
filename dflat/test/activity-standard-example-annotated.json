@@ -5,11 +5,12 @@
     {
      "/narrative": [
       {
-       "": "Planned start date of the activity"
+       "": "Planned start date of the activity",
+       "@xml:lang": "EN"
       },
       {
        "": "Date prévue de début de l'activité",
-       "@xml:lang": "fr"
+       "@xml:lang": "FR"
       }
      ],
      "@iso-date": "2012-04-15",
@@ -42,11 +43,12 @@
     {
      "/narrative": [
       {
-       "": "Conditions text"
+       "": "Conditions text",
+       "@xml:lang": "EN"
       },
       {
        "": "Conditions texte",
-       "@xml:lang": "fr"
+       "@xml:lang": "FR"
       }
      ],
      "@type": "1"
@@ -57,7 +59,8 @@
     {
      "/department/narrative": [
       {
-       "": "Department B"
+       "": "Department B",
+       "@xml:lang": "EN"
       }
      ],
      "/email": [
@@ -67,26 +70,30 @@
      ],
      "/job-title/narrative": [
       {
-       "": "Transparency Lead"
+       "": "Transparency Lead",
+       "@xml:lang": "EN"
       }
      ],
      "/mailing-address": [
       {
        "/narrative": [
         {
-         "": "Transparency House, The Street, Town, City, Postcode"
+         "": "Transparency House, The Street, Town, City, Postcode",
+         "@xml:lang": "EN"
         }
        ]
       }
      ],
      "/organisation/narrative": [
       {
-       "": "Agency A"
+       "": "Agency A",
+       "@xml:lang": "EN"
       }
      ],
      "/person-name/narrative": [
       {
-       "": "A. Example"
+       "": "A. Example",
+       "@xml:lang": "EN"
       }
      ],
      "/telephone": [
@@ -106,7 +113,8 @@
     {
      "/description/narrative": [
       {
-       "": "Description text"
+       "": "Description text",
+       "@xml:lang": "EN"
       }
      ],
      "@code": "1.1.1",
@@ -116,7 +124,8 @@
     {
      "/description/narrative": [
       {
-       "": "Description text"
+       "": "Description text",
+       "@xml:lang": "EN"
       }
      ],
      "@code": "1.2.1",
@@ -158,11 +167,12 @@
     {
      "/narrative": [
       {
-       "": "General activity description text.  Long description of the activity with no particular structure."
+       "": "General activity description text.  Long description of the activity with no particular structure.",
+       "@xml:lang": "EN"
       },
       {
        "": "Activité générale du texte de description. Longue description de l'activité sans structure particulière.",
-       "@xml:lang": "fr"
+       "@xml:lang": "FR"
       }
      ],
      "@type": "1"
@@ -170,11 +180,12 @@
     {
      "/narrative": [
       {
-       "": "Objectives for the activity, for example from a logical framework."
+       "": "Objectives for the activity, for example from a logical framework.",
+       "@xml:lang": "EN"
       },
       {
        "": "Objectifs de l'activité, par exemple à partir d'un cadre logique.",
-       "@xml:lang": "fr"
+       "@xml:lang": "FR"
       }
      ],
      "@type": "2"
@@ -182,11 +193,12 @@
     {
      "/narrative": [
       {
-       "": "Statement of groups targeted to benefit from the activity."
+       "": "Statement of groups targeted to benefit from the activity.",
+       "@xml:lang": "EN"
       },
       {
        "": "Déclaration de groupes ciblés pour bénéficier de l'activité.",
-       "@xml:lang": "fr"
+       "@xml:lang": "FR"
       }
      ],
      "@type": "3"
@@ -201,19 +213,20 @@
      ],
      "/language": [
       {
-       "@code": "en"
+       "@code": "EN"
       }
      ],
      "/title/narrative": [
       {
-       "": "Project Report 2013"
+       "": "Project Report 2013",
+       "@xml:lang": "EN"
       },
       {
        "": "Rapport de projet 2013",
-       "@xml:lang": "fr"
+       "@xml:lang": "FR"
       }
      ],
-     "@format": "application/vnd.oasis.opendocument.text",
+     "@format": "APPLICATION/VND.OASIS.OPENDOCUMENT.TEXT",
      "@url": "http:www.example.org/docs/report_en.odt"
     }
    ],
@@ -245,7 +258,8 @@
     {
      "/activity-description/narrative": [
       {
-       "": "A description that qualifies the activity taking place at the location"
+       "": "A description that qualifies the activity taking place at the location",
+       "@xml:lang": "EN"
       }
      ],
      "/administrative": [
@@ -257,7 +271,8 @@
      ],
      "/description/narrative": [
       {
-       "": "Location description"
+       "": "Location description",
+       "@xml:lang": "EN"
       }
      ],
      "/exactness@code": "1",
@@ -272,7 +287,8 @@
      "/location-reach@code": "1",
      "/name/narrative": [
       {
-       "": "Location name"
+       "": "Location name",
+       "@xml:lang": "EN"
       }
      ],
      "/point/pos": "31.616944 65.716944",
@@ -284,7 +300,8 @@
     {
      "/owner-org/narrative": [
       {
-       "": "Organisation name"
+       "": "Organisation name",
+       "@xml:lang": "EN"
       }
      ],
      "/owner-org@ref": "AA-AAA-123456789",
@@ -296,7 +313,8 @@
     {
      "/narrative": [
       {
-       "": "Name of Agency B"
+       "": "Name of Agency B",
+       "@xml:lang": "EN"
       }
      ],
      "@ref": "BB-BBB-123456789",
@@ -306,7 +324,8 @@
     {
      "/narrative": [
       {
-       "": "Name of Agency C"
+       "": "Name of Agency C",
+       "@xml:lang": "EN"
       }
      ],
      "@ref": "CC-CCC-123456789",
@@ -316,11 +335,12 @@
     {
      "/narrative": [
       {
-       "": "Name of Agency A"
+       "": "Name of Agency A",
+       "@xml:lang": "EN"
       },
       {
        "": "Nom de l'agence A",
-       "@xml:lang": "fr"
+       "@xml:lang": "FR"
       }
      ],
      "@ref": "AA-AAA-123456789",
@@ -388,11 +408,12 @@
    ],
    "/reporting-org/narrative": [
     {
-     "": "Organisation name"
+     "": "Organisation name",
+     "@xml:lang": "EN"
     },
     {
      "": "Nom de l'organisme",
-     "@xml:lang": "fr"
+     "@xml:lang": "FR"
     }
    ],
    "/reporting-org@ref": "AA-AAA-123456789",
@@ -402,7 +423,8 @@
     {
      "/description/narrative": [
       {
-       "": "Result description text"
+       "": "Result description text",
+       "@xml:lang": "EN"
       }
      ],
      "/indicator": [
@@ -411,7 +433,8 @@
         {
          "/comment/narrative": [
           {
-           "": "Baseline comment text"
+           "": "Baseline comment text",
+           "@xml:lang": "EN"
           }
          ],
          "@value": "10",
@@ -420,7 +443,8 @@
        ],
        "/description/narrative": [
         {
-         "": "Indicator description text"
+         "": "Indicator description text",
+         "@xml:lang": "EN"
         }
        ],
        "/period": [
@@ -429,7 +453,8 @@
           {
            "/comment/narrative": [
             {
-             "": "Actual comment text"
+             "": "Actual comment text",
+             "@xml:lang": "EN"
             }
            ],
            "@value": "11"
@@ -441,7 +466,8 @@
           {
            "/comment/narrative": [
             {
-             "": "Target comment text"
+             "": "Target comment text",
+             "@xml:lang": "EN"
             }
            ],
            "@value": "10"
@@ -451,7 +477,8 @@
        ],
        "/title/narrative": [
         {
-         "": "Indicator title"
+         "": "Indicator title",
+         "@xml:lang": "EN"
         }
        ],
        "@ascending": 1,
@@ -460,7 +487,8 @@
      ],
      "/title/narrative": [
       {
-       "": "Result title"
+       "": "Result title",
+       "@xml:lang": "EN"
       }
      ],
      "@aggregation-status": 1,
@@ -481,15 +509,16 @@
    ],
    "/title/narrative": [
     {
-     "": "Activity title"
+     "": "Activity title",
+     "@xml:lang": "EN"
     },
     {
      "": "Titre de l'activité",
-     "@xml:lang": "fr"
+     "@xml:lang": "FR"
     },
     {
      "": "Título de la actividad",
-     "@xml:lang": "es"
+     "@xml:lang": "ES"
     }
    ],
    "/transaction": [
@@ -502,7 +531,8 @@
      ],
      "/description/narrative": [
       {
-       "": "Transaction description text"
+       "": "Transaction description text",
+       "@xml:lang": "EN"
       }
      ],
      "/disbursement-channel@code": "1",
@@ -510,14 +540,16 @@
      "/flow-type@code": "10",
      "/provider-org/narrative": [
       {
-       "": "Agency B"
+       "": "Agency B",
+       "@xml:lang": "EN"
       }
      ],
      "/provider-org@provider-activity-id": "BB-BBB-123456789-1234AA",
      "/provider-org@ref": "BB-BBB-123456789",
      "/receiver-org/narrative": [
       {
-       "": "Agency A"
+       "": "Agency A",
+       "@xml:lang": "EN"
       }
      ],
      "/receiver-org@receiver-activity-id": "AA-AAA-123456789-1234",
@@ -547,7 +579,7 @@
    "@linked-data-default": "http://data.example.org/",
    "@linked-data-uri": "http://data.example.org/123456789",
    "@version": "2.01",
-   "@xml:lang": "en"
+   "@xml:lang": "EN"
   }
  ],
  "/iati-activities@generated-datetime": "2014-09-10T07:15:37Z",
