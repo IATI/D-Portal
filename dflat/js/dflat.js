@@ -298,7 +298,7 @@ for( const n in database.paths )
 let langmap={}
 for( const n in database.paths )
 {
-	if( n.endsWith("@xml:lang") || n.endsWith("language@code") )
+	if( n.endsWith("@xml:lang") )
 	{
 		let v=database.paths[n]
 		let d=""
@@ -383,7 +383,7 @@ dflat.clean_reduce_values=function(data)
 			let v=it[n]
 			let p=database.paths[path+n]
 
-			if( codemap[path+n] || n.endsWith("@xml:lang") || n.endsWith("language@code") ) // this is a lookup code so treat as special
+			if( codemap[path+n] || n.endsWith("@xml:lang") ) // this is a lookup code so treat as special
 			{
 				v=(v).toString().trim().toUpperCase() // sanity, trim and uppercase all codes
 				it[n]=v
