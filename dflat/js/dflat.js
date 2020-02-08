@@ -11,6 +11,7 @@ var jml = require("./jml.js");
 var xson = require("./xson.js");
 
 var database = require("../json/database.json");
+let codemap = require('../json/codemap.json')
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -357,10 +358,17 @@ dflat.clean_reduce_values=function(data)
 
 		let path=paths.join("")
 
+
 		for(let n of Object.keys(it)) // this caches the keys so we can modify
 		{
 			let v=it[n]
 			let p=database.paths[path+n]
+
+			if( codemap[path+n] ) // this is a lookup code so treat as special
+			{
+				v=(v).toString().trim().toUpperCase() // sanity, trim and uppercase all codes
+				it[n]=v
+			}
 			
 			if( p )
 			{
