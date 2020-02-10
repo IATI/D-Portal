@@ -147,12 +147,12 @@ savi.get_data_budgets=function(list)
 
 		let d1={}
 		d1.x=(new Date( it_date1+"T00:00:00.000Z" )).getTime() / 1000
-		d1.y=it_number
+		d1.y=0
 		dall.push(d1)
 
 		let d2={}
 		d2.x=(new Date( it_date2+"T00:00:00.000Z" )).getTime() / 1000
-		d2.y=0
+		d2.y=it_number
 		dall.push(d2)
 	}
 	dall.sort(function(a,b){return a.x-b.x})
@@ -165,9 +165,10 @@ savi.get_data_budgets=function(list)
 		let o=data[data.length-1]
 		if(o)
 		{
-			if(o.x==d.x) // same time
+			if(o.x>=(d.x-(60*60*24*2))) // within a couple of days
 			{
 				o.y+=d.y // add to last
+				o.x=d.x // latest date
 			}
 			else
 			{
