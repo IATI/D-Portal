@@ -327,10 +327,15 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result td.result_indi					{width:350px; padding-right:40px;}
 .wrap_result td.result_base,
 .wrap_result td.result_target,
-.wrap_result td.result_actual				{font-size:16px;}
+.wrap_result td.result_actual				{font-size:14px;}
+.wrap_result td.result_base div,
+.wrap_result td.result_target div,
+.wrap_result td.result_actual div			{border-bottom:1px dotted #666;}
 .wrap_result th.result_period,
 .wrap_result td.result_period				{width:155px;}
 .wrap_result td.result_period				{font-size:12px;}
+.result_indicator							{}
+.result_period_time							{background-color:#253860; min-height:25px; line-height:25px; margin-bottom:5px; padding-left:10px; max-width:155px;}
 
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
 .wrap_policy_marker table.budget th.policy_code,

@@ -408,32 +408,37 @@
 {_it.@type==9&&_it:/result-1||}
 
 #^/result-1
-<tr class="row_count">
-	<td class="result_indi">{_it./indicator:/result_indicator}</td>
-	<td class="result_base">{_it./indicator:/result_baseline}</td>
-	<td class="result_target">{_it./indicator:/result_period_target}</td>
-	<td class="result_actual">{_it./indicator:/result_period_actual}</td>	
-	<td class="result_period">{_it./indicator:/result_period}</td>	
-</tr>
+{_it./indicator:/result_indicator||}
 
 <!--	RESULT INDICATOR	-->
 #^/result_indicator
-<div>
-	<div class="result_in">
-		{_it./title/narrative.0.text}
-	</div>
-</div>
+<tr class="row_count">
+	<td class="result_indi">{_it./title/narrative.0.text&&_it:/indicator_text||}</td>
+	<td class="result_base">{_it./baseline&&_it:/result_baseline||}</td>
+	<td class="result_target">{_it./period&&_it:/result_period_target||}</td>
+	<td class="result_actual">{_it./period&&_it:/result_period_actual||}</td>	
+	<td class="result_period">{_it./period&&_it:/result_period||}</td>	
+</tr>
+
+<!--	RESULT INDICATOR TITLE, DESCRIPTION & OTHER INFORMATION, FIRST COLUMN	-->
+#^/indicator_text
+<div class="result_indicator">{_it./title/narrative.0.text}</div>
+
+#^/result_baseline
+{_it./baseline:/value}
 
 #^/result_period_target
 {_it./period:/result_target}
+
 #^/result_period_actual
 {_it./period:/result_actual}
-#^/result_baseline
-{_it./baseline:/value}
+
 #^/result_target
 {_it./target:/value}
+
 #^/result_actual
 {_it./actual:/value}
+
 #^/result_period
 {_it./period:/period}
 
@@ -444,7 +449,7 @@
 <div>{_it.@value||}</div>
 		
 #^/period
-<span>{_it./period-start@iso-date||}</span> - <span>{_it./period-end@iso-date||}</span>
+<div class="result_period_time"><span>{_it./period-start@iso-date||}</span> - <span>{_it./period-end@iso-date||}</span></div>
 
 #^/target
 <div>{_it./target@value||}</div>
