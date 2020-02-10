@@ -103,8 +103,69 @@ savi.start_loaded=async function(){
 // give your table the class of sortable and they will sortable
 	$("table.sortable").stupidtable()
 
+// give your json chart data the class of showchart and it will be converted to a chart
+	$(".showchart").each(function(idx)
+	{
+			console.log(idx+" : "+this)
+	})
+
 }
 
+// get graph data from a transaction list
+savi.get_data_transactions=function(list)
+{
+	let currency
+	let dall=[]
+	for(let it of list)
+	{
+		let it_date=it["/transaction-date@iso-date"]
+		let it_value=it["/value"]
+		let it_currency=it["/value@currency"]
+
+		if( (it_date===undefined) || (it_value===undefined) || (it_currency===undefined) ) { return } // giveup
+
+		let it_number=parseFloat((""+it_value).split(",").join("")) // deal with bad , in number
+
+		if(it_number===undefined) { return } // giveup
+
+		if(!currency) { currency=it_currency } // remember
+
+		if(currency!=it_currency) { return } // all currency must match or we can not graph it so give up here
+
+		let d={}
+		d.x=new Date( it_date+"T00:00:00.000Z" )
+		d.y=it_number
+		
+		dall.push(d)
+	}
+	dall.sort(function(a,b){return a.x-b.x})
+
+// now we can merge x duplicates and calculate accumulative y values
+
+	let data=[]
+	for(let d of dall)
+	{
+		let o=data[data.length-1]
+		if(o)
+		{
+			if(o.x==d.x) // same time
+			{
+				o.y+=d.y // add to last
+			}
+			else
+			{
+				d.y+=o.y // next
+				data.push(d)
+			}
+		}
+		else
+		{
+			data.push(d) // first
+		}
+	}
+
+	return data
+}
 
 savi.prepare=function(iati_xson){
 
@@ -300,8 +361,10 @@ savi.prepare=function(iati_xson){
 // split transactions on /transaction-type@code
 		if(act["/transaction"])
 		{
+			let names=[]
 			let tosort=[]
 			tosort.push( act["/transaction"] )
+			names.push( "/transaction" )
 			for( let transaction of act["/transaction"] )
 			{
 				let code=Number(transaction["/transaction-type@code"])
@@ -312,6 +375,7 @@ savi.prepare=function(iati_xson){
 						let transactions=[]
 						act["/transaction-"+code]=transactions
 						tosort.push( transactions )
+						names.push( "/transaction-"+code )
 					}
 					act["/transaction-"+code].push( transaction )
 				}
@@ -327,6 +391,14 @@ savi.prepare=function(iati_xson){
 					let bn=b["/transaction-date@iso-date"]||""
 					return an.localeCompare(bn)
 				})
+			}
+			for( let name of names )
+			{
+				let d=savi.get_data_transactions(act[name])
+				if(d)
+				{
+					act[name+"-data"]=d
+				}
 			}
 		}
 // split sectors on @vocabulary
