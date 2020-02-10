@@ -176,7 +176,7 @@ savi.get_data_transactions=function(list)
 		}
 	}
 
-	return data
+	return {series:data,currency:currency}
 }
 
 savi.prepare=function(iati_xson){

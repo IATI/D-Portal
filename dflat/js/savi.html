@@ -470,26 +470,7 @@
 		{_it./transaction-13&&_it:transaction-13||}
 	</div>
 
-<!--	TRANSACTION TYPES	-->
-#^transaction-1
-	<div class="header_section sticky collapsable">Incoming Funds  <span class="count">( {_it./transaction-1.length} )</span></div>
-	<table class="budget act_trans sortable">
-		{transaction-table}
-		{_it./transaction-1:/transaction||}
-	</table>
-#^transaction-2
-	<div class="header_section sticky collapsable">Outgoing Commitment <span class="count">( {_it./transaction-2.length} )</span></div>
-	<table class="budget act_trans sortable">
-		{transaction-table}
-		{_it./transaction-2:/transaction||}
-	</table>
-#^transaction-3
-	<div class="header_section sticky collapsable">Disbursement <span class="count">( {_it./transaction-3.length} )</span></div>
-	<table class="budget act_trans sortable">
-		{transaction-table}
-		{_it./transaction-3:/transaction||}
-	</table>
-#^transaction-4
+#^transaction-chart
 <div class="showchart">
 <script type="application/json">
 {
@@ -513,68 +494,104 @@
 			scaleMinSpace: 24,
 			type: Chartist.AutoScaleAxis,
 			labelInterpolationFnc: function(value) {
-				return value
+				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+				}))+" {_it.currency}"
 			}
 		}
 	},
-	series:[{_it./transaction-4-data}]
+	series:[{_it.series}]
 }
 </script>
 </div>
+
+<!--	TRANSACTION TYPES	-->
+#^transaction-1
+	{_it./transaction-1-data&&_it./transaction-1-data:transaction-chart||}
+	<div class="header_section sticky collapsable">Incoming Funds  <span class="count">( {_it./transaction-1.length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-1:/transaction||}
+	</table>
+#^transaction-2
+	{_it./transaction-2-data&&_it./transaction-2-data:transaction-chart||}
+	<div class="header_section sticky collapsable">Outgoing Commitment <span class="count">( {_it./transaction-2.length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-2:/transaction||}
+	</table>
+#^transaction-3
+	{_it./transaction-3-data&&_it./transaction-3-data:transaction-chart||}
+	<div class="header_section sticky collapsable">Disbursement <span class="count">( {_it./transaction-3.length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-3:/transaction||}
+	</table>
+#^transaction-4
+	{_it./transaction-4-data&&_it./transaction-4-data:transaction-chart||}
 	<div class="header_section sticky collapsable">Expenditure <span class="count">( {_it./transaction-4.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-4:/transaction||}
 	</table>
 #^transaction-5
+	{_it./transaction-5-data&&_it./transaction-5-data:transaction-chart||}
 	<div class="header_section sticky collapsable">Interest Payment <span class="count">( {_it./transaction-5.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-5:/transaction||}
 	</table>
 #^transaction-6
+	{_it./transaction-6-data&&_it./transaction-6-data:transaction-chart||}
 	<div class="header_section sticky collapsable">Loan Repayment <span class="count">( {_it./transaction-6.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-6:/transaction||}
 	</table>
 #^transaction-7
+	{_it./transaction-7-data&&_it./transaction-7-data:transaction-chart||}
 	<div class="header_section sticky collapsable">Reimbursement <span class="count">( {_it./transaction-7.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-7:/transaction||}
 	</table>
 #^transaction-8
+	{_it./transaction-8-data&&_it./transaction-8-data:transaction-chart||}
 	<div class="header_section sticky collapsable">Purchase of Equity <span class="count">( {_it./transaction-8.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-8:/transaction||}
 	</table>
 #^transaction-9
+	{_it./transaction-9-data&&_it./transaction-9-data:transaction-chart||}
 	<div class="header_section sticky collapsable">Sale of Equity <span class="count">( {_it./transaction-9.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-9:/transaction||}
 	</table>
 #^transaction-10
+	{_it./transaction-10-data&&_it./transaction-10-data:transaction-chart||}
 	<div class="header_section sticky collapsable">Credit Guarantee <span class="count">( {_it./transaction-10.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-10:/transaction||}
 	</table>
 #^transaction-11
+	{_it./transaction-11-data&&_it./transaction-11-data:transaction-chart||}
 	<div class="header_section sticky collapsable">Incoming Commitment <span class="count">( {_it./transaction-11.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-11:/transaction||}
 	</table>
 #^transaction-12
+	{_it./transaction-12-data&&_it./transaction-12-data:transaction-chart||}
 	<div class="header_section sticky collapsable">Outgoing Pledge <span class="count">( {_it./transaction-12.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-12:/transaction||}
 	</table>
 #^transaction-13
+	{_it./transaction-13-data&&_it./transaction-13-data:transaction-chart||}
 	<div class="header_section sticky collapsable">Incoming Pledge <span class="count">( {_it./transaction-13.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
