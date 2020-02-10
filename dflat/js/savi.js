@@ -123,6 +123,65 @@ savi.start_loaded=async function(){
 
 }
 
+// get graph data from a budget list
+savi.get_data_budgets=function(list)
+{
+	let currency
+	let dall=[]
+	for(let it of list)
+	{
+		let it_date1=it["/period-start@iso-date"]
+		let it_date2=it["/period-end@iso-date"]
+		let it_value=it["/value"]
+		let it_currency=it["/value@currency"]
+
+		if( (it_date1===undefined) || (it_date2===undefined) || (it_value===undefined) || (it_currency===undefined) ) { return } // giveup
+
+		let it_number=parseFloat((""+it_value).split(",").join("")) // deal with bad , in number
+
+		if(it_number===undefined) { return } // giveup
+
+		if(!currency) { currency=it_currency } // remember
+
+		if(currency!=it_currency) { return } // all currency must match or we can not graph it so give up here
+
+		let d1={}
+		d1.x=(new Date( it_date1+"T00:00:00.000Z" )).getTime() / 1000
+		d1.y=it_number
+		dall.push(d1)
+
+		let d2={}
+		d2.x=(new Date( it_date2+"T00:00:00.000Z" )).getTime() / 1000
+		d2.y=0
+		dall.push(d2)
+	}
+	dall.sort(function(a,b){return a.x-b.x})
+
+// now we can merge x duplicates and calculate accumulative y values
+
+	let data=[]
+	for(let d of dall)
+	{
+		let o=data[data.length-1]
+		if(o)
+		{
+			if(o.x==d.x) // same time
+			{
+				o.y+=d.y // add to last
+			}
+			else
+			{
+				d.y+=o.y // next
+				data.push(d)
+			}
+		}
+		else
+		{
+			data.push(d) // first
+		}
+	}
+	return {series:data,currency:currency}
+}
 // get graph data from a transaction list
 savi.get_data_transactions=function(list)
 {
@@ -309,6 +368,7 @@ savi.prepare=function(iati_xson){
 			}
 		}
 // budgets
+		let names=[]
 		let tosort=[]
 		let tosort2=[]
 		for(let bname of
@@ -325,6 +385,7 @@ savi.prepare=function(iati_xson){
 			if(act[bname])
 			{
 				tosort.push( act[bname] )
+				names.push(bname)
 				for( let budget of act[bname] )
 				{
 					if("/value" in budget)
@@ -370,6 +431,15 @@ savi.prepare=function(iati_xson){
 				return bn-an
 			})
 		}
+		for( let name of names )
+		{
+			let d=savi.get_data_budgets(act[name])
+			if(d)
+			{
+				act[name+"-data"]=d
+			}
+		}
+
 // split transactions on /transaction-type@code
 		if(act["/transaction"])
 		{
