@@ -469,7 +469,7 @@
 		{_it./transaction-13&&_it:transaction-13||}
 	</div>
 
-#^transaction-chart
+#^transaction-chart	<!--	TRANSACTION CHART	-->	
 <div class="showchart">
 <script type="application/json">
 {
@@ -595,10 +595,7 @@
 		{transaction-table}
 		{_it./transaction-13:/transaction||}
 	</table>
-	<div class="chart_trans_13">
-		<div class="legend chart_13"><span></span>Incoming Pledge</div>
-		{_it./transaction-13-data&&_it./transaction-13-data:transaction-chart||}
-	</div>
+	<div class="chart_trans_13"><div class="legend chart_13"><span></span>Incoming Pledge</div>{_it./transaction-13-data&&_it./transaction-13-data:transaction-chart||}</div>
 	
 #^transaction-table
 <thead>
@@ -749,7 +746,7 @@
 	</span>
 </div>
 
-#^budget-chart
+#^budget-chart	<!--	BUDGET CHART	-->	
 <div class="showchart">
 <script type="application/json">
 {
@@ -757,7 +754,7 @@
 	options:{
 		width:	"920px",
 		height:	"240px",
-			showArea: false,
+			showArea: true,
 			showLine: true,
 			showPoint: true,
 			axisX: {
@@ -801,9 +798,11 @@
 			</thead>
 			{_it./planned-disbursement:/planned-disbursement}
 		</table>
+		<div class="chart_disburse">
+			<div class="legend chart_14"><span></span>Planned Disbursement</div>
+			{_it./planned-disbursement-data&&_it./planned-disbursement-data:budget-chart||}
+		</div>
 	</div>
-
-	<div class="chart_trans_1"><div class="legend chart_1"><span></span>Planned Disbursement</div>{_it./planned-disbursement-data&&_it./planned-disbursement-data:budget-chart||}</div>
 
 <!--	PLANNED DISBURSEMENT ROWS	-->
 #^/planned-disbursement
@@ -847,9 +846,8 @@
 			</thead>
 			{_it./budget:/budget}
 		</table>
+		<div class="chart_budget"><div class="legend chart_15"><span></span>Budget</div>{_it./budget-data&&_it./budget-data:budget-chart||}</div>
 	</div>
-
-	<div class="chart_trans_1"><div class="legend chart_1"><span></span>Budget</div>{_it./budget-data&&_it./budget-data:budget-chart||}</div>
 
 <!--	BUDGET ROWS	-->
 #^/budget
