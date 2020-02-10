@@ -2,7 +2,12 @@
 #^iati-activity
 <div class="activity">
 	{_it.@humanitarian==1&&humanitarian||}
-	<div class="header">PROJECT TITLE<div class="version"><a href="{_it.@version-url||}"><span>VERSION</span> {_it.@version||}</a></div></div>
+	<div class="header">
+		PROJECT TITLE
+		<div class="version">
+			<a title="Version of the IATI Standard" href="{_it.@version-url||}"><span>VERSION</span> {_it.@version||}</a>
+		</div>
+	</div>
 	<div class="wrap_title"><span class="narrative">{_it./title/narrative.0.text||}</span></div>
 <!--	REPORTING ORG	-->
 	<div class="wrap_reporting_org">
@@ -61,6 +66,7 @@
 {_it./country-budget-items/budget-item&&_it:/wrap-country-budget-items||}
 {_it./sector&&_it:/wrap-sector||}
 {_it./capital-spend@percentage&&_it:/wrap-capital-spend||}
+{_it.@budget-not-provided&&_it:/budget-not-provided||}
 {_it./budget&&_it:/wrap-budget||}
 {_it./planned-disbursement&&_it:/wrap-planned-disbursement||}
 {_it./transaction&&_it:/wrap-transaction||}
@@ -83,7 +89,6 @@
 {_it./fss&&_it:/wrap-fss||}	<!--	0% published, need data to display	-->
 {_it./activity-status@code&&_it:/wrap-activity-status||}
 </div>
-
 	
 #^/wrap-crs-add	<!--	CRS WRAPPER	-->
 	<div class="wrap_crs_add">
@@ -377,16 +382,18 @@
 	<td class="policy_sig" title="{_it.@significance-description||}" data-sort-value="{_it.@significance}">{_it.@significance-name||}</td>
 	<td class="policy_vocab" title="{_it.@vocabulary-description||}" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
 </tr>
-
+	
 #^/wrap-result	<!--	RESULT WRAPPER	-->
 	<div class="wrap_result">
 		<div class="header_section sticky collapsable">result<span class="count">( {_it./result.length} )</span></div>
 		<table class="budget result sortable">
 			<thead>
 				<tr>
-					<th data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3">TITLE / DESCRIPTION</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3">INDICATOR</th>				
+					<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INDICATOR</th>
+					<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4">BASELINE</th>
+					<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4">TARGET</th>
+					<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4">ACTUAL</th>			
+					<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4">PERIOD</th>				
 				</tr>
 			</thead>
 			{_it./result:/result}
@@ -395,10 +402,18 @@
 
 <!--	RESULT ROWS	-->
 #^/result
+{_it.@type==1&&_it:/result-1||}
+{_it.@type==2&&_it:/result-3||}
+{_it.@type==3&&_it:/result-2||}
+{_it.@type==9&&_it:/result-1||}
+
+#^/result-1
 <tr class="row_count">
-	<td title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
-	<td><div class="result_title">{_it./title/narrative.0.text||}</div><div class="result_desc">{_it./description/narrative.0.text||}</div></td>
-	<td>{_it./indicator:/result_indicator}</td>	
+	<td class="result_indi">{_it./indicator:/result_indicator}</td>
+	<td class="result_base">{_it./indicator:/result_baseline}</td>
+	<td class="result_target">{_it./indicator:/result_period_target}</td>
+	<td class="result_actual">{_it./indicator:/result_period_actual}</td>	
+	<td class="result_period">{_it./indicator:/result_period}</td>	
 </tr>
 
 <!--	RESULT INDICATOR	-->
@@ -406,16 +421,30 @@
 <div>
 	<div class="result_in">
 		{_it./title/narrative.0.text}
-		<div class="result_per">
-			<div>TARGET</div><div>ACTUAL</div>
-			<div>{_it./period:/target}</div><div>{_it./period:/actual}</div>
-		</div>
-	</div><div class="result_in_date">{_it./period:/period}</div>
+	</div>
 </div>
 
+#^/result_period_target
+{_it./period:/result_target}
+#^/result_period_actual
+{_it./period:/result_actual}
+#^/result_baseline
+{_it./baseline:/value}
+#^/result_target
+{_it./target:/value}
+#^/result_actual
+{_it./actual:/value}
+#^/result_period
+{_it./period:/period}
+
+#^/baseline
+{_it.@year||}
+#^/value
+{_it.@value||}
+		
 #^/period
-<div><span>START</span> {_it./period-start@iso-date||}</div>
-<div><span>END</span> {_it./period-end@iso-date||}</div>
+<div>{_it./period-start@iso-date||}</div>
+<div>{_it./period-end@iso-date||}</div>
 
 #^/target
 {_it./target@value||}
@@ -708,6 +737,12 @@
 	</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
+
+#^/budget-not-provided	<!--	BUDGET-NOT-PROVIDED WRAPPER	-->	
+	<div class="wrap_budget_not_provided">
+		<div class="header_section sticky collapsable">Budget not provided</div>
+		Budget has not been provided due to <span>{_it.@budget-not-provided-name}</span>.
+	</div>
 
 #^/wrap-budget	<!--	BUDGET WRAPPER	-->	
 	<div class="wrap_budget">
