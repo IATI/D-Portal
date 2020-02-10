@@ -749,7 +749,43 @@
 	</span>
 </div>
 
+#^budget-chart
+<div class="showchart">
+<script type="application/json">
+{
+	chart:"Line",
+	options:{
+		width:	"920px",
+		height:	"240px",
+			showArea: false,
+			showLine: true,
+			showPoint: true,
+			axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+				return (new Date(value*1000)).toISOString().slice(0,10)
+			}
+		},
+		axisY: {
+			referenceValue: 0,
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+				}))+" {_it.currency}"
+			}
+		}
+	},
+	series:[{_it.series}]
+}
+</script>
+</div>
+
 #^/wrap-planned-disbursement	<!--	PLANNED DISBURSEMENT WRAPPER	-->	
+
 	<div class="wrap_budget wrap_planned_disbursement">
 		<div class="header_section sticky collapsable">Planned Disbursement <span class="count">( {_it./planned-disbursement.length} )</span></div>
 		<table class="budget sortable">
@@ -766,6 +802,8 @@
 			{_it./planned-disbursement:/planned-disbursement}
 		</table>
 	</div>
+
+	<div class="chart_trans_1"><div class="legend chart_1"><span></span>Planned Disbursement</div>{_it./planned-disbursement-data&&_it./planned-disbursement-data:budget-chart||}</div>
 
 <!--	PLANNED DISBURSEMENT ROWS	-->
 #^/planned-disbursement
@@ -810,6 +848,8 @@
 			{_it./budget:/budget}
 		</table>
 	</div>
+
+	<div class="chart_trans_1"><div class="legend chart_1"><span></span>Budget</div>{_it./budget-data&&_it./budget-data:budget-chart||}</div>
 
 <!--	BUDGET ROWS	-->
 #^/budget
