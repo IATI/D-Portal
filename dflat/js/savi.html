@@ -437,19 +437,19 @@
 #^/result_period
 {_it./period:/period}
 
-#^/baseline
+#^/baseline_year
 {_it.@year||}
+
 #^/value
-{_it.@value||}
+<div>{_it.@value||}</div>
 		
 #^/period
 <span>{_it./period-start@iso-date||}</span> - <span>{_it./period-end@iso-date||}</span>
 
 #^/target
-{_it./target@value||}
-
+<div>{_it./target@value||}</div>
 #^/actual
-{_it./actual@value||}
+<div>{_it./actual@value||}</div>
 
 #^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
 	<div class="wrap_transaction">
