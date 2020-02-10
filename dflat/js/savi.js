@@ -39,6 +39,9 @@ savi.start=function(opts){
 	{
 		window.$ = window.jQuery = require("jquery")
 		require("stupid-table-plugin")
+
+		window.Chartist = require("chartist")
+		window.moment = require("moment")
 	}
 
 	for(var n in opts) { savi.opts[n]=opts[n] } // copy opts
@@ -106,7 +109,16 @@ savi.start_loaded=async function(){
 // give your json chart data the class of showchart and it will be converted to a chart
 	$(".showchart").each(function(idx)
 	{
-			console.log(idx+" : "+this)
+		var Chartist=require("chartist")
+		var moment=require("moment")
+
+		var g=$(this).find("script")
+		var d=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
+
+		var chart = new (Chartist[d.chart])( this, {
+		  series: d.series,
+		}, d.options );
+
 	})
 
 }
@@ -133,7 +145,7 @@ savi.get_data_transactions=function(list)
 		if(currency!=it_currency) { return } // all currency must match or we can not graph it so give up here
 
 		let d={}
-		d.x=new Date( it_date+"T00:00:00.000Z" )
+		d.x=(new Date( it_date+"T00:00:00.000Z" )).getTime() / 1000
 		d.y=it_number
 		
 		dall.push(d)

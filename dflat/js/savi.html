@@ -490,6 +490,37 @@
 		{_it./transaction-3:/transaction||}
 	</table>
 #^transaction-4
+<div class="showchart">
+<script type="application/json">
+{
+	chart:"Line",
+	options:{
+		width:	"920px",
+		height:	"240px",
+			showArea: true,
+			showLine: false,
+			showPoint: false,
+			axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+				return (new Date(value*1000)).toISOString().slice(0,10)
+			}
+		},
+		axisY: {
+			referenceValue: 0,
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+				return value
+			}
+		}
+	},
+	series:[{_it./transaction-4-data}]
+}
+</script>
+</div>
 	<div class="header_section sticky collapsable">Expenditure <span class="count">( {_it./transaction-4.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
