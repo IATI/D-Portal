@@ -464,7 +464,7 @@
 	options:{
 		width:	"920px",
 		height:	"240px",
-			showArea: false,
+			showArea: true,
 			showLine: true,
 			showPoint: true,
 			axisX: {
@@ -491,9 +491,13 @@
 </script>
 </div>
 
+#^all-charts-legend
+<div class="wrap_legend"><div class="legend chart_1"><span></span>Incoming Funds</div><div class="legend chart_2"><span></span>Outgoing Commitment</div><div class="legend chart_3"><span></span>Disbursement</div><div class="legend chart_4"><span></span>Expenditure</div><div class="legend chart_5"><span></span>Interest Payment</div><div class="legend chart_6"><span></span>Loan Repayment</div><div class="legend chart_7"><span></span>Reimbursement</div><div class="legend chart_8"><span></span>Purchase of Equity</div><div class="legend chart_9"><span></span>Sale of Equity</div><div class="legend chart_10"><span></span>Credit Guarantee</div><div class="legend chart_11"><span></span>Incoming Commitment</div><div class="legend chart_12"><span></span>Outgoing Pledge</div><div class="legend chart_13"><span></span>Incoming Pledge</div><div class="legend chart_14"><span></span>Planned Disbursement</div><div class="legend chart_15"><span></span>Budget</div></div>
+
 #^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
 	<div class="wrap_transaction">
 		<div class="header_section collapsable">Transactions <span class="count">( {_it./transaction.length} )</span></div>
+		{all-charts-legend}
 		{all-charts}
 		{_it./transaction-1&&_it:transaction-1||}
 		{_it./transaction-2&&_it:transaction-2||}

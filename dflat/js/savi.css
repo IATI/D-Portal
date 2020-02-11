@@ -410,8 +410,10 @@ table.modals td span.withdrawn	{display:inline-block; background-color:#545e73; 
 .ct-chart-line	{overflow:visible;}
 
 /*	Chart Legends	*/
+.wrap_legend	{text-align:center; margin:0 auto;}
 .legend			{font-size:10px; text-transform:uppercase; color:#ccc; text-align:center; padding-top:10px;}
 .legend span	{display:inline-block; vertical-align:baseline; width:8px; height:8px; border-radius:4px; margin-right:5px;}
+.wrap_legend .legend	{display:inline-block; vertical-align:top; margin-right:15px; padding-top:5px;}
 
 /*	Transaction Legends	*/
 .legend.chart_1	span	{background-color:#0099ff;}
@@ -473,38 +475,51 @@ table.modals td span.withdrawn	{display:inline-block; background-color:#545e73; 
 .ct-series-o .ct-point, .ct-series-o .ct-line, .ct-series-o .ct-bar, .ct-series-o .ct-slice-donut {stroke:#a748ca;}
 .ct-series-o .ct-slice-pie, .ct-series-o .ct-slice-donut-solid, .ct-series-o .ct-area {fill: #a748ca;}
 
-.chart_trans_1	.ct-series-a .ct-point,
-.chart_trans_1	.ct-series-a .ct-line	{stroke:#0099ff;}
-.chart_trans_2	.ct-series-a .ct-point,
-.chart_trans_2	.ct-series-a .ct-line	{stroke:#ff695d;}
-.chart_trans_3	.ct-series-a .ct-point,
-.chart_trans_3	.ct-series-a .ct-line	{stroke:#aeffae;}
-.chart_trans_4	.ct-series-a .ct-point,
-.chart_trans_4	.ct-series-a .ct-line	{stroke:#fed00f;}
-.chart_trans_5	.ct-series-a .ct-point,
-.chart_trans_5	.ct-series-a .ct-line	{stroke:#dea3ff;}
-.chart_trans_6	.ct-series-a .ct-point,
-.chart_trans_6	.ct-series-a .ct-line	{stroke:#c446e1;}
-.chart_trans_7	.ct-series-a .ct-point,
-.chart_trans_7	.ct-series-a .ct-line	{stroke:#00a301;}
-.chart_trans_8	.ct-series-a .ct-point,
-.chart_trans_8	.ct-series-a .ct-line	{stroke:#c59e8c;}
-.chart_trans_9	.ct-series-a .ct-point,
-.chart_trans_9	.ct-series-a .ct-line	{stroke:#8f496a;}
-.chart_trans_10	.ct-series-a .ct-point,
-.chart_trans_10	.ct-series-a .ct-line	{stroke:#ff6cec;}
-.chart_trans_11	.ct-series-a .ct-point,
-.chart_trans_11	.ct-series-a .ct-line	{stroke:#cf291c;}
-.chart_trans_12 .ct-series-a .ct-point,
-.chart_trans_12	.ct-series-a .ct-line	{stroke:#82e1ff;}
-.chart_trans_13	.ct-series-a .ct-point,
-.chart_trans_13	.ct-series-a .ct-line	{stroke:#0062a3;}
-.chart_disburse	.ct-series-a .ct-point,
-.chart_disburse	.ct-series-a .ct-line	{stroke:#65e17a;}
-.chart_disburse .ct-series-a .ct-area	{fill:#65e17a;}
-.chart_budget	.ct-series-a .ct-point,
-.chart_budget	.ct-series-a .ct-line	{stroke:#ccc;}
-.chart_budget	.ct-series-a .ct-area	{fill:#999;}
+.chart-line-transaction-1 .ct-point,
+.chart-line-transaction-1 .ct-line	{stroke:#0099ff;}
+.chart-line-transaction-1 .ct-area	{fill:transparent;}
+.chart-line-transaction-2 .ct-point,
+.chart-line-transaction-2 .ct-line	{stroke:#ff695d;}
+.chart-line-transaction-2 .ct-area	{fill:transparent;}
+.chart-line-transaction-3 .ct-point,
+.chart-line-transaction-3 .ct-line	{stroke:#aeffae;}
+.chart-line-transaction-3 .ct-area	{fill:transparent;}
+.chart-line-transaction-4 .ct-point,
+.chart-line-transaction-4 .ct-line	{stroke:#fed00f;}
+.chart-line-transaction-4 .ct-area	{fill:transparent;}
+.chart-line-transaction-5 .ct-point,
+.chart-line-transaction-5 .ct-line	{stroke:#dea3ff;}
+.chart-line-transaction-5 .ct-area	{fill:transparent;}
+.chart-line-transaction-6 .ct-point,
+.chart-line-transaction-6 .ct-line	{stroke:#c446e1;}
+.chart-line-transaction-6 .ct-area	{fill:transparent;}
+.chart-line-transaction-7 .ct-point,
+.chart-line-transaction-7 .ct-line	{stroke:#00a301;}
+.chart-line-transaction-7 .ct-area	{fill:transparent;}
+.chart-line-transaction-8 .ct-point,
+.chart-line-transaction-8 .ct-line	{stroke:#c59e8c;}
+.chart-line-transaction-8 .ct-area	{fill:transparent;}
+.chart-line-transaction-9 .ct-point,
+.chart-line-transaction-9 .ct-line	{stroke:#8f496a;}
+.chart-line-transaction-9 .ct-area	{fill:transparent;}
+.chart-line-transaction-10.ct-point,
+.chart-line-transaction-10.ct-line	{stroke:#ff6cec;}
+.chart-line-transaction-10 .ct-area	{fill:transparent;}
+.chart-line-transaction-11 .ct-point,
+.chart-line-transaction-11 .ct-line	{stroke:#cf291c;}
+.chart-line-transaction-11 .ct-area	{fill:transparent;}
+.chart-line-transaction-12 .ct-point,
+.chart-line-transaction-12 .ct-line	{stroke:#82e1ff;}
+.chart-line-transaction-12 .ct-area	{fill:transparent;}
+.chart-line-transaction-13 .ct-point,
+.chart-line-transaction-13 .ct-line	{stroke:#0062a3;}
+.chart-line-transaction-13 .ct-area	{fill:transparent;}
+.chart-line-planned-disbursement .ct-point,
+.chart-line-planned-disbursement .ct-line	{stroke:#65e17a;}
+.chart-line-planned-disbursement .ct-area	{fill:#65e17a;}
+.chart-line-budget .ct-point,
+.chart-line-budget .ct-line			{stroke:#ccc;}
+.chart-line-budget .ct-area			{fill:#999;}
 
 .ct-chart-line .ct-label,
 .ct-chart-bar .ct-label {
