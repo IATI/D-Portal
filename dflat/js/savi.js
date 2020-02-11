@@ -110,13 +110,35 @@ savi.start_loaded=async function(){
 	$(".showchart").each(function(idx)
 	{
 		var Chartist=require("chartist")
-		var moment=require("moment")
 
-		var g=$(this).find("script")
 		var d=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
 
 		var chart = new (Chartist[d.chart])( this, {
 		  series: d.series,
+		}, d.options );
+
+	})
+
+// give your json chart data the class of showcharts and it will be converted to multiple charts
+	$(".showcharts").each(function(idx)
+	{
+		var Chartist=require("chartist")
+
+		var d=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
+
+		var p=$(this)
+		for(var i=0;i<(d.parents||2);i++) { p=p.parent() } // step upwards a little to find base element
+
+		var series=[]
+		// find each series data within this base element
+		p.find(".showchart").each(function(idx)
+		{
+			var s=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
+			series.push(s.series[0])
+		})
+
+		var chart = new (Chartist[d.chart])( this, {
+		  series: series,
 		}, d.options );
 
 	})

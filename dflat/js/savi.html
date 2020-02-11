@@ -69,6 +69,7 @@
 {_it.@budget-not-provided&&_it:/budget-not-provided||}
 {_it./budget&&_it:/wrap-budget||}
 {_it./planned-disbursement&&_it:/wrap-planned-disbursement||}
+{all-charts}
 {_it./transaction&&_it:/wrap-transaction||}
 {_it./result&&_it:/wrap-result||}
 {_it./tag&&_it:/wrap-tag||}
@@ -455,6 +456,41 @@
 <div>{_it./target@value||}</div>
 #^/actual
 <div>{_it./actual@value||}</div>
+
+#^all-charts
+<div class="showcharts">
+<script type="application/json">
+{
+	chart:"Line",
+	options:{
+		width:	"920px",
+		height:	"240px",
+			showArea: false,
+			showLine: true,
+			showPoint: true,
+			axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+				return (new Date(value*1000)).toISOString().slice(0,10)
+			}
+		},
+		axisY: {
+			referenceValue: 0,
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+				}))
+			}
+		}
+	},
+	parents:2
+}
+</script>
+</div>
 
 #^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
 	<div class="wrap_transaction">
