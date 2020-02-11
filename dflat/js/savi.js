@@ -16,6 +16,11 @@ var encodeURIComponent=function(str)
 var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
         return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
 
+var saneid=function(insaneid)
+{
+	return insaneid.trim().toLowerCase().replace(/\W+/g," ").trim().replace(" ","-")
+}
+
 
 
 
@@ -136,7 +141,7 @@ savi.start_loaded=async function(){
 			var s=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
 			series.push(s.series[0])
 		})
-
+		
 		var chart = new (Chartist[d.chart])( this, {
 		  series: series,
 		}, d.options );
@@ -146,7 +151,7 @@ savi.start_loaded=async function(){
 }
 
 // get graph data from a budget list
-savi.get_data_budgets=function(list)
+savi.get_data_budgets=function(list,name)
 {
 	let currency
 	let dall=[]
@@ -203,10 +208,10 @@ savi.get_data_budgets=function(list)
 			data.push(d) // first
 		}
 	}
-	return {series:data,currency:currency}
+	return {series:data,currency:currency,name:saneid(name)}
 }
 // get graph data from a transaction list
-savi.get_data_transactions=function(list)
+savi.get_data_transactions=function(list,name)
 {
 	let currency
 	let dall=[]
@@ -258,7 +263,7 @@ savi.get_data_transactions=function(list)
 		}
 	}
 
-	return {series:data,currency:currency}
+	return {series:data,currency:currency,name:saneid(name)}
 }
 
 savi.prepare=function(iati_xson){
@@ -456,7 +461,7 @@ savi.prepare=function(iati_xson){
 		}
 		for( let name of names )
 		{
-			let d=savi.get_data_budgets(act[name])
+			let d=savi.get_data_budgets(act[name],name)
 			if(d)
 			{
 				act[name+"-data"]=d
@@ -499,7 +504,7 @@ savi.prepare=function(iati_xson){
 			}
 			for( let name of names )
 			{
-				let d=savi.get_data_transactions(act[name])
+				let d=savi.get_data_transactions(act[name],name)
 				if(d)
 				{
 					act[name+"-data"]=d

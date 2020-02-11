@@ -540,7 +540,13 @@
 			}
 		}
 	},
-	series:[{_it.series}]
+	series:[
+		{
+			className:"chart-line-{_it.name}",
+			name: "{_it.name}",
+			data: {_it.series}
+		}
+	]
 }
 </script>
 </div>
@@ -817,7 +823,13 @@
 			}
 		}
 	},
-	series:[{_it.series}]
+	series:[
+		{
+			className:"chart-line-{_it.name}",
+			name: "{_it.name}",
+			data: {_it.series}
+		}
+	]
 }
 </script>
 </div>
