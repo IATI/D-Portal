@@ -69,7 +69,6 @@
 {_it.@budget-not-provided&&_it:/budget-not-provided||}
 {_it./budget&&_it:/wrap-budget||}
 {_it./planned-disbursement&&_it:/wrap-planned-disbursement||}
-{all-charts}
 {_it./transaction&&_it:/wrap-transaction||}
 {_it./result&&_it:/wrap-result||}
 {_it./tag&&_it:/wrap-tag||}
@@ -495,6 +494,7 @@
 #^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
 	<div class="wrap_transaction">
 		<div class="header_section collapsable">Transactions <span class="count">( {_it./transaction.length} )</span></div>
+		{all-charts}
 		{_it./transaction-1&&_it:transaction-1||}
 		{_it./transaction-2&&_it:transaction-2||}
 		{_it./transaction-3&&_it:transaction-3||}
@@ -536,7 +536,7 @@
 			labelInterpolationFnc: function(value) {
 				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
-				}))+" {_it.currency}"
+				}))+"\r\n{_it.currency}"
 			}
 		}
 	},
@@ -813,7 +813,7 @@
 			labelInterpolationFnc: function(value) {
 				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
-				}))+" {_it.currency}"
+				}))+"\r\n{_it.currency}"
 			}
 		}
 	},
