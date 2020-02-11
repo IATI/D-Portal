@@ -415,24 +415,21 @@ table.modals td span.withdrawn	{display:inline-block; background-color:#545e73; 
 .legend span	{display:inline-block; vertical-align:baseline; width:8px; height:8px; border-radius:4px; margin-right:5px;}
 .wrap_legend .legend	{display:inline-block; vertical-align:top; margin-right:15px; padding-top:5px;}
 
-/*	Transaction Legends	*/
-.legend.chart_1	span	{background-color:#0099ff;}
-.legend.chart_2	span	{background-color:#ff695d;}
-.legend.chart_3	span	{background-color:#aeffae;}
-.legend.chart_4	span	{background-color:#fed00f;}
-.legend.chart_5	span	{background-color:#dea3ff;}
-.legend.chart_6	span	{background-color:#c446e1;}
-.legend.chart_7	span	{background-color:#00a301;}
-.legend.chart_8	span	{background-color:#c59e8c;}
-.legend.chart_9	span	{background-color:#8f496a;}
-.legend.chart_10 span	{background-color:#ff6cec;}
-.legend.chart_11 span	{background-color:#cf291c;}
-.legend.chart_12 span	{background-color:#82e1ff;}
-.legend.chart_13 span	{background-color:#0062a3;}
-/*	Planned Disbursement Legend	*/
-.legend.chart_14 span	{background-color:#65e17a;}
-/*	Budget Legend	*/
-.legend.chart_15 span	{background-color:#ccc;}
+.legend.chart_1	span	{background-color:#0099ff;}		/*	Incoming Funds	*/
+.legend.chart_2	span	{background-color:#ff8176;}		/*	Outgoing Commitment	*/
+.legend.chart_3	span	{background-color:#aeffae;}		/*	Disbursement	*/
+.legend.chart_4	span	{background-color:#fed00f;}		/*	Expenditure	*/
+.legend.chart_5	span	{background-color:#dea3ff;}		/*	Interest Payment	*/
+.legend.chart_6	span	{background-color:#c446e1;}		/*	Loan Repayment	*/
+.legend.chart_7	span	{background-color:#00a301;}		/*	Reimbursement	*/
+.legend.chart_8	span	{background-color:#c59e8c;}		/*	Purchase of Equity	*/
+.legend.chart_9	span	{background-color:#8f496a;}		/*	Sale of Equity	*/
+.legend.chart_10 span	{background-color:#ff6cec;}		/*	Credit Guarantee	*/
+.legend.chart_11 span	{background-color:#cf291c;}		/*	Incoming Commitment	*/
+.legend.chart_12 span	{background-color:#82e1ff;}		/*	Outgoing Pledge	*/
+.legend.chart_13 span	{background-color:#0062a3;}		/*	Incoming Pledge	*/
+.legend.chart_14 span	{background-color:#65e17a;}		/*	Planned Disbursement	*/
+.legend.chart_15 span	{background-color:#ccc;}		/*	Budget	*/
 
 /*	CHART OPTIONS	*/
 .ct-label	{fill:#fff; color:#fff; font-size:11px; line-height:12px;}
@@ -475,52 +472,54 @@ table.modals td span.withdrawn	{display:inline-block; background-color:#545e73; 
 .ct-series-o .ct-point, .ct-series-o .ct-line, .ct-series-o .ct-bar, .ct-series-o .ct-slice-donut {stroke:#a748ca;}
 .ct-series-o .ct-slice-pie, .ct-series-o .ct-slice-donut-solid, .ct-series-o .ct-area {fill: #a748ca;}
 
+/*	Chart stroke and fill colours for transaction, budget and planned disbursement tables	*/
 .chart-line-transaction-1 .ct-point,
-.chart-line-transaction-1 .ct-line	{stroke:#0099ff;}
+.chart-line-transaction-1 .ct-line	{stroke:#0099ff;}		/*	Incoming Funds	*/
 .chart-line-transaction-1 .ct-area	{fill:transparent;}
 .chart-line-transaction-2 .ct-point,
-.chart-line-transaction-2 .ct-line	{stroke:#ff695d;}
+.chart-line-transaction-2 .ct-line	{stroke:#ff8176;}		/*	Outgoing Commitment	*/
 .chart-line-transaction-2 .ct-area	{fill:transparent;}
 .chart-line-transaction-3 .ct-point,
-.chart-line-transaction-3 .ct-line	{stroke:#aeffae;}
+.chart-line-transaction-3 .ct-line	{stroke:#aeffae;}		/*	Disbursement	*/
 .chart-line-transaction-3 .ct-area	{fill:transparent;}
 .chart-line-transaction-4 .ct-point,
-.chart-line-transaction-4 .ct-line	{stroke:#fed00f;}
+.chart-line-transaction-4 .ct-line	{stroke:#fed00f;}		/*	Expenditure	*/
 .chart-line-transaction-4 .ct-area	{fill:transparent;}
 .chart-line-transaction-5 .ct-point,
-.chart-line-transaction-5 .ct-line	{stroke:#dea3ff;}
+.chart-line-transaction-5 .ct-line	{stroke:#dea3ff;}		/*	Interest Payment	*/
 .chart-line-transaction-5 .ct-area	{fill:transparent;}
 .chart-line-transaction-6 .ct-point,
-.chart-line-transaction-6 .ct-line	{stroke:#c446e1;}
+.chart-line-transaction-6 .ct-line	{stroke:#c446e1;}		/*	Loan Repayment	*/
 .chart-line-transaction-6 .ct-area	{fill:transparent;}
 .chart-line-transaction-7 .ct-point,
-.chart-line-transaction-7 .ct-line	{stroke:#00a301;}
+.chart-line-transaction-7 .ct-line	{stroke:#00a301;}		/*	Reimbursement	*/
 .chart-line-transaction-7 .ct-area	{fill:transparent;}
 .chart-line-transaction-8 .ct-point,
-.chart-line-transaction-8 .ct-line	{stroke:#c59e8c;}
+.chart-line-transaction-8 .ct-line	{stroke:#c59e8c;}		/*	Purchase of Equity	*/
 .chart-line-transaction-8 .ct-area	{fill:transparent;}
 .chart-line-transaction-9 .ct-point,
-.chart-line-transaction-9 .ct-line	{stroke:#8f496a;}
+.chart-line-transaction-9 .ct-line	{stroke:#8f496a;}		/*	Sale of Equity	*/
 .chart-line-transaction-9 .ct-area	{fill:transparent;}
 .chart-line-transaction-10.ct-point,
-.chart-line-transaction-10.ct-line	{stroke:#ff6cec;}
+.chart-line-transaction-10.ct-line	{stroke:#ff6cec;}		/*	Credit Guarantee	*/
 .chart-line-transaction-10 .ct-area	{fill:transparent;}
 .chart-line-transaction-11 .ct-point,
-.chart-line-transaction-11 .ct-line	{stroke:#cf291c;}
+.chart-line-transaction-11 .ct-line	{stroke:#cf291c;}		/*	Incoming Commitment	*/
 .chart-line-transaction-11 .ct-area	{fill:transparent;}
 .chart-line-transaction-12 .ct-point,
-.chart-line-transaction-12 .ct-line	{stroke:#82e1ff;}
+.chart-line-transaction-12 .ct-line	{stroke:#82e1ff;}		/*	Outgoing Pledge	*/
 .chart-line-transaction-12 .ct-area	{fill:transparent;}
 .chart-line-transaction-13 .ct-point,
-.chart-line-transaction-13 .ct-line	{stroke:#0062a3;}
+.chart-line-transaction-13 .ct-line	{stroke:#0062a3;}		/*	Incoming Pledge	*/
 .chart-line-transaction-13 .ct-area	{fill:transparent;}
 .chart-line-planned-disbursement .ct-point,
-.chart-line-planned-disbursement .ct-line	{stroke:#65e17a;}
+.chart-line-planned-disbursement .ct-line	{stroke:#65e17a;}		/*	Planned Disbursement	*/
 .chart-line-planned-disbursement .ct-area	{fill:#65e17a;}
 .chart-line-budget .ct-point,
-.chart-line-budget .ct-line			{stroke:#ccc;}
+.chart-line-budget .ct-line			{stroke:#ccc;}			/*	Budget	*/
 .chart-line-budget .ct-area			{fill:#999;}
 
+/*	Default Chartist stylings	*/
 .ct-chart-line .ct-label,
 .ct-chart-bar .ct-label {
   display: block;
