@@ -21,6 +21,29 @@ var saneid=function(insaneid)
 	return insaneid.trim().toLowerCase().replace(/\W+/g," ").trim().replace(" ","-")
 }
 
+// work out an integer percentage from a start and end date compared to today
+var date_range_to_percent=function(sd,ed)
+{
+	let st=(new Date(sd+"T00:00:00+0000")).getTime()/1000
+	let et=(new Date(ed+"T00:00:00+0000")).getTime()/1000
+	let nt=(new Date()).getTime()/1000
+	if(nt<=st) { percent=0 }
+	else
+	if(nt>=et) { percent=100 }
+	else
+	if( (nt>st) && (et!=et) ) { percent=50 } // after start time but do not know end time
+	else
+	if( (nt<et) && (st!=st) ) { percent=50 } // before end time but do not know start time
+	else
+	if( (st==st) && (et==et) && (et>st) ) // NaN and sanity test
+	{
+		percent=Math.floor( 100 * (nt-st) / (et-st) )
+		if(percent<0) { percent=0 }
+		else
+		if(percent>100) { percent=100 }
+	}
+	return percent
+}
 
 
 
@@ -394,6 +417,12 @@ savi.prepare=function(iati_xson){
 				let n=Number(date["@type"])||0
 				act["/activity-date-"+n]=date
 			}
+			
+			let sd=	( act["/activity-date-2"] && act["/activity-date-2"]["@iso-date"] ) ||
+					( act["/activity-date-1"] && act["/activity-date-1"]["@iso-date"] ) || ""
+			let ed=	( act["/activity-date-4"] && act["/activity-date-4"]["@iso-date"] ) ||
+					( act["/activity-date-3"] && act["/activity-date-3"]["@iso-date"] ) || ""
+			act["/activity-date-percent"]=date_range_to_percent(sd,ed)
 		}
 // budgets
 		let names=[]
@@ -595,6 +624,9 @@ savi.prepare=function(iati_xson){
 							periods_tosort.push( indicator["/period"] )
 							for( let period of indicator["/period"] )
 							{
+								let sd=period["/period-start@iso-date"]||""
+								let ed=period["/period-end@iso-date"]||""
+								period["/period-percent"]=date_range_to_percent(sd,ed)
 							}
 						}
 					}
