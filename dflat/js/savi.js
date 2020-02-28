@@ -578,12 +578,35 @@ savi.prepare=function(iati_xson){
 // split results on @type
 		if(act["/result"])
 		{
+			let periods_tosort=[]
 			for( let result of act["/result"] )
 			{
 				let type=Number(result["@type"]) || 1
 				let name="/result-"+type
 				if( ! act[name] ) { act[name]=[] }
 				act[name].push( result )
+
+				if( result["/indicator"] )
+				{
+					for( let indicator of result["/indicator"] )
+					{
+						if( indicator["/period"] )
+						{
+							periods_tosort.push( indicator["/period"] )
+							for( let period of indicator["/period"] )
+							{
+							}
+						}
+					}
+				}
+			}
+			for( let tab of periods_tosort )
+			{
+				tab.sort(function(a,b){
+					let an=a["/period-start@iso-date"]||""
+					let bn=b["/period-start@iso-date"]||""
+					return an.localeCompare(bn)
+				})
 			}
 		}
 	}
