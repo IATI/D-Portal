@@ -57,6 +57,7 @@
 		{_it./activity-date-3&&_it:/wrap-activity-date-3||}
 		{_it./activity-date-4&&_it:/wrap-activity-date-4||}
 	</div>
+{_it./activity-status@code&&_it:/wrap-activity-status||}
 {_it./participating-org&&_it:/wrap-participating-org||}
 {_it./description&&_it:/wrap-description||}
 {_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
@@ -87,7 +88,7 @@
 {_it./crs-add/loan-status/interest-arrears&&_it:/loan-status/interest-arrears||}
 </div>
 {_it./fss&&_it:/wrap-fss||}	<!--	0% published, need data to display	-->
-{_it./activity-status@code&&_it:/wrap-activity-status||}
+
 </div>
 	
 #^/wrap-crs-add	<!--	CRS WRAPPER	-->
@@ -251,20 +252,10 @@
 </div>
 
 #^/wrap-activity-status	<!--	ACTIVITY STATUS WRAPPER	-->
-	<div class="wrap_activity_status" style="background-color:{status.{_it./activity-status@code}};">
+	<div class="wrap_activity_status">
 		<span>activity status:</span> {_it./activity-status@code-name||}
 		<div class="status_desc">{_it./activity-status@code-description||/empty-description}</div>
 	</div>
-	
-#^status form=json	<!--	ACTIVITY STATUS BACKGROUND COLOR	-->
-{
-	"1":"rgb(71,181,255)",
-	"2":"rgb(204,141,230)",
-	"3":"rgb(71,255,78)",
-	"4":"rgb(255,130,71)",
-	"5":"rgb(255,71,71)",
-	"6":"rgb(255,130,71)",
-}
 
 #^/wrap-contact-info	<!--	CONTACT INFO WRAPPER	-->
 	<div class="wrap_contact_info">
@@ -432,11 +423,33 @@
 	<div class="result_title">{_it./title/narrative.0.text||}</div>
 	{_it./description/narrative&&_it:/indicator_desc||}	
 	{_it./document-link&&_it:/wrap-document-link||}	
+	{_it./reference&&_it:/wrap-result-reference||}	
 </div>
 
 #^/indicator_desc
 <div class="result_indi_desc">{_it./description/narrative.0.text||}</div>
 
+#^/wrap-result-reference
+<div class="wrap_result_indi_ref">
+	<div class="result_indi_head">Reference</div>
+{_it./reference:/result_reference}
+</div>
+
+#^/result_reference
+<div class="result_indi_ref">
+	{_it.@vocabulary&&_it:/result_vocab||}	
+	{_it.@code&&_it:/result_code||}	
+	{_it.@indicator-uri&&_it:/result_uri||}	
+</div>
+
+#^/result_vocab
+<div><span class="ref">VOCAB</span> <a href="{_it.@vocabulary-url||}">{_it.@vocabulary-name||}</a> <span class="type">{_it.@vocabulary||}</span></div>
+
+#^/result_code
+<div><span class="ref">CODE</span> {_it.@code||}</div>
+
+#^/result_uri
+<div><span class="ref">URI</span> <a href="{_it.@indicator-uri||}">Internal vocabulary</a></div>
 
 #^/result_baseline
 {_it./baseline:/value}
@@ -464,7 +477,7 @@
 <div>{_it.@value||}</div>
 		
 #^/period
-<div class="result_period_time"><span>{_it./period-start@iso-date||}</span> - <span>{_it./period-end@iso-date||}</span></div>
+<div class="result_period_time"><span>{_it./period-start@iso-date||}</span> ~ <span>{_it./period-end@iso-date||}</span></div>
 
 #^/target
 <div>{_it./target@value||}</div>

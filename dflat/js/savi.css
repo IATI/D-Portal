@@ -167,9 +167,9 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 .wrap_activity_date .actual_end		{position:absolute; bottom:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ffa443; text-align:right;}
 
 /*	ACTIVITY STATUS	*/
-.wrap_activity_status		{width:960px; font-size:20px; text-align:center; margin-left:-40px; padding:20px 0; max-height:150px; color:rgba(0,14,32,1); border-radius:0 0 6px 6px; background-color:rgb(204,141,230);}
+.wrap_activity_status		{width:960px; font-size:16px; text-align:center; margin-left:-40px; padding:20px 0; color:#444; background-color:#fff;}
 .wrap_activity_status span	{font-size:14px; font-weight:bold; text-transform:uppercase;}
-.status_desc				{font-size:16px; padding-top:5px; width:500px; margin:0 auto;}
+.status_desc				{font-size:14px; padding-top:5px; width:500px; margin:0 auto;}
 
 /*	TABLES	*/
 td .currency	{font-size:10px; line-height:12px; color:#ccc;}
@@ -334,10 +334,16 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result td.result_actual div			{border-bottom:1px dotted #666;}
 .wrap_result th.result_period,
 .wrap_result td.result_period				{width:150px;}
-.wrap_result td.result_period				{font-size:12px;}
+.wrap_result td.result_period				{font-size:11px;}
 .result_indicator							{}
+.wrap_result_indi_ref						{padding-top:10px;}
+.result_indi_head							{font-size:11px; border-bottom:1px solid #4d5264;}
 .result_indi_desc							{padding-top:10px; font-size:13px; line-height:15px;}
-.result_period_time							{background-color:#253860; min-height:25px; line-height:25px; margin-bottom:5px; padding-left:10px; max-width:155px;}
+.result_indi_ref							{padding:10px 0; font-size:11px; line-height:13px; border-bottom:1px dotted #666;}
+.result_indi_ref:last-of-type				{border:0; padding-bottom:0;}
+.result_indi_ref .ref						{display:inline-block; vertical-align:top; font-size:9px; min-width:35px;}
+.result_indi_ref .type						{margin:0; font-size:9px;}
+.result_period_time							{background-color:#253860; min-height:17px; line-height:17px; margin-bottom:4px; text-align:center; max-width:155px;}
 .result_indicator .wrap_document			{margin:10px 0 0 0;}
 .result_indicator .header_doc				{display:none;}
 .result_indicator a.doc_link				{padding:5px; font-size:8px; line-height:1em;}
