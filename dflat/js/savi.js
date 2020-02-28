@@ -608,6 +608,7 @@ savi.prepare=function(iati_xson){
 		if(act["/result"])
 		{
 			let periods_tosort=[]
+			let baseline_tosort=[]
 			for( let result of act["/result"] )
 			{
 				let type=Number(result["@type"]) || 1
@@ -619,6 +620,10 @@ savi.prepare=function(iati_xson){
 				{
 					for( let indicator of result["/indicator"] )
 					{
+						if( indicator["/baseline"] )
+						{
+							baseline_tosort.push( indicator["/baseline"] )
+						}
 						if( indicator["/period"] )
 						{
 							periods_tosort.push( indicator["/period"] )
@@ -627,10 +632,50 @@ savi.prepare=function(iati_xson){
 								let sd=period["/period-start@iso-date"]||""
 								let ed=period["/period-end@iso-date"]||""
 								period["/period-percent"]=date_range_to_percent(sd,ed)
+
+								if( period["/actual"] )
+								{
+									if( ! indicator["/actual"] )
+									{
+										indicator["/actual"]=[]
+										periods_tosort.push( indicator["/actual"] )
+									}
+									for( let actual of period["/actual"] ) // copy period down
+									{
+										indicator["/actual"].push(actual)
+										actual["/period-start@iso-date"]=period["/period-start@iso-date"]
+										actual["/period-end@iso-date"]=period["/period-end@iso-date"]
+										actual["/period-percent"]=period["/period-percent"]
+									}
+								}
+
+								if( period["/target"] )
+								{
+									if( ! indicator["/target"] )
+									{
+										indicator["/target"]=[]
+										periods_tosort.push( indicator["/target"] )
+									}
+									for( let target of period["/target"] ) // copy period down
+									{
+										indicator["/target"].push(target)
+										target["/period-start@iso-date"]=period["/period-start@iso-date"]
+										target["/period-end@iso-date"]=period["/period-end@iso-date"]
+										target["/period-percent"]=period["/period-percent"]
+									}
+								}
 							}
 						}
 					}
 				}
+			}
+			for( let tab of baseline_tosort )
+			{
+				tab.sort(function(a,b){
+					let an=a["@iso-date"]||""
+					let bn=b["@iso-date"]||""
+					return an.localeCompare(bn)
+				})
 			}
 			for( let tab of periods_tosort )
 			{
