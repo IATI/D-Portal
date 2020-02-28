@@ -403,17 +403,23 @@
 <!--	RESULT ROWS	-->
 #^/result
 {_it.@type==1&&_it:/result-1||}
-{_it.@type==2&&_it:/result-3||}
-{_it.@type==3&&_it:/result-2||}
-{_it.@type==9&&_it:/result-1||}
+{_it.@type==2&&_it:/result-2||}
+{_it.@type==3&&_it:/result-3||}
+{_it.@type==9&&_it:/result-9||}
 
 #^/result-1
+{_it./indicator:/result_indicator||}
+#^/result-2
+{_it./indicator:/result_indicator||}
+#^/result-3
+{_it./indicator:/result_indicator||}
+#^/result-9
 {_it./indicator:/result_indicator||}
 
 <!--	RESULT INDICATOR	-->
 #^/result_indicator
 <tr class="row_count">
-	<td class="result_indi">{_it./title/narrative.0.text&&_it:/indicator_text||}</td>
+	<td class="result_indi">{_it./title/narrative&&_it:/indicator_text||}</td>
 	<td class="result_base">{_it./baseline&&_it:/result_baseline||}</td>
 	<td class="result_target">{_it./period&&_it:/result_period_target||}</td>
 	<td class="result_actual">{_it./period&&_it:/result_period_actual||}</td>	
@@ -422,10 +428,19 @@
 
 <!--	RESULT INDICATOR TITLE, DESCRIPTION & OTHER INFORMATION, FIRST COLUMN	-->
 #^/indicator_text
-<div class="result_indicator">{_it./title/narrative.0.text}</div>
+<div class="result_indicator">
+	<div class="result_title">{_it./title/narrative.0.text||}</div>
+	{_it./description/narrative&&_it:/indicator_desc||}	
+	{_it./document-link&&_it:/wrap-document-link||}	
+</div>
+
+#^/indicator_desc
+<div class="result_indi_desc">{_it./description/narrative.0.text||}</div>
+
 
 #^/result_baseline
 {_it./baseline:/value}
+{_it./baseline@year&&_it:/baseline_year||}
 
 #^/result_period_target
 {_it./period:/result_target}
@@ -443,7 +458,7 @@
 {_it./period:/period}
 
 #^/baseline_year
-{_it.@year||}
+<div>YEAR: {_it.@year||}</div>
 
 #^/value
 <div>{_it.@value||}</div>
