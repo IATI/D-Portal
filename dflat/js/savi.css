@@ -148,13 +148,14 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 .wrap_contact_info					{width:980px; margin:0 0 20px -50px; padding:20px 40px 0 40px; font-size:16px; line-height:1.5em; background-color:rgba(17,46,105,0.9);}
 .wrap_contact_info:last-of-type 	{padding-bottom:30px;}
 .wrap_contact_info:nth-of-type(1) 	{padding-top:30px; width:900px; margin-left:-10px;}
-.wrap_contact_info .contact_info	{padding-bottom:10px;}
-.wrap_contact_info .contact_info:last-of-type	{padding-bottom:20px;}
+.wrap_contact_info .contact_info	{padding-bottom:15px; border-bottom:1px dotted #7481aa; margin-bottom:15px;}
+.wrap_contact_info .contact_info:last-of-type	{padding-bottom:20px; border:0; margin-bottom:0;}
 .wrap_contact_org					{font-weight:bold;}
 .wrap_contact_name					{font-size:20px; padding-top:10px;}
 .wrap_contact_title					{font-style:italic;}
-.wrap_contact_tel					{font-size:18px; padding-top:5px;}
-.wrap_contact_type					{font-size:12px; text-transform:uppercase; padding-bottom:10px;}
+.wrap_contact_tel					{font-size:18px; padding:5px 0;}
+.wrap_contact_type					{font-size:12px; text-transform:uppercase; padding-bottom:5px; color:#ccc;}
+.wrap_contact_add					{padding-top:5px;}
 
 /*	DATES	*/
 .wrap_activity_date					{position:relative; width:980px; height:82px; margin-left:-50px;}
@@ -166,9 +167,9 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 .wrap_activity_date .actual_end		{position:absolute; bottom:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ffa443; text-align:right;}
 
 /*	ACTIVITY STATUS	*/
-.wrap_activity_status		{width:960px; font-size:20px; text-align:center; margin-left:-40px; padding:20px 0; max-height:150px; color:rgba(0,14,32,1); border-radius:0 0 6px 6px; background-color:rgb(204,141,230);}
+.wrap_activity_status		{width:960px; font-size:16px; text-align:center; margin-left:-40px; padding:20px 0; color:#444; background-color:#fff;}
 .wrap_activity_status span	{font-size:14px; font-weight:bold; text-transform:uppercase;}
-.status_desc				{font-size:16px; padding-top:5px; width:500px; margin:0 auto;}
+.status_desc				{font-size:14px; padding-top:5px; width:500px; margin:0 auto;}
 
 /*	TABLES	*/
 td .currency	{font-size:10px; line-height:12px; color:#ccc;}
@@ -202,7 +203,7 @@ table.budget th	{padding-bottom:10px; border-bottom:1px solid #aaa; margin-botto
 table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right -5px center, #1c252fe8;}
 
 table.budget th:hover	{cursor:pointer;}
-table.budget td			{font-size:14px; color:#FFF; line-height:1.35em; vertical-align:top; border-bottom:1px solid #333642; padding:10px 0;}
+table.budget td			{font-size:14px; color:#FFF; line-height:1.35em; vertical-align:top; border-bottom:1px solid #4d5264; padding:10px 0;}
 table.budget td.value	{font-size:16px; padding-right:20px; text-align:right;}
 .org table.budget td.value			{font-size:14px;}
 
@@ -324,7 +325,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 
 /*	IATI ACTIVITY RESULT TABLE	*/
 .wrap_result th.result_indi,
-.wrap_result td.result_indi					{width:350px; padding-right:40px;}
+.wrap_result td.result_indi					{width:375px; padding-right:40px;}
 .wrap_result td.result_base,
 .wrap_result td.result_target,
 .wrap_result td.result_actual				{font-size:14px;}
@@ -332,10 +333,27 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result td.result_target div,
 .wrap_result td.result_actual div			{border-bottom:1px dotted #666;}
 .wrap_result th.result_period,
-.wrap_result td.result_period				{width:155px;}
-.wrap_result td.result_period				{font-size:12px;}
+.wrap_result td.result_period				{width:150px;}
+.wrap_result td.result_period				{font-size:11px;}
 .result_indicator							{}
-.result_period_time							{background-color:#253860; min-height:25px; line-height:25px; margin-bottom:5px; padding-left:10px; max-width:155px;}
+.wrap_result_indi_ref						{padding-top:10px;}
+.result_indi_head							{font-size:11px; border-bottom:1px solid #4d5264;}
+.result_indi_desc							{padding-top:10px; font-size:13px; line-height:15px;}
+.result_indi_ref							{padding:10px 0; font-size:11px; line-height:13px; border-bottom:1px dotted #666;}
+.result_indi_ref:last-of-type				{border:0; padding-bottom:0;}
+.result_indi_ref .ref						{display:inline-block; vertical-align:top; font-size:9px; min-width:35px;}
+.result_indi_ref .type						{margin:0; font-size:9px;}
+.result_period_time							{background-color:#253860; min-height:17px; line-height:17px; margin-bottom:4px; text-align:center; max-width:155px;}
+.result_indicator .wrap_document			{margin:10px 0 0 0;}
+.result_indicator .header_doc				{display:none;}
+.result_indicator a.doc_link				{padding:5px; font-size:8px; line-height:1em;}
+.result_indicator .wrap_doc_link			{position:relative; margin-left:20px; display:block; padding:0; margin-top:-15px;}
+.result_indicator span.doc_title			{font-size:12px; max-width:203px;}
+.result_indicator span.doc_format			{font-size:9px; max-width:100px; margin-left:0; position:absolute; top:0; right:0; padding:2px 5px 5px 5px;}
+.result_indicator span.doc_cat,
+.result_indicator span.doc_rec,
+.result_indicator span.doc_date				{font-size:11px;}
+
 
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
 .wrap_policy_marker table.budget th.policy_code,
@@ -387,11 +405,17 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_crs_add th.crs_sig,
 .wrap_crs_add td.crs_sig	{width:160px; padding-right:20px;}
 
+/*	Thinner tables rows for better legibility	*/
+.wrap_participating_org table.budget td,
+.wrap_humanitarian_scope table.budget td,
+.wrap_locaiton table.budget td	{padding:5px 0;}
+
+
 /*	DEFAULTS MODALITIES	*/
 table.modals					{table-layout:fixed; border-collapse:collapse; width:100%;}
 table.modals td,
 table.modals th 				{text-align:left; font-size:12px; padding:5px 10px 5px 5px; vertical-align:top; width:100px;}
-table.modals th					{font-size:10px; color:#ccc; text-transform:uppercase; font-weight:normal; border-bottom:1px solid #666;}
+table.modals th					{font-size:10px; color:#ccc; text-transform:uppercase; font-weight:normal; border-bottom:1px solid #4d5264;}
 table.modals td.mod_1,
 table.modals th.mod_1			{width:120px;}
 table.modals td.mod_2,
@@ -406,31 +430,30 @@ table.modals td span.withdrawn	{display:inline-block; background-color:#545e73; 
 
 /*	Chartist SVG	 */
 .showchart,
-.showcharts		{margin:0 auto; width:920px; height:240px; padding:10px 0 0 0; margin:0 0 30px -20px;}
+.showcharts		{margin:0 auto; width:920px; height:240px; padding:10px 0 0 0; margin:0 0 30px -35px;}
 .ct-chart-line	{overflow:visible;}
 
 /*	Chart Legends	*/
-.legend			{font-size:10px; text-transform:uppercase; color:#ccc; text-align:center; padding-top:10px;}
+.wrap_legend	{text-align:center; margin:0 auto;}
+.legend			{font-size:10px; text-transform:uppercase; color:#eee; text-align:center; padding-top:10px;}
 .legend span	{display:inline-block; vertical-align:baseline; width:8px; height:8px; border-radius:4px; margin-right:5px;}
+.wrap_legend .legend	{display:inline-block; vertical-align:top; margin-right:10px; margin-left:10px; padding-top:5px;}
 
-/*	Transaction Legends	*/
-.legend.chart_1	span	{background-color:#0099ff;}
-.legend.chart_2	span	{background-color:#ff695d;}
-.legend.chart_3	span	{background-color:#aeffae;}
-.legend.chart_4	span	{background-color:#fed00f;}
-.legend.chart_5	span	{background-color:#dea3ff;}
-.legend.chart_6	span	{background-color:#c446e1;}
-.legend.chart_7	span	{background-color:#00a301;}
-.legend.chart_8	span	{background-color:#c59e8c;}
-.legend.chart_9	span	{background-color:#8f496a;}
-.legend.chart_10 span	{background-color:#ff6cec;}
-.legend.chart_11 span	{background-color:#cf291c;}
-.legend.chart_12 span	{background-color:#82e1ff;}
-.legend.chart_13 span	{background-color:#0062a3;}
-/*	Planned Disbursement Legend	*/
-.legend.chart_14 span	{background-color:#65e17a;}
-/*	Budget Legend	*/
-.legend.chart_15 span	{background-color:#ccc;}
+.legend.chart_1	span	{background-color:#0099ff;}		/*	Incoming Funds	*/
+.legend.chart_2	span	{background-color:#ff8176;}		/*	Outgoing Commitment	*/
+.legend.chart_3	span	{background-color:#aeffae;}		/*	Disbursement	*/
+.legend.chart_4	span	{background-color:#fed00f;}		/*	Expenditure	*/
+.legend.chart_5	span	{background-color:#dea3ff;}		/*	Interest Payment	*/
+.legend.chart_6	span	{background-color:#c446e1;}		/*	Loan Repayment	*/
+.legend.chart_7	span	{background-color:#65e17a;}		/*	Reimbursement	*/
+.legend.chart_8	span	{background-color:#c59e8c;}		/*	Purchase of Equity	*/
+.legend.chart_9	span	{background-color:#8f496a;}		/*	Sale of Equity	*/
+.legend.chart_10 span	{background-color:#ff6cec;}		/*	Credit Guarantee	*/
+.legend.chart_11 span	{background-color:#cf291c;}		/*	Incoming Commitment	*/
+.legend.chart_12 span	{background-color:#82e1ff;}		/*	Outgoing Pledge	*/
+.legend.chart_13 span	{background-color:#0062a3;}		/*	Incoming Pledge	*/
+.legend.chart_14 span	{background-color:#00a301;}		/*	Planned Disbursement	*/
+.legend.chart_15 span	{background-color:#666;}		/*	Budget	*/
 
 /*	CHART OPTIONS	*/
 .ct-label	{fill:#fff; color:#fff; font-size:11px; line-height:12px;}
@@ -473,39 +496,54 @@ table.modals td span.withdrawn	{display:inline-block; background-color:#545e73; 
 .ct-series-o .ct-point, .ct-series-o .ct-line, .ct-series-o .ct-bar, .ct-series-o .ct-slice-donut {stroke:#a748ca;}
 .ct-series-o .ct-slice-pie, .ct-series-o .ct-slice-donut-solid, .ct-series-o .ct-area {fill: #a748ca;}
 
-.chart_trans_1	.ct-series-a .ct-point,
-.chart_trans_1	.ct-series-a .ct-line	{stroke:#0099ff;}
-.chart_trans_2	.ct-series-a .ct-point,
-.chart_trans_2	.ct-series-a .ct-line	{stroke:#ff695d;}
-.chart_trans_3	.ct-series-a .ct-point,
-.chart_trans_3	.ct-series-a .ct-line	{stroke:#aeffae;}
-.chart_trans_4	.ct-series-a .ct-point,
-.chart_trans_4	.ct-series-a .ct-line	{stroke:#fed00f;}
-.chart_trans_5	.ct-series-a .ct-point,
-.chart_trans_5	.ct-series-a .ct-line	{stroke:#dea3ff;}
-.chart_trans_6	.ct-series-a .ct-point,
-.chart_trans_6	.ct-series-a .ct-line	{stroke:#c446e1;}
-.chart_trans_7	.ct-series-a .ct-point,
-.chart_trans_7	.ct-series-a .ct-line	{stroke:#00a301;}
-.chart_trans_8	.ct-series-a .ct-point,
-.chart_trans_8	.ct-series-a .ct-line	{stroke:#c59e8c;}
-.chart_trans_9	.ct-series-a .ct-point,
-.chart_trans_9	.ct-series-a .ct-line	{stroke:#8f496a;}
-.chart_trans_10	.ct-series-a .ct-point,
-.chart_trans_10	.ct-series-a .ct-line	{stroke:#ff6cec;}
-.chart_trans_11	.ct-series-a .ct-point,
-.chart_trans_11	.ct-series-a .ct-line	{stroke:#cf291c;}
-.chart_trans_12 .ct-series-a .ct-point,
-.chart_trans_12	.ct-series-a .ct-line	{stroke:#82e1ff;}
-.chart_trans_13	.ct-series-a .ct-point,
-.chart_trans_13	.ct-series-a .ct-line	{stroke:#0062a3;}
-.chart_disburse	.ct-series-a .ct-point,
-.chart_disburse	.ct-series-a .ct-line	{stroke:#65e17a;}
-.chart_disburse .ct-series-a .ct-area	{fill:#65e17a;}
-.chart_budget	.ct-series-a .ct-point,
-.chart_budget	.ct-series-a .ct-line	{stroke:#ccc;}
-.chart_budget	.ct-series-a .ct-area	{fill:#999;}
+/*	Chart stroke and fill colours for transaction, budget and planned disbursement tables	*/
+.chart-line-transaction-1 .ct-point,
+.chart-line-transaction-1 .ct-line	{stroke:#0099ff;}		/*	Incoming Funds	*/
+.chart-line-transaction-1 .ct-area	{fill:transparent;}
+.chart-line-transaction-2 .ct-point,
+.chart-line-transaction-2 .ct-line	{stroke:#ff8176;}		/*	Outgoing Commitment	*/
+.chart-line-transaction-2 .ct-area	{fill:transparent;}
+.chart-line-transaction-3 .ct-point,
+.chart-line-transaction-3 .ct-line	{stroke:#aeffae;}		/*	Disbursement	*/
+.chart-line-transaction-3 .ct-area	{fill:transparent;}
+.chart-line-transaction-4 .ct-point,
+.chart-line-transaction-4 .ct-line	{stroke:#fed00f;}		/*	Expenditure	*/
+.chart-line-transaction-4 .ct-area	{fill:transparent;}
+.chart-line-transaction-5 .ct-point,
+.chart-line-transaction-5 .ct-line	{stroke:#dea3ff;}		/*	Interest Payment	*/
+.chart-line-transaction-5 .ct-area	{fill:transparent;}
+.chart-line-transaction-6 .ct-point,
+.chart-line-transaction-6 .ct-line	{stroke:#c446e1;}		/*	Loan Repayment	*/
+.chart-line-transaction-6 .ct-area	{fill:transparent;}
+.chart-line-transaction-7 .ct-point,
+.chart-line-transaction-7 .ct-line	{stroke:#65e17a;}		/*	Reimbursement	*/
+.chart-line-transaction-7 .ct-area	{fill:transparent;}
+.chart-line-transaction-8 .ct-point,
+.chart-line-transaction-8 .ct-line	{stroke:#c59e8c;}		/*	Purchase of Equity	*/
+.chart-line-transaction-8 .ct-area	{fill:transparent;}
+.chart-line-transaction-9 .ct-point,
+.chart-line-transaction-9 .ct-line	{stroke:#8f496a;}		/*	Sale of Equity	*/
+.chart-line-transaction-9 .ct-area	{fill:transparent;}
+.chart-line-transaction-10.ct-point,
+.chart-line-transaction-10.ct-line	{stroke:#ff6cec;}		/*	Credit Guarantee	*/
+.chart-line-transaction-10 .ct-area	{fill:transparent;}
+.chart-line-transaction-11 .ct-point,
+.chart-line-transaction-11 .ct-line	{stroke:#cf291c;}		/*	Incoming Commitment	*/
+.chart-line-transaction-11 .ct-area	{fill:transparent;}
+.chart-line-transaction-12 .ct-point,
+.chart-line-transaction-12 .ct-line	{stroke:#82e1ff;}		/*	Outgoing Pledge	*/
+.chart-line-transaction-12 .ct-area	{fill:transparent;}
+.chart-line-transaction-13 .ct-point,
+.chart-line-transaction-13 .ct-line	{stroke:#0062a3;}		/*	Incoming Pledge	*/
+.chart-line-transaction-13 .ct-area	{fill:transparent;}
+.chart-line-planned-disbursement .ct-point,
+.chart-line-planned-disbursement .ct-line	{stroke:#00a301;}		/*	Planned Disbursement	*/
+.chart-line-planned-disbursement .ct-area	{fill:#207721; fill-opacity:0.3}
+.chart-line-budget .ct-point,
+.chart-line-budget .ct-line			{stroke:#888;}			/*	Budget	*/
+.chart-line-budget .ct-area			{fill:#666;}
 
+/*	Default Chartist stylings	*/
 .ct-chart-line .ct-label,
 .ct-chart-bar .ct-label {
   display: block;

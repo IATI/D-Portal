@@ -57,6 +57,7 @@
 		{_it./activity-date-3&&_it:/wrap-activity-date-3||}
 		{_it./activity-date-4&&_it:/wrap-activity-date-4||}
 	</div>
+{_it./activity-status@code&&_it:/wrap-activity-status||}
 {_it./participating-org&&_it:/wrap-participating-org||}
 {_it./description&&_it:/wrap-description||}
 {_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
@@ -87,7 +88,7 @@
 {_it./crs-add/loan-status/interest-arrears&&_it:/loan-status/interest-arrears||}
 </div>
 {_it./fss&&_it:/wrap-fss||}	<!--	0% published, need data to display	-->
-{_it./activity-status@code&&_it:/wrap-activity-status||}
+
 </div>
 	
 #^/wrap-crs-add	<!--	CRS WRAPPER	-->
@@ -251,20 +252,10 @@
 </div>
 
 #^/wrap-activity-status	<!--	ACTIVITY STATUS WRAPPER	-->
-	<div class="wrap_activity_status" style="background-color:{status.{_it./activity-status@code}};">
+	<div class="wrap_activity_status">
 		<span>activity status:</span> {_it./activity-status@code-name||}
 		<div class="status_desc">{_it./activity-status@code-description||/empty-description}</div>
 	</div>
-	
-#^status form=json	<!--	ACTIVITY STATUS BACKGROUND COLOR	-->
-{
-	"1":"rgb(71,181,255)",
-	"2":"rgb(204,141,230)",
-	"3":"rgb(71,255,78)",
-	"4":"rgb(255,130,71)",
-	"5":"rgb(255,71,71)",
-	"6":"rgb(255,130,71)",
-}
 
 #^/wrap-contact-info	<!--	CONTACT INFO WRAPPER	-->
 	<div class="wrap_contact_info">
@@ -386,34 +377,62 @@
 #^/wrap-result	<!--	RESULT WRAPPER	-->
 	<div class="wrap_result">
 		<div class="header_section sticky collapsable">result<span class="count">( {_it./result.length} )</span></div>
-		<table class="budget result sortable">
-			<thead>
-				<tr>
-					<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INDICATOR</th>
-					<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4">BASELINE</th>
-					<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4">TARGET</th>
-					<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4">ACTUAL</th>			
-					<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4">PERIOD</th>				
-				</tr>
-			</thead>
-			{_it./result:/result}
-		</table>
+		{_it./result-1&&_it:result-1||}
+		{_it./result-2&&_it:result-2||}
+		{_it./result-3&&_it:result-3||}
+		{_it./result-9&&_it:result-9||}
 	</div>
 
 <!--	RESULT ROWS	-->
-#^/result
-{_it.@type==1&&_it:/result-1||}
-{_it.@type==2&&_it:/result-3||}
-{_it.@type==3&&_it:/result-2||}
-{_it.@type==9&&_it:/result-1||}
+#^result-1
+<div class="header_section sticky collapsable">output<span class="count">( {_it./result-1.length} )</span></div>
+<table class="budget result sortable">
+	{result-table}
+	{_it./indicator:/result_indicator||}
+</table>
+#^result-2
+<div class="header_section sticky collapsable">outcome<span class="count">( {_it./result-2.length} )</span></div>
+<table class="budget result sortable">
+	{result-table}
+	{_it./indicator:/result_indicator||}
+</table>
+#^result-3
+<div class="header_section sticky collapsable">impact<span class="count">( {_it./result-3.length} )</span></div>
+<table class="budget result sortable">
+	{result-table}
+	{_it./indicator:/result_indicator||}
+</table>
+#^result-9
+<div class="header_section sticky collapsable">other<span class="count">( {_it./result-9.length} )</span></div>
+<table class="budget result sortable">
+	{result-table}
+	{_it./indicator:/result_indicator||}
+</table>
+
+#^result-table
+<thead>
+	<tr>
+		<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INDICATOR</th>
+		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4">BASELINE</th>
+		<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4">TARGET</th>
+		<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4">ACTUAL</th>			
+		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4">PERIOD</th>				
+	</tr>
+</thead>
 
 #^/result-1
+{_it./indicator:/result_indicator||}
+#^/result-2
+{_it./indicator:/result_indicator||}
+#^/result-3
+{_it./indicator:/result_indicator||}
+#^/result-9
 {_it./indicator:/result_indicator||}
 
 <!--	RESULT INDICATOR	-->
 #^/result_indicator
 <tr class="row_count">
-	<td class="result_indi">{_it./title/narrative.0.text&&_it:/indicator_text||}</td>
+	<td class="result_indi">{_it./title/narrative&&_it:/indicator_text||}</td>
 	<td class="result_base">{_it./baseline&&_it:/result_baseline||}</td>
 	<td class="result_target">{_it./period&&_it:/result_period_target||}</td>
 	<td class="result_actual">{_it./period&&_it:/result_period_actual||}</td>	
@@ -422,10 +441,41 @@
 
 <!--	RESULT INDICATOR TITLE, DESCRIPTION & OTHER INFORMATION, FIRST COLUMN	-->
 #^/indicator_text
-<div class="result_indicator">{_it./title/narrative.0.text}</div>
+<div class="result_indicator">
+	<div class="result_title">{_it./title/narrative.0.text||}</div>
+	{_it./description/narrative&&_it:/indicator_desc||}	
+	{_it./document-link&&_it:/wrap-document-link||}	
+	{_it./reference&&_it:/wrap-result-reference||}	
+</div>
+
+#^/indicator_desc
+<div class="result_indi_desc">{_it./description/narrative.0.text||}</div>
+
+#^/wrap-result-reference
+<div class="wrap_result_indi_ref">
+	<div class="result_indi_head">Reference</div>
+{_it./reference:/result_reference}
+</div>
+
+#^/result_reference
+<div class="result_indi_ref">
+	{_it.@vocabulary&&_it:/result_vocab||}	
+	{_it.@code&&_it:/result_code||}	
+	{_it.@indicator-uri&&_it:/result_uri||}	
+</div>
+
+#^/result_vocab
+<div><span class="ref">VOCAB</span> <a href="{_it.@vocabulary-url||}">{_it.@vocabulary-name||}</a> <span class="type">{_it.@vocabulary||}</span></div>
+
+#^/result_code
+<div><span class="ref">CODE</span> {_it.@code||}</div>
+
+#^/result_uri
+<div><span class="ref">URI</span> <a href="{_it.@indicator-uri||}">Internal vocabulary</a></div>
 
 #^/result_baseline
 {_it./baseline:/value}
+{_it./baseline@year&&_it:/baseline_year||}
 
 #^/result_period_target
 {_it./period:/result_target}
@@ -443,13 +493,13 @@
 {_it./period:/period}
 
 #^/baseline_year
-{_it.@year||}
+<div>YEAR: {_it.@year||}</div>
 
 #^/value
 <div>{_it.@value||}</div>
 		
 #^/period
-<div class="result_period_time"><span>{_it./period-start@iso-date||}</span> - <span>{_it./period-end@iso-date||}</span></div>
+<div class="result_period_time"><span>{_it./period-start@iso-date||}</span> ~ <span>{_it./period-end@iso-date||}</span></div>
 
 #^/target
 <div>{_it./target@value||}</div>
@@ -464,7 +514,7 @@
 	options:{
 		width:	"920px",
 		height:	"240px",
-			showArea: false,
+			showArea: true,
 			showLine: true,
 			showPoint: true,
 			axisX: {
@@ -491,9 +541,13 @@
 </script>
 </div>
 
+#^all-charts-legend
+<div class="wrap_legend"><div class="legend chart_1"><span></span>Incoming Funds</div><div class="legend chart_2"><span></span>Outgoing Commitment</div><div class="legend chart_3"><span></span>Disbursement</div><div class="legend chart_4"><span></span>Expenditure</div><div class="legend chart_5"><span></span>Interest Payment</div><div class="legend chart_6"><span></span>Loan Repayment</div><div class="legend chart_7"><span></span>Reimbursement</div><div class="legend chart_8"><span></span>Purchase of Equity</div><div class="legend chart_9"><span></span>Sale of Equity</div><div class="legend chart_10"><span></span>Credit Guarantee</div><div class="legend chart_11"><span></span>Incoming Commitment</div><div class="legend chart_12"><span></span>Outgoing Pledge</div><div class="legend chart_13"><span></span>Incoming Pledge</div><div class="legend chart_14"><span></span>Planned Disbursement</div><div class="legend chart_15"><span></span>Budget</div></div>
+
 #^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
 	<div class="wrap_transaction">
 		<div class="header_section collapsable">Transactions <span class="count">( {_it./transaction.length} )</span></div>
+		{all-charts-legend}
 		{all-charts}
 		{_it./transaction-1&&_it:transaction-1||}
 		{_it./transaction-2&&_it:transaction-2||}
