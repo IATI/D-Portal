@@ -332,12 +332,15 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result td.result_base div,
 .wrap_result td.result_target div,
 .wrap_result td.result_actual div			{border-bottom:1px dotted #666;}
+.wrap_result td.result_base .result_value:last-of-type,
+.wrap_result td.result_target .result_value:last-of-type,
+.wrap_result td.result_actual .result_value:last-of-type	{border:0;}
 .wrap_result th.result_period,
 .wrap_result td.result_period				{width:150px;}
 .wrap_result td.result_period				{font-size:11px;}
 .result_indicator							{}
 .wrap_result_indi_ref						{padding-top:10px;}
-.result_indi_head							{font-size:11px; border-bottom:1px solid #4d5264;}
+.result_indi_head							{font-size:11px; border-bottom:1px solid #4d5264; display:inline-block; color:#ccc;}
 .result_indi_desc							{padding-top:10px; font-size:13px; line-height:15px;}
 .result_indi_ref							{padding:10px 0; font-size:11px; line-height:13px; border-bottom:1px dotted #666;}
 .result_indi_ref:last-of-type				{border:0; padding-bottom:0;}
@@ -353,6 +356,11 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .result_indicator span.doc_cat,
 .result_indicator span.doc_rec,
 .result_indicator span.doc_date				{font-size:11px;}
+.wrap_result td.result_base .result_indi_measure,
+.wrap_result td.result_target .result_indi_measure,
+.wrap_result td.result_actual .result_indi_measure	{color:#ccc; font-size:11px; text-transform:uppercase;}
+table.budget tr:nth-of-type(1) td.result_period,
+table.budget td.result_period				{padding-top:35px;}
 
 
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
