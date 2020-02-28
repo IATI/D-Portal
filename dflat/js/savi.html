@@ -377,26 +377,48 @@
 #^/wrap-result	<!--	RESULT WRAPPER	-->
 	<div class="wrap_result">
 		<div class="header_section sticky collapsable">result<span class="count">( {_it./result.length} )</span></div>
-		<table class="budget result sortable">
-			<thead>
-				<tr>
-					<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INDICATOR</th>
-					<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4">BASELINE</th>
-					<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4">TARGET</th>
-					<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4">ACTUAL</th>			
-					<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4">PERIOD</th>				
-				</tr>
-			</thead>
-			{_it./result:/result}
-		</table>
+		{_it./result-1&&_it:result-1||}
+		{_it./result-2&&_it:result-2||}
+		{_it./result-3&&_it:result-3||}
+		{_it./result-9&&_it:result-9||}
 	</div>
 
 <!--	RESULT ROWS	-->
-#^/result
-{_it.@type==1&&_it:/result-1||}
-{_it.@type==2&&_it:/result-2||}
-{_it.@type==3&&_it:/result-3||}
-{_it.@type==9&&_it:/result-9||}
+#^result-1
+<div class="header_section sticky collapsable">output<span class="count">( {_it./result-1.length} )</span></div>
+<table class="budget result sortable">
+	{result-table}
+	{_it./indicator:/result_indicator||}
+</table>
+#^result-2
+<div class="header_section sticky collapsable">outcome<span class="count">( {_it./result-2.length} )</span></div>
+<table class="budget result sortable">
+	{result-table}
+	{_it./indicator:/result_indicator||}
+</table>
+#^result-3
+<div class="header_section sticky collapsable">impact<span class="count">( {_it./result-3.length} )</span></div>
+<table class="budget result sortable">
+	{result-table}
+	{_it./indicator:/result_indicator||}
+</table>
+#^result-9
+<div class="header_section sticky collapsable">other<span class="count">( {_it./result-9.length} )</span></div>
+<table class="budget result sortable">
+	{result-table}
+	{_it./indicator:/result_indicator||}
+</table>
+
+#^result-table
+<thead>
+	<tr>
+		<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INDICATOR</th>
+		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4">BASELINE</th>
+		<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4">TARGET</th>
+		<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4">ACTUAL</th>			
+		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4">PERIOD</th>				
+	</tr>
+</thead>
 
 #^/result-1
 {_it./indicator:/result_indicator||}
