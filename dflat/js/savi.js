@@ -575,6 +575,17 @@ savi.prepare=function(iati_xson){
 				})
 			}
 		}
+// split results on @type
+		if(act["/result"])
+		{
+			for( let result of act["/result"] )
+			{
+				let type=Number(result["@type"]) || 1
+				let name="/result-"+type
+				if( ! act[name] ) { act[name]=[] }
+				act[name].push( result )
+			}
+		}
 	}
 
 	if(iati_xson["/iati-activities/iati-activity"])
