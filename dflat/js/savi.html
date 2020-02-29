@@ -424,7 +424,6 @@
 </table>
 
 #^/result_indicator_row_new_all
-
 {_it:/result_indicator_row_new_facet||}
 {_it./baseline:/result_indicator_row_new_baseline||}
 {_it./target:/result_indicator_row_new_target||}
@@ -432,22 +431,26 @@
 
 #^/result_indicator_row_new_indicator
 <tr class="row_count">
-	<td>{_it:/indicator_text||}</td>
+	<td colspan="5">{_it:/indicator_text||}</td>
 </tr>
 
 #^/result_indicator_row_new_facet
 <tr class="row_count">
-	<td>
-		{_it./dimension:/result_indicator_row_new_facet_dimension||}
-		{_it./location:/result_indicator_row_new_facet_location||}
+	<td colspan="5">
+		{_it./dimension:/result_indicator_row_new_facet_dimension||/empty_dimension}
+		{_it./location:/result_indicator_row_new_facet_location||/empty_location}
 	</td>
 </tr>
-#^/result_indicator_row_new_facet_dimension
 
+#^/empty_dimension
+<div class="result_empty">No dimension has been provided</div>
+#^/empty_location
+<div class="result_empty">No location provided</div>
+
+#^/result_indicator_row_new_facet_dimension
 <div>{_it.@name} = {_it.@value}</div>
 
 #^/result_indicator_row_new_facet_location
-
 <div>Location = {_it.@ref}</div>
 
 #^/result_indicator_row_new_baseline
@@ -1269,10 +1272,14 @@
 <!--	LOCATION ROWS	-->
 #^/location
 <tr class="row_count">
-	<td class="loc_name">{_it./name/narrative.0.text||}</td>
+	<td class="loc_name">
+		{_it./name/narrative.0.text||}{_it.@ref&&_it:/location-ref||}
+		{_it./location-id&&_it:/wrap-location-id||}
+	</td>
 	<td class="loc_des">
 		{_it./description/narrative.0.text||}
 		{_it./activity-description/narrative.0.text&&_it:/activity-description||}
+		{_it./feature-designation@code&&_it:/location-feature||}
 	</td>
 	<td class="loc_pos">{_it./point/pos||}</td>
 	<td class="loc_class" title="{_it./location-class@code-description||}" data-sort-value="{_it./location-class@code}">{_it./location-class@code-name||}</td>
@@ -1282,6 +1289,41 @@
 
 #^/activity-description
 <div>{_it./activity-description/narrative.0.text||}</div>
+
+#^/location-ref
+<div>
+	<span title="An internal reference that describes the location in the reporting organisation’s own system" class="ref">
+		REF <span>{_it.@ref||}</span>
+	</span>
+</div>
+
+#^/wrap-location-id
+{_it./location-id:/location-id}
+
+#^/location-id
+{_it.@code&&_it:/location-code||}
+{_it.@vocabulary&&_it:/location-vocab||}
+
+#^/location-code
+<div>
+	<span title="A code from the gazetteer or administrative boundary repository specified by the vocabulary" class="ref">
+		ID <span>{_it.@code||}</span>
+	</span>
+</div>
+
+#^/location-vocab
+<div>
+	<span title="{_it.@vocabulary-description||}" class="ref">
+		VOCAB <a href="{_it.@vocabulary-url||}">{_it.@vocabulary-name||}</a>
+	</span>
+</div>
+
+#^/location-feature
+<div>
+	<span title="{_it.@code-description||}" class="ref">
+		FEAT <span style="text-transform:capitalize;">{_it.@code-name||}</span>
+	</span><span class="type">{_it.text||}</span>
+</div>
 
 #^/wrap-participating-org	<!--	PARTICIPATING ORG WRAPPER	-->	
 	<div class="wrap_participating_org">

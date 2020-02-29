@@ -339,7 +339,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result td.result_period				{width:150px;}
 .wrap_result td.result_period				{font-size:11px;}
 .result_indicator							{}
-.wrap_result_indi_ref						{padding-top:10px;}
+.wrap_result_indi_ref						{padding-top:10px; display:inline-block;}
 .result_indi_head							{font-size:11px; border-bottom:1px solid #4d5264; display:inline-block; color:#ccc;}
 .result_indi_desc							{padding-top:10px; font-size:13px; line-height:15px;}
 .result_indi_ref							{padding:10px 0; font-size:11px; line-height:13px; border-bottom:1px dotted #666;}
@@ -359,8 +359,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result td.result_base .result_indi_measure,
 .wrap_result td.result_target .result_indi_measure,
 .wrap_result td.result_actual .result_indi_measure	{color:#ccc; font-size:11px; text-transform:uppercase;}
-table.budget tr:nth-of-type(1) td.result_period,
-table.budget td.result_period				{padding-top:35px;}
+.result_empty								{font-size:12px; color:#ccc;}
 
 
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
