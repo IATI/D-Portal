@@ -335,16 +335,20 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 
 /*	IATI ACTIVITY RESULT TABLE	*/
 .wrap_result th.result_indi,
-.wrap_result td.result_indi					{width:350px; padding-right:40px;}
+.wrap_result td.result_indi					{width:300px; padding-right:40px;}
+.wrap_result th.result_percent,
+.wrap_result td.result_percent				{width:100px;}
 .wrap_result td.result_base,
 .wrap_result td.result_target,
-.wrap_result td.result_actual				{font-size:14px;}
+.wrap_result td.result_actual,
+.wrap_result td.result_percent				{font-size:14px;}
 .wrap_result th.result_period,
 .wrap_result td.result_period				{width:150px;}
 .wrap_result td.result_period				{font-size:11px;}
 .result_indicator							{display:inline-block; vertical-align:top; width:25%;}
 .result_indicator.left_indi					{width:75%; padding-right:25px;}
 .wrap_result_indicator_title				{margin-bottom:5px;}
+.result_main_title							{padding:20px 0; font-size:18px; line-height:24px;}
 .result_separator							{background-color:#47506b; width:960px; height:10px; margin-left:-40px;}
 .wrap_result_table .wrap_result_indicator:last-of-type .result_separator:last-of-type	{display:none;}
 .result_indicator_title						{padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:10px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; }
@@ -372,7 +376,9 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .result_facet								{padding-bottom:5px;}
 .result_facet:first-of-type					{padding-bottom:0;}
 .result_empty								{font-size:12px; color:#ccc;}
-
+.result_percent_wrap,
+.result_percent_wrap .result_empty			{display:inline;}
+.result_percent_wrap span					{display:inline-block; width:10px; height:10px; border-radius:20px; margin-left:10px;}
 
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
 .wrap_policy_marker table.budget th.policy_code,

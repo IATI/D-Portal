@@ -404,6 +404,8 @@ other<span class="count">( {_it./result-9.length} )</span>
 <!--	RESULT ROWS	-->
 #^result-1
 <div class="header_section sticky collapsable bright">output<span class="count">( {_it./result-1.length} )</span></div>
+{_it./title/narrative.0.text&&_it:/result_title_text||}
+{_it./description/narrative&&_it:/indicator_desc||}
 <div class="wrap_result_table">{_it./result-1:/result_indicator||}</div>
 
 #^result-2
@@ -418,6 +420,9 @@ other<span class="count">( {_it./result-9.length} )</span>
 <div class="header_section sticky collapsable bright">other<span class="count">( {_it./result-9.length} )</span></div>
 <div class="wrap_result_table">{_it./result-9:/result_indicator||}</div>
 
+#^/result_title_text
+<div class="result_main_title">{_it./title/narrative.0.text||}</div>
+
 <!--	RESULT INDICATOR	-->
 #^/result_indicator
 <div class="wrap_result_indicator">{_it./indicator:/result_indicator_facet||}<div class="result_separator"></div></div>
@@ -426,17 +431,19 @@ other<span class="count">( {_it./result-9.length} )</span>
 {_it:/result_indicator_row_new_indicator||}
 <table class="budget result sortable">
 {result-table}
+{_it.@measure-name||}
 {_it./facet:/result_indicator_row_new_all||}
 </table>
 
 #^result-table	<!--	RESULT TABLE HEADERS	-->
 <thead>
 	<tr>
-		<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4">FACET</th>
-		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4">BASELINE</th>
-		<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4">TARGET</th>
-		<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4">ACTUAL</th>			
-		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4">PERIOD</th>				
+		<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">FACET</th>
+		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">BASELINE</th>
+		<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">TARGET{_it.@measure-name||}</th>
+		<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">ACTUAL</th>			
+		<th class="result_percent" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">ACHIEVED</th>			
+		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">PERIOD</th>				
 	</tr>
 </thead>
 
@@ -462,7 +469,7 @@ other<span class="count">( {_it./result-9.length} )</span>
 <div class="wrap_result_indicator_title">
 	<div class="header_section collapsable brighter">INDICATOR</div>
 	<div class="result_title">{_it./title/narrative.0.text||}</div>
-		{_it./description/narrative&&_it:/indicator_desc||}
+	{_it./description/narrative&&_it:/indicator_desc||}
 </div>
 
 #^/indicator_desc
@@ -485,11 +492,21 @@ other<span class="count">( {_it./result-9.length} )</span>
 		{_it./dimension:/result_indicator_row_new_facet_dimension||/empty_dimension}
 		{_it./location:/result_indicator_row_new_facet_location||/empty_location}
 	</td>
-	<td class="result_base">{_it.@baseline||/empty_result}</td>
-	<td class="result_base">{_it.@target||/empty_result}</td>
-	<td class="result_base">{_it.@actual||/empty_result}</td>
-	<td class="result_period">{_it./period-start@iso-date||} : {_it./period-end@iso-date||} <br/>%{_it.@percent||}</td>
+	<td class="result_base">{_it.@baseline||/empty_result}{_it.@measure||}</td>
+	<td class="result_target">{_it.@target||/empty_result}{_it.@measure||}</td>
+	<td class="result_actual">{_it.@actual||/empty_result}{_it.@measure||}</td>
+	<td class="result_percent"><div class="result_percent_wrap">{_it.@percent||/empty_percent}% <span style="background-color:{status.{_it.@percent}};"></span></div></td>
+	<td class="result_period">{_it./period-start@iso-date||} : {_it./period-end@iso-date||} <div>{_it.@period-percent||}</div></td>
 </tr>
+
+#^status form=json	<!--	PERCENT BACKGROUND COLOR	-->
+{
+	"100":"rgb(71,255,82)",
+	"0":"rgb(71,255,82)",
+}
+
+#^/empty_percent
+<div class="result_empty">NA</div>
 
 #^/empty_result
 <div class="result_empty">Not provided</div>
@@ -592,9 +609,6 @@ other<span class="count">( {_it./result-9.length} )</span>
 }
 </script>
 </div>
-
-#^all-charts-legend
-<div class="wrap_legend"><div class="legend chart_1"><span></span>Incoming Funds</div><div class="legend chart_2"><span></span>Outgoing Commitment</div><div class="legend chart_3"><span></span>Disbursement</div><div class="legend chart_4"><span></span>Expenditure</div><div class="legend chart_5"><span></span>Interest Payment</div><div class="legend chart_6"><span></span>Loan Repayment</div><div class="legend chart_7"><span></span>Reimbursement</div><div class="legend chart_8"><span></span>Purchase of Equity</div><div class="legend chart_9"><span></span>Sale of Equity</div><div class="legend chart_10"><span></span>Credit Guarantee</div><div class="legend chart_11"><span></span>Incoming Commitment</div><div class="legend chart_12"><span></span>Outgoing Pledge</div><div class="legend chart_13"><span></span>Incoming Pledge</div><div class="legend chart_14"><span></span>Planned Disbursement</div><div class="legend chart_15"><span></span>Budget</div></div>
 
 #^transaction-1-chart
 <div class="legend chart_1"><span></span>Incoming Funds</div><!---->
