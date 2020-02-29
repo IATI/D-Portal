@@ -387,26 +387,26 @@
 #^result-1
 <div class="header_section sticky collapsable">output<span class="count">( {_it./result-1.length} )</span></div>
 <table class="budget result sortable">
-	{result-table}
+	{result-table-new}
 	{_it./result-1:/result_indicator||}
 </table>
 #^result-2
 <div class="header_section sticky collapsable">outcome<span class="count">( {_it./result-2.length} )</span></div>
 <table class="budget result sortable">
-	{result-table}
+	{result-table-new}
 	{_it./result-2:/result_indicator||}
 </table>
 #^result-3
 <div class="header_section sticky collapsable">impact<span class="count">( {_it./result-3.length} )</span></div>
 <table class="budget result sortable">
-	{result-table}
+	{result-table-new}
 	{_it./result-3:/result_indicator||}
 </table>
 #^result-9
 <div class="header_section sticky collapsable">other<span class="count">( {_it./result-9.length} )</span></div>
 <table class="budget result sortable">
-	{result-table}
-	{_it./result-9:/indicator||}
+	{result-table-new}
+	{_it./result-9:/result_indicator||}
 </table>
 
 #^result-table
@@ -420,9 +420,18 @@
 	</tr>
 </thead>
 
+#^result-table-new
+<thead>
+	<tr>
+		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2">VALUE</th>		
+		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2">START</th>				
+		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2">END</th>				
+	</tr>
+</thead>
+
 <!--	RESULT INDICATOR	-->
 #^/result_indicator
-{_it./indicator:/result_indicator_row||}
+{_it./indicator:/result_indicator_row_new1||}
 
 #^/result_indicator_row
 <tr class="row_count">
@@ -431,6 +440,21 @@
 	<td class="result_target">{_it.@measure&&_it:/result_measure||}{_it./period&&_it:/result_period_target||}</td>
 	<td class="result_actual">{_it.@measure&&_it:/result_measure||}{_it./period&&_it:/result_period_actual||}</td>	
 	<td class="result_period">{_it./period&&_it:/result_period||}</td>	
+</tr>
+
+#^/result_indicator_row_new1
+<tr class="row_count">
+	<td class="result_base">{_it./baseline&&_it:/result_baseline||}</td>
+	<td class="result_base">{_it./target&&_it:/result_target||}</td>
+	<td class="result_base">{_it./actual&&_it:/result_actual||}</td>
+</tr>
+
+
+#^/result_indicator_row_new
+<tr class="row_count">
+	<td class="result_base">{_it.@measure&&_it:/result_measure||}{_it./baseline&&_it:/result_baseline||}</td>
+	<td class="result_period">{_it./period&&_it:/result_period_start||}</td>	
+	<td class="result_period">{_it./period&&_it:/result_period_end||}</td>	
 </tr>
 
 <!--	RESULT INDICATOR TITLE, DESCRIPTION & OTHER INFORMATION, FIRST COLUMN	-->
@@ -472,7 +496,6 @@
 
 #^/result_baseline
 {_it./baseline:/value}
-{_it./baseline@year&&_it:/baseline_year||}
 
 #^/result_period_target
 {_it./period:/result_target}
@@ -497,6 +520,10 @@
 		
 #^/period
 <div class="result_period_time"><span>{_it./period-start@iso-date||}</span> ~ <span>{_it./period-end@iso-date||}</span></div>
+#^/period_start
+<div class="result_period_time">{_it./period-start@iso-date||}</div>
+#^/period_end
+<div class="result_period_time">{_it./period-end@iso-date||}</div>
 
 #^/target
 <div>{_it./target@value||}</div>
