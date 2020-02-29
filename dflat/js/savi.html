@@ -376,34 +376,63 @@
 	
 #^/wrap-result	<!--	RESULT WRAPPER	-->
 	<div class="wrap_result">
-		<div class="header_section sticky collapsable">result<span class="count">( {_it./result.length} )</span></div>
+		<div class="header_section sticky collapsable">
+			result<span class="count">( {_it./result.length} )</span>
+			<div class="wrap_length">
+				{_it./result-1&&_it:result-1-length||}
+				{_it./result-2&&_it:result-2-length||}
+				{_it./result-3&&_it:result-3-length||}
+				{_it./result-9&&_it:result-9-length||}
+			</div>
+		</div>
 		{_it./result-1&&_it:result-1||}
 		{_it./result-2&&_it:result-2||}
 		{_it./result-3&&_it:result-3||}
 		{_it./result-9&&_it:result-9||}
 	</div>
+	
+<!--	RESULT LENGTH	-->
+#^result-1-length
+output<span class="count">( {_it./result-1.length} )</span> 
+#^result-2-length
+outcome<span class="count">( {_it./result-2.length} )</span> 
+#^result-3-length
+impact<span class="count">( {_it./result-3.length} )</span> 
+#^result-9-length
+other<span class="count">( {_it./result-9.length} )</span>
 
 <!--	RESULT ROWS	-->
 #^result-1
-<div class="header_section sticky collapsable">output<span class="count">( {_it./result-1.length} )</span></div>
-{_it./result-1:/result_indicator||}
+<div class="header_section sticky collapsable bright">output<span class="count">( {_it./result-1.length} )</span></div>
+<div class="wrap_result_table">{_it./result-1:/result_indicator||}</div>
 
 #^result-2
-<div class="header_section sticky collapsable">outcome<span class="count">( {_it./result-2.length} )</span></div>
-{_it./result-2:/result_indicator||}
+<div class="header_section sticky collapsable bright">outcome<span class="count">( {_it./result-2.length} )</span></div>
+<div class="wrap_result_table">{_it./result-2:/result_indicator||}</div>
 
 #^result-3
-<div class="header_section sticky collapsable">impact<span class="count">( {_it./result-3.length} )</span></div>
-{_it./result-3:/result_indicator||}
+<div class="header_section sticky collapsable bright">impact<span class="count">( {_it./result-3.length} )</span></div>
+<div class="wrap_result_table">{_it./result-3:/result_indicator||}</div>
 
 #^result-9
-<div class="header_section sticky collapsable">other<span class="count">( {_it./result-9.length} )</span></div>
-{_it./result-9:/result_indicator||}
+<div class="header_section sticky collapsable bright">other<span class="count">( {_it./result-9.length} )</span></div>
+<div class="wrap_result_table">{_it./result-9:/result_indicator||}</div>
 
-#^result-table
+<!--	RESULT INDICATOR	-->
+#^/result_indicator
+<div class="wrap_result_indicator">{_it./indicator:/result_indicator_facet||}<div class="result_separator"></div></div>
+
+#^/result_indicator_facet
+{_it:/result_indicator_row_new_indicator||}
+<table class="budget result sortable">
+{result-table}
+{_it./facet:/result_indicator_row_new_all||}
+</table>
+
+#^result-table	<!--	RESULT TABLE HEADERS	-->
 <thead>
 	<tr>
-		<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INDICATOR</th>
+		<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4">FACET</th>
 		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4">BASELINE</th>
 		<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4">TARGET</th>
 		<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4">ACTUAL</th>			
@@ -411,37 +440,44 @@
 	</tr>
 </thead>
 
-
-<!--	RESULT INDICATOR	-->
-#^/result_indicator
-{_it./indicator:/result_indicator_facet||}
-
-#^/result_indicator_facet
-<table class="budget result sortable">
-{result-table}
-{_it:/result_indicator_row_new_indicator||}
-{_it./facet:/result_indicator_row_new_all||}
-</table>
-
 #^/result_indicator_row_new_all
 {_it./value:/result_indicator_row_new||}
 
-#^/result_indicator_row_new_indicator
-<tr class="row_count">
-	<td colspan="5">{_it:/indicator_text||}</td>
-</tr>
+#^/result_indicator_row_new_indicator		<!--	RESULT INDICATOR SECTION : TITLE, DESCRIPTION & OTHER INFORMATION	-->
+{_it./reference&&_it:/indicator_text_reference||_it:/indicator_text||}
 
+#^/indicator_text_reference					<!--	USE WHEN REFERENCE OR DOCUMENTS ARE PUBLISHED	-->
+<div class="wrap_result_indicator_title">
+	<div class="header_section collapsable brighter">INDICATOR</div>
+	<div class="result_indicator left_indi">
+		<div class="result_title">{_it./title/narrative.0.text||}</div>
+		{_it./description/narrative&&_it:/indicator_desc||}
+	</div><div class="result_indicator">
+		{_it./document-link&&_it:/wrap-document-link||}	
+		{_it./reference&&_it:/wrap-result-reference||}
+	</div>
+</div>
+
+#^/indicator_text
+<div class="wrap_result_indicator_title">
+	<div class="header_section collapsable brighter">INDICATOR</div>
+	<div class="result_title">{_it./title/narrative.0.text||}</div>
+		{_it./description/narrative&&_it:/indicator_desc||}
+</div>
+
+#^/indicator_desc
+<div class="result_indi_desc">{_it./description/narrative.0.text||}</div>
 
 #^/empty_dimension
 <div class="result_empty">No dimension has been provided</div>
 #^/empty_location
-<div class="result_empty">No location provided</div>
+<div class="result_empty">No location has been provided</div>
 
 #^/result_indicator_row_new_facet_dimension
-<div>{_it.@name} = {_it.@value}</div>
+<div class="result_facet">{_it.@name} = {_it.@value}</div>
 
 #^/result_indicator_row_new_facet_location
-<div>Location = {_it.@ref}</div>
+<div class="result_facet">Location = {_it.@ref}</div>
 
 #^/result_indicator_row_new
 <tr class="row_count">
@@ -449,28 +485,17 @@
 		{_it./dimension:/result_indicator_row_new_facet_dimension||/empty_dimension}
 		{_it./location:/result_indicator_row_new_facet_location||/empty_location}
 	</td>
-	<td class="result_base">{_it.@baseline||}</td>
-	<td class="result_base">{_it.@target||}</td>
-	<td class="result_base">{_it.@actual||}</td>
+	<td class="result_base">{_it.@baseline||/empty_result}</td>
+	<td class="result_base">{_it.@target||/empty_result}</td>
+	<td class="result_base">{_it.@actual||/empty_result}</td>
 	<td class="result_period">{_it./period-start@iso-date||} : {_it./period-end@iso-date||} <br/>%{_it.@percent||}</td>
 </tr>
 
+#^/empty_result
+<div class="result_empty">Not provided</div>
+
 #^/facet_text
-<div class="result_indicator">
-{_it}
-</div>
-
-<!--	RESULT INDICATOR TITLE, DESCRIPTION & OTHER INFORMATION, FIRST COLUMN	-->
-#^/indicator_text
-<div class="result_indicator">
-	<div class="result_title">{_it./title/narrative.0.text||}</div>
-	{_it./description/narrative&&_it:/indicator_desc||}	
-	{_it./document-link&&_it:/wrap-document-link||}	
-	{_it./reference&&_it:/wrap-result-reference||}	
-</div>
-
-#^/indicator_desc
-<div class="result_indi_desc">{_it./description/narrative.0.text||}</div>
+<div class="result_indicator">{_it}</div>
 
 #^/wrap-result-reference
 <div class="wrap_result_indi_ref">
@@ -571,10 +596,76 @@
 #^all-charts-legend
 <div class="wrap_legend"><div class="legend chart_1"><span></span>Incoming Funds</div><div class="legend chart_2"><span></span>Outgoing Commitment</div><div class="legend chart_3"><span></span>Disbursement</div><div class="legend chart_4"><span></span>Expenditure</div><div class="legend chart_5"><span></span>Interest Payment</div><div class="legend chart_6"><span></span>Loan Repayment</div><div class="legend chart_7"><span></span>Reimbursement</div><div class="legend chart_8"><span></span>Purchase of Equity</div><div class="legend chart_9"><span></span>Sale of Equity</div><div class="legend chart_10"><span></span>Credit Guarantee</div><div class="legend chart_11"><span></span>Incoming Commitment</div><div class="legend chart_12"><span></span>Outgoing Pledge</div><div class="legend chart_13"><span></span>Incoming Pledge</div><div class="legend chart_14"><span></span>Planned Disbursement</div><div class="legend chart_15"><span></span>Budget</div></div>
 
+#^transaction-1-chart
+<div class="legend chart_1"><span></span>Incoming Funds</div><!---->
+#^transaction-2-chart
+<div class="legend chart_2"><span></span>Outgoing Commitment</div><!---->
+#^transaction-3-chart
+<div class="legend chart_3"><span></span>Disbursement</div><!---->
+#^transaction-4-chart
+<div class="legend chart_4"><span></span>Expenditure</div><!---->
+#^transaction-5-chart
+<div class="legend chart_5"><span></span>Interest Payment</div><!---->
+#^transaction-6-chart
+<div class="legend chart_6"><span></span>Loan Repayment</div><!---->
+#^transaction-7-chart
+<div class="legend chart_7"><span></span>Reimbursement</div><!---->
+#^transaction-8-chart
+<div class="legend chart_8"><span></span>Purchase of Equity</div><!---->
+#^transaction-9-chart
+<div class="legend chart_9"><span></span>Sale of Equity</div><!---->
+#^transaction-10-chart
+<div class="legend chart_10"><span></span>Credit Guarantee</div><!---->
+#^transaction-11-chart
+<div class="legend chart_11"><span></span>Incoming Commitment</div><!---->
+#^transaction-12-chart
+<div class="legend chart_12"><span></span>Outgoing Pledge</div><!---->
+#^transaction-13-chart
+<div class="legend chart_13"><span></span>Incoming Pledge</div><!---->
+#^transaction-14-chart
+<div class="legend chart_14"><span></span>Planned Disbursement</div><!---->
+#^transaction-15-chart
+<div class="legend chart_15"><span></span>Budget</div><!---->
+
 #^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
 	<div class="wrap_transaction">
-		<div class="header_section collapsable">Transactions <span class="count">( {_it./transaction.length} )</span></div>
-		{all-charts-legend}
+		<div class="header_section collapsable">
+			Transactions <span class="count">( {_it./transaction.length} )</span>
+			<div class="wrap_length">
+				{_it./transaction-1&&_it:transaction-1-length||}
+				{_it./transaction-2&&_it:transaction-2-length||}
+				{_it./transaction-3&&_it:transaction-3-length||}
+				{_it./transaction-4&&_it:transaction-4-length||}
+				{_it./transaction-5&&_it:transaction-5-length||}
+				{_it./transaction-6&&_it:transaction-6-length||}
+				{_it./transaction-7&&_it:transaction-7-length||}
+				{_it./transaction-8&&_it:transaction-8-length||}
+				{_it./transaction-9&&_it:transaction-9-length||}
+				{_it./transaction-10&&_it:transaction-10-length||}
+				{_it./transaction-11&&_it:transaction-11-length||}
+				{_it./transaction-12&&_it:transaction-12-length||}
+				{_it./transaction-13&&_it:transaction-13-length||}
+				{_it./planned-disbursement&&_it:transaction-14-length||}
+				{_it./budget&&_it:transaction-15-length||}
+			</div>
+		</div>
+		<div class="wrap_legend">
+			{_it./transaction-1&&_it:transaction-1-chart||}
+			{_it./transaction-2&&_it:transaction-2-chart||}
+			{_it./transaction-3&&_it:transaction-3-chart||}
+			{_it./transaction-4&&_it:transaction-4-chart||}
+			{_it./transaction-5&&_it:transaction-5-chart||}
+			{_it./transaction-6&&_it:transaction-6-chart||}
+			{_it./transaction-7&&_it:transaction-7-chart||}
+			{_it./transaction-8&&_it:transaction-8-chart||}
+			{_it./transaction-9&&_it:transaction-9-chart||}
+			{_it./transaction-10&&_it:transaction-10-chart||}
+			{_it./transaction-11&&_it:transaction-11-chart||}
+			{_it./transaction-12&&_it:transaction-12-chart||}
+			{_it./transaction-13&&_it:transaction-13-chart||}
+			{_it./planned-disbursement&&_it:transaction-14-chart||}
+			{_it./budget&&_it:transaction-15-chart||}
+		</div>
 		{all-charts}
 		{_it./transaction-1&&_it:transaction-1||}
 		{_it./transaction-2&&_it:transaction-2||}
@@ -590,6 +681,38 @@
 		{_it./transaction-12&&_it:transaction-12||}
 		{_it./transaction-13&&_it:transaction-13||}
 	</div>
+	
+<!--	RESULT LENGTH	-->
+#^transaction-1-length
+Incoming Funds <span class="count">( {_it./transaction-1.length} )</span> 
+#^transaction-2-length
+Outgoing Commitment <span class="count">( {_it./transaction-2.length} )</span>
+#^transaction-3-length
+Disbursement <span class="count">( {_it./transaction-3.length} )</span>
+#^transaction-4-length
+Expenditure <span class="count">( {_it./transaction-4.length} )</span>
+#^transaction-5-length
+Interest Payment <span class="count">( {_it./transaction-5.length} )</span>
+#^transaction-6-length
+Loan Repayment <span class="count">( {_it./transaction-6.length} )</span>
+#^transaction-7-length
+Reimbursement <span class="count">( {_it./transaction-7.length} )</span>
+#^transaction-8-length
+Purchase of Equity <span class="count">( {_it./transaction-8.length} )</span>
+#^transaction-9-length
+Sale of Equity <span class="count">( {_it./transaction-9.length} )</span>
+#^transaction-10-length
+Credit Guarantee <span class="count">( {_it./transaction-10.length} )</span>
+#^transaction-11-length
+Incoming Commitment <span class="count">( {_it./transaction-11.length} )</span>
+#^transaction-12-length
+Outgoing Pledge <span class="count">( {_it./transaction-12.length} )</span>
+#^transaction-13-length
+Incoming Pledge <span class="count">( {_it./transaction-13.length} )</span>
+#^transaction-14-length
+Planned Disbursement <span class="count">( {_it./planned-disbursement.length} )</span>
+#^transaction-15-length
+Budget <span class="count">( {_it./budget.length} )</span>
 
 #^transaction-chart	<!--	TRANSACTION CHART	-->	
 <div class="showchart">
@@ -634,91 +757,91 @@
 
 <!--	TRANSACTION TYPES	-->
 #^transaction-1
-	<div class="header_section sticky collapsable">Incoming Funds <span class="count">( {_it./transaction-1.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Incoming Funds <span class="count">( {_it./transaction-1.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-1:/transaction||}
 	</table>
 	<div class="chart_trans_1"><div class="legend chart_1"><span></span>Incoming Funds</div>{_it./transaction-1-data&&_it./transaction-1-data:transaction-chart||}</div>
 #^transaction-2
-	<div class="header_section sticky collapsable">Outgoing Commitment <span class="count">( {_it./transaction-2.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Outgoing Commitment <span class="count">( {_it./transaction-2.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-2:/transaction||}
 	</table>
 	<div class="chart_trans_2"><div class="legend chart_2"><span></span>Outgoing Commitment</div>{_it./transaction-2-data&&_it./transaction-2-data:transaction-chart||}</div>
 #^transaction-3
-	<div class="header_section sticky collapsable">Disbursement <span class="count">( {_it./transaction-3.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Disbursement <span class="count">( {_it./transaction-3.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-3:/transaction||}
 	</table>
 	<div class="chart_trans_3"><div class="legend chart_3"><span></span>Disbursement</div>{_it./transaction-3-data&&_it./transaction-3-data:transaction-chart||}</div>
 #^transaction-4
-	<div class="header_section sticky collapsable">Expenditure <span class="count">( {_it./transaction-4.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Expenditure <span class="count">( {_it./transaction-4.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-4:/transaction||}
 	</table>
 	<div class="chart_trans_4"><div class="legend chart_4"><span></span>Expenditure</div>{_it./transaction-4-data&&_it./transaction-4-data:transaction-chart||}</div>
 #^transaction-5
-	<div class="header_section sticky collapsable">Interest Payment <span class="count">( {_it./transaction-5.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Interest Payment <span class="count">( {_it./transaction-5.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-5:/transaction||}
 	</table>
 	<div class="chart_trans_5"><div class="legend chart_5"><span></span>Interest Payment</div>{_it./transaction-5-data&&_it./transaction-5-data:transaction-chart||}</div>
 #^transaction-6
-	<div class="header_section sticky collapsable">Loan Repayment <span class="count">( {_it./transaction-6.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Loan Repayment <span class="count">( {_it./transaction-6.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-6:/transaction||}
 	</table>
 	<div class="chart_trans_6"><div class="legend chart_6"><span></span>Loan Repayment</div>{_it./transaction-6-data&&_it./transaction-6-data:transaction-chart||}</div>
 #^transaction-7
-	<div class="header_section sticky collapsable">Reimbursement <span class="count">( {_it./transaction-7.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Reimbursement <span class="count">( {_it./transaction-7.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-7:/transaction||}
 	</table>
 	<div class="chart_trans_7"><div class="legend chart_7"><span></span>Reimbursement</div>{_it./transaction-7-data&&_it./transaction-7-data:transaction-chart||}</div>
 #^transaction-8
-	<div class="header_section sticky collapsable">Purchase of Equity <span class="count">( {_it./transaction-8.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Purchase of Equity <span class="count">( {_it./transaction-8.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-8:/transaction||}
 	</table>
 	<div class="chart_trans_8"><div class="legend chart_8"><span></span>Purchase of Equity</div>{_it./transaction-8-data&&_it./transaction-8-data:transaction-chart||}</div>
 #^transaction-9
-	<div class="header_section sticky collapsable">Sale of Equity <span class="count">( {_it./transaction-9.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Sale of Equity <span class="count">( {_it./transaction-9.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-9:/transaction||}
 	</table>
 	<div class="chart_trans_9"><div class="legend chart_9"><span></span>Sale of Equity</div>{_it./transaction-9-data&&_it./transaction-9-data:transaction-chart||}</div>
 #^transaction-10
-	<div class="header_section sticky collapsable">Credit Guarantee <span class="count">( {_it./transaction-10.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Credit Guarantee <span class="count">( {_it./transaction-10.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-10:/transaction||}
 	</table>
 	<div class="chart_trans_10"><div class="legend chart_10"><span></span>Credit Guarantee</div>{_it./transaction-10-data&&_it./transaction-10-data:transaction-chart||}</div>
 #^transaction-11
-	<div class="header_section sticky collapsable">Incoming Commitment <span class="count">( {_it./transaction-11.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Incoming Commitment <span class="count">( {_it./transaction-11.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-11:/transaction||}
 	</table>
 	<div class="chart_trans_11"><div class="legend chart_11"><span></span>Incoming Commitment</div>{_it./transaction-11-data&&_it./transaction-11-data:transaction-chart||}</div>
 #^transaction-12
-	<div class="header_section sticky collapsable">Outgoing Pledge <span class="count">( {_it./transaction-12.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Outgoing Pledge <span class="count">( {_it./transaction-12.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-12:/transaction||}
 	</table>
 	<div class="chart_trans_12"><div class="legend chart_12"><span></span>Outgoing Funds</div>{_it./transaction-12-data&&_it./transaction-12-data:transaction-chart||}</div>
 #^transaction-13
-	<div class="header_section sticky collapsable">Incoming Pledge <span class="count">( {_it./transaction-13.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Incoming Pledge <span class="count">( {_it./transaction-13.length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-13:/transaction||}
@@ -1263,7 +1386,7 @@
 </tr>
 
 #^/activity-description
-<div>{_it./activity-description/narrative.0.text||}</div>
+<div class="loc_act">{_it./activity-description/narrative.0.text||}</div>
 
 #^/location-ref
 <div>
@@ -1295,9 +1418,9 @@
 
 #^/location-feature
 <div>
-	<span title="{_it.@code-description||}" class="ref">
-		FEAT <span style="text-transform:capitalize;">{_it.@code-name||}</span>
-	</span><span class="type">{_it.text||}</span>
+	<span title="{_it./feature-designation@code-description||}" class="ref">
+		TYPE <span>{_it./feature-designation@code-name||}</span>
+	</span> <span class="type">{_it./feature-designation@code||}</span>
 </div>
 
 #^/wrap-participating-org	<!--	PARTICIPATING ORG WRAPPER	-->	
