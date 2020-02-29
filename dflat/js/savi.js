@@ -685,7 +685,7 @@ savi.prepare=function(iati_xson){
 							}
 							str=stringify(key,{space:" "})
 
-							if( facetmap[str] ) // already available
+							if( facetmap[str] !== undefined ) // already available
 							{
 								return facetmap[str]
 							}

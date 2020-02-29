@@ -386,28 +386,19 @@
 <!--	RESULT ROWS	-->
 #^result-1
 <div class="header_section sticky collapsable">output<span class="count">( {_it./result-1.length} )</span></div>
-<table class="budget result sortable">
-	{result-table-new}
-	{_it./result-1:/result_indicator||}
-</table>
+{_it./result-1:/result_indicator||}
+
 #^result-2
 <div class="header_section sticky collapsable">outcome<span class="count">( {_it./result-2.length} )</span></div>
-<table class="budget result sortable">
-	{result-table-new}
-	{_it./result-2:/result_indicator||}
-</table>
+{_it./result-2:/result_indicator||}
+
 #^result-3
 <div class="header_section sticky collapsable">impact<span class="count">( {_it./result-3.length} )</span></div>
-<table class="budget result sortable">
-	{result-table-new}
-	{_it./result-3:/result_indicator||}
-</table>
+{_it./result-3:/result_indicator||}
+
 #^result-9
 <div class="header_section sticky collapsable">other<span class="count">( {_it./result-9.length} )</span></div>
-<table class="budget result sortable">
-	{result-table-new}
-	{_it./result-9:/result_indicator||}
-</table>
+{_it./result-9:/result_indicator||}
 
 #^result-table
 <thead>
@@ -420,42 +411,76 @@
 	</tr>
 </thead>
 
-#^result-table-new
-<thead>
-	<tr>
-		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2">VALUE</th>		
-		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2">START</th>				
-		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2">END</th>				
-	</tr>
-</thead>
 
 <!--	RESULT INDICATOR	-->
 #^/result_indicator
-{_it./indicator:/result_indicator_row_new1||}
+{_it./indicator:/result_indicator_facet||}
 
-#^/result_indicator_row
+#^/result_indicator_facet
+<table class="budget result sortable">
+{result-table}
+{_it:/result_indicator_row_new_indicator||}
+{_it./facet:/result_indicator_row_new_all||}
+</table>
+
+#^/result_indicator_row_new_all
+
+{_it:/result_indicator_row_new_facet||}
+{_it./baseline:/result_indicator_row_new_baseline||}
+{_it./target:/result_indicator_row_new_target||}
+{_it./actual:/result_indicator_row_new_actual||}
+
+#^/result_indicator_row_new_indicator
 <tr class="row_count">
-	<td class="result_indi">{_it./title/narrative&&_it:/indicator_text||}</td>
-	<td class="result_base">{_it.@measure&&_it:/result_measure||}{_it./baseline&&_it:/result_baseline||}</td>
-	<td class="result_target">{_it.@measure&&_it:/result_measure||}{_it./period&&_it:/result_period_target||}</td>
-	<td class="result_actual">{_it.@measure&&_it:/result_measure||}{_it./period&&_it:/result_period_actual||}</td>	
-	<td class="result_period">{_it./period&&_it:/result_period||}</td>	
+	<td>{_it:/indicator_text||}</td>
 </tr>
 
-#^/result_indicator_row_new1
+#^/result_indicator_row_new_facet
 <tr class="row_count">
-	<td class="result_base">{_it./baseline&&_it:/result_baseline||}</td>
-	<td class="result_base">{_it./target&&_it:/result_target||}</td>
-	<td class="result_base">{_it./actual&&_it:/result_actual||}</td>
+	<td>
+		{_it./dimension:/result_indicator_row_new_facet_dimension||}
+		{_it./location:/result_indicator_row_new_facet_location||}
+	</td>
+</tr>
+#^/result_indicator_row_new_facet_dimension
+
+<div>{_it.@name} = {_it.@value}</div>
+
+#^/result_indicator_row_new_facet_location
+
+<div>Location = {_it.@ref}</div>
+
+#^/result_indicator_row_new_baseline
+<tr class="row_count">
+	<td></td>
+	<td class="result_base">{_it.@value||}</td>
+	<td></td>
+	<td></td>
+	<td class="result_period">{_it.@year||}</td>
 </tr>
 
-
-#^/result_indicator_row_new
+#^/result_indicator_row_new_target
 <tr class="row_count">
-	<td class="result_base">{_it.@measure&&_it:/result_measure||}{_it./baseline&&_it:/result_baseline||}</td>
-	<td class="result_period">{_it./period&&_it:/result_period_start||}</td>	
-	<td class="result_period">{_it./period&&_it:/result_period_end||}</td>	
+	<td></td>
+	<td></td>
+	<td class="result_base">{_it.@value||}</td>
+	<td></td>
+	<td class="result_period">{_it./period-start@iso-date||} : {_it./period-end@iso-date||}</td>
 </tr>
+
+#^/result_indicator_row_new_actual
+<tr class="row_count">
+	<td></td>
+	<td></td>
+	<td></td>
+	<td class="result_base">{_it.@value||}</td>
+	<td class="result_period">{_it./period-start@iso-date||} : {_it./period-end@iso-date||}</td>
+</tr>
+
+#^/facet_text
+<div class="result_indicator">
+{_it}
+</div>
 
 <!--	RESULT INDICATOR TITLE, DESCRIPTION & OTHER INFORMATION, FIRST COLUMN	-->
 #^/indicator_text
