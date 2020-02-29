@@ -424,7 +424,6 @@
 </table>
 
 #^/result_indicator_row_new_all
-{_it:/result_indicator_row_new_facet||}
 {_it./value:/result_indicator_row_new||}
 
 #^/result_indicator_row_new_indicator
@@ -432,13 +431,6 @@
 	<td colspan="5">{_it:/indicator_text||}</td>
 </tr>
 
-#^/result_indicator_row_new_facet
-<tr class="row_count">
-	<td colspan="5">
-		{_it./dimension:/result_indicator_row_new_facet_dimension||/empty_dimension}
-		{_it./location:/result_indicator_row_new_facet_location||/empty_location}
-	</td>
-</tr>
 
 #^/empty_dimension
 <div class="result_empty">No dimension has been provided</div>
@@ -453,7 +445,10 @@
 
 #^/result_indicator_row_new
 <tr class="row_count">
-	<td></td>
+	<td>
+		{_it./dimension:/result_indicator_row_new_facet_dimension||/empty_dimension}
+		{_it./location:/result_indicator_row_new_facet_location||/empty_location}
+	</td>
 	<td class="result_base">{_it.@baseline||}</td>
 	<td class="result_base">{_it.@target||}</td>
 	<td class="result_base">{_it.@actual||}</td>
