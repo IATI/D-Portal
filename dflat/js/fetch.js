@@ -289,7 +289,7 @@ fetch.codelist_filenames_2={
 	"LoanRepaymentPeriod.xml":true,
 	"LoanRepaymentType.xml":true,
 	"LocationType-category.xml":true,
-//	"LocationType.xml":true, // external cruft
+	"LocationType.xml":true, // external cruft
 	"OrganisationIdentifier.xml":true,
 	"OrganisationRegistrationAgency.xml":true,
 	"OrganisationType.xml":true,
