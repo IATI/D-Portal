@@ -295,7 +295,7 @@ table.budget.part_org td.part_org_type		{width:160px; padding-right:20px;}
 
 /*	IATI ACTIVITY HUMANITARIAN SCOPE TABLE	*/
 .wrap_humanitarian_scope th.hum_code,
-.wrap_humanitarian_scope td.hum_code		{width:190px; padding-right:20px;}
+.wrap_humanitarian_scope td.hum_code		{width:190px; padding-right:20px; font-size:12px;}
 .wrap_humanitarian_scope th.hum_vocab,
 .wrap_humanitarian_scope td.hum_vocab		{width:130px; padding-right:20px;}
 .wrap_humanitarian_scope th.hum_type,
@@ -396,13 +396,17 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_conditions th.condition_narr,
 .wrap_conditions td.condition_narr		{width:480px; padding-right:40px;}
 .wrap_conditions th.condition_type,
-.wrap_conditions td.condition_type		{width:160px;}
+.wrap_conditions td.condition_type		{width:120px;}
+.wrap_conditions table.budget td.condition_narr	{font-size:12px; line-height:16px;}
+.wrap_conditions table.budget td.condition_desc	{font-size:12px; line-height:16px;}
 
 /*	IATI ACTIVITY TAG TABLE	*/
 .wrap_tag table.budget th.tag_code,
 .wrap_tag table.budget td.tag_code		{width:480px; padding-right:40px;}
 .wrap_tag table.budget th.tag_vocab,
-.wrap_tag table.budget td.tag_vocab		{width:160px;}
+.wrap_tag table.budget td.tag_vocab		{width:160px; font-size:12px; padding-right:20px;}
+.wrap_tag table.budget th.tag_desc,
+.wrap_tag table.budget td.tag_desc		{font-size:12px;}
 
 /*	IATI ACTIVITY RELATED ACTIVITY TABLE	*/
 .wrap_related_activity table.budget th,
@@ -437,7 +441,6 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 
 /*	Thinner tables rows for better legibility	*/
 .wrap_participating_org table.budget td,
-.wrap_humanitarian_scope table.budget td,
 .wrap_locaiton table.budget td	{padding:5px 0;}
 
 
