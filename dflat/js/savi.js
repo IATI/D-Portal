@@ -751,7 +751,16 @@ savi.prepare=function(iati_xson){
 									let dist
 									for( let baseline of facet["/baseline"] )
 									{
-										let d=parseInt( baseline["@iso-date"].substring(0,4) )-y
+										let d=y
+										if( baseline["@year"] )
+										{
+											d=parseInt( baseline["@year"] )-y
+										}
+										else
+										if( baseline["@iso-date"] )
+										{
+											d=parseInt( baseline["@iso-date"].substring(0,4) )-y
+										}
 										d=d*d
 										if( (!best) || (d<dist) )
 										{
