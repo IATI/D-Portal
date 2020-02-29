@@ -5,6 +5,8 @@ var savi=exports;
 
 var xson=require("./xson.js")
 
+var stringify = require('json-stable-stringify');
+
 
 var encodeURIComponent=function(str)
 {
@@ -665,6 +667,89 @@ savi.prepare=function(iati_xson){
 									}
 								}
 							}
+						}
+						indicator["/facet"]=[]
+						let facetmap={}
+						let facetget=function(it)
+						{
+							let key={}
+							let str=""
+							
+							if( it["/dimension"] )
+							{
+								key["/dimension"]=it["/dimension"]
+							}
+							if( it["/location"] )
+							{
+								key["/location"]=it["/location"]
+							}
+							str=stringify(key,{space:" "})
+
+							if( facetmap[str] ) // already available
+							{
+								return facetmap[str]
+							}
+							
+							let facet={}
+							let idx=indicator["/facet"].length
+							facetmap[str]=idx
+							indicator["/facet"][idx]=facet
+							
+							if( it["/dimension"] )
+							{
+								facet["/dimension"]=it["/dimension"]
+							}
+							if( it["/location"] )
+							{
+								facet["/location"]=it["/location"]
+							}
+							return idx
+						}
+						if( indicator["/baseline"] )
+						{
+							for( let baseline of indicator["/baseline"] )
+							{
+								let idx=facetget(baseline)
+								let it=indicator["/facet"][idx]
+								if( ! it["/baseline"] )
+								{
+									it["/baseline"]=[]
+									baseline_tosort.push( it["/baseline"] )
+								}
+								it["/baseline"].push(baseline)
+							}
+						}
+						if( indicator["/actual"] )
+						{
+							for( let actual of indicator["/actual"] )
+							{
+								let idx=facetget(actual)
+								let it=indicator["/facet"][idx]
+								if( ! it["/actual"] )
+								{
+									it["/actual"]=[]
+									periods_tosort.push( it["/actual"] )
+								}
+								it["/actual"].push(actual)
+							}
+						}
+						if( indicator["/target"] )
+						{
+							for( let target of indicator["/target"] )
+							{
+								let idx=facetget(target)
+								let it=indicator["/facet"][idx]
+								if( ! it["/target"] )
+								{
+									it["/target"]=[]
+									periods_tosort.push( it["/target"] )
+								}
+								it["/target"].push(target)
+							}
+						}
+						if( indicator["/facet"].length==0 ) // delete if empty
+						{
+							delete indicator["/facet"]
 						}
 					}
 				}
