@@ -425,9 +425,7 @@
 
 #^/result_indicator_row_new_all
 {_it:/result_indicator_row_new_facet||}
-{_it./baseline:/result_indicator_row_new_baseline||}
-{_it./target:/result_indicator_row_new_target||}
-{_it./actual:/result_indicator_row_new_actual||}
+{_it./value:/result_indicator_row_new||}
 
 #^/result_indicator_row_new_indicator
 <tr class="row_count">
@@ -453,30 +451,12 @@
 #^/result_indicator_row_new_facet_location
 <div>Location = {_it.@ref}</div>
 
-#^/result_indicator_row_new_baseline
+#^/result_indicator_row_new
 <tr class="row_count">
 	<td></td>
-	<td class="result_base">{_it.@value||}</td>
-	<td></td>
-	<td></td>
-	<td class="result_period">{_it.@year||}</td>
-</tr>
-
-#^/result_indicator_row_new_target
-<tr class="row_count">
-	<td></td>
-	<td></td>
-	<td class="result_base">{_it.@value||}</td>
-	<td></td>
-	<td class="result_period">{_it./period-start@iso-date||} : {_it./period-end@iso-date||}</td>
-</tr>
-
-#^/result_indicator_row_new_actual
-<tr class="row_count">
-	<td></td>
-	<td></td>
-	<td></td>
-	<td class="result_base">{_it.@value||}</td>
+	<td class="result_base">{_it.@baseline||}</td>
+	<td class="result_base">{_it.@target||}</td>
+	<td class="result_base">{_it.@actual||}</td>
 	<td class="result_period">{_it./period-start@iso-date||} : {_it./period-end@iso-date||}</td>
 </tr>
 

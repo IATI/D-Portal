@@ -675,14 +675,8 @@ savi.prepare=function(iati_xson){
 							let key={}
 							let str=""
 							
-							if( it["/dimension"] )
-							{
-								key["/dimension"]=it["/dimension"]
-							}
-							if( it["/location"] )
-							{
-								key["/location"]=it["/location"]
-							}
+							if( it["/dimension"] ) { key["/dimension"]=it["/dimension"] }
+							if( it["/location"] ) { key["/location"]=it["/location"] }
 							str=stringify(key,{space:" "})
 
 							if( facetmap[str] !== undefined ) // already available
@@ -705,51 +699,127 @@ savi.prepare=function(iati_xson){
 							}
 							return idx
 						}
-						if( indicator["/baseline"] )
+						for( let baseline of ( indicator["/baseline"] || [] ) )
 						{
-							for( let baseline of indicator["/baseline"] )
+							let idx=facetget(baseline)
+							let it=indicator["/facet"][idx]
+							if( ! it["/baseline"] )
 							{
-								let idx=facetget(baseline)
-								let it=indicator["/facet"][idx]
-								if( ! it["/baseline"] )
-								{
-									it["/baseline"]=[]
-									baseline_tosort.push( it["/baseline"] )
-								}
-								it["/baseline"].push(baseline)
+								it["/baseline"]=[]
+								baseline_tosort.push( it["/baseline"] )
 							}
+							it["/baseline"].push(baseline)
 						}
-						if( indicator["/actual"] )
+						for( let actual of ( indicator["/actual"] || [] ) )
 						{
-							for( let actual of indicator["/actual"] )
+							let idx=facetget(actual)
+							let it=indicator["/facet"][idx]
+							if( ! it["/actual"] )
 							{
-								let idx=facetget(actual)
-								let it=indicator["/facet"][idx]
-								if( ! it["/actual"] )
-								{
-									it["/actual"]=[]
-									periods_tosort.push( it["/actual"] )
-								}
-								it["/actual"].push(actual)
+								it["/actual"]=[]
+								periods_tosort.push( it["/actual"] )
 							}
+							it["/actual"].push(actual)
 						}
-						if( indicator["/target"] )
+						for( let target of ( indicator["/target"] || [] ) )
 						{
-							for( let target of indicator["/target"] )
+							let idx=facetget(target)
+							let it=indicator["/facet"][idx]
+							if( ! it["/target"] )
 							{
-								let idx=facetget(target)
-								let it=indicator["/facet"][idx]
-								if( ! it["/target"] )
-								{
-									it["/target"]=[]
-									periods_tosort.push( it["/target"] )
-								}
-								it["/target"].push(target)
+								it["/target"]=[]
+								periods_tosort.push( it["/target"] )
 							}
+							it["/target"].push(target)
 						}
 						if( indicator["/facet"].length==0 ) // delete if empty
 						{
 							delete indicator["/facet"]
+						}
+						else // merge baseline , actual , target into one array
+						{
+							for( let facet of indicator["/facet"] )
+							{
+								facet["/value"]=[]
+								periods_tosort.push( facet["/value"] )
+								
+								let find_facet_baseline=function(ds)
+								{
+									if( ! facet["/baseline"] ) { return }
+									let y=parseInt( ds.substring(0,4) )
+									let best
+									let dist
+									for( let baseline of facet["/baseline"] )
+									{
+										let d=parseInt( baseline["@iso-date"].substring(0,4) )-y
+										d=d*d
+										if( (!best) || (d<dist) )
+										{
+											best=baseline
+											dist=d
+										}
+									}
+									return best
+								}
+
+								let find_facet_value=function(ds,de)
+								{
+									if( ! facet["/value"] ) { return }
+									for( let value of facet["/value"] )
+									{
+										if	(
+												( ds == value["/period-start@iso-date"] )
+												&&
+												( de == value["/period-end@iso-date"] )
+											)
+										{
+											return value
+										}
+									}
+								}
+
+								let create_facet_value=function(v)
+								{
+									let it={}
+									facet["/value"].push(it)
+
+									if( v["/dimension"] ) { it["/dimension"]=v["/dimension"] }
+									if( v["/location"] ) { it["/location"]=v["/location"] }
+
+									it["/period-start@iso-date"] = v["/period-start@iso-date"]
+									it["/period-end@iso-date"] = v["/period-end@iso-date"]
+									
+									return it
+								}
+
+								for( let actual of ( facet["/actual"] || [] ) )
+								{
+									let it=find_facet_value( actual["/period-start@iso-date"] , actual["/period-end@iso-date"] )
+									if(!it) { it=create_facet_value(actual) }
+									it["@actual"]=actual["@value"]
+								}
+								for( let target of ( facet["/target"] || [] ) )
+								{
+									let it=find_facet_value( target["/period-start@iso-date"] , target["/period-end@iso-date"] )
+									if(!it) { it=create_facet_value(target) }
+									it["@target"]=target["@value"]
+								}
+								for( let value of ( facet["/value"] || [] ) )
+								{
+									let it = find_facet_baseline( value["/period-start@iso-date"] )
+									if(it)
+									{
+										value["@baseline"]=it["@value"]
+									}
+								}
+								if( facet["/value"].length==0 ) // delete if empty
+								{
+									delete facet["/value"]
+								}
+								delete facet["/baseline"]
+								delete facet["/target"]
+								delete facet["/actual"]
+							}
 						}
 					}
 				}
