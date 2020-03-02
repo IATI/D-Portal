@@ -486,6 +486,12 @@ other<span class="count">( {_it./result-9.length} )</span>
 #^/result_indicator_row_new_facet_location
 <div class="result_facet">Location = {_it.@ref}</div>
 
+#^@percent-valid trim=ends
+<div class="result_percent_wrap">{_it.@percent}%<span style="background-color:{status.{_it.@percent}};"></span></div>
+
+#^@percent-null trim=ends
+<div class="result_percent_wrap">N/A</div>
+
 #^/result_indicator_row_new
 <tr class="row_count">
 	<td>
@@ -495,8 +501,8 @@ other<span class="count">( {_it./result-9.length} )</span>
 	<td class="result_base">{_it.@baseline||/empty_result}{_it.@measure||}</td>
 	<td class="result_target">{_it.@target||/empty_result}{_it.@measure||}</td>
 	<td class="result_actual">{_it.@actual||/empty_result}{_it.@measure||}</td>
-	<td class="result_percent"><div class="result_percent_wrap">{_it.@percent||/empty_percent}% <span style="background-color:{status.{_it.@percent}};"></span></div></td>
-	<td class="result_period">{_it./period-start@iso-date||} : {_it./period-end@iso-date||} <div>{_it.@period-percent||}</div></td>
+	<td class="result_percent">{_it.@percent-valid&&_it:@percent-valid||_it:@percent-null}</td>
+	<td class="result_period">{_it./period-start@iso-date||} : {_it./period-end@iso-date||} <div>{_it./period-percent||}</div></td>
 </tr>
 
 #^status form=json	<!--	PERCENT BACKGROUND COLOR	-->

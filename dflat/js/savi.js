@@ -797,6 +797,8 @@ savi.prepare=function(iati_xson){
 
 									it["/period-start@iso-date"] = v["/period-start@iso-date"]
 									it["/period-end@iso-date"] = v["/period-end@iso-date"]
+
+									it["/period-percent"] = v["/period-percent"]
 									
 									return it
 								}
@@ -823,13 +825,25 @@ savi.prepare=function(iati_xson){
 									let s=parseFloat(value["@baseline"])||0
 									let e=parseFloat(value["@target"])
 									let n=parseFloat(value["@actual"])
-									if( (s==s) && (e==e) && (n==n) ) // NaN and sanity test
+									if( (!isNaN(s)) && (!isNaN(e)) && (!isNaN(n)) ) // NaN and sanity test
 									{
-										value["@percent"]=Math.floor( 100 * (n-s) / (e-s) )
-										
-										if(value["@percent"]<0) { value["@percent"]=0 }
+										if(e==n)
+										{
+											value["@percent"]=100
+										}
+										else
+										{
+											value["@percent"]=Math.floor( 100 * (n-s) / (e-s) )
+											if(indicator["@ascending"]==0)
+											{
+												value["@percent"]=-value["@percent"]
+											}
+										}
+										if(value["@percent"]<=0) { value["@percent"]=0 }
 										else
 										if(value["@percent"]>100) { value["@percent"]=100 }
+										
+										value["@percent-valid"]=true
 									}
 								}
 								if( facet["/value"].length==0 ) // delete if empty
