@@ -843,7 +843,6 @@ savi.prepare=function(iati_xson){
 										else
 										if(value["@percent"]>100) { value["@percent"]=100 }
 										
-										value["@percent-valid"]=true
 									}
 								}
 								if( facet["/value"].length==0 ) // delete if empty
