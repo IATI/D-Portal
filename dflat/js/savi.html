@@ -81,11 +81,11 @@
 {_it./legacy-data&&_it:/wrap-legacy-data||}
 {_it./crs-add/other-flags&&_it:/wrap-crs-add||}
 <div class="crs">
-{_it./crs-add/loan-status@year&&_it:/loan-status/year||}
-{_it./crs-add/loan-status/interest-received&&_it:/loan-status/interest-received||}
-{_it./crs-add/loan-status/principal-outstanding&&_it:/loan-status/principal-outstanding||}
-{_it./crs-add/loan-status/principal-arrears&&_it:/loan-status/principal-arrears||}
-{_it./crs-add/loan-status/interest-arrears&&_it:/loan-status/interest-arrears||}
+	{_it./crs-add/loan-status@year&&_it:/loan-status/year||}
+	{_it./crs-add/loan-status/interest-received&&_it:/loan-status/interest-received||}
+	{_it./crs-add/loan-status/principal-outstanding&&_it:/loan-status/principal-outstanding||}
+	{_it./crs-add/loan-status/principal-arrears&&_it:/loan-status/principal-arrears||}
+	{_it./crs-add/loan-status/interest-arrears&&_it:/loan-status/interest-arrears||}
 </div>
 {_it./fss&&_it:/wrap-fss||}	<!--	0% published, need data to display	-->
 
@@ -406,22 +406,42 @@ other<span class="count">( {_it./result-9.length} )</span>
 <div class="header_section sticky collapsable bright">output<span class="count">( {_it./result-1.length} )</span></div>
 {_it./title/narrative.0.text&&_it:/result_title_text||}
 {_it./description/narrative&&_it:/indicator_desc||}
+<div class="header glossary">GLOSSARY</div>
+<div class="sector_list_wrap">{_it./result-1:/result_type_description}</div>
 <div class="wrap_result_table">{_it./result-1:/result_indicator||}</div>
 
 #^result-2
 <div class="header_section sticky collapsable bright">outcome<span class="count">( {_it./result-2.length} )</span></div>
+{_it./title/narrative.0.text&&_it:/result_title_text||}
+{_it./description/narrative&&_it:/indicator_desc||}
+<div class="header glossary">GLOSSARY</div>
+<div class="sector_list_wrap">{_it./result-2:/result_type_description}</div>
 <div class="wrap_result_table">{_it./result-2:/result_indicator||}</div>
 
 #^result-3
 <div class="header_section sticky collapsable bright">impact<span class="count">( {_it./result-3.length} )</span></div>
+{_it./title/narrative.0.text&&_it:/result_title_text||}
+{_it./description/narrative&&_it:/indicator_desc||}
+<div class="header glossary">GLOSSARY</div>
+<div class="sector_list_wrap">{_it./result-3:/result_type_description}</div>
 <div class="wrap_result_table">{_it./result-3:/result_indicator||}</div>
 
 #^result-9
 <div class="header_section sticky collapsable bright">other<span class="count">( {_it./result-9.length} )</span></div>
+{_it./title/narrative.0.text&&_it:/result_title_text||}
+{_it./description/narrative&&_it:/indicator_desc||}
+<div class="header glossary">GLOSSARY</div>
+<div class="sector_list_wrap">{_it./result-9:/result_type_description}</div>
 <div class="wrap_result_table">{_it./result-9:/result_indicator||}</div>
 
 #^/result_title_text
 <div class="result_main_title">{_it./title/narrative.0.text||}</div>
+
+<!--	GLOSSARY DESCRIPTIONS	-->
+#^/result_type_description
+<div class="sector_list"> 
+	<span>{_it.@type-name||}</span><span class="sector_list_description">{_it.@type-description||/empty-description}</span>
+</div>
 
 <!--	RESULT INDICATOR	-->
 #^/result_indicator
@@ -430,9 +450,9 @@ other<span class="count">( {_it./result-9.length} )</span>
 #^/result_indicator_facet
 {_it:/result_indicator_row_new_indicator||}
 <table class="budget result sortable">
-{result-table}
-{_it.@measure-name||}
-{_it./facet:/result_indicator_row_new_all||}
+	{result-table}
+	{_it.@measure-name||}
+	{_it./facet:/result_indicator_row_new_all||}
 </table>
 
 #^result-table	<!--	RESULT TABLE HEADERS	-->
