@@ -354,7 +354,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .result_indicator_title						{padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:10px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; }
 .wrap_result_indi_ref						{padding-bottom:15px;}
 .result_indi_head							{font-size:11px; border-bottom:1px solid #4d5264; color:#ccc;}
-.result_indi_desc							{padding-top:10px; font-size:13px; line-height:15px;}
+.result_indi_desc							{padding-top:5px; font-size:14px; line-height:16px; color:#ddd;}
 .result_indi_ref							{padding:10px 0; font-size:11px; line-height:13px; border-bottom:1px dotted #666;}
 .result_indi_ref:last-of-type				{border:0; padding-bottom:0;}
 .result_indi_ref .ref						{display:inline-block; vertical-align:top; font-size:9px; min-width:35px;}
@@ -369,6 +369,8 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .result_indicator span.doc_cat,
 .result_indicator span.doc_rec,
 .result_indicator span.doc_date				{font-size:11px;}
+.wrap_result .sector_list_wrap				{color:#ccc; padding:0 0 10px 0;}
+.wrap_result .header.glossary				{margin-bottom:10px;}
 .wrap_result td.result_base .result_indi_measure,
 .wrap_result td.result_target .result_indi_measure,
 .wrap_result td.result_actual .result_indi_measure	{color:#ccc; font-size:11px; text-transform:uppercase;}
