@@ -827,17 +827,24 @@ savi.prepare=function(iati_xson){
 									let n=parseFloat(value["@actual"])
 									if( (!isNaN(s)) && (!isNaN(e)) && (!isNaN(n)) ) // NaN and sanity test
 									{
-										if(e==n)
+										if(e==n) // target==actual
 										{
 											value["@percent"]=100
 										}
 										else
+										if(e==s) // if baseline==target then it is always 0% if the 100% check above fails
+										{
+											value["@percent"]=0
+										}
+										else
 										{
 											value["@percent"]=Math.floor( 100 * (n-s) / (e-s) )
+/* With a correct baseline, we do not need to know this
 											if(indicator["@ascending"]==0)
 											{
 												value["@percent"]=-value["@percent"]
 											}
+*/
 										}
 										if(value["@percent"]<=0) { value["@percent"]=0 }
 										else
