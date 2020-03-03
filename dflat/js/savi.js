@@ -697,6 +697,10 @@ savi.prepare=function(iati_xson){
 							{
 								facet["/location"]=it["/location"]
 							}
+							if( indicator["@measure"] )
+							{
+								facet["@measure"]=indicator["@measure"]
+							}
 							return idx
 						}
 						for( let baseline of ( indicator["/baseline"] || [] ) )
@@ -821,6 +825,7 @@ savi.prepare=function(iati_xson){
 									if(it)
 									{
 										value["@baseline"]=it["@value"]
+										value["@baseline-year"]=it["@year"]
 									}
 									let s=parseFloat(value["@baseline"])||0
 									let e=parseFloat(value["@target"])
