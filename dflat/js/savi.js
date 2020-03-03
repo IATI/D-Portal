@@ -697,9 +697,12 @@ savi.prepare=function(iati_xson){
 							{
 								facet["/location"]=it["/location"]
 							}
-							if( indicator["@measure"] )
+							for( let n in indicator )
 							{
-								facet["@measure"]=indicator["@measure"]
+								if(n.startsWith("@measure"))
+								{
+									facet[n]=indicator[n]
+								}
 							}
 							return idx
 						}
