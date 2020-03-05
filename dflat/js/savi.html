@@ -478,7 +478,7 @@ other<span class="count">( {_it./result-9.length} )</span>
 {_it./value:/result_indicator_row_new||}
 
 #^/result_indicator_row_new_indicator		<!--	RESULT INDICATOR SECTION : TITLE, DESCRIPTION & OTHER INFORMATION	-->
-{_it./reference&&_it:/indicator_text_reference||_it:/indicator_text||}
+{_it./reference&&_it./document-link&&_it:/indicator_text_reference||_it:/indicator_text||}
 
 #^/indicator_text_reference					<!--	USE WHEN REFERENCE OR DOCUMENTS ARE PUBLISHED	-->
 <div class="wrap_result_indicator_title">
@@ -1769,7 +1769,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^/empty-description	<!--	DISPLAY THIS WHEN DESCRIPTION IS MISSING IN IATI STANDARD CODELISTS	-->
 No description provided
 
-#^/empty-percentage form=raw	<!--	USE THIS WHEN PERCENTAGE IS MISSING IN DATA	-->
+#^/empty-percentage trim=ends	<!--	USE THIS WHEN PERCENTAGE IS MISSING IN DATA	-->
 100
 
 #^/withdrawn	<!--	USE WHEN VOCAB/CODE/THING IS WITHDRAWN	-->
