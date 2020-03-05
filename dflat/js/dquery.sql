@@ -60,3 +60,16 @@ from xson where root='/iati-activities/iati-activity'
 
 limit 100;
 
+
+#^sql_count_document_links
+
+select
+
+aid , ( select count(*) from jsonb_array_elements(xson->'/document-link') )
+
+from xson where root='/iati-activities/iati-activity' and xson->'/document-link' is not null
+
+order by 2 desc
+
+limit 20;
+
