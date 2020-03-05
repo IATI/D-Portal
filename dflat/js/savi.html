@@ -448,7 +448,7 @@ other<span class="count">( {_it./result-9.length} )</span>
 {_it:/result_indicator_row_new_indicator||}
 <table class="budget result sortable">
 	{result-table}
-	{_it.@measure-name||}
+	{_it.@measure&&_it:/result_measure||}
 	{_it./facet:/result_indicator_row_new_all||}
 </table>
 
@@ -457,12 +457,22 @@ other<span class="count">( {_it./result-9.length} )</span>
 	<tr>
 		<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">FACET</th>
 		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">BASELINE</th>
-		<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">TARGET{_it.@measure-name||}</th>
+		<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">TARGET</th>
 		<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">ACTUAL</th>			
 		<th class="result_percent" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">ACHIEVED</th>			
 		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">PERIOD</th>				
 	</tr>
 </thead>
+
+#^/result_measure
+<tr class="row_measure">
+	<td></td>
+	<td>{_it.@baseline-year||}</td>
+	<td>{_it.@measure||}</td>
+	<td>{_it.@measure||}</td>
+	<td></td>
+	<td></td>
+</tr>
 
 #^/result_indicator_row_new_all
 {_it./value:/result_indicator_row_new||}
@@ -509,17 +519,22 @@ other<span class="count">( {_it./result-9.length} )</span>
 #^@percent-null trim=ends
 <div class="result_percent_wrap">N/A</div>
 
-#^/result_indicator_row_new
+#^/result_indicator_row_new					<!--	RESULTS FACETS, BASELINE, TARGET, ACTUAL AND PERIOD	-->
 <tr class="row_count">
 	<td>
 		{_it./dimension:/result_indicator_row_new_facet_dimension||/empty_dimension}
 		{_it./location:/result_indicator_row_new_facet_location||/empty_location}
 	</td>
-	<td class="result_base">{_it.@baseline||/empty_result}{_it.@measure||}</td>
-	<td class="result_target">{_it.@target||/empty_result}{_it.@measure||}</td>
-	<td class="result_actual">{_it.@actual||/empty_result}{_it.@measure||}</td>
+	<td class="result_base">{_it.@baseline||/empty_result}</td>
+	<td class="result_target">{_it.@target||/empty_result}</td>
+	<td class="result_actual">{_it.@actual||/empty_result}</td>
 	<td class="result_percent">{_it.@percent>=0&&_it:@percent||_it:@percent-null}</td>
-	<td class="result_period">{_it./period-start@iso-date||} : {_it./period-end@iso-date||} <div>{_it./period-percent||}</div></td>
+	<td class="result_period">
+		<div class="result_date_bar">
+			<div class="result_date_overlay" style="width:calc({_it./period-percent} * 1.50px);"></div>
+			<div class="result_date">{_it./period-start@iso-date||} : {_it./period-end@iso-date||}</div>
+		</div>
+	</td>
 </tr>
 
 #^status form=json	<!--	PERCENT BACKGROUND COLOR	-->
@@ -555,45 +570,6 @@ other<span class="count">( {_it./result-9.length} )</span>
 
 #^/result_uri
 <div><span class="ref">URI</span> <a href="{_it.@indicator-uri||}">Internal vocabulary</a></div>
-
-#^/result_measure
-<div class="result_indi_measure">{_it.@measure-name||}</div>
-
-#^/result_baseline
-{_it./baseline:/value}
-
-#^/result_period_target
-{_it./period:/result_target}
-
-#^/result_period_actual
-{_it./period:/result_actual}
-
-#^/result_target
-{_it./target:/value}
-
-#^/result_actual
-{_it./actual:/value}
-
-#^/result_period
-{_it./period:/period}
-
-#^/baseline_year
-<div>YEAR: {_it.@year||}</div>
-
-#^/value
-<div class="result_value">{_it.@value||}</div>
-		
-#^/period
-<div class="result_period_time"><span>{_it./period-start@iso-date||}</span> ~ <span>{_it./period-end@iso-date||}</span></div>
-#^/period_start
-<div class="result_period_time">{_it./period-start@iso-date||}</div>
-#^/period_end
-<div class="result_period_time">{_it./period-end@iso-date||}</div>
-
-#^/target
-<div>{_it./target@value||}</div>
-#^/actual
-<div>{_it./actual@value||}</div>
 
 #^all-charts
 <div class="showcharts">
