@@ -220,7 +220,7 @@
 			<div class="wrap_code">
 				<span class="sector_code_text">The percentage of the total commitment that is for capital spending</span>
 			</div><div class="wrap_bar">
-				<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+				<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 			</div>
 		</div>
 	</div>
@@ -247,7 +247,7 @@
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span>{_it.@code&&_it:/sector_code||}
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -464,12 +464,12 @@ other<span class="count">( {_it./result-9.length} )</span>
 	</tr>
 </thead>
 
-#^/result_measure
+#^/result_measure		<!--	@MEASURE ROW	-->
 <tr class="row_measure">
 	<td></td>
 	<td>{_it.@baseline-year||}</td>
-	<td>{_it.@measure||}</td>
-	<td>{_it.@measure||}</td>
+	<td title="{_it.@measure-description||}">{_it.@measure-name||}</td>
+	<td title="{_it.@measure-description||}">{_it.@measure-name||}</td>
 	<td></td>
 	<td></td>
 </tr>
@@ -521,7 +521,7 @@ other<span class="count">( {_it./result-9.length} )</span>
 <!--<div class="result_percent_wrap">{_it.@percent}%<span style="background-color:{status.{_it.@percent}};"></span></div>-->
 <div class="result_percent_wrap">
 	<span class="result_percent_value">{_it.@percent}%</span>
-	<span class="result_percent_dot" style="background-color:rgba(71,255,82,calc({_it.@percent||}/100));"></span>
+	<span class="result_percent_dot" style="background-color:hsl({_it.@percent||},100%,50%);"></span>
 </div>
 
 #^@percent-null trim=ends
@@ -545,11 +545,6 @@ other<span class="count">( {_it./result-9.length} )</span>
 	</td>
 </tr>
 
-#^status form=json	<!--	ACHIEVEMENT PERCENT BACKGROUND COLOR	-->
-{
-	"100":"rgb(71,255,82)",
-	"0":"rgb(244,71,82)",
-}
 #^period form=json	<!--	DATE BACKGROUND COLOR	-->
 {
 	"100":"rgb(100,100,100)",
@@ -1272,7 +1267,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}{_it.@code-withdrawn&&_it:/withdrawn||}</span>{_it.@code&&_it:/sector_code||}
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -1288,7 +1283,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it./narrative.0.text||}{_it.@code-withdrawn&&_it:/withdrawn||}</span>{_it.@code&&_it:/sector_code||}
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -1342,7 +1337,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -1351,7 +1346,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it./narrative.0.text||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -1367,7 +1362,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	<div class="wrap_code">
 		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
 	</div><div class="wrap_bar">
-		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:rgba(0,153,255,calc({_it.@percentage||/empty-percentage}/100));"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
@@ -1774,7 +1769,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^/empty-description	<!--	DISPLAY THIS WHEN DESCRIPTION IS MISSING IN IATI STANDARD CODELISTS	-->
 No description provided
 
-#^/empty-percentage	<!--	USE THIS WHEN PERCENTAGE IS MISSING IN DATA	-->
+#^/empty-percentage form=raw	<!--	USE THIS WHEN PERCENTAGE IS MISSING IN DATA	-->
 100
 
 #^/withdrawn	<!--	USE WHEN VOCAB/CODE/THING IS WITHDRAWN	-->
