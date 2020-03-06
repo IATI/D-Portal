@@ -227,7 +227,7 @@ table.budget tr th.status,
 table.budget tr td.status			{width:170px;}
 table.budget tr th.value,
 table.budget tr td.value			{width:160px; padding-right:20px;}
-table.budget tr:last-of-type td		{border:0;}	/*	Remove border-bottom from last row of tables	*/
+table.budget tr:last-of-type td		{border:0; padding-bottom:30px;}	/*	Remove border-bottom from last row of tables	*/
 
 .wrap_planned_disbursement table.budget tr th.provider,
 .wrap_planned_disbursement table.budget tr td.provider	{width:200px; padding-right:30px;}
@@ -335,8 +335,9 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 
 /*	IATI ACTIVITY RESULT TABLE	*/
 .wrap_result_table							{padding-bottom:20px;}
-.wrap_result th.result_indi,
-.wrap_result td.result_indi					{width:300px; padding-right:40px;}
+.wrap_result table.budget tr:last-of-type td{padding-bottom:0;}		/*	For Baseline year translateY to work	*/
+.wrap_result table.budget th.result_indi,
+.wrap_result table.budget td.result_indi	{width:320px; padding-right:40px;}
 .wrap_result th.result_percent,
 .wrap_result td.result_percent				{width:100px;}
 .wrap_result td.result_base					{position:relative;}
@@ -345,7 +346,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result td.result_actual,
 .wrap_result td.result_percent				{font-size:14px;}
 .wrap_result th.result_period,
-.wrap_result td.result_period				{width:150px;}
+.wrap_result td.result_period				{width:130px;}
 .wrap_result td.result_period				{font-size:11px; line-height:20px; text-align:center;}
 .result_indicator							{display:inline-block; vertical-align:top; width:25%;}
 .result_indicator.left_indi					{width:75%; padding-right:25px;}
@@ -377,8 +378,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result .header.glossary				{margin-bottom:10px;}
 .wrap_result table.budget td				{vertical-align:middle; padding:5px 0;}
 .wrap_result table.budget tr.row_measure td	{color:#ccc; font-size:11px; padding:5px 0;}
-.result_facet								{padding-bottom:5px; font-size:11px; line-height:16px; color:#ccc;}
-.result_facet:first-of-type					{padding-bottom:0;}
+.result_facet								{font-size:11px; line-height:16px; color:#ccc;}
 .result_facet_name							{font-size:13px; color:#fff;}
 .result_facet_value							{font-weight:bold; font-size:14px; color:#fff;}
 .result_empty								{font-size:12px; color:#ccc;}

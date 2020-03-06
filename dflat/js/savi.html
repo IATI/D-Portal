@@ -531,7 +531,7 @@ other<span class="count">( {_it./result-9.length} )</span>
 
 #^/result_indicator_row_new					<!--	RESULTS FACETS, BASELINE, TARGET, ACTUAL AND PERIOD	-->
 <tr class="row_count">
-	<td>
+	<td class="result_indi">
 		{_it./dimension:/result_indicator_row_new_facet_dimension||/empty_dimension}
 		{_it./location:/result_indicator_row_new_facet_location||/empty_location}
 	</td>
@@ -542,7 +542,7 @@ other<span class="count">( {_it./result-9.length} )</span>
 	<td class="result_period">
 		{_it./period-start@iso-date||} : {_it./period-end@iso-date||}
 		<div class="result_date_bar">
-			<div class="result_date_overlay" style="width:calc({_it./period-percent} * 1.50px); background-color:{period.{_it./period-percent}};"></div>
+			<div class="result_date_overlay" style="width:calc({_it./period-percent} * 1.30px); background-color:{period.{_it./period-percent}};"></div>
 		</div>
 	</td>
 </tr>
