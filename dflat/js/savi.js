@@ -906,5 +906,5 @@ savi.prepare=function(iati_xson){
 		}
 	}
 
-	return iati_xson // we tweaked and added values in preperation for display
+	return iati_xson // we tweaked and added values in preparation for display
 }

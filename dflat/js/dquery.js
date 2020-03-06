@@ -150,39 +150,32 @@ dquery.text_insert=async function(s)
 
 dquery.click=async function(id)
 {
-	switch(id)
+	if(id.startsWith("menu_examples_"))
 	{
+		let sid=id.substr(14)
+		dquery.text_insert( plated.plate("{sql_"+sid+"}") )
+	}
+	else
+	{
+		switch(id)
+		{
 
-		case "menu_execute":
-			$('#result').jsonViewer({"Loading":"..."});
-			var session=dquery.editor.getSession()
-			$.ajax({
-			  type: "POST",
-			  url: "/dquery",
-			  data: {sql:session.getValue()},
-			  success: dquery.result,
-			  dataType: "json",
-			});
-		break;
-		
-		case "menu_examples_select_activity":
-			dquery.text_insert( plated.plate("{sql_select_activity}") )
-		break
-		case "menu_examples_select_activity_top_level":
-			dquery.text_insert( plated.plate("{sql_select_activity_top_level}") )
-		break
-		
-		case "menu_examples_select_count":
-			dquery.text_insert( plated.plate("{sql_select_count}") )
-		break;
-		
-		case "menu_examples_select_subarray":
-			dquery.text_insert( plated.plate("{sql_select_activity_subarray}") )
-		break;
-		
-		default:
-			console.log("unhandled click "+id)
-		break
+			case "menu_execute":
+				$('#result').jsonViewer({"Loading":"..."});
+				var session=dquery.editor.getSession()
+				$.ajax({
+				  type: "POST",
+				  url: "/dquery",
+				  data: {sql:session.getValue()},
+				  success: dquery.result,
+				  dataType: "json",
+				});
+			break;
+			
+			default:
+				console.log("unhandled click "+id)
+			break
+		}
 	}
 }
 
