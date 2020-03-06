@@ -446,11 +446,13 @@ other<span class="count">( {_it./result-9.length} )</span>
 
 #^/result_indicator_facet
 {_it:/result_indicator_row_new_indicator||}
-<table class="budget result sortable">
-	{result-table}
-	{_it.@measure&&_it:/result_measure||}
-	{_it./facet:/result_indicator_row_new_all||}
-</table>
+<div class="wrap_result_table">
+	<table class="budget result sortable">
+		{result-table}
+		{_it.@measure&&_it:/result_measure||}
+		{_it./facet:/result_indicator_row_new_all||}
+	</table>
+</div>
 
 #^result-table	<!--	RESULT TABLE HEADERS	-->
 <thead>
@@ -467,7 +469,7 @@ other<span class="count">( {_it./result-9.length} )</span>
 #^/result_measure		<!--	@MEASURE ROW	-->
 <tr class="row_measure">
 	<td></td>
-	<td>{_it.@baseline-year||}</td>
+	<td></td>
 	<td title="{_it.@measure-description||}">{_it.@measure-name||}</td>
 	<td title="{_it.@measure-description||}">{_it.@measure-name||}</td>
 	<td></td>
@@ -478,7 +480,7 @@ other<span class="count">( {_it./result-9.length} )</span>
 {_it./value:/result_indicator_row_new||}
 
 #^/result_indicator_row_new_indicator		<!--	RESULT INDICATOR SECTION : TITLE, DESCRIPTION & OTHER INFORMATION	-->
-{_it./reference&&_it./document-link&&_it:/indicator_text_reference||_it:/indicator_text||}
+{_it./reference||_it./document-link&&_it:/indicator_text_reference||_it:/indicator_text||}
 
 #^/indicator_text_reference					<!--	USE WHEN REFERENCE OR DOCUMENTS ARE PUBLISHED	-->
 <div class="wrap_result_indicator_title">
@@ -533,7 +535,7 @@ other<span class="count">( {_it./result-9.length} )</span>
 		{_it./dimension:/result_indicator_row_new_facet_dimension||/empty_dimension}
 		{_it./location:/result_indicator_row_new_facet_location||/empty_location}
 	</td>
-	<td class="result_base">{_it.@baseline||/empty_result}</td>
+	<td class="result_base">{_it.@baseline-year&&_it:/result_year||}{_it.@baseline||/empty_result}</td>
 	<td class="result_target">{_it.@target||/empty_result}</td>
 	<td class="result_actual">{_it.@actual||/empty_result}</td>
 	<td class="result_percent">{_it.@percent>=0&&_it:@percent||_it:@percent-null}</td>
@@ -549,6 +551,9 @@ other<span class="count">( {_it./result-9.length} )</span>
 {
 	"100":"rgb(100,100,100)",
 }
+
+#^/result_year
+<div class="result_base_year">{_it.@baseline-year||}</div>
 
 #^/empty_result
 <div class="result_empty">Not provided</div>
