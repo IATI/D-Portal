@@ -386,10 +386,10 @@
 			</div>
 		</div>
 		<div class="header glossary">GLOSSARY</div>
-		<div class="sector_list_wrap">{_it./result-1.0:/result_type_description}</div>
-		<div class="sector_list_wrap">{_it./result-2.0:/result_type_description}</div>
-		<div class="sector_list_wrap">{_it./result-3.0:/result_type_description}</div>
-		<div class="sector_list_wrap">{_it./result-9.0:/result_type_description}</div>
+		{_it./result-1.0:/result_type_description}
+		{_it./result-2.0:/result_type_description}
+		{_it./result-3.0:/result_type_description}
+		{_it./result-9.0:/result_type_description}
 		{_it./result-1&&_it:result-1||}
 		{_it./result-2&&_it:result-2||}
 		{_it./result-3&&_it:result-3||}
@@ -405,44 +405,43 @@ outcome<span class="count">( {_it./result-2.length} )</span>
 impact<span class="count">( {_it./result-3.length} )</span> 
 #^result-9-length
 other<span class="count">( {_it./result-9.length} )</span>
+#^indicator-length
+indicator<span class="count">( {_it./indicator.length} )</span>
 
 <!--	GLOSSARY DESCRIPTIONS	-->
 #^/result_type_description
-<div class="sector_list"> 
-	<span>{_it.@type-name||}</span><span class="sector_list_description">{_it.@type-description||/empty-description}</span>
+<div class="sector_list_wrap">
+	<div class="sector_list"> 
+		<span>{_it.@type-name||}</span><span class="sector_list_description">{_it.@type-description||/empty-description}</span>
+	</div>
 </div>
 
 <!--	RESULT ROWS	-->
 #^result-1
-<div class="header_section sticky collapsable bright">output<span class="count">( {_it./result-1.length} )</span></div>
-{_it./title/narrative.0.text&&_it:/result_title_text||}
-{_it./description/narrative&&_it:/indicator_desc||}
-<div class="wrap_result_table">{_it./result-1:/result_indicator||}</div>
-
+<div class="wrap_result_type">{_it./result-1:/result_indicator||}</div>
 #^result-2
-<div class="header_section sticky collapsable bright">outcome<span class="count">( {_it./result-2.length} )</span></div>
-{_it./title/narrative.0.text&&_it:/result_title_text||}
-{_it./description/narrative&&_it:/indicator_desc||}
-<div class="wrap_result_table">{_it./result-2:/result_indicator||}</div>
-
+<div class="wrap_result_type">{_it./result-2:/result_indicator||}</div>
 #^result-3
-<div class="header_section sticky collapsable bright">impact<span class="count">( {_it./result-3.length} )</span></div>
-{_it./title/narrative.0.text&&_it:/result_title_text||}
-{_it./description/narrative&&_it:/indicator_desc||}
-<div class="wrap_result_table">{_it./result-3:/result_indicator||}</div>
-
+<div class="wrap_result_type">{_it./result-3:/result_indicator||}</div>
 #^result-9
-<div class="header_section sticky collapsable bright">other<span class="count">( {_it./result-9.length} )</span></div>
-{_it./title/narrative.0.text&&_it:/result_title_text||}
-{_it./description/narrative&&_it:/indicator_desc||}
-<div class="wrap_result_table">{_it./result-9:/result_indicator||}</div>
-
-#^/result_title_text
-<div class="result_main_title">{_it./title/narrative.0.text||}</div>
+<div class="wrap_result_type">{_it./result-9:/result_indicator||}</div>
 
 <!--	RESULT INDICATOR	-->
 #^/result_indicator
-<div class="wrap_result_indicator">{_it./indicator:/result_indicator_facet||}<div class="result_separator"></div></div>
+<div class="header_section sticky collapsable bright">
+	{_it.@type-name||}
+	<div class="wrap_length">
+		{_it./indicator&&_it:indicator-length||}
+	</div>
+</div>
+<div class="wrap_result_text">
+	{_it./title/narrative.0.text&&_it:/result_title_text||}
+	{_it./description/narrative&&_it:/indicator_desc||}
+</div>
+<div class="wrap_result_indicator">{_it./indicator:/result_indicator_facet||}</div>
+
+#^/result_title_text
+<div class="result_main_title">{_it./title/narrative.0.text||}</div>
 
 #^/result_indicator_facet
 {_it:/result_indicator_row_new_indicator||}
