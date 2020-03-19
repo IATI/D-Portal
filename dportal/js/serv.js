@@ -72,6 +72,9 @@ app.use( express.urlencoded({ extended: true }) )
 // dquery
 app.use('/dquery', require("../../dflat/js/query").serv )
 
+// dquery
+app.use('/savi', require("../../dflat/js/savi").serv )
+
 // redirect any unknown page to main homepage
 app.get('*', function(req, res) {
     res.redirect('/ctrack.html#view=search');
