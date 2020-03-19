@@ -386,10 +386,10 @@
 			</div>
 		</div>
 		<div class="header glossary">GLOSSARY</div>
-		<div class="sector_list_wrap">{_it./result-1.0:/result_type_description}</div>
-		<div class="sector_list_wrap">{_it./result-2.0:/result_type_description}</div>
-		<div class="sector_list_wrap">{_it./result-3.0:/result_type_description}</div>
-		<div class="sector_list_wrap">{_it./result-9.0:/result_type_description}</div>
+		{_it./result-1.0:/result_type_description}
+		{_it./result-2.0:/result_type_description}
+		{_it./result-3.0:/result_type_description}
+		{_it./result-9.0:/result_type_description}
 		{_it./result-1&&_it:result-1||}
 		{_it./result-2&&_it:result-2||}
 		{_it./result-3&&_it:result-3||}
@@ -405,52 +405,64 @@ outcome<span class="count">( {_it./result-2.length} )</span>
 impact<span class="count">( {_it./result-3.length} )</span> 
 #^result-9-length
 other<span class="count">( {_it./result-9.length} )</span>
+#^indicator-length
+indicator<span class="count">( {_it./indicator.length} )</span>
 
 <!--	GLOSSARY DESCRIPTIONS	-->
 #^/result_type_description
-<div class="sector_list"> 
-	<span>{_it.@type-name||}</span><span class="sector_list_description">{_it.@type-description||/empty-description}</span>
+<div class="sector_list_wrap">
+	<div class="sector_list"> 
+		<span>{_it.@type-name||}</span><span class="sector_list_description">{_it.@type-description||/empty-description}</span>
+	</div>
 </div>
 
 <!--	RESULT ROWS	-->
 #^result-1
-<div class="header_section sticky collapsable bright">output<span class="count">( {_it./result-1.length} )</span></div>
-{_it./title/narrative.0.text&&_it:/result_title_text||}
-{_it./description/narrative&&_it:/indicator_desc||}
-<div class="wrap_result_table">{_it./result-1:/result_indicator||}</div>
-
+<div class="wrap_result_type">{_it./result-1:/result_indicator||}</div>
 #^result-2
-<div class="header_section sticky collapsable bright">outcome<span class="count">( {_it./result-2.length} )</span></div>
-{_it./title/narrative.0.text&&_it:/result_title_text||}
-{_it./description/narrative&&_it:/indicator_desc||}
-<div class="wrap_result_table">{_it./result-2:/result_indicator||}</div>
-
+<div class="wrap_result_type">{_it./result-2:/result_indicator||}</div>
 #^result-3
-<div class="header_section sticky collapsable bright">impact<span class="count">( {_it./result-3.length} )</span></div>
-{_it./title/narrative.0.text&&_it:/result_title_text||}
-{_it./description/narrative&&_it:/indicator_desc||}
-<div class="wrap_result_table">{_it./result-3:/result_indicator||}</div>
-
+<div class="wrap_result_type">{_it./result-3:/result_indicator||}</div>
 #^result-9
-<div class="header_section sticky collapsable bright">other<span class="count">( {_it./result-9.length} )</span></div>
+<div class="wrap_result_type">{_it./result-9:/result_indicator||}</div>
+
+<!--	RESULT INDICATOR	-->
+#^/result_indicator
+<div class="header_section sticky collapsable bright">
+	{_it.@type-name||}
+	<div class="wrap_length">
+		{_it./indicator&&_it:indicator-length||}
+	</div>
+</div>
+<div class="wrap_result_text">{_it./reference&&_it:/result_text_reference||_it:/result_text||}</div>
+<div class="wrap_result_indicator">{_it./indicator:/result_indicator_facet||}</div>
+
+#^/result_text_reference
+<div class="result_indicator left_indi">
+	{_it./title/narrative.0.text&&_it:/result_title_text||}
+	{_it./description/narrative&&_it:/indicator_desc||}
+</div><div class="result_indicator">
+	{_it./reference&&_it:/wrap-result-reference||}
+</div>
+{_it./document-link&&_it:/wrap-document-link||}	
+
+#^/result_text
 {_it./title/narrative.0.text&&_it:/result_title_text||}
 {_it./description/narrative&&_it:/indicator_desc||}
-<div class="wrap_result_table">{_it./result-9:/result_indicator||}</div>
+{_it./document-link&&_it:/wrap-document-link||}
 
 #^/result_title_text
 <div class="result_main_title">{_it./title/narrative.0.text||}</div>
 
-<!--	RESULT INDICATOR	-->
-#^/result_indicator
-<div class="wrap_result_indicator">{_it./indicator:/result_indicator_facet||}<div class="result_separator"></div></div>
-
 #^/result_indicator_facet
-{_it:/result_indicator_row_new_indicator||}
-<table class="budget result sortable">
-	{result-table}
-	{_it.@measure&&_it:/result_measure||}
-	{_it./facet:/result_indicator_row_new_all||}
-</table>
+{_it:/result_indicator_row_indicator||}
+<div class="wrap_result_table">
+	<table class="budget result sortable">
+		{result-table}
+		{_it.@measure&&_it:/result_measure||}
+		{_it./facet:/result_indicator_row_all||}
+	</table>
+</div>
 
 #^result-table	<!--	RESULT TABLE HEADERS	-->
 <thead>
@@ -467,94 +479,92 @@ other<span class="count">( {_it./result-9.length} )</span>
 #^/result_measure		<!--	@MEASURE ROW	-->
 <tr class="row_measure">
 	<td></td>
-	<td>{_it.@baseline-year||}</td>
+	<td></td>
 	<td title="{_it.@measure-description||}">{_it.@measure-name||}</td>
 	<td title="{_it.@measure-description||}">{_it.@measure-name||}</td>
 	<td></td>
 	<td></td>
 </tr>
 
-#^/result_indicator_row_new_all
-{_it./value:/result_indicator_row_new||}
+#^/result_indicator_row_all
+{_it./value:/result_indicator_row||}
 
-#^/result_indicator_row_new_indicator		<!--	RESULT INDICATOR SECTION : TITLE, DESCRIPTION & OTHER INFORMATION	-->
-{_it./reference&&_it./document-link&&_it:/indicator_text_reference||_it:/indicator_text||}
+#^/result_indicator_row_indicator		<!--	RESULT INDICATOR SECTION : TITLE, DESCRIPTION & OTHER INFORMATION	-->
+{_it./reference&&_it:/indicator_text_reference||_it:/indicator_text||}
 
 #^/indicator_text_reference					<!--	USE WHEN REFERENCE OR DOCUMENTS ARE PUBLISHED	-->
-<div class="wrap_result_indicator_title">
+<div class="wrap_result_indicator">
 	<div class="header_section collapsable brighter">INDICATOR</div>
 	<div class="result_indicator left_indi">
 		<div class="result_title">{_it./title/narrative.0.text||}</div>
 		{_it./description/narrative&&_it:/indicator_desc||}
-	</div><div class="result_indicator">
-		{_it./document-link&&_it:/wrap-document-link||}	
+	</div><div class="result_indicator">	
 		{_it./reference&&_it:/wrap-result-reference||}
 	</div>
+	{_it./document-link&&_it:/wrap-document-link||}
 </div>
 
 #^/indicator_text
-<div class="wrap_result_indicator_title">
+<div class="wrap_result_indicator">
 	<div class="header_section collapsable brighter">INDICATOR</div>
 	<div class="result_title">{_it./title/narrative.0.text||}</div>
 	{_it./description/narrative&&_it:/indicator_desc||}
+	{_it./document-link&&_it:/wrap-document-link||}
 </div>
 
 #^/indicator_desc
 <div class="result_indi_desc">{_it./description/narrative.0.text||}</div>
 
-#^/empty_dimension
-<div class="result_empty">No dimension has been provided</div>
-#^/empty_location
-<div class="result_empty">No location has been provided</div>
-
-#^/result_indicator_row_new_facet_dimension
-<div class="result_facet">
-	<span class="result_facet_name">{_it.@name}</span> = <span class="result_facet_value">{_it.@value}</span>
-</div>
-
-#^/result_indicator_row_new_facet_location
-<div class="result_facet">
-	<span class="result_facet_name">Location</span> = <span class="result_facet_value">{_it.@ref}</span>
-</div>
-
-#^@percent trim=ends
-<!--<div class="result_percent_wrap">{_it.@percent}%<span style="background-color:{status.{_it.@percent}};"></span></div>-->
-<div class="result_percent_wrap">
-	<span class="result_percent_value">{_it.@percent}%</span>
-	<span class="result_percent_dot" style="background-color:hsl({_it.@percent||},100%,50%);"></span>
-</div>
-
-#^@percent-null trim=ends
-<div class="result_percent_wrap">N/A</div>
-
-#^/result_indicator_row_new					<!--	RESULTS FACETS, BASELINE, TARGET, ACTUAL AND PERIOD	-->
+#^/result_indicator_row				<!--	RESULTS FACETS, BASELINE, TARGET, ACTUAL AND PERIOD	-->
 <tr class="row_count">
-	<td>
-		{_it./dimension:/result_indicator_row_new_facet_dimension||/empty_dimension}
-		{_it./location:/result_indicator_row_new_facet_location||/empty_location}
+	<td class="result_indi">
+		{_it./dimension:/result_indicator_row_facet_dimension||/empty_dimension}
+		{_it./location:/result_indicator_row_facet_location||/empty_location}
 	</td>
-	<td class="result_base">{_it.@baseline||/empty_result}</td>
+	<td class="result_base">{_it.@baseline-year&&_it:/result_year||}{_it.@baseline||/empty_result}</td>
 	<td class="result_target">{_it.@target||/empty_result}</td>
 	<td class="result_actual">{_it.@actual||/empty_result}</td>
 	<td class="result_percent">{_it.@percent>=0&&_it:@percent||_it:@percent-null}</td>
 	<td class="result_period">
 		{_it./period-start@iso-date||} : {_it./period-end@iso-date||}
 		<div class="result_date_bar">
-			<div class="result_date_overlay" style="width:calc({_it./period-percent} * 1.50px); background-color:{period.{_it./period-percent}};"></div>
+			<div class="result_date_overlay" style="width:calc({_it./period-percent} * 1.30px); background-color:{period.{_it./period-percent}};"></div>
 		</div>
 	</td>
 </tr>
+
+#^/empty_dimension
+<div class="result_empty">No dimension has been provided</div>
+#^/empty_location
+<div class="result_empty">No location has been provided</div>
+
+#^/result_indicator_row_facet_dimension
+<div class="result_facet">
+	<span class="result_facet_name">{_it.@name}</span> = <span class="result_facet_value">{_it.@value}</span>
+</div>
+
+#^/result_indicator_row_facet_location
+<div class="result_facet">
+	<span class="result_facet_name">Location</span> = <span class="result_facet_value">{_it.@ref}</span>
+</div>
+
+#^/result_year
+<div class="result_base_year">{_it.@baseline-year||}</div>
+#^/empty_result
+<div class="result_empty">Not provided</div>
+
+#^@percent trim=ends
+<div class="result_percent_wrap">
+	<span class="result_percent_value">{_it.@percent}%</span>
+	<span class="result_percent_dot" style="background-color:hsl({_it.@percent||},100%,50%);"></span>
+</div>
+#^@percent-null trim=ends
+<div class="result_percent_wrap">N/A</div>
 
 #^period form=json	<!--	DATE BACKGROUND COLOR	-->
 {
 	"100":"rgb(100,100,100)",
 }
-
-#^/empty_result
-<div class="result_empty">Not provided</div>
-
-#^/facet_text
-<div class="result_indicator">{_it}</div>
 
 #^/wrap-result-reference
 <div class="wrap_result_indi_ref">
