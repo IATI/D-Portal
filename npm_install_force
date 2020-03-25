@@ -6,6 +6,7 @@ cd `dirname $0`
 rm -rf node_modules
 rm package-lock.json
 
+npm install jsonc-parser
 npm install stupid-table-plugin
 npm install async
 npm install papaparse
