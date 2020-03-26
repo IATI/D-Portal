@@ -8,7 +8,6 @@ body		{background-color:#47506B; margin-top:40px; color:#FFF;}
 
 .activity, .org				{width:960px; margin:0 auto; padding:40px 40px 1px 40px; background-color:rgba(0,14,32,0.7); border-radius:8px; position:relative; margin-bottom:40px; box-sizing:border-box;}
 .activity > *, .org > *		{box-sizing:border-box;}
-.activity:nth-of-type(2)	{display:none;}
 .activity a					{text-decoration:none; color:#FFC28A;}
 .activity a:link			{text-decoration:none; color:#FFC28A;}
 .activity a:visited			{text-decoration:none; color:#FFC28A;}
@@ -86,7 +85,7 @@ span.block		{display:block;}
 .wrap_bar			{height:24px;}
 .wrap_code span		{display:inline-block; vertical-align:middle;}
 .sector_code_text	{max-width:360px;}
-.sector_code		{margin-left:10px; background-color:rgba(48,57,70,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#FFF; white-space:nowrap;}
+.sector_code		{margin-left:10px; background-color:rgba(192,213,242,0.7); padding:2px 5px; border-radius:4px; font-size:11px; color:#222; white-space:nowrap;}
 .sector_code:nth-of-type(3)	{margin-left:5px;}
 .sector_bar,
 .sector_value		{display:inline-block; vertical-align:middle;}
@@ -196,10 +195,10 @@ td.receiver div,
 td.receiver div,
 td.description div 					{line-height:16px;}
 td.receiver div,
-td.provider div						{padding-bottom:2px;}
+td.provider div						{padding-bottom:2px; line-height:14px;}
 td.receiver .receiver_text,
-td.provider .provider_text 			{font-size:13px; line-height:16px; padding-bottom:5px;}
-td.description .description_text	{line-height:18px; border:0;}
+td.provider .provider_text 			{font-size:13px; line-height:15px; padding-bottom:2px;}
+td.description .description_text	{font-size:13px; line-height:15px; border:0;}
 td.description div 					{padding-bottom:5px; border-bottom:1px dotted #666;}
 td.description div:last-of-type		{border:0;}
 
@@ -354,6 +353,13 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .result_main_title:first-letter				{text-transform:capitalize;}
 .wrap_result_text .wrap_document,
 .wrap_result_indicator .wrap_document		{margin:15px 0 0 0;}
+.wrap_result a.doc_link						{padding:5px; line-height:1em; font-size:7px;}
+.wrap_result span.wrap_doc_link				{padding-left:28px;}
+.wrap_result span.doc_title					{font-size:12px;}
+.wrap_result span.doc_format				{padding:5px;}
+.wrap_result span.doc_cat,
+.wrap_result span.doc_rec,
+.wrap_result span.doc_date					{font-size:11px; margin:2px 2px 0 0;}
 .wrap_result_text .wrap_result_indi_ref		{padding:0;}
 .result_indicator							{display:inline-block; vertical-align:top; width:25%;}
 .result_indicator.left_indi					{width:75%; padding-right:25px;}
@@ -372,7 +378,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result .sector_list_wrap				{color:#ccc; padding:0 0 10px 0;}
 .wrap_result .header.glossary				{margin-bottom:10px;}
 .wrap_result table.budget td				{vertical-align:middle; padding:5px 0;}
-.wrap_result table.budget tr.row_measure td	{color:#ccc; font-size:11px; padding:5px 0;}
+.wrap_result table.budget tr.row_measure td	{color:#ccc; font-size:11px; padding:5px 10px 5px 0;}
 .result_facet								{font-size:11px; line-height:16px; color:#ccc;}
 .result_facet_name							{font-size:13px; color:#fff;}
 .result_facet_value							{font-weight:bold; font-size:14px; color:#fff;}
