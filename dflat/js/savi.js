@@ -75,7 +75,16 @@ savi.start=function(opts){
 	}
 
 	for(var n in opts) { savi.opts[n]=opts[n] } // copy opts
-	$(savi.start_loaded)
+	
+	if( savi.opts.embeded )
+	{
+//		console.log("LIVE FIXUP ONLY")
+		$(savi.fixup) // apply live js to static webpage
+	}
+	else
+	{
+		$(savi.start_loaded) // load and display some data
+	}
 }
 
 savi.start_loaded=async function(){
@@ -132,6 +141,11 @@ savi.start_loaded=async function(){
 	}
 
 // apply javascript to rendered html	
+
+	savi.fixup()
+}
+
+savi.fixup=function(){
 
 // give your table the class of sortable and they will sortable
 	$("table.sortable").stupidtable()
@@ -908,3 +922,14 @@ savi.prepare=function(iati_xson){
 
 	return iati_xson // we tweaked and added values in preparation for display
 }
+
+// handle the /savi url space
+savi.serv = async function(req,res,next){
+
+	var express = require('express');
+	var serve_html = express.static(__dirname+"/../html",{'index': ['savi.html']})
+
+	// serv up static files
+	serve_html(req,res,next)
+
+};
