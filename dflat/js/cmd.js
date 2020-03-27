@@ -20,11 +20,13 @@ cmd.parse=function(argv)
 {
 	argv.filename_dflat=__filename
 
-	argv.dir    =           argv.dir    || process.env.DFLAT_DIR   || "dataflat"
-	argv.limit  = parseInt( argv.limit  || process.env.DFLAT_LIMIT || "999999"     )
+	argv.cronos =           argv.cronos || process.env.DFLAT_CRONOS || "cronos"
+
+	argv.dir    =           argv.dir    || process.env.DFLAT_DIR    || "dataflat"
+	argv.limit  = parseInt( argv.limit  || process.env.DFLAT_LIMIT  || "999999"     )
 
 // we need this to connect to the postgres server and read stats
-	argv.pgro   = argv.pgro             || process.env.DSTORE_PGRO || undefined                    ; // read only PG
+	argv.pgro   = argv.pgro             || process.env.DSTORE_PGRO  || undefined                    ; // read only PG
 
 }
 
@@ -132,6 +134,19 @@ cmd.run=async function(argv)
 		return
 	}
 
+	if( argv._[0]=="cronos" )
+	{
+		if( argv._[1] == "update" )
+		{
+			await require("./cronos.js").update(argv)
+		}
+		else
+		{
+			await require("./cronos.js").help(argv)
+		}
+		return
+	}
+
 	// help text
 	console.log(
 `
@@ -190,6 +205,15 @@ activities/ in the data directory.
 
 	--dir dataflat
 	Directory to process data in.
+
+>	dflat cronos update cronosdir
+
+	--cronos cronos
+	Directory to process cronos data in, expects to find a cronos.json 
+	file within this folder.
+
+Update a git repository as a chronological series of data files using 
+git commits insode branches as chronological history.
 
 `)
 }
