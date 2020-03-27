@@ -52,9 +52,15 @@ cronos.update = async function(argv){
 		shell.echo("")
 		shell.echo("checking q"+idx+" : "+(q.title||"UNKNOWN"))
 		shell.echo("")
+
+		shell.exec("git clean -f -d") // remove junk
+		shell.exec("git checkout q"+idx) // make sure we have copy from remote
+		shell.exec("git checkout master") // and back to master
+
 //		if( shell.exec("git branch -a").grep("remotes/origin/q"+idx).code!=0 )
 		if( shell.exec("git rev-parse --verify q"+idx).code !== 0 )
 		{
+			shell.echo("")
 			shell.echo("creating branch q"+idx)
 			shell.echo("")
 			
@@ -65,13 +71,9 @@ cronos.update = async function(argv){
 		}
 		else
 		{
+			shell.echo("")
 			shell.echo("cloning branch q"+idx)
 			shell.echo("")
-
-
-			shell.exec("git clean -f -d") // remove junk
-			shell.exec("git checkout q"+idx) // make sure we have copy from remote
-			shell.exec("git checkout master")
 
 			shell.rm("-rf","q"+idx)
 			shell.exec("git clone --reference . --branch q"+idx+" . q"+idx)
@@ -85,7 +87,7 @@ cronos.update = async function(argv){
 		
 		shell.mkdir("downloads")
 		shell.mkdir("packages")
-		shell.exec("wget "+q.xml+" -O downloads/activities.xml")
+		shell.exec("wget \""+q.xml+"\" -O downloads/activities.xml")
 
 		shell.echo("")
 		shell.echo("processing data q"+idx+" : "+(q.title||"UNKNOWN"))
@@ -93,18 +95,16 @@ cronos.update = async function(argv){
 
 		shell.exec("node ../../js/cmd.js packages activities --dir .")
 		
-		if( shell.cp("activities/*.xml",".").code == 0 )
-		{
+		shell.rm("*.xml") // remove old xml files		
+		shell.cp("activities/*.xml",".") // copy all files
 
-			shell.exec("git add *.xml")
+		shell.exec("git add *.xml")
+		shell.exec("git clean -f -d") //remove junk
+		shell.exec("git add .") // auto delete removed files
+		shell.exec("git commit -m.")
 
-			shell.exec("git commit -m.")
+		shell.exec("git push --set-upstream origin q"+idx)
 
-			shell.exec("git clean -f -d") //remove junk
-
-			shell.exec("git push --set-upstream origin q"+idx)
-
-		}
 
 		shell.cd("..")
 
