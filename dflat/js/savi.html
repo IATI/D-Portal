@@ -445,9 +445,9 @@
 		<table class="budget sortable">
 			<thead>
 				<tr>
-					<th class="tag_code" data-sort="int" data-sort-multicolumn="0,1,2">CODELIST</th>
-					<th class="tag_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>
-					<th class="tag_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>			
+					<th class="tag_code" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>
+					<th class="tag_vocab" data-sort="int" data-sort-multicolumn="0,1,2">CODE</th>
+					<th class="tag_desc" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>			
 				</tr>
 			</thead>
 			{_it./tag:/tag}
@@ -458,8 +458,8 @@
 #^/tag
 <tr class="row_count">
 	<td class="tag_code" data-sort-value="{_it.@code}">{_it.@code-name||}</td>
-	<td class="tag_vocab" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
-	<td class="tag_desc" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-description||/empty-description}</td>
+	<td class="tag_vocab" data-sort-value="{_it.@vocabulary}">{_it.@code||}</td>
+	<td class="tag_desc" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
 </tr>
 
 #^/wrap-policy-marker	<!--	POLICY MARKER WRAPPER	-->
