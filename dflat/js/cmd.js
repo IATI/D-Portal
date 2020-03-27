@@ -136,13 +136,13 @@ cmd.run=async function(argv)
 
 	if( argv._[0]=="cronos" )
 	{
-		if( argv._[1] == "pull" )
+		if( argv._[1] == "update" )
 		{
-			await require("./cronos.js").pull(argv)
+			await require("./cronos.js").update(argv)
 		}
 		else
 		{
-			await require("./cronos.js").pull(argv)
+			await require("./cronos.js").help(argv)
 		}
 		return
 	}
@@ -206,14 +206,14 @@ activities/ in the data directory.
 	--dir dataflat
 	Directory to process data in.
 
->	dflat cronos cronosdir
+>	dflat cronos update cronosdir
 
 	--cronos cronos
 	Directory to process cronos data in, expects to find a cronos.json 
 	file within this folder.
 
-Manage a git repository as a chronological series of data stored inside 
-git commits.
+Update a git repository as a chronological series of data files using 
+git commits insode branches as chronological history.
 
 `)
 }
