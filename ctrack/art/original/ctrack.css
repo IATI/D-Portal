@@ -337,7 +337,10 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search_head				{display:inline-block; vertical-align:top; width:640px; color:#53B4ED; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
 .search_head span			{color:#fff; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
 table.filter_table			{table-layout:fixed;}
-table.filter_table td		{padding-right:30px; font-size:15px; line-height:1.25em;}
+table.filter_table th,
+table.filter_table td		{font-size:14px; line-height:1.25em; padding:5px 10px 5px 5px; border-top:1px solid #505668;}
+table.filter_table th		{text-align:left; border:none;}
+table.filter_table th.gloss_name	{width:20%;}
 table.filter_table td.filter_title	{padding-top:20px; padding-bottom:5px; text-transform:uppercase; color:#d8d8d8; font-size:14px;}
 
 /*	IATI Identifier link	*/
