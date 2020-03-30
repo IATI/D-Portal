@@ -317,9 +317,15 @@
 		<a href="http://d-portal.org/q.html?aid={_it./owner-org@ref}">{_it./owner-org@ref||}</a>
 		{_it./owner-org/narrative&&_it:/owner-org||}
 	</td>
-	<td class="other_type" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+	<td class="other_type" data-sort-value="{_it.@type}">
+		{_it.@type-name||}
+		{_it.@type&&_it:/other-type-wrap||}
+	</td>
 	<td class="other_desc" data-sort-value="{_it.@type}">{_it.@type-description||/empty-description}</td>
 </tr>
+
+#^/other-type-wrap
+<div><span class="ref">CODE</span> {_it.@type}</div>
 
 #^/owner-org
 <div>{_it./owner-org/narrative.0.text||}</div>
@@ -457,10 +463,27 @@
 <!--	TAG ROWS	-->
 #^/tag
 <tr class="row_count">
-	<td class="tag_code" data-sort-value="{_it.@code}">{_it.@code-name||}</td>
-	<td class="tag_vocab" data-sort-value="{_it.@vocabulary}">{_it.@code||}</td>
-	<td class="tag_desc" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
+	<td class="tag_code" data-sort-value="{_it.@code}">
+		{_it.@code-name||}
+		{_it.@vocabulary==99&&_it:/tag-vocab-99||}
+	</td>
+	<td class="tag_vocab" data-sort-value="{_it.@code}">{_it.@code||}</td>
+	<td class="tag_desc" data-sort-value="{_it.@vocabulary}">
+		{_it.@vocabulary-name||}
+		{_it.@vocabulary-description&&_it:/vocab-desc-wrap||}
+		{_it.@vocabulary-url&&_it:/vocab-url-wrap||}
+		{_it.@vocabulary-uri&&_it:/vocab-uri-wrap||}
+	</td>
 </tr>
+
+#^/tag-vocab-99
+{_it./narrative.0.text||}
+#^/vocab-desc-wrap
+<div>{_it.@vocabulary-description}</div>
+#^/vocab-url-wrap
+<div><a href="{_it.@vocabulary-url}">{_it.@vocabulary-url}</a></div>
+#^/vocab-uri-wrap
+<div><a href="{_it.@vocabulary-uri}">{_it.@vocabulary-uri}</a></div>
 
 #^/wrap-policy-marker	<!--	POLICY MARKER WRAPPER	-->
 	<div class="wrap_policy_marker">
@@ -470,7 +493,8 @@
 				<tr>
 					<th class="policy_code" data-sort="int" data-sort-multicolumn="0,1,2">CODELIST</th>
 					<th class="policy_sig" data-sort="int" data-sort-multicolumn="0,1,2">SIGNIFICANCE</th>
-					<th class="policy_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>			
+					<th class="policy_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>	
+					<th class="policy_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>						
 				</tr>
 			</thead>
 			{_it./policy-marker:/policy-marker}
@@ -480,9 +504,10 @@
 <!--	POLICY MARKER ROWS	-->
 #^/policy-marker
 <tr class="row_count">
-	<td class="policy_code" title="{_it.@code-description||}" data-sort-value="{_it.@code}">{_it.@code-name||}</td>
-	<td class="policy_sig" title="{_it.@significance-description||}" data-sort-value="{_it.@significance}">{_it.@significance-name||}</td>
-	<td class="policy_vocab" title="{_it.@vocabulary-description||}" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
+	<td class="policy_code" data-sort-value="{_it.@code}">{_it.@code-name||}</td>
+	<td class="policy_sig" data-sort-value="{_it.@significance}">{_it.@significance-name||}</td>
+	<td class="policy_vocab" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
+	<td class="policy_desc" data-sort-value="{_it.@significance}">{_it.@significance-description||}</td>
 </tr>
 	
 #^/wrap-result	<!--	RESULT WRAPPER	-->

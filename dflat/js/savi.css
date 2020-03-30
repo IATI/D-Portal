@@ -54,6 +54,7 @@ span.block		{display:block;}
 .wrap_description .text		{margin-bottom:30px;}
 .wrap_description .text .narrative					{font-size:1.0em; word-spacing:0.05em; line-height:1.5em; white-space:pre-line; unicode-bidi:embed;}
 .wrap_description .text .narrative:nth-of-type(2)	{font-style:italic; display:block; margin-top:15px;}
+.wrap_description .text .narrative:first-letter		{text-transform:capitalize;}
 .wrap_default				{padding:20px 0 0 0; margin:0 auto;}
 .wrap_default .text			{display:inline-block; vertical-align:top; font-size:14px; color:#ccc; width:50%;}
 .wrap_default .text:first-of-type	{padding-right:20px;}
@@ -400,15 +401,18 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
 .wrap_policy_marker table.budget th.policy_code,
-.wrap_policy_marker table.budget td.policy_code		{width:480px; padding-right:40px;}
+.wrap_policy_marker table.budget td.policy_code		{width:280px; padding-right:40px;}
 .wrap_policy_marker table.budget th.policy_sig,
 .wrap_policy_marker table.budget td.policy_sig		{width:160px; padding-right:20px; text-transform:capitalize;}
+.wrap_policy_marker table.budget th.policy_desc,
+.wrap_policy_marker table.budget td.policy_desc		{width:280px;}
+.wrap_policy_marker table.budget td.policy_desc		{font-size:12px; line-height:14px;}
 
 /*	IATI ACTIVITY LEGACY DATA TABLE	*/
 .wrap_legacy_data th.legacy_name,
-.wrap_legacy_data td.legacy_name		{width:480px; padding-right:40px;}
+.wrap_legacy_data td.legacy_name		{width:280px; padding-right:40px;}
 .wrap_legacy_data th.legacy_value,
-.wrap_legacy_data td.legacy_value		{width:160px;}
+.wrap_legacy_data td.legacy_value		{width:320px;}
 
 /*	IATI ACTIVITY CONDITIONS TABLE	*/
 .wrap_conditions th.condition_narr,
@@ -420,12 +424,14 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 /*	IATI ACTIVITY TAG TABLE	*/
 .wrap_tag table.budget th.tag_code,
 .wrap_tag table.budget td.tag_code		{width:480px; padding-right:40px;}
-.wrap_tag table.budget th.tag_vocab,
-.wrap_tag table.budget td.tag_vocab		{width:160px; padding-right:20px;}
+.wrap_tag table.budget th.tag_desc,
+.wrap_tag table.budget td.tag_desc		{width:280px;}
+.wrap_tag table.budget td.tag_desc		{font-size:12px; line-height:14px;}
+.wrap_tag table.budget td.tag_desc div	{padding-top:10px;}
 
 /*	IATI ACTIVITY RELATED ACTIVITY TABLE	*/
 .wrap_related_activity table.budget th,
-.wrap_related_activity table.budget td	{padding:5px 0; vertical-align:middle;}
+.wrap_related_activity table.budget td	{padding:5px 0;}
 .wrap_related_activity th.related_ref,
 .wrap_related_activity td.related_ref	{width:480px; padding-right:40px;}
 .wrap_related_activity th.related_type,
@@ -435,11 +441,9 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_related_activity table.budget td.related_desc	{font-size:12px; line-height:14px;}
 
 /*	IATI ACTIVITY OTHER IDENTIFIER TABLE	*/
-.wrap_other_identifier th.other_desc,
-.wrap_other_identifier td.other_desc	{width:240px;}
+.wrap_other_identifier td.other_desc	{font-size:12px; line-height:14px;}
 .wrap_other_identifier th.other_type,
 .wrap_other_identifier td.other_type	{width:160px; padding-right:20px;}
-.wrap_other_identifier td.other_type	{font-size:12px;}
 .wrap_other_identifier th.other_ref,
 .wrap_other_identifier td.other_ref,
 .wrap_other_identifier th.owner_ref,
