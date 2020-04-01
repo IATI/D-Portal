@@ -166,7 +166,10 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 
 /*	DATES	*/
 .wrap_activity_date					{position:relative; width:980px; height:82px; margin-left:-50px;}
-.wrap_activity_date div				{display:inline-block; padding:10px 40px; font-size:20px; color:#151515; min-height:40px; height:40px; line-height:18px;}
+.wrap_activity_date .planned_start,
+.wrap_activity_date .actual_start,
+.wrap_activity_date .planned_end,
+.wrap_activity_date .actual_end		{display:inline-block; padding:10px 40px; font-size:20px; color:#151515; min-height:40px; height:40px; line-height:18px;}
 .wrap_activity_date div span		{font-size:13px; line-height:18px; font-weight:bold;color:#552d03; text-transform:uppercase; min-width:165px; display:inline-block; vertical-align:bottom; padding-right:10px;}
 .wrap_activity_date .planned_start	{position:absolute; top:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#f48a1a;}
 .wrap_activity_date .actual_start	{position:absolute; top:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ffa443; text-align:right;}

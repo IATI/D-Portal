@@ -1473,7 +1473,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	<div class="header">
 		Reporting Organisation <span class="count">( {_it./recipient-region-99.length} )</span>
 	</div>
-	<div class="subheader">{_it./recipient-region-99.0.@vocabulary-description||} <a href="{_it./recipient-region-99.0.@vocabulary-url}">{_it./recipient-region-99.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./recipient-region-99.0.@vocabulary-description||}</div>
 	{_it./recipient-region-99:/recipient-region||}
 </div>
 
@@ -1846,7 +1846,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 <tr class="row_count">
 	<td class="date">{_it./period-start@iso-date||}</td>
 	<td class="date">{_it./period-end@iso-date||}</td>
-	<td class="recipient">{_it./recipient-country||}</td>
+	<td class="recipient">{_it./recipient-country@code-name||}</td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
