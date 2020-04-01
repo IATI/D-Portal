@@ -1777,7 +1777,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 				<tr>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">START</th>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">END</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="recipient">RECIPIENT COUNTRY</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="recipient">RECIPIENT REGION</th>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="line">BUDGET LINE</th>					
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="status">STATUS</th>
 					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5" class="value">VALUE</th>
@@ -1836,7 +1836,11 @@ Budget <span class="count">( {_it./budget.length} )</span>
 <tr class="row_count">
 	<td class="date">{_it./period-start@iso-date||}</td>
 	<td class="date">{_it./period-end@iso-date||}</td>
-	<td class="recipient">{_it./recipient-region@code-name||}{_it./recipient-region@vocabulary&&_it:/recipient-region-vocabulary||}</td>
+	<td class="recipient">
+		{_it./recipient-region@code-name||}
+		{_it./recipient-region@vocabulary==1&&_it./recipient-region@code&&_it:/recipient-region-code||}
+		{_it./recipient-region@vocabulary&&_it:/recipient-region-vocabulary||}
+	</td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
@@ -1846,17 +1850,23 @@ Budget <span class="count">( {_it./budget.length} )</span>
 <tr class="row_count">
 	<td class="date">{_it./period-start@iso-date||}</td>
 	<td class="date">{_it./period-end@iso-date||}</td>
-	<td class="recipient">{_it./recipient-country@code-name||}</td>
+	<td class="recipient">{_it./recipient-country@code-name||}{_it./recipient-country@code&&_it:/recipient-country-code||}</td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
 
 #^/recipient-org-ref
-<div><span class="ref">{_it./recipient-org@ref||}</span></div>
+<div><span class="ref">REF {_it./recipient-org@ref||}</span></div>
+
+#^/recipient-region-code
+<span class="type" style="margin-left:5px;">{_it./recipient-region@code||}</span>
 
 #^/recipient-region-vocabulary
-<div><span class="ref">{_it./recipient-region@vocabulary||}</span></div>
+<div><span class="ref">VOCAB {_it./recipient-region@vocabulary||}</span></div>
+
+#^/recipient-country-code
+<span class="type" style="margin-left:5px;">{_it./recipient-country@code||}</span>
 
 #^/budget-line	<!--	BUDGET LINE	-->
 <div class="wrap_tab"><div class="tab_text">{_it./narrative:/budget-line-narrative||}</div><div class="tab_currency">{_it./value-human||}<div>{_it./value@currency||}</div></div></div>
