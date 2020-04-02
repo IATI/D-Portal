@@ -172,9 +172,12 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 .wrap_activity_date .actual_end		{display:inline-block; padding:10px 40px; font-size:20px; color:#151515; min-height:40px; height:40px; line-height:18px;}
 .wrap_activity_date div span		{font-size:13px; line-height:18px; font-weight:bold;color:#552d03; text-transform:uppercase; min-width:165px; display:inline-block; vertical-align:bottom; padding-right:10px;}
 .wrap_activity_date .planned_start	{position:absolute; top:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#f48a1a;}
-.wrap_activity_date .actual_start	{position:absolute; top:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ffa443; text-align:right;}
-.wrap_activity_date .planned_end	{position:absolute; bottom:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#f48a1a;}
+.wrap_activity_date .planned_end	{position:absolute; top:0; right:0; width:490px; margin:1px 0 0 0; background-color:#f48a1a; text-align:right;}
+.wrap_activity_date .actual_start	{position:absolute; bottom:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#ffa443;}
 .wrap_activity_date .actual_end		{position:absolute; bottom:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ffa443; text-align:right;}
+.activity_date_bar					{position:relative; width:960px; background-color:#ccc; height:10px; max-height:10px; margin-left:-40px;}
+.activity_date_overlay				{position:relative; background-color:#3d72dd; height:10px; max-height:10px;}
+.activity_date_overlay:after		{position:absolute; content:""; right:-5px; top:-4px; background-color:#fff; height:10px; width:10px; border-radius:15px; border:3px solid #3d72dd;}
 
 /*	ACTIVITY STATUS	*/
 .wrap_activity_status		{width:960px; font-size:16px; text-align:center; margin-left:-40px; padding:20px 0; color:#444; background-color:#fff;}
@@ -297,6 +300,8 @@ table.budget.part_org th.part_org_type,
 table.budget.part_org td.part_org_type		{width:160px; padding-right:20px;}
 
 /*	IATI ACTIVITY HUMANITARIAN SCOPE TABLE	*/
+.wrap_humanitarian_scope th.hum_title,
+.wrap_humanitarian_scope td.hum_title		{padding-right:20px;}
 .wrap_humanitarian_scope th.hum_code,
 .wrap_humanitarian_scope td.hum_code		{width:190px; padding-right:20px; font-size:12px;}
 .wrap_humanitarian_scope th.hum_vocab,
@@ -367,6 +372,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result span.doc_title					{font-size:12px;}
 .wrap_result span.doc_format				{padding:5px;}
 .wrap_result span.doc_cat,
+.wrap_result span.doc_lang,
 .wrap_result span.doc_rec,
 .wrap_result span.doc_date					{font-size:11px; margin:2px 2px 0 0;}
 .wrap_result_text .wrap_result_indi_ref		{padding:0;}
@@ -404,11 +410,14 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
 .wrap_policy_marker table.budget th.policy_code,
-.wrap_policy_marker table.budget td.policy_code		{width:280px; padding-right:40px;}
+.wrap_policy_marker table.budget td.policy_code		{width:300px; padding-right:40px;}
+.wrap_policy_marker table.budget td.policy_code a	{display:block; padding-top:5px; font-size:12px; line-height:14px; overflow-wrap:initial;}
 .wrap_policy_marker table.budget th.policy_sig,
 .wrap_policy_marker table.budget td.policy_sig		{width:160px; padding-right:20px; text-transform:capitalize;}
+.wrap_policy_marker table.budget th.policy_vocab,
+.wrap_policy_marker table.budget td.policy_vocab	{width:160px; padding-right:20px;}
 .wrap_policy_marker table.budget th.policy_desc,
-.wrap_policy_marker table.budget td.policy_desc		{width:280px;}
+.wrap_policy_marker table.budget td.policy_desc		{width:260px;}
 .wrap_policy_marker table.budget td.policy_desc		{font-size:12px; line-height:14px;}
 
 /*	IATI ACTIVITY LEGACY DATA TABLE	*/
@@ -447,6 +456,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_other_identifier td.other_desc	{font-size:12px; line-height:14px;}
 .wrap_other_identifier th.other_type,
 .wrap_other_identifier td.other_type	{width:160px; padding-right:20px;}
+.wrap_other_identifier td.other_type div{font-size:11px;}
 .wrap_other_identifier th.other_ref,
 .wrap_other_identifier td.other_ref,
 .wrap_other_identifier th.owner_ref,
