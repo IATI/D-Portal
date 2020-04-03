@@ -64,6 +64,8 @@
 {_it./participating-org&&_it:/wrap-participating-org||}
 {_it./description&&_it:/wrap-description||}
 {_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
+{_it./tag&&_it:/wrap-tag||}
+{_it./policy-marker&&_it:/wrap-policy-marker||}
 {_it./recipient-country&&_it:/wrap-recipient-country||}
 {_it./recipient-region&&_it:/wrap-recipient-region||}
 {_it./location&&_it:/wrap-location||}
@@ -75,8 +77,6 @@
 {_it./planned-disbursement&&_it:/wrap-planned-disbursement||}
 {_it./transaction&&_it:/wrap-transaction||}
 {_it./result&&_it:/wrap-result||}
-{_it./tag&&_it:/wrap-tag||}
-{_it./policy-marker&&_it:/wrap-policy-marker||}
 {_it./contact-info&&_it:/wrap-contact-info||}
 {_it./related-activity&&_it:/wrap-related-activity||}
 {_it./other-identifier&&_it:/wrap-other-identifier||}
@@ -332,7 +332,7 @@
 <tr class="row_count">
 	<td class="other_ref" data-sort-value="{_it.@ref}">{_it.@ref||}</td>
 	<td class="owner_ref" data-sort-value="{_it./owner-org@ref}">
-		<a href="http://d-portal.org/q.html?aid={_it./owner-org@ref}">{_it./owner-org@ref||}</a>
+		{_it./owner-org@ref||}
 		{_it./owner-org/narrative&&_it:/owner-org||}
 	</td>
 	<td class="other_type" data-sort-value="{_it.@type}">
@@ -469,9 +469,9 @@
 		<table class="budget sortable">
 			<thead>
 				<tr>
-					<th class="tag_code" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>
-					<th class="tag_vocab" data-sort="int" data-sort-multicolumn="0,1,2">CODE</th>
-					<th class="tag_desc" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>			
+					<th class="tag_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>
+					<th class="tag_code" data-sort="int" data-sort-multicolumn="0,1,2">CODE</th>
+					<th class="tag_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>			
 				</tr>
 			</thead>
 			{_it./tag:/tag}
@@ -481,27 +481,27 @@
 <!--	TAG ROWS	-->
 #^/tag
 <tr class="row_count">
-	<td class="tag_code" data-sort-value="{_it.@code}">
+	<td class="tag_desc" data-sort-value="{_it.@code}">
 		{_it.@code-name||}
-		{_it.@vocabulary==99&&_it:/tag-vocab-99||}
+		{_it.@vocabulary==99&&_it:/tag-vocab-99-narr||}
 	</td>
-	<td class="tag_vocab" data-sort-value="{_it.@code}">{_it.@code||}</td>
-	<td class="tag_desc" data-sort-value="{_it.@vocabulary}">
-		{_it.@vocabulary-name||}
-		{_it.@vocabulary-description&&_it:/vocab-desc-wrap||}
-		{_it.@vocabulary-url&&_it:/vocab-url-wrap||}
-		{_it.@vocabulary-uri&&_it:/vocab-uri-wrap||}
+	<td class="tag_code" data-sort-value="{_it.@code}">{_it.@code||}</td>
+	<td class="tag_vocab" data-sort-value="{_it.@vocabulary}">
+		{_it.@vocabulary==99&&_it:/tag-vocab-99||_it:/tag-vocab-url}
 	</td>
 </tr>
 
-#^/tag-vocab-99
+#^/tag-vocab-99-narr
 {_it./narrative.0.text||}
-#^/vocab-desc-wrap
-<div>{_it.@vocabulary-description}</div>
-#^/vocab-url-wrap
-<div><a href="{_it.@vocabulary-url}">{_it.@vocabulary-url}</a></div>
-#^/vocab-uri-wrap
-<div><a href="{_it.@vocabulary-uri}">{_it.@vocabulary-uri}</a></div>
+
+#^/tag-vocab-url
+<a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
+
+#^/tag-vocab-99
+{_it.@vocabulary-uri&&_it:/tag-vocab-uri||_it.@vocabulary-name}
+
+#^/tag-vocab-uri
+<div><a href="{_it.@vocabulary-uri}">{_it.@vocabulary-name}</a></div>
 
 #^/wrap-policy-marker	<!--	POLICY MARKER WRAPPER	-->
 	<div class="wrap_policy_marker">
@@ -524,23 +524,33 @@
 <tr class="row_count">
 	<td class="policy_code" data-sort-value="{_it.@code}">
 		{_it.@code-name||}
-		{_it.@vocabulary==99&&_it:/policy_marker_code_99||}
-		{_it.@vocabulary==99&&_it:/policy_marker_99||}
-		{_it.@vocabulary-uri&&_it:/policy_marker_uri||}
+		{_it.@vocabulary==99&&_it:/policy-vocab-99-narr||}
 	</td>
 	<td class="policy_sig" data-sort-value="{_it.@significance}">{_it.@significance-name||}</td>
-	<td class="policy_vocab" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
+	<td class="policy_vocab" data-sort-value="{_it.@vocabulary}">
+		{_it.@vocabulary==99&&_it:/policy-vocab-99||_it:/policy-vocab-url}
+	</td>
 	<td class="policy_desc" data-sort-value="{_it.@significance}">{_it.@significance-description||}</td>
 </tr>
 
-#^/policy_marker_code_99
+#^/policy-vocab-99-narr
+{_it./narrative.0.text&&_it:/policy-vocab-narr||_it:/policy-vocab-code}
+
+#^/policy-vocab-code
 {_it.@code||}
 
-#^/policy_marker_99
-{_it./narrative.0.text||}
+#^/policy-vocab-url
+<a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
 
-#^/policy_marker_uri
-<a href="{_it.@vocabulary-uri}">{_it.@vocabulary-uri||}</a>
+#^/policy-vocab-narr
+{_it./narrative.0.text||}
+<div><span class="ref">CODE</span> {_it.@code||}</div>
+
+#^/policy-vocab-99
+{_it.@vocabulary-uri&&_it:/policy-vocab-uri||_it.@vocabulary-name}
+
+#^/policy-vocab-uri
+<div><a href="{_it.@vocabulary-uri}">{_it.@vocabulary-name}</a></div>
 	
 #^/wrap-result	<!--	RESULT WRAPPER	-->
 	<div class="wrap_result">
@@ -662,7 +672,7 @@ indicator<span class="count">( {_it./indicator.length||no_length} )</span>
 
 #^/indicator_text_reference					<!--	USE WHEN REFERENCE OR DOCUMENTS ARE PUBLISHED	-->
 <div class="wrap_result_indicator">
-	<div class="header_section collapsable brighter">INDICATOR</div>
+	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
 	<div class="result_indicator left_indi">
 		<div class="result_title">{_it./title/narrative.0.text||}</div>
 		{_it./description/narrative&&_it:/indicator_desc||}
@@ -674,7 +684,7 @@ indicator<span class="count">( {_it./indicator.length||no_length} )</span>
 
 #^/indicator_text
 <div class="wrap_result_indicator">
-	<div class="header_section collapsable brighter">INDICATOR</div>
+	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
 	<div class="result_title">{_it./title/narrative.0.text||}</div>
 	{_it./description/narrative&&_it:/indicator_desc||}
 	{_it./document-link&&_it:/wrap-document-link||}
@@ -1691,9 +1701,20 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 <tr class="row_count">
 	<td class="hum_title"><span class="narrative">{_it./narrative.0.text||}</span></td>
 	<td class="hum_code">{_it.@code||}</td>
-	<td class="hum_vocab" title="Vocabulary Codelist" data-sort-value="{_it.@vocabulary}"><a href="{_it.@vocabulary-url}">{_it.@vocabulary-name||}</a></td>
+	<td class="hum_vocab" data-sort-value="{_it.@vocabulary}">
+		{_it.@vocabulary==99&&_it:/humanitarian-vocab-99||_it:/humanitarian-vocab-url}
+	</td>
 	<td class="hum_type" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
+
+#^/humanitarian-vocab-url
+<a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
+
+#^/humanitarian-vocab-99
+{_it.@vocabulary-uri&&_it:/humanitarian-vocab-uri||_it.@vocabulary-name}
+
+#^/humanitarian-vocab-uri
+<div><a href="{_it.@vocabulary-uri}">{_it.@vocabulary-name}</a></div>
 
 #^/wrap-description	<!--	DESCRIPTION WRAPPER	-->
 	<div class="wrap_description">

@@ -31,7 +31,8 @@ span.withdrawn	{font-size:12px; font-style:italic; font-weight:normal; text-tran
 .header_doc		{border:0; margin:0;}
 .header_section	{font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:0 0 20px -50px; width:980px; text-transform:uppercase; box-sizing:border-box;}
 .bright			{background-color:rgba(38,67,128,0.9); margin-bottom:0;}
-.brighter		{background-color:rgba(55,80,134,0.9);}
+.brighter		{background-color:transparent; width:880px; padding:0; font-size:11px; border-bottom:2px solid #47506b; margin:auto; margin:5px 0 20px 0; line-height:20px;}
+.brighter span	{background-color:#47506b; display:inline; padding:5px 10px;}
 .sticky			{position:sticky; top:-1px; z-index:2;}
 .nostick		{position:initial;}
 span.block		{display:block;}
@@ -411,6 +412,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
 .wrap_policy_marker table.budget th.policy_code,
 .wrap_policy_marker table.budget td.policy_code		{width:300px; padding-right:40px;}
+.wrap_policy_marker table.budget td.policy_code	div	{font-size:11px;}
 .wrap_policy_marker table.budget td.policy_code a	{display:block; padding-top:5px; font-size:12px; line-height:14px; overflow-wrap:initial;}
 .wrap_policy_marker table.budget th.policy_sig,
 .wrap_policy_marker table.budget td.policy_sig		{width:160px; padding-right:20px; text-transform:capitalize;}
@@ -422,41 +424,46 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 
 /*	IATI ACTIVITY LEGACY DATA TABLE	*/
 .wrap_legacy_data th.legacy_name,
-.wrap_legacy_data td.legacy_name		{width:280px; padding-right:40px;}
-.wrap_legacy_data th.legacy_value,
-.wrap_legacy_data td.legacy_value		{width:320px;}
+.wrap_legacy_data td.legacy_name		{width:340px; padding-right:40px;}
+.wrap_legacy_data th.legacy_iati,
+.wrap_legacy_data td.legacy_iati		{width:260px;}
 
 /*	IATI ACTIVITY CONDITIONS TABLE	*/
 .wrap_conditions th.condition_narr,
-.wrap_conditions td.condition_narr		{width:480px; padding-right:40px;}
+.wrap_conditions td.condition_narr		{padding-right:40px;}
 .wrap_conditions th.condition_type,
-.wrap_conditions td.condition_type		{width:120px;}
+.wrap_conditions td.condition_type		{width:160px; padding-right:20px;}
+.wrap_conditions th.condition_desc,
+.wrap_conditions td.condition_desc		{width:260px;}
 .wrap_conditions table.budget td.condition_desc	{font-size:12px; line-height:16px;}
 
 /*	IATI ACTIVITY TAG TABLE	*/
-.wrap_tag table.budget th.tag_code,
-.wrap_tag table.budget td.tag_code		{width:480px; padding-right:40px;}
 .wrap_tag table.budget th.tag_desc,
-.wrap_tag table.budget td.tag_desc		{width:280px;}
-.wrap_tag table.budget td.tag_desc		{font-size:12px; line-height:14px;}
-.wrap_tag table.budget td.tag_desc div	{padding-top:10px;}
+.wrap_tag table.budget td.tag_desc		{padding-right:40px;}
+.wrap_tag table.budget th.tag_code,
+.wrap_tag table.budget td.tag_code		{width:160px; padding-right:20px;}
+.wrap_tag table.budget th.tag_vocab,
+.wrap_tag table.budget td.tag_vocab		{width:260px;}
+.wrap_tag table.budget td.tag_vocab div	{font-size:12px; line-height:14px; padding-top:5px;}
 
 /*	IATI ACTIVITY RELATED ACTIVITY TABLE	*/
-.wrap_related_activity table.budget th,
-.wrap_related_activity table.budget td	{padding:5px 0;}
+
 .wrap_related_activity th.related_ref,
-.wrap_related_activity td.related_ref	{width:480px; padding-right:40px;}
+.wrap_related_activity td.related_ref	{padding:5px 40px 5px 0;}
 .wrap_related_activity th.related_type,
-.wrap_related_activity td.related_type	{width:120px;}
+.wrap_related_activity td.related_type	{padding:5px 0; width:160px;}
 .wrap_related_activity th.related_desc,
-.wrap_related_activity td.related_desc	{width:280px;}
+.wrap_related_activity td.related_desc	{padding:5px 0; width:260px;}
 .wrap_related_activity table.budget td.related_desc	{font-size:12px; line-height:14px;}
 
 /*	IATI ACTIVITY OTHER IDENTIFIER TABLE	*/
-.wrap_other_identifier td.other_desc	{font-size:12px; line-height:14px;}
+.wrap_other_identifier td.other_desc,
+.wrap_other_identifier td.other_type	{font-size:12px; line-height:14px;}
 .wrap_other_identifier th.other_type,
 .wrap_other_identifier td.other_type	{width:160px; padding-right:20px;}
-.wrap_other_identifier td.other_type div{font-size:11px;}
+.wrap_other_identifier th.other_desc,
+.wrap_other_identifier td.other_desc	{width:260px;}
+.wrap_other_identifier td.other_type div{font-size:11px; padding-top:5px;}
 .wrap_other_identifier th.other_ref,
 .wrap_other_identifier td.other_ref,
 .wrap_other_identifier th.owner_ref,
