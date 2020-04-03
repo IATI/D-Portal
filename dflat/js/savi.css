@@ -211,7 +211,7 @@ td.description div 					{padding-bottom:5px; border-bottom:1px dotted #666;}
 td.description div:last-of-type		{border:0;}
 
 table.budget	{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
-table.budget th	{padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 5px center;}
+table.budget th	{padding-bottom:10px; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 5px center;}
 .org table.budget th.status,
 table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right -5px center, #1c252fe8;}
 
@@ -302,13 +302,13 @@ table.budget.part_org td.part_org_type		{width:160px; padding-right:20px;}
 
 /*	IATI ACTIVITY HUMANITARIAN SCOPE TABLE	*/
 .wrap_humanitarian_scope th.hum_title,
-.wrap_humanitarian_scope td.hum_title		{padding-right:20px;}
+.wrap_humanitarian_scope td.hum_title		{padding-right:40px;}
 .wrap_humanitarian_scope th.hum_code,
-.wrap_humanitarian_scope td.hum_code		{width:190px; padding-right:20px; font-size:12px;}
+.wrap_humanitarian_scope td.hum_code		{width:160px; padding-right:20px; font-size:12px;}
 .wrap_humanitarian_scope th.hum_vocab,
 .wrap_humanitarian_scope td.hum_vocab		{width:130px; padding-right:20px;}
 .wrap_humanitarian_scope th.hum_type,
-.wrap_humanitarian_scope td.hum_type		{width:160px; padding-right:20px;}
+.wrap_humanitarian_scope td.hum_type		{width:130px;}
 
 /*	IATI ACTIVITY LOCATION TABLE	*/
 table.budget.location th,
@@ -426,7 +426,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_legacy_data th.legacy_name,
 .wrap_legacy_data td.legacy_name		{width:340px; padding-right:40px;}
 .wrap_legacy_data th.legacy_iati,
-.wrap_legacy_data td.legacy_iati		{width:260px;}
+.wrap_legacy_data td.legacy_iati		{width:280px;}
 
 /*	IATI ACTIVITY CONDITIONS TABLE	*/
 .wrap_conditions th.condition_narr,
@@ -434,7 +434,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_conditions th.condition_type,
 .wrap_conditions td.condition_type		{width:160px; padding-right:20px;}
 .wrap_conditions th.condition_desc,
-.wrap_conditions td.condition_desc		{width:260px;}
+.wrap_conditions td.condition_desc		{width:280px;}
 .wrap_conditions table.budget td.condition_desc	{font-size:12px; line-height:16px;}
 
 /*	IATI ACTIVITY TAG TABLE	*/
@@ -444,7 +444,6 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_tag table.budget td.tag_code		{width:160px; padding-right:20px;}
 .wrap_tag table.budget th.tag_vocab,
 .wrap_tag table.budget td.tag_vocab		{width:260px;}
-.wrap_tag table.budget td.tag_vocab div	{font-size:12px; line-height:14px; padding-top:5px;}
 
 /*	IATI ACTIVITY RELATED ACTIVITY TABLE	*/
 
@@ -453,7 +452,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_related_activity th.related_type,
 .wrap_related_activity td.related_type	{padding:5px 0; width:160px;}
 .wrap_related_activity th.related_desc,
-.wrap_related_activity td.related_desc	{padding:5px 0; width:260px;}
+.wrap_related_activity td.related_desc	{padding:5px 0; width:280px;}
 .wrap_related_activity table.budget td.related_desc	{font-size:12px; line-height:14px;}
 
 /*	IATI ACTIVITY OTHER IDENTIFIER TABLE	*/
@@ -462,12 +461,12 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_other_identifier th.other_type,
 .wrap_other_identifier td.other_type	{width:160px; padding-right:20px;}
 .wrap_other_identifier th.other_desc,
-.wrap_other_identifier td.other_desc	{width:260px;}
+.wrap_other_identifier td.other_desc	{width:280px;}
 .wrap_other_identifier td.other_type div{font-size:11px; padding-top:5px;}
 .wrap_other_identifier th.other_ref,
 .wrap_other_identifier td.other_ref,
 .wrap_other_identifier th.owner_ref,
-.wrap_other_identifier td.owner_ref		{padding-right:30px;}
+.wrap_other_identifier td.owner_ref		{padding-right:20px;}
 .wrap_other_identifier td.owner_ref	div	{font-size:12px; line-height:14px; padding-top:5px;}
 
 /*	IATI ACTIVITY CRS ADD TABLE	*/
