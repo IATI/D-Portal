@@ -82,14 +82,8 @@
 {_it./other-identifier&&_it:/wrap-other-identifier||}
 {_it./conditions@attached&&_it:/wrap-conditions||}
 {_it./legacy-data&&_it:/wrap-legacy-data||}
-{_it./crs-add/other-flags&&_it:/wrap-crs-add||}
-<div class="crs">
-	{_it./crs-add/loan-status@year&&_it:/loan-status/year||}
-	{_it./crs-add/loan-status/interest-received&&_it:/loan-status/interest-received||}
-	{_it./crs-add/loan-status/principal-outstanding&&_it:/loan-status/principal-outstanding||}
-	{_it./crs-add/loan-status/principal-arrears&&_it:/loan-status/principal-arrears||}
-	{_it./crs-add/loan-status/interest-arrears&&_it:/loan-status/interest-arrears||}
-</div>
+{_it./crs-add/other-flags||_it./crs-add/channel-code&&_it:/wrap-crs-add||}
+{_it./crs-add/loan-status@year||_it./crs-add/loan-status/interest-arrears||_it./crs-add/loan-status/interest-received||_it./crs-add/loan-status/principal-arrears||_it./crs-add/loan-status/principal-outstanding||_it./crs-add/loan-status/interest-arrears&&_it:/wrap-loan-status||}
 {_it./fss&&_it:/wrap-fss||}	<!--	0% published, need data to display	-->
 
 </div>
@@ -232,8 +226,8 @@
 					<th class="crs_desc" data-sort="string" data-sort-multicolumn="0,1,2,3">DESCRIPTION</th>
 				</tr>
 			</thead>
-			{_it./crs-add/channel-code&&_it:/channel-code||}
 			{_it./crs-add/other-flags:/other-flags}
+			{_it./crs-add/channel-code&&_it:/channel-code||}
 		</table>
 	</div>
 
@@ -253,20 +247,28 @@
 	<td class="crs_desc" data-sort-value="{_it.@code-description}">{_it.@code-description||}</td>
 </tr>
 
-#^/loan-status/year
-<div class="wrap_crs"><div class="crs_head">YEAR</div>{_it./crs-add/loan-status@year}</div><!--
-
-#^/loan-status/interest-received
---><div class="wrap_crs"><div class="crs_head">INTEREST</div>{_it./crs-add/loan-status/interest-received} <span>{_it./crs-add/loan-status@currency}</span></div><!--
-
-#^/loan-status/principal-outstanding
---><div class="wrap_crs"><div class="crs_head">PRINCIPAL OUTSTANDING</div>{_it./crs-add/loan-status/principal-outstanding} <span>{_it./crs-add/loan-status@currency}</span></div><!--
-
-#^/loan-status/principal-arrears
---><div class="wrap_crs"><div class="crs_head">PRINCIPAL ARREARS</div>{_it./crs-add/loan-status/principal-arrears} <span>{_it./crs-add/loan-status@currency}</span></div><!--
-
-#^/loan-status/interest-arrears
---><div class="wrap_crs"><div class="crs_head">INTEREST ARREARS</div>{_it./crs-add/loan-status/interest-arrears} <span>{_it./crs-add/loan-status@currency}</span></div><!--
+#^/wrap-loan-status
+<div class="wrap_crs_add">
+		<div class="header_section sticky collapsable">crs add loan status</div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="crs_loan_year" data-sort="string" data-sort-multicolumn="0,1,2,3,4">YEAR</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INTEREST ARREARS</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INTEREST RECEIVED</th>
+					<th class="crs_loan" data-sort="int" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL ARREARS</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL OUTSTANDING</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+				<td class="crs_loan_year">{_it./crs-add/loan-status@year||}</td>
+				<td class="crs_loan">{_it./crs-add/loan-status/interest-arrears||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+				<td class="crs_loan">{_it./crs-add/loan-status/interest-received||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+				<td class="crs_loan">{_it./crs-add/loan-status/principal-arrears||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+				<td class="crs_loan">{_it./crs-add/loan-status/principal-outstanding||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+			</tr>
+		</table>
+	</div>
 
 #^/wrap-conditions	<!--	CONDITIONS WRAPPER	-->
 	<div class="wrap_conditions">

@@ -292,13 +292,13 @@ table.budget tr:last-of-type td		{border:0; padding-bottom:30px;}	/*	Remove bord
 
 /*	IATI ACTIVITY PARTICIPATING ORG TABLE	*/
 table.budget.part_org th.part_org_name,
-table.budget.part_org td.part_org_name		{width:400px; padding-right:40px;}
+table.budget.part_org td.part_org_name		{padding-right:40px;}
 table.budget.part_org th.part_org_ref,
-table.budget.part_org td.part_org_ref		{width:190px; padding-right:20px;}
+table.budget.part_org td.part_org_ref		{width:160px; padding-right:20px;}
 table.budget.part_org th.part_org_role,
-table.budget.part_org td.part_org_role		{width:130px; padding-right:20px;}
+table.budget.part_org td.part_org_role,
 table.budget.part_org th.part_org_type,
-table.budget.part_org td.part_org_type		{width:160px; padding-right:20px;}
+table.budget.part_org td.part_org_type		{width:130px; padding-right:20px;}
 
 /*	IATI ACTIVITY HUMANITARIAN SCOPE TABLE	*/
 .wrap_humanitarian_scope th.hum_title,
@@ -470,13 +470,15 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_other_identifier td.owner_ref	div	{font-size:12px; line-height:14px; padding-top:5px;}
 
 /*	IATI ACTIVITY CRS ADD TABLE	*/
-.wrap_crs			{display:inline-block; vertical-align:bottom; width:19%; padding-bottom:35px; font-size:14px;}
-.crs_head			{font-size:12px; border-bottom:1px solid #aaa; color:#ccc; margin-bottom:10px; padding-bottom:10px;}
-.crs .wrap_crs:first-of-type::before	{content:"CRS ADD LOAN STATUS"; font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:0 0 20px -50px; width:980px; text-transform:uppercase; box-sizing:border-box; display:block;}
 .wrap_crs_add th.crs_code,
-.wrap_crs_add td.crs_code	{width:240px; padding-right:20px;}
+.wrap_crs_add td.crs_code		{padding-right:20px;}
 .wrap_crs_add th.crs_sig,
-.wrap_crs_add td.crs_sig	{width:160px; padding-right:20px;}
+.wrap_crs_add td.crs_sig		{width:160px; padding-right:20px;}
+.wrap_crs_add th.crs_desc,
+.wrap_crs_add td.crs_desc		{width:280px;}
+.wrap_crs_add th.crs_loan_year,
+.wrap_crs_add td.crs_loan_year	{width:80px;}
+.wrap_crs_add td.crs_loan span	{font-size:11px; color:#ccc;}
 
 /*	Thinner tables rows for better legibility	*/
 .wrap_participating_org table.budget td,
