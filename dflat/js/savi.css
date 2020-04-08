@@ -362,7 +362,8 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result td.result_period				{font-size:11px; line-height:20px; text-align:center;}
 .wrap_result .header_doc					{display:none;}
 .wrap_result_text							{padding:20px 0;}
-.result_main_title							{font-size:18px; line-height:24px;}
+.result_main_title							{font-size:16px; line-height:20px;}
+.result_title								{font-size:15px; line-height:18px;}
 .result_main_title:first-letter,
 .result_indi_desc:first-letter,
 .result_title:first-letter					{text-transform:capitalize;}
@@ -446,7 +447,6 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_tag table.budget td.tag_vocab		{width:260px;}
 
 /*	IATI ACTIVITY RELATED ACTIVITY TABLE	*/
-
 .wrap_related_activity th.related_ref,
 .wrap_related_activity td.related_ref	{padding:5px 40px 5px 0;}
 .wrap_related_activity th.related_type,
@@ -750,3 +750,113 @@ table.modals td span.withdrawn	{display:inline-block; background-color:#545e73; 
   justify-content: flex-start;
   text-align: left;
   text-anchor: end; }
+
+
+/*	PRINT FRIENDLY CSS	*/
+
+.activity.print a,
+.activity.print a:link,
+.activity.print a:visited,
+.activity.print a:hover,
+.activity.print a:active,
+.org.print a,
+.org.print a:link,
+.org.print a:visited,
+.org.print a:hover,
+.org.print a:active,
+.print .wrap_sector .subheader a,
+.print .wrap_sector .subheader a:link,
+.print .wrap_sector .subheader a:visited,
+.print .wrap_sector .subheader a:hover,
+.print .wrap_sector .subheader a:active	{color:#444;}
+
+/*  Data source links  */
+.print .data_source a {background-color:#fff; color:#444; border:1px solid #444;}
+.print .data_source a span {color:#444;}
+
+/*  Documents  */
+.print .wrap_document a,
+.print .wrap_document a:link,
+.print .wrap_document a:visited,
+.print .wrap_document a:hover,
+.print .wrap_document a:active  {background-color:#fff;}
+.print a.doc_link:before {border:1px solid #444; color:#444;}
+
+/*  Wrappers  */
+.activity.print,
+.org.print,
+.print .wrap_iati_identifier,
+.print .wrap_contact_info  {background-color:#fff; color:#444;}
+
+/*  Element Types  */
+.print .humanitarian,
+.print .header_section,
+.print .type,
+.print span.doc_date,
+.print span.doc_cat,
+.print span.doc_rec,
+.print span.doc_format,
+.print .wrap_activity_date .planned_start,
+.print .wrap_activity_date .actual_start,
+.print .wrap_activity_date .planned_end,
+.print .wrap_activity_date .actual_end,
+.print .sector_code,
+.print span.withdrawn,
+.print .ref span.withdrawn {font-weight:normal; background-color:#fff; color:#444; border:1px solid #444;}
+.print .header,
+.print .header_doc  {color:#444; border-bottom:1px solid #444;}
+
+/*  Progress Bar Dates  */
+.print .activity_date_overlay,
+.print .result_date_overlay  {background-color:#666;}
+.print .activity_date_overlay:after  {border:3px solid #666;}
+
+/*  Container text  */
+.print .version span,
+.print .wrap_reporting_org .text,
+.print .wrap_iati_identifier .text,
+.print .wrap_activity_date div span,
+.print .ref,
+.print .ref span,
+.print span.count,
+.print span.doc_lang,
+.print .wrap_length,
+.print .legend,
+.print .wrap_result .sector_list_wrap,
+.print .result_indi_desc,
+.print .result_indi_head,
+.print .result_facet,
+.print .result_facet_name,
+.print .result_facet_value,
+.print .result_empty,
+.print .result_base_year,
+.print .tab_currency,
+.print .wrap_contact_type  {color:#444;}
+
+/*  Results  */
+.print .brighter  {background-color:#fff; line-height:21px; border:0; border-bottom:1px solid #444;} 
+.print .brighter span  {background-color:#fff; padding:4px 10px; border:1px solid #444;}
+.print .result_date_bar  {background-color:#ccc; border-bottom:1px solid #666; border-right:1px solid #666;}
+
+/* Tables */
+.print table th, .print table td,
+.print table.modals th, .print table.modals td,
+.print table.budget th, .print table.budget td,
+.org.print table.budget th.status,
+.print table.budget th.value {background-color:#fff; color:#444;}
+.print table.budget.location td.loc_des .loc_act {color:#444;}
+.print table.modals td span.withdrawn  {background-color:#fff; color:#444; border:1px solid #444;}
+.print td .currency,
+.print .wrap_result table.budget tr.row_measure td {color:#444;}
+.print .wrap_result table.budget td.result_base,
+.print .wrap_result table.budget td.result_target,
+.print .wrap_result table.budget td.result_actual  {background-color:transparent;}
+
+/* Table sort icons */
+.print table.budget th	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right 5px center, #fff;}
+.org.print table.budget th.status,
+.print table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right -5px center, #fff;}
+
+/* Table Charts */
+.print .ct-label {fill:#444; color:#444;}
+.print .ct-grid  {stroke:#444;}
