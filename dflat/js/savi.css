@@ -51,6 +51,7 @@ span.block		{display:block;}
 .wrap_reporting_org .text,
 .wrap_iati_identifier .text		{color:#ccc; text-transform:uppercase; font-size:14px;}
 .wrap_iati_identifier .text a	{font-size:18px; padding-left:5px;}
+.wrap_name_org				{font-size:18px; padding-bottom:10px;}
 .wrap_description			{margin:40px auto;}
 .wrap_description .text		{margin-bottom:30px;}
 .wrap_description .text .narrative					{font-size:1.0em; word-spacing:0.05em; line-height:1.5em; white-space:pre-line; unicode-bidi:embed;}
@@ -213,7 +214,7 @@ td.description div:last-of-type		{border:0;}
 table.budget	{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
 table.budget th	{padding-bottom:10px; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 5px center;}
 .org table.budget th.status,
-table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right -5px center, #1c252fe8;}
+table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right -5px center, #152136;}
 
 table.budget th:hover	{cursor:pointer;}
 table.budget td			{font-size:14px; color:#FFF; line-height:1.35em; vertical-align:top; border-bottom:1px solid #4d5264; padding:10px 0;}
@@ -221,7 +222,7 @@ table.budget td.value	{font-size:16px; padding-right:20px; text-align:right;}
 .org table.budget td.value			{font-size:14px;}
 
 table.budget tr:nth-of-type(1) td	{padding-top:15px;}
-table.budget th			{position:sticky; top:30px; z-index:1; background-color:#1c252fe8; padding:10px 0;}
+table.budget th			{position:sticky; top:30px; z-index:1; background-color:#152136; padding:10px 0;}
 table.budget th:after	{content:''; position:absolute; left:0; bottom:-1px; width:100%; border-bottom:1px solid #aaa;}
 table.part_org td.part_org_ref div	{line-height:10px; padding-top:5px;}
 
@@ -785,8 +786,8 @@ table.modals td span.withdrawn	{display:inline-block; background-color:#545e73; 
 /*  Wrappers  */
 .activity.print,
 .org.print,
-.print .wrap_iati_identifier,
-.print .wrap_contact_info  {background-color:#fff; color:#444;}
+.print .wrap_iati_identifier  {background-color:#fff; color:#444;}
+.print .wrap_contact_info  {background-color:#fff; color:#444; border:1px solid #444;}
 
 /*  Element Types  */
 .print .humanitarian,

@@ -1171,7 +1171,7 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 #^/provider-org-ref
 <div>
 	<span title="Organisation Reference" class="ref">
-		REF <a href="http://d-portal.org/q.html?aid={_it./provider-org@ref}">{_it./provider-org@ref||}</a>
+		REF <a href="http://d-portal.org/ctrack.html?publisher={_it./provider-org@ref}">{_it./provider-org@ref||}</a>
 	</span>
 </div>
 
@@ -1192,7 +1192,7 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 #^/receiver-org-ref
 <div>
 	<span title="Organisation Reference" class="ref">
-		REF <a href="http://d-portal.org/q.html?aid={_it./receiver-org@ref}">{_it./receiver-org@ref||}</a>
+		REF <a href="http://d-portal.org/ctrack.html?publisher={_it./receiver-org@ref}">{_it./receiver-org@ref||}</a>
 	</span>
 </div>
 
@@ -1643,7 +1643,7 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 			<thead>
 				<tr>
 					<th class="part_org_name" data-sort="string" data-sort-multicolumn="0,1,2,3">PARTICIPATING ORG</th>
-					<th class="part_org_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">REF / CODE</th>
+					<th class="part_org_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">REFERENCE</th>
 					<th class="part_org_role" data-sort="int" data-sort-multicolumn="0,1,2,3">ROLE</th>
 					<th class="part_org_type" data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
 				</tr>
@@ -1659,14 +1659,14 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 	<td class="part_org_ref">
 		{_it.@ref&&_it:/participating-org/ref||}
 		{_it.@crs-channel-code-name&&_it:/participating-org/crs-channel-code||}
-		{_it.@@activity-id&&_it:/participating-org/activity-id||}
+		{_it.@activity-id&&_it:/participating-org/activity-id||}
 	</td>
 	<td class="part_org_role" title="{_it.@role-description||}" data-sort-value="{_it.@role}">{_it.@role-name||}</td>
 	<td class="part_org_type" title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
 
 #^/participating-org/ref
-<a title="Organisation Reference" href="http://d-portal.org/q.html?aid={_it.@ref||}">{_it.@ref||}</a>
+<a title="Organisation Reference" href="http://d-portal.org/ctrack.html?publisher={_it.@ref||}">{_it.@ref||}</a>
 
 #^/participating-org/crs-channel-code
 <div>
@@ -1754,11 +1754,10 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 #^iati-organisation
 <div class="org">
 	<div class="header">ORGANISATION FILE</div>
-
+	<div class="wrap_name_org">{_it./name/narrative.0.text||}</div>
 	<div class="wrap_reporting_org">	<!--	REPORTING ORG	-->
 		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
 	</div>
-
 	<div class="wrap_iati_identifier org_id">	<!--	ORG IDENTIFIER AND SOURCES	-->
 		<div class="text">Organisation identifier <a href="http://d-portal.org/q.html?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}">{_it./organisation-identifier||}</a></div>
 		<div class="data_source">
