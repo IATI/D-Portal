@@ -215,7 +215,7 @@ console.log("CREATING INDEXS");
 // we also create a text search index
 	if(!idxs || idxs=="search")
 	{
-		var s=(" CREATE INDEX IF NOT EXISTS act_index_text_search ON act USING gin(to_tsvector('simple',title || ' ' || description)); ");
+		var s=(" CREATE INDEX IF NOT EXISTS act_index_text_search ON act USING gin(to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'') )); ");
 		console.log(s);
 		wait.for(function(cb){
 			db.none(s).then(cb).catch(err);

@@ -73,3 +73,15 @@ order by 2 desc
 
 limit 20;
 
+#^sql_top_organic_tags
+
+select
+
+xson->>'@code' as code , count(*)
+
+from xson where root='/iati-activities/iati-activity/tag' and xson->>'@vocabulary' = '99' and xson->>'@vocabulary-uri' is null
+
+group by 1 order by 2 desc
+
+limit 1000;
+
