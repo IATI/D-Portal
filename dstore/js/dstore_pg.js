@@ -216,8 +216,8 @@ console.log("CREATING INDEXS");
 	if(!idxs || idxs=="search")
 	{
 // coalesce seems to be too expensive?
-//		var s=(" CREATE INDEX IF NOT EXISTS act_index_text_search ON act USING gin(to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'') )); ");
-		var s=(" CREATE INDEX IF NOT EXISTS act_index_text_search ON act USING gin(to_tsvector('simple',title || ' ' || description)); ");
+		var s=(" CREATE INDEX IF NOT EXISTS act_index_text_search ON act USING gin(to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'') )); ");
+//		var s=(" CREATE INDEX IF NOT EXISTS act_index_text_search ON act USING gin(to_tsvector('simple',title || ' ' || description)); ");
 		console.log(s);
 		wait.for(function(cb){
 			db.none(s).then(cb).catch(err);
