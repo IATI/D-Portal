@@ -31,7 +31,8 @@ span.withdrawn	{font-size:12px; font-style:italic; font-weight:normal; text-tran
 .header_doc		{border:0; margin:0;}
 .header_section	{font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:0 0 20px -50px; width:980px; text-transform:uppercase; box-sizing:border-box;}
 .bright			{background-color:rgba(38,67,128,0.9); margin-bottom:0;}
-.brighter		{background-color:rgba(55,80,134,0.9);}
+.brighter		{background-color:transparent; width:880px; padding:0; font-size:11px; border-bottom:2px solid #47506b; margin:auto; margin:5px 0 20px 0; line-height:20px;}
+.brighter span	{background-color:#47506b; display:inline; padding:5px 10px;}
 .sticky			{position:sticky; top:-1px; z-index:2;}
 .nostick		{position:initial;}
 span.block		{display:block;}
@@ -50,10 +51,12 @@ span.block		{display:block;}
 .wrap_reporting_org .text,
 .wrap_iati_identifier .text		{color:#ccc; text-transform:uppercase; font-size:14px;}
 .wrap_iati_identifier .text a	{font-size:18px; padding-left:5px;}
+.wrap_name_org				{font-size:18px; padding-bottom:10px; color:#fff;}
 .wrap_description			{margin:40px auto;}
 .wrap_description .text		{margin-bottom:30px;}
 .wrap_description .text .narrative					{font-size:1.0em; word-spacing:0.05em; line-height:1.5em; white-space:pre-line; unicode-bidi:embed;}
 .wrap_description .text .narrative:nth-of-type(2)	{font-style:italic; display:block; margin-top:15px;}
+.wrap_description .text .narrative:first-letter		{text-transform:capitalize;}
 .wrap_default				{padding:20px 0 0 0; margin:0 auto;}
 .wrap_default .text			{display:inline-block; vertical-align:top; font-size:14px; color:#ccc; width:50%;}
 .wrap_default .text:first-of-type	{padding-right:20px;}
@@ -165,12 +168,18 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 
 /*	DATES	*/
 .wrap_activity_date					{position:relative; width:980px; height:82px; margin-left:-50px;}
-.wrap_activity_date div				{display:inline-block; padding:10px 40px; font-size:20px; color:#151515; min-height:40px; height:40px; line-height:18px;}
+.wrap_activity_date .planned_start,
+.wrap_activity_date .actual_start,
+.wrap_activity_date .planned_end,
+.wrap_activity_date .actual_end		{display:inline-block; padding:10px 40px; font-size:20px; color:#151515; min-height:40px; height:40px; line-height:18px;}
 .wrap_activity_date div span		{font-size:13px; line-height:18px; font-weight:bold;color:#552d03; text-transform:uppercase; min-width:165px; display:inline-block; vertical-align:bottom; padding-right:10px;}
 .wrap_activity_date .planned_start	{position:absolute; top:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#f48a1a;}
-.wrap_activity_date .actual_start	{position:absolute; top:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ffa443; text-align:right;}
-.wrap_activity_date .planned_end	{position:absolute; bottom:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#f48a1a;}
+.wrap_activity_date .planned_end	{position:absolute; top:0; right:0; width:490px; margin:1px 0 0 0; background-color:#f48a1a; text-align:right;}
+.wrap_activity_date .actual_start	{position:absolute; bottom:0; left:0; width:489px; margin:1px 1px 0 0; background-color:#ffa443;}
 .wrap_activity_date .actual_end		{position:absolute; bottom:0; right:0; width:490px; margin:1px 0 0 0; background-color:#ffa443; text-align:right;}
+.activity_date_bar					{position:relative; width:960px; background-color:#ccc; height:10px; max-height:10px; margin-left:-40px;}
+.activity_date_overlay				{position:relative; background-color:#3d72dd; height:10px; max-height:10px;}
+.activity_date_overlay:after		{position:absolute; content:""; right:-5px; top:-4px; background-color:#fff; height:10px; width:10px; border-radius:15px; border:3px solid #3d72dd;}
 
 /*	ACTIVITY STATUS	*/
 .wrap_activity_status		{width:960px; font-size:16px; text-align:center; margin-left:-40px; padding:20px 0; color:#444; background-color:#fff;}
@@ -203,9 +212,9 @@ td.description div 					{padding-bottom:5px; border-bottom:1px dotted #666;}
 td.description div:last-of-type		{border:0;}
 
 table.budget	{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
-table.budget th	{padding-bottom:10px; border-bottom:1px solid #aaa; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 5px center;}
+table.budget th	{padding-bottom:10px; margin-bottom:15px; font-size:14px; font-weight:normal; color:#CCC; line-height:1.35em; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 5px center;}
 .org table.budget th.status,
-table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right -5px center, #1c252fe8;}
+table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right -5px center, #152136;}
 
 table.budget th:hover	{cursor:pointer;}
 table.budget td			{font-size:14px; color:#FFF; line-height:1.35em; vertical-align:top; border-bottom:1px solid #4d5264; padding:10px 0;}
@@ -213,7 +222,7 @@ table.budget td.value	{font-size:16px; padding-right:20px; text-align:right;}
 .org table.budget td.value			{font-size:14px;}
 
 table.budget tr:nth-of-type(1) td	{padding-top:15px;}
-table.budget th			{position:sticky; top:30px; z-index:1; background-color:#1c252fe8; padding:10px 0;}
+table.budget th			{position:sticky; top:30px; z-index:1; background-color:#152136; padding:10px 0;}
 table.budget th:after	{content:''; position:absolute; left:0; bottom:-1px; width:100%; border-bottom:1px solid #aaa;}
 table.part_org td.part_org_ref div	{line-height:10px; padding-top:5px;}
 
@@ -284,21 +293,23 @@ table.budget tr:last-of-type td		{border:0; padding-bottom:30px;}	/*	Remove bord
 
 /*	IATI ACTIVITY PARTICIPATING ORG TABLE	*/
 table.budget.part_org th.part_org_name,
-table.budget.part_org td.part_org_name		{width:400px; padding-right:40px;}
+table.budget.part_org td.part_org_name		{padding-right:40px;}
 table.budget.part_org th.part_org_ref,
-table.budget.part_org td.part_org_ref		{width:190px; padding-right:20px;}
+table.budget.part_org td.part_org_ref		{width:160px; padding-right:20px;}
 table.budget.part_org th.part_org_role,
-table.budget.part_org td.part_org_role		{width:130px; padding-right:20px;}
+table.budget.part_org td.part_org_role,
 table.budget.part_org th.part_org_type,
-table.budget.part_org td.part_org_type		{width:160px; padding-right:20px;}
+table.budget.part_org td.part_org_type		{width:130px; padding-right:20px;}
 
 /*	IATI ACTIVITY HUMANITARIAN SCOPE TABLE	*/
+.wrap_humanitarian_scope th.hum_title,
+.wrap_humanitarian_scope td.hum_title		{padding-right:40px;}
 .wrap_humanitarian_scope th.hum_code,
-.wrap_humanitarian_scope td.hum_code		{width:190px; padding-right:20px; font-size:12px;}
+.wrap_humanitarian_scope td.hum_code		{width:160px; padding-right:20px; font-size:12px;}
 .wrap_humanitarian_scope th.hum_vocab,
 .wrap_humanitarian_scope td.hum_vocab		{width:130px; padding-right:20px;}
 .wrap_humanitarian_scope th.hum_type,
-.wrap_humanitarian_scope td.hum_type		{width:160px; padding-right:20px;}
+.wrap_humanitarian_scope td.hum_type		{width:130px;}
 
 /*	IATI ACTIVITY LOCATION TABLE	*/
 table.budget.location th,
@@ -352,8 +363,11 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result td.result_period				{font-size:11px; line-height:20px; text-align:center;}
 .wrap_result .header_doc					{display:none;}
 .wrap_result_text							{padding:20px 0;}
-.result_main_title							{font-size:18px; line-height:24px;}
-.result_main_title:first-letter				{text-transform:capitalize;}
+.result_main_title							{font-size:16px; line-height:20px;}
+.result_title								{font-size:15px; line-height:18px;}
+.result_main_title:first-letter,
+.result_indi_desc:first-letter,
+.result_title:first-letter					{text-transform:capitalize;}
 .wrap_result_text .wrap_document,
 .wrap_result_indicator .wrap_document		{margin:15px 0 0 0;}
 .wrap_result a.doc_link						{padding:5px; line-height:1em; font-size:7px;}
@@ -361,6 +375,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .wrap_result span.doc_title					{font-size:12px;}
 .wrap_result span.doc_format				{padding:5px;}
 .wrap_result span.doc_cat,
+.wrap_result span.doc_lang,
 .wrap_result span.doc_rec,
 .wrap_result span.doc_date					{font-size:11px; margin:2px 2px 0 0;}
 .wrap_result_text .wrap_result_indi_ref		{padding:0;}
@@ -398,62 +413,73 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
 .wrap_policy_marker table.budget th.policy_code,
-.wrap_policy_marker table.budget td.policy_code		{width:480px; padding-right:40px;}
+.wrap_policy_marker table.budget td.policy_code		{width:300px; padding-right:40px;}
+.wrap_policy_marker table.budget td.policy_code	div	{font-size:11px;}
+.wrap_policy_marker table.budget td.policy_code a	{display:block; padding-top:5px; font-size:12px; line-height:14px; overflow-wrap:initial;}
 .wrap_policy_marker table.budget th.policy_sig,
 .wrap_policy_marker table.budget td.policy_sig		{width:160px; padding-right:20px; text-transform:capitalize;}
+.wrap_policy_marker table.budget th.policy_vocab,
+.wrap_policy_marker table.budget td.policy_vocab	{width:160px; padding-right:20px;}
+.wrap_policy_marker table.budget th.policy_desc,
+.wrap_policy_marker table.budget td.policy_desc		{width:260px;}
+.wrap_policy_marker table.budget td.policy_desc		{font-size:12px; line-height:14px;}
 
 /*	IATI ACTIVITY LEGACY DATA TABLE	*/
 .wrap_legacy_data th.legacy_name,
-.wrap_legacy_data td.legacy_name		{width:480px; padding-right:40px;}
-.wrap_legacy_data th.legacy_value,
-.wrap_legacy_data td.legacy_value		{width:160px;}
+.wrap_legacy_data td.legacy_name		{width:340px; padding-right:40px;}
+.wrap_legacy_data th.legacy_iati,
+.wrap_legacy_data td.legacy_iati		{width:280px;}
 
 /*	IATI ACTIVITY CONDITIONS TABLE	*/
 .wrap_conditions th.condition_narr,
-.wrap_conditions td.condition_narr		{width:480px; padding-right:40px;}
+.wrap_conditions td.condition_narr		{padding-right:40px;}
 .wrap_conditions th.condition_type,
-.wrap_conditions td.condition_type		{width:120px;}
-.wrap_conditions table.budget td.condition_narr	{font-size:12px; line-height:16px;}
+.wrap_conditions td.condition_type		{width:160px; padding-right:20px;}
+.wrap_conditions th.condition_desc,
+.wrap_conditions td.condition_desc		{width:280px;}
 .wrap_conditions table.budget td.condition_desc	{font-size:12px; line-height:16px;}
 
 /*	IATI ACTIVITY TAG TABLE	*/
-.wrap_tag table.budget th.tag_code,
-.wrap_tag table.budget td.tag_code		{width:480px; padding-right:40px;}
-.wrap_tag table.budget th.tag_vocab,
-.wrap_tag table.budget td.tag_vocab		{width:160px; font-size:12px; padding-right:20px;}
 .wrap_tag table.budget th.tag_desc,
-.wrap_tag table.budget td.tag_desc		{font-size:12px;}
+.wrap_tag table.budget td.tag_desc		{padding-right:40px;}
+.wrap_tag table.budget th.tag_code,
+.wrap_tag table.budget td.tag_code		{width:160px; padding-right:20px;}
+.wrap_tag table.budget th.tag_vocab,
+.wrap_tag table.budget td.tag_vocab		{width:260px;}
 
 /*	IATI ACTIVITY RELATED ACTIVITY TABLE	*/
-.wrap_related_activity table.budget th,
-.wrap_related_activity table.budget td	{padding:5px 0; vertical-align:middle;}
 .wrap_related_activity th.related_ref,
-.wrap_related_activity td.related_ref	{width:480px; padding-right:40px;}
+.wrap_related_activity td.related_ref	{padding:5px 40px 5px 0;}
 .wrap_related_activity th.related_type,
-.wrap_related_activity td.related_type	{width:120px;}
+.wrap_related_activity td.related_type	{padding:5px 0; width:160px;}
 .wrap_related_activity th.related_desc,
-.wrap_related_activity td.related_desc	{width:280px;}
+.wrap_related_activity td.related_desc	{padding:5px 0; width:280px;}
 .wrap_related_activity table.budget td.related_desc	{font-size:12px; line-height:14px;}
 
 /*	IATI ACTIVITY OTHER IDENTIFIER TABLE	*/
-.wrap_other_identifier th.other_desc,
-.wrap_other_identifier td.other_desc	{width:240px;}
+.wrap_other_identifier td.other_desc,
+.wrap_other_identifier td.other_type	{font-size:12px; line-height:14px;}
 .wrap_other_identifier th.other_type,
 .wrap_other_identifier td.other_type	{width:160px; padding-right:20px;}
+.wrap_other_identifier th.other_desc,
+.wrap_other_identifier td.other_desc	{width:280px;}
+.wrap_other_identifier td.other_type div{font-size:11px; padding-top:5px;}
 .wrap_other_identifier th.other_ref,
 .wrap_other_identifier td.other_ref,
 .wrap_other_identifier th.owner_ref,
-.wrap_other_identifier td.owner_ref		{padding-right:30px;}
+.wrap_other_identifier td.owner_ref		{padding-right:20px;}
 .wrap_other_identifier td.owner_ref	div	{font-size:12px; line-height:14px; padding-top:5px;}
 
 /*	IATI ACTIVITY CRS ADD TABLE	*/
-.wrap_crs			{display:inline-block; vertical-align:bottom; width:19%; padding-bottom:35px; font-size:14px;}
-.crs_head			{font-size:12px; border-bottom:1px solid #aaa; color:#ccc; margin-bottom:10px; padding-bottom:10px;}
-.crs .wrap_crs:first-of-type::before	{content:"CRS ADD LOAN STATUS"; font-size:12px; color:#FFF; background-color:rgba(17,46,105,0.9); padding:10px 40px; margin:0 0 20px -50px; width:980px; text-transform:uppercase; box-sizing:border-box; display:block;}
 .wrap_crs_add th.crs_code,
-.wrap_crs_add td.crs_code	{width:240px; padding-right:20px;}
+.wrap_crs_add td.crs_code		{padding-right:20px;}
 .wrap_crs_add th.crs_sig,
-.wrap_crs_add td.crs_sig	{width:160px; padding-right:20px;}
+.wrap_crs_add td.crs_sig		{width:160px; padding-right:20px;}
+.wrap_crs_add th.crs_desc,
+.wrap_crs_add td.crs_desc		{width:280px;}
+.wrap_crs_add th.crs_loan_year,
+.wrap_crs_add td.crs_loan_year	{width:80px;}
+.wrap_crs_add td.crs_loan span	{font-size:11px; color:#ccc;}
 
 /*	Thinner tables rows for better legibility	*/
 .wrap_participating_org table.budget td,
@@ -725,3 +751,114 @@ table.modals td span.withdrawn	{display:inline-block; background-color:#545e73; 
   justify-content: flex-start;
   text-align: left;
   text-anchor: end; }
+
+
+/*	PRINT FRIENDLY CSS	*/
+
+.activity.print a,
+.activity.print a:link,
+.activity.print a:visited,
+.activity.print a:hover,
+.activity.print a:active,
+.org.print a,
+.org.print a:link,
+.org.print a:visited,
+.org.print a:hover,
+.org.print a:active,
+.print .wrap_sector .subheader a,
+.print .wrap_sector .subheader a:link,
+.print .wrap_sector .subheader a:visited,
+.print .wrap_sector .subheader a:hover,
+.print .wrap_sector .subheader a:active	{color:#444;}
+
+/*  Data source links  */
+.print .data_source a {background-color:#fff; color:#444; border:1px solid #444;}
+.print .data_source a span {color:#444;}
+
+/*  Documents  */
+.print .wrap_document a,
+.print .wrap_document a:link,
+.print .wrap_document a:visited,
+.print .wrap_document a:hover,
+.print .wrap_document a:active  {background-color:#fff;}
+.print a.doc_link:before {border:1px solid #444; color:#444;}
+
+/*  Wrappers  */
+.activity.print,
+.org.print,
+.print .wrap_iati_identifier  {background-color:#fff; color:#444;}
+.print .wrap_contact_info  {background-color:#fff; color:#444; border:1px solid #444;}
+
+/*  Element Types  */
+.print .humanitarian,
+.print .header_section,
+.print .type,
+.print span.doc_date,
+.print span.doc_cat,
+.print span.doc_rec,
+.print span.doc_format,
+.print .wrap_activity_date .planned_start,
+.print .wrap_activity_date .actual_start,
+.print .wrap_activity_date .planned_end,
+.print .wrap_activity_date .actual_end,
+.print .sector_code,
+.print span.withdrawn,
+.print .ref span.withdrawn {font-weight:normal; background-color:#fff; color:#444; border:1px solid #444;}
+.print .header,
+.print .header_doc  {color:#444; border-bottom:1px solid #444;}
+
+/*  Progress Bar Dates  */
+.print .activity_date_overlay,
+.print .result_date_overlay  {background-color:#666;}
+.print .activity_date_overlay:after  {border:3px solid #666;}
+
+/*  Container text  */
+.print .version span,
+.print .wrap_reporting_org .text,
+.print .wrap_iati_identifier .text,
+.print .wrap_name_org,
+.print .wrap_activity_date div span,
+.print .ref,
+.print .ref span,
+.print span.count,
+.print span.doc_lang,
+.print .wrap_length,
+.print .legend,
+.print .wrap_result .sector_list_wrap,
+.print .result_indi_desc,
+.print .result_indi_head,
+.print .result_facet,
+.print .result_facet_name,
+.print .result_facet_value,
+.print .result_empty,
+.print .result_base_year,
+.print .tab_currency,
+.print .wrap_contact_type  {color:#444;}
+
+/*  Results  */
+.print .brighter  {background-color:#fff; line-height:21px; border:0; border-bottom:1px solid #444;} 
+.print .brighter span  {background-color:#fff; padding:4px 10px; border:1px solid #444;}
+.print .result_date_bar  {background-color:#ccc; border-bottom:1px solid #666; border-right:1px solid #666;}
+
+/* Tables */
+.print table th, .print table td,
+.print table.modals th, .print table.modals td,
+.print table.budget th, .print table.budget td,
+.org.print table.budget th.status,
+.print table.budget th.value {background-color:#fff; color:#444;}
+.print table.budget.location td.loc_des .loc_act {color:#444;}
+.print table.modals td span.withdrawn  {background-color:#fff; color:#444; border:1px solid #444;}
+.print td .currency,
+.print .wrap_result table.budget tr.row_measure td {color:#444;}
+.print .wrap_result table.budget td.result_base,
+.print .wrap_result table.budget td.result_target,
+.print .wrap_result table.budget td.result_actual  {background-color:transparent;}
+
+/* Table sort icons */
+.print table.budget th	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right 5px center, #fff;}
+.org.print table.budget th.status,
+.print table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right -5px center, #fff;}
+
+/* Table Charts */
+.print .ct-label {fill:#444; color:#444;}
+.print .ct-grid  {stroke:#444;}

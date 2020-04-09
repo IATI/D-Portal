@@ -53,14 +53,19 @@
 <!--	ACTIVITY DATE	-->	
 	<div class="wrap_activity_date">
 		{_it./activity-date-1&&_it:/wrap-activity-date-1||}
-		{_it./activity-date-2&&_it:/wrap-activity-date-2||}
 		{_it./activity-date-3&&_it:/wrap-activity-date-3||}
+		{_it./activity-date-2&&_it:/wrap-activity-date-2||}		
 		{_it./activity-date-4&&_it:/wrap-activity-date-4||}
+	</div>
+	<div class="activity_date_bar">
+		<div class="activity_date_overlay" style="width:calc({_it./activity-date-percent} * 9.60px);"></div>
 	</div>
 {_it./activity-status@code&&_it:/wrap-activity-status||}
 {_it./participating-org&&_it:/wrap-participating-org||}
 {_it./description&&_it:/wrap-description||}
 {_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
+{_it./tag&&_it:/wrap-tag||}
+{_it./policy-marker&&_it:/wrap-policy-marker||}
 {_it./recipient-country&&_it:/wrap-recipient-country||}
 {_it./recipient-region&&_it:/wrap-recipient-region||}
 {_it./location&&_it:/wrap-location||}
@@ -72,21 +77,13 @@
 {_it./planned-disbursement&&_it:/wrap-planned-disbursement||}
 {_it./transaction&&_it:/wrap-transaction||}
 {_it./result&&_it:/wrap-result||}
-{_it./tag&&_it:/wrap-tag||}
-{_it./policy-marker&&_it:/wrap-policy-marker||}
 {_it./contact-info&&_it:/wrap-contact-info||}
 {_it./related-activity&&_it:/wrap-related-activity||}
 {_it./other-identifier&&_it:/wrap-other-identifier||}
 {_it./conditions@attached&&_it:/wrap-conditions||}
 {_it./legacy-data&&_it:/wrap-legacy-data||}
-{_it./crs-add/other-flags&&_it:/wrap-crs-add||}
-<div class="crs">
-	{_it./crs-add/loan-status@year&&_it:/loan-status/year||}
-	{_it./crs-add/loan-status/interest-received&&_it:/loan-status/interest-received||}
-	{_it./crs-add/loan-status/principal-outstanding&&_it:/loan-status/principal-outstanding||}
-	{_it./crs-add/loan-status/principal-arrears&&_it:/loan-status/principal-arrears||}
-	{_it./crs-add/loan-status/interest-arrears&&_it:/loan-status/interest-arrears||}
-</div>
+{_it./crs-add/other-flags||_it./crs-add/channel-code&&_it:/wrap-crs-add||}
+{_it./crs-add/loan-status@year||_it./crs-add/loan-status/interest-arrears||_it./crs-add/loan-status/interest-received||_it./crs-add/loan-status/principal-arrears||_it./crs-add/loan-status/principal-outstanding||_it./crs-add/loan-status/interest-arrears&&_it:/wrap-loan-status||}
 {_it./fss&&_it:/wrap-fss||}	<!--	0% published, need data to display	-->
 
 </div>
@@ -200,6 +197,21 @@
 		</div>
 	</div>
 	<div style="text-align:right; margin-top:10px; margin-right:20px; font-size:12px; color:#666;">*All years in total. Sectors use 3-digit OECD DAC codes.</div>
+	
+	<div class="sector_list_wrap" style="margin-top:20px;">
+		<div class="header glossary" style="font-weight:bold; color:#444; padding-bottom:5px; margin-bottom:10px;">GLOSSARY</div>
+	</div>
+	<div class="sector_list_wrap">
+		<div class="sector_list"> 
+			<span>Basic Health</span><span class="sector_list_description"></span>
+		</div>
+		<div class="sector_list"> 
+			<span>Emergency Response</span><span class="sector_list_description">An emergency is a situation which results from man made crises and/or natural disasters.</span>
+		</div>
+		<div class="sector_list"> 
+			<span>Industry</span><span class="sector_list_description"></span>
+		</div>
+	</div>
 </div>
 	
 #^/wrap-crs-add	<!--	CRS WRAPPER	-->
@@ -214,8 +226,8 @@
 					<th class="crs_desc" data-sort="string" data-sort-multicolumn="0,1,2,3">DESCRIPTION</th>
 				</tr>
 			</thead>
-			{_it./crs-add/channel-code&&_it:/channel-code||}
 			{_it./crs-add/other-flags:/other-flags}
+			{_it./crs-add/channel-code&&_it:/channel-code||}
 		</table>
 	</div>
 
@@ -235,24 +247,32 @@
 	<td class="crs_desc" data-sort-value="{_it.@code-description}">{_it.@code-description||}</td>
 </tr>
 
-#^/loan-status/year
-<div class="wrap_crs"><div class="crs_head">YEAR</div>{_it./crs-add/loan-status@year}</div><!--
-
-#^/loan-status/interest-received
---><div class="wrap_crs"><div class="crs_head">INTEREST</div>{_it./crs-add/loan-status/interest-received} <span>{_it./crs-add/loan-status@currency}</span></div><!--
-
-#^/loan-status/principal-outstanding
---><div class="wrap_crs"><div class="crs_head">PRINCIPAL OUTSTANDING</div>{_it./crs-add/loan-status/principal-outstanding} <span>{_it./crs-add/loan-status@currency}</span></div><!--
-
-#^/loan-status/principal-arrears
---><div class="wrap_crs"><div class="crs_head">PRINCIPAL ARREARS</div>{_it./crs-add/loan-status/principal-arrears} <span>{_it./crs-add/loan-status@currency}</span></div><!--
-
-#^/loan-status/interest-arrears
---><div class="wrap_crs"><div class="crs_head">INTEREST ARREARS</div>{_it./crs-add/loan-status/interest-arrears} <span>{_it./crs-add/loan-status@currency}</span></div><!--
+#^/wrap-loan-status
+<div class="wrap_crs_add">
+		<div class="header_section sticky collapsable">crs add loan status</div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="crs_loan_year" data-sort="string" data-sort-multicolumn="0,1,2,3,4">YEAR</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INTEREST ARREARS</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INTEREST RECEIVED</th>
+					<th class="crs_loan" data-sort="int" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL ARREARS</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL OUTSTANDING</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+				<td class="crs_loan_year">{_it./crs-add/loan-status@year||}</td>
+				<td class="crs_loan">{_it./crs-add/loan-status/interest-arrears||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+				<td class="crs_loan">{_it./crs-add/loan-status/interest-received||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+				<td class="crs_loan">{_it./crs-add/loan-status/principal-arrears||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+				<td class="crs_loan">{_it./crs-add/loan-status/principal-outstanding||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+			</tr>
+		</table>
+	</div>
 
 #^/wrap-conditions	<!--	CONDITIONS WRAPPER	-->
 	<div class="wrap_conditions">
-		<div class="header_section sticky collapsable">conditions<span class="count">( {_it./conditions/condition.length} )</span></div>
+		<div class="header_section sticky collapsable">conditions<span class="count">( {_it./conditions/condition.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -274,7 +294,7 @@
 
 #^/wrap-legacy-data	<!--	LEGACY DATA WRAPPER	-->
 	<div class="wrap_legacy_data">
-		<div class="header_section sticky collapsable">legacy data<span class="count">( {_it./legacy-data.length} )</span></div>
+		<div class="header_section sticky collapsable">legacy data<span class="count">( {_it./legacy-data.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -296,7 +316,7 @@
 
 #^/wrap-other-identifier	<!--	OTHER IDENTIFIER WRAPPER	-->
 	<div class="wrap_other_identifier">
-		<div class="header_section sticky collapsable">other identifier<span class="count">( {_it./other-identifier.length} )</span></div>
+		<div class="header_section sticky collapsable">other identifier<span class="count">( {_it./other-identifier.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -314,12 +334,18 @@
 <tr class="row_count">
 	<td class="other_ref" data-sort-value="{_it.@ref}">{_it.@ref||}</td>
 	<td class="owner_ref" data-sort-value="{_it./owner-org@ref}">
-		<a href="http://d-portal.org/q.html?aid={_it./owner-org@ref}">{_it./owner-org@ref||}</a>
+		{_it./owner-org@ref||}
 		{_it./owner-org/narrative&&_it:/owner-org||}
 	</td>
-	<td class="other_type" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+	<td class="other_type" data-sort-value="{_it.@type}">
+		{_it.@type-name||}
+		{_it.@type&&_it:/other-type-wrap||}
+	</td>
 	<td class="other_desc" data-sort-value="{_it.@type}">{_it.@type-description||/empty-description}</td>
 </tr>
+
+#^/other-type-wrap
+<div><span class="ref">CODE</span> {_it.@type}</div>
 
 #^/owner-org
 <div>{_it./owner-org/narrative.0.text||}</div>
@@ -337,7 +363,7 @@
 	</div>
 
 #^/wrap-country-budget-items	<!--	COUNTRY BUDGET ITEMS WRAPPER	-->
-	<div class="header_section collapsable">country budget items <span class="count">( {_it./country-budget-items/budget-item.length} )</span></div>
+	<div class="header_section collapsable">country budget items <span class="count">( {_it./country-budget-items/budget-item.length||no_length} )</span></div>
 	<div class="wrap_sector wrap_country_budget_items">
 		{_it./country-budget-items@vocabulary&&_it:/country-budget-items-vocab||}
 	</div>
@@ -346,7 +372,7 @@
 #^/country-budget-items-vocab
 <div class="sector_vocab">
 	<div class="header">
-		{_it./country-budget-items@vocabulary-name||}{_it./country-budget-items@vocabulary-withdrawn&&_it:/withdrawn||} <span class="count">( {_it./country-budget-items/budget-item.length} )</span>
+		{_it./country-budget-items@vocabulary-name||}{_it./country-budget-items@vocabulary-withdrawn&&_it:/withdrawn||} <span class="count">( {_it./country-budget-items/budget-item.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./country-budget-items@vocabulary-description||}</div>
 	{_it./country-budget-items/budget-item:/budget-item||}
@@ -418,7 +444,7 @@
 
 #^/wrap-related-activity	<!--	RELATED ACTIVITY (PREVIOUSLY FAMILY TREE) WRAPPER	-->
 	<div class="wrap_related_activity">
-		<div class="header_section sticky collapsable">related activity<span class="count">( {_it./related-activity.length} )</span></div>
+		<div class="header_section sticky collapsable">related activity<span class="count">( {_it./related-activity.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -441,13 +467,13 @@
 
 #^/wrap-tag	<!--	TAG WRAPPER	-->
 	<div class="wrap_tag">
-		<div class="header_section sticky collapsable">tag<span class="count">( {_it./tag.length} )</span></div>
+		<div class="header_section sticky collapsable">tag<span class="count">( {_it./tag.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
-					<th class="tag_code" data-sort="int" data-sort-multicolumn="0,1,2">CODELIST</th>
-					<th class="tag_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>
-					<th class="tag_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>			
+					<th class="tag_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>
+					<th class="tag_code" data-sort="int" data-sort-multicolumn="0,1,2">CODE</th>
+					<th class="tag_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>			
 				</tr>
 			</thead>
 			{_it./tag:/tag}
@@ -457,20 +483,38 @@
 <!--	TAG ROWS	-->
 #^/tag
 <tr class="row_count">
-	<td class="tag_code" data-sort-value="{_it.@code}">{_it.@code-name||}</td>
-	<td class="tag_vocab" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
-	<td class="tag_desc" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-description||/empty-description}</td>
+	<td class="tag_desc" data-sort-value="{_it.@code}">
+		{_it.@code-name||}
+		{_it.@vocabulary==99&&_it:/tag-vocab-99-narr||}
+	</td>
+	<td class="tag_code" data-sort-value="{_it.@code}">{_it.@code||}</td>
+	<td class="tag_vocab" data-sort-value="{_it.@vocabulary}">
+		{_it.@vocabulary==99&&_it:/tag-vocab-99||_it:/tag-vocab-url}
+	</td>
 </tr>
+
+#^/tag-vocab-99-narr
+{_it./narrative.0.text||}
+
+#^/tag-vocab-url
+<a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
+
+#^/tag-vocab-99
+{_it.@vocabulary-uri&&_it:/tag-vocab-uri||_it.@vocabulary-name}
+
+#^/tag-vocab-uri
+<a href="{_it.@vocabulary-uri}">{_it.@vocabulary-name}</a>
 
 #^/wrap-policy-marker	<!--	POLICY MARKER WRAPPER	-->
 	<div class="wrap_policy_marker">
-		<div class="header_section sticky collapsable">policy marker<span class="count">( {_it./policy-marker.length} )</span></div>
+		<div class="header_section sticky collapsable">policy marker<span class="count">( {_it./policy-marker.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
 					<th class="policy_code" data-sort="int" data-sort-multicolumn="0,1,2">CODELIST</th>
 					<th class="policy_sig" data-sort="int" data-sort-multicolumn="0,1,2">SIGNIFICANCE</th>
-					<th class="policy_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>			
+					<th class="policy_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>	
+					<th class="policy_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>						
 				</tr>
 			</thead>
 			{_it./policy-marker:/policy-marker}
@@ -480,15 +524,40 @@
 <!--	POLICY MARKER ROWS	-->
 #^/policy-marker
 <tr class="row_count">
-	<td class="policy_code" title="{_it.@code-description||}" data-sort-value="{_it.@code}">{_it.@code-name||}</td>
-	<td class="policy_sig" title="{_it.@significance-description||}" data-sort-value="{_it.@significance}">{_it.@significance-name||}</td>
-	<td class="policy_vocab" title="{_it.@vocabulary-description||}" data-sort-value="{_it.@vocabulary}">{_it.@vocabulary-name||}</td>
+	<td class="policy_code" data-sort-value="{_it.@code}">
+		{_it.@code-name||}
+		{_it.@vocabulary==99&&_it:/policy-vocab-99-narr||}
+	</td>
+	<td class="policy_sig" data-sort-value="{_it.@significance}">{_it.@significance-name||}</td>
+	<td class="policy_vocab" data-sort-value="{_it.@vocabulary}">
+		{_it.@vocabulary==99&&_it:/policy-vocab-99||_it:/policy-vocab-url}
+	</td>
+	<td class="policy_desc" data-sort-value="{_it.@significance}">{_it.@significance-description||}</td>
 </tr>
+
+#^/policy-vocab-99-narr
+{_it./narrative.0.text&&_it:/policy-vocab-narr||_it:/policy-vocab-code}
+
+#^/policy-vocab-code
+{_it.@code||}
+
+#^/policy-vocab-url
+<a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
+
+#^/policy-vocab-narr
+{_it./narrative.0.text||}
+<div><span class="ref">CODE</span> {_it.@code||}</div>
+
+#^/policy-vocab-99
+{_it.@vocabulary-uri&&_it:/policy-vocab-uri||_it.@vocabulary-name}
+
+#^/policy-vocab-uri
+<a href="{_it.@vocabulary-uri}">{_it.@vocabulary-name}</a>
 	
 #^/wrap-result	<!--	RESULT WRAPPER	-->
 	<div class="wrap_result">
 		<div class="header_section sticky collapsable">
-			result<span class="count">( {_it./result.length} )</span>
+			result<span class="count">( {_it./result.length||no_length} )</span>
 			<div class="wrap_length">
 				{_it./result-1&&_it:result-1-length||}
 				{_it./result-2&&_it:result-2-length||}
@@ -509,15 +578,15 @@
 	
 <!--	RESULT LENGTH	-->
 #^result-1-length
-output<span class="count">( {_it./result-1.length} )</span> 
+output<span class="count">( {_it./result-1.length||no_length} )</span> 
 #^result-2-length
-outcome<span class="count">( {_it./result-2.length} )</span> 
+outcome<span class="count">( {_it./result-2.length||no_length} )</span> 
 #^result-3-length
-impact<span class="count">( {_it./result-3.length} )</span> 
+impact<span class="count">( {_it./result-3.length||no_length} )</span> 
 #^result-9-length
-other<span class="count">( {_it./result-9.length} )</span>
+other<span class="count">( {_it./result-9.length||no_length} )</span>
 #^indicator-length
-indicator<span class="count">( {_it./indicator.length} )</span>
+indicator<span class="count">( {_it./indicator.length||no_length} )</span>
 
 <!--	GLOSSARY DESCRIPTIONS	-->
 #^/result_type_description
@@ -605,7 +674,7 @@ indicator<span class="count">( {_it./indicator.length} )</span>
 
 #^/indicator_text_reference					<!--	USE WHEN REFERENCE OR DOCUMENTS ARE PUBLISHED	-->
 <div class="wrap_result_indicator">
-	<div class="header_section collapsable brighter">INDICATOR</div>
+	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
 	<div class="result_indicator left_indi">
 		<div class="result_title">{_it./title/narrative.0.text||}</div>
 		{_it./description/narrative&&_it:/indicator_desc||}
@@ -617,7 +686,7 @@ indicator<span class="count">( {_it./indicator.length} )</span>
 
 #^/indicator_text
 <div class="wrap_result_indicator">
-	<div class="header_section collapsable brighter">INDICATOR</div>
+	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
 	<div class="result_title">{_it./title/narrative.0.text||}</div>
 	{_it./description/narrative&&_it:/indicator_desc||}
 	{_it./document-link&&_it:/wrap-document-link||}
@@ -629,8 +698,8 @@ indicator<span class="count">( {_it./indicator.length} )</span>
 #^/result_indicator_row				<!--	RESULTS FACETS, BASELINE, TARGET, ACTUAL AND PERIOD	-->
 <tr class="row_count">
 	<td class="result_indi">
-		{_it./dimension:/result_indicator_row_facet_dimension||/empty_dimension}
-		{_it./location:/result_indicator_row_facet_location||/empty_location}
+		{_it./dimension:/result_indicator_row_facet_dimension_wrap||/empty_dimension}
+		{_it./location:/result_indicator_row_facet_location_wrap||/empty_location}
 	</td>
 	<td class="result_base">{_it.@baseline-year&&_it:/result_year||}{_it.@baseline||/empty_result}</td>
 	<td class="result_target">{_it.@target||/empty_result}</td>
@@ -649,14 +718,20 @@ indicator<span class="count">( {_it./indicator.length} )</span>
 #^/empty_location
 <div class="result_empty">No location has been provided</div>
 
+#^/result_indicator_row_facet_dimension_wrap
+{_it.@name||_it.@value&&_it:/result_indicator_row_facet_dimension||/empty_dimension}
+
 #^/result_indicator_row_facet_dimension
 <div class="result_facet">
-	<span class="result_facet_name">{_it.@name}</span> = <span class="result_facet_value">{_it.@value}</span>
+	<span class="result_facet_name">{_it.@name||}</span> = <span class="result_facet_value">{_it.@value||}</span>
 </div>
+
+#^/result_indicator_row_facet_location_wrap
+{_it.@ref&&_it:/result_indicator_row_facet_location||/empty_location}
 
 #^/result_indicator_row_facet_location
 <div class="result_facet">
-	<span class="result_facet_name">Location</span> = <span class="result_facet_value">{_it.@ref}</span>
+	<span class="result_facet_name">Location</span> = <span class="result_facet_value">{_it.@ref||}</span>
 </div>
 
 #^/result_year
@@ -768,7 +843,7 @@ indicator<span class="count">( {_it./indicator.length} )</span>
 #^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
 	<div class="wrap_transaction">
 		<div class="header_section collapsable">
-			Transactions <span class="count">( {_it./transaction.length} )</span>
+			Transactions <span class="count">( {_it./transaction.length||no_length} )</span>
 			<div class="wrap_length">
 				{_it./transaction-1&&_it:transaction-1-length||}
 				{_it./transaction-2&&_it:transaction-2-length||}
@@ -822,35 +897,35 @@ indicator<span class="count">( {_it./indicator.length} )</span>
 	
 <!--	RESULT LENGTH	-->
 #^transaction-1-length
-Incoming Funds <span class="count">( {_it./transaction-1.length} )</span> 
+Incoming Funds <span class="count">( {_it./transaction-1.length||no_length} )</span> 
 #^transaction-2-length
-Outgoing Commitment <span class="count">( {_it./transaction-2.length} )</span>
+Outgoing Commitment <span class="count">( {_it./transaction-2.length||no_length} )</span>
 #^transaction-3-length
-Disbursement <span class="count">( {_it./transaction-3.length} )</span>
+Disbursement <span class="count">( {_it./transaction-3.length||no_length} )</span>
 #^transaction-4-length
-Expenditure <span class="count">( {_it./transaction-4.length} )</span>
+Expenditure <span class="count">( {_it./transaction-4.length||no_length} )</span>
 #^transaction-5-length
-Interest Payment <span class="count">( {_it./transaction-5.length} )</span>
+Interest Payment <span class="count">( {_it./transaction-5.length||no_length} )</span>
 #^transaction-6-length
-Loan Repayment <span class="count">( {_it./transaction-6.length} )</span>
+Loan Repayment <span class="count">( {_it./transaction-6.length||no_length} )</span>
 #^transaction-7-length
-Reimbursement <span class="count">( {_it./transaction-7.length} )</span>
+Reimbursement <span class="count">( {_it./transaction-7.length||no_length} )</span>
 #^transaction-8-length
-Purchase of Equity <span class="count">( {_it./transaction-8.length} )</span>
+Purchase of Equity <span class="count">( {_it./transaction-8.length||no_length} )</span>
 #^transaction-9-length
-Sale of Equity <span class="count">( {_it./transaction-9.length} )</span>
+Sale of Equity <span class="count">( {_it./transaction-9.length||no_length} )</span>
 #^transaction-10-length
-Credit Guarantee <span class="count">( {_it./transaction-10.length} )</span>
+Credit Guarantee <span class="count">( {_it./transaction-10.length||no_length} )</span>
 #^transaction-11-length
-Incoming Commitment <span class="count">( {_it./transaction-11.length} )</span>
+Incoming Commitment <span class="count">( {_it./transaction-11.length||no_length} )</span>
 #^transaction-12-length
-Outgoing Pledge <span class="count">( {_it./transaction-12.length} )</span>
+Outgoing Pledge <span class="count">( {_it./transaction-12.length||no_length} )</span>
 #^transaction-13-length
-Incoming Pledge <span class="count">( {_it./transaction-13.length} )</span>
+Incoming Pledge <span class="count">( {_it./transaction-13.length||no_length} )</span>
 #^transaction-14-length
-Planned Disbursement <span class="count">( {_it./planned-disbursement.length} )</span>
+Planned Disbursement <span class="count">( {_it./planned-disbursement.length||no_length} )</span>
 #^transaction-15-length
-Budget <span class="count">( {_it./budget.length} )</span>
+Budget <span class="count">( {_it./budget.length||no_length} )</span>
 
 #^transaction-chart	<!--	TRANSACTION CHART	-->	
 <div class="showchart">
@@ -895,91 +970,91 @@ Budget <span class="count">( {_it./budget.length} )</span>
 
 <!--	TRANSACTION TYPES	-->
 #^transaction-1
-	<div class="header_section sticky collapsable bright">Incoming Funds <span class="count">( {_it./transaction-1.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Incoming Funds <span class="count">( {_it./transaction-1.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-1:/transaction||}
 	</table>
 	<div class="chart_trans_1"><div class="legend chart_1"><span></span>Incoming Funds</div>{_it./transaction-1-data&&_it./transaction-1-data:transaction-chart||}</div>
 #^transaction-2
-	<div class="header_section sticky collapsable bright">Outgoing Commitment <span class="count">( {_it./transaction-2.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Outgoing Commitment <span class="count">( {_it./transaction-2.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-2:/transaction||}
 	</table>
 	<div class="chart_trans_2"><div class="legend chart_2"><span></span>Outgoing Commitment</div>{_it./transaction-2-data&&_it./transaction-2-data:transaction-chart||}</div>
 #^transaction-3
-	<div class="header_section sticky collapsable bright">Disbursement <span class="count">( {_it./transaction-3.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Disbursement <span class="count">( {_it./transaction-3.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-3:/transaction||}
 	</table>
 	<div class="chart_trans_3"><div class="legend chart_3"><span></span>Disbursement</div>{_it./transaction-3-data&&_it./transaction-3-data:transaction-chart||}</div>
 #^transaction-4
-	<div class="header_section sticky collapsable bright">Expenditure <span class="count">( {_it./transaction-4.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Expenditure <span class="count">( {_it./transaction-4.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-4:/transaction||}
 	</table>
 	<div class="chart_trans_4"><div class="legend chart_4"><span></span>Expenditure</div>{_it./transaction-4-data&&_it./transaction-4-data:transaction-chart||}</div>
 #^transaction-5
-	<div class="header_section sticky collapsable bright">Interest Payment <span class="count">( {_it./transaction-5.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Interest Payment <span class="count">( {_it./transaction-5.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-5:/transaction||}
 	</table>
 	<div class="chart_trans_5"><div class="legend chart_5"><span></span>Interest Payment</div>{_it./transaction-5-data&&_it./transaction-5-data:transaction-chart||}</div>
 #^transaction-6
-	<div class="header_section sticky collapsable bright">Loan Repayment <span class="count">( {_it./transaction-6.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Loan Repayment <span class="count">( {_it./transaction-6.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-6:/transaction||}
 	</table>
 	<div class="chart_trans_6"><div class="legend chart_6"><span></span>Loan Repayment</div>{_it./transaction-6-data&&_it./transaction-6-data:transaction-chart||}</div>
 #^transaction-7
-	<div class="header_section sticky collapsable bright">Reimbursement <span class="count">( {_it./transaction-7.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Reimbursement <span class="count">( {_it./transaction-7.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-7:/transaction||}
 	</table>
 	<div class="chart_trans_7"><div class="legend chart_7"><span></span>Reimbursement</div>{_it./transaction-7-data&&_it./transaction-7-data:transaction-chart||}</div>
 #^transaction-8
-	<div class="header_section sticky collapsable bright">Purchase of Equity <span class="count">( {_it./transaction-8.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Purchase of Equity <span class="count">( {_it./transaction-8.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-8:/transaction||}
 	</table>
 	<div class="chart_trans_8"><div class="legend chart_8"><span></span>Purchase of Equity</div>{_it./transaction-8-data&&_it./transaction-8-data:transaction-chart||}</div>
 #^transaction-9
-	<div class="header_section sticky collapsable bright">Sale of Equity <span class="count">( {_it./transaction-9.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Sale of Equity <span class="count">( {_it./transaction-9.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-9:/transaction||}
 	</table>
 	<div class="chart_trans_9"><div class="legend chart_9"><span></span>Sale of Equity</div>{_it./transaction-9-data&&_it./transaction-9-data:transaction-chart||}</div>
 #^transaction-10
-	<div class="header_section sticky collapsable bright">Credit Guarantee <span class="count">( {_it./transaction-10.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Credit Guarantee <span class="count">( {_it./transaction-10.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-10:/transaction||}
 	</table>
 	<div class="chart_trans_10"><div class="legend chart_10"><span></span>Credit Guarantee</div>{_it./transaction-10-data&&_it./transaction-10-data:transaction-chart||}</div>
 #^transaction-11
-	<div class="header_section sticky collapsable bright">Incoming Commitment <span class="count">( {_it./transaction-11.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Incoming Commitment <span class="count">( {_it./transaction-11.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-11:/transaction||}
 	</table>
 	<div class="chart_trans_11"><div class="legend chart_11"><span></span>Incoming Commitment</div>{_it./transaction-11-data&&_it./transaction-11-data:transaction-chart||}</div>
 #^transaction-12
-	<div class="header_section sticky collapsable bright">Outgoing Pledge <span class="count">( {_it./transaction-12.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Outgoing Pledge <span class="count">( {_it./transaction-12.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-12:/transaction||}
 	</table>
 	<div class="chart_trans_12"><div class="legend chart_12"><span></span>Outgoing Funds</div>{_it./transaction-12-data&&_it./transaction-12-data:transaction-chart||}</div>
 #^transaction-13
-	<div class="header_section sticky collapsable bright">Incoming Pledge <span class="count">( {_it./transaction-13.length} )</span></div>
+	<div class="header_section sticky collapsable bright">Incoming Pledge <span class="count">( {_it./transaction-13.length||no_length} )</span></div>
 	<table class="budget act_trans sortable">
 		{transaction-table}
 		{_it./transaction-13:/transaction||}
@@ -1096,7 +1171,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^/provider-org-ref
 <div>
 	<span title="Organisation Reference" class="ref">
-		REF <a href="http://d-portal.org/q.html?aid={_it./provider-org@ref}">{_it./provider-org@ref||}</a>
+		REF <a href="http://d-portal.org/ctrack.html?publisher={_it./provider-org@ref}">{_it./provider-org@ref||}</a>
 	</span>
 </div>
 
@@ -1117,7 +1192,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^/receiver-org-ref
 <div>
 	<span title="Organisation Reference" class="ref">
-		REF <a href="http://d-portal.org/q.html?aid={_it./receiver-org@ref}">{_it./receiver-org@ref||}</a>
+		REF <a href="http://d-portal.org/ctrack.html?publisher={_it./receiver-org@ref}">{_it./receiver-org@ref||}</a>
 	</span>
 </div>
 
@@ -1179,7 +1254,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^/wrap-planned-disbursement	<!--	PLANNED DISBURSEMENT WRAPPER	-->	
 
 	<div class="wrap_budget wrap_planned_disbursement">
-		<div class="header_section sticky collapsable">Planned Disbursement <span class="count">( {_it./planned-disbursement.length} )</span></div>
+		<div class="header_section sticky collapsable">Planned Disbursement <span class="count">( {_it./planned-disbursement.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -1228,7 +1303,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 
 #^/wrap-budget	<!--	BUDGET WRAPPER	-->	
 	<div class="wrap_budget">
-		<div class="header_section sticky collapsable">Budget <span class="count">( {_it./budget.length} )</span></div>
+		<div class="header_section sticky collapsable">Budget <span class="count">( {_it./budget.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -1255,7 +1330,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 </tr>
 
 #^/wrap-sector	<!--	SECTOR WRAPPER	-->	
-	<div class="header_section collapsable">sector  <span class="count">( {_it./sector.length} )</span></div>
+	<div class="header_section collapsable">sector  <span class="count">( {_it./sector.length||no_length} )</span></div>
 	<div class="wrap_sector">
 		{_it./sector-1&&_it:sectors-1||}
 		{_it./sector-2&&_it:sectors-2||}
@@ -1276,7 +1351,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-1
 <div class="sector_vocab">
 	<div class="header">
-		OECD DAC CRS 5 digit <span class="count">( {_it./sector-1.length} )</span>
+		OECD DAC CRS 5 digit <span class="count">( {_it./sector-1.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-1.0.@vocabulary-description||} <a href="{_it./sector-1.0.@vocabulary-url}">{_it./sector-1.0.@vocabulary-url}</a></div>
 	{_it./sector-1:/sector_dac||}
@@ -1286,7 +1361,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-2
 <div class="sector_vocab">
 	<div class="header">
-		OECD DAC CRS 3 digit <span class="count">( {_it./sector-2.length} )</span>
+		OECD DAC CRS 3 digit <span class="count">( {_it./sector-2.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-2.0.@vocabulary-description||} <a href="{_it./sector-2.0.@vocabulary-url}">{_it./sector-2.0.@vocabulary-url}</a></div>
 	{_it./sector-2:/sector_dac||}
@@ -1296,7 +1371,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-3
 <div class="sector_vocab">
 	<div class="header">
-		Classification of the Functions of Government (UN) <span class="count">( {_it./sector-3.length} )</span>
+		Classification of the Functions of Government (UN) <span class="count">( {_it./sector-3.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-3.0.@vocabulary-description||} <a href="{_it./sector-3.0.@vocabulary-url}">{_it./sector-3.0.@vocabulary-url}</a></div>
 	{_it./sector-3:/sector||}
@@ -1304,7 +1379,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-4
 <div class="sector_vocab">
 	<div class="header">
-		Statistical classification of economic activities in the European Community <span class="count">( {_it./sector-4.length} )</span>
+		Statistical classification of economic activities in the European Community <span class="count">( {_it./sector-4.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-4.0.@vocabulary-description||} <a href="{_it./sector-4.0.@vocabulary-url}">{_it./sector-4.0.@vocabulary-url}</a></div>
 	{_it./sector-4:/sector||}
@@ -1312,7 +1387,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-5
 <div class="sector_vocab">
 	<div class="header">
-		National Taxonomy for Exempt Entities (USA) <span class="count">( {_it./sector-5.length} )</span>
+		National Taxonomy for Exempt Entities (USA) <span class="count">( {_it./sector-5.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-5.0.@vocabulary-description||} <a href="{_it./sector-5.0.@vocabulary-url}">{_it./sector-5.0.@vocabulary-url}</a></div>
 	{_it./sector-5:/sector||}
@@ -1320,7 +1395,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-6
 <div class="sector_vocab">
 	<div class="header">
-		AidData <span class="count">( {_it./sector-6.length} )</span>
+		AidData <span class="count">( {_it./sector-6.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-6.0.@vocabulary-description||}</div>
 	{_it./sector-6:/sector||}
@@ -1328,7 +1403,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-7
 <div class="sector_vocab">
 	<div class="header">
-		SDG Goal <span class="count">( {_it./sector-7.length} )</span>
+		SDG Goal <span class="count">( {_it./sector-7.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-7.0.@vocabulary-description||} <a href="{_it./sector-7.0.@vocabulary-url}">{_it./sector-7.0.@vocabulary-url}</a></div>
 	{_it./sector-7:/sector||}
@@ -1336,7 +1411,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-8
 <div class="sector_vocab">
 	<div class="header">
-		SDG Target <span class="count">( {_it./sector-8.length} )</span>
+		SDG Target <span class="count">( {_it./sector-8.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-8.0.@vocabulary-description||} <a href="{_it./sector-8.0.@vocabulary-url}">{_it./sector-8.0.@vocabulary-url}</a></div>
 	{_it./sector-8:/sector||}
@@ -1344,7 +1419,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-9
 <div class="sector_vocab">
 	<div class="header">
-		SDG Indicator <span class="count">( {_it./sector-9.length} )</span>
+		SDG Indicator <span class="count">( {_it./sector-9.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-9.0.@vocabulary-description||} <a href="{_it./sector-9.0.@vocabulary-url}">{_it./sector-9.0.@vocabulary-url}</a></div>
 	{_it./sector-9:/sector||}
@@ -1352,7 +1427,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-10
 <div class="sector_vocab">
 	<div class="header">
-		Humanitarian Global Clusters (Inter-Agency Standing Committee) <span class="count">( {_it./sector-10.length} )</span>
+		Humanitarian Global Clusters (Inter-Agency Standing Committee) <span class="count">( {_it./sector-10.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-10.0.@vocabulary-description||} <a href="{_it./sector-10.0.@vocabulary-url}">{_it./sector-10.0.@vocabulary-url}</a></div>
 	{_it./sector-10:/sector||}
@@ -1360,7 +1435,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-11
 <div class="sector_vocab">
 	<div class="header">
-		North American Industry Classification System (NAICS) <span class="count">( {_it./sector-11.length} )</span>
+		North American Industry Classification System (NAICS) <span class="count">( {_it./sector-11.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-11.0.@vocabulary-description||} <a href="{_it./sector-11.0.@vocabulary-url}">{_it./sector-11.0.@vocabulary-url}</a></div>
 	{_it./sector-11:/sector||}
@@ -1368,7 +1443,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-99
 <div class="sector_vocab">
 	<div class="header">
-		Reporting Organisation <span class="count">( {_it./sector-99.length} )</span>
+		Reporting Organisation <span class="count">( {_it./sector-99.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-99.0.@vocabulary-description||}</div>
 	{_it./sector-99:/sector||}
@@ -1376,7 +1451,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^sectors-98
 <div class="sector_vocab">
 	<div class="header">
-		Reporting Organisation 2 <span class="count">( {_it./sector-98.length} )</span>
+		Reporting Organisation 2 <span class="count">( {_it./sector-98.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./sector-98.0.@vocabulary-description||}</div>
 	{_it./sector-98:/sector||}
@@ -1419,7 +1494,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 <div>{_it.@code-name}</div>
 
 #^/wrap-recipient-region	<!--	RECIPIENT REGION WRAPPER	-->
-	<div class="header_section collapsable">recipient region <span class="count">( {_it./recipient-region.length} )</span></div>
+	<div class="header_section collapsable">recipient region <span class="count">( {_it./recipient-region.length||no_length} )</span></div>
 	<div class="wrap_sector">
 		{_it./recipient-region-1&&_it:recipient-regions-1||}
 		{_it./recipient-region-2&&_it:recipient-regions-2||}
@@ -1430,7 +1505,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^recipient-regions-1
 <div class="sector_vocab">
 	<div class="header">
-		OECD DAC <span class="count">( {_it./recipient-region-1.length} )</span>
+		OECD DAC <span class="count">( {_it./recipient-region-1.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./recipient-region-1.0.@vocabulary-description||} <a href="{_it./recipient-region-1.0.@vocabulary-url}">{_it./recipient-region-1.0.@vocabulary-url}</a></div>
 	{_it./recipient-region-1:/recipient-region_dac||}
@@ -1438,7 +1513,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^recipient-regions-2
 <div class="sector_vocab">
 	<div class="header">
-		UN <span class="count">( {_it./recipient-region-2.length} )</span>
+		UN <span class="count">( {_it./recipient-region-2.length||no_length} )</span>
 	</div>
 	<div class="subheader">{_it./recipient-region-2.0.@vocabulary-description||} <a href="{_it./recipient-region-2.0.@vocabulary-url}">{_it./recipient-region-2.0.@vocabulary-url}</a></div>
 	{_it./recipient-region-2:/recipient-region||}
@@ -1446,9 +1521,9 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^recipient-regions-99
 <div class="sector_vocab">
 	<div class="header">
-		Reporting Organisation <span class="count">( {_it./recipient-region-99.length} )</span>
+		Reporting Organisation <span class="count">( {_it./recipient-region-99.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./recipient-region-99.0.@vocabulary-description||} <a href="{_it./recipient-region-99.0.@vocabulary-url}">{_it./recipient-region-99.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./recipient-region-99.0.@vocabulary-description||}</div>
 	{_it./recipient-region-99:/recipient-region||}
 </div>
 
@@ -1472,7 +1547,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 </div>
 
 #^/wrap-recipient-country	<!--	RECIPIENT COUNTRY WRAPPER	-->
-	<div class="header_section collapsable">recipient country <span class="count">( {_it./recipient-country.length} )</span></div>
+	<div class="header_section collapsable">recipient country <span class="count">( {_it./recipient-country.length||no_length} )</span></div>
 	<div class="wrap_recipient_country">
 		{_it./recipient-country:/recipient-country}
 	</div>
@@ -1489,7 +1564,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 
 #^/wrap-location	<!--	LOCATION WRAPPER	-->	
 	<div class="wrap_location">
-		<div class="header_section sticky collapsable">LOCATION  <span class="count">( {_it./location.length} )</span></div>
+		<div class="header_section sticky collapsable">LOCATION  <span class="count">( {_it./location.length||no_length} )</span></div>
 		<table class="budget location sortable">
 			<thead>
 				<tr>
@@ -1563,12 +1638,12 @@ Budget <span class="count">( {_it./budget.length} )</span>
 
 #^/wrap-participating-org	<!--	PARTICIPATING ORG WRAPPER	-->	
 	<div class="wrap_participating_org">
-		<div class="header_section sticky collapsable">WHO'S INVOLVED <span class="count">( {_it./participating-org.length} )</span></div>
+		<div class="header_section sticky collapsable">WHO'S INVOLVED <span class="count">( {_it./participating-org.length||no_length} )</span></div>
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
 					<th class="part_org_name" data-sort="string" data-sort-multicolumn="0,1,2,3">PARTICIPATING ORG</th>
-					<th class="part_org_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">REF / CODE</th>
+					<th class="part_org_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">REFERENCE</th>
 					<th class="part_org_role" data-sort="int" data-sort-multicolumn="0,1,2,3">ROLE</th>
 					<th class="part_org_type" data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
 				</tr>
@@ -1584,14 +1659,14 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	<td class="part_org_ref">
 		{_it.@ref&&_it:/participating-org/ref||}
 		{_it.@crs-channel-code-name&&_it:/participating-org/crs-channel-code||}
-		{_it.@@activity-id&&_it:/participating-org/activity-id||}
+		{_it.@activity-id&&_it:/participating-org/activity-id||}
 	</td>
 	<td class="part_org_role" title="{_it.@role-description||}" data-sort-value="{_it.@role}">{_it.@role-name||}</td>
 	<td class="part_org_type" title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
 
 #^/participating-org/ref
-<a title="Organisation Reference" href="http://d-portal.org/q.html?aid={_it.@ref||}">{_it.@ref||}</a>
+<a title="Organisation Reference" href="http://d-portal.org/ctrack.html?publisher={_it.@ref||}">{_it.@ref||}</a>
 
 #^/participating-org/crs-channel-code
 <div>
@@ -1609,7 +1684,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 
 #^/wrap-humanitarian-scope	<!--	HUMANITARIAN SCOPE WRAPPER	-->
 	<div class="wrap_humanitarian_scope">
-		<div class="header_section sticky collapsable">humanitarian scope <span class="count">( {_it./humanitarian-scope.length} )</span></div>
+		<div class="header_section sticky collapsable">humanitarian scope <span class="count">( {_it./humanitarian-scope.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -1628,9 +1703,20 @@ Budget <span class="count">( {_it./budget.length} )</span>
 <tr class="row_count">
 	<td class="hum_title"><span class="narrative">{_it./narrative.0.text||}</span></td>
 	<td class="hum_code">{_it.@code||}</td>
-	<td class="hum_vocab" title="Vocabulary Codelist" data-sort-value="{_it.@vocabulary}"><a href="{_it.@vocabulary-url}">{_it.@vocabulary-name||}</a></td>
+	<td class="hum_vocab" data-sort-value="{_it.@vocabulary}">
+		{_it.@vocabulary==99&&_it:/humanitarian-vocab-99||_it:/humanitarian-vocab-url}
+	</td>
 	<td class="hum_type" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
+
+#^/humanitarian-vocab-url
+<a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
+
+#^/humanitarian-vocab-99
+{_it.@vocabulary-uri&&_it:/humanitarian-vocab-uri||_it.@vocabulary-name}
+
+#^/humanitarian-vocab-uri
+<a href="{_it.@vocabulary-uri}">{_it.@vocabulary-name}</a>
 
 #^/wrap-description	<!--	DESCRIPTION WRAPPER	-->
 	<div class="wrap_description">
@@ -1668,11 +1754,10 @@ Budget <span class="count">( {_it./budget.length} )</span>
 #^iati-organisation
 <div class="org">
 	<div class="header">ORGANISATION FILE</div>
-
+	<div class="wrap_name_org">{_it./name/narrative.0.text||}</div>
 	<div class="wrap_reporting_org">	<!--	REPORTING ORG	-->
 		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
 	</div>
-
 	<div class="wrap_iati_identifier org_id">	<!--	ORG IDENTIFIER AND SOURCES	-->
 		<div class="text">Organisation identifier <a href="http://d-portal.org/q.html?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}">{_it./organisation-identifier||}</a></div>
 		<div class="data_source">
@@ -1689,13 +1774,13 @@ Budget <span class="count">( {_it./budget.length} )</span>
 
 #^/wrap-document-link	<!--	DOCUMENTS WRAPPER	-->
 	<div class="wrap_document">
-		<div class="header_doc collapsable">DOCUMENTS <span class="count">( {_it./document-link.length} )</span></div>
+		<div class="header_doc collapsable">DOCUMENTS <span class="count">( {_it./document-link.length||no_length} )</span></div>
 		{_it./document-link:/document-link}
 	</div>
 	
 #^/wrap-total-budget	<!--	TOTAL BUDGET WRAPPER	-->	
 	<div class="wrap_total_budget">
-		<div class="header_section sticky collapsable">Total Budget <span class="count">( {_it./total-budget.length} )</span></div>
+		<div class="header_section sticky collapsable">Total Budget <span class="count">( {_it./total-budget.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -1712,7 +1797,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	
 #^/wrap-total-expenditure	<!--	TOTAL EXPENDITURE WRAPPER	-->	
 	<div class="wrap_total_expenditure">
-		<div class="header_section sticky collapsable">Total Expenditure <span class="count">( {_it./total-expenditure.length} )</span></div>
+		<div class="header_section sticky collapsable">Total Expenditure <span class="count">( {_it./total-expenditure.length||no_length} )</span></div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -1728,7 +1813,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	
 #^/wrap-recipient-org-budget	<!--	RECIPIENT ORG BUDGET WRAPPER	-->	
 	<div class="wrap_recipient_budget">
-		<div class="header_section sticky collapsable">Recipient Org Budget <span class="count">( {_it./recipient-org-budget.length} )</span></div>
+		<div class="header_section sticky collapsable">Recipient Org Budget <span class="count">( {_it./recipient-org-budget.length||no_length} )</span></div>
 		<table class="budget rec_country sortable">
 			<thead>
 				<tr>
@@ -1746,13 +1831,13 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	
 #^/wrap-recipient-region-budget	<!--	RECIPIENT REGION BUDGET WRAPPER	-->	
 	<div class="wrap_recipient_budget">
-		<div class="header_section sticky collapsable">Recipient Region Budget <span class="count">( {_it./recipient-region-budget.length} )</span></div>
+		<div class="header_section sticky collapsable">Recipient Region Budget <span class="count">( {_it./recipient-region-budget.length||no_length} )</span></div>
 		<table class="budget rec_country sortable">
 			<thead>
 				<tr>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">START</th>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">END</th>
-					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="recipient">RECIPIENT COUNTRY</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="recipient">RECIPIENT REGION</th>
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="line">BUDGET LINE</th>					
 					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="status">STATUS</th>
 					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5" class="value">VALUE</th>
@@ -1764,7 +1849,7 @@ Budget <span class="count">( {_it./budget.length} )</span>
 	
 #^/wrap-recipient-country-budget	<!--	RECIPIENT COUNTRY BUDGET WRAPPER	-->	
 	<div class="wrap_recipient_budget">
-		<div class="header_section sticky collapsable">Recipient Country Budget <span class="count">( {_it./recipient-country-budget.length} )</span></div>
+		<div class="header_section sticky collapsable">Recipient Country Budget <span class="count">( {_it./recipient-country-budget.length||no_length} )</span></div>
 		<table class="budget rec_country sortable">
 			<thead>
 				<tr>
@@ -1811,7 +1896,11 @@ Budget <span class="count">( {_it./budget.length} )</span>
 <tr class="row_count">
 	<td class="date">{_it./period-start@iso-date||}</td>
 	<td class="date">{_it./period-end@iso-date||}</td>
-	<td class="recipient">{_it./recipient-region@code-name||}{_it./recipient-region@vocabulary&&_it:/recipient-region-vocabulary||}</td>
+	<td class="recipient">
+		{_it./recipient-region@code-name||}
+		{_it./recipient-region@vocabulary==1&&_it./recipient-region@code&&_it:/recipient-region-code||}
+		{_it./recipient-region@vocabulary&&_it:/recipient-region-vocabulary||}
+	</td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
@@ -1821,17 +1910,23 @@ Budget <span class="count">( {_it./budget.length} )</span>
 <tr class="row_count">
 	<td class="date">{_it./period-start@iso-date||}</td>
 	<td class="date">{_it./period-end@iso-date||}</td>
-	<td class="recipient">{_it./recipient-country||}</td>
+	<td class="recipient">{_it./recipient-country@code-name||}{_it./recipient-country@code&&_it:/recipient-country-code||}</td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
 
 #^/recipient-org-ref
-<div><span class="ref">{_it./recipient-org@ref||}</span></div>
+<div><span class="ref">REF {_it./recipient-org@ref||}</span></div>
+
+#^/recipient-region-code
+<span class="type" style="margin-left:5px;">{_it./recipient-region@code||}</span>
 
 #^/recipient-region-vocabulary
-<div><span class="ref">{_it./recipient-region@vocabulary||}</span></div>
+<div><span class="ref">VOCAB {_it./recipient-region@vocabulary||}</span></div>
+
+#^/recipient-country-code
+<span class="type" style="margin-left:5px;">{_it./recipient-country@code||}</span>
 
 #^/budget-line	<!--	BUDGET LINE	-->
 <div class="wrap_tab"><div class="tab_text">{_it./narrative:/budget-line-narrative||}</div><div class="tab_currency">{_it./value-human||}<div>{_it./value@currency||}</div></div></div>
@@ -1895,3 +1990,6 @@ No description provided
 
 #^/withdrawn	<!--	USE WHEN VOCAB/CODE/THING IS WITHDRAWN	-->
  <span class="withdrawn" title="Withdrawn Codelist">Withdrawn</span>
+ 
+#^no_length	<!--	DISPLAY WHEN NO LENGTH IS FOUND	-->
+-
