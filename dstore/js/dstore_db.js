@@ -697,10 +697,8 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		});
 
 
-// remove null from these 
-		t.title=refry.tagval_narrative(act,"title") ;//|| "";
-		t.description=refry.tagval_narrative(act,"description") ;//|| "";
-
+		t.title=refry.tagval_narrative(act,"title");
+		t.description=refry.tagval_narrative(act,"description");
 		t.reporting=refry.tagval_narrative(act,"reporting-org");
 		t.reporting_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=tonumber(refry.tagattr(act,"activity-status","code"));
