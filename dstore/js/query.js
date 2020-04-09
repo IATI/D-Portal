@@ -474,7 +474,7 @@ for(var n in ns) // all valid fields
 //console.log("text_search "+v)
 		if(argv.pg) // can use better pg search code
 		{
-			wheres.push( " to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'') @@ plainto_tsquery('simple',"+dstore_db.text_plate("text_search")+") " );
+			wheres.push( " to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'')) @@ plainto_tsquery('simple',"+dstore_db.text_plate("text_search")+") " );
 //			wheres.push( " to_tsvector('simple',title || ' ' || description) @@ plainto_tsquery('simple',"+dstore_db.text_plate("text_search")+") " );
 			qv[dstore_db.text_name("text_search")]=v;
 		}
