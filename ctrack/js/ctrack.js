@@ -105,12 +105,34 @@ ctrack.setup=function(args)
 {
 	ctrack.nanobar = new Nanobar( {} );
 
+	ctrack.chunks={};
 	ctrack.q={};
+
+// auto enable test code on test.d-portal.org subdomain
+	ctrack.q.test=args.test
+	if(window.location.host.split(".")[0]=="test") { ctrack.q.test=1 }
+
 	window.location.search.substring(1).split("&").forEach(function(n){
 		var aa=n.split("=");
 		ctrack.q[aa[0]]=decodeURIComponent(aa[1]||"").split("<").join("%3C").split(">").join("%3E");
 	});
-	
+
+	if(ctrack.q.test)
+	{
+		console.log("TEST MODE ENABLED")
+
+// replace frontpage
+		ctrack.map_old_views["search"]="search2"
+
+// replace chunks		
+		ctrack.chunks["donor_graph"]               = "{donor_graph2}"
+		ctrack.chunks["sector_graph"]              = "{sector_graph2}"
+		ctrack.chunks["countries_graph"]           = "{countries_graph2}"
+		ctrack.chunks["publisher_countries_graph"] = "{publisher_countries_graph2}"
+		ctrack.chunks["publisher_sectors_graph"]   = "{publisher_sectors_graph2}"
+		
+	}
+
 	args=args || {};
 	args.jslib	=args.jslib 	|| "http://d-portal.org/jslib/"; // load stuff from here
 	args.tongue	=args.tongue 	|| 	"eng"; 		// english
@@ -156,7 +178,6 @@ ctrack.setup=function(args)
 	};
 
 	ctrack.args=args;
-
 
 	ctrack.display_usd="USD"; 
 	ctrack.convert_usd=1;
@@ -414,7 +435,6 @@ ctrack.setup=function(args)
 		ctrack.chunk("crumbs","{crumbs"+ctrack.crumbs.length+"}");
 	}
 
-	ctrack.chunks={};
 	if( args.tongue!="non" ) // use non as a debugging mode
 	{
 		plate.push_namespace(require("../json/eng.json")); // english fallback for any missing chunks
