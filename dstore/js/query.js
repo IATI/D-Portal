@@ -22,6 +22,8 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var smart_tsquery=function(s)
 {
+	if(s.match("\"")) { return s } // assume you know what you are doing
+	
 	var aa=s.split(/\s+/);
 	var r=[]
 	var last=""
