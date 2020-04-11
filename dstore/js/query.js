@@ -474,7 +474,7 @@ for(var n in ns) // all valid fields
 //console.log("text_search "+v)
 		if(argv.pg) // can use better pg search code
 		{
-			wheres.push( " to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'')) @@ plainto_tsquery("+dstore_db.text_plate("text_search")+") " );
+			wheres.push( " to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'')) @@ to_tsquery("+dstore_db.text_plate("text_search")+") " );
 			qv[dstore_db.text_name("text_search")]=v;
 		}
 		else // can only use old sqlite search code that only checks title
