@@ -47,7 +47,7 @@ view_list_publishers.ajax=function(args)
 	var dat={
 			"from":"act",
 			"limit":args.limit || -1,
-			"select":"count_act,reporting_ref,any_reporting",
+			"select":"count_aid,reporting_ref,any_reporting",
 			"groupby":"reporting_ref",
 			"orderby":"1-",
 		};
@@ -88,7 +88,7 @@ view_list_publishers.ajax=function(args)
 
 					d.reporting_ref=v.reporting_ref || "N/A";
 					d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
-					d.count_num=Math.floor(v.count_act||0);
+					d.count_num=Math.floor(v.count_aid||0);
 					d.count=commafy(""+d.count_num);
 					a.push(d);
 					s.push( plate.replace(args.plate || "{list_publishers_data}",d) );
