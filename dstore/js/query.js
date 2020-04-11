@@ -28,7 +28,7 @@ var smart_tsquery=function(s)
 	var last=""
 	for( var it of a )
 	{
-		if( last.match(/^[0-9a-z]+$/) && it.match(/^[0-9a-z]+$/) ) // insert an &
+		if( last.match(/[0-9a-z]+$/) && it.match(/[0-9a-z]+$/) ) // insert an &
 		{
 			r.push("&")
 			r.push(it)
