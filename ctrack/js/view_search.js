@@ -152,6 +152,7 @@ view_search.terms=[
 	q      : "/participating-org@ref",
 	list   : "search_options_participating",
 	show   : "search_display_participating",
+	more   : true,
 },
 
 {
@@ -163,6 +164,7 @@ view_search.terms=[
 	q      : "policy_code",
 	list   : "search_options_policy",
 	show   : "search_display_policy",
+	more   : true,
 },
 
 {
@@ -174,6 +176,7 @@ view_search.terms=[
 	q      : "/tag@vocabulary",
 	list   : "search_options_tag_vocab",
 	show   : "search_display_tag_vocab",
+	more   : true,
 },
 
 {
@@ -185,6 +188,7 @@ view_search.terms=[
 	q      : "/humanitarian-scope@vocabulary",
 	list   : "search_options_humanitarian_scope",
 	show   : "search_display_humanitarian_scope",
+	more   : true,
 },
 
 {
@@ -196,6 +200,7 @@ view_search.terms=[
 	q      : "*@humanitarian",
 	list   : "search_options_humanitarian_activity",
 	show   : "search_display_humanitarian_activity",
+	more   : true,
 },
 
 {
@@ -207,6 +212,7 @@ view_search.terms=[
 	q      : "commitment_gteq",
 	list   : "search_options_commitment_min",
 	show   : "search_display_commitment_min",
+	more   : true,
 },
 
 {
@@ -218,6 +224,7 @@ view_search.terms=[
 	q      : "commitment_lteq",
 	list   : "search_options_commitment_max",
 	show   : "search_display_commitment_max",
+	more   : true,
 },
 
 {
@@ -229,6 +236,7 @@ view_search.terms=[
 	q      : "/result@type",
 	list   : "search_options_result_type",
 	show   : "search_display_result_type",
+	more   : true,
 },
 
 {
@@ -240,6 +248,7 @@ view_search.terms=[
 	q      : "*/document-link/category@code",
 	list   : "search_options_document_category",
 	show   : "search_display_document_category",
+	more   : true,
 },
 
 {
@@ -251,6 +260,7 @@ view_search.terms=[
 	q      : "/transaction-type@code",
 	list   : "search_options_transaction_type",
 	show   : "search_display_transaction_type",
+	more   : true,
 },
 
 {
@@ -262,6 +272,7 @@ view_search.terms=[
 	q      : "/default-finance-type@code",
 	list   : "search_options_finance_type",
 	show   : "search_display_finance_type",
+	more   : true,
 },
 
 {
@@ -273,6 +284,7 @@ view_search.terms=[
 	q      : "/default-flow-type@code",
 	list   : "search_options_flow_type",
 	show   : "search_display_flow_type",
+	more   : true,
 },
 
 {
@@ -284,6 +296,7 @@ view_search.terms=[
 	q      : "/collaboration-type@code",
 	list   : "search_options_collaboration_type",
 	show   : "search_display_collaboration_type",
+	more   : true,
 },
 
 {
@@ -295,6 +308,7 @@ view_search.terms=[
 	q      : "/default-aid-type@code",
 	list   : "search_options_aid_type",
 	show   : "search_display_aid_type",
+	more   : true,
 },
 
 {
@@ -306,6 +320,7 @@ view_search.terms=[
 	q      : "/default-tied-status@code",
 	list   : "search_options_tied_status",
 	show   : "search_display_tied_status",
+	more   : true,
 },
 
 {
@@ -317,6 +332,7 @@ view_search.terms=[
 	q      : "/related-activity@type",
 	list   : "search_options_related_activity",
 	show   : "search_display_related_activity",
+	more   : true,
 },
 
 {
@@ -327,6 +343,7 @@ view_search.terms=[
 	inputs : [ "#view_search_input_aids" ],
 	q      : "aids",
 	show   : "search_display_aids",
+	more   : true,
 },
 
 ]
@@ -678,6 +695,25 @@ view_search.fixup=function()
 // update the current selection to values found in the hash
 
 
+// check if we need to display more filters
+	var more=false
+	for( var idx in view_search.terms )
+	{
+		var it=view_search.terms[idx]
+		if(it.filter) // perform substring match in search box
+		{
+			var v=ctrack.hash[it.q]
+			if(v)
+			{
+				more|=it.more
+			}
+		}
+	}
+	if(more)
+	{
+		$('#more_filters').show();
+	}
+
 	for( var idx in view_search.terms )
 	{
 		var it=view_search.terms[idx]
@@ -690,6 +726,10 @@ view_search.fixup=function()
 				for(var drop of (it.drops||[]) )
 				{
 					$(drop).val(vs).trigger('chosen:updated')
+				}
+				for(var input of (it.inputs||[]) )
+				{
+					$(input).val(vs).trigger('chosen:updated')
 				}
 			}
 		}

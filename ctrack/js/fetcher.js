@@ -8,6 +8,9 @@ var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
 
+
+var papa=require("papaparse")
+
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
 
@@ -39,6 +42,11 @@ fetcher.prefetch_aids=function(aids,f)
 		{
 			rows=d.result
 		}
+		else
+		if( typeof rows == "object" &&  d.feed &&  d.feed.entry ) // google sheets horrible style
+		{
+			rows=d.feed.entry
+		}
 
 
 		var aids=[]
@@ -52,11 +60,20 @@ fetcher.prefetch_aids=function(aids,f)
 				aids.push(v)
 			}
 			else
+			if( Array.isArray(v) )
+			{
+				if(v[0]) { aids.push(v[0]) }
+			}
+			else
 			if( typeof v == "object" )
 			{
 				if(v.aid) { aids.push(v.aid) }
 				else
 				if(v.iati_identifier) { aids.push(v.iati_identifier) }
+				else
+				if(v["iati-identifier"]) { aids.push(v["iati-identifier"]) }
+				else
+				if(v["content"]&&v["content"]["$t"]) { aids.push(v["content"]&&v["content"]["$t"]) }
 			}
 		}
 
@@ -80,9 +97,44 @@ fetcher.prefetch_aids=function(aids,f)
 
 			console.log("Prefetching : "+aids)
 
-			$.getJSON( aids , function(d){
-				setaids(d) // got remote json
-			}) 
+			$.ajax({
+				url: aids,
+				success: function(din){
+//console.log(din)
+					var dat={}
+					if(din)
+					{
+						if( typeof v == "string" )
+						{
+							try {
+
+								dat=JSON.parse(din)
+//								console.log("JSON",dat)
+
+							} catch (e) {
+
+								try {
+									
+									dat=papa.parse(din,{header:true}).data
+//									console.log("CSV",dat)
+
+								} catch (e) {}
+
+							}
+						}
+						else
+						{
+							dat=din
+						}
+					}
+					setaids(dat) // got remote json
+				}
+			});
+
+//			$.getJSON( aids , function(d){
+//				setaids(d) // got remote json
+//			})
+
 		}
 
 	}
