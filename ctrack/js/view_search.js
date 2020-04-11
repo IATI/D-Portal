@@ -152,6 +152,7 @@ view_search.terms=[
 	q      : "/participating-org@ref",
 	list   : "search_options_participating",
 	show   : "search_display_participating",
+	more   : true,
 },
 
 {
@@ -163,6 +164,7 @@ view_search.terms=[
 	q      : "policy_code",
 	list   : "search_options_policy",
 	show   : "search_display_policy",
+	more   : true,
 },
 
 {
@@ -174,6 +176,8 @@ view_search.terms=[
 	q      : "/tag@vocabulary",
 	list   : "search_options_tag_vocab",
 	show   : "search_display_tag_vocab",
+	more   : true,
+	sort   : "value",
 },
 
 {
@@ -185,6 +189,7 @@ view_search.terms=[
 	q      : "/humanitarian-scope@vocabulary",
 	list   : "search_options_humanitarian_scope",
 	show   : "search_display_humanitarian_scope",
+	more   : true,
 },
 
 {
@@ -196,6 +201,8 @@ view_search.terms=[
 	q      : "*@humanitarian",
 	list   : "search_options_humanitarian_activity",
 	show   : "search_display_humanitarian_activity",
+	more   : true,
+	hidecode : true,
 },
 
 {
@@ -207,6 +214,9 @@ view_search.terms=[
 	q      : "commitment_gteq",
 	list   : "search_options_commitment_min",
 	show   : "search_display_commitment_min",
+	more   : true,
+	hidecode : true,
+	sort   : "value",
 },
 
 {
@@ -218,6 +228,9 @@ view_search.terms=[
 	q      : "commitment_lteq",
 	list   : "search_options_commitment_max",
 	show   : "search_display_commitment_max",
+	more   : true,
+	hidecode : true,
+	sort   : "value",
 },
 
 {
@@ -229,6 +242,7 @@ view_search.terms=[
 	q      : "/result@type",
 	list   : "search_options_result_type",
 	show   : "search_display_result_type",
+	more   : true,
 },
 
 {
@@ -240,6 +254,7 @@ view_search.terms=[
 	q      : "*/document-link/category@code",
 	list   : "search_options_document_category",
 	show   : "search_display_document_category",
+	more   : true,
 },
 
 {
@@ -251,6 +266,7 @@ view_search.terms=[
 	q      : "/transaction-type@code",
 	list   : "search_options_transaction_type",
 	show   : "search_display_transaction_type",
+	more   : true,
 },
 
 {
@@ -262,6 +278,7 @@ view_search.terms=[
 	q      : "/default-finance-type@code",
 	list   : "search_options_finance_type",
 	show   : "search_display_finance_type",
+	more   : true,
 },
 
 {
@@ -273,6 +290,7 @@ view_search.terms=[
 	q      : "/default-flow-type@code",
 	list   : "search_options_flow_type",
 	show   : "search_display_flow_type",
+	more   : true,
 },
 
 {
@@ -284,6 +302,7 @@ view_search.terms=[
 	q      : "/collaboration-type@code",
 	list   : "search_options_collaboration_type",
 	show   : "search_display_collaboration_type",
+	more   : true,
 },
 
 {
@@ -295,6 +314,7 @@ view_search.terms=[
 	q      : "/default-aid-type@code",
 	list   : "search_options_aid_type",
 	show   : "search_display_aid_type",
+	more   : true,
 },
 
 {
@@ -306,6 +326,7 @@ view_search.terms=[
 	q      : "/default-tied-status@code",
 	list   : "search_options_tied_status",
 	show   : "search_display_tied_status",
+	more   : true,
 },
 
 {
@@ -317,6 +338,7 @@ view_search.terms=[
 	q      : "/related-activity@type",
 	list   : "search_options_related_activity",
 	show   : "search_display_related_activity",
+	more   : true,
 },
 
 {
@@ -327,6 +349,7 @@ view_search.terms=[
 	inputs : [ "#view_search_input_aids" ],
 	q      : "aids",
 	show   : "search_display_aids",
+	more   : true,
 },
 
 ]
@@ -365,6 +388,7 @@ view_search.fixup=function()
 				{
 					var v=codes[n];
 					var s=v+" ("+n+")";
+					if(it.hidecode) s=v // hide the code
 					if(v)
 					{
 						strings.push(s);
@@ -678,6 +702,25 @@ view_search.fixup=function()
 // update the current selection to values found in the hash
 
 
+// check if we need to display more filters
+	var more=false
+	for( var idx in view_search.terms )
+	{
+		var it=view_search.terms[idx]
+		if(it.filter) // perform substring match in search box
+		{
+			var v=ctrack.hash[it.q]
+			if(v)
+			{
+				more|=it.more
+			}
+		}
+	}
+	if(more)
+	{
+		$('#more_filters').show();
+	}
+
 	for( var idx in view_search.terms )
 	{
 		var it=view_search.terms[idx]
@@ -690,6 +733,10 @@ view_search.fixup=function()
 				for(var drop of (it.drops||[]) )
 				{
 					$(drop).val(vs).trigger('chosen:updated')
+				}
+				for(var input of (it.inputs||[]) )
+				{
+					$(input).val(vs).trigger('chosen:updated')
 				}
 			}
 		}
@@ -719,6 +766,15 @@ view_search.view=function(args)
 		return ((aa > bb) - (bb > aa));
 	};
 	
+	var compare_value=function(a,b)
+	{
+		var aa=(a.split("'")[1]).split("'")[0];
+		var bb=(b.split("'")[1]).split("'")[0];
+		aa=parseInt(aa);
+		bb=parseInt(bb);
+		return ((aa > bb) - (bb > aa));
+	};
+
 	
 	for( var idx in view_search.terms )
 	{
@@ -732,10 +788,18 @@ view_search.view=function(args)
 				{
 					var v=codes[n]
 					var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+					if(it.hidecode) s="<option value='"+n+"'>"+v+"</option>" // hide the code
 					a.push(s);
 				}
 			}
-			a.sort(compare);
+			if( it.sort=="value" )
+			{
+				a.sort(compare_value);
+			}
+			else
+			{
+				a.sort(compare);
+			}
 			ctrack.chunk(it.list,a.join(""));
 		}
 	}
@@ -800,10 +864,14 @@ view_search.ajax_fetch=function(args)
 	fetcher.ajax(dat,function(data){
 		if(latest!=view_search.latest) { return; } // ignore old search data
 
-		var c=data.rows[0]["count_aid"];
-		if( c>0 ) // show results
+		var c=0
+		if( data && data.rows && data.rows[0] )
 		{
-			$("#search_link").removeClass("search_link_disable");
+			c=data.rows[0]["count_aid"];
+			if( c>0 ) // show results
+			{
+				$("#search_link").removeClass("search_link_disable");
+			}
 		}
 //console.log( data.rows[0] );
 		$("#result_span").html("Found "+commafy(c)+" activities");

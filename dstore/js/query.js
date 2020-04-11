@@ -20,6 +20,29 @@ var database=require("../../dflat/json/database.json")
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+var smart_tsquery=function(s)
+{
+	if(s.match("\"")) { return s } // assume you know what you are doing
+	
+	var aa=s.split(/\s+/);
+	var r=[]
+	var last=""
+	for( var it of aa )
+	{
+		if( last.match(/^[0-9a-zA-Z]+$/) && it.match(/^[0-9a-zA-Z]+$/) ) // insert an & between words
+		{
+			r.push("&")
+			r.push(it)
+		}
+		else
+		{
+			r.push(it)
+		}
+		last=it
+	}
+	
+	return r.join(" ")
+}
 
 query.mustbenumber=function(v)
 {
@@ -474,8 +497,8 @@ for(var n in ns) // all valid fields
 //console.log("text_search "+v)
 		if(argv.pg) // can use better pg search code
 		{
-			wheres.push( " to_tsvector('simple',title || ' ' || description) @@ plainto_tsquery('simple',"+dstore_db.text_plate("text_search")+") " );
-			qv[dstore_db.text_name("text_search")]=v;
+			wheres.push( " to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'')) @@ to_tsquery('simple',"+dstore_db.text_plate("text_search")+") " );
+			qv[dstore_db.text_name("text_search")]=smart_tsquery(v);
 		}
 		else // can only use old sqlite search code that only checks title
 		{
