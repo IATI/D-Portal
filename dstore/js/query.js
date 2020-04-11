@@ -22,13 +22,12 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var smart_tsquery=function(s)
 {
-	var a=s.split(/(\s+)/);
+	var aa=s.split(/\s+/);
 	var r=[]
-	
 	var last=""
-	for( var it of a )
+	for( var it of aa )
 	{
-		if( last.match(/[0-9a-z]+$/) && it.match(/[0-9a-z]+$/) ) // insert an &
+		if( last.match(/^[0-9a-zA-Z]+$/) && it.match(/^[0-9a-zA-Z]+$/) ) // insert an & between words
 		{
 			r.push("&")
 			r.push(it)
