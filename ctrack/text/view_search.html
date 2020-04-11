@@ -258,7 +258,7 @@
 		</tr>
 		<tr>
 			<td>{search_participating_txt}</td>	
-			<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a>. This is not an extensive list - includes only the existing list of IATI publishers.</td>
+			<td>Organisations are from the <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a>. This is not an extensive list and includes only the existing list of IATI publishers.</td>
 		</tr>
 		<tr>
 			<td>{search_policy_txt}</td>
@@ -482,10 +482,10 @@
 		<div class="search_label">
 			<span>&#10096;&#10097;</span> {search_commitment_txt}
 		</div>
-		<select aria-label="Select minimum commitment value from this dropdown" id="view_search_select_commitment_min" class="chosen">
+		<select data-placeholder="Minimum" aria-label="Select minimum commitment value from this dropdown" id="view_search_select_commitment_min" class="chosen">
 			<option value></option>
 			{search_options_commitment_min}
-		</select><select aria-label="Select minimum commitment value from this dropdown" id="view_search_select_commitment_max" class="chosen">
+		</select><select data-placeholder="Maximum" aria-label="Select minimum commitment value from this dropdown" id="view_search_select_commitment_max" class="chosen">
 			<option value></option>
 			{search_options_commitment_max}
 		</select>
