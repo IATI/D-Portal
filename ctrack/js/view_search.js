@@ -177,6 +177,7 @@ view_search.terms=[
 	list   : "search_options_tag_vocab",
 	show   : "search_display_tag_vocab",
 	more   : true,
+	sort   : "value",
 },
 
 {
@@ -201,6 +202,7 @@ view_search.terms=[
 	list   : "search_options_humanitarian_activity",
 	show   : "search_display_humanitarian_activity",
 	more   : true,
+	hidecode : true,
 },
 
 {
@@ -213,6 +215,8 @@ view_search.terms=[
 	list   : "search_options_commitment_min",
 	show   : "search_display_commitment_min",
 	more   : true,
+	hidecode : true,
+	sort   : "value",
 },
 
 {
@@ -225,6 +229,8 @@ view_search.terms=[
 	list   : "search_options_commitment_max",
 	show   : "search_display_commitment_max",
 	more   : true,
+	hidecode : true,
+	sort   : "value",
 },
 
 {
@@ -382,6 +388,7 @@ view_search.fixup=function()
 				{
 					var v=codes[n];
 					var s=v+" ("+n+")";
+					if(it.hidecode) s=v // hide the code
 					if(v)
 					{
 						strings.push(s);
@@ -759,6 +766,15 @@ view_search.view=function(args)
 		return ((aa > bb) - (bb > aa));
 	};
 	
+	var compare_value=function(a,b)
+	{
+		var aa=(a.split("'")[1]).split("'")[0];
+		var bb=(b.split("'")[1]).split("'")[0];
+		aa=parseInt(aa);
+		bb=parseInt(bb);
+		return ((aa > bb) - (bb > aa));
+	};
+
 	
 	for( var idx in view_search.terms )
 	{
@@ -772,10 +788,18 @@ view_search.view=function(args)
 				{
 					var v=codes[n]
 					var s="<option value='"+n+"'>"+v+" ("+n+")</option>";
+					if(it.hidecode) s="<option value='"+n+"'>"+v+"</option>" // hide the code
 					a.push(s);
 				}
 			}
-			a.sort(compare);
+			if( it.sort=="value" )
+			{
+				a.sort(compare_value);
+			}
+			else
+			{
+				a.sort(compare);
+			}
 			ctrack.chunk(it.list,a.join(""));
 		}
 	}
