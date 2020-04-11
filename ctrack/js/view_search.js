@@ -800,10 +800,14 @@ view_search.ajax_fetch=function(args)
 	fetcher.ajax(dat,function(data){
 		if(latest!=view_search.latest) { return; } // ignore old search data
 
-		var c=data.rows[0]["count_aid"];
-		if( c>0 ) // show results
+		var c=0
+		if( data && data.rows && data.rows[0] )
 		{
-			$("#search_link").removeClass("search_link_disable");
+			c=data.rows[0]["count_aid"];
+			if( c>0 ) // show results
+			{
+				$("#search_link").removeClass("search_link_disable");
+			}
 		}
 //console.log( data.rows[0] );
 		$("#result_span").html("Found "+commafy(c)+" activities");
