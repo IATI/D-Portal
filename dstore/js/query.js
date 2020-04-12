@@ -507,6 +507,13 @@ for(var n in ns) // all valid fields
 		}
 	}
 
+	if( (ns["title"]) && q["keyword"] ) // simple keyword only search
+	{
+		wheres.push( " title LIKE "+dstore_db.text_plate("keyword") );
+		qv[dstore_db.text_name("keyword")]="%"+q["keyword"]+"%";
+	}
+
+
 	query.getsql_external_aids(q,qv,wheres)
 	query.getsql_where_xson(q,qv,wheres)
 
