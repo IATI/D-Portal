@@ -351,7 +351,7 @@ table.filter_table td.filter_title	{padding-top:20px; padding-bottom:5px; text-t
 .search_input_wrap			{position:relative;}
 .search_icon				{position:absolute; top:28px; left:-40px;}
 
-.search_glossary_wrap		{margin-top:10px; position:relative; width:960px; margin:0 auto;}
+.search_glossary_wrap		{margin-top:10px; position:relative; width:960px; margin:0 auto; margin-top:-10px;}
 .search_glossary			{padding:20px 30px; box-sizing:border-box; width:960px; margin:0 auto; background-color:#223139; color:#fff; font-size:1.1em; line-height:1.5em; margin-bottom:15px;}
 .search_glossary_wrap p			{padding:25px 0;}
 .search_glossary_wrap td		{padding:0;}
@@ -395,16 +395,18 @@ a.search_refine:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50
 .search_trend_wrap a:hover	{background-color:#2D77B5;}
 
 .search_help				{width:100%; text-align:right;}
-.search_help span			{display:inline-block; margin-right:20px; background-color:#ffd982c4; padding:5px; border-radius:4px 4px 0 0; font-size:14px; font-weight:bold;}
+.search_help span			{display:inline-block; margin-right:15px; background-color:#ffd982c4; padding:5px; border-radius:4px 4px 0 0; font-size:13px; font-weight:bold; min-width:65px; text-align:center;}
 .search_help span:hover		{cursor:pointer; background-color:#ffc233c4;}
 .search_show				{text-align:right; color:#eee; padding:5px 0 10px 0; margin-top:-5px;}
 .search_show:hover			{cursor:pointer; color:#fff;}
 .filter_text				{padding:0; color:#ccc; font-size:13px; border-bottom:1px solid #666; margin-bottom:5px;}
 
-.search_external			{color:#fff; font-size:14px; font-weight:bold; padding-top:5px;}
+.search_external			{color:#fff; font-size:14px; font-weight:bold;}
+.search_external.search_keyword			{font-weight:normal; margin-top:-5px; margin-bottom:20px;}
 .search_external span		{font-weight:normal;}
-.search_external input		{width:895px; height:40px; margin-top:10px;}
-.search_external input::placeholder {color:#777;}
+.search_external input		{width:895px; height:30px; margin-top:10px;}
+.search_external.search_keyword input	{width:460px; height:30px; margin-top:10px; margin-left:16px;}
+.search_external input::placeholder 	{color:#777;}
 
 .search_opts				{display:inline-block; vertical-align:top; width:120px;}
 .search_opts_clear			{display:inline-block; vertical-align:top; width:154px;}
