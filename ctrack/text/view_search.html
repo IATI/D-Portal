@@ -27,12 +27,12 @@
 
 <!-- EXPLORE: Toggle search intro section, hidden at load	-->
 #more_search_intro
-<div id="more_search_intro" class="settings_search" style="display:none;">
+<div id="more_search_intro" class="search_glossary_wrap" style="display:none;">
 	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">CLOSE X</div>
 <table class="head">
 	<tr>
 		<td>
-			The updated <span class="discover">EXPLORE</span> feature helps find activities published to the IATI Standard using filters and keywords.
+			The updated <b>EXPLORE</b> feature helps find activities published to the IATI Standard using filters and keywords.
 			
 			<p>Updated features following development in the first half of 2017 include:</p>
 			
@@ -44,7 +44,7 @@
 
 					<li>Search for an <b>individual activity ID</b> using the freetext box</li>
 
-					<li>New toggle button to sort filter dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> <span class="accent">(e.g. by CRS sector numbers)</span></li>
+					<li>New toggle button to sort filter dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <b>IATI/CRS code</b> <i>(e.g. by CRS sector numbers)</i></li>
 
 					<li>New EXPLORE section within the <b>FAQ</b> page specifically relating to the search function</li>
 				</ul>
@@ -185,7 +185,7 @@
 	</div>
 </div>
 
-<!-- NEW SEARCH TEST	-->
+<!-- NEW SEARCH2 TEST	-->
 #view_search2
 {view_head}
 <style>
@@ -196,135 +196,140 @@
 {beige}
 {main_head_search} <!-- general.html LINE 105	-->
 {search_intro2}
+{search_trend}
 {more_search_intro2}
 {view_search_test2}
 {where_is_the_data_from}
 {view_tail}
 
-<!-- EXPLORE: Introduction	-->
+<!-- SEARCH2: Introduction	-->
 #search_intro2
 <div class="search_intro_wrap" style="font-size:24px;">
 	Search IATI data on development and humanitarian activities more easily.
 </div>
 
-<!-- EXPLORE: Toggle search intro section, hidden at load	-->
+#search_trend
+<div class="search_trend_wrap">	<!--	Trending search	-->
+  <span>Trending</span><a href="/ctrack.html?text_search=covid-19#view=main">COVID-19</a><a href="/ctrack.html?text_search=ebola#view=main">ebola</a><a href="/ctrack.html?text_search=hurricane dorian#view=main">hurricane dorian</a><a href="/ctrack.html?text_search=locust#view=main">locust</a><a href="/ctrack.html?text_search=earthquake#view=main">earthquake</a><a href="/ctrack.html?text_search=tsunami#view=main">tsunami</a><a href="/ctrack.html?text_search=malaria#view=main">malaria</a>
+</div>
+	
+<!-- SEARCH2: Toggle search intro section, hidden at load	-->
 #more_search_intro2
-<div id="more_search_intro" class="settings_search" style="display:none;">
-	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">CLOSE X</div>
-	<div class="search_text">
-		Find activities published to the IATI Standard using filters and keywords.
-		<br/>Text search searches the Title and Description fields within all published IATI activities.
-		<br/>Sort filter dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> (e.g. by CRS sector numbers)
+<div id="more_search_intro" class="search_glossary_wrap" style="display:none;">
+	<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">CLOSE X</span></div>
+	<div class="search_glossary">
+		<div class="filter_text">GLOSSARY</div>
+		<table class="head filter_table">	<!--	GLOSSARY	-->
+			<thead>
+				<tr>
+					<th class="gloss_name">Text search</th>
+					<th>Search Title and Description fields within all published IATI activities.</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>ABC - 123</td>
+				<td>Sort dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> (e.g. by CRS sector numbers).</td>
+			</tr>
+			<tr>
+				<td>{search_status_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/ActivityStatus/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the current status of the activity.</td>
+			</tr>
+			<tr>
+				<td>{search_collaboration_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/CollaborationType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the type of collaboration involved in the activity’s disbursements.</td>
+			</tr>
+			<tr>
+				<td>{search_aid_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/AidType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> specifying the type of aid being supplied.</td>
+			</tr>
+			<tr>
+				<td>{search_finance_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/FinanceType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the default DAC/CRS transaction classification used to distinguish financial instruments like grants or loans.</td>
+			</tr>
+			<tr>
+				<td>{search_flow_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/FlowType/#codes" target="blank">IATI code</a> defining whether the activity is funded by Official Development Assistance (ODA), Other Official Flows (OOF), etc.</td>
+			</tr>
+			<tr>
+				<td>{search_tied_status_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/TiedStatus/#codes" target="blank">IATI code</a> interpreting the usage of Columns 36-38 of the CRS++ reporting format.</td>
+			</tr>
+			<tr>
+				<td>{search_document_category_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/DocumentCategory/#codes" target="blank">IATI code</a> defining the category of the document.</td>
+			</tr>
+			<tr>
+				<td>{search_humanitarian_activity_txt}</td>
+				<td>A <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/" target="blank" rel="noopener noreferrer">process flag</a> to indicate that this activity and/or transaction relates entirely or partially to humanitarian aid.</td>
+			</tr>
+			<tr>
+				<td>{search_humanitarian_scope_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/HumanitarianScopeVocabulary/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for a recognised vocabulary of terms classifying the event or action.</td>
+			</tr>
+			<tr>
+				<td>{search_participating_txt}</td>	
+				<td>Organisations from <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a> - not an extensive list and includes only the existing list of IATI publishers.</td>
+			</tr>
+			<tr>
+				<td>{search_policy_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity.</td>
+			</tr>
+			<tr>
+				<td>{search_publisher_txt}</td>
+				<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a>. This <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/reporting-org/" target="blank" rel="noopener noreferrer">IATI element</a> is a list of reporting organisations issuing the report.</td>
+			</tr>
+			<tr>
+				<td>{search_recipient_txt}</td>
+				<td>Countries reported by publishers are using <a href="https://en.wikipedia.org/wiki/ISO_3166-2" target="blank" rel="noopener noreferrer">ISO3166 Alpha-2</a>.</td>	
+			</tr>
+			<tr>
+				<td>{search_related_activity_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/RelatedActivityType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the type of relationship another separately reported IATI activity is related to this one.</td>
+			</tr>
+			<tr>
+				<td>{search_result_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/ResultType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the type of result being reported.</td>
+			</tr>
+			<tr>
+				<td>{search_sector_txt}</td>
+				<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/Sector/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 5-digit purpose code</a>.</td>
+			</tr>
+			<tr>
+				<td>{search_sectorgroup_txt}</td>
+				<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/SectorCategory/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 3-digit purpose code</a>.</td>		
+			</tr>
+			<tr>
+				<td>{search_tag_vocab_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/TagVocabulary/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the vocabulary or taxonomy used for tag classifications.</td>
+			</tr>
+			<tr>
+				<td>{search_commitment_txt}</td>
+				<td>Select the minimum and/or maximum sum of all <a href="http://reference.iatistandard.org/203/codelists/TransactionType/#codes" target="blank" rel="noopener noreferrer">Outgoing Commitment</a> type transactions.</td>
+			</tr>
+			<tr>
+				<td>{search_transaction_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/TransactionType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the type of transaction.</td>
+			</tr>
+			<tr>
+				<td>{search_year_txt}</td>
+				<td>Select the starting and/or ending year as the range for activities.</td>
+			</tr>
+			<tr>
+				<td>{search_external_txt}</td>
+				<td>Get a list of IATI identifiers in JSON format and paste the URL here to view the activities in d-portal. This is especially useful if you want to view a specific set of activities.</td>
+			</tr>
+		</table>
 	</div>
-	<div class="filter_text">GLOSSARY</div>
-	<table class="head filter_table">	<!--	GLOSSARY	-->
-		<thead>
-		<tr>
-			<th class="gloss_name">{search_status_txt}</th>
-			<th>An <a href="http://reference.iatistandard.org/203/codelists/ActivityStatus/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the current status of the activity.</th>
-		</tr>
-		</thead>
-		<tr>
-			<td>{search_collaboration_type_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/CollaborationType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the type of collaboration involved in the activity’s disbursements.</td>
-		</tr>
-		<tr>
-			<td>{search_aid_type_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/AidType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> specifying the type of aid being supplied.</td>
-		</tr>
-		<tr>
-			<td>{search_finance_type_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/FinanceType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the default DAC/CRS transaction classification used to distinguish financial instruments like grants or loans.</td>
-		</tr>
-		<tr>
-			<td>{search_flow_type_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/FlowType/#codes" target="blank">IATI code</a> defining whether the activity is funded by Official Development Assistance (ODA), Other Official Flows (OOF), etc.</td>
-		</tr>
-		<tr>
-			<td>{search_tied_status_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/TiedStatus/#codes" target="blank">IATI code</a> interpreting the usage of Columns 36-38 of the CRS++ reporting format.</td>
-		</tr>
-		<tr>
-			<td>{search_document_category_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/DocumentCategory/#codes" target="blank">IATI code</a> defining the category of the document.</td>
-		</tr>
-		<tr>
-			<td>{search_humanitarian_activity_txt}</td>
-			<td>A <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/" target="blank" rel="noopener noreferrer">process flag</a> to indicate that this activity and/or transaction relates entirely or partially to humanitarian aid.</td>
-		</tr>
-		<tr>
-			<td>{search_humanitarian_scope_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/HumanitarianScopeVocabulary/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for a recognised vocabulary of terms classifying the event or action.</td>
-		</tr>
-		<tr>
-			<td>{search_participating_txt}</td>	
-			<td>Organisations are from the <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a>. This is not an extensive list and includes only the existing list of IATI publishers.</td>
-		</tr>
-		<tr>
-			<td>{search_policy_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity.</td>
-		</tr>
-		<tr>
-			<td>{search_publisher_txt}</td>
-			<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a>. This <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/reporting-org/" target="blank" rel="noopener noreferrer">IATI element</a> is a list of reporting organisations issuing the report.</td>
-		</tr>
-		<tr>
-			<td>{search_recipient_txt}</td>
-			<td>Countries reported by publishers are using <a href="https://en.wikipedia.org/wiki/ISO_3166-2" target="blank" rel="noopener noreferrer">ISO3166 Alpha-2</a>.</td>	
-		</tr>
-		<tr>
-			<td>{search_related_activity_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/RelatedActivityType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the type of relationship another separately reported IATI activity is related to this one.</td>
-		</tr>
-		<tr>
-			<td>{search_result_type_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/ResultType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the type of result being reported.</td>
-		</tr>
-		<tr>
-			<td>{search_sector_txt}</td>
-			<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/Sector/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 5-digit purpose code</a>.</td>
-		</tr>
-		<tr>
-			<td>{search_sectorgroup_txt}</td>
-			<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/SectorCategory/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 3-digit purpose code</a>.</td>		
-		</tr>
-		<tr>
-			<td>{search_tag_vocab_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/TagVocabulary/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the vocabulary or taxonomy used for tag classifications.</td>
-		</tr>
-		<tr>
-			<td>{search_commitment_txt}</td>
-			<td>Select the minimum and/or maximum sum of all <a href="http://reference.iatistandard.org/203/codelists/TransactionType/#codes" target="blank" rel="noopener noreferrer">Outgoing Commitment</a> type transactions.</td>
-		</tr>
-		<tr>
-			<td>{search_transaction_type_txt}</td>
-			<td>An <a href="http://reference.iatistandard.org/203/codelists/TransactionType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the type of transaction.</td>
-		</tr>
-		<tr>
-			<td>{search_year_txt}</td>
-			<td>Select the starting and/or ending year as the range for activities.</td>
-		</tr>
-		<tr>
-			<td>{search_external_txt}</td>
-			<td>Get a list of IATI identifiers in JSON format and paste the URL here to view the activities in d-portal. This is especially useful if you want to view a specific set of activities.</td>
-		</tr>
-	</table>
 </div>
 
-<!-- EXPLORE: Wrapper for entire search section	-->
+<!-- SEARCH2: Wrapper for entire search section	-->
 #view_search_test2
-<div id="view_search_test">
+<div id="view_search_test" style="padding-top:0;">
 	<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">? HELP</span></div>
 	{view_search_filters_wrap2}
-
 	<div id="search_div">
 		<span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a> <!--Update to button1, translations-->
 	</div>
-	
-	<div id="result_aid_div">
-		<span id="result_aid_link"></span>
-	</div>
-	
 	<div class="search_input_wrap">
 		<div class="search_icon">
 			<img src="/ctrack/art/original/search_icon.png" alt="A magnifying glass icon" width="30" height="30"/>
@@ -346,18 +351,17 @@
 					 
 			});
 		</script>
-	</div>
-	
+	</div>	
 </div>
 
-<!-- EXPLORE: Wrapper for all filters, in blue section	-->
+<!-- SEARCH2: Wrapper for all filters, in blue section	-->
 #view_search_filters_wrap2
 <div class="search_filter">
 	{filter_head_text}	
 	{view_search_filters2}
 </div>
 
-<!-- EXPLORE: Filters	-->
+<!-- SEARCH2: Filters	-->
 #view_search_filters2
 <div class="search_wrap">
 	<div class="search_label">
@@ -552,12 +556,12 @@
 {main_head_search}
 {search_intro}
 {more_search_intro}
-{view_search2_test}
+{view_search_free_test}
 {where_is_the_data_from}
 {view_tail}
 
 <!-- freetext search -->
-#view_search2_test
+#view_search_free_test
 <div id="view_search_test">
 	
 	<div class="search_input_wrap"><div class="search_icon"><img src="/ctrack/art/original/search_icon.png" alt="A magnifying glass icon to indicate that a search request is nigh" width="30" height="30"/></div><input type="text" id="view_search_string_only" class="typeahead" placeholder="{search2_placeholder_txt}"/></div>
@@ -566,12 +570,12 @@
 		<a onclick="$('.search_filter').toggle();" class="feedback_txt">Show Filters?</a>
 	</div>
 	
-	{view_search2_filters_wrap}
+	{view_search_free_filters_wrap}
 	
 </div>
 
 <!-- freetext search -->
-#view_search2_filters_wrap
+#view_search_free_filters_wrap
 <div class="search_filter" style="display:none; margin-top:40px;">
 	{filter_head_text}	
 	{view_search_filters}
