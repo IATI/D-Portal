@@ -337,7 +337,7 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search_head				{display:inline-block; vertical-align:top; width:640px; color:#000; letter-spacing:5px; font-size:18px; font-weight:bold; margin-bottom:25px;}
 .search_head span			{color:#000; font-weight:normal; letter-spacing:1px; margin-left:-5px;}
 
-/*	IATI Identifier link	*/
+/*	IATI Identifier link - not used	*/
 #result_aid_div a			{display:block; color:#fff; font-weight:normal; letter-spacing:1px; margin-left:-5px; border:1px solid #2f6381; background:linear-gradient(#68c7ff,#2d5d7b); background:-webkit-linear-gradient(#68c7ff,#2d5d7b); text-shadow:0 -1px 0 #366e90; text-align:center; margin:0 auto; font-size:1.6em; line-height:18px; border-radius:6px; height:60px; max-height:60px; box-sizing:border-box; padding:20px;}
 #result_aid_div a:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50a0d2,#2d5d7b); background:-webkit-linear-gradient(#50a0d2,#2d5d7b); text-shadow:0 -1px 0 #2d5d7b;}
 .search_aid_link_disable    {display:none;}
@@ -346,16 +346,13 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 .search_input_wrap			{position:relative;}
 .search_icon				{position:absolute; top:28px; left:-40px;}
 
-.settings_search			{padding:40px 50px 20px 50px; box-sizing:border-box; width:960px; margin:0 auto; color:#000; font-size:1.1em; line-height:1.5em; margin-top:20px; position:relative;}
-.hide_search_intro			{position:absolute; top:10px; right:20px; color:#000; width:30px; height:30px; box-sizing:border-box; text-align:center; font-size:12px; font-weight:bold;}
-.hide_search_intro:hover	{cursor:pointer; color:#000;}
-.settings_search p			{padding:25px 0;}
-.settings_search td			{padding:0;}
-.settings_search td span.discover	{color:#000; letter-spacing:5px; font-weight:bold; margin-left:5px;}
-.settings_search span.accent		{font-size:0.9em; color:#000;}
-.settings_search td ul		{list-style-type:disc; list-style-position:outside;}
-.settings_search td ul li	{padding:10px 20px 10px 0;}
-.settings_search td a:hover	{text-decoration:underline;}
+.search_glossary_wrap		{margin-top:10px; position:relative; width:960px; margin:0 auto;}
+.search_glossary			{padding:20px 30px; box-sizing:border-box; width:960px; margin:0 auto; border:1px solid #000; font-size:1.1em; line-height:1.5em; margin-bottom:15px;}
+.search_glossary_wrap p			{padding:25px 0;}
+.search_glossary_wrap td		{padding:0;}
+.search_glossary_wrap td ul		{list-style-type:disc; list-style-position:outside;}
+.search_glossary_wrap td ul li	{padding:10px 20px 10px 0;}
+.search_glossary_wrap td a:hover{text-decoration:underline;}
 
 .settings_link_search span	{color:#000; padding:10px 15px 0 0; display:inline-block;}
 .settings_link_search span:nth-of-type(1)	{font-weight:bold; padding-right:5px;}
@@ -367,9 +364,6 @@ a#search_link.search_link_disable:hover	{cursor:default;}
 
 .press_enter 				{color:#000; position:absolute; right:20px; top:32px; font-size:20px;}	/*	Press Enter div in input box	*/
 
-
-/*	For url #view=search - EXPLORE styles
-	============================================= */
 .search_cont				{margin:auto; background:#FFF; border:1px solid #000; border-radius:6px; width:960px; box-sizing:border-box; padding:20px 30px; margin-bottom:10px;}
 .search_query				{display:inline-block; vertical-align:top;}
 .search_main				{width:900px;}

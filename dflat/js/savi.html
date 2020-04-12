@@ -26,19 +26,13 @@
 				<th class="mod_7">HIERARCHY</td>
 			</tr>
 			<tr>
-				<td class="mod_1" title="{_it./activity-scope@code-description||}">{_it./activity-scope@code-name||}</td>
-				<td class="mod_2" title="{_it./collaboration-type@code-description||/empty-description}">
-					{_it./collaboration-type@code-name||}
-				</td>
-				<td class="mod_3" title="{_it./default-aid-type.0.@code-description||}">{_it./default-aid-type.0.@code-name||}</td>
-				<td class="mod_4" title="{_it./default-finance-type@code-description||}">
-					{_it./default-finance-type@code-name||}{_it./default-finance-type@code-withdrawn&&_it:/withdrawn||}
-				</td>
-				<td class="mod_5" title="{_it./default-flow-type@code-description||}">
-					{_it./default-flow-type@code-name||}{_it./default-flow-type@code-withdrawn&&_it:/withdrawn||}
-				</td>
+				<td class="mod_1" title="{_it./activity-scope@code-description||}">{_it./activity-scope@code&&_it:/modal-wrap-activity-scope||}</td>
+				<td class="mod_2" title="{_it./collaboration-type@code-description||/empty-description}">{_it./collaboration-type@code&&_it:/modal-wrap-collaboration-type||}</td>
+				<td class="mod_3">{_it./default-aid-type&&_it:/modal-wrap-aid-type||}</td>
+				<td class="mod_4" title="{_it./default-finance-type@code-description||}">{_it./default-finance-type@code&&_it:/modal-wrap-finance-type||}</td>
+				<td class="mod_5" title="{_it./default-flow-type@code-description||}">{_it./default-flow-type@code&&_it:/modal-wrap-flow-type||}</td>
 				<td class="mod_6" title="{_it./default-tied-status@code-description||}">{_it./default-tied-status@code-name||}</td>
-				<td class="mod_7" title="{_it.@hierarchy-description||}">{_it.@hierarchy||}</td>
+				<td class="mod_7" title="The hierarchical level within the reporting organisation’s subdivision of its units of aid.">{_it.@hierarchy||}</td>
 			</tr>
 		</table>
 	</div>
@@ -213,7 +207,50 @@
 		</div>
 	</div>
 </div>
-	
+
+
+#^/modal-wrap-activity-scope	<!--	MODAL - ACTIVITY SCOPE	-->
+{_it./activity-scope@code-name||} {_it./activity-scope@code&&_it:/activity-scope-code||}
+
+#^/activity-scope-code
+<span class="type">{_it./activity-scope@code||}</span>
+
+#^/modal-wrap-collaboration-type	<!--	MODAL - DEFAULT COLLABORATION TYPE	-->
+{_it./collaboration-type@code-name||} {_it./collaboration-type@code&&_it:/collaboration-type-code||}
+
+#^/collaboration-type-code
+<span class="type">{_it./collaboration-type@code||}</span>
+
+#^/modal-wrap-finance-type	<!--	MODAL - DEFAULT FINANCE TYPE	-->
+{_it./default-finance-type@code-name||} {_it./default-finance-type@code&&_it:/finance-type-code||}{_it./default-finance-type@code-withdrawn&&_it:/withdrawn||}
+
+#^/finance-type-code
+<span class="type">{_it./default-finance-type@code||}</span>
+
+#^/modal-wrap-flow-type	<!--	MODAL - DEFAULT FLOW TYPE	-->
+{_it./default-flow-type@code-name||} {_it./default-flow-type@code&&_it:/flow-type-code||}{_it./default-flow-type@code-withdrawn&&_it:/withdrawn||}
+
+#^/flow-type-code
+<span class="type">{_it./default-flow-type@code||}</span>
+
+#^/modal-wrap-aid-type	<!--	MODAL - DEFAULT AID TYPE	-->
+{_it./default-aid-type:/wrap-aid-type}
+
+#^/wrap-aid-type
+{_it.@vocabulary==1&&_it:/aid-type-all||}
+{_it.@vocabulary==2&&_it:/aid-type-all||}
+{_it.@vocabulary==3&&_it:/aid-type-other||}
+{_it.@vocabulary==4&&_it:/aid-type-other||}
+
+#^/aid-type-all
+<div title="{_it.@code-description||}">
+	{_it.@code-name||} <span class="type">{_it.@code||}</span>
+</div>
+#^/aid-type-other
+<div title="{_it.@code-description||}">
+	{_it.@vocabulary-name||} <span class="type">{_it.@code||}</span>
+</div>
+
 #^/wrap-crs-add	<!--	CRS WRAPPER	-->
 	<div class="wrap_crs_add">
 		<div class="header_section sticky collapsable">crs add</div>
@@ -651,7 +688,7 @@ indicator<span class="count">( {_it./indicator.length||no_length} )</span>
 		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">BASELINE</th>
 		<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">TARGET</th>
 		<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">ACTUAL</th>			
-		<th class="result_percent" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">ACHIEVED</th>			
+		<th class="result_percent" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">GAIN</th>			
 		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">PERIOD</th>				
 	</tr>
 </thead>
@@ -754,16 +791,23 @@ indicator<span class="count">( {_it./indicator.length||no_length} )</span>
 
 #^/wrap-result-reference
 <div class="wrap_result_indi_ref">
-	<div class="result_indi_head">Reference</div>
+	<div class="result_indi_head">REFERENCE</div>
 	{_it./reference:/result_reference}
 </div>
 
 #^/result_reference
 <div class="result_indi_ref">
-	{_it.@vocabulary&&_it:/result_vocab||}	
-	{_it.@code&&_it:/result_code||}	
-	{_it.@indicator-uri&&_it:/result_uri||}	
+	{_it.@vocabulary==99&&_it:/wrap-result_vocab-99||_it:/result_vocab}	
+	{_it.@code&&_it.@indicator-uri&&_it:/result_uri||_it:/result_code}
 </div>
+
+#^/wrap-result_vocab-99
+{_it.@indicator-uri&&it:/result_vocab-99-uri||_it:/result_vocab-99}
+
+#^/result_vocab-99-uri
+<div><span class="ref">VOCAB</span> <a href="{_it.@indicator-uri||}">{_it.@vocabulary-name||}</a> <span class="type">{_it.@vocabulary||}</span></div>
+#^/result_vocab-99
+<div><span class="ref">VOCAB</span> {_it.@vocabulary-name||} <span class="type">{_it.@vocabulary||}</span></div>
 
 #^/result_vocab
 <div><span class="ref">VOCAB</span> <a href="{_it.@vocabulary-url||}">{_it.@vocabulary-name||}</a> <span class="type">{_it.@vocabulary||}</span></div>
@@ -772,7 +816,7 @@ indicator<span class="count">( {_it./indicator.length||no_length} )</span>
 <div><span class="ref">CODE</span> {_it.@code||}</div>
 
 #^/result_uri
-<div><span class="ref">URI</span> <a href="{_it.@indicator-uri||}">Internal vocabulary</a></div>
+<div><span class="ref">CODE</span> <a href="{_it.@indicator-uri||}">{_it.@code||}</a></div>
 
 #^all-charts
 <div class="showcharts">
@@ -1183,7 +1227,7 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 </div>
 
 #^/provider-org-type
-<div>
+<div class="org-type">
 	<span title="{_it./provider-org@type-description||}" class="type">
 		{_it./provider-org@type-name||}
 	</span>
@@ -1204,7 +1248,7 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 </div>
 
 #^/receiver-org-type
-<div>
+<div class="org-type">
 	<span title="{_it./receiver-org@type-description||}" class="type">
 		{_it./receiver-org@type-name||}
 	</span>
@@ -1690,7 +1734,7 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 				<tr>
 					<th class="hum_title" data-sort="string" data-sort-multicolumn="0,1,2,3">TITLE</th>
 					<th class="hum_code" data-sort="string" data-sort-multicolumn="0,1,2,3">CODE</th>
-					<th class="hum_vocab" data-sort="int" data-sort-multicolumn="0,1,2,3">VOCAB</th>
+					<th class="hum_vocab" data-sort="int" data-sort-multicolumn="0,1,2,3">VOCABULARY</th>
 					<th class="hum_type" data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
 				</tr>
 			</thead>
