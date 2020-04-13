@@ -337,6 +337,7 @@ table.budget.location td.loc_des .ref span	{text-transform:capitalize;}
 /*	IATI ACTIVITY TRANSACTION TABLES	*/
 table.budget.act_trans th.description,
 table.budget.act_trans td.description		{width:240px; padding-right:30px;}
+table.budget.act_trans td.description .type	{margin:0; font-size:9px; font-family:monospace;}
 table.budget.act_trans th.provider,
 table.budget.act_trans td.provider			{width:200px; padding-right:30px;}
 table.budget.act_trans th.receiver,
@@ -394,7 +395,7 @@ table.budget.act_trans td.date				{width:110px; padding-right:0px;}
 .result_indi_ref div						{padding-bottom:3px;}
 .result_indi_ref:last-of-type				{border:0; padding-bottom:0;}
 .result_indi_ref .ref						{display:inline-block; vertical-align:top; font-size:9px; min-width:35px;}
-.result_indi_ref .type						{margin:0; font-size:9px;}
+.result_indi_ref .type						{margin:0; font-size:9px; font-family:monospace;}
 .result_period_time							{background-color:#253860; min-height:17px; line-height:17px; margin-bottom:4px; text-align:center; max-width:155px;}
 .result_indicator .wrap_document			{margin:0 0 10px 0;}
 .wrap_result .sector_list_wrap				{color:#ccc; padding:0 0 10px 0;}

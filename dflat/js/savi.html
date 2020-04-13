@@ -1156,32 +1156,36 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 #^/sector-trans
 {_it./sector:/sector/code||}
 
+#^/transaction-code		<!--	TRANSACTION CODE SPANS	-->
+<span class="type">{_it.@code}</span>
+
 #^/sector/code
 <div>
-	<span title="Sector" class="ref">SECTOR <span title="{_it.@code-description||}">{_it.@code-name||_it.@code}</span></span>
+	<span title="Sector" class="ref">SECTOR <span title="{_it.@code-description||}">{_it.@code-name||}</span> {_it:/transaction-code}</span>
 </div>
 
 #^/recipient-country/code
 <div>
-	<span title="Recipient Country" class="ref">COUNTRY <span>{_it./recipient-country@code-name||}</span></span>
+	<span title="Recipient Country" class="ref">COUNTRY <span>{_it./recipient-country@code-name||}</span> <span class="type">{_it./recipient-country@code}</span></span>
 </div>
 
 #^/recipient-region/code
 <div>
-	<span title="Recipient Region" class="ref">REGION <span>{_it./recipient-region@code-name||}</span></span>
+	<span title="Recipient Region" class="ref">REGION <span>{_it./recipient-region@code-name||}</span> <span class="type">{_it./recipient-country@code}</span></span>
 </div>
 
 #^/disbursement-channel/code
 <div>
 	<span title="Disbursement Channel" class="ref">
-		CHANNEL <span title="{_it./disbursement-channel@code-description||}">{_it./disbursement-channel@code-name||}</span>
+		CHANNEL <span title="{_it./disbursement-channel@code-description||}">{_it./disbursement-channel@code-name||}</span> <span class="type">{_it./disbursement-channel@code}</span>
 	</span>
 </div>
 
 #^/flow-type/code
 <div>
 	<span title="Flow Type" class="ref">
-		FLOW <span title="{_it./flow-type@code-description||}">{_it./flow-type@code-name||}{_it./flow-type@code-withdrawn&&_it:/withdrawn||}</span>
+		FLOW <span title="{_it./flow-type@code-description||}">{_it./flow-type@code-name||}{_it./flow-type@code-withdrawn&&_it:/withdrawn||}
+		</span> <span class="type">{_it./flow-type@code}</span>
 	</span>
 </div>
 
@@ -1190,23 +1194,19 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 
 #^/aid-type/code
 <div>
-	<span title="Aid Type" class="ref">
-		AID <span title="{_it.@code-description||}">{_it.@code-name||}</span>
-	</span>
+	<span title="Aid Type" class="ref">AID <span title="{_it.@code-description||}">{_it.@code-name||}</span> {_it:/transaction-code}</span>
 </div>
 
 #^/finance-type/code
 <div>
 	<span title="Finance Type" class="ref">
-		FINANCE <span title="{_it./finance-type@code-description||/empty-description}">{_it./finance-type@code-name||}{_it./finance-type@code-withdrawn&&_it:/withdrawn||}</span>
+		FINANCE <span title="{_it./finance-type@code-description||/empty-description}">{_it./finance-type@code-name||}{_it./finance-type@code-withdrawn&&_it:/withdrawn||}</span> <span class="type">{_it./finance-type@code}</span>
 	</span>
 </div>
 
 #^/tied-status/code
 <div>
-	<span title="Flow Type" class="ref">
-		STATUS <span title="{_it./tied-status@code-description||}">{_it./tied-status@code-name||}</span>
-	</span>
+	<span title="Flow Type" class="ref">STATUS <span title="{_it./tied-status@code-description||}">{_it./tied-status@code-name||}</span> <span class="type">{_it./tied-status@code}</span></span>
 </div>
 
 #^/transaction-humanitarian
@@ -1656,20 +1656,19 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 {_it./location-id:/location-id}
 
 #^/location-id
-{_it.@code&&_it:/location-code||}
-{_it.@vocabulary&&_it:/location-vocab||}
+{_it.@code&&_it.@vocabulary&&_it:/location-code-url||_it:/location-code}
+
+#^/location-code-url
+<div>
+	<span title="A code from the gazetteer or administrative boundary repository specified by the vocabulary" class="ref">
+		ID <a href="{_it.@vocabulary-url||}">{_it.@code||}</a>
+	</span>
+</div>
 
 #^/location-code
 <div>
 	<span title="A code from the gazetteer or administrative boundary repository specified by the vocabulary" class="ref">
 		ID <span>{_it.@code||}</span>
-	</span>
-</div>
-
-#^/location-vocab
-<div>
-	<span title="{_it.@vocabulary-description||}" class="ref">
-		VOCAB <a href="{_it.@vocabulary-url||}">{_it.@vocabulary-name||}</a>
 	</span>
 </div>
 
