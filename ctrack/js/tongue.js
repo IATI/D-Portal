@@ -8,7 +8,7 @@ var util=require('util');
 var csv=undefined;//require('csv');
 var fs = require('fs');
 
-var plate=require("./plate.js");
+var plate_old=require("./plate_old.js");
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -49,8 +49,8 @@ tongue.export=function(filename)
 	head.push("eng");
 	head.push("fra");
 
-	var eng=plate.fill_chunks( fs.readFileSync("text/eng.txt",'utf8') );
-	var fra=plate.fill_chunks( fs.readFileSync("text/fra.txt",'utf8') );
+	var eng=plate_old.fill_chunks( fs.readFileSync("text/eng.txt",'utf8') );
+	var fra=plate_old.fill_chunks( fs.readFileSync("text/fra.txt",'utf8') );
 
 	for(var n in eng)
 	{
@@ -76,8 +76,8 @@ tongue.import=function(filename)
 
 //		ls(lines);
 
-		var eng=plate.fill_chunks( fs.readFileSync("text/eng.txt",'utf8') );
-		var fra=plate.fill_chunks( fs.readFileSync("text/fra.txt",'utf8') );
+		var eng=plate_old.fill_chunks( fs.readFileSync("text/eng.txt",'utf8') );
+		var fra=plate_old.fill_chunks( fs.readFileSync("text/fra.txt",'utf8') );
 
 		var head={};
 		for(var i=0;i<lines[0].length;i++)
@@ -105,8 +105,8 @@ tongue.import=function(filename)
 			}
 		}
 
-		fs.writeFileSync("text/eng.txt",plate.out_chunks(eng));
-		fs.writeFileSync("text/fra.txt",plate.out_chunks(fra));
+		fs.writeFileSync("text/eng.txt",plate_old.out_chunks(eng));
+		fs.writeFileSync("text/fra.txt",plate_old.out_chunks(fra));
 
 //	});
 }
