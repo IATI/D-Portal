@@ -210,22 +210,26 @@
 
 #search_trend
 <div class="search_trend_wrap">	<!--	Trending search	-->
-  <span>Trending</span><a href="?keyword=covid-19#view=main">COVID-19</a><a href="?keyword=ebola#view=main">ebola</a><a href="?keyword=hurricane dorian#view=main">hurricane dorian</a><a href="?keyword=locust#view=main">locust</a><a href="?keyword=earthquake#view=main">earthquake</a><a href="?keyword=tsunami#view=main">tsunami</a><a href="?keyword=malaria#view=main">malaria</a>
+  <span>Trending</span><a href="?keyword=covid-19#view=main">COVID-19</a><a href="?keyword=ebola#view=main">Ebola</a><a href="?keyword=hurricane dorian#view=main">Hurricane Dorian</a><a href="?keyword=locust#view=main">Locust</a><a href="?keyword=earthquake#view=main">Earthquake</a><a href="?keyword=tsunami#view=main">Tsunami</a><a href="?keyword=malaria#view=main">Malaria</a>
 </div>
 	
-<!-- SEARCH2: Toggle search intro section, hidden at load	-->
+<!-- SEARCH2: Toggle search intro section, hidden at load / GLOSSARY	-->
 #more_search_intro2
 <div id="more_search_intro" class="search_glossary_wrap" style="display:none;">
-	<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">CLOSE X</span></div>
+	<div class="search_help"><span onclick="$('#more_search_intro').toggle();">CLOSE X</span></div>
 	<div class="search_glossary">
 		<div class="filter_text">GLOSSARY</div>
 		<table class="head filter_table">	<!--	GLOSSARY	-->
 			<thead>
 				<tr>
-					<th class="gloss_name">Text search</th>
-					<th>Search Title and Description fields within all published IATI activities.</th>
+					<th class="gloss_name">Trending</th>
+					<th>Quick buttons to keyword search in Title fields only within all published IATI activities.</th>
 				</tr>
 			</thead>
+			<tr>
+				<td>Text search</td>
+				<td>Search Title and Description fields within all published IATI activities.</td>
+			</tr>
 			<tr>
 				<td>ABC - 123</td>
 				<td>Sort dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> (e.g. by CRS sector numbers).</td>
@@ -315,6 +319,10 @@
 				<td>Select the starting and/or ending year as the range for activities.</td>
 			</tr>
 			<tr>
+				<td>{search_keyword_txt}</td>
+				<td>Search Title fields only within all published IATI activities.</td>
+			</tr>
+			<tr>
 				<td>{search_external_txt}</td>
 				<td>Get a list of IATI identifiers in JSON format and paste the URL here to view the activities in d-portal. This is especially useful if you want to view a specific set of activities.</td>
 			</tr>
@@ -324,7 +332,7 @@
 
 <!-- SEARCH2: Wrapper for entire search section	-->
 #view_search_test2
-<div id="view_search_test" style="padding-top:0;">
+<div id="view_search_test" style="padding-top:0; margin-top:-10px;">
 	<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">? HELP</span></div>
 	{view_search_filters_wrap2}
 	<div id="search_div">
@@ -541,6 +549,9 @@
 			<option value></option>
 			{search_options_tied_status}
 		</select>
+	</div>
+	<div class="search_external search_keyword">
+		{search_keyword_txt} <input id="view_search_input_keyword" placeholder="Type to search Title fields only and press Enter"/>
 	</div>
 	<div class="search_external">
 		{search_external_txt} <span>Paste the URL of IATI identifiers in JSON format to view them on d-portal.</span>

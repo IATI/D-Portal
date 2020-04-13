@@ -352,6 +352,17 @@ view_search.terms=[
 	more   : true,
 },
 
+{
+	name   : "keyword",
+	search : false,
+	filter : true,
+	codes  : null,
+	inputs : [ "#view_search_input_keyword" ],
+	q      : "keyword",
+	show   : "search_display_keyword",
+	more   : true,
+},
+
 ]
 
 // the chunk names this view will fill with new data
