@@ -356,6 +356,8 @@ ctrack.setup=function(args)
 	}
 
 
+// display the current filters at the top of each page
+
 	ctrack.search_fixup=function(args){
 		args=args || ctrack.args;
 		if(args.showsearch)
@@ -394,6 +396,10 @@ ctrack.setup=function(args)
 									}
 								}
 							}
+						}
+						if( it.q=="aids" && text.startsWith("http://d-portal.org/dquery?sql=") ) // change to editable link
+						{
+							text="http://d-portal.org/dquery/#"+text.substr(31)
 						}
 						var chunk=plate.replace("{"+it.show+"}",{search_text:text})
 						div.append(chunk)
