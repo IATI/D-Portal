@@ -223,7 +223,7 @@
 			<thead>
 				<tr>
 					<th class="gloss_name">Trending</th>
-					<th>Quick buttons for keyword search in Title fields only, within all published IATI activities.</th>
+					<th>Quick buttons for keyword search in Title fields only.</th>
 				</tr>
 			</thead>
 			<tr>
@@ -325,7 +325,7 @@
 			<tr>
 				<td>{search_external_txt}</td>
 				<td>View a specific set of activities in d-portal by typing in their identifiers here separated by comma <span class="underline"><b>or</b></span>
-					Paste the URL of IATI identifiers in JSON or CSV format here to view the activities in d-portal.</td>
+					<br/>Paste the URL of IATI identifiers in JSON or CSV format to view the activities in d-portal.</td>
 			</tr>
 		</table>
 	</div>
@@ -555,8 +555,8 @@
 		{search_keyword_txt} <input id="view_search_input_keyword" placeholder="Type to search Title fields only and press Enter"/>
 	</div>
 	<div class="search_external">
-		{search_external_txt} <span>Paste the URL of IATI identifiers in JSON format to view them on d-portal.</span>
-		<input id="view_search_input_aids" placeholder="Type (eg. https://iati.cloud/search/activity?q=reporting_org_ref:(ET-MOT-0638)&fl=iati_identifier&wt=json&rows=5000000) and press Enter"/>
+		{search_external_txt} <span>- View a specific list of activities on d-portal.</span>
+		<input id="view_search_input_aids" placeholder="Type published IATI identifiers separated by comma or paste URL and press Enter"/>
 	</div>
 </div>
 
