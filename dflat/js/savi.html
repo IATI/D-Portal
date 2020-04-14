@@ -677,9 +677,15 @@ indicator<span class="count">( {_it./indicator.length||no_length} )</span>
 	<table class="budget result sortable">
 		{result-table}
 		{_it.@measure&&_it:/result_measure||}
-		{_it./facet:/result_indicator_row_all||}
+		{_it./period&&_it./facet&&_it:/wrap_result_indicator_row_all||_it:/result_indicator_period_only}
 	</table>
 </div>
+
+#^/wrap_result_indicator_row_all
+{_it./facet:/result_indicator_row_all||}
+
+#^/result_indicator_period_only			<!--	DISPLAY WHEN ONLY PERIOD AND NO VALUE IS FOUND	-->
+{_it./period:/result_indicator_row||}
 
 #^result-table	<!--	RESULT TABLE HEADERS	-->
 <thead>
@@ -709,7 +715,7 @@ indicator<span class="count">( {_it./indicator.length||no_length} )</span>
 #^/result_indicator_row_indicator		<!--	RESULT INDICATOR SECTION : TITLE, DESCRIPTION & OTHER INFORMATION	-->
 {_it./reference&&_it:/indicator_text_reference||_it:/indicator_text||}
 
-#^/indicator_text_reference					<!--	USE WHEN REFERENCE OR DOCUMENTS ARE PUBLISHED	-->
+#^/indicator_text_reference				<!--	USE WHEN REFERENCE OR DOCUMENTS ARE PUBLISHED	-->
 <div class="wrap_result_indicator">
 	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
 	<div class="result_indicator left_indi">
@@ -721,7 +727,7 @@ indicator<span class="count">( {_it./indicator.length||no_length} )</span>
 	{_it./document-link&&_it:/wrap-document-link||}
 </div>
 
-#^/indicator_text
+#^/indicator_text						<!--	USE WHEN REFERENCE ARE NOT ARE PUBLISHED	-->
 <div class="wrap_result_indicator">
 	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
 	<div class="result_title">{_it./title/narrative.0.text||}</div>
