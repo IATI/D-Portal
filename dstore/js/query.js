@@ -567,7 +567,11 @@ query.getsql_external_aids=function(q,qv,wheres){
 	{
 		if(typeof q.aids=="string") // convert to json
 		{
-			q.aids=JSON.parse(q.aids)
+			try {
+				q.aids=JSON.parse(q.aids)
+			} catch (e) {
+				q.aids=q.aids.split(",")
+			}
 		}
 		if( Array.isArray( q.aids ) )
 		{
