@@ -399,7 +399,7 @@ ctrack.setup=function(args)
 						}
 						if( it.q=="aids" && text.startsWith("http://d-portal.org/dquery?sql=") ) // change to editable link
 						{
-							text="http://d-portal.org/dquery/#"+text.substr(31)
+							text="http://d-portal.org/dquery/#"+encodeURI(decodeURIComponent(text.substr(31)))
 						}
 						var chunk=plate.replace("{"+it.show+"}",{search_text:text})
 						div.append(chunk)
