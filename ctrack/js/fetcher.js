@@ -77,7 +77,7 @@ fetcher.prefetch_aids=function(aids,f)
 			}
 		}
 
-		console.log(aids)
+//		console.log(aids)
 		
 		fetcher.aids=aids // remember this array for all later requests
 		
@@ -138,7 +138,6 @@ fetcher.prefetch_aids=function(aids,f)
 				
 			} catch (e) {
 
-console.log("splitting aids")
 				setaids( aids.split(",") ) // string split on ,
 			}
 		}
