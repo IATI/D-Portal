@@ -554,6 +554,9 @@ view_search.fixup=function()
 		build_query();
 	});
 
+	$('#view_search_input_keyword').bind("change",function(e){
+		build_query();
+	});
 
 	var o={allow_single_deselect:true,search_contains:true,placeholder_text:"Select an option",placeholder_text_multiple:"Select one or multiple options"};
 	for(var n in search_select_ids)
