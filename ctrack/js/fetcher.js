@@ -27,7 +27,8 @@ fetcher.prefetch_aids=function(aids,f)
 	var setaids=function(d){
 
 		var rows=d
-		
+
+
 		if( typeof rows == "object" && d.response && d.response.docs ) // datastore style
 		{
 			rows=d.response.docs
@@ -48,6 +49,7 @@ fetcher.prefetch_aids=function(aids,f)
 			rows=d.feed.entry
 		}
 
+//console.log(rows)
 
 		var aids=[]
 		
@@ -97,11 +99,10 @@ fetcher.prefetch_aids=function(aids,f)
 			$.ajax({
 				url: aids,
 				success: function(din){
-//console.log(din)
 					var dat={}
 					if(din)
 					{
-						if( typeof v == "string" )
+						if( typeof din == "string" )
 						{
 							try {
 
