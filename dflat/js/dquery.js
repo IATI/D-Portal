@@ -157,12 +157,13 @@ dquery.click=async function(id)
 	}
 	else
 	{
+		let session=dquery.editor.getSession()
+
 		switch(id)
 		{
 
 			case "menu_execute":
 				$('#result').jsonViewer({"Loading":"..."});
-				var session=dquery.editor.getSession()
 				$.ajax({
 				  type: "POST",
 				  url: "/dquery",
@@ -172,6 +173,11 @@ dquery.click=async function(id)
 				});
 			break;
 			
+			case "menu_browse":
+				let aids=encodeURIComponent("http://d-portal.org/dquery?sql="+encodeURIComponent(session.getValue()))
+				window.open("http://d-portal.org/ctrack.html?aids="+aids+"#view=main", '_blank');
+			break;
+
 			default:
 				console.log("unhandled click "+id)
 			break
