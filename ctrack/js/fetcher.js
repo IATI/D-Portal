@@ -88,12 +88,9 @@ fetcher.prefetch_aids=function(aids,f)
 	fetcher.aids=undefined
 	if( aids )
 	{
-		try {
-
-			var d=JSON.parse(aids);
-			setaids(d) // got local json
-			
-		} catch (e) {
+		var protocol=( aids.split(":")[0] || "" ).toLowerCase()
+		if( (protocol=="https") || (protocol=="http") ) // go fish
+		{
 
 			console.log("Prefetching : "+aids)
 
@@ -131,12 +128,19 @@ fetcher.prefetch_aids=function(aids,f)
 				}
 			});
 
-//			$.getJSON( aids , function(d){
-//				setaids(d) // got remote json
-//			})
-
 		}
+		else
+		{
+			try {
 
+				var d=JSON.parse(aids);
+				setaids(d) // got local json
+				
+			} catch (e) {
+
+				setaids( aids.split(",") ) // string split on ,
+			}
+		}
 	}
 	else
 	{
