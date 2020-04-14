@@ -52,13 +52,15 @@ plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_sector_transactions.html', 'utf8'), plate.chunks )
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_test.html',                'utf8'), plate.chunks )
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/general.html',                  'utf8'), plate.chunks )
+plated.chunks.format_chunks(plate.chunks)
 
-plate.chunks_cmn=plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/cmn.txt', 'utf8'), {} )
-plate.chunks_eng=plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/eng.txt', 'utf8'), {} )
-plate.chunks_fra=plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/fra.txt', 'utf8'), {} )
-plate.chunks_hin=plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/hin.txt', 'utf8'), {} )
-plate.chunks_jpn=plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/jpn.txt', 'utf8'), {} )
-plate.chunks_spa=plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/spa.txt', 'utf8'), {} )
+plate.chunks_cmn=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/cmn.txt', 'utf8'), {} ))
+plate.chunks_eng=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/eng.txt', 'utf8'), {} ))
+plate.chunks_fra=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/fra.txt', 'utf8'), {} ))
+plate.chunks_hin=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/hin.txt', 'utf8'), {} ))
+plate.chunks_jpn=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/jpn.txt', 'utf8'), {} ))
+plate.chunks_spa=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/spa.txt', 'utf8'), {} ))
+
 
 //console.log(plate.chunks_eng)
 
