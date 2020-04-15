@@ -1636,7 +1636,8 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 #^/location
 <tr class="row_count">
 	<td class="loc_name">
-		{_it./name/narrative.0.text||}{_it.@ref&&_it:/location-ref||}
+		{_it./name/narrative.0.text&&_it:/location-narrative||}
+		{_it.@ref&&_it:/location-ref||}
 		{_it./location-id&&_it:/wrap-location-id||}
 	</td>
 	<td class="loc_des">
@@ -1644,14 +1645,23 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 		{_it./activity-description/narrative.0.text&&_it:/activity-description||}
 		{_it./feature-designation@code&&_it:/location-feature||}
 	</td>
-	<td class="loc_pos">{_it./point/pos||}</td>
+	<td class="loc_pos">{_it./point/pos&&_it./point@srsName&&_it:/location-point-url||_it:/location-point}</td>
 	<td class="loc_class" title="{_it./location-class@code-description||}" data-sort-value="{_it./location-class@code}">{_it./location-class@code-name||}</td>
 	<td class="loc_reach" title="{_it./location-reach@code-description||}" data-sort-value="{_it./location-reach@code}">{_it./location-reach@code-name||}</td>
 	<td class="loc_exact" title="{_it./exactness@code-description||}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
 </tr>
 
+#^/location-narrative
+<div class="loc_text">{_it./name/narrative.0.text||}</div>
+
 #^/activity-description
 <div class="loc_act">{_it./activity-description/narrative.0.text||}</div>
+
+#^/location-point
+{_it./point/pos||}
+
+#^/location-point-url
+<a href="{_it./point@srsName}">{_it./point/pos}</a>
 
 #^/location-ref
 <div>
@@ -1709,6 +1719,7 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 	<td class="part_org_name"><span class="narrative">{_it./narrative.0.text||}</span></td>
 	<td class="part_org_ref">
 		{_it.@ref&&_it:/participating-org/ref||}
+		{_it.@ref&&_it:/participating-org/ref-url||}
 		{_it.@crs-channel-code-name&&_it:/participating-org/crs-channel-code||}
 		{_it.@activity-id&&_it:/participating-org/activity-id||}
 	</td>
@@ -1717,7 +1728,14 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 </tr>
 
 #^/participating-org/ref
-<a title="Organisation Reference" href="http://d-portal.org/ctrack.html?publisher={_it.@ref||}">{_it.@ref||}</a>
+<div class="part_org_text">{_it.@ref||}</div>
+
+#^/participating-org/ref-url
+<div>
+	<span title="Organisation Reference" class="ref">
+		REF <a title="Organisation Reference" href="http://d-portal.org/ctrack.html?publisher={_it.@ref||}">{_it.@ref||}</a>
+	</span>
+</div>
 
 #^/participating-org/crs-channel-code
 <div>
