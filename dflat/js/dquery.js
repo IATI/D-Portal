@@ -26,6 +26,7 @@ dquery.chunks={}
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.html', 'utf8'), dquery.chunks )
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.css',  'utf8'), dquery.chunks )
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.sql',  'utf8'), dquery.chunks )
+plated.chunks.format_chunks(dquery.chunks)
 
 plated.plate=function(str){ return plated.chunks.replace(str,dquery.chunks) }
 
