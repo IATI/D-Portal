@@ -201,13 +201,12 @@ td .currency	{font-size:10px; line-height:12px; color:#ccc;}
 .ref span		{color:#fff;}
 .ref span.withdrawn					{background-color:#545e73; font-size:10px; color:#ddd;}
 .org-type		{margin-top:5px;}
-td.description div 					{line-height:16px;}
 td.receiver div,
 td.provider div						{padding-bottom:2px; line-height:10px;}
 td.receiver .receiver_text,
 td.provider .provider_text 			{font-size:13px; line-height:15px; padding-bottom:5px;}
-td.description .description_text	{font-size:13px; line-height:15px; border:0;}
-td.description div 					{padding-bottom:5px; border-bottom:1px dotted #666;}
+td.description .description_text	{font-size:13px; line-height:15px; padding-bottom:7px; border:0;}
+td.description div 					{line-height:10px; padding-bottom:2px; margin-bottom:3px; border-bottom:1px dotted #666;}
 td.description div:last-of-type		{border:0;}
 
 table.budget	{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}

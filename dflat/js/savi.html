@@ -52,7 +52,7 @@
 		{_it./activity-date-4&&_it:/wrap-activity-date-4||}
 	</div>
 	<div class="activity_date_bar">
-		<div class="activity_date_overlay" style="width:calc({_it./activity-date-percent} * 9.60px);"></div>
+		<div class="activity_date_overlay" style="width:calc({_it./activity-date-percent} * 9.60px);" title="{_it./activity-date-percent}% completed"></div>
 	</div>
 {_it./activity-status@code&&_it:/wrap-activity-status||}
 {_it./participating-org&&_it:/wrap-participating-org||}
@@ -569,7 +569,7 @@
 	<td class="policy_vocab" data-sort-value="{_it.@vocabulary}">
 		{_it.@vocabulary==99&&_it:/policy-vocab-99||_it:/policy-vocab-url}
 	</td>
-	<td class="policy_desc" data-sort-value="{_it.@significance}">{_it.@significance-description||}</td>
+	<td class="policy_desc" data-sort-value="{_it.@significance}">{_it.@significance-description||/empty-description}</td>
 </tr>
 
 #^/policy-vocab-99-narr
@@ -1527,13 +1527,15 @@ Budget <span class="count">( {_it./budget.length||no_length} )</span>
 #^/sector
 <div class="sector">
 	<div class="wrap_code">
-		<span class="sector_code_text">{_it./narrative.0.text||}{_it.@code-withdrawn&&_it:/withdrawn||}</span>{_it.@code&&_it:/sector_code||}
+		{_it./narrative.0.text||_it.@code-withdrawn&&_it:/wrap_sector_code||}{_it.@code&&_it:/sector_code||}
 	</div><div class="wrap_bar">
 		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
 	</div>
 </div>
 
-<!--	CHECK IF SECTOR @CODE EXISTS	-->
+#^/wrap_sector_code
+<span class="sector_code_text">{_it./narrative.0.text||}{_it.@code-withdrawn&&_it:/withdrawn||}</span>
+
 #^/sector_code
 <span class="sector_code">{_it.@code||}</span>
 
