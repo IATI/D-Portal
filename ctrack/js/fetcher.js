@@ -95,7 +95,7 @@ fetcher.prefetch_aids=function(aids,f)
 
 		switch( aids.trim().toUpperCase() )
 		{
-			case:"COVID-19":
+			case "COVID-19":
 				aids="http://d-portal.org/dquery?sql="+encodeURI(`
 SELECT DISTINCT(aid) FROM xson WHERE
 (
