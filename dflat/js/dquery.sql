@@ -14,8 +14,7 @@ limit 10;
 
 select
 
-xson
-as xson 
+root,xson
 
 from xson where root='/iati-activities/iati-activity'
 
@@ -25,8 +24,9 @@ limit 10;
 
 select
 
+root,
 (xson - '{"/budget","/sector","/transaction","/description","/related-activity","/activity-date","/participating-org","/recipient-country","/planned-disbursement","/country-budget-items/budget-item","/location","/contact-info","/document-link","/default-aid-type","/policy-marker","/crs-add/other-flags","/result","/other-identifier","/conditions/condition","/recipient-region"}'::text[] )
-as xson 
+as xson
 
 from xson where root='/iati-activities/iati-activity'
 

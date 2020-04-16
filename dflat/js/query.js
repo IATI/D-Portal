@@ -73,6 +73,7 @@ query.serv = async function(req,res,next){
 				// yank xson only out of result 
 				for(var i=0;i<ret.result.length;i++)
 				{
+					if(!root) { root=ret.result[i].root } // remember first root we find
 					var it=ret.result[i].xson
 					if( "string" == typeof it ) { it=JSON.parse( it ) } // this converts from string for sqlite niceness
 					if(it)
