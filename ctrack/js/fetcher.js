@@ -90,6 +90,32 @@ fetcher.prefetch_aids=function(aids,f)
 	fetcher.aids=undefined
 	if( aids )
 	{
+
+// bottle some complex queries
+
+		switch( aids.trim().toUpperCase() )
+		{
+			case "COVID-19":
+				aids="http://d-portal.org/dquery?sql="+encodeURI(`
+SELECT DISTINCT(aid) FROM xson WHERE
+(
+    root='/iati-activities/iati-activity/title/narrative' AND
+    UPPER(xson->>'') LIKE '%COVID-19%'
+)OR(
+    root='/iati-activities/iati-activity/humanitarian-scope' AND
+    xson->>'@type'='1' AND
+    xson->>'@vocabulary'='1-2' AND
+    xson->>'@code'='EP-2020-000012-001'
+)OR(
+    root='/iati-activities/iati-activity/humanitarian-scope' AND
+    xson->>'@type'='2' AND
+    xson->>'@vocabulary'='2-1' AND
+    xson->>'@code'='HCOVD20'
+);
+`)
+			break;
+		}
+		
 		var protocol=( aids.split(":")[0] || "" ).toLowerCase()
 		if( (protocol=="https") || (protocol=="http") ) // go fish
 		{
