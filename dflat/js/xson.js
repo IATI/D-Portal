@@ -59,7 +59,14 @@ xson.to_jml=function(data)
 		}
 	}
 	let out={0:"",1:[]}
-	walk(data,out)
+	if( Array.isArray(data) )
+	{
+		walk({"":data},out)
+	}
+	else
+	{
+		walk(data,out)
+	}
 	return out[1][0]
 }
 
