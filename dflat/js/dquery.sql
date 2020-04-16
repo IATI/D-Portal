@@ -20,6 +20,18 @@ from xson where root='/iati-activities/iati-activity'
 
 limit 10;
 
+
+#^sql_select_organisation
+
+select
+
+*
+
+from xson where root='/iati-organisations/iati-organisation'
+
+limit 10;
+
+
 #^sql_select_activity_top_level
 
 select
