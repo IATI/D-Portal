@@ -70,20 +70,8 @@ query.serv = async function(req,res,next){
 			else // special format
 			{
 				
-				let tab=[]
-				let df={}
-
-				if(root)
-				{
-					df[root]=tab
-				}
-				else // raw xson table of results
-				{
-					df=tab
-				}
-		 
-				
-				// yank xson only out of result
+				let tab=[]		 
+				// yank xson only out of result 
 				for(var i=0;i<ret.result.length;i++)
 				{
 					var it=ret.result[i].xson
@@ -94,16 +82,26 @@ query.serv = async function(req,res,next){
 					}
 				}
 
+				ret={} // create xson style result
+				if(root)
+				{
+					ret[root]=tab
+				}
+				else // raw xson table of results
+				{
+					ret=tab
+				}
+
 				if(form=="csv")
 				{
-					var csv=dflat.xson_to_xsv(df,root,{root:true})
+					var csv=dflat.xson_to_xsv(ret,root,{root:true})
 					res.set('Content-Type', 'text/csv');
 					res.end(csv);
 				}
 				else
 				if(form=="xml")
 				{
-					var x=jml.to_xml( xson.to_jml(df) )
+					var x=jml.to_xml( xson.to_jml(ret) )
 					res.set('Content-Type', 'text/xml');
 					res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n' )
 					res.end(x);
@@ -111,9 +109,9 @@ query.serv = async function(req,res,next){
 				else
 				if(form=="html")
 				{
-					dflat.clean(df) // clean this data
-					savi.prepare(df) // prepare for display
-					savi.chunks.iati=df
+					dflat.clean(ret) // clean this data
+					savi.prepare(ret) // prepare for display
+					savi.chunks.iati=ret
 					var x=savi.plate(
 `<!DOCTYPE html>
 <html>
