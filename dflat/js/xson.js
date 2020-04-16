@@ -160,7 +160,7 @@ xson.walk=function(it,cb)
 	walk=function(it,nn,idx)
 	{
 		if( cb(it,nn,idx) ) { return }
-		if( Array.isArray(it) ) { it={"":it} } // hack for possible top level array
+//		if( Array.isArray(it) ) { it={"":it} } // hack for possible top level array
 		for(var n of Object.keys(it).sort() ) // force order
 		{
 			var v=it[n]
