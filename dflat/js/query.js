@@ -60,10 +60,9 @@ query.serv = async function(req,res,next){
 			var ending=new Date().getTime()
 			ret.duration=(ending-starting)/1000.0
 			
-			res.set('charset','utf8'); // always utf8
-
 			if(form=="json") // normal json
 			{
+				res.set('charset','utf8'); // always utf8
 				res.set('Content-Type', 'application/json');
 				res.jsonp(ret);
 			}
@@ -95,6 +94,7 @@ query.serv = async function(req,res,next){
 				if(form=="csv")
 				{
 					var csv=dflat.xson_to_xsv(ret,root,{root:true})
+					res.set('charset','utf8'); // always utf8
 					res.set('Content-Type', 'text/csv');
 					res.end(csv);
 				}
@@ -102,6 +102,7 @@ query.serv = async function(req,res,next){
 				if(form=="xml")
 				{
 					var x=jml.to_xml( xson.to_jml(ret) )
+					res.set('charset','utf8'); // always utf8
 					res.set('Content-Type', 'text/xml');
 					res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n' )
 					res.end(x);
@@ -121,6 +122,7 @@ query.serv = async function(req,res,next){
 </head>
 <body><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>
 `)
+					res.set('charset','utf8'); // always utf8
 					res.set('Content-Type', 'text/html');
 					res.end(x);
 				}
