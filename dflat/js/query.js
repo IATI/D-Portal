@@ -85,10 +85,12 @@ query.serv = async function(req,res,next){
 				// yank xson only out of result
 				for(var i=0;i<ret.result.length;i++)
 				{
-					var it=r.rows[i].xson
+					var it=ret.result[i].xson
 					if( "string" == typeof it ) { it=JSON.parse( it ) } // this converts from string for sqlite niceness
-					tab.push( it )
-					
+					if(it)
+					{
+						tab.push( it )
+					}
 				}
 
 				if(form=="csv")
