@@ -32,7 +32,7 @@ from xson where root='/iati-activities/iati-activity'
 
 limit 10;
 
-#^sql_select_activity_subarray
+#^sql_select_subarray
 
 select
 
