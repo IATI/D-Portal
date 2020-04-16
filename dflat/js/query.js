@@ -105,7 +105,7 @@ query.serv = async function(req,res,next){
 					res.set('charset','utf8'); // always utf8
 					res.set('Content-Type', 'text/xml');
 					res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n' )
-console.log(x)
+console.log(xson.to_jml(ret))
 					res.end(x);
 				}
 				else
