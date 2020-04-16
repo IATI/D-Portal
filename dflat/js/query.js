@@ -101,6 +101,7 @@ query.serv = async function(req,res,next){
 				else
 				if(form=="xml")
 				{
+console.log(ret)
 					var x=jml.to_xml( xson.to_jml(ret) )
 					res.set('charset','utf8'); // always utf8
 					res.set('Content-Type', 'text/xml');
