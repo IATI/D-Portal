@@ -6,6 +6,10 @@ var query=exports;
 var util=require('util');
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+var dflat=require('./dflat.js');
+var savi=require('./savi.js');
+var xson=require('./xson.js');
+var jml=require('./jml.js');
 
 
 var monitor = require("pg-monitor");
@@ -41,6 +45,8 @@ query.serv = async function(req,res,next){
 	else
 */	{
 		let sql=req.body.sql||req.query.sql
+		let form=(req.body.form||req.query.form||"json").toLowerCase()
+		let root=(req.body.root||req.query.root||"").toLowerCase()
 		if(sql) // a post query
 		{
 //			console.log( req.body.sql )
@@ -53,9 +59,76 @@ query.serv = async function(req,res,next){
 			})
 			var ending=new Date().getTime()
 			ret.duration=(ending-starting)/1000.0
-			res.set('charset','utf8');
-			res.set('Content-Type', 'application/json');
-			res.jsonp(ret);
+			
+			if(form=="json") // normal json
+			{
+				res.set('charset','utf8'); // always utf8
+				res.set('Content-Type', 'application/json');
+				res.jsonp(ret);
+			}
+			else // special format
+			{
+				
+				let tab=[]		 
+				// yank xson only out of result 
+				for(var i=0;i<ret.result.length;i++)
+				{
+					if(!root) { root=ret.result[i].root } // remember first root we find
+					var it=ret.result[i].xson
+					if( "string" == typeof it ) { it=JSON.parse( it ) } // this converts from string for sqlite niceness
+					if(it)
+					{
+						tab.push( it )
+					}
+				}
+
+				ret={} // create xson style result
+				if(root)
+				{
+					ret[root]=tab
+				}
+				else // raw xson table of results
+				{
+					ret=tab
+				}
+
+				if(form=="csv")
+				{
+					var roots={} ; roots[root]=true
+					var csv=dflat.xson_to_xsv(ret,root,roots)
+					res.set('charset','utf8'); // always utf8
+					res.set('Content-Type', 'text/csv');
+					res.end(csv);
+				}
+				else
+				if(form=="xml")
+				{
+					var x=jml.to_xml( xson.to_jml(ret) )
+					res.set('charset','utf8'); // always utf8
+					res.set('Content-Type', 'text/xml');
+					res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n' )
+					res.end(x);
+				}
+				else
+				if(form=="html")
+				{
+					dflat.clean(ret) // clean this data
+					savi.prepare(ret) // prepare for display
+					savi.chunks.iati=ret
+					var x=savi.plate(
+`<!DOCTYPE html>
+<html>
+<head>
+<script src="/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
+<script> require("savi").start({ embeded:true }); </script>
+</head>
+<body><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>
+`)
+					res.set('charset','utf8'); // always utf8
+					res.set('Content-Type', 'text/html');
+					res.end(x);
+				}
+			}
 		}
 		else
 		{

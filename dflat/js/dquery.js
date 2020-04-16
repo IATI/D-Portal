@@ -178,6 +178,19 @@ dquery.click=async function(id)
 				let aids=encodeURIComponent("http://d-portal.org/dquery?sql="+encodeURIComponent(session.getValue()))
 				window.open("http://d-portal.org/ctrack.html?aids="+aids+"#view=main", '_blank');
 			break;
+			
+			case "download_xson_as_json":
+				window.open("http://d-portal.org/dquery?sql="+encodeURIComponent(session.getValue()), '_blank');
+			break
+			case "download_xson_as_csv":
+				window.open("http://d-portal.org/dquery?form=csv&sql="+encodeURIComponent(session.getValue()), '_blank');
+			break
+			case "download_xson_as_xml":
+				window.open("http://d-portal.org/dquery?form=xml&sql="+encodeURIComponent(session.getValue()), '_blank');
+			break
+			case "download_xson_as_html":
+				window.open("http://d-portal.org/dquery?form=html&sql="+encodeURIComponent(session.getValue()), '_blank');
+			break
 
 			default:
 				console.log("unhandled click "+id)

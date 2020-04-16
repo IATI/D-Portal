@@ -238,7 +238,14 @@ dflat.xson_to_xsv=function(data,root,paths)
 			}
 		}
 	}
-	walk(data,[],{})
+	if( Array.isArray(data) ) // hack for possible top level array
+	{
+		walk({"":data},[],{})
+	}
+	else
+	{
+		walk(data,[],{})
+	}
 
 	for(var v of rows)
 	{

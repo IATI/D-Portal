@@ -14,25 +14,37 @@ limit 10;
 
 select
 
-xson
-as xson 
+*
 
 from xson where root='/iati-activities/iati-activity'
 
 limit 10;
+
+
+#^sql_select_organisation
+
+select
+
+*
+
+from xson where root='/iati-organisations/iati-organisation'
+
+limit 10;
+
 
 #^sql_select_activity_top_level
 
 select
 
+root,aid,pid,
 (xson - '{"/budget","/sector","/transaction","/description","/related-activity","/activity-date","/participating-org","/recipient-country","/planned-disbursement","/country-budget-items/budget-item","/location","/contact-info","/document-link","/default-aid-type","/policy-marker","/crs-add/other-flags","/result","/other-identifier","/conditions/condition","/recipient-region"}'::text[] )
-as xson 
+as xson
 
 from xson where root='/iati-activities/iati-activity'
 
 limit 10;
 
-#^sql_select_activity_subarray
+#^sql_select_subarray
 
 select
 

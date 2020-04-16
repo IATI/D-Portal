@@ -59,7 +59,14 @@ xson.to_jml=function(data)
 		}
 	}
 	let out={0:"",1:[]}
-	walk(data,out)
+	if( Array.isArray(data) )
+	{
+		walk({"":data},out)
+	}
+	else
+	{
+		walk(data,out)
+	}
 	return out[1][0]
 }
 
@@ -160,7 +167,7 @@ xson.walk=function(it,cb)
 			{
 				for(var i=0;i<v.length;i++)
 				{
-					if( typeof v[i] === 'object' ) // may be string
+					if( typeof v[i] === 'object' ) // may be string but never an array
 					{
 						walk( v[i] , nn.concat([n]) , i )
 					}
@@ -168,7 +175,14 @@ xson.walk=function(it,cb)
 			}
 		}
 	}
-	walk(it,[],0)
+	if( Array.isArray(it) ) // hack for possible top level array
+	{
+		walk({"":it},[],0)
+	}
+	else
+	{
+		walk(it,[],0)
+	}
 }
 
 xson.all=function(it,cb)
@@ -253,7 +267,14 @@ xson.compact=function(it)
 		}
 		
 	}
-	walk(it)
+	if( Array.isArray(it) ) // hack for possible top level array
+	{
+		walk({"":it})
+	}
+	else
+	{
+		walk(it)
+	}
 	
 	return it
 }
