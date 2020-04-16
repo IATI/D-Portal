@@ -8,6 +8,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 var dflat=require('./dflat.js');
 var savi=require('./savi.js');
+var xson=require('./xson.js');
 var jml=require('./jml.js');
 
 
