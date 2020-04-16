@@ -93,7 +93,8 @@ query.serv = async function(req,res,next){
 
 				if(form=="csv")
 				{
-					var csv=dflat.xson_to_xsv(ret,root,{root:true})
+					var roots={} ; roots[root]=true
+					var csv=dflat.xson_to_xsv(ret,root,roots)
 					res.set('charset','utf8'); // always utf8
 					res.set('Content-Type', 'text/csv');
 					res.end(csv);
