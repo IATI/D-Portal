@@ -6,7 +6,7 @@ body		{background-color:#47506B; color:#FFF; margin-top:40px;}
 
 #^savi-css
 
-.activity, .org				{background-color:rgba(0,14,32,0.7); border-radius:8px;width:960px; box-sizing:border-box; margin:0 auto; margin-bottom:40px; padding:40px 40px 1px 40px; position:relative;}
+.activity, .org				{background-color:rgba(0,14,32,0.7); border-radius:8px; box-sizing:border-box; margin:0 auto; margin-bottom:40px; padding:40px 40px 1px 40px; position:relative; width:960px;}
 .activity > *, .org > *		{box-sizing:border-box;}
 .activity a					{color:#FFC28A; text-decoration:none;}
 .activity a:link			{color:#FFC28A; text-decoration:none;}
@@ -78,7 +78,7 @@ span.block		{display:block;}
 .sector_list_wrap span				{display:inline-block; padding-right:40px; vertical-align:top; width:30%;}
 .sector_list_wrap span.withdrawn	{padding-right:5px; width:initial;}
 .sector_list_wrap span.sector_list_description	{font-size:13px; line-height:15px; padding:0; width:70%;}
-.sector_list		{border-bottom:1px solid #ddd; padding-bottom:10px; margin-bottom:10px;}
+.sector_list		{border-bottom:1px solid #ddd; margin-bottom:10px; padding-bottom:10px;}
 .sector_vocab		{border-bottom:1px solid #aaa; padding-bottom:20px;}
 .sector_list:last-of-type,
 .sector_vocab:last-of-type	{border:0; padding-bottom:0;}
@@ -93,8 +93,8 @@ span.block		{display:block;}
 .sector_bar,
 .sector_value		{display:inline-block; vertical-align:middle;}
 .sector_bar			{background-color:#05569d; height:24px; max-width:335px; position:relative;}
-.sector_bar:before	{content:""; background-color:rgba(17,46,105,0.1); height:24px; left:0; position:absolute; top:0; width:335px;}
-.sector_overlay		{height:24px; position:absolute; top:0; left:0;}
+.sector_bar:before	{background-color:rgba(17,46,105,0.1); content:""; height:24px; left:0; position:absolute; top:0; width:335px;}
+.sector_overlay		{height:24px; left:0; position:absolute; top:0;}
 .sector_value		{color:#444; font-size:14px; margin-left:20px; max-width:36px; text-align:right; white-space:nowrap;}
 .sector_value:after	{content:"%";}
 .wrap_sector .header			{border:0; color:#444; font-weight:bold; margin:0 auto; padding:30px 0 5px 0; text-align:center; width:880px;}
@@ -109,7 +109,7 @@ span.block		{display:block;}
 .wrap_capital_spend .sector_code_text	{max-width:initial;}
 
 /*	DATA SOURCES	*/
-.data_source a			{background-color:#24405d99; border-radius:4px; color:#fff; display:inline-block; text-align:center; font-size:16px; font-variant:all-small-caps; margin:10px 2% 5px 0; padding:5px 0; vertical-align:baseline; width:12%;}
+.data_source a			{background-color:#24405d99; border-radius:4px; color:#fff; display:inline-block; font-size:16px; font-variant:all-small-caps; margin:10px 2% 5px 0; padding:5px 0; text-align:center; vertical-align:baseline; width:12%;}
 .data_source a:link		{color:#fff;}
 .data_source a:visited	{color:#fff;}
 .data_source a:hover	{color:#FFC28A;}
@@ -152,7 +152,7 @@ span.doc_lang	{color:#CCC; display:inline-block; font-size:13px; line-height:1.5
 span.rep_type	{color:#CCC; display:inline-block; font-size:12px; margin-left:5px; vertical-align:middle;}
 span.doc_cat,
 span.doc_rec,
-span.doc_date	{color:#CCC; background-color:rgba(72,79,86,0.6); border-radius:4px; display:inline-block; font-size:13px; line-height:1.5em; margin:5px 5px 0 0; padding:0px 4px; vertical-align:top;}
+span.doc_date	{background-color:rgba(72,79,86,0.6); border-radius:4px; color:#CCC; display:inline-block; font-size:13px; line-height:1.5em; margin:5px 5px 0 0; padding:0 4px; vertical-align:top;}
 span.doc_date	{background-color:rgba(48,71,103,1);}
 span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 
@@ -160,8 +160,8 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 .wrap_contact_info					{background-color:rgba(17,46,105,0.9); font-size:16px; line-height:1.5em; margin:0 0 20px -50px; padding:20px 40px 0 40px; width:980px;}
 .wrap_contact_info:last-of-type 	{padding-bottom:0;}
 .wrap_contact_info:nth-of-type(1) 	{margin-left:-10px; padding-top:30px; width:900px;}
-.wrap_contact_info .contact_info	{border-bottom:1px dotted #7481aa; padding-bottom:15px; margin-bottom:15px;}
-.wrap_contact_info .contact_info:last-of-type	{border:0; padding-bottom:20px; margin-bottom:0;}
+.wrap_contact_info .contact_info	{border-bottom:1px dotted #7481aa; margin-bottom:15px; padding-bottom:15px;}
+.wrap_contact_info .contact_info:last-of-type	{border:0; margin-bottom:0; padding-bottom:20px;}
 .wrap_contact_org					{font-weight:bold;}
 .wrap_contact_name					{font-size:20px; padding-top:10px;}
 .wrap_contact_title					{font-style:italic;}
@@ -175,14 +175,14 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 .wrap_activity_date .actual_start,
 .wrap_activity_date .planned_end,
 .wrap_activity_date .actual_end		{color:#151515; display:inline-block; font-size:20px; height:40px; line-height:18px; min-height:40px; padding:10px 40px;}
-.wrap_activity_date div span		{display:inline-block; font-size:13px; font-weight:bold;color:#552d03; line-height:18px; min-width:165px; padding-right:10px; text-transform:uppercase; vertical-align:bottom;}
+.wrap_activity_date div span		{color:#552d03; display:inline-block; font-size:13px; font-weight:bold; line-height:18px; min-width:165px; padding-right:10px; text-transform:uppercase; vertical-align:bottom;}
 .wrap_activity_date .planned_start	{background-color:#f48a1a; left:0; margin:1px 1px 0 0; position:absolute; top:0; width:489px;}
 .wrap_activity_date .planned_end	{background-color:#f48a1a; margin:1px 0 0 0; position:absolute; right:0; text-align:right; top:0; width:490px;}
 .wrap_activity_date .actual_start	{background-color:#ffa443; bottom:0; left:0; margin:1px 1px 0 0; position:absolute; width:489px;}
 .wrap_activity_date .actual_end		{background-color:#ffa443; bottom:0; margin:1px 0 0 0; position:absolute; right:0; text-align:right; width:490px;}
-.activity_date_bar					{background-color:#ccc; height:10px; max-height:10px; margin-left:-40px; position:relative; width:960px;}
+.activity_date_bar					{background-color:#ccc; height:10px; margin-left:-40px; max-height:10px; position:relative; width:960px;}
 .activity_date_overlay				{background-color:#3d72dd; height:10px; max-height:10px; position:relative;}
-.activity_date_overlay:after		{background-color:#fff; border-radius:15px; border:3px solid #3d72dd; content:""; height:10px; position:absolute; right:-5px; top:-4px; width:10px;}
+.activity_date_overlay:after		{background-color:#fff; border:3px solid #3d72dd; border-radius:15px; content:""; height:10px; position:absolute; right:-5px; top:-4px; width:10px;}
 
 /*	ACTIVITY STATUS	*/
 .wrap_activity_status		{background-color:#fff; color:#444; font-size:16px; margin-left:-40px; padding:20px 0; text-align:center; width:960px;}
@@ -199,7 +199,7 @@ td .currency	{color:#ccc; font-size:10px; line-height:12px;}
 .tab_currency	{color:#ccc; font-size:12px; padding-left:30px; text-align:right; width:40%;}
 
 /*	PROVIDER, RECEIVER ORG	*/
-.type			{background-color:rgba(72,79,86,0.6); border-radius:4px; color:#CCC; font-size:11px; padding:2px 4px; margin:0 auto; margin-left:-5px;}
+.type			{background-color:rgba(72,79,86,0.6); border-radius:4px; color:#CCC; font-size:11px; margin:0 auto; margin-left:-5px; padding:2px 4px;}
 .ref			{color:#CCC; font-family:monospace; font-size:10px; line-height:initial; margin:0 auto;}
 .ref span		{color:#fff;}
 .ref span.withdrawn					{background-color:#545e73; color:#ddd; font-size:10px;}
@@ -217,7 +217,7 @@ td.description .description_text	{border:0; font-size:13px; line-height:15px; pa
 td.description div 					{border-bottom:1px dotted #666; line-height:10px; margin-bottom:3px; padding-bottom:2px;}
 td.description div:last-of-type		{border:0;}
 
-table.budget			{border-collapse:collapse; text-align:left; table-layout:fixed; width:880px;}
+table.budget			{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
 table.budget th			{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 5px center; color:#CCC; font-size:13px; font-weight:normal; line-height:1.35em; margin-bottom:15px; padding-bottom:10px;}
 .org table.budget th.status,
 table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right -5px center, #1b232de8;}
@@ -284,7 +284,7 @@ table.budget tr:last-of-type td		{border:0; padding-bottom:30px;}	/*	Remove bord
 
 /*	IATI ORG EXPENSE-LINE COLUMN	*/
 .wrap_total_expenditure table.budget th.line,
-.wrap_total_expenditure table.budget td.line		{padding-right:0px; width:460px;}
+.wrap_total_expenditure table.budget td.line		{padding-right:0; width:460px;}
 
 /*	IATI ORG VALUE HEADER COLUMN	*/
 .wrap_total_expenditure table.budget th.value		{padding-right:20px; width:200px;}
@@ -334,7 +334,7 @@ table.budget.location td.loc_class,
 table.budget.location th.loc_reach,
 table.budget.location td.loc_reach,
 table.budget.location th.loc_exact,
-table.budget.location td.loc_exact			{padding-right:0px; width:100px;}
+table.budget.location td.loc_exact			{padding-right:0; width:100px;}
 table.budget.location td.loc_class,
 table.budget.location td.loc_reach,
 table.budget.location td.loc_exact			{font-size:12px; line-height:14px;}
@@ -351,11 +351,11 @@ table.budget.act_trans td.description .type	{font-family:monospace; font-size:9p
 table.budget.act_trans th.provider,
 table.budget.act_trans td.provider			{padding-right:30px; width:200px;}
 table.budget.act_trans th.receiver,
-table.budget.act_trans td.receiver			{padding-right:0px; width:170px;}
+table.budget.act_trans td.receiver			{padding-right:0; width:170px;}
 table.budget.act_trans th.value,
 table.budget.act_trans td.value				{padding-right:20px; width:160px;}
 table.budget.act_trans th.date,
-table.budget.act_trans td.date				{padding-right:0px; width:110px;}
+table.budget.act_trans td.date				{padding-right:0; width:110px;}
 
 /*	IATI ACTIVITY RESULT TABLE	*/
 .wrap_result_table							{padding-bottom:20px;}
@@ -406,7 +406,7 @@ table.budget.act_trans td.date				{padding-right:0px; width:110px;}
 .result_indi_ref:last-of-type				{border:0; padding-bottom:0;}
 .result_indi_ref .ref						{display:inline-block; font-size:9px; min-width:35px; vertical-align:top;}
 .result_indi_ref .type						{font-family:monospace; font-size:9px; margin:0;}
-.result_period_time							{background-color:#253860; margin-bottom:4px; max-width:155px; min-height:17px; line-height:17px; text-align:center;}
+.result_period_time							{background-color:#253860; line-height:17px; margin-bottom:4px; max-width:155px; min-height:17px; text-align:center;}
 .result_indicator .wrap_document			{margin:0 0 10px 0;}
 .wrap_result .sector_list_wrap				{color:#ccc; padding:0 0 10px 0;}
 .wrap_result .header.glossary				{margin-bottom:10px;}
@@ -414,8 +414,8 @@ table.budget.act_trans td.date				{padding-right:0px; width:110px;}
 .wrap_result table.budget tr.row_measure td	{color:#ccc; font-size:11px; padding:6px 10px 4px 0;}
 .result_facet								{color:#ccc; font-size:11px; line-height:16px;}
 .result_facet_name							{color:#fff; font-size:13px;}
-.result_facet_value							{color:#fff; font-weight:bold; font-size:14px;}
-.result_empty								{color:#ccc;font-size:11px;}
+.result_facet_value							{color:#fff; font-size:14px; font-weight:bold;}
+.result_empty								{color:#ccc; font-size:11px;}
 .result_percent_wrap,
 .result_percent_wrap .result_empty			{display:inline;}
 .result_percent_wrap span					{display:inline-block; vertical-align:middle;}
@@ -423,8 +423,8 @@ table.budget.act_trans td.date				{padding-right:0px; width:110px;}
 .result_percent_value						{min-width:40px;}
 .result_date_bar							{background-color:#000; border-bottom:1px solid #666; border-right:1px solid #666; height:5px; max-height:5px; position:relative;}
 .result_date_overlay						{background-color:#9d8c55; height:5px; max-height:5px;}
-.result_date								{left:0; position:absolute; top:0px; width:150px;}
-.result_base_year							{color:#ddd; font-size:11px; font-style:italic; left:-30px; max-height:25px; position:absolute; top:50%; transform:translateY(-50%) rotate(-90deg); -webkit-transform:translateY(-50%) rotate(-90deg);}
+.result_date								{left:0; position:absolute; top:0; width:150px;}
+.result_base_year							{color:#ddd; font-size:11px; font-style:italic; left:-30px; max-height:25px; position:absolute; top:50%; -webkit-transform:translateY(-50%) rotate(-90deg); transform:translateY(-50%) rotate(-90deg);}
 
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
 .wrap_policy_marker table.budget th.policy_code,
@@ -522,14 +522,14 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 
 /*	Chartist SVG	 */
 .showchart,
-.showcharts		{height:240px; padding:10px 0 0 0; margin:auto; margin:0 0 30px -35px; width:920px;}
+.showcharts		{height:240px; margin:auto; margin:0 0 30px -35px; padding:10px 0 0 0; width:920px;}
 .ct-chart-line	{overflow:visible;}
 
 /*	Chart Legends	*/
 .wrap_legend	{margin:0 auto; text-align:center;}
 .legend			{color:#eee; font-size:10px; padding-top:10px; text-align:center; text-transform:uppercase;}
 .legend span	{border-radius:4px; display:inline-block; height:8px; margin-right:5px; vertical-align:baseline; width:8px;}
-.wrap_legend .legend	{display:inline-block; margin-right:10px; margin-left:10px; padding-top:5px; vertical-align:top;}
+.wrap_legend .legend	{display:inline-block; margin-left:10px; margin-right:10px; padding-top:5px; vertical-align:top;}
 
 .legend.chart_1	span	{background-color:#0099ff;}		/*	Incoming Funds	*/
 .legend.chart_2	span	{background-color:#ff8176;}		/*	Outgoing Commitment	*/
@@ -804,7 +804,7 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 .activity.print,
 .org.print,
 .print .wrap_iati_identifier{background-color:#fff; color:#444;}
-.print .wrap_contact_info	{background-color:#fff; color:#444; border:1px solid #444;}
+.print .wrap_contact_info	{background-color:#fff; border:1px solid #444; color:#444;}
 
 /*  Element Types  */
 .print .humanitarian,
@@ -862,9 +862,9 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 .print table.modals th, .print table.modals td,
 .print table.budget th, .print table.budget td,
 .org.print table.budget th.status,
-.print table.budget th.value {color:#444; background-color:#fff;}
+.print table.budget th.value 			{background-color:#fff; color:#444;}
 .print table.budget.location td.loc_des .loc_act {color:#444;}
-.print table.modals td span.withdrawn  {color:#444; background-color:#fff; border:1px solid #444;}
+.print table.modals td span.withdrawn 	{background-color:#fff; border:1px solid #444; color:#444;}
 .print td .currency,
 .print .wrap_result table.budget tr.row_measure td {color:#444;}
 .print .wrap_result table.budget td.result_base,
@@ -872,7 +872,7 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 .print .wrap_result table.budget td.result_actual  {background-color:transparent;}
 
 /* Table sort icons */
-.print table.budget th	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right 5px center, #fff;}
+.print table.budget th			{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right 5px center, #fff;}
 .org.print table.budget th.status,
 .print table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right -5px center, #fff;}
 
