@@ -263,7 +263,7 @@ view_search.terms=[
 	filter : true,
 	codes  : [ dflat_codes["en-name"]["TransactionType"], ],
 	drops  : [ "#view_search_select_transaction_type" ],
-	q      : "/transaction-type@code",
+	q      : "/transaction/transaction-type@code",
 	list   : "search_options_transaction_type",
 	show   : "search_display_transaction_type",
 	more   : true,
