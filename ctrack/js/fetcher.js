@@ -97,21 +97,21 @@ fetcher.prefetch_aids=function(aids,f)
 		{
 			case "COVID-19":
 				aids="http://d-portal.org/dquery?sql="+encodeURI(`
-SELECT DISTINCT(aid) FROM xson WHERE
+SELECT aid FROM act WHERE
+	to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'')) @@
+	to_tsquery('simple','COVID-19')
+UNION SELECT aid FROM xson WHERE
 (
-    root='/iati-activities/iati-activity/title/narrative' AND
-    UPPER(xson->>'') LIKE '%COVID-19%'
+	root='/iati-activities/iati-activity/humanitarian-scope' AND
+	xson->>'@type'='1' AND
+	xson->>'@vocabulary'='1-2' AND
+	xson->>'@code'='EP-2020-000012-001'
 )OR(
-    root='/iati-activities/iati-activity/humanitarian-scope' AND
-    xson->>'@type'='1' AND
-    xson->>'@vocabulary'='1-2' AND
-    xson->>'@code'='EP-2020-000012-001'
-)OR(
-    root='/iati-activities/iati-activity/humanitarian-scope' AND
-    xson->>'@type'='2' AND
-    xson->>'@vocabulary'='2-1' AND
-    xson->>'@code'='HCOVD20'
-);
+	root='/iati-activities/iati-activity/humanitarian-scope' AND
+	xson->>'@type'='2' AND
+	xson->>'@vocabulary'='2-1' AND
+	xson->>'@code'='HCOVD20'
+)
 `)
 			break;
 		}

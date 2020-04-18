@@ -299,13 +299,13 @@ dstore_db.refresh_budget=function(db,it,act,act_json,priority,splits)
 	{
 		t.budget_priority=0; // remove priority
 	}
-	
-	t["budget_currency"]=				iati_xml.get_value_currency(it,"value") || act["default-currency"];
+
+	t["budget_currency"]=				iati_xml.get_value_currency(it,"value") || act["default-currency"] || act["@default-currency"] ;
 	t["budget_value"]=					iati_xml.get_value(it,"value")||0;
-	t["budget_usd"]=					iati_xml.get_ex(it,"value","USD",act["default-currency"])||0;
-	t["budget_eur"]=					iati_xml.get_ex(it,"value","EUR",act["default-currency"])||0;
-	t["budget_gbp"]=					iati_xml.get_ex(it,"value","GBP",act["default-currency"])||0;
-	t["budget_cad"]=					iati_xml.get_ex(it,"value","CAD",act["default-currency"])||0;
+	t["budget_usd"]=					iati_xml.get_ex(it,"value","USD",act["default-currency"]||act["@default-currency"])||0;
+	t["budget_eur"]=					iati_xml.get_ex(it,"value","EUR",act["default-currency"]||act["@default-currency"])||0;
+	t["budget_gbp"]=					iati_xml.get_ex(it,"value","GBP",act["default-currency"]||act["@default-currency"])||0;
+	t["budget_cad"]=					iati_xml.get_ex(it,"value","CAD",act["default-currency"]||act["@default-currency"])||0;
 
 	t["budget_org"]=					refry.tagattr(it,"recipient-org","ref");
 

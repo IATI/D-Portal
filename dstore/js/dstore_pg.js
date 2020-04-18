@@ -605,9 +605,9 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			console.log(o[0]+" -> "+o["default-currency"])
 			iati_cook.activity(o); // cook the raw json(xml) ( most cleanup logic has been moved here )
 
-			refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
-			refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
-			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,org,{aid:aid},0);});
+			refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
+			refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,xtree,org,{aid:aid},0);});
+			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,xtree,org,{aid:aid},0);});
 
 			dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
 
