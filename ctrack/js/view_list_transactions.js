@@ -54,10 +54,11 @@ view_list_transactions.ajax=function(args)
 			"orderby":"1-",
 			"trans_code":"D|E",
 		};
-	if(dat.year)
+	var year=dat.year || ctrack.hash.year;
+	if(year)
 	{
-		dat["trans_day_gteq"]=(parseInt(dat.year)+0)+"-"+ctrack.args.newyear;
-		dat["trans_day_lt"]=(parseInt(dat.year)+1)+"-"+ctrack.args.newyear;
+		dat["trans_day_gteq"]=(parseInt(year)+0)+"-"+ctrack.args.newyear;
+		dat["trans_day_lt"]=(parseInt(year)+1)+"-"+ctrack.args.newyear;
 	}
 	fetcher.ajax_dat_fix(dat,args,"trans");
 	if(args.output=="count") // just count please
