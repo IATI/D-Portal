@@ -392,12 +392,13 @@ a.search_refine:hover		{border:1px solid #2d5d7b; background:linear-gradient(#50
 .search_trend_wrap			{color:#fff; font-size:16px; margin:0 auto; width:960px; margin-top:20px;}
 .search_trend_wrap span		{display:inline-block; vertical-align:middle; font-style:italic;}
 .search_trend_wrap a		{display:inline-block; vertical-align:middle; margin-left:10px; padding:5px 15px; background-color:#5f7686; border-radius:10px;}
+.search_trend_wrap a.now	{background-color:#3a6475;}
 .search_trend_wrap a:hover	{background-color:#2D77B5;}
 
 .search_help				{width:100%; text-align:right;}
 .search_help span			{display:inline-block; margin-right:15px; background-color:#ffd982c4; padding:5px; border-radius:4px 4px 0 0; font-size:13px; font-weight:bold; min-width:65px; text-align:center;}
 .search_help span:hover		{cursor:pointer; background-color:#ffc233c4;}
-.search_show				{background-color:#657d8ee0; border-radius:4px; color:#eee; font-size:14px;padding:7px 0; text-align:center;}
+.search_show				{background-color:#416c8ce0; border-radius:4px; color:#eee; font-size:14px;padding:7px 0; text-align:center;}
 .search_show:hover			{background-color:#6489a4e0; cursor:pointer; color:#fff;}
 .filter_text				{padding:0; color:#ccc; font-size:13px; border-bottom:1px solid #666; margin-bottom:5px;}
 
