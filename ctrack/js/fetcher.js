@@ -253,25 +253,9 @@ fetcher.ajax_dat_fix=function(dat,args,flag)
 	
 	dat["reporting_ref"]	=	dat["reporting_ref"]	||	args.publisher || ctrack.hash.publisher ;
 
-	if(flag=="trans")
-	{
-		dat["trans_country"]		=	dat["country_code"]		||	ctrack.args.country_select;
-		dat["trans_sector"]			=	dat["sector_code"]		||	ctrack.q.sector_code;
-		dat["trans_sector_group"]	=	dat["sector_group"]		||	ctrack.q.sector_group;
-	}
-	else
-	if(flag=="budget")
-	{
-		dat["budget_country"]		=	dat["country_code"]		||	ctrack.args.country_select;
-		dat["budget_sector"]		=	dat["sector_code"]		||	ctrack.q.sector_code;
-		dat["budget_sector_group"]	=	dat["sector_group"]		||	ctrack.q.sector_group;
-	}
-	else
-	{
-		dat["country_code"]		=	dat["country_code"]		||	ctrack.args.country_select;
-		dat["sector_code"]		=	dat["sector_code"]		||	ctrack.q.sector_code;
-		dat["sector_group"]		=	dat["sector_group"]		||	ctrack.q.sector_group;
-	}
+	dat["country_code"]		=	dat["country_code"]		||	ctrack.args.country_select;
+	dat["sector_code"]		=	dat["sector_code"]		||	ctrack.q.sector_code;
+	dat["sector_group"]		=	dat["sector_group"]		||	ctrack.q.sector_group;
 
 	dat["reporting_ref"]	=	dat["reporting_ref"]	||	ctrack.args.publisher_select;
 	dat["funder_ref"]		=	dat["funder_ref"]		||	ctrack.args.funder_ref_select;
@@ -290,6 +274,20 @@ fetcher.ajax_dat_fix=function(dat,args,flag)
 // allow query or hash to add extra values
 	for(var n in ctrack.q) { dat[n]=ctrack.q[n]; }
 	for(var n in ctrack.hash) { dat[n]=ctrack.hash[n]; }
+
+	if(flag=="trans")
+	{
+		dat["trans_country"]		=	dat["country_code"]		;
+		dat["trans_sector"]			=	dat["sector_code"]		;
+		dat["trans_sector_group"]	=	dat["sector_group"]		;
+	}
+	else
+	if(flag=="budget")
+	{
+		dat["budget_country"]		=	dat["country_code"]		;
+		dat["budget_sector"]		=	dat["sector_code"]		;
+		dat["budget_sector_group"]	=	dat["sector_group"]		;
+	}
 
 // then allow passed in args to overide that
 	if(args.q)
