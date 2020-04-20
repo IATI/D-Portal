@@ -149,6 +149,11 @@ ctrack.setup=function(args)
 	{
 		args.policy=args.policy.split(",").join("|") // convert , to |
 	}
+	
+	if(args.flava=="high" || args.flava=="print")
+	{
+		document.body.classList.add("print")
+	}
 
 	if(!args.css) // can totally override with args
 	{
