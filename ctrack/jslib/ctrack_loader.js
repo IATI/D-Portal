@@ -18,13 +18,10 @@ ctrack_loader=function(args){
 	args.q	=args.q 		|| root+"q";
 	
 	head.load(
-		root+"jslib/jquery.js",
-		root+"jslib/chosen.jquery.min.js",
-		root+"jslib/typeahead.jquery.min.js",
 		root+"jslib/ctrack.js",
 	function(){
 		
-		args.master=$(args.master);
+//		args.master=$(args.master);
 
 		window.ctrack=require("ctrack");
 		window.ctrack.setup(args);
