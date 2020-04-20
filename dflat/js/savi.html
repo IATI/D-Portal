@@ -603,10 +603,10 @@
 			</div>
 		</div>
 		<div class="header glossary">GLOSSARY</div>
-		{_it./result-1.0:/result_type_description}
-		{_it./result-2.0:/result_type_description}
-		{_it./result-3.0:/result_type_description}
-		{_it./result-9.0:/result_type_description}
+		{_it./result-1.0:/result_type_description||}
+		{_it./result-2.0:/result_type_description||}
+		{_it./result-3.0:/result_type_description||}
+		{_it./result-9.0:/result_type_description||}
 		{_it./result-1&&_it:result-1||}
 		{_it./result-2&&_it:result-2||}
 		{_it./result-3&&_it:result-3||}
@@ -2009,7 +2009,7 @@
 		{_it./title/narrative&&_it:/document-title||}
 		{_it./description/narrative&&_it:/document-description||}
 		<span class="block">
-			{_it./language:/document-link/language}{_it./document-date@iso-date&&_it:/document-date||}{_it./category&&_it:/document-category||}
+			{_it./language:/document-link/language||}{_it./document-date@iso-date&&_it:/document-date||}{_it./category&&_it:/document-category||}
 		</span>
 	</span>
 </a>
