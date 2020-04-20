@@ -696,16 +696,6 @@ view_search.fixup=function()
 			$(this).trigger("enterKey");
 		}
 	});
-
-
-	if(typeaheadref)
-	{
-		typeaheadref.focus();
-	}
-	else
-	{
-		$('#view_search_string_only').focus();
-	}
 	
 	if(	(sort_chosen_by=="ABC") && (ctrack.hash.sort=="123") )
 	{
@@ -756,8 +746,14 @@ view_search.fixup=function()
 		}
 	}
 
+
 // wait a little while otherwise above changes do not work...
 	setTimeout(build_query,100)
+// and wait even longer to set focus
+	setTimeout(function(){
+		$('#view_search_string').focus();
+		$('#view_search_string_only').focus();
+	},500)
 }
 //
 // Perform ajax call to get numof data
