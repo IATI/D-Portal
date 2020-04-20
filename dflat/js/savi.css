@@ -1,4 +1,4 @@
-#^savi-page-css
+#^savi-page-css		/*	Outside ctrack	*/
 
 *			{box-sizing:border-box; font-family:Arial,Helvetica,sans-serif; word-wrap:break-word;}
 body		{background-color:#47506B; color:#FFF; margin-top:40px;}
@@ -6,7 +6,8 @@ body		{background-color:#47506B; color:#FFF; margin-top:40px;}
 
 #^savi-css
 
-.activity, .org				{background-color:rgba(0,14,32,0.7); border-radius:8px; box-sizing:border-box; margin:0 auto; margin-bottom:40px; padding:40px 40px 1px 40px; position:relative; width:960px;}
+.activity *, .org *			{box-sizing:border-box; font-family:Arial,Helvetica,sans-serif; word-wrap:break-word;}
+.activity, .org				{background-color:rgba(0,14,32,0.7); border-radius:8px; box-sizing:border-box; color:#fff; margin:0 auto; margin-bottom:40px; padding:40px 40px 1px 40px; position:relative; width:960px;}
 .activity > *, .org > *		{box-sizing:border-box;}
 .activity a					{color:#FFC28A; text-decoration:none;}
 .activity a:link			{color:#FFC28A; text-decoration:none;}
