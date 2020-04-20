@@ -6,6 +6,9 @@ cd `dirname $0`
 rm -rf node_modules
 rm package-lock.json
 
+npm install chosen-npm
+npm install jquery-typeahead
+
 npm install shelljs
 npm install json5
 npm install stupid-table-plugin

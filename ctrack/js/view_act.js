@@ -9,7 +9,9 @@ var ctrack=require("./ctrack.js")
 var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetcher=require("./fetcher.js")
-var savi=require("./savi.js")
+
+var dflat=require("../../dflat/js/dflat.js")
+var dflat_savi=require("../../dflat/js/savi.js")
 
 var refry=require("../../dstore/js/refry.js")
 
@@ -21,7 +23,7 @@ view_act.chunks=[
 // called on view display to fix html in place
 view_act.fixup=function()
 {
-	savi.fixup({});
+	dflat_savi.fixup()
 }
 
 //
@@ -81,8 +83,20 @@ view_act.ajax=function(args)
 			var aa=[];
 			for(var i=0;i<data.rows.length;i++)
 			{
-				aa[i]=refry.json( data["rows"][i].jml );
-//				console.log(aa[i]);
+
+				var jml={ 0:"iati-activities" , 1:JSON.parse( data["rows"][i].jml ) }
+				var iati=dflat.xml_to_xson( jml )
+
+				dflat.clean(iati) // clean this data
+				
+				dflat_savi.prepare(iati) // prepare for display
+
+				dflat_savi.chunks.iati=iati
+
+				var dd=dflat_savi.plate('<div>{iati./iati-activities/iati-activity:iati-activity||}</div>') // activity
+				
+				aa.push(dd)
+
 			}
 			ctrack.chunk("xml", aa.join("") );
 		}

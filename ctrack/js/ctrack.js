@@ -6,7 +6,7 @@ var ctrack=exports;
 var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetcher=require("./fetcher.js")
-var savi=require("./savi.js")
+var dflat_savi=require("../../dflat/js/savi.js")
 var chart=require("./chart.js")
 
 var views=require("./views.js");
@@ -48,7 +48,7 @@ ctrack.encodeURIComponent=function(str)
 
 
 // exports
-ctrack.savi_fixup=savi.fixup;
+//ctrack.savi_fixup=savi.fixup;
 ctrack.draw_chart=chart.draw;
 
 ctrack.url=function(url)
@@ -153,7 +153,7 @@ ctrack.setup=function(args)
 	if(!args.css) // can totally override with args
 	{
 		args.css=[
-				args.art+args.flava+"/activities.css",
+//				args.art+args.flava+"/activities.css",
 				args.art+args.flava+"/ctrack.css",
 				args.art+"chosen.min.css",
 				args.art+"chartist.min.css",
@@ -167,6 +167,17 @@ ctrack.setup=function(args)
 
 	if(args.css) { head.load(args.css); }
 	
+	document.head.insertAdjacentHTML("beforeend", dflat_savi.plate('<style>{savi-css}</style>') ) // include new savi CSS
+
+	// insert npm jquery libs into browser
+	window.$ = window.jQuery = require("jquery")
+	require("stupid-table-plugin")
+	window.Chartist = require("chartist")
+	window.moment = require("moment")
+	window.chosen = require("chosen-npm/public/chosen.jquery.js")
+	window.typeahead = require("jquery-typeahead")
+	
+
 	ctrack.year=parseInt(args.year || ctrack.q.year || 2017); // default base year for graphs tables etc
 
 	ctrack.year_chunks=function(y){					// function to build visible range of years for display
