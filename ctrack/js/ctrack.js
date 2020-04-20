@@ -492,7 +492,7 @@ ctrack.setup=function(args)
 // build ? strings for url changes
 
 	var aa={}
-	for(var n in ctrack.q) { aa[n]=encodeURIComponent(ctrack.q[n]); } // use raw Q
+	for(var n in ctrack.q) { if(n!="test") { aa[n]=encodeURIComponent(ctrack.q[n]); } } // use raw Q
 	if(args.flava!="original")		{ aa["flava"]    =args.flava;         }
 	if(args.tongue!="eng")			{ aa["tongue"]   =args.tongue;        }
 	if(args.newyear!="01-01")		{ aa["newyear"]  =args.newyear;       }
