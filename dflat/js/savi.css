@@ -808,7 +808,7 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 .print .wrap_contact_info		{background-color:#fff; color:#444;}
 
 /*  Element Types  */
-.print .humanitarian,
+.print .humanitarian		{background-color:#fff; border:1px solid #444; color:#444; font-weight:normal;}
 .print .header_section,
 .print .type,
 .print span.doc_date,
@@ -821,7 +821,8 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 .print .wrap_activity_date .actual_end,
 .print .sector_code,
 .print span.withdrawn,
-.print .ref span.withdrawn	{background-color:#fff; border:1px solid #444; color:#444; font-weight:normal;}
+.print .ref span.withdrawn,
+.print .hum_transaction		{background-color:#fff; color:#444; font-weight:normal;}
 .print .header_section 		{background-color:#eee; border:0}
 
 /*  Progress Bar Dates  */
