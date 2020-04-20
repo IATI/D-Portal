@@ -773,16 +773,16 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 
 /*	PRINT FRIENDLY CSS	*/
 
-.activity.print a,
-.activity.print a:link,
-.activity.print a:visited,
-.activity.print a:hover,
-.activity.print a:active,
-.org.print a,
-.org.print a:link,
-.org.print a:visited,
-.org.print a:hover,
-.org.print a:active,
+.print .activity a,
+.print .activity a:link,
+.print .activity a:visited,
+.print .activity a:hover,
+.print .activity a:active,
+.print .org a,
+.print .org a:link,
+.print .org a:visited,
+.print .org a:hover,
+.print .org a:active,
 .print .wrap_sector .subheader a,
 .print .wrap_sector .subheader a:link,
 .print .wrap_sector .subheader a:visited,
@@ -802,10 +802,10 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 .print a.doc_link:before		{border:1px solid #444; color:#444;}
 
 /*  Wrappers  */
-.activity.print,
-.org.print,
-.print .wrap_iati_identifier{background-color:#fff; color:#444;}
-.print .wrap_contact_info	{background-color:#fff; border:1px solid #444; color:#444;}
+.print .activity,
+.print .org,
+.print .wrap_iati_identifier,
+.print .wrap_contact_info		{background-color:#fff; color:#444;}
 
 /*  Element Types  */
 .print .humanitarian,
@@ -821,9 +821,8 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 .print .wrap_activity_date .actual_end,
 .print .sector_code,
 .print span.withdrawn,
-.print .ref span.withdrawn {background-color:#fff; border:1px solid #444; color:#444; font-weight:normal;}
-.print .header,
-.print .header_doc  {border-bottom:1px solid #444; color:#444;}
+.print .ref span.withdrawn	{background-color:#fff; border:1px solid #444; color:#444; font-weight:normal;}
+.print .header_section 		{background-color:#eee; border:0}
 
 /*  Progress Bar Dates  */
 .print .activity_date_overlay,
@@ -831,6 +830,8 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 .print .activity_date_overlay:after	{border:3px solid #666;}
 
 /*  Container text  */
+.print .header,
+.print .header_doc,
 .print .version span,
 .print .wrap_reporting_org .text,
 .print .wrap_iati_identifier .text,
@@ -862,7 +863,7 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 .print table th, .print table td,
 .print table.modals th, .print table.modals td,
 .print table.budget th, .print table.budget td,
-.org.print table.budget th.status,
+.print .org table.budget th.status,
 .print table.budget th.value 			{background-color:#fff; color:#444;}
 .print table.budget.location td.loc_des .loc_act {color:#444;}
 .print table.modals td span.withdrawn 	{background-color:#fff; border:1px solid #444; color:#444;}
@@ -874,7 +875,7 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 
 /* Table sort icons */
 .print table.budget th			{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right 5px center, #fff;}
-.org.print table.budget th.status,
+.print .org table.budget th.status,
 .print table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right -5px center, #fff;}
 
 /* Table Charts */
