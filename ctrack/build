@@ -1,8 +1,5 @@
 cd `dirname $0`
 
-echo "bake"
-node js/bake.js
-
 echo "browserify"
 
 npx browserify -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/ctrack.js:ctrack -d | npx exorcist jslib/ctrack.js.map > jslib/ctrack.js

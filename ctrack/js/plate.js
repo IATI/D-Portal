@@ -3,7 +3,6 @@
 
 var plate=exports;
 
-var plate_old=require('./plate_old');
 var plated=require("plated").create({hashchunk:"#"},{pfs:{}}) // create a base instance for inline chunks with no file access
 
 
@@ -64,21 +63,9 @@ plate.chunks_spa=plated.chunks.format_chunks(plated.chunks.fill_chunks( require(
 
 //console.log(plate.chunks_eng)
 
-// break a string into chunks ( can be merged and overried other chunks )
-plate.fill_chunks=function(str,chunks)
-{
-	return plate_old.fill_chunks(str,chunks)
-
-}
-
 // repeatedly replace untill all things that can expand, have expanded, or we ran out of sanity
 plate.replace=function(str,arr)
 {
-	if(plate.old)
-	{
-		return plate_old.replace(str,arr)
-	}
-
 	plated.chunks.push_namespace(arr || {}) // force push
 	var ret=plated.chunks.replace(str)
 	plated.chunks.pop_namespace()
@@ -88,48 +75,18 @@ plate.replace=function(str,arr)
 
 plate.setup=function(args,ctrack)
 {
-
-	if(ctrack.q.test)
+	plated.chunks.reset_namespace()
+	if( args.tongue!="non" ) // use non as a debugging mode
 	{
-		plate.old=false
-// new
-		plated.chunks.reset_namespace()
-		if( args.tongue!="non" ) // use non as a debugging mode
-		{
-			plated.chunks.push_namespace(plate.chunks_eng); // english fallback for any missing chunks
-			var tongue=plate[ "chunks_"+args.tongue ];
-			if(tongue){plated.chunks.push_namespace(tongue);} // translation requested
-		}
-		plated.chunks.push_namespace(plate.chunks); //the main chunks
-		if(args.chunks)
-		{
-			plated.chunks.push_namespace(args.chunks); // override on load
-		}
-		plated.chunks.push_namespace(ctrack.chunks); // the data we create at runtime
-
+		plated.chunks.push_namespace(plate.chunks_eng); // english fallback for any missing chunks
+		var tongue=plate[ "chunks_"+args.tongue ];
+		if(tongue){plated.chunks.push_namespace(tongue);} // translation requested
 	}
-	else
+	plated.chunks.push_namespace(plate.chunks); //the main chunks
+	if(args.chunks)
 	{
-		plate.old=true
-
-// old
-
-		if( args.tongue!="non" ) // use non as a debugging mode
-		{
-			plate_old.push_namespace(require("../json/eng.json")); // english fallback for any missing chunks
-
-			var tongues=require("../json/tongues.js"); // load all tongues
-			var tongue=tongues[ args.tongue ];
-			if(tongue){plate_old.push_namespace(tongue);} // translation requested
-		}
-		plate_old.push_namespace(require("../json/chunks.json")); //the main chunks
-		if(args.chunks)
-		{
-			plate_old.push_namespace(args.chunks); // override on load
-		}
-		plate_old.push_namespace(ctrack.chunks); // the data we create at runtime
-
+		plated.chunks.push_namespace(args.chunks); // override on load
 	}
-
+	plated.chunks.push_namespace(ctrack.chunks); // the data we create at runtime
 }
 

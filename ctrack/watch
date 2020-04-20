@@ -1,8 +1,5 @@
 cd `dirname $0`
 
-echo "bake"
-node js/bake.js
-
 echo "watchify"
 npx watchify -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -v -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js
 

@@ -15,24 +15,6 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 cmd.run=function(argv)
 {
-	if( argv._[0]=="import" && argv._[1]=="tongue" )
-	{
-		var filename=argv._[2] || argv.filename;
-		if(filename)
-		{
-			return require("./tongue.js").import(filename);
-		}
-	}
-	else
-	if( argv._[0]=="export" && argv._[1]=="tongue" )
-	{
-		var filename=argv._[2] || argv.filename;
-		if(filename)
-		{
-			return require("./tongue.js").export(filename);
-		}
-	}
-	else
 	if( argv._[0]=="tint" )
 	{
 		var name=argv._[1];
@@ -56,12 +38,6 @@ cmd.run=function(argv)
 	}
 	// help text
 	console.log(
-		"\n"+
-		">	ctrack import tongue tmp/tongue.csv \n"+
-		"Import language table from a csv file.\n"+
-		"\n"+
-		">	ctrack export tongue tmp/tongue.csv \n"+
-		"Export language table into a csv file.\n"+
 		"\n"+
 		">	ctrack tint red 255 0 0 \n"+
 		"Create art/rgba/red.css with a 255,0,0 rgb tint using art/rgba/original.css as the template.\n"+
