@@ -1171,7 +1171,7 @@
 {_it./sector:/sector-trans||}
 
 #^/sector-trans
-{_it.@vocabulary==1||_it.@vocabulary==2&&_it:/sector/code||_it:/sector/code-99}
+{_it.@vocabulary>=2&&_it:/sector/code-99||_it:/sector/code}
 
 #^/transaction-code		<!--	TRANSACTION CODE SPANS	-->
 <span class="type">{_it.@code}</span>
@@ -1182,7 +1182,7 @@
 </div>
 #^/sector/code
 <div>
-	<span title="Sector" class="ref">SECTOR <span title="{_it.@code-description||}">{_it.@code-name||}</span> {_it:/transaction-code}</span>
+	<span title="Sector" class="ref">SECTOR DAC <span title="{_it.@code-description||}">{_it.@code-name||}</span> {_it:/transaction-code}</span>
 </div>
 
 #^/recipient-country/code
