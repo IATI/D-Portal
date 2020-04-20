@@ -1015,6 +1015,46 @@ query.do_select_response=function(q,res,r){
 	else
 	if(q.form=="html")
 	{
+		res.set('Content-Type', 'text/html');
+
+		res.write( savi.plate(
+`<!DOCTYPE html>
+<html>
+<head>
+<script src="/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
+<script> require("savi").start({ embeded:true }); </script>
+<style>{savi-page-css}{savi-css}</style>
+</head>
+<body>
+`) )
+
+		for(var i=0;i<r.rows.length;i++)
+		{
+			var v=r.rows[i];
+			if(v && v.jml)
+			{
+			var jml={ 0:"iati-activities" , 1:JSON.parse( v.jml ) }
+			var iati=dflat.xml_to_xson( jml )
+
+			dflat.clean(iati) // clean this data
+			
+			savi.prepare(iati) // prepare for display
+
+			savi.chunks.iati=iati
+			res.write( savi.plate(
+`
+<div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div>
+`) )
+			}
+		}
+
+		res.end( savi.plate(
+`
+</body>
+`) )
+
+
+/*
 		res.set('Content-Type', 'text/xml');
 
 		var xsl='<?xml-stylesheet type="text/xsl" href="/ctrack/art/activities.xsl"?>\n';
@@ -1035,6 +1075,8 @@ query.do_select_response=function(q,res,r){
 		}
 
 		res.end(	'</iati-activities>\n');
+
+*/
 
 	}
 	else
