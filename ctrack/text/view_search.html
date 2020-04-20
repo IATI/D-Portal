@@ -5,171 +5,7 @@
 #crumbname_search
 {crumbname_search_text}
 
-<!-- EXPLORE	-->
-#view_search
-{view_head}
-<style>.crumb_wrap{display:none;}.description_wrap{background:transparent;}img{-webkit-filter:brightness(100%);filter:brightness(100%);}{css}</style>
-{beige}
-{main_head_search} <!-- general.html LINE 105	-->
-{search_intro}
-{more_search_intro}
-{view_search_test}
-{where_is_the_data_from}
-{view_tail}
-
-
-<!-- EXPLORE: Introduction	-->
-#search_intro
-<div class="search_intro_wrap">
-	Search IATI data on development and humanitarian activities on specific events or themes more easily.<br/>
-	<a href="http://d-portal.org/news/2019-01-14-New-year-new-features-and-additions/">Find out more about updated features and how they work.</a>
-</div>
-
-<!-- EXPLORE: Toggle search intro section, hidden at load	-->
-#more_search_intro
-<div id="more_search_intro" class="search_glossary_wrap" style="display:none;">
-	<div onclick="$('#more_search_intro').toggle();" class="hide_search_intro">CLOSE X</div>
-<table class="head">
-	<tr>
-		<td>
-			The updated <b>EXPLORE</b> feature helps find activities published to the IATI Standard using filters and keywords.
-			
-			<p>Updated features following development in the first half of 2017 include:</p>
-			
-			<div>
-				<ul>
-					<li>Choose <b>multiple options</b> on all filters to allow much more detailed and refined searches</li>
-
-					<li>IATI Activity <b>status</b> included as an option within filters</li>
-
-					<li>Search for an <b>individual activity ID</b> using the freetext box</li>
-
-					<li>New toggle button to sort filter dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <b>IATI/CRS code</b> <i>(e.g. by CRS sector numbers)</i></li>
-
-					<li>New EXPLORE section within the <b>FAQ</b> page specifically relating to the search function</li>
-				</ul>
-			</div>
-			
-			<p><b>Development is ongoing</b> - as always feedback (<a href="mailto:support@iatistandard.org?subject=Regarding%20d-portal.org">email</a> or <a href="https://github.com/devinit/D-Portal/issues">GitHub</a>) is very welcome.</p>
-		</td>
-	</tr>
-</table>
-</div>
-
-<!-- EXPLORE: Wrapper for entire search section	-->
-#view_search_test
-<div id="view_search_test">
-	
-	{view_search_filters_wrap}
-
-	<div id="search_div">
-		<span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a> <!--Update to button1, translations-->
-	</div>
-	
-	<div id="result_aid_div">
-		<span id="result_aid_link"></span>
-	</div>
-	
-	<div class="search_input_wrap">
-		<div class="search_icon">
-			<img src="/ctrack/art/original/search_icon.png" alt="A magnifying glass icon to indicate that a search request is nigh" width="30" height="30"/>
-		</div><input type="text" id="view_search_string" class="typeahead explore" placeholder="{search_placeholder_txt}" autocomplete="off"/>
-		<div class="press_enter"></div>
-		<script>
-			$('.typeahead.explore').keyup(function(event) {
-			
-			  $('.press_enter').text("Press Enter");
-			  
-			  if( $(this).val().length === 0 )
-				{
-					$('.press_enter').hide();
-				}
-			else
-				{
-					$('.press_enter').show();
-				}
-					 
-			});
-		</script>
-	</div>
-	
-</div>
-
-<!-- EXPLORE: Wrapper for all filters, in blue section	-->
-#view_search_filters_wrap
-<div class="search_filter">
-	{filter_head_text}	
-	{view_search_filters}
-</div>
-
-<!-- EXPLORE: Filters	-->
-#view_search_filters
-<div class="search_wrap">
-	<div class="search_label">
-		<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
-	</div>
-	<select aria-label="Select a country from this dropdown" id="view_search_select_country" class="chosen" multiple>
-		<option value></option>
-		{search_options_country}
-	</select>
-</div><div class="search_wrap mid">
-	<div class="search_label">
-		<img src="{flava}search_sector.png" alt="Sector Group icon" width="13" height="13"/>{search_sectorgroup_txt}
-	</div>
-	<select aria-label="Select a sector group from this dropdown" id="view_search_select_category" class="chosen" multiple>
-		<option value></option>
-		{search_options_sector_group}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}
-	</div>
-	<select aria-label="Select an activity status from this dropdown" id="view_search_select_status" class="chosen" multiple>
-		<option value></option>
-		{search_options_status}
-	</select>
-</div><div class="search_wrap">
-	<div class="search_label">
-		<img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}
-	</div>
-	<select aria-label="Select a publisher from this dropdown" id="view_search_select_publisher" class="chosen" multiple>
-		<option value></option>
-		{search_options_publisher}
-	</select>
-</div><div class="search_wrap mid">
-	<div class="search_label">
-		<img src="{flava}search_category.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}
-	</div>
-	<select aria-label="Select a sector from this dropdown" id="view_search_select_sector" class="chosen" multiple>
-		<option value></option>
-		{search_options_sector}
-	</select>
-</div><div class="search_wrap mini">
-	<div class="search_label">
-		<img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt}
-	</div>
-	<select aria-label="Select a starting year from this dropdown" id="view_search_select_year_min" class="chosen">
-		<option value></option>
-		{search_options_year}
-	</select><select aria-label="Select an ending year from this dropdown" id="view_search_select_year_max" class="chosen">
-		<option value></option>
-		{search_options_year}
-	</select>
-</div>
-
-<!-- POLICY MARKER-->
-<div class="search_wrap maxi">
-	<div class="search_label">
-		<img src="{flava}search_policy.png" alt="Policy Marker and Significance icon" width="13" height="13"/>{search_policy_txt}
-	</div>
-	<select aria-label="Select a policy significance and code from this dropdown" id="view_search_select_policy" class="chosen" multiple>
-		<option value></option>
-		{search_options_policy}
-	</select>
-</div>
-
-
-<!-- EXPLORE: Toggle buttons	-->
+<!-- Toggle buttons	-->
 #filter_head_text
 <div>
 	<div class="search_head">
@@ -185,27 +21,28 @@
 	</div>
 </div>
 
-<!-- NEW SEARCH2 TEST	-->
-#view_search2
+<!-- LAYOUT	-->
+#view_search
 {view_head}
 <style>
 	.crumb_wrap{display:none;}
 	.description_wrap{background:transparent;}
 	img{-webkit-filter:brightness(100%);filter:brightness(100%);}
-	{css}</style>
+	{css}
+</style>
 {beige}
 {main_head_search} <!-- general.html LINE 105	-->
-{search_intro2}
+{search_intro}
 {search_trend}
-{more_search_intro2}
-{view_search_test2}
+{more_search_intro}
+{view_search_wrap}
 {where_is_the_data_from}
 {view_tail}
 
-<!-- SEARCH2: Introduction	-->
-#search_intro2
-<div class="search_intro_wrap" style="font-size:24px;">
-	Search IATI data on development and humanitarian activities more easily.
+<!-- Introduction	-->
+#search_intro
+<div class="search_intro_wrap">
+	Search IATI data on development and humanitarian activities easily.
 </div>
 
 #search_trend
@@ -213,13 +50,13 @@
   <span>Trending</span><a href="?aids=COVID-19#view=main" class="now">COVID-19</a><!--<a href="?text_search=ebola#view=main">Ebola</a><a href="?text_search=hurricane dorian#view=main">Hurricane Dorian</a><a href="?text_search=locust#view=main">Locust</a><a href="?text_search=earthquake#view=main">Earthquake</a><a href="?text_search=tsunami#view=main">Tsunami</a><a href="?text_search=malaria#view=main">Malaria</a>-->
 </div>
 	
-<!-- SEARCH2: Toggle search intro section, hidden at load / GLOSSARY	-->
-#more_search_intro2
+<!-- GLOSSARY	-->
+#more_search_intro
 <div id="more_search_intro" class="search_glossary_wrap" style="display:none;">
 	<div class="search_help"><span onclick="$('#more_search_intro').toggle();">CLOSE X</span></div>
 	<div class="search_glossary">
 		<div class="filter_text">GLOSSARY</div>
-		<table class="head filter_table">	<!--	GLOSSARY	-->
+		<table class="head filter_table">
 			<thead>
 				<tr>
 					<th class="gloss_name">Trending</th>
@@ -335,11 +172,11 @@
 	</div>
 </div>
 
-<!-- SEARCH2: Wrapper for entire search section	-->
-#view_search_test2
-<div id="view_search_test" style="padding-top:0; margin-top:-10px;">
+<!-- Search Wrapper	-->
+#view_search_wrap
+<div id="view_search_test">
 	<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">GLOSSARY</span></div>
-	{view_search_filters_wrap2}
+	{view_search_filters_wrap}
 	<div id="search_div">
 		<span id="addfilter_span"></span><span id="result_span"></span><a id="search_link" class="search_link_disable">{search_button1_txt}</a> <!--Update to button1, translations-->
 	</div>
@@ -367,15 +204,15 @@
 	</div>	
 </div>
 
-<!-- SEARCH2: Wrapper for all filters, in blue section	-->
-#view_search_filters_wrap2
+<!-- Filter Wrapper	-->
+#view_search_filters_wrap
 <div class="search_filter">
 	{filter_head_text}	
-	{view_search_filters2}
+	{view_search_filters}
 </div>
 
-<!-- SEARCH2: Filters	-->
-#view_search_filters2
+<!-- Filters	-->
+#view_search_filters
 <div class="search_wrap">
 	<div class="search_label">
 		<img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}
