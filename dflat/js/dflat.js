@@ -282,6 +282,26 @@ for( const n in database.paths )
 	}
 }
 
+// precalculate percent default 100% map
+let percentmap={}
+for( const n in database.paths )
+{
+	let v=database.paths[n]
+	if(v && v.jpath)
+	{
+		let a=v.jpath[v.jpath.length-1]
+		if(a=="@percentage")
+		{
+			let d=""
+			for( let i=0 ; i<v.jpath.length-1 ; i++ )
+			{
+				d+=v.jpath[i]
+			}
+			percentmap[d]=a
+		}
+	}
+}
+
 // precalculate currency default map
 let vocabmap={}
 for( const n in database.paths )
@@ -483,6 +503,13 @@ dflat.clean_copy_defaults=function(data)
 				if(!it[v])
 				{
 					it[v]="1"
+				}
+			}
+			if(percentmap[path]) // default any empty percents to 100%
+			{
+				if( it["@percentage"]===undefined )
+				{
+					it["@percentage"]=100
 				}
 			}
 		})
