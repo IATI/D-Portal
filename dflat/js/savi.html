@@ -67,6 +67,7 @@
 {_it./sector&&_it:/wrap-sector||}
 {_it./capital-spend@percentage&&_it:/wrap-capital-spend||}
 {_it.@budget-not-provided&&_it:/budget-not-provided||}
+{_it./transaction&&_it:/wrap-all-chart||}
 {_it./budget&&_it:/wrap-budget||}
 {_it./planned-disbursement&&_it:/wrap-planned-disbursement||}
 {_it./transaction&&_it:/wrap-transaction||}
@@ -859,41 +860,10 @@
 </script>
 </div>
 
-#^transaction-1-chart
-<div class="legend chart_1"><span></span>Incoming Funds</div><!---->
-#^transaction-2-chart
-<div class="legend chart_2"><span></span>Outgoing Commitment</div><!---->
-#^transaction-3-chart
-<div class="legend chart_3"><span></span>Disbursement</div><!---->
-#^transaction-4-chart
-<div class="legend chart_4"><span></span>Expenditure</div><!---->
-#^transaction-5-chart
-<div class="legend chart_5"><span></span>Interest Payment</div><!---->
-#^transaction-6-chart
-<div class="legend chart_6"><span></span>Loan Repayment</div><!---->
-#^transaction-7-chart
-<div class="legend chart_7"><span></span>Reimbursement</div><!---->
-#^transaction-8-chart
-<div class="legend chart_8"><span></span>Purchase of Equity</div><!---->
-#^transaction-9-chart
-<div class="legend chart_9"><span></span>Sale of Equity</div><!---->
-#^transaction-10-chart
-<div class="legend chart_10"><span></span>Credit Guarantee</div><!---->
-#^transaction-11-chart
-<div class="legend chart_11"><span></span>Incoming Commitment</div><!---->
-#^transaction-12-chart
-<div class="legend chart_12"><span></span>Outgoing Pledge</div><!---->
-#^transaction-13-chart
-<div class="legend chart_13"><span></span>Incoming Pledge</div><!---->
-#^transaction-14-chart
-<div class="legend chart_14"><span></span>Planned Disbursement</div><!---->
-#^transaction-15-chart
-<div class="legend chart_15"><span></span>Budget</div><!---->
-
-#^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
+#^/wrap-all-chart	<!--	ALL CHARTS WRAPPER	-->	
 	<div class="wrap_transaction">
 		<div class="header_section collapsable">
-			Transactions <span class="count">( {_it./transaction.length||no_length} )</span>
+			Financial Overview
 			<div class="wrap_length">
 				{_it./transaction-11&&_it:transaction-11-length||}
 				{_it./transaction-1&&_it:transaction-1-length||}
@@ -930,6 +900,44 @@
 			{_it./budget&&_it:transaction-15-chart||}
 		</div>
 		{all-charts}
+	</div>
+	
+#^transaction-1-chart
+<div class="legend chart_1"><span></span>Incoming Funds</div><!---->
+#^transaction-2-chart
+<div class="legend chart_2"><span></span>Outgoing Commitment</div><!---->
+#^transaction-3-chart
+<div class="legend chart_3"><span></span>Disbursement</div><!---->
+#^transaction-4-chart
+<div class="legend chart_4"><span></span>Expenditure</div><!---->
+#^transaction-5-chart
+<div class="legend chart_5"><span></span>Interest Payment</div><!---->
+#^transaction-6-chart
+<div class="legend chart_6"><span></span>Loan Repayment</div><!---->
+#^transaction-7-chart
+<div class="legend chart_7"><span></span>Reimbursement</div><!---->
+#^transaction-8-chart
+<div class="legend chart_8"><span></span>Purchase of Equity</div><!---->
+#^transaction-9-chart
+<div class="legend chart_9"><span></span>Sale of Equity</div><!---->
+#^transaction-10-chart
+<div class="legend chart_10"><span></span>Credit Guarantee</div><!---->
+#^transaction-11-chart
+<div class="legend chart_11"><span></span>Incoming Commitment</div><!---->
+#^transaction-12-chart
+<div class="legend chart_12"><span></span>Outgoing Pledge</div><!---->
+#^transaction-13-chart
+<div class="legend chart_13"><span></span>Incoming Pledge</div><!---->
+#^transaction-14-chart
+<div class="legend chart_14"><span></span>Planned Disbursement</div><!---->
+#^transaction-15-chart
+<div class="legend chart_15"><span></span>Budget</div><!---->
+
+#^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
+	<div class="wrap_transaction">
+		<div class="header_section collapsable">
+			Transactions <span class="count">( {_it./transaction.length||no_length} )</span>
+		</div>
 		{_it./transaction-11&&_it:transaction-11||}
 		{_it./transaction-1&&_it:transaction-1||}
 		{_it./transaction-2&&_it:transaction-2||}
@@ -1173,17 +1181,18 @@
 #^/sector-trans
 {_it.@vocabulary>=2&&_it:/sector/code-99||_it:/sector/code}
 
-#^/transaction-code		<!--	TRANSACTION CODE SPANS	-->
-<span class="type">{_it.@code}</span>
-
 #^/sector/code-99
 <div>
 	<span title="Sector" class="ref">SECTOR <span title="{_it.@code-description||}">{_it./narrative.0.text||}</span> {_it:/transaction-code}</span>
 </div>
+
 #^/sector/code
 <div>
 	<span title="Sector" class="ref">SECTOR DAC <span title="{_it.@code-description||}">{_it.@code-name||}</span> {_it:/transaction-code}</span>
 </div>
+
+#^/transaction-code		<!--	TRANSACTION CODE SPANS	-->
+<span class="type">{_it.@code}</span>
 
 #^/recipient-country/code
 <div>
