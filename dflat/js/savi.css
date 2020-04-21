@@ -210,13 +210,13 @@ td.provider div,
 td.part_org_ref div,
 td.loc_name div						{line-height:10px; padding-bottom:2px;}
 td.receiver .receiver_text,
-td.provider .provider_text,
+td.provider .provider_text			{font-size:14px; line-height:18px; padding-bottom:7px;}
 td.part_org_ref .part_org_text,
 td.loc_name .loc_text				{font-size:13px; line-height:15px; padding-bottom:5px;}
 td.loc_name .loc_text				{font-size:14px;}
-td.description .description_text	{border:0; font-size:13px; line-height:15px; padding-bottom:7px;}
-td.description div 					{border-bottom:1px dotted #666; line-height:10px; margin-bottom:3px; padding-bottom:2px;}
-td.description div:last-of-type		{border:0;}
+td.description div 					{border-bottom:1px dotted #47506b; line-height:10px; margin-bottom:3px; max-width:200px; padding-bottom:2px;}
+td.description div:last-of-type		{border:0; margin:0; padding:0;}
+td.description .description_text	{border:0; font-size:14px; line-height:18px; max-width:100%; padding-bottom:7px;}
 
 table.budget			{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
 table.budget th			{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 5px center; color:#CCC; font-size:13px; font-weight:normal; line-height:1.35em; margin-bottom:15px; padding-bottom:10px;}
@@ -226,6 +226,7 @@ table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhE
 table.budget th:hover	{cursor:pointer;}
 table.budget td			{border-bottom:1px solid #4d5264; color:#FFF; font-size:14px; line-height:initial; padding:10px 0; vertical-align:top;}
 table.budget td.value	{font-size:15px; padding-right:20px; text-align:right;}
+table.budget td.date	{line-height:18px;}
 .org table.budget td.value			{font-size:14px;}
 
 table.budget tr:nth-of-type(1) td	{padding-top:15px;}
@@ -240,7 +241,7 @@ table.budget td.tab_type			{padding-right:30px; width:200px;}
 table.budget th.status,
 table.budget td.status				{width:170px;}
 table.budget th.value,
-table.budget td.value				{padding-right:20px; width:160px;}
+table.budget td.value				{padding-right:20px; width:140px;}
 table.budget tr:last-of-type td		{border:0; padding-bottom:30px;}	/*	Remove border-bottom from last row of tables	*/
 
 .wrap_planned_disbursement table.budget th.provider,
@@ -347,14 +348,14 @@ table.budget.location td.loc_des .ref span	{text-transform:capitalize;}
 
 /*	IATI ACTIVITY TRANSACTION TABLES	*/
 table.budget.act_trans th.description,
-table.budget.act_trans td.description		{padding-right:30px; width:240px;}
-table.budget.act_trans td.description .type	{font-family:monospace; font-size:9px; margin:0;}
+table.budget.act_trans td.description		{padding-right:30px; width:260px;}
+table.budget.act_trans td.description .type	{color:#ccc; font-family:monospace; font-size:9px; margin:0;}
 table.budget.act_trans th.provider,
 table.budget.act_trans td.provider			{padding-right:30px; width:200px;}
 table.budget.act_trans th.receiver,
 table.budget.act_trans td.receiver			{padding-right:0; width:170px;}
 table.budget.act_trans th.value,
-table.budget.act_trans td.value				{padding-right:20px; width:160px;}
+table.budget.act_trans td.value				{padding-right:20px; width:140px;}
 table.budget.act_trans th.date,
 table.budget.act_trans td.date				{padding-right:0; width:110px;}
 

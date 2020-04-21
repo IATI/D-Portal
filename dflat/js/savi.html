@@ -1128,7 +1128,8 @@
 	<td class="date">{_it./transaction-date@iso-date||}{_it.@humanitarian&&_it:/transaction-humanitarian||}</td>
 	<td class="description">
 		{_it./description/narrative.0.text&&_it:/description/narrative||}
-		{_it./sector&&_it:/sector-trans||}
+		{_it.@ref&&_it:/trans-ref||}
+		{_it./sector&&_it:/sector-trans-wrap||}
 		{_it./recipient-country@code&&_it:/recipient-country/code||}
 		{_it./recipient-region@code&&_it:/recipient-region/code||}
 		{_it./disbursement-channel@code&&_it:/disbursement-channel/code||}
@@ -1159,15 +1160,29 @@
 #^/receiver-org/narrative
 <div class="receiver_text">{_it./receiver-org/narrative.0.text||}</div>
 
+#^/trans-ref
+<div>
+	<span title="An internal reference linking this transaction back to the publisher’s financial management system" class="ref">
+		REF {_it.@ref||}
+	</span>
+</div>
+
+#^/sector-trans-wrap
+{_it./sector:/sector-trans||}
+
 #^/sector-trans
-{_it./sector:/sector/code||}
+{_it.@vocabulary>=2&&_it:/sector/code-99||_it:/sector/code}
 
 #^/transaction-code		<!--	TRANSACTION CODE SPANS	-->
 <span class="type">{_it.@code}</span>
 
+#^/sector/code-99
+<div>
+	<span title="Sector" class="ref">SECTOR <span title="{_it.@code-description||}">{_it./narrative.0.text||}</span> {_it:/transaction-code}</span>
+</div>
 #^/sector/code
 <div>
-	<span title="Sector" class="ref">SECTOR <span title="{_it.@code-description||}">{_it.@code-name||}</span> {_it:/transaction-code}</span>
+	<span title="Sector" class="ref">SECTOR DAC <span title="{_it.@code-description||}">{_it.@code-name||}</span> {_it:/transaction-code}</span>
 </div>
 
 #^/recipient-country/code
