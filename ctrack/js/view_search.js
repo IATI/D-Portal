@@ -483,8 +483,6 @@ view_search.fixup=function()
 			}
 		}
   	});
-console.log(window.typeahead)
-console.log(typeaheadref)
 
 
 	var build_query=function(e){
