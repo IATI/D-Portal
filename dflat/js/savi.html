@@ -1519,7 +1519,7 @@
 	<div class="header">
 		Reporting Organisation <span class="count">( {_it./sector-99.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-99.0.@vocabulary-description||}</div>
+	<div class="subheader">{_it./sector-99.0.@vocabulary-description||}{_it./sector-99.0.@vocabulary-uri&&_it:sectors-vocab-uri-99||}</div>
 	{_it./sector-99:/sector||}
 </div>
 #^sectors-98
@@ -1527,9 +1527,14 @@
 	<div class="header">
 		Reporting Organisation 2 <span class="count">( {_it./sector-98.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-98.0.@vocabulary-description||}</div>
+	<div class="subheader">{_it./sector-98.0.@vocabulary-description||}{_it./sector-98.0.@vocabulary-uri&&_it:sectors-vocab-uri-98||}</div>
 	{_it./sector-98:/sector||}
 </div>
+
+#^sectors-vocab-uri-99
+<div><a href="{_it./sector-99.0.@vocabulary-uri}">{_it./sector-99.0.@vocabulary-uri}</a></div>
+#^sectors-vocab-uri-98
+<div><a href="{_it./sector-98.0.@vocabulary-uri}">{_it./sector-98.0.@vocabulary-uri}</a></div>
 
 <!--	SECTOR DAC TEMPLATE	-->
 #^/sector_dac
