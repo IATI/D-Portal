@@ -30,8 +30,8 @@ span.withdrawn	{background-color:#ccc; border-radius:3px; color:#444; font-size:
 .header,
 .header_doc		{border-bottom:1px solid #aaa; color:#ccc; display:block; font-size:13px; margin-bottom:20px; padding-bottom:10px; position:relative; text-transform:uppercase;}
 .header_doc		{border:0; margin:0;}
-.header_section	{background-color:rgba(17,46,105,0.9); box-sizing:border-box; color:#FFF; font-size:12px; margin:0 0 20px -50px; padding:10px 40px; text-transform:uppercase; width:980px;}
-.bright			{background-color:rgba(38,67,128,0.9);}
+.header_section	{background-color:rgba(17,46,105,1); box-sizing:border-box; color:#FFF; font-size:12px; margin:0 0 20px -50px; padding:10px 40px; text-transform:uppercase; width:980px;}
+.bright			{background-color:rgba(38,67,128,1);}
 .brighter		{background-color:transparent; border-bottom:2px solid #47506b; font-size:11px; line-height:20px; margin:auto; margin:5px 0 20px 0; padding:0; width:880px;}
 .brighter span	{background-color:#47506b; display:inline; padding:5px 10px;}
 .sticky			{position:sticky; top:-1px; z-index:2;}
@@ -125,11 +125,11 @@ span.count				{color:#ccc; font-size:12px; padding-left:10px;}
 .wrap_sector span.count	{color:#444; font-weight:normal; padding-left:5px;}
 .wrap_transaction,
 .wrap_result			{position:relative;}
-.wrap_length			{color:#ddd; font-size:10px; max-width:650px; position:absolute; right:-20px; text-align:right; top:10px;}
+.wrap_length			{color:#ddd; font-size:10px; max-width:700px; position:absolute; right:-20px; text-align:right; top:10px;}
 .wrap_length span.count	{font-size:10px; padding:0 0 0 5px;}
-.wrap_result .wrap_length	{max-width:350px; right:20px;}
-.wrap_length			{display:flex; flex-wrap:wrap; width:100%;}
-.length					{flex-basis:auto; flex-grow:1;}
+.length					{display:inline-block; max-width:180px; padding-left:20px;}
+.wrap_result .wrap_length	{right:20px;}
+.wrap_result .length	{min-width:100px;}
 
 
 /*	DOCUMENTS	*/
