@@ -198,6 +198,7 @@ td .currency	{color:#ccc; font-size:10px; line-height:12px;}
 .tab_text,
 .tab_currency	{box-sizing:border-box; display:inline-block; vertical-align:top; width:60%;}
 .tab_currency	{color:#ccc; font-size:12px; padding-left:30px; text-align:right; width:40%;}
+.tab_currency div {font-size:10px;}
 
 /*	PROVIDER, RECEIVER ORG	*/
 .type			{background-color:rgba(72,79,86,0.6); border-radius:4px; color:#CCC; font-size:11px; margin:0 auto; margin-left:-5px; padding:2px 4px;}
@@ -302,7 +303,7 @@ table.budget tr:last-of-type td		{border:0; padding-bottom:30px;}	/*	Remove bord
 table.budget.part_org th.part_org_name,
 table.budget.part_org td.part_org_name		{padding-right:40px;}
 table.budget.part_org th.part_org_ref,
-table.budget.part_org td.part_org_ref		{padding-right:20px; width:160px;}
+table.budget.part_org td.part_org_ref		{padding-right:20px; width:260px;}
 table.budget.part_org th.part_org_role,
 table.budget.part_org td.part_org_role		{padding-right:20px; width:120px;}
 table.budget.part_org th.part_org_type,
