@@ -484,6 +484,7 @@ view_search.fixup=function()
 		}
   	});
 
+
 	var build_query=function(e){
 	
 		var que=[];
