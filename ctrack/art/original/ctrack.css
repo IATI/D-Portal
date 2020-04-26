@@ -601,7 +601,7 @@ table.money tr.row2 td:after{content:''; position:absolute; left:0; bottom:0; wi
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
-table.activity			{width:100%; border-collapse:collapse; word-break:break-word;}
+table.activity			{width:100%; border-collapse:collapse; word-break:break-word; margin:0 auto;}
 table.activity td		{color:#B8C8CD; font-size:1.25em; line-height:1.0em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642; box-sizing:border-box;}
 table.activity th:hover	{cursor:default;}
 table.activity tr:last-child td	{border:0;}
