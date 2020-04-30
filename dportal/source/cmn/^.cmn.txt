@@ -598,8 +598,7 @@ Where does the data come from?
 
 #^faq_general_a5_text
 The IATI data comes from the <a href="http://www.iatiregistry.org/">IATI Registry</a>. 
-<p>The CRS data comes from <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS tables</a>.</p>
-<p>Other data is stored in a Google <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a> spreadsheet.</p>
+<p>The CRS data comes from <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">CRS tables</a> and stored on <a href="https://github.com/devinit/D-Portal/tree/master/dstore/csv">Github</a>.</p>
 
 #^faq_general_q6_text
 Why is there data missing in some parts of d-portal?
@@ -621,7 +620,7 @@ When / how is data in d-portal updated?
 
 #^faq_general_a8_text
 IATI data is updated every night (importing any data which has changed from the previous day) and a full import is done each weekend - in each instance the data is pulled from the IATI Registry.
-<p>CRS data is downloaded annually and then stored in <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a>.</p>
+<p>CRS data is downloaded annually when it becomes available and then stored in <a href="https://github.com/devinit/D-Portal/tree/master/dstore/csv">Github</a>.</p>
 
 #^faq_general_q9_text
 Where can I see more detail on IATI data quality issues/stats on how often organisations are publishing, etc?
@@ -681,7 +680,7 @@ How / where is the data tidied up before being displayed in d-portal?
 	<li>Removing secondary publishers - flagged as secondary sources in IATI Registry - from tables (to avoid double counting, eg secondary publishers are for example UN-OCHA who re-publish data which would replicate data from those publishers in the same table - see here for <a href="https://github.com/devinit/D-Portal/issues/156">list of secondary publishers</a> excluded in these instances).</li>
 	<li>Not displaying publishers with 0 datasets in the IATI Registry.</li>
 	<li>If there are neither Expenditure nor Disbursement data but Commitment data does exist then the Commitment data will be displayed.</li>
-	<li>In order to match against CRS data in tables, government departments are combined and shown under the country name - details of which departments are in <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=2">ctrack</a>.</li>
+	<li>In order to match against CRS data in tables, government departments are combined and shown under the country name - details of which departments are in <a href="https://github.com/devinit/D-Portal/tree/master/dstore/csv">Github</a>.</li>
 	<li><i>There are currently plans under consideration to use the lowest hierarchy level data only, should data at multiple hierarchies exist, in order to avoid double counting.</i></li>
 </ul>
 
@@ -756,7 +755,7 @@ All collated under heading ‘United States’.
 Where does the data for Single Activity Viewer (SAVi) come from?
 
 #^faq_technical_a11_text
-These pages for individual activities come from <a href="http://www.iatiregistry.org/">IATI Registry</a> and link directly to the relevant activity in the <a href="http://datastore.iatistandard.org/query/">IATI Datastore</a>.
+These pages for individual activities come from <a href="http://www.iatiregistry.org/">IATI Registry</a>..
 
 #^faq_technical_q12_text
 Where can I find the code/README/project management information for d-portal?
@@ -768,7 +767,7 @@ Where can I find the code/README/project management information for d-portal?
 Where is the additional data for d-portal stored?
 
 #^faq_technical_a13_text
-Here in the <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack data</a> spreadsheet, including
+Additional data is stored in <a href="https://github.com/devinit/D-Portal/tree/master/dstore/csv">Github</a>, including
 <ul>
 	<li>list of funder Org IDs</li>
 	<li>currencies</li>
@@ -781,7 +780,7 @@ Here in the <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle
 When is ctrack updated?
 
 #^faq_technical_a14_text
-Newly published files are updated every night and then once a week, a full re-import of all files is done. The re-import ensures that any external value that may have been changed; for example, exchange rates, will be applied to all relevant data.
+Newly published files are updated every night, as well as a full re-import of all files. The re-import ensures that any external value that may have been changed; for example, exchange rates, will be applied to all relevant data.
 
 #^faq_technical_q15_text
 What counts as 2014 (chart) data?

@@ -395,7 +395,7 @@
 			<div class="wrap_code">
 				<span class="sector_code_text">The percentage of the total commitment that is for capital spending</span>
 			</div><div class="wrap_bar">
-				<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+				<span class="sector_bar" style="width:calc({_it./capital-spend@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it./capital-spend@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it./capital-spend@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it./capital-spend@percentage||/empty-percentage}</span>
 			</div>
 		</div>
 	</div>

@@ -176,7 +176,7 @@ Information
 FAQ
 
 #^footer18_text
-Attribution et Sources
+Attribution et Data Sources
 
 #^footer19_text
 Feedback Forum Github
@@ -598,7 +598,7 @@ D’où proviennent les données?
 #^faq_general_a5_text
 Les données de l’IITA sont tirées du <a href="http://www.iatiregistry.org/">Registre de l’IITA</a>.
 <p>Les données du SNPC proviennent des <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">tableaux du SNPC</a>.</p>
-<p>D’autres données sont consignées dans une feuille de calcul <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a> de Google.</p>
+<p>D’autres données sont consignées dans une feuille de calcul <a href="https://github.com/devinit/D-Portal/tree/master/dstore/csv">de Github</a>.</p>
 
 #^faq_general_q6_text
 Pourquoi manque-t-il des données à certains endroits dans le d-portal?
@@ -620,7 +620,7 @@ Quand et comment les données dans d-portal sont-elles mises à jour?
 
 #^faq_general_a8_text
 Les données de l’IITA sont mises à jour chaque nuit (en important les données qui ont été modifiées le jour précédent) et une importation complète des données a lieu chaque fin de semaine. Dans chaque cas, les données sont tirées du Registre de l’IITA.
-<p>Les données du SNPC sont téléchargées annuellement et stockées dans <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a>.</p>
+<p>Les données du SNPC sont téléchargées annuellement et stockées dans <a href="https://github.com/devinit/D-Portal/tree/master/dstore/csv">de Github</a>.</p>
 
 #^faq_general_q9_text
 Où puis-je obtenir des informations sur les statistiques ou problèmes de qualité des données de l’IITA, sur la fréquence à laquelle les organismes publient, etc.?
@@ -752,7 +752,7 @@ Ils sont tous rassemblés sous le titre « États-Unis ».
 D’où proviennent les données relatives au Single Activity Viewer (SAVi)?
 
 #^faq_technical_a11_text
-Les pages relatives aux activités individuelles sont tirées du <a href="http://www.iatiregistry.org/">Registre de l’IITA</a> et sont directement liées aux activités pertinentes dans le <a href="http://datastore.iatistandard.org/query/">magasin de données de l’IITA</a>.
+Les pages relatives aux activités individuelles sont tirées du <a href="http://www.iatiregistry.org/">Registre de l’IITA</a>.
 
 #^faq_technical_q12_text
 Où puis-je trouver le code, le fichier narratif et l’information de gestion de projet pour le d-portal?
@@ -764,7 +764,7 @@ Où puis-je trouver le code, le fichier narratif et l’information de gestion d
 Où consigne-t-on les données supplémentaires du d-portal?
 
 #^faq_technical_a13_text
-Dans la feuille de calcul <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=15">ctrack</a>. On y consigne :
+Dans la feuille de calcul <a href="https://github.com/devinit/D-Portal/tree/master/dstore/csv">de Github</a>. On y consigne :
 <ul>
 	<li>la liste des identifiants des organismes de financement;</li>
 	<li>les devises;</li>
@@ -777,7 +777,7 @@ Dans la feuille de calcul <a href="https://docs.google.com/spreadsheets/d/1jpXHD
 Quand met-on à jour la feuille de calcul ctrack?
 
 #^faq_technical_a14_text
-Les fichiers récemment publiés sont mis à jour toutes les nuits, puis on importe à nouveau tous les fichiers une fois par semaine. La réimportation permet de s’assurer que des valeurs externes ayant pu être modifiées, comme les taux de change, seront appliquées à toutes les données pertinentes.
+Les fichiers récemment publiés sont mis à jour toutes les nuits. La réimportation permet de s’assurer que des valeurs externes ayant pu être modifiées, comme les taux de change, seront appliquées à toutes les données pertinentes.
 
 #^faq_technical_q15_text
 Quelles activités intègre-t-on dans les données de 2014 (dans le graphique)?
