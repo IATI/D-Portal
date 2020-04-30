@@ -121,3 +121,14 @@ UNION SELECT aid FROM xson WHERE
 	xson->>'@vocabulary-uri' IS NULL AND
 	UPPER(xson->>'@code')='COVID-19'
 )
+
+
+#^sql_root_list
+
+SELECT root , count(*)
+
+FROM xson
+
+GROUP BY 1 ORDER BY 2 DESC
+
+LIMIT 1000;
