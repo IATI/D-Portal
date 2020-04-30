@@ -327,7 +327,7 @@
 
 #^/condition	<!--	CONDITIONS	ROWS	-->
 <tr class="row_count">
-	<td class="condition_narr" data-sort-value="{_it.@name}">{_it./narrative.0.text||}</td>
+	<td class="condition_narr" data-sort-value="{_it.@name}">{_it./narrative&&_it:/wrap-narrative||}</td>
 	<td class="condition_type" data-sort-value="{_it.@type-code}">{_it.@type-name||}</td>
 	<td class="condition_desc" data-sort-value="{_it.@type-description}">{_it.@type-description||}</td>
 </tr>
@@ -534,7 +534,7 @@
 </tr>
 
 #^/tag-vocab-99-narr
-{_it./narrative.0.text||}
+{_it./narrative&&_it:/wrap-narrative||}
 
 #^/tag-vocab-url
 <a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
@@ -585,8 +585,8 @@
 <a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
 
 #^/policy-vocab-narr
-{_it./narrative.0.text||}
-<div><span class="ref">CODE</span> {_it.@code||}</div>
+{_it./narrative&&_it:/wrap-narrative||}
+<div class="policy_num"><span class="ref">CODE</span> {_it.@code||}</div>
 
 #^/policy-vocab-99
 {_it.@vocabulary-uri&&_it:/policy-vocab-uri||_it.@vocabulary-name}
@@ -1822,13 +1822,10 @@
 
 #^/wrap-description	<!--	DESCRIPTION WRAPPER	-->
 	<div class="wrap_description">
-		{_it./description:/description}
+		{_it./description:/description-narrative}
 	</div>
 	
 <!--	IATI ACTIVITY DESCRIPTION	-->
-#^/description
-{_it./narrative.0.text&&_it:/description-narrative||}
-
 #^/description-narrative
 {_it.@type&&_it:/description-type||_it:/description-type-default}
 <div class="text">{_it./narrative&&_it:/wrap-narrative||}</div>
@@ -2082,13 +2079,13 @@
 <span class="inblock">{_it.text||}</span>
 
 #^/wrap-narrative		<!--	Multiple NARRATIVE	-->
-{_it./narrative:/narrative}
+{_it./narrative:/narrative||}
 
 #^/wrap-title-narrative	
-{_it./title/narrative:/narrative}
+{_it./title/narrative:/narrative||}
 
 #^/narrative trim=ends
-<div class="narrative">{_it.text}</div>
+<div class="narrative">{_it.text||}</div>
 
 #^/empty-description	<!--	DISPLAY THIS WHEN DESCRIPTION IS MISSING IN IATI STANDARD CODELISTS	-->
 No description provided
