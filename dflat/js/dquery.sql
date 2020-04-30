@@ -101,10 +101,7 @@ limit 1000;
 
 #^sql_covid_19
 
-SELECT aid FROM act WHERE
-	to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'')) @@
-	to_tsquery('simple','COVID-19')
-UNION SELECT aid FROM xson WHERE
+SELECT DISTINCT aid FROM xson WHERE
 (
 	root='/iati-activities/iati-activity/humanitarian-scope' AND
 	xson->>'@type'='1' AND
@@ -120,6 +117,12 @@ UNION SELECT aid FROM xson WHERE
 	xson->>'@vocabulary'='99' AND
 	xson->>'@vocabulary-uri' IS NULL AND
 	UPPER(xson->>'@code')='COVID-19'
+)OR(
+	root='/iati-activities/iati-activity/title/narrative' AND
+	to_tsvector('simple', xson->>'') @@ to_tsquery('simple','COVID-19')
+)OR(
+	root='/iati-activities/iati-activity/description/narrative' AND
+	to_tsvector('simple', xson->>'') @@ to_tsquery('simple','COVID-19')
 )
 
 
