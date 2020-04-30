@@ -729,7 +729,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 	if( q["text_search"] ) // text search in *all* narratives in 
 	{
 //console.log("text_search "+v)
-		ands.push( prefix+" ( xson->>'' = "+dstore_db.text_plate("text_search")+" ) " )
+		ands.push( " ( xson->>'' = "+dstore_db.text_plate("text_search")+" ) " )
 		qv[ dstore_db.text_name("text_search") ]=smart_tsquery( q["text_search"] );
 	}
 
