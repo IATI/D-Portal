@@ -111,6 +111,11 @@ UNION SELECT aid FROM xson WHERE
 	xson->>'@type'='2' AND
 	xson->>'@vocabulary'='2-1' AND
 	xson->>'@code'='HCOVD20'
+)OR(
+	root='/iati-activities/iati-activity/tag' AND
+	xson->>'@vocabulary'='99' AND
+	xson->>'@vocabulary-uri' IS NULL AND
+	UPPER(xson->>'@code')='COVID-19'
 )
 `)
 			break;

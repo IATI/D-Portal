@@ -847,6 +847,12 @@ savi.prepare=function(iati_xson){
 									let s=parseFloat(value["@baseline"])||0
 									let e=parseFloat(value["@target"])
 									let n=parseFloat(value["@actual"])
+									
+									if( ( value["@ascending"]==0 ) && ( value["@baseline"] === undefined ) && (!isNaN(e)) )
+									{
+										s=e+1 // baseline hack when missing and value should go down
+									}
+									
 									if( (!isNaN(s)) && (!isNaN(e)) && (!isNaN(n)) ) // NaN and sanity test
 									{
 										if(e==n) // target==actual
