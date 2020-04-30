@@ -491,31 +491,30 @@ for(var n in ns) // all valid fields
 	}
 }
 	
-	var v=q["text_search"];
-	if( (ns["title"]) && (ns["description"]) && v ) // description and title and text_search available
+	if(dstore_db.engine!="pg") // old sqlite search code
 	{
+		var v=q["text_search"];
+		if( (ns["title"]) && (ns["description"]) && v ) // description and title and text_search available
+		{
 //console.log("text_search "+v)
-		if(argv.pg) // can use better pg search code
-		{
-			wheres.push( " to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'')) @@ to_tsquery('simple',"+dstore_db.text_plate("text_search")+") " );
-			qv[dstore_db.text_name("text_search")]=smart_tsquery(v);
-		}
-		else // can only use old sqlite search code that only checks title
-		{
-			wheres.push( " title LIKE "+dstore_db.text_plate("text_search") );
-			qv[dstore_db.text_name("text_search")]="%"+v+"%";
+			if(!argv.pg) // use old sqlite search code that only checks title
+			{
+				wheres.push( " title LIKE "+dstore_db.text_plate("text_search") );
+				qv[dstore_db.text_name("text_search")]="%"+v+"%";
+			}
 		}
 	}
 
+/*
 	if( (ns["title"]) && q["keyword"] ) // simple keyword only search
 	{
 		wheres.push( " title LIKE "+dstore_db.text_plate("keyword") );
 		qv[dstore_db.text_name("keyword")]="%"+q["keyword"]+"%";
 	}
-
+*/
 
 	query.getsql_external_aids(q,qv,wheres)
-	query.getsql_where_xson(q,qv,wheres)
+	query.getsql_where_xson(q,qv,wheres)			// this only works with postgres
 
 	var ret="";
 	
@@ -725,6 +724,13 @@ query.getsql_where_xson=function(q,qv,wheres){
 		{
 			push(n,v)
 		}
+	}
+
+	if( q["text_search"] ) // text search in *all* narratives in 
+	{
+//console.log("text_search "+v)
+		ands.push( prefix+" ( xson->>'' = "+dstore_db.text_plate("text_search")+" ) " )
+		qv[ dstore_db.text_name("text_search") ]=smart_tsquery( q["text_search"] );
 	}
 
 	if( ands.length>0 )
