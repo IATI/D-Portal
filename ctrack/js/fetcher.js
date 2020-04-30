@@ -119,6 +119,9 @@ SELECT DISTINCT aid FROM xson WHERE
 )OR(
 	root='/iati-activities/iati-activity/description/narrative' AND
 	to_tsvector('simple', xson->>'') @@ to_tsquery('simple','COVID-19')
+)OR(
+	root='/iati-activities/iati-activity/transaction/description/narrative' AND
+	to_tsvector('simple', xson->>'') @@ to_tsquery('simple','COVID-19')
 )
 `)
 			break;
