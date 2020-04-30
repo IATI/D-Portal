@@ -8,7 +8,9 @@
 			<a title="Version of the IATI Standard" href="{_it.@version-url||}"><span>VERSION</span> {_it.@version||}</a>
 		</div>
 	</div>
-	<div class="wrap_title"><span class="narrative">{_it./title/narrative.0.text||}</span></div>
+	<div class="wrap_title">
+		{_it./title/narrative&&_it:/wrap-title-narrative||}
+	</div>
 <!--	REPORTING ORG	-->
 	<div class="wrap_reporting_org">
 		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
@@ -1747,7 +1749,7 @@
 <!--	PARTICIPATING ORG ROWS	-->
 #^/participating-org
 <tr class="row_count">
-	<td class="part_org_name"><span class="narrative">{_it./narrative.0.text||}</span></td>
+	<td class="part_org_name">{_it./narrative&&_it:/wrap-narrative||}</td>
 	<td class="part_org_ref">
 		{_it.@ref&&_it:/participating-org/ref||}
 		{_it.@ref&&_it:/participating-org/ref-url||}
@@ -1801,7 +1803,7 @@
 <!--	HUMANITARIAN SCOPE ROWS	-->
 #^/humanitarian-scope
 <tr class="row_count">
-	<td class="hum_title"><span class="narrative">{_it./narrative.0.text||}</span></td>
+	<td class="hum_title">{_it./narrative&&_it:/wrap-narrative||}</td>
 	<td class="hum_code">{_it.@code||}</td>
 	<td class="hum_vocab" data-sort-value="{_it.@vocabulary}">
 		{_it.@vocabulary==99&&_it:/humanitarian-vocab-99||_it:/humanitarian-vocab-url}
@@ -1829,7 +1831,7 @@
 
 #^/description-narrative
 {_it.@type&&_it:/description-type||_it:/description-type-default}
-<div class="text"><span class="narrative">{_it./narrative.0.text}</span></div>
+<div class="text">{_it./narrative&&_it:/wrap-narrative||}</div>
 
 #^/description-type
 <div class="header" title="{_it.@type-description||}">{_it.@type-name}</div>
@@ -2079,8 +2081,14 @@
 #^/document-link/recipient-country/narrative
 <span class="inblock">{_it.text||}</span>
 
-#^/narrative trim=ends	<!--	Multiple NARRATIVE: Currently not being used	-->
-<span class="narrative">{_it.text}</span>
+#^/wrap-narrative		<!--	Multiple NARRATIVE	-->
+{_it./narrative:/narrative}
+
+#^/wrap-title-narrative	
+{_it./title/narrative:/narrative}
+
+#^/narrative trim=ends
+<div class="narrative">{_it.text}</div>
 
 #^/empty-description	<!--	DISPLAY THIS WHEN DESCRIPTION IS MISSING IN IATI STANDARD CODELISTS	-->
 No description provided
