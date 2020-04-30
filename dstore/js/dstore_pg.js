@@ -220,6 +220,13 @@ console.log("CREATING INDEXS");
 		wait.for(function(cb){
 			db.none(s).then(cb).catch(err);
 		});
+
+		var s=(" CREATE INDEX IF NOT EXISTS xson_index_text_search ON xson USING gin(to_tsvector('simple', xson->>'' )); ");
+		console.log(s);
+		wait.for(function(cb){
+			db.none(s).then(cb).catch(err);
+		});
+
 	}
 
 	pgp.end();	
@@ -275,6 +282,10 @@ console.log("DROPING INDEXS");
 
 	wait.for(function(cb){
 		 db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err).then(cb);
+	});
+
+	wait.for(function(cb){
+		 db.none("DROP INDEX IF EXISTS xson_index_text_search;").catch(err).then(cb);
 	});
 
 	pgp.end();	
