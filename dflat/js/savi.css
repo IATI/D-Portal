@@ -149,7 +149,9 @@ span.doc_title	{font-size:14px; line-height:1.25em; max-width:600px;}
 span.doc_title:nth-of-type(n+2)	{font-style:italic;}
 span.doc_desc	{color:#ccc; display:block; font-size:12px; line-height:14px; padding:5px 0;}
 span.doc_format	{background-color:rgba(22,24,37,0.6); border-radius:4px; color:#aaa; font-size:10px; font-weight:bold; margin-left:10px; padding:2px 5px;}
-span.doc_lang	{color:#CCC; display:inline-block; font-size:13px; line-height:1.5em; margin:5px 3px 0 0; text-transform:uppercase; vertical-align:top;}
+span.doc_lang,
+span.doc_country{color:#CCC; display:inline-block; font-size:13px; line-height:1.5em; margin:5px 3px 0 0; text-transform:uppercase; vertical-align:top;}
+span.doc_country{font-style:italic; text-transform:initial;}
 span.rep_type	{color:#CCC; display:inline-block; font-size:12px; margin-left:5px; vertical-align:middle;}
 span.doc_cat,
 span.doc_rec,

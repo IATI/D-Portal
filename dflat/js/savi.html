@@ -2040,6 +2040,7 @@
 		{_it./description/narrative&&_it:/document-description||}
 		<span class="block">
 			{_it./language:/document-link/language||}{_it./document-date@iso-date&&_it:/document-date||}{_it./category&&_it:/document-category||}
+			{_it./recipient-country&&_it:/document-recipient-country||}
 		</span>
 	</span>
 </a>
@@ -2059,6 +2060,8 @@
 #^/document-category
 {_it./category:/document-link/category}
 
+#^/document-recipient-country
+{_it./recipient-country:/document-link/recipient-country}
 
 #^/document-link/title/narrative	<!--	DOCUMENT MULTIPLE ITEMS	-->
 <span class="doc_title">{_it.text||}</span>
@@ -2073,10 +2076,10 @@
 <span class="doc_lang">{_it.@code||}</span>
 
 #^/document-link/recipient-country
-<span class="inblock">{_it.@code-name||}</span>
+<span class="doc_country">{_it.@code-name||}</span>
 
-#^/document-link/recipient-country/narrative
-<span class="inblock">{_it.text||}</span>
+#^/document-link/recipient-country/narrative <!--	not used	-->
+<span class="doc_country">{_it.text||}</span>
 
 #^/wrap-narrative		<!--	Multiple NARRATIVE	-->
 {_it./narrative:/narrative||}
