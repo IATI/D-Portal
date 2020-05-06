@@ -37,15 +37,15 @@ span.withdrawn	{background-color:#ccc; border-radius:3px; color:#444; font-size:
 .sticky			{position:sticky; top:-1px; z-index:2;}
 .nostick		{position:initial;}
 span.block		{display:block;}
-.narrative:nth-of-type(2)	{display:block; font-style:italic}
 .version		{display:block; font-size:12px; position:absolute; right:0; top:0;}
 .version span	{color:#fff;}
 
 /*	WRAPPERS	*/
 .wrap_title						{padding-bottom:40px;}
 .wrap_reporting_org				{color:#ccc; font-size:18px; line-height:1.35em;}
-.wrap_title span				{display:block; font-size:42px; line-height:1.1em;}
-.wrap_title span:nth-of-type(2)	{font-size:30px; font-style:italic; line-height:1em;}
+.wrap_title	.narrative						{font-size:42px; line-height:1.1em;}
+.wrap_title	.narrative:nth-of-type(n+2)		{font-size:30px; margin-top:5px; line-height:1em;}
+.wrap_title	.narrative:nth-of-type(2)		{margin-top:10px;}
 .wrap_reporting_org div			{display:inline-block; padding-right:10px; vertical-align:top;}
 .wrap_iati_identifier			{background-color:rgba(0,14,32,0.7); color:#FFAB5E; font-size:18px; line-height:1.5em; margin:0 auto; margin:25px 0 0 -40px; padding:20px 40px; width:960px;}
 .wrap_iati_identifier.org_id	{margin-top:10px;}
@@ -56,7 +56,7 @@ span.block		{display:block;}
 .wrap_description				{margin:40px auto;}
 .wrap_description .text			{margin-bottom:30px;}
 .wrap_description .text .narrative					{font-size:1.0em; line-height:1.5em; unicode-bidi:embed; white-space:pre-line; word-spacing:0.05em;}
-.wrap_description .text .narrative:nth-of-type(2)	{display:block; font-style:italic; margin-top:15px;}
+.wrap_description .text .narrative:nth-of-type(n+2)	{display:block; margin-top:15px; color:#ccc;}
 .wrap_description .text .narrative:first-letter		{text-transform:capitalize;}
 .wrap_default					{margin:0 auto; padding:20px 0 0 0;}
 .wrap_default .text				{color:#ccc; display:inline-block; font-size:14px; vertical-align:top; width:50%;}
@@ -199,6 +199,7 @@ td .currency	{color:#ccc; font-size:10px; line-height:12px;}
 .tab_currency	{box-sizing:border-box; display:inline-block; vertical-align:top; width:60%;}
 .tab_currency	{color:#ccc; font-size:12px; padding-left:30px; text-align:right; width:40%;}
 .tab_currency div {font-size:10px;}
+.tab_text		{word-break:keep-all;}
 
 /*	PROVIDER, RECEIVER ORG	*/
 .type			{background-color:rgba(72,79,86,0.6); border-radius:4px; color:#CCC; font-size:11px; margin:0 auto; margin-left:-5px; padding:2px 4px;}
@@ -218,6 +219,7 @@ td.loc_name .loc_text				{font-size:14px;}
 td.description div 					{border-bottom:1px dotted #47506b; line-height:10px; margin-bottom:3px; max-width:200px; padding-bottom:2px;}
 td.description div:last-of-type		{border:0; margin:0; padding:0;}
 td.description .description_text	{border:0; font-size:14px; line-height:18px; max-width:100%; padding-bottom:7px;}
+td .narrative:nth-of-type(n+2)		{padding-top:5px; color:#ccc; font-style:italic;}
 
 table.budget			{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
 table.budget th			{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 5px center; color:#CCC; font-size:13px; font-weight:normal; line-height:1.35em; margin-bottom:15px; padding-bottom:10px;}
@@ -432,7 +434,7 @@ table.budget.act_trans td.date				{padding-right:0; width:110px;}
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
 .wrap_policy_marker table.budget th.policy_code,
 .wrap_policy_marker table.budget td.policy_code		{padding-right:40px; width:300px;}
-.wrap_policy_marker table.budget td.policy_code	div	{font-size:11px;}
+.wrap_policy_marker table.budget td.policy_code	.policy_num	{font-size:11px;}
 .wrap_policy_marker table.budget td.policy_code a	{display:block; font-size:12px; line-height:14px; overflow-wrap:initial; padding-top:5px;}
 .wrap_policy_marker table.budget th.policy_sig,
 .wrap_policy_marker table.budget td.policy_sig		{padding-right:20px; text-transform:capitalize; width:160px;}
