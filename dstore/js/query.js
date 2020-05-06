@@ -12,7 +12,7 @@ var iati_xml=require('./iati_xml');
 var dstore_db=require("./dstore_db");
 var iati_codes=require("../json/iati_codes.json")
 
-var jml=require("../../dflat/js/jml.js")
+const jml=require("../../dflat/js/jml.js")
 var xson=require("../../dflat/js/xson.js")
 var savi=require("../../dflat/js/savi.js")
 var dflat=require("../../dflat/js/dflat.js")
@@ -990,6 +990,8 @@ query.do_select_response=function(q,res,r){
 		else
 		if(q.form=="xml")
 		{
+console.log("This should not be null : "+jml) // <-- something seems to have deleted the jml library
+jml=require("../../dflat/js/jml.js") // this fixes it but it is still a TODO: issue
 			var x=jml.to_xml( xson.to_jml(df) )
 			res.set('Content-Type', 'text/xml');
 			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n' )
