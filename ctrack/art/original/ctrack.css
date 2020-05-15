@@ -365,10 +365,9 @@ table.filter_table td.filter_title	{padding-top:20px; padding-bottom:5px; text-t
 .search_glossary_wrap th a:hover,
 .search_glossary_wrap td a:hover{border-bottom:1px solid #97d8ff;}
 
-.settings_link_search span	{color:#fff; padding:10px 0 0 0; display:inline-block;}
-.settings_link_search span:nth-of-type(1)	{font-weight:bold; padding-right:5px;}
+.settings_link_search span		{color:#fff; padding:30px 0 0 0; display:inline-block;}
 .settings_link_search a			{text-decoration:none; display:block; color:#eee; background-color:rgba(249,249,249,0.1); padding:5px 10px; border-radius:4px;}
-.settings_link_search a:hover	{color:#fff;}
+.settings_link_search a:hover	{background-color:rgba(249,249,249,0.3);}
 .search_intro_wrap				{width:960px; margin:0 auto; margin-top:30px; color:#fff; font-size:24px; line-height:26px;}
 .search_intro_wrap span,
 .search_intro_wrap a			{font-size:1.0em; color:#fff; padding-right:0; font-style:italic;}
