@@ -191,6 +191,9 @@ Si tiene alguna consulta relacionada con los datos, que es propiedad del editor,
 #^footer22_text
 por favor contáctalos aquí.
 
+#^footer23_text
+Dquery: una interfaz SQL de solo lectura
+
 #^feedback_title_text
 d-portal.org Feedback
 
@@ -429,7 +432,7 @@ Hay una enorme cantidad de información interesante dentro de la IATI y el valor
 Una vez que haya incorporado ningún contenido se actualizará automáticamente (durante la noche) ya que los datos de las editoriales se actualiza en el registro de IATI. Cuando los usuarios hacen clic en los contenidos que serán dirigidos a la página correspondiente de d-portal para que puedan investigar más a fondo.
 
 #^gen_paragraph3_text
-Generator es actualmente accesible en <a href="http://www.d-portal.org/ctrack.html?#view=generator">http://www.d-portal.org/ctrack.html?#view=generator</a>.
+Generator es actualmente accesible en <a href="http://www.d-portal.org/ctrack.html?#view=generator">http://www.d-portal.org/ctrack.html?#view=generator</a>
 
 #^news_title_text
 Noticias y actualizaciones
@@ -444,7 +447,7 @@ Si desea mantenerse al día con las noticias sobre el d-portal a través de una 
 Las actualizaciones son poco frecuentes.
 
 #^news_paragraph4_text
-Empieza a leer noticias en <a href="http://www.d-portal.org/news.html">http://www.d-portal.org/news.html</a>.
+Empieza a leer noticias en <a href="http://www.d-portal.org/news.html">http://www.d-portal.org/news.html</a>
 
 #^faq_title_text
 Preguntas frecuentes
@@ -456,7 +459,7 @@ d-portal es un sitio expansiva que contiene portales no sólo del país y editor
 Por ahora, rompemos estas abajo de 3 tipos diferentes de preguntas - técnica general y preguntas sobre el generador. En el futuro, vamos a añadir más pestañas a la lista para compensar las próximas funciones. Actualmente admitimos traducciones tanto en inglés como en francés. Si desea proporcionar traducciones para otros idiomas, le recomendamos que <a href="mailto:support@iatistandard.org?subject=Translations%20for%20d-portal.org">se ponga en contacto</a>.
 
 #^faq_paragraph3_text
-FAQ se puede encontrar en <a href="http://www.d-portal.org/faq.html">http://www.d-portal.org/faq.html</a>.
+FAQ se puede encontrar en <a href="http://www.d-portal.org/faq.html">http://www.d-portal.org/faq.html</a>
 
 #^discover_title_text
 Explore
@@ -468,7 +471,7 @@ Explore es una nueva característica que se encuentra actualmente en fase de des
 Actualmente estamos buscando comentarios sobre la intuición y la facilidad de uso de Explore. No tener un ir y nos envíe sus comentarios mediante la adición de una nueva emisión a través de la <a href="https://github.com/devinit/D-Portal/issues">Github foro</a> o, si lo prefiere, ponerse en contacto a través de <a href="mailto:support@iatistandard.org?subject=Regarding%20d-portal.org">support@iatistandard.org</a>. Nos encantaría saber lo que piensas!
 
 #^discover_paragraph3_text
-Trate Explore <a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>.
+Trate Explore <a href="http://www.d-portal.org/ctrack.html#view=search">http://www.d-portal.org/ctrack.html#view=search</a>
 
 #^dlogs_title_text
 Registros de la base de datos
@@ -477,7 +480,19 @@ Registros de la base de datos
 Estadísticas y gráficos de la base de datos de d-portal generados por las importaciones nocturnas. Esto fue creado para rastrear el creciente número de actividades de IATI publicadas en d-portal.
 
 #^dlogs_paragraph2_text
-Visite la base de datos en <a href="https://xriss.github.io/D-Portal-Logs/">https://xriss.github.io/D-Portal-Logs/</a>.
+Visite la base de datos en <a href="https://xriss.github.io/D-Portal-Logs/">https://xriss.github.io/D-Portal-Logs/</a>
+
+#^dquery_title_text
+Dquery
+
+#^dquery_paragraph1_text
+Como interfaz SQL de solo lectura para la base de datos completa, dquery proporciona a los usuarios técnicos acceso a todos los datos del portal D de IATI y opciones para descargar los datos en formatos XML, JSON, HTML y CSV.
+
+#^dquery_paragraph2_text
+Esta nueva característica aún se está probando y actualizando. Póngase en contacto si tiene alguna pregunta o sugerencia.
+
+#^dquery_paragraph3_text
+Utilice la interfaz en <a href="http://www.d-portal.org/dquery">http://www.d-portal.org/dquery</a>
 
 #^publisher_title_text
 Explora un publicador
