@@ -9,6 +9,7 @@ var pfs=require("pify")( require("fs") )
 var dflat=require("./dflat.js")
 var jml=require("./jml.js")
 var xson=require("./xson.js")
+var savi=require("./savi.js")
 
 var stringify = require('json-stable-stringify');
 
@@ -109,6 +110,32 @@ cmd.run=async function(argv)
 		}
 	}
 	
+	if( argv._[0]=="xml2html")
+	{
+		await cmd.parse_filename(argv,{input:".xml",output:".html"})
+		if(argv.input)
+		{
+			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
+			var json=dflat.xml_to_xson(dat)
+			dflat.clean(json) // clean this data
+			savi.prepare(json) // prepare for display
+			savi.chunks.iati=json
+			var html=savi.plate(
+`<!DOCTYPE html>
+<html>
+<head>
+<script src="http://d-portal.org/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
+<script> require("savi").start({ embeded:true }); </script>
+</head>
+<body><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>
+`)
+
+			await pfs.writeFile(argv.output,html);
+
+			return
+		}
+	}
+
 	if( argv._[0]=="frankenstein" )
 	{
 		await require("./frankenstein.js").all()
