@@ -1,5 +1,6 @@
 
 #^iati-activity
+{_it.@version<2.0&&_it:/version1-banner||}
 <div class="activity">
 	{_it.@humanitarian==1&&humanitarian||}
 	<div class="header">
@@ -211,6 +212,9 @@
 	</div>
 </div>
 
+
+#^/version1-banner
+<a href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/" class="banner_v1">Data on this page has been published according to version 1 of the IATI Standard, which has now been deprecated. Learn more.</a>
 
 #^/modal-wrap-activity-scope	<!--	MODAL - ACTIVITY SCOPE	-->
 {_it./activity-scope@code-name||} {_it./activity-scope@code&&_it:/activity-scope-code||}
