@@ -40,10 +40,6 @@ for( let mi=min_month ; mi<=max_month ; mi++ )
 }
 min_month=min_month-1
 
-console.log( xdr_months )
-console.log( max_month )
-console.log( min_month )
-
 exchange.by_monthly_average=function(value,to_currency,from_currency,isodate)
 {
 	value=Number(value||0)||0
