@@ -73,7 +73,7 @@ var create_human_values=function(it)
 	{
 		if( it["/value"+p] !== undefined )
 		{
-			it["/value"+p+"-human"]=commafy( Math.round( it["/value"+p] ) )
+			it["/value"+p+"-human"]=commafy( it["/value"+p] )
 		}
 	}
 

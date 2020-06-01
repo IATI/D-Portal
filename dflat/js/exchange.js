@@ -70,7 +70,7 @@ exchange.by_monthly_average=function(value,to_currency,from_currency,isodate)
 	
 	if((fx!==undefined)&&(tx!=undefined)&&(fx!=0)&&(tx!=0)) // sanity
 	{
-		return value*fx/tx
+		return ( Math.round( value*fx/tx * 100 ) / 100 )
 	}
 
 }
