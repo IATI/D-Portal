@@ -5,7 +5,9 @@ var savi=exports;
 
 var xson=require("./xson.js")
 
-var stringify = require('json-stable-stringify');
+var stringify = require('json-stable-stringify')
+
+var exchange = require("./exchange.js")
 
 
 var encodeURIComponent=function(str)
@@ -48,6 +50,34 @@ var date_range_to_percent=function(sd,ed)
 	return percent
 }
 
+
+// auto exchange a /value /value@value-date and /value@currency into the main currencies 
+// and create human readable versions of the values
+var create_human_values=function(it)
+{
+
+	let value=it["/value"]
+	let isodate=it["/value@value-date"]
+	let currency=it["/value@currency"]
+
+// exchange
+	for( const c of ( [ "usd","eur","gbp","cad", ] ) )
+	{
+		
+		it["/value-"+c] = exchange.by_monthly_average(value,c,currency,isodate)
+	}
+
+
+// commafy
+	for( const p of ( [ "","-usd","-eur","-gbp","-cad", ] ) )
+	{
+		if( it["/value"+p] !== undefined )
+		{
+			it["/value"+p+"-human"]=commafy( Math.round( it["/value"+p] ) )
+		}
+	}
+
+}
 
 
 savi.plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
@@ -464,7 +494,7 @@ savi.prepare=function(iati_xson){
 				{
 					if("/value" in budget)
 					{
-						budget["/value-human"]=commafy(budget["/value"])
+						create_human_values(budget)
 
 						for(let lname of
 							[
@@ -477,10 +507,7 @@ savi.prepare=function(iati_xson){
 								tosort2.push( budget[lname] )
 								for( let line of budget[lname] )
 								{
-									if("/value" in line)
-									{
-										line["/value-human"]=commafy(line["/value"])
-									}
+								create_human_values(line)
 								}
 							}
 						}
@@ -535,10 +562,7 @@ savi.prepare=function(iati_xson){
 					}
 					act["/transaction-"+code].push( transaction )
 				}
-				if("/value" in transaction)
-				{
-					transaction["/value-human"]=commafy(transaction["/value"])
-				}
+				create_human_values(transaction)
 			}
 			for( let tab of tosort )
 			{
