@@ -26,6 +26,7 @@ var saneid=function(insaneid)
 // work out an integer percentage from a start and end date compared to today
 var date_range_to_percent=function(sd,ed)
 {
+	let percent=0
 	let st=(new Date(sd+"T00:00:00+0000")).getTime()/1000
 	let et=(new Date(ed+"T00:00:00+0000")).getTime()/1000
 	let nt=(new Date()).getTime()/1000
