@@ -26,6 +26,12 @@ body		{background-color:#47506B; color:#FFF; margin-top:40px;}
 .hum_transaction{background-color:rgba(48,71,103,1); border-radius:4px; color:#CCC; display:inline-block; font-size:12px; margin-left:-5px; margin-top:10px; padding:2px 5px;}
 span.withdrawn	{background-color:#ccc; border-radius:3px; color:#444; font-size:12px; font-style:italic; font-weight:normal; margin-left:5px; padding:2px 5px; text-transform:initial; width:initial;}
 
+/*	VERSION 1 BANNER	 */
+a.banner_v1:link	{background-color:#c40000; border-radius:2px 2px 0 0; color:#fff; display:block; font-size:16px; margin-bottom:20px; padding:20px; text-align:center; text-decoration:none;}
+a.banner_v1:visited	{color:#fff;}
+a.banner_v1:hover	{background-color:#f00;}
+a.banner_v1:active	{color:#fff;}
+
 /*	HEADERS	*/
 .header,
 .header_doc		{border-bottom:1px solid #aaa; color:#ccc; display:block; font-size:13px; margin-bottom:20px; padding-bottom:10px; position:relative; text-transform:uppercase;}
@@ -127,7 +133,7 @@ span.count				{color:#ccc; font-size:12px; padding-left:10px;}
 .wrap_result			{position:relative;}
 .wrap_length			{color:#ddd; font-size:10px; max-width:700px; position:absolute; right:-20px; text-align:right; top:10px;}
 .wrap_length span.count	{font-size:10px; padding:0 0 0 5px;}
-.length					{display:inline-block; max-width:180px; padding-left:20px;}
+.length					{display:inline-block; padding-left:20px;}
 .wrap_result .wrap_length	{right:20px;}
 .wrap_result .length	{min-width:100px;}
 
