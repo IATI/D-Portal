@@ -285,10 +285,12 @@ exs.create_csv = function(){
 
 	var dump_ys={};
 	var dump_ms={};
+	var dump_ds={};
 	
 	var this_year=(new Date()).getYear()+1900; // get this year
 
-	for(var year=1995;year<=this_year;year++ )
+//	for(var year=1995;year<=this_year;year++ )
+	for(var year=2020;year<=this_year;year++ ) // seems we can only get data from 2003 onward so lets just append instead of refresh
 	{
 		var dump_y={};
 		dump_ys[year]=dump_y;
@@ -367,8 +369,17 @@ console.log(unknown)
 
 // dump monthly averages
 
-	fs.writeFileSync(__dirname+"/../json/xdr_year.json",json_stringify(dump_ys,{ space: ' ' }));
-	fs.writeFileSync(__dirname+"/../json/xdr_month.json",json_stringify(dump_ms,{ space: ' ' }));
+	for( let vv of [ [ "year" , dump_ys ] , [ "month" , dump_ms ] , [ "day" , dump_ds ] ] )
+	{
+		let name=vv[0]
+		let tab=vv[1]
+		let old=JSON.parse( fs.readFileSync(__dirname+"/../json/xdr_"+name+".json",{encoding:"utf8"}) ) || {}
+		for(let n in old){ if( (!tab[n]) || (!tab[n].XDR) ) { tab[n] = old[n] } } // include old data
+		fs.writeFileSync(__dirname+"/../json/xdr_"+name+".json",json_stringify(tab,{ space: ' ' })+"\n");
+	}
+	
+//	fs.writeFileSync(__dirname+"/../json/xdr_month.json",json_stringify(dump_ms,{ space: ' ' }));
+//	fs.writeFileSync(__dirname+"/../json/xdr_day.json",json_stringify(dump_ds,{ space: ' ' }));
 
 
 // start with csv_ys (which we grabbed from google docs) and replace with our imf values
@@ -391,7 +402,7 @@ console.log(unknown)
 
 	}
 
-	fs.writeFileSync(__dirname+"/../json/usd_year.json",json_stringify(csv_ys,{ space: ' ' }));
+	fs.writeFileSync(__dirname+"/../json/usd_year.json",json_stringify(csv_ys,{ space: ' ' })+"\n");
 
 }
 
