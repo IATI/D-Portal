@@ -64,7 +64,7 @@ var create_human_values=function(it)
 	if(currency===undefined){return}
 
 // exchange
-	if(value!==undefined){return}
+	if(value!==undefined)
 	{
 		for( const c of ( [ "usd","eur","gbp","cad", ] ) )
 		{
