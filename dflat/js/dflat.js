@@ -362,10 +362,15 @@ dflat.clean_copy_toplevel_attributes=function(data)
 		{
 			for( const n in ac )
 			{
-				if( ! act["@iati-activities:"+n] ) // do not destroy existing values
+console.log(n)
+				if(n.includes(":"))
+				{
+					act["@"+n]=ac[n]
+				}
+				else
 				{
 					act["@iati-activities:"+n]=ac[n]
-					act["@xmlns:iati-activities:"+n]="http://d-portal.org/xmlns/iati-activities"
+					act["@xmlns:iati-activities"]="http://d-portal.org/xmlns/iati-activities"
 				}
 			}
 		}
@@ -386,10 +391,14 @@ dflat.clean_copy_toplevel_attributes=function(data)
 		{
 			for( const n in ac )
 			{
-				if( ! act["@iati-organisations:"+n] ) // do not destroy existing values
+				if(n.includes(":"))
+				{
+					act["@"+n]=ac[n]
+				}
+				else
 				{
 					act["@iati-organisations:"+n]=ac[n]
-					act["@xmlns:iati-organisations:"+n]="http://d-portal.org/xmlns/iati-organisations"
+					act["@xmlns:iati-organisations"]="http://d-portal.org/xmlns/iati-organisations"
 				}
 			}
 		}
