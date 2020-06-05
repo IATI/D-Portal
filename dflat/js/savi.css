@@ -351,8 +351,9 @@ table.budget.location td.loc_exact			{padding-right:0; width:100px;}
 table.budget.location td.loc_class,
 table.budget.location td.loc_reach,
 table.budget.location td.loc_exact			{font-size:12px; line-height:14px;}
-table.budget.location td.loc_des:first-letter	{text-transform:capitalize;}
 table.budget.location td.loc_des div		{padding-top:5px;}
+table.budget.location td.loc_des .loc_desc:first-letter	{text-transform:capitalize;}
+table.budget.location td.loc_des .loc_desc	{padding-top:0;}
 table.budget.location td.loc_des .loc_act	{color:#ccc;}
 table.budget.location td.loc_des .type		{margin-left:0;}
 table.budget.location td.loc_des .ref span	{text-transform:capitalize;}
