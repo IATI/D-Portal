@@ -1092,7 +1092,7 @@ jml=require("../../dflat/js/jml.js") // this fixes it but it is still a TODO: is
 	{
 		res.set('Content-Type', 'text/xml');
 
-		res.write(	'<iati-activities xmlns:iati-extra="http://datastore.iatistandard.org/ns">\n');
+		res.write(	'<iati-activities>\n');
 					
 		for(var i=0;i<r.rows.length;i++)
 		{
@@ -1100,8 +1100,8 @@ jml=require("../../dflat/js/jml.js") // this fixes it but it is still a TODO: is
 			if(v && v.jml)
 			{
 				var d=JSON.parse(v.jml);
-				delete d["dstore:slug"];	// remove dstore tags
-				delete d["dstore:idx"];
+//				delete d["dstore:slug"];	// remove dstore tags
+//				delete d["dstore:idx"];
 				
 				res.write(	refry.json(d) );
 				res.write(	"\n" );

@@ -675,7 +675,7 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 	
 		var t={};
 		
-		t.slug=refry.tagattr(act,"iati-activity","dataset"); // this value is hacked in when the acts are split
+		t.slug=refry.tagattr(act,"iati-activity","dstore:dataset"); // this value is hacked in when the acts are split
 		t.aid=iati_xml.get_aid(act);
 
 		if(!t.aid || !t.slug) // do not save when there is no ID or slug

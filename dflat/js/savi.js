@@ -59,14 +59,19 @@ var create_human_values=function(it)
 	let value=it["/value"]
 	let isodate=it["/value@value-date"]
 	let currency=it["/value@currency"]
+	
+	if(isodate===undefined){return}
+	if(currency===undefined){return}
 
 // exchange
-	for( const c of ( [ "usd","eur","gbp","cad", ] ) )
+	if(value!==undefined){return}
 	{
-		
-		it["/value-"+c] = exchange.by_monthly_average(value,c,currency,isodate)
+		for( const c of ( [ "usd","eur","gbp","cad", ] ) )
+		{
+			
+			it["/value-"+c] = exchange.by_monthly_average(value,c,currency,isodate)
+		}
 	}
-
 
 // commafy
 	for( const p of ( [ "","-usd","-eur","-gbp","-cad", ] ) )
@@ -134,6 +139,7 @@ savi.start_loaded=async function(){
 	{
 		if(aid!="") { aid="&aid="+aid }
 		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-activities/iati-activity"+aid,ropts)
+//		iati=await fetch("/q.json?from=xson&root=/iati-activities/iati-activity"+aid,ropts)
 		iati=await iati.json()
 		aid=true
 	}
@@ -142,6 +148,7 @@ savi.start_loaded=async function(){
 	{
 		if(pid!="") { pid="&pid="+pid }
 		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-organisations/iati-organisation"+pid,ropts)
+//		iati=await fetch("/q.json?from=xson&root=/iati-organisations/iati-organisation"+pid,ropts)
 		iati=await iati.json()
 		pid=true
 	}
@@ -450,11 +457,6 @@ savi.prepare=function(iati_xson){
 	
 	let subents=function(act)
 	{
-		if( (!act["@dataset"]) && (act["@dstore:slug"]) ) // d-portal dataset hack
-		{
-			act["@dataset"]=act["@dstore:slug"]
-		}
-
 		
 // explicit dates based on @type
 		if(act["/activity-date"])

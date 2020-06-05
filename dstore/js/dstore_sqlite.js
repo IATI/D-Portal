@@ -563,7 +563,7 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 			let pid=xtree["/organisation-identifier"] || xtree["/reporting-org@ref"]
 
 // remember dataset
-			xtree["@dataset"]=slug
+			xtree["@dstore:dataset"]=slug
 
 //console.log(slug+" : "+pid)
 //console.log(xtree)
