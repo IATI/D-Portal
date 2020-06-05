@@ -466,7 +466,7 @@ savi.prepare=function(iati_xson){
 			{
 				if( location["/point/pos"] )
 				{
-					let aa=location["/point/pos"].trim().split(/(\s+)/)
+					let aa=location["/point/pos"].trim().split(/\s+/)
 					let f1=parseFloat(aa[0])
 					let f2=parseFloat(aa[1])
 					if( (!isNaN(f1)) && (!isNaN(f2)) )
