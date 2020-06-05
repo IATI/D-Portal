@@ -1701,7 +1701,10 @@
 {_it./point/pos||}
 
 #^/location-point-url
-<a href="{_it./point@srsName}" target="_blank">{_it./point/pos}</a>
+<a href="https://www.google.com/maps/place/{_it./point/pos@latitude},{_it./point/pos@longitude}" target="_blank">
+	<span>{_it./point/pos@latitude}</span>
+	<span>{_it./point/pos@longitude}</span>
+</a>
 
 #^/location-ref
 <div>
