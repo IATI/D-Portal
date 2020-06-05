@@ -6,7 +6,7 @@
 	<div class="header">
 		PROJECT TITLE
 		<div class="version">
-			<a title="Version of the IATI Standard" href="{_it.@version-url||}"><span>VERSION</span> {_it.@version||}</a>
+			<a title="Version of the IATI Standard" href="{_it.@version-url||}" target="_blank"><span>VERSION</span> {_it.@version||}</a>
 		</div>
 	</div>
 	<div class="wrap_title">
@@ -214,7 +214,7 @@
 
 
 #^/version1-banner
-<a href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/" class="banner_v1">Data on this page has been published according to version 1 of the IATI Standard, which has now been deprecated. Learn more.</a>
+<a href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/" target="_blank" class="banner_v1">Data on this page has been published according to version 1 of the IATI Standard, which has now been deprecated. Learn more.</a>
 
 #^/modal-wrap-activity-scope	<!--	MODAL - ACTIVITY SCOPE	-->
 {_it./activity-scope@code-name||} {_it./activity-scope@code&&_it:/activity-scope-code||}
@@ -482,9 +482,9 @@
 #^/info_text	<!--	CONTACT INFO TEXT FOR MULTIPLE ITEMS	-->
 <div>{_it.text}</div>
 #^/website	<!--	WEBSITE LINKS FOR MULTIPLE ITEMS	-->
-<a href="{_it.text}">{_it.text}</a>
+<a href="{_it.text}" target="_blank">{_it.text}</a>
 #^/email	<!--	EMAIL LINKS FOR MULTIPLE ITEMS	-->
-<a href="mailto:{_it.text}">{_it.text}</a>
+<a href="mailto:{_it.text}" target="_blank">{_it.text}</a>
 
 #^/wrap-related-activity	<!--	RELATED ACTIVITY (PREVIOUSLY FAMILY TREE) WRAPPER	-->
 	<div class="wrap_related_activity">
@@ -504,7 +504,7 @@
 <!--	RELATED ACTIVITY ROWS	-->
 #^/related-activity
 <tr class="row_count">
-	<td class="related_ref" data-sort-value="{_it.@ref}"><a href="http://d-portal.org/q.html?aid={_it.@ref}">{_it.@ref||}</a></td>
+	<td class="related_ref" data-sort-value="{_it.@ref}"><a href="http://d-portal.org/q.html?aid={_it.@ref}" target="_blank">{_it.@ref||}</a></td>
 	<td class="related_type" data-sort-value="{_it.@type-code}">{_it.@type-name||}</td>
 	<td class="related_desc" data-sort-value="{_it.@type-description}">{_it.@type-description||/empty-description}</td>
 </tr>
@@ -541,13 +541,13 @@
 {_it./narrative&&_it:/wrap-narrative||}
 
 #^/tag-vocab-url
-<a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
+<a href="{_it.@vocabulary-url}" target="_blank">{_it.@vocabulary-name}</a>
 
 #^/tag-vocab-99
 {_it.@vocabulary-uri&&_it:/tag-vocab-uri||_it.@vocabulary-name}
 
 #^/tag-vocab-uri
-<a href="{_it.@vocabulary-uri}">{_it.@vocabulary-name}</a>
+<a href="{_it.@vocabulary-uri}" target="_blank">{_it.@vocabulary-name}</a>
 
 #^/wrap-policy-marker	<!--	POLICY MARKER WRAPPER	-->
 	<div class="wrap_policy_marker">
@@ -586,7 +586,7 @@
 {_it.@code||}
 
 #^/policy-vocab-url
-<a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
+<a href="{_it.@vocabulary-url}" target="_blank">{_it.@vocabulary-name}</a>
 
 #^/policy-vocab-narr
 {_it./narrative&&_it:/wrap-narrative||}
@@ -596,7 +596,7 @@
 {_it.@vocabulary-uri&&_it:/policy-vocab-uri||_it.@vocabulary-name}
 
 #^/policy-vocab-uri
-<a href="{_it.@vocabulary-uri}">{_it.@vocabulary-name}</a>
+<a href="{_it.@vocabulary-uri}" target="_blank">{_it.@vocabulary-name}</a>
 	
 #^/wrap-result	<!--	RESULT WRAPPER	-->
 	<div class="wrap_result">
@@ -818,18 +818,18 @@
 {_it.@indicator-uri&&it:/result_vocab-99-uri||_it:/result_vocab-99}
 
 #^/result_vocab-99-uri
-<div><span class="ref">VOCAB</span> <a href="{_it.@indicator-uri||}">{_it.@vocabulary-name||}</a> <span class="type">{_it.@vocabulary||}</span></div>
+<div><span class="ref">VOCAB</span> <a href="{_it.@indicator-uri||}" target="_blank">{_it.@vocabulary-name||}</a> <span class="type">{_it.@vocabulary||}</span></div>
 #^/result_vocab-99
 <div><span class="ref">VOCAB</span> {_it.@vocabulary-name||} <span class="type">{_it.@vocabulary||}</span></div>
 
 #^/result_vocab
-<div><span class="ref">VOCAB</span> <a href="{_it.@vocabulary-url||}">{_it.@vocabulary-name||}</a> <span class="type">{_it.@vocabulary||}</span></div>
+<div><span class="ref">VOCAB</span> <a href="{_it.@vocabulary-url||}" target="_blank">{_it.@vocabulary-name||}</a> <span class="type">{_it.@vocabulary||}</span></div>
 
 #^/result_code
 <div><span class="ref">CODE</span> {_it.@code||}</div>
 
 #^/result_uri
-<div><span class="ref">CODE</span> <a href="{_it.@indicator-uri||}">{_it.@code||}</a></div>
+<div><span class="ref">CODE</span> <a href="{_it.@indicator-uri||}" target="_blank">{_it.@code||}</a></div>
 
 #^all-charts
 <div class="showcharts">
@@ -1253,14 +1253,14 @@
 #^/provider-org-ref
 <div>
 	<span title="Organisation Reference" class="ref">
-		REF <a href="http://d-portal.org/ctrack.html?publisher={_it./provider-org@ref}">{_it./provider-org@ref||}</a>
+		REF <a href="http://d-portal.org/ctrack.html?publisher={_it./provider-org@ref}" target="_blank">{_it./provider-org@ref||}</a>
 	</span>
 </div>
 
 #^/provider-org-aid
 <div>
 	<span title="Activity ID" class="ref">
-		ID <a href="http://d-portal.org/q.html?aid={_it./provider-org@provider-activity-id}">{_it./provider-org@provider-activity-id||}</a>
+		ID <a href="http://d-portal.org/q.html?aid={_it./provider-org@provider-activity-id}" target="_blank">{_it./provider-org@provider-activity-id||}</a>
 	</span>
 </div>
 
@@ -1274,14 +1274,14 @@
 #^/receiver-org-ref
 <div>
 	<span title="Organisation Reference" class="ref">
-		REF <a href="http://d-portal.org/ctrack.html?publisher={_it./receiver-org@ref}">{_it./receiver-org@ref||}</a>
+		REF <a href="http://d-portal.org/ctrack.html?publisher={_it./receiver-org@ref}" target="_blank">{_it./receiver-org@ref||}</a>
 	</span>
 </div>
 
 #^/receiver-org-aid
 <div>
 	<span title="Activity ID" class="ref">
-		ID <a href="http://d-portal.org/q.html?aid={_it./receiver-org@receiver-activity-id}">{_it./receiver-org@receiver-activity-id||}</a>
+		ID <a href="http://d-portal.org/q.html?aid={_it./receiver-org@receiver-activity-id}" target="_blank">{_it./receiver-org@receiver-activity-id||}</a>
 	</span>
 </div>
 
@@ -1435,7 +1435,7 @@
 	<div class="header">
 		OECD DAC CRS 5 digit <span class="count">( {_it./sector-1.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-1.0.@vocabulary-description||} <a href="{_it./sector-1.0.@vocabulary-url}">{_it./sector-1.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-1.0.@vocabulary-description||} <a href="{_it./sector-1.0.@vocabulary-url}" target="_blank">{_it./sector-1.0.@vocabulary-url}</a></div>
 	{_it./sector-1:/sector_dac||}
 	<div class="header glossary">GLOSSARY</div>
 	<div class="sector_list_wrap">{_it./sector-1:/sector_code_description}</div>
@@ -1445,7 +1445,7 @@
 	<div class="header">
 		OECD DAC CRS 3 digit <span class="count">( {_it./sector-2.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-2.0.@vocabulary-description||} <a href="{_it./sector-2.0.@vocabulary-url}">{_it./sector-2.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-2.0.@vocabulary-description||} <a href="{_it./sector-2.0.@vocabulary-url}" target="_blank">{_it./sector-2.0.@vocabulary-url}</a></div>
 	{_it./sector-2:/sector_dac||}
 	<div class="header glossary">GLOSSARY</div>
 	<div class="sector_list_wrap">{_it./sector-2:/sector_code_description}</div>
@@ -1455,7 +1455,7 @@
 	<div class="header">
 		Classification of the Functions of Government (UN) <span class="count">( {_it./sector-3.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-3.0.@vocabulary-description||} <a href="{_it./sector-3.0.@vocabulary-url}">{_it./sector-3.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-3.0.@vocabulary-description||} <a href="{_it./sector-3.0.@vocabulary-url}" target="_blank">{_it./sector-3.0.@vocabulary-url}</a></div>
 	{_it./sector-3:/sector||}
 </div>
 #^sectors-4
@@ -1463,7 +1463,7 @@
 	<div class="header">
 		Statistical classification of economic activities in the European Community <span class="count">( {_it./sector-4.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-4.0.@vocabulary-description||} <a href="{_it./sector-4.0.@vocabulary-url}">{_it./sector-4.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-4.0.@vocabulary-description||} <a href="{_it./sector-4.0.@vocabulary-url}" target="_blank">{_it./sector-4.0.@vocabulary-url}</a></div>
 	{_it./sector-4:/sector||}
 </div>
 #^sectors-5
@@ -1471,7 +1471,7 @@
 	<div class="header">
 		National Taxonomy for Exempt Entities (USA) <span class="count">( {_it./sector-5.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-5.0.@vocabulary-description||} <a href="{_it./sector-5.0.@vocabulary-url}">{_it./sector-5.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-5.0.@vocabulary-description||} <a href="{_it./sector-5.0.@vocabulary-url}" target="_blank">{_it./sector-5.0.@vocabulary-url}</a></div>
 	{_it./sector-5:/sector||}
 </div>
 #^sectors-6
@@ -1487,7 +1487,7 @@
 	<div class="header">
 		SDG Goal <span class="count">( {_it./sector-7.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-7.0.@vocabulary-description||} <a href="{_it./sector-7.0.@vocabulary-url}">{_it./sector-7.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-7.0.@vocabulary-description||} <a href="{_it./sector-7.0.@vocabulary-url}" target="_blank">{_it./sector-7.0.@vocabulary-url}</a></div>
 	{_it./sector-7:/sector||}
 </div>
 #^sectors-8
@@ -1495,7 +1495,7 @@
 	<div class="header">
 		SDG Target <span class="count">( {_it./sector-8.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-8.0.@vocabulary-description||} <a href="{_it./sector-8.0.@vocabulary-url}">{_it./sector-8.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-8.0.@vocabulary-description||} <a href="{_it./sector-8.0.@vocabulary-url}" target="_blank">{_it./sector-8.0.@vocabulary-url}</a></div>
 	{_it./sector-8:/sector||}
 </div>
 #^sectors-9
@@ -1503,7 +1503,7 @@
 	<div class="header">
 		SDG Indicator <span class="count">( {_it./sector-9.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-9.0.@vocabulary-description||} <a href="{_it./sector-9.0.@vocabulary-url}">{_it./sector-9.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-9.0.@vocabulary-description||} <a href="{_it./sector-9.0.@vocabulary-url}" target="_blank">{_it./sector-9.0.@vocabulary-url}</a></div>
 	{_it./sector-9:/sector||}
 </div>
 #^sectors-10
@@ -1511,7 +1511,7 @@
 	<div class="header">
 		Humanitarian Global Clusters (Inter-Agency Standing Committee) <span class="count">( {_it./sector-10.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-10.0.@vocabulary-description||} <a href="{_it./sector-10.0.@vocabulary-url}">{_it./sector-10.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-10.0.@vocabulary-description||} <a href="{_it./sector-10.0.@vocabulary-url}" target="_blank">{_it./sector-10.0.@vocabulary-url}</a></div>
 	{_it./sector-10:/sector||}
 </div>
 #^sectors-11
@@ -1519,7 +1519,7 @@
 	<div class="header">
 		North American Industry Classification System (NAICS) <span class="count">( {_it./sector-11.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./sector-11.0.@vocabulary-description||} <a href="{_it./sector-11.0.@vocabulary-url}">{_it./sector-11.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./sector-11.0.@vocabulary-description||} <a href="{_it./sector-11.0.@vocabulary-url}" target="_blank">{_it./sector-11.0.@vocabulary-url}</a></div>
 	{_it./sector-11:/sector||}
 </div>
 #^sectors-99
@@ -1540,9 +1540,9 @@
 </div>
 
 #^sectors-vocab-uri-99
-<div><a href="{_it./sector-99.0.@vocabulary-uri}">{_it./sector-99.0.@vocabulary-uri}</a></div>
+<div><a href="{_it./sector-99.0.@vocabulary-uri}" target="_blank">{_it./sector-99.0.@vocabulary-uri}</a></div>
 #^sectors-vocab-uri-98
-<div><a href="{_it./sector-98.0.@vocabulary-uri}">{_it./sector-98.0.@vocabulary-uri}</a></div>
+<div><a href="{_it./sector-98.0.@vocabulary-uri}" target="_blank">{_it./sector-98.0.@vocabulary-uri}</a></div>
 
 <!--	SECTOR DAC TEMPLATE	-->
 #^/sector_dac
@@ -1596,7 +1596,7 @@
 	<div class="header">
 		OECD DAC <span class="count">( {_it./recipient-region-1.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./recipient-region-1.0.@vocabulary-description||} <a href="{_it./recipient-region-1.0.@vocabulary-url}">{_it./recipient-region-1.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./recipient-region-1.0.@vocabulary-description||} <a href="{_it./recipient-region-1.0.@vocabulary-url}" target="_blank">{_it./recipient-region-1.0.@vocabulary-url}</a></div>
 	{_it./recipient-region-1:/recipient-region_dac||}
 </div>
 #^recipient-regions-2
@@ -1604,7 +1604,7 @@
 	<div class="header">
 		UN <span class="count">( {_it./recipient-region-2.length||no_length} )</span>
 	</div>
-	<div class="subheader">{_it./recipient-region-2.0.@vocabulary-description||} <a href="{_it./recipient-region-2.0.@vocabulary-url}">{_it./recipient-region-2.0.@vocabulary-url}</a></div>
+	<div class="subheader">{_it./recipient-region-2.0.@vocabulary-description||} <a href="{_it./recipient-region-2.0.@vocabulary-url}" target="_blank">{_it./recipient-region-2.0.@vocabulary-url}</a></div>
 	{_it./recipient-region-2:/recipient-region||}
 </div>
 #^recipient-regions-99
@@ -1698,7 +1698,7 @@
 {_it./point/pos||}
 
 #^/location-point-url
-<a href="{_it./point@srsName}">{_it./point/pos}</a>
+<a href="{_it./point@srsName}" target="_blank">{_it./point/pos}</a>
 
 #^/location-ref
 <div>
@@ -1714,9 +1714,20 @@
 {_it.@code&&_it.@vocabulary&&_it:/location-code-url||_it:/location-code}
 
 #^/location-code-url
+{_it.@vocabulary==G1&&_it:/location-vocab-url-G1||_it:/location-vocab-url}
+
+
+#^/location-vocab-url-G1
 <div>
 	<span title="A code from the gazetteer or administrative boundary repository specified by the vocabulary" class="ref">
-		ID <a href="{_it.@vocabulary-url||}">{_it.@code||}</a>
+		ID <a href="{_it.@vocabulary-url}{_it.@code}" target="_blank">{_it.@code||}</a> ({_it.@vocabulary-name||})
+	</span>
+</div>
+
+#^/location-vocab-url
+<div>
+	<span title="A code from the gazetteer or administrative boundary repository specified by the vocabulary" class="ref">
+		ID <a href="{_it.@vocabulary-url||}" target="_blank">{_it.@code||}</a> ({_it.@vocabulary-name||})
 	</span>
 </div>
 
@@ -1770,7 +1781,7 @@
 #^/participating-org/ref-url
 <div>
 	<span title="Organisation Reference" class="ref">
-		REF <a title="Organisation Reference" href="http://d-portal.org/ctrack.html?publisher={_it.@ref||}">{_it.@ref||}</a>
+		REF <a title="Organisation Reference" href="http://d-portal.org/ctrack.html?publisher={_it.@ref||}" target="_blank">{_it.@ref||}</a>
 	</span>
 </div>
 
@@ -1784,7 +1795,7 @@
 #^/participating-org/activity-id
 <div>
 	<span title="Activity ID" class="ref">
-		ID <a href="http://d-portal.org/q.html?aid={_it.@activity-id}">{_it.@activity-id||}</a>
+		ID <a href="http://d-portal.org/q.html?aid={_it.@activity-id}" target="_blank">{_it.@activity-id||}</a>
 	</span>
 </div>
 
@@ -1816,13 +1827,13 @@
 </tr>
 
 #^/humanitarian-vocab-url
-<a href="{_it.@vocabulary-url}">{_it.@vocabulary-name}</a>
+<a href="{_it.@vocabulary-url}" target="_blank">{_it.@vocabulary-name}</a>
 
 #^/humanitarian-vocab-99
 {_it.@vocabulary-uri&&_it:/humanitarian-vocab-uri||_it.@vocabulary-name}
 
 #^/humanitarian-vocab-uri
-<a href="{_it.@vocabulary-uri}">{_it.@vocabulary-name}</a>
+<a href="{_it.@vocabulary-uri}" target="_blank">{_it.@vocabulary-name}</a>
 
 #^/wrap-description	<!--	DESCRIPTION WRAPPER	-->
 	<div class="wrap_description">
@@ -1862,7 +1873,7 @@
 		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
 	</div>
 	<div class="wrap_iati_identifier org_id">	<!--	ORG IDENTIFIER AND SOURCES	-->
-		<div class="text">Organisation identifier <a href="http://d-portal.org/q.html?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}">{_it./organisation-identifier||}</a></div>
+		<div class="text">Organisation identifier <a href="http://d-portal.org/q.html?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}"  target="_blank">{_it./organisation-identifier||}</a></div>
 		<div class="data_source">
 			<a class="xml" href="http://d-portal.org/q.xml?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}" target="_blank"><span>view</span> xml</a><a class="json" href="http://d-portal.org/q.json?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}" target="_blank"><span>view</span> json</a><a class="dlogs" href="http://d-portal.org/ctrack.html#view=dash_sluglog&slug={_it.@dataset}" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="http://iatiregistry.org/dataset/{_it.@dataset}" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="http://d-portal.org/q.csv?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}" target="_blank"><span>download</span> csv</a>
 		</div>
@@ -2038,7 +2049,7 @@
 {_it.text}
 
 #^/document-link	<!--	DOCUMENT LINK	-->
-<a class="doc_link" href="{_it.@url}">
+<a class="doc_link" href="{_it.@url}" target="_blank">
 	<span class="wrap_doc_link">
 		{_it./title/narrative&&_it:/document-title||}
 		{_it./description/narrative&&_it:/document-description||}
