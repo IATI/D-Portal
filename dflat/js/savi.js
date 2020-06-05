@@ -457,7 +457,28 @@ savi.prepare=function(iati_xson){
 	
 	let subents=function(act)
 	{
-		
+
+// split location into longitude and latitude
+
+		if(act["/location"])
+		{
+			for( let location of act["/location"] )
+			{
+				if( location["/point/pos"] )
+				{
+					let aa=location["/point/pos"].trim().split(/\s+/)
+					let f1=parseFloat(aa[0])
+					let f2=parseFloat(aa[1])
+					if( (!isNaN(f1)) && (!isNaN(f2)) )
+					{
+						location["/point/pos@latitude"]=f1
+						location["/point/pos@longitude"]=f2
+					}
+				}
+			}
+		}
+
+
 // explicit dates based on @type
 		if(act["/activity-date"])
 		{
