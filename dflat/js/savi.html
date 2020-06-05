@@ -1678,7 +1678,7 @@
 		{_it./location-id&&_it:/wrap-location-id||}
 	</td>
 	<td class="loc_des">
-		{_it./description/narrative.0.text||}
+		{_it./description/narrative.0.text&&_it:/location-description||}
 		{_it./activity-description/narrative.0.text&&_it:/activity-description||}
 		{_it./feature-designation@code&&_it:/location-feature||}
 	</td>
@@ -1691,14 +1691,20 @@
 #^/location-narrative
 <div class="loc_text">{_it./name/narrative.0.text||}</div>
 
+#^/location-description
+<div class="loc_desc" title="A description that qualifies the location, not the activity.">{_it./description/narrative.0.text||}</div>
+
 #^/activity-description
-<div class="loc_act">{_it./activity-description/narrative.0.text||}</div>
+<div class="loc_act" title="A description that qualifies the activity taking place at the location.">{_it./activity-description/narrative.0.text||}</div>
 
 #^/location-point
 {_it./point/pos||}
 
 #^/location-point-url
-<a href="{_it./point@srsName}" target="_blank">{_it./point/pos}</a>
+<a href="https://www.google.com/maps/place/{_it./point/pos@latitude},{_it./point/pos@longitude}" target="_blank">
+	<span>{_it./point/pos@latitude}</span>
+	<span>{_it./point/pos@longitude}</span>
+</a>
 
 #^/location-ref
 <div>
@@ -1740,8 +1746,8 @@
 
 #^/location-feature
 <div>
-	<span title="{_it./feature-designation@code-description||}" class="ref">
-		TYPE <span>{_it./feature-designation@code-name||}</span>
+	<span title="A more refined coded classification of the type of feature referred to by this location." class="ref">
+		TYPE <span title="{_it./feature-designation@code-description||}">{_it./feature-designation@code-name||}</span>
 	</span> <span class="type">{_it./feature-designation@code||}</span>
 </div>
 
