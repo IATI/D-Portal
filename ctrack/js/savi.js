@@ -1254,7 +1254,7 @@ acts.find("activity-website").each(function(i){var it=$(this);
 });
 
 acts.find("iati-identifier").each(function(i){var it=$(this);
-	var slug=it.parent().parent().attr("dstore:slug"); // do we know where this came from?
+	var slug=it.parent().parent().attr("dstore:dataset"); // do we know where this came from?
 	var id=savi.encodeURIComponent(it.text().trim());
 	wrapInner_link(it,prelink+id+postlink,"a_"+this.tagName.toLowerCase());
 	it.append($("<a class='a_xml_"+this.tagName.toLowerCase()+"' href='http://d-portal.org/q.xml?aid="+id+"' target='_blank'>xml</a>"));

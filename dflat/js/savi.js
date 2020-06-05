@@ -450,11 +450,6 @@ savi.prepare=function(iati_xson){
 	
 	let subents=function(act)
 	{
-		if( (!act["@dataset"]) && (act["@dstore:slug"]) ) // d-portal dataset hack
-		{
-			act["@dataset"]=act["@dstore:slug"]
-		}
-
 		
 // explicit dates based on @type
 		if(act["/activity-date"])

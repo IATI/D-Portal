@@ -355,16 +355,17 @@ dflat.clean_copy_toplevel_attributes=function(data)
 			let aa = name.split("@")
 			if( aa[1] && aa[0]=="/iati-activities")
 			{
-				ac["@"+aa[1]]=data[name]
+				ac[aa[1]]=data[name]
 			}
 		}
 		for( const act of data["/iati-activities/iati-activity"] )
 		{
 			for( const n in ac )
 			{
-				if( ! act[n] ) // do not destroy existing values
+				if( ! act["@iati-activities:"+n] ) // do not destroy existing values
 				{
-					act[n]=ac[n]
+					act["@iati-activities:"+n]=ac[n]
+					act["@xmlns:iati-activities:"+n]="http://d-portal.org/xmlns/iati-activities"
 				}
 			}
 		}
@@ -378,16 +379,17 @@ dflat.clean_copy_toplevel_attributes=function(data)
 			let aa = name.split("@")
 			if( aa[1] && aa[0]=="/iati-organisations")
 			{
-				ac["@"+aa[1]]=data[name]
+				ac[aa[1]]=data[name]
 			}
 		}
 		for( const act of data["/iati-organisations/iati-organisation"] )
 		{
 			for( const n in ac )
 			{
-				if( ! act[n] ) // do not destroy existing values
+				if( ! act["@iati-organisations:"+n] ) // do not destroy existing values
 				{
-					act[n]=ac[n]
+					act["@iati-organisations:"+n]=ac[n]
+					act["@xmlns:iati-organisations:"+n]="http://d-portal.org/xmlns/iati-organisations"
 				}
 			}
 		}
