@@ -59,14 +59,19 @@ var create_human_values=function(it)
 	let value=it["/value"]
 	let isodate=it["/value@value-date"]
 	let currency=it["/value@currency"]
+	
+	if(isodate===undefined){return}
+	if(currency===undefined){return}
 
 // exchange
-	for( const c of ( [ "usd","eur","gbp","cad", ] ) )
+	if(value!==undefined){return}
 	{
-		
-		it["/value-"+c] = exchange.by_monthly_average(value,c,currency,isodate)
+		for( const c of ( [ "usd","eur","gbp","cad", ] ) )
+		{
+			
+			it["/value-"+c] = exchange.by_monthly_average(value,c,currency,isodate)
+		}
 	}
-
 
 // commafy
 	for( const p of ( [ "","-usd","-eur","-gbp","-cad", ] ) )
