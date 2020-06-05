@@ -42,6 +42,7 @@ min_month=min_month-1
 
 exchange.by_monthly_average=function(value,to_currency,from_currency,isodate)
 {
+	isodate=isodate || "2020-01-01"
 	value=Number(value||0)||0
 	to_currency=(to_currency||"USD").toUpperCase()
 	from_currency=(from_currency||"USD").toUpperCase()
