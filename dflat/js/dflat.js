@@ -362,7 +362,6 @@ dflat.clean_copy_toplevel_attributes=function(data)
 		{
 			for( const n in ac )
 			{
-console.log(n)
 				if(n.includes(":"))
 				{
 					act["@"+n]=ac[n]
