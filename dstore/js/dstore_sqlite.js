@@ -564,6 +564,7 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 
 // remember dataset
 			xtree["@dstore:dataset"]=slug
+			xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
 
 //console.log(slug+" : "+pid)
 //console.log(xtree)

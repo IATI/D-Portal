@@ -574,6 +574,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 // remember dataset
 			xtree["@dstore:dataset"]=slug
+			xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
 
 			wait.for(function(cb){
 				db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:pid}).then(cb).catch(err);
