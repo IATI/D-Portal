@@ -954,11 +954,13 @@ query.do_select_response=function(q,res,r){
 		if( q.root=="/iati-organisations/iati-organisation" ) // org files
 		{
 			df["/iati-organisations/iati-organisation"]=tab
+			df["/iati-organisations@version"]="2.03"
 		}
 		else
 		if( q.root=="/iati-activities/iati-activity" ) // activities
 		{
 			df["/iati-activities/iati-activity"]=tab
+			df["/iati-activities@version"]="2.03"
 		}
 		else // raw xson table of results
 		{
@@ -1092,7 +1094,7 @@ jml=require("../../dflat/js/jml.js") // this fixes it but it is still a TODO: is
 	{
 		res.set('Content-Type', 'text/xml');
 
-		res.write(	'<iati-activities>\n');
+		res.write(	'<iati-activities version="2.03">\n');
 					
 		for(var i=0;i<r.rows.length;i++)
 		{
@@ -1100,8 +1102,6 @@ jml=require("../../dflat/js/jml.js") // this fixes it but it is still a TODO: is
 			if(v && v.jml)
 			{
 				var d=JSON.parse(v.jml);
-//				delete d["dstore:slug"];	// remove dstore tags
-//				delete d["dstore:idx"];
 				
 				res.write(	refry.json(d) );
 				res.write(	"\n" );
