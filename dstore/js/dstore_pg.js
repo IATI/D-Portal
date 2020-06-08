@@ -560,13 +560,13 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 		var org=refry.xml(data,slug); // raw xml convert to jml
 		var aid=iati_xml.get_aid(org);
 
-		var o=refry.tag(org,"iati-organisation"); // check for org file data
-		if(o)
+		var orgxml=refry.tag(org,"iati-organisations"); // check for org file data
+		if(orgxml)
 		{
 
 			console.log("importing xson from org file for "+aid)
 
-			let xtree=dflat.xml_to_xson( { 0:"iati-organisations" , 1:[o] } )
+			let xtree=dflat.xml_to_xson( orgxml )
 			dflat.clean(xtree)
 			xtree=xtree["/iati-organisations/iati-organisation"][0]
 
