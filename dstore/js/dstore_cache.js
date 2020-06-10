@@ -136,17 +136,20 @@ var charset="unknown";
 	}
 
 	var head;
-	if(aa[0]) // possible activities header, merge these attributes into iati-activity later on
-	{
-		var refry=require('./refry');
-		var xt=refry.tag( refry.xml(aa[0]) , "iati-activities" );
-		if(xt)
+	try {
+		if(aa[0]) // possible activities header, merge these attributes into iati-activity later on
 		{
-			delete xt["0"];
-			delete xt["1"];
-			head=xt;
+			var refry=require('./refry');
+			var xt=refry.tag( refry.xml(aa[0]) , "iati-activities" );
+			if(xt)
+			{
+				delete xt["0"];
+				delete xt["1"];
+				head=xt;
+			}
 		}
-	}
+	} catch (error) {  console.error(error) }
+
 //	ls(head);
 	
 	console.log("\t\tImporting xmlfile <"+charset+">: ("+acts.length+") \t"+xmlfilename);
