@@ -494,30 +494,40 @@ iati_codes.fetch = function(){
 // so now we will scrape wikipedia
 
 	var x=wait.for(https_getbody,"https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2");
-	var j=refry.xml(x);
+
+// try and yank out table segments only	
 	var o={};
+	var xa=x.split("<table")
+	for( xax of xa )
+	{
+		var xaxa=xax.split("</table>")
+		if( xaxa.length==2 )
+		{
 	
-	refry.tags(j,{0:"table",class:"wikitable"},function(it){
-		refry.tags(it,"td",function(it){
-			var name=it.title;
-			var code=refry.tagval_trim(it,"span");
-			if( name && code )
-			{
-				if(name!="unassigned" && name!="user-assigned" && name!="Unassigned" && name!="User-assigned")
-				{
-					name = name.split(" (formerly:")[0];
-					var aa=name.split(":");
-// Just ignore anything with a colon that wasnt a (formerly:
-					if(!aa[1])
+			var j=refry.xml("<table"+xaxa[0]+"</table>");
+			
+			refry.tags(j,{0:"table",class:"wikitable"},function(it){
+				refry.tags(it,"td",function(it){
+					var name=it.title;
+					var code=refry.tagval_trim(it,"span");
+					if( name && code )
 					{
-						o[code]=name;
+						if(name!="unassigned" && name!="user-assigned" && name!="Unassigned" && name!="User-assigned")
+						{
+							name = name.split(" (formerly:")[0];
+							var aa=name.split(":");
+		// Just ignore anything with a colon that wasnt a (formerly:
+							if(!aa[1])
+							{
+								o[code]=name;
+							}
+						}
 					}
-				}
-			}
-		});
-	});
-	
-//	ls(o);
+				});
+			});
+		}
+	}
+	ls(o);
 
 	o["XK"]="Kosovo" // yeah this is much better than having it in a list *rolls*eyes*
 	
