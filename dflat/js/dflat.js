@@ -27,11 +27,8 @@ dflat.xml_to_xson=function(data)
 {
 	if(typeof data=="string")
 	{
-		try {
-			data=jml.from_xml(data)
-		} catch (error) {   return }
+		data=jml.from_xml(data)
 	}
-
 // else assume it is already parsed jml
 	
 	var flat={}
