@@ -206,6 +206,19 @@ view_search.terms=[
 },
 
 {
+	name   : "hierarchy",
+	search : false,
+	filter : true,
+	codes  : [ 1, 2, 3 ],
+	drops  : [ "#view_search_select_hierarchy" ],
+	q      : "*@hierarchy",
+	list   : "search_options_hierarchy",
+	show   : "search_display_hierarchy",
+	more   : true,
+	hidecode : true,
+},
+
+{
 	name   : "commitment_min",
 	search : false,
 	filter : true,
@@ -338,6 +351,30 @@ view_search.terms=[
 	q      : "/related-activity@type",
 	list   : "search_options_related_activity",
 	show   : "search_display_related_activity",
+	more   : true,
+},
+
+{
+	name   : "reporting_organisation_type",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["OrganisationType"], ],
+	drops  : [ "#view_search_select_reporting_organisation_type" ],
+	q      : "/reporting-org@type",
+	list   : "search_options_reporting_organisation_type",
+	show   : "search_display_reporting_organisation_type",
+	more   : true,
+},
+
+{
+	name   : "region",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["Region"], ],
+	drops  : [ "#view_search_select_region" ],
+	q      : "/recipient-region@code",
+	list   : "search_options_region",
+	show   : "search_display_region",
 	more   : true,
 },
 

@@ -14,7 +14,7 @@
 	</div>
 <!--	REPORTING ORG	-->
 	<div class="wrap_reporting_org">
-		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
+		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span>{_it./reporting-org@secondary-reporter==1&&secondary_reporter||}</div>
 	</div>
 <!--	DEFAULT MODALITIES	-->	
 	<div class="wrap_default">
@@ -215,6 +215,9 @@
 
 #^/version1-banner
 <a href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/" target="_blank" class="banner_v1">Data on this page has been published according to version 1 of the IATI Standard, which has now been deprecated. Learn more.</a>
+
+#^secondary_reporter
+<span class="type secondary">Secondary Reporter</span>
 
 #^/modal-wrap-activity-scope	<!--	MODAL - ACTIVITY SCOPE	-->
 {_it./activity-scope@code-name||} {_it./activity-scope@code&&_it:/activity-scope-code||}

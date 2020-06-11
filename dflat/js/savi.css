@@ -211,6 +211,7 @@ td .currency	{color:#ccc; font-size:10px; line-height:12px;}
 
 /*	PROVIDER, RECEIVER ORG	*/
 .type			{background-color:rgba(72,79,86,0.6); border-radius:4px; color:#CCC; font-size:11px; margin:0 auto; margin-left:-5px; padding:2px 4px;}
+.type.secondary	{background-color:#304767; color:#ddd;}
 .ref			{color:#CCC; font-family:monospace; font-size:10px; line-height:initial; margin:0 auto;}
 .ref span		{color:#fff;}
 .ref span.withdrawn					{background-color:#545e73; color:#ddd; font-size:10px;}
@@ -825,6 +826,7 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 .print .humanitarian		{background-color:#fff; border:1px solid #444; color:#444; font-weight:normal;}
 .print .header_section,
 .print .type,
+.print .type.secondary,
 .print span.doc_date,
 .print span.doc_cat,
 .print span.doc_rec,
