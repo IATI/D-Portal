@@ -67,6 +67,24 @@
 						$('a.faq_top').hide();
 					}
 				});
+				
+				// Switch to tab depending upon hash at page load
+				var hash=window.location.hash;
+				switch(hash.substring(0,5))
+				{
+					case "#tech":
+						$('a.topics.b').click()
+						$('html,body').animate({scrollTop: $(hash).offset().top},'slow');
+					break;
+					case "#expl":
+						$('a.topics.d').click()
+						$('html,body').animate({scrollTop: $(hash).offset().top},'slow');
+					break;
+					case "#gene":
+						$('a.topics.c').click()
+						$('html,body').animate({scrollTop: $(hash).offset().top},'slow');
+					break;
+				}
 
 			});
 		</script>
@@ -114,13 +132,13 @@
 			<li><a href="#gen4">{faq_general_q4_text}</a></li>
 			<li><a href="#gen5">{faq_general_q5_text}</a></li>
 			<li><a href="#gen6">{faq_general_q6_text}</a></li>
-			<li><a href="#gen13">{faq_general_q13_text}</a></li>
 			<li><a href="#gen7">{faq_general_q7_text}</a></li>
 			<li><a href="#gen8">{faq_general_q8_text}</a></li>
 			<li><a href="#gen9">{faq_general_q9_text}</a></li>
 			<li><a href="#gen10">{faq_general_q10_text}</a></li>
 			<li><a href="#gen11">{faq_general_q11_text}</a></li>
 			<li><a href="#gen12">{faq_general_q12_text}</a></li>
+			<li><a href="#gen13">{faq_general_q13_text}</a></li>
 		</ul>
 	</div>
 	
@@ -168,13 +186,6 @@
 			</span>
 		</li>
 		<li>
-			<span id="gen13"></span>
-			<span class="list">{faq_general_q13_text}</span>
-			<span class="info">
-				{faq_general_a13_text}
-			</span>
-		</li>
-		<li>
 			<span id="gen7"></span>
 			<span class="list">{faq_general_q7_text}</span>
 			<span class="info">
@@ -214,6 +225,13 @@
 			<span class="list">{faq_general_q12_text}</span>
 			<span class="info">
 				{faq_general_a12_text}
+			</span>
+		</li>
+		<li>
+			<span id="gen13"></span>
+			<span class="list">{faq_general_q13_text}</span>
+			<span class="info">
+				{faq_general_a13_text}
 			</span>
 		</li>
 	</ul>

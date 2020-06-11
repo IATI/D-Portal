@@ -35,6 +35,10 @@ for(var sn in iati_codes.policy_sig) // policy needs two codes to be joined
 	}
 }
 var text_bool={"!1":"No",1:"Yes"}
+var text_hierarchy={1:"1",
+					2:"2",
+					3:"3",
+					4:"4"}
 var text_powers={1:"1 USD",
 				 10:"10 USD",
 				 100:"100 USD",
@@ -206,6 +210,19 @@ view_search.terms=[
 },
 
 {
+	name   : "hierarchy",
+	search : false,
+	filter : true,
+	codes  : [ text_hierarchy, ],
+	drops  : [ "#view_search_select_hierarchy" ],
+	q      : "*@hierarchy",
+	list   : "search_options_hierarchy",
+	show   : "search_display_hierarchy",
+	more   : true,
+	hidecode : true,
+},
+
+{
 	name   : "commitment_min",
 	search : false,
 	filter : true,
@@ -338,6 +355,30 @@ view_search.terms=[
 	q      : "/related-activity@type",
 	list   : "search_options_related_activity",
 	show   : "search_display_related_activity",
+	more   : true,
+},
+
+{
+	name   : "reporting_organisation_type",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["OrganisationType"], ],
+	drops  : [ "#view_search_select_reporting_organisation_type" ],
+	q      : "/reporting-org@type",
+	list   : "search_options_reporting_organisation_type",
+	show   : "search_display_reporting_organisation_type",
+	more   : true,
+},
+
+{
+	name   : "region",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["Region"], ],
+	drops  : [ "#view_search_select_region" ],
+	q      : "/recipient-region@code",
+	list   : "search_options_region",
+	show   : "search_display_region",
 	more   : true,
 },
 
