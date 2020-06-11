@@ -362,15 +362,20 @@ dflat.clean_copy_toplevel_attributes=function(data)
 		{
 			for( const n in ac )
 			{
-console.log(n)
 				if(n.includes(":"))
 				{
-					act["@"+n]=ac[n]
+					if(act["@"+n]===undefined)
+					{
+						act["@"+n]=ac[n]
+					}
 				}
 				else
 				{
-					act["@iati-activities:"+n]=ac[n]
-					act["@xmlns:iati-activities"]="http://d-portal.org/xmlns/iati-activities"
+					if(act["@iati-activities:"+n]===undefined)
+					{
+						act["@iati-activities:"+n]=ac[n]
+						act["@xmlns:iati-activities"]="http://d-portal.org/xmlns/iati-activities"
+					}
 				}
 			}
 		}
@@ -393,12 +398,18 @@ console.log(n)
 			{
 				if(n.includes(":"))
 				{
-					act["@"+n]=ac[n]
+					if(act["@"+n]===undefined)
+					{
+						act["@"+n]=ac[n]
+					}
 				}
 				else
 				{
-					act["@iati-organisations:"+n]=ac[n]
-					act["@xmlns:iati-organisations"]="http://d-portal.org/xmlns/iati-organisations"
+					if(act["@iati-organisations:"+n]===undefined)
+					{
+						act["@iati-organisations:"+n]=ac[n]
+						act["@xmlns:iati-organisations"]="http://d-portal.org/xmlns/iati-organisations"
+					}
 				}
 			}
 		}

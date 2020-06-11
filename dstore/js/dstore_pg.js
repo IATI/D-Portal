@@ -560,13 +560,13 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 		var org=refry.xml(data,slug); // raw xml convert to jml
 		var aid=iati_xml.get_aid(org);
 
-		var o=refry.tag(org,"iati-organisation"); // check for org file data
-		if(o)
+		var orgxml=refry.tag(org,"iati-organisations"); // check for org file data
+		if(orgxml)
 		{
 
 			console.log("importing xson from org file for "+aid)
 
-			let xtree=dflat.xml_to_xson( { 0:"iati-organisations" , 1:[o] } )
+			let xtree=dflat.xml_to_xson( orgxml )
 			dflat.clean(xtree)
 			xtree=xtree["/iati-organisations/iati-organisation"][0]
 
@@ -574,10 +574,27 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 // remember dataset
 			xtree["@dstore:dataset"]=slug
+			xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
 
-			wait.for(function(cb){
-				db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:pid}).then(cb).catch(err);
+// get old ids for this slug ( hax as we keep the pid in the aid slot... )
+			var rows=wait.for(function(cb){
+				db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).then(function(rows){
+					cb(false,rows)
+				}).catch(err);
 			});
+			
+// and delete them all
+			for(let r of rows)
+			{
+				if(r.aid)
+				{
+					wait.for(function(cb){
+						db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:r.aid}).then(cb).catch(err);
+					});
+					dstore_back.delete_from(db,"budget",{aid:r.aid});
+					dstore_back.delete_from(db,"slug",{aid:r.aid});
+				}
+			}
 
 			let xwalk
 			xwalk=function(it,path)
@@ -609,18 +626,15 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			xwalk( xtree ,"/iati-organisations/iati-organisation")
 
 
-			console.log("importing budgets from org file for "+aid)
+			console.log("importing budgets from org file for "+pid)
 
-			dstore_back.delete_from(db,"budget",{aid:aid});
+			dstore_back.delete_from(db,"budget",{aid:pid});
 
-			console.log(o[0]+" -> "+o["default-currency"])
-			iati_cook.activity(o); // cook the raw json(xml) ( most cleanup logic has been moved here )
+			refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:pid},0);});
+			refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:pid},0);});
+			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:pid},0);});
 
-			refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
-			refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
-			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
-
-			dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
+			dstore_back.replace(db,"slug",{"aid":pid,"slug":slug});
 
 			delete deleteme[aid] // replaced so no need to delete
 		}

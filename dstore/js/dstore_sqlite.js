@@ -547,11 +547,15 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 
 	if(acts.length==0) // probably an org file, try and import budgets from full data
 	{
+		var o
+		try {
+			var org=refry.xml(data,slug); // raw xml convert to jml
+			var aid=iati_xml.get_aid(org);
 
-		var org=refry.xml(data,slug); // raw xml convert to jml
-		var aid=iati_xml.get_aid(org);
+			o=refry.tag(org,"iati-organisation"); // check for org file data
 
-		var o=refry.tag(org,"iati-organisation"); // check for org file data
+		} catch (error) {  console.error(error) }
+
 		if(o)
 		{
 			console.log("importing budgets from org file for "+aid)
@@ -564,6 +568,7 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 
 // remember dataset
 			xtree["@dstore:dataset"]=slug
+			xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
 
 //console.log(slug+" : "+pid)
 //console.log(xtree)

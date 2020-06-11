@@ -10,12 +10,14 @@ var stringify = require('json-stable-stringify')
 var exchange = require("./exchange.js")
 
 
+/*
 var encodeURIComponent=function(str)
 {
   return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
     return '%' + c.charCodeAt(0).toString(16);
   });
 }
+*/
 
 var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
         return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -64,7 +66,7 @@ var create_human_values=function(it)
 	if(currency===undefined){return}
 
 // exchange
-	if(value!==undefined){return}
+	if(value!==undefined)
 	{
 		for( const c of ( [ "usd","eur","gbp","cad", ] ) )
 		{
@@ -137,7 +139,7 @@ savi.start_loaded=async function(){
 	let ropts={mode:"cors"}
 	if(aid!==null)
 	{
-		if(aid!="") { aid="&aid="+aid }
+		if(aid!="") { aid="&aid="+encodeURIComponent(aid) }
 		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-activities/iati-activity"+aid,ropts)
 //		iati=await fetch("/q.json?from=xson&root=/iati-activities/iati-activity"+aid,ropts)
 		iati=await iati.json()
@@ -146,7 +148,7 @@ savi.start_loaded=async function(){
 	else
 	if(pid!==null)
 	{
-		if(pid!="") { pid="&pid="+pid }
+		if(pid!="") { pid="&pid="+encodeURIComponent(pid) }
 		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-organisations/iati-organisation"+pid,ropts)
 //		iati=await fetch("/q.json?from=xson&root=/iati-organisations/iati-organisation"+pid,ropts)
 		iati=await iati.json()
@@ -364,7 +366,7 @@ savi.prepare=function(iati_xson){
 			if(!Array.isArray(v)) // only rename if not an array
 			{
 				if(n=="") { it.text=v }
-				let na=n.replace(/(\w+):/g,"") // remove namespace if it exists
+				let na=n.replace(/([a-zA-Z0-9_\-]+):/g,"") // remove namespace if it exists
 				if( (na!=n) && (!it[na]) ) // safe to include without namespace
 				{
 //					console.log("map "+n+" -> "+na)

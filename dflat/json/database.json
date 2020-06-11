@@ -3385,6 +3385,28 @@
    ],
    "type": "bool"
   },
+  "/iati-activities/iati-activity@iati-activities:generated-datetime": {
+   "jpath": [
+    "/iati-activities/iati-activity",
+    "@iati-activities:generated-datetime"
+   ],
+   "type": "time"
+  },
+  "/iati-activities/iati-activity@iati-activities:linked-data-default": {
+   "jpath": [
+    "/iati-activities/iati-activity",
+    "@iati-activities:linked-data-default"
+   ],
+   "type": "text"
+  },
+  "/iati-activities/iati-activity@iati-activities:version": {
+   "jpath": [
+    "/iati-activities/iati-activity",
+    "@iati-activities:version"
+   ],
+   "required": true,
+   "type": "text"
+  },
   "/iati-activities/iati-activity@last-updated-datetime": {
    "jpath": [
     "/iati-activities/iati-activity",
@@ -4393,6 +4415,21 @@
    ],
    "type": "text"
   },
+  "/iati-organisations/iati-organisation@iati-organisations:generated-datetime": {
+   "jpath": [
+    "/iati-organisations/iati-organisation",
+    "@iati-organisations:generated-datetime"
+   ],
+   "type": "time"
+  },
+  "/iati-organisations/iati-organisation@iati-organisations:version": {
+   "jpath": [
+    "/iati-organisations/iati-organisation",
+    "@iati-organisations:version"
+   ],
+   "required": true,
+   "type": "text"
+  },
   "/iati-organisations/iati-organisation@last-updated-datetime": {
    "jpath": [
     "/iati-organisations/iati-organisation",
@@ -5167,6 +5204,9 @@
     "@default-currency": "text",
     "@hierarchy": -1,
     "@humanitarian": 0,
+    "@iati-activities:generated-datetime": "1970-01-01T00:00:00",
+    "@iati-activities:linked-data-default": "text",
+    "@iati-activities:version": "text",
     "@last-updated-datetime": "1970-01-01T00:00:00",
     "@linked-data-uri": "text",
     "@xml:lang": "text"
@@ -5376,6 +5416,8 @@
      }
     ],
     "@default-currency": "text",
+    "@iati-organisations:generated-datetime": "1970-01-01T00:00:00",
+    "@iati-organisations:version": "text",
     "@last-updated-datetime": "1970-01-01T00:00:00",
     "@xml:lang": "text"
    }

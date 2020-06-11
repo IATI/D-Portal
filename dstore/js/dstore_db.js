@@ -666,9 +666,20 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 		if((typeof xml)=="string") { act=refry.xml(xml,aid); } // raw xml convert to jml
 		act=refry.tag(act,"iati-activity"); // and get the main tag
 		
-		if(head) // copy all attributes from iati-activities into each activity unless the activity already has it
+		if(head) // copy all attributes from iati-activities into each activity using the iati-activities: namespace
 		{
-			for(var n in head) { act[n]=act[n] || head[n]; }
+			for(var n in head)
+			{
+				if(n.includes(":"))
+				{
+					act[n]=head[n]
+				}
+				else
+				{
+					act["iati-activities:"+n]=head[n]
+					act["xmlns:iati-activities"]="http://d-portal.org/xmlns/iati-activities"
+				}
+			}
 		}
 		
 		iati_cook.activity(act); // cook the raw json(xml) ( most cleanup logic has been moved here )

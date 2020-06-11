@@ -573,6 +573,27 @@ fetch.database=async function()
 
 // hacky fixups for what looks like bad xsd data?
 	database.paths["/iati-organisations/iati-organisation/organisation-identifier"].type="text"
+
+// copy root attributes down a level and into a namespace	
+	for( let path in database.paths )
+	{
+		let aa
+		aa=path.split("/iati-activities@")
+		if( aa[0]=="" && aa[1])
+		{
+			let it={}
+			database.paths["/iati-activities/iati-activity@iati-activities:"+aa[1]]=it
+			for( let n in database.paths[path] ) { it[n]=database.paths[path][n] }
+		}
+
+		aa=path.split("/iati-organisations@")
+		if( aa[0]=="" && aa[1])
+		{
+			let it={}
+			database.paths["/iati-organisations/iati-organisation@iati-organisations:"+aa[1]]=it
+			for( let n in database.paths[path] ) { it[n]=database.paths[path][n] }
+		}
+	}
 	
 
 /*

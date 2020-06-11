@@ -310,7 +310,7 @@ packages.process_download=async function(argv)
 		for( const act of json["/iati-activities/iati-activity"] )
 		{
 			let aid=dflat.saneid( act["/iati-identifier"] )
-			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+aid )
+			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] , "/iati-activities@version":"2.03" } , basename+"/"+aid )
 
 // all activities
 			let linkname=path.join(argv.dir,"activities")

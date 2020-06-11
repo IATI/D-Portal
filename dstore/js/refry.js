@@ -29,7 +29,9 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 refry.xml=function(data,filename)
 {
 // do not use expat, use the new sax jml code in dflat which is a rebuild of this function
+	try {
 	return jml.from_xml(data)
+	} catch (error) {  console.error(error) }
 }
 
 // turn json back into xml
