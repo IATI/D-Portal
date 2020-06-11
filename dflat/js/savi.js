@@ -10,12 +10,14 @@ var stringify = require('json-stable-stringify')
 var exchange = require("./exchange.js")
 
 
+/*
 var encodeURIComponent=function(str)
 {
   return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
     return '%' + c.charCodeAt(0).toString(16);
   });
 }
+*/
 
 var commafy=function(s) { return (""+parseFloat(s)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
         return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
