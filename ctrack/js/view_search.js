@@ -35,6 +35,10 @@ for(var sn in iati_codes.policy_sig) // policy needs two codes to be joined
 	}
 }
 var text_bool={"!1":"No",1:"Yes"}
+var text_hierarchy={1:"activity",
+					2:"sub-activity",
+					3:"sub-sub-activity",
+					4:"sub-sub-sub-activity"}
 var text_powers={1:"1 USD",
 				 10:"10 USD",
 				 100:"100 USD",
@@ -209,7 +213,7 @@ view_search.terms=[
 	name   : "hierarchy",
 	search : false,
 	filter : true,
-	codes  : [ 1, 2, 3 ],
+	codes  : [ text_hierarchy, ],
 	drops  : [ "#view_search_select_hierarchy" ],
 	q      : "*@hierarchy",
 	list   : "search_options_hierarchy",
