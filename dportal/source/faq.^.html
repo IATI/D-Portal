@@ -67,6 +67,24 @@
 						$('a.faq_top').hide();
 					}
 				});
+				
+				// Switch to tab depending upon hash at page load
+				var hash=window.location.hash;
+				switch(hash.substring(0,5))
+				{
+					case "#tech":
+						$('a.topics.b').click()
+						$('html,body').animate({scrollTop: $(hash).offset().top},'slow');
+					break;
+					case "#expl":
+						$('a.topics.d').click()
+						$('html,body').animate({scrollTop: $(hash).offset().top},'slow');
+					break;
+					case "#gene":
+						$('a.topics.c').click()
+						$('html,body').animate({scrollTop: $(hash).offset().top},'slow');
+					break;
+				}
 
 			});
 		</script>
