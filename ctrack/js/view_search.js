@@ -35,10 +35,10 @@ for(var sn in iati_codes.policy_sig) // policy needs two codes to be joined
 	}
 }
 var text_bool={"!1":"No",1:"Yes"}
-var text_hierarchy={1:"activity",
-					2:"sub-activity",
-					3:"sub-sub-activity",
-					4:"sub-sub-sub-activity"}
+var text_hierarchy={1:"1",
+					2:"2",
+					3:"3",
+					4:"4"}
 var text_powers={1:"1 USD",
 				 10:"10 USD",
 				 100:"100 USD",
