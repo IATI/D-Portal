@@ -366,7 +366,7 @@ savi.prepare=function(iati_xson){
 			if(!Array.isArray(v)) // only rename if not an array
 			{
 				if(n=="") { it.text=v }
-				let na=n.replace(/(\w+):/g,"") // remove namespace if it exists
+				let na=n.replace(/([a-zA-Z0-9_\-]+):/g,"") // remove namespace if it exists
 				if( (na!=n) && (!it[na]) ) // safe to include without namespace
 				{
 //					console.log("map "+n+" -> "+na)
