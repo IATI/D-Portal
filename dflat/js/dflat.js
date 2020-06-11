@@ -485,6 +485,11 @@ dflat.clean_copy_defaults=function(data)
 {
 	let f=function(root,act)
 	{
+		if(root=="/iati-activities/iati-activity")
+		{
+			if( typeof act["@hierarchy"] == "undefined" ) { act["@hierarchy"]=1 } // a missing activity hierarchy is assumed to be 1
+		}
+
 		if(!act["@xml:lang"]) { act["@xml:lang"]="EN" } // a missing default language is assumed to be english
 
 		// vocab is in "wrong" place for these items, so force copy it
