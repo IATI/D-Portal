@@ -1685,7 +1685,7 @@
 		{_it./activity-description/narrative.0.text&&_it:/activity-description||}
 		{_it./feature-designation@code&&_it:/location-feature||}
 	</td>
-	<td class="loc_pos">{_it./point/pos&&_it./point@srsName&&_it:/location-point-url||_it:/location-point}</td>
+	<td class="loc_pos">{_it./point/pos&&_it:/location-point-url||}</td>
 	<td class="loc_class" title="{_it./location-class@code-description||}" data-sort-value="{_it./location-class@code}">{_it./location-class@code-name||}</td>
 	<td class="loc_reach" title="{_it./location-reach@code-description||}" data-sort-value="{_it./location-reach@code}">{_it./location-reach@code-name||}</td>
 	<td class="loc_exact" title="{_it./exactness@code-description||}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
@@ -1699,9 +1699,6 @@
 
 #^/activity-description
 <div class="loc_act" title="A description that qualifies the activity taking place at the location.">{_it./activity-description/narrative.0.text||}</div>
-
-#^/location-point
-{_it./point/pos||}
 
 #^/location-point-url
 <a href="https://www.google.com/maps/place/{_it./point/pos@latitude},{_it./point/pos@longitude}" target="_blank">
