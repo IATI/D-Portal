@@ -1876,7 +1876,7 @@
 	<div class="header">ORGANISATION FILE</div>
 	<div class="wrap_name_org">{_it./name/narrative.0.text||}</div>
 	<div class="wrap_reporting_org">	<!--	REPORTING ORG	-->
-		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span></div>
+		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span>{_it./reporting-org@secondary-reporter==1&&secondary_reporter||}</div>
 	</div>
 	<div class="wrap_iati_identifier org_id">	<!--	ORG IDENTIFIER AND SOURCES	-->
 		<div class="text">Organisation identifier <a href="http://d-portal.org/q.html?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}"  target="_blank">{_it./organisation-identifier||}</a></div>
