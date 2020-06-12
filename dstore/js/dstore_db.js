@@ -48,6 +48,7 @@ dstore_db.bubble_act={
 	
 // data table descriptions
 dstore_db.tables={
+// TODO: jml should be removed and xson used instead...
 	jml:[
 		{ name:"aid",							TEXT:true , PRIMARY:true , HASH:true },
 		{ name:"jml",							TEXT:true}, // moved to reduce the main act table size
@@ -991,6 +992,9 @@ dstore_db.refresh_act = function(db,aid,xml,head){
 					}
 				}
 				
+				// sanity maximum length for database index
+				if( typeof name == "string" ) { name=name.substring(0,2048) }
+
 				if((typeof(longitude)=="number")&&(typeof(latitude)=="number")) // only bother to remember good data, otherwise we waste time filtering it out.
 				{
 					dstore_back.replace(db,"location",{
