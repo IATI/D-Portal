@@ -7,6 +7,10 @@ var util=require('util');
 
 var entities = require("entities");
 
+var papa = require('papaparse');
+
+var stringify = require('json-stable-stringify');
+
 var jml = require("./jml.js");
 var xson = require("./xson.js");
 var savi = require("./savi.js");
@@ -27,6 +31,12 @@ dflat.saneid=function(insaneid)
 dflat.xson_to_xml=function(json)
 {
 	return jml.to_xml( xson.to_jml(json) )
+}
+
+// convert json to a string
+dflat.xson_to_string=function(json)
+{
+	return stringify(json,{space:" "})
 }
 
 	
@@ -118,17 +128,6 @@ dflat.xml_to_xson=function(data)
 		var np=Object.assign({},op)
 		np.name=op.root+"/"+it[0]
 		np.root=np.name
-/*
-if(np.name=="/iati-activities/iati-activity/iati-identifier")
-{
-console.log(it)
-}
-else
-if(np.name=="/iati-activities/iati-activity/transaction")
-{
-process.stdout.write(".")
-}
-*/
 		var info = database.paths[ np.name ]
 
 		if( info && info.multiple ) // can there be multiples?
@@ -155,6 +154,20 @@ process.stdout.write(".")
 
 dflat.xson_to_xsv=function(data,root,paths)
 {
+	if(!root) // guess
+	{
+		if( data["/iati-activities/iati-activity"] )
+		{
+			root="/iati-activities/iati-activity"
+			paths={"/iati-activities/iati-activity":true}
+		}
+		else
+		if( data["/iati-organisations/iati-organisation"] )
+		{
+			root="/iati-organisations/iati-organisation"
+			paths={"/iati-organisations/iati-organisation":true}
+		}
+	}
 
 	var header=[]
 	var t={}
@@ -285,7 +298,52 @@ dflat.xson_to_xsv=function(data,root,paths)
 
 dflat.xsv_to_xson=function(data)
 {
-	return {} // not working yer...
+	let ret={}
+	let map={}
+	
+	let lines=papa.parse(data).data
+
+//	console.log(data)
+//	console.log(lines)
+	
+	let head=lines[0]
+	let root=head[2]
+	for( let idx=1 ; idx<lines.length ; idx++ )
+	{
+		let line=lines[idx]
+		let it={}
+		let id=line[0]
+		let parent_id=line[1]
+		let path=line[2]
+		let parent=ret
+		if( parent_id )
+		{
+			parent=map[ parent_id ]
+		}
+		else
+		{
+			path=root
+		}
+		map[id]=it
+		parent[ path ]=parent[ path ] || []
+		parent[ path ].push(it)
+
+		for( let i=3 ; i<line.length ; i++ )
+		{
+			if( head[i] && line[i]!="" )
+			{
+				let name=head[i]
+				if( name.startsWith(path) )
+				{
+					name=name.substring(path.length)
+				}
+				it[ name ]=line[i]
+			}
+		}
+
+	}
+
+	return ret // not working yer...
 }
 
 
