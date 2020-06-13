@@ -92,8 +92,9 @@ savi.plated=require("plated").create({},{pfs:{}}) // create a base instance for 
 savi.chunks={}
 savi.plate=function(str){ return savi.plated.chunks.replace(str,savi.chunks) }
 
-savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.html', 'utf8'), savi.chunks )
-savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.css',  'utf8'), savi.chunks )
+let fs = require('fs');
+savi.plated.chunks.fill_chunks( fs.readFileSync(__dirname + '/savi.html', 'utf8'), savi.chunks )
+savi.plated.chunks.fill_chunks( fs.readFileSync(__dirname + '/savi.css',  'utf8'), savi.chunks )
 
 savi.plated.chunks.format_chunks( savi.chunks )
 
