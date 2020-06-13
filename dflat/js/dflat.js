@@ -300,12 +300,10 @@ dflat.xsv_to_xson=function(data)
 {
 	let ret={}
 	let map={}
+	let mappath={}
 	
 	let lines=papa.parse(data).data
 
-//	console.log(data)
-//	console.log(lines)
-	
 	let head=lines[0]
 	let root=head[2]
 	for( let idx=1 ; idx<lines.length ; idx++ )
@@ -315,18 +313,29 @@ dflat.xsv_to_xson=function(data)
 		let id=line[0]
 		let parent_id=line[1]
 		let path=line[2]
+		let subpath=path
+
 		let parent=ret
 		if( parent_id )
 		{
+			let parentpath=mappath[ parent_id ]
 			parent=map[ parent_id ]
+			if( path.startsWith( parentpath ) )
+			{
+				subpath=path.substring(parentpath.length)
+			}
+//			console.log( parentpath + " ? " + path + " = " +subpath)
 		}
 		else
 		{
 			path=root
+			subpath=root
 		}
+		parent[ subpath ]=parent[ subpath ] || []
+		parent[ subpath ].push(it)
+
 		map[id]=it
-		parent[ path ]=parent[ path ] || []
-		parent[ path ].push(it)
+		mappath[id]=path
 
 		for( let i=3 ; i<line.length ; i++ )
 		{
@@ -340,10 +349,61 @@ dflat.xsv_to_xson=function(data)
 				it[ name ]=line[i]
 			}
 		}
-
 	}
 
-	return ret // not working yer...
+// make sure we have arrays everywhere we need them in the json
+
+	xson.walk(ret,function(v,a){
+		if( typeof v == "object" )
+		{
+			let newpaths={}
+			var root=a.join("")
+//			console.log(root)
+			for(var n of Object.keys(v).sort() ) // force order
+			{
+				if(n)
+				{
+					var path=root+n
+					var info = database.paths[ path ]
+					if(info && info.jpath)
+					{
+						let jpath=""
+						let max=info.jpath.length-2
+//						if( info.jpath[ info.jpath.length-1 ]=="" ) { max=max-1 } // special case for "" narratives
+						for( let pi=0 ; pi < max ; pi++)
+						{
+							jpath=jpath+info.jpath[pi]
+							if( (jpath==root) )
+							{
+								newpaths[ info.jpath[pi+1] ]=path
+								break
+							}
+						}
+					}
+				}
+			}
+			for( let newpath in newpaths )
+			{
+				if(typeof v[newpath] != "object") // do not do twice
+				{
+//					console.log(root + " +++ " +newpath+ " from "+newpaths[newpath] + " ? "+typeof v[newpath])
+					let it={}
+					for(var n of Object.keys(v).sort() ) // force order
+					{
+						if( n.startsWith(newpath) )
+						{
+							it[ n.substring(newpath.length) ] = v[n]
+							delete v[n]
+						}
+					}
+					v[newpath]=[it]
+				}
+			}
+		}
+	})
+
+
+	return ret
 }
 
 
