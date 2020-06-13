@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://d-portal.org/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
+<script> require("savi").start({ embeded:true }); </script>
+</head>
+<body><style>
+*			{box-sizing:border-box; font-family:Arial,Helvetica,sans-serif; word-wrap:break-word;}
+body		{background-color:#47506B; color:#FFF; margin-top:40px;}
+
+
+.activity *, .org *			{box-sizing:border-box; font-family:Arial,Helvetica,sans-serif; word-wrap:break-word;}
+.activity, .org				{background-color:rgba(0,14,32,0.7); border-radius:8px; box-sizing:border-box; color:#fff; margin:0 auto; margin-bottom:40px; padding:40px 40px 1px 40px; position:relative; width:960px;}
+.activity > *, .org > *		{box-sizing:border-box;}
+.activity a					{color:#FFC28A; text-decoration:none;}
+.activity a:link			{color:#FFC28A; text-decoration:none;}
+.activity a:visited			{color:#FFC28A; text-decoration:none;}
+.activity a:hover			{color:#FFDBBB; text-decoration:none;}
+.activity a:active			{color:#FFC28A; text-decoration:none;}
+.org						{margin-top:40px;}
+.org a						{color:#FFC28A; text-decoration:none;}
+.org a:link					{color:#FFC28A; text-decoration:none;}
+.org a:visited				{color:#FFC28A; text-decoration:none;}
+.org a:hover				{color:#FFDBBB; text-decoration:none;}
+.org a:active				{color:#FFC28A; text-decoration:none;}
+
+/*	FLAGS	*/
+.humanitarian	{background-color:#ff890c; color:#000e20; font-size:14px; left:0; padding:10px 40px 7px 40px; position:absolute; text-align:right; text-transform:uppercase; top:-10px;}
+.hum_transaction{background-color:rgba(48,71,103,1); border-radius:4px; color:#CCC; display:inline-block; font-size:12px; margin-left:-5px; margin-top:10px; padding:2px 5px;}
+span.withdrawn	{background-color:#ccc; border-radius:3px; color:#444; font-size:12px; font-style:italic; font-weight:normal; margin-left:5px; padding:2px 5px; text-transform:initial; width:initial;}
+
+/*	VERSION 1 BANNER	 */
+a.banner_v1:link	{background-color:#c40000; border-radius:2px 2px 0 0; color:#fff; display:block; font-size:16px; margin-bottom:20px; padding:20px; text-align:center; text-decoration:none;}
+a.banner_v1:visited	{color:#fff;}
+a.banner_v1:hover	{background-color:#f00;}
+a.banner_v1:active	{color:#fff;}
+
+/*	HEADERS	*/
+.header,
+.header_doc		{border-bottom:1px solid #aaa; color:#ccc; display:block; font-size:13px; margin-bottom:20px; padding-bottom:10px; position:relative; text-transform:uppercase;}
+.header_doc		{border:0; margin:0;}
+.header_section	{background-color:rgba(17,46,105,1); box-sizing:border-box; color:#FFF; font-size:12px; margin:0 0 20px -50px; padding:10px 40px; text-transform:uppercase; width:980px;}
+.bright			{background-color:rgba(38,67,128,1);}
+.brighter		{background-color:transparent; border-bottom:2px solid #47506b; font-size:11px; line-height:20px; margin:auto; margin:5px 0 20px 0; padding:0; width:880px;}
+.brighter span	{background-color:#47506b; display:inline; padding:5px 10px;}
+.sticky			{position:sticky; top:-1px; z-index:2;}
+.nostick		{position:initial;}
+span.block		{display:block;}
+.version		{display:block; font-size:12px; position:absolute; right:0; top:0;}
+.version span	{color:#fff;}
+
+/*	WRAPPERS	*/
+.wrap_title						{padding-bottom:40px;}
+.wrap_reporting_org				{color:#ccc; font-size:18px; line-height:1.35em;}
+.wrap_title	.narrative						{font-size:42px; line-height:1.1em;}
+.wrap_title	.narrative:nth-of-type(n+2)		{font-size:30px; margin-top:5px; line-height:1em;}
+.wrap_title	.narrative:nth-of-type(2)		{margin-top:10px;}
+.wrap_reporting_org div			{display:inline-block; padding-right:10px; vertical-align:top;}
+.wrap_iati_identifier			{background-color:rgba(0,14,32,0.7); color:#FFAB5E; font-size:18px; line-height:1.5em; margin:0 auto; margin:25px 0 0 -40px; padding:20px 40px; width:960px;}
+.wrap_iati_identifier.org_id	{margin-top:10px;}
+.wrap_reporting_org .text,
+.wrap_iati_identifier .text		{color:#ccc; font-size:13px; text-transform:uppercase;}
+.wrap_iati_identifier .text a	{font-size:18px; padding-left:5px;}
+.wrap_name_org					{color:#fff; font-size:18px; padding-bottom:10px;}
+.wrap_description				{margin:40px auto;}
+.wrap_description .text			{margin-bottom:30px;}
+.wrap_description .text .narrative					{font-size:1.0em; line-height:1.5em; unicode-bidi:embed; white-space:pre-line; word-spacing:0.05em;}
+.wrap_description .text .narrative:nth-of-type(n+2)	{display:block; margin-top:15px; color:#ccc;}
+.wrap_description .text .narrative:first-letter		{text-transform:capitalize;}
+.wrap_default					{margin:0 auto; padding:20px 0 0 0;}
+.wrap_default .text				{color:#ccc; display:inline-block; font-size:14px; vertical-align:top; width:50%;}
+.wrap_default .text:first-of-type	{padding-right:20px;}
+.wrap_default .text	span		{color:#fff; font-size:16px; padding-left:10px;}
+.wrap_location .header_section,
+.wrap_budget .header_section	{margin-top:0;}
+.wrap_document					{margin:30px 0;}
+.wrap_budget_not_provided		{font-size:14px; padding-bottom:20px;}
+.wrap_budget_not_provided span	{font-weight:bold; text-transform:lowercase;}
+.reporting_org span				{font-size:12px; margin-left:5px; vertical-align:middle;}
+.reporting_org .narrative:nth-of-type(2)	{font-style:italic;}
+
+/*	GRAPHS	*/
+.wrap_recipient_country,
+.wrap_sector				{background-color:#fff; color:#444; margin:-20px 0 0 -40px; padding:0 0 40px 0; width:960px;}
+.wrap_recipient_country		{padding:40px 0;}
+.sector,
+.sector_list_wrap					{color:#444; font-size:14px; line-height:18px; padding:0 40px;}
+.sector_list_wrap span				{display:inline-block; padding-right:40px; vertical-align:top; width:30%;}
+.sector_list_wrap span.withdrawn	{padding-right:5px; width:initial;}
+.sector_list_wrap span.sector_list_description	{font-size:13px; line-height:15px; padding:0; width:70%;}
+.sector_list		{border-bottom:1px solid #ddd; margin-bottom:10px; padding-bottom:10px;}
+.sector_vocab		{border-bottom:1px solid #aaa; padding-bottom:20px;}
+.sector_list:last-of-type,
+.sector_vocab:last-of-type	{border:0; padding-bottom:0;}
+.wrap_code,
+.wrap_bar			{display:inline-block; vertical-align:middle; width:400px;}
+.wrap_code			{border-right:1px solid #999; padding:10px 20px 10px 0; text-align:right; width:480px;}
+.wrap_bar			{height:24px;}
+.wrap_code span		{display:inline-block; vertical-align:middle;}
+.sector_code_text	{max-width:360px;}
+.sector_code		{background-color:rgba(192,213,242,0.7); border-radius:4px; color:#222; font-size:11px; margin-left:10px; padding:2px 5px; white-space:nowrap;}
+.sector_code:nth-of-type(3)	{margin-left:5px;}
+.sector_bar,
+.sector_value		{display:inline-block; vertical-align:middle;}
+.sector_bar			{background-color:#05569d; height:24px; max-width:335px; position:relative;}
+.sector_bar:before	{background-color:rgba(17,46,105,0.1); content:""; height:24px; left:0; position:absolute; top:0; width:335px;}
+.sector_overlay		{height:24px; left:0; position:absolute; top:0;}
+.sector_value		{color:#444; font-size:14px; margin-left:20px; max-width:36px; text-align:right; white-space:nowrap;}
+.sector_value:after	{content:"%";}
+.wrap_sector .header			{border:0; color:#444; font-weight:bold; margin:0 auto; padding:30px 0 5px 0; text-align:center; width:880px;}
+.wrap_sector .header.glossary	{border-bottom:1px solid #aaa; margin-bottom:10px; text-align:left;}
+.wrap_sector .subheader			{color:#555; font-size:12px; line-height:16px; margin:0 auto; max-width:600px; padding-bottom:20px; text-align:center; word-break:keep-all;}
+.wrap_sector .subheader a			{color:#093E6F;}
+.wrap_sector .subheader a:link		{color:#093E6F;}
+.wrap_sector .subheader a:visited	{color:#093E6F;}
+.wrap_sector .subheader a:hover		{color:#0373C9;}
+.wrap_sector .subheader a:active	{color:#093E6F;}
+.wrap_capital_spend	{padding:20px 0;}
+.wrap_capital_spend .sector_code_text	{max-width:initial;}
+
+/*	DATA SOURCES	*/
+.data_source a			{background-color:#24405d99; border-radius:4px; color:#fff; display:inline-block; font-size:16px; font-variant:all-small-caps; margin:10px 2% 5px 0; padding:5px 0; text-align:center; vertical-align:baseline; width:12%;}
+.data_source a:link		{color:#fff;}
+.data_source a:visited	{color:#fff;}
+.data_source a:hover	{color:#FFC28A;}
+.data_source a:active	{color:#fff;}
+.data_source a span		{color:#ccc;}
+.data_source a.dlogs	{width:20%;}
+.data_source a.slug		{width:28%;}
+.data_source a.csv		{margin-right:0; width:20%;}
+
+/*	COUNT	*/
+span.count				{color:#ccc; font-size:12px; padding-left:10px;}
+.wrap_sector span.count	{color:#444; font-weight:normal; padding-left:5px;}
+.wrap_transaction,
+.wrap_result			{position:relative;}
+.wrap_length			{color:#ddd; font-size:10px; max-width:700px; position:absolute; right:-20px; text-align:right; top:10px;}
+.wrap_length span.count	{font-size:10px; padding:0 0 0 5px;}
+.length					{display:inline-block; padding-left:20px;}
+.wrap_result .wrap_length	{right:20px;}
+.wrap_result .length	{min-width:100px;}
+
+
+/*	DOCUMENTS	*/
+a.doc_link:before		{border:1px solid #CCC; color:#CCC; content:"☰"; display:inline-block; margin-right:-24px; padding:2px; vertical-align:top;}
+a.doc_link				{background-color:rgba(50,58,64,0.6); border:1px solid #656a6f; border-bottom:0; color:#FFF; display:block; font-size:10px; line-height:1.25em; padding:10px 15px; position:relative;}
+.wrap_document a		{color:#fff;}
+.wrap_document a:link	{color:#fff;}
+.wrap_document a:visited{color:#fff;}
+.wrap_document a:hover	{background-color:rgba(77,88,97,0.6);}
+.wrap_document a:active	{color:#fff;}
+a.doc_link:last-of-type	{border-bottom:1px solid #656a6f;}
+
+.wrap_doc_link	{display:inline-block; padding-left:34px; vertical-align:top;}
+span.doc_title,
+span.doc_format	{display:inline-block; vertical-align:top;}
+span.doc_title	{font-size:14px; line-height:1.25em; max-width:600px;}
+span.doc_title:nth-of-type(n+2)	{font-style:italic;}
+span.doc_desc	{color:#ccc; display:block; font-size:12px; line-height:14px; padding:5px 0;}
+span.doc_format	{background-color:rgba(22,24,37,0.6); border-radius:4px; color:#aaa; font-size:10px; font-weight:bold; margin-left:10px; padding:2px 5px;}
+span.doc_lang,
+span.doc_country{color:#CCC; display:inline-block; font-size:13px; line-height:1.5em; margin:5px 3px 0 0; text-transform:uppercase; vertical-align:top;}
+span.doc_country{font-style:italic; text-transform:initial; line-height:1em; vertical-align:bottom;}
+span.rep_type	{color:#CCC; display:inline-block; font-size:12px; margin-left:5px; vertical-align:middle;}
+span.doc_cat,
+span.doc_rec,
+span.doc_date	{background-color:rgba(72,79,86,0.6); border-radius:4px; color:#CCC; display:inline-block; font-size:13px; line-height:1.5em; margin:5px 5px 0 0; padding:0 4px; vertical-align:top;}
+span.doc_date	{background-color:rgba(48,71,103,1);}
+span.doc_rec	{background-color:rgba(22,24,37,0.6);}
+
+/*	CONTACT INFO	*/
+.wrap_contact_info					{background-color:rgba(17,46,105,0.9); font-size:16px; line-height:1.5em; margin:0 0 20px -50px; padding:20px 40px 0 40px; width:980px;}
+.wrap_contact_info:last-of-type 	{padding-bottom:0;}
+.wrap_contact_info:nth-of-type(1) 	{margin-left:-10px; padding-top:30px; width:900px;}
+.wrap_contact_info .contact_info	{border-bottom:1px dotted #7481aa; margin-bottom:15px; padding-bottom:15px;}
+.wrap_contact_info .contact_info:last-of-type	{border:0; margin-bottom:0; padding-bottom:20px;}
+.wrap_contact_org					{font-weight:bold;}
+.wrap_contact_name					{font-size:20px; padding-top:10px;}
+.wrap_contact_title					{font-style:italic;}
+.wrap_contact_tel					{font-size:18px; padding:5px 0;}
+.wrap_contact_type					{color:#ccc; font-size:12px; padding-bottom:5px; text-transform:uppercase;}
+.wrap_contact_add					{padding-top:5px;}
+
+/*	DATES	*/
+.wrap_activity_date					{height:82px; margin-left:-50px; position:relative; width:980px;}
+.wrap_activity_date .planned_start,
+.wrap_activity_date .actual_start,
+.wrap_activity_date .planned_end,
+.wrap_activity_date .actual_end		{color:#151515; display:inline-block; font-size:20px; height:40px; line-height:18px; min-height:40px; padding:10px 40px;}
+.wrap_activity_date div span		{color:#552d03; display:inline-block; font-size:13px; font-weight:bold; line-height:18px; min-width:165px; padding-right:10px; text-transform:uppercase; vertical-align:bottom;}
+.wrap_activity_date .planned_start	{background-color:#f48a1a; left:0; margin:1px 1px 0 0; position:absolute; top:0; width:489px;}
+.wrap_activity_date .planned_end	{background-color:#f48a1a; margin:1px 0 0 0; position:absolute; right:0; text-align:right; top:0; width:490px;}
+.wrap_activity_date .actual_start	{background-color:#ffa443; bottom:0; left:0; margin:1px 1px 0 0; position:absolute; width:489px;}
+.wrap_activity_date .actual_end		{background-color:#ffa443; bottom:0; margin:1px 0 0 0; position:absolute; right:0; text-align:right; width:490px;}
+.activity_date_bar					{background-color:#ccc; height:10px; margin-left:-40px; max-height:10px; position:relative; width:960px;}
+.activity_date_overlay				{background-color:#3d72dd; height:10px; max-height:10px; position:relative;}
+.activity_date_overlay:after		{background-color:#fff; border:3px solid #3d72dd; border-radius:15px; content:""; height:10px; position:absolute; right:-5px; top:-4px; width:10px;}
+
+/*	ACTIVITY STATUS	*/
+.wrap_activity_status		{background-color:#fff; color:#444; font-size:16px; margin-left:-40px; padding:20px 0; text-align:center; width:960px;}
+.wrap_activity_status span	{font-size:14px; font-weight:bold; text-transform:uppercase;}
+.status_desc				{font-size:14px; margin:0 auto; padding-top:5px; width:500px;}
+
+/*	TABLES	*/
+td .currency	{color:#ccc; font-size:10px; line-height:12px;}
+.value			{text-align:right;}
+.wrap_tab		{border-bottom:1px solid #666; margin-bottom:5px; padding-bottom:5px;}
+.wrap_tab:last-of-type	{border:0;}
+.tab_text,
+.tab_currency	{box-sizing:border-box; display:inline-block; vertical-align:top; width:60%;}
+.tab_currency	{color:#ccc; font-size:12px; padding-left:30px; text-align:right; width:40%;}
+.tab_currency div {font-size:10px;}
+.tab_text		{word-break:keep-all;}
+
+/*	PROVIDER, RECEIVER ORG	*/
+.type			{background-color:rgba(72,79,86,0.6); border-radius:4px; color:#CCC; font-size:11px; margin:0 auto; margin-left:-5px; padding:2px 4px;}
+.type.secondary	{background-color:#304767; color:#ddd;}
+.ref			{color:#CCC; font-family:monospace; font-size:10px; line-height:initial; margin:0 auto;}
+.ref span		{color:#fff;}
+.ref span.withdrawn					{background-color:#545e73; color:#ddd; font-size:10px;}
+.org-type		{margin-top:5px;}
+td.receiver div,
+td.provider div,
+td.part_org_ref div,
+td.loc_name div						{line-height:10px; padding-bottom:2px;}
+td.receiver .receiver_text,
+td.provider .provider_text			{font-size:14px; line-height:18px; padding-bottom:7px;}
+td.part_org_ref .part_org_text,
+td.loc_name .loc_text				{font-size:13px; line-height:15px; padding-bottom:5px;}
+td.loc_name .loc_text				{font-size:14px;}
+td.description div 					{border-bottom:1px dotted #47506b; line-height:10px; margin-bottom:3px; max-width:200px; padding-bottom:2px;}
+td.description div:last-of-type		{border:0; margin:0; padding:0;}
+td.description .description_text	{border:0; font-size:14px; line-height:18px; max-width:100%; padding-bottom:7px;}
+td .narrative:nth-of-type(n+2)		{padding-top:5px; color:#ccc; font-style:italic;}
+
+table.budget			{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
+table.budget th			{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right 5px center; color:#CCC; font-size:13px; font-weight:normal; line-height:1.35em; margin-bottom:15px; padding-bottom:10px;}
+.org table.budget th.status,
+table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAAC3RSTlMArxdHEAqfnTkpJkV64fYAAAAtSURBVAjXY8AKOGAMQwMIzSUoCWG4C4o5gBlBSkoBcPVwEbgauC6EOQiTMQEAKKIEY4aIsg8AAAAASUVORK5CYII=) no-repeat right -5px center, #1b232de8;}
+
+table.budget th:hover	{cursor:pointer;}
+table.budget td			{border-bottom:1px solid #4d5264; color:#FFF; font-size:14px; line-height:initial; padding:10px 0; vertical-align:top;}
+table.budget td.value	{font-size:15px; padding-right:20px; text-align:right;}
+table.budget td.date	{line-height:18px;}
+.org table.budget td.value			{font-size:14px;}
+
+table.budget tr:nth-of-type(1) td	{padding-top:15px;}
+table.budget th			{background-color:#1b232de8; padding:10px 0; position:sticky; top:30px; z-index:1;}
+table.budget th:after	{border-bottom:1px solid #aaa; bottom:-1px; content:''; left:0; position:absolute; width:100%;}
+
+/*	IATI ACTIVITY BUDGET AND PLANNED DISBURSEMENT TABLE	*/
+table.budget th.date,
+table.budget td.date				{padding-right:20px; width:100px;}
+table.budget th.tab_type,
+table.budget td.tab_type			{padding-right:30px; width:200px;}
+table.budget th.status,
+table.budget td.status				{width:170px;}
+table.budget th.value,
+table.budget td.value				{padding-right:20px; width:140px;}
+table.budget tr:last-of-type td		{border:0; padding-bottom:30px;}	/*	Remove border-bottom from last row of tables	*/
+
+.wrap_planned_disbursement table.budget th.provider,
+.wrap_planned_disbursement table.budget td.provider	{padding-right:30px; width:200px;}
+.wrap_planned_disbursement table.budget th.receiver,
+.wrap_planned_disbursement table.budget td.receiver	{width:170px;}
+.wrap_planned_disbursement table.budget th.tab_type,
+.wrap_planned_disbursement table.budget td.tab_type	{width:150px;}
+
+/*	IATI ORG DATE AND STATUS COLUMN	*/
+.wrap_total_budget table.budget th.date,
+.wrap_total_budget table.budget td.date,
+.wrap_total_expenditure table.budget th.date,
+.wrap_total_expenditure table.budget td.date,
+.wrap_recipient_budget table.budget th.date,
+.wrap_recipient_budget table.budget td.date,
+.wrap_total_budget table.budget th.status,
+.wrap_total_budget table.budget td.status,
+.wrap_total_expenditure table.budget th.status,
+.wrap_total_expenditure table.budget td.status,
+.wrap_recipient_budget table.budget th.status,
+.wrap_recipient_budget table.budget td.status		{padding-right:0; width:100px;}
+
+.wrap_total_budget table.budget th.status,
+.wrap_total_budget table.budget td.status,
+.wrap_total_expenditure table.budget th.status,
+.wrap_total_expenditure table.budget td.status,
+.wrap_recipient_budget table.budget th.status,
+.wrap_recipient_budget table.budget td.status		{text-align:center;}
+
+/*	IATI ORG RECIPIENT COLUMN	*/
+.wrap_recipient_budget table.budget th.recipient,
+.wrap_recipient_budget table.budget td.recipient	{padding-right:20px; width:180px;}
+
+/*	IATI ORG BUDGET-LINE COLUMN	*/
+.wrap_total_budget table.budget th.line,
+.wrap_total_budget table.budget td.line				{padding-right:0; width:460px;}
+
+/*	IATI ORG RECIPIENT-BUDGET-LINE COLUMN	*/
+.wrap_recipient_budget table.budget th.line,
+.wrap_recipient_budget table.budget td.line			{padding-right:0; width:260px;}
+
+/*	IATI ORG EXPENSE-LINE COLUMN	*/
+.wrap_total_expenditure table.budget th.line,
+.wrap_total_expenditure table.budget td.line		{padding-right:0; width:460px;}
+
+/*	IATI ORG VALUE HEADER COLUMN	*/
+.wrap_total_expenditure table.budget th.value		{padding-right:20px; width:200px;}
+.wrap_total_budget table.budget th.value,
+.wrap_recipient_budget table.budget th.value		{padding-right:20px; width:100px;}
+
+/*	IATI ORG VALUE COLUMN	*/
+.wrap_total_expenditure table.budget td.value		{padding-left:20px; padding-right:0; width:200px;}
+.wrap_total_budget table.budget td.value,
+.wrap_recipient_budget table.budget td.value		{padding-left:20px; padding-right:0; width:120px;}
+
+/*	IATI ACTIVITY PARTICIPATING ORG TABLE	*/
+table.budget.part_org th.part_org_name,
+table.budget.part_org td.part_org_name		{padding-right:40px;}
+table.budget.part_org th.part_org_ref,
+table.budget.part_org td.part_org_ref		{padding-right:20px; width:260px;}
+table.budget.part_org th.part_org_role,
+table.budget.part_org td.part_org_role		{padding-right:20px; width:120px;}
+table.budget.part_org th.part_org_type,
+table.budget.part_org td.part_org_type		{width:140px;}
+table.budget.part_org td.part_org_type		{font-size:12px;}
+
+/*	IATI ACTIVITY HUMANITARIAN SCOPE TABLE	*/
+.wrap_humanitarian_scope th.hum_title,
+.wrap_humanitarian_scope td.hum_title		{padding-right:40px;}
+.wrap_humanitarian_scope th.hum_code,
+.wrap_humanitarian_scope td.hum_code		{padding-right:20px; width:160px;}
+.wrap_humanitarian_scope th.hum_vocab,
+.wrap_humanitarian_scope td.hum_vocab		{padding-right:20px; width:130px;}
+.wrap_humanitarian_scope th.hum_type,
+.wrap_humanitarian_scope td.hum_type		{width:130px;}
+.wrap_humanitarian_scope td.hum_code,
+.wrap_humanitarian_scope td.hum_vocab,
+.wrap_humanitarian_scope td.hum_type		{font-size:12px;}
+
+/*	IATI ACTIVITY LOCATION TABLE	*/
+table.budget.location th.loc_name,
+table.budget.location td.loc_name			{width:220px;}
+table.budget.location th.loc_des,
+table.budget.location td.loc_des			{padding-right:20px; width:230px;}
+table.budget.location td.loc_des			{font-size:12px;}
+table.budget.location th.loc_pos,
+table.budget.location td.loc_pos			{padding-right:40px; width:110px;}
+table.budget.location td.loc_pos			{font-family:monospace; font-size:12px;}
+table.budget.location td.loc_pos a span		{display:block;}
+table.budget.location th.loc_class,
+table.budget.location td.loc_class,
+table.budget.location th.loc_reach,
+table.budget.location td.loc_reach,
+table.budget.location th.loc_exact,
+table.budget.location td.loc_exact			{padding-right:0; width:100px;}
+table.budget.location td.loc_class,
+table.budget.location td.loc_reach,
+table.budget.location td.loc_exact			{font-size:12px; line-height:14px;}
+table.budget.location td.loc_des div		{padding-top:5px;}
+table.budget.location td.loc_des .loc_desc:first-letter	{text-transform:capitalize;}
+table.budget.location td.loc_des .loc_desc	{padding-top:0;}
+table.budget.location td.loc_des .loc_act	{color:#ccc;}
+table.budget.location td.loc_des .type		{margin-left:0;}
+table.budget.location td.loc_des .ref span	{text-transform:capitalize;}
+
+/*	IATI ACTIVITY TRANSACTION TABLES	*/
+table.budget.act_trans th.description,
+table.budget.act_trans td.description		{padding-right:30px; width:260px;}
+table.budget.act_trans td.description .type	{color:#ccc; font-family:monospace; font-size:9px; margin:0;}
+table.budget.act_trans th.provider,
+table.budget.act_trans td.provider			{padding-right:30px; width:200px;}
+table.budget.act_trans th.receiver,
+table.budget.act_trans td.receiver			{padding-right:0; width:170px;}
+table.budget.act_trans th.value,
+table.budget.act_trans td.value				{padding-right:20px; width:140px;}
+table.budget.act_trans th.date,
+table.budget.act_trans td.date				{padding-right:0; width:110px;}
+
+/*	IATI ACTIVITY RESULT TABLE	*/
+.wrap_result_table							{padding-bottom:20px;}
+.wrap_result table.budget tr:last-of-type td{padding-bottom:0;}		/*	For Baseline year translateY to work	*/
+.wrap_result table.budget th.result_indi,
+.wrap_result table.budget td.result_indi	{padding-right:40px; width:320px;}
+.wrap_result th.result_percent,
+.wrap_result td.result_percent				{width:85px;}
+.wrap_result td.result_base					{position:relative;}
+.wrap_result td.result_base,
+.wrap_result td.result_target,
+.wrap_result td.result_actual,
+.wrap_result td.result_percent				{font-size:14px;}
+.wrap_result table.budget td.result_base,
+.wrap_result table.budget td.result_target,
+.wrap_result table.budget td.result_actual	{padding-right:10px;}
+.wrap_result th.result_period,
+.wrap_result td.result_period				{width:130px;}
+.wrap_result td.result_period				{font-size:11px; line-height:20px; text-align:center;}
+.wrap_result .header_doc					{display:none;}
+.wrap_result_text							{padding:5px 0 20px 0;}
+.result_main_title							{font-size:16px; line-height:20px;}
+.result_title								{font-size:15px; line-height:18px;}
+.result_main_title:first-letter,
+.result_indi_desc:first-letter,
+.result_title:first-letter					{text-transform:capitalize;}
+.wrap_result_text .wrap_document,
+.wrap_result_indicator .wrap_document		{margin:15px 0 0 0;}
+.wrap_result a.doc_link						{font-size:7px; line-height:1em; padding:5px;}
+.wrap_result span.wrap_doc_link				{padding-left:28px;}
+.wrap_result span.doc_title					{font-size:12px;}
+.wrap_result span.doc_format				{padding:5px;}
+.wrap_result span.doc_cat,
+.wrap_result span.doc_lang,
+.wrap_result span.doc_rec,
+.wrap_result span.doc_date					{font-size:11px; margin:2px 2px 0 0;}
+.wrap_result_text .wrap_result_indi_ref		{padding:0;}
+.result_indicator							{display:inline-block; vertical-align:top; width:25%;}
+.result_indicator.left_indi					{padding-right:25px; width:75%;}
+.wrap_result_indicator						{margin-bottom:10px;}
+.result_indicator_title						{border-bottom:1px solid #aaa; color:#CCC; font-size:14px; font-weight:normal; line-height:1.35em; margin-bottom:10px; padding-bottom:10px;}
+.wrap_result_indi_ref						{margin-top:-10px; padding-bottom:15px;}
+.wrap_result_indi_ref:last-of-type			{padding:0;}
+.result_indi_head							{border-bottom:1px solid #4d5264; color:#ccc; font-size:10px; padding-bottom:3px;}
+.result_indi_desc							{color:#ddd; font-size:14px; line-height:18px; padding-top:5px;}
+.result_indi_ref							{border-bottom:1px dotted #666; font-size:11px; line-height:11px; padding:5px 0 0 0;}
+.result_indi_ref div						{padding-bottom:3px;}
+.result_indi_ref:last-of-type				{border:0; padding-bottom:0;}
+.result_indi_ref .ref						{display:inline-block; font-size:9px; min-width:35px; vertical-align:top;}
+.result_indi_ref .type						{font-family:monospace; font-size:9px; margin:0;}
+.result_period_time							{background-color:#253860; line-height:17px; margin-bottom:4px; max-width:155px; min-height:17px; text-align:center;}
+.result_indicator .wrap_document			{margin:0 0 10px 0;}
+.wrap_result .sector_list_wrap				{color:#ccc; padding:0 0 10px 0;}
+.wrap_result .header.glossary				{margin-bottom:10px;}
+.wrap_result table.budget td				{line-height:14px; padding:5px 0; vertical-align:middle;}
+.wrap_result table.budget tr.row_measure td	{color:#ccc; font-size:11px; padding:6px 10px 4px 0;}
+.result_facet								{color:#ccc; font-size:11px; line-height:16px;}
+.result_facet_name							{color:#fff; font-size:13px;}
+.result_facet_value							{color:#fff; font-size:14px; font-weight:bold;}
+.result_empty								{color:#ccc; font-size:11px;}
+.result_percent_wrap,
+.result_percent_wrap .result_empty			{display:inline;}
+.result_percent_wrap span					{display:inline-block; vertical-align:middle;}
+.result_percent_dot							{background-color:rgba(21,33,54,100); border-radius:20px; height:10px; margin-left:10px; width:10px;}
+.result_percent_value						{min-width:40px;}
+.result_date_bar							{background-color:#000; border-bottom:1px solid #666; border-right:1px solid #666; height:5px; max-height:5px; position:relative;}
+.result_date_overlay						{background-color:#9d8c55; height:5px; max-height:5px;}
+.result_date								{left:0; position:absolute; top:0; width:150px;}
+.result_base_year							{color:#ddd; font-size:11px; font-style:italic; left:-30px; max-height:25px; position:absolute; top:50%; -webkit-transform:translateY(-50%) rotate(-90deg); transform:translateY(-50%) rotate(-90deg);}
+
+/*	IATI ACTIVITY POLICY MARKER TABLE	*/
+.wrap_policy_marker table.budget th.policy_code,
+.wrap_policy_marker table.budget td.policy_code		{padding-right:40px; width:300px;}
+.wrap_policy_marker table.budget td.policy_code	.policy_num	{font-size:11px;}
+.wrap_policy_marker table.budget td.policy_code a	{display:block; font-size:12px; line-height:14px; overflow-wrap:initial; padding-top:5px;}
+.wrap_policy_marker table.budget th.policy_sig,
+.wrap_policy_marker table.budget td.policy_sig		{padding-right:20px; text-transform:capitalize; width:160px;}
+.wrap_policy_marker table.budget th.policy_vocab,
+.wrap_policy_marker table.budget td.policy_vocab	{padding-right:20px; width:160px;}
+.wrap_policy_marker table.budget th.policy_desc,
+.wrap_policy_marker table.budget td.policy_desc		{width:260px;}
+.wrap_policy_marker table.budget td.policy_desc		{font-size:12px; line-height:14px;}
+
+/*	IATI ACTIVITY LEGACY DATA TABLE	*/
+.wrap_legacy_data th.legacy_name,
+.wrap_legacy_data td.legacy_name		{padding-right:40px; width:340px;}
+.wrap_legacy_data th.legacy_iati,
+.wrap_legacy_data td.legacy_iati		{width:280px;}
+
+/*	IATI ACTIVITY CONDITIONS TABLE	*/
+.wrap_conditions th.condition_narr,
+.wrap_conditions td.condition_narr		{padding-right:40px;}
+.wrap_conditions th.condition_type,
+.wrap_conditions td.condition_type		{padding-right:20px; width:160px;}
+.wrap_conditions th.condition_desc,
+.wrap_conditions td.condition_desc		{width:280px;}
+.wrap_conditions table.budget td.condition_desc	{font-size:12px; line-height:16px;}
+
+/*	IATI ACTIVITY TAG TABLE	*/
+.wrap_tag table.budget th.tag_desc,
+.wrap_tag table.budget td.tag_desc		{padding-right:40px;}
+.wrap_tag table.budget th.tag_code,
+.wrap_tag table.budget td.tag_code		{padding-right:20px; width:160px;}
+.wrap_tag table.budget th.tag_vocab,
+.wrap_tag table.budget td.tag_vocab		{width:260px;}
+
+/*	IATI ACTIVITY RELATED ACTIVITY TABLE	*/
+.wrap_related_activity th.related_ref,
+.wrap_related_activity td.related_ref	{padding:5px 40px 5px 0;}
+.wrap_related_activity th.related_type,
+.wrap_related_activity td.related_type	{padding:5px 0; width:160px;}
+.wrap_related_activity th.related_desc,
+.wrap_related_activity td.related_desc	{padding:5px 0; width:280px;}
+.wrap_related_activity table.budget td.related_desc	{font-size:12px; line-height:14px;}
+
+/*	IATI ACTIVITY OTHER IDENTIFIER TABLE	*/
+.wrap_other_identifier td.other_desc,
+.wrap_other_identifier td.other_type	{font-size:12px; line-height:14px;}
+.wrap_other_identifier th.other_type,
+.wrap_other_identifier td.other_type	{padding-right:20px; width:160px;}
+.wrap_other_identifier th.other_desc,
+.wrap_other_identifier td.other_desc	{width:280px;}
+.wrap_other_identifier td.other_type div{font-size:11px; padding-top:5px;}
+.wrap_other_identifier th.other_ref,
+.wrap_other_identifier td.other_ref,
+.wrap_other_identifier th.owner_ref,
+.wrap_other_identifier td.owner_ref		{padding-right:20px;}
+.wrap_other_identifier td.owner_ref	div	{font-size:12px; line-height:14px; padding-top:5px;}
+
+/*	IATI ACTIVITY CRS ADD TABLE	*/
+.wrap_crs_add th.crs_code,
+.wrap_crs_add td.crs_code		{padding-right:20px;}
+.wrap_crs_add th.crs_sig,
+.wrap_crs_add td.crs_sig		{padding-right:20px; width:160px;}
+.wrap_crs_add th.crs_desc,
+.wrap_crs_add td.crs_desc		{width:280px;}
+.wrap_crs_add th.crs_loan_year,
+.wrap_crs_add td.crs_loan_year	{width:80px;}
+.wrap_crs_add td.crs_loan span	{color:#ccc; font-size:11px;}
+
+/*	Thinner tables rows for better legibility	*/
+.wrap_participating_org table.budget td,
+.wrap_location table.budget td	{padding:5px 0;}
+
+
+/*	DEFAULTS MODALITIES	*/
+table.modals					{border-collapse:collapse; table-layout:fixed; width:100%;}
+table.modals td,
+table.modals th 				{font-size:12px; line-height:14px; padding:5px 10px 5px 5px; text-align:left; vertical-align:top; width:100px;}
+table.modals th					{border-bottom:1px solid #4d5264; color:#ccc; font-size:10px; font-weight:normal; text-transform:uppercase;}
+table.modals td.mod_1,
+table.modals th.mod_1			{width:120px;}
+table.modals td.mod_2,
+table.modals th.mod_2,
+table.modals td.mod_3,
+table.modals th.mod_3,
+table.modals td.mod_4,
+table.modals th.mod_4			{width:160px;}
+table.modals th.mod_7,
+table.modals td.mod_7			{padding-right:0; width:80px;}
+table.modals td div				{padding-bottom:5px;}
+table.modals td span			{font-family:monospace; font-size:10px; margin:0;}
+table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:inline-block; font-size:10px; margin-left:0; margin-top:5px;}
+
+/*	Chartist SVG	 */
+.showchart,
+.showcharts		{height:240px; margin:auto; margin:0 0 30px -35px; padding:10px 0 0 0; width:920px;}
+.ct-chart-line	{overflow:visible;}
+
+/*	Chart Legends	*/
+.wrap_legend	{margin:0 auto; text-align:center;}
+.legend			{color:#eee; font-size:10px; padding-top:10px; text-align:center; text-transform:uppercase;}
+.legend span	{border-radius:4px; display:inline-block; height:8px; margin-right:5px; vertical-align:baseline; width:8px;}
+.wrap_legend .legend	{display:inline-block; margin-left:10px; margin-right:10px; padding-top:5px; vertical-align:top;}
+
+.legend.chart_1	span	{background-color:#0099ff;}		/*	Incoming Funds	*/
+.legend.chart_2	span	{background-color:#ff8176;}		/*	Outgoing Commitment	*/
+.legend.chart_3	span	{background-color:#aeffae;}		/*	Disbursement	*/
+.legend.chart_4	span	{background-color:#fed00f;}		/*	Expenditure	*/
+.legend.chart_5	span	{background-color:#dea3ff;}		/*	Interest Payment	*/
+.legend.chart_6	span	{background-color:#c446e1;}		/*	Loan Repayment	*/
+.legend.chart_7	span	{background-color:#65e17a;}		/*	Reimbursement	*/
+.legend.chart_8	span	{background-color:#c59e8c;}		/*	Purchase of Equity	*/
+.legend.chart_9	span	{background-color:#8f496a;}		/*	Sale of Equity	*/
+.legend.chart_10 span	{background-color:#ff6cec;}		/*	Credit Guarantee	*/
+.legend.chart_11 span	{background-color:#cf291c;}		/*	Incoming Commitment	*/
+.legend.chart_12 span	{background-color:#82e1ff;}		/*	Outgoing Pledge	*/
+.legend.chart_13 span	{background-color:#0062a3;}		/*	Incoming Pledge	*/
+.legend.chart_14 span	{background-color:#00a301;}		/*	Planned Disbursement	*/
+.legend.chart_15 span	{background-color:#666;}		/*	Budget	*/
+
+/*	CHART OPTIONS	*/
+.ct-label	{color:#fff; fill:#fff; font-size:11px; line-height:12px;}
+.ct-grid 	{stroke:rgba(255,255,255,0.5); stroke-dasharray:2px; stroke-width:1px;}
+.ct-grid-background	{fill:none;}
+.ct-point	{stroke-linecap:round; stroke-width:8px;}
+.ct-line	{fill:none; stroke-width:2px;}
+.ct-area	{fill-opacity:0.5; stroke:none;}
+.ct-bar		{fill:none; stroke-width:10px;}
+.ct-slice-donut {fill:none; stroke-width:60px;}
+
+.ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {stroke:#d70206;}
+.ct-series-a .ct-slice-pie, .ct-series-a .ct-slice-donut-solid, .ct-series-a .ct-area {fill:#d70206;}
+.ct-series-b .ct-point, .ct-series-b .ct-line, .ct-series-b .ct-bar, .ct-series-b .ct-slice-donut {stroke:#f05b4f;}
+.ct-series-b .ct-slice-pie, .ct-series-b .ct-slice-donut-solid, .ct-series-b .ct-area {fill:#f05b4f;}
+.ct-series-c .ct-point, .ct-series-c .ct-line, .ct-series-c .ct-bar, .ct-series-c .ct-slice-donut {stroke:#f4c63d;}
+.ct-series-c .ct-slice-pie, .ct-series-c .ct-slice-donut-solid, .ct-series-c .ct-area {fill:#f4c63d;}
+.ct-series-d .ct-point, .ct-series-d .ct-line, .ct-series-d .ct-bar, .ct-series-d .ct-slice-donut {stroke:#d17905;}
+.ct-series-d .ct-slice-pie, .ct-series-d .ct-slice-donut-solid, .ct-series-d .ct-area {fill:#d17905;}
+.ct-series-e .ct-point, .ct-series-e .ct-line, .ct-series-e .ct-bar, .ct-series-e .ct-slice-donut {stroke:#453d3f;}
+.ct-series-e .ct-slice-pie, .ct-series-e .ct-slice-donut-solid, .ct-series-e .ct-area {fill:#453d3f;}
+.ct-series-f .ct-point, .ct-series-f .ct-line, .ct-series-f .ct-bar, .ct-series-f .ct-slice-donut {stroke:#59922b;}
+.ct-series-f .ct-slice-pie, .ct-series-f .ct-slice-donut-solid, .ct-series-f .ct-area {fill:#59922b;}
+.ct-series-g .ct-point, .ct-series-g .ct-line, .ct-series-g .ct-bar, .ct-series-g .ct-slice-donut {stroke:#0544d3;}
+.ct-series-g .ct-slice-pie, .ct-series-g .ct-slice-donut-solid, .ct-series-g .ct-area {fill:#0544d3;}
+.ct-series-h .ct-point, .ct-series-h .ct-line, .ct-series-h .ct-bar, .ct-series-h .ct-slice-donut {stroke:#6b0392;}
+.ct-series-h .ct-slice-pie, .ct-series-h .ct-slice-donut-solid, .ct-series-h .ct-area {fill:#6b0392;}
+.ct-series-i .ct-point, .ct-series-i .ct-line, .ct-series-i .ct-bar, .ct-series-i .ct-slice-donut {stroke:#f05b4f;}
+.ct-series-i .ct-slice-pie, .ct-series-i .ct-slice-donut-solid, .ct-series-i .ct-area {fill:#f05b4f;}
+.ct-series-j .ct-point, .ct-series-j .ct-line, .ct-series-j .ct-bar, .ct-series-j .ct-slice-donut {stroke:#dda458;}
+.ct-series-j .ct-slice-pie, .ct-series-j .ct-slice-donut-solid, .ct-series-j .ct-area {fill:#dda458;}
+.ct-series-k .ct-point, .ct-series-k .ct-line, .ct-series-k .ct-bar, .ct-series-k .ct-slice-donut {stroke:#eacf7d;}
+.ct-series-k .ct-slice-pie, .ct-series-k .ct-slice-donut-solid, .ct-series-k .ct-area {fill:#eacf7d;}
+.ct-series-l .ct-point, .ct-series-l .ct-line, .ct-series-l .ct-bar, .ct-series-l .ct-slice-donut {stroke:#86797d;}
+.ct-series-l .ct-slice-pie, .ct-series-l .ct-slice-donut-solid, .ct-series-l .ct-area {fill:#86797d;}
+.ct-series-m .ct-point, .ct-series-m .ct-line, .ct-series-m .ct-bar, .ct-series-m .ct-slice-donut {stroke:#b2c326;}
+.ct-series-m .ct-slice-pie, .ct-series-m .ct-slice-donut-solid, .ct-series-m .ct-area {fill:#b2c326;}
+.ct-series-n .ct-point, .ct-series-n .ct-line, .ct-series-n .ct-bar, .ct-series-n .ct-slice-donut {stroke:#6188e2;}
+.ct-series-n .ct-slice-pie, .ct-series-n .ct-slice-donut-solid, .ct-series-n .ct-area {fill:#6188e2;}
+.ct-series-o .ct-point, .ct-series-o .ct-line, .ct-series-o .ct-bar, .ct-series-o .ct-slice-donut {stroke:#a748ca;}
+.ct-series-o .ct-slice-pie, .ct-series-o .ct-slice-donut-solid, .ct-series-o .ct-area {fill: #a748ca;}
+
+/*	Chart stroke and fill colours for transaction, budget and planned disbursement tables	*/
+.chart-line-transaction-1 .ct-point,
+.chart-line-transaction-1 .ct-line	{stroke:#0099ff;}		/*	Incoming Funds	*/
+.chart-line-transaction-1 .ct-area	{fill:transparent;}
+.chart-line-transaction-2 .ct-point,
+.chart-line-transaction-2 .ct-line	{stroke:#ff8176;}		/*	Outgoing Commitment	*/
+.chart-line-transaction-2 .ct-area	{fill:transparent;}
+.chart-line-transaction-3 .ct-point,
+.chart-line-transaction-3 .ct-line	{stroke:#aeffae;}		/*	Disbursement	*/
+.chart-line-transaction-3 .ct-area	{fill:transparent;}
+.chart-line-transaction-4 .ct-point,
+.chart-line-transaction-4 .ct-line	{stroke:#fed00f;}		/*	Expenditure	*/
+.chart-line-transaction-4 .ct-area	{fill:transparent;}
+.chart-line-transaction-5 .ct-point,
+.chart-line-transaction-5 .ct-line	{stroke:#dea3ff;}		/*	Interest Payment	*/
+.chart-line-transaction-5 .ct-area	{fill:transparent;}
+.chart-line-transaction-6 .ct-point,
+.chart-line-transaction-6 .ct-line	{stroke:#c446e1;}		/*	Loan Repayment	*/
+.chart-line-transaction-6 .ct-area	{fill:transparent;}
+.chart-line-transaction-7 .ct-point,
+.chart-line-transaction-7 .ct-line	{stroke:#65e17a;}		/*	Reimbursement	*/
+.chart-line-transaction-7 .ct-area	{fill:transparent;}
+.chart-line-transaction-8 .ct-point,
+.chart-line-transaction-8 .ct-line	{stroke:#c59e8c;}		/*	Purchase of Equity	*/
+.chart-line-transaction-8 .ct-area	{fill:transparent;}
+.chart-line-transaction-9 .ct-point,
+.chart-line-transaction-9 .ct-line	{stroke:#8f496a;}		/*	Sale of Equity	*/
+.chart-line-transaction-9 .ct-area	{fill:transparent;}
+.chart-line-transaction-10.ct-point,
+.chart-line-transaction-10.ct-line	{stroke:#ff6cec;}		/*	Credit Guarantee	*/
+.chart-line-transaction-10 .ct-area	{fill:transparent;}
+.chart-line-transaction-11 .ct-point,
+.chart-line-transaction-11 .ct-line	{stroke:#cf291c;}		/*	Incoming Commitment	*/
+.chart-line-transaction-11 .ct-area	{fill:transparent;}
+.chart-line-transaction-12 .ct-point,
+.chart-line-transaction-12 .ct-line	{stroke:#82e1ff;}		/*	Outgoing Pledge	*/
+.chart-line-transaction-12 .ct-area	{fill:transparent;}
+.chart-line-transaction-13 .ct-point,
+.chart-line-transaction-13 .ct-line	{stroke:#0062a3;}		/*	Incoming Pledge	*/
+.chart-line-transaction-13 .ct-area	{fill:transparent;}
+.chart-line-planned-disbursement .ct-point,
+.chart-line-planned-disbursement .ct-line	{stroke:#00a301;}		/*	Planned Disbursement	*/
+.chart-line-planned-disbursement .ct-area	{fill:#207721; fill-opacity:0.3}
+.chart-line-budget .ct-point,
+.chart-line-budget .ct-line			{stroke:#888;}			/*	Budget	*/
+.chart-line-budget .ct-area			{fill:#666;}
+
+/*	Default Chartist stylings	*/
+.ct-chart-line .ct-label,
+.ct-chart-bar .ct-label {
+  display: block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+.ct-chart-pie .ct-label,
+.ct-chart-donut .ct-label {
+  dominant-baseline: central; }
+
+.ct-label.ct-horizontal.ct-start {
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: start; }
+
+.ct-label.ct-horizontal.ct-end {
+  -webkit-box-align: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: start; }
+
+.ct-label.ct-vertical.ct-start {
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: flex-end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+  text-anchor: end; }
+
+.ct-label.ct-vertical.ct-end {
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: start; }
+
+.ct-chart-bar .ct-label.ct-horizontal.ct-start {
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  text-anchor: start; }
+
+.ct-chart-bar .ct-label.ct-horizontal.ct-end {
+  -webkit-box-align: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  text-anchor: start; }
+
+.ct-chart-bar.ct-horizontal-bars .ct-label.ct-horizontal.ct-start {
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: start; }
+
+.ct-chart-bar.ct-horizontal-bars .ct-label.ct-horizontal.ct-end {
+  -webkit-box-align: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: start; }
+
+.ct-chart-bar.ct-horizontal-bars .ct-label.ct-vertical.ct-start {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: flex-end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+  text-anchor: end; }
+
+.ct-chart-bar.ct-horizontal-bars .ct-label.ct-vertical.ct-end {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: end; }
+
+
+/*	PRINT FRIENDLY CSS	*/
+
+.print .activity a,
+.print .activity a:link,
+.print .activity a:visited,
+.print .activity a:hover,
+.print .activity a:active,
+.print .org a,
+.print .org a:link,
+.print .org a:visited,
+.print .org a:hover,
+.print .org a:active,
+.print .wrap_sector .subheader a,
+.print .wrap_sector .subheader a:link,
+.print .wrap_sector .subheader a:visited,
+.print .wrap_sector .subheader a:hover,
+.print .wrap_sector .subheader a:active	{color:#444;}
+
+/*  Data source links  */
+.print .data_source a 		{background-color:#fff; border:1px solid #444; color:#444;}
+.print .data_source a span	{color:#444;}
+
+/*  Documents  */
+.print .wrap_document a,
+.print .wrap_document a:link,
+.print .wrap_document a:visited,
+.print .wrap_document a:hover,
+.print .wrap_document a:active  {background-color:#fff;}
+.print a.doc_link:before		{border:1px solid #444; color:#444;}
+
+/*  Wrappers  */
+.print .activity,
+.print .org,
+.print .wrap_iati_identifier,
+.print .wrap_contact_info		{background-color:#fff; color:#444;}
+
+/*  Element Types  */
+.print .humanitarian		{background-color:#fff; border:1px solid #444; color:#444; font-weight:normal;}
+.print .header_section,
+.print .type,
+.print .type.secondary,
+.print span.doc_date,
+.print span.doc_cat,
+.print span.doc_rec,
+.print span.doc_format,
+.print .wrap_activity_date .planned_start,
+.print .wrap_activity_date .actual_start,
+.print .wrap_activity_date .planned_end,
+.print .wrap_activity_date .actual_end,
+.print .sector_code,
+.print span.withdrawn,
+.print .ref span.withdrawn,
+.print .hum_transaction		{background-color:#fff; color:#444; font-weight:normal;}
+.print .header_section 		{background-color:#eee; border:0}
+
+/*  Progress Bar Dates  */
+.print .activity_date_overlay,
+.print .result_date_overlay  		{background-color:#666;}
+.print .activity_date_overlay:after	{border:3px solid #666;}
+
+/*  Container text  */
+.print .header,
+.print .header_doc,
+.print .version span,
+.print .wrap_reporting_org .text,
+.print .wrap_iati_identifier .text,
+.print .wrap_name_org,
+.print .wrap_activity_date div span,
+.print .ref,
+.print .ref span,
+.print span.count,
+.print span.doc_lang,
+.print .wrap_length,
+.print .legend,
+.print .wrap_result .sector_list_wrap,
+.print .result_indi_desc,
+.print .result_indi_head,
+.print .result_facet,
+.print .result_facet_name,
+.print .result_facet_value,
+.print .result_empty,
+.print .result_base_year,
+.print .tab_currency,
+.print .wrap_contact_type  {color:#444;}
+
+/*  Results  */
+.print .brighter  		{background-color:#fff; border:0; border-bottom:1px solid #444; line-height:21px;} 
+.print .brighter span	{background-color:#fff; border:1px solid #444; padding:4px 10px;}
+.print .result_date_bar	{background-color:#ccc; border-bottom:1px solid #666; border-right:1px solid #666;}
+
+/* Tables */
+.print table th, .print table td,
+.print table.modals th, .print table.modals td,
+.print table.budget th, .print table.budget td,
+.print .org table.budget th.status,
+.print table.budget th.value 			{background-color:#fff; color:#444;}
+.print table.budget.location td.loc_des .loc_act {color:#444;}
+.print table.modals td span.withdrawn 	{background-color:#fff; border:1px solid #444; color:#444;}
+.print td .currency,
+.print .wrap_result table.budget tr.row_measure td {color:#444;}
+.print .wrap_result table.budget td.result_base,
+.print .wrap_result table.budget td.result_target,
+.print .wrap_result table.budget td.result_actual  {background-color:transparent;}
+
+/* Table sort icons */
+.print table.budget th			{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right 5px center, #fff;}
+.print .org table.budget th.status,
+.print table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right -5px center, #fff;}
+
+/* Table Charts */
+.print .ct-label {color:#444; fill:#444;}
+.print .ct-grid  {stroke:#444;}
+</style><div>
+<div class="activity">
+	
+	<div class="header">
+		PROJECT TITLE
+		<div class="version">
+			<a title="Version of the IATI Standard" href="" target="_blank"><span>VERSION</span> 2.01</a>
+		</div>
+	</div>
+	<div class="wrap_title">
+		<div class="narrative">Activity title</div><div class="narrative">Titre de l'activité</div><div class="narrative">Título de la actividad</div>
+
+	</div>
+<!--	REPORTING ORG	-->
+	<div class="wrap_reporting_org">
+		<div class="text">Reported by</div><div class="reporting_org"><a href="http://d-portal.org/ctrack.html?publisher=AA-AAA-123456789" target="blank">Organisation name</a> <span class="ref">AA-AAA-123456789</span> <span class="type">Multilateral</span></div>
+	</div>
+<!--	DEFAULT MODALITIES	-->	
+	<div class="wrap_default">
+		<table class="modals">
+			<tr>
+				<th class="mod_1">ACTIVITY SCOPE</td>
+				<th class="mod_2">COLLABORATION TYPE</td>
+				<th class="mod_3">AID TYPE</td>
+				<th class="mod_4">FINANCE TYPE</td>
+				<th class="mod_5">FLOW TYPE</td>
+				<th class="mod_6">TIED STATUS</td>
+				<th class="mod_7">HIERARCHY</td>
+			</tr>
+			<tr>
+				<td class="mod_1" title="The activity scope covers multiple countries, that don't constitute a region">Multi-national <span class="type">3</span>
+
+</td>
+				<td class="mod_2" title="No description provided
+">Bilateral <span class="type">1</span>
+
+</td>
+				<td class="mod_3"><div title="Unearmarked contributions to the government budget including funding to support the implementation of macroeconomic reforms (structural adjustment programmes, poverty reduction strategies). Budget support is a method of financing a recipient country’s budget through a transfer of resources from an external financing agency to the recipient government’s national treasury. The funds thus transferred are managed in accordance with the recipient’s budgetary procedures. Funds transferred to the national treasury for financing programmes or projects managed according to different budgetary procedures from those of the recipient country, with the intention of earmarking the resources for specific uses, are therefore excluded.">
+	General budget support <span class="type">A01</span>
+</div>
+
+
+
+
+</td>
+				<td class="mod_4" title="Grants are transfers in cash or in kind for which no legal debt is incurred by the recipient.">Standard grant <span class="type">110</span>
+
+</td>
+				<td class="mod_5" title="Official Development Assistance">ODA <span class="type">10</span>
+
+</td>
+				<td class="mod_6" title="Official Development Assistance for which the associated goods and services must be procured from a restricted number of countries, which must however include substantially all aid recipient countries and can include the donor country.">Partially tied</td>
+				<td class="mod_7" title="The hierarchical level within the reporting organisation’s subdivision of its units of aid.">1</td>
+			</tr>
+		</table>
+	</div>
+<!--	IATI IDENTIFIER AND SOURCES	-->
+	<div class="wrap_iati_identifier">
+		<div class="text">IATI IDENTIFIER <a href="http://d-portal.org/q.html?aid=AA-AAA-123456789-ABC123" target="blank">AA-AAA-123456789-ABC123</a></div>
+		<div class="data_source">
+			<a class="xml" href="http://d-portal.org/q.xml?aid=AA-AAA-123456789-ABC123" target="_blank"><span>view</span> xml</a><a class="json" href="http://d-portal.org/q.json?&from=xson&root=/iati-activities/iati-activity&aid=AA-AAA-123456789-ABC123" target="_blank"><span>view</span> json</a><a class="dlogs" href="http://d-portal.org/ctrack.html#view=dash_sluglog&slug={_it.@dataset}" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="http://iatiregistry.org/dataset/{_it.@dataset}" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="http://d-portal.org/q.csv?&from=xson&root=/iati-activities/iati-activity&aid=AA-AAA-123456789-ABC123" target="_blank"><span>download</span> csv</a>
+		</div>
+	</div>
+	<div class="wrap_document">
+		<div class="header_doc collapsable">DOCUMENTS <span class="count">( 1 )</span></div>
+		<a class="doc_link" href="http:www.example.org/docs/report_en.odt" target="_blank">
+	<span class="wrap_doc_link">
+		<span class="block"><span class="doc_title">Project Report 2013</span>
+<span class="doc_title">Rapport de projet 2013</span>
+<span class="doc_format">APPLICATION/VND.OASIS.OPENDOCUMENT.TEXT</span>
+</span>
+
+		
+		<span class="block">
+			<span class="doc_lang">EN</span>
+<span class="doc_cat">Pre- and post-project impact appraisal</span>
+
+
+			
+		</span>
+	</span>
+</a>
+
+	</div>
+	
+<!--	ACTIVITY DATE	-->	
+	<div class="wrap_activity_date">
+		<div class="planned_start"><span>Planned start date</span> 2012-04-15</div>
+		<div class="planned_end"><span>Planned end date</span> 2015-12-31</div>
+		<div class="actual_start"><span>Actual start date</span> 2012-04-28</div>		
+		
+	</div>
+	<div class="activity_date_bar">
+		<div class="activity_date_overlay" style="width:calc(100 * 9.60px);" title="100% completed"></div>
+	</div>
+	<div class="wrap_activity_status">
+		<span>activity status:</span> Implementation
+		<div class="status_desc">The activity is currently being implemented</div>
+	</div>
+
+	<div class="wrap_participating_org">
+		<div class="header_section sticky collapsable">WHO'S INVOLVED <span class="count">( 3 )</span></div>
+		<table class="budget part_org sortable">
+			<thead>
+				<tr>
+					<th class="part_org_name" data-sort="string" data-sort-multicolumn="0,1,2,3">PARTICIPATING ORG</th>
+					<th class="part_org_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">REFERENCE</th>
+					<th class="part_org_role" data-sort="int" data-sort-multicolumn="0,1,2,3">ROLE</th>
+					<th class="part_org_type" data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+	<td class="part_org_name"><div class="narrative">Name of Agency B</div>
+</td>
+	<td class="part_org_ref">
+		<div class="part_org_text">BB-BBB-123456789</div>
+
+		<div>
+	<span title="Organisation Reference" class="ref">
+		REF <a title="Organisation Reference" href="http://d-portal.org/ctrack.html?publisher=BB-BBB-123456789" target="_blank">BB-BBB-123456789</a>
+	</span>
+</div>
+
+		
+		
+	</td>
+	<td class="part_org_role" title="The government or organisation which provides funds to the activity." data-sort-value="1">Funding</td>
+	<td class="part_org_type" title="" data-sort-value="40">Multilateral</td>
+</tr>
+<tr class="row_count">
+	<td class="part_org_name"><div class="narrative">Name of Agency C</div>
+</td>
+	<td class="part_org_ref">
+		<div class="part_org_text">CC-CCC-123456789</div>
+
+		<div>
+	<span title="Organisation Reference" class="ref">
+		REF <a title="Organisation Reference" href="http://d-portal.org/ctrack.html?publisher=CC-CCC-123456789" target="_blank">CC-CCC-123456789</a>
+	</span>
+</div>
+
+		
+		
+	</td>
+	<td class="part_org_role" title="An organisation responsible for oversight of the activity and its outcomes" data-sort-value="2">Accountable</td>
+	<td class="part_org_type" title="" data-sort-value="10">Government</td>
+</tr>
+<tr class="row_count">
+	<td class="part_org_name"><div class="narrative">Name of Agency A</div><div class="narrative">Nom de l'agence A</div>
+</td>
+	<td class="part_org_ref">
+		<div class="part_org_text">AA-AAA-123456789</div>
+
+		<div>
+	<span title="Organisation Reference" class="ref">
+		REF <a title="Organisation Reference" href="http://d-portal.org/ctrack.html?publisher=AA-AAA-123456789" target="_blank">AA-AAA-123456789</a>
+	</span>
+</div>
+
+		
+		
+	</td>
+	<td class="part_org_role" title="An organisation that manages the budget and direction of an activity on behalf of the funding organisation" data-sort-value="3">Extending</td>
+	<td class="part_org_type" title="" data-sort-value="21">International NGO</td>
+</tr>
+
+		</table>
+	</div>
+
+<!--	PARTICIPATING ORG ROWS	-->
+	<div class="wrap_description">
+		<div class="header" title="Unstructured, long description of the activity">General</div>
+<div class="text"><div class="narrative">General activity description text.  Long description of the activity with no particular structure.</div><div class="narrative">Activité générale du texte de description. Longue description de l'activité sans structure particulière.</div>
+</div>
+<div class="header" title="Specific objectives for the activity, e.g. taken from logical framework">Objectives</div>
+<div class="text"><div class="narrative">Objectives for the activity, for example from a logical framework.</div><div class="narrative">Objectifs de l'activité, par exemple à partir d'un cadre logique.</div>
+</div>
+<div class="header" title="Details of groups that are intended to benefit from the activity">Target Groups</div>
+<div class="text"><div class="narrative">Statement of groups targeted to benefit from the activity.</div><div class="narrative">Déclaration de groupes ciblés pour bénéficier de l'activité.</div>
+</div>
+
+	</div>
+	
+<!--	IATI ACTIVITY DESCRIPTION	-->
+
+
+	<div class="wrap_policy_marker">
+		<div class="header_section sticky collapsable">policy marker<span class="count">( 2 )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="policy_code" data-sort="int" data-sort-multicolumn="0,1,2">CODELIST</th>
+					<th class="policy_sig" data-sort="int" data-sort-multicolumn="0,1,2">SIGNIFICANCE</th>
+					<th class="policy_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>	
+					<th class="policy_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>						
+				</tr>
+			</thead>
+			<tr class="row_count">
+	<td class="policy_code" data-sort-value="2">
+		Aid to Environment
+		
+	</td>
+	<td class="policy_sig" data-sort-value="3">principal objective AND in support of an action programme</td>
+	<td class="policy_vocab" data-sort-value="1">
+		<a href="http://reference.iatistandard.org/codelists/PolicyMarker/" target="_blank">OECD DAC CRS</a>
+
+	</td>
+	<td class="policy_desc" data-sort-value="3">For desertification-related aid only</td>
+</tr>
+<tr class="row_count">
+	<td class="policy_code" data-sort-value="9">
+		Reproductive, Maternal, Newborn and Child Health (RMNCH)
+		
+	</td>
+	<td class="policy_sig" data-sort-value="4">Explicit primary objective</td>
+	<td class="policy_vocab" data-sort-value="1">
+		<a href="http://reference.iatistandard.org/codelists/PolicyMarker/" target="_blank">OECD DAC CRS</a>
+
+	</td>
+	<td class="policy_desc" data-sort-value="4">No description provided
+</td>
+</tr>
+
+		</table>
+	</div>
+
+<!--	POLICY MARKER ROWS	-->
+	<div class="header_section collapsable">recipient country <span class="count">( 2 )</span></div>
+	<div class="wrap_recipient_country">
+		<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">Afghanistan</span><span class="sector_code">AF</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc(25 * 3.35px);"><span class="sector_overlay" style="width:calc(25 * 3.35px); background:hsl(200,25%,50%);"></span></span><span class="sector_value">25</span>
+	</div>
+</div>
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">Antigua and Barbuda</span><span class="sector_code">AG</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc(25 * 3.35px);"><span class="sector_overlay" style="width:calc(25 * 3.35px); background:hsl(200,25%,50%);"></span></span><span class="sector_value">25</span>
+	</div>
+</div>
+
+	</div>
+
+<!--	RECIPIENT-COUNTRY TEMPLATE	-->
+	<div class="header_section collapsable">recipient region <span class="count">( 2 )</span></div>
+	<div class="wrap_sector">
+		<div class="sector_vocab">
+	<div class="header">
+		OECD DAC <span class="count">( 2 )</span>
+	</div>
+	<div class="subheader">Supra-national regions according to OECD DAC CRS recipient codes <a href="http://reference.iatistandard.org/codelists/Region/" target="_blank">http://reference.iatistandard.org/codelists/Region/</a></div>
+	<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">South America, regional</span><span class="sector_code">489</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc(25 * 3.35px);"><span class="sector_overlay" style="width:calc(25 * 3.35px); background:hsl(200,25%,50%);"></span></span><span class="sector_value">25</span>
+	</div>
+</div>
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">South of Sahara, regional</span><span class="sector_code">289</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc(25 * 3.35px);"><span class="sector_overlay" style="width:calc(25 * 3.35px); background:hsl(200,25%,50%);"></span></span><span class="sector_value">25</span>
+	</div>
+</div>
+
+</div>
+		
+		
+	</div>
+	
+<!--	RECIPIENT REGION VOCAB	-->
+	<div class="wrap_location">
+		<div class="header_section sticky collapsable">LOCATION  <span class="count">( 1 )</span></div>
+		<table class="budget location sortable">
+			<thead>
+				<tr>
+					<th class="loc_name" data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">NAME</th>
+					<th class="loc_des" data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">DESCRIPTION</th>
+					<th class="loc_pos" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">POSITION</th>
+					<th class="loc_class" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">CLASS</th>
+					<th class="loc_reach" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">REACH</th>
+					<th class="loc_exact" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">EXACTNESS</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+	<td class="loc_name">
+		<div class="loc_text">Location name</div>
+
+		<div>
+	<span title="An internal reference that describes the location in the reporting organisation’s own system" class="ref">
+		REF <span>AF-KAN</span>
+	</span>
+</div>
+
+		<div>
+	<span title="A code from the gazetteer or administrative boundary repository specified by the vocabulary" class="ref">
+		ID <a href="http://www.geonames.org/1453782" target="_blank">1453782</a> (Geonames)
+	</span>
+</div>
+
+
+
+
+
+	</td>
+	<td class="loc_des">
+		<div class="loc_desc" title="A description that qualifies the location, not the activity.">Location description</div>
+
+		<div class="loc_act" title="A description that qualifies the activity taking place at the location.">A description that qualifies the activity taking place at the location</div>
+
+		<div>
+	<span title="A more refined coded classification of the type of feature referred to by this location." class="ref">
+		TYPE <span title="a government building">administrative facility</span>
+	</span> <span class="type">ADMF</span>
+</div>
+
+	</td>
+	<td class="loc_pos"><a href="https://www.google.com/maps/place/31.616944,65.716944" target="_blank">
+	<span>31.616944</span>
+	<span>65.716944</span>
+</a>
+</td>
+	<td class="loc_class" title="The designated geographic location is a populated place (town, village, farm etc.)" data-sort-value="2">Populated Place</td>
+	<td class="loc_reach" title="The location specifies where the activity is carried out" data-sort-value="1">Activity</td>
+	<td class="loc_exact" title="The designated geographic location is exact" data-sort-value="1">Exact</td>
+</tr>
+
+		</table>
+	</div>
+
+<!--	LOCATION ROWS	-->
+	<div class="header_section collapsable">country budget items <span class="count">( 2 )</span></div>
+	<div class="wrap_sector wrap_country_budget_items">
+		<div class="sector_vocab">
+	<div class="header">
+		Country Chart of Accounts <span class="count">( 2 )</span>
+	</div>
+	<div class="subheader">The budget identifier reported corresponds to the recipient country chart of accounts</div>
+	<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text"></span><span class="sector_code">1.1.1</span>
+
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc(50 * 3.35px);"><span class="sector_overlay" style="width:calc(50 * 3.35px); background:hsl(200,50%,50%);"></span></span><span class="sector_value">50</span>
+	</div>
+</div>
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text"></span><span class="sector_code">1.2.1</span>
+
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc(50 * 3.35px);"><span class="sector_overlay" style="width:calc(50 * 3.35px); background:hsl(200,50%,50%);"></span></span><span class="sector_value">50</span>
+	</div>
+</div>
+
+</div>
+
+<!--	COUNTRY BUDGET ITEMS TEMPLATE	-->
+	</div>
+	
+<!--	COUNTRY BUDGET ITEMS VOCAB	-->
+	<div class="header_section collapsable">sector  <span class="count">( 2 )</span></div>
+	<div class="wrap_sector">
+		
+		<div class="sector_vocab">
+	<div class="header">
+		OECD DAC CRS 3 digit <span class="count">( 2 )</span>
+	</div>
+	<div class="subheader">The sector reported corresponds to an OECD DAC CRS 3-digit purpose code <a href="http://reference.iatistandard.org/codelists/SectorCategory/" target="_blank">http://reference.iatistandard.org/codelists/SectorCategory/</a></div>
+	<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">Education, Level Unspecified</span><span class="sector_code">111</span>
+
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc(50 * 3.35px);"><span class="sector_overlay" style="width:calc(50 * 3.35px); background:hsl(200,50%,50%);"></span></span><span class="sector_value">50</span>
+	</div>
+</div>
+
+<!--	SECTOR DESCRIPTIONS	--><div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">Basic Education</span><span class="sector_code">112</span>
+
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc(50 * 3.35px);"><span class="sector_overlay" style="width:calc(50 * 3.35px); background:hsl(200,50%,50%);"></span></span><span class="sector_value">50</span>
+	</div>
+</div>
+
+<!--	SECTOR DESCRIPTIONS	-->
+	<div class="header glossary">GLOSSARY</div>
+	<div class="sector_list_wrap"><div class="sector_list"> 
+	<span>Education, Level Unspecified</span><span class="sector_list_description">The codes in this category are to be used only when level of education is unspecified or unknown (e.g. training of primary school teachers should be coded under 11220).</span>
+</div>
+
+<!--	SECTOR NON-DAC TEMPLATE	--><div class="sector_list"> 
+	<span>Basic Education</span><span class="sector_list_description">No description provided
+</span>
+</div>
+
+<!--	SECTOR NON-DAC TEMPLATE	--></div>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+
+<!--	SECTOR TYPES	-->
+	<div class="header_section collapsable">capital spend</div>
+	<div class="wrap_sector wrap_capital_spend">
+		<div class="sector">
+			<div class="wrap_code">
+				<span class="sector_code_text">The percentage of the total commitment that is for capital spending</span>
+			</div><div class="wrap_bar">
+				<span class="sector_bar" style="width:calc(88.8 * 3.35px);"><span class="sector_overlay" style="width:calc(88.8 * 3.35px); background:hsl(200,88.8%,50%);"></span></span><span class="sector_value">88.8</span>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="wrap_transaction">
+		<div class="header_section collapsable">
+			Financial Overview
+			<div class="wrap_length">
+				
+				<div class="length">Incoming Funds <span class="count">( 1 )</span></div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<div class="length">Planned Disbursement <span class="count">( 2 )</span></div>
+				<div class="length">Budget <span class="count">( 1 )</span></div>
+
+			</div>
+		</div>
+		<div class="wrap_legend">
+			
+			<div class="legend chart_1"><span></span>Incoming Funds</div><!---->
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="legend chart_14"><span></span>Planned Disbursement</div><!---->
+			<div class="legend chart_15"><span></span>Budget</div><!---->
+
+		</div>
+		<div class="showcharts">
+<script type="application/json">
+{
+	chart:"Line",
+	options:{
+		width:	"920px",
+		height:	"240px",
+			showArea: true,
+			showLine: true,
+			showPoint: true,
+			axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+				return (new Date(value*1000)).toISOString().slice(0,10)
+			}
+		},
+		axisY: {
+			referenceValue: 0,
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+				}))
+			}
+		}
+	},
+	parents:2
+}
+</script>
+</div>
+
+	</div>
+	
+	<div class="wrap_budget">
+		<div class="header_section sticky collapsable">Budget <span class="count">( 1 )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="end_date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="tab_type">TYPE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="status">STATUS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4" class="value">VALUE</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+	<td class="date">2014-01-01</td>
+	<td class="end_date">2014-12-31</td>
+	<td class="tab_type" title="The original budget allocated to the activity">Original</td>
+	<td class="status" title=""></td>
+	<td class="value" data-sort-value="3000">3,000<div class="currency">EUR</div></td>
+</tr>
+
+		</table>
+		<div class="chart_budget"><div class="legend chart_15"><span></span>Budget</div><div class="showchart">
+<script type="application/json">
+{
+	chart:"Line",
+	options:{
+		width:	"920px",
+		height:	"240px",
+			showArea: true,
+			showLine: true,
+			showPoint: true,
+			axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+				return (new Date(value*1000)).toISOString().slice(0,10)
+			}
+		},
+		axisY: {
+			referenceValue: 0,
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+				}))+"\r\nEUR"
+			}
+		}
+	},
+	series:[
+		{
+			className:"chart-line-budget",
+			name: "budget",
+			data: [
+ {
+  "x": 1388534400,
+  "y": 0
+ },
+ {
+  "x": 1419984000,
+  "y": 3000
+ }
+]
+		}
+	]
+}
+</script>
+</div>
+</div>
+	</div>
+
+<!--	BUDGET ROWS	-->
+
+	<div class="wrap_budget wrap_planned_disbursement">
+		<div class="header_section sticky collapsable">Planned Disbursement <span class="count">( 2 )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="tab_type">TYPE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="provider">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="receiver">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5" class="value">VALUE</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+	<td class="date">2014-01-01</td>
+	<td class="date">2014-12-31</td>
+	<td class="tab_type" title="The original budget allocated to the activity">Original</td>
+	<td class="provider">
+		
+		
+		
+		
+	</td>
+	<td class="receiver">
+		
+		
+		
+		
+	</td>
+	<td class="value" data-sort-value="3000">3,000<div class="currency">EUR</div></td>
+</tr>
+<tr class="row_count">
+	<td class="date">2014-01-01</td>
+	<td class="date">2014-12-31</td>
+	<td class="tab_type" title="The original budget allocated to the activity">Original</td>
+	<td class="provider">
+		
+		
+		
+		
+	</td>
+	<td class="receiver">
+		
+		
+		
+		
+	</td>
+	<td class="value" data-sort-value="3000">3,000<div class="currency">EUR</div></td>
+</tr>
+
+		</table>
+		<div class="chart_disburse">
+			<div class="legend chart_14"><span></span>Planned Disbursement</div>
+			<div class="showchart">
+<script type="application/json">
+{
+	chart:"Line",
+	options:{
+		width:	"920px",
+		height:	"240px",
+			showArea: true,
+			showLine: true,
+			showPoint: true,
+			axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+				return (new Date(value*1000)).toISOString().slice(0,10)
+			}
+		},
+		axisY: {
+			referenceValue: 0,
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+				}))+"\r\nEUR"
+			}
+		}
+	},
+	series:[
+		{
+			className:"chart-line-planned-disbursement",
+			name: "planned-disbursement",
+			data: [
+ {
+  "x": 1388534400,
+  "y": 0
+ },
+ {
+  "x": 1419984000,
+  "y": 6000
+ }
+]
+		}
+	]
+}
+</script>
+</div>
+
+		</div>
+	</div>
+
+<!--	PLANNED DISBURSEMENT ROWS	-->
+	<div class="wrap_transaction">
+		<div class="header_section collapsable">
+			Transactions <span class="count">( 1 )</span>
+		</div>
+		
+			<div class="header_section sticky collapsable bright">Incoming Funds <span class="count">( 1 )</span></div>
+	<table class="budget act_trans sortable">
+		<thead>
+	<tr>
+		<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">DATE</th>
+		<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="description">DESCRIPTION</th>
+		<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="provider">PROVIDER</th>
+		<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="receiver">RECEIVER</th>
+		<th data-sort="int" data-sort-multicolumn="0,1,2,3,4" class="value">VALUE</th>
+	</tr>
+</thead>
+
+<!--	TRANSACTION ROWS	-->
+		<tr class="row_count">
+	<td class="date">2012-01-01</td>
+	<td class="description">
+		<div class="description_text">Transaction description text</div>
+		<div class="fold">
+			<div>
+	<span title="An internal reference linking this transaction back to the publisher’s financial management system" class="ref">
+		REF <span>1234</span>
+	</span>
+</div>
+
+			<div>
+	<span title="Sector" class="ref">SECTOR <span title="The codes in this category are to be used only when level of education is unspecified or unknown (e.g. training of primary school teachers should be coded under 11220)."></span> <span class="type">111</span>
+</span>
+</div>
+
+
+
+			<div>
+	<span title="Recipient Country" class="ref">COUNTRY <span>Afghanistan</span> <span class="type">AF</span></span>
+</div>
+
+			<div>
+	<span title="Recipient Region" class="ref">REGION <span>456</span> <span class="type">AF</span></span>
+</div>
+
+			<div>
+	<span title="Disbursement Channel" class="ref">
+		CHANNEL <span title="Money is disbursed through central Ministry of Finance or Treasury">Money is disbursed through central Ministry of Finance or Treasury</span> <span class="type">1</span>
+	</span>
+</div>
+
+			<div>
+	<span title="Flow Type" class="ref">
+		FLOW <span title="Official Development Assistance">ODA
+		</span> <span class="type">10</span>
+	</span>
+</div>
+
+			<div>
+	<span title="Aid Type" class="ref">AID <span title="Unearmarked contributions to the government budget including funding to support the implementation of macroeconomic reforms (structural adjustment programmes, poverty reduction strategies). Budget support is a method of financing a recipient country’s budget through a transfer of resources from an external financing agency to the recipient government’s national treasury. The funds thus transferred are managed in accordance with the recipient’s budgetary procedures. Funds transferred to the national treasury for financing programmes or projects managed according to different budgetary procedures from those of the recipient country, with the intention of earmarking the resources for specific uses, are therefore excluded.">General budget support</span> <span class="type">A01</span>
+</span>
+</div>
+
+
+			<div>
+	<span title="Finance Type" class="ref">
+		FINANCE <span title="Grants are transfers in cash or in kind for which no legal debt is incurred by the recipient.">Standard grant</span> <span class="type">110</span>
+	</span>
+</div>
+
+			<div>
+	<span title="Flow Type" class="ref">STATUS <span title="Official Development Assistance for which the associated goods and services must be procured from a restricted number of countries, which must however include substantially all aid recipient countries and can include the donor country.">Partially tied</span> <span class="type">3</span></span>
+</div>
+
+		</div>
+	</td>
+	<td class="provider">
+		<div class="provider_text">Agency B</div>
+		<div>
+	<span title="Organisation Reference" class="ref">
+		REF <a href="http://d-portal.org/ctrack.html?publisher=BB-BBB-123456789" target="_blank">BB-BBB-123456789</a>
+	</span>
+</div>
+
+		<div>
+	<span title="Activity ID" class="ref">
+		ID <a href="http://d-portal.org/q.html?aid=BB-BBB-123456789-1234AA" target="_blank">BB-BBB-123456789-1234AA</a>
+	</span>
+</div>
+
+		
+	</td>
+	<td class="receiver">
+		<div class="receiver_text">Agency A</div>
+
+		<div>
+	<span title="Organisation Reference" class="ref">
+		REF <a href="http://d-portal.org/ctrack.html?publisher=AA-AAA-123456789" target="_blank">AA-AAA-123456789</a>
+	</span>
+</div>
+
+		<div>
+	<span title="Activity ID" class="ref">
+		ID <a href="http://d-portal.org/q.html?aid=AA-AAA-123456789-1234" target="_blank">AA-AAA-123456789-1234</a>
+	</span>
+</div>
+
+		
+	</td>
+	<td class="value" data-sort-value="1000">1,000<div class="currency">EUR</div></td>
+</tr>
+
+	</table>
+	<div class="chart_trans_1"><div class="legend chart_1"><span></span>Incoming Funds</div><div class="showchart">
+<script type="application/json">
+{
+	chart:"Line",
+	options:{
+		width:	"920px",
+		height:	"240px",
+			showArea: false,
+			showLine: true,
+			showPoint: true,
+			axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+				return (new Date(value*1000)).toISOString().slice(0,10)
+			}
+		},
+		axisY: {
+			referenceValue: 0,
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+				}))+"\r\nEUR"
+			}
+		}
+	},
+	series:[
+		{
+			className:"chart-line-transaction-1",
+			name: "transaction-1",
+			data: [
+ {
+  "x": 1325376000,
+  "y": 1000
+ }
+]
+		}
+	]
+}
+</script>
+</div>
+
+<!--	TRANSACTION TYPES	--></div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+	
+<!--	TRANSACTION LENGTH	-->
+	<div class="wrap_result">
+		<div class="header_section sticky collapsable">
+			result<span class="count">( 1 )</span>
+			<div class="wrap_length">
+				<div class="length">output<span class="count">( 1 )</span></div>
+				
+				
+				
+			</div>
+		</div>
+		<div class="header glossary">GLOSSARY</div>
+		<div class="sector_list_wrap">
+	<div class="sector_list"> 
+		<span>Output</span><span class="sector_list_description">Results of the activity that came about as a direct effect of your work and specific, what is done, and what communities are reached. For example, X number of individuals.</span>
+	</div>
+</div>
+
+<!--	RESULT ROWS	-->
+		
+		
+		
+		<div class="wrap_result_type"><div class="header_section sticky collapsable bright">
+	Output
+	<div class="wrap_length">
+		<div class="length">indicator<span class="count">( 1 )</span></div>
+
+<!--	GLOSSARY DESCRIPTIONS	-->
+	</div>
+</div>
+<div class="wrap_result_text"><div class="result_main_title">Result title</div>
+
+<div class="result_indi_desc">Result description text</div>
+
+
+</div>
+<div class="wrap_result_indicator"><div class="wrap_result_indicator">
+	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
+	<div class="result_title">Indicator title</div>
+	<div class="result_indi_desc">Indicator description text</div>
+
+	
+</div>
+
+
+<div class="wrap_result_table">
+	<table class="budget result sortable">
+		<thead>
+	<tr>
+		<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">FACET</th>
+		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">BASELINE</th>
+		<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">TARGET</th>
+		<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">ACTUAL</th>			
+		<th class="result_percent" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">%</th>			
+		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">PERIOD</th>				
+	</tr>
+</thead>
+
+		<tr class="row_measure">
+	<td></td>
+	<td></td>
+	<td title="The indicator is measured in units.">Unit</td>
+	<td title="The indicator is measured in units.">Unit</td>
+	<td></td>
+	<td></td>
+</tr>
+
+		<tr class="row_count">
+	<td class="result_indi">
+		<div class="result_empty">No dimension has been provided</div>
+		<div class="result_empty">No location has been provided</div>
+
+	</td>
+	<td class="result_base"><div class="result_base_year">2012</div>10</td>
+	<td class="result_target">10</td>
+	<td class="result_actual">11</td>
+	<td class="result_percent"><div class="result_percent_wrap">
+	<span class="result_percent_value">0%</span>
+	<span class="result_percent_dot" style="background-color:hsl(,100%,50%);"></span>
+</div></td>
+	<td class="result_period">
+		2013-01-01 : 2013-03-31
+		<div class="result_date_bar">
+			<div class="result_date_overlay" style="width:calc(100 * 1.30px); background-color:rgb(100,100,100);"></div>
+		</div>
+	</td>
+</tr>
+
+
+
+	</table>
+</div>
+</div>
+</div>
+		
+		
+		
+	</div>
+	
+<!--	RESULT LENGTH	-->
+	<div class="wrap_contact_info">
+		<div class="contact_info">
+<div class="wrap_contact_type">General Enquiries</div>
+<div class="wrap_contact_org">Agency A</div>
+<div class="wrap_contact_dept">Department B</div>
+<div class="wrap_contact_name">A. Example</div>
+<div class="wrap_contact_title">Transparency Lead</div>
+<div class="wrap_contact_tel"><div>0044111222333444</div></div>
+<div class="wrap_contact_email"><a href="mailto:transparency@example.org" target="_blank">transparency@example.org</a>
+</div>
+<div class="wrap_contact_web"><a href="http://www.example.org" target="_blank">http://www.example.org</a></div>
+<div class="wrap_contact_add"><div>Transparency House, The Street, Town, City, Postcode</div></div>
+
+</div>
+
+	</div>
+
+	<div class="wrap_related_activity">
+		<div class="header_section sticky collapsable">related activity<span class="count">( 1 )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="related_ref" data-sort="string" data-sort-multicolumn="0,1,2">REFERENCE IDENTIFIER</th>
+					<th class="related_type" data-sort="int" data-sort-multicolumn="0,1,2">TYPE</th>
+					<th class="related_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>			
+				</tr>
+			</thead>
+			<tr class="row_count">
+	<td class="related_ref" data-sort-value="AA-AAA-123456789-6789"><a href="http://d-portal.org/q.html?aid=AA-AAA-123456789-6789" target="_blank">AA-AAA-123456789-6789</a></td>
+	<td class="related_type" data-sort-value="{_it.@type-code}">Parent</td>
+	<td class="related_desc" data-sort-value="An activity that contains sub-activities (sub-components) which are reported separately to IATI">An activity that contains sub-activities (sub-components) which are reported separately to IATI</td>
+</tr>
+
+		</table>
+	</div>
+
+<!--	RELATED ACTIVITY ROWS	-->
+	<div class="wrap_other_identifier">
+		<div class="header_section sticky collapsable">other identifier<span class="count">( 1 )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="other_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">REFERENCE IDENTIFIER</th>
+					<th class="owner_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">OWNER ORG IDENTIFIER</th>
+					<th class="other_type" data-sort="string" data-sort-multicolumn="0,1,2,3">TYPE</th>
+					<th class="other_desc" data-sort="string" data-sort-multicolumn="0,1,2,3">DESCRIPTION</th>			
+				</tr>
+			</thead>
+			<tr class="row_count">
+	<td class="other_ref" data-sort-value="ABC123-XYZ">ABC123-XYZ</td>
+	<td class="owner_ref" data-sort-value="AA-AAA-123456789">
+		AA-AAA-123456789
+		<div>Organisation name</div>
+
+	</td>
+	<td class="other_type" data-sort-value="A1">
+		Reporting Organisation's internal activity identifier
+		<div><span class="ref">CODE</span> A1</div>
+
+	</td>
+	<td class="other_desc" data-sort-value="A1">No description provided
+</td>
+</tr>
+
+		</table>
+	</div>
+
+	<div class="wrap_conditions">
+		<div class="header_section sticky collapsable">conditions<span class="count">( 1 )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="condition_narr" data-sort="string" data-sort-multicolumn="0,1,2">NARRATIVE</th>
+					<th class="condition_type" data-sort="int" data-sort-multicolumn="0,1,2">TYPE</th>
+					<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2">DESCRIPTION</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+	<td class="condition_narr" data-sort-value="{_it.@name}"><div class="narrative">Conditions text</div><div class="narrative">Conditions texte</div>
+</td>
+	<td class="condition_type" data-sort-value="{_it.@type-code}">Policy</td>
+	<td class="condition_desc" data-sort-value="The condition attached requires a particular policy to be implemented by the recipient">The condition attached requires a particular policy to be implemented by the recipient</td>
+</tr>
+
+		</table>
+	</div>
+
+	<div class="wrap_legacy_data">
+		<div class="header_section sticky collapsable">legacy data<span class="count">( 2 )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="legacy_name" data-sort="string" data-sort-multicolumn="0,1,2">NAME</th>
+					<th class="legacy_value" data-sort="int" data-sort-multicolumn="0,1,2">VALUE</th>
+					<th class="legacy_iati" data-sort="string" data-sort-multicolumn="0,1,2">IATI EQUIVALENT</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+	<td class="legacy_name" data-sort-value="Project Status">Project Status</td>
+	<td class="legacy_value" data-sort-value="7">7</td>
+	<td class="legacy_iati" data-sort-value="activity-status">activity-status</td>
+</tr>
+<tr class="row_count">
+	<td class="legacy_name" data-sort-value="cost">cost</td>
+	<td class="legacy_value" data-sort-value="1000">1000</td>
+	<td class="legacy_iati" data-sort-value="transaction">transaction</td>
+</tr>
+
+		</table>
+	</div>
+
+	<div class="wrap_crs_add">
+		<div class="header_section sticky collapsable">crs add</div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="crs_ele" data-sort="string" data-sort-multicolumn="0,1,2,3">ELEMENT</th>
+					<th class="crs_code" data-sort="string" data-sort-multicolumn="0,1,2,3">CODELIST</th>
+					<th class="crs_sig" data-sort="int" data-sort-multicolumn="0,1,2,3">SIGNIFICANCE</th>
+					<th class="crs_desc" data-sort="string" data-sort-multicolumn="0,1,2,3">DESCRIPTION</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+	<td class="crs_ele" data-sort-value="Free standing technical cooperation">Other Flags</td>
+	<td class="crs_code" data-sort-value="Free standing technical cooperation">Free standing technical cooperation</td>
+	<td class="crs_sig" data-sort-value="1">1</td>
+	<td class="crs_desc" data-sort-value="Free standing technical cooperation (Col 24 in CRS++ Reporting format)">Free standing technical cooperation (Col 24 in CRS++ Reporting format)</td>
+</tr>
+
+			
+		</table>
+	</div>
+
+<div class="wrap_crs_add">
+		<div class="header_section sticky collapsable">crs add loan status</div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="crs_loan_year" data-sort="string" data-sort-multicolumn="0,1,2,3,4">YEAR</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INTEREST ARREARS</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INTEREST RECEIVED</th>
+					<th class="crs_loan" data-sort="int" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL ARREARS</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL OUTSTANDING</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+				<td class="crs_loan_year">2014</td>
+				<td class="crs_loan"> <span>GBP</span></td>
+				<td class="crs_loan">200000 <span>GBP</span></td>
+				<td class="crs_loan"> <span>GBP</span></td>
+				<td class="crs_loan">1500000 <span>GBP</span></td>
+			</tr>
+		</table>
+	</div>
+
+	<!--	0% published, need data to display	-->
+
+</div>
+</div></body>

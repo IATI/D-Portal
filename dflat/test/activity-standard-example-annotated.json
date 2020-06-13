@@ -573,13 +573,14 @@
     }
    ],
    "@default-currency": "USD",
-   "@generated-datetime": "2014-09-10T07:15:37Z",
    "@hierarchy": 1,
+   "@iati-activities:generated-datetime": "2014-09-10T07:15:37Z",
+   "@iati-activities:linked-data-default": "http://data.example.org/",
+   "@iati-activities:version": "2.01",
    "@last-updated-datetime": "2014-09-10T07:15:37Z",
-   "@linked-data-default": "http://data.example.org/",
    "@linked-data-uri": "http://data.example.org/123456789",
-   "@version": "2.01",
-   "@xml:lang": "EN"
+   "@xml:lang": "EN",
+   "@xmlns:iati-activities": "http://d-portal.org/xmlns/iati-activities"
   }
  ],
  "/iati-activities@generated-datetime": "2014-09-10T07:15:37Z",
