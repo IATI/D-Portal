@@ -4,6 +4,9 @@
   "version": "0.0.22",
   "license": "MIT",
   "main": "dflat/js/cmd.js",
+  "browserify": {
+    "transform": [ "brfs" ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/devinit/D-Portal.git",
