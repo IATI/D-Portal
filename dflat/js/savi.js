@@ -93,8 +93,10 @@ savi.chunks={}
 savi.plate=function(str){ return savi.plated.chunks.replace(str,savi.chunks) }
 
 let fs = require('fs');
-savi.plated.chunks.fill_chunks( fs.readFileSync(__dirname + '/savi.html', 'utf8'), savi.chunks )
-savi.plated.chunks.fill_chunks( fs.readFileSync(__dirname + '/savi.css',  'utf8'), savi.chunks )
+let savi_html = fs.readFileSync(__dirname + '/savi.html', 'utf8')
+let savi_css = fs.readFileSync(__dirname + '/savi.css',  'utf8')
+savi.plated.chunks.fill_chunks( savi_html , savi.chunks )
+savi.plated.chunks.fill_chunks( savi_css , savi.chunks )
 
 savi.plated.chunks.format_chunks( savi.chunks )
 
