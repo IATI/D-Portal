@@ -728,6 +728,15 @@ Un nombre d'activités de l'IATI qui contiennent des coordonnées spécifiques d
 #main_data_paragraph8_text
 Le reste des données sur la page provient de l'IATI. Typiquement, cela aura été mis à jour tous les jours à minuit GMT.
 
+#main_data_paragraph9_text
+Comment sont calculés les taux de change?
+
+#main_data_paragraph10_text
+Nous convertissons actuellement en USD en utilisant le taux de change de la date spécifiée dans l'attribut <b>date-valeur</b>. Pour les autres devises, la valeur USD est convertie en utilisant le taux de change d'aujourd'hui.
+
+#main_data_paragraph11_text
+Veuillez vous référer à la FAQ pour plus d'informations sur les <a href="http://d-portal.org/faq.html#tech5" target="_blank">devises</a> et <a href="http://d-portal.org/faq.html#tech13" target="_blank">taux de change</a>.
+
 #view_active_text
 Tous les projets en cours pour {portal_name}
 
