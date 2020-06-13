@@ -9,6 +9,7 @@ var entities = require("entities");
 
 var jml = require("./jml.js");
 var xson = require("./xson.js");
+var savi = require("./savi.js");
 
 var database = require("../json/database.json");
 let codemap = require('../json/codemap.json')
@@ -19,6 +20,33 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 dflat.saneid=function(insaneid)
 {
 	return insaneid.trim().toLowerCase().replace(/\W+/g,"-")
+}
+
+
+// convert json back into xml
+dflat.xson_to_xml=function(json)
+{
+	return jml.to_xml( xson.to_jml(json) )
+}
+
+	
+// convert json into html ( BEWARE this will add extra junk to your json )
+dflat.xson_to_html=function(json)
+{
+	dflat.clean(json) // clean this data
+	savi.prepare(json) // prepare for display
+	savi.chunks.iati=json
+	var html=savi.plate(
+`<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://d-portal.org/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
+<script> require("savi").start({ embeded:true }); </script>
+</head>
+<body><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>
+`)
+	return html
 }
 
 
@@ -254,6 +282,12 @@ dflat.xson_to_xsv=function(data,root,paths)
 
 	return lines.join("\n")
 }
+
+dflat.xsv_to_xson=function(data)
+{
+	return {} // not working yer...
+}
+
 
 // perform sanitation work on the input XML
 dflat.clean=function(data)
