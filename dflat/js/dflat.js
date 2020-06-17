@@ -7,8 +7,13 @@ var util=require('util');
 
 var entities = require("entities");
 
+var papa = require('papaparse');
+
+var stringify = require('json-stable-stringify');
+
 var jml = require("./jml.js");
 var xson = require("./xson.js");
+var savi = require("./savi.js");
 
 var database = require("../json/database.json");
 let codemap = require('../json/codemap.json')
@@ -19,6 +24,39 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 dflat.saneid=function(insaneid)
 {
 	return insaneid.trim().toLowerCase().replace(/\W+/g,"-")
+}
+
+
+// convert json back into xml
+dflat.xson_to_xml=function(json)
+{
+	return jml.to_xml( xson.to_jml(json) )
+}
+
+// convert json to a string
+dflat.xson_to_string=function(json)
+{
+	return stringify(json,{space:" "})
+}
+
+	
+// convert json into html ( BEWARE this will add extra junk to your json )
+dflat.xson_to_html=function(json)
+{
+	dflat.clean(json) // clean this data
+	savi.prepare(json) // prepare for display
+	savi.chunks.iati=json
+	var html=savi.plate(
+`<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://d-portal.org/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
+<script> require("savi").start({ embeded:true }); </script>
+</head>
+<body class="print"><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>
+`)
+	return html
 }
 
 
@@ -90,17 +128,6 @@ dflat.xml_to_xson=function(data)
 		var np=Object.assign({},op)
 		np.name=op.root+"/"+it[0]
 		np.root=np.name
-/*
-if(np.name=="/iati-activities/iati-activity/iati-identifier")
-{
-console.log(it)
-}
-else
-if(np.name=="/iati-activities/iati-activity/transaction")
-{
-process.stdout.write(".")
-}
-*/
 		var info = database.paths[ np.name ]
 
 		if( info && info.multiple ) // can there be multiples?
@@ -127,6 +154,20 @@ process.stdout.write(".")
 
 dflat.xson_to_xsv=function(data,root,paths)
 {
+	if(!root) // guess
+	{
+		if( data["/iati-activities/iati-activity"] )
+		{
+			root="/iati-activities/iati-activity"
+			paths={"/iati-activities/iati-activity":true}
+		}
+		else
+		if( data["/iati-organisations/iati-organisation"] )
+		{
+			root="/iati-organisations/iati-organisation"
+			paths={"/iati-organisations/iati-organisation":true}
+		}
+	}
 
 	var header=[]
 	var t={}
@@ -254,6 +295,117 @@ dflat.xson_to_xsv=function(data,root,paths)
 
 	return lines.join("\n")
 }
+
+dflat.xsv_to_xson=function(data)
+{
+	let ret={}
+	let map={}
+	let mappath={}
+	
+	let lines=papa.parse(data).data
+
+	let head=lines[0]
+	let root=head[2]
+	for( let idx=1 ; idx<lines.length ; idx++ )
+	{
+		let line=lines[idx]
+		let it={}
+		let id=line[0]
+		let parent_id=line[1]
+		let path=line[2]
+		let subpath=path
+
+		let parent=ret
+		if( parent_id )
+		{
+			let parentpath=mappath[ parent_id ]
+			parent=map[ parent_id ]
+			if( path.startsWith( parentpath ) )
+			{
+				subpath=path.substring(parentpath.length)
+			}
+//			console.log( parentpath + " ? " + path + " = " +subpath)
+		}
+		else
+		{
+			path=root
+			subpath=root
+		}
+		parent[ subpath ]=parent[ subpath ] || []
+		parent[ subpath ].push(it)
+
+		map[id]=it
+		mappath[id]=path
+
+		for( let i=3 ; i<line.length ; i++ )
+		{
+			if( head[i] && line[i]!="" )
+			{
+				let name=head[i]
+				if( name.startsWith(path) )
+				{
+					name=name.substring(path.length)
+				}
+				it[ name ]=line[i]
+			}
+		}
+	}
+
+// make sure we have arrays everywhere we need them in the json
+
+	xson.walk(ret,function(v,a){
+		if( typeof v == "object" )
+		{
+			let newpaths={}
+			var root=a.join("")
+//			console.log(root)
+			for(var n of Object.keys(v).sort() ) // force order
+			{
+				if(n)
+				{
+					var path=root+n
+					var info = database.paths[ path ]
+					if(info && info.jpath)
+					{
+						let jpath=""
+						let max=info.jpath.length-2
+//						if( info.jpath[ info.jpath.length-1 ]=="" ) { max=max-1 } // special case for "" narratives
+						for( let pi=0 ; pi < max ; pi++)
+						{
+							jpath=jpath+info.jpath[pi]
+							if( (jpath==root) )
+							{
+								newpaths[ info.jpath[pi+1] ]=path
+								break
+							}
+						}
+					}
+				}
+			}
+			for( let newpath in newpaths )
+			{
+				if(typeof v[newpath] != "object") // do not do twice
+				{
+//					console.log(root + " +++ " +newpath+ " from "+newpaths[newpath] + " ? "+typeof v[newpath])
+					let it={}
+					for(var n of Object.keys(v).sort() ) // force order
+					{
+						if( n.startsWith(newpath) )
+						{
+							it[ n.substring(newpath.length) ] = v[n]
+							delete v[n]
+						}
+					}
+					v[newpath]=[it]
+				}
+			}
+		}
+	})
+
+
+	return ret
+}
+
 
 // perform sanitation work on the input XML
 dflat.clean=function(data)

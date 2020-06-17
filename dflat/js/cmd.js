@@ -75,26 +75,14 @@ cmd.run=async function(argv)
 			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
 			var json=dflat.xml_to_xson(dat)
 			dflat.clean(json)
-			await pfs.writeFile(argv.output,stringify(json,{space:" "}));
+			var str=dflat.xson_to_string(json)
+
+			await pfs.writeFile(argv.output,str);
 
 			return
 		}
 	}
 	
-	if( argv._[0]=="json2xml" )
-	{
-		await cmd.parse_filename(argv,{input:".json",output:".xml"})
-		if(argv.input)
-		{
-			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
-			var json=JSON.parse(dat)
-			var xml=jml.to_xml( xson.to_jml(json) )
-			await pfs.writeFile(argv.output,xml);
-
-			return
-		}
-	}
-
 	if( argv._[0]=="xml2csv")
 	{
 		await cmd.parse_filename(argv,{input:".xml",output:".csv"})
@@ -102,7 +90,8 @@ cmd.run=async function(argv)
 		{
 			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
 			var json=dflat.xml_to_xson(dat)
-			var csv=dflat.xson_to_xsv(json,"/iati-activities/iati-activity",{"/iati-activities/iati-activity":true})
+			dflat.clean(json)
+			var csv=dflat.xson_to_xsv(json)
 
 			await pfs.writeFile(argv.output,csv);
 
@@ -117,24 +106,111 @@ cmd.run=async function(argv)
 		{
 			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
 			var json=dflat.xml_to_xson(dat)
-			dflat.clean(json) // clean this data
-			savi.prepare(json) // prepare for display
-			savi.chunks.iati=json
-			var html=savi.plate(
-`<!DOCTYPE html>
-<html>
-<head>
-<script src="http://d-portal.org/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
-<script> require("savi").start({ embeded:true }); </script>
-</head>
-<body><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>
-`)
+			dflat.clean(json)
+			var html=dflat.xson_to_html(json)
 
 			await pfs.writeFile(argv.output,html);
 
 			return
 		}
 	}
+
+	if( argv._[0]=="json2xml" )
+	{
+		await cmd.parse_filename(argv,{input:".json",output:".xml"})
+		if(argv.input)
+		{
+			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
+			var json=JSON.parse(dat)
+			dflat.clean(json)
+			var xml=dflat.xson_to_xml(json)
+			
+			await pfs.writeFile(argv.output,xml);
+
+			return
+		}
+	}
+
+	if( argv._[0]=="json2csv")
+	{
+		await cmd.parse_filename(argv,{input:".json",output:".csv"})
+		if(argv.input)
+		{
+			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
+			var json=JSON.parse(dat)
+			dflat.clean(json)
+			var csv=dflat.xson_to_xsv(json)
+
+			await pfs.writeFile(argv.output,csv);
+
+			return
+		}
+	}
+	
+	if( argv._[0]=="json2html")
+	{
+		await cmd.parse_filename(argv,{input:".json",output:".html"})
+		if(argv.input)
+		{
+			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
+			var json=JSON.parse(dat)
+			dflat.clean(json)
+			var html=dflat.xson_to_html(json)
+
+			await pfs.writeFile(argv.output,html);
+
+			return
+		}
+	}
+
+	if( argv._[0]=="csv2json" )
+	{
+		await cmd.parse_filename(argv,{input:".csv",output:".json"})
+		if(argv.input)
+		{
+			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
+			var json=dflat.xsv_to_xson(dat)
+			dflat.clean(json)
+			var str=dflat.xson_to_string(json)
+
+			await pfs.writeFile(argv.output,str);
+
+			return
+		}
+	}
+
+	if( argv._[0]=="csv2xml" )
+	{
+		await cmd.parse_filename(argv,{input:".csv",output:".xml"})
+		if(argv.input)
+		{
+			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
+			var json=dflat.xsv_to_xson(dat)
+			dflat.clean(json)
+			var xml=dflat.xson_to_xml(json)
+			
+			await pfs.writeFile(argv.output,xml);
+
+			return
+		}
+	}
+
+	if( argv._[0]=="csv2html")
+	{
+		await cmd.parse_filename(argv,{input:".csv",output:".html"})
+		if(argv.input)
+		{
+			var dat=await pfs.readFile(argv.input,{ encoding: 'utf8' });
+			var json=dflat.xsv_to_xson(dat)
+			dflat.clean(json)
+			var html=dflat.xson_to_html(json)
+
+			await pfs.writeFile(argv.output,html);
+
+			return
+		}
+	}
+
 
 	if( argv._[0]=="frankenstein" )
 	{
@@ -177,30 +253,27 @@ cmd.run=async function(argv)
 	// help text
 	console.log(
 `
+>	dflat xml2json filename[.xml]
+>	dflat xml2csv filename[.xml]
+>	dflat xml2html filename[.xml]
+
+>	dflat json2xml filename[.json]
+>	dflat json2csv filename[.json]
+>	dflat json2html filename[.json]
+
+>	dflat csv2json filename[.csv]
+>	dflat csv2xml filename[.csv]
+>	dflat csv2html filename[.csv]
+
+Convert activities or organisations from filename[.xml|.json|.csv] into 
+filename[.xml|.json|.csv|.html]
+
+	--output filename[.json]
+	Explicit output path/filename.
+
 >	dflat fetch 
 
 Fetch remote files and update cached data
-
->	dflat xml2json filename[.xml] 
-
-Convert activities from filename.xml into filename.json
-
-	--output filename.xml.json 
-	Explicit output path/filename.
-
->	dflat xml2csv filename[.xml] 
-
-Convert activities from filename.xml into filename.csv
-
-	--output filename.csv 
-	Explicit output path/filename.
-
->	dflat json2xml filename[.json] 
-
-Convert activities from filename.json into filename.xml
-
-	--output filename.xml 
-	Explicit output path/filename.
 
 >	dflat frankenstein 
 
