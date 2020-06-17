@@ -26,6 +26,10 @@ body		{background-color:#47506B; color:#FFF; margin-top:40px;}
 .hum_transaction{background-color:rgba(48,71,103,1); border-radius:4px; color:#CCC; display:inline-block; font-size:12px; margin-left:-5px; margin-top:10px; padding:2px 5px;}
 span.withdrawn	{background-color:#ccc; border-radius:3px; color:#444; font-size:12px; font-style:italic; font-weight:normal; margin-left:5px; padding:2px 5px; text-transform:initial; width:initial;}
 
+/*	THEME BUTTON	*/
+.theme_button		{position:fixed; top:0px; right:0px; background-color:#000; color:#FFF; cursor:pointer; padding:5px 10px; font-size:14px;}
+.theme_button:hover	{background-color:#666;}
+
 /*	VERSION 1 BANNER	 */
 a.banner_v1:link	{background-color:#c40000; border-radius:2px 2px 0 0; color:#fff; display:block; font-size:16px; margin-bottom:20px; padding:20px; text-align:center; text-decoration:none;}
 a.banner_v1:visited	{color:#fff;}
@@ -863,6 +867,7 @@ body.print		{background-color:#fff;}
 .print .wrap_length,
 .print .legend,
 .print .wrap_result .sector_list_wrap,
+.print .wrap_description .text .narrative:nth-of-type(n+2)
 .print .result_indi_desc,
 .print .result_indi_head,
 .print .result_facet,
@@ -885,6 +890,7 @@ body.print		{background-color:#fff;}
 .print .org table.budget th.status,
 .print table.budget th.value 			{background-color:#fff; color:#444;}
 .print table.budget.act_trans td.description .type,
+.print td .narrative:nth-of-type(n+2),
 .print table.budget.location td.loc_des .loc_act {color:#444;}
 .print table.modals td span.withdrawn 	{background-color:#fff; border:1px solid #444; color:#444;}
 .print td .currency,
