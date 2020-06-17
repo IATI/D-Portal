@@ -170,15 +170,17 @@ savi.start_loaded=async function(){
 
 	console.log( savi.chunks.iati ) // to help debuging
 
+	$("body").empty()
 	if(aid)
 	{
-		$("body").empty().append(savi.plate('<div>{iati./iati-activities/iati-activity:iati-activity}</div>')) // fill in the base body
+		$("body").append(savi.plate('<div>{iati./iati-activities/iati-activity:iati-activity}</div>')) // fill in the base body
 	}
 	else
 	if(pid)
 	{
-		$("body").empty().append(savi.plate('<div>{iati./iati-organisations/iati-organisation:iati-organisation}</div>')) // fill in the base body
+		$("body").append(savi.plate('<div>{iati./iati-organisations/iati-organisation:iati-organisation}</div>')) // fill in the base body
 	}
+	$("body").append(savi.plate('{theme_button}'))
 
 // apply javascript to rendered html	
 
