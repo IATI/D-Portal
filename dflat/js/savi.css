@@ -884,6 +884,7 @@ body.print		{background-color:#fff;}
 .print table.budget th, .print table.budget td,
 .print .org table.budget th.status,
 .print table.budget th.value 			{background-color:#fff; color:#444;}
+.print table.budget.act_trans td.description .type,
 .print table.budget.location td.loc_des .loc_act {color:#444;}
 .print table.modals td span.withdrawn 	{background-color:#fff; border:1px solid #444; color:#444;}
 .print td .currency,
