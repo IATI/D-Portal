@@ -681,6 +681,15 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 #disqus_thread			{margin-top:40px;}
 
 
+/*	Utter comment box
+	============================================= */
+.utter_link			{position:fixed; bottom:100px; right:0; padding:15px 10px 15px 15px; background-color:#5a67ac; border-radius:30px 0 0 30px; font-size:25px; color:#fff; font-weight:bold; z-index:2;}
+.utter_link:hover	{cursor:pointer; background-color:#5b6fdb;}
+#utter_wrap			{background-color:#fff; border-left:2px solid #f1f8ff; display:none; height:100%; position:fixed; top:0; right:0; width:600px; max-width:600px; overflow-y:auto; z-index:2;}
+.utter_text			{margin-left:auto; margin-right:auto; width:100%; max-width:500px; margin-top:40px; font-size:24px; line-height:30px;}
+.utterances			{max-width:500px; margin-top:20px;}
+
+
 /*	Beige Alert
 	============================================= */
 .beigealert_wrap		{width:100%; margin:0 auto; background-color:#D80051; box-sizing:border-box;}
