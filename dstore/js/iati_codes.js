@@ -253,7 +253,7 @@ iati_codes.fetch = function(){
 	{
 		var v=lines[i];
 		var a=(v[0]);
-		var b=v[3];
+		var b=v[1];
 		if(a && a.length>0 && b && b.length>0 )
 		{
 			o[a.trim()]=b.trim();
