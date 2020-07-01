@@ -687,7 +687,12 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 .utter_link:hover	{cursor:pointer; background-color:#5b6fdb;}
 #utter_wrap			{background-color:#fff; border-left:2px solid #f1f8ff; display:none; height:100%; position:fixed; top:0; right:0; width:600px; max-width:600px; overflow-y:auto; z-index:2;}
 .utter_text			{margin-left:auto; margin-right:auto; width:100%; max-width:500px; margin-top:40px; font-size:24px; line-height:30px;}
-.utterances			{max-width:500px; margin-top:20px;}
+.utter_text span	{display:block; font-size:16px; font-style:italic;}
+.utter_text span a	{color:#888;}
+.utter_text span a:hover	{text-decoration:underline;}
+.utter_box_wrap		{position:relative;}
+.utter_block		{height:40px; width:100%; position:absolute; top:0; left:0; background-color:#fff;}
+.utterances			{max-width:500px; margin-top:0;}
 
 
 /*	Beige Alert
