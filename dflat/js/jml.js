@@ -54,10 +54,15 @@ jml.from_xml=function(data)
 		if(text!="") // ignore white space
 		{
 			if(!top[1]) {	top[1]=[]	}
+			if(cdata)	{ 	top[1].push( (text) )	}
 			else		{	top[1].push( (text) )	}
 		}
-	}	
-	parser.oncdata=parser.ontext
+	}
+	parser.oncdata=parser.ontext // oncdata is same function as ontext
+
+// maintain cdata text flag
+	parser.onopencdata=()=>{ cdata=true; }
+	parser.onclosecdata=()=>{ cdata=false; }
 
 //throw any errors
 	parser.onerror=(e)=>{ throw new Error(e) }
