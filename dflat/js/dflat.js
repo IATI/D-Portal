@@ -98,7 +98,7 @@ for(let n in tab) {
 	})
 // copy or fake a version into the header and sort elements
 
-	return jml.to_xml( j )
+	return '<?xml version="1.0" encoding="UTF-8"?>\n'+jml.to_xml( j )
 }
 
 // convert json to a string

@@ -995,7 +995,6 @@ console.log("This should not be null : "+jml) // <-- something seems to have del
 jml=require("../../dflat/js/jml.js") // this fixes it but it is still a TODO: issue
 
 			res.set('Content-Type', 'text/xml');
-			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n' )
 			res.end( dflat.xson_to_xml( df ) );
 		}
 		else
