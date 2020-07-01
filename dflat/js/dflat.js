@@ -746,9 +746,13 @@ dflat.clean_copy_defaults=function(data)
 			let v=vocabmap[path] // set default vocabulary to 1
 			if(v)
 			{
-				if(!it[v])
+				let aa=v.split("@")
+				if( (aa[0]=="") || (it[ aa[0] ]) ) // need to check this sub array exists
 				{
-					it[v]="1"
+					if(!it[v])
+					{
+						it[v]="1"
+					}
 				}
 			}
 			if(percentmap[path]) // default any empty percents to 100%

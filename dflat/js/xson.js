@@ -25,10 +25,10 @@ xson.to_jml=function(data,sortfunction)
 			let v=it[n]
 			if( Array.isArray(v) )
 			{
-				if(v.length==1 && "string" == typeof v[0])
+				if(v.length==1 && ( ("string" == typeof v[0]) || ("number" == typeof v[0]) ) )
 				{
 					let o=jml.manifest_xpath(out,n)
-					o[1].push(v[0])
+					o[1].push(v[0]+"")
 				}
 				else
 				{
@@ -61,7 +61,7 @@ xson.to_jml=function(data,sortfunction)
 				else
 				{
 					let o=jml.manifest_xpath(out,n)
-					o[1].push(v)
+					o[1].push(v+"")
 				}
 			}
 		}
