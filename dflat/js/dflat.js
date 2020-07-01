@@ -500,6 +500,7 @@ for( const n in database.paths )
 		currencymap[d]=a // hopefully only one per parent (this might break...)
 	}
 }
+ls(currencymap)
 
 // precalculate percent default 100% map
 let percentmap={}
@@ -726,9 +727,13 @@ dflat.clean_copy_defaults=function(data)
 				let v=currencymap[path]
 				if(v)
 				{
-					if(!it[v])
+					let aa=v.split("@")
+					if( (aa[0]=="") || (it[ aa[0] ]!==undefined) ) // need to check this sub array exists
 					{
-						it[v]=act["@default-currency"]
+						if(!it[v])
+						{
+							it[v]=act["@default-currency"]
+						}
 					}
 				}
 			}
@@ -747,7 +752,7 @@ dflat.clean_copy_defaults=function(data)
 			if(v)
 			{
 				let aa=v.split("@")
-				if( (aa[0]=="") || (it[ aa[0] ]) ) // need to check this sub array exists
+				if( (aa[0]=="") || (it[ aa[0] ]!==undefined) ) // need to check this sub array exists
 				{
 					if(!it[v])
 					{
