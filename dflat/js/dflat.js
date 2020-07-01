@@ -30,7 +30,41 @@ dflat.saneid=function(insaneid)
 // convert json back into xml
 dflat.xson_to_xml=function(json)
 {
-	let j=xson.to_jml(json)
+	let j=xson.to_jml(json,function(root,tab){
+
+
+		tab.sort(function(a,b){
+			
+
+			let pa=database.paths[root+a]
+			let pb=database.paths[root+b]
+			
+			let ia=pa && pa.orderby || 999999
+			let ib=pb && pb.orderby || 999999
+			
+			if( ia == ib )
+			{
+				if( a<b ) { return -1 } // alpha sort
+				if( a>b ) { return  1 }
+				return 0
+			}
+			else
+			{
+				return ia-ib
+			}
+
+		})
+
+/*
+console.log("==="+root)
+for(let n in tab) {
+	let pn=root+tab[n]
+	let pd=database.paths[pn]
+	console.log("+++"+pn+" "+( pd && pd.orderby || 999999 ))
+}
+*/
+
+	})
 // copy or fake a version into the header and sort elements
 
 	return jml.to_xml( j )
