@@ -65,6 +65,7 @@ fetch.xsd_xpaths=function(tree,root)
 	}
 
 	
+	var pathorder=[]
 	var parse
 	parse=function(e,root)
 	{
@@ -76,6 +77,7 @@ fetch.xsd_xpaths=function(tree,root)
 		}
 
 		paths[path] = e
+		pathorder.push(path)
 		
 		var as=[].concat(
 				jml.find_xpath(e,"/element/complexType/simpleContent/extension/attribute",true),
@@ -88,11 +90,13 @@ fetch.xsd_xpaths=function(tree,root)
 			if(av.ref)
 			{
 				paths[path+"@"+av.ref]=amap[ av.ref ] || {}
+				pathorder.push(path+"@"+av.ref)
 			}
 			else
 			if(av.name)
 			{
 				paths[path+"@"+av.name]=av
+				pathorder.push(path+"@"+av.name)
 			}
 		}
 
@@ -132,6 +136,13 @@ fetch.xsd_xpaths=function(tree,root)
 	if( emap[root] )
 	{
 		parse( emap[root] ,"" )
+	}
+	
+	for( var idx in pathorder )
+	{
+		let n=pathorder[idx]
+		let p=paths[n]
+		p.order_of_element=(idx*1)+1 // remember order of parsing
 	}
 	
 	return paths
@@ -535,6 +546,7 @@ fetch.database=async function()
 				if(it.use=="required")        { d.required=true }
 				if(it.maxOccurs=="unbounded") { d.multiple=true }
 				if(it.minOccurs=="1")         { d.required=true }
+				d.orderby=it.order_of_element || 0
 				database.paths[n]=d
 
 				if(typeof type=="undefined")

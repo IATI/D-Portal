@@ -30,7 +30,10 @@ dflat.saneid=function(insaneid)
 // convert json back into xml
 dflat.xson_to_xml=function(json)
 {
-	return jml.to_xml( xson.to_jml(json) )
+	let j=xson.to_jml(json)
+// copy or fake a version into the header and sort elements
+
+	return jml.to_xml( j )
 }
 
 // convert json to a string
