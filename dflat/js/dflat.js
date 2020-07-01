@@ -30,6 +30,37 @@ dflat.saneid=function(insaneid)
 // convert json back into xml
 dflat.xson_to_xml=function(json)
 {
+	// try and yank highest version number we can find out of the activities
+	if( json["/iati-activities/iati-activity"] )
+	{
+		let v=parseFloat(json["/iati-activities@version"]||0)
+		for(let it of json["/iati-activities/iati-activity"] )
+		{
+			let t=parseFloat(it["@iati-activities:version"])
+			if(t && t>v) { v=t }
+		}
+		if(v)
+		{
+			json["/iati-activities@version"]=v
+		}
+	}
+
+	// try and yank highest version number we can find out of the organisation
+	if( json["/iati-organisations/iati-organisation"] )
+	{
+		let v=parseFloat(json["/iati-organisations@version"]||0)
+		for(let it of json["/iati-organisations/iati-organisation"] )
+		{
+			let t=parseFloat(it["@iati-organisations:version"])
+			if(t && t>v) { v=t }
+		}
+		if(v)
+		{
+			json["/iati-organisations@version"]=v
+		}
+	}
+
+
 	let j=xson.to_jml(json,function(root,tab){
 
 
@@ -75,7 +106,6 @@ dflat.xson_to_string=function(json)
 {
 	return stringify(json,{space:" "})
 }
-
 	
 // convert json into html ( BEWARE this will add extra junk to your json )
 dflat.xson_to_html=function(json)
