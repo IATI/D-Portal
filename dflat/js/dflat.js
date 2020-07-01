@@ -500,7 +500,6 @@ for( const n in database.paths )
 		currencymap[d]=a // hopefully only one per parent (this might break...)
 	}
 }
-ls(currencymap)
 
 // precalculate percent default 100% map
 let percentmap={}
