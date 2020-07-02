@@ -1,7 +1,9 @@
 cd `dirname $0`
 cd ..
 
-echo " creating new dload database and filling it with data before swapping it with live dstore database "
+
+echo " creating new dload database "
+
 
 source server/env.sh
 export PGDATABASE="dload"
@@ -13,11 +15,38 @@ createdb $PGDATABASE
 
 psql -c "CREATE EXTENSION IF NOT EXISTS citext;" $PGDATABASE
 psql -c "ALTER DATABASE $PGDATABASE OWNER TO $PGUSER;"
-psql -c "GRANT ALL PRIVILEGES ON DATABASE $PGDATABASE TO $PGUSER;" $PGDATABASE
+psql -c "GRANT ALL PRIVILEGES ON DATABASE $PGDATABASE TO $PGUSER;"
+psql -c "GRANT CONNECT ON DATABASE $PGDATABASE TO readonly;"
 
 
 bin/dstore_reset
 
 
+echo " filling dload database with data "
+
+
 bin/fast_import
 
+
+source server/env.sh
+
+
+echo " swapping dload database with dstore database "
+
+
+
+/etc/init.d/dportal stop
+/etc/init.d/dportal-instance stop
+
+psql -c "ALTER DATABASE dstore RENAME TO dtmp;"
+psql -c "ALTER DATABASE dload  RENAME TO dstore;"
+psql -c "ALTER DATABASE dtmp   RENAME TO dload;"
+
+/etc/init.d/dportal start
+/etc/init.d/dportal-instance start
+
+
+
+echo " deleting dload database "
+
+#dropdb dload
