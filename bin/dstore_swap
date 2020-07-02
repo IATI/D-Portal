@@ -13,9 +13,12 @@ echo " swapping dload database with dstore database "
 
 dropdb dtmp
 
-psql -c "ALTER DATABASE dstore RENAME TO dtmp;"
-psql -c "ALTER DATABASE dload  RENAME TO dstore;"
-psql -c "ALTER DATABASE dtmp   RENAME TO dload;"
+psql -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='dload';" postgres
+psql -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='dstore';" postgres
+
+psql -c "ALTER DATABASE dstore RENAME TO dtmp;" postgres
+psql -c "ALTER DATABASE dload  RENAME TO dstore;" postgres
+psql -c "ALTER DATABASE dtmp   RENAME TO dload;" postgres
 
 /etc/init.d/dportal start
 /etc/init.d/dportal-instance start
