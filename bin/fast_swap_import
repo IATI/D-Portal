@@ -1,0 +1,23 @@
+cd `dirname $0`
+
+
+echo " creating new dload database and filling it with data before swapping it with live dstore database "
+
+source server/env.sh
+export PGDATABASE="dload"
+
+
+dropdb $PGDATABASE
+createdb $PGDATABASE
+
+
+psql -c "CREATE EXTENSION IF NOT EXISTS citext;" $PGDATABASE
+psql -c "ALTER DATABASE $PGDATABASE OWNER TO $PGUSER;"
+psql -c "GRANT ALL PRIVILEGES ON DATABASE $PGDATABASE TO $PGUSER;" $PGDATABASE
+
+
+bin/dstore_reset
+
+
+bin/fast_import
+
