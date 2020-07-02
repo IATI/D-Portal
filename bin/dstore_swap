@@ -1,0 +1,21 @@
+cd `dirname $0`
+cd ..
+
+
+source bin/server/env.sh
+
+
+echo " swapping dload database with dstore database "
+
+
+/etc/init.d/dportal stop
+/etc/init.d/dportal-instance stop
+
+dropdb dtmp
+
+psql -c "ALTER DATABASE dstore RENAME TO dtmp;"
+psql -c "ALTER DATABASE dload  RENAME TO dstore;"
+psql -c "ALTER DATABASE dtmp   RENAME TO dload;"
+
+/etc/init.d/dportal start
+/etc/init.d/dportal-instance start
