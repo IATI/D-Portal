@@ -28,7 +28,7 @@ psql -c "GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly" $PGDATABASE
 echo " filling dload database with data "
 
 
-bin/fast_import
+bin/fast_import >dportal/production/D-Portal-Logs/cron.import.log
 
 
 source bin/server/env.sh
