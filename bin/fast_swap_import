@@ -21,6 +21,9 @@ psql -c "GRANT CONNECT ON DATABASE $PGDATABASE TO readonly;"
 
 bin/dstore_reset
 
+psql -c "GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly" $PGDATABASE
+
+
 
 echo " filling dload database with data "
 
