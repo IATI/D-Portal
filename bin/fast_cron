@@ -26,9 +26,9 @@ bin/build
 /etc/init.d/dportal restart
 /etc/init.d/dportal status
 
-bin/fast_download >dportal/production/D-Portal-Logs/cron.download.log
+bin/fast_download >dportal/production/D-Portal-Logs/cron.download.log 2>&1
 
-bin/fast_swap_import
+bin/fast_swap_import 2>&1
 
 echo
 echo "Searching logs for download ERRORS"
