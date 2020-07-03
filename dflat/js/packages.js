@@ -256,8 +256,7 @@ packages.process_download_save=async function(argv,json,basename)
 	var stats = xson.xpath_stats(json)
 	await pfs.writeFile( basename+".stats.json" ,stringify(stats,{space:" "}));
 
-	var xjml=xson.to_jml(json)
-	var xml=jml.to_xml( xjml )
+	var xml=dflat.xson_to_xml(json)
 	await pfs.writeFile( basename+".xml" ,xml);
 
 	if( json["/iati-activities/iati-activity"] )
