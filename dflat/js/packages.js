@@ -251,13 +251,15 @@ packages.prepare_download_registry=async function(argv)
 
 packages.process_download_save=async function(argv,json,basename)
 {
+	// do this one virst as it may adjust/create iati-activities@version to match the given data
+	var xml=dflat.xson_to_xml(json)
+	await pfs.writeFile( basename+".xml" ,xml);
+
+
 	await pfs.writeFile( basename+".json" ,stringify(json,{space:" "}));
 
 	var stats = xson.xpath_stats(json)
 	await pfs.writeFile( basename+".stats.json" ,stringify(stats,{space:" "}));
-
-	var xml=dflat.xson_to_xml(json)
-	await pfs.writeFile( basename+".xml" ,xml);
 
 	if( json["/iati-activities/iati-activity"] )
 	{
@@ -309,7 +311,7 @@ packages.process_download=async function(argv)
 		for( const act of json["/iati-activities/iati-activity"] )
 		{
 			let aid=dflat.saneid( act["/iati-identifier"] )
-			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] , "/iati-activities@version":"2.03" } , basename+"/"+aid )
+			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+aid )
 
 // all activities
 			let linkname=path.join(argv.dir,"activities")
