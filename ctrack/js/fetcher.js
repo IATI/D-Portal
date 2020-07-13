@@ -96,7 +96,7 @@ fetcher.prefetch_aids=function(aids,f)
 		switch( aids.trim().toUpperCase() )
 		{
 			case "COVID-19":
-				aids="http://d-portal.org/dquery?sql="+encodeURI(`
+				aids="/dquery?sql="+encodeURI(`
 SELECT DISTINCT aid FROM xson WHERE
 (
 	root='/iati-activities/iati-activity/humanitarian-scope' AND
@@ -128,7 +128,7 @@ SELECT DISTINCT aid FROM xson WHERE
 		}
 		
 		var protocol=( aids.split(":")[0] || "" ).toLowerCase()
-		if( (protocol=="https") || (protocol=="http") ) // go fish
+		if( (protocol=="https") || (protocol=="http") || aids.startsWith("/") ) // go fish
 		{
 
 			console.log("Prefetching : "+aids)
