@@ -954,13 +954,11 @@ query.do_select_response=function(q,res,r){
 		if( q.root=="/iati-organisations/iati-organisation" ) // org files
 		{
 			df["/iati-organisations/iati-organisation"]=tab
-			df["/iati-organisations@version"]="2.03"
 		}
 		else
 		if( q.root=="/iati-activities/iati-activity" ) // activities
 		{
 			df["/iati-activities/iati-activity"]=tab
-			df["/iati-activities@version"]="2.03"
 		}
 		else // raw xson table of results
 		{
@@ -992,30 +990,18 @@ query.do_select_response=function(q,res,r){
 		else
 		if(q.form=="xml")
 		{
+			
 console.log("This should not be null : "+jml) // <-- something seems to have deleted the jml library
 jml=require("../../dflat/js/jml.js") // this fixes it but it is still a TODO: issue
-			var x=jml.to_xml( xson.to_jml(df) )
+
 			res.set('Content-Type', 'text/xml');
-			res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n' )
-			res.end(x);
+			res.end( dflat.xson_to_xml( df ) );
 		}
 		else
 		if(q.form=="html")
 		{
-			dflat.clean(df) // clean this data
-			savi.prepare(df) // prepare for display
-			savi.chunks.iati=df
-			var x=savi.plate(
-`<!DOCTYPE html>
-<html>
-<head>
-<script src="/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
-<script> require("savi").start({ embeded:true }); </script>
-</head>
-<body><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>
-`)
 			res.set('Content-Type', 'text/html');
-			res.end(x);
+			res.end( dflat.xson_to_html(df) );
 		}
 		else // default to json output
 		{

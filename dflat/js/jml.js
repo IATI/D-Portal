@@ -58,6 +58,7 @@ jml.from_xml=function(data)
 			else		{	top[1].push( (text) )	}
 		}
 	}
+	parser.oncdata=parser.ontext // oncdata is same function as ontext
 
 // maintain cdata text flag
 	parser.onopencdata=()=>{ cdata=true; }

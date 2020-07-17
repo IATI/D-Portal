@@ -43,10 +43,19 @@ var http_getbody=function(url,cb)
 var https_getbody=http_getbody;
 
 iati_codes.fetch = function(){
+	
+	try{
+		iati_codes.fetch1()
+	}catch(e){}
+	try{
+		iati_codes.fetch2()
+	}catch(e){}
+}
 
-	var codes=require('../json/iati_codes'); // merge with old
-	var publishers={};
-	var packages={};
+
+iati_codes.fetch1 = function(){
+
+	var codes=JSON.parse( fs.readFileSync(__dirname+"/../json/iati_codes.json") );
 
 	var files=[
 
@@ -545,7 +554,17 @@ iati_codes.fetch = function(){
 
 
 
+	console.log("Writing json/iati_codes.json for the first time")	
+	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
 
+}
+
+iati_codes.fetch2 = function(){
+	
+	var codes=JSON.parse( fs.readFileSync(__dirname+"/../json/iati_codes.json") );
+
+	var publishers={};
+	var packages={};
 
 
 // ignore these keys in the package data as they cache values and just change all the time without being useful
@@ -571,7 +590,6 @@ iati_codes.fetch = function(){
 
 	var start=0;
 	var done=false;
-	var packages={};
 	while(!done)
 	{	
 		console.log( "iatiregistry query for packages "+(start+1)+" to "+(start+1000) );
@@ -650,9 +668,6 @@ iati_codes.fetch = function(){
 		fs.writeFileSync(__dirname+"/../json/curl.txt",cc.join(""));
 	}
 
-
-	console.log("Writing json/iati_codes.json for the first time")	
-	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
 
 
 console.log("************************ This next bit takes a loooooong time to get every publisher id from iati...");

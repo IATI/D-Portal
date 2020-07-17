@@ -66,7 +66,7 @@ query.serv = async function(req,res,next){
 				res.set('Content-Type', 'application/json');
 				res.jsonp(ret);
 			}
-			else // special format
+			else // special xsonformat
 			{
 				
 				let tab=[]		 
@@ -103,27 +103,15 @@ query.serv = async function(req,res,next){
 				else
 				if(form=="xml")
 				{
-					var x=jml.to_xml( xson.to_jml(ret) )
+					var x=dflat.xson_to_xml(ret)
 					res.set('charset','utf8'); // always utf8
 					res.set('Content-Type', 'text/xml');
-					res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n' )
 					res.end(x);
 				}
 				else
 				if(form=="html")
 				{
-					dflat.clean(ret) // clean this data
-					savi.prepare(ret) // prepare for display
-					savi.chunks.iati=ret
-					var x=savi.plate(
-`<!DOCTYPE html>
-<html>
-<head>
-<script src="/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
-<script> require("savi").start({ embeded:true }); </script>
-</head>
-<body><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>
-`)
+					var x=dflat.xson_to_html(ret)
 					res.set('charset','utf8'); // always utf8
 					res.set('Content-Type', 'text/html');
 					res.end(x);

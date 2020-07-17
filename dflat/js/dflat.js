@@ -30,7 +30,75 @@ dflat.saneid=function(insaneid)
 // convert json back into xml
 dflat.xson_to_xml=function(json)
 {
-	return jml.to_xml( xson.to_jml(json) )
+	// try and yank highest version number we can find out of the activities
+	if( json["/iati-activities/iati-activity"] )
+	{
+		let v=parseFloat(json["/iati-activities@version"]||0)
+		for(let it of json["/iati-activities/iati-activity"] )
+		{
+			let t=parseFloat(it["@iati-activities:version"])
+			if(t && t>v) { v=t }
+		}
+		if(v)
+		{
+			json["/iati-activities@version"]=v
+		}
+	}
+
+	// try and yank highest version number we can find out of the organisation
+	if( json["/iati-organisations/iati-organisation"] )
+	{
+		let v=parseFloat(json["/iati-organisations@version"]||0)
+		for(let it of json["/iati-organisations/iati-organisation"] )
+		{
+			let t=parseFloat(it["@iati-organisations:version"])
+			if(t && t>v) { v=t }
+		}
+		if(v)
+		{
+			json["/iati-organisations@version"]=v
+		}
+	}
+
+
+	let j=xson.to_jml(json,function(root,tab){
+
+
+		tab.sort(function(a,b){
+			
+
+			let pa=database.paths[root+a]
+			let pb=database.paths[root+b]
+			
+			let ia=pa && pa.orderby || 999999
+			let ib=pb && pb.orderby || 999999
+			
+			if( ia == ib )
+			{
+				if( a<b ) { return -1 } // alpha sort
+				if( a>b ) { return  1 }
+				return 0
+			}
+			else
+			{
+				return ia-ib
+			}
+
+		})
+
+/*
+console.log("==="+root)
+for(let n in tab) {
+	let pn=root+tab[n]
+	let pd=database.paths[pn]
+	console.log("+++"+pn+" "+( pd && pd.orderby || 999999 ))
+}
+*/
+
+	})
+// copy or fake a version into the header and sort elements
+
+	return '<?xml version="1.0" encoding="UTF-8"?>\n'+jml.to_xml( j )
 }
 
 // convert json to a string
@@ -38,7 +106,6 @@ dflat.xson_to_string=function(json)
 {
 	return stringify(json,{space:" "})
 }
-
 	
 // convert json into html ( BEWARE this will add extra junk to your json )
 dflat.xson_to_html=function(json)
@@ -659,9 +726,13 @@ dflat.clean_copy_defaults=function(data)
 				let v=currencymap[path]
 				if(v)
 				{
-					if(!it[v])
+					let aa=v.split("@")
+					if( (aa[0]=="") || (it[ aa[0] ]!==undefined) ) // need to check this sub array exists
 					{
-						it[v]=act["@default-currency"]
+						if(!it[v])
+						{
+							it[v]=act["@default-currency"]
+						}
 					}
 				}
 			}
@@ -679,9 +750,13 @@ dflat.clean_copy_defaults=function(data)
 			let v=vocabmap[path] // set default vocabulary to 1
 			if(v)
 			{
-				if(!it[v])
+				let aa=v.split("@")
+				if( (aa[0]=="") || (it[ aa[0] ]!==undefined) ) // need to check this sub array exists
 				{
-					it[v]="1"
+					if(!it[v])
+					{
+						it[v]="1"
+					}
 				}
 			}
 			if(percentmap[path]) // default any empty percents to 100%

@@ -5,22 +5,30 @@ var xson=exports;
 
 var jml = require("./jml.js");
 
-// parse the xml string into a jml structure
-// it is assumed every element can be multiple so is put in an array
-xson.to_jml=function(data)
+// convert back into xml structure
+xson.to_jml=function(data,sortfunction)
 {
 	var walk
-	walk=function(it,out)
+	walk=function(it,out,root)
 	{
-		for(const n of Object.keys(it).sort() ) // force order
+		let ks=Object.keys(it)
+		if(sortfunction)
+		{
+			sortfunction(root,ks)
+		}
+		else
+		{
+			ks.sort()
+		}
+		for(const n of ks ) // force order
 		{
 			let v=it[n]
 			if( Array.isArray(v) )
 			{
-				if(v.length==1 && "string" == typeof v[0])
+				if(v.length==1 && ( ("string" == typeof v[0]) || ("number" == typeof v[0]) ) )
 				{
 					let o=jml.manifest_xpath(out,n)
-					o[1].push(v[0])
+					o[1].push(v[0]+"")
 				}
 				else
 				{
@@ -32,7 +40,7 @@ xson.to_jml=function(data)
 					{
 						let it={0:ln,1:[]}
 						o[1].push(it)
-						walk( v[i] , it )
+						walk( v[i] , it , root+an+"/"+ln)
 					}
 				}
 			}
@@ -40,7 +48,7 @@ xson.to_jml=function(data)
 			if( "object" == typeof v )
 			{
 				let o=jml.manifest_xpath(out,n)
-				walk( v , o )
+				walk( v , o , root+n)
 			}
 			else
 			{
@@ -53,7 +61,7 @@ xson.to_jml=function(data)
 				else
 				{
 					let o=jml.manifest_xpath(out,n)
-					o[1].push(v)
+					o[1].push(v+"")
 				}
 			}
 		}
@@ -61,11 +69,11 @@ xson.to_jml=function(data)
 	let out={0:"",1:[]}
 	if( Array.isArray(data) )
 	{
-		walk({"":data},out)
+		walk({"":data},out,"")
 	}
 	else
 	{
-		walk(data,out)
+		walk(data,out,"")
 	}
 	return out[1][0]
 }
