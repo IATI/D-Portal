@@ -124,14 +124,14 @@ query.serv = async function(req,res,next){
 				res.set('Content-Type', 'text/csv');
 
 				var head=[];
-				if(ret.rows[0])
+				if(ret.result[0])
 				{
-					for(var n in ret.rows[0]) { head.push(n); }
+					for(var n in ret.result[0]) { head.push(n); }
 					head.sort();
 					res.write(	head.join(",")+"\n" );
-					for(var i=0;i<ret.rows.length;i++)
+					for(var i=0;i<ret.result.length;i++)
 					{
-						var v=ret.rows[i];
+						var v=ret.result[i];
 						var t=[];
 						head.forEach(function(n){
 							var s=""+humanizer(n,v[n]);
