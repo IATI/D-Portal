@@ -60,13 +60,14 @@ query.serv = async function(req,res,next){
 			var ending=new Date().getTime()
 			ret.duration=(ending-starting)/1000.0
 			
-			if(form=="json") // normal json
+			if(form=="json") // json is always full json of all values
 			{
 				res.set('charset','utf8'); // always utf8
 				res.set('Content-Type', 'application/json');
 				res.jsonp(ret);
 			}
-			else // special xsonformat
+			else
+			if( ret.result[0] && ret.result[0].xson ) // we have some xson to format
 			{
 				
 				let tab=[]		 
@@ -115,6 +116,41 @@ query.serv = async function(req,res,next){
 					res.set('charset','utf8'); // always utf8
 					res.set('Content-Type', 'text/html');
 					res.end(x);
+				}
+			}
+			else
+			if(form=="csv") // try and return all the result data as simple csv
+			{
+				res.set('Content-Type', 'text/csv');
+
+				var head=[];
+				if(ret.rows[0])
+				{
+					for(var n in ret.rows[0]) { head.push(n); }
+					head.sort();
+					res.write(	head.join(",")+"\n" );
+					for(var i=0;i<ret.rows.length;i++)
+					{
+						var v=ret.rows[i];
+						var t=[];
+						head.forEach(function(n){
+							var s=""+humanizer(n,v[n]);
+							if("string" == typeof s) // may need to escape
+							{
+								if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") ) // need to escape
+								{
+									s="\""+s.split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string
+								}
+							}
+							t.push( s );
+						});
+						res.write(	t.join(",")+"\n" );
+					}
+					res.end("");
+				}
+				else
+				{
+					res.end("");
 				}
 			}
 		}
