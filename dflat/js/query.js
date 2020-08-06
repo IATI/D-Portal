@@ -135,7 +135,7 @@ query.serv = async function(req,res,next){
 						var v=ret.result[i];
 						var t=[];
 						head.forEach(function(n){
-							var s=""v[n];//+humanizer(n,v[n]);
+							var s=""+v[n];//+humanizer(n,v[n]);
 							if("string" == typeof s) // may need to escape
 							{
 								if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") ) // need to escape
