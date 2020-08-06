@@ -121,6 +121,7 @@ query.serv = async function(req,res,next){
 			else
 			if(form=="csv") // try and return all the result data as simple csv
 			{
+				res.set('charset','utf8'); // always utf8
 				res.set('Content-Type', 'text/csv');
 
 				var head=[];
@@ -134,7 +135,7 @@ query.serv = async function(req,res,next){
 						var v=ret.result[i];
 						var t=[];
 						head.forEach(function(n){
-							var s=""+humanizer(n,v[n]);
+							var s=""v[n];//+humanizer(n,v[n]);
 							if("string" == typeof s) // may need to escape
 							{
 								if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") ) // need to escape
