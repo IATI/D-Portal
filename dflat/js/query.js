@@ -154,6 +154,12 @@ query.serv = async function(req,res,next){
 					res.end("");
 				}
 			}
+			else // final json fall through in case something went wrong
+			{
+				res.set('charset','utf8'); // always utf8
+				res.set('Content-Type', 'application/json');
+				res.jsonp(ret);
+			}
 		}
 		else
 		{
