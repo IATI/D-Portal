@@ -3614,6 +3614,52 @@
    }
   ]
  },
+ "afrikids_gh": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "81123354-803b-4835-b3e3-ddc110bca78c",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "odc-pddl",
+  "name": "afrikids_gh",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "AfriKids Ghana\r\nPost Office Box 166\r\nBolga\r\nGhana",
+  "publisher_contact_email": "nichkumah@afrikids.org",
+  "publisher_country": "GH",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "GH-DSW-3024",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "22",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "AfriKids Ghana",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "nichkumah"
+   }
+  ]
+ },
  "afsc": {
   "description": "",
   "groups": [
@@ -6013,6 +6059,10 @@
    {
     "capacity": "admin",
     "name": "abdoulayesemde"
+   },
+   {
+    "capacity": "admin",
+    "name": "emenique"
    },
    {
     "capacity": "admin",
@@ -19016,58 +19066,6 @@
    }
   ]
  },
- "dfid": {
-  "description": "",
-  "groups": [
-  ],
-  "id": "ea4de570-bd2c-4dee-a709-9197c4a8ebe9",
-  "image_display_url": "http://cscuk.dfid.gov.uk/wp-content/uploads/2012/12/dfid-logo.png",
-  "image_url": "http://cscuk.dfid.gov.uk/wp-content/uploads/2012/12/dfid-logo.png",
-  "is_organization": true,
-  "license_id": "uk-ogl",
-  "name": "dfid",
-  "num_followers": 7,
-  "package_count": 126,
-  "publisher_agencies": "All Official Development Assistance (ODA) activities of Department for International Development. This covers approx. 70% of all ODA of the United Kingdom.",
-  "publisher_constraints": "",
-  "publisher_contact": "Public Enquiry Point, Abercrombie House, Eaglesham Road, East Kilbride, Glasgow G75 8EA.\r\n",
-  "publisher_contact_email": "enquiry@dfid.gov.uk",
-  "publisher_country": "GB",
-  "publisher_data_quality": "Data is quality assured as part of the data capture process but some discre",
-  "publisher_description": "DFID's IATI Data consists project information from 01 April 2001 until present. \r\n\r\nAll core project documentation, including our new project design document (business case), annual reviews, completion reports, and evaluations. In addition we will publish country plans and formal agreements with partners. Project summaries will be published and translated into major local languages of the relevant countries.\r\n\r\n",
-  "publisher_field_exclusions": "A small number of exclusions will apply to sensitive information, based on the key principles of the UK’s Freedom of Information Act.",
-  "publisher_first_publish_date": "2011-01-29T00:00:00.000000",
-  "publisher_frequency": "",
-  "publisher_frequency_select": "monthly",
-  "publisher_iati_id": "GB-GOV-1",
-  "publisher_implementation_schedule": "http://www.oecd.org/dac/aid-architecture/DFID_Implementation%20Schedule%20for%20the%20common%20standard%20(30%20June%202014).xls",
-  "publisher_organization_type": "10",
-  "publisher_record_exclusions": "For aid projects the assumption will be of automatic disclosure of any information that DFID has committed to publish, however a small number of exclusions apply to these in order not to do harm to DFID’s work or staff.  These are based on the key principles of the UK’s Freedom of Information Act and are as follows:\r\n\r\ni.\tInternational relations: Information that may harm DFID’s relations with other governments or institutions.\r\nii.\tSecurity and safety: Information that may pose a risk to the security or safety of any individual, including DFID staff, contractors and beneficiaries.\r\niii.\tPersonal information: Information that intrudes on the privacy of a person or could contravene confidentiality.\r\niv.\tCommercially sensitive information: Information that does harm to DFID’s or DFID’s partners or suppliers commercial interests.\r\nv.\tInformation that is exempt from disclosure under other policies or regulations\r\n",
-  "publisher_refs": "",
-  "publisher_segmentation": "DFID segments data by recipient country (including where the ‘country’ is a region or a multilateral organisation).\r\n\r\nFor technical purposes, note that projects and components will be stored as activities in the country file. No “orphaned” (standalone) component activities will be allowed as project activities will be duplicated across country files when the project has components in more than one country file. As financial information is stored at component activity level and not at project activity level, there will be no duplication of financial data.\r\n",
-  "publisher_source_type": "primary_source",
-  "publisher_thresholds": "All ODA activities financed by DFID are reported as are humanitarian response projects in non ODA eligible countries.",
-  "publisher_timeliness": "Data is published within 14 working days at the end of every month",
-  "publisher_ui": "The Development Tracker uses open data on international development published by the UK Government and partners to show where the UK is investing in developing countries to implement the UK Aid Strategy. The open data is taken from the International Aid Transparency Intiative (IATI) open data standard.",
-  "publisher_ui_url": "https://devtracker.dfid.gov.uk/",
-  "publisher_units": "DFID publishes activities using two tiers of the IATI activity hierarchy, DFID’s hierarchy 1 activities are referred to as Projects and the hierarchy 2 activities are referred to as Components. Projects are umbrella activities that may encapsulate multiple components, they use the <related-activity> element in IATI to refer to each other. Some data elements, project purpose, documents, risk and scoring are stored at project level. All other data is recorded at component level.",
-  "publisher_url": "https://www.gov.uk/government/organisations/department-for-international-development",
-  "state": "active",
-  "tags": [
-  ],
-  "title": "UK - Department for International Development (DFID)",
-  "type": "organization",
-  "users": [
-   {
-    "capacity": "admin",
-    "name": "dfid-iati"
-   },
-   {
-    "capacity": "editor",
-    "name": "fco"
-   }
-  ]
- },
  "dfpa": {
   "description": "",
   "groups": [
@@ -22328,7 +22326,7 @@
   "license_id": "cc-by",
   "name": "elrha",
   "num_followers": 0,
-  "package_count": 1,
+  "package_count": 2,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "1 St John's Lane\r\nLondon\r\nEC1M 4AR",
@@ -22375,7 +22373,7 @@
   "license_id": "cc-by",
   "name": "elsam",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 2,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Jalan Siaga II No. 31 Pejaten Barat, Pasar Minggu Jakarta Selatan  – 12510",
@@ -22384,7 +22382,7 @@
   "publisher_data_quality": "",
   "publisher_description": "",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2020-09-01T11:51:35.605969",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "ID-KHH-AHU17AH0107",
@@ -24279,13 +24277,13 @@
   "groups": [
   ],
   "id": "4da32e41-a060-4d75-86c1-4b627eb22647",
-  "image_display_url": "",
-  "image_url": "",
+  "image_display_url": "http://iati.fcdo.gov.uk/iati_files/FCDO_logo.png",
+  "image_url": "http://iati.fcdo.gov.uk/iati_files/FCDO_logo.png",
   "is_organization": true,
   "license_id": "uk-ogl",
   "name": "fcdo",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 135,
   "publisher_agencies": "All Official Development Assistance (ODA) activities of the Foreign, Commonwealth & Development Office, including all activities previously published by the Department for International Development and the Foreign & Commonwealth Office.",
   "publisher_constraints": "",
   "publisher_contact": "",
@@ -24294,10 +24292,10 @@
   "publisher_data_quality": "",
   "publisher_description": "FCDO's IATI Data consists project information from 01 April 2001 until present. \r\n\r\nFrom the development wing, previously published as the Department for International Development, all core project documentation, including our new project design document (business case), annual reviews, completion reports, and evaluations. In addition we will publish country plans and formal agreements with partners. Project summaries will be published and translated into major local languages of the relevant countries.\r\n\r\nFrom the diplomatic wing, previously published as the Foreign and Commonwealth Office, projects ranging from frontine diplomatic activity, through to the work of arms length bodies and the implementation of cross-government funds.",
   "publisher_field_exclusions": "A small number of exclusions will apply to sensitive information, based on the key principles of the UK’s Freedom of Information Act.",
-  "publisher_first_publish_date": "2020-08-21T12:48:04.477616",
+  "publisher_first_publish_date": "2011-01-29T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "monthly",
-  "publisher_iati_id": "GB-GOV-1_new",
+  "publisher_iati_id": "GB-GOV-1",
   "publisher_implementation_schedule": "NA",
   "publisher_organization_type": "10",
   "publisher_record_exclusions": "For development activities the assumption will be of automatic disclosure of any information that FCDO has committed to publish, however a small number of exclusions apply to these in order not to do harm to FCDO's work or staff.  These are based on the key principles of the UK’s Freedom of Information Act and are as follows:\r\n\r\ni.\tInternational relations: Information that may harm FCDO's relations with other governments or institutions.\r\nii.\tSecurity and safety: Information that may pose a risk to the security or safety of any individual, including FCDO staff, contractors and beneficiaries.\r\niii.\tPersonal information: Information that intrudes on the privacy of a person or could contravene confidentiality.\r\niv.\tCommercially sensitive information: Information that does harm to FCDO or FCDO’s partners or suppliers commercial interests.\r\nv.\tInformation that is exempt from disclosure under other policies or regulations\r\n\r\nFor diplomatic activities, exclusions are applied to partner organisations to ensure the ongoing safety of their work and personnel. \r\n",
@@ -24380,7 +24378,7 @@
   "license_id": "uk-ogl",
   "name": "fco",
   "num_followers": 3,
-  "package_count": 10,
+  "package_count": 0,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Transparency Unit\r\nForeign & Commonwealth Office\r\nKing Charles St\r\nLondon\r\nSW1A 2AH ",
@@ -41736,6 +41734,52 @@
    }
   ]
  },
+ "mdp": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "f5d90f6b-3d62-4bb2-a0a2-2a70afd2c458",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "other-open",
+  "name": "mdp",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "",
+  "publisher_contact_email": "elspeth_alexander@mckinsey.com",
+  "publisher_country": "GB",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "GB-COH-11594545",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "70",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "McKinsey Development Partners",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "mdpadmin"
+   }
+  ]
+ },
  "mdrf_12": {
   "description": "",
   "groups": [
@@ -46583,7 +46627,7 @@
   "publisher_first_publish_date": "2016-08-11T00:00:00.000000",
   "publisher_frequency": "First publishing by August, 2016",
   "publisher_frequency_select": "lt_annually",
-  "publisher_iati_id": "KR-GOV-021",
+  "publisher_iati_id": "KR-GOV-010",
   "publisher_implementation_schedule": "http://www.odakorea.go.kr/oz.main.ODAMain.do",
   "publisher_organization_type": "10",
   "publisher_record_exclusions": "- according to national implementation plan to gradually increase the number of fields and participaing agencies for publishing",
@@ -59466,6 +59510,53 @@
    {
     "capacity": "admin",
     "name": "swisstph"
+   }
+  ]
+ },
+ "synergiaihr": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "a42d9b75-3ba0-4132-a70f-ac62d651eac7",
+  "image_display_url": "https://synergiaihr.org/wp-content/uploads/2019/12/cropped-Synergia_logo.png",
+  "image_url": "https://synergiaihr.org/wp-content/uploads/2019/12/cropped-Synergia_logo.png",
+  "is_organization": true,
+  "license_id": "cc-by",
+  "name": "synergiaihr",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "",
+  "publisher_contact_email": "contact@synergiaihr.org",
+  "publisher_country": "US",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "US-EIN-82-0644678",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "21",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://synergiaihr.org/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Synergía - Initiatives for Human Rights",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "mxfrench"
    }
   ]
  },
