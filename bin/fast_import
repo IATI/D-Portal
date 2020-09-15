@@ -17,6 +17,9 @@ echo | tee -a ${file}.import.log ${file}.import.last.log
 date | tee -a ${file}.import.log ${file}.import.last.log
 echo | tee -a ${file}.import.log ${file}.import.last.log
 
+echo "IATI XML last successfully downloaded on" | tee -a ${file}.import.log ${file}.import.last.log
+date -r $file | tee -a ${file}.import.log ${file}.import.last.log
+echo | tee -a ${file}.import.log ${file}.import.last.log
 
 echo "Importing $file" | tee -a ${file}.import.log ${file}.import.last.log
 
