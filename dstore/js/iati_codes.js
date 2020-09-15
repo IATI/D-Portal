@@ -389,7 +389,7 @@ iati_codes.fetch1 = function(){
 	
 		
 
-	for(var year=2015;year<=2017;year++)
+	for(var year=2015;year<=2018;year++)
 	{
 			
 		console.log("Parsing csv/crs_"+year+".csv")
