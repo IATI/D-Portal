@@ -183,7 +183,8 @@ ctrack.setup=function(args)
 	window.typeahead = require("typeahead.js")
 	
 
-	ctrack.year=parseInt(args.year || ctrack.q.year || 2017); // default base year for graphs tables etc
+	ctrack.year=require("../../dstore/json/crs.js").year // start with year of the CRS data we have
+	ctrack.year=parseInt(args.year || ctrack.q.year || ctrack.year ); // default base year for graphs tables etc
 
 	ctrack.year_chunks=function(y){					// function to build visible range of years for display
 		ctrack.chunk("year" ,y  );
