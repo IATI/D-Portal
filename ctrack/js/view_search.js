@@ -383,6 +383,42 @@ view_search.terms=[
 },
 
 {
+	name   : "budget_type",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["BudgetType"], ],
+	drops  : [ "#view_search_select_budget_type" ],
+	q      : "/budget@type",
+	list   : "search_options_budget_type",
+	show   : "search_display_budget_type",
+	more   : true,
+},
+
+{
+	name   : "planned_disbursement_type",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["BudgetType"], ],
+	drops  : [ "#view_search_select_planned_disbursement_type" ],
+	q      : "/planned-disbursement@type",
+	list   : "search_options_planned_disbursement_type",
+	show   : "search_display_planned_disbursement_type",
+	more   : true,
+},
+
+{
+	name   : "activity_scope",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["ActivityScope"], ],
+	drops  : [ "#view_search_select_activity_scope" ],
+	q      : "/activity-scope@code",
+	list   : "search_options_activity_scope",
+	show   : "search_display_activity_scope",
+	more   : true,
+},
+
+{
 	name   : "aids",
 	search : false,
 	filter : true,
