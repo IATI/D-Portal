@@ -37,13 +37,11 @@ Directory Structure
 ===================
 
 [/dstore](https://github.com/devinit/D-Portal/tree/master/dstore) contains server side javascript for xml manipulation and 
-parsing of iati data.  See the readme in that directory for more 
-information. This is needed to run the Q queries on your own host.
+parsing of iati data.  See the README in that directory for more information. This is needed to run the Q queries on your own host.
 
-[/ctrack](https://github.com/devinit/D-Portal/tree/master/ctrack) contains client side javascript and css for displaying 
-information direct from the datastore in browser. See the README in 
-that directory for more information. This is needed to build and 
-deploy a customized d-portal browser tool.
+[/dstore/csv](https://github.com/devinit/D-Portal/tree/master/dstore/csv) contains public spreadsheets (csv) including CRS data that is manually provided and updated yearly. See the README in that directory for more information.
+
+[/ctrack](https://github.com/devinit/D-Portal/tree/master/ctrack) contains client side javascript and css for displaying information direct from the datastore in browser. See the README in that directory for more information. This is needed to build and deploy a customized d-portal browser tool.
 
 [/dportal](https://github.com/devinit/D-Portal/tree/master/dportal) contains javascript that builds the static information and 
 example site you will find deployed at http://d-portal.org/ 
@@ -56,8 +54,7 @@ example site you will find deployed at http://d-portal.org/
 Updates
 ===================
 
-d-portal.org is currently being developed and designed so things
-are constantly changing. Thank you for your patience and understanding.
+d-portal.org is currently being developed and designed so things are constantly changing. Thank you for your patience and understanding.
 
 If you have a suggestion or feedback, or would just like to partake in discussions on d-portal, join in by creating a new issue [here](https://github.com/devinit/D-Portal/issues).
 
@@ -67,7 +64,6 @@ If you are interested in finding out more or part-funding d-portal, please conta
 Database Logs
 ===================
 
-We are tracking the nightly imports of IATI data being 
-published to d-portal.org [here](https://github.com/xriss/D-Portal-Logs).
+We are tracking the nightly imports of IATI data being published to d-portal.org [here](https://github.com/xriss/D-Portal-Logs).
 
 Service status on [Uptime Robot](https://stats.uptimerobot.com/8MWyWsgj7).

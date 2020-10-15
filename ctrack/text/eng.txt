@@ -730,7 +730,7 @@ Typically this data will have been updated from the <a href="http://iatiregistry
 How are exchange rates calculated?
 
 #main_data_paragraph10_text
-We currently convert to USD using the exchange rate of the date specified in the <b>value-date</b> attribute. For other currencies, the USD value is converted using today’s exchange rate.
+We currently convert to USD using the exchange rate of the date specified in the <b>value-date</b> attribute.<br/>For other currencies, the USD value is converted using today’s exchange rate.
 
 #main_data_paragraph11_text
 Please refer to the FAQ for more information about <a href="http://d-portal.org/faq.html#tech5" target="_blank">currencies</a> and <a href="http://d-portal.org/faq.html#tech13" target="_blank">exchange rates</a>.
@@ -1085,6 +1085,15 @@ Recipient Region
 
 #search_hierarchy_txt
 Hierarchy
+
+#search_budget_type_txt
+Budget Type
+
+#search_planned_disbursement_type_txt
+Planned Disbursement Type
+
+#search_activity_scope_txt
+Activity Scope
 
 #search_button1_txt
 Explore Results
