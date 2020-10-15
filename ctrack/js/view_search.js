@@ -31,7 +31,28 @@ for(var sn in iati_codes.policy_sig) // policy needs two codes to be joined
 		var cv=iati_codes.policy_code[cn];
 		var n=sn+"_"+cn
 		var v=cv+" ("+sv+")"
-		text_policy[n]=v
+		var valid=true
+		
+		if( sn==3 )
+		{
+			if( cn!=8 )
+			{
+				valid=false
+			}
+		}
+
+		if( sn==4 )
+		{
+			if( cn!=9 )
+			{
+				valid=false
+			}
+		}
+		
+		if(valid)
+		{
+			text_policy[n]=v
+		}
 	}
 }
 var text_bool={"!1":"No",1:"Yes"}
