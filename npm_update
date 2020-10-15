@@ -1,0 +1,11 @@
+# convincing npm to pick the latest version of a dependency is, uhm, lets go with too clever by half
+
+cd `dirname $0`
+
+npx npm-check-updates -u
+
+npm audit fix
+
+npm install
+
+
