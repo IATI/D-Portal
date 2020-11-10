@@ -80,7 +80,8 @@ wait.launchFiber(function(){
 	else
 	if( argv._[0]=="exs" )
 	{
-		require("./exs").create_csv();
+// we now use freechange for exchange so this has been removed
+//		require("./exs").create_csv();
 		return;
 	}
 	else
@@ -128,9 +129,6 @@ wait.launchFiber(function(){
 		"\n"+
 		">	dstore cache \n"+
 		"Print cache related commands, run this for more help.\n"+
-		"\n"+
-		">	dstore exs \n"+
-		"Fetch and update exchange rates.\n"+
 		"\n"+
 		">	dstore fetch \n"+
 		"Fetch and update code lists.\n"+
