@@ -1,0 +1,26 @@
+cd `dirname $0`
+cd ..
+
+
+echo " creating new dload database "
+
+
+source /portald/box/env.sh
+export PGDATABASE="dload"
+
+
+dropdb $PGDATABASE
+createdb $PGDATABASE
+
+
+psql -c "CREATE EXTENSION IF NOT EXISTS citext;" $PGDATABASE
+psql -c "ALTER DATABASE $PGDATABASE OWNER TO $PGUSER;"
+psql -c "GRANT ALL PRIVILEGES ON DATABASE $PGDATABASE TO $PGUSER;"
+psql -c "GRANT CONNECT ON DATABASE $PGDATABASE TO readonly;"
+
+
+bin/dstore_reset
+
+psql -c "GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly" $PGDATABASE
+
+
