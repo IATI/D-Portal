@@ -1,9 +1,7 @@
 cd `dirname $0`
 
 cd ..
-rm -rf node_modules
+#rm -rf node_modules
 npm install
 
-cd dportal
-./upgrade
 

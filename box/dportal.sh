@@ -1,14 +1,14 @@
 cd `dirname $0`
 
-#sudo apt install -y curl
-#sudo apt install -y parallel
-#sudo npm install -g forever
+sudo apt install -y curl
+sudo apt install -y parallel
+sudo npm install -g forever
 
-sudo rm /portald
-sudo ln -s `readlink -f ..` /portald
-mkdir -p /portald/logs
+sudo rm /dportal
+sudo ln -s `readlink -f ..` /dportal
+mkdir -p /dportal/logs
 
-../dportal/install_deps
+/dportal/install_deps
 
 sudo cp dportal-initd /etc/init.d/dportal
 
