@@ -5,13 +5,15 @@ cd ..
 echo " creating new dload database "
 
 
-source /dportal/box/env.sh
-export PGDATABASE="dload"
+/dportal/box/dstore-create dload
 
-/dportal/bin/dstore_create
+
+
 
 echo " filling dload database with data "
 
+source /dportal/box/env.sh
+export PGDATABASE="dload"
 
 bin/fast_import >/dportal/logs/cron.import.log 2>&1
 
@@ -19,8 +21,7 @@ bin/fast_import >/dportal/logs/cron.import.log 2>&1
 
 echo " setting database live "
 
-source /dportal/box/env.sh
 
-bin/dstore_swap
+box/dstore-swap dload
 
 
