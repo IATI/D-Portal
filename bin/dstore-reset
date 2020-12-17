@@ -1,8 +1,8 @@
 cd `dirname $0`
 cd ../dstore
 
-mkdir cache
-mkdir db
+mkdir -p cache
+mkdir -p db
 rm db/dstore.sqlite
 
 node js/cmd init

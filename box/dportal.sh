@@ -17,3 +17,6 @@ sudo update-rc.d dportal enable
 
 sudo /etc/init.d/dportal start
 
+/dportal/box/dstore-create
+/dportal/bin/dstore-reset
+

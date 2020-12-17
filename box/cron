@@ -1,7 +1,7 @@
 cd `dirname $0`
 cd ..
 
-exec >logs/cron.log
+exec >/dportal/logs/cron.log
 
 
 source /dportal/box/env.sh
@@ -11,7 +11,7 @@ echo "Get new json data"
 echo
 
 bin/pull
-./fetch
+bin/fetch
 bin/addcommit auto json fetch in nightly cron
 bin/pull
 bin/push
@@ -26,9 +26,9 @@ bin/build
 /etc/init.d/dportal restart
 /etc/init.d/dportal status
 
-bin/fast_download >logs/cron.download.log 2>&1
+/dportal/box/cron-download >/dportal/logs/cron.download.log 2>&1
 
-bin/fast_swap_import 2>&1
+/dportal/box/cron-swap-import 2>&1
 
 echo
 echo "Searching logs for download ERRORS"
@@ -41,6 +41,13 @@ echo
 echo "Searching logs for import ERRORS"
 echo
 grep -i "error" dstore/cache/*.import.last.log
+
+
+/dportal/box/cron-stats 2>&1
+
+
+/dportal/box/cron-cronos 2>&1
+
 
 
 echo
