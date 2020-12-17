@@ -1,7 +1,7 @@
 cd `dirname $0`
 cd ..
 
-exec >dportal/production/cron.log
+exec >logs/cron.log
 
 
 source /dportal/box/env.sh
@@ -26,7 +26,7 @@ bin/build
 /etc/init.d/dportal restart
 /etc/init.d/dportal status
 
-bin/fast_download >dportal/production/D-Portal-Logs/cron.download.log 2>&1
+bin/fast_download >logs/cron.download.log 2>&1
 
 bin/fast_swap_import 2>&1
 
@@ -44,25 +44,27 @@ grep -i "error" dstore/cache/*.import.last.log
 
 
 echo
-echo "Updating stats"
+echo "Updating D-Portal-Logs stats"
 echo
 
-cd dportal/production/D-Portal-Logs/
-git pull
-cd ../../..
+rm -rf logs/D-Portal-Logs
+git clone git@github.com:xriss/D-Portal-Logs.git logs/D-Portal-Logs
 
-cp dportal/production/cron.log dportal/production/D-Portal-Logs/cron.log
-dstore/dstore stats ../dportal/production/D-Portal-Logs/stats.json
-dflat/dflat stats ../dportal/production/D-Portal-Logs/stats.json
-dflat/dflat stats ../dportal/production/D-Portal-Logs --publishers
+cp logs/cron.log logs/D-Portal-Logs/cron.log
+cp logs/cron.download.log logs/D-Portal-Logs/cron.download.log
+cp logs/cron.import.log logs/D-Portal-Logs/cron.import.log
 
+dstore/dstore stats ../logs/D-Portal-Logs/stats.json
+dflat/dflat stats ../logs/D-Portal-Logs/stats.json
+dflat/dflat stats ../logs/D-Portal-Logs --publishers
 
-cd dportal/production/D-Portal-Logs/
+cd logs/D-Portal-Logs/
 git add .
 git commit -m.
 git pull
 git push
-cd ../../..
+cd ../..
+
 
 echo
 echo "Updating SAVI-CRONOS github"

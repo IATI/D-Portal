@@ -13,7 +13,7 @@ export PGDATABASE="dload"
 echo " filling dload database with data "
 
 
-bin/fast_import >dportal/production/D-Portal-Logs/cron.import.log 2>&1
+bin/fast_import >/dportal/logs/cron.import.log 2>&1
 
 
 
