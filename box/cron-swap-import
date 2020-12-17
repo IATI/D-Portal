@@ -15,7 +15,7 @@ echo " filling dload database with data "
 source /dportal/box/env.sh
 export PGDATABASE="dload"
 
-bin/fast_import >/dportal/logs/cron.import.log 2>&1
+box/cron-import >/dportal/logs/cron.import.log 2>&1
 
 
 
