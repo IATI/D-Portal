@@ -1,3 +1,4 @@
+this is slightly out of date and needs cleanup...
 
 We use vagrant to keep a postgres install contained to a virtual machine, 
 to set this all up first cd into this directory and run
