@@ -1,0 +1,11 @@
+cd `dirname $0`
+cd ..
+
+echo
+echo "Updating SAVI-CRONOS github"
+echo
+cd dflat
+rm -rf cronos
+git clone git@github.com:xriss/savi-cronos.git cronos
+./dflat cronos update
+cd ..

@@ -48,36 +48,3 @@ grep -i "error" dstore/cache/*.import.last.log
 
 /dportal/box/cron-cronos 2>&1
 
-
-
-echo
-echo "Updating D-Portal-Logs stats"
-echo
-
-rm -rf logs/D-Portal-Logs
-git clone git@github.com:xriss/D-Portal-Logs.git logs/D-Portal-Logs
-
-cp logs/cron.log logs/D-Portal-Logs/cron.log
-cp logs/cron.download.log logs/D-Portal-Logs/cron.download.log
-cp logs/cron.import.log logs/D-Portal-Logs/cron.import.log
-
-dstore/dstore stats ../logs/D-Portal-Logs/stats.json
-dflat/dflat stats ../logs/D-Portal-Logs/stats.json
-dflat/dflat stats ../logs/D-Portal-Logs --publishers
-
-cd logs/D-Portal-Logs/
-git add .
-git commit -m.
-git pull
-git push
-cd ../..
-
-
-echo
-echo "Updating SAVI-CRONOS github"
-echo
-cd dflat
-rm -rf cronos
-git clone git@github.com:xriss/savi-cronos.git cronos
-./dflat cronos update
-cd ..

@@ -18,7 +18,7 @@ sudo -u vagrant -H bash -c "byobu-enable"
 
 
 echo " installing all "
-bash /host/box/all.sh
+bash /host/box/install-all.sh
 
 
 echo
