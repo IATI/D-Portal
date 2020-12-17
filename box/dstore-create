@@ -12,18 +12,22 @@ fi
 echo " creating new $PGDATABASE database "
 
 
-dropdb $PGDATABASE
-createdb $PGDATABASE
+sudo -u postgres bash -c "dropdb $PGDATABASE"
+sudo -u postgres bash -c "createdb $PGDATABASE"
 
 
-psql -c "CREATE EXTENSION IF NOT EXISTS citext;" $PGDATABASE
-psql -c "ALTER DATABASE $PGDATABASE OWNER TO $PGUSER;"
-psql -c "GRANT ALL PRIVILEGES ON DATABASE $PGDATABASE TO $PGUSER;"
-psql -c "GRANT CONNECT ON DATABASE $PGDATABASE TO readonly;"
+sudo -u postgres bash -c "psql -c \"CREATE EXTENSION IF NOT EXISTS citext;\" $PGDATABASE"
+sudo -u postgres bash -c "psql -c \"ALTER DATABASE $PGDATABASE OWNER TO $PGUSER;\""
+sudo -u postgres bash -c "psql -c \"GRANT ALL PRIVILEGES ON DATABASE $PGDATABASE TO $PGUSER;\""
+sudo -u postgres bash -c "psql -c \"GRANT CONNECT ON DATABASE $PGDATABASE TO readonly;\""
 
 
-bin/dstore_reset
+dstore/dstore init
+dstore/dstore index
+dstore/dstore analyze
 
-psql -c "GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly" $PGDATABASE
+
+sudo -u postgres bash -c "psql -c \"GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly\" $PGDATABASE"
+
 
 

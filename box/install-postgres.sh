@@ -15,19 +15,21 @@ sudo pg_dropcluster --stop $PGVER main
 sudo pg_createcluster --locale en_US.UTF-8 --start $PGVER main
 
 
-echo " attempting to setup postgres "
+echo " attempting to setup postgres $PGVER "
 
 PGMAIN=/etc/postgresql/$PGVER/main
 
-sudo sh -c 'echo "#HAXTBH" >> $PGMAIN/postgresql.conf'
-sudo sh -c 'echo "max_wal_senders=1" >> $PGMAIN/postgresql.conf'
-sudo sh -c 'echo "wal_level=hot_standby" >> $PGMAIN/postgresql.conf'
-sudo sh -c 'echo "synchronous_commit = off" >> $PGMAIN/postgresql.conf'
-sudo sh -c 'echo "work_mem = 128MB" >> $PGMAIN/postgresql.conf'
+#append to postgresql.conf
+sudo bash -c "echo \"#HAXTBH\" >> $PGMAIN/postgresql.conf"
+sudo bash -c "echo \"max_wal_senders=1\" >> $PGMAIN/postgresql.conf"
+sudo bash -c "echo \"wal_level=hot_standby\" >> $PGMAIN/postgresql.conf"
+sudo bash -c "echo \"synchronous_commit = off\" >> $PGMAIN/postgresql.conf"
+sudo bash -c "echo \"work_mem = 128MB\" >> $PGMAIN/postgresql.conf"
 
-sudo sh -c 'echo "#HAXTBH" >> $PGMAIN/pg_hba.conf'
-sudo sh -c 'echo "hostssl dstore readonly 127.0.0.1/32 md5" >> $PGMAIN/pg_hba.conf'
-sudo sh -c 'echo "local replication all peer" >> $PGMAIN/pg_hba.conf'
+#replace pg_hba.conf
+sudo bash -c "echo \"#HAXTBH\" > $PGMAIN/pg_hba.conf"
+sudo bash -c "echo \"hostssl dstore readonly 127.0.0.1/32 md5\" >> $PGMAIN/pg_hba.conf"
+sudo bash -c "echo \"local all all trust\" >> $PGMAIN/pg_hba.conf"
 sudo /etc/init.d/postgresql restart
 
 

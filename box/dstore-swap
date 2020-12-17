@@ -14,22 +14,22 @@ fi
 echo " swapping $NEWPGDATABASE database with $PGDATABASE database "
 
 
-/etc/init.d/dportal stop
-/etc/init.d/dportal-instance stop
+sudo /etc/init.d/dportal stop
+sudo /etc/init.d/dportal-instance stop
 
-dropdb dtmp
+sudo -u postgres bash -c "dropdb dtmp"
 
-psql -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$NEWPGDATABASE';" postgres
-psql -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$PGDATABASE';" postgres
+sudo -u postgres bash -c "psql -c \"select pg_terminate_backend(pid) from pg_stat_activity where datname='$NEWPGDATABASE';\" postgres"
+sudo -u postgres bash -c "psql -c \"select pg_terminate_backend(pid) from pg_stat_activity where datname='$PGDATABASE';\" postgres"
 
 sleep 5
 
-psql -c "ALTER DATABASE $PGDATABASE     RENAME TO dtmp;" postgres
-psql -c "ALTER DATABASE $NEWPGDATABASE  RENAME TO $PGDATABASE;" postgres
-psql -c "ALTER DATABASE dtmp            RENAME TO $NEWPGDATABASE;" postgres
+sudo -u postgres bash -c "psql -c \"ALTER DATABASE $PGDATABASE     RENAME TO dtmp;\" postgres"
+sudo -u postgres bash -c "psql -c \"ALTER DATABASE $NEWPGDATABASE  RENAME TO $PGDATABASE;\" postgres"
+sudo -u postgres bash -c "psql -c \"ALTER DATABASE dtmp            RENAME TO $NEWPGDATABASE;\" postgres"
 
 source /dportal/box/env.sh
 
-/etc/init.d/dportal start
-/etc/init.d/dportal-instance start
+sudo /etc/init.d/dportal start
+sudo /etc/init.d/dportal-instance start
 

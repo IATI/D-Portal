@@ -3,7 +3,7 @@ cd ../dstore
 
 mkdir -p cache
 mkdir -p db
-rm db/dstore.sqlite
+rm -f db/dstore.sqlite
 
 node js/cmd init
 node js/cmd index
