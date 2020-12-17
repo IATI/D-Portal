@@ -9,6 +9,8 @@ sudo rm /dportal
 sudo ln -s `readlink -f ..` /dportal
 mkdir -p /dportal/logs
 
+source ./env.sh
+
 
 
 bash /dportal/box/dstore-create
