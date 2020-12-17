@@ -2,10 +2,16 @@ cd `dirname $0`
 cd ..
 
 
-source bin/server/env.sh
+source /dportal/box/env.sh
+export NEWPGDATABASE=dload
 
+if [ ! -z "$1" ] ; then
 
-echo " swapping dload database with dstore database "
+export NEWPGDATABASE=$1
+
+fi
+
+echo " swapping $NEWPGDATABASE database with $PGDATABASE database "
 
 
 /etc/init.d/dportal stop
@@ -13,14 +19,17 @@ echo " swapping dload database with dstore database "
 
 dropdb dtmp
 
-psql -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='dload';" postgres
-psql -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='dstore';" postgres
+psql -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$NEWPGDATABASE';" postgres
+psql -c "select pg_terminate_backend(pid) from pg_stat_activity where datname='$PGDATABASE';" postgres
 
 sleep 5
 
-psql -c "ALTER DATABASE dstore RENAME TO dtmp;" postgres
-psql -c "ALTER DATABASE dload  RENAME TO dstore;" postgres
-psql -c "ALTER DATABASE dtmp   RENAME TO dload;" postgres
+psql -c "ALTER DATABASE $PGDATABASE     RENAME TO dtmp;" postgres
+psql -c "ALTER DATABASE $NEWPGDATABASE  RENAME TO $PGDATABASE;" postgres
+psql -c "ALTER DATABASE dtmp            RENAME TO $NEWPGDATABASE;" postgres
+
+source /dportal/box/env.sh
 
 /etc/init.d/dportal start
 /etc/init.d/dportal-instance start
+

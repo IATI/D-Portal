@@ -4,7 +4,7 @@ cd ..
 exec >dportal/production/cron.log
 
 
-source bin/server/env.sh
+source /dportal/box/env.sh
 
 echo
 echo "Get new json data"

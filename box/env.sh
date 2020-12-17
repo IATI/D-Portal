@@ -10,8 +10,8 @@ export PGHOST="/var/run/postgresql"
 # use env.local.sh to override the above with local values
 
 
-if test -f "/portald/box/env.local.sh"; then
+if test -f "/dportal/box/env.local.sh"; then
 
-source "/portald/box/env.local.sh"
+source "/dportal/box/env.local.sh"
 
 fi

@@ -1,12 +1,15 @@
 cd `dirname $0`
 cd ..
 
+source /dportal/box/env.sh
 
-echo " creating new dload database "
+if [ ! -z "$1" ] ; then
 
+export PGDATABASE=$1
 
-source /portald/box/env.sh
-export PGDATABASE="dload"
+fi
+
+echo " creating new $PGDATABASE database "
 
 
 dropdb $PGDATABASE

@@ -5,25 +5,10 @@ cd ..
 echo " creating new dload database "
 
 
-source bin/server/env.sh
+source /dportal/box/env.sh
 export PGDATABASE="dload"
 
-
-dropdb $PGDATABASE
-createdb $PGDATABASE
-
-
-psql -c "CREATE EXTENSION IF NOT EXISTS citext;" $PGDATABASE
-psql -c "ALTER DATABASE $PGDATABASE OWNER TO $PGUSER;"
-psql -c "GRANT ALL PRIVILEGES ON DATABASE $PGDATABASE TO $PGUSER;"
-psql -c "GRANT CONNECT ON DATABASE $PGDATABASE TO readonly;"
-
-
-bin/dstore_reset
-
-psql -c "GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly" $PGDATABASE
-
-
+/dportal/bin/dstore_create
 
 echo " filling dload database with data "
 
@@ -31,10 +16,10 @@ echo " filling dload database with data "
 bin/fast_import >dportal/production/D-Portal-Logs/cron.import.log 2>&1
 
 
-source bin/server/env.sh
 
 echo " setting database live "
 
+source /dportal/box/env.sh
 
 bin/dstore_swap
 
