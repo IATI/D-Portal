@@ -8,7 +8,7 @@ sudo rm /dportal
 sudo ln -s `readlink -f ..` /dportal
 mkdir -p /dportal/logs
 
-/dportal/install_deps
+/dportal/npm-install
 
 sudo cp dportal-initd /etc/init.d/dportal
 

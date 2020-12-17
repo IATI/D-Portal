@@ -17,11 +17,6 @@ sudo apt-get install -y byobu
 sudo -u vagrant -H bash -c "byobu-enable"
 
 
-echo " we will use /portald on live server "
-sudo rm /portald
-sudo ln -s /host /portald
-
-
 echo " installing all "
 bash /host/box/all.sh
 

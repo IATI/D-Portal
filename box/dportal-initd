@@ -28,11 +28,11 @@
 FOREVER="/usr/local/bin/forever"
 NODE="/usr/bin/node"
 
-DIR="/portald"
-APP="$DIR/dportal/dportal/js/serv.js"
+DIR="/dportal"
+APP="$DIR/dportal/js/serv.js"
 
 LOGDIR="$DIR/logs"
-LOGFILE="$LOGDIR/portald"
+LOGFILE="$LOGDIR/dportal"
 
 
 
