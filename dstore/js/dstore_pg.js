@@ -8,7 +8,7 @@ var dstore_back=exports;
 
 exports.engine="pg";
 
-var wait=require("wait.for");
+var wait=require("wait.for-es6");
 
 var dstore_db=require('./dstore_db');
 // how to use query replcaments

@@ -4,7 +4,7 @@
 var dstore_stats=exports;
 
 
-var wait=require("wait.for");
+var wait=require("wait.for-es6");
 
 var fs = require('fs');
 var util=require("util");

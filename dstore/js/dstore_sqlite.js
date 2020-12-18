@@ -15,7 +15,7 @@ var iati_xml=require("./iati_xml");
 var dflat=require('../../dflat/js/dflat');
 var dflat_database=require('../../dflat/json/database.json');
 
-var wait=require("wait.for");
+var wait=require("wait.for-es6");
 
 var http=require("http");
 var sqlite3 = require("sqlite3").verbose();

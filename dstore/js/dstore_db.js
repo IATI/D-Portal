@@ -15,7 +15,7 @@ var dflat_database=require('../../dflat/json/database.json');
 
 var codes=require('../json/iati_codes');
 
-var wait=require('wait.for');
+var wait=require('wait.for-es6');
 
 var util=require('util');
 var http=require('http');

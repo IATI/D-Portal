@@ -1,5 +1,7 @@
 cd `dirname $0`
 
-#rm -rf node_modules
+rm -rf node_modules
+rm package-lock.json
+
 npm install
 

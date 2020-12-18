@@ -7,7 +7,7 @@ var csv_parse = require('csv-parse');
 //var csv=require('csv');
 
 var util=require('util');
-var wait=require('wait.for');
+//var wait=require('wait.for-es6');
 var http=require('http');
 var https=require('https');
 var fs = require('fs');
@@ -26,7 +26,7 @@ var sheeturl=function(n){
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
-var http_getbody=function(url,cb)
+var http_getbody=util.promisify(function(url,cb)
 {
 	request(url, function (error, response, body) {
 		if(error)
@@ -38,22 +38,23 @@ var http_getbody=function(url,cb)
 			cb(null,body);
 		}
 	});
-};
+});
 
 var https_getbody=http_getbody;
 
-iati_codes.fetch = function(){
+iati_codes.fetch = async function(){
 	
 	try{
-		iati_codes.fetch1()
+		await iati_codes.fetch1()
 	}catch(e){}
+	
 	try{
-		iati_codes.fetch2()
+		await iati_codes.fetch2()
 	}catch(e){}
 }
 
 
-iati_codes.fetch1 = function(){
+iati_codes.fetch1 = async function(){
 
 	var codes=JSON.parse( fs.readFileSync(__dirname+"/../json/iati_codes.json") );
 
@@ -174,14 +175,15 @@ iati_codes.fetch1 = function(){
 			},
 		];
 	
-	files.forEach(function(opts){
+	for(let opts of files)
+	{
 	
 		console.log("Fetching IATI "+opts.name)
 
-		var js=wait.for(http_getbody,opts.url);
-		var j=JSON.parse(js);
-		var active;
-		var withdrawn;
+		let js=await http_getbody(opts.url);
+		let j=JSON.parse(js);
+		let active;
+		let withdrawn;
 		j["data"].forEach(function(v){
 			if(v.status && v.status=="withdrawn")
 			{
@@ -202,7 +204,8 @@ iati_codes.fetch1 = function(){
 		{
 			codes[opts.name+"_withdrawn"]=withdrawn;
 		}
-	});
+		
+	}
 
 // merge old/new transaction types and build map
 
@@ -502,7 +505,7 @@ iati_codes.fetch1 = function(){
 // it turns out wikipedia is the best source, since the iso website has decided to hide its most precious data behind a paywall
 // so now we will scrape wikipedia
 
-	var x=wait.for(https_getbody,"https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2");
+	var x=await https_getbody("https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2");
 
 // try and yank out table segments only	
 	var o={};
@@ -559,7 +562,7 @@ iati_codes.fetch1 = function(){
 
 }
 
-iati_codes.fetch2 = function(){
+iati_codes.fetch2 = async function(){
 	
 	var codes=JSON.parse( fs.readFileSync(__dirname+"/../json/iati_codes.json") );
 
@@ -593,7 +596,7 @@ iati_codes.fetch2 = function(){
 	while(!done)
 	{	
 		console.log( "iatiregistry query for packages "+(start+1)+" to "+(start+1000) );
-		var js=wait.for(https_getbody,"https://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
+		var js=await https_getbody("https://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
 
 		var j=JSON.parse(js.toString('utf8'));
 		var rs=j.result.results;
@@ -679,18 +682,19 @@ if(true)
 	codes.publisher_names={};
 	codes.publisher_secondary={};
 
-	var js=wait.for(https_getbody,"https://iatiregistry.org/api/3/action/group_list");
+	var js=await https_getbody("https://iatiregistry.org/api/3/action/group_list");
 	var j=JSON.parse(js).result;
-	j.forEach(function(v){
+	for(let v of j)
+	{
 		console.log("Fetching publisher info for "+v);
-		var jjs=wait.for(https_getbody,"https://iatiregistry.org/api/3/action/group_show?id="+v);
-		var jj=JSON.parse(jjs).result;
+		let jjs=await https_getbody("https://iatiregistry.org/api/3/action/group_show?id="+v);
+		let jj=JSON.parse(jjs).result;
 		publishers[v]=jj
 		
-		var ids=jj.publisher_iati_id.split("|");
-		for(var i=0;i<ids.length;i++)
+		let ids=jj.publisher_iati_id.split("|");
+		for(let i=0;i<ids.length;i++)
 		{
-			var id=ids[i].trim();
+			let id=ids[i].trim();
 			if(id!="")
 			{
 				if(jj.package_count>0) // ignore unpublished publishers with 0 packages
@@ -710,7 +714,7 @@ console.log("secondary "+id);
 			}
 		}
 
-	});
+	}
 
 // add a temp publisher id
 	codes.publisher_names["XI-IATI-OFID"]="The OPEC Fund for International Development"

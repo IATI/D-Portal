@@ -4,7 +4,7 @@
 var dstore_cache=exports;
 
 
-var wait=require("wait.for");
+//var wait=require("wait.for-es6");
 
 var fs = require('fs');
 var util=require("util");
@@ -15,12 +15,12 @@ var request = require('request');
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
-var http_gethead=function(url,cb)
+var http_gethead=util.promisify(function(url,cb)
 {
 	request.head(url,cb);
-}
+})
 
-var http_getbody=function(url,cb)
+var http_getbody=util.promisify(function(url,cb)
 {
 	request({uri:url,timeout:20000,encoding:null}, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
@@ -31,31 +31,31 @@ var http_getbody=function(url,cb)
 		cb( error || response.statusCode , null );
 	  }
 	})
-};
+});
 
 // handle a cache download/import cmd line request
 // cache is just a directory containing downloaded xml files
 // so we can two step the download - import process
-dstore_cache.cmd = function(argv){
+dstore_cache.cmd = async function(argv){
 
 	if( argv._[1]=="datastore" )
 	{
-		dstore_cache.datastore(argv);
+		await dstore_cache.datastore(argv);
 	}
 	else
 	if( argv._[1]=="iati" )
 	{
-		dstore_cache.iati(argv);
+		await dstore_cache.iati(argv);
 	}
 	else
 	if( argv._[1]=="empty" )
 	{
-		dstore_cache.empty(argv);
+		await dstore_cache.empty(argv);
 	}
 	else
 	if( argv._[1]=="newold" )
 	{
-		dstore_cache.newold(argv);
+		await dstore_cache.newold(argv);
 	}
 	else // help
 	{
@@ -71,7 +71,7 @@ dstore_cache.cmd = function(argv){
 };
 
 
-dstore_cache.import_xmlfile = function(xmlfile){
+dstore_cache.import_xmlfile = async function(xmlfile){
 
 var charset="unknown";
 
@@ -153,14 +153,12 @@ var charset="unknown";
 //	ls(head);
 	
 	console.log("\t\tImporting xmlfile <"+charset+">: ("+acts.length+") \t"+xmlfilename);
-//	wait.for(function(cb){
-		require("./dstore_db").fill_acts(acts,xmlfilename,data,head);
-//		} );
+	await	require("./dstore_db").fill_acts(acts,xmlfilename,data,head);
 }
 
 
 
-dstore_cache.datastore = function(argv){
+dstore_cache.datastore = async function(argv){
 
 	try { fs.mkdirSync(global.argv.cache); } catch(e){}
 
@@ -182,7 +180,7 @@ var codes=["ad","ae","af","ag","ai","al","am","an","ao","aq","ar","as","at","au"
 		{
 			count++;
 			try{
-				x=wait.for(http_getbody,url+v);
+				x=await http_getbody(url+v);
 			}catch(e){}
 			if(x)
 			{
@@ -200,7 +198,7 @@ var codes=["ad","ae","af","ag","ai","al","am","an","ao","aq","ar","as","at","au"
 	
 }
 
-dstore_cache.empty = function(argv,keep){
+dstore_cache.empty = async function(argv,keep){
 	
 	if(!keep) // use global list of slugs->packages
 	{
@@ -226,7 +224,7 @@ dstore_cache.empty = function(argv,keep){
 }
 
 
-dstore_cache.iati = function(argv){
+dstore_cache.iati = async function(argv){
 	
 	var force_download      = argv["download"]  || undefined; // force always download
 	var just_this_publisher = argv["publisher"] || undefined; // only this publisher
@@ -243,7 +241,7 @@ dstore_cache.iati = function(argv){
 	while(!done)
 	{	
 		console.log( "iatiregistry query for packages "+(start+1)+" to "+(start+1000) );
-		var js=wait.for(http_getbody,"http://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
+		var js=await http_getbody("http://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
 
 		var j=JSON.parse(js.toString('utf8'));
 		var rs=j.result.results;
@@ -302,7 +300,7 @@ dstore_cache.iati = function(argv){
 								if(!force_download)
 								{
 									try{
-										var h=wait.for(http_gethead,url);
+										var h=await http_gethead(url);
 										var f; try{ f=fs.statSync(fname); }catch(e){}
 				//						console.log(h.headers);
 				//						console.log(f);
@@ -339,7 +337,7 @@ dstore_cache.iati = function(argv){
 
 								if(download)
 								{
-									var b=wait.for(http_getbody,url);
+									var b=await http_getbody(url);
 									fs.writeFileSync(fname,b);
 									console.log("written\t"+b.length+" bytes to "+fname);
 								}

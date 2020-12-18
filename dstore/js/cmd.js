@@ -5,7 +5,7 @@
 // we expect dstore to be the current directory when this cmd is run
 // as we will be creating db/cache directories there
 
-var wait=require('wait.for');
+//var wait=require('wait.for-es6');
 var fs = require('fs');
 var express = require('express');
 var util=require('util');
@@ -18,63 +18,65 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 var argv=require('yargs').argv; global.argv=argv;
 require("./argv").parse(argv);
 
-wait.launchFiber(function(){
+// run everything inside a new async
+(async function(){
 
 	// make sure we have a db dir
 	fs.mkdir("db",function(e){});
+
 	//ls(argv)
 	if( argv._[0]=="init" )
 	{
-		require("./dstore_db").create_tables();
+		await require("./dstore_db").create_tables();
 //		require("./dstore_db").create_indexes();
 		return;
 	}
 	else
 	if( argv._[0]=="analyze" )
 	{
-		require("./dstore_db").analyze();
+		await require("./dstore_db").analyze();
 		return;
 	}
 	else
 	if( argv._[0]=="vacuum" )
 	{
-		require("./dstore_db").vacuum();
+		await require("./dstore_db").vacuum();
 		return;
 	}
 	else
 	if( argv._[0]=="index" )
 	{
-		require("./dstore_db").create_indexes(argv._[1]); // add indexes to previously inserted data
+		await require("./dstore_db").create_indexes(argv._[1]); // add indexes to previously inserted data
 		return;
 	}
 	else
 	if( argv._[0]=="unindex" )
 	{
-		require("./dstore_db").delete_indexes(); // remoce indexes from previously inserted data
+		await require("./dstore_db").delete_indexes(); // remoce indexes from previously inserted data
 		return;
 	}
 	else
 	if( argv._[0]=="check" )
 	{
-		require("./dstore_db").create_tables({do_not_drop:true});
+		await require("./dstore_db").create_tables({do_not_drop:true});
 		return;
 	}
 	else
 	if( argv._[0]=="dump" )
 	{
-		require("./dstore_db").dump_tables();
+		await require("./dstore_db").dump_tables();
 		return;
 	}
 	else
 	if( argv._[0]=="fake" )
 	{
-		require("./dstore_db").fake_trans(); // create fake transactions
+		await require("./dstore_db").fake_trans(); // create fake transactions
 		return;
 	}
 	else
 	if( argv._[0]=="cache" )
 	{
-		require("./dstore_cache").cmd(argv);
+		await require("./dstore_cache").cmd(argv);
 		return;
 	}
 	else
@@ -87,19 +89,19 @@ wait.launchFiber(function(){
 	else
 	if( argv._[0]=="fetch" )
 	{
-		require("./iati_codes").fetch();
+		await require("./iati_codes").fetch();
 		return;
 	}
 	else
 	if( argv._[0]=="import" )
 	{
-		require("./dstore_cache").import_xmlfile( argv._[1] );
+		await require("./dstore_cache").import_xmlfile( argv._[1] );
 		return;		
 	}
 	else
 	if( argv._[0]=="stats" )
 	{
-		require("./dstore_stats").cmd(argv);
+		await require("./dstore_stats").cmd(argv);
 		return;		
 	}
 
@@ -142,4 +144,4 @@ wait.launchFiber(function(){
 		"\n"+
 	"");
 
-});
+})()
