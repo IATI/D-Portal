@@ -11,13 +11,13 @@
 #      (UNINSTALL : chkconfig --level 35 scriptname off)
 #
 # chkconfig:         2345 90 60
-# Provides:          dportal
+# Provides:          dportal-instance
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: forever running dportal
-# Description:       dportal
+# Short-Description: forever running dportal-instance
+# Description:       dportal-instance
 ### END INIT INFO
 #
 # initd a node app
@@ -32,7 +32,7 @@ DIR="/dportal"
 APP="$DIR/dportal/js/serv.js"
 
 LOGDIR="$DIR/logs"
-LOGFILE="$LOGDIR/dportal"
+LOGFILE="$LOGDIR/dportal-instance"
 
 
 
@@ -50,6 +50,8 @@ fi
 
 start() {
 	echo "Starting $APP"
+
+	export DSTORE_INSTANCE="instance"
 
 	PATH=/usr/local/bin:$PATH
 	cd $DIR
