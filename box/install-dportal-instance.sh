@@ -11,6 +11,9 @@ sudo cp dportal-instance-initd /etc/init.d/dportal-instance
 sudo update-rc.d dportal-instance defaults
 sudo update-rc.d dportal-instance enable
 
+#this will have been accidental stopped
+sudo /etc/init.d/dportal start
+
 sudo /etc/init.d/dportal-instance start
 
 
