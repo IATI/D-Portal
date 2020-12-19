@@ -4,7 +4,7 @@
 var dstore_stats=exports;
 
 
-var wait=require("wait.for-es6");
+// var wait=require("wait.for-es6");
 
 var fs = require('fs');
 var util=require("util");
@@ -19,7 +19,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 // handle a cache download/import cmd line request
 // cache is just a directory containing downloaded xml files
 // so we can two step the download - import process
-dstore_stats.cmd = function(argv){
+dstore_stats.cmd = async function(argv){
 
 	var day=Math.floor((new Date())/8.64e7);
 	var filename=argv._[1]
@@ -61,7 +61,7 @@ console.log("TABLE "+tname)
 
 		var q="SELECT COUNT(*) AS num FROM "+tname+" ; "
 		var v={}
-		var rows=wait.for(dstore_db.query,q,v);
+		var rows=await dstore_db.query(q,v);
 console.log(rows[0].num+" == "+q)
 		stats.count[tname][day]=rows[0].num
 
@@ -74,7 +74,7 @@ console.log(rows[0].num+" == "+q)
 //			var q="SELECT COUNT(DISTINCT "+vname+") AS num FROM "+tname+" ; "
 			var q="SELECT COUNT(*) AS num FROM (SELECT DISTINCT "+vname+" FROM "+tname+") AS temp;"
 			var v={}
-			var rows=wait.for(dstore_db.query,q,v);
+			var rows=await dstore_db.query(q,v);
 console.log(rows[0].num+" == "+q)
 			stats.distinct[tname][vname][day]=rows[0].num
 		}
