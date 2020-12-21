@@ -1,0 +1,10 @@
+cd `dirname $0`
+cd ..
+
+sudo /etc/init.d/dportal stop
+sudo /etc/init.d/dportal-instance stop
+
+sudo /etc/init.d/dportal status
+
+
+
