@@ -6,6 +6,7 @@ exec >/dportal/logs/cron.log
 
 source /dportal/box/env.sh
 
+
 echo
 echo "Get new json data"
 echo
@@ -23,8 +24,8 @@ echo
 
 bin/build
 
-/etc/init.d/dportal restart
-/etc/init.d/dportal status
+/box/dportal-stop
+/box/dportal-start
 
 /dportal/box/cron-download >/dportal/logs/cron.download.log 2>&1
 
@@ -43,8 +44,8 @@ echo
 grep -i "error" dstore/cache/*.import.last.log
 
 
-/dportal/box/cron-stats 2>&1
+#/dportal/box/cron-stats 2>&1
 
 
-/dportal/box/cron-cronos 2>&1
+#/dportal/box/cron-cronos 2>&1
 
