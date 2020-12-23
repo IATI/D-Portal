@@ -686,9 +686,10 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		}
 
 // delete all traces of this activity before we add it
-		(["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"]).forEach(function(v,i,a){
-			dstore_db.delete_from(db,v,{aid:t.aid});
-		});
+		for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
+		{
+			await dstore_db.delete_from(db,v,{aid:t.aid});
+		}
 
 
 		t.title=refry.tagval_narrative(act,"title");
@@ -1066,7 +1067,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 // find which activities changed yesterday.
 		t.hash_jml=crypto.createHash('sha256').update(t.jml).digest("hex");
 		t.hash_day=Math.floor( new Date() / (1000*60*60*24) ) // today
-		var hash=select_by_aid("hash",t.aid)
+		var hash=await select_by_aid("hash",t.aid)
 		if( (!hash) || (hash.hash_jml!=t.hash_jml) ) // new data
 		{
 			await replace("hash",t);
