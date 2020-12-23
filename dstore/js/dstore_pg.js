@@ -556,9 +556,9 @@ dstore_pg.fill_acts = async function(acts,slug,data,head){
 
 			await dstore_back.delete_from(db,"budget",{aid:pid});
 
-			refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:pid},0);});
-			refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:pid},0);});
-			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:pid},0);});
+			for( let it of refry.all_tags(org,"total-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+			for( let it of refry.all_tags(org,"recipient-org-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+			for( let it of refry.all_tags(org,"recipient-country-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
 
 			await dstore_back.replace(db,"slug",{"aid":pid,"slug":slug});
 

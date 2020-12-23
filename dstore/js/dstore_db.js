@@ -428,11 +428,11 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 	var replace=async function(name,it)
 	{
-		dstore_back.replace(db,name,it);
+		await dstore_back.replace(db,name,it);
 	}
 	var select_by_aid=async function(name,aid)
 	{
-		return dstore_back.select_by_aid(db,name,aid);
+		return await dstore_back.select_by_aid(db,name,aid);
 	}
 
 	var refresh_transaction=async function(it,act,act_json,splits)
@@ -979,7 +979,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 				if((typeof(longitude)=="number")&&(typeof(latitude)=="number")) // only bother to remember good data, otherwise we waste time filtering it out.
 				{
-					dstore_back.replace(db,"location",{
+					await dstore_back.replace(db,"location",{
 						"aid":t.aid,
 						"location_code":code,
 						"location_gazetteer_ref":gazref,
