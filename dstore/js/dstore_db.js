@@ -635,7 +635,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 	var refresh_budget=async function(it,act,act_json,priority,splits)
 	{
-		dstore_db.refresh_budget(db,it,act,act_json,priority,splits);
+		await dstore_db.refresh_budget(db,it,act,act_json,priority,splits);
 		
 		var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
 		got_budget[ y ]=true;
@@ -1027,7 +1027,8 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		
 // record policy-marker DAC only with significance and code closely coupled (they make no sense apart as one may negate the other)
 
-		refry.tags(act,"policy-marker",async function(it){
+		for( let it of refry.all_tags(act,"policy-marker") )
+		{
 			if( (!it.vocabulary) || (it.vocabulary=="DAC") || (it.vocabulary==1) ) // must be DAC
 			{
 				if( (!isNaN(parseInt(it.significance))) && (!isNaN(parseInt(it.code))) )
@@ -1039,12 +1040,12 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 					});
 				}
 			}
-		});
+		}
 
 // work on related activities
 
-		refry.tags(act,"related-activity",async function(it){
-
+		for( let it of refry.all_tags(act,"related-activity") )
+		{
 			if( it.ref )
 			{
 				await dstore_back.replace(db,"related",{
@@ -1054,7 +1055,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 				});
 			}
 
-		});
+		}
 		
 		
 //		t.xml=xml;
@@ -1077,12 +1078,16 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 		got_budget={}; // reset which budgets we found
 
-		refry.tags(act,"transaction",async function(it){await refresh_transaction(it,act,t,splits);});
+		let its=[]
+
+		for( let it of refry.all_tags(act,"transaction") ) { await refresh_transaction(it,act,t,splits); }
+		
 		await fixsplits(splits) // we may work out *NEW* percentage splits after parsing the transactions
 
-		refry.tags(act,"budget",async function(it){await refresh_budget(it,act,t,1,splits);});
+		for( let it of refry.all_tags(act,"budget") ) { await refresh_budget(it,act,t,1,splits) }
 
-		refry.tags(act,"planned-disbursement",async function(it){
+		for( let it of refry.all_tags(act,"planned-disbursement") )
+		{
 			var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
 			if( (!y) || (!got_budget[y]) ) // if not already filled in (budget is missing or has bad data)
 			{
@@ -1093,7 +1098,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 				await refresh_budget(it,act,t,0,splits); // else this is marked as data to ignore (priority of 0)
 //				ls({"skipyear":y});
 			}
-		});
+		}
 		
 //update slug
 
