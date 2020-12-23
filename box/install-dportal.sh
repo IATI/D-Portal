@@ -23,7 +23,7 @@ sudo /etc/init.d/dportal stop
 bash /dportal/box/dstore-create
 
 
-sudo cp dportal-initd /etc/init.d/dportal
+sudo cp initd-dportal /etc/init.d/dportal
 
 sudo update-rc.d dportal defaults
 sudo update-rc.d dportal enable

@@ -6,7 +6,7 @@ source ./env.sh
 sudo /etc/init.d/dportal-instance stop
 
 
-sudo cp dportal-instance-initd /etc/init.d/dportal-instance
+sudo cp initd-dportal-instance /etc/init.d/dportal-instance
 
 sudo update-rc.d dportal-instance defaults
 sudo update-rc.d dportal-instance enable
