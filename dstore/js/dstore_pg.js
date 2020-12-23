@@ -522,6 +522,7 @@ dstore_pg.fill_acts = async function(acts,slug,data,head){
 				}
 			}
 
+			let xs=[]
 			let xwalk
 			xwalk=function(it,path)
 			{
@@ -534,7 +535,7 @@ dstore_pg.fill_acts = async function(acts,slug,data,head){
 				
 				if(x.xson)
 				{
-					dstore_back.replace(db,"xson",x);
+					xs.push(x)
 				}
 				
 				for(let n in it )
@@ -551,6 +552,10 @@ dstore_pg.fill_acts = async function(acts,slug,data,head){
 			}
 			xwalk( xtree ,"/iati-organisations/iati-organisation")
 
+			for(let x of xs )
+			{
+				await dstore_back.replace(db,"xson",x);
+			}
 
 			console.log("importing budgets from org file for "+pid)
 

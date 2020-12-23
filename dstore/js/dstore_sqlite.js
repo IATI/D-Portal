@@ -550,6 +550,7 @@ dstore_sqlite.fill_acts = async function(acts,slug,data,head){
 
 			await db.run("DELETE FROM xson WHERE pid=? AND aid IS NULL ;",pid);
 			
+			let xs=[]
 			let xwalk
 			xwalk=function(it,path)
 			{
@@ -562,7 +563,7 @@ dstore_sqlite.fill_acts = async function(acts,slug,data,head){
 				
 				if(x.xson)
 				{
-					dstore_back.replace(db,"xson",x);
+					xs.push(x)
 				}
 				
 				for(let n in it )
@@ -578,6 +579,12 @@ dstore_sqlite.fill_acts = async function(acts,slug,data,head){
 				}
 			}
 			xwalk( xtree ,"/iati-organisations/iati-organisation")
+
+			for(let x of xs )
+			{
+				await dstore_back.replace(db,"xson",x);
+			}
+
 
 			await dstore_back.delete_from(db,"budget",{aid:aid});
 
