@@ -598,7 +598,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 					delete deleteme[aid] // replaced no need to delete
 				}
 			}catch(e){
-				console.error(e)
+				console.log(e)
 			}
 		}
 	}
