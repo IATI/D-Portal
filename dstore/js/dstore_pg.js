@@ -35,13 +35,7 @@ var err=function (error) {
 	process.exit(1);
 }
 
-
-var monitor = require("pg-monitor");
-var pgopts={
-};
-if(process.env.DSTORE_DEBUG){ monitor.attach(pgopts); }
-var pgp = require("pg-promise")(pgopts);
-
+console.log("debug")
 
 // use global db object
 
@@ -51,6 +45,15 @@ var master_db;
 dstore_pg.open = async function(instance){
 	if(!master_db)
 	{
+		var pgopts={
+		};
+		if(process.env.DSTORE_DEBUG)
+		{
+			var monitor = require("pg-monitor");
+			 monitor.attach(pgopts);
+		}
+		var pgp = require("pg-promise")(pgopts);
+
 		master_db = pgp(global.argv.pg);
 	}
 	return master_db;
@@ -103,7 +106,7 @@ console.log("CREATING TABLES");
 
 	}
 
-	pgp.end();
+//	pgp.end();
 	
 
 //	dstore_pg.create_indexes();
@@ -120,7 +123,7 @@ dstore_pg.dump_tables = async function(){
 
 	ls(rows);
 
-	pgp.end();
+//	pgp.end();
 };
 
 
@@ -191,7 +194,7 @@ console.log("CREATING INDEXS");
 
 	}
 
-	pgp.end();	
+//	pgp.end();	
 };
 
 dstore_pg.delete_indexes = async function(){
@@ -235,7 +238,7 @@ console.log("DROPING INDEXS");
 	 await db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err);
 	 await db.none("DROP INDEX IF EXISTS xson_index_text_search;").catch(err);
 
-	pgp.end();	
+//	pgp.end();	
 };
 
 
@@ -632,7 +635,7 @@ dstore_pg.fill_acts = async function(acts,slug,data,head){
 	console.log("added "+count_new+" new activities in "+(after_time-before_time)+"ms\n")
 //	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
 	
-	pgp.end();	
+//	pgp.end();	
 
 };
 
@@ -669,8 +672,11 @@ var err=function (error) {
 	var db = await dstore_pg.open();
 	
 	let qrows = await db.any("EXPLAIN ( ANALYZE FALSE , VERBOSE TRUE , FORMAT JSON ) "+r.query,r.qvals).catch(err);
-	r.explain=qrows[0]["QUERY PLAN"][0];
-		
+	if(qrows)
+	{
+		r.explain=qrows[0]["QUERY PLAN"][0];
+	}
+	
 	let rows=await db.any(r.query,r.qvals).catch(err);
 	
 	r.rows=rows;
@@ -689,7 +695,7 @@ dstore_pg.analyze = async function(){
 	await db.any("ANALYZE;").catch(err)
 	var time=(Date.now()-start_time)/1000;
 	process.stdout.write("ANALYSE done "+time+"\n");
-	pgp.end();	
+//	pgp.end();	
 	
 }
 
@@ -704,7 +710,7 @@ dstore_pg.vacuum = async function(){
 
 	var time=(Date.now()-start_time)/1000;
 	process.stdout.write("VACUUM done "+time+"\n");
-	pgp.end();
+//	pgp.end();
 
 }
 
@@ -762,7 +768,7 @@ dstore_pg.fake_trans = async function(){
 		}
 	}
 	
-	pgp.end();
+//	pgp.end();
 
 };
 

@@ -216,7 +216,7 @@ refry.tags=function(json,name,cb)
 refry.all_tags=function(json,name)
 {
 	let its=[]
-	refry.tags(json,name, function(it){ its.push[it] } )
+	refry.tags(json,name, function(it){ its.push(it) } )
 	return its
 }
 
