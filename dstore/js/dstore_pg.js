@@ -35,10 +35,9 @@ var err=function (error) {
 	process.exit(1);
 }
 
-console.log("debug")
+// use global db object cache
 
-// use global db object
-
+var master_pgp;
 var master_db;
 
 // we have a global db so just return it
@@ -52,15 +51,21 @@ dstore_pg.open = async function(instance){
 			var monitor = require("pg-monitor");
 			 monitor.attach(pgopts);
 		}
-		var pgp = require("pg-promise")(pgopts);
+		master_pgp = require("pg-promise")(pgopts);
 
-		master_db = pgp(global.argv.pg);
+		master_db = master_pgp(global.argv.pg);
 	}
 	return master_db;
 };
 
 // nothing to close?
 dstore_pg.close = async function(db){
+	
+	master_pgp.end();
+	
+	master_pgp=null
+	master_db=null
+
 };
 
 // no pragmas to force
@@ -69,9 +74,9 @@ dstore_pg.pragmas = async function(db){
 
 // create tables
 dstore_pg.create_tables = async function(opts){
-	if(!opts){opts={};}
+await ( await dstore_pg.open() ).task( async db => {
 
-	var db=await dstore_pg.open();
+	if(!opts){opts={};}
 	
 console.log("CREATING TABLES");
 
@@ -106,29 +111,25 @@ console.log("CREATING TABLES");
 
 	}
 
-//	pgp.end();
-	
-
-//	dstore_pg.create_indexes();
-	
+})
+	pgp.end();
 };
 
 dstore_pg.dump_tables = async function(){
-
-	var db=await dstore_pg.open();
+await ( await dstore_pg.open() ).task( async db => {
 
 	var s=(" SELECT * FROM INFORMATION_SCHEMA.COLUMNS ; ");
 	console.log(s);
 	var rows=await db.any(s,{}).catch(err);
 
 	ls(rows);
-
-//	pgp.end();
+})
+	dstore_pg.close()
 };
 
 
 dstore_pg.create_indexes = async function(idxs){
-	var db=await dstore_pg.open();
+await ( await dstore_pg.open() ).task( async db => {
 	
 console.log("CREATING INDEXS");
 
@@ -193,12 +194,12 @@ console.log("CREATING INDEXS");
 		await db.none(s).catch(err);
 
 	}
-
-//	pgp.end();	
+})
+	dstore_pg.close()
 };
 
 dstore_pg.delete_indexes = async function(){
-	var db=dstore_pg.open();
+await ( await dstore_pg.open() ).task( async db => {
 	
 console.log("DROPING INDEXS");
 
@@ -238,7 +239,8 @@ console.log("DROPING INDEXS");
 	 await db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err);
 	 await db.none("DROP INDEX IF EXISTS xson_index_text_search;").catch(err);
 
-//	pgp.end();	
+})
+	dstore_pg.close()
 };
 
 
@@ -458,15 +460,14 @@ dstore_pg.select_by_aid = async function(db,name,aid){
 
 
 dstore_pg.fill_acts = async function(acts,slug,data,head){
+await ( await dstore_pg.open() ).tx( async db => {
 
 	var before_time=Date.now();
 	var after_time=Date.now();
 	var before=0;
 	var after=0;
 
-	var db=await dstore_pg.open();
-
-	await db.none("BEGIN;").catch(err);
+//	await db.none("BEGIN;").catch(err);
 
 /*
 	wait.for(function(cb){
@@ -628,15 +629,15 @@ dstore_pg.fill_acts = async function(acts,slug,data,head){
 	});
 */
 
-	await db.none("COMMIT;").catch(err);
+//	await db.none("COMMIT;").catch(err);
 
 	after_time=Date.now();
 	
 	console.log("added "+count_new+" new activities in "+(after_time-before_time)+"ms\n")
 //	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
 	
-//	pgp.end();	
-
+})
+	dstore_pg.close()
 };
 
 
@@ -661,6 +662,7 @@ dstore_pg.warn_dupes = async function(db,aid,slug){
 
 // the database part of the query code
 dstore_pg.query_select=async function(q,res,r,req){
+await ( await dstore_pg.open() ).task( async db => {
 
 
 // return error do not crash
@@ -668,8 +670,6 @@ var err=function (error) {
 	r.error=error.message || error 
 	query.do_select_response(q,res,r);
 }
-
-	var db = await dstore_pg.open();
 	
 	let qrows = await db.any("EXPLAIN ( ANALYZE FALSE , VERBOSE TRUE , FORMAT JSON ) "+r.query,r.qvals).catch(err);
 	if(qrows)
@@ -683,40 +683,41 @@ var err=function (error) {
 	r.count=rows.length;
 
 	query.do_select_response(q,res,r);
-
+})
 }
 
 
 dstore_pg.analyze = async function(){
+await ( await dstore_pg.open() ).task( async db => {
 
 	var start_time=Date.now();
 	process.stdout.write("ANALYZE start\n");
-	var db = await dstore_pg.open();
 	await db.any("ANALYZE;").catch(err)
 	var time=(Date.now()-start_time)/1000;
 	process.stdout.write("ANALYSE done "+time+"\n");
-//	pgp.end();	
-	
+
+})
+	dstore_pg.close()
 }
 
 
 dstore_pg.vacuum = async function(){
+await ( await dstore_pg.open() ).task( async db => {
 
 	var start_time=Date.now();
 	process.stdout.write("VACUUM start\n");
 
-	var db = await dstore_pg.open();
 	await db.any("VACUUM;").catch(err);
 
 	var time=(Date.now()-start_time)/1000;
 	process.stdout.write("VACUUM done "+time+"\n");
-//	pgp.end();
 
+})
+	dstore_pg.close()
 }
 
 dstore_pg.fake_trans = async function(){
-
-	var db = await dstore_pg.open();
+await ( await dstore_pg.open() ).task( async db => {
 	
 	var ids={};
 
@@ -767,9 +768,9 @@ dstore_pg.fake_trans = async function(){
 			await db.none(dstore_db.tables_replace_sql["trans"],t).catch(err);
 		}
 	}
-	
-//	pgp.end();
 
+})
+	dstore_pg.close()
 };
 
 
