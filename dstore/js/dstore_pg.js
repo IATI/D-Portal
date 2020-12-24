@@ -589,12 +589,16 @@ await ( await dstore_pg.open() ).tx( async db => {
 			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
 			process.stdout.write(progchar[p]);
 
-
-			if( await dstore_db.refresh_act(db,aid,json,head) )
-			{
-				count_new++ // only count if a real activity that we added
-				
-				delete deleteme[aid] // replaced no need to delete
+			// do not let one error break the whole file
+			try{
+				if( await dstore_db.refresh_act(db,aid,json,head) )
+				{
+					count_new++ // only count if a real activity that we added
+					
+					delete deleteme[aid] // replaced no need to delete
+				}
+			}catch(e){
+				console.error(e)
 			}
 		}
 	}
