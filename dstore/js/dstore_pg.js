@@ -112,7 +112,7 @@ console.log("CREATING TABLES");
 	}
 
 })
-	pgp.end();
+	dstore_pg.close()
 };
 
 dstore_pg.dump_tables = async function(){
