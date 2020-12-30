@@ -22,6 +22,6 @@ box/cron-import >/dportal/logs/cron.import.log 2>&1
 echo " setting database live "
 
 
-#box/dstore-swap dload
+box/dstore-swap dload
 
 
