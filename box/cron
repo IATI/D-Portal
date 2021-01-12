@@ -44,6 +44,9 @@ echo
 grep -i "error" dstore/cache/*.import.last.log
 
 
+/dportal/box/cron-dump 2>&1
+
+
 #/dportal/box/cron-stats 2>&1
 
 
