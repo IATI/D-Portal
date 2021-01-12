@@ -5,6 +5,8 @@ echo
 echo "Updating D-Portal-Logs stats"
 echo
 
+source /dportal/box/env.sh
+
 rm -rf logs/D-Portal-Logs
 git clone git@github.com:xriss/D-Portal-Logs.git logs/D-Portal-Logs
 
