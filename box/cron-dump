@@ -5,6 +5,8 @@ echo
 echo " Updating sql and xml data dumps "
 echo
 
+source /dportal/box/env.sh
+
 mkdir -p www
 cd www
 
