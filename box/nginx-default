@@ -13,6 +13,11 @@ server {
 	
 	root /dportal/www;
 
+	location /db {
+		sendfile           on;
+		sendfile_max_chunk 1m;
+	}
+
 	location / {
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
