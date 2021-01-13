@@ -16,7 +16,7 @@ cd db
 zip cache.new.xml.zip ../../dstore/cache/*.xml
 
 mv cache.xml.zip cache.old.xml.zip
-mv cache.new.xml.zip cache.xml.zip
+mv cache.new.xml.zip -q cache.xml.zip
 
 
 
