@@ -116,7 +116,7 @@ view_list_budgets.ajax=function(args)
 			var cc=[];
 			cc[0]=["iati-identifier","title","reporting-org","total-budget","currency","link"];
 			a.forEach(function(v){
-				cc[cc.length]=[decodeURI(v.aid),v.title,v.reporting,v.amount_num,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid];
+				cc[cc.length]=[decodeURIComponent(v.aid),v.title,v.reporting,v.amount_num,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid];
 			});
 			ctrack.chunk((args.chunk || "list_budgets_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
 
