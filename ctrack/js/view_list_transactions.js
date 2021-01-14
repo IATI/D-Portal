@@ -118,7 +118,7 @@ view_list_transactions.ajax=function(args)
 			var cc=[];
 			cc[0]=["iati-identifier","title","reporting-org","total-transaction","currency","link","transaction-type"];
 			a.forEach(function(v){
-				cc[cc.length]=[v.aid,v.title,v.reporting,v.amount_num,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid];
+				cc[cc.length]=[decodeURI(v.aid),v.title,v.reporting,v.amount_num,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid];
 			});
 			ctrack.chunk((args.chunk || "list_transactions_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
 
