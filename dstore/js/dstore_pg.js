@@ -8,7 +8,7 @@ var dstore_back=exports;
 
 exports.engine="pg";
 
-var wait=require("wait.for");
+//var wait=require("wait.for-es6");
 
 var dstore_db=require('./dstore_db');
 // how to use query replcaments
@@ -35,123 +35,101 @@ var err=function (error) {
 	process.exit(1);
 }
 
+// use global db object cache
 
-var monitor = require("pg-monitor");
-var pgopts={
-};
-if(process.env.DSTORE_DEBUG){ monitor.attach(pgopts); }
-var pgp = require("pg-promise")(pgopts);
-
-
-// use global db object
-
+var master_pgp;
 var master_db;
 
 // we have a global db so just return it
-dstore_pg.open = function(instance){
+dstore_pg.open = async function(instance){
 	if(!master_db)
 	{
-		master_db = pgp(global.argv.pg);
+		var pgopts={
+		};
+		if(process.env.DSTORE_DEBUG)
+		{
+			var monitor = require("pg-monitor");
+			 monitor.attach(pgopts);
+		}
+		master_pgp = require("pg-promise")(pgopts);
+
+		master_db = master_pgp(global.argv.pg);
 	}
 	return master_db;
 };
 
 // nothing to close?
-dstore_pg.close = function(db){
+dstore_pg.close = async function(db){
+	
+	master_pgp.end();
+	
+	master_pgp=null
+	master_db=null
+
 };
 
 // no pragmas to force
-dstore_pg.pragmas = function(db){
+dstore_pg.pragmas = async function(db){
 };
 
 // create tables
-dstore_pg.create_tables = function(opts){
-	if(!opts){opts={};}
+dstore_pg.create_tables = async function(opts){
+await ( await dstore_pg.open() ).task( async db => {
 
-	var db=dstore_pg.open();
+	if(!opts){opts={};}
 	
 console.log("CREATING TABLES");
 
-// simple data dump table containing just the raw xml of each activity.
-// this is filled on import and then used as a source
+	for(var name in dstore_db.tables)
+	{
+		var tab=dstore_db.tables[name];
 
-
-// temp patch	
-//		wait.for(function(cb){
-//			 db.none("DROP TABLE IF EXISTS xson;").then(cb).catch(err);
-//		});
-
-
-
-		for(var name in dstore_db.tables)
+		if(!opts.do_not_drop)
 		{
-			var tab=dstore_db.tables[name];
+			console.log("DROPPING "+name);
+			await db.none("DROP TABLE IF EXISTS "+name+";").catch(err);
+		}
 
-
-			if(!opts.do_not_drop)
-			{
-				console.log("DROPPING "+name);
-				wait.for(function(cb){
-					 db.none("DROP TABLE IF EXISTS "+name+";").then(cb).catch(err);
-				});
-			}
-
-			var s=dstore_back.getsql_create_table(db,name,tab);
-			console.log(s);
-			wait.for(function(cb){
-				db.none(s).catch(err).then(cb);
-			});
+		var s=dstore_back.getsql_create_table(db,name,tab);
+		console.log(s);
+		await db.none(s).catch(err)
 
 // check we have all the columns in the table
 
-			var cs=dstore_back.getsql_create_table_columns(db,name,tab);
-			for(var i=0; i<cs.length; i++)
+		var cs=dstore_back.getsql_create_table_columns(db,name,tab);
+		for(var i=0; i<cs.length; i++)
+		{
+			let s="ALTER TABLE "+name+" ADD COLUMN "+cs[i]+" ;";
+			await db.none(s).catch(function(error){
+					s=undefined;
+				})
+			if(s)
 			{
-				var s="ALTER TABLE "+name+" ADD COLUMN "+cs[i]+" ;";
-				wait.for(function(cb){
-					db.none(s).catch(function(error){
-						s=undefined;
-					}).then(function(error){
-						if(s)
-						{
-							console.log(s);
-						}
-						return cb(false);
-					});
-				});
+				console.log(s);
 			}
-
 		}
 
-	pgp.end();
-	
+	}
 
-//	dstore_pg.create_indexes();
-	
+})
+	dstore_pg.close()
 };
 
-dstore_pg.dump_tables = function(){
+dstore_pg.dump_tables = async function(){
+await ( await dstore_pg.open() ).task( async db => {
 
-	var db=dstore_pg.open();
-
-	console.log("OK?")
 	var s=(" SELECT * FROM INFORMATION_SCHEMA.COLUMNS ; ");
 	console.log(s);
-	var rows=wait.for(function(cb){
-		db.any(s,{}).then(function(rows){
-			cb(false,rows)
-		}).catch(err);
-	});
-	console.log("OK?")
-	ls(rows);
-	console.log("OK?")
+	var rows=await db.any(s,{}).catch(err);
 
-	pgp.end();
+	ls(rows);
+})
+	dstore_pg.close()
 };
 
 
-dstore_pg.create_indexes = function(idxs){
-	var db=dstore_pg.open();
+dstore_pg.create_indexes = async function(idxs){
+await ( await dstore_pg.open() ).task( async db => {
 	
 console.log("CREATING INDEXS");
 
@@ -172,27 +150,21 @@ console.log("CREATING INDEXS");
 					{
 						var s=(" CREATE INDEX IF NOT EXISTS "+name+"_btree_"+col.name+" ON "+name+" USING btree ( "+col.name+" ); ");
 						console.log(s);
-						wait.for(function(cb){
-							db.none(s).then(cb).catch(err);
-						});
+						await db.none(s).catch(err);
 
 					}
 					if( col.HASH )
 					{
 						var s=(" CREATE INDEX IF NOT EXISTS "+name+"_hash_"+col.name+" ON "+name+" USING hash ( "+col.name+" ); ");
 						console.log(s);
-						wait.for(function(cb){
-							db.none(s).then(cb).catch(err);
-						});
+						await db.none(s).catch(err);
 
 					}
 					if( col.GIN )
 					{
 						var s=(" CREATE INDEX IF NOT EXISTS "+name+"_gin_"+col.name+" ON "+name+" USING gin ( "+col.name+" ); ");
 						console.log(s);
-						wait.for(function(cb){
-							db.none(s).then(cb).catch(err);
-						});
+						await db.none(s).catch(err);
 
 					}
 					
@@ -203,9 +175,7 @@ console.log("CREATING INDEXS");
 						let nu=n.replace(/[\W_]+/g,"_");
 						var s=(" CREATE INDEX IF NOT EXISTS "+name+"_xson_"+nu+" ON "+name+" USING btree (((xson ->> '"+n+"')::text)) WHERE xson ->> '"+n+"' IS NOT NULL ; ");
 						console.log(s);
-						wait.for(function(cb){
-							db.none(s).then(cb).catch(err);
-						});
+						await db.none(s).catch(err);
 					}
 
 				}
@@ -217,23 +187,19 @@ console.log("CREATING INDEXS");
 	{
 		var s=(" CREATE INDEX IF NOT EXISTS act_index_text_search ON act USING gin(to_tsvector('simple', coalesce(title,'') || ' ' || coalesce(description,'') )); ");
 		console.log(s);
-		wait.for(function(cb){
-			db.none(s).then(cb).catch(err);
-		});
+		await db.none(s).catch(err);
 
 		var s=(" CREATE INDEX IF NOT EXISTS xson_index_text_search ON xson USING gin(to_tsvector('simple', xson->>'' )); ");
 		console.log(s);
-		wait.for(function(cb){
-			db.none(s).then(cb).catch(err);
-		});
+		await db.none(s).catch(err);
 
 	}
-
-	pgp.end();	
+})
+	dstore_pg.close()
 };
 
-dstore_pg.delete_indexes = function(){
-	var db=dstore_pg.open();
+dstore_pg.delete_indexes = async function(){
+await ( await dstore_pg.open() ).task( async db => {
 	
 console.log("DROPING INDEXS");
 
@@ -250,18 +216,10 @@ console.log("DROPING INDEXS");
 				
 				if( col.name )
 				{
-					wait.for(function(cb){
-						 db.none("DROP INDEX IF EXISTS "+name+"_index_"+col.name+";").catch(err).then(cb);
-					});
-					wait.for(function(cb){
-						 db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err).then(cb);
-					});
-					wait.for(function(cb){
-						 db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err).then(cb);
-					});
-					wait.for(function(cb){
-						 db.none("DROP INDEX IF EXISTS "+name+"_gin_"+col.name+";").catch(err).then(cb);
-					});
+					 await db.none("DROP INDEX IF EXISTS "+name+"_index_"+col.name+";").catch(err);
+					 await db.none("DROP INDEX IF EXISTS "+name+"_btree_"+col.name+";").catch(err);
+					 await db.none("DROP INDEX IF EXISTS "+name+"_hash_"+col.name+";").catch(err);
+					 await db.none("DROP INDEX IF EXISTS "+name+"_gin_"+col.name+";").catch(err);
 				}
 
 				if(col.XSON_INDEX)
@@ -270,9 +228,7 @@ console.log("DROPING INDEXS");
 					let n=t[0]
 					let nu=n.replace(/[\W_]+/g,"_");
 					var s=(" DROP INDEX IF EXISTS "+name+"_xson_"+nu+" ; ");
-					wait.for(function(cb){
-						db.none(s).then(cb).catch(err);
-					});
+					await db.none(s).catch(err);
 				}
 
 			}
@@ -280,15 +236,11 @@ console.log("DROPING INDEXS");
 
 // special search index
 
-	wait.for(function(cb){
-		 db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err).then(cb);
-	});
+	 await db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err);
+	 await db.none("DROP INDEX IF EXISTS xson_index_text_search;").catch(err);
 
-	wait.for(function(cb){
-		 db.none("DROP INDEX IF EXISTS xson_index_text_search;").catch(err).then(cb);
-	});
-
-	pgp.end();	
+})
+	dstore_pg.close()
 };
 
 
@@ -472,62 +424,50 @@ dstore_pg.cache_prepare = function(){
 	
 };
 
-dstore_pg.delete_from = function(db,tablename,opts){
+dstore_pg.delete_from = async function(db,tablename,opts){
 
-	wait.for(function(cb){
-		if( opts.trans_flags ) // hack opts as there are currently only two uses
-		{
-			db.none(" DELETE FROM "+tablename+" WHERE trans_flags=${trans_flags} ",opts).then(cb).catch(err);
-		}
-		else
-		if(opts.aid)
-		{
-			db.none(" DELETE FROM "+tablename+" WHERE aid=${aid} ",opts).then(cb).catch(err);
-		}
-		else
-		if(opts.pid)
-		{
-			db.none(" DELETE FROM "+tablename+" WHERE pid=${pid} ",opts).then(cb).catch(err);
-		}
-	});
+	if( opts.trans_flags ) // hack opts as there are currently only two uses
+	{
+		await db.none(" DELETE FROM "+tablename+" WHERE trans_flags=${trans_flags} ",opts).catch(err);
+	}
+	else
+	if(opts.aid)
+	{
+		await db.none(" DELETE FROM "+tablename+" WHERE aid=${aid} ",opts).catch(err);
+	}
+	else
+	if(opts.pid)
+	{
+		await db.none(" DELETE FROM "+tablename+" WHERE pid=${pid} ",opts).catch(err);
+	}
 
 };
 
 
-dstore_pg.replace = function(db,name,it){
+dstore_pg.replace = async function(db,name,it){
 
-	wait.for(function(cb){
-		db.none(dstore_db.tables_replace_sql[name],it).then(cb).catch(err);
-	});
+	await db.none(dstore_db.tables_replace_sql[name],it).catch(err);
 	
 };
 
 // get a row by aid
-dstore_pg.select_by_aid = function(db,name,aid){
+dstore_pg.select_by_aid = async function(db,name,aid){
 	
-	var rows=wait.for(function(cb){
-		db.any("SELECT * FROM "+name+" WHERE aid=${aid};",{aid:aid}).then(function(rows){
-			cb(false,rows)
-		}).catch(err);
-	});
+	var rows= await db.any("SELECT * FROM "+name+" WHERE aid=${aid};",{aid:aid}).catch(err);
 
 	return rows[0]
 };
 
 
-dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
+dstore_pg.fill_acts = async function(acts,slug,data,head){
+await ( await dstore_pg.open() ).tx( async db => {
 
 	var before_time=Date.now();
 	var after_time=Date.now();
 	var before=0;
 	var after=0;
 
-	var db=dstore_pg.open();
-
-
-	wait.for(function(cb){
-		db.none("BEGIN;").then(cb).catch(err);
-	});
+//	await db.none("BEGIN;").catch(err);
 
 /*
 	wait.for(function(cb){
@@ -540,16 +480,12 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 
 
 // find old data and remove it before we do anything else	
-	var rows=wait.for(function(cb){
-		db.any("SELECT aid FROM slug WHERE slug=${slug} AND aid IS NOT NULL;",{slug:slug}).then(function(rows){
-			cb(false,rows)
-		}).catch(err);
-	});
+	var rows=await db.any("SELECT aid FROM slug WHERE slug=${slug} AND aid IS NOT NULL;",{slug:slug}).catch(err);
 	var deleteme={} // create map
 	for(let row of rows) { deleteme[ row["aid"] ] = true }
 
 // clean up slug table, which may have some old nulls
-	db.any("DELETE FROM slug WHERE slug=${slug} AND aid IS NULL ;",{slug:slug}).catch(err);
+	await db.any("DELETE FROM slug WHERE slug=${slug} AND aid IS NULL ;",{slug:slug}).catch(err);
 
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
@@ -577,25 +513,20 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
 
 // get old ids for this slug ( hax as we keep the pid in the aid slot... )
-			var rows=wait.for(function(cb){
-				db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).then(function(rows){
-					cb(false,rows)
-				}).catch(err);
-			});
+			var rows= await db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).catch(err);
 			
 // and delete them all
 			for(let r of rows)
 			{
 				if(r.aid)
 				{
-					wait.for(function(cb){
-						db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:r.aid}).then(cb).catch(err);
-					});
-					dstore_back.delete_from(db,"budget",{aid:r.aid});
-					dstore_back.delete_from(db,"slug",{aid:r.aid});
+					await db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:r.aid}).catch(err);
+					await dstore_back.delete_from(db,"budget",{aid:r.aid});
+					await dstore_back.delete_from(db,"slug",{aid:r.aid});
 				}
 			}
 
+			let xs=[]
 			let xwalk
 			xwalk=function(it,path)
 			{
@@ -608,7 +539,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 				
 				if(x.xson)
 				{
-					dstore_back.replace(db,"xson",x);
+					xs.push(x)
 				}
 				
 				for(let n in it )
@@ -625,16 +556,20 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			}
 			xwalk( xtree ,"/iati-organisations/iati-organisation")
 
+			for(let x of xs )
+			{
+				await dstore_back.replace(db,"xson",x);
+			}
 
 			console.log("importing budgets from org file for "+pid)
 
-			dstore_back.delete_from(db,"budget",{aid:pid});
+			await dstore_back.delete_from(db,"budget",{aid:pid});
 
-			refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:pid},0);});
-			refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:pid},0);});
-			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:pid},0);});
+			for( let it of refry.all_tags(org,"total-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+			for( let it of refry.all_tags(org,"recipient-org-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+			for( let it of refry.all_tags(org,"recipient-country-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
 
-			dstore_back.replace(db,"slug",{"aid":pid,"slug":slug});
+			await dstore_back.replace(db,"slug",{"aid":pid,"slug":slug});
 
 			delete deleteme[aid] // replaced so no need to delete
 		}
@@ -654,12 +589,16 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
 			process.stdout.write(progchar[p]);
 
-
-			if( dstore_db.refresh_act(db,aid,json,head) )
-			{
-				count_new++ // only count if a real activity that we added
-				
-				delete deleteme[aid] // replaced no need to delete
+			// do not let one error break the whole file
+			try{
+				if( await dstore_db.refresh_act(db,aid,json,head) )
+				{
+					count_new++ // only count if a real activity that we added
+					
+					delete deleteme[aid] // replaced no need to delete
+				}
+			}catch(e){
+				console.log(e)
 			}
 		}
 	}
@@ -678,9 +617,7 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 	{
 		for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
 		{
-			wait.for(function(cb){
-				db.none("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).then(cb).catch(err);
-			});
+			await db.none("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).catch(err);
 		}
 	}
 
@@ -696,33 +633,26 @@ dstore_pg.fill_acts = function(acts,slug,data,head,main_cb){
 	});
 */
 
-	wait.for(function(cb){
-		db.none("COMMIT;").then(cb).catch(err);
-	});
+//	await db.none("COMMIT;").catch(err);
 
 	after_time=Date.now();
 	
 	console.log("added "+count_new+" new activities in "+(after_time-before_time)+"ms\n")
 //	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
 	
-	pgp.end();	
-
-	if(main_cb){ main_cb(); }
+})
+	dstore_pg.close()
 };
 
 
 
-dstore_pg.warn_dupes = function(db,aid,slug){
+dstore_pg.warn_dupes = async function(db,aid,slug){
 
 	var ret=false
 	
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
-	var rows=wait.for(function(cb){
-		db.any("SELECT * FROM slug WHERE aid=${aid} AND slug!=${slug};",{aid:aid,slug:slug}).then(function(rows){
-			cb(false,rows)
-		}).catch(err);
-	});
+	var rows=await db.any("SELECT * FROM slug WHERE aid=${aid} AND slug!=${slug};",{aid:aid,slug:slug}).catch(err);
 
 	for(var i in rows)
 	{
@@ -735,7 +665,8 @@ dstore_pg.warn_dupes = function(db,aid,slug){
 };
 
 // the database part of the query code
-dstore_pg.query_select=function(q,res,r,req){
+dstore_pg.query_select=async function(q,res,r,req){
+await ( await dstore_pg.open() ).task( async db => {
 
 
 // return error do not crash
@@ -743,60 +674,54 @@ var err=function (error) {
 	r.error=error.message || error 
 	query.do_select_response(q,res,r);
 }
-
-
-	var db = dstore_pg.open();
 	
-	db.any("EXPLAIN ( ANALYZE FALSE , VERBOSE TRUE , FORMAT JSON ) "+r.query,r.qvals).then(function(rows){
-//		r.explain=[]; for( var i in rows ) { r.explain[i]=rows[i]["QUERY PLAN"]; }
-		r.explain=rows[0]["QUERY PLAN"][0];
-		
-		db.any(r.query,r.qvals).then(function(rows){
-
-			r.rows=rows;
-			r.count=rows.length;
-
-			query.do_select_response(q,res,r);
-
-		}).catch(err);
-
-	}).catch(err);
+	let qrows = await db.any("EXPLAIN ( ANALYZE FALSE , VERBOSE TRUE , FORMAT JSON ) "+r.query,r.qvals).catch(err);
+	if(qrows)
+	{
+		r.explain=qrows[0]["QUERY PLAN"][0];
+	}
 	
+	let rows=await db.any(r.query,r.qvals).catch(err);
+	
+	r.rows=rows;
+	r.count=rows.length;
 
+	query.do_select_response(q,res,r);
+})
 }
 
 
-dstore_pg.analyze = function(){
+dstore_pg.analyze = async function(){
+await ( await dstore_pg.open() ).task( async db => {
 
 	var start_time=Date.now();
 	process.stdout.write("ANALYZE start\n");
-	var db = dstore_pg.open();
-	db.any("ANALYZE;").then(function(rows){
-		var time=(Date.now()-start_time)/1000;
-		process.stdout.write("ANALYSE done "+time+"\n");
-		pgp.end();	
-	}).catch(err);
-	
+	await db.any("ANALYZE;").catch(err)
+	var time=(Date.now()-start_time)/1000;
+	process.stdout.write("ANALYSE done "+time+"\n");
+
+})
+	dstore_pg.close()
 }
 
 
-dstore_pg.vacuum = function(){
+dstore_pg.vacuum = async function(){
+await ( await dstore_pg.open() ).task( async db => {
 
 	var start_time=Date.now();
 	process.stdout.write("VACUUM start\n");
-	var db = dstore_pg.open();
-	db.any("VACUUM;").then(function(rows){
-		var time=(Date.now()-start_time)/1000;
 
-		process.stdout.write("VACUUM done "+time+"\n");
-		pgp.end();	
-	}).catch(err);
-	
+	await db.any("VACUUM;").catch(err);
+
+	var time=(Date.now()-start_time)/1000;
+	process.stdout.write("VACUUM done "+time+"\n");
+
+})
+	dstore_pg.close()
 }
 
-dstore_pg.fake_trans = function(){
-
-	var db = dstore_pg.open();
+dstore_pg.fake_trans = async function(){
+await ( await dstore_pg.open() ).task( async db => {
 	
 	var ids={};
 
@@ -804,75 +729,60 @@ dstore_pg.fake_trans = function(){
 	
 	process.stdout.write("Removing all fake transactions\n");
 
-	dstore_back.delete_from(db,"trans",{trans_flags:1});
+	await dstore_back.delete_from(db,"trans",{trans_flags:1});
 
-	db.any("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code").then(function(rows)
+	let rows = await db.any("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code").catch(err);
+
+	for(i=0;i<rows.length;i++)
 	{
-
-		for(i=0;i<rows.length;i++)
+		var v=rows[i];
+		if(v.trans_code=="C")
 		{
-			var v=rows[i];
-			if(v.trans_code=="C")
-			{
-				ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) + 1 ;
-			}
-			else
-			if( (v.trans_code=="D") || (v.trans_code=="E") )
-			{
-				ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) - 1 ;
-			}
+			ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) + 1 ;
 		}
-		for(var n in ids)
+		else
+		if( (v.trans_code=="D") || (v.trans_code=="E") )
 		{
-			var v=ids[n];
-			if(v>0) // we have commitments but no D or E 
-			{
-				fake_ids.push(n);
-			}
+			ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) - 1 ;
 		}
+	}
+	for(var n in ids)
+	{
+		var v=ids[n];
+		if(v>0) // we have commitments but no D or E 
+		{
+			fake_ids.push(n);
+		}
+	}
 
-		process.stdout.write("The following publishers will have fake transactions added\n");
-		ls(fake_ids);
+	process.stdout.write("The following publishers will have fake transactions added\n");
+	ls(fake_ids);
 
 //		process.stdout.write("Adding fake transactions for the following IDs\n");
-		var ps=[];
-		for(i=0;i<fake_ids.length;i++) // add new fake
+	for(i=0;i<fake_ids.length;i++) // add new fake
+	{
+		var v=fake_ids[i];
+		var p=await db.any("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=${reporting_ref} AND trans_code=${trans_code} ",{reporting_ref:v,trans_code:"C"}).catch(err);
+		for(j=0;j<rows.length;j++)
 		{
-			var v=fake_ids[i];
-			var p=db.any("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=${reporting_ref} AND trans_code=${trans_code} ",{reporting_ref:v,trans_code:"C"}).then(function(rows)
-			{
-				for(j=0;j<rows.length;j++)
-				{
-					var t=rows[j];
+			var t=rows[j];
 //					process.stdout.write(t.aid+"\n");
-					t.trans_code="D";
-					t.trans_flags=1;
-					var p=db.none(dstore_db.tables_replace_sql["trans"],t).catch(err);
-					ps.push(p);
-				}
-//					ls(rows);
-			}).catch(err);
-			ps.push(p);
+			t.trans_code="D";
+			t.trans_flags=1;
+			await db.none(dstore_db.tables_replace_sql["trans"],t).catch(err);
 		}
-		
-		Promise.all(ps).then(function()
-		{
-//			process.stdout.write("Finished\n");
-			pgp.end();
-		}).catch(err);
+	}
 
-	}).catch(err);
-
+})
+	dstore_pg.close()
 };
 
 
 // generic query
-dstore_pg.query=function(q,v,cb){
+dstore_pg.query=async function(q,v){
 
-	var db = dstore_pg.open();
-			
-	db.any(q,v).then(function(rows){
-		cb(null,rows)
-	}).catch(err);
+	var db = await dstore_pg.open();
+	
+	return await db.any(q,v).catch(err);
 
 }

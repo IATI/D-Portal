@@ -1,0 +1,13 @@
+cd `dirname $0`
+cd ../dstore
+
+#make it smarter
+date
+ls db/ -l
+node js/cmd vacuum
+date
+ls db/ -l
+node js/cmd analyze
+date
+ls db/ -l
+

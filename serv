@@ -1,3 +1,0 @@
-cd `dirname $0`
-
-ctrack/watch 1>&2 | tee | dflat/watch >&2 | tee | dportal/start $*

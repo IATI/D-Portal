@@ -1,0 +1,27 @@
+cd `dirname $0`
+cd ..
+
+echo
+echo "Updating D-Portal-Logs stats"
+echo
+
+source /dportal/box/env.sh
+
+rm -rf logs/D-Portal-Logs
+git clone git@github.com:xriss/D-Portal-Logs.git logs/D-Portal-Logs
+
+cp logs/cron.log logs/D-Portal-Logs/cron.log
+cp logs/cron.download.log logs/D-Portal-Logs/cron.download.log
+cp logs/cron.import.log logs/D-Portal-Logs/cron.import.log
+
+dstore/dstore stats ../logs/D-Portal-Logs/stats.json
+dflat/dflat stats ../logs/D-Portal-Logs/stats.json
+dflat/dflat stats ../logs/D-Portal-Logs --publishers
+
+cd logs/D-Portal-Logs/
+git add .
+git commit -m.
+git pull
+git push
+cd ../..
+

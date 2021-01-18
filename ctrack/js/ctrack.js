@@ -27,6 +27,7 @@ ctrack.map_old_views={
 }
 
 
+/*
 var usd_years=require("../../dstore/json/usd_year.json");
 ctrack.usd_year={}; // merge latest data into here
 for(var year=1990;year<2100;year++)
@@ -38,6 +39,11 @@ for(var year=1990;year<2100;year++)
 		}
 	 }
 }
+*/
+
+// only ask for yearly values so as not to produce needless bloat
+var freechange = require("freechange/year")
+
 
 ctrack.encodeURIComponent=function(str)
 {
@@ -248,11 +254,8 @@ ctrack.setup=function(args)
 	if( ctrack.q.usd )
 	{
 		var usd=ctrack.q.usd.toUpperCase();
-		if(ctrack.usd_year[usd])
-		{
-			ctrack.display_usd=usd;
-			ctrack.convert_usd=ctrack.usd_year[usd]; // conversion from usd to whatever we wish to display
-		}
+		ctrack.display_usd=usd;
+		ctrack.convert_usd=freechange.by_date(1,"USD",usd) || 1;
 	}
 	args.chunks["USD"]=ctrack.display_usd;
 //console.log("convert USD "+ctrack.convert_usd);

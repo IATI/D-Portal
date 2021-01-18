@@ -98,6 +98,10 @@ cronos.update = async function(argv){
 		shell.rm("*.xml") // remove old xml files		
 		shell.cp("activities/*.xml",".") // copy all files
 
+		shell.rm("-rf","downloads") // make sure
+		shell.rm("-rf","packages")
+		shell.rm("-rf","activities")
+
 		shell.exec("git add *.xml")
 		shell.exec("git clean -f -d") //remove junk
 		shell.exec("git add .") // auto delete removed files

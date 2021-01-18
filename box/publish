@@ -1,0 +1,13 @@
+
+# Publish to live server from github.
+
+cd `dirname $0`
+cd ..
+
+bin/push
+
+ssh ctrack "/dportal/bin/pull"
+ssh ctrack "/dportal/bin/build"
+ssh ctrack "/dportal/box/dportal-stop"
+ssh ctrack "/dportal/box/dportal-start"
+

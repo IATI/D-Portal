@@ -1,7 +1,0 @@
-cd `dirname $0`
-cd ../dstore
-
-mkdir cache
-mkdir db
-
-node js/cmd check

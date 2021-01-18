@@ -1,0 +1,15 @@
+cd `dirname $0`
+cd ../dstore
+
+
+SLUGNAME=asdb-bd
+
+if [ ! -z "$1" ] ; then
+
+SLUGNAME=$1
+
+fi
+
+echo " Downloading a single iati XML file from the registry with the slugname of $SLUGNAME "
+
+./dstore cache iati --slug=$SLUGNAME

@@ -1,0 +1,11 @@
+cd `dirname $0`
+cd ../dstore
+
+ls -lha instance
+
+sudo rm instance/*.sqlite
+sudo rm instance/*.xml
+sudo rm instance/*.log
+
+ls -lha instance
+

@@ -1202,7 +1202,7 @@ query.serv = function(req,res){
 	var q=query.get_q(req);
 
 // special log info requests
-	var logname=__dirname+'/../../dportal/production/cron.log'
+	var logname=__dirname+'/../../logs/cron.log'
 	if(argv.instance)
 	{
 		var instance=(req && req.subdomains && req.subdomains[0]) || argv.instance;

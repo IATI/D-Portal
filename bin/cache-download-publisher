@@ -1,0 +1,17 @@
+cd `dirname $0`
+cd ../dstore
+
+
+PUBNAME=NZ-1
+
+if [ ! -z "$1" ] ; then
+
+PUBNAME=$1
+
+fi
+
+
+echo " Downloading all iati XML files from the registry for publisher $PUBNAME "
+
+
+./dstore cache iati --publisher=$PUBNAME

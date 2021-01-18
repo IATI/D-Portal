@@ -1,0 +1,13 @@
+cd `dirname $0`
+
+npm install -g forever
+
+cp dportal /etc/init.d/dportal
+update-rc.d dportal defaults
+update-rc.d dportal enable
+
+cp dportal-instance /etc/init.d/dportal-instance
+update-rc.d dportal-instance defaults
+update-rc.d dportal-instance enable
+
+

@@ -213,6 +213,13 @@ refry.tags=function(json,name,cb)
 	else { f(json); }
 }
 
+refry.all_tags=function(json,name)
+{
+	let its=[]
+	refry.tags(json,name, function(it){ its.push(it) } )
+	return its
+}
+
 // callback for all tags of the given name directly under the given name, so a two tag search
 refry.tags2=function(json,name1,name2,cb)
 {

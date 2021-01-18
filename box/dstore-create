@@ -1,0 +1,33 @@
+cd `dirname $0`
+cd ..
+
+source /dportal/box/env.sh
+
+if [ ! -z "$1" ] ; then
+
+export PGDATABASE=$1
+
+fi
+
+echo " creating new $PGDATABASE database "
+
+
+sudo -u postgres bash -c "dropdb $PGDATABASE"
+sudo -u postgres bash -c "createdb $PGDATABASE"
+
+
+sudo -u postgres bash -c "psql -c \"CREATE EXTENSION IF NOT EXISTS citext;\" $PGDATABASE"
+sudo -u postgres bash -c "psql -c \"ALTER DATABASE $PGDATABASE OWNER TO $PGUSER;\""
+sudo -u postgres bash -c "psql -c \"GRANT ALL PRIVILEGES ON DATABASE $PGDATABASE TO $PGUSER;\""
+sudo -u postgres bash -c "psql -c \"GRANT CONNECT ON DATABASE $PGDATABASE TO readonly;\""
+
+
+dstore/dstore init
+dstore/dstore index
+dstore/dstore analyze
+
+
+sudo -u postgres bash -c "psql -c \"GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly\" $PGDATABASE"
+
+
+

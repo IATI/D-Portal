@@ -15,10 +15,10 @@ var iati_xml=require("./iati_xml");
 var dflat=require('../../dflat/js/dflat');
 var dflat_database=require('../../dflat/json/database.json');
 
-var wait=require("wait.for");
+//var wait=require("wait.for-es6");
 
 var http=require("http");
-var sqlite3 = require("sqlite3").verbose();
+var sqlite = require("sqlite-async");//.verbose();
 
 var iati_cook=require('./iati_cook');
 var dstore_db=require('./dstore_db');
@@ -32,11 +32,11 @@ var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
-dstore_sqlite.close = function(db){
-	db.close();
+dstore_sqlite.close = async function(db){
+	await db.close();
 };
 
-dstore_sqlite.open = function(instance){
+dstore_sqlite.open = async function(instance){
 //	var db = new sqlite3.cached.Database( global.argv.database );
 	var db;
 	
@@ -46,14 +46,14 @@ dstore_sqlite.open = function(instance){
 		var dbfilename=__dirname+"/../../dstore/instance/"+instance+".sqlite";
 		
 console.log("using instance databsse "+dbfilename)		
-		db = new sqlite3.Database( dbfilename );
+		db = sqlite.open( dbfilename );
 	}
 	else
 	{
-		db = new sqlite3.Database( global.argv.database );
+		db = sqlite.open( global.argv.database );
 	}
 	
-	db.configure("busyTimeout",100000); // wait upto 100 sec on busy locks
+//	db.configure("busyTimeout",100000); // wait upto 100 sec on busy locks
 	
 //	dstore_sqlite.pragmas(db);
 		
@@ -61,167 +61,156 @@ console.log("using instance databsse "+dbfilename)
 };
 
 // set prefered pragmas
-dstore_sqlite.pragmas = function(db)
+dstore_sqlite.pragmas = async function(db)
 {
 // speed up data writes.
-	db.serialize(function() {
-		db.run("PRAGMA synchronous = 0 ;");
-		db.run("PRAGMA encoding = \"UTF-8\" ;");
-		db.run("PRAGMA journal_mode=WAL;");
-		db.run("PRAGMA mmap_size=268435456;");
-		db.run("PRAGMA temp_store=2;");
-	});
+
+	await db.run("PRAGMA synchronous = 0 ;");
+	await db.run("PRAGMA encoding = \"UTF-8\" ;");
+	await db.run("PRAGMA journal_mode=WAL;");
+	await db.run("PRAGMA mmap_size=268435456;");
+	await db.run("PRAGMA temp_store=2;");
 }
 
 
 // run a query
-dstore_sqlite.query = function(db,q,v,cb){
-	return db.run(q,v,cb);
+dstore_sqlite.query = async function(db,q,v){
+	return await db.run(q,v);
 }
 
-dstore_sqlite.query_run = function(db,q,v,cb){
-	return db.run(q,v,cb);
+dstore_sqlite.query_run = async function(db,q,v){
+	return await db.run(q,v,cb);
 }
-dstore_sqlite.query_all = function(db,q,v,cb){
-	return db.all(q,v,cb);
+dstore_sqlite.query_all = async function(db,q,v){
+	return await db.all(q,v,cb);
 }
-dstore_sqlite.query_each = function(db,q,v,cb){
-	return db.each(q,v,cb);
-}
-
-dstore_sqlite.query_exec = function(db,q,v,cb){
-	return db.exec(q,v,cb);
+dstore_sqlite.query_each = async function(db,q,v){
+	return await db.each(q,v);
 }
 
+dstore_sqlite.query_exec = async function(db,q,v){
+	return await db.exec(q,v);
+}
 
-dstore_sqlite.create_tables = function(opts){
+
+dstore_sqlite.create_tables = async function(opts){
 	if(!opts){opts={};}
 
-	var db = dstore_sqlite.open();
+	var db = await dstore_sqlite.open();
 
-	db.serialize(function() {
+//	db.serialize(function() {
 
-		dstore_sqlite.pragmas(db);
+	await dstore_sqlite.pragmas(db);
 
-		for(var name in dstore_db.tables)
+	for(var name in dstore_db.tables)
+	{
+		var tab=dstore_db.tables[name];
+
+
+		if(!opts.do_not_drop)
 		{
-			var tab=dstore_db.tables[name];
+			console.log("DROPPING "+name);
+			await db.run("DROP TABLE IF EXISTS "+name+";");
+		}
 
-
-			if(!opts.do_not_drop)
-			{
-				console.log("DROPPING "+name);
-				db.run("DROP TABLE IF EXISTS "+name+";");
-			}
-
-			var s=dstore_sqlite.getsql_create_table(db,name,tab);
-			console.log(s);
-			db.run(s);
-			
+		var s=dstore_sqlite.getsql_create_table(db,name,tab);
+		console.log(s);
+		await db.run(s);
+		
 // check we have all the columns in the table
 
-			var cs=dstore_sqlite.getsql_create_table_columns(db,name,tab);
-			for(var i=0; i<cs.length; i++)
+		var cs=dstore_sqlite.getsql_create_table_columns(db,name,tab);
+		for(var i=0; i<cs.length; i++)
+		{
+			var s="ALTER TABLE "+name+" ADD COLUMN "+cs[i]+" ;";
+			console.log(s);
+			await db.run(s).catch(function(){}); // ignore errors
+		}
+
+// add indexs
+
+		for(var i=0; i<tab.length;i++)
+		{
+			var col=tab[i];
+			
+			if( col.INDEX )
 			{
-				var s="ALTER TABLE "+name+" ADD COLUMN "+cs[i]+" ;";
+				s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
 				console.log(s);
-				db.run(s,function(){});
-			}
-
-// add indexs
-
-			for(var i=0; i<tab.length;i++)
-			{
-				var col=tab[i];
-				
-				if( col.INDEX )
-				{
-					s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
-					console.log(s);
-					db.run(s);
-				}
+				await db.run(s);
 			}
 		}
+	}
 
-		console.log("Created database "+argv.database);
-		
-	});
+	console.log("Created database "+argv.database);
 	
-	dstore_sqlite.close(db);
+	await dstore_sqlite.close(db);
 
 }
 
 
-dstore_sqlite.create_indexes = function(){
+dstore_sqlite.create_indexes = async function(){
 
-	var db = dstore_sqlite.open();
+	var db = await dstore_sqlite.open();
 
-	db.serialize(function() {
-	
 // simple data dump table containing just the raw xml of each activity.
 // this is filled on import and then used as a source
 
-		for(var name in dstore_sqlite.tables)
-		{
-			var tab=dstore_sqlite.tables[name];
-			var s;
+	for(var name in dstore_sqlite.tables)
+	{
+		var tab=dstore_sqlite.tables[name];
+		var s;
 
 // add indexs
 
-			for(var i=0; i<tab.length;i++)
+		for(var i=0; i<tab.length;i++)
+		{
+			var col=tab[i];
+			
+			if( col.INDEX )
 			{
-				var col=tab[i];
-				
-				if( col.INDEX )
-				{
-					s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
-					console.log(s);
-					db.run(s);
-				}
+				s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
+				console.log(s);
+				await db.run(s);
 			}
 		}
+	}
 
-		console.log("Created indexes "+argv.database);
-		
-	});
+	console.log("Created indexes "+argv.database);
 	
-	dstore_sqlite.close(db);
+	await dstore_sqlite.close(db);
 }
 
-dstore_sqlite.delete_indexes = function(){
+dstore_sqlite.delete_indexes = async function(){
 
-	var db = dstore_sqlite.open();
+	var db = await dstore_sqlite.open();
 
-	db.serialize(function() {
-	
 // simple data dump table containing just the raw xml of each activity.
 // this is filled on import and then used as a source
 
-		for(var name in dstore_sqlite.tables)
-		{
-			var tab=dstore_sqlite.tables[name];
-			var s;
+	for(var name in dstore_sqlite.tables)
+	{
+		var tab=dstore_sqlite.tables[name];
+		var s;
 
 // delete indexs
 
-			for(var i=0; i<tab.length;i++)
+		for(var i=0; i<tab.length;i++)
+		{
+			var col=tab[i];
+			
+			if( col.INDEX )
 			{
-				var col=tab[i];
-				
-				if( col.INDEX )
-				{
-					s=(" DROP INDEX IF EXISTS "+name+"_index_"+col.name+" ;");
-					console.log(s);
-					db.run(s);
-				}
+				s=(" DROP INDEX IF EXISTS "+name+"_index_"+col.name+" ;");
+				console.log(s);
+				await db.run(s);
 			}
 		}
+	}
 
-		console.log("Deleted indexes "+argv.database);
+	console.log("Deleted indexes "+argv.database);
 		
-	});
-	
-	dstore_sqlite.close(db);
+	await dstore_sqlite.close(db);
 }
 
 dstore_sqlite.replace_vars = function(db,name,it){
@@ -240,7 +229,7 @@ dstore_sqlite.replace_vars = function(db,name,it){
 	return $t;
 }
 
-dstore_sqlite.replace = function(db,name,it){
+dstore_sqlite.replace = async function(db,name,it){
 	
 	var $t=dstore_sqlite.replace_vars(db,name,it);
 		
@@ -250,19 +239,17 @@ dstore_sqlite.replace = function(db,name,it){
 
 
 	var s=dstore_db.tables_replace_sql[name];
-	var sa = db.prepare(s);
-	sa.run($t);	
-	sa.finalize(); // seems faster to finalize now rather than let it hang?
+	var sa = await db.prepare(s);
+	await sa.run($t);	
+	await sa.finalize(); // seems faster to finalize now rather than let it hang?
 
 	
 };
 
 // get a row by aid
-dstore_sqlite.select_by_aid = function(db,name,aid){
+dstore_sqlite.select_by_aid = async function(db,name,aid){
 	
-	var rows=wait.for(function(cb){
-		db.all("SELECT * FROM "+name+" WHERE aid=?",aid,cb);
-	});
+	var rows=await db.all("SELECT * FROM "+name+" WHERE aid=?",aid);
 
 	return rows[0]
 };
@@ -377,20 +364,14 @@ dstore_sqlite.getsql_create_table=function(db,name,tab)
 	return s.join("");
 }
 
-dstore_sqlite.dump_tables = function(){
+dstore_sqlite.dump_tables = async function(){
 
-	var db = dstore_sqlite.open();
+	var db = await dstore_sqlite.open();
 
-	db.serialize(function() {
-	
-		db.all("SELECT * FROM sqlite_master;", function(err, rows)
-		{
-			ls(rows);
-		});
+	var rows=await db.all("SELECT * FROM sqlite_master;")
+	ls(rows);
 
-	});
-
-	dstore_sqlite.close(db);
+	await dstore_sqlite.close(db);
 }
 
 
@@ -430,16 +411,16 @@ dstore_sqlite.cache_prepare = function(){
 
 
 // delete  a row by a specific ID
-dstore_sqlite.delete_from = function(db,tablename,opts){
+dstore_sqlite.delete_from = async function(db,tablename,opts){
 
 
 	if( opts.trans_flags ) // hack opts as there are currently only two uses
 	{
-		db.run(" DELETE FROM "+tablename+" WHERE trans_flags=? ",opts.trans_flags);
+		await db.run(" DELETE FROM "+tablename+" WHERE trans_flags=? ",opts.trans_flags);
 	}
 	else
 	{
-		db.run(" DELETE FROM "+tablename+" WHERE aid=? ",opts.aid);
+		await db.run(" DELETE FROM "+tablename+" WHERE aid=? ",opts.aid);
 	}
 };
 
@@ -448,9 +429,9 @@ dstore_sqlite.delete_from = function(db,tablename,opts){
 // to setup
 
 
-dstore_sqlite.fake_trans = function(){
+dstore_sqlite.fake_trans = async function(){
 
-	var db = dstore_back.open();
+	var db = await dstore_back.open();
 	
 	var ids={};
 
@@ -458,90 +439,84 @@ dstore_sqlite.fake_trans = function(){
 	
 	process.stdout.write("Removing all fake transactions\n");
 
-	dstore_back.delete_from(db,"trans",{trans_flags:1});
+	await dstore_back.delete_from(db,"trans",{trans_flags:1});
 
-	db.all("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code", function(err, rows)
+	let rows=await db.all("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code")
+
+	for(i=0;i<rows.length;i++)
 	{
-		for(i=0;i<rows.length;i++)
+		var v=rows[i];
+		if(v.trans_code=="C")
 		{
-			var v=rows[i];
-			if(v.trans_code=="C")
-			{
-				ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) + 1 ;
-			}
-			else
-			if( (v.trans_code=="D") || (v.trans_code=="E") )
-			{
-				ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) - 1 ;
-			}
+			ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) + 1 ;
 		}
-		for(var n in ids)
+		else
+		if( (v.trans_code=="D") || (v.trans_code=="E") )
 		{
-			var v=ids[n];
-			if(v>0) // we have commitments but no D or E 
-			{
-				fake_ids.push(n);
-			}
+			ids[v.reporting_ref] = (ids[v.reporting_ref] || 0) - 1 ;
 		}
+	}
+	for(var n in ids)
+	{
+		var v=ids[n];
+		if(v>0) // we have commitments but no D or E 
+		{
+			fake_ids.push(n);
+		}
+	}
 
-		process.stdout.write("The following publishers will have fake transactions added\n");
-		ls(fake_ids);
+	process.stdout.write("The following publishers will have fake transactions added\n");
+	ls(fake_ids);
 
 //		process.stdout.write("Adding fake transactions for the following IDs\n");
-		for(i=0;i<fake_ids.length;i++) // add new fake
+	for(i=0;i<fake_ids.length;i++) // add new fake
+	{
+		var v=fake_ids[i];
+		let rows=db.all("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=? AND trans_code=\"C\" ",v)
+		
+		for(j=0;j<rows.length;j++)
 		{
-			var v=fake_ids[i];
-			db.all("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=? AND trans_code=\"C\" ",v, function(err, rows)
-			{
-				for(j=0;j<rows.length;j++)
-				{
-					var t=rows[j];
+			var t=rows[j];
 //					process.stdout.write(t.aid+"\n");
-					t.trans_code="D";
-					t.trans_flags=1;
-					dstore_back.replace(db,"trans",t);
-				}
-	//				ls(rows);
-			});
+			t.trans_code="D";
+			t.trans_flags=1;
+			await dstore_back.replace(db,"trans",t);
 		}
 
-	});
+	}
 
 };
 
 
 
-dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
+dstore_sqlite.fill_acts = async function(acts,slug,data,head){
 
 	var before_time=Date.now();
 	var after_time=Date.now();
 	var before=0;
 	var after=0;
 
-	var db = dstore_back.open();	
-	db.serialize();
+	var db = await dstore_back.open();	
+//	db.serialize();
 	
-	wait.for(function(cb){
-		db.run("BEGIN TRANSACTION",cb);
-	});
+	await db.run("BEGIN TRANSACTION")
 	
-	db.each("SELECT COUNT(*) FROM act", function(err, row)
-	{
-		before=row["COUNT(*)"];
-	});
+	let row = await db.get("SELECT COUNT(*) FROM act")
+	before=row["COUNT(*)"];
 
 // delete everything related to this slug
-	db.each("SELECT aid FROM slug WHERE slug=?",slug, function(err, row)
+	let rows=await db.all("SELECT aid FROM slug WHERE slug=?",slug)
+	for(let row of rows)
 	{
 
-		(["act","jml","trans","budget","country","sector","location","slug"]).forEach(function(v,i,a){
-			dstore_back.delete_from(db,v,{aid:row["aid"]});
-		});
+		for( let v of ["act","jml","trans","budget","country","sector","location","slug"] )
+		{
+			await dstore_back.delete_from(db,v,{aid:row["aid"]});
+		}
 
+	}
 
-	});
-
-	wait.for(function(cb){ db.run("PRAGMA page_count", function(err, row){ cb(err); }); });
+	await db.run("PRAGMA page_count")
 
 	var progchar=["0","1","2","3","4","5","6","7","8","9"];
 
@@ -573,8 +548,9 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 //console.log(slug+" : "+pid)
 //console.log(xtree)
 
-			db.run("DELETE FROM xson WHERE pid=? AND aid IS NULL ;",pid);
+			await db.run("DELETE FROM xson WHERE pid=? AND aid IS NULL ;",pid);
 			
+			let xs=[]
 			let xwalk
 			xwalk=function(it,path)
 			{
@@ -587,7 +563,7 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 				
 				if(x.xson)
 				{
-					dstore_back.replace(db,"xson",x);
+					xs.push(x)
 				}
 				
 				for(let n in it )
@@ -604,7 +580,13 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 			}
 			xwalk( xtree ,"/iati-organisations/iati-organisation")
 
-			dstore_back.delete_from(db,"budget",{aid:aid});
+			for(let x of xs )
+			{
+				await dstore_back.replace(db,"xson",x);
+			}
+
+
+			await dstore_back.delete_from(db,"budget",{aid:aid});
 
 			console.log(o[0]+" -> "+o["default-currency"])
 			iati_cook.activity(o); // cook the raw json(xml) ( most cleanup logic has been moved here )
@@ -613,7 +595,7 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 			refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
 			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
 
-			dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
+			await dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
 		}
 	}
 
@@ -630,73 +612,60 @@ dstore_sqlite.fill_acts = function(acts,slug,data,head,main_cb){
 			if(p<0) { p=0; } if(p>=progchar.length) { p=progchar.length-1; }
 			process.stdout.write(progchar[p]);
 
-			dstore_db.refresh_act(db,aid,json,head);
+			await dstore_db.refresh_act(db,aid,json,head);
 
 	// block and wait here
 
-			wait.for(function(cb){
-				db.run("PRAGMA page_count", function(err, row){
-					cb(err);
-				});
-			});
+			await db.run("PRAGMA page_count")
 		}
 	}
 
-	wait.for(function(cb){ db.run("COMMIT TRANSACTION",cb); });
+	await db.run("COMMIT TRANSACTION");
 	process.stdout.write("\n");
 
-	db.each("SELECT COUNT(*) FROM act", function(err, row)
-	{
-		after=row["COUNT(*)"];
-	});
+	after = ( await db.get("SELECT COUNT(*) FROM act") )["COUNT(*)"]
 
-
-	db.run("PRAGMA page_count", function(err, row){
-		dstore_back.close(db);
+	
+	await dstore_back.close(db);
 		
-		after_time=Date.now();
-		
-		process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
-		
-		if(main_cb){ main_cb(); }
-	});
-
+	after_time=Date.now();
+	
+	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
+	
 };
 
 // call after major data changes to help sqlite optimise queries
 
-dstore_sqlite.vacuum = function(){
+dstore_sqlite.vacuum = async function(){
 
 	process.stdout.write("VACUUM start\n");
-	var db = dstore_back.open();
-	db.run("VACUUM", function(err, row){
-		dstore_back.close(db);
-		process.stdout.write("VACUUM done\n");
-	});
+	var db = await dstore_back.open();
+	await db.run("VACUUM")
+	
+	await dstore_back.close(db);
+	
+	process.stdout.write("VACUUM done\n");
 
 }
 
-dstore_sqlite.analyze = function(){
+dstore_sqlite.analyze = async function(){
 
 
 	process.stdout.write("ANALYZE start\n");
-	var db = dstore_back.open();
-	db.run("ANALYZE", function(err, row){
-		dstore_back.close(db);
-		process.stdout.write("ANALYSE done\n");
-	});
+	var db = await dstore_back.open();
+	await db.run("ANALYZE")
+	await dstore_back.close(db);
+	process.stdout.write("ANALYSE done\n");
 }
 
 
-dstore_sqlite.warn_dupes = function(db,aid,slug){
+dstore_sqlite.warn_dupes = async function(db,aid,slug){
 
 	var ret=false
 	
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
-	var rows=wait.for(function(cb){
-		db.all("SELECT * FROM slug WHERE aid=? AND slug!=?",aid,cb);
-	});
+	let rows = await db.all("SELECT * FROM slug WHERE aid=? AND slug!=?",aid)
 
 	for(var i in rows)
 	{
@@ -710,28 +679,25 @@ dstore_sqlite.warn_dupes = function(db,aid,slug){
 
 
 // the database part of the query code
-dstore_sqlite.query_select=function(q,res,r,req){
+dstore_sqlite.query_select=async function(q,res,r,req){
 
-	var db = dstore_db.open(req && req.subdomains && req.subdomains[0]); // pick instance using subdomain
-	db.serialize();
+	var db = await dstore_db.open(req && req.subdomains && req.subdomains[0]); // pick instance using subdomain
+//	db.serialize();
 	
 if(true)
 {
-	db.all( "EXPLAIN QUERY PLAN "+r.query,r.qvals,
-		function(err,rows)
-		{
-			if(rows)
-			{
-				r.sqlite_explain_detail=[];
-				rows.forEach(function(it){
-					r.sqlite_explain_detail.push(it.detail);
-				});
-			}
-		}
-	);
+	let rows = await db.all( "EXPLAIN QUERY PLAN "+r.query,r.qvals)
+	
+	if(rows)
+	{
+		r.sqlite_explain_detail=[];
+		rows.forEach(function(it){
+			r.sqlite_explain_detail.push(it.detail);
+		});
+	}
 }
 
-	db.each(r.query,r.qvals, function(err, row)
+	await db.each(r.query,r.qvals, function(err, row)
 	{
 		if(err)
 		{
@@ -745,29 +711,34 @@ if(true)
 		}
 	});
 
-	db.run(";", function(err, row){
 
-		query.do_select_response(q,res,r);
+	await query.do_select_response(q,res,r);
 		
-		dstore_back.close(db);
-	});
+	await dstore_back.close(db);
 
 }
 
 
 
 // generic query
-dstore_sqlite.query=function(q,v,cb){
+dstore_sqlite.query=async function(q,v,cb){
 
-	var db = dstore_db.open();
-	db.serialize();
+	var db = await dstore_db.open();
+//	db.serialize();
 	
+/*
 	db.all(q,v, function(err, rows)
 	{
 		dstore_back.close(db);
 		if(err) { console.log(q+"\n"+err); }
 		cb(err,rows)
 	});
+*/
 
+	let rows=await db.all(q,v);
+
+	await dstore_back.close(db);
+
+	return rows;
 }
 

@@ -1,0 +1,27 @@
+cd `dirname $0`
+cd ..
+
+
+echo " creating new dload database "
+
+
+/dportal/box/dstore-create dload
+
+
+
+
+echo " filling dload database with data "
+
+source /dportal/box/env.sh
+export PGDATABASE="dload"
+
+box/cron-import >/dportal/logs/cron.import.log 2>&1
+
+
+
+echo " setting database live "
+
+
+box/dstore-swap dload
+
+

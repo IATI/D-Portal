@@ -1,0 +1,54 @@
+cd `dirname $0`
+cd ..
+
+exec >/dportal/logs/cron.log
+
+
+source /dportal/box/env.sh
+
+
+echo
+echo "Get new json data"
+echo
+
+bin/pull
+bin/fetch
+bin/addcommit auto json fetch in nightly cron
+bin/pull
+bin/push
+
+
+echo
+echo "Rebuilding ctrack with new json"
+echo
+
+bin/build
+
+/box/dportal-stop
+/box/dportal-start
+
+/dportal/box/cron-download >/dportal/logs/cron.download.log 2>&1
+
+/dportal/box/cron-swap-import 2>&1
+
+echo
+echo "Searching logs for download ERRORS"
+echo
+grep -i "error:" dstore/cache/*.curl.last.log
+grep -i "Empty reply from server" dstore/cache/*.curl.last.log
+
+
+echo
+echo "Searching logs for import ERRORS"
+echo
+grep -i "error" dstore/cache/*.import.last.log
+
+
+/dportal/box/cron-dump 2>&1
+
+
+/dportal/box/cron-stats 2>&1
+
+
+/dportal/box/cron-cronos 2>&1
+

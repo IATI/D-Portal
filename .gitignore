@@ -1,5 +1,10 @@
 node_modules/*
 
+www
+
+yarn.lock
+package-lock.json
+
 */out/*
 */node_modules/*
 */tmp/*
@@ -7,6 +12,7 @@ node_modules/*
 
 tmp/*
 docs/*
+logs/*
 
 dstore/*.import.last.log
 dstore/db/*
@@ -22,13 +28,11 @@ ctrack/jslib/ctrack.*
 ctrack/json/*.json
 ctrack/json/output
 
-vbox/backup
+box/env.local.sh
+box/backup
 
 */.vagrant
-
 *.geany
-
-package-lock.json
 
 fetched
 

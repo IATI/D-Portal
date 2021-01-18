@@ -1,0 +1,10 @@
+cd `dirname $0`
+cd ../dstore
+
+mkdir -p cache
+mkdir -p db
+rm -f db/dstore.sqlite
+
+node js/cmd init
+node js/cmd index
+node js/cmd analyze
