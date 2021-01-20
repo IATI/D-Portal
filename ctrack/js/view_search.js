@@ -236,7 +236,7 @@ view_search.terms=[
 	filter : true,
 	codes  : [ dflat_codes["en-name"]["SectorVocabulary"], ],
 	drops  : [ "#view_search_select_sector_vocabulary" ],
-	q      : "/sector@vocabulary",
+	q      : "/sector@vocabulary","/transaction/sector@vocabulary",
 	list   : "search_options_sector_vocabulary",
 	show   : "search_display_sector_vocabulary",
 	more   : true,
