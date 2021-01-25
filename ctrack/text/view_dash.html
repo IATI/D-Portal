@@ -34,7 +34,7 @@
 <tr>
 	<td title="View Publisher on d-portal" class="ref"><a href="{mark_no_publisher}&publisher={reporting_ref}" target="_blank">{reporting}</a></td>
 	<td title="View Publisher dash profile" class="ref"><a href="#view=dash_quality&publisher={reporting_ref}">{reporting_ref}</a></td>
-	<td title="Activities"><a class="log_links" href="#view=dash_slugs&publisher={reporting_ref}">{count}</td>
+	<td title="View Activities on dash"><a class="log_links" href="#view=dash_slugs&publisher={reporting_ref}">{count}</td>
 </tr>
 
 #dash_body
@@ -83,7 +83,7 @@
 		<p><i>Only activities with unique IDs are imported. Dash does not import duplicates.</i></p>
 		</div>
 		<p>Updates everyday GMT +0.</p> 
-		<p><a href="#view=dash_slugs">Browse detailed download and import logs per dataset.</a></p> 
+		<p class="cron_date"><a href="#view=dash_slugs">View all datasets</a></p> 
 		<p class="cron_date">Last updated <a href="#view=dash_cronlog">{dash_last_updated}</a></p>
 		<div class="snap_wrap countries">
 			<table class="snap countries">
@@ -133,8 +133,9 @@ table.pub th:nth-child(2)	{width:180px; text-align:right;}
 table.pub th:last-child 	{padding-right:0;}
 table.pub td:last-child		{padding-right:5px; font-size:1.2em;}
 table.pub tr:last-child	td	{border-bottom:0;}
+table.pub td a				{display:block;}
 table.pub td.ref			{padding:0;}
-table.pub td.ref a			{display:block; padding:15px 35px 15px 0; color:#FFC107;}
+table.pub td.ref a			{padding:15px 35px 15px 0; color:#FFC107;}
 table.pub td.ref a:hover	{color:#ffd452;}
 table.pub td.ref:nth-of-type(1) a {color:#e8e8e8;}
 
@@ -161,6 +162,7 @@ a.log_links		{color:#93a4ff;}
 .head_block		{display:inline-block; vertical-align:middle; width:50%;}
 a.head_title	{display:inline-block; font-size:1.3em; color:#343746; letter-spacing:10px;}
 a.back_link		{display:block; font-size:1.0em; text-align:right; color:#444;}
+a.back_link.dash{margin-right:20px; margin-top:40px; color:#bdbdbd;}
 .left_block		{display:inline-block; width:660px;}
 .right_block	{display:inline-block; width:300px;}
 .title_pub		{font-size:1.5em; margin-bottom:20px;}
@@ -173,3 +175,11 @@ p				{font-size:0.9em; margin-bottom:10px; line-height:1.5em;}
 .subtitle_info	{font-size:0.9em; line-height:1.4em; margin-bottom:20px;}
 .subtitle_info p{font-size:1.0em; margin-top:10px;}
 p.cron_date		{background-color:#171f48; padding:10px; text-align:center; border-radius:4px; margin-top:20px;}
+
+
+<!-- Console logs	-->
+.cron 			{background-color:#000; color:#00FF00; font-family:monospace; font-size:0.85em; line-height:1.2em; padding:40px; white-space:pre-wrap;}
+
+<!-- Slug logs	-->
+.title_pub span	{width:60%; display:inline-block; vertical-align:baseline;}
+a.slug_link		{width:40%; display:inline-block; vertical-align:baseline; text-align:right; font-size:16px;}
