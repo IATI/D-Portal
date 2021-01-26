@@ -9,7 +9,7 @@ CRS data is published retrospectively, so is between **12 and 23 months out of d
 The data provided is the annual **total disbursements (spend)** for the publisher.  
 The values are in current **US dollars**.
 
-CRS (Creditor Reporting System) data should include Official Development Assistance (ODA), Other Official Flows (OOFs) and private grants as they are reported to IATI.
+> CRS (Creditor Reporting System) data should include Official Development Assistance (ODA), Other Official Flows (OOFs) and private grants as they are reported to IATI and we are trying to make that comparison.
 
 **crs_year.csv** is yearly CRS data.  
 Only data that matches exactly the column and row labels defined is used in d-portal.

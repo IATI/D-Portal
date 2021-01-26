@@ -75,8 +75,8 @@
 		<table class="head filter_table">
 			<thead>
 				<tr>
-					<th class="gloss_name">Trending</th>
-					<th>Quick buttons for trending topics.
+					<th class="gloss_name">Quick search</th>
+					<th>Quick buttons for specific searches.
 					<div>
 						The COVID-19 search follows the <a href="https://docs.google.com/document/d/11XTnrPw8K76JvBhFfnqo-1Z9BmgqzWv2bEz9QoDrw2k">IATI Publishing Guidance</a>. It currently searches the database for COVID-19 in title, activity and transaction description fields and looks for the relevant codes in the humanitarian-scope and tag element.
 					</div>
@@ -418,7 +418,7 @@
 <!-- SEARCH	 2	-->
 #search_trend2
 <div class="search_trend_wrap">	<!--	Trending search	-->
-  <span>Trending</span><a href="?aids=COVID-19#view=main" class="now">COVID-19</a><a href="?text_search=Beirut%20Explosion#view=main">Beirut Explosion</a><a href="?text_search=ebola#view=main">Ebola</a><a href="?text_search=hurricane dorian#view=main">Hurricane Dorian</a><a href="?text_search=locust#view=main">Locust</a>
+  <span>Quick search</span><a href="?aids=COVID-19#view=main" class="now">COVID-19</a><a href="?text_search=Beirut%20Explosion#view=main">Beirut Explosion</a><a href="?text_search=ebola#view=main">Ebola</a><a href="?text_search=hurricane dorian#view=main">Hurricane Dorian</a><a href="?text_search=locust#view=main">Locust</a>
 </div>
 
 <!-- GLOSSARY 2	-->
@@ -430,8 +430,8 @@
 		<table class="head filter_table">
 			<thead>
 				<tr>
-					<th class="gloss_name">Trending</th>
-					<th>Quick buttons for trending topics.
+					<th class="gloss_name">Quick search</th>
+					<th>Quick buttons for specific searches.
 					<div>
 						The COVID-19 search follows the <a href="https://docs.google.com/document/d/11XTnrPw8K76JvBhFfnqo-1Z9BmgqzWv2bEz9QoDrw2k">IATI Publishing Guidance</a>. It currently searches the database for COVID-19 in title, activity and transaction description fields and looks for the relevant codes in the humanitarian-scope and tag element.
 					</div>
@@ -449,6 +449,14 @@
 			<tr>
 				<td>{search_status_txt}</td>
 				<td>An <a href="http://reference.iatistandard.org/203/codelists/ActivityStatus/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the current status of the activity.</td>
+			</tr>
+			<tr>
+				<td>{search_activity_scope_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/ActivityScope/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the geographical scope of the activity: regional, national, sub-national, etc.</td>
+			</tr>
+			<tr>
+				<td>{search_budget_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/BudgetType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for original budget (prepared when the original commitment was made) or if it has subsequently been revised.</td>
 			</tr>
 			<tr>
 				<td>{search_collaboration_type_txt}</td>
@@ -491,6 +499,10 @@
 				<td>Organisations from <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a> - not an extensive list and includes only the existing list of IATI publishers.</td>
 			</tr>
 			<tr>
+				<td>{search_planned_disbursement_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/BudgetType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for original plan (prepared when the original commitment was made) or if it has subsequently been revised.</td>
+			</tr>
+			<tr>
 				<td>{search_policy_txt}</td>
 				<td>Uses both <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity and <a href="http://reference.iatistandard.org/203/codelists/PolicySignificance/">OECD DAC CRS code</a> indicating the significance of the policy marker for this activity.</td>
 			</tr>
@@ -525,6 +537,10 @@
 			<tr>
 				<td>{search_sectorgroup_txt}</td>
 				<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/SectorCategory/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 3-digit purpose code</a>.</td>		
+			</tr>
+			<tr>
+				<td>{search_sector_vocabulary_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/sectorvocabulary/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the vocabulary used for sector classifications. Also searches in transactions.</td>		
 			</tr>
 			<tr>
 				<td>{search_tag_vocab_txt}</td>
@@ -711,13 +727,13 @@
 			<option value></option>
 			{search_options_region}
 		</select>
-	</div><div class="search_wrap">		<!-- Hierarchy	-->
+	</div><div class="search_wrap">		<!-- Sector Vocabulary	-->
 		<div class="search_label">
-			<span>&#10096;&#10097;</span> {search_hierarchy_txt}
+			<span>&#10096;&#10097;</span> {search_sector_vocabulary_txt}
 		</div>
-		<select aria-label="Select a tag vocabulary from this dropdown" id="view_search_select_hierarchy" class="chosen" multiple>
+		<select aria-label="Select a sector vocabulary from this dropdown" id="view_search_select_sector_vocabulary" class="chosen" multiple>
 			<option value></option>
-			{search_options_hierarchy}
+			{search_options_sector_vocabulary}
 		</select>
 	</div><div class="search_wrap">		<!-- Document Category	-->
 		<div class="search_label">
