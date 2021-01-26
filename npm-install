@@ -4,6 +4,8 @@ rm -rf node_modules/*
 rm package-lock.json
 rm yarn.lock
 
-npm install
+# gyp breaks without explcit python????
+
+npm install --python=/usr/bin/python3
 #yarn install
 
