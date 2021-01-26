@@ -1,0 +1,36 @@
+cd `dirname $0`
+cd ..
+
+
+source /dportal/box/env.sh
+export PGDATABASE=dload
+
+if [ ! -z "$1" ] ; then
+
+export PGDATABASE=$1
+
+fi
+
+
+echo " creating $PGDATABASE database "
+
+box/dstore-create dload
+
+
+
+echo " downloading data dump from d-portal.org "
+
+# this is where it is stored on d-portal so might as well keep it in the same place
+
+mkdir -p db
+cd db
+
+wget http://d-portal.org/db/dstore.sql.gz
+
+
+
+echo " importing data dump into $PGDATABASE database "
+
+pv dstore.sql.gz | gunzip | psql $PGDATABASE
+
+ 
