@@ -25,3 +25,9 @@ pg_dump dstore | gzip >dstore.new.sql.gz
 
 mv dstore.sql.gz dstore.old.sql.gz
 mv dstore.new.sql.gz dstore.sql.gz
+
+
+pg_dump dstore -Fc -f dstore.new.pg
+
+mv dstore.pg dstore.old.pg
+mv dstore.new.pg dstore.pg
