@@ -37,7 +37,8 @@ date
 
 #pv dstore.sql.gz | gunzip | psql $PGDATABASE
 #pg_restore -C -c -v -d $PGDATABASE dstore.pg
-pv dstore.pg | pg_restore -d $PGDATABASE -c -v
+#pv dstore.pg | pg_restore -d $PGDATABASE -c -v
+pg_restore -d $PGDATABASE -c -v -j $(($(nproc) / 2)) dstore.pg
 
 
 echo " finished importing data dump into $PGDATABASE database "
