@@ -18,11 +18,13 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 // handle the /upload url space
 upload.serv = function(req,res){
 
+/*
 	if(!argv.instance)
 	{
 		res.send("DISABLED");
 		return;
 	}
+*/
 
 //console.log("UPLOAD",req.files.xml);
 
@@ -54,17 +56,6 @@ console.log("CREATING DATABASE");
 
 console.log("IMPORTING DATABASE");
 		
-/*
-		child_process.exec(__dirname+"/../../dstore/dstore --instance="+instance+" import instance/"+instance+".xml",
-
-			function(error, stdout, stderr){
-
-				fs.writeFileSync(log_filename, stdout );
-			}
-
-		);
-*/
-
 		child_process.spawn(__dirname+"/../../dstore/dstore",
 			["--instance="+instance,"import","instance/"+instance+".xml"],
 			{stdio:["ignore",fs.openSync(log_filename,"a"),fs.openSync(log_filename,"a")]});

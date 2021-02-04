@@ -1,0 +1,38 @@
+
+echo " installing dnsmasq and setting dportal.box to 10.42.52.99 "
+
+
+# stop systemd fromhogging port 53 with a service that does nothing
+
+sudo systemctl disable systemd-resolved
+sudo systemctl stop systemd-resolved
+
+
+# setup config files
+
+
+# dnsmasq provides all subdomains
+
+sudo tee /etc/dnsmasq.d/dportal <<- "EOF"
+
+	server=8.8.8.8
+	address=/dportal.box/10.42.52.99
+
+EOF
+
+
+# but dnsmasq does not provide the bare domain so we must also use /etc/hosts
+
+sudo tee -a /etc/hosts <<- "EOF"
+
+	10.42.52.99	dportal.box
+
+EOF
+
+
+# install here so it picks up the new config files written above
+
+sudo apt-get install -y resolvconf
+sudo apt-get install -y dnsmasq
+
+sudo service dnsmasq restart

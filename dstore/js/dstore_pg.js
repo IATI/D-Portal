@@ -35,14 +35,14 @@ var err=function (error) {
 	process.exit(1);
 }
 
-// use global db object cache
+// use global pgp cache ?
 
 var master_pgp;
-var master_db;
+var dbs={}
 
-// we have a global db so just return it
-dstore_pg.open = async function(instance){
-	if(!master_db)
+dstore_pg.open = async function(req){
+
+	if(!master_pgp)
 	{
 		var pgopts={
 		};
@@ -53,24 +53,54 @@ dstore_pg.open = async function(instance){
 		}
 		master_pgp = require("pg-promise")(pgopts);
 
-		master_db = master_pgp(global.argv.pg);
 	}
-	return master_db;
+	
+	let pg=global.argv.pg
+
+	let md5key = ( req && req.subdomains && req.subdomains[0] ) // use first sub domain
+	
+	if( typeof md5key !== 'string' )
+	{
+		md5key = argv.instance // use command line value
+	}
+	
+	if( typeof md5key === 'string' )
+	{
+		md5key=md5key.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
+		if(md5key.length!=32) // is this is a valid MD5 32 characters of a-z 0-9
+		{
+			md5key=undefined
+		}
+	}
+	
+	if( typeof md5key === 'string' ) // open an instance database
+	{
+		pg = 'postgres:///'+md5key
+	}
+	
+console.log("using instance PG database "+pg)
+
+	if( ! dbs[pg] ) // create db
+	{
+		dbs[pg]=master_pgp(pg)
+	}
+
+	return dbs[pg];
 };
 
 // nothing to close?
 dstore_pg.close = async function(db){
 	
-	master_pgp.end();
-	
-	master_pgp=null
-	master_db=null
+//	if(db)
+//	{
+//		db.$pool.end();
+//	}
 
 };
 
 // no pragmas to force
-dstore_pg.pragmas = async function(db){
-};
+//dstore_pg.pragmas = async function(db){
+//};
 
 // create tables
 dstore_pg.create_tables = async function(opts){
@@ -111,8 +141,9 @@ console.log("CREATING TABLES");
 
 	}
 
+	dstore_pg.close(db)
 })
-	dstore_pg.close()
+
 };
 
 dstore_pg.dump_tables = async function(){
@@ -123,8 +154,10 @@ await ( await dstore_pg.open() ).task( async db => {
 	var rows=await db.any(s,{}).catch(err);
 
 	ls(rows);
+
+	dstore_pg.close(db)
 })
-	dstore_pg.close()
+
 };
 
 
@@ -194,8 +227,10 @@ console.log("CREATING INDEXS");
 		await db.none(s).catch(err);
 
 	}
+
+	dstore_pg.close(db)
 })
-	dstore_pg.close()
+
 };
 
 dstore_pg.delete_indexes = async function(){
@@ -239,8 +274,9 @@ console.log("DROPING INDEXS");
 	 await db.none("DROP INDEX IF EXISTS act_index_text_search;").catch(err);
 	 await db.none("DROP INDEX IF EXISTS xson_index_text_search;").catch(err);
 
+	dstore_pg.close(db)
 })
-	dstore_pg.close()
+
 };
 
 
@@ -640,8 +676,9 @@ await ( await dstore_pg.open() ).tx( async db => {
 	console.log("added "+count_new+" new activities in "+(after_time-before_time)+"ms\n")
 //	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
 	
+	dstore_pg.close(db)
 })
-	dstore_pg.close()
+
 };
 
 
@@ -666,8 +703,10 @@ dstore_pg.warn_dupes = async function(db,aid,slug){
 
 // the database part of the query code
 dstore_pg.query_select=async function(q,res,r,req){
-await ( await dstore_pg.open() ).task( async db => {
 
+try{ // ignore all errors in this request
+
+await ( await dstore_pg.open(req) ).task( async db => {
 
 // return error do not crash
 var err=function (error) {
@@ -687,7 +726,11 @@ var err=function (error) {
 	r.count=rows.length;
 
 	query.do_select_response(q,res,r);
+
 })
+
+}catch(e){console.log(e)} // but do print out error
+
 }
 
 
@@ -700,8 +743,10 @@ await ( await dstore_pg.open() ).task( async db => {
 	var time=(Date.now()-start_time)/1000;
 	process.stdout.write("ANALYSE done "+time+"\n");
 
+	dstore_pg.close(db)
+
 })
-	dstore_pg.close()
+
 }
 
 
@@ -716,8 +761,10 @@ await ( await dstore_pg.open() ).task( async db => {
 	var time=(Date.now()-start_time)/1000;
 	process.stdout.write("VACUUM done "+time+"\n");
 
+	dstore_pg.close(db)
+
 })
-	dstore_pg.close()
+
 }
 
 dstore_pg.fake_trans = async function(){
@@ -773,16 +820,19 @@ await ( await dstore_pg.open() ).task( async db => {
 		}
 	}
 
+	dstore_pg.close(db)
+
 })
-	dstore_pg.close()
+
 };
 
 
 // generic query
 dstore_pg.query=async function(q,v){
 
-	var db = await dstore_pg.open();
-	
-	return await db.any(q,v).catch(err);
+	let db = await dstore_pg.open();
+	let close=function(){ dstore_pg.close(db); db=undefined; }
+
+	return await db.any(q,v).catch(err).finally(close);
 
 }
