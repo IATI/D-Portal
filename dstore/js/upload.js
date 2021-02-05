@@ -35,33 +35,41 @@ upload.serv = function(req,res){
 
 		var instance=md5omatic(req.files.xml.data.toString('utf8'));
 
-console.log("INSTANCE : "+instance);
+console.log("CREATING INSTANCE : "+instance);
 
 		var xml_filename=__dirname+"/../../dstore/instance/"+instance+".xml";
 		var log_filename=__dirname+"/../../dstore/instance/"+instance+".log";
-		var sqlite_filename=__dirname+"/../../dstore/instance/"+instance+".sqlite";
 
-console.log("FILENAME : "+xml_filename);
+		try{ fs.unlinkSync(log_filename);    }catch(e){} // ignore errors
 
 		fs.writeFileSync(xml_filename, req.files.xml.data );
 
-console.log("REMOVING OLD FILES"); 
-
-		try{ fs.unlinkSync(log_filename);    }catch(e){} // ignore errors
-		try{ fs.unlinkSync(sqlite_filename); }catch(e){} // ignore errors
-
-console.log("CREATING DATABASE");
-		
-		child_process.execSync(__dirname+"/../../dstore/dstore --instance="+instance+" init");
-
-console.log("IMPORTING DATABASE");
-		
-		child_process.spawn(__dirname+"/../../dstore/dstore",
-			["--instance="+instance,"import","instance/"+instance+".xml"],
+		child_process.spawn("/dportal/box/instance-create",
+			[instance],
 			{stdio:["ignore",fs.openSync(log_filename,"a"),fs.openSync(log_filename,"a")]});
+			
+		let domains=req.hostname.split(".")
 
+		let host
 		
-		res.redirect("http://"+instance+"."+req.headers.host+"/ctrack.html#view=dash_cronlog");
+		for(let i=0;i<domains.length;i++)
+		{
+			let subdomain = domains[i]
+
+			if(subdomain && (subdomain.length!=32) ) // skip bits that look like md5 keys
+			{
+				if(host)
+				{
+					host=host+"."+subdomain
+				}
+				else
+				{
+					host=subdomain
+				}
+			}
+		}
+
+		res.redirect("http://"+instance+"."+host+"/ctrack.html#view=dash");
 
 	}
 	else

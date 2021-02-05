@@ -75,7 +75,7 @@ dstore_pg.open = async function(req){
 	
 	if( typeof md5key === 'string' ) // open an instance database
 	{
-		pg = 'postgres:///'+md5key
+		pg = 'postgres:///db_'+md5key
 	}
 	
 console.log("using instance PG database "+pg)
