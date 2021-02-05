@@ -40,7 +40,7 @@ dstore_sqlite.open = async function(req){
 //	var db = new sqlite3.cached.Database( global.argv.database );
 	var db;
 	
-	let md5key = ( req && req.subdomains && req.subdomains[0] ) // use first sub domain
+	let md5key = ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
 	
 	if( typeof md5key !== 'string' )
 	{

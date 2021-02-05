@@ -57,7 +57,7 @@ dstore_pg.open = async function(req){
 	
 	let pg=global.argv.pg
 
-	let md5key = ( req && req.subdomains && req.subdomains[0] ) // use first sub domain
+	let md5key = ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
 	
 	if( typeof md5key !== 'string' )
 	{
