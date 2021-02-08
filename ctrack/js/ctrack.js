@@ -648,17 +648,17 @@ ctrack.setup=function(args)
 	}
 	ctrack.last_hash="&";
 	ctrack.last_view="";
-	ctrack.check_hash=function()
+	ctrack.check_hash=function(forced)
 	{
 		var h="#"+(window.location.href.split('#')[1]||"")
-		if(h!=ctrack.last_hash)
+		if( (h!=ctrack.last_hash) || forced )
 		{
 			ctrack.chunk("hash",h);
 			ctrack.last_hash=h;
 			var l={};
 			ctrack.hash=ctrack.hash_split(h,l);
 					
-			var change_of_view=false;
+			var change_of_view=false || forced;
 			if(l.view)
 			{
 				l.view=ctrack.map_old_views[l.view] || l.view;
@@ -725,12 +725,58 @@ ctrack.setup=function(args)
 			}
 		}
 	}
+
+// run some initial setup queries
 	
-	fetcher.prefetch_aids(ctrack.q.aids,function(){
+	let gotstatus
+	let gotstatus_waiting=false
+	
+	gotstatus=function(d){
+		
+		ctrack.status=d
+
+//		console.log(d)
+
+		let status=d.status && d.status.trim() || "badkey"
 		
 		ctrack.check_hash();
 		ctrack.display_hash(); // this will display view=main or whatever page is requsted
 
+		if( status!="badkey" && d.instance ) // enable instance warning
+		{
+			ctrack.chunk("beige","{beige_instance}")
+			ctrack.chunk("beige_instance_key",d.instance)
+			ctrack.chunk("beige_instance_status_code",status)
+
+			if( status != "done" ) // try again
+			{
+				gotstatus_waiting=true
+				setTimeout(function() { fetcher.ajax({from:"instance"},gotstatus) }, 5000);
+			}
+			else
+			{
+				ctrack.chunk("beige_instance_status"," ")
+
+				if(gotstatus_waiting) // we waited and got done
+				{
+//					console.log("FINISHED")
+					location.reload()
+				}
+			}
+		}
+
+		ctrack.display();
+	}
+
+	fetcher.ajax({from:"instance"},function(d){
+		
+		
+		fetcher.prefetch_aids(ctrack.q.aids,function(){
+			
+			gotstatus(d)
+
+		})
+		
 	})
 
 }
