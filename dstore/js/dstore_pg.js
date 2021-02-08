@@ -642,7 +642,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 			let pct=Math.floor(100*i/acts.length)
 			if( global && global.argv && global.argv.statusfile ) // write status to a file
 			{
-				fs.writeFileSync( global.argv.statusfile , "import "+pct+"\n" )
+				fs.writeFileSync( global.argv.statusfile , "import "+pct+"%\n" )
 			}
 			
 		}
