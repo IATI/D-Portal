@@ -69,7 +69,7 @@ console.log("CREATING INSTANCE : "+instance);
 			}
 		}
 
-		res.redirect("http://"+instance+"."+host+"/ctrack.html#view=dash");
+		res.redirect("http://"+instance+"."+host+"/ctrack.html#view=main");
 
 	}
 	else
