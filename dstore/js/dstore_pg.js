@@ -18,6 +18,8 @@ dstore_db.text_name=function(s){ return s; }
 var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+var fs = require('fs');
+
 var dflat=require('../../dflat/js/dflat');
 var dflat_database=require('../../dflat/json/database.json');
 
@@ -636,6 +638,13 @@ await ( await dstore_pg.open() ).tx( async db => {
 			}catch(e){
 				console.log(e)
 			}
+			
+			let pct=Math.floor(100*i/acts.length)
+			if( global && global.argv && global.argv.statusfile ) // write status to a file
+			{
+				fs.writeFileSync( global.argv.statusfile , "import "+pct+"\n" )
+			}
+			
 		}
 	}
 

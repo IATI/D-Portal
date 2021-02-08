@@ -1203,12 +1203,25 @@ query.serv = function(req,res){
 
 // special log info requests
 	var logname=__dirname+'/../../logs/cron.log'
-	if(argv.instance)
-	{
-		var instance=(req && req.subdomains && req.subdomains[0]) || argv.instance;
-		instance=String( instance ).replace(/[^A-Za-z0-9]/g, ''); // force alphanumeric only
 
-		logname=__dirname+"/../../dstore/instance/"+instance+".log";
+	let md5key = ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
+	if( typeof md5key !== 'string' )
+	{
+		md5key = argv.instance // use command line value
+	}
+	
+	if( typeof md5key === 'string' )
+	{
+		md5key=md5key.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
+		if(md5key.length!=32) // is this is a valid MD5 32 characters of a-z 0-9
+		{
+			md5key=undefined
+		}
+	}
+
+	if( typeof md5key === 'string' )
+	{
+		logname=__dirname+"/../../dstore/instance/"+md5key+".log";
 	}
 
 // handle special results	
@@ -1270,6 +1283,36 @@ query.serv = function(req,res){
 				}
 				res.jsonp(ret);
 		});
+		return;
+	}
+	else
+	if(q.from=="instance")
+	{
+		var ret={};
+
+		ret.status="badkey"
+
+		if( typeof md5key === 'string' )
+		{
+			ret.instance=md5key
+
+			fs.readFile( __dirname+"/../../dstore/instance/"+md5key+".status" ,"utf8", function (err, data) {
+				if(err)
+				{
+					ret.err=err;
+				}
+				else
+				{
+					ret.status = data;
+				}
+				res.jsonp(ret);
+			})
+		}
+		else
+		{
+			res.jsonp(ret);
+		}
+		
 		return;
 	}
 
