@@ -28,12 +28,20 @@ upload.serv = function(req,res){
 
 //console.log("UPLOAD",req.files.xml);
 
-	if(req.files && req.files.xml)
-	{
 
+	console.log( req.query )
+
+	let xmlurl=(req.body && req.body.xmlurl) || (req.query && req.query.xmlurl)
+
+	let jsonplease=(req.body && req.body.jsonplease) || (req.query && req.query.jsonplease)
+
+
+
+	let newinstance=function(data)
+	{
 		var md5omatic = require('md5-o-matic');
 
-		var instance=md5omatic(req.files.xml.data.toString('utf8'));
+		var instance=md5omatic(data);
 
 console.log("CREATING INSTANCE : "+instance);
 
@@ -42,7 +50,7 @@ console.log("CREATING INSTANCE : "+instance);
 
 		try{ fs.unlinkSync(log_filename);    }catch(e){} // ignore errors
 
-		fs.writeFileSync(xml_filename, req.files.xml.data );
+		fs.writeFileSync( xml_filename, data );
 
 		child_process.spawn("/dportal/box/instance-create",
 			[instance],
@@ -68,9 +76,39 @@ console.log("CREATING INSTANCE : "+instance);
 				}
 			}
 		}
+		
+		let ret={}
+		
+		ret.url="http://"+instance+"."+host+"/ctrack.html#view=main"
+		ret.instance=instance
+		ret.host=host
+		
+		if( jsonplease )
+		{
+			res.jsonp(ret);
+		}
+		else
+		{
+			res.redirect(ret.url);
+		}
+	}
 
-		res.redirect("http://"+instance+"."+host+"/ctrack.html#view=main");
+	if( xmlurl )
+	{
+		let fetch=require("node-fetch")
 
+		fetch( xmlurl ).then(res => res.text()).then(function(data){
+
+			newinstance(data)
+
+		})
+	}
+	else
+	if(req.files && req.files.xml)
+	{
+		let data=req.files.xml.data.toString('utf8')
+		
+		newinstance(data)
 	}
 	else
 	{
