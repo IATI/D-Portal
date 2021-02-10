@@ -675,10 +675,11 @@ What are common reasons for a publisher’s data not showing in parts of d-porta
 
 #^faq_general_a13_text
 Data that is marked as invalid IATI xml when using the <a href="http://validator.iatistandard.org/">Validator</a>.
-<p>Mismatch between ‘Identifier’ in publisher’s profile in the <a href="https://iatiregistry.org/">IATI Registry</a>, and <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/reporting-org/">reporting-org</a> in that publisher’s data – this will show zeroes in the publisher’s data until the two are matched.</p>
-<p><a href="http://iatistandard.org/202/codelists/TransactionType/">Transaction type code</a> not present.</p>
-<p>Not using either Disbursements or Expenditure in <a href="http://iatistandard.org/202/codelists/TransactionType/">transaction type</a> field.</p>
-<p><a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/activity-date/">Dates</a> in incorrect format in the data.</p>
+<p>Mismatch between ‘Identifier’ in publisher’s profile in the <a href="https://iatiregistry.org/">IATI Registry</a>, and <a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/reporting-org/">reporting-org</a> in that publisher’s data – this will show zeroes in the publisher’s data until the two are matched.</p>
+<p><a href="http://iatistandard.org/203/codelists/TransactionType/">Transaction type code</a> not present.</p>
+<p>Not using either Disbursements or Expenditure in <a href="http://iatistandard.org/203/codelists/TransactionType/">transaction type</a> field.</p>
+<p>Country and Sector graphs are displayed by adding up <a href="http://iatistandard.org/203/codelists/TransactionType/">Transaction type codes</a> 3 (Disbursement) and 4 (Expenditure) so activities without transactions or the right transaction type codes will not have these graphs.</p>
+<p><a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/activity-date/">Dates</a> in incorrect format in the data.</p>
 <p>Activities without end date are not shown on the list of projects ending soon or any lists that need an end date to order them.</p>
 <p>The map section will not be shown if there are no activities with longitude and latitude data.</p>
 <p>Illogical dates such as activity end date before activity start date.</p>
@@ -817,7 +818,7 @@ Why are sector aggregations using three-digit codes when five-digit codes are pu
 Some publishers only produce data with 3 digit codes. We convert the 5 digit codes to 3 digits to unify the data for visualisation on d-portal.
 
 #^faq_technical_q17_text
-For the country and sector graphs, why have your changed them into bars?
+For the country and sector graphs on the acitivity pages, why have your changed them into bars?
 
 #^faq_technical_a17_text
 Google charts have deprecated these graphs - some country graphs are showing up as empty even when there is data in them. Bar charts allow users to see the data in relation to each other.
@@ -874,11 +875,11 @@ What is the data in the dropdown lists within filters?
 <p><b>Sector Group</b> and <b>Sector</b></p>
 <p>The numeric codes and names to describe sectors within the <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">OECD DAC CRS</a>, as used within the IATI Standard.</p>
 <p><b>Activity Status</b></p>
-<p>The numeric codes and names within the <a href="http://iatistandard.org/202/codelists/ActivityStatus/">IATI activity status</a> field.</p>
+<p>The numeric codes and names within the <a href="http://iatistandard.org/203/codelists/ActivityStatus/">IATI activity status</a> field.</p>
 <p><b>Year Range</b></p>
 <p>Years from 1960 to ‘present year + 2’.</p>
 <p><b>More filters</b></p>
-<p>The numeric codes and names within the <a href="http://iatistandard.org/202/codelists/ActivityStatus/">IATI activity status</a> field. Click on <b>Glossary</b> to find out more about individual filters.</p>
+<p>The numeric codes and names within the <a href="http://iatistandard.org/203/codelists/ActivityStatus/">IATI activity status</a> field. Click on <b>Glossary</b> to find out more about individual filters.</p>
 
 #^faq_explore_q5_text
 How can I use and refine the freetext search?
@@ -898,7 +899,7 @@ Clicking ‘<b>Explore Results</b>’ provides results in the usual d-portal for
 When doing a freetext search, what IATI fields are being searched?
 
 #^faq_explore_a7_text
-This searches the <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/title/">Title</a> and <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/description/">Description</a> fields within all published IATI activities.
+This searches the <a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/title/">Title</a> and <a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/description/">Description</a> fields within all published IATI activities.
 
 #^faq_explore_q8_text
 Do plural nouns work in freetext search?
