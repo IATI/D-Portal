@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>IATI preview on d-portal</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Khula:wght@700&display=swap" rel="stylesheet"> 
+		<style>
+			/* minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */ 
+			html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}img,embed,iframe,object,audio,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}
+
+			* 	{box-sizing:border-box;}
+			body{background:#fff; font-family:sans-serif; font-size:18px; line-height:24px; color:#444; width:100%;}
+			a{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
+
+			/*	HEADER SECTION	*/
+			
+			.content_wrap	{width:960px; margin:0 auto; position:relative;}
+			.header_wrap	{padding:6em 0 3em 0; width:800px; margin:0 auto;}
+			.header_text	{font-family:'Khula',sans-serif; font-size:72px; color:#454545; text-align:center; line-height:60px; margin:0 auto;}
+			
+			/*	UPLOAD BOX SECTION	*/
+			
+			.upload_box 	{border-radius:10px; padding:120px 0; margin:0 auto; text-align:center; background:#eee; max-height:300px; width:300px;}
+			.is-dragover	{background:#fff; font-size:10em; line-height:0; padding:150px 0 250px 0;}
+			.is-dragover:after	{content:"\01F44D";}
+			.is-dragover .upload_text	{display:none;}
+			.upload_label	{position:relative; cursor:pointer; padding:120px 0;}
+			.upload_input	{width:100%; filter:alpha(opacity=0); opacity:0;}
+			.upload_text	{position:absolute; top:0; left:0; width:100%; padding:120px 0; font-size:22px; color:#666;}
+			.upload_text span	{display:block; font-size:14px;}
+			
+			/*	CONTACT SECTION	*/
+			
+			.contact		{margin:0 auto; margin-top:3em; font-size:16px; line-height:1.5em; text-align:center;}
+			.contact a		{color:#034dfb; text-decoration:none; font-style:italic; font-family:monospace; background:#eee; padding:0 5px; border-radius:4px;}
+			.contact a:hover{color:#034dfb; text-decoration:none; background:#fff;}
+		</style>
+	</head>
+	<body>
+		<div class="content_wrap">
+			<div class="header_wrap">
+				<div class="header_text">
+					Upload IATI xml to preview on d-portal
+				</div>
+			</div>
+			<form id="form" action="/upload" method="post" enctype="multipart/form-data">
+				<div class="upload_box" id="xml_box">
+					<label class="upload_label">
+						<input class="upload_input" type="file" name="xml" id="xml" aria-label="Upload File"/>
+						<span class="upload_text">
+							Select xml
+							<span>(Maximum 40mb)</span>
+						</span>
+					</label>
+				</div>
+			</form>
+			<div class="contact">
+				For preview purposes only. Data will not be uploaded to the main live d-portal website.<br/>
+				Project page, issues and feedback on <a href="https://github.com/notshi/portald" target="_blank">Github</a>.
+			</div>
+		</div>
+<script>
+document.getElementById("xml").onchange = function() {
+    document.getElementById("form").submit();
+};
+</script>	
+	</body>
+</html>

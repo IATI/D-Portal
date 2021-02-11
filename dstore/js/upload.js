@@ -15,6 +15,10 @@ var dstore_db=require("./dstore_db");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
+let upload_html = require('fs').readFileSync( __dirname + '/upload.html' , 'utf8' )
+
+
+
 // handle the /upload url space
 upload.serv = function(req,res){
 
@@ -112,19 +116,7 @@ console.log("CREATING INSTANCE : "+instance);
 	}
 	else
 	{
-		res.send(
-		
-		'<html><body>'+
-		
-		'<form action="/upload" method="post" enctype="multipart/form-data">'+
-		'	Select IATI xml file to upload:'+
-		'		<input type="file" name="xml" id="xml">'+
-		'		<input type="submit" value="Upload..." name="submit">'+
-		'</form>'+	
-
-		'</body></html>'+
-		
-		'')
+		res.send( upload_html )
 	}
 
 };
