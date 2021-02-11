@@ -17,7 +17,8 @@ a:active				{color:rgba(170,170,170,1);}
 	============================================= */
 .main_wrap				{background-color:rgba(255,255,255,0.4);}
 .overlay				{background-color:rgba(255,255,255,0.8);}
-.activity, .org			{background-color:rgba(0,14,32,1) !important;} /*	New SAVi	*/
+.overlay .activity, 
+.overlay .org			{background-color:rgba(0,14,32,1);} /*	New SAVi	*/
 
 
 /*	Settings
@@ -284,7 +285,7 @@ table.money tr.row2 td:after	{border-bottom:1px solid rgba(199,199,199,1);}
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
-table.activity			{background-color:initial;}
+.overlay table.activity	{background-color:initial;}		/*	Target activity tables	*/
 table.activity tr:hover	{background-color:rgba(0,0,0,0);}
 table.activity td		{color:rgba(85,85,85,1); border-bottom:1px solid rgba(231,231,231,1);}
 table.activity td span	{color:rgba(153,153,153,1);}
