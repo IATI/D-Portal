@@ -92,6 +92,7 @@ view_act.ajax=function(args)
 				dflat_savi.prepare(iati) // prepare for display
 
 				dflat_savi.chunks.iati=iati
+				dflat_savi.chunks.origin=ctrack.origin
 
 				var dd=dflat_savi.plate('<div>{iati./iati-activities/iati-activity:iati-activity||}</div>') // activity
 				

@@ -62,6 +62,7 @@ view_savi.ajax_aid=function(aid)
 		dflat_savi.prepare(iati) // prepare for display
 
 		dflat_savi.chunks.iati=iati
+		dflat_savi.chunks.origin=ctrack.origin
 
 		var dd=dflat_savi.plate('<div>{iati./iati-activities/iati-activity:iati-activity||}</div>')
 
@@ -86,6 +87,7 @@ view_savi.ajax_pid=function(pid)
 		dflat_savi.prepare(iati) // prepare for display
 
 		dflat_savi.chunks.iati=iati
+		dflat_savi.chunks.origin=ctrack.origin
 
 		var dd=dflat_savi.plate('<div>{iati./iati-organisations/iati-organisation:iati-organisation||}</div>')
 

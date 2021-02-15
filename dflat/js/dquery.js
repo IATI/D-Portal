@@ -1,6 +1,8 @@
 
 var dquery=exports;
 
+	dquery.origin="http://d-portal.org"
+
 // running in browser
 if(typeof window !== 'undefined')
 {
@@ -17,6 +19,9 @@ if(typeof window !== 'undefined')
 //	var tree=require("jstree/dist/jstree.js")
 
 	var jsonv=require("jquery.json-viewer/json-viewer/jquery.json-viewer.js")
+
+
+	dquery.origin=window.location.origin
 
 }
 
@@ -175,21 +180,21 @@ dquery.click=async function(id)
 			break;
 			
 			case "menu_browse":
-				let aids=encodeURIComponent("http://d-portal.org/dquery?sql="+encodeURIComponent(session.getValue()))
-				window.open("http://d-portal.org/ctrack.html?aids="+aids+"#view=main", '_blank');
+				let aids=encodeURIComponent(dquery.origin+"/dquery?sql="+encodeURIComponent(session.getValue()))
+				window.open(dquery.origin+"/ctrack.html?aids="+aids+"#view=main", '_blank');
 			break;
 			
 			case "download_xson_as_json":
-				window.open("http://d-portal.org/dquery?sql="+encodeURIComponent(session.getValue()), '_blank');
+				window.open(dquery.origin+"/dquery?sql="+encodeURIComponent(session.getValue()), '_blank');
 			break
 			case "download_xson_as_csv":
-				window.open("http://d-portal.org/dquery?form=csv&sql="+encodeURIComponent(session.getValue()), '_blank');
+				window.open(dquery.origin+"/dquery?form=csv&sql="+encodeURIComponent(session.getValue()), '_blank');
 			break
 			case "download_xson_as_xml":
-				window.open("http://d-portal.org/dquery?form=xml&sql="+encodeURIComponent(session.getValue()), '_blank');
+				window.open(dquery.origin+"/dquery?form=xml&sql="+encodeURIComponent(session.getValue()), '_blank');
 			break
 			case "download_xson_as_html":
-				window.open("http://d-portal.org/dquery?form=html&sql="+encodeURIComponent(session.getValue()), '_blank');
+				window.open(dquery.origin+"/dquery?form=html&sql="+encodeURIComponent(session.getValue()), '_blank');
 			break
 
 			default:
