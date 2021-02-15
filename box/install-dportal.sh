@@ -1,6 +1,7 @@
 cd `dirname $0`
 
 
+sudo apt-get install -y pv
 sudo apt-get install -y curl
 sudo apt-get install -y parallel
 
