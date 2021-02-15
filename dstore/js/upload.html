@@ -36,6 +36,19 @@
 			.contact		{margin:0 auto; margin-top:3em; font-size:16px; line-height:1.5em; text-align:center;}
 			.contact a		{color:#034dfb; text-decoration:none; font-style:italic; font-family:monospace; background:#eee; padding:0 5px; border-radius:4px;}
 			.contact a:hover{color:#034dfb; text-decoration:none; background:#fff;}
+			
+			/*	MEDIA QUERIES	*/
+			@media screen and (max-width:600px) {
+				.header_wrap	{padding:3em 0.5em 2em 0.5em; width:initial;}
+				.header_text	{font-size:36px; line-height:40px;}
+				.upload_box	,
+				.contact		{width:85%;}
+				.upload_box,
+				.upload_label	{padding:50px 0;}
+				.upload_text	{padding:40px 20px;}
+				.content_wrap	{width:initial;}
+				br				{display:block; margin-bottom:20px;}
+			}
 		</style>
 	</head>
 	<body>
@@ -61,10 +74,10 @@
 				Project page, issues and feedback on <a href="https://github.com/notshi/portald" target="_blank">Github</a>.
 			</div>
 		</div>
-<script>
-document.getElementById("xml").onchange = function() {
-    document.getElementById("form").submit();
-};
-</script>	
+		<script>
+		document.getElementById("xml").onchange = function() {
+			document.getElementById("form").submit();
+		};
+		</script>	
 	</body>
 </html>
