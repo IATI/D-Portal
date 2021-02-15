@@ -100,7 +100,7 @@ view_list_publishers.ajax=function(args)
 			var cc=[];
 			cc[0]=["reporting_ref","reporting-org","count","link"];
 			a.forEach(function(v){
-				cc[cc.length]=[v.reporting_ref,v.reporting,v.count_num,"http://d-portal.org/ctrack.html?publisher="+v.reporting_ref];
+				cc[cc.length]=[v.reporting_ref,v.reporting,v.count_num,ctrack.origin+"/ctrack.html?publisher="+v.reporting_ref];
 			});
 			ctrack.chunk((args.chunk || "list_publishers_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
 

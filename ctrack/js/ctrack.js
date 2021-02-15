@@ -114,9 +114,12 @@ ctrack.setup=function(args)
 	ctrack.chunks={};
 	ctrack.q={};
 
-// auto enable test code on test.d-portal.org subdomain
+// auto enable test code on test.* subdomain
 	ctrack.q.test=args.test
 	if(window.location.host.split(".")[0]=="test") { ctrack.q.test=1 }
+
+	ctrack.origin=window.location.origin
+	ctrack.chunks["origin"] = ctrack.origin
 
 	window.location.search.substring(1).split("&").forEach(function(n){
 		var aa=n.split("=");
@@ -417,9 +420,9 @@ ctrack.setup=function(args)
 								}
 							}
 						}
-						if( it.q=="aids" && text.startsWith("http://d-portal.org/dquery?sql=") ) // change to editable link
+						if( it.q=="aids" && text.startsWith(ctrack.origin+"/dquery?sql=") ) // change to editable link
 						{
-							text="http://d-portal.org/dquery/#"+encodeURI(decodeURIComponent(text.substr(31)))
+							text=ctrack.origin+"/dquery/#"+encodeURI(decodeURIComponent(text.substr( (ctrack.origin+"/dquery?sql=").length )))
 						}
 						var chunk=plate.replace("{"+it.show+"}",{search_text:text})
 						div.append(chunk)
