@@ -31,6 +31,12 @@
 			.upload_text	{position:absolute; top:0; left:0; width:100%; padding:120px 0; font-size:22px; color:#666;}
 			.upload_text span	{display:block; font-size:14px;}
 			
+			/*	TYPE A URL SECTION	*/
+			
+			.upload_url_box	{margin:0 auto; margin-top:35px; text-align:center;}
+			input#xmlurl	{font-size:16px; width:798px; height:40px; border:1px solid #ccc; border-radius:6px; padding-left:10px;}
+			
+			
 			/*	CONTACT SECTION	*/
 			
 			.contact		{margin:0 auto; margin-top:3em; font-size:16px; line-height:1.5em; text-align:center;}
@@ -68,6 +74,11 @@
 						</span>
 					</label>
 				</div>
+				<div class="upload_url_box" id="xml_url_box">
+					<label class="upload_url_label">
+						<input type="text" name="xmlurl" id="xmlurl" placeholder="Type a URL and press Enter" aria-label="Type Url"/>
+					</label>
+				</div>
 			</form>
 			<div class="contact">
 				For preview purposes only. Data will not be uploaded to the main live d-portal website.<br/>
@@ -76,6 +87,9 @@
 		</div>
 		<script>
 		document.getElementById("xml").onchange = function() {
+			document.getElementById("form").submit();
+		};
+		document.getElementById("xmlurl").onchange = function() {
 			document.getElementById("form").submit();
 		};
 		</script>	
