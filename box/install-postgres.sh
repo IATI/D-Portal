@@ -5,6 +5,9 @@ source ./env.sh
 
 echo " install postgres "
 
+# please do not restart postgres at random times
+sudo apt-get remove -y unattended-upgrades
+
 sudo apt-get install -y postgresql
 sudo apt-get install -y postgresql-contrib
 
