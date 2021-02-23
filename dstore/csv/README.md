@@ -21,7 +21,7 @@ This data is unedited and published on d-portal as is.
 
 ----
 
-[**iati_funders.csv**](https://github.com/devinit/D-Portal/blob/master/dstore/csv/iati_funders.csv) maps IATI publishers to their CRS identifiers.  
+### [**iati_funders.csv**](https://github.com/devinit/D-Portal/blob/master/dstore/csv/iati_funders.csv) maps IATI publishers to their CRS identifiers.  
 *It contains a mapping of IATI organisation codes into a shared "funder code".*  
 Multiple IATI codes may map to a single funder code.  
 
@@ -31,7 +31,7 @@ Columns used:
 
 ----
 
-[**crs_funders.csv**](https://github.com/devinit/D-Portal/blob/master/dstore/csv/crs_funders.csv) maps CRS publishers to their IATI identifiers.  
+### [**crs_funders.csv**](https://github.com/devinit/D-Portal/blob/master/dstore/csv/crs_funders.csv) maps CRS publishers to their IATI identifiers.  
 *It contains a mapping of the EXACT CRS column header names to shared "funder code".*   
 
 Columns used:  
@@ -42,7 +42,7 @@ Columns used:
 
 ----
 
-[**crs_countries.csv**](https://github.com/devinit/D-Portal/blob/master/dstore/csv/crs_countries.csv) maps recipients to the 2 Letter Country Codes  
+### [**crs_countries.csv**](https://github.com/devinit/D-Portal/blob/master/dstore/csv/crs_countries.csv) maps recipients to the 2 Letter Country Codes  
 *A mapping of the EXACT CRS row header names (countries) to a country code.*  
 
 Columns used:  
