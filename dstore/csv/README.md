@@ -18,17 +18,22 @@ Only data that matches exactly the column and row labels defined is used in d-po
 This data is unedited and published on d-portal as is.
 
 **iati_funders.csv** maps IATI publishers to their CRS identifiers.  
+*It contains a mapping of IATI organisation codes into a shared "funder code".*  
 Multiple IATI codes may map to a single funder code.  
+
 ```IATI-code``` is the IATI Identifier of the publisher  
 ```Funder-code``` is the CRS Identifier
 
 **crs_funders.csv** maps CRS publishers to their IATI identifiers.  
+*It contains a mapping of the EXACT CRS column header names to shared "funder code".*   
+
 ```exact label``` is mapped to ```funder code``` using CRS data  
 ```iati publisher``` shows if the publisher does not report to IATI *(We indicate these publishers with "-" in tables)*  
 ```display name``` is the publisher names displayed in d-portal  
 ```number``` is the CRS donor code used in all **crs_year.csv**  
 
 **crs_countries.csv** maps recipients to the 2 Letter Country Codes  
+*A mapping of the EXACT CRS row header names (countries) to a country code.*  
 ```exact label``` is derived from ```recipient_name``` in CRS data 
 
 **imf_currencies.csv** is a list of currency codes used by the [IMF](http://www.imf.org/external/np/fin/data/rms_mth.aspx) and the names to display for each currency.  
