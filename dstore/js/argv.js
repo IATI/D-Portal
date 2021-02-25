@@ -25,4 +25,13 @@ argv.instance_dir = argv.instance_dir || process.env.DSTORE_INSTANCE_DIR || "../
 	// to switch to postgres defaults set the following in your environment
 	// DSTORE_PG=postgresql:///dstore
 
+
+	// location of static files
+
+	argv.staticdir = argv.staticdir || process.env.DSTORE_STATICDIR ;
+
+	// default page if a file is missing
+
+	argv.homepage  = argv.homepage  || process.env.DSTORE_HOMEPAGE  ;
+
 };
