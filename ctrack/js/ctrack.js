@@ -771,9 +771,15 @@ ctrack.setup=function(args)
 		ctrack.display();
 	}
 
+console.log("IN")
 	fetcher.ajax({from:"instance"},function(d){
 		
-		
+console.log(d)
+
+		d=d || {
+			status:"error"
+		}
+
 		fetcher.prefetch_aids(ctrack.q.aids,function(){
 			
 			gotstatus(d)

@@ -238,6 +238,7 @@ fetcher.ajax=async function(dat,callback)
 			url: ctrack.args.q + "?callback=?",
 			data: dat,
 			success: callback,
+			error:function(){ callback() },
 		});
 	}
 }
