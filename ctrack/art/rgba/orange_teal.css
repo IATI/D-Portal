@@ -215,6 +215,21 @@ a.search_refine				{border:1px solid var(--base); text-shadow:initial; backgroun
 a.search_refine:hover		{border:1px solid var(--base); text-shadow:initial; background:none;}
 
 
+/*	Search section on all pages	*
+	============================================= */
+.search_glossary			{background-color:var(--base04);}
+.search_glossary_wrap th a,
+.search_glossary_wrap td a		{color:var(--base14);}
+.search_glossary_wrap th a:hover,
+.search_glossary_wrap td a:hover{border-bottom:1px solid var(--base);}
+
+.filter_text				{color:var(--base14); border-bottom:1px solid var(--base05);}
+.search_help span			{background-color:var(--base);}
+.search_help span:hover		{background-color:var(--base11);}
+
+table.filter_table td		{border-top:1px solid var(--base05);}
+
+
 /*	For url #view=list_activities	*
 	============================================= */
 .activities_spend			{color:var(--base14);}

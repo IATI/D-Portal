@@ -167,6 +167,21 @@ a#search_link:hover			{background-color:rgba(163,0,13,1);}
 .search.search_title span	{color:rgba(85,85,85,1);}
 
 
+/*	Search section on all pages	*
+	============================================= */
+.search_glossary			{background-color:rgba(255,255,255,1); color:rgba(85,85,85,1);}
+.search_glossary_wrap th a,
+.search_glossary_wrap td a		{color:rgba(186,12,47,1);}
+.search_glossary_wrap th a:hover,
+.search_glossary_wrap td a:hover{border-bottom:1px solid rgba(186,12,47,1);}
+
+.filter_text				{color:rgba(186,12,47,1); border-bottom:1px solid rgba(85,85,85,1);}
+.search_help span			{background-color:rgba(186,12,47,0.9)}
+.search_help span:hover		{background-color:rgba(163,0,13,1);}
+
+table.filter_table td		{border-top:1px solid rgba(85,85,85,1);}
+
+
 /*	For url #view=list_activities	*
 	============================================= */
 .activities_spend			{color:rgba(85,85,85,1);}

@@ -501,6 +501,8 @@
 
 #main_searchmin
 <div class="default min">
+	{more_search_intro}
+	<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">GLOSSARY</span></div>
 	<div class="search_cont">
 		<div class="search search_title">{search_view_txt}</div><a href="{search_url}" class="search_refine">{search_refine_txt}</a>
 		<div class="search search_main" id="main_searchmin_all"></div>
@@ -533,9 +535,124 @@
 
 #main_search
 <div class="default min">
+	{more_search_intro}
+	<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">GLOSSARY</span></div>
 	<div class="search_cont">
 		<div class="search search_title">{search_view_txt}</div><a href="{search_url}" class="search_refine">{search_refine_txt}</a>
 		<div class="search search_main" id="main_searchmin_all"></div>
+	</div>
+</div>
+
+<!-- GLOSSARY	-->
+#more_search_intro
+<div id="more_search_intro" class="search_glossary_wrap" style="display:none;">
+	<div class="search_help"><span onclick="$('#more_search_intro').toggle();">CLOSE X</span></div>
+	<div class="search_glossary">
+		<div class="filter_text">GLOSSARY</div>
+		<table class="head filter_table">
+			<thead>
+				<tr>
+					<th class="gloss_name">Quick search</th>
+					<th>Quick buttons for specific searches.
+					<div>
+						The COVID-19 search follows the <a href="https://docs.google.com/document/d/11XTnrPw8K76JvBhFfnqo-1Z9BmgqzWv2bEz9QoDrw2k">IATI Publishing Guidance</a>. It currently searches the database for COVID-19 in title, activity and transaction description fields and looks for the relevant codes in the humanitarian-scope and tag element.
+					</div>
+					</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>Text search</td>
+				<td>Search Title and Description fields within all published IATI activities.</td>
+			</tr>
+			<tr>
+				<td>ABC - 123</td>
+				<td>Sort dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> (e.g. by CRS sector numbers).</td>
+			</tr>
+			<tr>
+				<td>{search_status_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/ActivityStatus/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the current status of the activity.</td>
+			</tr>
+			<tr>
+				<td>{search_collaboration_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/CollaborationType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the type of collaboration involved in the activity’s disbursements.</td>
+			</tr>
+			<tr>
+				<td>{search_aid_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/AidType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> specifying the type of aid being supplied.</td>
+			</tr>
+			<tr>
+				<td>{search_finance_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/FinanceType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the default DAC/CRS transaction classification used to distinguish financial instruments like grants or loans.</td>
+			</tr>
+			<tr>
+				<td>{search_flow_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/FlowType/#codes" target="blank">IATI code</a> defining whether the activity is funded by Official Development Assistance (ODA), Other Official Flows (OOF), etc.</td>
+			</tr>
+			<tr>
+				<td>{search_tied_status_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/TiedStatus/#codes" target="blank">IATI code</a> interpreting the usage of Columns 36-38 of the CRS++ reporting format.</td>
+			</tr>
+			<tr>
+				<td>{search_document_category_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/DocumentCategory/#codes" target="blank">IATI code</a> defining the category of the document.</td>
+			</tr>
+			<tr>
+				<td>{search_humanitarian_activity_txt}</td>
+				<td>A <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/" target="blank" rel="noopener noreferrer">process flag</a> to indicate that this activity and/or transaction relates entirely or partially to humanitarian aid.</td>
+			</tr>
+			<tr>
+				<td>{search_humanitarian_scope_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/HumanitarianScopeVocabulary/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for a recognised vocabulary of terms classifying the event or action.</td>
+			</tr>
+			<tr>
+				<td>{search_participating_txt}</td>	
+				<td>Organisations from <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a> - not an extensive list and includes only the existing list of IATI publishers.</td>
+			</tr>
+			<tr>
+				<td>{search_policy_txt}</td>
+				<td>Uses both <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity and <a href="http://reference.iatistandard.org/203/codelists/PolicySignificance/">OECD DAC CRS code</a> indicating the significance of the policy marker for this activity.</td>
+			</tr>
+			<tr>
+				<td>{search_publisher_txt}</td>
+				<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a>. This <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/reporting-org/" target="blank" rel="noopener noreferrer">IATI element</a> is a list of reporting organisations issuing the report.</td>
+			</tr>
+			<tr>
+				<td>{search_recipient_txt}</td>
+				<td>Countries reported by publishers are using <a href="https://en.wikipedia.org/wiki/ISO_3166-2" target="blank" rel="noopener noreferrer">ISO3166 Alpha-2</a>.</td>	
+			</tr>
+			<tr>
+				<td>{search_related_activity_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/RelatedActivityType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the type of relationship another separately reported IATI activity is related to this one.</td>
+			</tr>
+			<tr>
+				<td>{search_result_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/ResultType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the type of result being reported.</td>
+			</tr>
+			<tr>
+				<td>{search_sector_txt}</td>
+				<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/Sector/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 5-digit purpose code</a>.</td>
+			</tr>
+			<tr>
+				<td>{search_sectorgroup_txt}</td>
+				<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/SectorCategory/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 3-digit purpose code</a>.</td>		
+			</tr>
+			<tr>
+				<td>{search_tag_vocab_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/TagVocabulary/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the vocabulary or taxonomy used for tag classifications.</td>
+			</tr>
+			<tr>
+				<td>{search_commitment_txt}</td>
+				<td>Select the minimum and/or maximum sum of all <a href="http://reference.iatistandard.org/203/codelists/TransactionType/#codes" target="blank" rel="noopener noreferrer">Outgoing Commitment</a> type transactions.</td>
+			</tr>
+			<tr>
+				<td>{search_transaction_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/TransactionType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the type of transaction.</td>
+			</tr>
+			<tr>
+				<td>{search_year_txt}</td>
+				<td>Select the starting and/or ending year as the range for activities. This looks at <a href="https://iatistandard.org/en/iati-standard/203/codelists/activitydatetype/" target="blank" rel="noopener noreferrer">actual and planned dates</a> for activities that take place during the min and max year; ie. activities that started before the end of the max year and ended after the start of the min year to get an overlap of the ranges.</td>
+			</tr>
+		</table>
 	</div>
 </div>
 
