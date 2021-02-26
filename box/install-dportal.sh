@@ -32,6 +32,6 @@ sudo update-rc.d dportal enable
 sudo /etc/init.d/dportal start
 
 #this will have been accidental stopped
-sudo /etc/init.d/dportal-instance start
+#sudo /etc/init.d/dportal-instance start
 
 
