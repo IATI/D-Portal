@@ -2,11 +2,6 @@
 echo " installing dnsmasq and setting dportal.box to 10.42.52.99 "
 
 
-# stop systemd fromhogging port 53 with a service that does nothing
-
-sudo systemctl disable systemd-resolved
-sudo systemctl stop systemd-resolved
-
 
 # setup config files
 
@@ -34,5 +29,11 @@ EOF
 
 sudo apt-get install -y resolvconf
 sudo apt-get install -y dnsmasq
+
+# stop systemd fromhogging port 53 with a service that does nothing
+
+sudo systemctl disable systemd-resolved
+sudo systemctl stop systemd-resolved
+
 
 sudo service dnsmasq restart
