@@ -146,6 +146,8 @@ span.stats_num.view		{color:var(--base15);}
 a.stats_link			{color:var(--base14); background-color:var(--base04_70);}
 a.stats_link:hover		{background-color:var(--base04);}
 a.stats_link.missing span	{color:var(--base11);}
+a.stats_link:hover span		{color:var(--base15);}
+
 
 
 /*	Active / Ended projects styles
@@ -156,11 +158,11 @@ a.stats_link.missing span	{color:var(--base11);}
 /*	Data Description styles
 	============================================= */
 .description_wrap		{background:linear-gradient(to bottom, var(--base05_00) 0%,var(--base05_70) 60%,var(--base05) 100%); background:-prefix-linear-gradient(to bottom, var(--base05_00) 0%,var(--base05_70) 50%,var(--base05) 100%);}
-.description.data_quality_wrap	{background-color:var(--base15_10);}
-.description span.title	{color:var(--base15); border-bottom:1px solid var(--base15);}
-.description p			{color:var(--base15);}
-.description a			{color:var(--base14);}
-.description a:hover	{color:var(--base15);}
+.description_wrap .footer_notes	{background-color:var(--base15_10);}
+.description_wrap span.title	{color:var(--base15); border-bottom:1px solid var(--base15);}
+.description_wrap p			{color:var(--base15);}
+.description_wrap a			{color:var(--base14);}
+.description_wrap a:hover	{color:var(--base15);}
 a.read					{color:var(--base14);}
 a.read:hover			{color:var(--base15);}
 
@@ -209,6 +211,21 @@ a.search_head				{color:var(--base);}
 
 a.search_refine				{border:1px solid var(--base); text-shadow:initial; background:none;}
 a.search_refine:hover		{border:1px solid var(--base); text-shadow:initial; background:none;}
+
+
+/*	Search section on all pages	*
+	============================================= */
+.search_glossary			{background-color:var(--base04);}
+.search_glossary_wrap th a,
+.search_glossary_wrap td a		{color:var(--base14);}
+.search_glossary_wrap th a:hover,
+.search_glossary_wrap td a:hover{border-bottom:1px solid var(--base);}
+
+.filter_text				{color:var(--base14); border-bottom:1px solid var(--base01);}
+.search_help span			{background-color:var(--base);}
+.search_help span:hover		{background-color:var(--base11);}
+
+table.filter_table td		{border-top:1px solid var(--base01);}
 
 
 /*	For url #view=list_activities	*
@@ -310,6 +327,7 @@ table.money tr.row2 td:after	{border-bottom:1px solid var(--base11);}
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
+table.activity			{background-color:initial;}
 table.activity td		{color:var(--base14); border-bottom:1px solid var(--base03);}
 table.activity td span	{color:var(--base12);}
 table.activity a		{color:var(--base14);}

@@ -354,7 +354,8 @@ table.filter_table td.filter_title	{padding-top:20px; padding-bottom:5px; text-t
 .search_method_text a		{color:#97d8ff;}
 .search_method_text a:hover	{color:#fff}
 
-.search_glossary_wrap		{margin-top:10px; position:relative; width:960px; margin:0 auto; margin-top:-10px;}
+.search_glossary_wrap		{position:relative; width:960px; margin:0 auto; margin-top:-10px;}
+.default.min .search_glossary_wrap		{margin:0;}
 .search_glossary			{padding:20px 30px; box-sizing:border-box; width:960px; margin:0 auto; background-color:#223139; color:#fff; font-size:1.1em; line-height:1.5em; margin-bottom:15px;}
 .search_glossary_wrap p			{padding:25px 0;}
 .search_glossary_wrap td		{padding:0;}

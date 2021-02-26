@@ -668,10 +668,11 @@ Quelles sont les raisons les plus courantes pour lesquelles les données d’une
 
 #^faq_general_a13_text
 Données signalées comme xml de l’IITA invalide par le <a href="http://validator.iatistandard.org/">valideur</a>.
-<p>Incohérence entre l’ « identifiant » dans le profil de l’organisation déclarante du <a href="https://iatiregistry.org/">Registre de l’IITA</a> et le <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/reporting-org/">reporting-org</a> dans ses données – des zéros apparaîtront dans ses données jusqu’à ce que les deux correspondent.</p>
-<p>Absence du <a href="http://iatistandard.org/202/codelists/TransactionType/">code du type de transaction</a>.</p>
-<p>Absence de décaissement ou dépense dans le <a href="http://iatistandard.org/202/codelists/TransactionType/">type de transaction</a>.</p>
-<p><a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/activity-date/">Dates</a> saisies dans un format incorrect.</p>
+<p>Incohérence entre l’ « identifiant » dans le profil de l’organisation déclarante du <a href="https://iatiregistry.org/">Registre de l’IITA</a> et le <a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/reporting-org/">reporting-org</a> dans ses données – des zéros apparaîtront dans ses données jusqu’à ce que les deux correspondent.</p>
+<p>Absence du <a href="http://iatistandard.org/203/codelists/TransactionType/">code du type de transaction</a>.</p>
+<p>Absence de décaissement ou dépense dans le <a href="http://iatistandard.org/203/codelists/TransactionType/">type de transaction</a>.</p>
+<p>Country and Sector graphs are displayed by adding up <a href="http://iatistandard.org/203/codelists/TransactionType/">Transaction type codes</a> 3 (Disbursement) and 4 (Expenditure) so activities without transactions or the right transaction type codes will not have these graphs.</p>
+<p><a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/activity-date/">Dates</a> saisies dans un format incorrect.</p>
 <p>Dates incohérentes, comme la date de fin d’une activité qui précède sa date de début.</p>
 <p>Aucune donnée correspondant à l’année visionnée dans un graphique circulaire ou un tableau (p. ex. : lorsqu’un graphique circulaire présente des données pour 2016, tandis que les données publiées ne concernent que 2015).</p>
 <p>Une mise à jour du profil dans le Registre n’apparaîtra qu’après l’importation complète hebdomadaire (chaque fin de semaine), car le d-portal n’actualise chaque nuit que les données qui ont été modifiées dans le fichier XML.</p>
@@ -807,7 +808,7 @@ Why are sector aggregations using three-digit codes when five-digit codes are pu
 Some publishers only produce data with 3 digit codes. We convert the 5 digit codes to 3 digits to unify the data for visualisation on d-portal.
 
 #^faq_technical_q17_text
-For the country and sector graphs, why have your changed them into bars?
+For the country and sector graphs on the acitivity pages, why have your changed them into bars?
 
 #^faq_technical_a17_text
 Google charts have deprecated these graphs - some country graphs are showing up as empty even when there is data in them. Bar charts allow users to see the data in relation to each other.
@@ -857,11 +858,11 @@ Quelles sont les données des listes déroulantes des filtres?
 <p><b>Groupe sectoriel et secteur</b></p>
 <p>Il s’agit des codes numériques et des noms servant à décrire les secteurs au sein du SNPC du CAD de l’OCDE, utilisés dans le cadre de la norme de l’IITA.</p>
 <p><b>Statut de l’activité</b></p>
-<p>Il s’agit des codes numériques et des noms dans le champ relatif au statut de l’activité de l’IITA.</p>
+<p>Il s’agit des codes numériques et des noms dans le champ relatif au <a href="http://iatistandard.org/203/codelists/ActivityStatus/">statut de l’activité de l’IITA</a>.</p>
 <p><b>Périodes</b></p>
 <p>De 1960 à aujourd’hui + 2.</p>
 <p><b>More filters</b></p>
-<p>The numeric codes and names within the <a href="http://iatistandard.org/202/codelists/ActivityStatus/">IATI activity status</a> field. Click on <b>Glossary</b> to find out more about individual filters.</p>
+<p>The numeric codes and names within the <a href="http://iatistandard.org/203/codelists/ActivityStatus/">IATI activity status</a> field. Click on <b>Glossary</b> to find out more about individual filters.</p>
 
 #^faq_explore_q5_text
 Comment puis-je utiliser et préciser la recherche dans le texte libre? 
@@ -881,7 +882,7 @@ En cliquant sur « <b>Explore Results</b> » (explorer les résultats), les rés
 Lorsqu’on effectue une recherche dans un texte libre, quels champs de l’IITA sont concernés par la recherche?
 
 #^faq_explore_a7_text
-Les champs <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/title/">Titre</a> et <a href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/description/">Description</a> de toutes les activités publiées de l’IITA font l’objet de la recherche.
+Les champs <a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/title/">Titre</a> et <a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/description/">Description</a> de toutes les activités publiées de l’IITA font l’objet de la recherche.
 
 #^faq_explore_q8_text
 Est-il possible d’effectuer une recherche avec des noms au pluriel dans les textes libres?
