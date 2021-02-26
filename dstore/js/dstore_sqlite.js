@@ -36,16 +36,32 @@ dstore_sqlite.close = async function(db){
 	await db.close();
 };
 
-dstore_sqlite.open = async function(instance){
+dstore_sqlite.open = async function(req){
 //	var db = new sqlite3.cached.Database( global.argv.database );
 	var db;
 	
-	if(argv.instance)
+	let md5key = ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
+	
+	if( typeof md5key !== 'string' )
 	{
-		instance=String( instance || argv.instance ).replace(/[^A-Za-z0-9]/g, ''); // force alphanumeric only
-		var dbfilename=__dirname+"/../../dstore/instance/"+instance+".sqlite";
+		md5key = argv.instance // use command line value
+	}
+	
+	if( typeof md5key === 'string' )
+	{
+		md5key=md5key.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
+		if(md5key.length!=32) // is this is a valid MD5 32 characters of a-z 0-9
+		{
+			md5key=undefined
+		}
+	}
+	
+	if( typeof md5key === 'string' ) // open an instance database
+	{
+		var dbfilename=__dirname+"/../../dstore/instance/"+md5key+".sqlite";
 		
-console.log("using instance databsse "+dbfilename)		
+console.log("using instance database "+dbfilename)
+
 		db = sqlite.open( dbfilename );
 	}
 	else
@@ -681,7 +697,7 @@ dstore_sqlite.warn_dupes = async function(db,aid,slug){
 // the database part of the query code
 dstore_sqlite.query_select=async function(q,res,r,req){
 
-	var db = await dstore_db.open(req && req.subdomains && req.subdomains[0]); // pick instance using subdomain
+	var db = await dstore_db.open(req); // pick instance using subdomain
 //	db.serialize();
 	
 if(true)

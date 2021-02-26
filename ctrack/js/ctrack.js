@@ -114,9 +114,12 @@ ctrack.setup=function(args)
 	ctrack.chunks={};
 	ctrack.q={};
 
-// auto enable test code on test.d-portal.org subdomain
+// auto enable test code on test.* subdomain
 	ctrack.q.test=args.test
 	if(window.location.host.split(".")[0]=="test") { ctrack.q.test=1 }
+
+	ctrack.origin=window.location.origin
+	ctrack.chunks["origin"] = ctrack.origin
 
 	window.location.search.substring(1).split("&").forEach(function(n){
 		var aa=n.split("=");
@@ -417,9 +420,9 @@ ctrack.setup=function(args)
 								}
 							}
 						}
-						if( it.q=="aids" && text.startsWith("http://d-portal.org/dquery?sql=") ) // change to editable link
+						if( it.q=="aids" && text.startsWith(ctrack.origin+"/dquery?sql=") ) // change to editable link
 						{
-							text="http://d-portal.org/dquery/#"+encodeURI(decodeURIComponent(text.substr(31)))
+							text=ctrack.origin+"/dquery/#"+encodeURI(decodeURIComponent(text.substr( (ctrack.origin+"/dquery?sql=").length )))
 						}
 						var chunk=plate.replace("{"+it.show+"}",{search_text:text})
 						div.append(chunk)
@@ -648,17 +651,17 @@ ctrack.setup=function(args)
 	}
 	ctrack.last_hash="&";
 	ctrack.last_view="";
-	ctrack.check_hash=function()
+	ctrack.check_hash=function(forced)
 	{
 		var h="#"+(window.location.href.split('#')[1]||"")
-		if(h!=ctrack.last_hash)
+		if( (h!=ctrack.last_hash) || forced )
 		{
 			ctrack.chunk("hash",h);
 			ctrack.last_hash=h;
 			var l={};
 			ctrack.hash=ctrack.hash_split(h,l);
 					
-			var change_of_view=false;
+			var change_of_view=false || forced;
 			if(l.view)
 			{
 				l.view=ctrack.map_old_views[l.view] || l.view;
@@ -725,12 +728,64 @@ ctrack.setup=function(args)
 			}
 		}
 	}
+
+// run some initial setup queries
 	
-	fetcher.prefetch_aids(ctrack.q.aids,function(){
+	let gotstatus
+	let gotstatus_waiting=false
+	
+	gotstatus=function(d){
+		
+		ctrack.status=d
+
+//		console.log(d)
+
+		let status=d.status && d.status.trim() || "badkey"
 		
 		ctrack.check_hash();
 		ctrack.display_hash(); // this will display view=main or whatever page is requsted
 
+		if( status!="badkey" && d.instance ) // enable instance warning
+		{
+			ctrack.chunk("beige","{beige_instance}")
+			ctrack.chunk("beige_instance_key",d.instance)
+			ctrack.chunk("beige_instance_status_code",status)
+
+			if( status != "done" ) // try again
+			{
+				gotstatus_waiting=true
+				setTimeout(function() { fetcher.ajax({from:"instance"},gotstatus) }, 5000);
+			}
+			else
+			{
+				ctrack.chunk("beige_instance_status"," ")
+
+				if(gotstatus_waiting) // we waited and got done
+				{
+//					console.log("FINISHED")
+					location.reload()
+				}
+			}
+		}
+
+		ctrack.display();
+	}
+
+console.log("IN")
+	fetcher.ajax({from:"instance"},function(d){
+		
+console.log(d)
+
+		d=d || {
+			status:"error"
+		}
+
+		fetcher.prefetch_aids(ctrack.q.aids,function(){
+			
+			gotstatus(d)
+
+		})
+		
 	})
 
 }

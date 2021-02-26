@@ -108,17 +108,18 @@ dflat.xson_to_string=function(json)
 }
 	
 // convert json into html ( BEWARE this will add extra junk to your json )
-dflat.xson_to_html=function(json)
+dflat.xson_to_html=function(json,origin)
 {
 	dflat.clean(json) // clean this data
 	savi.prepare(json) // prepare for display
+	savi.chunks.origin=origin || "http://d-portal.org"
 	savi.chunks.iati=json
 	var html=savi.plate(
 `<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="http://d-portal.org/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
+<script src="{origin}/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
 <script> require("savi").start({ embeded:true }); </script>
 </head>
 <body class="print"><style>{savi-page-css}{savi-css}</style><div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div></body>

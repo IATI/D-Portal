@@ -2,7 +2,7 @@ cd `dirname $0`
 cd ..
 
 sudo /etc/init.d/dportal start
-sudo /etc/init.d/dportal-instance start
+#sudo /etc/init.d/dportal-instance start
 
 sudo /etc/init.d/dportal status
 

@@ -1,6 +1,7 @@
 cd `dirname $0`
 
 
+sudo apt-get install -y pv
 sudo apt-get install -y curl
 sudo apt-get install -y parallel
 
@@ -31,6 +32,6 @@ sudo update-rc.d dportal enable
 sudo /etc/init.d/dportal start
 
 #this will have been accidental stopped
-sudo /etc/init.d/dportal-instance start
+#sudo /etc/init.d/dportal-instance start
 
 

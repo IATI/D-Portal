@@ -135,7 +135,7 @@ view_list_activities.ajax=function(args)
 			var cc=[];
 			cc[0]=["iati-identifier","title","reporting-org","total-commitment","total-spend","currency","link","activity-status"];
 			a.forEach(function(v){
-				cc[cc.length]=[decodeURIComponent(v.aid),v.title,v.reporting,v.commitment,v.spend,v.currency,"http://d-portal.org/ctrack.html#view=act&aid="+v.aid,v.status_code];
+				cc[cc.length]=[decodeURIComponent(v.aid),v.title,v.reporting,v.commitment,v.spend,v.currency,ctrack.origin+"/ctrack.html#view=act&aid="+v.aid,v.status_code];
 			});
 			ctrack.chunk((args.chunk || "list_activities_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
 			

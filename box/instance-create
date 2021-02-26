@@ -1,0 +1,31 @@
+cd `dirname $0`
+cd ..
+
+source /dportal/box/env.sh
+
+export INSTANCE=01234567012345670123456701234567
+
+if [ ! -z "$1" ] ; then
+
+export INSTANCE=$1
+
+fi
+
+
+export STATUSFILE=/dportal/dstore/instance/$INSTANCE.status
+
+
+echo " creating new instance $INSTANCE "
+
+
+echo "create" >$STATUSFILE
+
+/dportal/box/dstore-create db_$INSTANCE
+
+
+echo "import" >$STATUSFILE
+
+/dportal/dstore/dstore --instance=$INSTANCE --statusfile=$STATUSFILE import instance/$INSTANCE.xml
+
+
+echo "done" >$STATUSFILE

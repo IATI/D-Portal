@@ -41,8 +41,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-app.use(express.static(__dirname+"/../static"));
-
+app.use(express.static( argv.staticdir || (__dirname+"/../static") ));
 
 app.use( express.json( { limit: '10MB' } ) )
 
@@ -57,7 +56,7 @@ console.log(req.path)
 		require("../../dstore/js/query").serv(req,res,next);
 	}
 	else
-	if( ab && (ab[0]=="upload") ) // upload api endpoint, for testing xml files
+	if( ab && (ab[0]=="upload") && argv.upload) // upload api endpoint, for testing xml files only if upload is set
 	{
 		require("../../dstore/js/upload").serv(req,res,next);
 	}
@@ -75,10 +74,13 @@ app.use('/dquery', require("../../dflat/js/query").serv )
 // dquery
 app.use('/savi', require("../../dflat/js/savi").serv )
 
+
 // redirect any unknown page to main homepage
 app.get('*', function(req, res) {
-    res.redirect('/ctrack.html#view=search');
+	res.redirect( argv.homepage || '/ctrack.html#view=search');
 });
+
+
 
 
 console.log("Starting static server at http://localhost:"+argv.port+"/");
