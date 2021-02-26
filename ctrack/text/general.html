@@ -138,6 +138,21 @@
 </ul>
 
 
+#large_footer_dpreview
+<div class="footer_link">
+	{large_footer_left_dpreview}
+</div><div class="footer_link list"></div>
+<div class="footer_link top"><a onclick="$('html,body').animate({ scrollTop:0},'slow');return false;">{footer_top_text}</a></div>
+
+#large_footer_left_dpreview
+<div class="footer_motto">
+	<a href="#">d-preview</a> helps organisations understand the data they are publishing.
+</div>
+<p>For preview purposes only. Data will not be uploaded to the main live d-portal website.</p>
+<p>This is a community hosted service. All preview instances will auto-delete after seven days.</p>
+<p>Project page, issues and feedback on <b><a href="https://github.com/notshi/d-preview">Github</a>.</b></p>
+
+
 #main_datainvestigators
 <div class="data_wrap">
 	<a href="mailto:support@iatistandard.org?subject=Regarding%20d-portal.org" class="data_invest">
@@ -176,6 +191,18 @@
 			<td class="settings_toggle">
 				<div class="settings_link_search">
 					<span><a href="/faq.html">FAQ</a></span>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="crumb_wrap">{crumbs}</div>
+</div>	
+
+
+#main_head_tail_settings_search_dpreview
+			<td class="settings_toggle">
+				<div class="settings_link_search">
+					<span>Search IATI data on development and humanitarian activities easily</span>
 				</div>
 			</td>
 		</tr>
@@ -231,11 +258,11 @@
 	
 
 #main_head_tail_settings
-		<td class="settings_toggle">
-			<a href="/faq.html" class="settings_faq">FAQ</a><a href="#" onclick="event.preventDefault();$('#settings').toggle();" class="settings_link">
-				<span>{change_settings_text}</span><img src="{flava}settings.png" alt="A cog wheel icon indicate settings and options for the website" width="35" height="35"/>
-			</a>
-		</td>
+			<td class="settings_toggle">
+				<a href="/faq.html" class="settings_faq">FAQ</a><a href="#" onclick="event.preventDefault();$('#settings').toggle();" class="settings_link">
+					<span>{change_settings_text}</span><img src="{flava}settings.png" alt="A cog wheel icon indicate settings and options for the website" width="35" height="35"/>
+				</a>
+			</td>
 		</tr>
 	</table>
 	<div class="crumb_wrap">{crumbs}</div>
@@ -299,6 +326,14 @@
 		});
 	});
 </script>
+
+
+#main_head_tail_settings_dpreview
+			<td class="settings_toggle"></td>
+		</tr>
+	</table>
+	<div class="crumb_wrap">{crumbs}</div>
+</div>
 
 
 #main_min
@@ -502,7 +537,7 @@
 #main_searchmin
 <div class="default min">
 	{more_search_intro}
-	<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">GLOSSARY</span></div>
+	{glossary_button}
 	<div class="search_cont">
 		<div class="search search_title">{search_view_txt}</div><a href="{search_url}" class="search_refine">{search_refine_txt}</a>
 		<div class="search search_main" id="main_searchmin_all"></div>
@@ -536,12 +571,17 @@
 #main_search
 <div class="default min">
 	{more_search_intro}
-	<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">GLOSSARY</span></div>
+	{glossary_button}
 	<div class="search_cont">
 		<div class="search search_title">{search_view_txt}</div><a href="{search_url}" class="search_refine">{search_refine_txt}</a>
 		<div class="search search_main" id="main_searchmin_all"></div>
 	</div>
 </div>
+
+
+<!-- GLOSSARY BUTTON -->
+#glossary_button
+<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">GLOSSARY</span></div>
 
 <!-- GLOSSARY	-->
 #more_search_intro
