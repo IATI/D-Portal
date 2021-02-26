@@ -667,8 +667,6 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 .footer_link ul			{padding-bottom:20px;}
 .footer_link p			{padding:15px 0;}
 .footer_link p.beta		{font-style:italic; color:#ccc; font-size:16px; line-height:22px;}
-.footer_link_dpreview	{width:960px;}
-.footer_link_dpreview p	{padding:5px 0;}
 .footer_motto			{font-size:22px; line-height:27px;}
 .footer_motto a			{color:#53B4ED; font-weight:bold; line-height:27px;}
 .footer_motto a:focus	{color:#53B4ED;}
@@ -677,6 +675,9 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 .footer_motto a:hover	{color:#FFF;}
 .footer_motto a:active	{color:#53B4ED;}
 .footer_header			{font-size:20px; color:#FFF; border-bottom:1px solid #A0988B; padding-bottom:5px; margin-bottom:10px;}
+.footer_dpreview		{width:960px; text-align:center;}
+.footer_dpreview p		{padding:5px 0;}
+.footer_dpreview .footer_motto	{padding-bottom:15px;}
 
 
 /*	Disqus wrapper
