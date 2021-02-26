@@ -56,7 +56,7 @@ console.log(req.path)
 		require("../../dstore/js/query").serv(req,res,next);
 	}
 	else
-	if( ab && (ab[0]=="upload") ) // upload api endpoint, for testing xml files
+	if( ab && (ab[0]=="upload") && argv.upload) // upload api endpoint, for testing xml files only if upload is set
 	{
 		require("../../dstore/js/upload").serv(req,res,next);
 	}

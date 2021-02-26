@@ -34,4 +34,8 @@ argv.instance_dir = argv.instance_dir || process.env.DSTORE_INSTANCE_DIR || "../
 
 	argv.homepage  = argv.homepage  || process.env.DSTORE_HOMEPAGE  ;
 
+	// enable uploads page
+
+	argv.upload  = argv.upload  || process.env.DSTORE_UPLOAD  ;
+
 };
