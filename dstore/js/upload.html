@@ -17,45 +17,62 @@
 			/*	HEADER SECTION	*/
 			
 			.content_wrap	{width:960px; margin:0 auto; position:relative;}
-			.header_wrap	{padding:6em 0 3em 0; width:800px; margin:0 auto;}
-			.header_text	{font-family:'Khula',sans-serif; font-size:72px; color:#454545; text-align:center; line-height:60px; margin:0 auto;}
-			.header_text span	{display:block; font-size:20px; padding-top:20px; line-height:26px; font-family:sans-serif;}
+			.header_wrap	{padding:4em 0 3em 0; width:800px; margin:0 auto;}
+			.header_text	{font-family:'Khula',sans-serif; font-size:72px; color:#454545; text-align:center; line-height:100px; margin:0 auto;}
+			.header_text span	{display:block; font-size:20px; line-height:26px; font-family:sans-serif;}
 			
 			/*	UPLOAD BOX SECTION	*/
 			
-			.upload_box 	{border-radius:10px; padding:120px 0; margin:0 auto; text-align:center; background:#eee; max-height:300px; width:300px;}
+			.upload_box 	{border-radius:10px 10px 0 0; margin:0 auto; text-align:center; background:#eee; height:260px; max-height:260px; width:798px;}
+			.upload_box:hover	{background:#f0f0f0;}
 			.is-dragover	{background:#fff; font-size:10em; line-height:0; padding:150px 0 250px 0;}
 			.is-dragover:after	{content:"\01F44D";}
 			.is-dragover .upload_text	{display:none;}
-			.upload_label	{position:relative; cursor:pointer; padding:120px 0;}
-			.upload_input	{width:100%; filter:alpha(opacity=0); opacity:0;}
-			.upload_text	{position:absolute; top:0; left:0; width:100%; padding:120px 0; font-size:22px; color:#666;}
+			.upload_label	{cursor:pointer; max-height:260px; width:798px; height:260px; display:flex; align-items:center; justify-content:flex-start; flex-direction:column;}
+			.upload_input	{filter:alpha(opacity=0); opacity:0; height:1px;}
+			.upload_text	{width:300px; font-size:22px; color:#666; margin-top:3.5em;}
 			.upload_text span	{display:block; font-size:14px;}
+			span.upload_icon	{transform:rotate(-90deg); font-size:30px; background-color:#ddd; border-radius:50px; height:50px; width:50px; text-align:center; line-height:50px; color:#fff; margin:0 auto; margin-top:15px;}
 			
 			/*	TYPE A URL SECTION	*/
 			
-			.upload_url_box	{margin:0 auto; margin-top:35px; text-align:center;}
-			input#xmlurl	{font-size:16px; width:798px; height:40px; border:1px solid #ccc; border-radius:6px; padding-left:10px;}
+			.upload_url_box	{margin:0 auto; text-align:center;}
+			input#xmlurl	{font-size:16px; width:798px; height:40px; border:1px solid #ccc; border-radius:0 0 6px 6px; padding-left:10px;}
 			
+			/*	NEWS SECTION */
+			
+			.news_wrap		{width:600px; margin:0 auto; margin-top:3.5em;}
+			.news_wrap a	{display:block; background-color:#f7f9ff; box-shadow:0 1px 4px 0 rgba(12, 12, 13, 0.2); text-decoration:none; color:#444; padding:20px 30px;}
+			.news_wrap a:hover	{background-color:#fff; box-shadow:0 1px 4px 0 rgba(12, 12, 13, 0.4);}
+			.news_title		{display:block; font-size:16px; font-family:'Khula',sans-serif; line-height:20px;}
+			.news_text		{display:block; font-size:12px; line-height:18px; padding-top:5px;}
+			.news_more		{color:#55668e;}
+			.news_image		{display:inline-block; vertical-align:middle; width:130px; border-right:1px solid #ccc; height:100px; margin-right:30px; background:url('/data/ods.png') no-repeat center left;}
+			.news_info		{display:inline-block; vertical-align:middle; width:380px;}
 			
 			/*	CONTACT SECTION	*/
 			
-			.contact		{margin:0 auto; margin-top:3em; font-size:16px; line-height:1.5em; text-align:center;}
-			.contact a		{color:#034dfb; text-decoration:none; font-style:italic; font-family:monospace; background:#eee; padding:0 5px; border-radius:4px;}
-			.contact a:hover{color:#034dfb; text-decoration:none; background:#fff;}
+			.contact		{margin:0 auto; padding:2em 0; font-size:16px; line-height:1.5em; text-align:center;}
+			.contact a		{color:#034dfb; text-decoration:none; font-family:monospace; background:#fff; padding:0 5px; border-radius:4px;}
+			.contact a:hover{color:#034dfb; text-decoration:none; background:#eee;}
+			.contact span	{display:block; font-size:14px; font-style:italic;}		
 			
 			/*	MEDIA QUERIES	*/
 			@media screen and (max-width:600px) {
-				.header_wrap	{padding:3em 0.5em 2em 0.5em; width:initial;}
+				.header_wrap	{padding:3em 1.5em 2em 1.5em; width:initial;}
 				.header_text	{font-size:36px; line-height:40px;}
-				.header_text span	{font-size:16px; line-height:20px;}
-				.upload_box	,
-				.contact		{width:85%;}
+				.header_text span	{font-size:16px; line-height:20px; padding-top:10px;}
 				.upload_box,
-				.upload_label	{padding:50px 0;}
-				.upload_text	{padding:40px 20px;}
-				.content_wrap	{width:initial;}
-				br				{display:block; margin-bottom:20px;}
+				input#xmlurl,
+				.contact		{width:85%; font-size:14px;}
+				.upload_box		{height:160px;}
+				.upload_text	{margin-top:1.25em;}
+				.content_wrap,
+				.upload_label	{width:initial;}
+				.contact span	{padding:10px 0;}
+				.news_wrap		{width:85%; margin-top:2em;}
+				.news_image		{display:none;}
+				.news_info		{display:block; width:100%;}
 			}
 		</style>
 	</head>
@@ -64,10 +81,8 @@
 			<div class="header_wrap">
 				<div class="header_text">
 					Make a d-preview
-					<span>
-						Generate a private d-preview site with IATI xml.<br/>
-						Upload from your computer, or use a link to a file that is on the web.
-					</span>
+					<span>Generate a private d-preview site with IATI xml.</span>
+					<span>Upload from your computer, or use a link to a file that is on the web.</span>
 				</div>
 			</div>
 			<form id="form" action="/upload" method="post" enctype="multipart/form-data">
@@ -77,6 +92,7 @@
 						<span class="upload_text">
 							Select xml
 							<span>(Maximum 40mb)</span>
+							<span class="upload_icon">&#10140;</span>
 						</span>
 					</label>
 				</div>
@@ -86,8 +102,20 @@
 					</label>
 				</div>
 			</form>
-			<div class="contact">
-				For preview purposes only. Data will not be uploaded to the main live d-portal website.<br/>
+<!--			<div class="news_wrap">
+				<a href="#">
+					<span class="news_image">
+					</span><span class="news_info">
+						<span class="news_title">Announcing d-preview: helping organisations check their IATI data before publishing</span>
+						<span class="news_text">
+							Many years of working with organisations to produce open data has consistently reaffirmed one thing: it’s important for people to preview their data before publishing it. <span class="news_more">Read more</span>
+						<span>
+					<span>
+				</a>
+			</div>
+-->			<div class="contact">
+				For preview purposes only. Data will not be uploaded to the main live d-portal website.
+				<span>This is a community hosted service. All preview instances will auto-delete after seven days.</span>
 				Project page, issues and feedback on <a href="https://github.com/notshi/d-preview" target="_blank">Github</a>.
 			</div>
 		</div>
