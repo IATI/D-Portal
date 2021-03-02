@@ -22,23 +22,9 @@ let upload_html = require('fs').readFileSync( __dirname + '/upload.html' , 'utf8
 // handle the /upload url space
 upload.serv = function(req,res){
 
-/*
-	if(!argv.instance)
-	{
-		res.send("DISABLED");
-		return;
-	}
-*/
-
-//console.log("UPLOAD",req.files.xml);
-
-
-	console.log( req.query )
-
 	let xmlurl=(req.body && req.body.xmlurl) || (req.query && req.query.xmlurl)
 
 	let jsonplease=(req.body && req.body.jsonplease) || (req.query && req.query.jsonplease)
-
 
 
 	let newinstance=function(data)
@@ -47,77 +33,112 @@ upload.serv = function(req,res){
 
 		var instance=md5omatic(data);
 
-console.log("CREATING INSTANCE : "+instance);
-
 		var xml_filename=__dirname+"/../../dstore/instance/"+instance+".xml";
 		var log_filename=__dirname+"/../../dstore/instance/"+instance+".log";
 
-		try{ fs.unlinkSync(log_filename);    }catch(e){} // ignore errors
+		let result=function(ret)
+		{
+			let domains=req.hostname.split(".")
+			let host
+			for(let i=0;i<domains.length;i++)
+			{
+				let subdomain = domains[i]
+
+				if(subdomain && (subdomain.length!=32) ) // skip bits that look like md5 keys
+				{
+					if(host)
+					{
+						host=host+"."+subdomain
+					}
+					else
+					{
+						host=subdomain
+					}
+				}
+			}
+
+			ret=ret || {}
+			
+			ret.url="http://"+instance+"."+host+"/ctrack.html#view=main"
+			ret.instance=instance
+			ret.host=host
+			
+			if( jsonplease )
+			{
+				res.jsonp(ret);
+			}
+			else
+			{
+				res.redirect(ret.url);
+			}
+		}
+
+
+		try{ // ignore errors
+
+			let stats = fs.statSync(log_filename);
+			let age = ( new Date().getTime() ) - stats.mtimeMs ;
+
+			if( age < 1000*60*60 ) // we have a young logfile so this is a duplicate upload
+			{
+				return result({error:"duplicate"})
+			}
+
+			fs.unlinkSync(log_filename);
+			
+		}catch(e){}
 
 		fs.writeFileSync( xml_filename, data );
 
 		child_process.spawn("/dportal/box/instance-create",
 			[instance],
 			{stdio:["ignore",fs.openSync(log_filename,"a"),fs.openSync(log_filename,"a")]});
+
+			return result()
+	}
+
+;(async () => {
+	try
+	{
+
+		if(req.files && req.files.xml)
+		{
+			let data=req.files.xml.data.toString('utf8')
 			
-		let domains=req.hostname.split(".")
-
-		let host
-		
-		for(let i=0;i<domains.length;i++)
-		{
-			let subdomain = domains[i]
-
-			if(subdomain && (subdomain.length!=32) ) // skip bits that look like md5 keys
-			{
-				if(host)
-				{
-					host=host+"."+subdomain
-				}
-				else
-				{
-					host=subdomain
-				}
-			}
+			newinstance(data)
 		}
-		
-		let ret={}
-		
-		ret.url="http://"+instance+"."+host+"/ctrack.html#view=main"
-		ret.instance=instance
-		ret.host=host
-		
-		if( jsonplease )
+		else
+		if( xmlurl )
 		{
-			res.jsonp(ret);
+			let fetch=require("node-fetch")
+
+			let res = await fetch(xmlurl)
+			let data = await res.text()
+			
+			newinstance(data)
+
 		}
 		else
 		{
-			res.redirect(ret.url);
+			res.send( upload_html )
 		}
-	}
-
-	if( xmlurl )
-	{
-		let fetch=require("node-fetch")
-
-		fetch( xmlurl ).then(res => res.text()).then(function(data){
-
-			newinstance(data)
-
-		})
-	}
-	else
-	if(req.files && req.files.xml)
-	{
-		let data=req.files.xml.data.toString('utf8')
 		
-		newinstance(data)
 	}
-	else
+	catch(e)
 	{
-		res.send( upload_html )
+
+		if( jsonplease )
+		{
+			res.jsonp({error:String(e)});
+		}
+		else
+		{
+			res.status(400).send( String( e ) )
+		}
+
 	}
+})();
+
 
 };
 
