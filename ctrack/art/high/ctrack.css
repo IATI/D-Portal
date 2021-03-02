@@ -643,7 +643,8 @@ a.data_invest:hover		{color:#000; background-color:#ddd; text-decoration:none;}
 .footer_motto a:hover	{color:#000; text-decoration:underline;}
 .footer_motto a:active	{color:#000;}
 .footer_header			{font-size:20px; color:#000; border-bottom:1px solid #000; padding-bottom:5px; margin-bottom:10px;}
-.footer_dpreview		{width:960px; text-align:center; padding:60px 0 0 0;}
+.footer_dpreview		{width:660px;}
+.footer_link.list.footer_dpreview	{width:300px;}
 .footer_dpreview p		{padding:5px 0;}
 .footer_dpreview .footer_motto	{padding-bottom:15px;}
 .footer_dpreview a.search_refine{width:initial; text-align:center; margin:0 auto; padding:10px 20px; margin-top:1em; color:#000;}
@@ -659,6 +660,8 @@ a.data_invest:hover		{color:#000; background-color:#ddd; text-decoration:none;}
 .beigealert_wrap		{width:100%; margin:0 auto; background-color:#000; box-sizing:border-box;}
 .beigealert_wrap.delete	{padding:0.5em; font-size:2em; font-weight:bold;}
 .beigealert				{margin:0 auto; color:#FFF; font-size:1.0em; line-height:1.25em; text-align:center; padding:10px 0;}
+.beigealert span.beige_bold	{display:block; font-size:14px; font-weight:bold;}
+.beigealert span.beige_key	{font-family:monospace;}
 a.beige					{text-decoration:underline; color:#FFF;}
 a.beige:hover			{color:#FFF;}
 
