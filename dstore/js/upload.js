@@ -12,6 +12,8 @@ var exs=require('./exs');
 var iati_xml=require('./iati_xml');
 var dstore_db=require("./dstore_db");
 
+var md5omatic = require('md5-o-matic');
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
@@ -22,6 +24,12 @@ let upload_html = require('fs').readFileSync( __dirname + '/upload.html' , 'utf8
 // handle the /upload url space
 upload.serv = function(req,res){
 
+	let log=function(a)
+	{
+		fs.appendFile( __dirname+"/../../dstore/instance/upload.tsv" , ( new Date().getTime() / 1000 )+"\t"+(req.ip)+"\t"+a.join("\t")+"\n" , function(){} )
+	}
+	
+
 	let xmlurl=(req.body && req.body.xmlurl) || (req.query && req.query.xmlurl)
 
 	let jsonplease=(req.body && req.body.jsonplease) || (req.query && req.query.jsonplease)
@@ -29,7 +37,6 @@ upload.serv = function(req,res){
 
 	let newinstance=function(data)
 	{
-		var md5omatic = require('md5-o-matic');
 
 		var instance=md5omatic(data);
 
@@ -81,6 +88,7 @@ upload.serv = function(req,res){
 
 			if( age < 1000*60*60 ) // we have a young logfile so this is a duplicate upload
 			{
+				log(["duplicate",data.length])
 				return result({error:"duplicate"})
 			}
 
@@ -105,6 +113,8 @@ upload.serv = function(req,res){
 		{
 			let data=req.files.xml.data.toString('utf8')
 			
+			log(["upload",data.length])
+
 			newinstance(data)
 		}
 		else
@@ -115,25 +125,31 @@ upload.serv = function(req,res){
 			let res = await fetch(xmlurl)
 			let data = await res.text()
 			
+			log(["fetch",data.length])
+
 			newinstance(data)
 
 		}
 		else
 		{
+			log(["visit"])
 			res.send( upload_html )
 		}
 		
 	}
 	catch(e)
 	{
+		let err=String(e)
+
+		log(["error",err])
 
 		if( jsonplease )
 		{
-			res.jsonp({error:String(e)});
+			res.jsonp({error:err})
 		}
 		else
 		{
-			res.status(400).send( String( e ) )
+			res.status(400).send( err )
 		}
 
 	}
