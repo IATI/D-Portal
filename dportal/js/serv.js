@@ -7,6 +7,8 @@ var express_fileupload = require('express-fileupload');
 //var morgan = require('morgan');
 var app = express();
 
+app.set("trust proxy", true)
+
 
 var argv=require('yargs').argv; global.argv=argv;
 require("../../dstore/js/argv").parse(argv);
