@@ -80,7 +80,7 @@ dstore_pg.open = async function(req){
 		pg = 'postgres:///db_'+md5key
 	}
 	
-console.log("using instance PG database "+pg)
+//console.log("using instance PG database "+pg)
 
 	if( ! dbs[pg] ) // create db
 	{
