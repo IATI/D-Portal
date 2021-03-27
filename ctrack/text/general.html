@@ -29,18 +29,19 @@
 #beige
 
 #beige_instance_display
-{beige_instance_text} <br/> {beige_instance_status} 
+{beige_instance_text}{beige_instance_status} 
 
 #beige_instance
-<div class="beigealert_wrap">
-	<div class="beigealert"><img src="{flava}alert_icon_top.png" alt="{alert_icon_alt_text}" width="15" height="15">{beige_instance_display}</div>
+<div class="beigealert_wrap dpreview">
+	<div class="beigealert"><img src="{flava}alert_icon_top.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {beige_instance_display}</div>
 </div>
 
 #beige_instance_text
-This is test instance number {beige_instance_key} and not the full IATI data.
+This test instance of d-portal number <span class="beige_key">{beige_instance_key}</span> does not include any public IATI data.
+<span class="beige_bold">Data in this site is test data and not for circulation or publication. This site will expire in ten days.</span>
 
 #beige_instance_status
-PLEASE WAIT : {beige_instance_status_code}
+<b>PLEASE WAIT</b> {beige_instance_status_code}
 
 #beige_importing
 <div class="beigealert_wrap">
@@ -152,19 +153,32 @@ PLEASE WAIT : {beige_instance_status_code}
 </ul>
 
 
+<!--	Footer for dpreview	-->
 #large_footer_dpreview
 <div class="footer_link footer_dpreview">
 	{large_footer_left_dpreview}
-</div><div class="footer_link list"></div>
+</div><div class="footer_link list footer_dpreview">
+	{large_footer_right_dpreview}
+</div>
 <div class="footer_link top"><a onclick="$('html,body').animate({ scrollTop:0},'slow');return false;">{footer_top_text}</a></div>
 
 #large_footer_left_dpreview
 <div class="footer_motto">
-	<a href="#">d-preview</a> helps organisations understand the data they are publishing.
+	<a href="http://d-preview.codeforiati.org/upload">d-preview</a> helps organisations understand the data they are publishing.
 </div>
 <p class="beta">For preview purposes only. Data will not be uploaded to the main live d-portal website.</p>
-<p>This is a community hosted service. All preview instances will auto-delete after seven days.</p>
+<p>This is a community hosted service and all preview instances will auto-delete after ten days.</p>
 <p>Project page, issues and feedback on <b><a href="https://github.com/notshi/d-preview">Github</a>.</b></p>
+<p>
+	
+</p>
+
+#large_footer_right_dpreview
+<div class="footer_header">Latest news</div>
+<ul>
+	<li><a href="https://medium.com/opendatacoop/announcing-d-preview-helping-organisations-check-their-iati-data-before-publishing-669b24ae20d">Announcing d-preview: helping organisations check their IATI data before publishing</a></li>
+</ul>
+<p><a href="http://d-preview.codeforiati.org/upload" class="search_refine">Create a new preview</a></p>
 
 <!--	Above footer for dpreview	-->
 #where_is_the_data_from_dpreview

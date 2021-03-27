@@ -675,9 +675,11 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 .footer_motto a:hover	{color:#FFF;}
 .footer_motto a:active	{color:#53B4ED;}
 .footer_header			{font-size:20px; color:#FFF; border-bottom:1px solid #A0988B; padding-bottom:5px; margin-bottom:10px;}
-.footer_dpreview		{width:960px; text-align:center;}
+.footer_dpreview		{width:660px;}
+.footer_link.list.footer_dpreview	{width:300px;}
 .footer_dpreview p		{padding:5px 0;}
 .footer_dpreview .footer_motto	{padding-bottom:15px;}
+.footer_dpreview a.search_refine{width:initial; text-align:center; margin:0 auto; padding:10px 20px; margin-top:1em; color:#fff;}
 
 
 /*	Disqus wrapper
@@ -703,7 +705,10 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 	============================================= */
 .beigealert_wrap		{width:100%; margin:0 auto; background-color:#D80051; box-sizing:border-box;}
 .beigealert_wrap.delete	{padding:0.5em; font-size:2em; font-weight:bold;}
+.beigealert_wrap.dpreview	{background-color:#ad0241;}
 .beigealert				{margin:0 auto; color:#FFF; font-size:1.0em; line-height:1.25em; text-align:center; padding:10px 0;}
+.beigealert span.beige_bold	{display:block; font-size:14px; font-weight:bold;}
+.beigealert span.beige_key	{font-family:monospace;}
 a.beige					{font-weight:bold; color:#FFFF00;}
 a.beige:hover			{color:#FFF;}
 
