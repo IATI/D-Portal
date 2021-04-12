@@ -1118,7 +1118,7 @@ jml=require("../../dflat/js/jml.js") // this fixes it but it is still a TODO: is
 					{
 						if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") ) // need to escape
 						{
-							s="\""+s.split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string
+							s="\""+s.replace("\n","\\n").replace("\"","\"\"")+"\""; // wrap in quotes and double quotes in string and kill newlines
 						}
 					}
 					t.push( s );
