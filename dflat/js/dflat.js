@@ -276,9 +276,9 @@ dflat.xson_to_xsv=function(data,root,paths)
 			if( it[root+head] !== undefined )
 			{
 				var s=""+it[root+head]
-				if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") ) // need to escape
+				if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") || s.includes("\r") ) // need to escape
 				{
-					s="\""+s.replace("\n","\\n").replace("\"","\"\"")+"\""; // wrap in quotes and double quotes in string and kill newlines
+					s="\""+s.replace("\n","\\n").replace("\r","\\r").replace("\"","\"\"")+"\""; // wrap in quotes and double quotes in string and kill newlines
 				}
 				t.push( s );
 			}
