@@ -155,8 +155,8 @@ dflat.xml_to_xson=function(data)
 		if(typeof v === 'string')
 		{
 			v=v.trim()
-			v=v.replace("\r\n","\n") // convert CRLF
-			v=v.replace("\r","\n") // convert CR
+			v=v.replaceAll("\r\n","\n") // convert CRLF
+			v=v.replaceAll("\r","\n") // convert CR
 		}
 		op.store[tn]=v
 	}
@@ -278,7 +278,7 @@ dflat.xson_to_xsv=function(data,root,paths)
 				var s=""+it[root+head]
 				if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") || s.includes("\r") ) // need to escape
 				{
-					s="\""+s.replace("\n","\\n").replace("\r","\\r").replace("\"","\"\"")+"\""; // wrap in quotes and double quotes in string and kill newlines
+					s="\""+s.replaceAll("\n","\\n").replaceAll("\r","\\r").replaceAll("\"","\"\"")+"\""; // wrap in quotes and double quotes in string and kill newlines
 				}
 				t.push( s );
 			}
