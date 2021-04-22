@@ -1116,9 +1116,9 @@ jml=require("../../dflat/js/jml.js") // this fixes it but it is still a TODO: is
 					var s=""+humanizer(n,v[n]);
 					if("string" == typeof s) // may need to escape
 					{
-						if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") ) // need to escape
+						if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") || s.includes("\r") ) // need to escape
 						{
-							s="\""+s.split("\"").join("\"\"")+"\""; // wrap in quotes and double quotes in string
+							s="\""+s.replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/\"/g,"\"\"")+"\""; // wrap in quotes and double quotes in string and kill newlines
 						}
 					}
 					t.push( s );

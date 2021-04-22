@@ -39,9 +39,15 @@
 			.upload_url_box	{margin:0 auto; text-align:center;}
 			input#xmlurl	{font-size:16px; width:798px; height:40px; border:1px solid #ccc; border-radius:0 0 6px 6px; padding-left:10px;}
 			
+			/*	EXAMPLE DATA SECTION	*/
+			
+			.example		{text-align:center; margin-top:2em; font-size:16px;}
+			.example a		{color:#034dfb; text-decoration:none; font-family:monospace; background:#fff; padding:0 5px; border-radius:4px;}
+			.example a:hover{color:#034dfb; text-decoration:none; background:#eee; cursor:pointer;}
+			
 			/*	NEWS SECTION */
 			
-			.news_wrap		{width:600px; margin:0 auto; margin-top:3.5em;}
+			.news_wrap		{width:600px; margin:0 auto; margin-top:2.5em;}
 			.news_wrap a	{display:block; background-color:#f7f9ff; box-shadow:0 1px 4px 0 rgba(12, 12, 13, 0.2); text-decoration:none; color:#444; padding:20px 30px;}
 			.news_wrap a:hover	{background-color:#fff; box-shadow:0 1px 4px 0 rgba(12, 12, 13, 0.4);}
 			.news_title		{display:block; font-size:16px; font-family:'Khula',sans-serif; line-height:20px;}
@@ -102,6 +108,15 @@
 					</label>
 				</div>
 			</form>
+			<div class="example">
+				Haven't got any IATI XML to hand? Try our example <a id="example">activity</a>.
+			</div>
+			<script>
+			document.getElementById("example").onclick = function() {
+				document.getElementById("xmlurl").value = "https://raw.githubusercontent.com/OpenDataServices/iati-sample-data/master/IATI-CoVE-sample-activity-standard.xml";
+				document.getElementById("form").submit();
+			};
+			</script>
 			<div class="news_wrap">
 				<a href="https://medium.com/opendatacoop/announcing-d-preview-helping-organisations-check-their-iati-data-before-publishing-669b24ae20d">
 					<span class="news_image">

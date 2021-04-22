@@ -514,6 +514,10 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 			var country=t["trans_country"] // country split
 			if(country)
 			{
+				splits.ANY= splits.ANY || {}
+				splits.ANY.country = splits.ANY.country || {}
+				splits.ANY.country[country]=(splits.ANY.country[country]||0)+value
+
 				if(t["trans_code"]=="C")
 				{
 					splits.CC         = splits.CC         || {}
@@ -532,6 +536,10 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 			var sector=t["trans_sector"] || t["trans_sector_group"] // assume all 5 or all 3 digit codes so we can mix
 			if(sector)
 			{
+				splits.ANY= splits.ANY || {}
+				splits.ANY.sector = splits.ANY.sector || {}
+				splits.ANY.sector[sector]=(splits.ANY.sector[sector]||0)+value
+
 				if(t["trans_code"]=="C")
 				{
 					splits.CC         = splits.CC         || {}
@@ -793,9 +801,19 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 							country_code:		cc,
 							country_percent:	pc
 						});
-
 //console.log(d) // this should not trigger, as we should not have to reconstruct 
+					}
+// also include zero percenters
+					for(var country in splits.ANY.country)
+					{
+						if( (typeof ss[country]) == "undefined" )
+						{
+							var pc=0
+							var cc=country
+							var d={"aid":t.aid,"country_code":cc,"country_percent":pc}
 
+							await dstore_back.replace(db,"country",d); // save to database as we work out
+						}
 					}
 				}
 			}
@@ -837,8 +855,30 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 							sector_code:sc,
 							sector_percent:pc
 						});
+					}
+// also include zero percenters
+					for(var sector in splits.ANY.sector)
+					{
+						if( (typeof ss[sector]) == "undefined" )
+						{
+							var pc=0
+							var sc=sector
+							var group=null
+							if((""+sc).length==3)
+							{
+								group=sc
+								sc=null
+							}
+							else
+							if((""+sc).length==5)
+							{
+								group=(""+sc).slice(0,3)
+							}
+							
+							var d={"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc}
 
-//console.log(d)
+							await dstore_back.replace(db,"sector",d); // save to database as we work out
+						}
 					}
 				}
 			}
