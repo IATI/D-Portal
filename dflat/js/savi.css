@@ -110,8 +110,8 @@ span.block		{display:block;}
 .sector_value:after	{content:"%";}
 .wrap_sector .header			{border:0; color:#444; font-weight:bold; margin:0 auto; padding:30px 0 5px 0; text-align:center; width:880px;}
 .wrap_sector .header.glossary	{border-bottom:1px solid #aaa; margin-bottom:10px; text-align:left;}
-.wrap_sector .subheader			{color:#555; font-size:12px; line-height:16px; margin:0 auto; max-width:600px; padding-bottom:20px; text-align:center; word-break:keep-all;}
-.wrap_sector .subheader a			{color:#093E6F;}
+.wrap_sector .subheader			{color:#555; font-size:12px; line-height:16px; margin:0 auto; padding-bottom:20px; text-align:center; word-break:keep-all;}
+.wrap_sector .subheader a			{color:#093E6F; display:block;}
 .wrap_sector .subheader a:link		{color:#093E6F;}
 .wrap_sector .subheader a:visited	{color:#093E6F;}
 .wrap_sector .subheader a:hover		{color:#0373C9;}
