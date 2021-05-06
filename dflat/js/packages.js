@@ -77,7 +77,7 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		
 		txt.push(it.slug+" "+it.url+"\n")
 
-		curl.push("echo Downloading "+it.slug+" : \""+it.url+"\" | tee downloads/"+it.slug+".log ; curl -s -S -A \"Mozilla/5.0\" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 -k -L -o downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a downloads/"+it.slug+".log\n")
+		curl.push("echo Downloading "+it.slug+" : \""+it.url+"\" | tee downloads/"+it.slug+".log ; curl -s -S --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 -k -L -o downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a downloads/"+it.slug+".log\n")
 
 //		badcurl.push("curl -o "+it.slug+".xml \""+it.url+"\" \n")
 	}
