@@ -27,7 +27,7 @@ curl -A "Mozilla/5.0" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-
 
 # try an alternative curl command if there was an error
 
-if [ "$(grep -c \"error\" ${file}.curl.last.log)" -le 0 ]; then
+if [ "$(grep -c \"error\" ${file}.curl.last.log)" -ge 1 ]; then
 
 echo " retrying with a slightly different curl command " | tee -a ${file}.curl.log ${file}.curl.last.log
 
