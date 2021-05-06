@@ -44,11 +44,18 @@ packages.prepare_download_common=async function(argv)
 {
 
 	argv.dir_downloads  = path.join(argv.dir,"downloads")
-	argv.dir_packages   = path.join(argv.dir,"packages")
+	argv.dir_logs   = path.join(argv.dir,"logs")
+	argv.dir_xml   = path.join(argv.dir,"xml")
+	argv.dir_json   = path.join(argv.dir,"json")
+	argv.dir_csv   = path.join(argv.dir,"csv")
 
 	await fse.emptyDir(argv.dir) // create output directories
 	await fse.emptyDir(argv.dir_downloads)
-	await fse.emptyDir(argv.dir_packages)
+	
+	await fse.emptyDir(argv.dir_logs)
+	await fse.emptyDir(argv.dir_xml)
+	await fse.emptyDir(argv.dir_json)
+	await fse.emptyDir(argv.dir_csv)
 	
 }
 
@@ -88,9 +95,9 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		
 		txt.push(it.slug+"\n")
 
-		parse.push("echo Parsing "+it.slug+" | tee packages/"+it.slug+".log ; node "+argv.filename_dflat+" --dir . packages "+it.slug+" 2>&1 | tee -a packages/"+it.slug+".log\n")
+		parse.push("echo Parsing "+it.slug+" | tee logs/"+it.slug+".log ; node "+argv.filename_dflat+" --dir . packages "+it.slug+" 2>&1 | tee -a logs/"+it.slug+".log\n")
 	}
-	await fse.writeFile( path.join(argv.dir,"packages.txt") , parse.join("") )
+	await fse.writeFile( path.join(argv.dir,"packages.txt") , txt.join("") )
 	await fse.writeFile( path.join(argv.dir,"packages.parse") , parse.join("") )
 
 
@@ -112,10 +119,10 @@ fi
 if [ "$1" = "debug" ] ; then
 	bash downloads.curl
 else
-	cat downloads.curl | sort -R | parallel -j 0 --bar
+	cat downloads.curl | sort -R | parallel -j 64 --bar
 fi
 
-cat downloads/*.log >downloads.curl.log
+cat downloads/*.log >downloads.log
 
 `)
 	await fse.chmod(     path.join(argv.dir,"downloads.sh") , 0o755 )
@@ -133,10 +140,10 @@ fi
 if [ "$1" = "debug" ] ; then
 	bash packages.parse
 else
-	cat packages.parse | sort -R | parallel -j 0 --bar
+	cat packages.parse | sort -R | parallel -j -1 --bar
 fi
 
-cat packages/*.log >packages.parse.log
+cat logs/*.log >logs.log
 
 `)
 	await fse.chmod(     path.join(argv.dir,"packages.sh") , 0o755 )
@@ -255,7 +262,7 @@ packages.process_download_save=async function(argv,json,basename)
 	var xml=dflat.xson_to_xml(json)
 	await pfs.writeFile( basename+".xml" ,xml);
 
-
+/*
 	await pfs.writeFile( basename+".json" ,stringify(json,{space:" "}));
 
 	var stats = xson.xpath_stats(json)
@@ -272,6 +279,8 @@ packages.process_download_save=async function(argv,json,basename)
 		var csv=dflat.xson_to_xsv(json,"/iati-organisations/iati-organisation",{"/iati-organisations/iati-organisation":true})
 		await pfs.writeFile( basename+".csv" ,csv);
 	}
+*/
+
 }
 
 packages.process_download_link=async function(basename,linkname)
@@ -301,8 +310,8 @@ packages.process_download=async function(argv)
 	
 	dflat.clean(json) // we want cleaned up data
 	
-	let basename=path.join(argv.dir,"packages/"+slug)
-	await packages.process_download_save( argv , json , basename )
+	let basename=path.join(argv.dir,"xml/"+slug)
+//	await packages.process_download_save( argv , json , basename )
 
 // if we got some activities, spit them out individually
 	if( json["/iati-activities/iati-activity"] )
@@ -312,7 +321,7 @@ packages.process_download=async function(argv)
 		{
 			let aid=dflat.saneid( act["/iati-identifier"] )
 			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+aid )
-
+/*
 // all activities
 			let linkname=path.join(argv.dir,"activities")
 			await packages.process_download_link( basename+"/"+aid , linkname+"/"+aid )
@@ -324,6 +333,7 @@ packages.process_download=async function(argv)
 				let linkname=path.join(argv.dir,"reporting-orgs/"+dflat.saneid(reporting))
 				await packages.process_download_link( basename+"/"+aid , linkname+"/"+aid )
 			}
+*/
 		}
 	}
 }
