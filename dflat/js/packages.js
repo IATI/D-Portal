@@ -265,6 +265,12 @@ packages.prepare_download_registry=async function(argv)
 
 packages.process_download_save=async function(argv,json,basename)
 {
+
+// The generated time stamps in the iati-activities tend to be auto generated garbage so are removed here
+
+	dflat.clean_remove_dataset_timestamps(json)
+
+
 	// do this one virst as it may adjust/create iati-activities@version to match the given data
 	var xml=dflat.xson_to_xml(json)
 	await pfs.writeFile( basename+".xml" ,xml);
@@ -323,24 +329,28 @@ packages.process_download=async function(argv)
 // if we got some activities, spit them out individually
 	if( json["/iati-activities/iati-activity"] )
 	{
+		let idx=0
 		await fse.emptyDir(basename)
 		for( const act of json["/iati-activities/iati-activity"] )
 		{
-			let aid=dflat.saneid( act["/iati-identifier"] )
+			let aid=dflat.saneid( act["/iati-identifier"] || ("ERROR-NO-ID-"+idx) )
 			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+aid )
-/*
-// all activities
-			let linkname=path.join(argv.dir,"activities")
-			await packages.process_download_link( basename+"/"+aid , linkname+"/"+aid )
-
-// reporting-orgs
-			let reporting=act["/reporting-org@ref"]
-			if(reporting)
-			{
-				let linkname=path.join(argv.dir,"reporting-orgs/"+dflat.saneid(reporting))
-				await packages.process_download_link( basename+"/"+aid , linkname+"/"+aid )
-			}
-*/
+			idx=idx+1
 		}
 	}
+
+// if we got some organisations, spit them out individually
+	if( json["/iati-organisations/iati-organisation"] )
+	{
+		let idx=0
+		await fse.emptyDir(basename)
+		for( const org of json["/iati-organisations/iati-organisation"] )
+		{
+			let pid=dflat.saneid( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) )
+			await packages.process_download_save( argv , { "/iati-organisations/iati-organisation":[org] } , basename+"/"+pid )
+			idx=idx+1
+		}
+	}
+
+
 }

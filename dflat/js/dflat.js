@@ -782,3 +782,31 @@ dflat.clean_copy_defaults=function(data)
 
 	return data
 }
+
+// the dataset timestamps are mostly useless, especially the generated ones.
+dflat.clean_remove_dataset_timestamps=function(data)
+{
+	let f=function(root,act)
+	{
+		for( let name in act )
+		{
+			if( name.endsWith("-datetime") ) // remove it
+			{
+				delete act[name]
+			}
+		}
+	}
+	
+	for( const act of (data["/iati-activities/iati-activity"] || [] ) )
+	{
+		f("/iati-activities/iati-activity",act)
+	}
+
+	for( const act of (data["/iati-organisations/iati-organisation"] || [] ) )
+	{
+		f("/iati-organisations/iati-organisation",act)
+	}
+
+	return data
+}
+
