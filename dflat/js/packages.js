@@ -44,11 +44,18 @@ packages.prepare_download_common=async function(argv)
 {
 
 	argv.dir_downloads  = path.join(argv.dir,"downloads")
-	argv.dir_packages   = path.join(argv.dir,"packages")
+	argv.dir_logs   = path.join(argv.dir,"logs")
+	argv.dir_xml   = path.join(argv.dir,"xml")
+	argv.dir_json   = path.join(argv.dir,"json")
+	argv.dir_csv   = path.join(argv.dir,"csv")
 
 	await fse.emptyDir(argv.dir) // create output directories
 	await fse.emptyDir(argv.dir_downloads)
-	await fse.emptyDir(argv.dir_packages)
+	
+	await fse.emptyDir(argv.dir_logs)
+	await fse.emptyDir(argv.dir_xml)
+	await fse.emptyDir(argv.dir_json)
+	await fse.emptyDir(argv.dir_csv)
 	
 }
 
@@ -67,10 +74,17 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 	for(var idx in downloads)
 	{
 		var it=downloads[idx]
-		
-		txt.push(it.slug+" "+it.url+"\n")
 
-		curl.push("echo Downloading "+it.slug+" : \""+it.url+"\" | tee downloads/"+it.slug+".log ; curl -s -S -A \"Mozilla/5.0\" --fail --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 -k -L -o downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a downloads/"+it.slug+".log\n")
+		if( it.url.toLowerCase().startsWith("http") || it.url.toLowerCase().startsWith("ftp") ) // some mild sanity/security
+		{
+			txt.push(it.slug+" "+it.url+"\n")
+
+			curl.push("echo Downloading "+it.slug+" : \""+it.url+"\" | tee downloads/"+it.slug+".log ; curl --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 --insecure --location --output downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a downloads/"+it.slug+".log\n")
+		}
+		else
+		{
+			console.log("ignoring bad url "+it.slug+" "+it.url)
+		}
 
 //		badcurl.push("curl -o "+it.slug+".xml \""+it.url+"\" \n")
 	}
@@ -88,9 +102,9 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		
 		txt.push(it.slug+"\n")
 
-		parse.push("echo Parsing "+it.slug+" | tee packages/"+it.slug+".log ; node "+argv.filename_dflat+" --dir . packages "+it.slug+" 2>&1 | tee -a packages/"+it.slug+".log\n")
+		parse.push("echo Parsing "+it.slug+" | tee logs/"+it.slug+".log ; node "+argv.filename_dflat+" --dir . packages "+it.slug+" 2>&1 | tee -a logs/"+it.slug+".log\n")
 	}
-	await fse.writeFile( path.join(argv.dir,"packages.txt") , parse.join("") )
+	await fse.writeFile( path.join(argv.dir,"packages.txt") , txt.join("") )
 	await fse.writeFile( path.join(argv.dir,"packages.parse") , parse.join("") )
 
 
@@ -112,10 +126,10 @@ fi
 if [ "$1" = "debug" ] ; then
 	bash downloads.curl
 else
-	cat downloads.curl | sort -R | parallel -j 0 --bar
+	cat downloads.curl | sort -R | parallel -j 64 --bar
 fi
 
-cat downloads/*.log >downloads.curl.log
+cat downloads/*.log >downloads.log
 
 `)
 	await fse.chmod(     path.join(argv.dir,"downloads.sh") , 0o755 )
@@ -133,10 +147,10 @@ fi
 if [ "$1" = "debug" ] ; then
 	bash packages.parse
 else
-	cat packages.parse | sort -R | parallel -j 0 --bar
+	cat packages.parse | sort -R | parallel -j -1 --bar
 fi
 
-cat packages/*.log >packages.parse.log
+cat logs/*.log >logs.log
 
 `)
 	await fse.chmod(     path.join(argv.dir,"packages.sh") , 0o755 )
@@ -251,11 +265,17 @@ packages.prepare_download_registry=async function(argv)
 
 packages.process_download_save=async function(argv,json,basename)
 {
+
+// The generated time stamps in the iati-activities tend to be auto generated garbage so are removed here
+
+	dflat.clean_remove_dataset_timestamps(json)
+
+
 	// do this one virst as it may adjust/create iati-activities@version to match the given data
 	var xml=dflat.xson_to_xml(json)
 	await pfs.writeFile( basename+".xml" ,xml);
 
-
+/*
 	await pfs.writeFile( basename+".json" ,stringify(json,{space:" "}));
 
 	var stats = xson.xpath_stats(json)
@@ -272,6 +292,8 @@ packages.process_download_save=async function(argv,json,basename)
 		var csv=dflat.xson_to_xsv(json,"/iati-organisations/iati-organisation",{"/iati-organisations/iati-organisation":true})
 		await pfs.writeFile( basename+".csv" ,csv);
 	}
+*/
+
 }
 
 packages.process_download_link=async function(basename,linkname)
@@ -301,29 +323,34 @@ packages.process_download=async function(argv)
 	
 	dflat.clean(json) // we want cleaned up data
 	
-	let basename=path.join(argv.dir,"packages/"+slug)
-	await packages.process_download_save( argv , json , basename )
+	let basename=path.join(argv.dir,"xml/"+slug)
+//	await packages.process_download_save( argv , json , basename )
 
 // if we got some activities, spit them out individually
 	if( json["/iati-activities/iati-activity"] )
 	{
+		let idx=0
 		await fse.emptyDir(basename)
 		for( const act of json["/iati-activities/iati-activity"] )
 		{
-			let aid=dflat.saneid( act["/iati-identifier"] )
+			let aid=dflat.saneid( act["/iati-identifier"] || ("ERROR-NO-ID-"+idx) )
 			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+aid )
-
-// all activities
-			let linkname=path.join(argv.dir,"activities")
-			await packages.process_download_link( basename+"/"+aid , linkname+"/"+aid )
-
-// reporting-orgs
-			let reporting=act["/reporting-org@ref"]
-			if(reporting)
-			{
-				let linkname=path.join(argv.dir,"reporting-orgs/"+dflat.saneid(reporting))
-				await packages.process_download_link( basename+"/"+aid , linkname+"/"+aid )
-			}
+			idx=idx+1
 		}
 	}
+
+// if we got some organisations, spit them out individually
+	if( json["/iati-organisations/iati-organisation"] )
+	{
+		let idx=0
+		await fse.emptyDir(basename)
+		for( const org of json["/iati-organisations/iati-organisation"] )
+		{
+			let pid=dflat.saneid( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) )
+			await packages.process_download_save( argv , { "/iati-organisations/iati-organisation":[org] } , basename+"/"+pid )
+			idx=idx+1
+		}
+	}
+
+
 }

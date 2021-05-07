@@ -706,6 +706,8 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		t.reporting_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=tonumber(refry.tagattr(act,"activity-status","code"));
 
+		if( "string" == typeof t.reporting_ref ) { t.reporting_ref = t.reporting_ref.trim() } // remove white space
+
 		t.flags=0;
 		if( codes.publisher_secondary[t.reporting_ref] ) { t.flags=1; } // flag as secondary publisher (probably best to ignore)
 
