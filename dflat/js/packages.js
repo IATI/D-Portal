@@ -74,10 +74,17 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 	for(var idx in downloads)
 	{
 		var it=downloads[idx]
-		
-		txt.push(it.slug+" "+it.url+"\n")
 
-		curl.push("echo Downloading "+it.slug+" : \""+it.url+"\" | tee downloads/"+it.slug+".log ; curl --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 --insecure --location --output downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a downloads/"+it.slug+".log\n")
+		if( it.url.toLowerCase().startsWith("http") || it.url.toLowerCase().startsWith("ftp") ) // some mild sanity/security
+		{
+			txt.push(it.slug+" "+it.url+"\n")
+
+			curl.push("echo Downloading "+it.slug+" : \""+it.url+"\" | tee downloads/"+it.slug+".log ; curl --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 --insecure --location --output downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a downloads/"+it.slug+".log\n")
+		}
+		else
+		{
+			console.log("ignoring bad url "+it.slug+" "+it.url)
+		}
 
 //		badcurl.push("curl -o "+it.slug+".xml \""+it.url+"\" \n")
 	}
