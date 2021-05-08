@@ -330,6 +330,7 @@ packages.process_download=async function(argv)
 // if we got some activities, spit them out individually
 	if( json["/iati-activities/iati-activity"] )
 	{
+		console.log( "found "+json["/iati-activities/iati-activity"].length+" activities" )
 		let idx=0
 		await fse.emptyDir(basename)
 		for( const act of json["/iati-activities/iati-activity"] )
@@ -347,6 +348,7 @@ packages.process_download=async function(argv)
 		await fse.emptyDir(basename)
 		for( const org of json["/iati-organisations/iati-organisation"] )
 		{
+			console.log( "found "+json["/iati-organisations/iati-organisation"].length+" organisations" )
 			let pid=dflat.saneid( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) )
 			await packages.process_download_save( argv , { "/iati-organisations/iati-organisation":[org] } , basename+"/"+pid )
 			idx=idx+1
