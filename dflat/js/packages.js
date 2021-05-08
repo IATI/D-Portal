@@ -81,7 +81,7 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 			
 			txt.push(it.slug+" "+it.url+"\n")
 
-			curl.push("echo > logs/"+it.slug+".txt ; echo 'Downloading "+it.slug+" from \""+it.url+"\"' | tee -a logs/"+it.slug+".txt ; curl --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 --insecure --location --output downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a logs/"+it.slug+".txt\n")
+			curl.push("echo > logs/"+it.slug+".txt ; echo 'Downloading "+it.slug+" from \""+it.url+"\"' | tee -a logs/"+it.slug+".txt ; curl --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 --insecure --ciphers 'DEFAULT:!DH' --location --output downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a logs/"+it.slug+".txt\n")
 		}
 		else
 		{
