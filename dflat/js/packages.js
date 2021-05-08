@@ -77,6 +77,8 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 
 		if( it.url.toLowerCase().startsWith("http") || it.url.toLowerCase().startsWith("ftp") ) // some mild sanity/security
 		{
+			it.url=it.url.split(" ").join("%20")	// spaces break *sometimes* when used in the url
+			
 			txt.push(it.slug+" "+it.url+"\n")
 
 			curl.push("echo > logs/"+it.slug+".txt ; echo 'Downloading "+it.slug+" from \""+it.url+"\"' | tee -a logs/"+it.slug+".txt ; curl --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 --insecure --location --output downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a logs/"+it.slug+".txt\n")
