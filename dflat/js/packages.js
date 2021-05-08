@@ -79,7 +79,7 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		{
 			txt.push(it.slug+" "+it.url+"\n")
 
-			curl.push("echo Downloading "+it.slug+" : \""+it.url+"\" | tee downloads/"+it.slug+".log ; curl --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 --insecure --location --output downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a downloads/"+it.slug+".log\n")
+			curl.push("echo > logs/"+it.slug+".txt ; echo 'Downloading "+it.slug+" from \""+it.url+"\"' | tee -a logs/"+it.slug+".txt ; curl --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 --insecure --location --output downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a logs/"+it.slug+".txt\n")
 		}
 		else
 		{
@@ -102,7 +102,7 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		
 		txt.push(it.slug+"\n")
 
-		parse.push("echo Parsing "+it.slug+" | tee logs/"+it.slug+".log ; node "+argv.filename_dflat+" --dir . packages "+it.slug+" 2>&1 | tee -a logs/"+it.slug+".log\n")
+		parse.push("echo 'Parsing "+it.slug+"' | tee -a logs/"+it.slug+".txt ; node "+argv.filename_dflat+" --dir . packages "+it.slug+" 2>&1 | tee -a logs/"+it.slug+".txt\n")
 	}
 	await fse.writeFile( path.join(argv.dir,"packages.txt") , txt.join("") )
 	await fse.writeFile( path.join(argv.dir,"packages.parse") , parse.join("") )
@@ -129,7 +129,7 @@ else
 	cat downloads.curl | sort -R | parallel -j 64 --bar
 fi
 
-cat downloads/*.log >downloads.log
+cat logs/*.txt >logs.txt
 
 `)
 	await fse.chmod(     path.join(argv.dir,"downloads.sh") , 0o755 )
@@ -150,7 +150,7 @@ else
 	cat packages.parse | sort -R | parallel -j -1 --bar
 fi
 
-cat logs/*.log >logs.log
+cat logs/*.txt >logs.txt
 
 `)
 	await fse.chmod(     path.join(argv.dir,"packages.sh") , 0o755 )
@@ -267,6 +267,7 @@ packages.process_download_save=async function(argv,json,basename)
 {
 
 // The generated time stamps in the iati-activities tend to be auto generated garbage so are removed here
+// otherwise they change every time we fetch them and confuse any attempt to log what has changed over time.
 
 	dflat.clean_remove_dataset_timestamps(json)
 
