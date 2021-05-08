@@ -22,7 +22,7 @@ echo | tee -a ${file}.curl.log ${file}.curl.last.log
 echo "Downloading $file from $url" | tee -a ${file}.curl.log ${file}.curl.last.log
 echo | tee -a ${file}.curl.log ${file}.curl.last.log
 
-curl --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 --ciphers 'DEFAULT:!DH' --insecure --location --output ${file} "${url}" 2>&1 | tee -a ${file}.curl.log ${file}.curl.last.log
+curl --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 500 --ciphers 'DEFAULT:!DH' --insecure --location --output ${file} "${url}" 2>&1 | tee -a ${file}.curl.log ${file}.curl.last.log
 
 
 # try an alternative curl command if there was an error
@@ -31,7 +31,7 @@ curl --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --s
 #echo | tee -a ${file}.curl.log ${file}.curl.last.log
 #echo " retrying with a slightly different curl command " | tee -a ${file}.curl.log ${file}.curl.last.log
 #echo | tee -a ${file}.curl.log ${file}.curl.last.log
-#curl --user-agent "Mozilla/5.0" --fail --silent --show-error --retry 0 --retry-delay 10 --speed-time 30 --speed-limit 1000 --insecure --location --output ${file} "${url}" 2>&1 | tee -a ${file}.curl.log ${file}.curl.last.log
+#curl --user-agent "Mozilla/5.0" --fail --silent --show-error --retry 0 --retry-delay 10 --speed-time 30 --speed-limit 500 --insecure --location --output ${file} "${url}" 2>&1 | tee -a ${file}.curl.log ${file}.curl.last.log
 #fi
 
 
