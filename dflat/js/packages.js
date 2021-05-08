@@ -319,7 +319,7 @@ packages.process_download=async function(argv)
 		return
 	}
 
-	console.log( "processing "+downloaded_filename )
+//	console.log( "processing "+downloaded_filename )
 	
 	let dat=await pfs.readFile( downloaded_filename ,{ encoding: 'utf8' });
 	let json=dflat.xml_to_xson(dat)
@@ -346,11 +346,11 @@ packages.process_download=async function(argv)
 // if we got some organisations, spit them out individually
 	if( json["/iati-organisations/iati-organisation"] )
 	{
+		console.log( "found "+json["/iati-organisations/iati-organisation"].length+" organisations" )
 		let idx=0
 		await fse.emptyDir(basename)
 		for( const org of json["/iati-organisations/iati-organisation"] )
 		{
-			console.log( "found "+json["/iati-organisations/iati-organisation"].length+" organisations" )
 			let pid=dflat.saneid( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) )
 			await packages.process_download_save( argv , { "/iati-organisations/iati-organisation":[org] } , basename+"/"+pid )
 			idx=idx+1
