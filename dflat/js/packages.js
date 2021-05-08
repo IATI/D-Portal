@@ -315,21 +315,32 @@ packages.process_download=async function(argv)
 	
 	if( ! fs.existsSync( downloaded_filename ) )
 	{
-		console.log( "input file does not exist "+downloaded_filename )
+		console.log( "dflat: input XML file does not exist" )
 		return
 	}
 
 //	console.log( "processing "+downloaded_filename )
 	
 	let dat=await pfs.readFile( downloaded_filename ,{ encoding: 'utf8' });
-	let json=dflat.xml_to_xson(dat)
-	
+	let json={}
+
+	try{
+
+		json=dflat.xml_to_xson(dat)
+
+	}catch(e){
+		
+		console.log( "dflat: invalid XML format" )
+		return
+	}
+
 	dflat.clean(json) // we want cleaned up data
 	
+	let total=0
 	let basename=path.join(argv.dir,"xml/"+slug)
-//	await packages.process_download_save( argv , json , basename )
 
-// if we got some activities, spit them out individually
+// if we find some activities, spit them out individually
+
 	if( json["/iati-activities/iati-activity"] )
 	{
 		console.log( "found "+json["/iati-activities/iati-activity"].length+" activities" )
@@ -340,10 +351,12 @@ packages.process_download=async function(argv)
 			let aid=dflat.saneid( act["/iati-identifier"] || ("ERROR-NO-ID-"+idx) )
 			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+aid )
 			idx=idx+1
+			total=total+1
 		}
 	}
 
-// if we got some organisations, spit them out individually
+// if we find some organisations, spit them out individually
+
 	if( json["/iati-organisations/iati-organisation"] )
 	{
 		console.log( "found "+json["/iati-organisations/iati-organisation"].length+" organisations" )
@@ -354,8 +367,14 @@ packages.process_download=async function(argv)
 			let pid=dflat.saneid( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) )
 			await packages.process_download_save( argv , { "/iati-organisations/iati-organisation":[org] } , basename+"/"+pid )
 			idx=idx+1
+			total=total+1
 		}
 	}
 
+	if( total==0 )
+	{
+		console.log( "dflat: no activities or organisations found in XML file" )
+		return
+	}
 
 }
