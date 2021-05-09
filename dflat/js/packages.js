@@ -46,16 +46,12 @@ packages.prepare_download_common=async function(argv)
 	argv.dir_downloads  = path.join(argv.dir,"downloads")
 	argv.dir_logs   = path.join(argv.dir,"logs")
 	argv.dir_xml   = path.join(argv.dir,"xml")
-	argv.dir_json   = path.join(argv.dir,"json")
-	argv.dir_csv   = path.join(argv.dir,"csv")
 
 	await fse.emptyDir(argv.dir) // create output directories
 	await fse.emptyDir(argv.dir_downloads)
 	
 	await fse.emptyDir(argv.dir_logs)
 	await fse.emptyDir(argv.dir_xml)
-	await fse.emptyDir(argv.dir_json)
-	await fse.emptyDir(argv.dir_csv)
 	
 }
 
@@ -66,11 +62,9 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		if (a.slug > b.slug) { return  1 }
 		return 0
 	})
-	await fse.writeFile( path.join(argv.dir,"downloads.json") , stringify( downloads , {space:" "} ) )
 
 	var txt=[]
 	var curl=[]
-//	var badcurl=[]
 	for(var idx in downloads)
 	{
 		var it=downloads[idx]
@@ -80,35 +74,13 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 			it.url=it.url.split(" ").join("%20")	// spaces break *sometimes* when used in the url
 			
 			txt.push(it.slug+" "+it.url+"\n")
-
-			curl.push("echo > logs/"+it.slug+".txt ; echo 'Downloading "+it.slug+" from \""+it.url+"\"' | tee -a logs/"+it.slug+".txt ; curl --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 100 --insecure --ciphers 'DEFAULT:!DH' --location --output downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a logs/"+it.slug+".txt\n")
 		}
 		else
 		{
 			console.log("ignoring bad url "+it.slug+" "+it.url)
 		}
-
-//		badcurl.push("curl -o "+it.slug+".xml \""+it.url+"\" \n")
 	}
 	await fse.writeFile( path.join(argv.dir,"downloads.txt") , txt.join("") )
-	await fse.writeFile( path.join(argv.dir,"downloads.curl") , curl.join("") )
-//	await fse.writeFile( path.join(argv.dir,"downloads.badcurl") , badcurl.join("") )
-
-
-
-	var txt=[]
-	var parse=[]
-	for(var idx in downloads)
-	{
-		var it=downloads[idx]
-		
-		txt.push(it.slug+"\n")
-
-		parse.push("echo 'Parsing "+it.slug+"' | tee -a logs/"+it.slug+".txt ; node "+argv.filename_dflat+" --dir . packages "+it.slug+" 2>&1 | tee -a logs/"+it.slug+".txt\n")
-	}
-	await fse.writeFile( path.join(argv.dir,"packages.txt") , txt.join("") )
-	await fse.writeFile( path.join(argv.dir,"packages.parse") , parse.join("") )
-
 
 
 	await fse.writeFile( path.join(argv.dir,"downloads.sh") ,
@@ -125,10 +97,30 @@ if ! [ -x "$(command -v parallel)" ]; then
 	sudo apt install -y parallel
 fi
 
+
+dodataset() {
+declare -a 'a=('"$1"')'
+slug=\x24{a[0]}
+url=\x24{a[1]}
+
+echo > logs/$slug.txt
+
+echo Downloading $slug from "$url" | tee -a logs/$slug.txt
+
+httpcode=\`curl -w "%{http_code}" --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 100 --insecure --ciphers 'DEFAULT:!DH' --location --output downloads/$slug.xml "$url"\`
+
+if [ "$httpcode" -ne "200" ] ; then
+	rm downloads/$slug.xml
+	echo curl: download ERROR $httpcode | tee -a logs/$slug.txt
+fi
+
+}
+export -f dodataset
+
 if [ "$1" = "debug" ] ; then
-	bash downloads.curl
+	cat downloads.txt | parallel -j 1 --bar dodataset
 else
-	cat downloads.curl | sort -R | parallel -j 64 --bar
+	cat downloads.txt | sort -R | parallel -j 64 --bar dodataset
 fi
 
 cat logs/*.txt >logs.txt
@@ -146,10 +138,22 @@ if ! [ -x "$(command -v parallel)" ]; then
 	sudo apt install -y parallel
 fi
 
+dodataset() {
+declare -a 'a=('"$1"')'
+slug=\x24{a[0]}
+url=\x24{a[1]}
+
+echo Parsing $slug | tee -a logs/$slug.txt
+
+node ${argv.filename_dflat} --dir . packages $slug 2>&1 | tee -a logs/$slug.txt
+
+}
+export -f dodataset
+
 if [ "$1" = "debug" ] ; then
-	bash packages.parse
+	cat downloads.txt | parallel -j 1 --bar dodataset
 else
-	cat packages.parse | sort -R | parallel -j -1 --bar
+	cat downloads.txt | sort -R | parallel -j -1 --bar dodataset
 fi
 
 cat logs/*.txt >logs.txt
