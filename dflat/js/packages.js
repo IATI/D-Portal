@@ -86,7 +86,8 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 
 	await fse.writeFile( path.join(argv.dir,"downloads.sh") ,
 `
-cd \`dirname $0\`
+dirname=$( dirname "$(readlink -f "$0")" )
+cd "$dirname"
 
 if ! [ -x "$(command -v curl)" ]; then
 	echo "curl is not installed, atempting to install"
@@ -108,7 +109,7 @@ echo > logs/$slug.txt
 
 echo Downloading $slug from "$url" | tee -a logs/$slug.txt
 
-httpcode=\`curl -w "%{http_code}" --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 100 --insecure --ciphers 'DEFAULT:!DH' --location --output downloads/$slug.xml "$url"\`
+httpcode=$( curl -w "%{http_code}" --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 100 --insecure --ciphers 'DEFAULT:!DH' --location --output downloads/$slug.xml "$url" )
 
 if [ "$httpcode" -ne "200" ] ; then
 	rm downloads/$slug.xml
@@ -132,7 +133,8 @@ cat logs/*.txt >logs.txt
 
 	await fse.writeFile( path.join(argv.dir,"packages.sh") ,
 `
-cd \`dirname $0\`
+dirname=$( dirname "$(readlink -f "$0")" )
+cd "$dirname"
 
 if ! [ -x "$(command -v parallel)" ]; then
 	echo "parallel is not installed, atempting to install"
