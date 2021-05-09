@@ -99,6 +99,15 @@ if ! [ -x "$(command -v parallel)" ]; then
 	sudo apt install -y parallel
 fi
 
+if ! [ -x "$(command -v uchardet)" ]; then
+	echo "uchardet is not installed, atempting to install"
+	sudo apt install -y uchardet
+fi
+
+if ! [ -x "$(command -v iconv)" ]; then
+	echo "iconv is not installed, atempting to install"
+	sudo apt install -y iconv
+fi
 
 dodataset() {
 declare -a 'a=('"$1"')'
@@ -112,9 +121,19 @@ echo Downloading $slug from "$url" | tee -a logs/$slug.txt
 httpcode=$( curl -w "%{http_code}" --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 100 --insecure --ciphers 'DEFAULT:!DH' --location --output downloads/$slug.xml "$url" )
 
 if [ "$httpcode" -ne "200" ] ; then
+
 	rm downloads/$slug.xml
 	echo curl: download ERROR $httpcode | tee -a logs/$slug.txt
+
+else # force output to utf8
+
+	ffmt=$(uchardet downloads/$slug.xml)
+	mv downloads/$slug.xml downloads/$slug.xml2
+	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
+	rm downloads/$slug.xml2
+
 fi
+
 
 }
 export -f dodataset
