@@ -72,6 +72,7 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		if( it.url.toLowerCase().startsWith("http") || it.url.toLowerCase().startsWith("ftp") ) // some mild sanity/security
 		{
 			it.url=it.url.split(" ").join("%20")	// spaces break *sometimes* when used in the url
+			it.url=it.url.split("(").join("%28").split(")").join("%29")	// and brackets confuse bash
 			
 			txt.push(it.slug+" "+it.url+"\n")
 		}
