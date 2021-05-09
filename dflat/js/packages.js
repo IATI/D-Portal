@@ -74,7 +74,7 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 			it.url=it.url.split(" ").join("%20")	// spaces break *sometimes* when used in the url
 			it.url=it.url.split("(").join("%28").split(")").join("%29")	// and brackets confuse bash
 			
-			txt.push(it.slug+" "+it.url+"\n")
+			txt.push("'"+it.slug+"' '"+it.url+"'\n")
 		}
 		else
 		{
@@ -144,7 +144,7 @@ declare -a 'a=('"$1"')'
 slug=\x24{a[0]}
 url=\x24{a[1]}
 
-echo Parsing $slug | tee -a logs/$slug.txt
+echo Parsing $slug from "$url" | tee -a logs/$slug.txt
 
 node ${argv.filename_dflat} --dir . packages $slug 2>&1 | tee -a logs/$slug.txt
 
