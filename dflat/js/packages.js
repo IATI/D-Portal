@@ -149,14 +149,19 @@ else # force output to utf8
 
 	if (( $(echo "$version < 2.0" |bc -l) )); then
 
-		echo "converting IATI version 1 to IATI version 2"
+		fmt="activities"
+		if grep -q "<iati-organisations" downloads/$slug.xml ; then
+			fmt="organisations"
+		fi
+		
+		echo "converting IATI $fmt version $version to version 2.03"
 
-		if [ ! -f "iati-activities.xsl" ] ; then
-			curl -sS https://raw.githubusercontent.com/codeforIATI/iati-transformer/main/iati_transformer/static/iati-activities.xsl -o iati-activities.xsl
+		if [ ! -f "iati-$fmt.xsl" ] ; then
+			curl -sS https://raw.githubusercontent.com/codeforIATI/iati-transformer/main/iati_transformer/static/iati-$fmt.xsl -o iati-$fmt.xsl
 		fi
 
 		cp downloads/$slug.xml downloads/$slug.xml2
-		xsltproc -o downloads/$slug.xml ./iati-activities.xsl downloads/$slug.xml2
+		xsltproc -o downloads/$slug.xml ./iati-$fmt.xsl downloads/$slug.xml2
 		rm downloads/$slug.xml2
 		
 	fi
