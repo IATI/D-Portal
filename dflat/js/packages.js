@@ -109,6 +109,17 @@ if ! [ -x "$(command -v iconv)" ]; then
 	sudo apt install -y iconv
 fi
 
+if ! [ -x "$(command -v pcregrep)" ]; then
+	echo "pcregrep is not installed, atempting to install"
+	sudo apt install -y pcregrep
+fi
+
+if ! [ -x "$(command -v xsltproc)" ]; then
+	echo "xsltproc is not installed, atempting to install"
+	sudo apt install -y xsltproc
+fi
+
+
 dodataset() {
 declare -a 'a=('"$1"')'
 slug=\x24{a[0]}
@@ -132,6 +143,23 @@ else # force output to utf8
 	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
 	rm downloads/$slug.xml2
 
+	version=$( pcregrep --buffer-size=1000000 --no-filename -o1 -r '<iati-.*version=\"([^\"]*)\"' downloads/$slug.xml )
+
+#	echo $version
+
+	if (( $(echo "$version < 2.0" |bc -l) )); then
+
+		echo "converting IATI version 1 to IATI version 2"
+
+		if [ ! -f "iati-activities.xsl" ] ; then
+			curl -sS https://raw.githubusercontent.com/codeforIATI/iati-transformer/main/iati_transformer/static/iati-activities.xsl -o iati-activities.xsl
+		fi
+
+		cp downloads/$slug.xml downloads/$slug.xml2
+		xsltproc -o downloads/$slug.xml ./iati-activities.xsl downloads/$slug.xml2
+		rm downloads/$slug.xml2
+		
+	fi
 fi
 
 
@@ -188,7 +216,7 @@ cat logs/*.txt >logs.txt
 `
 You may now run the bash scripts in \"`+argv.dir+`\" to download and parse packages.
 
-Please make sure you also have curl and parallel installed and available to these scripts.
+These scripts will try and apt install any missing commands that they require.
 `)
 
 }
