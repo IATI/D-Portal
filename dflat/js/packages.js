@@ -136,16 +136,11 @@ if [ "$httpcode" -ne "200" ] ; then
 	rm downloads/$slug.xml
 	echo curl: download ERROR $httpcode | tee -a logs/$slug.txt
 
-else # force output to utf8
+else
 
-	ffmt=$(uchardet downloads/$slug.xml)
-	mv downloads/$slug.xml downloads/$slug.xml2
-	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
-	rm downloads/$slug.xml2
+# try and convert old files to 2.03
 
-	version=$( pcregrep --buffer-size=1000000 --no-filename -o1 -r '<iati-.*version=\"([^\"]*)\"' downloads/$slug.xml )
-
-#	echo $version
+	version=$( pcregrep --buffer-size=10000000 --no-filename -o1 -r '<iati-.*version=\"([^\"]*)\"' downloads/$slug.xml )
 
 	if (( $(echo "$version < 2.0" |bc -l) )); then
 
@@ -165,8 +160,15 @@ else # force output to utf8
 		rm downloads/$slug.xml2
 		
 	fi
-fi
 
+# force output to utf8
+
+	ffmt=$(uchardet downloads/$slug.xml)
+	mv downloads/$slug.xml downloads/$slug.xml2
+	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
+	rm downloads/$slug.xml2
+
+fi
 
 }
 export -f dodataset
