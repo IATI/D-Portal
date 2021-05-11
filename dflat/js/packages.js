@@ -142,6 +142,7 @@ else
 
 	version=$( pcregrep --buffer-size=10000000 --no-filename -o1 -r '<iati-.*version=\"([^\"]*)\"' downloads/$slug.xml )
 
+	if [ ! -z "$version" ]; then
 	if (( $(echo "$version < 2.0" |bc -l) )); then
 
 		fmt="activities"
@@ -160,7 +161,8 @@ else
 		rm downloads/$slug.xml2
 		
 	fi
-
+	fi
+	
 # force output to utf8
 
 	ffmt=$(uchardet downloads/$slug.xml)
