@@ -221,6 +221,48 @@ cat logs/*.txt >logs.txt
 	await fse.chmod(     path.join(argv.dir,"packages.sh") , 0o755 )
 
 
+	await fse.writeFile( path.join(argv.dir,"sqlite.sh") ,
+`
+dirname=$( dirname "$(readlink -f "$0")" )
+cd "$dirname"
+
+if ! [ -x "$(command -v parallel)" ]; then
+	echo "parallel is not installed, atempting to install"
+	sudo apt install -y parallel
+fi
+
+if ! [ -x "$(command -v sqlite3)" ]; then
+	echo "sqlite3 is not installed, atempting to install"
+	sudo apt install -y sqlite3
+fi
+
+
+# ccreate new sqlite database
+
+rm database.sqlite
+node ${argv.filename_dflat} sqlite tables | sqlite3 database.sqlite | tee -a logs/$slug.txt
+
+
+dodataset() {
+declare -a 'a=('"$1"')'
+slug=\x24{a[0]}
+url=\x24{a[1]}
+
+echo sqlite $slug from "$url" | tee -a logs/$slug.txt
+
+node ${argv.filename_dflat} sqlite insert downloads/$slug.xml | sqlite3 database.sqlite | tee -a logs/$slug.txt
+
+}
+export -f dodataset
+
+cat downloads.txt | parallel -j 1 --bar dodataset
+
+cat logs/*.txt >logs.txt
+
+`)
+	await fse.chmod(     path.join(argv.dir,"sqlite.sh") , 0o755 )
+
+
 	console.log(
 `
 You may now run the bash scripts in \"`+argv.dir+`\" to download and parse packages.

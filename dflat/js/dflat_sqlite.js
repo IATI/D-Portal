@@ -61,6 +61,18 @@ insert more data.
 
 }
 
+
+dflat_sqlite.pragmas =
+`
+PRAGMA synchronous  = 0         ;
+PRAGMA encoding     = "UTF-8"   ;
+PRAGMA temp_store   = 2         ;
+`
+
+//PRAGMA journal_mode = WAL       ;
+//PRAGMA mmap_size    = 268435456 ;
+
+	
 dflat_sqlite.generate_tables = function()
 {
 	let tables={}
@@ -106,6 +118,8 @@ dflat_sqlite.generate_tables = function()
 
 dflat_sqlite.tables = async function(argv){
 
+	console.log( dflat_sqlite.pragmas )
+	
 	let tables=dflat_sqlite.generate_tables()
 
 	for( let tname in tables )
@@ -156,6 +170,8 @@ dflat_sqlite.tables = async function(argv){
 
 dflat_sqlite.insert = async function(argv){
 
+	console.log( dflat_sqlite.pragmas )
+
 	let tables=dflat_sqlite.generate_tables()
 
 	let fname=argv._[2]
@@ -179,6 +195,7 @@ CREATE TEMP TABLE kvs (k TEXT PRIMARY KEY, v TEXT);
 		if(root=="") { return }
 
 		let t=tables[root]
+		if(!t) { return }
 		let p
 		
 		let dat={}
