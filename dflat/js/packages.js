@@ -140,7 +140,7 @@ else
 
 # try and convert old files to 2.03
 
-	version=$( pcregrep --buffer-size=10000000 --no-filename -o1 -r '<iati-.*version=\"([^\"]*)\"' downloads/$slug.xml )
+	version=$( pcregrep --buffer-size=10000000 --no-filename -o1 -r '<iati-.*version=\"([^\"]*)\"' downloads/$slug.xml | head -n 1 )
 
 	if [ ! -z "$version" ]; then
 	if (( $(echo "$version < 2.0" |bc -l) )); then
@@ -150,14 +150,14 @@ else
 			fmt="organisations"
 		fi
 		
-		echo "converting IATI $fmt version $version to version 2.03"
+		echo "Converting IATI $fmt version $version to version 2.03" | tee -a logs/$slug.txt
 
 		if [ ! -f "iati-$fmt.xsl" ] ; then
 			curl -sS https://raw.githubusercontent.com/codeforIATI/iati-transformer/main/iati_transformer/static/iati-$fmt.xsl -o iati-$fmt.xsl
 		fi
 
 		cp downloads/$slug.xml downloads/$slug.xml2
-		xsltproc -o downloads/$slug.xml ./iati-$fmt.xsl downloads/$slug.xml2
+		xsltproc -o downloads/$slug.xml ./iati-$fmt.xsl downloads/$slug.xml2 2>&1 | tee -a logs/$slug.txt
 		rm downloads/$slug.xml2
 		
 	fi
@@ -399,17 +399,20 @@ packages.process_download=async function(argv)
 
 	dflat.clean(json) // we want cleaned up data
 	
+	let found=0
 	let total=0
 	let basename=path.join(argv.dir,"xml/"+slug)
 
 // if we find some activities, spit them out individually
 
-	if( json["/iati-activities/iati-activity"] )
+	if( json["/iati-activities/iati-activity"] || json["/iati-activities@version"] )
 	{
-		console.log( "found "+json["/iati-activities/iati-activity"].length+" activities" )
+		found=found+1
+		let tab=json["/iati-activities/iati-activity"] || []
+		console.log( "found "+tab.length+" activities" )
 		let idx=0
 		await fse.emptyDir(basename)
-		for( const act of json["/iati-activities/iati-activity"] )
+		for( const act of tab )
 		{
 			let aid=dflat.saneid( act["/iati-identifier"] || ("ERROR-NO-ID-"+idx) )
 			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+aid )
@@ -420,12 +423,14 @@ packages.process_download=async function(argv)
 
 // if we find some organisations, spit them out individually
 
-	if( json["/iati-organisations/iati-organisation"] )
+	if( json["/iati-organisations/iati-organisation"] || json["/iati-organisations@version"] )
 	{
-		console.log( "found "+json["/iati-organisations/iati-organisation"].length+" organisations" )
+		found=found+1
+		let tab=json["/iati-organisations/iati-organisation"] || []
+		console.log( "found "+tab.length+" organisations" )
 		let idx=0
 		await fse.emptyDir(basename)
-		for( const org of json["/iati-organisations/iati-organisation"] )
+		for( const org of tab )
 		{
 			let pid=dflat.saneid( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) )
 			await packages.process_download_save( argv , { "/iati-organisations/iati-organisation":[org] } , basename+"/"+pid )
@@ -434,7 +439,7 @@ packages.process_download=async function(argv)
 		}
 	}
 
-	if( total==0 )
+	if( found==0 )
 	{
 		console.log( "dflat: no activities or organisations found in XML file" )
 		return
