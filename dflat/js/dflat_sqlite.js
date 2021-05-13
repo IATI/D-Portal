@@ -136,13 +136,13 @@ dflat_sqlite.tables = async function(argv){
 			if( ctype=="primary" )
 			{
 				primary=cname
-				console.log(` "${cname}" INTEGER  ,`) // NOT NULL
+				console.log(` "${cname}" INTEGER NOT NULL ,`)
 			}
 			else
 			if( ctype=="join" )
 			{
 				primary=cname
-				console.log(` "${cname}" INTEGER  ,`) // NOT NULL
+				console.log(` "${cname}" INTEGER NOT NULL ,`)
 			}
 			else
 			if( ctype=="int" )
