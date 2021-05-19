@@ -2,6 +2,15 @@
 # Download all zips from OECD, unzip all files and remove all zips.
 
 cd `dirname $0`
-cd ../dstore/cache
+cd ../dstore
 
-wget -r -l1 -H -t1 -nd -N -np -A.zip -erobots=off https://webfs.oecd.org/crs-iati-xml/Donors/ https://webfs.oecd.org/crs-iati-xml/Recipients && unzip "*.zip" && rm *.zip
+mkdir -p cache
+cd cache
+
+
+wget -r -l1 -H -t1 -nd -N -np -A.zip -erobots=off https://webfs.oecd.org/crs-iati-xml/Donors/ https://webfs.oecd.org/crs-iati-xml/Recipients
+
+unzip "*.zip"
+
+rm *.zip
+

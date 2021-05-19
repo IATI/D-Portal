@@ -481,6 +481,7 @@ dflat.clean=function(data)
 	dflat.clean_copy_toplevel_attributes(data)
 	dflat.clean_copy_defaults(data)
 	dflat.clean_reduce_values(data)
+	dflat.clean_stable_sort_arrays(data)
 }
 
 // precalculate currency default map
@@ -765,6 +766,47 @@ dflat.clean_copy_defaults=function(data)
 				if( it["@percentage"]===undefined )
 				{
 					it["@percentage"]=100
+				}
+			}
+		})
+	}
+	
+	for( const act of (data["/iati-activities/iati-activity"] || [] ) )
+	{
+		f("/iati-activities/iati-activity",act)
+	}
+
+	for( const act of (data["/iati-organisations/iati-organisation"] || [] ) )
+	{
+		f("/iati-organisations/iati-organisation",act)
+	}
+
+	return data
+}
+
+// find all arrays and sort them into a stable order
+dflat.clean_stable_sort_arrays=function(data)
+{
+	let dosort=function(aa)
+	{
+		aa.sort(function(a,b){
+			let sa=stringify(a)
+			let sb=stringify(b)
+			if(sa<sb) { return -1 }
+			if(sb>sa) { return  1 }
+			return 0;
+		})
+	}
+	
+	let f=function(root,act)
+	{
+		xson.walk(act,function(it,paths,index){
+			let path=root+paths.join("")
+			for( let n in it)
+			{
+				if( ( "object" == typeof it[n] ) && ( Array.isArray(it[n]) ) )
+				{
+					dosort(it[n])
 				}
 			}
 		})

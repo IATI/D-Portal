@@ -46,16 +46,12 @@ packages.prepare_download_common=async function(argv)
 	argv.dir_downloads  = path.join(argv.dir,"downloads")
 	argv.dir_logs   = path.join(argv.dir,"logs")
 	argv.dir_xml   = path.join(argv.dir,"xml")
-	argv.dir_json   = path.join(argv.dir,"json")
-	argv.dir_csv   = path.join(argv.dir,"csv")
 
 	await fse.emptyDir(argv.dir) // create output directories
 	await fse.emptyDir(argv.dir_downloads)
 	
 	await fse.emptyDir(argv.dir_logs)
 	await fse.emptyDir(argv.dir_xml)
-	await fse.emptyDir(argv.dir_json)
-	await fse.emptyDir(argv.dir_csv)
 	
 }
 
@@ -66,52 +62,32 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 		if (a.slug > b.slug) { return  1 }
 		return 0
 	})
-	await fse.writeFile( path.join(argv.dir,"downloads.json") , stringify( downloads , {space:" "} ) )
 
 	var txt=[]
 	var curl=[]
-//	var badcurl=[]
 	for(var idx in downloads)
 	{
 		var it=downloads[idx]
 
 		if( it.url.toLowerCase().startsWith("http") || it.url.toLowerCase().startsWith("ftp") ) // some mild sanity/security
 		{
-			txt.push(it.slug+" "+it.url+"\n")
-
-			curl.push("echo Downloading "+it.slug+" : \""+it.url+"\" | tee downloads/"+it.slug+".log ; curl --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 1000 --insecure --location --output downloads/"+it.slug+".xml \""+it.url+"\" 2>&1 >/dev/null | tee -a downloads/"+it.slug+".log\n")
+			it.url=it.url.split(" ").join("%20")	// spaces break *sometimes* when used in the url
+			it.url=it.url.split("(").join("%28").split(")").join("%29")	// and brackets confuse bash
+			
+			txt.push("'"+it.slug+"' '"+it.url+"'\n")
 		}
 		else
 		{
 			console.log("ignoring bad url "+it.slug+" "+it.url)
 		}
-
-//		badcurl.push("curl -o "+it.slug+".xml \""+it.url+"\" \n")
 	}
 	await fse.writeFile( path.join(argv.dir,"downloads.txt") , txt.join("") )
-	await fse.writeFile( path.join(argv.dir,"downloads.curl") , curl.join("") )
-//	await fse.writeFile( path.join(argv.dir,"downloads.badcurl") , badcurl.join("") )
-
-
-
-	var txt=[]
-	var parse=[]
-	for(var idx in downloads)
-	{
-		var it=downloads[idx]
-		
-		txt.push(it.slug+"\n")
-
-		parse.push("echo Parsing "+it.slug+" | tee logs/"+it.slug+".log ; node "+argv.filename_dflat+" --dir . packages "+it.slug+" 2>&1 | tee -a logs/"+it.slug+".log\n")
-	}
-	await fse.writeFile( path.join(argv.dir,"packages.txt") , txt.join("") )
-	await fse.writeFile( path.join(argv.dir,"packages.parse") , parse.join("") )
-
 
 
 	await fse.writeFile( path.join(argv.dir,"downloads.sh") ,
 `
-cd \`dirname $0\`
+dirname=$( dirname "$(readlink -f "$0")" )
+cd "$dirname"
 
 if ! [ -x "$(command -v curl)" ]; then
 	echo "curl is not installed, atempting to install"
@@ -123,13 +99,89 @@ if ! [ -x "$(command -v parallel)" ]; then
 	sudo apt install -y parallel
 fi
 
-if [ "$1" = "debug" ] ; then
-	bash downloads.curl
-else
-	cat downloads.curl | sort -R | parallel -j 64 --bar
+if ! [ -x "$(command -v uchardet)" ]; then
+	echo "uchardet is not installed, atempting to install"
+	sudo apt install -y uchardet
 fi
 
-cat downloads/*.log >downloads.log
+if ! [ -x "$(command -v iconv)" ]; then
+	echo "iconv is not installed, atempting to install"
+	sudo apt install -y iconv
+fi
+
+if ! [ -x "$(command -v pcregrep)" ]; then
+	echo "pcregrep is not installed, atempting to install"
+	sudo apt install -y pcregrep
+fi
+
+if ! [ -x "$(command -v xsltproc)" ]; then
+	echo "xsltproc is not installed, atempting to install"
+	sudo apt install -y xsltproc
+fi
+
+
+dodataset() {
+declare -a 'a=('"$1"')'
+slug=\x24{a[0]}
+url=\x24{a[1]}
+
+echo > logs/$slug.txt
+
+echo Downloading $slug from "$url" | tee -a logs/$slug.txt
+
+httpcode=$( curl -w "%{http_code}" --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 100 --insecure --ciphers 'DEFAULT:!DH' --location --output downloads/$slug.xml "$url" )
+
+if [ "$httpcode" -ne "200" ] ; then
+
+	rm downloads/$slug.xml
+	echo curl: download ERROR $httpcode | tee -a logs/$slug.txt
+
+else
+
+# try and convert old files to 2.03
+
+	version=$( pcregrep --buffer-size=10000000 --no-filename -o1 -r '<iati-.*version=\"([^\"]*)\"' downloads/$slug.xml | head -n 1 )
+
+	if [ ! -z "$version" ]; then
+	if (( $(echo "$version < 2.0" |bc -l) )); then
+
+		fmt="activities"
+		if grep -q "<iati-organisations" downloads/$slug.xml ; then
+			fmt="organisations"
+		fi
+		
+		echo "Converting IATI $fmt version $version to version 2.03" | tee -a logs/$slug.txt
+
+		if [ ! -f "iati-$fmt.xsl" ] ; then
+			curl -sS https://raw.githubusercontent.com/codeforIATI/iati-transformer/main/iati_transformer/static/iati-$fmt.xsl -o iati-$fmt.xsl
+		fi
+
+		cp downloads/$slug.xml downloads/$slug.xml2
+		xsltproc -o downloads/$slug.xml ./iati-$fmt.xsl downloads/$slug.xml2 2>&1 | tee -a logs/$slug.txt
+		rm downloads/$slug.xml2
+		
+	fi
+	fi
+	
+# force output to utf8
+
+	ffmt=$(uchardet downloads/$slug.xml)
+	mv downloads/$slug.xml downloads/$slug.xml2
+	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
+	rm downloads/$slug.xml2
+
+fi
+
+}
+export -f dodataset
+
+if [ "$1" = "debug" ] ; then
+	cat downloads.txt | parallel -j 1 --bar dodataset
+else
+	cat downloads.txt | sort -R | parallel -j 64 --bar dodataset
+fi
+
+cat logs/*.txt >logs.txt
 
 `)
 	await fse.chmod(     path.join(argv.dir,"downloads.sh") , 0o755 )
@@ -137,30 +189,85 @@ cat downloads/*.log >downloads.log
 
 	await fse.writeFile( path.join(argv.dir,"packages.sh") ,
 `
-cd \`dirname $0\`
+dirname=$( dirname "$(readlink -f "$0")" )
+cd "$dirname"
 
 if ! [ -x "$(command -v parallel)" ]; then
 	echo "parallel is not installed, atempting to install"
 	sudo apt install -y parallel
 fi
 
+dodataset() {
+declare -a 'a=('"$1"')'
+slug=\x24{a[0]}
+url=\x24{a[1]}
+
+echo Parsing $slug from "$url" | tee -a logs/$slug.txt
+
+node ${argv.filename_dflat} --dir . packages $slug 2>&1 | tee -a logs/$slug.txt
+
+}
+export -f dodataset
+
 if [ "$1" = "debug" ] ; then
-	bash packages.parse
+	cat downloads.txt | parallel -j 1 --bar dodataset
 else
-	cat packages.parse | sort -R | parallel -j -1 --bar
+	cat downloads.txt | sort -R | parallel -j -1 --bar dodataset
 fi
 
-cat logs/*.log >logs.log
+cat logs/*.txt >logs.txt
 
 `)
 	await fse.chmod(     path.join(argv.dir,"packages.sh") , 0o755 )
+
+
+	await fse.writeFile( path.join(argv.dir,"sqlite.sh") ,
+`
+dirname=$( dirname "$(readlink -f "$0")" )
+cd "$dirname"
+
+if ! [ -x "$(command -v parallel)" ]; then
+	echo "parallel is not installed, atempting to install"
+	sudo apt install -y parallel
+fi
+
+if ! [ -x "$(command -v sqlite3)" ]; then
+	echo "sqlite3 is not installed, atempting to install"
+	sudo apt install -y sqlite3
+fi
+
+
+# ccreate new sqlite database
+
+rm database.sqlite
+node ${argv.filename_dflat} sqlite tables | sqlite3 database.sqlite | tee -a logs/$slug.txt
+
+
+dodataset() {
+declare -a 'a=('"$1"')'
+slug=\x24{a[0]}
+url=\x24{a[1]}
+
+echo sqlite $slug from "$url" | tee -a logs/$slug.txt
+
+node ${argv.filename_dflat} sqlite insert downloads/$slug.xml | sqlite3 database.sqlite | tee -a logs/$slug.txt
+
+}
+export -f dodataset
+
+cat downloads.txt | parallel -j 1 --bar dodataset
+
+cat logs/*.txt >logs.txt
+
+`)
+	await fse.chmod(     path.join(argv.dir,"sqlite.sh") , 0o755 )
 
 
 	console.log(
 `
 You may now run the bash scripts in \"`+argv.dir+`\" to download and parse packages.
 
-Please make sure you also have curl and parallel installed and available to these scripts.
+These scripts will try and apt install any missing commands that they require.
 `)
 
 }
@@ -267,6 +374,7 @@ packages.process_download_save=async function(argv,json,basename)
 {
 
 // The generated time stamps in the iati-activities tend to be auto generated garbage so are removed here
+// otherwise they change every time we fetch them and confuse any attempt to log what has changed over time.
 
 	dflat.clean_remove_dataset_timestamps(json)
 
@@ -312,45 +420,71 @@ packages.process_download=async function(argv)
 	
 	if( ! fs.existsSync( downloaded_filename ) )
 	{
-		console.log( "input file does not exist "+downloaded_filename )
+		console.log( "dflat: input XML file does not exist" )
 		return
 	}
 
-	console.log( "processing "+downloaded_filename )
+//	console.log( "processing "+downloaded_filename )
 	
 	let dat=await pfs.readFile( downloaded_filename ,{ encoding: 'utf8' });
-	let json=dflat.xml_to_xson(dat)
-	
+	let json={}
+
+	try{
+
+		json=dflat.xml_to_xson(dat)
+
+	}catch(e){
+		
+		console.log( "dflat: invalid XML format" )
+		return
+	}
+
 	dflat.clean(json) // we want cleaned up data
 	
+	let found=0
+	let total=0
 	let basename=path.join(argv.dir,"xml/"+slug)
-//	await packages.process_download_save( argv , json , basename )
 
-// if we got some activities, spit them out individually
-	if( json["/iati-activities/iati-activity"] )
+// if we find some activities, spit them out individually
+
+	if( json["/iati-activities/iati-activity"] || json["/iati-activities@version"] )
 	{
+		found=found+1
+		let tab=json["/iati-activities/iati-activity"] || []
+		console.log( "found "+tab.length+" activities" )
 		let idx=0
 		await fse.emptyDir(basename)
-		for( const act of json["/iati-activities/iati-activity"] )
+		for( const act of tab )
 		{
 			let aid=dflat.saneid( act["/iati-identifier"] || ("ERROR-NO-ID-"+idx) )
 			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+aid )
 			idx=idx+1
+			total=total+1
 		}
 	}
 
-// if we got some organisations, spit them out individually
-	if( json["/iati-organisations/iati-organisation"] )
+// if we find some organisations, spit them out individually
+
+	if( json["/iati-organisations/iati-organisation"] || json["/iati-organisations@version"] )
 	{
+		found=found+1
+		let tab=json["/iati-organisations/iati-organisation"] || []
+		console.log( "found "+tab.length+" organisations" )
 		let idx=0
 		await fse.emptyDir(basename)
-		for( const org of json["/iati-organisations/iati-organisation"] )
+		for( const org of tab )
 		{
 			let pid=dflat.saneid( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) )
 			await packages.process_download_save( argv , { "/iati-organisations/iati-organisation":[org] } , basename+"/"+pid )
 			idx=idx+1
+			total=total+1
 		}
 	}
 
+	if( found==0 )
+	{
+		console.log( "dflat: no activities or organisations found in XML file" )
+		return
+	}
 
 }

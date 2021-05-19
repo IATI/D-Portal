@@ -140,7 +140,7 @@ var charset="unknown";
 		if(aa[0]) // possible activities header, merge these attributes into iati-activity later on
 		{
 			var refry=require('./refry');
-			var xt=refry.tag( refry.xml(aa[0]) , "iati-activities" );
+			var xt=refry.tag( refry.xml(aa[0]+"</iati-activities>") , "iati-activities" );
 			if(xt)
 			{
 				delete xt["0"];

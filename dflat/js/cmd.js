@@ -250,6 +250,12 @@ cmd.run=async function(argv)
 		return
 	}
 
+	if( argv._[0]=="sqlite" )
+	{
+		await require("./dflat_sqlite.js").cmd(argv)
+		return
+	}
+
 	// help text
 	console.log(
 `
@@ -314,6 +320,11 @@ activities/ in the data directory.
 
 Update a git repository as a chronological series of data files using 
 git commits insode branches as chronological history.
+
+>	dflat sqlite
+
+More info about managing an sqlite database of dflat data.
+
 
 `)
 }

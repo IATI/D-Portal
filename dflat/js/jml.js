@@ -69,6 +69,12 @@ jml.from_xml=function(data)
 
 	parser.write(data);
 
+	if(stack.length>1)
+	{
+		throw new Error("premature ending in xml data")
+	}
+
+
 	return stack[0] && stack[0][1] && stack[0][1][0];
 	
 }
