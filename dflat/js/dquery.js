@@ -47,7 +47,7 @@ dquery.start_loaded=async function(){
 
 	var ace=require("brace")
 	require("brace/ext/modelist")
-	require("brace/theme/twilight")
+	require("brace/theme/tomorrow_night_eighties")
 
 	require("brace/mode/pgsql")
 //	require("brace/mode/json")
@@ -94,7 +94,7 @@ dquery.start_loaded=async function(){
 	})
 		
 	dquery.editor=ace.edit("editor");
-	dquery.editor.setTheme("ace/theme/twilight");
+	dquery.editor.setTheme("ace/theme/tomorrow_night_eighties");
 	dquery.editor.$blockScrolling = Infinity 
 
 	dquery.hash=window.location.hash

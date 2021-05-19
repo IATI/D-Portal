@@ -2,7 +2,7 @@
 
 *		{box-sizing:border-box;}
 html	{overflow:hidden;}
-body	{background:#141414; font-family:'Cabin',monospace,sans-serif; font-size:14px; letter-spacing:1px; line-height:20px; color:#ddd; width:100%; padding:0; margin:0 auto; position:relative; margin:0; position:absolute; top:0; bottom:0; left:0; right:0;}
+body	{background:#333; font-family:'Cabin',monospace,sans-serif; font-size:14px; letter-spacing:1px; line-height:20px; color:#ddd; width:100%; padding:0; margin:0 auto; position:relative; margin:0; position:absolute; top:0; bottom:0; left:0; right:0;}
 a		{color:#88f;}
 b		{font-weight:700;}
 
@@ -11,11 +11,11 @@ a		{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out;
 
 /*	Main containers	*/
 #top_title	{display:inline-block;}
-#split_top	{margin:0; height:32px; width:100%; overflow:hidden;}
-#split_bot	{margin:0; position:absolute; top:32px; bottom:0; left:0; right:0;}
+#split_top	{background-color:#272727; padding:5px; margin:0; height:42px; width:100%; overflow:hidden;}
+#split_bot	{margin:0; position:absolute; top:42px; bottom:0; left:0; right:0;}
 #editor		{margin:0; position:absolute; top:0; bottom:0; left:0; right:0; font-size:14px;}
 .result		{width:100%; height:100%; overflow: scroll; border:0;}
-.about		{position:absolute; top:0; right:15px; color:#666; font-size:12px;}
+.about		{position:absolute; top:10px; right:15px; color:#ccc; font-size:12px;}
 .splitter_panel .vsplitter	{background-color:#222;}
 .splitter_panel .hsplitter	{background-color:#222;}
 .ace_editor					{font-size:16px;}
@@ -25,6 +25,20 @@ a		{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out;
 #menubar 				{display:inline-block;}
 #menubar > li 			{display:inline-block; line-height:24px;}
 #menubar > li > ul > li {display:block;}
+
+.ui-widget.ui-widget-content	{border:0; background-color:#272727;}
+.ui-menu .ui-menu-item-wrapper	{padding:3px 1em; display:flex; align-items:center; height:100%;}
+.ui-menu .ui-menu-item-wrapper svg	{margin-left:5px;}
+.ui-icon	{display:none; width:0; height:0;}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {border:1px solid #272727; background:#205c79; font-weight:normal; color:#ffffff; border-radius:4px;}
+
+#menu_execute .ui-state-active	{background:#793D20;}
 
 /*	Font styles	*/
 .json-string		{color:#63c156;}
