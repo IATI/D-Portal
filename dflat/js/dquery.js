@@ -109,7 +109,7 @@ dquery.start_loaded=async function(){
 	$('body').keydown(function (e) {
 	  if (e.ctrlKey && e.keyCode == 13) {
 		  
-		  dquery.click("nenu_execute")
+		  dquery.click("menu_execute")
 	  }
 	});
 

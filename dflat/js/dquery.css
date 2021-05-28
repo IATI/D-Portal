@@ -19,6 +19,7 @@ a		{cursor:pointer; overflow-wrap:break-word; word-wrap:break-word; word-break:b
 .splitter_panel .vsplitter	{background-color:#222;}
 .splitter_panel .hsplitter	{background-color:#222;}
 .ace_editor					{font-size:16px;}
+#editor						{font-size:16px;}
 .ace-twilight .ace_gutter	{color:#666 !important;}
 
 /*	Menus	*/
@@ -38,6 +39,9 @@ a		{cursor:pointer; overflow-wrap:break-word; word-wrap:break-word; word-break:b
 .ui-menu .ui-menu-item-wrapper svg	{margin-left:5px;}
 .ui-icon	{display:none; width:0; height:0;}
 
+#menubar li#menu_how a	{display:block; text-decoration:none;}
+#menubar li#menu_how a svg	{margin:0 auto; vertical-align:middle;}
+
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active,
@@ -46,6 +50,7 @@ a.ui-button:active,
 .ui-button.ui-state-active:hover {border:1px solid #272727; background:#205c79; font-weight:normal; color:#ffffff; border-radius:4px;}
 
 #menu_execute .ui-state-active	{background:#793D20;}
+#menu_how .ui-state-active		{background:#29A27E;}
 
 /*	Font styles	*/
 .json-document		{font-size:14px; line-height:1.25em;}
