@@ -4365,6 +4365,8 @@ curl -k -L -o unocha-onetimecosts-blo.xml "https://oct.unocha.org/octws/OCTPubli
 curl -k -L -o unocha-onetimecosts-glo.xml "https://oct.unocha.org/octws/OCTPublishData.svc/GetIATIContribution?activity=O501" 
 curl -k -L -o unocha-onetimecosts-rosa.xml "https://oct.unocha.org/octws/OCTPublishData.svc/GetIATIContribution?activity=O177" 
 curl -k -L -o unocha-onetimecosts-rocca.xml "https://oct.unocha.org/octws/OCTPublishData.svc/GetIATIContribution?activity=N506" 
+curl -k -L -o oca-activities.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/oca-activities.xml" 
+curl -k -L -o oca-org.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/oca-org.xml" 
 curl -k -L -o opennorth-ua.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/opennorth-ua.xml" 
 curl -k -L -o opennorth-org.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/opennorth-org.xml" 
 curl -k -L -o ia_nam-o52.xml "https://ngoaidmap.org/iati/organizations/52" 
