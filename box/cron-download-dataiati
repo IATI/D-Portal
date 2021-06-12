@@ -2,22 +2,32 @@ cd `dirname $0`
 mkdir -p ../dstore/cache
 cd ../dstore
 
-# remove old cache and backup current cache
-rm -rf cache2
-mv cache cache2
 
 STARTTIME=$(date +%s)
 echo "Starting Download of all xml files at $(date)" | tee -a time.log
 
-git clone git@github.com:xriss/dataiati.git
+echo "emptying old datasets"
+
+cd cache
+doempty() {
+file=$1
+	echo "" >$file
+}
+export -f doempty
+ls *.xml | sort -R | parallel --bar doempty
+cd ..
+
+echo "fetching new datasets"
+
+git clone git@github.com:xriss/dataiati.git || echo "already cloned"
 cd dataiati
 git pull
+
+echo "copying datasets"
+
 ./datasets.sh
 cd ..
-mv dataiati/datasets cache
-
-# remember current errors
-cat dataiati/errors.txt
+mv dataiati/datasets/*.xml cache/
 
 cd cache
 
