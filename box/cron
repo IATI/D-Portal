@@ -27,7 +27,7 @@ bin/build
 /box/dportal-stop
 /box/dportal-start
 
-/dportal/box/cron-download >/dportal/logs/cron.download.log 2>&1
+/dportal/box/cron-download-dataiati >/dportal/logs/cron.download.log 2>&1
 
 /dportal/box/cron-swap-import 2>&1
 
