@@ -138,6 +138,15 @@ if [ "$httpcode" -ne "200" ] && [ "$httpcode" -ne "226" ] ; then
 
 else
 
+# force output to utf8 and replace xml declaration on first line of file
+
+	ffmt=$(uchardet downloads/$slug.xml)
+	mv downloads/$slug.xml downloads/$slug.xml2
+	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
+	echo '<?xml version="1.0" ?>' >downloads/$slug.xml2
+	tail -n +2 downloads/$slug.xml >downloads/$slug.xml2
+	mv downloads/$slug.xml2 downloads/$slug.xml
+
 # try and convert old files to 2.03
 
 	version=$( pcregrep --buffer-size=10000000 --no-filename -o1 -r '<iati-.*version=\"([^\"]*)\"' downloads/$slug.xml | head -n 1 )
@@ -163,13 +172,6 @@ else
 	fi
 	fi
 	
-# force output to utf8
-
-	ffmt=$(uchardet downloads/$slug.xml)
-	mv downloads/$slug.xml downloads/$slug.xml2
-	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
-	rm downloads/$slug.xml2
-
 fi
 
 }
