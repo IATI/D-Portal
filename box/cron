@@ -24,8 +24,8 @@ echo
 
 bin/build
 
-/box/dportal-stop
-/box/dportal-start
+/dportal/box/dportal-stop
+/dportal/box/dportal-start
 
 /dportal/box/cron-download-dataiati >/dportal/logs/cron.download.log 2>&1
 
