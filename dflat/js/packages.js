@@ -119,6 +119,11 @@ if ! [ -x "$(command -v xsltproc)" ]; then
 	sudo apt install -y xsltproc
 fi
 
+if ! [ -x "$(command -v sed)" ]; then
+	echo "sed is not installed, atempting to install"
+	sudo apt install -y sed
+fi
+
 
 dodataset() {
 declare -a 'a=('"$1"')'
@@ -143,9 +148,7 @@ else
 	ffmt=$(uchardet downloads/$slug.xml)
 	mv downloads/$slug.xml downloads/$slug.xml2
 	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
-	echo '<?xml version="1.0" ?>' >downloads/$slug.xml2
-	tail -n +2 downloads/$slug.xml >downloads/$slug.xml2
-	mv downloads/$slug.xml2 downloads/$slug.xml
+	sed -i'' '/^<?xml/d' downloads/$slug.xml
 
 # try and convert old files to 2.03
 
