@@ -148,7 +148,7 @@ else
 	ffmt=$(uchardet downloads/$slug.xml)
 	mv downloads/$slug.xml downloads/$slug.xml2
 	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
-	sed -i'' '/^<?xml/d' downloads/$slug.xml
+	sed -i'' 's/^<?.*?>//g' downloads/$slug.xml
 
 # try and convert old files to 2.03
 
