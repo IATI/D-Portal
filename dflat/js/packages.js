@@ -143,11 +143,12 @@ if [ "$httpcode" -ne "200" ] && [ "$httpcode" -ne "226" ] ; then
 
 else
 
-# force output to utf8 and replace xml declaration on first line of file
+# force output to utf8 and replace xml declaration on first line of file, iconv may fail if uchardet picks a bad charset...
 
 	ffmt=$(uchardet downloads/$slug.xml)
 	mv downloads/$slug.xml downloads/$slug.xml2
-	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
+	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml || cp downloads/$slug.xml2 downloads/$slug.xml
+	rm downloads/$slug.xml2
 	sed -i'' 's/^<?.*?>//g' downloads/$slug.xml
 
 # try and convert old files to 2.03
