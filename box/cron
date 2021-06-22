@@ -7,6 +7,29 @@ exec >/dportal/logs/cron.log
 source /dportal/box/env.sh
 
 
+if [[ $(date +%u) -eq 1 ]]; then
+
+echo "Updating freechange"
+
+mkdir -p tmp
+cd tmp
+
+rm -rf freechange
+git clone git@github.com:xriss/freechange.git
+cd freechange
+./freechange download
+./npm_publish
+cd ..
+
+cd ..
+
+npm install freechange@latest
+git add .
+git commit -m"freechange"
+
+fi
+
+
 echo
 echo "Get new json data"
 echo
@@ -24,10 +47,10 @@ echo
 
 bin/build
 
-/box/dportal-stop
-/box/dportal-start
+/dportal/box/dportal-stop
+/dportal/box/dportal-start
 
-/dportal/box/cron-download >/dportal/logs/cron.download.log 2>&1
+/dportal/box/cron-download-dataiati >/dportal/logs/cron.download.log 2>&1
 
 /dportal/box/cron-swap-import 2>&1
 

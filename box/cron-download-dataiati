@@ -1,0 +1,38 @@
+cd `dirname $0`
+mkdir -p ../dstore/cache
+cd ../dstore
+
+
+STARTTIME=$(date +%s)
+echo "Starting Download of all xml files at $(date)" | tee -a cache/time.log
+
+echo "emptying old datasets"
+
+cd cache
+doempty() {
+file=$1
+	echo "" >$file
+}
+export -f doempty
+ls *.xml | sort -R | parallel --bar doempty
+cd ..
+
+echo "fetching new datasets"
+
+git clone git@github.com:xriss/dataiati.git || echo "already cloned"
+cd dataiati
+git pull
+
+echo "copying datasets"
+
+./datasets.sh
+cd ..
+mv dataiati/datasets/*.xml cache/
+
+cd cache
+
+ENDTIME=$(date +%s)
+echo "Finished Download of all xml files at $(date)" | tee -a cache/time.log
+ls -s *.xml | awk '{sum+=$1;} END {printf("%'"'"'d kilobytes downloaded\n",sum);}' | tee -a cache/time.log
+echo "Download took  $(($ENDTIME - $STARTTIME)) seconds to complete." | tee -a cache/time.log
+echo "" | tee -a cache/time.log

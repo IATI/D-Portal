@@ -119,6 +119,11 @@ if ! [ -x "$(command -v xsltproc)" ]; then
 	sudo apt install -y xsltproc
 fi
 
+if ! [ -x "$(command -v sed)" ]; then
+	echo "sed is not installed, atempting to install"
+	sudo apt install -y sed
+fi
+
 
 dodataset() {
 declare -a 'a=('"$1"')'
@@ -131,12 +136,20 @@ echo Downloading $slug from "$url" | tee -a logs/$slug.txt
 
 httpcode=$( curl -w "%{http_code}" --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 100 --insecure --ciphers 'DEFAULT:!DH' --location --output downloads/$slug.xml "$url" )
 
-if [ "$httpcode" -ne "200" ] && [ "$httpcode" -ne "226" ] ; then
+if [ "$httpcode" -ne "200" ] && [ "$httpcode" -ne "301" ] && [ "$httpcode" -ne "302" ] && [ "$httpcode" -ne "226" ] ; then
 
 	rm downloads/$slug.xml
 	echo curl: download ERROR $httpcode | tee -a logs/$slug.txt
 
 else
+
+# force output to utf8 and replace xml declaration on first line of file, iconv may fail if uchardet picks a bad charset...
+
+	ffmt=$(uchardet downloads/$slug.xml)
+	mv downloads/$slug.xml downloads/$slug.xml2
+	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml || cp downloads/$slug.xml2 downloads/$slug.xml
+	rm downloads/$slug.xml2
+	sed -i'' 's/^<?.*?>//g' downloads/$slug.xml
 
 # try and convert old files to 2.03
 
@@ -163,13 +176,6 @@ else
 	fi
 	fi
 	
-# force output to utf8
-
-	ffmt=$(uchardet downloads/$slug.xml)
-	mv downloads/$slug.xml downloads/$slug.xml2
-	iconv -f $ffmt -t utf8 downloads/$slug.xml2 -o downloads/$slug.xml
-	rm downloads/$slug.xml2
-
 fi
 
 }

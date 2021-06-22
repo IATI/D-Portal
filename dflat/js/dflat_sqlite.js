@@ -84,22 +84,33 @@ dflat_sqlite.generate_tables = function()
 		tables[name]=t
 		for(let i=1;i<p.jpath.length;i++) // sub ids
 		{
+			let n=p.jpath[i-1]
+			for(let j=i-2;j>0;j--)
+			{
+				n=p.jpath[j]+n
+			}
 			if(i==p.jpath.length-1)
 			{
-				t["id"+i]="primary"
+				t[n+"@key"]="primary"
 			}
 			else
 			{
-				t["id"+i]="join"
+				t[n+"@key"]="join"
 			}
 		}
 //		t["json"+(p.jpath.length-1)]="text"
 		return t
 	}
 
+	let ordered_paths=[]
 	for( let n in database.paths )
 	{
-		let p=database.paths[n]
+		ordered_paths[ordered_paths.length]=database.paths[n]
+	}
+	ordered_paths.sort(function(a,b){ return a.orderby - b.orderby })
+
+	for( let p of ordered_paths )
+	{
 
 		if( p.jpath )
 		{
@@ -239,7 +250,12 @@ CREATE TEMP TABLE kvs (k TEXT PRIMARY KEY, v TEXT);
 		{
 			if( i != p.jpath.length-1 )
 			{
-				ida[ida.length]="id"+i
+				let n=p.jpath[i-1]
+				for(let j=i-2;j>0;j--)
+				{
+					n=p.jpath[j]+n
+				}
+				ida[ida.length]="'"+n+"@key'"
 				idb[idb.length]="( SELECT v FROM kvs WHERE k = 'id"+i+"' )"
 			}
 		}
