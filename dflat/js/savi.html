@@ -268,30 +268,30 @@
 			<thead>
 				<tr>
 					<th class="crs_ele" data-sort="string" data-sort-multicolumn="0,1,2,3">ELEMENT</th>
-					<th class="crs_code" data-sort="string" data-sort-multicolumn="0,1,2,3">CODELIST</th>
+					<th class="crs_code" data-sort="string" data-sort-multicolumn="0,1,2,3">NAME</th>
 					<th class="crs_sig" data-sort="int" data-sort-multicolumn="0,1,2,3">SIGNIFICANCE</th>
 					<th class="crs_desc" data-sort="string" data-sort-multicolumn="0,1,2,3">DESCRIPTION</th>
 				</tr>
 			</thead>
-			{_it./crs-add/other-flags&&_it:/other-flags||}
+			{_it./crs-add/other-flags:/other-flags||}
 			{_it./crs-add/channel-code&&_it:/channel-code||}
 		</table>
 	</div>
 
 #^/other-flags	<!--	CRS	OTHER FLAGS ROWS	-->
 <tr class="row_count">
-	<td class="crs_ele" data-sort-value="{_it.@code-name}">Other Flags</td>
-	<td class="crs_code" data-sort-value="{_it.@code-name}">{_it.@code-name||}</td>
-	<td class="crs_sig" data-sort-value="{_it.@significance}">{_it.@significance||}</td>
-	<td class="crs_desc" data-sort-value="{_it.@code-description}">{_it.@code-description||}</td>
+	<td class="crs_ele" data-sort-value="string">Other Flags</td>
+	<td class="crs_code" data-sort-value="string">{_it.@code-name||}  <div><span class="ref">CODE</span> {_it.@code}</div></td>
+	<td class="crs_sig" data-sort-value="string">{_it.@significance||}</td>
+	<td class="crs_desc" data-sort-value="string">{_it.@code-description||}</td>
 </tr>
 
 #^/channel-code	<!--	CRS	OTHER FLAGS ROWS	-->
 <tr class="row_count">
-	<td class="crs_ele" data-sort-value="{_it.@code-name}">Channel Code</td>
-	<td class="crs_code" data-sort-value="{_it.@code-name}">{_it./crs-add/channel-code-name}</td>
-	<td class="crs_sig" data-sort-value="{_it.@significance}">{_it.@significance||}</td>
-	<td class="crs_desc" data-sort-value="{_it.@code-description}">{_it.@code-description||}</td>
+	<td class="crs_ele" data-sort-value="string">Channel Code</td>
+	<td class="crs_code" data-sort-value="string">{_it./crs-add/channel-code-name||} <div><span class="ref">CODE</span> {_it./crs-add/channel-code}</div></td>
+	<td class="crs_sig" data-sort-value="string">{_it.@significance||}</td>
+	<td class="crs_desc" data-sort-value="string">{_it./crs-add/channel-code-description||}</td>
 </tr>
 
 #^/wrap-loan-status

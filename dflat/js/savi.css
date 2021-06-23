@@ -508,6 +508,7 @@ table.budget.act_trans td.date				{padding-right:0; width:110px;}
 /*	IATI ACTIVITY CRS ADD TABLE	*/
 .wrap_crs_add th.crs_code,
 .wrap_crs_add td.crs_code		{padding-right:20px;}
+.wrap_crs_add td.crs_code div	{font-size:10px; padding-top:5px; line-height:initial;}
 .wrap_crs_add th.crs_sig,
 .wrap_crs_add td.crs_sig		{padding-right:20px; width:160px;}
 .wrap_crs_add th.crs_desc,
@@ -515,6 +516,7 @@ table.budget.act_trans td.date				{padding-right:0; width:110px;}
 .wrap_crs_add th.crs_loan_year,
 .wrap_crs_add td.crs_loan_year	{width:80px;}
 .wrap_crs_add td.crs_loan span	{color:#ccc; font-size:11px;}
+
 
 /*	Thinner tables rows for better legibility	*/
 .wrap_participating_org table.budget td,
