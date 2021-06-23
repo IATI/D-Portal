@@ -71,12 +71,11 @@ iati_codes.fetch1 = async function(){
 				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/Sector.json",
 				name:"sector",
 			},
-/* replaced with csv/sector_category.csv
+/* replaced with csv/sector_category.csv */
 			{
 				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/SectorCategory.json",
 				name:"sector_category",
 			},
-*/
 			{
 				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/SectorVocabulary.json",
 				name:"sector_vocab",
@@ -478,6 +477,7 @@ iati_codes.fetch1 = async function(){
 
 
 
+/*
 	console.log("Parsing csv/sector_category.csv")
 	
 	
@@ -497,7 +497,7 @@ iati_codes.fetch1 = async function(){
 	
 //	ls(o);
 	codes["sector_category"]=o;
-
+*/
 
 
 	console.log("Fetching country_codes")
