@@ -224,6 +224,12 @@ a.map_percent span		{display:inline; font-size:1.15em; line-height:1.0em; color:
 .map_filter, .map_filter.info	{display:inline-block; vertical-align:middle; width:250px;}
 .map_filter.info		{width:610px; padding-right:10px; text-align:right; color:#fff; font-size:20px;}
 
+.map_table				{width:100%; margin:0 auto; border-collapse:initial; table-layout:fixed;}
+.map_table th,
+.map_table td			{color:#fff; font-size:14px; line-height:1.25em; padding:10px 5px; border-top:1px solid #aaa;}
+.map_table th			{font-weight:bold; border:0;}
+th.map_col_name			{width:25%;}
+
 
 /*	Stats (key figures) styles
 	============================================= */
