@@ -79,7 +79,7 @@ view_sectors.ajax=function(args)
 			if(!v.t3){v.t3="0";}
 			if(!v.b1){v.b1="0";}
 			if(!v.b2){v.b2="0";}
-			v.sector=iati_codes.sector_category[v.group] || v.group;
+			v.sector=iati_codes.sector_category[v.group] || iati_codes.sector_category_withdrawn[v.group] || v.group;
 			s.push( plate.replace("{table_sectors_row}",v) );
 		});
 		ctrack.chunk("table_sectors_rows",s.join(""));
@@ -92,9 +92,9 @@ view_sectors.ajax=function(args)
 		return parseInt(s);
 	}
 			var cc=[];
-		cc[0]=["crs","sector","t"+(year-1),"t"+year,"t"+(year+1),"b"+(year+1),"b"+(year+2)];
+		cc[0]=["crs","sector","sector-name","t"+(year-1),"t"+year,"t"+(year+1),"b"+(year+1),"b"+(year+2)];
 		a.forEach(function(v){
-			cc[cc.length]=[p(v.crs),v.group,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2)];
+			cc[cc.length]=[p(v.crs),v.group,v.sector,p(v.t1),p(v.t2),p(v.t3),p(v.b1),p(v.b2)];
 		});
 		ctrack.chunk("csv_data","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
 

@@ -51,7 +51,7 @@ view_sector_transactions.view=function()
 				
 	args.callback=function(data){
 
-		ctrack.chunk("sector",iati_codes.sector_category[sector] );
+		ctrack.chunk("sector", iati_codes.sector_category[sector] || iati_codes.sector_category_withdrawn[sector] || sector );
 		ctrack.chunk("year",year);
 	};
 	
