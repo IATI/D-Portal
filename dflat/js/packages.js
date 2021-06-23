@@ -136,7 +136,7 @@ echo Downloading $slug from "$url" | tee -a logs/$slug.txt
 
 httpcode=$( curl -w "%{http_code}" --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 100 --insecure --ciphers 'DEFAULT:!DH' --location --output downloads/$slug.xml "$url" )
 
-if [ "$httpcode" -ne "200" ] && [ "$httpcode" -ne "226" ] ; then
+if [ "$httpcode" -ne "200" ] && [ "$httpcode" -ne "301" ] && [ "$httpcode" -ne "302" ] && [ "$httpcode" -ne "226" ] ; then
 
 	rm downloads/$slug.xml
 	echo curl: download ERROR $httpcode | tee -a logs/$slug.txt
