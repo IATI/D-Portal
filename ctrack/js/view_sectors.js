@@ -79,7 +79,7 @@ view_sectors.ajax=function(args)
 			if(!v.t3){v.t3="0";}
 			if(!v.b1){v.b1="0";}
 			if(!v.b2){v.b2="0";}
-			v.sector=iati_codes.sector_category[v.group] || v.group;
+			v.sector=iati_codes.sector_category[v.group] || iati_codes.sector_category_withdrawn[v.group] || v.group;
 			s.push( plate.replace("{table_sectors_row}",v) );
 		});
 		ctrack.chunk("table_sectors_rows",s.join(""));
