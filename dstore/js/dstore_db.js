@@ -694,10 +694,12 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		}
 
 // delete all traces of this activity before we add it
-		for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
+		for( let v of ["act","jml","xson","trans","budget","country","sector","location","policy","related"] )
 		{
 			await dstore_db.delete_from(db,v,{aid:t.aid});
 		}
+// we want multiple slug entries when the activity id is used many times
+		await dstore_db.delete_from(db,"slug",{slug:t.slug});
 
 
 		t.title=refry.tagval_narrative(act,"title");
