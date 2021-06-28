@@ -26,7 +26,147 @@
 		<option value="ended">Ended</option>
 	</select>
 
-
+#map_download_description
+<table class="map_table">
+	<thead>
+		<tr>
+			<th class="map_col_name">Column names</th>
+			<th>Column description</th>
+		</tr>
+	</thead>
+	<tr>
+		<td>aid</td>
+		<td>The globally unique <a href="https://iatistandard.org/en/iati-standard/203/activity-standard/iati-activities/iati-activity/iati-identifier/">IATI Activity Identifier</a> as a d-portal link to the activity.</td>
+	</tr>
+	<tr>
+		<td>commitment</td>
+		<td>Outgoing Commitment in USD currency.</td>
+	</tr>
+	<tr>
+		<td>commitment_cad</td>
+		<td>Outgoing Commitment converted to CAD currency.</td>
+	</tr>
+	<tr>
+		<td>commitment_eur</td>
+		<td>Outgoing Commitment converted to EUR currency.</td>
+	</tr>
+	<tr>
+		<td>commitment_gbp</td>
+		<td>Outgoing Commitment converted to GBP currency.</td>
+	</tr>
+	<tr>
+		<td>country_code</td>
+		<td>The country that country_percent applies to.</td>
+	</tr>
+	<tr>
+		<td>country_percent</td>
+		<td>Approximate percentage of this project going to this country.</td>
+	</tr>
+	<tr>
+		<td>day_end</td>
+		<td><a href="https://iatistandard.org/en/iati-standard/203/codelists/activitydatetype/">Planned or Actual end date</a> of the project where Actual takes priority.</td>
+	</tr>
+	<tr>
+		<td>day_length</td>
+		<td>The length of the projects (End date minus Start date).</td>
+	</tr>
+	<tr>
+		<td>day_start</td>
+		<td><a href="https://iatistandard.org/en/iati-standard/203/codelists/activitydatetype/">Planned or Actual start date</a> of the project where Actual takes priority.</td>
+	</tr>
+	<tr>
+		<td>description</td>
+		<td><a href="https://iatistandard.org/en/iati-standard/203/activity-standard/iati-activities/iati-activity/description/">Description</a> of the project.</td>
+	</tr>
+	<tr>
+		<td>flags</td>
+		<td>Internal d-portal flags.</td>
+	</tr>
+	<tr>
+		<td>funder_ref</td>
+		<td>Reference identifier for the <a href="https://iatistandard.org/en/iati-standard/203/activity-standard/iati-activities/iati-activity/reporting-org/">Reporting Organisation</a> publishing the data.</td>
+	</tr>
+	<tr>
+		<td>location_code</td>
+		<td>A sub-element of the <a href="https://iatistandard.org/en/iati-standard/203/activity-standard/iati-activities/iati-activity/location/">location element</a> in version 1.04 and should be ignored.</td>
+	</tr>
+	<tr>
+		<td>location_gazetteer</td>
+		<td>A sub-element of the <a href="https://iatistandard.org/en/iati-standard/203/activity-standard/iati-activities/iati-activity/location/">location element</a> in version 1.04 and should be ignored.</td>
+	</tr>
+	<tr>
+		<td>location_gazetteer_ref</td>
+		<td>A sub-element of the <a href="https://iatistandard.org/en/iati-standard/203/activity-standard/iati-activities/iati-activity/location/">location element</a> in version 1.04 and should be ignored.</td>
+	</tr>
+	<tr>
+		<td>location_latitude</td>
+		<td>Latitude position of the location.</td>
+	</tr>
+	<tr>
+		<td>location_longitude</td>
+		<td>Longitude position of the location.</td>
+	</tr>
+	<tr>
+		<td>location_name</td>
+		<td>Name of the location.</td>
+	</tr>
+	<tr>
+		<td>location_percent</td>
+		<td>A sub-element of the <a href="https://iatistandard.org/en/iati-standard/203/activity-standard/iati-activities/iati-activity/location/">location element</a> in version 1.04 and should be ignored.</td>
+	</tr>
+	<tr>
+		<td>location_precision</td>
+		<td>A sub-element of the <a href="https://iatistandard.org/en/iati-standard/203/activity-standard/iati-activities/iati-activity/location/">location element</a> in version 1.04 and should be ignored.</td>
+	</tr>
+	<tr>
+		<td>reporting</td>
+		<td>Name of the reporting organisation.</td>
+	</tr>
+	<tr>
+		<td>reporting_ref</td>
+		<td>Reference identifier of the reporting organisation.</td>
+	</tr>
+	<tr>
+		<td>sector_code</td>
+		<td>Name of the <a href="https://iatistandard.org/en/iati-standard/203/codelists/sector/">DAC 5 Digit Sector code</a></td>
+	</tr>
+	<tr>
+		<td>sector_group</td>
+		<td>Name of the <a href="https://iatistandard.org/en/iati-standard/203/codelists/sectorcategory/">DAC 3 Digit Sector code</a></td>
+	</tr>
+	<tr>
+		<td>sector_percent</td>
+		<td>Approximate percentage of this project going to this sector.</td>
+	</tr>
+	<tr>
+		<td>slug</td>
+		<td>Identifier of the dataset in IATI Registry.</td>
+	</tr>
+	<tr>
+		<td>spend</td>
+		<td>Disbursement and Expenditure in USD currency.</td>
+	</tr>
+	<tr>
+		<td>spend_cad</td>
+		<td>Disbursement and Expenditure converted to CAD currency.</td>
+	</tr>
+	<tr>
+		<td>spend_eur</td>
+		<td>Disbursement and Expenditure converted to EUR currency.</td>
+	</tr>
+	<tr>
+		<td>spend_gbp</td>
+		<td>Disbursement and Expenditure converted to GBP currency.</td>
+	</tr>
+	<tr>
+		<td>status_code</td>
+		<td>The current status of the project.</td>
+	</tr>
+	<tr>
+		<td>title</td>
+		<td>Title of the project.</td>
+	</tr>
+</table>
 
 #map_map
 <div class="map_wrap view">
@@ -41,6 +181,9 @@
 #map_data_description
 <div class="description_wrap">
 	<div class="footer_notes">
+		<span class="title">What is in the CSV download?</span>
+		<p>{map_download_description_text}</p>
+		{map_download_description}
 		<span class="title">{map_data_description_title_text}</span>
 		<p>{map_data_description_text}</p>
 		<p class="about_data">
