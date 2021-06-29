@@ -690,6 +690,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		if( await dstore_db.warn_dupes(db,t.aid,t.slug) )
 		{
 //			console.log("\nSKIPPING: "+t.aid);
+			await dstore_db.replace(db,"slug",{"aid":t.aid,"slug":t.slug});
 			return false;
 		}
 
@@ -699,7 +700,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 			await dstore_db.delete_from(db,v,{aid:t.aid});
 		}
 // we want multiple slug entries when the activity id is used many times
-		await dstore_db.delete_from(db,"slug",{slug:t.slug});
+		await dstore_db.delete_from(db,"slug",{slug:t.slug,aid:t.aid});
 
 
 		t.title=refry.tagval_narrative(act,"title");

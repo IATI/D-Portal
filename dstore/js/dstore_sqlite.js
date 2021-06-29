@@ -435,9 +435,21 @@ dstore_sqlite.delete_from = async function(db,tablename,opts){
 		await db.run(" DELETE FROM "+tablename+" WHERE trans_flags=? ",opts.trans_flags);
 	}
 	else
+	if(opts.aid && opts.slug)
+	{
+		await db.run(" DELETE FROM "+tablename+" WHERE aid=? AND slug=?",opts.aid,opts.slug);
+	}
+	else
+	if(opts.pid)
+	{
+		await db.run(" DELETE FROM "+tablename+" WHERE pid=? ",opts.pid);
+	}
+	else
 	{
 		await db.run(" DELETE FROM "+tablename+" WHERE aid=? ",opts.aid);
 	}
+/*
+*/
 };
 
 // call with your tables like so
@@ -525,11 +537,11 @@ dstore_sqlite.fill_acts = async function(acts,slug,data,head){
 	for(let row of rows)
 	{
 
-		for( let v of ["act","jml","trans","budget","country","sector","location","slug"] )
+		for( let v of ["act","jml","trans","budget","country","sector","location"] )
 		{
 			await dstore_back.delete_from(db,v,{aid:row["aid"]});
 		}
-
+		await dstore_back.delete_from(db,"slug",{slug:slug,aid:row["aid"]});
 	}
 
 	await db.run("PRAGMA page_count")

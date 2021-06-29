@@ -469,6 +469,11 @@ dstore_pg.delete_from = async function(db,tablename,opts){
 		await db.none(" DELETE FROM "+tablename+" WHERE trans_flags=${trans_flags} ",opts).catch(err);
 	}
 	else
+	if(opts.aid && opts.slug)
+	{
+		await db.none(" DELETE FROM "+tablename+" WHERE aid=${aid} AND slug=${slug}",opts).catch(err);
+	}
+	else
 	if(opts.aid)
 	{
 		await db.none(" DELETE FROM "+tablename+" WHERE aid=${aid} ",opts).catch(err);
@@ -660,10 +665,11 @@ await ( await dstore_pg.open() ).tx( async db => {
 	
 	if( delete_list.length>0 ) // delete activities that used to be in this file but are not there any more
 	{
-		for( let v of ["act","jml","xson","trans","budget","country","sector","location","slug","policy","related"] )
+		for( let v of ["act","jml","xson","trans","budget","country","sector","location","policy","related"] )
 		{
 			await db.none("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).catch(err);
 		}
+		await db.none("DELETE FROM slug WHERE slug=${slug} AND aid = ANY(${aids}) ;",{slug:slug,aids:delete_list}).catch(err);
 	}
 
 
