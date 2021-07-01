@@ -690,7 +690,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		if( await dstore_db.warn_dupes(db,t.aid,t.slug) )
 		{
 //			console.log("\nSKIPPING: "+t.aid);
-			await dstore_db.replace(db,"slug",{"aid":t.aid,"slug":t.slug});
+			await dstore_back.replace(db,"slug",{"aid":t.aid,"slug":t.slug});
 			return false;
 		}
 
