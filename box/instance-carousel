@@ -1,0 +1,27 @@
+cd `dirname $0`
+cd ..
+
+source box/env.sh
+
+
+
+DBNAMES=$( box/instance-list )
+
+
+
+for DBNAME in $DBNAMES ; do
+
+	AGE=$( box/instance-age $DBNAME )
+
+	echo " instance $DBNAME is $AGE days old "
+
+	if (( $AGE > 10 )); then
+
+		echo " deleting instance $DBNAME "
+
+		box/instance-delete $DBNAME
+
+	end
+	
+done
+

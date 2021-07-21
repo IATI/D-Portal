@@ -1,0 +1,19 @@
+cd `dirname $0`
+cd ..
+
+source box/env.sh
+
+
+
+DBNAMES=$( psql -t -c "select datname from pg_database" )
+
+#echo $DBNAMES
+
+for DBNAME in $DBNAMES ; do
+
+	if [[ $DBNAME == db_* ]] ; then
+		echo ${DBNAME:3}
+	fi
+	
+done
+

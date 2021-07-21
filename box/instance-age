@@ -1,0 +1,36 @@
+cd `dirname $0`
+cd ..
+
+source box/env.sh
+
+export INSTANCE=01234567012345670123456701234567
+
+if [ ! -z "$1" ] ; then
+
+export INSTANCE=$1
+
+fi
+
+export STATUSFILE=/dportal/dstore/instance/$INSTANCE.status
+
+
+TIME=0
+
+if test -f "$STATUSFILE"; then
+
+TIME=$( stat -c %Y -- "$STATUSFILE" )
+
+fi
+
+TODAY=$( date +%s )
+
+AGE=$( expr $TODAY - $TIME )
+
+DAYS=$( expr $AGE / 86400 )
+
+
+#echo " $TODAY - $TIME == $AGE : $DAYS "
+
+
+echo "$DAYS"
+
