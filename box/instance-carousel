@@ -21,7 +21,7 @@ for DBNAME in $DBNAMES ; do
 
 		box/instance-delete $DBNAME
 
-	end
+	fi
 	
 done
 
