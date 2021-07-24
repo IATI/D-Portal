@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="top" lang="en">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,17 +7,21 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Khula:wght@700&display=swap" rel="stylesheet"> 
 		<style>
-			/* minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */ 
-			html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}img,embed,iframe,object,audio,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}
+			/* minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */			html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}img,embed,iframe,object,audio,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}
 
-			* 	{box-sizing:border-box;}
-			body{background:#fff; font-family:sans-serif; font-size:18px; line-height:24px; color:#444; width:100%;}
-			a{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
+			* 		{box-sizing:border-box;}
+			html	{scroll-behavior:smooth;}
+			html,
+			body	{-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; font-weight:normal; font-style:normal;}
+			body	{background:#fff; font-family:sans-serif; font-size:1rem; line-height:1.5; color:#444;}
+			body	{display:grid; height:100vh; grid-template-rows:auto 1fr auto;}
+			a		{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
+			a		{text-decoration:none;}
 
 			/*	HEADER SECTION	*/
 			
-			.content_wrap	{width:960px; margin:0 auto; position:relative;}
-			.header_wrap	{padding:4em 0 3em 0; width:800px; margin:0 auto;}
+			.content_wrap	{max-width:1280px; padding:2em 4em 4em 4em; margin:0 auto; position:relative;}
+			.header_wrap	{padding:3em 0; width:800px; margin:0 auto;}
 			.header_text	{font-family:'Khula',sans-serif; font-size:72px; color:#454545; text-align:center; line-height:100px; margin:0 auto;}
 			.header_text span	{display:block; font-size:20px; line-height:26px; font-family:sans-serif;}
 			
@@ -45,40 +49,33 @@
 			.example a		{color:#034dfb; text-decoration:none; font-family:monospace; background:#fff; padding:0 5px; border-radius:4px;}
 			.example a:hover{color:#034dfb; text-decoration:none; background:#eee; cursor:pointer;}
 			
-			/*	NEWS SECTION */
-			
-			.news_wrap		{width:600px; margin:0 auto; margin-top:2.5em;}
-			.news_wrap a	{display:block; background-color:#f7f9ff; box-shadow:0 1px 4px 0 rgba(12, 12, 13, 0.2); text-decoration:none; color:#444; padding:20px 30px;}
-			.news_wrap a:hover	{background-color:#fff; box-shadow:0 1px 4px 0 rgba(12, 12, 13, 0.4);}
-			.news_title		{display:block; font-size:16px; font-family:'Khula',sans-serif; line-height:20px;}
-			.news_text		{display:block; font-size:12px; line-height:18px; padding-top:5px;}
-			.news_more		{color:#55668e;}
-			.news_image		{display:inline-block; vertical-align:middle; width:130px; border-right:1px solid #ccc; height:100px; margin-right:30px; background:url('/data/ods.png') no-repeat center left;}
-			.news_info		{display:inline-block; vertical-align:middle; width:380px;}
-			
-			/*	CONTACT SECTION	*/
-			
-			.contact		{margin:0 auto; padding:2em 0; font-size:16px; line-height:1.5em; text-align:center;}
-			.contact a		{color:#034dfb; text-decoration:none; font-family:monospace; background:#fff; padding:0 5px; border-radius:4px;}
-			.contact a:hover{color:#034dfb; text-decoration:none; background:#eee;}
-			.contact span	{display:block; font-size:14px; font-style:italic;}		
+			/*	Footer	*/
+			.wrap			{background:#fcfcfc;}
+			.foot_wrap		{max-width:1280px; padding:2em 4em; margin:0 auto;}
+			.foot_wrap		{font-size:14px;}
+			.foot_cont,
+			.foot_cont_right	{box-sizing:border-box; display:inline-block; padding-right:2em; width:70%; vertical-align:top;}
+			.foot_cont_right	{width:30%; padding-right:0;}
+			.foot_small		{font-size:12px;}
+			.foot_bold		{font-weight:bold;}
+			.foot_bold p	{margin:1.5em 0;}
 			
 			/*	MEDIA QUERIES	*/
-			@media screen and (max-width:600px) {
+			@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+			only screen and (-o-min-device-pixel-ratio: 3/2),
+			only screen and (min--moz-device-pixel-ratio: 1.5),
+			only screen and (min-device-pixel-ratio: 1.5) {
 				.header_wrap	{padding:3em 1.5em 2em 1.5em; width:initial;}
 				.header_text	{font-size:36px; line-height:40px;}
 				.header_text span	{font-size:16px; line-height:20px; padding-top:10px;}
 				.upload_box,
-				input#xmlurl,
-				.contact		{width:85%; font-size:14px;}
+				input#xmlurl	{width:90%; font-size:14px;}
 				.upload_box		{height:160px;}
 				.upload_text	{margin-top:1.25em;}
 				.content_wrap,
 				.upload_label	{width:initial;}
-				.contact span	{padding:10px 0;}
-				.news_wrap		{width:85%; margin-top:2em;}
-				.news_image		{display:none;}
-				.news_info		{display:block; width:100%;}
+				.foot_wrap		{padding:2em; font-size:12px;}
+				.content_wrap	{padding:1vh; max-width:initial;}
 			}
 		</style>
 	</head>
@@ -117,21 +114,26 @@
 				document.getElementById("form").submit();
 			};
 			</script>
-			<div class="news_wrap">
-				<a href="https://medium.com/opendatacoop/announcing-d-preview-helping-organisations-check-their-iati-data-before-publishing-669b24ae20d">
-					<span class="news_image">
-					</span><span class="news_info">
-						<span class="news_title">Announcing d-preview: helping organisations check their IATI data before publishing</span>
-						<span class="news_text">
-							Many years of working with organisations to produce open data has consistently reaffirmed one thing: it’s important for people to preview their data before publishing it. <span class="news_more">Read more</span>
-						</span>
-					</span>
-				</a>
-			</div>
-			<div class="contact">
-				For preview purposes only. Data will not be uploaded to the main live d-portal website.
-				<span>This is a community hosted service. All preview instances will auto-delete after ten days.</span>
-				Project page, issues and feedback on <a href="https://github.com/notshi/d-preview" target="_blank">Github</a>.
+		</div>
+		<div class="wrap">
+			<div class="foot_wrap">
+				<div class="foot_cont">
+					<div class="foot_bold"><p>About</p></div>
+					<div class="foot_text">
+						d-preview helps organisations understand the data they are publishing. 
+					</div>
+					<div class="foot_text">
+						<i>For preview purposes only. Data will not be uploaded to the main live d-portal website.</i>
+					</div>
+					<div class="foot_text">
+						<p><span>This is a community hosted service. All preview instances will auto-delete after ten days.</span></p>
+					</div>
+					<div class="foot_bold"><p>Project page, issues and feedback on <a href="http://github.com/notshi/d-preview">Github</a>.</p></div>
+					<div class="foot_small">See <a href="https://notshi.github.io/d-preview/">stats</a></div>
+				</div><div class="foot_cont_right">
+					<div class="foot_bold"><p>Latest news</p></div>
+					<div class="foot_text"><a href="https://medium.com/opendatacoop/announcing-d-preview-helping-organisations-check-their-iati-data-before-publishing-669b24ae20d">Announcing d-preview: helping organisations check their IATI data before publishing</a></div>
+				</div>
 			</div>
 		</div>
 		<script>
