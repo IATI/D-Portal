@@ -1049,9 +1049,9 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 			if( it.type=="end-planned"   || it.type=="3" )	{ t.day_end=iati_xml.get_isodate_number(it); }
 		});
 		refry.tags(act,"activity-date",function(it){
-			if( it.type=="start-actual"  || it.type=="2" ) 	{ t.day_start=t.day_start || iati_xml.get_isodate_number(it); }
+			if( it.type=="start-actual"  || it.type=="2" ) 	{ t.day_start=iati_xml.get_isodate_number(it) || t.day_start ; }
 			else
-			if( it.type=="end-actual"    || it.type=="4" )	{ t.day_end=t.day_end || iati_xml.get_isodate_number(it); }
+			if( it.type=="end-actual"    || it.type=="4" )	{ t.day_end=iati_xml.get_isodate_number(it) || t.day_end ; }
 		});
 
 		t.day_length=null;
