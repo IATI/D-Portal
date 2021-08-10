@@ -678,6 +678,7 @@ savi.prepare=function(iati_xson){
 		if(act["/result"])
 		{
 			let results_tosort=[]
+			let indicators_tosort=[]
 			let periods_tosort=[]
 			let baseline_tosort=[]
 			for( let result of act["/result"] )
@@ -689,6 +690,7 @@ savi.prepare=function(iati_xson){
 
 				if( result["/indicator"] )
 				{
+					indicators_tosort.push( result["/indicator"] )
 					for( let indicator of result["/indicator"] )
 					{
 						if( indicator["/baseline"] )
@@ -952,7 +954,14 @@ savi.prepare=function(iati_xson){
 				tab.sort(function(a,b){
 					let an=( a["/title/narrative"] && a["/title/narrative"][0] && a["/title/narrative"][0][""] ) || ""
 					let bn=( b["/title/narrative"] && b["/title/narrative"][0] && b["/title/narrative"][0][""] ) || ""
-					console.log(an,bn)
+					return an.localeCompare(bn)
+				})
+			}
+			for( let tab of indicators_tosort )
+			{
+				tab.sort(function(a,b){
+					let an=( a["/title/narrative"] && a["/title/narrative"][0] && a["/title/narrative"][0][""] ) || ""
+					let bn=( b["/title/narrative"] && b["/title/narrative"][0] && b["/title/narrative"][0][""] ) || ""
 					return an.localeCompare(bn)
 				})
 			}
