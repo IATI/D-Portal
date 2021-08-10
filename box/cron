@@ -17,6 +17,7 @@ cd tmp
 rm -rf freechange
 git clone git@github.com:xriss/freechange.git
 cd freechange
+npm install
 ./freechange download
 ./npm_publish
 cd ..
