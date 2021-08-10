@@ -941,9 +941,9 @@ savi.prepare=function(iati_xson){
 								{
 									delete facet["/value"]
 								}
-								delete facet["/baseline"]
-								delete facet["/target"]
-								delete facet["/actual"]
+//								delete facet["/baseline"]
+//								delete facet["/target"]
+//								delete facet["/actual"]
 							}
 						}
 					}
