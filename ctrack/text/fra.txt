@@ -700,24 +700,22 @@ Les données dans le menu déroulant est construit à partir de la <a href="http
 Nous listons les pays qui sont signalés par les éditeurs utilisant <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>. Pour l'attribution et un lien vers les sources de données, <a href="about.html#sources">aller ici</a>.
 
 #main_data_description_title_text
-Comment les données sont -elle calculée?
+Comment les données sont-elles calculées ?
 
 #main_data_paragraph1_text
-Les sources de données sur cette page sont : <span class="italic"> ( Tous les liens s'ouvrent dans une nouvelle fenêtre ) </span>
+Les sources de données sur cette page sont :
 
 #main_data_paragraph2_text
-D'où vient l' argent?
+D'où vient l'argent?
 
 #main_data_paragraph3_text
-<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank" rel="noopener noreferrer">http://devinit.org/report/investments-to-end-poverty/</a> <br/>
-Les données agrégées par Development_Initiatives' (DI) Placements à Rapport de fin de la pauvreté dérivé du système de notification des pays créanciers (SNPC) de données.
+Données IITA extraites du <a href="http://iatiregistry.org/">Registre IATI</a> chaque nuit.
 
 #main_data_paragraph4_text
-Où va l'argent ? (Secteurs)
+Ou va l argent? (Secteurs)
 
 #main_data_paragraph5_text
-<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank" rel="noopener noreferrer">http://devinit.org/report/investments-to-end-poverty/</a> <br/>
-Les données agrégées par DI's investissements visant à éliminer la pauvreté Rapport provenant des données du SNPC de l'OCDE. Classifications du secteur sont des regroupements de DI codes -objet du SNPC.
+Données IITA extraites du <a href="http://iatiregistry.org/">Registre IATI</a> chaque nuit. Les secteurs sont des codes de secteur à 3 chiffres du CRS.
 
 #main_data_paragraph6_text
 Heatmap
@@ -736,6 +734,12 @@ Nous convertissons actuellement en USD en utilisant le taux de change de la date
 
 #main_data_paragraph11_text
 Veuillez vous référer à la FAQ pour plus d'informations sur les <a href="{origin}/faq.html#tech5" target="_blank">devises</a> et <a href="{origin}/faq.html#tech13" target="_blank">taux de change</a>.
+
+#main_data_paragraph12_text
+Liste des projets
+
+#main_data_paragraph13_text
+Cette liste vous montre le total des engagements pour chaque activité et le pourcentage dépensé jusqu'à présent, trié par le plus récent en haut. Des barres noires pleines peuvent signifier des problèmes de qualité des données lorsque les données publiées manquent d'informations d'engagement et/ou de transaction.
 
 #view_active_text
 Tous les projets en cours pour {portal_name}
