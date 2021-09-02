@@ -677,17 +677,20 @@ savi.prepare=function(iati_xson){
 // split results on @type
 		if(act["/result"])
 		{
+			let results_tosort=[]
+			let indicators_tosort=[]
 			let periods_tosort=[]
 			let baseline_tosort=[]
 			for( let result of act["/result"] )
 			{
 				let type=Number(result["@type"]) || 1
 				let name="/result-"+type
-				if( ! act[name] ) { act[name]=[] }
+				if( ! act[name] ) { act[name]=[] ; results_tosort.push( act[name] ) }
 				act[name].push( result )
 
 				if( result["/indicator"] )
 				{
+					indicators_tosort.push( result["/indicator"] )
 					for( let indicator of result["/indicator"] )
 					{
 						if( indicator["/baseline"] )
@@ -938,13 +941,29 @@ savi.prepare=function(iati_xson){
 								{
 									delete facet["/value"]
 								}
-								delete facet["/baseline"]
-								delete facet["/target"]
-								delete facet["/actual"]
+//								delete facet["/baseline"]
+//								delete facet["/target"]
+//								delete facet["/actual"]
 							}
 						}
 					}
 				}
+			}
+			for( let tab of results_tosort )
+			{
+				tab.sort(function(a,b){
+					let an=( a["/title/narrative"] && a["/title/narrative"][0] && a["/title/narrative"][0][""] ) || ""
+					let bn=( b["/title/narrative"] && b["/title/narrative"][0] && b["/title/narrative"][0][""] ) || ""
+					return an.localeCompare(bn)
+				})
+			}
+			for( let tab of indicators_tosort )
+			{
+				tab.sort(function(a,b){
+					let an=( a["/title/narrative"] && a["/title/narrative"][0] && a["/title/narrative"][0][""] ) || ""
+					let bn=( b["/title/narrative"] && b["/title/narrative"][0] && b["/title/narrative"][0][""] ) || ""
+					return an.localeCompare(bn)
+				})
 			}
 			for( let tab of baseline_tosort )
 			{
