@@ -1255,14 +1255,14 @@
 
 #^/provider-org-ref
 <div>
-	<span title="Organisation Reference" class="ref">
+	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
 		REF <a href="{origin}/ctrack.html?publisher={_it./provider-org@ref}" target="_blank">{_it./provider-org@ref||}</a>
 	</span>
 </div>
 
 #^/provider-org-aid
 <div>
-	<span title="Activity ID" class="ref">
+	<span title="If incoming funds are being provided from the budget of another activity that is reported to IATI, this is the provider’s unique IATI activity identifier for that activity." class="ref">
 		ID <a href="{origin}/q.html?aid={_it./provider-org@provider-activity-id}" target="_blank">{_it./provider-org@provider-activity-id||}</a>
 	</span>
 </div>
@@ -1276,14 +1276,14 @@
 
 #^/receiver-org-ref
 <div>
-	<span title="Organisation Reference" class="ref">
+	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
 		REF <a href="{origin}/ctrack.html?publisher={_it./receiver-org@ref}" target="_blank">{_it./receiver-org@ref||}</a>
 	</span>
 </div>
 
 #^/receiver-org-aid
 <div>
-	<span title="Activity ID" class="ref">
+	<span title="If outgoing funds are being provided to another activity that is reported to IATI, this is the receiver's unique IATI activity identifier for that activity." class="ref">
 		ID <a href="{origin}/q.html?aid={_it./receiver-org@receiver-activity-id}" target="_blank">{_it./receiver-org@receiver-activity-id||}</a>
 	</span>
 </div>
@@ -1772,7 +1772,6 @@
 <tr class="row_count">
 	<td class="part_org_name">{_it./narrative&&_it:/wrap-narrative||}</td>
 	<td class="part_org_ref">
-		{_it.@ref&&_it:/participating-org/ref||}
 		{_it.@ref&&_it:/participating-org/ref-url||}
 		{_it.@crs-channel-code-name&&_it:/participating-org/crs-channel-code||}
 		{_it.@activity-id&&_it:/participating-org/activity-id||}
@@ -1781,27 +1780,24 @@
 	<td class="part_org_type" title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
 </tr>
 
-#^/participating-org/ref
-<div class="part_org_text">{_it.@ref||}</div>
-
 #^/participating-org/ref-url
 <div>
-	<span title="Organisation Reference" class="ref">
-		REF <a title="Organisation Reference" href="{origin}/ctrack.html?publisher={_it.@ref||}" target="_blank">{_it.@ref||}</a>
+	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
+		REF <a href="{origin}/ctrack.html?publisher={_it.@ref||}" target="_blank">{_it.@ref||}</a>
 	</span>
 </div>
 
 #^/participating-org/crs-channel-code
 <div>
-	<span title="CRS Channel Code" class="ref">
+	<span title="Under CRS++ Reporting Directives the CRS channel code identifies the implementing agency." class="ref">
 		CRS <span>{_it.@crs-channel-code-name||}</span>
 	</span>
 </div>
 
 #^/participating-org/activity-id
 <div>
-	<span title="Activity ID" class="ref">
-		ID <a href="{origin}/q.html?aid={_it.@activity-id}" target="_blank">{_it.@activity-id||}</a>
+	<span title="A valid activity identifier published by the participating organisation which points to the activity that it has published to IATI that describes its role in this activity." class="ref">
+		ID <a ref="{origin}/q.html?aid={_it.@activity-id}" target="_blank">{_it.@activity-id||}</a>
 	</span>
 </div>
 
