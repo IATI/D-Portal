@@ -114,6 +114,11 @@ if ! [ -x "$(command -v pcregrep)" ]; then
 	sudo apt install -y pcregrep
 fi
 
+if ! [ -x "$(command -v grep)" ]; then
+	echo "grep is not installed, atempting to install"
+	sudo apt install -y grep
+fi
+
 if ! [ -x "$(command -v xsltproc)" ]; then
 	echo "xsltproc is not installed, atempting to install"
 	sudo apt install -y xsltproc
@@ -181,11 +186,14 @@ fi
 }
 export -f dodataset
 
-if [ "$1" = "debug" ] ; then
-	cat downloads.txt | parallel -j 1 --bar dodataset
-else
-	cat downloads.txt | sort -R | parallel -j 64 --bar dodataset
+ONLYSLUGS="^'.*' "
+if [[ -n $1 ]] ; then
+ONLYSLUGS="$1"
 fi
+
+#	cat downloads.txt | grep "$ONLYSLUGS" | parallel -j 1 --bar dodataset
+	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | parallel -j 64 --bar dodataset
+#	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | cat
 
 cat logs/*.txt >logs.txt
 
@@ -203,6 +211,11 @@ if ! [ -x "$(command -v parallel)" ]; then
 	sudo apt install -y parallel
 fi
 
+if ! [ -x "$(command -v grep)" ]; then
+	echo "grep is not installed, atempting to install"
+	sudo apt install -y grep
+fi
+
 dodataset() {
 declare -a 'a=('"$1"')'
 slug=\x24{a[0]}
@@ -215,11 +228,14 @@ node ${argv.filename_dflat} --dir . packages $slug 2>&1 | tee -a logs/$slug.txt
 }
 export -f dodataset
 
-if [ "$1" = "debug" ] ; then
-	cat downloads.txt | parallel -j 1 --bar dodataset
-else
-	cat downloads.txt | sort -R | parallel -j -1 --bar dodataset
+ONLYSLUGS="^'.*' "
+if [[ -n $1 ]] ; then
+ONLYSLUGS="$1"
 fi
+
+#	cat downloads.txt | grep "$ONLYSLUGS" | parallel -j 1 --bar dodataset
+	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | parallel -j -1 --bar dodataset
+#	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | cat
 
 cat logs/*.txt >logs.txt
 
@@ -242,6 +258,11 @@ if ! [ -x "$(command -v sqlite3)" ]; then
 	sudo apt install -y sqlite3
 fi
 
+if ! [ -x "$(command -v grep)" ]; then
+	echo "grep is not installed, atempting to install"
+	sudo apt install -y grep
+fi
+
 
 # ccreate new sqlite database
 
@@ -261,7 +282,13 @@ node ${argv.filename_dflat} sqlite insert downloads/$slug.xml | sqlite3 database
 }
 export -f dodataset
 
-cat downloads.txt | parallel -j 1 --bar dodataset
+ONLYSLUGS="^'.*' "
+if [[ -n $1 ]] ; then
+ONLYSLUGS="$1"
+fi
+
+	cat downloads.txt | grep "$ONLYSLUGS" | parallel -j 1 --bar dodataset
+#	cat downloads.txt | grep "$ONLYSLUGS" | cat
 
 cat logs/*.txt >logs.txt
 
