@@ -697,24 +697,22 @@ Los datos en el menú desplegable se construyen a partir de la <a href="https://
 Tenemos una lista de países que se reportan por los editores que utilizan <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 alfa-2</a>. Para la atribución y un enlace a las fuentes de datos, <a href="about.html#sources">ir aquí</a>.
 
 #main_data_description_title_text
-¿Cómo se calcula la información?
+¿Cómo se calculan los datos?
 
 #main_data_paragraph1_text
-Las fuentes de datos en esta página son : <span class="italic">( Todos los enlaces se abren en una ventana nueva )</span>
+Las fuentes de datos en esta página son:
 
 #main_data_paragraph2_text
 ¿De dónde viene el dinero?
 
 #main_data_paragraph3_text
-<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank" rel="noopener noreferrer">http://devinit.org/report/investments-to-end-poverty/</a> <br/>
-Los datos agregados por Development_Initiatives' (DI) Las inversiones para poner fin a Informe sobre la pobreza derivado del Sistema de Notificación de los Países Acreedores (CRS) de datos.
+Datos de la IATI extraídos del <a href="http://iatiregistry.org/"> Registro de la IATI </a> cada noche.
 
 #main_data_paragraph4_text
-¿Dónde va el dinero? (Sectores)
+¿A dónde va el dinero? (Sectores)
 
 #main_data_paragraph5_text
-<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank" rel="noopener noreferrer">http://devinit.org/report/investments-to-end-poverty/</a> <br/>
-Los datos agregados por Development_Initiatives' (DI) Las inversiones para el Informe de Fin de la Pobreza derivado de los datos de la OCDE CRS. Clasificaciones sectoriales son agrupaciones de DI de códigos de propósito de CRS.
+Datos de la IATI extraídos del <a href="http://iatiregistry.org/"> Registro de la IATI </a> cada noche. Los sectores son códigos de sector de CRS de 3 dígitos.
 
 #main_data_paragraph6_text
 Mapa de calor
@@ -733,6 +731,12 @@ Actualmente convertimos a USD utilizando el tipo de cambio de la fecha especific
 
 #main_data_paragraph11_text
 Consulte las preguntas frecuentes para obtener más información sobre <a href="{origin}/faq.html#tech5" target="_blank">monedas</a> y <a href="{origin}/faq.html#tech13" target="_blank">tasas de cambio</a>.
+
+#main_data_paragraph12_text
+Lista de proyectos
+
+#main_data_paragraph13_text
+Esta lista muestra los compromisos totales para cada actividad y el porcentaje gastado hasta el momento, ordenados por los más recientes en la parte superior. Las barras negras completas pueden significar problemas de calidad de los datos cuando a los datos publicados les falta información de compromiso y / o transacción.
 
 #view_active_text
 Todos los proyectos activos para {portal_name}

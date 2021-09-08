@@ -683,7 +683,8 @@ Data that is marked as invalid IATI xml when using the <a href="http://validator
 Which transaction types are used/not used in d-portal?
 
 #^faq_technical_a1_text
-‘Expenditure’ and ‘Disbursements’ for Spend columns/data.  If there are neither, but ‘Commitment’ data exists, then the Commitment data will be shown.
+‘Expenditure’ and ‘Disbursements’ for Spend columns/data. If there are neither, but ‘Outgoing Commitment’ data exists, then the Outgoing Commitment data will be shown.
+<p>'Outgoing commitment' for Total commitment columns. If outgoing commitments have not been published, but Disbursement and Expenditure exist, then the sum of Disbursement and Expenditure will be shown.</p>
 <p>‘Budgets’ in activity file, for Budget columns/data (eg in tables on d-portal) - if no budget data is present in the activity file, then ‘planned-disbursements’ are used if present.</p>
 
 #^faq_technical_q2_text

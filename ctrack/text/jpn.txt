@@ -703,21 +703,19 @@ IATI予算
 データはどのように計算されますか？
 
 #main_data_paragraph1_text
-このページ上のデータソースは、次のとおりです。<span class="italic">(新しいウィンドウで開いているすべてのリンク）</span>
+このページのデータソースは次のとおりです。
 
 #main_data_paragraph2_text
-お金はどこから来るのでしょうか？
+お金はどこから来るのですか？
 
 #main_data_paragraph3_text
-<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank" rel="noopener noreferrer">http://devinit.org/report/investments-to-end-poverty/</a> <br/>
-貧困レポートOECD債権国報告システム（CRS）のデータから得られ を終了する Development Initiatives'(DI) インベストメンツによる集計データ。
+毎晩<a href="http://iatiregistry.org/"> IATIレジストリ</a>から取得したIATIデータ。
 
 #main_data_paragraph4_text
-どこのお金が行くのですか？（セクタ）
+お金はどこに行きますか？（セクター）
 
 #main_data_paragraph5_text
-<a href="http://devinit.org/report/investments-to-end-poverty/" target="_blank" rel="noopener noreferrer">http://devinit.org/report/investments-to-end-poverty/</a> <br/>
-Development Initiatives'(DI) 投資は貧困レポートを終了することにより集計データ OECDのCRSのデータから得られた。セクター分類は、 CRSの目的コードの脱グループ化したものです。
+毎晩<a href="http://iatiregistry.org/"> IATIレジストリ</a>から取得したIATIデータ。 セクターはCRSの3桁のセクターコードです。
 
 #main_data_paragraph6_text
 ヒートマップ
@@ -732,10 +730,16 @@ Development Initiatives'(DI) 投資は貧困レポートを終了することに
 為替レートはどのように計算されますか？
 
 #main_data_paragraph10_text
-現在、<b> value-date </b>属性で指定された日付の為替レートを使用して、米ドルに換算しています。 他の通貨の場合、USDの値は本日の為替レートを使用して変換されます。
+現在、<b>value-date</b>属性で指定された日付の為替レートを使用して、米ドルに換算しています。 他の通貨の場合、USDの値は本日の為替レートを使用して変換されます。
 
 #main_data_paragraph11_text
 <a href="{origin}/faq.html#tech5" target="_blank">通貨</a>と<a href="{origin}/faq.html#tech13" target="_blank">為替レート</a>の詳細については、FAQを参照してください。
+
+#main_data_paragraph12_text
+プロジェクトリスト
+
+#main_data_paragraph13_text
+このリストには、各アクティビティの合計コミットメントとこれまでに費やされた割合が、最新のもので並べ替えられて表示されます。 完全な黒いバーは、公開されたデータにコミットメントやトランザクション情報がない場合のデータ品質の問題を示している可能性があります。
 
 #view_active_text
 {portal_name}のすべてのアクティブなプロジェクト
