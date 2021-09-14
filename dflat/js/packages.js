@@ -494,7 +494,7 @@ packages.process_download=async function(argv)
 		console.log( "found "+tab.length+" activities" )
 		let idx=0
 		await fse.emptyDir(basename)
-		let filenames={}
+		let filenames={"":true}
 		let identifiers={}
 		for( const act of tab )
 		{
@@ -521,7 +521,7 @@ packages.process_download=async function(argv)
 		console.log( "found "+tab.length+" organisations" )
 		let idx=0
 		await fse.emptyDir(basename)
-		let filenames={}
+		let filenames={"":true}
 		let identifiers={}
 		for( const org of tab )
 		{
