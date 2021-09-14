@@ -498,13 +498,13 @@ packages.process_download=async function(argv)
 		let identifiers={}
 		for( const act of tab )
 		{
-			let aid=(act["/iati-identifier"] || ("ERROR-NO-ID-"+idx)).toUpperCase()
-			let filename=dflat.saneid( aid )
+			let id=(act["/iati-identifier"] || ("ERROR-NO-ID-"+idx)).toUpperCase()
+			let filename=dflat.saneid( id )
 			while( filenames[filename] ) { filename=filename+"-ERROR-ID-CLASH-"+idx }
 			filenames[filename]=true
-			if(!identifiers[aid]){identifiers[aid]=[]}
-			identifiers[aid].push( {dataset:slug,filename:filename} )
-			identifiers[aid].sort()
+			if(!identifiers[id]){identifiers[id]=[]}
+			identifiers[id].push( slug+"/"+filename )
+			identifiers[id].sort()
 			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+filename )
 			idx=idx+1
 			total=total+1
@@ -525,13 +525,13 @@ packages.process_download=async function(argv)
 		let identifiers={}
 		for( const org of tab )
 		{
-			let pid=( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) ).toUpperCase()
-			let filename=dflat.saneid( pid )
+			let id=( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) ).toUpperCase()
+			let filename=dflat.saneid( id )
 			while( filenames[filename] ) { filename=filename+"-ERROR-ID-CLASH-"+idx }
 			filenames[filename]=true
-			if(!identifiers[pid]){identifiers[pid]=[]}
-			identifiers[pid].push( {dataset:slug,filename:filename} )
-			identifiers[pid].sort()
+			if(!identifiers[id]){identifiers[id]=[]}
+			identifiers[id].push( slug+"/"+filename )
+			identifiers[id].sort()
 			await packages.process_download_save( argv , { "/iati-organisations/iati-organisation":[org] } , basename+"/"+filename )
 			idx=idx+1
 			total=total+1
@@ -558,11 +558,11 @@ packages.process_meta=async function(argv)
 		let identifiers={}
 		let base = path.join(argv.dir,"json"+"/"+idname)
 		let files=await pfs.readdir(base)
-		for( file of files )
+		for( const file of files )
 		{
 			let d=await pfs.readFile(base+"/"+file,"utf8")
 			let j=JSON.parse(d)
-			for( id in j )
+			for( const id in j )
 			{
 				if( !identifiers[id] )
 				{
@@ -576,6 +576,16 @@ packages.process_meta=async function(argv)
 			}
 		}
 		await pfs.writeFile( path.join(argv.dir,"json/"+idname+".json") ,stringify(identifiers,{space:" "}))
+		
+		let errors={}
+		for( const id in identifiers )
+		{
+			if( identifiers[id].length>1 )
+			{
+				errors[id]=identifiers[id]
+			}
+		}
+		await pfs.writeFile( path.join(argv.dir,"json/"+idname+".errors.json") ,stringify(errors,{space:" "}))
 
 	}
 	
