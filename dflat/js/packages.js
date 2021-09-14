@@ -44,8 +44,9 @@ packages.prepare_download_common=async function(argv)
 {
 
 	argv.dir_downloads  = path.join(argv.dir,"downloads")
-	argv.dir_logs   = path.join(argv.dir,"logs")
-	argv.dir_xml   = path.join(argv.dir,"xml")
+	argv.dir_logs       = path.join(argv.dir,"logs")
+	argv.dir_xml        = path.join(argv.dir,"xml")
+	argv.dir_json       = path.join(argv.dir,"json")
 
 	await fse.emptyDir(argv.dir) // create output directories
 	await fse.emptyDir(argv.dir_downloads)
@@ -53,6 +54,10 @@ packages.prepare_download_common=async function(argv)
 	await fse.emptyDir(argv.dir_logs)
 	await fse.emptyDir(argv.dir_xml)
 	
+	await fse.emptyDir(argv.dir_json)
+	await fse.emptyDir(argv.dir_json+"/activity-identifiers")
+	await fse.emptyDir(argv.dir_json+"/organisation-identifiers")
+
 }
 
 packages.prepare_download_common_downloads=async function(argv,downloads)
@@ -223,7 +228,7 @@ url=\x24{a[1]}
 
 echo Parsing $slug from "$url" | tee -a logs/$slug.txt
 
-node ${argv.filename_dflat} --dir . packages $slug 2>&1 | tee -a logs/$slug.txt
+node ${argv.filename_dflat} --dir . packages-parse $slug 2>&1 | tee -a logs/$slug.txt
 
 }
 export -f dodataset
@@ -236,6 +241,8 @@ fi
 #	cat downloads.txt | grep "$ONLYSLUGS" | parallel -j 1 --bar dodataset
 	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | parallel -j -1 --bar dodataset
 #	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | cat
+
+node ${argv.filename_dflat} --dir . packages-meta 2>&1
 
 cat logs/*.txt >logs.txt
 
@@ -487,13 +494,22 @@ packages.process_download=async function(argv)
 		console.log( "found "+tab.length+" activities" )
 		let idx=0
 		await fse.emptyDir(basename)
+		let filenames={}
+		let identifiers={}
 		for( const act of tab )
 		{
-			let aid=dflat.saneid( act["/iati-identifier"] || ("ERROR-NO-ID-"+idx) )
-			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+aid )
+			let aid=(act["/iati-identifier"] || ("ERROR-NO-ID-"+idx)).toUpperCase()
+			let filename=dflat.saneid( aid )
+			while( filenames[filename] ) { filename=filename+"-ERROR-ID-CLASH-"+idx }
+			filenames[filename]=true
+			if(!identifiers[aid]){identifiers[aid]=[]}
+			identifiers[aid].push( {dataset:slug,filename:filename} )
+			identifiers[aid].sort()
+			await packages.process_download_save( argv , { "/iati-activities/iati-activity":[act] } , basename+"/"+filename )
 			idx=idx+1
 			total=total+1
 		}
+		await pfs.writeFile( path.join(argv.dir,"json/activity-identifiers/"+slug+".json") ,stringify(identifiers,{space:" "}))
 	}
 
 // if we find some organisations, spit them out individually
@@ -505,13 +521,22 @@ packages.process_download=async function(argv)
 		console.log( "found "+tab.length+" organisations" )
 		let idx=0
 		await fse.emptyDir(basename)
+		let filenames={}
+		let identifiers={}
 		for( const org of tab )
 		{
-			let pid=dflat.saneid( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) )
-			await packages.process_download_save( argv , { "/iati-organisations/iati-organisation":[org] } , basename+"/"+pid )
+			let pid=( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) ).toUpperCase()
+			let filename=dflat.saneid( pid )
+			while( filenames[filename] ) { filename=filename+"-ERROR-ID-CLASH-"+idx }
+			filenames[filename]=true
+			if(!identifiers[pid]){identifiers[pid]=[]}
+			identifiers[pid].push( {dataset:slug,filename:filename} )
+			identifiers[pid].sort()
+			await packages.process_download_save( argv , { "/iati-organisations/iati-organisation":[org] } , basename+"/"+filename )
 			idx=idx+1
 			total=total+1
 		}
+		await pfs.writeFile( path.join(argv.dir,"json/organisation-identifiers/"+slug+".json") ,stringify(identifiers,{space:" "}))
 	}
 
 	if( found==0 )
@@ -520,4 +545,39 @@ packages.process_download=async function(argv)
 		return
 	}
 
+}
+
+
+packages.process_meta=async function(argv)
+{
+	for( idname of ["activity-identifiers","organisation-identifiers"] )
+	{
+		console.log("META "+idname)
+
+	
+		let identifiers={}
+		let base = path.join(argv.dir,"json"+"/"+idname)
+		let files=await pfs.readdir(base)
+		for( file of files )
+		{
+			let d=await pfs.readFile(base+"/"+file,"utf8")
+			let j=JSON.parse(d)
+			for( id in j )
+			{
+				if( !identifiers[id] )
+				{
+					identifiers[id]=j[id]
+				}
+				else
+				{
+					identifiers[id]=identifiers[id].concat(j[id])
+				}
+				identifiers[id].sort()
+			}
+		}
+		await pfs.writeFile( path.join(argv.dir,"json/"+idname+".json") ,stringify(identifiers,{space:" "}))
+
+	}
+	
+	
 }

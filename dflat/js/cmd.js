@@ -226,14 +226,17 @@ cmd.run=async function(argv)
 
 	if( argv._[0]=="packages" )
 	{
-		if( argv._[1] )
-		{
-			await require("./packages.js").process_download(argv)
-		}
-		else
-		{
-			await require("./packages.js").prepare_download(argv)
-		}
+		await require("./packages.js").prepare_download(argv)
+		return
+	}
+	if( argv._[0]=="packages-parse" )
+	{
+		await require("./packages.js").process_download(argv)
+		return
+	}
+	if( argv._[0]=="packages-meta" )
+	{
+		await require("./packages.js").process_meta(argv)
 		return
 	}
 
@@ -302,12 +305,20 @@ Prepare a data directory to fetch IATI packages into.
 	--source registry
 	The source for the packages, registry or datastore.
 
->	dflat packages filename
+>	dflat packages-parse filename
 
 Process a downloaded package into multiple files. The file to process 
 should be found in downloads/filename.xml we will then process it 
 and write it into other locations such as packages/ or 
 activities/ in the data directory.
+
+	--dir dataflat
+	Directory to process data in.
+
+>	dflat packages-meta
+
+Merge all the individual meta json files created by package parsing into single 
+files containing all the data for all the packages.
 
 	--dir dataflat
 	Directory to process data in.
