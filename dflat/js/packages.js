@@ -498,9 +498,9 @@ packages.process_download=async function(argv)
 		let identifiers={}
 		for( const act of tab )
 		{
-			let id=( act["/iati-identifier"] || ("ERROR-NO-ID-"+idx) ).toUpperCase()
-			let filename=dflat.saneid( id )
-			while( filenames[filename] ) { filename=filename+"-ERROR-ID-CLASH-"+idx }
+			let id=( act["/iati-identifier"] || "" ).toUpperCase()
+			let filename=dflat.saneid( id ).toLowerCase()
+			while( filenames[filename] ) { filename=filename+"-error-"+idx }
 			filenames[filename]=true
 			if(!identifiers[id]){identifiers[id]=[]}
 			identifiers[id].push( slug+"/"+filename )
@@ -525,9 +525,9 @@ packages.process_download=async function(argv)
 		let identifiers={}
 		for( const org of tab )
 		{
-			let id=( org["/organisation-identifier"] || org["/reporting-org@ref"] || ("ERROR-NO-ID-"+idx) ).toUpperCase()
-			let filename=dflat.saneid( id )
-			while( filenames[filename] ) { filename=filename+"-ERROR-ID-CLASH-"+idx }
+			let id=( org["/organisation-identifier"] || org["/reporting-org@ref"] || "" ).toUpperCase()
+			let filename=dflat.saneid( id ).toLowerCase()
+			while( filenames[filename] ) { filename=filename+"-error-"+idx }
 			filenames[filename]=true
 			if(!identifiers[id]){identifiers[id]=[]}
 			identifiers[id].push( slug+"/"+filename )
@@ -574,7 +574,7 @@ packages.process_meta=async function(argv)
 					mode="activity"
 					for( const act of ( json["/iati-activities/iati-activity"] || [] ) )
 					{
-						let id=( act["/iati-identifier"] || filename ).toUpperCase()
+						let id=( act["/iati-identifier"] || "" ).toUpperCase()
 						if(!identifiers[id]){identifiers[id]=[]}
 						identifiers[id].push( slug+"/"+filename )
 						identifiers[id].sort()
@@ -586,7 +586,7 @@ packages.process_meta=async function(argv)
 					mode="organisation"
 					for( const org of ( json["/iati-organisations/iati-organisation"] || [] ) )
 					{
-						let id=( org["/organisation-identifier"] || org["/reporting-org@ref"] || filename ).toUpperCase()
+						let id=( org["/organisation-identifier"] || org["/reporting-org@ref"] || "" ).toUpperCase()
 						if(!identifiers[id]){identifiers[id]=[]}
 						identifiers[id].push( slug+"/"+filename )
 						identifiers[id].sort()
