@@ -320,6 +320,9 @@ activities/ in the data directory.
 Merge all the individual meta json files created by package parsing into single 
 files containing all the data for all the packages.
 
+	--reparse
+	Reparse all the xml files to recreate the individual meta files.
+	
 	--dir dataflat
 	Directory to process data in.
 

@@ -498,7 +498,7 @@ packages.process_download=async function(argv)
 		let identifiers={}
 		for( const act of tab )
 		{
-			let id=(act["/iati-identifier"] || ("ERROR-NO-ID-"+idx)).toUpperCase()
+			let id=( act["/iati-identifier"] || ("ERROR-NO-ID-"+idx) ).toUpperCase()
 			let filename=dflat.saneid( id )
 			while( filenames[filename] ) { filename=filename+"-ERROR-ID-CLASH-"+idx }
 			filenames[filename]=true
@@ -550,6 +550,62 @@ packages.process_download=async function(argv)
 
 packages.process_meta=async function(argv)
 {
+	if(argv.reparse)
+	{
+		console.log("REPARSE")
+		let xmldir=path.join(argv.dir,"xml") 
+		let slugs=await pfs.readdir(xmldir)
+		for( const slugidx in slugs )
+		{
+			const slug=slugs[slugidx]
+			console.log(Math.floor(100*slugidx/slugs.length)+"%\t"+slug)
+			let files=await pfs.readdir(xmldir+"/"+slug)
+			let identifiers={}
+			let mode="none"
+			for( const file of files )
+			{
+				let filename=path.parse(file).name
+
+				let dat=await pfs.readFile( xmldir+"/"+slug+"/"+filename+".xml" ,{ encoding: 'utf8' });
+				let json=dflat.xml_to_xson(dat)
+
+				if( json["/iati-activities/iati-activity"] )
+				{
+					mode="activity"
+					for( const act of ( json["/iati-activities/iati-activity"] || [] ) )
+					{
+						let id=( act["/iati-identifier"] || filename ).toUpperCase()
+						if(!identifiers[id]){identifiers[id]=[]}
+						identifiers[id].push( slug+"/"+filename )
+						identifiers[id].sort()
+					}
+				}
+				else
+				if( json["/iati-organisations/iati-organisation"] )
+				{
+					mode="organisation"
+					for( const org of ( json["/iati-organisations/iati-organisation"] || [] ) )
+					{
+						let id=( org["/organisation-identifier"] || org["/reporting-org@ref"] || filename ).toUpperCase()
+						if(!identifiers[id]){identifiers[id]=[]}
+						identifiers[id].push( slug+"/"+filename )
+						identifiers[id].sort()
+					}
+				}
+
+			}
+			if(mode=="activity")
+			{
+				await pfs.writeFile( path.join(argv.dir,"json/activity-identifiers/"+slug+".json") ,stringify(identifiers,{space:" "}))
+			}
+			else
+			if(mode=="organisation")
+			{
+				await pfs.writeFile( path.join(argv.dir,"json/organisation-identifiers/"+slug+".json") ,stringify(identifiers,{space:" "}))
+			}
+		}
+	}
+	
 	for( idname of ["activity-identifiers","organisation-identifiers"] )
 	{
 		console.log("META "+idname)
