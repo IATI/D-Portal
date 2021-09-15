@@ -23,6 +23,8 @@ git clone git@github.com:xriss/dataiati.git || echo "already cloned"
 cd dataiati
 git pull
 
+./update.sh
+
 echo "copying datasets"
 
 ./datasets.sh
