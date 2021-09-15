@@ -226,17 +226,22 @@ cmd.run=async function(argv)
 
 	if( argv._[0]=="packages" )
 	{
-		await require("./packages.js").prepare_download(argv)
+		await require("./packages.js").cmd_prepare(argv)
 		return
 	}
 	if( argv._[0]=="packages-parse" )
 	{
-		await require("./packages.js").process_download(argv)
+		await require("./packages.js").cmd_process(argv)
 		return
 	}
 	if( argv._[0]=="packages-meta" )
 	{
-		await require("./packages.js").process_meta(argv)
+		await require("./packages.js").cmd_meta(argv)
+		return
+	}
+	if( argv._[0]=="packages-join" )
+	{
+		await require("./packages.js").cmd_join(argv)
 		return
 	}
 
@@ -323,6 +328,16 @@ files containing all the data for all the packages.
 	--reparse
 	Reparse all the xml files to recreate the individual meta files.
 	
+	--dir dataflat
+	Directory to process data in.
+
+>	dflat packages-join
+
+Join all the xml files back together to recreate the original data packages.
+
+	--dedupe
+	Use the meta data to remove duplicate IDs.
+
 	--dir dataflat
 	Directory to process data in.
 

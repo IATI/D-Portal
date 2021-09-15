@@ -28,7 +28,7 @@ var getbody=require("pify")( function(url,cb)
 } );
 
 
-packages.prepare_download=async function(argv)
+packages.cmd_prepare=async function(argv)
 {
 	if( argv.source=="datastore")
 	{
@@ -452,7 +452,7 @@ packages.process_download_link=async function(basename,linkname)
 	await fse.ensureSymlink(basename+".csv"       ,linkname+".csv")
 }
 
-packages.process_download=async function(argv)
+packages.cmd_process=async function(argv)
 {
 	let slug=argv._[1]
 		
@@ -548,7 +548,7 @@ packages.process_download=async function(argv)
 }
 
 
-packages.process_meta=async function(argv)
+packages.cmd_meta=async function(argv)
 {
 	if(argv.reparse)
 	{
@@ -647,3 +647,85 @@ packages.process_meta=async function(argv)
 	
 	
 }
+
+packages.cmd_join=async function(argv)
+{
+	console.log("JOINING packages")
+	
+	let ignoreme={}
+	
+	if(argv.dedupe) // load pre-calculated meta 
+	{
+		let aids=JSON.parse( await pfs.readFile( path.join(argv.dir,"json/activity-identifiers.errors.json")      ,{ encoding: 'utf8' }) )
+		for( let id in aids )
+		{
+			let it=aids[id]
+			for(i=1;i<it.length;i++)
+			{
+				ignoreme[it[i]]=true
+			}
+		}
+		let pids=JSON.parse( await pfs.readFile( path.join(argv.dir,"json/organisation-identifiers.errors.json")  ,{ encoding: 'utf8' }) )
+		for( let id in pids )
+		{
+			let it=pids[id]
+			for(i=1;i<it.length;i++)
+			{
+				ignoreme[it[i]]=true
+			}
+		}
+	}
+
+	let datasetsdir=path.join(argv.dir,"datasets") 
+	await fse.emptyDir(datasetsdir)
+
+	let xmldir=path.join(argv.dir,"xml") 
+	let slugs=await pfs.readdir(xmldir)
+	for( const slugidx in slugs )
+	{
+		const slug=slugs[slugidx]
+		console.log(Math.floor(100*slugidx/slugs.length)+"%\t"+slug)
+		let files=await pfs.readdir(xmldir+"/"+slug)
+		let output=[]
+		let tail=""
+		for( const file of files )
+		{
+			let filename=path.parse(file).name
+			if(filename==".xml"){filename=""}
+			
+			let test=slug+"/"+filename	// test this to strip out duplicates
+			
+			if(ignoreme[test])
+			{
+//				console.log("ignoring "+filename+".xml")
+			}
+			else
+			{
+
+// this is a hack that will only work on the XML files we generated
+
+				let dat=await pfs.readFile( xmldir+"/"+slug+"/"+filename+".xml" ,{ encoding: 'utf8' });
+				let lines=dat.split("\n")
+				
+				if(!output[0]) // remember header and tail
+				{
+					output[0]=lines[0]
+					output[1]=lines[1]
+					tail=lines[lines.length-2]
+				}
+				lines.splice(lines.length-2,2)
+				lines.splice(0,2)
+				
+				output.push(lines.join("\n"))
+			}
+		}
+		output.push(tail)
+		output.push("")
+
+		let dat=output.join("\n")
+
+		await pfs.writeFile( datasetsdir+"/"+slug+".xml" , dat );
+	}
+}
+
+
