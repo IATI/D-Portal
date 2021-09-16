@@ -825,9 +825,9 @@ await ( await dstore_pg.open() ).task( async db => {
 	{
 		var v=fake_ids[i];
 		var p=await db.any("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=${reporting_ref} AND trans_code=${trans_code} ",{reporting_ref:v,trans_code:"C"}).catch(err);
-		for(j=0;j<rows.length;j++)
+		for(j=0;j<p.length;j++)
 		{
-			var t=rows[j];
+			var t=p[j];
 //					process.stdout.write(t.aid+"\n");
 			t.trans_code="D";
 			t.trans_flags=1;
