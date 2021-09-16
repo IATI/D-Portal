@@ -38,7 +38,7 @@ echo "copying datasets"
 
 popd
 
-mv ../..dataiati/datasets/*.xml cache/
+mv ../../dataiati/datasets/*.xml cache/
 
 cd cache
 
