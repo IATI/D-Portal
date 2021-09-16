@@ -20,7 +20,7 @@ cd ..
 echo "fetching new datasets"
 
 #need to clone outside of dportal or npm will complain
-pushd ../..
+pushd ~
 
 git clone git@github.com:xriss/dataiati.git || echo "already cloned"
 cd dataiati
@@ -38,7 +38,7 @@ echo "copying datasets"
 
 popd
 
-mv ../../dataiati/datasets/*.xml cache/
+mv ~/dataiati/datasets/*.xml cache/
 
 cd cache
 
