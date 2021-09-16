@@ -25,6 +25,8 @@ git pull
 
 ./update.sh
 
+rm -rf downloads
+
 echo "copying datasets"
 
 ./datasets.sh
