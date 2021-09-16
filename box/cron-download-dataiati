@@ -29,6 +29,9 @@ rm -rf downloads
 
 echo "copying datasets"
 
+#remove old files before creating new ones
+rm ../cache/*.xml
+
 ./datasets.sh
 cd ..
 mv dataiati/datasets/*.xml cache/
