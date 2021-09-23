@@ -224,6 +224,7 @@ td.receiver div,
 td.provider div,
 td.part_org_ref div,
 td.loc_name div						{line-height:10px; padding-bottom:2px;}
+td.part_org_ref .part_org_id span a	{padding-left:5px;}		/*	Left padding so ID lines up	*/
 td.receiver .receiver_text,
 td.provider .provider_text			{font-size:14px; line-height:18px; padding-bottom:7px;}
 td.part_org_ref .part_org_text,
@@ -432,9 +433,12 @@ table.budget.act_trans td.date				{padding-right:0; width:110px;}
 .wrap_result .header.glossary				{margin-bottom:10px;}
 .wrap_result table.budget td				{line-height:14px; padding:5px 0; vertical-align:middle;}
 .wrap_result table.budget tr.row_measure td	{color:#ccc; font-size:11px; padding:6px 10px 4px 0;}
+.wrap_result table.budget tr.row_comment td	{background-color:#262f3c; padding:6px 10px 6px 0;}
 .result_facet								{color:#ccc; font-size:11px; line-height:16px;}
 .result_facet_name							{color:#fff; font-size:13px;}
-.result_facet_value							{color:#fff; font-size:14px; font-weight:bold;}
+.result_facet_value							{color:#fff; font-size:13px;}
+.result_comment_type						{color:#ccc; font-size:11px; padding-right:5px; text-align:right;}
+.result_comment								{color:#fff; font-size:11px; white-space:pre-line;}
 .result_empty								{color:#ccc; font-size:11px;}
 .result_percent_wrap,
 .result_percent_wrap .result_empty			{display:inline;}

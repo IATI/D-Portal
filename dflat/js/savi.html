@@ -759,24 +759,48 @@
 	<td class="result_actual">{_it.@actual||/empty_result}</td>
 	<td class="result_percent">{_it.@percent>=0&&_it:@percent||_it:@percent-null}</td>
 	<td class="result_period">
-		{_it./period-start@iso-date||} : {_it./period-end@iso-date||}
-		<div class="result_date_bar">
-			<div class="result_date_overlay" style="width:calc({_it./period-percent} * 1.30px); background-color:{period.{_it./period-percent}};"></div>
-		</div>
+		{_it./period-percent&&_it:/periods||/empty_period}
 	</td>
+</tr>
+{_it./baseline/comment/narrative&&_it:/baseline_comment||}
+{_it./target/comment/narrative&&_it:/target_comment||}
+{_it./actual/comment/narrative&&_it:/actual_comment||}
+
+#^/periods
+{_it./period-start@iso-date||} : {_it./period-end@iso-date||}
+<div class="result_date_bar">
+	<div class="result_date_overlay" style="width:calc({_it./period-percent} * 1.30px); background-color:{period.{_it./period-percent}};"></div>
+</div>
+
+#^/baseline_comment
+<tr class="row_comment">
+	<td><div class="result_comment_type"><b>Baseline</b> comment</div></td>
+	<td colspan="5"><div class="result_comment">{_it./baseline/comment/narrative.0.text||}</div></td>
+</tr>
+#^/target_comment
+<tr class="row_comment">
+	<td><div class="result_comment_type"><b>Target</b> comment</div></td>
+	<td colspan="5"><div class="result_comment">{_it./target/comment/narrative.0.text||}</div></td>
+</tr>
+#^/actual_comment
+<tr class="row_comment">
+	<td><div class="result_comment_type"><b>Actual</b> comment</div></td>
+	<td colspan="5"><div class="result_comment">{_it./actual/comment/narrative.0.text||}</div></td>
 </tr>
 
 #^/empty_dimension
 <div class="result_empty">No dimension has been provided</div>
 #^/empty_location
 <div class="result_empty">No location has been provided</div>
+#^/empty_period
+<div class="result_empty">Not provided</div>
 
 #^/result_indicator_row_facet_dimension_wrap
 {_it.@name||_it.@value&&_it:/result_indicator_row_facet_dimension||/empty_dimension}
 
 #^/result_indicator_row_facet_dimension
 <div class="result_facet">
-	<span class="result_facet_name">{_it.@name||}</span> = <span class="result_facet_value">{_it.@value||}</span>
+	<span class="result_facet_name">{_it.@name||}</span> : <span class="result_facet_value">{_it.@value||}</span>
 </div>
 
 #^/result_indicator_row_facet_location_wrap
@@ -784,7 +808,7 @@
 
 #^/result_indicator_row_facet_location
 <div class="result_facet">
-	<span class="result_facet_name">Location</span> = <span class="result_facet_value">{_it.@ref||}</span>
+	<span class="result_facet_name">Location</span> : <span class="result_facet_value">{_it.@ref||}</span>
 </div>
 
 #^/result_year
@@ -1795,7 +1819,7 @@
 </div>
 
 #^/participating-org/activity-id
-<div>
+<div class="part_org_id">
 	<span title="A valid activity identifier published by the participating organisation which points to the activity that it has published to IATI that describes its role in this activity." class="ref">
 		ID <a ref="{origin}/q.html?aid={_it.@activity-id}" target="_blank">{_it.@activity-id||}</a>
 	</span>
