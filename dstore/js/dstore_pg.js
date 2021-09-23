@@ -547,7 +547,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 
 			let xtree=dflat.xml_to_xson( orgxml )
 			dflat.clean(xtree)
-			xtree=xtree["/iati-organisations/iati-organisation"][0]
+			xtree=xtree["/iati-organisations/iati-organisation"][0]		// <-- only imports the first org, did not expect multiples so need to re hack this
 
 			let pid=xtree["/organisation-identifier"] || xtree["/reporting-org@ref"]
 

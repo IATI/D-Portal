@@ -823,6 +823,7 @@ savi.prepare=function(iati_xson){
 								
 								let find_facet_baseline=function(ds)
 								{
+									ds=ds||"1970-01-01"
 									if( ! facet["/baseline"] ) { return }
 									let y=parseInt( ds.substring(0,4) )
 									let best
@@ -883,23 +884,34 @@ savi.prepare=function(iati_xson){
 
 								for( let actual of ( facet["/actual"] || [] ) )
 								{
-									let it=find_facet_value( actual["/period-start@iso-date"] , actual["/period-end@iso-date"] )
-									if(!it) { it=create_facet_value(actual) }
-									it["@actual"]=actual["@value"]
+									let value=find_facet_value( actual["/period-start@iso-date"] , actual["/period-end@iso-date"] )
+									if(!value) { value=create_facet_value(actual) }
+									value["@actual"]=actual["@value"]
+									value["/actual/comment/narrative"]=actual["/comment/narrative"]
 								}
 								for( let target of ( facet["/target"] || [] ) )
 								{
-									let it=find_facet_value( target["/period-start@iso-date"] , target["/period-end@iso-date"] )
-									if(!it) { it=create_facet_value(target) }
-									it["@target"]=target["@value"]
+									let value=find_facet_value( target["/period-start@iso-date"] , target["/period-end@iso-date"] )
+									if(!value) { value=create_facet_value(target) }
+									value["@target"]=target["@value"]
+									value["/target/comment/narrative"]=target["/comment/narrative"]
+								}
+								for( let baseline of ( facet["/baseline"] || [] ) )
+								{
+									let value=facet["/value"][0] // create facet for baseline only
+									if(!value)
+									{
+										value=create_facet_value(baseline)
+									}
 								}
 								for( let value of ( facet["/value"] || [] ) )
 								{
-									let it = find_facet_baseline( value["/period-start@iso-date"] )
-									if(it)
+									let baseline = find_facet_baseline( value["/period-start@iso-date"] )
+									if(baseline)
 									{
-										value["@baseline"]=it["@value"]
-										value["@baseline-year"]=it["@year"]
+										value["@baseline"]=baseline["@value"]
+										value["@baseline-year"]=baseline["@year"]
+										value["/baseline/comment/narrative"]=baseline["/comment/narrative"]
 									}
 									let s=parseFloat(value["@baseline"])||0
 									let e=parseFloat(value["@target"])
