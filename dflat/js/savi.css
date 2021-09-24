@@ -810,6 +810,7 @@ table.modals td span.withdrawn	{background-color:#545e73; color:#ddd; display:in
 /*	PRINT FRIENDLY CSS	*/
 
 body.print		{background-color:#fff;}
+.print *		{color:#444;}
 
 .print .activity a,
 .print .activity a:link,
@@ -886,7 +887,7 @@ body.print		{background-color:#fff;}
 .print .legend,
 .print .wrap_result .sector_list_wrap,
 .print .wrap_description .text .narrative:nth-of-type(n+2)
-.print .result_indi_desc,
+.print .wrap_result_type .wrap_result_text .result_indi_desc,
 .print .result_indi_head,
 .print .result_facet,
 .print .result_facet_name,
@@ -895,6 +896,9 @@ body.print		{background-color:#fff;}
 .print .result_base_year,
 .print .tab_currency,
 .print .wrap_contact_type  {color:#444;}
+
+/*	Theme button	*/
+.print .theme_button	{color:#fff;}
 
 /*  Results  */
 .print .brighter  		{background-color:#fff; border:0; border-bottom:1px solid #444; line-height:21px;} 
@@ -916,6 +920,18 @@ body.print		{background-color:#fff;}
 .print .wrap_result table.budget td.result_base,
 .print .wrap_result table.budget td.result_target,
 .print .wrap_result table.budget td.result_actual  {background-color:transparent;}
+
+/*	Result comments	*/
+.print .wrap_result table.budget tr.baseline_comment td .result_comment_type,
+.print .wrap_result table.budget tr.target_comment td .result_comment_type,
+.print .wrap_result table.budget tr.actual_comment td .result_comment_type,
+.print .wrap_result table.budget tr.baseline_comment td .result_comment,
+.print .wrap_result table.budget tr.target_comment td .result_comment,
+.print .wrap_result table.budget tr.actual_comment td .result_comment			{background:#fff; color:#444;}
+
+.print .wrap_result table.budget tr.baseline_comment td .result_comment_type,
+.print .wrap_result table.budget tr.target_comment td .result_comment_type,
+.print .wrap_result table.budget tr.actual_comment td .result_comment_type		{border-left:1px solid #444;}
 
 /* Table sort icons */
 .print table.budget th			{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right 5px center, #fff;}
