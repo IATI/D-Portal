@@ -460,6 +460,12 @@ table.budget.act_trans td.date				{padding-right:0; width:110px;}
 .result_date								{left:0; position:absolute; top:0; width:150px;}
 .result_base_year							{color:#ddd; font-size:11px; font-style:italic; left:-30px; max-height:25px; position:absolute; top:50%; -webkit-transform:translateY(-50%) rotate(-90deg); transform:translateY(-50%) rotate(-90deg);}
 
+/*	RESULT TABLES ARE NOT SORTABLE	*/
+table.budget.result th,
+table.budget.result th.status,
+table.budget.result th.value	{background:#1b232de8;}
+table.budget.result th:hover	{cursor:initial;}
+
 /*	IATI ACTIVITY POLICY MARKER TABLE	*/
 .wrap_policy_marker table.budget th.policy_code,
 .wrap_policy_marker table.budget td.policy_code		{padding-right:40px; width:300px;}
@@ -934,9 +940,9 @@ body.print		{background-color:#fff;}
 .print .wrap_result table.budget tr.actual_comment td .result_comment_type		{border-left:1px solid #444;}
 
 /* Table sort icons */
-.print table.budget th			{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right 5px center, #fff;}
+.print table.budget th,
 .print .org table.budget th.status,
-.print table.budget th.value	{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAIVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdcGRXAAAAC3RSTlMAChAXJik5R52frz/DrVEAAAA0SURBVHgBYyASsKFy2bnYkbksXFxcrAguEweQz8kE5zMygwAjhqGY8pj6EeZj2I/pPsIAAIFYARPXDv1TAAAAAElFTkSuQmCC) no-repeat right -5px center, #fff;}
+.print table.budget th.value	{background:#fff;}
 
 /* Table Charts */
 .print .ct-label {color:#444; fill:#444;}
