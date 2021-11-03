@@ -191,6 +191,22 @@ fi
 }
 export -f dodataset
 
+dodatasetvalid() {
+declare -a 'a=('"$1"')'
+slug=\x24{a[0]}
+url=\x24{a[1]}
+
+echo > logs/$slug.txt
+
+echo Validating $slug from "$url" | tee -a logs/$slug.txt
+
+curl --fail --silent --show-error --retry 4 --retry-delay 10 --speed-time 30 --speed-limit 100 --output downloads/$slug.valid.json -H "Ocp-Apim-Subscription-Key: 9a69eb662db147ebad6cbe53ffeaca2c" --data-urlencode "url=$url" "https://api.iatistandard.org/validator/report" -G
+
+}
+export -f dodatasetvalid
+
+
+
 ONLYSLUGS="^'.*' "
 if [[ -n $1 ]] ; then
 ONLYSLUGS="$1"
@@ -198,6 +214,7 @@ fi
 
 #	cat downloads.txt | grep "$ONLYSLUGS" | parallel -j 1 --bar dodataset
 	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | parallel -j 64 --bar dodataset
+#	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | parallel -j 64 --bar dodatasetvalid
 #	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | cat
 
 cat logs/*.txt >logs.txt
