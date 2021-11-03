@@ -684,7 +684,7 @@
 #^/result_indicator_facet
 {_it:/result_indicator_row_indicator||}
 <div class="wrap_result_table">
-	<table class="budget result sortable">
+	<table class="budget result">
 		{result-table}
 		{_it.@measure&&_it:/result_measure||}
 		{_it./period&&_it./facet&&_it:/wrap_result_indicator_row_all||_it:/result_indicator_period_only}
@@ -700,12 +700,12 @@
 #^result-table	<!--	RESULT TABLE HEADERS	-->
 <thead>
 	<tr>
-		<th class="result_indi" data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">FACET</th>
-		<th class="result_base" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">BASELINE</th>
-		<th class="result_target" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">TARGET</th>
-		<th class="result_actual" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">ACTUAL</th>			
-		<th class="result_percent" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">%</th>			
-		<th class="result_period" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">PERIOD</th>				
+		<th class="result_indi">FACET</th>
+		<th class="result_base">BASELINE</th>
+		<th class="result_target">TARGET</th>
+		<th class="result_actual">ACTUAL</th>			
+		<th class="result_percent">%</th>			
+		<th class="result_period">PERIOD</th>				
 	</tr>
 </thead>
 
@@ -773,19 +773,34 @@
 </div>
 
 #^/baseline_comment
-<tr class="row_comment">
-	<td><div class="result_comment_type"><b>Baseline</b> comment</div></td>
-	<td colspan="5"><div class="result_comment">{_it./baseline/comment/narrative.0.text||}</div></td>
+<tr class="row_comment baseline_comment">
+	<td></td>
+	<td colspan="5">
+		<div class="result_comment_wrap">
+			<div class="result_comment_type"><b>Baseline</b> comment</div>
+			<div class="result_comment">{_it./baseline/comment/narrative.0.text||}</div>
+		</div>
+	</td>
 </tr>
 #^/target_comment
-<tr class="row_comment">
-	<td><div class="result_comment_type"><b>Target</b> comment</div></td>
-	<td colspan="5"><div class="result_comment">{_it./target/comment/narrative.0.text||}</div></td>
+<tr class="row_comment target_comment">
+	<td></td>
+	<td colspan="5">
+		<div class="result_comment_wrap">
+			<div class="result_comment_type"><b>Target</b> comment</div>
+			<div class="result_comment">{_it./target/comment/narrative.0.text||}</div>
+		</div>
+	</td>
 </tr>
 #^/actual_comment
-<tr class="row_comment">
-	<td><div class="result_comment_type"><b>Actual</b> comment</div></td>
-	<td colspan="5"><div class="result_comment">{_it./actual/comment/narrative.0.text||}</div></td>
+<tr class="row_comment actual_comment">
+	<td></td>
+	<td colspan="5">
+		<div class="result_comment_wrap">
+			<div class="result_comment_type"><b>Actual</b> comment</div>
+			<div class="result_comment">{_it./actual/comment/narrative.0.text||}</div>
+		</div>
+	</td>
 </tr>
 
 #^/empty_dimension
