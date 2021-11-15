@@ -54,24 +54,24 @@
 		<div class="snap_wrap">
 			<table class="snap">
 				<tr>
-					<td>Total Publishers</td>
-					<td>{dash_total_publishers}</td>
+					<td class="snap_title">Total Publishers</td>
+					<td class="snap_num">{dash_total_publishers}</td>
 				</tr>
 				<tr>
-					<td>Total Activities</td>
-					<td>{dash_total_activities}</td>
+					<td class="snap_title">Total Activities</td>
+					<td class="snap_num">{dash_total_activities}</td>
 				</tr>
 				<tr>
-					<td>Total Countries</td>
-					<td>{dash_total_countries}</td>
+					<td class="snap_title">Total Countries</td>
+					<td class="snap_num">{dash_total_countries}</td>
 				</tr>
 				<tr>
-					<td>Invalid Recipients</td>
-					<td>{dash_country_total_invalid}</td>
+					<td class="snap_title">Invalid Recipients</td>
+					<td class="snap_num">{dash_country_total_invalid}</td>
 				</tr>
 				<tr>
-					<td>Total Invalid %</td>
-					<td>{dash_country_total_invalid_pct}%</td>
+					<td class="snap_title">Percentage Invalid</td>
+					<td class="snap_num">{dash_country_total_invalid_pct}%</td>
 				</tr>
 			</table>
 		</div>
@@ -140,9 +140,10 @@ table.pub td.ref a			{padding:15px 35px 15px 0; color:#FFC107;}
 table.pub td.ref a:hover	{color:#ffd452;}
 table.pub td.ref:nth-of-type(1) a {color:#e8e8e8;}
 
-table.snap				{font-size:0.9em; margin:0 auto; width:100%; word-break:break-all;}
-table.snap td			{padding:10px 10px 10px 0; line-height:16px;}
-table.snap td:nth-of-type(2) {font-size:2em; padding-right:0; line-height:16px;}
+table.snap				{font-size:0.9em; margin:0 auto; width:100%;}
+table.snap td			{padding:10px 10px 10px 0; line-height:16px; vertical-align:middle;}
+table.snap td.snap_title{width:80px;}
+table.snap td.snap_num	{font-size:2em; padding-right:0; line-height:16px;}
 table.snap.countries	{table-layout:fixed; word-break:break-word;}
 table.snap.countries th	{font-size:1.6em; padding:5px 30px 20px 0; text-align:left;}
 table.snap.countries td	{border-bottom:3px solid #1d2550; padding:10px 5px 10px 0;}
