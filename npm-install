@@ -1,11 +1,14 @@
 cd `dirname $0`
 
-rm -rf node_modules/*
+rm -rf node_modules
 rm package-lock.json
 rm yarn.lock
 
-# gyp breaks without explcit python????
 
-npm install --python=/usr/bin/python3
+npm install
+
+# gyp breaks without explcit python????
+#npm install --python=/usr/bin/python3
+
 #yarn install
 

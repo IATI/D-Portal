@@ -1,0 +1,29 @@
+cd `dirname $0`
+cd ..
+
+echo
+echo " Rebuilding javascript with latest data "
+echo
+
+source /dportal/box/env.sh
+
+
+echo
+echo "Get new json data"
+echo
+
+bin/pull
+bin/fetch
+bin/addcommit auto json fetch in nightly cron
+bin/pull
+bin/push
+
+
+echo
+echo "Rebuilding ctrack with new json"
+echo
+
+bin/build
+
+/dportal/box/dportal-stop
+/dportal/box/dportal-start

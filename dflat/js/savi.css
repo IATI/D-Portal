@@ -253,6 +253,8 @@ table.budget th:after	{border-bottom:1px solid #aaa; bottom:-1px; content:''; le
 /*	IATI ACTIVITY BUDGET AND PLANNED DISBURSEMENT TABLE	*/
 table.budget th.date,
 table.budget td.date				{padding-right:20px; width:100px;}
+table.budget th.end_date,
+table.budget td.end_date			{width:250px;}
 table.budget th.tab_type,
 table.budget td.tab_type			{padding-right:30px; width:200px;}
 table.budget th.status,
