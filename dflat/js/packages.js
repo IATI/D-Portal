@@ -272,6 +272,50 @@ cat logs/*.txt >logs.txt
 `)
 	await fse.chmod(     path.join(argv.dir,"packages.sh") , 0o755 )
 
+	await fse.writeFile( path.join(argv.dir,"join.sh") ,
+`
+dirname=$( dirname "$(readlink -f "$0")" )
+cd "$dirname"
+
+if ! [ -x "$(command -v parallel)" ]; then
+	echo "parallel is not installed, atempting to install"
+	sudo apt install -y parallel
+fi
+
+if ! [ -x "$(command -v grep)" ]; then
+	echo "grep is not installed, atempting to install"
+	sudo apt install -y grep
+fi
+
+dodataset() {
+declare -a 'a=('"$1"')'
+slug=\x24{a[0]}
+url=\x24{a[1]}
+
+echo Creating unique data only dataset for $slug | tee -a logs/$slug.txt
+
+node ${argv.filename_dflat} --dir . packages-join $slug --dedupe 2>&1 | tee -a logs/$slug.txt
+
+}
+export -f dodataset
+
+ONLYSLUGS="^'.*' "
+if [[ -n $1 ]] ; then
+ONLYSLUGS="$1"
+else
+# deleteing all datasets as we will be rebuilding all of them
+	rm -rf datasets
+fi
+
+
+#	cat downloads.txt | grep "$ONLYSLUGS" | parallel -j 1 --bar dodataset
+	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | parallel -j -1 --bar dodataset
+#	cat downloads.txt | grep "$ONLYSLUGS" | sort -R | cat
+
+cat logs/*.txt >logs.txt
+
+`)
+	await fse.chmod(     path.join(argv.dir,"join.sh") , 0o755 )
 
 	await fse.writeFile( path.join(argv.dir,"sqlite.sh") ,
 `
@@ -673,7 +717,17 @@ packages.cmd_meta=async function(argv)
 
 packages.cmd_join=async function(argv)
 {
-	console.log("JOINING packages")
+	
+	let slug=argv._[1]
+
+	if( slug )
+	{
+		console.log("JOINING "+slug+" package only")
+	}
+	else
+	{
+		console.log("JOINING all packages")
+	}
 	
 	let ignoreme={}
 	
@@ -699,16 +753,32 @@ packages.cmd_join=async function(argv)
 		}
 	}
 
-	let datasetsdir=path.join(argv.dir,"datasets") 
-	await fse.emptyDir(datasetsdir)
+	let datasetsdir=path.join(argv.dir,"datasets")
+	if( ! fs.existsSync(datasetsdir) )
+	{
+		fs.mkdirSync(datasetsdir)
+	}
 
 	let xmldir=path.join(argv.dir,"xml") 
-	let slugs=await pfs.readdir(xmldir)
+	let slugs=[]
+	if(slug) // force this slug only
+	{
+		slugs=[slug]
+	}
+	else
+	{
+		await fse.emptyDir(datasetsdir) // need to empty datasets before we fill it up again
+		slugs=await pfs.readdir(xmldir)
+	}
 	for( const slugidx in slugs )
 	{
 		const slug=slugs[slugidx]
 		console.log(Math.floor(100*slugidx/slugs.length)+"%\t"+slug)
-		let files=await pfs.readdir(xmldir+"/"+slug)
+		let files=[]
+		if( fs.existsSync(xmldir+"/"+slug) ) // make sure there is a directory to scan
+		{
+			files = await pfs.readdir(xmldir+"/"+slug)
+		}
 		let output=[]
 		let tail=""
 		for( const file of files )
