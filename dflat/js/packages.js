@@ -94,6 +94,12 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 dirname=$( dirname "$(readlink -f "$0")" )
 cd "$dirname"
 
+
+if ! [ -x "$(command -v bc)" ]; then
+	echo "bc is not installed, atempting to install"
+	sudo apt install -y bc
+fi
+
 if ! [ -x "$(command -v curl)" ]; then
 	echo "curl is not installed, atempting to install"
 	sudo apt install -y curl
