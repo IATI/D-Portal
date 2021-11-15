@@ -1,0 +1,27 @@
+cd `dirname $0`
+cd ..
+
+echo
+echo " Updating freechange data "
+echo
+
+source /dportal/box/env.sh
+
+
+mkdir -p tmp
+cd tmp
+
+rm -rf freechange
+git clone git@github.com:xriss/freechange.git
+cd freechange
+npm install
+./freechange download
+./npm_publish
+cd ..
+
+cd ..
+
+npm install freechange@latest
+git add .
+git commit -m"freechange"
+

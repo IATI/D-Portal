@@ -1,0 +1,22 @@
+cd `dirname $0`
+cd ..
+
+echo
+echo " searching logs for errors "
+echo
+
+source /dportal/box/env.sh
+
+
+echo
+echo "Searching logs for download ERRORS"
+echo
+grep -i "error:" dstore/cache/*.curl.last.log
+grep -i "Empty reply from server" dstore/cache/*.curl.last.log
+
+
+echo
+echo "Searching logs for import ERRORS"
+echo
+grep -i "error" dstore/cache/*.import.last.log
+
