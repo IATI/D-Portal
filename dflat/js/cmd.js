@@ -314,8 +314,8 @@ Prepare a data directory to fetch IATI packages into.
 
 Process a downloaded package into multiple files. The file to process 
 should be found in downloads/filename.xml we will then process it 
-and write it into other locations such as packages/ or 
-activities/ in the data directory.
+and write it into other locations such as json/ or 
+xml/ in the data directory.
 
 	--dir dataflat
 	Directory to process data in.

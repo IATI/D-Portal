@@ -86,21 +86,22 @@ cronos.update = async function(argv){
 		shell.echo("")
 		
 		shell.mkdir("downloads")
-		shell.mkdir("packages")
+		shell.mkdir("xml")
 		shell.exec("wget \""+q.xml+"\" -O downloads/activities.xml")
 
 		shell.echo("")
 		shell.echo("processing data q"+idx+" : "+(q.title||"UNKNOWN"))
 		shell.echo("")
 
-		shell.exec("node ../../js/cmd.js packages activities --dir .")
+		shell.exec("node ../../js/cmd.js packages-parse activities --dir .")
 		
 		shell.rm("*.xml") // remove old xml files		
-		shell.cp("activities/*.xml",".") // copy all files
+		shell.cp("xml/activities/*.xml",".") // copy all files
 
 		shell.rm("-rf","downloads") // make sure
-		shell.rm("-rf","packages")
-		shell.rm("-rf","activities")
+		shell.rm("-rf","logs")
+		shell.rm("-rf","xml")
+		shell.rm("-rf","json")
 
 		shell.exec("git add *.xml")
 		shell.exec("git clean -f -d") //remove junk

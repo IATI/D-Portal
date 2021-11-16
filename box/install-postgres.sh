@@ -32,6 +32,7 @@ sudo bash -c "echo \"work_mem = 128MB\" >> $PGMAIN/postgresql.conf"
 #replace pg_hba.conf
 sudo bash -c "echo \"#HAXTBH\" > $PGMAIN/pg_hba.conf"
 sudo bash -c "echo \"host dstore readonly 127.0.0.1/32 md5\" >> $PGMAIN/pg_hba.conf"
+sudo bash -c "echo \"host dstore readonly ::1/128 md5\" >> $PGMAIN/pg_hba.conf"
 sudo bash -c "echo \"local all all trust\" >> $PGMAIN/pg_hba.conf"
 sudo /etc/init.d/postgresql restart
 
