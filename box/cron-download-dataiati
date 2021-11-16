@@ -28,7 +28,7 @@ git pull
 
 ./update.sh
 
-#remove downloaded files to save a littel bit of space
+#remove downloaded files to save a littel bit of space as they have been processed now
 rm -rf downloads
 
 
@@ -39,11 +39,15 @@ echo "copying datasets"
 popd
 
 mv ~/dataiati/datasets/*.xml cache/
+rm cache/*.log
+for f in ~/dataiati/logs/*.txt; do 
+    mv -- "~/dataiati/logs/$f" "cache/${f%.txt}.xml.last.log"
+done
 
 cd cache
 
 ENDTIME=$(date +%s)
-echo "Finished Download of all xml files at $(date)" | tee -a cache/time.log
-ls -s *.xml | awk '{sum+=$1;} END {printf("%'"'"'d kilobytes downloaded\n",sum);}' | tee -a cache/time.log
-echo "Download took  $(($ENDTIME - $STARTTIME)) seconds to complete." | tee -a cache/time.log
-echo "" | tee -a cache/time.log
+echo "Finished Download of all xml files at $(date)" | tee -a time.log
+ls -s *.xml | awk '{sum+=$1;} END {printf("%'"'"'d kilobytes downloaded\n",sum);}' | tee -a time.log
+echo "Download took  $(($ENDTIME - $STARTTIME)) seconds to complete." | tee -a time.log
+echo "" | tee -a time.log
