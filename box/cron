@@ -7,6 +7,9 @@ exec >/dportal/logs/cron.log
 source /dportal/box/env.sh
 
 
+sudo certbot renew
+
+
 if [[ $(date +%u) -eq 1 ]]; then
 echo
 echo "it is a sunday night"
