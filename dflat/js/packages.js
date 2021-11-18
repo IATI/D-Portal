@@ -617,11 +617,41 @@ packages.cmd_process=async function(argv)
 
 packages.cmd_meta=async function(argv)
 {
+	let slug=argv._[1]
+
+	if( slug )
+	{
+		argv.reparse=true // force a reparse
+		console.log("Creating META DATA for "+slug+" package only")
+	}
+	else
+	{
+		console.log("Creating META DATA for all packages")
+	}
+
+	// make sure json and sub dirs exist
+	for	( p of [
+			path.join(argv.dir,"json"),
+			path.join(argv.dir,"json/activity-identifiers"),
+			path.join(argv.dir,"json/organisation-identifiers"),
+		] )
+	{
+		if( ! fs.existsSync( p ) ) { fs.mkdirSync( p) }
+	}
+
 	if(argv.reparse)
 	{
 		console.log("REPARSE")
 		let xmldir=path.join(argv.dir,"xml") 
-		let slugs=await pfs.readdir(xmldir)
+		let slugs=[]
+		if(slug) // force this slug only
+		{
+			slugs=[slug]
+		}
+		else
+		{
+			slugs=await pfs.readdir(xmldir)
+		}
 		for( const slugidx in slugs )
 		{
 			const slug=slugs[slugidx]
@@ -671,6 +701,11 @@ packages.cmd_meta=async function(argv)
 				await pfs.writeFile( path.join(argv.dir,"json/organisation-identifiers/"+slug+".json") ,stringify(identifiers,{space:" "}))
 			}
 		}
+	}
+	
+	if(slug) // should not rebuild global files when given a slug
+	{
+		return // so exit here
 	}
 	
 	for( idname of ["activity-identifiers","organisation-identifiers"] )
