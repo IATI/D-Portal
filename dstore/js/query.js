@@ -1236,7 +1236,7 @@ query.serv = function(req,res){
 	{
 		var slug=q.slug;
 		slug=String( slug ).replace(/[^0-9a-zA-Z\-_]/g, '_');
-		var logname1=__dirname+"/../../dstore/cache/"+slug+".xml.curl.last.log";
+		var logname1=__dirname+"/../../dstore/cache/"+slug+".xml.download.last.log";
 		var logname2=__dirname+"/../../dstore/cache/"+slug+".xml.import.last.log";
 
 		fs.readFile(logname1,"utf8", function (err, data) {

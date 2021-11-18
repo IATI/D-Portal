@@ -39,9 +39,10 @@ echo "copying datasets"
 popd
 
 mv ~/dataiati/datasets/*.xml cache/
-rm cache/*.log
-for f in ~/dataiati/logs/*.txt; do 
-    mv -- "~/dataiati/logs/$f" "cache/${f%.txt}.xml.last.log"
+rm cache/*.last.log
+for f in ~/dataiati/dataflat/logs/*.txt; do
+        name=$(basename "$f")
+        cp "$f" "cache/${name%.txt}.xml.download.last.log"
 done
 
 cd cache
