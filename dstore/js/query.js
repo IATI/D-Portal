@@ -875,6 +875,86 @@ query.getsql_build_column_names=function(q,qv){
 
 };
 
+query.stream_start=function(q,res,r,req)
+{
+	let stream={}
+	stream.q=q
+	stream.res=res
+	stream.req=req
+	stream.r=r || {}
+	
+
+	stream.r.time=(Date.now());
+	stream.idx=0
+	
+	stream.between=function(b)
+	{
+		if(stream.idx==0)
+		{
+			res.set('transfer-encoding', 'chunked')			
+			res.set('charset','utf8')
+
+			if(q.callback) // jsonp
+			{
+				res.set('Content-Type', 'text/javascript')
+				res.write(`/**/ typeof ${q.callback} === 'function' && ${q.callback}(`)
+			}
+			else
+			{
+				res.set('Content-Type', 'application/json')
+			}
+			
+			res.write(`{"rows":[`)
+		}
+		else
+		{
+			res.write(b)
+		}		
+	}
+
+	return stream
+}
+query.stream_item=function(stream,item)
+{
+	let q=stream.q
+	let res=stream.res
+
+	let str=JSON.stringify(item)
+
+	stream.between(",")
+	
+	res.write(str)
+	
+	stream.idx=stream.idx+1
+
+	return stream
+}
+query.stream_stop=function(stream)
+{
+	let q=stream.q
+	let res=stream.res
+
+	stream.between("")
+
+	delete stream.r.rows
+
+	stream.r.count=stream.idx
+	stream.r.time=((Date.now())-stream.r.time)/1000;
+	
+	let rs=JSON.stringify(stream.r).replace(/^{|}$/g,"")
+
+	res.write(`],${rs}}`)
+
+	if(q.callback) // jsonp
+	{
+		res.write(`);`)
+	}
+
+	res.end()
+
+	return stream
+}
+
 query.do_select_response=function(q,res,r){
 
 	var humanizer=function(name,value)
@@ -1236,7 +1316,7 @@ query.serv = function(req,res){
 	{
 		var slug=q.slug;
 		slug=String( slug ).replace(/[^0-9a-zA-Z\-_]/g, '_');
-		var logname1=__dirname+"/../../dstore/cache/"+slug+".xml.curl.last.log";
+		var logname1=__dirname+"/../../../dataiati/dataflat/logs/"+slug+".txt";
 		var logname2=__dirname+"/../../dstore/cache/"+slug+".xml.import.last.log";
 
 		fs.readFile(logname1,"utf8", function (err, data) {

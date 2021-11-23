@@ -17,10 +17,6 @@ echo | tee -a ${file}.import.log ${file}.import.last.log
 date | tee -a ${file}.import.log ${file}.import.last.log
 echo | tee -a ${file}.import.log ${file}.import.last.log
 
-echo "IATI XML last successfully downloaded on" | tee -a ${file}.import.log ${file}.import.last.log
-date -r $file | tee -a ${file}.import.log ${file}.import.last.log
-echo | tee -a ${file}.import.log ${file}.import.last.log
-
 echo "Importing $file" | tee -a ${file}.import.log ${file}.import.last.log
 
 node --max-old-space-size=4096 js/cmd import $file 2>&1 | tee -a ${file}.import.log ${file}.import.last.log
@@ -33,16 +29,6 @@ ls cache/*.xml | sort -R | parallel --jobs 50% --bar doimport
 
 echo "Adding fake transactions at $(date)" | tee -a cache/time.log
 node js/cmd fake
-
-
-#echo "Removing indexes at $(date)" | tee -a cache/time.log
-#node js/cmd unindex
-
-#echo "Starting Vacuum of database at $(date)" | tee -a cache/time.log
-#psql -c "vacuum full verbose;" 2>&1 | tee cache/vacuum.log
-
-#echo "Adding indexes at $(date)" | tee -a cache/time.log
-#node js/cmd index
 
 echo "Starting Analyze of database at $(date)" | tee -a cache/time.log
 node js/cmd analyze

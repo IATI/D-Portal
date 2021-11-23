@@ -320,10 +320,14 @@ xml/ in the data directory.
 	--dir dataflat
 	Directory to process data in.
 
->	dflat packages-meta
+>	dflat packages-meta [slugname]
 
 Merge all the individual meta json files created by package parsing into single 
 files containing all the data for all the packages.
+
+If slugname is given then just the meta for this package will be reparsed and 
+no global data will be modified. So you should run again later with no slugname 
+to generate the global meta.
 
 	--reparse
 	Reparse all the xml files to recreate the individual meta files.
@@ -331,9 +335,11 @@ files containing all the data for all the packages.
 	--dir dataflat
 	Directory to process data in.
 
->	dflat packages-join
+>	dflat packages-join [slugname]
 
 Join all the xml files back together to recreate the original data packages.
+
+If slugname is given then just this package will be created.
 
 	--dedupe
 	Use the meta data to remove duplicate IDs.

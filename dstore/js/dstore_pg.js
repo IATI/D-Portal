@@ -8,6 +8,8 @@ var dstore_back=exports;
 
 exports.engine="pg";
 
+const Cursor = require('pg-cursor');
+
 //var wait=require("wait.for-es6");
 
 var dstore_db=require('./dstore_db');
@@ -716,12 +718,30 @@ dstore_pg.warn_dupes = async function(db,aid,slug){
 	return ret
 };
 
+
+dstore_pg.query_params=function(string,params)
+{
+	let values=[]
+	let index=0
+	for( key in params )
+	{
+		let value=params[key]
+		
+		values[index]=value
+		string=string.replace(`\$\{${key}\}`,`$${index}`)
+		
+		index=index+1
+	}
+	return [string,values,index]
+}
+
+
 // the database part of the query code
 dstore_pg.query_select=async function(q,res,r,req){
 
 try{ // ignore all errors in this request
 
-await ( await dstore_pg.open(req) ).task( async db => {
+let db=await ( await dstore_pg.open(req) ) //.task( async db => {
 
 // return error do not crash
 var err=function (error) {
@@ -734,15 +754,42 @@ var err=function (error) {
 	{
 		r.explain=qrows[0]["QUERY PLAN"][0];
 	}
-	
-	let rows=await db.any(r.query,r.qvals).catch(err);
-	
-	r.rows=rows;
-	r.count=rows.length;
 
-	query.do_select_response(q,res,r);
 
-})
+	if(q.stream) // stream test
+	{
+		let ss=query.stream_start(q,res,r,req)
+		
+		var qq=dstore_pg.query_params(r.query,r.qvals)
+
+		const conn = await db.connect()
+		const cursor = conn.client.query(new Cursor(qq[0],qq[1]))
+		var rows=[]
+		do{
+
+			rows = await cursor.read(1)
+			if( rows[0] )
+			{
+				query.stream_item(ss,rows[0])
+			}
+
+		} while(rows.length>0);
+		cursor.close(() => conn.done());
+		query.stream_stop(ss)
+			
+	}
+	else
+	{
+
+		let rows=await db.any(r.query,r.qvals).catch(err);
+		
+		r.rows=rows;
+		r.count=rows.length;
+
+		query.do_select_response(q,res,r);
+	}
+
+//})
 
 }catch(e){console.log(e)} // but do print out error
 

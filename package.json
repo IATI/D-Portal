@@ -1,7 +1,7 @@
 {
   "name": "d-portal",
   "description": "Various IATI data tools.",
-  "version": "0.0.62",
+  "version": "0.0.63",
   "license": "MIT",
   "main": "dflat/js/cmd.js",
   "browserify": {
@@ -31,7 +31,7 @@
     "entities": "^2.2.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
-    "freechange": "^0.0.41",
+    "freechange": "^0.0.44",
     "fs-extra": "^9.1.0",
     "htmlparser": "^1.7.7",
     "iconv-lite": "^0.6.2",
@@ -53,9 +53,9 @@
     "node-fetch": "^2.6.1",
     "papaparse": "^5.3.0",
     "pg": "^8.6.0",
+    "pg-cursor": "^2.7.1",
     "pg-monitor": "^1.4.1",
     "pg-promise": "^10.10.1",
-    "pg-query-stream": "^4.1.0",
     "pify": "^5.0.0",
     "plated": "0.0.84",
     "request": "^2.88.2",

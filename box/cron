@@ -3,9 +3,17 @@ cd ..
 
 exec >/dportal/logs/cron.log
 
-
 source /dportal/box/env.sh
 
+
+TS() { echo ; date ; echo ; }
+
+
+	TS
+
+sudo certbot renew
+
+	TS
 
 if [[ $(date +%u) -eq 1 ]]; then
 echo
@@ -16,23 +24,33 @@ echo
 
 fi
 
+	TS
 
 /dportal/box/cron-build 2>&1
 
+	TS
 
 /dportal/box/cron-download-dataiati >/dportal/logs/cron.download.log 2>&1
 
+	TS
+
 /dportal/box/cron-swap-import 2>&1
+
+	TS
 
 /dportal/box/cron-errors 2>&1
 
-
+	TS
 
 /dportal/box/cron-dump 2>&1
 
+	TS
 
 /dportal/box/cron-stats 2>&1
 
+	TS
 
-/dportal/box/cron-cronos 2>&1
+#/dportal/box/cron-cronos 2>&1
+
+	TS
 
