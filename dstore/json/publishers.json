@@ -3506,7 +3506,7 @@
   "name": "afdb",
   "num_followers": 4,
   "package_count": 56,
-  "publisher_agencies": "The African Development Bank (ADB) publishes, under IATI, projects, or policy-based operations, data of sovereign operations funded by the ADB, African Development Fund (ADF) and the Nigerian Trust Fund (NTF) windows.\r\nSpecial funds might be included, depending on disclosure limitations.\r\nHowever, non- sovereign operations are not included through IATI due to disclosure limitations.\r\n",
+  "publisher_agencies": "The African Development Bank (ADB) publishes, under IATI, projects, or policy-based operations, data of sovereign and non-sovereign operations funded by the ADB, African Development Fund (ADF) and the Nigerian Trust Fund (NTF) windows.\r\nSpecial funds might be included, depending on disclosure limitations.\r\n\r\n",
   "publisher_constraints": "n/a",
   "publisher_contact": "iatidata@afdb.org",
   "publisher_contact_email": "iatidata@afdb.org",
@@ -3514,7 +3514,6 @@
   "publisher_data_quality": "The quality of data depends on initial quality in source systems and databases. A significant effort has been made  to enhance the quality of project data and its comprehensiveness. ",
   "publisher_description": "Multilateral Development Bank",
   "publisher_field_exclusions": "n/a",
-  "publisher_first_publish_date": "2019-07-29T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "monthly",
   "publisher_iati_id": "XM-DAC-46002",
@@ -3522,10 +3521,10 @@
   "publisher_organization_type": "40",
   "publisher_record_exclusions": "The African Development Bank (AfDB)’s new Disclosure and Access to Information (DAI) Policy, which has entered into effect on February 3, 2013, will guide reporting according to IATI standards. This policy assumes that all information will be disclosed unless it falls under the list of exceptions. Please refer to the AfDB's Disclosure Access to information for further details:\r\n\r\nhttp://www.afdb.org/fileadmin/uploads/afdb/Documents/Policy-Documents/Bank%20Group%20Policy%20on%20Disclosure%20and%20Acess%20to%20Infomation.pdf\r\n",
   "publisher_refs": "n/a",
-  "publisher_segmentation": "Separate files by country ",
+  "publisher_segmentation": "Separate files by country \r\n",
   "publisher_source_type": "primary_source",
   "publisher_thresholds": "The African Development Bank publishes its projects since 1967.",
-  "publisher_timeliness": "Data is published one month in arrears.",
+  "publisher_timeliness": "Data is published bi-monthly.",
   "publisher_ui": "n/a",
   "publisher_units": "An activity is defined by a \"project\" or \"operation\".\r\nCurrency : XDR\r\nFor reporting purposes we will use the ISO 4217 Currency Codes.\r\nUA is the official currency for the AfDB projects. 1 UA=1 SDR\r\n(International Monetary Fund Special Drawing Rights).\r\n",
   "publisher_url": "https://www.afdb.org",
@@ -12725,6 +12724,53 @@
    {
     "capacity": "admin",
     "name": "c_agents"
+   }
+  ]
+ },
+ "cal_2000-pu": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "fcaaaf76-1fe0-45db-81ee-08302acf6251",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "cc-by-sa",
+  "name": "cal_2000-pu",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "35 Richmond Road\r\nRichmond\r\nJohannesburg\r\n2091\r\nSouth Africa",
+  "publisher_contact_email": "info@cal.org.za",
+  "publisher_country": "ZA",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "ZA-NPO-060766",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "21",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://www.cal.org.za/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Coalition of African Lesbians (CAL)",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "cal_2000-pu"
    }
   ]
  },
@@ -31974,7 +32020,6 @@
   "publisher_data_quality": "",
   "publisher_description": "License description: \"Data licence Germany\" – attribution – version 2.0\r\nhttps://www.govdata.de/dl-de/by-2-0",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
   "publisher_frequency": "",
   "publisher_frequency_select": "monthly",
   "publisher_iati_id": "XM-DAC-5-52",
@@ -57011,6 +57056,53 @@
    {
     "capacity": "admin",
     "name": "pegasys-ame"
+   }
+  ]
+ },
+ "pekka_21": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "7b1935c7-c1fd-4345-a49d-c99000794993",
+  "image_display_url": "https://pekka.or.id/wp-content/uploads/2018/12/favicon.png",
+  "image_url": "https://pekka.or.id/wp-content/uploads/2018/12/favicon.png",
+  "is_organization": true,
+  "license_id": "odc-pddl",
+  "name": "pekka_21",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "Jl. Pangkalan Jati V No. 3 RT 11/Rw 05, Kel. Cipinang Melayu, kec. Makassar, Jatiwaringin, East Jakarta, Indonesia",
+  "publisher_contact_email": "seknas@pekka.or.id",
+  "publisher_country": "ID",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "ID-KHH-AHU-0013363.AH.01.04",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "22",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "http://pekka.or.id",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Yayasan PEKKA",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "pekka_21"
    }
   ]
  },
