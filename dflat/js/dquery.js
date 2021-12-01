@@ -103,6 +103,7 @@ dquery.start_loaded=async function(){
 	session.setMode( "ace/mode/pgsql" );
 	session.setUseWrapMode(true);
 
+	dquery.set_download_links()
 
 	window.setInterval(dquery.cron,1000) // start cron tasks
 
@@ -113,6 +114,16 @@ dquery.start_loaded=async function(){
 	  }
 	});
 
+}
+
+dquery.set_download_links=function()
+{
+	var session=dquery.editor.getSession()
+	var sqls=encodeURIComponent(session.getValue())
+	$("#download_xson_as_json a").attr("href", dquery.origin+"/dquery?form=json&sql="+sqls )
+	$("#download_xson_as_csv a").attr("href",  dquery.origin+"/dquery?form=csv&sql="+sqls )
+	$("#download_xson_as_xml a").attr("href",  dquery.origin+"/dquery?form=xml&sql="+sqls )
+	$("#download_xson_as_html a").attr("href", dquery.origin+"/dquery?form=html&sql="+sqls )
 }
 
 dquery.cron=async function()
@@ -127,6 +138,7 @@ dquery.cron=async function()
 		dquery.hash="#"+encodeURI(session.getValue())
 		window.location.hash=dquery.hash
 		undo.markClean()
+		dquery.set_download_links()
 	}
 	
 	if( dquery.hash != window.location.hash ) // update editor with any chnages to hash (browser forward/back buttons)
@@ -183,19 +195,6 @@ dquery.click=async function(id)
 				let aids=encodeURIComponent(dquery.origin+"/dquery?sql="+encodeURIComponent(session.getValue()))
 				window.open(dquery.origin+"/ctrack.html?aids="+aids+"#view=main", '_blank');
 			break;
-			
-			case "download_xson_as_json":
-				window.open(dquery.origin+"/dquery?sql="+encodeURIComponent(session.getValue()), '_blank');
-			break
-			case "download_xson_as_csv":
-				window.open(dquery.origin+"/dquery?form=csv&sql="+encodeURIComponent(session.getValue()), '_blank');
-			break
-			case "download_xson_as_xml":
-				window.open(dquery.origin+"/dquery?form=xml&sql="+encodeURIComponent(session.getValue()), '_blank');
-			break
-			case "download_xson_as_html":
-				window.open(dquery.origin+"/dquery?form=html&sql="+encodeURIComponent(session.getValue()), '_blank');
-			break
 
 			default:
 				console.log("unhandled click "+id)
