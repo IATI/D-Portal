@@ -762,12 +762,6 @@ var err=function (error) {
 		
 		var qq=dstore_pg.query_params(r.query,r.qvals)
 
-console.log( r.query )
-console.log( r.qvals )
-
-console.log( qq[0] )
-console.log( qq[1] )
-
 		const conn = await db.connect()
 		const cursor = conn.client.query(new Cursor(qq[0],qq[1]))
 		var rows=[]
