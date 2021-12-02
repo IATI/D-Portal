@@ -62,6 +62,8 @@ view_savi.ajax_aid=function(aid)
 			iati=iati.xson[0]
 		}
 
+		ctrack.chunk("view_savi_file","");
+
 		if(iati)
 		{
 			dflat.clean(iati) // clean this data
@@ -95,6 +97,8 @@ view_savi.ajax_pid=function(pid)
 			iati=iati.xson[0]
 		}
 		
+		ctrack.chunk("view_savi_file","");
+
 		if(iati)
 		{
 			dflat.clean(iati) // clean this data
