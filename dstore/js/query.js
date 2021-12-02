@@ -3,6 +3,8 @@
 
 var query=exports;
 
+var assert=require('assert');
+
 var util=require('util');
 var fs=require('fs');
 
@@ -1071,6 +1073,8 @@ query.stream_item=function(stream,item)
 {
 	let q=stream.q
 	let res=stream.res
+	
+	assert( !res.connection.destroyed , "Query connection destroyed" ) // give up if connection is broken
 
 	let itemstr=""
 	let tweenstr=","
