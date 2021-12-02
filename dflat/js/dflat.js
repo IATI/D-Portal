@@ -27,6 +27,250 @@ dflat.saneid=function(insaneid)
 }
 
 
+/*
+
+create a custom text stream object to allow us to write data out one activity 
+at a time capture return strings and provide data via calls to stream.data() 
+and finally call stream.close() to finish it off and return any closing string.
+
+*/
+dflat.stream=function(form)
+{
+	let stream={}
+	
+	stream.r={}
+	
+	stream.form=form || "json"
+	stream.time=(Date.now());
+	stream.index=0
+
+	stream.header={}
+	stream.head_str=""
+	stream.tail_str=""
+	
+	stream.outs=[]
+	stream.out=function(s)
+	{
+		stream.outs.push(s)
+	}
+
+	stream.head=function(it)
+	{
+		stream.header=it || {} // remember header data
+				
+		switch(stream.form)
+		{
+			case "csv":
+			{
+				if(it)
+				{
+					stream.csv_baseline=0
+
+					stream.csv_root=""
+
+					for( let path in it )
+					{
+						stream.csv_root=path	// should just be one
+					}
+
+					stream.csv_paths={}
+					stream.csv_paths[stream.csv_root]=true
+
+					let header=[] // build header
+					let all={}
+					
+					for( let path in database.paths ) // we can only stream valid xml paths as csv
+					{
+						if( path.startsWith(stream.csv_root) )
+						{
+							let d=database.paths[path]
+							if( d.type!="null" )
+							{
+								all[path.substring(stream.csv_root.length)]=true
+							}
+						}
+					}
+					for( let path in all )
+					{
+						header.push(path)
+					}
+
+					header.sort()
+					header.unshift(stream.csv_root)
+					header.unshift("parent")
+					header.unshift("index")
+
+					stream.csv_header=header
+
+					stream.out(stream.csv_header.join(","))
+					stream.out("\n")
+				}
+			}
+			break;
+
+			case "xml":
+			{
+				if(it)
+				{
+					let s=dflat.xson_to_xml(it)
+					stream.head_str=s.match(/^[^\0]*?\?>[^\0]*?>/g) // get first element
+					stream.tail_str=s.match(/<\/[^\/]*$/g)          // get last element
+				}
+			}
+			break;
+
+			case "html":
+			{
+				if(it)
+				{
+					let s=dflat.xson_to_html(it)
+					stream.head_str=s.match(/^[^\0]*?<\/style>/g) // get first element
+					stream.tail_str=s.match(/<\/body>[^\/]*$/g)   // get last element
+				}
+			}
+			break;
+
+			default:
+			{
+				if(stream.callback) // jsonp
+				{
+					stream.out(`/**/ typeof ${stream.callback} === 'function' && ${stream.callback}(`)
+				}
+				stream.out(`{"xson":[`)
+			}
+			break;
+		}
+
+		stream.out(stream.head_str)
+	}
+
+	stream.between=function(it)
+	{
+		switch(stream.form)
+		{
+			case "csv":
+			break;
+
+			case "xml":
+			break;
+
+			case "html":
+			break;
+
+			default:
+				stream.out(`,`)
+			break;
+		}
+	}
+
+	stream.data=function(it)
+	{
+		stream.outs=[]
+
+		if( stream.index==0 )
+		{
+			stream.head(it)
+		}
+		else
+		{
+			stream.between(it)
+		}
+		
+		switch(stream.form)
+		{
+			case "csv":
+			{
+				let linecount=0
+				let aa=dflat.xson_to_xsv_arrays(it,stream.csv_root,stream.csv_paths,stream.csv_header)
+				for( let i=1 ; i<aa.length ; i++ ) // skip header and renumber
+				{
+					let a=aa[i]
+					a[0]=a[0]+stream.csv_baseline || ""
+					a[1]=a[1]+stream.csv_baseline || ""
+					stream.out(a.join(","))
+					stream.out("\n")
+					linecount=linecount+1
+				}
+				stream.csv_baseline=stream.csv_baseline+linecount // advance
+			}
+			break;
+
+			case "xml":
+			{
+				let s=dflat.xson_to_xml(it)
+
+				s=s.replace(/^[^\0]*?\?>[^\0]*?>/g,"") // remove first element
+				s=s.replace(/<\/[^\/]*$/g,"")          // remove last element
+
+				stream.out(s)
+			}
+			break;
+
+			case "html":
+			{
+				let s=dflat.xson_to_html(it)
+
+				s=s.replace(/^[^\0]*?<\/style>/g,"") // remove first element
+				s=s.replace(/<\/body>[^\/]*$/g,"")   // remove last element
+
+				stream.out(s)
+			}
+			break;
+
+			default:
+			{
+				let s=dflat.xson_to_string(it)
+				stream.out(s)
+			}
+			break;
+		}
+		
+		stream.index=stream.index+1
+		
+		return 	stream.outs.join("")
+	}
+	
+	stream.stop=function()
+	{
+		stream.time=((Date.now())-stream.time)/1000;
+
+		stream.outs=[]
+
+		if( stream.index==0 )
+		{
+			stream.head()
+		}
+
+		switch(stream.form)
+		{
+			case "csv":
+			break;
+
+			case "xml":
+			break;
+
+			case "html":
+			break;
+
+			default:
+//				stream.r.duration=stream.time
+				let rs=JSON.stringify(stream.r).replace(/^{|}$/g,"")
+				stream.out(`],\n${rs}}`)
+				if(stream.callback) // jsonp
+				{
+					stream.out(`);`)
+				}
+			break;
+		}
+
+		stream.out(stream.tail_str)
+
+		return 	stream.outs.join("")
+	}
+
+	return stream
+}
+
 // convert json back into xml
 dflat.xson_to_xml=function(json)
 {
@@ -219,51 +463,66 @@ dflat.xml_to_xson=function(data)
 	return flat
 }
 
-
-dflat.xson_to_xsv=function(data,root,paths)
+// convert to csv string
+dflat.xson_to_xsv=function(data,root,paths,header)
 {
-	if(!root) // guess
+	var aa=dflat.xson_to_xsv_arrays(data,root,paths,header)
+	for(let i=0;i<aa.length;i++)
 	{
-		if( data["/iati-activities/iati-activity"] )
-		{
-			root="/iati-activities/iati-activity"
-			paths={"/iati-activities/iati-activity":true}
-		}
-		else
-		if( data["/iati-organisations/iati-organisation"] )
-		{
-			root="/iati-organisations/iati-organisation"
-			paths={"/iati-organisations/iati-organisation":true}
-		}
+		aa[i]=aa[i].join(",")
 	}
+	return aa.join("\n")
+}
 
-	var header=[]
-	var t={}
-	xson.all(data,function(v,a){
-		var n=a.join("")
-		for(let path in paths)
+// return array of array 
+dflat.xson_to_xsv_arrays=function(data,root,paths,header)
+{	
+	if( ! Array.isArray(header) ) // need to build header
+	{
+		header=[]
+
+		if(!root) // guess
 		{
-			if(n.startsWith(path)) // only remember these values
+			if( data["/iati-activities/iati-activity"] )
 			{
-				n=n.substr( root.length )
-				t[n]=true
-				break
+				root="/iati-activities/iati-activity"
+				paths={"/iati-activities/iati-activity":true}
+			}
+			else
+			if( data["/iati-organisations/iati-organisation"] )
+			{
+				root="/iati-organisations/iati-organisation"
+				paths={"/iati-organisations/iati-organisation":true}
 			}
 		}
-	})
-	for(var n in t)
-	{
-		header.push(n)
+
+		var t={}
+		xson.all(data,function(v,a){
+			var n=a.join("")
+			for(let path in paths)
+			{
+				if(n.startsWith(path)) // only remember these values
+				{
+					n=n.substr( root.length )
+					t[n]=true
+					break
+				}
+			}
+		})
+		for(var n in t)
+		{
+			header.push(n)
+		}
+		header.sort()
+		header.unshift(root)
+		header.unshift("parent")
+		header.unshift("index")
+
 	}
-	header.sort()
-	header.unshift(root)
-	header.unshift("parent")
-	header.unshift("index")
 
 	var lines=[]
-	
-	lines.push(header.join(","))
-
+	lines.push(header)
+		
 	var row=function(it)
 	{
 		var t=[];
@@ -288,7 +547,7 @@ dflat.xson_to_xsv=function(data,root,paths)
 			}
 		}
 		while(t[t.length-1]==="") { t.splice(-1) } // trim trailing commas
-		lines.push(t.join(","))
+		lines.push(t)
 	}
 	
 
@@ -299,7 +558,7 @@ dflat.xson_to_xsv=function(data,root,paths)
 	{
 		var basepath=nn.join("")
 
-		if(basepath==root) // start a new item
+		if( basepath==root || nn.length==1 ) // start a new item
 		{
 			if(row[2]!=="") // check if we are already done
 			{
@@ -361,7 +620,7 @@ dflat.xson_to_xsv=function(data,root,paths)
 		row(v)
 	}
 
-	return lines.join("\n")
+	return lines
 }
 
 dflat.xsv_to_xson=function(data)

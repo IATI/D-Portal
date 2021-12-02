@@ -1803,7 +1803,7 @@
   "license_id": "cc-by",
   "name": "acf",
   "num_followers": 0,
-  "package_count": 30,
+  "package_count": 31,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "For any enquiry about Action Against Hunger's work, please contact our team: \r\n\r\nBy Telephone: +44 (0)20 8293 6190 (Mon-Fri, 9.30am-5.30pm)",
@@ -3506,7 +3506,7 @@
   "name": "afdb",
   "num_followers": 4,
   "package_count": 56,
-  "publisher_agencies": "The African Development Bank (ADB) publishes, under IATI, projects, or policy-based operations, data of sovereign operations funded by the ADB, African Development Fund (ADF) and the Nigerian Trust Fund (NTF) windows.\r\nSpecial funds might be included, depending on disclosure limitations.\r\nHowever, non- sovereign operations are not included through IATI due to disclosure limitations.\r\n",
+  "publisher_agencies": "The African Development Bank (ADB) publishes, under IATI, projects, or policy-based operations, data of sovereign and non-sovereign operations funded by the ADB, African Development Fund (ADF) and the Nigerian Trust Fund (NTF) windows.\r\nSpecial funds might be included, depending on disclosure limitations.\r\n\r\n",
   "publisher_constraints": "n/a",
   "publisher_contact": "iatidata@afdb.org",
   "publisher_contact_email": "iatidata@afdb.org",
@@ -3514,7 +3514,6 @@
   "publisher_data_quality": "The quality of data depends on initial quality in source systems and databases. A significant effort has been made  to enhance the quality of project data and its comprehensiveness. ",
   "publisher_description": "Multilateral Development Bank",
   "publisher_field_exclusions": "n/a",
-  "publisher_first_publish_date": "2019-07-29T00:00:00.000000",
   "publisher_frequency": "",
   "publisher_frequency_select": "monthly",
   "publisher_iati_id": "XM-DAC-46002",
@@ -3522,10 +3521,10 @@
   "publisher_organization_type": "40",
   "publisher_record_exclusions": "The African Development Bank (AfDB)’s new Disclosure and Access to Information (DAI) Policy, which has entered into effect on February 3, 2013, will guide reporting according to IATI standards. This policy assumes that all information will be disclosed unless it falls under the list of exceptions. Please refer to the AfDB's Disclosure Access to information for further details:\r\n\r\nhttp://www.afdb.org/fileadmin/uploads/afdb/Documents/Policy-Documents/Bank%20Group%20Policy%20on%20Disclosure%20and%20Acess%20to%20Infomation.pdf\r\n",
   "publisher_refs": "n/a",
-  "publisher_segmentation": "Separate files by country ",
+  "publisher_segmentation": "Separate files by country \r\n",
   "publisher_source_type": "primary_source",
   "publisher_thresholds": "The African Development Bank publishes its projects since 1967.",
-  "publisher_timeliness": "Data is published one month in arrears.",
+  "publisher_timeliness": "Data is published bi-monthly.",
   "publisher_ui": "n/a",
   "publisher_units": "An activity is defined by a \"project\" or \"operation\".\r\nCurrency : XDR\r\nFor reporting purposes we will use the ISO 4217 Currency Codes.\r\nUA is the official currency for the AfDB projects. 1 UA=1 SDR\r\n(International Monetary Fund Special Drawing Rights).\r\n",
   "publisher_url": "https://www.afdb.org",
@@ -7034,7 +7033,7 @@
   "is_organization": true,
   "license_id": "odc-pddl",
   "name": "apn",
-  "num_followers": 0,
+  "num_followers": 1,
   "package_count": 0,
   "publisher_agencies": "APN IATI covers its data and information from nationa anchor institutions and its members. 100% total development flow covered.",
   "publisher_constraints": "NILL",
@@ -8338,6 +8337,52 @@
    {
     "capacity": "admin",
     "name": "olejac"
+   }
+  ]
+ },
+ "assn": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "7d58c0bc-438c-4b8e-814b-be4363d841d6",
+  "image_display_url": "http://www.africansecuritynetwork.org",
+  "image_url": "http://www.africansecuritynetwork.org",
+  "is_organization": true,
+  "license_id": "odc-by",
+  "name": "assn",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "South Sudan- South Sudan Law Society\r\nMali- RENEDEP\r\nNiger- Consortium ADD\r\nDRC- Réseau Pour La Réforme Du Secteur De Sécurité Et De Justice\r\nANDDH\r\nAMDAH",
+  "publisher_constraints": "",
+  "publisher_contact": "No 27 Kofi Annan Avenue  \r\nNorth Legon- Accra\r\nGhana",
+  "publisher_contact_email": "info@africansecuritynetwork.org",
+  "publisher_country": "GH",
+  "publisher_data_quality": "",
+  "publisher_description": "The ASSN is a Pan-African network of institutions and individuals working in the area of Security Sector Reform and Governance (SSR/G). ASSN's activities are classified under Support to SSR/G Policy Development and Implementation, Research, Advocacy, Security Literacy and Practitioner Courses, Advisory Services of SSR/G and related matters and providing a repository for SSR/G information on the African Continent.",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "six_monthly",
+  "publisher_iati_id": "GH-DSW-7992",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "22",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "Per country",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "Half-yearly",
+  "publisher_ui": "",
+  "publisher_units": "Programmes per project country.",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "African Security Sector Network",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "africansecuritysectornetwork-01"
    }
   ]
  },
@@ -12679,6 +12724,53 @@
    {
     "capacity": "admin",
     "name": "c_agents"
+   }
+  ]
+ },
+ "cal_2000-pu": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "fcaaaf76-1fe0-45db-81ee-08302acf6251",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "cc-by-sa",
+  "name": "cal_2000-pu",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "35 Richmond Road\r\nRichmond\r\nJohannesburg\r\n2091\r\nSouth Africa",
+  "publisher_contact_email": "info@cal.org.za",
+  "publisher_country": "ZA",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "ZA-NPO-060766",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "21",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://www.cal.org.za/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Coalition of African Lesbians (CAL)",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "cal_2000-pu"
    }
   ]
  },
@@ -30833,7 +30925,6 @@
   "publisher_data_quality": "British Red Cross will only publish information that has been verified.",
   "publisher_description": "British Red Cross is part of the world’s largest humanitarian organisation, the International Red Cross and Red Crescent Movement, which is comprised of 192 National Societies, the International Committee of the Red Cross (ICRC) and the International Federation of the Red Cross and Red Crescent Societies (IFRC). Our mission is to mobilise the power of humanity so that individuals and communities have the capacity to prepare for, deal with and recover from crisis. The Fundamental Principles of the International Red Cross and Red Crescent Movement - Humanity, Impartiality, Neutrality, Independence, Voluntary Service, Unity and Universality – underpin our work. Additionally, British Red Cross has a special legal status and role amongst humanitarian agencies, which includes working as a humanitarian auxiliary  to the UK government. ",
   "publisher_field_exclusions": "British Red Cross report against all the mandatory fields. ",
-  "publisher_first_publish_date": "2020-12-16T10:04:57.087858",
   "publisher_frequency": "",
   "publisher_frequency_select": "quarterly",
   "publisher_iati_id": "GB-CHC-220949",
@@ -30846,7 +30937,6 @@
   "publisher_thresholds": "There are no thresholds on the value of activities. ",
   "publisher_timeliness": "British Red Cross commits to publishing all activity data on a quarterly basis. ",
   "publisher_ui": "Our IATI data can be accessed via our website, link below. ",
-  "publisher_ui_url": "https://www.redcross.org.uk/-/media/documents/about-us/international/British-Red-Cross-activity-file",
   "publisher_units": "For the purpose of IATI, British Red Cross defines an ‘activity’ as any project or emergency response that we are supporting with both restricted and general funding. ",
   "publisher_url": "http://www.redcross.org.uk",
   "state": "active",
@@ -31192,6 +31282,10 @@
   "title": "Gender at Work",
   "type": "organization",
   "users": [
+   {
+    "capacity": "admin",
+    "name": "data4development"
+   },
    {
     "capacity": "admin",
     "name": "genderatwork"
@@ -31926,7 +32020,6 @@
   "publisher_data_quality": "",
   "publisher_description": "License description: \"Data licence Germany\" – attribution – version 2.0\r\nhttps://www.govdata.de/dl-de/by-2-0",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
   "publisher_frequency": "",
   "publisher_frequency_select": "monthly",
   "publisher_iati_id": "XM-DAC-5-52",
@@ -37727,7 +37820,7 @@
   "license_id": "cc-by",
   "name": "ifrcrcs",
   "num_followers": 0,
-  "package_count": 38,
+  "package_count": 42,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "",
@@ -39913,7 +40006,7 @@
   "name": "iom",
   "num_followers": 2,
   "package_count": 2,
-  "publisher_agencies": "IATI data will be published for all IOM missions worldwide, with anticipated incremental increases in the IATI registered activities throughout 2018 and 2019.",
+  "publisher_agencies": "IATI data will be published for all IOM missions worldwide.",
   "publisher_constraints": "",
   "publisher_contact": "17 Route des Morillons\r\n1218 Grand-Saconnex\r\nSwitzerland\r\n\r\nEmail: iatipublishing@iom.int",
   "publisher_contact_email": "iatipublishing@iom.int",
@@ -39921,9 +40014,8 @@
   "publisher_data_quality": "Quality assurance of activity data published by IOM on IATI is carried out centrally prior to launching new activity data sets. \r\n\r\nIOM updates its data published on the IATI registry periodically during the fiscal year. The financial data released on the IATI registry by IOM are not to be considered as audited or certified and are subject to change in subsequent data refreshes.\r\n\r\nIOM organizational budget data is based on a confirmed funding basis.  The annual budget is updated twice per year; in May/June and again in Oct/Nov.  All three versions of the organizational budget will be published with the original budget having a value date as of 20xx-01-01 and the revisions will have a value date which corresponds to the date the budget revision was adopted and approved by the member states.  ",
   "publisher_description": "Established in 1951, IOM is the leading intergovernmental organization in the field of migration and is committed to the principle that humane and orderly migration benefits migrants and society.  IOM works with its partners in the international community to assist in meeting the growing operational challenges of migration, advance understanding of migration issues, encourage social and economic development through migration and uphold the well-being and human rights of migrants. In 2016, IOM became part of the United Nations system.",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "2018-02-28T00:00:00.000000",
-  "publisher_frequency": "IOM published its first pilot data set on  IATI in February 2018, covering organizational data and a portfolio of selected humanitarian and development projects. The IATI implementation by IOM is ongoing with anticipated incremental increases in the IATI registered activities throughout 2018 and 2019.",
-  "publisher_frequency_select": "quarterly",
+  "publisher_frequency": "IOM published its first pilot data set on IATI in February 2018, covering organizational data and a portfolio of selected humanitarian and development projects. The IATI implementation by IOM is ongoing with anticipated incremental increases in the IATI registered activities each month.",
+  "publisher_frequency_select": "monthly",
   "publisher_iati_id": "XM-DAC-47066",
   "publisher_implementation_schedule": "",
   "publisher_organization_type": "40",
@@ -40848,6 +40940,53 @@
    }
   ]
  },
+ "isdb": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "7a6080fd-16b2-440a-840a-d80f1ef1bc2c",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "cc-by",
+  "name": "isdb",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "Islamic Development Bank\r\n8111 King Khalid Street\r\nAl Nuzla Al Yamania District\r\nUnit No. 1\r\nJeddah 22332-2444\r\nKingdom of Saudi Arabia \r\n\r\nTel: +966-12- 6361400\r\nFax: +966-12-6366871\r\n\r\n",
+  "publisher_contact_email": "iati@isdb.org",
+  "publisher_country": "SA",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "annually",
+  "publisher_iati_id": "XM-DAC-46025",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "40",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://www.isdb.org/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Islamic Development Bank",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "isdb"
+   }
+  ]
+ },
  "isdglobal": {
   "description": "",
   "groups": [
@@ -41099,7 +41238,7 @@
   "license_id": "cc-by-sa",
   "name": "itforchange",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 1,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "#393, 17th Main Road, 35th Cross, Jayanagar 4th 'T' Block, Bangalore, Karnataka - 560041",
@@ -41108,7 +41247,7 @@
   "publisher_data_quality": "",
   "publisher_description": "",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2021-11-30T19:55:41.286647",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "IN-MHA-094421114",
@@ -41740,6 +41879,10 @@
   "users": [
    {
     "capacity": "admin",
+    "name": "data4development"
+   },
+   {
+    "capacity": "admin",
     "name": "jass"
    },
    {
@@ -42352,6 +42495,54 @@
    }
   ]
  },
+ "kavi-icr-uon": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "f78ffd8f-7d60-4048-a675-5c8e9aef7696",
+  "image_display_url": "https://kavi-icr.uonbi.ac.ke/",
+  "image_url": "https://kavi-icr.uonbi.ac.ke/",
+  "is_organization": true,
+  "license_id": "other-open",
+  "name": "kavi-icr-uon",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "19676-00202, NAIROBI, UNIVERSITY OF NAIROBI, COLLEGE OF HEALTH SCIENCES, KNH COMPLEX, ",
+  "publisher_contact_email": "swakasiaka@kaviuon.org",
+  "publisher_country": "KE",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "KE-KRA-P051093067A",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "80",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_ui_url": "https://kavi-icr.uonbi.ac.ke/",
+  "publisher_units": "",
+  "publisher_url": "https://kavi-icr.uonbi.ac.ke/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "KAVI-Institute of Clinical Research, University of Nairobi",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "swakasiaka"
+   }
+  ]
+ },
  "kcco_tanzania2019": {
   "description": "",
   "groups": [
@@ -42749,7 +42940,7 @@
   "license_id": "cc-zero",
   "name": "kerk_in_actie",
   "num_followers": 0,
-  "package_count": 0,
+  "package_count": 1,
   "publisher_agencies": "",
   "publisher_constraints": "",
   "publisher_contact": "Joseph Haydnlaan 2a\r\n3533 AE Utrecht\r\nThe Netherlands",
@@ -42758,7 +42949,7 @@
   "publisher_data_quality": "",
   "publisher_description": "Kerk in Actie is a department of the Protestant Church in the Netherlands (PKN), responsible for the (inter)national missionary and diaconal activities of the church. KiA is a multi-mandate, partner based organisation and her mission can be summarized as “believing in sharing - sharing in belief”",
   "publisher_field_exclusions": "",
-  "publisher_first_publish_date": "",
+  "publisher_first_publish_date": "2021-11-24T13:54:34.409517",
   "publisher_frequency": "",
   "publisher_frequency_select": "not_specified",
   "publisher_iati_id": "NL-KVK-30258482",
@@ -44188,6 +44379,53 @@
    {
     "capacity": "admin",
     "name": "ksrelief"
+   }
+  ]
+ },
+ "ktk": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "488e7747-3a5f-49b5-a649-966e601a42a3",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "cc-by",
+  "name": "ktk",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "Kvinna till Kvinna\r\nArab Women Organization of Jordan\r\nCollective for Research & Training on Development - Action\r\nPalestinian Working Woman Society for Development ",
+  "publisher_constraints": "",
+  "publisher_contact": "Al Mithaq building, Princess Basma Street. Amman, Jordan",
+  "publisher_contact_email": "ala.khaleel@kvinnatillkvinna.se",
+  "publisher_country": "JO",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "annually",
+  "publisher_iati_id": "JO-CCD-200178924",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "21",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://kvinnatillkvinna.se/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Kvinna till Kvinna",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "aalhusseini"
    }
   ]
  },
@@ -56818,6 +57056,53 @@
    {
     "capacity": "admin",
     "name": "pegasys-ame"
+   }
+  ]
+ },
+ "pekka_21": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "7b1935c7-c1fd-4345-a49d-c99000794993",
+  "image_display_url": "https://pekka.or.id/wp-content/uploads/2018/12/favicon.png",
+  "image_url": "https://pekka.or.id/wp-content/uploads/2018/12/favicon.png",
+  "is_organization": true,
+  "license_id": "odc-pddl",
+  "name": "pekka_21",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "Jl. Pangkalan Jati V No. 3 RT 11/Rw 05, Kel. Cipinang Melayu, kec. Makassar, Jatiwaringin, East Jakarta, Indonesia",
+  "publisher_contact_email": "seknas@pekka.or.id",
+  "publisher_country": "ID",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "not_specified",
+  "publisher_iati_id": "ID-KHH-AHU-0013363.AH.01.04",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "22",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "http://pekka.or.id",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "Yayasan PEKKA",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "pekka_21"
    }
   ]
  },
@@ -72147,30 +72432,28 @@
   "license_id": "cc-by",
   "name": "transparency-international",
   "num_followers": 1,
-  "package_count": 60,
-  "publisher_agencies": "Transparency International Secretariat",
+  "package_count": 1,
+  "publisher_agencies": "Transparency International Secretariat (TI-S)",
   "publisher_constraints": "",
   "publisher_contact": "ALT MOABIT 96\r\nGERMANY",
   "publisher_contact_email": "fundraising@transparency.org",
   "publisher_country": "DE",
   "publisher_data_quality": "Data is mainly operational, and will be published after proper verification and quality checks. ",
-  "publisher_description": "Transparency International’s secretariat tackles corruption on the regional and global stage.\r\n\r\nBased in Berlin, the secretariat provides leadership for the movement’s international initiatives, supports chapters and coordinates our regional work through knowledge sharing, advocacy and coalition building.\r\n\r\nIn collaboration with chapters, the secretariat produces numerous research, tools and policy positions. It serves as a knowledge centre, offering valuable insights into the dynamics of corruption and new approaches to tackling it.\r\n\r\nThe secretariat works to build coalitions. These efforts bring a wide variety of representatives together, including policy makers, citizens, companies and the media. Transparency International has played a crucial role in bringing about and bolstering anti-corruption initiatives, such as the OECD Anti-Bribery Convention, UN Convention against Corruption and UN Global Compact.\r\n\r\nThe secretariat’s relationship with chapters is one of mutual support. Drawing on our broad-based expertise, the secretariat helps chapters develop the tools and techniques needed to address corruption in their countries. Our secretariat also facilitates the increase of financial and human resources, so that chapters are ever more effective in the fight against corruption. The secretariat brings international support for chapters facing pressure or intimidation in their respective countries.",
-  "publisher_field_exclusions": "See Implementation Schedule",
-  "publisher_first_publish_date": "2012-05-31T00:00:00.000000",
+  "publisher_description": "Transparency International-Secretariat (TI-S) tackles corruption on the regional and global stage.\r\n\r\nBased in Berlin, TI-S provides leadership for the movement’s international initiatives, supports chapters and coordinates our regional work through knowledge sharing, advocacy and coalition building.\r\n\r\nIn collaboration with chapters, TI-S produces numerous research, tools and policy positions. It serves as a knowledge centre, offering valuable insights into the dynamics of corruption and new approaches to tackling it.\r\n\r\nTI-S works to build coalitions. These efforts bring a wide variety of representatives together, including policy makers, citizens, companies and the media. Transparency International has played a crucial role in bringing about and bolstering anti-corruption initiatives, such as the OECD Anti-Bribery Convention, UN Convention against Corruption and UN Global Compact.\r\n\r\nTI-S relationship with chapters is one of mutual support. Drawing on our broad-based expertise, TI-S helps chapters develop the tools and techniques needed to address corruption in their countries. TI-S also facilitates the increase of financial and human resources, so that chapters are ever more effective in the fight against corruption. TI-S brings international support for chapters facing pressure or intimidation in their respective countries.",
+  "publisher_field_exclusions": "",
   "publisher_frequency": "Quarterly",
   "publisher_frequency_select": "quarterly",
   "publisher_iati_id": "XM-DAC-21033",
-  "publisher_implementation_schedule": "https://www.transparency.org/files/content/ouraccountability/IATI_TIS_Implementation_Schedule_v101DTD20120530.pdf",
+  "publisher_implementation_schedule": "",
   "publisher_organization_type": "21",
-  "publisher_record_exclusions": "No exclusion of data is envisaged.  However, where there is reason to believe that publication would present a credible risk to organisations or individuals involved, or the organisation is required by local regulations (e.g. Data Protection) not to publish information, TI-S will manually exclude the data.\r\n\r\nAdditionally, TI-S may exclude historical data, that is, any information related to activities (programmes/projects) that have been closed on or before 1 April 2012.\r\n",
-  "publisher_refs": "See Implementation Schedule",
-  "publisher_segmentation": "No. One file for each Activity, which might include multiple countries/regions",
+  "publisher_record_exclusions": "No exclusion of data is envisaged.  However, where there is reason to believe that publication would present a credible risk to organisations or individuals involved, or the organisation is required by local regulations (e.g. data protection) not to publish information, TI-S will manually exclude the data.",
+  "publisher_refs": "",
+  "publisher_segmentation": "No. One file for all activities, which might include multiple countries/regions",
   "publisher_source_type": "primary_source",
-  "publisher_thresholds": "No thresholds will be established on the financial value of activity related data being published. ",
-  "publisher_timeliness": "Between 3 to 6 months",
-  "publisher_ui": "We will publish raw data and no user interface is planned for the foreseeable future.  ",
-  "publisher_ui_url": "https://www.transparency.org/whoweare/accountability/iati",
-  "publisher_units": "Department/Units/Projects",
+  "publisher_thresholds": "Due to capacity reasons grants valued at EUR 500,000 and over are published. Activities are published which are ending in 2021 and starting from 2021. ",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
   "publisher_url": "https://www.transparency.org/",
   "state": "active",
   "tags": [
@@ -76798,7 +77081,7 @@
   "license_id": "cc-zero",
   "name": "usaid",
   "num_followers": 3,
-  "package_count": 181,
+  "package_count": 186,
   "publisher_agencies": "Published data cover 100% of USAID financial flows.",
   "publisher_constraints": "Page 17- 20 of USAID's IATI Cost Management Plan (https://www.usaid.gov/sites/default/files/documents/1870/IATI%20Cost%20Management%20Plan_u_14July2015.pdf) outlines the fields that USAID does not capture or cannot be published to IATI by U.S. Government policy.",
   "publisher_contact": "1300 Pennsylvania Ave NW \r\nWashington, DC 20004",
@@ -76841,7 +77124,7 @@
     "name": "dlakin"
    },
    {
-    "capacity": "member",
+    "capacity": "admin",
     "name": "rboles"
    },
    {
@@ -82699,28 +82982,27 @@
   "name": "wwf-uk",
   "num_followers": 1,
   "package_count": 20,
-  "publisher_agencies": "WWF-UK\r\n100%",
-  "publisher_constraints": "Data published is taken from our internal Insight system.  If the insight system doesn't have a particular field we will not publish it.  Periodically Insight is reviewed at the network level at these times, addition of fields that further comply to IATI may be considered.",
-  "publisher_contact": "Will Beale \r\nHead of Programme Management\r\nWWF-UK\r\nPanda House\r\nWeyside Park\r\nGodalming\r\nSurrey GU7 1XR\r\n\r\nwbeale@wwf.org.uk\r\n\r\nt: 01483 426444 (main switchboard)\r\nt: 01483 426333 (supporter and inform",
-  "publisher_contact_email": "wbeale@wwf.org.uk",
+  "publisher_agencies": "WWF-UK’s IATI data will cover all funding received from institutional donors where requested, subject to any necessary exclusions.",
+  "publisher_constraints": "We publish all information that our finance system currently permits as well as other data and documentation that we have been able to add within an acceptable cost. ",
+  "publisher_contact": "Nick Dugdale, Head of Programme Finance \r\nWWF-UK  \r\nThe Living Planet Centre  \r\nRufford House  \r\nBrewery Road  \r\nWoking  \r\nSurrey, GU21 4LL  \r\n\r\nTo speak to us about your support call: 01483 426333 (8am to 10pm, 7 days a week) ",
+  "publisher_contact_email": "ndugdale@wwf.org.uk",
   "publisher_country": "GB",
-  "publisher_data_quality": "Unverified - We will confirm that the projects published are active. Financial data will be audited but not necessarily before it is published - dependent on the timing relative to the financial cycle.\r\n",
-  "publisher_description": "First point of information requests\r\nManager and publisher of the datasets",
-  "publisher_field_exclusions": "Our exclusions are outlined in our Open Information policy, to be published on our website (URL wwf.org.uk/open) by Jan 13.\t\t",
-  "publisher_first_publish_date": "2013-03-18T00:00:00.000000",
-  "publisher_frequency": "6 monthly publication\r\n\r\nTo be increased to quarterly inline with implementation schedule As new projects are approved (i.e. this is done in anticipation of forth coming financial spend) and set up, we will report on them quarterly in arrears.",
-  "publisher_frequency_select": "not_specified",
+  "publisher_data_quality": "Our data is extracted from our finance system quarterly. This is the most timely and transparent data available, but it is not audited and it does not include our entire organisational income and expenditure. Our audited accounts and grant payments schedules are published here: https://www.wwf.org.uk/annual-reports ",
+  "publisher_description": "WWF is the world’s leading independent conservation organisation. Our mission is to create a world where people and wildlife can thrive together. \r\n\r\nTo achieve our mission, we're finding ways to help transform the future for the world’s wildlife, rivers, forests and seas; pushing for a reduction in carbon emissions that will avoid catastrophic climate change; and pressing for measures to help people live sustainably, within the means of our one planet. \r\n\r\nWe’re acting now to make this happen",
+  "publisher_field_exclusions": "Our exclusions are outlined in our Open Information policy",
+  "publisher_frequency": "Data is published quarterly.",
+  "publisher_frequency_select": "quarterly",
   "publisher_iati_id": "GB-CHC-1081247",
-  "publisher_implementation_schedule": "",
+  "publisher_implementation_schedule": "n/a",
   "publisher_organization_type": "21",
-  "publisher_record_exclusions": "Our exclusions are outlined in our Open Information policy, to be published on our website (URL wwf.org.uk/open) by Jan 13.\t",
-  "publisher_refs": "",
-  "publisher_segmentation": "We will publish by region",
+  "publisher_record_exclusions": "Our exclusions are outlined in our Open Information policy",
+  "publisher_refs": "We publish the sectors that the activity benefits according to the OECD DAC CRS Purpose code (5 digit)",
+  "publisher_segmentation": "We will publish by the countries that benefit from the activity ",
   "publisher_source_type": "primary_source",
-  "publisher_thresholds": "£1000",
-  "publisher_timeliness": "As new projects are approved (i.e. this is done in anticipation of forth coming financial spend) and set up, we will report on them quarterly in arrears.\r\n",
-  "publisher_ui": "As XML on our website, and the registry.\r\nconsideration of using Bond open source visualisation software as it becomes available\r\n\r\n",
-  "publisher_units": "Activity is defined as a project\r\nWe will publish at activity level",
+  "publisher_thresholds": "None",
+  "publisher_timeliness": "Data is published within 3 months of the end of each quarter. ",
+  "publisher_ui": "n/a\r\n",
+  "publisher_units": "An activity represents an individual funding agreement with an institutional donor",
   "state": "active",
   "tags": [
   ],
@@ -82734,6 +83016,53 @@
    {
     "capacity": "admin",
     "name": "wwf-uk"
+   }
+  ]
+ },
+ "wwf_bolivia": {
+  "description": "",
+  "groups": [
+  ],
+  "id": "4700eba4-f835-4608-be26-b3f976c69c15",
+  "image_display_url": "",
+  "image_url": "",
+  "is_organization": true,
+  "license_id": "odc-pddl",
+  "name": "wwf_bolivia",
+  "num_followers": 0,
+  "package_count": 0,
+  "publisher_agencies": "",
+  "publisher_constraints": "",
+  "publisher_contact": "Calle Los Pitones #2070\r\nSanta Cruz, Bolivia",
+  "publisher_contact_email": "slagrava@wwfbolivia.org",
+  "publisher_country": "BO",
+  "publisher_data_quality": "",
+  "publisher_description": "",
+  "publisher_field_exclusions": "",
+  "publisher_first_publish_date": "",
+  "publisher_frequency": "",
+  "publisher_frequency_select": "annually",
+  "publisher_iati_id": "BO-NIT-1013209020",
+  "publisher_implementation_schedule": "",
+  "publisher_organization_type": "21",
+  "publisher_record_exclusions": "",
+  "publisher_refs": "",
+  "publisher_segmentation": "",
+  "publisher_source_type": "primary_source",
+  "publisher_thresholds": "",
+  "publisher_timeliness": "",
+  "publisher_ui": "",
+  "publisher_units": "",
+  "publisher_url": "https://www.wwf.org.bo/",
+  "state": "active",
+  "tags": [
+  ],
+  "title": "World Wildlife Fund Inc, Bolivia Program Office",
+  "type": "organization",
+  "users": [
+   {
+    "capacity": "admin",
+    "name": "wwf_bolivia"
    }
   ]
  },

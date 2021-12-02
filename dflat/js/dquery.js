@@ -99,10 +99,11 @@ dquery.start_loaded=async function(){
 
 	dquery.hash=window.location.hash
 	var session=dquery.editor.getSession()
-	session.setValue( decodeURI( dquery.hash.substr(1) ) )
+	session.setValue( decodeURIComponent( dquery.hash.substr(1) ) )
 	session.setMode( "ace/mode/pgsql" );
 	session.setUseWrapMode(true);
 
+	dquery.set_download_links()
 
 	window.setInterval(dquery.cron,1000) // start cron tasks
 
@@ -113,6 +114,20 @@ dquery.start_loaded=async function(){
 	  }
 	});
 
+}
+
+dquery.set_download_links=function()
+{
+	var session=dquery.editor.getSession()
+	var sqls=encodeURIComponent(session.getValue())
+	$("#download_xson_as_json a").attr("href", dquery.origin+"/dquery?form=json&sql="+sqls )
+	$("#download_xson_as_csv a").attr("href",  dquery.origin+"/dquery?form=csv&sql="+sqls )
+	$("#download_xson_as_csv_human a").attr("href",  dquery.origin+"/dquery?form=csv&human=1&sql="+sqls )
+
+	$("#download_xson_as_xson a").attr("href", dquery.origin+"/dquery?from=xson&form=json&sql="+sqls )
+	$("#download_xson_as_xcsv a").attr("href",  dquery.origin+"/dquery?from=xson&form=csv&sql="+sqls )
+	$("#download_xson_as_xml a").attr("href",  dquery.origin+"/dquery?from=xson&form=xml&sql="+sqls )
+	$("#download_xson_as_html a").attr("href", dquery.origin+"/dquery?from=xson&form=html&sql="+sqls )
 }
 
 dquery.cron=async function()
@@ -127,6 +142,7 @@ dquery.cron=async function()
 		dquery.hash="#"+encodeURI(session.getValue())
 		window.location.hash=dquery.hash
 		undo.markClean()
+		dquery.set_download_links()
 	}
 	
 	if( dquery.hash != window.location.hash ) // update editor with any chnages to hash (browser forward/back buttons)
@@ -179,23 +195,21 @@ dquery.click=async function(id)
 				});
 			break;
 			
+			case "menu_explain":
+				$('#result').jsonViewer({"Loading":"..."});
+				$.ajax({
+				  type: "POST",
+				  url: "/dquery",
+				  data: {sql:"EXPLAIN ( ANALYZE TRUE , VERBOSE TRUE , FORMAT JSON )\n"+session.getValue()},
+				  success: dquery.result,
+				  dataType: "json",
+				});
+			break;
+
 			case "menu_browse":
 				let aids=encodeURIComponent(dquery.origin+"/dquery?sql="+encodeURIComponent(session.getValue()))
 				window.open(dquery.origin+"/ctrack.html?aids="+aids+"#view=main", '_blank');
 			break;
-			
-			case "download_xson_as_json":
-				window.open(dquery.origin+"/dquery?sql="+encodeURIComponent(session.getValue()), '_blank');
-			break
-			case "download_xson_as_csv":
-				window.open(dquery.origin+"/dquery?form=csv&sql="+encodeURIComponent(session.getValue()), '_blank');
-			break
-			case "download_xson_as_xml":
-				window.open(dquery.origin+"/dquery?form=xml&sql="+encodeURIComponent(session.getValue()), '_blank');
-			break
-			case "download_xson_as_html":
-				window.open(dquery.origin+"/dquery?form=html&sql="+encodeURIComponent(session.getValue()), '_blank');
-			break
 
 			default:
 				console.log("unhandled click "+id)

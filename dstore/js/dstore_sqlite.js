@@ -6,6 +6,8 @@ module.exports=exports;
 var dstore_sqlite=exports;
 var dstore_back=exports;
 
+var url=require("url")
+
 exports.engine="sqlite";
 
 var refry=require("./refry");
@@ -712,18 +714,17 @@ dstore_sqlite.query_select=async function(q,res,r,req){
 	var db = await dstore_db.open(req); // pick instance using subdomain
 //	db.serialize();
 	
-if(true)
-{
-	let rows = await db.all( "EXPLAIN QUERY PLAN "+r.query,r.qvals)
-	
-	if(rows)
-	{
-		r.sqlite_explain_detail=[];
-		rows.forEach(function(it){
-			r.sqlite_explain_detail.push(it.detail);
-		});
-	}
-}
+
+	let sql=dstore_sqlite.query_params_string( r.query , r.qvals )
+	r.dquery=url.format({
+		protocol: req.protocol,
+		host:     req.get("host"),
+		pathname: "/dquery",
+		hash:     "#"+encodeURI(sql)
+	})
+
+
+	let ss=query.stream_start(q,res,r,req)
 
 	await db.each(r.query,r.qvals, function(err, row)
 	{
@@ -734,13 +735,15 @@ if(true)
 		}
 		else
 		{
-			r.rows.push(row);
+			query.stream_item(ss,row)
 			r.count++;
 		}
 	});
 
+	delete r.query // do not return these
+	delete r.qvals
 
-	await query.do_select_response(q,res,r);
+	query.stream_stop(ss)
 		
 	await dstore_back.close(db);
 
@@ -768,5 +771,25 @@ dstore_sqlite.query=async function(q,v,cb){
 	await dstore_back.close(db);
 
 	return rows;
+}
+
+
+// probably not safe
+dstore_sqlite.query_params_string=function(string,params)
+{
+	let index=0
+	for( key in params )
+	{
+		let value=params[key]
+		if( typeof value == "string" )
+		{
+			value="'"+value.split("'").join("\\'")+"'"
+		}
+		
+		string=string.replace(`\$\{${key}\}`,value)
+		
+		index=index+1
+	}
+	return string
 }
 

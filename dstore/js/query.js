@@ -121,6 +121,20 @@ query.get_q = function(req){
 	}
 	
 // defaults
+	if( (!q.from) && q.aid ) // auto activity
+	{
+		q.from="xson"
+		q.root="/iati-activities/iati-activity"
+		return q
+	}
+	else
+	if( (!q.from) && q.pid ) // auto publisher
+	{
+		q.from="xson"
+		q.root="/iati-organisations/iati-organisation"
+		return q
+	}
+	else
 	if(!q.from)
 	{
 		q.from="act"; // default act
@@ -875,6 +889,51 @@ query.getsql_build_column_names=function(q,qv){
 
 };
 
+query.humanizer=function(name,value)
+{
+	if( value != null )
+	{
+		switch(name)
+		{
+			case "day_start":
+			case "day_end":
+			case "hash_day":
+				value=(new Date( Number((value)*(1000*60*60*24)) )).toISOString().split("T")[0]
+			break
+			case "status_code":
+				value=iati_codes.activity_status[value] || value
+			break
+			case "trans_code":
+				value=iati_codes.transaction_type[value] || value
+			break
+			case "sector_code":
+			case "trans_sector":
+			case "budget_sector":
+				value=iati_codes.sector[value] || iati_codes.sector_withdrawn[value] || value
+			break
+			case "sector_group":
+			case "trans_sector_group":
+			case "budget_sector_group":
+				value=iati_codes.sector_category[value] || value
+			break
+			case "country_code":
+			case "trans_country":
+			case "budget_country":
+				value=iati_codes.country[value] || value
+			break
+			case "aid":
+				value="http://d-portal.org/q.html?aid="+value
+			break
+		}
+	}
+	else
+	{
+		value="" // a null should be an empty string
+	}
+	return value
+}
+
+
 query.stream_start=function(q,res,r,req)
 {
 	let stream={}
@@ -886,30 +945,124 @@ query.stream_start=function(q,res,r,req)
 
 	stream.r.time=(Date.now());
 	stream.idx=0
+
+	stream.csv_header_array=[]
+	stream.csv_header_line="\n"
 	
+	stream.mode="json" // default to json
+	if(q.from=="xson") { stream.mode="xson" } else // we are reading from xson table so should format this data using dflat
+	if(q.form=="html") { stream.mode="html" } else
+	if(q.form=="xml" ) { stream.mode="xml"  } else
+	if(q.form=="csv" ) { stream.mode="csv"  } else
+	if(q.form=="jcsv") { stream.mode="jcsv" } 
+	
+	if( stream.mode=="xson" )
+	{
+		stream.xs=dflat.stream(q.form)
+		stream.xs.callback=q.callback
+		stream.xs.r=stream.r
+	}
+	
+// global headers
+
+	res.set('transfer-encoding', 'chunked')			
+	res.set('charset','utf8')
+
+// headers and dividers but we need to wait for first item to process before we can format it correctly
+
 	stream.between=function(b)
 	{
-		if(stream.idx==0)
+		if(stream.idx==0) // header 
 		{
-			res.set('transfer-encoding', 'chunked')			
-			res.set('charset','utf8')
-
-			if(q.callback) // jsonp
+			if( stream.mode=="json" )
 			{
-				res.set('Content-Type', 'text/javascript')
-				res.write(`/**/ typeof ${q.callback} === 'function' && ${q.callback}(`)
+				if(q.callback) // jsonp
+				{
+					res.set('Content-Type', 'text/javascript')
+					res.write(`/**/ typeof ${q.callback} === 'function' && ${q.callback}(`)
+				}
+				else
+				{
+					res.set('Content-Type', 'application/json')
+				}
+				res.write(`{"rows":[`)
 			}
 			else
+			if( stream.mode=="jcsv" )
 			{
-				res.set('Content-Type', 'application/json')
+				if(q.callback) // jsonp
+				{
+					res.set('Content-Type', 'text/javascript')
+					res.write(`/**/ typeof ${q.callback} === 'function' && ${q.callback}(`)
+				}
+				else
+				{
+					res.set('Content-Type', 'application/json')
+				}
+				res.write(`[`)
+				res.write(stream.csv_header_line)
 			}
-			
-			res.write(`{"rows":[`)
+			else
+			if( stream.mode=="csv" )
+			{
+				res.set('Content-Type', 'text/csv')
+				res.write(stream.csv_header_line)
+			}
+			else
+			if( stream.mode=="xml" )
+			{
+				res.set('Content-Type', 'text/xml')
+				res.write(	'<iati-activities version="2.03">\n')
+			}
+			else
+			if( stream.mode=="html" )
+			{
+				res.set('Content-Type', 'text/html')
+				res.write( savi.plate(
+`<!DOCTYPE html>
+<html>
+<head>
+<script src="/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
+<script> require("savi").start({ embeded:true }); </script>
+<style>{savi-page-css}{savi-css}</style>
+</head>
+<body>
+`) )
+			}
+			else
+			if( stream.mode=="xson" ) // format data from the xson table
+			{
+				if( q.form=="html" )
+				{
+					res.set('Content-Type', 'text/html')
+				}
+				else
+				if( q.form=="xml" )
+				{
+					res.set('Content-Type', 'text/xml')
+				}
+				else
+				if( q.form=="csv" )
+				{
+					res.set('Content-Type', 'text/csv')
+				}
+				else // json
+				{
+					if(q.callback) // jsonp
+					{
+						res.set('Content-Type', 'text/javascript')
+					}
+					else
+					{
+						res.set('Content-Type', 'application/json')
+					}
+				}
+			}
 		}
-		else
+		else // this is a very generic action
 		{
 			res.write(b)
-		}		
+		}
 	}
 
 	return stream
@@ -919,11 +1072,98 @@ query.stream_item=function(stream,item)
 	let q=stream.q
 	let res=stream.res
 
-	let str=JSON.stringify(item)
+	let itemstr=""
+	let tweenstr=","
 
-	stream.between(",")
+	if( stream.mode=="json" )
+	{
+		itemstr=JSON.stringify(item)
+		tweenstr=",\n"
+	}
+	else
+	if( ( stream.mode=="jcsv" ) || ( stream.mode=="csv" ) )
+	{
+		if( stream.idx==0 ) // build header
+		{
+			stream.csv_header_array=[]
+			for(let name in item)
+			{
+				stream.csv_header_array[ stream.csv_header_array.length ] = name
+			}
+		}
+		stream.csv_header_line=JSON.stringify(stream.csv_header_array)
+		let aa=[]
+		for(let idx in stream.csv_header_array)
+		{
+			let name=stream.csv_header_array[idx]
+			if( q.human )
+			{
+				aa[idx]=query.humanizer( name , item[name] )
+			}
+			else
+			{
+				aa[idx]=item[name]
+			}
+		}
+		if( stream.mode=="jcsv" )
+		{
+			tweenstr=",\n"
+			stream.csv_header_line=stream.csv_header_line+tweenstr
+			itemstr=JSON.stringify(aa)
+		}
+		else
+		if( stream.mode=="csv" )
+		{
+			tweenstr="\n"
+			stream.csv_header_line=stream.csv_header_line.replace(/^\[|\]$/g,"")+tweenstr
+			itemstr=JSON.stringify(aa).replace(/^\[|\]$/g,"")
+		}
+	}
+	else
+	if( stream.mode=="xml" )
+	{
+		tweenstr="\n"
+		if(item.jml)
+		{
+			var d=JSON.parse(item.jml);
+			itemstr=refry.json(d)
+		}
+	}
+	else
+	if( stream.mode=="html" )
+	{
+		tweenstr="\n"
+		if(item.jml)
+		{
+			var jml={ 0:"iati-activities" , 1:JSON.parse( item.jml ) }
+			var iati=dflat.xml_to_xson( jml )
+
+			dflat.clean(iati) // clean this data
+			
+			savi.prepare(iati) // prepare for display
+
+			savi.chunks.iati=iati
+			itemstr= savi.plate(
+`
+<div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div>
+`)
+		}
+	}
+	else
+	if( stream.mode=="xson" ) // format data from the xson table
+	{
+		tweenstr=""
+		if( item.xson && item.root )
+		{
+			let t={}
+			t[item.root]=[item.xson]
+			itemstr=stream.xs.data(t)
+		}
+	}
+
+	stream.between(tweenstr)
 	
-	res.write(str)
+	res.write(itemstr)
 	
 	stream.idx=stream.idx+1
 
@@ -934,325 +1174,55 @@ query.stream_stop=function(stream)
 	let q=stream.q
 	let res=stream.res
 
-	stream.between("")
-
 	delete stream.r.rows
 
 	stream.r.count=stream.idx
 	stream.r.time=((Date.now())-stream.r.time)/1000;
 	
-	let rs=JSON.stringify(stream.r).replace(/^{|}$/g,"")
+	stream.between("") // in case stream_item was never called
 
-	res.write(`],${rs}}`)
-
-	if(q.callback) // jsonp
+	if( stream.mode=="json" )
 	{
-		res.write(`);`)
+		let rs=JSON.stringify(stream.r).replace(/^{|}$/g,"")
+		res.write(`],\n${rs}}`)
+		if(q.callback) // jsonp
+		{
+			res.write(`);`)
+		}
+	}
+	else
+	if( stream.mode=="jcsv" )
+	{
+		res.write(`]`)
+		if(q.callback) // jsonp
+		{
+			res.write(`);`)
+		}
+	}
+	else
+	if( stream.mode=="csv" )
+	{
+		res.write(`\n`)
+	}
+	else
+	if( stream.mode=="xml" )
+	{
+		res.write('\n</iati-activities>\n')
+	}
+	else
+	if( stream.mode=="html" )
+	{
+		res.write(`\n</body>`)
+	}
+	else
+	if( stream.mode=="xson" ) // format data from the xson table
+	{
+		res.write( stream.xs.stop() )
 	}
 
 	res.end()
 
 	return stream
-}
-
-query.do_select_response=function(q,res,r){
-
-	var humanizer=function(name,value)
-	{
-		if(q.human!==undefined)
-		{
-			if( value != null )
-			{
-				switch(name)
-				{
-					case "day_start":
-					case "day_end":
-					case "hash_day":
-						value=(new Date( Number((value)*(1000*60*60*24)) )).toISOString().split("T")[0]
-					break
-					case "status_code":
-						value=iati_codes.activity_status[value] || value
-					break
-					case "trans_code":
-						value=iati_codes.transaction_type[value] || value
-					break
-					case "sector_code":
-					case "trans_sector":
-					case "budget_sector":
-						value=iati_codes.sector[value] || iati_codes.sector_withdrawn[value] || value
-					break
-					case "sector_group":
-					case "trans_sector_group":
-					case "budget_sector_group":
-						value=iati_codes.sector_category[value] || value
-					break
-					case "country_code":
-					case "trans_country":
-					case "budget_country":
-						value=iati_codes.country[value] || value
-					break
-					case "aid":
-						value="http://d-portal.org/q.html?aid="+value
-					break
-				}
-			}
-			else
-			{
-				value="" // a null should be an empty string
-			}
-			return value
-		}
-		else
-		{
-			return value
-		}
-	}
-
-	var send_json=function(r)
-	{
-		if(q.callback)
-		{
-			res.jsonp(r); // seems to only get headers right with a callback
-		}
-		else
-		{
-			res.set('charset','utf8');
-			res.set('Content-Type', 'application/json');
-			res.json(r);
-		}
-	};
-
-	res.set('charset','utf8'); // This is always the correct answer.
-
-//console.log(q.from+" : "+q.form)
-
-	if(q.from=="xson") // use dflat to output xson activities as csv or json
-	{
-		let tab=[]
-		let df={}
-
-		if( q.root=="/iati-organisations/iati-organisation" ) // org files
-		{
-			df["/iati-organisations/iati-organisation"]=tab
-		}
-		else
-		if( q.root=="/iati-activities/iati-activity" ) // activities
-		{
-			df["/iati-activities/iati-activity"]=tab
-		}
-		else // raw xson table of results
-		{
-			df=tab
-		}
- 
-		
-		for(var i=0;i<r.rows.length;i++)
-		{
-			var it=r.rows[i].xson
-			if( "string" == typeof it ) { it=JSON.parse( it ) } // this converts from string for sqlite niceness
-			tab.push( it )
-			
-		}
-
-		if(q.form=="csv" && q.root=="/iati-activities/iati-activity" )
-		{
-			var csv=dflat.xson_to_xsv(df,"/iati-activities/iati-activity",{"/iati-activities/iati-activity":true})
-			res.set('Content-Type', 'text/csv');
-			res.end(csv);
-		}
-		else
-		if(q.form=="csv" && q.root=="/iati-organisations/iati-organisation" )
-		{
-			var csv=dflat.xson_to_xsv(df,"/iati-organisations/iati-organisation",{"/iati-organisations/iati-organisation":true})
-			res.set('Content-Type', 'text/csv');
-			res.end(csv);
-		}
-		else
-		if(q.form=="xml")
-		{
-			
-console.log("This should not be null : "+jml) // <-- something seems to have deleted the jml library
-jml=require("../../dflat/js/jml.js") // this fixes it but it is still a TODO: issue
-
-			res.set('Content-Type', 'text/xml');
-			res.end( dflat.xson_to_xml( df ) );
-		}
-		else
-		if(q.form=="html")
-		{
-			res.set('Content-Type', 'text/html');
-			res.end( dflat.xson_to_html(df) );
-		}
-		else // default to json output
-		{
-			send_json(df);
-		}
-	}
-	else
-	if(q.form=="html")
-	{
-		res.set('Content-Type', 'text/html');
-
-		res.write( savi.plate(
-`<!DOCTYPE html>
-<html>
-<head>
-<script src="/savi/lib/savi.js" type="text/javascript" charset="utf-8"></script>
-<script> require("savi").start({ embeded:true }); </script>
-<style>{savi-page-css}{savi-css}</style>
-</head>
-<body>
-`) )
-
-		for(var i=0;i<r.rows.length;i++)
-		{
-			var v=r.rows[i];
-			if(v && v.jml)
-			{
-			var jml={ 0:"iati-activities" , 1:JSON.parse( v.jml ) }
-			var iati=dflat.xml_to_xson( jml )
-
-			dflat.clean(iati) // clean this data
-			
-			savi.prepare(iati) // prepare for display
-
-			savi.chunks.iati=iati
-			res.write( savi.plate(
-`
-<div>{iati./iati-activities/iati-activity:iati-activity||}{iati./iati-organisations/iati-organisation:iati-organisation||}</div>
-`) )
-			}
-		}
-
-		res.end( savi.plate(
-`
-</body>
-`) )
-
-
-/*
-		res.set('Content-Type', 'text/xml');
-
-		var xsl='<?xml-stylesheet type="text/xsl" href="/ctrack/art/activities.xsl"?>\n';
-		if(q.xsl=="!") { xsl=""; } // disable pretty view
-		
-		res.write(	'<?xml version="1.0" encoding="UTF-8"?>\n'+
-					xsl+
-					'<iati-activities xmlns:dstore="http://d-portal.org/dstore" xmlns:iati-extra="http://datastore.iatistandard.org/ns">\n');
-					
-		for(var i=0;i<r.rows.length;i++)
-		{
-			var v=r.rows[i];
-			if(v && v.jml)
-			{
-				res.write(	refry.json(v.jml) );
-				res.write(	"\n" );
-			}
-		}
-
-		res.end(	'</iati-activities>\n');
-
-*/
-
-	}
-	else
-	if(q.form=="xml")
-	{
-		res.set('Content-Type', 'text/xml');
-
-		res.write(	'<iati-activities version="2.03">\n');
-					
-		for(var i=0;i<r.rows.length;i++)
-		{
-			var v=r.rows[i];
-			if(v && v.jml)
-			{
-				var d=JSON.parse(v.jml);
-				
-				res.write(	refry.json(d) );
-				res.write(	"\n" );
-			}
-		}
-
-		res.end(	'</iati-activities>\n');
-
-	}
-	else
-	if(q.form=="csv")
-	{
-		res.set('Content-Type', 'text/csv');
-
-		var head=[];
-		if(r.rows[0])
-		{
-			for(var n in r.rows[0]) { head.push(n); }
-			head.sort();
-			res.write(	head.join(",")+"\n" );
-			for(var i=0;i<r.rows.length;i++)
-			{
-				var v=r.rows[i];
-				var t=[];
-				head.forEach(function(n){
-					var s=""+humanizer(n,v[n]);
-					if("string" == typeof s) // may need to escape
-					{
-						if(s.includes(",") || s.includes(";") || s.includes("\t") || s.includes("\n") || s.includes("\r") ) // need to escape
-						{
-							s="\""+s.replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/\"/g,"\"\"")+"\""; // wrap in quotes and double quotes in string and kill newlines
-						}
-					}
-					t.push( s );
-				});
-				res.write(	t.join(",")+"\n" );
-			}
-			res.end("");
-		}
-		else
-		{
-			res.end("");
-		}
-	}
-	else
-	if(q.form=="jcsv") // a jsoned csv (much smaller than json for large table data)
-	{
-		if(r.rows[0])
-		{
-			var head=[];
-			var ta=[];
-			for(var n in r.rows[0]) { head.push(n); }
-			head.sort(); // result order will be fixed
-			ta[0]=head;
-			for(var i=0;i<r.rows.length;i++)
-			{
-				var v=r.rows[i];
-				var t=[];
-				ta[i+1]=t;
-				head.forEach(function(n){
-					t.push( humanizer(n,v[n]) || null );
-				});
-			}
-			send_json(ta);
-		}
-		else
-		{
-			send_json([]); // nothing to see, but still trigger callback
-		}
-	}
-	else
-	{
-		if(q.human!==undefined)
-		{
-			for(var i=0;i<r.rows.length;i++)
-			{
-				var v=r.rows[i];
-				var vv={}
-				for(var n in v) { vv[n]=humanizer(n,v[n]) }
-				r.rows[i]=vv
-			}
-		}
-		r.time=(Date.now()-q.start_time)/1000;
-		send_json(r);
-	}
 }
 
 query.do_select=function(q,res,req){
@@ -1273,7 +1243,6 @@ query.do_select=function(q,res,req){
 				query.getsql_order_by(q,qv) + 
 				query.getsql_limit(q,qv);
 
-//console.log(r.query);
 	return dstore_db.query_select(q,res,r,req);
 };
 
