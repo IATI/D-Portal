@@ -59,7 +59,7 @@ view_savi.ajax_aid=function(aid)
 	{
 		if(iati.xson)
 		{
-			iati=iati.xson
+			iati=iati.xson[0]
 		}
 
 		dflat.clean(iati) // clean this data
@@ -89,7 +89,7 @@ view_savi.ajax_pid=function(pid)
 	{
 		if(iati.xson)
 		{
-			iati=iati.xson
+			iati=iati.xson[0]
 		}
 
 		dflat.clean(iati) // clean this data
