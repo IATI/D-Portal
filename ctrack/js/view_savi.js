@@ -57,6 +57,11 @@ view_savi.ajax_aid=function(aid)
 
 	fetcher.ajax(dat,function(iati)
 	{
+		if(iati.xson)
+		{
+			iati=iati.xson
+		}
+
 		dflat.clean(iati) // clean this data
 		
 		dflat_savi.prepare(iati) // prepare for display
@@ -82,6 +87,11 @@ view_savi.ajax_pid=function(pid)
 
 	fetcher.ajax(dat,function(iati)
 	{
+		if(iati.xson)
+		{
+			iati=iati.xson
+		}
+
 		dflat.clean(iati) // clean this data
 		
 		dflat_savi.prepare(iati) // prepare for display
