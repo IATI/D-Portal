@@ -62,16 +62,19 @@ view_savi.ajax_aid=function(aid)
 			iati=iati.xson[0]
 		}
 
-		dflat.clean(iati) // clean this data
-		
-		dflat_savi.prepare(iati) // prepare for display
+		if(iati)
+		{
+			dflat.clean(iati) // clean this data
+			
+			dflat_savi.prepare(iati) // prepare for display
 
-		dflat_savi.chunks.iati=iati
-		dflat_savi.chunks.origin=ctrack.origin
+			dflat_savi.chunks.iati=iati
+			dflat_savi.chunks.origin=ctrack.origin
 
-		var dd=dflat_savi.plate('<div>{iati./iati-activities/iati-activity:iati-activity||}</div>')
+			var dd=dflat_savi.plate('<div>{iati./iati-activities/iati-activity:iati-activity||}</div>')
 
-		ctrack.chunk("view_savi_file",dd);
+			ctrack.chunk("view_savi_file",dd);
+		}
 
 		ctrack.display();
 	})
@@ -91,17 +94,20 @@ view_savi.ajax_pid=function(pid)
 		{
 			iati=iati.xson[0]
 		}
-
-		dflat.clean(iati) // clean this data
 		
-		dflat_savi.prepare(iati) // prepare for display
+		if(iati)
+		{
+			dflat.clean(iati) // clean this data
+			
+			dflat_savi.prepare(iati) // prepare for display
 
-		dflat_savi.chunks.iati=iati
-		dflat_savi.chunks.origin=ctrack.origin
+			dflat_savi.chunks.iati=iati
+			dflat_savi.chunks.origin=ctrack.origin
 
-		var dd=dflat_savi.plate('<div>{iati./iati-organisations/iati-organisation:iati-organisation||}</div>')
+			var dd=dflat_savi.plate('<div>{iati./iati-organisations/iati-organisation:iati-organisation||}</div>')
 
-		ctrack.chunk("view_savi_file",dd);
+			ctrack.chunk("view_savi_file",dd);
+		}
 
 		ctrack.display();
 	})
