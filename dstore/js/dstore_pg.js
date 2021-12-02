@@ -770,13 +770,6 @@ var err=function (error) {
 	query.stream_stop(ss)
 }
 
-/*
-	let qrows = await db.any("EXPLAIN ( ANALYZE FALSE , VERBOSE TRUE , FORMAT JSON ) "+r.query,r.qvals).catch(err);
-	if(qrows)
-	{
-		r.explain=qrows[0]["QUERY PLAN"][0];
-	}
-*/
 
 	let sql=dstore_pg.query_params_string( r.query , r.qvals )
 	r.dquery=url.format({
@@ -789,7 +782,7 @@ var err=function (error) {
 	let ss=query.stream_start(q,res,r,req)
 	
 	var qq=dstore_pg.query_params(r.query,r.qvals)
-
+	
 	const conn = await db.connect()
 	const cursor = conn.client.query(new Cursor(qq[0],qq[1]))
 	var rows=[]
@@ -803,6 +796,10 @@ var err=function (error) {
 
 	} while(rows.length>0);
 	cursor.close(() => conn.done());
+
+	delete r.query // do not return these
+	delete r.qvals
+
 	query.stream_stop(ss)
 			
 }catch(e){console.log(e)} // but do print out error
