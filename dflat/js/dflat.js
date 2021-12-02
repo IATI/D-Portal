@@ -108,9 +108,6 @@ dflat.stream=function(form)
 				let s=dflat.xson_to_xml(it)
 				stream.head_str=s.match(/^[^\0]*?\?>[^\0]*?>/g) // get first element
 				stream.tail_str=s.match(/<\/[^\/]*$/g)          // get last element
-				
-				console.log( stream.head_str )
-				console.log( stream.tail_str )
 			}
 			break;
 
@@ -119,9 +116,6 @@ dflat.stream=function(form)
 				let s=dflat.xson_to_html(it)
 				stream.head_str=s.match(/^[^\0]*?<\/style>/g) // get first element
 				stream.tail_str=s.match(/<\/body>[^\/]*$/g)   // get last element
-				
-				console.log( stream.head_str )
-				console.log( stream.tail_str )
 			}
 			break;
 
