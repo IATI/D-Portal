@@ -942,6 +942,12 @@ query.stream_start=function(q,res,r,req)
 	if(q.form=="csv" ) { stream.mode="csv"  } else
 	if(q.form=="jcsv") { stream.mode="jcsv" } 
 	
+	if( stream.mode=="xson" )
+	{
+		stream.xs=dflat.stream(q.form)
+		stream.xs.callback=q.callback
+	}
+	
 // global headers
 
 	res.set('transfer-encoding', 'chunked')			
@@ -1014,26 +1020,22 @@ query.stream_start=function(q,res,r,req)
 				if( q.form=="html" )
 				{
 					res.set('Content-Type', 'text/html')
-					res.write(stream.html_header_line)
 				}
 				else
 				if( q.form=="xml" )
 				{
 					res.set('Content-Type', 'text/xml')
-					res.write(stream.xml_header_line)
 				}
 				else
 				if( q.form=="csv" )
 				{
 					res.set('Content-Type', 'text/csv')
-					res.write(stream.csv_header_line)
 				}
 				else // json
 				{
 					if(q.callback) // jsonp
 					{
 						res.set('Content-Type', 'text/javascript')
-						res.write(`/**/ typeof ${q.callback} === 'function' && ${q.callback}(`)
 					}
 					else
 					{
@@ -1135,20 +1137,10 @@ query.stream_item=function(stream,item)
 	else
 	if( stream.mode=="xson" ) // format data from the xson table
 	{
-		if( q.form=="html" )
-		{
-		}
-		else
-		if( q.form=="xml" )
-		{
-		}
-		else
-		if( q.form=="csv" )
-		{
-		}
-		else // json
-		{
-		}
+		tweenstr=""
+		let t={}
+		t[item.root]=[item.xson]
+		itemstr=stream.xs.data(t)
 	}
 
 	stream.between(tweenstr)
@@ -1207,20 +1199,7 @@ query.stream_stop=function(stream)
 	else
 	if( stream.mode=="xson" ) // format data from the xson table
 	{
-		if( q.form=="html" )
-		{
-		}
-		else
-		if( q.form=="xml" )
-		{
-		}
-		else
-		if( q.form=="csv" )
-		{
-		}
-		else // json
-		{
-		}
+		res.write( stream.xs.stop() )
 	}
 
 	res.end()

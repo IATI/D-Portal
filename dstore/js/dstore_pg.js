@@ -728,7 +728,7 @@ dstore_pg.query_params=function(string,params)
 		let value=params[key]
 		
 		values[index]=value
-		string=string.replace(`\$\{${key}\}`,`$${index}`)
+		string=string.replace(`\$\{${key}\}`,`$${index+1}`)
 		
 		index=index+1
 	}
@@ -761,6 +761,12 @@ var err=function (error) {
 		let ss=query.stream_start(q,res,r,req)
 		
 		var qq=dstore_pg.query_params(r.query,r.qvals)
+
+console.log( r.query )
+console.log( r.qvals )
+
+console.log( qq[0] )
+console.log( qq[1] )
 
 		const conn = await db.connect()
 		const cursor = conn.client.query(new Cursor(qq[0],qq[1]))

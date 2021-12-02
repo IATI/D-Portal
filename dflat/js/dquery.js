@@ -99,7 +99,7 @@ dquery.start_loaded=async function(){
 
 	dquery.hash=window.location.hash
 	var session=dquery.editor.getSession()
-	session.setValue( decodeURI( dquery.hash.substr(1) ) )
+	session.setValue( decodeURIComponent( dquery.hash.substr(1) ) )
 	session.setMode( "ace/mode/pgsql" );
 	session.setUseWrapMode(true);
 
