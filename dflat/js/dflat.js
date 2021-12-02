@@ -38,6 +38,8 @@ dflat.stream=function(form)
 {
 	let stream={}
 	
+	stream.r={}
+	
 	stream.form=form || "json"
 	stream.time=(Date.now());
 	stream.index=0
@@ -60,62 +62,71 @@ dflat.stream=function(form)
 		{
 			case "csv":
 			{
-				stream.csv_baseline=0
-
-				stream.csv_root=""
-
-				for( let path in it )
+				if(it)
 				{
-					stream.csv_root=path	// should just be one
-				}
+					stream.csv_baseline=0
 
-				stream.csv_paths={}
-				stream.csv_paths[stream.csv_root]=true
+					stream.csv_root=""
 
-				let header=[] // build header
-				let all={}
-				
-				for( let path in database.paths ) // we can only stream valid xml paths as csv
-				{
-					if( path.startsWith(stream.csv_root) )
+					for( let path in it )
 					{
-						let d=database.paths[path]
-						if( d.type!="null" )
+						stream.csv_root=path	// should just be one
+					}
+
+					stream.csv_paths={}
+					stream.csv_paths[stream.csv_root]=true
+
+					let header=[] // build header
+					let all={}
+					
+					for( let path in database.paths ) // we can only stream valid xml paths as csv
+					{
+						if( path.startsWith(stream.csv_root) )
 						{
-							all[path.substring(stream.csv_root.length)]=true
+							let d=database.paths[path]
+							if( d.type!="null" )
+							{
+								all[path.substring(stream.csv_root.length)]=true
+							}
 						}
 					}
+					for( let path in all )
+					{
+						header.push(path)
+					}
+
+					header.sort()
+					header.unshift(stream.csv_root)
+					header.unshift("parent")
+					header.unshift("index")
+
+					stream.csv_header=header
+
+					stream.out(stream.csv_header.join(","))
+					stream.out("\n")
 				}
-				for( let path in all )
-				{
-					header.push(path)
-				}
-
-				header.sort()
-				header.unshift(stream.csv_root)
-				header.unshift("parent")
-				header.unshift("index")
-
-				stream.csv_header=header
-
-				stream.out(stream.csv_header.join(","))
-				stream.out("\n")
 			}
 			break;
 
 			case "xml":
 			{
-				let s=dflat.xson_to_xml(it)
-				stream.head_str=s.match(/^[^\0]*?\?>[^\0]*?>/g) // get first element
-				stream.tail_str=s.match(/<\/[^\/]*$/g)          // get last element
+				if(it)
+				{
+					let s=dflat.xson_to_xml(it)
+					stream.head_str=s.match(/^[^\0]*?\?>[^\0]*?>/g) // get first element
+					stream.tail_str=s.match(/<\/[^\/]*$/g)          // get last element
+				}
 			}
 			break;
 
 			case "html":
 			{
-				let s=dflat.xson_to_html(it)
-				stream.head_str=s.match(/^[^\0]*?<\/style>/g) // get first element
-				stream.tail_str=s.match(/<\/body>[^\/]*$/g)   // get last element
+				if(it)
+				{
+					let s=dflat.xson_to_html(it)
+					stream.head_str=s.match(/^[^\0]*?<\/style>/g) // get first element
+					stream.tail_str=s.match(/<\/body>[^\/]*$/g)   // get last element
+				}
 			}
 			break;
 
@@ -125,7 +136,7 @@ dflat.stream=function(form)
 				{
 					stream.out(`/**/ typeof ${q.callback} === 'function' && ${q.callback}(`)
 				}
-				stream.out(`{"result":[`)
+				stream.out(`{"xson":[`)
 			}
 			break;
 		}
@@ -242,7 +253,9 @@ dflat.stream=function(form)
 			break;
 
 			default:
-				stream.out(`],"duration":${stream.time}}`)
+//				stream.r.duration=stream.time
+				let rs=JSON.stringify(stream.r).replace(/^{|}$/g,"")
+				stream.out(`],\n${rs}}`)
 				if(stream.callback) // jsonp
 				{
 					stream.out(`);`)

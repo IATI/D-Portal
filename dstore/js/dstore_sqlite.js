@@ -725,6 +725,8 @@ if(true)
 	}
 }
 
+	let ss=query.stream_start(q,res,r,req)
+
 	await db.each(r.query,r.qvals, function(err, row)
 	{
 		if(err)
@@ -734,13 +736,12 @@ if(true)
 		}
 		else
 		{
-			r.rows.push(row);
+			query.stream_item(ss,row)
 			r.count++;
 		}
 	});
 
-
-	await query.do_select_response(q,res,r);
+	query.stream_stop(ss)
 		
 	await dstore_back.close(db);
 

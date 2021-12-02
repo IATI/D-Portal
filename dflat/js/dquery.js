@@ -122,8 +122,12 @@ dquery.set_download_links=function()
 	var sqls=encodeURIComponent(session.getValue())
 	$("#download_xson_as_json a").attr("href", dquery.origin+"/dquery?form=json&sql="+sqls )
 	$("#download_xson_as_csv a").attr("href",  dquery.origin+"/dquery?form=csv&sql="+sqls )
-	$("#download_xson_as_xml a").attr("href",  dquery.origin+"/dquery?form=xml&sql="+sqls )
-	$("#download_xson_as_html a").attr("href", dquery.origin+"/dquery?form=html&sql="+sqls )
+	$("#download_xson_as_csv_human a").attr("href",  dquery.origin+"/dquery?form=csv&human=1&sql="+sqls )
+
+	$("#download_xson_as_xson a").attr("href", dquery.origin+"/dquery?from=xson&form=json&sql="+sqls )
+	$("#download_xson_as_xcsv a").attr("href",  dquery.origin+"/dquery?from=xson&form=csv&sql="+sqls )
+	$("#download_xson_as_xml a").attr("href",  dquery.origin+"/dquery?from=xson&form=xml&sql="+sqls )
+	$("#download_xson_as_html a").attr("href", dquery.origin+"/dquery?from=xson&form=html&sql="+sqls )
 }
 
 dquery.cron=async function()
@@ -191,6 +195,17 @@ dquery.click=async function(id)
 				});
 			break;
 			
+			case "menu_explain":
+				$('#result').jsonViewer({"Loading":"..."});
+				$.ajax({
+				  type: "POST",
+				  url: "/dquery",
+				  data: {sql:"EXPLAIN ( ANALYZE TRUE , VERBOSE TRUE , FORMAT JSON )\n"+session.getValue()},
+				  success: dquery.result,
+				  dataType: "json",
+				});
+			break;
+
 			case "menu_browse":
 				let aids=encodeURIComponent(dquery.origin+"/dquery?sql="+encodeURIComponent(session.getValue()))
 				window.open(dquery.origin+"/ctrack.html?aids="+aids+"#view=main", '_blank');

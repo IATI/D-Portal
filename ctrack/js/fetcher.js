@@ -39,7 +39,7 @@ fetcher.prefetch_aids=function(aids,f)
 			rows=d.rows
 		}
 		else
-		if( typeof rows == "object" &&  d.result ) // dportal dquery style
+		if( typeof rows == "object" &&  d.result ) // dportal dquery old style
 		{
 			rows=d.result
 		}
