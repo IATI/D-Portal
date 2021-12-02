@@ -134,7 +134,7 @@ dflat.stream=function(form)
 			{
 				if(stream.callback) // jsonp
 				{
-					stream.out(`/**/ typeof ${q.callback} === 'function' && ${q.callback}(`)
+					stream.out(`/**/ typeof ${stream.callback} === 'function' && ${stream.callback}(`)
 				}
 				stream.out(`{"xson":[`)
 			}
