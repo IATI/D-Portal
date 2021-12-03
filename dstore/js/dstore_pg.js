@@ -793,6 +793,10 @@ var err=function (error) {
 		{
 			query.stream_item(ss,rows[0])
 		}
+		if(ss.broken) // no one is listening
+		{
+			break // so stop sending data and cleanup
+		}
 
 	} while(rows.length>0);
 	cursor.close(() => conn.done());

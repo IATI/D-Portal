@@ -738,6 +738,10 @@ dstore_sqlite.query_select=async function(q,res,r,req){
 			query.stream_item(ss,row)
 			r.count++;
 		}
+//		if(ss.broken) // no one is listening
+//		{
+//			break
+//		}
 	});
 
 	delete r.query // do not return these
