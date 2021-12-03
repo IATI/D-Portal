@@ -793,7 +793,7 @@ var err=function (error) {
 		{
 			query.stream_item(ss,rows[0])
 		}
-		if(ss.broken) // no one is listening
+		if(ss.broken) // no one is listening and webpage connection has been closed
 		{
 			break // so stop sending data and cleanup
 		}
@@ -804,7 +804,10 @@ var err=function (error) {
 	delete r.query // do not return these
 	delete r.qvals
 
-	query.stream_stop(ss)
+	if(!ss.broken) // no one is listening
+	{
+		query.stream_stop(ss)
+	}
 			
 }catch(e){console.log(e)} // but do print out error
 
