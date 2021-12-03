@@ -1074,7 +1074,11 @@ query.stream_item=function(stream,item)
 	let q=stream.q
 	let res=stream.res
 	
-	assert( !res.connection.destroyed , "Query connection destroyed" ) // give up if connection is broken
+	if(res.connection.destroyed)
+	{
+		res.end() // I think we must close here otherwise we block up connections
+		assert( false , "Query connection destroyed" ) // give up if connection is broken
+	}
 
 	let itemstr=""
 	let tweenstr=","
