@@ -759,17 +759,29 @@ dstore_pg.query_params_string=function(string,params)
 // the database part of the query code
 dstore_pg.query_select=async function(q,res,r,req){
 
-try{ // ignore all errors in this request
+let ss=query.stream_start(q,res,r,req)
+let conn=null
+let cursor=null
 
-let db=await ( await dstore_pg.open(req) )
-
-// return error do not crash
-var err=function (error) {
+let cleanup=function(error)
+{
 	r.error=error.message || error 
-	let ss=query.stream_start(q,res,r,req)
-	query.stream_stop(ss)
+	console.log(r)
+	
+	if( cursor )
+	{
+		cursor.close(() => conn.done());
+	}
+	else
+	if( conn )  // I don't think this will happen
+	{
+		conn.done()
+	}
+
+	query.stream_stop(ss) // return error
 }
 
+	let db=await ( await dstore_pg.open(req) )
 
 	let sql=dstore_pg.query_params_string( r.query , r.qvals )
 	r.dquery=url.format({
@@ -778,39 +790,38 @@ var err=function (error) {
 		pathname: "/dquery",
 		hash:     "#"+encodeURI(sql)
 	})
-
-	let ss=query.stream_start(q,res,r,req)
 	
 	var qq=dstore_pg.query_params(r.query,r.qvals)
 	
-	const conn = await db.connect()
-	const cursor = conn.client.query(new Cursor(qq[0],qq[1]))
-	var rows=[]
-	do{
+	try{
 
-		rows = await cursor.read(1)
-		if( rows[0] )
+		conn = await db.connect()
+		cursor = conn.client.query(new Cursor(qq[0],qq[1]))
+		var rows=[]
+		do{
+
+			rows = await cursor.read(1)
+			if( rows[0] )
+			{
+				query.stream_item(ss,rows[0])
+			}
+			if(ss.broken) // no one is listening and webpage connection has been closed
+			{
+				break // so stop sending data and cleanup
+			}
+
+		} while(rows.length>0);
+		cursor.close(() => conn.done());
+
+		delete r.query // do not return these
+		delete r.qvals
+
+		if(!ss.broken) // no one is listening
 		{
-			query.stream_item(ss,rows[0])
-		}
-		if(ss.broken) // no one is listening and webpage connection has been closed
-		{
-			break // so stop sending data and cleanup
+			query.stream_stop(ss)
 		}
 
-	} while(rows.length>0);
-	cursor.close(() => conn.done());
-
-	delete r.query // do not return these
-	delete r.qvals
-
-	if(!ss.broken) // no one is listening
-	{
-		query.stream_stop(ss)
-	}
-			
-}catch(e){console.log(e)} // but do print out error
-
+	}catch(error){cleanup(error)}
 }
 
 
