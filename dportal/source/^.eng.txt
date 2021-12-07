@@ -634,7 +634,7 @@ Zeroes may denote issues with data quality (eg codes, dates, etc which are incom
 When / how is data in d-portal updated?
 
 #^faq_general_a8_text
-IATI data is updated every night (importing any data which has changed from the previous day) and a full import is done each weekend - in each instance the data is pulled from the IATI Registry.
+Newly published files are updated every night, as well as a full re-import of all files. The re-import ensures that any external value that may have been changed; for example, exchange rates, will be applied to all relevant data. Data is pulled from the IATI Registry.
 <p>CRS data is downloaded annually when it becomes available and then stored in <a href="https://github.com/devinit/D-Portal/tree/master/dstore/csv">Github</a>.</p>
 
 #^faq_general_q9_text
