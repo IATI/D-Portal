@@ -1071,6 +1071,13 @@ query.stream_item=function(stream,item)
 {
 	let q=stream.q
 	let res=stream.res
+	
+	if(res.connection.destroyed)
+	{
+		stream.broken=true // flag stream as broken
+		res.end() // I think we must res close here otherwise we block up connections
+		return
+	}
 
 	let itemstr=""
 	let tweenstr=","

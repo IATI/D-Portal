@@ -27,6 +27,6 @@ echo " installing all "
 bash /host/box/install-all.sh
 
 echo
-echo " test this server at http://10.42.52.99/ "
+echo " test this server at http://192.168.56.19/ "
 echo
 
