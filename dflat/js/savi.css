@@ -93,6 +93,7 @@ span.block		{display:block;}
 .sector_vocab		{border-bottom:1px solid #aaa; padding-bottom:20px;}
 .sector_list:last-of-type,
 .sector_vocab:last-of-type	{border:0; padding-bottom:0;}
+.sector_vocab .type {margin-left:5px; background-color:rgba(223,222,217,0.6); vertical-align:baseline; color:#444; font-weight:normal;}
 .wrap_code,
 .wrap_bar			{display:inline-block; vertical-align:middle; width:400px;}
 .wrap_code			{border-right:1px solid #999; padding:10px 20px 10px 0; text-align:right; width:480px;}
@@ -132,7 +133,7 @@ span.block		{display:block;}
 
 /*	COUNT	*/
 span.count				{color:#ccc; font-size:12px; padding-left:10px;}
-.wrap_sector span.count	{color:#444; font-weight:normal; padding-left:5px;}
+.wrap_sector span.count	{color:#444; font-weight:normal; padding-left:5px; vertical-align:baseline;}
 .wrap_transaction,
 .wrap_result			{position:relative;}
 .wrap_length			{color:#ddd; font-size:10px; max-width:700px; position:absolute; right:-20px; text-align:right; top:10px;}
@@ -397,7 +398,7 @@ table.budget.act_trans td.date				{padding-right:0; width:110px;}
 .wrap_result table.budget td.result_actual	{padding-right:10px;}
 .wrap_result th.result_period,
 .wrap_result td.result_period				{width:130px;}
-.wrap_result td.result_period				{font-size:11px; line-height:20px; text-align:center;}
+.wrap_result td.result_period				{font-size:10px; line-height:20px; text-align:center;}
 .wrap_result .header_doc					{display:none;}
 .wrap_result_text							{padding:5px 0 20px 0;}
 .result_main_title							{font-size:16px; line-height:20px;}
