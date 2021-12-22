@@ -142,7 +142,7 @@ savi.start_loaded=async function(){
 	if(aid!==null)
 	{
 		if(aid!="") { aid="&aid="+encodeURIComponent(aid) }
-		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-activities/iati-activity"+aid,ropts)
+		iati=await fetch(window.location.protocol+"//d-portal.org/q.json?from=xson&root=/iati-activities/iati-activity"+aid,ropts)
 //		iati=await fetch("/q.json?from=xson&root=/iati-activities/iati-activity"+aid,ropts)
 		iati=await iati.json()
 		iati=iati.xson[0] // just the data
@@ -152,7 +152,7 @@ savi.start_loaded=async function(){
 	if(pid!==null)
 	{
 		if(pid!="") { pid="&pid="+encodeURIComponent(pid) }
-		iati=await fetch("http://d-portal.org/q.json?from=xson&root=/iati-organisations/iati-organisation"+pid,ropts)
+		iati=await fetch(window.location.protocol+"//d-portal.org/q.json?from=xson&root=/iati-organisations/iati-organisation"+pid,ropts)
 //		iati=await fetch("/q.json?from=xson&root=/iati-organisations/iati-organisation"+pid,ropts)
 		iati=await iati.json()
 		iati=iati.xson[0] // just the data
