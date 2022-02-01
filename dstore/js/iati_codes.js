@@ -573,7 +573,7 @@ iati_codes.fetch2 = async function(){
 // ignore these keys in the package data as they cache values and just change all the time without being useful
 	var ignoreresourcekeys=[
 		"created",
-//		"hash",		// it seems we need this hash to link to the validator
+		"hash",
 		"id",
 		"last_modified",
 		"mimetype",
@@ -669,6 +669,19 @@ iati_codes.fetch2 = async function(){
 		}
 		
 		fs.writeFileSync(__dirname+"/../json/curl.txt",cc.join(""));
+
+		console.log("Writing json/validhash.json")
+
+		var validhash={}
+		
+		for( var slug in packages)
+		{
+			var package=packages[slug]
+			var hash=package.id
+			validhash[slug]=hash
+		}
+		
+		fs.writeFileSync(__dirname+"/../json/validhash.json",json_stringify(validhash,{ space: ' ' }));
 	}
 
 
