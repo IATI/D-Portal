@@ -573,7 +573,7 @@ iati_codes.fetch2 = async function(){
 // ignore these keys in the package data as they cache values and just change all the time without being useful
 	var ignoreresourcekeys=[
 		"created",
-		"hash",
+//		"hash",		// it seems we need this hash to link to the validator
 		"id",
 		"last_modified",
 		"mimetype",
