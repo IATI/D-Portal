@@ -580,6 +580,7 @@ iati_codes.fetch2 = async function(){
 		"package_id",
 		"revision_id",
 		"size",
+		"metadata_modified",
 	]
 
 	var ignoreextras=[
