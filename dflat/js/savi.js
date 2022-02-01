@@ -355,6 +355,7 @@ savi.prepare=function(iati_xson){
 
 	let codelists=require('../json/codelists.json')
 	let codemap=require('../json/codemap.json')
+	let validhash=require('../../dstore/json/validhash.json')
 	
 	xson.walk( iati_xson , (it,nn,idx)=>{
 		let nb=nn.join("")
@@ -465,6 +466,14 @@ savi.prepare=function(iati_xson){
 	
 	let subents=function(act)
 	{
+
+// prepare validater link
+
+		if( act["@dataset"] )
+		{
+			let slug=act["@dataset"]
+			act["@dataset-hash"]=validhash[slug] || slug
+		}
 
 // split location into longitude and latitude
 
