@@ -55,7 +55,7 @@ for(var sn in iati_codes.policy_sig) // policy needs two codes to be joined
 		}
 	}
 }
-var text_bool={"!1":"No",1:"Yes"}
+var text_bool={"0":"No",1:"Yes"}
 var text_hierarchy={1:"1",
 					2:"2",
 					3:"3",
