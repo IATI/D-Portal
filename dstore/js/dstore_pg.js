@@ -730,7 +730,7 @@ dstore_pg.query_params=function(string,params)
 		let value=params[key]
 		
 		values[index]=value
-		string=string.replace(`\$\{${key}\}`,`$${index+1}`)
+		string=string.split(`\$\{${key}\}`).join(`$${index+1}`)
 		
 		index=index+1
 	}
