@@ -749,7 +749,7 @@ dstore_pg.query_params_string=function(string,params)
 			value="'"+value.split("'").join("\\'")+"'"
 		}
 		
-		string=string.replace(`\$\{${key}\}`,value)
+		string=string.replaceAll(`\$\{${key}\}`,value)
 		
 		index=index+1
 	}

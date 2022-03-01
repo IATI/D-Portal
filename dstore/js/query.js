@@ -637,7 +637,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 		if( n.startsWith("*") ) // wildcarded xpath partial so we must find all possible paths
 		{
 			let ors=[]
-			let cn="X"+n.trim().toLowerCase().replace(/\W+/g,"_")
+			let cn=n.trim().toLowerCase().replace(/\W+/g,"_")
 			let ne=n.slice(1) // remmove * from start
 			for(let n in database.paths)
 			{
