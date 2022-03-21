@@ -489,10 +489,34 @@
     "/code": "B02",
     "/description/narrative": [
      {
-      "": "These funds are classified as multilateral ODA (all other categories fall under bilateral ODA). The recipient multilateral institution pools contributions so that they lose their identity and become an integral part of its financial assets. See Annex 2 of the DAC Directives for a comprehensive list of agencies core contributions to which may be reported under B02 (Section I. Multilateral institutions)."
+      "": "These funds are classified as multilateral (all other categories are bilateral). The recipient multilateral institution pools contributions so that they lose their identity and become an integral part of its financial assets or liabilities. Also includes Financial Intermediary Funds (GEF, CIFs) for which the World Bank is the Trustee, as well as some UN inter-agency pooled funds, such as CERF and the UN Peacebuilding Fund. See Annex 2 of the Reporting Directives for a comprehensive list of agencies, core contributions to which may be reported under B02 and its subcategories. (Section I. Multilateral institutions). Nota bene: contributions to multilateral development organisations beyond Annex 2 are not reportable in the DAC statistics. The non-ODA components of core support to multilateral organisations included in Annex 2 are not reportable either."
      },
      {
-      "": "Ces fonds sont comptabilisés en tant qu’APD multilatérale (toutes les autres catégories font partie de l’aide bilatérale). L’organisation internationale bénéficiaire fusionne les contributions, qui deviennent anonymes et font alors partie intégrante de ses avoirs financiers.La Liste des organisations internationales éligible en APD (voir l’annexe 2) fournit une liste complète des organisations en faveur desquelles les contributions aux budgets réguliers peuvent être notifiées sous B02.",
+      "": "Ces fonds sont classés comme multilatéraux (toutes les autres catégories sont bilatérales). L'institution multilatérale bénéficiaire met en commun les contributions de sorte qu'elles perdent leur identité et deviennent partie intégrante de ses actifs ou passifs financiers. Comprend également les fonds d'intermédiation financière (FEM, FIC) dont la Banque mondiale est l'administrateur, ainsi que certains fonds communs inter-institutions des Nations unies, tels que le CERF et le Fonds des Nations unies pour la consolidation de la paix. Voir l'annexe 2 des Directives pour une liste complète des agences dont les contributions de base peuvent être rapportées sous B02 et ses sous-catégories. (Section I. Institutions multilatérales). Nota bene : les contributions aux organisations multilatérales de développement hors de l'annexe 2 ne sont pas à déclarer dans les statistiques du CAD. Les composantes non-APD du soutien de base aux organisations multilatérales incluses dans l'annexe 2 ne sont pas non plus à déclarer.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Core contributions to multilateral institutions and global funds"
+     },
+     {
+      "": "Contributions aux budgets réguliers des institutions multilatérales",
+      "@xml:lang": "fr"
+     }
+    ],
+    "@activation-date": "2010-01-01",
+    "@status": "active"
+   },
+   {
+    "/category": "B02",
+    "/code": "B021",
+    "/description/narrative": [
+     {
+      "": "Contributions in this category are pooled by the recipient multilateral institution and become an integral part of its financial assets or liabilities."
+     },
+     {
+      "": "Les contributions de cette catégorie sont mises en commun par l'institution multilatérale bénéficiaire et deviennent partie intégrante de ses actifs ou passifs financiers.",
       "@xml:lang": "fr"
      }
     ],
@@ -505,7 +529,31 @@
       "@xml:lang": "fr"
      }
     ],
-    "@activation-date": "2010-01-01",
+    "@activation-date": "2022-01-01",
+    "@status": "active"
+   },
+   {
+    "/category": "B02",
+    "/code": "B022",
+    "/description/narrative": [
+     {
+      "": "Contributions to global funds classified as multilateral including Financial Intermediary Funds for which the World Bank is the Trustee and which have gone through the Annex 2 process (GEF, CIFs) as well as some UN inter-agency pooled funds, e.g. CERF and the UN Peacebuilding Fund."
+     },
+     {
+      "": "Contributions à des fonds mondiaux classés comme multilatéraux, y compris les fonds d'intermédiation financière dont la Banque mondiale est l'administrateur et qui sont passés par le processus de l'annexe 2 (FEM, FIC), ainsi que certains fonds communs inter-institutions des Nations unies, par exemple le CERF et le Fonds de consolidation de la paix des Nations unies.",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Core contributions to global funds"
+     },
+     {
+      "": "Contributions de base aux fonds mondiaux",
+      "@xml:lang": "fr"
+     }
+    ],
+    "@activation-date": "2022-01-01",
     "@status": "active"
    },
    {
@@ -537,10 +585,10 @@
     "/code": "B031",
     "/description/narrative": [
      {
-      "": "Funding mechanisms that pool contributions from several donors and that are implemented by several multilateral entities e.g. UN inter-agency pooled funds, including CERF and country-based pooled funds; Financial Intermediary Funds (GEF, CIFs) for which the World Bank is the Trustee."
+      "": "Contributions to funding mechanisms (specific-purpose programmes and funds) that pool resources from several providers and from which several multilateral agencies may be allocated funds for implementation; contributions to UN country-based pooled funds and country-level development funds. Excludes contributions to global funds classified as multilateral (see B022). Includes financial Intermediary Funds for which the World Bank is the Trustee and which have not gone through the Annex 2 process."
      },
      {
-      "": "Mécanismes de financement qui mettent en commun les contributions de plusieurs donateurs et qui sont mis en œuvre par plusieurs entités multilatérales, par ex. Les fonds communs interinstitutions des Nations Unies, y compris le CERF et les fonds communs nationaux; Fonds intermédiaires financiers (FEM, CIF) dont la Banque mondiale est le fiduciaire.",
+      "": "Contributions à des mécanismes de financement (programmes et fonds à finalité spécifique) qui mettent en commun les ressources de plusieurs fournisseurs et à partir desquels plusieurs agences multilatérales peuvent se voir allouer des fonds pour la mise en œuvre ; contributions à des fonds communs par pays des Nations unies et à des fonds de développement au niveau des pays. Ne comprend pas les contributions aux fonds mondiaux classés comme multilatéraux (voir B022). Comprend les fonds intermédiaires financiers dont la Banque mondiale est l'administrateur et qui ne sont pas passés par le processus de l'annexe 2.",
       "@xml:lang": "fr"
      }
     ],
@@ -553,7 +601,7 @@
       "@xml:lang": "fr"
      }
     ],
-    "@activation-date": "2021-01-01",
+    "@activation-date": "2022-01-01",
     "@status": "active"
    },
    {
@@ -561,10 +609,10 @@
     "/code": "B032",
     "/description/narrative": [
      {
-      "": "Contributions to multi-donor funding mechanisms managed by a single multilateral organisation e.g. UN single-agency thematic funds; World Bank or other MDB trust funds. Classify the contribution as B032 even if in the initial stages only one donor contributes to the fund."
+      "": "Contributions to multi-donor funding mechanisms (specific-purpose programmes and funds) managed by a single multilateral organisation e.g. UN single-agency thematic funds; World Bank or other MDB trust funds. Classify the contribution as B032 even if in the initial stages only one donor contributes to the fund."
      },
      {
-      "": "Contributions aux mécanismes de financement multidonateurs gérés par une seule organisation multilatérale, par ex. Fonds thématiques des Nations Unies à une seule agence; Banque mondiale ou autres fonds fiduciaires des BMD. Classez la contribution comme B032 même si, dans les étapes initiales, un seul donateur contribue au fonds.",
+      "": "Contributions à des mécanismes de financement multi-donateurs (programmes et fonds à but spécial) gérés par une seule organisation multilatérale, par exemple, les fonds thématiques d'une seule agence des Nations Unies ; les fonds fiduciaires de la Banque mondiale ou d'autres BMD. Classer la contribution sous B032 même si un seul donateur contribue initialement au fonds.",
       "@xml:lang": "fr"
      }
     ],
@@ -577,7 +625,7 @@
       "@xml:lang": "fr"
      }
     ],
-    "@activation-date": "2021-01-01",
+    "@activation-date": "2022-01-01",
     "@status": "active"
    },
    {
@@ -585,10 +633,10 @@
     "/code": "B033",
     "/description/narrative": [
      {
-      "": "Contributions to funding mechanisms where the donor has a significant influence on the allocation of funds. This includes contributions to single-donor trust funds and earmarked contributions to specific countries/geographical locations or funding windows within multi-donor trust funds. When the donor designs the activity but channels it through an international organisation, the activity should be classified as C01."
+      "": "Contributions to funding mechanisms (specific-purpose programmes and funds) where the donor has a significant influence on the allocation of funds. This includes contributions to single-donor trust funds and earmarked contributions to specific countries/geographical locations or funding windows within multi-donor trust funds. When the donor designs the activity but channels it through an international organisation, the activity should be classified as C01."
      },
      {
-      "": "Contributions aux mécanismes de financement où le donateur a une influence significative sur l'allocation des fonds. Cela comprend les contributions aux fonds d'affectation spéciale à donateur unique et les contributions affectées à des pays / lieux géographiques spécifiques ou des guichets de financement au sein de fonds d'affectation spéciale multidonateurs. Lorsque le donateur conçoit l'activité mais la canalise via une organisation internationale, l'activité doit être classée C01.",
+      "": "Contributions aux mécanismes de financement (programmes et fonds à but spécifique) où le donateur a une influence significative sur l'allocation des fonds. Cela comprend les contributions à des fonds d'affectation spéciale à donateur unique et les contributions affectées à des pays/emplacements géographiques spécifiques ou à des guichets de financement au sein de fonds d'affectation spéciale à donateur multiple. Lorsque le donateur conçoit l'activité mais la fait transiter par une organisation internationale, l'activité doit être classée en C01.",
       "@xml:lang": "fr"
      }
     ],
@@ -601,7 +649,7 @@
       "@xml:lang": "fr"
      }
     ],
-    "@activation-date": "2021-01-01",
+    "@activation-date": "2022-01-01",
     "@status": "active"
    },
    {
@@ -4953,6 +5001,7 @@
       "@xml:lang": "fr"
      }
     ],
+    "@activation-date": "2020-01-01",
     "@status": "active"
    },
    {
