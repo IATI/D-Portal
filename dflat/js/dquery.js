@@ -1,7 +1,7 @@
 
 var dquery=exports;
 
-	dquery.origin="http://d-portal.org"
+	dquery.origin="//d-portal.org"
 
 // running in browser
 if(typeof window !== 'undefined')

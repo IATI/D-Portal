@@ -360,7 +360,7 @@ dflat.xson_to_html=function(json,origin)
 		savi.prepare(json) // prepare for display
 		json.done_xson_to_html=true
 	}
-	savi.chunks.origin=origin || "http://d-portal.org"
+	savi.chunks.origin=origin || "//d-portal.org"
 	savi.chunks.iati=json
 	var html=savi.plate(
 `<!DOCTYPE html>

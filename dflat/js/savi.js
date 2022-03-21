@@ -97,7 +97,7 @@ savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.cs
 
 savi.plated.chunks.format_chunks( savi.chunks )
 
-savi.chunks["origin"]="http://d-portal.org"
+savi.chunks["origin"]="//d-portal.org"
 
 savi.opts={}
 savi.opts.test=false
