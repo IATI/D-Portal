@@ -144,4 +144,6 @@ require("./argv").parse(argv);
 		"\n"+
 	"");
 
-})().finally(function(){process.exit()})
+})().catch((err) => {
+    console.error(err);
+}).finally(function(){process.exit()})

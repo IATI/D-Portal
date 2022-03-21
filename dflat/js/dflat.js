@@ -354,8 +354,12 @@ dflat.xson_to_string=function(json)
 // convert json into html ( BEWARE this will add extra junk to your json )
 dflat.xson_to_html=function(json,origin)
 {
-	dflat.clean(json) // clean this data
-	savi.prepare(json) // prepare for display
+	if(!json.done_xson_to_html) // try and only process once
+	{
+		dflat.clean(json) // clean this data
+		savi.prepare(json) // prepare for display
+		json.done_xson_to_html=true
+	}
 	savi.chunks.origin=origin || "http://d-portal.org"
 	savi.chunks.iati=json
 	var html=savi.plate(
