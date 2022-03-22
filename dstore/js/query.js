@@ -1162,6 +1162,7 @@ query.stream_item=function(stream,item)
 		tweenstr=""
 		if( item.xson && item.root )
 		{
+			if( typeof(item.xson) == "string" ) { item.xson=JSON.parse( item.xson ) } // sqlite fix
 			let t={}
 			t[item.root]=[item.xson]
 			itemstr=stream.xs.data(t)
