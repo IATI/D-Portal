@@ -53,9 +53,8 @@ span.block		{display:block;}
 /*	WRAPPERS	*/
 .wrap_title						{padding-bottom:40px;}
 .wrap_reporting_org				{color:#ccc; font-size:18px; line-height:1.35em;}
-.wrap_title	.narrative						{font-size:42px; line-height:1.1em;}
-.wrap_title	.narrative:nth-of-type(n+2)		{font-size:30px; margin-top:5px; line-height:1em;}
-.wrap_title	.narrative:nth-of-type(2)		{margin-top:10px;}
+.wrap_title	.narrative						{font-size:42px; line-height:1em;}
+.wrap_title	.narrative:nth-of-type(n+2)		{font-size:30px; margin-top:15px; font-style:italic;}
 .wrap_reporting_org div			{display:inline-block; padding-right:10px; vertical-align:top;}
 .wrap_iati_identifier			{background-color:rgba(0,14,32,0.7); color:#FFAB5E; font-size:18px; line-height:1.5em; margin:0 auto; margin:25px 0 0 -40px; padding:20px 40px; width:960px;}
 .wrap_iati_identifier.org_id	{margin-top:10px;}
@@ -63,9 +62,10 @@ span.block		{display:block;}
 .wrap_iati_identifier .text		{color:#ccc; font-size:13px; text-transform:uppercase;}
 .wrap_iati_identifier .text a	{font-size:18px; padding-left:5px;}
 .wrap_name_org					{color:#fff; font-size:18px; padding-bottom:10px;}
+.wrap_name_org .narrative:nth-of-type(n+2)	{padding-top:5px; color:#ccc; font-size:16px; font-style:italic;}
 .wrap_description				{margin:40px auto;}
 .wrap_description .text			{margin-bottom:30px;}
-.wrap_description .text .narrative					{font-size:1.0em; line-height:1.5em; unicode-bidi:embed; white-space:pre-line; word-spacing:0.05em;}
+.wrap_description .text .narrative					{font-size:1.0em; line-height:1.25em; unicode-bidi:embed; white-space:pre-line; word-spacing:0.05em;}
 .wrap_description .text .narrative:nth-of-type(n+2)	{display:block; margin-top:15px; color:#ccc;}
 .wrap_description .text .narrative:first-letter		{text-transform:capitalize;}
 .wrap_default					{margin:0 auto; padding:20px 0 0 0;}
@@ -178,10 +178,11 @@ span.doc_rec	{background-color:rgba(22,24,37,0.6);}
 .wrap_contact_info .contact_info:last-of-type	{border:0; margin-bottom:0; padding-bottom:20px;}
 .wrap_contact_org					{font-weight:bold;}
 .wrap_contact_name					{font-size:20px; padding-top:10px;}
-.wrap_contact_title					{font-style:italic;}
+.wrap_contact_title					{font-size:16px;}
 .wrap_contact_tel					{font-size:18px; padding:5px 0;}
 .wrap_contact_type					{color:#ccc; font-size:12px; padding-bottom:5px; text-transform:uppercase;}
 .wrap_contact_add					{padding-top:5px;}
+.wrap_contact_info .narrative:nth-of-type(n+2)	{font-size:16px; font-style:italic; font-weight:normal;}
 
 /*	DATES	*/
 .wrap_activity_date					{height:82px; margin-left:-50px; position:relative; width:980px;}
@@ -226,14 +227,17 @@ td.provider div,
 td.part_org_ref div,
 td.loc_name div						{line-height:10px; padding-bottom:2px;}
 td.part_org_ref .part_org_id span a	{padding-left:5px;}		/*	Left padding so ID lines up	*/
+td.description .description_text .narrative,
+td.receiver .receiver_text .narrative,
+td.provider .provider_text .narrative	{font-size:14px; line-height:18px;}
 td.receiver .receiver_text,
-td.provider .provider_text			{font-size:14px; line-height:18px; padding-bottom:7px;}
+td.provider .provider_text			{padding-bottom:5px;}
 td.part_org_ref .part_org_text,
 td.loc_name .loc_text				{font-size:13px; line-height:15px; padding-bottom:5px;}
 td.loc_name .loc_text				{font-size:14px;}
-td.description div 					{border-bottom:1px dotted #47506b; line-height:10px; margin-bottom:3px; max-width:200px; padding-bottom:2px;}
+td.description div 					{line-height:10px; margin-bottom:3px; max-width:200px; padding-bottom:2px;}
 td.description div:last-of-type		{border:0; margin:0; padding:0;}
-td.description .description_text	{border:0; font-size:14px; line-height:18px; max-width:100%; padding-bottom:7px;}
+td.description .description_text	{border:0; max-width:100%; padding-bottom:5px;}
 td .narrative:nth-of-type(n+2)		{padding-top:5px; color:#ccc; font-style:italic;}
 
 table.budget			{border-collapse:collapse; table-layout:fixed; text-align:left; width:880px;}
@@ -889,6 +893,7 @@ body.print		{background-color:#fff;}
 .print .wrap_reporting_org .text,
 .print .wrap_iati_identifier .text,
 .print .wrap_name_org,
+.print .wrap_name_org .narrative,
 .print .wrap_activity_date div span,
 .print .ref,
 .print .ref span,
