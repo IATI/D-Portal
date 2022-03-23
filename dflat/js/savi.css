@@ -408,7 +408,7 @@ table.budget.act_trans td.date				{padding-right:0; width:110px;}
 .result_main_title							{font-size:16px; line-height:20px;}
 .result_main_title .narrative:nth-of-type(n+2){color:#ccc; font-style:italic;}
 .result_title								{font-size:15px; line-height:18px;}
-.result_title .narrative:nth-of-type(n+2)	{padding-bottom:10px; color:#ccc; font-style:italic;}
+.result_title .narrative:nth-of-type(n+2)	{color:#ccc; font-style:italic;}
 .result_main_title .narrative:first-letter,
 .result_indi_desc .narrative:first-letter,
 .result_title .narrative:first-letter		{text-transform:capitalize;}
@@ -430,8 +430,8 @@ table.budget.act_trans td.date				{padding-right:0; width:110px;}
 .wrap_result_indi_ref						{margin-top:-10px; padding-bottom:15px;}
 .wrap_result_indi_ref:last-of-type			{padding:0;}
 .result_indi_head							{border-bottom:1px solid #4d5264; color:#ccc; font-size:10px; padding-bottom:3px;}
-.result_indi_desc							{color:#ddd; font-size:14px; line-height:18px; padding-top:5px;}
-.result_indi_desc .narrative:nth-of-type(n+2){color:#ccc; padding-top:15px;}
+.result_indi_desc							{font-size:14px; line-height:18px; padding-top:5px;}
+.result_indi_desc .narrative:nth-of-type(n+2){color:#ccc; font-style:italic;}
 .result_indi_ref							{border-bottom:1px dotted #666; font-size:11px; line-height:11px; padding:5px 0 0 0;}
 .result_indi_ref div						{padding-bottom:3px;}
 .result_indi_ref:last-of-type				{border:0; padding-bottom:0;}
