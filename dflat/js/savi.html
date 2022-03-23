@@ -679,7 +679,7 @@
 {_it./document-link&&_it:/wrap-document-link||}
 
 #^/result_title_text
-<div class="result_main_title">{_it./title/narrative.0.text||}</div>
+<div class="result_main_title">{_it./title/narrative:/narrative||}</div>
 
 #^/result_indicator_facet
 {_it:/result_indicator_row_indicator||}
@@ -729,8 +729,8 @@
 <div class="wrap_result_indicator">
 	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
 	<div class="result_indicator left_indi">
-		<div class="result_title">{_it./title/narrative.0.text||}</div>
-		{_it./description/narrative&&_it:/indicator_desc||}
+		<div class="result_title">{_it./title/narrative:/narrative||}</div>
+		{_it./description/narrative.0.text&&_it:/indicator_desc||}
 	</div><div class="result_indicator">	
 		{_it./reference&&_it:/wrap-result-reference||}
 	</div>
@@ -740,13 +740,13 @@
 #^/indicator_text						<!--	USE WHEN REFERENCE ARE NOT ARE PUBLISHED	-->
 <div class="wrap_result_indicator">
 	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
-	<div class="result_title">{_it./title/narrative.0.text||}</div>
-	{_it./description/narrative&&_it:/indicator_desc||}
+	<div class="result_title">{_it./title/narrative:/narrative||}</div>
+	{_it./description/narrative.0.text&&_it:/indicator_desc||}
 	{_it./document-link&&_it:/wrap-document-link||}
 </div>
 
 #^/indicator_desc
-<div class="result_indi_desc">{_it./description/narrative.0.text||}</div>
+<div class="result_indi_desc">{_it./description/narrative:/narrative||}</div>
 
 #^/result_indicator_row				<!--	RESULTS FACETS, BASELINE, TARGET, ACTUAL AND PERIOD	-->
 <tr class="row_count">
@@ -762,9 +762,9 @@
 		{_it./period-percent&&_it:/periods||/empty_period}
 	</td>
 </tr>
-{_it./baseline/comment/narrative&&_it:/baseline_comment||}
-{_it./target/comment/narrative&&_it:/target_comment||}
-{_it./actual/comment/narrative&&_it:/actual_comment||}
+{_it./baseline/comment/narrative.0.text&&_it:/baseline_comment||}
+{_it./target/comment/narrative.0.text&&_it:/target_comment||}
+{_it./actual/comment/narrative.0.text&&_it:/actual_comment||}
 
 #^/periods
 {_it./period-start@iso-date||} : {_it./period-end@iso-date||}
@@ -834,7 +834,7 @@
 #^@percent trim=ends
 <div class="result_percent_wrap">
 	<span class="result_percent_value">{_it.@percent}%</span>
-	<span class="result_percent_dot" style="background-color:hsl({_it.@percent||},100%,50%);"></span>
+	<span class="result_percent_dot" style="background-color:hsl({_it.@percent},100%,50%);"></span>
 </div>
 #^@percent-null trim=ends
 <div class="result_percent_wrap">N/A</div>
