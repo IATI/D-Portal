@@ -198,7 +198,7 @@ for( let pn in dflat_database.paths ) // auto xson indexes
 	{
 		let a=p.jpath[ p.jpath.length-1 ]
 // do not index any path ending in "" as it can be huge text, eg narratives
-		if( (a!="") && (a!="@ref") ) // ignore long strings
+		if( (a!="") /*&& (a!="@ref")*/ ) // ignore long strings
 		{
 			dflat_indexs[ a ] = p // merge
 		}
