@@ -382,7 +382,7 @@
 	<td class="other_ref" data-sort-value="{_it.@ref}">{_it.@ref||}</td>
 	<td class="owner_ref" data-sort-value="{_it./owner-org@ref}">
 		{_it./owner-org@ref||}
-		{_it./owner-org/narrative&&_it:/owner-org||}
+		{_it./owner-org/narrative.0.text&&_it:/owner-org||}
 	</td>
 	<td class="other_type" data-sort-value="{_it.@type}">
 		{_it.@type-name||}
@@ -395,7 +395,7 @@
 <div><span class="ref">CODE</span> {_it.@type}</div>
 
 #^/owner-org
-<div>{_it./owner-org/narrative.0.text||}</div>
+<div>{_it./owner-org/narrative:/narrative||}</div>
 
 #^/wrap-capital-spend	<!--	CAPITAL SPEND WRAPPER	-->
 	<div class="header_section collapsable">capital spend</div>
@@ -449,10 +449,10 @@
 #^/contact-info	<!--	CONTACT INFO	-->
 <div class="contact_info">
 {_it.@type&&_it:/contact-type||}
-{_it./organisation/narrative&&_it:/wrap-organisation||}
-{_it./department/narrative&&_it:/wrap-department||}
-{_it./person-name/narrative&&_it:/wrap-person-name||}
-{_it./job-title/narrative&&_it:/wrap-job-title||}
+{_it./organisation/narrative.0.text&&_it:/wrap-organisation||}
+{_it./department/narrative.0.text&&_it:/wrap-department||}
+{_it./person-name/narrative.0.text&&_it:/wrap-person-name||}
+{_it./job-title/narrative.0.text&&_it:/wrap-job-title||}
 {_it./telephone.0.text&&_it:/wrap-telephone||}
 {_it./email.0.text&&_it:/wrap-email||}
 {_it./website.0.text&&_it:/wrap-website||}
@@ -460,13 +460,13 @@
 </div>
 
 #^/wrap-organisation	<!--	CONTACT INFO TEXT WRAPPERS	-->
-<div class="wrap_contact_org">{_it./organisation/narrative.0.text||}</div>
+<div class="wrap_contact_org">{_it./organisation/narrative:/narrative||}</div>
 #^/wrap-department
-<div class="wrap_contact_dept">{_it./department/narrative.0.text||}</div>
+<div class="wrap_contact_dept">{_it./department/narrative:/narrative||}</div>
 #^/wrap-person-name
-<div class="wrap_contact_name">{_it./person-name/narrative.0.text||}</div>
+<div class="wrap_contact_name">{_it./person-name/narrative:/narrative||}</div>
 #^/wrap-job-title
-<div class="wrap_contact_title">{_it./job-title/narrative.0.text||}</div>
+<div class="wrap_contact_title">{_it./job-title/narrative:/narrative||}</div>
 #^/wrap-telephone
 <div class="wrap_contact_tel">{_it./telephone:/info_text}</div>
 #^/wrap-email
@@ -679,7 +679,7 @@
 {_it./document-link&&_it:/wrap-document-link||}
 
 #^/result_title_text
-<div class="result_main_title">{_it./title/narrative.0.text||}</div>
+<div class="result_main_title">{_it./title/narrative:/narrative||}</div>
 
 #^/result_indicator_facet
 {_it:/result_indicator_row_indicator||}
@@ -729,8 +729,8 @@
 <div class="wrap_result_indicator">
 	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
 	<div class="result_indicator left_indi">
-		<div class="result_title">{_it./title/narrative.0.text||}</div>
-		{_it./description/narrative&&_it:/indicator_desc||}
+		<div class="result_title">{_it./title/narrative:/narrative||}</div>
+		{_it./description/narrative.0.text&&_it:/indicator_desc||}
 	</div><div class="result_indicator">	
 		{_it./reference&&_it:/wrap-result-reference||}
 	</div>
@@ -740,13 +740,13 @@
 #^/indicator_text						<!--	USE WHEN REFERENCE ARE NOT ARE PUBLISHED	-->
 <div class="wrap_result_indicator">
 	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
-	<div class="result_title">{_it./title/narrative.0.text||}</div>
-	{_it./description/narrative&&_it:/indicator_desc||}
+	<div class="result_title">{_it./title/narrative:/narrative||}</div>
+	{_it./description/narrative.0.text&&_it:/indicator_desc||}
 	{_it./document-link&&_it:/wrap-document-link||}
 </div>
 
 #^/indicator_desc
-<div class="result_indi_desc">{_it./description/narrative.0.text||}</div>
+<div class="result_indi_desc">{_it./description/narrative:/narrative||}</div>
 
 #^/result_indicator_row				<!--	RESULTS FACETS, BASELINE, TARGET, ACTUAL AND PERIOD	-->
 <tr class="row_count">
@@ -762,9 +762,9 @@
 		{_it./period-percent&&_it:/periods||/empty_period}
 	</td>
 </tr>
-{_it./baseline/comment/narrative&&_it:/baseline_comment||}
-{_it./target/comment/narrative&&_it:/target_comment||}
-{_it./actual/comment/narrative&&_it:/actual_comment||}
+{_it./baseline/comment/narrative.0.text&&_it:/baseline_comment||}
+{_it./target/comment/narrative.0.text&&_it:/target_comment||}
+{_it./actual/comment/narrative.0.text&&_it:/actual_comment||}
 
 #^/periods
 {_it./period-start@iso-date||} : {_it./period-end@iso-date||}
@@ -778,7 +778,7 @@
 	<td colspan="5">
 		<div class="result_comment_wrap">
 			<div class="result_comment_type"><b>Baseline</b> comment</div>
-			<div class="result_comment">{_it./baseline/comment/narrative.0.text||}</div>
+			<div class="result_comment">{_it./baseline/comment/narrative:/narrative||}</div>
 		</div>
 	</td>
 </tr>
@@ -788,7 +788,7 @@
 	<td colspan="5">
 		<div class="result_comment_wrap">
 			<div class="result_comment_type"><b>Target</b> comment</div>
-			<div class="result_comment">{_it./target/comment/narrative.0.text||}</div>
+			<div class="result_comment">{_it./target/comment/narrative:/narrative||}</div>
 		</div>
 	</td>
 </tr>
@@ -798,7 +798,7 @@
 	<td colspan="5">
 		<div class="result_comment_wrap">
 			<div class="result_comment_type"><b>Actual</b> comment</div>
-			<div class="result_comment">{_it./actual/comment/narrative.0.text||}</div>
+			<div class="result_comment">{_it./actual/comment/narrative:/narrative||}</div>
 		</div>
 	</td>
 </tr>
@@ -834,7 +834,7 @@
 #^@percent trim=ends
 <div class="result_percent_wrap">
 	<span class="result_percent_value">{_it.@percent}%</span>
-	<span class="result_percent_dot" style="background-color:hsl({_it.@percent||},100%,50%);"></span>
+	<span class="result_percent_dot" style="background-color:hsl({_it.@percent},100%,50%);"></span>
 </div>
 #^@percent-null trim=ends
 <div class="result_percent_wrap">N/A</div>
@@ -1212,11 +1212,11 @@
 </tr>
 
 #^/description/narrative
-<div class="description_text">{_it./description/narrative.0.text||}</div>
+<div class="description_text">{_it./description/narrative:/narrative||}</div>
 #^/provider-org/narrative
-<div class="provider_text">{_it./provider-org/narrative.0.text||}</div>
+<div class="provider_text">{_it./provider-org/narrative:/narrative||}</div>
 #^/receiver-org/narrative
-<div class="receiver_text">{_it./receiver-org/narrative.0.text||}</div>
+<div class="receiver_text">{_it./receiver-org/narrative:/narrative||}</div>
 
 #^/trans-ref
 <div>
@@ -1918,7 +1918,7 @@
 #^iati-organisation
 <div class="org">
 	<div class="header">ORGANISATION FILE</div>
-	<div class="wrap_name_org">{_it./name/narrative.0.text||}</div>
+	<div class="wrap_name_org">{_it./name/narrative:/narrative||}</div>
 	<div class="wrap_reporting_org">	<!--	REPORTING ORG	-->
 		<div class="text">Reported by</div><div class="reporting_org"><a href="{origin}/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span>{_it./reporting-org@secondary-reporter==1&&secondary_reporter||}</div>
 	</div>
