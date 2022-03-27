@@ -1122,8 +1122,9 @@ query.stream_item=function(stream,item)
 		if( stream.mode=="csv" )
 		{
 			tweenstr="\n"
-			stream.csv_header_line=stream.csv_header_line.replace(/^\[|\]$/g,"")+tweenstr
-			itemstr=JSON.stringify(aa).replace(/^\[|\]$/g,"")
+			// need special CSV quote escape where " is ""  not \"
+			stream.csv_header_line=stream.csv_header_line.replace(/^\[|\]$/g,"").split("\\\"").join("\"\"")+tweenstr
+			itemstr=JSON.stringify(aa).replace(/^\[|\]$/g,"").split("\\\"").join("\"\"")
 		}
 	}
 	else
