@@ -1109,7 +1109,14 @@ query.stream_item=function(stream,item)
 			}
 			else
 			{
-				aa[idx]=item[name]
+				if( stream.mode=="csv" ) // *force* CSV mode data to strings
+				{
+					aa[idx]=String(item[name])
+				}
+				else
+				{
+					aa[idx]=item[name]
+				}
 			}
 		}
 		if( stream.mode=="jcsv" )
