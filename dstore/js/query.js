@@ -1122,9 +1122,11 @@ query.stream_item=function(stream,item)
 		if( stream.mode=="csv" )
 		{
 			tweenstr="\n"
-			// need special CSV quote escape where " is ""  not \"
-			stream.csv_header_line=stream.csv_header_line.replace(/^\[|\]$/g,"").split("\\\"").join("\"\"")+tweenstr
-			itemstr=JSON.stringify(aa).replace(/^\[|\]$/g,"").split("\\\"").join("\"\"")
+			// this is a json encoded array, so remove the first [ and last ] and we have an encoded csv line
+			// we also need special CSV quote escape where " is ""  not \" 
+			// this regex should also deal with a rare ocurrence of two \ before string close
+			stream.csv_header_line=stream.csv_header_line.replace(/^\[|\]$/g,"").replace(/([^\\])\\\"/g,"$1\"\"")+tweenstr
+			itemstr=JSON.stringify(aa).replace(/^\[|\]$/g,"").replace(/([^\\])\\\"/g,"$1\"\"")
 		}
 	}
 	else
