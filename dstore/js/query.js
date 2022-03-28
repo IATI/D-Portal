@@ -1110,9 +1110,13 @@ query.stream_item=function(stream,item)
 			}
 			if( stream.mode=="csv" ) // and *force* CSV mode json data into strings
 			{
-				if( typeof aa[idx] == "object" )
+				if(aa[idx]) // do not touch nullishs
 				{
-					aa[idx]=JSON.stringify( aa[idx] )
+					let t=typeof aa[idx]
+					if( t!="string" && t!="number" && t!="boolean" ) // stringify anything else
+					{
+						aa[idx]=JSON.stringify( aa[idx] )
+					}
 				}
 			}
 		}
