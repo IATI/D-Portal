@@ -1109,9 +1109,13 @@ query.stream_item=function(stream,item)
 			}
 			else
 			{
-				if( stream.mode=="csv" ) // *force* CSV mode data to strings
+				if( stream.mode=="csv" ) // *force* CSV mode json data into strings
 				{
-					aa[idx]=String(item[name])
+					aa[idx]=item[name]
+					if( typeof item[name] === 'object' )
+					{
+						aa[idx]=JSON.stringify(item[name])
+					}
 				}
 				else
 				{
