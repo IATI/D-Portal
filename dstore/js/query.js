@@ -1103,23 +1103,16 @@ query.stream_item=function(stream,item)
 		for(let idx in stream.csv_header_array)
 		{
 			let name=stream.csv_header_array[idx]
+			aa[idx]=item[name] // start simple
 			if( q.human )
 			{
-				aa[idx]=query.humanizer( name , item[name] )
+				aa[idx]=query.humanizer( name , item[name] ) // get complicated
 			}
-			else
+			if( stream.mode=="csv" ) // and *force* CSV mode json data into strings
 			{
-				if( stream.mode=="csv" ) // *force* CSV mode json data into strings
+				if( typeof aa[idx] == "object" )
 				{
-					aa[idx]=item[name]
-					if( typeof item[name] === 'object' )
-					{
-						aa[idx]=JSON.stringify(item[name])
-					}
-				}
-				else
-				{
-					aa[idx]=item[name]
+					aa[idx]=JSON.stringify( aa[idx] )
 				}
 			}
 		}
