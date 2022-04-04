@@ -701,7 +701,7 @@ if(true)
 	for(let v of j)
 	{
 		console.log("Fetching publisher info for "+v);
-\		let jjs=await https_getbody("https://iatiregistry.org/api/3/action/group_show?show_historical_publisher_names=true&id="+v);
+		let jjs=await https_getbody("https://iatiregistry.org/api/3/action/group_show?show_historical_publisher_names=true&id="+v);
 		let jj=JSON.parse(jjs).result;
 		publishers[v]=jj
 		
