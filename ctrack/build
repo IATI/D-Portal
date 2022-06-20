@@ -2,4 +2,4 @@ cd `dirname $0`
 
 echo "browserify"
 
-npx browserify -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/ctrack.js:ctrack -d | pv | npx terser --source-map --output jslib/ctrack.js
+npx browserify --ignore-missing -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/ctrack.js:ctrack -d | pv | npx terser --source-map --output jslib/ctrack.js
