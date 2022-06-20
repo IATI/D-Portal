@@ -1,5 +1,5 @@
 cd `dirname $0`
 
-source settings
+source ./settings
 
 npx plated watch --dumpjson --output=$PLATED_OUTPUT --source=$PLATED_SOURCE
