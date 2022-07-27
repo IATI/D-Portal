@@ -44,17 +44,6 @@
    "codelist": "ContactType"
   }
  ],
- "/iati-activities/iati-activity/country-budget-items/budget-item/description@type": [
-  {
-   "codelist": "DescriptionType"
-  }
- ],
- "/iati-activities/iati-activity/country-budget-items/budget-item@code": [
-  {
-   "codelist": "BudgetIdentifier",
-   "condition": "../@vocabulary = '1'"
-  }
- ],
  "/iati-activities/iati-activity/country-budget-items/budget-item@vocabulary": [
   {
    "codelist": "BudgetIdentifierVocabulary"
@@ -277,11 +266,6 @@
    "codelist": "OrganisationType"
   }
  ],
- "/iati-activities/iati-activity/result/description@type": [
-  {
-   "codelist": "DescriptionType"
-  }
- ],
  "/iati-activities/iati-activity/result/document-link/category@code": [
   {
    "codelist": "DocumentCategory"
@@ -310,11 +294,6 @@
  "/iati-activities/iati-activity/result/indicator/baseline/document-link@format": [
   {
    "codelist": "FileFormat"
-  }
- ],
- "/iati-activities/iati-activity/result/indicator/description@type": [
-  {
-   "codelist": "DescriptionType"
   }
  ],
  "/iati-activities/iati-activity/result/indicator/document-link/category@code": [
