@@ -29,7 +29,7 @@ ganal.view=function()
 	if(window.plausible)
 	{
 		var args=( window.location.search.substring(1)+"&"+(window.location.href.split('#')[1]||"") ).split("&").sort()
-		plausible('pageview', { u: (location.href.split("#")[0])+"#"+args.join("&") })
+		plausible('pageview', { u: (window.location.href.split("#")[0])+"#"+args.join("&") })
 	}
 	
 	if(!ctrack.args.ga) { return; } // no google analytics code
