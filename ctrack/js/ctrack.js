@@ -771,10 +771,10 @@ ctrack.setup=function(args)
 		ctrack.display();
 	}
 
-console.log("IN")
+//console.log("IN")
 	fetcher.ajax({from:"instance"},function(d){
 		
-console.log(d)
+//console.log(d)
 
 		d=d || {
 			status:"error"
