@@ -47,7 +47,8 @@
    "H02": "Costs incurred in donor countries for basic assistance to asylum seekers and refugees from developing countries, up to 12 months, when costs cannot be disaggregated. See section II.6 and Annex 17.",
    "H03": "Costs incurred in donor countries for basic assistance to asylum seekers, when these are ultimately accepted. This category includes only costs incurred prior to recognition.",
    "H04": "Costs incurred in donor countries for basic assistance to asylum seekers, when these are ultimately rejected. This category includes only costs incurred prior to rejection. Members may base their reporting on the first instance rejection, where a final decision on status is anticipated to occur after a 12-month period, and this facilitates the establishment of a conservative estimate. For further guidance on how to proceed with calculating costs related to rejected asylum seekers, see Clarification 5, third bullet in section II.6 of the Reporting Directives.",
-   "H05": "Costs incurred in donor countries for basic assistance to refugees with a recognised status. This category only includes costs after recognition (or after date of entry into a country through a resettlement programme)."
+   "H05": "Costs incurred in donor countries for basic assistance to refugees with a recognised status. This category only includes costs after recognition (or after date of entry into a country through a resettlement programme).",
+   "H06": "Costs incurred in other non-ODA eligible provider countries for basic assistance to asylum seekers and refugees from developing countries, up to 12 months. The host and origin country of refugees/asylum seekers shall be specified in one of the descriptive fields of the CRS (fields 14 or 19)."
   },
   "AidType-category": {
    "A": "For contributions under this category, the donor relinquishes the exclusive control of its funds by sharing the responsibility with the recipient.",
@@ -1603,7 +1604,8 @@
    "H02": "Refugees/asylum seekers in donor countries",
    "H03": "Asylum-seekers ultimately accepted",
    "H04": "Asylum-seekers ultimately rejected",
-   "H05": "Recognised refugees"
+   "H05": "Recognised refugees",
+   "H06": "Refugees and asylum seekers in other provider countries"
   },
   "AidType-category": {
    "A": "Budget support",
@@ -1927,6 +1929,7 @@
    "21505": "Save the Children",
    "21506": "International Rescue Committee",
    "21507": "Pact World",
+   "21508": "Sustainable Energy for All",
    "22000": "Donor country-based NGO",
    "22501": "OXFAM - provider country office",
    "22502": "Save the Children - donor country office",
@@ -2010,6 +2013,7 @@
    "41149": "United Nations Development Coordination Office",
    "41150": "United Nations Institute for Disarmament Research",
    "41151": "International Agency for Research on Cancer",
+   "41200": "UN entities (core contributions reportable in TOSSD only)",
    "41300": "Other UN (Core Contributions Reportable in Part)",
    "41301": "Food and Agricultural Organisation",
    "41302": "International Labour Organisation - Assessed Contributions",
@@ -5270,7 +5274,8 @@
    "H02": "Coûts encourus dans les pays donneurs au titre de l’aide de base apportée aux demandeurs d’asile et aux réfugiés en provenance des pays en développement pendant une période pouvant aller jusqu’à 12 mois, quand les coûts ne peuvent pas être désagrégés. Voir section II.6 et Annexe 17.",
    "H03": "Coûts encourus dans les pays donneurs au titre de l’aide de base apportée aux demandeurs d’asile lorsque ceux-ci sont finalement acceptés. Cette catégorie couvre uniquement les coûts encourus avant la reconnaissance de statut.",
    "H04": "Coûts encourus dans les pays donneurs au titre de l’aide de base apportée aux demandeurs d’asile lorsque ceux-ci sont finalement déboutés. Cette catégorie couvre uniquement les coûts encourus avant le rejet de la demande. Dans les cas où il est probable que la décision définitive relative au statut ne surviendra qu’après douze mois et afin de parvenir à une estimation prudente, les membres peuvent établir leur notification en fonction de la date du rejet en première instance. Pour plus d’instructions sur la façon de calculer les coûts relatifs aux demandeurs d’asile finalement déboutés, voir la Clarification 5, troisième point dans la section II.6 des Directives.",
-   "H05": "Coûts encourus dans les pays donneurs au titre de l’aide de base apportée aux personnes auxquelles le statut de réfugié a été accordé. Cette catégorie couvre uniquement les coûts postérieurs à la reconnaissance (ou à la date d’entrée dans un pays dans le cadre d’un programme de réinstallation)."
+   "H05": "Coûts encourus dans les pays donneurs au titre de l’aide de base apportée aux personnes auxquelles le statut de réfugié a été accordé. Cette catégorie couvre uniquement les coûts postérieurs à la reconnaissance (ou à la date d’entrée dans un pays dans le cadre d’un programme de réinstallation).",
+   "H06": "Coûts encourus dans d'autres pays fournisseurs non éligibles à l'APD pour l'assistance de base aux demandeurs d'asile et aux réfugiés des pays en développement, jusqu'à 12 mois. Le pays d'accueil et d'origine des réfugiés/demandeurs d'asile doit être précisé dans l'un des champs descriptifs du SNPC (champs 14 ou 19)."
   },
   "AidType-category": {
    "A": "Pour les contributions relevant de cette catégorie, le donneur renonce au contrôle exclusif des fonds qu’il octroie en partageant cette responsabilité avec le bénéficiaire.",
@@ -5809,7 +5814,8 @@
    "H02": "Refugiés/demandeurs d’asile dans les pays donneurs",
    "H03": "Demandeurs d’asile finalement acceptés",
    "H04": "Demandeurs d’asile finalement déboutés",
-   "H05": "Personnes auxquelles le statut de réfugié a été accordé"
+   "H05": "Personnes auxquelles le statut de réfugié a été accordé",
+   "H06": "Réfugiés et demandeurs d'asile dans d'autres pays fournisseurs"
   },
   "AidType-category": {
    "A": "Soutien budgétaire",
@@ -5926,6 +5932,7 @@
    "21061": "Conseil international de réhabilitation pour les victimes de torture",
    "21062": "The Nature Conservancy",
    "21064": "Initiative Clinton pour l'accès à la santé",
+   "21508": "Sustainable Energy for All",
    "22000": "ONG basée dans un pays donneur",
    "23000": "ONG basée dans un pays en développement",
    "23501": "Sociétés nationales de la Croix-Rouge et du Croissant-Rouge",
@@ -6007,6 +6014,7 @@
    "41149": "Bureau de la coordination des activités de développement des Nations Unies",
    "41150": "Institut des Nations unies pour la recherche sur le désarmement",
    "41151": "Centre international de recherche sur le cancer",
+   "41200": "Entités des Nations Unies (contributions de base à déclarer dans TOSSD uniquement)",
    "41300": "Autres Nations Unies (contributions comptabilisables pour partie)",
    "41301": "Organisation des Nations Unies pour l'alimentation et l'agriculture",
    "41302": "Organisation internationale du travail - contributions obligatoires",
@@ -7468,6 +7476,7 @@
   "CRSChannelCode": {
    "41109": true,
    "41124": true,
+   "41200": true,
    "41311": true,
    "41700": true,
    "42005": true,

@@ -960,6 +960,30 @@
      }
     ],
     "@status": "active"
+   },
+   {
+    "/category": "H",
+    "/code": "H06",
+    "/description/narrative": [
+     {
+      "": "Costs incurred in other non-ODA eligible provider countries for basic assistance to asylum seekers and refugees from developing countries, up to 12 months. The host and origin country of refugees/asylum seekers shall be specified in one of the descriptive fields of the CRS (fields 14 or 19)."
+     },
+     {
+      "": "Coûts encourus dans d'autres pays fournisseurs non éligibles à l'APD pour l'assistance de base aux demandeurs d'asile et aux réfugiés des pays en développement, jusqu'à 12 mois. Le pays d'accueil et d'origine des réfugiés/demandeurs d'asile doit être précisé dans l'un des champs descriptifs du SNPC (champs 14 ou 19).",
+      "@xml:lang": "fr"
+     }
+    ],
+    "/name/narrative": [
+     {
+      "": "Refugees and asylum seekers in other provider countries"
+     },
+     {
+      "": "Réfugiés et demandeurs d'asile dans d'autres pays fournisseurs",
+      "@xml:lang": "fr"
+     }
+    ],
+    "@activation-date": "2023-01-01",
+    "@status": "active"
    }
   ],
   "/codelist/metadata/category/narrative": "Replicated",
@@ -3769,6 +3793,21 @@
     "@status": "active"
    },
    {
+    "/category": "21000",
+    "/code": "21508",
+    "/name/narrative": [
+     {
+      "": "Sustainable Energy for All"
+     },
+     {
+      "": "Sustainable Energy for All",
+      "@xml:lang": "fr"
+     }
+    ],
+    "@activation-date": "2022-01-01",
+    "@status": "active"
+   },
+   {
     "/category": "20000",
     "/code": "22000",
     "/name/narrative": [
@@ -4369,7 +4408,7 @@
       "@xml:lang": "fr"
      }
     ],
-    "@activation-date": "2020-01-01",
+    "@activation-date": "2021-01-01",
     "@status": "active"
    },
    {
@@ -4384,7 +4423,7 @@
       "@xml:lang": "fr"
      }
     ],
-    "@activation-date": "2020-01-01",
+    "@activation-date": "2021-01-01",
     "@status": "active"
    },
    {
@@ -4399,7 +4438,7 @@
       "@xml:lang": "fr"
      }
     ],
-    "@activation-date": "2020-01-01",
+    "@activation-date": "2021-01-01",
     "@status": "active"
    },
    {
@@ -4671,7 +4710,7 @@
       "@xml:lang": "fr"
      }
     ],
-    "@activation-date": "2020-01-01",
+    "@activation-date": "2021-01-01",
     "@status": "active"
    },
    {
@@ -5006,6 +5045,21 @@
    },
    {
     "/category": "41000",
+    "/code": "41200",
+    "/name/narrative": [
+     {
+      "": "UN entities (core contributions reportable in TOSSD only)"
+     },
+     {
+      "": "Entités des Nations Unies (contributions de base à déclarer dans TOSSD uniquement)",
+      "@xml:lang": "fr"
+     }
+    ],
+    "@activation-date": "2020-01-01",
+    "@status": "withdrawn"
+   },
+   {
+    "/category": "41000",
     "/code": "41300",
     "/name/narrative": [
      {
@@ -5091,7 +5145,7 @@
       "@xml:lang": "fr"
      }
     ],
-    "@activation-date": "2020-01-01",
+    "@activation-date": "2021-01-01",
     "@status": "active"
    },
    {
@@ -5227,7 +5281,7 @@
       "@xml:lang": "fr"
      }
     ],
-    "@activation-date": "2020-01-01",
+    "@activation-date": "2021-01-01",
     "@status": "active"
    },
    {
@@ -24619,7 +24673,8 @@
       "@xml:lang": "fr"
      }
     ],
-    "@status": "withdrawn"
+    "@status": "withdrawn",
+    "@withdrawal-date": "2019-12-31"
    },
    {
     "/category": "113",
