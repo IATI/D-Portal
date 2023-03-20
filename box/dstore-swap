@@ -15,7 +15,6 @@ echo " swapping $NEWPGDATABASE database with $PGDATABASE database "
 
 
 sudo /etc/init.d/dportal stop
-sudo /etc/init.d/dportal-instance stop
 
 sudo -u postgres bash -c "dropdb dtmp"
 
@@ -31,5 +30,4 @@ sudo -u postgres bash -c "psql -c \"ALTER DATABASE dtmp            RENAME TO $NE
 source /dportal/box/env.sh
 
 sudo /etc/init.d/dportal start
-sudo /etc/init.d/dportal-instance start
 

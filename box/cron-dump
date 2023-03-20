@@ -13,7 +13,7 @@ cd www
 mkdir -p db
 cd db
 
-zip -j cache.new.xml.zip ../../dstore/cache/*.xml
+zip -j cache.new.xml.zip ../../dstore/cache/*.xml &>/dev/null
 
 mv cache.xml.zip cache.old.xml.zip
 mv cache.new.xml.zip cache.xml.zip
