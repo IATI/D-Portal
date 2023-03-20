@@ -531,7 +531,7 @@
 #^/tag
 <tr class="row_count">
 	<td class="tag_desc" data-sort-value="{_it.@code}">
-		{_it.@code-name||}
+		{_it.@code-name||_it:/tag-vocab-narr||}
 		{_it.@vocabulary==99&&_it:/tag-vocab-99-narr||}
 	</td>
 	<td class="tag_code" data-sort-value="{_it.@code}">{_it.@code||}</td>
@@ -539,6 +539,9 @@
 		{_it.@vocabulary==99&&_it:/tag-vocab-99||_it:/tag-vocab-url}
 	</td>
 </tr>
+
+#^/tag-vocab-narr
+{_it./narrative&&_it:/wrap-narrative||}
 
 #^/tag-vocab-99-narr
 {_it./narrative&&_it:/wrap-narrative||}
