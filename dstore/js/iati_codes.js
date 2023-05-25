@@ -502,47 +502,12 @@ iati_codes.fetch1 = async function(){
 
 	console.log("Fetching country_codes")
 
-// it turns out wikipedia is the best source, since the iso website has decided to hide its most precious data behind a paywall
-// so now we will scrape wikipedia
-
-	var x=await https_getbody("https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2");
-
-// try and yank out table segments only	
-	var o={};
-	var xa=x.split("<table")
-	for( xax of xa )
+	var x=JSON.parse( await https_getbody("https://codelists.codeforiati.org/api/json/en/Country.json") )
+	for(let c of x.data)
 	{
-		var xaxa=xax.split("</table>")
-		if( xaxa.length==2 )
-		{
-	
-			var j=refry.xml("<table"+xaxa[0]+"</table>");
-			
-			refry.tags(j,{0:"table",class:"wikitable"},function(it){
-				refry.tags(it,"td",function(it){
-					var name=it.title;
-					var code=refry.tagval_trim(it,"span");
-					if( name && code )
-					{
-						if(name!="unassigned" && name!="user-assigned" && name!="Unassigned" && name!="User-assigned")
-						{
-							name = name.split(" (formerly:")[0];
-							var aa=name.split(":");
-		// Just ignore anything with a colon that wasnt a (formerly:
-							if(!aa[1])
-							{
-								o[code]=name;
-							}
-						}
-					}
-				});
-			});
-		}
+		o[c.code]=c.name
 	}
-	ls(o);
 
-	o["XK"]="Kosovo" // yeah this is much better than having it in a list *rolls*eyes*
-	
 	let count=0
 	for(let n in o){count++}
 	if(count<10) // sanity check
