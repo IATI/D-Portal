@@ -543,8 +543,16 @@ iati_codes.fetch1 = async function(){
 
 	o["XK"]="Kosovo" // yeah this is much better than having it in a list *rolls*eyes*
 	
-	codes["country"]=o;
-
+	let count=0
+	for(let n in o){count++}
+	if(count<10) // sanity check
+	{
+		console.log("ERROR Failed to update list of countries!")
+	}
+	else
+	{
+		codes["country"]=o;
+	}
 
 // sector groups -> https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=9&output=csv
 
