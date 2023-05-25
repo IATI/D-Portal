@@ -503,6 +503,7 @@ iati_codes.fetch1 = async function(){
 	console.log("Fetching country_codes")
 
 	var x=JSON.parse( await https_getbody("https://codelists.codeforiati.org/api/json/en/Country.json") )
+	o={}
 	for(let c of x.data)
 	{
 		o[c.code]=c.name
