@@ -762,7 +762,7 @@
 	<td class="result_actual">{_it.@actual||/empty_result}</td>
 	<td class="result_percent">{_it.@percent>=0&&_it:@percent||_it:@percent-null}</td>
 	<td class="result_period">
-		{_it./period-percent&&_it:/periods||/empty_period}
+		{_it:/periods||/empty_period}
 	</td>
 </tr>
 {_it./baseline/comment/narrative.0.text&&_it:/baseline_comment||}
