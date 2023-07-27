@@ -65,7 +65,7 @@ view_map.fixup=function(forced)
 	{
 		
 		view_map.loading=true;
-		head.js("https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w&libraries=visualization&callback=display_ctrack_map",
+		head.js("https://maps.googleapis.com/maps/api/js?key="+ctrack.args.mapkey+"&libraries=visualization&callback=display_ctrack_map",
 		ctrack.args.jslib+"markerclusterer.js",
 		function(){view_map.loaded=true;view_map.fixup();}
 		);

@@ -10,6 +10,8 @@ ctrack_loader=function(args){
 	args.art=args.art 		|| root+"art/";
 	args.q	=args.q 		|| root+"q";
 	
+	args.mapkey=args.mapkey || "AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w",
+
 	head.load(
 		root+"jslib/ctrack.js",
 	function(){
