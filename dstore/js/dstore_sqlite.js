@@ -17,10 +17,13 @@ var iati_xml=require("./iati_xml");
 var dflat=require('../../dflat/js/dflat');
 var dflat_database=require('../../dflat/json/database.json');
 
+
 //var wait=require("wait.for-es6");
 
 var http=require("http");
-var sqlite = require("sqlite-async");//.verbose();
+//var sqlite = require("sqlite-async");//.verbose();
+//var sqlite = await import("sqlite-async");
+var sqlite
 
 var iati_cook=require('./iati_cook');
 var dstore_db=require('./dstore_db');
@@ -39,6 +42,12 @@ dstore_sqlite.close = async function(db){
 };
 
 dstore_sqlite.open = async function(req){
+
+	if(!sqlite)
+	{
+		sqlite = (await import("sqlite-async")).Database;
+	}
+	
 //	var db = new sqlite3.cached.Database( global.argv.database );
 	var db;
 	
