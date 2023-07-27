@@ -8,6 +8,12 @@ upstream nodejsapp {
 
 
 server {
+    listen 8000;
+    server_name supersecretlink.d-portal.org;
+    return 301 $scheme://d-preview.codeforiati.org/upload;
+}
+
+server {
 
 	server_name d-portal.org;
 	
