@@ -301,29 +301,26 @@ dstore_db.refresh_budget=async function(db,it,act,act_json,priority,splits)
 
 	t["budget_sector"]=null
 	t["budget_sector_group"]=null
-	var sector_xml=refry.tag(it,"sector");
-	if(sector_xml)
-	{
-		if( sector_xml.vocabulary=="DAC" || sector_xml.vocabulary=="1" || sector_xml.vocabulary=="2" )
+	// maybe multiple vocabs
+	refry.tags(it,"sector",function(it){ if(it.vocabulary=="DAC" || it.vocabulary=="1" || it.vocabulary=="2" || (!it.vocabulary) ) { // 5 or 3 digit codes
+		var code=it.code;
+		if(code)
 		{
-			var code=sector_xml.code;
-			if(code)
+			code=(""+code).trim(); // remove dodgy white space
+			var group=code.slice(0,3);
+			if(code.length==3)
 			{
-				code=code.trim(); // remove dodgy white space
-				var group=code.slice(0,3);
-				if((""+code).length==3)
-				{
-					t["budget_sector_group"]=group
-				}
-				else
-				if((""+code).length==5)
-				{
-					t["budget_sector"]=code
-					t["budget_sector_group"]=group
-				}
+				t["budget_sector"]=null
+				t["budget_sector_group"]=group
+			}
+			else
+			if(code.length==5)
+			{
+				t["budget_sector"]=code
+				t["budget_sector_group"]=group
 			}
 		}
-	}
+	}})
 
 
 
@@ -469,29 +466,26 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 		t["trans_sector"]=null
 		t["trans_sector_group"]=null
-		var sector_xml=refry.tag(it,"sector");
-		if(sector_xml)
-		{
-			if( sector_xml.vocabulary=="DAC" || sector_xml.vocabulary=="1" || sector_xml.vocabulary=="2" )
+		// maybe multiple vocabs
+		refry.tags(it,"sector",function(it){ if(it.vocabulary=="DAC" || it.vocabulary=="1" || it.vocabulary=="2" || (!it.vocabulary) ) { // 5 or 3 digit codes
+			var code=it.code;
+			if(code)
 			{
-				var code=sector_xml.code;
-				if(code)
+				code=(""+code).trim(); // remove dodgy white space
+				var group=code.slice(0,3);
+				if(code.length==3)
 				{
-					code=code.trim(); // remove dodgy white space
-					var group=code.slice(0,3);
-					if((""+code).length==3)
-					{
-						t["trans_sector_group"]=group
-					}
-					else
-					if((""+code).length==5)
-					{
-						t["trans_sector"]=code
-						t["trans_sector_group"]=group
-					}
+					t["trans_sector"]=null
+					t["trans_sector_group"]=group
+				}
+				else
+				if(code.length==5)
+				{
+					t["trans_sector"]=code
+					t["trans_sector_group"]=group
 				}
 			}
-		}
+		}})
 
 
 
