@@ -25,7 +25,7 @@ node --max-old-space-size=4096 js/cmd import $file 2>&1 | tee -a ${file}.import.
 echo | tee -a ${file}.import.log ${file}.import.last.log
 }
 export -f doimport
-ls cache/*.xml | sort -R | parallel --jobs 50% --bar doimport
+ls cache/*.xml -S | parallel --jobs 50% --bar doimport
 
 echo "Adding fake transactions at $(date)" | tee -a cache/time.log
 node js/cmd fake
