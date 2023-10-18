@@ -5,8 +5,7 @@ sudo apt-get install -y pv
 sudo apt-get install -y curl
 sudo apt-get install -y parallel
 
-#sudo yarn install -g forever
-sudo yarn global add forever --prefix /usr/local
+sudo npm install -g forever
 
 sudo rm /dportal
 sudo ln -s `readlink -f ..` /dportal
