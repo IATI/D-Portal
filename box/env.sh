@@ -5,6 +5,7 @@ export PGUSER="vagrant"
 export PGPASS="vagrant"
 export PGDATABASE="dstore"
 export PGHOST="/var/run/postgresql"
+export PAGER=
 
 
 # use env.local.sh to override the above with local values
