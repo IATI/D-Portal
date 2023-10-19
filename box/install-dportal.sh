@@ -18,9 +18,10 @@ sudo /etc/init.d/dportal stop
 
 
 /dportal/npm-install
+/dportal/bin/build
 
 
-bash /dportal/box/dstore-create
+/dportal/box/dstore-create
 
 
 sudo cp initd-dportal /etc/init.d/dportal
