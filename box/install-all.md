@@ -87,8 +87,8 @@ Finally we can import some data into dportal.
 	cd /dportal
 	box/cron-swap-import
 
-And in another screen ( F2 and su - ctrack to login ) to watch the 
-import progress.
+And in another screen ( press F2 and "su - ctrack" to login ) to watch 
+the import progress.
 
 	tail -f /dportal/logs/cron.import.log
 	

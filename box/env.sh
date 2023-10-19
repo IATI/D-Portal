@@ -6,6 +6,7 @@ export PGPASS="vagrant"
 export PGDATABASE="dstore"
 export PGHOST="/var/run/postgresql"
 export PAGER=
+#export GITCRON="PUSH" #read and write git cronjobs
 
 
 # use env.local.sh to override the above with local values

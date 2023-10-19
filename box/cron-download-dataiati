@@ -26,10 +26,15 @@ git clone git@github.com:xriss/dataiati.git || echo "already cloned"
 cd dataiati
 git pull
 
+
+if [ "$GITCRON" == "PUSH" ]; then
+
 ./update.sh
 
 #remove downloaded files to save a littel bit of space as they have been processed now
 rm -rf downloads
+
+fi
 
 
 echo "copying datasets"

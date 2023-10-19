@@ -20,7 +20,11 @@ echo
 echo "it is a sunday night"
 echo
 
+if [ "$GITCRON" == "PUSH" ]; then
+echo "and we are ready to push"
+echo
 /dportal/box/cron-freechange 2>&1
+fi
 
 fi
 
@@ -46,11 +50,11 @@ fi
 
 	TS
 
+if [ "$GITCRON" == "PUSH" ]; then
+
 /dportal/box/cron-stats 2>&1
 
-	TS
-
-#/dportal/box/cron-cronos 2>&1
+fi
 
 	TS
 
