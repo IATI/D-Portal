@@ -14,7 +14,9 @@ mkdir -p /dportal/logs
 source ./env.sh
 
 # incase we are trying to replace
-sudo /etc/init.d/dportal stop
+if [ -e "/etc/init.d/dportal" ]; then
+	sudo /etc/init.d/dportal stop
+fi
 
 
 /dportal/npm-install
