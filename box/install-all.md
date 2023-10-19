@@ -87,7 +87,24 @@ Finally we can import some data into dportal.
 	cd /dportal
 	box/cron-swap-import
 
-This will take some time.
+And in another screen ( F2 and su - ctrack to login ) to watch the 
+import progress.
+
+	tail -f /dportal/logs/cron.import.log
+	
+This will take some time. At this point we are up and running the only 
+thing left is to add some cronjobs to run things nightly. Make sure old 
+dportal is not running these as they will both try and update the same 
+git repos and probably clash.
+
+	crontab -e
+
+And add the following line.
+
+	10 0 * * * /bin/bash -c "/dportal/box/cron"
+
+Now we wait for the night and see what happens next...
+
 
 
 
