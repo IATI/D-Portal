@@ -16,10 +16,11 @@ are already root or if we are just a user who can sudo.
 	sudo apt install -y build-essential byobu pv curl parallel nano
 	byobu-enable
 	sudo echo "dportal" >/etc/hostname
+	sudo timedatectl set-timezone "Etc/UTC"
 	sudo reboot
 
 The reboot to install new kernel (probably) and change hostname. When 
-we log back in we should be running byobu.
+we log back in we should be running byobu and have a UTC timezone.
 
 Add a ctrack user that can sudo without a password but can not login, 
 from this point on we can su - ctrack to switch from root to our new 
@@ -102,6 +103,10 @@ git repos and probably clash.
 And add the following line.
 
 	10 0 * * * /bin/bash -c "/dportal/box/cron"
+
+Make sure certbot is installed as cron will call it to renew.
+
+	sudo apt install -y certbot
 
 Now we wait for the night and see what happens next...
 
