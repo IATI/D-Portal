@@ -13,11 +13,13 @@ echo "Get new json data"
 echo
 
 bin/pull
+
+if [ "$GITCRON" == "PUSH" ]; then
 bin/fetch
 bin/addcommit auto json fetch in nightly cron
 bin/pull
 bin/push
-
+fi
 
 echo
 echo "Rebuilding ctrack with new json"
