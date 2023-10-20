@@ -13,7 +13,7 @@ are already root or if we are just a user who can sudo.
 
 	sudo apt update
 	sudo apt upgrade
-	sudo apt install -y build-essential byobu pv curl parallel nano
+	sudo apt install -y build-essential byobu pv curl parallel nano zip unzip
 	byobu-enable
 	sudo echo "dportal" >/etc/hostname
 	sudo timedatectl set-timezone "Etc/UTC"
@@ -106,7 +106,22 @@ And add the following line.
 
 Make sure certbot is installed as cron will call it to renew.
 
-	sudo apt install -y certbot
+	sudo apt install -y certbot python3-certbot-nginx
+	
+I think we can just copy /etc/letsencrypt/* from old server and it 
+might work?
+
+	# create tar on old box
+	cd ~
+	sudo tar -czvf letsencrypt.tar.gz /etc/letsencrypt
+
+	# copy it over using scp eg something like
+	scp oldbox:letsencrypt.tar.gz .
+	scp letsencrypt.tar.gz newbox:.
+	
+	# extract it on new box
+	sudo cd /
+	sudo tar -xvf /root/letsencrypt.tar.gz
 
 Now we wait for the night and see what happens next...
 
