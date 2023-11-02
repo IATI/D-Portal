@@ -27,7 +27,7 @@ from this point on we can su - ctrack to switch from root to our new
 ctrack user.
 
 	sudo useradd -m -s /usr/bin/bash ctrack
-	sudo echo "ctrack ALL=(ALL) NOPASSWD:ALL" >/etc/sudoers.d/ctrack
+	echo "ctrack ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ctrack
 	sudo su - ctrack
 
 From now on we are expected to be the ctrack user.
