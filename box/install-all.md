@@ -45,6 +45,7 @@ Set some git global defaults and checkout dportal from git.
 	git config --global core.editor nano
 	git config --global user.name kriss
 	git config --global user.email kriss@xixs.com
+	git config --global pull.rebase false
 	git clone git@github.com:IATI/D-Portal.git dportal
 	cd dportal
 
