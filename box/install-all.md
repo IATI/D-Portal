@@ -55,7 +55,7 @@ Create a /dportal that links to this dportal directory.
 Setup local options.
 
 	cp box/env.sh box/env.local.sh
-	nano env.local.sh
+	nano box/env.local.sh
 
 Edit this file so it only contains the exports at the top and tweak 
 values as required. IE change PGUSER to ctrack set a random password in 
@@ -104,12 +104,17 @@ And add the following line.
 
 	10 0 * * * /bin/bash -c "/dportal/box/cron"
 
-Make sure certbot is installed as cron will call it to renew.
+Make sure we are logged into npm, as freechange tries to publish itself 
+once a week via the cron jobs. So we need to run npm login and answer 
+its riddles.
+
+	npm login
+
+Make sure certbot is installed and setup as cron will call it to renew.
 
 	sudo apt install -y certbot python3-certbot-nginx
-	
-I think we can just copy /etc/letsencrypt/* from old server and it 
-might work?
+
+We can just copy /etc/letsencrypt/* from old server 
 
 	# create tar on old box
 	cd ~
@@ -120,12 +125,16 @@ might work?
 	scp letsencrypt.tar.gz newbox:.
 	
 	# extract it on new box
-	sudo cd /
+	cd /
 	sudo tar -xvf /root/letsencrypt.tar.gz
 
-Now we wait for the night and see what happens next...
+Finally we may need to edit the nginx settings. The ssl related lines 
+at the end of the config will need to be uncommented to enable ssl. 
+Then restart nginx.
 
+	sudo nano /etc/nginx/sites-enabled/default
+	sudo /etc/init.d/nginx stop
+	sudo /etc/init.d/nginx start
 
-
-
+Then we wait for the night and see what happens next...
 
