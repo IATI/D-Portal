@@ -125,13 +125,16 @@ We can just copy /etc/letsencrypt/* from old server
 	scp letsencrypt.tar.gz newbox:.
 	
 	# extract it on new box
-	sudo cd /
+	cd /
 	sudo tar -xvf /root/letsencrypt.tar.gz
 
 Finally we may need to edit the nginx settings. The ssl related lines 
-at the end of the config will need to be uncommented to enable ssl.
+at the end of the config will need to be uncommented to enable ssl. 
+Then restart nginx.
 
 	sudo nano /etc/nginx/sites-enabled/default
+	sudo /etc/init.d/nginx stop
+	sudo /etc/init.d/nginx start
 
 Then we wait for the night and see what happens next...
 
