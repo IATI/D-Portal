@@ -52,7 +52,7 @@ fi
 
 if [ "$GITCRON" == "PUSH" ]; then
 
-# /dportal/box/cron-stats 2>&1
+/dportal/box/cron-stats 2>&1
 
 fi
 
