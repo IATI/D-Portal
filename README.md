@@ -1,3 +1,16 @@
+Summary
+=======
+
+ Product  | D-portal  
+--- | --- 
+Description | Search IATI data on development and humanitarian activities on specific events or themes more easily on d-portal.
+Website | https://d-portal.org 
+Related | None: d-portal is a standalone product
+Documentation | https://d-portal.org/faq.html
+Technical Issues | See [issues](#issues)
+Support | https://iatistandard.org/en/guidance/get-support/
+ 
+
 Issues
 ===================
 Please be aware that we use Github Issues for **discussion** and not every issue represents a bug.  
