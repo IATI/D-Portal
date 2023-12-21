@@ -55,7 +55,7 @@ start() {
 
 	PATH=/usr/local/bin:$PATH
 	cd $DIR
-	$FOREVER start -p ${LOGDIR} --pidFile ${LOGFILE}.pid -l ${LOGFILE}.log -e ${LOGFILE}.err -o ${LOGFILE}.out -a -d -c "$NODE" $APP
+	$FOREVER start --minUptime 1 --spinSleepTime 5000 -p ${LOGDIR} --pidFile ${LOGFILE}.pid -l ${LOGFILE}.log -e ${LOGFILE}.err -o ${LOGFILE}.out -a -d -c "$NODE" $APP
 	RETVAL=$?
 }
 
