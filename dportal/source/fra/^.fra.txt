@@ -619,7 +619,7 @@ Les données de l’IITA sont tirées du <a href="http://www.iatiregistry.org/">
 Pourquoi manque-t-il des données à certains endroits dans le d-portal?
 
 #^faq_general_a6_text
-Les organisations présentent leurs données de l’IITA selon différents niveaux de détails. Elles les mettent à jour et les améliorent constamment. Si une organisation ne publie des données que pour 2013, elles n’apparaîtront pas dans les colonnes ou les graphiques de 2014.
+Les organisations présentent leurs données de l’IITA selon différents niveaux de détails. Elles les mettent à jour et les améliorent constamment. Si une organisation ne publie des données que pour 2023, elles n’apparaîtront pas dans les colonnes ou les graphiques de 2024.
 <p>Le d-portal reflète simplement les données; aucune correction n’est apportée aux données ou aux informations publiées dans le cadre de l’IITA, sauf quelques exceptions pour rendre le site plus convivial.</p>
 <p>Consultez aussi les informations sur la <a href="http://d-portal.org/ctrack.html?country=AF&tongue=eng#view=data_quality">qualité des données</a> (<i>l’Afghanistan est utilisé à titre d’exemple</i>)</p>
 
@@ -674,7 +674,7 @@ Données signalées comme xml de l’IITA invalide par le <a href="http://valida
 <p>Country and Sector graphs are displayed by adding up <a href="http://iatistandard.org/203/codelists/TransactionType/">Transaction type codes</a> 3 (Disbursement) and 4 (Expenditure) so activities without transactions or the right transaction type codes will not have these graphs.</p>
 <p><a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/activity-date/">Dates</a> saisies dans un format incorrect.</p>
 <p>Dates incohérentes, comme la date de fin d’une activité qui précède sa date de début.</p>
-<p>Aucune donnée correspondant à l’année visionnée dans un graphique circulaire ou un tableau (p. ex. : lorsqu’un graphique circulaire présente des données pour 2016, tandis que les données publiées ne concernent que 2015).</p>
+<p>Aucune donnée correspondant à l’année visionnée dans un graphique circulaire ou un tableau (p. ex. : lorsqu’un graphique circulaire présente des données pour 2024, tandis que les données publiées ne concernent que 2023).</p>
 <p>Une mise à jour du profil dans le Registre n’apparaîtra qu’après l’importation complète hebdomadaire (chaque fin de semaine), car le d-portal n’actualise chaque nuit que les données qui ont été modifiées dans le fichier XML.</p>
 
 #^faq_technical_q1_text
@@ -732,7 +732,7 @@ Comment calcule­t­on les taux de change?
 Quels sont les critères pour que les données de mon organisation apparaissent dans les cartes, tableaux ou graphiques des pays bénéficiaires?
 
 #^faq_technical_a6_text
-Pour ce qui est des graphiques, il faut une transaction dont la date correspond à l’année appropriée (la dernière année complète, comme 2014 dans le cas présent) et ayant un code de pays bénéficiaire valide ou un code de secteur valide, selon le type de graphique.
+Pour ce qui est des graphiques, il faut une transaction dont la date correspond à l’année appropriée (la dernière année complète, comme 2024 dans le cas présent) et ayant un code de pays bénéficiaire valide ou un code de secteur valide, selon le type de graphique.
 <p>Il en va de même pour les tableaux, il faut une date de transaction se rapportant à la colonne de l’année appropriée dans le tableau.</p>
 <p>En ce qui a trait aux cartes, il faut que les transactions (peu importe l’année) aient une étiquette d’emplacement et un code de pays bénéficiaire valides (pour qu’ils soient valides, ils doivent apparaître dans les listes de codes appropriées de l’IITA).</p>
 
@@ -797,10 +797,10 @@ Quand met-on à jour la feuille de calcul ctrack?
 Les fichiers récemment publiés sont mis à jour toutes les nuits. La réimportation permet de s’assurer que des valeurs externes ayant pu être modifiées, comme les taux de change, seront appliquées à toutes les données pertinentes.
 
 #^faq_technical_q15_text
-Quelles activités intègre-t-on dans les données de 2014 (dans le graphique)?
+Quelles activités intègre-t-on dans les données de 2024 (dans le graphique)?
 
 #^faq_technical_a15_text
-Une activité qui a en partie eu lieu en 2014, conformément à ses dates de début et de fin.
+Une activité qui a en partie eu lieu en 2024, conformément à ses dates de début et de fin.
 
 #^faq_technical_q16_text
 Why are sector aggregations using three-digit codes when five-digit codes are published?
