@@ -105,7 +105,7 @@ Pick a country or publisher below to explore their data.
 Only countries and publishers with data published to IATI are available for exploration. 
 
 #^footer1_text
-A 2017 project by the d-portal team
+A project by the d-portal team
 
 #^footer1_tip_text
 International Aid Transparency Initiative (IATI)
@@ -120,7 +120,7 @@ About d-portal.org
 Back to d-portal.org
 
 #^footer5_text
-License: The MIT License (MIT) 2016
+License: The MIT License (MIT)
 
 #^footer6_text
 d-portal.org
@@ -619,7 +619,7 @@ The IATI data comes from the <a href="http://www.iatiregistry.org/">IATI Registr
 Why is there data missing in some parts of d-portal?
 
 #^faq_general_a6_text
-Publishers report their IATI data at varying degrees of detail, and data is updated and improved all the time by publishers.  If a publisher only publishes data for 2013, it won’t appear in 2014 columns/charts etc.  
+Publishers report their IATI data at varying degrees of detail, and data is updated and improved all the time by publishers.  If a publisher only publishes data for 2023, it won’t appear in 2024 columns/charts etc.  
 <p>d-portal attempts to only reflect what is in the data and does not make corrections to data or information published to IATI, with only small exceptions to make the site user-friendly*</p>
 <p>See also information about <a href="http://d-portal.org/ctrack.html?country=AF&tongue=eng#view=data_quality">data quality</a> (<i>Afghanistan used as example</i>)</p>
 
@@ -676,7 +676,7 @@ Data that is marked as invalid IATI xml when using the <a href="http://validator
 <p>Activities without end date are not shown on the list of projects ending soon or any lists that need an end date to order them.</p>
 <p>The map section will not be shown if there are no activities with longitude and latitude data.</p>
 <p>Illogical dates such as activity end date before activity start date.</p>
-<p>No data relevant to the year being viewed on a pie chart or table (eg where a pie chart shows 2016 data and data published only relates to 2015).</p>
+<p>No data relevant to the year being viewed on a pie chart or table (eg where a pie chart shows 2024 data and data published only relates to 2023).</p>
 <p>If updating your Registry profile only, changes will show after the weekly full import (each weekend) as d-portal only updates nightly the data that has been changed in the xml.</p>
 
 #^faq_technical_q1_text
@@ -734,7 +734,7 @@ How are exchange rates calculated?
 What are the criteria for my organisation’s data appearing in recipient country charts/tables/maps in d-portal?
 
 #^faq_technical_a6_text
-For charts - need a transaction with transaction date in the relevant year (the latest complete year, eg currently 2014) with a valid recipient country code or valid sector code, depending on which chart it is.
+For charts - need a transaction with transaction date in the relevant year (the latest complete year, eg currently 2024) with a valid recipient country code or valid sector code, depending on which chart it is.
 <p>For tables - as above, with transaction date relating to the relevant year column in the table.</p>
 <p>For maps - any transactions (from any year) with valid location tag and recipient country code
 (to be valid it needs to be on the relevant IATI codelists).</p>
@@ -800,10 +800,10 @@ When is ctrack updated?
 Newly published files are updated every night, as well as a full re-import of all files. The re-import ensures that any external value that may have been changed; for example, exchange rates, will be applied to all relevant data.
 
 #^faq_technical_q15_text
-What counts as 2014 (chart) data?
+What counts as 2024 (chart) data?
 
 #^faq_technical_a15_text
-An activity which includes part of 2014 according to the activity’s start and end dates.
+An activity which includes part of 2024 according to the activity’s start and end dates.
 
 #^faq_technical_q16_text
 Why are sector aggregations using three-digit codes when five-digit codes are published?
