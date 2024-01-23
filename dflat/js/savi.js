@@ -356,6 +356,7 @@ savi.prepare=function(iati_xson){
 	let codelists=require('../json/codelists.json')
 	let codemap=require('../json/codemap.json')
 	let validhash=require('../../dstore/json/validhash.json')
+	let publisher_names=require('../../dstore/json/iati_codes.json').publisher_names
 	
 	xson.walk( iati_xson , (it,nn,idx)=>{
 		let nb=nn.join("")
@@ -365,10 +366,21 @@ savi.prepare=function(iati_xson){
 
 		for(let n of Object.keys(it)) // this caches the keys so we can modify
 		{
+			let nbn=nb+n
 			let v=it[n]
 
 			if(n.endsWith("@code"))       { found_code=n }
 			if(n.endsWith("@vocabulary")) { found_vocabulary=n }
+
+// expand org ref with publisher name if we recognize the code ( from the registry )
+			if( (nbn.endsWith("-org@ref")) && v )
+			{
+				let publisher_name=publisher_names[v]
+				if( publisher_name )
+				{
+					it[n+"-name"]=publisher_name
+				}
+			}
 
 			if(!Array.isArray(v)) // only rename if not an array
 			{
@@ -436,7 +448,6 @@ savi.prepare=function(iati_xson){
 					}
 				}
 			}
-
 		}
 // expand @vocabulary @code pairs, this is a common design choice and this helps treat the vocabs as special
 		if( found_code && found_vocabulary )

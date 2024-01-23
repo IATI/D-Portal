@@ -1834,9 +1834,15 @@
 #^/participating-org/ref-url
 <div>
 	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
-		REF <a href="{origin}/ctrack.html?publisher={_it.@ref||}" target="_blank">{_it.@ref||}</a>
+		REF {_it.@ref-name&&_it:/participating-org/ref-url-org||_it:/participating-org/ref-url-ref}
 	</span>
 </div>
+
+#^/participating-org/ref-url-org
+<a href="{origin}/ctrack.html?publisher={_it.@ref||}" target="_blank">{_it.@ref||}</a>
+
+#^/participating-org/ref-url-ref
+<a href="{origin}/ctrack.html?/participating-org@ref={_it.@ref||}" target="_blank">{_it.@ref||}</a>
 
 #^/participating-org/crs-channel-code
 <div>
