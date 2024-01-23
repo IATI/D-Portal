@@ -138,8 +138,11 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 #large_footer_left
 <div class="footer_motto">{footer6_text} {footer7_text}</div>
 <p>{footer8_text}</p>
-<p>{footer21_text} <b><a href="https://www.iatiregistry.org/publisher/{publisher_slug}">{footer22_text}</a></b></p>
+<p>{publisher_slug&&footer_publisher_link||}</p>
 <p>{footer10_text} <b><a href="mailto:support@iatistandard.org?subject=Regarding%20d-portal.org">{footer11_text}</a></b></p>
+
+#footer_publisher_link
+{footer21_text} <b><a href="https://www.iatiregistry.org/publisher/{publisher_slug}">{footer22_text}</a></b>
 
 #large_footer_right
 <div class="footer_header">{footer12_text}</div>
