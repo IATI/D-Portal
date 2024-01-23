@@ -1298,9 +1298,15 @@
 #^/provider-org-ref
 <div>
 	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
-		REF <a href="{origin}/ctrack.html?publisher={_it./provider-org@ref}" target="_blank">{_it./provider-org@ref||}</a>
+		REF {_it./provider-org@ref-name&&_it:/provider-org/ref-url-pub||_it:/provider-org/ref-url-org}
 	</span>
 </div>
+
+#^/provider-org/ref-url-pub
+<a href="{origin}/ctrack.html?publisher={_it./provider-org@ref||}" target="_blank">{_it./provider-org@ref||}</a>
+
+#^/provider-org/ref-url-org
+<a href="{origin}/ctrack.html?/participating-org@ref={_it./provider-org@ref||}" target="_blank">{_it./provider-org@ref||}</a>
 
 #^/provider-org-aid
 <div>
@@ -1319,9 +1325,15 @@
 #^/receiver-org-ref
 <div>
 	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
-		REF <a href="{origin}/ctrack.html?publisher={_it./receiver-org@ref}" target="_blank">{_it./receiver-org@ref||}</a>
+		REF {_it./receiver-org@ref-name&&_it:/receiver-org/ref-url-pub||_it:/receiver-org/ref-url-org}
 	</span>
 </div>
+
+#^/receiver-org/ref-url-pub
+<a href="{origin}/ctrack.html?publisher={_it./receiver-org@ref||}" target="_blank">{_it./receiver-org@ref||}</a>
+
+#^/receiver-org/ref-url-org
+<a href="{origin}/ctrack.html?/participating-org@ref={_it./receiver-org@ref||}" target="_blank">{_it./receiver-org@ref||}</a>
 
 #^/receiver-org-aid
 <div>
@@ -1834,14 +1846,14 @@
 #^/participating-org/ref-url
 <div>
 	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
-		REF {_it.@ref-name&&_it:/participating-org/ref-url-org||_it:/participating-org/ref-url-ref}
+		REF {_it.@ref-name&&_it:/participating-org/ref-url-pub||_it:/participating-org/ref-url-org}
 	</span>
 </div>
 
-#^/participating-org/ref-url-org
+#^/participating-org/ref-url-pub
 <a href="{origin}/ctrack.html?publisher={_it.@ref||}" target="_blank">{_it.@ref||}</a>
 
-#^/participating-org/ref-url-ref
+#^/participating-org/ref-url-org
 <a href="{origin}/ctrack.html?/participating-org@ref={_it.@ref||}" target="_blank">{_it.@ref||}</a>
 
 #^/participating-org/crs-channel-code
@@ -2059,7 +2071,7 @@
 <tr class="row_count">
 	<td class="date">{_it./period-start@iso-date||}</td>
 	<td class="date">{_it./period-end@iso-date||}</td>
-	<td class="recipient">{_it./recipient-org||}<div>{_it./recipient-org@ref&&_it:/recipient-org-ref||}</div></td>
+	<td class="recipient">{_it./recipient-org/narrative:/recipient-org-narrative||}<div>{_it./recipient-org@ref&&_it:/recipient-org-ref||}</div></td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
@@ -2070,9 +2082,12 @@
 	<td class="date">{_it./period-start@iso-date||}</td>
 	<td class="date">{_it./period-end@iso-date||}</td>
 	<td class="recipient">
-		{_it./recipient-region@code-name||}
-		{_it./recipient-region@vocabulary==1&&_it./recipient-region@code&&_it:/recipient-region-code||}
-		{_it./recipient-region@vocabulary&&_it:/recipient-region-vocabulary||}
+		{_it./recipient-region/narrative:/recipient-region-narrative||}
+		<div>
+			<span class="ref">{_it./recipient-region@code-name||}</span>
+			{_it./recipient-region@vocabulary==1&&_it./recipient-region@code&&_it:/recipient-region-code||}
+			{_it./recipient-region@vocabulary&&_it:/recipient-region-vocabulary||}
+		</div>
 	</td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
@@ -2083,14 +2098,39 @@
 <tr class="row_count">
 	<td class="date">{_it./period-start@iso-date||}</td>
 	<td class="date">{_it./period-end@iso-date||}</td>
-	<td class="recipient">{_it./recipient-country@code-name||}{_it./recipient-country@code&&_it:/recipient-country-code||}</td>
+	<td class="recipient">
+		{_it./recipient-country/narrative:/recipient-country-narrative||}
+		<div>
+			<span class="ref">{_it./recipient-country@code-name||}</span>
+			{_it./recipient-country@code&&_it:/recipient-country-code||}
+		</div>
+	</td>
 	<td class="line">{_it./budget-line:/budget-line||}</td>
 	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
 	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
 </tr>
 
+#^/recipient-org-narrative trim=ends
+{_it.text}
+
+#^/recipient-region-narrative trim=ends
+{_it.text}
+
+#^/recipient-country-narrative trim=ends
+{_it.text}
+
 #^/recipient-org-ref
-<div><span class="ref">REF {_it./recipient-org@ref||}</span></div>
+<div>
+	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
+		REF {_it./recipient-org@ref-name&&_it:/recipient-org/ref-url-pub||_it:/recipient-org/ref-url-org}
+	</span>
+</div>
+
+#^/recipient-org/ref-url-pub
+<a href="{origin}/ctrack.html?publisher={_it./recipient-org@ref||}" target="_blank">{_it./recipient-org@ref||}</a>
+
+#^/recipient-org/ref-url-org
+<a href="{origin}/ctrack.html?/participating-org@ref={_it./recipient-org@ref||}" target="_blank">{_it./recipient-org@ref||}</a>
 
 #^/recipient-region-code
 <span class="type" style="margin-left:5px;">{_it./recipient-region@code||}</span>
