@@ -26,7 +26,7 @@
 
 #about_data_links
 <div class="default about">
-	{about_data_registry_link}<a onclick="$('html, body').animate({scrollTop: $('.description_wrap').offset().top}, 300);return false;" class="about_data">
+	{registry_slug:about_data_registry_link||}<a onclick="$('html, body').animate({scrollTop: $('.description_wrap').offset().top}, 300);return false;" class="about_data">
 		<img src="{flava}info_icon.png" alt="{info_icon_alt_text}" width="15" height="15"/> {about_this_data_text}
 	</a><a href="#view=data_quality" class="about_data quality">
 		<img src="{flava}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {about_data_quality_text}
