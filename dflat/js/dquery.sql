@@ -1,40 +1,42 @@
 
 #^sql_select_count
 
-select
+SELECT
 
 count(*)
 as count
 
-from xson where root='/iati-activities/iati-activity'
+FROM xson where root='/iati-activities/iati-activity'
 
 limit 10;
 
 #^sql_select_activity
 
-select
+SELECT
 
 *
 
-from xson where root='/iati-activities/iati-activity'
+FROM xson where root='/iati-activities/iati-activity'
 
 limit 10;
 
 
 #^sql_select_organisation
 
-select
+SELECT
 
 *
 
 from xson where root='/iati-organisations/iati-organisation'
 
-limit 10;
+and pid = 'GB-GOV-1'
+
+limit 1;
 
 
 #^sql_select_activity_top_level
 
-select
+SELECT
 
 root,aid,pid,
 (xson - '{"/budget","/sector","/transaction","/description","/related-activity","/activity-date","/participating-org","/recipient-country","/planned-disbursement","/country-budget-items/budget-item","/location","/contact-info","/document-link","/default-aid-type","/policy-marker","/crs-add/other-flags","/result","/other-identifier","/conditions/condition","/recipient-region"}'::text[] )
@@ -46,12 +48,12 @@ limit 10;
 
 #^sql_select_subarray
 
-select
+SELECT
 
 *
 
-from ( select aid , jsonb_array_elements(xson->'/title/narrative') as xson 
-from ( select aid , jsonb_array_elements(xson->'/document-link') as xson
+from ( SELECT aid , jsonb_array_elements(xson->'/title/narrative') as xson 
+from ( SELECT aid , jsonb_array_elements(xson->'/document-link') as xson
 from xson where root='/iati-activities/iati-activity'
 ) as xson2
 ) as xson3
@@ -60,12 +62,12 @@ limit 10;
 
 #^sql_select_documents_title_and_url
 
-select
+SELECT
 
 *
 
-from ( select aid , jsonb_array_elements(xson->'/title/narrative')->'' as title , xson->'@url'as url
-from ( select aid , jsonb_array_elements(xson->'/document-link') as xson
+from ( SELECT aid , jsonb_array_elements(xson->'/title/narrative')->'' as title , xson->'@url'as url
+from ( SELECT aid , jsonb_array_elements(xson->'/document-link') as xson
 from xson where root='/iati-activities/iati-activity'
 ) as xson2
 ) as xson3
@@ -74,25 +76,33 @@ limit 100;
 
 
 #^sql_count_document_links
+--/* Find activities with most document links at top level
 
-select
+SELECT
 
-aid , ( select count(*) from jsonb_array_elements(xson->'/document-link') )
+aid AS "Activity Identifier",
 
-from xson where root='/iati-activities/iati-activity' and xson->'/document-link' is not null
+( 
+    SELECT count(*) AS "Document Links"
+    FROM jsonb_array_elements(xson->'/document-link')
+)
 
-order by 2 desc
+FROM xson WHERE root='/iati-activities/iati-activity'
 
-limit 20;
+AND xson->'/document-link' IS NOT NULL
+
+ORDER BY 2 DESC
+
+LIMIT 20;
 
 
 #^sql_top_organic_tags
 
-select
+SELECT
 
 xson->>'@code' as code , count(*)
 
-from xson where root='/iati-activities/iati-activity/tag' and xson->>'@vocabulary' = '99' and xson->>'@vocabulary-uri' is null
+FROM xson where root='/iati-activities/iati-activity/tag' and xson->>'@vocabulary' = '99' and xson->>'@vocabulary-uri' is null
 
 group by 1 order by 2 desc
 
