@@ -91,6 +91,7 @@ a.about_data.registry_link	{border-right:1px solid #CCC; text-align:left;}
 .default.graph			{padding-top:40px;}
 .default.about			{padding:10px 0; text-align:right;}
 .default.data			{padding:20px 0 40px 0; width:880px;}
+.default.mention		{display:flex; justify-content:space-between;}
 
 
 /*	Country Code List style - INDEX PAGE
@@ -239,7 +240,10 @@ span.stats_title.view	{display:inline-block; font-size:1.0em; color:#FFF; margin
 span.stats_num			{display:block; font-size:100px; color:#42acff;}
 span.stats_num.small	{display:block; font-size:52px;}
 span.stats_num.view		{display:inline-block; font-size:168px; color:#FFF; line-height:0.8em;} /* Table view */
-.declare.stats			{width:960px; margin:0 auto; color:#ccc; font-size:1.0em; line-height:1.4em; text-align:right;}	/* Date under stats */
+.main_mention			{color:#FFF; font-size:1.0em; line-height:1.4em; text-align:center;}
+.main_mention a			{display:block; background-color:#6c8292; border-radius:6px; padding:10px 20px;}
+.main_mention a:hover	{background-color:#008FFF;}
+.declare.stats			{color:#ccc; font-size:1.0em; line-height:1.4em; padding:10px 0; text-align:right;}	/* Date under stats */
 
 a.stats_link			{display:block; padding:30px 40px; height:100%; color:#ccc; border-radius:6px; background-color:rgba(0,14,32,0.7); margin:15px 5px 5px 10px;}
 a.stats_link.active		{margin-left:0; padding:40px;}
