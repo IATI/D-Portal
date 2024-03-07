@@ -143,6 +143,12 @@ span.count				{color:#ccc; font-size:12px; padding-left:10px;}
 .wrap_result .length	{min-width:100px;}
 
 
+/*	TRANSACTION OVERVIEW	*/
+.overview .header_section	{display:flex; justify-content:space-between; padding:11px 40px 1px 40px;}
+.overview .wrap_length		{display:flex; color:#ddd; font-size:10px; max-width:700px; position:initial; text-align:initial; justify-content:flex-end; flex-wrap:wrap;}
+.overview .length			{display:block; padding:0 0 10px 20px;}
+
+
 /*	DOCUMENTS	*/
 a.doc_link:before		{border:1px solid #CCC; color:#CCC; content:"☰"; display:inline-block; margin-right:-24px; padding:2px; vertical-align:top;}
 a.doc_link				{background-color:rgba(50,58,64,0.6); border:1px solid #656a6f; border-bottom:0; color:#FFF; display:block; font-size:10px; line-height:1.25em; padding:10px 15px; position:relative;}
