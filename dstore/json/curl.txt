@@ -270,6 +270,7 @@ curl -k -L -o afd-am.xml "https://static.data.gouv.fr/resources/donnees-de-laide
 curl -k -L -o arq_intl-activities.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/arq_intl-activities.xml" 
 curl -k -L -o asdap-org.xml "https://rsr.akvo.org/organisation/5844/iati-org/" 
 curl -k -L -o asdap-file3.xml "https://storage.googleapis.com/akvo-rsr-production-media-files/db/org/5844/iati/20220324-023805.xml" 
+curl -k -L -o asdap-file4.xml "https://rsr.akvo.org/organisation/5844/iati/" 
 curl -k -L -o abpf-activities.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/abpf-activities.xml" 
 curl -k -L -o abpf-org.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/abpf-org.xml" 
 curl -k -L -o auxfinbi-activities.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/auxfinbi-activities.xml" 
