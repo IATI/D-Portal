@@ -421,7 +421,7 @@ ul.chosen-choices	{border-radius:6px;}
 
 /*	Table header styles
 	============================================= */
-th.titles					{color:#000; text-align:left; vertical-align:bottom; padding:15px 0 10px 20px;}
+th.titles_org, th.titles	{color:#000; text-align:left; vertical-align:bottom; padding:15px 0 10px 20px;}
 th.titles:nth-child(1), th.titles:nth-child(3), th.titles:nth-child(4),
 th.titles:last-child		{padding:15px 20px 10px 20px; text-align:right; font-size:0.85em; line-height:1.25em;}
 th.titles:last-child		{min-width:120px; padding-left:20px;}
