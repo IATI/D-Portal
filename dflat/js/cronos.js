@@ -7,7 +7,7 @@ const assert = require('assert')
 const path = require('path')
 var shell = require('shelljs')
 
-var pfs=require("pify")( require("fs") )
+var pfs=require('fs').promises
 var util=require('util');
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

@@ -5,7 +5,7 @@ var fetch=exports;
 
 var dflat=require("./dflat.js")
 
-var pfs=require("pify")( require("fs") )
+var pfs=require('fs').promises
 var jml=require("./jml.js")
 var xson=require("./xson.js")
 var stringify = require('json-stable-stringify');

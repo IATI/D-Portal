@@ -1,8 +1,8 @@
 cd `dirname $0`
 
 rm -rf node_modules
-rm package-lock.json
-rm yarn.lock
+rm -f package-lock.json
+rm -f yarn.lock
 
 
 npm install

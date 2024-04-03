@@ -116,5 +116,18 @@ view_main.view=function(args)
 			ctrack.chunk("main_map","")
 		}
 	}});
+	
+	ctrack.chunk("main_mention_any","");
+	if( test["reporting_ref"] )
+	{
+		ctrack.chunk("main_mention_any","{main_mention_pub}");
+		ctrack.chunk("main_mention_pub_link","?/participating-org@ref="+encodeURIComponent(test["reporting_ref"])+"#view=main");
+	}
+	else
+	if( test["/participating-org@ref"] )
+	{
+		ctrack.chunk("main_mention_any","{main_mention_org}");
+		ctrack.chunk("main_mention_org_link","?reporting_ref="+encodeURIComponent(test["/participating-org@ref"])+"#view=main");
+	}
 
 }

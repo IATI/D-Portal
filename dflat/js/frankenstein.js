@@ -5,7 +5,7 @@ var fetch=exports;
 
 var frankenstein=require("./frankenstein.js")
 
-var pfs=require("pify")( require("fs") )
+var pfs=require('fs').promises
 var stringify = require('json-stable-stringify');
 
 var database = require('../json/database.json');
