@@ -13,7 +13,7 @@ var stringify = require('json-stable-stringify');
 //var request=require('request');
 
 var fs=require("fs")
-var pfs=require("pify")( require("fs") )
+var pfs=require('fs').promises
 var dflat=require("./dflat.js")
 var jml=require("./jml.js")
 var xson=require("./xson.js")
