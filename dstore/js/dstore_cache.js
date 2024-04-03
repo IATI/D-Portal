@@ -10,7 +10,7 @@ var fs = require('fs');
 var util=require("util");
 var path=require('path');
 var http=require("http");
-var request = require('request');
+//var request = require('request');
 	
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

@@ -17,7 +17,7 @@ var json_stringify = require('json-stable-stringify')
 var refry=require('./refry');
 var exs=require('./exs');
 
-var request=require('request');
+//var request=require('request');
 
 var sheeturl=function(n){
 	return 	"https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/pub?single=true&gid="+n+"&output=csv";

@@ -4,8 +4,6 @@ cd `dirname $0`
 
 npx npm-check-updates -u
 
-npm audit fix
+#npm audit fix
 
-npm install
-
-
+./npm-install

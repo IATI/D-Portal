@@ -10,7 +10,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 var fse=require("fs-extra")
 var stringify = require('json-stable-stringify');
 
-var request=require('request');
+//var request=require('request');
 
 var fs=require("fs")
 var pfs=require("pify")( require("fs") )
