@@ -4,11 +4,6 @@
   "version": "0.0.63",
   "license": "MIT",
   "main": "dflat/js/cmd.js",
-  "browserify": {
-    "transform": [
-      "brfs"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/devinit/D-Portal.git",
@@ -68,13 +63,20 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "brfs": "^2.0.2",
-    "browserify": "^17.0.0",
-    "browserify-css": "^0.15.0",
-    "download": "^8.0.0",
+    "assert": "^2.1.0",
+    "browserify-zlib": "^0.2.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "crypto-browserify": "^3.12.0",
+    "path-browserify": "^1.0.1",
+    "querystring-es3": "^0.2.1",
     "servez": "^2.1.4",
-    "terser": "^5.30.3",
-    "uglifyify": "^5.0.2",
-    "watchify": "^4.0.0"
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.3",
+    "util": "^0.12.5",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "zip-webpack-plugin": "^4.0.1"
   }
 }
