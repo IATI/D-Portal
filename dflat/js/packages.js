@@ -18,15 +18,19 @@ var dflat=require("./dflat.js")
 var jml=require("./jml.js")
 var xson=require("./xson.js")
 
-// I promise to turn a url into data
-var getbody=require("pify")( function(url,cb)
+var fetch=require("node-fetch")
+var http_gethead=async function(url)
 {
-	request(url, function (error, response, body) {
-		if(error) { cb(error,null); }
-		else      { cb(null,body);  }
-	});
-} );
-
+	const response = await fetch(url);
+	return response.headers;
+}
+var http_getbody=async function(url)
+{
+	const response = await fetch(url);
+	const data = await response.text();
+	return data;
+}
+var getbody=http_getbody
 
 packages.cmd_prepare=async function(argv)
 {

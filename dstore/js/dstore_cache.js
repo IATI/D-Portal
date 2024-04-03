@@ -10,28 +10,22 @@ var fs = require('fs');
 var util=require("util");
 var path=require('path');
 var http=require("http");
-//var request = require('request');
-	
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-
-var http_gethead=util.promisify(function(url,cb)
+var fetch=require("node-fetch")
+var http_gethead=async function(url)
 {
-	request.head(url,cb);
-})
-
-var http_getbody=util.promisify(function(url,cb)
+	const response = await fetch(url);
+	return response.headers;
+}
+var http_getbody=async function(url)
 {
-	request({uri:url,timeout:20000,encoding:null}, function (error, response, body) {
-	  if (!error && response.statusCode == 200) {
-		cb(null,body);
-	  }
-	  else
-	  {
-		cb( error || response.statusCode , null );
-	  }
-	})
-});
+	const response = await fetch(url);
+	const data = await response.text();
+	return data;
+}
+
 
 // handle a cache download/import cmd line request
 // cache is just a directory containing downloaded xml files

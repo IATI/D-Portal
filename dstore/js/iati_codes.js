@@ -17,8 +17,6 @@ var json_stringify = require('json-stable-stringify')
 var refry=require('./refry');
 var exs=require('./exs');
 
-//var request=require('request');
-
 var sheeturl=function(n){
 	return 	"https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/pub?single=true&gid="+n+"&output=csv";
 }
@@ -26,20 +24,18 @@ var sheeturl=function(n){
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
-var http_getbody=util.promisify(function(url,cb)
+var fetch=require("node-fetch")
+var http_gethead=async function(url)
 {
-	request(url, function (error, response, body) {
-		if(error)
-		{
-			cb(error,null);
-		}
-		else
-		{
-			cb(null,body);
-		}
-	});
-});
-
+	const response = await fetch(url);
+	return response.headers;
+}
+var http_getbody=async function(url)
+{
+	const response = await fetch(url);
+	const data = await response.text();
+	return data;
+}
 var https_getbody=http_getbody;
 
 iati_codes.fetch = async function(){
