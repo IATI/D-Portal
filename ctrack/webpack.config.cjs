@@ -22,6 +22,10 @@ module.exports = {
 	new webpack.DefinePlugin({
 		__VERSION__: JSON.stringify(dd_version)
 	}),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
+
 /*
     new CopyPlugin({
       patterns: [
@@ -48,29 +52,40 @@ module.exports = {
       path: require.resolve("path-browserify"),
       util: require.resolve("util/"),
       zlib: require.resolve("browserify-zlib"),
-/*
-      querystring: require.resolve("querystring-es3"),
-      assert: require.resolve("assert/"),
-      crypto: require.resolve("crypto-browserify"),
-      http: require.resolve("stream-http"),
-      url: require.resolve("url/"),
-*/
     },
+  },
+  module: {
+    rules: [
+      {
+        test: require.resolve("express"),
+        use: 'null-loader',
+      },
+      {
+        test: /\.txt$/i,
+        use: { loader:'raw-loader', options:{ esModule: false, } },
+      },
+      {
+        test: /\.html$/i,
+        use: { loader:'raw-loader', options:{ esModule: false, } },
+      },
+      {
+        test: /\.css$/i,
+        use: { loader:'raw-loader', options:{ esModule: false, } },
+      },
+    ],
   },
   performance: {
     hints: false,
     maxEntrypointSize: 555555,
     maxAssetSize: 555555,
   },
-  experiments: {
-    outputModule: true,
-  },
   output: {
     path: path.resolve(__dirname, 'jslib/'),
     filename: 'ctrack.js',
     globalObject: 'this',
     library: {
-      type: 'module',
+      name: "ctrack",
+      type: 'umd',
     },
   },
 };
