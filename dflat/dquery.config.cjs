@@ -22,7 +22,7 @@ module.exports = {
       process: 'process/browser',
     }),
   ],
-  entry: './js/ctrack.js',
+  entry: './js/dquery.js',
   resolve: {
     fallback : {
       fs: false,
@@ -52,6 +52,10 @@ module.exports = {
         test: /\.css$/i,
         use: { loader:'raw-loader', options:{ esModule: false, } },
       },
+      {
+        test: /\.sql$/i,
+        use: { loader:'raw-loader', options:{ esModule: false, } },
+      },
     ],
   },
   performance: {
@@ -60,11 +64,11 @@ module.exports = {
     maxAssetSize: 555555,
   },
   output: {
-    path: path.resolve(__dirname, 'jslib/'),
-    filename: 'ctrack.js',
+    path: path.resolve(__dirname, 'html/lib/'),
+    filename: 'dquery.js',
     globalObject: 'this',
     library: {
-      name: "ctrack",
+      name: "dquery",
       type: 'umd',
     },
   },

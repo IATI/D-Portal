@@ -1,10 +1,6 @@
 cd `dirname $0`
 
-NAME1=dquery
-NAME2=savi
+mkdir -p html/lib
 
-#echo "browserify"
-#mkdir -p html/lib
-#npx browserify --ignore-missing -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/$NAME1.js:$NAME1 -d | pv | npx terser --source-map --output html/lib/$NAME1.js &
-#npx browserify --ignore-missing -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -g uglifyify -r ./js/$NAME2.js:$NAME2 -d | pv | npx terser --source-map --output html/lib/$NAME2.js
-
+npx webpack --mode production --config ./dquery.config.cjs
+npx webpack --mode production --config ./savi.config.cjs

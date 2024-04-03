@@ -1,10 +1,7 @@
 cd `dirname $0`
 
-NAME1=dquery
-NAME2=savi
+mkdir -p html/lib
 
-#mkdir html/lib
-#echo "watchify"
-#npx watchify --ignore-missing -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -v -r ./js/$NAME1.js:$NAME1 -d -o html/lib/$NAME1.js &
-#npx watchify --ignore-missing -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -v -r ./js/$NAME2.js:$NAME2 -d -o html/lib/$NAME2.js
+npx webpack watch --mode development --config ./dquery.config.cjs &
+npx webpack watch --mode development --config ./savi.config.cjs
 

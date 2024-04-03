@@ -22,7 +22,7 @@ module.exports = {
       process: 'process/browser',
     }),
   ],
-  entry: './js/ctrack.js',
+  entry: './js/savi.js',
   resolve: {
     fallback : {
       fs: false,
@@ -60,11 +60,11 @@ module.exports = {
     maxAssetSize: 555555,
   },
   output: {
-    path: path.resolve(__dirname, 'jslib/'),
-    filename: 'ctrack.js',
+    path: path.resolve(__dirname, 'html/lib/'),
+    filename: 'savi.js',
     globalObject: 'this',
     library: {
-      name: "ctrack",
+      name: "savi",
       type: 'umd',
     },
   },
