@@ -12,6 +12,61 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // load chunks from html files
 plate.chunks={}
+	if(typeof window !== 'undefined')
+	{
+
+plated.chunks.fill_chunks( require('../text/general.html'                  ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_act.html'                 ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_active.html'              ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_countries.html'           ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_dash.html'                ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_dash_cronlog.html'        ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_dash_quality.html'        ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_dash_sluglog.html'        ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_dash_slugs.html'          ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_data_quality.html'        ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_districts.html'           ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_donor_activities.html'    ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_donor_budgets.html'       ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_donors.html'              ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_donor_transactions.html'  ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_ended.html'               ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_frame.html'               ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_generator.html'           ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_heatmap.html'             ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_list_activities.html'     ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_list_budgets.html'        ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_list_publishers.html'     ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_list_transactions.html'   ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_main.html'                ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_map.html'                 ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_missing.html'             ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_planned.html'             ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_publisher.html'           ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_publisher_countries.html' ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_publishers.html'          ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_publisher_sectors.html'   ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_savi.html'                ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_search.html'              ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_sector_activities.html'   ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_sector_budgets.html'      ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_sectors.html'             ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_sector_transactions.html' ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_test.html'                ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/general.html'                  ), plate.chunks )
+plated.chunks.format_chunks(plate.chunks)
+
+plate.chunks_cmn=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('../text/cmn.txt'), {} ))
+plate.chunks_eng=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('../text/eng.txt'), {} ))
+plate.chunks_fra=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('../text/fra.txt'), {} ))
+plate.chunks_hin=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('../text/hin.txt'), {} ))
+plate.chunks_jpn=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('../text/jpn.txt'), {} ))
+plate.chunks_spa=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('../text/spa.txt'), {} ))
+
+	}
+	else
+	{
+		
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/general.html',                  'utf8'), plate.chunks )
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_act.html',                 'utf8'), plate.chunks )
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_active.html',              'utf8'), plate.chunks )
@@ -60,6 +115,7 @@ plate.chunks_hin=plated.chunks.format_chunks(plated.chunks.fill_chunks( require(
 plate.chunks_jpn=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/jpn.txt', 'utf8'), {} ))
 plate.chunks_spa=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/spa.txt', 'utf8'), {} ))
 
+	}
 
 //console.log(plate.chunks_eng)
 
