@@ -19,6 +19,7 @@
 {main_map}
 {main_active}
 {main_ended}
+<!--	{main_participating_org}-->
 {view_savi_file}
 {main_data_description}
 {main_datainvestigators}
@@ -191,6 +192,32 @@
 	</div>
 </div>
 
+#main_participating_org
+<div class="main_title_wrap">
+	<table class="title main">
+		<tr>
+			<td class="icon"><img src="{flava}ended_icon.png" alt="{ended_icon_alt_text}" width="40" height="40"/></td>
+			<td>{list_participating_org_text}</td>
+		</tr>
+	</table>
+	<div class="table_wrap main">
+		<table class="list">
+			{table_header_participating_org}			
+			<tr onclick="return ctrack.url('#view=act&aid={aid}');">
+				<td class="num">{num}.</td>
+				<td class="title_org">United Nations Children's Fund (UNICEF)</td>
+				<td class="report_org">World Vision UK</td>
+				<td class="role_org">Funding</td>
+				<td class="type_org">Multilateral</td>
+				<td class="count_org">11</td>
+			</tr>
+		</table>
+		<div class="download_wrap"><a download="dportal_list_participating_org.csv" href="{participating_org_datas_csv}" class="csv_download">{download_csv_text}</a></div>
+	</div>
+	<div class="center_wrap">
+		<a href="#view=ended" class="button">{view_all_text}</a>
+	</div>
+</div>
 
 #table_active_data
 <tr onclick="return ctrack.url('#view=act&aid={aid}');">
@@ -281,6 +308,16 @@
     <th class="titles">{date_start_tip_text}</th>
     <th class="titles">{date_end_tip_text}</th>
     <th class="titles">{amount_text}</th>
+</tr>
+
+#table_header_participating_org
+<tr>
+	<th class="titles"></th>
+	<th class="titles">{narrative_text}</th>
+	<th class="titles">{reported_text}</th>
+	<th class="titles">{role_text}</th>
+	<th class="titles">{type_text}</th>
+	<th class="titles org_act">{activities_text}</th>
 </tr>
 
 #donor_graph

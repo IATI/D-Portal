@@ -458,9 +458,10 @@ ul.chosen-choices	{border-radius:6px;}
 /*	Table header styles
 	============================================= */
 th.titles					{color:#CCC; text-align:left; vertical-align:bottom; padding:15px 0 10px 20px;}
-th.titles:nth-child(1), th.titles:nth-child(3), th.titles:nth-child(4),
+th.titles:nth-child(1), th.titles:nth-child(3), th.titles:nth-child(4), th.titles:nth-child(5),
 th.titles:last-child		{padding:15px 20px 10px 20px; text-align:right; font-size:0.85em; line-height:1.25em;}
 th.titles:last-child		{min-width:120px; padding-left:20px;}
+th.titles.org_act			{min-width:60px; padding-left:20px;}
 
 
 /*	Table for Header logo and Translations
@@ -468,7 +469,6 @@ th.titles:last-child		{min-width:120px; padding-left:20px;}
 table.head					{width:100%; margin:0 auto; border-collapse:initial;}
 table.head td				{cursor:default;}
 table.head img				{-webkit-filter:brightness(100%); filter:brightness(100%);}
-
 
 
 /*	Table for Country Name and Flag
@@ -483,7 +483,6 @@ table.country.min td.name	{width:860px; max-width:860px; padding-right:20px; fon
 table.country.min td.flag img	{max-height:50px;}
 table.country td:hover		{cursor:default;}
 table.country img			{-webkit-filter:brightness(100%); filter:brightness(100%);}
-
 
 
 /*	Table Titles
@@ -528,6 +527,11 @@ table.list a:visited	{color:#A8C5E5; text-decoration:none;}
 table.list a:hover		{color:#FFF; text-decoration:none;}
 table.list a:active		{color:#A8C5E5; text-decoration:none;}
 table.list tr th.titles	{border-bottom:1px solid rgba(51,54,66,1);}
+
+table.list td.report_org,
+table.list td.role_org,
+table.list td.type_org,
+table.list td.count_org	{text-align:right; padding:20px; font-size:16px; line-height:1.75em;}
 
 
 /*	Table for Money list (Donors / Sectors)
