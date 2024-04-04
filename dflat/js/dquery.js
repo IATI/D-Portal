@@ -9,7 +9,7 @@ if(typeof window !== 'undefined')
 	window.$ = window.jQuery = require("jquery");
 
 	var split=require("jquery.splitter")
-	split( window.jQuery )
+//	split( window.jQuery )
 
 //	var term=(require("jquery.terminal"))()
 
@@ -28,9 +28,24 @@ if(typeof window !== 'undefined')
 var plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
 
 dquery.chunks={}
+
+	if(typeof window !== 'undefined')
+	{
+
+plated.chunks.fill_chunks( require('./dquery.html'), dquery.chunks )
+plated.chunks.fill_chunks( require('./dquery.css'), dquery.chunks )
+plated.chunks.fill_chunks( require('./dquery.sql'), dquery.chunks )
+
+	}
+	else
+	{
+		
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.html', 'utf8'), dquery.chunks )
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.css',  'utf8'), dquery.chunks )
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.sql',  'utf8'), dquery.chunks )
+
+	}
+
 plated.chunks.format_chunks(dquery.chunks)
 
 plated.plate=function(str){ return plated.chunks.replace(str,dquery.chunks) }
@@ -57,8 +72,14 @@ dquery.start_loaded=async function(){
 	$("html").prepend("<style>"+require("jquery.splitter/css/jquery.splitter.css")+"</style>")
 	$("html").prepend("<style>"+require("jquery.json-viewer/json-viewer/jquery.json-viewer.css")+"</style>")
 
+if(typeof window !== 'undefined')
+{
+	$("html").prepend("<style>"+require('./jquery-ui.css')+"</style>")
+}
+else
+{
 	$("html").prepend("<style>"+require('fs').readFileSync(__dirname + '/jquery-ui.css', 'utf8')+"</style>")
-
+}
 
 	$("body").empty().append(plated.plate('{body}')) // fill in the base body
 

@@ -92,8 +92,22 @@ savi.plated=require("plated").create({},{pfs:{}}) // create a base instance for 
 savi.chunks={}
 savi.plate=function(str){ return savi.plated.chunks.replace(str,savi.chunks) }
 
+
+	if(typeof window !== 'undefined')
+	{
+
+savi.plated.chunks.fill_chunks( require('./savi.html'), savi.chunks )
+savi.plated.chunks.fill_chunks( require('./savi.css'), savi.chunks )
+
+	}
+	else
+	{
+		
 savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.html', 'utf8'), savi.chunks )
 savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.css',  'utf8'), savi.chunks )
+
+	}
+
 
 savi.plated.chunks.format_chunks( savi.chunks )
 
@@ -203,7 +217,7 @@ savi.fixup=function(){
 
 		var d=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
 
-		var chart = new (Chartist[d.chart])( this, {
+		var chart = new (Chartist[d.chart+"Chart"])( this, {
 		  series: d.series,
 		}, d.options );
 
@@ -227,7 +241,7 @@ savi.fixup=function(){
 			series.push(s.series[0])
 		})
 		
-		var chart = new (Chartist[d.chart])( this, {
+		var chart = new (Chartist[d.chart+"Chart"])( this, {
 		  series: series,
 		}, d.options );
 

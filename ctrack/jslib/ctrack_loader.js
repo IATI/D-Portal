@@ -15,12 +15,7 @@ ctrack_loader=function(args){
 	head.load(
 		root+"jslib/ctrack.js",
 	function(){
-		
-//		args.master=$(args.master);
-
-		window.ctrack=require("ctrack");
 		window.ctrack.setup(args);
-
 	});
 
 };
