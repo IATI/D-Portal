@@ -114,9 +114,10 @@ ctrack.setup=function(args)
 	ctrack.chunks={};
 	ctrack.q={};
 
-// auto enable test code on test.* subdomain
+// auto enable test code on test.* subdomain and localhost
 	ctrack.q.test=args.test
-	if(window.location.host.split(".")[0]=="test") { ctrack.q.test=1 }
+	let domtest=(window.location.host.split(".")[0]).split(":")[0]
+	if( ( domtest=="test") || ( domtest=="localhost") ) { ctrack.q.test=1 }
 
 	ctrack.origin=window.location.origin
 	ctrack.chunks["origin"] = ctrack.origin

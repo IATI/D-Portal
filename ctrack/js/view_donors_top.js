@@ -71,6 +71,7 @@ view_donors_top.ajax=function(args)
 		var shown=0;
 		var top=list[0] && list[0].usd || 0;
 		var dd=[];
+		var d2=[];
 		for( var i=0; i<limit ; i++ )
 		{
 			var v=list[i];
@@ -93,11 +94,18 @@ view_donors_top.ajax=function(args)
 				d.str_lab=iati_codes.funder_names[v.funder] || iati_codes.publisher_names[v.funder] || iati_codes.country[v.funder] || v.funder;
 				d.str="<b>"+d.str_num+"</b> ("+d.pct+"%)<br/>"+d.str_lab;
 				dd.push(d);
+				d2.push( plate.replace("{donor_graph_bars_item}",d) );
 			}
 		}
 		
 		ctrack.chunk("data_chart_donors",dd);
 		ctrack.chunk("donors_count",list.length);
+
+		if( ctrack.q.test )
+		{
+			ctrack.chunk("donor_graph_bars_items",d2.join(""));
+			ctrack.chunk("donor_graph","{donor_graph_bars}");
+		}
 		
 		if(list.length==0) { ctrack.chunk("donor_graph",""); } // remove graph if no data
 

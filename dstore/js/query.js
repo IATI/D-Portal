@@ -435,6 +435,10 @@ for(var n in ns) // all valid fields
 					if(t=="string")
 					{
 						var sa=v.split(/,|\|/);
+						if( n == "aid" ) // aid must remain a string as it could contain any old garbage
+						{
+							sa=[v]
+						}
 						var sb=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(sa[0]);
 						if( sa[0].length==10 && sb && sb.length==4 && nformat=="int") // date string, convert to number if dest is an int
 						{
@@ -450,7 +454,7 @@ for(var n in ns) // all valid fields
 							}
 						}
 						else
-						if(sa[1]) // there was an "|"
+						if(sa[1]) // there was an "|" or "," so do multiple values
 						{
 							v=sa;
 							t="object"; // do object below

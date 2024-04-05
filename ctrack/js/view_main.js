@@ -12,6 +12,8 @@ var fetcher=require("./fetcher.js")
 
 var views=require("./views.js")
 
+var iati_codes=require("../../dstore/json/iati_codes.json")
+
 // the chunk names this view will fill with new data
 view_main.chunks=[
 	"table_active_datas",
@@ -126,8 +128,11 @@ view_main.view=function(args)
 	else
 	if( test["/participating-org@ref"] )
 	{
-		ctrack.chunk("main_mention_any","{main_mention_org}");
-		ctrack.chunk("main_mention_org_link","?reporting_ref="+encodeURIComponent(test["/participating-org@ref"])+"#view=main");
+		if( iati_codes.publisher_names[ test["/participating-org@ref"] ] ) // only if publisher
+		{
+			ctrack.chunk("main_mention_any","{main_mention_org}");
+			ctrack.chunk("main_mention_org_link","?reporting_ref="+encodeURIComponent(test["/participating-org@ref"])+"#view=main");
+		}
 	}
 
 }
