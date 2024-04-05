@@ -4,7 +4,7 @@
 <div class="activity">
 	{_it.@humanitarian==1&&humanitarian||}
 	<div class="header">
-		PROJECT TITLE
+		ACTIVITY TITLE
 		<div class="version">
 			<a title="Version of the IATI Standard" href="{_it.@version-url||}" target="_blank"><span>VERSION</span> {_it.@version||}</a>
 		</div>
@@ -392,7 +392,7 @@
 </tr>
 
 #^/other-type-wrap
-<div><span class="ref">CODE</span> {_it.@type}</div>
+<div><span title="The type of identifier being reported, taken from the OtherIdentifierType codelist" class="ref">CODE <span>{_it.@type}</span></span></div>
 
 #^/owner-org
 <div>{_it./owner-org/narrative:/narrative||}</div>
