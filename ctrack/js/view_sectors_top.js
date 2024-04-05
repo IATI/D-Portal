@@ -78,6 +78,8 @@ view_sectors_top.ajax=function(args)
 		var shownpct=0;
 		var shown=0;
 		var dd=[];
+		var d2=[];
+		var d3=[];
 		for( var i=0; i<limit ; i++ )
 		{
 			var v=list[i];			
@@ -106,12 +108,21 @@ view_sectors_top.ajax=function(args)
 					d.str_lab=v.sector_group;
 					d.str="<b>"+d.str_num+"</b> ("+d.pct+"%)<br/>"+d.str_lab;
 					dd.push(d);
+					d2.push( plate.replace("{sector_graph_bars_item}",d) );
+					d3.push( plate.replace("{sector_graph_bars_list}",d) );
 				}
 			}
 		}
 
 		ctrack.chunk("data_chart_sectors",dd);	
 		ctrack.chunk("sectors_count",list.length);
+
+		if( ctrack.q.test )
+		{
+			ctrack.chunk("sector_graph_bars_items",d2.join(""));
+			ctrack.chunk("sector_graph_bars_lists",d3.join(""));
+			ctrack.chunk("sector_graph","{sector_graph_bars}");
+		}
 
 		if(list.length==0) { ctrack.chunk("sector_graph",""); } // remove graph if no data
 

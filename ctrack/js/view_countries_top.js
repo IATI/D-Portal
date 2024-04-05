@@ -75,6 +75,7 @@ view_countries_top.ajax=function(args)
 		var shown=0;
 		var top=list[0] && list[0].usd || 0;
 		var dd=[];
+		var d2=[];
 		for( var i=0; i<limit ; i++ )
 		{
 			var v=list[i];
@@ -97,11 +98,18 @@ view_countries_top.ajax=function(args)
 				d.str_lab=v.str_lab || v.country_name;
 				d.str="<b>"+d.str_num+"</b> ("+d.pct+"%)<br/>"+d.str_lab;
 				dd.push(d);
+				d2.push( plate.replace("{countries_graph_bars_item}",d) );
 			}
 		}
 			
 		ctrack.chunk("data_chart_countries",dd);
 		ctrack.chunk("countries_count",list.length);
+
+		if( ctrack.q.test )
+		{
+			ctrack.chunk("countries_graph_bars_items",d2.join(""));
+			ctrack.chunk("countries_graph","{countries_graph_bars}");
+		}
 
 		if(list.length==0) { ctrack.chunk("countries_graph",""); } // remove graph if no data
 
