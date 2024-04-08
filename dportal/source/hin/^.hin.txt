@@ -590,7 +590,7 @@ Frequently Asked <b>Generator</b> Questions
 What is d-portal?
 
 #^faq_general_a1_text
-A view of all IATI (<a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a>) data by recipient country or publisher, comparable with latest OECD DAC CRS (<a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a>) data.
+A view of all IATI (<a href="http://www.aidtransparency.net">International Aid Transparency Initiative</a>) data by recipient country or organisation, comparable with latest OECD DAC CRS (<a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">Creditor Reporting System</a>) data.
 
 #^faq_general_q2_text
 Which datasets are included in d-portal?
@@ -621,7 +621,7 @@ The IATI data comes from the <a href="http://www.iatiregistry.org/">IATI Registr
 Why is there data missing in some parts of d-portal?
 
 #^faq_general_a6_text
-Publishers report their IATI data at varying degrees of detail, and data is updated and improved all the time by publishers.  If a publisher only publishes data for 2023, it won’t appear in 2024 columns/charts etc.  
+Organisations report their IATI data at varying degrees of detail, and data is updated and improved all the time by reporting organisations.  If a reporting organisation only publishes data for 2023, it won’t appear in 2024 columns/charts etc.  
 <p>d-portal attempts to only reflect what is in the data and does not make corrections to data or information published to IATI, with only small exceptions to make the site user-friendly*</p>
 <p>See also information about <a href="http://d-portal.org/ctrack.html?country=AF&tongue=eng#view=data_quality">data quality</a> (<i>Afghanistan used as example</i>)</p>
 
@@ -629,8 +629,8 @@ Publishers report their IATI data at varying degrees of detail, and data is upda
 Why are there zeroes and dashes in the tables?
 
 #^faq_general_a7_text
-Zeroes may denote issues with data quality (eg codes, dates, etc which are incompatible with the IATI Standard).  <i>There will shortly be links to the publisher’s page on the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a> to investigate specific data quality issues.</i>
-<p>Dashes show that that donor/organisation is not currently an IATI publisher.</p>
+Zeroes may denote issues with data quality (eg codes, dates, etc which are incompatible with the IATI Standard).  <i>There will shortly be links to the organisation’s page on the <a href="http://dashboard.iatistandard.org/index.html">IATI dashboard</a> to investigate specific data quality issues.</i>
+<p>Dashes show that that donor/organisation is not currently an IATI Reporting Organisation.</p>
 
 #^faq_general_q8_text
 When / how is data in d-portal updated?
@@ -666,11 +666,11 @@ See the <a href="http://d-portal.org/about.html">About</a> page.
 <p>Contact us - <a href="mailto:support@iatistandard.org?subject=Regarding%20d-portal.org">support@iatistandard.org</a></p>
 
 #^faq_general_q13_text
-What are common reasons for a publisher’s data not showing in parts of d-portal?
+What are common reasons for a organisation’s data not showing in parts of d-portal?
 
 #^faq_general_a13_text
 Data that is marked as invalid IATI xml when using the <a href="http://validator.iatistandard.org/">Validator</a>.
-<p>Mismatch between ‘Identifier’ in publisher’s profile in the <a href="https://iatiregistry.org/">IATI Registry</a>, and <a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/reporting-org/">reporting-org</a> in that publisher’s data – this will show zeroes in the publisher’s data until the two are matched.</p>
+<p>Mismatch between ‘Identifier’ in organisation’s profile in the <a href="https://iatiregistry.org/">IATI Registry</a>, and <a href="http://iatistandard.org/203/activity-standard/iati-activities/iati-activity/reporting-org/">reporting-org</a> in that organisation’s data – this will show zeroes in the organisation’s data until the two are matched.</p>
 <p><a href="http://iatistandard.org/203/codelists/TransactionType/">Transaction type code</a> not present.</p>
 <p>Not using either Disbursements or Expenditure in <a href="http://iatistandard.org/203/codelists/TransactionType/">transaction type</a> field.</p>
 <p>Country and Sector graphs are displayed by adding up <a href="http://iatistandard.org/203/codelists/TransactionType/">Transaction type codes</a> 3 (Disbursement) and 4 (Expenditure) so activities without transactions or the right transaction type codes will not have these graphs.</p>
@@ -696,8 +696,8 @@ How / where is the data tidied up before being displayed in d-portal?
 <ul>
 	<li>If a transaction date is not present, d-portal uses the transaction-value date in order to ascertain the date of a transaction (and therefore assign it to a specific year).</li>
 	<li>Only displaying countries that exist in <a href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>.</li>
-	<li>Removing secondary publishers - flagged as secondary sources in IATI Registry - from tables (to avoid double counting, eg secondary publishers are for example UN-OCHA who re-publish data which would replicate data from those publishers in the same table - see here for <a href="https://github.com/devinit/D-Portal/issues/156">list of secondary publishers</a> excluded in these instances).</li>
-	<li>Not displaying publishers with 0 datasets in the IATI Registry.</li>
+	<li>Removing secondary organisations - flagged as secondary sources in IATI Registry - from tables (to avoid double counting, eg secondary organisations are for example UN-OCHA who re-publish data which would replicate data from those organisations in the same table - see here for <a href="https://github.com/devinit/D-Portal/issues/156">list of secondary organisations</a> excluded in these instances).</li>
+	<li>Not displaying organisations with 0 datasets in the IATI Registry.</li>
 	<li>If there are neither Expenditure nor Disbursement data but Commitment data does exist then the Commitment data will be displayed.</li>
 	<li>In order to match against CRS data in tables, government departments are combined and shown under the country name - details of which departments are in <a href="https://github.com/devinit/D-Portal/tree/master/dstore/csv">Github</a>.</li>
 	<li><i>There are currently plans under consideration to use the lowest hierarchy level data only, should data at multiple hierarchies exist, in order to avoid double counting.</i></li>
@@ -762,7 +762,7 @@ Activity start/end dates are used to work out which projects are active or ended
 How is the map data produced?
 
 #^faq_technical_a9_text
-Using ‘location’ tags within the data to plot projects on the maps - either lat/long or point/pos, depending on which the publisher uses.
+Using ‘location’ tags within the data to plot projects on the maps - either lat/long or point/pos, depending on which the organisation uses.
 
 #^faq_technical_q10_text
 How are US government organisations shown?
@@ -811,7 +811,7 @@ An activity which includes part of 2024 according to the activity’s start and 
 Why are sector aggregations using three-digit codes when five-digit codes are published?
 
 #^faq_technical_a16_text
-Some publishers only produce data with 3 digit codes. We convert the 5 digit codes to 3 digits to unify the data for visualisation on d-portal.
+Some organisations only produce data with 3 digit codes. We convert the 5 digit codes to 3 digits to unify the data for visualisation on d-portal.
 
 #^faq_technical_q17_text
 For the country and sector graphs on the acitivity pages, why have your changed them into bars?
@@ -866,7 +866,7 @@ Select multiple filters from across the dropdowns.  As you build a query using t
 What is the data in the dropdown lists within filters?
 
 #^faq_explore_a4_text
-<b>Recipient Country</b> and <b>Publisher</b>
+<b>Recipient Country</b> and <b>Reporting Organisation</b>
 <p>The organisations that have published to the <a href="http://iatistandard.org/">IATI Standard</a>, and the countries where funds have gone to as published within IATI data.</p>
 <p><b>Sector Group</b> and <b>Sector</b></p>
 <p>The numeric codes and names to describe sectors within the <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">OECD DAC CRS</a>, as used within the IATI Standard.</p>

@@ -14,10 +14,10 @@ Explore IATI data!
 Arrows pointing up and down to denote sorting
 
 #alert_no_iati_text
-This publisher does not publish to IATI yet.
+This organisation does not publish to IATI yet.
 
 #alert_no_iati_tip_text
-This publisher does not publish to IATI yet.
+This organisation does not publish to IATI yet.
 
 #alert_nodata1_text
 Some data quality issues exist with this data. <a href="faq.html#gen13">See common reasons for data not showing.</a>
@@ -26,7 +26,7 @@ Some data quality issues exist with this data. <a href="faq.html#gen13">See comm
 Some data quality issues - Click for more info
 
 #alert_nodata2_text
-Although this publisher has published some data to IATI, the low quality of the data means that we are currently unable to display it here. <a href="faq.html#gen13">See common reasons for data not showing.</a> Please contact the publisher directly if you would like to discuss their data and data quality.
+Although this organisation has published some data to IATI, the low quality of the data means that we are currently unable to display it here. <a href="faq.html#gen13">See common reasons for data not showing.</a> Please contact the reporting organisations directly if you would like to discuss their data and data quality.
 
 #alert_nodata2_tip_text
 Some data quality issues - Click for more info
@@ -65,7 +65,7 @@ Alert icon
 Information icon
 
 #about_registry_text
-Contact Publisher
+Contact Reporting Organisation
 
 #about_this_data_text
 About this data
@@ -95,7 +95,7 @@ Planned maintenance to be performed 9pm - 11pm GMT, Sunday 22 January 2023. This
 Back to D-Portal
 
 #mainback_publisher_tip_text
-Back to D-Portal: Publisher Edition
+Back to D-Portal: Reporting Organisation Edition
 
 #back_text
 Back 
@@ -107,16 +107,16 @@ Opens new tab
 Home
 
 #crumbname_donors_text
-Publisher Table
+Organisation Table
 
 #crumbname_donor_budgets_text
-Publisher Budget
+Organisation Budget
 	
 #crumbname_donor_transactions_text
-Publisher Spend
+Organisation Spend
 
 #crumbname_donor_activities_text
-Publisher Activities
+Organisation Activities
 
 #crumbname_sectors_text
 Sector Table
@@ -143,7 +143,7 @@ Ended Activities
 Planned Activities
 
 #crumbname_list_publishers_text
-Publishers
+Organisations
 
 #crumbname_missing_text
 Other Activities
@@ -161,7 +161,7 @@ Activity map
 Country Table
 
 #crumbname_publishers_text
-Publisher List
+Organisation List
 
 #crumbname_list_transactions_text
 Spend
@@ -203,7 +203,7 @@ Total Activities
 Planned Activities
 
 #stats_publisher_text
-IATI Publishers
+IATI Organisations
 
 #stats_missing_text
 Other Activities:
@@ -221,7 +221,7 @@ Total<br/>Activities
 Planned<br/>Activities
 
 #stats_publisher_table_text
-IATI<br/>Publishers
+IATI<br/>Organisations
 
 #stats_missing_table_text
 Other<br/>Activities
@@ -245,10 +245,10 @@ Total number of organisations that are reporting this data
 Total number of activities that are missing dates
 
 #main_mention_pub_text
-View this Publisher as a Participating Org
+View this organisation as a Participating Org
 
 #main_mention_org_text
-View this Participating Org as a Publisher
+View activities reported by this organisation
 
 #declare_stats_text
 Data from IATI Registry on {today}
@@ -272,7 +272,7 @@ Recent first
 View all
 
 #list_donor_back_text
-Back to Publisher table
+Back to organisation table
 
 #list_sector_back_text
 Back to Sector table
@@ -347,7 +347,7 @@ IATI BUDGET ({USD})
 CRS
 
 #table_donor_title_donor_text
-PUBLISHER
+ORGANISATION
 
 #table_donor_subtitle_donor_text
 NAME
@@ -368,28 +368,28 @@ Publishing organisation
 Click to sort this column
 
 #table_donor_tip_data_text
-Annual total spend for the publisher as reported to the CRS
+Annual total spend for the organisation as reported to the CRS
 
 #table_donor_tip_donor_text
-Click to explore all publisher activities
+Click to explore all organisation activities
 
 #table_sector_tip_sector_text
 Click to explore all sector activities
 
 #table_donor_tip_t1_text
-Click to explore publisher's IATI spend for {year1}
+Click to explore organisation's IATI spend for {year1}
 
 #table_donor_tip_t2_text
-Click to explore publisher's IATI spend for {year2}
+Click to explore organisation's IATI spend for {year2}
 
 #table_donor_tip_t3_text
-Click to explore publisher's IATI spend for {year3}
+Click to explore organisation's IATI spend for {year3}
 
 #table_donor_tip_b1_text
-Click to explore publisher's IATI budget for {year3}
+Click to explore organisation's IATI budget for {year3}
 
 #table_donor_tip_b2_text
-Click to explore publisher's IATI budget for {year4}
+Click to explore organisation's IATI budget for {year4}
 
 #table_sector_title_transaction_text
 IATI SPEND ({USD})
@@ -443,7 +443,7 @@ End Date
 Start Date
 
 #list_publishers_text
-Click to explore all activities reported by this publisher
+Click to explore all activities reported by this organisation
 
 #count_publishers_tip_text
 Number of activities reported
@@ -518,7 +518,7 @@ This is a heat map of all activities that have been provided with precise locati
 View all
 
 #map_no_info_text
-If a map isn't displayed here, then no location data has been provided by any of the publishers.
+If a map isn't displayed here, then no location data has been provided by any of the organisations.
 
 #map_percent_text
 of activities have provided exact locations.
@@ -542,7 +542,7 @@ About d-portal.org
 helps you explore IATI data.
 
 #footer8_text
-It provides a search function and information by country or by publisher on development activities and budgets published to the International Aid Transparency Initiative (IATI).
+It provides a search function and information by country or by organisation on development activities and budgets published to the International Aid Transparency Initiative (IATI).
 
 #footer9_text
 d-portal is currently in BETA. While publicly available, d-portal is not considered finished. Please feedback if you experience any bugs and missing features.
@@ -560,7 +560,7 @@ Tools &amp; Updates
 Latest news posts
 
 #footer14_text
-Dash - Publisher statistics
+Dash - Organisation statistics
 
 #footer15_text
 Generator widgets for your website
@@ -581,7 +581,7 @@ Github Feedback Forum
 Database Logs
 
 #footer21_text
-If you have any queries relating to the data itself, which is owned by the publisher,
+If you have any queries relating to the data itself, which is owned by the reporting organisation,
 
 #footer22_text
 please contact them here.
@@ -614,13 +614,13 @@ This table shows external resource flows being used in development: past, presen
 CRS
 
 #donors_data_info1_text
-All members of the OECD and a number of other countries and institutions report annually to the <span class="bold italic">OECD Creditor Reporting System</span> on Official Development Assistance and other official flows. This data is published retrospectively: usually in December of each year the CRS is updated with data from the previous year (so is between 12 and 23 months out of date). While backward-looking data is not particularly helpful for development planning it is a very useful and relatively accurate point of reference. It is particularly useful for including placeholders for countries and institutions that currently do not report to IATI. The data provided in this column is the annual total disbursements (spend) for the publisher. The values are in current US dollars. "-" indicate that there is no CRS data for that publisher.
+All members of the OECD and a number of other countries and institutions report annually to the <span class="bold italic">OECD Creditor Reporting System</span> on Official Development Assistance and other official flows. This data is published retrospectively: usually in December of each year the CRS is updated with data from the previous year (so is between 12 and 23 months out of date). While backward-looking data is not particularly helpful for development planning it is a very useful and relatively accurate point of reference. It is particularly useful for including placeholders for countries and institutions that currently do not report to IATI. The data provided in this column is the annual total disbursements (spend) for the organisation. The values are in current US dollars. "-" indicate that there is no CRS data for that organisation.
 
 #donors_data_title2_text
-PUBLISHER
+ORGANISATION
 
 #donors_data_info2_text
-The agency (which can be a publisher or an implementing organisation) reporting data to IATI and/or CRS. Clicking on this cell will take you to a list of all activities reported to IATI by this agency. This table is ordered by the value of 2016 IATI data, but can be re-sorted by clicking on the relevant year at the top of the table.
+The agency (which can be an organisation or an implementing organisation) reporting data to IATI and/or CRS. Clicking on this cell will take you to a list of all activities reported to IATI by this agency. This table is ordered by the value of 2016 IATI data, but can be re-sorted by clicking on the relevant year at the top of the table.
 
 Agencies are grouped for <a href="https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/edit#gid=4">CRS</a>.
 
@@ -715,19 +715,19 @@ Where is the data from?
 Data in the search function and dropdown menus is built from the <a href="https://github.com/devinit/D-Portal/tree/master/dstore">database</a> which updates everyday at GMT +0 with new data fetched from the IATI Registry.
 
 #index_paragraph4_text
-We list countries that are reported by publishers using <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>. For attribution and links to data sources, <a href="about.html#sources">go here</a>.
+We list countries that are reported by organisations using <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>. For attribution and links to data sources, <a href="about.html#sources">go here</a>.
 
 #index_paragraph5_text
-The list of publishers with their IATI publisher ID comes straight from the IATI Registry database.
+The list of organisations with their IATI identifiers come straight from the IATI Registry database.
 
 #index_paragraph6_text
-The dropdown list of publishers comes from published XML activities reported by these publishers.
+The dropdown list of organisations comes from published XML activities reported by these organisations.
 
 #index_paragraph7_text
 Data in the search function is built from the <a href="https://github.com/devinit/D-Portal/tree/master/dstore">database</a> which updates everyday at GMT +0 with new data fetched from the IATI Registry.
 
 #index_paragraph8_text
-Countries reported by publishers are using <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>, IATI publisher ID comes straight from the IATI Registry database. For attribution and links to data sources, <a href="about.html#sources">go here</a>.
+Countries reported by organisations are using <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166 Alpha-2</a>, IATI identifiers come straight from the IATI Registry database. For attribution and links to data sources, <a href="about.html#sources">go here</a>.
 
 #main_data_description_title_text
 How is the data calculated?
@@ -781,7 +781,7 @@ List of all ended activities
 List of all planned activities
 
 #view_list_publishers_text
-List of all publishers
+List of all organisations
 
 #view_list_activities_text
 List of activities
@@ -823,7 +823,7 @@ This is a list of all activities found within this dataset.
 How is the data calculated?
 
 #list_publishers_data_description_text
-This is a list of all publishers found within this dataset.
+This is a list of all organisations found within this dataset.
 
 #missing_data_description_title_text
 How is the data calculated?
@@ -844,19 +844,19 @@ Only activities that provide locations are displayed on the map. Locations are l
 Why data quality matters
 
 #data_paragraph1_text
-Most of the data currently available in d-portal comes from IATI publishers: over 500 organisations who are publishing their development activities in IATI-XML format. This data is published on their own websites and indexed on IATI's Registry. 
+Most of the data currently available in d-portal comes from IATI Reporting Organisations: over 500 organisations who are publishing their development activities in IATI-XML format. This data is published on their own websites and indexed on IATI's Registry. 
 
 #data_paragraph2_text
 The IATI standard is flexible in its reporting rules to allow as many different organisations with varying capacity to publish their data in this common format. The philosophy is for organisations to start publishing what they can and improve the quality of their data over time. This means that there will always be data of varying quality available through IATI.
 
 #data_paragraph3_text
-However, IATI was established to meet the needs of developing countries, who have consistently asked for timely, comprehensive and forward-looking information that can be used in the planning and monitoring of development. A <a href="http://www.aidtransparency.net/wp-content/uploads/2013/01/Paper-4a-Country-Survey-of-AIMS.pdf" target="_blank" rel="noopener noreferrer" title="Links to a PDF in new window">recent survey</a> conducted by IATI reinforced these demands. IATI's ask is therefore that publishers update their data at least quarterly; that the latest data is not more than three months out of date; and that forward-looking activity-level budgets are provided for at least one year in advance.
+However, IATI was established to meet the needs of developing countries, who have consistently asked for timely, comprehensive and forward-looking information that can be used in the planning and monitoring of development. A <a href="http://www.aidtransparency.net/wp-content/uploads/2013/01/Paper-4a-Country-Survey-of-AIMS.pdf" target="_blank" rel="noopener noreferrer" title="Links to a PDF in new window">recent survey</a> conducted by IATI reinforced these demands. IATI's ask is therefore that organisations update their data at least quarterly; that the latest data is not more than three months out of date; and that forward-looking activity-level budgets are provided for at least one year in advance.
 
 #data_paragraph4_text
-d-portal showcases the best practice of a number of major development partners. Many IATI publishers, however, are currently <span class="underline">not</span> meeting what developing countries have clearly indicated are their minimum requirements. This just isn't good enough.
+d-portal showcases the best practice of a number of major development partners. Many IATI organisations, however, are currently <span class="underline">not</span> meeting what developing countries have clearly indicated are their minimum requirements. This just isn't good enough.
 
 #data_paragraph5_text
-When we started to develop <span class="bold italic">d-portal</span> we thought our task was just to showcase all IATI data. We soon realised that from a country point of view this was of limited use: it is just as important to show where data is missing as to show where it is present. In various tables you will see cells containing "0" : these indicate areas where IATI publishers are failing to provide any data, or are provide low quality which can not currently be shown in d-portal. You will also see cells containing "-": these indicate organisations who are not yet publishing any data to IATI.
+When we started to develop <span class="bold italic">d-portal</span> we thought our task was just to showcase all IATI data. We soon realised that from a country point of view this was of limited use: it is just as important to show where data is missing as to show where it is present. In various tables you will see cells containing "0" : these indicate areas where IATI organisations are failing to provide any data, or are provide low quality which can not currently be shown in d-portal. You will also see cells containing "-": these indicate organisations who are not yet publishing any data to IATI.
 
 #data_paragraph6_text
 We hope that our presentation of the data - and the current gaps - provides a useful overview of the data landscape. Where there are critical holes in the data we would encourage you to engage with your development partners to demand that they improve the quality of data that they currently make available.
@@ -868,7 +868,7 @@ We hope that our presentation of the data - and the current gaps - provides a us
 Don't see any data? Try changing the years by clicking on the <b>&lt;</b> arrows <b>&gt</b>
 
 #table_publisher_title_publisher_text
-PUBLISHER
+ORGANISATION
 
 #table_country_title_text
 COUNTRY
@@ -877,7 +877,7 @@ COUNTRY
 Recipient Countries
 
 #table_publisher_explore_tip_text
-Click to explore all activities for this publisher
+Click to explore all activities for this organisation
 
 #table_publisher_tip_t1_text
 Click to explore IATI spend for {year1}
@@ -898,13 +898,13 @@ Click to explore IATI budget for {year4}
 allocated
 
 #table_allocated_tip_text
-Budget from publisher's activity files
+Budget from organisation's activity files
 
 #table_available_text
 total
 
 #table_available_tip_text
-Budget from publisher's organisation file
+Budget from organisation's organisation file
 
 #title_countries_text
 Funding went to {countries_count} countries (in {year})
@@ -979,13 +979,13 @@ This activity is missing or cannot be found.
 How is the data calculated?
 
 #publishers_data_description_text
-This table shows publishers that report to IATI. The columns display the following data:
+This table shows organisations that report to IATI. The columns display the following data:
 
 #publishers_data_title1_text
-PUBLISHER
+ORGANISATION
 
 #publishers_data_info1_text
-The publishers listed here are those that have reported their data to IATI.
+The organisations listed here are those that have reported their data to IATI.
 
 #publishers_data_title2_text
 IATI SPEND
@@ -1000,13 +1000,13 @@ IATI BUDGET
 Total activity-level budgets for this and next year reported to IATI. Clicking on any cell will take you to a list of activities that make up the value in the cell (listed in order of their contribution to that value). 
 
 #title_publisher_text
-The money comes from {table_publishers_count} IATI publishers.
+The money comes from {table_publishers_count} IATI Reporting Organisations.
 
 #table_publisher_tip_title_text
-IATI publishers
+IATI Reporting Organisations
 
 #table_publishers_explore_tip_text
-Click to explore all this publisher's IATI data
+Click to explore all this organisation's IATI data
 
 #settings_currency_text
 Choose currency
@@ -1042,7 +1042,7 @@ Sector Category
 Sector Group
 
 #search_publisher_txt
-Publisher
+Reporting Organisation
 
 #search_year_txt
 Year Range
@@ -1156,7 +1156,7 @@ Type (eg. COVID-19 or Activity ID) or select filters to narrow your search
 Type (eg. COVID-19 or Activity ID) or select filters to narrow your search
 
 #search_publisher_dropmenu_text trim=ends
-Search for a Publisher
+Search for a Reporting Organisation
 
 #search_country_dropmenu_text trim=ends
 Search for a Recipient Country
@@ -1165,7 +1165,7 @@ Search for a Recipient Country
 Compare all Recipient Countries
 
 #all_publishers_text
-Compare all Publishers
+Compare all Organisations
 
 #feedback_links1_txt
 Feedback?
