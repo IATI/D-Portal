@@ -293,6 +293,7 @@ a.read:hover			{text-decoration:underline;}
 /*	Table list views for Summary stats	*/
 .list_head_title			{width:100%; color:#FFF; font-size:58px; line-height:56px; text-align:center; padding:0 0 30px 0;}
 .list_stats_title			{display:inline-block; font-size:1.0em; color:#FFF; margin-left:20px; vertical-align:bottom; text-align:left;}
+.list_stats_title span		{display:block; font-size:35px;}
 .list_stats_num				{display:inline-block; font-size:2.9em; color:#FFF; line-height:0.8em;}
 
 a.button					{padding:10px 20px; background-color:#6c8292; font-size:1.25em; color:#FFF; border-radius:0 0 8px 8px; display:block; margin:0 auto; text-align:center;}
@@ -518,6 +519,7 @@ table.list td:first-child	{padding-left:20px; font-size:16px; line-height:1.75em
 table.list td span		{display:block; padding-top:5px; color:#999; font-size:0.7em; line-height:1.25em;}
 table.list td span.currency {display:inline; line-height:2.5em; padding:0 0 0 5px;}
 table.list td.title		{padding:0; width:60%;}
+table.list td.title_org	{padding:0;}
 table.list td.date		{text-align:right; padding:20px; font-size:16px; line-height:1.75em; width:15%;}
 table.list td.value		{padding:20px; text-align:right; font-size:16px; line-height:1.75em; width:20%;}
 table.list td.alert_no_iati		{text-align:center; font-size:1.6em; padding:20px 0 0 0; cursor:default; color:#DDD;}
@@ -625,6 +627,7 @@ table.activity tr:hover	{background-color:rgba(0,0,0,0.4);}
 table.activity tr:first-child:hover	{background-color:transparent;}
 table.activity td.num	{padding:10px 0 10px 20px; font-size:0.9em; line-height:2.0em; width:6%;}
 table.activity td.title	{padding:0; width:59%;}
+table.activity td.title_org	{padding:0;}
 table.activity td.value	{text-align:right; padding:10px 20px 25px 20px; font-size:1.0em; line-height:1.75em; width:20%;}
 table.activity td.count	{text-align:right; padding:10px 20px 0 40px; font-size:1.7em; line-height:1.0em;}
 table.activity td.date	{text-align:right; padding:10px 20px; white-space:nowrap; font-size:1.0em; line-height:1.75em; width:15%;}
@@ -639,6 +642,11 @@ table.activity a:link  	{color:#A8C5E5; text-decoration:none;}
 table.activity a:visited{color:#A8C5E5; text-decoration:none;}
 table.activity a:hover	{color:#FFF; text-decoration:none;}
 table.activity a:active	{color:#A8C5E5; text-decoration:none;}
+
+table.activity td.report_org,
+table.activity td.role_org,
+table.activity td.type_org,
+table.activity td.count_org	{text-align:right; padding:10px 20px; font-size:16px; line-height:1.75em;}
 
 /*	Sticky headers	*/
 table.activity tr th.titles {position:-webkit-sticky; position:sticky; top:-5px; background-color:rgba(6,15,27,1); z-index:10;}

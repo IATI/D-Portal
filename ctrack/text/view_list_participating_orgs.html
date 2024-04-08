@@ -18,7 +18,7 @@
 	</table>
 	<div class="table_wrap">
 		<table class="activity">
-			{table_header_list}
+			{table_header_participating_org}
 			{list_participating_orgs_datas}
 		</table>
 		<div class="download_wrap"><a download="dportal_list_participating_orgs.csv" href="{list_participating_orgs_datas_csv}" class="csv_download">{download_csv_text}</a></div>
@@ -42,6 +42,16 @@
 
 #list_participating_orgs_data
 <tr onclick="return ctrack.url('#view=list_activities&reporting_ref={reporting_ref}');">
+	<td class="num">{num}.</td>
+	<td class="title_org"><a>United Nations Children's Fund (UNICEF)<span>FR</span></a></td>
+	<td class="report_org">World Vision UK</td>
+	<td class="role_org">Funding</td>
+	<td class="type_org">Multilateral</td>
+	<td class="count_org">11</td>
+</tr>
+
+#no
+<tr onclick="return ctrack.url('#view=act&aid={aid}');">
 	<td class="num">{num}.</td>
 	<td class="title">
 		<a title="{list_participating_orgs_text}">
