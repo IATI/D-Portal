@@ -12,8 +12,26 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // load chunks from html files
 plate.chunks={}
-	if(typeof window !== 'undefined')
+
+if(typeof window == 'undefined') // patch node to require text files like webpack
+{
+	const matchtxt=/\.(txt|html|css)$/
+	const fs=require("fs")
+	const path=require("path")
+	const Module = require("module");
+	const orginalLoad = Module._load;
+	const cwd = process.cwd();
+	Module._load = function (request, _parent)
 	{
+		if (request.match(matchtxt))
+		{
+			return fs.readFileSync(
+				path.join(path.dirname(_parent ? _parent.filename : cwd), request),
+				"utf8");
+		}
+		return orginalLoad.apply(this, arguments);
+	};
+}
 
 plated.chunks.fill_chunks( require('../text/general.html'                  ), plate.chunks )
 plated.chunks.fill_chunks( require('../text/view_act.html'                 ), plate.chunks )
@@ -63,61 +81,6 @@ plate.chunks_fra=plated.chunks.format_chunks(plated.chunks.fill_chunks( require(
 plate.chunks_hin=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('../text/hin.txt'), {} ))
 plate.chunks_jpn=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('../text/jpn.txt'), {} ))
 plate.chunks_spa=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('../text/spa.txt'), {} ))
-
-	}
-	else
-	{
-		
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/general.html',                  'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_act.html',                 'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_active.html',              'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_countries.html',           'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_dash.html',                'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_dash_cronlog.html',        'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_dash_quality.html',        'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_dash_sluglog.html',        'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_dash_slugs.html',          'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_data_quality.html',        'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_districts.html',           'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_donor_activities.html',    'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_donor_budgets.html',       'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_donors.html',              'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_donor_transactions.html',  'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_ended.html',               'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_frame.html',               'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_generator.html',           'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_heatmap.html',             'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_list_activities.html',     'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_list_budgets.html',        'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_list_publishers.html',     'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_list_transactions.html',   'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_list_participating_orgs.html',   'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_main.html',                'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_map.html',                 'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_missing.html',             'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_planned.html',             'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_publisher.html',           'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_publisher_countries.html', 'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_publishers.html',          'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_publisher_sectors.html',   'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_savi.html',                'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_search.html',              'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_sector_activities.html',   'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_sector_budgets.html',      'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_sectors.html',             'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_sector_transactions.html', 'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/view_test.html',                'utf8'), plate.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/general.html',                  'utf8'), plate.chunks )
-plated.chunks.format_chunks(plate.chunks)
-
-plate.chunks_cmn=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/cmn.txt', 'utf8'), {} ))
-plate.chunks_eng=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/eng.txt', 'utf8'), {} ))
-plate.chunks_fra=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/fra.txt', 'utf8'), {} ))
-plate.chunks_hin=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/hin.txt', 'utf8'), {} ))
-plate.chunks_jpn=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/jpn.txt', 'utf8'), {} ))
-plate.chunks_spa=plated.chunks.format_chunks(plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/../text/spa.txt', 'utf8'), {} ))
-
-	}
 
 //console.log(plate.chunks_eng)
 
