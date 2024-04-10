@@ -44,9 +44,9 @@
 <tr>
 	<th class="titles"></th>
 	<th class="titles">{narrative_text}</th>
-	<th class="titles">{reported_text}</th>
-	<th class="titles">{role_text}</th>
-	<th class="titles">{type_text}</th>
+	<th class="titles org_report">{reported_text}</th>
+	<th class="titles org_role">{role_text}</th>
+	<th class="titles org_type">{type_text}</th>
 	<th class="titles org_act">{activities_text}</th>
 </tr>
 
@@ -77,17 +77,6 @@
 	<td class="title_org">{text}</td>
 	<td class="count_pid_org">{count_pid}</td>
 	<td class="count_aid_org">{count_aid}</td>
-</tr>
-
-#no
-<tr onclick="return ctrack.url('#view=act&aid={aid}');">
-	<td class="num">{num}.</td>
-	<td class="title">
-		<a title="{list_participating_orgs_text}">
-			{reported_by_text}
-		</a>
-	</td>
-	<td class="count" title="{count_publishers_tip_text}">{count}</td>
 </tr>
 
 #list_participating_orgs_head
