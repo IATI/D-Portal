@@ -214,6 +214,27 @@ fetcher.ajax=async function(dat,callback)
 // we may queue a bunch of requests, this makes us wait for the last one before updating the view
 	ctrack.display_wait_update(1);
 
+	if(dat.sql) // forced complex
+	{
+
+		let d = await fetch( ctrack.args.dquery , {
+			method: 'POST', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrer: 'no-referrer', // no-referrer, *client
+			body: JSON.stringify(dat) // body data type must match "Content-Type" header
+		})
+			  
+		d = await d.json()
+
+		callback(d)
+
+	}
+	else
 	if(fetcher.aids)
 	{
 
@@ -235,7 +256,6 @@ fetcher.ajax=async function(dat,callback)
 
 	}
 	else
-
 	{
 		$.ajax({
 			dataType: "json",

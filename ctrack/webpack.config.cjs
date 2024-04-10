@@ -27,6 +27,7 @@ module.exports = {
     fallback : {
       fs: false,
       express: false,
+      module: false,
       buffer: require.resolve('buffer'),
       util: require.resolve("util/"),
       crypto: require.resolve("crypto-browserify"),

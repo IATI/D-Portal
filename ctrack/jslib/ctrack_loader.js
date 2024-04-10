@@ -9,6 +9,7 @@ ctrack_loader=function(args){
 	args.jslib=args.jslib 	|| root+"jslib/";
 	args.art=args.art 		|| root+"art/";
 	args.q	=args.q 		|| root+"q";
+	args.dquery=args.dquery || "http://d-portal.org/dquery";
 	
 	args.mapkey=args.mapkey || "AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w",
 
