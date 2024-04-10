@@ -70,7 +70,7 @@ view_main.view=function(args)
 
 if( ctrack.q.test )
 {
-	views.list_participating_orgs.ajax({limit:5,plate:"{list_participating_orgs_data}",chunk:"list_participating_orgs_datas",callback:function(data){
+	views.list_participating_orgs.ajax({output:"count",limit:5,chunk:"list_participating_orgs_datas",callback:function(data){
 		if(data.rows.length==0)
 		{
 			ctrack.chunk("main_participating_org","")
