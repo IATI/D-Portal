@@ -56,7 +56,7 @@ view_list_participating_orgs.ajax=function(args)
 
 	let postesc=function(s)
 	{
-		let r=s.split("'").join("''")
+		let r=(s||"").split("'").join("''")
 		let a=r.split("\\")
 		if( a.length>1 )
 		{
@@ -76,7 +76,7 @@ array_agg(DISTINCT pid) as "pid",
 count(*) AS count
 
 FROM xson WHERE root='/iati-activities/iati-activity/participating-org' 
-AND xson->>'@ref'=${postesc(dat.reporting_ref)}
+AND xson->>'@ref'=${postesc(dat["/participating-org@ref"]||dat.reporting_ref)}
 
 GROUP BY 1,2
 ORDER BY 6 DESC
