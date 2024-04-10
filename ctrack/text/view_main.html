@@ -131,7 +131,7 @@
 			</td>
 			<td title="{stats_publisher_tip_text}">
 				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_publishers" class="stats_link publishers">
-					<span class="stats_title">{stats_publisher_text}</span>
+					<span class="stats_title tiny">{stats_publisher_text}</span>
 					<span class="stats_num small">{numof_publishers}</span>
 				</a>
 			</td>
@@ -205,7 +205,7 @@
 			{table_header_participating_org}			
 			<tr onclick="return ctrack.url('#view=act&aid={aid}');">
 				<td class="num">{num}.</td>
-				<td class="title_org">United Nations Children's Fund (UNICEF)</td>
+				<td class="title_org"><a>United Nations Children's Fund (UNICEF)<span>FR</span></a></td>
 				<td class="report_org">World Vision UK</td>
 				<td class="role_org">Funding</td>
 				<td class="type_org">Multilateral</td>

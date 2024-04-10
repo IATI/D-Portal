@@ -13,12 +13,12 @@
 	<table class="title">
 		<tr>
 			<td class="icon"><img src="{flava}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
-			<td>{view_list_participating_orgs_text}</td>
+			<td>{view_list_publishers_text}</td>
 		</tr>
 	</table>
 	<div class="table_wrap">
 		<table class="activity">
-			{table_header_list}
+			{table_header_participating_org}
 			{list_participating_orgs_datas}
 		</table>
 		<div class="download_wrap"><a download="dportal_list_participating_orgs.csv" href="{list_participating_orgs_datas_csv}" class="csv_download">{download_csv_text}</a></div>
@@ -43,6 +43,16 @@
 #list_participating_orgs_data
 <tr onclick="return ctrack.url('#view=list_activities&reporting_ref={reporting_ref}');">
 	<td class="num">{num}.</td>
+	<td class="title_org"><a>United Nations Children's Fund (UNICEF)<span>FR</span></a></td>
+	<td class="report_org">World Vision UK</td>
+	<td class="role_org">Funding</td>
+	<td class="type_org">Multilateral</td>
+	<td class="count_org">11</td>
+</tr>
+
+#no
+<tr onclick="return ctrack.url('#view=act&aid={aid}');">
+	<td class="num">{num}.</td>
 	<td class="title">
 		<a title="{list_participating_orgs_text}">
 			{reported_by_text}
@@ -60,7 +70,7 @@
 		<div class="list_peak"></div>
 </div><div class="head_title_wrap">
 		<div class="list_head_title">
-			<span class="list_stats_num">{list_participating_orgs_count}</span><span class="list_stats_title">{stats_publisher_table_text}</span>			
+			<span class="list_stats_num">{list_participating_orgs_count}</span><span class="list_stats_title">{stats_participating_orgs_table_text}</span>			
 		</div>
 	</div>
 </div>
