@@ -322,92 +322,101 @@
 
 
 #donor_graph_bars_item
-	<div class="sector">
-		<div class="wrap_code">
-			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">{str_lab}</span>
-			<div><span class="sector_code">{str_lab}</span><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">{str_num}</span></div>
-		</div><div class="wrap_bar">
-			<span class="sector_bar" style="width:calc({pct} * 3.35px);">
-				<span class="sector_overlay" style="width:calc({pct} * 3.35px); background:hsl(200,92%,50%);"></span>
-			</span><span class="sector_value">{pct}</span>
-		</div>
+<div class="graph_bar_row_wrap">
+	<div class="graph_bar_wrap">
+		<div class="graph_bar_text_wrap"><span class="graph_bar_text">{str_lab}</span><span class="graph_bar_code">{str_lab}</span></div>
+		<div class="graph_bar_value_wrap"><span class="graph_bar_value">{str_num}</span></div>
+	</div><div class="graph_bar_percent_wrap">
+		<span class="graph_bar" style="width:calc({pct} * 3.35px);">
+			<span class="graph_bar_overlay donor_bar" style="width:calc({pct} * 3.35px);"></span>
+		</span><span class="graph_bar_percent">{pct}</span>
 	</div>
+</div>
 
 #donor_graph_bars
-<div class="wrap_recipient_country" style="padding:0 0 20px 0; border-radius:0 0 6px 6px; margin:0 auto; margin-bottom:40px;">
-	<div style="background-color:#008FFF; color:#FFF; font-size:32px; text-align:center; margin-bottom:5px;">
-		<div style="padding:20px 40px;">Where does the money come from?</div>
-		<div style="width:960px; background-color:#FFF;">
-			<div style="border-top:20px solid #008FFF; margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;"></div>
-		</div>
-	</div>
-	{donor_graph_bars_items}
-	<div style="text-align:right; margin-top:10px; margin-right:20px; font-size:12px; color:#666;">*All years in total, top 5.</div>
+<div class="default graph_bars" id="donor_graph_all">
+	<a href="#view=donors" class="graph_wrap">
+		<span class="ask donor">
+			<span class="ask_title">{title_donor_year_text}</span>
+			<span class="main_peak_wrap">
+				<span class="peak donor"></span>
+			</span>
+		</span>
+		{donor_graph_bars_items}
+		<div class="graph_bar_info">*All years in total, top 5.</div>
+		<span class="graph_view_all">{link_donor_text}</span>
+	</a>
 </div>
 
 #countries_graph_bars_item
-	<div class="sector">
-		<div class="wrap_code">
-			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">{str_lab}</span><span class="sector_code">CN</span>
-			<div><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">{str_num}</span></div>
-		</div><div class="wrap_bar">
-			<span class="sector_bar" style="width:calc({pct} * 3.35px);">
-				<span class="sector_overlay" style="width:calc({pct} * 3.35px); background:hsl(31,100%,66%);"></span>
-			</span><span class="sector_value">{pct}</span>
-		</div>
+<div class="graph_bar_row_wrap">
+	<div class="graph_bar_wrap">
+		<div class="graph_bar_text_wrap"><span class="graph_bar_text">{str_lab}</span><span class="graph_bar_code">{str_lab}</span></div>
+		<div class="graph_bar_value_wrap"><span class="graph_bar_value">{str_num}</span></div>
+	</div><div class="graph_bar_percent_wrap">
+		<span class="graph_bar" style="width:calc({pct} * 3.35px);">
+			<span class="graph_bar_overlay country_bar" style="width:calc({pct} * 3.35px);"></span>
+		</span><span class="graph_bar_percent">{pct}</span>
 	</div>
+</div>
 
 #countries_graph_bars
-<div class="wrap_recipient_country" style="padding:0 0 20px 0; border-radius:0 0 6px 6px; margin:0 auto; margin-bottom:40px;">
-	<div style="background-color:#CC8030; color:#FFF; font-size:32px; text-align:center; margin-bottom:5px;">
-		<div style="padding:20px 40px;">Funding went to 1 countries</div>
-		<div style="width:960px; background-color:#FFF;">
-			<div style="border-top:20px solid #CC8030; margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;"></div>
-		</div>
-	</div>
-	{countries_graph_bars_items}
-	<div style="text-align:right; margin-top:10px; margin-right:20px; font-size:12px; color:#666;">*All years in total.</div>
+<div class="default graph_bars" id="countries_graph_all">
+	<a href="#view=donors" class="graph_wrap">
+		<span class="ask country">
+			<span class="ask_title">{title_countries_text}</span>
+			<span class="main_peak_wrap">
+				<span class="peak country"></span>
+			</span>
+		</span>
+		{countries_graph_bars_items}
+		<div class="graph_bar_info">*All years in total.</div>
+		<span class="graph_view_all">{link_donor_text}</span>
+	</a>
 </div>
 
 #sector_graph_bars_item
-	<div class="sector">
-		<div class="wrap_code">
-			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">{str_lab}</span><span class="sector_code">321</span>
-			<div><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">{str_num}</span></div>
-		</div><div class="wrap_bar">
-			<span class="sector_bar" style="width:calc({pct} * 3.35px);">
-				<span class="sector_overlay" style="width:calc({pct} * 3.35px); background:hsl(160,0%,40%);"></span>
-			</span><span class="sector_value">{pct}</span>
-		</div>
+<div class="graph_bar_row_wrap">
+	<div class="graph_bar_wrap">
+		<div class="graph_bar_text_wrap"><span class="graph_bar_text">{str_lab}</span><span class="graph_bar_code">{str_lab}</span></div>
+		<div class="graph_bar_value_wrap"><span class="graph_bar_value">{str_num}</span></div>
+	</div><div class="graph_bar_percent_wrap">
+		<span class="graph_bar" style="width:calc({pct} * 3.35px);">
+			<span class="graph_bar_overlay sector_bar" style="width:calc({pct} * 3.35px);"></span>
+		</span><span class="graph_bar_percent">{pct}</span>
 	</div>
-
-#sector_graph_bars_list
-		<div class="sector_list"> 
-			<span>{str_lab}</span><span class="sector_list_description">{str_lab}</span>
-		</div>
+</div>
 
 #sector_graph_bars
-<div class="wrap_recipient_country" style="padding:0 0 20px 0; border-radius:0 0 6px 6px; margin:0 auto; margin-bottom:40px;">
-	<div style="background-color:#01A664; color:#FFF; font-size:32px; text-align:center; margin-bottom:5px;">
-		<div style="padding:20px 40px;">Where does the money go?</div>
-		<div style="width:960px; background-color:#FFF;">
-			<div style="border-top:20px solid #01A664; margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;"></div>
+<div class="default graph_bars" id="sector_graph_all">
+	<a href="#view=donors" class="graph_wrap">
+		<span class="ask sector">
+			<span class="ask_title">{title_sector_year_text}</span>
+			<span class="main_peak_wrap">
+				<span class="peak chart_sector"></span>
+			</span>
+		</span>
+		{sector_graph_bars_items}
+		<div class="graph_bar_info">*All years in total. Sectors use 3-digit OECD DAC codes.</div>
+		<div class="graph_glossary_wrap">
+			<div class="graph_glossary">GLOSSARY</div>
 		</div>
-	</div>
-	{sector_graph_bars_items}
-	<div style="text-align:right; margin-top:10px; margin-right:20px; font-size:12px; color:#666;">*All years in total. Sectors use 3-digit OECD DAC codes.</div>
-	
-	<div class="sector_list_wrap" style="margin-top:20px;">
-		<div class="header glossary" style="font-weight:bold; color:#444; padding-bottom:5px; margin-bottom:10px;">GLOSSARY</div>
-	</div>
-	<div class="sector_list_wrap">
-		{sector_graph_bars_lists}
-	</div>
+		<div class="graph_list_wrap">
+			{sector_graph_bars_lists}
+		</div>
+		<span class="graph_view_all">{link_sector_text}</span>
+	</a>
+</div>
+
+#sector_graph_bars_list
+<div class="graph_list"> 
+	<span>{str_lab}</span><span class="graph_list_info">{str_lab}</span>
 </div>
 
 
 
 #donor_graph
+<!--	old graphs	-->
 <div class="default graph" id="donor_graph_all" >
 <a href="#view=donors" class="graph_wrap">
 	<span class="ask donor">
@@ -466,6 +475,7 @@
 #donor_graph2
 
 #sector_graph
+<!--	old graphs	-->
 <div class="default graph" id="sector_graph_all">
 <a href="#view=sectors" class="graph_wrap">
 	<span class="ask sector">
@@ -525,6 +535,7 @@
 #sector_graph2
 
 #countries_graph
+<!--	old graphs	-->
 <div class="default graph" id="countries_graph_all" >
 <a href="#view=countries" class="graph_wrap">
 	<span class="ask donor">
@@ -583,6 +594,7 @@
 #countries_graph2
 
 #publisher_countries_graph
+<!--	old graphs	-->
 <div class="default">
 <a href="#view=publisher_countries" class="graph_wrap">
 	<span class="ask donor">
@@ -639,6 +651,7 @@
 </div>
 
 #publisher_sectors_graph
+<!--	old graphs	-->
 <div class="default graph">
 <a href="#view=publisher_sectors" class="graph_wrap">
 	<span class="ask sector">

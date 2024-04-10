@@ -89,6 +89,7 @@ a.about_data.registry_link	{border-right:1px solid #CCC; text-align:left;}
 .default.head			{padding-top:20px;}
 .default.min			{padding-top:10px;}
 .default.graph			{padding-top:40px;}
+.default.graph_bars		{background-color:#FFF; border-radius:0 0 6px 6px; margin:0 auto; margin-bottom:40px;}
 .default.about			{padding:10px 0; text-align:right;}
 .default.data			{padding:20px 0 40px 0; width:880px;}
 .default.mention		{display:flex; justify-content:space-between;}
@@ -186,16 +187,43 @@ a.back_news:hover	{color:#A8C5E5;}
 #donor_graph, #sector_graph, #countries_graph, #publisher_countries_graph,
 #publisher_sectors_graph{background-color:#FFF; font-size:1.0em; line-height:1.3em; color:#444; border:1px solid #FFF; border-radius:0 0 8px 8px;}
 a.graph_wrap			{display:block; position:relative; width:960px;}
-span.graph_view_all			{display:block; background-color:rgba(3,14,27,0); position:absolute; left:0; top:0; width:960px; height:100%; color:rgba(255,255,255,0); font-size:60px; line-height:390px; text-align:center; border-radius:0 0 8px 8px;}
+
+.graph_bar_info			{padding-bottom:20px; text-align:right; margin-top:10px; margin-right:20px; font-size:12px; color:#666;}
+.graph_bar_row_wrap		{display:flex; align-items:center; padding:0 20px;}
+.graph_bar_wrap			{border-right:1px solid #999; padding:10px 20px 10px 0; text-align:right; width:480px;}
+.graph_bar_text_wrap	{display:flex; align-items:center; justify-content:flex-end;}
+.graph_bar_text			{font-size:16px;}
+.graph_bar_code			{background-color:rgba(192, 213, 242, 0.7); border-radius:4px; color:#222; font-size:11px; margin-left:10px; padding:2px 5px; white-space:nowrap;}
+.graph_bar_value_wrap	{padding-top:5px;}
+.graph_bar_percent_wrap	{display:flex; align-items:center;}
+.graph_bar_value		{color:#666; margin-left:10px; font-weight:bold; font-size:16px;}
+.graph_bar				{height:24px; max-width:335px; position:relative;}
+.graph_bar:before 		{background-color:rgba(17, 46, 105, 0.1); content:""; height:24px; left:0; position:absolute; top:0; width:335px;}
+.graph_bar_overlay 		{height:24px; left:0; position:absolute; top:0;}
+.graph_bar_percent 		{color:#444; font-size:14px; margin-left:20px; max-width:36px; text-align:right; white-space:nowrap;}
+.graph_bar_percent:after		{content:"%";}
+.graph_bar_overlay.donor_bar	{background:hsl(200,92%,50%);}
+.graph_bar_overlay.country_bar	{background:hsl(31,100%,66%);}
+.graph_bar_overlay.sector_bar	{background:hsl(160,0%,40%);}
+.graph_glossary_wrap	{margin:0 auto; padding: 0 40px;}
+.graph_glossary			{border-bottom:1px solid #aaa; color:#444; font-size:13px; font-weight:bold; margin-bottom:15px; padding-bottom:5px; text-transform:uppercase;}
+.graph_list_wrap		{margin:0 auto; padding: 0 40px; padding-bottom:20px;}
+.graph_list				{display:flex; align-items:top; border-bottom:1px solid #ddd; margin-bottom:10px; padding-bottom:10px;}
+.graph_list span		{display:block; padding-right:40px; min-width:35%; width:35%;}
+.graph_list_info		{font-size:13px; line-height:15px;}
+
+span.graph_view_all		{display:flex; background-color:rgba(3,14,27,0); position:absolute; left:0; top:0; width:960px; height:100%; color:rgba(255,255,255,0); font-size:60px; justify-content:center; align-items:center; text-align:center; border-radius:0 0 8px 8px;}
 span.graph_view_all:hover	{background-color:rgba(3,14,27,0.85); color:rgba(255,255,255,1); -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition: all .2s ease-in-out;}
 span.graph_view_all.pub_donor		{line-height:410px;}
 span.graph_view_all.pub_sector		{line-height:460px;}
-span.ask				{display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:32px; text-align:center;}
+span.ask				{display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:32px; line-height:32px; text-align:center;}
 span.ask.donor			{background-color:#008FFF;}
+span.ask.country		{background-color:#CC8030;}
 span.ask.sector			{background-color:#00C475;}
 .main_peak_wrap			{width:960px; background-color:#FFF; display:block;}
 .peak					{margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; display:block;}	/* Triangles */
 .peak.donor				{border-top:20px solid #008FFF;}
+.peak.country			{border-top:20px solid #CC8030;}
 .peak.chart_sector		{border-top:20px solid #00C475;}
 .caption				{border-bottom:0;}
 .caption:last-of-type	{border-bottom:1px;}
