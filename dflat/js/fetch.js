@@ -5,11 +5,33 @@ var fetch=exports;
 
 var dflat=require("./dflat.js")
 
+var path=require("path")
 var pfs=require('fs').promises
 var jml=require("./jml.js")
 var xson=require("./xson.js")
 var stringify = require('json-stable-stringify');
 
+
+let http_gethead=async function(url)
+{
+	let fetch=require("node-fetch")
+	const response = await fetch(url);
+	return response.headers;
+}
+let http_getbody=async function(url)
+{
+	let fetch=require("node-fetch")
+	const response = await fetch(url);
+	const data = await response.text();
+	return data;
+}
+let download=async function(url,dir)
+{
+	let text=await http_getbody(url)
+	let basename=path.basename(url)
+	let filename=path.join(dir||"",basename)
+	await pfs.writeFile(filename,text);
+}
 
 fetch.all=async function()
 {
@@ -150,7 +172,7 @@ fetch.xsd_xpaths=function(tree,root)
 
 fetch.xsd=async function()
 {
-	const download = require('download')
+//	const download = require('download')
 
 // mkae sure dirs exist	
 	pfs.mkdir("json").catch(e=>{})
@@ -328,7 +350,7 @@ for(var n in fetch.codelist_filenames_2){fetch.codelist_filenames[n]=true}
 
 fetch.codelist=async function()
 {
-	const download = require('download')
+//	const download = require('download')
 
 	for(var n in fetch.codelist_filenames_1 )
 	{
