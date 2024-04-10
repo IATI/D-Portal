@@ -492,7 +492,10 @@ th.titles					{color:#CCC; text-align:left; vertical-align:bottom; padding:15px 
 th.titles:nth-child(1), th.titles:nth-child(3), th.titles:nth-child(4), th.titles:nth-child(5),
 th.titles:last-child		{padding:15px 20px 10px 20px; text-align:right; font-size:0.85em; line-height:1.25em;}
 th.titles:last-child		{min-width:120px; padding-left:20px;}
-th.titles.org_act			{min-width:60px; padding-left:20px;}
+th.titles.org_report		{min-width:130px; padding-left:0;}
+th.titles.org_role			{min-width:100px; padding-left:0;}
+th.titles.org_type			{min-width:100px; padding-left:0;}
+th.titles.org_act			{min-width:100px; padding-left:0;}
 
 
 /*	Table for Header logo and Translations
@@ -655,7 +658,7 @@ table.activity tr:hover	{background-color:rgba(0,0,0,0.4);}
 table.activity tr:first-child:hover	{background-color:transparent;}
 table.activity td.num	{padding:10px 0 10px 20px; font-size:0.9em; line-height:2.0em; width:6%;}
 table.activity td.title	{padding:0; width:59%;}
-table.activity td.title_org	{padding:0;}
+table.activity td.title_org	{padding:0 20px 0 0;}
 table.activity td.value	{text-align:right; padding:10px 20px 25px 20px; font-size:1.0em; line-height:1.75em; width:20%;}
 table.activity td.count	{text-align:right; padding:10px 20px 0 40px; font-size:1.7em; line-height:1.0em;}
 table.activity td.date	{text-align:right; padding:10px 20px; white-space:nowrap; font-size:1.0em; line-height:1.75em; width:15%;}
@@ -674,7 +677,7 @@ table.activity a:active	{color:#A8C5E5; text-decoration:none;}
 table.activity td.report_org,
 table.activity td.role_org,
 table.activity td.type_org,
-table.activity td.count_org	{text-align:right; padding:10px 20px; font-size:16px; line-height:1.75em;}
+table.activity td.count_org	{text-align:right; padding:10px 20px 10px 0; font-size:16px; line-height:1.75em;}
 
 /*	Sticky headers	*/
 table.activity tr th.titles {position:-webkit-sticky; position:sticky; top:-5px; background-color:rgba(6,15,27,1); z-index:10;}
