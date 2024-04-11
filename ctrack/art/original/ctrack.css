@@ -324,7 +324,7 @@ a.read:hover			{text-decoration:underline;}
 .list_stats_title span		{display:block; font-size:35px;}
 .list_stats_num				{display:inline-block; font-size:2.9em; color:#FFF; line-height:0.8em;}
 
-a.button					{padding:10px 20px; background-color:#6c8292; font-size:1.25em; color:#FFF; border-radius:0 0 8px 8px; display:block; margin:0 auto; text-align:center;}
+a.button					{padding:10px 20px; background-color:#4e687b; font-size:1.25em; color:#FFF; border-radius:0 0 8px 8px; display:block; margin:0 auto; text-align:center;}
 a.button:hover				{background-color:#008FFF;}
 .download_wrap				{margin:0 auto; position:absolute; top:-55px; right:15px;}
 a.csv_download				{display:inline-block; padding:10px; background-color:#FFF; text-align:center; color:#161e24; border-radius:4px; font-weight:bold; font-size:1.2em;}
@@ -645,7 +645,7 @@ table.money tr.row2 td:after{content:''; position:absolute; left:0; bottom:0; wi
 
 /*	Table for Activities list (Donors / Sectors)
 	============================================= */
-table.activity			{width:100%; border-collapse:collapse; word-break:break-word; margin:0 auto;}
+table.activity			{width:100%; border-collapse:collapse; word-break:break-word; margin:0 auto; background-color:transparent;}
 table.activity td		{color:#B8C8CD; font-size:1.25em; line-height:1.0em; word-spacing:0.7px; padding:10px 20px; vertical-align:top; border-bottom:1px solid #333642; box-sizing:border-box;}
 table.activity th:hover	{cursor:default;}
 table.activity tr:last-child td	{border:0;}
@@ -678,7 +678,7 @@ table.activity td.count_aid_org	{text-align:right; padding:10px 20px 10px 0; fon
 table.activity td.count_org		{font-size:20px;}
 
 /*	Sticky headers	*/
-table.activity tr th.titles {position:-webkit-sticky; position:sticky; top:-5px; background-color:rgba(6,15,27,1); z-index:10;}
+table.activity tr th.titles {position:-webkit-sticky; position:sticky; top:-5px; background-color:rgba(23,31,36,1); z-index:10;}
 table.activity tr th.titles:last-of-type	{border-radius:0 8px 0 0;}
 table.activity tr th.titles:first-of-type	{border-radius:8px 0 0 0;}
 table.activity tr th.titles:after			{content:''; position:absolute; left:0; bottom:0; width:100%; border-bottom:1px solid rgba(51,54,66,1);}
