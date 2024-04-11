@@ -68,9 +68,9 @@ SELECT
 
 xson->>'@ref' AS "ref" ,
 xson->'/narrative' AS "narrative" ,
-xson->'@role' AS "role" ,
-xson->'@type' AS "type" ,
 pid as "pid",
+array_agg(DISTINCT xson->>'@role') AS "role" ,
+array_agg(DISTINCT xson->>'@type') AS "type" ,
 count(*) AS count ,
 count(DISTINCT pid) AS count_pid ,
 count(DISTINCT aid) AS count_aid
@@ -78,7 +78,7 @@ count(DISTINCT aid) AS count_aid
 FROM xson WHERE root='/iati-activities/iati-activity/participating-org' 
 AND xson->>'@ref'=${postesc(dat["/participating-org@ref"]||dat.reporting_ref)}
 
-GROUP BY 1,2,3,4,5
+GROUP BY 1,2,3
 ORDER BY 8 DESC
 
 `
@@ -134,11 +134,24 @@ ORDER BY 4 DESC
 			d.pid=v["pid"]||""
 			d.pid_name=iati_codes.publisher_names[d.pid||""]||""
 
-			d.role=v["role"]||""
-			d.role_name=iati_codes.org_role[d.role||""]||""
+			d.role=""
+			for(let n of v["role"]||[] )
+			{
+				d.role+=plate.replace("{list_participating_orgs_data_role}",{
+					role:n||"",
+					role_name:iati_codes.org_role[n||""]||"",
+				});
+			}
 
-			d.type=v["type"]||""
-			d.type_name=iati_codes.org_type[d.type||""]||""
+			d.type=""
+			for(let n of v["type"]||[] )
+			{
+				d.type+=plate.replace("{list_participating_orgs_data_type}",{
+					type:n||"",
+					type_name:iati_codes.org_type[n||""]||"",
+				});
+			}
+
 
 			d.count_aid=v.count_aid
 			d.count_pid=v.count_pid
