@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 ssh ctrack "sudo -u ctrack /dportal/bin/pull"
-ssh ctrack "sudo -u ctrack /dportal/npm-install"
 ssh ctrack "sudo -u ctrack /dportal/bin/build"
 
 ssh ctrack "/etc/init.d/dportal restart"
