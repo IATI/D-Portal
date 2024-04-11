@@ -224,7 +224,8 @@ IATI 出版社
 IATI<span>出版社</span>
 
 #stats_participating_orgs_table_text
-IATI<span>参与组织</span>
+<span>参与组织</span>
+叙事
 
 #stats_missing_table_text 
 其他项目
@@ -236,7 +237,7 @@ IATI<span>参与组织</span>
 那已经结束的项目总数
 
 #stats_total_tip_text
-的计算{portal_name}项目总数
+活动总数
 
 #stats_planned_tip_text
 正在计划在未来的项目总数
@@ -512,10 +513,10 @@ Español
 旗
 
 #map_info_text
-这是已获提供精确的位置为{portal_name}所有活动的热图。
+这是所有活动的热图，并提供了精确的位置。
 
 #publisher_map_info_text
-这是已获提供精确的位置为{portal_name}所有活动的热图。
+这是所有活动的热图，并提供了精确的位置。
 
 #map_view_text 
 查看全部
@@ -647,7 +648,7 @@ IATI 预算
 数据是如何计算出来的？
 
 #donor_transactions_data_description_text
-支出是通过增加支出和支出计算。此表显示了您为{portal_name}报告{donor}和排序活动在顶部最高消费的所有活动。
+支出是通过将支出和支出相加来计算的。 此列表向您显示报告的所有活动，并按支出最高的活动排序。
 
 #donor_budgets_data_description_title_text
 数据是如何计算出来的？
@@ -695,7 +696,7 @@ IATI 预算
 数据是如何计算出来的？
 
 #sector_transactions_data_description_text
-支出是通过增加支出和支出计算。此表显示了您为{portal_name}报告{sector}和排序活动在顶部最高消费的所有活动。
+支出是通过将支出和支出相加来计算的。 此表显示了 {sector} 部门中报告的所有活动，并按支出最高的活动排序在顶部。
 
 #sector_budgets_data_description_title_text
 数据是如何计算出来的？
@@ -773,16 +774,19 @@ IATI 预算
 此列表显示每个活动的总承诺以及到目前为止花费的百分比，按最近的排序在顶部。 全黑条可能表示数据质量问题，其中发布的数据缺少承诺和/或交易信息。
 
 #view_active_text
-所有活动项目{portal_name}
+所有活动的列表
 
 #view_ended_text
-为{portal_name}所有项目结束
+所有已结束活动的列表
 
 #view_planned_text
-为{portal_name}全部规划项目
+所有计划的活动清单
 
 #view_list_publishers_text
-所有出版商{portal_name}
+所有组织列表
+
+#view_list_narratives_text
+叙述清单
 
 #view_list_activities_text
 活动列表
@@ -845,7 +849,7 @@ IATI 预算
 请注意，这是最初针对标准的 1.04 版创建的内部 d-portal 数据，仅随着标准的更改而略有修改。
 
 #map_data_description_text 
-只有提供活动地点显示在地图上。活动也仅限{portal_name}E的边界内。
+地图上仅显示提供位置的活动。 位置是经度和纬度数据。<br/><br/>通过使用下拉列表选择您的首选项来过滤活动。 您可以通过单击 CSV 下载按钮下载这些过滤后的活动。<br/><br/><b>注意。</b><br/>活动中报告的每组坐标在下载的数据中占据一行。 。 对于具有多个地点的活动，总支出不会分布在各个地点，而是在每一行中完整报告。
 
 #data_title_text
 为什么数据质量问题

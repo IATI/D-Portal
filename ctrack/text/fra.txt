@@ -224,7 +224,8 @@ Projets<br/>Prévus
 IITA<span>éditeurs</span>
 
 #stats_participating_orgs_table_text
-IITA<span>Organisations participantes</span>
+<span>Organisations participantes</span>
+Récits
 
 #stats_missing_table_text 
 D'autres<br/>projets
@@ -236,7 +237,7 @@ Nombre total de projets qui sont encore actifs aujourd'hui
 Nombre total de projets qui ont pris fin 
 
 #stats_total_tip_text 
-Nombre total de projets calculées pour {portal_name} 
+Nombre total d'activités
 
 #stats_planned_tip_text 
 Nombre total de projets en cours de planification dans l'avenir 
@@ -512,10 +513,10 @@ Choisissez un thème
 Drapeau
 
 #map_info_text 
-Il s'agit d'une carte de chaleur de toutes les activités de {portal_name} qui ont été fournis avec des emplacements précis.
+Il s'agit d'une carte thermique de toutes les activités qui ont été indiquées avec des emplacements précis.
 
 #publisher_map_info_text
-Il s'agit d'une carte de chaleur de toutes les activités de {portal_name} qui ont été fournis avec des emplacements précis.
+Il s'agit d'une carte thermique de toutes les activités qui ont été indiquées avec des emplacements précis.
 
 #map_view_text 
 Voir tous
@@ -649,7 +650,7 @@ Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tabl
 Comment les données sont -elle calculée?
 
 #donor_transactions_data_description_text
-Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique toutes les activités déclarées par les {donor} pour {portal_name} et triés par l'activité avec la plus grande dépense en haut.
+Les dépenses sont calculées en additionnant les décaissements et les dépenses. Cette liste vous montre toutes les activités signalées et triées par l'activité avec les dépenses les plus élevées en haut.
 
 #donor_budgets_data_description_title_text
 Comment les données sont -elle calculée?
@@ -697,7 +698,7 @@ Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tabl
 Comment les données sont -elle calculée?
 
 #sector_transactions_data_description_text
-Dépenses est calculée en ajoutant les décaissements et les dépenses. Ce tableau vous indique toutes les activités déclarées par les {sector} pour {portal_name} et triés par l'activité avec la plus grande dépense en haut.
+Les dépenses sont calculées en additionnant les décaissements et les dépenses. Ce tableau vous montre toutes les activités signalées dans le secteur {sector} et triées par activité avec les dépenses les plus élevées en haut.
 
 #sector_budgets_data_description_title_text
 Comment les données sont -elle calculée?
@@ -775,16 +776,19 @@ Liste des projets
 Cette liste vous montre le total des engagements pour chaque activité et le pourcentage dépensé jusqu'à présent, trié par le plus récent en haut. Des barres noires pleines peuvent signifier des problèmes de qualité des données lorsque les données publiées manquent d'informations d'engagement et/ou de transaction.
 
 #view_active_text
-Tous les projets en cours pour {portal_name}
+Liste de toutes les activités actives
 
 #view_ended_text
-Tous les projets terminés pour {portal_name}
+Liste de toutes les activités terminées
 
 #view_planned_text
-Tous les projets prévus pour {portal_name}
+Liste de toutes les activités prévues
 
 #view_list_publishers_text
-Tous les éditeurs de {portal_name}
+Liste de toutes les organisations
+
+#view_list_narratives_text
+Liste des récits
 
 #view_list_activities_text
 Liste des activités
@@ -847,7 +851,7 @@ Comment les données sont-elle calculée?
 Veuillez noter qu'il s'agit de données internes d-portal qui ont été créées à l'origine par rapport à la version 1.04 de la norme et qui n'ont été que légèrement modifiées lorsque la norme a changé.
 
 #map_data_description_text 
-Seules les activités qui fournissent des endroits sont affichés sur la carte. Des activités sont également limitées dans les limites de {portal_name}.
+Seules les activités qui fournissent des emplacements sont affichées sur la carte. Les emplacements sont des données de longitude et de latitude.<br/><br/>Filtrez les activités en sélectionnant votre préférence à l'aide de la liste déroulante. Vous pouvez télécharger ces activités filtrées en cliquant sur le bouton de téléchargement CSV.<br/><br/><b>NB.</b><br/>Chaque ensemble de coordonnées rapporté dans une activité occupe une ligne dans les données téléchargées . Pour les activités avec plusieurs sites, les dépenses totales NE SONT PAS réparties entre les sites mais sont indiquées dans leur intégralité sur chaque ligne.
 
 #data_title_text
 Pourquoi les questions de la qualité des données

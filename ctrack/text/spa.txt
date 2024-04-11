@@ -224,7 +224,8 @@ Proyectos<br/>Planificados
 IATI<span>Editores</span>
 
 #stats_participating_orgs_table_text
-IATI<span>Organizaciones participantes</span>
+<span>Organizaciones participantes</span>
+Narrativas
 
 #stats_missing_table_text 
 Otros<br/>proyectos
@@ -236,7 +237,7 @@ Número total de proyectos que aún están activos ahora
 Número total de proyectos que han terminado 
 
 #stats_total_tip_text 
-Número total de proyectos calculados para {portal_name} 
+Número total de actividades
 
 #stats_planned_tip_text 
 Número total de proyectos que están siendo planificadas en el futuro 
@@ -509,10 +510,10 @@ Elige un tema
 Bandera
 
 #map_info_text 
-Este es un mapa de calor de todas las actividades para {portal_name} que han sido proporcionados con ubicaciones precisas.
+Este es un mapa de calor de todas las actividades a las que se les ha proporcionado ubicaciones precisas.
 
 #publisher_map_info_text
-Este es un mapa de calor de todas las actividades para {portal_name} que han sido proporcionados con ubicaciones precisas.
+Este es un mapa de calor de todas las actividades a las que se les ha proporcionado ubicaciones precisas.
 
 #map_view_text 
 Ver todo
@@ -646,7 +647,7 @@ Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compro
 ¿Cómo se calcula la información?
 
 #donor_transactions_data_description_text
-Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por {donor} para {portal_name} y ordenados por la actividad con el mayor gasto en la parte superior.
+El gasto se calcula sumando los desembolsos y los gastos. Esta lista muestra todas las actividades reportadas y ordenadas por la actividad con mayor gasto en la parte superior.
 
 #donor_budgets_data_description_title_text
 ¿Cómo se calcula la información?
@@ -694,7 +695,7 @@ Spend se calcula sumando los desembolsos y gastos. Esta tabla muestra los compro
 ¿Cómo se calcula la información?
 
 #sector_transactions_data_description_text
-Spend se calcula sumando los desembolsos y gastos. Esta tabla te muestra todas las actividades reportadas por {sector} para {portal_name} y ordenados por la actividad con el mayor gasto en la parte superior.
+El gasto se calcula sumando los desembolsos y los gastos. Esta tabla muestra todas las actividades reportadas en el sector {sector} y ordenadas por la actividad con mayor gasto en la parte superior.
 
 #sector_budgets_data_description_title_text
 ¿Cómo se calcula la información?
@@ -772,16 +773,19 @@ Lista de proyectos
 Esta lista muestra los compromisos totales para cada actividad y el porcentaje gastado hasta el momento, ordenados por los más recientes en la parte superior. Las barras negras completas pueden significar problemas de calidad de los datos cuando a los datos publicados les falta información de compromiso y / o transacción.
 
 #view_active_text
-Todos los proyectos activos para {portal_name}
+Lista de todas las actividades activas
 
 #view_ended_text
-Todos los proyectos terminados para {portal_name}
+Lista de todas las actividades finalizadas
 
 #view_planned_text
-Todos los proyectos previstos para {portal_name}
+Lista de todas las actividades planificadas
 
 #view_list_publishers_text
-Todos los Editores por {portal_name}
+Lista de todas las organizaciones
+
+#view_list_narratives_text
+Lista de narrativas
 
 #view_list_activities_text
 Lista de actividades
@@ -844,7 +848,7 @@ Para cada proyecto, hay una fecha de inicio y fin. Un "otro" proyecto es uno con
 Tenga en cuenta que se trata de datos internos de d-portal que se crearon originalmente con la versión 1.04 del estándar y solo se modificaron ligeramente a medida que cambiaba el estándar.
 
 #map_data_description_text 
-Sólo las actividades que proporcionan lugares se muestran en el mapa. Las actividades también están limitados dentro de los límites de {portal_name}.
+En el mapa sólo se muestran las actividades que proporcionan ubicaciones. Las ubicaciones son datos de longitud y latitud.<br/><br/>Filtre actividades seleccionando su preferencia usando el menú desplegable. Puede descargar estas actividades filtradas haciendo clic en el botón de descarga CSV.<br/><br/><b>NB.</b><br/>Cada conjunto de coordenadas reportadas en una actividad ocupa una fila en los datos descargados. . Para actividades con múltiples ubicaciones, el gasto total NO SE distribuye entre las ubicaciones, sino que se informa en su totalidad en cada fila.
 
 #data_title_text
 ¿Por qué es importante la calidad de datos
