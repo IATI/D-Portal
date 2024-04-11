@@ -40,26 +40,52 @@
 	</div>
 </div>
 
+#table_header_participating_org
+<tr>
+	<th class="titles"></th>
+	<th class="titles">{narrative_text}</th>
+	<th class="titles org_report">{reported_text}</th>
+	<th class="titles org_role">{role_text}</th>
+	<th class="titles org_type">{type_text}</th>
+	<th class="titles org_act">{activities_text}</th>
+</tr>
+
+#table_header_participating_org_count
+<tr>
+	<th class="titles"></th>
+	<th class="titles">{narrative_text}</th>
+	<th class="titles org_act">{activities_text}</th>
+	<th class="titles org_act">{activities_text}</th>
+</tr>
+
 #list_participating_orgs_data_text
 <a>{text}<span>{lang}</span></a>
 
 #list_participating_orgs_data_pid
-<div>{pid}<span>{name}<span></div>
+<div>{pid}<span>{pid_name}<span></div>
 
 #list_participating_orgs_data_role
-<div>{role}<span>{name}<span></div>
+<div>{role}<span>{role_name}<span></div>
 
 #list_participating_orgs_data_type
-<div>{type}<span>{name}<span></div>
+<div>{type}<span>{type_name}<span></div>
 
 #list_participating_orgs_data
 <tr onclick="return ctrack.url('#view=list_activities&reporting_ref={reporting_ref}');">
 	<td class="num">{num}.</td>
 	<td class="title_org">{text}</td>
-	<td class="report_org">{pid}</td>
+	<td class="report_org">{list_participating_orgs_data_pid}</td>
 	<td class="role_org">{role}</td>
 	<td class="type_org">{type}</td>
-	<td class="count_org">{count}</td>
+	<td class="count_aid_org">{count_aid}</td>
+</tr>
+
+#list_participating_orgs_count_data
+<tr onclick="return ctrack.url('#view=list_activities&reporting_ref={reporting_ref}');">
+	<td class="num">{num}.</td>
+	<td class="title_org">{text}</td>
+	<td class="count_pid_org">{count_pid}</td>
+	<td class="count_aid_org">{count_aid}</td>
 </tr>
 
 #list_participating_orgs_head

@@ -58,127 +58,129 @@ view_list_participating_orgs.ajax=function(args)
 	{
 		let r=(s||"").split("'").join("''")
 		let a=r.split("\\")
-		if( a.length>1 )
-		{
-			return " E'"+a.join("\\\\")+"'"
-		}
+		if( a.length>1 ) { return " E'"+a.join("\\\\")+"'" }
 		return "'"+r+"'"
 	}
+
 	dat.sql=`
 
 SELECT
 
 xson->>'@ref' AS "ref" ,
 xson->'/narrative' AS "narrative" ,
-array_agg(DISTINCT xson->'@role') AS "role" ,
-array_agg(DISTINCT xson->'@type') AS "type" ,
-array_agg(DISTINCT pid) as "pid",
-count(*) AS count
+pid as "pid",
+array_agg(DISTINCT xson->>'@role') AS "role" ,
+array_agg(DISTINCT xson->>'@type') AS "type" ,
+count(*) AS count ,
+count(DISTINCT pid) AS count_pid ,
+count(DISTINCT aid) AS count_aid
+
+FROM xson WHERE root='/iati-activities/iati-activity/participating-org' 
+AND xson->>'@ref'=${postesc(dat["/participating-org@ref"]||dat.reporting_ref)}
+
+GROUP BY 1,2,3
+ORDER BY 8 DESC
+
+`
+
+
+	if(args.output=="count") // just count please
+{
+	dat.sql=`
+
+SELECT
+
+xson->>'@ref' AS "ref" ,
+xson->'/narrative' AS "narrative" ,
+count(DISTINCT pid) AS count_pid ,
+count(DISTINCT aid) AS count_aid
 
 FROM xson WHERE root='/iati-activities/iati-activity/participating-org' 
 AND xson->>'@ref'=${postesc(dat["/participating-org@ref"]||dat.reporting_ref)}
 
 GROUP BY 1,2
-ORDER BY 6 DESC
+ORDER BY 4 DESC
 
 `
-
-	
-	if(args.output=="count") // just count please
-	{
-		dat.select="count";
-		delete dat.limit;
-		delete dat.orderby;
-		delete dat.groupby;
-	}
+}
 		
 	fetcher.ajax(dat,function(data){
-		if(args.output=="count")
+
+		var s=[];
+		ctrack.args.chunks["table_header_amount"]=undefined;
+		if((data.rows.length==0)&&(args.zerodata))
 		{
-			ctrack.chunk(args.chunk || "list_participating_orgs_count",commafy(data.rows[0]["count"]));
-			view_stats.calc();
+			s.push( plate.replace(args.zerodata,{}) );
+			ctrack.args.chunks["table_header_amount"]="";
 		}
-		else
+		var a=[];
+		ctrack.chunk("list_participating_orgs_count",data.rows.length);
+		for(var i=0;i<data.rows.length;i++)
 		{
-			var s=[];
-			ctrack.args.chunks["table_header_amount"]=undefined;
-			if((data.rows.length==0)&&(args.zerodata))
+			var v=data.rows[i];
+
+			var d={};
+			d.num=i+1;
+
+			d.text=""
+			for(let n of v["narrative"]||[] )
 			{
-				s.push( plate.replace(args.zerodata,{}) );
-				ctrack.args.chunks["table_header_amount"]="";
-			}
-			var a=[];
-			ctrack.chunk("list_participating_orgs_count",data.rows.length);
-			for(var i=0;i<data.rows.length;i++)
-			{
-				var v=data.rows[i];
-				if(v.pid) // ignore missing publisher data
-				{
-					var d={};
-					d.num=i+1;
-
-/*
-					d.reporting_ref=v.reporting_ref || "N/A";
-					d.reporting=iati_codes.publisher_names[v.reporting_ref] || v.reporting || v.reporting_ref || "N/A";
-					d.count_num=Math.floor(v.count_aid||0);
-					d.count=commafy(""+d.count_num);
-*/
-
-					d.text=""
-					for(let n of v["narrative"]||[] )
-					{
-						d.text+=plate.replace("{list_participating_orgs_data_text}",{
-							text:n[""]||"",
-							lang:n["@xml:lang"]||"",
-						});
-					}
-
-					d.pid=""
-					for(let n of v["pid"]||[] )
-					{
-						d.pid+=plate.replace("{list_participating_orgs_data_pid}",{
-							pid:n||"",
-							name:iati_codes.publisher_names[n||""]||"",
-						});
-					}
-
-					d.role=""
-					for(let n of v["role"]||[] )
-					{
-						d.role+=plate.replace("{list_participating_orgs_data_role}",{
-							role:n||"",
-							name:iati_codes.org_role[n||""]||"",
-						});
-					}
-
-					d.type=""
-					for(let n of v["type"]||[] )
-					{
-						d.type+=plate.replace("{list_participating_orgs_data_type}",{
-							type:n||"",
-							name:iati_codes.org_type[n||""]||"",
-						});
-					}
-
-					d.count=v.count
-
-					a.push(d);
-					s.push( plate.replace(args.plate || "{list_participating_orgs_data}",d) );
-				}
+				d.text+=plate.replace("{list_participating_orgs_data_text}",{
+					text:n[""]||"",
+					lang:n["@xml:lang"]||"",
+				});
 			}
 
-			ctrack.chunk(args.chunk || "list_participating_orgs_datas",s.join(""));
-			ctrack.chunk("numof_publishers" , data.rows.length );
+			d.pid=v["pid"]||""
+			d.pid_name=iati_codes.publisher_names[d.pid||""]||""
 
-			var cc=[];
-			cc[0]=["reporting_ref","reporting-org","count","link"];
-			a.forEach(function(v){
-				cc[cc.length]=[v.reporting_ref,v.reporting,v.count_num,ctrack.origin+"/ctrack.html?publisher="+v.reporting_ref];
-			});
-			ctrack.chunk((args.chunk || "list_participating_orgs_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
+			d.role=""
+			for(let n of v["role"]||[] )
+			{
+				d.role+=plate.replace("{list_participating_orgs_data_role}",{
+					role:n||"",
+					role_name:iati_codes.org_role[n||""]||"",
+				});
+			}
+
+			d.type=""
+			for(let n of v["type"]||[] )
+			{
+				d.type+=plate.replace("{list_participating_orgs_data_type}",{
+					type:n||"",
+					type_name:iati_codes.org_type[n||""]||"",
+				});
+			}
+
+
+			d.count_aid=v.count_aid
+			d.count_pid=v.count_pid
+
+			a.push(d);
+
+			if(args.output=="count") // just count please
+			{
+				s.push( plate.replace(args.plate || "{list_participating_orgs_count_data}",d) );
+			}
+			else
+			{
+				s.push( plate.replace(args.plate || "{list_participating_orgs_data}",d) );
+			}
+
 
 
 		}
+
+		ctrack.chunk(args.chunk || "list_participating_orgs_datas",s.join(""));
+		ctrack.chunk("numof_publishers" , data.rows.length );
+
+		var cc=[];
+		cc[0]=["reporting_ref","reporting-org","count","link"];
+		a.forEach(function(v){
+			cc[cc.length]=[v.reporting_ref,v.reporting,v.count_num,ctrack.origin+"/ctrack.html?publisher="+v.reporting_ref];
+		});
+		ctrack.chunk((args.chunk || "list_participating_orgs_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
+
 		if(args.callback){args.callback(data);}
 		ctrack.display();
 	});
