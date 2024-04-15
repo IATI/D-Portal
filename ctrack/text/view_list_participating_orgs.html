@@ -13,7 +13,7 @@
 	<table class="title">
 		<tr>
 			<td class="icon"><img src="{flava}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
-			<td>{view_list_publishers_text}</td>
+			<td>{view_list_narratives_text}</td>
 		</tr>
 	</table>
 	<div class="table_wrap">
@@ -54,8 +54,8 @@
 <tr>
 	<th class="titles"></th>
 	<th class="titles">{narrative_text}</th>
-	<th class="titles org_act">{activities_text}</th>
-	<th class="titles org_act">{activities_text}</th>
+	<th class="titles org_count org_report">{reported_text}</th>
+	<th class="titles org_count org_act">{activities_text}</th>
 </tr>
 
 #list_participating_orgs_data_text
@@ -84,8 +84,8 @@
 <tr onclick="return ctrack.url('#view=list_activities&reporting_ref={reporting_ref}');">
 	<td class="num">{num}.</td>
 	<td class="title_org">{text}</td>
-	<td class="count_pid_org">{count_pid}</td>
-	<td class="count_aid_org">{count_aid}</td>
+	<td class="count_org count_pid_org">{count_pid}</td>
+	<td class="count_org count_aid_org">{count_aid}</td>
 </tr>
 
 #list_participating_orgs_head
