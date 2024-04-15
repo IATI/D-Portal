@@ -225,7 +225,7 @@ dquery.click=async function(id)
 			break;
 			
 			case "menu_explain":
-				data.sql=sql:"EXPLAIN ( ANALYZE TRUE , VERBOSE TRUE , FORMAT JSON )\n"+session.getValue()
+				data.sql="EXPLAIN ( ANALYZE TRUE , VERBOSE TRUE , FORMAT JSON )\n"+session.getValue()
 				$('#result').jsonViewer({"Loading":"..."});
 				$.ajax({
 				  type: "POST",
