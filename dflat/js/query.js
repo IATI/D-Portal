@@ -41,7 +41,17 @@ query.serv = async function(req,res,next){
 
 		let r={}
 		r.query=sql
+
+// allow qvals in body or query string ( body has priority )
 		r.qvals={}
+		for( let n in req.query )
+		{
+			r.qvals[n]=req.query[n]
+		}
+		for( let n in req.body )
+		{
+			r.qvals[n]=req.body[n]
+		}
 		
 		await dstore_db.query_select(q,res,r,req)
 	}
