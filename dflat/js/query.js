@@ -52,6 +52,10 @@ query.serv = async function(req,res,next){
 		{
 			r.qvals[n]=req.body[n]
 		}
+		delete r.qvals.sql
+		delete r.qvals.form
+		delete r.qvals.from
+		delete r.qvals.human
 		
 		await dstore_db.query_select(q,res,r,req)
 	}
