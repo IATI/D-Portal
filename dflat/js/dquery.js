@@ -201,27 +201,36 @@ dquery.click=async function(id)
 	else
 	{
 		let session=dquery.editor.getSession()
-
+		let data={}
+		window.location.search.substring(1).split("&").forEach(
+			function(n){
+				let aa=n.split("=");
+				data[aa[0]||""]=decodeURIComponent(aa[1]||"")
+			}
+		);
+		
 		switch(id)
 		{
 
 			case "menu_execute":
+				data.sql=session.getValue()
 				$('#result').jsonViewer({"Loading":"..."});
 				$.ajax({
 				  type: "POST",
 				  url: "/dquery",
-				  data: {sql:session.getValue()},
+				  data: data,
 				  success: dquery.result,
 				  dataType: "json",
 				});
 			break;
 			
 			case "menu_explain":
+				data.sql=sql:"EXPLAIN ( ANALYZE TRUE , VERBOSE TRUE , FORMAT JSON )\n"+session.getValue()
 				$('#result').jsonViewer({"Loading":"..."});
 				$.ajax({
 				  type: "POST",
 				  url: "/dquery",
-				  data: {sql:"EXPLAIN ( ANALYZE TRUE , VERBOSE TRUE , FORMAT JSON )\n"+session.getValue()},
+				  data: data,
 				  success: dquery.result,
 				  dataType: "json",
 				});
