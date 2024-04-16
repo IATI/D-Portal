@@ -530,6 +530,7 @@ table.title td:before	{content:"⋑ ";}
 table.title td:hover	{cursor:default;}
 table.title td.sort		{padding:0 20px 0 10px; width:200px; color:#CCC; text-align:right; font-size:1.0em; line-height:1.1em;} /* Small fonts: Most recent first, Descending */
 table.title td.sort:before, table.title td.total_spend:before {content:"";}
+table.title td.sort a:hover	{color:#fff;}
 table.title td.about	{padding-left:10px; width:350px;}
 table.title td.icon		{padding-right:10px; width:40px; display:none;}
 
