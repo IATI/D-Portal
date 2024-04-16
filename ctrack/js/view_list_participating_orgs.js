@@ -133,7 +133,7 @@ ORDER BY 4 DESC
 					text:n[""]||"",
 					lang:n["@xml:lang"]||"",
 				});
-				d.text_search="#view=list_activities&/participating-org/@ref="+encodeURIComponent(dat.reporting_ref)
+				d.text_search="#view=list_activities&/participating-org@ref="+encodeURIComponent(dat.reporting_ref)
 					+"&/participating-org/narrative="+encodeURIComponent(n[""])
 				if(v["pid"])
 				{
