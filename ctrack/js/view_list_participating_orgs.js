@@ -130,9 +130,9 @@ ORDER BY 4 DESC
 					lang:n["@xml:lang"]||"",
 				});
 				d.text_search="#view=list_activities&/participating-org/narrative="+encodeURIComponent(n[""])
-				if(d.pid)
+				if(v["pid"])
 				{
-					d.text_search+="&pid="+encodeURIComponent(d.pid)
+					d.text_search+="&reporting_ref="+encodeURIComponent(v["pid"])
 				}
 			}
 
