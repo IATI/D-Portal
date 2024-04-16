@@ -62,6 +62,8 @@ view_list_participating_orgs.ajax=function(args)
 		return "'"+r+"'"
 	}
 
+console.log(dat)
+
 	dat.sql=`
 
 SELECT

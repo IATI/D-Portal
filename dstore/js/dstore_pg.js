@@ -730,9 +730,9 @@ dstore_pg.query_params=function(string,params)
 		let value=params[key]
 		
 		values[index]=value
-		string=string.split(`\$\{${key}\}`).join(`$${index+1}`)
-		
-		index=index+1
+		string=string.split(`\$\{${key}\}`)
+		if( string.length>1 ) { index=index+1 } // found at least 1
+		string=string.join(`$${index}`)
 	}
 	return [string,values,index]
 }
