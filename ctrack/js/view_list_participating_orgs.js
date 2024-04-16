@@ -62,8 +62,6 @@ view_list_participating_orgs.ajax=function(args)
 		return "'"+r+"'"
 	}
 
-console.log(dat)
-
 	dat.sql=`
 
 SELECT
@@ -131,6 +129,11 @@ ORDER BY 4 DESC
 					text:n[""]||"",
 					lang:n["@xml:lang"]||"",
 				});
+				d.text_search="#view=list_activities&/participating-org/narrative="+encodeURIComponent(n[""])
+				if(d.pid)
+				{
+					d.text_search+="&pid="+encodeURIComponent(d.pid)
+				}
 			}
 
 			d.pid=v["pid"]||""
