@@ -76,8 +76,6 @@ view_main.view=function(args)
 		}
 	}});
 
-			ctrack.chunk("main_participating_org","")
-
 	var top_opts={}
 
 	top_opts.year="all years";
