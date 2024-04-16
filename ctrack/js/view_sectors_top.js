@@ -12,6 +12,7 @@ var fetcher=require("./fetcher.js")
 
 var refry=require("../../dstore/js/refry.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
+var dflat_codes=require("../../dflat/json/codelists.json")
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
@@ -52,12 +53,14 @@ view_sectors_top.ajax=function(args)
 
 	if(!dat.reporting_ref){dat.flags=0;} // ignore double activities unless we are looking at a select publisher
 	var callback=function(data){
-		
+
 		for(var i=0;i<data.rows.length;i++)
 		{
 			var v=data.rows[i];
 			var d={};
+			d.code=v.trans_sector_group || "N/A"
 			d.sector_group=iati_codes.sector_category[ v.trans_sector_group ] || iati_codes.sector_category_withdrawn[ v.trans_sector_group ] || v.trans_sector_group ;
+			d.sector_info=dflat_codes["en-description"]["SectorCategory"][v.trans_sector_group] || v.trans_sector_group
 			d.usd=Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v));
 			list.push(d);
 		}
@@ -90,6 +93,7 @@ view_sectors_top.ajax=function(args)
 					v={};
 					v.usd=Math.floor(total-shown);
 					v.sector_group=(1+list.length-limit)+" More";
+					v.code="..."
 				}
 				else
 				{
@@ -99,6 +103,7 @@ view_sectors_top.ajax=function(args)
 				if(v)
 				{
 					var d={};
+					d.code=v.code
 					d.num=v.usd;
 					if(d.num<0) { d.num=-d.num; }
 					shown+=d.num;
@@ -106,10 +111,14 @@ view_sectors_top.ajax=function(args)
 					shownpct+=d.pct
 					d.str_num=commafy(v.usd)+" "+ctrack.display_usd;
 					d.str_lab=v.sector_group;
+					d.str_info=v.sector_info;
 					d.str="<b>"+d.str_num+"</b> ("+d.pct+"%)<br/>"+d.str_lab;
 					dd.push(d);
 					d2.push( plate.replace("{sector_graph_bars_item}",d) );
-					d3.push( plate.replace("{sector_graph_bars_list}",d) );
+					if(v.code!="...")
+					{
+						d3.push( plate.replace("{sector_graph_bars_list}",d) );
+					}
 				}
 			}
 		}

@@ -60,6 +60,7 @@ view_countries_top.ajax=function(args)
 		{
 			var v=data.rows[i];
 			var d={};
+			d.code=v.trans_country || "N/A";
 			d.country_code=v.trans_country || "N/A";
 			d.country_name=iati_codes.country[v.trans_country] || v.trans_country || "N/A";
 			d.usd=Math.floor(ctrack.convert_num("sum_trans",v));
@@ -85,12 +86,14 @@ view_countries_top.ajax=function(args)
 				v={};
 				v.usd=total-shown;
 				v.str_lab=(1+list.length-limit)+" More";
+				v.code="..."
 			}
 			
 			if(v)
 			{
 				shown+=v.usd;
 				var d={};
+				d.code=v.code
 				d.num=v.usd;
 				d.pct=Math.round(100*shown/total)-shownpct;
 				shownpct+=d.pct

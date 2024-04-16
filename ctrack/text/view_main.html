@@ -305,7 +305,7 @@
 #donor_graph_bars_item
 <div class="graph_bar_row_wrap">
 	<div class="graph_bar_wrap">
-		<div class="graph_bar_text_wrap"><span class="graph_bar_text">{str_lab}</span><span class="graph_bar_code">{str_lab}</span></div>
+		<div class="graph_bar_text_wrap"><span class="graph_bar_text">{str_lab}</span><span class="graph_bar_code">{code}</span></div>
 		<div class="graph_bar_value_wrap"><span class="graph_bar_value">{str_num}</span></div>
 	</div><div class="graph_bar_percent_wrap">
 		<span class="graph_bar" style="width:calc({pct} * 3.35px);">
@@ -332,7 +332,7 @@
 #countries_graph_bars_item
 <div class="graph_bar_row_wrap">
 	<div class="graph_bar_wrap">
-		<div class="graph_bar_text_wrap"><span class="graph_bar_text">{str_lab}</span><span class="graph_bar_code">{str_lab}</span></div>
+		<div class="graph_bar_text_wrap"><span class="graph_bar_text">{str_lab}</span><span class="graph_bar_code">{code}</span></div>
 		<div class="graph_bar_value_wrap"><span class="graph_bar_value">{str_num}</span></div>
 	</div><div class="graph_bar_percent_wrap">
 		<span class="graph_bar" style="width:calc({pct} * 3.35px);">
@@ -359,7 +359,7 @@
 #sector_graph_bars_item
 <div class="graph_bar_row_wrap">
 	<div class="graph_bar_wrap">
-		<div class="graph_bar_text_wrap"><span class="graph_bar_text">{str_lab}</span><span class="graph_bar_code">{str_lab}</span></div>
+		<div class="graph_bar_text_wrap"><span class="graph_bar_text">{str_lab}</span><span class="graph_bar_code">{code}</span></div>
 		<div class="graph_bar_value_wrap"><span class="graph_bar_value">{str_num}</span></div>
 	</div><div class="graph_bar_percent_wrap">
 		<span class="graph_bar" style="width:calc({pct} * 3.35px);">
@@ -379,19 +379,13 @@
 		</span>
 		{sector_graph_bars_items}
 		<div class="graph_bar_info">*All years in total. Sectors use 3-digit OECD DAC codes.</div>
-		<div class="graph_glossary_wrap">
-			<div class="graph_glossary">GLOSSARY</div>
-		</div>
-		<div class="graph_list_wrap">
-			{sector_graph_bars_lists}
-		</div>
 		<span class="graph_view_all">{link_sector_text}</span>
 	</a>
 </div>
 
 #sector_graph_bars_list
 <div class="graph_list"> 
-	<span>{str_lab}</span><span class="graph_list_info">{str_lab}</span>
+	<span>{str_lab}</span><span class="graph_list_info">{str_info}</span>
 </div>
 
 

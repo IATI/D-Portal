@@ -57,6 +57,7 @@ view_donors_top.ajax=function(args)
 		{
 			var v=data.rows[i];
 			var d={};
+			d.code=v.funder_ref || "N/A"
 			d.funder=v.funder_ref;
 			d.usd=Math.floor(ctrack.convert_num("sum_of_percent_of_trans",v));
 			list.push(d);
@@ -81,12 +82,14 @@ view_donors_top.ajax=function(args)
 				v={};
 				v.usd=total-shown;
 				v.funder=(1+list.length-limit)+" More";
+				v.code="..."
 			}
 			
 			if(v)
 			{
 				shown+=v.usd;
 				var d={};
+				d.code=v.code
 				d.num=v.usd;
 				d.pct=Math.round(100*shown/total)-shownpct;
 				shownpct+=d.pct
