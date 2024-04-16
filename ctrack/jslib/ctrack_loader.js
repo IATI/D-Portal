@@ -4,12 +4,17 @@
 
 ctrack_loader=function(args){
 	
-	var root=args.root 	|| "http://d-portal.org/";
+	var root=args.root 	  || "/ctrack/";
+	var qroot=args.qroot  || "/"; // use current site by default
+
+	// local test with data on main server
+	let domtest=(window.location.host.split(".")[0]).split(":")[0]
+	if( ( domtest=="localhost") ) { qroot="//d-portal.org/" }
 
 	args.jslib=args.jslib 	|| root+"jslib/";
 	args.art=args.art 		|| root+"art/";
-	args.q	=args.q 		|| root+"q";
-	args.dquery=args.dquery || "http://d-portal.org/dquery";
+	args.q=args.q			|| qroot+"q";
+	args.dquery=args.dquery	|| qroot+"dquery";
 	
 	args.mapkey=args.mapkey || "AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w",
 
