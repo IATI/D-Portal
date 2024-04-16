@@ -216,8 +216,8 @@ td .currency	{color:#ccc; font-size:10px; line-height:12px;}
 .wrap_tab		{border-bottom:1px solid #666; margin-bottom:5px; padding-bottom:5px;}
 .wrap_tab:last-of-type	{border:0;}
 .tab_text,
-.tab_currency	{box-sizing:border-box; display:inline-block; vertical-align:top; width:60%;}
-.tab_currency	{color:#ccc; font-size:12px; padding-left:30px; text-align:right; width:40%;}
+.tab_currency	{box-sizing:border-box; display:inline-block; line-height:1.25em; vertical-align:top; width:75%;}
+.tab_currency	{color:#ccc; font-size:12px; padding-left:30px; text-align:right; width:25%;}
 .tab_currency div {font-size:10px;}
 .tab_text		{word-break:keep-all;}
 
