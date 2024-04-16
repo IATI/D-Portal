@@ -68,12 +68,16 @@ view_main.view=function(args)
 		}
 	}});
 
+/*
 	views.list_participating_orgs.ajax({output:"count",limit:5,chunk:"list_participating_orgs_datas",callback:function(data){
 		if( (!data) || (!data.rows) || (data.rows.length==0) )
 		{
 			ctrack.chunk("main_participating_org","")
 		}
 	}});
+*/
+
+			ctrack.chunk("main_participating_org","")
 
 	var top_opts={}
 
