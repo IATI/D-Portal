@@ -61,6 +61,8 @@ view_list_participating_orgs.ajax=function(args)
 		if( a.length>1 ) { return " E'"+a.join("\\\\")+"'" }
 		return "'"+r+"'"
 	}
+	
+	dat.reporting_ref=dat["/participating-org@ref"]||dat.reporting_ref
 
 	dat.sql=`
 
@@ -76,7 +78,7 @@ count(DISTINCT pid) AS count_pid ,
 count(DISTINCT aid) AS count_aid
 
 FROM xson WHERE root='/iati-activities/iati-activity/participating-org' 
-AND xson->>'@ref'=${postesc(dat["/participating-org@ref"]||dat.reporting_ref)}
+AND xson->>'@ref'=${postesc(dat.reporting_ref)}
 
 GROUP BY 1,2,3
 ORDER BY 8 DESC
@@ -96,7 +98,7 @@ count(DISTINCT pid) AS count_pid ,
 count(DISTINCT aid) AS count_aid
 
 FROM xson WHERE root='/iati-activities/iati-activity/participating-org' 
-AND xson->>'@ref'=${postesc(dat["/participating-org@ref"]||dat.reporting_ref)}
+AND xson->>'@ref'=${postesc(dat.reporting_ref)}
 
 GROUP BY 1,2
 ORDER BY 4 DESC
@@ -113,6 +115,8 @@ ORDER BY 4 DESC
 			s.push( plate.replace(args.zerodata,{}) );
 			ctrack.args.chunks["table_header_amount"]="";
 		}
+		var csvrows=[];
+		csvrows[0]=["narrative","reporting-org","link"];
 		var a=[];
 		ctrack.chunk("list_participating_orgs_count",data.rows.length);
 		for(var i=0;i<data.rows.length;i++)
@@ -129,10 +133,17 @@ ORDER BY 4 DESC
 					text:n[""]||"",
 					lang:n["@xml:lang"]||"",
 				});
-				d.text_search="#view=list_activities&/participating-org/narrative="+encodeURIComponent(n[""])
+				d.text_search="#view=list_activities&/participating-org/@ref="+encodeURIComponent(dat.reporting_ref)
+					+"&/participating-org/narrative="+encodeURIComponent(n[""])
 				if(v["pid"])
 				{
 					d.text_search+="&reporting_ref="+encodeURIComponent(v["pid"])
+
+					csvrows[csvrows.length]=[ n[""]||"", v.pid, ctrack.origin+"/ctrack.html?"+d.text_search ];
+				}
+				else
+				{
+					csvrows[csvrows.length]=[ n[""]||"", "", ctrack.origin+"/ctrack.html?"+d.text_search ];
 				}
 			}
 
@@ -172,19 +183,11 @@ ORDER BY 4 DESC
 				s.push( plate.replace(args.plate || "{list_participating_orgs_data}",d) );
 			}
 
-
-
 		}
 
 		ctrack.chunk(args.chunk || "list_participating_orgs_datas",s.join(""));
 		ctrack.chunk("numof_publishers" , data.rows.length );
-
-		var cc=[];
-		cc[0]=["reporting_ref","reporting-org","count","link"];
-		a.forEach(function(v){
-			cc[cc.length]=[v.reporting_ref,v.reporting,v.count_num,ctrack.origin+"/ctrack.html?publisher="+v.reporting_ref];
-		});
-		ctrack.chunk((args.chunk || "list_participating_orgs_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
+		ctrack.chunk((args.chunk || "list_participating_orgs_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(csvrows)));
 
 		if(args.callback){args.callback(data);}
 		ctrack.display();
