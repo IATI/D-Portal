@@ -691,7 +691,8 @@ query.getsql_where_xson=function(q,qv,wheres){
 
 				let cn=n.trim().toLowerCase().replace(/\W+/g,"_")
 				let nb=p.jpath[ p.jpath.length-1 ]
-				let na=p.jpath.join("").slice(0,-nb.length)
+				let na=p.jpath.join("")
+				if(nb.length>0) { na=na.slice(0,-nb.length) }
 
 				let prefix=""
 				if( v.startsWith("!") )
