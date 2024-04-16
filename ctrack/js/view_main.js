@@ -68,6 +68,7 @@ view_main.view=function(args)
 		}
 	}});
 
+
 	views.list_participating_orgs.ajax({output:"count",limit:5,chunk:"list_participating_orgs_datas",callback:function(data){
 		if( (!data) || (!data.rows) || (data.rows.length==0) )
 		{
@@ -130,6 +131,7 @@ view_main.view=function(args)
 	{
 		ctrack.chunk("main_mention_any","{main_mention_pub}");
 		ctrack.chunk("main_mention_pub_link","?/participating-org@ref="+encodeURIComponent(test["reporting_ref"])+"#view=main");
+		ctrack.chunk("main_participating_org","")
 	}
 	else
 	if( test["/participating-org@ref"] )
