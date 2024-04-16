@@ -63,6 +63,11 @@ view_list_participating_orgs.ajax=function(args)
 	}
 	
 	dat.reporting_ref=dat["/participating-org@ref"]||dat.reporting_ref
+	
+	if(!dat.reporting_ref)
+	{
+		return args.callback() // invalid
+	}
 
 	dat.sql=`
 
