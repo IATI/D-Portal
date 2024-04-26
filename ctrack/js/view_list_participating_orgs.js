@@ -191,7 +191,6 @@ ORDER BY 4 DESC
 		}
 
 		ctrack.chunk(args.chunk || "list_participating_orgs_datas",s.join(""));
-		ctrack.chunk("numof_publishers" , data.rows.length );
 		ctrack.chunk((args.chunk || "list_participating_orgs_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(csvrows)));
 
 		if(args.callback){args.callback(data);}
