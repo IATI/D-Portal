@@ -24,7 +24,7 @@ body		{background-color:#47506B; color:#FFF; margin-top:40px;}
 /*	FLAGS	*/
 .humanitarian	{background-color:#ff890c; color:#000e20; font-size:14px; left:0; padding:10px 40px 7px 40px; position:absolute; text-align:right; text-transform:uppercase; top:-10px;}
 .hum_transaction{background-color:rgba(48,71,103,1); border-radius:4px; color:#CCC; display:inline-block; font-size:12px; margin-left:-5px; margin-top:10px; padding:2px 5px;}
-span.withdrawn	{background-color:#ccc; border-radius:3px; color:#444; font-size:12px; font-style:italic; font-weight:normal; margin-left:5px; padding:2px 5px; text-transform:initial; width:initial;}
+span.withdrawn	{background-color:#ccc; border-radius:3px; color:#444; font-size:12px; font-style:italic; font-weight:normal; margin-left:5px; padding:2px 5px; text-transform:initial; vertical-align:baseline; width:initial;}
 
 /*	THEME BUTTON	*/
 .theme_button		{position:fixed; top:0px; right:0px; background-color:#000; color:#FFF; cursor:pointer; padding:5px 10px; font-size:14px;}
