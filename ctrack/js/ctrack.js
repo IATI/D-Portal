@@ -127,23 +127,11 @@ ctrack.setup=function(args)
 		ctrack.q[aa[0]]=decodeURIComponent(aa[1]||"").split("<").join("%3C").split(">").join("%3E");
 	});
 
-/*
 	if(ctrack.q.test)
 	{
 		console.log("TEST MODE ENABLED")
-
-// replace frontpage
-		ctrack.map_old_views["search"]="search2"
-
-// replace chunks		
-		ctrack.chunks["donor_graph"]               = "{donor_graph2}"
-		ctrack.chunks["sector_graph"]              = "{sector_graph2}"
-		ctrack.chunks["countries_graph"]           = "{countries_graph2}"
-		ctrack.chunks["publisher_countries_graph"] = "{publisher_countries_graph2}"
-		ctrack.chunks["publisher_sectors_graph"]   = "{publisher_sectors_graph2}"
-		
 	}
-*/
+
 	args=args || {};
 	args.jslib	=args.jslib 	|| "http://d-portal.org/jslib/"; // load stuff from here
 	args.tongue	=args.tongue 	|| 	"eng"; 		// english

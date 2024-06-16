@@ -104,11 +104,8 @@ view_donors_top.ajax=function(args)
 		ctrack.chunk("data_chart_donors",dd);
 		ctrack.chunk("donors_count",list.length);
 
-		if( ctrack.q.test )
-		{
-			ctrack.chunk("donor_graph_bars_items",d2.join(""));
-			ctrack.chunk("donor_graph","{donor_graph_bars}");
-		}
+		ctrack.chunk("donor_graph_bars_items",d2.join(""));
+		ctrack.chunk("donor_graph","{donor_graph_bars}");
 		
 		if(list.length==0) { ctrack.chunk("donor_graph",""); } // remove graph if no data
 

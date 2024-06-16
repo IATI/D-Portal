@@ -126,12 +126,9 @@ view_sectors_top.ajax=function(args)
 		ctrack.chunk("data_chart_sectors",dd);	
 		ctrack.chunk("sectors_count",list.length);
 
-		if( ctrack.q.test )
-		{
-			ctrack.chunk("sector_graph_bars_items",d2.join(""));
-			ctrack.chunk("sector_graph_bars_lists",d3.join(""));
-			ctrack.chunk("sector_graph","{sector_graph_bars}");
-		}
+		ctrack.chunk("sector_graph_bars_items",d2.join(""));
+		ctrack.chunk("sector_graph_bars_lists",d3.join(""));
+		ctrack.chunk("sector_graph","{sector_graph_bars}");
 
 		if(list.length==0) { ctrack.chunk("sector_graph",""); } // remove graph if no data
 
