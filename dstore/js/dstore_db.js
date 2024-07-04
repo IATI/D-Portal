@@ -176,6 +176,16 @@ dstore_db.tables={
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
 		{ name:"policy_code",					NOCASE:true , INDEX:true , codes:"policy" },				// the code is prefixed by the significance and an underscore then the code
 	],
+
+// include explicit tags and inferred tags from transaction/sector etc codes
+// mode is an internal dportal list and not official tag vocab values ( expanded and mnemonic rather than numeric )
+// mode can be null for explicit freeform text codes
+	tag:[
+		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
+		{ name:"tag_mode",						NOCASE:true , INDEX:true  },				// tag mode
+		{ name:"tag_code",						NOCASE:true , INDEX:true  },				// depends on mode
+	],
+
 };
 
 let dflat_indexs={}
@@ -677,7 +687,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		}
 
 // delete all traces of this activity before we add it
-		for( let v of ["act","jml","xson","trans","budget","country","sector","location","policy","related"] )
+		for( let v of ["act","jml","xson","trans","budget","country","sector","location","policy","related","tag"] )
 		{
 			await dstore_db.delete_from(db,v,{aid:t.aid});
 		}
@@ -1085,6 +1095,66 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 		}
 		
+// work on act tags , singe flags so use key values
+
+		let tag={}
+		let manifest_tag_mode=function(mode)
+		{
+			if(!tag[mode]) { tag[mode]={} }
+			return tag[mode]
+		}
+		let tagmap={}
+		tagmap[1]="AGROVOC"
+		tagmap[2]="UNSDG"
+		tagmap[3]="UNSDT"
+		tagmap[4]="TEI"
+
+		let sectmap={}
+		sectmap[7]="UNSDG"
+		sectmap[8]="UNSDT"
+		sectmap[9]="UNSDI"
+		
+		for( let it of refry.all_tags(act,"tag") )
+		{
+			let vocab=(it.vocabulary||"").trim().toUpperCase()
+			let code=(it.code||"").trim().toUpperCase()
+			if( (vocab!="") && (code!="") ) // got a mode and a code
+			{
+				let mode=tagmap[vocab]
+				if(mode)
+				{
+					manifest_tag_mode(mode)[code]=true // flag it
+				}	
+			}
+
+		}
+
+// this will find sectors in transactions or at toplevel of act
+		refry.tags(it,"sector",function(sector){
+			let vocab=(sector.vocabulary||"").trim().toUpperCase()
+			let code=(sector.code||"").trim().toUpperCase()
+			if( (vocab!="") && (code!="") ) // got a mode and a code
+			{
+				let mode=sectmap[vocab]
+				if(mode)
+				{
+					manifest_tag_mode(mode)[code]=true // flag it
+				}
+			}
+		})
+		
+		for( let mode in tag )
+		{
+			for( let code in tag[mode] )
+			{
+//				console.log(mode,code)
+				await dstore_back.replace(db,"tag",{
+					"aid":t.aid,
+					"tag_mode":mode,
+					"tag_code":code,
+				});
+			}
+		}
 		
 //		t.xml=xml;
 		t.jml=JSON.stringify(act);

@@ -526,6 +526,14 @@ iati_codes.fetch1 = async function(){
 // local currency ->       https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=8&output=csv
 
 
+// add explcit tag modes, should be upper case and mnemonic to be used with Q as eg: ?TAG_UNSDG=1
+	codes.tag_mode={}
+	codes.tag_mode["AGROVOC"] = "https://agrovoc.fao.org/browse/agrovoc/en/"
+	codes.tag_mode["UNSDG"]   = "http://reference.iatistandard.org/codelists/UNSDG-Goals/"
+	codes.tag_mode["UNSDT"]   = "http://reference.iatistandard.org/codelists/UNSDG-Targets/"
+	codes.tag_mode["UNSDI"]   = "https://unstats.un.org/sdgs/indicators/indicators-list/"
+	codes.tag_mode["TEI"]     = "https://europa.eu/capacity4dev/joint-programming/documents/tei-codes-0"
+
 
 	console.log("Writing json/iati_codes.json for the first time")	
 	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
@@ -703,7 +711,8 @@ console.log("secondary "+id);
 // add a temp publisher id
 	codes.publisher_names["XI-IATI-OFID"]="The OPEC Fund for International Development"
 	codes.publisher_names["XI-IATI-WHS-NEPAL"]="Nepal Traceability Study 2016"
-	
+
+
 //	ls(publishers);
 
 	console.log("Writing json/iati_codes.json for the last time")	
