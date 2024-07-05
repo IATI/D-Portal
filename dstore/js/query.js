@@ -420,22 +420,24 @@ for(var n in ns) // all valid fields
 		{
 			var nformat=ns[n].format;
 			var ntable=ns[n].table;
+			var nname=ns[n].name;
 			var v=q[pm+n+qe];
 			var eq=qemap[qe];
+
 			if( v !== undefined ) // got a value
 			{
 				if(mp=="filter") { tables[ntable]=true } // keep map of tables to filter with
 				
-				if( eq=="NOT NULL") { ss.push( " "+n+" IS NOT NULL " ); }
+				if( eq=="NOT NULL") { ss.push( " "+nname+" IS NOT NULL " ); }
 				else
-				if( eq=="NULL") { ss.push( " "+n+" IS NULL " ); }
+				if( eq=="NULL") { ss.push( " "+nname+" IS NULL " ); }
 				else
 				{
 					var t=typeof v;
 					if(t=="string")
 					{
 						var sa=v.split(/,|\|/);
-						if( n == "aid" ) // aid must remain a string as it could contain any old garbage
+						if( nname == "aid" ) // aid must remain a string as it could contain any old garbage
 						{
 							sa=[v]
 						}
@@ -446,11 +448,11 @@ for(var n in ns) // all valid fields
 
 							if(sa.length==2 && (/null/i).test(sa[1]) ) // allow an explicit or |null case
 							{
-								ss.push( " ( "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" OR "+n+" IS NULL ) " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,nformat);
+								ss.push( " ( "+nname+" "+eq+" "+dstore_db.text_plate(n+qe)+" OR "+nname+" IS NULL ) " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,nformat);
 							}
 							else
 							{
-								ss.push( " "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,nformat);
+								ss.push( " "+nname+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,nformat);
 							}
 						}
 						else
@@ -461,13 +463,13 @@ for(var n in ns) // all valid fields
 						}
 						else
 						{
-							ss.push( " "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,nformat);
+							ss.push( " "+nname+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=query.maybenumber(v,nformat);
 						}
 					}
 					else
 					if(t=="number")
 					{
-						ss.push( " "+n+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=v;
+						ss.push( " "+nname+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=v;
 					}
 					
 					if(t=="object") // array, string above may also have been split into array
@@ -480,13 +482,13 @@ for(var n in ns) // all valid fields
 						}
 						if(v.length==2 && (/null/i).test(v[1]) ) // allow an explicit or null case for base comparisons
 						{
-							ss.push( " (  "+n+" "+eq+so[0]+" OR "+n+" IS NULL ) ");
+							ss.push( " (  "+nname+" "+eq+so[0]+" OR "+nname+" IS NULL ) ");
 							qv[ so[1].trim() ]=undefined; // not going to be used
 						}
 						else
 						if(eq == "=") // make an IN statement
 						{
-							ss.push( " "+n+" IN ("+so.join(",")+") " );
+							ss.push( " "+nname+" IN ("+so.join(",")+") " );
 						}
 						else // explode into a bunch of OR statements
 						{
@@ -496,13 +498,17 @@ for(var n in ns) // all valid fields
 							{
 								var v=so[i];
 								if(i>0) { st.push( " OR " ); }
-								st.push( " "+n+" "+eq+v );
+								st.push( " "+nname+" "+eq+v );
 							}
 							st.push( " ) " );
 							
 							ss.push(st.join(""));
 						}
 					}
+				}
+				if( ns[n].mode ) // lock mode
+				{
+					ss.push( " ( "+ns[n].mode_name+" = '"+ns[n].mode+"' AND " + ss.pop() + " ) " );
 				}
 			}
 		}
@@ -889,6 +895,15 @@ query.getsql_build_column_names=function(q,qv){
 			ns[n]={ "format":dstore_db.tables_active[name][n] , "table":tname , "name":n };
 		}
 	}
+
+	// special case for possible tags
+	for(let mode in iati_codes.tag_mode )
+	{
+		ns["tag_"+(mode.toLowerCase())]={ "mode":mode , "mode_name":"tag_mode" , "format":dstore_db.tables_active["tag"]["tag_code"] , "table":"tag" , "name":"tag_code" }
+	}
+	ns["tag"]={ "format":dstore_db.tables_active["tag"]["tag_code"] , "table":"tag" , "name":"tag_code" }
+
+//console.log(ns)
 
 	q[0]=ns; // special array of valid column names
 
