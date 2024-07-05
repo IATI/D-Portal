@@ -360,6 +360,33 @@ query.getsql_from=function(q,qv){
 		}
 		return r;
 	});
+	
+	let ff={}
+	for( let qn in q ) // find tables in use
+	{
+		let n=qn.split("_")[0] // first part will be table name ( except for aid which is all tables )
+		if( dstore_db.tables[n] ) // real table name
+		{
+			ff[n]=true
+		}
+	}
+	for( let n in ff ) // check all tables to add
+	{
+		let doadd=true
+		for( let nn of f ) // check current from list
+		{
+			if(n==nn) // already in list
+			{
+				doadd=false
+				break
+			}
+		}
+		if(doadd) // auto add to list
+		{
+			f.push(n)
+		}
+	}
+	
 			
 //	q.from=f[0]; // store the first table name back in the q for later use
 	
