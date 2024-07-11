@@ -485,6 +485,7 @@ view_search.terms=[
 	show   : "search_display_tag_unsdg",
 	more   : true,
 	sort   : "value",
+	icon   : "/ctrack/art/sdg/sdg-{num}.svg",
 },
 {
 	name   : "tag_unsdt",
@@ -497,6 +498,7 @@ view_search.terms=[
 	show   : "search_display_tag_unsdt",
 	more   : true,
 	sort   : "value",
+	icon   : "/ctrack/art/sdg/sdg-{num}.svg",
 },
 {
 	name   : "tag_unsdi",
@@ -509,6 +511,7 @@ view_search.terms=[
 	show   : "search_display_tag_unsdi",
 	more   : true,
 	sort   : "value",
+	icon   : "/ctrack/art/sdg/sdg-{num}.svg",
 },
 
 ]

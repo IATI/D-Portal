@@ -385,33 +385,29 @@ ctrack.setup=function(args)
 				var it=views.search.terms[idx]
 				if(it.show)
 				{
-					var text=args[it.q]
-					if(text)
+					var id=args[it.q]
+					var text=" <span>("+id+")</span> "
+					var icon
+					if(id)
 					{
-						if(it.codes)
+						if(it.icon)
 						{
-							for( var c of it.codes )
+							let num=Number((""+id).split(".")[0]) // first digits only
+							icon=plate.replace(it.icon,{num:num})
+						}
+						for( var c of (it.codes||[]) )
+						{
+							if(c[(""+id).toUpperCase()]) { id=(""+id).toUpperCase() } // auto case upper
+							if(c[(""+id).toLowerCase()]) { id=(""+id).toLowerCase() } // or lower
+							if(c[id])
 							{
-								if(c[text])
-								{
-									text=c[text]+" ("+text+") "
-								}
-								else
-								if(typeof text=="string") // try fixing the case for lookup
-								{
-									if(c[text.toUpperCase()])
-									{
-										text=text.toUpperCase()
-										text=c[text]+" ("+text+") "
-									}
-									else
-									if(c[text.toLowerCase()])
-									{
-										text=text.toLowerCase()
-										text=c[text]+" ("+text+") "
-									}
-								}
+								text=c[id]+text
+								break
 							}
+						}
+						if(icon)
+						{
+							text="<image src='"+icon+"' />"+text
 						}
 						if( it.q=="aids" && text.startsWith(ctrack.origin+"/dquery?sql=") ) // change to editable link
 						{
