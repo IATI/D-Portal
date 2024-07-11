@@ -386,7 +386,7 @@ ctrack.setup=function(args)
 				if(it.show)
 				{
 					var id=args[it.q]
-					var text=" <span>("+id+")</span> "
+					var text=" <span class='filter_code'>"+id+"</span> "
 					var icon
 					if(id)
 					{
