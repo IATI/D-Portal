@@ -394,18 +394,21 @@ ctrack.setup=function(args)
 							{
 								if(c[text])
 								{
-									text=c[text]
+									text=c[text]+" ("+text+") "
 								}
+								else
 								if(typeof text=="string") // try fixing the case for lookup
 								{
 									if(c[text.toUpperCase()])
 									{
-										text=c[text.toUpperCase()]
+										text=text.toUpperCase()
+										text=c[text]+" ("+text+") "
 									}
 									else
 									if(c[text.toLowerCase()])
 									{
-										text=c[text.toLowerCase()]
+										text=text.toLowerCase()
+										text=c[text]+" ("+text+") "
 									}
 								}
 							}
