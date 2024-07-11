@@ -347,6 +347,11 @@ fetch.codelist_filenames_2={
 }
 for(var n in fetch.codelist_filenames_2){fetch.codelist_filenames[n]=true}
 
+fetch.codelist_filenames_3={
+	"UNSDG-Indicators.xml":true,
+}
+for(var n in fetch.codelist_filenames_3){fetch.codelist_filenames[n]=true}
+
 
 fetch.codelist=async function()
 {
@@ -362,6 +367,12 @@ fetch.codelist=async function()
 	{
 		console.log("downloading "+n)
 		await download("https://raw.githubusercontent.com/IATI/IATI-Codelists-NonEmbedded/master/xml/"+n,"fetched")
+	}
+
+	for(var n in fetch.codelist_filenames_3 )
+	{
+		console.log("downloading "+n)
+		await download("https://codelists.codeforiati.org/api/xml/"+n,"fetched")
 	}
 
 	var codelists={}
