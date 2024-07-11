@@ -291,13 +291,43 @@
 			<option value></option>
 			{search_options_tied_status}
 		</select>
-	</div>
+	</div>{view_search_filters_test_maybe}
 	<div class="search_external" style="display:none;">
 		{search_external_txt} <span>- View a specific list of activities on d-portal.</span>
 		<input id="view_search_input_aids" placeholder="Type published IATI identifiers separated by comma or paste URL and press Enter"/>
 	</div>
 </div>
 
+#view_search_filters_test_maybe
+#view_search_filters_test
+	<div class="search_wrap">		<!-- tag_unsdg goal -->
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_tag_unsdg_txt}
+		</div>
+		<select aria-label="Select a tag_unsdg from this dropdown" id="view_search_select_tag_unsdg" class="chosen" multiple>
+			<option value></option>
+			{search_options_tag_unsdg}
+		</select>
+	</div><div class="search_wrap mid">		<!-- tag_unsdt	target -->
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_tag_unsdt_txt}
+		</div>
+		<select aria-label="Select a tag_unsdt from this dropdown" id="view_search_select_tag_unsdt" class="chosen" multiple>
+			<option value></option>
+			{search_options_tag_unsdt}
+		</select>
+	</div><div class="search_wrap">		<!-- tag_unsdi indicator -->
+		<div class="search_label">
+			<span>&#10096;&#10097;</span> {search_tag_unsdi_txt}
+		</div>
+		<select aria-label="Select a tag_unsdi from this dropdown" id="view_search_select_tag_unsdi" class="chosen" multiple>
+			<option value></option>
+			{search_options_tag_unsdi}
+		</select>
+	</div>
+
+
+	
 
 <!-- SEARCH	 2	-->
 #search_trend2
@@ -728,9 +758,6 @@
 		<input id="view_search_input_aids" placeholder="Type published IATI identifiers separated by comma or paste URL and press Enter"/>
 	</div>
 </div>
-
-
-
 
 
 <!-- freetext search - alternative ui with filters below search bar	-->

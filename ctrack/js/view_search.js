@@ -474,6 +474,43 @@ view_search.terms=[
 	more   : true,
 },
 
+{
+	name   : "tag_unsdg",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["UNSDG-Goals"], ],
+	drops  : [ "#view_search_select_tag_unsdg" ],
+	q      : "tag_unsdg",
+	list   : "search_options_tag_unsdg",
+	show   : "search_display_tag_unsdg",
+	more   : true,
+	sort   : "value",
+},
+{
+	name   : "tag_unsdt",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["UNSDG-Targets"], ],
+	drops  : [ "#view_search_select_tag_unsdt" ],
+	q      : "tag_unsdt",
+	list   : "search_options_tag_unsdt",
+	show   : "search_display_tag_unsdt",
+	more   : true,
+	sort   : "value",
+},
+{
+	name   : "tag_unsdi",
+	search : false,
+	filter : true,
+	codes  : [ dflat_codes["en-name"]["UNSDG-Indicators"], ],
+	drops  : [ "#view_search_select_tag_unsdi" ],
+	q      : "tag_unsdi",
+	list   : "search_options_tag_unsdi",
+	show   : "search_display_tag_unsdi",
+	more   : true,
+	sort   : "value",
+},
+
 ]
 
 // the chunk names this view will fill with new data
@@ -872,6 +909,11 @@ view_search.fixup=function()
 //
 view_search.view=function(args)
 {
+	
+	if(ctrack.q.test)
+	{
+		ctrack.chunk("view_search_filters_test_maybe","{view_search_filters_test}")		
+	}
 
 	views.search.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
 
