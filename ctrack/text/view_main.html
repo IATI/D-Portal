@@ -12,7 +12,6 @@
 {main_head}
 {main_max}
 {about_data_links}
-<!--{new_main_stats}-->
 {main_stats}
 {donor_graph}
 {countries_graph}
@@ -141,6 +140,77 @@
 	<div class="default mention">{main_mention}{main_declare_stats}</div>
 </div>
 
+#new_main_stats1
+<div class="stats_wrap">
+	<table class="title key">
+		<tr>
+			<td class="icon"><img src="{flava}publisher_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
+			<td>{stats_title_text}</td>
+		</tr>
+	</table>
+	<div style="display:flex;">
+		<div>
+			<div>
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities" class="stats_link total">
+					<span class="stats_title">{stats_total_text}</span>
+					<span class="stats_num small">{total_projects_human}</span>
+				</a>
+			</div>
+			<div>
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_publishers" class="stats_link publishers">
+					<span class="stats_title tiny">{stats_publisher_text}</span>
+					<span class="stats_num small">{numof_publishers}</span>
+				</a>
+			</div>
+			<div>
+				<a onclick="switch($(this).children('span').first().html()){ case '0': return false; };" href="#view=missing" class="stats_link">
+					<span class="stats_title">{stats_missing_text}</span>
+					<span class="stats_num small">{missing_projects}</span>
+				</a>
+			</div>
+		</div>
+		<div>
+			<div>
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link">
+					<span class="stats_title">Pipeline/identification</span>
+					<span class="stats_num small">{active_projects}</span>
+				</a>
+			</div>
+			<div>
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities" class="stats_link total">
+					<span class="stats_title">Finalisation</span>
+					<span class="stats_num small">{planned_projects}</span>
+				</a>
+			</div>
+			<div>
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=ended" class="stats_link">
+					<span class="stats_title">Cancelled</span>
+					<span class="stats_num small">{planned_projects}</span>
+				</a>
+			</div>
+		</div>
+		<div>
+			<div><a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=ended" class="stats_link">
+					<span class="stats_title">Implementation</span>
+					<span class="stats_num small">{ended_projects}</span>
+				</a>
+			</div>
+			<div>
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link">
+					<span class="stats_title">Closed</span>
+					<span class="stats_num small">{planned_projects}</span>
+				</a>
+			</div>
+			<div>
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities" class="stats_link total">
+					<span class="stats_title">Suspended</span>
+					<span class="stats_num small">{planned_projects}</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
 #new_main_stats
 <div class="stats_wrap">
 	<table class="title key">
@@ -212,6 +282,27 @@
 		</tr>
 	</table>
 	<div class="default mention">{main_mention}{main_declare_stats}</div>
+</div>
+
+#main_sdg
+<div class="stats_wrap">
+	<div class="sdg_wrap">
+		<div class="sdg">
+			<div class="sdg_icon"><img src="/ctrack/art/sdg/sdg-15.svg"></div>
+			<div>
+				<div class="sdg_title">UN Sustainable Development Goals (SDG)</div>
+				<div class="sdg_goal_info">
+					Goal 15. Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss
+				</div>
+				<div class="sdg_target_info">
+					<span>Target 3.b</span> Support the research and development of vaccines and medicines for the communicable and non‑communicable diseases that primarily affect developing countries, provide access to affordable essential medicines and vaccines, in accordance with the Doha Declaration on the TRIPS Agreement and Public Health, which affirms the right of developing countries to use to the full the provisions in the Agreement on Trade-Related Aspects of Intellectual Property Rights regarding flexibilities to protect public health, and, in particular, provide access to medicines for all
+				</div>
+				<div class="sdg_indicator_info">
+					<span>Indicator 15.9.1</span> (a) Number of countries that have established national targets in accordance with or similar to Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020 in their national biodiversity strategy and action plans and the progress reported towards these targets; and (b) integration of biodiversity into national accounting and reporting systems, defined as implementation of the System of Environmental-Economic Accounting
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 #main_mention

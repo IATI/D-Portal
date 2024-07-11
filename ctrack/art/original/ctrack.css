@@ -95,6 +95,20 @@ a.about_data.registry_link	{border-right:1px solid #CCC; text-align:left;}
 .default.mention		{display:flex; justify-content:space-between;}
 
 
+/*	SDG styles
+	============================================= */
+.sdg_wrap		{background-color:#fff; border-radius:6px; margin:0 auto; width:960px; margin-top:1em; margin-bottom:2em;}
+.sdg			{display:flex; padding:2em; padding-right:4em; color:#666; line-height:1.5em;}
+.sdg_icon		{margin-right:2em;}
+.sdg_icon img	{width:165px; filter:none;}
+.sdg_title		{font-size:2em;}
+.sdg_goal_info	{font-size:1.25em; margin-top:1em;}
+.sdg_indicator_info,
+.sdg_target_info		{margin-top:1em; line-height:1.25em;}
+.sdg_indicator_info span,
+.sdg_target_info span	{font-weight:bold;}
+
+
 /*	Country Code List style - INDEX PAGE
 	============================================= */
 .country_menu_wrap			{width:960px; margin:0 auto; padding:40px 0 60px 0;}

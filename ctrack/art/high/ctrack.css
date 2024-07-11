@@ -92,6 +92,11 @@ a.about_data.registry_link	{border-right:1px solid #000; text-align:left;}
 .default.mention		{display:flex; justify-content:space-between;}
 
 
+/*	SDG styles
+	============================================= */
+.sdg_icon img {filter:grayscale(1) brightness(1);}
+
+
 /*	Country Code List style - INDEX PAGE
 	============================================= */
 .country_menu_wrap			{width:960px; margin:0 auto; padding:40px 0 60px 0;}
@@ -184,16 +189,23 @@ a.back_news:hover	{color:#000;}
 #donor_graph, #sector_graph, #countries_graph, #publisher_countries_graph,
 #publisher_sectors_graph{background-color:#FFF; font-size:1.0em; line-height:1.3em; color:#000; border:1px solid #000; border-top:0; border-radius:0 0 8px 8px;}
 a.graph_wrap			{display:block; position:relative; width:960px;}
-span.graph_view_all			{display:block; background-color:rgba(0,0,0,0); position:absolute; left:0; top:0; width:960px; height:393px; color:rgba(255,255,255,0); font-size:60px; line-height:393px; text-align:center; border-radius:0 0 8px 8px;}
+.default.graph_bars		{border:1px solid #000;}
+span.graph_view_all		{display:block; background-color:rgba(0,0,0,0); position:absolute; left:0; top:0; width:960px; color:rgba(255,255,255,0); font-size:60px; line-height:393px; text-align:center; border-radius:0 0 8px 8px;}
 span.graph_view_all:hover	{background-color:rgba(0,0,0,1); color:rgba(255,255,255,1);}
 span.graph_view_all.pub_donor		{height:410px; line-height:410px;}
 span.graph_view_all.pub_sector		{height:460px; line-height:460px;}
 span.ask.donor,
+span.ask.country,
 span.ask.sector			{background-color:#000; display:block; width:960px; margin:0 auto; padding:0; color:#FFF; font-size:32px; text-align:center;}
-.main_peak_wrap			{width:958px; background-color:#FFF; border:1px solid #000; border-top:0; border-bottom:0; display:block;}
+.main_peak_wrap			{width:958px; background-color:#FFF; border:1px solid #fff; border-top:0; border-bottom:0; display:block;}
+.graph_bar_code			{background-color:#eee;}
+.graph_bar_overlay.donor_main_bar,
+.graph_bar_overlay.country_main_bar,
+.graph_bar_overlay.sector_main_bar	{background-color:#000 !important;}
 
 /* Triangles */
 .peak.donor,
+.peak.country,
 .peak.chart_sector		{margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; border-top:20px solid #000; display:block;}
 
 .print .ask_title		{padding:20px 40px; display:block; color:#fff;}
