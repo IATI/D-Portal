@@ -162,7 +162,7 @@ query.getsql_select=function(q,qv){
 //		};
 
 
-	var ns=q[0];
+	var ns=dstore_db.table_name_map;
 
 // extra special calculations
 	var pcts={"country":true,"sector":true,"location":true};
@@ -348,56 +348,51 @@ query.getsql_select=function(q,qv){
 query.getsql_from=function(q,qv){
 	var ss=[];
 
-	var f=q.from;
-	f=f.split(",");
-
-// filter by real tables
-	f=f.map(function(it){
-		var r="";
-		for(var name in dstore_db.tables )
-		{
-			if(it==name){ r=name; }
-		}
-		return r;
-	});
-	
 	let ff={}
-	for( let qn in q ) // find tables in use
+	let f=null
+	for( let name of q.from.split(",") )
 	{
-		let n=qn.split("_")[0] // first part will be table name ( except for aid which is all tables )
-		if( dstore_db.tables[n] ) // real table name
+		if( dstore_db.tables_active[name] )
 		{
-			ff[n]=true
-		}
-	}
-	for( let n in ff ) // check all tables to add
-	{
-		let doadd=true
-		for( let nn of f ) // check current from list
-		{
-			if(n==nn) // already in list
-			{
-				doadd=false
-				break
-			}
-		}
-		if(doadd) // auto add to list
-		{
-			f.push(n)
+			ff[name]=name
+			if(!f){f=name}
 		}
 	}
 	
-			
-//	q.from=f[0]; // store the first table name back in the q for later use
+	for( let name in q ) // find tables in use
+	{
+		if( dstore_db.table_name_map[name] )
+		{
+			let t=dstore_db.table_name_map[name]
+			ff[t.alias||t.table]=t
+			if(!f){f=t.table}
+		}
+	}
 	
-	ss.push( " FROM "+f[0]+" " )
+	if(!f) { return "" } // no tables to join
+	
+	ss.push( " FROM "+f+" " )
 
-	for( var i=1; i<f.length ; i++)
+	for( let name in ff)
 	{
-		var n=f[i];
-		if(n!="")
+		if(name==f) { continue }
+		let table=ff[name]
+
+		if(typeof(table)=="string")
 		{
-			ss.push(" JOIN "+n+" USING (aid) " );
+			ss.push(" JOIN "+table+" USING (aid) " );
+		}
+		else
+		if(typeof(table)=="object")
+		{
+			if(table.alias)
+			{
+				ss.push(" JOIN "+table.table+" AS "+table.alias+" USING (aid) " );
+			}
+			else
+			{
+				ss.push(" JOIN "+table.table+" USING (aid) " );
+			}
 		}
 	}
 
@@ -410,7 +405,7 @@ query.getsql_where=function(q,qv){
 	var tables={};
 	var wheres=[];
 	
-	var ns=q[0];
+	var ns=dstore_db.table_name_map;
 	
 	var joins={};
 	
@@ -584,7 +579,7 @@ for(var n in ns) // all valid fields
 query.getsql_group_by=function(q,qv){
 	var ss=[];
 
-	var ns=q[0];
+	var ns=dstore_db.table_name_map;
 
 	if(q.groupby)
 	{
@@ -807,7 +802,7 @@ query.getsql_distinct_on=function(q,qv){
 	
 	var ss=[];
 
-	var ns=q[0];
+	var ns=dstore_db.table_name_map;
 
 	if(q.distincton)
 	{
@@ -836,7 +831,7 @@ query.getsql_distinct_on=function(q,qv){
 query.getsql_order_by=function(q,qv){
 	var ss=[];
 
-	var ns=q[0];
+	var ns=dstore_db.table_name_map;
 
 	if(q.orderby)
 	{
@@ -908,32 +903,6 @@ query.getsql_limit=function(q,qv){
 
 	if(ss[0]) { return ss.join(""); }
 	return "";
-};
-
-query.getsql_build_column_names=function(q,qv){
-
-	var ns={};
-	for(var name in dstore_db.tables )
-	{
-		for(var n in dstore_db.tables_active[name])
-		{
-			var tname=name
-			if(n=="aid") { tname="act" } // force act for all aid columns
-			ns[n]={ "format":dstore_db.tables_active[name][n] , "table":tname , "name":n };
-		}
-	}
-
-	// special case for possible tags
-	for(let mode in iati_codes.tag_mode )
-	{
-		ns["tag_"+(mode.toLowerCase())]={ "mode":mode , "mode_name":"tag_mode" , "format":dstore_db.tables_active["tag"]["tag_code"] , "table":"tag" , "name":"tag_code" }
-	}
-	ns["tag"]={ "format":dstore_db.tables_active["tag"]["tag_code"] , "table":"tag" , "name":"tag_code" }
-
-//console.log(ns)
-
-	q[0]=ns; // special array of valid column names
-
 };
 
 query.humanizer=function(name,value)
@@ -1291,8 +1260,6 @@ query.stream_stop=function(stream)
 }
 
 query.do_select=function(q,res,req){
-
-	query.getsql_build_column_names(q);
 
 	var r={rows:[],count:0};
 	var qv={};	
