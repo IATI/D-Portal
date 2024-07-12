@@ -188,6 +188,68 @@ dstore_db.tables={
 
 };
 
+dstore_db.tables_active={};
+{
+	for(let name in dstore_db.tables)
+	{
+		let t={};
+		for(let i=0; i<dstore_db.tables[name].length; i++ )
+		{
+			let v=dstore_db.tables[name][i];
+			
+			let ty="null";
+			
+			if(v.TEXT) { ty="char"; }
+			else
+			if(v.NOCASE) { ty="char"; }
+			else
+			if(v.INTEGER) { ty="int"; }
+			else
+			if(v.REAL) { ty="float"; }
+			
+			if(v.name)
+			{
+				t[v.name]=ty;
+			}
+		}
+		dstore_db.tables_active[name]=t;
+	}
+}
+
+dstore_db.table_name_map={} // look up table from name
+{
+	let ns={};
+	dstore_db.table_name_map=ns
+	
+	for(var name in dstore_db.tables )
+	{
+		for(var n in dstore_db.tables_active[name])
+		{
+			var tname=name
+			if(n=="aid") { tname="act" } // force act for all aid columns
+			ns[n]={ "format":dstore_db.tables_active[name][n] , "table":tname , "name":n };
+		}
+	}
+
+	// special case for possible tags
+	for(let mode in codes.tag_mode )
+	{
+		let alias="tag_"+(mode.toLowerCase())
+		ns[alias]={
+			"mode":mode ,
+			"mode_name":alias+".tag_mode" ,
+			"format":dstore_db.tables_active["tag"]["tag_code"] ,
+			"table":"tag" ,
+			"alias":alias ,
+			"name":alias+".tag_code" }
+	}
+	ns["tag"]={ "format":dstore_db.tables_active["tag"]["tag_code"] , "table":"tag" , "name":"tag.tag_code" }
+}
+
+// console.log(dstore_db.table_name_map)
+
+
+
 let dflat_indexs={}
 for( let pn in dflat_database.paths ) // auto xson indexes
 {

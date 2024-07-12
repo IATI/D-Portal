@@ -424,36 +424,18 @@ dstore_pg.cache_prepare = function(){
 	
 	dstore_db.tables_replace_sql={};
 	dstore_db.tables_update_sql={};
-	dstore_db.tables_active={};
 	dstore_db.tables_primary={};
 	for(var name in dstore_db.tables)
 	{
-		var t={};
+		var t=dstore_db.tables_active[name];
 		for(var i=0; i<dstore_db.tables[name].length; i++ )
 		{
 			var v=dstore_db.tables[name][i];
-			
-			var ty="null";
-			
-			if(v.TEXT) { ty="char"; }
-			else
-			if(v.NOCASE) { ty="char"; }
-			else
-			if(v.INTEGER) { ty="int"; }
-			else
-			if(v.REAL) { ty="float"; }
-			
 			if(v.PRIMARY)
 			{
 				dstore_db.tables_primary[name]=v.name;
 			}
-			
-			if(v.name)
-			{
-				t[v.name]=ty;
-			}
 		}
-		dstore_db.tables_active[name]=t;
 		dstore_db.tables_replace_sql[name]=dstore_pg.getsql_prepare_replace(name,t);
 		dstore_db.tables_update_sql[name] =dstore_pg.getsql_prepare_update(name,t);
 	}
