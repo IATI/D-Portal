@@ -346,6 +346,52 @@ query.getsql_select=function(q,qv){
 };
 
 query.getsql_from=function(q,qv){
+
+	var startsmap=[
+		"sum_of_percent_of_", // longest must be first
+		"percent_of_",
+		"filter_",
+		"round0_",
+		"round1_",
+		"count_",
+		"avg_",
+		"sum_",
+		"max_",
+		"min_",
+		"any_",
+	];
+
+	var endsmap=[ 
+		"_not_null", // longest must be first
+		"_lteq",
+		"_gteq",
+		"_nteq",
+		"_glob",
+		"_like",
+		"_null",
+		"_lt",
+		"_gt",
+		"_eq",
+	];
+	let trimq=function(n)
+	{
+		for( let starts of startsmap )
+		{
+			if(n.startsWith(starts))
+			{
+				n=n.slice(starts.length)
+			}
+		}
+		for( let ends of endsmap )
+		{
+			if(n.endsWith(ends))
+			{
+				n=n.slice(n,-ends.length)
+			}
+		}
+		return n
+	}
+	
 	var ss=[];
 
 	let ff={}
@@ -361,6 +407,7 @@ query.getsql_from=function(q,qv){
 	
 	for( let name in q ) // find tables in use
 	{
+		name=trimq(name)
 		if( dstore_db.table_name_map[name] )
 		{
 			let t=dstore_db.table_name_map[name]
