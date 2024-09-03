@@ -151,7 +151,29 @@
 			<td>{stats_title_text}</td>
 		</tr>
 	</table>
-	<table class="stats" style="margin-bottom:10px;">
+	<div class="status_wrap" style="margin:0 auto; margin-top:20px; border-bottom:1px solid #aaa; width:960px; padding-bottom:15px;">
+		<div class="status" style="display:flex; width:960px; margin:0 auto; flex-wrap:wrap; justify-content:center; gap:14px;">
+			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=1" class="stats_link missing" title="{stats_pipeline_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
+				{stats_pipeline_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_1}</span>
+			</a>
+			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=2" class="stats_link missing" title="{stats_implementation_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
+				{stats_implementation_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_2}</span>
+			</a>
+			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=3" class="stats_link missing" title="{stats_finalisation_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
+				{stats_finalisation_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_3}</span>
+			</a>
+			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=4" class="stats_link missing" title="{stats_closed_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
+				{stats_closed_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_4}</span>
+			</a>
+			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=5" class="stats_link missing" title="{stats_cancelled_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
+				{stats_cancelled_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_5}</span>
+			</a>
+			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=6" class="stats_link missing" title="{stats_suspended_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
+				{stats_suspended_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_6}</span>
+			</a>
+		</div>
+	</div>
+	<table class="stats">
 		<tr>
 			<td rowspan="2" colspan="2" title="{stats_active_tip_text}">
 				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link active">
@@ -187,29 +209,7 @@
 				</a>
 			</td>
 		</tr>
-	</table>
-	<div class="status_wrap" style="margin:0 auto; margin-bottom:25px;">
-		<div class="status" style="display:flex; width:960px; margin:0 auto; flex-wrap:wrap; justify-content:center; gap:14px; margin-bottom:15px;">
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=1" class="stats_link missing" title="{stats_pipeline_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
-				{stats_pipeline_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_1}</span>
-			</a>
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=2" class="stats_link missing" title="{stats_implementation_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
-				{stats_implementation_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_2}</span>
-			</a>
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=3" class="stats_link missing" title="{stats_finalisation_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
-				{stats_finalisation_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_3}</span>
-			</a>
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=4" class="stats_link missing" title="{stats_closed_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
-				{stats_closed_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_4}</span>
-			</a>
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=5" class="stats_link missing" title="{stats_cancelled_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
-				{stats_cancelled_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_5}</span>
-			</a>
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=6" class="stats_link missing" title="{stats_suspended_tip_text}" style="flex-basis:97px; padding:20px 20px; margin:0; height:initial; font-size:16px;">
-				{stats_suspended_text} <span style="display:block; padding-top:10px; font-size:23px;">{numof_status_code_6}</span>
-			</a>
-		</div>
-	</div>	
+	</table>	
 	<div class="default mention">{main_mention}{main_declare_stats}</div>
 </div>
 
