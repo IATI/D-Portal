@@ -24,6 +24,15 @@ view_stats.chunks=[
 	"planned_projects",
 	"numof_publishers",
 	"percent_of_activities_with_location",
+	
+	"numof_status_code_1",
+	"numof_status_code_2",
+	"numof_status_code_3",
+	"numof_status_code_4",
+	"numof_status_code_5",
+	"numof_status_code_6",
+	"numof_status_code_total",
+	"numof_status_code_unknown",
 ];
 
 view_stats.calc=function()
@@ -40,31 +49,12 @@ view_stats.calc=function()
 		ctrack.chunk("percent_of_activities_with_location",pct);
 	}
 
-/*
-	
-	var pt=parseInt(ctrack.chunk("total_projects"))||0;
-	var pa=parseInt(ctrack.chunk("active_projects"))||0;
-	var pe=parseInt(ctrack.chunk("ended_projects"))||0;
-	var pp=parseInt(ctrack.chunk("planned_projects"))||0;
-	
-	var pm=pt - (pa+pe+pp)
-	if(pm>0)
-	{
-		ctrack.chunk("missing_projects",pm);
-	}
-	else
-	{
-		ctrack.chunk("missing_projects",0);
-	}
-*/
-
-//	console.log(pm);
 }
 
 //
 // Perform ajax call to get numof data
 //
-view_stats.ajax=function(args)
+view_stats.old_ajax=function(args)
 {
 	args=args || {};
     
@@ -76,8 +66,6 @@ view_stats.ajax=function(args)
 		
 	fetcher.ajax(dat,args.callback || function(data)
 	{
-//		console.log("view_stats.numof_callback");
-//		console.log(data);
 			
 		if(data.rows[0])
 		{
@@ -97,10 +85,6 @@ view_stats.ajax=function(args)
 			"groupby":"reporting_ref",
 			"limit":-1,
 		};
-//	var dat={
-//			"select":"count_reporting_ref",
-//			"from":"act",
-//		};
 	fetcher.ajax_dat_fix(dat,args);
 		
 	fetcher.ajax(dat,args.callback || function(data)
@@ -138,4 +122,93 @@ view_stats.ajax=function(args)
 	views.ended.ajax({output:"count"});
 	views.missing.ajax({output:"count"});
 	
+}
+
+
+//
+// Perform ajax call to get numof data
+//
+view_stats.new_ajax=function(args)
+{
+	args=args || {};
+
+	var dat={
+			"select":"status_code,count",
+			"from":"act",
+			"groupby":"status_code",
+			"limit":-1,
+		};
+	fetcher.ajax_dat_fix(dat,args);
+	if(dat.country_code) { dat.country_percent=100;}
+
+	fetcher.ajax(dat,args.callback || function(data)
+	{
+		let unknown=0
+		let total=0
+		let counts={1:0,2:0,3:0,4:0,5:0,6:0}
+		for(let r of data.rows)
+		{
+			if( counts[r.status_code]!==undefined ) // code we recognise
+			{
+				counts[r.status_code] += Number(r.count||0)
+				total += Number(r.count||0)
+			}
+			else // unknown code
+			{
+				unknown += Number(r.count||0)
+				total += Number(r.count||0)
+			}
+		}
+		counts["unknown"]=unknown
+		counts["total"]=total
+		
+		for(let k in counts)
+		{
+			let v=commafy( counts[k] )
+			ctrack.chunk("numof_status_code_"+k,v );
+		}
+
+		ctrack.display(); // every fetcher.ajax must call display once
+	});
+
+
+
+	var dat={
+			"from":"act",
+			"select":"reporting_ref",
+			"groupby":"reporting_ref",
+			"limit":-1,
+		};
+	fetcher.ajax_dat_fix(dat,args);
+		
+	fetcher.ajax(dat,args.callback || function(data)
+	{
+		ctrack.chunk("numof_publishers",data.rows.length);
+
+		view_stats.calc();
+		
+		ctrack.display(); // every fetcher.ajax must call display once
+	});
+
+}
+
+
+
+//
+// Perform ajax call to get numof data
+//
+view_stats.ajax=function(args)
+{
+
+	if(ctrack.q.test)
+	{
+		ctrack.chunk("main_stats","{new_main_stats}")		
+		view_stats.new_ajax(args)
+	}
+	else
+	{
+		ctrack.chunk("main_stats","{old_main_stats}")		
+		view_stats.old_ajax(args)
+	}
+
 }

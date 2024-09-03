@@ -93,6 +93,9 @@
 </div>
 
 #main_stats
+{new_main_stats}
+
+#old_main_stats
 <div class="stats_wrap">
 	<table class="title key">
 		<tr>
@@ -153,7 +156,7 @@
 			<div class="status_pipeline" style="flex-grow:2;">
 				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link active" title="{stats_implementation_tip_text}" style="margin:0; height:initial;">
 					<span class="stats_title">{stats_implementation_text}</span>
-					<span class="stats_num">143,955</span>
+					<span class="stats_num">{numof_status_code_2}</span>
 				</a>
 			</div>
 			<div>
@@ -162,7 +165,7 @@
 					<span class="stats_num small">{numof_publishers}</span>
 				</a>
 				<a onclick="switch($(this).children('span').first().html()){ case '0': return false; };" href="#view=list_activities" class="stats_link missing" title="{stats_total_tip_text}" style="padding:20px 40px; margin:0; height:initial; margin-top:10px;">
-					{stats_total_text} <span>{total_projects_human}</span>
+					{stats_total_text} <span>{numof_status_code_total}</span>
 				</a>
 			</div>
 		</div>
@@ -170,28 +173,28 @@
 			<div class="status_div" style="flex-basis:473px;">
 				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link" title="{stats_pipeline_tip_text}" style="margin:0; height:initial;">
 					<span class="stats_title">{stats_pipeline_text}</span>
-					<span class="stats_num small">971</span>
+					<span class="stats_num small">{numof_status_code_1}</span>
 				</a>
 			</div>
 			<div class="status_div" style="flex-basis:473px;">
 				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link" title="{stats_finalisation_tip_text}" style="margin:0; height:initial;">
 					<span class="stats_title">{stats_finalisation_text}</span>
-					<span class="stats_num small">738,546</span>
+					<span class="stats_num small">{numof_status_code_3}</span>
 				</a>
 			</div>
 		</div>
 		<div class="status" style="display:flex; width:960px; margin:0 auto; flex-wrap:wrap; justify-content:center; gap:14px; margin-bottom:15px;">
 			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link missing" title="{stats_closed_tip_text}" style="flex-basis:190px; padding:20px 20px; margin:0; height:initial;">
-				{stats_closed_text} <span>1557</span>
+				{stats_closed_text} <span>{numof_status_code_4}</span>
 			</a>
 			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link missing" title="{stats_cancelled_tip_text}" style="flex-basis:190px; padding:20px 20px; margin:0; height:initial;">
-				{stats_cancelled_text} <span>25</span>
+				{stats_cancelled_text} <span>{numof_status_code_5}</span>
 			</a>
 			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link missing" title="{stats_suspended_tip_text}" style="flex-basis:189px; padding:20px 20px; margin:0; height:initial;">
-				{stats_suspended_text} <span>0</span>
+				{stats_suspended_text} <span>{numof_status_code_6}</span>
 			</a>
 			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=missing" class="stats_link missing" title="{stats_missing_tip_text}" style="flex-basis:189px; padding:20px 20px; margin:0; height:initial;">
-				{stats_missing_text} <span>{missing_projects}</span>
+				{stats_missing_text} <span>{numof_status_code_unknown}</span>
 			</a>
 		</div>
 	</div>
