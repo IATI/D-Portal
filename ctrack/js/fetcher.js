@@ -345,6 +345,13 @@ fetcher.ajax_dat_fix=function(dat,args,flag)
 		delete dat["sector_group"];
 	}
 
+	if(dat.country_code)
+	{
+		if(dat.country_percent===undefined) // auto 100%
+		{
+			dat.country_percent=100
+		}
+	}
 
 	if( dat["day_start_lteq"] )
 	{

@@ -139,7 +139,6 @@ view_stats.new_ajax=function(args)
 			"limit":-1,
 		};
 	fetcher.ajax_dat_fix(dat,args);
-	if(dat.country_code) { dat.country_percent=100;}
 
 	fetcher.ajax(dat,args.callback || function(data)
 	{
