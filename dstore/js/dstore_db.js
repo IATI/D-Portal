@@ -766,7 +766,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		// we should null invalid status codes
 		if(!codes.activity_status[t.status_code])
 		{
-			console.log("badcode "+t.status_code)
+//			console.log("badcode "+t.status_code)
 			t.status_code=null
 		}
 
