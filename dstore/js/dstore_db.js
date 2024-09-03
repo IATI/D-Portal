@@ -763,6 +763,13 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		t.reporting_ref=refry.tagattr(act,"reporting-org","ref");
 		t.status_code=tonumber(refry.tagattr(act,"activity-status","code"));
 
+		// we should null invalid status codes
+		if(!codes.activity_status[t.status_code])
+		{
+			console.log("badcode "+t.status_code)
+			t.status_code=null
+		}
+
 		if( "string" == typeof t.reporting_ref ) { t.reporting_ref = t.reporting_ref.trim() } // remove white space
 
 		t.flags=0;
