@@ -19,9 +19,10 @@ var iati_codes=require("../../dstore/json/iati_codes.json");
 var crs=require("../../dstore/json/crs.js");
 
 ctrack.map_old_views={
+	"donors"                   : "publishers",
 	"publisher"                : "main",
 	"publisher_countries"      : "countries",
-	"ppublisher_countries_top" : "countries_top",
+	"publisher_countries_top"  : "countries_top",
 	"publisher_sectors"        : "sectors",
 	"publisher_sectors_top"    : "sectors_top",
 }
