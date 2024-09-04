@@ -201,8 +201,17 @@ view_stats.ajax=function(args)
 
 	if(ctrack.q.test)
 	{
-		ctrack.chunk("main_stats","{new_main_stats}")		
-		view_stats.new_ajax(args)
+		if(ctrack.q.test==2)
+		{
+			ctrack.chunk("main_stats","{new_main_stats2}")
+			view_stats.new_ajax(args)
+		}
+		else
+		{
+			ctrack.chunk("main_stats","{new_main_stats}")
+			view_stats.old_ajax(args)
+			view_stats.new_ajax(args)
+		}
 	}
 	else
 	{
