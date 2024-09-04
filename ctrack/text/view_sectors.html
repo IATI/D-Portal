@@ -22,10 +22,6 @@
 		<div class="default data">
 			<table class="data">
 				<tr>
-					<td>{sectors_data_title1_text}</td>
-					<td>{sectors_data_info1_text}</td>
-				</tr>
-				<tr>
 					<td>{sectors_data_title2_text}</td>
 					<td>{sectors_data_info2_text}</td>
 				</tr>
@@ -89,13 +85,11 @@
 
 #table_sectors_row_head
 <tr class="row1">
-	<th class="col1" onclick="ctrack.dosort('crs');" 				title="{table_sector_tip_title_data_text}"		 >{table_sector_title_data_text}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></th>
 	<th class="col2" onclick="ctrack.dosort('sector');" 			title="{table_sector_tip_title_sector_text}"	 >{table_sector_title_sector_text}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></th>
 	<th class="col3" colspan="3" title="{table_sector_tip_title_transaction_text}"><span onclick="ctrack.dosort('trans');">{table_sector_title_transaction_text}</span> <a href="#view=sectors&year={year1}" onclick="return ctrack.url('#view=sectors&year={year1}');" title="Previous Year" class="year prev">&lt;</a><span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></th>
 	<th class="col4" colspan="2" title="{table_sector_tip_title_budget_text}"><span onclick="ctrack.dosort('budget');">{table_sector_title_budget_text}</span> <a href="#view=sectors&year={year3}" onclick="return ctrack.url('#view=sectors&year={year3}');" title="Next Year" class="year next">&gt;</a><span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></th>
 </tr>
 <tr class="row2">
-	<td class="col1" title="{table_sort_text}"	onclick="ctrack.dosort('crs');" 	>{yearcrs}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
 	<td class="col2" title="{table_sort_text}"	onclick="ctrack.dosort('sector');"	>{table_donor_subtitle_donor_text}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
 	<td class="col3" title="{table_sort_text}"  onclick="ctrack.dosort('t1');" 	>{year1}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
 	<td class="col4" title="{table_sort_text}"  onclick="ctrack.dosort('t2');" 	>{year2}<span class="sort"><img src="{flava}sort_icon.png" alt="{sort_icon_alt_text}" width="15" height="15"></span></td>
@@ -106,7 +100,6 @@
 
 #table_sectors_row
 <tr class="rows">
-	<td class="col1" title="{table_sector_tip_data_text}">{crs}</td>
 	<td class="col2" title="{table_sector_tip_sector_text}"onclick="return ctrack.url('#view=sector_activities&sector_group={group}');">
 		<a>{sector}</a></td>
 	<td class="col3" title="{table_sector_tip_t1_text}" onclick="return ctrack.url('#view=sector_transactions&year={year1}&sector_group={group}');">
