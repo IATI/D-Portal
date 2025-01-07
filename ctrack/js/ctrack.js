@@ -162,6 +162,15 @@ ctrack.setup=function(args)
 	{
 		document.body.classList.add("print")
 	}
+	else
+	if( (args.flava=="white") || (args.rgba=="white") )
+	{
+		document.body.classList.add("white")
+	}
+	else
+	{
+		document.body.classList.add("original")
+	}
 
 	if(!args.css) // can totally override with args
 	{
