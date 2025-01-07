@@ -32,7 +32,7 @@ for(var sn in iati_codes.policy_sig) // policy needs two codes to be joined
 		var n=sn+"_"+cn
 		var v=cv+" ("+sv+")"
 		var valid=true
-		
+
 		if( sn==3 )
 		{
 			if( cn!=8 )
@@ -48,7 +48,7 @@ for(var sn in iati_codes.policy_sig) // policy needs two codes to be joined
 				valid=false
 			}
 		}
-		
+
 		if(valid)
 		{
 			text_policy[n]=v
@@ -538,7 +538,7 @@ view_search.fixup=function()
 
 	var lookup={};
 	var strings=[];
-	
+
 	for( var idx in view_search.terms )
 	{
 		var it=view_search.terms[idx]
@@ -566,10 +566,10 @@ view_search.fixup=function()
 	var substringMatcher = function() {
 	  return function findMatches(q, cb) {
 		var matches, substringRegex;
-	 
+
 		// an array that will be populated with substring matches
 		matches = [];
-	 
+
 		var words=q.split(/(\s+)/);
 
 		var ups={}
@@ -577,12 +577,12 @@ view_search.fixup=function()
 		for(var i in words)
 		{
 			var word=words[i];
-			
+
 			if((word!="")&&(!word.match(/\s/))) // ignore blank/spaces
 			{
 //console.log("searchin:"+word);
 				substrRegex = new RegExp(word, 'i');
-			 
+
 				// iterate through the pool of strings and for any string that
 				// contains the substring `q`, add it to the `matches` array
 				$.each(strings, function(i, str) {
@@ -612,7 +612,7 @@ view_search.fixup=function()
 			}
 			else if(la<lb) { return 1; } else { return -1; } // sort by number of dupes
 		});
-			
+
 		cb(matches);
 	  };
 	};
@@ -637,11 +637,11 @@ view_search.fixup=function()
 
 
 	var build_query=function(e){
-	
+
 		var que=[];
 		var q={};
 		var enable_search=false;
-		
+
 		for( var idx in view_search.terms )
 		{
 			var it=view_search.terms[idx]
@@ -679,12 +679,12 @@ view_search.fixup=function()
 			$("#search_link").removeAttr("href");
 		}
 		view_search.ajax({q:q});
-		
+
 		ctrack.display_hash(); // display current search settings in hash string so we can bookmark
-		
+
 		return "?"+que.join("&")+"#view=main";
 	}
-	
+
 
 	var search_select_ids={}
 	var search_select_sort_ids={}
@@ -715,7 +715,7 @@ view_search.fixup=function()
 	{
 		$(n).chosen(o).change(build_query);
 	}
-	
+
 	var apply=function(v){
 		if(v)
 		{
@@ -743,11 +743,11 @@ view_search.fixup=function()
 		apply(a);
 		build_query();
 	});
-	
+
 	$('#view_search_string').bind('change', function(ev, a) {
 		build_query();
 	});
-	
+
 	var sort_chosen_by="ABC";
 	var sort_chosen=function(sel)
 	{
@@ -779,11 +779,11 @@ view_search.fixup=function()
 	}
 
 	$('#view_search_order').bind('click', function(e, a) {
-			e.preventDefault();			
+			e.preventDefault();
 
 			var a1=$('#view_search_order span.order_1, #view_search_order .toggle_abc');
 			var a2=$('#view_search_order span.order_2, #view_search_order .toggle_123');
-			
+
 			if(sort_chosen_by=="ABC")
 			{
 				a1.show().hide();
@@ -800,16 +800,16 @@ view_search.fixup=function()
 				ctrack.hash.sort="ABC";
 				ctrack.display_hash();
 			}
-			
-			
+
+
 			for(var n in search_select_sort_ids)
 			{
 				sort_chosen($(n));
 				$(n).trigger('chosen:updated');
 			}
-				
+
 		});
-	
+
 	$('#view_search_clear').bind('click', function(e, a) {
 			e.preventDefault();
 			for(var n in search_select_ids)
@@ -819,7 +819,7 @@ view_search.fixup=function()
 			}
 			build_query();
 		});
-		
+
 
 // goto new url
 	var change=function(){
@@ -827,13 +827,13 @@ view_search.fixup=function()
 		var name=""+$("#publisher_dropmenu select").val();
 		if(name && (name!=""))
 		{
-			window.location.href="/ctrack.html?publisher="+name
+			window.location.href=ctrack.chunk("ctrack_html")+"&publisher="+name
 		}
 
 		var name=""+$("#country_dropmenu select").val();
 		if(name && (name!=""))
 		{
-			window.location.href="/ctrack.html?country="+name
+			window.location.href=ctrack.chunk("ctrack_html")+"&country="+name
 		}
 
 	};
@@ -848,7 +848,7 @@ view_search.fixup=function()
 			$(this).trigger("enterKey");
 		}
 	});
-	
+
 	if(	(sort_chosen_by=="ABC") && (ctrack.hash.sort=="123") )
 	{
 		$('#view_search_order').trigger("click");
@@ -912,10 +912,10 @@ view_search.fixup=function()
 //
 view_search.view=function(args)
 {
-	
+
 	if(ctrack.q.test)
 	{
-		ctrack.chunk("view_search_filters_test_maybe","{view_search_filters_test}")		
+		ctrack.chunk("view_search_filters_test_maybe","{view_search_filters_test}")
 	}
 
 	views.search.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
@@ -932,7 +932,7 @@ view_search.view=function(args)
 		bb=bb.toLowerCase().replace("the ", "");
 		return ((aa > bb) - (bb > aa));
 	};
-	
+
 	var compare_value=function(a,b)
 	{
 		var aa=(a.split("'")[1]).split("'")[0];
@@ -942,7 +942,7 @@ view_search.view=function(args)
 		return ((aa > bb) - (bb > aa));
 	};
 
-	
+
 	for( var idx in view_search.terms )
 	{
 		var it=view_search.terms[idx]
@@ -972,7 +972,7 @@ view_search.view=function(args)
 	}
 
 	view_search.ajax();
-	
+
 }
 
 view_search.latest=0;
@@ -987,7 +987,7 @@ view_search.ajax=function(args)
 	else
 	{
 		fetcher.aids=undefined // removed any cached aids values
-		
+
 		view_search.ajax_fetch(args)
 	}
 }
@@ -1025,9 +1025,9 @@ view_search.ajax_fetch=function(args)
 	}
 
 	$("#result_span").html("Searching ...");
-	
+
 	var latest=view_search.latest;
-	
+
 	fetcher.ajax(dat,function(data){
 		if(latest!=view_search.latest) { return; } // ignore old search data
 
@@ -1043,7 +1043,7 @@ view_search.ajax_fetch=function(args)
 //console.log( data.rows[0] );
 		$("#result_span").html("Found "+commafy(c)+" activities");
 	});
-	
+
 	if( args && args.q && args.q.text_search ) // try for exact aid
 	{
 		fetcher.ajax({
@@ -1058,7 +1058,7 @@ view_search.ajax_fetch=function(args)
 //console.log( data );
 				var aid=data.rows[0].aid
 //				$("#result_aid_link").html("<a href=\"#view=act&aid="+aid+"\">View the activity with this IATI Identifier</a>");
-//				$("#result_aid_div").removeClass("search_aid_link_disable");				
+//				$("#result_aid_div").removeClass("search_aid_link_disable");
 				ctrack.change_hash({view:"act",aid:aid});
 			}
 		});

@@ -468,6 +468,23 @@ ctrack.setup=function(args)
 	ctrack.chunk_clear=function(n){
 			ctrack.chunks[n]=undefined;
 	};
+
+// special new white chunks
+	if( (args.flava=="white") || (args.rgba=="white") )
+	{
+		args.flava="original"
+		args.rgba="white"
+		ctrack.chunk("view_head","{view_head_white}");
+		ctrack.chunk("view_tail","{view_tail_white}");
+	}
+	else
+	{
+		args.flava="original"
+		args.rgba="white"
+		ctrack.chunk("view_head","{view_head_original}");
+		ctrack.chunk("view_tail","{view_tail_original}");
+	}
+
 // set global defaults
 	ctrack.chunk("yearcrs" ,crs.year  ); // the crs data is for this year
 	ctrack.chunk("art",args.art);
@@ -475,18 +492,6 @@ ctrack.setup=function(args)
 	ctrack.chunk("flava_name",args.flava);
 	ctrack.chunk("tongue",args.tongue);
 	ctrack.chunk("newyear",args.newyear);
-
-// special new white chunks
-	if( args.flava=="white" )
-	{
-		ctrack.chunk("view_head","{view_head_white}");
-		ctrack.chunk("view_tail","{view_tail_white}");
-	}
-	else
-	{
-		ctrack.chunk("view_head","{view_head_original}");
-		ctrack.chunk("view_tail","{view_tail_original}");
-	}
 
 	ctrack.div={};
 
@@ -509,6 +514,7 @@ ctrack.setup=function(args)
 
 	var bb=[]; for(var n in aa) { bb.push(n+"="+aa[n]); }
 	ctrack.chunk("mark","?"+bb.join("&"));
+	ctrack.chunk("ctrack_html","/ctrack.html?"+bb.join("&"));
 
 	var bb=[]; for(var n in aa) { if(n!="tongue") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_tongue","?"+bb.join("&"));
@@ -526,7 +532,7 @@ ctrack.setup=function(args)
 	ctrack.chunk("mark_no_publisher","?"+bb.join("&"));
 
 // return to the search selection page with current settings
-	ctrack.chunk("search_url","/ctrack.html#view=search&"+search_args.join("&"));
+	ctrack.chunk("search_url","{ctrack_html}#view=search&"+search_args.join("&"));
 
 	var ss=[];
 	for(var i in iati_codes.iati_currencies) { var it=iati_codes.iati_currencies[i];
