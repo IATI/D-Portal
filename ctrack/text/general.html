@@ -29,7 +29,7 @@
 #beige
 
 #beige_instance_display
-{beige_instance_text}{beige_instance_status} 
+{beige_instance_text}{beige_instance_status}
 
 #beige_instance
 <div class="beigealert_wrap dpreview">
@@ -76,12 +76,33 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 {publisher_name}
 
 #view_head
+{view_head_original}
+
+#view_tail
+{view_tail_original}
+
+#view_head_white
 <div class="portal">
 	<div class="main_wrap">
 		<div id="background_image"></div>
 		<div class="overlay">
-	
-#view_tail
+#view_tail_white
+		</div>
+	</div>
+	<div class="footer_wrap">
+		<div class="footer">
+			{large_footer}
+		</div>
+	</div>
+</div>
+
+#view_head_original
+<div class="portal">
+	<div class="main_wrap">
+		<div id="background_image"></div>
+		<div class="overlay">
+
+#view_tail_original
 		</div>
 	</div>
 	<div class="footer_wrap">
@@ -148,8 +169,8 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 <div class="footer_header">{footer12_text}</div>
 <ul>
 	<li><a href="/news/posts.html">{footer13_text}</a></li>
-	<li><a href="/ctrack.html?#view=dash">{footer14_text}</a></li>
-	<li><a href="/ctrack.html#view=generator">{footer15_text}</a></li>
+	<li><a href="{ctrack_html}#view=dash">{footer14_text}</a></li>
+	<li><a href="{ctrack_html}#view=generator">{footer15_text}</a></li>
 	<li><a href="{origin}/dquery">{footer23_text}</a></li>
 	<li><a href="https://xriss.github.io/D-Portal-Logs/">{footer20_text}</a></li>
 	<li><a href="http://d-preview.codeforiati.org">{footer24_text}</a></li>
@@ -180,7 +201,7 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 <p>This is a community hosted service and all preview instances will auto-delete after ten days.</p>
 <p>Project page, issues and feedback on <b><a href="https://github.com/notshi/d-preview">Github</a>.</b></p>
 <p>
-	
+
 </p>
 
 #large_footer_right_dpreview
@@ -215,7 +236,7 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}</a>
 			</td>
 			{main_head_tail_settings}
-			
+
 
 #main_head_search
 <div class="default head">
@@ -241,7 +262,7 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 		</tr>
 	</table>
 	<div class="crumb_wrap">{crumbs}</div>
-</div>	
+</div>
 
 
 #main_head_tail_settings_search_dpreview
@@ -253,9 +274,9 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 		</tr>
 	</table>
 	<div class="crumb_wrap">{crumbs}</div>
-</div>	
+</div>
 
-		
+
 #main_settings
 <div id="settings" style="display:none;">
 <table class="head">
@@ -291,8 +312,8 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 			<form action="">
 			<span class="settings_info">{settings_themes_text} </span>
 			<select aria-label="Select a colour theme from this dropdown" id="flava_select" name="flava" class="">
-				<option value="flava=original">{flava_choose_text}</option> 
-				<option value="flava=original">{flava_original_text}</option> 
+				<option value="flava=original">{flava_choose_text}</option>
+				<option value="flava=original">{flava_original_text}</option>
 				<option value="flava=high">{flava_high_visibility_text}</option>
 			</select>
 			</form>
@@ -300,7 +321,7 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 	</tr>
 </table>
 </div>
-	
+
 
 #main_head_tail_settings
 			<td class="settings_toggle">
@@ -603,7 +624,7 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 		<div class="search search_main" id="main_searchmin_all"></div>
 	</div>
 </div>
-	
+
 #main_max
 {main_country}
 {main_publisher}
@@ -705,7 +726,7 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 				<td>An <a href="http://reference.iatistandard.org/203/codelists/HumanitarianScopeVocabulary/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for a recognised vocabulary of terms classifying the event or action.</td>
 			</tr>
 			<tr>
-				<td>{search_participating_txt}</td>	
+				<td>{search_participating_txt}</td>
 				<td>Organisations from <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a> - not an extensive list and includes only the existing list of IATI Reporting Organisations.</td>
 			</tr>
 			<tr>
@@ -718,7 +739,7 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 			</tr>
 			<tr>
 				<td>{search_recipient_txt}</td>
-				<td>Countries reported by publishers are using <a href="https://en.wikipedia.org/wiki/ISO_3166-2" target="blank" rel="noopener noreferrer">ISO3166 Alpha-2</a>.</td>	
+				<td>Countries reported by publishers are using <a href="https://en.wikipedia.org/wiki/ISO_3166-2" target="blank" rel="noopener noreferrer">ISO3166 Alpha-2</a>.</td>
 			</tr>
 			<tr>
 				<td>{search_related_activity_txt}</td>
@@ -734,7 +755,7 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 			</tr>
 			<tr>
 				<td>{search_sectorgroup_txt}</td>
-				<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/SectorCategory/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 3-digit purpose code</a>.</td>		
+				<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/SectorCategory/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 3-digit purpose code</a>.</td>
 			</tr>
 			<tr>
 				<td>{search_tag_vocab_txt}</td>
