@@ -138,7 +138,7 @@ ctrack.setup=function(args)
 	args.tongue	=args.tongue 	|| 	"eng"; 		// english
 	args.art	=args.art 		|| 	"/art/"; 	// local art
 	args.q		=args.q 		|| 	"/q"; 		// local q api
-	
+
 	args.flavas=args.flavas || ["original","high"];
 	args.flava=args.flava || ctrack.q.flava || "original";
 	args.rgba=args.rgba || ctrack.q.rgba ;
@@ -149,7 +149,7 @@ ctrack.setup=function(args)
 	{
 		args.policy=args.policy.split(",").join("|") // convert , to |
 	}
-	
+
 	if(args.flava=="high" || args.flava=="print")
 	{
 		document.body.classList.add("print")
@@ -171,7 +171,7 @@ ctrack.setup=function(args)
 	}
 
 	if(args.css) { head.load(args.css); }
-	
+
 	document.head.insertAdjacentHTML("beforeend", dflat_savi.plate('<style>{savi-css}</style>') ) // include new savi CSS
 
 	// insert npm jquery libs into browser
@@ -181,7 +181,7 @@ ctrack.setup=function(args)
 	window.moment = require("moment")
 	window.chosen = require("chosen-npm/public/chosen.jquery.js")
 	window.typeahead = require("typeahead.js")
-	
+
 
 	ctrack.year=(new Date()).getFullYear()-1 ; // require("../../dstore/json/crs.js").year // start with year of the CRS data we have
 	ctrack.year=parseInt(args.year || ctrack.q.year || ctrack.year ); // default base year for graphs tables etc
@@ -196,7 +196,7 @@ ctrack.setup=function(args)
 
 	ctrack.args=args;
 
-	ctrack.display_usd="USD"; 
+	ctrack.display_usd="USD";
 	ctrack.convert_usd=1;
 //	ctrack.convert_have={}; // test old style
 	ctrack.convert_have={"CAD":true,"EUR":true,"GBP":true};
@@ -204,7 +204,7 @@ ctrack.setup=function(args)
 		if(n=="sum_of_percent_of_trans") { n="sum_trans" }
 		else
 		if(n=="sum_of_percent_of_budget") { n="sum_budget" }
-		
+
 		if(ctrack.convert_have[ctrack.display_usd])
 		{
 			return n+"_"+ctrack.display_usd.toLowerCase();
@@ -216,7 +216,7 @@ ctrack.setup=function(args)
 		}
 	};
 	ctrack.convert_num=function(n,v){
-		
+
 		if(n=="spend/commitment")
 		{
 			var a=ctrack.convert_num("spend",v)
@@ -271,13 +271,13 @@ ctrack.setup=function(args)
 			if( !args[it.q] ) { args[it.q] = ctrack.q[it.q] }
 		}
 	}
-	
-// pick a random background based on search values	
+
+// pick a random background based on search values
 	var search_hash=Math.abs(shash(search_args.join("&")||""))
 	var backgrounds=["BF"]
 	for(var cc in iati_codes.country) { if( iati_codes.crs_countries[cc] ) { backgrounds.push(cc) } }
 	var backgrounds_idx=( search_hash%backgrounds.length )
-	
+
 	args.chunks["background_image"]="{art}back/"+backgrounds[backgrounds_idx].toLowerCase()+".jpg";
 	args.chunks["country_flag"]="{art}flag/empty_flag.png";
 
@@ -324,7 +324,7 @@ ctrack.setup=function(args)
 		args.chunks["main_countrymin"]="";
 		args.chunks["main_country"]="";
 		args.chunks["main_country_head"]="";
-		
+
 		args.chunks["main_pubmin"]="";
 		args.chunks["main_publisher"]="";
 		args.chunks["main_publisher_head"]="";
@@ -353,7 +353,7 @@ ctrack.setup=function(args)
 			args.chunks["country_flag"]="{art}flag/"+args.country+".png";
 			args.chunks["background_image"]="{art}back/"+args.country+".jpg";
 		}
-		
+
 	}
 
 	if( ctrack.q.reporting_ref )
@@ -376,11 +376,11 @@ ctrack.setup=function(args)
 		args=args || ctrack.args;
 		if(args.showsearch)
 		{
-			
+
 			var div=$("#main_searchmin_all")
-			
+
 			div.empty()
-			
+
 			for( var idx in views.search.terms )
 			{
 				var it=views.search.terms[idx]
@@ -423,12 +423,12 @@ ctrack.setup=function(args)
 	};
 
 	ctrack.crumbs=[{hash:"#view=main",view:"main"}];
-	
+
 	ctrack.setcrumb=function(idx)
 	{
 // try not to leave holes in the crumbs list, so align to left
 		if(idx > ctrack.crumbs.length ) { idx=ctrack.crumbs.length; }
-		
+
 		var it={};
 		ctrack.crumbs=ctrack.crumbs.slice(0,idx);
 		ctrack.crumbs[idx]=it;
@@ -455,7 +455,7 @@ ctrack.setup=function(args)
 	}
 
 	plate.setup(args,ctrack)
-	
+
 
 // set or get a chunk in the ctrack namespace
 	ctrack.chunk=function(n,s){
@@ -476,16 +476,28 @@ ctrack.setup=function(args)
 	ctrack.chunk("tongue",args.tongue);
 	ctrack.chunk("newyear",args.newyear);
 
+// special new white chunks
+	if( args.flava=="white" )
+	{
+		ctrack.chunk("view_head","{view_head_white}");
+		ctrack.chunk("view_tail","{view_tail_white}");
+	}
+	else
+	{
+		ctrack.chunk("view_head","{view_head_original}");
+		ctrack.chunk("view_tail","{view_tail_original}");
+	}
+
 	ctrack.div={};
 
 	ctrack.div.master=$(ctrack.args.master);
 	ctrack.div.master.empty();
 	ctrack.div.master.html( plate.replace("{loading}")  );
-	
-	
+
+
 	ctrack.chunk("today",fetcher.get_today());
 	ctrack.chunk("hash","");
-	
+
 // build ? strings for url changes
 
 	var aa={}
@@ -509,7 +521,7 @@ ctrack.setup=function(args)
 
 	var bb=[]; for(var n in aa) { if(n!="usd") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_usd","?"+bb.join("&"));
-	
+
 	var bb=[]; for(var n in aa) { if(n!="publisher") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_publisher","?"+bb.join("&"));
 
@@ -521,7 +533,7 @@ ctrack.setup=function(args)
 		ss.push('<option value="'+it.id+'">'+it.name+'</option>');
 	}
 	ctrack.chunk("all_usd_options",ss.join());
-	
+
 	var ss=[];
 	for (var d=1;d<365;d++)
 	{
@@ -533,7 +545,7 @@ ctrack.setup=function(args)
 	}
 	ctrack.chunk("all_date_options",ss.join());
 
- 
+
 	ctrack.hash={};
 	ctrack.hash_split=function(q,v)
 	{
@@ -587,7 +599,7 @@ ctrack.setup=function(args)
 			ctrack.display_wait_time=((new Date()).getTime());
 			ctrack.display_wait_max=ctrack.display_wait;
 		}
-		
+
 		if(ctrack.display_wait_max>0)
 		{
 			ctrack.display_progress=100 - (100*(ctrack.display_wait+1)/(ctrack.display_wait_max+1));
@@ -596,14 +608,14 @@ ctrack.setup=function(args)
 		{
 			ctrack.display_progress=100;
 		}
-		
+
 		ctrack.nanobar.go( ctrack.display_progress );
-		
+
 	};
 	ctrack.display=function()
 	{
 		ctrack.display_wait_update(-1);
-		
+
 //		if( ( ctrack.display_wait_time < ((new Date()).getTime()-1000) ) || ( ctrack.display_progress==100) )
 //		{
 			ctrack.change_hash(); // update when done or after waiting a little while?
@@ -650,7 +662,7 @@ ctrack.setup=function(args)
 			ctrack.last_hash=h;
 			var l={};
 			ctrack.hash=ctrack.hash_split(h,l);
-					
+
 			var change_of_view=false || forced;
 			if(l.view)
 			{
@@ -671,7 +683,7 @@ ctrack.setup=function(args)
 				$('html, body').animate({ scrollTop:0 }, 'slow', function(){
 					$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
 				})
-				
+
 				ctrack.show_view(l.view);
 //console.log("new view");
    			}
@@ -720,18 +732,18 @@ ctrack.setup=function(args)
 	}
 
 // run some initial setup queries
-	
+
 	let gotstatus
 	let gotstatus_waiting=false
-	
+
 	gotstatus=function(d){
-		
+
 		ctrack.status=d
 
 //		console.log(d)
 
 		let status=d.status && d.status.trim() || "badkey"
-		
+
 		ctrack.check_hash();
 		ctrack.display_hash(); // this will display view=main or whatever page is requsted
 
@@ -763,7 +775,7 @@ ctrack.setup=function(args)
 
 //console.log("IN")
 	fetcher.ajax({from:"instance"},function(d){
-		
+
 //console.log(d)
 
 		d=d || {
@@ -771,11 +783,11 @@ ctrack.setup=function(args)
 		}
 
 		fetcher.prefetch_aids(ctrack.q.aids,function(){
-			
+
 			gotstatus(d)
 
 		})
-		
+
 	})
 
 }
