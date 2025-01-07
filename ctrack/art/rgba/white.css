@@ -122,6 +122,7 @@ span.graph_view_all:hover{background-color:rgba(204,204,204,0.9);}
 /*	Footer notes styles
 	============================================= */
 .description_wrap		{background:transparent;}
+.data_quality_wrap,
 .footer_notes			{box-shadow:0 4px 5px rgba(218,218,218,1); background-color:rgba(255,255,255,1);}
 .footer_notes span.title{color:rgba(18,18,18,1); border-top:1px solid rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1); font-weight:bold;}
 .footer_notes p			{color:rgba(18,18,18,1);}
@@ -326,8 +327,8 @@ table.data td			{color:rgba(46,46,46,1); border:1px solid rgba(204,204,204,1);}
 
 /*	Data Investigators alert
 	============================================= */
-a.data_invest			{color:rgba(255,255,255,1); background-color:rgba(11,144,149,1);}
-a.data_invest:hover		{color:rgba(255,255,255,1); background-color:rgba(9,182,180,1);}
+a.data_invest			{color:rgba(46,46,46,1); background-color:rgba(6,219,228,1);}
+a.data_invest:hover		{color:rgba(46,46,46,1); background-color:rgba(65,228,235,1);}
 
 
 /*	Footer
