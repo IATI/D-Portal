@@ -672,7 +672,7 @@ view_search.fixup=function()
 
 		if(enable_search)
 		{
-			$("#search_link").attr("href","?"+que.join("&")+"#view=main");
+			$("#search_link").attr("href",ctrack.chunk("mark")+"&"+que.join("&")+"#view=main");
 		}
 		else
 		{

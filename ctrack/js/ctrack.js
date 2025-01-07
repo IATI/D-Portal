@@ -145,6 +145,19 @@ ctrack.setup=function(args)
 	args.newyear=args.newyear || ctrack.q.newyear || "01-01" ;
 	args.policy=args.policy || ctrack.q.policy ;
 
+// special new white chunks
+	if( (args.flava=="white") || (args.rgba=="white") )
+	{
+		args.flava="original"
+		args.rgba="white"
+	}
+	else
+	{
+		args.flava="original"
+		args.rgba="white"
+	}
+
+
 	if(args.policy)
 	{
 		args.policy=args.policy.split(",").join("|") // convert , to |
@@ -472,15 +485,11 @@ ctrack.setup=function(args)
 // special new white chunks
 	if( (args.flava=="white") || (args.rgba=="white") )
 	{
-		args.flava="original"
-		args.rgba="white"
 		ctrack.chunk("view_head","{view_head_white}");
 		ctrack.chunk("view_tail","{view_tail_white}");
 	}
 	else
 	{
-		args.flava="original"
-		args.rgba="white"
 		ctrack.chunk("view_head","{view_head_original}");
 		ctrack.chunk("view_tail","{view_tail_original}");
 	}
