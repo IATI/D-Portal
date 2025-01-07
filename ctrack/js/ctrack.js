@@ -151,11 +151,6 @@ ctrack.setup=function(args)
 		args.flava="original"
 		args.rgba="white"
 	}
-	else
-	{
-		args.flava="original"
-		args.rgba="white"
-	}
 
 
 	if(args.policy)
