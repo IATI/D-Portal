@@ -52,7 +52,7 @@ dstore_sqlite.open = async function(req){
 	var db;
 
 // prefer X-MD5 header from nginx before we check subdomain
-	let md5key = req.headers["X-MD5"] || ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
+	let md5key = ( req && req.headers && req.headers["X-MD5"] ) || ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
 
 	if( typeof md5key !== 'string' )
 	{
