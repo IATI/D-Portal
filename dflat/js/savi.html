@@ -40,8 +40,11 @@
 		</table>
 	</div>
 <!--	IATI IDENTIFIER AND SOURCES	-->
-	<div class="wrap_iati_identifier">
-		<div class="text">IATI IDENTIFIER <a href="{origin}/savi/?aid={_it./iati-identifier}" target="blank">{_it./iati-identifier}</a></div>
+	<div class="wrap_data_source">
+		<div class="wrap_iati_identifier">
+			<div class="text">IATI IDENTIFIER</div>
+			<a href="{origin}/savi/?aid={_it./iati-identifier}" target="blank">{_it./iati-identifier}</a>
+		</div>
 		<div class="data_source">
 			<a class="xml" href="{origin}/q.xml?aid={_it./iati-identifier}" target="_blank"><span>view</span> xml</a><a class="json" href="{origin}/q.json?aid={_it./iati-identifier}" target="_blank"><span>view</span> json</a><a class="dlogs" href="{origin}/ctrack.html#view=dash_sluglog&slug={_it.@dataset}" target="_blank"><span>view</span> logs</a><a class="slug" href="http://iatiregistry.org/dataset/{_it.@dataset}" target="_blank"><span>iati registry</span></a><a class="slug" href="https://validator.iatistandard.org/report/{_it.@dataset}?id={_it./iati-identifier}" target="_blank"><span>iati validator</span></a><a class="csv" href="{origin}/q.csv?aid={_it./iati-identifier}" target="_blank"><span>download</span> csv</a>
 		</div>
@@ -1819,8 +1822,11 @@
 	<div class="wrap_reporting_org">	<!--	REPORTING ORG	-->
 		<div class="text">Reported by</div><div class="reporting_org"><a href="{origin}/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span>{_it./reporting-org@secondary-reporter==1&&secondary_reporter||}</div>
 	</div>
-	<div class="wrap_iati_identifier org_id">	<!--	ORG IDENTIFIER AND SOURCES	-->
-		<div class="text">Organisation identifier <a href="{origin}/savi/?pid={_it./organisation-identifier}"  target="_blank">{_it./organisation-identifier||}</a></div>
+	<div class="wrap_data_source">	<!--	ORG IDENTIFIER AND SOURCES	-->
+		<div class="wrap_iati_identifier org_id">
+			<div class="text">Organisation identifier</div>
+			<a href="{origin}/savi/?pid={_it./organisation-identifier}"  target="_blank">{_it./organisation-identifier||}</a>
+		</div>
 		<div class="data_source">
 			<a class="xml" href="{origin}/q.xml?pid={_it./organisation-identifier}" target="_blank"><span>view</span> xml</a><a class="json" href="{origin}/q.json?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}" target="_blank"><span>view</span> json</a><a class="dlogs" href="{origin}/ctrack.html#view=dash_sluglog&slug={_it.@dataset}" target="_blank"><span>view</span> logs</a><a class="slug" href="http://iatiregistry.org/dataset/{_it.@dataset}" target="_blank"><span>iati registry</span></a><a class="slug" href="https://validator.iatistandard.org/report/{_it.@dataset}?id={_it./organisation-identifier}" target="_blank"><span>iati validator</span></a><a class="csv" href="{origin}/q.csv?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}" target="_blank"><span>download</span> csv</a>
 		</div>
