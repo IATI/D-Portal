@@ -47,17 +47,18 @@ dstore_sqlite.open = async function(req){
 	{
 		sqlite = (await import("sqlite-async")).Database;
 	}
-	
+
 //	var db = new sqlite3.cached.Database( global.argv.database );
 	var db;
-	
-	let md5key = ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
-	
+
+// prefer X-MD5 header from nginx before we check subdomain
+	let md5key = ( req && req.headers && req.headers["X-MD5"] ) || ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
+
 	if( typeof md5key !== 'string' )
 	{
 		md5key = argv.instance // use command line value
 	}
-	
+
 	if( typeof md5key === 'string' )
 	{
 		md5key=md5key.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
@@ -66,11 +67,11 @@ dstore_sqlite.open = async function(req){
 			md5key=undefined
 		}
 	}
-	
+
 	if( typeof md5key === 'string' ) // open an instance database
 	{
 		var dbfilename=__dirname+"/../../dstore/instance/"+md5key+".sqlite";
-		
+
 console.log("using instance database "+dbfilename)
 
 		db = sqlite.open( dbfilename );
@@ -79,11 +80,11 @@ console.log("using instance database "+dbfilename)
 	{
 		db = sqlite.open( global.argv.database );
 	}
-	
+
 //	db.configure("busyTimeout",100000); // wait upto 100 sec on busy locks
-	
+
 //	dstore_sqlite.pragmas(db);
-		
+
 	return db;
 };
 
@@ -143,7 +144,7 @@ dstore_sqlite.create_tables = async function(opts){
 		var s=dstore_sqlite.getsql_create_table(db,name,tab);
 		console.log(s);
 		await db.run(s);
-		
+
 // check we have all the columns in the table
 
 		var cs=dstore_sqlite.getsql_create_table_columns(db,name,tab);
@@ -159,7 +160,7 @@ dstore_sqlite.create_tables = async function(opts){
 		for(var i=0; i<tab.length;i++)
 		{
 			var col=tab[i];
-			
+
 			if( col.INDEX )
 			{
 				s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
@@ -170,7 +171,7 @@ dstore_sqlite.create_tables = async function(opts){
 	}
 
 	console.log("Created database "+argv.database);
-	
+
 	await dstore_sqlite.close(db);
 
 }
@@ -193,7 +194,7 @@ dstore_sqlite.create_indexes = async function(){
 		for(var i=0; i<tab.length;i++)
 		{
 			var col=tab[i];
-			
+
 			if( col.INDEX )
 			{
 				s=(" CREATE INDEX IF NOT EXISTS "+name+"_index_"+col.name+" ON "+name+" ( "+col.name+" ); ");
@@ -204,7 +205,7 @@ dstore_sqlite.create_indexes = async function(){
 	}
 
 	console.log("Created indexes "+argv.database);
-	
+
 	await dstore_sqlite.close(db);
 }
 
@@ -225,7 +226,7 @@ dstore_sqlite.delete_indexes = async function(){
 		for(var i=0; i<tab.length;i++)
 		{
 			var col=tab[i];
-			
+
 			if( col.INDEX )
 			{
 				s=(" DROP INDEX IF EXISTS "+name+"_index_"+col.name+" ;");
@@ -236,7 +237,7 @@ dstore_sqlite.delete_indexes = async function(){
 	}
 
 	console.log("Deleted indexes "+argv.database);
-		
+
 	await dstore_sqlite.close(db);
 }
 
@@ -245,9 +246,9 @@ dstore_sqlite.replace_vars = function(db,name,it){
 
 //	for(var n in it) { if( n!="xml" && n!="jml" && n!="json" ) { // skip these special long strings
 //		json[n]=it[n]; } }
-	
+
 	var $t={}; for(var n in dstore_db.tables_active[name]) { $t["$"+n]=it[n]; } // prepare to insert using named values
-	
+
 //	$t.$json=JSON.stringify(json); // everything apart from xml/jml also lives in this json string
 
 //	for(var n in it) { if( n.slice(0,4)=="raw_") {
@@ -257,9 +258,9 @@ dstore_sqlite.replace_vars = function(db,name,it){
 }
 
 dstore_sqlite.replace = async function(db,name,it){
-	
+
 	var $t=dstore_sqlite.replace_vars(db,name,it);
-		
+
 //	ls($t);
 
 //db.run( dstore_sqlite.getsql_prepare_replace(name,dstore_sqlite.tables_active[name]) , $t );
@@ -267,15 +268,15 @@ dstore_sqlite.replace = async function(db,name,it){
 
 	var s=dstore_db.tables_replace_sql[name];
 	var sa = await db.prepare(s);
-	await sa.run($t);	
+	await sa.run($t);
 	await sa.finalize(); // seems faster to finalize now rather than let it hang?
 
-	
+
 };
 
 // get a row by aid
 dstore_sqlite.select_by_aid = async function(db,name,aid){
-	
+
 	var rows=await db.all("SELECT * FROM "+name+" WHERE aid=?",aid);
 
 	return rows[0]
@@ -287,7 +288,7 @@ dstore_sqlite.getsql_prepare_replace = function(name,row){
 	var s=[];
 
 	s.push("REPLACE INTO "+name+" ( ");
-	
+
 	var need_comma=false;
 	for(var n in row)
 	{
@@ -330,7 +331,7 @@ dstore_sqlite.getsql_prepare_update = function(name,row){
 dstore_sqlite.getsql_create_table_columns=function(db,name,tab)
 {
 	var ss=[];
-	
+
 	for(var i=0; i<tab.length;i++)
 	{
 		var s=[];
@@ -340,7 +341,7 @@ dstore_sqlite.getsql_create_table_columns=function(db,name,tab)
 		if(col.name)
 		{
 			s.push(" "+col.name+" ");
-			
+
 			if(col.INTEGER)				{ s.push(" INTEGER "); }
 			else
 			if(col.REAL) 				{ s.push(" REAL "); }
@@ -356,22 +357,22 @@ dstore_sqlite.getsql_create_table_columns=function(db,name,tab)
 			if(col.PRIMARY) 			{ s.push(" PRIMARY KEY "); }
 			else
 			if(col.UNIQUE) 				{ s.push(" UNIQUE "); }
-			
+
 			if(col.NOCASE)		 		{ s.push(" COLLATE NOCASE "); }
-		
+
 			ss.push(s.join(""))
 		}
 	}
-	
+
 	return ss;
 }
 
 dstore_sqlite.getsql_create_table=function(db,name,tab)
 {
 	var s=[];
-	
+
 	s.push("CREATE TABLE IF NOT EXISTS "+name+" ( ");
-	
+
 	var cs=dstore_sqlite.getsql_create_table_columns(db,name,tab)
 
 	s.push(cs.join(" , "))
@@ -385,7 +386,7 @@ dstore_sqlite.getsql_create_table=function(db,name,tab)
 			s.push(" , UNIQUE ("+(col.UNIQUE.join(","))+") ");
 		}
 	}
-	
+
 	s.push(" ); ");
 
 	return s.join("");
@@ -404,7 +405,7 @@ dstore_sqlite.dump_tables = async function(){
 
 // prepare some sql code, keep it in dstore_db as it all relates to dstore_db.tables data
 dstore_sqlite.cache_prepare = function(){
-	
+
 	dstore_db.tables_replace_sql={};
 	dstore_db.tables_update_sql={};
 	for(var name in dstore_db.tables)
@@ -450,11 +451,11 @@ dstore_sqlite.delete_from = async function(db,tablename,opts){
 dstore_sqlite.fake_trans = async function(){
 
 	var db = await dstore_back.open();
-	
+
 	var ids={};
 
 	var fake_ids=[];
-	
+
 	process.stdout.write("Removing all fake transactions\n");
 
 	await dstore_back.delete_from(db,"trans",{trans_flags:1});
@@ -477,7 +478,7 @@ dstore_sqlite.fake_trans = async function(){
 	for(var n in ids)
 	{
 		var v=ids[n];
-		if(v>0) // we have commitments but no D or E 
+		if(v>0) // we have commitments but no D or E
 		{
 			fake_ids.push(n);
 		}
@@ -491,7 +492,7 @@ dstore_sqlite.fake_trans = async function(){
 	{
 		var v=fake_ids[i];
 		let rows=db.all("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=? AND trans_code=\"C\" ",v)
-		
+
 		for(j=0;j<rows.length;j++)
 		{
 			var t=rows[j];
@@ -514,11 +515,11 @@ dstore_sqlite.fill_acts = async function(acts,slug,data,head){
 	var before=0;
 	var after=0;
 
-	var db = await dstore_back.open();	
+	var db = await dstore_back.open();
 //	db.serialize();
-	
+
 	await db.run("BEGIN TRANSACTION")
-	
+
 	let row = await db.get("SELECT COUNT(*) FROM act")
 	before=row["COUNT(*)"];
 
@@ -567,7 +568,7 @@ dstore_sqlite.fill_acts = async function(acts,slug,data,head){
 //console.log(xtree)
 
 			await db.run("DELETE FROM xson WHERE pid=? AND aid IS NULL ;",pid);
-			
+
 			let xs=[]
 			let xwalk
 			xwalk=function(it,path)
@@ -578,12 +579,12 @@ dstore_sqlite.fill_acts = async function(acts,slug,data,head){
 				x.pid=pid // we have a pid but no aid
 				x.root=path
 				x.xson=JSON.stringify( it );
-				
+
 				if(x.xson)
 				{
 					xs.push(x)
 				}
-				
+
 				for(let n in it )
 				{
 					let v=it[n]
@@ -643,13 +644,13 @@ dstore_sqlite.fill_acts = async function(acts,slug,data,head){
 
 	after = ( await db.get("SELECT COUNT(*) FROM act") )["COUNT(*)"]
 
-	
+
 	await dstore_back.close(db);
-		
+
 	after_time=Date.now();
-	
+
 	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
-	
+
 };
 
 // call after major data changes to help sqlite optimise queries
@@ -659,9 +660,9 @@ dstore_sqlite.vacuum = async function(){
 	process.stdout.write("VACUUM start\n");
 	var db = await dstore_back.open();
 	await db.run("VACUUM")
-	
+
 	await dstore_back.close(db);
-	
+
 	process.stdout.write("VACUUM done\n");
 
 }
@@ -680,7 +681,7 @@ dstore_sqlite.analyze = async function(){
 dstore_sqlite.warn_dupes = async function(db,aid,slug){
 
 	var ret=false
-	
+
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
 	let rows = await db.all("SELECT * FROM slug WHERE aid=? AND slug!=?",aid)
@@ -701,7 +702,7 @@ dstore_sqlite.query_select=async function(q,res,r,req){
 
 	var db = await dstore_db.open(req); // pick instance using subdomain
 //	db.serialize();
-	
+
 
 	let sql=dstore_sqlite.query_params_string( r.query , r.qvals )
 	r.dquery=url.format({
@@ -736,7 +737,7 @@ dstore_sqlite.query_select=async function(q,res,r,req){
 	delete r.qvals
 
 	query.stream_stop(ss)
-		
+
 	await dstore_back.close(db);
 
 }
@@ -748,7 +749,7 @@ dstore_sqlite.query=async function(q,v,cb){
 
 	var db = await dstore_db.open();
 //	db.serialize();
-	
+
 /*
 	db.all(q,v, function(err, rows)
 	{
@@ -777,9 +778,9 @@ dstore_sqlite.query_params_string=function(string,params)
 		{
 			value="'"+value.split("'").join("\\'")+"'"
 		}
-		
+
 		string=string.split(`\$\{${key}\}`).join(value)
-		
+
 		index=index+1
 	}
 	return string
