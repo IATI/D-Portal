@@ -16,12 +16,24 @@ server {
 server {
 
 	server_name d-portal.org;
-	
+
 	root /dportal/www;
 
 	location /db {
 		sendfile           on;
 		sendfile_max_chunk 1m;
+	}
+
+# can we fake MD5 subdomains with first directory ?
+	location ~ ^/([0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z])/(.*) {
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header Host $http_host;
+		proxy_set_header X-NginX-Proxy true;
+		proxy_read_timeout 600s;
+		proxy_set_header X-MD5 $1;
+		proxy_pass http://nodejsapp/$2;
+		proxy_redirect off;
 	}
 
 	location / {
