@@ -60,16 +60,17 @@ dstore_pg.open = async function(req){
 		master_pgp = require("pg-promise")(pgopts);
 
 	}
-	
+
 	let pg=global.argv.pg
 
-	let md5key = ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
-	
+// prefer X-MD5 header from nginx before we check subdomain
+	let md5key = req.headers["X-MD5"] || ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
+
 	if( typeof md5key !== 'string' )
 	{
 		md5key = argv.instance // use command line value
 	}
-	
+
 	if( typeof md5key === 'string' )
 	{
 		md5key=md5key.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
@@ -78,12 +79,12 @@ dstore_pg.open = async function(req){
 			md5key=undefined
 		}
 	}
-	
+
 	if( typeof md5key === 'string' ) // open an instance database
 	{
 		pg = 'postgres:///db_'+md5key
 	}
-	
+
 //console.log("using instance PG database "+pg)
 
 	if( ! dbs[pg] ) // create db
@@ -96,7 +97,7 @@ dstore_pg.open = async function(req){
 
 // nothing to close?
 dstore_pg.close = async function(db){
-	
+
 //	if(db)
 //	{
 //		db.$pool.end();
@@ -113,7 +114,7 @@ dstore_pg.create_tables = async function(opts){
 await ( await dstore_pg.open() ).task( async db => {
 
 	if(!opts){opts={};}
-	
+
 console.log("CREATING TABLES");
 
 	for(var name in dstore_db.tables)
@@ -169,7 +170,7 @@ await ( await dstore_pg.open() ).task( async db => {
 
 dstore_pg.create_indexes = async function(idxs){
 await ( await dstore_pg.open() ).task( async db => {
-	
+
 console.log("CREATING INDEXS");
 
 // simple data dump table containing just the raw xml of each activity.
@@ -178,13 +179,13 @@ console.log("CREATING INDEXS");
 		for(var name in dstore_db.tables)
 		{
 			var tab=dstore_db.tables[name];
-			
+
 			if( (!idxs) || (idxs==name) )
 			{
 
 				for(var i=0; i<tab.length;i++)
 				{
-					var col=tab[i];			
+					var col=tab[i];
 					if( col.INDEX )
 					{
 						var s=(" CREATE INDEX IF NOT EXISTS "+name+"_btree_"+col.name+" ON "+name+" USING btree ( "+col.name+" ); ");
@@ -206,7 +207,7 @@ console.log("CREATING INDEXS");
 						await db.none(s).catch(err);
 
 					}
-					
+
 					if(col.XSON_INDEX)
 					{
 						let t=col.XSON_INDEX
@@ -241,7 +242,7 @@ console.log("CREATING INDEXS");
 
 dstore_pg.delete_indexes = async function(){
 await ( await dstore_pg.open() ).task( async db => {
-	
+
 console.log("DROPING INDEXS");
 
 // simple data dump table containing just the raw xml of each activity.
@@ -254,7 +255,7 @@ console.log("DROPING INDEXS");
 			for(var i=0; i<tab.length;i++)
 			{
 				var col=tab[i];
-				
+
 				if( col.name )
 				{
 					 await db.none("DROP INDEX IF EXISTS "+name+"_index_"+col.name+";").catch(err);
@@ -291,7 +292,7 @@ console.log("DROPING INDEXS");
 dstore_pg.getsql_create_table_columns=function(db,name,tab)
 {
 	var ss=[];
-	
+
 	for(var i=0; i<tab.length;i++)
 	{
 		var s=[];
@@ -301,7 +302,7 @@ dstore_pg.getsql_create_table_columns=function(db,name,tab)
 		if(col.name)
 		{
 			s.push(" "+col.name+" ");
-			
+
 			if(col.INTEGER)				{ s.push(" INTEGER "); }
 			else
 			if(col.REAL) 				{ s.push(" REAL "); }
@@ -319,20 +320,20 @@ dstore_pg.getsql_create_table_columns=function(db,name,tab)
 			if(col.PRIMARY) 			{ s.push(" PRIMARY KEY "); }
 			else
 			if(col.UNIQUE) 				{ s.push(" UNIQUE "); }
-		
+
 			ss.push(s.join(""))
 		}
 	}
-	
+
 	return ss;
 }
 
 dstore_pg.getsql_create_table=function(db,name,tab)
 {
 	var s=[];
-	
+
 	s.push("CREATE TABLE IF NOT EXISTS "+name+" ( ");
-	
+
 	var cs=dstore_pg.getsql_create_table_columns(db,name,tab)
 
 	s.push(cs.join(" , "))
@@ -346,7 +347,7 @@ dstore_pg.getsql_create_table=function(db,name,tab)
 			s.push(" , UNIQUE ("+(col.UNIQUE.join(","))+") ");
 		}
 	}
-	
+
 	s.push(" ); ");
 
 	return s.join("");
@@ -358,7 +359,7 @@ dstore_pg.getsql_prepare_replace = function(name,row){
 	var s=[];
 
 	s.push("INSERT INTO "+name+" ( ");
-	
+
 	var need_comma=false;
 	for(var n in row)
 	{
@@ -378,7 +379,7 @@ dstore_pg.getsql_prepare_replace = function(name,row){
 	}
 
 	s.push(" ) ");
-	
+
 
 	var pkey=dstore_db.tables_primary[name];
 	if(pkey)
@@ -399,7 +400,7 @@ dstore_pg.getsql_prepare_replace = function(name,row){
 }
 
 dstore_pg.getsql_prepare_update = function(name,row){
-	
+
 	var pkey=dstore_db.tables_primary[name];
 
 	var s=[];
@@ -421,7 +422,7 @@ dstore_pg.getsql_prepare_update = function(name,row){
 
 // prepare some sql code, keep it in dstore_db as it all relates to dstore_db.tables data
 dstore_pg.cache_prepare = function(){
-	
+
 	dstore_db.tables_replace_sql={};
 	dstore_db.tables_update_sql={};
 	dstore_db.tables_primary={};
@@ -439,13 +440,13 @@ dstore_pg.cache_prepare = function(){
 		dstore_db.tables_replace_sql[name]=dstore_pg.getsql_prepare_replace(name,t);
 		dstore_db.tables_update_sql[name] =dstore_pg.getsql_prepare_update(name,t);
 	}
-	
+
 //	ls(dstore_db.tables_primary);
 //	ls(dstore_db.tables);
 //	ls(dstore_db.tables_active);
 //	ls(dstore_db.tables_replace_sql);
 //	ls(dstore_db.tables_update_sql);
-	
+
 };
 
 dstore_pg.delete_from = async function(db,tablename,opts){
@@ -476,12 +477,12 @@ dstore_pg.delete_from = async function(db,tablename,opts){
 dstore_pg.replace = async function(db,name,it){
 
 	await db.none(dstore_db.tables_replace_sql[name],it).catch(err);
-	
+
 };
 
 // get a row by aid
 dstore_pg.select_by_aid = async function(db,name,aid){
-	
+
 	var rows= await db.any("SELECT * FROM "+name+" WHERE aid=${aid};",{aid:aid}).catch(err);
 
 	return rows[0]
@@ -500,7 +501,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 
 /*
 	wait.for(function(cb){
-		db.one("SELECT COUNT(*) FROM act;").then(function(row){	
+		db.one("SELECT COUNT(*) FROM act;").then(function(row){
 			before=row.count;
 			cb();
 		}).catch(err);
@@ -508,7 +509,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 */
 
 
-// find old data and remove it before we do anything else	
+// find old data and remove it before we do anything else
 	var rows=await db.any("SELECT aid FROM slug WHERE slug=${slug} AND aid IS NOT NULL;",{slug:slug}).catch(err);
 	var deleteme={} // create map
 	for(let row of rows) { deleteme[ row["aid"] ] = true }
@@ -543,7 +544,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 
 // get old ids for this slug ( hax as we keep the pid in the aid slot... )
 			var rows= await db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).catch(err);
-			
+
 // and delete them all
 			for(let r of rows)
 			{
@@ -565,12 +566,12 @@ await ( await dstore_pg.open() ).tx( async db => {
 				x.pid=pid // we have a pid but no aid
 				x.root=path
 				x.xson=JSON.stringify( it );
-				
+
 				if(x.xson)
 				{
 					xs.push(x)
 				}
-				
+
 				for(let n in it )
 				{
 					let v=it[n]
@@ -623,19 +624,19 @@ await ( await dstore_pg.open() ).tx( async db => {
 				if( await dstore_db.refresh_act(db,aid,json,head) )
 				{
 					count_new++ // only count if a real activity that we added
-					
+
 					delete deleteme[aid] // replaced no need to delete
 				}
 			}catch(e){
 				console.log(e)
 			}
-			
+
 			let pct=Math.floor(100*i/acts.length)
 			if( global && global.argv && global.argv.statusfile ) // write status to a file
 			{
 				fs.writeFileSync( global.argv.statusfile , "import "+pct+"%\n" )
 			}
-			
+
 		}
 	}
 
@@ -648,7 +649,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 		delete_list.push(n)
 	}
 	console.log("deleting "+delete_list.length+" old activities")
-	
+
 	if( delete_list.length>0 ) // delete activities that used to be in this file but are not there any more
 	{
 		for( let v of ["act","jml","xson","trans","budget","country","sector","location","policy","related"] )
@@ -663,7 +664,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 
 /*
 	wait.for(function(cb){
-		db.one("SELECT COUNT(*) FROM act;").then(function(row){	
+		db.one("SELECT COUNT(*) FROM act;").then(function(row){
 			after=row.count;
 			cb();
 		}).catch(err);
@@ -673,10 +674,10 @@ await ( await dstore_pg.open() ).tx( async db => {
 //	await db.none("COMMIT;").catch(err);
 
 	after_time=Date.now();
-	
+
 	console.log("added "+count_new+" new activities in "+(after_time-before_time)+"ms\n")
 //	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
-	
+
 	dstore_pg.close(db)
 })
 
@@ -687,7 +688,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 dstore_pg.warn_dupes = async function(db,aid,slug){
 
 	var ret=false
-	
+
 // report if this id is from another file and being replaced, possibly from this file even
 // I think we should complain a lot about this during import
 	var rows=await db.any("SELECT * FROM slug WHERE aid=${aid} AND slug!=${slug};",{aid:aid,slug:slug}).catch(err);
@@ -710,7 +711,7 @@ dstore_pg.query_params=function(string,params)
 	for( key in params )
 	{
 		let value=params[key]
-		
+
 		string=string.split(`\$\{${key}\}`)
 		if( string.length>1 ) { values[index]=value ; index=index+1 } // found at least 1
 		string=string.join(`$${index}`)
@@ -729,9 +730,9 @@ dstore_pg.query_params_string=function(string,params)
 		{
 			value="'"+value.split("'").join("\\'")+"'"
 		}
-		
+
 		string=string.split(`\$\{${key}\}`).join(value)
-		
+
 		index=index+1
 	}
 	return string
@@ -746,9 +747,9 @@ let cursor=null
 
 let cleanup=function(error)
 {
-	r.error=error.message || error 
+	r.error=error.message || error
 	console.log(r)
-	
+
 	if( cursor )
 	{
 		cursor.close(() => conn.done());
@@ -771,9 +772,9 @@ let cleanup=function(error)
 		pathname: "/dquery",
 		hash:     "#"+encodeURI(sql)
 	})
-	
+
 	var qq=dstore_pg.query_params(r.query,r.qvals)
-	
+
 	try{
 
 		conn = await db.connect()
@@ -841,11 +842,11 @@ await ( await dstore_pg.open() ).task( async db => {
 
 dstore_pg.fake_trans = async function(){
 await ( await dstore_pg.open() ).task( async db => {
-	
+
 	var ids={};
 
 	var fake_ids=[];
-	
+
 	process.stdout.write("Removing all fake transactions\n");
 
 	await dstore_back.delete_from(db,"trans",{trans_flags:1});
@@ -868,7 +869,7 @@ await ( await dstore_pg.open() ).task( async db => {
 	for(var n in ids)
 	{
 		var v=ids[n];
-		if(v>0) // we have commitments but no D or E 
+		if(v>0) // we have commitments but no D or E
 		{
 			fake_ids.push(n);
 		}
