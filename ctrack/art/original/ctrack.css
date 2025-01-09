@@ -754,6 +754,40 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 .footer_dpreview a.search_refine{width:initial; text-align:center; margin:0 auto; padding:10px 20px; margin-top:1em; color:#fff;}
 
 
+/*	Footer 2.0
+	============================================= */
+.iati-footer {
+    color: #fff;
+}
+.iati-footer-block {
+    color: #fff;
+}
+.iati-brand-background {
+    background-color: #155366;
+    display: grid;
+}
+.iati-footer__section {
+    margin-block: 2rem;
+}
+.iati-footer__section:not(:first-of-type) {
+    padding-block-start: 2rem;
+    border-block-start: 1px solid #7bedf2;
+}
+.iati-footer__section--first .iati-footer__container {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+.iati-footer__container {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline-start: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+
+
 /*	Disqus wrapper
 	============================================= */
 #disqus_thread			{margin-top:40px;}
@@ -805,5 +839,26 @@ a.beige:hover			{color:#FFF;}
 
 #view_search_test select			{width:290px;}
 #ctrack_div							{height:100%; width:100%;}
+
+}
+
+@media (min-width: 768px) {
+    .iati-brand-background .iati-brand-background__content {
+        grid-area: 1 / -1;
+        z-index: 1;
+    }
+    .iati-brand-background:after {
+        content: "";
+        grid-area: 1 / -1;
+        background-image: url(/ctrack/art/original/marque-white-DYPYWx68.svg);
+        background-repeat: no-repeat;
+        background-position: right 2rem top;
+        background-size: 32.3rem auto;
+        opacity: .1;
+    }
+    .iati-footer__section--first .iati-footer__container {
+        justify-content: space-between;
+        flex-direction: row;
+    }
 
 }
