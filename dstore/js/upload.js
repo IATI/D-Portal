@@ -28,7 +28,7 @@ upload.serv = function(req,res){
 	{
 		fs.appendFile( __dirname+"/../../dstore/instance/upload.tsv" , ( new Date().getTime() / 1000 )+"\t"+(req.ip)+"\t"+a.join("\t")+"\n" , function(){} )
 	}
-	
+
 
 	let xmlurl=(req.body && req.body.xmlurl) || (req.query && req.query.xmlurl)
 
@@ -65,11 +65,11 @@ upload.serv = function(req,res){
 			}
 
 			ret=ret || {}
-			
-			ret.url="http://"+instance+"."+host+"/ctrack.html#view=main"
+
+			ret.url="https://"+host+"/"+instance+"/ctrack.html#view=main"
 			ret.instance=instance
 			ret.host=host
-			
+
 			if( jsonplease )
 			{
 				res.jsonp(ret);
@@ -93,7 +93,7 @@ upload.serv = function(req,res){
 			}
 
 			fs.unlinkSync(log_filename);
-			
+
 		}catch(e){}
 
 		fs.writeFileSync( xml_filename, data );
@@ -112,7 +112,7 @@ upload.serv = function(req,res){
 		if(req.files && req.files.xml)
 		{
 			let data=req.files.xml.data.toString('utf8')
-			
+
 			log(["upload",data.length])
 
 			newinstance(data)
@@ -124,7 +124,7 @@ upload.serv = function(req,res){
 
 			let res = await fetch(xmlurl)
 			let data = await res.text()
-			
+
 			log(["fetch",data.length])
 
 			newinstance(data)
@@ -135,7 +135,7 @@ upload.serv = function(req,res){
 			log(["visit"])
 			res.send( upload_html )
 		}
-		
+
 	}
 	catch(e)
 	{
