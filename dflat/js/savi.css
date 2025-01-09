@@ -867,8 +867,6 @@ body.print		{background-color:#fff;}
 
 /*	WHITE CSS	*/
 
-body.white		{background-color:#fff;}
-
 .white .activity a,
 .white .activity a:link,
 .white .activity a:visited				{color:#2d6a7d;}
@@ -966,7 +964,9 @@ body.white		{background-color:#fff;}
 .white .result_empty,
 .white .result_base_year,
 .white .tab_currency,
-.white .wrap_contact_type  {color:#121212;}
+.white .wrap_contact_type,
+.white table.activity a,
+.white table.activity a:hover  {color:#121212;}
 
 /*	Theme button	*/
 .white .theme_button	{color:#fff;}
@@ -991,6 +991,7 @@ body.white		{background-color:#fff;}
 .white .wrap_result table.budget td.result_base,
 .white .wrap_result table.budget td.result_target,
 .white .wrap_result table.budget td.result_actual  {background-color:transparent;}
+.white table.activity	{border:0; box-shadow:none;}
 
 /*	Result comments	*/
 .white .wrap_result table.budget tr.baseline_comment td .result_comment_type,

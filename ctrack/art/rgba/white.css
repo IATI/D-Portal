@@ -17,7 +17,7 @@ a:active				{color:rgba(46,46,46,1);}
 /*	Main wrappers for content & fixed background img
 	============================================= */
 .main_wrap				{background-color:rgba(255,255,255,0.4);}
-.overlay				{background-color:rgba(255,255,255,0.9);}
+.overlay				{background-color:rgba(255,255,255,1);}
 .center_wrap			{width:962px;}
 
 
@@ -145,7 +145,7 @@ span.graph_view_all:hover{background-color:rgba(204,204,204,0.9);}
 	============================================= */
 .description_wrap		{background:transparent;}
 .data_quality_wrap,
-.footer_notes			{box-shadow:0 4px 5px rgba(218,218,218,1); background-color:rgba(255,255,255,1);}
+.footer_notes			{box-shadow:0 4px 5px rgba(218,218,218,1); background-color:rgba(255,255,255,1); border-top:4px solid rgba(21,83,102,1);}
 .footer_notes span.title{color:rgba(18,18,18,1); border-top:1px solid rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1); font-weight:bold;}
 .footer_notes p			{color:rgba(18,18,18,1);}
 .footer_notes p.about_data	{border-top:1px solid rgba(255,255,255,1);}
@@ -326,6 +326,9 @@ table.money a:link  		{color:rgba(46,46,46,1);}
 table.money a:visited		{color:rgba(46,46,46,1);}
 table.money a:hover			{color:rgba(46,46,46,1);}
 table.money a:active		{color:rgba(46,46,46,1);}
+
+table.money a.year.prev:hover,
+table.money a.year.next:hover	{background-color:rgba(204,204,204,0.3);}
 
 table.money.publishers th.col2,
 table.money.publishers td.col2	{border:1px solid rgba(170,170,170,1); border-top:0;}
