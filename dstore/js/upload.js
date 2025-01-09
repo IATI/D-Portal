@@ -66,7 +66,7 @@ upload.serv = function(req,res){
 
 			ret=ret || {}
 
-			ret.url="https://"+host+"/"+instance+"/ctrack.html#view=main"
+			ret.url="https://preview.d-portal.org/"+instance+"/ctrack.html#view=main"
 			ret.instance=instance
 			ret.host=host
 
