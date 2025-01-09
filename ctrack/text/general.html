@@ -148,7 +148,26 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 	</a>
 </div>
 
-
+#main_head_white
+<div class="default head">
+	{main_settings}
+	<table class="head">
+		<tr>
+			<td rowspan="3">
+				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}</a>
+			</td>
+			{main_tail_white}
+			
+#main_tail_white
+			<td class="settings_toggle">
+				<a href="/faq.html" class="settings_faq">FAQ</a><a href="#" onclick="event.preventDefault();$('#settings').toggle();" class="settings_link">
+					<span>{change_settings_text}</span><img src="{flava}settings.png" alt="A cog wheel icon indicate settings and options for the website" width="35" height="35"/>
+				</a>
+			</td>
+		</tr>
+	</table>
+	<div class="crumb_wrap">{crumbs}</div>
+</div>
 
 #view_head_original
 <div class="portal">
@@ -280,8 +299,8 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 	</a>
 </div>
 
-
-#main_head
+			
+#main_head_original
 <div class="default head">
 	{main_settings}
 	<table class="head">
