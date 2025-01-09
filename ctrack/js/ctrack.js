@@ -132,6 +132,13 @@ ctrack.setup=function(args)
 	{
 		console.log("TEST MODE ENABLED")
 	}
+
+	args=args || {};
+	args.jslib	=args.jslib 	|| "http://d-portal.org/jslib/"; // load stuff from here
+	args.tongue	=args.tongue 	|| 	"eng"; 		// english
+	args.art	=args.art 		|| 	"/art/"; 	// local art
+	args.q		=args.q 		|| 	"/q"; 		// local q api
+
 	let md5=window.location.pathname.split("/")[1] // get first part
 	if( md5 && (md5.length!=32) ){md5=undefined} // must be this long
 	if( md5 && (md5.search(/[^0-9a-z]/)!=-1) ){md5=undefined} // must only contain these chars
@@ -139,14 +146,9 @@ ctrack.setup=function(args)
 	if(md5)
 	{
 		args.instance_prefix="/"+md5
+		args.q=args.instance_prefix+"/q" // force q to use instance data
 		console.log("using instance prefix "+args.instance_prefix)
 	}
-
-	args=args || {};
-	args.jslib	=args.jslib 	|| "http://d-portal.org/jslib/"; // load stuff from here
-	args.tongue	=args.tongue 	|| 	"eng"; 		// english
-	args.art	=args.art 		|| 	args.instance_prefix+"/art/"; 	// local art
-	args.q		=args.q 		|| 	args.instance_prefix+"/q"; 		// local q api
 
 	args.flavas=args.flavas || ["original","high"];
 	args.flava=args.flava || ctrack.q.flava || "original";
