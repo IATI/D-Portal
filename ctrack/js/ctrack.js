@@ -302,7 +302,9 @@ ctrack.setup=function(args)
 	}
 
 // pick a random background based on search values
-	var search_hash=Math.abs(shash(search_args.join("&")||""))
+	let search_args_string=(search_args.join("&")||"")
+	if(search_args_string!="") { search_args_string="&"+search_args_string }
+	var search_hash=Math.abs(shash(search_args_string))
 	var backgrounds=["BF"]
 	for(var cc in iati_codes.country) { if( iati_codes.crs_countries[cc] ) { backgrounds.push(cc) } }
 	var backgrounds_idx=( search_hash%backgrounds.length )
@@ -554,7 +556,7 @@ ctrack.setup=function(args)
 	ctrack.chunk("mark","?"+bb.join("&"));
 	ctrack.chunk("ctrack_prefix",args.instance_prefix);
 	ctrack.chunk("ctrack_html",args.instance_prefix+"/ctrack.html?"+bb.join("&"));
-	ctrack.chunk("ctrack_home",args.instance_prefix+"/ctrack.html?"+bb.join("&")+"#view=search");
+	ctrack.chunk("ctrack_home","{search_url}");
 	var bb=[]; for(var n in aa) { if(n!="tongue") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_tongue","?"+bb.join("&"));
 
@@ -571,7 +573,7 @@ ctrack.setup=function(args)
 	ctrack.chunk("mark_no_publisher","?"+bb.join("&"));
 
 // return to the search selection page with current settings
-	ctrack.chunk("search_url","{ctrack_html}#view=search&"+search_args.join("&"));
+	ctrack.chunk("search_url","{ctrack_html}#view=search"+search_args_string);
 
 	var ss=[];
 	for(var i in iati_codes.iati_currencies) { var it=iati_codes.iati_currencies[i];
