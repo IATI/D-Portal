@@ -132,12 +132,21 @@ ctrack.setup=function(args)
 	{
 		console.log("TEST MODE ENABLED")
 	}
+	let md5=window.location.pathname.split("/")[1] // get first part
+	if( md5 && (md5.length!=32) ){md5=undefined} // must be this long
+	if( md5 && (md5.search(/[^0-9a-z]/)!=-1) ){md5=undefined} // must only contain these chars
+	args.instance_prefix=""
+	if(md5)
+	{
+		args.instance_prefix="/"+md5
+		console.log("using instance prefix "+args.instance_prefix)
+	}
 
 	args=args || {};
 	args.jslib	=args.jslib 	|| "http://d-portal.org/jslib/"; // load stuff from here
 	args.tongue	=args.tongue 	|| 	"eng"; 		// english
-	args.art	=args.art 		|| 	"/art/"; 	// local art
-	args.q		=args.q 		|| 	"/q"; 		// local q api
+	args.art	=args.art 		|| 	args.instance_prefix+"/art/"; 	// local art
+	args.q		=args.q 		|| 	args.instance_prefix+"/q"; 		// local q api
 
 	args.flavas=args.flavas || ["original","high"];
 	args.flava=args.flava || ctrack.q.flava || "original";
@@ -532,7 +541,8 @@ ctrack.setup=function(args)
 
 	var bb=[]; for(var n in aa) { bb.push(n+"="+aa[n]); }
 	ctrack.chunk("mark","?"+bb.join("&"));
-	ctrack.chunk("ctrack_html","/ctrack.html?"+bb.join("&"));
+	ctrack.chunk("ctrack_prefix",args.instance_prefix);
+	ctrack.chunk("ctrack_html",args.instance_prefix+"/ctrack.html?"+bb.join("&"));
 	var bb=[]; for(var n in aa) { if(n!="tongue") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_tongue","?"+bb.join("&"));
 
