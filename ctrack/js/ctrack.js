@@ -502,12 +502,14 @@ ctrack.setup=function(args)
 	if( (args.flava=="white") || (args.rgba=="white") )
 	{
 		ctrack.chunk("main_head","{main_head_white}");
+		ctrack.chunk("main_head_search","{main_head_white}");
 		ctrack.chunk("view_head","{view_head_white}");
 		ctrack.chunk("view_tail","{view_tail_white}");
 	}
 	else
 	{
 		ctrack.chunk("main_head","{main_head_original}");
+		ctrack.chunk("main_head_search","{main_head_search_original}");
 		ctrack.chunk("view_head","{view_head_original}");
 		ctrack.chunk("view_tail","{view_tail_original}");
 	}
