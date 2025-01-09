@@ -156,8 +156,8 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 	<div class="iati_head_one">
 		<div class="iati_head_con">
 			<a href="https://iatistandard.org/" aria-label="Go to IATI homepage"><img class="iati_logo" alt="" src="/ctrack/art/original/iati_logo.svg"></a>
-			<nav class="iati-header__general-nav">
-				<ul class="iati-piped-list">			  
+			<nav class="iati_head_nav">
+				<ul class="iati_head_list">			  
 					<li>
 						<a href="https://iatistandard.org/en/about/">About IATI</a>
 					</li>
@@ -176,29 +176,38 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 	</div>
 	<div class="iati_head_two">
 		<div class="iati_head_con">
-		
+			<div class="iati_head_opts">
+				<div class="iati_lang">
+					<label for="iati_lang" class="iati_lang_label">Choose your language</label>
+					<select id="iati_lang" class="iati_lang_opt">
+						<option value="en" selected="">English</option>
+					</select>
+				</div>
+				<a href="https://docs.d-portal.org/en/latest/" class="iati_button">
+					<span>Help Docs</span> <img src="/ctrack/art/original/info_icon.png" alt="Information icon" width="15" height="15">
+				</a>
+			</div>
+			<div class="iati_head_title">
+				<p class="iati_head_title_sub">IATI Tools</p>
+				<p class="iati_head_title_main">d-portal</p>
+			</div>
+			<div class="iati_head_two_nav">
+				<nav>
+					<ul class="iati_tool_list">
+						<li>
+							<a href="#" class="iati_tool_list_link">d-portal</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
 		</div>
 	</div>
 </div>	
 	
 <div class="default head">
-	<table class="head">
-		<tr>
-			<td rowspan="3">
-				<a href="{ctrack_html}#view=search" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}</a>
-			</td>
-			{main_tail_white}
-
-#main_tail_white
-			<td class="settings_toggle">
-				<a href="/faq.html" class="settings_faq">FAQ</a><a href="#" onclick="event.preventDefault();$('#settings').toggle();" class="settings_link">
-					<span>{change_settings_text}</span><img src="{flava}settings.png" alt="A cog wheel icon indicate settings and options for the website" width="35" height="35"/>
-				</a>
-			</td>
-		</tr>
-	</table>
 	<div class="crumb_wrap">{crumbs}</div>
 </div>
+
 
 #view_head_original
 <div class="portal">
