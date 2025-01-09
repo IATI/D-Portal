@@ -23,7 +23,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 var smart_tsquery=function(s)
 {
 	if(s.match("\"")) { return s } // assume you know what you are doing
-	
+
 	var aa=s.split(/\s+/);
 	var r=[]
 	var last=""
@@ -40,7 +40,7 @@ var smart_tsquery=function(s)
 		}
 		last=it
 	}
-	
+
 	return r.join(" ")
 }
 
@@ -80,9 +80,9 @@ query.maybenumber=function(v,ty)
 //
 query.get_q = function(req){
 	var q={};
-	
+
 	q.start_time=Date.now();
-	
+
 	var cp=function(f,unesc){
 		for(var n in f) // single depth copy only
 		{
@@ -119,7 +119,7 @@ query.get_q = function(req){
 	{
 		cp(req.body);
 	}
-	
+
 // defaults
 	if( (!q.from) && q.aid ) // auto activity
 	{
@@ -146,7 +146,7 @@ query.get_q = function(req){
 			q.from+=",jml"; // ...need a jml join to spit out xml (jml is jsoned xml)
 		}
 	}
-	
+
 
 // we now have a json style chunk of data that consists of many possible inputs
 	return q;
@@ -197,7 +197,7 @@ query.getsql_select=function(q,qv){
 			ss.push(" COUNT(*) AS count");
 		}
 	};
-	
+
 // available funcs
 	var calc_funcs={
 		"count":true,
@@ -211,7 +211,7 @@ query.getsql_select=function(q,qv){
 		"min":true,
 		"any":true,
 	};
-	
+
 	var numeric="";
 	if(dstore_db.engine=="pg") { numeric="::numeric"; }
 
@@ -251,7 +251,7 @@ query.getsql_select=function(q,qv){
 			break
 		}
 	};
-	
+
 
 	var done_list=false;
 	if(q.select)
@@ -288,7 +288,7 @@ query.getsql_select=function(q,qv){
 			}
 		}
 	}
-	
+
 	if(done_list) // already dealt with above
 	{
 	}
@@ -341,7 +341,7 @@ query.getsql_select=function(q,qv){
 			}
 		}
 	}
-	
+
 	return ss.join(" , ");
 };
 
@@ -361,7 +361,7 @@ query.getsql_from=function(q,qv){
 		"any_",
 	];
 
-	var endsmap=[ 
+	var endsmap=[
 		"_not_null", // longest must be first
 		"_lteq",
 		"_gteq",
@@ -391,7 +391,7 @@ query.getsql_from=function(q,qv){
 		}
 		return n
 	}
-	
+
 	var ss=[];
 
 	let ff={}
@@ -404,7 +404,7 @@ query.getsql_from=function(q,qv){
 			if(!f){f=name}
 		}
 	}
-	
+
 	for( let name in q ) // find tables in use
 	{
 		name=trimq(name)
@@ -415,9 +415,9 @@ query.getsql_from=function(q,qv){
 			if(!f){f=t.table}
 		}
 	}
-	
+
 	if(!f) { return "" } // no tables to join
-	
+
 	ss.push( " FROM "+f+" " )
 
 	for( let name in ff)
@@ -451,11 +451,11 @@ query.getsql_where=function(q,qv){
 	var filters=[];
 	var tables={};
 	var wheres=[];
-	
+
 	var ns=dstore_db.table_name_map;
-	
+
 	var joins={};
-	
+
 	var premap={ // possible prefixs
 		"filter_":"filter",
 		"":"query",
@@ -496,7 +496,7 @@ for(var n in ns) // all valid fields
 			if( v !== undefined ) // got a value
 			{
 				if(mp=="filter") { tables[ntable]=true } // keep map of tables to filter with
-				
+
 				if( eq=="NOT NULL") { ss.push( " "+nname+" IS NOT NULL " ); }
 				else
 				if( eq=="NULL") { ss.push( " "+nname+" IS NULL " ); }
@@ -540,7 +540,7 @@ for(var n in ns) // all valid fields
 					{
 						ss.push( " "+nname+" "+eq+" "+dstore_db.text_plate(n+qe)+" " ); qv[dstore_db.text_name(n+qe)]=v;
 					}
-					
+
 					if(t=="object") // array, string above may also have been split into array
 					{
 						var so=[];
@@ -570,7 +570,7 @@ for(var n in ns) // all valid fields
 								st.push( " "+nname+" "+eq+v );
 							}
 							st.push( " ) " );
-							
+
 							ss.push(st.join(""));
 						}
 					}
@@ -583,7 +583,7 @@ for(var n in ns) // all valid fields
 		}
 	}
 }
-	
+
 	if(dstore_db.engine!="pg") // old sqlite search code
 	{
 		var v=q["text_search"];
@@ -610,7 +610,7 @@ for(var n in ns) // all valid fields
 	query.getsql_where_xson(q,qv,wheres)			// this only works with postgres
 
 	var ret="";
-	
+
 	if(filters[0])
 	{
 		var ts=[]
@@ -647,14 +647,14 @@ query.getsql_group_by=function(q,qv){
 			}
 		}
 	}
-	
+
 	if(ss[0]) { return " GROUP BY "+ss.join(" , "); }
 	return "";
 };
 
 // support external list of json
 query.getsql_external_aids=function(q,qv,wheres){
-	
+
 	if(q.aids)
 	{
 		if(typeof q.aids=="string") // convert to json
@@ -685,11 +685,11 @@ query.getsql_where_xson=function(q,qv,wheres){
 	if(dstore_db.engine!="pg") { return ""; } // postgres only ( so following sql code is postgres )
 
 	let ands=[]
-	
+
 	let push=function(_n,v)
 	{
 	let n=_n
-	
+
 	let vs=v.split(/[,|]/) // check for multiple values
 	if(vs.length==1) { vs=undefined } // not a multiple
 
@@ -758,9 +758,9 @@ query.getsql_where_xson=function(q,qv,wheres){
 		}
 		else
 		{
-		
+
 			let p=database.paths[n]
-			
+
 			if(p && p.jpath) // a valid path
 			{
 
@@ -820,7 +820,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 		}
 	}
 
-	if( q["text_search"] ) // text search in *all* narratives in 
+	if( q["text_search"] ) // text search in *all* narratives in
 	{
 //console.log("text_search "+v)
 		ands.push( " ( to_tsvector('simple', xson->>'') @@ websearch_to_tsquery('simple',"+dstore_db.text_plate("text_search")+") ) " )
@@ -846,7 +846,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 query.getsql_distinct_on=function(q,qv){
 
 	if(dstore_db.engine!="pg") { return ""; } // postgres only
-	
+
 	var ss=[];
 
 	var ns=dstore_db.table_name_map;
@@ -870,7 +870,7 @@ query.getsql_distinct_on=function(q,qv){
 			}
 		}
 	}
-	
+
 	if(ss[0]) { return " DISTINCT ON ( "+ss.join(" , ")+" ) "; }
 	return "";
 };
@@ -915,7 +915,7 @@ query.getsql_order_by=function(q,qv){
 query.getsql_limit=function(q,qv){
 	var ss=[];
 	var limit=100;
-	
+
 	if( q.limit )
 	{
 		var n=query.mustbenumber(q.limit);
@@ -924,12 +924,12 @@ query.getsql_limit=function(q,qv){
 			limit=n
 		}
 	}
-	
+
 	if(limit>=0)
 	{
 		ss.push(" LIMIT "+limit+" ");
 	}
-	
+
 	if( q.page )
 	{
 		var n=query.mustbenumber(q.page);
@@ -1004,38 +1004,38 @@ query.stream_start=function(q,res,r,req)
 	stream.res=res
 	stream.req=req
 	stream.r=r || {}
-	
+
 
 	stream.r.time=(Date.now());
 	stream.idx=0
 
 	stream.csv_header_array=[]
 	stream.csv_header_line="\n"
-	
+
 	stream.mode="json" // default to json
 	if(q.from=="xson") { stream.mode="xson" } else // we are reading from xson table so should format this data using dflat
 	if(q.form=="html") { stream.mode="html" } else
 	if(q.form=="xml" ) { stream.mode="xml"  } else
 	if(q.form=="csv" ) { stream.mode="csv"  } else
-	if(q.form=="jcsv") { stream.mode="jcsv" } 
-	
+	if(q.form=="jcsv") { stream.mode="jcsv" }
+
 	if( stream.mode=="xson" )
 	{
 		stream.xs=dflat.stream(q.form)
 		stream.xs.callback=q.callback
 		stream.xs.r=stream.r
 	}
-	
+
 // global headers
 
-	res.set('transfer-encoding', 'chunked')			
+	res.set('transfer-encoding', 'chunked')
 	res.set('charset','utf8')
 
 // headers and dividers but we need to wait for first item to process before we can format it correctly
 
 	stream.between=function(b)
 	{
-		if(stream.idx==0) // header 
+		if(stream.idx==0) // header
 		{
 			if( stream.mode=="json" )
 			{
@@ -1134,7 +1134,7 @@ query.stream_item=function(stream,item)
 {
 	let q=stream.q
 	let res=stream.res
-	
+
 	if(res.connection.destroyed)
 	{
 		stream.broken=true // flag stream as broken
@@ -1219,7 +1219,7 @@ query.stream_item=function(stream,item)
 			var iati=dflat.xml_to_xson( jml )
 
 			dflat.clean(iati) // clean this data
-			
+
 			savi.prepare(iati) // prepare for display
 
 			savi.chunks.iati=iati
@@ -1243,9 +1243,9 @@ query.stream_item=function(stream,item)
 	}
 
 	stream.between(tweenstr)
-	
+
 	res.write(itemstr)
-	
+
 	stream.idx=stream.idx+1
 
 	return stream
@@ -1259,7 +1259,7 @@ query.stream_stop=function(stream)
 
 	stream.r.count=stream.idx
 	stream.r.time=((Date.now())-stream.r.time)/1000;
-	
+
 	stream.between("") // in case stream_item was never called
 
 	if( stream.mode=="json" )
@@ -1309,17 +1309,17 @@ query.stream_stop=function(stream)
 query.do_select=function(q,res,req){
 
 	var r={rows:[],count:0};
-	var qv={};	
+	var qv={};
 	r.qvals=qv
 	r.query =	" SELECT "+
 				(q.distincton?"* FROM ( SELECT ":"")+
-				query.getsql_distinct_on(q,qv) + 
-				query.getsql_select(q,qv) + 
-				query.getsql_from(q,qv) + 
-				query.getsql_where(q,qv) + 
-				query.getsql_group_by(q,qv) + 
+				query.getsql_distinct_on(q,qv) +
+				query.getsql_select(q,qv) +
+				query.getsql_from(q,qv) +
+				query.getsql_where(q,qv) +
+				query.getsql_group_by(q,qv) +
 				(q.distincton?" ) q ":"")+
-				query.getsql_order_by(q,qv) + 
+				query.getsql_order_by(q,qv) +
 				query.getsql_limit(q,qv);
 
 	return dstore_db.query_select(q,res,r,req);
@@ -1332,12 +1332,13 @@ query.serv = function(req,res){
 // special log info requests
 	var logname=__dirname+'/../../logs/cron.log'
 
-	let md5key = ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
+// prefer X-MD5 header from nginx before we check subdomain
+	let md5key = ( req && req.headers && req.headers["x-md5"] ) || ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
 	if( typeof md5key !== 'string' )
 	{
 		md5key = argv.instance // use command line value
 	}
-	
+
 	if( typeof md5key === 'string' )
 	{
 		md5key=md5key.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
@@ -1352,7 +1353,7 @@ query.serv = function(req,res){
 		logname=__dirname+"/../../dstore/instance/"+md5key+".log";
 	}
 
-// handle special results	
+// handle special results
 	if(q.from=="meta") // return meta information about the database
 	{
 		var ret=dstore_db.get_meta()
@@ -1440,7 +1441,7 @@ query.serv = function(req,res){
 		{
 			res.jsonp(ret);
 		}
-		
+
 		return;
 	}
 

@@ -145,6 +145,7 @@ ctrack.setup=function(args)
 	args.instance_prefix=""
 	if(md5)
 	{
+		args.instance_md5=md5
 		args.instance_prefix="/"+md5
 		args.q=args.instance_prefix+"/q" // force q to use instance data
 		console.log("using instance prefix "+args.instance_prefix)

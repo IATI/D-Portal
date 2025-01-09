@@ -64,7 +64,7 @@ dstore_pg.open = async function(req){
 	let pg=global.argv.pg
 
 // prefer X-MD5 header from nginx before we check subdomain
-	let md5key = ( req && req.headers && req.headers["X-MD5"] ) || ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
+	let md5key = ( req && req.headers && req.headers["x-md5"] ) || ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
 
 	if( typeof md5key !== 'string' )
 	{
