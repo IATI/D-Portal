@@ -104,30 +104,49 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 		<div class="footer_line"></div>
 		<div class="footer">
 			<div class="footer_link footer_white footer_copy">
-				<a href="https://iatistandard.org/en/privacy-policy/">Privacy</a><div>© Copyright IATI 2024. All rights reserved</div><a onclick="$('html,body').animate({ scrollTop:0},'slow');return false;">{footer_top_text}</a>
+				<a href="https://iatistandard.org/en/privacy-policy/">{footer27_text}</a>
+				<div>{footer28_text}</div>
+				<a onclick="$('html,body').animate({ scrollTop:0},'slow');return false;">{footer_top_text}</a>
+				{large_footer_social}
 			</div>
 		</div>
 	</div>
 </div>
 
 #large_footer_links
-<div class="footer_header">Useful links</div>
+<div class="footer_header">{footer25_text}</div>
 <ul>
 	<li><a href="{origin}/dquery">{footer23_text}</a></li>
-	<li><a href="http://d-preview.codeforiati.org">{footer24_text}</a></li>
-	<li><a href="https://docs.d-portal.org/en/latest/">{footer17_text}</a></li>
+	<li><a href="https://preview.d-portal.org/upload">{footer24_text}</a></li>
+	<li><a href="https://docs.d-portal.org/en/latest/">{footer29_text}</a></li>
 	<li><a href="https://github.com/devinit/D-Portal/issues">{footer19_text}</a></li>
 </ul>
 
 #large_footer_info
-<div class="footer_header">Additional information</div>
+<div class="footer_header">{footer26_text}</div>
 {footer6_text} {footer7_text}
 <p>{footer8_text}</p>
 {publisher_slug&&footer_publisher_link||}
-<p>{footer10_text} <a href="mailto:support@iatistandard.org?subject=Regarding%20d-portal.org">{footer11_text}</a></p>
+<p>{footer30_text} <a href="mailto:support@iatistandard.org?subject=Regarding%20d-portal.org">{footer11_text}</a></p>
 
 #footer_publisher_link
 <p>{footer21_text} <a href="https://www.iatiregistry.org/publisher/{publisher_slug}">{footer22_text}</a></p>
+
+#large_footer_social
+<div class="footer_social">
+	<a href="https://www.linkedin.com/company/international-aid-transparency-initiative/" aria-label="LinkedIn">
+	  <span class="social_icon icon_linkedin"></span>
+	</a>
+	<a href="https://x.com/IATI_aid" aria-label="X">
+	  <span class="social_icon icon_x"></span>
+	</a>
+	<a href="https://www.youtube.com/channel/UCAVH1gcgJXElsj8ENC-bDQQ" aria-label="YouTube">
+	  <span class="social_icon icon_youtube"></span>
+	</a>
+	<a href="https://www.facebook.com/IATIaid/" aria-label="Facebook">
+	  <span class="social_icon icon_facebook"></span>
+	</a>
+</div>
 
 
 

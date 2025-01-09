@@ -756,36 +756,12 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 
 /*	Footer 2.0
 	============================================= */
-.iati-footer {
-    color: #fff;
-}
-.iati-footer-block {
-    color: #fff;
-}
-.iati-brand-background {
-    background-color: #155366;
-    display: grid;
-}
-.iati-footer__section {
-    margin-block: 2rem;
-}
-.iati-footer__section:not(:first-of-type) {
-    padding-block-start: 2rem;
-    border-block-start: 1px solid #7bedf2;
-}
-.iati-footer__section--first .iati-footer__container {
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
-}
-.iati-footer__container {
-    width: 100%;
-    max-width: 1280px;
-    margin-inline-start: auto;
-    margin-right: auto;
-    padding: 0 1rem;
-}
-
+.footer_social	{display:flex; gap:18px;}
+.social_icon	{display:block; height:36px; aspect-ratio:1 / 1;}
+.icon_linkedin	{background:center / contain no-repeat url(/ctrack/art/original/icon_linkedin.svg);}
+.icon_x			{background:center / contain no-repeat url(/ctrack/art/original/icon_x.svg);}
+.icon_youtube	{background:center / contain no-repeat url(/ctrack/art/original/icon_youtube.svg); aspect-ratio:1.2 / 1;}
+.icon_facebook	{background:center / contain no-repeat url(/ctrack/art/original/icon_facebook.svg);}
 
 
 /*	Disqus wrapper

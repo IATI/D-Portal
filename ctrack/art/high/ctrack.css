@@ -669,6 +669,16 @@ a.data_invest:hover		{color:#000; background-color:#ddd; text-decoration:none;}
 .footer_dpreview a.search_refine{width:initial; text-align:center; margin:0 auto; padding:10px 20px; margin-top:1em; color:#000;}
 
 
+/*	Footer 2.0
+	============================================= */
+.footer_social	{display:flex; gap:18px;}
+.social_icon	{display:block; height:36px; aspect-ratio:1 / 1; -webkit-filter:brightness(0%); filter:brightness(0%);}
+.icon_linkedin	{background:center / contain no-repeat url(/ctrack/art/original/icon_linkedin.svg);}
+.icon_x			{background:center / contain no-repeat url(/ctrack/art/original/icon_x.svg);}
+.icon_youtube	{background:center / contain no-repeat url(/ctrack/art/original/icon_youtube.svg); aspect-ratio:1.2 / 1;}
+.icon_facebook	{background:center / contain no-repeat url(/ctrack/art/original/icon_facebook.svg);}
+
+
 /*	Disqus wrapper
 	============================================= */
 #disqus_thread			{margin-top:40px;}
