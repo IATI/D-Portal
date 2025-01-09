@@ -77,7 +77,7 @@ span.block		{display:block;}
 .wrap_budget_not_provided		{font-size:16px; padding-bottom:20px;}
 .wrap_budget_not_provided span	{font-weight:bold; text-transform:lowercase;}
 .reporting_org					{width:85%; display:flex; align-items:center; justify-content:space-between;}
-.reporting_org span				{font-size:12px;}
+.reporting_org span				{font-size:12px; margin:0; line-height:1.35em;}
 .reporting_org .narrative:nth-of-type(2)	{font-style:italic;}
 
 /*	GRAPHS	*/
@@ -998,7 +998,7 @@ body.white		{background-color:#fff;}
 .white .wrap_result table.budget tr.actual_comment td .result_comment_type,
 .white .wrap_result table.budget tr.baseline_comment td .result_comment,
 .white .wrap_result table.budget tr.target_comment td .result_comment,
-.white .wrap_result table.budget tr.actual_comment td .result_comment			{background:#fff; color:#121212;}
+.white .wrap_result table.budget tr.actual_comment td .result_comment			{border-top:1px solid #4d5264; background:#fff; color:#121212;}
 
 .white .wrap_result table.budget tr.baseline_comment td .result_comment_type,
 .white .wrap_result table.budget tr.target_comment td .result_comment_type,
@@ -1007,7 +1007,7 @@ body.white		{background-color:#fff;}
 /* Table sort icons */
 .white table.budget th,
 .white .org table.budget th.status,
-.white table.budget th.value	{background:#fff;}
+.white table.budget th.value	{background:url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAJ1BMVEUAAABFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUV/SRQjAAAADHRSTlMAIvkYD+bjaGVTOze872BEAAAALUlEQVQI12PACjhhjJoGCM2towVhmJ05agBmOAoKOsDVw0XgauC6EOYgTMYEABzpCAEsOROfAAAAAElFTkSuQmCC) no-repeat right 5px center, #fff;}
 
 /* Table Charts */
 .white .ct-label {color:#121212; fill:#444;}
