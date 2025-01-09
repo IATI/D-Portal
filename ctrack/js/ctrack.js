@@ -535,16 +535,20 @@ ctrack.setup=function(args)
 // build ? strings for url changes
 
 	var aa={}
+/*
 	for(var n in ctrack.q)
 	{
 		if(n=="") { continue }
 		if(n=="test") { continue }
 		aa[n]=encodeURIComponent(ctrack.q[n]); // use raw Q
 	}
+*/
+// limit base args to options only
 	if(args.flava!="original")		{ aa["flava"]    =args.flava;         }
 	if(args.tongue!="eng")			{ aa["tongue"]   =args.tongue;        }
 	if(args.newyear!="01-01")		{ aa["newyear"]  =args.newyear;       }
 	if(ctrack.display_usd!="USD")	{ aa["usd"]      =ctrack.display_usd; }
+	if(args.rgba)					{ aa["rgba"]     =args.rgba;         }
 
 	var bb=[]; for(var n in aa) { bb.push(n+"="+aa[n]); }
 	ctrack.chunk("mark","?"+bb.join("&"));
