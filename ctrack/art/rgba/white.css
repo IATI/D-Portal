@@ -368,13 +368,20 @@ a.data_invest:hover		{color:rgba(46,46,46,1); background-color:rgba(65,228,235,1
 
 /*	Footer
 	============================================= */
-.footer_wrap			{background-color:rgba(21,83,102,1);}
-.footer_link a			{color:rgba(153,153,153,1);}
+.footer_wrap			{background-color:rgba(21,83,102,1); background:linear-gradient(rgba(21,83,102,.9), rgba(21,83,102,.9)), url(/ctrack/art/original/marque-white-DYPYWx68.svg) no-repeat right 2rem top, rgba(21,83,102,1);}
+.footer_link.footer_white	{display:block; width:960px;}
+.footer_link			{padding:2em 0 0.5em 0;}
+.footer_link li a		{line-height:2em;}
+.footer_link a			{color:rgba(255,255,255,1); text-decoration:underline; text-decoration-color:rgba(173,211,223,1); text-underline-position:under;}
 .footer_link a:focus	{color:rgba(255,255,255,1);}
-.footer_link a:link  	{color:rgba(153,153,153,1);}
-.footer_link a:visited	{color:rgba(153,153,153,1);}
-.footer_link a:hover	{color:rgba(255,255,255,1);}
-.footer_link a:active	{color:rgba(153,153,153,1);}
+.footer_link a:link  	{color:rgba(255,255,255,1);}
+.footer_link a:visited	{color:rgba(255,255,255,1);}
+.footer_link a:hover	{color:rgba(123,237,242,1);}
+.footer_link a:active	{color:rgba(255,255,255,1);}
+.footer_line			{width:100%; border-top:1px solid #7bedf2;}
+.footer_header			{font-weight:bold; border:0;}
+.footer_link.footer_white.footer_copy	{display:flex; justify-content:space-between; padding:2em 0;}
+.footer_link.footer_white.footer_copy a	{text-decoration:none;}
 
 
 /*	SAVi CSS
