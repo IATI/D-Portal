@@ -554,6 +554,7 @@ ctrack.setup=function(args)
 	ctrack.chunk("mark","?"+bb.join("&"));
 	ctrack.chunk("ctrack_prefix",args.instance_prefix);
 	ctrack.chunk("ctrack_html",args.instance_prefix+"/ctrack.html?"+bb.join("&"));
+	ctrack.chunk("ctrack_home",args.instance_prefix+"/ctrack.html?"+bb.join("&")+"#view=search");
 	var bb=[]; for(var n in aa) { if(n!="tongue") { bb.push(n+"="+aa[n]); } }
 	ctrack.chunk("mark_no_tongue","?"+bb.join("&"));
 
