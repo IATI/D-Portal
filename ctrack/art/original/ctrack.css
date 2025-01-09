@@ -95,6 +95,16 @@ a.about_data.registry_link	{border-right:1px solid #CCC; text-align:left;}
 .default.mention		{display:flex; justify-content:space-between;}
 
 
+/*	Header 2.0
+	============================================= */
+.iati_header	{display:flex; flex-direction:column;}
+.iati_head_one	{background-color:#fff;}
+.iati_head_two	{background:linear-gradient(rgba(21,83,102,.9), rgba(21,83,102,.9)), url(/ctrack/art/original/marque_white.svg) no-repeat right 2rem top, rgba(21,83,102,1);}
+.iati_head_con	{width:100%; max-width:960px; margin-inline-start:auto; margin-right:auto; padding:0 1rem;}
+.iati_head_one .iati_head_con	{display:flex; flex-flow:row nowrap; justify-content:space-between; align-items:center; column-gap:1rem; row-gap:1rem; flex-wrap:wrap; padding-block:0.5rem;}
+
+
+
 /*	SDG styles
 	============================================= */
 .sdg_wrap		{background-color:#fff; border-radius:6px; margin:0 auto; width:960px; margin-top:1em; margin-bottom:2em;}
