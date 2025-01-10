@@ -122,8 +122,12 @@ a.about_data.registry_link	{border-right:1px solid #CCC; text-align:left;}
 .iati_lang			{background-color:#fff; position:relative; display:inline-block; color:#121212; cursor:pointer;}
 .iati_lang::after	{position:absolute; right:0.7em; top:calc(50% - 0.1875em); content:""; width:0.75em; height:0.375em; background-color:#121212; clip-path:polygon(15% 0, 0 0, 50% 100%, 100% 0, 85% 0, 50% 70%);}
 .iati_lang .iati_lang_label	{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0;}
-.iati_lang .iati_lang_opt	{background:url(/ctrack/art/original/icon_globe.svg) no-repeat 0.5em center; padding:0.7em 2.1em 0.7em calc(1em + 1rem); line-height:1.1; width:100%; height:100%; appearance:none; background-color:#fff; border:none; color:#121212;}
-.iati_lang .iati_lang_opt:hover	{cursor:pointer;}
+.iati_lang .iati_lang_opt,
+.iati_lang .iati_lang_theme	{padding:0.7em 2.1em 0.7em calc(1em + 1rem); line-height:1.1; width:100%; height:100%; appearance:none; background-color:#fff; border:none; color:#121212;}
+.iati_lang .iati_lang_opt	{background:url(/ctrack/art/original/icon_globe.svg) no-repeat 0.5em center;}
+.iati_lang .iati_lang_theme	{background:url(/ctrack/art/original/icon_eye.svg) no-repeat 0.35em 0.3em}
+.iati_lang .iati_lang_opt:hover,
+.iati_lang .iati_lang_theme:hover	{cursor:pointer;}
 .iati_button			{color:#121212; background-color:#fff; border:none; font-size:14px; line-height:1.1; padding:.7em; transition:all .2s ease-in-out;}
 .iati_button img		{-webkit-filter:brightness(0); filter:brightness(0);}
 .iati_button:hover		{background-color:#7bedf2; color:#155366;}
