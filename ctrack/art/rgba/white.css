@@ -107,8 +107,9 @@ a.stats_link:hover		{background-color:rgba(68,128,147,1);}
 a.stats_link.missing span,
 a.stats_link span		{color:rgba(255,255,255,1);}
 
-a.stats_link.active				{background-color:rgba(183,62,50,1);}
+a.stats_link.active				{background-color:rgba(45,106,125,1);}
 a.stats_link.active:hover		{background-color:rgba(219,88,75,1);}
+a.stats_link.active:hover span.stats_title		{color:rgba(255,195,190,1);}
 a.stats_link.missing			{background-color:rgba(68,128,147,1); color:rgba(202,230,239,1);}
 a.stats_link.missing:hover		{background-color:rgba(92,151,169,1);}
 a.stats_link.ended				{background-color:rgba(11,144,149,1);}
@@ -120,7 +121,7 @@ a.stats_link.planned:hover		{background-color:rgba(104,104,104,1);}
 a.stats_link.publishers			{background-color:rgba(10,145,114,1);}
 a.stats_link.publishers:hover	{background-color:rgba(5,171,133,1);}
 
-a.stats_link.active span.stats_title		{color:rgba(255,195,190,1);}
+a.stats_link.active span.stats_title		{color:rgba(173,211,223,1);}
 a.stats_link.missing span.stats_title		{color:rgba(202,230,239,1);}
 a.stats_link.ended span.stats_title			{color:rgba(182,246,249,1);}
 a.stats_link.total span.stats_title			{color:rgba(223,203,246,1);}

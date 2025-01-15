@@ -143,7 +143,7 @@
 	<div class="default mention">{main_mention}{main_declare_stats}</div>
 </div>
 
-#new_main_stats
+#new_main_stats2
 <div class="stats_wrap">
 	<table class="title key">
 		<tr>
@@ -213,7 +213,7 @@
 	<div class="default mention">{main_mention}{main_declare_stats}</div>
 </div>
 
-#new_main_stats2
+#new_main_stats
 <div class="stats_wrap">
 	<table class="title key">
 		<tr>
@@ -242,14 +242,14 @@
 			</div>
 		</div>
 		<div class="status" style="display:flex; width:960px; margin:0 auto; flex-wrap:wrap; justify-content:center; gap:14px; margin-bottom:12px;">
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=4" class="stats_link" title="{stats_active_tip_text}" style="flex-basis:190px; padding:20px 20px; margin:0; height:initial; font-size:18px;">
-				Active <span>{numof_status_code_unknown}</span>
+			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link" title="{stats_active_tip_text}" style="flex-basis:190px; padding:20px 20px; margin:0; height:initial; font-size:18px;">
+				Active <span>{active_projects}</span>
 			</a>
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=5" class="stats_link" title="{stats_ended_tip_text}" style="flex-basis:190px; padding:20px 20px; margin:0; height:initial; font-size:18px;">
-				Ended <span>{numof_status_code_unknown}</span>
+			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=ended" class="stats_link" title="{stats_ended_tip_text}" style="flex-basis:190px; padding:20px 20px; margin:0; height:initial; font-size:18px;">
+				Ended <span>{ended_projects}</span>
 			</a>
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=6" class="stats_link" title="{stats_planned_tip_text}" style="flex-basis:189px; padding:20px 20px; margin:0; height:initial; font-size:18px;">
-				Planned <span>{numof_status_code_unknown}</span>
+			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=planned" class="stats_link" title="{stats_planned_tip_text}" style="flex-basis:189px; padding:20px 20px; margin:0; height:initial; font-size:18px;">
+				Planned <span>{planned_projects}</span>
 			</a>
 			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code_null=0" class="stats_link missing" title="{stats_missing_tip_text}" style="flex-basis:189px; padding:20px 20px; margin:0; height:initial;">
 				{stats_missing_text} <span>{numof_status_code_unknown}</span>
@@ -261,31 +261,43 @@
 				<tr>
 					<th class="titles"></th>
 					<th class="titles">Activity status</th>
+					<th class="titles">Status code</th>
 					<th class="titles">Total activities</th>
 				</tr>
 				<tr onclick="return ctrack.url('#view=list_activities&status_code=1');">
 					<td class="num">1.</td>
 					<td class="title"><a>{stats_pipeline_text}</a></td>
+					<td class="date"><a>1</a></td>
 					<td class="count" title="{stats_pipeline_tip_text}">{numof_status_code_1}</td>
 				</tr>
-				<tr onclick="return ctrack.url('#view=list_activities&status_code=3');">
+				<tr onclick="return ctrack.url('#view=list_activities&status_code=2');">
 					<td class="num">2.</td>
+					<td class="title"><a>{stats_implementation_text}</a></td>
+					<td class="date"><a>2</a></td>
+					<td class="count" title="{stats_implementation_tip_text}">{numof_status_code_2}</td>
+				</tr>
+				<tr onclick="return ctrack.url('#view=list_activities&status_code=3');">
+					<td class="num">3.</td>
 					<td class="title"><a>{stats_finalisation_text}</a></td>
+					<td class="date"><a>3</a></td>
 					<td class="count" title="{stats_finalisation_tip_text}">{numof_status_code_3}</td>
 				</tr>
 				<tr onclick="return ctrack.url('#view=list_activities&status_code=4');">
-					<td class="num">3.</td>
+					<td class="num">4.</td>
 					<td class="title"><a>{stats_closed_text}</a></td>
+					<td class="date"><a>4</a></td>
 					<td class="count" title="{stats_closed_tip_text}">{numof_status_code_4}</td>
 				</tr>
 				<tr onclick="return ctrack.url('#view=list_activities&status_code=5');">
-					<td class="num">4.</td>
+					<td class="num">5.</td>
 					<td class="title"><a>{stats_cancelled_text}</a></td>
+					<td class="date"><a>5</a></td>
 					<td class="count" title="{stats_cancelled_tip_text}">{numof_status_code_5}</td>
 				</tr>
 				<tr onclick="return ctrack.url('#view=list_activities&status_code=6');">
-					<td class="num">5.</td>
+					<td class="num">6.</td>
 					<td class="title"><a>{stats_suspended_text}</a></td>
+					<td class="date"><a>6</a></td>
 					<td class="count" title="{stats_suspended_tip_text}">{numof_status_code_6}</td>
 				</tr>
 				</tbody>
