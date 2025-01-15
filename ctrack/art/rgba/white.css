@@ -103,28 +103,28 @@ span.stats_num			{color:rgba(255,255,255,1);}
 span.stats_num.view		{color:rgba(46,46,46,1);}
 .declare.stats			{color:rgba(46,46,46,1);}
 a.stats_link			{color:rgba(173,211,223,1); background-color:rgba(21,83,102,1); border-radius:0;}
-a.stats_link:hover		{background-color:rgba(68,128,147,1);}
+a.stats_link:hover		{background-color:rgba(45,106,125,1);}
 a.stats_link.missing span,
 a.stats_link span		{color:rgba(255,255,255,1);}
 
 a.stats_link.active				{background-color:rgba(45,106,125,1);}
 a.stats_link.active:hover		{background-color:rgba(219,88,75,1);}
 a.stats_link.active:hover span.stats_title		{color:rgba(255,195,190,1);}
-a.stats_link.missing			{background-color:rgba(68,128,147,1); color:rgba(202,230,239,1);}
-a.stats_link.missing:hover		{background-color:rgba(92,151,169,1);}
+a.stats_link.missing			{}
+a.stats_link.missing:hover		{}
 a.stats_link.ended				{background-color:rgba(11,144,149,1);}
 a.stats_link.ended:hover		{background-color:rgba(9,182,189,1);}
-a.stats_link.total				{background-color:rgba(111,58,175,1);}
-a.stats_link.total:hover		{background-color:rgba(139,84,204,1);}
+a.stats_link.total				{background-color:rgba(45,106,125,1);}
+a.stats_link.total:hover		{background-color:rgba(139,84,204,1); color:rgba(223,203,246,1);}
 a.stats_link.planned			{background-color:rgba(75,75,75,1);}
 a.stats_link.planned:hover		{background-color:rgba(104,104,104,1);}
 a.stats_link.publishers			{background-color:rgba(10,145,114,1);}
 a.stats_link.publishers:hover	{background-color:rgba(5,171,133,1);}
 
 a.stats_link.active span.stats_title		{color:rgba(173,211,223,1);}
-a.stats_link.missing span.stats_title		{color:rgba(202,230,239,1);}
+a.stats_link.missing span.stats_title		{}
 a.stats_link.ended span.stats_title			{color:rgba(182,246,249,1);}
-a.stats_link.total span.stats_title			{color:rgba(223,203,246,1);}
+a.stats_link.total span.stats_title			{color:rgba(173,211,223,1);}
 a.stats_link.planned span.stats_title		{color:rgba(218,218,218,1);}
 a.stats_link.publishers span.stats_title	{color:rgba(176,237,223,1);}
 
