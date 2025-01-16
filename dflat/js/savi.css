@@ -325,7 +325,7 @@ table.budget tr:last-of-type td		{padding-bottom:30px;}	/*	Remove border-bottom 
 /*	IATI ORG VALUE COLUMN	*/
 .wrap_total_expenditure table.budget td.value		{padding-left:20px; padding-right:0; width:200px;}
 .wrap_total_budget table.budget td.value,
-.wrap_recipient_budget table.budget td.value		{padding-left:20px; padding-right:0; width:120px;}
+.wrap_recipient_budget table.budget td.value		{padding-left:0; padding-right:0; width:120px;}
 
 /*	IATI ACTIVITY PARTICIPATING ORG TABLE	*/
 table.budget.part_org th.part_org_name,
