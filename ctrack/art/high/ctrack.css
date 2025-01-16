@@ -259,7 +259,7 @@ a.stats_link.missing span	{color:#000;}
 	============================================= */
 .status_wrap			{margin:0 auto; margin-bottom:25px;}
 .status_button_wrap		{display:flex; width:960px; margin:0 auto; flex-wrap:wrap; justify-content:center; gap:14px; margin-bottom:12px;}
-.status					{display:grid; grid-template-columns:56% 42%; overflow:hidden; width:960px; margin:0 auto; margin-bottom:15px; grid-template-rows:[row1] 140px [row2] 75px [row3]; grid-column-gap:14px; grid-row-gap:8px;}
+.status_grid			{display:grid; grid-template-columns:56% 42%; overflow:hidden; width:960px; margin:0 auto; margin-bottom:15px; grid-template-rows:[row1] 140px [row2] 75px [row3]; grid-column-gap:14px; grid-row-gap:8px;}
 .status_pipeline		{grid-row-start:row1; grid-row-end:row3; display:flex;}
 .status_publisher		{grid-column-start:2; grid-row-start:row1; grid-row-end:row2;}
 .status_total			{grid-column-start:2; grid-row-start:row2; grid-row-end:row3;}
