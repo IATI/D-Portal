@@ -42,8 +42,8 @@ var tonumber=function(v)
 dstore_db.bubble_act={
 		"aid":true
 	};
-	
-	
+
+
 // data table descriptions
 dstore_db.tables={
 // TODO: jml should be removed and xson used instead...
@@ -73,8 +73,8 @@ dstore_db.tables={
 		{ name:"funder_ref",					NOCASE:true , INDEX:true },
 		{ name:"title",							NOCASE:true },
 		{ name:"slug",							NOCASE:true , INDEX:true },
-		{ name:"status_code",					INTEGER:true , INDEX:true , codes:"activity_status" },	
-		{ name:"day_start",						INTEGER:true , INDEX:true },	
+		{ name:"status_code",					INTEGER:true , INDEX:true , codes:"activity_status" },
+		{ name:"day_start",						INTEGER:true , INDEX:true },
 		{ name:"day_end",						INTEGER:true , INDEX:true },
 		{ name:"day_length",					INTEGER:true , INDEX:true },
 		{ name:"description",					NOCASE:true },
@@ -196,9 +196,9 @@ dstore_db.tables_active={};
 		for(let i=0; i<dstore_db.tables[name].length; i++ )
 		{
 			let v=dstore_db.tables[name][i];
-			
+
 			let ty="null";
-			
+
 			if(v.TEXT) { ty="char"; }
 			else
 			if(v.NOCASE) { ty="char"; }
@@ -206,7 +206,7 @@ dstore_db.tables_active={};
 			if(v.INTEGER) { ty="int"; }
 			else
 			if(v.REAL) { ty="float"; }
-			
+
 			if(v.name)
 			{
 				t[v.name]=ty;
@@ -220,7 +220,7 @@ dstore_db.table_name_map={} // look up table from name
 {
 	let ns={};
 	dstore_db.table_name_map=ns
-	
+
 	for(var name in dstore_db.tables )
 	{
 		for(var n in dstore_db.tables_active[name])
@@ -271,7 +271,7 @@ for( let pn in dflat_indexs ) // auto ad index
 	let it={}
 	it.XSON_INDEX=[a,p.type]
 	dstore_db.tables.xson.push(it)
-	
+
 }
 //console.log(dstore_db.tables.xson)
 
@@ -287,12 +287,12 @@ dstore_db.open = async function(instance){
 
 dstore_db.refresh_budget=async function(db,it,act,act_json,priority,splits)
 {
-	
+
 	var t={};
 	for(var n in dstore_db.bubble_act){ t[n]=act_json[n]; } // copy some stuff
 
 	t.budget_priority=priority;
-	
+
 	t.budget="unknown";
 	if(it[0]=="planned-disbursement") // flag to share table with planned-disbursement (they seem very similar)
 	{
@@ -321,7 +321,7 @@ dstore_db.refresh_budget=async function(db,it,act,act_json,priority,splits)
 		t.budget="country";
 		t.budget_priority=0; // make sure this does not double count
 	}
-	
+
 	t["budget_type"]=it["type"];
 
 	t["budget_day_start"]=				iati_xml.get_isodate_number(it,"period-start");
@@ -337,7 +337,7 @@ dstore_db.refresh_budget=async function(db,it,act,act_json,priority,splits)
 			t["budget_day_length"]=null; // ends before it starts
 		}
 	}
-	
+
 	if( (!t["budget_day_length"]) || (t["budget_day_length"] > 370) ) // allow a few days over a year
 	{
 		t.budget_priority=0; // remove priority
@@ -353,7 +353,7 @@ dstore_db.refresh_budget=async function(db,it,act,act_json,priority,splits)
 	t["budget_org"]=					refry.tagattr(it,"recipient-org","ref");
 
 	t["budget_country"]=null
-	var country_code=refry.tagattr(it,"recipient-country","code");	
+	var country_code=refry.tagattr(it,"recipient-country","code");
 	if( country_code )
 	{
 		t["budget_country"] = country_code.trim().toUpperCase();
@@ -385,12 +385,12 @@ dstore_db.refresh_budget=async function(db,it,act,act_json,priority,splits)
 
 
 	t.jml=JSON.stringify(it);
-	
+
 	if(splits)
-	{			
+	{
 		splits.idx=splits.idx+1
 	}
-	
+
 	t["budget_id"]=splits && splits.idx || 0
 
 	if(splits)
@@ -468,7 +468,7 @@ dstore_db.refresh_budget=async function(db,it,act,act_json,priority,splits)
 					}
 				}
 			}
-		}	
+		}
 	}
 	else
 	{
@@ -508,7 +508,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		t["trans_finance_code"]=	iati_xml.get_code(it,"finance-type");
 		t["trans_aid_code"]=		iati_xml.get_code(it,"aid-type");
 
-		
+
 		t["trans_currency"]=		iati_xml.get_value_currency(it,"value") || act["default-currency"];
 		t["trans_value"]=			iati_xml.get_value(it,"value")||0;
 		t["trans_usd"]=				iati_xml.get_ex(it,"value","USD",act["default-currency"])||0;
@@ -518,7 +518,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 
 		t["trans_country"]=null
-		var country_code=refry.tagattr(it,"recipient-country","code");	
+		var country_code=refry.tagattr(it,"recipient-country","code");
 		if( country_code )
 		{
 			t["trans_country"] = country_code.trim().toUpperCase();
@@ -549,22 +549,22 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 
 
-// map new 201 codes to old		
+// map new 201 codes to old
 		t["trans_code"]= codes.transaction_type_map[ t["trans_code"] ] || t["trans_code"];
 
 // transaction flag, 0 by default
 		t["trans_flags"]=			0;
 
 		t.jml=JSON.stringify(it);
-		
+
 		if(splits)
-		{			
+		{
 			splits.idx=splits.idx+1
 
 // attempt to build country/sector percentages backwards from transactions
 
 			var value=(Math.abs(t["trans_usd"])||0)
-			
+
 			var country=t["trans_country"] // country split
 			if(country)
 			{
@@ -586,7 +586,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 					splits.DE.country[country]=(splits.DE.country[country]||0)+value
 				}
 			}
-			
+
 			var sector=t["trans_sector"] || t["trans_sector_group"] // assume all 5 or all 3 digit codes so we can mix
 			if(sector)
 			{
@@ -609,7 +609,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 				}
 			}
 		}
-		
+
 		t["trans_id"]=splits && splits.idx || 0
 
 		if(splits)
@@ -687,7 +687,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 						}
 					}
 				}
-			}	
+			}
 		}
 		else
 		{
@@ -698,7 +698,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 	var refresh_budget=async function(it,act,act_json,priority,splits)
 	{
 		await dstore_db.refresh_budget(db,it,act,act_json,priority,splits);
-		
+
 		var y=iati_xml.get_isodate_year(it,"period-start"); // get year from start date
 		got_budget[ y ]=true;
 	};
@@ -706,11 +706,11 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 	var refresh_activity=async function(xml,head)
 	{
 //		process.stdout.write("a");
-		
+
 		var act=xml;
 		if((typeof xml)=="string") { act=refry.xml(xml,aid); } // raw xml convert to jml
 		act=refry.tag(act,"iati-activity"); // and get the main tag
-		
+
 		if(head) // copy all attributes from iati-activities into each activity using the iati-activities: namespace
 		{
 			for(var n in head)
@@ -726,11 +726,11 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 				}
 			}
 		}
-		
+
 		iati_cook.activity(act); // cook the raw json(xml) ( most cleanup logic has been moved here )
-	
+
 		var t={};
-		
+
 		t.slug=refry.tagattr(act,"iati-activity","dstore:dataset"); // this value is hacked in when the acts are split
 		t.aid=iati_xml.get_aid(act);
 
@@ -807,13 +807,13 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 //console.log("C="+t.commitment+"\tD+E="+t.spend);
 
 		var funder;
-		
+
 		if(!funder) { funder=refry.tagattr(act,{0:"participating-org",role:"funding"},"ref"); }
 		if(funder){ funder=funder.trim(); if(!codes.funder_names[funder]) {funder=null;} } //validate code
-		
+
 		if(!funder) { funder=refry.tagattr(act,{0:"participating-org",role:"extending"},"ref"); }
 		if(funder){ funder=funder.trim(); if(!codes.funder_names[funder]) {funder=null;} } //validate code
-		
+
 		if(!funder) { funder=refry.tagattr(act,{0:"reporting-org"},"ref"); }
 		if(funder)
 		{
@@ -867,7 +867,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 							country_code:		cc,
 							country_percent:	pc
 						});
-//console.log(d) // this should not trigger, as we should not have to reconstruct 
+//console.log(d) // this should not trigger, as we should not have to reconstruct
 					}
 // also include zero percenters
 					for(var country in splits.ANY.country)
@@ -911,11 +911,11 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 						{
 							group=(""+sc).slice(0,3)
 						}
-						
+
 						var d={"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc}
 
 						await dstore_back.replace(db,"sector",d); // save to database as we work out
-						
+
 						splits.sector.push({
 							sector_group:group,
 							sector_code:sc,
@@ -940,7 +940,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 							{
 								group=(""+sc).slice(0,3)
 							}
-							
+
 							var d={"aid":t.aid,"sector_group":group,"sector_code":sc,"sector_percent":pc}
 
 							await dstore_back.replace(db,"sector",d); // save to database as we work out
@@ -951,7 +951,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 			splits.all=[] // we are always going to rebuild this
 			var sc=splits.country; if(sc.length==0) {sc=[{}];} // use empty [{}] so "all" contains data
-			var ss=splits.sector;  if(ss.length==0) {ss=[{}];}		
+			var ss=splits.sector;  if(ss.length==0) {ss=[{}];}
 			for(var idxc=0;idxc<sc.length;idxc++)
 			{
 				var vc=sc[idxc];
@@ -960,7 +960,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 					var vs=ss[idxs];
 					var v={};
 					for(var ns in vs) { v[ns]=vs[ns]; } // merge, there should be no name clash
-					for(var nc in vc) { v[nc]=vc[nc]; } 
+					for(var nc in vc) { v[nc]=vc[nc]; }
 					v.all_percent=((v.sector_percent||100)*(v.country_percent||100))/100; // multiply percents
 					splits.all.push(v);
 				}
@@ -1024,7 +1024,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		}
 
 		await fixsplits(splits)
-		
+
 // print debug splits
 /*
 		var s="\n"+splits.all.length+" ("+splits.country.length+","+splits.sector.length+") :";
@@ -1059,7 +1059,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 				{
 					longitude=tonumber(co.longitude);
 					latitude=tonumber(co.latitude);
-					precision=tonumber(co.precision);					
+					precision=tonumber(co.precision);
 				}
 				var point=refry.tag(it,"point");
 				var exact=refry.tag(it,"exactness");
@@ -1080,7 +1080,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 						}
 					}
 				}
-				
+
 				// sanity maximum length for database index
 				if( typeof name == "string" ) { name=name.substring(0,2048) }
 
@@ -1131,7 +1131,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 				t.day_length=0
 			}
 		}
-		
+
 // record policy-marker DAC only with significance and code closely coupled (they make no sense apart as one may negate the other)
 
 		for( let it of refry.all_tags(act,"policy-marker") )
@@ -1163,7 +1163,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 			}
 
 		}
-		
+
 // work on act tags , singe flags so use key values
 
 		let tag={}
@@ -1177,12 +1177,13 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		tagmap[2]="UNSDG"
 		tagmap[3]="UNSDT"
 		tagmap[4]="TEI"
+		tagmap[99]="RO"
 
 		let sectmap={}
 		sectmap[7]="UNSDG"
 		sectmap[8]="UNSDT"
 		sectmap[9]="UNSDI"
-		
+
 		for( let it of refry.all_tags(act,"tag") )
 		{
 			let vocab=(it.vocabulary||"").trim().toUpperCase()
@@ -1193,7 +1194,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 				if(mode)
 				{
 					manifest_tag_mode(mode)[code]=true // flag it
-				}	
+				}
 			}
 
 		}
@@ -1211,7 +1212,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 				}
 			}
 		})
-		
+
 		for( let mode in tag )
 		{
 			for( let code in tag[mode] )
@@ -1224,7 +1225,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 				});
 			}
 		}
-		
+
 //		t.xml=xml;
 		t.jml=JSON.stringify(act);
 
@@ -1238,7 +1239,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		{
 			await replace("hash",t);
 		}
-		
+
 //		dstore_back.replace(db,"activity",t);
 		await replace("act",t);
 		await replace("jml",t);
@@ -1248,7 +1249,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		let its=[]
 
 		for( let it of refry.all_tags(act,"transaction") ) { await refresh_transaction(it,act,t,splits); }
-		
+
 		await fixsplits(splits) // we may work out *NEW* percentage splits after parsing the transactions
 
 		for( let it of refry.all_tags(act,"budget") ) { await refresh_budget(it,act,t,1,splits) }
@@ -1266,11 +1267,11 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 //				ls({"skipyear":y});
 			}
 		}
-		
+
 //update slug
 
 		await dstore_back.replace(db,"slug",{"aid":t.aid,"slug":t.slug});
-		
+
 // do not need this any more as we have xson
 /*
 		var vols=refry.tag_volumes(refry.tag(act,"iati-activity"));
@@ -1324,12 +1325,12 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 			x.pid=t.pid
 			x.root=path
 			x.xson=JSON.stringify( it );
-			
+
 			if(x.xson)
 			{
 				replace("xson",x);
 			}
-			
+
 			for(let n in it )
 			{
 				let v=it[n]
@@ -1347,7 +1348,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 		return t;
 	};
-	
+
 	// then add new
 	return await refresh_activity(xml,head);
 
@@ -1355,7 +1356,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 dstore_db.get_meta = function(){
 	if(dstore_db.meta) { return dstore_db.meta } else {
-	
+
 	var build_codes=function(dat){
 		var ret=[]
 		for(var n in dat)
@@ -1370,11 +1371,11 @@ dstore_db.get_meta = function(){
 
 	var meta={}
 	dstore_db.meta=meta // cache it
-	
+
 	meta.tables=dstore_db.tables
-	
+
 	meta.codes={}
-	
+
 	meta.codes.activity_status  = build_codes( codes.activity_status )
 	meta.codes.transaction_type = build_codes( codes.transaction_type )
 	meta.codes.sector           = build_codes( codes.sector )
@@ -1382,7 +1383,7 @@ dstore_db.get_meta = function(){
 	meta.codes.country          = build_codes( codes.country )
 	meta.codes.policy_code      = build_codes( codes.policy_code )
 	meta.codes.policy_sig       = build_codes( codes.policy_sig )
-	
+
 	meta.codes.policy = [] // policy is a merged value from two codelists
 	for(var ns in codes.policy_sig)
 	{
