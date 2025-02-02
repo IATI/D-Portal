@@ -39,11 +39,11 @@ var http_getbody=async function(url)
 var https_getbody=http_getbody;
 
 iati_codes.fetch = async function(){
-	
+
 	try{
 		await iati_codes.fetch1()
 	}catch(e){}
-	
+
 	try{
 		await iati_codes.fetch2()
 	}catch(e){}
@@ -147,7 +147,7 @@ iati_codes.fetch1 = async function(){
 			{
 				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/HumanitarianScopeType.json",
 				name:"hum_scope_type",
-			},		
+			},
 			{
 				url:"http://reference.iatistandard.org/203/codelists/downloads/clv3/json/en/CollaborationType.json",
 				name:"collab_type",
@@ -169,10 +169,10 @@ iati_codes.fetch1 = async function(){
 				name:"tied_status",
 			},
 		];
-	
+
 	for(let opts of files)
 	{
-	
+
 		console.log("Fetching IATI "+opts.name)
 
 		let js=await http_getbody(opts.url);
@@ -199,7 +199,7 @@ iati_codes.fetch1 = async function(){
 		{
 			codes[opts.name+"_withdrawn"]=withdrawn;
 		}
-		
+
 	}
 
 // merge old/new transaction types and build map
@@ -251,8 +251,8 @@ iati_codes.fetch1 = async function(){
 		"CG": 10,
 	}
 	codes["transaction_type_num"]=o; // map old codes to new numbers
-	
-	console.log("Parsing csv/iati_funders.csv")	
+
+	console.log("Parsing csv/iati_funders.csv")
 	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/iati_funders.csv",{encoding:"utf8"}) ).data;
 
 	var o={};
@@ -266,7 +266,7 @@ iati_codes.fetch1 = async function(){
 			o[a.trim()]=b.trim();
 		}
 	}
-	
+
 //	ls(o);
 	codes["iati_funders"]=o;
 
@@ -286,11 +286,11 @@ iati_codes.fetch1 = async function(){
 			o.push({id:a.trim(),name:b.trim()});
 		}
 	}
-	
+
 //	ls(o);
 	codes["iati_currencies"]=o;
-	
-	
+
+
 
 	console.log("Parsing csv/local_currency.csv")
 	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/local_currency.csv",{encoding:"utf8"}) ).data;
@@ -306,11 +306,11 @@ iati_codes.fetch1 = async function(){
 			o[a.trim()]=b.trim();
 		}
 	}
-	
+
 //	ls(o);
 	codes["local_currency"]=o;
 
-	
+
 	console.log("Parsing csv/crs_funders.csv")
 
 	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/crs_funders.csv",{encoding:"utf8"}) ).data;
@@ -357,7 +357,7 @@ iati_codes.fetch1 = async function(){
 			}
 		}
 	}
-	
+
 //	ls(o);
 	codes.funder_names=funder_names;
 	codes.crs_funders=o;
@@ -384,12 +384,12 @@ iati_codes.fetch1 = async function(){
 	}
 	codes.crs_countries=o;
 	codes.rev_crs_countries=r;
-	
-		
+
+
 
 	for(var year=2015;year<=2019;year++)
 	{
-			
+
 		console.log("Parsing csv/crs_"+year+".csv")
 		console.log(__dirname+"/../csv/crs_"+year+".csv")
 
@@ -444,7 +444,7 @@ iati_codes.fetch1 = async function(){
 			head[i]=v.trim();
 		}
 	//	ls(head);
-		
+
 		for(var i=1;i<lines.length;i++)
 		{
 			var v=lines[i];
@@ -475,8 +475,8 @@ iati_codes.fetch1 = async function(){
 
 /*
 	console.log("Parsing csv/sector_category.csv")
-	
-	
+
+
 	var x=fs.readFileSync(__dirname+"/../csv/sector_category.csv","utf8");
 	var lines=papa.parse( x ).data;
 	var o={};
@@ -490,7 +490,7 @@ iati_codes.fetch1 = async function(){
 			o[a.trim()]=b.trim();
 		}
 	}
-	
+
 //	ls(o);
 	codes["sector_category"]=o;
 */
@@ -533,15 +533,16 @@ iati_codes.fetch1 = async function(){
 	codes.tag_mode["UNSDT"]   = "http://reference.iatistandard.org/codelists/UNSDG-Targets/"
 	codes.tag_mode["UNSDI"]   = "https://unstats.un.org/sdgs/indicators/indicators-list/"
 	codes.tag_mode["TEI"]     = "https://europa.eu/capacity4dev/joint-programming/documents/tei-codes-0"
+	codes.tag_mode["RO"]      = ""
 
 
-	console.log("Writing json/iati_codes.json for the first time")	
+	console.log("Writing json/iati_codes.json for the first time")
 	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
 
 }
 
 iati_codes.fetch2 = async function(){
-	
+
 	var codes=JSON.parse( fs.readFileSync(__dirname+"/../json/iati_codes.json") );
 
 	var publishers={};
@@ -573,7 +574,7 @@ iati_codes.fetch2 = async function(){
 	var start=0;
 	var done=false;
 	while(!done)
-	{	
+	{
 		console.log( "iatiregistry query for packages "+(start+1)+" to "+(start+1000) );
 		var js=await https_getbody("https://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
 
@@ -634,7 +635,7 @@ iati_codes.fetch2 = async function(){
 		console.log("Writing json/download.txt")
 
 		var cc=[]
-		
+
 		for( var slug in packages)
 		{
 			var package=packages[slug]
@@ -646,20 +647,20 @@ iati_codes.fetch2 = async function(){
 				cc.push("curl -k -L -o "+slug+".xml \""+url+"\" \n")
 			}
 		}
-		
+
 		fs.writeFileSync(__dirname+"/../json/curl.txt",cc.join(""));
 
 		console.log("Writing json/validhash.json")
 
 		var validhash={}
-		
+
 		for( var slug in packages)
 		{
 			var package=packages[slug]
 			var hash=package.id
 			validhash[slug]=hash
 		}
-		
+
 		fs.writeFileSync(__dirname+"/../json/validhash.json",json_stringify(validhash,{ space: ' ' }));
 	}
 
@@ -682,7 +683,7 @@ if(true)
 		let jjs=await https_getbody("https://iatiregistry.org/api/3/action/group_show?show_historical_publisher_names=true&id="+v);
 		let jj=JSON.parse(jjs).result;
 		publishers[v]=jj
-		
+
 		let ids=jj.publisher_iati_id.split("|");
 		for(let i=0;i<ids.length;i++)
 		{
@@ -696,12 +697,12 @@ if(true)
 				}
 				else
 				{
-console.log("unpublished "+id);				
+console.log("unpublished "+id);
 				}
 				if(jj.publisher_source_type=="secondary_source")
 				{
 					codes.publisher_secondary[id]=jj.title.trim();
-console.log("secondary "+id);				
+console.log("secondary "+id);
 				}
 			}
 		}
@@ -715,12 +716,12 @@ console.log("secondary "+id);
 
 //	ls(publishers);
 
-	console.log("Writing json/iati_codes.json for the last time")	
+	console.log("Writing json/iati_codes.json for the last time")
 	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
 
 	console.log("Writing json/publishers.json")
 	fs.writeFileSync(__dirname+"/../json/publishers.json",json_stringify(publishers,{ space: ' ' }));
 
-}	
+}
 
 }
