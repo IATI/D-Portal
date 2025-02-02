@@ -533,7 +533,7 @@ iati_codes.fetch1 = async function(){
 	codes.tag_mode["UNSDT"]   = "http://reference.iatistandard.org/codelists/UNSDG-Targets/"
 	codes.tag_mode["UNSDI"]   = "https://unstats.un.org/sdgs/indicators/indicators-list/"
 	codes.tag_mode["TEI"]     = "https://europa.eu/capacity4dev/joint-programming/documents/tei-codes-0"
-	codes.tag_mode["RO"]      = ""
+	codes.tag_mode["RO"]      = "https://iatistandard.org/en/iati-standard/203/codelists/tagvocabulary/"
 
 
 	console.log("Writing json/iati_codes.json for the first time")
