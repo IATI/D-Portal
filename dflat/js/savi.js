@@ -53,7 +53,7 @@ var date_range_to_percent=function(sd,ed)
 }
 
 
-// auto exchange a /value /value@value-date and /value@currency into the main currencies 
+// auto exchange a /value /value@value-date and /value@currency into the main currencies
 // and create human readable versions of the values
 var create_human_values=function(it)
 {
@@ -61,7 +61,7 @@ var create_human_values=function(it)
 	let value=it["/value"]
 	let isodate=it["/value@value-date"]
 	let currency=it["/value@currency"]
-	
+
 	if(isodate===undefined){return}
 	if(currency===undefined){return}
 
@@ -70,7 +70,7 @@ var create_human_values=function(it)
 	{
 		for( const c of ( [ "usd","eur","gbp","cad", ] ) )
 		{
-			
+
 			it["/value-"+c] = exchange.by_monthly_average(value,c,currency,isodate)
 		}
 	}
@@ -102,7 +102,7 @@ savi.plated.chunks.fill_chunks( require('./savi.css'), savi.chunks )
 	}
 	else
 	{
-		
+
 savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.html', 'utf8'), savi.chunks )
 savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.css',  'utf8'), savi.chunks )
 
@@ -129,7 +129,7 @@ savi.start=function(opts){
 	}
 
 	for(var n in opts) { savi.opts[n]=opts[n] } // copy opts
-	
+
 	if( savi.opts.embeded )
 	{
 //		console.log("LIVE FIXUP ONLY")
@@ -177,9 +177,9 @@ savi.start_loaded=async function(){
 		iati=require('../json/test_1.json')
 		aid=true
 	}
-	
+
 	dflat.clean(iati) // clean this data
-	
+
 	savi.prepare(iati) // prepare for display
 
 // test render
@@ -200,7 +200,7 @@ savi.start_loaded=async function(){
 	}
 	$("body").append(savi.plate('{theme_button}'))
 
-// apply javascript to rendered html	
+// apply javascript to rendered html
 
 	savi.fixup()
 }
@@ -240,7 +240,7 @@ savi.fixup=function(){
 			var s=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
 			series.push(s.series[0])
 		})
-		
+
 		var chart = new (Chartist[d.chart+"Chart"])( this, {
 		  series: series,
 		}, d.options );
@@ -333,7 +333,7 @@ savi.get_data_transactions=function(list,name)
 		let d={}
 		d.x=(new Date( it_date+"T00:00:00.000Z" )).getTime() / 1000
 		d.y=it_number
-		
+
 		dall.push(d)
 	}
 	dall.sort(function(a,b){return a.x-b.x})
@@ -371,7 +371,7 @@ savi.prepare=function(iati_xson){
 	let codemap=require('../json/codemap.json')
 	let validhash=require('../../dstore/json/validhash.json')
 	let publisher_names=require('../../dstore/json/iati_codes.json').publisher_names
-	
+
 	xson.walk( iati_xson , (it,nn,idx)=>{
 		let nb=nn.join("")
 
@@ -488,7 +488,7 @@ savi.prepare=function(iati_xson){
 		}
 
 	})
-	
+
 	let subents=function(act)
 	{
 
@@ -529,7 +529,7 @@ savi.prepare=function(iati_xson){
 				let n=Number(date["@type"])||0
 				act["/activity-date-"+n]=date
 			}
-			
+
 			let sd=	( act["/activity-date-2"] && act["/activity-date-2"]["@iso-date"] ) ||
 					( act["/activity-date-1"] && act["/activity-date-1"]["@iso-date"] ) || ""
 			let ed=	( act["/activity-date-4"] && act["/activity-date-4"]["@iso-date"] ) ||
@@ -781,7 +781,7 @@ savi.prepare=function(iati_xson){
 						{
 							let key={}
 							let str=""
-							
+
 							if( it["/dimension"] ) { key["/dimension"]=it["/dimension"] }
 							if( it["/location"] ) { key["/location"]=it["/location"] }
 							str=stringify(key,{space:" "})
@@ -790,12 +790,12 @@ savi.prepare=function(iati_xson){
 							{
 								return facetmap[str]
 							}
-							
+
 							let facet={}
 							let idx=indicator["/facet"].length
 							facetmap[str]=idx
 							indicator["/facet"][idx]=facet
-							
+
 							if( it["/dimension"] )
 							{
 								facet["/dimension"]=it["/dimension"]
@@ -856,7 +856,7 @@ savi.prepare=function(iati_xson){
 							{
 								facet["/value"]=[]
 								periods_tosort.push( facet["/value"] )
-								
+
 								let find_facet_baseline=function(ds)
 								{
 									ds=ds||"1970-01-01"
@@ -914,7 +914,7 @@ savi.prepare=function(iati_xson){
 									it["/period-end@iso-date"] = v["/period-end@iso-date"]
 
 									it["/period-percent"] = v["/period-percent"]
-									
+
 									return it
 								}
 
@@ -952,12 +952,12 @@ savi.prepare=function(iati_xson){
 									let s=parseFloat(value["@baseline"])||0
 									let e=parseFloat(value["@target"])
 									let n=parseFloat(value["@actual"])
-									
+
 									if( ( value["@ascending"]==0 ) && ( value["@baseline"] === undefined ) && (!isNaN(e)) )
 									{
 										s=e+1 // baseline hack when missing and value should go down
 									}
-									
+
 									if( (!isNaN(s)) && (!isNaN(e)) && (!isNaN(n)) ) // NaN and sanity test
 									{
 										if(e==n) // target==actual
@@ -982,7 +982,7 @@ savi.prepare=function(iati_xson){
 										if(value["@percent"]<=0) { value["@percent"]=0 }
 										else
 										if(value["@percent"]>100) { value["@percent"]=100 }
-										
+
 									}
 								}
 								if( facet["/value"].length==0 ) // delete if empty

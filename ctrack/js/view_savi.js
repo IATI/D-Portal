@@ -19,6 +19,11 @@ view_savi.chunks=[
 	"view_savi_file",
 ];
 
+view_savi.fixup=function(args)
+{
+	dflat_savi.fixup()
+}
+
 view_savi.view=function(args)
 {
 	ctrack.setcrumb(0);
@@ -28,7 +33,7 @@ view_savi.view=function(args)
 }
 
 //
-// Perform all ajax calls to get data 
+// Perform all ajax calls to get data
 //
 view_savi.ajax=function(args)
 {
@@ -67,7 +72,7 @@ view_savi.ajax_aid=function(aid)
 		if(iati)
 		{
 			dflat.clean(iati) // clean this data
-			
+
 			dflat_savi.prepare(iati) // prepare for display
 
 			dflat_savi.chunks.iati=iati
@@ -96,13 +101,13 @@ view_savi.ajax_pid=function(pid)
 		{
 			iati=iati.xson[0]
 		}
-		
+
 		ctrack.chunk("view_savi_file","");
 
 		if(iati)
 		{
 			dflat.clean(iati) // clean this data
-			
+
 			dflat_savi.prepare(iati) // prepare for display
 
 			dflat_savi.chunks.iati=iati
