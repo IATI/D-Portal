@@ -72,6 +72,7 @@ plated.chunks.fill_chunks( require('../text/view_sector_budgets.html'      ), pl
 plated.chunks.fill_chunks( require('../text/view_sectors.html'             ), plate.chunks )
 plated.chunks.fill_chunks( require('../text/view_sector_transactions.html' ), plate.chunks )
 plated.chunks.fill_chunks( require('../text/view_test.html'                ), plate.chunks )
+plated.chunks.fill_chunks( require('../text/view_related.html'             ), plate.chunks )
 plated.chunks.fill_chunks( require('../text/general.html'                  ), plate.chunks )
 plated.chunks.format_chunks(plate.chunks)
 

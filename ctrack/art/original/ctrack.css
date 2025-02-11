@@ -1,5 +1,5 @@
 /*	Original CSS for d-portal.org 2014 ^o^
-	If you're reading this in github, 
+	If you're reading this in github,
 	please change to Tabs-4 as github is broken.
 	============================================= */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:top;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}	/* Resets */
@@ -402,7 +402,7 @@ a.read:hover			{text-decoration:underline;}
 
 /*	Generic styles
 	============================================= */
-.head_wrap					{width:960px; margin:0 auto; padding:20px 0;}	
+.head_wrap					{width:960px; margin:0 auto; padding:20px 0;}
 .icon_wrap					{width:330px; display:none; vertical-align:top;}
 .peak_wrap					{display:none;}
 .peak_space					{height:30px;}
@@ -424,8 +424,8 @@ a.csv_download:hover		{background-color:rgba(255,255,255, 0.3); color:#FFF;}
 .table_wrap.view a.csv_download	{display:block;}
 
 .table_alert				{width:100%; text-align:center; padding:25px 0 0 0; color:#FFF; font-size:18px;}
-	
-	
+
+
 /*	For url #view=donors & all #view=donor_*
 	============================================= */
 .donors_peak				{width:0; height:0; border-top:20px solid transparent; border-left:20px solid transparent; border-right:30px solid #008FFF; border-bottom:20px solid transparent;}	/* Triangles */
@@ -703,7 +703,7 @@ table.money tr.rows td.col7	{border-right:1px solid rgba(7,117,122,1);}
 
 table.money td.col1:hover	{cursor:default;}
 table.money tr.row2 td.col1:hover	{cursor:pointer;}
-table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover, 
+table.money tr.rows td.col2:hover, table.money tr.rows td.col3:hover,
 table.money tr.rows td.col4:hover, table.money tr.rows td.col5:hover	{background-color:rgba(17,46,105,1);}
 table.money tr.rows td.col6:hover, table.money tr.rows td.col7:hover	{background-color:rgba(17,101,105,1);}
 
@@ -791,7 +791,7 @@ table.data td			{color:#FFF; font-size:1.0em; line-height:24px; padding:20px; ve
 
 /*	Missing data
 	============================================= */
-.missing_data_wrap		{padding:40px; background-color:rgba(0,14,32,0.7); font-size:2em; color:#FFF; line-height:1.4em;}	
+.missing_data_wrap		{padding:40px; background-color:rgba(0,14,32,0.7); font-size:2em; color:#FFF; line-height:1.4em;}
 
 
 /*	Data Investigators alert
@@ -919,3 +919,5 @@ a.beige:hover			{color:#FFF;}
     }
 
 }
+
+.related_pivot { background:#f00; }

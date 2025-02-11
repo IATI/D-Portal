@@ -52,11 +52,11 @@ fetcher.prefetch_aids=function(aids,f)
 //console.log(rows)
 
 		var aids=[]
-		
+
 		for(var i=0 ; i<rows.length ; i++ )
 		{
 			var v=rows[i]
-			
+
 			if( typeof v == "string" )
 			{
 				aids.push(v)
@@ -80,9 +80,9 @@ fetcher.prefetch_aids=function(aids,f)
 		}
 
 //		console.log(aids)
-		
+
 		fetcher.aids=aids // remember this array for all later requests
-		
+
 		f()
 	}
 
@@ -130,7 +130,7 @@ SELECT DISTINCT aid FROM xson WHERE
 `)
 			break;
 		}
-		
+
 		var protocol=( aids.split(":")[0] || "" ).toLowerCase()
 		if( (protocol=="https") || (protocol=="http") || aids.startsWith("/") ) // go fish
 		{
@@ -153,7 +153,7 @@ SELECT DISTINCT aid FROM xson WHERE
 							} catch (e) {
 
 								try {
-									
+
 									dat=papa.parse(din,{header:true}).data
 //									console.log("CSV",dat)
 
@@ -177,7 +177,7 @@ SELECT DISTINCT aid FROM xson WHERE
 
 				var d=JSON.parse(aids);
 				setaids(d) // got local json
-				
+
 			} catch (e) {
 
 				setaids( aids.split(",") ) // string split on ,
@@ -214,6 +214,8 @@ fetcher.ajax=async function(dat,callback)
 // we may queue a bunch of requests, this makes us wait for the last one before updating the view
 	ctrack.display_wait_update(1);
 
+	let result
+
 	if(dat.sql) // forced complex
 	{
 
@@ -228,11 +230,8 @@ fetcher.ajax=async function(dat,callback)
 			referrer: 'no-referrer', // no-referrer, *client
 			body: JSON.stringify(dat) // body data type must match "Content-Type" header
 		})
-			  
-		d = await d.json()
 
-		callback(d)
-
+		result = await d.json()
 	}
 	else
 	if(fetcher.aids)
@@ -249,22 +248,22 @@ fetcher.ajax=async function(dat,callback)
 			referrer: 'no-referrer', // no-referrer, *client
 			body: JSON.stringify(dat) // body data type must match "Content-Type" header
 		})
-			  
-		d = await d.json()
 
-		callback(d)
-
+		result = await d.json()
 	}
 	else
 	{
-		$.ajax({
+		result=await $.ajax({
 			dataType: "json",
 			url: ctrack.args.q + "?callback=?",
 			data: dat,
-			success: callback,
-			error:function(){ callback() },
+//			success: callback,
+//			error:function(){ callback() },
 		});
 	}
+
+	if(callback) { callback(result) }
+	return result
 }
 
 fetcher.tourl=function(dat)
@@ -286,7 +285,7 @@ fetcher.tourl=function(dat)
 fetcher.ajax_dat_fix=function(dat,args,flag)
 {
 	args=args||{}
-	
+
 	dat["reporting_ref"]	=	dat["reporting_ref"]	||	args.publisher || ctrack.hash.publisher ;
 
 	dat["country_code"]		=	dat["country_code"]		||	ctrack.args.country_select;

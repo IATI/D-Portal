@@ -74,3 +74,5 @@ views.publisher_sectors=views.sectors;//require("./view_publisher_sectors.js");
 views.publisher_sectors_top=views.sectors_top;//require("./view_publisher_sectors_top.js");
 
 views.savi=require("./view_savi.js");
+
+views.related=require("./view_related.js");

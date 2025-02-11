@@ -66,7 +66,7 @@ ctrack.url=function(url)
 	}
 	else
 	{
-		window.location.href=url;
+		window.location.href=url
 		return false;
 	}
 };
