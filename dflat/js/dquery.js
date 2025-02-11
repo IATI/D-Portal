@@ -39,7 +39,7 @@ plated.chunks.fill_chunks( require('./dquery.sql'), dquery.chunks )
 	}
 	else
 	{
-		
+
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.html', 'utf8'), dquery.chunks )
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.css',  'utf8'), dquery.chunks )
 plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.sql',  'utf8'), dquery.chunks )
@@ -108,15 +108,15 @@ else
 			}
 		},
 	})
-	
+
 	$("#menubar").on( "menuselect", function(e,ui){
 		var id=ui.item.attr("id")
 		dquery.click(id)
 	})
-		
+
 	dquery.editor=ace.edit("editor");
 	dquery.editor.setTheme("ace/theme/tomorrow_night_eighties");
-	dquery.editor.$blockScrolling = Infinity 
+	dquery.editor.$blockScrolling = Infinity
 
 	dquery.hash=window.location.hash
 	var session=dquery.editor.getSession()
@@ -130,7 +130,7 @@ else
 
 	$('body').keydown(function (e) {
 	  if (e.ctrlKey && e.keyCode == 13) {
-		  
+
 		  dquery.click("menu_execute")
 	  }
 	});
@@ -155,17 +155,17 @@ dquery.cron=async function()
 {
 	if(dquery.cron.lock) { return; } // there can be only one
 	dquery.cron.lock=true
-	
+
 	var session=dquery.editor.getSession()
 	var undo=session.getUndoManager()
 	if( !undo.isClean() )
 	{
-		dquery.hash="#"+encodeURI(session.getValue())
+		dquery.hash="#"+encodeURI(session.getValue()).replace(/[!'()*]/g, c => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
 		window.location.hash=dquery.hash
 		undo.markClean()
 		dquery.set_download_links()
 	}
-	
+
 	if( dquery.hash != window.location.hash ) // update editor with any chnages to hash (browser forward/back buttons)
 	{
 		dquery.hash = window.location.hash
@@ -178,7 +178,7 @@ dquery.cron=async function()
 dquery.result=function(data,status,xhdr)
 {
 	var stringify = require('json-stable-stringify');
-	
+
 	$('#result').jsonViewer(data,{collapsed:false,rootCollapsable:true});
 
 //	$("#result").text( stringify(data,{space:" "}) )
@@ -208,7 +208,7 @@ dquery.click=async function(id)
 				data[aa[0]||""]=decodeURIComponent(aa[1]||"")
 			}
 		);
-		
+
 		switch(id)
 		{
 
@@ -223,7 +223,7 @@ dquery.click=async function(id)
 				  dataType: "json",
 				});
 			break;
-			
+
 			case "menu_explain":
 				data.sql="EXPLAIN ( ANALYZE TRUE , VERBOSE TRUE , FORMAT JSON )\n"+session.getValue()
 				$('#result').jsonViewer({"Loading":"..."});
