@@ -73,12 +73,13 @@ view_related.draw_graph=function(graph)
 		document.body.appendChild(e);
 	}
 	e.innerHTML="" // reset
+	e.style.pointerEvents="none"
 	let draw=SVG(e)
 	draw.size(document.documentElement.scrollWidth, document.documentElement.scrollHeight)
 
 	for(let l of ls)
 	{
-console.log(l)
+//console.log(l)
 
 		let e0=document.getElementById("related_"+l[1])
 		let e1=document.getElementById("related_"+l[2])
