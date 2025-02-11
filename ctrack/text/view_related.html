@@ -77,7 +77,7 @@
 
 #related_item
 
-<tr class="{_it.pivot}" onclick="event.stopPropagation();ctrack.url('#view=related&aid={_it.aid}');">
+<tr id="related_{_it.idx}" class="{_it.pivot}" onclick="event.stopPropagation();ctrack.url('#view=related&aid={_it.aid}');">
 	<td class="num">{_it.idx}.</td>
 	<td class="title">
 		<a class="percent">

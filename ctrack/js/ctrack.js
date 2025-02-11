@@ -107,9 +107,22 @@ var shash=function(s) {
 	return hash;
 };
 
+ctrack.resize=function()
+{
+//	console.log("RESIZE")
+	if( ctrack.view && ctrack.view.resize )
+	{
+		ctrack.view.resize()
+	}
+}
 
 ctrack.setup=function(args)
 {
+	window.onresize=function(){
+		clearTimeout(ctrack.resize_timeout)
+		ctrack.resize_timeout = setTimeout(ctrack.resize, 500)
+	}
+
 	ctrack.nanobar = new Nanobar( {} );
 
 	ctrack.chunks={};
@@ -618,6 +631,7 @@ ctrack.setup=function(args)
 		{
 			name=name.toLowerCase();
 			var v=views[name];
+			ctrack.view=v
 			if(v && v.view)
 			{
 				v.view();
@@ -836,6 +850,7 @@ ctrack.setup=function(args)
 		})
 
 	})
+
 
 }
 

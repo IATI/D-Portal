@@ -10,6 +10,9 @@ var views=require("./views.js")
 var fetcher=require("./fetcher.js")
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
+var SVG=require('svg.js')
+
+
 // the chunk names this view will fill with new data
 view_related.chunks=[
 	"related_datas",
@@ -31,30 +34,93 @@ view_related.view=function(args)
 //
 // Perform ajax call to get numof data
 //
-view_related.fixup=function(args)
+view_related.fixup=async function(args)
 {
 	args=args||{}
 	fetcher.ajax_dat_fix(args)
 
 	if( args.aid && ( args.aid != ctrack.chunk("related_aid") ) )
 	{
-		view_related.ajax({});
+		await view_related.ajax({});
 	}
-
+	else
 	if( args.pid && ( args.pid != ctrack.chunk("related_pid") ) )
 	{
-		view_related.ajax({});
+		await view_related.ajax({});
+	}
+
+	view_related.draw_graph( 		ctrack.chunk("related_graph") )
+}
+
+view_related.resize=function()
+{
+	view_related.draw_graph( 		ctrack.chunk("related_graph") )
+}
+
+view_related.draw_graph=function(graph)
+{
+	let ls=graph&&graph.list
+	if(!ls){return}
+
+	let e=document.getElementById("svg_overlay")
+	if(!e)
+	{
+		e=document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+		e.id="svg_overlay"
+		e.style.position="absolute"
+		e.style.left="0px"
+		e.style.top="0px"
+		document.body.appendChild(e);
+	}
+	e.innerHTML="" // reset
+	let draw=SVG(e)
+	draw.size(document.documentElement.scrollWidth, document.documentElement.scrollHeight)
+
+	for(let l of ls)
+	{
+console.log(l)
+
+		let e0=document.getElementById("related_"+l[1])
+		let e1=document.getElementById("related_"+l[2])
+
+
+		let r0=e0.getBoundingClientRect()
+		let r1=e1.getBoundingClientRect()
+
+		let x0=r0.x
+		let y0=r0.y+r0.height*0.5
+		let x1=r1.x
+		let y1=r1.y+r1.height*0.5
+		let out=-(100)
+
+		if(l[0]=="R") // draw on right side
+		{
+			out=-out
+			x0=r0.x+r0.width
+			x1=r1.x+r1.width
+		}
+		let f=Math.floor
+		let p="M"+x0+" "+f(y0)+" C"+f(x0+out)+" "+f(y0)+" "+f(x1+out)+" "+f(y1)+" "+f(x1)+" "+f(y1)
+
+//console.log(x0,y0,x1,y1)
+//console.log(p)
+
+		let path=draw.path(p)
+		path.stroke({ width: 4 })
+		path.fill("none")
+
+
 	}
 
 }
-
-
 
 //
 // Perform ajax call to get data
 //
 view_related.ajax=async function(args)
 {
+	ctrack.chunk("related_graph",{})
+
 	args=args||{}
 	fetcher.ajax_dat_fix(args)
 
@@ -141,6 +207,7 @@ SELECT q.aid,q.aid,3,0 FROM q
 
 //	console.log(result)
 
+	let idx=1
 	let depth_min=0
 	let depth_max=0
 	let depths={}
@@ -154,12 +221,12 @@ SELECT q.aid,q.aid,3,0 FROM q
 	{
 		let depth=Number(row.depth)-depth_min
 		if(!depths[depth]) { depths[depth]=[] }
+		row.idx=idx++
 		depths[depth].push(row)
 	}
 
 	let related_data=[]
 
-	let idx=1
 	for( let depth=depth_min ; depth<=depth_max ; depth++ )
 	{
 		let a={}
@@ -184,7 +251,8 @@ SELECT q.aid,q.aid,3,0 FROM q
 		for(let row of rows)
 		{
 			let it={}
-			it.idx=idx++
+			it.idx=row.idx
+			it.depth=depth
 			it.aid=row.related_aid
 			it.pid=row.reporting_ref
 			it.title=row.title || it.aid
@@ -214,11 +282,69 @@ SELECT q.aid,q.aid,3,0 FROM q
 				it.pivot="related_pivot"
 			}
 
+			it.downs=[]
+			it.upups=[]
+			for( let row of result.rows ) // build array of arrays
+			{
+				if(row.aid==it.aid)
+				{
+					if(row.related_type==1)
+					{
+						it.upups.push(row.idx)
+					}
+					else
+					if(row.related_type==2)
+					{
+						it.downs.push(row.idx)
+					}
+				}
+			}
+
 			a.tab.push(it)
 		}
 	}
 
+	let related_graph={}
+	let a=[]
+	related_graph.list=a
 
+	for(let t of related_data)
+	{
+		for(let r of t.tab)
+		{
+//			console.log(r)
+			let s1="L"
+			let s2="R"
+			if(r.depth<0)
+			{
+				if((-r.depth)%2==1)
+				{
+					s1="R"
+					s2="L"
+				}
+			}
+			if(r.depth>0)
+			{
+				if((r.depth%2)==1)
+				{
+					s1="R"
+					s2="L"
+				}
+			}
+			for(let idx of r.upups)
+			{
+				a.push([s1,r.idx,idx])
+			}
+			for(let idx of r.downs)
+			{
+				a.push([s2,r.idx,idx])
+			}
+		}
+	}
+
+
+
+	ctrack.chunk("related_graph",related_graph)
 	ctrack.chunk("related_data",related_data)
 	ctrack.chunk("related_datas","{related_data_head}{related_data:related_data_body}{related_data_foot}")
 
