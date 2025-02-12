@@ -70,43 +70,58 @@ view_related.draw_graph=function(graph)
 		e.style.position="absolute"
 		e.style.left="0px"
 		e.style.top="0px"
-		document.body.appendChild(e);
+		ctrack.div.master.append(e)
 	}
-	e.innerHTML="" // reset
+//	e.innerHTML="" // reset
 	e.style.pointerEvents="none"
 	let draw=SVG(e)
+	draw.clear()
+	draw.size(100,100)
 	draw.size(document.documentElement.scrollWidth, document.documentElement.scrollHeight)
+//	console.log(document.documentElement.scrollWidth, document.documentElement.scrollHeight)
 
+	let r=e.getBoundingClientRect()
+	let xb=r.x
+	let yb=r.y
+
+
+	let ds={}
+	let rs={}
 	for(let l of ls)
 	{
 //console.log(l)
 
+		if(!ds[ l[3] ]){ds[ l[3] ]=1}
+		if(!rs[ l[1] ]){rs[ l[1] ]=ds[ l[3] ]++}
+		let w=rs[ l[1] ]
+
 		let e0=document.getElementById("related_"+l[1])
 		let e1=document.getElementById("related_"+l[2])
-
+		if(!(e1&&e0)){continue} // sanity
 
 		let r0=e0.getBoundingClientRect()
 		let r1=e1.getBoundingClientRect()
 
-		let x0=r0.x
-		let y0=r0.y+r0.height*0.5
-		let x1=r1.x
-		let y1=r1.y+r1.height*0.5
-		let out=-(100)
+		let x0=r0.x-xb
+		let y0=r0.y-yb+r0.height*0.5
+		let x1=r1.x-xb
+		let y1=r1.y-yb+r1.height*0.5
+		let out=-(0+w*10)
+		let h=r0.height*0.5
 
 		if(l[0]=="R") // draw on right side
 		{
 			out=-out
-			x0=r0.x+r0.width
-			x1=r1.x+r1.width
+			x0=r0.x-xb+r0.width
+			x1=r1.x-xb+r1.width
 		}
 		let f=Math.floor
-		let p="M"+x0+" "+f(y0)+" C"+f(x0+out)+" "+f(y0)+" "+f(x1+out)+" "+f(y1)+" "+f(x1)+" "+f(y1)
+		let p=f(x0)+","+f(y0)+" "+f(x0+out)+","+f(y0+h)+" "+f(x1+out)+","+f(y1-h)+" "+f(x1)+","+f(y1)
 
 //console.log(x0,y0,x1,y1)
 //console.log(p)
 
-		let path=draw.path(p)
+		let path=draw.polyline(p)
 		path.stroke({ color: '#fff' , width: 4 })
 		path.fill("none")
 
@@ -334,11 +349,11 @@ SELECT q.aid,q.aid,3,0 FROM q
 			}
 			for(let idx of r.upups)
 			{
-				a.push([s1,r.idx,idx])
+				a.push([s1,idx,r.idx,r.depth-1])
 			}
 			for(let idx of r.downs)
 			{
-				a.push([s2,r.idx,idx])
+				a.push([s2,r.idx,idx,r.depth])
 			}
 		}
 	}

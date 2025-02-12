@@ -119,8 +119,9 @@ ctrack.resize=function()
 ctrack.setup=function(args)
 {
 	window.onresize=function(){
-		clearTimeout(ctrack.resize_timeout)
-		ctrack.resize_timeout = setTimeout(ctrack.resize, 500)
+//		clearTimeout(ctrack.resize_timeout)
+//		ctrack.resize_timeout = setTimeout(ctrack.resize, 100)
+		ctrack.resize()
 	}
 
 	ctrack.nanobar = new Nanobar( {} );
