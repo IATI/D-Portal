@@ -74,6 +74,12 @@ require("./argv").parse(argv);
 		return;
 	}
 	else
+	if( argv._[0]=="augment" )
+	{
+		await require("./dstore_db").augment_related(); // create related
+		return;
+	}
+	else
 	if( argv._[0]=="cache" )
 	{
 		await require("./dstore_cache").cmd(argv);
@@ -96,13 +102,13 @@ require("./argv").parse(argv);
 	if( argv._[0]=="import" )
 	{
 		await require("./dstore_cache").import_xmlfile( argv._[1] );
-		return;		
+		return;
 	}
 	else
 	if( argv._[0]=="stats" )
 	{
 		await require("./dstore_stats").cmd(argv);
-		return;		
+		return;
 	}
 
 	// help text
@@ -128,6 +134,9 @@ require("./argv").parse(argv);
 		"\n"+
 		">	dstore fake \n"+
 		"Create fake transactions for publishers who do not report any D+E transaction types.\n"+
+		"\n"+
+		">	dstore augment \n"+
+		"Cleanup and create related links that are not explicitly listed in a project.\n"+
 		"\n"+
 		">	dstore cache \n"+
 		"Print cache related commands, run this for more help.\n"+

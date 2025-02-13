@@ -909,3 +909,152 @@ dstore_pg.query=async function(q,v){
 	return await db.any(q,v).catch(err).finally(close);
 
 }
+
+
+
+dstore_pg.augment_related_dedupe = async function(db)
+{
+
+// remove all duplicates
+	await db.none(`
+
+WITH
+one AS (
+	WITH dupes AS
+	(
+		WITH rel AS (
+
+		SELECT
+
+		count(*)::int AS count,aid,related_aid,related_type
+
+		FROM related group by aid,related_aid,related_type
+
+		)
+
+		SELECT aid,related_aid,related_type FROM rel WHERE count>1
+	)
+
+	SELECT * FROM dupes
+),
+del AS (
+   DELETE FROM related AS r
+   USING  one o
+   WHERE  r.aid          = o.aid
+   AND    r.related_aid  = o.related_aid
+   AND    r.related_type = o.related_type
+)
+INSERT INTO related (aid,related_aid,related_type)
+TABLE one;
+
+	`)
+
+
+}
+
+dstore_pg.augment_related_linkback = async function(db)
+{
+
+// make sure all children link back to parents
+	await db.none(`
+
+WITH link AS
+(
+	SELECT aid,related_aid
+	FROM related
+	WHERE related_type=1
+),
+back AS
+(
+	SELECT aid,related_aid
+	FROM related
+	WHERE related_type=2
+)
+INSERT INTO related
+SELECT related_aid,aid,2
+FROM link
+WHERE NOT EXISTS (
+	SELECT * FROM back
+		WHERE back.related_aid = link.aid
+		AND   back.aid         = link.related_aid
+);
+
+	`)
+
+// make sure all parents link back to children
+	await db.none(`
+
+WITH link AS
+(
+	SELECT aid,related_aid
+	FROM related
+	WHERE related_type=2
+),
+back AS
+(
+	SELECT aid,related_aid
+	FROM related
+	WHERE related_type=1
+)
+INSERT INTO related
+SELECT related_aid,aid,1
+FROM link
+WHERE NOT EXISTS (
+	SELECT * FROM back
+		WHERE back.related_aid = link.aid
+		AND   back.aid         = link.related_aid
+);
+
+	`)
+
+// siblings is a problem maybe, so do not do that?
+
+}
+
+
+dstore_pg.augment_related_dump = async function(db)
+{
+
+	let r=await db.any(`
+SELECT
+related_type,count(*)::int AS count
+FROM related
+GROUP BY related_type ORDER BY 1
+	`)
+
+	console.log(r)
+}
+
+dstore_pg.augment_related = async function(){
+await ( await dstore_pg.open() ).tx( async db => {
+
+console.log("augmenting related table")
+await dstore_pg.augment_related_dump(db)
+
+console.log("removing duplicates")
+	await dstore_pg.augment_related_dedupe(db)
+
+await dstore_pg.augment_related_dump(db)
+
+console.log("creating linkbacks")
+	await dstore_pg.augment_related_linkback(db)
+
+await dstore_pg.augment_related_dump(db)
+console.log("done augmenting")
+
+/*
+	await db.none(`
+		DROP TABLE IF EXISTS tmp;
+	`)
+
+	await db.none(`
+		CREATE TABLE tmp AS SELECT * FROM related;
+	`)
+*/
+
+	dstore_pg.close(db)
+})
+
+};
+
+

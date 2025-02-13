@@ -786,3 +786,6 @@ dstore_sqlite.query_params_string=function(string,params)
 	return string
 }
 
+// only postgres
+dstore_sqlite.augmented_related = async function(){
+}

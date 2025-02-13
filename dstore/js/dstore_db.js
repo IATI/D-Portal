@@ -95,7 +95,7 @@ dstore_db.tables={
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
 		{ name:"related_aid",					TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
 		{ name:"related_type",					INTEGER:true , INDEX:true },
-//		{ 										UNIQUE:["aid","related_aid"] }, // each pair is unique
+//		{ 										UNIQUE:["aid","related_aid","related_type"] }, // should only say it once
 	],
 	trans:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
@@ -1416,6 +1416,11 @@ dstore_db.fill_acts = async function(acts,slug,data,head){
 
 dstore_db.fake_trans = async function(){
 	var f=dstore_back.fake_trans;
+	if(f) { return await f(); }
+};
+
+dstore_db.augment_related = async function(){
+	var f=dstore_back.augment_related;
 	if(f) { return await f(); }
 };
 
