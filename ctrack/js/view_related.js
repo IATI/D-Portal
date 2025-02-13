@@ -156,21 +156,18 @@ view_related.ajax=async function(args)
 
 }
 
-view_related.ajax_aid=async function(aid)
+view_related.ajax_aid=async function(_aid)
 {
 
-	ctrack.chunk("related_aid",aid)
+	ctrack.chunk("related_aid",_aid)
 	ctrack.chunk("related_pid","")
 
 let q={}
-	q.aid=aid
+	q.aid=_aid // beware template tag expansion of aid
+	let aid="${aid}"
 	q.sql=`
 
 --$aid=US-GOV-18-NE
-
-WITH q AS (
-    SELECT $\{aid} AS aid
-)
 
 SELECT related_aid,depth,related_type,g.aid,title,funder_ref,commitment,spend,reporting,reporting_ref,day_start,day_end,status_code
  FROM (
@@ -178,8 +175,8 @@ SELECT related_aid,depth,related_type,g.aid,title,funder_ref,commitment,spend,re
 WITH RECURSIVE
 graph1(aid, related_aid, related_type, depth) AS (
     SELECT r.aid, r.related_aid, r.related_type, -1
-    FROM q, related r WHERE
-        r.aid=q.aid
+    FROM related r WHERE
+        r.aid=${aid}
         AND
         related_type=1
     UNION ALL
@@ -190,8 +187,8 @@ graph1(aid, related_aid, related_type, depth) AS (
 ,
 graph2(aid, related_aid, related_type, depth) AS (
     SELECT r.aid, r.related_aid, r.related_type, 1
-    FROM q, related r WHERE
-        r.aid=q.aid
+    FROM related r WHERE
+        r.aid=${aid}
         AND
         related_type=2
     UNION ALL
@@ -202,20 +199,20 @@ graph2(aid, related_aid, related_type, depth) AS (
 ,
 graph3(aid, related_aid, related_type, depth) AS (
     SELECT r.aid, r.related_aid, r.related_type, 0
-    FROM q, related r WHERE
-        r.aid=q.aid
+    FROM related r WHERE
+        r.aid=${aid}
         AND
         related_type=ANY ('{3,4,5}'::int[])
 )
 ,
 graph4(aid, related_aid, related_type, depth) AS (
     WITH p(aid) AS (
-        SELECT r.related_aid FROM q, related r WHERE
-        r.aid=q.aid
+        SELECT r.related_aid FROM related r WHERE
+        r.aid=${aid}
         AND related_type=1
     )
     SELECT r.aid, r.related_aid, r.related_type, 0
-    FROM q,p, related r WHERE
+    FROM p, related r WHERE
         r.aid=p.aid
         AND
         related_type=2
@@ -229,7 +226,7 @@ SELECT * FROM graph3
 UNION
 SELECT * FROM graph4
 UNION
-SELECT q.aid,q.aid,3,0 FROM q
+SELECT ${aid},${aid},3,0
 
 ) g LEFT JOIN act a ON a.aid=g.related_aid ORDER BY depth,related_type,aid,related_aid
 
@@ -323,7 +320,7 @@ SELECT q.aid,q.aid,3,0 FROM q
 			}
 
 			it.pivot=""
-			if( it.aid==aid ) // pivot
+			if( it.aid==_aid ) // pivot
 			{
 				it.pivot="related_pivot"
 			}
