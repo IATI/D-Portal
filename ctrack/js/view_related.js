@@ -122,8 +122,7 @@ view_related.draw_graph=function(graph)
 //console.log(p)
 
 		let path=draw.polyline(p)
-		path.stroke({ color: '#fff' , width: 4 })
-		path.fill("none")
+		path.addClass('related_link')
 
 
 	}
