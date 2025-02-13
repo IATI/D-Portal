@@ -30,6 +30,9 @@ ls cache/*.xml -S | parallel --jobs 50% --bar doimport
 echo "Adding fake transactions at $(date)" | tee -a cache/time.log
 node js/cmd fake
 
+echo "Augmenting related table at $(date)" | tee -a cache/time.log
+node js/cmd augment
+
 echo "Starting Analyze of database at $(date)" | tee -a cache/time.log
 node js/cmd analyze
 
