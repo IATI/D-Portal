@@ -211,7 +211,7 @@ graph4(aid, related_aid, related_type, depth) AS (
         r.aid=${aid}
         AND related_type=1
     )
-    SELECT r.aid, r.related_aid, r.related_type, 0
+    SELECT ${aid}, r.related_aid, 3, 0
     FROM p, related r WHERE
         r.aid=p.aid
         AND
@@ -327,18 +327,21 @@ SELECT ${aid},${aid},3,0
 
 			it.downs=[]
 			it.upups=[]
-			for( let row of result.rows ) // build array of arrays
+			for( let di in depths)
 			{
-				if(row.aid==it.aid)
+				for( let row of depths[di] ) // build array of arrays
 				{
-					if(row.related_type==1)
+					if(row.aid==it.aid)
 					{
-						it.upups.push(row.idx)
-					}
-					else
-					if(row.related_type==2)
-					{
-						it.downs.push(row.idx)
+						if(row.related_type==1)
+						{
+							it.upups.push(row.idx)
+						}
+						else
+						if(row.related_type==2)
+						{
+							it.downs.push(row.idx)
+						}
 					}
 				}
 			}
