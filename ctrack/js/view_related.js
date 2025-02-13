@@ -257,6 +257,19 @@ SELECT q.aid,q.aid,3,0 FROM q
 		row.idx=idx++
 		depths[depth].push(row)
 	}
+	// remove dupes in side stream
+	let rows=depths[0-depth_min]
+	for(let r1=rows.length-1;r1>=0;r1--)
+	{
+		for(let r2=0;r2<r1;r2++)
+		{
+			if(rows[r1].related_aid==rows[r2].related_aid)
+			{
+				rows.splice(r1, 1)
+				break;
+			}
+		}
+	}
 
 	let related_data=[]
 
