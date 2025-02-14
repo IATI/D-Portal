@@ -107,7 +107,8 @@ view_related.draw_graph=function(graph)
 		let x1=r1.x-xb
 		let y1=r1.y-yb+r1.height*0.5
 		let out=-(0+w*10)
-		let h=r0.height*0.5
+		let h0=r0.height*0.5
+		let h1=r1.height*0.5
 
 		if(l[0]=="R") // draw on right side
 		{
@@ -116,7 +117,7 @@ view_related.draw_graph=function(graph)
 			x1=r1.x-xb+r1.width
 		}
 		let f=Math.floor
-		let p=f(x0)+","+f(y0)+" "+f(x0+out)+","+f(y0+h)+" "+f(x1+out)+","+f(y1-h)+" "+f(x1)+","+f(y1)
+		let p=f(x0)+","+f(y0)+" "+f(x0+out)+","+f(y0+h0)+" "+f(x1+out)+","+f(y1-h1)+" "+f(x1)+","+f(y1)
 
 //console.log(x0,y0,x1,y1)
 //console.log(p)
