@@ -734,3 +734,25 @@ select#view_search_select_country	{width:290px;}
 #ctrack_div							{height:100%; width:100%;}
 
 }
+
+
+/* Streams
+-------------------------------------------------------------- */
+
+.related_item	{display:flex; justify-content:space-between; border:1px solid #000; border-radius:6px; color:#000; width:680px; padding:1em; margin:0 auto; margin-bottom:5px; background:#fff;}
+.related_pivot	{background:#eee; border:1px solid #000;}
+.related_link 	{fill:none; stroke:#000;}
+.related_span	{display:flex; justify-content:flex-start; margin-top:1em;}
+
+.related_item:hover		{cursor:pointer; background:transparent;}
+.related_item:hover	.related_title	{color:#000;}
+.related_pivot:hover	{background:#eee; border:1px solid #000;}
+.related_item .num		{display:none;}
+.related_item .title	{width:60%; font-size:20px; line-height:22px;}
+.related_item span		{font-size:14px; line-height:16px; display:block;}
+.related_item span.currency			{font-size:11px;}
+.related_item span.related_aid,
+.related_item span.related_org		{border:1px solid #000; padding:10px; border-radius:6px; background:#fff;}
+.related_item span.related_aid		{width:40%; margin:0 10px 0 0;}
+.related_item span.related_aid:hover,
+.related_item span.related_org:hover{background:#fff;}

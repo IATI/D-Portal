@@ -61,12 +61,10 @@
 #related_data_body
 
 <div class="title_wrap">
-<div class="list_head_title">{_it.title}</div>
-<div class="table_wrap">
-	<table class="activity">
+	<div class="list_head_title">{_it.title}</div>
+	<div>
 		{_it.tab:related_item}
-	</table>
-</div>
+	</div>
 </div>
 
 #related_data_foot
@@ -76,6 +74,40 @@
 
 
 #related_item
+
+<div id="related_{_it.idx}" class="{_it.pivot} related_item" onclick="event.stopPropagation();ctrack.url('#view=related&aid={_it.aid}');">
+	<div class="num">{_it.idx}.</div>
+	<div class="title">
+		<a class="percent">
+			<div class="related_title">{_it.title}</div>
+			<div class="related_span">
+				<span class="related_aid" onclick="event.stopPropagation();ctrack.url('#view=savi&aid={_it.aid}');">{_it.aid}</span>
+				<span class="related_org" onclick="event.stopPropagation();ctrack.url('?&reporting_ref={_it.pid}#view=main');">{_it.reporting}</span>
+			</div>
+		</a>
+	</div>
+	<div class="date" title="{table_active_date_tip_text}">{_it.date_end}</div>
+	<div class="value">
+		<div class="activities_spend_wrap">
+			<div class="activities_spend" title="{activities_spend_text}">{_it.commitment}<span class="currency">{_it.currency}</span></div>
+		</div>
+	</div>
+</div>
+
+
+
+#related_data_body_old
+
+<div class="title_wrap">
+<div class="list_head_title">{_it.title}</div>
+<div class="table_wrap">
+	<table class="activity">
+		{_it.tab:related_item}
+	</table>
+</div>
+</div>
+
+#related_item_old
 
 <tr id="related_{_it.idx}" class="{_it.pivot}" onclick="event.stopPropagation();ctrack.url('#view=related&aid={_it.aid}');">
 	<td class="num">{_it.idx}.</td>
