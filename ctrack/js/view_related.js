@@ -270,6 +270,7 @@ SELECT ${aid},${aid},3,0
 	}
 
 	let related_data=[]
+	let lookup={}
 
 	for( let depth=depth_min ; depth<=depth_max ; depth++ )
 	{
@@ -295,6 +296,8 @@ SELECT ${aid},${aid},3,0
 		for(let row of rows)
 		{
 			let it={}
+			it.lcount=0
+			it.rcount=0
 			it.idx=row.idx
 			it.depth=depth
 			it.aid=row.related_aid
@@ -348,6 +351,7 @@ SELECT ${aid},${aid},3,0
 			}
 
 			a.tab.push(it)
+			lookup[it.idx]=it
 		}
 	}
 
@@ -387,6 +391,15 @@ SELECT ${aid},${aid},3,0
 				a.push([s2,r.idx,idx,r.depth])
 			}
 		}
+	}
+
+	for(let a of related_graph.list)
+	{
+		it1=lookup[a[1]]
+		it2=lookup[a[2]]
+		let name=a[0].toLowerCase()+"count"
+		it1[name]++
+		it2[name]++
 	}
 
 
