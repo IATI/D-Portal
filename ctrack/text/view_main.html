@@ -242,20 +242,22 @@
 			</div>
 		</div>
 		<div class="status_button_wrap">
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link" title="{stats_active_tip_text}">
-				Active <span>{active_projects}</span>
-			</a>
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=ended" class="stats_link" title="{stats_ended_tip_text}">
-				Ended <span>{ended_projects}</span>
-			</a>
-			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=planned" class="stats_link" title="{stats_planned_tip_text}">
-				Planned <span>{planned_projects}</span>
-			</a>
+			<div class="status_today_wrap">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=ended" class="stats_link to_ended" title="{stats_ended_tip_text}">
+					Ended <span>{ended_projects}</span>
+				</a>
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link to_active" title="{stats_active_tip_text}">
+					Active <span>{active_projects}</span>
+				</a>
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=planned" class="stats_link to_planned" title="{stats_planned_tip_text}">
+					Planned <span>{planned_projects}</span>
+				</a>
+			</div>
 			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code_null=0" class="stats_link missing" title="{stats_missing_tip_text}">
 				{stats_missing_text} <span>{numof_status_code_unknown}</span>
 			</a>
 		</div>
-		<div class="table_wrap main auto">
+		<div class="table_wrap main auto act_stats">
 			<table class="activity">
 				<tbody>
 				<tr>
