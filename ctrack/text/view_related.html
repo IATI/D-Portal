@@ -53,6 +53,25 @@
 </div>
 
 
+#relatedp_data_head
+
+<div class="title_wrap">
+
+
+#relatedp_data_body
+
+<div class="related_wrap">
+	<div class="related_head">{_it.title}</div>
+	<div>
+		{_it.tab:relatedp_item}
+	</div>
+</div>
+
+#relatedp_data_foot
+
+</div>
+
+
 #related_data_head
 
 <div class="title_wrap">
@@ -129,3 +148,22 @@
 		</div>
 	</td>
 </tr>
+
+
+#relatedp_item
+
+<div id="related_{_it.idx}" class="{_it.pivot} related_item" onclick="event.stopPropagation();ctrack.url('#view=related&pid={_it.pid}');">
+	<div class="related_item_before related_item_before{_it.lcount}">{_it.lcount}</div>
+	<div class="related_info">
+		<div class="num">{_it.idx}.</div>
+		<div class="title">
+			<a class="percent">
+				<div class="related_title">{_it.title}</div>
+				<div class="related_span">
+					<span class="related_org" onclick="event.stopPropagation();ctrack.url('?&reporting_ref={_it.pid}#view=main');">{_it.pid}</span>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="related_item_after related_item_before{_it.rcount}">{_it.rcount}</div>
+</div>
