@@ -96,6 +96,13 @@ dstore_db.tables={
 		{ name:"related_aid",					TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
 		{ name:"related_type",					INTEGER:true , INDEX:true },
 //		{ 										UNIQUE:["aid","related_aid","related_type"] }, // should only say it once
+// it is safer to just remove dupes after import than deal with import clashes
+	],
+// related activity data combined into publishers
+	relatedp:[
+		{ name:"pid",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
+		{ name:"related_pid",					TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
+		{ name:"related_type",					INTEGER:true , INDEX:true },
 	],
 	trans:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },

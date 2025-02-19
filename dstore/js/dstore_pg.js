@@ -952,6 +952,46 @@ TABLE one;
 
 }
 
+dstore_pg.augment_relatedp_dedupe = async function(db)
+{
+
+// remove all duplicates
+	await db.none(`
+
+WITH
+one AS (
+	WITH dupes AS
+	(
+		WITH rel AS (
+
+		SELECT
+
+		count(*)::int AS count,pid,related_pid,related_type
+
+		FROM relatedp group by pid,related_pid,related_type
+
+		)
+
+		SELECT pid,related_pid,related_type FROM rel WHERE count>1
+	)
+
+	SELECT * FROM dupes
+),
+del AS (
+   DELETE FROM relatedp AS r
+   USING  one o
+   WHERE  r.pid          = o.pid
+   AND    r.related_pid  = o.related_pid
+   AND    r.related_type = o.related_type
+)
+INSERT INTO relatedp (pid,related_pid,related_type)
+TABLE one;
+
+	`)
+
+
+}
+
 dstore_pg.augment_related_linkback = async function(db)
 {
 
@@ -1012,6 +1052,33 @@ WHERE NOT EXISTS (
 }
 
 
+dstore_pg.augment_relatedp = async function(db)
+{
+
+	await db.none(`
+
+WITH
+p AS (
+    SELECT
+    a.reporting_ref as pid,
+    b.reporting_ref as related_pid,
+    r.related_type  as related_type
+
+    FROM related r
+    JOIN act a ON a.aid=r.aid
+    JOIN act b ON b.aid=r.related_aid
+    WHERE a.reporting_ref!=b.reporting_ref
+    GROUP BY a.reporting_ref,b.reporting_ref,r.related_type
+)
+
+INSERT INTO relatedp
+SELECT pid,related_pid,related_type
+FROM p
+
+	`)
+
+}
+
 dstore_pg.augment_related_dump = async function(db)
 {
 
@@ -1019,6 +1086,19 @@ dstore_pg.augment_related_dump = async function(db)
 SELECT
 related_type,count(*)::int AS count
 FROM related
+GROUP BY related_type ORDER BY 1
+	`)
+
+	console.log(r)
+}
+
+dstore_pg.augment_relatedp_dump = async function(db)
+{
+
+	let r=await db.any(`
+SELECT
+related_type,count(*)::int AS count
+FROM relatedp
 GROUP BY related_type ORDER BY 1
 	`)
 
@@ -1040,17 +1120,21 @@ console.log("creating linkbacks")
 	await dstore_pg.augment_related_linkback(db)
 
 await dstore_pg.augment_related_dump(db)
-console.log("done augmenting")
+console.log("done augmenting related table")
 
-/*
-	await db.none(`
-		DROP TABLE IF EXISTS tmp;
-	`)
+console.log("building relatedp table")
+await dstore_pg.augment_relatedp_dump(db)
 
-	await db.none(`
-		CREATE TABLE tmp AS SELECT * FROM related;
-	`)
-*/
+console.log("fill")
+	await dstore_pg.augment_relatedp(db)
+
+await dstore_pg.augment_relatedp_dump(db)
+
+console.log("dedupe")
+	await dstore_pg.augment_relatedp_dedupe(db)
+
+await dstore_pg.augment_relatedp_dump(db)
+console.log("done building relatedp table")
 
 	dstore_pg.close(db)
 })
