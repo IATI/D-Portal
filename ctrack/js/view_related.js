@@ -167,20 +167,6 @@ let q={}
 	q.sql=`
 
 --$pid=NL-KVK-41177588
-WITH
-relatedp AS (
-    SELECT
-    a.reporting_ref as pid,
-    b.reporting_ref as related_pid,
-    r.related_type  as related_type
-
-    FROM related r
-    JOIN act a ON a.aid=r.aid
-    JOIN act b ON b.aid=r.related_aid
-    WHERE a.reporting_ref!=b.reporting_ref
-    GROUP BY a.reporting_ref,b.reporting_ref,r.related_type
-)
-
 
 SELECT g.pid,g.related_pid,g.depth,g.related_type
 	,xson->'/name/narrative'->0->'' AS name
