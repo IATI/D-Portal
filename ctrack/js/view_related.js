@@ -102,19 +102,19 @@ view_related.draw_graph=function(graph)
 		let r0=e0.getBoundingClientRect()
 		let r1=e1.getBoundingClientRect()
 
-		let x0=r0.x-xb
+		let x0=r0.x-10-xb
 		let y0=r0.y-yb+r0.height*0.5
-		let x1=r1.x-xb
+		let x1=r1.x-10-xb
 		let y1=r1.y-yb+r1.height*0.5
-		let out=-(0+w*10)
+		let out=-(10+w*10)
 		let h0=r0.height*0.5
 		let h1=r1.height*0.5
 
 		if(l[0]=="R") // draw on right side
 		{
 			out=-out
-			x0=r0.x-xb+r0.width
-			x1=r1.x-xb+r1.width
+			x0=r0.x-xb+r0.width+10
+			x1=r1.x-xb+r1.width+10
 		}
 		let f=Math.floor
 		let p=f(x0)+","+f(y0)+" "+f(x0+out)+","+f(y0+h0)+" "+f(x1+out)+","+f(y1-h1)+" "+f(x1)+","+f(y1)
@@ -409,11 +409,6 @@ SELECT ${aid},${aid},3,0
 			it.id=""
 			it.dupe=row.dupe&&"dupe"||""
 
-			it.pivot=""
-			if( it[name]==id ) // pivot
-			{
-				it.pivot="related_pivot"
-			}
 
 			if(name=="pid")
 			{
@@ -446,6 +441,12 @@ SELECT ${aid},${aid},3,0
 					it.commitment=row.spend
 					it.pct=100
 				}
+			}
+
+			it.pivot=""
+			if( it[name]==id ) // pivot
+			{
+				it.pivot="related_pivot"
 			}
 
 			it.downs=[]
