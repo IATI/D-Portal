@@ -337,16 +337,19 @@ SELECT ${aid},${aid},3,0
 		row.idx=idx++
 		depths[depth-depth_min].push(row)
 	}
-	// flag dupes in side stream
-	let rows=depths[0-depth_min]
-	for(let r1=rows.length-1;r1>=0;r1--)
+	// remove all dupes at each level
+	for( let depth=depth_min ; depth<=depth_max ; depth++ )
 	{
-		for(let r2=0;r2<r1;r2++)
+		let rows=depths[depth-depth_min]
+		for(let r1=rows.length-1;r1>=0;r1--)
 		{
-			if(rows[r1]["related_"+name]==rows[r2]["related_"+name])
+			for(let r2=0;r2<r1;r2++)
 			{
-				rows.splice(r1, 1)
-				break;
+				if(rows[r1]["related_"+name]==rows[r2]["related_"+name])
+				{
+					rows.splice(r1, 1)
+					break;
+				}
 			}
 		}
 	}
@@ -461,16 +464,19 @@ SELECT ${aid},${aid},3,0
 				{
 					for( let row of depths[di] ) // build array of arrays
 					{
-						if(row[name]==it[name])
+						if(!row.dupe)
 						{
-							if(row.related_type==1)
+							if(row[name]==it[name])
 							{
-								it.upups.push(row.idx)
-							}
-							else
-							if(row.related_type==2)
-							{
-								it.downs.push(row.idx)
+								if(row.related_type==1)
+								{
+									it.upups.push(row.idx)
+								}
+								else
+								if(row.related_type==2)
+								{
+									it.downs.push(row.idx)
+								}
 							}
 						}
 					}
