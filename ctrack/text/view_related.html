@@ -94,7 +94,7 @@
 
 #related_item
 
-<div id="related_{_it.idx}" class="{_it.pivot} related_item" onclick="event.stopPropagation();ctrack.url('#view=related&aid={_it.aid}');">
+<div id="related_{_it.idx}" class="{_it.pivot} related_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.url('#view=related&aid={_it.aid}');">
 	<div class="related_item_before related_item_before{_it.lcount}">{_it.lcount}</div>
 	<div class="related_info">
 		<div class="num">{_it.idx}.</div>
@@ -119,7 +119,7 @@
 
 #relatedp_item
 
-<div id="related_{_it.idx}" class="{_it.pivot} related_item relatedp_item" onclick="event.stopPropagation();ctrack.url('#view=related&pid={_it.pid}');">
+<div id="related_{_it.idx}" class="{_it.pivot} related_item relatedp_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.url('#view=related&pid={_it.pid}');">
 	<div class="relatedp_item_before related_item_before{_it.lcount}">{_it.lcount}</div>
 	<div class="related_info">
 		<div class="num">{_it.idx}.</div>
