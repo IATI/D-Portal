@@ -386,7 +386,9 @@ SELECT ${aid},${aid},3,0
 		a.title="STREAM"
 		if( depth<0 )
 		{
-			a.title="Up Stream ("+(0-depth)+")"
+			let d=0-depth
+			if(d<2){d=""}
+			a.title="Up<sup>"+(d)+"</sup> Stream"
 		}
 		else
 		if(depth==0)
@@ -395,7 +397,9 @@ SELECT ${aid},${aid},3,0
 		}
 		else
 		{
-			a.title="Down Stream ("+(depth)+")"
+			let d=depth
+			if(d<2){d=""}
+			a.title="Down<sup>"+(d)+"</sup> Stream"
 		}
 		a.tab=[]
 		related_data.push(a)
