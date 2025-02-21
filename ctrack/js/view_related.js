@@ -24,11 +24,11 @@ view_related.chunks=[
 view_related.view=function(args)
 {
 	view_related.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+	view_related.ajax({});
 
 	ctrack.setcrumb(1);
 	ctrack.change_hash();
 
-	view_related.ajax({});
 }
 
 //
@@ -190,6 +190,7 @@ graph1(pid, related_pid, related_type, depth) AS (
         SELECT r.pid, r.related_pid, r.related_type, g.depth - 1
         FROM relatedp r, graph1 g
         WHERE r.pid = g.related_pid AND r.related_type=g.related_type
+        AND g.depth>-5
 ) CYCLE pid SET is_cycle USING path
 ,
 graph2(pid, related_pid, related_type, depth) AS (
@@ -202,6 +203,7 @@ graph2(pid, related_pid, related_type, depth) AS (
         SELECT r.pid, r.related_pid, r.related_type, g.depth + 1
         FROM relatedp r, graph2 g
         WHERE r.pid = g.related_pid AND r.related_type=g.related_type
+        AND g.depth<5
 ) CYCLE pid SET is_cycle USING path
 ,
 graph3(pid, related_pid, related_type, depth) AS (
@@ -265,6 +267,7 @@ graph1(aid, related_aid, related_type, depth) AS (
         SELECT r.aid, r.related_aid, r.related_type, g.depth - 1
         FROM related r, graph1 g
         WHERE r.aid = g.related_aid AND r.related_type=g.related_type
+        AND g.depth>-5
 ) CYCLE aid SET is_cycle USING path
 ,
 graph2(aid, related_aid, related_type, depth) AS (
@@ -277,6 +280,7 @@ graph2(aid, related_aid, related_type, depth) AS (
         SELECT r.aid, r.related_aid, r.related_type, g.depth + 1
         FROM related r, graph2 g
         WHERE r.aid = g.related_aid AND r.related_type=g.related_type
+        AND g.depth<5
 ) CYCLE aid SET is_cycle USING path
 ,
 graph3(aid, related_aid, related_type, depth) AS (

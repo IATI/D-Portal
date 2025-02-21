@@ -923,7 +923,7 @@ p AS (
 SELECT
 
 	aid,
-	xson->'/provider-org@provider-activity-id' as related_aid
+	xson->>'/provider-org@provider-activity-id' as related_aid
 
 
 FROM xson
@@ -932,7 +932,7 @@ WHERE root='/iati-activities/iati-activity/transaction'
 AND   xson->'/provider-org@provider-activity-id' IS NOT NULL
 AND   aid !=xson->>'/provider-org@provider-activity-id'
 
-group by aid , xson->'/provider-org@provider-activity-id'
+group by aid , xson->>'/provider-org@provider-activity-id'
 
 )
 
@@ -955,7 +955,7 @@ p AS (
 SELECT
 
 	aid,
-	xson->'/receiver-org@receiver-activity-id' as related_aid
+	xson->>'/receiver-org@receiver-activity-id' as related_aid
 
 
 FROM xson
@@ -963,7 +963,7 @@ WHERE root='/iati-activities/iati-activity/transaction'
 AND   xson->'/receiver-org@receiver-activity-id' IS NOT NULL
 AND   aid !=xson->>'/receiver-org@receiver-activity-id'
 
-group by aid , xson->'/receiver-org@receiver-activity-id'
+group by aid , xson->>'/receiver-org@receiver-activity-id'
 
 )
 
@@ -985,7 +985,7 @@ p AS (
 SELECT
 
 	aid,
-	xson->'@ref' as related_aid
+	xson->>'@ref' as related_aid
 
 
 FROM xson
@@ -994,7 +994,7 @@ AND   xson->>'@type'='A3'
 AND   xson->'@ref' IS NOT NULL
 AND   aid !=xson->>'@ref'
 
-group by aid , xson->'@ref'
+group by aid , xson->>'@ref'
 
 )
 
@@ -1016,7 +1016,7 @@ p AS (
 SELECT
 
 	aid,
-	xson->'@activity-id' as related_aid
+	xson->>'@activity-id' as related_aid
 
 
 FROM xson
@@ -1026,7 +1026,7 @@ AND   xson->'@activity-id' IS NOT NULL
 AND   aid !=xson->>'@activity-id'
 AND   xson->>'@role'=ANY ('{1,2,3}'::char[])
 
-group by aid , xson->'@activity-id'
+group by aid , xson->>'@activity-id'
 
 )
 
@@ -1039,8 +1039,47 @@ FROM p
 }
 
 
+dstore_pg.augment_relatedp_implied1 = async function(db)
+{
+// parents from participating org
+	await db.none(`
+
+WITH
+p AS (
+
+SELECT
+
+	pid,xson->>'@ref' AS related_pid
+
+FROM xson
+
+WHERE root='/iati-activities/iati-activity/participating-org'
+AND   xson->>'@ref' IS NOT NULL
+AND   pid !=xson->>'@ref'
+AND   xson->>'@role'=ANY ('{1,2,3}'::char[])
+
+group by pid , xson->>'@ref'
+
+)
+
+INSERT INTO relatedp
+SELECT pid,related_pid,1 AS related_type
+FROM p
+
+	`)
+
+}
+
 dstore_pg.augment_related_dedupe = async function(db)
 {
+
+// remove self links
+	await db.none(`
+
+   DELETE FROM related
+   WHERE aid=related_aid
+
+	`)
 
 // remove all duplicates
 	await db.none(`
@@ -1081,6 +1120,15 @@ TABLE one;
 
 dstore_pg.augment_relatedp_dedupe = async function(db)
 {
+
+// remove self links
+	await db.none(`
+
+   DELETE FROM relatedp
+   WHERE pid=related_pid
+
+	`)
+
 
 // remove all duplicates
 	await db.none(`
@@ -1178,6 +1226,64 @@ WHERE NOT EXISTS (
 
 }
 
+dstore_pg.augment_relatedp_linkback = async function(db)
+{
+
+// make sure all children link back to parents
+	await db.none(`
+
+WITH link AS
+(
+	SELECT pid,related_pid
+	FROM relatedp
+	WHERE related_type=1
+),
+back AS
+(
+	SELECT pid,related_pid
+	FROM relatedp
+	WHERE related_type=2
+)
+INSERT INTO relatedp
+SELECT related_pid,pid,2
+FROM link
+WHERE NOT EXISTS (
+	SELECT * FROM back
+		WHERE back.related_pid = link.pid
+		AND   back.pid         = link.related_pid
+);
+
+	`)
+
+// make sure all parents link back to children
+	await db.none(`
+
+WITH link AS
+(
+	SELECT pid,related_pid
+	FROM relatedp
+	WHERE related_type=2
+),
+back AS
+(
+	SELECT pid,related_pid
+	FROM relatedp
+	WHERE related_type=1
+)
+INSERT INTO relatedp
+SELECT related_pid,pid,1
+FROM link
+WHERE NOT EXISTS (
+	SELECT * FROM back
+		WHERE back.related_pid = link.pid
+		AND   back.pid         = link.related_pid
+);
+
+	`)
+
+// siblings is a problem maybe, so do not do that?
+
+}
 
 dstore_pg.augment_relatedp = async function(db)
 {
@@ -1235,6 +1341,7 @@ GROUP BY related_type ORDER BY 1
 dstore_pg.augment_related = async function(){
 await ( await dstore_pg.open() ).tx( async db => {
 
+
 console.log("augmenting related table")
 	await dstore_pg.augment_related_dump(db)
 
@@ -1265,11 +1372,20 @@ console.log("creating linkbacks")
 
 console.log("done augmenting related table")
 
+
 console.log("building relatedp table")
 	await dstore_pg.augment_relatedp_dump(db)
 
 console.log("fill")
 	await dstore_pg.augment_relatedp(db)
+		await dstore_pg.augment_relatedp_dump(db)
+
+console.log("parents from participating org")
+	await dstore_pg.augment_relatedp_implied1(db)
+		await dstore_pg.augment_relatedp_dump(db)
+
+console.log("creating linkbacks")
+	await dstore_pg.augment_relatedp_linkback(db)
 		await dstore_pg.augment_relatedp_dump(db)
 
 console.log("dedupe")
