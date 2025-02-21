@@ -359,6 +359,7 @@ SELECT ${aid},${aid},3,0
 	}
 	// remove all dupes carefully
 	let ids={}
+	ids[id]=true
 	let ds=[]
 	for( let depth=-1 ; depth>=depth_min ; depth-- ) { ds.push(depth) }
 	for( let depth= 1 ; depth<=depth_max ; depth++ ) { ds.push(depth) }
@@ -370,8 +371,10 @@ SELECT ${aid},${aid},3,0
 		{
 			if( ids[ rows[r]["related_"+name] ] )
 			{
-				rows[r].dupe=true
-//				rows.splice(r, 1)
+				if( ( id != rows[r]["related_"+name] ) || (depth!=0) )// main pivot point is never a dupe
+				{
+					rows[r].dupe=true
+				}
 			}
 			else
 			{
@@ -455,7 +458,7 @@ SELECT ${aid},${aid},3,0
 			}
 
 			it.pivot=""
-			if( it[name]==id ) // pivot
+			if( (it[name]==id) && (depth==0) ) // pivot
 			{
 				it.pivot="related_pivot"
 			}
