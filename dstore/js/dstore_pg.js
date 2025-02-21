@@ -911,6 +911,133 @@ dstore_pg.query=async function(q,v){
 }
 
 
+dstore_pg.augment_related_implied1 = async function(db)
+{
+
+// parents from transactions
+	await db.none(`
+
+WITH
+p AS (
+
+SELECT
+
+	aid,
+	xson->'/provider-org@provider-activity-id' as related_aid
+
+
+FROM xson
+
+WHERE root='/iati-activities/iati-activity/transaction'
+AND   xson->'/provider-org@provider-activity-id' IS NOT NULL
+AND   aid !=xson->>'/provider-org@provider-activity-id'
+
+group by aid , xson->'/provider-org@provider-activity-id'
+
+)
+
+INSERT INTO related
+SELECT aid,related_aid,1 AS related_type
+FROM p
+
+	`)
+
+}
+dstore_pg.augment_related_implied2 = async function(db)
+{
+
+// children from transactions
+	await db.none(`
+
+WITH
+p AS (
+
+SELECT
+
+	aid,
+	xson->'/receiver-org@receiver-activity-id' as related_aid
+
+
+FROM xson
+WHERE root='/iati-activities/iati-activity/transaction'
+AND   xson->'/receiver-org@receiver-activity-id' IS NOT NULL
+AND   aid !=xson->>'/receiver-org@receiver-activity-id'
+
+group by aid , xson->'/receiver-org@receiver-activity-id'
+
+)
+
+INSERT INTO related
+SELECT aid,related_aid,2 AS related_type
+FROM p
+
+	`)
+
+}
+dstore_pg.augment_related_implied3 = async function(db)
+{
+// alternative activity ID
+	await db.none(`
+
+WITH
+p AS (
+
+SELECT
+
+	aid,
+	xson->'@ref' as related_aid
+
+
+FROM xson
+WHERE root='/iati-activities/iati-activity/other-identifier'
+AND   xson->>'@type'='A3'
+AND   xson->'@ref' IS NOT NULL
+AND   aid !=xson->>'@ref'
+
+group by aid , xson->'@ref'
+
+)
+
+INSERT INTO related
+SELECT aid,related_aid,3 AS related_type
+FROM p
+
+	`)
+
+}
+dstore_pg.augment_related_implied4 = async function(db)
+{
+// parents from participating org
+	await db.none(`
+
+WITH
+p AS (
+
+SELECT
+
+	aid,
+	xson->'@activity-id' as related_aid
+
+
+FROM xson
+
+WHERE root='/iati-activities/iati-activity/participating-org'
+AND   xson->'@activity-id' IS NOT NULL
+AND   aid !=xson->>'@activity-id'
+AND   xson->>'@role'=ANY ('{1,2,3}'::char[])
+
+group by aid , xson->'@activity-id'
+
+)
+
+INSERT INTO related
+SELECT aid,related_aid,1 AS related_type
+FROM p
+
+	`)
+
+}
+
 
 dstore_pg.augment_related_dedupe = async function(db)
 {
@@ -1109,31 +1236,46 @@ dstore_pg.augment_related = async function(){
 await ( await dstore_pg.open() ).tx( async db => {
 
 console.log("augmenting related table")
-await dstore_pg.augment_related_dump(db)
+	await dstore_pg.augment_related_dump(db)
+
+console.log("parents from participating org")
+	await dstore_pg.augment_related_implied4(db)
+		await dstore_pg.augment_related_dump(db)
+
+console.log("alternative activity ID")
+	await dstore_pg.augment_related_implied3(db)
+		await dstore_pg.augment_related_dump(db)
+
+console.log("children from transactions")
+	await dstore_pg.augment_related_implied2(db)
+		await dstore_pg.augment_related_dump(db)
+
+console.log("parents from transactions")
+	await dstore_pg.augment_related_implied1(db)
+		await dstore_pg.augment_related_dump(db)
+
 
 console.log("removing duplicates")
 	await dstore_pg.augment_related_dedupe(db)
-
-await dstore_pg.augment_related_dump(db)
+		await dstore_pg.augment_related_dump(db)
 
 console.log("creating linkbacks")
 	await dstore_pg.augment_related_linkback(db)
+		await dstore_pg.augment_related_dump(db)
 
-await dstore_pg.augment_related_dump(db)
 console.log("done augmenting related table")
 
 console.log("building relatedp table")
-await dstore_pg.augment_relatedp_dump(db)
+	await dstore_pg.augment_relatedp_dump(db)
 
 console.log("fill")
 	await dstore_pg.augment_relatedp(db)
-
-await dstore_pg.augment_relatedp_dump(db)
+		await dstore_pg.augment_relatedp_dump(db)
 
 console.log("dedupe")
 	await dstore_pg.augment_relatedp_dedupe(db)
+		await dstore_pg.augment_relatedp_dump(db)
 
-await dstore_pg.augment_relatedp_dump(db)
 console.log("done building relatedp table")
 
 	dstore_pg.close(db)
