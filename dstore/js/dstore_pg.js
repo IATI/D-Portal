@@ -1289,6 +1289,10 @@ dstore_pg.augment_relatedp = async function(db)
 {
 
 	await db.none(`
+		TRUNCATE relatedp
+	`)
+
+	await db.none(`
 
 WITH
 p AS (
@@ -1380,9 +1384,11 @@ console.log("fill")
 	await dstore_pg.augment_relatedp(db)
 		await dstore_pg.augment_relatedp_dump(db)
 
+/*
 console.log("parents from participating org")
 	await dstore_pg.augment_relatedp_implied1(db)
 		await dstore_pg.augment_relatedp_dump(db)
+*/
 
 console.log("creating linkbacks")
 	await dstore_pg.augment_relatedp_linkback(db)
