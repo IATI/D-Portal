@@ -230,7 +230,7 @@ graph4(pid, related_pid) AS (
         WHERE r.pid=${pid}
         AND related_type=1
     )
-    SELECT ${pid}, r.related_pid
+    SELECT r.pid, r.related_pid
     FROM p, relatedp r
 		WHERE r.pid=p.pid
         AND related_type=2
@@ -240,11 +240,11 @@ SELECT pid, related_pid, 1 AS related_type FROM graph1
 UNION
 SELECT pid, related_pid, 2 AS related_type FROM graph2
 UNION
-SELECT pid, related_pid, 3 AS related_type FROM graph3
+SELECT ${pid} AS pid, ${pid} AS related_pid, -2 AS related_type
 UNION
 SELECT pid, related_pid, -1 AS related_type FROM graph4
 UNION
-SELECT ${pid} AS pid, ${pid} AS related_pid, -2 AS related_type
+SELECT pid, related_pid, 3 AS related_type FROM graph3
 
 ) g
 
@@ -301,7 +301,7 @@ graph4(aid, related_aid) AS (
 			WHERE r.aid=${aid}
 			AND related_type=1
     )
-    SELECT ${aid}, r.related_aid
+    SELECT r.aid, r.related_aid
     FROM p, related r
 		WHERE r.aid=p.aid
         AND related_type=2
@@ -311,11 +311,11 @@ SELECT aid, related_aid, 1 AS related_type FROM graph1
 UNION
 SELECT aid, related_aid, 2 AS related_type FROM graph2
 UNION
-SELECT aid, related_aid, 3 AS related_type FROM graph3
+SELECT ${aid} AS aid, ${aid} AS related_aid, -2 AS related_type
 UNION
 SELECT aid, related_aid, -1 AS related_type FROM graph4
 UNION
-SELECT ${aid} AS aid, ${aid} AS related_aid, -2 AS related_type
+SELECT aid, related_aid, 3 AS related_type FROM graph3
 
 ) g LEFT JOIN act a ON a.aid=g.related_aid
 
@@ -589,7 +589,7 @@ SELECT ${aid} AS aid, ${aid} AS related_aid, -2 AS related_type
 //				console.log(row)
 				for( let r of (depths[ (-1) -depth_min ])||[] )
 				{
-					if( (r[name]==row["related_"+name]) )
+					if( (r["related_"+name]==row[name]) )
 					{
 						it.upups.push(r.idx)
 					}
