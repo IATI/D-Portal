@@ -119,9 +119,9 @@ view_related.draw_graph=function(graph)
 		let y0=r0.y-yb+r0.height*0.5
 		let x1=r1.x-10-xb
 		let y1=r1.y-yb+r1.height*0.5
-		let out=-(10+w*10)
-		let h0=r0.height*0.5
-		let h1=r1.height*0.5
+		let out=-(12+w*6)
+		let h0=100 // r0.height*0.5
+		let h1=100 // r1.height*0.5
 
 		if(l[0]=="R") // draw on right side
 		{
@@ -404,7 +404,8 @@ SELECT ${aid} AS aid, ${aid} AS related_aid, -2 AS related_type
 		row.idx=idx++
 		depths[depth-depth_min].push(row)
 	}
-//	console.log("depths",depth_min,depth_max,depths)
+	console.log("depths",depth_min,depth_max,depths)
+
 	// remove any dupes at each level
 	for( let depth=depth_min ; depth<=depth_max ; depth++ )
 	{
@@ -560,23 +561,37 @@ SELECT ${aid} AS aid, ${aid} AS related_aid, -2 AS related_type
 
 			it.downs=[]
 			it.upups=[]
-			if(it.depth>=0)
+			if(row.depth>=0) // downstream
 			{
-				for( let row of (depths[ (it.depth+1) -depth_min ])||[] )
+				for( let r of (depths[ (row.depth+1) -depth_min ])||[] )
 				{
-					if( (row[name]==it[name]) && (row.related_type==2) )
+					if( (r[name]==row["related_"+name]) && (r.related_type==2) )
 					{
-						it.downs.push(row.idx)
+						it.downs.push(r.idx)
 					}
 				}
 			}
-			if(it.depth<=0)
+			if(row.depth<=0) // upstream
 			{
-				for( let row of (depths[ (it.depth-1) -depth_min ])||[] )
+//				console.log("frm",row.depth,row)
+				for( let r of (depths[ (row.depth-1) -depth_min ])||[] )
 				{
-					if( (row[name]==it[name]) && (row.related_type==1) )
+//					console.log("too",r.depth,r)
+					if( (r[name]==row["related_"+name]) && (r.related_type==1) )
 					{
-						it.upups.push(row.idx)
+//						console.log("link",r.idx)
+						it.upups.push(r.idx)
+					}
+				}
+			}
+			if( (row.depth==0) && (row.related_type==-1) && !it.pivot ) // siblings up links
+			{
+//				console.log(row)
+				for( let r of (depths[ (-1) -depth_min ])||[] )
+				{
+					if( (r[name]==row["related_"+name]) )
+					{
+						it.upups.push(r.idx)
 					}
 				}
 			}
