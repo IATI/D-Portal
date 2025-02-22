@@ -934,8 +934,8 @@ a.beige:hover			{color:#FFF;}
 -------------------------------------------------------------- */
 
 .related_item	{border-radius:6px; color:#ddd; width:680px; padding:1em; margin:0 auto; margin-bottom:5px;position:relative; background:rgba(0,14,32,0.85);}
-.related_pivot	{background:rgba(75,70,6,0.85); border:1px solid #ff0;}
 .related_dupe	{background:rgba(75,0,6,0.85); border:1px solid #f00;}
+.related_pivot	{background:rgba(75,70,6,0.85); border:1px solid #ff0;}
 .related_link 	{fill:none; stroke:#ff0;}
 .related_span	{display:flex; justify-content:space-between;}
 .related_wrap	{margin-bottom:4em;}
@@ -955,8 +955,8 @@ a.beige:hover			{color:#FFF;}
 
 .related_item:hover		{cursor:pointer; background:rgba(0,14,32,0.95);}
 .related_item:hover	.related_title	{color:#fff;}
-.related_pivot:hover	{background:rgba(75,70,6,0.95); border:1px solid #ff0;}
 .related_dupe:hover	{background:rgba(75,0,6,0.95); border:1px solid #f00;}
+.related_pivot:hover	{background:rgba(75,70,6,0.95); border:1px solid #ff0;}
 .related_item .num		{display:none;}
 .related_item .related_title	{width:440px; max-width:440px; font-size:20px; line-height:22px;}
 .related_item .date				{width:90px; max-width:90px;}
