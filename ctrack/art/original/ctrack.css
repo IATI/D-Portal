@@ -958,19 +958,23 @@ a.beige:hover			{color:#FFF;}
 .related_pivot:hover	{background:rgba(75,70,6,0.95); border:1px solid #ff0;}
 .related_dupe:hover	{background:rgba(75,0,6,0.95); border:1px solid #f00;}
 .related_item .num		{display:none;}
-.related_item .related_title	{width:65%; font-size:20px; line-height:22px;}
+.related_item .related_title	{width:440px; max-width:440px; font-size:20px; line-height:22px;}
+.related_item .date				{width:90px; max-width:90px;}
+.related_item .value			{width:120px; max-width:120px;}
 .relatedp_item .title	{width:100%;}
 .relatedp_item .related_title	{max-width:70%;}
 .relatedp_item .related_span	{margin:0;}
 .relatedp_item .relatedp_info	{display:flex; justify-content:space-between; align-items:center;}
 
-.related_item span					{font-size:14px; line-height:18px; margin-left:5px;}
-.related_item span.currency			{font-size:11px;}
+.related_item span					{font-size:14px; line-height:18px;}
+.related_item span.currency			{font-size:11px; margin-left:3px;}
 .related_item span.related_aid,
-.related_item span.related_org		{padding:10px; border-radius:6px; background:#333642;}
-.related_item span.related_aid		{width:50%; margin:0 0 0 0;}
+.related_item span.related_org		{padding:8px 10px; border-radius:6px; background:#333642; margin-top:5px;}
+.related_item span.related_aid		{max-width:50%;}
+.related_item span.related_org		{margin-left:5px;}
 .related_item span.related_aid:hover,
 .related_item span.related_org:hover{background:#41444E;}
+.relatedp_item span.related_org		{margin:0;}
 
 
 small, sub, sup { font-size: .83em }
