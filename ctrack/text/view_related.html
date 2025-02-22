@@ -96,22 +96,20 @@
 
 <div id="related_{_it.idx}" class="{_it.pivot} related_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.url('#view=related&aid={_it.aid}');">
 	<div class="related_item_before related_item_before{_it.lcount}">{_it.lcount}</div>
-	<div class="related_info">
+	<div class="related_info_wrap">
 		<div class="num">{_it.idx}.</div>
-		<div class="title">
-			<a class="percent">
-				<div class="related_title">{_it.title}</div>
-				<div class="related_span">
-					<span class="related_aid" onclick="event.stopPropagation();ctrack.url('#view=act&aid={_it.aid}');">{_it.aid}</span>
-					<span class="related_org" onclick="event.stopPropagation();ctrack.url('?&reporting_ref={_it.pid}#view=main');">{_it.reporting}</span>
+		<div class="related_info">
+			<div class="related_title">{_it.title}</div>
+			<div class="date" title="{table_active_date_tip_text}">{_it.date_end}</div>
+			<div class="value">
+				<div class="activities_spend_wrap">
+					<div class="activities_spend" title="{activities_spend_text}">{_it.commitment}<span class="currency">{_it.currency}</span></div>
 				</div>
-			</a>
-		</div>
-		<div class="date" title="{table_active_date_tip_text}">{_it.date_end}</div>
-		<div class="value">
-			<div class="activities_spend_wrap">
-				<div class="activities_spend" title="{activities_spend_text}">{_it.commitment}<span class="currency">{_it.currency}</span></div>
 			</div>
+		</div>
+		<div class="related_span">
+			<span class="related_aid" onclick="event.stopPropagation();ctrack.url('#view=act&aid={_it.aid}');">{_it.aid}</span>
+			<span class="related_org" onclick="event.stopPropagation();ctrack.url('?&reporting_ref={_it.pid}#view=main');">{_it.reporting}</span>
 		</div>
 	</div>
 	<div class="related_item_after related_item_before{_it.rcount}">{_it.rcount}</div>
@@ -124,12 +122,12 @@
 	<div class="related_info">
 		<div class="num">{_it.idx}.</div>
 		<div class="title">
-			<a class="percent relatedp_info">
+			<div class="relatedp_info">
 				<div class="related_title">{_it.title}</div>
 				<div class="related_span">
 					<span class="related_org" onclick="event.stopPropagation();ctrack.url('?&reporting_ref={_it.pid}#view=main');">{_it.pid}</span>
 				</div>
-			</a>
+			</div>
 		</div>
 	</div>
 	<div class="relatedp_item_after related_item_before{_it.rcount}">{_it.rcount}</div>

@@ -937,9 +937,9 @@ a.beige:hover			{color:#FFF;}
 .related_dupe	{background:rgba(75,0,6,0.85); border:1px solid #f00;}
 .related_pivot	{background:rgba(75,70,6,0.85); border:1px solid #ff0;}
 .related_link 	{fill:none; stroke:#ff0;}
-.related_span	{display:flex; justify-content:flex-start; margin-top:1em;}
+.related_span	{display:flex; justify-content:space-between;}
 .related_wrap	{margin-bottom:4em;}
-.related_info	{display:flex; justify-content:space-between;}
+.related_info	{display:flex; justify-content:space-between; align-items:baseline;}
 .related_head	{color:#FFF; font-size:40px; text-align:center; margin-bottom:0.5em;}
 
 /* stream numbers
@@ -958,17 +958,17 @@ a.beige:hover			{color:#FFF;}
 .related_dupe:hover	{background:rgba(75,0,6,0.95); border:1px solid #f00;}
 .related_pivot:hover	{background:rgba(75,70,6,0.95); border:1px solid #ff0;}
 .related_item .num		{display:none;}
-.related_item .title	{width:60%; font-size:20px; line-height:22px;}
+.related_item .related_title	{width:65%; font-size:20px; line-height:22px;}
 .relatedp_item .title	{width:100%;}
 .relatedp_item .related_title	{max-width:70%;}
 .relatedp_item .related_span	{margin:0;}
-.relatedp_item .percent			{display:flex; justify-content:space-between; align-items:center;}
+.relatedp_item .relatedp_info	{display:flex; justify-content:space-between; align-items:center;}
 
-.related_item span					{font-size:14px; line-height:16px; display:block;}
+.related_item span					{font-size:14px; line-height:18px; margin-left:5px;}
 .related_item span.currency			{font-size:11px;}
 .related_item span.related_aid,
 .related_item span.related_org		{padding:10px; border-radius:6px; background:#333642;}
-.related_item span.related_aid		{width:40%; margin:0 10px 0 0;}
+.related_item span.related_aid		{width:50%; margin:0 0 0 0;}
 .related_item span.related_aid:hover,
 .related_item span.related_org:hover{background:#41444E;}
 
