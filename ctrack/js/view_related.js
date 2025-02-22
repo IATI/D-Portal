@@ -50,6 +50,19 @@ view_related.fixup=async function(args)
 	}
 
 	view_related.draw_graph( 		ctrack.chunk("related_graph") )
+
+	let e=document.getElementsByClassName("related_pivot")[0];
+	if(e)
+	{
+		let y=$(e).offset().top-200
+
+		$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
+			$('html, body').stop();
+		});
+		$('html, body').animate({ scrollTop:y }, 'slow', function(){
+			$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
+		})
+	}
 }
 
 view_related.resize=function()
@@ -175,73 +188,67 @@ if(name=="pid")
 
 --$pid=NL-KVK-41177588
 
-SELECT g.pid,g.related_pid,g.depth,g.related_type
+SELECT g.pid,g.related_pid,g.related_type
 	,xson->'/name/narrative'->0->'' AS name
- FROM (
+FROM (
 
 WITH RECURSIVE
-graph1(pid, related_pid, related_type, depth) AS (
-    SELECT r.pid, r.related_pid, r.related_type, -1
-    FROM relatedp r WHERE
-        r.pid=${pid}
-        AND
-        related_type=1
-    UNION ALL
-        SELECT r.pid, r.related_pid, r.related_type, g.depth - 1
+graph1(pid, related_pid) AS (
+    SELECT r.pid, r.related_pid
+    FROM relatedp r
+		WHERE r.pid=${pid}
+        AND related_type=1
+    UNION
+        SELECT r.pid, r.related_pid
         FROM relatedp r, graph1 g
-        WHERE r.pid = g.related_pid AND r.related_type=g.related_type
-        AND g.depth>-5
-) CYCLE pid SET is_cycle USING path
-,
-graph2(pid, related_pid, related_type, depth) AS (
-    SELECT r.pid, r.related_pid, r.related_type, 1
-    FROM relatedp r WHERE
-        r.pid=${pid}
-        AND
-        related_type=2
-    UNION ALL
-        SELECT r.pid, r.related_pid, r.related_type, g.depth + 1
-        FROM relatedp r, graph2 g
-        WHERE r.pid = g.related_pid AND r.related_type=g.related_type
-        AND g.depth<5
-) CYCLE pid SET is_cycle USING path
-,
-graph3(pid, related_pid, related_type, depth) AS (
-    SELECT r.pid, r.related_pid, r.related_type, 0
-    FROM relatedp r WHERE
-        r.pid=${pid}
-        AND
-        related_type=ANY ('{3,4,5}'::int[])
+			WHERE r.pid = g.related_pid
+			AND r.related_type=1
 )
 ,
-graph4(pid, related_pid, related_type, depth) AS (
+graph2(pid, related_pid) AS (
+    SELECT r.pid, r.related_pid
+    FROM relatedp r
+		WHERE r.pid=${pid}
+        AND related_type=2
+    UNION
+        SELECT r.pid, r.related_pid
+        FROM relatedp r, graph2 g
+			WHERE r.pid = g.related_pid
+			AND r.related_type=2
+)
+,
+graph3(pid, related_pid) AS (
+    SELECT r.pid, r.related_pid
+    FROM relatedp r
+		WHERE r.pid=${pid}
+        AND related_type=ANY ('{3,4,5}'::int[])
+)
+,
+graph4(pid, related_pid) AS (
     WITH p(pid) AS (
-        SELECT r.related_pid FROM relatedp r WHERE
-        r.pid=${pid}
+        SELECT r.related_pid FROM relatedp r
+        WHERE r.pid=${pid}
         AND related_type=1
     )
-    SELECT ${pid}, r.related_pid, 3, 0
-    FROM p, relatedp r WHERE
-        r.pid=p.pid
-        AND
-        related_type=2
+    SELECT ${pid}, r.related_pid
+    FROM p, relatedp r
+		WHERE r.pid=p.pid
+        AND related_type=2
 )
 
-SELECT * FROM graph1
+SELECT pid, related_pid, 1 AS related_type FROM graph1
 UNION
-SELECT * FROM graph2
+SELECT pid, related_pid, 2 AS related_type FROM graph2
 UNION
-SELECT * FROM graph3
+SELECT pid, related_pid, 3 AS related_type FROM graph3
 UNION
-SELECT * FROM graph4
+SELECT pid, related_pid, -1 AS related_type FROM graph4
 UNION
-SELECT ${pid},${pid},3,0
+SELECT ${pid} AS pid, ${pid} AS related_pid, -2 AS related_type
 
 ) g
 
 LEFT JOIN xson x ON x.pid=g.related_pid AND root='/iati-organisations/iati-organisation'
-
-ORDER BY g.depth,g.related_type,g.pid,g.related_pid
 
 
 `;
@@ -253,75 +260,131 @@ else // aid
 
 --$aid=US-GOV-18-NE
 
-SELECT related_aid,depth,related_type,g.aid,title,funder_ref,commitment,spend,reporting,reporting_ref,day_start,day_end,status_code
+SELECT related_aid,related_type,g.aid,title,funder_ref,commitment,spend,reporting,reporting_ref,day_start,day_end,status_code
  FROM (
 
 WITH RECURSIVE
-graph1(aid, related_aid, related_type, depth) AS (
-    SELECT r.aid, r.related_aid, r.related_type, -1
-    FROM related r WHERE
-        r.aid=${aid}
-        AND
-        related_type=1
-    UNION ALL
-        SELECT r.aid, r.related_aid, r.related_type, g.depth - 1
-        FROM related r, graph1 g
-        WHERE r.aid = g.related_aid AND r.related_type=g.related_type
-        AND g.depth>-5
-) CYCLE aid SET is_cycle USING path
-,
-graph2(aid, related_aid, related_type, depth) AS (
-    SELECT r.aid, r.related_aid, r.related_type, 1
-    FROM related r WHERE
-        r.aid=${aid}
-        AND
-        related_type=2
-    UNION ALL
-        SELECT r.aid, r.related_aid, r.related_type, g.depth + 1
-        FROM related r, graph2 g
-        WHERE r.aid = g.related_aid AND r.related_type=g.related_type
-        AND g.depth<5
-) CYCLE aid SET is_cycle USING path
-,
-graph3(aid, related_aid, related_type, depth) AS (
-    SELECT r.aid, r.related_aid, r.related_type, 0
-    FROM related r WHERE
-        r.aid=${aid}
-        AND
-        related_type=ANY ('{3,4,5}'::int[])
-)
-,
-graph4(aid, related_aid, related_type, depth) AS (
-    WITH p(aid) AS (
-        SELECT r.related_aid FROM related r WHERE
-        r.aid=${aid}
+graph1(aid, related_aid) AS (
+    SELECT r.aid, r.related_aid
+    FROM related r
+		WHERE r.aid=${aid}
         AND related_type=1
+    UNION
+        SELECT r.aid, r.related_aid
+        FROM related r, graph1 g
+			WHERE r.aid = g.related_aid
+			AND r.related_type=1
+)
+,
+graph2(aid, related_aid) AS (
+    SELECT r.aid, r.related_aid
+    FROM related r
+		WHERE r.aid=${aid}
+        AND related_type=2
+    UNION
+        SELECT r.aid, r.related_aid
+        FROM related r, graph2 g
+			WHERE r.aid = g.related_aid
+			AND r.related_type=2
+)
+,
+graph3(aid, related_aid) AS (
+    SELECT r.aid, r.related_aid
+    FROM related r
+		WHERE r.aid=${aid}
+        AND related_type=ANY ('{3,4,5}'::int[])
+)
+,
+graph4(aid, related_aid) AS (
+    WITH p(aid) AS (
+        SELECT r.related_aid FROM related r
+			WHERE r.aid=${aid}
+			AND related_type=1
     )
-    SELECT ${aid}, r.related_aid, 3, 0
-    FROM p, related r WHERE
-        r.aid=p.aid
-        AND
-        related_type=2
+    SELECT ${aid}, r.related_aid
+    FROM p, related r
+		WHERE r.aid=p.aid
+        AND related_type=2
 )
 
-SELECT * FROM graph1
+SELECT aid, related_aid, 1 AS related_type FROM graph1
 UNION
-SELECT * FROM graph2
+SELECT aid, related_aid, 2 AS related_type FROM graph2
 UNION
-SELECT * FROM graph3
+SELECT aid, related_aid, 3 AS related_type FROM graph3
 UNION
-SELECT * FROM graph4
+SELECT aid, related_aid, -1 AS related_type FROM graph4
 UNION
-SELECT ${aid},${aid},3,0
+SELECT ${aid} AS aid, ${aid} AS related_aid, -2 AS related_type
 
-) g LEFT JOIN act a ON a.aid=g.related_aid ORDER BY depth,related_type,aid,related_aid
+) g LEFT JOIN act a ON a.aid=g.related_aid
 
 
 `;
 }
 
 	let result=await fetcher.ajax(q)
+//	console.log(result)
 
+	let rows=[]
+	for(let row of result.rows) { rows.push(row) ; row.depth=0 }
+
+	let up_idx=0
+	let up_old=[id]
+	let up_new=[]
+	let down_idx=0
+	let down_old=[id]
+	let down_new=[]
+	let sanity=0
+	while( rows.length>0 )
+	{
+//		console.log(rows.length)
+		if(rows.length==sanity) { break } // last loop had no effect
+		sanity=rows.length
+
+		up_idx--
+		down_idx++
+		for( let idx=rows.length-1 ; idx>=0 ; idx-- )
+		{
+			let row=rows[idx]
+			if(row.related_type==1)
+			{
+				for( let up of up_old)
+				{
+					if(up==row[name])
+					{
+						up_new.push(row["related_"+name])
+						row.depth=up_idx
+						rows.splice(idx, 1)
+						break
+					}
+				}
+			}
+			else
+			if(row.related_type==2)
+			{
+				for( let down of down_old)
+				{
+					if(down==row[name])
+					{
+						down_new.push(row["related_"+name])
+						row.depth=down_idx
+						rows.splice(idx, 1)
+						break
+					}
+				}
+			}
+			else
+			{
+				row.depth=0
+				rows.splice(idx, 1)
+			}
+		}
+		up_old=up_new
+		up_new=[]
+		down_old=down_new
+		down_new=[]
+	}
 //	console.log(result)
 
 	let idx=1
@@ -341,7 +404,8 @@ SELECT ${aid},${aid},3,0
 		row.idx=idx++
 		depths[depth-depth_min].push(row)
 	}
-	// remove all dupes at each level
+//	console.log("depths",depth_min,depth_max,depths)
+	// remove any dupes at each level
 	for( let depth=depth_min ; depth<=depth_max ; depth++ )
 	{
 		let rows=depths[depth-depth_min]
@@ -357,28 +421,59 @@ SELECT ${aid},${aid},3,0
 			}
 		}
 	}
-	// remove all dupes carefully
-	let ids={}
-	ids[id]=true
-	let ds=[]
-	for( let depth=-1 ; depth>=depth_min ; depth-- ) { ds.push(depth) }
-	for( let depth= 1 ; depth<=depth_max ; depth++ ) { ds.push(depth) }
-	ds.push(0)
-	for( let depth of ds)
+	// mark all dupes carefully
+	for( let depth=-1 ; depth>=depth_min ; depth-- ) // parents
 	{
-		let rows=depths[depth-depth_min]
-		for( let r=rows.length-1 ; r>=0 ; r-- )
+		for( let row of depths[depth-depth_min] )
 		{
-			if( ids[ rows[r]["related_"+name] ] )
+			if(row.dupe){continue}
+			for( let d=depth+1 ; d<=-1 ; d++ )
 			{
-				if( ( id != rows[r]["related_"+name] ) || (depth!=0) )// main pivot point is never a dupe
+				if(row.dupe){break}
+				for( let r of depths[d-depth_min] )
 				{
-					rows[r].dupe=true
+					if(row.dupe){break}
+					if(r["related_"+name]==row["related_"+name])
+					{
+						row.dupe=true
+					}
 				}
 			}
-			else
+		}
+	}
+	for( let depth=1 ; depth<=depth_max ; depth++ ) // children
+	{
+		for( let row of depths[depth-depth_min] )
+		{
+			if(row.dupe){continue}
+			for( let d=depth-1 ; d>=1 ; d-- )
 			{
-				ids[ rows[r]["related_"+name] ]=true
+				if(row.dupe){break}
+				for( let r of depths[d-depth_min] )
+				{
+					if(row.dupe){break}
+					if(r["related_"+name]==row["related_"+name])
+					{
+						row.dupe=true
+					}
+				}
+			}
+		}
+	}
+	for( let row of depths[0-depth_min] ) // siblings
+	{
+		if(row.dupe){continue}
+		for( let d=depth_min ; d<=depth_max ; d++ )
+		{
+			if(d==0){continue}
+			if(row.dupe){break}
+			for( let r of depths[d-depth_min] )
+			{
+				if(row.dupe){break}
+				if(r["related_"+name]==row["related_"+name])
+				{
+					row.dupe=true
+				}
 			}
 		}
 	}
@@ -465,31 +560,26 @@ SELECT ${aid},${aid},3,0
 
 			it.downs=[]
 			it.upups=[]
-			if(!row.dupe)
+			if(it.depth>=0)
 			{
-				for( let di in depths)
+				for( let row of (depths[ (it.depth+1) -depth_min ])||[] )
 				{
-					for( let row of depths[di] ) // build array of arrays
+					if( (row[name]==it[name]) && (row.related_type==2) )
 					{
-						if(!row.dupe)
-						{
-							if(row[name]==it[name])
-							{
-								if(row.related_type==1)
-								{
-									it.upups.push(row.idx)
-								}
-								else
-								if(row.related_type==2)
-								{
-									it.downs.push(row.idx)
-								}
-							}
-						}
+						it.downs.push(row.idx)
 					}
 				}
 			}
-
+			if(it.depth<=0)
+			{
+				for( let row of (depths[ (it.depth-1) -depth_min ])||[] )
+				{
+					if( (row[name]==it[name]) && (row.related_type==1) )
+					{
+						it.upups.push(row.idx)
+					}
+				}
+			}
 			a.tab.push(it)
 			lookup[it.idx]=it
 		}
