@@ -948,6 +948,10 @@ a.beige:hover			{color:#FFF;}
 .related_item_after		{content:""; border:1px solid #ff0; display:inline-block; height:12px; padding:10px; text-align:center; border-radius:20px; position:absolute; right:-25px; top:40%; z-index:2; line-height:14px; background:#101c28;}
 .relatedp_item_before	{content:""; border:1px solid #ff0; display:inline-block; height:12px; padding:10px; text-align:center; border-radius:20px; position:absolute; left:-25px; top:25%; z-index:2; line-height:14px; background:#101c28;}
 .relatedp_item_after	{content:""; border:1px solid #ff0; display:inline-block; height:12px; padding:10px; text-align:center; border-radius:20px; position:absolute; right:-25px; top:25%; z-index:2; line-height:14px; background:#101c28;}
+.related_dupe .related_item_before,
+.related_dupe .related_item_after	{top:30%;}
+.related_dupe .relatedp_item_before,
+.related_dupe .relatedp_item_after	{top:15%;}
 .relatedp_item_before0	{display:none;}
 .relatedp_item_after0	{display:none;}
 .related_item_before0	{display:none;}
@@ -961,7 +965,7 @@ a.beige:hover			{color:#FFF;}
 .related_item .related_title	{width:440px; max-width:440px; font-size:20px; line-height:22px;}
 .related_item .date				{width:90px; max-width:90px;}
 .related_item .value			{width:120px; max-width:120px;}
-.relatedp_item .title	{width:100%;}
+.relatedp_item .title			{width:100%;}
 .relatedp_item .related_title	{max-width:70%;}
 .relatedp_item .related_span	{margin:0;}
 .relatedp_item .relatedp_info	{display:flex; justify-content:space-between; align-items:center;}
@@ -972,10 +976,14 @@ a.beige:hover			{color:#FFF;}
 .related_item span.currency			{font-size:11px; margin-left:3px;}
 .related_item span.related_aid,
 .related_item span.related_org		{padding:8px 10px; border-radius:6px; background:#333642; margin-top:5px;}
+.related_pivot span.related_aid,
+.related_pivot span.related_org		{padding:8px 10px; border-radius:6px; background:#373415; margin-top:0;}
 .related_item span.related_aid		{max-width:50%;}
 .related_item span.related_org		{margin-left:5px;}
 .related_item span.related_aid:hover,
-.related_item span.related_org:hover{background:#41444E;}
+.related_item span.related_org:hover	{background:#41444E;}
+.related_pivot span.related_aid:hover,
+.related_pivot span.related_org:hover	{background:#6b631f;}
 .relatedp_item span.related_org		{margin:0;}
 
 
