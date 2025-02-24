@@ -95,7 +95,7 @@
 #related_item
 
 <div id="related_{_it.idx}" class="{_it.pivot} related_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.url('#view=related&aid={_it.aid}');">
-	<div class="related_item_before related_item_before{_it.lcount}">{_it.lcount}</div>
+	<div title="" class="related_item_before related_item_before{_it.lcount}">{_it.lcount}</div>
 	<div class="related_info_wrap">
 		<div class="num">{_it.idx}.</div>
 		<div class="related_info">
@@ -112,13 +112,13 @@
 			<span class="related_org" onclick="event.stopPropagation();ctrack.url('?&reporting_ref={_it.pid}#view=main');">{_it.reporting}</span>
 		</div>
 	</div>
-	<div class="related_item_after related_item_before{_it.rcount}">{_it.rcount}</div>
+	<div title="" class="related_item_after related_item_before{_it.rcount}">{_it.rcount}</div>
 </div>
 
 #relatedp_item
 
 <div id="related_{_it.idx}" class="{_it.pivot} related_item relatedp_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.url('#view=related&pid={_it.pid}');">
-	<div class="relatedp_item_before related_item_before{_it.lcount}">{_it.lcount}</div>
+	<div title="" class="relatedp_item_before related_item_before{_it.lcount}">{_it.lcount}</div>
 	<div class="related_info">
 		<div class="num">{_it.idx}.</div>
 		<div class="title">
@@ -130,5 +130,5 @@
 			</div>
 		</div>
 	</div>
-	<div class="relatedp_item_after related_item_before{_it.rcount}">{_it.rcount}</div>
+	<div title="" class="relatedp_item_after related_item_before{_it.rcount}">{_it.rcount}</div>
 </div>
