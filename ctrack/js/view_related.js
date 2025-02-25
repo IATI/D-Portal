@@ -39,6 +39,8 @@ ctrack.related_goto=function(event,name,id,dupe_idx)
 //	console.log(event,name,id,dupe_idx)
 	if(dupe_idx==0)
 	{
+		view_related.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+		ctrack.change_hash();
 		if(name=='aid')
 		{
 			ctrack.url('#view=related&aid='+id)
