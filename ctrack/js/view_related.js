@@ -67,6 +67,46 @@ ctrack.related_goto=function(event,name,id,dupe_idx)
 	}
 }
 
+ctrack.related_toggle=function(idx,event)
+{
+	let lookup=ctrack.chunk("related_lookup")
+	let it=lookup[idx]
+//	console.log("toggle",it)
+
+	let n=1
+	let tog=function(it)
+	{
+		it.hides+=n
+		for(let i of it.upups)
+		{
+			tog(lookup[i])
+		}
+		for(let i of it.downs)
+		{
+			tog(lookup[i])
+		}
+	}
+
+	if(it.toggle)
+	{
+		n=-1
+		it.toggle=false
+		tog(it)
+		it.hides-=n // not this one
+	}
+	else
+	{
+		n=1
+		it.toggle=true
+		tog(it)
+		it.hides-=n // not this one
+	}
+
+	view_related.showhide()
+	view_related.draw_graph( ctrack.chunk("related_graph") )
+
+}
+
 // the chunk names this view will fill with new data
 view_related.chunks=[
 	"related_datas",
@@ -103,6 +143,7 @@ view_related.fixup=async function(args)
 		await view_related.ajax({});
 	}
 
+	view_related.showhide()
 	view_related.draw_graph( 		ctrack.chunk("related_graph") )
 
 	let e=document.getElementsByClassName("related_pivot")[0];
@@ -112,6 +153,25 @@ view_related.fixup=async function(args)
 view_related.resize=function()
 {
 	view_related.draw_graph( 		ctrack.chunk("related_graph") )
+}
+view_related.showhide=function()
+{
+	let lookup=ctrack.chunk("related_lookup")
+	if(!lookup) { return }
+	for( let idx in lookup )
+	{
+		let it=lookup[idx]
+		let e=document.getElementById("related_"+idx)
+		if(it.shows-it.hides>=1)
+		{
+			e.classList.remove("related_hide");
+		}
+		else
+		{
+			e.classList.add("related_hide");
+		}
+	}
+//	e.classList.contains("related_hide");
 }
 
 view_related.draw_graph=function(graph)
@@ -161,6 +221,12 @@ view_related.draw_graph=function(graph)
 		let e0=document.getElementById("related_"+l[1])
 		let e1=document.getElementById("related_"+l[2])
 		if(!(e1&&e0)){continue} // sanity
+
+		// hidden data
+		if( e0.classList.contains("related_hide") || e1.classList.contains("related_hide") )
+		{
+			continue
+		}
 
 		let r0=e0.getBoundingClientRect()
 		let r1=e1.getBoundingClientRect()
@@ -643,6 +709,8 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 		for(let row of rows)
 		{
 			let it={}
+			it.shows=0
+			it.hides=0
 			it.lcount=0
 			it.rcount=0
 			it.idx=row.idx
@@ -650,6 +718,7 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 			it.id=""
 			it.dupe=row.dupe&&"dupe"||""
 			it.dupe_idx=row.dupe_idx||0
+			it.type=row.related_type
 
 
 			if(name=="pid")
@@ -716,19 +785,51 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 					}
 				}
 			}
-			if( (row.depth==0) && (row.related_type==-1) && !it.pivot ) // siblings up links
+			if( (row.depth==-1) ) // siblings up/down links
 			{
-//				console.log(row)
-				for( let r of (depths[ (-1) -depth_min ])||[] )
+				for( let r of (depths[ (0) -depth_min ])||[] )
 				{
-					if( (r["related_"+name]==row[name]) )
+					if( (r[name]==row["related_"+name]) && (r.related_type==-1)  )
 					{
-						it.upups.push(r.idx)
+						it.downs.push(r.idx)
 					}
 				}
 			}
 			a.tab.push(it)
 			lookup[it.idx]=it
+		}
+	}
+
+	for( let depth=depth_min ; depth<=depth_max ; depth++ )
+	{
+		let rows=depths[depth-depth_min]
+		for(let row of rows)
+		{
+			let it=lookup[row.idx]
+			if(depth>=0) // downstream
+			{
+				for( let ri of it.downs )
+				{
+					let dit=lookup[ri]
+					dit.shows++
+				}
+			}
+			if(depth<=0) // upstream
+			{
+				for( let ri of it.upups )
+				{
+					let uit=lookup[ri]
+					uit.shows++
+				}
+			}
+			if( (depth==0) && (it.type==-1) && !it.pivot ) // siblings up links
+			{
+				it.shows++
+			}
+			if(it.pivot)
+			{
+				it.shows++ // keep pivot shown
+			}
 		}
 	}
 
@@ -779,8 +880,10 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 		it2[side]++
 	}
 
+	console.log(related_data)
+	console.log(related_graph)
 
-
+	ctrack.chunk("related_lookup",lookup)
 	ctrack.chunk("related_graph",related_graph)
 	ctrack.chunk("related_data",related_data)
 	if(name=="pid")
