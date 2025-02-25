@@ -328,6 +328,24 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 
 	let rows=[]
 	for(let row of result.rows) { rows.push(row) ; row.depth=0 }
+	let rowsort=(function(a,b){
+		if(a["related_"+name]==b["related_"+name])
+		{
+			if(a.related_type==b.related_type)
+			{
+				if( a[name] < b[name] ) { return -1 } else { return 1 }
+			}
+			else
+			{
+				if( a.related_type < b.related_type ) { return -1 } else { return 1 }
+			}
+		}
+		else
+		{
+			if( a["related_"+name] < b["related_"+name] ) { return -1 } else { return 1 }
+		}
+		return 0;
+	})
 
 	let up_idx=0
 	let up_old=[id]
@@ -404,6 +422,17 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 		row.idx=idx++
 		depths[depth-depth_min].push(row)
 	}
+	// sort
+	for( let depth=depth_min ; depth<=depth_max ; depth++ )
+	{
+		let rows=depths[depth-depth_min]
+		rows.sort(rowsort)
+	}
+	let onlyme=[]
+	for(let row of depths[0-depth_min])
+	{
+		if( id==row["related_"+name] ) { onlyme.push(row) ; break }
+	}
 	console.log("depths",depth_min,depth_max,depths)
 
 	// remove any dupes at each level
@@ -416,6 +445,7 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 			{
 				if(rows[r1]["related_"+name]==rows[r2]["related_"+name])
 				{
+//					rows[r1].dupe=true
 					rows.splice(r1, 1)
 					break;
 				}
@@ -428,10 +458,12 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 		for( let row of depths[depth-depth_min] )
 		{
 			if(row.dupe){continue}
-			for( let d=depth+1 ; d<=-1 ; d++ )
+			for( let d=depth+1 ; d<=0 ; d++ )
 			{
 				if(row.dupe){break}
-				for( let r of depths[d-depth_min] )
+				let rs=depths[d-depth_min]
+				if(d==0){rs=onlyme}
+				for( let r of rs )
 				{
 					if(row.dupe){break}
 					if(r["related_"+name]==row["related_"+name])
@@ -447,10 +479,12 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 		for( let row of depths[depth-depth_min] )
 		{
 			if(row.dupe){continue}
-			for( let d=depth-1 ; d>=1 ; d-- )
+			for( let d=depth-1 ; d>=0 ; d-- )
 			{
 				if(row.dupe){break}
-				for( let r of depths[d-depth_min] )
+				let rs=depths[d-depth_min]
+				if(d==0){rs=onlyme}
+				for( let r of rs )
 				{
 					if(row.dupe){break}
 					if(r["related_"+name]==row["related_"+name])
