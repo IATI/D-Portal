@@ -69,6 +69,13 @@ ctrack.related_goto=function(event,name,id,dupe_idx)
 
 ctrack.related_toggle=function(idx,event)
 {
+	if( view_related.hide_graph ) // just toggle everythig
+	{
+		view_related.hide_graph=false
+		view_related.draw_graph( ctrack.chunk("related_graph") )
+		return
+	}
+
 	let lookup=ctrack.chunk("related_lookup")
 	let it=lookup[idx]
 //	console.log("toggle",it)
@@ -179,11 +186,7 @@ view_related.draw_graph=function(graph)
 	let ls=graph&&graph.list
 	if(!ls){return}
 
-	if(ls && ls.length > 2048 )
-	{
-		console.error("SKIPPING "+ls.length+" LINES")
-		return
-	}
+	if(view_related.hide_graph) { return }
 
 	let e=document.getElementById("svg_overlay")
 	if(!e)
@@ -882,6 +885,16 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 
 	console.log(related_data)
 	console.log(related_graph)
+
+	if(related_graph.list.length > 1024 )
+	{
+		view_related.hide_graph=true
+	}
+	else
+	{
+		view_related.hide_graph=false
+	}
+
 
 	ctrack.chunk("related_lookup",lookup)
 	ctrack.chunk("related_graph",related_graph)
