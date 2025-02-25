@@ -12,6 +12,58 @@ var iati_codes=require("../../dstore/json/iati_codes.json")
 
 var SVG=require('svg.js')
 
+view_related.gotoe=function(e,ev)
+{
+	if(e)
+	{
+		let ev_top=+200
+
+		if(ev)
+		{
+			ev_top = Math.floor(ev.clientY-(ev.currentTarget.getBoundingClientRect().height/2))
+		}
+
+		let y=$(e).offset().top-ev_top
+
+		$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
+			$('html, body').stop();
+		});
+		$('html, body').animate({ scrollTop:y }, 'slow', function(){
+			$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
+		})
+	}
+}
+
+ctrack.related_goto=function(event,name,id,dupe_idx)
+{
+//	console.log(event,name,id,dupe_idx)
+	if(dupe_idx==0)
+	{
+		if(name=='aid')
+		{
+			ctrack.url('#view=related&aid='+id)
+		}
+		else
+		if(name=='pid')
+		{
+			ctrack.url('#view=related&pid='+id)
+		}
+	}
+	else // scrollto
+	{
+		if(name=='aid')
+		{
+			let e=document.getElementById("related_"+dupe_idx)
+			view_related.gotoe(e,event)
+		}
+		else
+		if(name=='pid')
+		{
+			let e=document.getElementById("related_"+dupe_idx)
+			view_related.gotoe(e,event)
+		}
+	}
+}
 
 // the chunk names this view will fill with new data
 view_related.chunks=[
@@ -52,17 +104,7 @@ view_related.fixup=async function(args)
 	view_related.draw_graph( 		ctrack.chunk("related_graph") )
 
 	let e=document.getElementsByClassName("related_pivot")[0];
-	if(e)
-	{
-		let y=$(e).offset().top-200
-
-		$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
-			$('html, body').stop();
-		});
-		$('html, body').animate({ scrollTop:y }, 'slow', function(){
-			$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
-		})
-	}
+	view_related.gotoe(e)
 }
 
 view_related.resize=function()
@@ -74,6 +116,12 @@ view_related.draw_graph=function(graph)
 {
 	let ls=graph&&graph.list
 	if(!ls){return}
+
+	if(ls && ls.length > 2048 )
+	{
+		console.error("SKIPPING "+ls.length+" LINES")
+		return
+	}
 
 	let e=document.getElementById("svg_overlay")
 	if(!e)
@@ -428,14 +476,9 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 		let rows=depths[depth-depth_min]
 		rows.sort(rowsort)
 	}
-	let onlyme=[]
-	for(let row of depths[0-depth_min])
-	{
-		if( id==row["related_"+name] ) { onlyme.push(row) ; break }
-	}
 	console.log("depths",depth_min,depth_max,depths)
 
-	// remove any dupes at each level
+	// remove any dupes at each depth
 	for( let depth=depth_min ; depth<=depth_max ; depth++ )
 	{
 		let rows=depths[depth-depth_min]
@@ -452,7 +495,14 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 			}
 		}
 	}
-	// mark all dupes carefully
+	// find myself
+	let onlyme=[]
+	let me={}
+	for(let row of depths[0-depth_min])
+	{
+		if( id==row["related_"+name] ) { onlyme.push(row) ; me=row; break }
+	}
+	// mark all dupes at other depths carefully
 	for( let depth=-1 ; depth>=depth_min ; depth-- ) // parents
 	{
 		for( let row of depths[depth-depth_min] )
@@ -512,6 +562,51 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 			}
 		}
 	}
+	me.dupe=false // i am never the dupe
+	// link each dupe to its non dupe
+//	mainidx={}
+	for( let depth=depth_min ; depth<=depth_max ; depth++ )
+	{
+		let rows=depths[depth-depth_min]
+		for(row of rows)
+		{
+			if(row.dupe)
+			{
+				if(depth<=0)
+				{
+					for( let d=depth_min ; d<=( depth==0 ? depth_max : 0 ) ; d++ )
+					{
+						if(row.dupe_idx) { break }
+						let rs=depths[d-depth_min]
+						for( let r of rs )
+						{
+							if(row.dupe_idx) { break }
+							if( (!r.dupe) && ( r["related_"+name]==row["related_"+name] ) )
+							{
+								row.dupe_idx=r.idx
+							}
+						}
+					}
+				}
+				else
+				{
+					for( let d=depth_max ; d>=0 ; d-- )
+					{
+						if(row.dupe_idx) { break }
+						let rs=depths[d-depth_min]
+						for( let r of rs )
+						{
+							if(row.dupe_idx) { break }
+							if( (!r.dupe) && ( r["related_"+name]==row["related_"+name] ) )
+							{
+								row.dupe_idx=r.idx
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
 	let related_data=[]
 	let lookup={}
@@ -552,6 +647,7 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 			it.depth=depth
 			it.id=""
 			it.dupe=row.dupe&&"dupe"||""
+			it.dupe_idx=row.dupe_idx||0
 
 
 			if(name=="pid")
