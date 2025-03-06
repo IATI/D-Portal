@@ -100,7 +100,7 @@ dstore_db.tables={
 	],
 // related activity data combined into publishers
 	relatedp:[
-		{ name:"pid",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
+		{ name:"pid",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true , NOT_ACTIVE:true },
 		{ name:"related_pid",					TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
 		{ name:"related_type",					INTEGER:true , INDEX:true },
 	],
@@ -203,6 +203,8 @@ dstore_db.tables_active={};
 		for(let i=0; i<dstore_db.tables[name].length; i++ )
 		{
 			let v=dstore_db.tables[name][i];
+
+			if(v.NOT_ACTIVE) { continue } // ignore this table column when doing Q logic
 
 			let ty="null";
 
