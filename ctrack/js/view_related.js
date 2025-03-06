@@ -12,6 +12,107 @@ var iati_codes=require("../../dstore/json/iati_codes.json")
 
 var SVG=require('svg.js')
 
+view_related.gotoe=function(e,ev)
+{
+	if(e)
+	{
+		let ev_top=+200
+
+		if(ev)
+		{
+			ev_top = Math.floor(ev.clientY-(ev.currentTarget.getBoundingClientRect().height/2))
+		}
+
+		let y=$(e).offset().top-ev_top
+
+		$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
+			$('html, body').stop();
+		});
+		$('html, body').animate({ scrollTop:y }, 'slow', function(){
+			$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
+		})
+	}
+}
+
+ctrack.related_goto=function(event,name,id,dupe_idx)
+{
+//	console.log(event,name,id,dupe_idx)
+	if(dupe_idx==0)
+	{
+		view_related.chunks.forEach(function(n){ctrack.chunk(n,"{spinner}");});
+		ctrack.change_hash();
+		if(name=='aid')
+		{
+			ctrack.url('#view=related&aid='+id)
+		}
+		else
+		if(name=='pid')
+		{
+			ctrack.url('#view=related&pid='+id)
+		}
+	}
+	else // scrollto
+	{
+		if(name=='aid')
+		{
+			let e=document.getElementById("related_"+dupe_idx)
+			view_related.gotoe(e,event)
+		}
+		else
+		if(name=='pid')
+		{
+			let e=document.getElementById("related_"+dupe_idx)
+			view_related.gotoe(e,event)
+		}
+	}
+}
+
+ctrack.related_toggle=function(idx,event)
+{
+	if( view_related.hide_graph ) // just toggle everythig
+	{
+		view_related.hide_graph=false
+		view_related.draw_graph( ctrack.chunk("related_graph") )
+		return
+	}
+
+	let lookup=ctrack.chunk("related_lookup")
+	let it=lookup[idx]
+//	console.log("toggle",it)
+
+	let n=1
+	let tog=function(it)
+	{
+		it.hides+=n
+		for(let i of it.upups)
+		{
+			tog(lookup[i])
+		}
+		for(let i of it.downs)
+		{
+			tog(lookup[i])
+		}
+	}
+
+	if(it.toggle)
+	{
+		n=-1
+		it.toggle=false
+		tog(it)
+		it.hides-=n // not this one
+	}
+	else
+	{
+		n=1
+		it.toggle=true
+		tog(it)
+		it.hides-=n // not this one
+	}
+
+	view_related.showhide()
+	view_related.draw_graph( ctrack.chunk("related_graph") )
+
+}
 
 // the chunk names this view will fill with new data
 view_related.chunks=[
@@ -49,31 +150,43 @@ view_related.fixup=async function(args)
 		await view_related.ajax({});
 	}
 
+	view_related.showhide()
 	view_related.draw_graph( 		ctrack.chunk("related_graph") )
 
 	let e=document.getElementsByClassName("related_pivot")[0];
-	if(e)
-	{
-		let y=$(e).offset().top-200
-
-		$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
-			$('html, body').stop();
-		});
-		$('html, body').animate({ scrollTop:y }, 'slow', function(){
-			$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
-		})
-	}
+	view_related.gotoe(e)
 }
 
 view_related.resize=function()
 {
 	view_related.draw_graph( 		ctrack.chunk("related_graph") )
 }
+view_related.showhide=function()
+{
+	let lookup=ctrack.chunk("related_lookup")
+	if(!lookup) { return }
+	for( let idx in lookup )
+	{
+		let it=lookup[idx]
+		let e=document.getElementById("related_"+idx)
+		if(it.shows-it.hides>=1)
+		{
+			e.classList.remove("related_hide");
+		}
+		else
+		{
+			e.classList.add("related_hide");
+		}
+	}
+//	e.classList.contains("related_hide");
+}
 
 view_related.draw_graph=function(graph)
 {
 	let ls=graph&&graph.list
 	if(!ls){return}
+
+	if(view_related.hide_graph) { return }
 
 	let e=document.getElementById("svg_overlay")
 	if(!e)
@@ -111,6 +224,12 @@ view_related.draw_graph=function(graph)
 		let e0=document.getElementById("related_"+l[1])
 		let e1=document.getElementById("related_"+l[2])
 		if(!(e1&&e0)){continue} // sanity
+
+		// hidden data
+		if( e0.classList.contains("related_hide") || e1.classList.contains("related_hide") )
+		{
+			continue
+		}
 
 		let r0=e0.getBoundingClientRect()
 		let r1=e1.getBoundingClientRect()
@@ -328,6 +447,24 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 
 	let rows=[]
 	for(let row of result.rows) { rows.push(row) ; row.depth=0 }
+	let rowsort=(function(a,b){
+		if(a["related_"+name]==b["related_"+name])
+		{
+			if(a.related_type==b.related_type)
+			{
+				if( a[name] < b[name] ) { return -1 } else { return 1 }
+			}
+			else
+			{
+				if( a.related_type < b.related_type ) { return -1 } else { return 1 }
+			}
+		}
+		else
+		{
+			if( a["related_"+name] < b["related_"+name] ) { return -1 } else { return 1 }
+		}
+		return 0;
+	})
 
 	let up_idx=0
 	let up_old=[id]
@@ -404,9 +541,15 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 		row.idx=idx++
 		depths[depth-depth_min].push(row)
 	}
+	// sort
+	for( let depth=depth_min ; depth<=depth_max ; depth++ )
+	{
+		let rows=depths[depth-depth_min]
+		rows.sort(rowsort)
+	}
 	console.log("depths",depth_min,depth_max,depths)
 
-	// remove any dupes at each level
+	// remove any dupes at each depth
 	for( let depth=depth_min ; depth<=depth_max ; depth++ )
 	{
 		let rows=depths[depth-depth_min]
@@ -416,22 +559,32 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 			{
 				if(rows[r1]["related_"+name]==rows[r2]["related_"+name])
 				{
+//					rows[r1].dupe=true
 					rows.splice(r1, 1)
 					break;
 				}
 			}
 		}
 	}
-	// mark all dupes carefully
+	// find myself
+	let onlyme=[]
+	let me={}
+	for(let row of depths[0-depth_min])
+	{
+		if( id==row["related_"+name] ) { onlyme.push(row) ; me=row; break }
+	}
+	// mark all dupes at other depths carefully
 	for( let depth=-1 ; depth>=depth_min ; depth-- ) // parents
 	{
 		for( let row of depths[depth-depth_min] )
 		{
 			if(row.dupe){continue}
-			for( let d=depth+1 ; d<=-1 ; d++ )
+			for( let d=depth+1 ; d<=0 ; d++ )
 			{
 				if(row.dupe){break}
-				for( let r of depths[d-depth_min] )
+				let rs=depths[d-depth_min]
+				if(d==0){rs=onlyme}
+				for( let r of rs )
 				{
 					if(row.dupe){break}
 					if(r["related_"+name]==row["related_"+name])
@@ -447,10 +600,12 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 		for( let row of depths[depth-depth_min] )
 		{
 			if(row.dupe){continue}
-			for( let d=depth-1 ; d>=1 ; d-- )
+			for( let d=depth-1 ; d>=0 ; d-- )
 			{
 				if(row.dupe){break}
-				for( let r of depths[d-depth_min] )
+				let rs=depths[d-depth_min]
+				if(d==0){rs=onlyme}
+				for( let r of rs )
 				{
 					if(row.dupe){break}
 					if(r["related_"+name]==row["related_"+name])
@@ -474,6 +629,51 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 				if(r["related_"+name]==row["related_"+name])
 				{
 					row.dupe=true
+				}
+			}
+		}
+	}
+	me.dupe=false // i am never the dupe
+	// link each dupe to its non dupe
+//	mainidx={}
+	for( let depth=depth_min ; depth<=depth_max ; depth++ )
+	{
+		let rows=depths[depth-depth_min]
+		for(row of rows)
+		{
+			if(row.dupe)
+			{
+				if(depth<=0)
+				{
+					for( let d=depth_min ; d<=( depth==0 ? depth_max : 0 ) ; d++ )
+					{
+						if(row.dupe_idx) { break }
+						let rs=depths[d-depth_min]
+						for( let r of rs )
+						{
+							if(row.dupe_idx) { break }
+							if( (!r.dupe) && ( r["related_"+name]==row["related_"+name] ) )
+							{
+								row.dupe_idx=r.idx
+							}
+						}
+					}
+				}
+				else
+				{
+					for( let d=depth_max ; d>=0 ; d-- )
+					{
+						if(row.dupe_idx) { break }
+						let rs=depths[d-depth_min]
+						for( let r of rs )
+						{
+							if(row.dupe_idx) { break }
+							if( (!r.dupe) && ( r["related_"+name]==row["related_"+name] ) )
+							{
+								row.dupe_idx=r.idx
+							}
+						}
+					}
 				}
 			}
 		}
@@ -512,12 +712,16 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 		for(let row of rows)
 		{
 			let it={}
+			it.shows=0
+			it.hides=0
 			it.lcount=0
 			it.rcount=0
 			it.idx=row.idx
 			it.depth=depth
 			it.id=""
 			it.dupe=row.dupe&&"dupe"||""
+			it.dupe_idx=row.dupe_idx||0
+			it.type=row.related_type
 
 
 			if(name=="pid")
@@ -584,19 +788,51 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 					}
 				}
 			}
-			if( (row.depth==0) && (row.related_type==-1) && !it.pivot ) // siblings up links
+			if( (row.depth==-1) ) // siblings up/down links
 			{
-//				console.log(row)
-				for( let r of (depths[ (-1) -depth_min ])||[] )
+				for( let r of (depths[ (0) -depth_min ])||[] )
 				{
-					if( (r["related_"+name]==row[name]) )
+					if( (r[name]==row["related_"+name]) && (r.related_type==-1)  )
 					{
-						it.upups.push(r.idx)
+						it.downs.push(r.idx)
 					}
 				}
 			}
 			a.tab.push(it)
 			lookup[it.idx]=it
+		}
+	}
+
+	for( let depth=depth_min ; depth<=depth_max ; depth++ )
+	{
+		let rows=depths[depth-depth_min]
+		for(let row of rows)
+		{
+			let it=lookup[row.idx]
+			if(depth>=0) // downstream
+			{
+				for( let ri of it.downs )
+				{
+					let dit=lookup[ri]
+					dit.shows++
+				}
+			}
+			if(depth<=0) // upstream
+			{
+				for( let ri of it.upups )
+				{
+					let uit=lookup[ri]
+					uit.shows++
+				}
+			}
+			if( (depth==0) && (it.type==-1) && !it.pivot ) // siblings up links
+			{
+				it.shows++
+			}
+			if(it.pivot)
+			{
+				it.shows++ // keep pivot shown
+			}
 		}
 	}
 
@@ -647,8 +883,20 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 		it2[side]++
 	}
 
+	console.log(related_data)
+	console.log(related_graph)
+
+	if(related_graph.list.length > 1024 )
+	{
+		view_related.hide_graph=true
+	}
+	else
+	{
+		view_related.hide_graph=false
+	}
 
 
+	ctrack.chunk("related_lookup",lookup)
 	ctrack.chunk("related_graph",related_graph)
 	ctrack.chunk("related_data",related_data)
 	if(name=="pid")
