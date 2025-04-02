@@ -95,6 +95,7 @@ dstore_db.tables={
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
 		{ name:"related_aid",					TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
 		{ name:"related_type",					INTEGER:true , INDEX:true },
+		{ name:"related_source",				INTEGER:true , INDEX:true },
 //		{ 										UNIQUE:["aid","related_aid","related_type"] }, // should only say it once
 // it is safer to just remove dupes after import than deal with import clashes
 	],
@@ -103,6 +104,7 @@ dstore_db.tables={
 		{ name:"pid",							TEXT:true , INDEX:true , HASH:true , NOT_NULL:true , NOT_ACTIVE:true },
 		{ name:"related_pid",					TEXT:true , INDEX:true , HASH:true , NOT_NULL:true },
 		{ name:"related_type",					INTEGER:true , INDEX:true },
+		{ name:"related_source",				INTEGER:true , INDEX:true },
 	],
 	trans:[
 		{ name:"aid",							TEXT:true , INDEX:true , HASH:true },
@@ -1159,7 +1161,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		}
 
 // work on related activities
-
+/*
 		for( let it of refry.all_tags(act,"related-activity") )
 		{
 			if( it.ref )
@@ -1172,6 +1174,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 			}
 
 		}
+*/
 
 // work on act tags , singe flags so use key values
 

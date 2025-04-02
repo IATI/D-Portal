@@ -911,7 +911,7 @@ dstore_pg.query=async function(q,v){
 }
 
 
-dstore_pg.augment_related_implied1 = async function(db)
+dstore_pg.augment_related_implied2 = async function(db)
 {
 
 // parents from transactions
@@ -937,13 +937,13 @@ group by aid , xson->>'/provider-org@provider-activity-id'
 )
 
 INSERT INTO related
-SELECT aid,related_aid,1 AS related_type
+SELECT aid,related_aid,1 AS related_type,2 AS related_source
 FROM p
 
 	`)
 
 }
-dstore_pg.augment_related_implied2 = async function(db)
+dstore_pg.augment_related_implied3 = async function(db)
 {
 
 // children from transactions
@@ -968,13 +968,13 @@ group by aid , xson->>'/receiver-org@receiver-activity-id'
 )
 
 INSERT INTO related
-SELECT aid,related_aid,2 AS related_type
+SELECT aid,related_aid,2 AS related_type,3 AS related_source
 FROM p
 
 	`)
 
 }
-dstore_pg.augment_related_implied3 = async function(db)
+dstore_pg.augment_related_implied4 = async function(db)
 {
 // alternative activity ID
 	await db.none(`
@@ -999,13 +999,13 @@ group by aid , xson->>'@ref'
 )
 
 INSERT INTO related
-SELECT aid,related_aid,3 AS related_type
+SELECT aid,related_aid,3 AS related_type,4 AS related_source
 FROM p
 
 	`)
 
 }
-dstore_pg.augment_related_implied4 = async function(db)
+dstore_pg.augment_related_implied5 = async function(db)
 {
 // parents from participating org
 	await db.none(`
@@ -1031,7 +1031,7 @@ group by aid , xson->>'@activity-id'
 )
 
 INSERT INTO related
-SELECT aid,related_aid,1 AS related_type
+SELECT aid,related_aid,1 AS related_type,5 AS related_source
 FROM p
 
 	`)
@@ -1039,7 +1039,7 @@ FROM p
 }
 
 
-dstore_pg.augment_relatedp_implied1 = async function(db)
+dstore_pg.augment_relatedp_implied6 = async function(db)
 {
 // parents from participating org
 	await db.none(`
@@ -1063,7 +1063,7 @@ group by pid , xson->>'@ref'
 )
 
 INSERT INTO relatedp
-SELECT pid,related_pid,1 AS related_type
+SELECT pid,related_pid,1 AS related_type,6 AS related_source
 FROM p
 
 	`)
@@ -1086,22 +1086,12 @@ dstore_pg.augment_related_dedupe = async function(db)
 
 WITH
 one AS (
-	WITH dupes AS
-	(
-		WITH rel AS (
-
+	WITH rel AS (
 		SELECT
-
-		count(*)::int AS count,aid,related_aid,related_type
-
-		FROM related group by aid,related_aid,related_type
-
-		)
-
-		SELECT aid,related_aid,related_type FROM rel WHERE count>1
+		count(*)::int AS count,aid,related_aid,related_type,related_source
+		FROM related group by aid,related_aid,related_type,related_source
 	)
-
-	SELECT * FROM dupes
+	SELECT aid,related_aid,related_type,related_source FROM rel WHERE count>1
 ),
 del AS (
    DELETE FROM related AS r
@@ -1109,8 +1099,9 @@ del AS (
    WHERE  r.aid          = o.aid
    AND    r.related_aid  = o.related_aid
    AND    r.related_type = o.related_type
+   AND    r.related_source = o.related_source
 )
-INSERT INTO related (aid,related_aid,related_type)
+INSERT INTO related (aid,related_aid,related_type,related_source)
 TABLE one;
 
 	`)
@@ -1135,22 +1126,12 @@ dstore_pg.augment_relatedp_dedupe = async function(db)
 
 WITH
 one AS (
-	WITH dupes AS
-	(
-		WITH rel AS (
-
+	WITH rel AS (
 		SELECT
-
-		count(*)::int AS count,pid,related_pid,related_type
-
-		FROM relatedp group by pid,related_pid,related_type
-
-		)
-
-		SELECT pid,related_pid,related_type FROM rel WHERE count>1
+		count(*)::int AS count,pid,related_pid,related_type,related_source
+		FROM relatedp group by pid,related_pid,related_type,related_source
 	)
-
-	SELECT * FROM dupes
+	SELECT pid,related_pid,related_type,related_source FROM rel WHERE count>1
 ),
 del AS (
    DELETE FROM relatedp AS r
@@ -1158,8 +1139,9 @@ del AS (
    WHERE  r.pid          = o.pid
    AND    r.related_pid  = o.related_pid
    AND    r.related_type = o.related_type
+   AND    r.related_source = o.related_source
 )
-INSERT INTO relatedp (pid,related_pid,related_type)
+INSERT INTO relatedp (pid,related_pid,related_type,related_source)
 TABLE one;
 
 	`)
@@ -1170,7 +1152,18 @@ TABLE one;
 dstore_pg.augment_related_linkback = async function(db)
 {
 
+	await db.none(`
+
+INSERT INTO related
+SELECT related_aid,aid,3-related_type,related_source
+FROM related
+WHERE related_type=1 OR related_type=2
+
+	`)
+
+
 // make sure all children link back to parents
+/*
 	await db.none(`
 
 WITH link AS
@@ -1186,7 +1179,7 @@ back AS
 	WHERE related_type=2
 )
 INSERT INTO related
-SELECT related_aid,aid,2
+SELECT related_aid,aid,2,-2
 FROM link
 WHERE NOT EXISTS (
 	SELECT * FROM back
@@ -1195,8 +1188,10 @@ WHERE NOT EXISTS (
 );
 
 	`)
+*/
 
 // make sure all parents link back to children
+/*
 	await db.none(`
 
 WITH link AS
@@ -1212,7 +1207,7 @@ back AS
 	WHERE related_type=1
 )
 INSERT INTO related
-SELECT related_aid,aid,1
+SELECT related_aid,aid,1,-1
 FROM link
 WHERE NOT EXISTS (
 	SELECT * FROM back
@@ -1221,6 +1216,7 @@ WHERE NOT EXISTS (
 );
 
 	`)
+*/
 
 // siblings is a problem maybe, so do not do that?
 
@@ -1232,36 +1228,47 @@ dstore_pg.augment_relatedp_linkback = async function(db)
 // make sure all children link back to parents
 	await db.none(`
 
-WITH link AS
-(
-	SELECT pid,related_pid
-	FROM relatedp
-	WHERE related_type=1
-),
-back AS
-(
-	SELECT pid,related_pid
-	FROM relatedp
-	WHERE related_type=2
-)
 INSERT INTO relatedp
-SELECT related_pid,pid,2
-FROM link
-WHERE NOT EXISTS (
-	SELECT * FROM back
-		WHERE back.related_pid = link.pid
-		AND   back.pid         = link.related_pid
-);
+SELECT related_pid,pid,3-related_type,related_source
+FROM relatedp
+WHERE related_type=1 OR related_type=2
 
 	`)
-
-// make sure all parents link back to children
+/*
 	await db.none(`
 
 WITH link AS
 (
 	SELECT pid,related_pid
 	FROM relatedp
+	WHERE related_type=1
+),
+back AS
+(
+	SELECT pid,related_pid
+	FROM relatedp
+	WHERE related_type=2
+)
+INSERT INTO relatedp
+SELECT related_pid,pid,2,-2
+FROM link
+WHERE NOT EXISTS (
+	SELECT * FROM back
+		WHERE back.related_pid = link.pid
+		AND   back.pid         = link.related_pid
+);
+
+	`)
+*/
+
+// make sure all parents link back to children
+/*
+	await db.none(`
+
+WITH link AS
+(
+	SELECT pid,related_pid,related_source
+	FROM relatedp
 	WHERE related_type=2
 ),
 back AS
@@ -1271,7 +1278,7 @@ back AS
 	WHERE related_type=1
 )
 INSERT INTO relatedp
-SELECT related_pid,pid,1
+SELECT related_pid,pid,1,-1
 FROM link
 WHERE NOT EXISTS (
 	SELECT * FROM back
@@ -1280,12 +1287,37 @@ WHERE NOT EXISTS (
 );
 
 	`)
+*/
 
 // siblings is a problem maybe, so do not do that?
 
 }
 
-dstore_pg.augment_relatedp = async function(db)
+dstore_pg.augment_related_fill = async function(db)
+{
+
+	await db.none(`
+		TRUNCATE related
+	`)
+
+	await db.none(`
+
+INSERT INTO related
+SELECT
+	aid,
+	xson->>'@ref' AS related_aid,
+	(xson->>'@type')::int AS related_type,
+	1 AS related_source
+FROM xson
+WHERE root='/iati-activities/iati-activity/related-activity'
+	AND xson->>'@ref' IS NOT NULL
+	AND xson->>'@type' IS NOT NULL
+
+	`)
+
+}
+
+dstore_pg.augment_relatedp_fill = async function(db)
 {
 
 	await db.none(`
@@ -1299,17 +1331,18 @@ p AS (
     SELECT
     a.reporting_ref as pid,
     b.reporting_ref as related_pid,
-    r.related_type  as related_type
+    r.related_type  as related_type,
+    r.related_source  as related_source
 
     FROM related r
     JOIN act a ON a.aid=r.aid
     JOIN act b ON b.aid=r.related_aid
     WHERE a.reporting_ref!=b.reporting_ref
-    GROUP BY a.reporting_ref,b.reporting_ref,r.related_type
+    GROUP BY a.reporting_ref,b.reporting_ref,r.related_type,r.related_source
 )
 
 INSERT INTO relatedp
-SELECT pid,related_pid,related_type
+SELECT pid,related_pid,related_type,related_source
 FROM p
 
 	`)
@@ -1321,9 +1354,9 @@ dstore_pg.augment_related_dump = async function(db)
 
 	let r=await db.any(`
 SELECT
-related_type,count(*)::int AS count
+related_type,related_source,count(*)::int AS count
 FROM related
-GROUP BY related_type ORDER BY 1
+GROUP BY related_type,related_source ORDER BY 1,2
 	`)
 
 	console.log(r)
@@ -1334,9 +1367,9 @@ dstore_pg.augment_relatedp_dump = async function(db)
 
 	let r=await db.any(`
 SELECT
-related_type,count(*)::int AS count
+related_type,related_source,count(*)::int AS count
 FROM relatedp
-GROUP BY related_type ORDER BY 1
+GROUP BY related_type,related_source ORDER BY 1,2
 	`)
 
 	console.log(r)
@@ -1349,29 +1382,32 @@ await ( await dstore_pg.open() ).tx( async db => {
 console.log("augmenting related table")
 	await dstore_pg.augment_related_dump(db)
 
+console.log("fill")
+	await dstore_pg.augment_related_fill(db)
+		await dstore_pg.augment_related_dump(db)
+
 console.log("parents from participating org")
-	await dstore_pg.augment_related_implied4(db)
+	await dstore_pg.augment_related_implied5(db)
 		await dstore_pg.augment_related_dump(db)
 
 console.log("alternative activity ID")
-	await dstore_pg.augment_related_implied3(db)
+	await dstore_pg.augment_related_implied4(db)
 		await dstore_pg.augment_related_dump(db)
 
 console.log("children from transactions")
-	await dstore_pg.augment_related_implied2(db)
+	await dstore_pg.augment_related_implied3(db)
 		await dstore_pg.augment_related_dump(db)
 
 console.log("parents from transactions")
-	await dstore_pg.augment_related_implied1(db)
-		await dstore_pg.augment_related_dump(db)
-
-
-console.log("removing duplicates")
-	await dstore_pg.augment_related_dedupe(db)
+	await dstore_pg.augment_related_implied2(db)
 		await dstore_pg.augment_related_dump(db)
 
 console.log("creating linkbacks")
 	await dstore_pg.augment_related_linkback(db)
+		await dstore_pg.augment_related_dump(db)
+
+console.log("removing duplicates")
+	await dstore_pg.augment_related_dedupe(db)
 		await dstore_pg.augment_related_dump(db)
 
 console.log("done augmenting related table")
@@ -1381,12 +1417,12 @@ console.log("building relatedp table")
 	await dstore_pg.augment_relatedp_dump(db)
 
 console.log("fill")
-	await dstore_pg.augment_relatedp(db)
+	await dstore_pg.augment_relatedp_fill(db)
 		await dstore_pg.augment_relatedp_dump(db)
 
 
 console.log("parents from participating org")
-	await dstore_pg.augment_relatedp_implied1(db)
+	await dstore_pg.augment_relatedp_implied6(db)
 		await dstore_pg.augment_relatedp_dump(db)
 
 console.log("creating linkbacks")

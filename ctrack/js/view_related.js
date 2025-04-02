@@ -299,6 +299,7 @@ let q={}
 	q[name]=id
 	let pid="${pid}" // prevent template tag expansion
 	let aid="${aid}" // prevent template tag expansion
+	let src="${src}" // prevent template tag expansion
 
 if(name=="pid")
 {
@@ -306,6 +307,7 @@ if(name=="pid")
 	q.sql=`
 
 --$pid=NL-KVK-41177588
+--$src={1,2,3,4,5,6}
 
 SELECT g.pid,g.related_pid,g.related_type
 	,xson->'/name/narrative'->0->'' AS name
@@ -317,11 +319,13 @@ graph1(pid, related_pid) AS (
     FROM relatedp r
 		WHERE r.pid=${pid}
         AND related_type=1
+        AND related_source=ANY (${src}::int[])
     UNION
         SELECT r.pid, r.related_pid
         FROM relatedp r, graph1 g
 			WHERE r.pid = g.related_pid
 			AND r.related_type=1
+			AND related_source=ANY (${src}::int[])
 )
 ,
 graph2(pid, related_pid) AS (
@@ -329,11 +333,13 @@ graph2(pid, related_pid) AS (
     FROM relatedp r
 		WHERE r.pid=${pid}
         AND related_type=2
+        AND related_source=ANY (${src}::int[])
     UNION
         SELECT r.pid, r.related_pid
         FROM relatedp r, graph2 g
 			WHERE r.pid = g.related_pid
 			AND r.related_type=2
+			AND related_source=ANY (${src}::int[])
 )
 ,
 graph3(pid, related_pid) AS (
@@ -341,6 +347,7 @@ graph3(pid, related_pid) AS (
     FROM relatedp r
 		WHERE r.pid=${pid}
         AND related_type=ANY ('{3,4,5}'::int[])
+        AND related_source=ANY (${src}::int[])
 )
 ,
 graph4(pid, related_pid) AS (
@@ -348,11 +355,13 @@ graph4(pid, related_pid) AS (
         SELECT r.related_pid FROM relatedp r
         WHERE r.pid=${pid}
         AND related_type=1
+        AND related_source=ANY (${src}::int[])
     )
     SELECT r.pid, r.related_pid
     FROM p, relatedp r
 		WHERE r.pid=p.pid
         AND related_type=2
+        AND related_source=ANY (${src}::int[])
 )
 
 SELECT pid, related_pid, 1 AS related_type FROM graph1
@@ -378,6 +387,7 @@ else // aid
 	q.sql=`
 
 --$aid=US-GOV-18-NE
+--$src={1,2,3,4,5,6}
 
 SELECT related_aid,related_type,g.aid,title,funder_ref,commitment,spend,reporting,reporting_ref,day_start,day_end,status_code
  FROM (
@@ -388,11 +398,13 @@ graph1(aid, related_aid) AS (
     FROM related r
 		WHERE r.aid=${aid}
         AND related_type=1
+        AND related_source=ANY (${src}::int[])
     UNION
         SELECT r.aid, r.related_aid
         FROM related r, graph1 g
 			WHERE r.aid = g.related_aid
 			AND r.related_type=1
+			AND related_source=ANY (${src}::int[])
 )
 ,
 graph2(aid, related_aid) AS (
@@ -400,11 +412,13 @@ graph2(aid, related_aid) AS (
     FROM related r
 		WHERE r.aid=${aid}
         AND related_type=2
+        AND related_source=ANY (${src}::int[])
     UNION
         SELECT r.aid, r.related_aid
         FROM related r, graph2 g
 			WHERE r.aid = g.related_aid
 			AND r.related_type=2
+			AND related_source=ANY (${src}::int[])
 )
 ,
 graph3(aid, related_aid) AS (
@@ -412,6 +426,7 @@ graph3(aid, related_aid) AS (
     FROM related r
 		WHERE r.aid=${aid}
         AND related_type=ANY ('{3,4,5}'::int[])
+        AND related_source=ANY (${src}::int[])
 )
 ,
 graph4(aid, related_aid) AS (
@@ -419,11 +434,13 @@ graph4(aid, related_aid) AS (
         SELECT r.related_aid FROM related r
 			WHERE r.aid=${aid}
 			AND related_type=1
+			AND related_source=ANY (${src}::int[])
     )
     SELECT r.aid, r.related_aid
     FROM p, related r
 		WHERE r.aid=p.aid
         AND related_type=2
+        AND related_source=ANY (${src}::int[])
 )
 
 SELECT aid, related_aid, 1 AS related_type FROM graph1
