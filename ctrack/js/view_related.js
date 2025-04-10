@@ -733,6 +733,8 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 			it.hides=0
 			it.lcount=0
 			it.rcount=0
+			it.ldir=""
+			it.rdir=""
 			it.idx=row.idx
 			it.depth=depth
 			it.id=""
@@ -864,20 +866,33 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 //			console.log(r)
 			let s1="L"
 			let s2="R"
+			let it=lookup[r.idx]
+			it.ldir="«"
+			it.rdir="»"
 			if(r.depth<0)
 			{
+				it.ldir="«"
+				it.rdir="«"
 				if((-r.depth)%2==1)
 				{
 					s1="R"
 					s2="L"
+					let it=lookup[r.idx]
+					it.rdir="»"
+					it.ldir="»"
 				}
 			}
 			if(r.depth>0)
 			{
+				it.ldir="»"
+				it.rdir="»"
 				if((r.depth%2)==1)
 				{
 					s1="R"
 					s2="L"
+					let it=lookup[r.idx]
+					it.ldir="«"
+					it.rdir="«"
 				}
 			}
 			for(let idx of r.upups)

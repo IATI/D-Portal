@@ -988,6 +988,20 @@ a.beige:hover			{color:#FFF;}
 .relatedp_item span.related_org		{margin:0;}
 
 
+#related_opts { background:#FFF; color:#000; padding:20px; width:480px; }
+
+.related_item_before div {
+	position: absolute;
+	right: -10px;
+	top: 20%;
+}
+.related_item_after div {
+	position: absolute;
+	left: -10px;
+	top: 20%;
+}
+
+
 small, sub, sup { font-size: .83em }
 sub             { vertical-align: sub }
 sup             { vertical-align: super }
