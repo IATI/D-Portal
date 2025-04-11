@@ -16,40 +16,41 @@
 
 #related_opts
 <div id="related_opts">
-<div id="related_opts_small">Related Filters : <span id="related_opts_small_filters">
-	<input id="related_opts_small_filter1" type="checkbox"/>
-	<input id="related_opts_small_filter2" type="checkbox"/>
-	<input id="related_opts_small_filter3" type="checkbox"/>
-	<input id="related_opts_small_filter4" type="checkbox"/>
-	<input id="related_opts_small_filter5" type="checkbox"/>
-	<input id="related_opts_small_filter6" type="checkbox"/>
+<div id="related_opts_small" onclick="ctrack.related_filters_update(true)" >Related Filters : <span id="related_opts_small_filters">
+	<input id="related_opts_small_filter1" type="checkbox" disabled />
+	<input id="related_opts_small_filter2" type="checkbox" disabled />
+	<input id="related_opts_small_filter3" type="checkbox" disabled />
+	<input id="related_opts_small_filter4" type="checkbox" disabled />
+	<input id="related_opts_small_filter5" type="checkbox" disabled />
+	<input id="related_opts_small_filter6" type="checkbox" disabled />
 </span></div>
-<div id="related_opts_large">
+<div id="related_opts_large" style="display:none">
 	<div>Use related data from the following sources:</div>
 	<div>
 		Related by related-activity @ref using @type.
-		<input id="related_opts_large_filter1" type="checkbox"/>
+		<input id="related_opts_large_filter1" type="checkbox" onclick="ctrack.related_filters_update_click()" />
 	</div>
 	<div>
 		Related by provider-org @provider-activity-id.
-		<input id="related_opts_large_filter2" type="checkbox"/>
+		<input id="related_opts_large_filter2" type="checkbox" onclick="ctrack.related_filters_update_click()" />
 	</div>
 	<div>
 		Related by receiver-org @receiver-activity-id.
-		<input id="related_opts_large_filter3" type="checkbox"/>
+		<input id="related_opts_large_filter3" type="checkbox" onclick="ctrack.related_filters_update_click()" />
 	</div>
 	<div>
 		Related by other-identifier @ref when @type is A3.
-		<input id="related_opts_large_filter4" type="checkbox"/>
+		<input id="related_opts_large_filter4" type="checkbox" onclick="ctrack.related_filters_update_click()" />
 	</div>
 	<div>
 		Related by participating-org @activity-id when @role is 1,2 or 3.
-		<input id="related_opts_large_filter5" type="checkbox"/>
+		<input id="related_opts_large_filter5" type="checkbox" onclick="ctrack.related_filters_update_click()" />
 	</div>
 	<div>
 		Related by participating-org @ref when @role is 1,2 or 3.
-		<input id="related_opts_large_filter6" type="checkbox"/>
+		<input id="related_opts_large_filter6" type="checkbox" onclick="ctrack.related_filters_update_click()" />
 	</div>
+</div>
 </div>
 
 #related_data

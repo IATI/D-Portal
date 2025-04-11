@@ -12,6 +12,9 @@ var iati_codes=require("../../dstore/json/iati_codes.json")
 
 var SVG=require('svg.js')
 
+// enable 1 2 3 4 5 but not 6
+var base_related_filters = 2+4+8+16+32
+
 view_related.gotoe=function(e,ev)
 {
 	if(e)
@@ -65,6 +68,57 @@ ctrack.related_goto=function(event,name,id,dupe_idx)
 			view_related.gotoe(e,event)
 		}
 	}
+}
+
+ctrack.related_filters_update=function(toggle)
+{
+	if(toggle)
+	{
+		$("#related_opts_small").hide()
+		$("#related_opts_large").show()
+		view_related.draw_graph( ctrack.chunk("related_graph") )
+	}
+	
+	let fs=ctrack.q.related_filters || base_related_filters
+	
+	for(let i=1 ; i<=6 ; i++ )
+	{
+		let p=2**i
+		if( ( fs & p ) == p ) // bit set
+		{
+			$("#related_opts_small_filter"+i).attr('checked', true)
+			$("#related_opts_large_filter"+i).attr('checked', true)
+		}
+		else
+		{
+			$("#related_opts_small_filter"+i).attr('checked', false)
+			$("#related_opts_large_filter"+i).attr('checked', false)
+		}
+	}
+}
+ctrack.related_filters_update_click=async function()
+{
+	let ps=0
+	for(let i=1 ; i<=6 ; i++ )
+	{
+		let p=2**i
+		if( $("#related_opts_large_filter"+i).is(':checked') )
+		{
+			ps+=p
+		}
+	}
+
+//	console.log(ps)
+
+	ctrack.q.related_filters=ps
+	ctrack.chunk("related_aid",false) // force reload
+	ctrack.chunk("related_pid",false)
+
+	await view_related.ajax({})
+	view_related.showhide()
+	view_related.draw_graph( 		ctrack.chunk("related_graph") )
+
+//	view_related.fixup()
 }
 
 ctrack.related_toggle=function(idx,event)
@@ -139,6 +193,8 @@ view_related.fixup=async function(args)
 {
 	args=args||{}
 	fetcher.ajax_dat_fix(args)
+	
+	ctrack.related_filters_update()
 
 	if( args.aid && ( args.aid != ctrack.chunk("related_aid") ) )
 	{
@@ -300,6 +356,19 @@ let q={}
 	let pid="${pid}" // prevent template tag expansion
 	let aid="${aid}" // prevent template tag expansion
 	let src="${src}" // prevent template tag expansion
+
+	let ps=[]
+	let fs=ctrack.q.related_filters || base_related_filters
+	for(let i=1 ; i<=6 ; i++ )
+	{
+		let p=2**i
+		if( ( fs & p ) == p ) // bit set
+		{
+			ps.push(i)
+		}
+	}
+	q.src="{"+ps.join(",")+"}"
+
 
 if(name=="pid")
 {
