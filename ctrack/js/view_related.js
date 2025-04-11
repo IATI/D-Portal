@@ -226,13 +226,16 @@ view_related.showhide=function()
 	{
 		let it=lookup[idx]
 		let e=document.getElementById("related_"+idx)
-		if(it.shows-it.hides>=1)
+		if( e && e.classList )
 		{
-			e.classList.remove("related_hide");
-		}
-		else
-		{
-			e.classList.add("related_hide");
+			if(it.shows-it.hides>=1)
+			{
+				e.classList.remove("related_hide");
+			}
+			else
+			{
+				e.classList.add("related_hide");
+			}
 		}
 	}
 //	e.classList.contains("related_hide");
