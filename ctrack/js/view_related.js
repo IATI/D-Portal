@@ -79,7 +79,7 @@ ctrack.related_filters_update=function(toggle)
 		view_related.draw_graph( ctrack.chunk("related_graph") )
 	}
 	
-	let fs=ctrack.q.related_filters || base_related_filters
+	let fs=ctrack.hash.related_filters || base_related_filters
 	
 	for(let i=1 ; i<=6 ; i++ )
 	{
@@ -110,7 +110,8 @@ ctrack.related_filters_update_click=async function()
 
 //	console.log(ps)
 
-	ctrack.q.related_filters=ps
+	ctrack.hash.related_filters=ps
+	ctrack.display_hash()
 	ctrack.chunk("related_aid",false) // force reload
 	ctrack.chunk("related_pid",false)
 
