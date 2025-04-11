@@ -359,7 +359,7 @@ let q={}
 	let src="${src}" // prevent template tag expansion
 
 	let ps=[]
-	let fs=ctrack.q.related_filters || base_related_filters
+	let fs=ctrack.hash.related_filters || base_related_filters
 	for(let i=1 ; i<=6 ; i++ )
 	{
 		let p=2**i
