@@ -1,12 +1,11 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
+const chart={}
+export default chart
 
-var chart=exports;
-exports.name="chart";
-
-var csscolor=require("./csscolor.js")
-var ctrack=require("./ctrack.js")
+import ctrack   from "./ctrack.js"
+import csscolor from "./csscolor.js"
 
 chart.draw=function(sel,data,options){
 

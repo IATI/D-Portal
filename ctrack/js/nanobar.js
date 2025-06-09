@@ -1,5 +1,5 @@
 /* http://nanobar.micronube.com/  ||  https://github.com/jacoborus/nanobar/    MIT LICENSE */
-(function (root) {
+
   'use strict'
   // container styles
 /*
@@ -132,14 +132,4 @@
     return nanobar
   }
 
-  if (typeof exports === 'object') {
-    // CommonJS
-    module.exports = Nanobar
-  } else if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define([], function () { return Nanobar })
-  } else {
-    // Browser globals
-    root.Nanobar = Nanobar
-  }
-}(this))
+export default Nanobar

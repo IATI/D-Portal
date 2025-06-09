@@ -18,7 +18,7 @@ import freechange          from "freechange/year.js"
 import jquery              from "jquery"
 import stupid_table_plugin from "stupid-table-plugin"
 import Chartist            from "chartist"
-import moment              from "moment"
+import dayjs               from "dayjs"
 import chosen_jquery       from "chosen-js"
 import typeahead           from "typeahead.js"
 
@@ -208,7 +208,7 @@ ctrack.setup=function(args)
 	window.jQuery = jquery
 	window.stupid_table_plugin = stupid_table_plugin
 	window.Chartist = Chartist
-	window.moment = moment
+	window.moment = dayjs
 	window.chosen = chosen
 	window.typeahead = typeahead
 
