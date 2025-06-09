@@ -21,19 +21,29 @@
 	},
   "directories": {},
   "dependencies": {
-		"minimist": "^1.2.8",
-		"plated": "^0.0.89"
+	  "chosen-js": "*",
+	  "moment": "*",
+		"chartist": "*",
+		"jquery": "*",
+		"stupid-table-plugin": "*",
+		"typeahead.js":"*",
+		"minimist": "*",
+		"freechange": "*",
+		"plated": "*"
   },
   "devDependencies": {
-		"buffer": "^6.0.3",
-		"events": "^3.3.0",
-		"path-browserify": "^1.0.1",
-		"process": "^0.11.10",
-		"raw-loader": "^4.0.2",
-		"stream-browserify": "^3.0.0",
-		"util": "^0.12.5",
-		"webpack": "^5.85.1",
-		"webpack-cli": "^5.1.3",
-		"webpack-dev-server": "^4.15.0"
+		"buffer": "*",
+		"events": "*",
+		"process": "*",
+		"raw-loader": "*",
+		"util": "*",
+		"browserify-zlib": "*",
+		"path-browserify": "*",
+		"crypto-browserify": "*",
+		"vm-browserify": "*",
+		"stream-browserify": "*",
+		"webpack": "*",
+		"webpack-cli": "*",
+		"webpack-dev-server": "*"
   }
 }
