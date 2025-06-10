@@ -2,12 +2,14 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_active=exports;
-exports.name="view_active";
+const view_active={}
+export default view_active
+view_active.name="view_active"
 
-var ctrack=require("./ctrack.js")
-var views=require("./views.js")
-var fetcher=require("./fetcher.js")
+import ctrack     from "./ctrack.js"
+import views      from "./views.js"
+import fetcher    from "./fetcher.js"
+
 
 // the chunk names this view will fill with new data
 view_active.chunks=[

@@ -1,9 +1,11 @@
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var jml=exports;
+const jml={}
+export default jml
 
-var entities = require("entities");
+import * as entities from "entities"
+
 
 
 // sort jml

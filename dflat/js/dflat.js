@@ -1,22 +1,20 @@
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var dflat=exports;
+const dflat={}
+export default dflat
 
-var util=require('util');
 
-var entities = require("entities");
+import * as util from "util"
+import * as entities from "entities"
 
-var papa = require('papaparse');
-
-var stringify = require('json-stable-stringify');
-
-var jml = require("./jml.js");
-var xson = require("./xson.js");
-var savi = require("./savi.js");
-
-var database = require("../json/database.json");
-let codemap = require('../json/codemap.json')
+import papa      from "papaparse"
+import stringify from "json-stable-stringify"
+import jml       from "./jml.js"
+import xson      from "./xson.js"
+import savi      from "./savi.js"
+import database  from "../json/database.json"
+import codemap   from "../json/codemap.json"
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

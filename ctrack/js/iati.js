@@ -3,12 +3,12 @@
 
 // data cleanup
 
-var iati=exports;
+const iati={}
+export default iati
 
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-//var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
+import ctrack  from "./ctrack.js"
+import plate   from "./plate.js"
+import fetcher from "./fetcher.js"
 
 
 ctrack.iati={};

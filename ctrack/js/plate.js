@@ -5,6 +5,7 @@ const plate={}
 export default plate
 
 import plated_js from "plated"
+
 let plated=plated_js.create({hashchunk:"#"},{pfs:{}}) // create a base instance for inline chunks with no file access
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }

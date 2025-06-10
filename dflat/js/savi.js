@@ -1,13 +1,12 @@
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var savi=exports;
+const savi={}
+export default savi
 
-var xson=require("./xson.js")
-
-var stringify = require('json-stable-stringify')
-
-var exchange = require("./exchange.js")
+import xson from "./xson.js"
+import exchange from "./exchange.js"
+import stringify from "json-stable-stringify"
 
 
 /*

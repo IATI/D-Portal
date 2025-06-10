@@ -2,13 +2,15 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_donor_activities=exports;
-exports.name="view_donor_activities";
 
-var ctrack=require("./ctrack.js")
-var views=require("./views.js")
+const view_donor_activities={}
+export default view_donor_activities
+view_donor_activities.name="view_donor_activities"
 
-var iati_codes=require("../../dstore/json/iati_codes.json")
+import ctrack     from "./ctrack.js"
+import views      from "./views.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
+
 
 // the chunk names this view will fill with new data
 view_donor_activities.chunks=[

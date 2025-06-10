@@ -2,15 +2,16 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_heatmap=exports;
-exports.name="view_heatmap";
+const view_heatmap={}
+export default view_heatmap
+view_heatmap.name="view_heatmap"
 
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
+import ctrack     from "./ctrack.js"
+import plate      from "./plate.js"
+import iati       from "./iati.js"
+import fetcher    from "./fetcher.js"
+import views      from "./views.js"
 
-var views=require("./views.js")
 
 // the chunk names this view will fill with new data
 view_heatmap.chunks=[

@@ -1,11 +1,14 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var ganal=exports;
+const ganal={}
+export default ganal
 
-var ctrack=require("./ctrack.js")
+import ctrack from "./ctrack.js"
 
-var util=require('util');
+import * as util from "util"
+
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 ganal.setup=function()

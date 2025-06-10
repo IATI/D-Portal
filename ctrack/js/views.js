@@ -23,8 +23,6 @@ import views_stats                   from "./view_stats.js"                   ; 
 import views_map                     from "./view_map.js"                     ; views.dash_map                     = views_map
 import views_heatmap                 from "./view_heatmap.js"                 ; views.dash_heatmap                 = views_heatmap
 import views_search                  from "./view_search.js"                  ; views.dash_search                  = views_search
-import views_search2                 from "./view_search2.js"                 ; views.dash_search2                 = views_search2
-import views_freetext                from "./view_freetext.js"                ; views.dash_freetext                = views_freetext
 import views_main                    from "./view_main.js"                    ; views.dash_main                    = views_main
 import views_donors_top              from "./view_donors_top.js"              ; views.dash_donors_top              = views_donors_top
 import views_donors                  from "./view_donors.js"                  ; views.dash_donors                  = views_donors
@@ -56,6 +54,8 @@ import views_related                 from "./view_related.js"                 ; 
 
 // remap
 
+views.freetext=views.search
+views.search2=views.search
 views.publisher=views.main
 views.publisher_countries=views.countries
 views.publisher_countries_top=views.countries_top
