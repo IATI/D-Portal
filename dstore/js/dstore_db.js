@@ -16,7 +16,7 @@ import iati_xml       from "./iati_xml.js"
 import iati_cook      from "./iati_cook.js"
 import dflat          from "../../dflat/js/dflat.js"
 import dflat_database from "../../dflat/json/database.json" with {type:"json"}
-
+import dstore_back    from "./dstore_back.js"
 
 dstore_db.engine=dstore_back.engine;
 

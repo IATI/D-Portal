@@ -4,9 +4,22 @@
 const savi={}
 export default savi
 
-import xson from "./xson.js"
-import exchange from "./exchange.js"
-import stringify from "json-stable-stringify"
+import * as fs from "fs"
+
+import xson        from "./xson.js"
+import exchange    from "./exchange.js"
+import stringify   from "json-stable-stringify"
+import plated_base from "plated"
+
+import codelists  from "../json/codelists.json"            with {type:"json"}
+import codemap    from "../json/codemap.json"              with {type:"json"}
+import validhash  from "../../dstore/json/validhash.json"  with {type:"json"}
+import iati_codes from "../../dstore/json/iati_codes.json" with {type:"json"}
+
+import savi_html from "./savi.html"
+import savi_css from "./savi.css"
+
+let publisher_names=iati_codes.publisher_names
 
 
 /*
@@ -86,27 +99,13 @@ var create_human_values=function(it)
 }
 
 
-savi.plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
+savi.plated=plated_base.create({},{pfs:{}}) // create a base instance for inline chunks with no file access
 
 savi.chunks={}
 savi.plate=function(str){ return savi.plated.chunks.replace(str,savi.chunks) }
 
-
-	if(typeof window !== 'undefined')
-	{
-
-savi.plated.chunks.fill_chunks( require('./savi.html'), savi.chunks )
-savi.plated.chunks.fill_chunks( require('./savi.css'), savi.chunks )
-
-	}
-	else
-	{
-
-savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.html', 'utf8'), savi.chunks )
-savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.css',  'utf8'), savi.chunks )
-
-	}
-
+savi.plated.chunks.fill_chunks( savi_html, savi.chunks )
+savi.plated.chunks.fill_chunks( savi_css, savi.chunks )
 
 savi.plated.chunks.format_chunks( savi.chunks )
 

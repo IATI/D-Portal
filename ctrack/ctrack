@@ -1,3 +1,3 @@
 cd `dirname $0`
 
-node js/cmd $*
+node --import ./webpack.loader.js js/cmd $*
