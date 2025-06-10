@@ -17,10 +17,11 @@ import crs                 from "../../dstore/json/crs.js"
 import freechange          from "freechange/year.js"
 import jquery              from "jquery"
 import stupid_table_plugin from "stupid-table-plugin"
-import Chartist            from "chartist"
 import dayjs               from "dayjs"
 import chosen_jquery       from "chosen-js"
 import typeahead           from "typeahead.js"
+
+import * as Chartist       from "chartist"
 
 ctrack.map_old_views={
 	"donors"                   : "publishers",

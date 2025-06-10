@@ -2,19 +2,18 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_search=exports;
-exports.name="view_search";
+const view_search={}
+export default view_search
+view_search.name="view_search"
 
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
+import ctrack      from "./ctrack.js"
+import plate       from "./plate.js"
+import iati        from "./iati.js"
+import fetcher     from "./fetcher.js"
+import views       from "./views.js"
+import iati_codes  from "../../dstore/json/iati_codes.json"
+import dflat_codes from "../../dflat/json/codelists.json"
 
-var views=require("./views.js")
-
-var iati_codes=require("../../dstore/json/iati_codes.json")
-
-var dflat_codes=require("../../dflat/json/codelists.json")
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };

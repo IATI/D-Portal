@@ -1,16 +1,15 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
+const view_related={}
+export default view_related
+view_related.name="view_related"
 
-var view_related=exports;
-exports.name="view_related";
-
-var ctrack=require("./ctrack.js")
-var views=require("./views.js")
-var fetcher=require("./fetcher.js")
-var iati_codes=require("../../dstore/json/iati_codes.json")
-
-var SVG=require('svg.js')
+import ctrack     from "./ctrack.js"
+import views      from "./views.js"
+import fetcher    from "./fetcher.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
+import SVG        from "svg.js"
 
 // enable 1 2 3 4 5 but not 6
 var base_related_filters = 2+4+8+16+32

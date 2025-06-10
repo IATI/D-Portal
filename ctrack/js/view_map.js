@@ -2,15 +2,15 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_map=exports;
-exports.name="view_map";
+const view_map={}
+export default view_map
+view_map.name="view_map"
 
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
-
-var refry=require("../../dstore/js/refry.js")
+import ctrack  from "./ctrack.js"
+import plate   from "./plate.js"
+import iati    from "./iati.js"
+import fetcher from "./fetcher.js"
+import refry   from "../../dstore/js/refry.js"
 
 view_map.setup=function()
 {

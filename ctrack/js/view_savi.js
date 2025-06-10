@@ -1,18 +1,16 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
+const view_savi={}
+export default view_savi
+view_savi.name="view_savi"
 
-var view_savi=exports;
-exports.name="view_savi";
-
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
-
-var dflat=require("../../dflat/js/dflat.js")
-var dflat_savi=require("../../dflat/js/savi.js")
-
+import ctrack     from "./ctrack.js"
+import plate      from "./plate.js"
+import iati       from "./iati.js"
+import fetcher    from "./fetcher.js"
+import dflat      from "../../dflat/js/dflat.js"
+import dflat_savi from "../../dflat/js/savi.js"
 
 // the chunk names this view will fill with new data
 view_savi.chunks=[

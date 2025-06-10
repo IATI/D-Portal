@@ -2,13 +2,14 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_sector_budgets=exports;
-exports.name="view_sector_budgets";
+const view_sector_budgets={}
+export default view_sector_budgets
+view_sector_budgets.name="view_sector_budgets"
 
-var ctrack=require("./ctrack.js")
-var views=require("./views.js")
+import ctrack     from "./ctrack.js"
+import views      from "./views.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
 
-var iati_codes=require("../../dstore/json/iati_codes.json")
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };

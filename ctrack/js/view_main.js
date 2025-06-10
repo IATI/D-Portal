@@ -1,18 +1,17 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
+const view_main={}
+export default view_main
+view_main.name="view_main"
 
-var view_main=exports;
-exports.name="view_main";
+import ctrack     from "./ctrack.js"
+import plate      from "./plate.js"
+import iati       from "./iati.js"
+import fetcher    from "./fetcher.js"
+import views      from "./views.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
 
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
-
-var views=require("./views.js")
-
-var iati_codes=require("../../dstore/json/iati_codes.json")
 
 // the chunk names this view will fill with new data
 view_main.chunks=[
