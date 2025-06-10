@@ -1,22 +1,23 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var query=exports;
+const query={}
+export default query
 
-var util=require('util');
-var fs=require('fs');
+import * as util from "util"
+import * as fs   from "fs"
 
-var refry=require('./refry');
-var exs=require('./exs');
-var iati_xml=require('./iati_xml');
-var dstore_db=require("./dstore_db");
-var iati_codes=require("../json/iati_codes.json")
+import refry      from "./refry.js"
+import exs        from "./exs.js"
+import iati_xml   from "./iati_xml.js"
+import dstore_db  from "./dstore_db.js"
+import iati_codes from "../json/iati_codes.json"        with {type:"json"}
+import jml        from "../../dflat/js/jml.js"
+import xson       from "../../dflat/js/xson.js"
+import savi       from "../../dflat/js/savi.js"
+import dflat      from "../../dflat/js/dflat.js"
+import database   from "../../dflat/json/database.json" with {type:"json"}
 
-const jml=require("../../dflat/js/jml.js")
-var xson=require("../../dflat/js/xson.js")
-var savi=require("../../dflat/js/savi.js")
-var dflat=require("../../dflat/js/dflat.js")
-var database=require("../../dflat/json/database.json")
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

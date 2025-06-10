@@ -1,16 +1,15 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var refry=exports;
-
-var util=require('util');
-
-var htmlparser=require('htmlparser');
-
-var entities = require("entities");
+const refry={}
+export default refry
 
 
-var jml = require("../../dflat/js/jml");
+import * as util  from "util"
+import * as entities  from "entities"
+
+import htmlparser from "htmlparser"
+import jml        from "../../dflat/js/jml.js"
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }

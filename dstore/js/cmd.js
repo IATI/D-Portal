@@ -5,21 +5,34 @@
 // we expect dstore to be the current directory when this cmd is run
 // as we will be creating db/cache directories there
 
-//var wait=require('wait.for-es6');
-var fs = require('fs');
-var express = require('express');
-var util=require('util');
-var path=require('path');
+const cmd={}
+export default cmd
+
+import * as fs from "fs"
+import * as util from "util"
+import * as path from "path"
+
+import express             from "express"
+import minimist            from "minimist"
+import dstore_argv         from "./argv.js"
+import dstore_dstore_db    from "./dstore_db.js"
+import dstore_dstore_cache from "./dstore_cache.js"
+import dstore_iati_codes   from "./iati_codes.js"
+import dstore_dstore_stats from "./dstore_stats.js"
+
+
 var app = express();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // global.argv
-var argv=require('yargs').argv; global.argv=argv;
-require("./argv").parse(argv);
+let argv=minimist(process.argv.slice(2))
+global.argv=argv
+dstore_argv.parse(argv)
 
+// no need if this is a module
 // run everything inside a new async
-(async function(){
+//(async function(){
 
 	// make sure we have a db dir
 	fs.mkdir("db",function(e){});
@@ -27,87 +40,85 @@ require("./argv").parse(argv);
 	//ls(argv)
 	if( argv._[0]=="init" )
 	{
-		await require("./dstore_db").create_tables();
-//		require("./dstore_db").create_indexes();
+		await dstore_dstore_db.create_tables();
 		return;
 	}
 	else
 	if( argv._[0]=="analyze" )
 	{
-		await require("./dstore_db").analyze();
+		await dstore_dstore_db.analyze();
 		return;
 	}
 	else
 	if( argv._[0]=="vacuum" )
 	{
-		await require("./dstore_db").vacuum();
+		await dstore_dstore_db.vacuum();
 		return;
 	}
 	else
 	if( argv._[0]=="index" )
 	{
-		await require("./dstore_db").create_indexes(argv._[1]); // add indexes to previously inserted data
+		await dstore_dstore_db.create_indexes(argv._[1]); // add indexes to previously inserted data
 		return;
 	}
 	else
 	if( argv._[0]=="unindex" )
 	{
-		await require("./dstore_db").delete_indexes(); // remoce indexes from previously inserted data
+		await dstore_dstore_db.delete_indexes(); // remoce indexes from previously inserted data
 		return;
 	}
 	else
 	if( argv._[0]=="check" )
 	{
-		await require("./dstore_db").create_tables({do_not_drop:true});
+		await dstore_dstore_db.create_tables({do_not_drop:true});
 		return;
 	}
 	else
 	if( argv._[0]=="dump" )
 	{
-		await require("./dstore_db").dump_tables();
+		await dstore_dstore_db.dump_tables();
 		return;
 	}
 	else
 	if( argv._[0]=="fake" )
 	{
-		await require("./dstore_db").fake_trans(); // create fake transactions
+		await dstore_dstore_db.fake_trans(); // create fake transactions
 		return;
 	}
 	else
 	if( argv._[0]=="augment" )
 	{
-		await require("./dstore_db").augment_related(); // create related
+		await dstore_dstore_db.augment_related(); // create related
 		return;
 	}
 	else
 	if( argv._[0]=="cache" )
 	{
-		await require("./dstore_cache").cmd(argv);
+		await dstore_dstore_cache.cmd(argv);
 		return;
 	}
 	else
 	if( argv._[0]=="exs" )
 	{
 // we now use freechange for exchange so this has been removed
-//		require("./exs").create_csv();
 		return;
 	}
 	else
 	if( argv._[0]=="fetch" )
 	{
-		await require("./iati_codes").fetch();
+		await dstore_dstore_iati_codes.fetch();
 		return;
 	}
 	else
 	if( argv._[0]=="import" )
 	{
-		await require("./dstore_cache").import_xmlfile( argv._[1] );
+		await dstore_dstore_cache.import_xmlfile( argv._[1] );
 		return;
 	}
 	else
 	if( argv._[0]=="stats" )
 	{
-		await require("./dstore_stats").cmd(argv);
+		await dstore_dstore_stats.cmd(argv);
 		return;
 	}
 
@@ -153,6 +164,8 @@ require("./argv").parse(argv);
 		"\n"+
 	"");
 
+/*
 })().catch((err) => {
     console.error(err);
 }).finally(function(){process.exit()})
+*/

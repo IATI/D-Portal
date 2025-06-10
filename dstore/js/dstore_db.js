@@ -1,27 +1,22 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-module.exports=exports;
+const dstore_db={}
+export default dstore_db
 
-var dstore_db=exports;
+import * as fs     from "fs"
+import * as util   from "util"
+import * as path   from "path"
+import * as http   from "http"
+import * as crypto from "crypto"
 
-var refry=require('./refry');
-var exs=require('./exs');
-var iati_xml=require('./iati_xml');
-var iati_cook=require('./iati_cook');
+import refry          from "./refry.js"
+import exs            from "./exs.js"
+import iati_xml       from "./iati_xml.js"
+import iati_cook      from "./iati_cook.js"
+import dflat          from "../../dflat/js/dflat.js"
+import dflat_database from "../../dflat/json/database.json" with {type:"json"}
 
-var dflat=require('../../dflat/js/dflat');
-var dflat_database=require('../../dflat/json/database.json');
-
-var codes=require('../json/iati_codes');
-
-var util=require('util');
-var http=require('http');
-
-var crypto=require('crypto');
-
-var dstore_back=require('./dstore_back');
-//dstore_back.dstore_db=dstore_db; // circular dependencies...
 
 dstore_db.engine=dstore_back.engine;
 

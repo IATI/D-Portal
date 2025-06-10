@@ -1,5 +1,6 @@
 
-var dquery=exports;
+const dquery={}
+export default dquery
 
 	dquery.origin="//d-portal.org"
 

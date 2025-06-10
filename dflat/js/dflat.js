@@ -13,8 +13,8 @@ import stringify from "json-stable-stringify"
 import jml       from "./jml.js"
 import xson      from "./xson.js"
 import savi      from "./savi.js"
-import database  from "../json/database.json"
-import codemap   from "../json/codemap.json"
+import database  from "../json/database.json" with {type:"json"}
+import codemap   from "../json/codemap.json"  with {type:"json"}
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

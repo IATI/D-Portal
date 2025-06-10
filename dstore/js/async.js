@@ -1,10 +1,9 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-
 // async from https://www.promisejs.org/generators/
 
-module.exports=exports=function async(makeGenerator){
+const generators=function async(makeGenerator){
   return function () {
     var generator = makeGenerator.apply(this, arguments);
 
@@ -26,3 +25,5 @@ module.exports=exports=function async(makeGenerator){
     }
   }
 };
+
+export default generators

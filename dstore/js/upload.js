@@ -1,7 +1,8 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var upload=exports;
+const upload={}
+export default upload
 
 var util=require('util');
 var fs=require('fs');

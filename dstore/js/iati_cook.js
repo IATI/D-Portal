@@ -1,15 +1,15 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var iati_cook=exports;
+const iati_cook={}
+export default iati_cook
 
-var util=require('util');
+import * as util from "util"
 
-var codes=require('../json/iati_codes');
-
-var iati_xml=require('./iati_xml');
-var refry=require('./refry');
-var exs=require('./exs');
+import code     from "./iati_codes.js"
+import iati_xml from "./iati_xml.js"
+import refry    from "./refry.js"
+import exs      from "./exs.js"
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

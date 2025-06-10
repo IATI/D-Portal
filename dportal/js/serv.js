@@ -1,17 +1,24 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var express = require('express');
-var express_fileupload = require('express-fileupload');
+import express            from "express"
+import express_fileupload from "express-fileupload"
+import minimist           from "minimist"
+import dstore_argv        from "../../dstore/js/argv.js"
+import dstore_query       from "../../dstore/js/query.js"
+import dstore_upload      from "../../dstore/js/upload.js"
+import dflat_query        from "../../dflat/js/query.js"
+import dflat_savi         from "../../dflat/js/savi.js"
 
-//var morgan = require('morgan');
+
 var app = express();
 
 app.set("trust proxy", true)
 
 
-var argv=require('yargs').argv; global.argv=argv;
-require("../../dstore/js/argv").parse(argv);
+let argv=minimist(process.argv.slice(2))
+global.argv=argv
+dstore_argv.parse(argv)
 
 express.static.mime.define({'text/plain': ['']});
 
@@ -83,12 +90,12 @@ console.log(req.path)
 
 	if( ab && (ab[0]=="q") ) // data query endpoint, 
 	{
-		require("../../dstore/js/query").serv(req,res,next);
+		dstore_query.serv(req,res,next);
 	}
 	else
 	if( ab && (ab[0]=="upload") && argv.upload) // upload api endpoint, for testing xml files only if upload is set
 	{
-		require("../../dstore/js/upload").serv(req,res,next);
+		dstore_upload.serv(req,res,next);
 	}
 	else
 	{
@@ -99,10 +106,10 @@ console.log(req.path)
 app.use( express.urlencoded({ extended: true }) )
 
 // dquery
-app.use('/dquery', require("../../dflat/js/query").serv )
+app.use('/dquery', dflat_query.serv )
 
 // dquery
-app.use('/savi', require("../../dflat/js/savi").serv )
+app.use('/savi', dflat_savi.serv )
 
 
 // redirect any unknown page to main homepage

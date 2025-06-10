@@ -1,21 +1,20 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var iati_codes=exports;
+const iati_codes={}
+export default iati_codes
 
-var csv_parse = require('csv-parse');
-//var csv=require('csv');
+import * as util  from "util"
+import * as http  from "http"
+import * as https from "https"
+import * as fs    from "fs"
+import * as csv_parse      from "csv-parse"
 
-var util=require('util');
-//var wait=require('wait.for-es6');
-var http=require('http');
-var https=require('https');
-var fs = require('fs');
-var papa = require('papaparse');
-var json_stringify = require('json-stable-stringify')
-
-var refry=require('./refry');
-var exs=require('./exs');
+import fetch          from "node-fetch"
+import papa           from "papaparse"
+import json_stringify from "json-stable-stringify"
+import refry          from "./refry.js"
+import exs            from "./exs.js"
 
 var sheeturl=function(n){
 	return 	"https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/pub?single=true&gid="+n+"&output=csv";
@@ -24,7 +23,6 @@ var sheeturl=function(n){
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 
-var fetch=require("node-fetch")
 var http_gethead=async function(url)
 {
 	const response = await fetch(url);
@@ -638,9 +636,9 @@ iati_codes.fetch2 = async function(){
 
 		for( var slug in packages)
 		{
-			var package=packages[slug]
+			var ppackage=packages[slug]
 			slug=slug.replace(/[^0-9a-zA-Z\-_]/g, '_') // sanitize the slug just in case
-			var url=package.resources && package.resources[0] && package.resources[0].url
+			var url=ppackage.resources && ppackage.resources[0] && ppackage.resources[0].url
 			if(url)
 			{
 				url=url.split(" ").join("%20") // spaces in urls breaks curl
@@ -656,8 +654,8 @@ iati_codes.fetch2 = async function(){
 
 		for( var slug in packages)
 		{
-			var package=packages[slug]
-			var hash=package.id
+			var ppackage=packages[slug]
+			var hash=ppackage.id
 			validhash[slug]=hash
 		}
 

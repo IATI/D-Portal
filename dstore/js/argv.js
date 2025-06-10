@@ -2,8 +2,10 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
+const dstore_argv={}
+export default dstore_argv
 
-exports.parse=function(argv)
+dstore_argv.parse=function(argv)
 {
 
 // instance settings, normally disabled.
