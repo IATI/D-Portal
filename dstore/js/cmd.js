@@ -30,9 +30,6 @@ let argv=minimist(process.argv.slice(2))
 global.argv=argv
 dstore_argv.parse(argv)
 
-// no need if this is a module
-// run everything inside a new async
-//(async function(){
 
 	// make sure we have a db dir
 	fs.mkdir("db",function(e){});
@@ -41,85 +38,85 @@ dstore_argv.parse(argv)
 	if( argv._[0]=="init" )
 	{
 		await dstore_dstore_db.create_tables();
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="analyze" )
 	{
 		await dstore_dstore_db.analyze();
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="vacuum" )
 	{
 		await dstore_dstore_db.vacuum();
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="index" )
 	{
 		await dstore_dstore_db.create_indexes(argv._[1]); // add indexes to previously inserted data
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="unindex" )
 	{
 		await dstore_dstore_db.delete_indexes(); // remoce indexes from previously inserted data
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="check" )
 	{
 		await dstore_dstore_db.create_tables({do_not_drop:true});
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="dump" )
 	{
 		await dstore_dstore_db.dump_tables();
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="fake" )
 	{
 		await dstore_dstore_db.fake_trans(); // create fake transactions
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="augment" )
 	{
 		await dstore_dstore_db.augment_related(); // create related
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="cache" )
 	{
 		await dstore_dstore_cache.cmd(argv);
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="exs" )
 	{
 // we now use freechange for exchange so this has been removed
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="fetch" )
 	{
 		await dstore_dstore_iati_codes.fetch();
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="import" )
 	{
 		await dstore_dstore_cache.import_xmlfile( argv._[1] );
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="stats" )
 	{
 		await dstore_dstore_stats.cmd(argv);
-		return;
+		process.exit();
 	}
 
 	// help text
@@ -163,9 +160,3 @@ dstore_argv.parse(argv)
 		"\n"+
 		"\n"+
 	"");
-
-/*
-})().catch((err) => {
-    console.error(err);
-}).finally(function(){process.exit()})
-*/
