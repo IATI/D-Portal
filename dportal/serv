@@ -1,5 +1,3 @@
 cd `dirname $0`
 
-node --import ../ctrack/webpack.loader.js js/serv.js $*
-
-
+node js/serv.wrap.js $*

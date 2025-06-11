@@ -12,8 +12,8 @@
     "directory": "live"
   },
   "bin": {
-    "d-portal": "dflat/js/cmd.js",
-    "dflat": "dflat/js/cmd.js"
+    "d-portal": "dflat/js/cmd.wrap.js",
+    "dflat": "dflat/js/cmd.wrap.js"
   },
 	"scripts": {
 		"watch": "cd ctrack; webpack watch --config webpack.config.cjs --mode development ",

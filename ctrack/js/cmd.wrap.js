@@ -33,3 +33,4 @@ registerHooks(
 	},
 })
 
+import("./cmd.js")
