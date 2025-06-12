@@ -4,24 +4,19 @@
 const ctrack={}
 export default ctrack
 
-import plate               from "./plate.js"
-import iati                from "./iati.js"
-import fetcher             from "./fetcher.js"
-import dflat_savi          from "../../dflat/js/savi.js"
-import chart               from "./chart.js"
-import views               from "./views.js"
-import ganal               from "./ganal.js"
-import Nanobar             from "./nanobar.js"
-import iati_codes          from "../../dstore/json/iati_codes.json"
-import crs                 from "../../dstore/json/crs.js"
-import freechange          from "freechange/year.js"
-import jquery              from "jquery"
-//import stupid_table_plugin from "stupid-table-plugin"
-import dayjs               from "dayjs"
-//import chosen_jquery       from "chosen-js"
-import typeahead           from "typeahead.js"
-
-import * as Chartist       from "chartist"
+import jQuery      from "jquery"
+import plate      from "./plate.js"
+import iati       from "./iati.js"
+import fetcher    from "./fetcher.js"
+import dflat_savi from "../../dflat/js/savi.js"
+import chart      from "./chart.js"
+import views      from "./views.js"
+import ganal      from "./ganal.js"
+import Nanobar    from "./nanobar.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
+import crs        from "../../dstore/json/crs.js"
+import freechange from "freechange/year.js"
+import jqs        from "./jqs.js"
 
 ctrack.map_old_views={
 	"donors"                   : "publishers",
@@ -200,18 +195,23 @@ ctrack.setup=function(args)
 		}
 	}
 
-//	if(args.css) { head.load(args.css); }
+	for(let idx=0;idx<args.css.length;idx++)
+	{
+		var cssId = 'ctrack_'+idx+'_css';  // you could encode the css path itself to generate id..
+		if (!document.getElementById(cssId))
+		{
+			var head  = document.getElementsByTagName('head')[0];
+			var link  = document.createElement('link');
+			link.id   = cssId;
+			link.rel  = 'stylesheet';
+			link.type = 'text/css';
+			link.href = args.css[idx];
+			link.media = 'all';
+			head.appendChild(link);
+		}
+	}
 
 	document.head.insertAdjacentHTML("beforeend", dflat_savi.plate('<style>{savi-css}</style>') ) // include new savi CSS
-
-	// insert npm jquery libs into browser
-	window.$ = jquery
-	window.jQuery = jquery
-//	window.stupid_table_plugin = stupid_table_plugin
-	window.Chartist = Chartist
-	window.moment = dayjs
-//	window.chosen = chosen
-	window.typeahead = typeahead
 
 	ctrack.year=(new Date()).getFullYear()-1 ; // require("../../dstore/json/crs.js").year // start with year of the CRS data we have
 	ctrack.year=parseInt(args.year || ctrack.q.year || ctrack.year ); // default base year for graphs tables etc
