@@ -5,19 +5,19 @@ const query={}
 export default query
 
 import * as util from "util"
+
+import express   from "express"
+import dflat     from "./dflat.js"
+import savi      from "./savi.js"
+import xson      from "./xson.js"
+import jml       from "./jml.js"
+import dquery    from "./dquery.js"
+import dstore_db from "../../dstore/js/dstore_db.js"
+
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-var dflat=require('./dflat.js');
-var savi=require('./savi.js');
-var xson=require('./xson.js');
-var jml=require('./jml.js');
-
-var dstore_db=require("../../dstore/js/dstore_db.js");
-
-var dquery=require('./dquery.js');
-
-var express = require('express');
-var serve_html = express.static(__dirname+"/../html",{'index': ['dquery.html']})
+var serve_html = express.static(import.meta.dirname+"/../html",{'index': ['dquery.html']})
 
 
 // handle the /dquery url space

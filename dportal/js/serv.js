@@ -20,7 +20,7 @@ let argv=minimist(process.argv.slice(2))
 global.argv=argv
 dstore_argv.parse(argv)
 
-express.static.mime.define({'text/plain': ['']});
+//express.static.mime.define({'text/plain': ['']});
 
 //app.use(morgan('combined'));
 
@@ -78,7 +78,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-app.use(express.static( argv.staticdir || (__dirname+"/../static") ));
+app.use(express.static( argv.staticdir || (import.meta.dirname+"/../static") ));
 
 app.use( express.json( { limit: '10MB' } ) )
 
@@ -113,11 +113,9 @@ app.use('/savi', dflat_savi.serv )
 
 
 // redirect any unknown page to main homepage
-app.get('*', function(req, res) {
+app.use(function(req, res) {
 	res.redirect( argv.homepage || '/ctrack.html#view=search');
 });
-
-
 
 
 console.log("Starting static server at http://localhost:"+argv.port+"/");

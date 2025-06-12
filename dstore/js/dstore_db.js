@@ -17,6 +17,7 @@ import iati_cook      from "./iati_cook.js"
 import dflat          from "../../dflat/js/dflat.js"
 import dflat_database from "../../dflat/json/database.json" with {type:"json"}
 import dstore_back    from "./dstore_back.js"
+import iati_codes     from "../json/iati_codes.json" with {type:"json"}
 
 dstore_db.engine=dstore_back.engine;
 
@@ -238,7 +239,7 @@ dstore_db.table_name_map={} // look up table from name
 	}
 
 	// special case for possible tags
-	for(let mode in codes.tag_mode )
+	for(let mode in iati_codes.tag_mode )
 	{
 		let alias="tag_"+(mode.toLowerCase())
 		ns[alias]={
@@ -556,7 +557,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 
 // map new 201 codes to old
-		t["trans_code"]= codes.transaction_type_map[ t["trans_code"] ] || t["trans_code"];
+		t["trans_code"]= iati_codes.transaction_type_map[ t["trans_code"] ] || t["trans_code"];
 
 // transaction flag, 0 by default
 		t["trans_flags"]=			0;
@@ -770,7 +771,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		t.status_code=tonumber(refry.tagattr(act,"activity-status","code"));
 
 		// we should null invalid status codes
-		if(!codes.activity_status[t.status_code])
+		if(!iati_codes.activity_status[t.status_code])
 		{
 //			console.log("badcode "+t.status_code)
 			t.status_code=null
@@ -779,7 +780,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		if( "string" == typeof t.reporting_ref ) { t.reporting_ref = t.reporting_ref.trim() } // remove white space
 
 		t.flags=0;
-		if( codes.publisher_secondary[t.reporting_ref] ) { t.flags=1; } // flag as secondary publisher (probably best to ignore)
+		if( iati_codes.publisher_secondary[t.reporting_ref] ) { t.flags=1; } // flag as secondary publisher (probably best to ignore)
 
 		t.commitment=0;
 		t.spend=0;
@@ -792,7 +793,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 		refry.tags(act,"transaction",function(it){
 			var code=iati_xml.get_code(it,"transaction-type");
-			code= codes.transaction_type_map[code] || code ; // map new 201 codes to old letters
+			code= iati_codes.transaction_type_map[code] || code ; // map new 201 codes to old letters
 
 			code=code && (code.toUpperCase());
 			if(code=="C")
@@ -815,16 +816,16 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		var funder;
 
 		if(!funder) { funder=refry.tagattr(act,{0:"participating-org",role:"funding"},"ref"); }
-		if(funder){ funder=funder.trim(); if(!codes.funder_names[funder]) {funder=null;} } //validate code
+		if(funder){ funder=funder.trim(); if(!iati_codes.funder_names[funder]) {funder=null;} } //validate code
 
 		if(!funder) { funder=refry.tagattr(act,{0:"participating-org",role:"extending"},"ref"); }
-		if(funder){ funder=funder.trim(); if(!codes.funder_names[funder]) {funder=null;} } //validate code
+		if(funder){ funder=funder.trim(); if(!iati_codes.funder_names[funder]) {funder=null;} } //validate code
 
 		if(!funder) { funder=refry.tagattr(act,{0:"reporting-org"},"ref"); }
 		if(funder)
 		{
 			funder=funder.trim();
-			funder=codes["iati_funders"][funder] || funder; // special group and or rename
+			funder=iati_codes["iati_funders"][funder] || funder; // special group and or rename
 		}
 		t.funder_ref=funder; // remember funder id
 
@@ -1383,22 +1384,22 @@ dstore_db.get_meta = function(){
 
 	meta.codes={}
 
-	meta.codes.activity_status  = build_codes( codes.activity_status )
-	meta.codes.transaction_type = build_codes( codes.transaction_type )
-	meta.codes.sector           = build_codes( codes.sector )
-	meta.codes.sector_category  = build_codes( codes.sector_category )
-	meta.codes.country          = build_codes( codes.country )
-	meta.codes.policy_code      = build_codes( codes.policy_code )
-	meta.codes.policy_sig       = build_codes( codes.policy_sig )
+	meta.codes.activity_status  = build_codes( iati_codes.activity_status )
+	meta.codes.transaction_type = build_codes( iati_codes.transaction_type )
+	meta.codes.sector           = build_codes( iati_codes.sector )
+	meta.codes.sector_category  = build_codes( iati_codes.sector_category )
+	meta.codes.country          = build_codes( iati_codes.country )
+	meta.codes.policy_code      = build_codes( iati_codes.policy_code )
+	meta.codes.policy_sig       = build_codes( iati_codes.policy_sig )
 
 	meta.codes.policy = [] // policy is a merged value from two codelists
-	for(var ns in codes.policy_sig)
+	for(var ns in iati_codes.policy_sig)
 	{
-		for(var nc in codes.policy_code)
+		for(var nc in iati_codes.policy_code)
 		{
 			var it={}
 			it.name=ns+"_"+nc
-			it.value=codes.policy_code[nc]+" IS "+codes.policy_sig[ns]
+			it.value=iati_codes.policy_code[nc]+" IS "+iati_codes.policy_sig[ns]
 			meta.codes.policy[meta.codes.policy.length]=it
 		}
 	}

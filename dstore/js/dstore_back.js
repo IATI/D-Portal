@@ -6,7 +6,7 @@ import dstore_sqlite from "./dstore_sqlite.js"
 
 let dstore_back
 // use postgres if a pg connection string is provided
-if(argv.pg)
+if(global && global.argv && global.argv.pg)
 {
 	dstore_back=dstore_pg
 }

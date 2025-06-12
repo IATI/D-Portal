@@ -1,17 +1,21 @@
-#!/usr/bin/env node
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var cmd=exports;
+const cmd={}
+export default cmd
 
-var pfs=require('fs').promises
+import * as fs   from "fs"
+import * as util from "util"
+import * as path from "path"
 
-var dflat=require("./dflat.js")
-var jml=require("./jml.js")
-var xson=require("./xson.js")
-var savi=require("./savi.js")
+import stringify from "json-stable-stringify"
 
-var stringify = require('json-stable-stringify');
+let pfs=fs.promises
+
+import dflat from "./dflat.js"
+import jml from "./jml.js"
+import xson from "./xson.js"
+import savi from "./savi.js"
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }

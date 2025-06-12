@@ -1,41 +1,38 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-module.exports=exports;
+const dstore_sqlite={}
+export default dstore_sqlite
 
-var dstore_sqlite=exports;
-var dstore_back=exports;
+import * as url  from "url"
+import * as util from "util"
+import * as fs   from "fs"
+import * as http from "http"
 
-var url=require("url")
+import Cursor         from "pg-cursor"
+import pg_monitor     from "pg-monitor"
+import pg_promise     from "pg-promise"
+import dstore_db      from "./dstore_db.js"
+import dflat          from "../../dflat/js/dflat.js"
+import dflat_database from "../../dflat/json/database.json" with {type:"json"}
+import refry          from "./refry.js"
+import exs            from "./exs.js"
+import iati_xml       from "./iati_xml.js"
+import iati_cook      from "./iati_cook.js"
+import codes          from "../json/iati_codes.json" with {type:"json"}
+import query          from "./query.js"
 
-exports.engine="sqlite";
 
-var refry=require("./refry");
-var exs=require("./exs");
-var iati_xml=require("./iati_xml");
+const dstore_back=dstore_sqlite
+dstore_back.engine="sqlite"
 
-var dflat=require('../../dflat/js/dflat');
-var dflat_database=require('../../dflat/json/database.json');
-
-
-//var wait=require("wait.for-es6");
-
-var http=require("http");
-//var sqlite = require("sqlite-async");//.verbose();
-//var sqlite = await import("sqlite-async");
 var sqlite
 
-var iati_cook=require('./iati_cook');
-var dstore_db=require('./dstore_db');
 // how to use query replcaments
-dstore_db.text_plate=function(s){ return "$"+s; }
-dstore_db.text_name=function(s){ return "$"+s; }
+dstore_sqlite.text_plate=function(s){ return "$"+s; }
+dstore_sqlite.text_name=function(s){ return "$"+s; }
 
-var	query=require("./query");
-
-var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
-
 
 dstore_sqlite.close = async function(db){
 	await db.close();

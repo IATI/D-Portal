@@ -37,7 +37,7 @@ module.exports = {
         use: 'null-loader',
       },
       {
-        test: /\.(txt|html|css)$/i,
+        test: /\.(txt|html|css|sql)$/i,
         use: { loader:'raw-loader', options:{ esModule: false, } },
       },
     ],

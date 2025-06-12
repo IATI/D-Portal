@@ -1,14 +1,14 @@
-#!/usr/bin/env node
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var cmd=exports;
+const cmd={}
+export default cmd
 
-var fs = require('fs');
-var express = require('express');
-var util=require('util');
-var path=require('path');
-var app = express();
+import * as fs   from "fs"
+import * as util from "util"
+import * as path from "path"
+
+import minimist from "minimist"
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -49,6 +49,7 @@ cmd.run=function(argv)
 // if global.argv is set then we are inside another command so do nothing
 if(!global.argv)
 {
-	var argv = require('yargs').argv; global.argv=argv;
-	cmd.run(argv);
+	let argv=minimist(process.argv.slice(2))
+	global.argv=argv
+	cmd.run(argv)
 }

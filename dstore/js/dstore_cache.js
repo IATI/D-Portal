@@ -1,19 +1,23 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var dstore_cache=exports;
+const dstore_cache={}
+export default dstore_cache
 
+import * as fs   from "fs"
+import * as util from "util"
+import * as path from "path"
+import * as http from "http"
 
-//var wait=require("wait.for-es6");
-
-var fs = require('fs');
-var util=require("util");
-var path=require('path');
-var http=require("http");
+import fetch      from "node-fetch"
+import jschardet  from "jschardet"
+import iconv      from "iconv-lite"
+import refry      from "./refry.js"
+import dstore_db  from "./dstore_db.js"
+import packages   from "../json/packages.json" with {type:"json"}
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-var fetch=require("node-fetch")
 var http_gethead=async function(url)
 {
 	const response = await fetch(url);
@@ -71,8 +75,6 @@ var charset="unknown";
 
 	var	bufferToString=function(buffer) {
 		if(!buffer) { return ""; }
-		var jschardet = require("jschardet")
-		var iconv = require("iconv-lite")
 
 
 		var head=buffer.slice(0,1024); // grab a small part of the file as a test header
@@ -133,7 +135,6 @@ var charset="unknown";
 	try {
 		if( aa[0] && (aa[0]).includes("<iati-activities") ) // possible activities header, merge these attributes into iati-activity later on
 		{
-			var refry=require('./refry');
 			var xt=refry.tag( refry.xml(aa[0]+"</iati-activities>") , "iati-activities" );
 			if(xt)
 			{
@@ -147,7 +148,7 @@ var charset="unknown";
 //	ls(head);
 	
 	console.log("\t\tImporting xmlfile <"+charset+">: ("+acts.length+") \t"+xmlfilename);
-	await	require("./dstore_db").fill_acts(acts,xmlfilename,data,head);
+	await	dstore_db.fill_acts(acts,xmlfilename,data,head);
 }
 
 
@@ -196,7 +197,7 @@ dstore_cache.empty = async function(argv,keep){
 	
 	if(!keep) // use global list of slugs->packages
 	{
-		keep=require("../json/packages.json")
+		keep=packages
 	}
 
 	try { fs.mkdirSync(global.argv.cache); } catch(e){}

@@ -1,39 +1,35 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-module.exports=exports;
+const dstore_pg={}
+export default dstore_pg
 
-var dstore_pg=exports;
-var dstore_back=exports;
+import * as util from "util"
+import * as fs   from "fs"
 
-var url=require("url")
+import Cursor         from "pg-cursor"
+import pg_monitor     from "pg-monitor"
+import pg_promise     from "pg-promise"
+import dstore_db      from "./dstore_db.js"
+import dflat          from "../../dflat/js/dflat.js"
+import dflat_database from "../../dflat/json/database.json" with {type:"json"}
+import refry          from "./refry.js"
+import exs            from "./exs.js"
+import iati_xml       from "./iati_xml.js"
+import iati_cook      from "./iati_cook.js"
+import query          from "./query.js"
 
-exports.engine="pg";
 
-const Cursor = require('pg-cursor');
+const dstore_back=dstore_pg
+dstore_back.engine="pg";
 
-//var wait=require("wait.for-es6");
 
-var dstore_db=require('./dstore_db');
 // how to use query replcaments
-dstore_db.text_plate=function(s){ return "${"+s+"}"; }
-dstore_db.text_name=function(s){ return s; }
+dstore_pg.text_plate=function(s){ return "${"+s+"}"; }
+dstore_pg.text_name=function(s){ return s; }
 
-var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-var fs = require('fs');
-
-var dflat=require('../../dflat/js/dflat');
-var dflat_database=require('../../dflat/json/database.json');
-
-var refry=require('./refry');
-var exs=require('./exs');
-var iati_xml=require('./iati_xml');
-var iati_cook=require('./iati_cook');
-
-var codes=require('../json/iati_codes');
-var	query=require("./query");
 
 var err=function (error) {
 	console.log("ERROR:", error.message || error); // print the error;
@@ -54,10 +50,10 @@ dstore_pg.open = async function(req){
 		};
 		if(process.env.DSTORE_DEBUG)
 		{
-			var monitor = require("pg-monitor");
+			var monitor = pg_monitor;
 			 monitor.attach(pgopts);
 		}
-		master_pgp = require("pg-promise")(pgopts);
+		master_pgp = pg_promise(pgopts);
 
 	}
 

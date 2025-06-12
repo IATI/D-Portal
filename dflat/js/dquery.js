@@ -2,50 +2,51 @@
 const dquery={}
 export default dquery
 
+import dquery_html from "./dquery.html"
+import dquery_css  from "./dquery.css"
+import dquery_sql  from "./dquery.sql"
+
+import jquery                              from "jquery"
+
+//import jquery_ui                           from "jquery-ui-dist/jquery-ui.js"
+import jquery_ui_css                       from "jquery-ui-dist/jquery-ui.css"
+
+import jquery_splitter                     from "jquery.splitter"
+import jquery_splitter_css                 from "jquery.splitter/css/jquery.splitter.css"
+//import jquery_json_viewer                  from "jquery.json-viewer/json-viewer/jquery.json-viewer.js"
+import jquery_json_viewer_css              from "jquery.json-viewer/json-viewer/jquery.json-viewer.css"
+import plated_base                         from "plated"
+//import brace                               from "brace"
+//import brace_ext_modelist                  from "brace/ext/modelist.js"
+//import brace_theme_tomorrow_night_eighties from "brace/theme/tomorrow_night_eighties.js"
+//import brace_mode_pgsql                    from "brace/mode/pgsql.js"
+import stringify                           from "json-stable-stringify"
+
+
 	dquery.origin="//d-portal.org"
 
 // running in browser
 if(typeof window !== 'undefined')
 {
-	window.$ = window.jQuery = require("jquery");
+	window.$=jquery
+	window.jQuery = jquery
 
-	var split=require("jquery.splitter")
-//	split( window.jQuery )
-
-//	var term=(require("jquery.terminal"))()
-
-
-	var ui=require("./jquery-ui.js")
-
-//	var tree=require("jstree/dist/jstree.js")
-
-	var jsonv=require("jquery.json-viewer/json-viewer/jquery.json-viewer.js")
-
+	var split=jquery_splitter
+	var ui=jquery_ui
+	var jsonv=jquery_json_viewer
 
 	dquery.origin=window.location.origin
 
 }
 
-var plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
+var plated=plated_base.create({},{pfs:{}}) // create a base instance for inline chunks with no file access
 
 dquery.chunks={}
 
-	if(typeof window !== 'undefined')
-	{
+plated.chunks.fill_chunks( dquery_html, dquery.chunks )
+plated.chunks.fill_chunks( dquery_css,  dquery.chunks )
+plated.chunks.fill_chunks( dquery_sql,  dquery.chunks )
 
-plated.chunks.fill_chunks( require('./dquery.html'), dquery.chunks )
-plated.chunks.fill_chunks( require('./dquery.css'), dquery.chunks )
-plated.chunks.fill_chunks( require('./dquery.sql'), dquery.chunks )
-
-	}
-	else
-	{
-
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.html', 'utf8'), dquery.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.css',  'utf8'), dquery.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.sql',  'utf8'), dquery.chunks )
-
-	}
 
 plated.chunks.format_chunks(dquery.chunks)
 
@@ -61,26 +62,13 @@ dquery.start=function(opts){
 
 dquery.start_loaded=async function(){
 
-	var ace=require("brace")
-	require("brace/ext/modelist")
-	require("brace/theme/tomorrow_night_eighties")
-
-	require("brace/mode/pgsql")
-//	require("brace/mode/json")
+	var ace=brace
 
 	$("html").prepend(plated.plate('<style>{css}</style>')) // load our styles
 
-	$("html").prepend("<style>"+require("jquery.splitter/css/jquery.splitter.css")+"</style>")
-	$("html").prepend("<style>"+require("jquery.json-viewer/json-viewer/jquery.json-viewer.css")+"</style>")
-
-if(typeof window !== 'undefined')
-{
-	$("html").prepend("<style>"+require('./jquery-ui.css')+"</style>")
-}
-else
-{
-	$("html").prepend("<style>"+require('fs').readFileSync(__dirname + '/jquery-ui.css', 'utf8')+"</style>")
-}
+	$("html").prepend(`<style>${jquery_splitter_css}</style>`)
+	$("html").prepend(`<style>${jquery_json_viewer_css}</style>`)
+	$("html").prepend(`<style>${jquery_ui_css}</style>`)
 
 	$("body").empty().append(plated.plate('{body}')) // fill in the base body
 
@@ -178,7 +166,6 @@ dquery.cron=async function()
 
 dquery.result=function(data,status,xhdr)
 {
-	var stringify = require('json-stable-stringify');
 
 	$('#result').jsonViewer(data,{collapsed:false,rootCollapsable:true});
 
