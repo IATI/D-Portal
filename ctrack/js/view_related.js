@@ -5,11 +5,13 @@ const view_related={}
 export default view_related
 view_related.name="view_related"
 
-import ctrack     from "./ctrack.js"
 import views      from "./views.js"
 import fetcher    from "./fetcher.js"
 import iati_codes from "../../dstore/json/iati_codes.json"
 import SVG        from "svg.js"
+
+
+const ctrack = import("./ctrack.js")
 
 // enable 1 2 3 4 5 but not 6
 var base_related_filters = 2+4+8+16+32

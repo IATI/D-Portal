@@ -16,9 +16,9 @@ import iati_codes          from "../../dstore/json/iati_codes.json"
 import crs                 from "../../dstore/json/crs.js"
 import freechange          from "freechange/year.js"
 import jquery              from "jquery"
-import stupid_table_plugin from "stupid-table-plugin"
+//import stupid_table_plugin from "stupid-table-plugin"
 import dayjs               from "dayjs"
-import chosen_jquery       from "chosen-js"
+//import chosen_jquery       from "chosen-js"
 import typeahead           from "typeahead.js"
 
 import * as Chartist       from "chartist"
@@ -200,17 +200,17 @@ ctrack.setup=function(args)
 		}
 	}
 
-	if(args.css) { head.load(args.css); }
+//	if(args.css) { head.load(args.css); }
 
 	document.head.insertAdjacentHTML("beforeend", dflat_savi.plate('<style>{savi-css}</style>') ) // include new savi CSS
 
 	// insert npm jquery libs into browser
 	window.$ = jquery
 	window.jQuery = jquery
-	window.stupid_table_plugin = stupid_table_plugin
+//	window.stupid_table_plugin = stupid_table_plugin
 	window.Chartist = Chartist
 	window.moment = dayjs
-	window.chosen = chosen
+//	window.chosen = chosen
 	window.typeahead = typeahead
 
 	ctrack.year=(new Date()).getFullYear()-1 ; // require("../../dstore/json/crs.js").year // start with year of the CRS data we have

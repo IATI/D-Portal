@@ -31,7 +31,7 @@ view_map.setup=function()
 	}
 		
 //display map 
-	display_ctrack_map=function(){
+	window.display_ctrack_map=function(){
 		ctrack.map.api_ready=true;
 		view_map.fixup();
 	}

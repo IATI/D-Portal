@@ -47,13 +47,16 @@ module.exports = {
     maxEntrypointSize: 555555,
     maxAssetSize: 555555,
   },
+  experiments: {
+    outputModule: true,
+  },
   output: {
     path: path.resolve(__dirname, 'jslib/'),
     filename: 'ctrack.js',
     globalObject: 'this',
     library: {
-      name: "ctrack",
-      type: 'umd',
+//      name: "ctrack",
+      type: 'module',
     },
   },
 };
