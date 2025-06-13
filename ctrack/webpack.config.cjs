@@ -51,7 +51,7 @@ module.exports = {
     outputModule: true,
   },
   output: {
-    path: path.resolve(__dirname, 'jslib/'),
+    path: path.resolve(__dirname, 'jslib/ctrack_loader/'),
     filename: 'ctrack.js',
     globalObject: 'this',
     iife:true,

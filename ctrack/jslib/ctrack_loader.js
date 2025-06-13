@@ -18,7 +18,7 @@ ctrack_loader=function(args){
 	args.mapkey=args.mapkey || "AIzaSyDPrMTYfR7XcA3PencDS4dhovlILuumB_w"
 
 	head.load(
-		root+"jslib/ctrack.js",
+		root+"jslib/ctrack_loader/ctrack.js",
 		function(){
 			// need to unpromise and get default
 			window.ctrack.then(function(it){
