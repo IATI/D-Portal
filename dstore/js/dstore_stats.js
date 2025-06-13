@@ -1,17 +1,17 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var dstore_stats=exports;
+const dstore_stats={}
+export default dstore_stats
+
+import * as util from "util"
+import * as fs   from "fs"
+
+import json_stringify from "json-stable-stringify"
+
+import dstore_db from "./dstore_db.js"
 
 
-// var wait=require("wait.for-es6");
-
-var fs = require('fs');
-var util=require("util");
-var json_stringify = require('json-stable-stringify')
-	
-
-var dstore_db=require('./dstore_db');
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

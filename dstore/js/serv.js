@@ -1,17 +1,23 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var fs = require('fs');
-var express = require('express');
-var util=require('util');
-var path=require('path');
+import * as util from "util"
+import * as path from "path"
+
+import express            from "express"
+import minimist           from "minimist"
+
+import argvjs from "./agrv.js"
+import queryjs from "./query.js"
+
+
 var app = express();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // global.argv
-var argv=require('yargs').argv; global.argv=argv;
-require("./argv").parse(argv);
+let argv=minimist(process.argv.slice(2))
+argvjs.parse(argv);
 
 // make sure we have a db dir
 fs.mkdir("db",function(e){});
@@ -22,7 +28,7 @@ fs.mkdir("db",function(e){});
 //app.use("/");
 
 app.use("/q",function (req, res) {
-	require("./query").serv(req,res);
+	queryjs.serv(req,res);
 });
 
 //app.use(express.compress());
