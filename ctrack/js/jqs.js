@@ -16,18 +16,16 @@ if(window)
 	window.jQuery = jquery
 }
 
-jqs.chosen_jquery = (await import("chosen-npm/public/chosen.jquery.js"))["default"]
-jqs.typeahead = (await import("typeahead.js/dist/typeahead.jquery.js"))["default"]
-jqs.stupid_table_plugin = (await import("stupid-table-plugin"))["default"]
-
 jqs.dayjs = dayjs
 jqs.Chartist = Chartist
 
+jqs.xtra = (await import("./jqs_xtra.js"))["default"]
+
 if(window)
 {
-	window.stupid_table_plugin = jqs.stupid_table_plugin
+	window.stupid_table_plugin = jqs.xtra.stupid_table_plugin
 	window.Chartist            = jqs.Chartist
 	window.moment              = jqs.dayjs
-	window.chosen              = jqs.chosen
-	window.typeahead           = jqs.typeahead
+	window.chosen              = jqs.xtra.chosen
+	window.typeahead           = jqs.xtra.typeahead
 }

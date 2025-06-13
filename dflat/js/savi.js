@@ -121,7 +121,7 @@ savi.start=function(opts){
 	// running in browser, make sure jquer etc is setup
 	if(typeof window !== 'undefined')
 	{
-		import("./jqs.js")
+		import("../../ctrack/js/jqs.js")
 	}
 
 	for(var n in opts) { savi.opts[n]=opts[n] } // copy opts
