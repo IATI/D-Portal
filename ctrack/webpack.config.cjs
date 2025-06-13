@@ -54,9 +54,10 @@ module.exports = {
     path: path.resolve(__dirname, 'jslib/'),
     filename: 'ctrack.js',
     globalObject: 'this',
+    iife:true,
     library: {
-//      name: "ctrack",
-      type: 'module',
+      name: "ctrack",
+      type: 'umd',
     },
   },
 };

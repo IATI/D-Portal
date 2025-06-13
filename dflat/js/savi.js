@@ -6,6 +6,7 @@ export default savi
 
 import * as fs from "fs"
 
+import dflat       from "./dflat.js"
 import xson        from "./xson.js"
 import exchange    from "./exchange.js"
 import stringify   from "json-stable-stringify"
@@ -15,11 +16,12 @@ import codelists  from "../json/codelists.json"            with {type:"json"}
 import codemap    from "../json/codemap.json"              with {type:"json"}
 import validhash  from "../../dstore/json/validhash.json"  with {type:"json"}
 import iati_codes from "../../dstore/json/iati_codes.json" with {type:"json"}
+import test_json  from "../json/test_1.json"               with {type:"json"}
 
 import savi_html from "./savi.html"
 import savi_css from "./savi.css"
 
-let publisher_names=iati_codes.publisher_names
+const publisher_names=iati_codes.publisher_names
 
 
 /*
@@ -116,14 +118,10 @@ savi.opts.test=false
 
 savi.start=function(opts){
 
-	// running in browser
+	// running in browser, make sure jquer etc is setup
 	if(typeof window !== 'undefined')
 	{
-		window.$ = window.jQuery = require("jquery")
-		require("stupid-table-plugin")
-
-		window.Chartist = require("chartist")
-		window.moment = require("moment")
+		import("./jqs.js")
 	}
 
 	for(var n in opts) { savi.opts[n]=opts[n] } // copy opts
@@ -140,8 +138,6 @@ savi.start=function(opts){
 }
 
 savi.start_loaded=async function(){
-
-	const dflat=require('./dflat.js')
 
 // prepare test page
 	let iati=null
@@ -172,7 +168,7 @@ savi.start_loaded=async function(){
 	}
 	else
 	{
-		iati=require('../json/test_1.json')
+		iati=test_json 
 		aid=true
 	}
 
@@ -211,8 +207,6 @@ savi.fixup=function(){
 // give your json chart data the class of showchart and it will be converted to a chart
 	$(".showchart").each(function(idx)
 	{
-		var Chartist=require("chartist")
-
 		var d=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
 
 		var chart = new (Chartist[d.chart+"Chart"])( this, {
@@ -224,8 +218,6 @@ savi.fixup=function(){
 // give your json chart data the class of showcharts and it will be converted to multiple charts
 	$(".showcharts").each(function(idx)
 	{
-		var Chartist=require("chartist")
-
 		var d=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
 
 		var p=$(this)
@@ -364,11 +356,6 @@ savi.get_data_transactions=function(list,name)
 }
 
 savi.prepare=function(iati_xson){
-
-	let codelists=require('../json/codelists.json')
-	let codemap=require('../json/codemap.json')
-	let validhash=require('../../dstore/json/validhash.json')
-	let publisher_names=require('../../dstore/json/iati_codes.json').publisher_names
 
 	xson.walk( iati_xson , (it,nn,idx)=>{
 		let nb=nn.join("")
@@ -1051,7 +1038,7 @@ savi.prepare=function(iati_xson){
 // handle the /savi url space
 savi.serv = async function(req,res,next){
 
-	var express = require('express');
+	var express = await import('express');
 	var serve_html = express.static(__dirname+"/../html",{'index': ['savi.html']})
 
 	// serv up static files
