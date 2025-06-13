@@ -365,7 +365,7 @@ view_map.ajax_pins=function(args)
 			"limit":args.limit || -1,
 		};
 	fetcher.ajax_dat_fix(dat,args);
-	if(dat.country_code) { dat.country_percent=100; } // if asking for a country, require 100% allocation into that country
+	if(dat.country_code) { dat.country_percent=100; } // if asking for a country, need 100% allocation into that country
 
 // add sector information to download, beware, this explodes the data listing projects multiple times per sector...
 	var datcsv={
@@ -376,7 +376,7 @@ view_map.ajax_pins=function(args)
 			"human":true,
 		};
 	fetcher.ajax_dat_fix(datcsv,args);
-	if(datcsv.country_code) { datcsv.country_percent=100; } // if asking for a country, require 100% allocation into that country
+	if(datcsv.country_code) { datcsv.country_percent=100; } // if asking for a country, need 100% allocation into that country
 
 	var csvurl=fetcher.tourl(datcsv)
 	ctrack.chunk("map_csv_url",csvurl)

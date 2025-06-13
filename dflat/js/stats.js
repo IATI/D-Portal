@@ -1,24 +1,32 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var stats=exports;
+const stats={}
+export default stats
 
-const assert = require('assert')
-const path = require('path')
+import * as fs   from "fs"
+import * as util from "util"
+import * as path from "path"
 
-var fs=require('fs')
-var util=require('util');
+import assert from "assert"
+
+//import assert    from "assert"
+
+import shell     from "shelljs"
+import stringify from "json-stable-stringify"
+import database   from "../json/database.json" with {type:"json"}
+import pg_monitor from "pg-monitor"
+import pg_promise from "pg-promise"
+
+const pfs = fs.promises
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-var stringify = require('json-stable-stringify');
 
-var database = require("../json/database.json");
-
-var monitor = require("pg-monitor");
 var pgopts={
 };
-if(process.env.DSTORE_DEBUG){ monitor.attach(pgopts); }
-var pgp = require("pg-promise")(pgopts);
+if(process.env.DSTORE_DEBUG){ pg_monitor.attach(pgopts); }
+var pgp = pg_promise(pgopts);
 
 
 // create or return the db object
@@ -188,7 +196,7 @@ assert( filename , "base filename required" )
 		
 		var dir = filename + '/pids';
 //console.log( dir )
-		if( ! fs.existsSync(dir) ) { fs.mkdirSync(dir, 0744) }
+		if( ! fs.existsSync(dir) ) { fs.mkdirSync(dir, 0x1E4) }
 
 // save array of pids that will be in the pids directory
 		fs.writeFileSync(dir+".json", stringify({pids:pids},{ space: ' ' }) )

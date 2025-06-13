@@ -15,28 +15,6 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 // load chunks from html files
 plate.chunks={}
 
-/*
-if(typeof window == 'undefined') // patch node to require text files like webpack
-{
-	const matchtxt=/\.(txt|html|css)$/
-	const fs=require("fs")
-	const path=require("path")
-	const Module = require("module");
-	const orginalLoad = Module._load;
-	const cwd = process.cwd();
-	Module._load = function (request, _parent)
-	{
-		if (request.match(matchtxt))
-		{
-			return fs.readFileSync(
-				path.join(path.dirname(_parent ? _parent.filename : cwd), request),
-				"utf8");
-		}
-		return orginalLoad.apply(this, arguments);
-	};
-}
-*/
-
 import text_general                      from '../text/general.html'                      ; plated.chunks.fill_chunks( text_general                      , plate.chunks )
 import text_view_act                     from '../text/view_act.html'                     ; plated.chunks.fill_chunks( text_view_act                     , plate.chunks )
 import text_view_active                  from '../text/view_active.html'                  ; plated.chunks.fill_chunks( text_view_active                  , plate.chunks )

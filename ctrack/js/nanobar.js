@@ -5,7 +5,7 @@
 /*
   var css = '.nanobar{width:100%;height:4px;z-index:9999;top:0}.bar{width:0;height:100%;transition:height .3s;background:#000}'
 
-  // add required css in head div
+  // add  css in head div
   function addCss () {
     var s = document.getElementById('nanobarcss')
 

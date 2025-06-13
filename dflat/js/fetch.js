@@ -1,27 +1,29 @@
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var fetch=exports;
+const fetch={}
+export default fetch
 
-var dflat=require("./dflat.js")
+import * as fs   from "fs"
+import * as path from "path"
 
-var path=require("path")
-var pfs=require('fs').promises
-var jml=require("./jml.js")
-var xson=require("./xson.js")
-var stringify = require('json-stable-stringify');
+import dflat     from "./dflat.js"
+import xson      from "./xson.js"
+import jml       from "./jml.js"
+import stringify from "json-stable-stringify"
+import nodefetch from "node-fetch"
+
+const pfs = fs.promises
 
 
 let http_gethead=async function(url)
 {
-	let fetch=require("node-fetch")
-	const response = await fetch(url);
+	const response = await nodefetch(url);
 	return response.headers;
 }
 let http_getbody=async function(url)
 {
-	let fetch=require("node-fetch")
-	const response = await fetch(url);
+	const response = await nodefetch(url);
 	const data = await response.text();
 	return data;
 }
@@ -172,8 +174,6 @@ fetch.xsd_xpaths=function(tree,root)
 
 fetch.xsd=async function()
 {
-//	const download = require('download')
-
 // mkae sure dirs exist	
 	pfs.mkdir("json").catch(e=>{})
 	pfs.mkdir("fetched").catch(e=>{})
@@ -355,8 +355,6 @@ for(var n in fetch.codelist_filenames_3){fetch.codelist_filenames[n]=true}
 
 fetch.codelist=async function()
 {
-//	const download = require('download')
-
 	for(var n in fetch.codelist_filenames_1 )
 	{
 		console.log("downloading "+n)

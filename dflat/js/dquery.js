@@ -2,25 +2,16 @@
 const dquery={}
 export default dquery
 
-import dquery_html from "./dquery.html"
-import dquery_css  from "./dquery.css"
-import dquery_sql  from "./dquery.sql"
-
-import jquery                              from "jquery"
-
-//import jquery_ui                           from "jquery-ui-dist/jquery-ui.js"
-import jquery_ui_css                       from "jquery-ui-dist/jquery-ui.css"
-
-import jquery_splitter                     from "jquery.splitter"
-import jquery_splitter_css                 from "jquery.splitter/css/jquery.splitter.css"
-//import jquery_json_viewer                  from "jquery.json-viewer/json-viewer/jquery.json-viewer.js"
-import jquery_json_viewer_css              from "jquery.json-viewer/json-viewer/jquery.json-viewer.css"
-import plated_base                         from "plated"
-//import brace                               from "brace"
-//import brace_ext_modelist                  from "brace/ext/modelist.js"
-//import brace_theme_tomorrow_night_eighties from "brace/theme/tomorrow_night_eighties.js"
-//import brace_mode_pgsql                    from "brace/mode/pgsql.js"
-import stringify                           from "json-stable-stringify"
+import dquery_html            from "./dquery.html"
+import dquery_css             from "./dquery.css"
+import dquery_sql             from "./dquery.sql"
+import jquery                 from "jquery"
+import jquery_ui_css          from "jquery-ui-dist/jquery-ui.css"
+import jquery_splitter        from "jquery.splitter"
+import jquery_splitter_css    from "jquery.splitter/css/jquery.splitter.css"
+import jquery_json_viewer_css from "jquery.json-viewer/json-viewer/jquery.json-viewer.css"
+import plated_base            from "plated"
+import stringify              from "json-stable-stringify"
 
 
 	dquery.origin="//d-portal.org"

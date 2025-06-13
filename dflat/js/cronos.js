@@ -1,20 +1,24 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var cronos=exports;
+const cronos={}
+export default cronos
 
-const assert = require('assert')
-const path = require('path')
-var shell = require('shelljs')
+import * as fs   from "fs"
+import * as util from "util"
 
-var pfs=require('fs').promises
-var util=require('util');
+import assert    from "assert"
+import path      from "path"
+import shell     from "shelljs"
+import stringify from "json-stable-stringify"
+import JSON5     from "json5"
+
+const pfs = fs.promises
+
+
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-var stringify = require('json-stable-stringify');
-
-
-const JSON5 = require('json5')
 
 /*#js.dflat.update
 

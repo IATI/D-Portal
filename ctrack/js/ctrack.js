@@ -199,7 +199,7 @@ ctrack.setup=function(args)
 
 	document.head.insertAdjacentHTML("beforeend", dflat_savi.plate('<style>{savi-css}</style>') ) // include new savi CSS
 
-	ctrack.year=(new Date()).getFullYear()-1 ; // require("../../dstore/json/crs.js").year // start with year of the CRS data we have
+	ctrack.year=(new Date()).getFullYear()-1 ;
 	ctrack.year=parseInt(args.year || ctrack.q.year || ctrack.year ); // default base year for graphs tables etc
 
 	ctrack.year_chunks=function(y){					// function to build visible range of years for display

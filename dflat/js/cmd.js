@@ -8,14 +8,21 @@ import * as fs   from "fs"
 import * as util from "util"
 import * as path from "path"
 
-import stringify from "json-stable-stringify"
+import minimist     from "minimist"
+import stringify    from "json-stable-stringify"
+import dflat        from "./dflat.js"
+import jml          from "./jml.js"
+import xson         from "./xson.js"
+import savi         from "./savi.js"
+import fetch        from "./fetch.js"
+import frankenstein from "./frankenstein.js"
+import stats        from "./stats.js"
+import packages     from "./packages.js"
+import cronos       from "./cronos.js"
+import dflat_sqlite from "./dflat_sqlite.js"
+
 
 let pfs=fs.promises
-
-import dflat from "./dflat.js"
-import jml from "./jml.js"
-import xson from "./xson.js"
-import savi from "./savi.js"
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
@@ -23,7 +30,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 cmd.parse=function(argv)
 {
-	argv.filename_dflat=__filename
+	argv.filename_dflat=import.meta.filename
 
 	argv.cronos =           argv.cronos || process.env.DFLAT_CRONOS || "cronos"
 
@@ -67,7 +74,7 @@ cmd.run=async function(argv)
 {
 	if( argv._[0]=="fetch" )
 	{
-		await require("./fetch.js").all()
+		await fetch.all()
 		return
 	}
 
@@ -218,34 +225,34 @@ cmd.run=async function(argv)
 
 	if( argv._[0]=="frankenstein" )
 	{
-		await require("./frankenstein.js").all()
+		await frankenstein.all()
 		return
 	}
 
 	if( argv._[0]=="stats" )
 	{
-		await require("./stats.js").cmd(argv)
+		await stats.cmd(argv)
 		return
 	}
 
 	if( argv._[0]=="packages" )
 	{
-		await require("./packages.js").cmd_prepare(argv)
+		await packages.cmd_prepare(argv)
 		return
 	}
 	if( argv._[0]=="packages-parse" )
 	{
-		await require("./packages.js").cmd_process(argv)
+		await packages.cmd_process(argv)
 		return
 	}
 	if( argv._[0]=="packages-meta" )
 	{
-		await require("./packages.js").cmd_meta(argv)
+		await packages.cmd_meta(argv)
 		return
 	}
 	if( argv._[0]=="packages-join" )
 	{
-		await require("./packages.js").cmd_join(argv)
+		await packages.cmd_join(argv)
 		return
 	}
 
@@ -253,18 +260,18 @@ cmd.run=async function(argv)
 	{
 		if( argv._[1] == "update" )
 		{
-			await require("./cronos.js").update(argv)
+			await cronos.update(argv)
 		}
 		else
 		{
-			await require("./cronos.js").help(argv)
+			await cronos.help(argv)
 		}
 		return
 	}
 
 	if( argv._[0]=="sqlite" )
 	{
-		await require("./dflat_sqlite.js").cmd(argv)
+		await dflat_sqlite.cmd(argv)
 		return
 	}
 
@@ -371,7 +378,7 @@ More info about managing an sqlite database of dflat data.
 // if global.argv is set then we are inside another command so do nothing
 if(!global.argv)
 {
-	var argv = require('yargs').argv
+	let argv=minimist(process.argv.slice(2))
 	global.argv=argv
 	cmd.parse(argv)
 	cmd.run(argv)

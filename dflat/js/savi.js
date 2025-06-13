@@ -20,6 +20,7 @@ import test_json  from "../json/test_1.json"               with {type:"json"}
 
 import savi_html from "./savi.html"
 import savi_css from "./savi.css"
+import JSON5     from "json5"
 
 const publisher_names=iati_codes.publisher_names
 

@@ -6,6 +6,7 @@ export default jml
 
 import * as entities from "entities"
 
+import sax from "sax"
 
 
 // sort jml
@@ -35,7 +36,7 @@ jml.from_xml=function(data)
 	var top={};stack.push(top);
 	var cdata=false;
 
-	var parser = require('sax').parser(true)
+	var parser = sax.parser(true)
 
 	parser.onopentag=(node)=>{
 		var parent=top
