@@ -30,7 +30,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 cmd.parse=function(argv)
 {
-	argv.filename_dflat=import.meta.filename
+	argv.filename_dflat=import.meta.filename.replace(".js",".wrap.js")
 
 	argv.cronos =           argv.cronos || process.env.DFLAT_CRONOS || "cronos"
 
