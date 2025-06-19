@@ -4,14 +4,12 @@
 const dstore_sqlite={}
 export default dstore_sqlite
 
-import * as url  from "url"
-import * as util from "util"
-import * as fs   from "fs"
-import * as http from "http"
+import * as url          from "url"
+import * as util         from "util"
+import * as fs           from "fs"
+import * as http         from "http"
+import * as sqlite_async from "sqlite-async"
 
-import Cursor         from "pg-cursor"
-import pg_monitor     from "pg-monitor"
-import pg_promise     from "pg-promise"
 import dstore_db      from "./dstore_db.js"
 import dflat          from "../../dflat/js/dflat.js"
 import dflat_database from "../../dflat/json/database.json" with {type:"json"}
@@ -42,7 +40,7 @@ dstore_sqlite.open = async function(req){
 
 	if(!sqlite)
 	{
-		sqlite = (await import("sqlite-async")).Database;
+		sqlite = sqlite_async.Database;
 	}
 
 //	var db = new sqlite3.cached.Database( global.argv.database );
@@ -459,7 +457,7 @@ dstore_sqlite.fake_trans = async function(){
 
 	let rows=await db.all("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code")
 
-	for(i=0;i<rows.length;i++)
+	for(let i=0;i<rows.length;i++)
 	{
 		var v=rows[i];
 		if(v.trans_code=="C")
@@ -485,12 +483,12 @@ dstore_sqlite.fake_trans = async function(){
 	ls(fake_ids);
 
 //		process.stdout.write("Adding fake transactions for the following IDs\n");
-	for(i=0;i<fake_ids.length;i++) // add new fake
+	for(let i=0;i<fake_ids.length;i++) // add new fake
 	{
 		var v=fake_ids[i];
 		let rows=db.all("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=? AND trans_code=\"C\" ",v)
 
-		for(j=0;j<rows.length;j++)
+		for(let j=0;j<rows.length;j++)
 		{
 			var t=rows[j];
 //					process.stdout.write(t.aid+"\n");

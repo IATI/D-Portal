@@ -12,6 +12,6 @@ if(global && global.argv && global.argv.pg)
 }
 else // default to sqlite
 {
-	dstore_back=dstore_pg
+	dstore_back=dstore_sqlite
 }
 export default dstore_back
