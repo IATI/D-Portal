@@ -8,6 +8,7 @@ dquery_loader=function(args){
 	head.load(
 		root+"lib/dquery_loader/dquery.js",
 		function(){
+			// need to unpromise and get default
 			Promise.resolve(window.dquery).then(function(it){
 				window.dquery=it.default
 				window.dquery.start(args);

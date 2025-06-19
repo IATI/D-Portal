@@ -8,6 +8,7 @@ savi_loader=function(args){
 	head.load(
 		root+"lib/savi_loader/savi.js",
 		function(){
+			// need to unpromise and get default
 			Promise.resolve(window.savi).then(function(it){
 				window.savi=it.default
 				window.savi.start(args);
