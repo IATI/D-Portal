@@ -40,17 +40,17 @@ iati_codes.fetch = async function(){
 
 	try{
 		await iati_codes.fetch1()
-	}catch(e){}
+	}catch(e){console.log(e)}
 
 	try{
 		await iati_codes.fetch2()
-	}catch(e){}
+	}catch(e){console.log(e)}
 }
 
 
 iati_codes.fetch1 = async function(){
 
-	var codes=JSON.parse( fs.readFileSync(__dirname+"/../json/iati_codes.json") );
+	var codes=JSON.parse( fs.readFileSync(import.meta.dirname+"/../json/iati_codes.json") );
 
 	var files=[
 
@@ -251,7 +251,7 @@ iati_codes.fetch1 = async function(){
 	codes["transaction_type_num"]=o; // map old codes to new numbers
 
 	console.log("Parsing csv/iati_funders.csv")
-	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/iati_funders.csv",{encoding:"utf8"}) ).data;
+	var lines=papa.parse( fs.readFileSync(import.meta.dirname+"/../csv/iati_funders.csv",{encoding:"utf8"}) ).data;
 
 	var o={};
 	for(var i=1;i<lines.length;i++)
@@ -270,7 +270,7 @@ iati_codes.fetch1 = async function(){
 
 
 	console.log("Parsing csv/imf_currencies.csv")
-	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/imf_currencies.csv",{encoding:"utf8"}) ).data;
+	var lines=papa.parse( fs.readFileSync(import.meta.dirname+"/../csv/imf_currencies.csv",{encoding:"utf8"}) ).data;
 
 
 	var o=[];
@@ -291,7 +291,7 @@ iati_codes.fetch1 = async function(){
 
 
 	console.log("Parsing csv/local_currency.csv")
-	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/local_currency.csv",{encoding:"utf8"}) ).data;
+	var lines=papa.parse( fs.readFileSync(import.meta.dirname+"/../csv/local_currency.csv",{encoding:"utf8"}) ).data;
 
 	var o={};
 	for(var i=1;i<lines.length;i++)
@@ -311,7 +311,7 @@ iati_codes.fetch1 = async function(){
 
 	console.log("Parsing csv/crs_funders.csv")
 
-	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/crs_funders.csv",{encoding:"utf8"}) ).data;
+	var lines=papa.parse( fs.readFileSync(import.meta.dirname+"/../csv/crs_funders.csv",{encoding:"utf8"}) ).data;
 
 	var d={};
 	var o={};
@@ -365,7 +365,7 @@ iati_codes.fetch1 = async function(){
 
 	console.log("Parsing csv/crs_countries.csv")
 
-	var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/crs_countries.csv",{encoding:"utf8"}) ).data;
+	var lines=papa.parse( fs.readFileSync(import.meta.dirname+"/../csv/crs_countries.csv",{encoding:"utf8"}) ).data;
 
 	var o={};
 	var r={};
@@ -389,9 +389,9 @@ iati_codes.fetch1 = async function(){
 	{
 
 		console.log("Parsing csv/crs_"+year+".csv")
-		console.log(__dirname+"/../csv/crs_"+year+".csv")
+		console.log(import.meta.dirname+"/../csv/crs_"+year+".csv")
 
-		var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/crs_"+year+".csv",{encoding:"utf8"}) ).data;
+		var lines=papa.parse( fs.readFileSync(import.meta.dirname+"/../csv/crs_"+year+".csv",{encoding:"utf8"}) ).data;
 
 		var o={};
 
@@ -425,13 +425,13 @@ iati_codes.fetch1 = async function(){
 			}
 		}
 		console.log("Writing json/crs_"+year+".json")
-		fs.writeFileSync(__dirname+"/../json/crs_"+year+".json",json_stringify(o,{ space: ' ' }));
+		fs.writeFileSync(import.meta.dirname+"/../json/crs_"+year+".json",json_stringify(o,{ space: ' ' }));
 
 
 
 		console.log("Parsing csv/crs_"+year+"_sectors.csv")
 
-		var lines=papa.parse( fs.readFileSync(__dirname+"/../csv/crs_"+year+"_sectors.csv",{encoding:"utf8"}) ).data;
+		var lines=papa.parse( fs.readFileSync(import.meta.dirname+"/../csv/crs_"+year+"_sectors.csv",{encoding:"utf8"}) ).data;
 
 		var o={};
 
@@ -466,7 +466,7 @@ iati_codes.fetch1 = async function(){
 			}
 		}
 		console.log("Writing json/crs_"+year+"_sectors.json")
-		fs.writeFileSync(__dirname+"/../json/crs_"+year+"_sectors.json",json_stringify(o,{ space: ' ' }));
+		fs.writeFileSync(import.meta.dirname+"/../json/crs_"+year+"_sectors.json",json_stringify(o,{ space: ' ' }));
 	}
 
 
@@ -475,7 +475,7 @@ iati_codes.fetch1 = async function(){
 	console.log("Parsing csv/sector_category.csv")
 
 
-	var x=fs.readFileSync(__dirname+"/../csv/sector_category.csv","utf8");
+	var x=fs.readFileSync(import.meta.dirname+"/../csv/sector_category.csv","utf8");
 	var lines=papa.parse( x ).data;
 	var o={};
 	for(var i=1;i<lines.length;i++)
@@ -535,13 +535,13 @@ iati_codes.fetch1 = async function(){
 
 
 	console.log("Writing json/iati_codes.json for the first time")
-	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
+	fs.writeFileSync(import.meta.dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
 
 }
 
 iati_codes.fetch2 = async function(){
 
-	var codes=JSON.parse( fs.readFileSync(__dirname+"/../json/iati_codes.json") );
+	var codes=JSON.parse( fs.readFileSync(import.meta.dirname+"/../json/iati_codes.json") );
 
 	var publishers={};
 	var packages={};
@@ -628,7 +628,7 @@ iati_codes.fetch2 = async function(){
 	if(start>2000) // sanity, just in case of total registry failure
 	{
 		console.log("Writing json/packages.json")
-		fs.writeFileSync(__dirname+"/../json/packages.json",json_stringify(packages,{ space: ' ' }));
+		fs.writeFileSync(import.meta.dirname+"/../json/packages.json",json_stringify(packages,{ space: ' ' }));
 
 		console.log("Writing json/download.txt")
 
@@ -646,7 +646,7 @@ iati_codes.fetch2 = async function(){
 			}
 		}
 
-		fs.writeFileSync(__dirname+"/../json/curl.txt",cc.join(""));
+		fs.writeFileSync(import.meta.dirname+"/../json/curl.txt",cc.join(""));
 
 		console.log("Writing json/validhash.json")
 
@@ -659,7 +659,7 @@ iati_codes.fetch2 = async function(){
 			validhash[slug]=hash
 		}
 
-		fs.writeFileSync(__dirname+"/../json/validhash.json",json_stringify(validhash,{ space: ' ' }));
+		fs.writeFileSync(import.meta.dirname+"/../json/validhash.json",json_stringify(validhash,{ space: ' ' }));
 	}
 
 
@@ -715,10 +715,10 @@ console.log("secondary "+id);
 //	ls(publishers);
 
 	console.log("Writing json/iati_codes.json for the last time")
-	fs.writeFileSync(__dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
+	fs.writeFileSync(import.meta.dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
 
 	console.log("Writing json/publishers.json")
-	fs.writeFileSync(__dirname+"/../json/publishers.json",json_stringify(publishers,{ space: ' ' }));
+	fs.writeFileSync(import.meta.dirname+"/../json/publishers.json",json_stringify(publishers,{ space: ' ' }));
 
 }
 

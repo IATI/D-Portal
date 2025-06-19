@@ -65,7 +65,7 @@ dstore_sqlite.open = async function(req){
 
 	if( typeof md5key === 'string' ) // open an instance database
 	{
-		var dbfilename=__dirname+"/../../dstore/instance/"+md5key+".sqlite";
+		var dbfilename=import.meta.dirname+"/../../dstore/instance/"+md5key+".sqlite";
 
 console.log("using instance database "+dbfilename)
 

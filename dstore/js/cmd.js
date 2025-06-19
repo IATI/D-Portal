@@ -103,6 +103,7 @@ dstore_argv.parse(argv)
 	else
 	if( argv._[0]=="fetch" )
 	{
+		console.log("fetching")
 		await iati_codes.fetch();
 		process.exit();
 	}

@@ -26,7 +26,7 @@ upload.serv = function(req,res){
 
 	let log=function(a)
 	{
-		fs.appendFile( __dirname+"/../../dstore/instance/upload.tsv" , ( new Date().getTime() / 1000 )+"\t"+(req.ip)+"\t"+a.join("\t")+"\n" , function(){} )
+		fs.appendFile( import.meta.dirname+"/../../dstore/instance/upload.tsv" , ( new Date().getTime() / 1000 )+"\t"+(req.ip)+"\t"+a.join("\t")+"\n" , function(){} )
 	}
 
 
@@ -40,8 +40,8 @@ upload.serv = function(req,res){
 
 		var instance=md5omatic(data);
 
-		var xml_filename=__dirname+"/../../dstore/instance/"+instance+".xml";
-		var log_filename=__dirname+"/../../dstore/instance/"+instance+".log";
+		var xml_filename=import.meta.dirname+"/../../dstore/instance/"+instance+".xml";
+		var log_filename=import.meta.dirname+"/../../dstore/instance/"+instance+".log";
 
 		let result=function(ret)
 		{

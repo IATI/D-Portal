@@ -1331,7 +1331,7 @@ query.serv = function(req,res){
 	var q=query.get_q(req);
 
 // special log info requests
-	var logname=__dirname+'/../../logs/cron.log'
+	var logname=import.meta.dirname+'/../../logs/cron.log'
 
 // prefer X-MD5 header from nginx before we check subdomain
 	let md5key = ( req && req.headers && req.headers["x-md5"] ) || ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
@@ -1351,7 +1351,7 @@ query.serv = function(req,res){
 
 	if( typeof md5key === 'string' )
 	{
-		logname=__dirname+"/../../dstore/instance/"+md5key+".log";
+		logname=import.meta.dirname+"/../../dstore/instance/"+md5key+".log";
 	}
 
 // handle special results
@@ -1366,8 +1366,8 @@ query.serv = function(req,res){
 	{
 		var slug=q.slug;
 		slug=String( slug ).replace(/[^0-9a-zA-Z\-_]/g, '_');
-		var logname1=__dirname+"/../../../dataiati/dataflat/logs/"+slug+".txt";
-		var logname2=__dirname+"/../../dstore/cache/"+slug+".xml.import.last.log";
+		var logname1=import.meta.dirname+"/../../../dataiati/dataflat/logs/"+slug+".txt";
+		var logname2=import.meta.dirname+"/../../dstore/cache/"+slug+".xml.import.last.log";
 
 		fs.readFile(logname1,"utf8", function (err, data) {
 				var ret={};
@@ -1426,7 +1426,7 @@ query.serv = function(req,res){
 		{
 			ret.instance=md5key
 
-			fs.readFile( __dirname+"/../../dstore/instance/"+md5key+".status" ,"utf8", function (err, data) {
+			fs.readFile( import.meta.dirname+"/../../dstore/instance/"+md5key+".status" ,"utf8", function (err, data) {
 				if(err)
 				{
 					ret.err=err;
