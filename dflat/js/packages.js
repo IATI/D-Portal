@@ -637,7 +637,7 @@ packages.cmd_meta=async function(argv)
 	}
 
 	// make sure json and sub dirs exist
-	for	( p of [
+	for	( let p of [
 			path.join(argv.dir,"json"),
 			path.join(argv.dir,"json/activity-identifiers"),
 			path.join(argv.dir,"json/organisation-identifiers"),
@@ -715,7 +715,7 @@ packages.cmd_meta=async function(argv)
 		return // so exit here
 	}
 	
-	for( idname of ["activity-identifiers","organisation-identifiers"] )
+	for( let idname of ["activity-identifiers","organisation-identifiers"] )
 	{
 		console.log("META "+idname)
 
