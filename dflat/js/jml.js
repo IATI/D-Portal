@@ -41,7 +41,7 @@ jml.from_xml=function(data)
 	parser.onopentag=(node)=>{
 		var parent=top
 		top={};stack.push(top)
-		for(n in node.attributes) { top[n]=node.attributes[n] }
+		for(let n in node.attributes) { top[n]=node.attributes[n] }
 		top[0]=node.name
 		if(!parent[1]){ parent[1]=[]; }
 		parent[1].push(top)
