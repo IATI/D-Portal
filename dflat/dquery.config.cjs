@@ -58,7 +58,7 @@ module.exports = {
     maxAssetSize: 555555,
   },
   output: {
-    path: path.resolve(__dirname, 'html/lib/dquery/'),
+    path: path.resolve(__dirname, 'html/lib/dquery_loader/'),
     filename: 'dquery.js',
     globalObject: 'this',
     library: {

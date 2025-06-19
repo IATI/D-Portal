@@ -54,7 +54,7 @@ module.exports = {
     maxAssetSize: 555555,
   },
   output: {
-    path: path.resolve(__dirname, 'html/lib/savi/'),
+    path: path.resolve(__dirname, 'html/lib/savi_loader/'),
     filename: 'savi.js',
     globalObject: 'this',
     library: {

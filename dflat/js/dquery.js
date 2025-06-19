@@ -5,11 +5,7 @@ export default dquery
 import dquery_html            from "./dquery.html"
 import dquery_css             from "./dquery.css"
 import dquery_sql             from "./dquery.sql"
-import jquery                 from "jquery"
-import jquery_ui_css          from "jquery-ui-dist/jquery-ui.css"
-import jquery_splitter        from "jquery.splitter"
-import jquery_splitter_css    from "jquery.splitter/css/jquery.splitter.css"
-import jquery_json_viewer_css from "jquery.json-viewer/json-viewer/jquery.json-viewer.css"
+import jqs                    from "./jqs.js"
 import plated_base            from "plated"
 import stringify              from "json-stable-stringify"
 
@@ -19,12 +15,6 @@ import stringify              from "json-stable-stringify"
 // running in browser
 if(typeof window !== 'undefined')
 {
-	window.$=jquery
-	window.jQuery = jquery
-
-	var split=jquery_splitter
-	var ui=jquery_ui
-	var jsonv=jquery_json_viewer
 
 	dquery.origin=window.location.origin
 
