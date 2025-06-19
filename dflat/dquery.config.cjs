@@ -61,6 +61,7 @@ module.exports = {
     path: path.resolve(__dirname, 'html/lib/dquery_loader/'),
     filename: 'dquery.js',
     globalObject: 'this',
+    iife:true,
     library: {
       name: "dquery",
       type: 'umd',

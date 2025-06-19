@@ -46,6 +46,10 @@ module.exports = {
         test: /\.css$/i,
         use: { loader:'raw-loader', options:{ esModule: false, } },
       },
+      {
+        test: /\.sql$/i,
+        use: { loader:'raw-loader', options:{ esModule: false, } },
+      },
     ],
   },
   performance: {
@@ -57,6 +61,7 @@ module.exports = {
     path: path.resolve(__dirname, 'html/lib/savi_loader/'),
     filename: 'savi.js',
     globalObject: 'this',
+    iife:true,
     library: {
       name: "savi",
       type: 'umd',

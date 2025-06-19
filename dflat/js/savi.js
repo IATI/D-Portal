@@ -6,6 +6,9 @@ export default savi
 
 import * as fs from "fs"
 
+import jquery        from "jquery"
+import * as Chartist from "chartist"
+
 import dflat       from "./dflat.js"
 import xson        from "./xson.js"
 import exchange    from "./exchange.js"
@@ -117,12 +120,15 @@ savi.chunks["origin"]="//d-portal.org"
 savi.opts={}
 savi.opts.test=false
 
-savi.start=function(opts){
+savi.start=async function(opts){
 
-	// running in browser, make sure jquer etc is setup
-	if(typeof window !== 'undefined')
+	// running in browser, make sure jquery etc is setup
+	if(window)
 	{
-		import("../../ctrack/js/jqs.js")
+		window.$=jquery
+		window.jQuery = jquery
+		window.Chartist = Chartist
+		window.stupidtable = await import("stupid-table-plugin")
 	}
 
 	for(var n in opts) { savi.opts[n]=opts[n] } // copy opts

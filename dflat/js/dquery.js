@@ -5,9 +5,16 @@ export default dquery
 import dquery_html            from "./dquery.html"
 import dquery_css             from "./dquery.css"
 import dquery_sql             from "./dquery.sql"
-import jqs                    from "./jqs.js"
 import plated_base            from "plated"
 import stringify              from "json-stable-stringify"
+
+import dayjs                  from "dayjs"
+import * as Chartist          from "chartist"
+import jquery                 from "jquery"
+import jquery_ui_css          from "jquery-ui-dist/jquery-ui.css"
+import jquery_splitter        from "jquery.splitter"
+import jquery_splitter_css    from "jquery.splitter/css/jquery.splitter.css"
+import jquery_json_viewer_css from "jquery.json-viewer/json-viewer/jquery.json-viewer.css"
 
 
 	dquery.origin="//d-portal.org"
@@ -15,8 +22,19 @@ import stringify              from "json-stable-stringify"
 // running in browser
 if(typeof window !== 'undefined')
 {
-
 	dquery.origin=window.location.origin
+
+	window.$ = jquery
+	window.jQuery = jquery
+	window.Chartist            = Chartist
+	window.moment              = dayjs
+	window.jquery_splitter     = jquery_splitter
+	window.jquery_json_viewer  = await import("jquery.json-viewer/json-viewer/jquery.json-viewer.js")
+	window.stupid_table_plugin = await import("stupid-table-plugin")
+	window.chosen              = await import("chosen-npm/public/chosen.jquery.js")
+	window.typeahead           = await import("typeahead.js/dist/typeahead.jquery.js")
+	window.jquery_ui           = await import("jquery-ui-dist/jquery-ui.js")
+	window.brace               = await import("brace")
 
 }
 
@@ -62,7 +80,7 @@ dquery.start_loaded=async function(){
 			window.dispatchEvent(new Event('resize'));
 		};
 		clearTimeout(resize_timeout);
-		timresize_timeouteout=setTimeout(f,100);
+		resize_timeout=setTimeout(f,100);
 	};
 	$( window ).resize(resize_func) // keep height full
 	$("#split").height("100%").split({orientation:'vertical',limit:5,position:'50%',onDrag: resize_func });
@@ -85,13 +103,13 @@ dquery.start_loaded=async function(){
 	})
 
 	dquery.editor=ace.edit("editor");
-	dquery.editor.setTheme("ace/theme/tomorrow_night_eighties");
+//	dquery.editor.setTheme("ace/theme/tomorrow_night_eighties");
 	dquery.editor.$blockScrolling = Infinity
 
 	dquery.hash=window.location.hash
 	var session=dquery.editor.getSession()
 	session.setValue( decodeURIComponent( dquery.hash.substr(1) ) )
-	session.setMode( "ace/mode/pgsql" );
+//	session.setMode( "ace/mode/pgsql" );
 	session.setUseWrapMode(true);
 
 	dquery.set_download_links()
