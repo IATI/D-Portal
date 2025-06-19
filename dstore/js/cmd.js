@@ -12,13 +12,13 @@ import * as fs from "fs"
 import * as util from "util"
 import * as path from "path"
 
-import express             from "express"
-import minimist            from "minimist"
-import dstore_argv         from "./argv.js"
-import dstore_dstore_db    from "./dstore_db.js"
-import dstore_dstore_cache from "./dstore_cache.js"
-import dstore_iati_codes   from "./iati_codes.js"
-import dstore_dstore_stats from "./dstore_stats.js"
+import express      from "express"
+import minimist     from "minimist"
+import dstore_argv  from "./argv.js"
+import dstore_db    from "./dstore_db.js"
+import dstore_cache from "./dstore_cache.js"
+import iati_codes   from "./iati_codes.js"
+import dstore_stats from "./dstore_stats.js"
 
 
 var app = express();
@@ -37,61 +37,61 @@ dstore_argv.parse(argv)
 	//ls(argv)
 	if( argv._[0]=="init" )
 	{
-		await dstore_dstore_db.create_tables();
+		await dstore_db.create_tables();
 		process.exit();
 	}
 	else
 	if( argv._[0]=="analyze" )
 	{
-		await dstore_dstore_db.analyze();
+		await dstore_db.analyze();
 		process.exit();
 	}
 	else
 	if( argv._[0]=="vacuum" )
 	{
-		await dstore_dstore_db.vacuum();
+		await dstore_db.vacuum();
 		process.exit();
 	}
 	else
 	if( argv._[0]=="index" )
 	{
-		await dstore_dstore_db.create_indexes(argv._[1]); // add indexes to previously inserted data
+		await dstore_db.create_indexes(argv._[1]); // add indexes to previously inserted data
 		process.exit();
 	}
 	else
 	if( argv._[0]=="unindex" )
 	{
-		await dstore_dstore_db.delete_indexes(); // remoce indexes from previously inserted data
+		await dstore_db.delete_indexes(); // remoce indexes from previously inserted data
 		process.exit();
 	}
 	else
 	if( argv._[0]=="check" )
 	{
-		await dstore_dstore_db.create_tables({do_not_drop:true});
+		await dstore_db.create_tables({do_not_drop:true});
 		process.exit();
 	}
 	else
 	if( argv._[0]=="dump" )
 	{
-		await dstore_dstore_db.dump_tables();
+		await dstore_db.dump_tables();
 		process.exit();
 	}
 	else
 	if( argv._[0]=="fake" )
 	{
-		await dstore_dstore_db.fake_trans(); // create fake transactions
+		await dstore_db.fake_trans(); // create fake transactions
 		process.exit();
 	}
 	else
 	if( argv._[0]=="augment" )
 	{
-		await dstore_dstore_db.augment_related(); // create related
+		await dstore_db.augment_related(); // create related
 		process.exit();
 	}
 	else
 	if( argv._[0]=="cache" )
 	{
-		await dstore_dstore_cache.cmd(argv);
+		await dstore_cache.cmd(argv);
 		process.exit();
 	}
 	else
@@ -103,19 +103,19 @@ dstore_argv.parse(argv)
 	else
 	if( argv._[0]=="fetch" )
 	{
-		await dstore_dstore_iati_codes.fetch();
+		await iati_codes.fetch();
 		process.exit();
 	}
 	else
 	if( argv._[0]=="import" )
 	{
-		await dstore_dstore_cache.import_xmlfile( argv._[1] );
+		await dstore_cache.import_xmlfile( argv._[1] );
 		process.exit();
 	}
 	else
 	if( argv._[0]=="stats" )
 	{
-		await dstore_dstore_stats.cmd(argv);
+		await dstore_stats.cmd(argv);
 		process.exit();
 	}
 
