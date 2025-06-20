@@ -12,7 +12,9 @@ import savi      from "./savi.js"
 import xson      from "./xson.js"
 import jml       from "./jml.js"
 import dquery    from "./dquery.js"
-import dstore_db from "../../dstore/js/dstore_db.js"
+//import dstore_db from "../../dstore/js/dstore_db.js"
+
+const dstore_db=global.dstore_db
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }

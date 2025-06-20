@@ -128,7 +128,7 @@ savi.start=async function(opts){
 		window.$=jquery
 		window.jQuery = jquery
 		window.Chartist = Chartist
-		window.stupidtable = await import("stupid-table-plugin")
+		window.stupidtable = (await import("stupid-table-plugin")).default
 	}
 
 	for(var n in opts) { savi.opts[n]=opts[n] } // copy opts
@@ -1045,7 +1045,7 @@ savi.prepare=function(iati_xson){
 // handle the /savi url space
 savi.serv = async function(req,res,next){
 
-	var express = await import('express');
+	var express = (await import('express')).default;
 	var serve_html = express.static(import.meta.dirname+"/../html",{'index': ['savi.html']})
 
 	// serv up static files

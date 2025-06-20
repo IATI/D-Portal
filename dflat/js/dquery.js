@@ -29,12 +29,12 @@ if(typeof window !== 'undefined')
 	window.Chartist            = Chartist
 	window.moment              = dayjs
 	window.jquery_splitter     = jquery_splitter
-	window.jquery_json_viewer  = await import("jquery.json-viewer/json-viewer/jquery.json-viewer.js")
-	window.stupid_table_plugin = await import("stupid-table-plugin")
-	window.chosen              = await import("chosen-npm/public/chosen.jquery.js")
-	window.typeahead           = await import("typeahead.js/dist/typeahead.jquery.js")
-	window.jquery_ui           = await import("jquery-ui-dist/jquery-ui.js")
-	window.brace               = await import("brace")
+	window.jquery_json_viewer  = (await import("jquery.json-viewer/json-viewer/jquery.json-viewer.js")).default
+	window.stupid_table_plugin = (await import("stupid-table-plugin")).default
+	window.chosen              = (await import("chosen-npm/public/chosen.jquery.js")).default
+	window.typeahead           = (await import("typeahead.js/dist/typeahead.jquery.js")).default
+	window.jquery_ui           = (await import("jquery-ui-dist/jquery-ui.js")).default
+	window.brace               = (await import("brace")).default
 
 }
 

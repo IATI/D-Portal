@@ -6,6 +6,7 @@ export default dstore_pg
 
 import * as util from "util"
 import * as fs   from "fs"
+import * as url  from "url"
 
 import Cursor         from "pg-cursor"
 import pg_monitor     from "pg-monitor"
@@ -25,8 +26,8 @@ dstore_back.engine="pg";
 
 
 // how to use query replcaments
-dstore_pg.text_plate=function(s){ return "${"+s+"}"; }
-dstore_pg.text_name=function(s){ return s; }
+dstore_db.text_plate=function(s){ return "${"+s+"}"; }
+dstore_db.text_name=function(s){ return s; }
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

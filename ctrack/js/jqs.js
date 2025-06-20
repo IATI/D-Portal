@@ -19,7 +19,7 @@ if(window)
 jqs.dayjs = dayjs
 jqs.Chartist = Chartist
 
-jqs.xtra = (await import("./jqs_xtra.js"))["default"]
+jqs.xtra = (await import("./jqs_xtra.js")).default
 
 if(window)
 {

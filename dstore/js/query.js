@@ -798,7 +798,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 
 	for( let n in q )
 	{
-		v=q[n]
+		let v=q[n]
 		if(n.startsWith("/iati-activities/iati-activity"))
 		{
 			push(n,v)

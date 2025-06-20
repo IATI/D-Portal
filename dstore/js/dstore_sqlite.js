@@ -27,8 +27,8 @@ dstore_back.engine="sqlite"
 var sqlite
 
 // how to use query replcaments
-dstore_sqlite.text_plate=function(s){ return "$"+s; }
-dstore_sqlite.text_name=function(s){ return "$"+s; }
+dstore_db.text_plate=function(s){ return "$"+s; }
+dstore_db.text_name=function(s){ return "$"+s; }
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
