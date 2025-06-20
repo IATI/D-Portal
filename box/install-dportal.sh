@@ -19,6 +19,7 @@ if [ -e "/etc/init.d/dportal" ]; then
 fi
 
 
+/dportal/nvm-install
 /dportal/npm-install
 /dportal/bin/build
 
