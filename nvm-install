@@ -11,6 +11,7 @@ else
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 	nvm install node
+	npm install -g forever
 fi
 
 nvm use node
@@ -18,4 +19,5 @@ nvm use node
 # to "mostly" uninstall nvm
 # rm -rf ~/.nvm
 # and open a new shell
+# this script would then do a reinstall
 
