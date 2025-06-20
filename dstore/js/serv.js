@@ -6,18 +6,23 @@ import * as path from "path"
 
 import express            from "express"
 import minimist           from "minimist"
-
-import argvjs from "./agrv.js"
-import queryjs from "./query.js"
-
-
-var app = express();
+import dstore_argv  from "./argv.js"
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // global.argv
 let argv=minimist(process.argv.slice(2))
-argvjs.parse(argv);
+global.argv=argv
+dstore_argv.parse(argv)
+
+//we must choose a backend before importing these
+const queryjs    = (await import("./query.js")).default
+
+
+
+
+var app = express();
+
 
 // make sure we have a db dir
 fs.mkdir("db",function(e){});

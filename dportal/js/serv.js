@@ -6,19 +6,22 @@ import express            from "express"
 import express_fileupload from "express-fileupload"
 import minimist           from "minimist"
 import dstore_argv        from "../../dstore/js/argv.js"
-import dstore_query       from "../../dstore/js/query.js"
-import dstore_upload      from "../../dstore/js/upload.js"
-import dflat_query        from "../../dflat/js/query.js"
-import dflat_savi         from "../../dflat/js/savi.js"
-
-var app = express();
-
-app.set("trust proxy", true)
-
 
 let argv=minimist(process.argv.slice(2))
 global.argv=argv
 dstore_argv.parse(argv)
+
+//we must choose a backend before importing these
+const dstore_query    = await import("../../dstore/js/query.js")
+const dstore_upload    = await import("../../dstore/js/upload.js")
+const dflat_query    = await import("../../dflat/js/query.js")
+const dflat_savi    = await import("../../dflat/js/savi.js")
+
+
+
+var app = express();
+app.set("trust proxy", true)
+
 
 //express.static.mime.define({'text/plain': ['']});
 

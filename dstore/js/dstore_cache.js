@@ -13,8 +13,9 @@ import fetch      from "node-fetch"
 import jschardet  from "jschardet"
 import iconv      from "iconv-lite"
 import refry      from "./refry.js"
-import dstore_db  from "./dstore_db.js"
 import packages   from "../json/packages.json" with {type:"json"}
+
+const dstore_db=global.dstore_db
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

@@ -10,7 +10,6 @@ import * as fs   from "fs"
 import refry      from "./refry.js"
 import exs        from "./exs.js"
 import iati_xml   from "./iati_xml.js"
-import dstore_db  from "./dstore_db.js"
 import iati_codes from "../json/iati_codes.json"        with {type:"json"}
 import jml        from "../../dflat/js/jml.js"
 import xson       from "../../dflat/js/xson.js"
@@ -18,6 +17,7 @@ import savi       from "../../dflat/js/savi.js"
 import dflat      from "../../dflat/js/dflat.js"
 import database   from "../../dflat/json/database.json" with {type:"json"}
 
+const dstore_db=global.dstore_db
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

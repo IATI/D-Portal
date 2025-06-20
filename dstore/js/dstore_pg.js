@@ -10,7 +10,6 @@ import * as fs   from "fs"
 import Cursor         from "pg-cursor"
 import pg_monitor     from "pg-monitor"
 import pg_promise     from "pg-promise"
-import dstore_db      from "./dstore_db.js"
 import dflat          from "../../dflat/js/dflat.js"
 import dflat_database from "../../dflat/json/database.json" with {type:"json"}
 import refry          from "./refry.js"
@@ -19,6 +18,7 @@ import iati_xml       from "./iati_xml.js"
 import iati_cook      from "./iati_cook.js"
 import query          from "./query.js"
 
+const dstore_db=global.dstore_db
 
 const dstore_back=dstore_pg
 dstore_back.engine="pg";

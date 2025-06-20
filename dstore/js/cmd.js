@@ -15,11 +15,6 @@ import * as path from "path"
 import express      from "express"
 import minimist     from "minimist"
 import dstore_argv  from "./argv.js"
-import dstore_db    from "./dstore_db.js"
-import dstore_cache from "./dstore_cache.js"
-import iati_codes   from "./iati_codes.js"
-import dstore_stats from "./dstore_stats.js"
-
 
 var app = express();
 
@@ -30,11 +25,24 @@ let argv=minimist(process.argv.slice(2))
 global.argv=argv
 dstore_argv.parse(argv)
 
+//we must choose a backend before importing these
+const dstore_db    = (await import("./dstore_db.js")).default
+const dstore_cache = (await import("./dstore_cache.js")).default
+const iati_codes   = (await import("./iati_codes.js")).default
+const dstore_stats = (await import("./dstore_stats.js")).default
+
 
 	// make sure we have a db dir
 	fs.mkdir("db",function(e){});
 
 	//ls(argv)
+
+	if( argv._[0]=="args" )
+	{
+		dstore_argv.print(argv)
+		process.exit();
+	}
+	else
 	if( argv._[0]=="init" )
 	{
 		await dstore_db.create_tables();

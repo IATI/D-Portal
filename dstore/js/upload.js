@@ -13,11 +13,11 @@ import md5omatic   from "md5-o-matic"
 import refry       from "./refry.js"
 import exs         from "./exs.js"
 import iati_xml    from "./iati_xml.js"
-import dstore_db   from "./dstore_db.js"
 import upload_html from "./upload.html"
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
+const dstore_db=global.dstore_db
 
 
 

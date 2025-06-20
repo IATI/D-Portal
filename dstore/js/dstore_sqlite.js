@@ -10,7 +10,6 @@ import * as fs           from "fs"
 import * as http         from "http"
 import * as sqlite_async from "sqlite-async"
 
-import dstore_db      from "./dstore_db.js"
 import dflat          from "../../dflat/js/dflat.js"
 import dflat_database from "../../dflat/json/database.json" with {type:"json"}
 import refry          from "./refry.js"
@@ -20,6 +19,7 @@ import iati_cook      from "./iati_cook.js"
 import codes          from "../json/iati_codes.json" with {type:"json"}
 import query          from "./query.js"
 
+const dstore_db=global.dstore_db
 
 const dstore_back=dstore_sqlite
 dstore_back.engine="sqlite"

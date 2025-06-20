@@ -3,6 +3,7 @@
 
 const dstore_db={}
 export default dstore_db
+global.dstore_db=dstore_db
 
 import * as fs     from "fs"
 import * as util   from "util"
@@ -16,9 +17,18 @@ import iati_xml       from "./iati_xml.js"
 import iati_cook      from "./iati_cook.js"
 import dflat          from "../../dflat/js/dflat.js"
 import dflat_database from "../../dflat/json/database.json" with {type:"json"}
-import dstore_back    from "./dstore_back.js"
 import iati_codes     from "../json/iati_codes.json" with {type:"json"}
 
+
+let dstore_back=false
+if(global && global.argv && global.argv.pg)
+{
+	dstore_back=(await import("./dstore_pg.js")).default
+}
+else // default to sqlite
+{
+	dstore_back=(await import("./dstore_sqlite.js")).default
+}
 dstore_db.engine=dstore_back.engine;
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }

@@ -9,8 +9,7 @@ import * as fs   from "fs"
 
 import json_stringify from "json-stable-stringify"
 
-import dstore_db from "./dstore_db.js"
-
+const dstore_db=global.dstore_db
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
