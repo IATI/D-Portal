@@ -1046,7 +1046,7 @@ savi.prepare=function(iati_xson){
 savi.serv = async function(req,res,next){
 
 	var express = await import('express');
-	var serve_html = express.static(__dirname+"/../html",{'index': ['savi.html']})
+	var serve_html = express.static(import.meta.dirname+"/../html",{'index': ['savi.html']})
 
 	// serv up static files
 	serve_html(req,res,next)

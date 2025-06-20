@@ -23,10 +23,13 @@ var serve_html = express.static(import.meta.dirname+"/../html",{'index': ['dquer
 // handle the /dquery url space
 query.serv = async function(req,res,next){
 
-	let sql=req.body.sql||req.query.sql
-	let form=(req.body.form||req.query.form||"json").toLowerCase()
-	let from=(req.body.from||req.query.from||"").toLowerCase()
-	let human=(req.body.human||req.query.human||"").toLowerCase()
+	let body=req.body||{}
+	let query=req.query||{}
+
+	let sql=body.sql||query.sql
+	let form=(body.form||query.form||"json").toLowerCase()
+	let from=(body.from||query.from||"").toLowerCase()
+	let human=(body.human||query.human||"").toLowerCase()
 
 	if( form=="xml" || form=="html" ) // force xson as thats the only one that makes sense for these
 	{
