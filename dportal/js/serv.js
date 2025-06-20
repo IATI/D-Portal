@@ -12,10 +12,10 @@ global.argv=argv
 dstore_argv.parse(argv)
 
 //we must choose a backend before importing these
-const dstore_query    = await import("../../dstore/js/query.js")
-const dstore_upload    = await import("../../dstore/js/upload.js")
-const dflat_query    = await import("../../dflat/js/query.js")
-const dflat_savi    = await import("../../dflat/js/savi.js")
+const dstore_query    = (await import("../../dstore/js/query.js")).default
+const dstore_upload    = (await import("../../dstore/js/upload.js")).default
+const dflat_query    = (await import("../../dflat/js/query.js")).default
+const dflat_savi    = (await import("../../dflat/js/savi.js")).default
 
 
 
