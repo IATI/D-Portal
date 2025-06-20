@@ -1,7 +1,16 @@
+#!/usr/bin/env bash
+
+# first install a require script
+if ! [[ -x "$(command -v require.sh)" ]] ; then
+
+	echo " we need sudo to install require.sh to /usr/local/bin "
+	sudo wget -O /usr/local/bin/require.sh https://raw.githubusercontent.com/xriss/require.sh/main/require.sh
+	sudo chmod +x /usr/local/bin/require.sh
+
+fi
+
 
 echo " installing dnsmasq and setting dportal.box to 10.42.52.99 "
-
-
 
 # setup config files
 
@@ -27,10 +36,11 @@ EOF
 
 # install here so it picks up the new config files written above
 
-sudo apt-get install -y resolvconf
-sudo apt-get install -y dnsmasq
+require.sh resolvconf
+require.sh dnsmasq
 
-# stop systemd fromhogging port 53 with a service that does nothing
+
+# stop systemd from hogging port 53 with a service that does nothing
 
 sudo systemctl disable systemd-resolved
 sudo systemctl stop systemd-resolved

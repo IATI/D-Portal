@@ -23,8 +23,8 @@ mkdir /home/vagrant/vagrant_node_modules
 sudo mount --bind /home/vagrant/vagrant_node_modules /host/node_modules
 
 
-echo " installing all "
-bash /host/box/install-all.sh
+echo " installing all as vagrant "
+sudo -u vagrant -H bash -c /host/box/install-all.sh
 
 echo
 echo " test this server at http://192.168.56.19/ "

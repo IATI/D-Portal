@@ -25,9 +25,6 @@
 #
 
 
-FOREVER="/usr/local/bin/forever"
-NODE="/usr/bin/node"
-
 DIR="/dportal"
 APP="$DIR/dportal/js/serv.js"
 
@@ -53,34 +50,39 @@ start() {
 
 	PATH=/usr/local/bin:$PATH
 	cd $DIR
-	$FOREVER start --minUptime 1 --spinSleepTime 5000 -p ${LOGDIR} --pidFile ${LOGFILE}.pid -l ${LOGFILE}.log -e ${LOGFILE}.err -o ${LOGFILE}.out -a -d -c "$NODE" $APP
+	. ./nvm-install
+	forever start --minUptime 1 --spinSleepTime 5000 -p ${LOGDIR} --pidFile ${LOGFILE}.pid -l ${LOGFILE}.log -e ${LOGFILE}.err -o ${LOGFILE}.out -a -d -c node $APP
 	RETVAL=$?
 }
 
 restart() {
 	echo "Restarting $APP"
 	cd $DIR
-	$FOREVER restart -p ${LOGDIR} $APP
+	. ./nvm-install
+	forever restart -p ${LOGDIR} $APP
 	RETVAL=$?
 }
 
 stop() {
 	echo "Shutting down $APP"
 	cd $DIR
-	$FOREVER stop -p ${LOGDIR} $APP
+	. ./nvm-install
+	forever stop -p ${LOGDIR} $APP
 	RETVAL=$?
 }
 
 status() {
 	echo "Status $APP"
 	cd $DIR
-	$FOREVER list -p ${LOGDIR}
+	. ./nvm-install
+	forever list -p ${LOGDIR}
 	RETVAL=$?
 }
 
 log() {
 	echo "tail -f ${LOGFILE}"
 	cd $DIR
+	. ./nvm-install
 	tail -f ${LOGFILE}.log
 	RETVAL=$?
 }
@@ -88,6 +90,7 @@ log() {
 cron() {
 	echo "cron $APP"
 	cd $DIR
+	. ./nvm-install
 	bin/cron.sh
 	RETVAL=$?
 }
