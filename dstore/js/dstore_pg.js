@@ -704,7 +704,7 @@ dstore_pg.query_params=function(string,params)
 {
 	let values=[]
 	let index=0
-	for( key in params )
+	for( let key in params )
 	{
 		let value=params[key]
 
@@ -719,7 +719,7 @@ dstore_pg.query_params=function(string,params)
 dstore_pg.query_params_string=function(string,params)
 {
 	let index=0
-	for( key in params )
+	for( let key in params )
 	{
 		let value=params[key]
 		if( typeof value == "string" )
@@ -849,7 +849,7 @@ await ( await dstore_pg.open() ).task( async db => {
 
 	let rows = await db.any("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code").catch(err);
 
-	for(i=0;i<rows.length;i++)
+	for(let i=0;i<rows.length;i++)
 	{
 		var v=rows[i];
 		if(v.trans_code=="C")
@@ -875,11 +875,11 @@ await ( await dstore_pg.open() ).task( async db => {
 	ls(fake_ids);
 
 //		process.stdout.write("Adding fake transactions for the following IDs\n");
-	for(i=0;i<fake_ids.length;i++) // add new fake
+	for(let i=0;i<fake_ids.length;i++) // add new fake
 	{
 		var v=fake_ids[i];
 		var p=await db.any("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=${reporting_ref} AND trans_code=${trans_code} ",{reporting_ref:v,trans_code:"C"}).catch(err);
-		for(j=0;j<p.length;j++)
+		for(let j=0;j<p.length;j++)
 		{
 			var t=p[j];
 //					process.stdout.write(t.aid+"\n");
