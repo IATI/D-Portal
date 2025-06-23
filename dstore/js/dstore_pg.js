@@ -608,7 +608,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 	{
 		var xml=acts[i];
 
-		json=refry.xml(xml,slug);
+		let json=refry.xml(xml,slug);
 		var aid=iati_xml.get_aid(json);
 		if(aid)
 		{
