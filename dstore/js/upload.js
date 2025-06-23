@@ -100,7 +100,7 @@ upload.serv = function(req,res){
 
 		child_process.spawn("/dportal/box/instance-create",
 			[instance],
-			{stdio:["ignore",fs.openSync(log_filename,"a"),fs.openSync(log_filename,"a")]});
+			{shell:"/bin/bash",stdio:["ignore",fs.openSync(log_filename,"a"),fs.openSync(log_filename,"a")]});
 
 			return result()
 	}
