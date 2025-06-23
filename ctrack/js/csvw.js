@@ -2,8 +2,8 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var csvw=exports;
-exports.name="csvw";
+const csvw={}
+export default csvw
 
 csvw.del = ','; // CSV Delimiter
 csvw.enc = '"'; // CSV Enclosure

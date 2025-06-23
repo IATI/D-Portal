@@ -2,15 +2,18 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_donor_transactions=exports;
-exports.name="view_donor_transactions";
+const view_donor_transactions={}
+export default view_donor_transactions
+view_donor_transactions.name="view_donor_transactions"
 
-var ctrack=require("./ctrack.js")
-var views=require("./views.js")
+import ctrack     from "./ctrack.js"
+import views      from "./views.js"
+import refry      from "../../dstore/js/refry.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
+import crs        from "../../dstore/json/crs.js"
 
-var refry=require("../../dstore/js/refry.js")
-var iati_codes=require("../../dstore/json/iati_codes.json")
-var crs_year=require("../../dstore/json/crs.js").donors
+let crs_year=crs.donors
+
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };

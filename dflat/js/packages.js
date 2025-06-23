@@ -1,32 +1,35 @@
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var packages=exports;
+const packages={}
+export default packages
 
-var util=require("util")
-var path=require("path")
+import * as fs   from "fs"
+import * as util from "util"
+import * as path from "path"
+
+import fse from "fs-extra"
+
+import dflat     from "./dflat.js"
+import xson      from "./xson.js"
+import jml       from "./jml.js"
+import stringify from "json-stable-stringify"
+import nodefetch from "node-fetch"
+
+const pfs = fs.promises
+
+
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-var fse=require("fs-extra")
-var stringify = require('json-stable-stringify');
-
-//var request=require('request');
-
-var fs=require("fs")
-var pfs=require('fs').promises
-var dflat=require("./dflat.js")
-var jml=require("./jml.js")
-var xson=require("./xson.js")
-
-var fetch=require("node-fetch")
 var http_gethead=async function(url)
 {
-	const response = await fetch(url);
+	const response = await nodefetch(url);
 	return response.headers;
 }
 var http_getbody=async function(url)
 {
-	const response = await fetch(url);
+	const response = await nodefetch(url);
 	const data = await response.text();
 	return data;
 }
@@ -634,7 +637,7 @@ packages.cmd_meta=async function(argv)
 	}
 
 	// make sure json and sub dirs exist
-	for	( p of [
+	for	( let p of [
 			path.join(argv.dir,"json"),
 			path.join(argv.dir,"json/activity-identifiers"),
 			path.join(argv.dir,"json/organisation-identifiers"),
@@ -712,7 +715,7 @@ packages.cmd_meta=async function(argv)
 		return // so exit here
 	}
 	
-	for( idname of ["activity-identifiers","organisation-identifiers"] )
+	for( let idname of ["activity-identifiers","organisation-identifiers"] )
 	{
 		console.log("META "+idname)
 

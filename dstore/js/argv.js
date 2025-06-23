@@ -2,8 +2,10 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
+const dstore_argv={}
+export default dstore_argv
 
-exports.parse=function(argv)
+dstore_argv.parse=function(argv)
 {
 
 // instance settings, normally disabled.
@@ -39,3 +41,18 @@ argv.instance_dir = argv.instance_dir || process.env.DSTORE_INSTANCE_DIR || "../
 	argv.upload  = argv.upload  || process.env.DSTORE_UPLOAD  ;
 
 };
+
+dstore_argv.print=function(argv)
+{
+	console.log("args are:")
+	console.log("instance",argv.instance)
+	console.log("instance_dir",argv.instance_dir)
+	console.log("port",argv.port)
+	console.log("database",argv.database)
+	console.log("cache",argv.cache)
+	console.log("pg",argv.pg)
+	console.log("pgro",argv.pgro)
+	console.log("staticdir",argv.staticdir)
+	console.log("homepage",argv.homepage)
+	console.log("upload",argv.upload)
+}

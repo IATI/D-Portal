@@ -1,41 +1,36 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-module.exports=exports;
+const dstore_sqlite={}
+export default dstore_sqlite
 
-var dstore_sqlite=exports;
-var dstore_back=exports;
+import * as url          from "url"
+import * as util         from "util"
+import * as fs           from "fs"
+import * as http         from "http"
+import * as sqlite_async from "sqlite-async"
 
-var url=require("url")
+import dflat          from "../../dflat/js/dflat.js"
+import dflat_database from "../../dflat/json/database.json" with {type:"json"}
+import refry          from "./refry.js"
+import exs            from "./exs.js"
+import iati_xml       from "./iati_xml.js"
+import iati_cook      from "./iati_cook.js"
+import codes          from "../json/iati_codes.json" with {type:"json"}
+import query          from "./query.js"
 
-exports.engine="sqlite";
+const dstore_db=global.dstore_db
 
-var refry=require("./refry");
-var exs=require("./exs");
-var iati_xml=require("./iati_xml");
+const dstore_back=dstore_sqlite
+dstore_back.engine="sqlite"
 
-var dflat=require('../../dflat/js/dflat');
-var dflat_database=require('../../dflat/json/database.json');
-
-
-//var wait=require("wait.for-es6");
-
-var http=require("http");
-//var sqlite = require("sqlite-async");//.verbose();
-//var sqlite = await import("sqlite-async");
 var sqlite
 
-var iati_cook=require('./iati_cook');
-var dstore_db=require('./dstore_db');
 // how to use query replcaments
 dstore_db.text_plate=function(s){ return "$"+s; }
 dstore_db.text_name=function(s){ return "$"+s; }
 
-var	query=require("./query");
-
-var util=require("util");
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
-
 
 dstore_sqlite.close = async function(db){
 	await db.close();
@@ -45,7 +40,7 @@ dstore_sqlite.open = async function(req){
 
 	if(!sqlite)
 	{
-		sqlite = (await import("sqlite-async")).Database;
+		sqlite = sqlite_async.Database;
 	}
 
 //	var db = new sqlite3.cached.Database( global.argv.database );
@@ -70,7 +65,7 @@ dstore_sqlite.open = async function(req){
 
 	if( typeof md5key === 'string' ) // open an instance database
 	{
-		var dbfilename=__dirname+"/../../dstore/instance/"+md5key+".sqlite";
+		var dbfilename=import.meta.dirname+"/../../dstore/instance/"+md5key+".sqlite";
 
 console.log("using instance database "+dbfilename)
 
@@ -462,7 +457,7 @@ dstore_sqlite.fake_trans = async function(){
 
 	let rows=await db.all("SELECT reporting_ref , trans_code ,  COUNT(*) AS count FROM act  JOIN trans USING (aid)  GROUP BY reporting_ref , trans_code")
 
-	for(i=0;i<rows.length;i++)
+	for(let i=0;i<rows.length;i++)
 	{
 		var v=rows[i];
 		if(v.trans_code=="C")
@@ -488,12 +483,12 @@ dstore_sqlite.fake_trans = async function(){
 	ls(fake_ids);
 
 //		process.stdout.write("Adding fake transactions for the following IDs\n");
-	for(i=0;i<fake_ids.length;i++) // add new fake
+	for(let i=0;i<fake_ids.length;i++) // add new fake
 	{
 		var v=fake_ids[i];
 		let rows=db.all("SELECT * FROM act  JOIN trans USING (aid)  WHERE reporting_ref=? AND trans_code=\"C\" ",v)
 
-		for(j=0;j<rows.length;j++)
+		for(let j=0;j<rows.length;j++)
 		{
 			var t=rows[j];
 //					process.stdout.write(t.aid+"\n");

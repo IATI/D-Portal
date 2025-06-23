@@ -5,110 +5,127 @@
 // we expect dstore to be the current directory when this cmd is run
 // as we will be creating db/cache directories there
 
-//var wait=require('wait.for-es6');
-var fs = require('fs');
-var express = require('express');
-var util=require('util');
-var path=require('path');
+const cmd={}
+export default cmd
+
+import * as fs from "fs"
+import * as util from "util"
+import * as path from "path"
+
+import express      from "express"
+import minimist     from "minimist"
+import dstore_argv  from "./argv.js"
+
 var app = express();
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // global.argv
-var argv=require('yargs').argv; global.argv=argv;
-require("./argv").parse(argv);
+let argv=minimist(process.argv.slice(2))
+global.argv=argv
+dstore_argv.parse(argv)
 
-// run everything inside a new async
-(async function(){
+//we must choose a backend before importing these
+const dstore_db    = (await import("./dstore_db.js")).default
+const dstore_cache = (await import("./dstore_cache.js")).default
+const iati_codes   = (await import("./iati_codes.js")).default
+const dstore_stats = (await import("./dstore_stats.js")).default
+
 
 	// make sure we have a db dir
 	fs.mkdir("db",function(e){});
 
 	//ls(argv)
+
+	if( argv._[0]=="args" )
+	{
+		dstore_argv.print(argv)
+		process.exit();
+	}
+	else
 	if( argv._[0]=="init" )
 	{
-		await require("./dstore_db").create_tables();
-//		require("./dstore_db").create_indexes();
-		return;
+		await dstore_db.create_tables();
+		process.exit();
 	}
 	else
 	if( argv._[0]=="analyze" )
 	{
-		await require("./dstore_db").analyze();
-		return;
+		await dstore_db.analyze();
+		process.exit();
 	}
 	else
 	if( argv._[0]=="vacuum" )
 	{
-		await require("./dstore_db").vacuum();
-		return;
+		await dstore_db.vacuum();
+		process.exit();
 	}
 	else
 	if( argv._[0]=="index" )
 	{
-		await require("./dstore_db").create_indexes(argv._[1]); // add indexes to previously inserted data
-		return;
+		await dstore_db.create_indexes(argv._[1]); // add indexes to previously inserted data
+		process.exit();
 	}
 	else
 	if( argv._[0]=="unindex" )
 	{
-		await require("./dstore_db").delete_indexes(); // remoce indexes from previously inserted data
-		return;
+		await dstore_db.delete_indexes(); // remoce indexes from previously inserted data
+		process.exit();
 	}
 	else
 	if( argv._[0]=="check" )
 	{
-		await require("./dstore_db").create_tables({do_not_drop:true});
-		return;
+		await dstore_db.create_tables({do_not_drop:true});
+		process.exit();
 	}
 	else
 	if( argv._[0]=="dump" )
 	{
-		await require("./dstore_db").dump_tables();
-		return;
+		await dstore_db.dump_tables();
+		process.exit();
 	}
 	else
 	if( argv._[0]=="fake" )
 	{
-		await require("./dstore_db").fake_trans(); // create fake transactions
-		return;
+		await dstore_db.fake_trans(); // create fake transactions
+		process.exit();
 	}
 	else
 	if( argv._[0]=="augment" )
 	{
-		await require("./dstore_db").augment_related(); // create related
-		return;
+		await dstore_db.augment_related(); // create related
+		process.exit();
 	}
 	else
 	if( argv._[0]=="cache" )
 	{
-		await require("./dstore_cache").cmd(argv);
-		return;
+		await dstore_cache.cmd(argv);
+		process.exit();
 	}
 	else
 	if( argv._[0]=="exs" )
 	{
 // we now use freechange for exchange so this has been removed
-//		require("./exs").create_csv();
-		return;
+		process.exit();
 	}
 	else
 	if( argv._[0]=="fetch" )
 	{
-		await require("./iati_codes").fetch();
-		return;
+		console.log("fetching")
+		await iati_codes.fetch();
+		process.exit();
 	}
 	else
 	if( argv._[0]=="import" )
 	{
-		await require("./dstore_cache").import_xmlfile( argv._[1] );
-		return;
+		await dstore_cache.import_xmlfile( argv._[1] );
+		process.exit();
 	}
 	else
 	if( argv._[0]=="stats" )
 	{
-		await require("./dstore_stats").cmd(argv);
-		return;
+		await dstore_stats.cmd(argv);
+		process.exit();
 	}
 
 	// help text
@@ -152,7 +169,3 @@ require("./argv").parse(argv);
 		"\n"+
 		"\n"+
 	"");
-
-})().catch((err) => {
-    console.error(err);
-}).finally(function(){process.exit()})

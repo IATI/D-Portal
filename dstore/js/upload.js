@@ -1,23 +1,23 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var upload=exports;
+const upload={}
+export default upload
 
-var util=require('util');
-var fs=require('fs');
-var child_process=require("child_process");
+import * as fs     from "fs"
+import * as util   from "util"
+import * as child_process   from "child_process"
 
-var refry=require('./refry');
-var exs=require('./exs');
-var iati_xml=require('./iati_xml');
-var dstore_db=require("./dstore_db");
-
-var md5omatic = require('md5-o-matic');
+import fetch       from "node-fetch"
+import md5omatic   from "md5-o-matic"
+import refry       from "./refry.js"
+import exs         from "./exs.js"
+import iati_xml    from "./iati_xml.js"
+import upload_html from "./upload.html"
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-
-let upload_html = require('fs').readFileSync( __dirname + '/upload.html' , 'utf8' )
+const dstore_db=global.dstore_db
 
 
 
@@ -26,7 +26,7 @@ upload.serv = function(req,res){
 
 	let log=function(a)
 	{
-		fs.appendFile( __dirname+"/../../dstore/instance/upload.tsv" , ( new Date().getTime() / 1000 )+"\t"+(req.ip)+"\t"+a.join("\t")+"\n" , function(){} )
+		fs.appendFile( import.meta.dirname+"/../../dstore/instance/upload.tsv" , ( new Date().getTime() / 1000 )+"\t"+(req.ip)+"\t"+a.join("\t")+"\n" , function(){} )
 	}
 
 
@@ -40,8 +40,8 @@ upload.serv = function(req,res){
 
 		var instance=md5omatic(data);
 
-		var xml_filename=__dirname+"/../../dstore/instance/"+instance+".xml";
-		var log_filename=__dirname+"/../../dstore/instance/"+instance+".log";
+		var xml_filename=import.meta.dirname+"/../../dstore/instance/"+instance+".xml";
+		var log_filename=import.meta.dirname+"/../../dstore/instance/"+instance+".log";
 
 		let result=function(ret)
 		{
@@ -120,7 +120,6 @@ upload.serv = function(req,res){
 		else
 		if( xmlurl )
 		{
-			let fetch=require("node-fetch")
 
 			let res = await fetch(xmlurl)
 			let data = await res.text()

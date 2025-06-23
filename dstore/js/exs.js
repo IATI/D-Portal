@@ -1,13 +1,15 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var exs=exports;
+const exs={}
+export default exs
+
+import freechange from "freechange/month.js"
 
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
 // only ask for monthly values so as not to produce needless bloat
-var freechange = require("freechange/month")
 
 
 // exchange at the given years rate from ex currency into exto currency

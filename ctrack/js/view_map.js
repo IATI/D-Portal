@@ -2,15 +2,15 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_map=exports;
-exports.name="view_map";
+const view_map={}
+export default view_map
+view_map.name="view_map"
 
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
-
-var refry=require("../../dstore/js/refry.js")
+import ctrack  from "./ctrack.js"
+import plate   from "./plate.js"
+import iati    from "./iati.js"
+import fetcher from "./fetcher.js"
+import refry   from "../../dstore/js/refry.js"
 
 view_map.setup=function()
 {
@@ -31,7 +31,7 @@ view_map.setup=function()
 	}
 		
 //display map 
-	display_ctrack_map=function(){
+	window.display_ctrack_map=function(){
 		ctrack.map.api_ready=true;
 		view_map.fixup();
 	}
@@ -365,7 +365,7 @@ view_map.ajax_pins=function(args)
 			"limit":args.limit || -1,
 		};
 	fetcher.ajax_dat_fix(dat,args);
-	if(dat.country_code) { dat.country_percent=100; } // if asking for a country, require 100% allocation into that country
+	if(dat.country_code) { dat.country_percent=100; } // if asking for a country, need 100% allocation into that country
 
 // add sector information to download, beware, this explodes the data listing projects multiple times per sector...
 	var datcsv={
@@ -376,7 +376,7 @@ view_map.ajax_pins=function(args)
 			"human":true,
 		};
 	fetcher.ajax_dat_fix(datcsv,args);
-	if(datcsv.country_code) { datcsv.country_percent=100; } // if asking for a country, require 100% allocation into that country
+	if(datcsv.country_code) { datcsv.country_percent=100; } // if asking for a country, need 100% allocation into that country
 
 	var csvurl=fetcher.tourl(datcsv)
 	ctrack.chunk("map_csv_url",csvurl)

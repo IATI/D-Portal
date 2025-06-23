@@ -2,14 +2,14 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var tables=exports;
-exports.name="tables";
+const tables={}
+export default tables
 
-var csvw=require("./csvw.js")
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
+import ctrack     from "./ctrack.js"
+import plate      from "./plate.js"
+import csvw       from "./csvw.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
 
-var iati_codes=require("../../dstore/json/iati_codes.json")
 
 var commafy=function(s) { return s.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };

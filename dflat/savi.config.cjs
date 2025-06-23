@@ -3,20 +3,14 @@ const path = require('path');
 const webpack = require('webpack');
 
 
-let dd=new Date()
-let da=new Date(dd.getFullYear(), 0, 0)
-let db=new Date(dd.getFullYear()+1, 0, 0)
-let dd_yy=(dd.getFullYear()-2000)
-let dd_dd=Math.floor( 100000 * (dd-da) / (db-da) )
-let dd_version=dd_yy+"."+( ("0000"+dd_dd).slice(-5) )
-
-console.log("VERSION == "+dd_version)
+const package = require('../package.json');
+console.log("VERSION == "+package.version)
 
 module.exports = {
   devtool: false,
   plugins: [
 	new webpack.DefinePlugin({
-		__VERSION__: JSON.stringify(dd_version)
+		__VERSION__: package.version
 	}),
     new webpack.ProvidePlugin({
       process: 'process/browser',
@@ -52,6 +46,10 @@ module.exports = {
         test: /\.css$/i,
         use: { loader:'raw-loader', options:{ esModule: false, } },
       },
+      {
+        test: /\.sql$/i,
+        use: { loader:'raw-loader', options:{ esModule: false, } },
+      },
     ],
   },
   performance: {
@@ -60,9 +58,10 @@ module.exports = {
     maxAssetSize: 555555,
   },
   output: {
-    path: path.resolve(__dirname, 'html/lib/'),
+    path: path.resolve(__dirname, 'html/lib/savi_loader/'),
     filename: 'savi.js',
     globalObject: 'this',
+    iife:true,
     library: {
       name: "savi",
       type: 'umd',

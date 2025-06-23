@@ -1,21 +1,24 @@
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var fetch=exports;
+const frankenstein={}
+export default frankenstein
 
-var frankenstein=require("./frankenstein.js")
+import * as fs   from "fs"
 
-var pfs=require('fs').promises
-var stringify = require('json-stable-stringify');
+import stringify  from "json-stable-stringify"
+import database   from "../json/database.json" with {type:"json"}
+import pg_monitor from "pg-monitor"
+import pg_promise from "pg-promise"
 
-var database = require('../json/database.json');
+const pfs = fs.promises
 
 
-var monitor = require("pg-monitor");
+
 var pgopts={
 };
-//if(process.env.DSTORE_DEBUG){ monitor.attach(pgopts); }
-var pgp = require("pg-promise")(pgopts);
+//if(process.env.DSTORE_DEBUG){ pg_monitor.attach(pgopts); }
+var pgp = pg_promise(pgopts);
 
 
 // create or return the db object

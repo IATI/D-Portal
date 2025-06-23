@@ -1,11 +1,11 @@
 /* http://nanobar.micronube.com/  ||  https://github.com/jacoborus/nanobar/    MIT LICENSE */
-(function (root) {
+
   'use strict'
   // container styles
 /*
   var css = '.nanobar{width:100%;height:4px;z-index:9999;top:0}.bar{width:0;height:100%;transition:height .3s;background:#000}'
 
-  // add required css in head div
+  // add  css in head div
   function addCss () {
     var s = document.getElementById('nanobarcss')
 
@@ -132,14 +132,4 @@
     return nanobar
   }
 
-  if (typeof exports === 'object') {
-    // CommonJS
-    module.exports = Nanobar
-  } else if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define([], function () { return Nanobar })
-  } else {
-    // Browser globals
-    root.Nanobar = Nanobar
-  }
-}(this))
+export default Nanobar

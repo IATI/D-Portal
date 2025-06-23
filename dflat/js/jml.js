@@ -1,9 +1,12 @@
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var jml=exports;
+const jml={}
+export default jml
 
-var entities = require("entities");
+import * as entities from "entities"
+
+import sax from "sax"
 
 
 // sort jml
@@ -33,12 +36,12 @@ jml.from_xml=function(data)
 	var top={};stack.push(top);
 	var cdata=false;
 
-	var parser = require('sax').parser(true)
+	var parser = sax.parser(true)
 
 	parser.onopentag=(node)=>{
 		var parent=top
 		top={};stack.push(top)
-		for(n in node.attributes) { top[n]=node.attributes[n] }
+		for(let n in node.attributes) { top[n]=node.attributes[n] }
 		top[0]=node.name
 		if(!parent[1]){ parent[1]=[]; }
 		parent[1].push(top)

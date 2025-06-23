@@ -2,12 +2,14 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_missing=exports;
-exports.name="view_missing";
+const view_missing={}
+export default view_missing
+view_missing.name="view_missing"
 
-var ctrack=require("./ctrack.js")
-var views=require("./views.js")
-var fetcher=require("./fetcher.js")
+import ctrack  from "./ctrack.js"
+import views   from "./views.js"
+import fetcher from "./fetcher.js"
+
 
 // the chunk names this view will fill with new data
 view_missing.chunks=[

@@ -1,10 +1,11 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var exchange=exports;
+const exchange={}
+export default exchange
 
+import freechange from "freechange/month.js"
 
-var freechange = require("freechange/month")
 
 exchange.by_monthly_average=function(value,to_currency,from_currency,isodate)
 {

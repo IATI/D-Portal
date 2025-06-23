@@ -2,14 +2,16 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_dash_sluglog=exports;
-exports.name="view_dash_sluglog";
+const view_dash_sluglog={}
+export default view_dash_sluglog
+view_dash_sluglog.name="view_dash_sluglog"
 
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
-var iati_codes=require("../../dstore/json/iati_codes.json")
+import ctrack     from "./ctrack.js"
+import plate      from "./plate.js"
+import iati       from "./iati.js"
+import fetcher    from "./fetcher.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
+
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };

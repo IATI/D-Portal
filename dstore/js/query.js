@@ -1,22 +1,23 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var query=exports;
+const query={}
+export default query
 
-var util=require('util');
-var fs=require('fs');
+import * as util from "util"
+import * as fs   from "fs"
 
-var refry=require('./refry');
-var exs=require('./exs');
-var iati_xml=require('./iati_xml');
-var dstore_db=require("./dstore_db");
-var iati_codes=require("../json/iati_codes.json")
+import refry      from "./refry.js"
+import exs        from "./exs.js"
+import iati_xml   from "./iati_xml.js"
+import iati_codes from "../json/iati_codes.json"        with {type:"json"}
+import jml        from "../../dflat/js/jml.js"
+import xson       from "../../dflat/js/xson.js"
+import savi       from "../../dflat/js/savi.js"
+import dflat      from "../../dflat/js/dflat.js"
+import database   from "../../dflat/json/database.json" with {type:"json"}
 
-const jml=require("../../dflat/js/jml.js")
-var xson=require("../../dflat/js/xson.js")
-var savi=require("../../dflat/js/savi.js")
-var dflat=require("../../dflat/js/dflat.js")
-var database=require("../../dflat/json/database.json")
+const dstore_db=global.dstore_db
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
@@ -797,7 +798,7 @@ query.getsql_where_xson=function(q,qv,wheres){
 
 	for( let n in q )
 	{
-		v=q[n]
+		let v=q[n]
 		if(n.startsWith("/iati-activities/iati-activity"))
 		{
 			push(n,v)
@@ -1330,7 +1331,7 @@ query.serv = function(req,res){
 	var q=query.get_q(req);
 
 // special log info requests
-	var logname=__dirname+'/../../logs/cron.log'
+	var logname=import.meta.dirname+'/../../logs/cron.log'
 
 // prefer X-MD5 header from nginx before we check subdomain
 	let md5key = ( req && req.headers && req.headers["x-md5"] ) || ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
@@ -1350,7 +1351,7 @@ query.serv = function(req,res){
 
 	if( typeof md5key === 'string' )
 	{
-		logname=__dirname+"/../../dstore/instance/"+md5key+".log";
+		logname=import.meta.dirname+"/../../dstore/instance/"+md5key+".log";
 	}
 
 // handle special results
@@ -1365,8 +1366,8 @@ query.serv = function(req,res){
 	{
 		var slug=q.slug;
 		slug=String( slug ).replace(/[^0-9a-zA-Z\-_]/g, '_');
-		var logname1=__dirname+"/../../../dataiati/dataflat/logs/"+slug+".txt";
-		var logname2=__dirname+"/../../dstore/cache/"+slug+".xml.import.last.log";
+		var logname1=import.meta.dirname+"/../../../dataiati/dataflat/logs/"+slug+".txt";
+		var logname2=import.meta.dirname+"/../../dstore/cache/"+slug+".xml.import.last.log";
 
 		fs.readFile(logname1,"utf8", function (err, data) {
 				var ret={};
@@ -1425,7 +1426,7 @@ query.serv = function(req,res){
 		{
 			ret.instance=md5key
 
-			fs.readFile( __dirname+"/../../dstore/instance/"+md5key+".status" ,"utf8", function (err, data) {
+			fs.readFile( import.meta.dirname+"/../../dstore/instance/"+md5key+".status" ,"utf8", function (err, data) {
 				if(err)
 				{
 					ret.err=err;

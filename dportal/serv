@@ -1,6 +1,3 @@
 cd `dirname $0`
 
-node js/serv.js $*
-
-
-
+node js/serv.wrap.js $*

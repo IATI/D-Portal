@@ -2,12 +2,14 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_planned=exports;
-exports.name="view_planned";
+const view_planned={}
+export default view_planned
+view_planned.name="view_planned"
 
-var ctrack=require("./ctrack.js")
-var views=require("./views.js")
-var fetcher=require("./fetcher.js")
+import ctrack  from "./ctrack.js"
+import views   from "./views.js"
+import fetcher from "./fetcher.js"
+
 
 // the chunk names this view will fill with new data
 view_planned.chunks=[

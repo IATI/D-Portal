@@ -1,19 +1,30 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var express = require('express');
-var express_fileupload = require('express-fileupload');
 
-//var morgan = require('morgan');
+import express            from "express"
+import express_fileupload from "express-fileupload"
+import minimist           from "minimist"
+import dstore_argv        from "../../dstore/js/argv.js"
+
+let argv=minimist(process.argv.slice(2))
+global.argv=argv
+dstore_argv.parse(argv)
+
+//we must choose a backend before importing these
+const dstore_db    = (await import("../../dstore/js/dstore_db.js")).default
+const dstore_query    = (await import("../../dstore/js/query.js")).default
+const dstore_upload    = (await import("../../dstore/js/upload.js")).default
+const dflat_query    = (await import("../../dflat/js/query.js")).default
+const dflat_savi    = (await import("../../dflat/js/savi.js")).default
+
+
+
 var app = express();
-
 app.set("trust proxy", true)
 
 
-var argv=require('yargs').argv; global.argv=argv;
-require("../../dstore/js/argv").parse(argv);
-
-express.static.mime.define({'text/plain': ['']});
+//express.static.mime.define({'text/plain': ['']});
 
 //app.use(morgan('combined'));
 
@@ -71,7 +82,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-app.use(express.static( argv.staticdir || (__dirname+"/../static") ));
+app.use(express.static( argv.staticdir || (import.meta.dirname+"/../static") ));
 
 app.use( express.json( { limit: '10MB' } ) )
 
@@ -83,12 +94,12 @@ console.log(req.path)
 
 	if( ab && (ab[0]=="q") ) // data query endpoint, 
 	{
-		require("../../dstore/js/query").serv(req,res,next);
+		dstore_query.serv(req,res,next);
 	}
 	else
 	if( ab && (ab[0]=="upload") && argv.upload) // upload api endpoint, for testing xml files only if upload is set
 	{
-		require("../../dstore/js/upload").serv(req,res,next);
+		dstore_upload.serv(req,res,next);
 	}
 	else
 	{
@@ -99,18 +110,16 @@ console.log(req.path)
 app.use( express.urlencoded({ extended: true }) )
 
 // dquery
-app.use('/dquery', require("../../dflat/js/query").serv )
+app.use('/dquery', dflat_query.serv )
 
 // dquery
-app.use('/savi', require("../../dflat/js/savi").serv )
+app.use('/savi', dflat_savi.serv )
 
 
 // redirect any unknown page to main homepage
-app.get('*', function(req, res) {
+app.use(function(req, res) {
 	res.redirect( argv.homepage || '/ctrack.html#view=search');
 });
-
-
 
 
 console.log("Starting static server at http://localhost:"+argv.port+"/");

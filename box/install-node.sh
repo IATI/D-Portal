@@ -11,6 +11,9 @@ sudo apt-get remove -y yarn
 sudo apt autoremove -y
 
 
+#nvm install for root and vagrant
+sudo ../nvm-install
+../nvm-install
 
-sudo apt-get install -y nodejs npm
+#sudo apt-get install -y nodejs npm
 

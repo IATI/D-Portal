@@ -1,22 +1,22 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var ctrack=exports;
+const ctrack={}
+export default ctrack
 
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
-var dflat_savi=require("../../dflat/js/savi.js")
-var chart=require("./chart.js")
-
-var views=require("./views.js");
-
-var ganal=require("./ganal.js");
-var Nanobar=require("./nanobar.js");
-
-var iati_codes=require("../../dstore/json/iati_codes.json");
-
-var crs=require("../../dstore/json/crs.js");
+import jQuery      from "jquery"
+import plate      from "./plate.js"
+import iati       from "./iati.js"
+import fetcher    from "./fetcher.js"
+import dflat_savi from "../../dflat/js/savi.js"
+import chart      from "./chart.js"
+import views      from "./views.js"
+import ganal      from "./ganal.js"
+import Nanobar    from "./nanobar.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
+import crs        from "../../dstore/json/crs.js"
+import freechange from "freechange/year.js"
+import jqs        from "./jqs.js"
 
 ctrack.map_old_views={
 	"donors"                   : "publishers",
@@ -26,24 +26,6 @@ ctrack.map_old_views={
 	"publisher_sectors"        : "sectors",
 	"publisher_sectors_top"    : "sectors_top",
 }
-
-
-/*
-var usd_years=require("../../dstore/json/usd_year.json");
-ctrack.usd_year={}; // merge latest data into here
-for(var year=1990;year<2100;year++)
-{
-	if(usd_years[year]) {
-		for(var n in usd_years[year])
-		{
-			ctrack.usd_year[n]=usd_years[year][n];
-		}
-	 }
-}
-*/
-
-// only ask for yearly values so as not to produce needless bloat
-var freechange = require("freechange/year")
 
 
 ctrack.encodeURIComponent=function(str)
@@ -217,16 +199,7 @@ ctrack.setup=function(args)
 
 	document.head.insertAdjacentHTML("beforeend", dflat_savi.plate('<style>{savi-css}</style>') ) // include new savi CSS
 
-	// insert npm jquery libs into browser
-	window.$ = window.jQuery = require("jquery")
-	require("stupid-table-plugin")
-	window.Chartist = require("chartist")
-	window.moment = require("moment")
-	window.chosen = require("chosen-npm/public/chosen.jquery.js")
-	window.typeahead = require("typeahead.js")
-
-
-	ctrack.year=(new Date()).getFullYear()-1 ; // require("../../dstore/json/crs.js").year // start with year of the CRS data we have
+	ctrack.year=(new Date()).getFullYear()-1 ;
 	ctrack.year=parseInt(args.year || ctrack.q.year || ctrack.year ); // default base year for graphs tables etc
 
 	ctrack.year_chunks=function(y){					// function to build visible range of years for display

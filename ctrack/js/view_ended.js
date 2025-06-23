@@ -2,12 +2,14 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_ended=exports;
-exports.name="view_ended";
+const view_ended={}
+export default view_ended
+view_ended.name="view_ended"
 
-var ctrack=require("./ctrack.js")
-var views=require("./views.js")
-var fetcher=require("./fetcher.js")
+import ctrack  from "./ctrack.js"
+import views   from "./views.js"
+import fetcher from "./fetcher.js"
+
 
 // the chunk names this view will fill with new data
 view_ended.chunks=[

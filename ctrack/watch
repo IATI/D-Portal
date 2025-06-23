@@ -1,7 +1,3 @@
 cd `dirname $0`
 
-#echo "watchify"
-#npx watchify --ignore-missing -t brfs -g [ browserify-css --autoInject=false --minify=true --stripComments=true ] -v -r ./js/ctrack.js:ctrack -d -o jslib/ctrack.js
-
-
 npx webpack watch --mode development

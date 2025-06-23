@@ -26,7 +26,7 @@ dportal/production/*
 
 docs
 
-ctrack/jslib/ctrack.*
+ctrack/jslib/ctrack_loader/*
 ctrack/json/*.json
 ctrack/json/output
 
@@ -38,7 +38,8 @@ box/backup
 
 fetched
 
-dflat/html/lib/*
+dflat/html/lib/savi_loader/
+dflat/html/lib/dquery_loader/
 
 dflat/data*/*
 

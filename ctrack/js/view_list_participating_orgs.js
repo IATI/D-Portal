@@ -1,20 +1,20 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
+const view_list_participating_orgs={}
+export default view_list_participating_orgs
+view_list_participating_orgs.name="view_list_participating_orgs"
 
-var view_list_participating_orgs=exports;
-exports.name="view_list_participating_orgs";
+import ctrack     from "./ctrack.js"
+import plate      from "./plate.js"
+import iati       from "./iati.js"
+import fetcher    from "./fetcher.js"
+import csvw       from "./csvw.js"
+import refry      from "../../dstore/js/refry.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
+import crs        from "../../dstore/json/crs.js"
 
-var csvw=require("./csvw.js")
-
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
-
-var refry=require("../../dstore/js/refry.js")
-var iati_codes=require("../../dstore/json/iati_codes.json")
-var crs_year=require("../../dstore/json/crs.js").donors
+let crs_year=crs.donors
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };

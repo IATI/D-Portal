@@ -1,13 +1,31 @@
 // Copyright (c) 2019 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var savi=exports;
+const savi={}
+export default savi
 
-var xson=require("./xson.js")
+import * as fs from "fs"
 
-var stringify = require('json-stable-stringify')
+import jquery        from "jquery"
+import * as Chartist from "chartist"
 
-var exchange = require("./exchange.js")
+import dflat       from "./dflat.js"
+import xson        from "./xson.js"
+import exchange    from "./exchange.js"
+import stringify   from "json-stable-stringify"
+import plated_base from "plated"
+
+import codelists  from "../json/codelists.json"            with {type:"json"}
+import codemap    from "../json/codemap.json"              with {type:"json"}
+import validhash  from "../../dstore/json/validhash.json"  with {type:"json"}
+import iati_codes from "../../dstore/json/iati_codes.json" with {type:"json"}
+import test_json  from "../json/test_1.json"               with {type:"json"}
+
+import savi_html from "./savi.html"
+import savi_css from "./savi.css"
+import JSON5     from "json5"
+
+const publisher_names=iati_codes.publisher_names
 
 
 /*
@@ -87,27 +105,13 @@ var create_human_values=function(it)
 }
 
 
-savi.plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
+savi.plated=plated_base.create({},{pfs:{}}) // create a base instance for inline chunks with no file access
 
 savi.chunks={}
 savi.plate=function(str){ return savi.plated.chunks.replace(str,savi.chunks) }
 
-
-	if(typeof window !== 'undefined')
-	{
-
-savi.plated.chunks.fill_chunks( require('./savi.html'), savi.chunks )
-savi.plated.chunks.fill_chunks( require('./savi.css'), savi.chunks )
-
-	}
-	else
-	{
-
-savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.html', 'utf8'), savi.chunks )
-savi.plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/savi.css',  'utf8'), savi.chunks )
-
-	}
-
+savi.plated.chunks.fill_chunks( savi_html, savi.chunks )
+savi.plated.chunks.fill_chunks( savi_css, savi.chunks )
 
 savi.plated.chunks.format_chunks( savi.chunks )
 
@@ -116,16 +120,15 @@ savi.chunks["origin"]="//d-portal.org"
 savi.opts={}
 savi.opts.test=false
 
-savi.start=function(opts){
+savi.start=async function(opts){
 
-	// running in browser
-	if(typeof window !== 'undefined')
+	// running in browser, make sure jquery etc is setup
+	if(window)
 	{
-		window.$ = window.jQuery = require("jquery")
-		require("stupid-table-plugin")
-
-		window.Chartist = require("chartist")
-		window.moment = require("moment")
+		window.$=jquery
+		window.jQuery = jquery
+		window.Chartist = Chartist
+		window.stupidtable = (await import("stupid-table-plugin")).default
 	}
 
 	for(var n in opts) { savi.opts[n]=opts[n] } // copy opts
@@ -142,8 +145,6 @@ savi.start=function(opts){
 }
 
 savi.start_loaded=async function(){
-
-	const dflat=require('./dflat.js')
 
 // prepare test page
 	let iati=null
@@ -174,7 +175,7 @@ savi.start_loaded=async function(){
 	}
 	else
 	{
-		iati=require('../json/test_1.json')
+		iati=test_json 
 		aid=true
 	}
 
@@ -213,8 +214,6 @@ savi.fixup=function(){
 // give your json chart data the class of showchart and it will be converted to a chart
 	$(".showchart").each(function(idx)
 	{
-		var Chartist=require("chartist")
-
 		var d=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
 
 		var chart = new (Chartist[d.chart+"Chart"])( this, {
@@ -226,8 +225,6 @@ savi.fixup=function(){
 // give your json chart data the class of showcharts and it will be converted to multiple charts
 	$(".showcharts").each(function(idx)
 	{
-		var Chartist=require("chartist")
-
 		var d=eval( " (function(){return (" + $(this).find("script").html() + ") })(); " )
 
 		var p=$(this)
@@ -366,11 +363,6 @@ savi.get_data_transactions=function(list,name)
 }
 
 savi.prepare=function(iati_xson){
-
-	let codelists=require('../json/codelists.json')
-	let codemap=require('../json/codemap.json')
-	let validhash=require('../../dstore/json/validhash.json')
-	let publisher_names=require('../../dstore/json/iati_codes.json').publisher_names
 
 	xson.walk( iati_xson , (it,nn,idx)=>{
 		let nb=nn.join("")
@@ -1053,8 +1045,8 @@ savi.prepare=function(iati_xson){
 // handle the /savi url space
 savi.serv = async function(req,res,next){
 
-	var express = require('express');
-	var serve_html = express.static(__dirname+"/../html",{'index': ['savi.html']})
+	var express = (await import('express')).default;
+	var serve_html = express.static(import.meta.dirname+"/../html",{'index': ['savi.html']})
 
 	// serv up static files
 	serve_html(req,res,next)

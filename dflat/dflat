@@ -1,3 +1,2 @@
 \cd `dirname $0`
-node --max-old-space-size=4096 js/cmd $*
-
+node --max-old-space-size=4096 js/cmd.wrap.js $*

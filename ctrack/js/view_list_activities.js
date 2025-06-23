@@ -2,20 +2,21 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_list_activities=exports;
-exports.name="view_list_activities";
+const view_list_activities={}
+export default view_list_activities
+view_list_activities.name="view_list_activities"
 
-var csvw=require("./csvw.js")
+import ctrack     from "./ctrack.js"
+import plate      from "./plate.js"
+import iati       from "./iati.js"
+import fetcher    from "./fetcher.js"
+import csvw       from "./csvw.js"
+import views      from "./views.js"
+import refry      from "../../dstore/js/refry.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
+import crs        from "../../dstore/json/crs.js"
 
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
-var views=require("./views.js")
-
-var refry=require("../../dstore/js/refry.js")
-var iati_codes=require("../../dstore/json/iati_codes.json")
-var crs_year=require("../../dstore/json/crs.js").donors
+let crs_year=crs.donors
 
 var commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
 		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };

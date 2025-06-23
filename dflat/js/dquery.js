@@ -1,50 +1,51 @@
 
-var dquery=exports;
+const dquery={}
+export default dquery
+
+import dquery_html            from "./dquery.html"
+import dquery_css             from "./dquery.css"
+import dquery_sql             from "./dquery.sql"
+import plated_base            from "plated"
+import stringify              from "json-stable-stringify"
+
+import dayjs                  from "dayjs"
+import * as Chartist          from "chartist"
+import jquery                 from "jquery"
+import jquery_ui_css          from "jquery-ui-dist/jquery-ui.css"
+import jquery_splitter        from "jquery.splitter"
+import jquery_splitter_css    from "jquery.splitter/css/jquery.splitter.css"
+import jquery_json_viewer_css from "jquery.json-viewer/json-viewer/jquery.json-viewer.css"
+
 
 	dquery.origin="//d-portal.org"
 
 // running in browser
 if(typeof window !== 'undefined')
 {
-	window.$ = window.jQuery = require("jquery");
-
-	var split=require("jquery.splitter")
-//	split( window.jQuery )
-
-//	var term=(require("jquery.terminal"))()
-
-
-	var ui=require("./jquery-ui.js")
-
-//	var tree=require("jstree/dist/jstree.js")
-
-	var jsonv=require("jquery.json-viewer/json-viewer/jquery.json-viewer.js")
-
-
 	dquery.origin=window.location.origin
+
+	window.$ = jquery
+	window.jQuery = jquery
+	window.Chartist            = Chartist
+	window.moment              = dayjs
+	window.jquery_splitter     = jquery_splitter
+	window.jquery_json_viewer  = (await import("jquery.json-viewer/json-viewer/jquery.json-viewer.js")).default
+	window.stupid_table_plugin = (await import("stupid-table-plugin")).default
+	window.chosen              = (await import("chosen-npm/public/chosen.jquery.js")).default
+	window.typeahead           = (await import("typeahead.js/dist/typeahead.jquery.js")).default
+	window.jquery_ui           = (await import("jquery-ui-dist/jquery-ui.js")).default
+	window.brace               = (await import("brace")).default
 
 }
 
-var plated=require("plated").create({},{pfs:{}}) // create a base instance for inline chunks with no file access
+var plated=plated_base.create({},{pfs:{}}) // create a base instance for inline chunks with no file access
 
 dquery.chunks={}
 
-	if(typeof window !== 'undefined')
-	{
+plated.chunks.fill_chunks( dquery_html, dquery.chunks )
+plated.chunks.fill_chunks( dquery_css,  dquery.chunks )
+plated.chunks.fill_chunks( dquery_sql,  dquery.chunks )
 
-plated.chunks.fill_chunks( require('./dquery.html'), dquery.chunks )
-plated.chunks.fill_chunks( require('./dquery.css'), dquery.chunks )
-plated.chunks.fill_chunks( require('./dquery.sql'), dquery.chunks )
-
-	}
-	else
-	{
-
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.html', 'utf8'), dquery.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.css',  'utf8'), dquery.chunks )
-plated.chunks.fill_chunks( require('fs').readFileSync(__dirname + '/dquery.sql',  'utf8'), dquery.chunks )
-
-	}
 
 plated.chunks.format_chunks(dquery.chunks)
 
@@ -60,26 +61,13 @@ dquery.start=function(opts){
 
 dquery.start_loaded=async function(){
 
-	var ace=require("brace")
-	require("brace/ext/modelist")
-	require("brace/theme/tomorrow_night_eighties")
-
-	require("brace/mode/pgsql")
-//	require("brace/mode/json")
+	var ace=brace
 
 	$("html").prepend(plated.plate('<style>{css}</style>')) // load our styles
 
-	$("html").prepend("<style>"+require("jquery.splitter/css/jquery.splitter.css")+"</style>")
-	$("html").prepend("<style>"+require("jquery.json-viewer/json-viewer/jquery.json-viewer.css")+"</style>")
-
-if(typeof window !== 'undefined')
-{
-	$("html").prepend("<style>"+require('./jquery-ui.css')+"</style>")
-}
-else
-{
-	$("html").prepend("<style>"+require('fs').readFileSync(__dirname + '/jquery-ui.css', 'utf8')+"</style>")
-}
+	$("html").prepend(`<style>${jquery_splitter_css}</style>`)
+	$("html").prepend(`<style>${jquery_json_viewer_css}</style>`)
+	$("html").prepend(`<style>${jquery_ui_css}</style>`)
 
 	$("body").empty().append(plated.plate('{body}')) // fill in the base body
 
@@ -92,7 +80,7 @@ else
 			window.dispatchEvent(new Event('resize'));
 		};
 		clearTimeout(resize_timeout);
-		timresize_timeouteout=setTimeout(f,100);
+		resize_timeout=setTimeout(f,100);
 	};
 	$( window ).resize(resize_func) // keep height full
 	$("#split").height("100%").split({orientation:'vertical',limit:5,position:'50%',onDrag: resize_func });
@@ -115,13 +103,13 @@ else
 	})
 
 	dquery.editor=ace.edit("editor");
-	dquery.editor.setTheme("ace/theme/tomorrow_night_eighties");
+//	dquery.editor.setTheme("ace/theme/tomorrow_night_eighties");
 	dquery.editor.$blockScrolling = Infinity
 
 	dquery.hash=window.location.hash
 	var session=dquery.editor.getSession()
 	session.setValue( decodeURIComponent( dquery.hash.substr(1) ) )
-	session.setMode( "ace/mode/pgsql" );
+//	session.setMode( "ace/mode/pgsql" );
 	session.setUseWrapMode(true);
 
 	dquery.set_download_links()
@@ -177,7 +165,6 @@ dquery.cron=async function()
 
 dquery.result=function(data,status,xhdr)
 {
-	var stringify = require('json-stable-stringify');
 
 	$('#result').jsonViewer(data,{collapsed:false,rootCollapsable:true});
 

@@ -1,31 +1,37 @@
 // Copyright (c) 2014 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-var query=exports;
+const query={}
+export default query
 
-var util=require('util');
+import * as util from "util"
+
+import express   from "express"
+import dflat     from "./dflat.js"
+import savi      from "./savi.js"
+import xson      from "./xson.js"
+import jml       from "./jml.js"
+import dquery    from "./dquery.js"
+//import dstore_db from "../../dstore/js/dstore_db.js"
+
+const dstore_db=global.dstore_db
+
+
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-var dflat=require('./dflat.js');
-var savi=require('./savi.js');
-var xson=require('./xson.js');
-var jml=require('./jml.js');
-
-var dstore_db=require("../../dstore/js/dstore_db.js");
-
-var dquery=require('./dquery.js');
-
-var express = require('express');
-var serve_html = express.static(__dirname+"/../html",{'index': ['dquery.html']})
+var serve_html = express.static(import.meta.dirname+"/../html",{'index': ['dquery.html']})
 
 
 // handle the /dquery url space
 query.serv = async function(req,res,next){
 
-	let sql=req.body.sql||req.query.sql
-	let form=(req.body.form||req.query.form||"json").toLowerCase()
-	let from=(req.body.from||req.query.from||"").toLowerCase()
-	let human=(req.body.human||req.query.human||"").toLowerCase()
+	let body=req.body||{}
+	let query=req.query||{}
+
+	let sql=body.sql||query.sql
+	let form=(body.form||query.form||"json").toLowerCase()
+	let from=(body.from||query.from||"").toLowerCase()
+	let human=(body.human||query.human||"").toLowerCase()
 
 	if( form=="xml" || form=="html" ) // force xson as thats the only one that makes sense for these
 	{

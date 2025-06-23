@@ -5,8 +5,6 @@ sudo apt-get install -y pv
 sudo apt-get install -y curl
 sudo apt-get install -y parallel
 
-sudo npm install -g forever
-
 sudo rm /dportal
 sudo ln -s `readlink -f ..` /dportal
 mkdir -p /dportal/logs
@@ -19,9 +17,9 @@ if [ -e "/etc/init.d/dportal" ]; then
 fi
 
 
+. /dportal/nvm-install
 /dportal/npm-install
 /dportal/bin/build
-
 
 /dportal/box/dstore-create
 

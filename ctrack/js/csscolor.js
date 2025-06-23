@@ -23,7 +23,8 @@
 
 // slight mod to expose all color functions.
 
-var csscolor=exports;
+const csscolor={}
+export default csscolor
 
 
 // http://www.w3.org/TR/css3-color/

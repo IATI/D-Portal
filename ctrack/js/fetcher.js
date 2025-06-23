@@ -2,22 +2,15 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var fetcher=exports;
+const fetcher={}
+export default fetcher
 
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-
-
-var papa=require("papaparse")
-
-var iati_codes=require("../../dstore/json/iati_codes.json")
-
-
-var refry=require("../../dstore/js/refry.js")
-//var iati_xml=require("../../dstore/js/iati_xml.js")
-
-//var fetcher=require("./fetcher.js")
+import papa       from "papaparse"
+import ctrack     from "./ctrack.js"
+import plate      from "./plate.js"
+import iati       from "./iati.js"
+import iati_codes from "../../dstore/json/iati_codes.json"
+import refry      from "../../dstore/js/refry.js"
 
 
 // pre fetch cache data we will need for future fetches

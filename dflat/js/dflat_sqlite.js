@@ -1,19 +1,21 @@
 // Copyright (c) 2021 International Aid Transparency Initiative (IATI)
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
-let dflat_sqlite=exports;
+const dflat_sqlite={}
+export default dflat_sqlite
 
-let pfs=require('fs').promises
+import * as fs   from "fs"
+import * as util from "util"
 
-let util=require('util')
+import stringify from "json-stable-stringify"
 
-let stringify = require('json-stable-stringify')
+import dflat    from "./dflat.js"
+import xson     from "./xson.js"
+import database from "../json/database.json" with {type:"json"}
+import codemap  from "../json/codemap.json" with {type:"json"}
 
-let dflat = require("./dflat.js")
-let xson = require("./xson.js")
+const pfs = fs.promises
 
-let database = require("../json/database.json")
-let codemap = require('../json/codemap.json')
 
 let ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 

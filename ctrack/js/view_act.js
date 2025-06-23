@@ -2,18 +2,18 @@
 // Licensed under the MIT license whose full text can be found at http://opensource.org/licenses/MIT
 
 
-var view_act=exports;
-exports.name="view_act";
+const view_act={}
+export default view_act
+view_act.name="view_act"
 
-var ctrack=require("./ctrack.js")
-var plate=require("./plate.js")
-var iati=require("./iati.js")
-var fetcher=require("./fetcher.js")
+import ctrack     from "./ctrack.js"
+import plate      from "./plate.js"
+import iati       from "./iati.js"
+import fetcher    from "./fetcher.js"
+import dflat      from "../../dflat/js/dflat.js"
+import dflat_savi from "../../dflat/js/savi.js"
+import refry      from "../../dstore/js/refry.js"
 
-var dflat=require("../../dflat/js/dflat.js")
-var dflat_savi=require("../../dflat/js/savi.js")
-
-var refry=require("../../dstore/js/refry.js")
 
 // the chunk names this view will fill with new data
 view_act.chunks=[
