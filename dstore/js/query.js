@@ -332,7 +332,7 @@ query.getsql_select=function(q,qv){
 			for(i=0;i<aa.length;i++)
 			{
 				var f=aa[i];
-				for(n in dstore_db.tables_active[f])
+				for(let n in dstore_db.tables_active[f])
 				{
 //					if(!stats_skip[n])
 //					{
