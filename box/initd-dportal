@@ -16,7 +16,7 @@
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: forever running dportal
+# Short-Description: pm2 running dportal
 # Description:       dportal
 ### END INIT INFO
 #
@@ -27,9 +27,7 @@
 
 DIR="/dportal"
 APP="$DIR/dportal/js/serv.wrap.js"
-
-LOGDIR="$DIR/logs"
-LOGFILE="$LOGDIR/dportal"
+LOGFILE="$DIR/logs/dportal"
 
 
 
@@ -51,7 +49,7 @@ start() {
 	PATH=/usr/local/bin:$PATH
 	cd $DIR
 	. ./nvm-install
-	forever start --minUptime 1 --spinSleepTime 5000 -p ${LOGDIR} --pidFile ${LOGFILE}.pid -l ${LOGFILE}.log -e ${LOGFILE}.err -o ${LOGFILE}.out -a -d -c node $APP
+	pm2 start $APP --log ${LOGFILE}.log
 	RETVAL=$?
 }
 
@@ -59,7 +57,7 @@ restart() {
 	echo "Restarting $APP"
 	cd $DIR
 	. ./nvm-install
-	forever restart -p ${LOGDIR} $APP
+	pm2 restart $APP
 	RETVAL=$?
 }
 
@@ -67,7 +65,7 @@ stop() {
 	echo "Shutting down $APP"
 	cd $DIR
 	. ./nvm-install
-	forever stop -p ${LOGDIR} $APP
+	pm2 stop $APP
 	RETVAL=$?
 }
 
@@ -75,7 +73,7 @@ status() {
 	echo "Status $APP"
 	cd $DIR
 	. ./nvm-install
-	forever list -p ${LOGDIR}
+	pm2 list
 	RETVAL=$?
 }
 
@@ -84,14 +82,6 @@ log() {
 	cd $DIR
 	. ./nvm-install
 	tail -f ${LOGFILE}.log
-	RETVAL=$?
-}
-
-cron() {
-	echo "cron $APP"
-	cd $DIR
-	. ./nvm-install
-	bin/cron.sh
 	RETVAL=$?
 }
 
