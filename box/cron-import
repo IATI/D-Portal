@@ -19,7 +19,7 @@ echo | tee -a ${file}.import.log ${file}.import.last.log
 
 echo "Importing $file" | tee -a ${file}.import.log ${file}.import.last.log
 
-node --max-old-space-size=4096 js/cmd import $file 2>&1 | tee -a ${file}.import.log ${file}.import.last.log
+./dstore import $file 2>&1 | tee -a ${file}.import.log ${file}.import.last.log
 
 
 echo | tee -a ${file}.import.log ${file}.import.last.log
@@ -28,13 +28,13 @@ export -f doimport
 ls cache/*.xml -S | parallel --jobs 50% --bar doimport
 
 echo "Adding fake transactions at $(date)" | tee -a cache/time.log
-node js/cmd fake
+./dstore fake
 
 echo "Augmenting related table at $(date)" | tee -a cache/time.log
-node js/cmd augment
+./dstore augment
 
 echo "Starting Analyze of database at $(date)" | tee -a cache/time.log
-node js/cmd analyze
+./dstore analyze
 
 
 ENDTIME=$(date +%s)
