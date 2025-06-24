@@ -6068,7 +6068,7 @@ curl -k -L -o obodo_ng-organisation.xml "https://iatipublisher-prod.s3.amazonaws
 curl -k -L -o orraa_inc-activities.xml "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/orraa_inc-activities.xml" 
 curl -k -L -o orraa_inc-organisation.xml "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/orraa_inc-organisation.xml" 
 curl -k -L -o odakorea-act6.xml "https://www.odakorea.go.kr/opm/iati_act_KR-GOV-010.xml" 
-curl -k -L -o ons-activities.xml "https://devflow.northeurope.cloudapp.azure.com/files/xml/ons-activities.xml" 
+curl -k -L -o ons-activities.xml "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/ons-activities.xml" 
 curl -k -L -o ons-organisation.xml "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/ons-organisation.xml" 
 curl -k -L -o unocha-asghp.xml "https://oct.unocha.org/octws/OCTPublishData.svc/GetIATIContribution?activity=ASGHP" 
 curl -k -L -o okapiconsulting-activities.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/okapiconsulting-activities.xml" 
