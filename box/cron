@@ -3,6 +3,7 @@ cd ..
 
 exec >/dportal/logs/cron.log
 
+source /dportal/nvm-install
 source /dportal/box/env.sh
 
 
