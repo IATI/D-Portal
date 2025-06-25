@@ -191,7 +191,8 @@ ctrack.setup=function(args)
 		];
 		if(args.rgba) // only if given
 		{
-				args.css[args.css.length]=args.art+"rgba/"+args.rgba+".css";
+			document.body.classList.add("rgba-"+args.rgba)
+			args.css[args.css.length]=args.art+"rgba/"+args.rgba+".css";
 		}
 	}
 
@@ -488,7 +489,7 @@ ctrack.setup=function(args)
 	};
 
 // special new white chunks
-	if( (args.flava=="white") || (args.rgba=="white") )
+	if( (args.flava=="white") || (args.rgba=="white") || ctrack.q.test )
 	{
 		ctrack.chunk("main_head","{main_head_white}");
 		ctrack.chunk("main_head_search","{main_head_white}");

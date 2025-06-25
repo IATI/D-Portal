@@ -1,3 +1,5 @@
 cd `dirname $0`
 
+source ./nvm-install
+
 ctrack/watch 1>&2 | tee | dflat/watch >&2 | tee | dportal/start $*
