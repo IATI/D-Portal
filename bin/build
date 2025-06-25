@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 cd `dirname $0`
+cd ..
 
 #make sure we have npm modules installed
+source ./nvm-install
 npm install
 
-../ctrack/build $@ &&
-../dflat/build $@ &&
-../dportal/build $@
+ctrack/build $@ &&
+dflat/build $@ &&
+dportal/build $@
