@@ -2,6 +2,7 @@
 cd `dirname $0`
 
 #make sure we have npm modules installed
+source ./nvm-install
 npm install
 
 ../ctrack/build $@ &&
