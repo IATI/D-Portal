@@ -844,6 +844,24 @@ a.data_invest:hover		{color:#FFF; background-color:#008fff;}
 .footer_dpreview a.search_refine{width:initial; text-align:center; margin:0 auto; padding:10px 20px; margin-top:1em; color:#fff;}
 
 
+/*	Footer (white)
+	============================================= */
+.footer_wrap.footer_white	{background:linear-gradient(rgba(21,83,102,.9), rgba(21,83,102,.9)), url(/ctrack/art/original/marque_white.svg) no-repeat right 2rem top, rgba(21,83,102,1); background-size:32.3rem auto;}
+.footer_link.footer_block	{display:block; width:960px;}
+.footer_link			{padding:1.5em 0 .5em 0;}
+.footer_link li a		{line-height:2em;}
+.footer_link a			{color:rgba(255,255,255,1); text-decoration:underline; text-decoration-color:rgba(173,211,223,1); text-underline-position:under;}
+.footer_link a:focus	{color:rgba(255,255,255,1);}
+.footer_link a:link  	{color:rgba(255,255,255,1);}
+.footer_link a:visited	{color:rgba(255,255,255,1);}
+.footer_link a:hover	{color:rgba(123,237,242,1);}
+.footer_link a:active	{color:rgba(255,255,255,1);}
+.footer_line			{width:100%; border-top:1px solid #7bedf2;}
+.footer_header			{font-weight:bold; border:0; padding:0; margin-bottom:1.5em;}
+.footer_link.footer_block.footer_copy	{display:flex; align-items:center; justify-content:space-between; padding:2em 0;}
+.footer_link.footer_block.footer_copy a	{text-decoration:none;}	
+	
+
 /*	Footer 2.0
 	============================================= */
 .footer_social	{display:flex; gap:18px;}
