@@ -152,6 +152,36 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 </div>
 
 #main_head_white
+<script>
+	$(function(){
+		$('#iati_lang').children().each(function(i,it){
+			if("{tongue}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#iati_lang').bind('change', function ()
+		{
+			var url = "{mark_no_tongue}&tongue="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+	$(function(){
+		$('#iati_theme').children().each(function(i,it){
+			if("{flava_name}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#iati_theme').bind('change', function ()
+		{
+			var url = "{mark_no_flava}&flava="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+</script>
 <div class="iati_header">
 	<div class="iati_head_one">
 		<div class="iati_head_con">
@@ -180,12 +210,12 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 				<div class="iati_lang">
 					<label for="iati_lang" class="iati_lang_label">Choose your language</label>
 					<select id="iati_lang" class="iati_lang_opt">
-						<option value="en" selected="">English</option>
-						<option value="en">Spanish</option>
-						<option value="en">French</option>
-						<option value="en">Chinese</option>
-						<option value="en">Hindi</option>
-						<option value="en">Japanese</option>
+						<option value="eng" >English</option>
+						<option value="spa" >Spanish</option>
+						<option value="fra" >French</option>
+						<option value="cmn" >Chinese</option>
+						<option value="hin" >Hindi</option>
+						<option value="jpn" >Japanese</option>
 					</select>
 				</div>
 				<a href="https://docs.d-portal.org/en/latest/" class="iati_button">
@@ -193,10 +223,9 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 				</a>
 				<div class="iati_lang">
 					<label for="iati_lang" class="iati_lang_label">Choose your theme</label>
-					<select id="iati_lang" class="iati_lang_theme">
-						<option value="en" selected="">Classic</option>
-						<option value="en">Nuke</option>
-						<option value="en">Print</option>
+					<select id="iati_theme" class="iati_lang_theme">
+						<option value="original" >Classic</option>
+						<option value="white"    >IATI</option>
 					</select>
 				</div>
 			</div>
