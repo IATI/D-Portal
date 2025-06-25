@@ -169,14 +169,14 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 	});
 	$(function(){
 		$('#iati_theme').children().each(function(i,it){
-			if("{flava_name}"==$(it).val())
+			if("{flava_rgba}"==$(it).val())
 			{
 				$(it).attr("selected",1);
 			}
 		});
 		$('#iati_theme').bind('change', function ()
 		{
-			var url = "{mark_no_flava}&flava="+$(this).val()+"{hash}";
+			var url = "{mark_no_flava}&rgba="+$(this).val()+"{hash}";
 			window.location = url; // redirect
 			return false;
 		});
@@ -224,7 +224,7 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 				<div class="iati_lang">
 					<label for="iati_lang" class="iati_lang_label">Choose your theme</label>
 					<select id="iati_theme" class="iati_lang_theme">
-						<option value="original" >Classic</option>
+						<option value="classic" >Classic</option>
 						<option value="white"    >IATI</option>
 					</select>
 				</div>

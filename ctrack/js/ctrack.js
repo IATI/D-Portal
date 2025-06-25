@@ -509,6 +509,7 @@ ctrack.setup=function(args)
 	ctrack.chunk("art",args.art);
 	ctrack.chunk("flava",args.art+args.flava+"/");
 	ctrack.chunk("flava_name",args.flava);
+	ctrack.chunk("flava_rgba",args.rgba);
 	ctrack.chunk("tongue",args.tongue);
 	ctrack.chunk("newyear",args.newyear);
 
