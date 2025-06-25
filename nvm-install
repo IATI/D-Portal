@@ -1,4 +1,4 @@
-cd `dirname $0`
+pushd `dirname $0`
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -27,6 +27,7 @@ else
 	npm install -g nodemon
 fi
 
+popd
 
 # to "mostly" uninstall nvm
 # rm -rf ~/.nvm
@@ -35,4 +36,3 @@ fi
 # to make sure nvm is setup be sure to
 # source ./nvm-install
 # before assuming it is
-
