@@ -6,10 +6,10 @@ export default views
 
 // import
 
-import ctrack                        from "./ctrack.js"
-import plate                         from "./plate.js"
-import iati                          from "./iati.js"
-import fetcher                       from "./fetcher.js"
+//import ctrack                        from "./ctrack.js"
+//import plate                         from "./plate.js"
+//import iati                          from "./iati.js"
+//import fetcher                       from "./fetcher.js"
 import views_dash                    from "./view_dash.js"                    ; views.dash                    = views_dash
 import views_dash_quality            from "./view_dash_quality.js"            ; views.dash_quality            = views_dash_quality
 import views_dash_cronlog            from "./view_dash_cronlog.js"            ; views.dash_cronlog            = views_dash_cronlog

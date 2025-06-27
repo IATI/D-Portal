@@ -18,6 +18,8 @@ import crs        from "../../dstore/json/crs.js"
 import freechange from "freechange/year.js"
 import jqs        from "./jqs.js"
 
+ctrack.views=views
+
 ctrack.map_old_views={
 	"donors"                   : "publishers",
 	"publisher"                : "main",

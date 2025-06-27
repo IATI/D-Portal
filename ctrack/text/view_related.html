@@ -16,7 +16,7 @@
 
 #related_opts
 <div id="related_opts">
-<div id="related_opts_small" onclick="ctrack.related_filters_update(true)" >Related Filters : <span id="related_opts_small_filters">
+<div id="related_opts_small" onclick="ctrack.views.related.filters_update(true)" >Related Filters : <span id="related_opts_small_filters">
 	<input id="related_opts_small_filter1" type="checkbox" disabled />
 	<input id="related_opts_small_filter2" type="checkbox" disabled />
 	<input id="related_opts_small_filter3" type="checkbox" disabled />
@@ -28,27 +28,27 @@
 	<div>Use related data from the following sources:</div>
 	<div>
 		Related by related-activity @ref using @type.
-		<input id="related_opts_large_filter1" type="checkbox" onclick="ctrack.related_filters_update_click()" />
+		<input id="related_opts_large_filter1" type="checkbox" onclick="ctrack.views.related.filters_update_click()" />
 	</div>
 	<div>
 		Related by provider-org @provider-activity-id.
-		<input id="related_opts_large_filter2" type="checkbox" onclick="ctrack.related_filters_update_click()" />
+		<input id="related_opts_large_filter2" type="checkbox" onclick="ctrack.views.related.filters_update_click()" />
 	</div>
 	<div>
 		Related by receiver-org @receiver-activity-id.
-		<input id="related_opts_large_filter3" type="checkbox" onclick="ctrack.related_filters_update_click()" />
+		<input id="related_opts_large_filter3" type="checkbox" onclick="ctrack.views.related.filters_update_click()" />
 	</div>
 	<div>
 		Related by other-identifier @ref when @type is A3.
-		<input id="related_opts_large_filter4" type="checkbox" onclick="ctrack.related_filters_update_click()" />
+		<input id="related_opts_large_filter4" type="checkbox" onclick="ctrack.views.related.filters_update_click()" />
 	</div>
 	<div>
 		Related by participating-org @activity-id when @role is 1,2 or 3.
-		<input id="related_opts_large_filter5" type="checkbox" onclick="ctrack.related_filters_update_click()" />
+		<input id="related_opts_large_filter5" type="checkbox" onclick="ctrack.views.related.filters_update_click()" />
 	</div>
 	<div>
 		Related by participating-org @ref when @role is 1,2 or 3.
-		<input id="related_opts_large_filter6" type="checkbox" onclick="ctrack.related_filters_update_click()" />
+		<input id="related_opts_large_filter6" type="checkbox" onclick="ctrack.views.related.filters_update_click()" />
 	</div>
 </div>
 </div>
@@ -133,9 +133,9 @@
 
 #related_item
 
-<div id="related_{_it.idx}" class="{_it.pivot} related_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.related_goto(event,'aid','{_it.aid}',{_it.dupe_idx});">
+<div id="related_{_it.idx}" class="{_it.pivot} related_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.views.related.goto(event,'aid','{_it.aid}',{_it.dupe_idx});">
 	<div title="" class="related_item_before related_item_before{_it.lcount}"
-		onclick="event.stopPropagation();ctrack.related_toggle({_it.idx},event);" >{_it.lcount}<div>{_it.ldir}</div></div>
+		onclick="event.stopPropagation();ctrack.views.related.toggle({_it.idx},event);" >{_it.lcount}<div>{_it.ldir}</div></div>
 	<div class="related_info_wrap">
 		<div class="num">{_it.idx}.</div>
 		<div class="related_info">
@@ -153,14 +153,14 @@
 		</div>
 	</div>
 	<div title="" class="related_item_after related_item_before{_it.rcount}"
-		onclick="event.stopPropagation();ctrack.related_toggle({_it.idx},event);" >{_it.rcount}<div>{_it.rdir}</div></div>
+		onclick="event.stopPropagation();ctrack.views.related.toggle({_it.idx},event);" >{_it.rcount}<div>{_it.rdir}</div></div>
 </div>
 
 #relatedp_item
 
-<div id="related_{_it.idx}" class="{_it.pivot} related_item relatedp_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.related_goto(event,'pid','{_it.pid}',{_it.dupe_idx});">
+<div id="related_{_it.idx}" class="{_it.pivot} related_item relatedp_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.views.related.goto(event,'pid','{_it.pid}',{_it.dupe_idx});">
 	<div title="" class="relatedp_item_before related_item_before{_it.lcount}"
-		onclick="event.stopPropagation();ctrack.related_toggle({_it.idx},event);" >{_it.lcount}<div>{_it.ldir}</div></div>
+		onclick="event.stopPropagation();ctrack.views.related.toggle({_it.idx},event);" >{_it.lcount}<div>{_it.ldir}</div></div>
 	<div class="related_info">
 		<div class="num">{_it.idx}.</div>
 		<div class="title">
@@ -173,5 +173,5 @@
 		</div>
 	</div>
 	<div title="" class="relatedp_item_after related_item_before{_it.rcount}"
-		onclick="event.stopPropagation();ctrack.related_toggle({_it.idx},event);" >{_it.rcount}<div>{_it.rdir}</div></div>
+		onclick="event.stopPropagation();ctrack.views.related.toggle({_it.idx},event);" >{_it.rcount}<div>{_it.rdir}</div></div>
 </div>

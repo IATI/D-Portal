@@ -5,13 +5,11 @@ const view_related={}
 export default view_related
 view_related.name="view_related"
 
+import ctrack     from "./ctrack.js"
 import views      from "./views.js"
 import fetcher    from "./fetcher.js"
 import iati_codes from "../../dstore/json/iati_codes.json"
 import SVG        from "svg.js"
-
-
-const ctrack = import("./ctrack.js")
 
 // enable 1 2 3 4 5 but not 6
 var base_related_filters = 2+4+8+16+32
@@ -38,7 +36,7 @@ view_related.gotoe=function(e,ev)
 	}
 }
 
-ctrack.related_goto=function(event,name,id,dupe_idx)
+view_related.goto=function(event,name,id,dupe_idx)
 {
 //	console.log(event,name,id,dupe_idx)
 	if(dupe_idx==0)
@@ -71,7 +69,7 @@ ctrack.related_goto=function(event,name,id,dupe_idx)
 	}
 }
 
-ctrack.related_filters_update=function(toggle)
+view_related.filters_update=function(toggle)
 {
 	if(toggle)
 	{
@@ -97,7 +95,7 @@ ctrack.related_filters_update=function(toggle)
 		}
 	}
 }
-ctrack.related_filters_update_click=async function()
+view_related.filters_update_click=async function()
 {
 	let ps=0
 	for(let i=1 ; i<=6 ; i++ )
@@ -123,7 +121,7 @@ ctrack.related_filters_update_click=async function()
 //	view_related.fixup()
 }
 
-ctrack.related_toggle=function(idx,event)
+view_related.toggle=function(idx,event)
 {
 	if( view_related.hide_graph ) // just toggle everythig
 	{
@@ -196,7 +194,7 @@ view_related.fixup=async function(args)
 	args=args||{}
 	fetcher.ajax_dat_fix(args)
 	
-	ctrack.related_filters_update()
+	view_related.filters_update()
 
 	if( args.aid && ( args.aid != ctrack.chunk("related_aid") ) )
 	{
@@ -1018,3 +1016,6 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 	ctrack.display();
 
 }
+
+
+

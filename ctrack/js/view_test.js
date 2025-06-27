@@ -6,7 +6,7 @@ const view_test={}
 export default view_test
 view_test.name="view_test"
 
-//import ctrack     from "./ctrack.js"
+import ctrack     from "./ctrack.js"
 import plate      from "./plate.js"
 import iati       from "./iati.js"
 import fetcher    from "./fetcher.js"
@@ -14,8 +14,6 @@ import csscolor   from "./csscolor.js"
 import refry      from "../../dstore/js/refry.js"
 import iati_codes from "../../dstore/json/iati_codes.json"
 import crs_js        from "../../dstore/json/crs.js"
-
-const ctrack = import("./ctrack.js")
 
 let crs_year=crs_js.donors
 
