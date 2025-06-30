@@ -1,0 +1,8 @@
+cd `dirname $0`
+
+source ./nvm-install
+
+ctrack/build
+dflat/build
+dportal/build
+
