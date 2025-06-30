@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en"> 
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<meta name="theme-color" content="#142334">
+		<!--[if IE]><script type="text/javascript" src="./jslib/excanvas.js"></script><![endif]-->
+		<title>d-portal</title>
+		
+		<link rel="stylesheet" type="text/css" href="ctrack/art/original/ctrack.css">
+
+		<script src="./ctrack/jslib/ctrack_loader.js"></script>
+		<script>
+			ctrack_loader({
+
+// where to load js/css/etc files from, defaults to http://d-portal.org/ 
+// set to / if you are running a ctrack server
+				root:"/ctrack/",
+//				q:"/q",
+				
+//				art:"/art/high/",
+
+// googlemaps js api key
+				mapkey:"AIzaSyA4qLTWwqj1laOiRUJv2JKJX9Omww4YLYU", 
+
+// if set then use google analytics with this code
+				ga:"UA-6109435-15", 
+
+// replace "this" with content from the portal
+				master:"#ctrack_div",
+
+// displayed data will be limited to this country code
+//				country:"bd",
+
+// displayed data will be limited to this publisher code
+//				publisher:"US",
+
+// these are replaced into the generated html and you can overide *any* display chunk here
+				chunks:{
+//					"country_name":"Bangladesh",
+//					"country_flag":"bdflag.png",
+//					"background_image":"backgroundimage.jpg"
+				}
+
+			});		
+		</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics
+
+	test enable minimal ga4 with no cookies for ua shutdown ?
+	
+	https://analytics.google.com/analytics/web/#/a234742187p323421017/admin/streams/table/3841373277
+
+-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LE7HBW1LFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-LE7HBW1LFG');
+
+gtag("consent", "default", {
+  ad_storage: "denied",
+  analytics_storage: "denied",
+  functionality_storage: "denied",
+  personalization_storage: "denied",
+  security_storage: "denied"
+});
+</script>
+
+
+<!-- I think we need hash for this to work
+-->
+<script defer data-domain="d-portal.org" src="https://plausible.io/js/script.file-downloads.outbound-links.manual.hash.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+	</head> 
+	<body>
+		<div id="ctrack_div">
+<!--
+		Anything in here will be shown while ctrack loads and be replaced with ctrack content afterwards.
+-->
+		</div>
+	</body>
+</html>
