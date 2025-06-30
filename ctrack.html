@@ -10,12 +10,17 @@
 
 		<script src="./ctrack/jslib/ctrack_loader.js"></script>
 		<script>
+// we sniff this to where we currently are for portability
+			let local_dir=(window.location.pathname.match(/^.*\//))
+
+// if hosted on github use q from main d-portal database
+			let use_dportal_q=(window.location.hostname.includes(".github."))
+
 			ctrack_loader({
 
 // where to load js/css/etc files from, defaults to http://d-portal.org/ 
-// we sniff this to where we currently are + the ctrack directory for portability
-				root:(window.location.href.match(/^[^?]*\//))+"ctrack/",
-//				q:"/q",
+				root:local_dir+"ctrack/",
+				q:use_dportal_q&&"https://d-portal.org/q"||"/q",
 				
 //				art:"/art/high/",
 
