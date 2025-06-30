@@ -13,8 +13,8 @@
 			ctrack_loader({
 
 // where to load js/css/etc files from, defaults to http://d-portal.org/ 
-// set to / if you are running a ctrack server
-				root:"/ctrack/",
+// we sniff this to where we currently are + the ctrack directory for portability
+				root:(window.location.href.match(/^.*\//))+"ctrack/",
 //				q:"/q",
 				
 //				art:"/art/high/",
