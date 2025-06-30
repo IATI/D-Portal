@@ -1,8 +1,8 @@
 cd `dirname $0`
 
 source ./nvm-install
+./npm-nstall
 
 ctrack/build
 dflat/build
 dportal/build
-
