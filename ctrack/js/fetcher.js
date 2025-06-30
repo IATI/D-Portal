@@ -89,7 +89,7 @@ fetcher.prefetch_aids=function(aids,f)
 		switch( aids.trim().toUpperCase() )
 		{
 			case "COVID-19":
-				aids=ctrack.args.dquery"?sql="+encodeURI(`
+				aids=ctrack.args.dquery+"?sql="+encodeURI(`
 SELECT DISTINCT aid FROM xson WHERE
 (
 	root='/iati-activities/iati-activity/humanitarian-scope' AND
