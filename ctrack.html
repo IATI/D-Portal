@@ -14,13 +14,15 @@
 			let local_dir=(window.location.pathname.match(/^.*\//))
 
 // if hosted on github use q from main d-portal database
-			let use_dportal_q=(window.location.hostname.includes(".github."))
+			let use_dportal_data=(window.location.hostname.includes(".github."))
 
 			ctrack_loader({
 
 // where to load js/css/etc files from, defaults to http://d-portal.org/ 
 				root:local_dir+"ctrack/",
-				q:use_dportal_q&&"https://d-portal.org/q"||"/q",
+
+// where to fetch data from, defaults to "/"
+				qroot:use_dportal_data&&"https://d-portal.org/"||"/",
 				
 //				art:"/art/high/",
 
