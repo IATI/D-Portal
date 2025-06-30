@@ -12,6 +12,7 @@ ctrack_loader=function(args){
 
 	args.jslib=args.jslib 	|| root+"jslib/";
 	args.art=args.art 		|| root+"art/";
+	
 	args.q=args.q			|| qroot+"q";
 	args.dquery=args.dquery	|| qroot+"dquery";
 	

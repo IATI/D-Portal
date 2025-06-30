@@ -431,9 +431,9 @@ ctrack.setup=function(args)
 						{
 							text="<image src='"+icon+"' />"+text
 						}
-						if( it.q=="aids" && text.startsWith(ctrack.origin+"/dquery?sql=") ) // change to editable link
+						if( it.q=="aids" && text.startsWith(ctrack.args.dquery+"?sql=") ) // change to editable link
 						{
-							text=ctrack.origin+"/dquery/#"+encodeURI(decodeURIComponent(text.substr( (ctrack.origin+"/dquery?sql=").length )))
+							text=ctrack.args.dquery+"/#"+encodeURI(decodeURIComponent(text.substr( (ctrack.origin+"/dquery?sql=").length )))
 						}
 						var chunk=plate.replace("{"+it.show+"}",{search_text:text})
 						div.append(chunk)
