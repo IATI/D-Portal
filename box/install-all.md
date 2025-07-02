@@ -13,7 +13,7 @@ are already root or if we are just a user who can sudo.
 
 	sudo apt update
 	sudo apt upgrade
-	sudo apt install -y build-essential byobu pv curl parallel nano zip unzip
+	sudo apt install -y build-essential byobu pv curl parallel nano zip unzip git
 	byobu-enable
 	sudo echo "dportal" >/etc/hostname
 	sudo timedatectl set-timezone "Etc/UTC"
@@ -61,7 +61,10 @@ Setup local options.
 
 Edit this file so it only contains the exports at the top and tweak 
 values as required. IE change PGUSER to ctrack set a random password in 
-PGPASS and delete all the bash commands below the exports.
+PGPASS and delete all the bash commands below the exports. 
+GITCRON="PUSH" should only be set on one box at a time, it tells the 
+scripts to git push updates, so leave this commented out until the old 
+box is turned off.
 
 Add these env values to our bash login so we can use them from the 
 console. Then logout and log back in so it is applied.
@@ -75,6 +78,9 @@ Now we can use the install scripts. Keep a close eye on these to make
 sure they actually work.
 
 	box/install-node.sh
+	# and to get  node live on your current bash
+	source nvm-install
+	
 	box/install-postgres.sh
 	box/install-nginx.sh
 	box/install-dportal.sh
@@ -105,6 +111,8 @@ git repos and probably clash.
 And add the following line.
 
 	10 0 * * * /bin/bash -c "/dportal/box/cron"
+
+and enable GITCRON in box/env.local.sh so we push cron updates to git.
 
 Make sure we are logged into npm, as freechange tries to publish itself 
 once a week via the cron jobs. So we need to run npm login and answer 
