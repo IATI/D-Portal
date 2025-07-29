@@ -1,1 +1,1 @@
-export const __webpack_id__=882;export const __webpack_ids__=[882];export const __webpack_modules__={9882:(_,e,t)=>{t.r(e),t.d(e,{default:()=>s});var o=t(3639),p=t(1545),a=t(4408);const c={},s=c;c.chosen=o,c.typeahead=p,c.stupid_table_plugin=a}};
+export const __webpack_esm_id__=882;export const __webpack_esm_ids__=[882];export const __webpack_esm_modules__={9882:(_,e,s)=>{s.r(e),s.d(e,{default:()=>c});var t=s(3639),o=s(1545),p=s(4408);const a={},c=a;a.chosen=t,a.typeahead=o,a.stupid_table_plugin=p}};
