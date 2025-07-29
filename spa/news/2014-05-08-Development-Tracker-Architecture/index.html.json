@@ -298,7 +298,7 @@
  "github_info2_text": "d-portal.org está siendo desarrollado y diseñado para que las cosas están cambiando constantemente en la actualidad. Envíanos tus sugerencias, informes de errores y problemas o contacto <a href=\"mailto:support@iatistandard.org\" target=\"_blank\">support@iatistandard.org</a>\n",
  "github_info3_text": "Si quieres estar al día de las noticias sobre d-portal por favor suscríbase a la <a href=\"https://groups.google.com/forum/?hl=en-GB#!forum/d-portal-list\">Google grupo</a>.\n",
  "github_tip_text": "Visite d-portal.org en Github\n",
- "head": "<title>{title}</title>\n<style>\n{css}\n</style>",
+ "head": "<title>{title}</title>\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap\" rel=\"stylesheet\">\n<style>\n{css}\n</style>",
  "home_link_text": "Casa\n",
  "html": "<html>\n<head>\n\t<meta charset=\"UTF-8\">\n\t<title>{title}</title>\n\t<script src=\"{_root}jslib/jquery.js\"></script>\n\t<style>{css}</style>\n</head>\n<body>\n\t{view_head}\n\t{main_head}\n\t{body}\n\t{view_tail}\n</body>\n</html>\n",
  "index_paragraph1_text": "es una plataforma de información basada en los países que registra los flujos de recursos. Está dirigido a proporcionar los ministerios competentes, los parlamentarios y la sociedad civil una información que puede ayudar con la programación y seguimiento de las actividades de desarrollo.\n",
