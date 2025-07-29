@@ -97,7 +97,12 @@ a.about_data.registry_link	{border-right:1px solid #CCC; text-align:left;}
 
 /*	Header 2.0
 	============================================= */
-.iati_header	{display:flex; flex-direction:column;}
+.hanken-grotesk-600 {font-family:"Hanken Grotesk",sans-serif; font-optical-sizing:auto; font-weight:600; font-style:normal;}
+.hanken-grotesk-700 {font-family:"Hanken Grotesk",sans-serif; font-optical-sizing:auto; font-weight:700; font-style:normal;}
+
+.nunito-sans-600 	{font-family:"Nunito Sans",sans-serif; font-optical-sizing:auto; font-weight:600; font-style:normal; font-variation-settings:"wdth" 100,"YTLC" 500;}
+
+.iati_header	{display:flex; flex-direction:column; font-family:"Hanken Grotesk",sans-serif; font-optical-sizing:auto; font-weight:600; font-style:normal;}
 .iati_head_one	{background-color:#fff;}
 .iati_head_two	{background:linear-gradient(rgba(21,83,102,.9), rgba(21,83,102,.9)), url(/ctrack/art/original/marque_white.svg) no-repeat right 2rem top, rgba(21,83,102,1); background-size:32.3rem auto;}
 .iati_head_con	{width:100%; max-width:960px; margin-inline-start:auto; margin-right:auto; padding:0 1rem;}
@@ -132,8 +137,8 @@ a.about_data.registry_link	{border-right:1px solid #CCC; text-align:left;}
 .iati_button img		{-webkit-filter:brightness(0); filter:brightness(0);}
 .iati_button:hover		{background-color:#7bedf2; color:#155366;}
 
-.iati_head_title_sub	{color:#fff; font-size:1.1rem; line-height:1;}
-.iati_head_title_main	{color:#fff; font-size:1.625rem; line-height:1; font-weight:bold;}
+.iati_head_title_sub	{color:#fff; font-size:1.1rem; line-height:1; font-weight:800;}
+.iati_head_title_main	{color:#fff; font-size:1.625rem; line-height:1; font-weight:800;}
 .iati_tool_list			{list-style-type:none; display:flex; padding:0; margin:0;}
 .iati_tool_list a,
 .iati_tool_list a:link,
