@@ -18,7 +18,14 @@ view_related.gotoe=function(e,ev)
 {
 	if(e)
 	{
+		e.focus()
+
 		let ev_top=+200
+		if(typeof ev=="number")
+		{
+			ev_top=ev
+			ev=null
+		}
 
 		if(ev)
 		{
@@ -27,12 +34,12 @@ view_related.gotoe=function(e,ev)
 
 		let y=$(e).offset().top-ev_top
 
-		$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
-			$('html, body').stop();
-		});
-		$('html, body').animate({ scrollTop:y }, 'slow', function(){
-			$("html, body").unbind("scroll mousedown DOMMouseScroll mousewheel keyup");
+		window.scroll({
+		  top: y, 
+		  left: 0, 
+		  behavior: 'smooth'
 		})
+
 	}
 }
 
@@ -248,21 +255,30 @@ view_related.showhide=function()
 
 view_related.draw_radar=function(data,lookup)
 {
+	let svg_radar_element=null
 	if(!data){return}
+	if(!lookup){return}
 
-	let e=document.getElementById("svg_radar")
-	if(!e)
+	let olde=document.getElementById("svg_radar")
+	if(olde)
 	{
-		e=document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-		e.id="svg_radar"
-		e.style.position="fixed"
-		e.style.left="0px"
-		e.style.top="0px"
-		e.style.zIndex="1000"
-		ctrack.div.master.append(e)
+		olde.remove()
 	}
+
+
+	let	e=document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+	e.id="svg_radar"
+	e.style.position="fixed"
+	e.style.left="0px"
+	e.style.top="0px"
+	e.style.zIndex="1000"
+	e.dataset.data=data
+	e.dataset.lookup=lookup
+	ctrack.div.master.append(e)
+	svg_radar_element=e
+
 //	e.innerHTML="" // reset
-//	e.style.pointerEvents="none"
+	e.style.pointerEvents="visiblePainted"
 	let draw=SVG(e)
 	draw.clear()
 	draw.size(100,100)
@@ -292,7 +308,11 @@ console.log(parts)
 	let update_parts
 	update_parts=function()
 	{
-		if( !document.getElementById("svg_radar") ) { return } // give up when no radar
+		if( ! document.body.contains( svg_radar_element ) )
+		{
+			return // give up when our radar is removed and stop animating
+		}
+		
 let minx= 999999999
 let miny= 999999999
 let maxx=-999999999
@@ -342,10 +362,11 @@ let maxy=-999999999
 				let dx=vb.px-va.px
 				let dy=vb.py-va.py
 				let dd=((dx*dx)+(dy*dy))
-				if( ( dd < (sx*sx) ) && ( dd > 0 ) )
+				let maxd=sx
+				if( ( dd < (maxd*maxd) ) && ( dd > 0 ) )
 				{
 					let d=Math.sqrt(dd)
-					let s=(1-(d/sx))
+					let s=(1-(d/maxd))
 					s=s*s
 					let vx=s*(dx/d)
 					let vy=s*(dy/d)
@@ -359,8 +380,11 @@ let maxy=-999999999
 		for( let ia=0 ; ia<parts.values.length ; ia++ )
 		{
 			let va=parts.values[ia]
-			va.px+=va.vx
-			va.py+=va.vy
+			if( va.vx*va.vx+va.vy*va.vy > 0.01 ) // minimum move speed
+			{
+				va.px+=va.vx
+				va.py+=va.vy
+			}
 			va.vx*=0.5
 			va.vy*=0.5
 			parts.items[va.id].center(va.px,va.py)
@@ -372,10 +396,38 @@ let maxy=-999999999
 		}
 		
 		let sy=200/(20+maxy-miny)
+		let xpos=(document.documentElement.scrollWidth/2)-(((maxx-minx)/2)*sy)
+		
+		let e=document.activeElement
+		let aid=e && e.dataset.aid
+		if(e.dataset.aid) // focus this circ in center
+		{
+			
+			let it=parts.values[ parts.ids[e.dataset.aid] ]
+//			xpos=(document.documentElement.scrollWidth/2)-((it.px)*sy)
+		}
 
-		group.transform({ a: sy, b: 0, c: 0, d: sy, e: (10-minx)*sy, f: (10-miny)*sy })
+		group.transform({ a: sy, b: 0, c: 0, d: sy, e: xpos, f: (10-miny)*sy })
 
 		requestAnimationFrame(update_parts)
+	}
+	let mouseover_parts=function(event)
+	{
+		let aid=event.target.dataset.aid		
+		let e=document.querySelectorAll('div.related_main[data-aid~="'+aid+'"]')[0]
+		if(e)
+		{
+			view_related.gotoe(e,300)
+		}
+	}
+	let click_parts=function(event)
+	{
+		let aid=event.target.dataset.aid		
+		let e=document.querySelectorAll('div.related_main[data-aid~="'+aid+'"]')[0]
+		if(e)
+		{
+		}
+		console.log("click",aid)
 	}
 
 	console.log("data",data)
@@ -389,7 +441,10 @@ let maxy=-999999999
 				let idx=parts.values.length
 				let x=px+(Math.random()*0.1)
 				let y=py+(Math.random()*0.1)
-				parts.items[id]=group.circle(sr*2).center(x,y).fill("#fff").attr("id","radar_"+tab.idx)
+				parts.items[id]=group.circle(sr*2).center(x,y).fill("#fff").attr("id","radar_"+tab.idx).attr("data-aid",id).attr("class","radar_blob")
+				parts.items[id].on("mouseover", mouseover_parts)
+				parts.items[id].on("click", click_parts)
+
 				parts.values[idx]={ id:id, px:x, py:y, vx:0, vy:0, }
 				parts.ids[id]=idx
 				py+=sy
@@ -522,6 +577,10 @@ view_related.ajax=async function(args)
 
 view_related.ajax_id=async function(name,id)
 {
+	ctrack.chunk("related_lookup",{})
+	ctrack.chunk("related_graph",{})
+	ctrack.chunk("related_data",{})
+
 	ctrack.chunk("related_aid","")
 	ctrack.chunk("related_pid","")
 	ctrack.chunk("related_"+name,id)
@@ -983,7 +1042,7 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 			it.idx=row.idx
 			it.depth=depth
 			it.id=""
-			it.dupe=row.dupe&&"dupe"||""
+			it.dupe=row.dupe&&"dupe"||"main"
 			it.dupe_idx=row.dupe_idx||0
 			it.type=row.related_type
 
