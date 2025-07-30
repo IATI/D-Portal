@@ -76,6 +76,7 @@ view_related.filters_update=function(toggle)
 		$("#related_opts_small").hide()
 		$("#related_opts_large").show()
 		view_related.draw_graph( ctrack.chunk("related_graph") )
+		view_related.draw_radar( ctrack.chunk("related_data") , ctrack.chunk("related_lookup") )
 	}
 	
 	let fs=ctrack.hash.related_filters || base_related_filters
@@ -116,7 +117,8 @@ view_related.filters_update_click=async function()
 
 	await view_related.ajax({})
 	view_related.showhide()
-	view_related.draw_graph( 		ctrack.chunk("related_graph") )
+	view_related.draw_graph( ctrack.chunk("related_graph") )
+	view_related.draw_radar( ctrack.chunk("related_data") , ctrack.chunk("related_lookup") )
 
 //	view_related.fixup()
 }
@@ -127,6 +129,7 @@ view_related.toggle=function(idx,event)
 	{
 		view_related.hide_graph=false
 		view_related.draw_graph( ctrack.chunk("related_graph") )
+		view_related.draw_radar( ctrack.chunk("related_data") , ctrack.chunk("related_lookup") )
 		return
 	}
 
@@ -165,6 +168,7 @@ view_related.toggle=function(idx,event)
 
 	view_related.showhide()
 	view_related.draw_graph( ctrack.chunk("related_graph") )
+	view_related.draw_radar( ctrack.chunk("related_data") , ctrack.chunk("related_lookup") )
 
 }
 
@@ -207,7 +211,8 @@ view_related.fixup=async function(args)
 	}
 
 	view_related.showhide()
-	view_related.draw_graph( 		ctrack.chunk("related_graph") )
+	view_related.draw_graph( ctrack.chunk("related_graph") )
+	view_related.draw_radar( ctrack.chunk("related_data") , ctrack.chunk("related_lookup") )
 
 	let e=document.getElementsByClassName("related_pivot")[0];
 	view_related.gotoe(e)
@@ -215,7 +220,8 @@ view_related.fixup=async function(args)
 
 view_related.resize=function()
 {
-	view_related.draw_graph( 		ctrack.chunk("related_graph") )
+	view_related.draw_graph( ctrack.chunk("related_graph") )
+	view_related.draw_radar( ctrack.chunk("related_data") , ctrack.chunk("related_lookup") )
 }
 view_related.showhide=function()
 {
@@ -238,6 +244,173 @@ view_related.showhide=function()
 		}
 	}
 //	e.classList.contains("related_hide");
+}
+
+view_related.draw_radar=function(data,lookup)
+{
+	if(!data){return}
+
+	let e=document.getElementById("svg_radar")
+	if(!e)
+	{
+		e=document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+		e.id="svg_radar"
+		e.style.position="fixed"
+		e.style.left="0px"
+		e.style.top="0px"
+		e.style.zIndex="1000"
+		ctrack.div.master.append(e)
+	}
+//	e.innerHTML="" // reset
+//	e.style.pointerEvents="none"
+	let draw=SVG(e)
+	draw.clear()
+	draw.size(100,100)
+	draw.size( document.documentElement.scrollWidth , 200 )
+	
+	let back = draw.rect( document.documentElement.scrollWidth , 200 ).fill("#000")
+	
+	let group=draw.group()
+
+	let lines=group.group()
+
+	let sx=64
+	let sy=16
+	let sr=8
+
+	let px=0
+	let py=0
+	
+	let parts={}
+	parts.items={}
+	parts.links=[]
+	parts.values=[]
+	parts.ids={}
+
+console.log(parts)
+
+	let update_parts
+	update_parts=function()
+	{
+		if( !document.getElementById("svg_radar") ) { return } // give up when no radar
+let minx= 999999999
+let miny= 999999999
+let maxx=-999999999
+let maxy=-999999999
+
+		lines.clear()
+		for( let il=0 ; il<parts.links.length ; il++ )
+		{
+			let link=parts.links[il]
+			let va=parts.values[ parts.ids[ link[0] ] ]
+			let vb=parts.values[ parts.ids[ link[1] ] ]
+			let dx=vb.px-va.px
+			let dy=vb.py-va.py
+			let dd=((dx*dx)+(dy*dy))
+			if( dd > 0 )
+			{
+				let d=Math.sqrt(dd)
+				let vx=(dx/d)
+				let vy=(dy/d)
+				let s=(d/sx)-1
+				if(s>1) { s=1; }
+				va.vx+=vx*s
+				va.vy+=vy*s
+				vb.vx-=vx*s
+				vb.vy-=vy*s
+				
+				let a=Math.atan2(dy,dx)/Math.PI
+
+				s=(a*2)
+
+				va.vx+=-vy*s
+				va.vy+=vx*s
+				vb.vx-=-vy*s
+				vb.vy-=vx*s
+
+			}
+			
+			lines.line(va.px+sr,va.py,vb.px-sr,vb.py).stroke({ color: "#fff" , width: 1 })
+		}
+
+		for( let ia=0 ; ia<parts.values.length ; ia++ )
+		{
+			let va=parts.values[ia]
+			for( let ib=ia+1 ; ib<parts.values.length ; ib++ )
+			{
+				let vb=parts.values[ib]
+				let dx=vb.px-va.px
+				let dy=vb.py-va.py
+				let dd=((dx*dx)+(dy*dy))
+				if( ( dd < (sx*sx) ) && ( dd > 0 ) )
+				{
+					let d=Math.sqrt(dd)
+					let s=(1-(d/sx))
+					s=s*s
+					let vx=s*(dx/d)
+					let vy=s*(dy/d)
+					va.vx-=vx
+					va.vy-=vy
+					vb.vx+=vx
+					vb.vy+=vy
+				}
+			}
+		}
+		for( let ia=0 ; ia<parts.values.length ; ia++ )
+		{
+			let va=parts.values[ia]
+			va.px+=va.vx
+			va.py+=va.vy
+			va.vx*=0.5
+			va.vy*=0.5
+			parts.items[va.id].center(va.px,va.py)
+			
+			if( va.px<minx ) { minx=va.px }
+			if( va.py<miny ) { miny=va.py }
+			if( va.px>maxx ) { maxx=va.px }
+			if( va.py>maxy ) { maxy=va.py }
+		}
+		
+		let sy=200/(20+maxy-miny)
+
+		group.transform({ a: sy, b: 0, c: 0, d: sy, e: (10-minx)*sy, f: (10-miny)*sy })
+
+		requestAnimationFrame(update_parts)
+	}
+
+	console.log("data",data)
+	for(let dat of data)
+	{
+		for(let tab of dat.tab)
+		{
+			let id=tab.aid
+			if(!parts.items[id])
+			{
+				let idx=parts.values.length
+				let x=px+(Math.random()*0.1)
+				let y=py+(Math.random()*0.1)
+				parts.items[id]=group.circle(sr*2).center(x,y).fill("#fff").attr("id","radar_"+tab.idx)
+				parts.values[idx]={ id:id, px:x, py:y, vx:0, vy:0, }
+				parts.ids[id]=idx
+				py+=sy
+			}
+			for(let idx of tab.upups)
+			{
+				let it=lookup[idx]
+				parts.links.push( [it.aid,tab.aid] )
+			}
+			for(let idx of tab.downs)
+			{
+				let it=lookup[idx]
+				parts.links.push( [tab.aid,it.aid] )
+			}
+		}
+		px+=sx
+		py=0
+	}
+	
+	requestAnimationFrame(update_parts)
+
 }
 
 view_related.draw_graph=function(graph)
