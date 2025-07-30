@@ -266,15 +266,23 @@ view_related.draw_radar=function(data,lookup)
 	}
 
 
+	let oe=ctrack.div.master
+//	let oe=document.getElementById("related_opts")
+//	if(!oe){ return }
+//	oe=oe.parent
+
 	let	e=document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
 	e.id="svg_radar"
+//	e.style.position="sticky"
 	e.style.position="fixed"
 	e.style.left="0px"
-	e.style.top="0px"
+	e.style.top="-200px"
 	e.style.zIndex="1000"
+
 	e.dataset.data=data
 	e.dataset.lookup=lookup
-	ctrack.div.master.append(e)
+	oe.append(e)
 	svg_radar_element=e
 
 //	e.innerHTML="" // reset
@@ -408,6 +416,17 @@ let maxy=-999999999
 		}
 
 		group.transform({ a: sy, b: 0, c: 0, d: sy, e: xpos, f: (10-miny)*sy })
+
+
+		let de=document.getElementById("related_radar_pos")
+		if(de)
+		{
+			let y=$(de).offset().top
+			let d=(window.scrollY-y)+300
+			if(d<-200){d=-200}
+			if(d>0){d=0}
+			svg_radar_element.style.top=d+"px"
+		}
 
 		requestAnimationFrame(update_parts)
 	}
@@ -579,7 +598,7 @@ view_related.ajax_id=async function(name,id)
 {
 	ctrack.chunk("related_lookup",{})
 	ctrack.chunk("related_graph",{})
-	ctrack.chunk("related_data",{})
+	ctrack.chunk("related_data",[])
 
 	ctrack.chunk("related_aid","")
 	ctrack.chunk("related_pid","")
