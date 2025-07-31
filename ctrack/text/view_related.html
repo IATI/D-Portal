@@ -52,6 +52,7 @@
 	</div>
 </div>
 </div>
+<div id="related_radar_pos"></div>
 
 #related_data
 <tr onclick="return ctrack.url('#view=act&aid={aid}');">
@@ -133,7 +134,7 @@
 
 #related_item
 
-<div id="related_{_it.idx}" class="{_it.pivot} related_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.views.related.goto(event,'aid','{_it.aid}',{_it.dupe_idx});">
+<div id="related_{_it.idx}" data-aid="{_it.aid}" tabindex="0" class="{_it.pivot} related_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.views.related.goto(event,'aid','{_it.aid}',{_it.dupe_idx});">
 	<div title="" class="related_item_before related_item_before{_it.lcount}"
 		onclick="event.stopPropagation();ctrack.views.related.toggle({_it.idx},event);" >{_it.lcount}<div>{_it.ldir}</div></div>
 	<div class="related_info_wrap">
@@ -158,7 +159,7 @@
 
 #relatedp_item
 
-<div id="related_{_it.idx}" class="{_it.pivot} related_item relatedp_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.views.related.goto(event,'pid','{_it.pid}',{_it.dupe_idx});">
+<div id="related_{_it.idx}" tabindex="0" class="{_it.pivot} related_item relatedp_item related_{_it.dupe}" onclick="event.stopPropagation();ctrack.views.related.goto(event,'pid','{_it.pid}',{_it.dupe_idx});">
 	<div title="" class="relatedp_item_before related_item_before{_it.lcount}"
 		onclick="event.stopPropagation();ctrack.views.related.toggle({_it.idx},event);" >{_it.lcount}<div>{_it.ldir}</div></div>
 	<div class="related_info">
