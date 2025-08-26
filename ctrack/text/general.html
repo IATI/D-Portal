@@ -158,20 +158,6 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 			return false;
 		});
 	});
-	$(function(){
-		$('#iati_theme').children().each(function(i,it){
-			if("{flava_rgba}"==$(it).val())
-			{
-				$(it).attr("selected",1);
-			}
-		});
-		$('#iati_theme').bind('change', function ()
-		{
-			var url = "{mark_no_flava}&rgba="+$(this).val()+"{hash}";
-			window.location = url; // redirect
-			return false;
-		});
-	});
 </script>
 <div class="iati_header">
 	<div class="iati_head_one">
@@ -212,13 +198,6 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 				<a href="https://docs.d-portal.org/en/latest/" class="iati_button">
 					<span>Help Docs</span> <img src="/ctrack/art/original/info_icon.png" alt="Information icon" width="15" height="15">
 				</a>
-				<div class="iati_lang">
-					<label for="iati_lang" class="iati_lang_label">Choose your theme</label>
-					<select id="iati_theme" class="iati_lang_theme">
-						<option value="classic" >Classic</option>
-						<option value="white"    >IATI</option>
-					</select>
-				</div>
 			</div>
 			<div class="iati_head_title">
 				<p class="iati_head_title_sub">IATI Tools</p>
@@ -261,41 +240,6 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 		<div class="footer">
 			{large_footer}
 		</div>
-	</div>
-</div>
-
-#utter
-<div onclick="$('#utter_wrap').toggle();" class="utter_link">&#128172;</div>
-<div id="utter_wrap">
-	<div onclick="$('#utter_wrap').toggle();" class="utter_link">&#10005;</div>
-	<div class="utter_text">
-		Hello! Do you have a question about d-portal? Please send us your comments below.
-		<span>This creates an issue on <a href="https://github.com/devinit/D-Portal/issues">the feedback forum</a>.</span>
-	</div>
-	<div class="utter_box_wrap">
-		<div class="utter_box" id="insert_utter_code">
-			<script>
-				$(function(){
-					let randomid=(new Date)+'';
-					let s = document.createElement("script");
-						s.type  = "text/javascript";
-						s.setAttribute("src","https://utteranc.es/client.js")
-						s.setAttribute("repo","notshi/IATIswitcheroo")
-						s.setAttribute("issue-term","Comment on "+randomid)
-						s.setAttribute("label","question")
-						s.setAttribute("theme","github-light")
-						s.setAttribute("crossorigin","anonymous")
-						s.setAttribute("async","1")
-					let e=document.getElementById("insert_utter_code")
-					if(!e.getAttribute("donestuff"))
-					{
-						e.setAttribute("donestuff","1")
-						e.appendChild(s)
-					}
-				})
-			</script>
-		</div>
-		<div class="utter_block"></div>
 	</div>
 </div>
 
