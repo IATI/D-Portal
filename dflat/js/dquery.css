@@ -34,10 +34,11 @@ a		{cursor:pointer; overflow-wrap:break-word; word-wrap:break-word; word-break:b
 
 #menutab > li > div		{padding:3px 1em; background-color:#2d2d2f; border:1px solid #444; border-left:0; border-bottom:0; border-radius:0 4px 0 0; color:#999;}
 #menutab > li#menu_doc > div	{border-left:1px solid #444; border-radius:4px 4px 0 0;}
-.ui-widget.ui-widget-content	{border:0; background-color:#272727;}
+.ui-widget.ui-widget-content	{border:0; background-color:#272727; color:#fff;}
 .ui-menu .ui-menu-item-wrapper	{padding:3px 1em; display:flex; align-items:center; height:100%;}
 .ui-menu .ui-menu-item-wrapper svg	{margin-left:5px;}
 .ui-icon	{display:none; width:0; height:0;}
+.ui-widget-content a	{color:#fff;}
 
 #menubar li#menu_how a	{display:block; text-decoration:none;}
 #menubar li#menu_how a svg	{margin:0 auto; vertical-align:middle;}
