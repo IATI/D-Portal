@@ -62,6 +62,34 @@ app.use(function(req, res, next) {
 app.use(function(req, res, next) {
 
 //	res.setHeader("Access-Control-Allow-Origin", "*")
+
+	let doms={} // get domain parts as keywords we can simply check
+	for( let v of ( req.get('host').replace(/:[0-9]+$/,"").split(".") ) )
+	{
+		doms[v.toLowerCase()]=true
+	}
+	let url=req.protocol + '://' + req.get('host') + req.originalUrl
+//	let canurl='https://d-portal.iatistandard.org' + req.originalUrl
+	let canurl='https://d-portal.org' + req.originalUrl
+//	console.log('host:', doms);
+//	console.log('url:', url);
+//	console.log('canurl:', canurl);
+	
+	if( doms["iatistandard"] ) // server is accessed via iatistandard.org
+	{
+		res.set("Link", '<'+encodeURI(canurl)+'>; rel="canonical"')
+	}
+	else
+	if( doms["d-portal"] ) // server is accessed via d-portal.org
+	{
+		// Since we have no # fragment I think we have to do this in JS on the ctrack page as well
+		// also that is the only place we can actually redirect otherwise we lose the hash.
+		res.set("Link", '<'+encodeURI(canurl)+'>; rel="canonical"')
+	}
+	else // default? probably should not be here unless server is accessed by raw IP
+	{
+		res.set("Link", '<'+encodeURI(canurl)+'>; rel="canonical"')
+	}
   
  	var aa=req.path.split("/");
 	var ab=aa && (aa[aa.length-1].split("."));

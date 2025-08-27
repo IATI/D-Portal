@@ -6,9 +6,56 @@ ctrack_loader=function(args){
 	var root=args.root 	  || "/ctrack/";
 	var qroot=args.qroot  || "/"; // use current site by default
 
-	// local test with data on main server
-	let domtest=(window.location.host.split(".")[0]).split(":")[0]
-	if( ( domtest=="localhost") ) { qroot="//d-portal.org/" }
+	let domtest={} // get domain parts as clean keywords we can simply check
+	for( let v of ( window.location.host.replace(/:[0-9]+$/,"").split(".") ) )
+	{
+		domtest[v.toLowerCase()]=true
+	}
+	
+	// the canonical url keeps search and hash
+	let canurl="https://d-portal.org/ctrack.html"+ window.location.search + window.location.hash
+
+	let link = document.querySelector('link[rel="canonical"]')
+	if(!link) // create and insert into head
+	{
+		link = document.createElement('link')
+		link.rel="canonical"
+		link.href=canurl
+		document.head.prepend(link)
+	}
+	else // just change href
+	{
+		link.href = canurl
+	}
+
+
+	if( domtest["iatistandard"] ) // client is accessed via iatistandard.org
+	{
+		args.style="white"
+	}
+	else
+	if( domtest["d-portal"] ) // client is accessed via d-portal.org
+	{
+		args.style="classic"
+	}
+	else
+	if( domtest["github"] ) // client is accessed via .github.io pages
+	{
+		// github d-portal will be a client only test
+		qroot="//d-portal.org/"
+		args.style="white"
+	}
+	else
+	if( domtest["localhost"] ) // client is accessed via localhost
+	{
+		// simple local test with data accessed from main server
+		qroot="//d-portal.org/"
+		args.style="mixed"
+	}
+	else // client is hosted somewhere else
+	{
+		args.style="classic"
+	}
 
 	args.jslib=args.jslib 	|| root+"jslib/";
 	args.art=args.art 		|| root+"art/";
