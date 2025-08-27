@@ -115,8 +115,6 @@ ctrack.setup=function(args)
 
 // auto enable test code on test.* subdomain and localhost
 	ctrack.q.test=args.test
-	let domtest=(window.location.host.split(".")[0]).split(":")[0]
-	if( ( domtest=="test") || ( domtest=="localhost") ) { ctrack.q.test=1 }
 
 	ctrack.origin=window.location.origin
 	ctrack.chunks["origin"] = ctrack.origin
@@ -132,6 +130,10 @@ ctrack.setup=function(args)
 	}
 
 	args=args || {};
+	args.chunks=args.chunks || {} // args.chunks should exist
+
+	args.style	=ctrack.q.style || args.style 	|| "classic"; // new theme hax
+
 	args.jslib	=args.jslib 	|| "http://d-portal.org/jslib/"; // load stuff from here
 	args.tongue	=args.tongue 	|| 	"eng"; 		// english
 	args.art	=args.art 		|| 	"/art/"; 	// local art
@@ -155,31 +157,63 @@ ctrack.setup=function(args)
 	args.newyear=args.newyear || ctrack.q.newyear || "01-01" ;
 	args.policy=args.policy || ctrack.q.policy ;
 
-// special new white chunks
-	if( (args.flava=="white") || (args.rgba=="white") )
-	{
-		args.flava="original"
-		args.rgba="white"
-	}
-
-
 	if(args.policy)
 	{
 		args.policy=args.policy.split(",").join("|") // convert , to |
 	}
 
-	if(args.flava=="high" || args.flava=="print")
+	// choose header and footer chunks
+	if( ( args.style=="white" ) || ( args.style=="mixed" ) )
 	{
-		document.body.classList.add("print")
+		args.chunks["main_head"]||="{main_head_white}"
+		args.chunks["main_head_search"]||="{main_head_white}"
+		args.chunks["view_head"]||="{view_head_white}"
+		args.chunks["view_tail"]||="{view_tail_white}"
 	}
 	else
-	if( (args.flava=="white") || (args.rgba=="white") )
 	{
+		args.chunks["main_head"]||="{main_head_original}"
+		args.chunks["main_head_search"]||="{main_head_search_original}"
+		args.chunks["view_head"]||="{view_head_original}"
+		args.chunks["view_tail"]||="{view_tail_original}"
+	}
+
+	if( args.style=="white" )
+	{
+		args.flava="original"
+		args.rgba="white"
 		document.body.classList.add("white")
 	}
 	else
+	if( args.style=="mixed" )
 	{
+		args.flava="original"
+		delete args.rgba
 		document.body.classList.add("original")
+	}
+	else // old options
+	{
+
+// special new white chunks
+		if( (args.flava=="white") || (args.rgba=="white") )
+		{
+			args.flava="original"
+			args.rgba="white"
+		}
+
+		if(args.flava=="high" || args.flava=="print")
+		{
+			document.body.classList.add("print")
+		}
+		else
+		if( (args.flava=="white") || (args.rgba=="white") )
+		{
+			document.body.classList.add("white")
+		}
+		else
+		{
+			document.body.classList.add("original")
+		}
 	}
 
 	if(!args.css) // can totally override with args
@@ -489,22 +523,6 @@ ctrack.setup=function(args)
 	ctrack.chunk_clear=function(n){
 			ctrack.chunks[n]=undefined;
 	};
-
-// special new white chunks
-	if( (args.flava=="white") || (args.rgba=="white") || ctrack.q.test )
-	{
-		ctrack.chunk("main_head","{main_head_white}");
-		ctrack.chunk("main_head_search","{main_head_white}");
-		ctrack.chunk("view_head","{view_head_white}");
-		ctrack.chunk("view_tail","{view_tail_white}");
-	}
-	else
-	{
-		ctrack.chunk("main_head","{main_head_original}");
-		ctrack.chunk("main_head_search","{main_head_search_original}");
-		ctrack.chunk("view_head","{view_head_original}");
-		ctrack.chunk("view_tail","{view_tail_original}");
-	}
 
 // set global defaults
 	ctrack.chunk("yearcrs" ,crs.year  ); // the crs data is for this year

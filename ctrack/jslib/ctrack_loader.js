@@ -37,6 +37,11 @@ ctrack_loader=function(args){
 	if( domtest["d-portal"] ) // client is accessed via d-portal.org
 	{
 		args.style="classic"
+		
+		if( domtest["test"] ) // test subdomain switch to test mode
+		{
+			args.style="white"
+		}
 	}
 	else
 	if( domtest["github"] ) // client is accessed via .github.io pages
