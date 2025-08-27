@@ -107,6 +107,7 @@ ctrack.setup=function(args)
 //		ctrack.resize_timeout = setTimeout(ctrack.resize, 100)
 		ctrack.resize()
 	}
+	
 
 	ctrack.nanobar = new Nanobar( {} );
 
@@ -162,6 +163,14 @@ ctrack.setup=function(args)
 		args.policy=args.policy.split(",").join("|") // convert , to |
 	}
 
+	// list of base css to load
+	let all_css=[
+		args.art+args.flava+"/ctrack.css",
+		args.art+"chosen.min.css",
+		args.art+"chartist.min.css",
+		args.art+"typeahead.css"
+	];
+
 	// choose header and footer chunks
 	if( ( args.style=="white" ) || ( args.style=="mixed" ) )
 	{
@@ -181,8 +190,14 @@ ctrack.setup=function(args)
 	if( args.style=="white" )
 	{
 		args.flava="original"
-		args.rgba="white"
+		delete args.rgba
 		document.body.classList.add("white")
+		document.body.classList.add("rgba-"+args.rgba)
+		if(!args.css)
+		{
+			args.css=[] ; for( v of all_css ) { args.css.push(v) }
+			args.css.push(args.art+"rgba/white.css")
+		}
 	}
 	else
 	if( args.style=="mixed" )
@@ -190,6 +205,10 @@ ctrack.setup=function(args)
 		args.flava="original"
 		delete args.rgba
 		document.body.classList.add("original")
+		if(!args.css)
+		{
+			args.css=[] ; for( v of all_css ) { args.css.push(v) }
+		}
 	}
 	else // old options
 	{
@@ -214,23 +233,19 @@ ctrack.setup=function(args)
 		{
 			document.body.classList.add("original")
 		}
-	}
 
-	if(!args.css) // can totally override with args
-	{
-		args.css=[
-//				args.art+args.flava+"/activities.css",
-				args.art+args.flava+"/ctrack.css",
-				args.art+"chosen.min.css",
-				args.art+"chartist.min.css",
-				args.art+"typeahead.css"
-		];
-		if(args.rgba) // only if given
+		if(!args.css) // can totally override with args
 		{
-			document.body.classList.add("rgba-"+args.rgba)
-			args.css[args.css.length]=args.art+"rgba/"+args.rgba+".css";
+			args.css=[]
+			for( v of all_css ) { args.css.push(v) }
+			if(args.rgba) // only if given
+			{
+				document.body.classList.add("rgba-"+args.rgba)
+				args.css.push(args.art+"rgba/"+args.rgba+".css")
+			}
 		}
 	}
+
 
 	if(args.css) { head.load(args.css); }
 
