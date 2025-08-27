@@ -1,5 +1,6 @@
 body,html 				{color:rgba(46,46,46,1);}
 html					{background-color:rgba(255,255,255,1);}
+#background_image		{background-image:none !important;}
 
 table.head img,
 img						{-webkit-filter:brightness(0%); filter:brightness(0%);}
@@ -121,6 +122,11 @@ a.stats_link.planned:hover		{background-color:rgba(104,104,104,1);}
 a.stats_link.publishers			{background-color:rgba(10,145,114,1);}
 a.stats_link.publishers:hover	{background-color:rgba(5,171,133,1);}
 
+a.stats_link.to_ended			{background:linear-gradient(to right, rgba(21,83,102,0.1) 0%, rgba(21,83,102,0.8) 13%, rgba(21,83,102,0.95) 100%);}
+a.stats_link.to_ended:hover		{background:linear-gradient(to right, rgba(45,106,125,0.1) 0%, rgba(45,106,125,0.8) 13%, rgba(45,106,125,1) 100%);}
+a.stats_link.to_planned			{background:linear-gradient(to left, rgba(21,83,102,0.1) 0%, rgba(21,83,102,0.8) 13%, rgba(21,83,102,0.95) 100%);}
+a.stats_link.to_planned:hover	{background:linear-gradient(to left, rgba(45,106,125,0.1) 0%, rgba(45,106,125,0.8) 13%, rgba(45,106,125,1) 100%);}
+
 a.stats_link.active span.stats_title		{color:rgba(173,211,223,1);}
 a.stats_link.missing span.stats_title		{}
 a.stats_link.ended span.stats_title			{color:rgba(182,246,249,1);}
@@ -147,7 +153,7 @@ span.graph_view_all:hover{background-color:rgba(204,204,204,0.9);}
 .description_wrap		{background:transparent;}
 .data_quality_wrap,
 .footer_notes			{box-shadow:0 4px 5px rgba(218,218,218,1); background-color:rgba(255,255,255,1); border-top:4px solid rgba(21,83,102,1);}
-.footer_notes span.title{color:rgba(18,18,18,1); border-top:1px solid rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1); font-weight:bold;}
+.footer_notes span.title{color:rgba(60,60,60,1); border-top:1px solid rgba(255,255,255,1); border-bottom:1px solid rgba(255,255,255,1); font-weight:bold;}
 .footer_notes p			{color:rgba(18,18,18,1);}
 .footer_notes p.about_data	{border-top:1px solid rgba(255,255,255,1);}
 a.read,
@@ -245,7 +251,7 @@ a.search_refine:hover		{background:rgba(59,210,175,1); border:0; text-shadow:non
 /*	Table header styles
 	============================================= */
 th.titles					{color:rgba(46,46,46,1);}
-table.list tr th.titles		{border-bottom:1px solid rgba(218,218,218,1);}
+table.list tr th.titles		{background-color:rgba(255,255,255,1); border-bottom:1px solid rgba(218,218,218,1);}
 table.activity tr th.titles	{background-color:rgba(255,255,255,1);}
 
 
