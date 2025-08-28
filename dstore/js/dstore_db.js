@@ -1376,9 +1376,9 @@ dstore_db.get_base_stats = async function(base_stats){
 	base_stats||={}
 	
 	try{ // in case of fail
-		let logname=import.meta.dirname+'/../../logs/cron.log'
-		let data=fs.statSync(logname)
-		base_stats.log_time=data.mtime
+		let fname=import.meta.dirname+'/../../logs/db_update_time'
+		let data=fs.statSync(fname)
+		base_stats.db_time=data.mtime
 	}catch(e){console.log(e)}
 	
 	// depends on db

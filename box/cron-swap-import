@@ -24,4 +24,7 @@ echo " setting database live "
 
 box/dstore-swap dload
 
+touch /dportal/logs/db_update_time
+
+
 

@@ -870,7 +870,7 @@ ctrack.setup=function(args)
 	{
 		let base_stats={}
 		
-		base_stats.log_time=( new Date( Date.parse(ret.log_time) ) ).toUTCString()
+		base_stats.db_time=( new Date( Date.parse(ret.db_time) ) ).toUTCString()
 		base_stats.act_count=commafy(ret.act_count)
 		base_stats.org_count=commafy(ret.org_count)
 		
