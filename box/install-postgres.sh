@@ -28,6 +28,7 @@ sudo bash -c "echo \"max_wal_senders=1\" >> $PGMAIN/postgresql.conf"
 sudo bash -c "echo \"wal_level=hot_standby\" >> $PGMAIN/postgresql.conf"
 sudo bash -c "echo \"synchronous_commit = off\" >> $PGMAIN/postgresql.conf"
 sudo bash -c "echo \"work_mem = 128MB\" >> $PGMAIN/postgresql.conf"
+sudo bash -c "echo \"statement_timeout = 3600000\" >> $PGMAIN/postgresql.conf"
 
 #replace pg_hba.conf
 sudo bash -c "echo \"#HAXTBH\" > $PGMAIN/pg_hba.conf"
