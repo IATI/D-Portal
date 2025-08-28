@@ -18,6 +18,9 @@ import crs        from "../../dstore/json/crs.js"
 import freechange from "freechange/year.js"
 import jqs        from "./jqs.js"
 
+let commafy=function(s) { return (""+s).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,"); }) };
+
 ctrack.views=views
 
 ctrack.map_old_views={
@@ -861,6 +864,19 @@ ctrack.setup=function(args)
 		})
 
 	})
+
+	console.log("base_stats")
+	fetcher.ajax({"from":"base_stats"},function(ret)
+	{
+		let base_stats={}
+		
+		base_stats.log_time=( new Date( Date.parse(ret.log_time) ) ).toUTCString()
+		base_stats.act_count=commafy(ret.act_count)
+		base_stats.org_count=commafy(ret.org_count)
+		
+		ctrack.chunk("base_stats",base_stats);
+		ctrack.display(); // every fetcher.ajax must call display once
+	});
 
 
 }

@@ -84,6 +84,10 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 #view_tail
 {view_tail_original}
 
+#view_tail_stats
+
+Data updated on {base_stats.log_time} with {base_stats.act_count} activities and {base_stats.org_count} organisations.
+
 #view_head_white
 <div class="portal">
 	<div class="main_wrap">
@@ -96,6 +100,7 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 
 		<div class="footer_line"></div>
 		<div class="footer">
+			<div class="footer_link footer_block footer_copy nunito-sans-600 footer_stats">{view_tail_stats}</div>
 			<div class="footer_link footer_block footer_copy nunito-sans-600">
 				<a href="https://iatistandard.org/en/privacy-policy/">{footer27_text}</a>
 				<div>{footer28_text}</div>
