@@ -35,6 +35,8 @@ if(typeof window !== 'undefined')
 	window.typeahead           = (await import("typeahead.js/dist/typeahead.jquery.js")).default
 	window.jquery_ui           = (await import("jquery-ui-dist/jquery-ui.js")).default
 	window.brace               = (await import("brace")).default
+	window.brace_theme_80s     = (await import("brace/theme/tomorrow_night_eighties.js")).default
+	window.brace_mode_pgsql    = (await import("brace/mode/pgsql.js")).default
 
 }
 
@@ -103,13 +105,13 @@ dquery.start_loaded=async function(){
 	})
 
 	dquery.editor=ace.edit("editor");
-//	dquery.editor.setTheme("ace/theme/tomorrow_night_eighties");
+	dquery.editor.setTheme("ace/theme/tomorrow_night_eighties");
 	dquery.editor.$blockScrolling = Infinity
 
 	dquery.hash=window.location.hash
 	var session=dquery.editor.getSession()
 	session.setValue( decodeURIComponent( dquery.hash.substr(1) ) )
-//	session.setMode( "ace/mode/pgsql" );
+	session.setMode( "ace/mode/pgsql" );
 	session.setUseWrapMode(true);
 
 	dquery.set_download_links()
