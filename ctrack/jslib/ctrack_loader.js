@@ -38,6 +38,11 @@ ctrack_loader=function(args){
 	{
 		args.style="classic"
 		
+		if( domtest["classic"] ) // classic subdomain switch to mixed mode
+		{
+			args.style="mixed"
+		}
+
 		if( domtest["test"] ) // test subdomain switch to test mode
 		{
 			args.style="mixed"

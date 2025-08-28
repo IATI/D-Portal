@@ -13,20 +13,45 @@ server {
 }
 
 server {
-        listen [::]:80;
-        listen [::]:443 ssl;
-        server_name d-portal.iatistandard.org;
-        ssl_certificate /etc/letsencrypt/live/d-portal.iatistandard.org/fullchain.pem; # managed by Certbot
-        ssl_certificate_key /etc/letsencrypt/live/d-portal.iatistandard.org/privkey.pem; # managed by Certbot
-        include /dportal/box/nginx-include;
+	server_name d-portal.iatistandard.org;
+	listen *:80;
+	listen *:443 ssl;
+	listen [::]:80;
+	listen [::]:443 ssl;
+	ssl_certificate /etc/letsencrypt/live/d-portal.iatistandard.org/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/d-portal.iatistandard.org/privkey.pem; # managed by Certbot
+	include /dportal/box/nginx-include;
 }
 
 server {
-        listen [::]:80 default_server;
-        listen [::]:443 ssl default_server;
-        server_name d-portal.org;
-        ssl_certificate /etc/letsencrypt/live/d-portal.org/fullchain.pem; # managed by Certbot
-        ssl_certificate_key /etc/letsencrypt/live/d-portal.org/privkey.pem; # managed by Certbot
-        include /dportal/box/nginx-include;
+	server_name d-portal.org;
+	listen *:80 default_server;
+	listen *:443 ssl default_server;
+	listen [::]:80 default_server;
+	listen [::]:443 ssl default_server;
+	ssl_certificate /etc/letsencrypt/live/d-portal.org/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/d-portal.org/privkey.pem; # managed by Certbot
+	include /dportal/box/nginx-include;
 }
 
+server {
+	server_name test.d-portal.org;
+	listen *:80;
+	listen *:443 ssl;
+	listen [::]:80;
+	listen [::]:443 ssl;
+	ssl_certificate /etc/letsencrypt/live/test.d-portal.org/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/test.d-portal.org/privkey.pem; # managed by Certbot
+	include /dportal/box/nginx-include;
+}
+
+server {
+	server_name classic.d-portal.org;
+	listen *:80;
+	listen *:443 ssl;
+	listen [::]:80;
+	listen [::]:443 ssl;
+	ssl_certificate /etc/letsencrypt/live/classic.d-portal.org/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/classic.d-portal.org/privkey.pem; # managed by Certbot
+	include /dportal/box/nginx-include;
+}
