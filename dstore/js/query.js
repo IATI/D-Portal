@@ -1355,6 +1355,15 @@ query.serv = function(req,res){
 	}
 
 // handle special results
+	if(q.from=="base_stats") // return meta information about the database
+	{
+		// need to async this
+		dstore_db.get_base_stats().then(function(ret){
+			res.jsonp(ret);
+		})
+		return;
+	}
+	else
 	if(q.from=="meta") // return meta information about the database
 	{
 		var ret=dstore_db.get_meta()

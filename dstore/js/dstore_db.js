@@ -1372,6 +1372,35 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 
 };
 
+dstore_db.get_base_stats = async function(base_stats){
+	base_stats||={}
+	
+	try{ // in case of fail
+		let logname=import.meta.dirname+'/../../logs/cron.log'
+		let data=fs.statSync(logname)
+		base_stats.log_time=data.mtime
+	}catch(e){console.log(e)}
+	
+	// depends on db
+//	await dstore_back.get_base_stats(base_stats)
+
+	try{ // in case of fail
+		let q="SELECT COUNT(*) AS num FROM (SELECT DISTINCT aid FROM act) AS temp;"
+		let v={}
+		let rows=await dstore_db.query(q,v);
+		base_stats.act_count=rows[0].num
+	}catch(e){console.log(e)}
+
+	try{ // in case of fail
+		let q="SELECT COUNT(*) AS num FROM (SELECT DISTINCT reporting_ref FROM act) AS temp;"
+		let v={}
+		let rows=await dstore_db.query(q,v);
+		base_stats.org_count=rows[0].num
+	}catch(e){console.log(e)}
+
+	return base_stats
+}
+
 dstore_db.get_meta = function(){
 	if(dstore_db.meta) { return dstore_db.meta } else {
 

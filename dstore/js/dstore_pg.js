@@ -1436,5 +1436,3 @@ console.log("done building relatedp table")
 })
 
 };
-
-
