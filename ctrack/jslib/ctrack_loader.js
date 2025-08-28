@@ -40,7 +40,7 @@ ctrack_loader=function(args){
 		
 		if( domtest["test"] ) // test subdomain switch to test mode
 		{
-			args.style="white"
+			args.style="mixed"
 		}
 	}
 	else
