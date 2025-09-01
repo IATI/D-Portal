@@ -53,7 +53,7 @@ ctrack_loader=function(args){
 	{
 		// github d-portal will be a client only test
 		qroot="//d-portal.org/"
-		args.style="white"
+		args.style="classic"
 	}
 	else
 	if( domtest["localhost"] ) // client is accessed via localhost
