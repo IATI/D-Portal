@@ -1,9 +1,9 @@
 
 2025-09-01
 
- - [ ] remove submenus in header, only link should be "Home"
- - [ ] remove Where is the data from text ( hide .description_splash class )
- - [ ] remove How is the data calculated from text ( hide .description_wrap class )
+ - [x] remove submenus in header, only link should be "Home"
+ - [x] remove Where is the data from text ( hide .description_splash class )
+ - [x] remove How is the data calculated from text ( hide .description_wrap class )
  - [ ] add "Useful Links" into footer containing
 	- d-preview - Preview your data
 	- Dquery - A read-only SQL interface
@@ -11,8 +11,8 @@
 	- Dash - Organisation statistics
 	- Database Logs
  - [ ] add "Additional links" header in footer https://github.com/IATI/D-Portal/issues/716 (sorry not exactly sure what they want)
- - [ ] add "reporting" organisations to footer and "Code licensed under MIT." linking to the d-portal git, this all belongs in additional links.
- - [ ] change copywrite to "© Copyright 2025 United Nations Development Programme, on behalf of the IATI Secretariat."
+ - [ ] stats to footer and add "Code licensed under MIT." linking to the d-portal git, this all belongs in additional links.
+ - [ ] change copyright to "© Copyright 2025 United Nations Development Programme, on behalf of the IATI Secretariat."
  
 2025-08-28
 

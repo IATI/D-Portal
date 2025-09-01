@@ -84,9 +84,6 @@ This test instance of d-portal number <span class="beige_key">{beige_instance_ke
 #view_tail
 {view_tail_original}
 
-#view_tail_stats
-
-Data updated on {base_stats.db_time} with {base_stats.act_count} activities and {base_stats.org_count} organisations.
 
 #view_head_white
 <div class="portal">
@@ -100,7 +97,18 @@ Data updated on {base_stats.db_time} with {base_stats.act_count} activities and 
 
 		<div class="footer_line"></div>
 		<div class="footer">
-			<div class="footer_link footer_block footer_copy nunito-sans-600 footer_stats">{view_tail_stats}</div>
+			<div class=" footer_link footer_copy nunito-sans-600 footer_stats">
+				
+				<div><a href="https://preview.d-portal.org/upload" class="iati_tool_list_link">d-preview - Preview your data</a></div>
+				<div><a href="{ctrack_prefix}/dquery" class="iati_tool_list_link">Dquery - A read-only SQL interface</a></div>
+				<div><a href="#view=generator" class="iati_tool_list_link">Generator widgets for your website</a></div>
+				<div><a href="#view=dash" class="iati_tool_list_link">Dash - Organisation statistics</a></div>
+				<div><a href="https://xriss.github.io/D-Portal-Logs/" class="iati_tool_list_link">Database Logs</a></div>
+				<div><a href="https://github.com/IATI/D-Portal" class="iati_tool_list_link">Code licensed under MIT.</a></div>
+				<div>© Copyright 2025 United Nations Development Programme, on behalf of the IATI Secretariat.</div>
+				<div>{base_stats_text}</div>
+			
+			</div>
 			<div class="footer_link footer_block footer_copy nunito-sans-600">
 				<a href="https://iatistandard.org/en/privacy-policy/">{footer27_text}</a>
 				<div>{footer28_text}</div>
@@ -212,14 +220,16 @@ Data updated on {base_stats.db_time} with {base_stats.act_count} activities and 
 				<nav>
 					<ul class="iati_tool_list">
 						<li>
-							<a href="{ctrack_home}" class="iati_tool_list_link">d-portal</a>
+							<a href="{ctrack_home}" class="iati_tool_list_link">Home</a>
 						</li>
+<!--
 						<li>
 							<a href="https://preview.d-portal.org/upload" class="iati_tool_list_link">d-preview</a>
 						</li>
 						<li>
 							<a href="{ctrack_prefix}/dquery" class="iati_tool_list_link">dquery</a>
 						</li>
+-->
 					</ul>
 				</nav>
 			</div>

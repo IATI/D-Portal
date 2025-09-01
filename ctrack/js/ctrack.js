@@ -200,6 +200,7 @@ ctrack.setup=function(args)
 		{
 			args.css=[] ; for( v of all_css ) { args.css.push(v) }
 			args.css.push(args.art+"rgba/white.css")
+			args.css.push(args.art+"rgba/white-mix.css")
 		}
 	}
 	else
@@ -211,6 +212,7 @@ ctrack.setup=function(args)
 		if(!args.css)
 		{
 			args.css=[] ; for( v of all_css ) { args.css.push(v) }
+			args.css.push(args.art+"rgba/white-mix.css")
 		}
 	}
 	else // old options
@@ -865,7 +867,7 @@ ctrack.setup=function(args)
 
 	})
 
-	console.log("base_stats")
+//	console.log("base_stats")
 	fetcher.ajax({"from":"base_stats"},function(ret)
 	{
 		let base_stats={}
