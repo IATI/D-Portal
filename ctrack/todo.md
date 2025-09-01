@@ -4,6 +4,7 @@
  - [x] remove submenus in header, only link should be "Home"
  - [x] remove Where is the data from text ( hide .description_splash class )
  - [x] remove How is the data calculated from text ( hide .description_wrap class )
+ - [ ] Fix the removal of these two chunks breaking the layout...
  - [ ] add "Useful Links" into footer containing
 	- d-preview - Preview your data
 	- Dquery - A read-only SQL interface
