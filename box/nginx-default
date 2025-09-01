@@ -31,7 +31,9 @@ server {
 	listen [::]:443 ssl default_server;
 	ssl_certificate /etc/letsencrypt/live/d-portal.org/fullchain.pem; # managed by Certbot
 	ssl_certificate_key /etc/letsencrypt/live/d-portal.org/privkey.pem; # managed by Certbot
-	include /dportal/box/nginx-include;
+# no longer serv just redirect
+#	include /dportal/box/nginx-include;
+	return 301 https://d-portal.iatistandard.org$request_uri;
 }
 
 server {
