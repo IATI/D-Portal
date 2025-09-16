@@ -18,7 +18,7 @@ do
   if [ -z "$FIRSTFILE" ] ; then
 
     echo $XMLFILE
-    node js/cmd import "$XMLFILE" || exit 1
+    ./dstore import "$XMLFILE" || exit 1
 
   else
 

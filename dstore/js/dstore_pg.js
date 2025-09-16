@@ -527,78 +527,81 @@ await ( await dstore_pg.open() ).tx( async db => {
 		if(orgxml)
 		{
 
-			console.log("importing xson from org file for "+aid)
-
-			let xtree=dflat.xml_to_xson( orgxml )
-			dflat.clean(xtree)
-			xtree=xtree["/iati-organisations/iati-organisation"][0]		// <-- only imports the first org, did not expect multiples so need to re hack this
-
-			let pid=xtree["/organisation-identifier"] || xtree["/reporting-org@ref"]
-
-// remember dataset
-			xtree["@dstore:dataset"]=slug
-			xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
-
-// get old ids for this slug ( hax as we keep the pid in the aid slot... )
-			var rows= await db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).catch(err);
-
-// and delete them all
-			for(let r of rows)
+			let btree=dflat.xml_to_xson( orgxml )
+			dflat.clean(btree)
+			for(let xtree of btree["/iati-organisations/iati-organisation"] )
 			{
-				if(r.aid)
+
+				let pid=xtree["/organisation-identifier"] || xtree["/reporting-org@ref"]
+
+				console.log("importing xson from org file for "+aid+" : "+pid)
+
+	// remember dataset
+				xtree["@dstore:dataset"]=slug
+				xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
+
+	// get old ids for this slug ( hax as we keep the pid in the aid slot... )
+				let rows= await db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).catch(err);
+
+	// and delete them all
+				for(let r of rows)
 				{
-					await db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:r.aid}).catch(err);
-					await dstore_back.delete_from(db,"budget",{aid:r.aid});
-					await dstore_back.delete_from(db,"slug",{aid:r.aid});
-				}
-			}
-
-			let xs=[]
-			let xwalk
-			xwalk=function(it,path)
-			{
-				let x={}
-
-				x.aid=null
-				x.pid=pid // we have a pid but no aid
-				x.root=path
-				x.xson=JSON.stringify( it );
-
-				if(x.xson)
-				{
-					xs.push(x)
-				}
-
-				for(let n in it )
-				{
-					let v=it[n]
-					if(Array.isArray(v))
+					if(r.aid)
 					{
-						for(let i=0;i<v.length;i++)
+						await db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:r.aid}).catch(err);
+						await dstore_back.delete_from(db,"budget",{aid:r.aid});
+						await dstore_back.delete_from(db,"slug",{aid:r.aid});
+					}
+				}
+
+				let xs=[]
+				let xwalk
+				xwalk=function(it,path)
+				{
+					let x={}
+
+					x.aid=null
+					x.pid=pid // we have a pid but no aid
+					x.root=path
+					x.xson=JSON.stringify( it );
+
+					if(x.xson)
+					{
+						xs.push(x)
+					}
+
+					for(let n in it )
+					{
+						let v=it[n]
+						if(Array.isArray(v))
 						{
-							xwalk( v[i] , path+n )
+							for(let i=0;i<v.length;i++)
+							{
+								xwalk( v[i] , path+n )
+							}
 						}
 					}
 				}
+				xwalk( xtree ,"/iati-organisations/iati-organisation")
+
+				for(let x of xs )
+				{
+					await dstore_back.replace(db,"xson",x);
+				}
+
+				console.log("importing budgets from org file for "+pid)
+
+				await dstore_back.delete_from(db,"budget",{aid:pid});
+
+				for( let it of refry.all_tags(org,"total-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+				for( let it of refry.all_tags(org,"recipient-org-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+				for( let it of refry.all_tags(org,"recipient-country-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+
+				await dstore_back.replace(db,"slug",{"aid":pid,"slug":slug});
+
+				delete deleteme[aid] // replaced so no need to delete
+			
 			}
-			xwalk( xtree ,"/iati-organisations/iati-organisation")
-
-			for(let x of xs )
-			{
-				await dstore_back.replace(db,"xson",x);
-			}
-
-			console.log("importing budgets from org file for "+pid)
-
-			await dstore_back.delete_from(db,"budget",{aid:pid});
-
-			for( let it of refry.all_tags(org,"total-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
-			for( let it of refry.all_tags(org,"recipient-org-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
-			for( let it of refry.all_tags(org,"recipient-country-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
-
-			await dstore_back.replace(db,"slug",{"aid":pid,"slug":slug});
-
-			delete deleteme[aid] // replaced so no need to delete
 		}
 	}
 

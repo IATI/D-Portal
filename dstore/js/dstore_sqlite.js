@@ -536,80 +536,75 @@ dstore_sqlite.fill_acts = async function(acts,slug,data,head){
 
 	if(acts.length==0) // probably an org file, try and import budgets from full data
 	{
-		var o
-		try {
-			var org=refry.xml(data,slug); // raw xml convert to jml
-			var aid=iati_xml.get_aid(org);
+		var org=refry.xml(data,slug); // raw xml convert to jml
+		var aid=iati_xml.get_aid(org);
 
-			o=refry.tag(org,"iati-organisation"); // check for org file data
-
-		} catch (error) {  console.error(error) }
-
-		if(o)
+		var orgxml=refry.tag(org,"iati-organisations"); // check for org file data
+		if(orgxml)
 		{
-			console.log("importing budgets from org file for "+aid)
 
-			let xtree=dflat.xml_to_xson( { 0:"iati-organisations" , 1:[o] } )
-			dflat.clean(xtree)
-			xtree=xtree["/iati-organisations/iati-organisation"][0]
-
-			let pid=xtree["/organisation-identifier"] || xtree["/reporting-org@ref"]
-
-// remember dataset
-			xtree["@dstore:dataset"]=slug
-			xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
-
-//console.log(slug+" : "+pid)
-//console.log(xtree)
-
-			await db.run("DELETE FROM xson WHERE pid=? AND aid IS NULL ;",pid);
-
-			let xs=[]
-			let xwalk
-			xwalk=function(it,path)
+			let btree=dflat.xml_to_xson( orgxml )
+			dflat.clean(btree)
+			for(let xtree of btree["/iati-organisations/iati-organisation"] )
 			{
-				let x={}
 
-				x.aid=null
-				x.pid=pid // we have a pid but no aid
-				x.root=path
-				x.xson=JSON.stringify( it );
+				let pid=xtree["/organisation-identifier"] || xtree["/reporting-org@ref"]
 
-				if(x.xson)
+				console.log("importing xson from org file for "+aid+" : "+pid)
+
+	// remember dataset
+				xtree["@dstore:dataset"]=slug
+				xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
+
+	//console.log(slug+" : "+pid)
+	//console.log(xtree)
+
+				await db.run("DELETE FROM xson WHERE pid=? AND aid IS NULL ;",pid);
+
+				let xs=[]
+				let xwalk
+				xwalk=function(it,path)
 				{
-					xs.push(x)
-				}
+					let x={}
 
-				for(let n in it )
-				{
-					let v=it[n]
-					if(Array.isArray(v))
+					x.aid=null
+					x.pid=pid // we have a pid but no aid
+					x.root=path
+					x.xson=JSON.stringify( it );
+
+					if(x.xson)
 					{
-						for(let i=0;i<v.length;i++)
+						xs.push(x)
+					}
+
+					for(let n in it )
+					{
+						let v=it[n]
+						if(Array.isArray(v))
 						{
-							xwalk( v[i] , path+n )
+							for(let i=0;i<v.length;i++)
+							{
+								xwalk( v[i] , path+n )
+							}
 						}
 					}
 				}
+				xwalk( xtree ,"/iati-organisations/iati-organisation")
+
+				for(let x of xs )
+				{
+					await dstore_back.replace(db,"xson",x);
+				}
+
+
+				await dstore_back.delete_from(db,"budget",{aid:aid});
+
+				refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
+				refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
+				refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
+
+				await dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
 			}
-			xwalk( xtree ,"/iati-organisations/iati-organisation")
-
-			for(let x of xs )
-			{
-				await dstore_back.replace(db,"xson",x);
-			}
-
-
-			await dstore_back.delete_from(db,"budget",{aid:aid});
-
-			console.log(o[0]+" -> "+o["default-currency"])
-			iati_cook.activity(o); // cook the raw json(xml) ( most cleanup logic has been moved here )
-
-			refry.tags(org,"total-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
-			refry.tags(org,"recipient-org-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
-			refry.tags(org,"recipient-country-budget",function(it){dstore_db.refresh_budget(db,it,xtree,{aid:aid},0);});
-
-			await dstore_back.replace(db,"slug",{"aid":aid,"slug":slug});
 		}
 	}
 
