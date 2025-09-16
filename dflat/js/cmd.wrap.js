@@ -1,4 +1,4 @@
 
-import("../../ctrack/webpack.loader.js")
+await import("../../ctrack/webpack.loader.js")
 
 import("./cmd.js")

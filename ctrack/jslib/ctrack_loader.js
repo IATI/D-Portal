@@ -68,6 +68,21 @@ ctrack_loader=function(args){
 		// simple local test with data accessed from main server
 		qroot="//d-portal.org/"
 		args.style="mixed"
+
+		// can force style by setting up sub localhost domains
+		if( domtest["mixed"] )
+		{
+			args.style="mixed"
+		}
+		if( domtest["white"] )
+		{
+			args.style="white"
+		}
+		if( domtest["classic"] )
+		{
+			args.style="classic"
+		}
+
 	}
 	else // client is hosted somewhere else
 	{

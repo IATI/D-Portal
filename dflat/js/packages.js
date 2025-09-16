@@ -712,7 +712,7 @@ packages.cmd_meta=async function(argv)
 	
 	if(slug) // should not rebuild global files when given a slug
 	{
-		return // so exit here
+		return
 	}
 	
 	for( let idname of ["activity-identifiers","organisation-identifiers"] )
@@ -737,10 +737,8 @@ packages.cmd_meta=async function(argv)
 				{
 					identifiers[id]=identifiers[id].concat(j[id])
 				}
-				identifiers[id].sort()
 			}
 		}
-		await pfs.writeFile( path.join(argv.dir,"json/"+idname+".json") ,stringify(identifiers,{space:" "}))
 		
 		let errors={}
 		for( const id in identifiers )
@@ -750,11 +748,77 @@ packages.cmd_meta=async function(argv)
 				errors[id]=identifiers[id]
 			}
 		}
-		await pfs.writeFile( path.join(argv.dir,"json/"+idname+".errors.json") ,stringify(errors,{space:" "}))
+		
+		// sort errors so we can choose the best file which will come first
+		// if id begins with reporting id then it has priority ( mostly so a self reported org comes first )
+		// after this the biggest file has priority ( kinda a dumb way of picking the most information )
+		// finally we sort by dirname + filename ( this will always fix any remaining conflict )
 
+		for( const id in errors )
+		{
+			let ns=errors[id]
+			let list=[]
+			for( let n of ns )
+			{
+				let it={name:n,id:id}
+				let d=await pfs.readFile( path.join(argv.dir,"xml/"+n+".xml") ,"utf8")
+				let j=dflat.xml_to_xson(d)
+				if( j["/iati-activities/iati-activity"] ) // acts
+				{
+					let act=j["/iati-activities/iati-activity"][0]
+//console.log(act)
+					it.selfpub=false
+					if( act["/reporting-org@ref"] )
+					{
+						if( id.startsWith( act["/reporting-org@ref"] ) ) // should start with
+						{
+							it.selfpub=true
+						}
+					}
+					it.act=true
+				}
+				else
+				if( j["/iati-organisations/iati-organisation"] ) // orgs
+				{
+					let org=j["/iati-organisations/iati-organisation"][0]
+//console.log(org)
+					it.selfpub=false
+					if( org["/reporting-org@ref"] )
+					{
+						if( id == org["/reporting-org@ref"] ) // must match
+						{
+							it.selfpub=true
+						}
+					}
+					it.org=true
+				}
+				it.length=d.length
+				list.push(it)
+			}
+			list.sort(function(a,b){
+				if(( a.selfpub)&&(!b.selfpub)) { return -1 } // self published has priority, priority to publisher
+				if((!a.selfpub)&&( b.selfpub)) { return  1 }
+				if(a.length>b.length) { return -1 } // biggest data has priority, most information has priority
+				if(a.length<b.length) { return  1 }
+				if(a.name<b.name) { return -1 } // slugname has priority (random but stable)
+				if(a.name>b.name) { return  1 }
+				return 0
+			})
+			let news=[]
+			for(let it of list) // remember new order
+			{
+				news.push(it.name)
+			}
+			identifiers[id]=news
+			errors[id]=news
+//console.log(list)
+		}
+
+		// finally write out the new data
+		await pfs.writeFile( path.join(argv.dir,"json/"+idname+".json") ,stringify(identifiers,{space:" "}))
+		await pfs.writeFile( path.join(argv.dir,"json/"+idname+".errors.json") ,stringify(errors,{space:" "}))
 	}
-	
-	
+
 }
 
 packages.cmd_join=async function(argv)
@@ -779,7 +843,7 @@ packages.cmd_join=async function(argv)
 		for( let id in aids )
 		{
 			let it=aids[id]
-			for(i=1;i<it.length;i++)
+			for(i=1;i<it.length;i++) // we only want to keep the first one
 			{
 				ignoreme[it[i]]=true
 			}
@@ -788,7 +852,7 @@ packages.cmd_join=async function(argv)
 		for( let id in pids )
 		{
 			let it=pids[id]
-			for(i=1;i<it.length;i++)
+			for(i=1;i<it.length;i++) // we only want to keep the first one
 			{
 				ignoreme[it[i]]=true
 			}
@@ -862,5 +926,3 @@ packages.cmd_join=async function(argv)
 		await pfs.writeFile( datasetsdir+"/"+slug+".xml" , dat );
 	}
 }
-
-
