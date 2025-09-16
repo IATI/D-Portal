@@ -1,5 +1,10 @@
 node_modules/*
 
+www
+
+yarn.lock
+package-lock.json
+
 */out/*
 */node_modules/*
 */tmp/*
@@ -7,35 +12,43 @@ node_modules/*
 
 tmp/*
 docs/*
+logs/*
 
+dstore/*.import.last.log
 dstore/db/*
 dstore/cache/*
-dstore/dataiati/*
+dstore/dataiati*
 dstore/instance/*
 
+dportal/output/*
 dportal/static/*
 dportal/production/*
 
 docs
 
-ctrack/jslib/ctrack.*
+ctrack/jslib/ctrack_loader/*
 ctrack/json/*.json
 ctrack/json/output
 
-vbox/backup
+box/env.local.sh
+box/backup
 
 */.vagrant
-
 *.geany
-
-package-lock.json
 
 fetched
 
-dflat/html/lib/*
+dflat/html/lib/savi_loader/
+dflat/html/lib/dquery_loader/
 
 dflat/data*/*
+
 dflat/test/*
+
+dflat/cronos
+dflat/dataflat
+dflat/dataiati
+
 
 # The above must match .gitignore
 
