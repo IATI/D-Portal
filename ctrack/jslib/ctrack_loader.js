@@ -13,7 +13,14 @@ ctrack_loader=function(args){
 	}
 	
 	// the canonical url keeps search and hash
-	let canurl="https://d-portal.org/ctrack.html"+ window.location.search + window.location.hash
+	let canurl="https://d-portal.iatistandard.org/ctrack.html"+ window.location.search + window.location.hash
+	
+	// redirect d-portal.org in js
+	if(window.location.host.toLowerCase()=="d-portal.org")
+	{
+		window.location.replace(canurl)
+		return
+	}
 
 	let link = document.querySelector('link[rel="canonical"]')
 	if(!link) // create and insert into head
