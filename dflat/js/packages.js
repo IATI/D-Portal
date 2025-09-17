@@ -843,7 +843,7 @@ packages.cmd_join=async function(argv)
 		for( let id in aids )
 		{
 			let it=aids[id]
-			for(i=1;i<it.length;i++) // we only want to keep the first one
+			for(let i=1;i<it.length;i++) // we only want to keep the first one
 			{
 				ignoreme[it[i]]=true
 			}
@@ -852,7 +852,7 @@ packages.cmd_join=async function(argv)
 		for( let id in pids )
 		{
 			let it=pids[id]
-			for(i=1;i<it.length;i++) // we only want to keep the first one
+			for(let i=1;i<it.length;i++) // we only want to keep the first one
 			{
 				ignoreme[it[i]]=true
 			}
