@@ -1,4 +1,9 @@
 
+proxy_buffers 8 16k;
+proxy_buffer_size 32k;
+large_client_header_buffers 4 32k;
+
+
 upstream nodejsapp {
 
         server 127.0.0.1:1408;
@@ -31,38 +36,7 @@ server {
 	listen [::]:443 ssl default_server;
 	ssl_certificate /etc/letsencrypt/live/d-portal.org/fullchain.pem; # managed by Certbot
 	ssl_certificate_key /etc/letsencrypt/live/d-portal.org/privkey.pem; # managed by Certbot
-# no longer serv just redirect
-#	include /dportal/box/nginx-include;
-	location / {
-
-		if ($request_method = 'OPTIONS') {
-#I think this might need to mirror incoming origin not * for some anal requests?
-			add_header 'Access-Control-Allow-Origin' '*';
-			add_header 'Access-Control-Allow-Credentials' 'true';
-			add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-			add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
-			add_header 'Access-Control-Max-Age' 1728000;
-			add_header 'Content-Type' 'text/plain charset=UTF-8';
-			add_header 'Content-Length' 0;
-			return 204;
-		}
-
-		if ($request_method = 'POST') {
-			add_header 'Access-Control-Allow-Origin' '*';
-			add_header 'Access-Control-Allow-Credentials' 'true';
-			add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-			add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
-		}
-
-		if ($request_method = 'GET') {
-			add_header 'Access-Control-Allow-Origin' '*';
-			add_header 'Access-Control-Allow-Credentials' 'true';
-			add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-			add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
-		}
-
-		return 301 https://d-portal.iatistandard.org$request_uri;
-	}
+	include /dportal/box/nginx-include;
 }
 
 server {
