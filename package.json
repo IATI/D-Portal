@@ -73,10 +73,10 @@
   "build": "cd ctrack; webpack build --config webpack.config.cjs --mode production ",
   "watch": "cd ctrack; webpack watch --config webpack.config.cjs --mode development "
  },
-  "overrides": {
-      "get-intrinsic@": "1.3.0"
-  },
+ "overrides": {
+  "get-intrinsic@": "1.3.0"
+ },
  "source": "ctrack/js/ctrack.js",
  "type": "module",
- "version": "1.250623.5"
+ "version": "1.250623.6"
 }
