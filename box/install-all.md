@@ -148,3 +148,15 @@ Then restart nginx.
 
 Then we wait for the night and see what happens next...
 
+
+#dpreview
+
+if setting up a d-preview then probably want to make sure these are set 
+in env.local.sh so that uploads etc are enabled
+
+	export DSTORE_STATICDIR="/home/ubuntu/portald/docs"
+	export DSTORE_HOMEPAGE="/upload"
+	export DSTORE_UPLOAD="1"
+
+Also will need to use nginx-preview rather than nginx-default as the 
+nginx default config.

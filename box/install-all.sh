@@ -6,5 +6,4 @@ echo " installing dportal dependencies "
 ./install-postgres.sh
 ./install-nginx.sh
 ./install-dportal.sh
-#./install-dportal-instance.sh
 
