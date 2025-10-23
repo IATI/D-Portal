@@ -1,0 +1,33 @@
+
+proxy_buffers 8 16k;
+proxy_buffer_size 32k;
+large_client_header_buffers 4 32k;
+
+
+upstream nodejsapp {
+
+        server 127.0.0.1:1408;
+
+}
+
+server {
+	server_name preview.d-portal.org;
+	listen *:80;
+	listen *:443 ssl;
+	listen [::]:80;
+	listen [::]:443 ssl;
+	ssl_certificate /etc/letsencrypt/live/preview.d-portal.org/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/preview.d-portal.org/privkey.pem; # managed by Certbot
+	include /dportal/box/nginx-include;
+}
+
+server {
+	server_name preview.d-portal.iatistandard.org;
+	listen *:80;
+	listen *:443 ssl;
+	listen [::]:80;
+	listen [::]:443 ssl;
+	ssl_certificate /etc/letsencrypt/live/preview.d-portal.iatistandard.org/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/preview.d-portal.iatistandard.org/privkey.pem; # managed by Certbot
+	include /dportal/box/nginx-include;
+}
