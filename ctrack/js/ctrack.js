@@ -362,13 +362,20 @@ ctrack.setup=function(args)
 	args.chunks["publisher_name"]="";
 	args.chunks["publisher_slug"]="";
 
+	if(search_args.length==0)
+	{
+			args.chunks["main_publisher"]="";
+			args.chunks["main_pubmin"]="";
+
+			args.chunks["main_publisher_head"]="";
+			args.chunks["main_publisher_map"]="";
+
+			args.chunks["main_country"]="";
+			args.chunks["main_countrymin"]="";
+	}
+	else
 	if(search_args.length==1) // only 1
 	{
-		if( search_args[0].indexOf("%2C")!=-1 || search_args[0].indexOf("%7C")!=-1 ) // actually not 1 as it is a multiple
-		{
-			ctrack.args.showsearch=true;
-		}
-		else
 		if( ctrack.q.country_code )
 		{
 			args.chunks["main_publisher"]="";
