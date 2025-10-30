@@ -362,7 +362,7 @@ ctrack.setup=function(args)
 	args.chunks["publisher_name"]="";
 	args.chunks["publisher_slug"]="";
 
-	if(search_args.length==1) // only 1 , possibly a country/publisher only search which has special headers
+	if(search_args.length<=1) // only 1 , possibly a country/publisher only search which has special headers
 	{
 		if( ctrack.q.country_code ) // so we hide the oposite headers
 		{
@@ -390,7 +390,7 @@ ctrack.setup=function(args)
 	}
 
 // show special search header
-	if(ctrack.args.showsearch) // hide all country/publisher special things
+	if( ctrack.args.showsearch || search_args.length==0 ) // hide all country/publisher special things
 	{
 		args.chunks["main_countrymin"]="";
 		args.chunks["main_country"]="";
@@ -401,7 +401,8 @@ ctrack.setup=function(args)
 		args.chunks["main_publisher_head"]="";
 		args.chunks["main_publisher_map"]="";
 	}
-	else // hide search header
+
+	if( !ctrack.args.showsearch || search_args.length==0 ) // hide search header
 	{
 		args.chunks["main_search"]="";
 		args.chunks["main_searchmin"]="";
