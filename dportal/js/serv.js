@@ -144,8 +144,23 @@ app.use( express.urlencoded({ extended: true }) )
 // dquery
 app.use('/dquery', dflat_query.serv )
 
-// dquery
-app.use('/savi', dflat_savi.serv )
+// dquery savi ( redirect to use ctrack theme )
+app.use('/savi', function(req, res, next) {
+	
+	let aid=req.query.aid
+	for( let n in req.query )
+	{
+		if(n!="aid") { aid=null } // any other query param will disable redirect
+	}
+	
+	if(aid) // single aid request, push it to ctrack ( so we get theme etc etc )
+	{
+		res.redirect( '/ctrack.html#view=act&aid='+encodeURIComponent(req.query.aid) );
+		return
+	}
+	
+	dflat_savi.serv(req, res, next)
+});
 
 
 // redirect any unknown page to main homepage
