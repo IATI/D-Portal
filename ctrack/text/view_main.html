@@ -229,28 +229,33 @@
 					<span class="stats_num">{numof_status_code_2}</span>
 				</a>
 			</div>
-			<div class="status_publisher">
-				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_publishers" class="stats_link publishers" title="{stats_publisher_tip_text}">
-					<span class="stats_title">{stats_publisher_text}</span>
-					<span class="stats_num small">{numof_publishers}</span>
-				</a>
-			</div>
 			<div  class="status_total">
 				<a onclick="switch($(this).children('span').first().html()){ case '0': return false; };" href="#view=list_activities" class="stats_link total" title="{stats_total_tip_text}">
 					{stats_total_text} <span>{numof_status_code_total}</span>
 				</a>
 			</div>
+			<div class="status_participating">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code=2" class="stats_link active" title="{stats_participating_tip_text}">
+					<span class="stats_title">{stats_participating_text}</span>
+					<span class="stats_num">{numof_participating}</span>
+				</a>
+			</div>
+			<div class="status_publisher">
+				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_publishers" class="stats_link publishers" title="{stats_publisher_tip_text}">
+					{stats_publisher_text} <span>{numof_publishers}</span>
+				</a>
+			</div>			
 		</div>
 		<div class="status_button_wrap">
 			<div class="status_today_wrap">
 				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=ended" class="stats_link to_ended" title="{stats_ended_tip_text}">
-					Ended <span>{ended_projects}</span>
+					Past <span>{ended_projects}</span>
 				</a>
 				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=active" class="stats_link to_active" title="{stats_active_tip_text}">
-					Active <span>{active_projects}</span>
+					Present <span>{active_projects}</span>
 				</a>
 				<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=planned" class="stats_link to_planned" title="{stats_planned_tip_text}">
-					Planned <span>{planned_projects}</span>
+					Future <span>{planned_projects}</span>
 				</a>
 			</div>
 			<a onclick="switch($(this).children('.stats_num').first().html()){ case '0': return false; };" href="#view=list_activities&status_code_null=0" class="stats_link missing" title="{stats_missing_tip_text}">
