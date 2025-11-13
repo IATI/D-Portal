@@ -122,10 +122,12 @@ a.stats_link.planned:hover		{background-color:rgba(104,104,104,1);}
 a.stats_link.publishers			{background-color:rgba(10,145,114,1);}
 a.stats_link.publishers:hover	{background-color:rgba(5,171,133,1);}
 
-a.stats_link.to_ended			{background:linear-gradient(to right, rgba(21,83,102,0.1) 0%, rgba(21,83,102,0.8) 13%, rgba(21,83,102,0.95) 100%);}
-a.stats_link.to_ended:hover		{background:linear-gradient(to right, rgba(45,106,125,0.1) 0%, rgba(45,106,125,0.8) 13%, rgba(45,106,125,1) 100%);}
-a.stats_link.to_planned			{background:linear-gradient(to left, rgba(21,83,102,0.1) 0%, rgba(21,83,102,0.8) 13%, rgba(21,83,102,0.95) 100%);}
-a.stats_link.to_planned:hover	{background:linear-gradient(to left, rgba(45,106,125,0.1) 0%, rgba(45,106,125,0.8) 13%, rgba(45,106,125,1) 100%);}
+a.stats_link.to_active			{background-color:rgba(21,83,102,1); border-radius:0;}
+a.stats_link.to_active:hover	{background-color:rgba(45,106,125,1); border-radius:0;}
+a.stats_link.to_ended			{background-color:rgba(21,83,102,0.9); border-radius:0;}
+a.stats_link.to_ended:hover		{background-color:rgba(45,106,125,1); border-radius:0;}
+a.stats_link.to_planned			{background-color:rgba(21,83,102,0.9); border-radius:0;}
+a.stats_link.to_planned:hover	{background-color:rgba(45,106,125,1); border-radius:0;}
 
 a.stats_link.active span.stats_title		{color:rgba(173,211,223,1);}
 a.stats_link.missing span.stats_title		{}
