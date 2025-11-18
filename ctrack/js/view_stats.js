@@ -23,6 +23,7 @@ view_stats.chunks=[
 	"ended_projects",
 	"planned_projects",
 	"numof_publishers",
+	"numof_participating",
 	"percent_of_activities_with_location",
 	
 	"numof_status_code_1",
@@ -183,6 +184,24 @@ view_stats.new_ajax=function(args)
 	fetcher.ajax(dat,args.callback || function(data)
 	{
 		ctrack.chunk("numof_publishers",data.rows.length);
+
+		view_stats.calc();
+		
+		ctrack.display(); // every fetcher.ajax must call display once
+	});
+
+	// ok this is more complicated, uhm, fake it for now
+	var dat={
+			"from":"act",
+			"select":"reporting_ref",
+			"groupby":"reporting_ref",
+			"limit":-1,
+		};
+	fetcher.ajax_dat_fix(dat,args);
+		
+	fetcher.ajax(dat,args.callback || function(data)
+	{
+		ctrack.chunk("numof_participating",data.rows.length);
 
 		view_stats.calc();
 		
