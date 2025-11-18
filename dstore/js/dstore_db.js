@@ -1515,5 +1515,10 @@ dstore_db.query = async function(q,v){
 	return await dstore_back.query(q,v);
 }
 
+dstore_db.query_params_string = async function(q,v){
+	return await dstore_back.query_params_string(q,v);
+}
+
+
 dstore_db.cache_prepare();
 

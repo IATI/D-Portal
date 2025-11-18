@@ -193,14 +193,21 @@ view_stats.new_ajax=function(args)
 	// ok this is more complicated, uhm, fake it for now
 	var dat={
 			"from":"act",
-			"select":"reporting_ref",
-			"groupby":"reporting_ref",
+			"select":"aid",
 			"limit":-1,
+			"sql":`
+SELECT DISTINCT xson->>'@ref' AS org FROM xson
+WHERE root='/iati-activities/iati-activity/participating-org'
+AND aid IN ( SELECT aid FROM qs )
+`
 		};
 	fetcher.ajax_dat_fix(dat,args);
 		
+console.log(dat)
+
 	fetcher.ajax(dat,args.callback || function(data)
 	{
+console.log(data)
 		ctrack.chunk("numof_participating",data.rows.length);
 
 		view_stats.calc();

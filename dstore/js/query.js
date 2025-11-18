@@ -1323,12 +1323,36 @@ query.do_select=function(q,res,req){
 				query.getsql_order_by(q,qv) +
 				query.getsql_limit(q,qv);
 
+	let qs=dstore_db.query_params_string(r.query,r.qvals)
+
+	if( qs.sql ) // provide custom sql
+	{
+		if( qs.select ) // with the qs selection
+		{
+			r.query="WITH qs AS ( "+r.query+" ) \n"+qs.sql
+		}
+		else
+		{
+			r.query=qs.sql
+		}
+	}
+
 	return dstore_db.query_select(q,res,r,req);
 };
 
 // handle the /q url space
 query.serv = function(req,res){
-	var q=query.get_q(req);
+
+	// allow a json body in a post
+	var q={}
+	for( let n in req.body )
+	{
+		q[n]=req.body[n]
+	}
+	for( let n in req.query )
+	{
+		q[n]=req.query[n]
+	}
 
 // special log info requests
 	var logname=import.meta.dirname+'/../../logs/cron.log'
