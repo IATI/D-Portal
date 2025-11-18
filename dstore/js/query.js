@@ -1329,11 +1329,11 @@ query.do_select=function(q,res,req){
 	{
 		if( q.select ) // with the qsql selection
 		{
-			r.query="WITH qs AS ( "+r.query+" ) \n"+qsql
+			r.query="WITH qs AS ( "+r.query+" ) \n"+q.sql
 		}
 		else
 		{
-			r.query=qsql
+			r.query=q.sql
 		}
 	}
 
