@@ -780,9 +780,3 @@ dstore_sqlite.query_params_string=function(string,params)
 dstore_sqlite.augmented_related = async function(){
 }
 
-
-// probably not safe
-dstore_sqlite.query_params_string=function(string,params)
-{
-}
-
