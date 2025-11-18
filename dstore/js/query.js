@@ -1323,17 +1323,17 @@ query.do_select=function(q,res,req){
 				query.getsql_order_by(q,qv) +
 				query.getsql_limit(q,qv);
 
-	let qs=dstore_db.query_params_string(r.query,r.qvals)
+	let qsql=dstore_db.query_params_string(r.query,r.qvals)
 
-	if( qs.sql ) // provide custom sql
+	if( q.sql ) // provide custom sql
 	{
-		if( qs.select ) // with the qs selection
+		if( q.select ) // with the qsql selection
 		{
-			r.query="WITH qs AS ( "+r.query+" ) \n"+qs.sql
+			r.query="WITH qs AS ( "+r.query+" ) \n"+qsql
 		}
 		else
 		{
-			r.query=qs.sql
+			r.query=qsql
 		}
 	}
 
