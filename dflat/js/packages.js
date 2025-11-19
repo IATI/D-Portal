@@ -93,6 +93,10 @@ packages.prepare_download_common_downloads=async function(argv,downloads)
 			console.log("ignoring bad url "+it.slug+" "+it.url)
 		}
 	}
+
+	console.log("Auto including iati-xtra-orgs ")
+	txt.push("'"+"iati-xtra-orgs"+"' '"+"https://iati.github.io/iati-analysis-examples/State_Of_The_Data/organisation_networking/organisation_list.xml"+"'\n")
+
 	await fse.writeFile( path.join(argv.dir,"downloads.txt") , txt.join("") )
 
 

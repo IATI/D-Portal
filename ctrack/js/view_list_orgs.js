@@ -49,7 +49,7 @@ view_list_orgs.ajax=function(args)
 			"limit":-1,
 			"select":"aid",
 			"sql":`
-SELECT xson->>'@ref' AS pid , COUNT(DISTINCT xson.aid) AS pid_count FROM xson
+SELECT xson->>'@ref' AS pid , COUNT(DISTINCT xson.aid) AS aid_count FROM xson
 WHERE root='/iati-activities/iati-activity/participating-org'
 AND aid IN ( SELECT aid FROM qs )
 GROUP BY xson->>'@ref' ORDER BY 2 DESC
@@ -90,7 +90,7 @@ GROUP BY xson->>'@ref' ORDER BY 2 DESC
 
 				d.pid=v.pid || "N/A";
 				d.name=v.pid || "N/A";
-				d.count_num=commafy(""+v.pid_count);
+				d.count_num=commafy(""+v.aid_count);
 				a.push(d);
 				s.push( plate.replace(args.plate || "{list_orgs_data}",d) );
 			}
@@ -100,7 +100,7 @@ GROUP BY xson->>'@ref' ORDER BY 2 DESC
 			var cc=[];
 			cc[0]=["pid","name","count","link"];
 			a.forEach(function(v){
-				cc[cc.length]=[v.pid,v.pid,v.count,ctrack.origin+"/ctrack.html?/participating-org@ref="+v.pid];
+				cc[cc.length]=[v.pid,v.pid,v.aid_count,ctrack.origin+"/ctrack.html?/participating-org@ref="+v.pid];
 			});
 			ctrack.chunk((args.chunk || "list_orgs_datas")+"_csv","data:text/csv;charset=UTF-8,"+ctrack.encodeURIComponent(csvw.arrayToCSV(cc)));
 
