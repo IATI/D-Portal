@@ -529,6 +529,21 @@ await ( await dstore_pg.open() ).tx( async db => {
 
 			let btree=dflat.xml_to_xson( orgxml )
 			dflat.clean(btree)
+
+	// get old ids for this slug ( hax as we keep the pid in the aid slot... )
+			let rows= await db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).catch(err);
+
+// and delete them all
+			for(let r of rows)
+			{
+				if(r.aid)
+				{
+					await db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:r.aid}).catch(err);
+					await dstore_back.delete_from(db,"budget",{aid:r.aid});
+					await dstore_back.delete_from(db,"slug",{aid:r.aid});
+				}
+			}
+
 			let orgcount=0;
 			for(let xtree of btree["/iati-organisations/iati-organisation"] )
 			{
@@ -541,20 +556,6 @@ await ( await dstore_pg.open() ).tx( async db => {
 	// remember dataset
 				xtree["@dstore:dataset"]=slug
 				xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
-
-	// get old ids for this slug ( hax as we keep the pid in the aid slot... )
-				let rows= await db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).catch(err);
-
-	// and delete them all
-				for(let r of rows)
-				{
-					if(r.aid)
-					{
-						await db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:r.aid}).catch(err);
-						await dstore_back.delete_from(db,"budget",{aid:r.aid});
-						await dstore_back.delete_from(db,"slug",{aid:r.aid});
-					}
-				}
 
 				let xs=[]
 				let xwalk
