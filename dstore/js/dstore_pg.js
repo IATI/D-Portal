@@ -534,8 +534,10 @@ await ( await dstore_pg.open() ).tx( async db => {
 			let rows= await db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).catch(err);
 
 // and delete them all
+			console.log("deleting old orgs")
 			for(let r of rows)
 			{
+			process.stdout.write(".");
 				if(r.aid)
 				{
 					await db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:r.aid}).catch(err);
@@ -543,6 +545,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 					await dstore_back.delete_from(db,"slug",{aid:r.aid});
 				}
 			}
+			process.stdout.write("\n");
 
 			let orgcount=0;
 			for(let xtree of btree["/iati-organisations/iati-organisation"] )
