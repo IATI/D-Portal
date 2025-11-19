@@ -584,7 +584,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 				}
 				xwalk( xtree ,"/iati-organisations/iati-organisation")
 
-				console.log( tables_replace_sql["xson"] )
+				console.log( dstore_db.tables_replace_sql["xson"] )
 				for(let x of xs )
 				{
 					console.log("importing xson "+x.pid+" "+x.root)
