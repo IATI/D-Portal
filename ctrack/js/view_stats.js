@@ -196,9 +196,16 @@ view_stats.new_ajax=function(args)
 			"select":"aid",
 			"limit":-1,
 			"sql":`
-SELECT DISTINCT xson->>'@ref' AS org FROM xson
+, rs AS
+( SELECT DISTINCT xson->>'@ref' AS org FROM xson 
 WHERE root='/iati-activities/iati-activity/participating-org'
-AND aid IN ( SELECT aid FROM qs )
+AND aid IN ( SELECT aid FROM qs ) )
+, ns AS
+(
+SELECT pid,xson->'/name/narrative'->0->>'' AS name FROM xson WHERE root='/iati-organisations/iati-organisation'
+)
+
+SELECT org FROM rs INNER JOIN ns AS pids ON pid=org
 `
 		};
 	fetcher.ajax_dat_fix(dat,args);

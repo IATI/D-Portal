@@ -328,7 +328,7 @@ query.getsql_select=function(q,qv){
 		else
 		{
 //		ss.push(" * ");
-			var aa=q.from.split(",");
+			var aa=(q.from || "").split(",");
 			for(i=0;i<aa.length;i++)
 			{
 				var f=aa[i];

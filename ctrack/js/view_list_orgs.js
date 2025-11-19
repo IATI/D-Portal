@@ -49,10 +49,19 @@ view_list_orgs.ajax=function(args)
 			"limit":-1,
 			"select":"aid",
 			"sql":`
-SELECT xson->>'@ref' AS pid , COUNT(DISTINCT xson.aid) AS aid_count FROM xson
+, rs AS
+( SELECT DISTINCT xson->>'@ref' AS org FROM xson 
+WHERE root='/iati-activities/iati-activity/participating-org'
+AND aid IN ( SELECT aid FROM qs ) )
+, ns AS
+(
+SELECT pid,xson->'/name/narrative'->0->>'' AS name FROM xson WHERE root='/iati-organisations/iati-organisation'
+)
+
+SELECT xson->>'@ref' AS pid , COUNT( DISTINCT xson.aid ) AS aid_count , name FROM xson INNER JOIN ns ON ns.pid=xson->>'@ref'
 WHERE root='/iati-activities/iati-activity/participating-org'
 AND aid IN ( SELECT aid FROM qs )
-GROUP BY xson->>'@ref' ORDER BY 2 DESC
+GROUP BY xson->>'@ref',name ORDER BY 2 DESC
 `
 		};
 	fetcher.ajax_dat_fix(dat,args);
@@ -89,7 +98,7 @@ GROUP BY xson->>'@ref' ORDER BY 2 DESC
 				d.num=i+1;
 
 				d.pid=v.pid || "N/A";
-				d.name=v.pid || "N/A";
+				d.name=v.name || "N/A";
 				d.count_num=commafy(""+v.aid_count);
 				a.push(d);
 				s.push( plate.replace(args.plate || "{list_orgs_data}",d) );
