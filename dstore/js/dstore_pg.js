@@ -608,7 +608,6 @@ await ( await dstore_pg.open() ).tx( async db => {
 		}
 	}
 
-/*
 
 	let count_new=0
 	for(var i=0;i<acts.length;i++)
@@ -658,9 +657,9 @@ await ( await dstore_pg.open() ).tx( async db => {
 	{
 		for( let v of ["act","jml","xson","trans","budget","country","sector","location","policy","related"] )
 		{
-			await db.none("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).catch(err);
+			await db.none("DELETE FROM "+v+" WHERE aid IS NOT NULL AND aid = ANY(${aids}) ;",{aids:delete_list}).catch(err);
 		}
-		await db.none("DELETE FROM slug WHERE slug=${slug} AND aid = ANY(${aids}) ;",{slug:slug,aids:delete_list}).catch(err);
+		await db.none("DELETE FROM slug WHERE slug=${slug} AND aid IS NOT NULL AND aid = ANY(${aids}) ;",{slug:slug,aids:delete_list}).catch(err);
 	}
 
 //	await db.none("COMMIT;").catch(err);
@@ -670,7 +669,6 @@ await ( await dstore_pg.open() ).tx( async db => {
 	console.log("added "+count_new+" new activities in "+(after_time-before_time)+"ms\n")
 //	process.stdout.write(after+" ( "+(after-before)+" ) "+(after_time-before_time)+"ms\n");
 
-*/
 	dstore_pg.close(db)
 })
 
