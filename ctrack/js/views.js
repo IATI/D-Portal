@@ -45,6 +45,7 @@ import views_list_activities         from "./view_list_activities.js"         ; 
 import views_list_transactions       from "./view_list_transactions.js"       ; views.list_transactions       = views_list_transactions
 import views_list_budgets            from "./view_list_budgets.js"            ; views.list_budgets            = views_list_budgets
 import views_list_publishers         from "./view_list_publishers.js"         ; views.list_publishers         = views_list_publishers
+import views_list_orgs               from "./view_list_orgs.js"               ; views.list_orgs               = views_list_orgs
 import views_list_participating_orgs from "./view_list_participating_orgs.js" ; views.list_participating_orgs = views_list_participating_orgs
 import views_frame                   from "./view_frame.js"                   ; views.frame                   = views_frame
 import views_generator               from "./view_generator.js"               ; views.generator               = views_generator

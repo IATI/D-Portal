@@ -203,11 +203,8 @@ AND aid IN ( SELECT aid FROM qs )
 		};
 	fetcher.ajax_dat_fix(dat,args);
 		
-console.log(dat)
-
 	fetcher.ajax(dat,args.callback || function(data)
 	{
-console.log(data)
 		ctrack.chunk("numof_participating",data.rows.length);
 
 		view_stats.calc();

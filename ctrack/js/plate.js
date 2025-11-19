@@ -37,6 +37,7 @@ import text_view_heatmap                 from '../text/view_heatmap.html'       
 import text_view_list_activities         from '../text/view_list_activities.html'         ; plated.chunks.fill_chunks( text_view_list_activities         , plate.chunks )
 import text_view_list_budgets            from '../text/view_list_budgets.html'            ; plated.chunks.fill_chunks( text_view_list_budgets            , plate.chunks )
 import text_view_list_publishers         from '../text/view_list_publishers.html'         ; plated.chunks.fill_chunks( text_view_list_publishers         , plate.chunks )
+import text_view_list_orgs               from '../text/view_list_orgs.html'               ; plated.chunks.fill_chunks( text_view_list_orgs               , plate.chunks )
 import text_view_list_transactions       from '../text/view_list_transactions.html'       ; plated.chunks.fill_chunks( text_view_list_transactions       , plate.chunks )
 import text_view_list_participating_orgs from '../text/view_list_participating_orgs.html' ; plated.chunks.fill_chunks( text_view_list_participating_orgs , plate.chunks )
 import text_view_main                    from '../text/view_main.html'                    ; plated.chunks.fill_chunks( text_view_main                    , plate.chunks )
