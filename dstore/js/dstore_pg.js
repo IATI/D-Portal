@@ -529,8 +529,10 @@ await ( await dstore_pg.open() ).tx( async db => {
 
 			let btree=dflat.xml_to_xson( orgxml )
 			dflat.clean(btree)
+			let orgcount=0;
 			for(let xtree of btree["/iati-organisations/iati-organisation"] )
 			{
+				orgcount++
 
 				let pid=xtree["/organisation-identifier"] || xtree["/reporting-org@ref"]
 
@@ -584,11 +586,8 @@ await ( await dstore_pg.open() ).tx( async db => {
 				}
 				xwalk( xtree ,"/iati-organisations/iati-organisation")
 
-				console.log( dstore_db.tables_replace_sql["xson"] )
 				for(let x of xs )
 				{
-					console.log("importing xson "+x.pid+" "+x.root)
-
 					await dstore_back.replace(db,"xson",x);
 				}
 
@@ -605,6 +604,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 				delete deleteme[pid] // replaced so no need to delete
 			
 			}
+			console.log("added "+orgcount+" orgs\n")
 		}
 	}
 
@@ -657,9 +657,9 @@ await ( await dstore_pg.open() ).tx( async db => {
 	{
 		for( let v of ["act","jml","xson","trans","budget","country","sector","location","policy","related"] )
 		{
-			await db.none("DELETE FROM "+v+" WHERE aid IS NOT NULL AND aid = ANY(${aids}) ;",{aids:delete_list}).catch(err);
+			await db.none("DELETE FROM "+v+" WHERE aid = ANY(${aids}) ;",{aids:delete_list}).catch(err);
 		}
-		await db.none("DELETE FROM slug WHERE slug=${slug} AND aid IS NOT NULL AND aid = ANY(${aids}) ;",{slug:slug,aids:delete_list}).catch(err);
+		await db.none("DELETE FROM slug WHERE slug=${slug} AND aid = ANY(${aids}) ;",{slug:slug,aids:delete_list}).catch(err);
 	}
 
 //	await db.none("COMMIT;").catch(err);
