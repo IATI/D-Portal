@@ -602,7 +602,7 @@ await ( await dstore_pg.open() ).tx( async db => {
 */
 				await dstore_back.replace(db,"slug",{"aid":pid,"slug":slug});
 
-				delete deleteme[aid] // replaced so no need to delete
+				delete deleteme[pid] // replaced so no need to delete
 			
 			}
 		}
