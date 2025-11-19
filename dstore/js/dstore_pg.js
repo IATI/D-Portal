@@ -586,6 +586,8 @@ await ( await dstore_pg.open() ).tx( async db => {
 
 				for(let x of xs )
 				{
+					console.log("importing xson "+x.pid+" "+x.root)
+
 					await dstore_back.replace(db,"xson",x);
 				}
 
