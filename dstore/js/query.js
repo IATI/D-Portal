@@ -397,7 +397,7 @@ query.getsql_from=function(q,qv){
 
 	let ff={}
 	let f=null
-	for( let name of q.from.split(",") )
+	for( let name of (q.from || "").split(",") )
 	{
 		if( dstore_db.tables_active[name] )
 		{
