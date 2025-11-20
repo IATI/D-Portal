@@ -598,11 +598,14 @@ await ( await dstore_pg.open() ).tx( async db => {
 				console.log("importing budgets from org file for "+pid)
 
 				await dstore_back.delete_from(db,"budget",{aid:pid});
-/*
-				for( let it of refry.all_tags(org,"total-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
-				for( let it of refry.all_tags(org,"recipient-org-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
-				for( let it of refry.all_tags(org,"recipient-country-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
-*/
+				
+				let oxml=dflat.xson_to_xml( xtree ) // rebuild xml
+				let oorg=refry.xml(oxml,slug) // old style parse
+
+				for( let it of refry.all_tags(oorg,"total-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+				for( let it of refry.all_tags(oorg,"recipient-org-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+				for( let it of refry.all_tags(oorg,"recipient-country-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+
 				await dstore_back.replace(db,"slug",{"aid":pid,"slug":slug});
 
 				delete deleteme[pid] // replaced so no need to delete
