@@ -1344,15 +1344,7 @@ query.do_select=function(q,res,req){
 query.serv = function(req,res){
 
 	// allow a json body in a post
-	var q={}
-	for( let n in req.body )
-	{
-		q[n]=req.body[n]
-	}
-	for( let n in req.query )
-	{
-		q[n]=req.query[n]
-	}
+	var q=query.get_q(req)
 
 // special log info requests
 	var logname=import.meta.dirname+'/../../logs/cron.log'
