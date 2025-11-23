@@ -251,7 +251,6 @@ ctrack.setup=function(args)
 		}
 	}
 
-
 	if(args.css) { head.load(args.css); }
 
 	document.head.insertAdjacentHTML("beforeend", dflat_savi.plate('<style>{savi-css}</style>') ) // include new savi CSS
@@ -878,5 +877,9 @@ ctrack.setup=function(args)
 	});
 
 
+	if(ctrack.q.test)
+	{
+		ctrack.chunk("beige","{beige5}")
+	}
 }
 
