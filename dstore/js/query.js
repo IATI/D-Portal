@@ -1347,6 +1347,9 @@ query.do_select=function(q,res,req){
 			}
 		}
 
+		delete q.form // disable auto hacks always json output
+		delete q.from // disable auto hacks always json output
+
 		if( q.select ) // with the qsql selection
 		{
 			r.query="WITH qs AS ( "+r.query+" ) \n"+q.sql
