@@ -786,7 +786,7 @@ SELECT aid, related_aid, 3 AS related_type FROM graph3
 //	console.log(result)
 
 	let rows=[]
-	for(let row of result.rows) { rows.push(row) ; row.depth=0 }
+	for(let row of result.rows ) { rows.push(row) ; row.depth=0 }
 	let rowsort=(function(a,b){
 		if(a["related_"+name]==b["related_"+name])
 		{

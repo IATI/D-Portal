@@ -1327,6 +1327,26 @@ query.do_select=function(q,res,req){
 
 	if( q.sql ) // provide custom sql
 	{
+
+// pick up defaults from sql any line that begins with --$aid=1234
+		let lines=q.sql.split("\n")
+		for(let l of lines)
+		{
+			if( l.startsWith("--$")) // magic starting sequence
+			{
+				let aa=l.split("=")
+				let n=(aa[0].substring(3)).trim() // remove magic
+				let v=((aa.slice(1)).join("=")).trim() // everything after first =
+				if((n!="")&&(v!="")) // got name and value
+				{
+					if( r.qvals[n] === undefined ) // not set yet
+					{
+						r.qvals[n]=v // so set it
+					}
+				}
+			}
+		}
+
 		if( q.select ) // with the qsql selection
 		{
 			r.query="WITH qs AS ( "+r.query+" ) \n"+q.sql

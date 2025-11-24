@@ -58,24 +58,6 @@ query.serv = async function(req,res,next){
 		{
 			r.qvals[n]=req.body[n]
 		}
-// pick up defaults from sql any line that begins with --$aid=1234
-		let lines=r.query.split("\n")
-		for(let l of lines)
-		{
-			if( l.startsWith("--$")) // magic starting sequence
-			{
-				let aa=l.split("=")
-				let n=(aa[0].substring(3)).trim() // remove magic
-				let v=((aa.slice(1)).join("=")).trim() // everything after first =
-				if((n!="")&&(v!="")) // got name and value
-				{
-					if( r.qvals[n] === undefined ) // not set yer
-					{
-						r.qvals[n]=v // so set it
-					}
-				}
-			}
-		}
 
 		delete r.qvals.sql
 		delete r.qvals.form
