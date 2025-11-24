@@ -22,27 +22,7 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 var serve_html = express.static(import.meta.dirname+"/../html",{'index': ['dquery.html']})
 
 
-// handle the /dquery url space
 query.serv = async function(req,res,next){
-
-	let body=req.body||{}
-	let query=req.query||{}
-
-	let sql=body.sql||query.sql
-
-	if(sql) // a post query
-	{
-		dstore_db.do_select(q,res,req)
-	}
-	else
-	{
-		// serv up static files
-		serve_html(req,res,next)
-	}
-
-};
-
-query.serv_old = async function(req,res,next){
 
 	let body=req.body||{}
 	let query=req.query||{}
