@@ -877,9 +877,9 @@ ctrack.setup=function(args)
 	});
 
 
-	if(ctrack.q.test)
-	{
+//	if(ctrack.q.test)
+//	{
 		ctrack.chunk("beige","{beige5}")
-	}
+//	}
 }
 
