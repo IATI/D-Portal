@@ -29,6 +29,25 @@ query.serv = async function(req,res,next){
 	let query=req.query||{}
 
 	let sql=body.sql||query.sql
+
+	if(sql) // a post query
+	{
+		dstore_db.do_select(q,res,req)
+	}
+	else
+	{
+		// serv up static files
+		serve_html(req,res,next)
+	}
+
+};
+
+query.serv_old = async function(req,res,next){
+
+	let body=req.body||{}
+	let query=req.query||{}
+
+	let sql=body.sql||query.sql
 	let form=(body.form||query.form||"json").toLowerCase()
 	let from=(body.from||query.from||"").toLowerCase()
 	let human=(body.human||query.human||"").toLowerCase()
@@ -57,6 +76,24 @@ query.serv = async function(req,res,next){
 		for( let n in req.body )
 		{
 			r.qvals[n]=req.body[n]
+		}
+// pick up defaults from sql any line that begins with --$aid=1234
+		let lines=r.query.split("\n")
+		for(let l of lines)
+		{
+			if( l.startsWith("--$")) // magic starting sequence
+			{
+				let aa=l.split("=")
+				let n=(aa[0].substring(3)).trim() // remove magic
+				let v=((aa.slice(1)).join("=")).trim() // everything after first =
+				if((n!="")&&(v!="")) // got name and value
+				{
+					if( r.qvals[n] === undefined ) // not set yer
+					{
+						r.qvals[n]=v // so set it
+					}
+				}
+			}
 		}
 
 		delete r.qvals.sql
