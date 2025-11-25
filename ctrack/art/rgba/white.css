@@ -243,11 +243,14 @@ table.filter_table td		{border-top:1px solid rgba(204,204,204,1);}
 /*	Explore search styles for all pages
 	============================================= */
 .search_title				{width:80%;}
-.search.search_title span	{color:rgba(46,46,46,1);}
+.search.search_title span,
+.search_query .sector		{color:rgba(46,46,46,1);}
 .search.search_title:before	{background:url(/ctrack/art/high/search_icon.png) no-repeat top center; width:26px; height:26px; background-size:70%;}
 a.search_refine				{border:0; border-radius:0; color:rgba(18,18,18,1); background:rgba(0,196,151,1); text-shadow:initial; text-transform:uppercase; letter-spacing:1px; font-size:0.9em; padding:1em; line-height:1.25em; height:initial; width:20%;}
 a.search_refine:hover		{background:rgba(59,210,175,1); border:0; text-shadow:none;}
 .search_query .text_search span.filter_code	{font-size:1em; background-color:transparent; color:rgba(46,46,46,1); padding:0; border-radius:0;}
+.search_query span.filter_wrap		{color:#696969;}
+.search_query span.filter_wrap img	{-webkit-filter:brightness(20%); filter:brightness(20%);}
 
 
 /*	Table header styles
