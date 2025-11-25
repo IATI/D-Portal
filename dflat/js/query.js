@@ -22,7 +22,6 @@ var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 var serve_html = express.static(import.meta.dirname+"/../html",{'index': ['dquery.html']})
 
 
-// handle the /dquery url space
 query.serv = async function(req,res,next){
 
 	let body=req.body||{}

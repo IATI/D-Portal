@@ -328,7 +328,7 @@ query.getsql_select=function(q,qv){
 		else
 		{
 //		ss.push(" * ");
-			var aa=q.from.split(",");
+			var aa=(q.from || "").split(",");
 			for(i=0;i<aa.length;i++)
 			{
 				var f=aa[i];
@@ -397,7 +397,7 @@ query.getsql_from=function(q,qv){
 
 	let ff={}
 	let f=null
-	for( let name of q.from.split(",") )
+	for( let name of (q.from || "").split(",") )
 	{
 		if( dstore_db.tables_active[name] )
 		{
@@ -1323,12 +1323,51 @@ query.do_select=function(q,res,req){
 				query.getsql_order_by(q,qv) +
 				query.getsql_limit(q,qv);
 
+	let qsql=dstore_db.query_params_string(r.query,r.qvals)
+
+	if( q.sql ) // provide custom sql
+	{
+
+// pick up defaults from sql any line that begins with --$aid=1234
+		let lines=q.sql.split("\n")
+		for(let l of lines)
+		{
+			if( l.startsWith("--$")) // magic starting sequence
+			{
+				let aa=l.split("=")
+				let n=(aa[0].substring(3)).trim() // remove magic
+				let v=((aa.slice(1)).join("=")).trim() // everything after first =
+				if((n!="")&&(v!="")) // got name and value
+				{
+					if( r.qvals[n] === undefined ) // not set yet
+					{
+						r.qvals[n]=v // so set it
+					}
+				}
+			}
+		}
+
+		delete q.form // disable auto hacks always json output
+		delete q.from // disable auto hacks always json output
+
+		if( q.select ) // with the qsql selection
+		{
+			r.query="WITH qs AS ( "+r.query+" ) \n"+q.sql
+		}
+		else
+		{
+			r.query=q.sql
+		}
+	}
+
 	return dstore_db.query_select(q,res,r,req);
 };
 
 // handle the /q url space
 query.serv = function(req,res){
-	var q=query.get_q(req);
+
+	// allow a json body in a post
+	var q=query.get_q(req)
 
 // special log info requests
 	var logname=import.meta.dirname+'/../../logs/cron.log'

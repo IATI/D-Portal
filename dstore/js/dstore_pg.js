@@ -529,8 +529,28 @@ await ( await dstore_pg.open() ).tx( async db => {
 
 			let btree=dflat.xml_to_xson( orgxml )
 			dflat.clean(btree)
+
+	// get old ids for this slug ( hax as we keep the pid in the aid slot... )
+			let rows= await db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).catch(err);
+
+// and delete them all
+			console.log("deleting old orgs")
+			for(let r of rows)
+			{
+			process.stdout.write(".");
+				if(r.aid)
+				{
+					await db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:r.aid}).catch(err);
+					await dstore_back.delete_from(db,"budget",{aid:r.aid});
+					await dstore_back.delete_from(db,"slug",{aid:r.aid});
+				}
+			}
+			process.stdout.write("\n");
+
+			let orgcount=0;
 			for(let xtree of btree["/iati-organisations/iati-organisation"] )
 			{
+				orgcount++
 
 				let pid=xtree["/organisation-identifier"] || xtree["/reporting-org@ref"]
 
@@ -539,20 +559,6 @@ await ( await dstore_pg.open() ).tx( async db => {
 	// remember dataset
 				xtree["@dstore:dataset"]=slug
 				xtree["@xmlns:dstore"]="http://d-portal.org/xmlns/dstore"
-
-	// get old ids for this slug ( hax as we keep the pid in the aid slot... )
-				let rows= await db.any("SELECT * FROM slug WHERE slug=${slug};",{slug:slug}).catch(err);
-
-	// and delete them all
-				for(let r of rows)
-				{
-					if(r.aid)
-					{
-						await db.none("DELETE FROM xson WHERE pid=${pid} AND aid IS NULL ;",{pid:r.aid}).catch(err);
-						await dstore_back.delete_from(db,"budget",{aid:r.aid});
-						await dstore_back.delete_from(db,"slug",{aid:r.aid});
-					}
-				}
 
 				let xs=[]
 				let xwalk
@@ -592,16 +598,20 @@ await ( await dstore_pg.open() ).tx( async db => {
 				console.log("importing budgets from org file for "+pid)
 
 				await dstore_back.delete_from(db,"budget",{aid:pid});
+				
+				let oxml=dflat.xson_to_xml( xtree ) // rebuild xml
+				let oorg=refry.xml(oxml,slug) // old style parse
 
-				for( let it of refry.all_tags(org,"total-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
-				for( let it of refry.all_tags(org,"recipient-org-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
-				for( let it of refry.all_tags(org,"recipient-country-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+				for( let it of refry.all_tags(oorg,"total-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+				for( let it of refry.all_tags(oorg,"recipient-org-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
+				for( let it of refry.all_tags(oorg,"recipient-country-budget")){ await dstore_db.refresh_budget(db,it,xtree,{aid:pid},0); }
 
 				await dstore_back.replace(db,"slug",{"aid":pid,"slug":slug});
 
-				delete deleteme[aid] // replaced so no need to delete
+				delete deleteme[pid] // replaced so no need to delete
 			
 			}
+			console.log("added "+orgcount+" orgs\n")
 		}
 	}
 
@@ -658,18 +668,6 @@ await ( await dstore_pg.open() ).tx( async db => {
 		}
 		await db.none("DELETE FROM slug WHERE slug=${slug} AND aid = ANY(${aids}) ;",{slug:slug,aids:delete_list}).catch(err);
 	}
-
-
-
-
-/*
-	wait.for(function(cb){
-		db.one("SELECT COUNT(*) FROM act;").then(function(row){
-			after=row.count;
-			cb();
-		}).catch(err);
-	});
-*/
 
 //	await db.none("COMMIT;").catch(err);
 

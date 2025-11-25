@@ -209,10 +209,12 @@ fetcher.ajax=async function(dat,callback)
 
 	let result
 
+/*
 	if(dat.sql) // forced complex
 	{
+*/
 
-		let d = await fetch( ctrack.args.dquery , {
+		let d = await fetch( ctrack.args.q , {
 			method: 'POST', // *GET, POST, PUT, DELETE, etc.
 			mode: 'cors', // no-cors, *cors, same-origin
 			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -225,6 +227,7 @@ fetcher.ajax=async function(dat,callback)
 		})
 
 		result = await d.json()
+/*
 	}
 	else
 	if(fetcher.aids)
@@ -254,6 +257,7 @@ fetcher.ajax=async function(dat,callback)
 //			error:function(){ callback() },
 		});
 	}
+*/
 
 	if(callback) { callback(result) }
 	return result

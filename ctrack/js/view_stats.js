@@ -23,6 +23,7 @@ view_stats.chunks=[
 	"ended_projects",
 	"planned_projects",
 	"numof_publishers",
+	"numof_participating",
 	"percent_of_activities_with_location",
 	
 	"numof_status_code_1",
@@ -189,6 +190,35 @@ view_stats.new_ajax=function(args)
 		ctrack.display(); // every fetcher.ajax must call display once
 	});
 
+	// ok this is more complicated, uhm, fake it for now
+	var dat={
+			"from":"act",
+			"select":"aid",
+			"limit":-1,
+			"sql":`
+, rs AS
+( SELECT DISTINCT xson->>'@ref' AS org FROM xson 
+WHERE root='/iati-activities/iati-activity/participating-org'
+AND aid IN ( SELECT aid FROM qs ) )
+, ns AS
+(
+SELECT pid,xson->'/name/narrative'->0->>'' AS name FROM xson WHERE root='/iati-organisations/iati-organisation'
+)
+
+SELECT org FROM rs INNER JOIN ns AS pids ON pid=org
+`
+		};
+	fetcher.ajax_dat_fix(dat,args);
+		
+	fetcher.ajax(dat,args.callback || function(data)
+	{
+		ctrack.chunk("numof_participating",data.rows.length);
+
+		view_stats.calc();
+		
+		ctrack.display(); // every fetcher.ajax must call display once
+	});
+
 }
 
 
@@ -201,22 +231,17 @@ view_stats.ajax=function(args)
 
 	if(ctrack.q.test)
 	{
-		if(ctrack.q.test==2)
-		{
-			ctrack.chunk("main_stats","{new_main_stats2}")
-			view_stats.new_ajax(args)
-		}
-		else
-		{
-			ctrack.chunk("main_stats","{new_main_stats}")
-			view_stats.old_ajax(args)
-			view_stats.new_ajax(args)
-		}
+		ctrack.chunk("main_stats","{new_main_stats2}")
+		view_stats.new_ajax(args)
 	}
 	else
 	{
-		ctrack.chunk("main_stats","{old_main_stats}")		
+		ctrack.chunk("main_stats","{new_main_stats}")
 		view_stats.old_ajax(args)
+		view_stats.new_ajax(args)
+		
+//		ctrack.chunk("main_stats","{old_main_stats}")		
+//		view_stats.old_ajax(args)
 	}
 
 }
