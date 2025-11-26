@@ -1695,7 +1695,10 @@
 
 #^/wrap-participating-org	<!--	PARTICIPATING ORG WRAPPER	-->	
 	<div class="wrap_participating_org">
-		<div class="header_section sticky collapsable">WHO'S INVOLVED <span class="count">( {_it./participating-org.length||no_length} )</span></div>
+		<div class="header_section sticky collapsable flex_layout">
+			<div>WHO'S INVOLVED <span class="count">( {_it./participating-org.length||no_length} )</span></div>
+			<a class="network" href="{origin}/q.xml?aid={_it./iati-identifier}" target="_blank"><img src="/ctrack/art/original/flask_icon.svg"><span>experimental!</span> view network</a>
+		</div>
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
