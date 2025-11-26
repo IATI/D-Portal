@@ -367,7 +367,10 @@
 
 #^/wrap-related-activity	<!--	RELATED ACTIVITY (PREVIOUSLY FAMILY TREE) WRAPPER	-->
 	<div class="wrap_related_activity">
-		<div class="header_section sticky collapsable">related activity<span class="count">( {_it./related-activity.length||no_length} )</span></div>
+		<div class="header_section sticky collapsable flex_layout">
+			<div>related activity<span class="count">( {_it./related-activity.length||no_length} )</span></div>
+			<a class="network" href="{origin}/ctrack.html#view=related&aid={_it./iati-identifier}" target="_blank"><img src="/ctrack/art/original/flask_icon.svg"><span>experimental!</span> view network</a>
+		</div>
 		<table class="budget sortable">
 			<thead>
 				<tr>
@@ -1695,10 +1698,7 @@
 
 #^/wrap-participating-org	<!--	PARTICIPATING ORG WRAPPER	-->	
 	<div class="wrap_participating_org">
-		<div class="header_section sticky collapsable flex_layout">
-			<div>WHO'S INVOLVED <span class="count">( {_it./participating-org.length||no_length} )</span></div>
-			<a class="network" href="{origin}/ctrack.html#view=related&aid={_it./iati-identifier}" target="_blank"><img src="/ctrack/art/original/flask_icon.svg"><span>experimental!</span> view network</a>
-		</div>
+		<div class="header_section sticky collapsable">WHO'S INVOLVED <span class="count">( {_it./participating-org.length||no_length} )</span></div>
 		<table class="budget part_org sortable">
 			<thead>
 				<tr>
