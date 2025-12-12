@@ -74,7 +74,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "A number indicating the IATI specification version in use.\n            This is mandatory and must be a valid version."
+            "The version number of the IATI Standard used in this file. This is required and MUST contain a valid IATI Standard version number (e.g., \"2.03\")."
            ]
           }
          ]
@@ -94,7 +94,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "A date/time stamp for when this file was generated. This\n            is not necessarily the last-updated date for the\n            individual activity records in it. Use of this attribute\n            is highly recommended, to allow recipients to know when a\n            file has been updated."
+            "The date/time when this file was generated. This\n            is not necessarily the last-updated date for the\n            individual activity records in it. Use of this attribute\n            is highly recommended, to allow recipients to know when a\n            file has been updated."
            ]
           }
          ]
@@ -514,7 +514,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "A process flag to indicate that this activity relates entirely\n            or partially to humanitarian aid."
+            "A flag to indicate that this activity relates entirely\n            or partially to humanitarian aid."
            ]
           }
          ]
@@ -601,7 +601,7 @@
        "0": "xsd:documentation",
        "xml:lang": "en",
        "1": [
-        "A globally unique identifier for the activity.\n\n        This MUST be prefixed with EITHER the current IATI\n        organisation identifier for the reporting organisation\n        (reporting-org/\\@ref) OR a previous identifier reported in\n        other-identifier, and suffixed with the organisation’s own\n        activity identifier. The prefix and the suffix should be\n        separated by a hyphen \"-\".\n\n        Once an activity has been reported to IATI its identifier MUST\n        NOT be changed in subsequent updates."
+        "A globally unique identifier for the activity.\n\n        This MUST be prefixed with EITHER the current IATI organisation identifier for the reporting organisation (reporting-org/\\@ref) \n        OR \n        a previous identifier reported in other-identifier, and suffixed with the organisation’s own activity identifier. \n        \n        The prefix and the suffix should be separated by a hyphen \"-\".\n\n        Once an activity has been reported to IATI its identifier MUST NOT be changed in subsequent updates."
        ]
       }
      ]
@@ -932,7 +932,7 @@
        "0": "xsd:documentation",
        "xml:lang": "en",
        "1": [
-        "A supranational geopolitical region that will benefit from\n        this activity. For sub-national geographical location, use the\n        location element.\n\n        Multiple countries and regions can be reported, in which case\n        the percentage attribute MUST be used to specify the share of\n        total commitments across all reported countries and regions.\n        Recipient-region must not be used merely to describe the\n        region of a country reported in recipient-country, but ONLY if\n        the region is a recipient IN ADDITION to the country.\n\n        Region can also be reported at transaction rather than\n        activity level. If transaction/recipient-country AND/OR\n        transaction/recipient-region are used THEN ALL transaction\n        elements MUST contain a recipient-country and/or\n        recipient-region element AND iati-activity/recipient-region\n        and iati-activity/recipient-region MUST NOT be used AND each\n        transaction MUST only contain one recipient-country or\n        recipient-region."
+        "A supranational geopolitical region that will benefit from\n        this activity. For sub-national geographical location, use the\n        location element.\n\n        Multiple countries and regions can be reported, in which case\n        the percentage attribute MUST be used to specify the share of\n        total commitments across all reported countries and regions.\n        \n        Recipient-region must not be used merely to describe the\n        region of a country reported in recipient-country. It must be used\n        only if the region is a recipient in addition to the country.\n\n        Region can also be reported at transaction rather than\n        activity level. \n        \n        IF transaction/recipient-country AND/OR transaction/recipient-region are used\n        THEN \n        ALL transaction elements MUST contain a recipient-country and/or recipient-region element \n        AND iati-activity/recipient-region and iati-activity/recipient-region MUST NOT be used \n        AND each transaction MUST only contain one recipient-country or recipient-region."
        ]
       }
      ]
@@ -1011,7 +1011,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. While this is an optional field it is STRONGLY RECOMMENDED that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
+            "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. This is an optional field, but it is strongly recommended that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
            ]
           }
          ]
@@ -1281,7 +1281,7 @@
              "0": "xsd:documentation",
              "xml:lang": "en",
              "1": [
-              "Where applicable, the organisation that owns the other\n              identifier being reported. When used, then either\n              other-identifier/owner-org/\\@ref or\n              other-identifier/owner-org/narrative/text() MUST be\n              present."
+              "Where applicable, the organisation that owns the other\n              identifier being reported. \n              \n              When used, either other-identifier/owner-org/\\@ref or\n              other-identifier/owner-org/narrative/text() MUST be\n              present."
              ]
             }
            ]
@@ -1478,7 +1478,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "The URI where this vocabulary is defined. If the vocabulary is 99 or 98 (reporting organisation), the URI where this internal vocabulary is defined. While this is an optional field it is STRONGLY RECOMMENDED that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
+            "The URI where this vocabulary is defined. If the vocabulary is 99 or 98 (reporting organisation), the URI where this internal vocabulary is defined. This is an optional field, but it is strongly recommended that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
            ]
           }
          ]
@@ -2118,7 +2118,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "A u.r.i. for the vocabulary specified which provides access to\n            the list of codes and descriptions."
+            "A URI for the vocabulary specified which provides access to\n            the list of codes and descriptions."
            ]
           }
          ]
@@ -2614,7 +2614,7 @@
                  "0": "xsd:documentation",
                  "xml:lang": "en",
                  "1": [
-                  "If incoming funds are being provided from the budget\n                  of another activity that is reported to IATI, it if\n                  STRONGLY RECOMMENDED that this should record the\n                  provider's unique IATI activity identifier for that\n                  activity."
+                  "If incoming funds are being provided from the budget\n                  of another activity that is reported to IATI, it is\n                  strongly recommended that this should record the\n                  provider's unique IATI activity identifier for that\n                  activity."
                  ]
                 }
                ]
@@ -2920,7 +2920,7 @@
                  "0": "xsd:documentation",
                  "xml:lang": "en",
                  "1": [
-                  "The URI where this vocabulary is defined. If the vocabulary is 99 or 98 (reporting organisation), the URI where this internal vocabulary is defined. While this is an optional field it is STRONGLY RECOMMENDED that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
+                  "The URI where this vocabulary is defined. If the vocabulary is 99 or 98 (reporting organisation), the URI where this internal vocabulary is defined. This is an optional field, but it is strongly recommended that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
                  ]
                 }
                ]
@@ -2969,7 +2969,7 @@
              "0": "xsd:documentation",
              "xml:lang": "en",
              "1": [
-              "A country that will benefit from this transaction.\n              If a specific country is not known the recipient-region element should be used instead.\n\n              If transaction/recipient-country AND/OR transaction/recipient-region are used THEN ALL transaction elements MUST contain a recipient-country or recipient-region element AND (iati-activity/recipient-country AND iati-activity/recipient-region MUST NOT be used)"
+              "A country that will benefit from this transaction. If a specific country is not known the recipient-region element should be used instead.\n\n              IF transaction/recipient-country AND/OR transaction/recipient-region are used \n              THEN \n              ALL transaction elements MUST contain a recipient-country or recipient-region element \n              AND (iati-activity/recipient-country AND iati-activity/recipient-region MUST NOT be used)"
              ]
             }
            ]
@@ -3037,7 +3037,7 @@
              "0": "xsd:documentation",
              "xml:lang": "en",
              "1": [
-              "A supranational geopolitical region that will benefit from this transaction. If a specific country is not known, then this element MUST be used.\n\n              If transaction/recipient-country AND/OR transaction/recipient-region are used THEN ALL transaction elements MUST contain a recipient-country or recipient-region element AND (iati-activity/recipient-country AND iati-activity/recipient-region MUST NOT be used)"
+              "A supranational geopolitical region that will benefit from this transaction. If a specific country is not known, then this element MUST be used.\n\n              If transaction/recipient-country AND/OR transaction/recipient-region are used \n              THEN ALL transaction elements MUST contain a recipient-country or recipient-region element \n              AND (iati-activity/recipient-country AND iati-activity/recipient-region MUST NOT be used)"
              ]
             }
            ]
@@ -3116,7 +3116,7 @@
                  "0": "xsd:documentation",
                  "xml:lang": "en",
                  "1": [
-                  "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. While this is an optional field it is STRONGLY RECOMMENDED that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
+                  "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. This is an optional field, but it is strongly recommended that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
                  ]
                 }
                ]
@@ -3381,7 +3381,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "A process flag to indicate that this transaction relates entirely or partially to humanitarian aid. If the entire activity relates to humanitarian aid this should be reported using iati-activity/\\@humanitarian, rather than for each transaction."
+            "A flag to indicate that this transaction relates entirely or partially to humanitarian aid. If the entire activity relates to humanitarian aid this should be reported using iati-activity/\\@humanitarian, rather than for each transaction."
            ]
           }
          ]
@@ -4601,7 +4601,7 @@
                  "0": "xsd:documentation",
                  "xml:lang": "en",
                  "1": [
-                  "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. While this is an optional field it is STRONGLY RECOMMENDED that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
+                  "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. This is an optional field, but it is strongly recommended that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
                  ]
                 }
                ]
@@ -4746,7 +4746,7 @@
                        "0": "xsd:documentation",
                        "xml:lang": "en",
                        "1": [
-                        "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. While this is an optional field it is STRONGLY RECOMMENDED that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
+                        "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. This is an optional field, but it is strongly recommended that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
                        ]
                       }
                      ]
@@ -5222,7 +5222,7 @@
                  "0": "xsd:documentation",
                  "xml:lang": "en",
                  "1": [
-                  "A boolean describing the behaviour of the indicator.\n                  It is \"true\" if the indicator improves from small to large (e.g. clinics built); false if it improves from large to small (e.g. cases of a disease)."
+                  "The behaviour of the indicator: \"true\" if the indicator improves from small to large (e.g. clinics built); false if it improves from large to small (e.g. cases of a disease)."
                  ]
                 }
                ]
@@ -5242,7 +5242,7 @@
                  "0": "xsd:documentation",
                  "xml:lang": "en",
                  "1": [
-                  "Boolean flag indicating whether the data in the result set are suitable for aggregation."
+                  "Flag indicating whether the data in the result set are suitable for aggregation."
                  ]
                 }
                ]
@@ -5300,7 +5300,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "Boolean flag indicating whether the data in the result set are suitable for aggregation."
+            "Flag indicating whether the data in the result set are suitable for aggregation."
            ]
           }
          ]
@@ -5423,7 +5423,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "A yes/no (1/0) value stating whether there are conditions attached to the activity. It is strongly recommended that this attribute is reported, even if there are no conditions attached (i.e. attached=\"0\")"
+            "Whether there are conditions attached to the activity. It is strongly recommended that this attribute is reported, even if there are no conditions attached (i.e. attached=\"0\")"
            ]
           }
          ]
@@ -6145,7 +6145,7 @@
                  "0": "xsd:documentation",
                  "xml:lang": "en",
                  "1": [
-                  "A boolean indicating whether the flag applies. If 'false' do not report the flag"
+                  "Whether the flag applies. If 'false' do not report the flag"
                  ]
                 }
                ]
@@ -7893,7 +7893,7 @@
            "0": "xsd:documentation",
            "xml:lang": "en",
            "1": [
-            "A number indicating the IATI specification version in use.\n            This is mandatory and must be a valid version."
+            "A number indicating the IATI Standard version in use.\n            This is mandatory and must be a valid version."
            ]
           }
          ]
@@ -8845,7 +8845,7 @@
                  "0": "xsd:documentation",
                  "xml:lang": "en",
                  "1": [
-                  "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. While this is an optional field it is STRONGLY RECOMMENDED that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
+                  "The URI where this vocabulary is defined. If the vocabulary is 99 (reporting organisation), the URI where this internal vocabulary is defined. This is an optional field, but it is strongly recommended that all publishers use it to ensure that the meaning of their codes are fully understood by data users."
                  ]
                 }
                ]
@@ -8865,7 +8865,7 @@
                  "0": "xsd:documentation",
                  "xml:lang": "en",
                  "1": [
-                  "Either an OECD DAC, UN region code or (if code ‘99’ Reporting\n                  organisation is selected for recipient-region/\\@vocabulary) a\n                  code from your internal vocabulary. The codelist is determined\n                  by vocabulary attribute. The value in recipient-region/\\@code\n                  should appear within the Region codelist, if the vocabulary\n                  code 1 ('OECD DAC') is used."
+                  "Either an OECD DAC, UN region code or (if code ‘99’ Reporting\n                  organisation is selected for recipient-region/\\@vocabulary) a\n                  code from your internal vocabulary. \n                  \n                  The codelist is determined by the vocabulary attribute. \n                  \n                  The value in recipient-region/\\@code\n                  should appear within the Region codelist, if the vocabulary\n                  code 1 ('OECD DAC') is used."
                  ]
                 }
                ]
