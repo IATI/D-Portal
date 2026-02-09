@@ -762,7 +762,7 @@ dstore_db.refresh_act = async function(db,aid,xml,head){
 		{
 //			console.log("\nSKIPPING: "+t.aid);
 			await dstore_back.replace(db,"slug",{"aid":t.aid,"slug":t.slug});
-			return false;
+//			return false;
 		}
 
 // delete all traces of this activity before we add it
