@@ -134,7 +134,7 @@ view_stats.new_ajax=function(args)
 	args=args || {};
 
 	var dat={
-			"select":"status_code,count",
+			"select":"status_code,count_aid",
 			"from":"act",
 			"groupby":"status_code",
 			"limit":-1,
@@ -150,13 +150,13 @@ view_stats.new_ajax=function(args)
 		{
 			if( counts[r.status_code]!==undefined ) // code we recognise
 			{
-				counts[r.status_code] += Number(r.count||0)
-				total += Number(r.count||0)
+				counts[r.status_code] += Number(r.count_aid||0)
+				total += Number(r.count_aid||0)
 			}
 			else // unknown code
 			{
-				unknown += Number(r.count||0)
-				total += Number(r.count||0)
+				unknown += Number(r.count_aid||0)
+				total += Number(r.count_aid||0)
 			}
 		}
 		counts["unknown"]=unknown
