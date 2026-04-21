@@ -1504,7 +1504,8 @@
    "73": "Is not in either a donor or aid recipient country."
   },
   "OtherIdentifierType": {
-   "A3": "The standard insists that once an activity has been reported to IATI its identifier MUST NOT be changed, even if the reporting organisation changes its organisation identifier. There may be exceptional circumstances in which this rule cannot be followed, in which case the previous identifier should be reported using this code."
+   "A3": "The standard insists that once an activity has been reported to IATI its identifier MUST NOT be changed, even if the reporting organisation changes its organisation identifier. There may be exceptional circumstances in which this rule cannot be followed, in which case the previous identifier should be reported using this code.",
+   "A4": "Identifier assigned by UN-OCHA once the flow has been curated and published in FTS (https://fts.unocha.org/)"
   },
   "PolicyMarkerVocabulary": {
    "1": "The policy marker is an OECD DAC CRS policy marker, Reported in columns 20-23, 28-31 and 54 of CRS++ reporting format.",
@@ -5225,6 +5226,7 @@
    "A1": "Reporting Organisation's internal activity identifier",
    "A2": "CRS Activity identifier",
    "A3": "Previous Activity Identifier",
+   "A4": "FTS Flow ID",
    "A9": "Other Activity Identifier",
    "B1": "Previous Reporting Organisation Identifier",
    "B9": "Other Organisation Identifier"
