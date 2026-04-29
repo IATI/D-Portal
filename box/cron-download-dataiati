@@ -43,6 +43,9 @@ echo "copying datasets"
 
 popd
 
+# full clean of cache files
+rm -rf cache
+mkdir -p cache
 mv ~/dataiati/datasets/*.xml cache/
 
 cd cache
