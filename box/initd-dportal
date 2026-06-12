@@ -30,17 +30,16 @@ APP="$DIR/dportal/js/serv.wrap.js"
 LOGFILE="$DIR/logs/dportal"
 
 
-
-
-source $DIR/box/env.sh
-
+# get envs for root
+. $DIR/box/env.sh
 
 # switch from root to $PGUSER
-
 if [ $UID -eq 0 ]; then
 	exec su "$PGUSER" "$0" "$@"
 fi
 
+# make sure user has envs
+. $DIR/box/env.sh
 
 
 start() {
@@ -49,6 +48,7 @@ start() {
 	PATH=/usr/local/bin:$PATH
 	cd $DIR
 	. ./nvm-install
+	pm2 update
 	pm2 start $APP --log ${LOGFILE}.log
 	RETVAL=$?
 }
@@ -57,7 +57,8 @@ restart() {
 	echo "Restarting $APP"
 	cd $DIR
 	. ./nvm-install
-	pm2 restart $APP
+	pm2 update
+	pm2 restart $APP --update-env
 	RETVAL=$?
 }
 
