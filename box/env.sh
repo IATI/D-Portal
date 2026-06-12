@@ -1,6 +1,6 @@
 
-export DSTORE_PG="postgres:?"
-export DSTORE_PGRO="postgres://readonly:secret@localhost:5432/dstore"
+export DSTORE_PG="postgres:///"
+export DSTORE_PGRO="postgres://readonly:secret@localhost:5432/"
 export PGUSER="vagrant"
 export PGPASS="vagrant"
 export PGDATABASE="dstore"

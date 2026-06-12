@@ -81,6 +81,7 @@ query.serv = async function(req,res,next){
 		delete r.qvals.from
 		delete r.qvals.human
 
+		r.readonly="PGRO" // flag readonly
 		await dstore_db.query_select(q,res,r,req)
 	}
 	else

@@ -43,7 +43,7 @@ var err=function (error) {
 var master_pgp;
 var dbs={}
 
-dstore_pg.open = async function(req){
+dstore_pg.open = async function(req,r){
 
 	if(!master_pgp)
 	{
@@ -59,6 +59,10 @@ dstore_pg.open = async function(req){
 	}
 
 	let pg=global.argv.pg
+	if( r && r.readonly ) // use readonly
+	{
+		pg=global.argv.pgro
+	}
 
 // prefer X-MD5 header from nginx before we check subdomain
 	let md5key = ( req && req.headers && req.headers["x-md5"] ) || ( req && req.subdomains && req.subdomains[req.subdomains.length-1] ) // use first sub domain
@@ -79,10 +83,15 @@ dstore_pg.open = async function(req){
 
 	if( typeof md5key === 'string' ) // open an instance database
 	{
-		pg = 'postgres:///db_'+md5key
+		pg = pg+'db_'+md5key
+	}
+	else
+	{
+		pg = pg+'dstore'
 	}
 
 //console.log("using instance PG database "+pg)
+
 
 	if( ! dbs[pg] ) // create db
 	{
@@ -761,7 +770,7 @@ let cleanup=function(error)
 	query.stream_stop(ss) // return error
 }
 
-	let db=await ( await dstore_pg.open(req) )
+	let db=await ( await dstore_pg.open(req,r) )
 
 	let sql=dstore_pg.query_params_string( r.query , r.qvals )
 	r.dquery=url.format({
