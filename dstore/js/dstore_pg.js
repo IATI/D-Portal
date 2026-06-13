@@ -87,7 +87,7 @@ dstore_pg.open = async function(req,r){
 	}
 	else
 	{
-		pg = pg+( argv.database || 'dstore' )
+		pg = pg+argv.pgdatabase
 	}
 
 //console.log("using instance PG database "+pg)

@@ -24,6 +24,8 @@ argv.instance_dir = argv.instance_dir || process.env.DSTORE_INSTANCE_DIR || "../
 	argv.pg       = argv.pg       || process.env.DSTORE_PG       || undefined                    ; // main PG
 	argv.pgro     = argv.pgro     || process.env.DSTORE_PGRO     || undefined                    ; // read only PG
 
+	argv.pgdatabase = argv.pgdatabase || process.env.PGDATABASE || "dstore" ;
+
 	// to switch to postgres defaults set the following in your environment
 	// DSTORE_PG=postgresql:///dstore
 
