@@ -6359,6 +6359,8 @@ curl -k -L -o mofa-jpn-701-2.xml "https://www.mofa.go.jp/mofaj/gaiko/oda/about/y
 curl -k -L -o mofa-jpn-701-2-2017.xml "https://www.mofa.go.jp/mofaj/gaiko/oda/about/yosan/xml/2017/2017_Developing_Countries_unspecified.xml" 
 curl -k -L -o mofa-jpn-701-2-2018.xml "https://www.mofa.go.jp/mofaj/gaiko/oda/about/yosan/xml/2018/2018_Developing_Countries_unspecified.xml" 
 curl -k -L -o mofa-jpn-701-2-2019.xml "https://www.mofa.go.jp/mofaj/gaiko/oda/about/yosan/xml/2019/2019%20developing_countries_unspecified.xml" 
+curl -k -L -o mom_incubators-activity-publisher.xml "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/mom_incubators-activities.xml" 
+curl -k -L -o mom_incubators-organisation-publisher.xml "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/mom_incubators-organisation.xml" 
 curl -k -L -o mondefemmes-activities.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/mondefemmes-activities.xml" 
 curl -k -L -o mondefemmes-org.xml "https://aidstream.s3.us-west-2.amazonaws.com/xml/mondefemmes-org.xml" 
 curl -k -L -o mondefemmes-program2022.xml "http://diplomatie.be/oda/IATI_act_pr2022-26_MSFem_4036.xml" 
