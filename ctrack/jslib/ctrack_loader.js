@@ -41,7 +41,7 @@ ctrack_loader=function(args){
 		args.style="white"
 	}
 	else
-	if( domtest["d-portal"] ) // client is accessed via d-portal.org
+	if( domtest["d-portal"] && (!domtest["local"]) ) // client is accessed via d-portal.org
 	{
 		args.style="classic"
 		
@@ -63,7 +63,7 @@ ctrack_loader=function(args){
 		args.style="classic"
 	}
 	else
-	if( domtest["localhost"] ) // client is accessed via localhost
+	if( domtest["localhost"] || domtest["local"] ) // client is accessed via localhost
 	{
 		// simple local test with data accessed from main server
 		qroot="//d-portal.org/"
