@@ -117,13 +117,10 @@ view_main.view=function(args)
 		ctrack.chunk("view_savi_file","");
 	}
 
+	ctrack.map.heat=undefined;
 	ctrack.map.pins=undefined;
-	views.map.ajax_heat({limit:200,callback2:function(data){
-		if(data.rows.length==0)
-		{
-			ctrack.chunk("main_map","")
-		}
-	}});
+	views.map.ajax_pins();
+
 	
 	ctrack.chunk("main_mention_any","");
 	if( test["reporting_ref"] )

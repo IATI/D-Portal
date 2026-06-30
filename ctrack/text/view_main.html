@@ -16,7 +16,7 @@
 {donor_graph}
 {countries_graph}
 {sector_graph}
-{main_map}
+{main_map2}
 {main_active}
 {main_ended}
 {main_participating_org}
@@ -85,6 +85,16 @@
 	<div class="map_no_info">{map_no_info_text}</div>
 	<div id="map"></div>
 	<div class="map_info">{map_info_text}</div>
+	<a class="map_percent" href="#view=map">
+		<img src="{flava}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/>
+		<span>{percent_of_activities_with_location}%</span> {map_percent_text}
+		<b>{map_view_text}</b>
+	</a>
+</div>
+
+#main_map2
+<div class="map_wrap">
+	<div id="map" class="map_view"></div>
 	<a class="map_percent" href="#view=map">
 		<img src="{flava}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/>
 		<span>{percent_of_activities_with_location}%</span> {map_percent_text}
