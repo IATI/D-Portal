@@ -32422,7 +32422,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2
+    "value": 3
    },
    {
     "key": "country",
@@ -72059,16 +72059,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 92
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.02"
    },
    {
     "key": "language",
@@ -93759,6 +93763,158 @@
   ],
   "state": "active",
   "title": "britishcouncil-za",
+  "type": "dataset"
+ },
+ "brti-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "7030c375-1a9e-2151-b72c-6ab5339f11e7",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "brti-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-06-02T10:26:00+00:00",
+   "description": "",
+   "id": "44b94c16-c122-d60c-4afe-6a1eaf6f4a1e",
+   "image_url": null,
+   "is_organization": true,
+   "name": "brti",
+   "state": "active",
+   "title": "Biomedical Research and Training Institute",
+   "type": "organization"
+  },
+  "owner_org": "44b94c16-c122-d60c-4afe-6a1eaf6f4a1e",
+  "private": false,
+  "publisher_country": "ZW",
+  "publisher_iati_id": "XI-ROR-0130VHY65",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/brti-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "brti-activity-publisher",
+  "type": "dataset"
+ },
+ "brti-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "4ea298cd-fc22-ab27-5132-6ab528964d61",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "brti-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-06-02T10:26:00+00:00",
+   "description": "",
+   "id": "44b94c16-c122-d60c-4afe-6a1eaf6f4a1e",
+   "image_url": null,
+   "is_organization": true,
+   "name": "brti",
+   "state": "active",
+   "title": "Biomedical Research and Training Institute",
+   "type": "organization"
+  },
+  "owner_org": "44b94c16-c122-d60c-4afe-6a1eaf6f4a1e",
+  "private": false,
+  "publisher_country": "ZW",
+  "publisher_iati_id": "XI-ROR-0130VHY65",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/brti-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "brti-organisation-publisher",
   "type": "dataset"
  },
  "brujula-org": {
@@ -127854,7 +128010,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3305
+    "value": 3307
    },
    {
     "key": "country",
@@ -130236,7 +130392,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 155
+    "value": 156
    },
    {
     "key": "country",
@@ -142095,6 +142251,80 @@
   "title": "crcasia-org",
   "type": "dataset"
  },
+ "crd-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "d5258495-80f4-536e-5db4-6ab670b67995",
+  "license_id": "other-pd",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "crd-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-18T06:34:00+00:00",
+   "description": "",
+   "id": "61af1407-eb1c-1c32-0b83-6943a0df0514",
+   "image_url": null,
+   "is_organization": true,
+   "name": "crd",
+   "state": "active",
+   "title": "Civil Rights Defenders",
+   "type": "organization"
+  },
+  "owner_org": "61af1407-eb1c-1c32-0b83-6943a0df0514",
+  "private": false,
+  "publisher_country": "SE",
+  "publisher_iati_id": "SE-ON-802011-1442",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/crd-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "crd-activity-publisher",
+  "type": "dataset"
+ },
  "crd-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -148342,7 +148572,7 @@
   "private": false,
   "publisher_country": "DK",
   "publisher_iati_id": "DK-CVR-25191501",
-  "publisher_organization_type": "22",
+  "publisher_organization_type": "21",
   "publisher_source_type": "",
   "resources": [
    {
@@ -148416,7 +148646,7 @@
   "private": false,
   "publisher_country": "DK",
   "publisher_iati_id": "DK-CVR-25191501",
-  "publisher_organization_type": "22",
+  "publisher_organization_type": "21",
   "publisher_source_type": "",
   "resources": [
    {
@@ -148490,7 +148720,7 @@
   "private": false,
   "publisher_country": "DK",
   "publisher_iati_id": "DK-CVR-25191501",
-  "publisher_organization_type": "22",
+  "publisher_organization_type": "21",
   "publisher_source_type": "",
   "resources": [
    {
@@ -268814,7 +269044,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1238
+    "value": 1239
    },
    {
     "key": "country",
@@ -280638,7 +280868,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1063
+    "value": 1070
    },
    {
     "key": "country",
@@ -280716,7 +280946,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1100
+    "value": 1101
    },
    {
     "key": "country",
@@ -280794,7 +281024,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1197
+    "value": 1198
    },
    {
     "key": "country",
@@ -280872,7 +281102,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1269
+    "value": 1282
    },
    {
     "key": "country",
@@ -280950,7 +281180,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1156
+    "value": 1190
    },
    {
     "key": "country",
@@ -281028,7 +281258,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1401
+    "value": 1381
    },
    {
     "key": "country",
@@ -281106,7 +281336,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1466
+    "value": 1446
    },
    {
     "key": "country",
@@ -281184,7 +281414,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1455
+    "value": 1473
    },
    {
     "key": "country",
@@ -281262,7 +281492,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1736
+    "value": 1828
    },
    {
     "key": "country",
@@ -281340,7 +281570,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1854
+    "value": 1800
    },
    {
     "key": "country",
@@ -281496,7 +281726,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1333
+    "value": 1332
    },
    {
     "key": "country",
@@ -281964,7 +282194,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 792
+    "value": 795
    },
    {
     "key": "country",
@@ -282042,7 +282272,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 893
+    "value": 897
    },
    {
     "key": "country",
@@ -316959,16 +317189,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1805
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -317033,16 +317267,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 800
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -317107,16 +317345,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 970
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -317264,11 +317506,11 @@
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "organisation"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -381217,16 +381459,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 7
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -415605,7 +415851,7 @@
   "title": "interburns-org",
   "type": "dataset"
  },
- "international-alert-activities": {
+ "international-alert-activity": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -415644,7 +415890,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "international-alert-activities",
+  "name": "international-alert-activity",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -415680,10 +415926,10 @@
    }
   ],
   "state": "active",
-  "title": "international-alert-activities",
+  "title": "international-alert-activity",
   "type": "dataset"
  },
- "international-alert-org": {
+ "international-alert-organisation": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -415718,7 +415964,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "international-alert-org",
+  "name": "international-alert-organisation",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -415754,7 +416000,7 @@
    }
   ],
   "state": "active",
-  "title": "international-alert-org",
+  "title": "international-alert-organisation",
   "type": "dataset"
  },
  "interpeace-activity": {
@@ -418988,11 +419234,11 @@
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "organisation"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -446839,16 +447085,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -446913,16 +447163,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -446987,16 +447241,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -447061,16 +447319,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -447135,16 +447397,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 3
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -447209,16 +447475,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 2
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -447283,16 +447553,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -447357,16 +447631,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -447431,16 +447709,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -447510,11 +447792,11 @@
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "organisation"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -447579,16 +447861,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 2
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -447653,16 +447939,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -530340,7 +530630,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 413
+    "value": 414
    },
    {
     "key": "country",
@@ -564765,16 +565055,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 8
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -564844,11 +565138,11 @@
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "organisation"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -564913,16 +565207,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 91
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -564992,11 +565290,11 @@
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "organisation"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -583660,7 +583958,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 6465
+    "value": 6467
    },
    {
     "key": "country",
@@ -600516,7 +600814,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 776
+    "value": 782
    },
    {
     "key": "country",
@@ -600672,7 +600970,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1289
+    "value": 1269
    },
    {
     "key": "country",
@@ -600750,7 +601048,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1318
+    "value": 1346
    },
    {
     "key": "country",
@@ -600828,7 +601126,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 765
+    "value": 729
    },
    {
     "key": "country",
@@ -600906,7 +601204,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1140
+    "value": 1040
    },
    {
     "key": "country",
@@ -600984,7 +601282,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1399
+    "value": 1261
    },
    {
     "key": "country",
@@ -601062,7 +601360,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 984
+    "value": 1144
    },
    {
     "key": "country",
@@ -601140,7 +601438,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1690
+    "value": 1728
    },
    {
     "key": "country",
@@ -601218,7 +601516,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1959
+    "value": 1821
    },
    {
     "key": "country",
@@ -601296,7 +601594,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1722
+    "value": 1878
    },
    {
     "key": "country",
@@ -601374,7 +601672,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1716
+    "value": 1764
    },
    {
     "key": "country",
@@ -601452,7 +601750,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2654
+    "value": 2630
    },
    {
     "key": "country",
@@ -601530,7 +601828,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2674
+    "value": 2550
    },
    {
     "key": "country",
@@ -601608,7 +601906,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2528
+    "value": 2620
    },
    {
     "key": "country",
@@ -601686,7 +601984,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2534
+    "value": 2678
    },
    {
     "key": "country",
@@ -601764,7 +602062,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2620
+    "value": 2674
    },
    {
     "key": "country",
@@ -601842,7 +602140,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2556
    },
    {
     "key": "country",
@@ -601920,7 +602218,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 150
+    "value": 158
    },
    {
     "key": "country",
@@ -1034641,80 +1034939,6 @@
   ],
   "state": "active",
   "title": "wedo-org",
-  "type": "dataset"
- },
- "weeffect-all_activities": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": null
-   },
-   {
-    "key": "iati_version",
-    "value": null
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "c4e75682-b11e-4a48-88c4-7cc4d2e99068",
-  "license_id": "",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "weeffect-all_activities",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:36:00+00:00",
-   "description": "",
-   "id": "1213d288-d1d3-497b-ba42-8b48309d70aa",
-   "image_url": null,
-   "is_organization": true,
-   "name": "weeffect",
-   "state": "active",
-   "title": "We Effect",
-   "type": "organization"
-  },
-  "owner_org": "1213d288-d1d3-497b-ba42-8b48309d70aa",
-  "private": false,
-  "publisher_country": "SE",
-  "publisher_iati_id": "SE-ON-802004-1524",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://csoadmin.sida.se/iati/We-Effect-(fd-Kooperation-Utan-Gr%C3%A4nser).xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "weeffect-all_activities",
   "type": "dataset"
  },
  "weeffect-organisation": {
