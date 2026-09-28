@@ -109380,11 +109380,11 @@
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "organisation"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -228607,7 +228607,7 @@
   "title": "dps-nampula-activities",
   "type": "dataset"
  },
- "dr-activities": {
+ "dr-activity-publisher": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -228646,7 +228646,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "dr-activities",
+  "name": "dr-activity-publisher",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -228682,7 +228682,7 @@
    }
   ],
   "state": "active",
-  "title": "dr-activities",
+  "title": "dr-activity-publisher",
   "type": "dataset"
  },
  "dr-organisation": {
@@ -428045,240 +428045,6 @@
   "title": "j2022-org",
   "type": "dataset"
  },
- "j2022-snbu-results-2021": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "2cf22fb3-3c13-49b9-b159-95de2c9a3cee",
-  "license_id": "odc-odbl",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "j2022-snbu-results-2021",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:36:00+00:00",
-   "description": "",
-   "id": "4cd53dca-84d4-49c3-b52b-8f70f65ff67c",
-   "image_url": null,
-   "is_organization": true,
-   "name": "j2022",
-   "state": "active",
-   "title": "Association des Editeurs du Magazine Jimbere",
-   "type": "organization"
-  },
-  "owner_org": "4cd53dca-84d4-49c3-b52b-8f70f65ff67c",
-  "private": false,
-  "publisher_country": "BI",
-  "publisher_iati_id": "BI-NIF-4001055070",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://raw.githubusercontent.com/rasmersah25/iati-data/refs/heads/main/SNBU_2021_results_with_MoFA.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "j2022-snbu-results-2021",
-  "type": "dataset"
- },
- "j2022-snbu-results-2022": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "6b8a9f69-0c0c-491f-bc7a-993bbfe8ae31",
-  "license_id": "odc-odbl",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "j2022-snbu-results-2022",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:36:00+00:00",
-   "description": "",
-   "id": "4cd53dca-84d4-49c3-b52b-8f70f65ff67c",
-   "image_url": null,
-   "is_organization": true,
-   "name": "j2022",
-   "state": "active",
-   "title": "Association des Editeurs du Magazine Jimbere",
-   "type": "organization"
-  },
-  "owner_org": "4cd53dca-84d4-49c3-b52b-8f70f65ff67c",
-  "private": false,
-  "publisher_country": "BI",
-  "publisher_iati_id": "BI-NIF-4001055070",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://raw.githubusercontent.com/rasmersah25/iati-data/refs/heads/main/SNBU_2022_results_with_MoFA.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "j2022-snbu-results-2022",
-  "type": "dataset"
- },
- "j2022-snbu-results-2023": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 2
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "a0faa554-7e0d-43b9-97a0-70819d5e9866",
-  "license_id": "odc-odbl",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "j2022-snbu-results-2023",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:36:00+00:00",
-   "description": "",
-   "id": "4cd53dca-84d4-49c3-b52b-8f70f65ff67c",
-   "image_url": null,
-   "is_organization": true,
-   "name": "j2022",
-   "state": "active",
-   "title": "Association des Editeurs du Magazine Jimbere",
-   "type": "organization"
-  },
-  "owner_org": "4cd53dca-84d4-49c3-b52b-8f70f65ff67c",
-  "private": false,
-  "publisher_country": "BI",
-  "publisher_iati_id": "BI-NIF-4001055070",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://raw.githubusercontent.com/rasmersah25/iati-data/refs/heads/main/SNBU_2023_results_with_MoFA.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "j2022-snbu-results-2023",
-  "type": "dataset"
- },
  "j2022-snbu-results-2024": {
   "author": null,
   "author_email": null,
@@ -428349,7 +428115,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://raw.githubusercontent.com/rasmersah25/iati-data/refs/heads/main/SNBU_2024_results_with_MoFA.xml",
+    "url": "https://raw.githubusercontent.com/rasmersah25/iati-data/main/SNBI_iati_activity_consolidated_2021-2024.xml",
     "url_type": null
    }
   ],
@@ -584036,7 +583802,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 6467
+    "value": 6471
    },
    {
     "key": "country",
@@ -600814,7 +600580,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 822
+    "value": 825
    },
    {
     "key": "country",
@@ -600970,7 +600736,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1145
+    "value": 1140
    },
    {
     "key": "country",
@@ -601048,7 +600814,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1262
+    "value": 1301
    },
    {
     "key": "country",
@@ -601126,7 +600892,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1424
+    "value": 1389
    },
    {
     "key": "country",
@@ -601204,7 +600970,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 709
+    "value": 703
    },
    {
     "key": "country",
@@ -601282,7 +601048,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 990
+    "value": 1050
    },
    {
     "key": "country",
@@ -601360,7 +601126,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1471
+    "value": 1258
    },
    {
     "key": "country",
@@ -601438,7 +601204,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 932
+    "value": 1112
    },
    {
     "key": "country",
@@ -601516,7 +601282,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1905
+    "value": 1723
    },
    {
     "key": "country",
@@ -601594,7 +601360,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1524
+    "value": 1764
    },
    {
     "key": "country",
@@ -601672,7 +601438,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2004
+    "value": 1953
    },
    {
     "key": "country",
@@ -601750,7 +601516,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1746
+    "value": 1707
    },
    {
     "key": "country",
@@ -601828,7 +601594,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2641
+    "value": 2629
    },
    {
     "key": "country",
@@ -601906,7 +601672,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2678
    },
    {
     "key": "country",
@@ -602062,7 +601828,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2674
+    "value": 2700
    },
    {
     "key": "country",
@@ -602140,7 +601906,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2556
+    "value": 2326
    },
    {
     "key": "country",
@@ -602218,7 +601984,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2448
+    "value": 2674
    },
    {
     "key": "country",
@@ -602296,7 +602062,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 194
+    "value": 242
    },
    {
     "key": "country",
@@ -974180,7 +973946,7 @@
   "private": false,
   "publisher_country": "BE",
   "publisher_iati_id": "BE-BCE_KBO-0418766123",
-  "publisher_organization_type": "80",
+  "publisher_organization_type": "15",
   "publisher_source_type": "",
   "resources": [
    {
@@ -974258,7 +974024,7 @@
   "private": false,
   "publisher_country": "BE",
   "publisher_iati_id": "BE-BCE_KBO-0418766123",
-  "publisher_organization_type": "80",
+  "publisher_organization_type": "15",
   "publisher_source_type": "",
   "resources": [
    {
@@ -974332,7 +974098,7 @@
   "private": false,
   "publisher_country": "BE",
   "publisher_iati_id": "BE-BCE_KBO-0418766123",
-  "publisher_organization_type": "80",
+  "publisher_organization_type": "15",
   "publisher_source_type": "",
   "resources": [
    {
