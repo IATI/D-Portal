@@ -70501,6 +70501,80 @@
   "title": "bcm-cf-org",
   "type": "dataset"
  },
+ "bcsdn-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "56f2c8ba-d766-48d8-ae1a-6abfce09bafc",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "bcsdn-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-09-29T12:25:00+00:00",
+   "description": "",
+   "id": "1f53c6e2-ef34-0ba6-59a3-6abbae940519",
+   "image_url": null,
+   "is_organization": true,
+   "name": "bcsdn",
+   "state": "active",
+   "title": "Balkan Civil Society Development Network",
+   "type": "organization"
+  },
+  "owner_org": "1f53c6e2-ef34-0ba6-59a3-6abbae940519",
+  "private": false,
+  "publisher_country": "MK",
+  "publisher_iati_id": "MK-CR-6524710",
+  "publisher_organization_type": "60",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/bcsdn-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "bcsdn-organisation-publisher",
+  "type": "dataset"
+ },
  "bd-89": {
   "author": null,
   "author_email": null,
@@ -119164,7 +119238,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 13
+    "value": 14
    },
    {
     "key": "country",
@@ -128084,7 +128158,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3307
+    "value": 3308
    },
    {
     "key": "country",
@@ -136991,6 +137065,84 @@
   ],
   "state": "active",
   "title": "come-org",
+  "type": "dataset"
+ },
+ "comisionjyp-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "23b4f0fc-11fa-d103-cc3b-6abe97d58528",
+  "license_id": "notspecified",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "comisionjyp-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-04-30T18:00:00+00:00",
+   "description": "",
+   "id": "655169bf-fdbb-a12c-ccd2-69f39871e120",
+   "image_url": null,
+   "is_organization": true,
+   "name": "comisionjyp",
+   "state": "active",
+   "title": "COMISION INTERECLESIAL DE JUSTICIA Y PAZ",
+   "type": "organization"
+  },
+  "owner_org": "655169bf-fdbb-a12c-ccd2-69f39871e120",
+  "private": false,
+  "publisher_country": "CO",
+  "publisher_iati_id": "CO-NIT-830101557",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/comisionjyp-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "comisionjyp-activity-publisher",
   "type": "dataset"
  },
  "comisionjyp-organisation-publisher": {
@@ -154823,6 +154975,84 @@
   "title": "dfc-angola",
   "type": "dataset"
  },
+ "dfc-argentina": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "1275fc1e-c465-688a-215e-6abebf3d168e",
+  "license_id": "cc-zero",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "dfc-argentina",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:39:00+00:00",
+   "description": "",
+   "id": "a32303c1-c160-412b-aa55-da76553a4362",
+   "image_url": null,
+   "is_organization": true,
+   "name": "dfc",
+   "state": "active",
+   "title": "United States International Development Finance Corporation",
+   "type": "organization"
+  },
+  "owner_org": "a32303c1-c160-412b-aa55-da76553a4362",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-GOV-22",
+  "publisher_organization_type": "10",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/development_finance_corporation/xml/iati-activities-Argentina.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "dfc-argentina",
+  "type": "dataset"
+ },
  "dfc-brazil": {
   "author": null,
   "author_email": null,
@@ -155289,84 +155519,6 @@
   ],
   "state": "active",
   "title": "dfc-europeregional",
-  "type": "dataset"
- },
- "dfc-fareastasiaregional": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 3
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "95013a2a-b0f6-4fe2-aa40-31b09d7e881d",
-  "license_id": "cc-zero",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "dfc-fareastasiaregional",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:39:00+00:00",
-   "description": "",
-   "id": "a32303c1-c160-412b-aa55-da76553a4362",
-   "image_url": null,
-   "is_organization": true,
-   "name": "dfc",
-   "state": "active",
-   "title": "United States International Development Finance Corporation",
-   "type": "organization"
-  },
-  "owner_org": "a32303c1-c160-412b-aa55-da76553a4362",
-  "private": false,
-  "publisher_country": "US",
-  "publisher_iati_id": "US-GOV-22",
-  "publisher_organization_type": "10",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/development_finance_corporation/xml/iati-activities-Far+East+Asia+regional.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "dfc-fareastasiaregional",
   "type": "dataset"
  },
  "dfc-gabon": {
@@ -156305,6 +156457,84 @@
   "title": "dfc-mozambique",
   "type": "dataset"
  },
+ "dfc-multiplecountries": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 7
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "3aba0114-ac80-9745-f073-6abebf8fada4",
+  "license_id": "cc-zero",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "dfc-multiplecountries",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:39:00+00:00",
+   "description": "",
+   "id": "a32303c1-c160-412b-aa55-da76553a4362",
+   "image_url": null,
+   "is_organization": true,
+   "name": "dfc",
+   "state": "active",
+   "title": "United States International Development Finance Corporation",
+   "type": "organization"
+  },
+  "owner_org": "a32303c1-c160-412b-aa55-da76553a4362",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-GOV-22",
+  "publisher_organization_type": "10",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/development_finance_corporation/xml/iati-activities-Multiple+Countries.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "dfc-multiplecountries",
+  "type": "dataset"
+ },
  "dfc-nepal": {
   "author": null,
   "author_email": null,
@@ -156383,7 +156613,7 @@
   "title": "dfc-nepal",
   "type": "dataset"
  },
- "dfc-northandcentralamericaregion": {
+ "dfc-northmacedonia": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -156417,12 +156647,12 @@
     "value": null
    }
   ],
-  "id": "6b5be183-e058-48c8-a69b-fd4b891f3b93",
+  "id": "241b51fa-cb05-e320-f53a-6abebffe7ef7",
   "license_id": "cc-zero",
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "dfc-northandcentralamericaregion",
+  "name": "dfc-northmacedonia",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -156453,12 +156683,12 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/development_finance_corporation/xml/iati-activities-North and Central America Region.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/development_finance_corporation/xml/iati-activities-North+Macedonia.xml",
     "url_type": null
    }
   ],
   "state": "active",
-  "title": "dfc-northandcentralamericaregion",
+  "title": "dfc-northmacedonia",
   "type": "dataset"
  },
  "dfc-org": {
@@ -156533,6 +156763,84 @@
   ],
   "state": "active",
   "title": "dfc-org",
+  "type": "dataset"
+ },
+ "dfc-peru": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "b103620e-e2ea-bd2a-bd57-6abec0361ca5",
+  "license_id": "cc-zero",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "dfc-peru",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:39:00+00:00",
+   "description": "",
+   "id": "a32303c1-c160-412b-aa55-da76553a4362",
+   "image_url": null,
+   "is_organization": true,
+   "name": "dfc",
+   "state": "active",
+   "title": "United States International Development Finance Corporation",
+   "type": "organization"
+  },
+  "owner_org": "a32303c1-c160-412b-aa55-da76553a4362",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-GOV-22",
+  "publisher_organization_type": "10",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/development_finance_corporation/xml/iati-activities-Peru.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "dfc-peru",
   "type": "dataset"
  },
  "dfc-romania": {
@@ -156932,7 +157240,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 11
+    "value": 9
    },
    {
     "key": "country",
@@ -157400,7 +157708,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 9
+    "value": 8
    },
    {
     "key": "country",
@@ -169394,7 +169702,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 17
+    "value": 18
    },
    {
     "key": "country",
@@ -189814,7 +190122,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3
+    "value": 4
    },
    {
     "key": "country",
@@ -192622,7 +192930,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 15
+    "value": 16
    },
    {
     "key": "country",
@@ -194490,7 +194798,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 52
+    "value": 53
    },
    {
     "key": "country",
@@ -200964,7 +201272,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 500
+    "value": 538
    },
    {
     "key": "country",
@@ -206260,7 +206568,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1
+    "value": 2
    },
    {
     "key": "country",
@@ -208277,6 +208585,84 @@
   "title": "doj-dominicanrepublic",
   "type": "dataset"
  },
+ "doj-eastasiaandoceania": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "486cedfd-f5b0-6f76-a332-6abebea97cb2",
+  "license_id": "cc-zero",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "doj-eastasiaandoceania",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:39:00+00:00",
+   "description": "",
+   "id": "807ef9f3-21f4-4a5b-9fc5-33612cd0a1dc",
+   "image_url": null,
+   "is_organization": true,
+   "name": "doj",
+   "state": "active",
+   "title": "United States Department of Justice",
+   "type": "organization"
+  },
+  "owner_org": "807ef9f3-21f4-4a5b-9fc5-33612cd0a1dc",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-GOV-15",
+  "publisher_organization_type": "10",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_justice/xml/iati-activities-East+Asia+and+Oceania+Region.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "doj-eastasiaandoceania",
+  "type": "dataset"
+ },
  "doj-ecuador": {
   "author": null,
   "author_email": null,
@@ -208596,7 +208982,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 12
+    "value": 13
    },
    {
     "key": "country",
@@ -214910,7 +215296,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 63
+    "value": 67
    },
    {
     "key": "country",
@@ -215534,7 +215920,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3
+    "value": 1
    },
    {
     "key": "country",
@@ -215924,7 +216310,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 8
+    "value": 1
    },
    {
     "key": "country",
@@ -216158,7 +216544,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 18
+    "value": 14
    },
    {
     "key": "country",
@@ -216314,7 +216700,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 10
+    "value": 2
    },
    {
     "key": "country",
@@ -216470,7 +216856,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 4
+    "value": 3
    },
    {
     "key": "country",
@@ -216860,7 +217246,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 5
+    "value": 2
    },
    {
     "key": "country",
@@ -217016,7 +217402,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 4
+    "value": 2
    },
    {
     "key": "country",
@@ -217094,7 +217480,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2
+    "value": 1
    },
    {
     "key": "country",
@@ -217250,7 +217636,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 6
+    "value": 2
    },
    {
     "key": "country",
@@ -217640,7 +218026,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 4
+    "value": 1
    },
    {
     "key": "country",
@@ -217796,7 +218182,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 4
+    "value": 2
    },
    {
     "key": "country",
@@ -217874,7 +218260,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 10
+    "value": 6
    },
    {
     "key": "country",
@@ -218108,7 +218494,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 4
+    "value": 1
    },
    {
     "key": "country",
@@ -218186,7 +218572,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 14
+    "value": 10
    },
    {
     "key": "country",
@@ -218650,7 +219036,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 10
+    "value": 7
    },
    {
     "key": "country",
@@ -218962,7 +219348,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 4
+    "value": 3
    },
    {
     "key": "country",
@@ -219352,7 +219738,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 5
+    "value": 1
    },
    {
     "key": "country",
@@ -219742,7 +220128,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 9
+    "value": 4
    },
    {
     "key": "country",
@@ -219820,7 +220206,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 53
+    "value": 39
    },
    {
     "key": "country",
@@ -274905,6 +275291,158 @@
   "title": "eti-org",
   "type": "dataset"
  },
+ "etiskhandel-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "2d86fce7-d96f-afd4-bffd-6abfc9977a54",
+  "license_id": "other",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "etiskhandel-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-05-12T14:27:00+00:00",
+   "description": "",
+   "id": "dfce4663-66d2-5bc7-cfb7-6a0338b41a84",
+   "image_url": null,
+   "is_organization": true,
+   "name": "etiskhandel",
+   "state": "active",
+   "title": "Ethical Trade Sweden",
+   "type": "organization"
+  },
+  "owner_org": "dfce4663-66d2-5bc7-cfb7-6a0338b41a84",
+  "private": false,
+  "publisher_country": "SE",
+  "publisher_iati_id": "SE-ON-802528-0002",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/etiskhandel-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "etiskhandel-activity-publisher",
+  "type": "dataset"
+ },
+ "etiskhandel-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "e249b96d-32d8-bc20-bfad-6abfb2f30581",
+  "license_id": "other",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "etiskhandel-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-05-12T14:27:00+00:00",
+   "description": "",
+   "id": "dfce4663-66d2-5bc7-cfb7-6a0338b41a84",
+   "image_url": null,
+   "is_organization": true,
+   "name": "etiskhandel",
+   "state": "active",
+   "title": "Ethical Trade Sweden",
+   "type": "organization"
+  },
+  "owner_org": "dfce4663-66d2-5bc7-cfb7-6a0338b41a84",
+  "private": false,
+  "publisher_country": "SE",
+  "publisher_iati_id": "SE-ON-802528-0002",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/etiskhandel-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "etiskhandel-organisation-publisher",
+  "type": "dataset"
+ },
  "etmkdw-activities": {
   "author": null,
   "author_email": null,
@@ -310453,6 +310991,84 @@
   "title": "fsd-switzerland_2025-organisation",
   "type": "dataset"
  },
+ "fsda-mozambique-expansion": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "e8d79379-fb9c-b3b9-6f78-6abb7ae7a132",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "fsda-mozambique-expansion",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-09-24T08:47:00+00:00",
+   "description": "",
+   "id": "a151d4f5-2ad1-ac3c-5f88-6ab4e3af1d16",
+   "image_url": null,
+   "is_organization": true,
+   "name": "miarakap",
+   "state": "active",
+   "title": "MIARAKAP SA",
+   "type": "organization"
+  },
+  "owner_org": "a151d4f5-2ad1-ac3c-5f88-6ab4e3af1d16",
+  "private": false,
+  "publisher_country": "MG",
+  "publisher_iati_id": "MG-NIF-2002872017",
+  "publisher_organization_type": "70",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://miarakap.com/iati/fsda-g-es-063-2026.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "fsda-mozambique-expansion",
+  "type": "dataset"
+ },
  "fsdafrica-activities": {
   "author": null,
   "author_email": null,
@@ -317268,7 +317884,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1809
+    "value": 1810
    },
    {
     "key": "country",
@@ -351208,7 +351824,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 394
+    "value": 395
    },
    {
     "key": "country",
@@ -351672,7 +352288,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1
+    "value": 2
    },
    {
     "key": "country",
@@ -362324,7 +362940,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1145
+    "value": 1870
    },
    {
     "key": "country",
@@ -362480,7 +363096,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 173
+    "value": 174
    },
    {
     "key": "country",
@@ -362792,7 +363408,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 367
+    "value": 368
    },
    {
     "key": "country",
@@ -362870,7 +363486,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1
+    "value": 6
    },
    {
     "key": "country",
@@ -363026,7 +363642,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 356
+    "value": 361
    },
    {
     "key": "country",
@@ -363182,7 +363798,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 120
+    "value": 122
    },
    {
     "key": "country",
@@ -363260,7 +363876,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 143
+    "value": 146
    },
    {
     "key": "country",
@@ -363338,7 +363954,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 346
+    "value": 348
    },
    {
     "key": "country",
@@ -363416,7 +364032,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 389
+    "value": 392
    },
    {
     "key": "country",
@@ -363572,7 +364188,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 236
+    "value": 239
    },
    {
     "key": "country",
@@ -363650,7 +364266,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 397
+    "value": 398
    },
    {
     "key": "country",
@@ -363884,7 +364500,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 377
+    "value": 383
    },
    {
     "key": "country",
@@ -364040,7 +364656,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 187
+    "value": 188
    },
    {
     "key": "country",
@@ -364270,7 +364886,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 206
+    "value": 207
    },
    {
     "key": "country",
@@ -370768,7 +371384,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2097
+    "value": 2099
    },
    {
     "key": "country",
@@ -384103,16 +384719,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 11
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -427202,7 +427822,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 12
+    "value": 13
    },
    {
     "key": "country",
@@ -427245,7 +427865,7 @@
    "is_organization": true,
    "name": "iwpr",
    "state": "active",
-   "title": "Institute for War & Peace Reporting",
+   "title": "Institute for War and Peace Reporting",
    "type": "organization"
   },
   "owner_org": "a7feeaa2-0fac-4a51-b63f-6e2283494f82",
@@ -427319,7 +427939,7 @@
    "is_organization": true,
    "name": "iwpr",
    "state": "active",
-   "title": "Institute for War & Peace Reporting",
+   "title": "Institute for War and Peace Reporting",
    "type": "organization"
   },
   "owner_org": "a7feeaa2-0fac-4a51-b63f-6e2283494f82",
@@ -495083,6 +495703,158 @@
   ],
   "state": "active",
   "title": "mia_india-org",
+  "type": "dataset"
+ },
+ "miarakap-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "f303cd07-6cf9-5d5b-6f6b-6abfbd3b04c3",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "miarakap-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-09-24T08:47:00+00:00",
+   "description": "",
+   "id": "a151d4f5-2ad1-ac3c-5f88-6ab4e3af1d16",
+   "image_url": null,
+   "is_organization": true,
+   "name": "miarakap",
+   "state": "active",
+   "title": "MIARAKAP SA",
+   "type": "organization"
+  },
+  "owner_org": "a151d4f5-2ad1-ac3c-5f88-6ab4e3af1d16",
+  "private": false,
+  "publisher_country": "MG",
+  "publisher_iati_id": "MG-NIF-2002872017",
+  "publisher_organization_type": "70",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/miarakap-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "miarakap-activity-publisher",
+  "type": "dataset"
+ },
+ "miarakap-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "afb4133f-323b-a1c8-0e41-6abf7a751723",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "miarakap-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-09-24T08:47:00+00:00",
+   "description": "",
+   "id": "a151d4f5-2ad1-ac3c-5f88-6ab4e3af1d16",
+   "image_url": null,
+   "is_organization": true,
+   "name": "miarakap",
+   "state": "active",
+   "title": "MIARAKAP SA",
+   "type": "organization"
+  },
+  "owner_org": "a151d4f5-2ad1-ac3c-5f88-6ab4e3af1d16",
+  "private": false,
+  "publisher_country": "MG",
+  "publisher_iati_id": "MG-NIF-2002872017",
+  "publisher_organization_type": "70",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/miarakap-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "miarakap-organisation-publisher",
   "type": "dataset"
  },
  "mic-uk-activities": {
@@ -584250,7 +585022,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 6474
+    "value": 6477
    },
    {
     "key": "country",
@@ -626862,7 +627634,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1460
+    "value": 1355
    },
    {
     "key": "country",
@@ -626940,7 +627712,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1280
+    "value": 1615
    },
    {
     "key": "country",
@@ -627018,7 +627790,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 578
+    "value": 348
    },
    {
     "key": "country",
@@ -632786,7 +633558,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 5127
+    "value": 5147
    },
    {
     "key": "country",
@@ -849772,7 +850544,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 1
    },
    {
     "key": "country",
@@ -849928,7 +850700,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 6
+    "value": 0
    },
    {
     "key": "country",
@@ -850240,7 +851012,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 16
+    "value": 14
    },
    {
     "key": "country",
@@ -851566,7 +852338,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 19
+    "value": 0
    },
    {
     "key": "country",
@@ -855076,7 +855848,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 68
+    "value": 69
    },
    {
     "key": "country",
@@ -855856,7 +856628,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 3
    },
    {
     "key": "country",
@@ -857338,7 +858110,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 36
+    "value": 37
    },
    {
     "key": "country",
@@ -858196,7 +858968,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 28
+    "value": 29
    },
    {
     "key": "country",
@@ -962346,7 +963118,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 51
+    "value": 53
    },
    {
     "key": "country",
@@ -962658,7 +963430,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 61
+    "value": 72
    },
    {
     "key": "country",
@@ -963048,7 +963820,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 9
+    "value": 10
    },
    {
     "key": "country",
@@ -963126,7 +963898,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 227
+    "value": 228
    },
    {
     "key": "country",
@@ -963828,7 +964600,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 63
+    "value": 65
    },
    {
     "key": "country",
@@ -964062,7 +964834,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 25
+    "value": 26
    },
    {
     "key": "country",
@@ -964140,7 +964912,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 17
+    "value": 18
    },
    {
     "key": "country",
@@ -964218,7 +964990,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 13
+    "value": 14
    },
    {
     "key": "country",
@@ -964608,7 +965380,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2
+    "value": 4
    },
    {
     "key": "country",
@@ -965076,7 +965848,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3
+    "value": 4
    },
    {
     "key": "country",
@@ -965232,7 +966004,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 75
+    "value": 77
    },
    {
     "key": "country",
@@ -965622,7 +966394,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 59
+    "value": 60
    },
    {
     "key": "country",
@@ -966324,7 +967096,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 11
+    "value": 12
    },
    {
     "key": "country",
@@ -966636,7 +967408,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 85
+    "value": 87
    },
    {
     "key": "country",
@@ -966714,7 +967486,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2
+    "value": 3
    },
    {
     "key": "country",
@@ -966792,7 +967564,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 6
+    "value": 8
    },
    {
     "key": "country",
@@ -966948,7 +967720,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 8
+    "value": 9
    },
    {
     "key": "country",
@@ -967026,7 +967798,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 60
+    "value": 61
    },
    {
     "key": "country",
@@ -967104,7 +967876,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 18
+    "value": 19
    },
    {
     "key": "country",
@@ -967182,7 +967954,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 16
+    "value": 11
    },
    {
     "key": "country",
@@ -967572,7 +968344,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 172
+    "value": 173
    },
    {
     "key": "country",
@@ -967958,7 +968730,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 7
+    "value": 8
    },
    {
     "key": "country",
@@ -968114,7 +968886,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 4
+    "value": 5
    },
    {
     "key": "country",
@@ -968270,7 +969042,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 72
+    "value": 77
    },
    {
     "key": "country",
@@ -968660,7 +969432,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 23
+    "value": 24
    },
    {
     "key": "country",
@@ -968738,7 +969510,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 23
+    "value": 22
    },
    {
     "key": "country",
@@ -968816,7 +969588,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 5
+    "value": 6
    },
    {
     "key": "country",
@@ -969206,7 +969978,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 27
+    "value": 24
    },
    {
     "key": "country",
@@ -969284,7 +970056,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 173
+    "value": 180
    },
    {
     "key": "country",
@@ -969830,7 +970602,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 9
+    "value": 10
    },
    {
     "key": "country",
@@ -970135,6 +970907,84 @@
   "title": "ustda-uzbekistan",
   "type": "dataset"
  },
+ "ustda-vanuatu": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "89b622fa-cef9-5a9d-a687-6abec03b3bc3",
+  "license_id": "cc-zero",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "ustda-vanuatu",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:37:00+00:00",
+   "description": "",
+   "id": "c8fd88fa-5db2-4005-8a10-f2f48694afd9",
+   "image_url": null,
+   "is_organization": true,
+   "name": "ustda",
+   "state": "active",
+   "title": "United States Trade and Development Agency",
+   "type": "organization"
+  },
+  "owner_org": "c8fd88fa-5db2-4005-8a10-f2f48694afd9",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-GOV-12",
+  "publisher_organization_type": "10",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/trade_and_development_agency/xml/iati-activities-Vanuatu.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "ustda-vanuatu",
+  "type": "dataset"
+ },
  "ustda-vietnam": {
   "author": null,
   "author_email": null,
@@ -970142,7 +970992,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 112
+    "value": 113
    },
    {
     "key": "country",
@@ -970298,7 +971148,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 77
+    "value": 81
    },
    {
     "key": "country",
