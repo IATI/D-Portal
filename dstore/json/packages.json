@@ -18681,6 +18681,80 @@
   "title": "adpp-activities",
   "type": "dataset"
  },
+ "adppgb-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "1f362e10-7bfd-25ba-8400-6ac28321d0ae",
+  "license_id": "other-nc",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "adppgb-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-08-30T22:51:00+00:00",
+   "description": "",
+   "id": "ece13d7a-f5a5-48e9-761d-6a94b39f62db",
+   "image_url": null,
+   "is_organization": true,
+   "name": "adppgb",
+   "state": "active",
+   "title": "Ajuda de Desenvolvimento de Povo para Povo (Guinea-Bissau)",
+   "type": "organization"
+  },
+  "owner_org": "ece13d7a-f5a5-48e9-761d-6a94b39f62db",
+  "private": false,
+  "publisher_country": "GW",
+  "publisher_iati_id": "GW-NIF-910000069",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/adppgb-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "adppgb-activity-publisher",
+  "type": "dataset"
+ },
  "adppgb-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -377934,7 +378008,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 14
+    "value": 13
    },
    {
     "key": "country",
@@ -384720,7 +384794,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 11
+    "value": 12
    },
    {
     "key": "country",
@@ -633480,7 +633554,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 9185
+    "value": 9165
    },
    {
     "key": "country",
@@ -776495,84 +776569,6 @@
   ],
   "state": "active",
   "title": "tni-org",
-  "type": "dataset"
- },
- "tns-1029": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 0
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "555fbf6e-57e8-4541-a532-a8a7987b3442",
-  "license_id": "other-open",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "tns-1029",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:44:00+00:00",
-   "description": "",
-   "id": "0973e321-f1bd-40b0-8b9c-64cb781176f8",
-   "image_url": null,
-   "is_organization": true,
-   "name": "tns",
-   "state": "active",
-   "title": "TechnoServe",
-   "type": "organization"
-  },
-  "owner_org": "0973e321-f1bd-40b0-8b9c-64cb781176f8",
-  "private": false,
-  "publisher_country": "US",
-  "publisher_iati_id": "US-EIN-13-2626135",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/tns-1029.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "tns-1029",
   "type": "dataset"
  },
  "tns-1030": {
