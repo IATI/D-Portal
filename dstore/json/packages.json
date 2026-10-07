@@ -18681,18 +18681,22 @@
   "title": "adpp-activities",
   "type": "dataset"
  },
- "adppgb-organisation-publisher": {
+ "adppgb-activity-publisher": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
   "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
    {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": "organisation"
+    "value": "activity"
    },
    {
     "key": "iati_version",
@@ -18711,7 +18715,81 @@
     "value": null
    }
   ],
-  "id": "d981750e-7242-b5d7-6deb-6aabb6d01aa3",
+  "id": "1f362e10-7bfd-25ba-8400-6ac28321d0ae",
+  "license_id": "other-nc",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "adppgb-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-08-30T22:51:00+00:00",
+   "description": "",
+   "id": "ece13d7a-f5a5-48e9-761d-6a94b39f62db",
+   "image_url": null,
+   "is_organization": true,
+   "name": "adppgb",
+   "state": "active",
+   "title": "Ajuda de Desenvolvimento de Povo para Povo (Guinea-Bissau)",
+   "type": "organization"
+  },
+  "owner_org": "ece13d7a-f5a5-48e9-761d-6a94b39f62db",
+  "private": false,
+  "publisher_country": "GW",
+  "publisher_iati_id": "GW-NIF-910000069",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/adppgb-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "adppgb-activity-publisher",
+  "type": "dataset"
+ },
+ "adppgb-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "aff916a0-67e6-e1e7-c2db-6ac5491a89fd",
   "license_id": "other-nc",
   "license_title": "",
   "maintainer": null,
@@ -67374,7 +67452,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 25
+    "value": 26
    },
    {
     "key": "country",
@@ -68722,7 +68800,7 @@
   "private": false,
   "publisher_country": "SE",
   "publisher_iati_id": "SE-ON-846003-9020",
-  "publisher_organization_type": null,
+  "publisher_organization_type": "21",
   "publisher_source_type": "",
   "resources": [
    {
@@ -68796,7 +68874,7 @@
   "private": false,
   "publisher_country": "SE",
   "publisher_iati_id": "SE-ON-846003-9020",
-  "publisher_organization_type": null,
+  "publisher_organization_type": "21",
   "publisher_source_type": "",
   "resources": [
    {
@@ -76552,7 +76630,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 537
+    "value": 580
    },
    {
     "key": "country",
@@ -96503,6 +96581,80 @@
   ],
   "state": "active",
   "title": "bwi-organisation",
+  "type": "dataset"
+ },
+ "bwn-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "6bc5e758-569f-4cf0-254f-6ac36d3790ed",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "bwn-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-10-01T07:24:00+00:00",
+   "description": "",
+   "id": "38cb0f13-d581-fc02-9eac-6abe0a0da2b7",
+   "image_url": null,
+   "is_organization": true,
+   "name": "bwn",
+   "state": "active",
+   "title": "CEE Bankwatch Network",
+   "type": "organization"
+  },
+  "owner_org": "38cb0f13-d581-fc02-9eac-6abe0a0da2b7",
+  "private": false,
+  "publisher_country": "CZ",
+  "publisher_iati_id": "CZ-ICO-68406258",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/bwn-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "bwn-organisation-publisher",
   "type": "dataset"
  },
  "bylc-activities": {
@@ -118161,6 +118313,80 @@
   ],
   "state": "active",
   "title": "cesvi-activities",
+  "type": "dataset"
+ },
+ "cfc-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "9d9f4f84-5fa3-2d58-686f-6ac4907c298e",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "cfc-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:48:00+00:00",
+   "description": "",
+   "id": "002da6f3-0d42-4fac-a74d-b9cac0a22182",
+   "image_url": null,
+   "is_organization": true,
+   "name": "cfc",
+   "state": "active",
+   "title": "Common Fund for Commodities",
+   "type": "organization"
+  },
+  "owner_org": "002da6f3-0d42-4fac-a74d-b9cac0a22182",
+  "private": false,
+  "publisher_country": null,
+  "publisher_iati_id": "XM-DAC-47105",
+  "publisher_organization_type": "40",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/cfc-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "cfc-activity-publisher",
   "type": "dataset"
  },
  "cfc-organisation": {
@@ -317884,7 +318110,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1810
+    "value": 1809
    },
    {
     "key": "country",
@@ -317962,7 +318188,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 799
+    "value": 800
    },
    {
     "key": "country",
@@ -347257,16 +347483,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 5
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -417616,7 +417846,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 436
+    "value": 440
    },
    {
     "key": "country",
@@ -435437,6 +435667,80 @@
   ],
   "state": "active",
   "title": "kmc-activities",
+  "type": "dataset"
+ },
+ "kmc-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "c2198eaa-4e62-639d-ba5b-6ac4933e0e8f",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "kmc-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:38:00+00:00",
+   "description": "",
+   "id": "e40f3df8-4389-4cbc-8a72-9bcc6cc65770",
+   "image_url": null,
+   "is_organization": true,
+   "name": "kmc",
+   "state": "active",
+   "title": "Kathmandu Medical College Public Limited",
+   "type": "organization"
+  },
+  "owner_org": "e40f3df8-4389-4cbc-8a72-9bcc6cc65770",
+  "private": false,
+  "publisher_country": "NP",
+  "publisher_iati_id": "NP-CRO-1158-065-066",
+  "publisher_organization_type": "80",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/kmc-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "kmc-organisation-publisher",
   "type": "dataset"
  },
  "kmet-ke-org": {
@@ -511286,7 +511590,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2
+    "value": 3
    },
    {
     "key": "country",
@@ -511368,11 +511672,11 @@
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "organisation"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -516638,7 +516942,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1647
+    "value": 1649
    },
    {
     "key": "country",
@@ -608333,6 +608637,80 @@
   ],
   "state": "active",
   "title": "sjg-activity",
+  "type": "dataset"
+ },
+ "sjg-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "a8186a50-9f73-839f-f46d-6ac4de61cb94",
+  "license_id": "other-open",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "sjg-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:41:00+00:00",
+   "description": "",
+   "id": "dbf316aa-4e2d-4dd3-bbf6-c834c049d772",
+   "image_url": null,
+   "is_organization": true,
+   "name": "sjg",
+   "state": "active",
+   "title": "Sonke Gender Justice",
+   "type": "organization"
+  },
+  "owner_org": "dbf316aa-4e2d-4dd3-bbf6-c834c049d772",
+  "private": false,
+  "publisher_country": "ZA",
+  "publisher_iati_id": "ZA-PBO-064-502",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/sjg-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "sjg-activity-publisher",
   "type": "dataset"
  },
  "sjg-organisation": {
@@ -776643,84 +777021,6 @@
   ],
   "state": "active",
   "title": "tni-org",
-  "type": "dataset"
- },
- "tns-1029": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 0
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "555fbf6e-57e8-4541-a532-a8a7987b3442",
-  "license_id": "other-open",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "tns-1029",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:44:00+00:00",
-   "description": "",
-   "id": "0973e321-f1bd-40b0-8b9c-64cb781176f8",
-   "image_url": null,
-   "is_organization": true,
-   "name": "tns",
-   "state": "active",
-   "title": "TechnoServe",
-   "type": "organization"
-  },
-  "owner_org": "0973e321-f1bd-40b0-8b9c-64cb781176f8",
-  "private": false,
-  "publisher_country": "US",
-  "publisher_iati_id": "US-EIN-13-2626135",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/tns-1029.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "tns-1029",
   "type": "dataset"
  },
  "tns-1030": {
