@@ -18770,11 +18770,11 @@
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "organisation"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -18789,7 +18789,7 @@
     "value": null
    }
   ],
-  "id": "aff916a0-67e6-e1e7-c2db-6ac5491a89fd",
+  "id": "d981750e-7242-b5d7-6deb-6aabb6d01aa3",
   "license_id": "other-nc",
   "license_title": "",
   "maintainer": null,
@@ -68852,7 +68852,7 @@
    }
   ],
   "id": "176fb39f-4715-e8cc-df42-6970e7bf2b70",
-  "license_id": "",
+  "license_id": "other",
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
@@ -76630,7 +76630,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 580
+    "value": 616
    },
    {
     "key": "country",
@@ -92533,6 +92533,80 @@
   "title": "brac_admin2-activity",
   "type": "dataset"
  },
+ "brac_admin2-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "6a0aeab0-928d-28c2-68ec-6ac5e9202385",
+  "license_id": "other-open",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "brac_admin2-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:45:00+00:00",
+   "description": "",
+   "id": "51dbb8d4-2de2-4d3c-a310-c84b79c9e54d",
+   "image_url": null,
+   "is_organization": true,
+   "name": "brac_admin2",
+   "state": "active",
+   "title": "BRAC",
+   "type": "organization"
+  },
+  "owner_org": "51dbb8d4-2de2-4d3c-a310-c84b79c9e54d",
+  "private": false,
+  "publisher_country": "BD",
+  "publisher_iati_id": "BD-NAB-002",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/brac_admin2-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "brac_admin2-activity-publisher",
+  "type": "dataset"
+ },
  "brac_admin2-org": {
   "author": null,
   "author_email": null,
@@ -92605,6 +92679,80 @@
   ],
   "state": "active",
   "title": "brac_admin2-org",
+  "type": "dataset"
+ },
+ "brac_admin2-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "440a8485-234f-7dc0-8fa8-6ac5e935b8e6",
+  "license_id": "other-open",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "brac_admin2-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:45:00+00:00",
+   "description": "",
+   "id": "51dbb8d4-2de2-4d3c-a310-c84b79c9e54d",
+   "image_url": null,
+   "is_organization": true,
+   "name": "brac_admin2",
+   "state": "active",
+   "title": "BRAC",
+   "type": "organization"
+  },
+  "owner_org": "51dbb8d4-2de2-4d3c-a310-c84b79c9e54d",
+  "private": false,
+  "publisher_country": "BD",
+  "publisher_iati_id": "BD-NAB-002",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/brac_admin2-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "brac_admin2-organisation-publisher",
   "type": "dataset"
  },
  "bracuk-activities": {
@@ -116154,7 +116302,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1805
+    "value": 1806
    },
    {
     "key": "country",
@@ -118321,16 +118469,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -148674,7 +148826,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3001
+    "value": 2997
    },
    {
     "key": "country",
@@ -169539,7 +169691,7 @@
   "title": "dkt_ethiopia-activity-publisher",
   "type": "dataset"
  },
- "dkt_ethiopia-org": {
+ "dkt_ethiopia-organisation": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -169574,7 +169726,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "dkt_ethiopia-org",
+  "name": "dkt_ethiopia-organisation",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -169610,7 +169762,7 @@
    }
   ],
   "state": "active",
-  "title": "dkt_ethiopia-org",
+  "title": "dkt_ethiopia-organisation",
   "type": "dataset"
  },
  "dkt_ethiopia-organisation-publisher": {
@@ -279250,7 +279402,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 4172
+    "value": 4198
    },
    {
     "key": "country",
@@ -279328,7 +279480,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2069
+    "value": 2085
    },
    {
     "key": "country",
@@ -279406,7 +279558,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 938
+    "value": 948
    },
    {
     "key": "country",
@@ -279484,7 +279636,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1537
+    "value": 1543
    },
    {
     "key": "country",
@@ -279562,7 +279714,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1804
+    "value": 1819
    },
    {
     "key": "country",
@@ -279640,7 +279792,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1046
+    "value": 1056
    },
    {
     "key": "country",
@@ -318110,7 +318262,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1809
+    "value": 1803
    },
    {
     "key": "country",
@@ -318188,7 +318340,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 800
+    "value": 804
    },
    {
     "key": "country",
@@ -318266,7 +318418,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 972
+    "value": 974
    },
    {
     "key": "country",
@@ -336024,7 +336176,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 81
+    "value": 85
    },
    {
     "key": "country",
@@ -417839,84 +417991,6 @@
   "title": "investigacion_cayetano-organisation",
   "type": "dataset"
  },
- "investinternational-activities": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 440
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "2238fda8-acff-010c-196d-6981c0fec7f4",
-  "license_id": "odc-pddl",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "investinternational-activities",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:39:00+00:00",
-   "description": "",
-   "id": "18bbbebc-30bc-47a9-87b2-76dad7dd9282",
-   "image_url": null,
-   "is_organization": true,
-   "name": "investinternational",
-   "state": "active",
-   "title": "InvestInternational",
-   "type": "organization"
-  },
-  "owner_org": "18bbbebc-30bc-47a9-87b2-76dad7dd9282",
-  "private": false,
-  "publisher_country": "NL",
-  "publisher_iati_id": "NL-KVK-83517626",
-  "publisher_organization_type": "70",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://blobiatipublic.blob.core.windows.net/iati-public/iati/investinternational/invest_iati_activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "investinternational-activities",
-  "type": "dataset"
- },
  "investinternational-legacy-202510281404": {
   "author": null,
   "author_email": null,
@@ -435680,11 +435754,11 @@
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "organisation"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -532150,7 +532224,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 423
+    "value": 424
    },
    {
     "key": "country",
@@ -602560,7 +602634,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1257
+    "value": 1256
    },
    {
     "key": "country",
@@ -602638,7 +602712,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1416
+    "value": 1432
    },
    {
     "key": "country",
@@ -602716,7 +602790,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 723
+    "value": 706
    },
    {
     "key": "country",
@@ -602794,7 +602868,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1180
+    "value": 950
    },
    {
     "key": "country",
@@ -602872,7 +602946,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 857
+    "value": 1521
    },
    {
     "key": "country",
@@ -602950,7 +603024,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1488
+    "value": 908
    },
    {
     "key": "country",
@@ -603028,7 +603102,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1696
+    "value": 1795
    },
    {
     "key": "country",
@@ -603106,7 +603180,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1830
+    "value": 1704
    },
    {
     "key": "country",
@@ -603184,7 +603258,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1944
+    "value": 2004
    },
    {
     "key": "country",
@@ -603262,7 +603336,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1566
+    "value": 1677
    },
    {
     "key": "country",
@@ -603340,7 +603414,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2625
+    "value": 2621
    },
    {
     "key": "country",
@@ -603418,7 +603492,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2678
+    "value": 2700
    },
    {
     "key": "country",
@@ -603496,7 +603570,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2556
    },
    {
     "key": "country",
@@ -603574,7 +603648,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2652
+    "value": 2678
    },
    {
     "key": "country",
@@ -603652,7 +603726,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2476
+    "value": 2594
    },
    {
     "key": "country",
@@ -603808,7 +603882,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 262
+    "value": 264
    },
    {
     "key": "country",
@@ -604042,7 +604116,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1240
+    "value": 1286
    },
    {
     "key": "country",
@@ -608645,16 +608719,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -617720,7 +617798,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 166
+    "value": 167
    },
    {
     "key": "country",
@@ -776503,16 +776581,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 2
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -963401,6 +963483,80 @@
   ],
   "state": "active",
   "title": "usda-zimbabwe",
+  "type": "dataset"
+ },
+ "usp-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "f13a0c4b-21db-53e7-db98-6ac4fb6d108b",
+  "license_id": "notspecified",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "usp-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-01-08T20:47:00+00:00",
+   "description": "",
+   "id": "9e65e614-11b5-941a-2455-696017786577",
+   "image_url": null,
+   "is_organization": true,
+   "name": "usp",
+   "state": "active",
+   "title": "Universidade de São Paulo",
+   "type": "organization"
+  },
+  "owner_org": "9e65e614-11b5-941a-2455-696017786577",
+  "private": false,
+  "publisher_country": "BR",
+  "publisher_iati_id": "BR-CNPJ-63025530-0001-04",
+  "publisher_organization_type": "80",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/usp-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "usp-organisation-publisher",
   "type": "dataset"
  },
  "ustda-afghanistan": {
