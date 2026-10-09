@@ -3363,6 +3363,80 @@
   "title": "aahusa-activities",
   "type": "dataset"
  },
+ "aahusa-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "c93b0347-4b83-02dc-4b9a-6ac7a3b2a485",
+  "license_id": "other-open",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "aahusa-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:45:00+00:00",
+   "description": "",
+   "id": "dd9b8d0c-99d0-4922-8d1e-35447c0026cc",
+   "image_url": null,
+   "is_organization": true,
+   "name": "aahusa",
+   "state": "active",
+   "title": "Action Against Hunger USA",
+   "type": "organization"
+  },
+  "owner_org": "dd9b8d0c-99d0-4922-8d1e-35447c0026cc",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-EIN-13-3327220",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/aahusa-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "aahusa-organisation-publisher",
+  "type": "dataset"
+ },
  "aai-998": {
   "author": null,
   "author_email": null,
@@ -18789,7 +18863,7 @@
     "value": null
    }
   ],
-  "id": "d981750e-7242-b5d7-6deb-6aabb6d01aa3",
+  "id": "aff916a0-67e6-e1e7-c2db-6ac5491a89fd",
   "license_id": "other-nc",
   "license_title": "",
   "maintainer": null,
@@ -72368,7 +72442,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 247
+    "value": 250
    },
    {
     "key": "country",
@@ -92539,16 +92613,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -92692,11 +92770,11 @@
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "organisation"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -93218,7 +93296,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 99
+    "value": 100
    },
    {
     "key": "country",
@@ -130996,7 +131074,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 200
+    "value": 201
    },
    {
     "key": "country",
@@ -148358,7 +148436,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3003
+    "value": 3005
    },
    {
     "key": "country",
@@ -148436,7 +148514,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3003
+    "value": 3005
    },
    {
     "key": "country",
@@ -148514,7 +148592,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3003
+    "value": 3005
    },
    {
     "key": "country",
@@ -148592,7 +148670,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3003
+    "value": 3005
    },
    {
     "key": "country",
@@ -148670,7 +148748,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3003
+    "value": 3005
    },
    {
     "key": "country",
@@ -148748,7 +148826,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3003
+    "value": 3005
    },
    {
     "key": "country",
@@ -148826,7 +148904,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2997
+    "value": 3003
    },
    {
     "key": "country",
@@ -168015,6 +168093,80 @@
   "title": "dial-organisation-publisher",
   "type": "dataset"
  },
+ "digipaths_kelaniya-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "5824d769-5c6d-f5a2-bac0-6ac5cc23c8ec",
+  "license_id": "",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "digipaths_kelaniya-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-10-05T12:13:00+00:00",
+   "description": "",
+   "id": "bb4f03d5-a341-7931-dbf1-6ac39420358e",
+   "image_url": null,
+   "is_organization": true,
+   "name": "digipaths_kelaniya",
+   "state": "active",
+   "title": "University of Kelaniya",
+   "type": "organization"
+  },
+  "owner_org": "bb4f03d5-a341-7931-dbf1-6ac39420358e",
+  "private": false,
+  "publisher_country": "LK",
+  "publisher_iati_id": "XI-ROR-02r91my29",
+  "publisher_organization_type": "10",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/digipaths_kelaniya-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "digipaths_kelaniya-organisation-publisher",
+  "type": "dataset"
+ },
  "diltuk-activities": {
   "author": null,
   "author_email": null,
@@ -169613,14 +169765,14 @@
   "title": "dkt_ethiopia-activities",
   "type": "dataset"
  },
- "dkt_ethiopia-activity-publisher": {
+ "dkt_ethiopia-activity": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
   "extras": [
    {
     "key": "activity_count",
-    "value": 1
+    "value": 3
    },
    {
     "key": "country",
@@ -169652,7 +169804,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "dkt_ethiopia-activity-publisher",
+  "name": "dkt_ethiopia-activity",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -169683,12 +169835,12 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/dkt_ethiopia-activities.xml",
+    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/dkt_ethiopia-activities.xml",
     "url_type": null
    }
   ],
   "state": "active",
-  "title": "dkt_ethiopia-activity-publisher",
+  "title": "dkt_ethiopia-activity",
   "type": "dataset"
  },
  "dkt_ethiopia-organisation": {
@@ -318262,7 +318414,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1803
+    "value": 1802
    },
    {
     "key": "country",
@@ -318340,7 +318492,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 804
+    "value": 805
    },
    {
     "key": "country",
@@ -348014,7 +348166,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3144
+    "value": 3146
    },
    {
     "key": "country",
@@ -369461,6 +369613,80 @@
   ],
   "state": "active",
   "title": "icnl_fcdo_centralasia_oct-dec2025",
+  "type": "dataset"
+ },
+ "icnl_org-10-8-17-59-31_activity-file_us-ein-52-1818273": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "94167e79-ec1d-b017-e176-6ac81357ab22",
+  "license_id": "cc-zero",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "icnl_org-10-8-17-59-31_activity-file_us-ein-52-1818273",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:37:00+00:00",
+   "description": "",
+   "id": "3cee49f8-0d62-4810-a021-8c0b282eca39",
+   "image_url": null,
+   "is_organization": true,
+   "name": "icnl_org",
+   "state": "active",
+   "title": "International Center for Not-for-Profit Law",
+   "type": "organization"
+  },
+  "owner_org": "3cee49f8-0d62-4810-a021-8c0b282eca39",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-EIN-52-1818273",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://files.aida.tools/activities/US-EIN-52-1818273/90e63176-e448-437e-bf23-24c6b7bbd571/10-8-17-59-31_activity-file_US-EIN-52-1818273-sample.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "icnl_org-10-8-17-59-31_activity-file_us-ein-52-1818273",
   "type": "dataset"
  },
  "icnl_org-fcdo_centralasia_oct-dec2025": {
@@ -532224,7 +532450,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 424
+    "value": 426
    },
    {
     "key": "country",
@@ -572143,6 +572369,80 @@
   "title": "queen_mary_london-activities",
   "type": "dataset"
  },
+ "queen_mary_london-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "a0ffb777-72ab-c6a7-b90d-6ac78ed7b64f",
+  "license_id": "uk-ogl",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "queen_mary_london-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:39:00+00:00",
+   "description": "",
+   "id": "960f2003-2589-4672-9c53-30b17063d9f6",
+   "image_url": null,
+   "is_organization": true,
+   "name": "queen_mary_london",
+   "state": "active",
+   "title": "Queen Mary University of London",
+   "type": "organization"
+  },
+  "owner_org": "960f2003-2589-4672-9c53-30b17063d9f6",
+  "private": false,
+  "publisher_country": "GB",
+  "publisher_iati_id": "GB-COH-RC000710",
+  "publisher_organization_type": "80",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/queen_mary_london-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "queen_mary_london-activity-publisher",
+  "type": "dataset"
+ },
  "queen_mary_london-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -602634,7 +602934,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1256
+    "value": 1300
    },
    {
     "key": "country",
@@ -602712,7 +603012,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1432
+    "value": 1388
    },
    {
     "key": "country",
@@ -602868,7 +603168,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 950
+    "value": 995
    },
    {
     "key": "country",
@@ -602946,7 +603246,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1521
+    "value": 1124
    },
    {
     "key": "country",
@@ -603024,7 +603324,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 908
+    "value": 1280
    },
    {
     "key": "country",
@@ -603102,7 +603402,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1795
+    "value": 1697
    },
    {
     "key": "country",
@@ -603180,7 +603480,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1704
+    "value": 1524
    },
    {
     "key": "country",
@@ -603258,7 +603558,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2004
+    "value": 1938
    },
    {
     "key": "country",
@@ -603336,7 +603636,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1677
+    "value": 2001
    },
    {
     "key": "country",
@@ -603414,7 +603714,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2621
+    "value": 2595
    },
    {
     "key": "country",
@@ -603570,7 +603870,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2556
+    "value": 2620
    },
    {
     "key": "country",
@@ -603648,7 +603948,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2678
+    "value": 2384
    },
    {
     "key": "country",
@@ -603726,7 +604026,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2594
+    "value": 2700
    },
    {
     "key": "country",
@@ -603804,7 +604104,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2550
+    "value": 2678
    },
    {
     "key": "country",
@@ -603882,7 +604182,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 264
+    "value": 294
    },
    {
     "key": "country",
@@ -806304,7 +806604,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 122
+    "value": 124
    },
    {
     "key": "country",
@@ -807084,7 +807384,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 151
+    "value": 153
    },
    {
     "key": "country",
@@ -807474,7 +807774,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 107
+    "value": 109
    },
    {
     "key": "country",
@@ -807786,7 +808086,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 121
+    "value": 123
    },
    {
     "key": "country",
@@ -807942,7 +808242,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 73
+    "value": 75
    },
    {
     "key": "country",
@@ -808566,7 +808866,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 91
+    "value": 87
    },
    {
     "key": "country",
@@ -808644,7 +808944,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 174
+    "value": 176
    },
    {
     "key": "country",
@@ -809034,7 +809334,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 181
+    "value": 183
    },
    {
     "key": "country",
@@ -810126,7 +810426,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 116
+    "value": 118
    },
    {
     "key": "country",
@@ -810204,7 +810504,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 38
+    "value": 40
    },
    {
     "key": "country",
@@ -810672,7 +810972,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 168
+    "value": 170
    },
    {
     "key": "country",
@@ -811998,7 +812298,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 143
+    "value": 149
    },
    {
     "key": "country",
@@ -814724,7 +815024,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 127
+    "value": 129
    },
    {
     "key": "country",
@@ -815036,7 +815336,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 82
+    "value": 84
    },
    {
     "key": "country",
@@ -815504,7 +815804,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 66
+    "value": 68
    },
    {
     "key": "country",
@@ -815660,7 +815960,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 252
+    "value": 257
    },
    {
     "key": "country",
@@ -816830,7 +817130,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 151
+    "value": 153
    },
    {
     "key": "country",
@@ -817376,7 +817676,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 179
+    "value": 183
    },
    {
     "key": "country",
@@ -1038834,7 +1039134,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 25
+    "value": 30
    },
    {
     "key": "country",
@@ -1039298,7 +1039598,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 189
+    "value": 184
    },
    {
     "key": "country",
