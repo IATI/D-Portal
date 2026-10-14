@@ -51165,6 +51165,80 @@
   "title": "ama-south-sudan-org",
   "type": "dataset"
  },
+ "aman-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "a1e7f084-14f0-bd90-bd42-6acc9babb876",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "aman-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-10-03T07:47:00+00:00",
+   "description": "",
+   "id": "592c9c47-af9f-a1d6-95b2-6ac0b36c5a3a",
+   "image_url": null,
+   "is_organization": true,
+   "name": "aman",
+   "state": "active",
+   "title": "Coalition for Accountability and Integrity - AMAN",
+   "type": "organization"
+  },
+  "owner_org": "592c9c47-af9f-a1d6-95b2-6ac0b36c5a3a",
+  "private": false,
+  "publisher_country": "PS",
+  "publisher_iati_id": "PS-MOI-RA-22234-5.5",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/aman-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "aman-organisation-publisher",
+  "type": "dataset"
+ },
  "amel-1979-activity-publisher": {
   "author": null,
   "author_email": null,
@@ -76621,6 +76695,80 @@
   ],
   "state": "active",
   "title": "bfdyemen-organisation",
+  "type": "dataset"
+ },
+ "bfl-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "efd8fba1-3d80-aa4f-efa1-6acc9048baaa",
+  "license_id": "",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "bfl-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:39:00+00:00",
+   "description": "",
+   "id": "e1211a13-4fc6-4659-8a3c-c6cf42e6b33e",
+   "image_url": null,
+   "is_organization": true,
+   "name": "bfl",
+   "state": "active",
+   "title": "BAREFOOTLAW",
+   "type": "organization"
+  },
+  "owner_org": "e1211a13-4fc6-4659-8a3c-c6cf42e6b33e",
+  "private": false,
+  "publisher_country": "UG",
+  "publisher_iati_id": "UG-RSB-164179",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/bfl-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "bfl-organisation-publisher",
   "type": "dataset"
  },
  "bfrri-activity-publisher": {
@@ -129995,7 +130143,7 @@
   "title": "civic_admin-ye",
   "type": "dataset"
  },
- "civicus-activities": {
+ "civicus-activity": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -130034,7 +130182,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "civicus-activities",
+  "name": "civicus-activity",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -130070,7 +130218,7 @@
    }
   ],
   "state": "active",
-  "title": "civicus-activities",
+  "title": "civicus-activity",
   "type": "dataset"
  },
  "civicus-org": {
@@ -318422,7 +318570,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 801
+    "value": 800
    },
    {
     "key": "country",
@@ -318500,7 +318648,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 980
+    "value": 981
    },
    {
     "key": "country",
@@ -319103,84 +319251,6 @@
   ],
   "state": "active",
   "title": "gain-org",
-  "type": "dataset"
- },
- "galvmed-activity-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 2
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "327968be-5996-b96d-8ab5-696680f62465",
-  "license_id": "odc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "galvmed-activity-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:38:00+00:00",
-   "description": "",
-   "id": "2e756e14-b066-4fd9-8572-60203d3b26cc",
-   "image_url": null,
-   "is_organization": true,
-   "name": "galvmed",
-   "state": "active",
-   "title": "Global Alliance for Livestock Veterinary Medicines",
-   "type": "organization"
-  },
-  "owner_org": "2e756e14-b066-4fd9-8572-60203d3b26cc",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-COH-05393391",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/galvmed-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "galvmed-activity-publisher",
   "type": "dataset"
  },
  "galvmed-organisation": {
@@ -417625,6 +417695,80 @@
   "title": "intrahealth-org",
   "type": "dataset"
  },
+ "invest_iati_activities": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "c55f93b2-0acc-ee69-8042-6acde718be52",
+  "license_id": "odc-pddl",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "invest_iati_activities",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:39:00+00:00",
+   "description": "",
+   "id": "18bbbebc-30bc-47a9-87b2-76dad7dd9282",
+   "image_url": null,
+   "is_organization": true,
+   "name": "investinternational",
+   "state": "active",
+   "title": "InvestInternational",
+   "type": "organization"
+  },
+  "owner_org": "18bbbebc-30bc-47a9-87b2-76dad7dd9282",
+  "private": false,
+  "publisher_country": "NL",
+  "publisher_iati_id": "NL-KVK-83517626",
+  "publisher_organization_type": "70",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://blobiatipublic.blob.core.windows.net/iati-public/iati/investinternational/invest_iati_activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "invest_iati_activities",
+  "type": "dataset"
+ },
  "investigacion_cayetano-activities": {
   "author": null,
   "author_email": null,
@@ -417775,84 +417919,6 @@
   ],
   "state": "active",
   "title": "investigacion_cayetano-organisation",
-  "type": "dataset"
- },
- "investinternational-activities": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 440
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "2238fda8-acff-010c-196d-6981c0fec7f4",
-  "license_id": "odc-pddl",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "investinternational-activities",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:39:00+00:00",
-   "description": "",
-   "id": "18bbbebc-30bc-47a9-87b2-76dad7dd9282",
-   "image_url": null,
-   "is_organization": true,
-   "name": "investinternational",
-   "state": "active",
-   "title": "InvestInternational",
-   "type": "organization"
-  },
-  "owner_org": "18bbbebc-30bc-47a9-87b2-76dad7dd9282",
-  "private": false,
-  "publisher_country": "NL",
-  "publisher_iati_id": "NL-KVK-83517626",
-  "publisher_organization_type": "70",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://blobiatipublic.blob.core.windows.net/iati-public/iati/investinternational/invest_iati_activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "investinternational-activities",
   "type": "dataset"
  },
  "investinternational-legacy-202510281404": {
@@ -434862,7 +434928,7 @@
    },
    {
     "key": "iati_version",
-    "value": "2.02"
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -507252,7 +507318,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1
+    "value": 2
    },
    {
     "key": "country",
@@ -532178,7 +532244,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 154
+    "value": 166
    },
    {
     "key": "country",
@@ -538260,7 +538326,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 123
+    "value": 124
    },
    {
     "key": "country",
@@ -538806,7 +538872,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 428
+    "value": 431
    },
    {
     "key": "country",
@@ -539274,7 +539340,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 149
+    "value": 151
    },
    {
     "key": "country",
@@ -539664,7 +539730,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 107
+    "value": 108
    },
    {
     "key": "country",
@@ -539976,7 +540042,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 51
+    "value": 52
    },
    {
     "key": "country",
@@ -540366,7 +540432,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 110
+    "value": 112
    },
    {
     "key": "country",
@@ -540600,7 +540666,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 71
+    "value": 72
    },
    {
     "key": "country",
@@ -541146,7 +541212,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 74
+    "value": 75
    },
    {
     "key": "country",
@@ -541224,7 +541290,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 28
+    "value": 29
    },
    {
     "key": "country",
@@ -541458,7 +541524,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 41
+    "value": 42
    },
    {
     "key": "country",
@@ -541770,7 +541836,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 43
+    "value": 45
    },
    {
     "key": "country",
@@ -542702,7 +542768,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 130
+    "value": 131
    },
    {
     "key": "country",
@@ -543404,7 +543470,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 6
+    "value": 7
    },
    {
     "key": "country",
@@ -543716,7 +543782,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 72
+    "value": 77
    },
    {
     "key": "country",
@@ -544496,7 +544562,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 93
+    "value": 94
    },
    {
     "key": "country",
@@ -544730,7 +544796,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 100
+    "value": 101
    },
    {
     "key": "country",
@@ -566296,7 +566362,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 91
+    "value": 92
    },
    {
     "key": "country",
@@ -776232,7 +776298,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 147
+    "value": 148
    },
    {
     "key": "country",
@@ -930631,6 +930697,84 @@
   ],
   "state": "active",
   "title": "upm-activities",
+  "type": "dataset"
+ },
+ "upmanila-activity": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "413ec2b2-c268-21a7-d9a0-6acc7d84ebd2",
+  "license_id": "cc-zero",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "upmanila-activity",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-10-01T07:20:00+00:00",
+   "description": "",
+   "id": "1716f7bf-1e99-85fa-4f35-6abe09d9ba41",
+   "image_url": null,
+   "is_organization": true,
+   "name": "upmanila",
+   "state": "active",
+   "title": "University of the Philippines Manila",
+   "type": "organization"
+  },
+  "owner_org": "1716f7bf-1e99-85fa-4f35-6abe09d9ba41",
+  "private": false,
+  "publisher_country": "PH",
+  "publisher_iati_id": "XI-ROR-01rrczv41",
+  "publisher_organization_type": "80",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/upmanila-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "upmanila-activity",
   "type": "dataset"
  },
  "uq-activities": {
