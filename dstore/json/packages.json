@@ -55849,20 +55849,16 @@
   "creator_user_id": null,
   "extras": [
    {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": "activity"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -55877,7 +55873,7 @@
     "value": null
    }
   ],
-  "id": "9b8f8c2d-e54a-abad-c959-6ac9acc6aacb",
+  "id": "c69e02ab-b636-883f-831f-6acfe80d16a7",
   "license_id": "notspecified",
   "license_title": "",
   "maintainer": null,
@@ -72437,20 +72433,16 @@
   "creator_user_id": null,
   "extras": [
    {
-    "key": "activity_count",
-    "value": 92
-   },
-   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": "activity"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.02"
+    "value": null
    },
    {
     "key": "language",
@@ -78154,7 +78146,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2173
+    "value": 2176
    },
    {
     "key": "country",
@@ -78388,7 +78380,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1078
+    "value": 1079
    },
    {
     "key": "country",
@@ -78544,7 +78536,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 919
+    "value": 901
    },
    {
     "key": "country",
@@ -78622,7 +78614,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1045
+    "value": 1061
    },
    {
     "key": "country",
@@ -97267,20 +97259,16 @@
   "creator_user_id": null,
   "extras": [
    {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": "activity"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -97295,7 +97283,7 @@
     "value": null
    }
   ],
-  "id": "d2d72a65-8a33-c634-6e24-6ac9ad6eb92f",
+  "id": "b8f75cb9-4b22-7730-3ea3-6acf9a2fedb5",
   "license_id": "notspecified",
   "license_title": "",
   "maintainer": null,
@@ -110662,7 +110650,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 136
+    "value": 137
    },
    {
     "key": "country",
@@ -116532,7 +116520,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1806
+    "value": 1807
    },
    {
     "key": "country",
@@ -128766,7 +128754,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3310
+    "value": 3311
    },
    {
     "key": "country",
@@ -154592,7 +154580,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 108
+    "value": 109
    },
    {
     "key": "country",
@@ -300938,7 +300926,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1314
+    "value": 1326
    },
    {
     "key": "country",
@@ -417701,16 +417689,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 440
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -435597,6 +435589,80 @@
   ],
   "state": "active",
   "title": "kmc-activities",
+  "type": "dataset"
+ },
+ "kmc-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "a1969276-d98a-d8ed-0701-6acf8bb77387",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "kmc-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:38:00+00:00",
+   "description": "",
+   "id": "e40f3df8-4389-4cbc-8a72-9bcc6cc65770",
+   "image_url": null,
+   "is_organization": true,
+   "name": "kmc",
+   "state": "active",
+   "title": "Kathmandu Medical College Public Limited",
+   "type": "organization"
+  },
+  "owner_org": "e40f3df8-4389-4cbc-8a72-9bcc6cc65770",
+  "private": false,
+  "publisher_country": "NP",
+  "publisher_iati_id": "NP-CRO-1158-065-066",
+  "publisher_organization_type": "80",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/kmc-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "kmc-activity-publisher",
   "type": "dataset"
  },
  "kmc-organisation-publisher": {
@@ -517025,6 +517091,80 @@
   "title": "nmhiati-mw",
   "type": "dataset"
  },
+ "nmt-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "276cd1fd-41fe-2117-f046-6acf63ad84c9",
+  "license_id": "",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "nmt-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-09-21T09:44:00+00:00",
+   "description": "",
+   "id": "bf40af81-5196-1ab8-1338-6ab0fc851071",
+   "image_url": null,
+   "is_organization": true,
+   "name": "nmt",
+   "state": "active",
+   "title": "Nightingales Medical Trust",
+   "type": "organization"
+  },
+  "owner_org": "bf40af81-5196-1ab8-1338-6ab0fc851071",
+  "private": false,
+  "publisher_country": "IN",
+  "publisher_iati_id": "IN-PAN-AAATN2786N",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/nmt-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "nmt-activity-publisher",
+  "type": "dataset"
+ },
  "nmt-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -531858,7 +531998,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 427
+    "value": 428
    },
    {
     "key": "country",
@@ -532244,7 +532384,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 166
+    "value": 172
    },
    {
     "key": "country",
@@ -609800,7 +609940,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 78
+    "value": 77
    },
    {
     "key": "country",
