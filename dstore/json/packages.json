@@ -55849,16 +55849,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -55873,7 +55877,7 @@
     "value": null
    }
   ],
-  "id": "c69e02ab-b636-883f-831f-6acfe80d16a7",
+  "id": "9b8f8c2d-e54a-abad-c959-6ac9acc6aacb",
   "license_id": "notspecified",
   "license_title": "",
   "maintainer": null,
@@ -72586,7 +72590,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 250
+    "value": 251
    },
    {
     "key": "country",
@@ -97259,16 +97263,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -148576,7 +148584,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3006
+    "value": 3005
    },
    {
     "key": "country",
@@ -148654,7 +148662,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3006
+    "value": 3005
    },
    {
     "key": "country",
@@ -148732,7 +148740,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3006
+    "value": 3005
    },
    {
     "key": "country",
@@ -148810,7 +148818,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3006
+    "value": 3005
    },
    {
     "key": "country",
@@ -148888,7 +148896,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3006
+    "value": 3005
    },
    {
     "key": "country",
@@ -148966,7 +148974,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3006
+    "value": 3005
    },
    {
     "key": "country",
@@ -149044,7 +149052,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3001
+    "value": 3005
    },
    {
     "key": "country",
@@ -311887,7 +311895,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/fsdk-activities.xml",
+    "url": "https://grants.fsdkenya.org/api/public/iati.xml",
     "url_type": null
    }
   ],
@@ -335552,7 +335560,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 718
+    "value": 731
    },
    {
     "key": "country",
@@ -369529,6 +369537,80 @@
   "title": "icnl_fcdo_centralasia_oct-dec2025",
   "type": "dataset"
  },
+ "icnl_org-fcdo-mou-2026-p1_2": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "1a6685c5-3fb1-11ef-56f2-6ad1441aeb78",
+  "license_id": "cc-zero",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "icnl_org-fcdo-mou-2026-p1_2",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:37:00+00:00",
+   "description": "",
+   "id": "3cee49f8-0d62-4810-a021-8c0b282eca39",
+   "image_url": null,
+   "is_organization": true,
+   "name": "icnl_org",
+   "state": "active",
+   "title": "International Center for Not-for-Profit Law",
+   "type": "organization"
+  },
+  "owner_org": "3cee49f8-0d62-4810-a021-8c0b282eca39",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-EIN-52-1818273",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://files.aida.tools/activities/US-EIN-52-1818273/9a161b55-e5d9-46ce-8eb3-af84a8e69a37/FCDO-MoU-2026-P1_2.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "icnl_org-fcdo-mou-2026-p1_2",
+  "type": "dataset"
+ },
  "icnl_org-fcdo_centralasia_oct-dec2025": {
   "author": null,
   "author_email": null,
@@ -371906,7 +371988,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2099
+    "value": 2104
    },
    {
     "key": "country",
@@ -382511,20 +382593,16 @@
   "creator_user_id": null,
   "extras": [
    {
-    "key": "activity_count",
-    "value": 18
-   },
-   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": "activity"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -434377,20 +434455,16 @@
   "creator_user_id": null,
   "extras": [
    {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": "activity"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -434405,7 +434479,7 @@
     "value": null
    }
   ],
-  "id": "1cf6618c-45eb-33fd-cc20-6ac9ad456682",
+  "id": "29960cec-4419-46d9-bf59-6ad12c19bdf0",
   "license_id": "odc-by",
   "license_title": "",
   "maintainer": null,
@@ -435597,16 +435671,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -457439,20 +457517,16 @@
   "creator_user_id": null,
   "extras": [
    {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": "activity"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -457467,7 +457541,7 @@
     "value": null
    }
   ],
-  "id": "2a55f6f3-9673-e4d0-0dc8-69ce86b947dc",
+  "id": "57c63b53-b7d1-5b87-ef5c-6ad130549335",
   "license_id": "notspecified",
   "license_title": "",
   "maintainer": null,
@@ -511360,7 +511434,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 7
+    "value": 8
    },
    {
     "key": "country",
@@ -517097,16 +517171,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -531998,7 +532076,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 428
+    "value": 430
    },
    {
     "key": "country",
@@ -532384,7 +532462,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 172
+    "value": 196
    },
    {
     "key": "country",
@@ -583947,6 +584025,158 @@
   "title": "rri-activities",
   "type": "dataset"
  },
+ "rsf_sweden-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 3
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "671a92a8-dc48-dbbd-2da7-6acf782d6331",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "rsf_sweden-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-09-14T14:18:00+00:00",
+   "description": "",
+   "id": "3abcb299-06b3-6cc8-d2f2-6aa802390c18",
+   "image_url": null,
+   "is_organization": true,
+   "name": "rsf_sweden",
+   "state": "active",
+   "title": "Reporters Without Borders Sweden",
+   "type": "organization"
+  },
+  "owner_org": "3abcb299-06b3-6cc8-d2f2-6aa802390c18",
+  "private": false,
+  "publisher_country": "SE",
+  "publisher_iati_id": "SE-ON-802400-5418",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/rsf_sweden-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "rsf_sweden-activity-publisher",
+  "type": "dataset"
+ },
+ "rsf_sweden-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "47e6cdad-12fb-7611-4601-6acf347d45a3",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "rsf_sweden-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-09-14T14:18:00+00:00",
+   "description": "",
+   "id": "3abcb299-06b3-6cc8-d2f2-6aa802390c18",
+   "image_url": null,
+   "is_organization": true,
+   "name": "rsf_sweden",
+   "state": "active",
+   "title": "Reporters Without Borders Sweden",
+   "type": "organization"
+  },
+  "owner_org": "3abcb299-06b3-6cc8-d2f2-6aa802390c18",
+  "private": false,
+  "publisher_country": "SE",
+  "publisher_iati_id": "SE-ON-802400-5418",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/rsf_sweden-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "rsf_sweden-organisation-publisher",
+  "type": "dataset"
+ },
  "rsk-ea-organisation": {
   "author": null,
   "author_email": null,
@@ -602260,7 +602490,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1142
+    "value": 1143
    },
    {
     "key": "country",
@@ -602338,7 +602568,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1300
+    "value": 1292
    },
    {
     "key": "country",
@@ -602416,7 +602646,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1382
+    "value": 1387
    },
    {
     "key": "country",
@@ -602494,7 +602724,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 707
+    "value": 710
    },
    {
     "key": "country",
@@ -602572,7 +602802,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 970
+    "value": 1050
    },
    {
     "key": "country",
@@ -602650,7 +602880,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1350
+    "value": 1446
    },
    {
     "key": "country",
@@ -602728,7 +602958,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1052
+    "value": 984
    },
    {
     "key": "country",
@@ -602806,7 +603036,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1915
+    "value": 1789
    },
    {
     "key": "country",
@@ -602884,7 +603114,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1542
+    "value": 1902
    },
    {
     "key": "country",
@@ -602962,7 +603192,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1938
+    "value": 1758
    },
    {
     "key": "country",
@@ -603040,7 +603270,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1794
+    "value": 1647
    },
    {
     "key": "country",
@@ -603118,7 +603348,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2598
+    "value": 2587
    },
    {
     "key": "country",
@@ -603196,7 +603426,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2682
    },
    {
     "key": "country",
@@ -603274,7 +603504,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2552
    },
    {
     "key": "country",
@@ -603352,7 +603582,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2674
+    "value": 2652
    },
    {
     "key": "country",
@@ -603430,7 +603660,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2454
+    "value": 2700
    },
    {
     "key": "country",
@@ -603508,7 +603738,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2550
+    "value": 2508
    },
    {
     "key": "country",
@@ -603586,7 +603816,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 304
+    "value": 306
    },
    {
     "key": "country",
@@ -603820,7 +604050,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1288
+    "value": 1290
    },
    {
     "key": "country",
@@ -805700,7 +805930,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2
+    "value": 4
    },
    {
     "key": "country",
@@ -805778,7 +806008,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 177
+    "value": 179
    },
    {
     "key": "country",
@@ -805856,7 +806086,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 94
+    "value": 96
    },
    {
     "key": "country",
@@ -806324,7 +806554,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 84
+    "value": 86
    },
    {
     "key": "country",
@@ -806714,7 +806944,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 153
+    "value": 155
    },
    {
     "key": "country",
@@ -806948,7 +807178,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 86
+    "value": 88
    },
    {
     "key": "country",
@@ -807026,7 +807256,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 336
+    "value": 338
    },
    {
     "key": "country",
@@ -807104,7 +807334,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 109
+    "value": 113
    },
    {
     "key": "country",
@@ -808196,7 +808426,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 87
+    "value": 93
    },
    {
     "key": "country",
@@ -808508,7 +808738,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 96
+    "value": 94
    },
    {
     "key": "country",
@@ -809054,7 +809284,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 177
+    "value": 179
    },
    {
     "key": "country",
@@ -809600,7 +809830,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1647
+    "value": 1652
    },
    {
     "key": "country",
@@ -810692,7 +810922,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 136
+    "value": 138
    },
    {
     "key": "country",
@@ -811238,7 +811468,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 20
+    "value": 22
    },
    {
     "key": "country",
@@ -811394,7 +811624,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 144
+    "value": 146
    },
    {
     "key": "country",
@@ -811628,7 +811858,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 149
+    "value": 153
    },
    {
     "key": "country",
@@ -812798,7 +813028,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 74
+    "value": 76
    },
    {
     "key": "country",
@@ -812954,7 +813184,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 94
+    "value": 96
    },
    {
     "key": "country",
@@ -813886,7 +814116,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 173
+    "value": 175
    },
    {
     "key": "country",
@@ -814198,7 +814428,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 88
+    "value": 92
    },
    {
     "key": "country",
@@ -814432,7 +814662,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 106
+    "value": 110
    },
    {
     "key": "country",
@@ -814666,7 +814896,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 84
+    "value": 86
    },
    {
     "key": "country",
@@ -815290,7 +815520,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 257
+    "value": 258
    },
    {
     "key": "country",
@@ -816460,7 +816690,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 153
+    "value": 157
    },
    {
     "key": "country",
@@ -859920,7 +860150,7 @@
    }
   ],
   "id": "a3078220-99fb-2525-89bb-69985c52181d",
-  "license_id": "",
+  "license_id": "cc-by",
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
@@ -1056321,7 +1056551,7 @@
   "title": "womankindworld-organisation",
   "type": "dataset"
  },
- "world_ywca-activities": {
+ "world_ywca-activity": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -1056360,7 +1056590,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "world_ywca-activities",
+  "name": "world_ywca-activity",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -1056396,7 +1056626,81 @@
    }
   ],
   "state": "active",
-  "title": "world_ywca-activities",
+  "title": "world_ywca-activity",
+  "type": "dataset"
+ },
+ "world_ywca-organisation": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "9a8b9e87-5cd8-8293-e3d2-6ad0d957c1ca",
+  "license_id": "odc-pddl",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "world_ywca-organisation",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:38:00+00:00",
+   "description": "",
+   "id": "cc42e452-1e3c-4344-9ebe-5b13513178dc",
+   "image_url": null,
+   "is_organization": true,
+   "name": "world_ywca",
+   "state": "active",
+   "title": "World Young Women's Christian Association",
+   "type": "organization"
+  },
+  "owner_org": "cc42e452-1e3c-4344-9ebe-5b13513178dc",
+  "private": false,
+  "publisher_country": "CH",
+  "publisher_iati_id": "CH-FDJP-106756410",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/world_ywca-org.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "world_ywca-organisation",
   "type": "dataset"
  },
  "worldbank-289": {
