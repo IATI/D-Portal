@@ -47419,6 +47419,84 @@
   "title": "aipr-organisation",
   "type": "dataset"
  },
+ "airclim-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "5140336b-7a45-5421-12aa-6ad25846e8bc",
+  "license_id": "",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "airclim-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:48:00+00:00",
+   "description": "",
+   "id": "85c9f386-387d-4ba7-aa36-4510e2470960",
+   "image_url": null,
+   "is_organization": true,
+   "name": "airclim",
+   "state": "active",
+   "title": "Luft- och klimatsekretariatet",
+   "type": "organization"
+  },
+  "owner_org": "85c9f386-387d-4ba7-aa36-4510e2470960",
+  "private": false,
+  "publisher_country": "SE",
+  "publisher_iati_id": "SE-ON-857206-6689",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/airclim-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "airclim-activity-publisher",
+  "type": "dataset"
+ },
  "airclim-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -72511,16 +72589,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 92
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.02"
    },
    {
     "key": "language",
@@ -116602,7 +116684,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1807
+    "value": 1808
    },
    {
     "key": "country",
@@ -128836,7 +128918,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3312
+    "value": 3313
    },
    {
     "key": "country",
@@ -149126,7 +149208,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3024
+    "value": 3026
    },
    {
     "key": "country",
@@ -386260,7 +386342,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 5
+    "value": 4
    },
    {
     "key": "country",
@@ -490777,80 +490859,6 @@
   "title": "mdf-mdf-w4v-activitydataset",
   "type": "dataset"
  },
- "mdf-ppmec2": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": null
-   },
-   {
-    "key": "iati_version",
-    "value": null
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "bdf85121-b577-c3fe-6d25-6ad3f02e6f28",
-  "license_id": "cc-zero",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "mdf-ppmec2",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:45:00+00:00",
-   "description": "",
-   "id": "60a7b050-c24d-48db-b1c2-4083f75739e8",
-   "image_url": null,
-   "is_organization": true,
-   "name": "mdf",
-   "state": "active",
-   "title": "MDF Global",
-   "type": "organization"
-  },
-  "owner_org": "60a7b050-c24d-48db-b1c2-4083f75739e8",
-  "private": false,
-  "publisher_country": "NL",
-  "publisher_iati_id": "NL-KVK-56821743",
-  "publisher_organization_type": "60",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://files.aida.tools/activities/NL-KVK-56821743/00a3d27c-c6fc-426c-a0ef-5518b23bc264/PPMEC2.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "mdf-ppmec2",
-  "type": "dataset"
- },
  "mdif-activities": {
   "author": null,
   "author_email": null,
@@ -517768,7 +517776,7 @@
   "private": false,
   "publisher_country": "GH",
   "publisher_iati_id": "GH-TIN-V0004162595",
-  "publisher_organization_type": null,
+  "publisher_organization_type": "80",
   "publisher_source_type": "",
   "resources": [
    {
@@ -517800,11 +517808,11 @@
    },
    {
     "key": "filetype",
-    "value": "organisation"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -517842,7 +517850,7 @@
   "private": false,
   "publisher_country": "GH",
   "publisher_iati_id": "GH-TIN-V0004162595",
-  "publisher_organization_type": null,
+  "publisher_organization_type": "80",
   "publisher_source_type": "",
   "resources": [
    {
@@ -558567,7 +558575,7 @@
    "is_organization": true,
    "name": "phfi",
    "state": "active",
-   "title": "PUBLIC HEALTH FOUNDATION OF INDIA",
+   "title": "Public Health Foundation of India",
    "type": "organization"
   },
   "owner_org": "a7f6c9cf-5fb7-49d4-9768-0028b3137b60",
@@ -558606,11 +558614,11 @@
    },
    {
     "key": "filetype",
-    "value": "organisation"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -558641,7 +558649,7 @@
    "is_organization": true,
    "name": "phfi",
    "state": "active",
-   "title": "PUBLIC HEALTH FOUNDATION OF INDIA",
+   "title": "Public Health Foundation of India",
    "type": "organization"
   },
   "owner_org": "a7f6c9cf-5fb7-49d4-9768-0028b3137b60",
@@ -602966,7 +602974,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 950
+    "value": 1160
    },
    {
     "key": "country",
@@ -603044,7 +603052,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1190
+    "value": 1132
    },
    {
     "key": "country",
@@ -603122,7 +603130,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1220
+    "value": 1224
    },
    {
     "key": "country",
@@ -603200,7 +603208,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1796
+    "value": 1790
    },
    {
     "key": "country",
@@ -603278,7 +603286,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1953
+    "value": 1788
    },
    {
     "key": "country",
@@ -603356,7 +603364,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1722
+    "value": 1671
    },
    {
     "key": "country",
@@ -603434,7 +603442,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1722
+    "value": 1788
    },
    {
     "key": "country",
@@ -603512,7 +603520,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2582
+    "value": 2581
    },
    {
     "key": "country",
@@ -603590,7 +603598,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2678
+    "value": 2700
    },
    {
     "key": "country",
@@ -603668,7 +603676,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2620
+    "value": 2678
    },
    {
     "key": "country",
@@ -603824,7 +603832,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2556
    },
    {
     "key": "country",
@@ -603902,7 +603910,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2534
+    "value": 2598
    },
    {
     "key": "country",
@@ -603980,7 +603988,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 352
+    "value": 354
    },
    {
     "key": "country",
@@ -615316,11 +615324,11 @@
    },
    {
     "key": "filetype",
-    "value": "organisation"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -930558,11 +930566,11 @@
    },
    {
     "key": "filetype",
-    "value": "organisation"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -1044368,7 +1044376,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 288
+    "value": 289
    },
    {
     "key": "country",
