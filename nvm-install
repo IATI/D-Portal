@@ -1,4 +1,5 @@
-pushd `dirname $0`
+# This file is sourced, so $0 is the caller, not this file: use BASH_SOURCE.
+pushd "$(dirname "${BASH_SOURCE[0]}")"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -12,10 +13,11 @@ else
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 fi
 
-if nvm use node ; then
+# Use the Node version in .nvmrc (in this directory), installing it if missing.
+if nvm use ; then
 	true
 else
-	nvm install node
+	nvm install
 fi
 
 if pm2 --version >/dev/null ; then
