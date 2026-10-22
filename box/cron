@@ -51,11 +51,13 @@ fi
 
 	TS
 
-if [ "$GITCRON" == "PUSH" ]; then
-
-/dportal/box/cron-stats 2>&1
-
-fi
+# Disabled: cron-stats no longer writes to github.com/xriss/D-Portal-Logs, so
+# its full-database COUNT(DISTINCT) queries run for nothing. The script is kept.
+#if [ "$GITCRON" == "PUSH" ]; then
+#
+#/dportal/box/cron-stats 2>&1
+#
+#fi
 
 	TS
 
