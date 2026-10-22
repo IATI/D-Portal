@@ -1,6 +1,8 @@
 
-# Push to iati
+# Push to iati, on whichever branch this checkout tracks (master on
+# production, develop on staging). Interim: once code and data are separated
+# the nightly job won't push to the repository at all, and this goes.
 
 cd `dirname $0`
 cd ..
-git push -u origin master
+git push
