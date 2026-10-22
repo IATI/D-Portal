@@ -1,8 +1,9 @@
 
-# Pull from iati
+# Pull from iati, on whichever branch this checkout tracks (master on
+# production, develop on staging).
 
 cd `dirname $0`
 cd ..
-git pull origin master
+git pull
 
 
