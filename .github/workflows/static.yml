@@ -1,21 +1,14 @@
-name: Build Plated Pages
-on: [push]
+name: Build
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
 jobs:
-  Build-Plated-Pages:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build
-        run: |
-          ./build
+        run: ./build
         shell: bash
-      - name: Deploy
-        uses: Cecilapp/GitHub-Pages-deploy@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          email: plated@github.actions
-          build_dir: dportal/static
-          branch: gh-pages
-          jekyll: no
