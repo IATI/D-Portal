@@ -19597,6 +19597,84 @@
   "title": "adrasom-somgep",
   "type": "dataset"
  },
+ "adrauk-activities": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 5
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "1d1402d3-533f-4c2e-8807-62637ff430e2",
+  "license_id": "odc-odbl",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "adrauk-activities",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:42:00+00:00",
+   "description": "",
+   "id": "741b194f-5e01-4c9b-9af0-a5b472322f42",
+   "image_url": null,
+   "is_organization": true,
+   "name": "adrauk",
+   "state": "active",
+   "title": "ADRA-UK",
+   "type": "organization"
+  },
+  "owner_org": "741b194f-5e01-4c9b-9af0-a5b472322f42",
+  "private": false,
+  "publisher_country": "GB",
+  "publisher_iati_id": "GB-CHC-1074937",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/adrauk-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "adrauk-activities",
+  "type": "dataset"
+ },
  "adrauk-organisation": {
   "author": null,
   "author_email": null,
@@ -49059,7 +49137,7 @@
     "value": null
    }
   ],
-  "id": "3f3ea36a-02b0-ca86-afcd-6ac931c7f292",
+  "id": "6dd6de93-30f0-9db3-5eb9-6adf94c6ad9f",
   "license_id": "",
   "license_title": "",
   "maintainer": null,
@@ -56683,6 +56761,80 @@
   ],
   "state": "active",
   "title": "apopo-org2226",
+  "type": "dataset"
+ },
+ "apopo-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "8568690c-9b53-8fb5-4fcb-6ae1b343a7cf",
+  "license_id": "odc-pddl",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "apopo-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:39:00+00:00",
+   "description": "",
+   "id": "1451590d-7f1f-4789-8970-3527ca8a6ccf",
+   "image_url": null,
+   "is_organization": true,
+   "name": "apopo",
+   "state": "active",
+   "title": "APOPO",
+   "type": "organization"
+  },
+  "owner_org": "1451590d-7f1f-4789-8970-3527ca8a6ccf",
+  "private": false,
+  "publisher_country": "BE",
+  "publisher_iati_id": "BE-BCE_KBO-0464019195",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/apopo-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "apopo-organisation-publisher",
   "type": "dataset"
  },
  "appro-af-activities": {
@@ -93245,7 +93397,7 @@
     "value": null
    }
   ],
-  "id": "440a8485-234f-7dc0-8fa8-6ac5e935b8e6",
+  "id": "d4395223-a929-0ba7-7973-6adf960c6c2d",
   "license_id": "other-open",
   "license_title": "",
   "maintainer": null,
@@ -96157,7 +96309,7 @@
     "value": null
    }
   ],
-  "id": "add38932-6aa9-ae7b-5bca-6a55e5f868b1",
+  "id": "18573106-dcc6-0e68-55ba-6adf97db471f",
   "license_id": "gfdl",
   "license_title": "",
   "maintainer": null,
@@ -100114,7 +100266,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 127
+    "value": 130
    },
    {
     "key": "country",
@@ -100972,7 +101124,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 103
+    "value": 105
    },
    {
     "key": "country",
@@ -101050,7 +101202,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 613
+    "value": 626
    },
    {
     "key": "country",
@@ -101830,7 +101982,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 23
+    "value": 24
    },
    {
     "key": "country",
@@ -102142,7 +102294,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 37
+    "value": 38
    },
    {
     "key": "country",
@@ -103078,7 +103230,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 71
+    "value": 74
    },
    {
     "key": "country",
@@ -104322,7 +104474,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 96
+    "value": 99
    },
    {
     "key": "country",
@@ -104556,7 +104708,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 56
+    "value": 57
    },
    {
     "key": "country",
@@ -104634,7 +104786,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 36
+    "value": 35
    },
    {
     "key": "country",
@@ -105024,7 +105176,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 192
+    "value": 201
    },
    {
     "key": "country",
@@ -106190,7 +106342,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 366
+    "value": 377
    },
    {
     "key": "country",
@@ -106268,7 +106420,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 61
+    "value": 62
    },
    {
     "key": "country",
@@ -106424,7 +106576,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 215
+    "value": 218
    },
    {
     "key": "country",
@@ -106657,16 +106809,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 14
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.02"
    },
    {
     "key": "language",
@@ -106888,7 +107044,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 32
+    "value": 34
    },
    {
     "key": "country",
@@ -106966,7 +107122,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 13
+    "value": 14
    },
    {
     "key": "country",
@@ -107512,7 +107668,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 371
+    "value": 374
    },
    {
     "key": "country",
@@ -111905,7 +112061,7 @@
     "value": null
    }
   ],
-  "id": "f2aff68e-1b3b-fe34-54b0-6a888539e272",
+  "id": "e3c103ea-0e1b-fe33-7939-6adf98e06245",
   "license_id": "",
   "license_title": "",
   "maintainer": null,
@@ -131378,7 +131534,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 157
+    "value": 162
    },
    {
     "key": "country",
@@ -131601,7 +131757,7 @@
   "title": "cku-org",
   "type": "dataset"
  },
- "clad-organisation": {
+ "clad-organisation-publisher": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -131631,12 +131787,12 @@
     "value": null
    }
   ],
-  "id": "10255693-431f-43de-8cd8-e0a31da14dd0",
+  "id": "1fd39229-37b4-a566-fa88-6adf9a6229df",
   "license_id": "other-at",
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "clad-organisation",
+  "name": "clad-organisation-publisher",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -131672,7 +131828,7 @@
    }
   ],
   "state": "active",
-  "title": "clad-organisation",
+  "title": "clad-organisation-publisher",
   "type": "dataset"
  },
  "clasp-activity": {
@@ -142709,80 +142865,6 @@
   ],
   "state": "active",
   "title": "cra-activity-publisher",
-  "type": "dataset"
- },
- "cra-organisation-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "cc610c00-cd16-43a9-b708-fc67be940b96",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "cra-organisation-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:46:00+00:00",
-   "description": "",
-   "id": "8b915242-55c3-4de6-ab3a-6972b10a8c60",
-   "image_url": null,
-   "is_organization": true,
-   "name": "cra",
-   "state": "active",
-   "title": "Conciliation Resources Australia",
-   "type": "organization"
-  },
-  "owner_org": "8b915242-55c3-4de6-ab3a-6972b10a8c60",
-  "private": false,
-  "publisher_country": "AU",
-  "publisher_iati_id": "AU-ABN-94642321640",
-  "publisher_organization_type": "23",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/cra-organisation.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "cra-organisation-publisher",
   "type": "dataset"
  },
  "crane-activities": {
@@ -232001,16 +232083,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 5
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -318804,7 +318890,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1806
+    "value": 1807
    },
    {
     "key": "country",
@@ -321095,80 +321181,6 @@
   ],
   "state": "active",
   "title": "gc_tanzania-organisation",
-  "type": "dataset"
- },
- "gc_tanzania-organisation-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "a0c4d7c7-1486-3721-3f98-6a0b0ff294f4",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "gc_tanzania-organisation-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:48:00+00:00",
-   "description": "",
-   "id": "44b9e440-30d8-4055-a3b8-517e37abad17",
-   "image_url": null,
-   "is_organization": true,
-   "name": "gc_tanzania",
-   "state": "active",
-   "title": "Global Communities",
-   "type": "organization"
-  },
-  "owner_org": "44b9e440-30d8-4055-a3b8-517e37abad17",
-  "private": false,
-  "publisher_country": "TZ",
-  "publisher_iati_id": "TZ-NNCB-INGO-R1-00149",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/gc_tanzania-organisation.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "gc_tanzania-organisation-publisher",
   "type": "dataset"
  },
  "gca-activities": {
@@ -337475,6 +337487,80 @@
   "title": "gisf-activity-publisher",
   "type": "dataset"
  },
+ "gisf-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "1c7aa6bf-ea0a-b1b9-6cb9-6adf9d02fca3",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "gisf-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-04-08T09:16:00+00:00",
+   "description": "",
+   "id": "c2727555-2685-0221-0412-69d61cede727",
+   "image_url": null,
+   "is_organization": true,
+   "name": "gisf",
+   "state": "active",
+   "title": "Global Interagency Security Forum - GISF CIC",
+   "type": "organization"
+  },
+  "owner_org": "c2727555-2685-0221-0412-69d61cede727",
+  "private": false,
+  "publisher_country": "GB",
+  "publisher_iati_id": "GB-COH-14937701",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/gisf-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "gisf-organisation-publisher",
+  "type": "dataset"
+ },
  "givedirectly-ke": {
   "author": null,
   "author_email": null,
@@ -348559,16 +348645,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -360413,7 +360503,7 @@
     "value": null
    }
   ],
-  "id": "ad0f54af-a70c-9c69-bc1a-6a032af49c49",
+  "id": "9691de91-faff-6049-439d-6adf9d594980",
   "license_id": "",
   "license_title": "",
   "maintainer": null,
@@ -361703,7 +361793,7 @@
     "value": null
    }
   ],
-  "id": "bc34f0e6-b498-0b78-595d-6a53aa3c5715",
+  "id": "6d2b663c-82c8-88cc-823d-6adf9d3ddcbb",
   "license_id": "cc-by",
   "license_title": "",
   "maintainer": null,
@@ -418615,84 +418705,6 @@
   "title": "invest_iati_activities",
   "type": "dataset"
  },
- "investigacion_cayetano-activities": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 0
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "478b24ad-0572-4cca-b807-9e2268f27949",
-  "license_id": "cc-by-sa",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "investigacion_cayetano-activities",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:45:00+00:00",
-   "description": "",
-   "id": "eb784e32-8aaa-4c25-90db-0256546285d1",
-   "image_url": null,
-   "is_organization": true,
-   "name": "investigacion_cayetano",
-   "state": "active",
-   "title": "Universidad Peruana Cayetano Heredia",
-   "type": "organization"
-  },
-  "owner_org": "eb784e32-8aaa-4c25-90db-0256546285d1",
-  "private": false,
-  "publisher_country": "PE",
-  "publisher_iati_id": "PE-SUNARP-03024345",
-  "publisher_organization_type": "80",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/investigacion_cayetano-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "investigacion_cayetano-activities",
-  "type": "dataset"
- },
  "investigacion_cayetano-organisation": {
   "author": null,
   "author_email": null,
@@ -432409,80 +432421,6 @@
   ],
   "state": "active",
   "title": "jpal-organisation",
-  "type": "dataset"
- },
- "jpal-organisation-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "5c04e638-7f24-8caf-9fc8-6a01f5de4e93",
-  "license_id": "other-pd",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "jpal-organisation-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:37:00+00:00",
-   "description": "",
-   "id": "45934a69-0905-4f07-910b-959dfbaa3693",
-   "image_url": null,
-   "is_organization": true,
-   "name": "jpal",
-   "state": "active",
-   "title": "Abdul Latif Jameel Poverty Action Lab at MIT",
-   "type": "organization"
-  },
-  "owner_org": "45934a69-0905-4f07-910b-959dfbaa3693",
-  "private": false,
-  "publisher_country": "US",
-  "publisher_iati_id": "US-EIN-042103594",
-  "publisher_organization_type": "80",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/jpal-organisation.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "jpal-organisation-publisher",
   "type": "dataset"
  },
  "jrf-activities": {
@@ -457213,84 +457151,6 @@
   ],
   "state": "active",
   "title": "lse-organisation",
-  "type": "dataset"
- },
- "lshtm-activity-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 30
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "805bb94b-9400-44e2-83a9-b68a513175c5",
-  "license_id": "uk-ogl",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "lshtm-activity-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:38:00+00:00",
-   "description": "",
-   "id": "dbcb55ec-fa0a-4035-9da7-bb82d7a00065",
-   "image_url": null,
-   "is_organization": true,
-   "name": "lshtm",
-   "state": "active",
-   "title": "London School of Hygiene and Tropical Medicine",
-   "type": "organization"
-  },
-  "owner_org": "dbcb55ec-fa0a-4035-9da7-bb82d7a00065",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-EDU-133903",
-  "publisher_organization_type": "80",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/lshtm-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "lshtm-activity-publisher",
   "type": "dataset"
  },
  "lshtm-organisation-publisher": {
@@ -511867,7 +511727,7 @@
     "value": null
    }
   ],
-  "id": "72200802-ac23-1e70-9f67-6a0b3adb327e",
+  "id": "68aa2f89-3e4d-c98a-ed2e-6adfa175d583",
   "license_id": "",
   "license_title": "",
   "maintainer": null,
@@ -533086,7 +532946,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 433
+    "value": 437
    },
    {
     "key": "country",
@@ -563291,7 +563151,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-website-assets.s3.eu-west-1.amazonaws.com/NL-KVK-41198890-IATI-Activity-File.xml.xml",
+    "url": "https://iati-website-assets.s3.eu-west-1.amazonaws.com/NL-KVK-41198890-IATI-Activity-File.xml",
     "url_type": null
    }
   ],
@@ -581683,80 +581543,6 @@
   "title": "rfslmalmoe-activity-publisher",
   "type": "dataset"
  },
- "rfslmalmoe-organisation-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "9002251a-bc67-fd0a-fe45-698a0a745050",
-  "license_id": "",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "rfslmalmoe-organisation-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2026-02-09T12:28:00+00:00",
-   "description": "",
-   "id": "dacacf9e-244f-2855-871c-6989d25c0f8c",
-   "image_url": null,
-   "is_organization": true,
-   "name": "rfslmalmoe",
-   "state": "active",
-   "title": "RFSL Malmö",
-   "type": "organization"
-  },
-  "owner_org": "dacacf9e-244f-2855-871c-6989d25c0f8c",
-  "private": false,
-  "publisher_country": "SE",
-  "publisher_iati_id": "SE-ON-846001-3413",
-  "publisher_organization_type": "90",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/rfslmalmoe-organisation.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "rfslmalmoe-organisation-publisher",
-  "type": "dataset"
- },
  "rfsuip-activity-publisher": {
   "author": null,
   "author_email": null,
@@ -584301,7 +584087,7 @@
     "value": null
    }
   ],
-  "id": "723ec24c-8a33-ff3f-d0ca-6a32aa7d0ec2",
+  "id": "d67dbf94-40eb-80b7-0a79-6adf9b466f6f",
   "license_id": "",
   "license_title": "",
   "maintainer": null,
@@ -584683,7 +584469,7 @@
     "value": null
    }
   ],
-  "id": "96b85c22-7255-842d-ad8a-69f4d88214df",
+  "id": "5b8bb824-6787-7f95-421f-6adfa311b1d2",
   "license_id": "",
   "license_title": "",
   "maintainer": null,
@@ -584757,7 +584543,7 @@
     "value": null
    }
   ],
-  "id": "3cac58ad-7969-9141-c091-69f4d84a8706",
+  "id": "1768bd13-1196-acfa-8218-6adfa2da178c",
   "license_id": "",
   "license_title": "",
   "maintainer": null,
@@ -589069,6 +588855,84 @@
   "title": "scc_2025-organisation-publisher",
   "type": "dataset"
  },
+ "sccf-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 138
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "81c8035a-3bc0-1de1-8015-6adf841b8296",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "sccf-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:43:00+00:00",
+   "description": "",
+   "id": "c9b1823c-d796-4085-b3fd-b3534404a66c",
+   "image_url": null,
+   "is_organization": true,
+   "name": "sccf",
+   "state": "active",
+   "title": "Secours Catholique - Caritas France",
+   "type": "organization"
+  },
+  "owner_org": "c9b1823c-d796-4085-b3fd-b3534404a66c",
+  "private": false,
+  "publisher_country": "FR",
+  "publisher_iati_id": "FR-SIRET-77566669600015",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/sccf-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "sccf-activity-publisher",
+  "type": "dataset"
+ },
  "sccf-currentactivities": {
   "author": null,
   "author_email": null,
@@ -589481,7 +589345,7 @@
     "value": null
    }
   ],
-  "id": "c7f7d1ba-1bb0-c0fa-b92d-69ce90907a20",
+  "id": "388c7ee3-1c65-1aff-a06f-6adfa59bb385",
   "license_id": "",
   "license_title": "",
   "maintainer": null,
@@ -597898,7 +597762,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3
+    "value": 4
    },
    {
     "key": "country",
@@ -603878,7 +603742,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1259
+    "value": 1292
    },
    {
     "key": "country",
@@ -603956,7 +603820,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1423
+    "value": 1390
    },
    {
     "key": "country",
@@ -604112,7 +603976,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 985
+    "value": 1065
    },
    {
     "key": "country",
@@ -604190,7 +604054,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1368
+    "value": 913
    },
    {
     "key": "country",
@@ -604268,7 +604132,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1124
+    "value": 1456
    },
    {
     "key": "country",
@@ -604346,7 +604210,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1828
+    "value": 1803
    },
    {
     "key": "country",
@@ -604424,7 +604288,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1407
+    "value": 1671
    },
    {
     "key": "country",
@@ -604502,7 +604366,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1854
+    "value": 1788
    },
    {
     "key": "country",
@@ -604580,7 +604444,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1986
+    "value": 1911
    },
    {
     "key": "country",
@@ -604658,7 +604522,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2600
+    "value": 2522
    },
    {
     "key": "country",
@@ -604736,7 +604600,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2678
+    "value": 2680
    },
    {
     "key": "country",
@@ -604814,7 +604678,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2620
+    "value": 2698
    },
    {
     "key": "country",
@@ -604892,7 +604756,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2652
+    "value": 2550
    },
    {
     "key": "country",
@@ -604970,7 +604834,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2406
+    "value": 2700
    },
    {
     "key": "country",
@@ -605048,7 +604912,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2476
    },
    {
     "key": "country",
@@ -605126,7 +604990,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 376
+    "value": 360
    },
    {
     "key": "country",
@@ -615027,7 +614891,7 @@
     "value": null
    }
   ],
-  "id": "87979513-67be-144a-fc3b-6ac932227b2a",
+  "id": "7aa00d42-ac4c-bbdb-969f-6adf95f6b4c3",
   "license_id": "cc-by-sa",
   "license_title": "",
   "maintainer": null,
@@ -637417,7 +637281,7 @@
     "value": null
    }
   ],
-  "id": "b36395c3-b403-ac9b-6865-6a3d0c51d9f7",
+  "id": "a3a0c9b4-a824-9619-cb52-6adfa5d59729",
   "license_id": "cc-by",
   "license_title": "",
   "maintainer": null,
@@ -644192,7 +644056,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 20
+    "value": 21
    },
    {
     "key": "country",
@@ -1070615,84 +1070479,6 @@
   ],
   "state": "active",
   "title": "wpp-activities",
-  "type": "dataset"
- },
- "wrgb-activities": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 0
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "55d1d5d3-733b-4e77-ad92-2b283775af3a",
-  "license_id": "odc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "wrgb-activities",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:37:00+00:00",
-   "description": "",
-   "id": "b6c771d2-d4e5-4940-8e41-338ade7581fc",
-   "image_url": null,
-   "is_organization": true,
-   "name": "wrgb",
-   "state": "active",
-   "title": "Grand Bargain Test",
-   "type": "organization"
-  },
-  "owner_org": "b6c771d2-d4e5-4940-8e41-338ade7581fc",
-  "private": false,
-  "publisher_country": null,
-  "publisher_iati_id": "GB-COH-893249298",
-  "publisher_organization_type": "80",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/wrgb-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "wrgb-activities",
   "type": "dataset"
  },
  "wri-521257057-strategic-plan-2023-2027": {
