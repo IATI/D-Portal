@@ -72976,7 +72976,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 253
+    "value": 254
    },
    {
     "key": "country",
@@ -97417,6 +97417,80 @@
   "title": "bwi-organisation",
   "type": "dataset"
  },
+ "bwn-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "d06251a6-1193-b161-9f8d-6ae4bd22ed05",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "bwn-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-10-01T07:24:00+00:00",
+   "description": "",
+   "id": "38cb0f13-d581-fc02-9eac-6abe0a0da2b7",
+   "image_url": null,
+   "is_organization": true,
+   "name": "bwn",
+   "state": "active",
+   "title": "CEE Bankwatch Network",
+   "type": "organization"
+  },
+  "owner_org": "38cb0f13-d581-fc02-9eac-6abe0a0da2b7",
+  "private": false,
+  "publisher_country": "CZ",
+  "publisher_iati_id": "CZ-ICO-68406258",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/bwn-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "bwn-activity-publisher",
+  "type": "dataset"
+ },
  "bwn-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -110509,6 +110583,80 @@
   ],
   "state": "active",
   "title": "carbontrustadvisory-activity-publisher",
+  "type": "dataset"
+ },
+ "carbontrustadvisory-org": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "2e1c81aa-6048-47f6-986c-62cf288f76bc",
+  "license_id": "other-at",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "carbontrustadvisory-org",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:38:00+00:00",
+   "description": "",
+   "id": "369b6fae-3a27-40c4-b396-6215d7d213c3",
+   "image_url": null,
+   "is_organization": true,
+   "name": "carbontrustadvisory",
+   "state": "active",
+   "title": "Carbon Trust Advisory Ltd",
+   "type": "organization"
+  },
+  "owner_org": "369b6fae-3a27-40c4-b396-6215d7d213c3",
+  "private": false,
+  "publisher_country": "GB",
+  "publisher_iati_id": "GB-COH-06274284",
+  "publisher_organization_type": "70",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/carbontrustadvisory-org.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "carbontrustadvisory-org",
   "type": "dataset"
  },
  "carbontrustadvisory-organisation-publisher": {
@@ -129078,7 +129226,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3359
+    "value": 3361
    },
    {
     "key": "country",
@@ -271345,84 +271493,6 @@
   "title": "eocdicac-002",
   "type": "dataset"
  },
- "eocdicac-activity-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "38d766eb-3258-c773-ad6f-6a4982b98799",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "eocdicac-activity-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:47:00+00:00",
-   "description": "",
-   "id": "1431fef7-df16-4faa-9e37-ff5d05f45bec",
-   "image_url": null,
-   "is_organization": true,
-   "name": "eocdicac",
-   "state": "active",
-   "title": "Ethiopian Orthodox Church, Developement and Inter Church Aid Commssion (EOC-DICAC)",
-   "type": "organization"
-  },
-  "owner_org": "1431fef7-df16-4faa-9e37-ff5d05f45bec",
-  "private": false,
-  "publisher_country": "ET",
-  "publisher_iati_id": "ET-CSA-1560",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/eocdicac-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "eocdicac-activity-publisher",
-  "type": "dataset"
- },
  "eocdicac-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -283270,7 +283340,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1335
+    "value": 1325
    },
    {
     "key": "country",
@@ -318816,7 +318886,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1806
+    "value": 1804
    },
    {
     "key": "country",
@@ -318894,7 +318964,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 802
+    "value": 803
    },
    {
     "key": "country",
@@ -318972,7 +319042,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 992
+    "value": 993
    },
    {
     "key": "country",
@@ -343037,80 +343107,6 @@
   "title": "guttmacher-org",
   "type": "dataset"
  },
- "guttmacher-organisation-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": null
-   },
-   {
-    "key": "iati_version",
-    "value": null
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "1806a093-c374-cb81-e37d-6ae3a8db4e06",
-  "license_id": "cc-by-sa",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "guttmacher-organisation-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:43:00+00:00",
-   "description": "",
-   "id": "e485811a-fa46-4512-aafb-4982b763522d",
-   "image_url": null,
-   "is_organization": true,
-   "name": "guttmacher",
-   "state": "active",
-   "title": "Guttmacher Institute",
-   "type": "organization"
-  },
-  "owner_org": "e485811a-fa46-4512-aafb-4982b763522d",
-  "private": false,
-  "publisher_country": "US",
-  "publisher_iati_id": "US-EIN-13-2890727",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/guttmacher-organisation.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "guttmacher-organisation-publisher",
-  "type": "dataset"
- },
  "gvtc-activities": {
   "author": null,
   "author_email": null,
@@ -348179,6 +348175,162 @@
   "title": "helpage_international-activities",
   "type": "dataset"
  },
+ "helpage_international-activities-align-july26": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "d259f74f-ef1f-4790-d107-6a674af0b2fb",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "helpage_international-activities-align-july26",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:43:00+00:00",
+   "description": "",
+   "id": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
+   "image_url": null,
+   "is_organization": true,
+   "name": "helpage_international",
+   "state": "active",
+   "title": "HelpAge International",
+   "type": "organization"
+  },
+  "owner_org": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
+  "private": false,
+  "publisher_country": "GB",
+  "publisher_iati_id": "GB-COH-1762840",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://www.helpage.org/wp-content/uploads/2026/07/ActivityStandard_HelpAge-International-ALIGN-July-26.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "helpage_international-activities-align-july26",
+  "type": "dataset"
+ },
+ "helpage_international-activities-score-julu26": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "18014be6-7f92-c0f0-0f9b-6a674c5f87c3",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "helpage_international-activities-score-julu26",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:43:00+00:00",
+   "description": "",
+   "id": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
+   "image_url": null,
+   "is_organization": true,
+   "name": "helpage_international",
+   "state": "active",
+   "title": "HelpAge International",
+   "type": "organization"
+  },
+  "owner_org": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
+  "private": false,
+  "publisher_country": "GB",
+  "publisher_iati_id": "GB-COH-1762840",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://www.helpage.org/wp-content/uploads/2026/07/ActivityStandard_HelpAge_International-SCORE-July-26.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "helpage_international-activities-score-julu26",
+  "type": "dataset"
+ },
  "helpage_international-activity": {
   "author": null,
   "author_email": null,
@@ -348403,6 +348555,84 @@
   ],
   "state": "active",
   "title": "helpage_international-organisation-publisher",
+  "type": "dataset"
+ },
+ "helpage_international_activity_file_sida": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 2
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "a806e0d7-e794-d94a-6284-694532590579",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "helpage_international_activity_file_sida",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:43:00+00:00",
+   "description": "",
+   "id": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
+   "image_url": null,
+   "is_organization": true,
+   "name": "helpage_international",
+   "state": "active",
+   "title": "HelpAge International",
+   "type": "organization"
+  },
+  "owner_org": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
+  "private": false,
+  "publisher_country": "GB",
+  "publisher_iati_id": "GB-COH-1762840",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://www.helpage.org/wp-content/uploads/2026/02/ActivityStandard_HelpAge-International-SIDA-v3.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "helpage_international_activity_file_sida",
   "type": "dataset"
  },
  "helpageindia-activity-publisher": {
@@ -370553,84 +370783,6 @@
   ],
   "state": "active",
   "title": "icnl_org-icnl_fcdo_centralasia2024cumulative",
-  "type": "dataset"
- },
- "icnl_org-icnl_netherlands_2024": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 5
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "b1af08e6-e76e-4155-b176-1ba30ac9119e",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "icnl_org-icnl_netherlands_2024",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:37:00+00:00",
-   "description": "",
-   "id": "3cee49f8-0d62-4810-a021-8c0b282eca39",
-   "image_url": null,
-   "is_organization": true,
-   "name": "icnl_org",
-   "state": "active",
-   "title": "International Center for Not-for-Profit Law",
-   "type": "organization"
-  },
-  "owner_org": "3cee49f8-0d62-4810-a021-8c0b282eca39",
-  "private": false,
-  "publisher_country": "US",
-  "publisher_iati_id": "US-EIN-52-1818273",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://files.aida.tools/activities/US-EIN-52-1818273/f1848cfd-1218-4bdc-b0ab-a2f305f76ce5/ICNL_Netherlands_2024.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "icnl_org-icnl_netherlands_2024",
   "type": "dataset"
  },
  "icnl_org-icnl_sida_e3": {
@@ -520580,7 +520732,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 56
+    "value": 57
    },
    {
     "key": "country",
@@ -521726,7 +521878,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2
+    "value": 4
    },
    {
     "key": "country",
@@ -532790,7 +532942,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 438
+    "value": 441
    },
    {
     "key": "country",
@@ -603586,7 +603738,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1259
+    "value": 1292
    },
    {
     "key": "country",
@@ -603664,7 +603816,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1423
+    "value": 1390
    },
    {
     "key": "country",
@@ -603742,7 +603894,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 681
+    "value": 706
    },
    {
     "key": "country",
@@ -603820,7 +603972,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 995
+    "value": 1020
    },
    {
     "key": "country",
@@ -603898,7 +604050,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1332
+    "value": 1182
    },
    {
     "key": "country",
@@ -603976,7 +604128,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1116
+    "value": 1248
    },
    {
     "key": "country",
@@ -604054,7 +604206,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1795
+    "value": 1875
    },
    {
     "key": "country",
@@ -604132,7 +604284,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1776
+    "value": 1590
    },
    {
     "key": "country",
@@ -604210,7 +604362,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1866
+    "value": 1830
    },
    {
     "key": "country",
@@ -604288,7 +604440,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1713
+    "value": 1806
    },
    {
     "key": "country",
@@ -604366,7 +604518,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2559
+    "value": 2575
    },
    {
     "key": "country",
@@ -604600,7 +604752,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2674
+    "value": 2508
    },
    {
     "key": "country",
@@ -604678,7 +604830,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2598
+    "value": 2700
    },
    {
     "key": "country",
@@ -604756,7 +604908,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2406
+    "value": 2470
    },
    {
     "key": "country",
@@ -604834,7 +604986,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 396
+    "value": 398
    },
    {
     "key": "country",
@@ -895752,7 +895904,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 11
+    "value": 0
    },
    {
     "key": "country",
@@ -895908,7 +896060,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 20
+    "value": 0
    },
    {
     "key": "country",
@@ -896298,7 +896450,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 23
+    "value": 15
    },
    {
     "key": "country",
@@ -896376,7 +896528,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 19
+    "value": 18
    },
    {
     "key": "country",
@@ -900506,7 +900658,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 12
+    "value": 0
    },
    {
     "key": "country",
@@ -900584,7 +900736,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 11
+    "value": 0
    },
    {
     "key": "country",
@@ -900662,7 +900814,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 17
+    "value": 0
    },
    {
     "key": "country",
@@ -900896,7 +901048,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 14
+    "value": 0
    },
    {
     "key": "country",
@@ -1036574,7 +1036726,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 18
+    "value": 19
    },
    {
     "key": "country",
@@ -1072017,7 +1072169,7 @@
   "title": "wu-activity-publisher",
   "type": "dataset"
  },
- "wu-organisation": {
+ "wu-organisation-publisher": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -1072052,7 +1072204,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "wu-organisation",
+  "name": "wu-organisation-publisher",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -1072088,7 +1072240,7 @@
    }
   ],
   "state": "active",
-  "title": "wu-organisation",
+  "title": "wu-organisation-publisher",
   "type": "dataset"
  },
  "wusc-activities": {
