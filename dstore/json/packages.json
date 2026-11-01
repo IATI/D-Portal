@@ -34098,7 +34098,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 65
+    "value": 66
    },
    {
     "key": "country",
@@ -34176,7 +34176,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 65
+    "value": 66
    },
    {
     "key": "country",
@@ -97423,16 +97423,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -110513,20 +110517,16 @@
   "creator_user_id": null,
   "extras": [
    {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": "activity"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -110583,80 +110583,6 @@
   ],
   "state": "active",
   "title": "carbontrustadvisory-activity-publisher",
-  "type": "dataset"
- },
- "carbontrustadvisory-org": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "2e1c81aa-6048-47f6-986c-62cf288f76bc",
-  "license_id": "other-at",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "carbontrustadvisory-org",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:38:00+00:00",
-   "description": "",
-   "id": "369b6fae-3a27-40c4-b396-6215d7d213c3",
-   "image_url": null,
-   "is_organization": true,
-   "name": "carbontrustadvisory",
-   "state": "active",
-   "title": "Carbon Trust Advisory Ltd",
-   "type": "organization"
-  },
-  "owner_org": "369b6fae-3a27-40c4-b396-6215d7d213c3",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-COH-06274284",
-  "publisher_organization_type": "70",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/carbontrustadvisory-org.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "carbontrustadvisory-org",
   "type": "dataset"
  },
  "carbontrustadvisory-organisation-publisher": {
@@ -116992,7 +116918,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1810
+    "value": 1812
    },
    {
     "key": "country",
@@ -129530,7 +129456,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 39
+    "value": 40
    },
    {
     "key": "country",
@@ -129686,7 +129612,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 29
+    "value": 30
    },
    {
     "key": "country",
@@ -130072,7 +129998,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 147
+    "value": 154
    },
    {
     "key": "country",
@@ -130753,6 +130679,80 @@
   ],
   "state": "active",
   "title": "civicus-org",
+  "type": "dataset"
+ },
+ "civicus-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "3ebb044f-6127-d5f0-1f29-6ae5f781bfd7",
+  "license_id": "other-open",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "civicus-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:45:00+00:00",
+   "description": "",
+   "id": "a2942dfd-bf15-4b30-b490-9d3b17d32193",
+   "image_url": null,
+   "is_organization": true,
+   "name": "civicus",
+   "state": "active",
+   "title": "CIVICUS World Alliance for Citizen Participation",
+   "type": "organization"
+  },
+  "owner_org": "a2942dfd-bf15-4b30-b490-9d3b17d32193",
+  "private": false,
+  "publisher_country": "ZA",
+  "publisher_iati_id": "ZA-NPO-029-864",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/civicus-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "civicus-organisation-publisher",
   "type": "dataset"
  },
  "cividep-activities": {
@@ -230376,7 +230376,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 355
+    "value": 357
    },
    {
     "key": "country",
@@ -240070,7 +240070,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 6
+    "value": 5
    },
    {
     "key": "country",
@@ -240148,7 +240148,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 13
+    "value": 11
    },
    {
     "key": "country",
@@ -240226,7 +240226,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 45
+    "value": 47
    },
    {
     "key": "country",
@@ -240382,7 +240382,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 21
+    "value": 22
    },
    {
     "key": "country",
@@ -240616,7 +240616,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3
+    "value": 2
    },
    {
     "key": "country",
@@ -240850,7 +240850,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 78
+    "value": 76
    },
    {
     "key": "country",
@@ -241084,7 +241084,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 236
+    "value": 227
    },
    {
     "key": "country",
@@ -241708,7 +241708,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 7
+    "value": 8
    },
    {
     "key": "country",
@@ -242332,7 +242332,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 23
+    "value": 21
    },
    {
     "key": "country",
@@ -242566,7 +242566,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 10
+    "value": 9
    },
    {
     "key": "country",
@@ -242956,7 +242956,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 10
+    "value": 11
    },
    {
     "key": "country",
@@ -243112,7 +243112,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 24
+    "value": 25
    },
    {
     "key": "country",
@@ -243970,7 +243970,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 5
+    "value": 7
    },
    {
     "key": "country",
@@ -244200,7 +244200,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 7
+    "value": 6
    },
    {
     "key": "country",
@@ -244824,7 +244824,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 13
+    "value": 12
    },
    {
     "key": "country",
@@ -245292,7 +245292,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 23
+    "value": 24
    },
    {
     "key": "country",
@@ -245838,7 +245838,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 17
+    "value": 16
    },
    {
     "key": "country",
@@ -245916,7 +245916,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 6
+    "value": 5
    },
    {
     "key": "country",
@@ -248178,7 +248178,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 83
+    "value": 84
    },
    {
     "key": "country",
@@ -248646,7 +248646,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 10
+    "value": 11
    },
    {
     "key": "country",
@@ -248880,7 +248880,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 5
+    "value": 6
    },
    {
     "key": "country",
@@ -248958,7 +248958,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 107
+    "value": 106
    },
    {
     "key": "country",
@@ -249192,7 +249192,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 128
+    "value": 126
    },
    {
     "key": "country",
@@ -249270,7 +249270,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 131
+    "value": 133
    },
    {
     "key": "country",
@@ -249660,7 +249660,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 398
+    "value": 394
    },
    {
     "key": "country",
@@ -249738,7 +249738,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 594
+    "value": 582
    },
    {
     "key": "country",
@@ -249816,7 +249816,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 10
+    "value": 9
    },
    {
     "key": "country",
@@ -249894,7 +249894,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 71
+    "value": 66
    },
    {
     "key": "country",
@@ -249972,7 +249972,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 155
+    "value": 152
    },
    {
     "key": "country",
@@ -250128,7 +250128,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 103
+    "value": 100
    },
    {
     "key": "country",
@@ -250440,7 +250440,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 192
+    "value": 191
    },
    {
     "key": "country",
@@ -250518,7 +250518,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 59
+    "value": 57
    },
    {
     "key": "country",
@@ -250596,7 +250596,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 148
+    "value": 145
    },
    {
     "key": "country",
@@ -250908,7 +250908,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 85
+    "value": 81
    },
    {
     "key": "country",
@@ -250986,7 +250986,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 33
+    "value": 32
    },
    {
     "key": "country",
@@ -251298,7 +251298,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 200
+    "value": 186
    },
    {
     "key": "country",
@@ -251376,7 +251376,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 115
+    "value": 113
    },
    {
     "key": "country",
@@ -251454,7 +251454,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 122
+    "value": 114
    },
    {
     "key": "country",
@@ -251610,7 +251610,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 94
+    "value": 92
    },
    {
     "key": "country",
@@ -251688,7 +251688,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 53
+    "value": 52
    },
    {
     "key": "country",
@@ -251922,7 +251922,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 38
+    "value": 39
    },
    {
     "key": "country",
@@ -252000,7 +252000,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 44
+    "value": 41
    },
    {
     "key": "country",
@@ -252078,7 +252078,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 269
+    "value": 270
    },
    {
     "key": "country",
@@ -252234,7 +252234,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 88
+    "value": 89
    },
    {
     "key": "country",
@@ -252468,7 +252468,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 182
+    "value": 177
    },
    {
     "key": "country",
@@ -252546,7 +252546,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 55
+    "value": 54
    },
    {
     "key": "country",
@@ -252702,7 +252702,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 29
+    "value": 28
    },
    {
     "key": "country",
@@ -253014,7 +253014,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 95
+    "value": 96
    },
    {
     "key": "country",
@@ -253248,7 +253248,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 79
+    "value": 78
    },
    {
     "key": "country",
@@ -253404,7 +253404,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 231
+    "value": 222
    },
    {
     "key": "country",
@@ -253482,7 +253482,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 26
+    "value": 25
    },
    {
     "key": "country",
@@ -253794,7 +253794,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 143
+    "value": 146
    },
    {
     "key": "country",
@@ -254028,7 +254028,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 96
+    "value": 97
    },
    {
     "key": "country",
@@ -254106,7 +254106,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 11
+    "value": 10
    },
    {
     "key": "country",
@@ -254262,7 +254262,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 93
+    "value": 88
    },
    {
     "key": "country",
@@ -254340,7 +254340,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 30
+    "value": 29
    },
    {
     "key": "country",
@@ -254418,7 +254418,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 74
+    "value": 72
    },
    {
     "key": "country",
@@ -254648,7 +254648,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 41
+    "value": 39
    },
    {
     "key": "country",
@@ -254882,7 +254882,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 21
+    "value": 20
    },
    {
     "key": "country",
@@ -254960,7 +254960,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 64
+    "value": 60
    },
    {
     "key": "country",
@@ -255350,7 +255350,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 57
+    "value": 58
    },
    {
     "key": "country",
@@ -255506,7 +255506,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 8
+    "value": 7
    },
    {
     "key": "country",
@@ -255584,7 +255584,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 34
+    "value": 33
    },
    {
     "key": "country",
@@ -255740,7 +255740,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 7
+    "value": 6
    },
    {
     "key": "country",
@@ -255818,7 +255818,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 89
+    "value": 88
    },
    {
     "key": "country",
@@ -256052,7 +256052,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 196
+    "value": 197
    },
    {
     "key": "country",
@@ -256208,7 +256208,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 134
+    "value": 133
    },
    {
     "key": "country",
@@ -256364,7 +256364,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 62
+    "value": 60
    },
    {
     "key": "country",
@@ -256442,7 +256442,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 141
+    "value": 137
    },
    {
     "key": "country",
@@ -256520,7 +256520,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 40
+    "value": 38
    },
    {
     "key": "country",
@@ -256676,7 +256676,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 167
+    "value": 166
    },
    {
     "key": "country",
@@ -256832,7 +256832,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 33
+    "value": 32
    },
    {
     "key": "country",
@@ -256910,7 +256910,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 219
+    "value": 214
    },
    {
     "key": "country",
@@ -256988,7 +256988,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 62
+    "value": 63
    },
    {
     "key": "country",
@@ -257066,7 +257066,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 5
+    "value": 4
    },
    {
     "key": "country",
@@ -257222,7 +257222,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 168
+    "value": 170
    },
    {
     "key": "country",
@@ -257300,7 +257300,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 35
+    "value": 36
    },
    {
     "key": "country",
@@ -257534,7 +257534,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 93
+    "value": 92
    },
    {
     "key": "country",
@@ -257846,7 +257846,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 120
+    "value": 121
    },
    {
     "key": "country",
@@ -258002,7 +258002,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 71
+    "value": 69
    },
    {
     "key": "country",
@@ -258080,7 +258080,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 158
+    "value": 160
    },
    {
     "key": "country",
@@ -258470,7 +258470,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 109
+    "value": 111
    },
    {
     "key": "country",
@@ -258548,7 +258548,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 131
+    "value": 133
    },
    {
     "key": "country",
@@ -258782,7 +258782,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 84
+    "value": 80
    },
    {
     "key": "country",
@@ -259094,7 +259094,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 24
+    "value": 25
    },
    {
     "key": "country",
@@ -259172,7 +259172,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 215
+    "value": 210
    },
    {
     "key": "country",
@@ -259328,7 +259328,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 73
+    "value": 71
    },
    {
     "key": "country",
@@ -259406,7 +259406,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 50
+    "value": 49
    },
    {
     "key": "country",
@@ -259562,7 +259562,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 53
+    "value": 51
    },
    {
     "key": "country",
@@ -259874,7 +259874,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 4
+    "value": 5
    },
    {
     "key": "country",
@@ -259952,7 +259952,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 146
+    "value": 143
    },
    {
     "key": "country",
@@ -260108,7 +260108,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 203
+    "value": 202
    },
    {
     "key": "country",
@@ -260264,7 +260264,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 98
+    "value": 96
    },
    {
     "key": "country",
@@ -260498,7 +260498,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 107
+    "value": 105
    },
    {
     "key": "country",
@@ -260888,7 +260888,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 136
+    "value": 139
    },
    {
     "key": "country",
@@ -260966,7 +260966,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 179
+    "value": 173
    },
    {
     "key": "country",
@@ -261044,7 +261044,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 110
+    "value": 103
    },
    {
     "key": "country",
@@ -270584,7 +270584,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1238
+    "value": 1237
    },
    {
     "key": "country",
@@ -318730,7 +318730,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1171
+    "value": 1172
    },
    {
     "key": "country",
@@ -318886,7 +318886,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1804
+    "value": 1801
    },
    {
     "key": "country",
@@ -318964,7 +318964,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 803
+    "value": 806
    },
    {
     "key": "country",
@@ -343107,6 +343107,80 @@
   "title": "guttmacher-org",
   "type": "dataset"
  },
+ "guttmacher-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "1806a093-c374-cb81-e37d-6ae3a8db4e06",
+  "license_id": "cc-by-sa",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "guttmacher-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:43:00+00:00",
+   "description": "",
+   "id": "e485811a-fa46-4512-aafb-4982b763522d",
+   "image_url": null,
+   "is_organization": true,
+   "name": "guttmacher",
+   "state": "active",
+   "title": "Guttmacher Institute",
+   "type": "organization"
+  },
+  "owner_org": "e485811a-fa46-4512-aafb-4982b763522d",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-EIN-13-2890727",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/guttmacher-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "guttmacher-organisation-publisher",
+  "type": "dataset"
+ },
  "gvtc-activities": {
   "author": null,
   "author_email": null,
@@ -348175,162 +348249,6 @@
   "title": "helpage_international-activities",
   "type": "dataset"
  },
- "helpage_international-activities-align-july26": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "d259f74f-ef1f-4790-d107-6a674af0b2fb",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "helpage_international-activities-align-july26",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:43:00+00:00",
-   "description": "",
-   "id": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
-   "image_url": null,
-   "is_organization": true,
-   "name": "helpage_international",
-   "state": "active",
-   "title": "HelpAge International",
-   "type": "organization"
-  },
-  "owner_org": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-COH-1762840",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://www.helpage.org/wp-content/uploads/2026/07/ActivityStandard_HelpAge-International-ALIGN-July-26.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "helpage_international-activities-align-july26",
-  "type": "dataset"
- },
- "helpage_international-activities-score-julu26": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "18014be6-7f92-c0f0-0f9b-6a674c5f87c3",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "helpage_international-activities-score-julu26",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:43:00+00:00",
-   "description": "",
-   "id": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
-   "image_url": null,
-   "is_organization": true,
-   "name": "helpage_international",
-   "state": "active",
-   "title": "HelpAge International",
-   "type": "organization"
-  },
-  "owner_org": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-COH-1762840",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://www.helpage.org/wp-content/uploads/2026/07/ActivityStandard_HelpAge_International-SCORE-July-26.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "helpage_international-activities-score-julu26",
-  "type": "dataset"
- },
  "helpage_international-activity": {
   "author": null,
   "author_email": null,
@@ -348555,84 +348473,6 @@
   ],
   "state": "active",
   "title": "helpage_international-organisation-publisher",
-  "type": "dataset"
- },
- "helpage_international_activity_file_sida": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 2
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "a806e0d7-e794-d94a-6284-694532590579",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "helpage_international_activity_file_sida",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:43:00+00:00",
-   "description": "",
-   "id": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
-   "image_url": null,
-   "is_organization": true,
-   "name": "helpage_international",
-   "state": "active",
-   "title": "HelpAge International",
-   "type": "organization"
-  },
-  "owner_org": "e8b9b2c0-3bff-4090-9973-73b47fcca45a",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-COH-1762840",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://www.helpage.org/wp-content/uploads/2026/02/ActivityStandard_HelpAge-International-SIDA-v3.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "helpage_international_activity_file_sida",
   "type": "dataset"
  },
  "helpageindia-activity-publisher": {
@@ -370785,6 +370625,84 @@
   "title": "icnl_org-icnl_fcdo_centralasia2024cumulative",
   "type": "dataset"
  },
+ "icnl_org-icnl_netherlands_2024": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 5
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "b1af08e6-e76e-4155-b176-1ba30ac9119e",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "icnl_org-icnl_netherlands_2024",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:37:00+00:00",
+   "description": "",
+   "id": "3cee49f8-0d62-4810-a021-8c0b282eca39",
+   "image_url": null,
+   "is_organization": true,
+   "name": "icnl_org",
+   "state": "active",
+   "title": "International Center for Not-for-Profit Law",
+   "type": "organization"
+  },
+  "owner_org": "3cee49f8-0d62-4810-a021-8c0b282eca39",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-EIN-52-1818273",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://files.aida.tools/activities/US-EIN-52-1818273/f1848cfd-1218-4bdc-b0ab-a2f305f76ce5/ICNL_Netherlands_2024.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "icnl_org-icnl_netherlands_2024",
+  "type": "dataset"
+ },
  "icnl_org-icnl_sida_e3": {
   "author": null,
   "author_email": null,
@@ -374288,7 +374206,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 285
+    "value": 286
    },
    {
     "key": "country",
@@ -419472,7 +419390,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 369
+    "value": 427
    },
    {
     "key": "country",
@@ -424306,7 +424224,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 30
+    "value": 31
    },
    {
     "key": "country",
@@ -436829,6 +436747,158 @@
   ],
   "state": "active",
   "title": "kmu-organisation",
+  "type": "dataset"
+ },
+ "kn-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "21ce0ea1-e49d-739a-0489-6ae450bc11f2",
+  "license_id": "other-open",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "kn-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:44:00+00:00",
+   "description": "",
+   "id": "bb12f0f2-c725-452d-b949-d8b11370e8f2",
+   "image_url": null,
+   "is_organization": true,
+   "name": "kn",
+   "state": "active",
+   "title": "Norwegian Church Aid",
+   "type": "organization"
+  },
+  "owner_org": "bb12f0f2-c725-452d-b949-d8b11370e8f2",
+  "private": false,
+  "publisher_country": "NO",
+  "publisher_iati_id": "NO-BRC-951434353",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/kn-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "kn-activity-publisher",
+  "type": "dataset"
+ },
+ "kn-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "77ec3579-3a6c-e1a7-eed3-6ae437efd9b6",
+  "license_id": "other-open",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "kn-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:44:00+00:00",
+   "description": "",
+   "id": "bb12f0f2-c725-452d-b949-d8b11370e8f2",
+   "image_url": null,
+   "is_organization": true,
+   "name": "kn",
+   "state": "active",
+   "title": "Norwegian Church Aid",
+   "type": "organization"
+  },
+  "owner_org": "bb12f0f2-c725-452d-b949-d8b11370e8f2",
+  "private": false,
+  "publisher_country": "NO",
+  "publisher_iati_id": "NO-BRC-951434353",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/kn-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "kn-organisation-publisher",
   "type": "dataset"
  },
  "knchr-activities": {
@@ -494328,7 +494398,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 304
+    "value": 308
    },
    {
     "key": "country",
@@ -494406,7 +494476,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 55
+    "value": 56
    },
    {
     "key": "country",
@@ -494796,7 +494866,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 390
+    "value": 392
    },
    {
     "key": "country",
@@ -494874,7 +494944,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 115
+    "value": 116
    },
    {
     "key": "country",
@@ -495186,7 +495256,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 203
+    "value": 204
    },
    {
     "key": "country",
@@ -495342,7 +495412,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 376
+    "value": 375
    },
    {
     "key": "country",
@@ -495420,7 +495490,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 142
+    "value": 143
    },
    {
     "key": "country",
@@ -495576,7 +495646,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 121
+    "value": 123
    },
    {
     "key": "country",
@@ -495732,7 +495802,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 62
+    "value": 63
    },
    {
     "key": "country",
@@ -495810,7 +495880,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 127
+    "value": 128
    },
    {
     "key": "country",
@@ -495888,7 +495958,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 61
+    "value": 62
    },
    {
     "key": "country",
@@ -502778,7 +502848,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 303
+    "value": 319
    },
    {
     "key": "country",
@@ -603738,7 +603808,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1292
+    "value": 1281
    },
    {
     "key": "country",
@@ -603816,7 +603886,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1390
+    "value": 1401
    },
    {
     "key": "country",
@@ -603972,7 +604042,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1020
+    "value": 1070
    },
    {
     "key": "country",
@@ -604050,7 +604120,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1182
+    "value": 1436
    },
    {
     "key": "country",
@@ -604128,7 +604198,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1248
+    "value": 880
    },
    {
     "key": "country",
@@ -604206,7 +604276,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1875
+    "value": 1924
    },
    {
     "key": "country",
@@ -604284,7 +604354,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1590
+    "value": 1821
    },
    {
     "key": "country",
@@ -604362,7 +604432,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1830
+    "value": 1581
    },
    {
     "key": "country",
@@ -604440,7 +604510,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1806
+    "value": 1839
    },
    {
     "key": "country",
@@ -604518,7 +604588,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2575
+    "value": 2570
    },
    {
     "key": "country",
@@ -604596,7 +604666,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2678
    },
    {
     "key": "country",
@@ -604674,7 +604744,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2550
    },
    {
     "key": "country",
@@ -604752,7 +604822,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2508
+    "value": 2620
    },
    {
     "key": "country",
@@ -604830,7 +604900,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2534
    },
    {
     "key": "country",
@@ -604908,7 +604978,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2470
+    "value": 2700
    },
    {
     "key": "country",
@@ -604986,7 +605056,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 398
+    "value": 402
    },
    {
     "key": "country",
@@ -840014,7 +840084,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 134
+    "value": 135
    },
    {
     "key": "country",
@@ -841652,7 +841722,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 129
+    "value": 130
    },
    {
     "key": "country",
@@ -841730,7 +841800,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 162
+    "value": 161
    },
    {
     "key": "country",
@@ -844382,7 +844452,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 952
+    "value": 957
    },
    {
     "key": "country",
@@ -844460,7 +844530,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 472
+    "value": 475
    },
    {
     "key": "country",
@@ -845084,7 +845154,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 175
+    "value": 176
    },
    {
     "key": "country",
@@ -848902,7 +848972,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 116
+    "value": 117
    },
    {
     "key": "country",
@@ -849916,7 +849986,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 109
+    "value": 108
    },
    {
     "key": "country",
@@ -895904,7 +895974,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 11
    },
    {
     "key": "country",
@@ -896060,7 +896130,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 20
    },
    {
     "key": "country",
@@ -896450,7 +896520,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 15
+    "value": 23
    },
    {
     "key": "country",
@@ -896528,7 +896598,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 18
+    "value": 19
    },
    {
     "key": "country",
@@ -900658,7 +900728,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 12
    },
    {
     "key": "country",
@@ -900736,7 +900806,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 11
    },
    {
     "key": "country",
@@ -900814,7 +900884,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 17
    },
    {
     "key": "country",
@@ -901048,7 +901118,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 14
    },
    {
     "key": "country",
@@ -931473,158 +931543,6 @@
   ],
   "state": "active",
   "title": "uol-org",
-  "type": "dataset"
- },
- "uol-organisation-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "cd100eed-198b-cbaa-0970-6ac8dd353f35",
-  "license_id": "other-open",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "uol-organisation-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:40:00+00:00",
-   "description": "",
-   "id": "b8b68ebd-97c4-48d7-95f1-2ff6bd0d773a",
-   "image_url": null,
-   "is_organization": true,
-   "name": "uol",
-   "state": "active",
-   "title": "University Of Liverpool",
-   "type": "organization"
-  },
-  "owner_org": "b8b68ebd-97c4-48d7-95f1-2ff6bd0d773a",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-COH-RC000660",
-  "publisher_organization_type": "80",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/uol-organisation.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "uol-organisation-publisher",
-  "type": "dataset"
- },
- "uom-activities": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 5
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "bba97012-0a4f-43f5-9b86-a841a55fb56d",
-  "license_id": "other-open",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "uom-activities",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:45:00+00:00",
-   "description": "",
-   "id": "1f09344f-bc4a-4d73-b098-9eac698fb109",
-   "image_url": null,
-   "is_organization": true,
-   "name": "uom",
-   "state": "active",
-   "title": "The University of Manchester",
-   "type": "organization"
-  },
-  "owner_org": "1f09344f-bc4a-4d73-b098-9eac698fb109",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-COH-RC000797",
-  "publisher_organization_type": "80",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/uom-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "uom-activities",
   "type": "dataset"
  },
  "uom-organisation-publisher": {
@@ -984478,7 +984396,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1
+    "value": 2
    },
    {
     "key": "country",
