@@ -1360,6 +1360,7 @@ query.do_select=function(q,res,req){
 		}
 	}
 
+	r.readonly="PGRO" // flag readonly
 	return dstore_db.query_select(q,res,r,req);
 };
 
