@@ -93144,7 +93144,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 5
+    "value": 6
    },
    {
     "key": "country",
@@ -270510,7 +270510,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1236
+    "value": 1237
    },
    {
     "key": "country",
@@ -280713,84 +280713,6 @@
   "title": "fawe-rs-organisation",
   "type": "dataset"
  },
- "fb-activity-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 9
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "487ecb5d-33db-c0e8-31af-69ce423b2658",
-  "license_id": "notspecified",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "fb-activity-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2026-02-05T08:38:00+00:00",
-   "description": "",
-   "id": "68f72ea4-7c7f-6854-72d6-698457dcec0f",
-   "image_url": null,
-   "is_organization": true,
-   "name": "fb",
-   "state": "active",
-   "title": "Föräldralösa Barn, en del av Adoptionscentrum",
-   "type": "organization"
-  },
-  "owner_org": "68f72ea4-7c7f-6854-72d6-698457dcec0f",
-  "private": false,
-  "publisher_country": "SE",
-  "publisher_iati_id": "SE-ON-802004-7737",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/fb-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "fb-activity-publisher",
-  "type": "dataset"
- },
  "fb-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -280802,11 +280724,11 @@
    },
    {
     "key": "filetype",
-    "value": "organisation"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -280821,7 +280743,7 @@
     "value": null
    }
   ],
-  "id": "31e6f727-e942-2664-7cc2-69ce42d785c7",
+  "id": "2070fec9-1580-bde1-d7f1-6ae8bc8861db",
   "license_id": "notspecified",
   "license_title": "",
   "maintainer": null,
@@ -304855,7 +304777,7 @@
   "title": "fonplata_act_trans",
   "type": "dataset"
  },
- "forest-trends-activities": {
+ "forest-trends-activity-publisher": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -304894,7 +304816,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "forest-trends-activities",
+  "name": "forest-trends-activity-publisher",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -304930,81 +304852,7 @@
    }
   ],
   "state": "active",
-  "title": "forest-trends-activities",
-  "type": "dataset"
- },
- "forest-trends-org": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "746dbda4-f76b-4a01-a56e-6d504eba2e28",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "forest-trends-org",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:37:00+00:00",
-   "description": "",
-   "id": "2af9f647-3b86-440f-aecf-991da4e1b8ca",
-   "image_url": null,
-   "is_organization": true,
-   "name": "forest-trends",
-   "state": "active",
-   "title": "Forest Trends Association",
-   "type": "organization"
-  },
-  "owner_org": "2af9f647-3b86-440f-aecf-991da4e1b8ca",
-  "private": false,
-  "publisher_country": "US",
-  "publisher_iati_id": "US-EIN-52-2135531",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/forest-trends-org.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "forest-trends-org",
+  "title": "forest-trends-activity-publisher",
   "type": "dataset"
  },
  "forest-trends-organisation-publisher": {
@@ -342881,26 +342729,22 @@
   "title": "guluuni-org",
   "type": "dataset"
  },
- "guttmacher-activities": {
+ "guttmacher-activity-publisher": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
   "extras": [
-   {
-    "key": "activity_count",
-    "value": 3
-   },
    {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": "activity"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -342915,12 +342759,12 @@
     "value": null
    }
   ],
-  "id": "5eecdb30-dcbd-431a-846a-1c45090a7236",
+  "id": "85f5640c-ceec-cb6d-3169-6ae89dbc34f4",
   "license_id": "cc-by-sa",
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "guttmacher-activities",
+  "name": "guttmacher-activity-publisher",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -342951,86 +342795,12 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/guttmacher-activities.xml",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/guttmacher-activities.xml",
     "url_type": null
    }
   ],
   "state": "active",
-  "title": "guttmacher-activities",
-  "type": "dataset"
- },
- "guttmacher-org": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.02"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "79166732-61f1-4c7f-8355-cf6515d32fcd",
-  "license_id": "cc-by-sa",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "guttmacher-org",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:43:00+00:00",
-   "description": "",
-   "id": "e485811a-fa46-4512-aafb-4982b763522d",
-   "image_url": null,
-   "is_organization": true,
-   "name": "guttmacher",
-   "state": "active",
-   "title": "Guttmacher Institute",
-   "type": "organization"
-  },
-  "owner_org": "e485811a-fa46-4512-aafb-4982b763522d",
-  "private": false,
-  "publisher_country": "US",
-  "publisher_iati_id": "US-EIN-13-2890727",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/guttmacher-org.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "guttmacher-org",
+  "title": "guttmacher-activity-publisher",
   "type": "dataset"
  },
  "guttmacher-organisation-publisher": {
@@ -383062,7 +382832,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 19
+    "value": 18
    },
    {
     "key": "country",
@@ -386572,7 +386342,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 19
+    "value": 18
    },
    {
     "key": "country",
@@ -517715,7 +517485,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://nrkia-open.azurewebsites.net/document/NLRC_IATI_5-10-2026_0_APPROVED.xml",
+    "url": "https://nrkia-open.azurewebsites.net/document/NLRC_IATI_2-11-2026_0_APPROVED.xml",
     "url_type": null
    }
   ],
@@ -603968,7 +603738,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1005
+    "value": 1175
    },
    {
     "key": "country",
@@ -604046,7 +603816,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1349
+    "value": 1271
    },
    {
     "key": "country",
@@ -604124,7 +603894,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1184
+    "value": 1152
    },
    {
     "key": "country",
@@ -604280,7 +604050,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1911
+    "value": 1773
    },
    {
     "key": "country",
@@ -604358,7 +604128,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1815
+    "value": 1785
    },
    {
     "key": "country",
@@ -604436,7 +604206,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1620
+    "value": 1689
    },
    {
     "key": "country",
@@ -604514,7 +604284,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2529
+    "value": 2510
    },
    {
     "key": "country",
@@ -604592,7 +604362,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2674
+    "value": 2700
    },
    {
     "key": "country",
@@ -604748,7 +604518,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2556
+    "value": 2524
    },
    {
     "key": "country",
@@ -604826,7 +604596,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2678
+    "value": 2656
    },
    {
     "key": "country",
@@ -604904,7 +604674,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2552
+    "value": 2556
    },
    {
     "key": "country",
@@ -604982,7 +604752,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 348
+    "value": 430
    },
    {
     "key": "country",
@@ -851472,7 +851242,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 7
+    "value": 8
    },
    {
     "key": "country",
@@ -852404,7 +852174,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 6
    },
    {
     "key": "country",
@@ -854042,7 +853812,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 19
    },
    {
     "key": "country",
@@ -855758,7 +855528,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 47
+    "value": 48
    },
    {
     "key": "country",
@@ -856382,7 +856152,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 24
+    "value": 26
    },
    {
     "key": "country",
@@ -858566,7 +858336,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 33
+    "value": 34
    },
    {
     "key": "country",
@@ -860360,7 +860130,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 4
+    "value": 5
    },
    {
     "key": "country",
@@ -931471,81 +931241,7 @@
   "title": "uol-org",
   "type": "dataset"
  },
- "uol-organisation-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "cd100eed-198b-cbaa-0970-6ac8dd353f35",
-  "license_id": "other-open",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "uol-organisation-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:40:00+00:00",
-   "description": "",
-   "id": "b8b68ebd-97c4-48d7-95f1-2ff6bd0d773a",
-   "image_url": null,
-   "is_organization": true,
-   "name": "uol",
-   "state": "active",
-   "title": "University Of Liverpool",
-   "type": "organization"
-  },
-  "owner_org": "b8b68ebd-97c4-48d7-95f1-2ff6bd0d773a",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-COH-RC000660",
-  "publisher_organization_type": "80",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/uol-organisation.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "uol-organisation-publisher",
-  "type": "dataset"
- },
- "uom-activities": {
+ "uom-activity-publisher": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -931584,7 +931280,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "uom-activities",
+  "name": "uom-activity-publisher",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -931620,7 +931316,7 @@
    }
   ],
   "state": "active",
-  "title": "uom-activities",
+  "title": "uom-activity-publisher",
   "type": "dataset"
  },
  "uom-organisation-publisher": {
