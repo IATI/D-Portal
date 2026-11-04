@@ -34091,84 +34091,6 @@
   "title": "ageafrica-organisation",
   "type": "dataset"
  },
- "ageintl-activities": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 66
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "af4006d1-0de6-461a-80ae-b1e89b122343",
-  "license_id": "odc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "ageintl-activities",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:41:00+00:00",
-   "description": "",
-   "id": "dcd4a642-8fb7-40ce-aa09-f3ceec2c2bc9",
-   "image_url": null,
-   "is_organization": true,
-   "name": "ageintl",
-   "state": "active",
-   "title": "HelpAge International UK",
-   "type": "organization"
-  },
-  "owner_org": "dcd4a642-8fb7-40ce-aa09-f3ceec2c2bc9",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-CHC-1128267-8",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/ageintl-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "ageintl-activities",
-  "type": "dataset"
- },
  "ageintl-activity": {
   "author": null,
   "author_email": null,
@@ -53231,84 +53153,6 @@
   "title": "amrefmw-org",
   "type": "dataset"
  },
- "amrefnl-activities": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 86
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "58c691ca-0ad7-4657-8de6-549bc94e26b0",
-  "license_id": "other-open",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "amrefnl-activities",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:41:00+00:00",
-   "description": "",
-   "id": "8a95df96-bb71-4535-a460-44ee3b5d1c92",
-   "image_url": null,
-   "is_organization": true,
-   "name": "amrefnl",
-   "state": "active",
-   "title": "Amref Health Africa NL",
-   "type": "organization"
-  },
-  "owner_org": "8a95df96-bb71-4535-a460-44ee3b5d1c92",
-  "private": false,
-  "publisher_country": "NL",
-  "publisher_iati_id": "NL-KVK-41150298",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/amrefnl-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "amrefnl-activities",
-  "type": "dataset"
- },
  "amrefnl-activity": {
   "author": null,
   "author_email": null,
@@ -57447,6 +57291,154 @@
   ],
   "state": "active",
   "title": "apt-ug",
+  "type": "dataset"
+ },
+ "apwld": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "8b6c8b71-34ca-0f07-e1a5-6ae874f06813",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "apwld",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-10-27T18:22:00+00:00",
+   "description": "",
+   "id": "8ba19f94-5afe-2f12-cab8-6ae0eba22c8e",
+   "image_url": null,
+   "is_organization": true,
+   "name": "apwld",
+   "state": "active",
+   "title": "Asia Pacific Forum on Women, Law and Development",
+   "type": "organization"
+  },
+  "owner_org": "8ba19f94-5afe-2f12-cab8-6ae0eba22c8e",
+  "private": false,
+  "publisher_country": "TH",
+  "publisher_iati_id": "TH-TIN-0993000237366",
+  "publisher_organization_type": "23",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://apwld.org/",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "apwld",
+  "type": "dataset"
+ },
+ "apwld-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "1fb62863-7ba1-0a4f-0278-6ae874967038",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "apwld-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-10-27T18:22:00+00:00",
+   "description": "",
+   "id": "8ba19f94-5afe-2f12-cab8-6ae0eba22c8e",
+   "image_url": null,
+   "is_organization": true,
+   "name": "apwld",
+   "state": "active",
+   "title": "Asia Pacific Forum on Women, Law and Development",
+   "type": "organization"
+  },
+  "owner_org": "8ba19f94-5afe-2f12-cab8-6ae0eba22c8e",
+  "private": false,
+  "publisher_country": "TH",
+  "publisher_iati_id": "TH-TIN-0993000237366",
+  "publisher_organization_type": "23",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/apwld-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "apwld-organisation-publisher",
   "type": "dataset"
  },
  "aqua4all-activity": {
@@ -97346,7 +97338,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1
+    "value": 3
    },
    {
     "key": "country",
@@ -107668,7 +107660,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 374
+    "value": 375
    },
    {
     "key": "country",
@@ -130607,80 +130599,6 @@
   "title": "civicus-org",
   "type": "dataset"
  },
- "civicus-organisation-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "3ebb044f-6127-d5f0-1f29-6ae5f781bfd7",
-  "license_id": "other-open",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "civicus-organisation-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:45:00+00:00",
-   "description": "",
-   "id": "a2942dfd-bf15-4b30-b490-9d3b17d32193",
-   "image_url": null,
-   "is_organization": true,
-   "name": "civicus",
-   "state": "active",
-   "title": "CIVICUS World Alliance for Citizen Participation",
-   "type": "organization"
-  },
-  "owner_org": "a2942dfd-bf15-4b30-b490-9d3b17d32193",
-  "private": false,
-  "publisher_country": "ZA",
-  "publisher_iati_id": "ZA-NPO-029-864",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/civicus-organisation.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "civicus-organisation-publisher",
-  "type": "dataset"
- },
  "cividep-activities": {
   "author": null,
   "author_email": null,
@@ -140049,6 +139967,80 @@
   "title": "cord-org",
   "type": "dataset"
  },
+ "cord-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "12317679-355b-e52c-499f-6ae9ba38b61d",
+  "license_id": "other-at",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "cord-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:42:00+00:00",
+   "description": "",
+   "id": "d153c5b9-b0cb-42cb-83bc-963d7124edde",
+   "image_url": null,
+   "is_organization": true,
+   "name": "cord",
+   "state": "active",
+   "title": "Cord",
+   "type": "organization"
+  },
+  "owner_org": "d153c5b9-b0cb-42cb-83bc-963d7124edde",
+  "private": false,
+  "publisher_country": "GB",
+  "publisher_iati_id": "GB-CHC-1070684",
+  "publisher_organization_type": "23",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/cord-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "cord-organisation-publisher",
+  "type": "dataset"
+ },
  "cordaid-essentials": {
   "author": null,
   "author_email": null,
@@ -142865,6 +142857,80 @@
   ],
   "state": "active",
   "title": "cra-activity-publisher",
+  "type": "dataset"
+ },
+ "cra-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "2a33bbe0-278c-e6c8-b443-6ae9ad278980",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "cra-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:46:00+00:00",
+   "description": "",
+   "id": "8b915242-55c3-4de6-ab3a-6972b10a8c60",
+   "image_url": null,
+   "is_organization": true,
+   "name": "cra",
+   "state": "active",
+   "title": "Conciliation Resources Australia",
+   "type": "organization"
+  },
+  "owner_org": "8b915242-55c3-4de6-ab3a-6972b10a8c60",
+  "private": false,
+  "publisher_country": "AU",
+  "publisher_iati_id": "AU-ABN-94642321640",
+  "publisher_organization_type": "23",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/cra-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "cra-organisation-publisher",
   "type": "dataset"
  },
  "crane-activities": {
@@ -155521,80 +155587,6 @@
   "title": "deltares-activities",
   "type": "dataset"
  },
- "deltares-organisation": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "efbda1f7-1d60-af43-f224-697781b66490",
-  "license_id": "other-open",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "deltares-organisation",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:43:00+00:00",
-   "description": "",
-   "id": "19669880-007e-4cfc-8760-5675e2eeeb87",
-   "image_url": null,
-   "is_organization": true,
-   "name": "deltares",
-   "state": "active",
-   "title": "Stichting Deltares",
-   "type": "organization"
-  },
-  "owner_org": "19669880-007e-4cfc-8760-5675e2eeeb87",
-  "private": false,
-  "publisher_country": "NL",
-  "publisher_iati_id": "NL-KVK-41146461",
-  "publisher_organization_type": "80",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/deltares-organisation.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "deltares-organisation",
-  "type": "dataset"
- },
  "deltares-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -168029,84 +168021,6 @@
   ],
   "state": "active",
   "title": "di-organisation",
-  "type": "dataset"
- },
- "diakonia-sweden-activities-zambia-543": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 3
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "b212384b-099b-48e4-a356-d25a114105eb",
-  "license_id": "other-at",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "diakonia-sweden-activities-zambia-543",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:44:00+00:00",
-   "description": "",
-   "id": "3fe75ecb-9813-417f-8fe2-4c6e12d9eff7",
-   "image_url": null,
-   "is_organization": true,
-   "name": "diakonia-sweden",
-   "state": "active",
-   "title": "Diakonia (Sweden)",
-   "type": "organization"
-  },
-  "owner_org": "3fe75ecb-9813-417f-8fe2-4c6e12d9eff7",
-  "private": false,
-  "publisher_country": "SE",
-  "publisher_iati_id": "SE-ON-802017-3517",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/diakonia-sweden-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "diakonia-sweden-activities-zambia-543",
   "type": "dataset"
  },
  "diakonia-sweden-activity-publisher": {
@@ -230302,7 +230216,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 357
+    "value": 360
    },
    {
     "key": "country",
@@ -230597,6 +230511,80 @@
   ],
   "state": "active",
   "title": "drf-org",
+  "type": "dataset"
+ },
+ "drf-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "7af711da-75aa-9cc5-6f9e-6ae9e52fbb6e",
+  "license_id": "other-open",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "drf-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:42:00+00:00",
+   "description": "",
+   "id": "d9da0544-f121-44db-ab10-e774915f896f",
+   "image_url": null,
+   "is_organization": true,
+   "name": "drf",
+   "state": "active",
+   "title": "Disability Rights Fund",
+   "type": "organization"
+  },
+  "owner_org": "d9da0544-f121-44db-ab10-e774915f896f",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-EIN-27-5026293",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/drf-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "drf-organisation-publisher",
   "type": "dataset"
  },
  "dri-189": {
@@ -280713,22 +280701,26 @@
   "title": "fawe-rs-organisation",
   "type": "dataset"
  },
- "fb-organisation-publisher": {
+ "fb-activity-publisher": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
   "extras": [
+   {
+    "key": "activity_count",
+    "value": 9
+   },
    {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -280743,7 +280735,81 @@
     "value": null
    }
   ],
-  "id": "2070fec9-1580-bde1-d7f1-6ae8bc8861db",
+  "id": "487ecb5d-33db-c0e8-31af-69ce423b2658",
+  "license_id": "notspecified",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "fb-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-02-05T08:38:00+00:00",
+   "description": "",
+   "id": "68f72ea4-7c7f-6854-72d6-698457dcec0f",
+   "image_url": null,
+   "is_organization": true,
+   "name": "fb",
+   "state": "active",
+   "title": "Föräldralösa Barn, en del av Adoptionscentrum",
+   "type": "organization"
+  },
+  "owner_org": "68f72ea4-7c7f-6854-72d6-698457dcec0f",
+  "private": false,
+  "publisher_country": "SE",
+  "publisher_iati_id": "SE-ON-802004-7737",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/fb-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "fb-activity-publisher",
+  "type": "dataset"
+ },
+ "fb-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "31e6f727-e942-2664-7cc2-69ce42d785c7",
   "license_id": "notspecified",
   "license_title": "",
   "maintainer": null,
@@ -304853,6 +304919,80 @@
   ],
   "state": "active",
   "title": "forest-trends-activity-publisher",
+  "type": "dataset"
+ },
+ "forest-trends-org": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "746dbda4-f76b-4a01-a56e-6d504eba2e28",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "forest-trends-org",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:37:00+00:00",
+   "description": "",
+   "id": "2af9f647-3b86-440f-aecf-991da4e1b8ca",
+   "image_url": null,
+   "is_organization": true,
+   "name": "forest-trends",
+   "state": "active",
+   "title": "Forest Trends Association",
+   "type": "organization"
+  },
+  "owner_org": "2af9f647-3b86-440f-aecf-991da4e1b8ca",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-EIN-52-2135531",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/forest-trends-org.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "forest-trends-org",
   "type": "dataset"
  },
  "forest-trends-organisation-publisher": {
@@ -342735,16 +342875,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 3
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -581305,6 +581449,80 @@
   "title": "rfslmalmoe-activity-publisher",
   "type": "dataset"
  },
+ "rfslmalmoe-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "86c4abdf-b8cb-c630-6f7c-6ae9add4bf5f",
+  "license_id": "",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "rfslmalmoe-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-02-09T12:28:00+00:00",
+   "description": "",
+   "id": "dacacf9e-244f-2855-871c-6989d25c0f8c",
+   "image_url": null,
+   "is_organization": true,
+   "name": "rfslmalmoe",
+   "state": "active",
+   "title": "RFSL Malmö",
+   "type": "organization"
+  },
+  "owner_org": "dacacf9e-244f-2855-871c-6989d25c0f8c",
+  "private": false,
+  "publisher_country": "SE",
+  "publisher_iati_id": "SE-ON-846001-3413",
+  "publisher_organization_type": "90",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/rfslmalmoe-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "rfslmalmoe-organisation-publisher",
+  "type": "dataset"
+ },
  "rfsuip-activity-publisher": {
   "author": null,
   "author_email": null,
@@ -592254,7 +592472,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2
+    "value": 3
    },
    {
     "key": "country",
@@ -600725,80 +600943,6 @@
   "title": "shelterbox-activities",
   "type": "dataset"
  },
- "shelterbox-org": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "1.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "e6f20b22-3508-4fa5-9368-dabc11cca7ad",
-  "license_id": "other-open",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "shelterbox-org",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:41:00+00:00",
-   "description": "",
-   "id": "dc0cf0aa-2606-402c-ae11-f65103c06596",
-   "image_url": null,
-   "is_organization": true,
-   "name": "shelterbox",
-   "state": "active",
-   "title": "ShelterBox",
-   "type": "organization"
-  },
-  "owner_org": "dc0cf0aa-2606-402c-ae11-f65103c06596",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-CHC-1096479",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://aidstream.s3.us-west-2.amazonaws.com/xml/shelterbox-org.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "shelterbox-org",
-  "type": "dataset"
- },
  "shelterbox-organisation": {
   "author": null,
   "author_email": null,
@@ -603660,7 +603804,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 706
+    "value": 691
    },
    {
     "key": "country",
@@ -603738,7 +603882,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1175
+    "value": 1250
    },
    {
     "key": "country",
@@ -603816,7 +603960,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1271
+    "value": 1247
    },
    {
     "key": "country",
@@ -603894,7 +604038,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1152
+    "value": 1020
    },
    {
     "key": "country",
@@ -603972,7 +604116,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1688
+    "value": 1715
    },
    {
     "key": "country",
@@ -604050,7 +604194,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1773
+    "value": 2004
    },
    {
     "key": "country",
@@ -604128,7 +604272,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1785
+    "value": 1665
    },
    {
     "key": "country",
@@ -604206,7 +604350,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1689
+    "value": 1806
    },
    {
     "key": "country",
@@ -604284,7 +604428,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2510
+    "value": 2409
    },
    {
     "key": "country",
@@ -604440,7 +604584,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2674
    },
    {
     "key": "country",
@@ -604518,7 +604662,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2524
+    "value": 2476
    },
    {
     "key": "country",
@@ -604596,7 +604740,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2656
+    "value": 2550
    },
    {
     "key": "country",
@@ -604674,7 +604818,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2556
+    "value": 2678
    },
    {
     "key": "country",
@@ -618668,7 +618812,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 167
+    "value": 168
    },
    {
     "key": "country",
@@ -636477,162 +636621,6 @@
   ],
   "state": "active",
   "title": "stonewa11-activities",
-  "type": "dataset"
- },
- "stonewa11-afg-01": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 2
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "0a434aea-5d27-4211-8a4e-e17ff81d4100",
-  "license_id": "cc-by-sa",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "stonewa11-afg-01",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:46:00+00:00",
-   "description": "",
-   "id": "bfdc037b-3178-43b6-8768-7c43bb7bf208",
-   "image_url": null,
-   "is_organization": true,
-   "name": "stonewa11",
-   "state": "active",
-   "title": "Stonewall Equality Limited",
-   "type": "organization"
-  },
-  "owner_org": "bfdc037b-3178-43b6-8768-7c43bb7bf208",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-COH-02412299",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/stonewa11-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "stonewa11-afg-01",
-  "type": "dataset"
- },
- "stonewa11-ootm-001": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 2
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "7f361e48-a7e5-4473-badb-0b2ecffcfcec",
-  "license_id": "cc-by-sa",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "stonewa11-ootm-001",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:46:00+00:00",
-   "description": "",
-   "id": "bfdc037b-3178-43b6-8768-7c43bb7bf208",
-   "image_url": null,
-   "is_organization": true,
-   "name": "stonewa11",
-   "state": "active",
-   "title": "Stonewall Equality Limited",
-   "type": "organization"
-  },
-  "owner_org": "bfdc037b-3178-43b6-8768-7c43bb7bf208",
-  "private": false,
-  "publisher_country": "GB",
-  "publisher_iati_id": "GB-COH-02412299",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/stonewa11-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "stonewa11-ootm-001",
   "type": "dataset"
  },
  "stonewa11-organisation": {
@@ -843680,7 +843668,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 56
+    "value": 57
    },
    {
     "key": "country",
@@ -844772,7 +844760,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 60
+    "value": 61
    },
    {
     "key": "country",
@@ -847112,7 +847100,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 57
+    "value": 58
    },
    {
     "key": "country",
@@ -847654,7 +847642,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 97
+    "value": 96
    },
    {
     "key": "country",
@@ -847966,7 +847954,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 64
+    "value": 63
    },
    {
     "key": "country",
@@ -851008,7 +850996,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 12
+    "value": 11
    },
    {
     "key": "country",
@@ -852486,7 +852474,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 14
+    "value": 0
    },
    {
     "key": "country",
@@ -853032,7 +853020,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 12
+    "value": 13
    },
    {
     "key": "country",
@@ -854592,7 +854580,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 27
+    "value": 28
    },
    {
     "key": "country",
@@ -855996,7 +855984,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 27
+    "value": 28
    },
    {
     "key": "country",
@@ -856230,7 +856218,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 9
+    "value": 11
    },
    {
     "key": "country",
@@ -856932,7 +856920,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 22
+    "value": 23
    },
    {
     "key": "country",
@@ -857790,7 +857778,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 33
+    "value": 34
    },
    {
     "key": "country",
@@ -859194,7 +859182,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 7
+    "value": 8
    },
    {
     "key": "country",
@@ -859584,7 +859572,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 37
+    "value": 39
    },
    {
     "key": "country",
@@ -860208,7 +860196,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 16
+    "value": 17
    },
    {
     "key": "country",
@@ -860286,7 +860274,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 39
+    "value": 40
    },
    {
     "key": "country",
@@ -931089,7 +931077,7 @@
   "title": "uog-organisation-publisher",
   "type": "dataset"
  },
- "uol-activities": {
+ "uol-activity": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -931128,7 +931116,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "uol-activities",
+  "name": "uol-activity",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -931164,7 +931152,7 @@
    }
   ],
   "state": "active",
-  "title": "uol-activities",
+  "title": "uol-activity",
   "type": "dataset"
  },
  "uol-org": {
@@ -978943,80 +978931,6 @@
   ],
   "state": "active",
   "title": "w-d-org",
-  "type": "dataset"
- },
- "w1": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": null
-   },
-   {
-    "key": "iati_version",
-    "value": null
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "c5757678-d491-e761-3498-6a608e293052",
-  "license_id": "notspecified",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "w1",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:47:00+00:00",
-   "description": "",
-   "id": "c4e0362d-a400-45f0-a4ee-eadb1f47ecaa",
-   "image_url": null,
-   "is_organization": true,
-   "name": "ukzn",
-   "state": "active",
-   "title": "University of KwaZulu-Natal",
-   "type": "organization"
-  },
-  "owner_org": "c4e0362d-a400-45f0-a4ee-eadb1f47ecaa",
-  "private": false,
-  "publisher_country": "ZA",
-  "publisher_iati_id": "ZA-CIT-9063151162",
-  "publisher_organization_type": "80",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://ukzn.ac.za/annual-reports/",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "w1",
   "type": "dataset"
  },
  "w4p-bo": {
@@ -1037709,80 +1037623,6 @@
   "title": "wcuk-org",
   "type": "dataset"
  },
- "weather": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": null
-   },
-   {
-    "key": "iati_version",
-    "value": null
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "d7b6f6e4-6b0e-081c-5b96-6a605955dbe0",
-  "license_id": "notspecified",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "weather",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:47:00+00:00",
-   "description": "",
-   "id": "c4e0362d-a400-45f0-a4ee-eadb1f47ecaa",
-   "image_url": null,
-   "is_organization": true,
-   "name": "ukzn",
-   "state": "active",
-   "title": "University of KwaZulu-Natal",
-   "type": "organization"
-  },
-  "owner_org": "c4e0362d-a400-45f0-a4ee-eadb1f47ecaa",
-  "private": false,
-  "publisher_country": "ZA",
-  "publisher_iati_id": "ZA-CIT-9063151162",
-  "publisher_organization_type": "80",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://ukzn.ac.za/annual-reports/",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "weather",
-  "type": "dataset"
- },
  "wecf-activities": {
   "author": null,
   "author_email": null,
@@ -1071790,7 +1071630,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 10
+    "value": 11
    },
    {
     "key": "country",
