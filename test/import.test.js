@@ -19,10 +19,16 @@ let tmp, db
 // days since 1970-01-01, as dstore stores dates
 const day = function(iso) { return Date.parse(iso + "T00:00:00Z") / 86400000 }
 
+// dstore uses Postgres if DSTORE_PG is set, and "init" drops every table, so
+// remove the Postgres settings to make sure the tests only use the scratch SQLite database
+const env = { ...process.env }
+delete env.DSTORE_PG
+delete env.DSTORE_PGRO
+
 const dstore = function(...args)
 {
 	const r = spawnSync(process.execPath, ["js/cmd.wrap.js", ...args, "--database", tmp + "/dstore.sqlite"],
-		{ cwd: root + "/dstore", encoding: "utf8" })
+		{ cwd: root + "/dstore", encoding: "utf8", env })
 	assert.equal(r.status, 0, "dstore " + args.join(" ") + " failed:\n" + r.stdout + r.stderr)
 }
 
