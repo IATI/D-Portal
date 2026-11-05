@@ -202,6 +202,18 @@ fetcher.get_nday=function(n)
     return nday;
 }
 
+// only ever fetch the configured api endpoint on our own origin, never an
+// attacker influenced absolute url - mitigates SSRF via ctrack.args.q
+fetcher.safe_q_url=function()
+{
+	var u=new URL( ctrack.args.q , window.location.origin )
+	if( (u.protocol!=="http:" && u.protocol!=="https:") || u.origin!==window.location.origin )
+	{
+		throw new Error("Refusing to fetch untrusted api endpoint: "+ctrack.args.q)
+	}
+	return u.href
+}
+
 fetcher.ajax=async function(dat,callback)
 {
 // we may queue a bunch of requests, this makes us wait for the last one before updating the view
@@ -214,7 +226,7 @@ fetcher.ajax=async function(dat,callback)
 	{
 */
 
-		let d = await fetch( ctrack.args.q , {
+		let d = await fetch( fetcher.safe_q_url() , {
 			method: 'POST', // *GET, POST, PUT, DELETE, etc.
 			mode: 'cors', // no-cors, *cors, same-origin
 			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
