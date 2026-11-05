@@ -71,6 +71,7 @@
  },
  "scripts": {
   "build": "cd ctrack; webpack build --config webpack.config.cjs --mode production ",
+  "test": "node --test test/*.test.js",
   "watch": "cd ctrack; webpack watch --config webpack.config.cjs --mode development "
  },
  "overrides": {

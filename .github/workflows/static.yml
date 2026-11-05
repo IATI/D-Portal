@@ -12,3 +12,6 @@ jobs:
       - name: Build
         run: ./build
         shell: bash
+      - name: Test
+        run: source ./nvm-install && npm test
+        shell: bash
