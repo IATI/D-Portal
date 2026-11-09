@@ -25,10 +25,18 @@ let argv=minimist(process.argv.slice(2))
 global.argv=argv
 dstore_argv.parse(argv)
 
+// fetch creates the json files that the modules below import, so run it first without them
+if( argv._[0]=="fetch" )
+{
+	const iati_codes = (await import("./iati_codes.js")).default
+	console.log("fetching")
+	await iati_codes.fetch();
+	process.exit();
+}
+
 //we must choose a backend before importing these
 const dstore_db    = (await import("./dstore_db.js")).default
 const dstore_cache = (await import("./dstore_cache.js")).default
-const iati_codes   = (await import("./iati_codes.js")).default
 const dstore_stats = (await import("./dstore_stats.js")).default
 
 
@@ -106,13 +114,6 @@ const dstore_stats = (await import("./dstore_stats.js")).default
 	if( argv._[0]=="exs" )
 	{
 // we now use freechange for exchange so this has been removed
-		process.exit();
-	}
-	else
-	if( argv._[0]=="fetch" )
-	{
-		console.log("fetching")
-		await iati_codes.fetch();
 		process.exit();
 	}
 	else

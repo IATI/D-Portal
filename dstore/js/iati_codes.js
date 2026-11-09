@@ -36,6 +36,21 @@ var http_getbody=async function(url)
 }
 var https_getbody=http_getbody;
 
+// previous codes if we have them, so a failed fetch keeps old values, or start empty
+var read_codes=function()
+{
+	try{
+		return JSON.parse( fs.readFileSync(import.meta.dirname+"/../json/iati_codes.json") );
+	}catch(e){
+		if(e.code=="ENOENT")
+		{
+			console.log("No json/iati_codes.json, starting from empty")
+			return {};
+		}
+		throw e
+	}
+}
+
 iati_codes.fetch = async function(){
 
 	try{
@@ -50,7 +65,7 @@ iati_codes.fetch = async function(){
 
 iati_codes.fetch1 = async function(){
 
-	var codes=JSON.parse( fs.readFileSync(import.meta.dirname+"/../json/iati_codes.json") );
+	var codes=read_codes();
 
 	var files=[
 
@@ -541,7 +556,7 @@ iati_codes.fetch1 = async function(){
 
 iati_codes.fetch2 = async function(){
 
-	var codes=JSON.parse( fs.readFileSync(import.meta.dirname+"/../json/iati_codes.json") );
+	var codes=read_codes();
 
 	var publishers={};
 	var packages={};

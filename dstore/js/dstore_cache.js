@@ -13,11 +13,25 @@ import fetch      from "node-fetch"
 import jschardet  from "jschardet"
 import iconv      from "iconv-lite"
 import refry      from "./refry.js"
-import packages   from "../json/packages.json" with {type:"json"}
 
 const dstore_db=global.dstore_db
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
+
+// packages.json is created by "dstore fetch" and may not exist yet,
+// so read it here when it is needed instead of importing it at the top
+var read_packages=function()
+{
+	try{
+		return JSON.parse( fs.readFileSync(import.meta.dirname+"/../json/packages.json") );
+	}catch(e){
+		if(e.code=="ENOENT")
+		{
+			throw new Error("No json/packages.json, run \"dstore fetch\" first")
+		}
+		throw e
+	}
+}
 
 var http_gethead=async function(url)
 {
@@ -198,7 +212,14 @@ dstore_cache.empty = async function(argv,keep){
 	
 	if(!keep) // use global list of slugs->packages
 	{
-		keep=packages
+		keep=read_packages() // error if packages.json is missing, do not guess: an empty list here would empty every xml file
+	}
+
+	// every xml file not in the list is emptied, so a short list means the list is broken, not that the datasets are gone
+	var count=Object.keys(keep).length
+	if( count<1000 ) // same arbitrary minimum as dstore_cache.iati
+	{
+		throw new Error("Only "+count+" datasets in the list of files to keep, will not empty the cache")
 	}
 
 	try { fs.mkdirSync(global.argv.cache); } catch(e){}
@@ -210,7 +231,7 @@ dstore_cache.empty = async function(argv,keep){
 		if( v.slice(-4)==".xml")
 		{
 			var slug=ff[i].slice(0,-4);
-			if( (!keep) || (!keep[slug]) )
+			if( !keep[slug] )
 			{
 				console.log("Emptying xml file for "+slug+" : "+v);
 				fs.writeFileSync(v,"");
@@ -373,7 +394,7 @@ dstore_cache.iati = async function(argv){
 			console.log("");
 			console.log("EMPTYING OLD CACHE");
 			console.log("");
-			dstore_cache.empty({},slugs);
+			await dstore_cache.empty({},slugs);
 		}
 	}
 
