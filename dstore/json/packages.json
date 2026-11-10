@@ -5491,7 +5491,7 @@
   "title": "abi-organisation-publisher",
   "type": "dataset"
  },
- "ablechildafrica-activities": {
+ "ablechildafrica-activity": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -5530,7 +5530,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "ablechildafrica-activities",
+  "name": "ablechildafrica-activity",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -5566,7 +5566,7 @@
    }
   ],
   "state": "active",
-  "title": "ablechildafrica-activities",
+  "title": "ablechildafrica-activity",
   "type": "dataset"
  },
  "ablechildafrica-org": {
@@ -111025,7 +111025,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://tablestoragecdbtest.blob.core.windows.net/iati-xml/Activities-3e6b0ed9-c648-4d4c-b48d-0f47e4128aed-2025-Dec.xml",
+    "url": "https://iatidata.blob.core.windows.net/iati-xml/Activities-3ed7dccb-f205-4f0c-a52e-b8f6e78c3588-2026-Nov.xml",
     "url_type": null
    }
   ],
@@ -280389,84 +280389,6 @@
   "title": "fawe-rs-organisation",
   "type": "dataset"
  },
- "fb-activity-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 10
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "3b04d785-4804-b49b-a4a6-6aede731306e",
-  "license_id": "notspecified",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "fb-activity-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2026-02-05T08:38:00+00:00",
-   "description": "",
-   "id": "68f72ea4-7c7f-6854-72d6-698457dcec0f",
-   "image_url": null,
-   "is_organization": true,
-   "name": "fb",
-   "state": "active",
-   "title": "Föräldralösa Barn, en del av Adoptionscentrum",
-   "type": "organization"
-  },
-  "owner_org": "68f72ea4-7c7f-6854-72d6-698457dcec0f",
-  "private": false,
-  "publisher_country": "SE",
-  "publisher_iati_id": "SE-ON-802004-7737",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/fb-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "fb-activity-publisher",
-  "type": "dataset"
- },
  "fb-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -380948,7 +380870,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 13
+    "value": 12
    },
    {
     "key": "country",
@@ -385238,7 +385160,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 12
+    "value": 11
    },
    {
     "key": "country",
@@ -458495,80 +458417,6 @@
   ],
   "state": "active",
   "title": "maec-189",
-  "type": "dataset"
- },
- "maec-289": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": null
-   },
-   {
-    "key": "iati_version",
-    "value": null
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "d5aaa065-35db-4e13-9567-4ba22ff199fc",
-  "license_id": "other-at",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "maec-289",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:43:00+00:00",
-   "description": "",
-   "id": "bb40bf04-4038-42e8-ba86-7f64ac4c29a7",
-   "image_url": null,
-   "is_organization": true,
-   "name": "maec",
-   "state": "active",
-   "title": "Spain - Ministry of Foreign Affairs and Cooperation",
-   "type": "organization"
-  },
-  "owner_org": "bb40bf04-4038-42e8-ba86-7f64ac4c29a7",
-  "private": false,
-  "publisher_country": "ES",
-  "publisher_iati_id": "ES-DIR3-E04585801",
-  "publisher_organization_type": "10",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "http://www.exteriores.gob.es/Portal/es/SalaDePrensa/Multimedia/Publicaciones/Documents/Cooperacion/Seguimiento/IATI/MAEC_IATI_NAMIBIA.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "maec-289",
   "type": "dataset"
  },
  "maec-298": {
@@ -532380,7 +532228,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 447
+    "value": 448
    },
    {
     "key": "country",
@@ -580439,84 +580287,6 @@
   "title": "retrak-org",
   "type": "dataset"
  },
- "rf-activity-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 6
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "92f87486-b758-f0ca-44eb-69fb4f713ef0",
-  "license_id": "notspecified",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "rf-activity-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2026-02-05T10:46:00+00:00",
-   "description": "",
-   "id": "355d598e-dc12-9ff9-308b-698475a9fb72",
-   "image_url": null,
-   "is_organization": true,
-   "name": "rf",
-   "state": "active",
-   "title": "Regnskogsföreningen",
-   "type": "organization"
-  },
-  "owner_org": "355d598e-dc12-9ff9-308b-698475a9fb72",
-  "private": false,
-  "publisher_country": "SE",
-  "publisher_iati_id": "SE-ON-802452-8500",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/rf-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "rf-activity-publisher",
-  "type": "dataset"
- },
  "rf-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -596195,7 +595965,7 @@
   "title": "sdi-k-activities",
   "type": "dataset"
  },
- "sdi-k-org": {
+ "sdi-k-organisation": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -596230,7 +596000,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "sdi-k-org",
+  "name": "sdi-k-organisation",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -596266,7 +596036,7 @@
    }
   ],
   "state": "active",
-  "title": "sdi-k-org",
+  "title": "sdi-k-organisation",
   "type": "dataset"
  },
  "sdi-org": {
@@ -603406,7 +603176,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1040
+    "value": 1015
    },
    {
     "key": "country",
@@ -603484,7 +603254,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1192
+    "value": 1461
    },
    {
     "key": "country",
@@ -603562,7 +603332,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1516
+    "value": 916
    },
    {
     "key": "country",
@@ -603640,7 +603410,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1291
+    "value": 1824
    },
    {
     "key": "country",
@@ -603718,7 +603488,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1944
+    "value": 1857
    },
    {
     "key": "country",
@@ -603796,7 +603566,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1920
+    "value": 1854
    },
    {
     "key": "country",
@@ -603874,7 +603644,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1629
+    "value": 1671
    },
    {
     "key": "country",
@@ -603952,7 +603722,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2582
+    "value": 2490
    },
    {
     "key": "country",
@@ -604108,7 +603878,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2674
+    "value": 2620
    },
    {
     "key": "country",
@@ -604186,7 +603956,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2598
+    "value": 2550
    },
    {
     "key": "country",
@@ -604264,7 +604034,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2556
+    "value": 2678
    },
    {
     "key": "country",
@@ -604342,7 +604112,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2528
+    "value": 2534
    },
    {
     "key": "country",
@@ -637279,84 +637049,6 @@
   ],
   "state": "active",
   "title": "sv-nit-9498-180400-101-7-som-fcd-sep",
-  "type": "dataset"
- },
- "svalornala-activity-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 9
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "d5432a55-788c-a9d2-aabd-69d3b7fbbf82",
-  "license_id": "",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "svalornala-activity-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2026-02-02T12:59:00+00:00",
-   "description": "",
-   "id": "36e5fb06-2eb9-6fb6-72f4-69809f12bb3a",
-   "image_url": null,
-   "is_organization": true,
-   "name": "svalornala",
-   "state": "active",
-   "title": "Svalorna Latinamerika",
-   "type": "organization"
-  },
-  "owner_org": "36e5fb06-2eb9-6fb6-72f4-69809f12bb3a",
-  "private": false,
-  "publisher_country": "SE",
-  "publisher_iati_id": "SE-ON-802003-3083",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/svalornala-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "svalornala-activity-publisher",
   "type": "dataset"
  },
  "svalornala-organisation-publisher": {
@@ -770913,84 +770605,6 @@
   "title": "tib-bibc-iati",
   "type": "dataset"
  },
- "tib-bibc-june-2020-iati": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.01"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "4ed03aae-6721-47fb-923f-84dc9cae0024",
-  "license_id": "other-pd",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "tib-bibc-june-2020-iati",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:47:00+00:00",
-   "description": "",
-   "id": "4609e09f-058b-47d6-b44a-16986c377057",
-   "image_url": null,
-   "is_organization": true,
-   "name": "tib",
-   "state": "active",
-   "title": "Transparency International Bangladesh",
-   "type": "organization"
-  },
-  "owner_org": "4609e09f-058b-47d6-b44a-16986c377057",
-  "private": false,
-  "publisher_country": "BD",
-  "publisher_iati_id": "BD-NAB-1301",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://www.ti-bangladesh.org/images/2020/iati/TIB-CFPI-Project-Updated-as-of-30-June-2020.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "tib-bibc-june-2020-iati",
-  "type": "dataset"
- },
  "tib-bibc-june-2021-iati": {
   "author": null,
   "author_email": null,
@@ -774167,84 +773781,6 @@
   ],
   "state": "active",
   "title": "tib-project-bibec-as-of-30-june-2020",
-  "type": "dataset"
- },
- "tib-project-cfpi-as-of-30-june-2020": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.01"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "5392e3df-350d-466f-b608-98b686a2b392",
-  "license_id": "other-pd",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "tib-project-cfpi-as-of-30-june-2020",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:47:00+00:00",
-   "description": "",
-   "id": "4609e09f-058b-47d6-b44a-16986c377057",
-   "image_url": null,
-   "is_organization": true,
-   "name": "tib",
-   "state": "active",
-   "title": "Transparency International Bangladesh",
-   "type": "organization"
-  },
-  "owner_org": "4609e09f-058b-47d6-b44a-16986c377057",
-  "private": false,
-  "publisher_country": "BD",
-  "publisher_iati_id": "BD-NAB-1301",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://www.ti-bangladesh.org/images/2020/iati/TIB-CFPI-Project-Updated-as-of-30-June-2020.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "tib-project-cfpi-as-of-30-june-2020",
   "type": "dataset"
  },
  "tib-project1": {
