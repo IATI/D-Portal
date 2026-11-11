@@ -137,3 +137,17 @@ test("dstore cache empty keeps listed datasets and empties the rest", function()
 	assert.equal(fs.readFileSync(cache + "/listed-dataset.xml", "utf8"), "<iati-activities/>")
 	assert.equal(fs.readFileSync(cache + "/unlisted-dataset.xml", "utf8"), "")
 })
+
+test("dstore fetch exits with an error and leaves the files alone when it fails", function()
+{
+	const dir = scratchCopy()
+	// a broken iati_codes.json makes fetch fail before any download, so this needs no network
+	fs.writeFileSync(dir + "/dstore/json/iati_codes.json", "{ not json")
+	const packages = fs.readFileSync(dir + "/dstore/json/packages.json", "utf8")
+
+	const result = dstore(dir, "fetch")
+	assert.notEqual(result.status, 0, "should exit with an error")
+	assert.match(result.stderr, /dstore fetch failed, json files left unchanged/)
+	assert.equal(fs.readFileSync(dir + "/dstore/json/iati_codes.json", "utf8"), "{ not json")
+	assert.equal(fs.readFileSync(dir + "/dstore/json/packages.json", "utf8"), packages)
+})

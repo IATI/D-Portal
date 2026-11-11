@@ -13,6 +13,7 @@ import fetch      from "node-fetch"
 import jschardet  from "jschardet"
 import iconv      from "iconv-lite"
 import refry      from "./refry.js"
+import fetch_check from "./fetch_check.js"
 
 const dstore_db=global.dstore_db
 
@@ -217,7 +218,7 @@ dstore_cache.empty = async function(argv,keep){
 
 	// every xml file not in the list is emptied, so a short list means the list is broken, not that the datasets are gone
 	var count=Object.keys(keep).length
-	if( count<1000 ) // same arbitrary minimum as dstore_cache.iati
+	if( count<fetch_check.min_packages )
 	{
 		throw new Error("Only "+count+" datasets in the list of files to keep, will not empty the cache")
 	}
@@ -381,7 +382,7 @@ dstore_cache.iati = async function(argv){
 	
 	if((!just_this_slug)&&(!just_this_publisher))
 	{
-		if(slug_count<1000) // arbitrary minimum
+		if(slug_count<fetch_check.min_packages)
 		{
 			console.log("********");
 			console.log("");
