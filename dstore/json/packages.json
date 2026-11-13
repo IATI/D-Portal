@@ -37377,7 +37377,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "http://openaid.aics.gov.it/iati/aics-189.xml",
+    "url": "https://openaid.aics.gov.it/iati/aics-189.xml",
     "url_type": null
    }
   ],
@@ -54377,6 +54377,80 @@
   "title": "ancb_benin-act",
   "type": "dataset"
  },
+ "ancb_benin-com_dangbo-org": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "c59b6c60-c789-4b28-9ef1-d00a28d04e17",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "ancb_benin-com_dangbo-org",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:43:00+00:00",
+   "description": "",
+   "id": "38f4e81a-1bc5-4f4b-9808-5412221cb508",
+   "image_url": null,
+   "is_organization": true,
+   "name": "ancb_benin",
+   "state": "active",
+   "title": "The National Association of Municipalities of Benin (ANCB)",
+   "type": "organization"
+  },
+  "owner_org": "38f4e81a-1bc5-4f4b-9808-5412221cb508",
+  "private": false,
+  "publisher_country": "BJ",
+  "publisher_iati_id": "BJ-IFU-6201408024805",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://rsr.akvo.org/organisation/4646/iati-org/",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "ancb_benin-com_dangbo-org",
+  "type": "dataset"
+ },
  "ancb_benin-org": {
   "author": null,
   "author_email": null,
@@ -59737,6 +59811,84 @@
   "title": "asdap-activity",
   "type": "dataset"
  },
+ "asdap-activity2": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "6963ea19-558b-4392-9f47-32d82acdb3fc",
+  "license_id": "odc-pddl",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "asdap-activity2",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:37:00+00:00",
+   "description": "",
+   "id": "f4616b4e-f0f8-4c65-93db-d0b1947a628c",
+   "image_url": null,
+   "is_organization": true,
+   "name": "asdap",
+   "state": "active",
+   "title": "Association de Soutien au Développement des Activités de Population",
+   "type": "organization"
+  },
+  "owner_org": "f4616b4e-f0f8-4c65-93db-d0b1947a628c",
+  "private": false,
+  "publisher_country": "ML",
+  "publisher_iati_id": "ML-NIF-086108989R",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://rsr.akvo.org/organisation/5844/iati/",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "asdap-activity2",
+  "type": "dataset"
+ },
  "asdap-file3": {
   "author": null,
   "author_email": null,
@@ -59813,6 +59965,84 @@
   ],
   "state": "active",
   "title": "asdap-file3",
+  "type": "dataset"
+ },
+ "asdap-file4": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "b001fba9-29f9-4667-b527-f38732c2432f",
+  "license_id": "odc-pddl",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "asdap-file4",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:37:00+00:00",
+   "description": "",
+   "id": "f4616b4e-f0f8-4c65-93db-d0b1947a628c",
+   "image_url": null,
+   "is_organization": true,
+   "name": "asdap",
+   "state": "active",
+   "title": "Association de Soutien au Développement des Activités de Population",
+   "type": "organization"
+  },
+  "owner_org": "f4616b4e-f0f8-4c65-93db-d0b1947a628c",
+  "private": false,
+  "publisher_country": "ML",
+  "publisher_iati_id": "ML-NIF-086108989R",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://rsr.akvo.org/organisation/5844/iati/",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "asdap-file4",
   "type": "dataset"
  },
  "asdap-org": {
@@ -114385,84 +114615,6 @@
   "title": "cec-programme-2022",
   "type": "dataset"
  },
- "cec-programme2024": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 3
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "59bd015a-3b06-4f2b-8bd0-9a31c2ce6208",
-  "license_id": "",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "cec-programme2024",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:45:00+00:00",
-   "description": "",
-   "id": "049bd4df-1ee2-450d-8a97-a79ccca93e82",
-   "image_url": null,
-   "is_organization": true,
-   "name": "cec",
-   "state": "active",
-   "title": "Coopération par l'Education et la Culture",
-   "type": "organization"
-  },
-  "owner_org": "049bd4df-1ee2-450d-8a97-a79ccca93e82",
-  "private": false,
-  "publisher_country": "BE",
-  "publisher_iati_id": "BE-BCE_KBO-0417549465",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "http://diplomatie.be/oda/IATI_act_pr2022-26_CEC_4074.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "cec-programme2024",
-  "type": "dataset"
- },
  "ceci-activities": {
   "author": null,
   "author_email": null,
@@ -128684,7 +128836,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 3360
+    "value": 3364
    },
    {
     "key": "country",
@@ -128827,6 +128979,80 @@
   ],
   "state": "active",
   "title": "cisu-org",
+  "type": "dataset"
+ },
+ "cisu-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "2a133b8b-36e7-4394-992b-135db483d71c",
+  "license_id": "other",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "cisu-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:36:00+00:00",
+   "description": "",
+   "id": "83e80133-bf0c-4375-aaa2-aa7b5ca23fa5",
+   "image_url": null,
+   "is_organization": true,
+   "name": "cisu",
+   "state": "active",
+   "title": "CISU",
+   "type": "organization"
+  },
+  "owner_org": "83e80133-bf0c-4375-aaa2-aa7b5ca23fa5",
+  "private": false,
+  "publisher_country": "DK",
+  "publisher_iati_id": "DK-CVR-19348407",
+  "publisher_organization_type": "22",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/cisu-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "cisu-organisation-publisher",
   "type": "dataset"
  },
  "cit_brazil-activities": {
@@ -149961,84 +150187,6 @@
   "title": "dba-pgm2022",
   "type": "dataset"
  },
- "dba-program2024": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 4
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "7b4c7ef6-bd2e-4935-837c-5d34809d096c",
-  "license_id": "",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "dba-program2024",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:44:00+00:00",
-   "description": "",
-   "id": "f8889261-55f2-4707-8f60-039ad2f3d6a9",
-   "image_url": null,
-   "is_organization": true,
-   "name": "dba",
-   "state": "active",
-   "title": "Défi Belgique Afrique",
-   "type": "organization"
-  },
-  "owner_org": "f8889261-55f2-4707-8f60-039ad2f3d6a9",
-  "private": false,
-  "publisher_country": "BE",
-  "publisher_iati_id": "BE-BCE_KBO-0433439550",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "http://diplomatie.be/oda/IATI_act_pr2022-26_DBA_4065.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "dba-program2024",
-  "type": "dataset"
- },
  "dc-activities": {
   "author": null,
   "author_email": null,
@@ -159295,7 +159443,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Africa North of Sahara.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Africa+North+of+Sahara.xml",
     "url_type": null
    }
   ],
@@ -159763,7 +159911,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Bahamas The.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Bahamas+The.xml",
     "url_type": null
    }
   ],
@@ -160153,7 +160301,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Bosnia and Herzegovina.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Bosnia+and+Herzegovina.xml",
     "url_type": null
    }
   ],
@@ -160699,7 +160847,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-China (P.R. Hong Kong).xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_homeland_security/xml/iati-activities-China+(P.R.+Hong+Kong).xml",
     "url_type": null
    }
   ],
@@ -160855,7 +161003,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Costa Rica.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Costa+Rica.xml",
     "url_type": null
    }
   ],
@@ -160933,7 +161081,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Czech Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Czech+Republic.xml",
     "url_type": null
    }
   ],
@@ -161011,7 +161159,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -161245,7 +161393,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-El Salvador.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-El+Salvador.xml",
     "url_type": null
    }
   ],
@@ -161401,7 +161549,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Europe regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Europe+regional.xml",
     "url_type": null
    }
   ],
@@ -161479,7 +161627,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Far East Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Far+East+Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -163663,7 +163811,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Micronesia Federated States of.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Micronesia+Federated+States+of.xml",
     "url_type": null
    }
   ],
@@ -163741,7 +163889,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Middle East regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Middle+East+regional.xml",
     "url_type": null
    }
   ],
@@ -163975,7 +164123,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -164361,7 +164509,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://dept-of-state-iati.s3.amazonaws.com/organisation/dos+and+usaid.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_homeland_security/xml/Department+of+Homeland+Security.xml",
     "url_type": null
    }
   ],
@@ -165063,7 +165211,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Saint Lucia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Saint+Lucia.xml",
     "url_type": null
    }
   ],
@@ -165141,7 +165289,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Saudi Arabia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Saudi+Arabia.xml",
     "url_type": null
    }
   ],
@@ -165375,7 +165523,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-South Africa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-South+Africa.xml",
     "url_type": null
    }
   ],
@@ -165453,7 +165601,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-South America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-South+America+regional.xml",
     "url_type": null
    }
   ],
@@ -165531,7 +165679,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-South and Central Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-South+and+Central+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -165687,7 +165835,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -166545,7 +166693,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-United Arab Emirates.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-United+Arab+Emirates.xml",
     "url_type": null
    }
   ],
@@ -166857,7 +167005,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-West Bank and Gaza.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-West+Bank+and+Gaza.xml",
     "url_type": null
    }
   ],
@@ -167013,7 +167161,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Western Hemisphere Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_homeland_security/xml/iati-activities-Western+Hemisphere+Region.xml",
     "url_type": null
    }
   ],
@@ -170443,7 +170591,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-America+regional.xml",
     "url_type": null
    }
   ],
@@ -170911,7 +171059,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Burkina Faso.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Burkina+Faso.xml",
     "url_type": null
    }
   ],
@@ -171535,7 +171683,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Cook Islands.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Cook+Islands.xml",
     "url_type": null
    }
   ],
@@ -171847,7 +171995,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Europe regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Europe+regional.xml",
     "url_type": null
    }
   ],
@@ -172705,7 +172853,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Korea South.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Korea+South.xml",
     "url_type": null
    }
   ],
@@ -173095,7 +173243,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -173251,7 +173399,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-North Macedonia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-North+Macedonia.xml",
     "url_type": null
    }
   ],
@@ -173325,7 +173473,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://dept-of-state-iati.s3.amazonaws.com/organisation/dos+and+usaid.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_commerce/xml/Department+of+Commerce.xml",
     "url_type": null
    }
   ],
@@ -173559,7 +173707,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Papua New Guinea.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Papua+New+Guinea.xml",
     "url_type": null
    }
   ],
@@ -173949,7 +174097,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Solomon Islands.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-Solomon+Islands.xml",
     "url_type": null
    }
   ],
@@ -174027,7 +174175,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-South America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-South+America+regional.xml",
     "url_type": null
    }
   ],
@@ -174105,7 +174253,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South and Central Asia Region.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_commerce/xml/iati-activities-South+and+Central+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -174183,7 +174331,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-South Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_commerce/xml/iati-activities-South+Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -175743,7 +175891,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -175977,7 +176125,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Bahamas The.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Bahamas+The.xml",
     "url_type": null
    }
   ],
@@ -176679,7 +176827,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Bosnia and Herzegovina.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Bosnia+and+Herzegovina.xml",
     "url_type": null
    }
   ],
@@ -177069,7 +177217,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Burkina Faso.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Burkina+Faso.xml",
     "url_type": null
    }
   ],
@@ -177615,7 +177763,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Central African Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Central+African+Republic.xml",
     "url_type": null
    }
   ],
@@ -178317,7 +178465,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Costa Rica.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Costa+Rica.xml",
     "url_type": null
    }
   ],
@@ -178395,7 +178543,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Cote dIvoire.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Cote+dIvoire.xml",
     "url_type": null
    }
   ],
@@ -178629,7 +178777,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Czech Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Czech+Republic.xml",
     "url_type": null
    }
   ],
@@ -178863,7 +179011,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -179097,7 +179245,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-El Salvador.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-El+Salvador.xml",
     "url_type": null
    }
   ],
@@ -179409,7 +179557,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Europe regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Europe+regional.xml",
     "url_type": null
    }
   ],
@@ -179487,7 +179635,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Far East Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Far+East+Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -184011,7 +184159,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-New Zealand.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-New+Zealand.xml",
     "url_type": null
    }
   ],
@@ -184401,7 +184549,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-North and Central America Region.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_defense/xml/iati-activities-North+and+Central+America+Region.xml",
     "url_type": null
    }
   ],
@@ -184479,7 +184627,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-North Macedonia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-North+Macedonia.xml",
     "url_type": null
    }
   ],
@@ -184553,7 +184701,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://us-east-1.console.aws.amazon.com/s3/object/iati-reporting?region=us-east-1&prefix=department_of_defense/xml/iati-activities-Africa+North+of+Sahara.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_defense/xml/iati-activities-Africa+North+of+Sahara.xml",
     "url_type": null
    }
   ],
@@ -185095,7 +185243,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Papua New Guinea.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Papua+New+Guinea.xml",
     "url_type": null
    }
   ],
@@ -186031,7 +186179,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Saudi Arabia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Saudi+Arabia.xml",
     "url_type": null
    }
   ],
@@ -186591,20 +186739,16 @@
   "creator_user_id": null,
   "extras": [
    {
-    "key": "activity_count",
-    "value": 2
-   },
-   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": "activity"
+    "value": null
    },
    {
     "key": "iati_version",
-    "value": "2.03"
+    "value": null
    },
    {
     "key": "language",
@@ -186619,7 +186763,7 @@
     "value": null
    }
   ],
-  "id": "c5a5f1b7-465f-4f02-aab9-9f7cf682cd1f",
+  "id": "d12e9e21-2d90-406b-b423-981a9f1a929a",
   "license_id": "cc-zero",
   "license_title": "",
   "maintainer": null,
@@ -186655,7 +186799,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South and Central Asia Region.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_defense/xml/iati-activities-South+and+Central+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -186811,7 +186955,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South East Asia Region.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_defense/xml/iati-activities-South+East+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -186889,7 +187033,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -187123,7 +187267,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Sri Lanka.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Sri+Lanka.xml",
     "url_type": null
    }
   ],
@@ -188137,7 +188281,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Trinidad and Tobago.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-Trinidad+and+Tobago.xml",
     "url_type": null
    }
   ],
@@ -188605,7 +188749,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-United Arab Emirates.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_defense/xml/iati-activities-United+Arab+Emirates.xml",
     "url_type": null
    }
   ],
@@ -189463,7 +189607,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-America+regional.xml",
     "url_type": null
    }
   ],
@@ -189853,7 +189997,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Bahamas The.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Bahamas+The.xml",
     "url_type": null
    }
   ],
@@ -190555,7 +190699,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Central Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Central+Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -190789,7 +190933,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-China (P.R. Hong Kong).xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_energy/xml/iati-activities-China+(P.R.+Hong+Kong).xml",
     "url_type": null
    }
   ],
@@ -190867,7 +191011,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-China, Republic of (Taiwan).xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_energy/xml/iati-activities-China%2C+Republic+of+(Taiwan).xml",
     "url_type": null
    }
   ],
@@ -191257,7 +191401,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -191335,7 +191479,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-East Asia and Oceania Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-East+Asia+and+Oceania+Region.xml",
     "url_type": null
    }
   ],
@@ -191569,7 +191713,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Europe regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Europe+regional.xml",
     "url_type": null
    }
   ],
@@ -192739,7 +192883,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Korea South.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Korea+South.xml",
     "url_type": null
    }
   ],
@@ -193363,7 +193507,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Middle East regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Middle+East+regional.xml",
     "url_type": null
    }
   ],
@@ -193675,7 +193819,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -193909,7 +194053,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Oceania regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Oceania+regional.xml",
     "url_type": null
    }
   ],
@@ -194685,7 +194829,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Saudi Arabia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Saudi+Arabia.xml",
     "url_type": null
    }
   ],
@@ -195075,7 +195219,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-South Africa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-South+Africa.xml",
     "url_type": null
    }
   ],
@@ -195153,7 +195297,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-South America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-South+America+regional.xml",
     "url_type": null
    }
   ],
@@ -195231,7 +195375,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-South and Central Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-South+and+Central+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -195309,7 +195453,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-South East Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-South+East+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -195387,7 +195531,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -195543,7 +195687,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Sri Lanka.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-Sri+Lanka.xml",
     "url_type": null
    }
   ],
@@ -196245,7 +196389,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-United Arab Emirates.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-United+Arab+Emirates.xml",
     "url_type": null
    }
   ],
@@ -196323,7 +196467,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-United Kingdom.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_energy/xml/iati-activities-United+Kingdom.xml",
     "url_type": null
    }
   ],
@@ -196635,7 +196779,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-America+regional.xml",
     "url_type": null
    }
   ],
@@ -196869,7 +197013,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Antigua and Barbuda.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Antigua+and+Barbuda.xml",
     "url_type": null
    }
   ],
@@ -197103,7 +197247,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -197259,7 +197403,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Bahamas The.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Bahamas+The.xml",
     "url_type": null
    }
   ],
@@ -198039,7 +198183,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Cabo Verde.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Cabo+Verde.xml",
     "url_type": null
    }
   ],
@@ -198351,7 +198495,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Central African Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Central+African+Republic.xml",
     "url_type": null
    }
   ],
@@ -198507,7 +198651,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Central Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Central+Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -198897,7 +199041,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Congo Brazzaville.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Congo+Brazzaville.xml",
     "url_type": null
    }
   ],
@@ -198975,7 +199119,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Congo Kinshasa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Congo+Kinshasa.xml",
     "url_type": null
    }
   ],
@@ -199053,7 +199197,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Costa Rica.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Costa+Rica.xml",
     "url_type": null
    }
   ],
@@ -199131,7 +199275,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Cote dIvoire.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Cote+dIvoire.xml",
     "url_type": null
    }
   ],
@@ -199209,7 +199353,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -199443,7 +199587,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-El Salvador.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-El+Salvador.xml",
     "url_type": null
    }
   ],
@@ -199521,7 +199665,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Equatorial Guinea.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Equatorial+Guinea.xml",
     "url_type": null
    }
   ],
@@ -201237,7 +201381,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Latin America Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Latin+America+Region.xml",
     "url_type": null
    }
   ],
@@ -201705,7 +201849,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Marshall Islands.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Marshall+Islands.xml",
     "url_type": null
    }
   ],
@@ -201939,7 +202083,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Micronesia Federated States of.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Micronesia+Federated+States+of.xml",
     "url_type": null
    }
   ],
@@ -202325,7 +202469,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -202715,7 +202859,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-North America Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-North+America+Region.xml",
     "url_type": null
    }
   ],
@@ -202793,7 +202937,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-North and Central America Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-North+and+Central+America+Region.xml",
     "url_type": null
    }
   ],
@@ -202871,7 +203015,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Oceania regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Oceania+regional.xml",
     "url_type": null
    }
   ],
@@ -203335,7 +203479,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Papua New Guinea.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Papua+New+Guinea.xml",
     "url_type": null
    }
   ],
@@ -203881,7 +204025,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Saint Lucia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Saint+Lucia.xml",
     "url_type": null
    }
   ],
@@ -203959,7 +204103,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Saint Vincent and the Grenadines.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Saint+Vincent+and+the+Grenadines.xml",
     "url_type": null
    }
   ],
@@ -204037,7 +204181,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Sao Tome and Principe.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Sao+Tome+and+Principe.xml",
     "url_type": null
    }
   ],
@@ -204115,7 +204259,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Saudi Arabia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Saudi+Arabia.xml",
     "url_type": null
    }
   ],
@@ -204271,7 +204415,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Sierra Leone.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Sierra+Leone.xml",
     "url_type": null
    }
   ],
@@ -204349,7 +204493,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Solomon Islands.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Solomon+Islands.xml",
     "url_type": null
    }
   ],
@@ -204505,7 +204649,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South Africa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South+Africa.xml",
     "url_type": null
    }
   ],
@@ -204583,7 +204727,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South+America+regional.xml",
     "url_type": null
    }
   ],
@@ -204661,7 +204805,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South+Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -204739,7 +204883,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South East Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South+East+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -204817,7 +204961,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -204895,7 +205039,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South Sudan.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-South+Sudan.xml",
     "url_type": null
    }
   ],
@@ -205051,7 +205195,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Sri Lanka.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Sri+Lanka.xml",
     "url_type": null
    }
   ],
@@ -205129,7 +205273,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-St. Kitts and Nevis.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-St.+Kitts+and+Nevis.xml",
     "url_type": null
    }
   ],
@@ -205519,7 +205663,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Trinidad and Tobago.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Trinidad+and+Tobago.xml",
     "url_type": null
    }
   ],
@@ -205987,7 +206131,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Western Europe Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Western+Europe+Region.xml",
     "url_type": null
    }
   ],
@@ -206065,7 +206209,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Western Hemisphere Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_interior/xml/iati-activities-Western+Hemisphere+Region.xml",
     "url_type": null
    }
   ],
@@ -206533,7 +206677,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Africa North of Sahara.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Africa+North+of+Sahara.xml",
     "url_type": null
    }
   ],
@@ -206767,7 +206911,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-America+regional.xml",
     "url_type": null
    }
   ],
@@ -207001,7 +207145,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -207547,7 +207691,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Bosnia and Herzegovina.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Bosnia+and+Herzegovina.xml",
     "url_type": null
    }
   ],
@@ -208245,7 +208389,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-chinarepublicoftaiwan",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_justice/xml/iati-activities-China%2C+Republic+of+(Taiwan).xml",
     "url_type": null
    }
   ],
@@ -208401,7 +208545,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Costa Rica.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Costa+Rica.xml",
     "url_type": null
    }
   ],
@@ -208479,7 +208623,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Cote dIvoire.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Cote+dIvoire.xml",
     "url_type": null
    }
   ],
@@ -208791,7 +208935,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Czech Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Czech+Republic.xml",
     "url_type": null
    }
   ],
@@ -208947,7 +209091,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -209337,7 +209481,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-El Salvador.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-El+Salvador.xml",
     "url_type": null
    }
   ],
@@ -209493,7 +209637,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Europe regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Europe+regional.xml",
     "url_type": null
    }
   ],
@@ -209571,7 +209715,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Far East Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Far+East+Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -211365,7 +211509,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Korea South.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Korea+South.xml",
     "url_type": null
    }
   ],
@@ -212223,7 +212367,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Middle East regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Middle+East+regional.xml",
     "url_type": null
    }
   ],
@@ -212613,7 +212757,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -212769,7 +212913,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-New Zealand.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-New+Zealand.xml",
     "url_type": null
    }
   ],
@@ -213003,7 +213147,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-North Macedonia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-North+Macedonia.xml",
     "url_type": null
    }
   ],
@@ -213155,7 +213299,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://dept-of-state-iati.s3.amazonaws.com/organisation/dos+and+usaid.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_justice/xml/Department+of+Justice.xml",
     "url_type": null
    }
   ],
@@ -213467,7 +213611,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Papua New Guinea.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Papua+New+Guinea.xml",
     "url_type": null
    }
   ],
@@ -214247,7 +214391,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Saint Lucia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Saint+Lucia.xml",
     "url_type": null
    }
   ],
@@ -214559,7 +214703,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-South Africa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-South+Africa.xml",
     "url_type": null
    }
   ],
@@ -214637,7 +214781,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-South America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-South+America+regional.xml",
     "url_type": null
    }
   ],
@@ -214715,7 +214859,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-South and Central Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-South+and+Central+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -214793,7 +214937,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -215417,7 +215561,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-United Kingdom.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-United+Kingdom.xml",
     "url_type": null
    }
   ],
@@ -215651,7 +215795,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-West Bank and Gaza.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-West+Bank+and+Gaza.xml",
     "url_type": null
    }
   ],
@@ -215729,7 +215873,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Western Europe Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_justice/xml/iati-activities-Western+Europe+Region.xml",
     "url_type": null
    }
   ],
@@ -216119,7 +216263,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-America+regional.xml",
     "url_type": null
    }
   ],
@@ -216353,7 +216497,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Asia, Middle East and North Afri.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_labor/xml/iati-activities-Asia%2C+Middle+East+and+North+Afri.xml",
     "url_type": null
    }
   ],
@@ -216431,7 +216575,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -216743,7 +216887,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Burkina Faso.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Burkina+Faso.xml",
     "url_type": null
    }
   ],
@@ -217133,7 +217277,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Congo Kinshasa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Congo+Kinshasa.xml",
     "url_type": null
    }
   ],
@@ -217211,7 +217355,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Costa Rica.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Costa+Rica.xml",
     "url_type": null
    }
   ],
@@ -217289,7 +217433,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Cote dIvoire.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Cote+dIvoire.xml",
     "url_type": null
    }
   ],
@@ -217367,7 +217511,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -218381,7 +218525,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Latin America Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Latin+America+Region.xml",
     "url_type": null
    }
   ],
@@ -219005,7 +219149,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -219625,7 +219769,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-South America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-South+America+regional.xml",
     "url_type": null
    }
   ],
@@ -219703,7 +219847,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-South and Central Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-South+and+Central+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -219781,7 +219925,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-South East Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-South+East+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -219859,7 +220003,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_labor/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -221415,7 +221559,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Bahamas The.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Bahamas+The.xml",
     "url_type": null
    }
   ],
@@ -222117,7 +222261,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Cabo Verde.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_transportation/xml/iati-activities-Cabo+Verde.xml",
     "url_type": null
    }
   ],
@@ -223365,7 +223509,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -223755,7 +223899,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Gambia The.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Gambia+The.xml",
     "url_type": null
    }
   ],
@@ -225393,7 +225537,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Marshall Islands.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Marshall+Islands.xml",
     "url_type": null
    }
   ],
@@ -225627,7 +225771,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Micronesia Federated States of.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Micronesia+Federated+States+of.xml",
     "url_type": null
    }
   ],
@@ -225861,7 +226005,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -226329,7 +226473,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-North and Central America Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-North+and+Central+America+Region.xml",
     "url_type": null
    }
   ],
@@ -226485,7 +226629,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Oceania regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Oceania+regional.xml",
     "url_type": null
    }
   ],
@@ -226637,7 +226781,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://dept-of-state-iati.s3.amazonaws.com/organisation/dos+and+usaid.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_transportation/xml/Department+of+Transportation.xml",
     "url_type": null
    }
   ],
@@ -226949,7 +227093,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Papua New Guinea.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-Papua+New+Guinea.xml",
     "url_type": null
    }
   ],
@@ -227885,7 +228029,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_transportation/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -269956,7 +270100,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1234
+    "value": 1236
    },
    {
     "key": "country",
@@ -280617,16 +280761,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -314761,7 +314909,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://dept-of-state-iati.s3.amazonaws.com/organisation/dos+and+usaid.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/federal_trade_commission/xml/Federal+Trade+Commission.xml",
     "url_type": null
    }
   ],
@@ -316789,84 +316937,6 @@
   "title": "fucid-org",
   "type": "dataset"
  },
- "fucid-porgram2022": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 3
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "00f87f61-e23f-4bd8-9961-3e583b9e561c",
-  "license_id": "",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "fucid-porgram2022",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:44:00+00:00",
-   "description": "",
-   "id": "5825b16c-e027-4bf7-9ee8-5304973bcc0c",
-   "image_url": null,
-   "is_organization": true,
-   "name": "fucid",
-   "state": "active",
-   "title": "Forum Universitaire pour la Coopération Internationale au Développement -FUCID ASBL",
-   "type": "organization"
-  },
-  "owner_org": "5825b16c-e027-4bf7-9ee8-5304973bcc0c",
-  "private": false,
-  "publisher_country": "BE",
-  "publisher_iati_id": "BE-BCE_KBO-0416934803",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "http://diplomatie.be/oda/IATI_act_pr2022-26_FUCID_4052.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "fucid-porgram2022",
-  "type": "dataset"
- },
  "fundacion-acceso-activities": {
   "author": null,
   "author_email": null,
@@ -318172,7 +318242,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1173
+    "value": 1172
    },
    {
     "key": "country",
@@ -318250,7 +318320,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1109
+    "value": 1105
    },
    {
     "key": "country",
@@ -318328,7 +318398,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1802
+    "value": 1809
    },
    {
     "key": "country",
@@ -318406,7 +318476,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 803
+    "value": 807
    },
    {
     "key": "country",
@@ -318484,7 +318554,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1000
+    "value": 1003
    },
    {
     "key": "country",
@@ -318562,7 +318632,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2937
+    "value": 2940
    },
    {
     "key": "country",
@@ -349125,7 +349195,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-America+regional.xml",
     "url_type": null
    }
   ],
@@ -349281,7 +349351,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -349671,7 +349741,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Burkina Faso.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Burkina+Faso.xml",
     "url_type": null
    }
   ],
@@ -350061,7 +350131,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Congo Kinshasa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Congo+Kinshasa.xml",
     "url_type": null
    }
   ],
@@ -350139,7 +350209,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Cote dIvoire.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Cote+dIvoire.xml",
     "url_type": null
    }
   ],
@@ -350217,7 +350287,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -352245,7 +352315,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Middle East regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Middle+East+regional.xml",
     "url_type": null
    }
   ],
@@ -352401,7 +352471,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -352635,7 +352705,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Oceania regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Oceania+regional.xml",
     "url_type": null
    }
   ],
@@ -353177,7 +353247,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Sierra Leone.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Sierra+Leone.xml",
     "url_type": null
    }
   ],
@@ -353255,7 +353325,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South Africa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South+Africa.xml",
     "url_type": null
    }
   ],
@@ -353333,7 +353403,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South+America+regional.xml",
     "url_type": null
    }
   ],
@@ -353411,7 +353481,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South+Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -353489,7 +353559,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South East Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South+East+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -353567,7 +353637,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -353645,7 +353715,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South Sudan.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-South+Sudan.xml",
     "url_type": null
    }
   ],
@@ -354035,7 +354105,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Trinidad and Tobago.xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_health_and_human_services/xml/iati-activities-Trinidad+and+Tobago.xml",
     "url_type": null
    }
   ],
@@ -363517,7 +363587,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-America+regional.xml",
     "url_type": null
    }
   ],
@@ -363595,7 +363665,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Antigua and Barbuda.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Antigua+and+Barbuda.xml",
     "url_type": null
    }
   ],
@@ -364375,7 +364445,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -364999,7 +365069,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Latin America Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Latin+America+Region.xml",
     "url_type": null
    }
   ],
@@ -365155,7 +365225,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -365619,7 +365689,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Saint Lucia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Saint+Lucia.xml",
     "url_type": null
    }
   ],
@@ -365697,7 +365767,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Saint Vincent and the Grenadines.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Saint+Vincent+and+the+Grenadines.xml",
     "url_type": null
    }
   ],
@@ -365775,7 +365845,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-South America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-South+America+regional.xml",
     "url_type": null
    }
   ],
@@ -365853,7 +365923,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Trinidad and Tobago.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/inter-american_foundation/xml/iati-activities-Trinidad+and+Tobago.xml",
     "url_type": null
    }
   ],
@@ -378366,7 +378436,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 10
+    "value": 11
    },
    {
     "key": "country",
@@ -380394,7 +380464,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 15
+    "value": 14
    },
    {
     "key": "country",
@@ -382110,7 +382180,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 8
+    "value": 9
    },
    {
     "key": "country",
@@ -385464,7 +385534,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 10
+    "value": 9
    },
    {
     "key": "country",
@@ -409423,6 +409493,84 @@
   "title": "iids-organisation-publisher",
   "type": "dataset"
  },
+ "iied-march-26": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 12
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "2c898e42-406a-4bc0-bb52-47098a6fca07",
+  "license_id": "other",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "iied-march-26",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:45:00+00:00",
+   "description": "",
+   "id": "7cc30a2d-5074-41a3-9513-1d669dd6d0b7",
+   "image_url": null,
+   "is_organization": true,
+   "name": "iied",
+   "state": "active",
+   "title": "International Institute for Environment and Development",
+   "type": "organization"
+  },
+  "owner_org": "7cc30a2d-5074-41a3-9513-1d669dd6d0b7",
+  "private": false,
+  "publisher_country": "GB",
+  "publisher_iati_id": "GB-COH-02188452",
+  "publisher_organization_type": "80",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://files.aida.tools/activities/GB-COH-02188452/96b673b0-2e95-4751-820d-f9f7b75a60fa/v3Mar26.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "iied-march-26",
+  "type": "dataset"
+ },
  "iif-activities": {
   "author": null,
   "author_email": null,
@@ -420425,84 +420573,6 @@
   ],
   "state": "active",
   "title": "iphbengaluru-organisation-publisher",
-  "type": "dataset"
- },
- "ipis-4500794519": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 4
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "ccf76e0e-a099-422e-8404-2d30050549ed",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "ipis-4500794519",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:46:00+00:00",
-   "description": "",
-   "id": "e9253363-505e-41a9-a14c-b93089dc6d62",
-   "image_url": null,
-   "is_organization": true,
-   "name": "ipis",
-   "state": "active",
-   "title": "International Peace Information Service",
-   "type": "organization"
-  },
-  "owner_org": "e9253363-505e-41a9-a14c-b93089dc6d62",
-  "private": false,
-  "publisher_country": "BE",
-  "publisher_iati_id": "BE-BCE_KB0-0421408778",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "http://diplomatie.be/oda/IATI_act_pr2022-26_IPIS_4047.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "ipis-4500794519",
   "type": "dataset"
  },
  "ipis-organisation-publisher": {
@@ -452947,84 +453017,6 @@
   ],
   "state": "active",
   "title": "lhac-org",
-  "type": "dataset"
- },
- "lhac-prog22": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 2
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "cdde2457-f21f-4611-b3f7-179acd7e5108",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "lhac-prog22",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:38:00+00:00",
-   "description": "",
-   "id": "aed469f4-fe0f-4ad8-9e03-bc028a680d38",
-   "image_url": null,
-   "is_organization": true,
-   "name": "lhac",
-   "state": "active",
-   "title": "Laïcité et Humanisme en Afrique Centrale (LHAC)",
-   "type": "organization"
-  },
-  "owner_org": "aed469f4-fe0f-4ad8-9e03-bc028a680d38",
-  "private": false,
-  "publisher_country": "BE",
-  "publisher_iati_id": "BE-BCE_KBO-0464147473",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "http://diplomatie.be/oda/IATI_act_pr2022-26_LHAC_4041.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "lhac-prog22",
   "type": "dataset"
  },
  "lhcf-activities": {
@@ -532294,7 +532286,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 448
+    "value": 449
    },
    {
     "key": "country",
@@ -552351,7 +552343,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Burkina Faso.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Burkina+Faso.xml",
     "url_type": null
    }
   ],
@@ -552975,7 +552967,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Costa Rica.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Costa+Rica.xml",
     "url_type": null
    }
   ],
@@ -553053,7 +553045,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -553209,7 +553201,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-El Salvador.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-El+Salvador.xml",
     "url_type": null
    }
   ],
@@ -553521,7 +553513,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Gambia The.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Gambia+The.xml",
     "url_type": null
    }
   ],
@@ -554769,7 +554761,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Micronesia Federated States of.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Micronesia+Federated+States+of.xml",
     "url_type": null
    }
   ],
@@ -555237,7 +555229,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -555549,7 +555541,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-North Macedonia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-North+Macedonia.xml",
     "url_type": null
    }
   ],
@@ -556325,7 +556317,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Sierra Leone.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Sierra+Leone.xml",
     "url_type": null
    }
   ],
@@ -556403,7 +556395,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-South Africa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-South+Africa.xml",
     "url_type": null
    }
   ],
@@ -556481,7 +556473,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Sri Lanka.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/peace_corp/xml/iati-activities-Sri+Lanka.xml",
     "url_type": null
    }
   ],
@@ -573957,6 +573949,84 @@
   ],
   "state": "active",
   "title": "rainfoundation-a3",
+  "type": "dataset"
+ },
+ "rainfoundation-nl-kvk-41208024-2021-01-activities": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 3
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "38d19eab-be11-4aaa-8c68-4be4eac71ea1",
+  "license_id": "odc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "rainfoundation-nl-kvk-41208024-2021-01-activities",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:37:00+00:00",
+   "description": "",
+   "id": "a169463f-4e2c-4c9e-a2d5-8e8dc5e359f9",
+   "image_url": null,
+   "is_organization": true,
+   "name": "rainfoundation",
+   "state": "active",
+   "title": "RAIN Foundation (former)",
+   "type": "organization"
+  },
+  "owner_org": "a169463f-4e2c-4c9e-a2d5-8e8dc5e359f9",
+  "private": false,
+  "publisher_country": "NL",
+  "publisher_iati_id": "NL-KVK-34200988 (deprecated)",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://data.rainfoundation.org/iati203/NL-KVK-41208024-2021-01-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "rainfoundation-nl-kvk-41208024-2021-01-activities",
   "type": "dataset"
  },
  "rains-activities": {
@@ -603086,7 +603156,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 699
+    "value": 704
    },
    {
     "key": "country",
@@ -603164,7 +603234,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 960
+    "value": 990
    },
    {
     "key": "country",
@@ -603242,7 +603312,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1526
+    "value": 1191
    },
    {
     "key": "country",
@@ -603320,7 +603390,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 956
+    "value": 1188
    },
    {
     "key": "country",
@@ -603398,7 +603468,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1649
+    "value": 1810
    },
    {
     "key": "country",
@@ -603476,7 +603546,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1854
+    "value": 1986
    },
    {
     "key": "country",
@@ -603554,7 +603624,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1734
+    "value": 1647
    },
    {
     "key": "country",
@@ -603632,7 +603702,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1860
+    "value": 1812
    },
    {
     "key": "country",
@@ -603710,7 +603780,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2580
+    "value": 2463
    },
    {
     "key": "country",
@@ -603788,7 +603858,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2674
+    "value": 2700
    },
    {
     "key": "country",
@@ -603866,7 +603936,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2406
+    "value": 2598
    },
    {
     "key": "country",
@@ -603944,7 +604014,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2678
+    "value": 2660
    },
    {
     "key": "country",
@@ -604022,7 +604092,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2590
    },
    {
     "key": "country",
@@ -604100,7 +604170,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2620
+    "value": 2534
    },
    {
     "key": "country",
@@ -604178,7 +604248,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 456
+    "value": 482
    },
    {
     "key": "country",
@@ -604412,7 +604482,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1290
+    "value": 1298
    },
    {
     "key": "country",
@@ -635756,7 +635826,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1
+    "value": 2
    },
    {
     "key": "country",
@@ -642375,7 +642445,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://raw.githubusercontent.com/ProjectBackOfficeTdH/TdH-IATI-Publication/refs/heads/main/NL-KVK-41149287-22-10-2026.xml",
+    "url": "https://raw.githubusercontent.com/ProjectBackOfficeTdH/TdH-IATI-Publication/refs/heads/main/NL-KVK-41149287-12-Nov-2026.xml",
     "url_type": null
    }
   ],
@@ -785137,7 +785207,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-Papua New Guinea.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-Papua+New+Guinea.xml",
     "url_type": null
    }
   ],
@@ -785527,7 +785597,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-Saint Vincent and the Grenadines.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-Saint+Vincent+and+the+Grenadines.xml",
     "url_type": null
    }
   ],
@@ -785761,7 +785831,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-Sierra Leone.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-Sierra+Leone.xml",
     "url_type": null
    }
   ],
@@ -785839,7 +785909,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-South Africa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-South+Africa.xml",
     "url_type": null
    }
   ],
@@ -785917,7 +785987,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-South and Central Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-South+and+Central+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -785995,7 +786065,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-South East Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-South+East+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -786073,7 +786143,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -787165,7 +787235,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-West Bank and Gaza.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-West+Bank+and+Gaza.xml",
     "url_type": null
    }
   ],
@@ -787243,7 +787313,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-Western Hemisphere Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_treasury/xml/iati-activities-Western+Hemisphere+Region.xml",
     "url_type": null
    }
   ],
@@ -805976,7 +806046,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 179
+    "value": 180
    },
    {
     "key": "country",
@@ -806210,7 +806280,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 166
+    "value": 168
    },
    {
     "key": "country",
@@ -807224,7 +807294,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 338
+    "value": 340
    },
    {
     "key": "country",
@@ -807458,7 +807528,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 56
+    "value": 58
    },
    {
     "key": "country",
@@ -808472,7 +808542,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 176
+    "value": 178
    },
    {
     "key": "country",
@@ -809096,7 +809166,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 166
+    "value": 168
    },
    {
     "key": "country",
@@ -809564,7 +809634,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 112
+    "value": 114
    },
    {
     "key": "country",
@@ -809642,7 +809712,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 101
+    "value": 103
    },
    {
     "key": "country",
@@ -809798,7 +809868,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1676
+    "value": 1678
    },
    {
     "key": "country",
@@ -812060,7 +812130,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 134
+    "value": 136
    },
    {
     "key": "country",
@@ -812528,7 +812598,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 111
+    "value": 113
    },
    {
     "key": "country",
@@ -812684,7 +812754,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 136
+    "value": 138
    },
    {
     "key": "country",
@@ -815020,7 +815090,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 200
+    "value": 202
    },
    {
     "key": "country",
@@ -815488,7 +815558,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 260
+    "value": 262
    },
    {
     "key": "country",
@@ -915438,7 +915508,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2777
+    "value": 2782
    },
    {
     "key": "country",
@@ -918553,7 +918623,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Burkina Faso.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Burkina+Faso.xml",
     "url_type": null
    }
   ],
@@ -918709,7 +918779,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Cabo Verde.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Cabo+Verde.xml",
     "url_type": null
    }
   ],
@@ -918865,7 +918935,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Central African Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Central+African+Republic.xml",
     "url_type": null
    }
   ],
@@ -919021,7 +919091,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Congo Brazzaville.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Congo+Brazzaville.xml",
     "url_type": null
    }
   ],
@@ -919099,7 +919169,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Congo Kinshasa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Congo+Kinshasa.xml",
     "url_type": null
    }
   ],
@@ -919177,7 +919247,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Cote dIvoire.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Cote+dIvoire.xml",
     "url_type": null
    }
   ],
@@ -919645,7 +919715,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Gambia The.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Gambia+The.xml",
     "url_type": null
    }
   ],
@@ -920659,7 +920729,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -921123,7 +921193,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Sao Tome and Principe.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-Sao+Tome+and+Principe.xml",
     "url_type": null
    }
   ],
@@ -921435,7 +921505,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-South Africa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-South+Africa.xml",
     "url_type": null
    }
   ],
@@ -921513,7 +921583,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -921591,7 +921661,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-South Sudan.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/african_development_foundation/xml/iati-activities-South+Sudan.xml",
     "url_type": null
    }
   ],
@@ -938513,7 +938583,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-America+regional.xml",
     "url_type": null
    }
   ],
@@ -938747,7 +938817,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Antigua and Barbuda.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Antigua+and+Barbuda.xml",
     "url_type": null
    }
   ],
@@ -938981,7 +939051,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -939215,7 +939285,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Bahamas The.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Bahamas+The.xml",
     "url_type": null
    }
   ],
@@ -939605,7 +939675,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Bosnia and Herzegovina.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Bosnia+and+Herzegovina.xml",
     "url_type": null
    }
   ],
@@ -939839,7 +939909,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-British Indian Ocean Territory.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-British+Indian+Ocean+Territory.xml",
     "url_type": null
    }
   ],
@@ -939917,7 +939987,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Burkina Faso.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Burkina+Faso.xml",
     "url_type": null
    }
   ],
@@ -940541,7 +940611,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Cayman Islands.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Cayman+Islands.xml",
     "url_type": null
    }
   ],
@@ -940853,7 +940923,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-China (P.R. Hong Kong).xml",
+    "url": "https://iati-reporting.s3.us-east-1.amazonaws.com/department_of_agriculture/xml/iati-activities-China+(P.R.+Hong+Kong).xml",
     "url_type": null
    }
   ],
@@ -941009,7 +941079,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Congo Brazzaville.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Congo+Brazzaville.xml",
     "url_type": null
    }
   ],
@@ -941087,7 +941157,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Congo Kinshasa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Congo+Kinshasa.xml",
     "url_type": null
    }
   ],
@@ -941165,7 +941235,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Costa Rica.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Costa+Rica.xml",
     "url_type": null
    }
   ],
@@ -941243,7 +941313,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Cote dIvoire.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Cote+dIvoire.xml",
     "url_type": null
    }
   ],
@@ -941555,7 +941625,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Dominican Republic.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Dominican+Republic.xml",
     "url_type": null
    }
   ],
@@ -941789,7 +941859,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-El Salvador.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-El+Salvador.xml",
     "url_type": null
    }
   ],
@@ -941945,7 +942015,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Europe regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Europe+regional.xml",
     "url_type": null
    }
   ],
@@ -942023,7 +942093,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Far East Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Far+East+Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -942335,7 +942405,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Gambia The.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Gambia+The.xml",
     "url_type": null
    }
   ],
@@ -943817,7 +943887,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Korea South.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Korea+South.xml",
     "url_type": null
    }
   ],
@@ -944753,7 +944823,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Marshall Islands.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Marshall+Islands.xml",
     "url_type": null
    }
   ],
@@ -945065,7 +945135,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Micronesia Federated States of.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Micronesia+Federated+States+of.xml",
     "url_type": null
    }
   ],
@@ -945143,7 +945213,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Middle East regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Middle+East+regional.xml",
     "url_type": null
    }
   ],
@@ -945533,7 +945603,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Multiple Countries.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Multiple+Countries.xml",
     "url_type": null
    }
   ],
@@ -945767,7 +945837,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-New Zealand.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-New+Zealand.xml",
     "url_type": null
    }
   ],
@@ -946157,7 +946227,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-North and Central America Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-North+and+Central+America+Region.xml",
     "url_type": null
    }
   ],
@@ -946235,7 +946305,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-North Macedonia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-North+Macedonia.xml",
     "url_type": null
    }
   ],
@@ -946313,7 +946383,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Oceania regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Oceania+regional.xml",
     "url_type": null
    }
   ],
@@ -946621,7 +946691,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Papua New Guinea.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Papua+New+Guinea.xml",
     "url_type": null
    }
   ],
@@ -946785,7 +946855,7 @@
   "title": "usda-peru",
   "type": "dataset"
  },
- "usda-phgilippines": {
+ "usda-philippines": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -946824,7 +946894,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "usda-phgilippines",
+  "name": "usda-philippines",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -946860,7 +946930,7 @@
    }
   ],
   "state": "active",
-  "title": "usda-phgilippines",
+  "title": "usda-philippines",
   "type": "dataset"
  },
  "usda-romania": {
@@ -947167,7 +947237,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Saint Lucia.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Saint+Lucia.xml",
     "url_type": null
    }
   ],
@@ -947557,7 +947627,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Sierra Leone.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Sierra+Leone.xml",
     "url_type": null
    }
   ],
@@ -947713,7 +947783,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Solomon Islands.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Solomon+Islands.xml",
     "url_type": null
    }
   ],
@@ -947791,7 +947861,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South Africa.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South+Africa.xml",
     "url_type": null
    }
   ],
@@ -947869,7 +947939,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South America regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South+America+regional.xml",
     "url_type": null
    }
   ],
@@ -947947,7 +948017,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South and Central Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South+and+Central+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -948025,7 +948095,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South Asia regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South+Asia+regional.xml",
     "url_type": null
    }
   ],
@@ -948103,7 +948173,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South East Asia Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South+East+Asia+Region.xml",
     "url_type": null
    }
   ],
@@ -948181,7 +948251,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South of Sahara regional.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-South+of+Sahara+regional.xml",
     "url_type": null
    }
   ],
@@ -948337,7 +948407,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Sri Lanka.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Sri+Lanka.xml",
     "url_type": null
    }
   ],
@@ -948415,7 +948485,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-St. Kitts and Nevis.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-St.+Kitts+and+Nevis.xml",
     "url_type": null
    }
   ],
@@ -949117,7 +949187,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Trinidad and Tobago.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Trinidad+and+Tobago.xml",
     "url_type": null
    }
   ],
@@ -949351,7 +949421,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Turks and Caicos Islands.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Turks+and+Caicos+Islands.xml",
     "url_type": null
    }
   ],
@@ -949975,7 +950045,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-West Bank and Gaza.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-West+Bank+and+Gaza.xml",
     "url_type": null
    }
   ],
@@ -950053,7 +950123,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Western Hemisphere Region.xml",
+    "url": "https://iati-reporting.s3.amazonaws.com/department_of_agriculture/xml/iati-activities-Western+Hemisphere+Region.xml",
     "url_type": null
    }
   ],
@@ -1041525,84 +1041595,6 @@
   "title": "wi-nl_org",
   "type": "dataset"
  },
- "wi-org": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 6
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "a51cd3f2-2f0e-4c18-a919-7b333b594efa",
-  "license_id": "notspecified",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "wi-org",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:41:00+00:00",
-   "description": "",
-   "id": "f2c1c9de-901d-43cc-bd65-7e9fe33cca98",
-   "image_url": null,
-   "is_organization": true,
-   "name": "wi",
-   "state": "active",
-   "title": "Wetlands International",
-   "type": "organization"
-  },
-  "owner_org": "f2c1c9de-901d-43cc-bd65-7e9fe33cca98",
-  "private": false,
-  "publisher_country": null,
-  "publisher_iati_id": "NL-KVK-9099028",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://rsr.akvo.org/organisation/474/iati/",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "wi-org",
-  "type": "dataset"
- },
  "wi-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -1060917,16 +1060909,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 1
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
