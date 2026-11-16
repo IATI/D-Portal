@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Copy the seed copies in dstore/json-seed into dstore/json, but only where a
+# file is missing. A fresh checkout can then build and run before "dstore fetch"
+# has been run, and a file written by a fetch is never replaced.
+cd "$(dirname "$0")/.." || exit 1
+
+for seed in dstore/json-seed/*.json ; do
+	[ -e "$seed" ] || continue # no seeds, the pattern did not match
+	name=$(basename "$seed")
+	if [ ! -f "dstore/json/$name" ] ; then
+		echo "Seeding dstore/json/$name"
+		cp "$seed" "dstore/json/$name" || exit 1
+	fi
+done

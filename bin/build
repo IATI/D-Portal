@@ -6,6 +6,7 @@ cd ..
 source ./nvm-install
 npm install
 
+bin/seed &&
 ctrack/build $@ &&
 dflat/build $@ &&
 dportal/build $@
