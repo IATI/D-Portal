@@ -15,6 +15,7 @@ import papa           from "papaparse"
 import json_stringify from "json-stable-stringify"
 import refry          from "./refry.js"
 import exs            from "./exs.js"
+import fetch_check    from "./fetch_check.js"
 
 var sheeturl=function(n){
 	return 	"https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/pub?single=true&gid="+n+"&output=csv";
@@ -28,44 +29,120 @@ var http_gethead=async function(url)
 	const response = await fetch(url);
 	return response.headers;
 }
-var http_getbody=async function(url)
+var http_getbody_once=async function(url)
 {
 	const response = await fetch(url);
+	if(!response.ok)
+	{
+		throw new Error(url+" returned HTTP "+response.status)
+	}
 	const data = await response.text();
 	return data;
 }
-var https_getbody=http_getbody;
-
-// previous codes if we have them, so a failed fetch keeps old values, or start empty
-var read_codes=function()
+// try once more after a short wait, in case the failure was brief
+var http_getbody=async function(url)
 {
 	try{
-		return JSON.parse( fs.readFileSync(import.meta.dirname+"/../json/iati_codes.json") );
+		return await http_getbody_once(url)
+	}catch(e){
+		console.log("Retrying after: "+e.message)
+		await new Promise(function(resolve){ setTimeout(resolve,5000) })
+		return await http_getbody_once(url)
+	}
+}
+var https_getbody=http_getbody;
+
+// read one of the files in json/, or undefined if it does not exist yet
+var read_json=function(name)
+{
+	try{
+		return JSON.parse( fs.readFileSync(import.meta.dirname+"/../json/"+name) );
 	}catch(e){
 		if(e.code=="ENOENT")
 		{
-			console.log("No json/iati_codes.json, starting from empty")
-			return {};
+			return undefined
 		}
 		throw e
 	}
 }
 
-iati_codes.fetch = async function(){
+// files is { name: text }. Write them all to temporary files first, then
+// rename them all, so a crash while writing leaves the previous files as they
+// are, and the new files replace the old ones together.
+var write_files=function(files)
+{
+	var dir=import.meta.dirname+"/../json/"
+	for(var name in files)
+	{
+		console.log("Writing json/"+name)
+		fs.writeFileSync(dir+name+".tmp",files[name])
+	}
+	for(var name in files)
+	{
+		fs.renameSync(dir+name+".tmp",dir+name)
+	}
+}
 
-	try{
-		await iati_codes.fetch1()
-	}catch(e){console.log(e)}
+// Fetch everything, check it, and only then write it. Any failure throws and
+// writes nothing, so the files from the last good fetch stay as they are.
+// opts.force skips the checks that compare with the last fetch, for when a
+// large fall in datasets or publishers is genuine.
+iati_codes.fetch = async function(opts){
 
-	try{
-		await iati_codes.fetch2()
-	}catch(e){console.log(e)}
+	opts=opts||{}
+
+	var previous={
+		codes    : read_json("iati_codes.json"),
+		packages : read_json("packages.json"),
+	}
+	if(!previous.codes)
+	{
+		console.log("No json/iati_codes.json, starting from empty")
+	}
+
+	// start from the previous codes, so anything not fetched again is kept
+	var codes=structuredClone(previous.codes||{})
+
+	var names=await iati_codes.fetch1(codes)
+	var fetched=await iati_codes.fetch2(codes)
+
+	var required=[ ...names, "transaction_type", "country", "publisher_names", "publisher_slugs" ]
+	var problems=fetch_check.check( { codes:codes, packages:fetched.packages }, previous, required, opts.force )
+	if(problems.length>0)
+	{
+		throw new Error("fetched data failed its checks, nothing was written:\n  "+problems.join("\n  ")+
+			"\nIf a fall is genuine, \"dstore fetch --force\" skips the checks that compare with the last fetch")
+	}
+
+	var packages=fetched.packages
+
+	var cc=[]
+	var validhash={}
+	for( var slug in packages)
+	{
+		var dataset=packages[slug]
+		validhash[slug]=dataset.id
+		var safeslug=slug.replace(/[^0-9a-zA-Z\-_]/g, '_') // sanitize the slug just in case
+		var url=dataset.resources && dataset.resources[0] && dataset.resources[0].url
+		if(url)
+		{
+			url=url.split(" ").join("%20") // spaces in urls breaks curl
+			cc.push("curl -k -L -o "+safeslug+".xml \""+url+"\" \n")
+		}
+	}
+
+	write_files({
+		"packages.json"   : json_stringify(packages,{ space: ' ' }),
+		"curl.txt"        : cc.join(""),
+		"validhash.json"  : json_stringify(validhash,{ space: ' ' }),
+		"iati_codes.json" : json_stringify(codes,{ space: ' ' }),
+		"publishers.json" : json_stringify(fetched.publishers,{ space: ' ' }),
+	})
 }
 
 
-iati_codes.fetch1 = async function(){
-
-	var codes=read_codes();
+// fetch the code lists into codes, returns the names of the downloaded lists
+iati_codes.fetch1 = async function(codes){
 
 	var files=[
 
@@ -522,12 +599,9 @@ iati_codes.fetch1 = async function(){
 	for(let n in o){count++}
 	if(count<10) // sanity check
 	{
-		console.log("ERROR Failed to update list of countries!")
+		throw new Error("Failed to update list of countries, only "+count+" found")
 	}
-	else
-	{
-		codes["country"]=o;
-	}
+	codes["country"]=o;
 
 // sector groups -> https://docs.google.com/spreadsheet/pub?key=0AmauX4JNk0rJdHRWY1dRTkQ3dXJaeDk4RFZFWElaSHc&single=true&gid=9&output=csv
 
@@ -549,14 +623,12 @@ iati_codes.fetch1 = async function(){
 	codes.tag_mode["RO"]      = "https://iatistandard.org/en/iati-standard/203/codelists/tagvocabulary/"
 
 
-	console.log("Writing json/iati_codes.json for the first time")
-	fs.writeFileSync(import.meta.dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
-
+	return files.map(function(f){ return f.name })
 }
 
-iati_codes.fetch2 = async function(){
-
-	var codes=read_codes();
+// fetch the dataset and publisher lists, adding publisher names to codes,
+// returns { packages, publishers }
+iati_codes.fetch2 = async function(codes){
 
 	var publishers={};
 	var packages={};
@@ -640,47 +712,8 @@ iati_codes.fetch2 = async function(){
 		}
 		start+=1000;
 	}
-	if(start>2000) // sanity, just in case of total registry failure
-	{
-		console.log("Writing json/packages.json")
-		fs.writeFileSync(import.meta.dirname+"/../json/packages.json",json_stringify(packages,{ space: ' ' }));
-
-		console.log("Writing json/download.txt")
-
-		var cc=[]
-
-		for( var slug in packages)
-		{
-			var ppackage=packages[slug]
-			slug=slug.replace(/[^0-9a-zA-Z\-_]/g, '_') // sanitize the slug just in case
-			var url=ppackage.resources && ppackage.resources[0] && ppackage.resources[0].url
-			if(url)
-			{
-				url=url.split(" ").join("%20") // spaces in urls breaks curl
-				cc.push("curl -k -L -o "+slug+".xml \""+url+"\" \n")
-			}
-		}
-
-		fs.writeFileSync(import.meta.dirname+"/../json/curl.txt",cc.join(""));
-
-		console.log("Writing json/validhash.json")
-
-		var validhash={}
-
-		for( var slug in packages)
-		{
-			var ppackage=packages[slug]
-			var hash=ppackage.id
-			validhash[slug]=hash
-		}
-
-		fs.writeFileSync(import.meta.dirname+"/../json/validhash.json",json_stringify(validhash,{ space: ' ' }));
-	}
-
-
 
 console.log("************************ This next bit takes a loooooong time to get every publisher id from iati...");
-console.log("************************ It's OK to CTRL+C and skip this last bit if you don't care.");
 if(true)
 {
 //	codes.publisher_ids={};
@@ -690,14 +723,25 @@ if(true)
 
 	var js=await https_getbody("https://iatiregistry.org/api/3/action/group_list");
 	var j=JSON.parse(js).result;
+	var skipped=[]
 	for(let v of j)
 	{
 		console.log("Fetching publisher info for "+v);
-		let jjs=await https_getbody("https://iatiregistry.org/api/3/action/group_show?show_historical_publisher_names=true&id="+v);
-		let jj=JSON.parse(jjs).result;
+		// one broken publisher should not stop the whole fetch, so skip it and
+		// carry on, a mass failure is caught by the checks on publisher names
+		let jj
+		let ids
+		try{
+			let jjs=await https_getbody("https://iatiregistry.org/api/3/action/group_show?show_historical_publisher_names=true&id="+v);
+			jj=JSON.parse(jjs).result;
+			ids=jj.publisher_iati_id.split("|");
+		}catch(e){
+			console.log("Skipping publisher "+v+": "+e.message);
+			skipped.push(v)
+			continue
+		}
 		publishers[v]=jj
 
-		let ids=jj.publisher_iati_id.split("|");
 		for(let i=0;i<ids.length;i++)
 		{
 			let id=ids[i].trim();
@@ -721,6 +765,10 @@ console.log("secondary "+id);
 		}
 
 	}
+	if(skipped.length>0)
+	{
+		console.log("Skipped "+skipped.length+" publishers that failed: "+skipped.join(" "));
+	}
 
 // add a temp publisher id
 	codes.publisher_names["XI-IATI-OFID"]="The OPEC Fund for International Development"
@@ -729,12 +777,7 @@ console.log("secondary "+id);
 
 //	ls(publishers);
 
-	console.log("Writing json/iati_codes.json for the last time")
-	fs.writeFileSync(import.meta.dirname+"/../json/iati_codes.json",json_stringify(codes,{ space: ' ' }));
-
-	console.log("Writing json/publishers.json")
-	fs.writeFileSync(import.meta.dirname+"/../json/publishers.json",json_stringify(publishers,{ space: ' ' }));
-
 }
+	return { packages:packages, publishers:publishers }
 
 }

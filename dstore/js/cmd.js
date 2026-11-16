@@ -30,7 +30,13 @@ if( argv._[0]=="fetch" )
 {
 	const iati_codes = (await import("./iati_codes.js")).default
 	console.log("fetching")
-	await iati_codes.fetch();
+	try{
+		await iati_codes.fetch({ force:argv.force });
+	}catch(e){
+		console.error("dstore fetch failed, json files left unchanged")
+		console.error(e)
+		process.exit(1);
+	}
 	process.exit();
 }
 
@@ -161,6 +167,7 @@ const dstore_stats = (await import("./dstore_stats.js")).default
 		"\n"+
 		">	dstore fetch \n"+
 		"Fetch and update code lists.\n"+
+		"--force to accept a large fall in datasets or publishers since the last fetch.\n"+
 		"\n"+
 		">	dstore import data.xml \n"+
 		"Import data from an iati xml file.\n"+
