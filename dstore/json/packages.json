@@ -320083,6 +320083,80 @@
   "title": "gc_tanzania-organisation",
   "type": "dataset"
  },
+ "gc_tanzania-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "a6ac3c0e-8da0-45c9-a37f-db6e5074bd63",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "gc_tanzania-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:48:00+00:00",
+   "description": "",
+   "id": "44b9e440-30d8-4055-a3b8-517e37abad17",
+   "image_url": null,
+   "is_organization": true,
+   "name": "gc_tanzania",
+   "state": "active",
+   "title": "Global Communities",
+   "type": "organization"
+  },
+  "owner_org": "44b9e440-30d8-4055-a3b8-517e37abad17",
+  "private": false,
+  "publisher_country": "TZ",
+  "publisher_iati_id": "TZ-NNCB-INGO-R1-00149",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/gc_tanzania-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "gc_tanzania-organisation-publisher",
+  "type": "dataset"
+ },
  "gca-activities": {
   "author": null,
   "author_email": null,
@@ -382351,16 +382425,20 @@
   "creator_user_id": null,
   "extras": [
    {
+    "key": "activity_count",
+    "value": 7
+   },
+   {
     "key": "country",
     "value": null
    },
    {
     "key": "filetype",
-    "value": null
+    "value": "activity"
    },
    {
     "key": "iati_version",
-    "value": null
+    "value": "2.03"
    },
    {
     "key": "language",
@@ -496987,6 +497065,80 @@
   "title": "millenniumchallenge-cv",
   "type": "dataset"
  },
+ "millenniumchallenge-ec": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "d6494e0a-69d4-4aca-856f-2ad00f8eea4a",
+  "license_id": "other-pd",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "millenniumchallenge-ec",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:41:00+00:00",
+   "description": "",
+   "id": "0c9dbb9c-9af3-47f6-b836-02d5a42cc111",
+   "image_url": null,
+   "is_organization": true,
+   "name": "millenniumchallenge",
+   "state": "active",
+   "title": "Millennium Challenge Corporation",
+   "type": "organization"
+  },
+  "owner_org": "0c9dbb9c-9af3-47f6-b836-02d5a42cc111",
+  "private": false,
+  "publisher_country": "US",
+  "publisher_iati_id": "US-GOV-18",
+  "publisher_organization_type": "10",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://inventory.data.gov/dataset/d4b25051-0bf8-4dd1-8c06-bbed2e4bb193/resource/67eddb9b-f359-4cc1-a8c5-4dd3c0b97200/download/mcc_ec.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "millenniumchallenge-ec",
+  "type": "dataset"
+ },
  "millenniumchallenge-et": {
   "author": null,
   "author_email": null,
@@ -601686,7 +601838,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1249
+    "value": 1293
    },
    {
     "key": "country",
@@ -601764,7 +601916,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1428
+    "value": 1384
    },
    {
     "key": "country",
@@ -601842,7 +601994,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 689
+    "value": 694
    },
    {
     "key": "country",
@@ -601920,7 +602072,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 995
+    "value": 970
    },
    {
     "key": "country",
@@ -601998,7 +602150,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1526
+    "value": 1298
    },
    {
     "key": "country",
@@ -602076,7 +602228,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1068
+    "value": 1144
    },
    {
     "key": "country",
@@ -602154,7 +602306,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1621
+    "value": 1778
    },
    {
     "key": "country",
@@ -602232,7 +602384,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1788
+    "value": 1902
    },
    {
     "key": "country",
@@ -602310,7 +602462,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1857
+    "value": 1716
    },
    {
     "key": "country",
@@ -602388,7 +602540,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1695
+    "value": 1893
    },
    {
     "key": "country",
@@ -602466,7 +602618,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2549
+    "value": 2419
    },
    {
     "key": "country",
@@ -602544,7 +602696,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2678
    },
    {
     "key": "country",
@@ -602622,7 +602774,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2674
    },
    {
     "key": "country",
@@ -602700,7 +602852,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2448
+    "value": 2700
    },
    {
     "key": "country",
@@ -602778,7 +602930,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2556
+    "value": 2454
    },
    {
     "key": "country",
@@ -602856,7 +603008,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2678
+    "value": 2550
    },
    {
     "key": "country",
@@ -605865,6 +606017,80 @@
   ],
   "state": "active",
   "title": "siharegional-organisation-publisher",
+  "type": "dataset"
+ },
+ "siif-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "e34d02b1-b010-4d3c-a589-bc697ff1a8d0",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "siif-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-10-16T13:33:00+00:00",
+   "description": "",
+   "id": "2620d088-8d82-eb11-01cc-6ad2278f1a4d",
+   "image_url": null,
+   "is_organization": true,
+   "name": "siif",
+   "state": "active",
+   "title": "Social Initiative",
+   "type": "organization"
+  },
+  "owner_org": "2620d088-8d82-eb11-01cc-6ad2278f1a4d",
+  "private": false,
+  "publisher_country": "SE",
+  "publisher_iati_id": "SE-ON-802418-8883",
+  "publisher_organization_type": "90",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/siif-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "siif-activity-publisher",
   "type": "dataset"
  },
  "siif-organisation-publisher": {
@@ -861556,7 +861782,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 9
    },
    {
     "key": "country",
@@ -861790,7 +862016,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 21
    },
    {
     "key": "country",
@@ -861868,7 +862094,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 36
    },
    {
     "key": "country",
@@ -861946,7 +862172,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 31
    },
    {
     "key": "country",
@@ -862102,7 +862328,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 22
+    "value": 25
    },
    {
     "key": "country",
@@ -866392,7 +866618,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 15
    },
    {
     "key": "country",
@@ -869902,7 +870128,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 12
    },
    {
     "key": "country",
@@ -894082,7 +894308,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 18
+    "value": 19
    },
    {
     "key": "country",
@@ -896028,7 +896254,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 19
    },
    {
     "key": "country",
@@ -896106,7 +896332,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 0
+    "value": 22
    },
    {
     "key": "country",
