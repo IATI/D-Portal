@@ -3,6 +3,7 @@ cd `dirname $0`
 source ./nvm-install
 ./npm-install
 
+bin/seed      || exit 4
 ctrack/build  || exit 1
 dflat/build   || exit 2
 dportal/build || exit 3
