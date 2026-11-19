@@ -1761,7 +1761,7 @@
   "title": "947-02",
   "type": "dataset"
  },
- "_cebrap-activity": {
+ "_cebrap-activity-publisher": {
   "author": null,
   "author_email": null,
   "creator_user_id": null,
@@ -1800,7 +1800,7 @@
   "license_title": "",
   "maintainer": null,
   "maintainer_email": null,
-  "name": "_cebrap-activity",
+  "name": "_cebrap-activity-publisher",
   "num_resources": 1,
   "organization": {
    "approval_status": "approved",
@@ -1836,7 +1836,7 @@
    }
   ],
   "state": "active",
-  "title": "_cebrap-activity",
+  "title": "_cebrap-activity-publisher",
   "type": "dataset"
  },
  "_cebrap-organisation": {
@@ -408873,7 +408873,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://files.aida.tools/activities/GB-COH-02188452/96b673b0-2e95-4751-820d-f9f7b75a60fa/v3Mar26.xml",
+    "url": "https://files.aida.tools/activities/GB-COH-02188452/54b21027-d713-4f5b-9c79-9d4305c17edc/v5Mar26.xml",
     "url_type": null
    }
   ],
@@ -423483,7 +423483,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://www.isdb.org/sites/default/files/isdb-files/isdb_activities_a.xml",
+    "url": "https://www.isdb.org/sites/default/files/isdb-files/IATI_IsDB_2026_Q3_A.xml",
     "url_type": null
    }
   ],
@@ -423561,90 +423561,12 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://www.isdb.org/sites/default/files/isdb-files/isdb_activities_b.xml",
+    "url": "https://www.isdb.org/sites/default/files/isdb-files/IATI_IsDB_2026_Q3_B.xml",
     "url_type": null
    }
   ],
   "state": "active",
   "title": "isdb-activities-isdb-b",
-  "type": "dataset"
- },
- "isdb-itfc-activities": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 1287
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "2cada320-ce33-451d-bf21-fc84b6cc5a7e",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "isdb-itfc-activities",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:40:00+00:00",
-   "description": "",
-   "id": "7a6080fd-16b2-440a-840a-d80f1ef1bc2c",
-   "image_url": null,
-   "is_organization": true,
-   "name": "isdb",
-   "state": "active",
-   "title": "Islamic Development Bank",
-   "type": "organization"
-  },
-  "owner_org": "7a6080fd-16b2-440a-840a-d80f1ef1bc2c",
-  "private": false,
-  "publisher_country": "SA",
-  "publisher_iati_id": "XM-DAC-46025",
-  "publisher_organization_type": "40",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://www.isdb.org/sites/default/files/isdb-files/isdb_itfc_activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "isdb-itfc-activities",
   "type": "dataset"
  },
  "isdb-org": {
@@ -425567,6 +425489,84 @@
   ],
   "state": "active",
   "title": "iteco-iteco",
+  "type": "dataset"
+ },
+ "itfc-activities": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "activity_count",
+    "value": 1287
+   },
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "activity"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "2cada320-ce33-451d-bf21-fc84b6cc5a7e",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "itfc-activities",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2025-12-01T11:40:00+00:00",
+   "description": "",
+   "id": "7a6080fd-16b2-440a-840a-d80f1ef1bc2c",
+   "image_url": null,
+   "is_organization": true,
+   "name": "isdb",
+   "state": "active",
+   "title": "Islamic Development Bank",
+   "type": "organization"
+  },
+  "owner_org": "7a6080fd-16b2-440a-840a-d80f1ef1bc2c",
+  "private": false,
+  "publisher_country": "SA",
+  "publisher_iati_id": "XM-DAC-46025",
+  "publisher_organization_type": "40",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://www.isdb.org/sites/default/files/isdb-files/IATI_ITFC_2026_Q3_A.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "itfc-activities",
   "type": "dataset"
  },
  "itforchange-activity": {
@@ -559473,6 +559473,80 @@
   ],
   "state": "active",
   "title": "plama-org",
+  "type": "dataset"
+ },
+ "plan-activity-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": null
+   },
+   {
+    "key": "iati_version",
+    "value": null
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "3b80b89d-0d5b-496a-bce4-07be152efd97",
+  "license_id": "",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "plan-activity-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-01-13T14:06:00+00:00",
+   "description": "",
+   "id": "2f44b3ad-0d6c-4581-c3d7-696651aa5ce9",
+   "image_url": null,
+   "is_organization": true,
+   "name": "plan",
+   "state": "active",
+   "title": "Plan International Sweden",
+   "type": "organization"
+  },
+  "owner_org": "2f44b3ad-0d6c-4581-c3d7-696651aa5ce9",
+  "private": false,
+  "publisher_country": "SE",
+  "publisher_iati_id": "SE-ON-802404-9150",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/plan-activities.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "plan-activity-publisher",
   "type": "dataset"
  },
  "plan-organisation-publisher": {
