@@ -10,12 +10,12 @@ import * as https from "https"
 import * as fs    from "fs"
 import * as csv_parse      from "csv-parse"
 
-import fetch          from "node-fetch"
 import papa           from "papaparse"
 import json_stringify from "json-stable-stringify"
 import refry          from "./refry.js"
 import exs            from "./exs.js"
 import fetch_check    from "./fetch_check.js"
+import fetch_util     from "../../dflat/js/fetch_util.js"
 
 var sheeturl=function(n){
 	return 	"https://docs.google.com/spreadsheets/d/1jpXHDNmJ1WPdrkidEle0Ig13zLlXw4eV6WkbSy6kWk4/pub?single=true&gid="+n+"&output=csv";
@@ -23,34 +23,6 @@ var sheeturl=function(n){
 
 var ls=function(a) { console.log(util.inspect(a,{depth:null})); }
 
-
-var http_gethead=async function(url)
-{
-	const response = await fetch(url);
-	return response.headers;
-}
-var http_getbody_once=async function(url)
-{
-	const response = await fetch(url);
-	if(!response.ok)
-	{
-		throw new Error(url+" returned HTTP "+response.status)
-	}
-	const data = await response.text();
-	return data;
-}
-// try once more after a short wait, in case the failure was brief
-var http_getbody=async function(url)
-{
-	try{
-		return await http_getbody_once(url)
-	}catch(e){
-		console.log("Retrying after: "+e.message)
-		await new Promise(function(resolve){ setTimeout(resolve,5000) })
-		return await http_getbody_once(url)
-	}
-}
-var https_getbody=http_getbody;
 
 // read one of the files in json/, or undefined if it does not exist yet
 var read_json=function(name)
@@ -63,23 +35,6 @@ var read_json=function(name)
 			return undefined
 		}
 		throw e
-	}
-}
-
-// files is { name: text }. Write them all to temporary files first, then
-// rename them all, so a crash while writing leaves the previous files as they
-// are, and the new files replace the old ones together.
-var write_files=function(files)
-{
-	var dir=import.meta.dirname+"/../json/"
-	for(var name in files)
-	{
-		console.log("Writing json/"+name)
-		fs.writeFileSync(dir+name+".tmp",files[name])
-	}
-	for(var name in files)
-	{
-		fs.renameSync(dir+name+".tmp",dir+name)
 	}
 }
 
@@ -131,7 +86,7 @@ iati_codes.fetch = async function(opts){
 		}
 	}
 
-	write_files({
+	fetch_util.write_files(import.meta.dirname+"/../json",{
 		"packages.json"   : json_stringify(packages,{ space: ' ' }),
 		"curl.txt"        : cc.join(""),
 		"validhash.json"  : json_stringify(validhash,{ space: ' ' }),
@@ -265,7 +220,7 @@ iati_codes.fetch1 = async function(codes){
 
 		console.log("Fetching IATI "+opts.name)
 
-		let js=await http_getbody(opts.url);
+		let js=await fetch_util.http_getbody(opts.url);
 		let j=JSON.parse(js);
 		let active;
 		let withdrawn;
@@ -588,7 +543,7 @@ iati_codes.fetch1 = async function(codes){
 
 	console.log("Fetching country_codes")
 
-	var x=JSON.parse( await https_getbody("https://codelists.codeforiati.org/api/json/en/Country.json") )
+	var x=JSON.parse( await fetch_util.http_getbody("https://codelists.codeforiati.org/api/json/en/Country.json") )
 	o={}
 	for(let c of x.data)
 	{
@@ -661,7 +616,7 @@ iati_codes.fetch2 = async function(codes){
 	while(!done)
 	{
 		console.log( "iatiregistry query for packages "+(start+1)+" to "+(start+1000) );
-		var js=await https_getbody("https://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
+		var js=await fetch_util.http_getbody("https://iatiregistry.org/api/3/action/package_search?rows=1000&start="+start);
 
 		var j=JSON.parse(js.toString('utf8'));
 		var rs=j.result.results;
@@ -721,7 +676,7 @@ if(true)
 	codes.publisher_names={};
 	codes.publisher_secondary={};
 
-	var js=await https_getbody("https://iatiregistry.org/api/3/action/group_list");
+	var js=await fetch_util.http_getbody("https://iatiregistry.org/api/3/action/group_list");
 	var j=JSON.parse(js).result;
 	var skipped=[]
 	for(let v of j)
@@ -732,7 +687,7 @@ if(true)
 		let jj
 		let ids
 		try{
-			let jjs=await https_getbody("https://iatiregistry.org/api/3/action/group_show?show_historical_publisher_names=true&id="+v);
+			let jjs=await fetch_util.http_getbody("https://iatiregistry.org/api/3/action/group_show?show_historical_publisher_names=true&id="+v);
 			jj=JSON.parse(jjs).result;
 			ids=jj.publisher_iati_id.split("|");
 		}catch(e){
