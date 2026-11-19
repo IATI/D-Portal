@@ -7,38 +7,27 @@ export default fetch
 import * as fs   from "fs"
 import * as path from "path"
 
-import dflat     from "./dflat.js"
 import xson      from "./xson.js"
 import jml       from "./jml.js"
 import stringify from "json-stable-stringify"
-import nodefetch from "node-fetch"
+import fetch_util from "./fetch_util.js"
 
 const pfs = fs.promises
 
 
-let http_gethead=async function(url)
-{
-	const response = await nodefetch(url);
-	return response.headers;
-}
-let http_getbody=async function(url)
-{
-	const response = await nodefetch(url);
-	const data = await response.text();
-	return data;
-}
 let download=async function(url,dir)
 {
-	let text=await http_getbody(url)
+	let text=await fetch_util.http_getbody(url)
 	let basename=path.basename(url)
 	let filename=path.join(dir||"",basename)
 	await pfs.writeFile(filename,text);
 }
 
-fetch.all=async function()
+fetch.all=async function(opts)
 {
 	await fetch.xsd()
-	await fetch.codelist()
+	await fetch.codelists(opts)
+	await fetch.codemap()
 	await fetch.database()
 }
 
@@ -268,8 +257,6 @@ fetch.xsd=async function()
 
 }
 
-fetch.codelist_filenames={}
-
 fetch.codelist_filenames_1={
 	"ActivityDateType.xml":true,
 	"ActivityStatus.xml":true,
@@ -281,7 +268,6 @@ fetch.codelist_filenames_1={
 	"RelatedActivityType.xml":true,
 	"TransactionType.xml":true,
 }
-for(var n in fetch.codelist_filenames_1){fetch.codelist_filenames[n]=true}
 
 fetch.codelist_filenames_2={
 	"ActivityScope.xml":true,
@@ -345,51 +331,162 @@ fetch.codelist_filenames_2={
 	"UNSDG-Goals.xml":true,
 	"UNSDG-Targets.xml":true,
 }
-for(var n in fetch.codelist_filenames_2){fetch.codelist_filenames[n]=true}
 
 fetch.codelist_filenames_3={
 	"UNSDG-Indicators.xml":true,
 }
-for(var n in fetch.codelist_filenames_3){fetch.codelist_filenames[n]=true}
 
 
-fetch.codelist=async function()
+// The code lists change as IATI updates them, so "dflat fetch codelists" fetches
+// only them, into json/codelists.json, for a nightly job to run. Everything else
+// "dflat fetch" writes comes from the 2.03 schema, which does not change.
+
+// { filename: url } for every code list
+fetch.codelist_urls=function()
 {
-	for(var n in fetch.codelist_filenames_1 )
+	const urls={}
+	for(const filename in fetch.codelist_filenames_1 ) { urls[filename]="https://raw.githubusercontent.com/IATI/IATI-Codelists/version-2.03/xml/"+filename }
+	for(const filename in fetch.codelist_filenames_2 ) { urls[filename]="https://raw.githubusercontent.com/IATI/IATI-Codelists-NonEmbedded/master/xml/"+filename }
+	for(const filename in fetch.codelist_filenames_3 ) { urls[filename]="https://codelists.codeforiati.org/api/xml/"+filename }
+	return urls
+}
+
+// Download every code list, check them, and only then write json/codelists.json.
+// Any failure throws and writes nothing, so the previous file stays as it is.
+// opts.force skips the checks that compare with the last fetch, for when a
+// list has genuinely lost codes.
+fetch.codelists=async function(opts)
+{
+	opts=opts||{}
+	const urls=fetch.codelist_urls()
+	const xmls={}
+	for(const filename in urls)
 	{
-		console.log("downloading "+n)
-		await download("https://raw.githubusercontent.com/IATI/IATI-Codelists/version-2.03/xml/"+n,"fetched")
+		console.log("downloading "+filename)
+		xmls[filename]=await fetch_util.http_getbody(urls[filename])
 	}
 
-	for(var n in fetch.codelist_filenames_2 )
+	const parsed=fetch.parse_codelists(xmls)
+	const codes=fetch.codelists_to_codes(parsed.codelists)
+	let problems=parsed.problems
+	if(!opts.force)
 	{
-		console.log("downloading "+n)
-		await download("https://raw.githubusercontent.com/IATI/IATI-Codelists-NonEmbedded/master/xml/"+n,"fetched")
+		problems=problems.concat( fetch.compare_codelists(codes,read_previous_codes()) )
+	}
+	if(problems.length>0)
+	{
+		throw new Error("fetched code lists failed their checks, nothing was written:\n  "+problems.join("\n  ")+
+			"\nIf a list has genuinely lost codes, \"dflat fetch codelists --force\" skips the checks that compare with the last fetch")
 	}
 
-	for(var n in fetch.codelist_filenames_3 )
-	{
-		console.log("downloading "+n)
-		await download("https://codelists.codeforiati.org/api/xml/"+n,"fetched")
-	}
+	fetch_util.write_files("json",{
+		"codelists.json" : stringify(codes,{space:" "}),
+	})
+}
 
-	var codelists={}
-	for(var n in fetch.codelist_filenames )
-	{
-		console.log("parsing "+n)
-		var data=await pfs.readFile("fetched/"+n,{ encoding: 'utf8' })
-		var it=xson.from_xml(data)
-		it=xson.compact(it)
-		var name=it["/codelist@name"]
-		codelists[name]=it
+// json/codelists.json from the last fetch, or undefined if there is none yet
+const read_previous_codes=function()
+{
+	try{
+		return JSON.parse( fs.readFileSync("json/codelists.json","utf8") )
+	}catch(e){
+		if(e.code=="ENOENT")
+		{
+			return undefined
+		}
+		throw e
 	}
-	await pfs.writeFile("json/codelists.xml.json",stringify(codelists,{space:" "})); // raw xml dump
-	
-	
+}
+
+// a code list may lose a few codes from one fetch to the next, but not more than this
+fetch.codelists_min_fraction=0.9
+
+// codes and previous are the lookup tables in json/codelists.json, previous may
+// be undefined. Returns a problem for every list from the last fetch that is
+// now missing, or has lost more than a little of its codes, counting the codes
+// that have an English name. The file keeps no plain list of codes. The English
+// names are the most complete table, since a name with no language counts as
+// English, and they are what the site shows, so losing them is what matters.
+fetch.compare_codelists=function(codes,previous)
+{
+	const problems=[]
+	const before=( previous && previous["en-name"] ) || {}
+	const now=codes["en-name"] || {}
+	for(const listname in before)
+	{
+		const count_before=Object.keys(before[listname]).length
+		const count_now=now[listname] ? Object.keys(now[listname]).length : 0
+		if( count_now==0 )
+		{
+			problems.push(listname+" is missing, it had "+count_before+" codes")
+		}
+		else
+		if( count_now < count_before*fetch.codelists_min_fraction )
+		{
+			problems.push(listname+" fell from "+count_before+" to "+count_now+" codes")
+		}
+	}
+	return problems
+}
+
+// xmls is { filename: xml text }. Returns { codelists, problems }: codelists
+// keyed by each list's name, and a problem for any file that is not a code
+// list with at least one code in it, or has the same name as another file.
+fetch.parse_codelists=function(xmls)
+{
+	const codelists={}
+	const filenames={} // the file each list came from
+	const problems=[]
+	for(const filename in xmls)
+	{
+		let it
+		try{
+			it=xson.compact(xson.from_xml(xmls[filename]))
+		}catch(e){
+			problems.push(filename+" is not valid xml")
+			continue
+		}
+		// compact folds a list with only one code into the list itself, which
+		// used to drop that code, so put it back into a list of one
+		const prefix="/codelist/codelist-items/codelist-item"
+		if( !it[prefix] && it[prefix+"/code"]!==undefined )
+		{
+			const item={}
+			for(const k in it)
+			{
+				if( k.startsWith(prefix+"/") || k.startsWith(prefix+"@") )
+				{
+					item[ k.substring(prefix.length) ]=it[k]
+					delete it[k]
+				}
+			}
+			it[prefix]=[item]
+		}
+		const listname=it["/codelist@name"]
+		const items=it[prefix]
+		if( !listname || !items || items.length==0 )
+		{
+			problems.push(filename+" is not a code list with codes in it")
+			continue
+		}
+		if( codelists[listname] )
+		{
+			problems.push(filename+" has the same name, "+listname+", as "+filenames[listname])
+			continue
+		}
+		codelists[listname]=it
+		filenames[listname]=filename
+	}
+	return { codelists:codelists, problems:problems }
+}
+
+// turn parsed code lists into the lookup tables in json/codelists.json
+fetch.codelists_to_codes=function(codelists)
+{
 	let codes={}
-	for(let n in codelists)
+	for(let listname in codelists)
 	{
-		let list=codelists[n]["/codelist/codelist-items/codelist-item"]
+		let list=codelists[listname]["/codelist/codelist-items/codelist-item"]
 		if(list)
 		{
 			for( let c of list )
@@ -399,16 +496,16 @@ fetch.codelist=async function()
 				if(withdrawn)
 				{
 					codes["withdrawn"]=codes["withdrawn"] || {}
-					codes["withdrawn"][n]=codes["withdrawn"][n] || {}
-					codes["withdrawn"][n][code] = true
+					codes["withdrawn"][listname]=codes["withdrawn"][listname] || {}
+					codes["withdrawn"][listname][code] = true
 				}
 				let url=c["/url"]
 				if(url)
 				{
 					url=url.trim()
 					codes["url"]=codes["url"] || {}
-					codes["url"][n]=codes["url"][n] || {}
-					codes["url"][n][code] = url
+					codes["url"][listname]=codes["url"][listname] || {}
+					codes["url"][listname][code] = url
 				}
 				if( code )
 				{
@@ -435,8 +532,8 @@ fetch.codelist=async function()
 						if( name )
 						{
 							codes[lang+"-name"]=codes[lang+"-name"] || {}
-							codes[lang+"-name"][n]=codes[lang+"-name"][n] || {}
-							codes[lang+"-name"][n][ code ] = name
+							codes[lang+"-name"][listname]=codes[lang+"-name"][listname] || {}
+							codes[lang+"-name"][listname][ code ] = name
 						}
 						index++
 					}
@@ -462,8 +559,8 @@ fetch.codelist=async function()
 						if( description )
 						{
 							codes[lang+"-description"]=codes[lang+"-description"] || {}
-							codes[lang+"-description"][n]=codes[lang+"-description"][n] || {}
-							codes[lang+"-description"][n][ code ] = description
+							codes[lang+"-description"][listname]=codes[lang+"-description"][listname] || {}
+							codes[lang+"-description"][listname][ code ] = description
 						}
 						index++
 					}
@@ -471,9 +568,13 @@ fetch.codelist=async function()
 			}
 		}
 	}
-	await pfs.writeFile("json/codelists.json",stringify(codes,{space:" "})); // raw xml dump
-	
+	return codes
+}
 
+// json/codemap.json: which code list each field uses, from the 2.03 schema's
+// mapping.xml, downloaded by fetch.xsd
+fetch.codemap=async function()
+{
 	console.log("parsing codelist mapping.xml")
 
 	var data=await pfs.readFile("fetched/mapping.xml",{ encoding: 'utf8' })
