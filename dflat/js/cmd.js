@@ -10,16 +10,9 @@ import * as path from "path"
 
 import minimist     from "minimist"
 import stringify    from "json-stable-stringify"
-import dflat        from "./dflat.js"
 import jml          from "./jml.js"
 import xson         from "./xson.js"
-import savi         from "./savi.js"
 import fetch        from "./fetch.js"
-import frankenstein from "./frankenstein.js"
-import stats        from "./stats.js"
-import packages     from "./packages.js"
-import cronos       from "./cronos.js"
-import dflat_sqlite from "./dflat_sqlite.js"
 
 
 let pfs=fs.promises
@@ -74,9 +67,31 @@ cmd.run=async function(argv)
 {
 	if( argv._[0]=="fetch" )
 	{
-		await fetch.all()
+		try{
+			if( argv._[1]=="codelists" )
+			{
+				await fetch.codelists({ force:argv.force })
+			}
+			else
+			{
+				await fetch.all({ force:argv.force })
+			}
+		}catch(e){
+			console.error("dflat fetch failed")
+			console.error(e)
+			process.exit(1)
+		}
 		return
 	}
+
+	// these import json/codelists.json (dflat.js through savi.js), which
+	// "dflat fetch codelists" creates, so load them after fetch has had its turn
+	const dflat        = (await import("./dflat.js")).default
+	const frankenstein = (await import("./frankenstein.js")).default
+	const stats        = (await import("./stats.js")).default
+	const packages     = (await import("./packages.js")).default
+	const cronos       = (await import("./cronos.js")).default
+	const dflat_sqlite = (await import("./dflat_sqlite.js")).default
 
 	if( argv._[0]=="xml2json" )
 	{
@@ -298,7 +313,15 @@ filename[.xml|.json|.csv|.html]
 
 >	dflat fetch 
 
-Fetch remote files and update cached data
+Fetch the IATI schema and code lists, and rebuild everything in json/ from them.
+Takes --force, as dflat fetch codelists does.
+
+>	dflat fetch codelists
+
+Fetch only the code lists into json/codelists.json, for the nightly job.
+Writes nothing if any list fails to download, is empty, or has lost more than
+a little of its codes since the last fetch. Use --force to accept a list that
+has genuinely lost codes.
 
 >	dflat frankenstein 
 
