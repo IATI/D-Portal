@@ -53917,84 +53917,6 @@
   "title": "amwa-pod-activity",
   "type": "dataset"
  },
- "anac-activity-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "2b1ac00c-af31-2f32-0342-69d3b6310174",
-  "license_id": "",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "anac-activity-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2026-01-20T13:14:00+00:00",
-   "description": "",
-   "id": "542a00e7-62e6-bdff-db06-696f7fa5e0ff",
-   "image_url": null,
-   "is_organization": true,
-   "name": "anac",
-   "state": "active",
-   "title": "Associação Nacional da Agricultura Camponesa",
-   "type": "organization"
-  },
-  "owner_org": "542a00e7-62e6-bdff-db06-696f7fa5e0ff",
-  "private": false,
-  "publisher_country": "BR",
-  "publisher_iati_id": "BR-CNPJ-05357888-0001-38",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/anac-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "anac-activity-publisher",
-  "type": "dataset"
- },
  "anac-organisation-publisher": {
   "author": null,
   "author_email": null,
@@ -86627,80 +86549,6 @@
   ],
   "state": "active",
   "title": "bmz-org",
-  "type": "dataset"
- },
- "bmz-organisation-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "organisation"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "f384927c-7414-80db-f4ca-6a22aa0c77d4",
-  "license_id": "cc-by",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "bmz-organisation-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:42:00+00:00",
-   "description": "",
-   "id": "3e5fe189-decf-4422-b113-42b2b284ded3",
-   "image_url": null,
-   "is_organization": true,
-   "name": "bmz",
-   "state": "active",
-   "title": "Germany - Ministry for Economic Cooperation and Development",
-   "type": "organization"
-  },
-  "owner_org": "3e5fe189-decf-4422-b113-42b2b284ded3",
-  "private": false,
-  "publisher_country": "DE",
-  "publisher_iati_id": "DE-1",
-  "publisher_organization_type": "10",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/bmz-organisation.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "bmz-organisation-publisher",
   "type": "dataset"
  },
  "bmz-pa": {
@@ -149031,84 +148879,6 @@
   ],
   "state": "active",
   "title": "danishrc-org",
-  "type": "dataset"
- },
- "danmission-activity-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 32
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "2a6155ce-2af8-49ff-ab32-20d00f6101a4",
-  "license_id": "odc-odbl",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "danmission-activity-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2025-12-01T11:45:00+00:00",
-   "description": "",
-   "id": "334cb083-bf4d-4567-a34c-54971fdd41dc",
-   "image_url": null,
-   "is_organization": true,
-   "name": "danmission",
-   "state": "active",
-   "title": "Danmission",
-   "type": "organization"
-  },
-  "owner_org": "334cb083-bf4d-4567-a34c-54971fdd41dc",
-  "private": false,
-  "publisher_country": "DK",
-  "publisher_iati_id": "DK-CVR-25191501",
-  "publisher_organization_type": "21",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/danmission-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "danmission-activity-publisher",
   "type": "dataset"
  },
  "danmission-org": {
@@ -273745,6 +273515,80 @@
   ],
   "state": "active",
   "title": "epa-worldwide",
+  "type": "dataset"
+ },
+ "epd-organisation-publisher": {
+  "author": null,
+  "author_email": null,
+  "creator_user_id": null,
+  "extras": [
+   {
+    "key": "country",
+    "value": null
+   },
+   {
+    "key": "filetype",
+    "value": "organisation"
+   },
+   {
+    "key": "iati_version",
+    "value": "2.03"
+   },
+   {
+    "key": "language",
+    "value": null
+   },
+   {
+    "key": "secondary_publisher",
+    "value": null
+   },
+   {
+    "key": "validation_status",
+    "value": null
+   }
+  ],
+  "id": "12c54a2e-52f4-49bb-a192-00e4f089d1da",
+  "license_id": "cc-by",
+  "license_title": "",
+  "maintainer": null,
+  "maintainer_email": null,
+  "name": "epd-organisation-publisher",
+  "num_resources": 1,
+  "organization": {
+   "approval_status": "approved",
+   "created": "2026-11-23T10:05:00+00:00",
+   "description": "",
+   "id": "8de83684-0922-41ed-b494-025d3832da52",
+   "image_url": null,
+   "is_organization": true,
+   "name": "epd",
+   "state": "active",
+   "title": "European Partnership for Democracy (EPD)",
+   "type": "organization"
+  },
+  "owner_org": "8de83684-0922-41ed-b494-025d3832da52",
+  "private": false,
+  "publisher_country": "BE",
+  "publisher_iati_id": "BE-BCE_KBO-0648.708.779",
+  "publisher_organization_type": "21",
+  "publisher_source_type": "",
+  "resources": [
+   {
+    "cache_last_updated": null,
+    "cache_url": null,
+    "description": "",
+    "format": "IATI-XML",
+    "mimetype_inner": null,
+    "name": null,
+    "position": 0,
+    "resource_type": null,
+    "state": "active",
+    "url": "https://iatipublisher-prod.s3.amazonaws.com/organizationXmlFiles/epd-organisation.xml",
+    "url_type": null
+   }
+  ],
+  "state": "active",
+  "title": "epd-organisation-publisher",
   "type": "dataset"
  },
  "epf-activities": {
@@ -411399,7 +411243,7 @@
     "position": 0,
     "resource_type": null,
     "state": "active",
-    "url": "https://webapps.ilo.org/static/english/pardev/iati-data/ilo-xmdac-41302-2026-27_23OCT2026.xml",
+    "url": "https://webapps.ilo.org/static/english/pardev/iati-data/ilo-xmdac-41302-2026-27_20NOV2026.xml",
     "url_type": null
    }
   ],
@@ -446959,84 +446803,6 @@
   ],
   "state": "active",
   "title": "laf-activities",
-  "type": "dataset"
- },
- "lag-activity-publisher": {
-  "author": null,
-  "author_email": null,
-  "creator_user_id": null,
-  "extras": [
-   {
-    "key": "activity_count",
-    "value": 1
-   },
-   {
-    "key": "country",
-    "value": null
-   },
-   {
-    "key": "filetype",
-    "value": "activity"
-   },
-   {
-    "key": "iati_version",
-    "value": "2.03"
-   },
-   {
-    "key": "language",
-    "value": null
-   },
-   {
-    "key": "secondary_publisher",
-    "value": null
-   },
-   {
-    "key": "validation_status",
-    "value": null
-   }
-  ],
-  "id": "a2928b71-f502-ced7-ce14-69bc085383b5",
-  "license_id": "",
-  "license_title": "",
-  "maintainer": null,
-  "maintainer_email": null,
-  "name": "lag-activity-publisher",
-  "num_resources": 1,
-  "organization": {
-   "approval_status": "approved",
-   "created": "2026-01-13T15:19:00+00:00",
-   "description": "",
-   "id": "378915cd-e918-e1be-d798-696662a034c6",
-   "image_url": null,
-   "is_organization": true,
-   "name": "lag",
-   "state": "active",
-   "title": "Latinamerikagrupperna",
-   "type": "organization"
-  },
-  "owner_org": "378915cd-e918-e1be-d798-696662a034c6",
-  "private": false,
-  "publisher_country": "SE",
-  "publisher_iati_id": "SE-ON-802004-5681",
-  "publisher_organization_type": "22",
-  "publisher_source_type": "",
-  "resources": [
-   {
-    "cache_last_updated": null,
-    "cache_url": null,
-    "description": "",
-    "format": "IATI-XML",
-    "mimetype_inner": null,
-    "name": null,
-    "position": 0,
-    "resource_type": null,
-    "state": "active",
-    "url": "https://iatipublisher-prod.s3.amazonaws.com/xml/mergedActivityXml/lag-activities.xml",
-    "url_type": null
-   }
-  ],
-  "state": "active",
-  "title": "lag-activity-publisher",
   "type": "dataset"
  },
  "lag-organisation-publisher": {
@@ -583684,7 +583450,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 7
+    "value": 8
    },
    {
     "key": "country",
@@ -602298,7 +602064,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1275
+    "value": 1319
    },
    {
     "key": "country",
@@ -602376,7 +602142,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1421
+    "value": 1377
    },
    {
     "key": "country",
@@ -602454,7 +602220,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 706
+    "value": 707
    },
    {
     "key": "country",
@@ -602532,7 +602298,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 965
+    "value": 1000
    },
    {
     "key": "country",
@@ -602610,7 +602376,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1195
+    "value": 1208
    },
    {
     "key": "country",
@@ -602688,7 +602454,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1588
+    "value": 1328
    },
    {
     "key": "country",
@@ -602766,7 +602532,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1468
+    "value": 1569
    },
    {
     "key": "country",
@@ -602844,7 +602610,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1920
+    "value": 1722
    },
    {
     "key": "country",
@@ -602922,7 +602688,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1803
+    "value": 1962
    },
    {
     "key": "country",
@@ -603000,7 +602766,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 1623
+    "value": 1767
    },
    {
     "key": "country",
@@ -603078,7 +602844,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2536
+    "value": 2514
    },
    {
     "key": "country",
@@ -603156,7 +602922,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2678
+    "value": 2700
    },
    {
     "key": "country",
@@ -603234,7 +603000,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2652
+    "value": 2678
    },
    {
     "key": "country",
@@ -603312,7 +603078,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2700
+    "value": 2678
    },
    {
     "key": "country",
@@ -603390,7 +603156,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2550
+    "value": 2406
    },
    {
     "key": "country",
@@ -603468,7 +603234,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 2476
+    "value": 2620
    },
    {
     "key": "country",
@@ -603546,7 +603312,7 @@
   "extras": [
    {
     "key": "activity_count",
-    "value": 552
+    "value": 554
    },
    {
     "key": "country",
